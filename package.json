@@ -12,5 +12,10 @@
   },
   "dependencies": {
     "nico": "*"
+  },
+  "scripts": {
+    "build": "nico build",
+    "start": "nico server",
+    "clean": "rm -rf dist"
   }
 }
