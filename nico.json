@@ -1,5 +1,5 @@
 {
-  "source": "src",
+  "source": ".",
   "output": "_site",
   "theme": "theme",
   "sitename": "Ant Design",

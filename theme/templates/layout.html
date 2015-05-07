@@ -39,7 +39,19 @@
     <div class="nav-phone-icon"></div>
   </header>
 
-  {%- block main %}{% endblock -%}
+  {%- block main %}
+  {%- if post.filename === 'index' %}
+  <div class="main">
+    <div class="main-box" id="main">
+      <div class="banner-box">
+        <div id="bannerAnim"></div>
+        <div class="banner-img"></div>
+        <div class="banner-text"></div>
+      </div>
+    </div>
+  </div>
+  {%- endif %}
+  {% endblock -%}
 
   <footer id="footer">
     <ul>
