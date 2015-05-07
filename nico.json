@@ -1,0 +1,13 @@
+{
+  "source": "src",
+  "output": "_site",
+  "theme": "theme",
+  "sitename": "Ant Design",
+  "siteurl": "",
+  "permalink": "{{directory}}/{{filename}}.html",
+  "writers": [
+    "nico.PageWriter",
+    "nico.FileWriter",
+    "nico.StaticWriter"
+  ]
+}

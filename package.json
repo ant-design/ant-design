@@ -1,0 +1,16 @@
+{
+  "name": "ant-design",
+  "version": "0.0.1",
+  "description": "Design for ease",
+  "homepage": "http://ant-design.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ant-design/ant-design.github.io"
+  },
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design.github.io/issues"
+  },
+  "dependencies": {
+    "nico": "*"
+  }
+}

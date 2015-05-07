@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}{{post.title}} - {{config.site.name}}{% endblock %}
+{% block description %}{% if post.summay %}{{post.summary}}{% endif %}{% endblock %}
+{% block main -%}
+ {%- include "aside.html" %}
+<article class="markdown">
+  <h1>{{ post.title }}</h1>
+  {{ post.html }}
+</article>
+{%- endblock %}
