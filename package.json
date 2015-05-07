@@ -14,8 +14,9 @@
     "nico": "*"
   },
   "scripts": {
-    "build": "nico build",
+    "build": "npm run clean && nico build",
     "start": "nico server",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf _site",
+    "deploy": "npm run build && git checkout gh-pages && git merge master && git push origin gh-pages && git checkout master"
   }
 }
