@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "npm run clean && nico build",
-    "start": "nico server",
+    "start": "npm run clean && nico server",
     "clean": "rm -rf _site"
   }
 }

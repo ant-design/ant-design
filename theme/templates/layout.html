@@ -38,8 +38,6 @@
     </nav>
     <div class="nav-phone-icon"></div>
   </header>
-
-  {%- block main %}
   {%- if post.filename === 'index' %}
   <div class="main">
     <div class="main-box" id="main">
@@ -50,8 +48,12 @@
       </div>
     </div>
   </div>
+  {%- else %}
+  <article class="markdown">
+    <h1>{{ post.title }}</h1>
+    {{ post.html }}
+  </article>
   {%- endif %}
-  {% endblock -%}
 
   <footer id="footer">
     <ul>
