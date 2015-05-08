@@ -11,11 +11,13 @@
     "url": "https://github.com/ant-design/ant-design.github.io/issues"
   },
   "dependencies": {
+    "gh-pages-cli": "~0.2.0",
     "nico": "*"
   },
   "scripts": {
     "build": "npm run clean && nico build",
     "start": "npm run clean && nico server",
-    "clean": "rm -rf _site"
+    "clean": "rm -rf _site",
+    "deploy": "npm run build && gh-pages -d _site -b master"
   }
 }
