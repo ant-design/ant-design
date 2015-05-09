@@ -151,6 +151,11 @@ header {
   width: 16.66%;
   text-align: center;
 }
+.nav ul li.current {
+  border-top: 3px solid #71B5DE;
+  height: 84px;
+  line-height: 84px;
+}
 .nav ul li a {
   color: #728AA3;
   width: 100%;

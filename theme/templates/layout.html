@@ -24,19 +24,24 @@
       </form>
     </div>
     <nav class="nav">
-      <span class="bar"></span>
       <ul>
-        <li><a href="/">首页</a>
+        <li class="{%- if post.filename === 'index' %}current{%- endif %}">
+          <a href="/">首页</a>
         </li>
-        <li><a href="/docs/instruction">原则</a>
+        <li class="{%- if post.filename === 'instruction' %}current{%- endif %}">
+          <a href="/docs/instruction">原则</a>
         </li>
-        <li><a href="/components/button">组件</a>
+        <li class="{%- if post.meta.template === 'component' %}current{%- endif %}">
+          <a href="/components/button">组件</a>
         </li>
-        <li><a href="/docs/modes">模式</a>
+        <li class="{%- if post.filename === 'modes' %}current{%- endif %}">
+          <a href="/docs/modes">模式</a>
         </li>
-        <li><a href="/docs/cases">案例</a>
+        <li class="{%- if post.filename === 'cases' %}current{%- endif %}">
+          <a href="/docs/cases">案例</a>
         </li>
-        <li><a href="/docs/download">下载</a>
+        <li class="{%- if post.filename === 'download' %}current{%- endif %}">
+          <a href="/docs/download">下载</a>
         </li>
       </ul>
     </nav>
