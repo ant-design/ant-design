@@ -29,7 +29,7 @@
         </li>
         <li><a href="/docs/instruction">原则</a>
         </li>
-        <li><a href="/docs/components">组件</a>
+        <li><a href="/components/button">组件</a>
         </li>
         <li><a href="/docs/modes">模式</a>
         </li>
@@ -41,6 +41,9 @@
     </nav>
     <div class="nav-phone-icon"></div>
   </header>
+  {%- if post.meta.template === 'component' %}
+  {%- include "aside.html" %}
+  {%- endif %}
   {%- if post.filename === 'index' %}
   <div class="main">
     <div class="main-box" id="main">

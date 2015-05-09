@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "npm run clean && nico build",
-    "start": "npm run clean && nico server",
+    "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site",
     "deploy": "npm run build && gh-pages -d _site -b master"
   }
