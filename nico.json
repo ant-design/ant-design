@@ -4,7 +4,7 @@
   "theme": "theme",
   "sitename": "Ant Design",
   "siteurl": "",
-  "permalink": "{{directory}}/{{filename}}.html",
+  "permalink": "{{directory}}/{{filename}}",
   "writers": [
     "nico.PageWriter",
     "nico.FileWriter",
