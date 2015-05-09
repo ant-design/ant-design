@@ -48,6 +48,7 @@ header {
   background: #fff;
   overflow: hidden;
   border-bottom: 1px solid #eee;
+  font-size: 16px;
 }
 .fn-alpha-in {
   opacity: 1 !important;
@@ -297,6 +298,7 @@ footer {
   -webkit-animation: yBottomMatrix .5s ease-out .7s backwards;
   clear: both;
   border-top: 1px solid #eee;
+  font-size: 16px;
 }
 footer ul {
   overflow: hidden;
