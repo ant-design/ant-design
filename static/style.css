@@ -2,13 +2,15 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: Consolas, "Microsoft Yahei", "tahoma", "arial", "\5b8b\4f53";
-  font-size: 1em;
-  color: #BEC4C8;
 }
 html,
 body {
   height: 100%;
+}
+body {
+  font-family: Consolas, "Microsoft Yahei", "tahoma", "arial", "\5b8b\4f53";
+  line-height: 1.5;
+  color: #999;
 }
 *,
 *:after,
@@ -32,7 +34,7 @@ li {
   list-style: none;
 }
 a {
-  color: #BEC4C8;
+  color: #6EB4E0;
   text-decoration: none;
   transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -42,8 +44,9 @@ a:hover {
 }
 header {
   width: 100%;
-  background: #ffffff;
+  background: #fff;
   overflow: hidden;
+  border-bottom: 1px solid #eee;
 }
 .fn-alpha-in {
   opacity: 1 !important;
@@ -53,7 +56,7 @@ header {
 }
 .logo {
   float: left;
-  width: 173px;
+  width: 179px;
   height: 46px;
   margin: 20px 30px;
   transition: margin .3s cubic-bezier(0.075, 0.82, 0.165, 1), width .3s cubic-bezier(0.075, 0.82, 0.165, 1), height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -291,6 +294,8 @@ header {
 footer {
   animation: yBottomMatrix .5s ease-out .7s backwards;
   -webkit-animation: yBottomMatrix .5s ease-out .7s backwards;
+  clear: both;
+  border-top: 1px solid #eee;
 }
 footer ul {
   overflow: hidden;
@@ -314,34 +319,19 @@ footer h3 {
   color: #5C6B77;
   font-weight: normal;
 }
-footer>h3 {
+footer > h3 {
   text-align: center;
   font-size: .75em;
   display: none;
   margin: auto;
   padding: 10px 0;
 }
-footer ul li>a {
+footer ul li > a {
   font-size: 0.75em;
   display: block;
   margin: 5px auto;
 }
-/***********content**************/
-
-.content-box {
-  width: 100%;
-  height: 100%;
-  overflow: inherit;
-  animation: yTopMatrix .3s ease-out;
-  -webkit-animation: yTopMatrix .3s ease-out;
-}
-.content-line {
-  width: 96%;
-  background: #EBEDEE;
-  height: 1px;
-  margin: auto;
-}
-.content-left {
+.aside-container {
   width: 240px;
   float: left;
   height: 100%;
@@ -349,57 +339,50 @@ footer ul li>a {
   position: absolute;
   animation: xLeftMatrix .5s ease-out .3s backwards;
   -webkit-animation: xLeftMatrix .5s ease-out .3s backwards;
+  padding-top: 20px;
 }
-.content-left>ul {
-  width: 100%;
-  margin: 20px auto;
+
+.aside-container li {
+  margin-left: 5px;
 }
-.content-left>ul>li {
-  position: relative;
-  line-height: 40px;
-  overflow: hidden;
-}
-.content-left .list-one {
+
+.aside-container li a {
+  line-height: 44px;
+  height: 44px;
   display: block;
-  padding-left: 30px;
-  width: 100%;
-  font-size: 1em;
-  color: #5C6B77;
+  padding-left: 60px;
+  font-size: 14px;
+  color: #5C6B76;
+  border-left: 3px solid transparent;
 }
-.content-left .list-tow {
-  display: block;
-  padding-left: 40px;
-  font-size: 0.875em;
-  color: #788692;
+
+.aside-container li a:hover {
+  color: #6EB4E0;
 }
-.content-left .list-tow>p {
-  display: inline-block;
-  font-size: 0.75em;
-  padding-left: 10px;
+
+.aside-container li.current > a {
+  background: #fff;
+  border-left: 3px solid #71B5DE;
+  color: #71B5DE;
 }
-.content-left>ul>li>ul {
-  background: #f6f6f6;
-}
-.content-left .hover>a {
-  background: #ffffff;
-}
-.content-left .hover>a:before {
-  content: "";
-  display: inline-block;
-  width: 4px;
-  background: #6EB4E0;
-  height: 40px;
-  left: 0;
-  position: absolute;
-}
-.content-right {
+
+.main-container {
   width: calc(100% - 240px);
   float: right;
   padding: 30px 40px;
   animation: xRightMatrix .5s ease-out .5s backwards;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
+  height: 100%;
 }
-/**************/
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: #5C6B77;
+}
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .nav {

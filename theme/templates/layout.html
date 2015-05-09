@@ -56,15 +56,17 @@
   </div>
   <script src="/static/home.js"></script>
   {%- else %}
-  <article class="markdown">
-    <h1>{{ post.title }}</h1>
-    {{ post.html }}
-  </article>
+  <section class="main-container">
+    <article class="markdown">
+      <h1>{{ post.title }}</h1>
+      {{ post.html }}
+    </article>
+  </section>
   {%- endif %}
   <footer id="footer">
     <ul>
       <li>
-        <h2>Ｇitlab仓库</h2>
+        <h2>Gitlab仓库</h2>
         <a href="">脚手架 - Flaming Water</a>
         <a href="">组件 - Flaming Cloud Component</a>
       </li>
