@@ -11,6 +11,7 @@ body {
   font-family: Consolas, "Microsoft Yahei", "tahoma", "arial", "\5b8b\4f53";
   line-height: 1.5;
   color: #999;
+  font-size: 14px;
 }
 *,
 *:after,
@@ -382,6 +383,16 @@ footer ul li > a {
 .markdown h5,
 .markdown h6 {
   color: #5C6B77;
+}
+
+.markdown pre {
+  padding: 8px 15px;
+  border-radius: 6px;
+  border: 1px solid #e9e9e9;
+}
+
+.markdown p {
+  margin: 1em 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
