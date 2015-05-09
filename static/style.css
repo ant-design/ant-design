@@ -347,7 +347,7 @@ footer ul li > a {
   position: absolute;
   animation: xLeftMatrix .5s ease-out .3s backwards;
   -webkit-animation: xLeftMatrix .5s ease-out .3s backwards;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 .aside-container li {
@@ -380,6 +380,13 @@ footer ul li > a {
   padding: 30px 40px;
   animation: xRightMatrix .5s ease-out .5s backwards;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
+  height: 100%;
+}
+
+.main-container-center {
+  margin: 0 auto;
+  padding: 30px 0;
+  width: calc(100% - 80px);
   height: 100%;
 }
 
