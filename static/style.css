@@ -341,7 +341,15 @@ footer ul li > a {
   height: 100%;
   background: #F9F9F9;
   position: absolute;
-  padding-top: 30px;
+  padding-top: 15px;
+}
+
+.aside-container li h4 {
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 50px;
+  margin: 10px 0;
+  color: #5C6B77;
 }
 
 .aside-container li a {

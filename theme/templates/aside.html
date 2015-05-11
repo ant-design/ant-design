@@ -1,10 +1,18 @@
+{%- set categories = resource.pages|get_all_category %}
 {%- set items = resource.pages|find_category(post.meta.category) %}
 <aside class="aside-container">
   <ul>
-    {%- for item in items %}
-    <li class="{%- if item.title === post.title %}current{%- endif %}">
-      <a href="{{permalink_url(item)}}">{{item.title}}</a>
+  {%- for category in categories %}
+    <li>
+      <h4>{{category}}</h4>
+      <ul>
+        {%- for item in items %}
+        <li class="{%- if item.title === post.title %}current{%- endif %}">
+          <a href="{{permalink_url(item)}}">{{item.title}}</a>
+        </li>
+        {%- endfor %}
+      </ul>
     </li>
-    {%- endfor %}
+  {%- endfor %}
   </ul>
 </aside>

@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 module.exports = function(nico) {
   var exports = {};
 
@@ -10,9 +12,7 @@ module.exports = function(nico) {
     }
     if (filename === 'readme.md') {
       post.filename = post.meta.filename = 'index';
-      post.meta.category = 'docs';
     }
-    post.meta.category = post.meta.category || post.meta.directory;
     return post;
   };
 
@@ -37,6 +37,14 @@ module.exports = function(nico) {
         return parseInt(a, 10) - parseInt(b, 10);
       });
       return ret;
+    },
+    get_all_category: function(pages) {
+      return _.uniq(Object.keys(pages).map(function(key) {
+        var item = nico.sdk.post.read(key);
+        return item.meta.category;
+      }).filter(function(item) {
+        return item;
+      }));
     }
   };
 
