@@ -149,11 +149,10 @@ header {
   float: left;
   width: 16.66%;
   text-align: center;
+  border-top: 3px solid transparent;
 }
 .nav ul li.current {
   border-top: 3px solid #71B5DE;
-  height: 84px;
-  line-height: 84px;
 }
 .nav ul li a {
   color: #728AA3;
