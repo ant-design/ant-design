@@ -12,7 +12,7 @@
   <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
   <script src="/static/script.js"></script>
 </head>
-<body>
+<body class="{%- if post.filepath === 'README.md' %}index-page{%- endif %}">
   <header id="header">
     <a class="logo" href="/">
       <img src="https://t.alipayobjects.com/images/T1.lRfXcxoXXXXXXXX.png">
@@ -50,7 +50,8 @@
     </nav>
     <div class="nav-phone-icon"></div>
   </header>
-  {%- if post.filename === 'index' %}
+  {%- if post.filepath === 'README.md' %}
+  <!-- 首页 -->
   <div class="main">
     <div class="main-box" id="main">
       <div class="banner-box">

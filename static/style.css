@@ -63,8 +63,6 @@ header {
   margin: 20px 30px;
   transition: margin .3s cubic-bezier(0.075, 0.82, 0.165, 1), width .3s cubic-bezier(0.075, 0.82, 0.165, 1), height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   -webkit-transition: margin .3s cubic-bezier(0.075, 0.82, 0.165, 1), width .3s cubic-bezier(0.075, 0.82, 0.165, 1), height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  animation: xLeftMatrix .5s ease-out;
-  -webkit-animation: xLeftMatrix .5s ease-out;
 }
 .search {
   float: left;
@@ -73,8 +71,6 @@ header {
   margin: 32px auto;
   border-left: 1px solid #EBEDEE;
   position: relative;
-  animation: xRightMatrix .5s ease-out .3s backwards;
-  -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
 }
 .search input[type="text"] {
   border: transparent;
@@ -82,9 +78,10 @@ header {
   width: 100px;
   height: 22px;
   padding: 0 0 0 20px;
-  color: #CADCE3;
-  transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: #999;
   -webkit-transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size: 14px;
 }
 .search input::-webkit-input-placeholder {
   color: #CADCE3;
@@ -95,8 +92,9 @@ header {
 .search input:-ms-input-placeholder {
   color: #CADCE3;
 }
-.search form .focus {
+.search input:focus {
   padding: 0 20px 0 0;
+  width: 150px;
 }
 .search button {
   position: absolute;
@@ -136,6 +134,9 @@ header {
   left: 10px;
   top: 8px;
 }
+.search input:focus ~ button {
+  left: 170px;
+}
 .nav {
   width: 30%;
   height: 87px;
@@ -143,8 +144,6 @@ header {
   float: right;
   font-size: 0.875em;
   position: relative;
-  animation: yTopMatrix .5s ease-out .5s backwards;
-  -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
 }
 .nav ul li {
   float: left;
@@ -299,8 +298,6 @@ header {
 /*footer*/
 
 footer {
-  animation: yBottomMatrix .5s ease-out .7s backwards;
-  -webkit-animation: yBottomMatrix .5s ease-out .7s backwards;
   clear: both;
   border-top: 1px solid #eee;
   font-size: 16px;
@@ -345,8 +342,6 @@ footer ul li > a {
   height: 100%;
   background: #F9F9F9;
   position: absolute;
-  animation: xLeftMatrix .5s ease-out .3s backwards;
-  -webkit-animation: xLeftMatrix .5s ease-out .3s backwards;
   padding-top: 30px;
 }
 
@@ -374,8 +369,8 @@ footer ul li > a {
   width: calc(100% - 240px);
   float: right;
   padding: 30px 40px;
-  animation: xRightMatrix .5s ease-out .5s backwards;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
+  animation: xRightMatrix .5s ease-out .5s backwards;
   height: 100%;
 }
 
@@ -936,4 +931,25 @@ footer ul li > a {
   100% {
     opacity: 0;
   }
+}
+
+/* 首页有动画 */
+.index-page .nav {
+  -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
+  animation: yTopMatrix .5s ease-out .5s backwards; 
+}
+
+.index-page footer {
+  -webkit-animation: yBottomMatrix .5s ease-out .7s backwards;
+  animation: yBottomMatrix .5s ease-out .7s backwards;
+}
+
+.index-page .logo {
+  -webkit-animation: xLeftMatrix .5s ease-out;
+  animation: xLeftMatrix .5s ease-out;
+}
+
+.index-page .search {
+  -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
+  animation: xRightMatrix .5s ease-out .3s backwards;
 }
