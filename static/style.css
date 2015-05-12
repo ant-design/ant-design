@@ -400,12 +400,6 @@ footer ul li > a {
   color: #5C6B77;
 }
 
-.markdown pre {
-  padding: 8px 15px;
-  border-radius: 6px;
-  border: 1px solid #e9e9e9;
-}
-
 .markdown p {
   margin: 1em 0;
 }
@@ -962,4 +956,10 @@ footer ul li > a {
 .index-page .search {
   -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
   animation: xRightMatrix .5s ease-out .3s backwards;
+}
+
+.api-link {
+  font-size: 16px;
+  vertical-align: middle;
+  margin-left: 15px;
 }

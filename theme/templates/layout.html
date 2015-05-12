@@ -7,7 +7,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
   <title>Ant Design</title>
+  <link rel="stylesheet" href="/static/normalize.css">
   <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1429685559_8155303.css">
   <link rel="stylesheet" href="/static/tomorrow.css">
   <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
   <script src="/static/script.js"></script>
@@ -70,7 +72,13 @@
     <section class="main-container-center">
     {%- endif %}
     <article class="markdown">
-      <h1>{{ post.title }}</h1>
+      <h1>
+        {{ post.title }}
+        <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
+          <i class="iconfont icon-externallink"></i>
+          API 使用说明
+        </a>
+      </h1>
       {{ post.html }}
     </article>
   </section>

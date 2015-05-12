@@ -1,6 +1,7 @@
 # Button 按钮
 
 - category: Component
+- API: github.com/react-component/dialog
 
 ---
 
