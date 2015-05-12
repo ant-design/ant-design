@@ -74,10 +74,12 @@
     <article class="markdown">
       <h1>
         {{ post.title }}
+        {%- if post.meta.API %}
         <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
           <i class="iconfont icon-externallink"></i>
           API 使用说明
         </a>
+        {%- endif %}
       </h1>
       {{ post.html }}
     </article>

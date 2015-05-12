@@ -1,6 +1,7 @@
 # Select 选择框
 
 - category: Component
+- API: github.com/react-component/select
 
 ---
 
