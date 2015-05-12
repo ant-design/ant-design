@@ -13,6 +13,13 @@
   <link rel="stylesheet" href="/static/tomorrow.css">
   <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
   <script src="/static/script.js"></script>
+  <!-- react -->
+  <script src="https://t.alipayobjects.com/images/T12TdfXlpbXXXXXXXX.js"></script>
+  <!-- JSXTransformer -->
+  <script src="https://t.alipayobjects.com/images/T1jCFfXdNiXXXXXXXX.js"></script>
+  {%- if post.meta.template === 'component' %}
+  <script type="text/jsx" src="/static/code.jsx"></script>
+  {%- endif %}
 </head>
 <body class="{%- if post.filepath === 'README.md' %}index-page{%- endif %}">
   <header id="header">
@@ -82,6 +89,13 @@
         {%- endif %}
       </h1>
       {{ post.html }}
+      <div id="code-boxes"></div>
+      <script type="text/jsx">
+        React.render(
+          <CodeBox code="123"></CodeBox>,
+          document.getElementById('code-boxes')
+        );
+      </script>
     </article>
   </section>
   {%- endif %}
