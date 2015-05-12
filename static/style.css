@@ -8,7 +8,7 @@ body {
   height: 100%;
 }
 body {
-  font-family: Consolas, "Microsoft Yahei", "tahoma", "arial", "\5b8b\4f53";
+  font-family: "Helvetica Neue","Microsoft Yahei",Helvetica,Arial,sans-serif;
   line-height: 1.5;
   color: #999;
   font-size: 14px;
