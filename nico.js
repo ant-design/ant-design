@@ -1,6 +1,9 @@
 var path = require('path');
 
 // {{ settings for nico
+exports.site = {
+  name: 'Ant Design'
+};
 exports.theme = 'theme';
 exports.source = process.cwd();
 exports.output = path.join(process.cwd(), '_site');

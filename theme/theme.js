@@ -4,13 +4,13 @@ module.exports = function(nico) {
   var exports = {};
 
   exports.reader = function(post) {
-    var filename = post.meta.filepath.toLowerCase();
-    if (filename.indexOf('components') >= 0) {
+    var filepath = post.meta.filepath.toLowerCase();
+    if (filepath.indexOf('components') === 0) {
       post.template = post.meta.template = 'component';
     } else {
       post.template = post.meta.template = (post.meta.template || 'page');
     }
-    if (filename === 'readme.md') {
+    if (filepath === 'readme.md') {
       post.filename = post.meta.filename = 'index';
     }
     return post;

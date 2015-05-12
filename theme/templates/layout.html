@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
-  <title>Ant Design</title>
+  <title>{% block title %}Ant Design{% endblock %}</title>
   <link rel="stylesheet" href="/static/normalize.css">
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1429685559_8155303.css">
@@ -34,7 +34,7 @@
     </div>
     <nav class="nav">
       <ul>
-        <li class="{%- if post.filename === 'index' %}current{%- endif %}">
+        <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
           <a href="/">首页</a>
         </li>
         <li class="{%- if post.filename === 'start' %}current{%- endif %}">
@@ -89,6 +89,7 @@
         {%- endif %}
       </h1>
       {{ post.html }}
+      <CodeBox code="code"></CodeBox>
       <div id="code-boxes"></div>
       <script type="text/jsx">
         React.render(

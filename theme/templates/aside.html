@@ -1,8 +1,8 @@
 {%- set categories = resource.pages|get_all_category %}
-{%- set items = resource.pages|find_category(post.meta.category) %}
 <aside class="aside-container">
   <ul>
   {%- for category in categories %}
+  {%- set items = resource.pages|find_category(category) %}
     <li>
       <h4>{{category}}</h4>
       <ul>
