@@ -89,11 +89,14 @@
         {%- endif %}
       </h1>
       {{ post.html }}
-      <CodeBox code="code"></CodeBox>
+      <h2>组件演示</h2>
       <div id="code-boxes"></div>
       <script type="text/jsx">
         React.render(
-          <CodeBox code="123"></CodeBox>,
+          <CodeBoxes>
+            <CodeBox src="components/button/demo/basic.html"></CodeBox>
+            <CodeBox src="components/button/demo/basic.html"></CodeBox>
+          </CodeBoxes>,
           document.getElementById('code-boxes')
         );
       </script>

@@ -964,3 +964,22 @@ footer ul li > a {
   margin-left: 15px;
   font-weight: normal;
 }
+
+.code-boxes {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -moz-column-gap: 15px;
+  -webkit-column-gap: 15px;
+  column-gap: 15px;
+}
+
+.code-box {
+  border: 1px solid #E9E9E9;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.code-box pre code {
+  border: none;
+}

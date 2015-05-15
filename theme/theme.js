@@ -13,6 +13,9 @@ module.exports = function(nico) {
     if (filepath === 'readme.md') {
       post.filename = post.meta.filename = 'index';
     }
+    if (filepath.indexOf('/demo/') > 0) {
+      post.template = post.meta.template = 'code';
+    }
     return post;
   };
 
