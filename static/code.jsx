@@ -6,17 +6,24 @@ var CodeBox = React.createClass({
     };
   },
   componentDidMount: function() {
-    var that = this;
     $.get('/' + this.props.src).then(function(data) {
-      that.setState({
-        html: data
+      var item = $(data);
+      item.find('.highlight').appendTo(item);
+      this.setState({
+        html: item.html()
       });
-    });
+    }.bind(this));
+  },
+  handleClick: function(e) {
+    if (!$(e.target).hasClass('collapse')) {
+      return;
+    }
+    $(e.target).parent().parent().find('.highlight').toggle();
   },
   render: function() {
     var html = this.state.html;
     return (
-      <div className="code-box" dangerouslySetInnerHTML={{__html: html}}></div>
+      <div className="code-box" onClick={this.handleClick} dangerouslySetInnerHTML={{__html: html}}></div>
     );
   }
 });

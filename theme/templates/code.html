@@ -1,5 +1,10 @@
 <div class="code-box-container">
   {{ post.html }}
-  <h4 class="code-box-title">{{ post.title }}</h4>
-  <p class="code-box-description">{{ post.meta.description }}</p>
+  <div class="code-box-meta">
+    <div class="code-box-title">{{ post.title }}</div>
+    <p class="code-box-description">
+      {{ post.meta.description }}
+    </p>
+    <span class="collapse iconfont icon-chevron"></span>
+  </div>
 </div>

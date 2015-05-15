@@ -72,6 +72,7 @@
   </div>
   <script src="/static/home.js"></script>
   {%- else %}
+  <div class="main-wrapper">
     {%- if post.meta.template === 'component' %}
     {%- include "aside.html" %}
     <section class="main-container">
@@ -100,8 +101,9 @@
           document.getElementById('code-boxes')
         );
       </script>
-    </article>
-  </section>
+      </article>
+    </section>
+  </div>
   {%- endif %}
   <footer id="footer">
     <ul>

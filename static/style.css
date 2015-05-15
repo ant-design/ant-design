@@ -3,8 +3,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html,
-body {
+html, body {
   height: 100%;
 }
 body {
@@ -303,6 +302,8 @@ footer {
   clear: both;
   border-top: 1px solid #eee;
   font-size: 16px;
+  position: relative;
+  background: #fff;
 }
 footer ul {
   overflow: hidden;
@@ -340,10 +341,7 @@ footer ul li > a {
 }
 .aside-container {
   width: 240px;
-  float: left;
-  height: 100%;
   background: #F9F9F9;
-  position: absolute;
   padding-top: 15px;
 }
 
@@ -375,13 +373,15 @@ footer ul li > a {
   color: #71B5DE;
 }
 
+.main-wrapper {
+  display: flex;
+}
+
 .main-container {
   width: calc(100% - 240px);
-  float: right;
   padding: 30px 40px;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
   animation: xRightMatrix .5s ease-out .5s backwards;
-  height: 100%;
 }
 
 .main-container-center {
@@ -400,8 +400,13 @@ footer ul li > a {
   color: #5C6B77;
 }
 
+.markdown h2 {
+  margin: 2.5em 0 1em 0;
+}
+
 .markdown p {
   margin: 1em 0;
+  width: 75%;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -977,7 +982,68 @@ footer ul li > a {
 .code-box {
   border: 1px solid #E9E9E9;
   border-radius: 6px;
-  padding: 15px;
+  display: inline-block;
+  width: 100%;
+}
+
+.code-box .nico-insert-code {
+  padding: 50px 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.code-box-meta {
+  position: relative;
+  padding: 25px 15px;
+}
+
+.code-box-meta h4,
+.code-box-meta p {
+  margin: 0;
+}
+
+.code-box-title {
+  position: absolute;
+  top: -10px;
+  background: #fff;
+  padding: 0 1em;
+  color: #999;
+  font-weight: bold;
+}
+
+.code-box-description {
+  font-size: 12px;
+}
+
+.code-box .collapse {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  cursor: pointer;
+  border: 1px solid #999;
+  width: 20px;
+  height: 20px;
+  line-height: 17px;
+  font-size: 14px;
+  text-indent: 3px;
+  border-radius: 100%;
+  opacity: 0.5;
+  transform: rotate(90deg);
+  margin-top: -10px;
+}
+
+.code-box .collapse:hover {
+  opacity: 1;
+}
+
+.code-box .highlight {
+  overflow: hidden;
+  display: none;
+  border-top: 1px dashed #ddd;
+  padding: 5px 15px;
+}
+
+.code-box pre {
+  margin: 0;
 }
 
 .code-box pre code {
