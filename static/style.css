@@ -135,6 +135,7 @@ header {
   float: right;
   font-size: 0.875em;
   position: relative;
+  margin-right: 25px;
 }
 .nav ul li {
   float: left;
