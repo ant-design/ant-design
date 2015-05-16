@@ -1006,8 +1006,20 @@ footer ul li > a {
   top: -10px;
   background: #fff;
   padding: 0 1em;
-  color: #999;
+  color: #888;
   font-weight: bold;
+}
+
+.code-box-title:before {
+  font-family: iconfont;
+  content: "\e607";
+  font-size: 16px;
+  vertical-align: middle;
+  line-height: 22px;
+  position: relative;
+  margin-right: 6px;
+  top: -1px;
+  color: #ccc;
 }
 
 .code-box-description {

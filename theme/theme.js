@@ -53,7 +53,6 @@ module.exports = function(nico) {
       var ret = [];
       Object.keys(pages).forEach(function(key) {
         var page = pages[key];
-        console.log(key, directory);
         if (key.indexOf(directory + '/demo/') === 0) {
           ret.push(page);
         }
