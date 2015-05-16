@@ -56,10 +56,17 @@ header {
 }
 .logo {
   float: left;
-  width: 179px;
   height: 46px;
-  margin: 20px 30px;
-  transition: margin .3s cubic-bezier(0.075, 0.82, 0.165, 1), width .3s cubic-bezier(0.075, 0.82, 0.165, 1), height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  line-height: 58px;
+  margin: 15px 30px;
+  transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-family: "Raleway",sans-serif;
+  font-weight: bold;
+}
+.logo img {
+  float: left;
 }
 .search {
   float: left;
@@ -121,7 +128,6 @@ header {
   background: #CADCE3;
   position: absolute;
   transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
   left: 10px;
   top: 8px;
 }
@@ -191,7 +197,6 @@ header {
   overflow: hidden;
   position: relative;
   min-height: calc(100% - 217px);
-  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
 }
@@ -201,8 +206,8 @@ header {
   min-height: 600px;
   position: relative;
   overflow: inherit;
-  animation: yTopMatrix .3s ease-out;
   -webkit-animation: yTopMatrix .3s ease-out;
+  animation: yTopMatrix .3s ease-out;
 }
 .banner-box .banner-img {
   background: url("https://t.alipayobjects.com/images/T1URpfXeXtXXXXXXXX.jpg") center no-repeat;
@@ -278,9 +283,8 @@ header {
 }
 .load-out {
   transform: scale(0, 0);
-  -webkit-transform: scale(0, 0);
-  animation: scaleOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
   -webkit-animation: scaleOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: scaleOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 .banner-box #bannerAnim .banner-line-absolute {
   position: absolute;
@@ -1091,6 +1095,8 @@ footer ul li > a {
   color: #707E88;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
+  -webkit-animation: xLeftMatrix 2s ease-out;
+  animation: xLeftMatrix 2s ease-out;
 }
 
 .entry-title {
