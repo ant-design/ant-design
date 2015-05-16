@@ -19,7 +19,7 @@ var CodeBox = React.createClass({
     if (!$(e.target).hasClass('collapse')) {
       return;
     }
-    $(e.target).parent().parent().find('.highlight').toggle();
+    $(e.target).parent().parent().find('.highlight').slideToggle(150);
   },
   render: function() {
     var html = this.state.html;

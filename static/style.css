@@ -36,8 +36,7 @@ li {
 a {
   color: #6EB4E0;
   text-decoration: none;
-  transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: color .3s ease;
 }
 a:hover {
   color: #6EB4E0;
@@ -61,7 +60,6 @@ header {
   height: 46px;
   margin: 20px 30px;
   transition: margin .3s cubic-bezier(0.075, 0.82, 0.165, 1), width .3s cubic-bezier(0.075, 0.82, 0.165, 1), height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-transition: margin .3s cubic-bezier(0.075, 0.82, 0.165, 1), width .3s cubic-bezier(0.075, 0.82, 0.165, 1), height .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .search {
   float: left;
@@ -78,7 +76,6 @@ header {
   height: 22px;
   padding: 0 0 0 20px;
   color: #999;
-  -webkit-transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 14px;
 }
@@ -107,7 +104,6 @@ header {
   left: 30px;
   cursor: pointer;
   transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .search button:before,
 .search button:after {
@@ -158,8 +154,6 @@ header {
   width: 100%;
   height: 100%;
   display: block;
-  -webkit-transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition: color .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .nav ul li.current a {
   color: #71B5DE;
@@ -176,7 +170,6 @@ header {
   left: 0;
   background: #6EB4E0;
   transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  -webkit-transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .nav-phone-icon {
   display: none;
@@ -203,7 +196,6 @@ header {
   min-height: calc(100% - 217px);
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
   transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
 }
 .banner-box {
@@ -969,6 +961,20 @@ footer ul li > a {
   vertical-align: middle;
   margin-left: 15px;
   font-weight: normal;
+}
+
+.component-demos .icon-all {
+  cursor: pointer;
+  font-size: 16px;
+  color: #9199AC;
+  margin-left: 5px;
+  vertical-align: text-bottom;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.component-demos .icon-all:hover {
+  opacity: 1;
 }
 
 .code-boxes {
