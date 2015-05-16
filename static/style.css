@@ -1099,6 +1099,10 @@ footer ul li > a {
   margin-bottom: 5px;
 }
 
+.entry-slogan {
+  padding-left: 4px;
+}
+
 a.entry-link {
   margin-top: 20px;
   border: 1px solid rgba(95, 108, 119, 0.3);
