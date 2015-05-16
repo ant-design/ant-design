@@ -386,7 +386,8 @@ footer ul li > a {
 
 .main-container-center {
   margin: 0 auto;
-  padding: 30px 0;
+  padding-left: 0;
+  padding-right: 0;
   width: calc(100% - 80px);
   height: 100%;
 }

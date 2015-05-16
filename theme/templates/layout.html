@@ -77,34 +77,36 @@
     {%- include "aside.html" %}
     <section class="main-container">
     {%- else %}
-    <section class="main-container-center">
+    <section class="main-container main-container-center">
     {%- endif %}
-    <article class="markdown">
-      <h1>
-        {{ post.title }}
-        {%- if post.meta.API %}
-        <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
-          <i class="iconfont icon-externallink"></i>
-          API 使用说明
-        </a>
+      <article class="markdown">
+        <h1>
+          {{ post.title }}
+          {%- if post.meta.API %}
+          <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
+            <i class="iconfont icon-externallink"></i>
+            API 使用说明
+          </a>
+          {%- endif %}
+        </h1>
+        {{ post.html }}
+        {%- if post.meta.template === 'component' %}
+        <h2>组件演示</h2>
+        <div id="code-boxes">
+          代码加载中...
+        </div>
+        <script type="text/jsx">
+          React.render(
+            <CodeBoxes>
+              {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
+              {%- for item in items %}
+                <CodeBox src="{{item.meta.filepath}}"></CodeBox>
+              {%- endfor %}
+            </CodeBoxes>,
+            document.getElementById('code-boxes')
+          );
+        </script>
         {%- endif %}
-      </h1>
-      {{ post.html }}
-      <h2>组件演示</h2>
-      <div id="code-boxes">
-        代码加载中...
-      </div>
-      <script type="text/jsx">
-        React.render(
-          <CodeBoxes>
-            {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
-            {%- for item in items %}
-              <CodeBox src="{{item.meta.filepath}}"></CodeBox>
-            {%- endfor %}
-          </CodeBoxes>,
-          document.getElementById('code-boxes')
-        );
-      </script>
       </article>
     </section>
   </div>
