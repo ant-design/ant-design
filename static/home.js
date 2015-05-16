@@ -52,7 +52,6 @@ $(function() {
       self.animBox = $("#bannerAnim");
       self.imgBox = $(".banner-img");
       self.loadImg();
-
     },
     loadImg: function() {
       var self = this;
@@ -112,7 +111,6 @@ $(function() {
           j = i;
         }
       }
-      //console.log(self.box.find(".delay-mode").eq(j),j);
       self.animBox.find(".delay-mode").eq(j).one(animEndStr, function() {
         self.animBox.addClass("to-img-blur");
         self.imgBox.addClass("from-img-blur").one(animEndStr, function() {
