@@ -79,12 +79,8 @@ header {
   transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 14px;
 }
-.search input::-webkit-input-placeholder {
-  color: #CADCE3;
-}
-.search input::-moz-placeholder {
-  color: #CADCE3;
-}
+.search input::-webkit-input-placeholder,
+.search input::-moz-placeholder,
 .search input:-ms-input-placeholder {
   color: #CADCE3;
 }
