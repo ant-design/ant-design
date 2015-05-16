@@ -1088,7 +1088,8 @@ footer ul li > a {
   left: 10%;
   z-index: 100;
   color: #707E88;
-  font-family: Consolas;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
 }
 
 .entry-title {
@@ -1096,10 +1097,6 @@ footer ul li > a {
   text-transform: uppercase;
   line-height: 1;
   margin-bottom: 5px;
-}
-
-.entry-slogan {
-  color: #9EADB2;
 }
 
 a.entry-link {
