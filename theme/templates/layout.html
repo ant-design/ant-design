@@ -97,8 +97,10 @@
       <script type="text/jsx">
         React.render(
           <CodeBoxes>
-            <CodeBox src="components/button/demo/basic.html"></CodeBox>
-            <CodeBox src="components/button/demo/basic.html"></CodeBox>
+            {%- set items = resource.pages|under(post.meta.directory) %}
+            {%- for item in items %}
+              <CodeBox src="{{item.meta.filepath}}"></CodeBox>
+            {%- endfor %}
           </CodeBoxes>,
           document.getElementById('code-boxes')
         );

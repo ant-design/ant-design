@@ -6,6 +6,7 @@ var CodeBox = React.createClass({
     };
   },
   componentDidMount: function() {
+    this.props.src = this.props.src.replace(/\.md$/, '.html');
     $.get('/' + this.props.src).then(function(data) {
       var item = $(data);
       item.find('.highlight').appendTo(item);
@@ -23,7 +24,10 @@ var CodeBox = React.createClass({
   render: function() {
     var html = this.state.html;
     return (
-      <div className="code-box" onClick={this.handleClick} dangerouslySetInnerHTML={{__html: html}}></div>
+      <div className="code-box"
+        onClick={this.handleClick}
+        dangerouslySetInnerHTML={{__html: html}}>
+      </div>
     );
   }
 });

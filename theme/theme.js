@@ -48,6 +48,17 @@ module.exports = function(nico) {
       }).filter(function(item) {
         return item;
       }));
+    },
+    under: function(pages, directory) {
+      var ret = [];
+      Object.keys(pages).forEach(function(key) {
+        var page = pages[key];
+        console.log(key, directory);
+        if (key.indexOf(directory + '/demo/') === 0) {
+          ret.push(page);
+        }
+      });
+      return ret;
     }
   };
 
