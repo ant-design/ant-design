@@ -63,7 +63,7 @@ header {
   text-transform: uppercase;
   font-size: 18px;
   font-family: "Raleway",sans-serif;
-  font-weight: bold;
+  font-weight: 500;
 }
 .logo img {
   float: left;
