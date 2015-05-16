@@ -677,14 +677,10 @@ footer ul li > a {
 @keyframes xLeft {
   0% {
     opacity: 0;
-    /*transform:translateX(-50px);*/
-    
     margin-left: -100px;
   }
   100% {
     opacity: 1;
-    /*transform: translateX(-50px);*/
-    
     margin-left: 0px;
   }
 }
@@ -935,6 +931,27 @@ footer ul li > a {
   }
 }
 
+@-webkit-keyframes rotateCircle {
+  0% {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotateCircle {
+  0% {
+    transform-origin: 50% 50%;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform-origin: 50% 50%;
+    transform: rotate(360deg);
+  }
+}
+
 /* 首页有动画 */
 .index-page .nav {
   -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
@@ -1067,4 +1084,50 @@ footer ul li > a {
 
 .code-box pre code {
   border: none;
+}
+
+.entry {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  z-index: 100;
+  color: #707E88;
+  font-family: Consolas;
+}
+
+.entry-title {
+  font-size: 48px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.entry-slogan {
+  color: #9EADB2;
+}
+
+a.entry-link {
+  margin-top: 20px;
+  border: 1px solid rgba(95, 108, 119, 0.3);
+  border-radius: 50px;
+  color: #5F6C77;
+  display: block;
+  text-align: center;
+  padding: 8px 0;
+  width: 140px;
+  transition: all 0.3s ease;
+}
+
+a.entry-link:hover {
+  border-color: #5F6C77;
+}
+
+a.entry-link .iconfont {
+  margin-right: 3px;
+  display: inline-block;
+}
+
+a.entry-link:hover .iconfont {
+  -webkit-animation: rotateCircle 0.5s 1 ease-in;
+  animation: rotateCircle 0.5s 1 ease-in;
 }
