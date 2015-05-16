@@ -49,7 +49,7 @@ module.exports = function(nico) {
         return item;
       }));
     },
-    under: function(pages, directory) {
+    find_demo_in_component: function(pages, directory) {
       var ret = [];
       Object.keys(pages).forEach(function(key) {
         var page = pages[key];

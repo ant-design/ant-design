@@ -97,7 +97,7 @@
       <script type="text/jsx">
         React.render(
           <CodeBoxes>
-            {%- set items = resource.pages|under(post.meta.directory) %}
+            {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
             {%- for item in items %}
               <CodeBox src="{{item.meta.filepath}}"></CodeBox>
             {%- endfor %}
