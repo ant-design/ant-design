@@ -22,8 +22,8 @@ exports.ignorefilter = function(filepath, subdir) {
   return true;
 };
 exports.writers = [
-  'nico.PageWriter',
-  'nico.StaticWriter',
-  'nico.FileWriter'
+  'nico-jsx.PageWriter',
+  'nico-jsx.StaticWriter',
+  'nico-jsx.FileWriter'
 ];
 // end settings }}

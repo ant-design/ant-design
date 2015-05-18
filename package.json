@@ -13,8 +13,7 @@
   "dependencies": {
     "gh-pages-cli": "~0.2.0",
     "lodash": "~3.8.0",
-    "nico": "*",
-    "react-tools": "~0.13.3"
+    "nico-jsx": "~0.5.3"
   },
   "scripts": {
     "build": "npm run clean && nico build",

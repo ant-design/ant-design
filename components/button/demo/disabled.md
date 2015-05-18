@@ -4,8 +4,7 @@
 
 ---
 
-````js
-/** @jsx React.DOM */
+````jsx
 var Button = React.createClass({
   render: function() {
     return <button disabled>{this.props.children}</button>;
