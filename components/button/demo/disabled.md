@@ -4,14 +4,6 @@
 
 ---
 
-````jsx
-var Button = React.createClass({
-  render: function() {
-    return <button disabled>{this.props.children}</button>;
-  }
-});
-
-React.render(
-  <Button>失效的按钮</Button>
-  , document.getElementById('components-button-demo-disabled'));
+````html
+<button disabled>按钮</button>
 ````
