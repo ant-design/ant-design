@@ -1089,10 +1089,10 @@ footer ul li > a {
 
 .entry {
   position: absolute;
-  top: 20%;
+  top: 19%;
   left: 10%;
   z-index: 100;
-  color: #707E88;
+  color: #707d8d;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   -webkit-animation: xLeftMatrix 2s ease-out;
@@ -1100,18 +1100,20 @@ footer ul li > a {
 }
 
 .entry-title {
-  font-size: 48px;
+  font-size: 50px;
   text-transform: uppercase;
   line-height: 1;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .entry-slogan {
   padding-left: 4px;
+  font-size: 18px;
+  color: #9ea9b4;
 }
 
 a.entry-link {
-  margin-top: 20px;
+  margin-top: 15px;
   border: 1px solid rgba(95, 108, 119, 0.3);
   border-radius: 50px;
   color: #5F6C77;
