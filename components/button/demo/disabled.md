@@ -4,10 +4,6 @@
 
 ---
 
-````html
-<div id="example"></div>
-````
-
 ````js
 /** @jsx React.DOM */
 var Button = React.createClass({
@@ -16,6 +12,7 @@ var Button = React.createClass({
   }
 });
 
-React.render(<Button>失效的按钮</Button>, document.getElementById('example'));
+React.render(
+  <Button>失效的按钮</Button>
+  , document.getElementById('components-button-demo-disabled'));
 ````
-

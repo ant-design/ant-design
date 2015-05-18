@@ -1,5 +1,8 @@
 <div class="code-box">
-  {{ post.html|jsx }}
+  <div class="code-box-demo">
+    <div id="{{post.meta.id}}"></div>
+    {{ post.html|jsx }}
+  </div>
   <div class="code-box-meta">
     <div class="code-box-title">{{ post.title }}</div>
     <p class="code-box-description">
