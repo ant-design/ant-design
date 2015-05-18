@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var ReactTools = require('react-tools');
 
 module.exports = function(nico) {
   var exports = {};
@@ -58,6 +59,31 @@ module.exports = function(nico) {
         }
       });
       return ret;
+    },
+    // For Debug
+    console: function(target) {
+      console.log(target);
+    },
+    parsePost: function(filepath) {
+      return nico.sdk.post.read(filepath);
+    },
+    jsx: function(content) {
+      // 替换 js 代码
+      var scriptExp = /(<script>)([\s\S]*?)(<\/script>)/gi;
+      var scriptExp2 = /(<script>)([\s\S]*?)(<\/script>)/i;
+      content = content.replace(scriptExp, function(replacement) {
+        var match = scriptExp2.exec(replacement);
+        if (!match) {
+          return replacement;
+        }
+        var code = match[2];
+        // 转换 jsx 代码
+        if (code.indexOf('/** @jsx React.DOM */') > -1) {
+          code = ReactTools.transform(code);
+        }
+        return match[1] + code + match[3];
+      });
+      return content;
     }
   };
 

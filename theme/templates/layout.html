@@ -16,11 +16,6 @@
   <script src="/static/script.js"></script>
   <!-- react -->
   <script src="https://t.alipayobjects.com/images/T12TdfXlpbXXXXXXXX.js"></script>
-  <!-- JSXTransformer -->
-  <script src="https://t.alipayobjects.com/images/T1jCFfXdNiXXXXXXXX.js"></script>
-  {%- if post.meta.template === 'component' %}
-  <script type="text/jsx" src="/static/code.jsx"></script>
-  {%- endif %}
 </head>
 <body class="{%- if post.filepath === 'README.md' %}index-page{%- endif %}">
   <header id="header">
@@ -107,20 +102,13 @@
           组件演示
           <i class="iconfont icon-all" title="展开全部代码"></i>
         </h2>
-        <div id="code-boxes">
-          代码加载中...
+        <div class="code-boxes">
+          {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
+          {%- for item in items %}
+            {%- set post = item.meta.filepath|parsePost %}
+            {%- include "code.html" %}
+          {%- endfor %}
         </div>
-        <script type="text/jsx">
-          React.render(
-            <CodeBoxes>
-              {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
-              {%- for item in items %}
-                <CodeBox src="{{item.meta.filepath}}"></CodeBox>
-              {%- endfor %}
-            </CodeBoxes>,
-            document.getElementById('code-boxes')
-          );
-        </script>
         {%- endif %}
       </article>
     </section>
