@@ -21,3 +21,9 @@ $ npm start
 ```bash
 $ npm run deploy
 ```
+
+#### 构建
+
+```bash
+$ webpack
+```
