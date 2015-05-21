@@ -1,6 +1,7 @@
-# Button 按钮
+# Button
 
 - category: CSS
+- chinese: 按钮
 
 ---
 

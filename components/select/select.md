@@ -1,6 +1,7 @@
-# Select 选择框
+# Select
 
 - category: Component
+- chinese: 选择框
 - API: github.com/react-component/select
 
 ---

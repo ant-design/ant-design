@@ -8,7 +8,10 @@
       <ul>
         {%- for item in items %}
         <li class="{%- if item.title === post.title %}current{%- endif %}">
-          <a href="{{permalink_url(item)}}">{{item.title}}</a>
+          <a href="{{permalink_url(item)}}">
+            {{item.title}}
+            <span class="chinese">{{item.meta.chinese}}</span>
+          </a>
         </li>
         {%- endfor %}
       </ul>

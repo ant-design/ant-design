@@ -333,7 +333,7 @@ footer ul li > a {
   margin: 5px auto;
 }
 .aside-container {
-  width: 240px;
+  width: 260px;
   background: #F9F9F9;
   padding-top: 15px;
 }
@@ -356,6 +356,13 @@ footer ul li > a {
   border-left: 3px solid transparent;
 }
 
+.aside-container li a .chinese {
+  font-size: 12px;
+  margin-left: 10px;
+  font-weight: normal;
+  color: #999;
+}
+
 .aside-container li a:hover {
   color: #6EB4E0;
 }
@@ -371,7 +378,7 @@ footer ul li > a {
 }
 
 .main-container {
-  width: calc(100% - 240px);
+  width: calc(100% - 260px);
   padding: 30px 40px 80px;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
   animation: xRightMatrix .5s ease-out .5s backwards;
