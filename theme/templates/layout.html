@@ -89,7 +89,7 @@
     {%- endif %}
       <article class="markdown">
         <h1>
-          {{ post.title }}
+          {{ post.title }} {{ post.meta.chinese }}
           {%- if post.meta.API %}
           <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
             <i class="iconfont icon-externallink"></i>
