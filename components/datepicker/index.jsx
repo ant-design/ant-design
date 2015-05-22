@@ -4,6 +4,7 @@ var Calendar = require('rc-calendar');
 var DatePicker = Calendar.Picker;
 var GregorianCalendar = require('gregorian-calendar');
 var zhCn = require('gregorian-calendar/lib/locale/zh-cn');
+var CalendarLocale = require('rc-calendar/lib/locale/zh-cn');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -19,6 +20,7 @@ module.exports = React.createClass({
     var state = this.state;
     var calendar = (
       <Calendar
+      locale={CalendarLocale}
       orient={['top', 'left']}
       showTime={this.state.showTime} showClear={true} />
       );
