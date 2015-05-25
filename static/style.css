@@ -379,7 +379,7 @@ footer ul li > a {
 
 .main-container {
   width: calc(100% - 260px);
-  padding: 30px 40px 80px;
+  padding: 30px 40px 120px;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
   animation: xRightMatrix .5s ease-out .5s backwards;
 }
@@ -1002,20 +1002,18 @@ footer ul li > a {
   opacity: 1;
 }
 
-.code-boxes {
-  -webkit-column-count: 2;
-  -moz-column-count: 2;
-  column-count: 2;
-  -moz-column-gap: 15px;
-  -webkit-column-gap: 15px;
-  column-gap: 15px;
-}
-
 .code-box {
   border: 1px solid #E9E9E9;
   border-radius: 6px;
   display: inline-block;
   width: 100%;
+  position: relative;
+  margin: 0px 15px 15px 0px;
+}
+
+.code-box.code-box-expand {
+  border-bottom: 1px dashed #ddd;
+  border-radius: 6px 6px 0 0;
 }
 
 .code-box .code-box-demo {
@@ -1082,8 +1080,14 @@ footer ul li > a {
 .code-box .highlight {
   overflow: hidden;
   display: none;
-  border-top: 1px dashed #ddd;
   padding: 5px 15px;
+  position: absolute;
+  width: calc(100% + 2px);
+  border: 1px solid #ddd;
+  border-top: 1px dashed #ddd;
+  border-radius: 0 0 6px 6px;
+  background: #fff;
+  margin-left: -1px;
 }
 
 .code-box pre {
