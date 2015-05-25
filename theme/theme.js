@@ -1,5 +1,4 @@
 var _ = require('lodash');
-var ReactTools = require('react-tools');
 
 module.exports = function(nico) {
   var exports = {};
