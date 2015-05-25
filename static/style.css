@@ -289,13 +289,11 @@ header {
 .banner-box #bannerAnim .banner-line-absolute {
   position: absolute;
 }
-/*footer*/
 
 footer {
   clear: both;
   border-top: 1px solid #eee;
   font-size: 16px;
-  position: relative;
   background: #fff;
 }
 footer ul {
