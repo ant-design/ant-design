@@ -1,4 +1,6 @@
 var path = require('path');
+var webpackMiddleware = require("webpack-dev-middleware");
+var webpack = require('webpack');
 
 // {{ settings for nico
 exports.site = {
@@ -26,4 +28,29 @@ exports.writers = [
   'nico-jsx.StaticWriter',
   'nico-jsx.FileWriter'
 ];
+exports.middlewares = [{
+  name: 'webpack',
+  filter: /index\.js/,
+  handle: webpackMiddleware(webpack(require('./webpack.config')), {
+    // all options optional
+
+    noInfo: false,
+    // display no info to console (only warnings and errors)
+
+    watchDelay: 300,
+    // delay after change (only lazy: false)
+
+    publicPath: "/dist/",
+    // public path to bind the middleware to
+    // use the same as in webpack
+
+    headers: { "X-Custom-Header": "yes" },
+    // custom headers
+
+    stats: {
+      colors: true
+    }
+    // options for formating the statistics
+  })
+}];
 // end settings }}

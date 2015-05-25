@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
   entry: './index.js',
@@ -8,7 +9,7 @@ module.exports = {
   },
 
   output: {
-    path: 'dist',
+    path: path.join(process.cwd(), 'dist'),
     filename: 'index.js'
   },
 
