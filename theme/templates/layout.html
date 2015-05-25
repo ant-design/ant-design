@@ -31,23 +31,24 @@
       </form>
     </div>
     <nav class="nav">
+        <span class="bar"></span>
       <ul>
-        <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
+        <li >
           <a href="/">首页</a>
         </li>
-        <li class="{%- if post.filename === 'start' %}current{%- endif %}">
+        <li >
           <a href="/docs/start">上手</a>
         </li>
-        <li class="{%- if post.filename === 'design' %}current{%- endif %}">
+        <li >
           <a href="/docs/design">设计</a>
         </li>
-        <li class="{%- if post.meta.template === 'component' %}current{%- endif %}">
+        <li >
           <a href="/components/button">组件</a>
         </li>
-        <li class="{%- if post.filename === 'modes' %}current{%- endif %}">
+        <li >
           <a href="/docs/modes">模式</a>
         </li>
-        <li class="{%- if post.filename === 'cases' %}current{%- endif %}">
+        <li >
           <a href="/docs/cases">案例</a>
         </li>
         <li class="{%- if post.filename === 'download' %}current{%- endif %}">
