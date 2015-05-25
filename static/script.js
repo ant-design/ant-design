@@ -23,13 +23,8 @@ $(function() {
             self.navBox = $(".nav");
             self.navBar = self.navBox.find(".bar");
             self.navList = self.navBox.find("ul li");
-            for(var i=0;i<self.navList.length;i++){
-                var linkStr=self.navList.eq(i).find("a").attr("href")//.replace(".html","").replace(/.*#/, "/").split("/")[0];
-                linkStr=linkStr==""?"index":linkStr;
-                self.navStrArr.push(linkStr)
-            }
+            self.navNum=$(".current").index();
             self.search($(".search"));
-            self.getUrl();
             self.navBarAnim();
             self.navResize(null);
             $(window).bind("resize", self.navResize);
@@ -39,29 +34,6 @@ $(function() {
             self.navBar.css("left", self.navList.width() * self.navNum)//.addClass("barAnim");
 
             self.navList.eq(self.navNum).find("a").addClass("hover");
-        },
-        getUrl: function () {
-            var self=this;
-            var url = location.href;
-            var urlArr=url.split("/");
-            var links="/";
-            for(var i=3;i<urlArr.length;i++){
-                if(i>=urlArr.length-1){
-                    links+=urlArr[i]
-                }else{
-                    links+=urlArr[i]+"/"
-                }
-            }
-            for (var i = 0; i < self.navStrArr.length; i++) {
-                if(links=="/"){
-                    self.navNum=0;
-                    break;
-                }
-                if ((self.navStrArr[i].indexOf(links)>=0||links.indexOf(self.navStrArr[i])>=0)&&i!==0) {
-                    self.navNum = i;
-                    break;
-                }
-            }
         },
         search: function (c) {
             var self = this;
