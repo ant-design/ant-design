@@ -12,8 +12,6 @@ module.exports = React.createClass({
     var value = new GregorianCalendar(zhCn);
     value.setTime(Date.now());
     return {
-      time: Date.now(),
-      showTime: true,
       value: value
     };
   },
@@ -29,7 +27,7 @@ module.exports = React.createClass({
       <Calendar
       locale={CalendarLocale}
       orient={['top', 'left']}
-      showTime={this.state.showTime} showClear={true} />
+      showClear={true} />
       );
       return (
         <DatePicker
