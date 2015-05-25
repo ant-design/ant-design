@@ -27,7 +27,7 @@
     "webpack-dev-middleware": "~1.0.11"
   },
   "scripts": {
-    "build": "npm run clean && nico build",
+    "build": "npm run clean && webpack && nico build",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site",
     "deploy": "npm run build && gh-pages -d _site -b master"
