@@ -104,7 +104,9 @@
           组件演示
           <i class="iconfont icon-all" title="展开全部代码"></i>
         </h2>
-        <div class="code-boxes">
+        <div class="code-boxes waterfall" data-col-min-width="400"
+	data-default-container-width="800"
+	data-autoresize="true">
           {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
           {%- for item in items %}
             {%- set post = item.meta.filepath|parsePost %}
@@ -116,6 +118,7 @@
     </section>
   </div>
   {%- endif %}
+  {% block waterfall %}{% endblock %}
   <footer id="footer">
     <ul>
       <li>

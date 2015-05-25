@@ -14,6 +14,7 @@ $(function() {
 
   function slideToggleCode(item) {
     $(item).find('.highlight').slideToggle(150);
+    item.toggleClass('code-box-expand');
   }
     var navFunc={
         navStrArr: [],
