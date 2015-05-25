@@ -91,9 +91,9 @@ header {
 .search input:-ms-input-placeholder {
   color: #CADCE3;
 }
-.search input:focus {
+.search form .focus {
   padding: 0 20px 0 0;
-  width: 150px;
+  /*width: 150px;*/
 }
 .search button {
   position: absolute;
@@ -172,7 +172,10 @@ header {
   top: 0;
   left: 0;
   background: #6EB4E0;
-  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+.barAnim{
+    transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .nav-phone-icon {
   display: none;
