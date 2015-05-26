@@ -1,6 +1,4 @@
 var path = require('path');
-var webpackMiddleware = require("webpack-dev-middleware");
-var webpack = require('webpack');
 
 // {{ settings for nico
 exports.site = {

@@ -42,9 +42,10 @@ module.exports = React.createClass({
       );
       return (
         <DatePicker
+          trigger={<span className="rc-calendar-picker-icon" />}
           formatter={formatter} calendar={calendar}
           value={this.state.value} onChange={this.props.onSelect}>
-          <input className="rc-calendar-picker-input"/>
+          <input className="rc-calendar-picker-input" />
         </DatePicker>
       );
   }

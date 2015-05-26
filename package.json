@@ -13,7 +13,7 @@
   "dependencies": {
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
-    "rc-calendar": "~3.3.0"
+    "rc-calendar": "~3.4.2"
   },
   "devDependencies": {
     "concurrently": "~0.1.0",

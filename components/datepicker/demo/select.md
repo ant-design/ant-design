@@ -1,6 +1,6 @@
 # 基本
 
-- description: 最简单的用法
+- description: 选择日期的回调
 
 ---
 
