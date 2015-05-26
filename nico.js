@@ -28,31 +28,4 @@ exports.writers = [
   'nico-jsx.StaticWriter',
   'nico-jsx.FileWriter'
 ];
-exports.middlewares = [{
-  name: 'webpack',
-  filter: /index\.js/,
-  handle: function(req, res, next) {
-    return webpackMiddleware(webpack(require('./webpack.config')), {
-      // all options optional
-
-      noInfo: false,
-      // display no info to console (only warnings and errors)
-
-      watchDelay: 300,
-      // delay after change (only lazy: false)
-
-      publicPath: "/dist/",
-      // public path to bind the middleware to
-      // use the same as in webpack
-
-      headers: { "X-Custom-Header": "yes" },
-      // custom headers
-
-      stats: {
-        colors: true
-      }
-      // options for formating the statistics
-    })(req, res, next);
-  }
-}];
 // end settings }}
