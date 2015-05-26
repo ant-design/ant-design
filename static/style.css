@@ -1168,12 +1168,12 @@ a.entry-link:hover {
   border-color: #5F6C77;
 }
 
-a.entry-link .iconfont {
+a.entry-link .icon-lego {
   margin-right: 3px;
   display: inline-block;
 }
 
-a.entry-link:hover .iconfont {
+a.entry-link:hover .icon-lego {
   -webkit-animation: rotateCircle 0.5s 1 ease-in-out;
   animation: rotateCircle 0.5s 1 ease-in-out;
 }
