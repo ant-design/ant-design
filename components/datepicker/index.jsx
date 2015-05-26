@@ -27,6 +27,10 @@ module.exports = React.createClass({
       this.setState({value: value});
     }
   },
+  handleChange: function() {
+    var props = this.props;
+    this.props.onSelect(new Date(this.state.value.getTime()));
+  },
   render: function () {
     var state = this.state;
     var formatter = new DateTimeFormat(this.props.format);
@@ -39,8 +43,8 @@ module.exports = React.createClass({
       return (
         <DatePicker
           formatter={formatter} calendar={calendar}
-          value={this.state.value} onChange={this.handleChange}>
-          <input type="text" className="datepicker-input" />
+          value={this.state.value} onChange={this.props.onSelect}>
+          <input className="rc-calendar-picker-input"/>
         </DatePicker>
       );
   }
