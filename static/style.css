@@ -48,6 +48,9 @@ header {
   border-bottom: 1px solid #eee;
   font-size: 16px;
 }
+.fn-hide{
+    display: none;
+}
 .fn-alpha-in {
   opacity: 1 !important;
 }
@@ -209,14 +212,14 @@ header {
   min-height: 600px;
   position: relative;
   overflow: inherit;
-  -webkit-animation: yTopMatrix .3s ease-out;
-  animation: yTopMatrix .3s ease-out;
+  -webkit-animation: alphaTo .3s ease-out;
+  animation: alphaTo .3s ease-out;
+
 }
 .banner-box .banner-img {
   background: url("https://t.alipayobjects.com/images/T1URpfXeXtXXXXXXXX.jpg") center no-repeat;
   height: 1062px;
   width: 2185px;
-  opacity: 0;
   transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
 }
@@ -228,7 +231,7 @@ header {
   transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
   z-index: 2;
-  background: #EBEDEE;
+    background: #2d2d2d
 }
 .load-main-box {
   top: 0;
@@ -1099,7 +1102,7 @@ footer ul li > a {
   border: none;
 }
 
-.entry {
+.banner-entry {
   position: absolute;
   top: 19%;
   left: 10%;
@@ -1107,8 +1110,8 @@ footer ul li > a {
   color: #707d8d;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  -webkit-animation: xLeftMatrix 2s ease-out;
-  animation: xLeftMatrix 2s ease-out;
+  /*-webkit-animation: xLeftMatrix 2s ease-out;
+  animation: xLeftMatrix 2s ease-out;*/
 }
 
 .entry-title {
@@ -1133,7 +1136,7 @@ a.entry-link {
   text-align: center;
   padding: 8px 0;
   width: 140px;
-  transition: all 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 a.entry-link:hover {
@@ -1146,6 +1149,6 @@ a.entry-link .iconfont {
 }
 
 a.entry-link:hover .iconfont {
-  -webkit-animation: rotateCircle 0.5s 1 ease-in;
-  animation: rotateCircle 0.5s 1 ease-in;
+  -webkit-animation: rotateCircle 0.5s 1 ease-in-out;
+  animation: rotateCircle 0.5s 1 ease-in-out;
 }

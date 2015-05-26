@@ -61,24 +61,27 @@
   {%- if post.filepath === 'README.md' %}
   <!-- 首页 -->
   <div class="main">
-    <div class="entry">
-      <div class="entry-title">
-        Ant<br>Design
-      </div>
-      <div class="entry-slogan">Design for ease.</div>
-      <a class="entry-link" href="/docs/start">
-        <i class="iconfont icon-lego"></i>
-        开始使用
-      </a>
-    </div>
+
     <div class="main-box" id="main">
       <div class="banner-box">
         <div id="bannerAnim"></div>
         <div class="banner-img"></div>
-        <div class="banner-text"></div>
+        <div class="banner-entry fn-hide">
+            <div class="entry-title">
+                Ant
+            </div>
+            <div class="entry-title">Design</div>
+            <div class="entry-slogan">Design for ease.</div>
+            <a class="entry-link" href="/docs/start">
+                <i class="iconfont icon-lego"></i>
+                开始使用
+            </a>
+        </div>
       </div>
     </div>
   </div>
+  <script src="/static/easeljs-0.8.0.min.js"></script>
+  <script src="/static/TweenMax.min.js"></script>
   <script src="/static/home.js"></script>
   {%- else %}
   <div class="main-wrapper">
