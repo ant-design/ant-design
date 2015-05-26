@@ -20,6 +20,13 @@ module.exports = React.createClass({
       format: 'yyyy-MM-dd'
     };
   },
+  componentDidMount: function () {
+    if (this.props.value) {
+      var value = new GregorianCalendar(zhCn);
+      value.setTime(new Date(this.props.value));
+      this.setState({value: value});
+    }
+  },
   render: function () {
     var state = this.state;
     var formatter = new DateTimeFormat(this.props.format);
