@@ -1,9 +1,9 @@
 # 基本型
 
-- description: 你说什么我听不清。
+- description: 标准的按钮
 
 ---
 
 ````html
-<button>按钮</button>
+<button class="nd-btn">按钮</button>
 ````

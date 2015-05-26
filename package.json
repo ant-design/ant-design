@@ -13,9 +13,11 @@
   "dependencies": {
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
-    "rc-calendar": "~3.3.0"
+    "rc-calendar": "~3.4.2",
+    "rc-style": "git@github.com:react-component/style.git"
   },
   "devDependencies": {
+    "concurrently": "~0.1.0",
     "css-loader": "~0.13.1",
     "gh-pages-cli": "~0.2.0",
     "json-loader": "~0.5.1",
@@ -23,12 +25,11 @@
     "lodash": "~3.8.0",
     "nico-jsx": "~0.5.3",
     "style-loader": "~0.12.2",
-    "webpack": "~1.9.7",
-    "webpack-dev-middleware": "~1.0.11"
+    "webpack": "~1.9.7"
   },
   "scripts": {
-    "build": "npm run clean && nico build",
-    "start": "npm run clean && nico server --watch",
+    "build": "npm run clean && webpack && nico build",
+    "start": "npm run clean && concurrent --kill-others 'webpack -w' 'nico server --watch'",
     "clean": "rm -rf _site",
     "deploy": "npm run build && gh-pages -d _site -b master"
   }

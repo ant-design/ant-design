@@ -12,8 +12,6 @@ module.exports = React.createClass({
     var value = new GregorianCalendar(zhCn);
     value.setTime(Date.now());
     return {
-      time: Date.now(),
-      showTime: true,
       value: value
     };
   },
@@ -22,6 +20,17 @@ module.exports = React.createClass({
       format: 'yyyy-MM-dd'
     };
   },
+  componentDidMount: function () {
+    if (this.props.value) {
+      var value = new GregorianCalendar(zhCn);
+      value.setTime(new Date(this.props.value));
+      this.setState({value: value});
+    }
+  },
+  handleChange: function() {
+    var props = this.props;
+    this.props.onSelect(new Date(this.state.value.getTime()));
+  },
   render: function () {
     var state = this.state;
     var formatter = new DateTimeFormat(this.props.format);
@@ -29,13 +38,14 @@ module.exports = React.createClass({
       <Calendar
       locale={CalendarLocale}
       orient={['top', 'left']}
-      showTime={this.state.showTime} showClear={true} />
+      showClear={true} />
       );
       return (
         <DatePicker
+          trigger={<span className="rc-calendar-picker-icon" />}
           formatter={formatter} calendar={calendar}
-          value={this.state.value} onChange={this.handleChange}>
-          <input type="text" className="datepicker-input" />
+          value={this.state.value} onChange={this.props.onSelect}>
+          <input className="rc-calendar-picker-input" />
         </DatePicker>
       );
   }

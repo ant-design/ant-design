@@ -9,7 +9,6 @@
   <title>{% block title %}Ant Design{% endblock %}</title>
   <link rel="stylesheet" href="/static/normalize.css">
   <link rel="stylesheet" href="/static/style.css">
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_1431765342_9023364.css">
   <link href="http://fonts.useso.com/css?family=Raleway:600,500,400,300" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/static/tomorrow.css">
   <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
@@ -31,7 +30,6 @@
       </form>
     </div>
     <nav class="nav">
-        <span class="bar"></span>
       <ul>
         <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
           <a href="/">首页</a>
@@ -61,7 +59,6 @@
   {%- if post.filepath === 'README.md' %}
   <!-- 首页 -->
   <div class="main">
-
     <div class="main-box" id="main">
       <div class="banner-box">
         <div id="bannerAnim"></div>
@@ -96,7 +93,7 @@
           {{ post.title }} {{ post.meta.chinese }}
           {%- if post.meta.API %}
           <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
-            <i class="iconfont icon-externallink"></i>
+            <i class="iconfont-home icon-externallink"></i>
             API 使用说明
           </a>
           {%- endif %}
@@ -105,7 +102,7 @@
         {%- if post.meta.template === 'component' %}
         <h2 class="component-demos">
           组件演示
-          <i class="iconfont icon-all" title="展开全部代码"></i>
+          <i class="iconfont-home icon-all" title="展开全部代码"></i>
         </h2>
         <div class="code-boxes waterfall" data-col-min-width="400"
 	data-default-container-width="800"

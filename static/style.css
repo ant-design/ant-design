@@ -1,8 +1,33 @@
+@font-face {font-family: "iconfont-home";
+  src: url('//at.alicdn.com/t/font_1431765342_6775353.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1431765342_6775353.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1431765342_6775353.woff') format('woff'), /* chrome銆乫irefox */
+  url('//at.alicdn.com/t/font_1431765342_6775353.ttf') format('truetype'), /* chrome銆乫irefox銆乷pera銆丼afari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1431765342_6775353.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont-home {
+  font-family:"iconfont-home" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-tag:before { content: "\e607"; }
+.icon-lego:before { content: "\e600"; }
+.icon-all:before { content: "\e601"; }
+.icon-chevron:before { content: "\e602"; }
+.icon-externallink:before { content: "\e603"; }
+.icon-download:before { content: "\e604"; }
+.icon-github:before { content: "\e605"; }
+.icon-code:before { content: "\e606"; }
+
 html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 html, body {
   height: 100%;
 }
@@ -153,7 +178,7 @@ header {
   border-top: 3px solid transparent;
 }
 .nav ul li.current {
-  /*border-top: 3px solid #71B5DE;*/
+  border-top: 3px solid #71B5DE;
 }
 .nav ul li a {
   color: #728AA3;
@@ -1045,7 +1070,7 @@ footer ul li > a {
 }
 
 .code-box-title:before {
-  font-family: iconfont;
+  font-family: iconfont-home;
   content: "\e607";
   font-size: 16px;
   vertical-align: middle;
