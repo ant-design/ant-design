@@ -105,21 +105,26 @@
           组件演示
           <i class="iconfont-home icon-all" title="展开全部代码"></i>
         </h2>
-        <div class="code-boxes waterfall" data-col-min-width="400"
-	data-default-container-width="800"
-	data-autoresize="true">
+        <div class="code-boxes clearfix">
           {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
-          {%- for item in items %}
+          <div class="code-boxes-col">
+            {%- for item in items|odd %}
             {%- set post = item.meta.filepath|parsePost %}
             {%- include "code.html" %}
-          {%- endfor %}
+            {%- endfor %}
+          </div>
+          <div class="code-boxes-col">
+            {%- for item in items|even %}
+            {%- set post = item.meta.filepath|parsePost %}
+            {%- include "code.html" %}
+            {%- endfor %}
+          </div>
         </div>
         {%- endif %}
       </article>
     </section>
   </div>
   {%- endif %}
-  {% block waterfall %}{% endblock %}
   <footer id="footer">
     <ul>
       <li>

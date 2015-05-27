@@ -65,6 +65,16 @@ module.exports = function(nico) {
     },
     parsePost: function(filepath) {
       return nico.sdk.post.read(filepath);
+    },
+    odd: function(items) {
+      return items.filter(function(item, i) {
+        return (i+1)%2 === 1;
+      });
+    },
+    even: function(items) {
+      return items.filter(function(item, i) {
+        return (i+1)%2 === 0;
+      });
     }
   };
 

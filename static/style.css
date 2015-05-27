@@ -66,6 +66,13 @@ a {
 a:hover {
   color: #6EB4E0;
 }
+
+.clearfix:after {
+  clear: both;
+  display: table;
+  content: '';
+}
+
 header {
   width: 100%;
   background: #fff;
@@ -1031,6 +1038,16 @@ footer ul li > a {
   opacity: 1;
 }
 
+.component-demos .icon-all.expand {
+  color: #3B4357;
+}
+
+.code-boxes-col {
+  width: 50%;
+  float: left;
+  padding-right: 15px;
+}
+
 .code-box {
   border: 1px solid #E9E9E9;
   border-radius: 6px;
@@ -1038,11 +1055,6 @@ footer ul li > a {
   width: 100%;
   position: relative;
   margin: 0px 15px 15px 0px;
-}
-
-.code-box.code-box-expand {
-  border-bottom: 1px dashed #ddd;
-  border-radius: 6px 6px 0 0;
 }
 
 .code-box .code-box-demo {
@@ -1110,13 +1122,7 @@ footer ul li > a {
   overflow: hidden;
   display: none;
   padding: 5px 15px;
-  position: absolute;
-  width: calc(100% + 2px);
-  border: 1px solid #ddd;
   border-top: 1px dashed #ddd;
-  border-radius: 0 0 6px 6px;
-  background: #fff;
-  margin-left: -1px;
 }
 
 .code-box pre {
