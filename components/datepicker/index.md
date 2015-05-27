@@ -32,3 +32,9 @@
 我说去他妈的爱情 都是过眼云烟的东西
 
 我的余生 都用来寻找北方
+
+<style>
+.rc-calendar-picker-input {
+  width: 200px;
+}
+</style>
