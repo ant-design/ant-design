@@ -112,7 +112,6 @@ $(function() {
                 if(m.attr("href")=="./"||url.indexOf(m.attr("href"))>=0){
                     self.num=m.parent().parent().parent().index();
                     self.cnum=m.parent().index();
-                    console.log(self.num)
                 }
             }
         },
