@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "npm run clean && webpack && nico build",
-    "start": "npm run clean && concurrent --kill-others 'webpack -w' 'nico server --watch'",
+    "start": "npm run clean && concurrent -r 'webpack -w --watch-aggregate-timeout 0' 'nico server --watch'",
     "clean": "rm -rf _site",
     "deploy": "npm run build && gh-pages -d _site -b master"
   }
