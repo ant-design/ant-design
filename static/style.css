@@ -238,7 +238,7 @@ header {
 .main {
   overflow: hidden;
   position: relative;
-  min-height: calc(100% - 217px);
+  min-height: calc(100% - 200px);
   transform-style: preserve-3d;
   transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
 }
@@ -337,16 +337,17 @@ footer {
   border-top: 1px solid #eee;
   font-size: 16px;
   background: #fff;
+  height: 120px;
 }
 footer ul {
   overflow: hidden;
-  min-height: 130px;
+  height: 120px;
   margin: 0 2%;
 }
 footer ul li {
   float: left;
   width: 25%;
-  padding: 1% 2%;
+  padding: 5px 2% 0;
 }
 footer ul li>h2 {
   font-size: 1em;
@@ -1155,7 +1156,7 @@ footer ul li > a {
   font-size: 50px;
   text-transform: uppercase;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .entry-slogan {
