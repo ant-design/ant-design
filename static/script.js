@@ -80,4 +80,51 @@ $(function() {
     }
   };
   navFunc.init();
+    var listFunc={
+        num:0,
+        cnum:0,
+        init:function (){
+            var self=this;
+            self.listBox=$(".aside-container>ul");
+            if(!self.listBox.length){
+                return
+            }
+            self.getUrlNum();
+            self.listBox.children().eq(self.num).attr("open",true).find("ul").css("display","block");
+            //添加标题事件；
+            self.addTitleEvent()
+        },
+        getUrlNum:function (){
+            var self=this,url=location.href,str="";
+            //console.log(self.listBox.find("a"))
+            for(var i=0;i<self.listBox.find("a").length;i++){
+                var m=self.listBox.find("a").eq(i);
+                if(m.attr("href")=="./"||url.indexOf(m.attr("href"))>=0){
+                    self.num=m.parent().parent().parent().index();
+                    self.cnum=m.parent().index();
+                    console.log(self.num)
+                }
+            }
+        },
+        addTitleEvent:function (){
+            var self=this;
+            var title=self.listBox.find("h4");
+            title.bind("click",function (e){
+                var parent=$(this).parent();
+                if(parent.attr("open")){
+                    parent.removeAttr("open");
+                    if(parent.index()==self.num){
+                        $(this).addClass("current")
+                    }
+                }else{
+                    parent.attr("open",true);
+                    if(parent.index()==self.num){
+                        $(this).removeClass("current")
+                    }
+                }
+                parent.find("ul").slideToggle(300);
+            })
+        }
+    };
+    listFunc.init();
 });

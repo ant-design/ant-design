@@ -373,13 +373,21 @@ footer ul li > a {
   background: #F9F9F9;
   padding-top: 15px;
 }
-
+.aside-container>ul>li{
+    overflow: hidden;
+}
 .aside-container li h4 {
   font-size: 16px;
   font-weight: bold;
-  padding-left: 50px;
-  margin: 10px 0;
+  padding:10px 0 10px 50px;
+  margin:0;
   color: #5C6B77;
+    cursor: pointer;
+    transition: background .5s,border .5s;
+}
+.aside-container li>ul{
+    display: none;
+    background: #f4f4f4;
 }
 
 .aside-container li a {
@@ -403,7 +411,7 @@ footer ul li > a {
   color: #6EB4E0;
 }
 
-.aside-container li.current > a {
+.aside-container .current  {
   background: #fff;
   border-left: 3px solid #71B5DE;
   color: #71B5DE;
