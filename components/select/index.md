@@ -1,11 +1,11 @@
-# Button
+# Select
 
-- category: CSS
-- chinese: 按钮
+- category: Component
+- chinese: 选择框
 
 ---
 
-这是一个按钮。
+这是一个单/多项选择器。
 
 ## 何时使用
 
