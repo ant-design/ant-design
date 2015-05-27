@@ -425,13 +425,13 @@ footer ul li > a {
   padding: 30px 40px 120px;
   -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
   animation: xRightMatrix .5s ease-out .5s backwards;
+  background: #fff;
 }
 
 .main-container-center {
   margin: 0 auto;
-  padding-left: 0;
-  padding-right: 0;
-  width: calc(100% - 80px);
+  padding: 15px 20px;
+  width: 88%;
   height: 100%;
 }
 
