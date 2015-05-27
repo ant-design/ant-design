@@ -73,6 +73,10 @@ a:hover {
   content: '';
 }
 
+.fn-hide {
+  display: none;
+}
+
 header {
   width: 100%;
   background: #fff;
@@ -368,10 +372,11 @@ footer ul li > a {
   display: block;
   margin: 5px auto;
 }
+
 .aside-container {
   width: 260px;
   background: #F9F9F9;
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .aside-container li h4 {
@@ -380,11 +385,12 @@ footer ul li > a {
   padding-left: 50px;
   margin: 10px 0;
   color: #5C6B77;
+  cursor: pointer;
 }
 
 .aside-container li a {
-  line-height: 44px;
-  height: 44px;
+  line-height: 40px;
+  height: 40px;
   display: block;
   padding-left: 60px;
   font-size: 14px;
