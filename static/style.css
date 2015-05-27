@@ -391,10 +391,14 @@ footer ul li > a {
 
     cursor: pointer;
     transition: background .5s,border .5s;
+    border-left: 3px solid transparent;
 }
 .aside-container li>ul{
     display: none;
     background: #f4f4f4;
+}
+.aside-container li>ul li{
+    border-left: 3px solid transparent;
 }
 
 .aside-container li a {
@@ -404,7 +408,7 @@ footer ul li > a {
   padding-left: 60px;
   font-size: 14px;
   color: #5C6B76;
-  border-left: 3px solid transparent;
+
 }
 
 .aside-container li a .chinese {
