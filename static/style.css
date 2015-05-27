@@ -178,7 +178,7 @@ header {
   border-top: 3px solid transparent;
 }
 .nav ul li.current {
-  border-top: 3px solid #71B5DE;
+  /*border-top: 3px solid #71B5DE;*/
 }
 .nav ul li a {
   color: #728AA3;
