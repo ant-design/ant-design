@@ -1,11 +1,9 @@
-# Button
+# Tooltip
 
-- category: CSS
-- chinese: 按钮
+- category: Component
+- chinese: 文字提示
 
 ---
-
-这是一个按钮。
 
 ## 何时使用
 

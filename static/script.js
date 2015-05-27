@@ -19,8 +19,18 @@ $(function() {
   });
 
   function slideToggleCode(item) {
-    $(item).find('.highlight').slideToggle();
+    $(item).find('.highlight').animate({
+      height: 'toggle',
+      opacity: 'toggle'
+    }, 150);
   }
+
+  $('.aside-container li h4').click(function() {
+    $(this).next().animate({
+      height: 'toggle',
+      opacity: 'toggle'
+    }, 150);
+  });
 
   var navFunc={
     navStrArr: [],

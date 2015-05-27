@@ -1,11 +1,9 @@
-# Button
+# Tab
 
-- category: CSS
-- chinese: 按钮
+- category: Component
+- chinese: 标签页
 
 ---
-
-这是一个按钮。
 
 ## 何时使用
 
@@ -32,3 +30,4 @@
 我说去他妈的爱情 都是过眼云烟的东西
 
 我的余生 都用来寻找北方
+
