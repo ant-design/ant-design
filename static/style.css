@@ -228,6 +228,7 @@ header {
   width: 100%;
   height: 100%;
   overflow: hidden;
+
 }
 .perspective {
   vertical-align: top;
@@ -238,8 +239,9 @@ header {
 .main {
   overflow: hidden;
   position: relative;
-  min-height: calc(100% - 200px);
+  min-height: calc(100% - 210px);
   transform-style: preserve-3d;
+    transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
   transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
 }
 .banner-box {
@@ -248,8 +250,8 @@ header {
   min-height: 600px;
   position: relative;
   overflow: inherit;
-  -webkit-animation: alphaTo .3s ease-out;
-  animation: alphaTo .3s ease-out;
+    -webkit-animation: alphaTo .3s ease-out;
+    animation: alphaTo .3s ease-out;
 
 }
 .banner-box .banner-img {
@@ -269,64 +271,35 @@ header {
   z-index: 2;
     background: #2d2d2d
 }
-.load-main-box {
-  top: 0;
-  background: rgba(100, 100, 100, 0.15);
-  animation: alphaTo .3s ease-out;
-  -webkit-animation: alphaTo .3s ease-out;
-}
+
 .load-box {
-  width: 40px;
-  height: 40px;
-  background: #ffffff;
-  border-radius: 4px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
+    -webkit-perspective: 300px;
+    -moz-perspective: 300px;
+    width: 50px;
+    height: 50px;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -20px;
-  margin-top: -20px;
+  margin-left: -25px;
+  margin-top: -25px;
+    z-index: 99;
+    animation: alphaTo .3s ease-out;
+    -webkit-animation: alphaTo .3s ease-out;
 }
-.load-box em {
-  display: block;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px 20px 0 0;
-  background: linear-gradient(0deg, transparent 50%, #6EB4E0 50%);
-  margin: 10px;
-  position: relative;
-  float: left;
-  animation: RotaeX 1.5s infinite linear;
-  -webkit-animation: RotaeX 1.5s infinite linear;
+.load-box em{
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 50px;
+    height: 50px;
+    animation: loadTween 1S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 }
-.load-box em:before,
-.load-box em:after {
-  content: "";
-  display: block;
-}
-.load-box em:before {
-  width: 14px;
-  height: 14px;
-  border-radius: 14px;
-  margin: 3px auto;
-  position: relative;
-  z-index: 1;
-  background: #ffffff;
-}
-.load-box em:after {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
-  top: 0;
-  background: linear-gradient(90deg, #6EB4E0, transparent);
-}
+
 .load-out {
-  transform: scale(0, 0);
-  -webkit-animation: scaleOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  animation: scaleOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -webkit-animation: alphaOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: alphaOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 .banner-box #bannerAnim .banner-line-absolute {
   position: absolute;
@@ -1017,6 +990,28 @@ footer ul li > a {
     transform: rotate(360deg);
   }
 }
+@keyframes loadTween {
+    0%{
+        transform: rotateY(0deg);
+    }
+    50%{
+        transform: rotateY(180deg);
+    }
+    100%{
+        transform: rotateX(-180deg);
+    }
+}
+@-webkit-keyframes loadTween {
+    0%{
+        -webkit-transform: rotateY(0deg);
+    }
+    50%{
+        -webkit-transform: rotateY(180deg);
+    }
+    100%{
+        -webkit-transform: rotateX(-180deg);
+    }
+ }
 
 /* 首页有动画 */
 .index-page .nav {

@@ -74,7 +74,8 @@ $(function () {
         },
         loadImg: function () {
             var self = this;
-            var loadBox = $("<div class='load-box'><em></em></div>").appendTo(self.animBox);
+            var loadBox = $("<div class='load-box'><em><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' width='50' height='50'></em>" +
+            "</div>").appendTo(self.box);
             var img = new Image();
             img.onload = function () {
                 loadBox.addClass("load-out").one(animEndStr, function () {
@@ -255,9 +256,6 @@ $(function () {
             }
         }
     };
-
-    $("#main").one(animEndStr, function () {
-        bannerAnim.init()
-    })
+    bannerAnim.init()
 
 });
