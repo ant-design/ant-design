@@ -412,8 +412,8 @@ footer ul li > a {
 .main-container {
   width: calc(100% - 260px);
   padding: 30px 40px 120px;
-  -webkit-animation: xRightMatrix .5s ease-out .5s backwards;
-  animation: xRightMatrix .5s ease-out .5s backwards;
+  -webkit-animation: xRightMatrix .5s ease-out;
+  animation: xRightMatrix .5s ease-out;
   background: #fff;
 }
 
