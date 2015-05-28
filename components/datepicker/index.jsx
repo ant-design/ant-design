@@ -32,8 +32,6 @@ module.exports = React.createClass({
     this.props.onSelect(new Date(this.state.value.getTime()));
   },
   render: function () {
-    var state = this.state;
-    var formatter = new DateTimeFormat(this.props.format);
     var calendar = (
       <Calendar
       locale={CalendarLocale}
@@ -43,8 +41,10 @@ module.exports = React.createClass({
       return (
         <DatePicker
           trigger={<span className="rc-calendar-picker-icon" />}
-          formatter={formatter} calendar={calendar}
-          value={this.state.value} onChange={this.props.onSelect}>
+          calendar={calendar}
+          formatter={new DateTimeFormat(this.props.format)}
+          value={this.state.value}
+          onChange={this.props.onSelect}>
           <input className="rc-calendar-picker-input" />
         </DatePicker>
       );

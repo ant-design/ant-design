@@ -1,7 +1,7 @@
 # 选择日期
 
 - order: 2
-- description: 通过设置选择日期的回调事件，完成交互行为
+- description: 通过设置选择日期的回调事件 `onSelect`，完成交互行为。
 
 ---
 
@@ -21,4 +21,3 @@ React.render(
   <Picker />
 , document.getElementById('components-datepicker-demo-select'));
 ````
-

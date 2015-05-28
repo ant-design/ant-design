@@ -1,7 +1,7 @@
 # 范围
 
 - order: 3
-- description: 设置可选日期的范围
+- description: 设置可选日期的范围，用 disabled 方法来定义不可选择时间。
 
 ---
 
