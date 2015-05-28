@@ -22,6 +22,7 @@ module.exports = {
       {test: /\.jsx$/, loader: 'jsx-loader?harmony'},
       {test: /\.js$/, loader: 'jsx-loader?harmony'},
       {test: /\.json$/, loader: 'json-loader'},
+      {test: /\.less$/, loader: "style!css!less"},
       {test: /\.css/, loader: 'style!css'}
     ]
   },
