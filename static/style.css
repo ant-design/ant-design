@@ -239,7 +239,8 @@ header {
 .main {
   overflow: hidden;
   position: relative;
-  min-height: calc(100% - 210px);
+  height: calc(100% - 210px);
+    min-height: 600px;
   transform-style: preserve-3d;
     transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
   transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
