@@ -22,6 +22,8 @@
     "gh-pages-cli": "~0.2.0",
     "json-loader": "~0.5.1",
     "jsx-loader": "~0.13.2",
+    "less": "~2.5.1",
+    "less-loader": "~2.2.0",
     "lodash": "~3.8.0",
     "nico-jsx": "~0.5.3",
     "style-loader": "~0.12.2",

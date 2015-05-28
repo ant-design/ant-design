@@ -1,7 +1,7 @@
-# 选择日期
+# 范围
 
-- order: 2
-- description: 通过设置选择日期的回调事件 `onSelect`，完成交互行为。
+- order: 3
+- description: 设置可选日期的范围，用 disabled 方法来定义不可选择时间。
 
 ---
 
@@ -19,5 +19,7 @@ var Picker = React.createClass({
 
 React.render(
   <Picker />
-, document.getElementById('components-datepicker-demo-select'));
+, document.getElementById('components-datepicker-demo-range'));
 ````
+
+
