@@ -450,13 +450,12 @@ footer ul li > a {
   margin-left: 18px;
 }
 
-.markdown code {
-  background: #f6f6f6;
-  padding: 1px 6px;
-  border-radius: 3px;
-  color: #888;
-  font-size: 90%;
-  border: 1px solid #e9e9e9;
+.markdown pre {
+  margin: 15px 0;
+}
+
+.markdown pre code {
+  background: #fafafa;
 }
 
 #api ~ ul > li > p > strong ~ code {
@@ -1139,7 +1138,7 @@ footer ul li > a {
   color: #888;
   font-weight: bold;
   border-radius: 6px;
-  background: #F9F9F9;
+  background: #fafafa;
   box-shadow: 0 -1.2px 0 #e9e9e9;
 }
 
@@ -1183,8 +1182,8 @@ footer ul li > a {
 .code-box .highlight {
   overflow: hidden;
   display: none;
-  padding: 5px 15px;
-  border-top: 1px dashed #ddd;
+  padding: 5px;
+  border-top: 1px dashed #e9e9e9;
 }
 
 .code-box pre {

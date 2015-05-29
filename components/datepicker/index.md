@@ -35,6 +35,10 @@
 
 ## API
 
+```jsx
+<DatePicker value="2015-01-01" />
+```
+
 - **value** `string`
 
   初始值，如 `2015-01-01`。
