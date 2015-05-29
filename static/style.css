@@ -97,7 +97,7 @@ header {
   float: left;
   height: 46px;
   line-height: 58px;
-  margin: 15px 30px;
+  margin: 15px 61px 15px 30px;
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
@@ -118,7 +118,7 @@ header {
 .search input[type="text"] {
   border: transparent;
   outline: none;
-  width: 100px;
+  width: 200px;
   height: 22px;
   padding: 0 0 0 20px;
   color: #999;
