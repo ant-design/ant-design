@@ -407,6 +407,7 @@ footer ul li > a {
 
 .main-wrapper {
   display: flex;
+  background: #f9f9f9;
 }
 
 .main-container {
@@ -419,8 +420,10 @@ footer ul li > a {
 
 .main-container-center {
   margin: 0 auto;
-  padding: 15px 20px;
-  width: 88%;
+  padding: 30px 80px 120px;
+  border-left: 1px solid #e9e9e9;
+  border-right: 1px solid #e9e9e9;
+  width: 80%;
   height: 100%;
 }
 
@@ -1092,7 +1095,7 @@ footer ul li > a {
 }
 
 .code-box .code-box-demo {
-  padding: 50px 25px;
+  padding: 50px 25px 55px;
   border-bottom: 1px solid #E9E9E9;
 }
 
@@ -1100,6 +1103,7 @@ footer ul li > a {
   position: relative;
   padding: 25px 15px;
   background: #f9f9f9;
+  border-radius: 0 0 6px 6px;
 }
 
 .code-box-meta h4,
@@ -1109,13 +1113,13 @@ footer ul li > a {
 
 .code-box-title {
   position: absolute;
-  top: -13px;
-  padding: 0px 1.1em;
+  top: -14px;
+  padding: 1px 1.1em;
   color: #888;
   font-weight: bold;
   border-radius: 6px;
   background: #F9F9F9;
-  box-shadow: 0 -1.5px 0 #e9e9e9;
+  box-shadow: 0 -1.2px 0 #e9e9e9;
 }
 
 .code-box-title:before {
