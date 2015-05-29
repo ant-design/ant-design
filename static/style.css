@@ -440,8 +440,9 @@ footer ul li > a {
   margin: 2.5em 0 1em 0;
 }
 
-.markdown p {
-  margin: 1em 0;
+.markdown p,
+.markdown pre {
+  margin: 1.2em 0;
   width: 75%;
 }
 
@@ -450,12 +451,11 @@ footer ul li > a {
   margin-left: 18px;
 }
 
-.markdown pre {
-  margin: 15px 0;
-}
-
 .markdown pre code {
-  background: #fafafa;
+  background: rgba(0, 0, 0, 0.03);
+  border: none;
+  border-radius: 0;
+  padding: 12px 20px;
 }
 
 #api ~ ul > li > p > strong ~ code {
