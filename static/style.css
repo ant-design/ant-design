@@ -1077,12 +1077,13 @@ footer ul li > a {
 
 .code-box .code-box-demo {
   padding: 50px 25px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #E9E9E9;
 }
 
 .code-box-meta {
   position: relative;
   padding: 25px 15px;
+  background: #f9f9f9;
 }
 
 .code-box-meta h4,
@@ -1092,11 +1093,13 @@ footer ul li > a {
 
 .code-box-title {
   position: absolute;
-  top: -10px;
-  background: #fff;
-  padding: 0 1em;
+  top: -13px;
+  padding: 0px 1.1em;
   color: #888;
   font-weight: bold;
+  border-radius: 6px;
+  background: #F9F9F9;
+  box-shadow: 0 -1.5px 0 #e9e9e9;
 }
 
 .code-box-title:before {
