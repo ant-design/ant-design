@@ -445,6 +445,27 @@ footer ul li > a {
   width: 75%;
 }
 
+.markdown > ul > li {
+  list-style: circle;
+  margin-left: 18px;
+}
+
+.markdown code {
+  background: #f6f6f6;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: #888;
+  font-size: 90%;
+  border: 1px solid #e9e9e9;
+}
+
+#api ~ ul > li > p > strong ~ code {
+  background: #fff;
+  color: #CC7300;
+  border: none;
+  margin-left: 0.5em;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .nav {
     width: 40%;
@@ -1172,6 +1193,7 @@ footer ul li > a {
 
 .code-box pre code {
   border: none;
+  background: #fff;
 }
 
 .banner-entry {
