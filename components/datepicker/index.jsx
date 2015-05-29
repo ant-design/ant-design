@@ -9,10 +9,8 @@ var DateTimeFormat = require('gregorian-calendar-format');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    var value = new GregorianCalendar(zhCn);
-    value.setTime(Date.now());
     return {
-      value: value
+      value: ''
     };
   },
   getDefaultProps: function () {
@@ -35,7 +33,6 @@ module.exports = React.createClass({
     this.props.onSelect(new Date(this.state.value.getTime()));
   },
   render: function () {
-    console.log(this.props.showTime);
     var calendar = (
       <Calendar
       disabledDate={this.state.disabled}
@@ -51,7 +48,7 @@ module.exports = React.createClass({
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
         onChange={this.props.onSelect}>
-        <input className="rc-calendar-picker-input" />
+        <input placeholder="请选择日期" className="rc-calendar-picker-input" />
       </DatePicker>
     );
   }
