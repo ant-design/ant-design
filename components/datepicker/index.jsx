@@ -41,16 +41,16 @@ module.exports = React.createClass({
       locale={CalendarLocale}
       orient={['top', 'left']}
       showClear={true} />
-      );
-      return (
-        <DatePicker
-          trigger={<span className="rc-calendar-picker-icon" />}
-          calendar={calendar}
-          formatter={new DateTimeFormat(this.props.format)}
-          value={this.state.value}
-          onChange={this.props.onSelect}>
-          <input className="rc-calendar-picker-input" />
-        </DatePicker>
-      );
+    );
+    return (
+      <DatePicker
+        trigger={<span className="rc-calendar-picker-icon" />}
+        calendar={calendar}
+        formatter={new DateTimeFormat(this.props.format)}
+        value={this.state.value}
+        onChange={this.props.onSelect}>
+        <input className="rc-calendar-picker-input" />
+      </DatePicker>
+    );
   }
 });

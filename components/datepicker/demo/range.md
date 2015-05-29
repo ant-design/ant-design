@@ -16,5 +16,3 @@ React.render(
   <Datepicker disabled={disabledDate} />
 , document.getElementById('components-datepicker-demo-range'));
 ````
-
-
