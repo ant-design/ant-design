@@ -35,12 +35,14 @@ module.exports = React.createClass({
     this.props.onSelect(new Date(this.state.value.getTime()));
   },
   render: function () {
+    console.log(this.props.showTime);
     var calendar = (
       <Calendar
       disabledDate={this.state.disabled}
       locale={CalendarLocale}
       orient={['top', 'left']}
-      showClear={true} />
+      showTime={this.props.showTime}
+      showClear={false} />
     );
     return (
       <DatePicker
