@@ -105,6 +105,12 @@
         <h2 class="component-demos">
           组件演示
           <i class="iconfont-home icon-all" title="展开全部代码"></i>
+          {%- if post.meta.sketch %}
+          <a class="sketch-link" href="{{ post.meta.sketch }}" target="_blank">
+            <i class="iconfont-home icon-download"></i>
+            Sketch 下载
+          </a>
+          {%- endif %}
         </h2>
         <div class="code-boxes clearfix">
           {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}

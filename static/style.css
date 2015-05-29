@@ -1042,6 +1042,22 @@ footer ul li > a {
   font-weight: normal;
 }
 
+.sketch-link {
+  font-size: 14px;
+  vertical-align: middle;
+  font-weight: normal;
+  float: right;
+  margin-right: 15px;
+  border: 1px solid #ddd;
+  padding: 2px 15px;
+  border-radius: 100px;
+  color: #777;
+}
+
+.sketch-link i {
+  margin-right: 5px;
+}
+
 .component-demos .icon-all {
   cursor: pointer;
   font-size: 16px;
