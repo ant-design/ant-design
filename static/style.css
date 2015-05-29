@@ -1188,6 +1188,7 @@ footer ul li > a {
 
 .code-box pre {
   margin: 0;
+  width: auto;
 }
 
 .code-box pre code {
