@@ -15,7 +15,8 @@ module.exports = React.createClass({
   },
   getDefaultProps: function () {
     return {
-      format: 'yyyy-MM-dd'
+      format: 'yyyy-MM-dd',
+      placeholder: '请选择日期'
     };
   },
   componentDidMount: function () {
@@ -48,7 +49,7 @@ module.exports = React.createClass({
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
         onChange={this.props.onSelect}>
-        <input placeholder="请选择日期" className="rc-calendar-picker-input" />
+        <input placeholder={this.props.placeholder} className="rc-calendar-picker-input" />
       </DatePicker>
     );
   }
