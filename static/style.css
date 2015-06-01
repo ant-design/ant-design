@@ -32,7 +32,7 @@ html, body {
   height: 100%;
 }
 body {
-  font-family: "Helvetica Neue","Microsoft Yahei",Helvetica,Arial,sans-serif;
+  font-family: Helvetica Neue,Helvetica,Arial,"Microsoft Yahei",sans-serif;
   line-height: 1.5;
   color: #999;
   font-size: 14px;
@@ -96,8 +96,8 @@ header {
 .logo {
   float: left;
   height: 46px;
-  line-height: 58px;
-  margin: 15px 30px;
+  line-height: 46px;
+  margin: 17px 30px;
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
@@ -111,14 +111,14 @@ header {
   float: left;
   height: 22px;
   padding: 0px 30px;
-  margin: 32px auto;
+  margin: 32px auto 0;
   border-left: 1px solid #EBEDEE;
   position: relative;
 }
 .search input[type="text"] {
   border: transparent;
   outline: none;
-  width: 100px;
+  width: 150px;
   height: 22px;
   padding: 0 0 0 20px;
   color: #999;
@@ -175,8 +175,8 @@ header {
 }
 .nav {
   width: 30%;
-  height: 87px;
-  line-height: 87px;
+  height: 80px;
+  line-height: 80px;
   float: right;
   font-size: 0.875em;
   position: relative;
@@ -186,7 +186,7 @@ header {
   float: left;
   width: 16.66%;
   text-align: center;
-  border-top: 3px solid transparent;
+  /*border-top: 3px solid transparent;*/
 }
 .nav ul li.current {
   /*border-top: 3px solid #71B5DE;*/
@@ -239,8 +239,8 @@ header {
 .main {
   overflow: hidden;
   position: relative;
-  height: calc(100% - 210px);
-    min-height: 600px;
+  height: calc(100% - 190px);
+    min-height: 500px;
   transform-style: preserve-3d;
     transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
   transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
@@ -248,7 +248,6 @@ header {
 .banner-box {
   width: 100%;
   height: 100%;
-  min-height: 600px;
   position: relative;
   overflow: inherit;
     -webkit-animation: alphaTo .3s ease-out;
@@ -311,17 +310,17 @@ footer {
   border-top: 1px solid #eee;
   font-size: 16px;
   background: #fff;
-  height: 120px;
+  /*height: 120px;*/
 }
 footer ul {
   overflow: hidden;
-  height: 120px;
+  /*height: 120px;*/
   margin: 0 2%;
 }
 footer ul li {
   float: left;
   width: 25%;
-  padding: 5px 2% 0;
+  padding: 5px 2% 10px;
 }
 footer ul li>h2 {
   font-size: 1em;
@@ -1154,7 +1153,7 @@ footer ul li > a {
 .banner-entry {
   position: absolute;
   top: 19%;
-  left: 10%;
+  left: 13%;
   z-index: 100;
   color: #707d8d;
   font-family: 'Raleway', sans-serif;
