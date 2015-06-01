@@ -34,14 +34,23 @@
   color: #8959a8;
 }
 
+code {
+  background: #f6f6f6;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: #888;
+  font-size: 90%;
+  border: 1px solid #e9e9e9;
+}
+
 pre code {
   display: block;
   background: white;
-  color: #4d4d4c;
+  color: #666;
   font-family: Menlo, Monaco, Consolas, monospace;
   line-height: 1.5;
   border: 1px solid #e9e9e9;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 14px;
 }

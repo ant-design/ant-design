@@ -9,10 +9,8 @@ var DateTimeFormat = require('gregorian-calendar-format');
 
 module.exports = React.createClass({
   getInitialState: function () {
-    var value = new GregorianCalendar(zhCn);
-    value.setTime(Date.now());
     return {
-      value: value
+      value: ''
     };
   },
   getDefaultProps: function () {
@@ -21,11 +19,14 @@ module.exports = React.createClass({
     };
   },
   componentDidMount: function () {
+    var state = {};
     if (this.props.value) {
       var value = new GregorianCalendar(zhCn);
       value.setTime(new Date(this.props.value));
-      this.setState({value: value});
+      state.value = value;
     }
+    state.disabled = this.props.disabled || function() {};
+    this.setState(state);
   },
   handleChange: function() {
     var props = this.props;
@@ -34,19 +35,21 @@ module.exports = React.createClass({
   render: function () {
     var calendar = (
       <Calendar
+      disabledDate={this.state.disabled}
       locale={CalendarLocale}
       orient={['top', 'left']}
-      showClear={true} />
-      );
-      return (
-        <DatePicker
-          trigger={<span className="rc-calendar-picker-icon" />}
-          calendar={calendar}
-          formatter={new DateTimeFormat(this.props.format)}
-          value={this.state.value}
-          onChange={this.props.onSelect}>
-          <input className="rc-calendar-picker-input" />
-        </DatePicker>
-      );
+      showTime={this.props.showTime}
+      showClear={false} />
+    );
+    return (
+      <DatePicker
+        trigger={<span className="rc-calendar-picker-icon" />}
+        calendar={calendar}
+        formatter={new DateTimeFormat(this.props.format)}
+        value={this.state.value}
+        onChange={this.props.onSelect}>
+        <input placeholder="请选择日期" className="rc-calendar-picker-input" />
+      </DatePicker>
+    );
   }
 });
