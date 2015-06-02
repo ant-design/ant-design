@@ -341,7 +341,6 @@ footer > h3 {
 }
 footer ul li > a {
     font-size: 0.75em;
-    display: block;
     margin: 5px auto;
 }
 
