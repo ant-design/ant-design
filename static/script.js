@@ -2,15 +2,15 @@ $(function() {
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
-      $('.code-box').find('.highlight').animate({
-        height: 'toggle',
-        opacity: 'toggle'
+      $('.code-box .highlight').animate({
+        height: 'hide',
+        opacity: 0
       }, 150);
     } else {
       $(this).addClass('expand');
-      $('.code-box').find('.highlight').animate({
-        height: 'toggle',
-        opacity: 'toggle'
+      $('.code-box .highlight').animate({
+        height: 'show',
+        opacity: 1
       }, 150);
     }
   });
@@ -21,15 +21,11 @@ $(function() {
   });
 
   $('.code-boxes').on('click', '.collapse', function() {
-    slideToggleCode($(this).parent().parent());
-  });
-
-  function slideToggleCode(item) {
-    $(item).find('.highlight').animate({
+    $(this).parent().parent().find('.highlight').animate({
       height: 'toggle',
       opacity: 'toggle'
     }, 150);
-  }
+  });
 
   var navFunc = {
     navStrArr: [],
