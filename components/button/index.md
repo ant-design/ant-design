@@ -2,6 +2,7 @@
 
 - category: CSS
 - chinese: 按钮
+- order: 2
 - sketch: button.sketch
 
 ---

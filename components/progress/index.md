@@ -1,6 +1,6 @@
 # Progress
 
-- category: Component
+- category: Components
 - chinese: 进度条
 
 ---

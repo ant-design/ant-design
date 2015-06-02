@@ -1,6 +1,6 @@
 # Select
 
-- category: Component
+- category: Components
 - chinese: 选择框
 
 ---

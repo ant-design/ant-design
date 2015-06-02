@@ -1,6 +1,6 @@
 # Datepicker
 
-- category: Component
+- category: Components
 - chinese: 日期选择框
 
 ---

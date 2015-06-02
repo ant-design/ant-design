@@ -1,6 +1,6 @@
 # Modal
 
-- category: Component
+- category: Components
 - chinese: 对话框
 
 ---

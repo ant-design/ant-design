@@ -1,6 +1,6 @@
 # Tab
 
-- category: Component
+- category: Components
 - chinese: 标签页
 
 ---

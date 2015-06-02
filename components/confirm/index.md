@@ -1,6 +1,6 @@
 # Confirm
 
-- category: Component
+- category: Components
 - chinese: 确认对话框
 
 ---

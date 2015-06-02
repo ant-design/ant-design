@@ -1,6 +1,6 @@
 # Tooltip
 
-- category: Component
+- category: Components
 - chinese: 文字提示
 
 ---

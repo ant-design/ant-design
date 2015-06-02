@@ -29,12 +29,6 @@ module.exports = function(nico) {
         }
       });
       ret = ret.sort(function(a, b) {
-        if (/index$/i.test(a.filename)) {
-          a.meta.order = 1;
-        }
-        if (/index$/i.test(b.filename)) {
-          b.meta.order = 1;
-        }
         a = a.meta.order || 10;
         b = b.meta.order || 10;
         return parseInt(a, 10) - parseInt(b, 10);

@@ -2,6 +2,7 @@
 
 - category: CSS
 - chinese: 字体图标
+- order: 1
 
 ---
 
