@@ -2,10 +2,16 @@ $(function() {
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
-      $('.code-box').find('.highlight').slideUp();
+      $('.code-box').find('.highlight').animate({
+        height: 'toggle',
+        opacity: 'toggle'
+      }, 150);
     } else {
       $(this).addClass('expand');
-      $('.code-box').find('.highlight').slideDown();
+      $('.code-box').find('.highlight').animate({
+        height: 'toggle',
+        opacity: 'toggle'
+      }, 150);
     }
   });
 
