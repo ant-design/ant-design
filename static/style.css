@@ -1117,7 +1117,7 @@ footer ul li > a {
 
 .code-box-meta {
     position: relative;
-    padding: 25px 15px;
+    padding: 12px 15px;
     background: #f9f9f9;
     border-radius: 0 0 6px 6px;
 }
@@ -1150,8 +1150,9 @@ footer ul li > a {
     color: #ccc;
 }
 
-.code-box-description {
+.code-box-meta > p {
     font-size: 12px;
+    margin: 0.5em 0;
 }
 
 .code-box .collapse {
