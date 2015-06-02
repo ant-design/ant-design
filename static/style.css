@@ -172,7 +172,6 @@ header {
 
 .search form .focus {
   padding: 0 20px 0 0;
-  /*width: 150px;*/
 }
 
 .search button {
@@ -267,7 +266,6 @@ header {
 .nav-phone-icon {
   display: none;
 }
-/* banner */
 
 .main-box {
   display: block;
@@ -533,11 +531,13 @@ footer ul li > a {
   .nav, .search {
     display: none;
   }
+
   .logo {
     margin: 10px;
     width: 110px;
     height: auto;
   }
+
   .nav-phone-icon {
     display: block;
     width: 49px;
@@ -546,6 +546,7 @@ footer ul li > a {
     cursor: pointer;
     background: #BEC4C8;
   }
+
   .nav-phone-icon:before,
   .nav-phone-icon:after {
     content: "";
@@ -556,21 +557,23 @@ footer ul li > a {
     background: #EBEDEE;
     margin: 20px 0 0 18px;
   }
+
   .nav-phone-icon:after {
     margin-top: 5px;
   }
+
   .main {
     height: calc(100% - 86px);
   }
+
   footer ul {
     display: none;
   }
+
   footer h3 {
     display: block;
   }
 }
-/*********鍔ㄧ敾鍖哄煙**********/
-/*鍔ㄧ敾寤舵椂*/
 
 .delay-mode {
   animation-fill-mode: backwards !important;
@@ -653,6 +656,7 @@ footer ul li > a {
     opacity: 0;
     filter: blur(15px);
   }
+
   100% {
     opacity: 1;
     filter: blur(0px);
@@ -664,6 +668,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-filter: blur(15px);
   }
+
   100% {
     opacity: 1;
     -webkit-filter: blur(0px);
@@ -675,6 +680,7 @@ footer ul li > a {
     opacity: 0;
     -moz-filter: blur(15px);
   }
+
   100% {
     opacity: 1;
     -moz-filter: blur(0px);
@@ -686,6 +692,7 @@ footer ul li > a {
     opacity: 0;
     -ms-filter: blur(15px);
   }
+
   100% {
     opacity: 1;
     -ms-filter: blur(0px);
@@ -697,6 +704,7 @@ footer ul li > a {
     opacity: 0;
     -o-filter: blur(15px);
   }
+
   100% {
     opacity: 1;
     -o-filter: blur(0px);
@@ -708,6 +716,7 @@ footer ul li > a {
     opacity: 1;
     filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     filter: blur(15px);
@@ -719,6 +728,7 @@ footer ul li > a {
     opacity: 1;
     -webkit-filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     -webkit-filter: blur(15px);
@@ -730,6 +740,7 @@ footer ul li > a {
     opacity: 1;
     -moz-filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     -moz-filter: blur(15px);
@@ -741,6 +752,7 @@ footer ul li > a {
     opacity: 1;
     -ms-filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     -ms-filter: blur(15px);
@@ -752,6 +764,7 @@ footer ul li > a {
     opacity: 1;
     -o-filter: blur(0px);
   }
+
   100% {
     opacity: 0;
     -o-filter: blur(15px);
@@ -763,6 +776,7 @@ footer ul li > a {
     opacity: 0;
     margin-top: 100px;
   }
+
   100% {
     opacity: 1;
     margin-top: 0px;
@@ -774,6 +788,7 @@ footer ul li > a {
     opacity: 0;
     margin-top: 100px;
   }
+
   100% {
     opacity: 1;
     margin-top: 0px;
@@ -785,6 +800,7 @@ footer ul li > a {
     opacity: 0;
     margin-top: -100px;
   }
+
   100% {
     opacity: 1;
     margin-top: 0px;
@@ -796,6 +812,7 @@ footer ul li > a {
     opacity: 0;
     margin-top: -100px;
   }
+
   100% {
     opacity: 1;
     margin-top: 0px;
@@ -807,6 +824,7 @@ footer ul li > a {
     opacity: 0;
     margin-left: 100px;
   }
+
   100% {
     opacity: 1;
     margin-left: 0px;
@@ -818,6 +836,7 @@ footer ul li > a {
     opacity: 0;
     margin-left: 100px;
   }
+
   100% {
     opacity: 1;
     margin-right: 0px;
@@ -829,6 +848,7 @@ footer ul li > a {
     opacity: 0;
     margin-left: -100px;
   }
+
   100% {
     opacity: 1;
     margin-left: 0px;
@@ -840,6 +860,7 @@ footer ul li > a {
     opacity: 0;
     margin-left: -100px;
   }
+
   100% {
     opacity: 1;
     margin-left: 0px;
@@ -851,6 +872,7 @@ footer ul li > a {
     opacity: 0;
     transform: scale(0, 0);
   }
+
   100% {
     opacity: 1;
     transform: scale(1, 1);
@@ -862,6 +884,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: scale(0, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: scale(1, 1);
@@ -873,6 +896,7 @@ footer ul li > a {
     opacity: 0;
     transform: scale(1.5, 1.5);
   }
+
   100% {
     opacity: 1;
     transform: scale(1, 1);
@@ -884,6 +908,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: scale(1.5, 1.5);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: scale(1, 1);
@@ -895,6 +920,7 @@ footer ul li > a {
     opacity: 0;
     transform: rotate(90deg) scale(0, 0);
   }
+
   100% {
     opacity: 1;
     transform: rotate(0deg) scale(1, 1);
@@ -906,6 +932,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: rotate(90deg) scale(0, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: rotate(0deg) scale(1, 1);
@@ -917,6 +944,7 @@ footer ul li > a {
     opacity: 0;
     transform: rotate(90deg) scale(1.5, 1.5);
   }
+
   100% {
     opacity: 1;
     transform: rotate(0deg) scale(1, 1);
@@ -928,6 +956,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: rotate(90deg) scale(1.5, 1.5);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: rotate(0deg) scale(1, 1);
@@ -950,6 +979,7 @@ footer ul li > a {
   0% {
     transform: scale(1, 1);
   }
+
   100% {
     transform: scale(0, 0);
   }
@@ -960,6 +990,7 @@ footer ul li > a {
     -webkit-transform: scale(1, 1);
     ;
   }
+
   100% {
     -webkit-transform: scale(0, 0);
     ;
@@ -971,6 +1002,7 @@ footer ul li > a {
     opacity: 0;
     transform: translateY(-50px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0px);
@@ -982,6 +1014,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: translateY(-50px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateY(0px);
@@ -993,6 +1026,7 @@ footer ul li > a {
     opacity: 0;
     transform: translateY(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0px);
@@ -1004,6 +1038,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: translateY(50px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateY(0px);
@@ -1015,6 +1050,7 @@ footer ul li > a {
     opacity: 0;
     transform: translateX(-50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0px);
@@ -1026,6 +1062,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: translateX(-50px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateX(0px);
@@ -1037,6 +1074,7 @@ footer ul li > a {
     opacity: 0;
     transform: translateX(50px);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0px);
@@ -1048,6 +1086,7 @@ footer ul li > a {
     opacity: 0;
     -webkit-transform: translateX(50px);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: translateX(0px);
@@ -1058,6 +1097,7 @@ footer ul li > a {
   0% {
     transform: rotateY(0deg);
   }
+
   100% {
     transform: rotateY(90deg);
   }
@@ -1067,6 +1107,7 @@ footer ul li > a {
   0% {
     -webkit-transform: rotateY(0deg);
   }
+
   100% {
     -webkit-transform: rotateY(90deg);
   }
@@ -1076,6 +1117,7 @@ footer ul li > a {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -1085,6 +1127,7 @@ footer ul li > a {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -1094,6 +1137,7 @@ footer ul li > a {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -1103,6 +1147,7 @@ footer ul li > a {
   0% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -1113,6 +1158,7 @@ footer ul li > a {
     -webkit-transform-origin: 50% 50%;
     -webkit-transform: rotate(0deg);
   }
+
   100% {
     -webkit-transform-origin: 50% 50%;
     -webkit-transform: rotate(360deg);
@@ -1124,6 +1170,7 @@ footer ul li > a {
     transform-origin: 50% 50%;
     transform: rotate(0deg);
   }
+
   100% {
     transform-origin: 50% 50%;
     transform: rotate(360deg);
@@ -1134,9 +1181,11 @@ footer ul li > a {
   0% {
     transform: rotateY(0deg);
   }
+
   50% {
     transform: rotateY(180deg);
   }
+
   100% {
     transform: rotateX(-180deg);
   }
@@ -1146,14 +1195,15 @@ footer ul li > a {
   0% {
     -webkit-transform: rotateY(0deg);
   }
+
   50% {
     -webkit-transform: rotateY(180deg);
   }
+
   100% {
     -webkit-transform: rotateX(-180deg);
   }
 }
-/* 棣栭〉鏈夊姩鐢� */
 
 .index-page .nav {
   -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
@@ -1322,8 +1372,6 @@ footer ul li > a {
   color: #707d8d;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  /*-webkit-animation: xLeftMatrix 2s ease-out;
-    animation: xLeftMatrix 2s ease-out;*/
 }
 
 .entry-title {
