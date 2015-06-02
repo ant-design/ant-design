@@ -1,9 +1,13 @@
-# 失效
+# Disabled Button
 
-- description: 灰色的
+- description: 失效按钮
 
 ---
 
 ````html
-<button disabled>按钮</button>
+<div>
+<button class="btn btn-primary disabled">主按钮</button>
+<button class="btn btn-info disabled">次按钮</button>
+<button class="btn btn-ghost disabled">幽灵按钮</button>
+</div>
 ````
