@@ -1,5 +1,5 @@
 {
-  "name": "ant-design",
+  "name": "antd",
   "version": "0.0.1",
   "description": "Design for ease",
   "homepage": "http://ant-design.github.io/",
@@ -13,7 +13,7 @@
   "dependencies": {
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
-    "rc-calendar": "~3.5.3",
+    "rc-calendar": "~3.7.0",
     "rc-style": "git://github.com/react-component/style.git"
   },
   "devDependencies": {
