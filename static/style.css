@@ -318,12 +318,12 @@ footer ul {
 footer ul li {
     float: left;
     width: 25%;
-    padding: 5px 2% 10px;
+    padding: 5px 2% 15px;
 }
 footer ul li>h2 {
     font-size: 1em;
     color: #5C6B77;
-    margin: 10px auto;
+    margin: 10px auto 0;
     font-weight: normal;
 }
 footer ul li>h3,
