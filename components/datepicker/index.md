@@ -33,8 +33,9 @@
 
   选择日期的回调。
 
+
 <style>
-.rc-calendar-picker-input {
+.code-box-demo .rc-calendar-picker-input {
   width: 200px;
 }
 </style>
