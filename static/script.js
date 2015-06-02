@@ -98,12 +98,12 @@ $(function() {
       var self = this;
       self.listBox = $(".aside-container>ul");
       if (!self.listBox.length) {
-        return
+        return;
       }
       self.getUrlNum();
       self.listBox.children().eq(self.num).attr("open", true).find("ul").css("display", "block");
       //添加标题事件；
-      self.addTitleEvent()
+      self.addTitleEvent();
     },
     getUrlNum: function() {
       var self = this,
@@ -126,16 +126,16 @@ $(function() {
         if (parent.attr("open")) {
           parent.removeAttr("open");
           if (parent.index() == self.num) {
-            $(this).addClass("current")
+            $(this).addClass("current");
           }
         } else {
           parent.attr("open", true);
           if (parent.index() == self.num) {
-            $(this).removeClass("current")
+            $(this).removeClass("current");
           }
         }
         parent.find("ul").slideToggle(300);
-      })
+      });
     }
   };
   listFunc.init();
