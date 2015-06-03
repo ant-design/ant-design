@@ -11,44 +11,34 @@
 
 ## 何时使用
 
-当你再次和我说起 青春时的故事
-我正在下着雨的无锡 乞讨着生活的权利
-前一天早晨 我睁开眼已是江南
-他们说柔软的地方 总会发生柔软的事
-那年的舞台上 说谎的人一直歌唱
-大不列颠的广场上 有没有鸽子飞翔
-青春和瞎子一起 变成了哑巴
-今天扯平了我们的当年 分食了理想
-
+O(∩_∩)O
 
 ## 为什么使用
 
-你可知道你的名字解释了我的一生
-碎了满天的往事如烟 与世无争
-当你装满行李 回到故乡
-我的余生 却再也没有北方
+O(∩_∩)O
 
-有一天我又梦见 那个装满乐器的教室
-你还站在门口 一脸羞涩的表情
-你说这么多年你还没找到 让你心动的男人
-我说去他妈的爱情 都是过眼云烟的东西
+## 怎么使用
 
-我的余生 都用来寻找北方
+按钮的基础样式为 `.ant-btn`, 其中 ant 是类名空间前缀，可以自定义。
 
+通过类组装的形式来产生不同的按钮样式，推荐遵循如下顺序：
 
-<style>
-h3 {
-  font-size: 14px;
-  color: #999;
-}
-.content-block div {
-  margin-bottom: 15px;
-}
-.text-tip {
-  font-size: 12px;
-  color: #ff8c65;
-}
-span.separate {
-  margin: 0 8px;
-}
-</style>
+**.ant-btn > .ant-btn-primary | .ant-btn-default | .ant-btn-ghost > .ant-btn-circle | .ant-btn-circle-outline > .ant-btn-lg | .ant-btn-sm**
+
+按钮的样式参数说明如下：
+
+- `.ant-btn` 
+
+按钮基础样式, 用于初始化按钮
+
+- `.ant-btn-primary` `.ant-btn-default` `.ant-btn-ghost` 
+
+使用这些列出的类可以快速创建一个带有预定义样式的按钮。
+ 
+- `.ant-btn-circle` `.ant-btn-circle-outline` 
+
+用于创建圆形按钮，`.ant-btn-circle-outline` 为描边按钮
+
+- `.ant-btn-lg` `.ant-btn-sm`
+
+定义按钮大小尺寸, 目前提供三种尺寸：大中小，默认为中

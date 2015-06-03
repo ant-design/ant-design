@@ -1,30 +1,34 @@
 # Menu Btu
 
-- description: 菜单按钮
+- order: 6
+
+菜单按钮
+
+`注`: 下拉按钮的 icon 大小统一成 10px。
 
 ---
 
 ````html
-<div class="content-block">
-  <button class="btn btn-primary btn-menu btn-lg">
+<div>
+  <button class="ant-btn ant-btn-primary ant-btn-menu ant-btn-lg">
     <span>大号菜单</span>
     <span icon="chevron-down"></span>
   </button>
-  <button class="btn btn-primary btn-menu">
+  <button class="ant-btn ant-btn-primary ant-btn-menu">
     <span>中号菜单</span>
     <span icon="chevron-down"></span>
   </button>
-  <button class="btn btn-primary btn-menu sm">
+  <button class="ant-btn ant-btn-primary ant-btn-menu sm">
     <span>小号菜单</span>
     <span icon="chevron-down"></span>
   </button>
-  <button class="btn btn-primary btn-circle btn-menu btn-lg">
+  <button class="ant-btn ant-btn-primary ant-btn-circle ant-btn-menu ant-btn-lg">
     <span icon="chevron-down"></span>
   </button>
-  <button class="btn btn-ghost btn-circle btn-menu">
+  <button class="ant-btn ant-btn-ghost ant-btn-circle ant-btn-menu">
     <span icon="chevron-down"></span>
   </button>
-  <button class="btn btn-info btn-circle-outline btn-menu btn-sm">
+  <button class="ant-btn ant-btn-default ant-btn-circle-outline ant-btn-menu ant-btn-sm">
     <span icon="chevron-down"></span>
   </button>
 </div>

@@ -1,15 +1,17 @@
 # Loading Button
 
-- description: 加载按钮
+- order: 5
+
+加载按钮
 
 ---
 
 ````html
 <div>
-  <button class="btn btn-primary btn-circle">
+  <button class="ant-btn ant-btn-primary ant-btn-circle">
 	<span icon="loading" ></span>
   </button>
-  <button class="btn btn-primary">
+  <button class="ant-btn ant-btn-primary">
 	<span>加载按钮</span>
 	<span icon="loading"></span>
   </button>
