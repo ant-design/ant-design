@@ -1,4 +1,3 @@
-require('rc-calendar/assets/index.css');
 var React = require('react');
 var Calendar = require('rc-calendar');
 var DatePicker = Calendar.Picker;
