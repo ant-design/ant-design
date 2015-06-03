@@ -1,18 +1,19 @@
 $(function() {
   $('.component-demos .icon-all').on('click', function() {
-    if ($(this).hasClass('expand')) {
-      $(this).removeClass('expand');
-      $('.code-box .highlight').animate({
-        height: 'hide',
-        opacity: 0
-      }, 150);
-    } else {
-      $(this).addClass('expand');
-      $('.code-box .highlight').animate({
-        height: 'show',
-        opacity: 1
-      }, 150);
-    }
+    //if ($(this).hasClass('expand')) {
+    //  $(this).removeClass('expand');
+    //  $('.code-box .highlight').animate({
+    //    height: 'hide',
+    //    opacity: 0
+    //  }, 150);
+    //} else {
+    //  $(this).addClass('expand');
+    //  $('.code-box .highlight').animate({
+    //    height: 'show',
+    //    opacity: 1
+    //  }, 150);
+    //}
+      $('.code-box .highlight').slideToggle(150);
   });
 
   $('.code-box').each(function(i, item) {
@@ -21,10 +22,11 @@ $(function() {
   });
 
   $('.code-boxes').on('click', '.collapse', function() {
-    $(this).parent().parent().find('.highlight').animate({
-      height: 'toggle',
-      opacity: 'toggle'
-    }, 150);
+    //$(this).parent().parent().find('.highlight').animate({
+    //  height: 'toggle',
+    //  opacity: 'toggle'
+    //}, 150);
+      $(this).parent().parent().find('.highlight').slideToggle(150);
   });
 
   var navFunc = {
@@ -89,7 +91,6 @@ $(function() {
   navFunc.init();
   var listFunc = {
     num: 0,
-    cnum: 0,
     init: function() {
       var self = this;
       self.listBox = $(".aside-container>ul");
@@ -110,7 +111,6 @@ $(function() {
         var m = self.listBox.find("a").eq(i);
         if (m.attr("href") == "./" || url.indexOf(m.attr("href")) >= 0) {
           self.num = m.parent().parent().parent().index();
-          self.cnum = m.parent().index();
         }
       }
     },
