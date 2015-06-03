@@ -11,7 +11,7 @@ var Tooltip = antd.tooltip;
 
 React.render(
   <Tooltip title="提示文字">
-    <span>文字文字文字</span>
+    <span>鼠标移上来就会出现提示</span>
   </Tooltip>
 , document.getElementById('components-tooltip-demo-basic'));
 ````
