@@ -514,6 +514,25 @@ footer ul li > a {
   padding: 12px 20px;
 }
 
+.markdown > table {
+  border-collapse: collapse;
+  border-spacing: 0px;
+  empty-cells: show;
+  border: 1px solid #e9e9e9;
+  width: 75%;
+}
+
+.markdown > table th,
+.markdown > table td {
+  border: 1px solid #e9e9e9;
+  padding: 8px 16px;
+  text-align: left;
+}
+
+.markdown > table th {
+  background: #F7F7F7;
+}
+
 #api ~ ul > li > p > strong ~ code {
   background: #fff;
   color: #CC7300;
