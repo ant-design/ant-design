@@ -91,7 +91,6 @@ $(function() {
   navFunc.init();
   var listFunc = {
     num: 0,
-    cnum: 0,
     init: function() {
       var self = this;
       self.listBox = $(".aside-container>ul");
@@ -112,7 +111,6 @@ $(function() {
         var m = self.listBox.find("a").eq(i);
         if (m.attr("href") == "./" || url.indexOf(m.attr("href")) >= 0) {
           self.num = m.parent().parent().parent().index();
-          self.cnum = m.parent().index();
         }
       }
     },
