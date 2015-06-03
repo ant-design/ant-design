@@ -5,6 +5,8 @@ var GregorianCalendar = require('gregorian-calendar');
 var zhCn = require('gregorian-calendar/lib/locale/zh-cn');
 var CalendarLocale = require('rc-calendar/lib/locale/zh-cn');
 var DateTimeFormat = require('gregorian-calendar-format');
+var defaultCalendarValue = new GregorianCalendar(zhCn);
+defaultCalendarValue.setTime(Date.now());
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -38,6 +40,7 @@ module.exports = React.createClass({
       disabledDate={this.state.disabled}
       locale={CalendarLocale}
       orient={['top', 'left']}
+      defaultValue={defaultCalendarValue}
       showTime={this.props.showTime}
       showClear={false} />
     );
