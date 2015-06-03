@@ -13,7 +13,7 @@
   "dependencies": {
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
-    "rc-calendar": "~3.7.0",
+    "rc-calendar": "~3.8.0",
     "rc-style": "git://github.com/ant-design/style.git",
     "rc-tooltip": "~1.2.0"
   },
