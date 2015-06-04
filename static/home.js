@@ -163,10 +163,7 @@ $(function () {
             self.imgBox.removeClass("fn-alpha-out")
             //T.to(self.imgBox,.5,{alpha:1})
             self.imgBox.css("opacity",1);
-            $("body").css("background","#fff").addClass("index-page");
-            var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
-            header.removeAttr("style");
-            footer.removeAttr("style")
+
         },
         textTween:function (){
             var self=this;
@@ -181,7 +178,14 @@ $(function () {
         addLine:function (){
             var self=bannerAnim;
             var a_lineBox=[],end_num=0;
-            self.textTween();
+            setTimeout(function (){
+                self.textTween();
+                $("body").css("background","#fff").addClass("index-page");
+                var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
+                header.removeAttr("style");
+                footer.removeAttr("style")
+            },500);
+
             function addLine(i,j,lineBox){
                 var t=new C.Shape();
                 if(j%2){
