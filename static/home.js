@@ -182,7 +182,6 @@ $(function () {
                 self.textTween();
                 $("body").addClass("index-page");
                 var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
-                header.removeAttr("style");
                 footer.removeAttr("style")
             },500);
 
