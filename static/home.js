@@ -188,9 +188,6 @@ $(function () {
             var a_lineBox=[],end_num=0;
             setTimeout(function (){
                 self.textTween();
-                $("body").addClass("index-page");
-                var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
-                footer.removeAttr("style")
             },500);
 
             function addLine(i,j,lineBox){
