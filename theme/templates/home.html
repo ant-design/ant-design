@@ -1,0 +1,33 @@
+{% extends "page.html" %}
+
+{% block content %}
+<div class="main-box" id="main">
+  <div class="banner-box">
+    <div id="bannerAnim"></div>
+    <div class="banner-img fn-alpha-out"></div>
+    <div class="banner-entry fn-hide">
+        <div class="entry-title">Ant</div>
+        <div class="entry-title">Design</div>
+        <div class="entry-slogan">
+          {{ config.site.description }}
+        </div>
+        <a class="entry-link" href="/docs/start">
+          <i class="iconfont-home icon-lego"></i>
+          开始使用
+        </a>
+    </div>
+  </div>
+</div>
+<script src="/static/homeLoad.js"></script>
+<style>
+.main-wrapper {
+  overflow: hidden;
+  position: relative;
+  height: calc(100% - 190px);
+  min-height: 500px;
+  background: #fff;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(0.785, 0.135, 0.15, 0.86), height .5s ease-out;
+}
+</style>
+{% endblock %}

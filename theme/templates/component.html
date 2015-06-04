@@ -1,1 +1,25 @@
 {% extends "page.html" %}
+
+{% block aside %}
+{%- include "aside.html" %}
+{% endblock %}
+
+{% block content %}
+<section class="main-container">
+  <article class="markdown">
+    <h1>
+      {{ post.title }} {{ post.meta.chinese }}
+      {%- if post.meta.API %}
+      <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
+        <i class="iconfont-home icon-externallink"></i>
+        API 使用说明
+      </a>
+      {%- endif %}
+    </h1>
+    {{ post.html }}
+    {%- if post.meta.template === 'component' && !post.meta.nodemos %}
+    {%- include "demos.html" %}
+    {%- endif %}
+  </article>
+</section>
+{% endblock %}
