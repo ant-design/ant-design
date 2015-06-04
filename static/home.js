@@ -180,7 +180,7 @@ $(function () {
             var a_lineBox=[],end_num=0;
             setTimeout(function (){
                 self.textTween();
-                $("body").css("background","#fff").addClass("index-page");
+                $("body").addClass("index-page");
                 var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
                 header.removeAttr("style");
                 footer.removeAttr("style")
