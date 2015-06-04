@@ -117,6 +117,7 @@ header {
   overflow: hidden;
   border-bottom: 1px solid #eee;
   font-size: 16px;
+
 }
 
 .fn-hide {
@@ -1468,14 +1469,17 @@ footer ul li > a {
   }
 }
 /***************************************************************************/
+.index-page header{
+    transition: opacity 0.5S;
+}
 .index-page .nav {
   -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
   animation: yTopMatrix .5s ease-out .5s backwards;
 }
 
 .index-page footer {
-  -webkit-animation: yBottomMatrix .5s ease-out .7s backwards;
-  animation: yBottomMatrix .5s ease-out .7s backwards;
+  -webkit-animation: yBottomMatrix .5s ease-out 1s backwards;
+  animation: yBottomMatrix .5s ease-out 1s backwards;
 }
 
 .index-page .logo {
