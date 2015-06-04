@@ -11,7 +11,7 @@
 
 | 成员     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| title    | 日期           | React.Element   | 无           |
+| title    | 标题           | React.Element   | 无           |
 | content   | 面板内容 | React.Element   | 无 |
 | onOk     | 确定回调 | function | 无           |
 | onCancel | 取消回调 | function | 无           |
