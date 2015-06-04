@@ -56,56 +56,11 @@
         </li>
       </ul>
     </nav>
-    <div class="nav-phone-icon"></div>
   </header>
-  {%- if post.filepath === 'README.md' %}
-  <!-- 首页 -->
-  <div class="main">
-    <div class="main-box" id="main">
-      <div class="banner-box">
-        <div id="bannerAnim"></div>
-        <div class="banner-img fn-alpha-out"></div>
-        <div class="banner-entry fn-hide">
-            <div class="entry-title">Ant</div>
-            <div class="entry-title">Design</div>
-            <div class="entry-slogan">
-              {{ config.site.description }}
-            </div>
-            <a class="entry-link" href="/docs/start">
-              <i class="iconfont-home icon-lego"></i>
-              开始使用
-            </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="/static/homeLoad.js"></script>
-  {%- else %}
   <div class="main-wrapper">
-    {%- if post.meta.template === 'component' %}
-    {%- include "aside.html" %}
-    <section class="main-container">
-    {%- else %}
-    <section class="main-container main-container-center">
-    {%- endif %}
-      <article class="markdown">
-        <h1>
-          {{ post.title }} {{ post.meta.chinese }}
-          {%- if post.meta.API %}
-          <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
-            <i class="iconfont-home icon-externallink"></i>
-            API 使用说明
-          </a>
-          {%- endif %}
-        </h1>
-        {{ post.html }}
-        {%- if post.meta.template === 'component' && !post.meta.nodemos %}
-        {%- include "demos.html" %}
-        {%- endif %}
-      </article>
-    </section>
+    {% block aside %}{% endblock %}
+    {% block content %}{% endblock %}
   </div>
-  {%- endif %}
   {%- include "footer.html" %}
 </body>
 </html>

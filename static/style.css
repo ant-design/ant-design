@@ -487,7 +487,6 @@ footer ul li > a {
 .main-wrapper {
   display: -webkit-flex;
   display: flex;
-  background: #f9f9f9;
 }
 
 .main-container {

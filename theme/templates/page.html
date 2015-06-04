@@ -9,3 +9,15 @@
 {% endblock %}
 
 {% block description %}{% if post.summay %}{{post.summary}}{% endif %}{% endblock %}
+
+{% block aside %}{% endblock %}
+
+{% block content %}
+<section class="main-container main-container-center">
+  <article class="markdown">
+    <h1>{{ post.title }} {{ post.meta.chinese }}</h1>
+    {{ post.html }}
+  </article>
+</section>
+{% endblock %}
+
