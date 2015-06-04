@@ -152,7 +152,14 @@ $(function () {
                 T.set(self.imgBox,{scale:self.scale,transformPerspective:400});
                 T.killTweensOf(self.imgBox,true);
                 //console.log(_x)
-                T.to(self.imgBox,.5,{rotationY:_x/60,x:_x})
+                var tobj={};//{rotationY:_x/60,x:_x};
+                if(navigator.userAgent.indexOf('Firefox') >= 0){
+                    tobj.x=_x
+                }else{
+                    tobj.x=_x;
+                    tobj.rotationY=_x/60;
+                }
+                T.to(self.imgBox,.5,tobj);
             })
         },
         endTween:function (){

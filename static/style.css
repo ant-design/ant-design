@@ -313,6 +313,7 @@ header {
   width: 2400px;
   transform-origin: center center;
   -webkit-transform-origin: center center;
+    -moz-transform-origin: center center;
     transition: opacity 0.5s ease-out;
     -webkit-transition: opacity 0.5s ease-out;
 }
@@ -357,7 +358,7 @@ header {
   height: 50px;
     margin: auto;
   animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-
+    -webkit-animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;;
 }
 .load-box span{
     display: inline-block;
@@ -1541,8 +1542,8 @@ footer ul li > a {
 }
 
 .index-page footer {
-  -webkit-animation: yBottomMatrix .5s ease-out 1s backwards;
-  animation: yBottomMatrix .5s ease-out 1s backwards;
+  -webkit-animation: yBottomMatrix .5s ease-out 2s backwards;
+  animation: yBottomMatrix .5s ease-out 2s backwards;
 }
 
 .index-page .logo {

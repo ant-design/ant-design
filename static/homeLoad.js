@@ -12,6 +12,7 @@ $(function () {
             self.main=$(".main");
             self.footer=$("#footer")||$("footer");
             self.footer.css("opacity",0);
+            self.body.addClass("index-page");
             self.addLoad()
         },
         addLoad:function (){
