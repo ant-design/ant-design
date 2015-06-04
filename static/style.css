@@ -142,6 +142,7 @@ header {
 
 .logo img {
   float: left;
+  margin-top: -7px;
 }
 
 .search {
@@ -156,7 +157,7 @@ header {
 .search input[type="text"] {
   border: transparent;
   outline: none;
-  width: 150px;
+  width: 160px;
   height: 22px;
   padding: 0 0 0 20px;
   color: #999;
