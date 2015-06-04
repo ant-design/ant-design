@@ -15,6 +15,7 @@
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
     "rc-calendar": "~3.8.0",
+    "rc-dialog": "~4.1.1",
     "rc-style": "git://github.com/ant-design/style.git",
     "rc-tooltip": "~1.2.0"
   },
