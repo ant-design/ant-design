@@ -310,8 +310,8 @@ header {
   background: url("https://t.alipayobjects.com/images/T1CFtgXb0jXXXXXXXX.jpg") center no-repeat;
   height: 1300px;
   width: 2400px;
-  transform-origin: 0 0;
-  -webkit-transform-origin: 0 0;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
     transition: opacity 0.5s ease-out;
     -webkit-transition: opacity 0.5s ease-out;
 }
@@ -355,7 +355,7 @@ header {
   width: 50px;
   height: 50px;
     margin: auto;
-  animation: loadTween 1.5S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+  animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
 
 }
 .load-box span{
@@ -697,45 +697,49 @@ footer ul li > a {
 }
 
 .yoyo-x-right{
-    animation: xRightMatrixR 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: xRightMatrixR 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: xRightMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: xRightMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 .yoyo-x-left{
-    animation: xLeftMatrixR 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: xLeftMatrixR 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: xLeftMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: xLeftMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 
 .yoyo-load0{
-    animation: Load0 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: Load0 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: Load0 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: Load0 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 .yoyo-load1{
-    animation: Load1 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: Load1 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: Load1 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: Load1 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 .yoyo-load2{
-    animation: Load2 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: Load2 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: Load2 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: Load2 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 .yoyo-load3{
-    animation: Load3 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: Load3 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: Load3 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: Load3 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 .yoyo-load4{
-    animation: Load4 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: Load4 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: Load4 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: Load4 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 .yoyo-load5{
-    animation: Load5 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-    -webkit-animation: Load5 1s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: Load5 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: Load5 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
 @keyframes Load5 {
     0% {
         opacity: 0;
         transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -746,8 +750,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -757,8 +765,12 @@ footer ul li > a {
         opacity: 0;
         transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -769,8 +781,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -780,8 +796,12 @@ footer ul li > a {
         opacity: 0;
         transform: translate(-30px,-30px) rotate(30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translate(-30px,-30px) rotate(30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -792,8 +812,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translate(-30px,-30px) rotate(30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translate(-30px,-30px) rotate(30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -803,8 +827,12 @@ footer ul li > a {
         opacity: 0;
         transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -815,8 +843,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translate(-30px,30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -826,8 +858,12 @@ footer ul li > a {
         opacity: 0;
         transform: translate(30px,30px) rotate(30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translate(30px,30px) rotate(30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -838,8 +874,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translate(30px,30px) rotate(30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translate(30px,30px) rotate(30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -850,8 +890,12 @@ footer ul li > a {
         opacity: 0;
         transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -862,8 +906,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translate(30px,-30px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translate(0,0) rotate(0deg) scale(1, 1);
     }
@@ -874,8 +922,12 @@ footer ul li > a {
         opacity: 0;
         transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translateX(0px) rotate(0deg) scale(1, 1);
     }
@@ -886,8 +938,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translateX(0px) rotate(0deg) scale(1, 1);
     }
@@ -898,8 +954,12 @@ footer ul li > a {
         opacity: 0;
         transform: translateX(50px) rotate(30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        transform: translateX(50px) rotate(30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         transform: translateX(0px) rotate(0deg) scale(1, 1);
     }
@@ -910,8 +970,12 @@ footer ul li > a {
         opacity: 0;
         -webkit-transform: translateX(50px)  rotate(30deg) scale(1.5, 1.5);
     }
+    20% {
+        opacity: 0;
+        -webkit-transform: translateX(50px)  rotate(30deg) scale(1.5, 1.5);
+    }
 
-    100% {
+    80% {
         opacity: 1;
         -webkit-transform: translateX(0px)  rotate(0deg) scale(1, 1);
     }
