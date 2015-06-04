@@ -11,7 +11,6 @@ $(function () {
             self.header=$("#header")||$("header");
             self.main=$(".main");
             self.footer=$("#footer")||$("footer");
-            self.footer.css("opacity",0);
             self.addLoad()
         },
         addLoad:function (){
