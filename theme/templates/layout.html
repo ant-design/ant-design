@@ -18,7 +18,7 @@
   <script src="https://t.alipayobjects.com/images/T12TdfXlpbXXXXXXXX.js"></script>
   <script src="/static/script.js"></script>
 </head>
-<body class="{%- if post.filepath === 'README.md' %}index-page{%- endif %}">
+<body style="{%- if post.filepath === 'README.md' %}background: #fff;{%- endif %}">
   <header id="header">
     <a class="logo" href="/">
       <img width="60" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
@@ -64,7 +64,7 @@
     <div class="main-box" id="main">
       <div class="banner-box">
         <div id="bannerAnim"></div>
-        <div class="banner-img"></div>
+        <div class="banner-img fn-alpha-out"></div>
         <div class="banner-entry fn-hide">
             <div class="entry-title">Ant</div>
             <div class="entry-title">Design</div>
@@ -79,9 +79,7 @@
       </div>
     </div>
   </div>
-  <script src="/static/easeljs-0.8.0.min.js"></script>
-  <script src="/static/TweenMax.min.js"></script>
-  <script src="/static/home.js"></script>
+  <script src="/static/homeLoad.js"></script>
   {%- else %}
   <div class="main-wrapper">
     {%- if post.meta.template === 'component' %}

@@ -22,7 +22,6 @@ $(function() {
 
   $('.code-boxes').on('click', '.collapse', function() {
     var highlightBox = $(this).parent().parent().find('.highlight');
-    console.log(highlightBox.is(':visible'));
     highlightBox.animate({
       height: highlightBox.is(':visible') ? 'hide' : 'show',
       opacity: highlightBox.is(':visible') ? 0 : 1
