@@ -91,10 +91,10 @@ $(function () {
             self.imgBox.css(imgSty);
             if (w_s > h_s) {
                 self.animBox.css({"margin-top": (self.p_h - self.h * w_s) / 2,"margin-left":(self.p_w - self.w * w_s) / 2});
-                self.imgBox.css({"margin-top": (self.p_h - self.h * w_s) / 2,"margin-left":(self.p_w - self.w * w_s) / 2});
+                self.imgBox.css({"margin-top": (self.p_h - self.h * w_s) / 2-(1-scale)*self.h/2,"margin-left":(self.p_w - self.w * w_s) / 2-(1-scale)*self.w/2});
             } else {
                 self.animBox.css({"margin-left": (self.p_w - self.w * h_s) / 2,"margin-top": (self.p_h - self.h * h_s) / 2});
-                self.imgBox.css({"margin-left": (self.p_w - self.w * h_s) / 2,"margin-top": (self.p_h - self.h * h_s) / 2});
+                self.imgBox.css({"margin-left": (self.p_w - self.w * h_s) / 2-(1-scale)*self.w/2,"margin-top": (self.p_h - self.h * h_s) / 2-(1-scale)*self.h/2});
             }
         },
         start: function () {
@@ -142,16 +142,17 @@ $(function () {
         addMouseAnim:function (){
             var self=this,img_x=self.imgBox;
             $("body").bind("mousemove",function (e){
-                var _x=-(e.pageX-$(this).width()/2)/35,_y= -(e.pageY-$(this).height()/2)/35;
+                var _x=-(e.pageX-$(this).width()/2)/40;//,_y= -(e.pageY-$(this).height()/2)/35;
                 if(_x>self.w*.04){
                     _x=self.w*.04
                 }
-                if(_y>self.h*.04){
-                    _y=self.h*.04
-                }
-                T.set(self.imgBox,{scale:self.scale});
+                //if(_y>self.h*.04){
+                //    _y=self.h*.04
+                //}
+                T.set(self.imgBox,{scale:self.scale,transformPerspective:400});
                 T.killTweensOf(self.imgBox,true);
-                T.to(self.imgBox,.5,{x:_x,y:_y})
+                //console.log(_x)
+                T.to(self.imgBox,.5,{rotationY:_x/60,x:_x})
             })
         },
         endTween:function (){
