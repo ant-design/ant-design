@@ -21,9 +21,11 @@ $(function() {
   });
 
   $('.code-boxes').on('click', '.collapse', function() {
-    $(this).parent().parent().find('.highlight').animate({
-      height: 'toggle',
-      opacity: 'toggle'
+    var highlightBox = $(this).parent().parent().find('.highlight');
+    console.log(highlightBox.is(':visible'));
+    highlightBox.animate({
+      height: highlightBox.is(':visible') ? 'hide' : 'show',
+      opacity: highlightBox.is(':visible') ? 0 : 1
     }, 150);
   });
 
