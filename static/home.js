@@ -180,7 +180,7 @@ $(function () {
             var a_lineBox=[],end_num=0;
             setTimeout(function (){
                 self.textTween();
-                $("body").css("background","#fff").addClass("index-page");
+                $("body").addClass("index-page");
                 var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
                 header.removeAttr("style");
                 footer.removeAttr("style")
@@ -189,11 +189,11 @@ $(function () {
             function addLine(i,j,lineBox){
                 var t=new C.Shape();
                 if(j%2){
-                    t.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).mt(0,0).lt(0,self.lineData[i].h);
+                    t.graphics.s(self.lineData[i].color[0]).ss(self.lineData[i].line).mt(0,0).lt(0,self.lineData[i].h);
                     var at=Math.floor(j/2);
                     t.x=self.lineData[i].w*at
                 }else{
-                    t.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).mt(0,0).lt(self.lineData[i].w,0);
+                    t.graphics.s(self.lineData[i].color[0]).ss(self.lineData[i].line).mt(0,0).lt(self.lineData[i].w,0);
                     var at=j/2;
                     t.y=self.lineData[i].h*at;
                 }
@@ -205,14 +205,14 @@ $(function () {
                 if(self.lineData[i].circ.length>0){
                     for(var j=0;j<self.lineData[i].circ.length;j++){
                         var circ=new C.Shape();
-                        circ.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).dc(self.lineData[i].circ[j].x+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].y+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].r/2);
+                        circ.graphics.s(self.lineData[i].color[0]).ss(self.lineData[i].line).dc(self.lineData[i].circ[j].x+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].y+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].r/2);
                         lineBox.addChild(circ);
                         T.from(circ,.5,{alpha:0})
                     }
                 }
                 else{
                     var circ=new C.Shape();
-                    circ.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).dc(self.lineData[i].circ.x+self.lineData[i].circ.r/2,self.lineData[i].circ.y+self.lineData[i].circ.r/2,self.lineData[i].circ.r/2);
+                    circ.graphics.s(self.lineData[i].color[0]).ss(self.lineData[i].line).dc(self.lineData[i].circ.x+self.lineData[i].circ.r/2,self.lineData[i].circ.y+self.lineData[i].circ.r/2,self.lineData[i].circ.r/2);
                     lineBox.addChild(circ);
                     T.from(circ,.5,{alpha:0})
                 }
