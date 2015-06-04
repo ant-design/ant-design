@@ -1,5 +1,4 @@
 $(function () {
-    var animEndStr = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
     var getTransform = function () {
         var style = "transform",
             anim = "animation",
@@ -28,26 +27,25 @@ $(function () {
     };
     var C=createjs||{},T=TweenMax||{};
     var bannerAnim = {
-        w: 2185,
-        h: 1062,
+        w: 2400,
+        h: 1300,
         p_w: 0,
         p_h: 0,
-        img: "https://t.alipayobjects.com/images/T1URpfXeXtXXXXXXXX.jpg",
         stage: null,
         Canvas: null,
         lineData:[
-            {x:225,y:785,line:3,color:"#BEC4C8",w:70,h:70,rotate:-19,circ:{x:10,y:10,r:50}},
-            {x:870,y:245,w:70,h:70,line:3,color:"#BEC4C8",circ:{x:10,y:10,r:50}},
-            {x:940,y:455,w:230,h:110,line:3,color:"#6EB4E0",circ:[{x:20,y:15,r:80},{x:125,y:15,r:80}]},
-            {x:1160,y:670,w:410,h:110,line:3,color:"#F0776F",circ:[{x:60,y:15,r:80},{x:165,y:15,r:80},{x:285,y:15,r:80}]},
-            {x:1285,y:170,w:484,h:110,line:3,color:"#BEC4C8",circ:[{x:30,y:15,r:80},{x:145,y:15,r:80},{x:265,y:15,r:80},{x:375,y:15,r:80}]},
-            {x:1330,y:520,w:70,h:70,line:3,color:"#F0776F",circ:{x:10,y:10,r:50}},
-            {x:1435,y:365,w:200,h:190,line:3,color:"#BEC4C8",circ:[{x:20,y:10,r:75},{x:110,y:10,r:75},{x:20,y:100,r:75},{x:110,y:100,r:75}]},
-            {x:1655,y:325,w:115,h:320,line:3,color:"#F0776F",circ:[{x:25,y:15,r:75},{x:35,y:25,r:55},{x:25,y:115,r:75},{x:35,y:125,r:55},{x:25,y:225,r:75},{x:35,y:235,r:55}]},
-            {x:1680,y:735,w:70,h:70,line:3,color:"#F0776F",circ:{x:10,y:10,r:50}},
-            {x:1845,y:485,w:115,h:410,line:3,color:"#6EB4E0",circ:[{x:25,y:15,r:75},{x:35,y:25,r:55},{x:25,y:115,r:75},{x:35,y:125,r:55},{x:25,y:215,r:75},{x:35,y:225,r:55},{x:25,y:310,r:75},{x:35,y:320,r:55}]},
-            {x:1865,y:290,w:70,h:70,line:3,color:"#F0776F",circ:{x:10,y:10,r:50}},
-            {x:1995,y:280,w:230,h:420,line:3,color:"#6EB4E0",circ:[{x:25,y:30,r:75},{x:35,y:40,r:55},{x:25,y:175,r:75},{x:35,y:185,r:55},{x:25,y:310,r:75},{x:35,y:320,r:55}, {x:130,y:30,r:75},{x:140,y:40,r:55},{x:130,y:175,r:75},{x:140,y:185,r:55},{x:130,y:310,r:75},{x:140,y:320,r:55}]},
+            {x:270,y:795,line:4,color:["rgba(190,196,200,1)","rgba(190,196,200,0)"],w:70,h:70,rotate:-15,circ:{x:10,y:10,r:50}},
+            {x:850,y:220,w:70,h:70,line:4,color:["rgba(190,196,200,1)","rgba(190,196,200,0)"],circ:{x:10,y:10,r:50}},
+            {x:930,y:445,w:230,h:110,line:4,color:["rgba(110,180,224,1)","rgba(110,180,224,0)"],circ:[{x:20,y:15,r:80},{x:125,y:15,r:80}]},
+            {x:1160,y:670,w:440,h:115,line:4,color:["rgba(240,119,111,1)","rgba(240,119,111,0)"],circ:[{x:60,y:15,r:80},{x:178,y:15,r:80},{x:308,y:15,r:80}]},
+            {x:1290,y:135,w:524,h:115,line:4,color:["rgba(190,196,200,1)","rgba(190,196,200,0)"],circ:[{x:40,y:15,r:80},{x:165,y:15,r:80},{x:295,y:15,r:80},{x:415,y:15,r:80}]},
+            {x:1345,y:510,w:75,h:75,line:4,color:["rgba(240,119,111,1)","rgba(240,119,111,0)"],circ:{x:10,y:10,r:55}},
+            {x:1455,y:340,w:210,h:210,line:4,color:["rgba(190,196,200,1)","rgba(190,196,200,0)"],circ:[{x:20,y:20,r:75},{x:120,y:20,r:75},{x:20,y:110,r:75},{x:120,y:110,r:75}]},
+            {x:1695,y:300,w:120,h:345,line:4,color:["rgba(240,119,111,1)","rgba(240,119,111,0)"],circ:[{x:25,y:15,r:75},{x:35,y:25,r:55},{x:25,y:125,r:75},{x:35,y:135,r:55},{x:25,y:245,r:75},{x:35,y:255,r:55}]},
+            {x:1730,y:745,w:75,h:75,line:4,color:["rgba(240,119,111,1)","rgba(240,119,111,0)"],circ:{x:10,y:10,r:55}},
+            {x:1910,y:470,w:115,h:450,line:4,color:["rgba(110,180,224,1)","rgba(110,180,224,0)"],circ:[{x:25,y:20,r:75},{x:35,y:30,r:55},{x:25,y:130,r:75},{x:35,y:140,r:55},{x:25,y:240,r:75},{x:35,y:250,r:55},{x:25,y:340,r:75},{x:35,y:350,r:55}]},
+            {x:1920,y:260,w:75,h:75,line:4,color:["rgba(240,119,111,1)","rgba(240,119,111,0)"],circ:{x:10,y:10,r:55}},
+            {x:2070,y:250,w:230,h:455,line:4,color:["rgba(110,180,224,1)","rgba(110,180,224,0)"],circ:[{x:25,y:30,r:75},{x:35,y:40,r:55},{x:25,y:185,r:75},{x:35,y:195,r:55},{x:25,y:340,r:75},{x:35,y:350,r:55}, {x:140,y:30,r:75},{x:150,y:40,r:55},{x:140,y:185,r:75},{x:150,y:195,r:55},{x:140,y:340,r:75},{x:150,y:350,r:55}]},
         ],
         init: function () {
             var self = this;
@@ -68,31 +66,16 @@ $(function () {
 
             self.bannerResize();
             $(window).bind("resize", self.bannerResize);
-
-
-            self.loadImg();
-        },
-        loadImg: function () {
-            var self = this;
-            var loadBox = $("<div class='load-box'><em><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' width='50' height='50'></em>" +
-            "</div>").appendTo(self.box);
-            var img = new Image();
-            img.onload = function () {
-                loadBox.addClass("load-out").one(animEndStr, function () {
-                    loadBox.remove();
-                    self.start();
-                });
-            };
-            img.src = self.img;
+            self.start()
         },
         bannerResize: function () {
             var self = bannerAnim;
             self.p_w = self.box.parent().width();
             self.p_h = self.box.parent().height();
             //获取比例；
-            var w_s = self.p_w / self.w,
-                h_s = self.p_h / self.h;
-            var scale = w_s > h_s ? w_s : h_s;
+            var w_s = self.p_w / self.w+0.08,
+                h_s = self.p_h / self.h+0.08;
+            var scale=self.scale = w_s > h_s ? w_s : h_s;
             var tra = getTransform()[0];
             self.animBox.attr("style", "");
             self.imgBox.attr("style", "");
@@ -100,17 +83,18 @@ $(function () {
                 "width": self.w,
                 "height": self.h
             };
+
             boxSty[tra] = "scale(" + scale + "," + scale + ")";
             self.animBox.css(boxSty);
             var imgSty = {};
             imgSty[tra] = "scale(" + scale + "," + scale + ")";
             self.imgBox.css(imgSty);
             if (w_s > h_s) {
-                self.animBox.css("margin-top", (self.p_h - self.h * w_s) / 2);
-                self.imgBox.css("margin-top", (self.p_h - self.h * w_s) / 2);
+                self.animBox.css({"margin-top": (self.p_h - self.h * w_s) / 2,"margin-left":(self.p_w - self.w * w_s) / 2});
+                self.imgBox.css({"margin-top": (self.p_h - self.h * w_s) / 2,"margin-left":(self.p_w - self.w * w_s) / 2});
             } else {
-                self.animBox.css("margin-left", (self.p_w - self.w * h_s) / 2);
-                self.imgBox.css("margin-left", (self.p_w - self.w * h_s) / 2);
+                self.animBox.css({"margin-left": (self.p_w - self.w * h_s) / 2,"margin-top": (self.p_h - self.h * h_s) / 2});
+                self.imgBox.css({"margin-left": (self.p_w - self.w * h_s) / 2,"margin-top": (self.p_h - self.h * h_s) / 2});
             }
         },
         start: function () {
@@ -127,18 +111,18 @@ $(function () {
             var Line=new C.Shape();
             var glow=new C.Shape();
             glBox.addChild(glow);
-           glBox.addChild(Line);
-            glow.alpha=.3
+            glBox.addChild(Line);
+            glow.alpha=.3;
             var blurFilter = new C.BlurFilter(3, 3, 10);
             glow.filters = [blurFilter];
             var bounds = blurFilter.getBounds();
             if(w){
-                Line.graphics.ss(line,"round").rs([color,"#2d2d2d"],[0,1],r,h,0,r,h,r).mt(0,0).lt(w,h);
-                glow.graphics.ss(line+4,"round").rs([color,"#2d2d2d"],[0,1],r,h,0,r,h,r).mt(0,0).lt(w,h);
+                Line.graphics.ss(line,"round").rs(color,[0,1],r,h,0,r,h,r).mt(0,0).lt(w,h);
+                glow.graphics.ss(line+4,"round").rs(color,[0,1],r,h,0,r,h,r).mt(0,0).lt(w,h);
                 glow.cache(bounds.x, bounds.y-2, w+bounds.width, line+bounds.height);
             }else{
-                Line.graphics.ss(line,"round").rs([color,"#2d2d2d"],[0,1],w,r,0,w,r,r).mt(0,0).lt(w,h);
-                glow.graphics.ss(line+4,"round").rs([color,"#2d2d2d"],[0,1],w,r,0,w,r,r).mt(0,0).lt(w,h);
+                Line.graphics.ss(line,"round").rs(color,[0,1],w,r,0,w,r,r).mt(0,0).lt(w,h);
+                glow.graphics.ss(line+4,"round").rs(color,[0,1],w,r,0,w,r,r).mt(0,0).lt(w,h);
                 glow.cache(bounds.x-2, bounds.y, line+bounds.width, h+bounds.height);
             }
             return glBox;
@@ -155,14 +139,34 @@ $(function () {
                 //T.from(colorMc,.6,{delay:.1*i,x:-self.w,alpha:0,ease:Power2.easeOut})
             }
         },*/
+        addMouseAnim:function (){
+            var self=this,img_x=self.imgBox;
+            $("body").bind("mousemove",function (e){
+                var _x=-(e.pageX-$(this).width()/2)/35,_y= -(e.pageY-$(this).height()/2)/35;
+                if(_x>self.w*.04){
+                    _x=self.w*.04
+                }
+                if(_y>self.h*.04){
+                    _y=self.h*.04
+                }
+                T.set(self.imgBox,{scale:self.scale});
+                T.killTweensOf(self.imgBox,true);
+                T.to(self.imgBox,.5,{x:_x,y:_y})
+            })
+        },
         endTween:function (){
             var self=bannerAnim;
             T.to(self.animBox,.5,{alpha:0,onComplete:function (){
                 self.animBox.remove();
-                self.textTween();
+                self.addMouseAnim()
             }});
+            self.imgBox.removeClass("fn-alpha-out")
             //T.to(self.imgBox,.5,{alpha:1})
-            self.imgBox.css("opacity",1)
+            self.imgBox.css("opacity",1);
+            $("body").css("background","#fff").addClass("index-page");
+            var header=$("#header")||$("header"),footer=$("#footer")||$("footer");
+            header.removeAttr("style");
+            footer.removeAttr("style")
         },
         textTween:function (){
             var self=this;
@@ -177,14 +181,15 @@ $(function () {
         addLine:function (){
             var self=bannerAnim;
             var a_lineBox=[],end_num=0;
+            self.textTween();
             function addLine(i,j,lineBox){
                 var t=new C.Shape();
                 if(j%2){
-                    t.graphics.s(self.lineData[i].color).ss(self.lineData[i].line-2).mt(0,0).lt(0,self.lineData[i].h);
+                    t.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).mt(0,0).lt(0,self.lineData[i].h);
                     var at=Math.floor(j/2);
                     t.x=self.lineData[i].w*at
                 }else{
-                    t.graphics.s(self.lineData[i].color).ss(self.lineData[i].line-2).mt(0,0).lt(self.lineData[i].w,0);
+                    t.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).mt(0,0).lt(self.lineData[i].w,0);
                     var at=j/2;
                     t.y=self.lineData[i].h*at;
                 }
@@ -196,14 +201,14 @@ $(function () {
                 if(self.lineData[i].circ.length>0){
                     for(var j=0;j<self.lineData[i].circ.length;j++){
                         var circ=new C.Shape();
-                        circ.graphics.s(self.lineData[i].color).ss(self.lineData[i].line-2).dc(self.lineData[i].circ[j].x+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].y+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].r/2);
+                        circ.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).dc(self.lineData[i].circ[j].x+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].y+self.lineData[i].circ[j].r/2,self.lineData[i].circ[j].r/2);
                         lineBox.addChild(circ);
                         T.from(circ,.5,{alpha:0})
                     }
                 }
                 else{
                     var circ=new C.Shape();
-                    circ.graphics.s(self.lineData[i].color).ss(self.lineData[i].line-2).dc(self.lineData[i].circ.x+self.lineData[i].circ.r/2,self.lineData[i].circ.y+self.lineData[i].circ.r/2,self.lineData[i].circ.r/2);
+                    circ.graphics.s(self.lineData[i].color).ss(self.lineData[i].line).dc(self.lineData[i].circ.x+self.lineData[i].circ.r/2,self.lineData[i].circ.y+self.lineData[i].circ.r/2,self.lineData[i].circ.r/2);
                     lineBox.addChild(circ);
                     T.from(circ,.5,{alpha:0})
                 }
@@ -230,9 +235,9 @@ $(function () {
                 var lineBox=new C.Container();
                 self.stage.addChild(lineBox);
                 lineBox.x=self.lineData[i].x;
-                lineBox.y=self.lineData[i].y;
+                lineBox.y=self.lineData[i].y+125;
                 lineBox.rotation=self.lineData[i].rotate;
-                var arr=[]
+                var arr=[];
                 //画外壳方形
                 for(var j=0;j<4;j++){
                     var line,ma=Math.ceil(Math.random()*2-1),
