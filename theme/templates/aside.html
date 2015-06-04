@@ -1,22 +1,14 @@
-<script src="/dist/index.js"></script>
-{%- set categories = resource.pages|get_all_category %}
 <aside class="aside-container">
   <ul>
-  {%- for category in categories %}
-  {%- set items = resource.pages|find_category(category) %}
-    <li>
-      <h4>{{category}}</h4>
-      <ul>
-        {%- for item in items %}
-        <li class="{%- if item.title === post.title %}current{%- endif %}">
-          <a href="{{permalink_url(item)}}">
-            {{item.title}}
-            <span class="chinese">{{item.meta.chinese}}</span>
-          </a>
-        </li>
-        {%- endfor %}
-      </ul>
-    </li>
-  {%- endfor %}
+  {%- set items = resource.pages|find_category(post.meta.category) %}
+  <li>
+    <ul>
+      {%- for item in items %}
+      <li class="{%- if item.title === post.title %}current{%- endif %}">
+        <a href="{{permalink_url(item)}}">{{item.title}}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </li>
   </ul>
 </aside>

@@ -1,7 +1,7 @@
-# 下载
+# 组件开发模式
 
 - category: start
-- order: 3
+- order: 2
 
 ---
 
