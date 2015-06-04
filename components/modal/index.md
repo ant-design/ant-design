@@ -15,5 +15,5 @@
 | content   | 面板内容 | React.Element   | 无 |
 | onOk     | 确定回调 | function | 无           |
 | onCancel | 取消回调 | function | 无           |
-| width | 宽度 | String|Number | 无           |
+| width | 宽度 | String or Number | 无           |
 
