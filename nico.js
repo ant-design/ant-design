@@ -1,8 +1,10 @@
 var path = require('path');
+var package = require('./package');
 
 // {{ settings for nico
 exports.site = {
-  name: 'Ant Design'
+  name: package.title,
+  description: package.description
 };
 exports.theme = 'theme';
 exports.source = process.cwd();

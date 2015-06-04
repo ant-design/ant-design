@@ -4,7 +4,7 @@
 {%- if post.title !== config.site.name %}
 {{post.title}} {{ post.meta.chinese }} - {{config.site.name}}
 {%- else %}
-{{config.site.name}}
+{{ config.site.name }} - {{ config.site.description }}
 {%- endif %}
 {% endblock %}
 

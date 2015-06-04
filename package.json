@@ -1,7 +1,8 @@
 {
   "name": "antd",
   "version": "0.0.1",
-  "description": "Design for ease",
+  "title": "Ant Design",
+  "description": "下一代设计&前端框架",
   "homepage": "http://ant-design.github.io/",
   "repository": {
     "type": "git",

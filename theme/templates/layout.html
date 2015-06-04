@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="format-detection" content="telephone=no">
-  <title>{% block title %}Ant Design{% endblock %}</title>
+  <title>{% block title %}{{ config.site.name }} - {{ config.site.description }}{% endblock %}</title>
   <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
   <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
   <link rel="stylesheet" href="/static/normalize.css">
@@ -22,7 +22,7 @@
   <header id="header">
     <a class="logo" href="/">
       <img width="60" style="margin-top: -7px" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
-      Ant Design
+      {{ config.site.name }}
     </a>
     <div class="search">
       <form>
@@ -66,14 +66,14 @@
         <div id="bannerAnim"></div>
         <div class="banner-img"></div>
         <div class="banner-entry fn-hide">
-            <div class="entry-title">
-                Ant
-            </div>
+            <div class="entry-title">Ant</div>
             <div class="entry-title">Design</div>
-            <div class="entry-slogan">下一代设计&前端框架</div>
+            <div class="entry-slogan">
+              {{ config.site.description }}
+            </div>
             <a class="entry-link" href="/docs/start">
-                <i class="iconfont-home icon-lego"></i>
-                开始使用
+              <i class="iconfont-home icon-lego"></i>
+              开始使用
             </a>
         </div>
       </div>
