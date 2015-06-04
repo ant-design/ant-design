@@ -1,7 +1,7 @@
-# 下载
+# 快速上手
 
 - category: start
-- order: 3
+- order: 1
 
 ---
 

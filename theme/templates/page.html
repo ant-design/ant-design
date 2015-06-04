@@ -10,10 +10,12 @@
 
 {% block description %}{% if post.summay %}{{post.summary}}{% endif %}{% endblock %}
 
-{% block aside %}{% endblock %}
+{% block aside %}
+{%- include "aside.html" %}
+{% endblock %}
 
 {% block content %}
-<section class="main-container main-container-center">
+<section class="main-container">
   <article class="markdown">
     <h1>{{ post.title }} {{ post.meta.chinese }}</h1>
     {{ post.html }}
