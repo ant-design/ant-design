@@ -1,5 +1,5 @@
 <script src="/dist/index.js"></script>
-{%- set categories = resource.pages|get_all_category %}
+{%- set categories = resource.pages|get_components_categories %}
 <aside class="aside-container">
   <ul>
   {%- for category in categories %}

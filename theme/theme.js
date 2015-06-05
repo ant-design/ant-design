@@ -36,12 +36,13 @@ module.exports = function(nico) {
       });
       return ret;
     },
-    get_all_category: function(pages) {
+    get_components_categories: function(pages) {
       return _.uniq(Object.keys(pages).map(function(key) {
         var item = nico.sdk.post.read(key);
+        if (item.meta.template !== 'component') {
+          return;
+        }
         return item.meta.category;
-      }).filter(function(item) {
-        return item;
       }));
     },
     find_demo_in_component: function(pages, directory) {
