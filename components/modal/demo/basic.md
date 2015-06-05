@@ -10,14 +10,20 @@
 var modal = antd.modal;
 
 function show() {
+  var ref;
+
+  function saveRef(c){
+    ref = c;
+  }
+
   modal({
     title: '第一个 Modal',
-    content: <p>Modal content</p>,
+    content: <p>name: <input ref={saveRef}/></p>,
     onCancel: function() {
       alert('cancel');
     },
     onOk: function(close) {
-      alert('ok');
+      alert('name: '+React.findDOMNode(ref).value);
       setTimeout(close,100);
     }
   });
