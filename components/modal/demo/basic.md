@@ -16,8 +16,9 @@ function show() {
     onCancel: function() {
       alert('cancel');
     },
-    onOk: function() {
+    onOk: function(close) {
       alert('ok');
+      setTimeout(close,100);
     }
   });
 }

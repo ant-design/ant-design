@@ -21,18 +21,22 @@ module.exports = function (props) {
     if (props.onCancel) {
       props.onCancel();
     }
+    close();
+  }
+
+  function close() {
     d.setState({
       visible: false
     });
   }
 
   function onOk() {
-    if (props.onOk) {
-      props.onOk();
+    var onOk = props.onOk;
+    if (onOk) {
+      onOk(close);
+    } else {
+      close();
     }
-    d.setState({
-      visible: false
-    });
   }
 
   var footer = [
@@ -46,6 +50,8 @@ module.exports = function (props) {
   props.visible = true;
   props.children = props.content;
   props.footer = footer;
-  var d = React.render(<Dialog {...props}/>, div);
-  return d;
+  var d;
+  React.render(<Dialog {...props}/>, div, function () {
+    d = this;
+  });
 };
