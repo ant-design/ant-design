@@ -13,6 +13,7 @@ module.exports = function (props) {
 
   props.animation = 'zoom';
   props.maskAnimation = 'fade';
+  props.width = props.width || 500;
 
   props.onClose = props.onCancel || noop;
 
@@ -45,6 +46,5 @@ module.exports = function (props) {
   props.visible = true;
   props.children = props.content;
   props.footer = footer;
-  var d = React.render(<Dialog {...props}/>, div);
-  return d;
+  return React.render(<Dialog {...props}/>, div);
 };
