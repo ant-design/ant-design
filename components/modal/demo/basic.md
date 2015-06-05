@@ -9,21 +9,20 @@
 ````jsx
 var modal = antd.modal;
 
-function show(){
+function show() {
   modal({
-    width:500,
-    title:'第一个 modal',
-    content: <p>modal content</p>,
-    onCancel:function(){
+    title: '第一个 Modal',
+    content: <p>Modal content</p>,
+    onCancel: function() {
       alert('cancel');
     },
-    onOk:function(){
-      alert('ok')
+    onOk: function() {
+      alert('ok');
     }
   });
 }
 
 React.render(
-  <button onClick={show}>show modal</button>
+  <button onClick={show}>显示对话框</button>
 , document.getElementById('components-modal-demo-basic'));
 ````
