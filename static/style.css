@@ -510,6 +510,11 @@ footer ul li > a {
   height: 100%;
 }
 
+.markdown {
+  color: #777;
+  font-size: 14px;
+}
+
 .markdown h1,
 .markdown h2,
 .markdown h3,
