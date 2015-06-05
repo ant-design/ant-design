@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
 
   output: {
     path: path.join(process.cwd(), 'dist'),
-    filename: 'index.js'
+    filename: 'antd.js'
   },
 
   externals: {
@@ -21,10 +22,14 @@ module.exports = {
     loaders: [
       {test: /\.jsx?$/, loader: 'babel'},
       {test: /\.json$/, loader: 'json-loader'},
-      {test: /\.less$/, loader: "style!css!less"},
-      {test: /\.css/, loader: 'style!css'}
+      {test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")},
+      {test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")}
     ]
   },
+
+  plugins: [
+    new ExtractTextPlugin("antd.css")
+  ],
 
   devtool: "#source-map"
 };

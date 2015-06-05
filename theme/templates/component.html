@@ -1,5 +1,13 @@
 {% extends "page.html" %}
 
+{% block styles %}
+<link rel="stylesheet" href="/dist/antd.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="/dist/antd.js"></script>
+{% endblock %}
+
 {% block aside %}
 {%- include "component-aside.html" %}
 {% endblock %}

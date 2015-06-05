@@ -13,10 +13,12 @@
   <link rel="stylesheet" href="/static/style.css">
   <link href="http://fonts.useso.com/css?family=Raleway:600,500,400,300" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/static/tomorrow.css">
+  {% block styles %}{% endblock %}
   <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
   <!-- react -->
   <script src="https://t.alipayobjects.com/images/T12TdfXlpbXXXXXXXX.js"></script>
   <script src="/static/script.js"></script>
+  {% block scripts %}{% endblock %}
 </head>
 <body {% block bodyAttribute %}{% endblock %}>
   <header id="header">
