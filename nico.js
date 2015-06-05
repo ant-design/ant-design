@@ -4,7 +4,9 @@ var package = require('./package');
 // {{ settings for nico
 exports.site = {
   name: package.title,
-  description: package.description
+  description: package.description,
+  repo: package.repository.url,
+  issues: package.bugs.url
 };
 exports.theme = 'theme';
 exports.source = process.cwd();
