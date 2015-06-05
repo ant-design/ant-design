@@ -1,9 +1,18 @@
-# 基本型
+# Standard Button
 
-- description: 标准的按钮
+- order: 1 
+
+按钮基础样式，通过样式来显示重要程度的不同
+
+`注`: 当按钮文字为两个字时，中间需要**间隔一个字符**。
 
 ---
 
 ````html
-<button class="nd-btn">按钮</button>
+<div>
+  <button class="ant-btn ant-btn-primary">主按钮</button>
+  <button class="ant-btn ant-btn-default">次按钮</button>
+  <button class="ant-btn ant-btn-ghost">幽灵按钮</button>
+  <a href="" class="ant-btn"></a>
+</div>
 ````
