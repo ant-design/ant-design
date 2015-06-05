@@ -3,7 +3,9 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 
 module.exports = {
-  entry: './index.js',
+  entry: {
+    antd: './index.js'
+  },
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -11,7 +13,7 @@ module.exports = {
 
   output: {
     path: path.join(process.cwd(), 'dist'),
-    filename: 'antd.js'
+    filename: '[name].js'
   },
 
   externals: {
@@ -28,7 +30,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin("antd.css")
+    new ExtractTextPlugin("[name].css")
   ],
 
   devtool: "#source-map"
