@@ -46,5 +46,6 @@ module.exports = function (props) {
   props.visible = true;
   props.children = props.content;
   props.footer = footer;
-  return React.render(<Dialog {...props}/>, div);
+  var d = React.render(<Dialog {...props}/>, div);
+  return d;
 };
