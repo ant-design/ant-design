@@ -6,9 +6,19 @@
 
 ---
 
+## 如何使用
+
+我们对每个图标都采用了语义化的命名，使用时所有的图标都需要一个基类 `.anticon` 和对应每个图标的类。在这里，我们使用 `<span>` 标签，如下面代码演示使用即可~
+
+```html
+<span class="anticon anticon-link"></span>
+```
+
+**注**: 通过覆盖 @iconfont-css-prefix 即可修改 icon 基类。
+
 ## 图标列表
 
-### 方向性图标
+### 一：方向性图标
 
 <ul class="row anticons-list fn-clear">
 	<li>
@@ -117,7 +127,7 @@
 	</li>
 </ul>
 
-### 提示建议性图标
+### 二：提示建议性图标
 
 <ul class="anticons-list fn-clear">
 	<li>
@@ -226,7 +236,7 @@
 	</li>
 </ul>
 
-### 网站通用图标
+### 三：网站通用图标
 
 <ul class="anticons-list fn-clear">
 	<li>
@@ -390,8 +400,8 @@
 		<span class="anticon-class">anticon anticon-paper-clip</span>
 	</li>
 	<li>
-		<span class="anticon anticon-file-pictureo"></span>
-		<span class="anticon-class">anticon anticon-file-pictureo</span>
+		<span class="anticon anticon-pictureo"></span>
+		<span class="anticon-class">anticon anticon-pictureo</span>
 	</li>
 	<li>
 		<span class="anticon anticon-pie-chart"></span>
@@ -462,31 +472,35 @@
 		<span class="anticon-class">anticon anticon-windows</span>
 	</li>
 </ul>
-
-## 如何使用
-
-我们对每个图标都采用了语义化的命名，所有的图标都需要一个基类 `.anticon` 和对应每个图标的类。在这里，我们使用 `<span>` 标签，如下面代码演示使用即可~
-
-```html
-<span class="anticon anticon-loading"></span>
-```
-
-**注**: 通过覆盖 @iconfont-css-prefix 即可修改 icon 基类。
-
 <style>
   ul.anticons-list {
-  	margin-bottom: 20px;
+  	margin: 20px 0;
   	list-style: none;
   	width: 100%
   }
   ul.anticons-list li{
-	float: left;
-	margin: 0;
-	width: 25%;
-  	list-style: none;
-
+  	float: left;
+    margin: 5px;
+    padding-top: 5px;
+    width: 150px;
+    height: 70px;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+  }
+  ul.anticons-list li:hover {
+	background-color: #6EB4E0;
+	color: #FFF;
+	border-radius: 4px;
   }
   .anticon {
-  	font-size: 24px;
+  	font-size: 28px;
+  }
+  .anticon-class {
+  	display: block;
+    text-align: center;
+    word-wrap: break-word;
+  	font-size: 10px;
+  	tranform: scale(0.83);
   }
 </style>
