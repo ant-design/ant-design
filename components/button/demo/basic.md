@@ -2,17 +2,17 @@
 
 - order: 1 
 
-按钮基础样式，通过样式来显示重要程度的不同
+按钮样式
 
-`注`: 当按钮文字为两个字时，中间需要**间隔一个字符**。
+为 `<button>`、`<a>` 或 `<input>` 元素添加按钮类即可使用 ant-design 提供的样式。
 
 ---
 
 ````html
 <div>
-  <button class="ant-btn ant-btn-primary">主按钮</button>
-  <button class="ant-btn ant-btn-default">次按钮</button>
-  <button class="ant-btn ant-btn-ghost">幽灵按钮</button>
-  <a href="" class="ant-btn"></a>
+  <button class="ant-btn ant-btn-default">Button</button>
+  <a href="javascript:;" class="ant-btn ant-btn-default" role="button">Link</a>
+  <input class="ant-btn ant-btn-default" type="button" value="Input" />
+  <input class="ant-btn ant-btn-default" type="submit" value="Submit" />
 </div>
 ````

@@ -1,8 +1,10 @@
 # Button sizes
 
-- order: 2 
+- order: 7
 
-按钮尺寸，提供 大 中 小 三种尺寸
+按钮尺寸
+
+提供 大 中 小 三种尺寸
 
 使用 `.ant-btn-lg` `.ant-btn-sm` 即可获得大 小尺寸，默认尺寸为中 
 

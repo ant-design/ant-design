@@ -1,10 +1,10 @@
-# Menu Btu
+# Menu Btutton
 
-- order: 6
+- order: 5
 
 菜单按钮
 
-`注`: 下拉按钮的 icon 大小统一成 10px。
+**注**: 下拉按钮的 icon 大小统一成 10px。
 
 ---
 

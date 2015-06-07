@@ -1,10 +1,14 @@
 # Groups Button
 
-- order: 7
+- order: 8
 
-按钮组合， 将一些列的 `.ant-btn` 放入 `.ant-btn-group` 的容器中
+按钮组合
 
-按钮尺寸： 只要给 `.ant-btn-group` 加上 `.ant-btn-group-*` 类，即可设置不同的尺寸，目前支持大中小三种尺寸。
+将一系列的 `.ant-btn` 放入 `.ant-btn-group` 的容器中
+
+按钮组合尺寸
+
+只要给 `.ant-btn-group` 加上 `.ant-btn-group-*` 类，即可设置不同的尺寸，目前支持大中小三种尺寸。
 
 ---
 
