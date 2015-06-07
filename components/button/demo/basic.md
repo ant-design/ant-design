@@ -1,9 +1,18 @@
-# 基本型
+# Standard Button
 
-- description: 标准的按钮
+- order: 1 
+
+按钮样式
+
+为 `<button>`、`<a>` 或 `<input>` 元素添加按钮类即可使用 ant-design 提供的样式。
 
 ---
 
 ````html
-<button class="nd-btn">按钮</button>
+<div>
+  <button class="ant-btn ant-btn-default">Button</button>
+  <a href="javascript:;" class="ant-btn ant-btn-default" role="button">Link</a>
+  <input class="ant-btn ant-btn-default" type="button" value="Input" />
+  <input class="ant-btn ant-btn-default" type="submit" value="Submit" />
+</div>
 ````
