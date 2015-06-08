@@ -40,6 +40,7 @@ $(function() {
       self.navBarAnim();
       self.navResize(null);
       $(window).bind("resize", self.navResize);
+      self.navBar.show();
     },
     navResize: function(e) {
       var self = navFunc;
