@@ -30,7 +30,7 @@
     "less": "~2.5.1",
     "less-loader": "~2.2.0",
     "lodash": "~3.8.0",
-    "nico-jsx": "~0.5.3",
+    "nico-jsx": "~0.5.5",
     "style-loader": "~0.12.2",
     "webpack": "~1.9.7"
   },
