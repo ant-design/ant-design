@@ -492,11 +492,26 @@ ul.anticons-list li {
   height: 92px;
   color: #5C6B77;
   transition: all 0.2s ease;
+  position: relative;
+}
+ul.anticons-list li:before {
+  content: "点击后 ctrl+c 复制代码";
+  top: -17px;
+  left: 13px;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  display: none;
+  color: #aaa;
+  transform: scale(0.8);
 }
 ul.anticons-list li:hover {
   background-color: #4BB8FF;
   color: #fff;
   border-radius: 4px;
+}
+ul.anticons-list li:hover:before {
+  display: block;
 }
 .anticon {
   font-size: 24px;
@@ -510,3 +525,46 @@ ul.anticons-list li:hover {
   font-family: Consolas;
 }
 </style>
+
+<script>
+$(function() {
+  var input = $('input');
+  input.css('opacity', '0.01');
+  $('.anticons-list li').mouseenter(function() {
+    var iconText = $(this).find('.anticon-class').html();
+    input.val('<span class="anticon anticon-' + iconText + '"></span>').appendTo(this);
+    setTimeout(function() {
+      input[0].focus();
+      input[0].select();
+    }, 50);
+  }).mouseleave(function() {
+    input.remove();
+  });
+
+  $('.anticons-list li').click(function() {
+    setTimeout(function() {
+      input[0].focus();
+      input[0].select();
+    }, 50);
+  });
+
+  var ctrlDown = false;
+  var ctrlKey = 17, vKey = 86, cKey = 67, cmdKey = 224;
+
+  $(document).keydown(function(e) {
+    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) {
+      ctrlDown = true;
+    }
+  }).keyup(function(e) {
+    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) {
+      ctrlDown = false;
+    }
+  });
+
+  $(document).keydown(function(e) {
+    if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)) {
+      console.log('复制成功!');
+    }
+  });
+});
+</script>
