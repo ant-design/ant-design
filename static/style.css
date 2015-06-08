@@ -1510,6 +1510,30 @@ footer ul li > a {
   }
 }
 
+@-webkit-keyframes rotateCircleBack {
+  0% {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: rotate(360deg);
+  }
+
+  100% {
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@keyframes rotateCircleBack {
+  0% {
+    transform-origin: 50% 50%;
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform-origin: 50% 50%;
+    transform: rotate(0deg);
+  }
+}
+
 @keyframes loadTween {
   0% {
     transform: rotateY(0deg);
@@ -1744,6 +1768,8 @@ a.entry-link:hover {
 a.entry-link .icon-lego {
   margin-right: 3px;
   display: inline-block;
+  -webkit-animation: rotateCircleBack 0.5s 1 ease-in-out;
+  animation: rotateCircleBack 0.5s 1 ease-in-out;
 }
 
 a.entry-link:hover .icon-lego {
