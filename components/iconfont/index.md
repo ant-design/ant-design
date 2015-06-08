@@ -18,7 +18,6 @@
 ## 图标列表
 
 ### 一：方向性图标
-
 <ul class="row anticons-list fn-clear">
 	<li>
 		<span class="anticon anticon-step-backward"></span>
@@ -469,6 +468,10 @@
 	<li>
 		<span class="anticon anticon-windows"></span>
 		<span class="anticon-class">windows</span>
+	</li>
+	<li>
+		<span class="anticon anticon-loading"></span>
+		<span class="anticon-class">loading</span>
 	</li>
 </ul>
 <style>
