@@ -20,7 +20,7 @@
     "rc-dropdown": "~1.0.0",
     "rc-menu": "~3.3.0",
     "rc-tabs": "~5.0.5",
-    "rc-tooltip": "~1.2.0"
+    "rc-tooltip": "~2.0.1"
   },
   "devDependencies": {
     "babel-core": "~5.4.7",
