@@ -18,7 +18,7 @@
 | 成员     | 说明           | 类型             | 默认值       |
 |----------|----------------|------------------|--------------|
 | animation    | 动画名称           | String ("slide-up")    | 无           |
-| trigger    | 触发下来行为           | "click" or "mouse"    | 无           |
+| trigger    | 触发下来行为           | "click" or "hover"    | 无           |
 | overlay  | 菜单节点       | React.Element    | 无           |
 
 

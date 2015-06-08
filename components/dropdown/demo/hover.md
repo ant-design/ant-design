@@ -1,8 +1,8 @@
 # 基本
 
-- order: 0
+- order: 1
 
-点击触发
+鼠标触发
 
 ---
 
@@ -23,8 +23,8 @@ var menu = <Menu style={{width:140}} onClick={onClick}>
 
 
 React.render(
-  <Dropdown animation="slide-up" overlay={menu} trigger="click">
-  <button className="ant-btn ant-btn-ghost">点我下来 <span className="anticon anticon-caret-down"></span></button>
+  <Dropdown overlay={menu} trigger="hover">
+  <button className="ant-btn ant-btn-ghost">hover <span className="anticon anticon-caret-down"></span></button>
   </Dropdown>
-, document.getElementById('components-dropdown-demo-basic'));
+, document.getElementById('components-dropdown-demo-hover'));
 ````
