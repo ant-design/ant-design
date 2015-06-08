@@ -12,11 +12,12 @@
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "dependencies": {
+    "ant-style": "git://github.com/ant-design/style.git",
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
     "rc-calendar": "~3.8.0",
     "rc-dialog": "~4.1.1",
-    "ant-style": "git://github.com/ant-design/style.git",
+    "rc-tabs": "~5.0.5",
     "rc-tooltip": "~1.2.0"
   },
   "devDependencies": {
