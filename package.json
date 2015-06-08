@@ -17,6 +17,8 @@
     "gregorian-calendar-format": "~3.0.1",
     "rc-calendar": "~3.8.0",
     "rc-dialog": "~4.1.1",
+    "rc-dropdown": "~1.0.0",
+    "rc-menu": "~3.3.0",
     "rc-tabs": "~5.0.5",
     "rc-tooltip": "~1.2.0"
   },
