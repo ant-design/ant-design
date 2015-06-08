@@ -13,68 +13,72 @@
 ---
 
 ````html
-<div>
-    <p> 基本组合 </p>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-primary">确 定</button>
-      <button class="ant-btn ant-btn-primary">取 消</button>
-    </div>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-default">左</button>
-      <button class="ant-btn ant-btn-default">中</button>
-      <button class="ant-btn ant-btn-default">右</button>
-    </div>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-primary">左</button>
-      <button class="ant-btn ant-btn-ghost">中</button>
-      <button class="ant-btn ant-btn-ghost">中</button>
-      <button class="ant-btn ant-btn-default">右</button>
-    </div>
-    <p> 带图标按钮组合 </p>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-primary">
-      <span class="anticon anticon-caret-left"></span>
-      <span>前 进</span>
-      </button>
-      <button class="ant-btn ant-btn-primary">
-      <span>后 退</span>
-      <span class="anticon anticon-caret-right"></span>
-      </button>
-    </div>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-primary">
-      <span class="anticon anticon-cloud"></span>
-      </button>
-      <button class="ant-btn ant-btn-primary">
-      <span class="anticon anticon-cloud-download"></span>
-      </button>
-    </div>
-    <p>多个组合</p>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-ghost">1</button>
-      <button class="ant-btn ant-btn-ghost">2</button>
-      <button class="ant-btn ant-btn-ghost">3</button>
-      <button class="ant-btn ant-btn-ghost">4</button>
-      <button class="ant-btn ant-btn-ghost">
-      <span>前进</span>
-      <span class="anticon anticon-caret-right"></span>
-      </button>
-    </div>
-    <p>尺寸</p>
-    <div class="ant-btn-group ant-btn-group-lg">
-      <button class="ant-btn ant-btn-ghost">大</button>
-      <button class="ant-btn ant-btn-ghost">大</button>
-      <button class="ant-btn ant-btn-ghost">大</button>
-    </div>
-    <div class="ant-btn-group">
-      <button class="ant-btn ant-btn-ghost">正常</button>
-      <button class="ant-btn ant-btn-ghost">正常</button>
-      <button class="ant-btn ant-btn-ghost">正常</button>
-    </div>
-    <div class="ant-btn-group ant-btn-group-sm">
-      <button class="ant-btn ant-btn-ghost">小</button>
-      <button class="ant-btn ant-btn-ghost">小</button>
-      <button class="ant-btn ant-btn-ghost">小</button>
-    </div>
+<h4>基本组合</h4>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-primary">确 定</button>
+  <button class="ant-btn ant-btn-primary">取 消</button>
+</div>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-default">左</button>
+  <button class="ant-btn ant-btn-default">中</button>
+  <button class="ant-btn ant-btn-default">右</button>
+</div>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-primary">左</button>
+  <button class="ant-btn ant-btn-ghost">中</button>
+  <button class="ant-btn ant-btn-ghost">中</button>
+  <button class="ant-btn ant-btn-default">右</button>
+</div>
+<h4>带图标按钮组合 </h4>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-primary">
+  <span class="anticon anticon-caret-left"></span>
+  <span>前 进</span>
+  </button>
+  <button class="ant-btn ant-btn-primary">
+  <span>后 退</span>
+  <span class="anticon anticon-caret-right"></span>
+  </button>
+</div>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-primary">
+  <span class="anticon anticon-cloud"></span>
+  </button>
+  <button class="ant-btn ant-btn-primary">
+  <span class="anticon anticon-cloud-download"></span>
+  </button>
+</div>
+<h4>多个组合</h4>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-ghost">1</button>
+  <button class="ant-btn ant-btn-ghost">2</button>
+  <button class="ant-btn ant-btn-ghost">3</button>
+  <button class="ant-btn ant-btn-ghost">4</button>
+  <button class="ant-btn ant-btn-ghost">
+  <span>前进</span>
+  <span class="anticon anticon-caret-right"></span>
+  </button>
+</div>
+<h4>尺寸</h4>
+<div class="ant-btn-group ant-btn-group-lg">
+  <button class="ant-btn ant-btn-ghost">大</button>
+  <button class="ant-btn ant-btn-ghost">大</button>
+  <button class="ant-btn ant-btn-ghost">大</button>
+</div>
+<div class="ant-btn-group">
+  <button class="ant-btn ant-btn-ghost">正常</button>
+  <button class="ant-btn ant-btn-ghost">正常</button>
+  <button class="ant-btn ant-btn-ghost">正常</button>
+</div>
+<div class="ant-btn-group ant-btn-group-sm">
+  <button class="ant-btn ant-btn-ghost">小</button>
+  <button class="ant-btn ant-btn-ghost">小</button>
+  <button class="ant-btn ant-btn-ghost">小</button>
 </div>
 ````
+
+<style>
+.nico-insert-code h4:first-child {
+  margin-top: 0;
+}
+</style>
