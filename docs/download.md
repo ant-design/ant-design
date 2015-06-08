@@ -1,4 +1,4 @@
-# 下载
+# 下载和应用
 
 - category: start
 - order: 3
