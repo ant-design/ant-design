@@ -248,6 +248,7 @@ header {
 
 .nav ul li.current a {
   color: #71B5DE;
+  font-weight: bold;
 }
 
 .nav ul li a:hover,
@@ -451,7 +452,6 @@ footer ul li > a {
 
 .aside-container li>ul {
   display: none;
-  background: #f4f4f4;
 }
 
 .aside-container li>ul li {
@@ -516,6 +516,10 @@ footer ul li > a {
   font-size: 14px;
 }
 
+.markdown h1 {
+  color: #5C6B77;
+}
+
 .markdown h2,
 .markdown h3,
 .markdown h4,
@@ -539,7 +543,7 @@ footer ul li > a {
 .markdown pre code {
   background: rgba(0, 0, 0, 0.03);
   border: none;
-  border-radius: 0;
+  border-radius: 6px;
   padding: 12px 20px;
 }
 
@@ -1664,8 +1668,7 @@ footer ul li > a {
   position: absolute;
   top: -14px;
   padding: 1px 1.1em;
-  color: #888;
-  font-weight: bold;
+  color: #777;
   border-radius: 6px;
   background: #fafafa;
   box-shadow: 0 -1.2px 0 #e9e9e9;
@@ -1678,7 +1681,7 @@ footer ul li > a {
   vertical-align: middle;
   line-height: 22px;
   position: relative;
-  margin-right: 6px;
+  margin-right: 8px;
   top: -1px;
   color: #ccc;
 }
@@ -1696,17 +1699,27 @@ footer ul li > a {
   border: 1px solid #999;
   width: 20px;
   height: 20px;
-  line-height: 17px;
+  line-height: 20px;
   font-size: 14px;
-  text-indent: 3px;
   border-radius: 100%;
   opacity: 0.5;
-  transform: rotate(90deg);
   margin-top: -10px;
+  text-align: center;
 }
 
 .code-box .collapse:hover {
   opacity: 1;
+}
+
+.code-box .collapse:before {
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.code-box.expand .collapse:before {
+  transform: rotate(270deg);
 }
 
 .code-box .highlight {
@@ -1776,3 +1789,4 @@ a.entry-link:hover .icon-lego {
   -webkit-animation: rotateCircle 0.5s 1 ease-in-out;
   animation: rotateCircle 0.5s 1 ease-in-out;
 }
+  transform: rotate();

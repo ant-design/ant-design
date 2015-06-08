@@ -17,7 +17,7 @@
 
 ## 图标列表
 
-### 一：方向性图标
+### 一. 方向性图标
 <ul class="row anticons-list fn-clear">
 	<li>
 		<span class="anticon anticon-step-backward"></span>
@@ -125,7 +125,7 @@
 	</li>
 </ul>
 
-### 二：提示建议性图标
+### 二. 提示建议性图标
 
 <ul class="anticons-list fn-clear">
 	<li>
@@ -234,7 +234,7 @@
 	</li>
 </ul>
 
-### 三：网站通用图标
+### 三. 网站通用图标
 
 <ul class="anticons-list fn-clear">
 	<li>
@@ -482,9 +482,10 @@ ul.anticons-list {
 }
 ul.anticons-list li {
   float: left;
-  margin: 5px;
+  margin: 10px 5px;
   padding-bottom: 10px;
-  width: 160px;
+  width: 150px;
+  height: 120px;
   text-align: center;
   list-style: none;
   cursor: pointer;
@@ -493,13 +494,13 @@ ul.anticons-list li {
   transition: all 0.2s ease;
 }
 ul.anticons-list li:hover {
-  background-color: #6EB4E0;
+  background-color: #4BB8FF;
   color: #fff;
   border-radius: 4px;
 }
 .anticon {
-  font-size: 32px;
-  line-height: 64px;
+  font-size: 24px;
+  margin: 18px 0 16px;
 }
 .anticon-class {
   display: block;

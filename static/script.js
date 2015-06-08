@@ -22,10 +22,16 @@ $(function() {
 
   $('.code-boxes').on('click', '.collapse', function() {
     var highlightBox = $(this).parent().parent().find('.highlight');
+    var codeVisible = highlightBox.is(':visible');
     highlightBox.animate({
-      height: highlightBox.is(':visible') ? 'hide' : 'show',
-      opacity: highlightBox.is(':visible') ? 0 : 1
+      height: codeVisible ? 'hide' : 'show',
+      opacity: codeVisible ? 0 : 1
     }, 150);
+    if (codeVisible) {
+      $(this).parent().parent().removeClass('expand');
+    } else {
+      $(this).parent().parent().addClass('expand');
+    }
   });
 
   var navFunc = {
