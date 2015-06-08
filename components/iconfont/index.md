@@ -477,7 +477,7 @@ ul.anticons-list {
   list-style: none;
   width: 100%
 }
-ul.anticons-list li{
+ul.anticons-list li {
   float: left;
   margin: 5px;
   padding-bottom: 10px;
@@ -485,16 +485,17 @@ ul.anticons-list li{
   text-align: center;
   list-style: none;
   cursor: pointer;
-  height: 88px;
+  height: 92px;
+  color: #5C6B77;
 }
 ul.anticons-list li:hover {
   background-color: #6EB4E0;
-  color: #FFF;
+  color: #fff;
   border-radius: 4px;
 }
 .anticon {
-  font-size: 28px;
-  line-height: 48px;
+  font-size: 32px;
+  line-height: 52px;
 }
 .anticon-class {
   display: block;
