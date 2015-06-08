@@ -11,9 +11,7 @@
 ---
 
 ````html
-<div>
-  <button class="ant-btn ant-btn-primary ant-btn-lg">大号按钮</button>
-  <button class="ant-btn ant-btn-primary">中号按钮(默认)</button>
-  <button class="ant-btn ant-btn-primary ant-btn-sm">小号按钮</button>
-</div>
+<button class="ant-btn ant-btn-primary ant-btn-lg">大号按钮</button>
+<button class="ant-btn ant-btn-primary">中号按钮(默认)</button>
+<button class="ant-btn ant-btn-primary ant-btn-sm">小号按钮</button>
 ````

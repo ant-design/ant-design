@@ -11,17 +11,15 @@
 ---
 
 ````html
-<div>
-    <button class="ant-btn ant-btn-primary">主按钮</button>
-    <button class="ant-btn ant-btn-primary active">主按钮(激活)</button>
-    <button class="ant-btn ant-btn-primary disabled">主按钮(失效)</button>
-    <p></p>
-    <button class="ant-btn ant-btn-default">次按钮</button>
-    <button class="ant-btn ant-btn-default active">次按钮(激活)</button>
-    <button class="ant-btn ant-btn-default disabled">次按钮(失效)</button>
-    <p></p>
-    <button class="ant-btn ant-btn-ghost">幽灵按钮</button>
-    <button class="ant-btn ant-btn-ghost active">幽灵按钮(激活)</button>
-    <button class="ant-btn ant-btn-ghost disabled">幽灵按钮(失效)</button>
-</div>
+<button class="ant-btn ant-btn-primary">主按钮</button>
+<button class="ant-btn ant-btn-primary active">主按钮(激活)</button>
+<button class="ant-btn ant-btn-primary disabled">主按钮(失效)</button>
+<p></p>
+<button class="ant-btn ant-btn-default">次按钮</button>
+<button class="ant-btn ant-btn-default active">次按钮(激活)</button>
+<button class="ant-btn ant-btn-default disabled">次按钮(失效)</button>
+<p></p>
+<button class="ant-btn ant-btn-ghost">幽灵按钮</button>
+<button class="ant-btn ant-btn-ghost active">幽灵按钮(激活)</button>
+<button class="ant-btn ant-btn-ghost disabled">幽灵按钮(失效)</button>
 ````

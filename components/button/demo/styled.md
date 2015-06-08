@@ -17,9 +17,7 @@
 ---
 
 ````html
-<div>
-  <button class="ant-btn ant-btn-primary">主按钮</button>
-  <button class="ant-btn ant-btn-default">次按钮</button>
-  <button class="ant-btn ant-btn-ghost">幽灵按钮</button>
-</div>
+<button class="ant-btn ant-btn-primary">主按钮</button>
+<button class="ant-btn ant-btn-default">次按钮</button>
+<button class="ant-btn ant-btn-ghost">幽灵按钮</button>
 ````
