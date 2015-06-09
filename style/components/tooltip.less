@@ -24,10 +24,10 @@
   z-index: 1070;
   display: block;
   visibility: visible;
-  left:-9999px;
-  top:-9999px;
+  left: -9999px;
+  top: -9999px;
   font-size: @font-size-base;
-  line-height: 1.5;
+  line-height: @line-height-base;
 
   &-placement-top    { margin-top:  -3px; padding: @tooltip-arrow-width 0; }
   &-placement-right  { margin-left:  3px; padding: 0 @tooltip-arrow-width; }
@@ -43,7 +43,7 @@
   text-align: left;
   text-decoration: none;
   background-color: @tooltip-bg;
-  border-radius: 6px;
+  border-radius: @border-radius-base;
   box-shadow: 0 0 4px rgba(0,0,0,0.4);
 }
 
