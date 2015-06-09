@@ -7,7 +7,8 @@ var antd = {
   modal: require('./components/modal'),
   Menu: require('rc-menu'),
   Dropdown: require('./components/dropdown'),
-  Progress: require('./components/progress')
+  Progress: require('./components/progress'),
+  Select: require('./components/select')
 };
 
 module.exports = window.antd = antd;
