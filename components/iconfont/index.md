@@ -544,7 +544,7 @@ $(function() {
   $('.anticons-list li').each(function(i, item) {
     var client = new ZeroClipboard(item);
     client.on( "copy", function (event) {
-      client.setText('<i className="anticon anticon-' + $(item).find('.anticon-class').html() + '></i>');
+      client.setText('<i className="anticon anticon-' + $(item).find('.anticon-class').html() + '"></i>');
     });
     client.on( "ready", function( readyEvent ) {
       client.on( "aftercopy", function( event ) {
