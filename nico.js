@@ -8,7 +8,7 @@ exports.site = {
   repo: package.repository.url,
   issues: package.bugs.url
 };
-exports.theme = 'theme';
+exports.theme = 'site';
 exports.source = process.cwd();
 exports.output = path.join(process.cwd(), '_site');
 exports.permalink = '{{directory}}/{{filename}}';

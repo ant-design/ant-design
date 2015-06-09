@@ -1,6 +1,5 @@
 var React = require('react');
 var Tooltip = require('rc-tooltip');
-require('rc-tooltip/assets/bootstrap.css');
 
 module.exports = React.createClass({
   getInitialState: function () {
@@ -17,6 +16,7 @@ module.exports = React.createClass({
   render: function() {
     return  (
       <Tooltip placement={this.state.placement}
+        prefixCls="ant-tooltip"
         trigger="hover"
         overlay={this.state.title}>
         {this.props.children}

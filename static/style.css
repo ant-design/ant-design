@@ -132,7 +132,7 @@ header {
   opacity: 0 !important;
 }
 
-.logo {
+a.logo {
   float: left;
   height: 46px;
   line-height: 46px;
@@ -142,6 +142,7 @@ header {
   font-size: 18px;
   font-family: "Raleway", sans-serif;
   font-weight: 500;
+  color: #6EB4E0;
 }
 
 .logo img {
