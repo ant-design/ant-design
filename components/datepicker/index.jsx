@@ -1,6 +1,6 @@
 var React = require('react');
 var Calendar = require('rc-calendar');
-var DatePicker = Calendar.Picker;
+var Datepicker = Calendar.Picker;
 var GregorianCalendar = require('gregorian-calendar');
 var zhCn = require('gregorian-calendar/lib/locale/zh-cn');
 var CalendarLocale = require('rc-calendar/lib/locale/zh-cn');
@@ -45,14 +45,14 @@ module.exports = React.createClass({
       showClear={false} />
     );
     return (
-      <DatePicker
+      <Datepicker
         trigger={<span className="rc-calendar-picker-icon" />}
         calendar={calendar}
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
         onChange={this.props.onSelect}>
         <input placeholder={this.props.placeholder} className="rc-calendar-picker-input" />
-      </DatePicker>
+      </Datepicker>
     );
   }
 });

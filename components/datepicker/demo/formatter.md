@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Datepicker = antd.datepicker;
+var Datepicker = antd.Datepicker;
 
 React.render(
   <Datepicker value="2015/01/01" format="yyyy/MM/dd" />

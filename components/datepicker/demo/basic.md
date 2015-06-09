@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Datepicker = antd.datepicker;
+var Datepicker = antd.Datepicker;
 
 React.render(
   <Datepicker value="" />

@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Tooltip = antd.tooltip;
+var Tooltip = antd.Tooltip;
 var text = <span>提示文字</span>;
 
 React.render(

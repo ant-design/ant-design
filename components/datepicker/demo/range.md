@@ -9,7 +9,7 @@
 ---
 
 ````jsx
-var Datepicker = antd.datepicker;
+var Datepicker = antd.Datepicker;
 var disabledDate = function(current, value) {
   // can not select days after today
   return current.getTime() > Date.now();

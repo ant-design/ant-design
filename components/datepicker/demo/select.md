@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Datepicker = antd.datepicker;
+var Datepicker = antd.Datepicker;
 
 var Picker = React.createClass({
   handleChange: function(value) {
