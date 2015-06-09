@@ -269,6 +269,6 @@ $(function () {
             }
         }
     };
-    bannerAnim.init()
-
+    //bannerAnim.init()
+    window.bannerAnim=bannerAnim;
 });

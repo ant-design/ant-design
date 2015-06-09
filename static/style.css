@@ -375,8 +375,8 @@ header {
     -webkit-transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);;
 }
 .load-out {
-  -webkit-animation: alphaOut 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
-  animation: alphaOut 1s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  -webkit-animation: alphaOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: alphaOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 .banner-box #bannerAnim .banner-line-absolute {
@@ -1577,8 +1577,8 @@ footer ul li > a {
 }
 
 .index-page footer {
-  -webkit-animation: yBottomMatrix .5s ease-out 2s backwards;
-  animation: yBottomMatrix .5s ease-out 2s backwards;
+  -webkit-animation: yBottomMatrix .5s ease-out 1s backwards;
+  animation: yBottomMatrix .5s ease-out 1s backwards;
 }
 
 .index-page .logo {

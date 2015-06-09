@@ -60,43 +60,41 @@ $(function () {
             self.load()
         },
         load:function (){
-            var self=this,lArr=[],num= 0,tNum=0;
-            function getJS(){
-                for(var i=0;i<lArr.length;i++){
-                    var str=lArr[i];
-                    if(tNum>=lArr.length){
-                        self.loadBox.addClass("load-out").one(animEndStr, function () {
-                            self.loadBox.remove();
-                            $("<script src=" + str + "></script>").appendTo($("body"));
-                        });
-                    }else{
-                        $("<script src=" + str + "></script>").appendTo($("body"));
-                    }
-                    tNum++;
-                    self.loadBar.css("width",tNum/loadData.length*100+"%");
-                }
+            var self=this,num= 0;
+            function endLoad(){
+                self.loadBox.addClass("load-out").one(animEndStr, function () {
+                    self.loadBox.remove();
+                    bannerAnim.init();
+                });
             }
-            for(var i=0;i<loadData.length;i++){
-                var str=loadData[i];
-                if (str.indexOf(".js") >= 0) {
-                    lArr.push(str);
-                    num++;
-                    if (num >= loadData.length) {
-                        setTimeout(getJS,500);
-                    }
+            function getLoad(){
+                var str=loadData[num];
+                if(str.indexOf(".js")>=0){
+                    $.getScript(str,function (){
+                        num++;
+                        self.loadBar.css("width",num/loadData.length*100+"%");
+                        if(num>=loadData.length){
+                            setTimeout(endLoad,300);
+                        }else{
+                            getLoad();
+                        }
+                    })
+
                 }else{
                     var img = new Image();
                     img.onload = img.onerror = function () {
                         num++;
-                        tNum++;
-                        self.loadBar.css("width",tNum/loadData.length*100+"%");
+                        self.loadBar.css("width",num/loadData.length*100+"%");
                         if (num >= loadData.length) {
-                            setTimeout(getJS,500);
+                            setTimeout(endLoad,300);
+                        }else{
+                            getLoad();
                         }
                     };
                     img.src = str;
                 }
             }
+            getLoad();
         }
     };
     $().ready(function (){
