@@ -2,21 +2,21 @@
 
 - order: 0
 
-最简单的用法
+基本用法。
 
 ---
 
 ````jsx
-var Tabs = antd.Tab;
-var TabPane = Tabs.TabPane;
+var Tab = antd.Tab;
+var TabPanel = Tab.Panel;
 
 function callback() {}
 
 React.render(
-  <Tabs defaultActiveKey="2" onChange={callback}>
-    <TabPane tab='tab 1' key="1"></TabPane>
-    <TabPane tab='tab 2' key="2"></TabPane>
-    <TabPane tab='tab 3' key="3"></TabPane>
-  </Tabs>
+  <Tab defaultActiveKey="2" onChange={callback}>
+    <TabPanel tab="tab 1" key="1">选项卡一</TabPanel>
+    <TabPanel tab="tab 2" key="2">选项卡二</TabPanel>
+    <TabPanel tab="tab 3" key="3">选项卡三</TabPanel>
+  </Tab>
 , document.getElementById('components-tab-demo-basic'));
 ````
