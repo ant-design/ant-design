@@ -566,6 +566,13 @@ footer ul li > a {
   background: #F7F7F7;
 }
 
+.markdown blockquote {
+  font-size: 90%;
+  color: #999;
+  border-left: 4px solid #e9e9e9;
+  padding-left: 0.8em;
+}
+
 #api ~ ul > li > p > strong ~ code {
   background: #fff;
   color: #CC7300;
