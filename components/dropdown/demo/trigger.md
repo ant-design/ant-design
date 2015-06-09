@@ -21,18 +21,16 @@ var menu = <Menu>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
 </Menu>;
 
-React.render(
-  <div>
-    <Dropdown overlay={menu} trigger="click">
-      <button className="ant-btn ant-btn-ghost">
-        点我下来 <i className="anticon anticon-caret-down"></i>
-      </button>
-    </Dropdown>
-    <Dropdown overlay={menu}>
-      <button className="ant-btn ant-btn-ghost">
-        鼠标移入 <i className="anticon anticon-caret-down"></i>
-      </button>
-    </Dropdown>
-  </div>
-, document.getElementById('components-dropdown-demo-trigger'));
+React.render(<div>
+  <Dropdown overlay={menu} trigger="click">
+    <button className="ant-btn ant-btn-ghost">
+      点我下来 <i className="anticon anticon-caret-down"></i>
+    </button>
+  </Dropdown>
+  <Dropdown overlay={menu}>
+    <button className="ant-btn ant-btn-ghost">
+      鼠标移入 <i className="anticon anticon-caret-down"></i>
+    </button>
+  </Dropdown>
+</div>, document.getElementById('components-dropdown-demo-trigger'));
 ````
