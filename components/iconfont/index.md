@@ -482,89 +482,78 @@ ul.anticons-list {
 }
 ul.anticons-list li {
   float: left;
-  margin: 10px 5px;
+  margin: 5px;
   padding-bottom: 10px;
-  width: 150px;
-  height: 120px;
+  width: 154px;
   text-align: center;
   list-style: none;
   cursor: pointer;
-  height: 92px;
+  height: 110px;
   color: #5C6B77;
   transition: all 0.2s ease;
   position: relative;
 }
-ul.anticons-list li:before {
-  content: "点击后 ctrl+c 复制代码";
-  top: -17px;
-  left: 13px;
-  font-size: 12px;
-  text-align: center;
-  position: absolute;
-  display: none;
-  color: #aaa;
-  transform: scale(0.8);
-}
-ul.anticons-list li:hover {
+ul.anticons-list li:hover,
+ul.anticons-list li.zeroclipboard-is-hover {
   background-color: #4BB8FF;
   color: #fff;
   border-radius: 4px;
 }
-ul.anticons-list li:hover:before {
-  display: block;
+ul.anticons-list li.copied.zeroclipboard-is-hover {
+  color: rgba(255,255,255,0.2);
+}
+ul.anticons-list li:after {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "Copied!";
+  text-align: center;
+  line-height: 110px;
+  color: #fff;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  opacity: 0;
+}
+ul.anticons-list li.copied:after {
+  opacity: 1;
+  top: 0;
 }
 .anticon {
-  font-size: 24px;
-  margin: 18px 0 16px;
+  font-size: 26px;
+  margin: 26px 0 16px;
 }
 .anticon-class {
   display: block;
   text-align: center;
   word-wrap: break-word;
-  transform: scale(0.85);
+  transform: scale(0.83);
   font-family: Consolas;
 }
 </style>
 
+<script src="/static/ZeroClipboard.js"></script>
 <script>
 $(function() {
-  var input = $('input');
-  input.css('opacity', '0.01');
-  $('.anticons-list li').mouseenter(function() {
-    var iconText = $(this).find('.anticon-class').html();
-    input.val('<span class="anticon anticon-' + iconText + '"></span>').appendTo(this);
-    setTimeout(function() {
-      input[0].focus();
-      input[0].select();
-    }, 50);
-  }).mouseleave(function() {
-    input.remove();
+  ZeroClipboard.config({
+    swfPath: "http://static.alipayobjects.com/zeroclipboard/2.2.0/dist/ZeroClipboard.swf"
   });
-
-  $('.anticons-list li').click(function() {
-    setTimeout(function() {
-      input[0].focus();
-      input[0].select();
-    }, 50);
-  });
-
-  var ctrlDown = false;
-  var ctrlKey = 17, vKey = 86, cKey = 67, cmdKey = 224;
-
-  $(document).keydown(function(e) {
-    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) {
-      ctrlDown = true;
-    }
-  }).keyup(function(e) {
-    if (e.keyCode == ctrlKey || e.keyCode == cmdKey) {
-      ctrlDown = false;
-    }
-  });
-
-  $(document).keydown(function(e) {
-    if (ctrlDown && (e.keyCode == vKey || e.keyCode == cKey)) {
-      console.log('复制成功!');
-    }
+  // clipboard
+  $('.anticons-list li').each(function(i, item) {
+    var client = new ZeroClipboard(item);
+    client.on( "copy", function (event) {
+      client.setText('<i class="anticon anticon-' + $(item).find('.anticon-class').html() + '></i>');
+    });
+    client.on( "ready", function( readyEvent ) {
+      client.on( "aftercopy", function( event ) {
+        // `this` === `client`
+        // `event.target` === the element that was clicked
+        $(event.target).addClass('copied');
+        setTimeout(function() {
+          $(event.target).removeClass('copied');
+        }, 2000);
+      });
+    });
   });
 });
 </script>
