@@ -88,7 +88,7 @@
   line-height: @line-height-base;
   .button-size(@btn-padding-base; @font-size-base; @btn-border-radius-base);
   .user-select(none);
-  .transition(all .4s @fc-ease-in-out);
+  .transition(all .4s @ease-in-out);
   -webkit-transform: translate3d(0, 0, 0);
 
   > .@{iconfont-css-prefix} {
@@ -196,7 +196,7 @@
     border-radius: 50% 50%;
     content: " ";
     .scale(0, 0);
-    .transition(all @fc-duration-300 @fc-ease-in-out);
+    .transition(all @duration-300 @ease-in-out);
     z-index: 0;
     background-color: @primary-color;
   }
