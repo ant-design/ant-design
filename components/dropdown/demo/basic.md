@@ -22,7 +22,7 @@ var menu = <Menu>
 </Menu>;
 
 React.render(
-  <Dropdown animation="slide-up" overlay={menu}>
+  <Dropdown overlay={menu}>
     <button className="ant-btn ant-btn-ghost">
       点我下来 <i className="anticon anticon-caret-down"></i>
     </button>
