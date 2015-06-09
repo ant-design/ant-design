@@ -454,6 +454,10 @@ footer ul li > a {
   display: none;
 }
 
+.aside-container li>ul.show {
+  display: block;
+}
+
 .aside-container li>ul li {
   border-left: 3px solid transparent;
 }

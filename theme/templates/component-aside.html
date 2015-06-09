@@ -5,7 +5,7 @@
   {%- set items = resource.pages|find_category(category) %}
     <li>
       <h4>{{category}}</h4>
-      <ul>
+      <ul class="{%- if category === post.meta.category %}show{%- endif %}">
         {%- for item in items %}
         <li class="{%- if item.title === post.title %}current{%- endif %}">
           <a href="{{permalink_url(item)}}">
