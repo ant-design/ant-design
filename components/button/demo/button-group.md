@@ -32,12 +32,12 @@
 <h4>带图标按钮组合 </h4>
 <div class="ant-btn-group">
   <button class="ant-btn ant-btn-primary">
-  <span class="anticon anticon-caret-left"></span>
-  <span>前 进</span>
+  <span class="anticon anticon-angle-double-left"></span>
+  <span>后 退</span>
   </button>
   <button class="ant-btn ant-btn-primary">
-  <span>后 退</span>
-  <span class="anticon anticon-caret-right"></span>
+  <span>前 进</span>
+  <span class="anticon anticon-angle-double-right"></span>
   </button>
 </div>
 <div class="ant-btn-group">
@@ -55,8 +55,8 @@
   <button class="ant-btn ant-btn-ghost">3</button>
   <button class="ant-btn ant-btn-ghost">4</button>
   <button class="ant-btn ant-btn-ghost">
-  <span>前进</span>
-  <span class="anticon anticon-caret-right"></span>
+  <span>前 进</span>
+  <span class="anticon anticon-angle-double-right"></span>
   </button>
 </div>
 <h4>尺寸</h4>
@@ -66,9 +66,9 @@
   <button class="ant-btn ant-btn-ghost">大</button>
 </div>
 <div class="ant-btn-group">
-  <button class="ant-btn ant-btn-ghost">正常</button>
-  <button class="ant-btn ant-btn-ghost">正常</button>
-  <button class="ant-btn ant-btn-ghost">正常</button>
+  <button class="ant-btn ant-btn-ghost">默 认</button>
+  <button class="ant-btn ant-btn-ghost">默 认</button>
+  <button class="ant-btn ant-btn-ghost">默 认</button>
 </div>
 <div class="ant-btn-group ant-btn-group-sm">
   <button class="ant-btn ant-btn-ghost">小</button>
@@ -80,5 +80,8 @@
 <style>
 .nico-insert-code h4:first-child {
   margin-top: 0;
+}
+.nico-insert-code .ant-btn-group {
+  margin-left: 8px;
 }
 </style>
