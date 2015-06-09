@@ -58,29 +58,31 @@ a {
 }
 
 // Utility classes
-.fn-clear {
-  zoom:1;
-  &:after {
-    visibility:hidden;
-    display:block;
-    font-size:0;
-    content:" ";
-    clear:both;
-    height:0;
-  }
+.clearfix {
+  .clearfix();
 }
-
-.fn-left,
-.fn-right {
-  display:inline;
+.center-block {
+  .center-block();
 }
-.fn-left {
-  float:left;
+.pull-left {
+  float: left;
 }
-.fn-right {
-  float:right;
+.pull-right {
+  float: right;
 }
-
-body .fn-hide {
-  display:none;
+.hide {
+  display: none !important;
+}
+.show {
+  display: block !important;
+}
+.invisible {
+  visibility: hidden;
+}
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+.affix {
+  position: fixed;
 }

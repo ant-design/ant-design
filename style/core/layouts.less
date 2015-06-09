@@ -1,0 +1,41 @@
+// Layout
+.layout-fixed {
+  .container-fixed();
+
+  @media (min-width: @screen-sm-min) {
+    width: @container-sm;
+  }
+
+  @media (min-width: @screen-md-min) {
+    width: @container-md;
+  }
+
+  @media (min-width: @screen-lg-min) {
+    width: @container-lg;
+  }
+}
+
+.layout-fluid {
+  .container-fixed()
+}
+
+// Grid system
+.row {
+  .make-row();
+  display: block;
+}
+
+.row-flex {
+  .make-row();
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &:before,
+  &:after {
+    display: flex;
+  }
+}
+
+.make-grid-columns();
+.make-grid();
