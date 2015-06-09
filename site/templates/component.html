@@ -25,9 +25,9 @@
       {%- endif %}
     </h1>
     {{ post.html }}
-    {%- if post.meta.template === 'component' && !post.meta.nodemos %}
-    {%- include "demos.html" %}
-    {%- endif %}
   </article>
+  {%- if post.meta.template === 'component' && !post.meta.nodemos %}
+  {%- include "demos.html" %}
+  {%- endif %}
 </section>
 {% endblock %}

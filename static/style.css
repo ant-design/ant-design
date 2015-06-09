@@ -526,6 +526,7 @@ footer ul li > a {
 .markdown {
   color: #777;
   font-size: 14px;
+  line-height: 1.8;
 }
 
 .markdown h1 {
@@ -549,7 +550,12 @@ footer ul li > a {
 
 .markdown > ul > li {
   list-style: circle;
-  margin-left: 18px;
+  margin-left: 20px;
+  padding-left: 8px;
+}
+
+.markdown code {
+  margin: 0 3px;
 }
 
 .markdown pre code {
@@ -557,6 +563,7 @@ footer ul li > a {
   border: none;
   border-radius: 6px;
   padding: 12px 20px;
+  margin: 0;
 }
 
 .markdown > table {
@@ -1631,6 +1638,10 @@ footer ul li > a {
 
 .sketch-link i {
   margin-right: 5px;
+}
+
+.component-demos {
+  margin: 2em 0 1em;
 }
 
 .component-demos .icon-all {
