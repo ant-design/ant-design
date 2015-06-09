@@ -8,7 +8,6 @@
 .@{prefixClass} {
   outline: none;
   box-sizing: border-box;
-  border-bottom: 2px solid #f3f3f3;
   position: relative;
 
   @font-face {
@@ -23,10 +22,9 @@
     z-index: 1;
     position: absolute;
     left: 0;
-    bottom: 0px;
+    bottom: -2px;
     box-sizing: border-box;
-    height: 4px;
-    margin-top: -3px;
+    height: 3px;
     background-color: #3fc7fa;
     transform: scaleX(1);
     transform-origin: 0 0;
@@ -50,7 +48,6 @@
     white-space: nowrap;
     padding-left: 32px;
     padding-right: 32px;
-    border-bottom: 2px solid #f3f3f3;
   }
 
   &-tab-prev, &-tab-next {
@@ -123,6 +120,7 @@
     margin: 0;
     list-style: none;
     display: inline-block;
+    border-bottom: 2px solid #e9e9e9;
 
     &:before, &:after {
       display: table;
@@ -159,9 +157,9 @@
 
       > a {
         transition: color 0.3s @easing-in-out;
-        margin-bottom: 4px;
         font-weight: 500;
         display: inline-block;
+        color: #999;
       }
 
       > a:hover {
