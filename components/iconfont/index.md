@@ -15,6 +15,8 @@
 <span class="anticon anticon-link"></span>
 ```
 
+> 点击图标复制代码。
+
 ## 图标列表
 
 ### 一. 方向性图标
