@@ -1,0 +1,220 @@
+@selectPrefixCls: rc-select;
+
+.@{selectPrefixCls} {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  color: #666;
+
+  &-selection {
+    outline: none;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  > ul > li > a {
+    padding: 0;
+    background-color: #fff;
+  }
+
+  // arrow
+  &-arrow {
+    height: 26px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+    b {
+      border-color: #888 transparent transparent transparent;
+      border-style: solid;
+      border-width: 5px 4px 0 4px;
+      height: 0;
+      left: 50%;
+      margin-left: -4px;
+      margin-top: -2px;
+      position: absolute;
+      top: 50%;
+      width: 0;
+    }
+  }
+
+  &-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: 28px;
+    user-select: none;
+    -webkit-user-select: none;
+
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+
+    .@{selectPrefixCls}-selection__rendered {
+      display: block;
+      overflow: hidden;
+      padding-left: 8px;
+      padding-right: 20px;
+      text-overflow: ellipsis;
+      line-height: 28px;
+    }
+
+    .@{selectPrefixCls}-selection__clear {
+      cursor: pointer;
+      float: right;
+      font-weight: bold;
+    }
+  }
+
+  &-selection--multiple {
+    box-sizing: border-box;
+    display: block;
+    min-height: 32px;
+    user-select: none;
+    -webkit-user-select: none;
+
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    cursor: text;
+
+    .@{selectPrefixCls}-selection__rendered {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 8px;
+    }
+
+    .@{selectPrefixCls}-selection__clear {
+      cursor: pointer;
+      float: right;
+      font-weight: bold;
+      margin-top: 5px;
+      margin-right: 10px;
+    }
+
+    .@{selectPrefixCls}-selection__choice {
+      background-color: #f3f3f3;
+      border-radius: 4px;
+      cursor: default;
+      float: left;
+      margin-right: 4px;
+      margin-top: 4px;
+      padding: 4px 8px;
+    }
+
+    .@{selectPrefixCls}-selection__choice__remove {
+      color: #919191;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0 0 0 8px;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+
+  &-search--inline {
+    float: left;
+
+    .@{selectPrefixCls}-search__field {
+      border: none;
+      font-size: 100%;
+      margin-top: 5px;
+      background: transparent;
+      outline: 0;
+    }
+  }
+
+
+  &-dropdown {
+    display: none;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 0px 4px #d9d9d9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 100;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: absolute;
+    top: 100%;
+    marin-top: -1px;
+    outline: none;
+    .@{selectPrefixCls}-menu-item[aria-selected=true] {
+      background-color: #ddd;
+    }
+  }
+
+  &-search--dropdown {
+    display: block;
+    padding: 4px;
+    .@{selectPrefixCls}-search__field {
+      padding: 4px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      outline: none;
+    }
+    &.@{selectPrefixCls}-search--hide {
+      display: none;
+    }
+  }
+
+  &-open {
+    .@{selectPrefixCls}-arrow b {
+      border-color: transparent transparent #888 transparent;
+      border-width: 0 4px 5px 4px;
+    }
+    .@{selectPrefixCls}-dropdown {
+      display: block;
+    }
+
+    .@{selectPrefixCls}-selection {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  &-menu {
+    outline: none;
+    margin-bottom: 0;
+    padding-left: 0; // Override default ul/ol
+    list-style: none;
+    z-index: 99999;
+
+    .@{selectPrefixCls}-menu-item-active, .@{selectPrefixCls}-menu-submenu-active {
+      //background-color: #8EC8F9 !important;
+      background-color: rgba(142, 200, 249, 0.1) !important;
+    }
+
+    > li {
+      position: relative;
+      display: block;
+      padding: 15px 20px;
+      white-space: nowrap;
+
+      // Disabled state sets text to gray and nukes hover/tab effects
+      &.@{selectPrefixCls}-menu-item-disabled, &.@{selectPrefixCls}-menu-submenu-disabled {
+        color: #777;
+      }
+    }
+    .@{selectPrefixCls}-menu-item-divider {
+      padding: 0;
+      height: 1px;
+      margin: 9px 0;
+      overflow: hidden;
+      background-color: #e5e5e5;
+    }
+  }
+}

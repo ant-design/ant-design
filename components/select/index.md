@@ -5,30 +5,25 @@
 
 ---
 
-这是一个单/多项选择器。
+类似 select2 的选择器
 
-## 何时使用
+```html
+<Select>
+  <Option value="lucy">lucy</Option>
+</Select>
+```
 
-当你再次和我说起 青春时的故事
-我正在下着雨的无锡 乞讨着生活的权利
-前一天早晨 我睁开眼已是江南
-他们说柔软的地方 总会发生柔软的事
-那年的舞台上 说谎的人一直歌唱
-大不列颠的广场上 有没有鸽子飞翔
-青春和瞎子一起 变成了哑巴
-今天扯平了我们的当年 分食了理想
+## API
 
+| 参数     | 说明           | 类型     | 默认值       |
+|----------|----------------|----------|--------------|
+| value    | specify the default selected item(s) | string/Array<String>   |  无  |
+| multiple   | can select more than one option |   | false |
+| filterOption | whether filter options by input value |  | true     |
+| tags | when tagging is enabled the user can select from pre-existing options or create a new tag by picking the first choice, which is what the user has typed into the search box so far. | |false |
+| allowClear | show clear button | | true |
+| combobox | enable combobox mode(can not set multiple at the same time) | | false |
+| onSelect | called when a option is selected. param is option's value | function | 无   |
+| onDeselect | called when a option is deselected. param is option's value. only called for multiple or tags | function | 无   |
+| onChange | called when select an option or input value change(combobox) | function | 无 |
 
-## 为什么使用
-
-你可知道你的名字解释了我的一生
-碎了满天的往事如烟 与世无争
-当你装满行李 回到故乡
-我的余生 却再也没有北方
-
-有一天我又梦见 那个装满乐器的教室
-你还站在门口 一脸羞涩的表情
-你说这么多年你还没找到 让你心动的男人
-我说去他妈的爱情 都是过眼云烟的东西
-
-我的余生 都用来寻找北方
