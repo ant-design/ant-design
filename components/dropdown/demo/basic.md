@@ -29,3 +29,9 @@ React.render(
   </Dropdown>
 , document.getElementById('components-dropdown-demo-basic'));
 ````
+
+<style>
+.code-box-demo .ant-btn {
+  margin-right: 6px;
+}
+</style>
