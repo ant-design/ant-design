@@ -68,13 +68,19 @@
 * 栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽d的列可以使用`.col-8`来创建
 * 如果一个`row`中的`col`总和超过24，那么多余的`col`会作为一个整体另起一行排列
 
+## Flex 布局
+
+我们的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。
+
 
 <style>
-.row {
+.row,
+.row-flex {
     background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
 }
 
-.row div {
+.row div,
+.row-flex div {
   padding: 5px 0;
   background: rgba(24, 115, 216, 0.7);
   text-align: center;
@@ -112,4 +118,16 @@
   color: #999;
 }
 
+.hight-100 {
+	height: 100px;
+}
+.hight-50 {
+	height: 50px;
+}
+.hight-120 {
+	height: 120px;
+}
+.hight-80 {
+	height: 80px;
+}
 </style>
