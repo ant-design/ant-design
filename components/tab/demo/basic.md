@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Tabs = antd.tab;
+var Tabs = antd.Tab;
 var TabPane = Tabs.TabPane;
 
 function callback() {}
