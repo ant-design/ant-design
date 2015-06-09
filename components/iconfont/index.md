@@ -23,107 +23,107 @@
 <ul class="row anticons-list fn-clear">
 	<li>
 		<i class="anticon anticon-step-backward"></i>
-		<i class="anticon-class">step-backward</i>
+		<span class="anticon-class">step-backward</span>
 	</li>
 	<li>
 		<i class="anticon anticon-step-forward"></i>
-		<i class="anticon-class">step-forward</i>
+		<span class="anticon-class">step-forward</span>
 	</li>
 	<li>
 		<i class="anticon anticon-fast-backward"></i>
-		<i class="anticon-class">fast-backward</i>
+		<span class="anticon-class">fast-backward</span>
 	</li>
 	<li>
 		<i class="anticon anticon-fast-forward"></i>
-		<i class="anticon-class">fast-forward</i>
+		<span class="anticon-class">fast-forward</span>
 	</li>
 	<li>
 		<i class="anticon anticon-shrink"></i>
-		<i class="anticon-class">shrink</i>
+		<span class="anticon-class">shrink</span>
 	</li>
 	<li>
 		<i class="anticon anticon-arrow-salt"></i>
-		<i class="anticon-class">arrow-salt</i>
+		<span class="anticon-class">arrow-salt</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-down"></i>
-		<i class="anticon-class">caret-down</i>
+		<span class="anticon-class">caret-down</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-up"></i>
-		<i class="anticon-class">caret-up</i>
+		<span class="anticon-class">caret-up</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-left"></i>
-		<i class="anticon-class">caret-left</i>
+		<span class="anticon-class">caret-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-right"></i>
-		<i class="anticon-class">caret-right</i>
+		<span class="anticon-class">caret-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-circle-right"></i>
-		<i class="anticon-class">caret-circle-right</i>
+		<span class="anticon-class">caret-circle-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-circle-left"></i>
-		<i class="anticon-class">caret-circle-left</i>
+		<span class="anticon-class">caret-circle-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-circleo-right"></i>
-		<i class="anticon-class">caret-circleo-right</i>
+		<span class="anticon-class">caret-circleo-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-caret-circleo-left"></i>
-		<i class="anticon-class">caret-circleo-left</i>
+		<span class="anticon-class">caret-circleo-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-circle-right"></i>
-		<i class="anticon-class">angle-circle-right</i>
+		<span class="anticon-class">angle-circle-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-circle-left"></i>
-		<i class="anticon-class">angle-circle-left</i>
+		<span class="anticon-class">angle-circle-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-circleo-right"></i>
-		<i class="anticon-class">angle-circleo-right</i>
+		<span class="anticon-class">angle-circleo-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-circleo-left"></i>
-		<i class="anticon-class">angle-circleo-left</i>
+		<span class="anticon-class">angle-circleo-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-double-right"></i>
-		<i class="anticon-class">angle-double-right</i>
+		<span class="anticon-class">angle-double-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-double-left"></i>
-		<i class="anticon-class">angle-double-left</i>
+		<span class="anticon-class">angle-double-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-verticle-right"></i>
-		<i class="anticon-class">angle-verticle-right</i>
+		<span class="anticon-class">angle-verticle-right</span>
 	</li>
 	<li>
 		<i class="anticon anticon-angle-verticle-left"></i>
-		<i class="anticon-class">angle-verticle-left</i>
+		<span class="anticon-class">angle-verticle-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-forward"></i>
-		<i class="anticon-class">forward</i>
+		<span class="anticon-class">forward</span>
 	</li>
 	<li>
 		<i class="anticon anticon-backward"></i>
-		<i class="anticon-class">backward</i>
+		<span class="anticon-class">backward</span>
 	</li>
 	<li>
 		<i class="anticon anticon-rollback"></i>
-		<i class="anticon-class">rollback</i>
+		<span class="anticon-class">rollback</span>
 	</li>
 	<li>
 		<i class="anticon anticon-retweet"></i>
-		<i class="anticon-class">retweet</i>
+		<span class="anticon-class">retweet</span>
 	</li>
 </ul>
 
@@ -132,107 +132,107 @@
 <ul class="anticons-list fn-clear">
 	<li>
 		<i class="anticon anticon-question"></i>
-		<i class="anticon-class">question</i>
+		<span class="anticon-class">question</span>
 	</li>
 	<li>
 		<i class="anticon anticon-question-circle"></i>
-		<i class="anticon-class">question-circle</i>
+		<span class="anticon-class">question-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-question-circleo"></i>
-		<i class="anticon-class">question-circleo</i>
+		<span class="anticon-class">question-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-plus"></i>
-		<i class="anticon-class">plus</i>
+		<span class="anticon-class">plus</span>
 	</li>
 	<li>
 		<i class="anticon anticon-plus-circle"></i>
-		<i class="anticon-class">plus-circle</i>
+		<span class="anticon-class">plus-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-plus-circleo"></i>
-		<i class="anticon-class">plus-circleo</i>
+		<span class="anticon-class">plus-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pause"></i>
-		<i class="anticon-class">pause</i>
+		<span class="anticon-class">pause</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pause-circle"></i>
-		<i class="anticon-class">pause-circle</i>
+		<span class="anticon-class">pause-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pause-circleo"></i>
-		<i class="anticon-class">pause-circleo</i>
+		<span class="anticon-class">pause-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-minus"></i>
-		<i class="anticon-class">minus</i>
+		<span class="anticon-class">minus</span>
 	</li>
 	<li>
 		<i class="anticon anticon-minus-circle"></i>
-		<i class="anticon-class">minus-circle</i>
+		<span class="anticon-class">minus-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-minus-circleo"></i>
-		<i class="anticon-class">minus-circleo</i>
+		<span class="anticon-class">minus-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-info-circle"></i>
-		<i class="anticon-class">info-circle</i>
+		<span class="anticon-class">info-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-info-circleo"></i>
-		<i class="anticon-class">info-circleo</i>
+		<span class="anticon-class">info-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-info"></i>
-		<i class="anticon-class">info</i>
+		<span class="anticon-class">info</span>
 	</li>
 	<li>
 		<i class="anticon anticon-exclamation"></i>
-		<i class="anticon-class">exclamation</i>
+		<span class="anticon-class">exclamation</span>
 	</li>
 	<li>
 		<i class="anticon anticon-exclamation-circle"></i>
-		<i class="anticon-class">exclamation-circle</i>
+		<span class="anticon-class">exclamation-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-exclamation-circleo"></i>
-		<i class="anticon-class">exclamation-circleo</i>
+		<span class="anticon-class">exclamation-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-cross-circleo"></i>
-		<i class="anticon-class">cross-circleo</i>
+		<span class="anticon-class">cross-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-cross-circle"></i>
-		<i class="anticon-class">cross-circle</i>
+		<span class="anticon-class">cross-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-cross"></i>
-		<i class="anticon-class">cross</i>
+		<span class="anticon-class">cross</span>
 	</li>
 	<li>
 		<i class="anticon anticon-check-circleo"></i>
-		<i class="anticon-class">check-circleo</i>
+		<span class="anticon-class">check-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-check-circle"></i>
-		<i class="anticon-class">check-circle</i>
+		<span class="anticon-class">check-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-check"></i>
-		<i class="anticon-class">check</i>
+		<span class="anticon-class">check</span>
 	</li>
 	<li>
 		<i class="anticon anticon-clock-circle"></i>
-		<i class="anticon-class">clock-circle</i>
+		<span class="anticon-class">clock-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-clock-circleo"></i>
-		<i class="anticon-class">clock-circleo</i>
+		<span class="anticon-class">clock-circleo</span>
 	</li>
 </ul>
 
@@ -241,239 +241,239 @@
 <ul class="anticons-list fn-clear">
 	<li>
 		<i class="anticon anticon-lock"></i>
-		<i class="anticon-class">lock</i>
+		<span class="anticon-class">lock</span>
 	</li>
 	<li>
 		<i class="anticon anticon-android"></i>
-		<i class="anticon-class">android</i>
+		<span class="anticon-class">android</span>
 	</li>
 	<li>
 		<i class="anticon anticon-apple"></i>
-		<i class="anticon-class">apple</i>
+		<span class="anticon-class">apple</span>
 	</li>
 	<li>
 		<i class="anticon anticon-area-chart"></i>
-		<i class="anticon-class">area-chart</i>
+		<span class="anticon-class">area-chart</span>
 	</li>
 	<li>
 		<i class="anticon anticon-bar-chart"></i>
-		<i class="anticon-class">bar-chart</i>
+		<span class="anticon-class">bar-chart</span>
 	</li>
 	<li>
 		<i class="anticon anticon-bars"></i>
-		<i class="anticon-class">bars</i>
+		<span class="anticon-class">bars</span>
 	</li>
 	<li>
 		<i class="anticon anticon-booko"></i>
-		<i class="anticon-class">booko</i>
+		<span class="anticon-class">booko</span>
 	</li>
 	<li>
 		<i class="anticon anticon-calendar"></i>
-		<i class="anticon-class">calendar</i>
+		<span class="anticon-class">calendar</span>
 	</li>
 	<li>
 		<i class="anticon anticon-cloud"></i>
-		<i class="anticon-class">cloud</i>
+		<span class="anticon-class">cloud</span>
 	</li>
 	<li>
 		<i class="anticon anticon-cloud-download"></i>
-		<i class="anticon-class">cloud-download</i>
+		<span class="anticon-class">cloud-download</span>
 	</li>
 	<li>
 		<i class="anticon anticon-code"></i>
-		<i class="anticon-class">code</i>
+		<span class="anticon-class">code</span>
 	</li>
 	<li>
 		<i class="anticon anticon-copy"></i>
-		<i class="anticon-class">copy</i>
+		<span class="anticon-class">copy</span>
 	</li>
 	<li>
 		<i class="anticon anticon-credit-card"></i>
-		<i class="anticon-class">credit-card</i>
+		<span class="anticon-class">credit-card</span>
 	</li>
 	<li>
 		<i class="anticon anticon-delete"></i>
-		<i class="anticon-class">delete</i>
+		<span class="anticon-class">delete</span>
 	</li>
 	<li>
 		<i class="anticon anticon-desktop"></i>
-		<i class="anticon-class">desktop</i>
+		<span class="anticon-class">desktop</span>
 	</li>
 	<li>
 		<i class="anticon anticon-download-line"></i>
-		<i class="anticon-class">download-line</i>
+		<span class="anticon-class">download-line</span>
 	</li>
 	<li>
 		<i class="anticon anticon-edit"></i>
-		<i class="anticon-class">edit</i>
+		<span class="anticon-class">edit</span>
 	</li>
 	<li>
 		<i class="anticon anticon-ellipsis"></i>
-		<i class="anticon-class">ellipsis</i>
+		<span class="anticon-class">ellipsis</span>
 	</li>
 	<li>
 		<i class="anticon anticon-environment"></i>
-		<i class="anticon-class">environment</i>
+		<span class="anticon-class">environment</span>
 	</li>
 	<li>
 		<i class="anticon anticon-fileo"></i>
-		<i class="anticon-class">fileo</i>
+		<span class="anticon-class">fileo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-file-texto"></i>
-		<i class="anticon-class">file-texto</i>
+		<span class="anticon-class">file-texto</span>
 	</li>
 	<li>
 		<i class="anticon anticon-foldero"></i>
-		<i class="anticon-class">foldero</i>
+		<span class="anticon-class">foldero</span>
 	</li>
 	<li>
 		<i class="anticon anticon-folder-openo"></i>
-		<i class="anticon-class">folder-openo</i>
+		<span class="anticon-class">folder-openo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-github"></i>
-		<i class="anticon-class">github</i>
+		<span class="anticon-class">github</span>
 	</li>
 	<li>
 		<i class="anticon anticon-hddo"></i>
-		<i class="anticon-class">hddo</i>
+		<span class="anticon-class">hddo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-frown"></i>
-		<i class="anticon-class">frown</i>
+		<span class="anticon-class">frown</span>
 	</li>
 	<li>
 		<i class="anticon anticon-meho"></i>
-		<i class="anticon-class">meho</i>
+		<span class="anticon-class">meho</span>
 	</li>
 	<li>
 		<i class="anticon anticon-inbox"></i>
-		<i class="anticon-class">inbox</i>
+		<span class="anticon-class">inbox</span>
 	</li>
 	<li>
 		<i class="anticon anticon-laptop"></i>
-		<i class="anticon-class">laptop</i>
+		<span class="anticon-class">laptop</span>
 	</li>
 	<li>
 		<i class="anticon anticon-large"></i>
-		<i class="anticon-class">large</i>
+		<span class="anticon-class">large</span>
 	</li>
 	<li>
 		<i class="anticon anticon-line-chart"></i>
-		<i class="anticon-class">line-chart</i>
+		<span class="anticon-class">line-chart</span>
 	</li>
 	<li>
 		<i class="anticon anticon-link"></i>
-		<i class="anticon-class">link</i>
+		<span class="anticon-class">link</span>
 	</li>
 	<li>
 		<i class="anticon anticon-lock1"></i>
-		<i class="anticon-class">lock1</i>
+		<span class="anticon-class">lock1</span>
 	</li>
 	<li>
 		<i class="anticon anticon-logout"></i>
-		<i class="anticon-class">logout</i>
+		<span class="anticon-class">logout</span>
 	</li>
 	<li>
 		<i class="anticon anticon-mail"></i>
-		<i class="anticon-class">mail</i>
+		<span class="anticon-class">mail</span>
 	</li>
 	<li>
 		<i class="anticon anticon-menu-fold"></i>
-		<i class="anticon-class">menu-fold</i>
+		<span class="anticon-class">menu-fold</span>
 	</li>
 	<li>
 		<i class="anticon anticon-menu-unfold"></i>
-		<i class="anticon-class">menu-unfold</i>
+		<span class="anticon-class">menu-unfold</span>
 	</li>
 	<li>
 		<i class="anticon anticon-mobile"></i>
-		<i class="anticon-class">mobile</i>
+		<span class="anticon-class">mobile</span>
 	</li>
 	<li>
 		<i class="anticon anticon-notification"></i>
-		<i class="anticon-class">notification</i>
+		<span class="anticon-class">notification</span>
 	</li>
 	<li>
 		<i class="anticon anticon-paper-clip"></i>
-		<i class="anticon-class">paper-clip</i>
+		<span class="anticon-class">paper-clip</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pictureo"></i>
-		<i class="anticon-class">pictureo</i>
+		<span class="anticon-class">pictureo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pie-chart"></i>
-		<i class="anticon-class">pie-chart</i>
+		<span class="anticon-class">pie-chart</span>
 	</li>
 	<li>
 		<i class="anticon anticon-poweroff"></i>
-		<i class="anticon-class">poweroff</i>
+		<span class="anticon-class">poweroff</span>
 	</li>
 	<li>
 		<i class="anticon anticon-reload"></i>
-		<i class="anticon-class">reload</i>
+		<span class="anticon-class">reload</span>
 	</li>
 	<li>
 		<i class="anticon anticon-search"></i>
-		<i class="anticon-class">search</i>
+		<span class="anticon-class">search</span>
 	</li>
 	<li>
 		<i class="anticon anticon-setting"></i>
-		<i class="anticon-class">setting</i>
+		<span class="anticon-class">setting</span>
 	</li>
 	<li>
 		<i class="anticon anticon-share-alt"></i>
-		<i class="anticon-class">share-alt</i>
+		<span class="anticon-class">share-alt</span>
 	</li>
 	<li>
 		<i class="anticon anticon-shopping-cart"></i>
-		<i class="anticon-class">shopping-cart</i>
+		<span class="anticon-class">shopping-cart</span>
 	</li>
 	<li>
 		<i class="anticon anticon-smile"></i>
-		<i class="anticon-class">smile</i>
+		<span class="anticon-class">smile</span>
 	</li>
 	<li>
 		<i class="anticon anticon-tablet"></i>
-		<i class="anticon-class">tablet</i>
+		<span class="anticon-class">tablet</span>
 	</li>
 	<li>
 		<i class="anticon anticon-tag"></i>
-		<i class="anticon-class">tag</i>
+		<span class="anticon-class">tag</span>
 	</li>
 	<li>
 		<i class="anticon anticon-tags"></i>
-		<i class="anticon-class">tags</i>
+		<span class="anticon-class">tags</span>
 	</li>
 	<li>
 		<i class="anticon anticon-totop"></i>
-		<i class="anticon-class">totop</i>
+		<span class="anticon-class">totop</span>
 	</li>
 	<li>
 		<i class="anticon anticon-unlock"></i>
-		<i class="anticon-class">unlock</i>
+		<span class="anticon-class">unlock</span>
 	</li>
 	<li>
 		<i class="anticon anticon-upload"></i>
-		<i class="anticon-class">upload</i>
+		<span class="anticon-class">upload</span>
 	</li>
 	<li>
 		<i class="anticon anticon-user"></i>
-		<i class="anticon-class">user</i>
+		<span class="anticon-class">user</span>
 	</li>
 	<li>
 		<i class="anticon anticon-video-camera"></i>
-		<i class="anticon-class">video-camera</i>
+		<span class="anticon-class">video-camera</span>
 	</li>
 	<li>
 		<i class="anticon anticon-windows"></i>
-		<i class="anticon-class">windows</i>
+		<span class="anticon-class">windows</span>
 	</li>
 	<li>
 		<i class="anticon anticon-loading"></i>
-		<i class="anticon-class">loading</i>
+		<span class="anticon-class">loading</span>
 	</li>
 </ul>
 <style>
