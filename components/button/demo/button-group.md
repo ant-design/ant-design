@@ -84,4 +84,7 @@
 .nico-insert-code .ant-btn-group {
   margin-left: 8px;
 }
+.nico-insert-code .ant-btn {
+  margin-bottom: 10px;
+}
 </style>
