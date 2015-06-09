@@ -2,12 +2,6 @@ var React = require('react');
 var Tooltip = require('rc-tooltip');
 
 module.exports = React.createClass({
-  getInitialState: function () {
-    var state = {};
-    state.placement = this.props.placement;
-    state.title = this.props.title;
-    return state;
-  },
   getDefaultProps: function () {
     return {
       placement: 'top'
@@ -15,10 +9,10 @@ module.exports = React.createClass({
   },
   render: function() {
     return  (
-      <Tooltip placement={this.state.placement}
+      <Tooltip placement={this.props.placement}
         prefixCls="ant-tooltip"
         trigger="hover"
-        overlay={this.state.title}>
+        overlay={this.props.title}>
         {this.props.children}
       </Tooltip>
     );
