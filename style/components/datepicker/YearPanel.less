@@ -1,0 +1,122 @@
+.@{prefixCalendarClass}-year-panel {
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: #ffffff;
+  z-index: 10;
+  position: absolute;
+  outline: none;
+}
+
+.@{prefixCalendarClass}-year-panel-hidden {
+  display: none;
+}
+
+.@{prefixCalendarClass}-year-panel-header {
+  padding: 0 10px;
+  height: 34px;
+  line-height: 30px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  border-bottom: 1px solid #ccc;
+
+  > a {
+    font-weight: bold;
+    display: inline-block;
+    padding: 4px 5px;
+    text-align: center;
+    width: 30px;
+
+    &:hover {
+      cursor: pointer;
+      color: #23c0fa;
+    }
+  }
+}
+
+.@{prefixCalendarClass}-year-panel-prev-decade-btn, .@{prefixCalendarClass}-year-panel-next-decade-btn {
+  position: absolute;
+  top: 0;
+}
+
+.@{prefixCalendarClass}-year-panel-prev-decade-btn {
+  user-select: none;
+  left: 0;
+}
+
+.@{prefixCalendarClass}-year-panel .@{prefixCalendarClass}-year-panel-decade-select {
+  width: 180px;
+}
+
+.@{prefixCalendarClass}-year-panel-decade-select-arrow {
+  display: none;
+}
+
+.@{prefixCalendarClass}-year-panel-next-decade-btn {
+  user-select: none;
+  right: 0;
+}
+
+.@{prefixCalendarClass}-year-panel-body {
+  padding: 9px 10px 10px;
+}
+
+.@{prefixCalendarClass}-year-panel-table {
+  table-layout: fixed;
+  width: 100%;
+  height: 255px;
+  border-collapse: separate;
+}
+
+.@{prefixCalendarClass}-year-panel-cell {
+  text-align: center;
+}
+
+.@{prefixCalendarClass}-year-panel-year {
+  display: block;
+  width: 46px;
+  margin: 0 auto;
+  color: #666;
+  border-radius: 4px 4px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  line-height: 36px;
+  text-align: center;
+
+  &:hover {
+    background: #ebfaff;
+    cursor: pointer;
+  }
+}
+
+.@{prefixCalendarClass}-year-panel-selected-cell .@{prefixCalendarClass}-year-panel-year {
+  background: #3fc7fa;
+  color: #fff;
+
+  &:hover {
+    background: #3fc7fa;
+    color: #fff;
+  }
+}
+
+.@{prefixCalendarClass}-year-panel-last-decade-cell, .@{prefixCalendarClass}-year-panel-next-decade-cell {
+  .@{prefixCalendarClass}-year-panel-year{
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .@{prefixCalendarClass}-year-panel-year:before {
+    content: "\e651";
+    font-family: "iconfont" !important;
+  }
+}
+
+.@{prefixCalendarClass}-year-panel-last-decade-cell {
+  .@{prefixCalendarClass}-year-panel-year {
+    transform: rotate(180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  }
+}

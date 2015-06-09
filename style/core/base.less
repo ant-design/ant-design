@@ -1,0 +1,86 @@
+@import "normalize";
+
+// HTML & Body reset
+html, body {
+  .square(100%);
+}
+
+body {
+  font-family: @font-family;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @text-color;
+  background-color: @body-background;
+}
+
+// unify the setting of elements's margin and padding for browsers
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  margin:0;
+  padding:0;
+}
+
+// Reset fonts for relevant elements
+button,input,select,textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// Links 
+// --  TODO  --
+a {
+  color: @link-color;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  
+  &:hover {
+    color: @link-hover-color;
+  }
+
+  &:active,
+  &:hover {
+    outline: 0;
+    text-decoration: none;
+  }
+
+  &[disabled] {
+    // color: @grey-200;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Utility classes
+.fn-clear {
+  zoom:1;
+  &:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+  }
+}
+
+.fn-left,
+.fn-right {
+  display:inline;
+}
+.fn-left {
+  float:left;
+}
+.fn-right {
+  float:right;
+}
+
+body .fn-hide {
+  display:none;
+}

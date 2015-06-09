@@ -1,0 +1,22 @@
+.rc-input(){
+  position: relative;
+  display: inline-block;
+  margin: 0 0;
+  padding: 4px 10px;
+  border-radius: 6px 6px;
+  border: 1px solid #d9d9d9;
+  background-color: #ffffff;
+  color: #666;
+  line-height: 1.5;
+  -webkit-transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+
+  &:hover {
+    border-color: #23c0fa;
+  }
+
+  &:focus {
+    border-color: #23c0fa;
+    box-shadow: 0 0 3px #23c0fa;
+  }
+}

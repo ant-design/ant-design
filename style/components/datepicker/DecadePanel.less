@@ -1,0 +1,113 @@
+.@{prefixCalendarClass}-decade-panel {
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: #ffffff;
+  z-index: 10;
+  position: absolute;
+  outline: none;
+}
+
+.@{prefixCalendarClass}-decade-panel-hidden {
+  display: none;
+}
+
+.@{prefixCalendarClass}-decade-panel-header {
+  padding: 0 10px;
+  height: 34px;
+  line-height: 34px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  border-bottom: 1px solid #ccc;
+
+  > a {
+    font-weight: bold;
+    display: inline-block;
+    padding: 1px 5px;
+    text-align: center;
+    width: 30px;
+
+    &:hover {
+      cursor: pointer;
+      color: #23c0fa;
+    }
+  }
+}
+
+.@{prefixCalendarClass}-decade-panel-prev-century-btn, .@{prefixCalendarClass}-decade-panel-next-century-btn {
+  position: absolute;
+  top: 0;
+}
+
+.@{prefixCalendarClass}-decade-panel-prev-century-btn {
+  user-select: none;
+  left: 0;
+}
+
+.@{prefixCalendarClass}-decade-panel-next-century-btn {
+  user-select: none;
+  right: 0;
+}
+
+.@{prefixCalendarClass}-decade-panel-body {
+  padding: 9px 10px 10px;
+}
+
+.@{prefixCalendarClass}-decade-panel-table {
+  table-layout: fixed;
+  width: 100%;
+  height: 255px;
+  border-collapse: separate;
+}
+
+.@{prefixCalendarClass}-decade-panel-cell {
+  text-align: center;
+}
+
+.@{prefixCalendarClass}-decade-panel-decade {
+  display: block;
+  margin: 0 auto;
+  color: #666;
+  border-radius: 4px 4px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  line-height: 36px;
+  text-align: center;
+
+  &:hover {
+    background: #ebfaff;
+    cursor: pointer;
+  }
+}
+
+.@{prefixCalendarClass}-decade-panel-selected-cell .@{prefixCalendarClass}-decade-panel-decade {
+  background: #3fc7fa;
+  color: #fff;
+
+  &:hover {
+    background: #3fc7fa;
+    color: #fff;
+  }
+}
+
+.@{prefixCalendarClass}-decade-panel-last-century-cell, .@{prefixCalendarClass}-decade-panel-next-century-cell {
+  .@{prefixCalendarClass}-decade-panel-decade{
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .@{prefixCalendarClass}-decade-panel-decade:before {
+    content: "\e651";
+    font-family: "iconfont" !important;
+  }
+}
+
+.@{prefixCalendarClass}-decade-panel-last-century-cell {
+  .@{prefixCalendarClass}-decade-panel-decade {
+    transform: rotate(180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  }
+}

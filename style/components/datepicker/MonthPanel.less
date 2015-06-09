@@ -1,0 +1,104 @@
+.@{prefixCalendarClass}-month-panel {
+  left: 0px;
+  top:0px;
+  bottom: 0px;
+  right: 0px;
+  background: #ffffff;
+  z-index: 10;
+  position: absolute;
+  outline: none;
+}
+
+.@{prefixCalendarClass}-month-panel-hidden {
+  display: none;
+}
+
+.@{prefixCalendarClass}-month-panel-header {
+  padding: 0 10px;
+  height: 34px;
+  line-height: 30px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  border-bottom: 1px solid #ccc;
+
+  > a {
+    font-weight: bold;
+    display: inline-block;
+    padding: 4px 5px;
+    text-align: center;
+    width: 30px;
+
+    &:hover {
+      cursor: pointer;
+      color: #23c0fa;
+    }
+  }
+}
+
+.@{prefixCalendarClass}-month-panel-prev-year-btn, .@{prefixCalendarClass}-month-panel-next-year-btn {
+  position: absolute;
+  top: 0;
+}
+
+.@{prefixCalendarClass}-month-panel-prev-year-btn {
+  user-select: none;
+  left: 0;
+}
+
+.@{prefixCalendarClass}-month-panel .@{prefixCalendarClass}-month-panel-year-select {
+  width: 180px;
+}
+
+.@{prefixCalendarClass}-month-panel-year-select-arrow {
+  display: none;
+}
+
+.@{prefixCalendarClass}-month-panel-next-year-btn {
+  user-select: none;
+  right: 0;
+}
+
+.@{prefixCalendarClass}-month-panel-body {
+  padding: 9px 10px 10px;
+}
+
+.@{prefixCalendarClass}-month-panel-table {
+  table-layout: fixed;
+  width: 100%;
+  height:255px;
+  border-collapse: separate;
+}
+
+.@{prefixCalendarClass}-month-panel-cell {
+  text-align: center;
+}
+
+.@{prefixCalendarClass}-month-panel-month {
+  display: block;
+  width: 46px;
+  margin: 0 auto;
+  color: #666;
+  border-radius: 4px 4px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  line-height: 36px;
+  text-align: center;
+
+  &:hover {
+    background: #ebfaff;
+    cursor: pointer;
+  }
+}
+
+.@{prefixCalendarClass}-month-panel-selected-cell .@{prefixCalendarClass}-month-panel-month {
+  background: #3fc7fa;
+  color: #fff;
+
+  &:hover {
+    background: #3fc7fa;
+    color: #fff;
+  }
+}

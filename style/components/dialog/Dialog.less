@@ -1,0 +1,130 @@
+.@{prefixDialogCls} {
+  outline: none;
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  z-index: 1000;
+
+  &-wrap * {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  &-wrap-hidden > & {
+    display: none;
+  }
+
+  &-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: bold;
+  }
+
+  &-content {
+    position: relative;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 6px 6px;
+    background-clip: padding-box;
+    outline: 0;
+  }
+
+  &-close {
+    cursor: pointer;
+    outline: none;
+    margin-top: -2px;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    text-decoration: none;
+
+    &:hover {
+      opacity: 1;
+      filter: alpha(opacity=100);
+      text-decoration: none;
+    }
+  }
+
+  &-header {
+    padding: 13px 20px 14px 20px;
+    border-radius: 5px 5px 0 0;
+    background: #fff;
+    color: #666;
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  &-body {
+    padding: 20px;
+  }
+
+  &-footer {
+    border-top: 1px solid #e9e9e9;
+    padding: 10px 20px 10px 10px;
+    text-align: right;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .effect() {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  &-wrap-hidden > &&-zoom-enter,
+  &-wrap-hidden > &&-zoom-leave {
+    display: block;
+  }
+
+  &-zoom-enter {
+    opacity: 0;
+    .effect();
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    animation-play-state: paused;
+  }
+
+  &-zoom-leave {
+    .effect();
+    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+    animation-play-state: paused;
+  }
+
+  &-zoom-enter&-zoom-enter-active {
+    animation-name: rcDialogZoomIn;
+    animation-play-state: running;
+  }
+
+  &-zoom-leave&-zoom-leave-active {
+    animation-name: rcDialogZoomOut;
+    animation-play-state: running;
+  }
+
+  @keyframes rcDialogZoomIn {
+    0% {
+      opacity: 0;
+      transform-origin: 50% 50%;
+      transform: scale(0, 0);
+    }
+    100% {
+      opacity: 1;
+      transform-origin: 50% 50%;
+      transform: scale(1, 1);
+    }
+  }
+  @keyframes rcDialogZoomOut {
+    0% {
+      opacity: 1;
+      transform-origin: 50% 50%;
+      transform: scale(1, 1);
+    }
+    100% {
+      opacity: 0;
+      transform-origin: 50% 50%;
+      transform: scale(0, 0);
+    }
+  }
+}

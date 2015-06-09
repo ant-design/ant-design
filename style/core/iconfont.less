@@ -1,0 +1,178 @@
+// font-face
+// @icon-url： 字体源文件的地址
+@font-face {
+  font-family: 'anticon';
+  src: url('@{icon-url}.eot'); /* IE9*/
+  src: url('@{icon-url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('@{icon-url}.woff') format('woff'), /* chrome、firefox */
+  url('@{icon-url}.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('@{icon-url}.svg#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.@{iconfont-css-prefix} {
+  position: relative;
+  display: inline-block;
+  font: normal normal normal @font-size-base/1 @font-family;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+  // 更好地渲染字体
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0px;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    display: block;
+    font-family: "anticon" !important;
+  }
+}
+// 方向性图标
+.@{iconfont-css-prefix}-step-backward:before        {content:"\e662";}
+.@{iconfont-css-prefix}-step-forward                {.ie-rotate(2);}
+.@{iconfont-css-prefix}-step-forward:before         {content:"\e662";.rotate(180deg);}
+.@{iconfont-css-prefix}-fast-backward:before        {content:"\e62a";}
+.@{iconfont-css-prefix}-fast-forward                {.ie-rotate(2);}
+.@{iconfont-css-prefix}-fast-forward:before         {content:"\e62a";.rotate(180deg);}
+.@{iconfont-css-prefix}-shrink:before               {content:"\e65f";}
+.@{iconfont-css-prefix}-arrow-salt:before           {content:"\e608";}
+.@{iconfont-css-prefix}-caret-down:before           {content:"\e60f";}
+.@{iconfont-css-prefix}-caret-left                  {.ie-rotate(1);}
+.@{iconfont-css-prefix}-caret-left:before           {content:"\e60f";.rotate(90deg);}
+.@{iconfont-css-prefix}-caret-up                    {.ie-rotate(2);}
+.@{iconfont-css-prefix}-caret-up:before             {content:"\e60f";.rotate(180deg);}
+.@{iconfont-css-prefix}-caret-right                 {.ie-rotate(3);}
+.@{iconfont-css-prefix}-caret-right:before          {content:"\e60f";.rotate(270deg);}
+.@{iconfont-css-prefix}-caret-circle-right:before   {content:"\e60d";}
+.@{iconfont-css-prefix}-caret-circle-left           {.ie-rotate(2);}
+.@{iconfont-css-prefix}-caret-circle-left:before    {content:"\e60d";.rotate(180deg);}
+.@{iconfont-css-prefix}-caret-circleo-right:before  {content:"\e60e";}
+.@{iconfont-css-prefix}-caret-circleo-left          {.ie-rotate(2);}
+.@{iconfont-css-prefix}-caret-circleo-left:before   {content:"\e60e";.rotate(180deg);}
+.@{iconfont-css-prefix}-angle-circle-right:before   {content:"\e602";}
+.@{iconfont-css-prefix}-angle-circle-left           {.ie-rotate(2);}
+.@{iconfont-css-prefix}-angle-circle-left:before    {content:"\e602";.rotate(180deg);}
+.@{iconfont-css-prefix}-angle-circleo-right:before  {content:"\e603";}
+.@{iconfont-css-prefix}-angle-circleo-left          {.ie-rotate(2);}
+.@{iconfont-css-prefix}-angle-circleo-left:before   {content:"\e603";.rotate(180deg);}
+.@{iconfont-css-prefix}-angle-double-right:before   {content:"\e604";}
+.@{iconfont-css-prefix}-angle-double-left           {.ie-rotate(2);}
+.@{iconfont-css-prefix}-angle-double-left:before    {content:"\e604";.rotate(180deg);}
+.@{iconfont-css-prefix}-angle-verticle-right:before {content:"\e605";}
+.@{iconfont-css-prefix}-angle-verticle-left         {.ie-rotate(2);}
+.@{iconfont-css-prefix}-angle-verticle-left:before  {content:"\e605";.rotate(180deg);}
+.@{iconfont-css-prefix}-forward:before              {content:"\e630";}
+.@{iconfont-css-prefix}-backward                    {.ie-rotate(2);}
+.@{iconfont-css-prefix}-backward:before             {content:"\e630";.rotate(180deg);}
+.@{iconfont-css-prefix}-rollback:before             {content:"\e65a";}
+.@{iconfont-css-prefix}-retweet:before              {content:"\e659";}
+
+// 提示性图标
+.@{iconfont-css-prefix}-question:before             {content:"\e655";}
+.@{iconfont-css-prefix}-question-circle:before      {content:"\e656";}
+.@{iconfont-css-prefix}-question-circleo:before     {content:"\e657";}
+.@{iconfont-css-prefix}-plus:before                 {content:"\e651";}
+.@{iconfont-css-prefix}-plus-circle:before          {content:"\e652";}
+.@{iconfont-css-prefix}-plus-circleo:before         {content:"\e653";}
+.@{iconfont-css-prefix}-pause:before                {content:"\e64c";}
+.@{iconfont-css-prefix}-pause-circle:before         {content:"\e64d";}
+.@{iconfont-css-prefix}-pause-circleo:before        {content:"\e64e";}
+.@{iconfont-css-prefix}-minus:before                {content:"\e646";}
+.@{iconfont-css-prefix}-minus-circle:before         {content:"\e647";}
+.@{iconfont-css-prefix}-minus-circleo:before        {content:"\e648";}
+.@{iconfont-css-prefix}-info-circle:before          {content:"\e637";}
+.@{iconfont-css-prefix}-info-circleo:before         {content:"\e638";}
+.@{iconfont-css-prefix}-info:before                 {content:"\e63a";}
+.@{iconfont-css-prefix}-exclamation:before          {content:"\e627";}
+.@{iconfont-css-prefix}-exclamation-circle:before   {content:"\e628";}
+.@{iconfont-css-prefix}-exclamation-circleo:before  {content:"\e629";}
+.@{iconfont-css-prefix}-cross:before                {content:"\e61e";}
+.@{iconfont-css-prefix}-cross-circle:before         {content:"\e61f";}
+.@{iconfont-css-prefix}-cross-circleo:before        {content:"\e620";}
+.@{iconfont-css-prefix}-check:before                {content:"\e613";}
+.@{iconfont-css-prefix}-check-circle:before         {content:"\e614";}
+.@{iconfont-css-prefix}-check-circleo:before        {content:"\e615";}
+.@{iconfont-css-prefix}-clock-circle:before         {content:"\e616";}
+.@{iconfont-css-prefix}-clock-circleo:before        {content:"\e617";}
+
+// 网站通用图标
+.@{iconfont-css-prefix}-lock:before                 {content:"\e600";}
+.@{iconfont-css-prefix}-android:before              {content:"\e601";}
+.@{iconfont-css-prefix}-apple:before                {content:"\e606";}
+.@{iconfont-css-prefix}-area-chart:before           {content:"\e607";}
+.@{iconfont-css-prefix}-bar-chart:before            {content:"\e609";}
+.@{iconfont-css-prefix}-bars:before                 {content:"\e60a";}
+.@{iconfont-css-prefix}-booko:before                {content:"\e60b";}
+.@{iconfont-css-prefix}-calendar:before             {content:"\e60c";}
+.@{iconfont-css-prefix}-cloud:before                {content:"\e618";}
+.@{iconfont-css-prefix}-cloud-download:before       {content:"\e619";}
+.@{iconfont-css-prefix}-code:before                 {content:"\e61a";}
+.@{iconfont-css-prefix}-copy:before                 {content:"\e61c";}
+.@{iconfont-css-prefix}-credit-card:before          {content:"\e61d";}
+.@{iconfont-css-prefix}-delete:before               {content:"\e621";}
+.@{iconfont-css-prefix}-desktop:before              {content:"\e622";}
+.@{iconfont-css-prefix}-download-line:before        {content:"\e623";}
+.@{iconfont-css-prefix}-edit:before                 {content:"\e624";}
+.@{iconfont-css-prefix}-ellipsis:before             {content:"\e625";}
+.@{iconfont-css-prefix}-environment:before          {content:"\e626";}
+.@{iconfont-css-prefix}-fileo:before                {content:"\e62c";}
+.@{iconfont-css-prefix}-file-texto:before           {content:"\e62d";}
+.@{iconfont-css-prefix}-foldero:before              {content:"\e62e";}
+.@{iconfont-css-prefix}-folder-openo:before         {content:"\e62f";}
+.@{iconfont-css-prefix}-github:before               {content:"\e631";}
+.@{iconfont-css-prefix}-hddo:before                 {content:"\e632";}
+.@{iconfont-css-prefix}-frown:before                {content:"\e633";}
+.@{iconfont-css-prefix}-meho:before                 {content:"\e634";}
+.@{iconfont-css-prefix}-inbox:before                {content:"\e635";}
+.@{iconfont-css-prefix}-laptop:before               {content:"\e63d";}
+.@{iconfont-css-prefix}-large:before                {content:"\e63e";}
+.@{iconfont-css-prefix}-line-chart:before           {content:"\e63f";}
+.@{iconfont-css-prefix}-link:before                 {content:"\e640";}
+.@{iconfont-css-prefix}-lock1:before                {content:"\e641";}
+.@{iconfont-css-prefix}-logout:before               {content:"\e642";}
+.@{iconfont-css-prefix}-mail:before                 {content:"\e643";}
+.@{iconfont-css-prefix}-menu-fold:before            {content:"\e644";}
+.@{iconfont-css-prefix}-menu-unfold:before          {content:"\e645";}
+.@{iconfont-css-prefix}-mobile:before               {content:"\e649";}
+.@{iconfont-css-prefix}-notification:before         {content:"\e64a";}
+.@{iconfont-css-prefix}-paper-clip:before           {content:"\e64b";}
+.@{iconfont-css-prefix}-pictureo:before             {content:"\e64f";}
+.@{iconfont-css-prefix}-pie-chart:before            {content:"\e650";}
+.@{iconfont-css-prefix}-poweroff:before             {content:"\e654";}
+.@{iconfont-css-prefix}-reload:before               {content:"\e658";}
+.@{iconfont-css-prefix}-search:before               {content:"\e65b";}
+.@{iconfont-css-prefix}-setting:before              {content:"\e65c";}
+.@{iconfont-css-prefix}-share-alt:before            {content:"\e65d";}
+.@{iconfont-css-prefix}-shopping-cart:before        {content:"\e65e";}
+.@{iconfont-css-prefix}-smile:before                {content:"\e661";}
+.@{iconfont-css-prefix}-tablet:before               {content:"\e664";}
+.@{iconfont-css-prefix}-tag:before                  {content:"\e665";}
+.@{iconfont-css-prefix}-tags:before                 {content:"\e666";}
+.@{iconfont-css-prefix}-totop:before                {content:"\e667";}
+.@{iconfont-css-prefix}-unlock:before               {content:"\e668";}
+.@{iconfont-css-prefix}-upload:before               {content:"\e669";}
+.@{iconfont-css-prefix}-user:before                 {content:"\e66a";}
+.@{iconfont-css-prefix}-video-camera:before         {content:"\e66b";}
+.@{iconfont-css-prefix}-windows:before              {content:"\e66c";}
+.@{iconfont-css-prefix}-loading:before {
+  display: inline-block;
+  .animation(loadingCircle @fc-duration-1000 infinite linear);
+  content:"\e610";
+}
+
+:root {
+  .@{iconfont-css-prefix}-step-forward,
+  .@{iconfont-css-prefix}-fast-forward,
+  .@{iconfont-css-prefix}-caret-left,
+  .@{iconfont-css-prefix}-caret-up,
+  .@{iconfont-css-prefix}-caret-right,
+  .@{iconfont-css-prefix}-caret-circle-left,
+  .@{iconfont-css-prefix}-caret-circleo-left,
+  .@{iconfont-css-prefix}-angle-circle-left,
+  .@{iconfont-css-prefix}-angle-circleo-left,
+  .@{iconfont-css-prefix}-angle-double-left,
+  .@{iconfont-css-prefix}-angle-verticle-left,
+  .@{iconfont-css-prefix}-backward {
+    filter: none;
+  }
+}

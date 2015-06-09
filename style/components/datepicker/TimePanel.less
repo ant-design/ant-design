@@ -1,0 +1,73 @@
+.@{prefixCalendarClass}-time-panel {
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  background: #ffffff;
+  z-index: 10;
+  position: absolute;
+  outline: none;
+}
+
+.@{prefixCalendarClass}-time-panel-header {
+  padding: 0 10px;
+  height: 34px;
+  line-height: 34px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.@{prefixCalendarClass}-time-panel-body {
+  padding: 9px 10px 10px;
+}
+
+.@{prefixCalendarClass}-time-panel-title {
+  width: 180px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 4px 5px;
+  text-align: center;
+  height: 30px;
+  line-height: 22px;
+  border-radius: 4px;
+}
+
+
+.@{prefixCalendarClass}-time-panel-table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+}
+
+.@{prefixCalendarClass}-time-panel-cell {
+  text-align: center;
+  height: 42px;
+  vertical-align: middle;
+}
+
+.@{prefixCalendarClass}-time-panel-time {
+  line-height: 26px;
+  display: block;
+  border-radius: 4px;
+  width:26px;
+  margin: 0 auto;
+
+  &:hover {
+    background: #ebfaff;
+    cursor: pointer;
+  }
+}
+
+
+.@{prefixCalendarClass}-time-panel-selected-cell .@{prefixCalendarClass}-time-panel-time {
+  background: #3fc7fa;
+  color: #fff;
+
+  &:hover {
+    background: #3fc7fa;
+    color: #fff;
+  }
+}

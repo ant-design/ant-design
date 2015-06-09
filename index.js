@@ -1,4 +1,4 @@
-require('ant-style/index.less');
+require('./style/index.less');
 
 var antd = {
   Datepicker: require('./components/datepicker'),
