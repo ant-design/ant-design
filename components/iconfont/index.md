@@ -20,7 +20,8 @@
 ## 图标列表
 
 ### 一. 方向性图标
-<ul class="row anticons-list fn-clear">
+
+<ul class="row anticons-list clearfix">
 	<li>
 		<i class="anticon anticon-step-backward"></i>
 		<span class="anticon-class">step-backward</span>
@@ -129,7 +130,7 @@
 
 ### 二. 提示建议性图标
 
-<ul class="anticons-list fn-clear">
+<ul class="anticons-list clearfix">
 	<li>
 		<i class="anticon anticon-question"></i>
 		<span class="anticon-class">question</span>
@@ -238,7 +239,7 @@
 
 ### 三. 网站通用图标
 
-<ul class="anticons-list fn-clear">
+<ul class="anticons-list clearfix">
 	<li>
 		<i class="anticon anticon-lock"></i>
 		<span class="anticon-class">lock</span>
@@ -480,11 +481,11 @@
 ul.anticons-list {
   margin: 20px 0;
   list-style: none;
-  width: 100%
+  width: 120%;
 }
 ul.anticons-list li {
   float: left;
-  margin: 5px;
+  margin: 5px 10px 5px 0;
   padding-bottom: 10px;
   width: 154px;
   text-align: center;
