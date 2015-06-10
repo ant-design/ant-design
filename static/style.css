@@ -117,7 +117,6 @@ header {
   overflow: hidden;
   border-bottom: 1px solid #eee;
   font-size: 16px;
-
 }
 
 .fn-hide {
@@ -456,16 +455,16 @@ footer ul li > a {
   cursor: pointer;
   transition: background .5s, border .5s;
   border-left: 3px solid transparent;
-    position: relative;
-    z-index: 1;
-    background: #F9F9F9;
+  position: relative;
+  z-index: 1;
+  background: #F9F9F9;
 }
 
 .aside-container li>ul {
   display: none;
 }
 
-.aside-container li>ul.show {
+.aside-container li>ul.aside-list-show {
   display: block;
 }
 
@@ -1722,6 +1721,7 @@ footer ul li > a {
 .code-box-meta > p {
   font-size: 12px;
   margin: 0.5em 0;
+  padding-right: 25px;
 }
 
 .code-box .collapse {
