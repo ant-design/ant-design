@@ -57,9 +57,9 @@
   </div>
 </div>
 
-考虑到Ant Design面临的业务多数的情况下需要在设计区域内解决大量信息收纳的问题，因此在12栅格系统的基础上，我们将整个设计区域建议按照24等分的原则划分。
+考虑到 Ant Design 面临的业务多数的情况下需要在设计区域内解决大量信息收纳的问题，因此在 12 栅格系统的基础上，我们将整个设计区域建议按照 24 等分的原则划分。
 
-划分之后的信息区块我们称之为“盒子”。建议横向排列的盒子数量最多4个，最少1个。“盒子”在整个屏幕上占比见上图。设计部分急于盒子的单位定制盒子内部的排版规则以保证在视觉层面的舒适感。
+划分之后的信息区块我们称之为“盒子”。建议横向排列的盒子数量最多四个，最少一个。“盒子”在整个屏幕上占比见上图。设计部分急于盒子的单位定制盒子内部的排版规则以保证在视觉层面的舒适感。
 
 ## 概述
 
@@ -74,11 +74,14 @@
 
 我们的栅格化系统支持 Flex 布局，允许子元素在父节点内的水平对齐方式 - 居左、居中、居右、等宽排列、分散排列。子元素与子元素之间，支持顶部对齐、垂直居中对齐、底部对齐的方式。同时，支持使用 order 来定义元素的排列顺序。
 
+Flex 布局是基于24栅格来定义每一个“盒子”的宽度，但排版则不拘泥于栅格。
 
 <style>
-.row,
-.row-flex {
+.row {
     background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
+}
+.row-flex {
+  background: #F5F5F5;
 }
 
 .row div,
@@ -121,15 +124,15 @@
 }
 
 .hight-100 {
-	height: 100px;
+  height: 100px;
 }
 .hight-50 {
-	height: 50px;
+  height: 50px;
 }
 .hight-120 {
-	height: 120px;
+  height: 120px;
 }
 .hight-80 {
-	height: 80px;
+  height: 80px;
 }
 </style>
