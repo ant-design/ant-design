@@ -17,8 +17,6 @@ Flex 布局基础
   <div class="col-4">2</div>
 </div>
 
-<hr />
-
 <p>子元素居中排列</p>
 <div class="row-flex row-flex-center">
   <div class="col-4">2</div>
