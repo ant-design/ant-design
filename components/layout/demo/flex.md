@@ -9,46 +9,47 @@ Flex 布局基础
 ---
 
 ````html
-
-<div class="row-flex start">
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-</div>
 <p>子元素居左排列</p>
-
-<div class="row-flex center">
+<div class="row-flex row-flex-start">
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
 </div>
+
+<hr />
+
 <p>子元素居中排列</p>
-
-<div class="row-flex end">
+<div class="row-flex row-flex-center">
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
 </div>
+
 <p>子元素居右排列</p>
-
-<div class="row-flex space-between">
+<div class="row-flex row-flex-end">
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
 </div>
+
 <p>子元素等宽排列</p>
-
-<div class="row-flex space-around">
+<div class="row-flex row-flex-space-between">
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
   <div class="col-4">2</div>
 </div>
+
 <p>子元素分散对齐</p>
+<div class="row-flex row-flex-space-around">
+  <div class="col-4">2</div>
+  <div class="col-4">2</div>
+  <div class="col-4">2</div>
+  <div class="col-4">2</div>
+</div>
 
 ````
 

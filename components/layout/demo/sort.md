@@ -14,4 +14,3 @@
   <div class="col-6 col-pull-18">.col-6 .col-pull-18</div>
 </div>
 ````
-
