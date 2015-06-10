@@ -107,10 +107,12 @@ a:hover {
 }
 
 ::selection {
-  background: rgba(0, 171, 234, 0.42); /* WebKit/Blink Browsers */
+  background: #4BB8FF;
+  color: #fff;
 }
 ::-moz-selection {
-  background: rgba(0, 171, 234, 0.42); /* Gecko Browsers */
+  background: #4BB8FF;
+  color: #fff;
 }
 
 header {
