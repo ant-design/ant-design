@@ -1,4 +1,4 @@
-# Ant Design
+# Ant Design [![](https://travis-ci.org/ant-design/ant-design.svg)](https://travis-ci.org/ant-design/ant-design)
 
 下一个设计&前端框架。
 
