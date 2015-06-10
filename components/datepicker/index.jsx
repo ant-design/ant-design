@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Calendar = require('rc-calendar');
 var Datepicker = Calendar.Picker;
@@ -31,7 +33,6 @@ module.exports = React.createClass({
     this.setState(state);
   },
   handleChange: function() {
-    var props = this.props;
     this.props.onSelect(new Date(this.state.value.getTime()));
   },
   render: function () {

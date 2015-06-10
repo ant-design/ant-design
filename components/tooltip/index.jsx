@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Tooltip = require('rc-tooltip');
 
@@ -8,7 +10,7 @@ module.exports = React.createClass({
     };
   },
   render: function() {
-    return  (
+    return (
       <Tooltip placement={this.props.placement}
         prefixCls="ant-tooltip"
         trigger="click"

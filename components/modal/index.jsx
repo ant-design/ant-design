@@ -9,6 +9,7 @@ function noop() {
 var div;
 
 module.exports = function (props) {
+  var d;
   props = props || {};
 
   props.animation = 'zoom';
@@ -17,6 +18,12 @@ module.exports = function (props) {
 
   props.onClose = props.onCancel || noop;
 
+  function close() {
+    d.setState({
+      visible: false
+    });
+  }
+
   function onCancel() {
     if (props.onCancel) {
       props.onCancel();
@@ -24,16 +31,9 @@ module.exports = function (props) {
     close();
   }
 
-  function close() {
-    d.setState({
-      visible: false
-    });
-  }
-
   function onOk() {
-    var onOk = props.onOk;
-    if (onOk) {
-      onOk(close);
+    if (props.onOk) {
+      props.onOk(close);
     } else {
       close();
     }
@@ -51,7 +51,6 @@ module.exports = function (props) {
   props.children = props.content;
   props.footer = props.footer || footer;
   props.renderToBody = false;
-  var d;
   React.render(<Dialog {...props}/>, div, function () {
     d = this;
   });
