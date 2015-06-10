@@ -81,11 +81,6 @@ p {
   padding: 0;
 }
 
-img,
-input {
-  display: block;
-}
-
 ul,
 li {
   list-style: none;
@@ -529,6 +524,10 @@ footer ul li > a {
   color: #777;
   font-size: 14px;
   line-height: 1.8;
+}
+
+.markdown img {
+  display: block;
 }
 
 .markdown h1 {

@@ -2,34 +2,21 @@
 
 - order: 0
 
-使用很简单
+使用很简单。
 
 ---
 
 ````jsx
 var modal = antd.modal;
 
-function show() {
-  var ref;
-
-  function saveRef(c){
-    ref = c;
-  }
-
+function showModal() {
   modal({
     title: '第一个 Modal',
-    content: <p>name: <input ref={saveRef}/></p>,
-    onCancel: function() {
-      alert('cancel');
-    },
-    onOk: function(close) {
-      alert('name: '+React.findDOMNode(ref).value);
-      setTimeout(close,100);
-    }
+    content: <p>对话框的内容</p>
   });
 }
 
 React.render(
-  <button onClick={show}>显示对话框</button>
+  <button className="ant-btn ant-btn-primary" onClick={showModal}>显示对话框</button>
 , document.getElementById('components-modal-demo-basic'));
 ````

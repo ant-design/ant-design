@@ -49,7 +49,7 @@ module.exports = function (props) {
   }
   props.visible = true;
   props.children = props.content;
-  props.footer = footer;
+  props.footer = props.footer || footer;
   props.renderToBody = false;
   var d;
   React.render(<Dialog {...props}/>, div, function () {
