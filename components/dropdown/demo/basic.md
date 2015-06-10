@@ -23,7 +23,7 @@ var menu = <Menu>
 
 React.render(
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-ghost">
+    <button className="ant-btn ant-btn-default">
       点我下来 <i className="anticon anticon-caret-down"></i>
     </button>
   </Dropdown>

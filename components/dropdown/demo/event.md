@@ -22,8 +22,8 @@ var menu = <Menu onClick={onClick}>
 
 React.render(
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-ghost">
-      鼠标移入 <i className="anticon anticon-caret-down"></i>
+    <button className="ant-btn ant-btn-default">
+      鼠标移入，点击菜单 <i className="anticon anticon-caret-down"></i>
     </button>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-event'));
