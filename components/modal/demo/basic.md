@@ -7,16 +7,44 @@
 ---
 
 ````jsx
-var modal = antd.modal;
+var Modal = antd.Modal;
 
-function showModal() {
-  modal({
-    title: '第一个 Modal',
-    content: <p>对话框的内容</p>
-  });
-}
+var Test = React.createClass({
+  getInitialState(){
+    return {
+      visible:false
+    };
+  },
+  showModal(){
+    this.setState({
+      visible:true
+    });
+  },
+  handleOk(){
+    alert('ok');
+    var self = this;
+    setTimeout(function(){
+      self.setState({
+        visible:false
+      });
+    },200);
+  },
+  handleCancel(){
+    var self = this;
+    alert('cancel');
+    setTimeout(function(){
+        self.setState({
+          visible:false
+        });
+      },200);
+  },
+  render(){
+    return <div>
+    <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
+    <Modal title="第一个 Modal" visible={this.state.visible} onOk={this.handleOk} onBeforeClose={this.handleCancel}><p>对话框的内容</p></Modal>
+    </div>;
+  }
+});
 
-React.render(
-  <button className="ant-btn ant-btn-primary" onClick={showModal}>显示对话框</button>
-, document.getElementById('components-modal-demo-basic'));
+React.render(<Test/> , document.getElementById('components-modal-demo-basic'));
 ````
