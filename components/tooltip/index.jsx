@@ -13,7 +13,6 @@ module.exports = React.createClass({
     return (
       <Tooltip placement={this.props.placement}
         prefixCls="ant-tooltip"
-        trigger="click"
         overlay={this.props.title}>
         {this.props.children}
       </Tooltip>
