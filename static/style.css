@@ -521,6 +521,7 @@ footer ul li > a {
 }
 
 .markdown {
+  width: 75%;
   color: #777;
   font-size: 14px;
   line-height: 1.8;
@@ -546,7 +547,6 @@ footer ul li > a {
 .markdown p,
 .markdown pre {
   margin: 1.2em 0;
-  width: 75%;
 }
 
 .markdown > ul > li {
