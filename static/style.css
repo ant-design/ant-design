@@ -456,6 +456,9 @@ footer ul li > a {
   cursor: pointer;
   transition: background .5s, border .5s;
   border-left: 3px solid transparent;
+    position: relative;
+    z-index: 1;
+    background: #F9F9F9;
 }
 
 .aside-container li>ul {
