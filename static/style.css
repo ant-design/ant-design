@@ -117,7 +117,6 @@ header {
   overflow: hidden;
   border-bottom: 1px solid #eee;
   font-size: 16px;
-
 }
 
 .fn-hide {
@@ -1719,6 +1718,7 @@ footer ul li > a {
 .code-box-meta > p {
   font-size: 12px;
   margin: 0.5em 0;
+  padding-right: 25px;
 }
 
 .code-box .collapse {
