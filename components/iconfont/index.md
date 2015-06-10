@@ -485,9 +485,9 @@ ul.anticons-list {
 }
 ul.anticons-list li {
   float: left;
-  margin: 5px 10px 5px 0;
+  margin: 5px 5px 5px 0;
   padding-bottom: 10px;
-  width: 154px;
+  width: 155px;
   text-align: center;
   list-style: none;
   cursor: pointer;
