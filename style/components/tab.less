@@ -1,30 +1,39 @@
-// index.less
-
 @prefixClass: rc-tabs;
+
 @easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
 
-@effect-duration: .5s;
+@effect-duration: .3s;
 
 .@{prefixClass} {
   outline: none;
   box-sizing: border-box;
+  border-bottom: 2px solid #f3f3f3;
   position: relative;
+
+  @font-face {
+    font-family: 'iconfont';
+    src: url('//at.alicdn.com/t/font_1429685559_5814753.eot');
+    /* IE9*/
+    src: url('//at.alicdn.com/t/font_1429685559_5814753.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/font_1429685559_5814753.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/font_1429685559_5814753.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/font_1429685559_5814753.svg#iconfont') format('svg');
+    /* iOS 4.1- */
+  }
 
   &-ink-bar {
     z-index: 1;
     position: absolute;
     left: 0;
-    bottom: -2px;
+    bottom: 0;
     box-sizing: border-box;
-    height: 3px;
+    height: 4px;
+    margin-top: -3px;
     background-color: #3fc7fa;
     transform: scaleX(1);
     transform-origin: 0 0;
-    &-transition-right {
+    &-transition-forward {
       transition: right 0.3s @easing-in-out,
       left 0.3s @easing-in-out 0.3s * 0.3;
     }
-    &-transition-left {
+    &-transition-backward {
       transition: right 0.3s @easing-in-out 0.3s * 0.3,
       left 0.3s @easing-in-out;
     }
@@ -40,6 +49,7 @@
     white-space: nowrap;
     padding-left: 32px;
     padding-right: 32px;
+    border-bottom: 2px solid #f3f3f3;
   }
 
   &-tab-prev, &-tab-next {
@@ -66,7 +76,7 @@
       text-align: center;
       text-transform: none;
       -webkit-font-smoothing: antialiased;
-      -webkit-text-stroke-width: 0px;
+      -webkit-text-stroke-width: 0;
       -moz-osx-font-smoothing: grayscale;
       font-family: sans-serif;
 
@@ -112,7 +122,6 @@
     margin: 0;
     list-style: none;
     display: inline-block;
-    border-bottom: 2px solid #e9e9e9;
 
     &:before, &:after {
       display: table;
@@ -149,9 +158,9 @@
 
       > a {
         transition: color 0.3s @easing-in-out;
+        margin-bottom: 4px;
         font-weight: 500;
         display: inline-block;
-        color: #999;
       }
 
       > a:hover {
@@ -175,17 +184,17 @@
     overflow: hidden;
   }
 
-  &-effect-left-enter {
+  &-slide-horizontal-backward-enter {
     transform: translateX(-100%);
 
   }
 
-  &-effect-left-enter&-effect-left-enter-active {
+  &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
     transform: translateX(0);
     transition: transform @effect-duration @easing-in-out;
   }
 
-  &-effect-left-leave {
+  &-slide-horizontal-backward-leave {
     position: absolute;
     top: 0;
     left: 0;
@@ -194,21 +203,21 @@
     transform: translateX(0);
   }
 
-  &-effect-left-leave&-effect-left-leave-active {
+  &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
     transform: translateX(100%);
     transition: transform @effect-duration @easing-in-out;
   }
 
-  &-effect-right-enter {
+  &-slide-horizontal-forward-enter {
     transform: translateX(100%);
   }
 
-  &-effect-right-enter&-effect-right-enter-active {
+  &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
     transform: translateX(0);
     transition: transform @effect-duration @easing-in-out;
   }
 
-  &-effect-right-leave {
+  &-slide-horizontal-forward-leave {
     position: absolute;
     transform: translateX(0);
     top: 0;
@@ -217,7 +226,7 @@
     bottom: 0;
   }
 
-  &-effect-right-leave&-effect-right-leave-active {
+  &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
     transform: translateX(-100%);
     transition: transform @effect-duration @easing-in-out;
   }
