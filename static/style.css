@@ -376,7 +376,7 @@ a.logo {
 }
 .load-main-box .load-bar{
     width: 0%;
-    height: 3px;
+    height: 2px;
     background: #6EB4E0;
     transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     -webkit-transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);;
@@ -1597,17 +1597,17 @@ footer ul li > a {
 /***************************************************************************/
 .index-page header {
     transition: opacity 0.5S;
-    -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
-    animation: xRightMatrix .5s ease-out .3s backwards;
+    -webkit-animation: xRightMatrix .5s ease-out;
+    animation: xRightMatrix .5s ease-out;
 }
 .index-page .nav {
-  -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
-  animation: yTopMatrix .5s ease-out .5s backwards;
+  -webkit-animation: yTopMatrix .5s ease-out .4s backwards;
+  animation: yTopMatrix .5s ease-out .4s backwards;
 }
 
 .index-page footer {
-  -webkit-animation: yBottomMatrix .5s ease-out 1s backwards;
-  animation: yBottomMatrix .5s ease-out 1s backwards;
+  -webkit-animation: yBottomMatrix .5s ease-out .6s backwards;
+  animation: yBottomMatrix .5s ease-out .6s backwards;
 }
 
 .index-page .logo {
@@ -1616,8 +1616,8 @@ footer ul li > a {
 }
 
 .index-page .search {
-  -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
-  animation: xRightMatrix .5s ease-out .3s backwards;
+  -webkit-animation: xRightMatrix .5s ease-out .2s backwards;
+  animation: xRightMatrix .5s ease-out .2s backwards;
 }
 
 .api-link {

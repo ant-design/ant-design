@@ -21,7 +21,7 @@ $(function () {
             "<span>Ant Design</span>" +
             "</div>" +
             "<div class='load-bar'></div>" +
-            "</div>").appendTo(self.body);
+            "</div>").appendTo(".banner-box");
             self.loadBar=self.loadBox.find(".load-bar");
             var loadText=self.loadBox.find("span"),
                 str=loadText.text(),
