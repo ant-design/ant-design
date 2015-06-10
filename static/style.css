@@ -106,6 +106,13 @@ a:hover {
   display: none;
 }
 
+::selection {
+  background: rgba(0, 171, 234, 0.42); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgba(0, 171, 234, 0.42); /* Gecko Browsers */
+}
+
 header {
   width: 100%;
   background: #fff;
