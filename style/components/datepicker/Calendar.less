@@ -4,14 +4,13 @@
   width: 253px;
   border: 1px solid #ccc;
   list-style: none;
-  font-size: 12px;
+  font-size: @font-size-base;
   text-align: left;
   background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 1px 5px #ccc;
+  border-radius: @border-radius-base;
+  box-shadow: 0 0 4px #d9d9d9;
   background-clip: padding-box;
-  border: 1px solid #ccc;
-  line-height: 1.5;
+  line-height: @line-height-base;
 
   &-week-number {
     width: 286px;
@@ -24,11 +23,11 @@
   &-header {
     padding: 0 10px;
     height: 34px;
-    line-height: 30px;
+    line-height: 24px;
     text-align: center;
     user-select: none;
     -webkit-user-select: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #e9e9e9;
 
     > a {
       font-weight: bold;
@@ -36,6 +35,7 @@
       padding: 4px 5px;
       text-align: center;
       width: 30px;
+      color: #666;
 
       &:hover {
         cursor: pointer;
@@ -173,19 +173,20 @@
   }
 
   &-footer {
-    padding: 3px 0;
+    padding: 0 15px;
+    height: 42px;
+    line-height: 42px;
+    border-top: 1px solid #e9e9e9;
     text-align: center;
   }
 
-  &-footer-btn {
-    margin-top: 2px;
+  &-footer > div {
+    display: inline-block;
   }
 
   .@{prefixCalendarClass}-today-btn, .@{prefixCalendarClass}-clear-btn {
     display: inline-block;
-    padding: 4px 5px;
     text-align: center;
-    color: #f46830;
 
     &:hover {
       cursor: pointer;
