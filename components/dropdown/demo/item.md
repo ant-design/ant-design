@@ -1,8 +1,8 @@
-# 基本
+# 其他元素
 
-- order: 0
+- order: 1
 
-最简单的下拉菜单。
+分割线和不可用菜单项。
 
 ---
 
@@ -17,20 +17,15 @@ var menu = <Menu>
   <Menu.Item key="1">
     <a target="_blank" href="http://www.taobao.com/">第二个菜单项</a>
   </Menu.Item>
-  <Menu.Item key="3">第三个菜单项</Menu.Item>
+  <Menu.Divider/>
+  <Menu.Item key="3" disabled>第三个菜单项（不可用）</Menu.Item>
 </Menu>;
 
 React.render(
   <Dropdown overlay={menu}>
     <button className="ant-btn ant-btn-default">
-      某按钮 <i className="anticon anticon-caret-down"></i>
+      鼠标移入 <i className="anticon anticon-caret-down"></i>
     </button>
   </Dropdown>
-, document.getElementById('components-dropdown-demo-basic'));
+, document.getElementById('components-dropdown-demo-item'));
 ````
-
-<style>
-.code-box-demo .ant-btn {
-  margin-right: 6px;
-}
-</style>
