@@ -9,7 +9,7 @@ var antd = {
   Dropdown: require('./components/dropdown'),
   Progress: require('./components/progress'),
   Select: require('./components/select'),
-  confirm:require('./components/confirm')
+  confirm: require('./components/confirm')
 };
 
 module.exports = window.antd = antd;

@@ -32,11 +32,13 @@
     "eslint-plugin-react": "~2.5.0",
     "extract-text-webpack-plugin": "~0.8.1",
     "gh-pages-cli": "~0.2.0",
+    "jshint": "~2.8.0",
     "json-loader": "~0.5.1",
     "less": "~2.5.1",
     "less-loader": "~2.2.0",
     "lodash": "~3.8.0",
     "nico-jsx": "~0.5.8",
+    "precommit-hook": "~1.0.7",
     "style-loader": "~0.12.2",
     "webpack": "~1.9.7"
   },
@@ -47,5 +49,8 @@
     "deploy": "npm run build && gh-pages -d _site -b gh-pages",
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "test": "webpack && npm run lint"
-  }
+  },
+  "precommit": [
+    "lint"
+  ]
 }
