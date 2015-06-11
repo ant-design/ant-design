@@ -133,15 +133,19 @@
 // primary button style
 .btn-primary() {
   .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+
+  &:hover,
+  &:active,
+  &.active {
+    .button-color(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  }
 }
 
 // default button style
 .btn-default() {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 
-  &:hover {
-    .button-color(@primary-color; @white; @primary-color);
-  }
+  &:hover,
   &:active,
   &.active {
     .button-color(@primary-color; @white; @primary-color);
@@ -152,9 +156,7 @@
 .btn-ghost() {
   .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 
-  &:hover {
-    .button-color(@primary-color; @white; @primary-color);
-  }
+  &:hover,
   &:active,
   &.active {
     .button-color(@primary-color; @white; @primary-color);

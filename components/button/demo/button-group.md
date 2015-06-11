@@ -19,15 +19,15 @@
   <button class="ant-btn ant-btn-primary">取 消</button>
 </div>
 <div class="ant-btn-group">
-  <button class="ant-btn ant-btn-default">左</button>
-  <button class="ant-btn ant-btn-default">中</button>
-  <button class="ant-btn ant-btn-default">右</button>
+  <button class="ant-btn">左</button>
+  <button class="ant-btn">中</button>
+  <button class="ant-btn">右</button>
 </div>
 <div class="ant-btn-group">
   <button class="ant-btn ant-btn-primary">左</button>
   <button class="ant-btn ant-btn-ghost">中</button>
   <button class="ant-btn ant-btn-ghost">中</button>
-  <button class="ant-btn ant-btn-default">右</button>
+  <button class="ant-btn">右</button>
 </div>
 <h4>带图标按钮组合 </h4>
 <div class="ant-btn-group">
