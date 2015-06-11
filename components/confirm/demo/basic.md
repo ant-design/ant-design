@@ -12,9 +12,7 @@ var confirm = antd.confirm;
 function showConfirm(){
   confirm({
     title: '第一个 confirm',
-    content: 'confirm 内容',
-    onOk: function() {},
-    onCancel: function() {}
+    content: 'confirm 内容'
   });
 }
 
