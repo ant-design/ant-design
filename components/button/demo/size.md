@@ -1,6 +1,6 @@
 # Button sizes
 
-- order: 7
+- order: 3
 
 按钮尺寸
 

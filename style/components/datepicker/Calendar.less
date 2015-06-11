@@ -29,7 +29,9 @@
     -webkit-user-select: none;
     border-bottom: 1px solid #e9e9e9;
 
-   a {
+    .@{prefixCalendarClass}-year-select,
+    .@{prefixCalendarClass}-month-select {
+      padding: 0px 2px;
       font-weight: bold;
       display: inline-block;
       color: #666;
@@ -39,16 +41,13 @@
       }
     }
 
-    .@{prefixCalendarClass}-year-select,
-    .@{prefixCalendarClass}-month-select {
-      padding: 0px 2px;
-    }
-
     > a {
       color: #999;
       font-family: Arial,"Hiragino Sans GB","Microsoft Yahei","Microsoft Sans Serif","WenQuanYi Micro Hei",sans-serif;
       padding: 0 5px;
       font-size: 16px;
+      display: inline-block;
+      line-height: 34px;
     }
 
     .@{prefixCalendarClass}-month-select-arrow {

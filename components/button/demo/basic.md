@@ -9,8 +9,8 @@
 ---
 
 ````html
-<button class="ant-btn ant-btn-default">Button</button>
-<a href="javascript:;" class="ant-btn ant-btn-default" role="button">Link</a>
-<input class="ant-btn ant-btn-default" type="button" value="Input" />
-<input class="ant-btn ant-btn-default" type="submit" value="Submit" />
+<button class="ant-btn">Button</button>
+<a href="javascript:;" class="ant-btn" role="button">Link</a>
+<input class="ant-btn" type="button" value="Input" />
+<input class="ant-btn" type="submit" value="Submit" />
 ````
