@@ -21,7 +21,7 @@
 | multiple   | can select more than one option |   | false |
 | filterOption | whether filter options by input value |  | true     |
 | tags | when tagging is enabled the user can select from pre-existing options or create a new tag by picking the first choice, which is what the user has typed into the search box so far. | |false |
-| allowClear | show clear button | | true |
+| allowClear | show clear button | | false |
 | combobox | enable combobox mode(can not set multiple at the same time) | | false |
 | onSelect | called when a option is selected. param is option's value | function | 无   |
 | onDeselect | called when a option is deselected. param is option's value. only called for multiple or tags | function | 无   |

@@ -16,7 +16,6 @@ var style = {
 };
 var c3 = (
   <div>
-    <h1>combobox</h1>
     <div style={{width: 300}}>
       <Select combobox>
         <Option value="jack">

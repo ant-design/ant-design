@@ -1,5 +1,12 @@
 @selectPrefixCls: rc-select;
 
+//mixin
+.selection__clear(){
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+}
+
 .@{selectPrefixCls} {
   box-sizing: border-box;
   display: inline-block;
@@ -7,10 +14,6 @@
   position: relative;
   vertical-align: middle;
   color: #666;
-
-  &-selection {
-    outline: none;
-  }
 
   ul, li {
     margin: 0;
@@ -31,7 +34,7 @@
     right: 1px;
     width: 20px;
     b {
-      border-color: #888 transparent transparent transparent;
+      border-color: #999999 transparent transparent transparent;
       border-style: solid;
       border-width: 5px 4px 0 4px;
       height: 0;
@@ -44,44 +47,45 @@
     }
   }
 
-  &-selection--single {
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    height: 28px;
+  &-selection {
+    outline: none;
     user-select: none;
     -webkit-user-select: none;
 
+    box-sizing: border-box;
+    display: block;
+
     background-color: #fff;
+    border-radius: 6px;
     border: 1px solid #d9d9d9;
-    border-radius: 4px;
+    &:hover {
+      border-color: #23c0fa;
+    }
+    &:active {
+      border-color: #2db7f5;
+    }
+  }
+
+  &-selection--single {
+    height: 28px;
+    cursor: pointer;
 
     .@{selectPrefixCls}-selection__rendered {
       display: block;
       overflow: hidden;
-      padding-left: 8px;
-      padding-right: 20px;
       text-overflow: ellipsis;
+      padding-left: 10px;
+      padding-right: 20px;
       line-height: 28px;
     }
 
     .@{selectPrefixCls}-selection__clear {
-      cursor: pointer;
-      float: right;
-      font-weight: bold;
+      .selection__clear();
     }
   }
 
   &-selection--multiple {
-    box-sizing: border-box;
-    display: block;
     min-height: 32px;
-    user-select: none;
-    -webkit-user-select: none;
-
-    background-color: #fff;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
     cursor: text;
 
     .@{selectPrefixCls}-selection__rendered {
@@ -92,9 +96,7 @@
     }
 
     .@{selectPrefixCls}-selection__clear {
-      cursor: pointer;
-      float: right;
-      font-weight: bold;
+      .selection__clear();
       margin-top: 5px;
       margin-right: 10px;
     }
@@ -131,6 +133,9 @@
       background: transparent;
       outline: 0;
     }
+    > i {
+      float: right;
+    }
   }
 
 
@@ -143,12 +148,12 @@
     box-sizing: border-box;
     width: 100%;
     z-index: 100;
-    border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+    //border-top: none;
+    //border-top-left-radius: 0;
+    //border-top-right-radius: 0;
     position: absolute;
     top: 100%;
-    marin-top: -1px;
+    margin-top: 4px;
     outline: none;
     .@{selectPrefixCls}-menu-item[aria-selected=true] {
       background-color: #ddd;
@@ -181,8 +186,8 @@
     }
 
     .@{selectPrefixCls}-selection {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
+      //border-bottom-left-radius: 0;
+      //border-bottom-right-radius: 0;
     }
   }
 
@@ -191,30 +196,44 @@
     margin-bottom: 0;
     padding-left: 0; // Override default ul/ol
     list-style: none;
-    z-index: 99999;
-
-    .@{selectPrefixCls}-menu-item-active, .@{selectPrefixCls}-menu-submenu-active {
-      //background-color: #8EC8F9 !important;
-      background-color: rgba(142, 200, 249, 0.1) !important;
-    }
+    z-index: 9999;
 
     > li {
+      margin: 0;
+      padding: 0;
+    }
+
+    & > &-item {
       position: relative;
       display: block;
-      padding: 15px 20px;
+      padding: 7px 10px;
+      font-weight: normal;
+      color: #666666;
       white-space: nowrap;
 
-      // Disabled state sets text to gray and nukes hover/tab effects
-      &.@{selectPrefixCls}-menu-item-disabled, &.@{selectPrefixCls}-menu-submenu-disabled {
-        color: #777;
+      &:hover, &-active, &-selected {
+        background-color: rgba(142, 200, 249, 0.1) !important;
       }
-    }
-    .@{selectPrefixCls}-menu-item-divider {
-      padding: 0;
-      height: 1px;
-      margin: 9px 0;
-      overflow: hidden;
-      background-color: #e5e5e5;
+
+      &-disabled {
+        color: #ccc;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        &:hover {
+          color: #ccc;
+          background-color: #fff;
+          cursor: not-allowed;
+        }
+      }
+
+      &-divider {
+        height: 1px;
+        margin: 1px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
+        line-height: 0;
+      }
     }
   }
 }
