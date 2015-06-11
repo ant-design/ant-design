@@ -11,6 +11,7 @@
   box-shadow: 0 0 4px #d9d9d9;
   background-clip: padding-box;
   line-height: @line-height-base;
+  display: block !important;
 
   &-week-number {
     width: 286px;
@@ -23,38 +24,31 @@
   &-header {
     padding: 0 10px;
     height: 34px;
-    line-height: 24px;
     text-align: center;
     user-select: none;
     -webkit-user-select: none;
     border-bottom: 1px solid #e9e9e9;
 
-    > a {
+   a {
       font-weight: bold;
       display: inline-block;
-      padding: 4px 5px;
-      text-align: center;
-      width: 30px;
       color: #666;
-
+      line-height: 34px;
       &:hover {
-        cursor: pointer;
         color: #23c0fa;
       }
     }
 
-    .@{prefixCalendarClass}-prev-month-btn {
-      position: absolute;
-      left: 25px;
-    }
-
-    .@{prefixCalendarClass}-next-month-btn {
-      position: absolute;
-      right: 25px;
-    }
-
+    .@{prefixCalendarClass}-year-select,
     .@{prefixCalendarClass}-month-select {
-      width: 140px;
+      padding: 0px 2px;
+    }
+
+    > a {
+      color: #999;
+      font-family: Arial,"Hiragino Sans GB","Microsoft Yahei","Microsoft Sans Serif","WenQuanYi Micro Hei",sans-serif;
+      padding: 0 5px;
+      font-size: 16px;
     }
 
     .@{prefixCalendarClass}-month-select-arrow {
@@ -70,12 +64,20 @@
     top: 0;
   }
 
-  &-next-year-btn {
-    right: 0;
+  &-prev-year-btn {
+    left: 7px;
   }
 
-  &-prev-year-btn {
-    left: 0;
+  &-next-year-btn {
+    right: 7px;
+  }
+
+  &-prev-month-btn {
+    left: 29px;
+  }
+
+  &-next-month-btn {
+    right: 29px;
   }
 
   &-calendar-body {
@@ -177,20 +179,39 @@
     height: 42px;
     line-height: 42px;
     border-top: 1px solid #e9e9e9;
+  }
+
+  &-footer-btn {
     text-align: center;
+    display: block;
   }
 
   &-footer > div {
     display: inline-block;
   }
 
-  .@{prefixCalendarClass}-today-btn, .@{prefixCalendarClass}-clear-btn {
+  .@{prefixCalendarClass}-today-btn,
+  .@{prefixCalendarClass}-clear-btn {
     display: inline-block;
     text-align: center;
+    margin-left: 8px;
 
     &:hover {
       cursor: pointer;
       color: #23c0fa;
     }
+  }
+
+  .@{prefixCalendarClass}-ok-btn {
+    .btn;
+    .btn-primary;
+    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    letter-spacing: 3px;
+    text-indent: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
   }
 }

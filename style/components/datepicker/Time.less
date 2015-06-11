@@ -1,7 +1,19 @@
 @import "../../mixins/input";
 
+.@{prefixCalendarClass}-time {
+  > span {
+    margin: 0 2px;
+  }
+  ~ .@{prefixCalendarClass}-footer-btn {
+    display: inline;
+    text-align: left;
+  }
+}
+
 .@{prefixCalendarClass}-time-input {
-  height: 25px;
-  width: 40px;
   .ant-input;
+  width: 30px;
+  height: 26px;
+  padding: 0;
+  text-align: center;
 }

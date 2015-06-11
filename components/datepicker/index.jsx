@@ -44,6 +44,7 @@ module.exports = React.createClass({
       defaultValue={defaultCalendarValue}
       showTime={this.props.showTime}
       prefixCls="ant-calendar"
+      showOk={this.props.showTime}
       showClear={false} />
     );
     return (

@@ -87,13 +87,13 @@ li {
 }
 
 a {
-  color: #6EB4E0;
+  color: #00ABEA;
   text-decoration: none;
   transition: color .3s ease;
 }
 
 a:hover {
-  color: #6EB4E0;
+  color: #23C0FA;
 }
 
 .clearfix:after {
