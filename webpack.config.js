@@ -21,23 +21,25 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      {test: /\.jsx?$/, loader: 'babel'},
-      {test: /\.json$/, loader: 'json-loader'},
-      {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract(
-          'css?sourceMap!' +
-          'less?sourceMap'
-        )
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'css?sourceMap'
-        )
-      }
-    ]
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel'
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract(
+        'css?sourceMap!' +
+        'less?sourceMap'
+      )
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract(
+        'css?sourceMap'
+      )
+    }]
   },
 
   plugins: [
