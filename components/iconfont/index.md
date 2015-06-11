@@ -79,36 +79,36 @@
 		<span class="anticon-class">caret-circleo-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circle-right"></i>
-		<span class="anticon-class">angle-circle-right</span>
+		<i class="anticon anticon-circle-right"></i>
+		<span class="anticon-class">circle-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circle-left"></i>
-		<span class="anticon-class">angle-circle-left</span>
+		<i class="anticon anticon-circle-left"></i>
+		<span class="anticon-class">circle-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circleo-right"></i>
-		<span class="anticon-class">angle-circleo-right</span>
+		<i class="anticon anticon-circleo-right"></i>
+		<span class="anticon-class">circleo-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circleo-left"></i>
-		<span class="anticon-class">angle-circleo-left</span>
+		<i class="anticon anticon-circleo-left"></i>
+		<span class="anticon-class">circleo-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-double-right"></i>
-		<span class="anticon-class">angle-double-right</span>
+		<i class="anticon anticon-double-right"></i>
+		<span class="anticon-class">double-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-double-left"></i>
-		<span class="anticon-class">angle-double-left</span>
+		<i class="anticon anticon-double-left"></i>
+		<span class="anticon-class">double-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-verticle-right"></i>
-		<span class="anticon-class">angle-verticle-right</span>
+		<i class="anticon anticon-verticle-right"></i>
+		<span class="anticon-class">verticle-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-verticle-left"></i>
-		<span class="anticon-class">angle-verticle-left</span>
+		<i class="anticon anticon-verticle-left"></i>
+		<span class="anticon-class">verticle-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-forward"></i>

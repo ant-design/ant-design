@@ -2,56 +2,33 @@
 
 var React = require('react');
 var Dialog = require('rc-dialog');
+function noop(){}
 
-function noop() {
-}
+var Modal = React.createClass({
+  handleCancel() {
+    this.refs.d.requestClose();
+  },
 
-var div;
+  getDefaultProps(){
+    return {
+      onOk:noop,
+      onCancel:noop,
+      onBeforeClose:noop
+    };
+  },
 
-module.exports = function (props) {
-  var d;
-  props = props || {};
+  handleOk() {
+    this.props.onOk();
+  },
 
-  props.animation = 'zoom';
-  props.maskAnimation = 'fade';
-  props.width = props.width || 500;
-
-  props.onClose = props.onCancel || noop;
-
-  function close() {
-    d.setState({
-      visible: false
-    });
+  render() {
+    var props = this.props;
+    var footer = [
+      <button type="button" className="ant-btn-default ant-btn" onClick={this.handleCancel}>取 消</button>,
+      <button type="button" className="ant-btn-primary ant-btn" onClick={this.handleOk}>确 定</button>
+    ];
+    return <Dialog animation="zoom" maskAnimation="fade" width="500" footer={footer} {...props} ref="d"/>
   }
+});
 
-  function onCancel() {
-    if (props.onCancel) {
-      props.onCancel();
-    }
-    close();
-  }
-
-  function onOk() {
-    if (props.onOk) {
-      props.onOk(close);
-    } else {
-      close();
-    }
-  }
-
-  var footer = [
-    <button type="button" className="ant-btn-default ant-btn" onClick={onCancel}>取 消</button>,
-    <button type="button" className="ant-btn-primary ant-btn" onClick={onOk}>确 定</button>
-  ];
-  if (!div) {
-    div = document.createElement('div');
-    document.body.appendChild(div);
-  }
-  props.visible = true;
-  props.children = props.content;
-  props.footer = props.footer || footer;
-  props.renderToBody = false;
-  React.render(<Dialog {...props}/>, div, function () {
-    d = this;
-  });
-};
+module.exports = Modal;
