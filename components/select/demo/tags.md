@@ -2,7 +2,7 @@
 
 - order: 3
 
-tags
+tags select（scroll the menu）
 
 ---
 
@@ -24,7 +24,6 @@ var style = '.rc-select-menu {max-height:200px;overflow:auto;}';
 
 var c2 = (
   <div>
-    <h1>tags select（scroll the menu）</h1>
     <div style={{width: 300}}>
       <style>
       {style}
