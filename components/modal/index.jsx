@@ -44,7 +44,8 @@ var Modal = React.createClass({
 
   render() {
     var props = this.props;
-    var footer = [
+    console.log(props);
+    var footer = props.footer || [
       <button type="button" className="ant-btn-default ant-btn" onClick={this.handleCancel}>取 消</button>,
       <button type="button" className="ant-btn-primary ant-btn" onClick={this.handleOk}>确 定</button>
     ];

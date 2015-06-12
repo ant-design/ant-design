@@ -19,7 +19,6 @@
 |------------|----------------|------------------|--------------|
 | title      | 标题           | React.Element    | 无           |
 | onOk       | 点击确定回调       | function         | 无           |
-| onBeforeClose | 点击遮罩层或右上角叉或取消按钮关闭前回调  | function  | 无           |
+| onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function  | 无           |
 | width      | 宽度           | String or Number | 500           |
-| visible    | 是否显示           | Boolean | false           |
 | footer     | 底部内容       | React.Element    | 确定取消按钮 |
