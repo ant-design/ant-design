@@ -14,46 +14,7 @@
 }
 
 .@{prefixCalendarClass}-decade-panel-header {
-  padding: 0 10px;
-  height: 34px;
-  line-height: 34px;
-  position: relative;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  border-bottom: 1px solid #e9e9e9;
-
-  > a {
-    font-weight: bold;
-    display: inline-block;
-    padding: 1px 5px;
-    text-align: center;
-    width: 30px;
-
-    &:hover {
-      cursor: pointer;
-      color: #23c0fa;
-    }
-  }
-}
-
-.@{prefixCalendarClass}-decade-panel-prev-century-btn, .@{prefixCalendarClass}-decade-panel-next-century-btn {
-  position: absolute;
-  top: 0;
-}
-
-.@{prefixCalendarClass}-decade-panel-prev-century-btn {
-  user-select: none;
-  left: 0;
-}
-
-.@{prefixCalendarClass}-decade-panel-next-century-btn {
-  user-select: none;
-  right: 0;
-}
-
-.@{prefixCalendarClass}-decade-panel-body {
-  padding: 9px 10px 10px;
+  .calendarPanelHeader(~"@{prefixCalendarClass}-decade-panel");
 }
 
 .@{prefixCalendarClass}-decade-panel-table {
@@ -100,8 +61,8 @@
     -webkit-user-select: none;
   }
   .@{prefixCalendarClass}-decade-panel-decade:before {
-    content: "\e651";
-    font-family: "iconfont" !important;
+    content: "\e611";
+    font-family: "anticon" !important;
   }
 }
 

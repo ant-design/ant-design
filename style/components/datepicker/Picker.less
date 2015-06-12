@@ -1,4 +1,5 @@
-.@{prefixCalendarClass}-picker .@{prefixCalendarClass}, .@{prefixCalendarClass}-picker-container .@{prefixCalendarClass} {
+.@{prefixCalendarClass}-picker .@{prefixCalendarClass},
+.@{prefixCalendarClass}-picker-container .@{prefixCalendarClass} {
   position: absolute;
   display: none;
   left: -9999px;
@@ -9,47 +10,13 @@
 .@{prefixCalendarClass}-picker {
   position: relative;
   display: inline-block;
-
-  &-open .@{prefixCalendarClass}, &-container-open .@{prefixCalendarClass} {
-    display: block;
-  }
-}
-
-.@{prefixCalendarClass}-picker {
   &-input {
-    box-sizing: border-box;
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    height: 32px;
-    width: 100%;
-    position: relative;
-    display: inline-block;
-    margin: 0 0;
-    padding: 7px 10px;
-    border-radius: 6px 6px;
-    border: 1px solid #d9d9d9;
-    background-color: #ffffff;
-    color: #666;
-    line-height: 1.5;
-    transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-    font-family: inherit;
-    vertical-align: baseline;
-
-    &:focus {
-      border-color: #23c0fa;
-      box-shadow: 0 0 3px #23c0fa;
-    }
-
-    &:hover {
-      border-color: #23c0fa;
-    }
+    .ant-input;
   }
-
   &-icon {
     position: absolute;
     -webkit-user-select: none;
     user-select: none;
-
     &:after {
       position: relative;
       left: -22px;
@@ -60,5 +27,13 @@
       top: 5px;
       margin-right: -20px;
     }
+  }
+  &-open .@{prefixCalendarClass},
+  &-container-open .@{prefixCalendarClass} {
+    display: block;
+  }
+  &-open &-input {
+    border-color: #23c0fa;
+    box-shadow: 0 0 3px #23c0fa;
   }
 }
