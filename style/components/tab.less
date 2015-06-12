@@ -136,7 +136,10 @@
     div.@{prefixClass}-tab-disabled {
       pointer-events: none;
       cursor: default;
-      color: #ccc;
+
+      a {
+        color: #ccc;
+      }
     }
 
     .@{prefixClass}-tab {
@@ -153,6 +156,7 @@
         margin-bottom: 4px;
         font-weight: 500;
         display: inline-block;
+        color: #666;
       }
 
       > a:hover {
