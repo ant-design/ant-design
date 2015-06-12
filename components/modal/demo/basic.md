@@ -10,12 +10,21 @@
 var Modal = antd.Modal;
 
 var Test = React.createClass({
+  getInitialState(){
+    return{
+      visible:false
+    }
+  },
   showModal() {
-    this.refs.modal.show();
+    this.setState({
+      visible:true
+    });
   },
   handleOk() {
     console.log('点击了确定');
-    this.refs.modal.hide();
+    this.setState({
+      visible:false
+    });
   },
   handleCancel() {
     console.log('点击了取消');
@@ -24,7 +33,7 @@ var Test = React.createClass({
     return <div>
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
       <Modal title="第一个 Modal"
-        ref="modal"
+      visible={this.state.visible}
         onOk={this.handleOk}
         onCancel={this.handleCancel}>
         <p>对话框的内容</p>

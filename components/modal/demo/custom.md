@@ -13,18 +13,23 @@ var ModalText = '对话框的内容';
 var Test = React.createClass({
   getInitialState() {
     return {
-      ModalText: '对话框的内容'
+      ModalText: '对话框的内容',
+      visible:false
     };
   },
   showModal() {
-    this.refs.modal.show();
+    this.setState({
+      visible:true
+    });
   },
   handleOk() {
     this.setState({
       ModalText: '对话框将在两秒后关闭'
     });
     setTimeout((function() {
-      this.refs.modal.hide();
+      this.setState({
+        visible:false
+      });
     }).bind(this), 2000);
   },
   handleCancel() {
@@ -35,6 +40,7 @@ var Test = React.createClass({
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
       <Modal ref="modal"
         title="对话框标题"
+        visible={this.state.visible}
         onOk={this.handleOk}
         onCancel={this.handleCancel}>
         <p>{this.state.ModalText}</p>
