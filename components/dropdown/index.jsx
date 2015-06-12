@@ -6,7 +6,8 @@ var Dropdown = require('rc-dropdown');
 module.exports = React.createClass({
   getDefaultProps: function() {
     return {
-      animation: 'slide-up'
+      animation: 'slide-up',
+      prefixCls: 'ant-dropdown'
     };
   },
   render: function() {

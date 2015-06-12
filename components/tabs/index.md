@@ -1,4 +1,4 @@
-# Tab
+# Tabs
 
 - category: Components
 - chinese: 标签页
@@ -9,7 +9,7 @@
 
 ## API
 
-### Tab
+### Tabs
 
 | 参数             | 说明                                         | 类型     | 默认值     |
 |------------------|----------------------------------------------|----------|------------|
@@ -20,9 +20,9 @@
 | onTabClick       | tab 被点击的回调                             | Function | 无         |
 
 
-### Tab.Panel
+### Tabs.TabPane
 
 | 参数 | 说明                | 类型   | 默认值 |
 |------|---------------------|--------|--------|
-| key  | 对应 activeKey      | Object | 无     |
-| tab  | 选项卡头显示文字    | String | 无     |
+| key  | 对应 activeKey      | String | 无     |
+| tab  | 选项卡头显示文字|React.Element or String | 无     |

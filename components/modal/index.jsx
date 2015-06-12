@@ -12,6 +12,7 @@ var Modal = React.createClass({
 
   getDefaultProps() {
     return {
+      prefixCls: 'ant-modal',
       onOk: noop,
       onCancel: noop,
       onBeforeClose: noop

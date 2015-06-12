@@ -61,7 +61,7 @@ module.exports = function (props) {
     document.body.appendChild(div);
   }
 
-  React.render(<Dialog className="ant-confirm" renderToBody={false} visible={true} closable={false} title="" animation="zoom" maskAnimation="fade" width={width}>
+  React.render(<Dialog prefixCls="ant-modal" className="ant-confirm" renderToBody={false} visible={true} closable={false} title="" animation="zoom" maskAnimation="fade" width={width}>
     <div style={{zoom: 1, overflow: 'hidden'}}>{body} {footer}</div>
 
   </Dialog>, div, function () {
