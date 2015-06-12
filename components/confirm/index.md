@@ -1,5 +1,6 @@
 # Confirm
 
+- order: 2
 - category: Components
 - chinese: 确认对话框
 

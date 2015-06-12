@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 标签页
+- order: 5
 
 ---
 

@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 选择框
+- order: 3
 
 ---
 

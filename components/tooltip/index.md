@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 文字提示
+- order: 7
 
 ---
 

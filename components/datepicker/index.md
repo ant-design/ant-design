@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 日期选择框
+- order: 4
 
 ---
 

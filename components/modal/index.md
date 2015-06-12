@@ -1,5 +1,6 @@
 # Modal
 
+- order: 1
 - category: Components
 - chinese: 对话框
 
