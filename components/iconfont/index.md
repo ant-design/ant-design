@@ -47,6 +47,22 @@
 		<span class="anticon-class">arrow-salt</span>
 	</li>
 	<li>
+		<i class="anticon anticon-down"></i>
+		<span class="anticon-class">down</span>
+	</li>
+	<li>
+		<i class="anticon anticon-up"></i>
+		<span class="anticon-class">up</span>
+	</li>
+	<li>
+		<i class="anticon anticon-left"></i>
+		<span class="anticon-class">left</span>
+	</li>
+	<li>
+		<i class="anticon anticon-right"></i>
+		<span class="anticon-class">right</span>
+	</li>
+	<li>
 		<i class="anticon anticon-caret-down"></i>
 		<span class="anticon-class">caret-down</span>
 	</li>
@@ -244,6 +260,10 @@
 		<i class="anticon anticon-lock"></i>
 		<span class="anticon-class">lock</span>
 	</li>
+    <li>
+		<i class="anticon anticon-unlock"></i>
+		<span class="anticon-class">unlock</span>
+	</li>
 	<li>
 		<i class="anticon anticon-android"></i>
 		<span class="anticon-class">android</span>
@@ -369,10 +389,6 @@
 		<span class="anticon-class">link</span>
 	</li>
 	<li>
-		<i class="anticon anticon-lock1"></i>
-		<span class="anticon-class">lock1</span>
-	</li>
-	<li>
 		<i class="anticon anticon-logout"></i>
 		<span class="anticon-class">logout</span>
 	</li>
@@ -451,10 +467,6 @@
 	<li>
 		<i class="anticon anticon-totop"></i>
 		<span class="anticon-class">totop</span>
-	</li>
-	<li>
-		<i class="anticon anticon-unlock"></i>
-		<span class="anticon-class">unlock</span>
 	</li>
 	<li>
 		<i class="anticon anticon-upload"></i>
