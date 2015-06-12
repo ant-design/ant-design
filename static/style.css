@@ -1741,30 +1741,23 @@ footer ul li > a {
   right: 15px;
   top: 50%;
   cursor: pointer;
-  border: 1px solid #999;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  font-size: 14px;
-  border-radius: 100%;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  line-height: 18px;
   opacity: 0.5;
   margin-top: -10px;
   text-align: center;
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
+.code-box.expand .collapse {
+  transform: rotate(-90deg);
 }
 
 .code-box .collapse:hover {
   opacity: 1;
-}
-
-.code-box .collapse:before {
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.code-box.expand .collapse:before {
-  transform: rotate(270deg);
 }
 
 .code-box .highlight {
