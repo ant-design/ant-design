@@ -3,7 +3,7 @@ require('./style/index.less');
 var antd = {
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
-  Tab: require('./components/tab'),
+  Tabs: require('./components/tabs'),
   Modal: require('./components/modal'),
   Menu: require('rc-menu'),
   Dropdown: require('./components/dropdown'),
