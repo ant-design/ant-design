@@ -13,16 +13,14 @@ var Modal = React.createClass({
   },
 
   handleCancel() {
-    this.props.onCancel();
-    this.hide();
+    this.refs.d.requestClose();
   },
 
   getDefaultProps() {
     return {
       prefixCls: 'ant-modal',
       onOk: noop,
-      onCancel: noop,
-      onBeforeClose: noop
+      onCancel: noop
     };
   },
 
@@ -48,7 +46,7 @@ var Modal = React.createClass({
       <button type="button" className="ant-btn-default ant-btn" onClick={this.handleCancel}>取 消</button>,
       <button type="button" className="ant-btn-primary ant-btn" onClick={this.handleOk}>确 定</button>
     ];
-    return <Dialog animation="zoom" visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d"/>;
+    return <Dialog animation="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d"/>;
   }
 });
 
