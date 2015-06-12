@@ -1,11 +1,11 @@
 'use strict';
 
-var Tabs = require('rc-tabs');
+var Tab = require('rc-tabs');
 var React = require('react');
 
 class AntTabs extends React.Component {
   render() {
-    return <Tabs {...this.props}/>;
+    return <Tab {...this.props}/>;
   }
 }
 
@@ -13,6 +13,6 @@ AntTabs.defaultProps = {
   prefixCls: 'ant-tabs'
 };
 
-AntTabs.TabPane = Tabs.TabPane;
+AntTabs.TabPane = Tab.TabPane;
 
 module.exports = AntTabs;
