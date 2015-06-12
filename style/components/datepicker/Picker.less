@@ -17,6 +17,7 @@
     position: absolute;
     -webkit-user-select: none;
     user-select: none;
+    .transition(all .3s @ease-in-out);
     &:after {
       position: relative;
       left: -22px;
@@ -35,5 +36,8 @@
   &-open &-input {
     border-color: #23c0fa;
     box-shadow: 0 0 3px #23c0fa;
+  }
+  &-open &-icon:after {
+    color: @primary-color;
   }
 }
