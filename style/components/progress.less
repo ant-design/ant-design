@@ -1,0 +1,22 @@
+@prefixProgressClass: ant-progress;
+
+.@{prefixProgressClass} {
+  &-line-inner {
+    display: inline-block;
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  &-line-text {
+    display: inline-block;
+    font-size: 1em;
+    margin-left: 10px;
+    line-height: 1;
+
+    .anticon {
+      font-size: 1.5em;
+    }
+  }
+}

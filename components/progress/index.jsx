@@ -5,36 +5,58 @@ var Progresscircle = require('rc-progress').Circle;
 var React = require('react');
 
 var Line = React.createClass({
-  getDefaultProps: function(){
+  getDefaultProps: function () {
     return {
-      width: "100%",
       percent: 0,
-      strokeWidth: 1,
-      status: "normal"
+      strokeWidth: 2,
+      status: "normal" // exception
     }
   },
   render() {
+    var statusColorMap = {
+      "normal": "#3FC7FA",
+      "exception": "#FE8C6A",
+      "success": "#85D262"
+    };
+
+    if (parseInt(this.props.percent) === 100) {
+      this.props.status = 'success'
+    }
+
     var style = {
       "width": this.props.width
     }
+    var wrapStyle = {
+      "font-size": this.props.width / 100 * this.props.strokeWidth
+    }
+    var textStyle = {
+      "color": statusColorMap[this.props.status]
+    }
     var progressInfo
-    if(this.props.status==='normal'){
+    if (this.props.status === 'exception') {
       progressInfo = (
-        <span className="ant-progress-line-text">{this.props.percent}%</span>
+        <span style={textStyle} className="ant-progress-line-text">
+          <i className="anticon anticon-exclamation-round"></i>
+        </span>
+      )
+    } else if(this.props.status === 'success'){
+      progressInfo = (
+        <span style={textStyle} className="ant-progress-line-text">
+          <i className="anticon anticon-check-round"></i>
+        </span>
       )
     }else {
       progressInfo = (
-        <i className="anticon anticon-check-circle"></i>
+        <span className="ant-progress-line-text">{this.props.percent}%</span>
       )
     }
 
-    var statusColorMap = {
-      "normal": "#3FC7FA",
-      "exception": "#FE8C6A"
-    };
     return (
-      <div className="ant-progress-line-wrap" style={style}>
-        <Progressline percent={this.props.percent} strokeWidth={this.props.strokeWidth} strokeColor={statusColorMap[this.props.status]} />
+      <div className="ant-progress-line-wrap" style={wrapStyle}>
+        <div className="ant-progress-line-inner" style={style}>
+          <Progressline percent={this.props.percent} strokeWidth={this.props.strokeWidth}
+                        strokeColor={statusColorMap[this.props.status]}/>
+        </div>
         {progressInfo}
       </div>
     );
@@ -42,9 +64,9 @@ var Line = React.createClass({
 });
 
 var Circle = React.createClass({
-  getDefaultProps: function(){
+  getDefaultProps: function () {
     return {
-      width: "100px",
+      width: "100%",
       percent: 0,
       strokeWidth: 1,
       status: "normal"
@@ -56,11 +78,11 @@ var Circle = React.createClass({
       "height": this.props.width
     }
     var progressInfo
-    if(this.props.status==='normal'){
+    if (this.props.status === 'normal') {
       progressInfo = (
         <i className="anticon anticon-check-circle"></i>
       )
-    }else {
+    } else {
       progressInfo = (
         <span className="ant-progress-line-text">{this.props.percent}%</span>
       )
@@ -72,7 +94,8 @@ var Circle = React.createClass({
     };
     return (
       <div className="ant-progress-circle-wrap" style={style}>
-        <Progresscircle percent={this.props.percent} strokeWidth={this.props.strokeWidth} strokeColor={statusColorMap[this.props.status]} />
+        <Progresscircle percent={this.props.percent} strokeWidth={this.props.strokeWidth}
+                        strokeColor={statusColorMap[this.props.status]}/>
         {progressInfo}
       </div>
     );
