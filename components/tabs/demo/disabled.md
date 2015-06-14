@@ -1,8 +1,8 @@
-# 基本
+# 带有禁用
 
 - order: 2
 
-基本用法。
+禁用某一项
 
 ---
 
@@ -13,10 +13,10 @@ var TabPane = Tab.TabPane;
 function callback() {}
 
 React.render(
-  <Tab defaultActiveKey="2" onChange={callback}>
+  <Tab defaultActiveKey="1" onChange={callback}>
     <TabPane tab="tab 1" key="1">选项卡一</TabPane>
-    <TabPane tab="tab 2" key="2">选项卡二</TabPane>
+    <TabPane tab="tab 2" disabled={true} key="2">选项卡二</TabPane>
     <TabPane tab="tab 3" key="3">选项卡三</TabPane>
   </Tab>
-, document.getElementById('components-tabs-demo-basic'));
+, document.getElementById('components-tabs-demo-disabled'));
 ````
