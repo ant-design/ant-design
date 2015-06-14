@@ -1,6 +1,6 @@
 # Icon Button
 
-- order: 4
+- order: 5
 
 图标按钮
 
@@ -39,7 +39,7 @@
 <button class="ant-btn ant-btn-ghost ant-btn-circle-outline">
   <span class="anticon anticon-search"></span>
 </button>
-<button class="ant-btn ant-btn-default ant-btn-circle-outline ant-btn-sm">
+<button class="ant-btn ant-btn-circle-outline ant-btn-sm">
   <span class="anticon anticon-search"></span>
 </button>
 ````

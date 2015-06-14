@@ -81,24 +81,19 @@ p {
   padding: 0;
 }
 
-img,
-input {
-  display: block;
-}
-
 ul,
 li {
   list-style: none;
 }
 
 a {
-  color: #6EB4E0;
+  color: #00ABEA;
   text-decoration: none;
   transition: color .3s ease;
 }
 
 a:hover {
-  color: #6EB4E0;
+  color: #23C0FA;
 }
 
 .clearfix:after {
@@ -111,13 +106,21 @@ a:hover {
   display: none;
 }
 
+::selection {
+  background: #4BB8FF;
+  color: #fff;
+}
+::-moz-selection {
+  background: #4BB8FF;
+  color: #fff;
+}
+
 header {
   width: 100%;
   background: #fff;
   overflow: hidden;
   border-bottom: 1px solid #eee;
   font-size: 16px;
-
 }
 
 .fn-hide {
@@ -247,6 +250,12 @@ a.logo {
   display: block;
 }
 
+.nav ul li a.disabled {
+  cursor: not-allowed;
+  color: #ddd !important;
+  pointer-events: none;
+}
+
 .nav ul li.current a {
   color: #71B5DE;
   font-weight: bold;
@@ -370,7 +379,7 @@ a.logo {
 }
 .load-main-box .load-bar{
     width: 0%;
-    height: 3px;
+    height: 2px;
     background: #6EB4E0;
     transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
     -webkit-transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);;
@@ -450,13 +459,16 @@ footer ul li > a {
   cursor: pointer;
   transition: background .5s, border .5s;
   border-left: 3px solid transparent;
+  position: relative;
+  z-index: 1;
+  background: #F9F9F9;
 }
 
 .aside-container li>ul {
   display: none;
 }
 
-.aside-container li>ul.show {
+.aside-container li>ul.aside-list-show {
   display: block;
 }
 
@@ -518,8 +530,14 @@ footer ul li > a {
 }
 
 .markdown {
+  width: 75%;
   color: #777;
   font-size: 14px;
+  line-height: 1.8;
+}
+
+.markdown img {
+  display: block;
 }
 
 .markdown h1 {
@@ -538,12 +556,16 @@ footer ul li > a {
 .markdown p,
 .markdown pre {
   margin: 1.2em 0;
-  width: 75%;
 }
 
 .markdown > ul > li {
   list-style: circle;
-  margin-left: 18px;
+  margin-left: 20px;
+  padding-left: 8px;
+}
+
+.markdown code {
+  margin: 0 3px;
 }
 
 .markdown pre code {
@@ -551,6 +573,7 @@ footer ul li > a {
   border: none;
   border-radius: 6px;
   padding: 12px 20px;
+  margin: 0;
 }
 
 .markdown > table {
@@ -558,7 +581,11 @@ footer ul li > a {
   border-spacing: 0px;
   empty-cells: show;
   border: 1px solid #e9e9e9;
-  width: 75%;
+  width: 100%;
+}
+
+.markdown > table th {
+  white-space: nowrap;
 }
 
 .markdown > table th,
@@ -1581,17 +1608,17 @@ footer ul li > a {
 /***************************************************************************/
 .index-page header {
     transition: opacity 0.5S;
-    -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
-    animation: xRightMatrix .5s ease-out .3s backwards;
+    -webkit-animation: xRightMatrix .5s ease-out;
+    animation: xRightMatrix .5s ease-out;
 }
 .index-page .nav {
-  -webkit-animation: yTopMatrix .5s ease-out .5s backwards;
-  animation: yTopMatrix .5s ease-out .5s backwards;
+  -webkit-animation: yTopMatrix .5s ease-out .4s backwards;
+  animation: yTopMatrix .5s ease-out .4s backwards;
 }
 
 .index-page footer {
-  -webkit-animation: yBottomMatrix .5s ease-out 1s backwards;
-  animation: yBottomMatrix .5s ease-out 1s backwards;
+  -webkit-animation: yBottomMatrix .5s ease-out .6s backwards;
+  animation: yBottomMatrix .5s ease-out .6s backwards;
 }
 
 .index-page .logo {
@@ -1600,8 +1627,8 @@ footer ul li > a {
 }
 
 .index-page .search {
-  -webkit-animation: xRightMatrix .5s ease-out .3s backwards;
-  animation: xRightMatrix .5s ease-out .3s backwards;
+  -webkit-animation: xRightMatrix .5s ease-out .2s backwards;
+  animation: xRightMatrix .5s ease-out .2s backwards;
 }
 
 .api-link {
@@ -1625,6 +1652,10 @@ footer ul li > a {
 
 .sketch-link i {
   margin-right: 5px;
+}
+
+.component-demos {
+  margin: 2em 0 1em;
 }
 
 .component-demos .icon-all {
@@ -1702,6 +1733,7 @@ footer ul li > a {
 .code-box-meta > p {
   font-size: 12px;
   margin: 0.5em 0;
+  padding-right: 25px;
 }
 
 .code-box .collapse {
@@ -1709,30 +1741,23 @@ footer ul li > a {
   right: 15px;
   top: 50%;
   cursor: pointer;
-  border: 1px solid #999;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  font-size: 14px;
-  border-radius: 100%;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  line-height: 18px;
   opacity: 0.5;
   margin-top: -10px;
   text-align: center;
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
+.code-box.expand .collapse {
+  transform: rotate(-90deg);
 }
 
 .code-box .collapse:hover {
   opacity: 1;
-}
-
-.code-box .collapse:before {
-  transform: rotate(90deg);
-  transform-origin: 50% 50%;
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-
-.code-box.expand .collapse:before {
-  transform: rotate(270deg);
 }
 
 .code-box .highlight {

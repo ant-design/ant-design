@@ -1,0 +1,229 @@
+@prefixClass: ant-tabs;
+
+@easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
+
+@effect-duration: .3s;
+
+.@{prefixClass} {
+  outline: none;
+  box-sizing: border-box;
+  border-bottom: 2px solid #f3f3f3;
+  position: relative;
+
+  &-ink-bar {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    height: 4px;
+    margin-top: -3px;
+    background-color: #3fc7fa;
+    transform: scaleX(1);
+    transform-origin: 0 0;
+    &-transition-forward {
+      transition: right 0.3s @easing-in-out,
+      left 0.3s @easing-in-out 0.3s * 0.3;
+    }
+    &-transition-backward {
+      transition: right 0.3s @easing-in-out 0.3s * 0.3,
+      left 0.3s @easing-in-out;
+    }
+  }
+
+  &-nav-container {
+    font-size: 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-bottom: 2px solid #f3f3f3;
+  }
+
+  &-tab-prev, &-tab-next {
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 1;
+    margin-right: -2px;
+    width: 32px;
+    height: 100%;
+    line-height: 36px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+
+    &-icon {
+      position: relative;
+      display: inline-block;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      line-height: inherit;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: sans-serif;
+
+      &:before {
+        display: block;
+        font-family: "iconfont" !important;
+      }
+    }
+  }
+
+  &-tab-next {
+    right: 2px;
+
+    &-icon:before {
+      content: "\e651";
+    }
+  }
+
+  &-tab-prev {
+    left: 0;
+    transform: rotate(180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    &-icon:before {
+      content: "\e651";
+    }
+  }
+
+  &-nav-wrap {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &-nav-scroll {
+    width:99999px;
+  }
+
+  &-nav {
+    height: 36px;
+    box-sizing: border-box;
+    padding-left: 0;
+    transition: left 0.5s @easing-in-out;
+    position: relative;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+
+    &:before, &:after {
+      display: table;
+      content: " ";
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    div.@{prefixClass}-tab-active {
+
+      > a, > a:hover, > a:focus {
+        color: #3fc7fa;
+        cursor: default;
+        text-decoration: none;
+      }
+    }
+
+    div.@{prefixClass}-tab-disabled {
+      pointer-events: none;
+      cursor: default;
+
+      a {
+        color: #ccc;
+      }
+    }
+
+    .@{prefixClass}-tab {
+      float: left;
+      height: 100%;
+      padding: 10px 20px;
+      margin-right: 30px;
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+
+      > a {
+        transition: color 0.3s @easing-in-out;
+        margin-bottom: 4px;
+        font-weight: 500;
+        display: inline-block;
+        color: #666;
+      }
+
+      > a:hover {
+        color: #23c0fa;
+        cursor: pointer;
+      }
+
+      > a:hover, > a:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-tabpane-hidden {
+    display: none;
+  }
+
+  &-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  &-slide-horizontal-backward-enter {
+    transform: translateX(-100%);
+
+  }
+
+  &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
+    transform: translateX(0);
+    transition: transform @effect-duration @easing-in-out;
+  }
+
+  &-slide-horizontal-backward-leave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateX(0);
+  }
+
+  &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
+    transform: translateX(100%);
+    transition: transform @effect-duration @easing-in-out;
+  }
+
+  &-slide-horizontal-forward-enter {
+    transform: translateX(100%);
+  }
+
+  &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
+    transform: translateX(0);
+    transition: transform @effect-duration @easing-in-out;
+  }
+
+  &-slide-horizontal-forward-leave {
+    position: absolute;
+    transform: translateX(0);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
+    transform: translateX(-100%);
+    transition: transform @effect-duration @easing-in-out;
+  }
+}

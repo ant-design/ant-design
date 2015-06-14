@@ -2,34 +2,46 @@
 
 - order: 0
 
-使用很简单
+第一个对话框。
 
 ---
 
 ````jsx
-var modal = antd.modal;
+var Modal = antd.Modal;
 
-function show() {
-  var ref;
-
-  function saveRef(c){
-    ref = c;
-  }
-
-  modal({
-    title: '第一个 Modal',
-    content: <p>name: <input ref={saveRef}/></p>,
-    onCancel: function() {
-      alert('cancel');
-    },
-    onOk: function(close) {
-      alert('name: '+React.findDOMNode(ref).value);
-      setTimeout(close,100);
+var Test = React.createClass({
+  getInitialState(){
+    return{
+      visible: false
     }
-  });
-}
+  },
+  showModal() {
+    this.setState({
+      visible: true
+    });
+  },
+  handleOk() {
+    console.log('点击了确定');
+    this.setState({
+      visible: false
+    });
+  },
+  handleCancel() {
+    console.log('点击了取消');
+  },
+  render() {
+    return <div>
+      <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
+      <Modal title="第一个 Modal"
+      visible={this.state.visible}
+        onOk={this.handleOk}
+        onCancel={this.handleCancel}>
+        <p>对话框的内容</p>
+      </Modal>
+    </div>;
+  }
+});
 
-React.render(
-  <button onClick={show}>显示对话框</button>
-, document.getElementById('components-modal-demo-basic'));
+React.render(<Test/> , document.getElementById('components-modal-demo-basic'));
 ````
+

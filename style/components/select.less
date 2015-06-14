@@ -1,0 +1,239 @@
+@selectPrefixCls: rc-select;
+
+//mixin
+.selection__clear(){
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+}
+
+.@{selectPrefixCls} {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  color: #666;
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  > ul > li > a {
+    padding: 0;
+    background-color: #fff;
+  }
+
+  // arrow
+  &-arrow {
+    height: 26px;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    width: 20px;
+    b {
+      border-color: #999999 transparent transparent transparent;
+      border-style: solid;
+      border-width: 5px 4px 0 4px;
+      height: 0;
+      left: 50%;
+      margin-left: -4px;
+      margin-top: -2px;
+      position: absolute;
+      top: 50%;
+      width: 0;
+    }
+  }
+
+  &-selection {
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
+
+    box-sizing: border-box;
+    display: block;
+
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid #d9d9d9;
+    &:hover {
+      border-color: #23c0fa;
+    }
+    &:active {
+      border-color: #2db7f5;
+    }
+  }
+
+  &-selection--single {
+    height: 28px;
+    cursor: pointer;
+
+    .@{selectPrefixCls}-selection__rendered {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 10px;
+      padding-right: 20px;
+      line-height: 28px;
+    }
+
+    .@{selectPrefixCls}-selection__clear {
+      .selection__clear();
+    }
+  }
+
+  &-selection--multiple {
+    min-height: 32px;
+    cursor: text;
+
+    .@{selectPrefixCls}-selection__rendered {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-left: 8px;
+    }
+
+    .@{selectPrefixCls}-selection__clear {
+      .selection__clear();
+      margin-top: 5px;
+      margin-right: 10px;
+    }
+
+    .@{selectPrefixCls}-selection__choice {
+      background-color: #f3f3f3;
+      border-radius: 4px;
+      cursor: default;
+      float: left;
+      margin-right: 4px;
+      margin-top: 4px;
+      padding: 4px 8px;
+    }
+
+    .@{selectPrefixCls}-selection__choice__remove {
+      color: #919191;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0 0 0 8px;
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+
+  &-search--inline {
+    float: left;
+
+    .@{selectPrefixCls}-search__field {
+      border: none;
+      font-size: 100%;
+      margin-top: 5px;
+      background: transparent;
+      outline: 0;
+    }
+    > i {
+      float: right;
+    }
+  }
+
+
+  &-dropdown {
+    display: none;
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 0px 4px #d9d9d9;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    z-index: 100;
+    //border-top: none;
+    //border-top-left-radius: 0;
+    //border-top-right-radius: 0;
+    position: absolute;
+    top: 100%;
+    margin-top: 4px;
+    outline: none;
+    .@{selectPrefixCls}-menu-item[aria-selected=true] {
+      background-color: #ddd;
+    }
+  }
+
+  &-search--dropdown {
+    display: block;
+    padding: 4px;
+    .@{selectPrefixCls}-search__field {
+      padding: 4px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      outline: none;
+    }
+    &.@{selectPrefixCls}-search--hide {
+      display: none;
+    }
+  }
+
+  &-open {
+    .@{selectPrefixCls}-arrow b {
+      border-color: transparent transparent #888 transparent;
+      border-width: 0 4px 5px 4px;
+    }
+    .@{selectPrefixCls}-dropdown {
+      display: block;
+    }
+
+    .@{selectPrefixCls}-selection {
+      //border-bottom-left-radius: 0;
+      //border-bottom-right-radius: 0;
+    }
+  }
+
+  &-menu {
+    outline: none;
+    margin-bottom: 0;
+    padding-left: 0; // Override default ul/ol
+    list-style: none;
+    z-index: 9999;
+
+    > li {
+      margin: 0;
+      padding: 0;
+    }
+
+    & > &-item {
+      position: relative;
+      display: block;
+      padding: 7px 10px;
+      font-weight: normal;
+      color: #666666;
+      white-space: nowrap;
+
+      &:hover, &-active, &-selected {
+        background-color: rgba(142, 200, 249, 0.1) !important;
+      }
+
+      &-disabled {
+        color: #ccc;
+        cursor: not-allowed;
+        pointer-events: none;
+
+        &:hover {
+          color: #ccc;
+          background-color: #fff;
+          cursor: not-allowed;
+        }
+      }
+
+      &-divider {
+        height: 1px;
+        margin: 1px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
+        line-height: 0;
+      }
+    }
+  }
+}

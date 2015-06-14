@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 日期选择框
+- order: 4
 
 ---
 
@@ -22,7 +23,7 @@
 | showTime | 显示时间选择条 | boolean  | false        |
 
 <style>
-.code-box-demo .rc-calendar-picker-input {
+.code-box-demo .ant-calendar-picker-input {
   width: 200px;
 }
 </style>

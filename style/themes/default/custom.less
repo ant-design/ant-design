@@ -4,7 +4,7 @@
 // color
 @primary-color          : #2db7f5;
 
-// ------ Base & Require ------ 
+// ------ Base & Require ------
 @body-background        : #fff;
 
 @font-family            : "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", Arial, sans-serif;
@@ -15,7 +15,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "//at.alicdn.com/t/font_1433747417_2381783";
+@icon-url               : "//at.alicdn.com/t/font_1434092639_4910953";
 
 // LINK
 @link-color             : #00abea;
@@ -26,25 +26,25 @@
 @cursor-disabled        : not-allowed;
 
 // Animation
-@fc-duration-300        : .3s;
-@fc-duration-400        : .4s;
-@fc-duration-500        : .5s;
-@fc-duration-600        : .6s;
-@fc-duration-700        : .7s;
-@fc-duration-800        : .8s;
-@fc-duration-900        : .9s;
-@fc-duration-1000       : 1.0s;
-@fc-duration-1100       : 1.1s;
-@fc-duration-1200       : 1.2s;
-@fc-ease-out            : cubic-bezier(0.25, 0.8, 0.25, 1);
-@fc-ease-in             : cubic-bezier(0.55, 0, 0.55, 0.2);
-@fc-ease-in-out         : cubic-bezier(0.35, 0, 0.25, 1);
-@fc-ease-out-back       : cubic-bezier(0.18, 0.89, 0.32, 1.28);
-@fc-ease-in-back        : cubic-bezier(0.6, -0.3, 0.74, 0.05);
-@fc-ease-in-out-back    : cubic-bezier(0.68, -0.55, 0.27, 1.55);
-@fc-ease-out-circ       : cubic-bezier(0.08, 0.82, 0.17, 1);
-@fc-ease-in-circ        : cubic-bezier(0.6, 0.04, 0.98, 0.34);
-@fc-ease-in-out-circ    : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@duration-300        : .3s;
+@duration-400        : .4s;
+@duration-500        : .5s;
+@duration-600        : .6s;
+@duration-700        : .7s;
+@duration-800        : .8s;
+@duration-900        : .9s;
+@duration-1000       : 1.0s;
+@duration-1100       : 1.1s;
+@duration-1200       : 1.2s;
+@ease-out            : cubic-bezier(0.25, 0.8, 0.25, 1);
+@ease-in             : cubic-bezier(0.55, 0, 0.55, 0.2);
+@ease-in-out         : cubic-bezier(0.35, 0, 0.25, 1);
+@ease-out-back       : cubic-bezier(0.18, 0.89, 0.32, 1.28);
+@ease-in-back        : cubic-bezier(0.6, -0.3, 0.74, 0.05);
+@ease-in-out-back    : cubic-bezier(0.68, -0.55, 0.27, 1.55);
+@ease-out-circ       : cubic-bezier(0.08, 0.82, 0.17, 1);
+@ease-in-circ        : cubic-bezier(0.6, 0.04, 0.98, 0.34);
+@ease-in-out-circ    : cubic-bezier(0.78, 0.14, 0.15, 0.86);
 
 // BUTTONS
 @btn-font-weight        : normal;
@@ -79,3 +79,66 @@
 @btn-circle-size-lg     : 32px;
 @btn-circle-size-sm     : 22px;
 
+// Border
+@border-radius-base     : 6px;
+
+// Media queries breakpoints
+// Extra small screen / phone
+@screen-xs              : 480px;
+@screen-xs-min          : @screen-xs;
+@screen-xs-max          : (@screen-xs-min - 1);
+
+// Small screen / tablet
+@screen-sm              : 768px;
+@screen-sm-min          : @screen-sm;
+@screen-sm-max          : (@screen-sm-min - 1);
+
+// Medium screen / desktop
+@screen-md              : 992px;
+@screen-md-min          : @screen-md;
+@screen-md-max          : (@screen-md-min - 1);
+
+// Large screen / wide desktop
+@screen-lg              : 1200px;
+@screen-lg-min          : @screen-lg;
+@screen-lg-max          : (@screen-lg-min - 1);
+
+// Layout and Grid system
+@grid-columns           : 24;
+@grid-gutter-width      : 0;
+
+// Container sizes
+@container-sm           : (720px + @grid-gutter-width);
+@container-md           : (940px + @grid-gutter-width);
+@container-lg           : (1140px + @grid-gutter-width);
+
+// Form
+// --------------------------------
+// Legend
+@legend-color                : #222;
+@legend-border-color         : #e5e5e5;
+
+// Input
+@input-height-base: 28px;
+@input-height-lg: 32px;
+@input-height-sm: 22px;
+
+@input-padding-horizontal    : 7px;
+@input-padding-vertical-base : 4px;
+@input-padding-vertical-sm   : 1px;
+@input-padding-lg            : 4px 7px 5px;
+
+@input-placeholder-color     : #ccc;
+@input-color                 : #666;
+@input-border-color          : #d9d9d9;
+@input-bg                    : #fff;
+
+@input-border-radius         : @border-radius-base;
+
+@input-font-size-lg          : 14px;
+@input-font-size             : @font-size-base;
+@input-font-size-sm          : @font-size-base;
+
+@input-hover-border-color    : #23c0fa;
+@input-focus-border-color    : #2db7f5;
+@input-disabled-bg           : #f3f5f7;

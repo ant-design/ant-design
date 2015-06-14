@@ -5,10 +5,11 @@
 // -----------------------------
 .@{btnPrefixClass} {
   .btn;
+  .btn-default;
 
   &-primary {
     .btn-primary;
-    
+
     .@{btnPrefixClass}-group &:not(:first-child):not(:last-child) {
       border-right-color: #00abea;
       border-left-color: #00abea;
@@ -23,10 +24,6 @@
     .@{btnPrefixClass}-group &:last-child:not(:first-child) {
       border-left-color: #00abea;
     }
-  }
-
-  &-default {
-    .btn-default;
   }
 
   &-ghost {

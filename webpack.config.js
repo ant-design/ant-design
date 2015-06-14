@@ -21,17 +21,30 @@ module.exports = {
   },
 
   module: {
-    loaders: [
-      {test: /\.jsx?$/, loader: 'babel'},
-      {test: /\.json$/, loader: 'json-loader'},
-      {test: /\.less$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")},
-      {test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")}
-    ]
+    loaders: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      loader: 'babel'
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract(
+        'css?sourceMap!' +
+        'less?sourceMap'
+      )
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract(
+        'css?sourceMap'
+      )
+    }]
   },
 
   plugins: [
-    new ExtractTextPlugin("[name].css")
+    new ExtractTextPlugin('[name].css')
   ],
 
-  devtool: "#source-map"
+  devtool: '#source-map'
 };

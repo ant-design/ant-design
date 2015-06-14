@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Calendar = require('rc-calendar');
 var Datepicker = Calendar.Picker;
@@ -31,7 +33,6 @@ module.exports = React.createClass({
     this.setState(state);
   },
   handleChange: function() {
-    var props = this.props;
     this.props.onSelect(new Date(this.state.value.getTime()));
   },
   render: function () {
@@ -42,16 +43,19 @@ module.exports = React.createClass({
       orient={['top', 'left']}
       defaultValue={defaultCalendarValue}
       showTime={this.props.showTime}
+      prefixCls="ant-calendar"
+      showOk={this.props.showTime}
       showClear={false} />
     );
     return (
       <Datepicker
-        trigger={<span className="rc-calendar-picker-icon" />}
+        trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
+        prefixCls="ant-calendar-picker"
         onChange={this.props.onSelect}>
-        <input placeholder={this.props.placeholder} className="rc-calendar-picker-input" />
+        <input placeholder={this.props.placeholder} className="ant-calendar-picker-input" />
       </Datepicker>
     );
   }

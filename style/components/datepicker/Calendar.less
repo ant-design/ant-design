@@ -1,18 +1,86 @@
+.calendarPanelHeader(@prefixCalendarClass) {
+  padding: 0 10px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  border-bottom: 1px solid #e9e9e9;
+
+  a:hover {
+    color: @link-hover-color;
+  }
+
+  .@{prefixCalendarClass}-century-select,
+  .@{prefixCalendarClass}-decade-select,
+  .@{prefixCalendarClass}-year-select,
+  .@{prefixCalendarClass}-month-select {
+    padding: 0px 2px;
+    font-weight: bold;
+    display: inline-block;
+    color: #666;
+    line-height: 34px;
+  }
+
+  .@{prefixCalendarClass}-century-select-arrow,
+  .@{prefixCalendarClass}-decade-select-arrow,
+  .@{prefixCalendarClass}-year-select-arrow,
+  .@{prefixCalendarClass}-month-select-arrow {
+    display: none;
+  }
+
+  .@{prefixCalendarClass}-prev-century-btn,
+  .@{prefixCalendarClass}-next-century-btn,
+  .@{prefixCalendarClass}-prev-decade-btn,
+  .@{prefixCalendarClass}-next-decade-btn,
+  .@{prefixCalendarClass}-prev-month-btn,
+  .@{prefixCalendarClass}-next-month-btn,
+  .@{prefixCalendarClass}-prev-year-btn,
+  .@{prefixCalendarClass}-next-year-btn {
+    position: absolute;
+    top: 0;
+    color: #999;
+    font-family: Arial,"Hiragino Sans GB","Microsoft Yahei","Microsoft Sans Serif",sans-serif;
+    padding: 0 5px;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 34px;
+  }
+
+  .@{prefixCalendarClass}-prev-century-btn,
+  .@{prefixCalendarClass}-prev-decade-btn,
+  .@{prefixCalendarClass}-prev-year-btn {
+    left: 7px;
+  }
+
+  .@{prefixCalendarClass}-next-century-btn,
+  .@{prefixCalendarClass}-next-decade-btn,
+  .@{prefixCalendarClass}-next-year-btn {
+    right: 7px;
+  }
+
+  .@{prefixCalendarClass}-prev-month-btn {
+    left: 29px;
+  }
+
+  .@{prefixCalendarClass}-next-month-btn {
+    right: 29px;
+  }
+}
+
 .@{prefixCalendarClass} {
   position: relative;
   outline: none;
-  font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
   width: 253px;
   border: 1px solid #ccc;
   list-style: none;
-  font-size: 12px;
+  font-size: @font-size-base;
   text-align: left;
   background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 1px 5px #ccc;
+  border-radius: @border-radius-base;
+  box-shadow: 0 0 4px #d9d9d9;
   background-clip: padding-box;
-  border: 1px solid #ccc;
-  line-height: 1.5;
+  line-height: @line-height-base;
 
   &-week-number {
     width: 286px;
@@ -23,64 +91,11 @@
   }
 
   &-header {
-    padding: 0 10px;
-    height: 34px;
-    line-height: 30px;
-    text-align: center;
-    user-select: none;
-    -webkit-user-select: none;
-    border-bottom: 1px solid #ccc;
-
-    > a {
-      font-weight: bold;
-      display: inline-block;
-      padding: 4px 5px;
-      text-align: center;
-      width: 30px;
-
-      &:hover {
-        cursor: pointer;
-        color: #23c0fa;
-      }
-    }
-
-    .@{prefixCalendarClass}-prev-month-btn {
-      position: absolute;
-      left: 25px;
-    }
-
-    .@{prefixCalendarClass}-next-month-btn {
-      position: absolute;
-      right: 25px;
-    }
-
-    .@{prefixCalendarClass}-month-select {
-      width: 140px;
-    }
-
-    .@{prefixCalendarClass}-month-select-arrow {
-      display: none;
-    }
-  }
-
-  &-prev-month-btn,
-  &-next-month-btn,
-  &-prev-year-btn,
-  &-next-year-btn {
-    position: absolute;
-    top: 0;
-  }
-
-  &-next-year-btn {
-    right: 0;
-  }
-
-  &-prev-year-btn {
-    left: 0;
+    .calendarPanelHeader(@prefixCalendarClass);
   }
 
   &-calendar-body {
-    padding: 9px 10px 10px;
+    padding: 5px 10px;
   }
 
   table {
@@ -117,7 +132,7 @@
   }
 
   &-cell {
-    padding: 1px 0;
+    padding: 4px 0;
   }
 
   &-date {
@@ -125,11 +140,11 @@
     margin: 0 auto;
     color: #666;
     border-radius: 4px 4px;
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
     padding: 0;
     background: transparent;
-    line-height: 26px;
     text-align: center;
 
     &:hover {
@@ -174,23 +189,43 @@
   }
 
   &-footer {
-    padding: 3px 0;
-    text-align: center;
+    padding: 0 15px;
+    height: 42px;
+    line-height: 42px;
+    border-top: 1px solid #e9e9e9;
   }
 
   &-footer-btn {
-    margin-top: 2px;
+    text-align: center;
+    display: block;
   }
 
-  .@{prefixCalendarClass}-today-btn, .@{prefixCalendarClass}-clear-btn {
+  &-footer > div {
     display: inline-block;
-    padding: 4px 5px;
+  }
+
+  .@{prefixCalendarClass}-today-btn,
+  .@{prefixCalendarClass}-clear-btn {
+    display: inline-block;
     text-align: center;
-    color: #f46830;
+    margin: 0 10px;
 
     &:hover {
       cursor: pointer;
       color: #23c0fa;
     }
+  }
+
+  .@{prefixCalendarClass}-ok-btn {
+    .btn;
+    .btn-primary;
+    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    letter-spacing: 3px;
+    text-indent: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    position: absolute;
+    bottom: 9px;
+    right: 9px;
   }
 }

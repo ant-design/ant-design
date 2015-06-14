@@ -20,7 +20,8 @@
 ## 图标列表
 
 ### 一. 方向性图标
-<ul class="row anticons-list fn-clear">
+
+<ul class="row anticons-list clearfix">
 	<li>
 		<i class="anticon anticon-step-backward"></i>
 		<span class="anticon-class">step-backward</span>
@@ -46,6 +47,22 @@
 		<span class="anticon-class">arrow-salt</span>
 	</li>
 	<li>
+		<i class="anticon anticon-down"></i>
+		<span class="anticon-class">down</span>
+	</li>
+	<li>
+		<i class="anticon anticon-up"></i>
+		<span class="anticon-class">up</span>
+	</li>
+	<li>
+		<i class="anticon anticon-left"></i>
+		<span class="anticon-class">left</span>
+	</li>
+	<li>
+		<i class="anticon anticon-right"></i>
+		<span class="anticon-class">right</span>
+	</li>
+	<li>
 		<i class="anticon anticon-caret-down"></i>
 		<span class="anticon-class">caret-down</span>
 	</li>
@@ -62,6 +79,14 @@
 		<span class="anticon-class">caret-right</span>
 	</li>
 	<li>
+		<i class="anticon anticon-caret-round-right"></i>
+		<span class="anticon-class">caret-round-right</span>
+	</li>
+	<li>
+		<i class="anticon anticon-caret-round-left"></i>
+		<span class="anticon-class">caret-round-left</span>
+	</li>
+	<li>
 		<i class="anticon anticon-caret-circle-right"></i>
 		<span class="anticon-class">caret-circle-right</span>
 	</li>
@@ -70,44 +95,36 @@
 		<span class="anticon-class">caret-circle-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-caret-circleo-right"></i>
-		<span class="anticon-class">caret-circleo-right</span>
+		<i class="anticon anticon-round-right"></i>
+		<span class="anticon-class">round-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-caret-circleo-left"></i>
-		<span class="anticon-class">caret-circleo-left</span>
+		<i class="anticon anticon-round-left"></i>
+		<span class="anticon-class">round-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circle-right"></i>
-		<span class="anticon-class">angle-circle-right</span>
+		<i class="anticon anticon-circle-right"></i>
+		<span class="anticon-class">circle-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circle-left"></i>
-		<span class="anticon-class">angle-circle-left</span>
+		<i class="anticon anticon-circle-left"></i>
+		<span class="anticon-class">circle-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circleo-right"></i>
-		<span class="anticon-class">angle-circleo-right</span>
+		<i class="anticon anticon-double-right"></i>
+		<span class="anticon-class">double-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-circleo-left"></i>
-		<span class="anticon-class">angle-circleo-left</span>
+		<i class="anticon anticon-double-left"></i>
+		<span class="anticon-class">double-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-double-right"></i>
-		<span class="anticon-class">angle-double-right</span>
+		<i class="anticon anticon-verticle-right"></i>
+		<span class="anticon-class">verticle-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-angle-double-left"></i>
-		<span class="anticon-class">angle-double-left</span>
-	</li>
-	<li>
-		<i class="anticon anticon-angle-verticle-right"></i>
-		<span class="anticon-class">angle-verticle-right</span>
-	</li>
-	<li>
-		<i class="anticon anticon-angle-verticle-left"></i>
-		<span class="anticon-class">angle-verticle-left</span>
+		<i class="anticon anticon-verticle-left"></i>
+		<span class="anticon-class">verticle-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-forward"></i>
@@ -129,62 +146,62 @@
 
 ### 二. 提示建议性图标
 
-<ul class="anticons-list fn-clear">
+<ul class="anticons-list clearfix">
 	<li>
 		<i class="anticon anticon-question"></i>
 		<span class="anticon-class">question</span>
+	</li>
+	<li>
+		<i class="anticon anticon-question-round"></i>
+		<span class="anticon-class">question-round</span>
 	</li>
 	<li>
 		<i class="anticon anticon-question-circle"></i>
 		<span class="anticon-class">question-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-question-circleo"></i>
-		<span class="anticon-class">question-circleo</span>
-	</li>
-	<li>
 		<i class="anticon anticon-plus"></i>
 		<span class="anticon-class">plus</span>
+	</li>
+	<li>
+		<i class="anticon anticon-plus-round"></i>
+		<span class="anticon-class">plus-round</span>
 	</li>
 	<li>
 		<i class="anticon anticon-plus-circle"></i>
 		<span class="anticon-class">plus-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-plus-circleo"></i>
-		<span class="anticon-class">plus-circleo</span>
-	</li>
-	<li>
 		<i class="anticon anticon-pause"></i>
 		<span class="anticon-class">pause</span>
+	</li>
+	<li>
+		<i class="anticon anticon-pause-round"></i>
+		<span class="anticon-class">pause-round</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pause-circle"></i>
 		<span class="anticon-class">pause-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-pause-circleo"></i>
-		<span class="anticon-class">pause-circleo</span>
-	</li>
-	<li>
 		<i class="anticon anticon-minus"></i>
 		<span class="anticon-class">minus</span>
+	</li>
+	<li>
+		<i class="anticon anticon-minus-round"></i>
+		<span class="anticon-class">minus-round</span>
 	</li>
 	<li>
 		<i class="anticon anticon-minus-circle"></i>
 		<span class="anticon-class">minus-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-minus-circleo"></i>
-		<span class="anticon-class">minus-circleo</span>
+		<i class="anticon anticon-info-round"></i>
+		<span class="anticon-class">info-round</span>
 	</li>
 	<li>
 		<i class="anticon anticon-info-circle"></i>
 		<span class="anticon-class">info-circle</span>
-	</li>
-	<li>
-		<i class="anticon anticon-info-circleo"></i>
-		<span class="anticon-class">info-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-info"></i>
@@ -195,53 +212,57 @@
 		<span class="anticon-class">exclamation</span>
 	</li>
 	<li>
+		<i class="anticon anticon-exclamation-round"></i>
+		<span class="anticon-class">exclamation-round</span>
+	</li>
+	<li>
 		<i class="anticon anticon-exclamation-circle"></i>
 		<span class="anticon-class">exclamation-circle</span>
-	</li>
-	<li>
-		<i class="anticon anticon-exclamation-circleo"></i>
-		<span class="anticon-class">exclamation-circleo</span>
-	</li>
-	<li>
-		<i class="anticon anticon-cross-circleo"></i>
-		<span class="anticon-class">cross-circleo</span>
 	</li>
 	<li>
 		<i class="anticon anticon-cross-circle"></i>
 		<span class="anticon-class">cross-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-cross"></i>
-		<span class="anticon-class">cross</span>
+		<i class="anticon anticon-cross-round"></i>
+		<span class="anticon-class">cross-round</span>
 	</li>
 	<li>
-		<i class="anticon anticon-check-circleo"></i>
-		<span class="anticon-class">check-circleo</span>
+		<i class="anticon anticon-cross"></i>
+		<span class="anticon-class">cross</span>
 	</li>
 	<li>
 		<i class="anticon anticon-check-circle"></i>
 		<span class="anticon-class">check-circle</span>
 	</li>
 	<li>
+		<i class="anticon anticon-check-round"></i>
+		<span class="anticon-class">check-round</span>
+	</li>
+	<li>
 		<i class="anticon anticon-check"></i>
 		<span class="anticon-class">check</span>
+	</li>
+	<li>
+		<i class="anticon anticon-clock-round"></i>
+		<span class="anticon-class">clock-round</span>
 	</li>
 	<li>
 		<i class="anticon anticon-clock-circle"></i>
 		<span class="anticon-class">clock-circle</span>
 	</li>
-	<li>
-		<i class="anticon anticon-clock-circleo"></i>
-		<span class="anticon-class">clock-circleo</span>
-	</li>
 </ul>
 
 ### 三. 网站通用图标
 
-<ul class="anticons-list fn-clear">
+<ul class="anticons-list clearfix">
 	<li>
 		<i class="anticon anticon-lock"></i>
 		<span class="anticon-class">lock</span>
+	</li>
+    <li>
+		<i class="anticon anticon-unlock"></i>
+		<span class="anticon-class">unlock</span>
 	</li>
 	<li>
 		<i class="anticon anticon-android"></i>
@@ -368,10 +389,6 @@
 		<span class="anticon-class">link</span>
 	</li>
 	<li>
-		<i class="anticon anticon-lock1"></i>
-		<span class="anticon-class">lock1</span>
-	</li>
-	<li>
 		<i class="anticon anticon-logout"></i>
 		<span class="anticon-class">logout</span>
 	</li>
@@ -452,10 +469,6 @@
 		<span class="anticon-class">totop</span>
 	</li>
 	<li>
-		<i class="anticon anticon-unlock"></i>
-		<span class="anticon-class">unlock</span>
-	</li>
-	<li>
 		<i class="anticon anticon-upload"></i>
 		<span class="anticon-class">upload</span>
 	</li>
@@ -480,13 +493,13 @@
 ul.anticons-list {
   margin: 20px 0;
   list-style: none;
-  width: 100%
+  width: 120%;
 }
 ul.anticons-list li {
   float: left;
-  margin: 5px;
+  margin: 5px 5px 5px 0;
   padding-bottom: 10px;
-  width: 154px;
+  width: 155px;
   text-align: center;
   list-style: none;
   cursor: pointer;
@@ -544,7 +557,7 @@ $(function() {
   $('.anticons-list li').each(function(i, item) {
     var client = new ZeroClipboard(item);
     client.on( "copy", function (event) {
-      client.setText('<i className="anticon anticon-' + $(item).find('.anticon-class').html() + '></i>');
+      client.setText('<i className="anticon anticon-' + $(item).find('.anticon-class').html() + '"></i>');
     });
     client.on( "ready", function( readyEvent ) {
       client.on( "aftercopy", function( event ) {

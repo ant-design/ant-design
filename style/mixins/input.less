@@ -1,4 +1,4 @@
-.rc-input(){
+.ant-input(){
   position: relative;
   display: inline-block;
   margin: 0 0;
@@ -10,6 +10,7 @@
   line-height: 1.5;
   -webkit-transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
   transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
+  .transition(all .3s @ease-in-out);
 
   &:hover {
     border-color: #23c0fa;
@@ -18,5 +19,61 @@
   &:focus {
     border-color: #23c0fa;
     box-shadow: 0 0 3px #23c0fa;
+  }
+}
+
+.input() {
+  position: relative;
+  display: block;
+  padding: @input-padding-vertical-base @input-padding-horizontal;
+  width: 100%;
+  font-size: @input-font-size;
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none;
+  border: 1px solid @input-border-color;
+  border-radius: @input-border-radius;
+  // Reset placeholder
+  .placeholder();
+  .transition(~"border @{duration-300} @{ease-in-out}, background @{duration-300} @{ease-in-out}, box-shadow @{duration-300} @{ease-in-out}");
+
+  &:not([disabled]):hover {
+    border-color: @input-hover-border-color;
+  }
+
+  &:focus {
+    @color-rgba: rgba(red(@input-focus-border-color), green(@input-focus-border-color), blue(@input-focus-border-color), .8);
+    border-color: @input-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 3px @color-rgba;
+  }
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: @input-disabled-bg;
+    opacity: 1; 
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    height: auto;
+  }
+
+  // Size
+  &-lg {
+    padding: @input-padding-lg;
+    font-size: @input-font-size-lg;
+  }
+
+  &-sm {
+    padding: @input-padding-vertical-sm @input-padding-horizontal;
+    font-size: @input-font-size-sm;
   }
 }

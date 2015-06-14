@@ -1,47 +1,46 @@
-@prefixConfirmCls: rc-dialog-confirm;
+@confirmPrefixCls: ant-confirm;
 
-.@{prefixConfirmCls}-body {
-  .ant-icon {
-    font-size: 24px;
-    display: inline-block;
-    margin-right: 5px;
-    position: relative;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    line-height: inherit;
-    vertical-align: baseline;
-    text-align: center;
-    text-transform: none;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0px;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: sans-serif;
+.@{confirmPrefixCls} {
 
-    .ant-icon-warn-circle:before {
-      content: "\e613";
-      display: block;
-      font-family: "iconfont" !important;
+  .ant-modal-header {
+    display: none;
+  }
+
+  .ant-modal-body {
+    padding: 30px 40px;
+  }
+
+  .@{confirmPrefixCls}-body {
+    .@{confirmPrefixCls}-content {
+      margin-left: 37px;
+      font-size: 12px;
+      color: #999;
     }
 
-    .ant-icon-warn-circle {
+    .anticon {
+      font-size: 24px;
+      margin-right: 12px;
+      position: relative;
+      top: 2px;
+    }
+
+    .anticon-exclamation-circle {
       color: #fac450;
     }
+
+    .anticon-question-circle {
+      color: #2CB7ED;
+    }
   }
 
-  .@{prefixConfirmCls}-description {
-    margin-left: 33px;
-    font-size: 12px;
-    color: #999;
-  }
-}
+  .@{confirmPrefixCls}-btns {
+    margin-top: 30px;
+    float: right;
 
-.@{prefixConfirmCls}-btns {
-  margin-top: 30px;
-  float: right;
-
-  [btn] + [btn] {
-    margin-left: 10px;
-    margin-bottom: 0;
+    button + button {
+      margin-left: 10px;
+      margin-bottom: 0;
+    }
   }
+
 }
