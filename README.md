@@ -6,7 +6,7 @@
 
 这是蚂蚁金服体验技术部推出的一套全新的企业级前端开发框架。
 
-<img src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" with="200">
+![](https://t.alipayobjects.com/images/rmsweb/T1vp8gXoxpXXXXXXXX.svg)
 
 ## 特性
 
