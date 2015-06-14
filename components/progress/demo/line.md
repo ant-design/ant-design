@@ -10,5 +10,5 @@ Progress Line用法
 var Line = antd.Progress.Line;
 
 React.render(
-  <Line perscent="30" />, document.getElementById('components-progress-demo-line'));
+  <Line percent="30" status="exception" />, document.getElementById('components-progress-demo-line'));
 ````

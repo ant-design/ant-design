@@ -7,7 +7,7 @@ var React = require('react');
 var Line = React.createClass({
   getDefaultProps: function(){
     return {
-      width: "100px",
+      width: "100%",
       percent: 0,
       strokeWidth: 1,
       status: "normal"
@@ -20,11 +20,11 @@ var Line = React.createClass({
     var progressInfo
     if(this.props.status==='normal'){
       progressInfo = (
-        <i className="anticon anticon-check-circle"></i>
+        <span className="ant-progress-line-text">{this.props.percent}%</span>
       )
     }else {
       progressInfo = (
-        <span className="ant-progress-line-text">{this.props.percent}%</span>
+        <i className="anticon anticon-check-circle"></i>
       )
     }
 
