@@ -12,18 +12,18 @@ var Modal = antd.Modal;
 var Test = React.createClass({
   getInitialState(){
     return{
-      visible:false
+      visible: false
     }
   },
   showModal() {
     this.setState({
-      visible:true
+      visible: true
     });
   },
   handleOk() {
     console.log('点击了确定');
     this.setState({
-      visible:false
+      visible: false
     });
   },
   handleCancel() {

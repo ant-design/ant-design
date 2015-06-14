@@ -14,12 +14,12 @@ var Test = React.createClass({
   getInitialState() {
     return {
       ModalText: '对话框的内容',
-      visible:false
+      visible: false
     };
   },
   showModal() {
     this.setState({
-      visible:true
+      visible: true
     });
   },
   handleOk() {
@@ -28,7 +28,7 @@ var Test = React.createClass({
     });
     setTimeout((function() {
       this.setState({
-        visible:false
+        visible: false
       });
     }).bind(this), 2000);
   },

@@ -13,7 +13,7 @@ var Test = React.createClass({
   getInitialState: function() {
     return {
       loading: false,
-      visible:false
+      visible: false
     };
   },
   showModal() {
