@@ -14,6 +14,7 @@
   position: relative;
   vertical-align: middle;
   color: #666;
+  font-size: @font-size-base;
 
   ul, li {
     margin: 0;
@@ -197,6 +198,8 @@
     padding-left: 0; // Override default ul/ol
     list-style: none;
     z-index: 9999;
+    max-height: 250px;
+    overflow: auto;
 
     > li {
       margin: 0;

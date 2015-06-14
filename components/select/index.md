@@ -1,12 +1,16 @@
 # Select
 
 - category: Components
-- chinese: 选择框
+- chinese: 选择器
 - order: 3
 
 ---
 
-类似 select2 的选择器
+类似 Select2 的选择器。
+
+## 何时使用
+
+弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。
 
 ```html
 <Select>

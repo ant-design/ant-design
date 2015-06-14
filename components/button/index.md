@@ -3,13 +3,15 @@
 - category: CSS
 - chinese: 按钮
 - order: 2
-- sketch: button.sketch
 
 ---
 
+鲜嫩多汁的按钮。
+
 ## 何时使用
 
-如果你想为 `<a>` `<button>` 或 `<input>` 元素添加按钮类（button class）时，那你就愉快得使用吧。
+标记了一个（或一组）操作命令，引导用户点击。
+
 
 ## 如何使用
 
@@ -21,9 +23,9 @@
 ```
   .ant-btn
   	&darr;
-  .ant-btn-primary | .ant-btn-ghost  
+  .ant-btn-primary | .ant-btn-ghost
   	&darr;
-  .ant-btn-circle | .ant-btn-circle-outline  
+  .ant-btn-circle | .ant-btn-circle-outline
   	&darr;
   .ant-btn-lg | .ant-btn-sm
  ```

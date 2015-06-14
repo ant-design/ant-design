@@ -20,22 +20,9 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-var style = '.rc-select-menu {max-height:200px;overflow:auto;}';
-
-var c2 = (
-  <div>
-    <div style={{width: 300}}>
-      <style>
-      {style}
-      </style>
-      <Select tags value={['name2', 'name3']} onChange={handleChange}>
-    {children}
-      </Select>
-    </div>
-  </div>
-);
-
 React.render(
-  c2
+  <Select tags value={['name2', 'name3']} onChange={handleChange}>
+    {children}
+  </Select>
 , document.getElementById('components-select-demo-tags'));
 ````
