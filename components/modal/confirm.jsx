@@ -21,7 +21,7 @@ module.exports = function (props) {
   function onCancel() {
     var cancelFn = props.onCancel;
     if (cancelFn) {
-      if(cancelFn.length){
+      if(cancelFn.length) {
         cancelFn(close);
       }else {
         cancelFn();
@@ -35,7 +35,7 @@ module.exports = function (props) {
   function onOk() {
     var okFn = props.onOk;
     if (okFn) {
-      if(okFn.length){
+      if(okFn.length) {
         okFn(close);
       }else {
         okFn();
