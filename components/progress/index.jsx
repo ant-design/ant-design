@@ -87,7 +87,7 @@ var Circle = React.createClass({
       "height": this.props.width
     }
     var wrapStyle = {
-      "font-size": this.props.width
+      "font-size": this.props.width * 0.3
     }
     var textStyle = {
       "color": statusColorMap[this.props.status]
