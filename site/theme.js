@@ -43,7 +43,9 @@ module.exports = function(nico) {
           return;
         }
         return item.meta.category;
-      }));
+      })).sort(function(a, b) {
+        return a - b;
+      });
     },
     find_demo_in_component: function(pages, directory) {
       var ret = [];
