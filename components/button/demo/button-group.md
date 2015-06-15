@@ -32,12 +32,12 @@
 <h4>带图标按钮组合 </h4>
 <div class="ant-btn-group">
   <button class="ant-btn ant-btn-primary">
-  <span class="anticon anticon-double-left"></span>
+  <span class="anticon anticon-left"></span>
   <span>后 退</span>
   </button>
   <button class="ant-btn ant-btn-primary">
   <span>前 进</span>
-  <span class="anticon anticon-double-right"></span>
+  <span class="anticon anticon-right"></span>
   </button>
 </div>
 <div class="ant-btn-group">
@@ -56,7 +56,7 @@
   <button class="ant-btn ant-btn-ghost">4</button>
   <button class="ant-btn ant-btn-ghost">
   <span>前 进</span>
-  <span class="anticon anticon-double-right"></span>
+  <span class="anticon anticon-right"></span>
   </button>
 </div>
 <h4>尺寸</h4>
@@ -78,13 +78,18 @@
 ````
 
 <style>
+.nico-insert-code h4 {
+  font-size: 12px;
+  font-weight: 500;
+}
 .nico-insert-code h4:first-child {
   margin-top: 0;
 }
 .nico-insert-code .ant-btn-group {
+  margin-top: 16px;
   margin-left: 8px;
 }
 .nico-insert-code .ant-btn {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 </style>

@@ -88,11 +88,12 @@
   line-height: @line-height-base;
   .button-size(@btn-padding-base; @font-size-base; @btn-border-radius-base);
   .user-select(none);
-  .transition(all .4s @ease-in-out);
+  .transition(all .3s @ease-in-out);
   -webkit-transform: translate3d(0, 0, 0);
 
   > .@{iconfont-css-prefix} {
     font-size: @font-size-base + 2;
+    line-height: 1;
     z-index: 2;
   }
 
@@ -108,6 +109,7 @@
 
   &:not([disabled]):active {
     outline: 0;
+    .transition(none);
   }
 
   &.disabled,
