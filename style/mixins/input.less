@@ -22,6 +22,17 @@
   }
 }
 
+// common mixins for input
+.input-lg() {
+  padding: @input-padding-lg;
+  font-size: @input-font-size-lg;
+}
+
+.input-sm() {
+  padding: @input-padding-vertical-sm @input-padding-horizontal;
+  font-size: @input-font-size-sm;
+}
+
 // Basic style for input
 .input() {
   position: relative;
@@ -69,12 +80,194 @@
 
   // Size
   &-lg {
-    padding: @input-padding-lg;
-    font-size: @input-font-size-lg;
+    .input-lg();
   }
 
   &-sm {
-    padding: @input-padding-vertical-sm @input-padding-horizontal;
-    font-size: @input-font-size-sm;
+    .input-sm();
   }
+}
+
+// Input with icons, you can define @height if you wish to change the input size
+.input-with-icon(@height: @input-height-base) {
+  position: relative;
+
+  .@{iconfont-css-prefix} {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    .square(@height);
+    font-size: 14px;
+    line-height: @height;
+    text-align: center;
+    pointer-events: none;
+  }
+}
+
+// Input-group
+.input-group(@inputClass) {
+  // define the button style for input-group
+  @inputBtn: input-btn;
+
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  // Undo padding and float of grid classes
+  &[class*="col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &-addon,
+  &-btn,
+  &-btn-vertical,
+  .@{inputClass} {
+    display: table-cell;
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &-addon,
+  &-btn,
+  &-btn-vertical {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .@{inputClass} {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  &-addon {
+    padding: @input-padding-vertical-base @input-padding-horizontal;
+    font-size: @font-size-base;
+    font-weight: normal;
+    line-height: 1;
+    color: @input-color;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid @input-border-color;
+    border-radius: @input-border-radius;
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-top: 0;
+    }
+  }
+
+  .@{inputBtn} {
+    .btn();
+    .button-size(@input-padding-vertical-base @input-padding-horizontal; @font-size-base; @input-border-radius);
+    .button-variant(@input-color; #eee; @input-border-color);
+
+    .@{iconfont-css-prefix} {
+      margin-left: 8px;
+    }
+  }
+
+  &-btn {
+    position: relative;
+  
+    > .@{inputBtn} {
+      position: relative;
+      + .@{inputBtn} {
+        margin-left: -1px;
+      }
+    }
+
+    // Negative margin to only have a 1px border between the two
+    &:first-child {
+      > .@{inputBtn} {
+        margin-right: -1px;
+      }
+    }
+    &:last-child {
+      > .@{inputBtn} {
+        margin-left: -1px;
+      }
+    }
+  }
+
+  &-btn-vertical {
+    position: relative;
+    > .@{inputBtn} {
+      display: block;
+      float: none;
+      width: 22px;
+      height: 14px;
+      margin-left: -1px;
+      border-radius: 0;
+
+      &:first-child {
+        border-top-right-radius: 6px;
+      }
+
+      &:last-child {
+        margin-top: -1px;
+        height: 15px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+
+    .@{iconfont-css-prefix} {
+      position: absolute;
+      top: 0;
+      left: 4px;
+      margin: 0!important;
+      font-size: 12px!important;
+    }
+  }
+
+  // Reset rounded corners
+  .@{inputClass}:first-child,
+  &-addon:first-child,
+  &-btn:first-child > .@{inputBtn},
+  &-btn:last-child > .@{inputBtn}:not(:last-child):not(.dropdown-toggle) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  &-addon:first-child {
+    border-right: 0;
+  }
+  
+  .@{inputClass}:last-child,
+  &-addon:last-child,
+  &-btn:last-child > .@{inputBtn},
+  &-btn:first-child > .@{inputBtn}:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+  
+  &-addon:last-child {
+    border-left: 0;
+  }
+
+  // Sizing options
+  &-lg > .@{inputClass},
+  &-lg > &-addon,
+  &-lg > &-btn > .@{inputBtn} {
+    .input-lg();
+  }
+
+  &-sm > .@{inputClass},
+  &-sm > &-addon,
+  &-sm > &-btn > .@{inputBtn} {
+    .input-sm();
+  }
+  &-sm > &-btn > .@{inputBtn} {
+    top: -2px;
+  }
+
+  // TODO: input-group-btn-vertical: different button size
 }

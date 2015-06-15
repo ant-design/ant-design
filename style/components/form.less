@@ -1,0 +1,82 @@
+@import "../mixins/index";
+
+.reset-form();
+
+label[required]:before {
+  position: absolute;
+  display: inline-block;
+  content: "*";
+  color: @label-required-color;
+  font-family: SimSun;
+  font-size: 12px;
+  .translate3d(-10px; 0; 0);
+}
+
+// Form groups
+// You should vrap labels and controls in .@{css-prefix}form-item for optimum spacing
+.@{css-prefix}form-item {
+  margin-bottom: 20px;
+}
+
+// Input styles
+//== Basic
+.@{css-prefix}input {
+  .input;
+}
+
+//== Input type: with extra icon
+// TODO: sizing options
+.has-feedback {
+  .input-with-icon();
+}
+
+//== Style for input-group
+.@{css-prefix}input-group {
+  .input-group(~"@{css-prefix}input");
+}
+
+// Form layout
+//== Horizontal Form
+.@{css-prefix}form-horizontal {
+  .@{css-prefix}form-item {
+    .make-row;
+  }
+}
+
+//== Inline Form
+// Attention: Inline form does only apply to within viewports that are at least 768px wide
+.@{css-prefix}form-inline {
+  @media (min-width: @screen-sm-min) {
+    .@{css-prefix}form-item {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+    }
+
+    // In navbar-form, allow folks to *not* use `.@{css-prefix}form-item`
+    .@{css-prefix}input {
+      display: inline-block;
+      width: auto; // Prevent labels from stacking above inputs in `.@{css-prefix}form-item`
+      vertical-align: middle;
+    }
+
+    .has-feedback {
+      display: inline-block;
+    }
+  }
+}
+
+// Validation state
+.has-success {
+  .form-control-validation(@success-color; @success-color;);
+}
+.has-warning {
+  .form-control-validation(@warning-color; @warning-color;);
+}
+.has-error {
+  .form-control-validation(@error-color; @error-color;);
+}
+.@{css-prefix}form-explain {
+  display: block;
+  margin-bottom: 10px;
+}

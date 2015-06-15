@@ -1,0 +1,106 @@
+// style the form controls with different validation states
+.form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
+  // Color the label and help text
+  .@{css-prefix}form-explain {
+    color: @text-color;
+  }
+  // Set the border and box shadow on specific inputs to match
+  .@{css-prefix}input {
+    border-color: @border-color;
+    &:focus {
+      @color-rgba: rgba(red(@border-color), green(@border-color), blue(@border-color), .8);
+      border-color: @border-color;
+      box-shadow: 0 0 3px @color-rgba;
+    }
+    &:not([disabled]):hover {
+      border-color: @border-color;
+    }
+  }
+  // Set validation states also for addons
+  .@{css-prefix}input-group-addon {
+    color: @text-color;
+    border-color: @border-color;
+    background-color: @background-color;
+  }
+  // Optional feedback icon
+  .has-feedback {
+    color: @text-color;
+  }
+}
+
+// Reset form styles
+// -----------------------------
+// From Bootstrap framework
+.reset-form() {
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+  }
+
+  legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: (@font-size-base * 1.5);
+    line-height: inherit;
+    color: @legend-color;
+    border: 0;
+    border-bottom: 1px solid @legend-border-color;
+  }
+
+  label {
+    display: inline-block;
+    margin-bottom: 5px;
+    max-width: 100%; 
+    font-weight: bold;
+  }
+
+  input[type="search"] {
+    .box-sizing(border-box);
+  }
+
+  // Position radios and checkboxes better
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 4px 0 0;
+    margin-top: 1px \9; // IE8-9
+    line-height: normal;
+  }
+
+  input[type="file"] {
+    display: block;
+  }
+
+  // Make range inputs behave like textual form controls
+  input[type="range"] {
+    display: block;
+    width: 100%;
+  }
+
+  // Make multiple select elements height not fixed
+  select[multiple],
+  select[size] {
+    height: auto;
+  }
+
+  // Focus for file, radio, and checkbox
+  input[type="file"]:focus,
+  input[type="radio"]:focus,
+  input[type="checkbox"]:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
+
+  // Adjust output element
+  output {
+    display: block;
+    padding-top: 15px;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @input-color;
+  }
+}
