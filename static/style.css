@@ -613,60 +613,6 @@ footer ul li > a {
   margin-left: 0.5em;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .nav {
-    width: 40%;
-  }
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px) {
-  .nav, .search {
-    display: none;
-  }
-
-  .logo {
-    margin: 10px;
-    width: 110px;
-    height: auto;
-  }
-
-  .nav-phone-icon {
-    display: block;
-    width: 49px;
-    height: 49px;
-    float: right;
-    cursor: pointer;
-    background: #BEC4C8;
-  }
-
-  .nav-phone-icon:before,
-  .nav-phone-icon:after {
-    content: "";
-    display: block;
-    border-radius: 1px;
-    width: 15px;
-    height: 2px;
-    background: #EBEDEE;
-    margin: 20px 0 0 18px;
-  }
-
-  .nav-phone-icon:after {
-    margin-top: 5px;
-  }
-
-  .main {
-    height: calc(100% - 86px);
-  }
-
-  footer ul {
-    display: none;
-  }
-
-  footer h3 {
-    display: block;
-  }
-}
-
 /****************************动画样式*********************************/
 .delay-mode {
   animation-fill-mode: backwards !important;
@@ -1826,4 +1772,59 @@ a.entry-link .icon-lego {
 a.entry-link:hover .icon-lego {
   -webkit-animation: rotateCircle 0.5s 1 ease-in-out;
   animation: rotateCircle 0.5s 1 ease-in-out;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .code-boxes-col {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .nav, .search {
+    display: none;
+  }
+
+  .logo {
+    margin: 10px;
+    width: 110px;
+    height: auto;
+  }
+
+  .nav-phone-icon {
+    display: block;
+    width: 49px;
+    height: 49px;
+    float: right;
+    cursor: pointer;
+    background: #BEC4C8;
+  }
+
+  .nav-phone-icon:before,
+  .nav-phone-icon:after {
+    content: "";
+    display: block;
+    border-radius: 1px;
+    width: 15px;
+    height: 2px;
+    background: #EBEDEE;
+    margin: 20px 0 0 18px;
+  }
+
+  .nav-phone-icon:after {
+    margin-top: 5px;
+  }
+
+  .main {
+    height: calc(100% - 86px);
+  }
+
+  footer ul {
+    display: none;
+  }
+
+  footer h3 {
+    display: block;
+  }
 }

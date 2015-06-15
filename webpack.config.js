@@ -43,7 +43,8 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new webpack.NewWatchingPlugin()
   ],
 
   devtool: '#source-map'

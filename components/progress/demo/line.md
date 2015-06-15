@@ -1,19 +1,22 @@
-# Line 用法
+# 进度条
 
 - order: 0
 
-Progress Line用法
+标准的进度条。
 
 ---
 
 ````jsx
-var Line = antd.Progress.Line;
+var Progress = antd.Progress.Line;
 
 React.render(
   <div>
     <Line percent="30" />
     <Line percent="70" status="exception" />
     <Line percent="100" />
+    <Progress percent="30" />
+    <Progress percent="70" status="exception" />
+    <Progress percent="100" />
   </div>
   , document.getElementById('components-progress-demo-line'));
 ````

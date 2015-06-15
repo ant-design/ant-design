@@ -1,19 +1,19 @@
-# Circle 用法
+# 进度圈
 
-- order: 0
+- order: 2
 
-Progress Circle用法
+圈形的进度。
 
 ---
 
 ````jsx
-var Circle = antd.Progress.Circle;
+var ProgressCircle = antd.Progress.Circle;
 
 React.render(
   <div>
-    <Circle percent="30" />
-    <Circle percent="70" status="exception" />
-    <Circle percent="100" />
+    <ProgressCircle percent="30" />
+    <ProgressCircle percent="70" status="exception" />
+    <ProgressCircle percent="100" />
   </div>
   , document.getElementById('components-progress-demo-circle'));
 ````
@@ -21,7 +21,7 @@ React.render(
 <style>
 .ant-progress-circle-wrap,
 .ant-progress-line-wrap {
-  margin-right: 15px;
-  margin-bottom: 15px;
+  margin-right: 8px;
+  margin-bottom: 5px;
 }
 </style>
