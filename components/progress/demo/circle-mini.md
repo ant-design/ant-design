@@ -17,11 +17,3 @@ React.render(
   </div>
   , document.getElementById('components-progress-demo-circle-mini'));
 ````
-
-<style>
-.ant-progress-circle-wrap,
-.ant-progress-line-wrap {
-  margin-right: 15px;
-  margin-bottom: 15px;
-}
-</style>

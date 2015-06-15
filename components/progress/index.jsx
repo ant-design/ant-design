@@ -69,7 +69,7 @@ var Line = React.createClass({
 var Circle = React.createClass({
   getDefaultProps: function () {
     return {
-      width: 150,
+      width: 126,
       percent: 0,
       strokeWidth: 4,
       status: 'normal' // exception
