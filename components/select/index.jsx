@@ -4,12 +4,13 @@ var React = require('react');
 var Select = require('rc-select');
 
 module.exports = React.createClass({
-  getDefaultProps: function() {
+  getDefaultProps: function () {
     return {
-      prefixCls: 'ant-select'
+      prefixCls: 'ant-select',
+      transitionName: 'slide-up'
     };
   },
-  render: function() {
+  render: function () {
     return (
       <Select {...this.props} />
     );

@@ -8,7 +8,7 @@ module.exports = function (props) {
   var d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'anticon-exclamation-circle';
-  props.animation = 'zoom';
+  props.transitionName = 'zoom';
   props.maskAnimation = 'fade';
   var width = props.width || 375;
 
