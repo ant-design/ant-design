@@ -10,7 +10,7 @@ class AntTabs extends React.Component {
 }
 
 AntTabs.defaultProps = {
-  prefixCls: 'ant-tab'
+  prefixCls: 'ant-tabs'
 };
 
 AntTabs.TabPane = Tabs.TabPane;
