@@ -7,13 +7,13 @@
 ---
 
 ````jsx
-var Circle = antd.Progress.Circle;
+var ProgressCircle = antd.Progress.Circle;
 
 React.render(
   <div>
-    <Circle percent="30" width="126" />
-    <Circle percent="70" width="126" status="exception" />
-    <Circle percent="100" width="126" />
+    <ProgressCircle percent="30" width="126" />
+    <ProgressCircle percent="70" width="126" status="exception" />
+    <ProgressCircle percent="100" width="126" />
   </div>
   , document.getElementById('components-progress-demo-circle'));
 ````

@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Line = antd.Progress.Line;
+var Progress = antd.Progress.Line;
 
 var MyProgress = React.createClass({
   getInitialState() {
@@ -27,7 +27,7 @@ var MyProgress = React.createClass({
     }, 100);
   },
   render() {
-    return <Line percent={this.state.percent} width="300" strokeWidth="3" />;
+    return <Progress percent={this.state.percent} width="300" strokeWidth="3" />;
   }
 });
 
