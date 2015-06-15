@@ -1,8 +1,8 @@
-# Circle 用法
+# 小型进度圈
 
-- order: 0
+- order: 3
 
-Progress Circle用法
+小一号的圈形进度。
 
 ---
 

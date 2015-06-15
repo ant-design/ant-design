@@ -1,8 +1,8 @@
-# Line 用法
+# 小型进度条
 
-- order: 0
+- order: 1
 
-Progress Line用法
+适合放在较狭窄的区域内。
 
 ---
 

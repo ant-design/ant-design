@@ -1,8 +1,8 @@
-# Line 用法
+# 进度条
 
 - order: 0
 
-Progress Line用法
+标准的进度条。
 
 ---
 

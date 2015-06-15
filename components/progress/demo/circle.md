@@ -1,8 +1,8 @@
-# Circle 用法
+# 进度圈
 
-- order: 0
+- order: 2
 
-Progress Circle用法
+圈形的进度。
 
 ---
 
