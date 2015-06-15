@@ -8,7 +8,7 @@ var Line = React.createClass({
   getDefaultProps: function () {
     return {
       percent: 0,
-      strokeWidth: 2,
+      strokeWidth: 4,
       status: 'normal' // exception
     };
   },
@@ -55,7 +55,7 @@ var Line = React.createClass({
       <div className='ant-progress-line-wrap' style={wrapStyle}>
         <div className='ant-progress-line-inner' style={style}>
           <Progressline percent={this.props.percent} strokeWidth={this.props.strokeWidth}
-                        strokeColor={statusColorMap[this.props.status]}/>
+                        strokeColor={statusColorMap[this.props.status]} trailColor="#e9e9e9" />
         </div>
         {progressInfo}
       </div>
@@ -67,7 +67,7 @@ var Circle = React.createClass({
   getDefaultProps: function () {
     return {
       percent: 0,
-      strokeWidth: 2,
+      strokeWidth: 4,
       status: 'normal' // exception
     };
   },
@@ -109,7 +109,7 @@ var Circle = React.createClass({
       <div className="ant-progress-circle-wrap" style={wrapStyle}>
         <div className="ant-progress-circle-inner" style={style}>
           <Progresscircle percent={this.props.percent} strokeWidth={this.props.strokeWidth}
-                        strokeColor={statusColorMap[this.props.status]}/>
+                        strokeColor={statusColorMap[this.props.status]} trailColor="#e9e9e9" />
           {progressInfo}
         </div>
       </div>

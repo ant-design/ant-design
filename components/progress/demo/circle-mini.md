@@ -11,9 +11,9 @@ var Circle = antd.Progress.Circle;
 
 React.render(
   <div>
-    <Circle percent="30" width="100" strokeWidth="4" />
-    <Circle percent="70" width="100" strokeWidth="4" status="exception" />
-    <Circle percent="100" width="100" strokeWidth="4" />
+    <Circle percent="30" width="100" />
+    <Circle percent="70" width="100" status="exception" />
+    <Circle percent="100" width="100" />
   </div>
   , document.getElementById('components-progress-demo-circle-mini'));
 ````
