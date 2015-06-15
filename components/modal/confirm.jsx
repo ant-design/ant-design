@@ -8,8 +8,6 @@ module.exports = function (props) {
   var d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'anticon-exclamation-circle';
-  props.animation = 'zoom';
-  props.maskAnimation = 'fade';
   var width = props.width || 375;
 
   function close() {
@@ -21,9 +19,9 @@ module.exports = function (props) {
   function onCancel() {
     var cancelFn = props.onCancel;
     if (cancelFn) {
-      if(cancelFn.length) {
+      if (cancelFn.length) {
         cancelFn(close);
-      }else {
+      } else {
         cancelFn();
         close();
       }
@@ -35,9 +33,9 @@ module.exports = function (props) {
   function onOk() {
     var okFn = props.onOk;
     if (okFn) {
-      if(okFn.length) {
+      if (okFn.length) {
         okFn(close);
-      }else {
+      } else {
         okFn();
         close();
       }
@@ -61,9 +59,16 @@ module.exports = function (props) {
     document.body.appendChild(div);
   }
 
-  React.render(<Dialog prefixCls="ant-modal" className="ant-confirm" renderToBody={false} visible={true} closable={false} title="" animation="zoom" maskAnimation="fade" width={width}>
+  React.render(<Dialog
+    prefixCls="ant-modal"
+    className="ant-confirm"
+    renderToBody={false}
+    visible={true}
+    closable={false}
+    title=""
+    transitionName="zoom"
+    maskTransitionName="fade" width={width}>
     <div style={{zoom: 1, overflow: 'hidden'}}>{body} {footer}</div>
-
   </Dialog>, div, function () {
     d = this;
   });
