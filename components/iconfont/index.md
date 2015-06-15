@@ -498,7 +498,6 @@ ul.anticons-list {
 ul.anticons-list li {
   float: left;
   margin: 5px 5px 5px 0;
-  padding-bottom: 10px;
   width: 155px;
   text-align: center;
   list-style: none;
@@ -507,6 +506,7 @@ ul.anticons-list li {
   color: #5C6B77;
   transition: all 0.2s ease;
   position: relative;
+  padding: 0;
 }
 ul.anticons-list li:hover,
 ul.anticons-list li.zeroclipboard-is-hover {
@@ -536,7 +536,7 @@ ul.anticons-list li.copied:after {
 }
 .anticon {
   font-size: 26px;
-  margin: 26px 0 16px;
+  margin: 12px 0 16px;
 }
 .anticon-class {
   display: block;
