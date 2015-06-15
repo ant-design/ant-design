@@ -1,8 +1,8 @@
 # 多选
 
-- order: 1
+- order: 2
 
-多选（scroll the menu）
+多选，从已有条目中选择（scroll the menu）
 
 ---
 
