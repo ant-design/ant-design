@@ -1,4 +1,4 @@
-@prefixClass: ant-tabs;
+@prefixClass: ant-tab;
 
 @easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
 
@@ -122,9 +122,8 @@
     }
 
     div.@{prefixClass}-tab-active {
-
       > a, > a:hover, > a:focus {
-        color: #3fc7fa;
+        font-weight: bold;
         cursor: pointer;
         text-decoration: none;
       }
@@ -149,7 +148,6 @@
       > a {
         padding: 8px 25px;
         transition: color 0.3s @easing-in-out;
-        font-weight: 500;
         display: block;
         color: #666;
 

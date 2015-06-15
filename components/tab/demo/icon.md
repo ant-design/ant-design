@@ -24,5 +24,5 @@ React.render(
     <TabPane tab={tabContent[1]} key="2">选项卡一</TabPane>
     <TabPane tab={tabContent[2]} key="3">选项卡一</TabPane>
   </Tab>
-, document.getElementById('components-tabs-demo-icon'));
+, document.getElementById('components-tab-demo-icon'));
 ````
