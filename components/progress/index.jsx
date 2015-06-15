@@ -103,7 +103,7 @@ var Circle = React.createClass({
           <i className='anticon anticon-exclamation'></i>
         </span>
       );
-    }else if(this.props.status === 'suucess'){
+    }else if(this.props.status === 'success'){
       progressInfo = (
         <span style={textStyle} className='ant-progress-circle-text'>
           <i className="anticon anticon-check"></i>
