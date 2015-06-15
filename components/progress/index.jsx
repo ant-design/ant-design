@@ -7,8 +7,9 @@ var React = require('react');
 var Line = React.createClass({
   getDefaultProps: function () {
     return {
+      width: 300,
       percent: 0,
-      strokeWidth: 4,
+      strokeWidth: 3,
       status: 'normal' // exception
     };
   },
@@ -26,8 +27,9 @@ var Line = React.createClass({
     var style = {
       'width': this.props.width
     };
-    var wrapStyle = {
-      'font-size': this.props.width / 100 * this.props.strokeWidth
+    var fontSize = (this.props.width / 100 * this.props.strokeWidth);
+    var iconStyle = {
+      'font-size': (fontSize < 14) ? 14 : fontSize
     };
     var textStyle = {
       'color': statusColorMap[this.props.status]
@@ -36,13 +38,14 @@ var Line = React.createClass({
     if (this.props.status === 'exception') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
-          <i className='anticon anticon-exclamation-round'></i>
+          <i style={iconStyle} className='anticon anticon-exclamation-round'></i>
         </span>
       );
+
     } else if(this.props.status === 'success'){
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
-          <i className='anticon anticon-check-round'></i>
+          <i style={iconStyle} className='anticon anticon-check-round'></i>
         </span>
       );
     }else {
@@ -52,7 +55,7 @@ var Line = React.createClass({
     }
 
     return (
-      <div className='ant-progress-line-wrap' style={wrapStyle}>
+      <div className='ant-progress-line-wrap' >
         <div className='ant-progress-line-inner' style={style}>
           <Progressline percent={this.props.percent} strokeWidth={this.props.strokeWidth}
                         strokeColor={statusColorMap[this.props.status]} trailColor="#e9e9e9" />
@@ -66,6 +69,7 @@ var Line = React.createClass({
 var Circle = React.createClass({
   getDefaultProps: function () {
     return {
+      width: 150,
       percent: 0,
       strokeWidth: 4,
       status: 'normal' // exception
@@ -87,7 +91,7 @@ var Circle = React.createClass({
       'height': this.props.width
     };
     var wrapStyle = {
-      'font-size': this.props.width * 0.3
+      'font-size': this.props.width * 0.2
     };
     var textStyle = {
       'color': statusColorMap[this.props.status]
@@ -97,6 +101,12 @@ var Circle = React.createClass({
       progressInfo = (
         <span style={textStyle} className='ant-progress-circle-text'>
           <i className='anticon anticon-exclamation'></i>
+        </span>
+      );
+    }else if(this.props.status === 'success'){
+      progressInfo = (
+        <span style={textStyle} className='ant-progress-circle-text'>
+          <i className="anticon anticon-check"></i>
         </span>
       );
     }else {
