@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-var Tab = antd.Tab;
-var TabPane = Tab.TabPane;
+var Tabs = antd.Tabs;
+var TabPane = Tabs.TabPane;
 
 function callback() {}
 
@@ -19,10 +19,10 @@ var tabContent = [
 ]
 
 React.render(
-  <Tab defaultActiveKey="2" onChange={callback}>
+  <Tabs defaultActiveKey="2" onChange={callback}>
     <TabPane tab={tabContent[0]} key="1">选项卡一</TabPane>
     <TabPane tab={tabContent[1]} key="2">选项卡一</TabPane>
     <TabPane tab={tabContent[2]} key="3">选项卡一</TabPane>
-  </Tab>
-, document.getElementById('components-tab-demo-icon'));
+  </Tabs>
+, document.getElementById('components-tabs-demo-icon'));
 ````
