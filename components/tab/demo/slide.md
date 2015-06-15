@@ -21,5 +21,5 @@ React.render(
     <TabPane tab="tab 5" key="5">选项卡五</TabPane>
     <TabPane tab="tab 6" key="6">选项卡六</TabPane>
   </Tab>
-, document.getElementById('components-tabs-demo-slide'));
+, document.getElementById('components-tab-demo-slide'));
 ````
