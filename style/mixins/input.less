@@ -50,7 +50,7 @@
   .placeholder();
   .transition(~"border @{duration-300} @{ease-in-out}, background @{duration-300} @{ease-in-out}, box-shadow @{duration-300} @{ease-in-out}");
 
-  &:not([disabled]):hover {
+  &:hover {
     border-color: @input-hover-border-color;
   }
 
@@ -66,6 +66,9 @@
   fieldset[disabled] & {
     background-color: @input-disabled-bg;
     opacity: 1; 
+    &:hover {
+      border-color: @input-border-color;
+    }
   }
 
   &[disabled],
@@ -171,6 +174,7 @@
     .button-variant(@input-color; #eee; @input-border-color);
 
     .@{iconfont-css-prefix} {
+      line-height: 1;
       margin-left: 8px;
     }
   }
@@ -264,9 +268,6 @@
   &-sm > &-addon,
   &-sm > &-btn > .@{inputBtn} {
     .input-sm();
-  }
-  &-sm > &-btn > .@{inputBtn} {
-    top: -2px;
   }
 
   // TODO: input-group-btn-vertical: different button size
