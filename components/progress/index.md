@@ -8,9 +8,9 @@
 
 ## 使用
 
-`<Line perscent="30" />`
+`<Line percent="30" />`
 
-`<Circle perscent="30" />`
+`<Circle percent="30" />`
 
 ## 属性参数
 
