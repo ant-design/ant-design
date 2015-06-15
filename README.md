@@ -24,6 +24,11 @@
 - [React 模块](http://react-component.github.io/)
 
 
+## 如何贡献
+
+我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们[提问](https://github.com/ant-design/ant-design/issues)。
+
+
 ## 开发说明
 
 #### 本地调试
