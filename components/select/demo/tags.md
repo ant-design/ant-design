@@ -2,7 +2,7 @@
 
 - order: 3
 
-tags select（scroll the menu）
+tags select，随意输入的内容（scroll the menu）
 
 ---
 

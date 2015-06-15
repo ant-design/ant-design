@@ -1,8 +1,8 @@
 # combobox
 
-- order: 2
+- order: 1
 
-combobox
+功能基本与 suggest 类似。（Google的搜索提示）
 
 ---
 

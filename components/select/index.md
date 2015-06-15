@@ -22,13 +22,12 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| value    | specify the default selected item(s) | string/Array<String>   |  无  |
-| multiple   | can select more than one option |   | false |
-| filterOption | whether filter options by input value |  | true     |
-| tags | when tagging is enabled the user can select from pre-existing options or create a new tag by picking the first choice, which is what the user has typed into the search box so far. | |false |
-| allowClear | show clear button | | false |
-| combobox | enable combobox mode(can not set multiple at the same time) | | false |
-| onSelect | called when a option is selected. param is option's value | function | 无   |
-| onDeselect | called when a option is deselected. param is option's value. only called for multiple or tags | function | 无   |
-| onChange | called when select an option or input value change(combobox) | function | 无 |
-
+| value    | 指定默认选中的条目 | string/Array<String>   |  无  |
+| multiple   | 支持多选 |   | false |
+| filterOption | 是否根据输入项进行筛选 |  | true     |
+| tags | 可以把随意输入的条目作为tag，输入项不需要与下拉选项匹配 | |false |
+| combobox | 搜索提示，输入项不需要与下拉选项匹配 | | false |
+| onSelect | 被选中时调用，参数为选中的option value值 | function | 无   |
+| onDeselect | 取消选中时调用，参数为选中的option value值，仅在multiple或tags模式下生效 | function | 无   |
+| onChange | 选中option，或input的value变化(combobox模式下)时，调用此函数 | function | 无 |
+| allowClear | 显示清除按钮 | | false |
