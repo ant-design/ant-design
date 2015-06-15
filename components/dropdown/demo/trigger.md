@@ -24,12 +24,12 @@ var menu = <Menu>
 React.render(<div>
   <Dropdown overlay={menu} trigger="click">
     <button className="ant-btn ant-btn-primary">
-      点击触发 <i className="anticon anticon-caret-down"></i>
+      点击触发 <i className="anticon anticon-down"></i>
     </button>
   </Dropdown>
   <Dropdown overlay={menu}>
     <button className="ant-btn ant-btn-default">
-      鼠标移入 <i className="anticon anticon-caret-down"></i>
+      鼠标移入 <i className="anticon anticon-down"></i>
     </button>
   </Dropdown>
 </div>, document.getElementById('components-dropdown-demo-trigger'));

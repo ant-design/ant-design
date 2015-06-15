@@ -23,7 +23,7 @@ var menu = <Menu>
 React.render(
   <Dropdown overlay={menu}>
     <button className="ant-btn ant-btn-default">
-      某按钮 <i className="anticon anticon-caret-down"></i>
+      某按钮 <i className="anticon anticon-down"></i>
     </button>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-basic'));
