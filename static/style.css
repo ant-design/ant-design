@@ -553,6 +553,14 @@ footer ul li > a {
   margin: 1.8em 0 1em 0;
 }
 
+.markdown hr {
+  border-radius: 10px;
+  height: 3px;
+  border: 0;
+  background: #eee;
+  margin: 20px 0;
+}
+
 .markdown p,
 .markdown pre {
   margin: 1.2em 0;
