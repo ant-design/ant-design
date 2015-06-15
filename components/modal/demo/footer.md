@@ -17,16 +17,16 @@ var Test = React.createClass({
     };
   },
   showModal() {
-    this.setState({ visible:true });
+    this.setState({ visible: true });
   },
   handleOk() {
     this.setState({ loading: true });
     setTimeout(()=> {
-      this.setState({ loading: false,visible:false });
+      this.setState({ loading: false, visible: false });
     }, 3000);
   },
   handleCancel() {
-    this.setState({ visible:true });
+    this.setState({ visible: false });
   },
   render() {
     return <div>
@@ -43,6 +43,10 @@ var Test = React.createClass({
             <i className={'anticon anticon-loading'+(this.state.loading?'':'hide')}></i>
           </button>
         ]}>
+        <p>对话框的内容</p>
+        <p>对话框的内容</p>
+        <p>对话框的内容</p>
+        <p>对话框的内容</p>
         <p>对话框的内容</p>
       </Modal>
     </div>;
