@@ -69,9 +69,9 @@ var Line = React.createClass({
 var Circle = React.createClass({
   getDefaultProps: function () {
     return {
-      width: 126,
+      width: 132,
       percent: 0,
-      strokeWidth: 4,
+      strokeWidth: 6,
       status: 'normal' // exception
     };
   },
@@ -91,7 +91,7 @@ var Circle = React.createClass({
       'height': this.props.width
     };
     var wrapStyle = {
-      'font-size': this.props.width * 0.2
+      'font-size': this.props.width * 0.16 + 6
     };
     var textStyle = {
       'color': statusColorMap[this.props.status]
