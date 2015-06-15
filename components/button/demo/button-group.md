@@ -80,7 +80,7 @@
 <style>
 .nico-insert-code h4 {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: normal;
 }
 .nico-insert-code h4:first-child {
   margin-top: 0;
