@@ -10,7 +10,7 @@ var Line = React.createClass({
       percent: 0,
       strokeWidth: 2,
       status: 'normal' // exception
-    }
+    };
   },
   render() {
     var statusColorMap = {
@@ -20,35 +20,35 @@ var Line = React.createClass({
     };
 
     if (parseInt(this.props.percent) === 100) {
-      this.props.status = 'success'
+      this.props.status = 'success';
     }
 
     var style = {
       'width': this.props.width
-    }
+    };
     var wrapStyle = {
       'font-size': this.props.width / 100 * this.props.strokeWidth
-    }
+    };
     var textStyle = {
       'color': statusColorMap[this.props.status]
-    }
-    var progressInfo
+    };
+    var progressInfo;
     if (this.props.status === 'exception') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
           <i className='anticon anticon-exclamation-round'></i>
         </span>
-      )
+      );
     } else if(this.props.status === 'success'){
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
           <i className='anticon anticon-check-round'></i>
         </span>
-      )
+      );
     }else {
       progressInfo = (
         <span className='ant-progress-line-text'>{this.props.percent}%</span>
-      )
+      );
     }
 
     return (
@@ -69,7 +69,7 @@ var Circle = React.createClass({
       percent: 0,
       strokeWidth: 2,
       status: 'normal' // exception
-    }
+    };
   },
   render() {
     var statusColorMap = {
@@ -79,30 +79,30 @@ var Circle = React.createClass({
     };
 
     if (parseInt(this.props.percent) === 100) {
-      this.props.status = 'success'
+      this.props.status = 'success';
     }
 
     var style = {
       'width': this.props.width,
       'height': this.props.width
-    }
+    };
     var wrapStyle = {
       'font-size': this.props.width * 0.3
-    }
+    };
     var textStyle = {
       'color': statusColorMap[this.props.status]
-    }
-    var progressInfo
+    };
+    var progressInfo;
     if (this.props.status === 'exception') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-circle-text'>
           <i className='anticon anticon-exclamation'></i>
         </span>
-      )
+      );
     }else {
       progressInfo = (
         <span className="ant-progress-circle-text">{this.props.percent}%</span>
-      )
+      );
     }
 
     return (
