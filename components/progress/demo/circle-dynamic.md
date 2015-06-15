@@ -1,4 +1,4 @@
-# 动态展示
+# 进度圈动态展示
 
 - order: 4
 
@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Progress = antd.Progress.Line;
+var ProgressCircle = antd.Progress.Circle;
 
 var MyProgress = React.createClass({
   getInitialState() {
@@ -27,12 +27,12 @@ var MyProgress = React.createClass({
     }, 100);
   },
   render() {
-    return <Progress percent={this.state.percent} />;
+    return <ProgressCircle percent={this.state.percent} />;
   }
 });
 
 React.render(
   <MyProgress />
-  , document.getElementById('components-progress-demo-dynamic'));
+  , document.getElementById('components-progress-demo-circle-dynamic'));
 ````
 

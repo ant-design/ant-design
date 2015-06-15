@@ -7,8 +7,14 @@ var GregorianCalendar = require('gregorian-calendar');
 var zhCn = require('gregorian-calendar/lib/locale/zh-cn');
 var CalendarLocale = require('rc-calendar/lib/locale/zh-cn');
 var DateTimeFormat = require('gregorian-calendar-format');
+// 和顶部文案保持一致
+require('gregorian-calendar-format/lib/locale/zh-cn').shortMonths =
+  ['1月', '2月', '3月', '4月', '5月', '6月',
+   '7月', '8月', '9月', '10月', '11月', '12月'];
 var defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
+
+console.log(DateTimeFormat);
 
 module.exports = React.createClass({
   getInitialState: function () {
