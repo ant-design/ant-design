@@ -40,11 +40,12 @@
     "nico-jsx": "~0.5.8",
     "precommit-hook": "~1.0.7",
     "style-loader": "~0.12.2",
-    "webpack": "~1.9.7"
+    "webpack": "~1.9.7",
+    "webpack-dev-middleware": "~1.0.11"
   },
   "scripts": {
     "build": "npm run clean && webpack && nico build",
-    "start": "npm run clean && concurrent 'webpack -w' 'nico server --watch'",
+    "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site",
     "deploy": "npm run build && gh-pages -d _site -b gh-pages",
     "lint": "eslint components index.js --ext '.js,.jsx'",
