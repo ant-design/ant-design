@@ -1,10 +1,8 @@
 # Ant Design [![](https://travis-ci.org/ant-design/ant-design.svg)](https://travis-ci.org/ant-design/ant-design)
 
-下一个设计&前端框架。
+下一个设计&前端框架，来自蚂蚁金服体验技术部的一套全新的企业级前端开发框架。
 
----
-
-这是蚂蚁金服体验技术部推出的一套全新的企业级前端开发框架。
+仍在紧密开发中，预计 8 月份推出 beta 版本。
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
