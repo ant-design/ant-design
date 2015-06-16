@@ -155,11 +155,6 @@ a.logo {
   animation: rotateCircleBack 0.6s 1 ease-in-out;
 }
 
-.logo:hover img {
-  -webkit-animation: rotateCircle 0.6s 1 ease-in-out;
-  animation: rotateCircle 0.6s 1 ease-in-out;
-}
-
 .search {
   float: left;
   height: 22px;
