@@ -4,6 +4,7 @@ var webpack = require('webpack');
 var webpackMiddleware = require('webpack-dev-middleware');
 var webpackConfig = require('./webpack.config');
 var webpackCompiler = webpack(webpackConfig);
+var handler;
 
 // {{ settings for nico
 exports.site = {
@@ -32,11 +33,14 @@ exports.ignorefilter = function(filepath, subdir) {
 exports.middlewares = [{
   name: 'webpackDevMiddleware',
   filter: /antd\.(js|css)(\.map)?$/,
-  handle: webpackMiddleware(webpackCompiler, {
-    publicPath: '/dist/',
-    lazy: false,
-    watchDelay: 200
-  })
+  handle: function(req, res, next) {
+    handler = handler || webpackMiddleware(webpackCompiler, {
+      publicPath: '/dist/',
+      lazy: false,
+      watchDelay: 200
+    });
+    return handler(req, res, next);
+  }
 }];
 exports.writers = [
   'nico-jsx.PageWriter',
