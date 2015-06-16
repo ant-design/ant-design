@@ -21,10 +21,10 @@ module.exports = function(nico) {
   };
 
   exports.filters = {
-    find_category: function(pages, cat) {
+    find_category: function(posts, cat) {
       var ret = [];
-      Object.keys(pages).forEach(function(key) {
-        var item = nico.sdk.post.read(key);
+      Object.keys(posts).forEach(function(key) {
+        var item = posts[key];
         if (item.meta.category === cat) {
           ret.push(item);
         }
@@ -36,9 +36,9 @@ module.exports = function(nico) {
       });
       return ret;
     },
-    get_components_categories: function(pages) {
-      return _.uniq(Object.keys(pages).map(function(key) {
-        var item = nico.sdk.post.read(key);
+    get_components_categories: function(posts) {
+      return _.uniq(Object.keys(posts).map(function(key) {
+        var item = posts[key];
         if (item.meta.template !== 'component') {
           return;
         }
