@@ -7,7 +7,8 @@ module.exports = React.createClass({
   getDefaultProps: function () {
     return {
       prefixCls: 'ant-select',
-      transitionName: 'slide-up'
+      transitionName: 'slide-up',
+      showSearch: false
     };
   },
   render: function () {

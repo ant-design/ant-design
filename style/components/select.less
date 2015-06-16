@@ -106,7 +106,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       padding-left: 8px;
-      padding-bottom: 2px;
+      padding-bottom: 4px;
     }
 
     .@{selectPrefixCls}-selection__clear {
@@ -139,10 +139,6 @@
       &:hover {
         color: #333;
       }
-    }
-
-    .@{selectPrefixCls}-search__field {
-      margin-top: 7px;
     }
   }
 
@@ -236,6 +232,7 @@
       font-weight: normal;
       color: #666666;
       white-space: nowrap;
+      cursor: pointer;
 
       &:hover, &-active, &-selected {
         background-color: rgba(142, 200, 249, 0.1) !important;

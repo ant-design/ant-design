@@ -44,7 +44,7 @@
   },
   "scripts": {
     "build": "npm run clean && webpack && nico build",
-    "start": "npm run clean && concurrent -r 'webpack -w' 'nico server --watch'",
+    "start": "npm run clean && concurrent 'webpack -w' 'nico server --watch'",
     "clean": "rm -rf _site",
     "deploy": "npm run build && gh-pages -d _site -b gh-pages",
     "lint": "eslint components index.js --ext '.js,.jsx'",
