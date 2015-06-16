@@ -30,3 +30,4 @@
 | onDeselect | 取消选中时调用，参数为选中的option value值，仅在multiple或tags模式下生效 | function | 无   |
 | onChange | 选中option，或input的value变化(combobox模式下)时，调用此函数 | function | 无 |
 | allowClear | 显示清除按钮 | | false |
+| combobox | 输入框自动提示模式 | | false |
