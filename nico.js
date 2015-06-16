@@ -31,7 +31,7 @@ exports.ignorefilter = function(filepath, subdir) {
 };
 exports.middlewares = [{
   name: 'webpackDevMiddleware',
-  filter: /antd\.(js|css)$/,
+  filter: /antd\.(js|css)(\.map)?$/,
   handle: webpackMiddleware(webpackCompiler, {
     publicPath: '/dist/',
     lazy: false,
