@@ -14,8 +14,6 @@ require('gregorian-calendar-format/lib/locale/zh-cn').shortMonths =
 var defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
-console.log(DateTimeFormat);
-
 module.exports = React.createClass({
   getInitialState: function () {
     return {
