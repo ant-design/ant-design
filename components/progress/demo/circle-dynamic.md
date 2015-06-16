@@ -19,12 +19,12 @@ var MyProgress = React.createClass({
     var self = this;
     setInterval(function() {
       if (self.state.percent < 100) {
-        self.state.percent += 2;
+        self.state.percent += 4;
       }
       self.setState({
         percent: self.state.percent
       });
-    }, 100);
+    }, 200);
   },
   render() {
     return <ProgressCircle percent={this.state.percent} />;
