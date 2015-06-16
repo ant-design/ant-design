@@ -4,9 +4,11 @@
 
 表单基本实例
 
-`.ant-input`  类为 `<input>`、`<textarea>`、`<select>` 元素默认设置了 `width: 100%`。
+表单一定会包含表单域，表单域包含了一个标签和一个输入控件，这里我们用类 `.ant-form-item` 表示。
 
 为了获得更好的排列，请将 label 元素和 `<input>`、`<textarea>`、`<select>` 控件包裹在 `.ant-form-item` 中。
+
+`注`：`.ant-input`  类为 `<input>`、`<textarea>`、`<select>` 元素默认设置了 `width: 100%`。
 
 ---
 

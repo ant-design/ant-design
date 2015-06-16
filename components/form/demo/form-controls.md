@@ -6,13 +6,15 @@
 
 展示所有支持的表单控件。
 
-1. 输入框：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
+`注`： 输入框：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
 
 ---
 
 ````html
 <h4>input 输入框</h4>
+<!-- text input -->
 <input type="text" class="ant-input" placeholder="Please enter...">
+<!-- password input -->
 <input type="password" class="ant-input" value="123456">
 
 <h4>textarea 文本域</h4>
@@ -84,4 +86,11 @@
 <label class="ant-radio-inline">
   <input type="radio" name="inlineRadios" id="inlineRadio3" value="option3"> 3
 </label>
+
+<h4>文件输入框</h4>
+<div class="ant-form-item">
+    <label for="InputFile">File input</label>
+    <input type="file" id="InputFile">
+    <p class="ant-form-explain">Choose a file...</p>
+  </div>
 ````
