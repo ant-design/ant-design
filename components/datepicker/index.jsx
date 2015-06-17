@@ -11,6 +11,8 @@ var DateTimeFormat = require('gregorian-calendar-format');
 require('gregorian-calendar-format/lib/locale/zh-cn').shortMonths =
   ['1月', '2月', '3月', '4月', '5月', '6月',
    '7月', '8月', '9月', '10月', '11月', '12月'];
+// 以下两行代码
+// 给没有初始值的日期选择框提供本地化信息
 var defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
