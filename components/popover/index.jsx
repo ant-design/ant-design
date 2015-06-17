@@ -4,14 +4,14 @@ var React = require('react');
 var Tooltip = require('rc-tooltip');
 
 module.exports = React.createClass({
-  getDefaultProps: function () {
+  getDefaultProps() {
     return {
       transitionName: '',
       placement: 'top',
       trigger: 'hover'
     };
   },
-  render: function() {
+  render() {
     var overlay = <div>
       <div className="popover-title">
         {this.props.title}
