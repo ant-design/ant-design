@@ -1,6 +1,6 @@
 # 按钮组合
 
-- order: 7
+- order: 6
 
 将一系列的 `.ant-btn` 放入 `.ant-btn-group` 的容器中。
 

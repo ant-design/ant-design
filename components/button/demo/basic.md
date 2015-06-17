@@ -26,9 +26,4 @@
 <button class="ant-btn ant-btn-primary">主按钮</button>
 <button class="ant-btn">次按钮</button>
 <button class="ant-btn ant-btn-ghost">幽灵按钮</button>
-
-<br>
-
-<button class="ant-btn ant-btn-primary">按 钮</button>
-
 ````
