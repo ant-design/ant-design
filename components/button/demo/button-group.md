@@ -1,6 +1,6 @@
 # Groups Button
 
-- order: 8
+- order: 7
 
 按钮组合
 
