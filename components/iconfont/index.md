@@ -7,9 +7,21 @@
 
 ---
 
+## 图标的命名规范
+
+我们为每个图标赋予了语义化的命名。我们的命名规范如下：
+
+- 1. 使用 **-** 来连接单词；
+
+- 2. 实心和描线 icon 保持同名，用 **-o** 来区分，比如 question-circle(实心) 和 question-circle-o(描线)；
+
+- 3. 命名顺序：[icon名]-[描线与否]-[方向]。
+
+每个图标的类名需要在图标名称前加上 **anticon-** 前缀，如 `.anticon-question-circle`。
+
 ## 如何使用
 
-我们对每个图标都采用了语义化的命名，使用时所有的图标都需要一个基类 `.anticon` 和对应每个图标的类。在这里，我们使用 `<i>` 标签，如下面代码演示使用即可~
+使用时所有的图标都需要一个基类 `.anticon` 和对应每个图标的类。在这里，我们使用 `<i>` 标签，如下面代码演示使用即可~
 
 ```html
 <i class="anticon anticon-link"></i>
@@ -79,14 +91,6 @@
 		<span class="anticon-class">caret-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-caret-round-right"></i>
-		<span class="anticon-class">caret-round-right</span>
-	</li>
-	<li>
-		<i class="anticon anticon-caret-round-left"></i>
-		<span class="anticon-class">caret-round-left</span>
-	</li>
-	<li>
 		<i class="anticon anticon-caret-circle-right"></i>
 		<span class="anticon-class">caret-circle-right</span>
 	</li>
@@ -95,12 +99,12 @@
 		<span class="anticon-class">caret-circle-left</span>
 	</li>
 	<li>
-		<i class="anticon anticon-round-right"></i>
-		<span class="anticon-class">round-right</span>
+		<i class="anticon anticon-caret-circle-o-right"></i>
+		<span class="anticon-class">caret-circle-o-right</span>
 	</li>
 	<li>
-		<i class="anticon anticon-round-left"></i>
-		<span class="anticon-class">round-left</span>
+		<i class="anticon anticon-caret-circle-o-left"></i>
+		<span class="anticon-class">caret-circle-o-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-circle-right"></i>
@@ -109,6 +113,14 @@
 	<li>
 		<i class="anticon anticon-circle-left"></i>
 		<span class="anticon-class">circle-left</span>
+	</li>
+	<li>
+		<i class="anticon anticon-circle-o-right"></i>
+		<span class="anticon-class">circle-o-right</span>
+	</li>
+	<li>
+		<i class="anticon anticon-circle-o-left"></i>
+		<span class="anticon-class">circle-o-left</span>
 	</li>
 	<li>
 		<i class="anticon anticon-double-right"></i>
@@ -152,8 +164,8 @@
 		<span class="anticon-class">question</span>
 	</li>
 	<li>
-		<i class="anticon anticon-question-round"></i>
-		<span class="anticon-class">question-round</span>
+		<i class="anticon anticon-question-circle-o"></i>
+		<span class="anticon-class">question-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-question-circle"></i>
@@ -164,8 +176,8 @@
 		<span class="anticon-class">plus</span>
 	</li>
 	<li>
-		<i class="anticon anticon-plus-round"></i>
-		<span class="anticon-class">plus-round</span>
+		<i class="anticon anticon-plus-circle-o"></i>
+		<span class="anticon-class">plus-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-plus-circle"></i>
@@ -176,8 +188,8 @@
 		<span class="anticon-class">pause</span>
 	</li>
 	<li>
-		<i class="anticon anticon-pause-round"></i>
-		<span class="anticon-class">pause-round</span>
+		<i class="anticon anticon-pause-circle-o"></i>
+		<span class="anticon-class">pause-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pause-circle"></i>
@@ -188,64 +200,64 @@
 		<span class="anticon-class">minus</span>
 	</li>
 	<li>
-		<i class="anticon anticon-minus-round"></i>
-		<span class="anticon-class">minus-round</span>
+		<i class="anticon anticon-minus-circle-o"></i>
+		<span class="anticon-class">minus-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-minus-circle"></i>
 		<span class="anticon-class">minus-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-info-round"></i>
-		<span class="anticon-class">info-round</span>
+		<i class="anticon anticon-info"></i>
+		<span class="anticon-class">info</span>
+	</li>
+	<li>
+		<i class="anticon anticon-info-circle-o"></i>
+		<span class="anticon-class">info-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-info-circle"></i>
 		<span class="anticon-class">info-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-info"></i>
-		<span class="anticon-class">info</span>
-	</li>
-	<li>
 		<i class="anticon anticon-exclamation"></i>
 		<span class="anticon-class">exclamation</span>
 	</li>
 	<li>
-		<i class="anticon anticon-exclamation-round"></i>
-		<span class="anticon-class">exclamation-round</span>
+		<i class="anticon anticon-exclamation-circle-o"></i>
+		<span class="anticon-class">exclamation-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-exclamation-circle"></i>
 		<span class="anticon-class">exclamation-circle</span>
 	</li>
 	<li>
-		<i class="anticon anticon-cross-circle"></i>
-		<span class="anticon-class">cross-circle</span>
-	</li>
-	<li>
-		<i class="anticon anticon-cross-round"></i>
-		<span class="anticon-class">cross-round</span>
-	</li>
-	<li>
 		<i class="anticon anticon-cross"></i>
 		<span class="anticon-class">cross</span>
 	</li>
 	<li>
-		<i class="anticon anticon-check-circle"></i>
-		<span class="anticon-class">check-circle</span>
+		<i class="anticon anticon-cross-circle-o"></i>
+		<span class="anticon-class">cross-circle-o</span>
 	</li>
 	<li>
-		<i class="anticon anticon-check-round"></i>
-		<span class="anticon-class">check-round</span>
+		<i class="anticon anticon-cross-circle"></i>
+		<span class="anticon-class">cross-circle</span>
 	</li>
 	<li>
 		<i class="anticon anticon-check"></i>
 		<span class="anticon-class">check</span>
 	</li>
 	<li>
-		<i class="anticon anticon-clock-round"></i>
-		<span class="anticon-class">clock-round</span>
+		<i class="anticon anticon-check-circle-o"></i>
+		<span class="anticon-class">check-circle-o</span>
+	</li>
+	<li>
+		<i class="anticon anticon-check-circle"></i>
+		<span class="anticon-class">check-circle</span>
+	</li>
+	<li>
+		<i class="anticon anticon-clock-circle-o"></i>
+		<span class="anticon-class">clock-circle-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-clock-circle"></i>
@@ -285,8 +297,8 @@
 		<span class="anticon-class">bars</span>
 	</li>
 	<li>
-		<i class="anticon anticon-booko"></i>
-		<span class="anticon-class">booko</span>
+		<i class="anticon anticon-book-o"></i>
+		<span class="anticon-class">book-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-calendar"></i>
@@ -337,36 +349,36 @@
 		<span class="anticon-class">environment</span>
 	</li>
 	<li>
-		<i class="anticon anticon-fileo"></i>
-		<span class="anticon-class">fileo</span>
+		<i class="anticon anticon-file-o"></i>
+		<span class="anticon-class">file-o</span>
 	</li>
 	<li>
-		<i class="anticon anticon-file-texto"></i>
-		<span class="anticon-class">file-texto</span>
+		<i class="anticon anticon-file-text-o"></i>
+		<span class="anticon-class">file-text-o</span>
 	</li>
 	<li>
-		<i class="anticon anticon-foldero"></i>
-		<span class="anticon-class">foldero</span>
+		<i class="anticon anticon-folder-o"></i>
+		<span class="anticon-class">folder-o</span>
 	</li>
 	<li>
-		<i class="anticon anticon-folder-openo"></i>
-		<span class="anticon-class">folder-openo</span>
+		<i class="anticon anticon-folder-open-o"></i>
+		<span class="anticon-class">folder-open-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-github"></i>
 		<span class="anticon-class">github</span>
 	</li>
 	<li>
-		<i class="anticon anticon-hddo"></i>
-		<span class="anticon-class">hddo</span>
+		<i class="anticon anticon-hdd-o"></i>
+		<span class="anticon-class">hdd-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-frown"></i>
 		<span class="anticon-class">frown</span>
 	</li>
 	<li>
-		<i class="anticon anticon-meho"></i>
-		<span class="anticon-class">meho</span>
+		<i class="anticon anticon-meh-o"></i>
+		<span class="anticon-class">meh-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-inbox"></i>
@@ -417,8 +429,8 @@
 		<span class="anticon-class">paper-clip</span>
 	</li>
 	<li>
-		<i class="anticon anticon-pictureo"></i>
-		<span class="anticon-class">pictureo</span>
+		<i class="anticon anticon-picture-o"></i>
+		<span class="anticon-class">picture-o</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pie-chart"></i>
