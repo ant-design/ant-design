@@ -1,10 +1,8 @@
-# Groups Button
+# 按钮组合
 
 - order: 7
 
-按钮组合
-
-将一系列的 `.ant-btn` 放入 `.ant-btn-group` 的容器中
+将一系列的 `.ant-btn` 放入 `.ant-btn-group` 的容器中。
 
 按钮组合尺寸
 
@@ -79,15 +77,13 @@
 
 <style>
 .nico-insert-code h4 {
+  margin: 8px 0;
   font-size: 12px;
+  line-height: 12px;
   font-weight: normal;
 }
 .nico-insert-code h4:first-child {
   margin-top: 0;
-}
-.nico-insert-code .ant-btn-group {
-  margin-top: 16px;
-  margin-left: 8px;
 }
 .nico-insert-code .ant-btn {
   margin-bottom: 8px;

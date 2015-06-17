@@ -1,10 +1,10 @@
-# Menu Button
+# 菜单按钮
 
-- order: 6
-
-菜单按钮
+- order: 5
 
 **注**: 下拉按钮的 icon 大小统一成 **10px**。
+
+> 更多交互，详见 [Dropdown 下拉菜单](http://ant.design/components/dropdown/)。
 
 ---
 

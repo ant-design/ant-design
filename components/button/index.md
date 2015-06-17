@@ -6,7 +6,7 @@
 
 ---
 
-鲜嫩多汁的按钮，用于触发用户指令。
+按钮用于开始一个即时操作。
 
 ## 何时使用
 
@@ -34,8 +34,8 @@
 
 | 类名  | 说明 |
 | ------------- | ------------- |
-| `.ant-btn`  | 按钮基础样式 |
+| `.ant-btn`  | 按钮基础样式。 |
 | `.ant-btn-primary` `.ant-btn-ghost`  | 使用这些列出的类可以快速创建一个带有预定义样式的按钮。  |
-| `.ant-btn-circle` `.ant-btn-circle-outline`  | 用于创建圆形按钮，`.ant-btn-circle-outline` 为描边按钮 |
-| `.ant-btn-lg` `.ant-btn-sm`  | 定义按钮大小尺寸, 目前提供三种尺寸：大中小，默认为中 |
-| `.ant-btn-group` | 按钮组合，通过按钮组容器把一组按钮放在同一行里 |
+| `.ant-btn-circle` `.ant-btn-circle-outline`  | 用于创建圆形按钮，`.ant-btn-circle-outline` 为描边按钮。 |
+| `.ant-btn-lg` `.ant-btn-sm`  | 定义按钮大小尺寸，目前提供三种尺寸：大中小，默认为中。 |
+| `.ant-btn-group` | 按钮组合，通过按钮组容器把一组按钮放在同一行里。 |
