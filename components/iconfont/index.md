@@ -299,8 +299,8 @@
 		<span class="anticon-class">bars</span>
 	</li>
 	<li>
-		<i class="anticon anticon-book-o"></i>
-		<span class="anticon-class">book-o</span>
+		<i class="anticon anticon-book"></i>
+		<span class="anticon-class">book</span>
 	</li>
 	<li>
 		<i class="anticon anticon-calendar"></i>
@@ -351,36 +351,36 @@
 		<span class="anticon-class">environment</span>
 	</li>
 	<li>
-		<i class="anticon anticon-file-o"></i>
-		<span class="anticon-class">file-o</span>
+		<i class="anticon anticon-file"></i>
+		<span class="anticon-class">file</span>
 	</li>
 	<li>
-		<i class="anticon anticon-file-text-o"></i>
-		<span class="anticon-class">file-text-o</span>
+		<i class="anticon anticon-file-text"></i>
+		<span class="anticon-class">file-text</span>
 	</li>
 	<li>
-		<i class="anticon anticon-folder-o"></i>
-		<span class="anticon-class">folder-o</span>
+		<i class="anticon anticon-folder"></i>
+		<span class="anticon-class">folder</span>
 	</li>
 	<li>
-		<i class="anticon anticon-folder-open-o"></i>
-		<span class="anticon-class">folder-open-o</span>
+		<i class="anticon anticon-folder-open"></i>
+		<span class="anticon-class">folder-open</span>
 	</li>
 	<li>
 		<i class="anticon anticon-github"></i>
 		<span class="anticon-class">github</span>
 	</li>
 	<li>
-		<i class="anticon anticon-hdd-o"></i>
-		<span class="anticon-class">hdd-o</span>
+		<i class="anticon anticon-hdd"></i>
+		<span class="anticon-class">hdd</span>
 	</li>
 	<li>
 		<i class="anticon anticon-frown"></i>
 		<span class="anticon-class">frown</span>
 	</li>
 	<li>
-		<i class="anticon anticon-meh-o"></i>
-		<span class="anticon-class">meh-o</span>
+		<i class="anticon anticon-meh"></i>
+		<span class="anticon-class">meh</span>
 	</li>
 	<li>
 		<i class="anticon anticon-inbox"></i>
@@ -431,8 +431,8 @@
 		<span class="anticon-class">paper-clip</span>
 	</li>
 	<li>
-		<i class="anticon anticon-picture-o"></i>
-		<span class="anticon-class">picture-o</span>
+		<i class="anticon anticon-picture"></i>
+		<span class="anticon-class">picture</span>
 	</li>
 	<li>
 		<i class="anticon anticon-pie-chart"></i>
@@ -479,8 +479,8 @@
 		<span class="anticon-class">tags</span>
 	</li>
 	<li>
-		<i class="anticon anticon-totop"></i>
-		<span class="anticon-class">totop</span>
+		<i class="anticon anticon-to-top"></i>
+		<span class="anticon-class">to-top</span>
 	</li>
 	<li>
 		<i class="anticon anticon-upload"></i>
