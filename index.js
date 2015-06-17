@@ -8,6 +8,7 @@ var antd = {
   Menu: require('rc-menu'),
   Dropdown: require('./components/dropdown'),
   Progress: require('./components/progress'),
+  Popover: require('./components/popover'),
   Select: require('./components/select'),
   confirm: require('./components/modal/confirm')
 };
