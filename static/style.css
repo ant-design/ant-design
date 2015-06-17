@@ -563,6 +563,13 @@ footer ul li > a {
   margin: 20px 0;
 }
 
+.markdown code,
+.markdown kbd,
+.markdown pre,
+.markdown samp {
+  font-family: Consolas, monospace;
+}
+
 .markdown p,
 .markdown pre {
   margin: 1.2em 0;
