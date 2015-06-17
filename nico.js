@@ -37,7 +37,13 @@ exports.middlewares = [{
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
       lazy: false,
-      watchDelay: 200
+      watchDelay: 200,
+      stats: {
+        hash: false,
+        cached: false,
+        cachedAssets: false,
+        colors: true
+      }
     });
     return handler(req, res, next);
   }
