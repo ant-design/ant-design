@@ -45,7 +45,9 @@ exports.middlewares = [{
         colors: true
       }
     });
-    return handler(req, res, next);
+    try {
+      return handler(req, res, next);
+    } catch(e) {}
   }
 }];
 exports.writers = [
