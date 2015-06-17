@@ -1,8 +1,6 @@
-# Loading Button
+# 加载按钮
 
-- order: 7
-
-加载按钮
+- order: 6
 
 ---
 
