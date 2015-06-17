@@ -10,7 +10,7 @@
   font-size: 12px;
   font-weight: normal;
   line-height: 1.5;
-  padding-top: 7px;
+  padding-top: 4px;
   min-width: 100%;
 
   &-wrap {
@@ -35,7 +35,7 @@
     position: relative;
     list-style-type: none;
     padding: 0;
-    margin: 2px 0 0 0;
+    margin: 0;
     text-align: left;
     background-color: #fff;
     border-radius: 3px;
@@ -104,61 +104,6 @@
         background-color: #e5e5e5;
         line-height: 0;
       }
-    }
-  }
-
-  .effect() {
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-    transform-origin: 0 0;
-  }
-
-  &-slide-up-enter {
-    .effect();
-    opacity: 0;
-    animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
-    animation-play-state: paused;
-  }
-
-  &-slide-up-leave {
-    .effect();
-    opacity: 1;
-    animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
-    animation-play-state: paused;
-  }
-
-  &-slide-up-enter&-slide-up-enter-active {
-    animation-name: rcDropdownSlideUpIn;
-    animation-play-state: running;
-  }
-
-  &-slide-up-leave&-slide-up-leave-active {
-    animation-name: rcDropdownSlideUpOut;
-    animation-play-state: running;
-  }
-
-  @keyframes rcDropdownSlideUpIn {
-    0% {
-      opacity: 0;
-      transform-origin: 0% 0%;
-      transform: scaleY(0);
-    }
-    100% {
-      opacity: 1;
-      transform-origin: 0% 0%;
-      transform: scaleY(1);
-    }
-  }
-  @keyframes rcDropdownSlideUpOut {
-    0% {
-      opacity: 1;
-      transform-origin: 0% 0%;
-      transform: scaleY(1);
-    }
-    100% {
-      opacity: 0;
-      transform-origin: 0% 0%;
-      transform: scaleY(0);
     }
   }
 }
