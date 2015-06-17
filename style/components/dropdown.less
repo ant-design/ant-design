@@ -15,6 +15,15 @@
 
   &-wrap {
     position: relative;
+    .anticon-down {
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &-wrap-open {
+    .anticon-down {
+      transform: rotate(180deg);
+    }
   }
 
   &-hidden {
