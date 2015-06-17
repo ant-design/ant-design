@@ -15,6 +15,15 @@
 
   &-wrap {
     position: relative;
+    .anticon-down {
+      transition: transform 0.2s ease;
+    }
+  }
+
+  &-wrap-open {
+    .anticon-down {
+      transform: rotate(180deg);
+    }
   }
 
   &-hidden {
@@ -55,8 +64,12 @@
       clear: both;
       font-size: 12px;
       font-weight: normal;
-      color: #666666;
+      color: #666;
       white-space: nowrap;
+
+      a {
+        color: #666;
+      }
 
       &:hover {
         background-color: #ebfaff;

@@ -2,7 +2,7 @@
 
 - order: 1
 
-使用 `format` 属性自定义您需要的日期定义格式：yyyy/MM/dd
+使用 `format` 属性，可以自定义你需要的日期显示格式，如 `yyyy/MM/dd`。
 
 ---
 

@@ -1,0 +1,226 @@
+@import "../mixins/index";
+@popoverPrefixClass: ~"@{css-prefix}popover";
+
+//
+// Popovers
+// --------------------------------------------------
+
+//== Popovers
+//
+//##
+
+//** Popover body background color
+@popover-bg:                          #fff;
+//** Popover maximum width
+@popover-min-width:                   177px;
+@popover-max-width:                   276px;
+//** Popover border color
+@popover-border-color:                #d9d9d9;
+
+//** Popover arrow width
+@popover-arrow-width:                 4px;
+//** Popover distance with trigger
+@popover-distance:                    @popover-arrow-width+4;
+//** Popover arrow color
+@popover-arrow-color:                 @popover-bg;
+
+//** Popover outer arrow width
+@popover-arrow-outer-width:           (@popover-arrow-width + 1);
+//** Popover outer arrow color
+@popover-arrow-outer-color:           fadein(@popover-border-color, 5%);
+
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1080;
+  cursor: auto;
+  -moz-user-select: text;
+  user-select: text;
+  white-space: normal;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  font-weight: normal;
+  text-align: left;
+
+  &:after {
+    content: "";
+    position: absolute;
+    background: rgba(255,255,255,0.01);
+  }
+
+  &-hidden {
+    display: none;
+  }
+
+  // Offset the popover to account for the popover arrow
+  &-placement-top {
+    margin-top: -@popover-arrow-width;
+    padding-bottom: @popover-distance;
+    &:after {
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 8px;
+    }
+  }
+
+  &-placement-right {
+    margin-left: @popover-arrow-width;
+    padding-left: @popover-distance;
+    &:after {
+      top: 0;
+      left: -8px;
+      width: 8px;
+      height: 100%;
+    }
+  }
+
+  &-placement-bottom {
+    margin-top: @popover-arrow-width;
+    padding-top: @popover-distance;
+    &:after {
+      top: -8px;
+      left: 0;
+      width: 100%;
+      height: 8px;
+    }
+  }
+
+  &-placement-left {
+    margin-left: -@popover-arrow-width;
+    padding-right: @popover-distance;
+    &:after {
+      top: 0;
+      left: 100%;
+      width: 8px;
+      height: 100%;
+    }
+  }
+
+  &-inner {
+    max-width: @popover-max-width;
+    min-width: @popover-min-width;
+    background-color: @popover-bg;
+    background-clip: padding-box;
+    border: 1px solid @popover-border-color;
+    border-radius: @border-radius-base;
+    padding: 1px;
+    box-shadow: 0 0 4px #d9d9d9;
+  }
+
+  &-title {
+    margin: 0; // reset heading margin
+    padding: 0 8px;
+    line-height: 30px;
+    height: 30px;
+    background-color: @popover-bg;
+    border-bottom: 1px solid #e9e9e9;
+    color: #666;
+  }
+
+  &-content {
+    padding: 8px;
+  }
+
+  &-descrition {
+    [icon] {
+      font-size: 16px;
+      margin-right: 2px;
+      line-height: 18px;
+    }
+    [icon='warn-circle'] {
+      color: #F9C35A;
+    }
+  }
+
+  &-buttons {
+    text-align: right;
+    margin-top: 12px;
+
+    button {
+      margin-left: 2px;
+    }
+  }
+
+  // Arrows
+  // .popover-arrow is outer, .popover-arrow:after is inner
+
+  &-arrow {
+    &,
+    &:after {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+    }
+  }
+
+  &-arrow {
+    border-width: @popover-arrow-outer-width;
+  }
+  &-arrow:after {
+    border-width: @popover-arrow-width;
+    content: "";
+  }
+
+  &-placement-top > &-arrow {
+    left: 50%;
+    margin-left: -@popover-arrow-outer-width;
+    border-bottom-width: 0;
+    border-top-color: @popover-arrow-outer-color;
+    bottom: @popover-distance - @popover-arrow-outer-width + 1;
+    &:after {
+      content: " ";
+      bottom: 1px;
+      margin-left: -@popover-arrow-width;
+      border-bottom-width: 0;
+      border-top-color: @popover-arrow-color;
+    }
+  }
+  &-placement-right > &-arrow {
+    top: 50%;
+    left: @popover-distance - @popover-arrow-outer-width + 1;
+    margin-top: -@popover-arrow-outer-width;
+    border-left-width: 0;
+    border-right-color: @popover-arrow-outer-color;
+    &:after {
+      content: " ";
+      left: 1px;
+      bottom: -@popover-arrow-width;
+      border-left-width: 0;
+      border-right-color: @popover-arrow-color;
+    }
+  }
+  &-placement-bottom > &-arrow {
+    left: 50%;
+    margin-left: -@popover-arrow-outer-width;
+    border-top-width: 0;
+    border-bottom-color: @popover-arrow-outer-color;
+    top: @popover-distance - @popover-arrow-outer-width + 1;
+    &:after {
+      content: " ";
+      top: 1px;
+      margin-left: -@popover-arrow-width;
+      border-top-width: 0;
+      border-bottom-color: @popover-arrow-color;
+    }
+  }
+
+  &-placement-left > &-arrow {
+    top: 50%;
+    right: @popover-distance - @popover-arrow-outer-width + 1;
+    margin-top: -@popover-arrow-outer-width;
+    border-right-width: 0;
+    border-left-color: @popover-arrow-outer-color;
+    &:after {
+      content: " ";
+      right: 1px;
+      border-right-width: 0;
+      border-left-color: @popover-arrow-color;
+      bottom: -@popover-arrow-width;
+    }
+  }
+}
