@@ -1,8 +1,8 @@
-# 带有禁用
+# 禁用
 
-- order: 2
+- order: 1
 
-禁用某一项
+禁用某一项。
 
 ---
 
@@ -10,7 +10,7 @@
 var Tabs = antd.Tabs;
 var TabPane = Tabs.TabPane;
 
-function callback() {}
+function callback(key) {}
 
 React.render(
   <Tabs defaultActiveKey="1" onChange={callback}>

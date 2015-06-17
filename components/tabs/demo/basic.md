@@ -1,8 +1,8 @@
 # 基本
 
-- order: 2
+- order: 0
 
-基本用法。
+默认选中第二项。
 
 ---
 
@@ -10,7 +10,9 @@
 var Tabs = antd.Tabs;
 var TabPane = Tabs.TabPane;
 
-function callback() {}
+function callback(key) {
+  console.log(key);
+}
 
 React.render(
   <Tabs defaultActiveKey="2" onChange={callback}>

@@ -2,7 +2,7 @@
 
 - order: 2
 
-带有图标。
+有图标的标签。
 
 ---
 
@@ -10,7 +10,7 @@
 var Tabs = antd.Tabs;
 var TabPane = Tabs.TabPane;
 
-function callback() {}
+function callback(key) {}
 
 var tabContent = [
   <span><i className="anticon anticon-lock"></i>tab 1</span>,
