@@ -2,6 +2,7 @@
 
 var React = require('react');
 var Tooltip = require('rc-tooltip');
+var prefixCls = 'ant-popover';
 
 module.exports = React.createClass({
   getDefaultProps() {
@@ -13,10 +14,10 @@ module.exports = React.createClass({
   },
   render() {
     var overlay = <div>
-      <div className="popover-title">
+      <div className={prefixCls + '-title'}>
         {this.props.title}
       </div>
-      <div className="popover-content">
+      <div className={prefixCls + '-content'}>
         {this.props.overlay}
       </div>
     </div>;
@@ -30,7 +31,7 @@ module.exports = React.createClass({
 
     return (
       <Tooltip placement={this.props.placement}
-        prefixCls="popover"
+        prefixCls={prefixCls}
         renderPopupToBody={false}
         transitionName={transitionName}
         trigger={this.props.trigger}
