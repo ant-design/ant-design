@@ -38,14 +38,14 @@ var Line = React.createClass({
     if (this.props.status === 'exception') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
-          <i style={iconStyle} className='anticon anticon-exclamation-round'></i>
+          <i style={iconStyle} className="anticon anticon-exclamation-circle"></i>
         </span>
       );
 
     } else if(this.props.status === 'success'){
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
-          <i style={iconStyle} className='anticon anticon-check-round'></i>
+          <i style={iconStyle} className="anticon anticon-check-circle"></i>
         </span>
       );
     }else {
