@@ -37,6 +37,8 @@ var Test = React.createClass({
         onOk={this.handleOk}
         onCancel={this.handleCancel}>
         <p>对话框的内容</p>
+        <p>对话框的内容</p>
+        <p>对话框的内容</p>
       </Modal>
     </div>;
   }
