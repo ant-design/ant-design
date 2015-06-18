@@ -10,7 +10,6 @@
 var Popover = antd.Popover;
 var content = [
   <p>内容</p>,
-  <p>内容</p>,
   <p>内容</p>
 ];
 

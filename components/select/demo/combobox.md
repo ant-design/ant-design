@@ -18,16 +18,15 @@ var Test = React.createClass({
     };
   },
   handleChange(value) {
+    var options;
     if (!value) {
-      this.setState({
-        options: []
+      options = [];
+    } else {
+      options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
+        var email = value + '@' + domain;
+        return <Option value={email}>{email}</Option>;
       });
-      return;
     }
-    var options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
-      var email = value + '@' + domain;
-      return <Option value={email}>{email}</Option>;
-    });
     this.setState({
       options: options
     });
