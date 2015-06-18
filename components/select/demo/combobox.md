@@ -2,7 +2,7 @@
 
 - order: 4
 
-类似 Google 搜索的输入框自动提示功能。
+类似账号注册表单输入框的自动完成功能。
 
 ---
 
@@ -18,6 +18,12 @@ var Test = React.createClass({
     };
   },
   handleChange(value) {
+    if (!value) {
+      this.setState({
+        options: []
+      });
+      return;
+    }
     var options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
       var email = value + '@' + domain;
       return <Option value={email}>{email}</Option>;
