@@ -7,5 +7,5 @@ buildBranch({
   if(err) {
     throw err;
   }
-  console.log('Published!');
+  console.log('Site has been published to http://ant.design');
 });
