@@ -45,10 +45,6 @@
     }
   }
 
-  &-combobox &-arrow {
-    display: none;
-  }
-
   &-selection {
     outline: none;
     user-select: none;
@@ -261,6 +257,22 @@
         background-color: #e5e5e5;
         line-height: 0;
       }
+    }
+  }
+
+  &-combobox {
+    .@{selectPrefixCls}-arrow {
+      display: none;
+    }
+    .@{selectPrefixCls}-search--inline {
+      float: none;
+    }
+    .@{selectPrefixCls}-search__field {
+      padding: 0 10px;
+      width: 100%;
+    }
+    .@{selectPrefixCls}-selection__rendered {
+      padding: 0;
     }
   }
 }
