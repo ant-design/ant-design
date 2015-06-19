@@ -31,7 +31,7 @@
 
   &-nav-container {
     font-size: 14px;
-    line-height: 1.5;
+    line-height: @line-height-base;
     box-sizing: border-box;
     width: 100%;
     position: relative;
@@ -175,6 +175,14 @@
         text-decoration: none;
       }
     }
+  }
+
+  &-mini &-nav-container {
+    font-size: 12px;
+  }
+
+  &-mini &-tab {
+    margin-right: 20px;
   }
 
   &-tabpane-hidden {
