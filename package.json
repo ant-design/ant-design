@@ -32,7 +32,6 @@
     "eslint": "~0.22.1",
     "eslint-plugin-react": "~2.5.0",
     "extract-text-webpack-plugin": "~0.8.1",
-    "gh-pages-cli": "~0.2.0",
     "jshint": "~2.8.0",
     "json-loader": "~0.5.1",
     "less": "~2.5.1",
