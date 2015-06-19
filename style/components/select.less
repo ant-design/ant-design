@@ -105,7 +105,7 @@
       //display: inline-block;
       overflow: hidden;
       text-overflow: ellipsis;
-      padding-left: 8px;
+      padding-left: 4px;
       padding-bottom: 4px;
     }
 
@@ -236,6 +236,19 @@
 
       &:hover, &-active, &-selected {
         background-color: rgba(142, 200, 249, 0.1) !important;
+      }
+
+      &-selected {
+        position: relative;
+        &:after {
+          content: '\e613';
+          font-family: 'anticon';
+          font-weight: bold;
+          position: absolute;
+          top: 6px;
+          right: 16px;
+          color: #3CB8F0;
+        }
       }
 
       &-disabled {
