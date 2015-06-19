@@ -21,7 +21,7 @@ function handleChange(value) {
 }
 
 React.render(
-  <Select multiple value={['name2', 'name3']} onChange={handleChange}>
+  <Select multiple value={['a10', 'c12']} onChange={handleChange}>
     {children}
   </Select>
 , document.getElementById('components-select-demo-multiple'));
