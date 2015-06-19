@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
-var Tooltip = require('rc-tooltip');
-var prefixCls = 'ant-popover';
+import React from 'react';
+import Tooltip from 'rc-tooltip';
+const prefixCls = 'ant-popover';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       transitionName: '',
@@ -22,7 +22,7 @@ module.exports = React.createClass({
       </div>
     </div>;
 
-    var transitionName = ({
+    const transitionName = ({
       top: 'zoom-down',
       bottom: 'zoom-up',
       left: 'zoom-right',

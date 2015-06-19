@@ -1,48 +1,51 @@
 'use strict';
 
-var React = require('react');
-var Calendar = require('rc-calendar');
-var Datepicker = Calendar.Picker;
-var GregorianCalendar = require('gregorian-calendar');
-var zhCn = require('gregorian-calendar/lib/locale/zh-cn');
-var CalendarLocale = require('rc-calendar/lib/locale/zh-cn');
-var DateTimeFormat = require('gregorian-calendar-format');
+import React from 'react';
+import Calendar from 'rc-calendar';
+const Datepicker = Calendar.Picker;
+
+import GregorianCalendar from 'gregorian-calendar';
+import zhCn from 'gregorian-calendar/lib/locale/zh-cn';
+import CalendarLocale from 'rc-calendar/lib/locale/zh-cn';
+import DateTimeFormat from 'gregorian-calendar-format';
+
 // 和顶部文案保持一致
-require('gregorian-calendar-format/lib/locale/zh-cn').shortMonths =
-  ['1月', '2月', '3月', '4月', '5月', '6月',
-   '7月', '8月', '9月', '10月', '11月', '12月'];
+import Locale from 'gregorian-calendar-format/lib/locale/zh-cn';
+Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
+                      '7月', '8月', '9月', '10月', '11月', '12月'];
+
 // 以下两行代码
 // 给没有初始值的日期选择框提供本地化信息
-var defaultCalendarValue = new GregorianCalendar(zhCn);
+let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
-module.exports = React.createClass({
-  getInitialState: function () {
+export default React.createClass({
+  getInitialState() {
     return {
       value: ''
     };
   },
-  getDefaultProps: function () {
+  getDefaultProps() {
     return {
       format: 'yyyy-MM-dd',
       placeholder: '请选择日期'
     };
   },
-  componentDidMount: function () {
-    var state = {};
+  componentDidMount() {
+    let state = {};
     if (this.props.value) {
-      var value = new GregorianCalendar(zhCn);
+      let value = new GregorianCalendar(zhCn);
       value.setTime(new Date(this.props.value));
       state.value = value;
     }
     state.disabled = this.props.disabled || function() {};
     this.setState(state);
   },
-  handleChange: function() {
+  handleChange() {
     this.props.onSelect(new Date(this.state.value.getTime()));
   },
-  render: function () {
-    var calendar = (
+  render() {
+    let calendar = (
       <Calendar
       disabledDate={this.state.disabled}
       locale={CalendarLocale}
