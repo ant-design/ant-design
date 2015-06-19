@@ -20,6 +20,9 @@ React.render(
     <TabPane tab="tab 4" key="4">选项卡四</TabPane>
     <TabPane tab="tab 5" key="5">选项卡五</TabPane>
     <TabPane tab="tab 6" key="6">选项卡六</TabPane>
+    <TabPane tab="tab 7" key="7">选项卡七</TabPane>
+    <TabPane tab="tab 8" key="8">选项卡八</TabPane>
+    <TabPane tab="tab 9" key="9">选项卡九</TabPane>
   </Tabs>
 , document.getElementById('components-tabs-demo-slide'));
 ````
