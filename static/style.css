@@ -57,13 +57,12 @@ body {
 }
 
 body {
-  font-family: Helvetica Neue, Helvetica, Arial, "Microsoft Yahei", sans-serif;
+  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", Arial, sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
-    background: #fff;
-    transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    -webkit-transition:background 1s cubic-bezier(0.075, 0.82, 0.165, 1) ;
+  background: #fff;
+  transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 *,
