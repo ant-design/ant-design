@@ -1,0 +1,55 @@
+{
+  "name": "rc-steps",
+  "version": "1.0.0",
+  "description": "steps ui component for react",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-tabs"
+  ],
+  "main": "./lib/index",
+  "homepage": "http://github.com/react-component/steps",
+  "maintainers": [
+    {
+      "name": "yuhangge",
+      "email": "abeyuhang@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/react-component/steps.git"
+  },
+  "bugs": {
+    "url": "http://github.com/react-component/steps/issues"
+  },
+  "licenses": "MIT",
+  "config": {
+    "port": 8002
+  },
+  "scripts": {
+    "build": "rc-tools run build",
+    "precommit": "rc-tools run precommit",
+    "less": "rc-tools run less",
+    "gh-pages": "rc-tools run gh-pages",
+    "history": "rc-tools run history",
+    "start": "node --harmony node_modules/.bin/rc-server",
+    "publish": "rc-tools run tag",
+    "lint": "rc-tools run lint",
+    "saucelabs": "node --harmony node_modules/.bin/rc-tools run saucelabs",
+    "browser-test": "node --harmony node_modules/.bin/rc-tools run browser-test",
+    "browser-test-cover": "node --harmony node_modules/.bin/rc-tools run browser-test-cover"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "precommit-hook": "^1.0.7",
+    "rc-server": "3.x",
+    "rc-tools": "3.x",
+    "react": "0.13.x"
+  },
+  "precommit": [
+    "precommit"
+  ],
+  "dependencies": {
+    "rc-css-transition-group": "^2.0.0"
+  }
+}
