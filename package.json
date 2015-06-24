@@ -19,7 +19,7 @@
     "rc-dropdown": "~1.0.2",
     "rc-menu": "~3.4.0",
     "rc-progress": "~1.0.0",
-    "rc-select": "~3.5.0",
+    "rc-select": "~4.0.0",
     "rc-tabs": "~5.1.0",
     "rc-tooltip": "~2.1.1"
   },
