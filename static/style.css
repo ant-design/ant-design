@@ -445,6 +445,7 @@ footer ul li > a {
   background: #F9F9F9;
   padding-top: 10px;
   margin-bottom: 50px;
+  position: absolute;
 }
 
 .aside-container>ul>li {
@@ -514,7 +515,8 @@ footer ul li > a {
 }
 
 .main-container {
-  width: calc(100% - 260px);
+  width: 100%;
+  margin-left: 260px;
   padding: 30px 40px 120px;
   -webkit-animation: xRightMatrix .5s ease-out;
   animation: xRightMatrix .5s ease-out;
