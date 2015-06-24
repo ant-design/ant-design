@@ -4,14 +4,105 @@
   <meta charset="UTF-8">
   <title>Test</title>
   <link rel="stylesheet" href="/ant-design/dist/antd.css"/>
-  <script type="text/javascript" src="/ant-design/node_modules/react/dist/react.js"></script>
+  <script src="https://a.test.alipay.net/es5-shim/4.0.5/es5-shim.js"></script>
+  <script src="./es5-sham.js"></script>
+  <script type="text/javascript">
+    // Console-polyfill. MIT license.
+    // https://github.com/paulmillr/console-polyfill
+    // Make it safe to do console.log() always.
+    (function(global) {
+      'use strict';
+      global.console = global.console || {};
+      var con = global.console;
+      var prop, method;
+      var empty = {};
+      var dummy = function() {};
+      var properties = 'memory'.split(',');
+      var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+      'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+      'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+      while (prop = properties.pop()) if (!con[prop]) con[prop] = empty;
+      while (method = methods.pop()) if (!con[method]) con[method] = dummy;
+    })(typeof window === 'undefined' ? this : window);
+    // Using `this` for web workers while maintaining compatibility with browser
+    // targeted script loaders such as Browserify or Webpack where the only way to
+    // get to the global object is via `window`.
+  </script>
+  <script src="https://a.alipayobjects.com/react/0.13.2/react.js"></script>
 
-  <link rel="stylesheet/less" type="text/css" href="/ant-design/style/components/steps.less" />
-  <script type="text/javascript" src="/ant-design/node_modules/less/dist/less.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="/ant-design/style/components/steps.css" />
 
 </head>
 <body>
-<div id="__react-content"></div>
+
+<div row>
+  <div col="24" style="padding: 10px;">
+    <div id="__react-content"></div>
+  </div>
+</div>
+
+<!--<div row>-->
+  <!--<div col="24" style="padding: 10px;">-->
+
+    <!--<div class="rc-steps">-->
+      <!--<div class="rc-steps-item">-->
+        <!--<div class="rc-steps-head">-->
+          <!--<i class="anticon anticon-check"></i>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-main">-->
+          <!--<div class="rc-steps-title">己完成</div>-->
+          <!--<div class="rc-steps-description">-->
+            <!--这里是多信息的描述啊描述啊描述啊描述啊哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-tail">-->
+          <!--<i></i>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="rc-steps-item">-->
+        <!--<div class="rc-steps-head">-->
+          <!--<i class="anticon anticon-check"></i>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-main">-->
+          <!--<div class="rc-steps-title">己完成</div>-->
+          <!--<div class="rc-steps-description">-->
+            <!--这里是多信息的描述啊描述啊描述啊描述啊哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-tail">-->
+          <!--<i></i>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="rc-steps-item">-->
+        <!--<div class="rc-steps-head">-->
+          <!--<i class="anticon anticon-check"></i>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-main">-->
+          <!--<div class="rc-steps-title">己完成</div>-->
+          <!--<div class="rc-steps-description">-->
+            <!--这里是多信息的描述啊描述啊描述啊描述啊哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-tail">-->
+          <!--<i></i>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="rc-steps-item">-->
+        <!--<div class="rc-steps-head">-->
+          <!--<i class="anticon anticon-check"></i>-->
+        <!--</div>-->
+        <!--<div class="rc-steps-main">-->
+          <!--<div class="rc-steps-title">己完成</div>-->
+          <!--<div class="rc-steps-description">-->
+            <!--这里是多信息的描述啊描述啊描述啊描述啊哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶哦耶-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+  <!--</div>-->
+<!--</div>-->
+
 <script type="text/javascript" src="../rc-steps/build/examples/common.js"></script>
 <script type="text/javascript" src="../rc-steps/build/examples/simple.js"></script>
 </body>

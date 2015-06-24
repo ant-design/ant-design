@@ -1,25 +1,88 @@
-.col {
-  position: relative;
-  display: block;
-  float: left;
-  flex: 0 0 auto;
-}
+@active-color: #3fc7fa;
+@wait-color: #e9e9e9;
 
 .rc-steps {
-  .rc-steps-start {
-    flex: 1;
-    -webkit-flex: 1;
-    -ms-flex: 1;
-  }
-  .rc-steps-end {
+  font-size: 0;
 
-  }
   .rc-steps-item {
     position: relative;
     display: inline-block;
-    float: left;
-  }
-  .rc-steps-item:last-child {
+
+    &.rc-steps-status-wait {
+      .rc-steps-head {
+        color: @wait-color;
+        border-color: @wait-color;
+      }
+    }
+    &.rc-steps-status-process {
+      .rc-steps-head {
+        color: #fff;
+        border-color: @active-color;
+        background: @active-color;
+      }
+    }
+    &.rc-steps-status-finish {
+      .rc-steps-head {
+        color: #fff;
+        border-color: @active-color;
+        background: #fff;
+        > i {
+          color: @active-color;
+        }
+      }
+    }
 
   }
+
+  .rc-steps-head, .rc-steps-main, .rc-steps-tail {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .rc-steps-head {
+    border:2px solid @wait-color;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    border-radius: 24px;
+    font-size: 15px;
+    margin-right: 12px;
+    > i {
+      font-weight: bold;
+      color: #3fc7fa;
+      vertical-align: middle;
+      position: relative;
+      top: -2px;
+    }
+  }
+  .rc-steps-main {
+    max-width: 75px;
+    margin-top: 4px;
+
+  }
+  .rc-steps-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #666;
+    font-weight: bold;
+  }
+  .rc-steps-description {
+    font-size: 12px;
+    color: #999;
+  }
+  .rc-steps-tail {
+    width: 0;
+    position: relative;
+    top: 10px;
+    padding:0 10px;
+    > i {
+      display: inline-block;
+      background: #e9e9e9;
+      height: 2px;
+      border-radius: 1px;
+      width: 100%;
+    }
+  }
+
+
 }

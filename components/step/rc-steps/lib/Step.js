@@ -11,31 +11,35 @@ var Step = React.createClass({
     };
   },
   render: function render() {
+    console.log('step render');
     var props = this.props;
-    var cls = 'border'; // fill / none
     return React.createElement(
-      'li',
-      { className: (props.stepColClass ? props.stepColClass : '') + 'rc-steps-item', style: props.stepColStyles },
+      'div',
+      { className: 'rc-steps-item rc-steps-status-' + this.state.status },
       React.createElement(
-        'span',
-        { className: 'rc-steps-icon ' + cls + ' ' + this.state.status },
+        'div',
+        { className: 'rc-steps-head' },
+        React.createElement('i', { className: 'anticon anticon-check' })
+      ),
+      React.createElement(
+        'div',
+        { className: 'rc-steps-main' },
         React.createElement(
-          'span',
-          { className: 'num' },
-          props.stepIndex
+          'div',
+          { className: 'rc-steps-title' },
+          props.title
         ),
-        React.createElement('i', { icon: props.icon })
+        React.createElement(
+          'div',
+          { className: 'rc-steps-description' },
+          props.description
+        )
       ),
-      React.createElement(
-        'span',
-        { className: 'rc-steps-title' },
-        props.title
-      ),
-      props.description && React.createElement(
-        'span',
-        { className: 'rc-steps-description' },
-        props.description
-      )
+      !props.stepLast ? React.createElement(
+        'div',
+        { className: 'rc-steps-tail', style: { width: props.tailWidth } },
+        React.createElement('i', null)
+      ) : ''
     );
   }
 });
