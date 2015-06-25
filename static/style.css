@@ -518,6 +518,7 @@ footer ul li > a {
 
 .main-container {
   width: 100%;
+  width: calc(100% - 260px);
   margin-left: 260px;
   padding: 30px 40px 120px;
   -webkit-animation: xRightMatrix .5s ease-out;
@@ -1642,13 +1643,17 @@ footer ul li > a {
   color: #3B4357;
 }
 
-.code-boxes-col {
+.code-boxes-col-1-1 {
+  width: 75%;
+}
+
+.code-boxes-col-2-1 {
   width: 50%;
   float: left;
   padding-right: 15px;
 }
 
-.code-boxes-col:last-child {
+.code-boxes-col-2-1:last-child {
   padding-right: 0;
 }
 
