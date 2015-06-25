@@ -57,7 +57,7 @@ body {
 }
 
 body {
-  font-family: "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", Arial, sans-serif;
+  font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
@@ -399,6 +399,8 @@ footer {
   border-top: 1px solid #eee;
   font-size: 16px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 footer ul {
@@ -445,6 +447,7 @@ footer ul li > a {
   background: #F9F9F9;
   padding-top: 10px;
   margin-bottom: 50px;
+  position: absolute;
 }
 
 .aside-container>ul>li {
@@ -514,7 +517,8 @@ footer ul li > a {
 }
 
 .main-container {
-  width: calc(100% - 260px);
+  width: 100%;
+  margin-left: 260px;
   padding: 30px 40px 120px;
   -webkit-animation: xRightMatrix .5s ease-out;
   animation: xRightMatrix .5s ease-out;

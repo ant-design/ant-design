@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no">
-  <title>{% block title %}{{ config.site.name }} - {{ config.site.description }}{% endblock %}</title>
-  <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
-  <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
-  <link rel="stylesheet" href="/static/normalize.css">
-  {% block styles %}{% endblock %}
-  <link rel="stylesheet" href="/static/style.css">
-  <link rel="stylesheet" href="/static/tomorrow.css">
-  <script src="https://a.alipayobjects.com/jquery/jquery/1.11.1/jquery.js"></script>
-  <!-- react -->
-  <script src="https://a.alipayobjects.com/react/0.13.2/react.js"></script>
-  <script src="/static/script.js"></script>
-  {% block scripts %}{% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>{% block title %}{{ config.site.name }} - {{ config.site.description }}{% endblock %}</title>
+    <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
+    <link rel="stylesheet" href="/static/normalize.css">
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/tomorrow.css">
+    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.min.js,bluebird/2.9.30/bluebird.js"></script>
+    <script src="/static/script.js"></script>
+    {% block scripts %}{% endblock %}
 </head>
 <body {% block bodyAttribute %}{% endblock %}>
-  <header id="header">
+<header id="header">
     <a class="logo" href="/">
-      <img width="60" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
-      {{ config.site.name }}
+        <img width="60" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+        {{ config.site.name }}
     </a>
+
     <div class="search">
-      <form>
-        <input type="text" placeholder="search">
-        <button type="submit"></button>
-      </form>
+        <form>
+            <input type="text" placeholder="search">
+            <button type="submit"></button>
+        </form>
     </div>
     <nav class="nav">
         <span class="bar"></span>
-      <ul>
-        <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
-          <a href="/">首页</a>
-        </li>
-        <li class="{%- if post.meta.category === 'start' %}current{%- endif %}">
-          <a href="/docs/introduce">上手</a>
-        </li>
-        <li class="{%- if post.meta.template === 'component' %}current{%- endif %}">
-          <a href="/components">组件</a>
-        </li>
-        <li class="{%- if post.filename === 'design' %}current{%- endif %}">
-          <a class="disabled" href="/docs/design">设计</a>
-        </li>
-        <li class="{%- if post.filename === 'modes' %}current{%- endif %}">
-          <a class="disabled" href="/docs/modes">模式</a>
-        </li>
-        <li class="{%- if post.filename === 'cases' %}current{%- endif %}">
-          <a class="disabled" href="/docs/cases">案例</a>
-        </li>
-      </ul>
+        <ul>
+            <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
+                <a href="/">首页</a>
+            </li>
+            <li class="{%- if post.meta.category === 'start' %}current{%- endif %}">
+                <a href="/docs/introduce">上手</a>
+            </li>
+            <li class="{%- if post.meta.template === 'component' %}current{%- endif %}">
+                <a href="/components">组件</a>
+            </li>
+            <li class="{%- if post.filename === 'design' %}current{%- endif %}">
+                <a class="disabled" href="/docs/design">设计</a>
+            </li>
+            <li class="{%- if post.filename === 'modes' %}current{%- endif %}">
+                <a class="disabled" href="/docs/modes">模式</a>
+            </li>
+            <li class="{%- if post.filename === 'cases' %}current{%- endif %}">
+                <a class="disabled" href="/docs/cases">案例</a>
+            </li>
+        </ul>
     </nav>
-  </header>
-  <div class="main-wrapper">
+</header>
+<div class="main-wrapper">
     {% block aside %}{% endblock %}
     {% block content %}{% endblock %}
-  </div>
-  {%- include "footer.html" %}
+</div>
+{%- include "footer.html" %}
 </body>
 </html>

@@ -19,11 +19,17 @@ module.exports = function (props) {
   function onCancel() {
     var cancelFn = props.onCancel;
     if (cancelFn) {
+      var ret;
       if (cancelFn.length) {
-        cancelFn(close);
+        ret = cancelFn(close);
       } else {
-        cancelFn();
-        close();
+        ret = cancelFn();
+        if (!ret) {
+          close();
+        }
+      }
+      if (ret && ret.then) {
+        ret.then(close);
       }
     } else {
       close();
@@ -33,11 +39,17 @@ module.exports = function (props) {
   function onOk() {
     var okFn = props.onOk;
     if (okFn) {
+      var ret;
       if (okFn.length) {
-        okFn(close);
+        ret = okFn(close);
       } else {
-        okFn();
-        close();
+        ret = okFn();
+        if (!ret) {
+          close();
+        }
+      }
+      if (ret && ret.then) {
+        ret.then(close);
       }
     } else {
       close();

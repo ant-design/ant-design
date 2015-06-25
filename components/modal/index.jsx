@@ -13,7 +13,8 @@ var Modal = React.createClass({
   },
 
   handleCancel() {
-    this.refs.d.requestClose();
+    var d = this.refs.d;
+    d.requestClose();
   },
 
   getDefaultProps() {
@@ -43,9 +44,9 @@ var Modal = React.createClass({
   render() {
     var props = this.props;
     var footer = props.footer || [
-      <button type="button" className="ant-btn-default ant-btn" onClick={this.handleCancel}>取 消</button>,
-      <button type="button" className="ant-btn-primary ant-btn" onClick={this.handleOk}>确 定</button>
-    ];
+        <button type="button" className="ant-btn-default ant-btn" onClick={this.handleCancel}>取 消</button>,
+        <button type="button" className="ant-btn-primary ant-btn" onClick={this.handleOk}>确 定</button>
+      ];
     return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d"/>;
   }
 });
