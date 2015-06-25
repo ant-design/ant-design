@@ -45,7 +45,6 @@ module.exports = function(nico) {
         }
         return item.meta.category;
       }));
-      console.log(categories);
       return categories;
     },
     find_demo_in_component: function(pages, directory) {
