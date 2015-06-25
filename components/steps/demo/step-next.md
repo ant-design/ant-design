@@ -1,10 +1,12 @@
-# Steps 如何控制切换到下一步
+# 切换到下一步
 
 - order: 3
 
+随机生成3~6个步骤，初始随机进行到其中一个步骤。
+
 ---
 
-````css
+<style>
 .my-step-form {
   width: 100%;
 }
@@ -14,7 +16,7 @@
 .my-step-container {
   width: 100%;
 }
-````
+</style>
 
 ````jsx
 var container = document.getElementById('components-steps-demo-step-next');
@@ -47,7 +49,6 @@ var MyForm = React.createClass({
   render() {
     var cs = this.state.currentStep;
     return (<form className='my-step-form'>
-      <div>这个demo随机生成3~6个步骤，初始随机进行到其中一个步骤</div>
       <div>当前正在执行第{cs + 1}步</div>
       <div className='my-step-container'><Steps>
         {steps.map(function(s, i) {
@@ -67,5 +68,4 @@ var MyForm = React.createClass({
 });
 
 React.render(<MyForm></MyForm>, container);
-
 ````

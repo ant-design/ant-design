@@ -1,4 +1,4 @@
-# Steps 自定义图标步进条
+# 自定义图标步进条
 
 - order: 2
 
@@ -23,12 +23,8 @@
 ````
 
 ````jsx
-'use strict';
-
 var Steps = antd.Steps;
-
 var container = document.getElementById('components-steps-demo-custom-icon');
-
 var imgIcon = <div className='my-step-icon'><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/></div>
 
 

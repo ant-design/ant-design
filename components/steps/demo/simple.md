@@ -1,18 +1,14 @@
-# Steps 基本用法
+# 基本用法
 
 - order: 0
 
-简单的步进条
+简单的步骤条
 
 ---
 
 ````jsx
-'use strict';
-
 var Steps = antd.Steps;
-
 var container = document.getElementById('components-steps-demo-simple');
-
 
 var steps = [{
   status: 'finish',

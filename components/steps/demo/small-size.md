@@ -1,4 +1,4 @@
-# Steps 迷你版步进条
+# 迷你版
 
 - order: 1
 
@@ -7,12 +7,8 @@
 ---
 
 ````jsx
-'use strict';
-
 var Steps = antd.Steps;
-
 var container = document.getElementById('components-steps-demo-small-size');
-
 
 var steps = [{
   status: 'finish',
@@ -27,16 +23,13 @@ var steps = [{
   status: 'wait',
   title: '待运行'
 }].map(function(s, i) {
-    return (<Steps.Step
-        key={i}
-        status={s.status}
-        title={s.title}
-        ></Steps.Step>
-    );
-  });
+  return (<Steps.Step
+      key={i}
+      status={s.status}
+      title={s.title}>
+    </Steps.Step>
+  );
+});
 
-React.render(
-  <Steps size="small">
-    {steps}
-  </Steps>, container);
+React.render(<Steps size="small">{steps}</Steps>, container);
 ````
