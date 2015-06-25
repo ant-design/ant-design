@@ -447,7 +447,7 @@ footer ul li > a {
   background: #F9F9F9;
   padding-top: 10px;
   margin-bottom: 50px;
-  position: absolute;
+  float: left;
 }
 
 .aside-container>ul>li {
@@ -511,14 +511,10 @@ footer ul li > a {
 }
 
 .main-wrapper {
-  display: -webkit-flex;
-  display: flex;
   background: #f9f9f9;
 }
 
 .main-container {
-  width: 100%;
-  width: calc(100% - 260px);
   margin-left: 260px;
   padding: 30px 40px 120px;
   -webkit-animation: xRightMatrix .5s ease-out;
