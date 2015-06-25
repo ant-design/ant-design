@@ -2,6 +2,7 @@ var _ = require('lodash');
 
 module.exports = function(nico) {
   var exports = {};
+  var categories;
 
   exports.reader = function(post) {
     var filepath = post.meta.filepath.toLowerCase();
@@ -37,15 +38,15 @@ module.exports = function(nico) {
       return ret;
     },
     get_components_categories: function(posts) {
-      return _.uniq(Object.keys(posts).map(function(key) {
+      categories = categories || _.uniq(Object.keys(posts).map(function(key) {
         var item = posts[key];
         if (item.meta.template !== 'component') {
           return;
         }
         return item.meta.category;
-      })).sort(function(a, b) {
-        return a - b;
-      });
+      }));
+      console.log(categories);
+      return categories;
     },
     find_demo_in_component: function(pages, directory) {
       var ret = [];
