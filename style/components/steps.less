@@ -20,10 +20,7 @@
       .rc-steps-head {
         border-color: @wait-color;
         background-color: #fff;
-        &.rc-steps-custom {
-          background: none;
-          border: 0;
-        }
+
         > .rc-steps-icon {
           color: @wait-color;
         }
@@ -33,10 +30,7 @@
       .rc-steps-head {
         border-color: @active-color;
         background-color: @active-color;
-        &.rc-steps-custom {
-          background: none;
-          border: 0;
-        }
+
         > .rc-steps-icon {
           color: #fff;
         }
@@ -46,19 +40,22 @@
       .rc-steps-head {
         border-color: @active-color;
         background-color: #fff;
-        &.rc-steps-custom {
-          background: none;
-          border: 0;
-        }
         > .rc-steps-icon {
           color: @active-color;
         }
       }
-      //.rc-steps-tail {
-      //  > i {
-      //    background: @active-color;
-      //  }
-      //}
+    }
+
+    &.rc-steps-custom {
+      .rc-steps-head {
+        background: none;
+        border: 0;
+      }
+      &.rc-steps-status-process {
+        .rc-steps-title {
+          color: @active-color;
+        }
+      }
     }
 
   }
@@ -81,8 +78,9 @@
     .transition(border-color 0.1s ease);
 
     > .rc-steps-icon {
+      line-height: 1;
       display: inline-block;
-      vertical-align: inherit;
+      vertical-align: text-top;
       color: #3fc7fa;
       position: relative;
     }
@@ -104,7 +102,7 @@
   .rc-steps-tail {
     width: 0;
     position: relative;
-    top: 13px;
+    top: 12px;
     padding:0 10px;
     > i {
       display: inline-block;
@@ -114,7 +112,6 @@
       width: 100%;
     }
   }
-
 
   &.rc-steps-small {
     .rc-steps-head {
@@ -127,9 +124,6 @@
       font-size: 10px;
       margin-right: 10px;
 
-      > .rc-steps-icon {
-        top: 0;
-      }
     }
     .rc-steps-main {
       max-width: 75px;
@@ -146,7 +140,7 @@
       color: #999;
     }
     .rc-steps-tail {
-      top: 9px;
+      top: 8px;
       padding:0 8px;
       > i {
         height: 1px;
@@ -156,7 +150,13 @@
     }
   }
 
-  &.rc-steps-small .rc-steps-head.rc-steps-custom, .rc-steps-head.rc-steps-custom {
+  &.rc-steps-init, &.rc-steps-init.rc-steps-small {
+    .rc-steps-tail {
+      padding: 0;
+    }
+  }
+
+  &.rc-steps-small .rc-steps-item.rc-steps-custom .rc-steps-head, .rc-steps-item.rc-steps-custom .rc-steps-head {
     width: inherit;
     height: inherit;
     line-height: inherit;

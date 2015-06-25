@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 步进条
 - order: 8
+- cols: 1
 
 ---
 
