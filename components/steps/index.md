@@ -1,7 +1,7 @@
-# Step
+# Steps
 
 - category: Components
-- chinese: 步骤条
+- chinese: 步进条
 - order: 8
 
 ---

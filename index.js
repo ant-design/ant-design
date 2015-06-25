@@ -10,7 +10,8 @@ var antd = {
   Progress: require('./components/progress'),
   Popover: require('./components/popover'),
   Select: require('./components/select'),
-  confirm: require('./components/modal/confirm')
+  confirm: require('./components/modal/confirm'),
+  Steps: require('./components/steps')
 };
 
 module.exports = window.antd = antd;
