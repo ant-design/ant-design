@@ -15,7 +15,7 @@
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
     "rc-calendar": "~3.9.0",
-    "rc-dialog": "~4.3.2",
+    "rc-dialog": "~4.3.4",
     "rc-dropdown": "~1.0.2",
     "rc-menu": "~3.4.0",
     "rc-progress": "~1.0.0",
