@@ -399,6 +399,8 @@ footer {
   border-top: 1px solid #eee;
   font-size: 16px;
   background: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 footer ul {
