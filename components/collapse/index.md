@@ -1,4 +1,4 @@
-# Accordion
+# Collapse
 
 - category: Components
 - chinese: 折叠面板
