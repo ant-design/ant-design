@@ -22,7 +22,7 @@
     "rc-select": "~4.0.0",
     "rc-tabs": "~5.1.0",
     "rc-tooltip": "~2.1.1",
-    "rc-steps": "~1.0.1"
+    "rc-steps": "~1.0.2"
   },
   "devDependencies": {
     "babel-core": "~5.4.7",
