@@ -11,7 +11,8 @@ var antd = {
   Popover: require('./components/popover'),
   Select: require('./components/select'),
   Popconfirm: require('./components/popconfirm'),
-  confirm: require('./components/modal/confirm')
+  confirm: require('./components/modal/confirm'),
+  Steps: require('./components/steps')
 };
 
 module.exports = window.antd = antd;
