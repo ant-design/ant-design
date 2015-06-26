@@ -16,22 +16,22 @@ function confirm() {
 
 React.render(<div>
   <Popconfirm placement="left" title={text} onConfirm={confirm}>
-    <button className="ant-btn">左</button>
+    <a href="javascript:;">左边</a>
   </Popconfirm>
   <Popconfirm placement="right" title={text} onConfirm={confirm}>
-    <button className="ant-btn">右</button>
+    <a href="javascript:;">右边</a>
   </Popconfirm>
   <Popconfirm placement="top" title={text} onConfirm={confirm}>
-    <button className="ant-btn">上</button>
+    <a href="javascript:;">上边</a>
   </Popconfirm>
   <Popconfirm placement="bottom" title={text} onConfirm={confirm}>
-    <button className="ant-btn">下</button>
+    <a href="javascript:;">下边</a>
   </Popconfirm>
 </div>, document.getElementById('components-popconfirm-demo-placement'));
 ````
 
 <style>
-.code-box-demo .ant-popover-wrap > .ant-btn {
+.code-box-demo .ant-popover-wrap > a {
   margin-right: 1em;
 }
 </style>
