@@ -8,6 +8,7 @@
 
 ````jsx
 var Steps = antd.Steps;
+var Step = Steps.Step;
 var container = document.getElementById('components-steps-demo-small-size');
 
 var steps = [{
@@ -23,12 +24,11 @@ var steps = [{
   status: 'wait',
   title: '待运行'
 }].map(function(s, i) {
-  return (<Steps.Step
-      key={i}
-      status={s.status}
-      title={s.title}>
-    </Steps.Step>
-  );
+  return (<Step
+    key={i}
+    status={s.status}
+    title={s.title}>
+  </Step>);
 });
 
 React.render(<Steps size="small">{steps}</Steps>, container);
