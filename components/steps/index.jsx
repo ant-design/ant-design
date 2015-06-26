@@ -6,7 +6,7 @@ var Steps = require('rc-steps');
 var AntSteps = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant',
+      prefixCls: 'ant-steps',
       size: 'default'
     };
   },
