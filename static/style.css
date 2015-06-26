@@ -1686,6 +1686,7 @@ footer ul li > a {
   padding: 12px 15px;
   border-radius: 0 0 6px 6px;
   transition: background-color 0.4s ease;
+  width: 100%;
 }
 
 .code-box-meta h4,
@@ -1736,6 +1737,7 @@ footer ul li > a {
   transform: rotate(90deg);
   transition: all 0.3s ease;
   color: #999;
+  background: #fff;
 }
 
 .code-box.expand .collapse {
