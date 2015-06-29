@@ -10,11 +10,11 @@
   .button-color(@color; @background; @border);
 
   &:hover {
-    .opacity(.7);
+    .button-color(fadeout(@color, 30%); fadeout(@background, 30%); fadeout(@border, 30%));
   }
   &:active,
   &.active {
-    .opacity(.8);
+    .button-color(fadeout(@color, 20%); fadeout(@background, 20%); fadeout(@border, 20%));
   }
   &:active,
   &.active {
@@ -28,7 +28,6 @@
     &:hover,
     &:active,
     &.active {
-      .opacity(1);
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
     }
   }
@@ -120,7 +119,7 @@
   &-lg {
     .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-lg);
     > .@{iconfont-css-prefix} {
-    font-size: @btn-font-size-lg + 2;
+      font-size: @btn-font-size-lg + 2;
     }
   }
 
@@ -139,7 +138,8 @@
   &:hover,
   &:active,
   &.active {
-    .button-color(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+    background-clip: padding-box;
+    color: @btn-primary-color;
   }
 }
 
@@ -147,10 +147,12 @@
 .btn-default() {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 
-  &:hover,
+  &:hover {
+    .button-color(fadeout(@primary-color, 30%); @white; fadeout(@primary-color, 30%));
+  }
   &:active,
   &.active {
-    .button-color(@primary-color; @white; @primary-color);
+    .button-color(fadeout(@primary-color, 20%); @white; fadeout(@primary-color, 20%));
   }
 }
 
@@ -158,10 +160,12 @@
 .btn-ghost() {
   .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 
-  &:hover,
+  &:hover {
+    .button-color(fadeout(@primary-color, 30%); @white; fadeout(@primary-color, 30%));
+  }
   &:active,
   &.active {
-    .button-color(@primary-color; @white; @primary-color);
+    .button-color(fadeout(@primary-color, 20%); @white; fadeout(@primary-color, 20%));
   }
 }
 
@@ -203,18 +207,27 @@
     .transition(all @duration-300 @ease-in-out);
     z-index: 0;
     background-color: @primary-color;
+    background-clip: padding-box;
   }
 
-  &:not([disabled]):hover {
+  &:not([disabled]):hover, 
+  &:not([disabled]):active,
+  &:not([disabled]).active {
     > .@{iconfont-css-prefix} {
       color: @btn-primary-color;
     }
   }
 
-  &:not([disabled]):hover:before {
+  &:not([disabled]):hover:before, 
+  &:not([disabled]):active:before,
+  &:not([disabled]).active:before {
     .opacity(1);
     .scale(1, 1);
+  }
 
+  &:not([disabled]):active:before,
+  &:not([disabled]).active:before {
+    background-color: fadeout(@primary-color, 20%);
   }
 }
 
