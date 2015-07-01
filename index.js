@@ -12,7 +12,8 @@ var antd = {
   Select: require('./components/select'),
   Popconfirm: require('./components/popconfirm'),
   confirm: require('./components/modal/confirm'),
-  Steps: require('./components/steps')
+  Steps: require('./components/steps'),
+  InputNumber: require('./components/input-number')
 };
 
 module.exports = window.antd = antd;

@@ -1,3 +1,5 @@
+@import "../mixins/iconfont";
+
 // font-face
 // @icon-url： 字体源文件的地址
 @font-face {
@@ -10,22 +12,7 @@
 }
 
 .@{iconfont-css-prefix} {
-  position: relative;
-  display: inline-block;
-  font-style: normal;
-  vertical-align: baseline;
-  text-align: center;
-  text-transform: none;
-  text-rendering: auto;
-  // 更好地渲染字体
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0px;
-  -moz-osx-font-smoothing: grayscale;
-
-  &:before {
-    display: block;
-    font-family: "anticon" !important;
-  }
+ .iconfont-mixin();
 }
 // 方向性图标
 .@{iconfont-css-prefix}-step-backward:before          {content:"\e662";}
