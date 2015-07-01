@@ -10,6 +10,7 @@ var antd = {
   Progress: require('./components/progress'),
   Popover: require('./components/popover'),
   Select: require('./components/select'),
+  Breadcrumb: require('./components/breadcrumb'),
   Popconfirm: require('./components/popconfirm'),
   confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps')
