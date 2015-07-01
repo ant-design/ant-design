@@ -15,6 +15,6 @@ function onChange(v){
 
 React.render(
   <div><InputNumber min={1} max={10} defaultValue={3} onChange={onChange} style={{width:100}}/></div>
-, document.getElementById('components-inputnumber-demo-basic'));
+, document.getElementById('components-input-number-demo-basic'));
 ````
 
