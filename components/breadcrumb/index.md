@@ -1,4 +1,4 @@
-# BreadCrumb
+# Breadcrumb
 
 - category: Components
 - chinese: 面包屑

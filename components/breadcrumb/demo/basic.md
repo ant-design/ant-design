@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Breadcrumb = antd.Breadcrumb;
+var Breadcrumb = require('antd/components/breadcrumb');
 
 React.render(
   <Breadcrumb>
