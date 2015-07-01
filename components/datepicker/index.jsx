@@ -21,11 +21,10 @@ defaultCalendarValue.setTime(Date.now());
 
 export default React.createClass({
   getInitialState: function () {
-    var value = new GregorianCalendar(zhCn);
+    var value;
     if (this.props.value) {
+      value = new GregorianCalendar(zhCn);
       value.setTime(new Date(this.props.value).valueOf());
-    } else {
-      value.setTime(Date.now());
     }
     return {
       value: value
