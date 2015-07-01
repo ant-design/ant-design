@@ -25,7 +25,7 @@ export default React.createClass({
     if (this.props.value) {
       value.setTime(new Date(this.props.value).valueOf());
     } else {
-      value.setTime(Date.now());
+      value = '';
     }
     return {
       value: value
