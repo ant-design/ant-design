@@ -20,7 +20,7 @@ let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
 export default React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     var value = new GregorianCalendar(zhCn);
     if (this.props.value) {
       value.setTime(new Date(this.props.value).valueOf());
@@ -31,7 +31,7 @@ export default React.createClass({
       value: value
     };
   },
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       var value = new GregorianCalendar(zhCn);
       value.setTime(new Date(nextProps.value).valueOf());
@@ -40,7 +40,7 @@ export default React.createClass({
       });
     }
   },
-  getDefaultProps: function () {
+  getDefaultProps() {
     return {
       format: 'yyyy-MM-dd',
       placeholder: '请选择日期',
@@ -48,13 +48,13 @@ export default React.createClass({
       }
     };
   },
-  handleChange: function (v) {
+  handleChange(v) {
     this.setState({
       value: v
     });
     this.props.onSelect(new Date(v.getTime()));
   },
-  render: function () {
+  render() {
     var calendar = (
       <Calendar
         disabledDate={this.props.disabled}
