@@ -43,8 +43,8 @@ export default React.createClass({
     return {
       format: 'yyyy-MM-dd',
       placeholder: '请选择日期',
-      onSelect: function () {
-      }
+      transitionName: 'slide-up',
+      onSelect: function () {}
     };
   },
   handleChange(v) {
