@@ -13,7 +13,8 @@ var antd = {
   Popconfirm: require('./components/popconfirm'),
   confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
-  InputNumber: require('./components/input-number')
+  InputNumber: require('./components/input-number'),
+  cssAnimation: require('css-animation')
 };
 
 module.exports = window.antd = antd;
