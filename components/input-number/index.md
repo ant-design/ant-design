@@ -20,6 +20,7 @@
 | min     | 最小值   | Number | -Infinity        |
 | max     | 最大值       | Number      | Infinity           |
 | value     | 当前值       | Number      |            |
+| step     | 每次改变步数       | Number      |      1      |
 | defaultValue     | 初始值       | Number      |            |
 | onChange     | 变化回调       | Function      |            |
 | disabled     | 禁用       | Boolean      |            |
