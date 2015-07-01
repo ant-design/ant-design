@@ -21,11 +21,10 @@ defaultCalendarValue.setTime(Date.now());
 
 export default React.createClass({
   getInitialState() {
-    var value = new GregorianCalendar(zhCn);
+    var value;
     if (this.props.value) {
+      value = new GregorianCalendar(zhCn);
       value.setTime(new Date(this.props.value).valueOf());
-    } else {
-      value = '';
     }
     return {
       value: value
@@ -68,6 +67,7 @@ export default React.createClass({
     );
     return (
       <Datepicker
+        transitionName={this.props.transitionName}
         trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
         formatter={new DateTimeFormat(this.props.format)}

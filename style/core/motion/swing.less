@@ -1,0 +1,30 @@
+.swing-motion(@className, @keyframeName) {
+  .@{className}-enter {
+    .motion-common();
+    animation-play-state: paused;
+  }
+  .@{className}-enter.@{className}-enter-active {
+    animation-name: ~"@{keyframeName}In";
+    animation-play-state: running;
+  }
+}
+
+.swing-motion(swing, swing);
+
+@keyframes swingIn {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+}

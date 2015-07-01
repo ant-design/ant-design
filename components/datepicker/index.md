@@ -23,6 +23,7 @@
 | value    | 日期           | string   | 无           |
 | format   | 展示的日期格式 | string   | "yyyy-MM-dd" |
 | disabled | 不可选择的日期 | function | 无           |
+| transitionName | 动画名称 | String.可取 'slide-up' | 无.            |
 | onSelect | 选择日期的回调 | function | 无           |
 | showTime | 显示时间选择条 | boolean  | false        |
 
