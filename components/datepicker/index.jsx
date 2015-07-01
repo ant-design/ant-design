@@ -68,6 +68,7 @@ export default React.createClass({
     );
     return (
       <Datepicker
+        transitionName={this.props.transitionName}
         trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
         formatter={new DateTimeFormat(this.props.format)}

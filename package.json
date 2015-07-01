@@ -14,7 +14,7 @@
   "dependencies": {
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
-    "rc-calendar": "~3.9.0",
+    "rc-calendar": "~3.10.0",
     "rc-dialog": "~4.3.5",
     "rc-dropdown": "~1.1.1",
     "rc-input-number": "~2.0.0",
