@@ -1,9 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Router from 'react-router';
-
-let Link = Router.Link;
 
 let prefixCls = 'ant-breadcrumb';
 
@@ -24,7 +21,8 @@ let Breadcrumb = React.createClass({
   },
   render() {
     var crumbs, routes, params;
-    if (this.context.router) {
+    if (this.context.router && this.props.Router) {
+      var Link = this.props.Router.Link;
       routes = this.context.router.getCurrentRoutes();
       params = this.context.router.getCurrentParams();
       crumbs = routes.map(function(route, i) {

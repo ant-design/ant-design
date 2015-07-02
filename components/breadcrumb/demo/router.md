@@ -35,7 +35,7 @@ var App = React.createClass({
         <Link to="/">首页</Link>
         <Link to="/apps">应用列表</Link>
       </div>
-      <Breadcrumb />
+      <Breadcrumb Router={Router} />
       <RouteHandler />
     </div>);
   }
