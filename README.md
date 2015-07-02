@@ -6,6 +6,21 @@
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
+## 使用
+
+### 静态使用
+
+script 直接引用 `dist/antd.js` `dist/antd.css` 后，通过全局变量 antd 使用
+
+### npm
+
+`npm install antd` 后，使用示例
+
+```js
+require('antd/style/index.less');
+require('antd/lib/datepicker');
+```
+
 ## 特性
 
 - 丰富实用的 UI 组件。
@@ -47,5 +62,11 @@ $ npm run deploy
 #### 构建
 
 ```bash
-$ webpack
+$ npm run build
+```
+
+#### 发布到 npm
+
+```bash
+$ npm run pub
 ```

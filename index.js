@@ -17,4 +17,8 @@ var antd = {
   cssAnimation: require('css-animation')
 };
 
-module.exports = window.antd = antd;
+module.exports = antd;
+
+if (typeof window !== undefined) {
+  window.antd = antd;
+}

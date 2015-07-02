@@ -27,3 +27,4 @@ config/base.yaml
 _site
 npm-debug.log
 dist
+lib
