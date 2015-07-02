@@ -13,7 +13,16 @@ var Link = Router.Link;
 var RouteHandler = Router.RouteHandler;
 var Breadcrumb = antd.Breadcrumb;
 
-var About = React.createClass({
+var Apps = React.createClass({
+  render() {
+    return <ul className="app-list">
+      <li><Link to="/apps/1">应用1</Link></li>
+      <li><Link to="/apps/2">应用2</Link></li>
+    </ul>;
+  }
+});
+
+var App = React.createClass({
   render() {
     return <div></div>;
   }
@@ -24,7 +33,7 @@ var App = React.createClass({
     return (<div>
       <div className="demo-nav">
         <Link to="/">首页</Link>
-        <Link to="/about">关于</Link>
+        <Link to="/apps">应用列表</Link>
       </div>
       <Breadcrumb />
       <RouteHandler />
@@ -34,7 +43,9 @@ var App = React.createClass({
 
 var routes = (
   <Route name="首页" path="/" handler={App} ignoreScrollBehavior>
-    <Route name="关于" path="about" handler={About} />
+    <Route name="应用列表" path="/apps" handler={Apps}>
+      <Route name="应用:id" path="/apps/:id" handler={App} />
+    </Route>
   </Route>
 );
 
@@ -52,8 +63,9 @@ Router.run(routes, Router.HashLocation, (Root) => {
 }
 .demo-nav a {
   line-height: 30px;
-  width: 40px;
-  text-align: center;
-  display: inline-block;
+  padding: 0 10px;
+}
+.app-list {
+  margin-top: 15px;
 }
 </style>
