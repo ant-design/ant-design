@@ -44,7 +44,35 @@
     opacity: .2;
     text-decoration: none;
 
+    &-x {
+      position: absolute;
+      display: inline-block;
+      font-style: normal;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      // 更好地渲染字体
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke-width: 0px;
+      -moz-osx-font-smoothing: grayscale;
+      width: 12px;
+      height: 12px;
+      font-size: 12px;
+      line-height: 12px;
+      color:#000;
+      top:18px;
+      right: 18px;
+
+      &:before {
+        content:"\e61e";
+        display: block;
+        font-family: "anticon" !important;
+      }
+    }
+
     &:hover {
+      color:#000;
       opacity: 1;
       filter: alpha(opacity=100);
       text-decoration: none;

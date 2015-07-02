@@ -1,156 +1,31 @@
-.effect() {
-  animation-duration: 0.25s;
+.motion-common() {
+  animation-duration: .24s;
   animation-fill-mode: both;
   display: block !important;
 }
 
-.zoom-enter {
-  opacity: 0;
-  .effect();
-  animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  animation-play-state: paused;
-}
-
-.zoom-leave {
-  .effect();
-  animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
-  animation-play-state: paused;
-}
-
-.zoom-enter.zoom-enter-active {
-  animation-name: zoomIn;
-  animation-play-state: running;
-}
-
-.zoom-leave.zoom-leave-active {
-  animation-name: zoomOut;
-  animation-play-state: running;
-}
-
-@keyframes zoomIn {
-  0% {
-    opacity: 0;
-    transform-origin: 50% 50%;
-    transform: scale(0, 0);
+.make-motion(@className, @keyframeName) {
+  .@{className}-enter {
+    .motion-common();
+    animation-play-state: paused;
   }
-  100% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(1, 1);
+  .@{className}-leave {
+    .motion-common();
+    animation-play-state: paused;
   }
-}
-@keyframes zoomOut {
-  0% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(1, 1);
+  .@{className}-enter.@{className}-enter-active {
+    animation-name: ~"@{keyframeName}In";
+    animation-play-state: running;
   }
-  100% {
-    opacity: 0;
-    transform-origin: 50% 50%;
-    transform: scale(0, 0);
+  .@{className}-leave.@{className}-leave-active {
+    animation-name: ~"@{keyframeName}Out";
+    animation-play-state: running;
   }
 }
 
-.slide-up-enter {
-  .effect();
-  transform-origin: 0 0;
-  opacity: 0;
-  animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
-  animation-play-state: paused;
-}
-
-.slide-up-leave {
-  .effect();
-  transform-origin: 0 0;
-  opacity: 1;
-  animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
-  animation-play-state: paused;
-}
-
-.slide-up-enter.slide-up-enter-active {
-  animation-name: slideUpIn;
-  animation-play-state: running;
-}
-
-.slide-up-leave.slide-up-leave-active {
-  animation-name: slideUpOut;
-  animation-play-state: running;
-}
-
-@keyframes slideUpIn {
-  0% {
-    opacity: 0;
-    transform-origin: 0% 0%;
-    transform: scaleY(0);
-  }
-  100% {
-    opacity: 1;
-    transform-origin: 0% 0%;
-    transform: scaleY(1);
-  }
-}
-@keyframes slideUpOut {
-  0% {
-    opacity: 1;
-    transform-origin: 0% 0%;
-    transform: scaleY(1);
-  }
-  100% {
-    opacity: 0;
-    transform-origin: 0% 0%;
-    transform: scaleY(0);
-  }
-}
-
-.fade-enter {
-  opacity: 0;
-  .effect();
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-  animation-play-state: paused;
-}
-
-.fade-leave {
-  .effect();
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-  animation-play-state: paused;
-}
-
-.fade-enter.fade-enter-active {
-  animation-name: fadeIn;
-  animation-play-state: running;
-}
-
-.fade-leave.fade-leave-active {
-  animation-name: fadeOut;
-  animation-play-state: running;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes loadingCircle {
-  0% {
-    transform-origin: 50% 50%;
-    transform: rotate(0deg);
-  }
-  100% {
-    transform-origin: 50% 50%;
-    transform: rotate(360deg);
-  }
-} 
+@import "motion/fade";
+@import "motion/move";
+@import "motion/other";
+@import "motion/slide";
+@import "motion/swing";
+@import "motion/zoom";

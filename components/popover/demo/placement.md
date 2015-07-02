@@ -35,4 +35,3 @@ React.render(<div>
   margin-right: 1em;
 }
 </style>
-

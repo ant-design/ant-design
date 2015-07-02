@@ -21,50 +21,60 @@ defaultCalendarValue.setTime(Date.now());
 
 export default React.createClass({
   getInitialState() {
+    var value;
+    if (this.props.value) {
+      value = new GregorianCalendar(zhCn);
+      value.setTime(new Date(this.props.value).valueOf());
+    }
     return {
-      value: ''
+      value: value
     };
+  },
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      var value = new GregorianCalendar(zhCn);
+      value.setTime(new Date(nextProps.value).valueOf());
+      this.setState({
+        value: value
+      });
+    }
   },
   getDefaultProps() {
     return {
       format: 'yyyy-MM-dd',
-      placeholder: '请选择日期'
+      placeholder: '请选择日期',
+      transitionName: 'slide-up',
+      onSelect: function () {}
     };
   },
-  componentDidMount() {
-    let state = {};
-    if (this.props.value) {
-      let value = new GregorianCalendar(zhCn);
-      value.setTime(new Date(this.props.value));
-      state.value = value;
-    }
-    state.disabled = this.props.disabled || function() {};
-    this.setState(state);
-  },
-  handleChange() {
-    this.props.onSelect(new Date(this.state.value.getTime()));
+  handleChange(v) {
+    this.setState({
+      value: v
+    });
+    this.props.onSelect(new Date(v.getTime()));
   },
   render() {
-    let calendar = (
+    var calendar = (
       <Calendar
-      disabledDate={this.state.disabled}
-      locale={CalendarLocale}
-      orient={['top', 'left']}
-      defaultValue={defaultCalendarValue}
-      showTime={this.props.showTime}
-      prefixCls="ant-calendar"
-      showOk={this.props.showTime}
-      showClear={false} />
+        disabledDate={this.props.disabled}
+        locale={CalendarLocale}
+        orient={['top', 'left']}
+        defaultValue={defaultCalendarValue}
+        showTime={this.props.showTime}
+        prefixCls="ant-calendar"
+        showOk={this.props.showTime}
+        showClear={false}/>
     );
     return (
       <Datepicker
+        transitionName={this.props.transitionName}
         trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
         prefixCls="ant-calendar-picker"
-        onChange={this.props.onSelect}>
-        <input placeholder={this.props.placeholder} className="ant-calendar-picker-input" />
+        onChange={this.handleChange}>
+        <input placeholder={this.props.placeholder} className="ant-calendar-picker-input"/>
       </Datepicker>
     );
   }

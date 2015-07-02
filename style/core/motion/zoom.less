@@ -1,0 +1,146 @@
+.zoom-motion(@className, @keyframeName) {
+  .make-motion(@className, @keyframeName);
+  .@{className}-enter {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+  .@{className}-leave {
+    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+  }
+}
+
+.zoom-motion(zoom, zoom);
+.zoom-motion(zoom-up, zoomUp);
+.zoom-motion(zoom-down, zoomDown);
+.zoom-motion(zoom-left, zoomLeft);
+.zoom-motion(zoom-right, zoomRight);
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes zoomUpIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomUpOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes zoomLeftIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 50%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 50%;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomLeftOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 50%;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 50%;
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes zoomRightIn {
+  0% {
+    opacity: 0;
+    transform-origin: 100% 50%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 100% 50%;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomRightOut {
+  0% {
+    opacity: 1;
+    transform-origin: 100% 50%;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 100% 50%;
+    transform: scale(0, 0);
+  }
+}
+
+@keyframes zoomDownIn {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 100%;
+    transform: scale(0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 100%;
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoomDownOut {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 100%;
+    transform: scale(1, 1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 50% 100%;
+    transform: scale(0, 0);
+  }
+}

@@ -13,7 +13,7 @@ export default React.createClass({
     };
   },
   render() {
-    var overlay = <div>
+    const overlay = <div>
       <div className={prefixCls + '-title'}>
         {this.props.title}
       </div>

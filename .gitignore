@@ -18,12 +18,10 @@ Thumbs.db
 node_modules/
 .buildpath
 .settings
-.yml
-data
+npm-debug.log
 nohup.out
-.spmjspid
+_site
+dist
+lib
 elasticsearch-*
 config/base.yaml
-_site
-npm-debug.log
-dist

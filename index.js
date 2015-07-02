@@ -10,7 +10,16 @@ var antd = {
   Progress: require('./components/progress'),
   Popover: require('./components/popover'),
   Select: require('./components/select'),
-  confirm: require('./components/modal/confirm')
+  Breadcrumb: require('./components/breadcrumb'),
+  Popconfirm: require('./components/popconfirm'),
+  confirm: require('./components/modal/confirm'),
+  Steps: require('./components/steps'),
+  InputNumber: require('./components/input-number'),
+  cssAnimation: require('css-animation')
 };
 
-module.exports = window.antd = antd;
+module.exports = antd;
+
+if (typeof window !== undefined) {
+  window.antd = antd;
+}
