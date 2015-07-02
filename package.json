@@ -24,7 +24,8 @@
     "rc-select": "~4.0.0",
     "rc-steps": "~1.1.0",
     "rc-tabs": "~5.1.0",
-    "rc-tooltip": "~2.2.3"
+    "rc-tooltip": "~2.2.3",
+    "react-router": "~0.13.3"
   },
   "devDependencies": {
     "babel": "~5.6.14",

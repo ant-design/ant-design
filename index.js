@@ -11,6 +11,7 @@ var antd = {
   Popover: require('./components/popover'),
   Select: require('./components/select'),
   Breadcrumb: require('./components/breadcrumb'),
+  Router: require('react-router'),
   Popconfirm: require('./components/popconfirm'),
   confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
