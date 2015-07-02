@@ -45,6 +45,9 @@ module.exports = function(nico) {
         }
         return item.meta.category;
       }));
+      categories = categories.sort(function(a, b) {
+        return a.length - b.length;
+      });
       return categories;
     },
     find_demo_in_component: function(pages, directory) {
