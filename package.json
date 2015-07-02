@@ -48,7 +48,7 @@
     "webpack-dev-middleware": "~1.0.11"
   },
   "scripts": {
-    "babel": "babel components --out-dir lib",
+    "babel": "rm -rf lib && babel components --out-dir lib",
     "build": "npm run clean && webpack && nico build",
     "pub": "npm run babel && npm publish && tnpm sync antd",
     "start": "npm run clean && nico server --watch",
