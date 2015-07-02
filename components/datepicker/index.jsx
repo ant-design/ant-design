@@ -31,7 +31,7 @@ export default React.createClass({
     };
   },
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps) {
+    if (nextProps.value) {
       var value = new GregorianCalendar(zhCn);
       value.setTime(new Date(nextProps.value).valueOf());
       this.setState({
