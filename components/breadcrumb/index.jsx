@@ -27,13 +27,17 @@ let Breadcrumb = React.createClass({
     if (this.context.router) {
       routes = this.context.router.getCurrentRoutes();
       params = this.context.router.getCurrentParams();
-      crumbs = routes.map(function(route) {
+      crumbs = routes.map(function(route, i) {
         var name = route.name.replace(/\:(.*)/g, function(replacement, key) {
           return params[key] || replacement;
         });
-        return <BreadcrumbItem>
-          <Link to={route.path} params={params}>{name}</Link>
-        </BreadcrumbItem>;
+        var link;
+        if (i === routes.length - 1) {
+          link = <span>{name}</span>;
+        } else {
+          link = <Link to={route.path} params={params}>{name}</Link>;
+        }
+        return <BreadcrumbItem>{link}</BreadcrumbItem>;
       });
     } else {
       crumbs = this.props.children;
