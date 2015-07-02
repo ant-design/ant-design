@@ -1,0 +1,80 @@
+
+/******动画名称******/
+
+.scale-open{
+    display: block !important;
+    animation: ToScale .4s cubic-bezier(0.08, 0.82, 0.17, 1);
+    -webkit-animation: ToScale .4s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.scale-close{
+    display: block !important;
+    animation: FromScale .4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    -webkit-animation: FromScale .4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+.scale-origin-top{
+    transform-origin: top;
+}
+.scale-origin-left{
+    transform-origin: left;
+}
+.scale-origin-bottom{
+    transform-origin: bottom;
+}
+.scale-origin-right{
+    transform-origin: right;
+}
+.scale-origin-iconTopRight{
+    transform-origin: calc(100% - 10px) -10px;
+}
+.margin-top-open{
+    display: block !important;
+    animation: ToMaginTop .4s cubic-bezier(0.08, 0.82, 0.17, 1);
+    -webkit-animation: ToMaginTop .4s cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.margin-top-close{
+    display: block !important;
+    animation: FromMaginTop .4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    -webkit-animation: FromMaginTop .4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+
+/*********动画***********/
+@keyframes ToScale {
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@keyframes FromScale {
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+@keyframes ToMaginTop {
+    0%{
+        opacity: 0;
+        margin-top: -100%;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 0%;
+    }
+}
+@keyframes FromMaginTop {
+    0%{
+        opacity: 1;
+        margin-top: 0%;
+    }
+    100%{
+        opacity: 0;
+        margin-top: -100%;
+    }
+}

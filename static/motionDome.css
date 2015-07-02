@@ -1,0 +1,101 @@
+.ant-btn-domebox{
+    background-color: #f3f3f3;
+    width:100%;
+    text-align:center;
+    overflow:hidden;
+    padding: 20px;
+    min-height: 236px;
+}
+.ant-anim-box{
+    width: 800px;
+    height: 300px;
+    transform: scale(1);
+    transform-origin: 0px 0px 0px;
+    background-color: #efefef;
+    position: relative;
+}
+.ant-btn{
+    margin:10px auto;
+}
+.ant-btn-lq{
+    display:block;
+    position:absolute;
+    opacity:.2;
+    transform:scale(0);
+    -webkit-transition:scale(0);
+    transition: transform .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -webkit-transition: -webkit-transform .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.anticon-loading{
+    position:absolute;
+    left:50%;
+    margin-left:-7px;
+    opacity:0;
+    transform: scale(0);
+    -webkit-transform:scale(0);
+}
+.ant-btn-load,.ant-btn-load span,.ant-btn-load text{
+    transition: all .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -webkit-transition: all .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.anticon-loading:before {
+    font-size:18px
+}
+.ant-btn-reload{
+    display: block;
+}
+.ant-btn-reload text{
+    display: block;
+    position: absolute;
+    top:100%;
+    left:50%;
+    margin-left: -12px;
+}
+.ant-btn-reload span,.ant-btn-reload text{
+    transition: all .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -webkit-transition: all .4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.anticon-reload{
+    font-size: 16px !important;
+}
+.ant-btn-reload:hover text{
+    top:50%;
+    margin-top: -9px;
+}
+.ant-btn-reload:hover span{
+    transform: translateY(-22px);
+}
+
+.ant-anim-dometip{
+    position: absolute;
+    background: #fff;
+    box-shadow: 2px 2px 5px rgba(0,0,0,.15);
+    /*transform: scale(0);
+    -webkit-transform: scale(0);*/
+}
+.ant-anim-dometip ul{
+    padding: 20px;
+}
+.ant-anim-topArrow:before{
+    content: " ";
+    display: block;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    right: 5px;
+    top:-10px
+}
+.ant-dropdown-wrap{
+    text-align: left;
+}
+.ant-dropdown-wrap .ant-btn{
+    margin-bottom: auto;
+}
+.ant-dropdown-wrap .ant-dropdown{
+    left:auto;
+    top:auto;
+    display: none;
+    min-width: 0;
+    overflow: hidden;
+}
