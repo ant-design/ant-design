@@ -70,6 +70,7 @@ export default React.createClass({
         transitionName={this.props.transitionName}
         trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
+        adjustOrientOnCalendarOverflow={false}
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
         prefixCls="ant-calendar-picker"
