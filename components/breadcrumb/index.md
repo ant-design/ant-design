@@ -1,6 +1,6 @@
-# BreadCrumb
+# Breadcrumb
 
-- category: CSS
+- category: Components
 - chinese: 面包屑
 
 ---

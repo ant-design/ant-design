@@ -6,6 +6,32 @@
 
 {% block scripts %}
 <script src="/dist/antd.js"></script>
+<script>
+window.require = function(path) {
+  var result = window;
+  if (path.indexOf('antd') < 0 ||
+      path.indexOf('antd/components/') < 0) {
+    throw 'There should not have modules here 1.';
+  }
+  var namespaces = path.split('/');
+  namespaces.forEach(function(key, i) {
+    if (i === namespaces.length - 1) {
+      key = capitalizeFirstLetter(key);
+    }
+    if (key !== 'components') {
+      if (result[key]) {
+        result = result[key];
+      } else {
+        throw 'There should not have modules here 2.';
+      }
+    }
+  });
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  return result;
+};
+</script>
 {% endblock %}
 
 {% block aside %}
