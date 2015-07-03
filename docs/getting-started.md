@@ -37,7 +37,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 </html>
 ```
 
-你可以在[这里](/components/layout/)找到更多组件进行选用。
+你可以在[这里](/components/progress/)找到更多组件进行选用。
 
 
 ## 标准项目
