@@ -49,14 +49,14 @@
     "webpack-dev-middleware": "~1.0.11"
   },
   "scripts": {
-    "babel": "rm -rf lib && babel components --out-dir lib",
+    "babel": "rm -rf lib && babel components --out-dir lib && rm -rf components && mv lib components",
     "build": "npm run clean && webpack && nico build",
-    "pub": "npm run babel && npm publish && tnpm sync antd",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site",
     "deploy": "npm run build && node deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
-    "test": "webpack && npm run lint"
+    "test": "webpack && npm run lint",
+    "postinstall": "npm run babel"
   },
   "precommit": [
     "lint"
