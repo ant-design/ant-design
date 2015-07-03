@@ -335,7 +335,7 @@ $(function (){
         return this;
     };
     var T=TweenMax;
-    var _playBox=function (svg,w,h,startFunc,pauseFunc){
+    var _playBox=function (svg,startFunc,pauseFunc){
         var playBox=new SVG.Sprite("g");
         playBox.mouseEnabled=true;
 
