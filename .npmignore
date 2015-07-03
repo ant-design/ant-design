@@ -22,8 +22,6 @@ npm-debug.log
 nohup.out
 _site
 dist
-elasticsearch-*
-config/base.yaml
 **/*.md
 docs
 node_modules
@@ -33,3 +31,6 @@ site
 dist
 *.yml
 CNAME
+components
+nico.js
+deploy.js

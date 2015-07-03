@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.1.0",
+  "version": "0.1.0-pre",
   "title": "Ant Design",
   "description": "下一个设计&前端框架",
   "homepage": "http://ant-design.github.io/",
@@ -49,14 +49,14 @@
     "webpack-dev-middleware": "~1.0.11"
   },
   "scripts": {
-    "babel": "rm -rf lib && babel components --out-dir lib && rm -rf components && mv lib components",
+    "babel": "babel components --out-dir lib",
     "build": "npm run clean && webpack && nico build",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site",
     "deploy": "npm run build && node deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "test": "webpack && npm run lint",
-    "postinstall": "npm run babel"
+    "prepublish": "npm run babel"
   },
   "precommit": [
     "lint"
