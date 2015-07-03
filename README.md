@@ -1,4 +1,4 @@
-# Ant Design [![](https://travis-ci.org/ant-design/ant-design.svg)](https://travis-ci.org/ant-design/ant-design)
+# Ant Design [![](https://travis-ci.org/ant-design/ant-design.svg)](https://travis-ci.org/ant-design/ant-design) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 下一个设计&前端框架，基于 React 的企业级前端开发框架。
 
