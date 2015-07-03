@@ -1,6 +1,6 @@
 # Ant Design [![](https://travis-ci.org/ant-design/ant-design.svg)](https://travis-ci.org/ant-design/ant-design) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
-下一个设计&前端框架，基于 React 的企业级前端开发框架。
+一套企业级的前端设计语言和基于 React 的实现。
 
 仍在紧密开发中，预计 8 月份推出 beta 版本。
 
@@ -15,18 +15,14 @@
 - 背靠 npm 生态圈。
 - 提炼于企业级金融产品的交互语言和视觉体系，使用 Sketch3 设计。
 
-## 使用
+## 范例
 
-1. script 直接引用 `dist/antd.js` `dist/antd.css`，通过全局变量 antd 使用。
+```jsx
+var antd = require('antd');
+var Datepicker = antd.Datepicker;
 
-2. npm
-
-   `npm install antd` 后，使用示例：
-
-   ```js
-   require('antd/style/index.less');
-   require('antd/lib/datepicker');
-   ```
+React.render(<Datepicker />, mountNode);
+```
 
 ## 链接
 
@@ -51,7 +47,7 @@ $ npm start
 
 然后访问 http://127.0.0.1:8000 。
 
-#### 部署上线
+#### 部署到 ant.design
 
 ```bash
 $ npm run deploy

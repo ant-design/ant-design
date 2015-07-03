@@ -87,6 +87,9 @@ module.exports = function(nico) {
       return items.filter(function(item, i) {
         return (i+1)%2 === 0;
       });
+    },
+    isFolder: function(filepath, folder) {
+      return filepath.indexOf(folder + '/') === 0;
     }
   };
 

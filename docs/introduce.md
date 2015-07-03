@@ -1,11 +1,11 @@
 # 介绍
 
-- category: start
+- category: 上手
 - order: 0
 
 ---
 
-下一个设计&前端框架，来自蚂蚁金服体验技术部的一套全新的企业级前端开发框架。
+一套企业级的前端设计语言和基于 React 的实现。
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
@@ -17,6 +17,14 @@
 - 背靠 npm 生态圈。
 - 提炼于企业级金融产品的交互语言和视觉体系，使用 Sketch3 设计。
 
+## 范例
+
+```jsx
+var antd = require('antd');
+var Datepicker = antd.Datepicker;
+
+React.render(<Datepicker />, mountNode);
+```
 
 ## 链接
 
@@ -25,6 +33,9 @@
 - [组件](http://ant.design/components/)
 - [React 模块](http://react-component.github.io/)
 
+## 谁在使用
+
+- 蚂蚁金服
 
 ## 如何贡献
 

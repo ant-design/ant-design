@@ -1,7 +1,7 @@
-# 下载和应用
+# 下载
 
-- category: start
-- order: 3
+- category: 上手
+- order: 2
 
 ---
 

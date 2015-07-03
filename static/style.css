@@ -240,7 +240,7 @@ a.logo {
 
 .nav ul li {
   float: left;
-  width: 16.66%;
+  width: 20%;
   text-align: center;
 }
 
@@ -268,7 +268,7 @@ a.logo {
 }
 
 .nav .bar {
-  width: 16.66%;
+  width: 20%;
   height: 3px;
   position: absolute;
   top: 0;
