@@ -6,20 +6,6 @@
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
-## 使用
-
-### 静态使用
-
-script 直接引用 `dist/antd.js` `dist/antd.css` 后，通过全局变量 antd 使用
-
-### npm
-
-`npm install antd` 后，使用示例
-
-```js
-require('antd/style/index.less');
-require('antd/lib/datepicker');
-```
 
 ## 特性
 
@@ -29,11 +15,23 @@ require('antd/lib/datepicker');
 - 背靠 npm 生态圈。
 - 提炼于企业级金融产品的交互语言和视觉体系，使用 Sketch3 设计。
 
+## 使用
+
+1. script 直接引用 `dist/antd.js` `dist/antd.css`，通过全局变量 antd 使用。
+
+2. npm
+
+   `npm install antd` 后，使用示例：
+
+   ```js
+   require('antd/style/index.less');
+   require('antd/lib/datepicker');
+   ```
 
 ## 链接
 
 - [首页](http://ant.design/)
-- [文档](http://ant.design/docs/introduce)
+- [使用文档](http://ant.design/docs/introduce)
 - [组件](http://ant.design/components/)
 - [React 模块](http://react-component.github.io/)
 
@@ -63,10 +61,4 @@ $ npm run deploy
 
 ```bash
 $ npm run build
-```
-
-#### 发布到 npm
-
-```bash
-$ npm run pub
 ```
