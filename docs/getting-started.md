@@ -83,6 +83,8 @@ var MyPage = React.creatClass({
 React.render(<MyPage />, document.body);
 ```
 
+> `var Datepicker = require('antd/lib/Datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
+
 然后建一个页面用于开发。
 
 ```bash
@@ -106,8 +108,6 @@ $ touch index.html
   <script src="/index.js"></script>
 </html>
 ```
-
-然后
 
 ### 4. 开发调试
 
