@@ -14,9 +14,8 @@
 按钮上的hover或click效果，随着你的鼠标事件而改变自身或增加元素在按钮上；
 
 以下按钮对组件按钮的修改，只做示例，具体还需看组件；
-<link rel="stylesheet" href="/static/motion.css">
-<link rel="stylesheet" href="/static/motionDome.css">
-<script src="/static/motionDome.js"></script>
+<link rel="stylesheet" href="/static/motionDemo.css">
+<script src="/static/motionDemo.js"></script>
 <div style="overflow: hidden;">
 <div style="width:200px;float:left;margin-right:60px">
 <p style="text-align: center;"> 1.按钮表面效果；</p>
