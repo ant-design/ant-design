@@ -13,6 +13,7 @@ exports.site = {
   repo: package.repository.url,
   issues: package.bugs.url
 };
+exports.package = package;
 exports.theme = 'site';
 exports.source = process.cwd();
 exports.output = path.join(process.cwd(), '_site');
@@ -32,7 +33,7 @@ exports.ignorefilter = function(filepath, subdir) {
 };
 exports.middlewares = [{
   name: 'webpackDevMiddleware',
-  filter: /antd\.(js|css)(\.map)?$/,
+  filter: /\.(js|css)(\.map)?$/,
   handle: function(req, res, next) {
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
