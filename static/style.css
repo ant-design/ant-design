@@ -575,7 +575,7 @@ footer ul li > a {
   margin: 1.2em 0;
 }
 
-.markdown > ul > li {
+.markdown > ul li {
   list-style: circle;
   margin-left: 20px;
   padding-left: 8px;
