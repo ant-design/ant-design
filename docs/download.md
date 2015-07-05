@@ -54,13 +54,13 @@ $ npm install antd --save
 <script>
 $('#latest-version').html(antdVersion.latest);
 $('#latest-links a').each(function(i, item) {
-  $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd' + antdVersion.latest));
+  $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd-' + antdVersion.latest));
 });
 
 if (antdVersion.stable) {
   $('#stable-version').html(antdVersion.stable);
   $('#stable-links a').each(function(i, item) {
-    $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd' + antdVersion.stable));
+    $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd-' + antdVersion.stable));
   });
 } else {
   $('#stable-version').html('暂无');
