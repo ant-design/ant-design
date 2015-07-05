@@ -1,6 +1,6 @@
 # Motion
 
-- category: Animation
+- category: CSS
 - chinese: 动画样式
 - order: 4
 

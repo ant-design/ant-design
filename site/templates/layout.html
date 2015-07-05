@@ -33,14 +33,14 @@
         <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
           <a href="/">首页</a>
         </li>
-        <li class="{%- if post.meta.filepath|isFolder('docs') %}current{%- endif %}">
-          <a href="/docs/introduce">上手</a>
+        <li class="{%- if post.directory === 'docs' %}current{%- endif %}">
+          <a href="/docs/introduce">使用</a>
         </li>
-        <li class="{%- if post.meta.template === 'component' %}current{%- endif %}">
+        <li class="{%- if post.directory === 'components' %}current{%- endif %}">
           <a href="/components">组件</a>
         </li>
-        <li class="{%- if post.meta.filepath|isFolder('design') %}current{%- endif %}">
-          <a href="/design/">设计</a>
+        <li class="{%- if post.directory === 'design' %}current{%- endif %}">
+          <a class="disabled" href="/design/">设计</a>
         </li>
         <li>
           <a target="_blank" href="github.com/ant-design/ant-design">Github</a>

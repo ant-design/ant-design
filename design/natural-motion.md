@@ -1,9 +1,8 @@
-# Natural Motion
+# 自然运动
 
-- category: Animation
-- chinese: 自然运动
+- category: 动画
 - order: 0
-- nodemos: true
+
 ---
 
 现实物体照着一定节奏移动，并不是一开始就移动很快的。

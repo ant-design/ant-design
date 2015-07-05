@@ -1,10 +1,11 @@
-# Page turning
+# 页面转换
 
-- category: Animation
+- category: 动画
 - chinese: 页面转换
-- order: 2
-- nodemos: true
+- order: 1
+
 ---
+
 ###单页面转场动画
 
 从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
@@ -60,6 +61,3 @@ Normal: 指那些从转场开始到结束都没有发生变化的信息元素
 <div class="video-player">
 <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T1br0gXghtXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/rmsweb/T1lcRgXb4gXXXXXXXX.mp4" type="video/mp4"></video>
 </div>
- 
-
-

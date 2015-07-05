@@ -1,6 +1,6 @@
 # 介绍
 
-- category: 上手
+- category: 入门
 - order: 0
 
 ---
