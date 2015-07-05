@@ -26,7 +26,7 @@ exports.ignorefilter = function(filepath, subdir) {
   if (/\.DS_Store/.test(filepath)) {
     return false;
   }
-  if (/^(_site|_theme|node_modules|site|style|\.idea)/.test(subdir)) {
+  if (/^(_site|_theme|node_modules|site|\.idea)/.test(subdir)) {
     return false;
   }
   return true;
