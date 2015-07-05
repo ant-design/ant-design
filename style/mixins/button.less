@@ -10,11 +10,11 @@
   .button-color(@color; @background; @border);
 
   &:hover {
-    .button-color(lighten(@color, 30%, 'relative'); lighten(@background, 30%, 'relative'); lighten(@border, 30%, 'relative'));
+    .button-color(tint(@color, 20%); tint(@background, 20%); tint(@border, 20%));
   }
   &:active,
   &.active {
-    .button-color(lighten(@color, 20%, 'relative'); lighten(@background, 20%, 'relative'); lighten(@border, 20%, 'relative'));
+    .button-color(shade(@color, 5%); shade(@background, 5%); shade(@border, 5%));
   }
   &:active,
   &.active {
@@ -147,11 +147,11 @@
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 
   &:hover {
-    .button-color(lighten(@primary-color, 30%, 'relative'); @white; lighten(@primary-color, 30%, 'relative'));
+    .button-color(tint(@primary-color, 20%); @white; tint(@primary-color, 20%));
   }
   &:active,
   &.active {
-    .button-color(lighten(@primary-color, 20%, 'relative'); @white; lighten(@primary-color, 20%, 'relative'));
+    .button-color(shade(@primary-color, 5%); @white; shade(@primary-color, 5%));
   }
 }
 
@@ -160,11 +160,11 @@
   .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 
   &:hover {
-    .button-color(lighten(@primary-color, 30%, 'relative'); @white; lighten(@primary-color, 30%, 'relative'));
+    .button-color(tint(@primary-color, 20%); @white; tint(@primary-color, 20%));
   }
   &:active,
   &.active {
-    .button-color(lighten(@primary-color, 20%, 'relative'); @white; lighten(@primary-color, 20%, 'relative'));
+    .button-color(shade(@primary-color, 5%); @white; shade(@primary-color, 5%));
   }
 }
 
@@ -225,7 +225,7 @@
 
   &:not([disabled]):active:before,
   &:not([disabled]).active:before {
-    background-color: lighten(@primary-color, 20%, 'relative');
+    background-color: tint(@primary-color, 20%);
   }
 }
 

@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="/static/tomorrow.css">
   <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js,bluebird/2.9.30/bluebird.js"></script>
   <script src="/static/script.js"></script>
+  <script>
+  window.antdPackageVersion = '{{config.package.version}}';
+  </script>
   {% block scripts %}{% endblock %}
 </head>
 <body {% block bodyAttribute %}{% endblock %}>
