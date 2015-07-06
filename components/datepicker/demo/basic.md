@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-// or require('antd/components/datepicker');
+// or require('antd/lib/datepicker');
 var Datepicker = antd.Datepicker;
 
 React.render(

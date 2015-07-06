@@ -85,6 +85,8 @@ React.render(<MyPage />, document.body);
 
 > `var Datepicker = require('antd/lib/Datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
 
+> `lib` 即构建后的 `components` 目录。
+
 然后建一个页面用于开发。
 
 ```bash
