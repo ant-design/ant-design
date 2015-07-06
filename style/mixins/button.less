@@ -203,12 +203,12 @@
     border-radius: 50% 50%;
     content: " ";
     .scale(0, 0);
-    .transition(all @duration-300 @ease-in-out);
+    .transition(all .3s @ease-in-out);
     z-index: 0;
     background-color: @primary-color;
   }
 
-  &:not([disabled]):hover, 
+  &:not([disabled]):hover,
   &:not([disabled]):active,
   &:not([disabled]).active {
     > .@{iconfont-css-prefix} {
@@ -216,7 +216,7 @@
     }
   }
 
-  &:not([disabled]):hover:before, 
+  &:not([disabled]):hover:before,
   &:not([disabled]):active:before,
   &:not([disabled]).active:before {
     .opacity(1);
