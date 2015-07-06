@@ -5,6 +5,8 @@
 
 ---
 
+可以直接下载文件或使用 npm 进行安装。
+
 ## 直接下载
 
 - **开发版** <span class="versions" id="latest-version">1.0.2</span>
@@ -33,12 +35,35 @@
 
 ## npm
 
+我们推荐使用 npm 的方式进行开发，这样可以享受整个生态圈和工具链带来的诸多好处。
+
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 可以通过 npm 直接安装到本地，使用 `require` 或 `import` 进行引用。
 
 ```bash
 $ npm install antd --save
+```
+
+## 开发工具
+
+Ant Design 提供了开发构建的命令行工具，可以安装到全局直接使用：
+
+```bash
+$ npm install antd-bin -g
+```
+
+或者安装到仓库下，使用 `package.json` 的 `scripts` 字段来配置命令：
+
+```bash
+$ npm install antd-bin --save-dev
+```
+
+```json
+"scripts": {
+  "dev": "antd server",
+  "build": "antd build"
+}
 ```
 
 <style>
