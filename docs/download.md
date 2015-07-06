@@ -33,6 +33,8 @@
 
 ## npm
 
+[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+
 可以通过 npm 直接安装到本地，使用 `require` 或 `import` 进行引用。
 
 ```bash
