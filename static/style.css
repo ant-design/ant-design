@@ -57,7 +57,7 @@ body {
 }
 
 body {
-  font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-family: Arial, "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
@@ -92,7 +92,7 @@ a {
 }
 
 a:hover {
-  color: #23C0FA;
+  color: #4DC4F0;
 }
 
 .clearfix:after {
