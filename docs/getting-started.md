@@ -131,7 +131,6 @@ Ant Design 支持所有的现代浏览器和 IE8+。
 
 对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
 
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -143,12 +142,21 @@ Ant Design 支持所有的现代浏览器和 IE8+。
     <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js.js"></script>
     <!-- Polyfills -->
     <script src="https://a.alipayobjects.com/react/0.13.3/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
-    <script src="http://ant.design/dist/antd.js"></script>
   </head>
   <body>
   </body>
 </html>
 ```
+
+<div class="code-line-highlight"></div>
+
+<style>
+.code-line-highlight {
+  box-shadow: 0 -155px 0 rgba(255, 207, 0, 0.16);
+  height: 42px;
+  margin-bottom: -42px;
+}
+</style>
 
 ## 小甜点
 

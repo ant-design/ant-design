@@ -585,10 +585,14 @@ footer ul li > a {
   margin: 0 3px;
 }
 
-.markdown pre code {
-  background: rgba(0, 0, 0, 0.03);
-  border: none;
+.markdown pre {
+  background: #F7F7F7;
   border-radius: 6px;
+}
+
+.markdown pre code {
+  background: #F7F7F7;
+  border: none;
   padding: 12px 20px;
   margin: 0;
 }
