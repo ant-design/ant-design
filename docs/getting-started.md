@@ -5,13 +5,13 @@
 
 ---
 
-Ant Design 致力于提供设计开发人员一个愉悦的使用体验。
+Ant Design 致力于提供给用户愉悦的开发体验。
 
 ## 第一个例子
 
 Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的方式直接使用。
 
-一个简单的例子，使用了 [日期选择](http://ant.design/components/datepicker) 组件。
+下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
 <iframe width="100%" height="400" src="//jsfiddle.net/afc163/k13sq3e3/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
@@ -37,7 +37,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 </html>
 ```
 
-你可以在[这里](/components/progress/)找到更多组件进行选用。
+你可以在[这里](/components/progress/)选用更多组件。
 
 
 ## 标准项目
