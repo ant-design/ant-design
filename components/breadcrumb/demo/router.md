@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Router = antd.Router;
+var Router = require('react-router');
 var Route = Router.Route;
 var Link = Router.Link;
 var RouteHandler = Router.RouteHandler;
-var Breadcrumb = antd.Breadcrumb;
+var Breadcrumb = require('antd/lib/breadcrumb');
 
 var Apps = React.createClass({
   render() {

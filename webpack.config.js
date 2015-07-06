@@ -6,6 +6,7 @@ var pkg = require('./package');
 var entry = {};
 entry[pkg.name] = './index.js';
 entry[pkg.name + '-' + pkg.version] = './index.js';
+entry['demo'] = './scripts/demo.js';
 
 module.exports = {
   entry: entry,
