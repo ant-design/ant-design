@@ -38,7 +38,9 @@ exports.middlewares = [{
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
       lazy: false,
-      watchDelay: 300,
+      watchOptions: {
+        aggregateTimeout: 300
+      },
       stats: {
         hash: false,
         cached: false,
