@@ -148,27 +148,27 @@
     text-align: center;
 
     &:hover {
-      background: fadeout(#2db7f5, 90%);
+      background: fadeout(@primary-color, 90%);
       cursor: pointer;
     }
     &:active {
       color: #fff;
-      background: fadeout(#2db7f5, 80%);
+      background: fadeout(@primary-color, 80%);
     }
   }
 
   &-today &-date {
-    border: 1px solid fadeout(#2db7f5, 50%);
+    border: 1px solid fadeout(@primary-color, 50%);
     line-height: 18px;
-    background: fadeout(#2db7f5, 90%);
+    background: fadeout(@primary-color, 90%);
   }
 
   &-selected-day &-date {
-    background: #2db7f5;
+    background: @primary-color;
     color: #fff;
 
     &:hover {
-      background: #2db7f5;
+      background: @primary-color;
     }
   }
 
