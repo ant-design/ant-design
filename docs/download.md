@@ -35,7 +35,7 @@
 
 ## npm
 
-我们推荐使用 npm 的方式进行开发，这样可以享受整个生态圈和工具链带来的诸多好处。
+**我们推荐使用 npm 的方式进行开发**，这样可以享受整个生态圈和工具链带来的诸多好处。
 
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
