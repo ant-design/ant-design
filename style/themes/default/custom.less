@@ -19,7 +19,7 @@
 
 // LINK
 @link-color             : #00abea;
-@link-hover-color       : fadeout(#00abea, 30%);
+@link-hover-color       : tint(#00abea, 30%);
 @link-hover-decoration  : none;
 
 // Disabled cursor for form controls and buttons.
@@ -50,8 +50,8 @@
 @btn-font-weight        : normal;
 
 @btn-primary-color      : #fff;
-@btn-primary-bg         : #2db7f5;
-@btn-primary-border     : #2db7f5;
+@btn-primary-bg         : @primary-color;
+@btn-primary-border     : @primary-color;
 
 @btn-default-color      : #666;
 @btn-default-bg         : #f3f5f7;
@@ -140,5 +140,5 @@
 @input-font-size-sm          : @font-size-base;
 
 @input-hover-border-color    : #23c0fa;
-@input-focus-border-color    : #2db7f5;
+@input-focus-border-color    : @primary-color;
 @input-disabled-bg           : #f3f5f7;
