@@ -52,7 +52,7 @@ label {
 form {
   .@{css-prefix}input {
     height: @input-height-lg;
-    font-size: 12px;
+    font-size: @font-size-base;
     padding: @input-padding-horizontal;
   }
   .has-feedback {
@@ -65,7 +65,9 @@ form {
   .@{css-prefix}input-group > .@{css-prefix}input,
   .@{css-prefix}input-group > .@{css-prefix}input-group-addon,
   .@{css-prefix}input-group > .@{css-prefix}input-group-btn > .input-btn {
-    .input-lg();
+    height: @input-height-lg;
+    font-size: @font-size-base;
+    padding: @input-padding-horizontal;
   }
   
   // input[type=file]
