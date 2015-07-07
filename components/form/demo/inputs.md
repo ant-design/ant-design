@@ -1,6 +1,6 @@
 # Input 输入框集合
 
-- order: 6
+- order: 5
 
 使用 `.ant-input-group` 类并结合 `.ant-input-group-addon` 类可以创建带标签的 Input 输入框。
 
