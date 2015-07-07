@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var cssAnimation = antd.cssAnimation;
+var cssAnimation = require('css-animation');
 var motions = [];
 motions = motions.concat([[{
   name: '淡入',
