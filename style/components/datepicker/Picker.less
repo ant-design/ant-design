@@ -11,23 +11,25 @@
   position: relative;
   display: inline-block;
   &-input {
-    .ant-input;
-    cursor: text;
+    .input;
   }
   &-icon {
     position: absolute;
     -webkit-user-select: none;
     user-select: none;
     .transition(all .3s @ease-in-out);
+    width: 14px;
+    height: 14px;
+    right: 14px;
+    color: #999;
+    top: 50%;
+    line-height: 1;
+    margin-top: -7px;
     &:after {
-      position: relative;
-      left: -22px;
-      font-family: "anticon";
       content: "\e60c";
+      font-family: "anticon";
       font-size: 14px;
       color: #999;
-      top: 5px;
-      margin-right: -20px;
     }
   }
   &-open .@{prefixCalendarClass},

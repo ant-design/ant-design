@@ -1,28 +1,3 @@
-// 待删除
-.ant-input(){
-  position: relative;
-  display: inline-block;
-  margin: 0 0;
-  padding: 4px 10px;
-  border-radius: 6px 6px;
-  border: 1px solid #d9d9d9;
-  background-color: #ffffff;
-  color: #666;
-  line-height: 1.5;
-  -webkit-transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  .transition(all .3s @ease-in-out);
-
-  &:hover {
-    border-color: #23c0fa;
-  }
-
-  &:focus {
-    border-color: #23c0fa;
-    box-shadow: 0 0 3px #23c0fa;
-  }
-}
-
 // size mixins for input
 .input-lg() {
   padding: @input-padding-lg;
@@ -39,10 +14,11 @@
 // Basic style for input
 .input() {
   position: relative;
-  display: block;
+  display: inline-block;
   padding: @input-padding-vertical-base @input-padding-horizontal;
   margin-right: 8px;
   width: 100%;
+  cursor: text;
   height: @input-height-base;
   font-size: @input-font-size;
   line-height: @line-height-base;
@@ -65,10 +41,9 @@
   }
 
   &[disabled],
-  &[readonly],
   fieldset[disabled] & {
     background-color: @input-disabled-bg;
-    opacity: 1; 
+    opacity: 1;
     &:hover {
       border-color: @input-border-color;
     }
@@ -192,7 +167,7 @@
 
   &-btn {
     position: relative;
-  
+
     > .@{inputBtn} {
       position: relative;
       + .@{inputBtn} {
@@ -221,11 +196,11 @@
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
-  
+
   &-addon:first-child {
     border-right: 0;
   }
-  
+
   .@{inputClass}:last-child,
   &-addon:last-child,
   &-btn:last-child > .@{inputBtn},
@@ -233,7 +208,7 @@
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
-  
+
   &-addon:last-child {
     border-left: 0;
   }
