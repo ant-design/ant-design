@@ -57,7 +57,7 @@ body {
 }
 
 body {
-  font-family: Arial, "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
@@ -259,7 +259,7 @@ a.logo {
 
 .nav ul li.current a {
   color: #71B5DE;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .nav ul li a:hover,
@@ -544,6 +544,7 @@ footer ul li > a {
 
 .markdown h1 {
   color: #5C6B77;
+  font-weight: 600;
 }
 
 .markdown h2,
@@ -553,6 +554,7 @@ footer ul li > a {
 .markdown h6 {
   color: #5C6B77;
   margin: 1.8em 0 1em 0;
+  font-weight: 600;
 }
 
 .markdown hr {
