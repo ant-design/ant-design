@@ -12,7 +12,6 @@
     "url": "https://github.com/ant-design/ant-design/issues"
   },
   "dependencies": {
-    "css-animation": "~1.0.3",
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
     "rc-calendar": "~3.10.0",
@@ -27,7 +26,8 @@
     "rc-tooltip": "~2.2.3"
   },
   "devDependencies": {
-    "react-router": "~0.13.3",
+    "css-animation": "~1.0.3",
+    "autoprefixer-loader": "~2.0.0",
     "babel": "~5.6.14",
     "babel-core": "~5.4.7",
     "babel-loader": "~5.1.3",
@@ -42,6 +42,7 @@
     "lodash": "^3.10.0",
     "nico-jsx": "~0.5.8",
     "precommit-hook": "^1.0.7",
+    "react-router": "~0.13.3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },
