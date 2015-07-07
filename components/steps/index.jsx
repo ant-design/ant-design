@@ -7,11 +7,14 @@ var AntSteps = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-steps',
-      size: 'default'
+      size: 'default',
+      maxDescriptionWidth: 100
     };
   },
   render() {
-    return (<Steps size={this.props.size} prefixCls={this.props.prefixCls}>
+    return (<Steps size={this.props.size}
+                   maxDescriptionWidth ={this.props.maxDescriptionWidth}
+                   prefixCls={this.props.prefixCls}>
       {this.props.children}
     </Steps>);
   }

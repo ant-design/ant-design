@@ -12,6 +12,7 @@
   vertical-align: middle;
   border: 1px solid #D9D9D9;
   border-radius: 5px;
+  overflow: hidden;
 
   &-handler {
     text-align: center;
@@ -24,6 +25,10 @@
     color: #666666;
     user-select: none;
     -webkit-user-select: none;
+  }
+
+  &-handler-up-inner {
+    margin-left: -1px;
   }
 
   &:hover {
@@ -53,7 +58,7 @@
     outline: 0;
     -moz-appearance: textfield;
     line-height: 26px;
-    height: 24px;
+    height: 22px;
     transition: all 0.3s ease;
     color: #666666;
     border: 0;
@@ -72,6 +77,7 @@
   &-handler-up {
     padding-top: 1px;
     border-bottom: 1px solid #D9D9D9;
+    cursor: pointer;
     &-inner {
       .iconfont-mixin();
       top:-2px;
@@ -83,6 +89,7 @@
   }
 
   &-handler-down {
+    cursor: pointer;
     &-inner {
       .iconfont-mixin();
       &:before {
@@ -94,7 +101,9 @@
 
   .handler-disabled() {
     opacity: 0.72;
+    cursor: default;
     &:hover {
+      cursor: default;
       color: #999;
       border-color: #d9d9d9;
     }

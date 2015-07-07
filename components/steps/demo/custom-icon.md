@@ -1,4 +1,4 @@
-# 自定义图标步进条
+# 自定义图标步骤条
 
 - order: 2
 
@@ -25,12 +25,11 @@
 var Steps = antd.Steps;
 var Step = Steps.Step;
 var container = document.getElementById('components-steps-demo-custom-icon');
-var imgIcon = <div className='my-step-icon'><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/></div>
 
 
 React.render(<Steps>
   <Step status='finish' title='步骤1' icon={<div className='my-step-icon'><span className='anticon anticon-cloud'></span></div>}></Step>
-  <Step status='process' title='步骤2' icon={imgIcon}></Step>
+  <Step status='process' title='步骤2' icon={<div className='my-step-icon'><span className='anticon anticon-apple'></span></div>}></Step>
   <Step status='wait' title='步骤3' icon={<div className='my-step-icon'><span className='anticon anticon-github'></span></div>}></Step>
 </Steps>, container);
 ````
