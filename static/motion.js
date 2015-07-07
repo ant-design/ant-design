@@ -62,7 +62,7 @@ $(function (){
             return d?this.node.attr(o,d):this.node.attr(o)
         };
         n.css=function (o,d){
-            return d?this.node.css(o,d):this.node.attr(o);
+            return d?this.node.css(o,d):this.node.css(o);
         };
         n.children=function (){
             return this.node.children()
@@ -235,7 +235,10 @@ $(function (){
             this.attr({"width":"100%","height":"100%"});
             this.defs=new Sprite("defs");
             this.addChild(this.defs);
+            if(id)
             $(id).append(this.node);
+            else
+            return this;
         };
         var filter={
             blur : function (x, y) {
@@ -332,6 +335,78 @@ $(function (){
         return this;
     };
     var T=TweenMax;
+    var _playBox=function (svg,startFunc,pauseFunc){
+        var playBox=new SVG.Sprite("g");
+        playBox.mouseEnabled=true;
+
+        playBox.drawRect({width:"100%",height:"100%",fill:"rgba(0,0,0,.35)"});
+        var playBtn=new SVG.Sprite("g");
+        playBox.addChild(playBtn);
+        playBtn.drawCirc({r:30,fill:"rgba(255,255,255,1)"});
+
+
+        var playPoints={
+            play:"M-10 -15 L15 0 L-10 15 L-10 0Z M-10 -15 L15 0 L-10 15 L-10 0Z",
+            pause:"M-12 -15 L-3 -15 L-3 15 L-12 15Z M3 -15 L12 -15 L12 15 L3 15Z"
+        };
+        var shanjiao=playBtn.drawPath({d:playPoints.play,fill:"#999"});
+        var bBool=false;
+        var animate_p3 = function(p,_arr) {
+            var a_arr=[];
+            for(var i=0;i<_arr.length;i++){
+                a_arr.push(_arr[i].x,_arr[i].y)
+            }
+            for(var i=0;i<a_arr.length;i++){
+                if(i==0||i==8){
+                    a_arr[i]="M"+a_arr[i];
+                }else if(i==2||i==4||i==6||i==12||i==14){
+                    a_arr[i]="L"+a_arr[i];
+                }else if(i==7||i==15){
+                    a_arr[i]=a_arr[i]+"Z";
+                }
+            }
+            p.attr({
+                d: a_arr.join().replace(/,/g," ")
+            });
+
+        };
+        function twennBtn(p,arr,c_arr){
+            for(var i=0;i<arr.length;i++){
+                T.killTweensOf(arr[i]);
+                T.to(arr[i],.6,{x:c_arr[i].x ,y:c_arr[i].y ,delay:Math.random() *.2,onUpdate:animate_p3,onUpdateParams:[p,arr],ease:Elastic.easeOut})
+            }
+        }
+        playBox.addEventListener("click",function (e){
+            var _a= playPoints.play.replace( /[MLZ]/g,"").split(" ");
+            var _b= playPoints.pause.replace( /[MLZ]/g,"").split(" ");
+            var _arr=[],_barr=[];
+            for(var i=0;i<_a.length;i+=2){
+                var a={},b={};
+                a.x=_a[i];
+                a.y=_a[i+1];
+                b.x=_b[i];
+                b.y=_b[i+1];
+                _arr.push(a);
+                _barr.push(b);
+            }
+            if(!bBool){
+                twennBtn(shanjiao,_arr,_barr);
+                T.to(playBox,.5,{delay:.3,alpha:0,onComplete:startFunc});
+                bBool=true;
+            }else{
+                twennBtn(shanjiao,_barr,_arr);
+                T.to(playBox,.5,{alpha:1,onStart:pauseFunc});
+                bBool=false
+            }
+        });
+        function resize(){
+            playBtn.x=svg.node.width()/2;
+            playBtn.y=svg.node.height()/2;
+        };
+        resize();
+        $(window).bind("resize", resize);
+        return playBox;
+    };
     var newMotion=function (id,obj){
         if(!id||!obj){
             throw new Error("数据错误");
@@ -463,69 +538,12 @@ $(function (){
         }
 
         //建播放按钮；
-        self.playBox=new SVG.Sprite("g");
-        self.playBox.mouseEnabled=true;
-        self.svg.addChild(self.playBox);
-        self.playBox.drawRect({width:"100%",height:"100%",fill:"rgba(0,0,0,.35)"});
-        self.playBtn=new SVG.Sprite("g");
-        self.playBox.addChild(self.playBtn);
-        self.playBtn.drawCirc({r:30,fill:"rgba(255,255,255,1)"});
-        self.playBtn.x=self.w/2;
-        self.playBtn.y=self.h/2;
-        var playPoints={
-            play:"M-10 -15 L15 0 L-10 15 L-10 0Z M-10 -15 L15 0 L-10 15 L-10 0Z",
-            pause:"M-12 -15 L-3 -15 L-3 15 L-12 15Z M3 -15 L12 -15 L12 15 L3 15Z"
-        };
-        var shanjiao=self.playBtn.drawPath({d:playPoints.play,fill:"#999"});
-        var bBool=false;
-        var animate_p3 = function(p,_arr) {
-            var a_arr=[];
-            for(var i=0;i<_arr.length;i++){
-                a_arr.push(_arr[i].x,_arr[i].y)
-            }
-            for(var i=0;i<a_arr.length;i++){
-                if(i==0||i==8){
-                    a_arr[i]="M"+a_arr[i];
-                }else if(i==2||i==4||i==6||i==12||i==14){
-                    a_arr[i]="L"+a_arr[i];
-                }else if(i==7||i==15){
-                    a_arr[i]=a_arr[i]+"Z";
-                }
-            }
-            p.attr({
-                d: a_arr.join().replace(/,/g," ")
-            });
-
-        };
-        function twennBtn(p,arr,c_arr){
-            for(var i=0;i<arr.length;i++){
-                T.killTweensOf(arr[i]);
-                T.to(arr[i],.6,{x:c_arr[i].x ,y:c_arr[i].y ,delay:Math.random() *.2,onUpdate:animate_p3,onUpdateParams:[p,arr],ease:Elastic.easeOut})
-            }
-        }
-        self.playBox.addEventListener("click",function (e){
-            var _a= playPoints.play.replace( /[MLZ]/g,"").split(" ");
-            var _b= playPoints.pause.replace( /[MLZ]/g,"").split(" ");
-            var _arr=[],_barr=[];
-            for(var i=0;i<_a.length;i+=2){
-                var a={},b={};
-                a.x=_a[i];
-                a.y=_a[i+1];
-                b.x=_b[i];
-                b.y=_b[i+1];
-                _arr.push(a);
-                _barr.push(b);
-            }
-            if(!bBool){
-                twennBtn(shanjiao,_arr,_barr);
-                T.to(self.playBox,.5,{delay:.3,alpha:0,onComplete:self.strat,onCompleteParams:[self]});
-                bBool=true;
-            }else{
-                twennBtn(shanjiao,_barr,_arr);
-                T.to(self.playBox,.5,{alpha:1,onStart:self.pause,onStartParams:[self]});
-                bBool=false
-            }
+        self.playBox=_playBox(self.svg,function (){
+            self.start(self);
+        },function (){
+            self.pause(self);
         });
+        self.svg.addChild(self.playBox);
     };
     nm.pause=function (self){
         for(var i=0;i<self.tweenArr.length;i++){
@@ -539,7 +557,7 @@ $(function (){
             tl.resume();
         }
     };
-    nm.strat=function (self){
+    nm.start=function (self){
         if(self.tweenArr.length){
             self.resume(self);
             return
@@ -619,4 +637,37 @@ $(function (){
     };
     window.Motion=newMotion;
 
+    var motionVideo={
+        init:function (){
+            var self=this;
+            self.videoBox=$(".video-player");
+            for(var i=0;i<self.videoBox.length;i++){
+                var svg=new SVG();
+                self.videoBox.eq(i).append(svg.node);
+                var video=self.videoBox.eq(i).find("video");
+                video.css({"width":"100%"});
+                video.append(svg);
+                svg.css({"position":"absolute","top":0});
+                var playBox=_playBox(svg);
+                svg.addChild(playBox);
+                playBox.addEventListener("click",function (e){
+                    var m=$(this),
+                        video= m.parent().parent().find("video");
+                    var bool=m.attr("play");
+                    if(bool){
+                        this.setTimeout=null;
+                        video[0].pause();
+                        m.removeAttr("play")
+                    }else{
+                        this.setTimeout=setTimeout(function (){
+                            video[0].play();
+                        },500);
+
+                        m.attr("play","true")
+                    }
+                })
+            }
+        }
+    };
+    motionVideo.init();
 });

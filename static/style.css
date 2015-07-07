@@ -57,7 +57,7 @@ body {
 }
 
 body {
-  font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
@@ -92,7 +92,7 @@ a {
 }
 
 a:hover {
-  color: #23C0FA;
+  color: #4DC4F0;
 }
 
 .clearfix:after {
@@ -142,7 +142,7 @@ a.logo {
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   font-weight: 500;
   color: #6EB4E0;
 }
@@ -240,7 +240,7 @@ a.logo {
 
 .nav ul li {
   float: left;
-  width: 16.66%;
+  width: 20%;
   text-align: center;
 }
 
@@ -259,7 +259,7 @@ a.logo {
 
 .nav ul li.current a {
   color: #71B5DE;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .nav ul li a:hover,
@@ -268,7 +268,7 @@ a.logo {
 }
 
 .nav .bar {
-  width: 16.66%;
+  width: 20%;
   height: 3px;
   position: absolute;
   top: 0;
@@ -355,9 +355,9 @@ a.logo {
   z-index: 99;
   animation: alphaTo .3s ease-out;
   -webkit-animation: alphaTo .3s ease-out;
-    font-size: 22px;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;;
+  font-size: 22px;
+  text-align: center;
+  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
 }
 
 .load-box em {
@@ -544,6 +544,7 @@ footer ul li > a {
 
 .markdown h1 {
   color: #5C6B77;
+  font-weight: 600;
 }
 
 .markdown h2,
@@ -553,6 +554,7 @@ footer ul li > a {
 .markdown h6 {
   color: #5C6B77;
   margin: 1.8em 0 1em 0;
+  font-weight: 600;
 }
 
 .markdown hr {
@@ -575,7 +577,7 @@ footer ul li > a {
   margin: 1.2em 0;
 }
 
-.markdown > ul > li {
+.markdown > ul li {
   list-style: circle;
   margin-left: 20px;
   padding-left: 8px;
@@ -585,10 +587,14 @@ footer ul li > a {
   margin: 0 3px;
 }
 
-.markdown pre code {
-  background: rgba(0, 0, 0, 0.03);
-  border: none;
+.markdown pre {
+  background: #F7F7F7;
   border-radius: 6px;
+}
+
+.markdown pre code {
+  background: #F7F7F7;
+  border: none;
   padding: 12px 20px;
   margin: 0;
 }
@@ -621,6 +627,7 @@ footer ul li > a {
   color: #999;
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
+  margin: 0;
 }
 
 #api ~ ul > li > p > strong ~ code {
@@ -1771,7 +1778,7 @@ footer ul li > a {
   left: 10%;
   z-index: 100;
   color: #707d8d;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   font-weight: 300;
 }
 

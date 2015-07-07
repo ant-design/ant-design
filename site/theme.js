@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 module.exports = function(nico) {
   var exports = {};
-  var categories;
+  var Categories = {};
 
   exports.reader = function(post) {
     var filepath = post.meta.filepath.toLowerCase();
@@ -37,17 +37,18 @@ module.exports = function(nico) {
       });
       return ret;
     },
-    get_components_categories: function(posts) {
-      categories = categories || _.uniq(Object.keys(posts).map(function(key) {
+    get_categories: function(posts, post) {
+      var rootDirectory = post.directory.split('/')[0];
+      var categories = Categories[rootDirectory] || _.uniq(Object.keys(posts).map(function(key) {
         var item = posts[key];
-        if (item.meta.template !== 'component') {
-          return;
+        if (item.directory.split('/')[0] === post.directory.split('/')[0]) {
+          return item.meta.category;
         }
-        return item.meta.category;
-      }));
+      })).filter(function(n){ return n != undefined });
       categories = categories.sort(function(a, b) {
         return a.length - b.length;
-      });
+      })
+      Categories[rootDirectory] = categories;
       return categories;
     },
     find_demo_in_component: function(pages, directory) {
@@ -87,6 +88,9 @@ module.exports = function(nico) {
       return items.filter(function(item, i) {
         return (i+1)%2 === 0;
       });
+    },
+    rootDirectoryIs: function(directory, rootDirectory) {
+      return directory.split('/')[0] === rootDirectory;
     }
   };
 

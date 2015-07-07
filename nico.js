@@ -13,6 +13,7 @@ exports.site = {
   repo: package.repository.url,
   issues: package.bugs.url
 };
+exports.package = package;
 exports.theme = 'site';
 exports.source = process.cwd();
 exports.output = path.join(process.cwd(), '_site');
@@ -25,19 +26,18 @@ exports.ignorefilter = function(filepath, subdir) {
   if (/\.DS_Store/.test(filepath)) {
     return false;
   }
-  if (/^(_site|_theme|node_modules|\.idea)/.test(subdir)) {
+  if (/^(_site|_theme|node_modules|site|\.idea)/.test(subdir)) {
     return false;
   }
   return true;
 };
 exports.middlewares = [{
   name: 'webpackDevMiddleware',
-  filter: /antd\.(js|css)(\.map)?$/,
+  filter: /\.(js|css)(\.map)?$/,
   handle: function(req, res, next) {
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
-      lazy: false,
-      watchDelay: 300,
+      lazy: true,
       stats: {
         hash: false,
         cached: false,

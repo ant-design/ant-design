@@ -1,3 +1,7 @@
+.ant-btn{
+    position: relative;
+    overflow: hidden;
+}
 .ant-btn-domebox{
     background-color: #f3f3f3;
     width:100%;
@@ -98,6 +102,11 @@
     display: none;
     min-width: 0;
     overflow: hidden;
+}
+
+.video-player{
+    position: relative;
+    max-width: 800px;
 }
 
 /******动画名称******/

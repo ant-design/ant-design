@@ -1,14 +1,21 @@
+{%- set categories = resource.pages|get_categories(post) %}
 <aside class="aside-container">
   <ul>
-  {%- set items = resource.pages|find_category(post.meta.category) %}
-  <li>
-    <ul>
-      {%- for item in items %}
-      <li class="{%- if item.title === post.title %}current{%- endif %}">
-        <a href="{{permalink_url(item)}}">{{item.title}}</a>
-      </li>
-      {%- endfor %}
-    </ul>
-  </li>
+  {%- for category in categories %}
+  {%- set items = resource.pages|find_category(category) %}
+    <li>
+      <h4>{{category}}</h4>
+      <ul class="{%- if category === post.meta.category %}aside-list-show{%- endif %}">
+        {%- for item in items %}
+        <li class="{%- if item.title === post.title %}current{%- endif %}">
+          <a href="{{permalink_url(item)}}">
+            {{item.title}}
+            <span class="chinese">{{item.meta.chinese}}</span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ul>
+    </li>
+  {%- endfor %}
   </ul>
 </aside>

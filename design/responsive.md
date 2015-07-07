@@ -1,10 +1,10 @@
-# Response ITN
+# 响应交互
 
-- category: Animation
-- chinese: 响应交互
+- category: 动画
 - order: 1
-- nodemos: true
+
 ---
+
 响应交互一般是指我们在浏览页面时，点击元素时动画给我们视觉上的反馈，每个交互动效都能给我们带来不同视觉效果。
 
 如搜索框，当你点击准备输入时，icon将会跑到右边方便点击，当然你按回车也是可以提交表单的；在你没有输入文字时，icon又会恢愎到原来的地置，但当你输入了文字后，icon将会停留在右边；
@@ -14,9 +14,8 @@
 按钮上的hover或click效果，随着你的鼠标事件而改变自身或增加元素在按钮上；
 
 以下按钮对组件按钮的修改，只做示例，具体还需看组件；
-<link rel="stylesheet" href="/static/motion.css">
-<link rel="stylesheet" href="/static/motionDome.css">
-<script src="/static/motionDome.js"></script>
+<link rel="stylesheet" href="/static/motionDemo.css">
+<script src="/static/motionDemo.js"></script>
 <div style="overflow: hidden;">
 <div style="width:200px;float:left;margin-right:60px">
 <p style="text-align: center;"> 1.按钮表面效果；</p>

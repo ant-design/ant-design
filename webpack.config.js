@@ -1,11 +1,15 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
+var pkg = require('./package');
+
+var entry = {};
+entry[pkg.name] = './index.js';
+entry[pkg.name + '-' + pkg.version] = './index.js';
+entry['demo'] = './scripts/demo.js';
 
 module.exports = {
-  entry: {
-    antd: './index.js'
-  },
+  entry: entry,
 
   resolve: {
     extensions: ['', '.js', '.jsx'],
@@ -31,13 +35,12 @@ module.exports = {
     }, {
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap!' +
-        'less?sourceMap'
+        'css?sourceMap&-restructuring!' + 'autoprefixer-loader?browsers=last 2 versions!' + 'less?sourceMap'
       )
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap'
+        'css?sourceMap!' + 'autoprefixer-loader?browsers=last 2 versions'
       )
     }]
   },

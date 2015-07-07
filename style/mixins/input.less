@@ -1,59 +1,52 @@
-.ant-input(){
-  position: relative;
-  display: inline-block;
-  margin: 0 0;
-  padding: 4px 10px;
-  border-radius: 6px 6px;
-  border: 1px solid #d9d9d9;
-  background-color: #ffffff;
-  color: #666;
-  line-height: 1.5;
-  -webkit-transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  transform: border 0.3s cubic-bezier(0.35, 0, 0.25, 1), background 0.3s cubic-bezier(0.35, 0, 0.25, 1), box-shadow 0.3s cubic-bezier(0.35, 0, 0.25, 1);
-  .transition(all .3s @ease-in-out);
-
-  &:hover {
-    border-color: #23c0fa;
-  }
-
-  &:focus {
-    border-color: #23c0fa;
-    box-shadow: 0 0 3px #23c0fa;
-  }
+// size mixins for input
+.input-lg() {
+  padding: @input-padding-lg;
+  height: @input-height-lg;
+  font-size: @input-font-size-lg;
 }
 
+.input-sm() {
+  padding: @input-padding-vertical-sm @input-padding-horizontal;
+  height: @input-height-sm;
+  font-size: @input-font-size-sm;
+}
+
+// Basic style for input
 .input() {
   position: relative;
-  display: block;
+  display: inline-block;
   padding: @input-padding-vertical-base @input-padding-horizontal;
+  margin-right: 8px;
   width: 100%;
+  cursor: text;
+  height: @input-height-base;
   font-size: @input-font-size;
   line-height: @line-height-base;
   color: @input-color;
   background-color: @input-bg;
   background-image: none;
   border: 1px solid @input-border-color;
-  border-radius: @input-border-radius;
-  // Reset placeholder
-  .placeholder();
-  .transition(~"border @{duration-300} @{ease-in-out}, background @{duration-300} @{ease-in-out}, box-shadow @{duration-300} @{ease-in-out}");
+  border-radius: @border-radius-base;
+  .placeholder(); // Reset placeholder
+  .transition(~"border .3s @{ease-in-out}, background .3s @{ease-in-out}, box-shadow .3s @{ease-in-out}");
 
-  &:not([disabled]):hover {
+  &:hover {
     border-color: @input-hover-border-color;
   }
 
   &:focus {
-    @color-rgba: rgba(red(@input-focus-border-color), green(@input-focus-border-color), blue(@input-focus-border-color), .8);
     border-color: @input-focus-border-color;
     outline: 0;
-    box-shadow: 0 0 3px @color-rgba;
+    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
   }
 
   &[disabled],
-  &[readonly],
   fieldset[disabled] & {
     background-color: @input-disabled-bg;
-    opacity: 1; 
+    opacity: 1;
+    &:hover {
+      border-color: @input-border-color;
+    }
   }
 
   &[disabled],
@@ -68,12 +61,172 @@
 
   // Size
   &-lg {
-    padding: @input-padding-lg;
-    font-size: @input-font-size-lg;
+    .input-lg();
   }
 
   &-sm {
-    padding: @input-padding-vertical-sm @input-padding-horizontal;
-    font-size: @input-font-size-sm;
+    .input-sm();
+  }
+}
+
+// Input with icons, you can define @height if you wish to change the input size
+.input-with-icon(@height: @input-height-base) {
+  position: relative;
+
+  .@{iconfont-css-prefix} {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    .square(@height);
+    font-size: 14px;
+    line-height: @height;
+    text-align: center;
+    pointer-events: none;
+  }
+}
+
+// Input-group
+.input-group(@inputClass) {
+  // define the button style for input-group
+  @inputBtn: input-btn;
+
+  position: relative;
+  display: table;
+  border-collapse: separate;
+
+  // Undo padding and float of grid classes
+  &[class*="col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &-addon,
+  &-btn,
+  &-btn-vertical,
+  .@{inputClass} {
+    display: table-cell;
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &-addon,
+  &-btn,
+  &-btn-vertical {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .@{inputClass} {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  &-addon {
+    padding: @input-padding-vertical-base @input-padding-horizontal;
+    font-size: @font-size-base;
+    font-weight: normal;
+    line-height: 1;
+    color: @input-color;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid @input-border-color;
+    border-radius: @border-radius-base;
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-top: 0;
+    }
+  }
+
+  .@{inputBtn} {
+    .btn();
+    .button-size(@input-padding-vertical-base @input-padding-horizontal; @font-size-base; @border-radius-base);
+    .button-variant(@input-color; #eee; @input-border-color);
+
+    &:hover {
+      .button-color(lighten(@input-color, 30%, 'relative'); #eee; @input-border-color);
+    }
+    &:active,
+    &.active {
+      .button-color(lighten(@input-color, 20%, 'relative'); #eee; @input-border-color);
+    }
+
+    .@{iconfont-css-prefix} {
+      line-height: 1;
+      margin-left: 8px;
+    }
+  }
+
+  &-btn {
+    position: relative;
+
+    > .@{inputBtn} {
+      position: relative;
+      + .@{inputBtn} {
+        margin-left: -1px;
+      }
+    }
+
+    // Negative margin to only have a 1px border between the two
+    &:first-child {
+      > .@{inputBtn} {
+        margin-right: -1px;
+      }
+    }
+    &:last-child {
+      > .@{inputBtn} {
+        margin-left: -1px;
+      }
+    }
+  }
+
+  // Reset rounded corners
+  .@{inputClass}:first-child,
+  &-addon:first-child,
+  &-btn:first-child > .@{inputBtn},
+  &-btn:last-child > .@{inputBtn}:not(:last-child):not(.dropdown-toggle) {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &-addon:first-child {
+    border-right: 0;
+  }
+
+  .@{inputClass}:last-child,
+  &-addon:last-child,
+  &-btn:last-child > .@{inputBtn},
+  &-btn:first-child > .@{inputBtn}:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  &-addon:last-child {
+    border-left: 0;
+  }
+
+  // Sizing options
+  &-lg > .@{inputClass},
+  &-lg > &-addon,
+  &-lg > &-btn > .@{inputBtn} {
+    .input-lg();
+  }
+
+  &-sm > .@{inputClass},
+  &-sm > &-addon,
+  &-sm > &-btn > .@{inputBtn} {
+    .input-sm();
+  }
+
+  &-sm > &-btn > .@{inputBtn} {
+    margin-top: ~"-2px \9";
   }
 }
