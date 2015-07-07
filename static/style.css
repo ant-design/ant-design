@@ -142,7 +142,7 @@ a.logo {
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
-  font-family: "Raleway", sans-serif;
+  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   font-weight: 500;
   color: #6EB4E0;
 }
@@ -355,9 +355,9 @@ a.logo {
   z-index: 99;
   animation: alphaTo .3s ease-out;
   -webkit-animation: alphaTo .3s ease-out;
-    font-size: 22px;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;;
+  font-size: 22px;
+  text-align: center;
+  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
 }
 
 .load-box em {
@@ -1778,7 +1778,7 @@ footer ul li > a {
   left: 10%;
   z-index: 100;
   color: #707d8d;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   font-weight: 300;
 }
 
