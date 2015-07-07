@@ -21,8 +21,8 @@ var steps = [{
   description: '这里是多信息的耶哦耶哦哦耶哦耶哦耶哦耶哦耶'
 }, {
   status: 'wait',
-  title: '待运行',
-  description: '这里是多信息的描述啊描述啊描述啊'
+  title: '又一个待运行',
+  description: '描述啊描述啊'
 }, {
   status: 'wait',
   title: '待运行',

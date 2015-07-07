@@ -59,9 +59,6 @@ var MyForm = React.createClass({
             ></Steps.Step>
         })}
       </Steps></div>
-      <div>表单输入A：<input /></div>
-      <div>表单输入B：<input /></div>
-      <div>表单输入C：<input /></div>
       <div><span className='ant-btn' onClick={this.nextStep}>下一步</span></div>
     </form>)
   }
