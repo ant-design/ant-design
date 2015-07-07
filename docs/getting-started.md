@@ -83,7 +83,7 @@ var MyPage = React.creatClass({
 React.render(<MyPage />, document.body);
 ```
 
-> `var Datepicker = require('antd/lib/Datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
+> `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
 
 > `lib` 即构建后的 `components` 目录。
 
@@ -140,8 +140,8 @@ Ant Design 支持所有的现代浏览器和 IE8+。
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
-    <!-- 引入 react 和 antd.js -->
-    <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js.js"></script>
+    <!-- 引入 react -->
+    <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js"></script>
     <!-- Polyfills -->
     <script src="https://a.alipayobjects.com/react/0.13.3/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
   </head>
