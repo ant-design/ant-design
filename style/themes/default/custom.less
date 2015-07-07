@@ -16,7 +16,7 @@
 @font-size-base         : 12px;
 @line-height-base       : 1.5;
 @line-height-computed:    floor((@font-size-base * @line-height-base));
-
+@border-radius-base     : 6px;
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
@@ -84,9 +84,6 @@
 @btn-circle-size-lg     : 32px;
 @btn-circle-size-sm     : 22px;
 
-// Border
-@border-radius-base     : 6px;
-
 // Media queries breakpoints
 // Extra small screen / phone
 @screen-xs              : 480px;
@@ -122,10 +119,9 @@
 // Legend
 @legend-color                : #222;
 @legend-border-color         : #e5e5e5;
-
 // Label
-@label-required-color        : #F44336;
-
+@label-required-color        : #F60;
+@label-color: #999;
 // Input
 @input-height-base: 28px;
 @input-height-lg: 32px;
@@ -141,8 +137,6 @@
 @input-border-color          : #d9d9d9;
 @input-bg                    : #fff;
 
-@input-border-radius         : @border-radius-base;
-
 @input-font-size-lg          : 14px;
 @input-font-size             : @font-size-base;
 @input-font-size-sm          : @font-size-base;
@@ -150,3 +144,5 @@
 @input-hover-border-color    : #23c0fa;
 @input-focus-border-color    : #2db7f5;
 @input-disabled-bg           : #f3f5f7;
+
+@form-item-margin-bottom     : 24px;

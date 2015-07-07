@@ -1,28 +1,25 @@
-// style the form controls with different validation states
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
-  // Color the label and help text
-  .@{css-prefix}form-explain {
+  .@{css-prefix}form-explain, .@{css-prefix}form-split {
     color: @text-color;
   }
-  // Set the border and box shadow on specific inputs to match
+  // 输入框的不同校验状态
   .@{css-prefix}input {
     border-color: @border-color;
     &:focus {
-      @color-rgba: rgba(red(@border-color), green(@border-color), blue(@border-color), .8);
       border-color: @border-color;
-      box-shadow: 0 0 3px @color-rgba;
+      box-shadow: 0 0 3px tint(@border-color, 20%);
     }
     &:not([disabled]):hover {
       border-color: @border-color;
     }
   }
-  // Set validation states also for addons
+
   .@{css-prefix}input-group-addon {
     color: @text-color;
     border-color: @border-color;
     background-color: @background-color;
   }
-  // Optional feedback icon
+
   .has-feedback {
     color: @text-color;
   }
@@ -30,7 +27,7 @@
 
 // Reset form styles
 // -----------------------------
-// From Bootstrap framework
+// Based on Bootstrap framework
 .reset-form() {
   fieldset {
     padding: 0;
@@ -53,9 +50,8 @@
 
   label {
     display: inline-block;
-    margin-bottom: 5px;
+    font-size: @font-size-base;
     max-width: 100%; 
-    font-weight: bold;
   }
 
   input[type="search"] {
@@ -65,7 +61,7 @@
   // Position radios and checkboxes better
   input[type="radio"],
   input[type="checkbox"] {
-    margin: 4px 0 0;
+    margin: 2px 0 0;
     margin-top: 1px \9; // IE8-9
     line-height: normal;
   }

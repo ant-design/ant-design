@@ -1,3 +1,4 @@
+// 待删除
 .ant-input(){
   position: relative;
   display: inline-block;
@@ -22,14 +23,16 @@
   }
 }
 
-// common mixins for input
+// size mixins for input
 .input-lg() {
   padding: @input-padding-lg;
+  height: @input-height-lg;
   font-size: @input-font-size-lg;
 }
 
 .input-sm() {
   padding: @input-padding-vertical-sm @input-padding-horizontal;
+  height: @input-height-sm;
   font-size: @input-font-size-sm;
 }
 
@@ -38,16 +41,17 @@
   position: relative;
   display: block;
   padding: @input-padding-vertical-base @input-padding-horizontal;
+  margin-right: 8px;
   width: 100%;
+  height: @input-height-base;
   font-size: @input-font-size;
   line-height: @line-height-base;
   color: @input-color;
   background-color: @input-bg;
   background-image: none;
   border: 1px solid @input-border-color;
-  border-radius: @input-border-radius;
-  // Reset placeholder
-  .placeholder();
+  border-radius: @border-radius-base;
+  .placeholder(); // Reset placeholder
   .transition(~"border @{duration-300} @{ease-in-out}, background @{duration-300} @{ease-in-out}, box-shadow @{duration-300} @{ease-in-out}");
 
   &:hover {
@@ -55,10 +59,9 @@
   }
 
   &:focus {
-    @color-rgba: rgba(red(@input-focus-border-color), green(@input-focus-border-color), blue(@input-focus-border-color), .8);
     border-color: @input-focus-border-color;
     outline: 0;
-    box-shadow: 0 0 3px @color-rgba;
+    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
   }
 
   &[disabled],
@@ -160,7 +163,7 @@
     text-align: center;
     background-color: #eee;
     border: 1px solid @input-border-color;
-    border-radius: @input-border-radius;
+    border-radius: @border-radius-base;
 
     input[type="radio"],
     input[type="checkbox"] {
@@ -170,8 +173,16 @@
 
   .@{inputBtn} {
     .btn();
-    .button-size(@input-padding-vertical-base @input-padding-horizontal; @font-size-base; @input-border-radius);
+    .button-size(@input-padding-vertical-base @input-padding-horizontal; @font-size-base; @border-radius-base);
     .button-variant(@input-color; #eee; @input-border-color);
+
+    &:hover {
+      .button-color(lighten(@input-color, 30%, 'relative'); #eee; @input-border-color);
+    }
+    &:active,
+    &.active {
+      .button-color(lighten(@input-color, 20%, 'relative'); #eee; @input-border-color);
+    }
 
     .@{iconfont-css-prefix} {
       line-height: 1;
@@ -199,36 +210,6 @@
       > .@{inputBtn} {
         margin-left: -1px;
       }
-    }
-  }
-
-  &-btn-vertical {
-    position: relative;
-    > .@{inputBtn} {
-      display: block;
-      float: none;
-      width: 22px;
-      height: 14px;
-      margin-left: -1px;
-      border-radius: 0;
-
-      &:first-child {
-        border-top-right-radius: 6px;
-      }
-
-      &:last-child {
-        margin-top: -1px;
-        height: 15px;
-        border-bottom-right-radius: 6px;
-      }
-    }
-
-    .@{iconfont-css-prefix} {
-      position: absolute;
-      top: 0;
-      left: 4px;
-      margin: 0!important;
-      font-size: 12px!important;
     }
   }
 
@@ -270,5 +251,7 @@
     .input-sm();
   }
 
-  // TODO: input-group-btn-vertical: different button size
+  &-sm > &-btn > .@{inputBtn} {
+    margin-top: ~"-2px \9";
+  }
 }

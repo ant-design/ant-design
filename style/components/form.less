@@ -2,48 +2,43 @@
 
 .reset-form();
 
-label[required]:before {
-  position: absolute;
-  display: inline-block;
-  content: "*";
-  color: @label-required-color;
-  font-family: SimSun;
-  font-size: 12px;
-  .translate3d(-10px; 0; 0);
+label {
+  position: relative;
+  &[required]:before {
+    position: absolute;
+    display: inline-block;
+    left: ~"-5px \9"; // ie8-9
+    content: "*";
+    color: @label-required-color;
+    font-family: SimSun;
+    font-size: 12px;
+    .translate3d(-10px; 0; 0);
+  }
+
+  > .@{iconfont-css-prefix} {
+    vertical-align: top;
+    font-size: 12px;
+  }
 }
 
-// Form groups
-// You should vrap labels and controls in .@{css-prefix}form-item for optimum spacing
+// Form items
+// You should wrap labels and controls in .@{css-prefix}form-item for optimum spacing
 .@{css-prefix}form-item {
-  margin-bottom: 20px;
+  margin-bottom: @form-item-margin-bottom;
+
+  label {
+    color: @label-color;
+    text-align: right;
+    padding-right: 8px;
+  }
 }
 
 // Input styles
-// Shared size and type resets for form controls. Apply `.form-control` to any
-// of the following form controls:
-//
-// select
-// textarea
-// input[type="text"]
-// input[type="password"]
-// input[type="datetime"]
-// input[type="datetime-local"]
-// input[type="date"]
-// input[type="month"]
-// input[type="time"]
-// input[type="week"]
-// input[type="number"]
-// input[type="email"]
-// input[type="url"]
-// input[type="search"]
-// input[type="tel"]
-// input[type="color"]
 .@{css-prefix}input {
   .input;
 }
 
 //== Input type: with extra icon
-// TODO: sizing options
 .has-feedback {
   .input-with-icon();
 }
@@ -53,7 +48,34 @@ label[required]:before {
   .input-group(~"@{css-prefix}input");
 }
 
-// Other form controls
+// 表单下的输入框尺寸唯一: 大尺寸
+form {
+  .@{css-prefix}input {
+    height: @input-height-lg;
+    font-size: 12px;
+    padding: @input-padding-horizontal;
+  }
+  .has-feedback {
+    .@{iconfont-css-prefix} {
+      .square(@input-height-lg);
+      line-height: @input-height-lg;
+    }
+  }
+
+  .@{css-prefix}input-group > .@{css-prefix}input,
+  .@{css-prefix}input-group > .@{css-prefix}input-group-addon,
+  .@{css-prefix}input-group > .@{css-prefix}input-group-btn > .input-btn {
+    .input-lg();
+  }
+  
+  // input[type=file]
+  .@{css-prefix}upload {
+    height: 32px;
+    font-size: 12px;
+    padding: 7px;
+  }
+}
+
 // Radio & Checkbox
 .@{css-prefix}radio,
 .@{css-prefix}checkbox {
@@ -61,10 +83,11 @@ label[required]:before {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: @input-height-lg;
 
   label {
     min-height: @line-height-computed;
-    padding-left: 20px;
+    padding: 7px 0 7px 20px;
     margin-bottom: 0;
     font-weight: normal;
     cursor: pointer;
@@ -81,7 +104,7 @@ label[required]:before {
 
 .@{css-prefix}radio + .@{css-prefix}radio,
 .@{css-prefix}checkbox + .@{css-prefix}checkbox {
-  margin-top: -5px; // Move up sibling radios or checkboxes for tighter spacing
+  margin-top: -5px;
 }
 
 // Radios and checkboxes on same line
@@ -89,22 +112,15 @@ label[required]:before {
 .@{css-prefix}checkbox-inline {
   position: relative;
   display: inline-block;
-  padding-left: 20px;
+  padding: 7px 20px;
+  padding-right: 0!important;
   margin-bottom: 0;
+  margin-right: 10px;
   vertical-align: middle;
   font-weight: normal;
   cursor: pointer;
 }
-.@{css-prefix}radio-inline + .@{css-prefix}radio-inline,
-.@{css-prefix}checkbox-inline + .@{css-prefix}checkbox-inline {
-  margin-top: 0;
-  margin-left: 10px; // space out consecutive inline controls
-}
 
-// Apply same disabled cursor tweak as for inputs
-// Some special care is needed because <label>s don't inherit their parent's `cursor`.
-//
-// Note: Neither radios nor checkboxes can be readonly.
 input[type="radio"],
 input[type="checkbox"] {
   &[disabled],
@@ -145,10 +161,8 @@ input[type="checkbox"] {
   .@{css-prefix}checkbox-inline {
     margin-top: 0;
     margin-bottom: 0;
-    padding-top: (@input-padding-vertical-base + 1); // Default padding plus a border
   }
-  // Account for padding we're adding to ensure the alignment and of help text
-  // and other content below items
+
   .@{css-prefix}radio,
   .@{css-prefix}checkbox {
     min-height: (@line-height-computed + (@input-padding-vertical-base + 1));
@@ -157,18 +171,24 @@ input[type="checkbox"] {
 
 //== Inline Form
 // Attention: Inline form does only apply to within viewports that are at least 768px wide
+// TODO: 用 float 代替 inline-block
 .@{css-prefix}form-inline {
+  &:extend(.clearfix all);
   @media (min-width: @screen-sm-min) {
     .@{css-prefix}form-item {
-      display: inline-block;
+      float: left;
       margin-bottom: 0;
       vertical-align: middle;
+      margin-right: 10px;
+
+      label {
+        padding-right: 0;
+      }
     }
 
-    // In navbar-form, allow folks to *not* use `.@{css-prefix}form-item`
     .@{css-prefix}input {
       display: inline-block;
-      width: auto; // Prevent labels from stacking above inputs in `.@{css-prefix}form-item`
+      width: auto;
       vertical-align: middle;
     }
 
@@ -196,24 +216,35 @@ input[type="checkbox"] {
       position: relative;
       margin-left: 0;
     }
-
   }
 }
 
-.@{css-prefix}form-text {
+.@{css-prefix}form-horizontal, .@{css-prefix}form-inline {
+  label {
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}
+
+.@{css-prefix}form-text, .@{css-prefix}form-split {
   // min-height: (@line-height-computed + @font-size-base);
   margin: 0!important;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  font-size: 12px;
+  height: @input-height-lg;
+}
 
-  &.@{css-prefix}input-lg,
-  &.@{css-prefix}input-sm {
-    padding-left: 0;
-    padding-right: 0;
-  }
+.@{css-prefix}form-split {
+  text-align: center;
 }
 
 // Validation state
 .has-success {
-  .form-control-validation(@success-color; @success-color;);
+  .form-control-validation(@success-color; @input-hover-border-color;);
+  .@{css-prefix}input {
+    border-color: @input-border-color;
+  }
 }
 .has-warning {
   .form-control-validation(@warning-color; @warning-color;);
@@ -223,5 +254,6 @@ input[type="checkbox"] {
 }
 .@{css-prefix}form-explain {
   display: block;
-  margin-bottom: 10px;
+  font-size: 12px;
 }
+
