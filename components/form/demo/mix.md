@@ -11,6 +11,7 @@ var Select = antd.Select;
 var Option = Select.Option;
 var InputNumber = antd.InputNumber;
 var Datepicker = antd.Datepicker;
+var Switch = antd.Switch;
 
 
 function handleSelectChange(value) {
@@ -44,7 +45,7 @@ React.render(
     <div className="ant-form-item">
       <label for="" className="col-6" required>Switch 开关:</label>
       <div className="col-10">
-        <p className="ant-form-text">请填写 switch</p>
+        <Switch />
       </div>
     </div>
     <div className="ant-form-item">
