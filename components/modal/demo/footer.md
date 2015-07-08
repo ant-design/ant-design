@@ -37,8 +37,8 @@ var Test = React.createClass({
        visible={this.state.visible}
        title="对话框标题" onOk={this.handleOk} onCancel={this.handleCancel}
         footer={[
-          <button className="ant-btn" onClick={this.handleCancel}>返 回</button>,
-          <button className="ant-btn ant-btn-primary" onClick={this.handleOk}>
+          <button key="back" className="ant-btn" onClick={this.handleCancel}>返 回</button>,
+          <button key="submit" className="ant-btn ant-btn-primary" onClick={this.handleOk}>
             提 交
             <i className={'anticon anticon-loading'+(this.state.loading?'':'hide')}></i>
           </button>

@@ -8,10 +8,10 @@
 
 ````jsx
 var Popover = antd.Popover;
-var content = [
-  <p>内容</p>,
+var content = <div>
   <p>内容</p>
-];
+  <p>内容</p>
+</div>;
 
 React.render(
   <Popover overlay={content} title="标题">
