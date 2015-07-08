@@ -151,11 +151,11 @@
     .button-variant(@input-color; #eee; @input-border-color);
 
     &:hover {
-      .button-color(lighten(@input-color, 30%, 'relative'); #eee; @input-border-color);
+      .button-color(tint(@input-color, 20%); #eee; @input-border-color);
     }
     &:active,
     &.active {
-      .button-color(lighten(@input-color, 20%, 'relative'); #eee; @input-border-color);
+      .button-color(shade(@input-color, 5%); #eee; @input-border-color);
     }
 
     .@{iconfont-css-prefix} {

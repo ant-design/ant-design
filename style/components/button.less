@@ -11,18 +11,18 @@
     .btn-primary;
 
     .@{btnPrefixClass}-group &:not(:first-child):not(:last-child) {
-      border-right-color: #00abea;
-      border-left-color: #00abea;
+      border-right-color: @btn-primary-border;
+      border-left-color: btn-primary-border;
     }
 
     .@{btnPrefixClass}-group &:first-child {
       &:not(:last-child) {
-        border-right-color: #00abea;
+        border-right-color: @btn-primary-border;
       }
     }
 
     .@{btnPrefixClass}-group &:last-child:not(:first-child) {
-      border-left-color: #00abea;
+      border-left-color: @btn-primary-border;
     }
   }
 

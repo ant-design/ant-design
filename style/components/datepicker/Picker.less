@@ -11,9 +11,6 @@
   position: relative;
   display: inline-block;
 
-  &-input {
-    .input;
-  }
   &-icon {
     position: absolute;
     -webkit-user-select: none;
@@ -38,10 +35,8 @@
     display: block;
   }
   &-open &-input {
-    border-color: #23c0fa;
-    box-shadow: 0 0 3px #23c0fa;
-  }
-  .ant-form-item &-input {
-    height: 32px;
+    border-color: @input-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
   }
 }

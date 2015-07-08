@@ -1,7 +1,7 @@
 @import "../mixins/index";
 @stepsPrefixClass: ~"@{css-prefix}steps";
 
-@process-icon-color: #3fc7fa;
+@process-icon-color: @primary-color;
 @process-title-color: #666;
 @process-description-color: @process-title-color;
 @process-tail-color: #bcbcbc;
@@ -13,6 +13,7 @@
 @finish-title-color: @wait-title-color;
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
+
 
 .transition(@transition) {
   transition: @transition;
@@ -28,6 +29,7 @@
   .@{stepsPrefixClass}-item {
     position: relative;
     display: inline-block;
+    vertical-align: top;
 
     &.@{stepsPrefixClass}-status-wait {
       .@{stepsPrefixClass}-head-inner {
@@ -91,6 +93,9 @@
         font-size: 20px;
         width: auto;
         height: auto;
+        > .@{stepsPrefixClass}-icon {
+          top: -4px;
+        }
       }
       &.@{stepsPrefixClass}-status-process {
         .@{stepsPrefixClass}-head-inner > .@{stepsPrefixClass}-icon {
@@ -112,12 +117,12 @@
 
   .@{stepsPrefixClass}-head-inner {
     display: block;
-    border:2px solid @wait-icon-color;
-    width: 24px;
-    height: 24px;
-    line-height: 22px;
+    border:1px solid @wait-icon-color;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
     text-align: center;
-    border-radius: 24px;
+    border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
     .transition(background-color 0.1s ease);
@@ -126,8 +131,9 @@
     > .@{stepsPrefixClass}-icon {
       line-height: 1;
       display: inline-block;
-      vertical-align: text-top;
-      color: #3fc7fa;
+      vertical-align: middle;
+      top: -2px;
+      color: @primary-color;
       position: relative;
     }
   }
