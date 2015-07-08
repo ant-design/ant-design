@@ -1,4 +1,5 @@
 @import "../mixins/index";
+@btnClass: ~"@{css-prefix}btn";
 
 .reset-form();
 
@@ -45,26 +46,21 @@ label {
 
 //== Style for input-group
 .@{css-prefix}input-group {
-  .input-group(~"@{css-prefix}input");
+  .input-group(~"@{css-prefix}input"; @btnClass)
 }
 
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
-  .@{css-prefix}input {
-    height: @input-height-lg;
-    font-size: @font-size-base;
-    padding: @input-padding-horizontal;
-  }
   .has-feedback {
     .@{iconfont-css-prefix} {
       .square(@input-height-lg);
       line-height: @input-height-lg;
     }
   }
-
-  .@{css-prefix}input-group > .@{css-prefix}input,
-  .@{css-prefix}input-group > .@{css-prefix}input-group-addon,
-  .@{css-prefix}input-group > .@{css-prefix}input-group-btn > .input-btn {
+  .@{css-prefix}input,
+  .@{css-prefix}input-group .@{css-prefix}input,
+  .@{css-prefix}input-group .@{css-prefix}input-group-addon,
+  .@{css-prefix}input-group .@{css-prefix}input-group-btn .@{btnClass} {
     height: @input-height-lg;
     font-size: @font-size-base;
     padding: @input-padding-horizontal;

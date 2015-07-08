@@ -24,6 +24,10 @@
     .@{btnPrefixClass}-group &:last-child:not(:first-child) {
       border-left-color: @btn-primary-border;
     }
+
+    .@{btnPrefixClass}-group & + .@{btnPrefixClass} {
+      border-left-color: @btn-primary-border;
+    }
   }
 
   &-ghost {

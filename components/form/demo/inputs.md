@@ -6,93 +6,112 @@
 
 ---
 
-````html
-<form class="ant-form-horizontal">
-  <div class="ant-form-item">
-    <label class="col-6" for="site1">标签输入框：</label>
-    <div class="col-16">
-      <div class="ant-input-group">
-        <span class="ant-input-group-addon" id="basic-addon1">Http://</span>
-        <input type="text" id="site1" class="ant-input" value="mysite.com">
+````jsx
+
+var Menu = antd.Menu;
+var Dropdown = antd.Dropdown;
+
+var menu = <Menu>
+  <Menu.Item>
+    <a target="_blank" href="http://www.alipay.com/">.net</a>
+  </Menu.Item>
+  <Menu.Item>
+    <a target="_blank" href="http://www.taobao.com/">.jp</a>
+  </Menu.Item>
+  <Menu.Item>
+    <a target="_blank" href="http://www.tmall.com/">.org</a>
+  </Menu.Item>
+</Menu>;
+
+React.render(
+<form className="ant-form-horizontal">
+  <div className="ant-form-item">
+    <label className="col-6" for="site1">标签输入框：</label>
+    <div className="col-16">
+      <div className="ant-input-group">
+        <span className="ant-input-group-addon" id="basic-addon1">Http://</span>
+        <input type="text" id="site1" className="ant-input" value="mysite.com" />
       </div>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label class="col-6" for="site3">标签输入框：</label>
-    <div class="col-16">
-      <div class="ant-input-group">
-        <span class="ant-input-group-addon" id="basic-addon3">Http://</span>
-        <input type="text" class="ant-input" id="site3" value="mysite">
-        <span class="ant-input-group-addon" id="basic-addon4">.com</span>
+  <div className="ant-form-item">
+    <label className="col-6" for="site3">标签输入框：</label>
+    <div className="col-16">
+      <div className="ant-input-group">
+        <span className="ant-input-group-addon" id="basic-addon3">Http://</span>
+        <input type="text" className="ant-input" id="site3" value="mysite" />
+        <span className="ant-input-group-addon" id="basic-addon4">.com</span>
       </div>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label class="col-6" for="site4">按钮式下拉输入框：</label>
-    <div class="col-16">
-      <div class="ant-input-group">
-        <input type="text" class="ant-input" id="site4" placeholder="Search for...">
-        <div class="ant-input-group-btn">
-          <button class="input-btn" type="button">
-            <span>.com</span>
-            <i class="anticon anticon-down"></i>
-          </button>
+  <div className="ant-form-item">
+    <label className="col-6" for="site4">按钮式下拉输入框：</label>
+    <div className="col-16">
+      <div className="ant-input-group">
+        <input type="text" className="ant-input" id="site4" placeholder="Search for..." />
+        <div className="ant-input-group-btn">    
+          <Dropdown overlay={menu}>
+            <button className="ant-btn ant-btn-menu">
+              .com <i className="anticon anticon-down"></i>
+            </button>
+          </Dropdown>
         </div>
       </div>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label class="col-6" for="site5">带按钮的输入框：</label>
-    <div class="col-16">
-      <div class="ant-input-group">
-        <input type="text" class="ant-input" id="site5" placeholder="Search for...">
-        <div class="ant-input-group-btn">
-          <button class="input-btn" type="button">GO!</button>
+  <div className="ant-form-item">
+    <label className="col-6" for="site5">带按钮的输入框：</label>
+    <div className="col-16">
+      <div className="ant-input-group">
+        <input type="text" className="ant-input" id="site5" placeholder="Search for..." />
+        <div className="ant-input-group-btn">
+          <button className="ant-btn" type="button">GO!</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label class="col-6">输入身份证：</label>
-    <div class="col-16">
-    <div class="row">
-      <div class="col-6 pdrg-8">
-        <input class="ant-input" type="text" id="certNo1" />
+  <div className="ant-form-item">
+    <label className="col-6">输入身份证：</label>
+    <div className="col-16">
+    <div className="row">
+      <div className="col-6">
+        <input className="ant-input" type="text" id="certNo1" />
       </div>
-      <div class="col-6 pdrg-8">
-        <input class="ant-input" type="text" id="certNo2" />
+      <div className="col-6">
+        <input className="ant-input" type="text" id="certNo2" />
       </div>
-      <div class="col-6 pdrg-8">
-        <input class="ant-input" type="text" id="certNo3" />
+      <div className="col-6">
+        <input className="ant-input" type="text" id="certNo3" />
       </div>      
-      <div class="col-6 pdrg-8">
-        <input class="ant-input" type="text" id="certNo4" />
+      <div className="col-6">
+        <input className="ant-input" type="text" id="certNo4" />
       </div>
     </div>
     </div>
   </div>
-  <div class="ant-form-item has-error">
-    <label class="col-6">电话号码：</label>
-    <div class="col-16">
-      <div class="row">
-        <div class="col-4 pdrg-8">
-          <input class="ant-input" type="text" id="tel1" value="086" />
+  <div className="ant-form-item has-error">
+    <label className="col-6">电话号码：</label>
+    <div className="col-16">
+      <div className="row">
+        <div className="col-4">
+          <input className="ant-input" type="text" id="tel1" value="086" />
         </div>
-        <div class="col-2 pdrg-8">
-          <p class="ant-form-split">--</p>
+        <div className="col-2">
+          <p className="ant-form-split">--</p>
         </div>
-        <div class="col-6 pdrg-8">
-          <input class="ant-input" type="text" id="tel2" />
+        <div className="col-6">
+          <input className="ant-input" type="text" id="tel2" />
         </div>
-        <div class="col-6 pdrg-8">
-          <input class="ant-input" type="text" id="tel3" />
+        <div className="col-6">
+          <input className="ant-input" type="text" id="tel3" />
         </div>      
-        <div class="col-6 pdrg-8">
-          <input class="ant-input" type="text" id="tel4" />
+        <div className="col-6">
+          <input className="ant-input" type="text" id="tel4" />
         </div>
-        <p class="ant-form-explain">请输入正确的电话号码</p>
+        <p className="ant-form-explain">请输入正确的电话号码</p>
       </div>
     </div>
   </div>
-</form>
+</form> 
+, document.getElementById('components-form-demo-inputs'));
 ````
