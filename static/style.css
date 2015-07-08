@@ -57,7 +57,7 @@ body {
 }
 
 body {
-  font-family: "Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
@@ -450,13 +450,13 @@ footer ul li > a {
   float: left;
 }
 
-.aside-container>ul>li {
+.aside-container > ul > li {
   overflow: hidden;
 }
 
 .aside-container li h4 {
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   padding: 10px 0 10px 50px;
   margin: 0;
   color: #5C6B77;
@@ -597,6 +597,11 @@ footer ul li > a {
   border: none;
   padding: 12px 20px;
   margin: 0;
+}
+
+.markdown strong,
+.markdown b {
+  font-weight: 600;
 }
 
 .markdown > table {
