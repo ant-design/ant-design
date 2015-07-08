@@ -24,7 +24,7 @@ var Test = React.createClass({
     } else {
       options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
         var email = value + '@' + domain;
-        return <Option key={email} value={email}>{email}</Option>;
+        return <Option key={email}>{email}</Option>;
       });
     }
     this.setState({

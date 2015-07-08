@@ -16,10 +16,10 @@ function handleChange(value) {
 
 React.render(
   <Select value="lucy" style={{width:200}} onChange={handleChange}>
-    <Option key="jack" value="jack">jack</Option>
-    <Option key="lucy" value="lucy">lucy</Option>
-    <Option key="disabled" value="disabled" disabled>disabled</Option>
-    <Option key="yiminghe" value="yiminghe">yiminghe</Option>
+    <Option value="jack">jack</Option>
+    <Option value="lucy">lucy</Option>
+    <Option value="disabled" disabled>disabled</Option>
+    <Option value="yiminghe">yiminghe</Option>
   </Select>
 , document.getElementById('components-select-demo-basic'));
 ````
