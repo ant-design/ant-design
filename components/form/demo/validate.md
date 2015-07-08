@@ -1,6 +1,6 @@
 # 校验提示
 
-- order: 5
+- order: 4
 
 我们为表单控件的校验状态定义了样式，共有三种校验状态类：
 
@@ -15,23 +15,23 @@
 ---
 
 ````html
-<h4>校验提示</h4>
+<h4>不带反馈图标的校验提示</h4>
 <br />
-<div class="ant-form-item has-success">
-  <label for="success">成功校验：</label>
-  <input class="ant-input" type="text" id="success" value="我是正文"/>
-</div>
-
-<div class="ant-form-item has-error">
-  <label for="error">失败校验：</label>
-  <input class="ant-input" type="text" id="error" value="无效选择"/>
-  <div class="ant-form-explain">请输入数字和字母组合</div>
-</div>
-
-<div class="ant-form-item has-warning">
-  <label for="warning">警告校验：</label>
-  <input class="ant-input" type="text" id="warning" value="前方高能预警"/>
-</div>
+<form class="ant-form-horizontal">
+  <div class="ant-form-item has-error">
+    <label for="error" class="col-5">失败校验：</label>
+    <div class="col-12">
+      <input class="ant-input" type="text" id="error" value="无效选择"/>
+      <div class="ant-form-explain">请输入数字和字母组合</div>
+    </div>
+  </div>
+  <div class="ant-form-item has-warning">
+    <label for="warning" class="col-5">警告校验：</label>
+    <div class="col-12">
+      <input class="ant-input" type="text" id="warning" value="前方高能预警"/>
+    </div>
+  </div>
+</form>
 
 <h4>带图标的校验提示（水平排列的表单）</h4>
 <br />

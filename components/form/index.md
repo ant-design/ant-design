@@ -11,7 +11,7 @@
 
 ### 表单
 
-除了默认的排列方式，我们还为 `form` 提供了以下两种排列方式：
+我们为 `form` 提供了以下两种排列方式：
 
 - 水平排列：`.ant-form-horizontal` 类可以实现 `label` 标签和表单控件的水平排列;
 - 行内排列：`.ant-form-inline` 类可使其表现为 inline-block 级别的控件。
