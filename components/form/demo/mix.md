@@ -78,25 +78,25 @@ React.render(
     </div>
     <div className="ant-form-item">
       <label for="" className="col-6" required>Datepicker:</label>
-      <div className="col-7">
+      <div className="col-6">
         <Datepicker value="" />
       </div>
       <div className="col-2">
         <p className="ant-form-split">--</p>
       </div>
-      <div className="col-7">
+      <div className="col-6">
         <Datepicker value="" />
       </div>
     </div>
     <div className="ant-form-item has-error">
       <label for="" className="col-6" required>Datepicker 校验:</label>
-      <div className="col-7">
+      <div className="col-6">
         <Datepicker value="" />
       </div>
       <div className="col-2">
         <p className="ant-form-split">--</p>
       </div>
-      <div className="col-7">
+      <div className="col-6">
         <Datepicker value="" />
       </div>
       <div className="col-19 col-offset-6">

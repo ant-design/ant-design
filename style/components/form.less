@@ -11,13 +11,13 @@ label {
     content: "*";
     color: @label-required-color;
     font-family: SimSun;
-    font-size: 12px;
+    font-size: @font-size-base;
     .translate3d(-10px; 0; 0);
   }
 
   > .@{iconfont-css-prefix} {
     vertical-align: top;
-    font-size: 12px;
+    font-size: @font-size-base;
   }
 }
 
@@ -72,9 +72,11 @@ form {
   
   // input[type=file]
   .@{css-prefix}upload {
-    height: 32px;
-    font-size: 12px;
-    padding: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    max-height: 32px;
+    font-size: @font-size-base;
+    background: transparent;
   }
 }
 
@@ -233,7 +235,7 @@ input[type="checkbox"] {
   margin: 0!important;
   padding-top: 7px;
   padding-bottom: 7px;
-  font-size: 12px;
+  font-size: @font-size-base;
   height: @input-height-lg;
 }
 
@@ -256,6 +258,6 @@ input[type="checkbox"] {
 }
 .@{css-prefix}form-explain {
   display: block;
-  font-size: 12px;
+  font-size: @font-size-base;
 }
 
