@@ -32,6 +32,7 @@ export default React.createClass({
     return (
       <Tooltip placement={this.props.placement}
         prefixCls={prefixCls}
+        delay={0.1}
         renderPopupToBody={false}
         transitionName={transitionName}
         trigger={this.props.trigger}

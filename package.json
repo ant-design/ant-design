@@ -23,7 +23,7 @@
     "rc-select": "~4.0.0",
     "rc-steps": "~1.1.2",
     "rc-tabs": "~5.1.0",
-    "rc-tooltip": "~2.2.3"
+    "rc-tooltip": "~2.3.0"
   },
   "devDependencies": {
     "css-animation": "~1.0.3",
