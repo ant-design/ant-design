@@ -26,14 +26,14 @@ React.render(
   <form className="ant-form-horizontal">
     <div className="ant-form-item">
       <label className="col-6" required>Input-Number:</label>
-      <div className="col-6 pdrg-8">
+      <div className="col-6">
         <InputNumber min={1} max={10} defaultValue={3} onChange={onChange} style={{width:100}}/>
       </div>
       <div className="col-3"><p className="ant-form-text"> 台机器</p></div>
     </div>
     <div className="ant-form-item">
       <label className="col-6" required><i className="anticon anticon-exclamation-circle"></i>我是标题:</label>
-      <div className="col-7 pdrg-8">
+      <div className="col-7">
         <p className="ant-form-text">唧唧复唧唧木兰当户织呀</p>
       </div>
       <div className="col-9">
