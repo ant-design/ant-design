@@ -2,7 +2,7 @@
 
 - order: 1
 
-迷你版的步进条，通过设置`<Steps size='small'>`启用.
+迷你版的步骤条，通过设置`<Steps size='small'>`启用.
 
 ---
 

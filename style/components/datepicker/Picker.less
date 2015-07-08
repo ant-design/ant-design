@@ -10,6 +10,7 @@
 .@{prefixCalendarClass}-picker {
   position: relative;
   display: inline-block;
+
   &-input {
     .input;
   }
@@ -20,10 +21,10 @@
     .transition(all .3s @ease-in-out);
     width: 14px;
     height: 14px;
-    right: 14px;
+    line-height: 14px;
+    right: 8px;
     color: #999;
     top: 50%;
-    line-height: 1;
     margin-top: -7px;
     &:after {
       content: "\e60c";
@@ -39,5 +40,8 @@
   &-open &-input {
     border-color: #23c0fa;
     box-shadow: 0 0 3px #23c0fa;
+  }
+  .ant-form-item &-input {
+    height: 32px;
   }
 }

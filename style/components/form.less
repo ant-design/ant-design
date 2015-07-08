@@ -11,13 +11,13 @@ label {
     content: "*";
     color: @label-required-color;
     font-family: SimSun;
-    font-size: 12px;
+    font-size: @font-size-base;
     .translate3d(-10px; 0; 0);
   }
 
   > .@{iconfont-css-prefix} {
     vertical-align: top;
-    font-size: 12px;
+    font-size: @font-size-base;
   }
 }
 
@@ -52,7 +52,7 @@ label {
 form {
   .@{css-prefix}input {
     height: @input-height-lg;
-    font-size: 12px;
+    font-size: @font-size-base;
     padding: @input-padding-horizontal;
   }
   .has-feedback {
@@ -65,14 +65,17 @@ form {
   .@{css-prefix}input-group > .@{css-prefix}input,
   .@{css-prefix}input-group > .@{css-prefix}input-group-addon,
   .@{css-prefix}input-group > .@{css-prefix}input-group-btn > .input-btn {
-    .input-lg();
+    height: @input-height-lg;
+    font-size: @font-size-base;
+    padding: @input-padding-horizontal;
   }
   
   // input[type=file]
   .@{css-prefix}upload {
-    height: 32px;
-    font-size: 12px;
-    padding: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    max-height: 32px;
+    font-size: @font-size-base;
   }
 }
 
@@ -231,7 +234,7 @@ input[type="checkbox"] {
   margin: 0!important;
   padding-top: 7px;
   padding-bottom: 7px;
-  font-size: 12px;
+  font-size: @font-size-base;
   height: @input-height-lg;
 }
 
@@ -254,6 +257,6 @@ input[type="checkbox"] {
 }
 .@{css-prefix}form-explain {
   display: block;
-  font-size: 12px;
+  font-size: @font-size-base;
 }
 
