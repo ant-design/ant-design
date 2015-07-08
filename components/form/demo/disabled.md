@@ -8,8 +8,11 @@
 
 ---
 
+#### 禁用的表单控件
+
+<br>
+
 ````html
-<h4>禁用的表单控件</h4>
 <form class="ant-form-horizontal">
   <div class="ant-form-item">
     <label class="col-5">禁用的输入框：</label>
@@ -18,10 +21,13 @@
     </div>
   </div>
 </form>
+````
 
-<br />
+#### 禁用的 fieldset
 
-<h4>禁用的 fieldset</h4>
+<br>
+
+````html
 <form class="ant-form-horizontal">
   <fieldset disabled>
     <div class="ant-form-item">
@@ -52,5 +58,4 @@
     </div>
   </fieldset>
 </form>
-
 ````

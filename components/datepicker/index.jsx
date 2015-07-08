@@ -56,7 +56,7 @@ export default React.createClass({
   render() {
     var calendar = (
       <Calendar
-        disabledDate={this.props.disabled}
+        disabledDate={this.props.disabledDate}
         locale={CalendarLocale}
         orient={['top', 'left']}
         defaultValue={defaultCalendarValue}
@@ -75,7 +75,7 @@ export default React.createClass({
         value={this.state.value}
         prefixCls="ant-calendar-picker"
         onChange={this.handleChange}>
-        <input placeholder={this.props.placeholder} className="ant-calendar-picker-input"/>
+        <input disabled={this.props.disabled} placeholder={this.props.placeholder} className="ant-calendar-picker-input ant-input" />
       </Datepicker>
     );
   }

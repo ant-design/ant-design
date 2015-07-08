@@ -1,7 +1,8 @@
 # 页面转换
 
 - category: 动画
-- order: 1
+- chinese: 页面转换
+- order: 2
 
 ---
 

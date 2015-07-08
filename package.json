@@ -21,9 +21,9 @@
     "rc-menu": "~3.4.0",
     "rc-progress": "~1.0.0",
     "rc-select": "~4.0.0",
-    "rc-steps": "~1.1.2",
+    "rc-steps": "~1.1.3",
     "rc-tabs": "~5.1.0",
-    "rc-tooltip": "~2.2.3"
+    "rc-tooltip": "~2.3.0"
   },
   "devDependencies": {
     "css-animation": "~1.0.3",

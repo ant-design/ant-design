@@ -19,6 +19,7 @@ module.exports = React.createClass({
     return (
       <Tooltip placement={this.props.placement}
         prefixCls="ant-tooltip"
+        delay={0.1}
         trigger={this.props.trigger}
         transitionName={transitionName}
         overlay={this.props.title}>
