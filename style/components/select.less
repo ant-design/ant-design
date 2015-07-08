@@ -1,7 +1,8 @@
 @selectPrefixCls: ant-select;
 
+@import "../mixins/iconfont";
 //mixin
-.selection__clear(){
+.selection__clear() {
   cursor: pointer;
   float: right;
   font-weight: bold;
@@ -131,6 +132,7 @@
     }
 
     .@{selectPrefixCls}-selection__choice__remove {
+      .iconfont-mixin();
       color: #919191;
       cursor: pointer;
       display: inline-block;
@@ -138,6 +140,10 @@
       padding: 0 0 0 8px;
       &:hover {
         color: #333;
+      }
+
+      &:before {
+        content: "\e61e";
       }
     }
   }
@@ -156,7 +162,6 @@
       float: right;
     }
   }
-
 
   &-dropdown {
     display: none;

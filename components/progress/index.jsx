@@ -3,6 +3,7 @@
 var Progressline = require('rc-progress').Line;
 var Progresscircle = require('rc-progress').Circle;
 var React = require('react');
+var assign = require('object-assign');
 
 var Line = React.createClass({
   getDefaultProps() {
@@ -20,28 +21,30 @@ var Line = React.createClass({
       'success': '#85D262'
     };
 
-    if (parseInt(this.props.percent) === 100) {
-      this.props.status = 'success';
+    var props = assign({}, this.props);
+
+    if (parseInt(props.percent) === 100) {
+      props.status = 'success';
     }
 
     var style = {
-      'width': this.props.width
+      'width': props.width
     };
-    var fontSize = (this.props.width / 100 * this.props.strokeWidth);
+    var fontSize = (props.width / 100 * props.strokeWidth);
     var iconStyle = {
-      'font-size': (fontSize < 14) ? 14 : fontSize
+      'fontSize': (fontSize < 14) ? 14 : fontSize
     };
     var textStyle = {
-      'color': statusColorMap[this.props.status]
+      'color': statusColorMap[props.status]
     };
     var progressInfo;
-    if (this.props.status === 'exception') {
+    if (props.status === 'exception') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
           <i style={iconStyle} className="anticon anticon-exclamation-circle"></i>
         </span>
       );
-    } else if (this.props.status === 'success') {
+    } else if (props.status === 'success') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-line-text'>
           <i style={iconStyle} className="anticon anticon-check-circle"></i>
@@ -49,15 +52,15 @@ var Line = React.createClass({
       );
     } else {
       progressInfo = (
-        <span className='ant-progress-line-text'>{this.props.percent}%</span>
+        <span className='ant-progress-line-text'>{props.percent}%</span>
       );
     }
 
     return (
       <div className='ant-progress-line-wrap'>
         <div className='ant-progress-line-inner' style={style}>
-          <Progressline percent={this.props.percent} strokeWidth={this.props.strokeWidth}
-                        strokeColor={statusColorMap[this.props.status]} trailColor="#e9e9e9" />
+          <Progressline percent={props.percent} strokeWidth={props.strokeWidth}
+            strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
         </div>
         {progressInfo}
       </div>
@@ -81,28 +84,30 @@ var Circle = React.createClass({
       'success': '#85D262'
     };
 
-    if (parseInt(this.props.percent) === 100) {
-      this.props.status = 'success';
+    var props = assign({}, this.props);
+
+    if (parseInt(props.percent) === 100) {
+      props.status = 'success';
     }
 
     var style = {
-      'width': this.props.width,
-      'height': this.props.width
+      'width': props.width,
+      'height': props.width
     };
     var wrapStyle = {
-      'font-size': this.props.width * 0.16 + 6
+      'fontSize': props.width * 0.16 + 6
     };
     var textStyle = {
-      'color': statusColorMap[this.props.status]
+      'color': statusColorMap[props.status]
     };
     var progressInfo;
-    if (this.props.status === 'exception') {
+    if (props.status === 'exception') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-circle-text'>
           <i className='anticon anticon-exclamation'></i>
         </span>
       );
-    } else if (this.props.status === 'success') {
+    } else if (props.status === 'success') {
       progressInfo = (
         <span style={textStyle} className='ant-progress-circle-text'>
           <i className="anticon anticon-check"></i>
@@ -110,15 +115,15 @@ var Circle = React.createClass({
       );
     } else {
       progressInfo = (
-        <span className="ant-progress-circle-text">{this.props.percent}%</span>
+        <span className="ant-progress-circle-text">{props.percent}%</span>
       );
     }
 
     return (
       <div className="ant-progress-circle-wrap" style={wrapStyle}>
         <div className="ant-progress-circle-inner" style={style}>
-          <Progresscircle percent={this.props.percent} strokeWidth={this.props.strokeWidth}
-                        strokeColor={statusColorMap[this.props.status]} trailColor="#e9e9e9" />
+          <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
+            strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
           {progressInfo}
         </div>
       </div>
