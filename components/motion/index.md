@@ -1,7 +1,7 @@
 # Motion
 
 - category: CSS
-- chinese: 动画样式
+- chinese: 组件动画
 - order: 4
 
 ---
