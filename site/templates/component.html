@@ -1,24 +1,17 @@
 {% extends "page.html" %}
 
-{% block styles %}
-<link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}.css">
-{% endblock %}
-
 {% block scripts %}
 <script src="/dist/{{ config.package.name }}-{{ config.package.version }}.js"></script>
+<script src="/dist/demo.js"></script>
 <script>
 window.require = function(path) {
   var result = window;
-  if (path.indexOf('antd') < 0 ||
-      path.indexOf('antd/components/') < 0) {
-    throw 'There should not have modules here 1.';
-  }
   var namespaces = path.split('/');
   namespaces.forEach(function(key, i) {
-    if (i === namespaces.length - 1) {
+    if (i !== 0 && i === namespaces.length - 1) {
       key = capitalizeFirstLetter(key);
     }
-    if (key !== 'components') {
+    if (key !== 'lib') {
       if (result[key]) {
         result = result[key];
       } else {

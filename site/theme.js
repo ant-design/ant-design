@@ -88,6 +88,9 @@ module.exports = function(nico) {
       return items.filter(function(item, i) {
         return (i+1)%2 === 0;
       });
+    },
+    rootDirectoryIs: function(directory, rootDirectory) {
+      return directory.split('/')[0] === rootDirectory;
     }
   };
 

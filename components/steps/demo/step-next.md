@@ -6,19 +6,15 @@
 
 ---
 
-<style>
-.my-step-form {
-  width: 100%;
+````css
+form.my-step-form > div {
+  margin-bottom: 30px;
 }
-.my-step-form > div {
-  margin-bottom: 20px;
-}
-.my-step-container {
-  width: 100%;
-}
-</style>
+````
 
 ````jsx
+var Steps = antd.Steps;
+var Step = Steps.Step;
 var container = document.getElementById('components-steps-demo-step-next');
 var steps = (function generateRandomSteps() {
   var n = Math.floor(Math.random() * 3) + 3;
@@ -59,9 +55,6 @@ var MyForm = React.createClass({
             ></Steps.Step>
         })}
       </Steps></div>
-      <div>表单输入A：<input /></div>
-      <div>表单输入B：<input /></div>
-      <div>表单输入C：<input /></div>
       <div><span className='ant-btn' onClick={this.nextStep}>下一步</span></div>
     </form>)
   }

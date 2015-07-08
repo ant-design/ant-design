@@ -6,6 +6,7 @@ var pkg = require('./package');
 var entry = {};
 entry[pkg.name] = './index.js';
 entry[pkg.name + '-' + pkg.version] = './index.js';
+entry['demo'] = './scripts/demo.js';
 
 module.exports = {
   entry: entry,
@@ -34,13 +35,12 @@ module.exports = {
     }, {
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap!' +
-        'less?sourceMap'
+        'css?sourceMap&-restructuring!' + 'autoprefixer-loader!' + 'less?sourceMap'
       )
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap'
+        'css?sourceMap!' + 'autoprefixer-loader'
       )
     }]
   },

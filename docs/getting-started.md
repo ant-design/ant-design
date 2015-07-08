@@ -5,13 +5,13 @@
 
 ---
 
-Ant Design 致力于提供设计开发人员一个愉悦的使用体验。
+Ant Design 致力于提供给用户愉悦的开发体验。
 
 ## 第一个例子
 
 Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的方式直接使用。
 
-一个简单的例子，使用了 [日期选择](http://ant.design/components/datepicker) 组件。
+下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
 <iframe width="100%" height="400" src="//jsfiddle.net/afc163/k13sq3e3/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
@@ -37,7 +37,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 </html>
 ```
 
-你可以在[这里](/components/progress/)找到更多组件进行选用。
+你可以在[这里](/components/progress/)选用更多组件。
 
 
 ## 标准项目
@@ -83,7 +83,9 @@ var MyPage = React.creatClass({
 React.render(<MyPage />, document.body);
 ```
 
-> `var Datepicker = require('antd/lib/Datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
+> `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
+
+> `lib` 即构建后的 `components` 目录。
 
 然后建一个页面用于开发。
 
@@ -125,12 +127,13 @@ $ npm run build
 
 入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
 
+> 上述例子帮助你理解 Ant Design 的使用流程，并非真实的开发过程，你可以根据自己的项目流程进行改造接入。
+
 ## 兼容性
 
 Ant Design 支持所有的现代浏览器和 IE8+。
 
 对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
-
 
 ```html
 <!DOCTYPE html>
@@ -139,16 +142,25 @@ Ant Design 支持所有的现代浏览器和 IE8+。
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
-    <!-- 引入 react 和 antd.js -->
-    <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js.js"></script>
+    <!-- 引入 react -->
+    <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js"></script>
     <!-- Polyfills -->
     <script src="https://a.alipayobjects.com/react/0.13.3/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
-    <script src="http://ant.design/dist/antd.js"></script>
   </head>
   <body>
   </body>
 </html>
 ```
+
+<div class="code-line-highlight"></div>
+
+<style>
+.code-line-highlight {
+  box-shadow: 0 -155px 0 rgba(255, 207, 0, 0.16);
+  height: 42px;
+  margin-bottom: -42px;
+}
+</style>
 
 ## 小甜点
 

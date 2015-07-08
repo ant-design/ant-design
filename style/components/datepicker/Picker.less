@@ -10,24 +10,24 @@
 .@{prefixCalendarClass}-picker {
   position: relative;
   display: inline-block;
-  &-input {
-    .ant-input;
-    cursor: text;
-  }
+
   &-icon {
     position: absolute;
     -webkit-user-select: none;
     user-select: none;
     .transition(all .3s @ease-in-out);
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    right: 8px;
+    color: #999;
+    top: 50%;
+    margin-top: -7px;
     &:after {
-      position: relative;
-      left: -22px;
-      font-family: "anticon";
       content: "\e60c";
+      font-family: "anticon";
       font-size: 14px;
       color: #999;
-      top: 5px;
-      margin-right: -20px;
     }
   }
   &-open .@{prefixCalendarClass},
@@ -35,7 +35,8 @@
     display: block;
   }
   &-open &-input {
-    border-color: #23c0fa;
-    box-shadow: 0 0 3px #23c0fa;
+    border-color: @input-focus-border-color;
+    outline: 0;
+    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
   }
 }

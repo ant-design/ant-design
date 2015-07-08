@@ -1,7 +1,7 @@
 # Motion
 
 - category: CSS
-- chinese: 动画样式
+- chinese: 组件动画
 - order: 4
 
 ---
@@ -20,6 +20,6 @@
 | confirm      | 弹出确认框          | `zoom`                                          |
 | message      | 信息提示条          | `move-up`                                       |
 | dropdown     | 下拉菜单            | `slide-up`                                      |
-| select      | 选择框              | `slide-up`                                      |
+| select       | 选择框              | `slide-up`                                      |
 | datepicker   | 日期选择框          | `slide-up`                                      |
 
