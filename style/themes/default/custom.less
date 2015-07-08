@@ -23,8 +23,8 @@
 @icon-url               : "//at.alicdn.com/t/font_1434092639_4910953";
 
 // LINK
-@link-color             : #00abea;
-@link-hover-color       : tint(#00abea, 30%);
+@link-color             : @primary-color;
+@link-hover-color       : tint(@link-color, 20%);
 @link-hover-decoration  : none;
 
 // Disabled cursor for form controls and buttons.
@@ -46,7 +46,7 @@
 
 @btn-primary-color      : #fff;
 @btn-primary-bg         : @primary-color;
-@btn-primary-border     : @primary-color;
+@btn-primary-border     : shade(@primary-color, 5%);
 
 @btn-default-color      : #666;
 @btn-default-bg         : #f3f5f7;
@@ -131,7 +131,7 @@
 @input-font-size             : @font-size-base;
 @input-font-size-sm          : @font-size-base;
 
-@input-hover-border-color    : #23c0fa;
+@input-hover-border-color    : @primary-color;
 @input-focus-border-color    : @primary-color;
 @input-disabled-bg           : #f3f5f7;
 
