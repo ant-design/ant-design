@@ -16,10 +16,9 @@ var columns = [{
   dataIndex: 'age'
 }, {
   title: '住址',
-  dataIndex: '',
-  render: function(a, b) {
-    console.log(a, b);
-    return <a href="#">操作</a>;
+  dataIndex: 'address',
+  render: function(text) {
+    return <a href="#">{text}</a>;
   }
 }];
 var data = [{
