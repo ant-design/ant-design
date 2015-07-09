@@ -24,6 +24,15 @@
   border-color: @color;
 }
 
+.disabled() {
+  background-color: @input-disabled-bg;
+  opacity: 1;
+  cursor: @cursor-disabled;
+  &:hover {
+    .hover(@input-border-color);
+  }
+}
+
 
 // Basic style for input
 .input() {
@@ -53,16 +62,7 @@
 
   &[disabled],
   fieldset[disabled] & {
-    background-color: @input-disabled-bg;
-    opacity: 1;
-    &:hover {
-      .hover(@input-border-color);
-    }
-  }
-
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
+   .disabled();
   }
 
   // Reset height for `textarea`s
