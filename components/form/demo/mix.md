@@ -12,13 +12,26 @@ var Option = Select.Option;
 var InputNumber = antd.InputNumber;
 var Datepicker = antd.Datepicker;
 var Switch = antd.Switch;
+var Menu = antd.Menu;
+var Dropdown = antd.Dropdown;
 
+var menu = <Menu>
+  <Menu.Item>
+    <a target="_blank" href="http://www.alipay.com/">.net</a>
+  </Menu.Item>
+  <Menu.Item>
+    <a target="_blank" href="http://www.taobao.com/">.jp</a>
+  </Menu.Item>
+  <Menu.Item>
+    <a target="_blank" href="http://www.tmall.com/">.org</a>
+  </Menu.Item>
+</Menu>;
 
 function handleSelectChange(value) {
   console.log('selected ' + value);
 }
 
-function onChange(v){
+function onInputNumberChange(v){
   console.log('changed',v);
 }
 
@@ -27,7 +40,7 @@ React.render(
     <div className="ant-form-item">
       <label className="col-6" required>Input-Number:</label>
       <div className="col-6">
-        <InputNumber min={1} max={10} defaultValue={3} onChange={onChange} style={{width:100}}/>
+        <InputNumber min={1} max={10} defaultValue={3} onChange={onInputNumberChange} style={{width:100}}/>
       </div>
       <div className="col-3"><p className="ant-form-text"> 台机器</p></div>
     </div>
@@ -55,7 +68,7 @@ React.render(
       </div>
     </div>
     <div className="ant-form-item">
-      <label for="password" className="col-6" required>Select 选择器:</label>
+      <label for="" className="col-6" required>Select 选择器:</label>
       <div className="col-18">
         <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
           <Option value="jack">jack</Option>
@@ -63,6 +76,21 @@ React.render(
           <Option value="disabled" disabled>disabled</Option>
           <Option value="yiminghe">yiminghe</Option>
         </Select>
+      </div>
+    </div>
+    <div className="ant-form-item">
+      <label className="col-6" for="site4">按钮式下拉输入框：</label>
+      <div className="col-16">
+        <div className="ant-input-group">
+          <input type="text" className="ant-input" id="site4" placeholder="Search for..." />
+          <div className="ant-input-group-btn">    
+            <Dropdown overlay={menu}>
+              <button className="ant-btn ant-btn-menu">
+                .com <i className="anticon anticon-down"></i>
+              </button>
+            </Dropdown>
+          </div>
+        </div>
       </div>
     </div>
     <div className="ant-form-item">
