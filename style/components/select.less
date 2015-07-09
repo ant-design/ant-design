@@ -35,10 +35,13 @@
     position: absolute;
     top: 1px;
     right: 1px;
+    font-size: @font-size-base;
+    font-size: ~"10px \9"; // ie8-9
+    .scale(0.83);
     width: 26px;
     line-height: 26px;
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-    transform: rotate(90deg);
+    .rotate(90deg);
 
     * {
       display: none;
@@ -140,7 +143,13 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      padding: 0 0 0 8px;
+      font-size: @font-size-base;
+      font-size: ~"8px \9"; // ie8-9
+      .scale(0.67);
+      padding: 0 0 0 4px;
+      position: relative;
+      top: -1px;
+      left: 4px;
       &:hover {
         color: #333;
       }
@@ -205,14 +214,12 @@
 
   &-open {
     .@{selectPrefixCls}-arrow {
-      &:before {
-        .rotate(270deg);
-      }
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+      .rotate(270deg);
     }
     .@{selectPrefixCls}-dropdown {
       display: block;
     }
-
     .@{selectPrefixCls}-selection {
       border-color: #23c0fa;
       box-shadow: 0 0 3px #23c0fa;
