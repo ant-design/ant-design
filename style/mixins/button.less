@@ -14,7 +14,7 @@
   }
   &:active,
   &.active {
-    .button-color(shade(@color, 5%); shade(@background, 5%); shade(@border, 5%));
+    .button-color(shade(@color, 5%); shade(@background, 5%); shade(@background, 5%));
   }
   &:active,
   &.active {
@@ -133,7 +133,7 @@
 
 // primary button style
 .btn-primary() {
-  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
 
   &:hover,
   &:active,

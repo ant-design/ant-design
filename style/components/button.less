@@ -11,22 +11,22 @@
     .btn-primary;
 
     .@{btnPrefixClass}-group &:not(:first-child):not(:last-child) {
-      border-right-color: @btn-primary-border;
-      border-left-color: btn-primary-border;
+      border-right-color: @btn-group-border;
+      border-left-color: @btn-group-border;
     }
 
     .@{btnPrefixClass}-group &:first-child {
       &:not(:last-child) {
-        border-right-color: @btn-primary-border;
+        border-right-color: @btn-group-border;
       }
     }
 
     .@{btnPrefixClass}-group &:last-child:not(:first-child) {
-      border-left-color: @btn-primary-border;
+      border-left-color: @btn-group-border;
     }
 
     .@{btnPrefixClass}-group & + .@{btnPrefixClass} {
-      border-left-color: @btn-primary-border;
+      border-left-color: @btn-group-border;
     }
   }
 
