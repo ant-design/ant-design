@@ -14,6 +14,25 @@
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/tomorrow.css">
+    <script>
+        (function (con) {
+            'use strict';
+            var prop, method;
+            var empty = {};
+            var dummy = function () {
+            };
+            var properties = 'memory'.split(',');
+            var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+            'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+            'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+            while (prop = properties.pop()) {
+                con[prop] = con[prop] || empty;
+            }
+            while (method = methods.pop()) {
+                con[method] = con[method] || dummy;
+            }
+        })(this.console = this.console || {});
+    </script>
     <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.0.5/es5-shim-debug.js,es5-shim/4.0.5/es5-sham-debug.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js,react-router/0.13.3/ReactRouter.js"></script>
     <script src="/static/script.js"></script>
     <script>
