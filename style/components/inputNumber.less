@@ -80,10 +80,11 @@
     cursor: pointer;
     &-inner {
       .iconfont-mixin();
+      transform: rotate(270deg) scale(0.8);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
       top:-2px;
       &:before {
         content: "\e611";
-        transform: rotate(270deg) scale(0.8);
       }
     }
   }
@@ -92,9 +93,10 @@
     cursor: pointer;
     &-inner {
       .iconfont-mixin();
+      transform: rotate(90deg) scale(0.8);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
       &:before {
         content: "\e611";
-        transform: rotate(90deg) scale(0.8);
       }
     }
   }

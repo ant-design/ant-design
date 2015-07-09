@@ -44,7 +44,6 @@
     "lodash": "^3.10.0",
     "nico-jsx": "~0.5.8",
     "precommit-hook": "^1.0.7",
-    "react-router": "~0.13.3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },

@@ -30,19 +30,22 @@
 
   // arrow
   &-arrow {
+    .iconfont-mixin();
     height: 26px;
     position: absolute;
     top: 1px;
     right: 1px;
-    width: 20px;
+    width: 26px;
+    line-height: 26px;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    transform: rotate(90deg);
 
-    font-family: 'anticon';
+    * {
+      display: none;
+    }
+
     &:before {
       content: '\e611';
-      .rotate(90deg);
-      position: absolute;
-      top: 4px;
-      left: 3px;
     }
   }
 
