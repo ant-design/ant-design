@@ -3,10 +3,10 @@
   .@{className}-enter {
     opacity: 0;
     transform: scale(0, 0);
-    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    animation-timing-function: @ease-out-back;
   }
   .@{className}-leave {
-    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+    animation-timing-function: @ease-in-back;
   }
 }
 
