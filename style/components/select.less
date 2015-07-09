@@ -35,8 +35,10 @@
     top: 1px;
     right: 1px;
     width: 20px;
-
     font-family: 'anticon';
+    font-size: @font-size-base;
+    font-size: ~"10px \9"; // ie8-9
+    .scale(0.83);
     &:before {
       content: '\e611';
       .rotate(90deg);
@@ -137,7 +139,13 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      padding: 0 0 0 8px;
+      font-size: @font-size-base;
+      font-size: ~"8px \9"; // ie8-9
+      .scale(0.67);
+      padding: 0 0 0 4px;
+      position: relative;
+      top: -1px;
+      left: 4px;
       &:hover {
         color: #333;
       }

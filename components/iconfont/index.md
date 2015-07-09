@@ -11,7 +11,7 @@
 
 ## 图标的命名规范
 
-我们为每个图标赋予了语义化的命名。我们的命名规范如下：
+我们为每个图标赋予了语义化的命名。我们的命名规范如：
 
 - 1. 使用 `-` 来连接单词；
 
@@ -497,6 +497,14 @@
 	<li>
 		<i class="anticon anticon-windows"></i>
 		<span class="anticon-class">windows</span>
+	</li>
+	<li>
+		<i class="anticon anticon-ie"></i>
+		<span class="anticon-class">ie</span>
+	</li>
+	<li>
+		<i class="anticon anticon-chrome"></i>
+		<span class="anticon-class">chrome</span>
 	</li>
 	<li>
 		<i class="anticon anticon-loading"></i>
