@@ -14,13 +14,8 @@
 <form class="ant-form-horizontal">
   <div class="ant-form-item">
     <label for="userName" class="col-6" required>用户名：</label>
-    <div class="col-4">
+    <div class="col-6">
       <p class="ant-form-text">大眼萌 minion</p>
-    </div>
-    <div class="col-9">
-      <p class="ant-form-text">
-        <a href="javascript:;">什么鬼？</a>
-      </p>
     </div>
   </div>
   <div class="ant-form-item">

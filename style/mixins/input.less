@@ -11,6 +11,20 @@
   font-size: @input-font-size-sm;
 }
 
+// input status
+// == when focus or actived
+.active(@color: @input-hover-border-color) {
+  border-color: @color;
+  outline: 0;
+  box-shadow: 0 0 3px tint(@color, 20%);
+}
+
+// == when hoverd
+.hover(@color: @input-hover-border-color ) {
+  border-color: @color;
+}
+
+
 // Basic style for input
 .input() {
   position: relative;
@@ -30,13 +44,11 @@
   .transition(~"border .3s @{ease-in-out}, background .3s @{ease-in-out}, box-shadow .3s @{ease-in-out}");
 
   &:hover {
-    border-color: @input-hover-border-color;
+    .hover();
   }
 
   &:focus {
-    border-color: @input-focus-border-color;
-    outline: 0;
-    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
+    .active();
   }
 
   &[disabled],
@@ -44,7 +56,7 @@
     background-color: @input-disabled-bg;
     opacity: 1;
     &:hover {
-      border-color: @input-border-color;
+      .hover(@input-border-color);
     }
   }
 
@@ -98,7 +110,13 @@
     padding-right: 0;
   }
 
-  &-addon, &-btn, .@{inputClass} {
+  > [class*="col-"] {
+    padding-right: 8px;
+  }
+
+  &-addon, 
+  &-btn, 
+  > .@{inputClass} {
     display: table-cell;
 
     &:not(:first-child):not(:last-child) {
@@ -106,7 +124,8 @@
     }
   }
 
-  &-addon, &-btn {
+  &-addon, 
+  &-btn {
     width: 1%;
     white-space: nowrap;
     vertical-align: middle;
@@ -151,7 +170,8 @@
   }
 
   // Reset rounded corners
-  .@{inputClass}:first-child, &-addon:first-child {
+  > .@{inputClass}:first-child, 
+  &-addon:first-child {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
@@ -163,7 +183,7 @@
     border-left: 0;
   }
 
-  .@{inputClass}:last-child,
+  > .@{inputClass}:last-child,
   &-addon:last-child,
   &-btn .@{btnclass}{
     border-bottom-left-radius: 0;
@@ -171,13 +191,13 @@
   }
 
   // Sizing options
-  &-lg > .@{inputClass},
+  &-lg .@{inputClass},
   &-lg > &-addon,
   &-lg > &-btn .@{btnclass} {
     .input-lg();
   }
 
-  &-sm > .@{inputClass},
+  &-sm .@{inputClass},
   &-sm > &-addon,
   &-sm > &-btn .@{btnclass} {
     .input-sm();
@@ -185,19 +205,5 @@
 
   &-sm > &-btn .@{btnclass} {
     margin-top: ~"-2px \9";
-  }
-}
-
-.inputs(@inputClass) {
-  display: flex;
-  flex-direction: row;
-  
-  & > &-item {
-    flex: 0 1 auto;
-    padding-left: 8px;
-
-    &:first-child {
-      padding-left: 0;
-    }
   }
 }

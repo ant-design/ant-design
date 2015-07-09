@@ -24,12 +24,6 @@ var Apps = React.createClass({
 
 var App = React.createClass({
   render() {
-    return <div></div>;
-  }
-});
-
-var App = React.createClass({
-  render() {
     return (<div>
       <div className="demo-nav">
         <Link to="/">首页</Link>

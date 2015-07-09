@@ -44,17 +44,17 @@
   <div class="ant-form-item">
     <label class="col-6">输入身份证：</label>
     <div class="col-16">
-      <div class="ant-inputs">
-        <div class="ant-inputs-item">
+      <div class="ant-input-group">
+        <div class="col-6">
           <input class="ant-input" type="text" id="certNo1" />
         </div>
-        <div class="ant-inputs-item">
+        <div class="col-6">
           <input class="ant-input" type="text" id="certNo2" />
         </div>
-        <div class="ant-inputs-item">
+        <div class="col-6">
           <input class="ant-input" type="text" id="certNo3" />
         </div>
-        <div class="ant-inputs-item">
+        <div class="col-6">
           <input class="ant-input" type="text" id="certNo4" />
         </div>
       </div>
@@ -71,14 +71,14 @@
           <p class="ant-form-split">--</p>
         </div>
         <div class="col-18">
-          <div class="ant-inputs">
-            <div class="ant-inputs-item">
+          <div class="ant-input-group">
+            <div class="col-6">
               <input class="ant-input" type="text" id="tel1" />
             </div>
-            <div class="ant-inputs-item">
+            <div class="col-6">
               <input class="ant-input" type="text" id="tel2" />
             </div>
-            <div class="ant-inputs-item">
+            <div class="col-6">
               <input class="ant-input" type="text" id="tel3" />
             </div>
           </div>

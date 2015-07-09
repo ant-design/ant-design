@@ -9,16 +9,17 @@
 ---
 
 ````html
-
-<div class="ant-inputs">
-  <div class="ant-inputs-item">
-    <input class="ant-input ant-input-lg" type="text" id="largeInput" placeholder="大尺寸"/>
-  </div>
-  <div class="ant-inputs-item">
-    <input class="ant-input" type="text" id="defaultInput" placeholder="默认尺寸"/>
-  </div>
-  <div class="ant-inputs-item">
-    <input class="ant-input ant-input-sm" type="text" id="smallInput" placeholder="小尺寸"/>
+<div class="row">
+  <div class="ant-input-group">
+    <div class="col-6">
+      <input class="ant-input ant-input-lg" type="text" id="largeInput" placeholder="大尺寸"/>
+    </div>
+    <div class="col-6">
+      <input class="ant-input" type="text" id="defaultInput" placeholder="默认尺寸"/>
+    </div>
+    <div class="col-6">
+      <input class="ant-input ant-input-sm" type="text" id="smallInput" placeholder="小尺寸"/>
+    </div>
   </div>
 </div>
 

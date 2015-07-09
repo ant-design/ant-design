@@ -49,11 +49,6 @@ label {
   .input-group(~"@{css-prefix}input"; @btnClass)
 }
 
-//== composed by several input
-.@{css-prefix}inputs {
-  .inputs(~"@{css-prefix}input");
-}
-
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
   .has-feedback {
@@ -176,12 +171,11 @@ input[type="checkbox"] {
 
 //== Inline Form
 // Attention: Inline form does only apply to within viewports that are at least 768px wide
-// TODO: 用 float 代替 inline-block
+// TODO: 优化
 .@{css-prefix}form-inline {
-  &:extend(.clearfix all);
   @media (min-width: @screen-sm-min) {
     .@{css-prefix}form-item {
-      float: left;
+      display: inline-block;
       margin-bottom: 0;
       vertical-align: middle;
       margin-right: 10px;

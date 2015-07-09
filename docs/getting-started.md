@@ -101,7 +101,7 @@ $ touch index.html
   <head>
     <meta charset="utf-8">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <link rel="stylesheet" href="/index.css">
     <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js"></script>
   </head>
   <body>
@@ -127,7 +127,7 @@ $ npm run build
 
 入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
 
-> 上述例子帮助你理解 Ant Design 的使用流程，并非真实的开发过程，你可以根据自己的项目流程进行改造接入。
+> 上述例子用于帮助你理解 Ant Design 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
 
 ## 兼容性
 
@@ -164,5 +164,5 @@ Ant Design 支持所有的现代浏览器和 IE8+。
 
 ## 小甜点
 
-- 你可以使用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，建议采用 [ES6](https://babeljs.io/docs/learn-es2015/) 的写法来提升编码的愉悦感。
+- 你可以享用 `npm` 生态圈里的所有模块。
+- 我们使用了 `babel`，试试用 [ES6](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/) 的写法来提升编码的愉悦感。
