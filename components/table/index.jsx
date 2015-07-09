@@ -4,7 +4,8 @@ import Table from 'rc-table';
 let AntTable = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-table'
+      prefixCls: 'ant-table',
+      useFixedHeader: false
     };
   },
   render() {

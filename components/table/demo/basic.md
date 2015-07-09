@@ -2,7 +2,7 @@
 
 - order: 0
 
-标准的表格。
+简单的表格。
 
 ---
 
@@ -14,16 +14,26 @@ var columns = [{
 }, {
   title: '年龄',
   dataIndex: 'age'
+}, {
+  title: '住址',
+  dataIndex: '',
+  render: function(a, b) {
+    console.log(a, b);
+    return <a href="#">操作</a>;
+  }
 }];
 var data = [{
   name: '胡彦斌',
-  age: 32
+  age: 32,
+  address: '西湖区湖底公园1号'
 }, {
   name: '胡彦祖',
-  age: 42
+  age: 42,
+  address: '西湖区湖底公园1号'
 }, {
   name: '李大嘴',
-  age: 32
+  age: 32,
+  address: '西湖区湖底公园1号'
 }];
 
 React.render(<Table columns={columns} data={data} />

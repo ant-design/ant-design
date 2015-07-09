@@ -1,0 +1,38 @@
+@import "../mixins/index";
+@tablePrefixClass: ~"@{css-prefix}table";
+@table-border-color: #e9e9e9;
+@table-head-background-color: #f3f3f3;
+
+.@{tablePrefixClass} {
+  font-size: @font-size-base;
+  color: @text-color;
+  border-radius: 6px;
+  overflow: hidden;
+
+  table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: separate;
+  }
+
+  th {
+    background: @table-head-background-color;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  td {
+    border-bottom: 1px solid @table-border-color;
+  }
+
+  tr {
+    transition: all .3s ease;
+    &:hover {
+      background: tint(@primary-color, 90%);
+    }
+  }
+
+  th, td {
+    padding: 16px 8px;
+  }
+}
