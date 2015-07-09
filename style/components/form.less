@@ -44,9 +44,14 @@ label {
   .input-with-icon();
 }
 
-//== Style for input-group
+//== Style for input-group: input with label, with button or dropdown...
 .@{css-prefix}input-group {
   .input-group(~"@{css-prefix}input"; @btnClass)
+}
+
+//== composed by several input
+.@{css-prefix}inputs {
+  .inputs(~"@{css-prefix}input");
 }
 
 // 表单下的输入框尺寸唯一: 大尺寸
