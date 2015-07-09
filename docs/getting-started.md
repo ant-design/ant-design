@@ -164,5 +164,5 @@ Ant Design 支持所有的现代浏览器和 IE8+。
 
 ## 小甜点
 
-- 你可以使用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，建议采用 [ES6](https://babeljs.io/docs/learn-es2015/) 的写法来提升编码的愉悦感。
+- 你可以享用 `npm` 生态圈里的所有模块。
+- 我们使用了 `babel`，试试用 [ES6](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/) 的写法来提升编码的愉悦感。
