@@ -66,11 +66,10 @@
     .transition(all .3s @ease-in-out);
 
     &:hover {
-      border-color: #23c0fa;
-      box-shadow: 0 0 2px tint(@primary-color, 20%);
+      border-color: @primary-color;
     }
     &:active {
-      border-color: @primary-color;
+      border-color: shade(@primary-color, 5%);
     }
   }
 
@@ -221,8 +220,8 @@
       display: block;
     }
     .@{selectPrefixCls}-selection {
-      border-color: #23c0fa;
-      box-shadow: 0 0 3px #23c0fa;
+      border-color: @primary-color;
+      box-shadow: 0 0 3px tint(@primary-color, 20%);
     }
   }
 
@@ -262,7 +261,7 @@
           position: absolute;
           top: 6px;
           right: 16px;
-          color: #3CB8F0;
+          color: @primary-color;
         }
       }
 
