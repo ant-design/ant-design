@@ -507,6 +507,10 @@
 		<span class="anticon-class">chrome</span>
 	</li>
 	<li>
+		<i class="anticon anticon-home"></i>
+		<span class="anticon-class">home</span>
+	</li>
+	<li>
 		<i class="anticon anticon-loading"></i>
 		<span class="anticon-class">loading</span>
 	</li>
