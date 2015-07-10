@@ -21,3 +21,5 @@
 |  checked | 指定当前是否选中 | boolean  |   | false    |
 |  defaultChecked | 初始是否选中 | boolean |  | false |
 |  onChange | 变化时回调函数 | Function(checked:boolean) |  |  |
+|  checkedChildren | 选中时的内容 | React Node |  |  |
+|  unCheckedChildren | 非选中时的内容 | React Node |  |  |
