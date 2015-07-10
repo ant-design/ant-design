@@ -1,13 +1,13 @@
 .fade-enter {
   opacity: 0;
   .motion-common();
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-timing-function: @ease-out;
   animation-play-state: paused;
 }
 
 .fade-leave {
   .motion-common();
-  animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+  animation-timing-function: @ease-in;
   animation-play-state: paused;
 }
 
