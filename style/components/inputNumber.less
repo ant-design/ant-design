@@ -90,11 +90,11 @@
     cursor: pointer;
     &-inner {
       top: 2px;
-      left: 4px;
-      transform: rotate(270deg);
-      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
       &:before {
-        content: "\e611";
+        content: "\e600";
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
       }
     }
   }
@@ -103,10 +103,8 @@
     cursor: pointer;
     &-inner {
       bottom: 2px;
-      transform: rotate(90deg);
-      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
       &:before {
-        content: "\e611";
+        content: "\e600";
       }
     }
   }
