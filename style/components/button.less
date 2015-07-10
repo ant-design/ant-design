@@ -11,18 +11,22 @@
     .btn-primary;
 
     .@{btnPrefixClass}-group &:not(:first-child):not(:last-child) {
-      border-right-color: @btn-primary-border;
-      border-left-color: btn-primary-border;
+      border-right-color: @btn-group-border;
+      border-left-color: @btn-group-border;
     }
 
     .@{btnPrefixClass}-group &:first-child {
       &:not(:last-child) {
-        border-right-color: @btn-primary-border;
+        border-right-color: @btn-group-border;
       }
     }
 
     .@{btnPrefixClass}-group &:last-child:not(:first-child) {
-      border-left-color: @btn-primary-border;
+      border-left-color: @btn-group-border;
+    }
+
+    .@{btnPrefixClass}-group & + .@{btnPrefixClass} {
+      border-left-color: @btn-group-border;
     }
   }
 
@@ -40,7 +44,6 @@
 
   &-menu {
     > .@{iconfont-css-prefix} {
-      top: -1px;
       font-size: @font-size-base;
       font-size: ~"10px \9"; // ie8-9
       .scale(0.83);

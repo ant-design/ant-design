@@ -11,14 +11,37 @@
   font-size: @input-font-size-sm;
 }
 
+// input status
+// == when focus or actived
+.active(@color: @input-hover-border-color) {
+  border-color: @color;
+  outline: 0;
+  box-shadow: 0 0 3px tint(@color, 20%);
+}
+
+// == when hoverd
+.hover(@color: @input-hover-border-color ) {
+  border-color: @color;
+}
+
+.disabled() {
+  background-color: @input-disabled-bg;
+  opacity: 1;
+  cursor: @cursor-disabled;
+  &:hover {
+    .hover(@input-border-color);
+  }
+}
+
+
 // Basic style for input
 .input() {
   position: relative;
   display: inline-block;
   padding: @input-padding-vertical-base @input-padding-horizontal;
   width: 100%;
-  cursor: text;
   height: @input-height-base;
+  cursor: text;
   font-size: @input-font-size;
   line-height: @line-height-base;
   color: @input-color;
@@ -30,27 +53,16 @@
   .transition(~"border .3s @{ease-in-out}, background .3s @{ease-in-out}, box-shadow .3s @{ease-in-out}");
 
   &:hover {
-    border-color: @input-hover-border-color;
+    .hover();
   }
 
   &:focus {
-    border-color: @input-focus-border-color;
-    outline: 0;
-    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
+    .active();
   }
 
   &[disabled],
   fieldset[disabled] & {
-    background-color: @input-disabled-bg;
-    opacity: 1;
-    &:hover {
-      border-color: @input-border-color;
-    }
-  }
-
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
+   .disabled();
   }
 
   // Reset height for `textarea`s
@@ -85,11 +97,8 @@
   }
 }
 
-// Input-group
-.input-group(@inputClass) {
-  // define the button style for input-group
-  @inputBtn: input-btn;
-
+// label input
+.input-group(@inputClass; @btnclass) {
   position: relative;
   display: table;
   border-collapse: separate;
@@ -101,10 +110,13 @@
     padding-right: 0;
   }
 
-  &-addon,
-  &-btn,
-  &-btn-vertical,
-  .@{inputClass} {
+  > [class*="col-"] {
+    padding-right: 8px;
+  }
+
+  &-addon, 
+  &-btn, 
+  > .@{inputClass} {
     display: table-cell;
 
     &:not(:first-child):not(:last-child) {
@@ -112,9 +124,8 @@
     }
   }
 
-  &-addon,
-  &-btn,
-  &-btn-vertical {
+  &-addon, 
+  &-btn {
     width: 1%;
     white-space: nowrap;
     vertical-align: middle;
@@ -138,24 +149,18 @@
     background-color: #eee;
     border: 1px solid @input-border-color;
     border-radius: @border-radius-base;
-
-    input[type="radio"],
-    input[type="checkbox"] {
-      margin-top: 0;
-    }
   }
 
-  .@{inputBtn} {
-    .btn();
-    .button-size(@input-padding-vertical-base @input-padding-horizontal; @font-size-base; @border-radius-base);
+  .@{btnclass} {
+    border-radius: @border-radius-base;
     .button-variant(@input-color; #eee; @input-border-color);
+    margin-left: -1px;
 
     &:hover {
-      .button-color(tint(@input-color, 20%); #eee; @input-border-color);
+      .button-color(@input-color; tint(#eee, 20%); @input-border-color);
     }
-    &:active,
-    &.active {
-      .button-color(shade(@input-color, 5%); #eee; @input-border-color);
+    &:active, &.active {
+      .button-color(@input-color; shade(#eee, 5%); @input-border-color);
     }
 
     .@{iconfont-css-prefix} {
@@ -164,34 +169,9 @@
     }
   }
 
-  &-btn {
-    position: relative;
-
-    > .@{inputBtn} {
-      position: relative;
-      + .@{inputBtn} {
-        margin-left: -1px;
-      }
-    }
-
-    // Negative margin to only have a 1px border between the two
-    &:first-child {
-      > .@{inputBtn} {
-        margin-right: -1px;
-      }
-    }
-    &:last-child {
-      > .@{inputBtn} {
-        margin-left: -1px;
-      }
-    }
-  }
-
   // Reset rounded corners
-  .@{inputClass}:first-child,
-  &-addon:first-child,
-  &-btn:first-child > .@{inputBtn},
-  &-btn:last-child > .@{inputBtn}:not(:last-child):not(.dropdown-toggle) {
+  > .@{inputClass}:first-child, 
+  &-addon:first-child {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
@@ -199,33 +179,31 @@
   &-addon:first-child {
     border-right: 0;
   }
-
-  .@{inputClass}:last-child,
-  &-addon:last-child,
-  &-btn:last-child > .@{inputBtn},
-  &-btn:first-child > .@{inputBtn}:not(:first-child) {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-  }
-
   &-addon:last-child {
     border-left: 0;
   }
 
+  > .@{inputClass}:last-child,
+  &-addon:last-child,
+  &-btn .@{btnclass}{
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
   // Sizing options
-  &-lg > .@{inputClass},
+  &-lg .@{inputClass},
   &-lg > &-addon,
-  &-lg > &-btn > .@{inputBtn} {
+  &-lg > &-btn .@{btnclass} {
     .input-lg();
   }
 
-  &-sm > .@{inputClass},
+  &-sm .@{inputClass},
   &-sm > &-addon,
-  &-sm > &-btn > .@{inputBtn} {
+  &-sm > &-btn .@{btnclass} {
     .input-sm();
   }
 
-  &-sm > &-btn > .@{inputBtn} {
+  &-sm > &-btn .@{btnclass} {
     margin-top: ~"-2px \9";
   }
 }

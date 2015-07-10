@@ -43,6 +43,7 @@
     filter: alpha(opacity=20);
     opacity: .2;
     text-decoration: none;
+    transition: opacity .3s ease;
 
     &-x {
       position: absolute;
@@ -58,7 +59,9 @@
       -moz-osx-font-smoothing: grayscale;
       width: 12px;
       height: 12px;
-      font-size: 12px;
+      font-size: @font-size-base;
+      font-size: ~"10px \9"; // ie8-9
+      .scale(0.83);
       line-height: 12px;
       color:#000;
       top:18px;
@@ -108,53 +111,5 @@
   &-wrap-hidden > &&-zoom-enter,
   &-wrap-hidden > &&-zoom-leave {
     display: block;
-  }
-
-  &-zoom-enter {
-    opacity: 0;
-    .effect();
-    animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-    animation-play-state: paused;
-  }
-
-  &-zoom-leave {
-    .effect();
-    animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
-    animation-play-state: paused;
-  }
-
-  &-zoom-enter&-zoom-enter-active {
-    animation-name: rcDialogZoomIn;
-    animation-play-state: running;
-  }
-
-  &-zoom-leave&-zoom-leave-active {
-    animation-name: rcDialogZoomOut;
-    animation-play-state: running;
-  }
-
-  @keyframes rcDialogZoomIn {
-    0% {
-      opacity: 0;
-      transform-origin: 50% 50%;
-      transform: scale(0, 0);
-    }
-    100% {
-      opacity: 1;
-      transform-origin: 50% 50%;
-      transform: scale(1, 1);
-    }
-  }
-  @keyframes rcDialogZoomOut {
-    0% {
-      opacity: 1;
-      transform-origin: 50% 50%;
-      transform: scale(1, 1);
-    }
-    100% {
-      opacity: 0;
-      transform-origin: 50% 50%;
-      transform: scale(0, 0);
-    }
   }
 }

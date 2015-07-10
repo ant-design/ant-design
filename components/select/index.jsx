@@ -17,3 +17,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports.Option = Select.Option;

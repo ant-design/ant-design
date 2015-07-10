@@ -14,7 +14,7 @@
   }
   &:active,
   &.active {
-    .button-color(shade(@color, 5%); shade(@background, 5%); shade(@border, 5%));
+    .button-color(shade(@color, 5%); shade(@background, 5%); shade(@background, 5%));
   }
   &:active,
   &.active {
@@ -57,9 +57,6 @@
   // size
   &-lg > .@{btnClassName} {
     .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-lg);
-    > .@{iconfont-css-prefix} {
-    font-size: @btn-font-size-lg + 2;
-    }
   }
 
   &-sm > .@{btnClassName} {
@@ -91,9 +88,8 @@
   transform: translate3d(0, 0, 0);
 
   > .@{iconfont-css-prefix} {
-    font-size: @font-size-base + 2;
-    line-height: 1;
     z-index: 2;
+    line-height: 1;
   }
 
   &,
@@ -118,22 +114,16 @@
 
   &-lg {
     .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-lg);
-    > .@{iconfont-css-prefix} {
-      font-size: @btn-font-size-lg + 2;
-    }
   }
 
   &-sm {
     .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
-    > .@{iconfont-css-prefix} {
-      font-size: @font-size-base;
-    }
   }
 }
 
 // primary button style
 .btn-primary() {
-  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
 
   &:hover,
   &:active,

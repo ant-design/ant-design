@@ -31,7 +31,6 @@ site
 dist
 *.yml
 CNAME
-/components
 nico.js
 deploy.js
 scripts
