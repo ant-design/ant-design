@@ -13,7 +13,8 @@ let AntTable = React.createClass({
     return {
       prefixCls: 'ant-table',
       useFixedHeader: false,
-      rowSelection: null
+      rowSelection: null,
+      size: 'normal'
     };
   },
   handleSelect(e) {
