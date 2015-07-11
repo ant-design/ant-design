@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 全局提示
-- order: 3
+- order: 4
 
 ---
 
