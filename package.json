@@ -17,6 +17,7 @@
     "gregorian-calendar-format": "~3.0.1",
     "object-assign": "~3.0.0",
     "rc-calendar": "~3.10.0",
+    "rc-collapse": "~1.2.0",
     "rc-dialog": "~4.4.0",
     "rc-dropdown": "~1.1.1",
     "rc-input-number": "~2.0.1",
@@ -49,7 +50,6 @@
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },
-
   "scripts": {
     "babel": "babel components --out-dir lib",
     "build": "npm run clean && webpack && nico build",
