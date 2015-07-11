@@ -16,7 +16,7 @@ var antd = {
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
   Switch: require('./components/switch'),
-  Collapse: require('./components/Collapse')
+  Collapse: require('./components/Collapse'),
   message: require('./components/message')
 };
 
