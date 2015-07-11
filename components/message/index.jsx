@@ -3,27 +3,22 @@
 //import React from 'react';
 import Notification from 'rc-notification';
 
-var message;
+var defaultDuration = 2.5;
 
 var getMessageInstance = function(){
-  message = Notification.newInstance({
+  return Notification.newInstance({
     prefixCls: 'ant-message',
     transitionName: 'move-up',
     style: {
       top: '16px'
     }
   });
-  return message;
 };
 
-
-module.exports = {
-
+export default {
   info: function(m, t) {
-    if (!message) {
-      message = getMessageInstance();
-    }
-    t = t || 2.5;
+    var message = getMessageInstance();
+    t = t || defaultDuration;
     message.notice({
       key: 'simpleMessage',
       duration: t,
@@ -37,11 +32,8 @@ module.exports = {
     });
   },
   success: function(m, t) {
-
-    if (!message) {
-      message = getMessageInstance();
-    }
-    t = t || 2.5;
+    var message = getMessageInstance();
+    t = t || defaultDuration;
     message.notice({
       key: 'simpleMessage1',
       transitionName: 'move-up',
@@ -56,11 +48,8 @@ module.exports = {
     });
   },
   error: function(m, t) {
-
-    if (!message) {
-      message = getMessageInstance();
-    }
-    t = t || 2.5;
+    var message = getMessageInstance();
+    t = t || defaultDuration;
     message.notice({
       key: 'simpleMessage2',
       transitionName: 'move-up',
