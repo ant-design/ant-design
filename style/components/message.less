@@ -1,0 +1,51 @@
+@prefixMessageClass: ant-message;
+
+.@{prefixMessageClass} {
+  font-size: 12px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+
+  &-notice {
+    
+    width: auto;
+    vertical-align: middle;
+    position: absolute;
+  }
+
+  &-notice-content{
+    position: relative;
+    right: 50%;
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #e9e9e9;;
+    box-shadow: 0 0 4px #d9d9d9;
+    background: #fff;
+    display: block;
+  }
+
+  &-custom-content{
+      height: 12px;
+      position: relative;
+      top: -8px;
+  }
+
+  &-success {
+    color: #87d068;
+  }
+
+  &-error {
+    color: #ff6600;
+  }
+
+  &-info {
+    color: #2db7f5;
+  }
+
+  .anticon{
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+    margin-right: 8px;
+  }
+}
