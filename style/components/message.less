@@ -49,48 +49,4 @@
     margin-right: 8px;
   }
 
-  .fade-effect() {
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-  }
-
-  &-fade-enter {
-    opacity: 0;
-    .fade-effect();
-    animation-play-state: paused;
-  }
-
-  &-fade-leave {
-    .fade-effect();
-    animation-play-state: paused;
-  }
-
-  &-fade-enter&-fade-enter-active {
-    animation-name: rcNotificationFadeIn;
-    animation-play-state: running;
-  }
-
-  &-fade-leave&-fade-leave-active {
-    animation-name: rcDialogFadeOut;
-    animation-play-state: running;
-  }
-
-  @keyframes rcNotificationFadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes rcDialogFadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
 }
