@@ -7,4 +7,18 @@
 ---
 
 ````jsx
+var Table = antd.Table;
+var columns = [{
+  title: '姓名',
+  dataIndex: 'name'
+}, {
+  title: '年龄',
+  dataIndex: 'age'
+}, {
+  title: '住址',
+  dataIndex: 'address'
+}];
+
+React.render(<Table columns={columns} dataSource="/components/table/demo/data.json" />
+, document.getElementById('components-table-demo-ajax'));
 ````

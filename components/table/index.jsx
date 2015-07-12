@@ -1,12 +1,15 @@
 'use strict';
 
 import React from 'react';
+import jQuery from 'jquery';
 import Table from 'rc-table';
 
 let AntTable = React.createClass({
   getInitialState() {
     return {
-      selectedRowKeys: []
+      selectedRowKeys: [],
+      loading: false,
+      data: []
     };
   },
   getDefaultProps() {
@@ -51,6 +54,32 @@ let AntTable = React.createClass({
     let checkbox = <input type="checkbox" checked={checked} onChange={this.handleSelect} />;
     return checkbox;
   },
+  loadData: function() {
+    if (this.props.dataSource) {
+      this.setState({
+        loading: true
+      });
+      jQuery.ajax({
+        url: this.props.dataSource,
+        success: (result) => {
+          result = result || [];
+          if (this.isMounted()) {
+            this.setState({
+              data: result
+            });
+          }
+        },
+        complete: () => {
+          this.setState({
+            loading: false
+          });
+        }
+      });
+    }
+  },
+  componentDidMount() {
+    this.loadData();
+  },
   render() {
     if (this.props.rowSelection) {
       let checked = this.props.data.every(function(item, i) {
@@ -69,7 +98,7 @@ let AntTable = React.createClass({
         this.props.columns.unshift(selectionColumn);
       }
     }
-    return <Table {...this.props} />;
+    return <Table data={this.state.data} className={this.state.loading ? 'ant-table-loading' : ''} {...this.props} />;
   }
 });
 
