@@ -17,10 +17,10 @@
 
 ### Table
 
-| 参数          | 说明                     | 类型          |  可选值            | 默认值  |
-|---------------|--------------------------|---------------|--------------------|---------|
-| rowSelection  | 列表项是否可选择         | Object        |                    | false   |
-| pagenation    | 分页器                   | React.Element |                    |         |
-| size          | 正常或迷你类型           | string        | `normal` or `mini` | normal  |
-| dataSource    | 数据源的 http 地址       | string        |                    |         |
-| resolve       | 将远程数据转换为表格数据 | function      |                    |         |
+| 参数          | 说明                     | 类型          |  可选值             | 默认值  |
+|---------------|--------------------------|---------------|---------------------|---------|
+| rowSelection  | 列表项是否可选择         | Object        |                     | false   |
+| pagenation    | 分页器                   | React.Element |                     |         |
+| size          | 正常或迷你类型           | string        | `normal` or `small` | normal  |
+| dataSource    | 数据源的 http 地址       | string        |                     |         |
+| resolve       | 将远程数据转换为表格数据 | function      |                     |         |

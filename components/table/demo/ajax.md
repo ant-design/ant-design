@@ -2,7 +2,7 @@
 
 - order: 4
 
-列表数据是远程读取的，并有 loading 效果。
+`dataSource="/api/data.json"`，列表数据是远程读取的，并有 loading 效果。
 
 ---
 

@@ -101,7 +101,17 @@ let AntTable = React.createClass({
         this.props.columns.unshift(selectionColumn);
       }
     }
-    return <Table data={this.state.data} className={this.state.loading ? 'ant-table-loading' : ''} {...this.props} />;
+    var classString = '';
+    if (this.props.loading) {
+      classString += ' ant-table-loading';
+    }
+    if (this.props.size === 'small') {
+      classString += ' ant-table-small';
+    }
+    // 'message message-important message-read'
+    return <Table data={this.state.data}
+      className={classString}
+      {...this.props} />;
   }
 });
 
