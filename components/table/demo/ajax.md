@@ -19,6 +19,10 @@ var columns = [{
   dataIndex: 'address'
 }];
 
-React.render(<Table columns={columns} dataSource="/components/table/demo/data.json" />
+function resolve(result) {
+  return result.data;
+}
+
+React.render(<Table columns={columns} dataSource="/components/table/demo/data.json" resolve={resolve} />
 , document.getElementById('components-table-demo-ajax'));
 ````

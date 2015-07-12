@@ -1,13 +1,15 @@
-[{
-  "name": "胡彦斌ajax",
-  "age": 32,
-  "address": "西湖区湖底公园1号"
-}, {
-  "name": "胡彦祖ajax",
-  "age": 42,
-  "address": "西湖区湖底公园1号"
-}, {
-  "name": "李大嘴ajax",
-  "age": 32,
-  "address": "西湖区湖底公园1号"
-}]
+{
+  "data": [{
+    "name": "胡彦斌ajax",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "胡彦祖ajax",
+    "age": 42,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }]
+}

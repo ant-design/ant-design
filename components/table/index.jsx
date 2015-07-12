@@ -55,6 +55,9 @@ let AntTable = React.createClass({
     return checkbox;
   },
   loadData: function() {
+    this.props.resolve = this.props.resolve || function(data) {
+      return data || [];
+    };
     if (this.props.dataSource) {
       this.setState({
         loading: true
@@ -62,7 +65,7 @@ let AntTable = React.createClass({
       jQuery.ajax({
         url: this.props.dataSource,
         success: (result) => {
-          result = result || [];
+          result = this.props.resolve.call(this, result);
           if (this.isMounted()) {
             this.setState({
               data: result
