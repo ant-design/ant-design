@@ -92,6 +92,7 @@ let AntTable = React.createClass({
       let selectionColumn = {
         key: 'selection-column',
         title: checkboxAll,
+        width: 60,
         render: this.renderSelectionCheckBox
       };
       if (this.props.columns[0] &&
