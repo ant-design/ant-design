@@ -23,9 +23,9 @@ var columns = [{
       value: 'value2'
     }];
   },
-  onFilter: function(key) {
-    console.log(key);
-    this.fetch(this.props.dataSource + '?age=' + key);
+  onFilter: function(filters) {
+    console.log(filters);
+    this.fetch(this.props.dataSource + '?age=' + filters.join(','));
   }
 }, {
   title: '地址',

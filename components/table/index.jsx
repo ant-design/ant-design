@@ -11,6 +11,7 @@ let AntTable = React.createClass({
     return {
       selectedRowKeys: [],
       loading: false,
+      filters: [],
       data: []
     };
   },
@@ -24,9 +25,7 @@ let AntTable = React.createClass({
   },
   renderMenus(items) {
     let menuItems = items.map((item) => {
-      return <Menu.Item key={item.value}>
-        {item.text}
-      </Menu.Item>;
+      return <Menu.Item key={item.value}>{item.text}</Menu.Item>;
     });
     return menuItems;
   },
@@ -40,9 +39,21 @@ let AntTable = React.createClass({
       column.sorter.call(this, column.sortOrder);
     }
   },
-  onSelectFilter() {
+  handleFilter(column) {
+    if (column.onFilter) {
+      column.onFilter.call(this, column.filters);
+    }
   },
-  onDeselectFilter() {
+  handleSelectFilter(column, selected) {
+    column.filters = column.filters || [];
+    column.filters.push(selected);
+  },
+  handleDeselectFilter(column, key) {
+    column.filters = column.filters || [];
+    var index = column.filters.indexOf(key);
+    if (index !== -1) {
+      column.filters.splice(index, 1);
+    }
   },
   renderColumnsDropdown() {
     this.props.columns = this.props.columns.map((column) => {
@@ -51,14 +62,30 @@ let AntTable = React.createClass({
       }
       let filterDropdown, menus, sortButton;
       if (column.filter) {
-        menus = <Menu multiple={true} onSelect={this.onSelectFilter} onDeselect={this.onDeselectFilter}>
+        menus = <Menu multiple={true}
+          className="ant-table-filter-dropdown"
+          onSelect={this.handleSelectFilter.bind(this, column)}
+          onDeselect={this.handleDeselectFilter.bind(this, column)}>
           {this.renderMenus(column.filter())}
-          <button className="ant-btn ant-btn-primary ant-btn-sm" onClick={column.onFilter.bind(this)}>
-            确 定
-          </button>
+          <Menu.Item disabled>
+            <button style={{
+                cursor: 'pointer',
+                pointerEvents: 'visible'
+              }}
+              className="ant-btn ant-btn-primary ant-btn-sm"
+              onClick={this.handleFilter.bind(this, column)}>
+              确 定
+            </button>
+          </Menu.Item>
         </Menu>;
-        filterDropdown = <Dropdown trigger="click" closeOnSelect={false} overlay={menus}>
-          <i className="anticon anticon-bars"></i>
+        let dropdownSelectedClass = '';
+        if (column.filters && column.filters.length > 0) {
+          dropdownSelectedClass = 'ant-table-filter-selected';
+        }
+        filterDropdown = <Dropdown trigger="click"
+          closeOnSelect={false}
+          overlay={menus}>
+          <i title="筛选" className={'anticon anticon-bars ' + dropdownSelectedClass}></i>
         </Dropdown>;
       }
       if (column.sorter) {

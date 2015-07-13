@@ -65,6 +65,7 @@
       font-weight: normal;
       color: #666;
       white-space: nowrap;
+      cursor: pointer;
 
       a {
         color: #666;
@@ -102,6 +103,20 @@
         overflow: hidden;
         background-color: #e5e5e5;
         line-height: 0;
+      }
+
+      &-selected {
+        background-color: tint(@primary-color, 90%);
+        position: relative;
+        &:after {
+          content: '\e613';
+          font-family: 'anticon';
+          font-weight: bold;
+          position: absolute;
+          top: 6px;
+          right: 16px;
+          color: @primary-color;
+        }
       }
     }
   }
