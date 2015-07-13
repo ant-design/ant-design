@@ -18,7 +18,8 @@ var antd = {
   Table: require('./components/table'),
   Switch: require('./components/switch'),
   Collapse: require('./components/Collapse'),
-  message: require('./components/message')
+  message: require('./components/message'),
+  Slider: require('./components/slider')
 };
 
 module.exports = antd;
