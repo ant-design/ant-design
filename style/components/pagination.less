@@ -105,7 +105,17 @@
     border: 1px solid #d9d9d9;
 
     a {
+      font-size: 16px;
+      line-height: 1;
       color: #666;
+    }
+
+    &:hover {
+      border-color: #2db7f5;
+
+      a {
+        color: #2db7f5;
+      }
     }
 
     &.disabled {
@@ -149,3 +159,38 @@
   }
 }
 
+.@{prefixClass}.mini {
+
+  .@{prefixClass}-item {
+    border: none;
+    margin: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .prev, .next {
+    margin: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: none;
+  }
+
+  .jump-prev, .jump-next {
+    height: 20px;
+    line-height: 20px;
+  }
+
+  .quick-jumper {
+    height: 20px;
+    line-height: 20px;
+
+    input {
+      padding: 3px 7px;
+      width: 40px;
+      height: 20px;
+      line-height: 20px;
+    }
+  }
+}

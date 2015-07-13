@@ -7,7 +7,7 @@ let prefixCls = 'ant-patination';
 
 class AntPagination extends React.Component {
   render() {
-    return <Pagination className={prefixCls} {...this.props} />;
+    return <Pagination className={prefixCls + this.props.className} {...this.props} />;
   }
 }
 
