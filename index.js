@@ -12,6 +12,7 @@ var antd = {
   Select: require('./components/select'),
   Breadcrumb: require('./components/breadcrumb'),
   Popconfirm: require('./components/popconfirm'),
+  Pagination: require('./components/pagination'),
   confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
