@@ -1,6 +1,6 @@
 @switchPrefixCls:ant-switch;
 
-@duration:.3s;
+@switch-duration:.3s;
 
 .@{switchPrefixCls}{
   position: relative;
@@ -14,7 +14,7 @@
   border: 1px solid #ccc;
   background-color: #ccc;
   cursor: pointer;
-  transition: all @duration cubic-bezier(0.35, 0, 0.25, 1);
+  transition: all @switch-duration cubic-bezier(0.35, 0, 0.25, 1);
 
   &-inner {
     color:#fff;
@@ -29,15 +29,15 @@
     height: 18px;
     left: 2px;
     top:1px;
-    border-radius: 50% 50%;
+    border-radius: 100%;
     background-color: #ffffff;
     content: " ";
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     transform: scale(1);
-    transition: left @duration cubic-bezier(0.35, 0, 0.25, 1);
+    transition: left @switch-duration cubic-bezier(0.35, 0, 0.25, 1);
     animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
-    animation-duration: @duration;
+    animation-duration: @switch-duration;
     animation-name: rcSwitchOff;
   }
 
