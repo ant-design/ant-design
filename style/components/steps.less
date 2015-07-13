@@ -14,7 +14,6 @@
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
 
-
 .transition(@transition) {
   transition: @transition;
   -webkit-transition: @transition;
@@ -90,11 +89,11 @@
       .@{stepsPrefixClass}-head-inner {
         background: none;
         border: 0;
-        font-size: 20px;
         width: auto;
         height: auto;
         > .@{stepsPrefixClass}-icon {
-          top: -4px;
+          font-size: 20px;
+          top: 0;
         }
       }
       &.@{stepsPrefixClass}-status-process {
@@ -103,7 +102,6 @@
         }
       }
     }
-
   }
 
   .@{stepsPrefixClass}-head, .@{stepsPrefixClass}-main {
@@ -125,16 +123,18 @@
     border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
-    .transition(background-color 0.1s ease);
-    .transition(border-color 0.1s ease);
+    .transition(background-color 0.3s ease);
+    .transition(border-color 0.3s ease);
 
     > .@{stepsPrefixClass}-icon {
       line-height: 1;
-      display: inline-block;
-      vertical-align: middle;
-      top: -2px;
+      top: -1px;
       color: @primary-color;
       position: relative;
+
+      &.anticon {
+        font-size: 12px;
+      }
     }
   }
   .@{stepsPrefixClass}-main {
@@ -170,6 +170,7 @@
       height: 2px;
       border-radius: 1px;
       width: 100%;
+      .transition(background 0.3s ease);
     }
   }
 
@@ -183,6 +184,11 @@
       border-radius: 18px;
       font-size: 12px;
       margin-right: 10px;
+      > .@{stepsPrefixClass}-icon.anticon {
+        font-size: 12px;
+        font-size: ~"9px \9"; // ie8-9
+        .scale(0.75);
+      }
     }
     .@{stepsPrefixClass}-main {
       margin-top: 0;

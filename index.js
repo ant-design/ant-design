@@ -15,7 +15,10 @@ var antd = {
   confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
-  Switch: require('./components/switch')
+  Switch: require('./components/switch'),
+  Collapse: require('./components/Collapse'),
+  message: require('./components/message'),
+  Slider: require('./components/slider')
 };
 
 module.exports = antd;

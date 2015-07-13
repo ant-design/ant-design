@@ -17,7 +17,7 @@ let BreadcrumbItem = React.createClass({
 
 let Breadcrumb = React.createClass({
   contextTypes: {
-    router: React.PropTypes.func.isRequired
+    router: React.PropTypes.func
   },
   render() {
     var crumbs, routes, params;
@@ -35,7 +35,7 @@ let Breadcrumb = React.createClass({
         } else {
           link = <Link to={route.path} params={params}>{name}</Link>;
         }
-        return <BreadcrumbItem>{link}</BreadcrumbItem>;
+        return <BreadcrumbItem key={name}>{link}</BreadcrumbItem>;
       });
     } else {
       crumbs = this.props.children;

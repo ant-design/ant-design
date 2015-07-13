@@ -532,10 +532,10 @@ footer ul li > a {
 }
 
 .markdown {
-  width: 75%;
   color: #777;
   font-size: 14px;
   line-height: 1.8;
+  width: 80%;
 }
 
 .markdown img {

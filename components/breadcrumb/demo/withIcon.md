@@ -12,10 +12,10 @@ var Breadcrumb = require('antd/lib/breadcrumb');
 React.render(
   <Breadcrumb>
     <Breadcrumb.Item href="">
-      <i className="anticon anticon-user"></i>
+      <i className="anticon anticon-home"></i>
     </Breadcrumb.Item>
     <Breadcrumb.Item href="">
-      <i className="anticon anticon-folder-open"></i>
+      <i className="anticon anticon-user"></i>
       应用列表
     </Breadcrumb.Item>
     <Breadcrumb.Item>
