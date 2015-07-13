@@ -1,4 +1,4 @@
-# Pagenation
+# Pagination
 
 - category: Components
 - chinese: 分页
