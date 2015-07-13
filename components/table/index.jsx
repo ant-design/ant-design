@@ -40,15 +40,22 @@ let AntTable = React.createClass({
       column.sorter.call(this, column.sortOrder);
     }
   },
+  onSelectFilter() {
+  },
+  onDeselectFilter() {
+  },
   renderColumnsDropdown() {
-    this.props.columns.forEach((column) => {
+    this.props.columns = this.props.columns.map((column) => {
       if (!column.originTitle) {
         column.originTitle = column.title;
       }
       let filterDropdown, menus, sortButton;
       if (column.filter) {
-        menus = <Menu multiple={true} onSelect={column.onFilter.bind(this)}>
+        menus = <Menu multiple={true} onSelect={this.onSelectFilter} onDeselect={this.onDeselectFilter}>
           {this.renderMenus(column.filter())}
+          <button className="ant-btn ant-btn-primary ant-btn-sm" onClick={column.onFilter.bind(this)}>
+            确 定
+          </button>
         </Menu>;
         filterDropdown = <Dropdown trigger="click" closeOnSelect={false} overlay={menus}>
           <i className="anticon anticon-bars"></i>
@@ -75,6 +82,7 @@ let AntTable = React.createClass({
         sortButton,
         filterDropdown
       ];
+      return column;
     });
   },
   handleSelect(e) {

@@ -50,7 +50,6 @@
 
   &-loading {
     opacity: 0.7;
-    min-height: 150px;
   }
 
   &-small {
@@ -77,13 +76,16 @@
     height: 14px;
     vertical-align: middle;
     text-align: center;
-    cursor: pointer;
     &-up,
     &-down {
       line-height: 6px;
       height: 6px;
       display: block;
       width: 12px;
+      cursor: pointer;
+      &:hover .anticon {
+        color: #666;
+      }
       &.on {
         .anticon-caret-up,
         .anticon-caret-down {
@@ -98,9 +100,6 @@
       line-height: 6px;
       height: 6px;
       color: #aaa;
-      &:hover {
-        color: #666;
-      }
       &:before {
         -moz-transform-origin: 53% 50%; /* fix firefox position */
       }
