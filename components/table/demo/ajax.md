@@ -20,6 +20,7 @@ var columns = [{
 }];
 
 function resolve(result) {
+  console.log(this.loadData);
   return result.data;
 }
 
