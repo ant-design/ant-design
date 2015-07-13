@@ -1,49 +1,45 @@
-# 排序和筛选
+# 排序
 
 - order: 5
 
-按某一列对列表进行排序和筛选。
+对某一列数据进行排序，通过指定列的 `sorter` 函数即可启动排序按钮。支持前台排序和后台排序，后台排序会发送请求。
+
+`sorter: function(order) { ... }`， order 为排序方向：升序 `ascend`、降序 `descend` 或空字符串。
 
 ---
 
 ````jsx
 var Table = antd.Table;
 var columns = [{
-  title: '姓名',
-  dataIndex: 'name'
+  title: '姓名(后端排序)',
+  dataIndex: 'name',
+  sorter: function(order) {
+    this.fetch(this.props.dataSource + (order && '?sort=name&order=' + order));
+  }
 }, {
-  title: '年龄',
+  title: '年龄(前端排序)',
   dataIndex: 'age',
-  filter: function() {
-    return [{
-      text: '选项一'
-      value: 'value1'
-    }, {
-      text: '选项二'
-      value: 'value2'
-    }];
-  },
-  onFilter: function(item) {
-    this.props.dataSource += '?age=' + item.value;
-    this.loadData();
-  },
-  onSorter: function(a, b) {
-    return a > b;
+  sorter: function(order) {
+    if (!order) {
+      return;
+    }
+    this.state.data = this.state.data.sort(function(a, b) {
+      return (order === 'ascend') ?
+        (a.age - b.age) : (b.age - a.age);
+    });
+    this.setState({
+      data: this.state.data
+    });
   }
 }, {
   title: '地址',
   dataIndex: 'address'
 }];
-var data = [{
-  name: '胡彦斌',
-  age: 32,
-  address: '西湖区湖底公园1号'
-}, {
-  name: '胡彦祖',
-  age: 42,
-  address: '西湖区湖底公园1号'
-}];
 
-React.render(<Table columns={columns} data={data} />
+function resolve(result) {
+  return result.data;
+}
+
+React.render(<Table columns={columns} dataSource="/components/table/demo/data.json" resolve={resolve} />
 , document.getElementById('components-table-demo-sort'));
 ````

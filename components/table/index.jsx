@@ -3,6 +3,8 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
+import Menu from 'rc-menu';
+import Dropdown from '../dropdown';
 
 let AntTable = React.createClass({
   getInitialState() {
@@ -19,6 +21,61 @@ let AntTable = React.createClass({
       rowSelection: null,
       size: 'normal'
     };
+  },
+  renderMenus(items) {
+    let menuItems = items.map((item) => {
+      return <Menu.Item key={item.value}>
+        {item.text}
+      </Menu.Item>;
+    });
+    return menuItems;
+  },
+  toggleSortOrder(order, column) {
+    if (column.sortOrder === order) {
+      column.sortOrder = '';
+    } else {
+      column.sortOrder = order;
+    }
+    if (column.sorter) {
+      column.sorter.call(this, column.sortOrder);
+    }
+  },
+  renderColumnsDropdown() {
+    this.props.columns.forEach((column) => {
+      if (!column.originTitle) {
+        column.originTitle = column.title;
+      }
+      let filterDropdown, menus, sortButton;
+      if (column.filter) {
+        menus = <Menu multiple={true} onSelect={column.onFilter.bind(this)}>
+          {this.renderMenus(column.filter())}
+        </Menu>;
+        filterDropdown = <Dropdown trigger="click" closeOnSelect={false} overlay={menus}>
+          <i className="anticon anticon-bars"></i>
+        </Dropdown>;
+      }
+      if (column.sorter) {
+        sortButton = <div className="ant-table-column-sorter">
+          <span className={'ant-table-column-sorter-up ' +
+                           (column.sortOrder === 'ascend' ? 'on' : 'off')}
+            title="升序排序"
+            onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
+            <i className="anticon anticon-caret-up"></i>
+          </span>
+          <span className={'ant-table-column-sorter-down ' +
+                           (column.sortOrder === 'descend' ? 'on' : 'off')}
+            title="降序排序"
+            onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
+            <i className="anticon anticon-caret-down"></i>
+          </span>
+        </div>;
+      }
+      column.title = [
+        column.originTitle,
+        sortButton,
+        filterDropdown
+      ];
+    });
   },
   handleSelect(e) {
     let checked = e.currentTarget.checked;
@@ -54,16 +111,17 @@ let AntTable = React.createClass({
     let checkbox = <input type="checkbox" checked={checked} onChange={this.handleSelect} />;
     return checkbox;
   },
-  loadData: function() {
+  fetch: function(url) {
     this.props.resolve = this.props.resolve || function(data) {
       return data || [];
     };
-    if (this.props.dataSource) {
+    let dataSource = url || this.props.dataSource;
+    if (dataSource) {
       this.setState({
         loading: true
       });
       jQuery.ajax({
-        url: this.props.dataSource,
+        url: dataSource,
         success: (result) => {
           result = this.props.resolve.call(this, result);
           if (this.isMounted()) {
@@ -81,7 +139,7 @@ let AntTable = React.createClass({
     }
   },
   componentDidMount() {
-    this.loadData();
+    this.fetch();
   },
   render() {
     if (this.props.rowSelection) {
@@ -109,7 +167,7 @@ let AntTable = React.createClass({
     if (this.props.size === 'small') {
       classString += ' ant-table-small';
     }
-    // 'message message-important message-read'
+    this.renderColumnsDropdown();
     return <Table data={this.state.data}
       className={classString}
       {...this.props} />;
