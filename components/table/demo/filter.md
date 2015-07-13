@@ -2,7 +2,7 @@
 
 - order: 6
 
-对某一列数据进行筛选。
+对某一列数据进行筛选，使用列的 `filter` 属性来指定筛选的列表，`onFilter` 方法指定选择后的回调。一般是向服务器请求筛选后的数据。
 
 ---
 
@@ -25,6 +25,7 @@ var columns = [{
   },
   onFilter: function(filters) {
     console.log(filters);
+    // 向服务器请求新数据
     this.fetch(this.props.dataSource + '?age=' + filters.join(','));
   }
 }, {
