@@ -40,7 +40,6 @@ let AntTable = React.createClass({
     return {
       selectedRowKeys: [],
       loading: false,
-      selectedFilters: [],
       pagination: pagination,
       data: []
     };
@@ -83,15 +82,16 @@ let AntTable = React.createClass({
     this.fetch();
   },
   handleFilter(column) {
-    this.props.dataSource = this.originDataSource.slice().filter(function(record) {
-      if (column.selectedFilters.length === 0) {
-        return true;
-      }
-      return column.selectedFilters.some(function(value) {
-        var result = column.onFilter.call(this, value, record);
-        return result;
+    if (this.mode === 'local') {
+      this.props.dataSource = this.originDataSource.slice().filter(function(record) {
+        if (column.selectedFilters.length === 0) {
+          return true;
+        }
+        return column.selectedFilters.some(function(value) {
+          return column.onFilter.call(this, value, record);
+        });
       });
-    });
+    }
     this.fetch();
   },
   handleSelectFilter(column, selected) {
@@ -231,6 +231,24 @@ let AntTable = React.createClass({
       onChange={this.handlePageChange}
       {...this.state.pagination} />;
   },
+  prepareParamsArguments() {
+    // 准备筛选、排序、分页的参数
+    let pagination;
+    let filters = {};
+    let sorters = {};
+    pagination = this.state.pagination;
+    this.props.columns.forEach(function(column) {
+      if (column.dataIndex && column.selectedFilters &&
+          column.selectedFilters.length > 0) {
+        filters[column.dataIndex] = column.selectedFilters;
+      }
+      if (column.dataIndex && column.sorter &&
+          column.sortOrder) {
+        sorters[column.dataIndex] = column.sortOrder;
+      }
+    });
+    return [pagination, filters, sorters];
+  },
   fetch: function() {
     let dataSource = this.props.dataSource;
     if (this.mode === 'remote') {
@@ -239,7 +257,7 @@ let AntTable = React.createClass({
       });
       jQuery.ajax({
         url: dataSource.url,
-        params: dataSource.getParams(),
+        params: dataSource.getParams.apply(this, this.prepareParamsArguments()),
         success: (result) => {
           if (this.isMounted()) {
             let pagination = jQuery.extend(
