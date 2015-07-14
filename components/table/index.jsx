@@ -224,9 +224,12 @@ let AntTable = React.createClass({
     if (this.state.pagination === false) {
       return '';
     }
-    return <Pagination className="ant-table-pagination"
+    let classString = 'ant-table-pagination';
+    if (this.props.size === 'small') {
+      classString += ' mini';
+    }
+    return <Pagination className={classString}
       onChange={this.handlePageChange}
-      size="simple"
       {...this.state.pagination} />;
   },
   prepareParamsArguments() {
