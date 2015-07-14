@@ -12,7 +12,7 @@ module.exports = {
   entry: entry,
 
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx']
   },
 
   output: {
@@ -22,7 +22,7 @@ module.exports = {
 
   externals: {
     react: "React",
-    jquery: 'jQuery'
+    jquery:"jQuery"
   },
 
   module: {

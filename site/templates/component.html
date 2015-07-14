@@ -1,32 +1,5 @@
 {% extends "page.html" %}
 
-{% block scripts %}
-<script src="/dist/{{ config.package.name }}-{{ config.package.version }}.js"></script>
-<script src="/dist/demo.js"></script>
-<script>
-window.require = function(path) {
-  var result = window;
-  var namespaces = path.split('/');
-  namespaces.forEach(function(key, i) {
-    if (i !== 0 && i === namespaces.length - 1) {
-      key = capitalizeFirstLetter(key);
-    }
-    if (key !== 'lib') {
-      if (result[key]) {
-        result = result[key];
-      } else {
-        throw 'There should not have modules here 2.';
-      }
-    }
-  });
-  function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-  return result;
-};
-</script>
-{% endblock %}
-
 {% block content %}
 <section class="main-container">
   <article class="markdown">
