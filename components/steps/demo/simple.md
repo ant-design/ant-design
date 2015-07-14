@@ -18,7 +18,7 @@ var steps = [{
 }, {
   status: 'process',
   title: '进行中',
-  description: '这里是多信息的耶哦耶哦哦耶哦耶哦耶哦耶哦耶'
+  description: '这里是多信息的耶哦耶哦哦耶哦耶'
 }, {
   status: 'wait',
   title: '又一个待运行',
