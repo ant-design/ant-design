@@ -1,4 +1,4 @@
-@prefixClass: rc-pagination;
+@prefixClass: ant-pagination;
 
 
 .@{prefixClass} {
@@ -15,7 +15,7 @@
     visibility: hidden;
   }
 
-  .@{prefixClass}-item {
+  &-item {
     cursor: pointer;
     border-radius: 6px;
     min-width: 28px;
@@ -41,7 +41,7 @@
       }
     }
 
-    &.active {
+    &-active {
       background-color: #2db7f5;
       border: none;
 
@@ -51,7 +51,7 @@
     }
   }
 
-  .jump-prev, .jump-next {
+  &-jump-prev, &-jump-next {
     &:after {
       content: "•••";
       display: block;
@@ -69,7 +69,7 @@
 
   }
 
-  .jump-prev {
+  &-jump-prev {
     &:hover {
       &:after {
         content: "‹‹";
@@ -77,7 +77,7 @@
     }
   }
 
-  .jump-next {
+  &-jump-next {
     &:hover {
       &:after {
         content: "››";
@@ -85,10 +85,10 @@
     }
   }
 
-  .prev, .jump-prev, .jump-next {
+  &-prev, &-jump-prev, &-jump-next {
     margin-right: 8px;
   }
-  .prev, .next, .jump-prev, .jump-next {
+  &-prev, &-next, &-jump-prev, &-jump-next {
     cursor: pointer;
     color: #666;
     font-size: 10px;
@@ -101,7 +101,7 @@
     text-align: center;
   }
 
-  .prev, .next {
+  &-prev, &-next {
     border: 1px solid #d9d9d9;
 
     a {
@@ -116,87 +116,50 @@
       a {
         color: #2db7f5;
       }
+
     }
 
-    &.disabled {
-      cursor: not-allowed;
+  }
+
+  &-disabled {
+    &:hover {
+      border-color: #d9d9d9;
       a {
         color: #ccc;
+        cursor: not-allowed;
       }
+    }
+    cursor: not-allowed;
+    a {
+      color: #ccc;
     }
   }
 
-  .options {
+  &-options {
     float: left;
     margin-left: 15px;
-    .size-changer {
+    &-size-changer {
       float: left;
       width: 90px;
+      margin-right: 10px;
     }
 
-    .quick-jumper {
+    &-quick-jumper {
       float: left;
-      margin-left: 16px;
       height: 28px;
       line-height: 28px;
 
       input {
+        .input;
         margin: 0 8px;
-        box-sizing: border-box;
-        background-color: #fff;
-        border-radius: 6px;
-        border: 1px solid #d9d9d9;
-        outline: none;
-        padding: 3px 12px;
         width: 50px;
-        height: 28px;
-
-        &:hover {
-          border-color: #2db7f5;
-        }
       }
     }
   }
-}
 
-.@{prefixClass}.mini {
 
-  .@{prefixClass}-item {
-    border: none;
-    margin: 0;
-    min-width: 20px;
-    height: 20px;
-    line-height: 20px;
-  }
 
-  .prev, .next {
-    margin: 0;
-    min-width: 20px;
-    height: 20px;
-    line-height: 20px;
-    border: none;
-  }
-
-  .jump-prev, .jump-next {
-    height: 20px;
-    line-height: 20px;
-  }
-
-  .quick-jumper {
-    height: 20px;
-    line-height: 20px;
-
-    input {
-      padding: 3px 7px;
-      width: 40px;
-      height: 20px;
-      line-height: 20px;
-    }
-  }
-}
-
-.@{prefixClass}.simple {
-  .prev, .next {
+  &-simple &-prev, &-simple &-next {
     border: none;
     height: 24px;
     line-height: 24px;
@@ -204,11 +167,11 @@
     font-size: 18px;
   }
 
-  .simple-pager {
+  &-simple &-simple-pager {
     float: left;
     margin-right: 8px;
 
-    .slash {
+    &-slash {
       margin: 0 10px;
     }
 
@@ -222,6 +185,7 @@
       padding: 5px 8px;
       width: 30px;
       min-height: 20px;
+      text-align: center;
 
 
       &:hover {
@@ -232,3 +196,38 @@
   }
 }
 
+.@{prefixClass} {
+
+  &.mini &-item {
+    border: none;
+    margin: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  &.mini &-prev,
+  &.mini &-next {
+    margin: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: none;
+  }
+
+  &.mini &-jump-prev, &.mini &-jump-next {
+    height: 20px;
+    line-height: 20px;
+  }
+
+  &.mini &-options {
+    &-quick-jumper {
+      height: 20px;
+      line-height: 20px;
+
+      input {
+        .input-sm;
+      }
+    }
+  }
+}
