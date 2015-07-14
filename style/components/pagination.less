@@ -1,6 +1,5 @@
 @prefixClass: ant-pagination;
 
-
 .@{prefixClass} {
   user-select: none;
   font-size: 12px;
@@ -27,25 +26,26 @@
     border: 1px solid #d9d9d9;
     background-color: #fff;
     margin-right: 8px;
+    transition: all 0.3s ease;
 
     a {
       text-decoration: none;
       color: #666;
     }
 
-
     &:hover {
-      border-color: #2db7f5;
+      border-color: @primary-color;
       a {
-        color: #2db7f5;
+        color: @primary-color;
       }
     }
 
     &-active {
-      background-color: #2db7f5;
-      border: none;
+      background-color: @primary-color;
+      border-color: @primary-color;
 
-      a {
+      a,
+      &:hover a {
         color: #fff;
       }
     }
@@ -63,7 +63,7 @@
 
     &:hover {
       &:after {
-        color: #2db7f5;
+        color: @primary-color;
       }
     }
 
@@ -111,10 +111,10 @@
     }
 
     &:hover {
-      border-color: #2db7f5;
+      border-color: @primary-color;
 
       a {
-        color: #2db7f5;
+        color: @primary-color;
       }
 
     }
@@ -157,8 +157,6 @@
     }
   }
 
-
-
   &-simple &-prev, &-simple &-next {
     border: none;
     height: 24px;
@@ -189,7 +187,7 @@
 
 
       &:hover {
-        border-color: #2db7f5;
+        border-color: @primary-color;
       }
     }
 
