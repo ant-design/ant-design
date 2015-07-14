@@ -4,6 +4,8 @@
 
 远程读取的表格是**更为常见的模式**，下面的表格使用了 `dataSource` 对象和远程数据源绑定和适配，并具有筛选、排序等功能以及页面 loading 效果。
 
+此示例是静态数据模拟，数据可能不准确，请打开网络面板查看请求。
+
 ---
 
 ````jsx
@@ -43,9 +45,19 @@ var dataSource = {
       pageSize: result.pageSize
     }
   },
+  // 和后台接口接收的参数进行适配
+  // 参数里提供了分页、筛选、排序的信息
   getParams: function(pagination, filters, sorters) {
-    let params = {};
     console.log(pagination, filters, sorters);
+    var params = {
+      pageSize: pagination.pageSize,
+      currentPage: pagination.current,
+      sort: sorters
+    };
+    for (let key in filters) {
+      params[key] = filters[key];
+    }
+    console.log(params);
     return params;
   }
 };

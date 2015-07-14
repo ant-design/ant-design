@@ -6,6 +6,7 @@ import Table from 'rc-table';
 import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
 import Pagination from '../pagination';
+import objectAssign from 'object-assign';
 
 let AntTable = React.createClass({
   getInitialState() {
@@ -16,26 +17,22 @@ let AntTable = React.createClass({
       this.originDataSource = this.props.dataSource.slice(0);
     } else {
       this.mode = 'remote';
-      this.props.dataSource.resolve =
-        this.props.dataSource.resolve || function(data) {
+      this.props.dataSource = objectAssign({
+        resolve: function(data) {
           return data || [];
-        };
-      this.props.dataSource.getParams =
-        this.props.dataSource.getParams || function() {
-          return {};
-        };
-      this.props.dataSource.getPagination =
-        this.props.dataSource.getPagination || function() {
-          return {};
-        };
+        },
+        getParams: function() {},
+        getPagination: function() {}
+      }, this.props.dataSource);
     }
     var pagination;
     if (this.props.pagination === false) {
       pagination = false;
     } else {
-      pagination = this.props.pagination || {};
-      pagination.pageSize = pagination.pageSize || 10;
-      pagination.total = this.props.dataSource.length || 10;
+      pagination = objectAssign({
+        pageSize: 10,
+        total: this.props.dataSource.length
+      }, this.props.pagination);
     }
     return {
       selectedRowKeys: [],
@@ -229,6 +226,7 @@ let AntTable = React.createClass({
     }
     return <Pagination className="ant-table-pagination"
       onChange={this.handlePageChange}
+      size="simple"
       {...this.state.pagination} />;
   },
   prepareParamsArguments() {
@@ -257,10 +255,12 @@ let AntTable = React.createClass({
       });
       jQuery.ajax({
         url: dataSource.url,
-        params: dataSource.getParams.apply(this, this.prepareParamsArguments()),
+        data: dataSource.getParams.apply(this, this.prepareParamsArguments()) || {},
+        headers: dataSource.headers,
+        dataType: 'json',
         success: (result) => {
           if (this.isMounted()) {
-            let pagination = jQuery.extend(
+            let pagination = objectAssign(
               this.state.pagination,
               dataSource.getPagination.call(this, result)
             );
