@@ -4,11 +4,11 @@
 @process-icon-color: @primary-color;
 @process-title-color: #666;
 @process-description-color: @process-title-color;
-@process-tail-color: #bcbcbc;
-@wait-icon-color: #bcbcbc;
+@process-tail-color: #e9e9e9;
+@wait-icon-color: #ccc;
 @wait-title-color: #999;
 @wait-description-color: @wait-title-color;
-@wait-tail-color: @wait-icon-color;
+@wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
 @finish-title-color: @wait-title-color;
 @finish-description-color: @finish-title-color;
@@ -93,7 +93,9 @@
         height: auto;
         > .@{stepsPrefixClass}-icon {
           font-size: 20px;
-          top: 0;
+          top: 2px;
+          width: 20px;
+          height: 20px;
         }
       }
       &.@{stepsPrefixClass}-status-process {
@@ -134,6 +136,8 @@
 
       &.anticon {
         font-size: 12px;
+        position: relative;
+        top: -2px;
       }
     }
   }
@@ -167,7 +171,7 @@
     > i {
       display: inline-block;
       background: @wait-tail-color;
-      height: 2px;
+      height: 1px;
       border-radius: 1px;
       width: 100%;
       .transition(background 0.3s ease);
@@ -188,6 +192,7 @@
         font-size: 12px;
         font-size: ~"9px \9"; // ie8-9
         .scale(0.75);
+        top: -1px;
       }
     }
     .@{stepsPrefixClass}-main {
