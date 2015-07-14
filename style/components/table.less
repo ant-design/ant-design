@@ -32,7 +32,30 @@
     }
 
     .@{tablePrefixClass}-filter-dropdown {
-      min-width: 100px;
+      min-width: 88px;
+      .ant-dropdown-menu-item {
+        overflow: hidden;
+        padding: 7px 8px;
+        &.ant-dropdown-menu-item-selected:after {
+          right: 8px;
+        }
+      }
+    }
+
+    a.@{tablePrefixClass}-filter-dropdown-link {
+      color: @link-color;
+      &:hover {
+        color: @link-hover-color;
+      }
+      &:active {
+        color: @link-active-color;
+      }
+      &.confirm {
+        float: left;
+      }
+      &.clear {
+        float: right;
+      }
     }
 
     .@{tablePrefixClass}-filter-selected.anticon-bars {

@@ -92,15 +92,17 @@ let AntTable = React.createClass({
     this.fetch();
   },
   handleSelectFilter(column, selected) {
-    column.selectedFilters = column.selectedFilters || [];
     column.selectedFilters.push(selected);
   },
   handleDeselectFilter(column, key) {
-    column.selectedFilters = column.selectedFilters || [];
     var index = column.selectedFilters.indexOf(key);
     if (index !== -1) {
       column.selectedFilters.splice(index, 1);
     }
+  },
+  handleClearFilters(column) {
+    column.selectedFilters = [];
+    this.fetch();
   },
   handleSelect(e) {
     let checked = e.currentTarget.checked;
@@ -169,20 +171,31 @@ let AntTable = React.createClass({
       }
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
+        column.selectedFilters = column.selectedFilters || [];
         menus = <Menu multiple={true}
           className="ant-table-filter-dropdown"
           onSelect={this.handleSelectFilter.bind(this, column)}
-          onDeselect={this.handleDeselectFilter.bind(this, column)}>
+          onDeselect={this.handleDeselectFilter.bind(this, column)}
+          selectedKeys={column.selectedFilters}>
           {this.renderMenus(column.filters)}
+          <Menu.Divider />
           <Menu.Item disabled>
-            <button style={{
+            <a className="ant-table-filter-dropdown-link confirm"
+              style={{
                 cursor: 'pointer',
                 pointerEvents: 'visible'
               }}
-              className="ant-btn ant-btn-primary ant-btn-sm"
               onClick={this.handleFilter.bind(this, column)}>
-              确 定
-            </button>
+              确定
+            </a>
+            <a className="ant-table-filter-dropdown-link clear"
+              style={{
+                cursor: 'pointer',
+                pointerEvents: 'visible'
+              }}
+              onClick={this.handleClearFilters.bind(this, column)}>
+              清空
+            </a>
           </Menu.Item>
         </Menu>;
         let dropdownSelectedClass = '';
