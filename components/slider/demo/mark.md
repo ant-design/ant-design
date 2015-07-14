@@ -10,7 +10,17 @@
 var Slider = antd.Slider;
 
 React.render(
-  <Slider marks={["状态1","状态2","状态3","状态4"]} index={1}/>
+<div className="sliderContainer">
+  <p>包含关系</p>
+  <Slider marks={["状态1","状态2","状态3","状态4"]} index={1} />
+  <p>并列关系</p>
+  <Slider marks={["状态1","状态2","状态3","状态4"]} isIncluded={false} index={1} />
+</div>
 , document.getElementById('components-slider-demo-mark'));
 ````
 
+<style>
+	.sliderContainer .ant-slider {
+		margin-bottom: 30px;
+	}
+</style>
