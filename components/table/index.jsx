@@ -35,6 +35,7 @@ let AntTable = React.createClass({
     } else {
       pagination = this.props.pagination || {};
       pagination.pageSize = pagination.pageSize || 10;
+      pagination.total = this.props.dataSource.length || 10;
     }
     return {
       selectedRowKeys: [],
@@ -134,17 +135,8 @@ let AntTable = React.createClass({
     }
   },
   handlePageChange: function(current) {
-    console.log(current);
-    current = current || 1;
-    let pageSize = this.state.pagination.pageSize;
-    this.setState({
-      data: this.props.dataSource.filter(function(item, i) {
-        if (i >= (current - 1) * pageSize &&
-            i < current * pageSize) {
-          return item;
-        }
-      })
-    });
+    this.state.pagination.current = current || 1;
+    this.fetch();
   },
   renderSelectionCheckBox(value, record, index) {
     let checked = this.state.selectedRowKeys.indexOf(index + 1) >= 0;
@@ -250,24 +242,39 @@ let AntTable = React.createClass({
         params: dataSource.getParams(),
         success: (result) => {
           if (this.isMounted()) {
+            let pagination = jQuery.extend(
+              this.state.pagination,
+              dataSource.getPagination.call(this, result)
+            );
             this.setState({
               data: dataSource.resolve.call(this, result),
-              pagination: dataSource.getPagination.call(this, result)
+              pagination: pagination,
+              loading: false
             });
           }
         },
-        complete: () => {
+        error: () => {
           this.setState({
             loading: false
           });
         }
       });
     } else {
-      this.handlePageChange(this.state.pagination.current);
+      let pageSize = this.state.pagination.pageSize;
+      let current = this.state.pagination.current;
+      this.setState({
+        data: this.props.dataSource.filter(function(item, i) {
+          if (i >= (current - 1) * pageSize &&
+              i < current * pageSize) {
+            return item;
+          }
+        }),
+        pagination: this.state.pagination
+      });
     }
   },
   componentDidMount() {
-    this.fetch();
+    this.handlePageChange();
   },
   render() {
     this.props.columns = this.renderRowSelection();

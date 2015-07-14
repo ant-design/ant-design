@@ -54,5 +54,5 @@ var data = [{
 }];
 
 React.render(<Table columns={columns} dataSource={data} />
-, document.getElementById('components-table-demo-column-header'));
+, document.getElementById('components-table-demo-head'));
 ````

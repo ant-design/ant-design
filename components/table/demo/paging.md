@@ -24,7 +24,7 @@ var columns = [{
 }];
 var data = [];
 
-for (let i=0; i<22; i++) {
+for (let i=0; i<18; i++) {
   data.push({
     name: '李大嘴' + i,
     age: 32,

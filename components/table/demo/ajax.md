@@ -27,6 +27,13 @@ var dataSource = {
   url: "/components/table/demo/data.json",
   resolve: function(result) {
     return result.data;
+  },
+  // 和后台接口返回的分页数据进行适配
+  getPagination: function(result) {
+    return {
+      total: result.totalCount,
+      pageSize: result.pageSize
+    }
   }
 };
 
