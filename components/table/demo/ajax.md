@@ -1,6 +1,6 @@
 # 动态加载数据
 
-- order: 4
+- order: 7
 
 `dataSource="/api/data.json"`，列表数据是远程读取的，并有 loading 效果。
 
@@ -23,6 +23,13 @@ function resolve(result) {
   return result.data;
 }
 
-React.render(<Table columns={columns} dataSource="/components/table/demo/data.json" resolve={resolve} />
+var dataSource = {
+  url: "/components/table/demo/data.json",
+  resolve: function(result) {
+    return result.data;
+  }
+};
+
+React.render(<Table columns={columns} dataSource={dataSource} />
 , document.getElementById('components-table-demo-ajax'));
 ````

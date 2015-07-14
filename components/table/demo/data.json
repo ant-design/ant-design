@@ -11,5 +11,8 @@
     "name": "李大嘴ajax",
     "age": 32,
     "address": "西湖区湖底公园1号"
-  }]
+  }],
+  totalCount: 35,
+  pageSize: 10,
+  currentPage: 1
 }

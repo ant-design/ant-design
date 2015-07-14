@@ -7,7 +7,6 @@
   font-size: @font-size-base;
   color: @text-color;
   border-radius: 6px;
-  overflow: hidden;
 
   table {
     width: 100%;
@@ -32,12 +31,19 @@
       }
     }
 
-   .@{tablePrefixClass}-filter-dropdown {
+    .@{tablePrefixClass}-filter-dropdown {
       min-width: 100px;
     }
 
     .@{tablePrefixClass}-filter-selected.anticon-bars {
       color: @primary-color;
+    }
+
+    &:first-child {
+      border-radius: 6px 0 0 0;
+    }
+    &:last-child {
+      border-radius: 0 6px 0 0;
     }
   }
 
@@ -87,7 +93,7 @@
     text-align: center;
     &-up,
     &-down {
-      line-height: 6px;
+      line-height: 4px;
       height: 6px;
       display: block;
       width: 12px;
@@ -114,4 +120,9 @@
       }
     }
   }
+}
+
+.@{tablePrefixClass}-pagination {
+  margin: 16px 0;
+  float: right;
 }

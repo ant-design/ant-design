@@ -2,7 +2,7 @@
 
 - order: 0
 
-简单的表格。
+简单的表格，最后一列是各种操作。
 
 ---
 
@@ -20,6 +20,20 @@ var columns = [{
   render: function(text) {
     return <a href="#">{text}</a>;
   }
+}, {
+  title: '操作',
+  dataIndex: '',
+  render: function(text, record) {
+    return <span>
+      <a href="#">删除</a>
+      <span className="ant-divider">|</span>
+      <a href="#">操作</a>
+      <span className="ant-divider">|</span>
+      <a href="#" className="ant-dropdown-link">
+        更多 <i className="anticon anticon-down"></i>
+      </a>
+    </span>;
+  }
 }];
 var data = [{
   name: '胡彦斌',
@@ -35,6 +49,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} data={data} />
+React.render(<Table columns={columns} dataSource={data} />
 , document.getElementById('components-table-demo-basic'));
 ````
