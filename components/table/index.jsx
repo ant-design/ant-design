@@ -314,7 +314,7 @@ let AntTable = React.createClass({
     this.props.columns = this.renderRowSelection();
 
     var classString = '';
-    if (this.props.loading) {
+    if (this.state.loading) {
       classString += ' ant-table-loading';
     }
     if (this.props.size === 'small') {
