@@ -28,13 +28,12 @@ for (let i=0; i<22; i++) {
   data.push({
     name: '李大嘴' + i,
     age: 32,
-    address: '西湖区湖底公园' + i + ' 号'
+    address: '西湖区湖底公园' + i + '号'
   });
 }
 
 var pagination = {
-  total: data.length,
-  pageSize: 10
+  total: data.length
 };
 
 React.render(<Table columns={columns} dataSource={data} pagination={pagination} />

@@ -34,7 +34,6 @@ let AntTable = React.createClass({
       pagination = false;
     } else {
       pagination = this.props.pagination || {};
-      pagination.current = pagination.current || 1;
       pagination.pageSize = pagination.pageSize || 10;
     }
     return {
@@ -135,6 +134,8 @@ let AntTable = React.createClass({
     }
   },
   handlePageChange: function(current) {
+    console.log(current);
+    current = current || 1;
     let pageSize = this.state.pagination.pageSize;
     this.setState({
       data: this.props.dataSource.filter(function(item, i) {
