@@ -40,8 +40,6 @@
     .scale(0.83);
     width: 26px;
     line-height: 26px;
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
-    .rotate(90deg);
 
     * {
       display: none;
@@ -49,6 +47,9 @@
 
     &:before {
       content: '\e611';
+      .ie-rotate(1);
+      .rotate(90deg);
+      transition: transform 0.2s ease;
     }
   }
 
@@ -212,8 +213,8 @@
   }
 
   &-open {
-    .@{selectPrefixCls}-arrow {
-      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    .@{selectPrefixCls}-arrow:before {
+      .ie-rotate(3);
       .rotate(270deg);
     }
     .@{selectPrefixCls}-dropdown {
