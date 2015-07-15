@@ -3,8 +3,8 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
-import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
+import FilterMenu from './filterMenu';
 import Pagination from '../pagination';
 import objectAssign from 'object-assign';
 
@@ -50,12 +50,6 @@ let AntTable = React.createClass({
       rowSelection: null,
       size: 'normal'
     };
-  },
-  renderMenus(items) {
-    let menuItems = items.map((item) => {
-      return <Menu.Item key={item.value}>{item.text}</Menu.Item>;
-    });
-    return menuItems;
   },
   toggleSortOrder(order, column) {
     let sortColumn = this.state.sortColumn;
@@ -109,19 +103,6 @@ let AntTable = React.createClass({
         });
       });
     }
-    this.fetch();
-  },
-  handleSelectFilter(column, selected) {
-    column.selectedFilters.push(selected);
-  },
-  handleDeselectFilter(column, key) {
-    var index = column.selectedFilters.indexOf(key);
-    if (index !== -1) {
-      column.selectedFilters.splice(index, 1);
-    }
-  },
-  handleClearFilters(column) {
-    column.selectedFilters = [];
     this.fetch();
   },
   handleSelect(e) {
@@ -198,32 +179,7 @@ let AntTable = React.createClass({
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
         column.selectedFilters = column.selectedFilters || [];
-        menus = <Menu multiple={true}
-          className="ant-table-filter-dropdown"
-          onSelect={this.handleSelectFilter.bind(this, column)}
-          onDeselect={this.handleDeselectFilter.bind(this, column)}
-          selectedKeys={column.selectedFilters}>
-          {this.renderMenus(column.filters)}
-          <Menu.Divider />
-          <Menu.Item disabled>
-            <a className="ant-table-filter-dropdown-link confirm"
-              style={{
-                cursor: 'pointer',
-                pointerEvents: 'visible'
-              }}
-              onClick={this.handleFilter.bind(this, column)}>
-              确定
-            </a>
-            <a className="ant-table-filter-dropdown-link clear"
-              style={{
-                cursor: 'pointer',
-                pointerEvents: 'visible'
-              }}
-              onClick={this.handleClearFilters.bind(this, column)}>
-              清空
-            </a>
-          </Menu.Item>
-        </Menu>;
+        menus = <FilterMenu column={column} confirmFilter={this.handleFilter.bind(this, column)} />;
         let dropdownSelectedClass = '';
         if (column.selectedFilters && column.selectedFilters.length > 0) {
           dropdownSelectedClass = 'ant-table-filter-selected';
