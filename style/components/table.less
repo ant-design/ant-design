@@ -13,12 +13,13 @@
     width: 100%;
     max-width: 100%;
     border-collapse: separate;
+    text-align: left;
   }
 
   th {
     background: @table-head-background-color;
-    text-align: left;
     font-weight: bold;
+    transition: background .3s ease;
 
     .anticon-bars {
       margin-left: 8px;
@@ -39,6 +40,12 @@
         padding: 7px 8px;
         &.ant-dropdown-menu-item-selected:after {
           right: 8px;
+          font-size: @font-size-base;
+          font-size: ~"10px \9"; // ie8-9
+          .scale(0.83);
+          :root & {
+            font-size: @font-size-base; // reset ie9 and above
+          }
         }
       }
     }
