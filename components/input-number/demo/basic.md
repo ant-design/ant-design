@@ -9,30 +9,12 @@
 ````jsx
 var InputNumber = antd.InputNumber;
 
-function onChange(v){
-  console.log('changed',v);
+function onChange(value) {
+  console.log('changed', value);
 }
 
-var Test = React.createClass({
-  getInitialState(){
-    return {
-      disabled:false
-    };
-  },
-  toggle(){
-    this.setState({
-      disabled:!this.state.disabled
-    });
-  },
-  render(){
-    return <div>
-             <InputNumber min={1} max={10} disabled={this.state.disabled} defaultValue={3} onChange={onChange} style={{width:100}}/>
-             &nbsp;&nbsp;&nbsp;
-             <button onClick={this.toggle} className="ant-btn ant-btn-primary"> toggle disabled</button>
-           </div>;
-  }
-});
-
-React.render(<Test />, document.getElementById('components-input-number-demo-basic'));
+React.render(
+<InputNumber min={1} max={10} defaultValue={3} onChange={onChange} style={{width:100}} />
+, document.getElementById('components-input-number-demo-basic'));
 ````
 
