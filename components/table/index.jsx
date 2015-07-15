@@ -38,7 +38,9 @@ let AntTable = React.createClass({
       selectedRowKeys: [],
       loading: false,
       pagination: pagination,
-      data: []
+      data: [],
+      sortColumn: null,
+      sortOrder: null
     };
   },
   getDefaultProps() {
@@ -56,21 +58,39 @@ let AntTable = React.createClass({
     return menuItems;
   },
   toggleSortOrder(order, column) {
-    if (column.sortOrder === order) {
-      column.sortOrder = '';
-    } else {
-      column.sortOrder = order;
+    let sortColumn = this.state.sortColumn;
+    let sortOrder = this.state.sortOrder;
+    // 同时允许一列进行排序，否则会导致排序顺序的逻辑问题
+    if (sortColumn) {
+      sortColumn.className = '';
     }
+    if (sortColumn !== column) {  // 当前列未排序
+      sortOrder = order;
+      sortColumn = column;
+      sortColumn.className = 'ant-table-column-sort';
+    } else {                      // 当前列已排序
+      if (sortOrder === order) {  // 切换为未排序状态
+        sortOrder = '';
+        sortColumn = null;
+      } else {                    // 切换为排序状态
+        sortOrder = order;
+        sortColumn.className = 'ant-table-column-sort';
+      }
+    }
+    this.setState({
+      sortOrder: sortOrder,
+      sortColumn: sortColumn
+    });
     if (this.mode === 'local') {
       let sorter = function() {
         let result = column.sorter.apply(this, arguments);
-        if (column.sortOrder === 'ascend') {
+        if (sortOrder === 'ascend') {
           return result;
-        } else if (column.sortOrder === 'descend') {
+        } else if (sortOrder === 'descend') {
           return -result;
         }
       };
-      if (column.sortOrder) {
+      if (sortOrder) {
         this.props.dataSource = this.props.dataSource.sort(sorter);
       } else {
         this.props.dataSource = this.originDataSource.slice();
@@ -215,15 +235,16 @@ let AntTable = React.createClass({
         </Dropdown>;
       }
       if (column.sorter) {
+        let isSortColumn = (this.state.sortColumn === column);
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
-                           (column.sortOrder === 'ascend' ? 'on' : 'off')}
+                           ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
             title="升序排序"
             onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
             <i className="anticon anticon-caret-up"></i>
           </span>
           <span className={'ant-table-column-sorter-down ' +
-                           (column.sortOrder === 'descend' ? 'on' : 'off')}
+                           ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
             title="降序排序"
             onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
             <i className="anticon anticon-caret-down"></i>
