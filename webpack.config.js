@@ -36,12 +36,12 @@ module.exports = {
     }, {
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-restructuring!' + 'autoprefixer-loader!' + 'less?sourceMap'
+        'css?sourceMap&-minimize!' + 'autoprefixer-loader!' + 'less?sourceMap'
       )
     }, {
       test: /\.css$/,
       loader: ExtractTextPlugin.extract(
-        'css?sourceMap!' + 'autoprefixer-loader'
+        'css?sourceMap&-minimize!' + 'autoprefixer-loader'
       )
     }]
   },

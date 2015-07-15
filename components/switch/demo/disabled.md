@@ -26,7 +26,7 @@ var Test = React.createClass({
       <Switch disabled={this.state.disabled} />
       <br />
       <br />
-      <button className="ant-btn atn-btn-primary" onClick={this.toggle}>Toggle disabled</button>
+      <button className="ant-btn ant-btn-primary" onClick={this.toggle}>Toggle disabled</button>
     </div>;
   }
 });
