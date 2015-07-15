@@ -57,7 +57,7 @@ body {
 }
 
 body {
-  font-family: "Helvetica Neue",Helvetica,"Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
   line-height: 1.5;
   color: #888;
   font-size: 14px;
@@ -142,7 +142,7 @@ a.logo {
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
-  font-family: "Raleway","Helvetica Neue",Helvetica,"Lantinghei SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
+  font-family: "Microsoft YaHei","微软雅黑","Hiragino Sans GB",sans-serif;
   font-weight: 500;
   color: #6EB4E0;
 }
@@ -532,10 +532,10 @@ footer ul li > a {
 }
 
 .markdown {
-  width: 75%;
   color: #777;
   font-size: 14px;
   line-height: 1.8;
+  width: 80%;
 }
 
 .markdown img {
@@ -754,6 +754,40 @@ footer ul li > a {
     animation: Load5 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
     -webkit-animation: Load5 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
 }
+
+/* autocomplete */
+.ui-select ul {
+  outline: none;
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 5px #ccc;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+}
+
+.ui-select-item {
+  width: 156px;
+  padding: 10px 12px;
+  clear: both;
+  font-size: 14px;
+  font-weight: normal;
+  color: #666;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ui-select-item-hover {
+  cursor: pointer;
+  background-color: #eaf8fe;
+}
+/* autocomplete end */
+
 @keyframes Load5 {
     0% {
         opacity: 0;

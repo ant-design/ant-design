@@ -9,12 +9,29 @@
   <title>{% block title %}{{ config.site.name }} - {{ config.site.description }}{% endblock %}</title>
   <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
   <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
-  <link href="http://fonts.useso.com/css?family=Raleway:600,500,400,300" rel="stylesheet" type="text/css" >
   <link rel="stylesheet" href="/static/normalize.css">
   {% block styles %}{% endblock %}
   <link rel="stylesheet" href="/static/style.css">
   <link rel="stylesheet" href="/static/tomorrow.css">
-  <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js,bluebird/2.9.30/bluebird.js"></script>
+  <script>
+    (function (con) {
+      'use strict';
+      var prop, method;
+      var empty = {};
+      var dummy = function () {};
+      var properties = 'memory'.split(',');
+      var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+                     'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+                     'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+      while (prop = properties.pop()) {
+        con[prop] = con[prop] || empty;
+      }
+      while (method = methods.pop()) {
+        con[method] = con[method] || dummy;
+      }
+    })(this.console = this.console || {});
+  </script>
+  <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.0.5/es5-shim-debug.js,es5-shim/4.0.5/es5-sham-debug.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js,react-router/0.13.3/ReactRouter.js,seajs/seajs/2.2.2/sea.js,seajs/seajs-combo/1.0.1/seajs-combo.js,seajs/seajs-style/1.0.2/seajs-style.js"></script>
   <script src="/static/script.js"></script>
   <script>
     window.antdVersion = {
@@ -30,8 +47,15 @@
       <img width="60" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"> {{ config.site.name }}
     </a>
     <div class="search">
+      <div class="hidden">
+        {%- for item in resource.pages %}
+          {%- if item.meta.category === 'Components' %}
+            <input type="hidden" value="{{item.title}} {{item.meta.chinese}}"/>
+          {%- endif %}
+        {%- endfor %}
+      </div>
       <form>
-        <input type="text" placeholder="search">
+        <input class="search-input" type="text" placeholder="search">
         <button type="submit"></button>
       </form>
     </div>

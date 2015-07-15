@@ -4,16 +4,15 @@
 @process-icon-color: @primary-color;
 @process-title-color: #666;
 @process-description-color: @process-title-color;
-@process-tail-color: #bcbcbc;
-@wait-icon-color: #bcbcbc;
+@process-tail-color: #e9e9e9;
+@wait-icon-color: #ccc;
 @wait-title-color: #999;
 @wait-description-color: @wait-title-color;
-@wait-tail-color: @wait-icon-color;
+@wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
 @finish-title-color: @wait-title-color;
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
-
 
 .transition(@transition) {
   transition: @transition;
@@ -90,11 +89,13 @@
       .@{stepsPrefixClass}-head-inner {
         background: none;
         border: 0;
-        font-size: 20px;
         width: auto;
         height: auto;
         > .@{stepsPrefixClass}-icon {
-          top: -4px;
+          font-size: 20px;
+          top: 2px;
+          width: 20px;
+          height: 20px;
         }
       }
       &.@{stepsPrefixClass}-status-process {
@@ -103,7 +104,6 @@
         }
       }
     }
-
   }
 
   .@{stepsPrefixClass}-head, .@{stepsPrefixClass}-main {
@@ -125,16 +125,20 @@
     border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
-    .transition(background-color 0.1s ease);
-    .transition(border-color 0.1s ease);
+    .transition(background-color 0.3s ease);
+    .transition(border-color 0.3s ease);
 
     > .@{stepsPrefixClass}-icon {
       line-height: 1;
-      display: inline-block;
-      vertical-align: middle;
-      top: -2px;
+      top: -1px;
       color: @primary-color;
       position: relative;
+
+      &.anticon {
+        font-size: 12px;
+        position: relative;
+        top: -2px;
+      }
     }
   }
   .@{stepsPrefixClass}-main {
@@ -167,9 +171,10 @@
     > i {
       display: inline-block;
       background: @wait-tail-color;
-      height: 2px;
+      height: 1px;
       border-radius: 1px;
       width: 100%;
+      .transition(background 0.3s ease);
     }
   }
 
@@ -183,6 +188,12 @@
       border-radius: 18px;
       font-size: 12px;
       margin-right: 10px;
+      > .@{stepsPrefixClass}-icon.anticon {
+        font-size: 12px;
+        font-size: ~"9px \9"; // ie8-9
+        .scale(0.75);
+        top: -1px;
+      }
     }
     .@{stepsPrefixClass}-main {
       margin-top: 0;

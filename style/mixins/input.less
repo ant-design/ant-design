@@ -11,6 +11,29 @@
   font-size: @input-font-size-sm;
 }
 
+// input status
+// == when focus or actived
+.active(@color: @input-hover-border-color) {
+  border-color: @color;
+  outline: 0;
+  box-shadow: 0 0 0 2px tint(@color, 80%);
+}
+
+// == when hoverd
+.hover(@color: @input-hover-border-color ) {
+  border-color: @color;
+}
+
+.disabled() {
+  background-color: @input-disabled-bg;
+  opacity: 1;
+  cursor: @cursor-disabled;
+  &:hover {
+    .hover(@input-border-color);
+  }
+}
+
+
 // Basic style for input
 .input() {
   position: relative;
@@ -30,27 +53,16 @@
   .transition(~"border .3s @{ease-in-out}, background .3s @{ease-in-out}, box-shadow .3s @{ease-in-out}");
 
   &:hover {
-    border-color: @input-hover-border-color;
+    .hover();
   }
 
   &:focus {
-    border-color: @input-focus-border-color;
-    outline: 0;
-    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
+    .active();
   }
 
   &[disabled],
   fieldset[disabled] & {
-    background-color: @input-disabled-bg;
-    opacity: 1;
-    &:hover {
-      border-color: @input-border-color;
-    }
-  }
-
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
+   .disabled();
   }
 
   // Reset height for `textarea`s

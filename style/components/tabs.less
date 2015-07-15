@@ -1,10 +1,10 @@
-@prefixClass: ant-tabs;
+@tabPrefixClass: ant-tabs;
 
 @easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
 
 @effect-duration: .3s;
 
-.@{prefixClass} {
+.@{tabPrefixClass} {
   outline: none;
   box-sizing: border-box;
   position: relative;
@@ -68,6 +68,7 @@
       text-align: center;
       text-transform: none;
       font-family: sans-serif;
+      font-size: 12px;
 
       &:before {
         display: block;
@@ -127,7 +128,7 @@
       clear: both;
     }
 
-    div.@{prefixClass}-tab-active {
+    div.@{tabPrefixClass}-tab-active {
       > a, > a:hover, > a:focus {
         color: tint(@primary-color, 20%);
         cursor: pointer;
@@ -135,7 +136,7 @@
       }
     }
 
-    div.@{prefixClass}-tab-disabled {
+    div.@{tabPrefixClass}-tab-disabled {
       pointer-events: none;
       cursor: default;
 
@@ -144,7 +145,7 @@
       }
     }
 
-    .@{prefixClass}-tab {
+    .@{tabPrefixClass}-tab {
       float: left;
       height: 100%;
       margin-right: 28px;

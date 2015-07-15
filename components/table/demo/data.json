@@ -1,0 +1,46 @@
+{
+  "data": [{
+    "name": "胡彦斌ajax1",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "胡彦祖ajax2",
+    "age": 42,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax3",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax4",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax5",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax6",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax7",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax8",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax9",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }, {
+    "name": "李大嘴ajax10",
+    "age": 32,
+    "address": "西湖区湖底公园1号"
+  }],
+  "totalCount": 35,
+  "pageSize": 10,
+  "currentPage": 1
+}

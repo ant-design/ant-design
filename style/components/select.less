@@ -30,19 +30,26 @@
 
   // arrow
   &-arrow {
+    .iconfont-mixin();
     height: 26px;
     position: absolute;
     top: 1px;
     right: 1px;
-    width: 20px;
+    font-size: @font-size-base;
+    font-size: ~"10px \9"; // ie8-9
+    .scale(0.83);
+    width: 26px;
+    line-height: 26px;
 
-    font-family: 'anticon';
+    * {
+      display: none;
+    }
+
     &:before {
       content: '\e611';
+      .ie-rotate(1);
       .rotate(90deg);
-      position: absolute;
-      top: 4px;
-      left: 3px;
+      transition: transform 0.2s ease;
     }
   }
 
@@ -60,11 +67,10 @@
     .transition(all .3s @ease-in-out);
 
     &:hover {
-      border-color: #23c0fa;
-      box-shadow: 0 0 2px tint(@primary-color, 20%);
+      border-color: @primary-color;
     }
     &:active {
-      border-color: @primary-color;
+      border-color: shade(@primary-color, 5%);
     }
   }
 
@@ -137,7 +143,13 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      padding: 0 0 0 8px;
+      font-size: @font-size-base;
+      font-size: ~"8px \9"; // ie8-9
+      .scale(0.67);
+      padding: 0 0 0 4px;
+      position: relative;
+      top: -1px;
+      left: 4px;
       &:hover {
         color: #333;
       }
@@ -201,18 +213,16 @@
   }
 
   &-open {
-    .@{selectPrefixCls}-arrow {
-      &:before {
-        .rotate(270deg);
-      }
+    .@{selectPrefixCls}-arrow:before {
+      .ie-rotate(3);
+      .rotate(270deg);
     }
     .@{selectPrefixCls}-dropdown {
       display: block;
     }
-
     .@{selectPrefixCls}-selection {
-      border-color: #23c0fa;
-      box-shadow: 0 0 3px #23c0fa;
+      border-color: @primary-color;
+      box-shadow: 0 0 3px tint(@primary-color, 20%);
     }
   }
 
@@ -233,14 +243,14 @@
     & > &-item {
       position: relative;
       display: block;
-      padding: 7px 10px;
+      padding: 7px 16px;
       font-weight: normal;
       color: #666666;
       white-space: nowrap;
       cursor: pointer;
 
       &:hover, &-active, &-selected {
-        background-color: rgba(142, 200, 249, 0.1) !important;
+        background-color: tint(@primary-color, 90%) !important;
       }
 
       &-selected {
@@ -252,7 +262,7 @@
           position: absolute;
           top: 6px;
           right: 16px;
-          color: #3CB8F0;
+          color: @primary-color;
         }
       }
 

@@ -32,7 +32,7 @@ var Line = React.createClass({
     };
     var fontSize = (props.width / 100 * props.strokeWidth);
     var iconStyle = {
-      'fontSize': (fontSize < 14) ? 14 : fontSize
+      'fontSize': (fontSize < 12) ? 12 : fontSize
     };
     var textStyle = {
       'color': statusColorMap[props.status]

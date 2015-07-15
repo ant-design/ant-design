@@ -2,11 +2,11 @@
   .make-motion(@className, @keyframeName);
   .@{className}-enter {
     opacity: 0;
-    transform: scale(0, 0);
-    animation-timing-function: @ease-out-back;
+    transform: scale(0, 0); // need this by yiminghe
+    animation-timing-function: @ease-out-circ;
   }
   .@{className}-leave {
-    animation-timing-function: @ease-in-back;
+    animation-timing-function: @ease-in-circ;
   }
 }
 

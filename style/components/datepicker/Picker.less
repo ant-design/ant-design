@@ -16,18 +16,21 @@
     -webkit-user-select: none;
     user-select: none;
     .transition(all .3s @ease-in-out);
-    width: 14px;
-    height: 14px;
-    line-height: 14px;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
     right: 8px;
     color: #999;
     top: 50%;
-    margin-top: -7px;
+    margin-top: -6px;
     &:after {
       content: "\e60c";
       font-family: "anticon";
-      font-size: 14px;
+      font-size: 12px;
       color: #999;
+      display: inline-block;
+      line-height: 1;
+      vertical-align: bottom;
     }
   }
   &-open .@{prefixCalendarClass},
@@ -35,8 +38,6 @@
     display: block;
   }
   &-open &-input {
-    border-color: @input-focus-border-color;
-    outline: 0;
-    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
+    .active();
   }
 }

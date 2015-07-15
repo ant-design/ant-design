@@ -1,8 +1,8 @@
-# 基本用法
+# 简单
 
 - order: 0
 
-简单的 switch。
+最简单的用法。
 
 ---
 
@@ -14,5 +14,5 @@ function onChange(checked){
   console.log('switch to ' + checked);
 }
 
-React.render(<Switch defaultChecked={false} onChange={onChange}/>, container);
+React.render(<Switch defaultChecked={false} onChange={onChange} />, container);
 ````
