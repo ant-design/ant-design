@@ -111,7 +111,7 @@ let AntTable = React.createClass({
     if (checked) {
       this.state.selectedRowKeys.push(currentRowIndex);
     } else {
-      this.state.selectedRowKeys = this.state.selectedRowKeys.filter(function(i){
+      this.state.selectedRowKeys = this.state.selectedRowKeys.filter(function(i) {
         return currentRowIndex !== i;
       });
     }
@@ -153,7 +153,8 @@ let AntTable = React.createClass({
         key: 'selection-column',
         title: checkboxAll,
         width: 60,
-        render: this.renderSelectionCheckBox
+        render: this.renderSelectionCheckBox,
+        className: 'ant-table-selection-column'
       };
       if (columns[0] &&
           columns[0].key === 'selection-column') {
@@ -161,6 +162,11 @@ let AntTable = React.createClass({
       } else {
         columns.unshift(selectionColumn);
       }
+      // 加上选中行的样式
+      this.props.rowClassName = (record, i) => {
+        return this.state.selectedRowKeys.indexOf(i + 1) >= 0 ?
+          'ant-table-row-selected' : '';
+      };
     }
     return columns;
   },
