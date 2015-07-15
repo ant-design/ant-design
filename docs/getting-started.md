@@ -13,7 +13,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 
 下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
-<iframe width="100%" height="400" src="//jsfiddle.net/afc163/k13sq3e3/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="//jsfiddle.net/afc163/6k22tgpx/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 源码如下：
 
