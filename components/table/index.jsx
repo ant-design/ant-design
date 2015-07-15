@@ -104,7 +104,7 @@ let AntTable = React.createClass({
     this.fetch();
   },
   handleSelect(rowIndex, checked) {
-    let selectedRow = this.state.data[rowIndex];
+    let selectedRow = this.state.data[rowIndex - 1];
     if (checked) {
       this.state.selectedRowKeys.push(rowIndex);
     } else {
@@ -139,7 +139,7 @@ let AntTable = React.createClass({
   renderSelectionCheckBox(value, record, index) {
     let rowIndex = index + 1; // 从 1 开始
     let checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
-    return <Checkbox checked={checked} onChange={this.handleSelect.bind(this, rowIndex)} label="" />;
+    return <Checkbox checked={checked} onChange={this.handleSelect.bind(this, rowIndex)} />;
   },
   renderRowSelection() {
     var columns = this.props.columns;
@@ -147,7 +147,7 @@ let AntTable = React.createClass({
       let checked = this.state.data.every(function(item, i) {
         return this.state.selectedRowKeys.indexOf(i + 1) >= 0;
       }, this);
-      let checkboxAll = <Checkbox checked={checked} onChange={this.handleSelectAllRow} label="" />;
+      let checkboxAll = <Checkbox checked={checked} onChange={this.handleSelectAllRow} />;
       let selectionColumn = {
         key: 'selection-column',
         title: checkboxAll,
