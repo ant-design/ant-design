@@ -17,7 +17,7 @@
     "gregorian-calendar-format": "~3.0.1",
     "object-assign": "~3.0.0",
     "rc-calendar": "~3.10.0",
-    "rc-collapse": "~1.2.0",
+    "rc-collapse": "~1.2.2",
     "rc-dialog": "~4.4.0",
     "rc-dropdown": "~1.1.1",
     "rc-input-number": "~2.0.1",
@@ -28,6 +28,7 @@
     "rc-select": "~4.2.1",
     "rc-slider": "~1.2.6",
     "rc-steps": "~1.1.4",
+    "rc-table": "~3.0.1",
     "rc-switch": "~1.2.0",
     "rc-tabs": "~5.2.0",
     "rc-tooltip": "~2.4.0"
