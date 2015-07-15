@@ -47,17 +47,18 @@ var dataSource = {
   },
   // 和后台接口接收的参数进行适配
   // 参数里提供了分页、筛选、排序的信息
-  getParams: function(pagination, filters, sorters) {
-    console.log(pagination, filters, sorters);
+  getParams: function(pagination, filters, sorter) {
+    console.log(pagination, filters, sorter);
     var params = {
       pageSize: pagination.pageSize,
       currentPage: pagination.current,
-      sort: sorters
+      sortField: sorter.field,
+      sortOrder: sorter.order
     };
     for (let key in filters) {
       params[key] = filters[key];
     }
-    console.log(params);
+    console.log('请求参数：', params);
     return params;
   }
 };

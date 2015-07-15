@@ -38,9 +38,7 @@ let AntTable = React.createClass({
       selectedRowKeys: [],
       loading: false,
       pagination: pagination,
-      data: [],
-      sortColumn: null,
-      sortOrder: null
+      data: []
     };
   },
   getDefaultProps() {
@@ -71,10 +69,6 @@ let AntTable = React.createClass({
         sortColumn.className = 'ant-table-column-sort';
       }
     }
-    this.setState({
-      sortOrder: sortOrder,
-      sortColumn: sortColumn
-    });
     if (this.mode === 'local') {
       let sorter = function() {
         let result = column.sorter.apply(this, arguments);
@@ -90,7 +84,10 @@ let AntTable = React.createClass({
         this.props.dataSource = this.originDataSource.slice();
       }
     }
-    this.fetch();
+    this.setState({
+      sortOrder: sortOrder,
+      sortColumn: sortColumn
+    }, this.fetch);
   },
   handleFilter(column) {
     if (this.mode === 'local') {
@@ -135,8 +132,11 @@ let AntTable = React.createClass({
     }
   },
   handlePageChange: function(current) {
-    this.state.pagination.current = current || 1;
-    this.fetch();
+    let pagination = this.state.pagination;
+    pagination.current = current || 1;
+    this.setState({
+      pagination: pagination
+    }, this.fetch);
   },
   renderSelectionCheckBox(value, record, index) {
     let checked = this.state.selectedRowKeys.indexOf(index + 1) >= 0;
@@ -232,19 +232,20 @@ let AntTable = React.createClass({
     // 准备筛选、排序、分页的参数
     let pagination;
     let filters = {};
-    let sorters = {};
+    let sorter = {};
     pagination = this.state.pagination;
     this.props.columns.forEach(function(column) {
       if (column.dataIndex && column.selectedFilters &&
           column.selectedFilters.length > 0) {
         filters[column.dataIndex] = column.selectedFilters;
       }
-      if (column.dataIndex && column.sorter &&
-          column.sortOrder) {
-        sorters[column.dataIndex] = column.sortOrder;
-      }
     });
-    return [pagination, filters, sorters];
+    if (this.state.sortColumn && this.state.sortOrder &&
+        this.state.sortColumn.dataIndex) {
+      sorter.field = this.state.sortColumn.dataIndex;
+      sorter.order = this.state.sortOrder;
+    }
+    return [pagination, filters, sorter];
   },
   fetch: function() {
     let dataSource = this.props.dataSource;
@@ -285,8 +286,7 @@ let AntTable = React.createClass({
               i < current * pageSize) {
             return item;
           }
-        }),
-        pagination: this.state.pagination
+        })
       });
     }
   },
