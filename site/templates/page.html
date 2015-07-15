@@ -10,10 +10,6 @@
 
 {% block description %}{% if post.summay %}{{post.summary}}{% endif %}{% endblock %}
 
-{% block styles %}
-<link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}.css">
-{% endblock %}
-
 {% block aside %}
 {%- include "aside.html" %}
 {% endblock %}

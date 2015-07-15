@@ -1,52 +1,4 @@
 $(function() {
-
-  // 获取搜索数据
-  var searchData = [];
-  $('.hidden input').each(function(i, item) {
-    var obj = {};
-    obj.english = item.value.split(' ')[0];
-    obj.chinese = item.value.split(' ')[1];
-    obj.value = item.value.toLowerCase().replace(/\s+/g, "");
-
-    searchData.push(obj);
-  });
-
-  seajs.config({
-    base: 'http://static.alipayobjects.com',
-    alias: {
-      'jquery': 'jquery/1.7.2/jquery',
-      'autocomplete': 'arale-autocomplete/1.4.1/autocomplete'
-    }
-  });
-
-  seajs.use(['jquery', 'autocomplete'], function($, AutoComplete){
-    $(function() {
-      var ac = new AutoComplete({
-        trigger: '.search-input',
-        selectFirst: true,
-        submitOnEnter: false,
-        dataSource: searchData,
-        html: '<strong>{{english}}</strong>&nbsp;<span>{{chinese}}</span>',
-        filter: function(data, query) {
-          var result = [];
-          query = query.toLowerCase().replace(/^\s+|\s+$/g, '');
-          if (!query) return result;
-          $.each(data, function(index, item) {
-            if (new RegExp(query).test(item.value)) {
-              result.push(item);
-            }
-          });
-          return result;
-        }
-      }).render();
-
-      ac.on('itemSelected', function(item) {
-        $(ac.get('trigger')).val('正转到 ' + item.english + ' ' + item.chinese).attr('disabled', 'disabled');
-        location.href = '/components/' + item.english.toLowerCase();
-      });
-    });
-  });
-
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
@@ -102,7 +54,6 @@ $(function() {
       self.navBar = self.navBox.find(".bar");
       self.navList = self.navBox.find("ul li");
       self.navNum = $(".current").index();
-      self.search($(".search"));
       self.navBarAnim();
       self.navResize(null);
       $(window).bind("resize", self.navResize);
@@ -113,25 +64,6 @@ $(function() {
       self.navBar.css("left", self.navList.width() * self.navNum);
 
       self.navList.eq(self.navNum).find("a").addClass("hover");
-    },
-    search: function(c) {
-      var self = this;
-      self.searchBox = c;
-      self.searchInput = self.searchBox.find("input[type='text']");
-      self.searchBtn = self.searchBox.find("button");
-      self.searchInput.focus(function(e) {
-        $(this).addClass("focus");
-        self.searchBtn.css("left", self.searchBox.width() + 13);
-      });
-      self.searchInput.blur(function(e) {
-        if (!self.searchInput.val()) {
-          self.searchBtn.attr("style", "");
-          $(this).removeClass("focus");
-        }
-      });
-      self.searchBtn.click(function(e) {
-        self.searchBox.find("form").submit();
-      });
     },
     navBarAnim: function() {
       var self = this,
