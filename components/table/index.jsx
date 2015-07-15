@@ -4,6 +4,7 @@ import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
 import Dropdown from '../dropdown';
+import Checkbox from '../checkbox';
 import FilterMenu from './filterMenu';
 import Pagination from '../pagination';
 import objectAssign from 'object-assign';
@@ -102,15 +103,13 @@ let AntTable = React.createClass({
     }
     this.fetch();
   },
-  handleSelect(e) {
-    let checked = e.currentTarget.checked;
-    let currentRowIndex = e.currentTarget.parentElement.parentElement.rowIndex;
-    let selectedRow = this.state.data[currentRowIndex - 1];
+  handleSelect(rowIndex, checked) {
+    let selectedRow = this.state.data[rowIndex];
     if (checked) {
-      this.state.selectedRowKeys.push(currentRowIndex);
+      this.state.selectedRowKeys.push(rowIndex);
     } else {
       this.state.selectedRowKeys = this.state.selectedRowKeys.filter(function(i) {
-        return currentRowIndex !== i;
+        return rowIndex !== i;
       });
     }
     this.setState({
@@ -120,8 +119,7 @@ let AntTable = React.createClass({
       this.props.rowSelection.onSelect(selectedRow, checked);
     }
   },
-  handleSelectAllRow(e) {
-    let checked = e.currentTarget.checked;
+  handleSelectAllRow(checked) {
     this.setState({
       selectedRowKeys: checked ? this.state.data.map(function(item, i) {
         return i + 1;
@@ -139,9 +137,9 @@ let AntTable = React.createClass({
     }, this.fetch);
   },
   renderSelectionCheckBox(value, record, index) {
-    let checked = this.state.selectedRowKeys.indexOf(index + 1) >= 0;
-    let checkbox = <input type="checkbox" checked={checked} onChange={this.handleSelect} />;
-    return checkbox;
+    let rowIndex = index + 1; // 从 1 开始
+    let checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
+    return <Checkbox checked={checked} onChange={this.handleSelect.bind(this, rowIndex)} label="" />;
   },
   renderRowSelection() {
     var columns = this.props.columns;
@@ -149,7 +147,7 @@ let AntTable = React.createClass({
       let checked = this.state.data.every(function(item, i) {
         return this.state.selectedRowKeys.indexOf(i + 1) >= 0;
       }, this);
-      let checkboxAll = <input type="checkbox" checked={checked} onChange={this.handleSelectAllRow} />;
+      let checkboxAll = <Checkbox checked={checked} onChange={this.handleSelectAllRow} label="" />;
       let selectionColumn = {
         key: 'selection-column',
         title: checkboxAll,

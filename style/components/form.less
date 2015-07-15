@@ -65,7 +65,7 @@ form {
     font-size: @font-size-base;
     padding: @input-padding-horizontal;
   }
-  
+
   // input[type=file]
   .@{css-prefix}upload {
     padding-top: 7px;
@@ -74,51 +74,50 @@ form {
     font-size: @font-size-base;
     background: transparent;
   }
-}
+  // Radio & Checkbox
+  .@{css-prefix}radio,
+  .@{css-prefix}checkbox {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: @input-height-lg;
 
-// Radio & Checkbox
-.@{css-prefix}radio,
-.@{css-prefix}checkbox {
-  position: relative;
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  height: @input-height-lg;
+    label {
+      min-height: @line-height-computed;
+      padding: 7px 0 7px 20px;
+      margin-bottom: 0;
+      font-weight: normal;
+      cursor: pointer;
+    }
+  }
+  .@{css-prefix}radio input[type="radio"],
+  .@{css-prefix}radio-inline input[type="radio"],
+  .@{css-prefix}checkbox input[type="checkbox"],
+  .@{css-prefix}checkbox-inline input[type="checkbox"] {
+    position: absolute;
+    margin-left: -20px;
+    margin-top: 4px \9;
+  }
 
-  label {
-    min-height: @line-height-computed;
-    padding: 7px 0 7px 20px;
+  .@{css-prefix}radio + .@{css-prefix}radio,
+  .@{css-prefix}checkbox + .@{css-prefix}checkbox {
+    margin-top: -5px;
+  }
+
+  // Radios and checkboxes on same line
+  .@{css-prefix}radio-inline,
+  .@{css-prefix}checkbox-inline {
+    position: relative;
+    display: inline-block;
+    padding: 7px 20px;
+    padding-right: 0!important;
     margin-bottom: 0;
+    margin-right: 10px;
+    vertical-align: middle;
     font-weight: normal;
     cursor: pointer;
   }
-}
-.@{css-prefix}radio input[type="radio"],
-.@{css-prefix}radio-inline input[type="radio"],
-.@{css-prefix}checkbox input[type="checkbox"],
-.@{css-prefix}checkbox-inline input[type="checkbox"] {
-  position: absolute;
-  margin-left: -20px;
-  margin-top: 4px \9;
-}
-
-.@{css-prefix}radio + .@{css-prefix}radio,
-.@{css-prefix}checkbox + .@{css-prefix}checkbox {
-  margin-top: -5px;
-}
-
-// Radios and checkboxes on same line
-.@{css-prefix}radio-inline,
-.@{css-prefix}checkbox-inline {
-  position: relative;
-  display: inline-block;
-  padding: 7px 20px;
-  padding-right: 0!important;
-  margin-bottom: 0;
-  margin-right: 10px;
-  vertical-align: middle;
-  font-weight: normal;
-  cursor: pointer;
 }
 
 input[type="radio"],
