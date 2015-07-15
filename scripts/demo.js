@@ -16,7 +16,7 @@ $(function () {
       return searchData.map(function (s) {
         return <Option sData={s} key={s.title}>
           <strong>{s.title}</strong>
-        &nbsp;
+          &nbsp;
           <span>{s.desc}</span>
         </Option>;
       });
@@ -33,13 +33,11 @@ $(function () {
     },
 
     render() {
-      return <Select style={{width: 200}}
-        placeholder="Select Components"
-        onChange={this.handleSelect}
+      return <Select combobox style={{width: 200}}
+        onSelect={this.handleSelect}
         dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
-        searchPlaceholder="Filter Components"
+        searchPlaceholder="搜索组件..."
         renderDropdownToBody={true}
-        showSearch={true}
         filterOption={this.filterOption}>{this.getOptions()}</Select>;
     }
   });

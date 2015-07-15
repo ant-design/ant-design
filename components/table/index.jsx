@@ -104,7 +104,6 @@ let AntTable = React.createClass({
     this.fetch();
   },
   handleSelect(rowIndex, checked) {
-    let selectedRow = this.state.data[rowIndex - 1];
     if (checked) {
       this.state.selectedRowKeys.push(rowIndex);
     } else {
@@ -116,17 +115,25 @@ let AntTable = React.createClass({
       selectedRowKeys: this.state.selectedRowKeys
     });
     if (this.props.rowSelection.onSelect) {
-      this.props.rowSelection.onSelect(selectedRow, checked);
+      let currentRow = this.state.data[rowIndex - 1];
+      let selectedRows = this.state.data.filter((row, i) => {
+        return this.state.selectedRowKeys.indexOf(i + 1) >= 0;
+      });
+      this.props.rowSelection.onSelect(currentRow, checked, selectedRows);
     }
   },
   handleSelectAllRow(checked) {
-    this.setState({
-      selectedRowKeys: checked ? this.state.data.map(function(item, i) {
+    var selectedRowKeys = checked ? this.state.data.map(function(item, i) {
         return i + 1;
-      }) : []
+      }) : [];
+    this.setState({
+      selectedRowKeys: selectedRowKeys
     });
     if (this.props.rowSelection.onSelectAll) {
-      this.props.rowSelection.onSelectAll(checked);
+      let selectedRows = this.state.data.filter((row, i) => {
+        return selectedRowKeys.indexOf(i + 1) >= 0;
+      });
+      this.props.rowSelection.onSelectAll(checked, selectedRows);
     }
   },
   handlePageChange: function(current) {
