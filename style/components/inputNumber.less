@@ -21,6 +21,10 @@
     line-height: 0;
     height: 15px;
     overflow: hidden;
+    color: #999;
+    &:hover {
+      color: #666;
+    }
   }
 
   &-handler-down {
@@ -30,7 +34,6 @@
   &-handler-up-inner, &-handler-down-inner {
     .iconfont-mixin();
     line-height: 12px;
-    color: #999;
     user-select: none;
     -webkit-user-select: none;
     position: absolute;
@@ -40,9 +43,6 @@
     font-size: ~"8px \9"; // ie8-9
     .scale(0.67);
     right: 4px;
-    &:hover {
-      color: #666;
-    }
   }
 
   &:hover {
