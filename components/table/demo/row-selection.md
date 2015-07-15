@@ -37,11 +37,11 @@ var data = [{
 
 // 通过 rowSelection 对象表明需要行选择
 var rowSelection = {
-  onSelect: function(record, selected) {
-    console.log(record, selected);
+  onSelect: function(record, selected, selectedRows) {
+    console.log(record, selected, selectedRows);
   },
-  onSelectAll: function(selected) {
-    console.log(selected);
+  onSelectAll: function(selected, selectedRows) {
+    console.log(selected, selectedRows);
   }
 };
 
