@@ -163,6 +163,10 @@ a.logo {
   position: relative;
 }
 
+#autoComplete {
+  margin-top: -2px;
+}
+
 #autoComplete .ant-select-selection--single {
   border: transparent;
   outline: none;
