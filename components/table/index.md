@@ -59,7 +59,7 @@ var dataSource = {
 | pagenation    | 分页器                   | React.Element   | 参考 [pagination](/components/pagination)，设为 false 时不显示分页 |         |
 | size          | 正常或迷你类型           | string          | `normal` or `small` | normal  |
 | dataSource    | 数据源，可以为数组（本地模式）或一个数据源描述对象（远程模式） | Array or Object |                     |         |
-| columns       | 表格列的配置描述，具体项见下表 | Array |                     |         |
+| columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
 
 ### Column
 
@@ -72,8 +72,8 @@ var dataSource = {
 | key        | React 需要的 key           | String          |                     |         |
 | render     | 生成复杂数据的渲染函数     | Function        |                     |         |
 | filters    | 表头的筛选菜单项           | Array           |                     |         |
-| onFilter   | 本地模式下，确定筛选的运行函数 | Functioni   |                     |         |
-| sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean | | |
+| onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                     |         |
+| sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean |  | 无 |
 
 ### dataSource
 
@@ -84,4 +84,4 @@ var dataSource = {
 | url           | 数据源地址               | String          |                     |         |
 | resolve       | 获得数据的解析函数，接收参数为远程数据返回的 result  | Function  |    |    |
 | getPagination | 和后台接口返回的分页数据进行适配的函数，返回值会传给表格中的分页器 | Function |  |  |
-| getParams     | 和后台接口接收的参数进行适配，返回值会作为请求的参数发送 | Function |  |   |
+| getParams     | 和后台接口接收的参数进行适配，返回值会作为请求的参数发送 | Function |  | 无 |
