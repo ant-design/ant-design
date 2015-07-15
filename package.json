@@ -33,7 +33,7 @@
     "rc-notification": "~1.0.1",
     "rc-pagination": "^1.0.0",
     "rc-progress": "~1.0.0",
-    "rc-select": "~4.2.1",
+    "rc-select": "~4.3.1",
     "rc-slider": "~1.2.6",
     "rc-steps": "~1.1.4",
     "rc-switch": "~1.2.0",
