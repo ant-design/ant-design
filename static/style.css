@@ -163,69 +163,22 @@ a.logo {
   position: relative;
 }
 
-.search input[type="text"] {
+#autoComplete .ant-select-selection--single {
   border: transparent;
   outline: none;
   width: 160px;
-  height: 22px;
-  padding: 0 0 0 20px;
+  height: 28px;
+  line-height: 28px;
   color: #999;
   transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 14px;
+  box-shadow: none;
 }
 
-.search input::-webkit-input-placeholder,
-.search input::-moz-placeholder,
-.search input:-ms-input-placeholder {
+#autoComplete input::-webkit-input-placeholder,
+#autoComplete input::-moz-placeholder,
+#autoComplete input:-ms-input-placeholder {
   color: #CADCE3;
-}
-
-.search form .focus {
-  padding: 0 20px 0 0;
-}
-
-.search button {
-  position: absolute;
-  outline: none;
-  background: transparent;
-  border: transparent;
-  top: 5px;
-  width: 15px;
-  height: 15px;
-  padding: 0;
-  left: 30px;
-  cursor: pointer;
-  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.search button:before,
-.search button:after {
-  content: "";
-  display: block;
-}
-
-.search button:before {
-  width: 12px;
-  height: 12px;
-  border-radius: 6px;
-  border: 2px solid #CADCE3;
-  background: #ffffff;
-  position: absolute;
-  top: 0
-}
-
-.search button:after {
-  width: 2px;
-  height: 6px;
-  background: #CADCE3;
-  position: absolute;
-  transform: rotate(-45deg);
-  left: 10px;
-  top: 8px;
-}
-
-.search input:focus ~ button {
-  left: 170px;
 }
 
 .nav {
