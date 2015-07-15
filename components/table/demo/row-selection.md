@@ -10,16 +10,16 @@
 var Table = antd.Table;
 var columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
+  render: function(text) {
+    return <a href="#">{text}</a>;
+  }
 }, {
   title: '年龄',
   dataIndex: 'age'
 }, {
   title: '住址',
-  dataIndex: 'address',
-  render: function(text) {
-    return <a href="#">{text}</a>;
-  }
+  dataIndex: 'address'
 }];
 var data = [{
   name: '胡彦斌',
