@@ -82,8 +82,21 @@
     }
   }
 
+  tr.@{tablePrefixClass}-row-selected {
+    background: #fafafa;
+  }
+
+  th.@{tablePrefixClass}-column-sort {
+    background: #EAEAEA;
+  }
+
   th, td {
     padding: 16px 8px;
+  }
+
+  th.@{tablePrefixClass}-selection-column,
+  td.@{tablePrefixClass}-selection-column {
+    text-align: center;
   }
 
   &-loading {

@@ -38,8 +38,6 @@
     display: block;
   }
   &-open &-input {
-    border-color: @input-focus-border-color;
-    outline: 0;
-    box-shadow: 0 0 3px tint(@input-focus-border-color, 20%);
+    .active();
   }
 }

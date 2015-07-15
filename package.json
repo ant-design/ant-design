@@ -4,6 +4,12 @@
   "title": "Ant Design",
   "description": "一个设计&前端框架",
   "homepage": "http://ant-design.github.io/",
+  "keywords": [
+    "ant design",
+    "react-component",
+    "ui component"
+  ],
+  "contributors": ["ant"],
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/ant-design"
@@ -11,6 +17,8 @@
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
+  "main": "lib/index",
+  "files": ["lib"],
   "license": "MIT",
   "dependencies": {
     "gregorian-calendar": "~3.0.0",
@@ -28,10 +36,11 @@
     "rc-select": "~4.2.1",
     "rc-slider": "~1.2.6",
     "rc-steps": "~1.1.4",
-    "rc-table": "~3.0.1",
     "rc-switch": "~1.2.0",
+    "rc-table": "~3.1.0",
     "rc-tabs": "~5.2.0",
-    "rc-tooltip": "~2.4.0"
+    "rc-tooltip": "~2.4.0",
+    "rc-checkbox":"~1.0.0"
   },
   "devDependencies": {
     "css-animation": "~1.0.3",
@@ -59,10 +68,10 @@
     "pack": "npm run clean && webpack --optimize-minimize && nico build",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site",
-    "deploy": "npm run pack && node scripts/deploy.js",
+    "deploy": "rm -rf node_modules && node scripts/install.js && npm run pack && node scripts/deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "test": "webpack && npm run lint",
-    "prepublish": "npm run babel"
+    "prepublish": "npm run babel  && rm -rf dist && webpack && node scripts/prenpm.js"
   },
   "precommit": [
     "lint"

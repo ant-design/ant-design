@@ -3,8 +3,8 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
-import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
+import FilterMenu from './filterMenu';
 import Pagination from '../pagination';
 import objectAssign from 'object-assign';
 
@@ -49,34 +49,45 @@ let AntTable = React.createClass({
       size: 'normal'
     };
   },
-  renderMenus(items) {
-    let menuItems = items.map((item) => {
-      return <Menu.Item key={item.value}>{item.text}</Menu.Item>;
-    });
-    return menuItems;
-  },
   toggleSortOrder(order, column) {
-    if (column.sortOrder === order) {
-      column.sortOrder = '';
-    } else {
-      column.sortOrder = order;
+    let sortColumn = this.state.sortColumn;
+    let sortOrder = this.state.sortOrder;
+    // 同时允许一列进行排序，否则会导致排序顺序的逻辑问题
+    if (sortColumn) {
+      sortColumn.className = '';
+    }
+    if (sortColumn !== column) {  // 当前列未排序
+      sortOrder = order;
+      sortColumn = column;
+      sortColumn.className = 'ant-table-column-sort';
+    } else {                      // 当前列已排序
+      if (sortOrder === order) {  // 切换为未排序状态
+        sortOrder = '';
+        sortColumn = null;
+      } else {                    // 切换为排序状态
+        sortOrder = order;
+        sortColumn.className = 'ant-table-column-sort';
+      }
     }
     if (this.mode === 'local') {
       let sorter = function() {
         let result = column.sorter.apply(this, arguments);
-        if (column.sortOrder === 'ascend') {
+        if (sortOrder === 'ascend') {
           return result;
-        } else if (column.sortOrder === 'descend') {
+        } else if (sortOrder === 'descend') {
           return -result;
         }
       };
-      if (column.sortOrder) {
+      if (sortOrder) {
         this.props.dataSource = this.props.dataSource.sort(sorter);
       } else {
         this.props.dataSource = this.originDataSource.slice();
       }
     }
-    this.fetch();
+    this.setState({
+      sortOrder: sortOrder,
+      sortColumn: sortColumn
+    }, this.fetch);
   },
   handleFilter(column) {
     if (this.mode === 'local') {
@@ -91,19 +102,6 @@ let AntTable = React.createClass({
     }
     this.fetch();
   },
-  handleSelectFilter(column, selected) {
-    column.selectedFilters.push(selected);
-  },
-  handleDeselectFilter(column, key) {
-    var index = column.selectedFilters.indexOf(key);
-    if (index !== -1) {
-      column.selectedFilters.splice(index, 1);
-    }
-  },
-  handleClearFilters(column) {
-    column.selectedFilters = [];
-    this.fetch();
-  },
   handleSelect(e) {
     let checked = e.currentTarget.checked;
     let currentRowIndex = e.currentTarget.parentElement.parentElement.rowIndex;
@@ -111,7 +109,7 @@ let AntTable = React.createClass({
     if (checked) {
       this.state.selectedRowKeys.push(currentRowIndex);
     } else {
-      this.state.selectedRowKeys = this.state.selectedRowKeys.filter(function(i){
+      this.state.selectedRowKeys = this.state.selectedRowKeys.filter(function(i) {
         return currentRowIndex !== i;
       });
     }
@@ -134,8 +132,11 @@ let AntTable = React.createClass({
     }
   },
   handlePageChange: function(current) {
-    this.state.pagination.current = current || 1;
-    this.fetch();
+    let pagination = this.state.pagination;
+    pagination.current = current || 1;
+    this.setState({
+      pagination: pagination
+    }, this.fetch);
   },
   renderSelectionCheckBox(value, record, index) {
     let checked = this.state.selectedRowKeys.indexOf(index + 1) >= 0;
@@ -153,7 +154,8 @@ let AntTable = React.createClass({
         key: 'selection-column',
         title: checkboxAll,
         width: 60,
-        render: this.renderSelectionCheckBox
+        render: this.renderSelectionCheckBox,
+        className: 'ant-table-selection-column'
       };
       if (columns[0] &&
           columns[0].key === 'selection-column') {
@@ -161,6 +163,11 @@ let AntTable = React.createClass({
       } else {
         columns.unshift(selectionColumn);
       }
+      // 加上选中行的样式
+      this.props.rowClassName = (record, i) => {
+        return this.state.selectedRowKeys.indexOf(i + 1) >= 0 ?
+          'ant-table-row-selected' : '';
+      };
     }
     return columns;
   },
@@ -172,32 +179,7 @@ let AntTable = React.createClass({
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
         column.selectedFilters = column.selectedFilters || [];
-        menus = <Menu multiple={true}
-          className="ant-table-filter-dropdown"
-          onSelect={this.handleSelectFilter.bind(this, column)}
-          onDeselect={this.handleDeselectFilter.bind(this, column)}
-          selectedKeys={column.selectedFilters}>
-          {this.renderMenus(column.filters)}
-          <Menu.Divider />
-          <Menu.Item disabled>
-            <a className="ant-table-filter-dropdown-link confirm"
-              style={{
-                cursor: 'pointer',
-                pointerEvents: 'visible'
-              }}
-              onClick={this.handleFilter.bind(this, column)}>
-              确定
-            </a>
-            <a className="ant-table-filter-dropdown-link clear"
-              style={{
-                cursor: 'pointer',
-                pointerEvents: 'visible'
-              }}
-              onClick={this.handleClearFilters.bind(this, column)}>
-              清空
-            </a>
-          </Menu.Item>
-        </Menu>;
+        menus = <FilterMenu column={column} confirmFilter={this.handleFilter.bind(this, column)} />;
         let dropdownSelectedClass = '';
         if (column.selectedFilters && column.selectedFilters.length > 0) {
           dropdownSelectedClass = 'ant-table-filter-selected';
@@ -209,15 +191,16 @@ let AntTable = React.createClass({
         </Dropdown>;
       }
       if (column.sorter) {
+        let isSortColumn = (this.state.sortColumn === column);
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
-                           (column.sortOrder === 'ascend' ? 'on' : 'off')}
+                           ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
             title="升序排序"
             onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
             <i className="anticon anticon-caret-up"></i>
           </span>
           <span className={'ant-table-column-sorter-down ' +
-                           (column.sortOrder === 'descend' ? 'on' : 'off')}
+                           ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
             title="降序排序"
             onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
             <i className="anticon anticon-caret-down"></i>
@@ -249,19 +232,20 @@ let AntTable = React.createClass({
     // 准备筛选、排序、分页的参数
     let pagination;
     let filters = {};
-    let sorters = {};
+    let sorter = {};
     pagination = this.state.pagination;
     this.props.columns.forEach(function(column) {
       if (column.dataIndex && column.selectedFilters &&
           column.selectedFilters.length > 0) {
         filters[column.dataIndex] = column.selectedFilters;
       }
-      if (column.dataIndex && column.sorter &&
-          column.sortOrder) {
-        sorters[column.dataIndex] = column.sortOrder;
-      }
     });
-    return [pagination, filters, sorters];
+    if (this.state.sortColumn && this.state.sortOrder &&
+        this.state.sortColumn.dataIndex) {
+      sorter.field = this.state.sortColumn.dataIndex;
+      sorter.order = this.state.sortOrder;
+    }
+    return [pagination, filters, sorter];
   },
   fetch: function() {
     let dataSource = this.props.dataSource;
@@ -302,8 +286,7 @@ let AntTable = React.createClass({
               i < current * pageSize) {
             return item;
           }
-        }),
-        pagination: this.state.pagination
+        })
       });
     }
   },
