@@ -14,6 +14,7 @@ var Datepicker = antd.Datepicker;
 var Switch = antd.Switch;
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Slider = antd.Slider;
 
 var menu = <Menu>
   <Menu.Item>
@@ -64,7 +65,7 @@ React.render(
     <div className="ant-form-item">
       <label for="" className="col-6" required>Slider 滑动输入条:</label>
       <div className="col-10">
-        <p className="ant-form-text">请填写 slider</p>
+        <Slider marks={["A","B","C","D","E","F","G"]} />
       </div>
     </div>
     <div className="ant-form-item">
