@@ -16,7 +16,7 @@
 - 基于 webpack 的调试构建方案，支持 ES6。
 
 
-## 范例
+## 示例
 
 ```jsx
 var antd = require('antd');
