@@ -9,9 +9,7 @@
 ````jsx
 var Radio = antd.Radio;
 
-React.render(
-<label>
-  <Radio/> Radio
-  </label>
-, document.getElementById('components-radio-demo-basic'));
+React.render(<label>
+  <Radio /> Radio
+</label>, document.getElementById('components-radio-demo-basic'));
 ````
