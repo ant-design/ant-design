@@ -19,7 +19,6 @@
 
   &-inner {
     &:after {
-      -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
       position: absolute;
       left: 4px;
@@ -31,9 +30,9 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      animation-timing-function: @ease-in-out-back;
       animation-duration: 0.3s;
-      animation-name: amCheckboxOut;
+      animation-name: fadeOut;
     }
 
     position: relative;
@@ -47,7 +46,7 @@
     border-radius: 3px;
     border-color: #d9d9d9;
     background-color: #ffffff;
-    transition: border-color 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: border-color 0.3s @ease-in-out-back, background-color 0.3s @ease-in-out-back;
   }
 
   &-input {
@@ -67,13 +66,13 @@
 
   &:hover {
     .@{checkboxInnerPrefixCls} {
-      border-color: #3dbcf6;
+      border-color: @primary-color;
     }
   }
 
   .@{checkboxInnerPrefixCls} {
-    border-color: #3dbcf6;
-    background-color: #3dbcf6;
+    border-color: @primary-color;
+    background-color: @primary-color;
 
     &:after {
       transform: rotate(45deg);
@@ -87,9 +86,9 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+      animation-timing-function: @ease-in-out-back;
       animation-duration: 0.3s;
-      animation-name: amCheckboxOut;
+      animation-name: fadeOut;
     }
   }
 }
@@ -132,27 +131,5 @@
 
   .@{checkboxInnerPrefixCls}-input {
     cursor: default;
-  }
-}
-
-@keyframes amCheckboxIn {
-  0% {
-    opacity: 0;
-    transform-origin: 50% 50%;
-    transform: scale(0, 0) rotate(45deg);
-  }
-  100% {
-    opacity: 1;
-    transform-origin: 50% 50%;
-    transform: scale(1, 1) rotate(45deg);
-  }
-}
-
-@keyframes amCheckboxOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }

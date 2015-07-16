@@ -1,6 +1,6 @@
 @radioWarpPrefixCls: ant-radio;
 @radioInnerPrefixCls: ~"@{radioWarpPrefixCls}-inner";
-@duration:.3s;
+@radioDuration: .3s;
 
 /* 一般状态 */
 .@{radioWarpPrefixCls} {
@@ -27,12 +27,10 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      background-color: #3dbcf6;
+      background-color: @primary-color;
       transform: scale(0);
-      -webkit-transform: scale(0);
       opacity: 0;
-      transition: transform @duration @ease-in-out-circ,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
-      -webkit-transition: -webkit-transform @duration @ease-in-out-circ,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
+      transition: transform @radioDuration @ease-in-out-circ,opacity @radioDuration @ease-in-out-circ,background-color @radioDuration @ease-in-out-circ;
     }
 
     position: relative;
@@ -46,7 +44,7 @@
     border-radius: 14px;
     border-color: #d9d9d9;
     background-color: #ffffff;
-    transition: border-color @duration @ease-in-out-circ, background-color @duration @ease-in-out-circ;
+    transition: border-color @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
   }
 
   &-input {
@@ -68,10 +66,8 @@
     border-color: #d9d9d9;
     &:after {
       transform: scale(1);
-      -webkit-transform: scale(1);
       opacity: 1;
-      transition: transform @duration @ease-out-back,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
-      -webkit-transition: -webkit-transform @duration @ease-out-back,opacity @duration @ease-in-out-circ,background-color @duration @ease-in-out-circ;
+      transition: transform @radioDuration @ease-out-back,opacity @radioDuration @ease-in-out-circ,background-color @radioDuration @ease-in-out-circ;
     }
   }
 }
