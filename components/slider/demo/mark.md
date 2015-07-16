@@ -21,6 +21,8 @@ React.render(
 
 <style>
 	.sliderContainer .ant-slider {
-		margin-bottom: 30px;
+		margin-bottom: 50px;
+		margin-left: 15px;
+		width: 75%;
 	}
 </style>
