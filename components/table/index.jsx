@@ -53,6 +53,7 @@ let AntTable = React.createClass({
   toggleSortOrder(order, column) {
     let sortColumn = this.state.sortColumn;
     let sortOrder = this.state.sortOrder;
+    let sorter;
     // 同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     if (sortColumn) {
       sortColumn.className = '';
@@ -71,7 +72,7 @@ let AntTable = React.createClass({
       }
     }
     if (this.mode === 'local') {
-      let sorter = function() {
+      sorter = function() {
         let result = column.sorter.apply(this, arguments);
         if (sortOrder === 'ascend') {
           return result;
@@ -79,29 +80,29 @@ let AntTable = React.createClass({
           return -result;
         }
       };
-      if (sortOrder) {
-        this.props.dataSource = this.props.dataSource.sort(sorter);
-      } else {
-        this.props.dataSource = this.originDataSource.slice();
-      }
     }
     this.setState({
       sortOrder: sortOrder,
-      sortColumn: sortColumn
+      sortColumn: sortColumn,
+      sorter: sorter
     }, this.fetch);
   },
   handleFilter(column) {
+    let columnIndex = this.props.columns.indexOf(column);
+    let filterFns = [];
     if (this.mode === 'local') {
-      this.props.dataSource = this.originDataSource.slice().filter(function(record) {
+      filterFns[columnIndex] = function(record) {
         if (column.selectedFilters.length === 0) {
           return true;
         }
         return column.selectedFilters.some(function(value) {
           return column.onFilter.call(this, value, record);
         });
-      });
+      };
     }
-    this.fetch();
+    this.setState({
+      filterFns: filterFns
+    }, this.fetch);
   },
   handleSelect(rowIndex, e) {
     let checked = e.target.checked;
@@ -285,15 +286,33 @@ let AntTable = React.createClass({
         }
       });
     } else {
-      let pageSize = this.state.pagination.pageSize;
-      let current = this.state.pagination.current;
-      this.setState({
-        data: this.props.dataSource.filter(function(item, i) {
-          if (i >= (current - 1) * pageSize &&
-              i < current * pageSize) {
-            return item;
+      var data = this.props.dataSource;
+      var pageSize = this.state.pagination.pageSize;
+      var current = this.state.pagination.current;
+      // 排序
+      if (this.state.sortOrder && this.state.sorter) {
+        data = data.sort(this.state.sorter);
+      } else {
+        data = this.originDataSource.slice();
+      }
+      // 筛选
+      if (this.state.filterFns) {
+        this.state.filterFns.forEach(function(filterFn) {
+          if (typeof filterFn === 'function') {
+            data = data.filter(filterFn);
           }
-        })
+        });
+      }
+      // 分页
+      data = data.filter(function(item, i) {
+        if (i >= (current - 1) * pageSize &&
+            i < current * pageSize) {
+          return item;
+        }
+      });
+      // 完成数据
+      this.setState({
+        data: data
       });
     }
   },

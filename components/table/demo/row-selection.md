@@ -12,7 +12,7 @@ var columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
-    return <a href="#">{text}</a>;
+    return <a href="javascript:;">{text}</a>;
   }
 }, {
   title: '年龄',

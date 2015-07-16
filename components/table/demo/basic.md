@@ -12,7 +12,7 @@ var columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
-    return <a href="#">{text}</a>;
+    return <a href="javascript:;">{text}</a>;
   }
 }, {
   title: '年龄',
@@ -25,11 +25,11 @@ var columns = [{
   dataIndex: '',
   render: function(text, record) {
     return <span>
-      <a href="#">删除</a>
-      <span className="ant-divider">|</span>
-      <a href="#">操作</a>
-      <span className="ant-divider">|</span>
-      <a href="#" className="ant-dropdown-link">
+      <a href="javascript:;">操作一</a>
+      <span className="ant-divider"></span>
+      <a href="javascript:;">操作二</a>
+      <span className="ant-divider"></span>
+      <a href="javascript:;" className="ant-dropdown-link">
         更多 <i className="anticon anticon-down"></i>
       </a>
     </span>;

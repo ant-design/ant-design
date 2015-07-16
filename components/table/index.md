@@ -13,7 +13,7 @@
 - 当有大量结构化的数据需要展现时；
 - 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
 
-## API
+## 如何使用
 
 Table 有两种模式，本地数据和远程数据模式。
 
@@ -45,11 +45,13 @@ var dataSource = {
   resolve: function(result) {
     return result.data;
   },
-  getParams: function(column) {},
   getPagination: function(result) {}
+  getParams: function(pagination, filters, sorter) {}
 };
 <Table dataSource={dataSource} />
 ```
+
+## API
 
 ### Table
 

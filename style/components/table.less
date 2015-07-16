@@ -8,6 +8,7 @@
   color: @text-color;
   border-radius: 6px;
   transition: opacity 0.3s ease;
+  min-height: 200px;
 
   table {
     width: 100%;
@@ -22,7 +23,9 @@
     transition: background .3s ease;
 
     .anticon-bars {
-      margin-left: 8px;
+      margin-left: 4px;
+      position: relative;
+      top: -1px;
       font-size: ~"10px \9"; // ie8-9
       .scale(0.83);
       cursor: pointer;
@@ -35,6 +38,7 @@
 
     .@{tablePrefixClass}-filter-dropdown {
       min-width: 88px;
+      margin-left: -8px;
       .ant-dropdown-menu-item {
         overflow: hidden;
         padding: 7px 8px;
@@ -107,7 +111,26 @@
   }
 
   &-loading {
-    opacity: 0.42;
+    .ant-table-body {
+      opacity: 0.42;
+    }
+    position: relative;
+    &:after {
+      position: absolute;
+      display: inline-block;
+      .animation(loadingCircle 1.5s infinite linear);
+      content:"\e610";
+      top: 50%;
+      left: 50%;
+      margin-top: -10px;
+      margin-left: -10px;
+      font-family: anticon;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 20px;
+      color: @primary-color;
+    }
   }
 
   &-small {
@@ -129,7 +152,7 @@
   }
 
   &-column-sorter {
-    margin-left: 8px;
+    margin-left: 4px;
     display: inline-block;
     width: 12px;
     height: 14px;

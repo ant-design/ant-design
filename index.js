@@ -22,7 +22,7 @@ var antd = {
   Collapse: require('./components/Collapse'),
   message: require('./components/message'),
   Slider: require('./components/slider'),
-  Radio:require('./components/radio')
+  Radio: require('./components/radio')
 };
 
 module.exports = antd;
