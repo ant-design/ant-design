@@ -14,6 +14,6 @@ function onChange(e) {
 }
 
 React.render(<label>
-  <Checkbox defaultChecked={false} onChange={onChange}/> Checkbox
+  <Checkbox defaultChecked={false} onChange={onChange} /> Checkbox
 </label>, container);
 ````
