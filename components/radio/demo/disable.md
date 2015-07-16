@@ -29,11 +29,11 @@ var App = React.createClass({
       <Radio defaultChecked={false} disabled={this.state.disabled} /> 不可用
       <br />
       <Radio defaultChecked={true} disabled={this.state.disabled} /> 不可用
-      <br />
-      <br />
-      <button className="ant-btn ant-btn-primary" onClick={this.toggleDisabled}>
-        Toggle disabled
-      </button>
+      <div style={{"margin-top": 20}}>
+        <button className="ant-btn ant-btn-primary" onClick={this.toggleDisabled}>
+          Toggle disabled
+        </button>
+      </div>
     </div>;
   }
 });
