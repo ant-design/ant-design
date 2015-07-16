@@ -49,6 +49,9 @@ var App = React.createClass({
   },
   onChange(e) {
     console.log('checked = ', e.target.checked);
+    this.setState({
+      checked: e.target.checked
+    });
   }
 });
 
