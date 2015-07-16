@@ -45,8 +45,7 @@ var App = React.createClass({
         this.setState({disabled:!this.state.disabled});
     },
     onChange(checked){
-        console.log('checked = ',checked);
-        this.setState({checked:checked});
+        console.log('checked = ',e.target.checked);
     }
 
 });

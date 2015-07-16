@@ -20,4 +20,4 @@
 |-----------|------------------------------------------|------------|-------|--------|
 |  checked | 指定当前是否选中 | boolean  |   | false    |
 |  defaultChecked | 初始是否选中 | boolean |  | false |
-|  onChange | 变化时回调函数 | Function(checked:boolean) |  |  |
+|  onChange | 变化时回调函数 | Function(e:Event) |  |  |
