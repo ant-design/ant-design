@@ -9,9 +9,12 @@
 ````jsx
 var Checkbox = antd.Checkbox;
 var container = document.getElementById('components-checkbox-demo-basic');
+
 function onChange(checked){
   console.log('checked = ' + checked);
 }
 
-React.render(<label><Checkbox defaultChecked={false} onChange={onChange}/> &nbsp; &nbsp; checkbox</label>, container);
+React.render(<label>
+  <Checkbox defaultChecked={false} onChange={onChange}/> Checkbox
+</label>, container);
 ````
