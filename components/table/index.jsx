@@ -18,7 +18,7 @@ let AntTable = React.createClass({
       this.originDataSource = this.props.dataSource.slice(0);
     } else {
       this.mode = 'remote';
-      this.props.dataSource = objectAssign({
+      this.dataSource = objectAssign({
         resolve: function(data) {
           return data || [];
         },
@@ -26,7 +26,7 @@ let AntTable = React.createClass({
         getPagination: function() {}
       }, this.props.dataSource);
     }
-    var pagination;
+    let pagination;
     if (this.props.pagination === false) {
       pagination = false;
     } else {
@@ -171,11 +171,6 @@ let AntTable = React.createClass({
       } else {
         columns.unshift(selectionColumn);
       }
-      // 加上选中行的样式
-      this.props.rowClassName = (record, i) => {
-        return this.state.selectedRowKeys.indexOf(i + 1) >= 0 ?
-          'ant-table-row-selected' : '';
-      };
     }
     return columns;
   },
@@ -256,8 +251,9 @@ let AntTable = React.createClass({
     return [pagination, filters, sorter];
   },
   fetch: function() {
-    let dataSource = this.props.dataSource;
     if (this.mode === 'remote') {
+      // remote 模式使用 this.dataSource
+      let dataSource = this.dataSource;
       this.setState({
         loading: true
       });
@@ -286,9 +282,9 @@ let AntTable = React.createClass({
         }
       });
     } else {
-      var data = this.props.dataSource;
-      var pageSize = this.state.pagination.pageSize;
-      var current = this.state.pagination.current;
+      let data = this.props.dataSource;
+      let pageSize = this.state.pagination.pageSize;
+      let current = this.state.pagination.current;
       // 排序
       if (this.state.sortOrder && this.state.sorter) {
         data = data.sort(this.state.sorter);
