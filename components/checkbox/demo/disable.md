@@ -2,7 +2,7 @@
 
 - order: 1
 
-checkbox 不可用
+checkbox 不可用。
 
 ---
 
@@ -10,14 +10,9 @@ checkbox 不可用
 var Checkbox = antd.Checkbox;
 var container = document.getElementById('components-checkbox-demo-disable');
 
-React.render(
-<ul>
-  <li>
-    <Checkbox defaultChecked={false} disabled={true}/>
-  </li>
-  <li>
-    <Checkbox defaultChecked={true} disabled={true}/>
-  </li>
-</ul>
-, container);
+React.render(<div>
+  <Checkbox defaultChecked={false} disabled={true}/>
+  <br />
+  <Checkbox defaultChecked={true} disabled={true}/>
+</div>, container);
 ````

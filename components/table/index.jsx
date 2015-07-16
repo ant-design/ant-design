@@ -103,7 +103,8 @@ let AntTable = React.createClass({
     }
     this.fetch();
   },
-  handleSelect(rowIndex, checked) {
+  handleSelect(rowIndex, e) {
+    let checked = e.target.checked;
     if (checked) {
       this.state.selectedRowKeys.push(rowIndex);
     } else {
@@ -122,8 +123,9 @@ let AntTable = React.createClass({
       this.props.rowSelection.onSelect(currentRow, checked, selectedRows);
     }
   },
-  handleSelectAllRow(checked) {
-    var selectedRowKeys = checked ? this.state.data.map(function(item, i) {
+  handleSelectAllRow(e) {
+    let checked = e.target.checked;
+    let selectedRowKeys = checked ? this.state.data.map(function(item, i) {
         return i + 1;
       }) : [];
     this.setState({
