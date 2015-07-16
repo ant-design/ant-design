@@ -26,9 +26,9 @@ var columns = [{
   render: function(text, record) {
     return <span>
       <a href="javascript:;">操作一</a>
-      <span className="ant-divider">|</span>
+      <span className="ant-divider"></span>
       <a href="javascript:;">操作二</a>
-      <span className="ant-divider">|</span>
+      <span className="ant-divider"></span>
       <a href="javascript:;" className="ant-dropdown-link">
         更多 <i className="anticon anticon-down"></i>
       </a>
