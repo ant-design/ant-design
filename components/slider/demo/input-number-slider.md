@@ -27,7 +27,7 @@ var Test = React.createClass({
   	  	<div className="col-12 spacing">
 					<Slider min={1} max={20} onChange={this.onChange} value={this.state.inputValue}/>
 				</div>
-  	  	<div className="col-6">
+  	  	<div className="col-4">
 					<InputNumber min={1} max={20} value={this.state.inputValue} onChange={this.onChange} />
 				</div>
 	  	</div>
