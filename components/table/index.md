@@ -45,8 +45,8 @@ var dataSource = {
   resolve: function(result) {
     return result.data;
   },
-  getParams: function(column) {},
   getPagination: function(result) {}
+  getParams: function(pagination, filters, sorter) {}
 };
 <Table dataSource={dataSource} />
 ```
