@@ -8,6 +8,7 @@
   color: @text-color;
   border-radius: 6px;
   transition: opacity 0.3s ease;
+  min-height: 200px;
 
   table {
     width: 100%;
@@ -110,7 +111,26 @@
   }
 
   &-loading {
-    opacity: 0.42;
+    .ant-table-body {
+      opacity: 0.42;
+    }
+    position: relative;
+    &:after {
+      position: absolute;
+      display: inline-block;
+      .animation(loadingCircle 1.5s infinite linear);
+      content:"\e610";
+      top: 50%;
+      left: 50%;
+      margin-top: -10px;
+      margin-left: -10px;
+      font-family: anticon;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 20px;
+      color: @primary-color;
+    }
   }
 
   &-small {
