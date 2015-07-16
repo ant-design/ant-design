@@ -51,7 +51,7 @@
   </div>
   <div class="row">
     <div class="col-16 col-offset-6">
-      <input type="submit" class="ant-btn ant-btn-primary" value="确定" />
+      <input type="submit" class="ant-btn ant-btn-primary" value="确 定" />
     </div>
   </div>
 </form>

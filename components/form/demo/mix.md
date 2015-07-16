@@ -81,7 +81,7 @@ React.render(
       </div>
     </div>
     <div className="ant-form-item">
-      <label className="col-6" for="site4">按钮式下拉输入框：</label>
+      <label className="col-6" for="site4">按钮式下拉输入框:</label>
       <div className="col-16">
         <div className="ant-input-group">
           <input type="text" className="ant-input" id="site4" placeholder="Search for..." />

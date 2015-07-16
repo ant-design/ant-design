@@ -72,13 +72,13 @@
         </div>
         <div class="col-18">
           <div class="ant-input-group">
-            <div class="col-6">
+            <div class="col-8">
               <input class="ant-input" type="text" id="tel1" />
             </div>
-            <div class="col-6">
+            <div class="col-8">
               <input class="ant-input" type="text" id="tel2" />
             </div>
-            <div class="col-6">
+            <div class="col-8">
               <input class="ant-input" type="text" id="tel3" />
             </div>
           </div>
