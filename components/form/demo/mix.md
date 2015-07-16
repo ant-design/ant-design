@@ -16,6 +16,7 @@ var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
 var Slider = antd.Slider;
 var Checkbox = antd.Checkbox;
+var Radio = antd.Radio;
 
 var menu = <Menu>
   <Menu.Item>
@@ -47,7 +48,9 @@ React.render(
       <div className="col-3"><p className="ant-form-text"> 台机器</p></div>
     </div>
     <div className="ant-form-item">
-      <label className="col-6" required><i className="anticon anticon-exclamation-circle"></i>我是标题:</label>
+      <label className="col-6" required>
+        <i className="anticon anticon-exclamation-circle" style={{color: '#f60'}}></i> 我是标题:
+      </label>
       <div className="col-7">
         <p className="ant-form-text">唧唧复唧唧木兰当户织呀</p>
       </div>
@@ -98,7 +101,15 @@ React.render(
     <div className="ant-form-item">
       <label for="" className="col-6" required>ant-radio:</label>
       <div className="col-16">
-        <p className="ant-form-text">请填写 ant-design 的 radio</p>
+        <label className="ant-radio-inline">
+          <Radio name="radio" /> 选项一
+        </label>
+        <label className="ant-radio-inline">
+          <Radio name="radio" /> 选项二
+        </label>
+        <label className="ant-radio-inline">
+          <Radio name="radio" /> 选项三
+        </label>
       </div>
     </div>
     <div className="ant-form-item">
