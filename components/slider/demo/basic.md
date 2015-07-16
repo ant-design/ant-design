@@ -2,15 +2,14 @@
 
 - order: 0
 
-基本滑动条
+基本滑动条.
 
 ---
 
 ````jsx
 var Slider = antd.Slider;
 
-React.render(
-<div className="sliderContainer">
+React.render(<div>
   <Slider />
   <Slider value={65} disabled />
 </div>
@@ -18,13 +17,8 @@ React.render(
 ````
 
 <style>
-/*  .sliderContainer p {
-	margin-bottom: 10px;
-  }
-  .sliderContainer .ant-slider {
-	margin-bottom: 45px;
-  }
-   .sliderContainer .ant-slider:last-child {
-	margin-bottom: 0;
-  }*/
+.code-box-demo .ant-slider {
+  margin-bottom: 50px;
+  margin-left: 15px;
+}
 </style>

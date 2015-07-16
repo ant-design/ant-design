@@ -18,11 +18,3 @@ React.render(
 </div>
 , document.getElementById('components-slider-demo-mark'));
 ````
-
-<style>
-	.sliderContainer .ant-slider {
-		margin-bottom: 50px;
-		margin-left: 15px;
-		width: 75%;
-	}
-</style>

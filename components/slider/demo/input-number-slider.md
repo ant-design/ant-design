@@ -2,7 +2,7 @@
 
 - order: 1
 
-
+和[数字输入框](/components/input-number/)组件保持同步。
 
 ---
 
@@ -16,30 +16,25 @@ var Test = React.createClass({
       inputValue: 0
     };
   },
-  onChange(v){
+  onChange(value) {
     this.setState({
-      inputValue: v
+      inputValue: value
     });
   },
   render() {
-  	return (
-  	  <div className="row">
-  	  	<div className="col-12 spacing">
-					<Slider min={1} max={20} onChange={this.onChange} value={this.state.inputValue}/>
-				</div>
-  	  	<div className="col-4">
-					<InputNumber min={1} max={20} value={this.state.inputValue} onChange={this.onChange} />
-				</div>
-	  	</div>
-  	);
+    return (
+      <div className="row">
+        <div className="col-12">
+          <Slider min={1} max={20} onChange={this.onChange} value={this.state.inputValue} />
+        </div>
+        <div className="col-4">
+          <InputNumber min={1} max={20} style={{marginLeft: '16px'}}
+            value={this.state.inputValue} onChange={this.onChange} />
+        </div>
+      </div>
+    );
   }
 });
 
 React.render(<Test />, document.getElementById('components-slider-demo-input-number-slider'));
 ````
-
-<style>
-	.spacing {
-		padding-right: 16px;
-	}
-</style>
