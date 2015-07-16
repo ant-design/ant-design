@@ -16,7 +16,7 @@ function toggleDisabled() {
 var App = React.createClass({
   getInitialState() {
     return {
-      disabled: false
+      disabled: true
     };
   },
   toggleDisabled() {
