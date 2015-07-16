@@ -24,6 +24,9 @@ var columns = [{
   // 这里是名字中第一个字是 value
   onFilter: function(value, record) {
     return record.name.indexOf(value) === 0;
+  },
+  sorter: function(a, b) {
+    return a.name.length - b.name.length;
   }
 }, {
   title: '年龄',
@@ -40,7 +43,7 @@ var columns = [{
 }];
 
 var data = [{
-  name: '胡彦斌',
+  name: '胡斌',
   age: 32,
   address: '西湖区湖底公园1号'
 }, {
@@ -49,6 +52,10 @@ var data = [{
   address: '西湖区湖底公园12号'
 }, {
   name: '李大嘴',
+  age: 32,
+  address: '西湖区湖底公园123号'
+}, {
+  name: '李秀莲大嘴哥',
   age: 32,
   address: '西湖区湖底公园123号'
 }];

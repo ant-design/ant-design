@@ -22,7 +22,9 @@
     transition: background .3s ease;
 
     .anticon-bars {
-      margin-left: 8px;
+      margin-left: 4px;
+      position: relative;
+      top: -1px;
       font-size: ~"10px \9"; // ie8-9
       .scale(0.83);
       cursor: pointer;
@@ -35,6 +37,7 @@
 
     .@{tablePrefixClass}-filter-dropdown {
       min-width: 88px;
+      margin-left: -8px;
       .ant-dropdown-menu-item {
         overflow: hidden;
         padding: 7px 8px;
@@ -129,7 +132,7 @@
   }
 
   &-column-sorter {
-    margin-left: 8px;
+    margin-left: 4px;
     display: inline-block;
     width: 12px;
     height: 14px;
