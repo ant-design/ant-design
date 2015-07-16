@@ -39,8 +39,8 @@ export default React.createClass({
           {this.props.title}
         </p>
         <div className={prefixCls + '-buttons'}>
-          <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>
           <button onClick={this.cancel} className="ant-btn ant-btn-sm">取 消</button>
+          <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>
         </div>
       </div>
     </div>;
