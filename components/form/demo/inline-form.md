@@ -28,7 +28,7 @@
   <div class="ant-form-item">
     <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
   </div>
-  <div class="ant-checkbox">
+  <div class="ant-checkbox-inline">
     <label>
       <input type="checkbox"> 记住我
     </label>

@@ -34,7 +34,7 @@
         <input type="radio" name="radios" id="female-radio" value="female"> 女的
       </label>
     </div>
-  </div>  
+  </div>
   <div class="ant-form-item">
     <label for="password" class="col-6" required>备注：</label>
     <div class="col-14">
@@ -43,7 +43,7 @@
     </div>
   </div>
   <div class="ant-form-item">
-    <div class="ant-checkbox col-14 col-offset-6">
+    <div class="col-14 col-offset-6">
       <label>
         <input type="checkbox"> 我是同意的
       </label>

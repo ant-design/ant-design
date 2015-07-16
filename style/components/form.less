@@ -27,7 +27,7 @@ label {
 .@{css-prefix}form-item {
   margin-bottom: @form-item-margin-bottom;
 
-  label {
+  > label {
     color: @label-color;
     text-align: right;
     padding-right: 8px;
@@ -74,46 +74,13 @@ form {
     font-size: @font-size-base;
     background: transparent;
   }
-  // Radio & Checkbox
-  .@{css-prefix}radio,
-  .@{css-prefix}checkbox {
-    position: relative;
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: @input-height-lg;
-
-    label {
-      min-height: @line-height-computed;
-      padding: 7px 0 7px 20px;
-      margin-bottom: 0;
-      font-weight: normal;
-      cursor: pointer;
-    }
-  }
-  .@{css-prefix}radio input[type="radio"],
-  .@{css-prefix}radio-inline input[type="radio"],
-  .@{css-prefix}checkbox input[type="checkbox"],
-  .@{css-prefix}checkbox-inline input[type="checkbox"] {
-    position: absolute;
-    margin-left: -20px;
-    margin-top: 4px \9;
-  }
-
-  .@{css-prefix}radio + .@{css-prefix}radio,
-  .@{css-prefix}checkbox + .@{css-prefix}checkbox {
-    margin-top: -5px;
-  }
 
   // Radios and checkboxes on same line
   .@{css-prefix}radio-inline,
   .@{css-prefix}checkbox-inline {
-    position: relative;
     display: inline-block;
-    padding: 7px 20px;
-    padding-right: 0!important;
-    margin-bottom: 0;
-    margin-right: 10px;
+    padding: 7px 0;
+    margin-right: 16px;
     vertical-align: middle;
     font-weight: normal;
     cursor: pointer;
@@ -153,19 +120,6 @@ input[type="checkbox"] {
   .@{css-prefix}form-item {
     .make-row;
   }
-
-  .@{css-prefix}radio,
-  .@{css-prefix}checkbox,
-  .@{css-prefix}radio-inline,
-  .@{css-prefix}checkbox-inline {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .@{css-prefix}radio,
-  .@{css-prefix}checkbox {
-    min-height: (@line-height-computed + (@input-padding-vertical-base + 1));
-  }
 }
 
 //== Inline Form
@@ -197,23 +151,6 @@ input[type="checkbox"] {
     .has-feedback {
       display: inline-block;
     }
-
-    .@{css-prefix}radio,
-    .@{css-prefix}checkbox {
-      display: inline-block;
-      margin-top: 0;
-      margin-bottom: 0;
-      vertical-align: middle;
-
-      label {
-        padding-left: 0;
-      }
-    }
-    .@{css-prefix}radio input[type="radio"],
-    .@{css-prefix}checkbox input[type="checkbox"] {
-      position: relative;
-      margin-left: 0;
-    }
   }
 }
 
@@ -221,6 +158,12 @@ input[type="checkbox"] {
   label {
     padding-top: 7px;
     padding-bottom: 7px;
+    > input[type="radio"],
+    > input[type="checkbox"],
+    > .@{css-prefix}checkbox,
+    > .@{css-prefix}radio {
+      margin-right: 3px;
+    }
   }
 }
 

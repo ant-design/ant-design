@@ -97,16 +97,22 @@ React.render(
     </div>
     <div className="ant-form-item">
       <label for="" className="col-6" required>ant-radio:</label>
-      <div className="col-10">
+      <div className="col-16">
         <p className="ant-form-text">请填写 ant-design 的 radio</p>
       </div>
     </div>
     <div className="ant-form-item">
       <label for="" className="col-6" required>ant-checkbox:</label>
-      <div className="col-10">
-        <p className="ant-form-text">
-         <Checkbox />
-        </p>
+      <div className="col-16">
+        <label className="ant-checkbox-inline">
+          <Checkbox /> 选项一
+        </label>
+        <label className="ant-checkbox-inline">
+          <Checkbox /> 选项二
+        </label>
+        <label className="ant-checkbox-inline">
+          <Checkbox /> 选项三
+        </label>
       </div>
     </div>
     <div className="ant-form-item">
