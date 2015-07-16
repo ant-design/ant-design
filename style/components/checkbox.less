@@ -1,16 +1,21 @@
 @checkboxWarpPrefixCls: ant-checkbox;
-@checkboxPrefixCls: ~"@{checkboxWarpPrefixCls}-checkbox";
-@labelPrefixCls: ~"@{checkboxWarpPrefixCls}-label";
+@checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
+
 /* 一般状态 */
 .@{checkboxWarpPrefixCls} {
-  line-height: 1.5;
   white-space: nowrap;
   cursor: pointer;
   outline: none;
   display: inline-block;
-  vertical-align: middle;
+  position: relative;
 
-  .@{checkboxPrefixCls} {
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
+      border-color: #bcbcbc;
+    }
+  }
+
+  &-inner {
     &:after {
       -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
@@ -24,18 +29,13 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
       animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      -webkit-animation-duration: 0.3s;
       animation-duration: 0.3s;
-      -webkit-animation-name: amCheckboxOut;
       animation-name: amCheckboxOut;
     }
-    &:hover {
-      border-color: #bcbcbc;
-    }
+
     position: relative;
-    top: 3px;
+    top: 0;
     left: 0;
     display: inline-block;
     width: 14px;
@@ -48,34 +48,32 @@
     transition: border-color 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
   }
 
-  .@{labelPrefixCls} {
-    position: relative;
-    padding-left: 5px;
-    display: inline-block;
-    font-size: 12px;
-    line-height: 1.5;
-    vertical-align: baseline;
-    border: 1px dotted transparent;
-    white-space: normal;
-    pointer-events: none;
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
+  &-input {
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    cursor: pointer;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
   }
-
 }
 
 /* 选中状态 */
 .@{checkboxWarpPrefixCls}-checked {
-  .@{checkboxPrefixCls} {
-    border-color: #3dbcf6;
-    background-color: #3dbcf6;
-    &:hover {
+
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
       border-color: #3dbcf6;
     }
+  }
+
+  .@{checkboxInnerPrefixCls} {
+    border-color: #3dbcf6;
+    background-color: #3dbcf6;
+
     &:after {
-      -webkit-transform: rotate(45deg);
       transform: rotate(45deg);
       position: absolute;
       left: 4px;
@@ -87,11 +85,8 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
       animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-      -webkit-animation-duration: 0.3s;
       animation-duration: 0.3s;
-      -webkit-animation-name: amCheckboxOut;
       animation-name: amCheckboxOut;
     }
   }
@@ -100,73 +95,54 @@
 .@{checkboxWarpPrefixCls}-disabled {
 
   &.@{checkboxWarpPrefixCls}-checked {
-    .@{checkboxPrefixCls} {
-      background-color: #f3f3f3;
-      border-color: #d9d9d9;
-      &:hover {
+
+    &:hover {
+      .@{checkboxInnerPrefixCls} {
         border-color: #d9d9d9;
       }
+    }
+
+    .@{checkboxInnerPrefixCls} {
+      background-color: #f3f3f3;
+      border-color: #d9d9d9;
+
       &:after {
-        -webkit-animation-name: none;
         animation-name: none;
         border-color: #cccccc;
       }
     }
   }
-  .@{checkboxPrefixCls} {
-    border-color: #d9d9d9;
-    background-color: #f3f3f3;
-    &:hover {
+
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
       border-color: #d9d9d9;
     }
+  }
+
+  .@{checkboxInnerPrefixCls} {
+    border-color: #d9d9d9;
+    background-color: #f3f3f3;
     &:after {
-      -webkit-animation-name: none;
       animation-name: none;
       border-color: #f3f3f3;
     }
   }
-}
 
-@-webkit-keyframes amCheckboxIn {
-  0% {
-    opacity: 0;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-transform: scale(0, 0) rotate(45deg);
-    transform: scale(0, 0) rotate(45deg);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform-origin: 50% 50%;
-    transform-origin: 50% 50%;
-    -webkit-transform: scale(1, 1) rotate(45deg);
-    transform: scale(1, 1) rotate(45deg);
+  .@{checkboxInnerPrefixCls}-input {
+    cursor: default;
   }
 }
 
 @keyframes amCheckboxIn {
   0% {
     opacity: 0;
-    -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    -webkit-transform: scale(0, 0) rotate(45deg);
     transform: scale(0, 0) rotate(45deg);
   }
   100% {
     opacity: 1;
-    -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    -webkit-transform: scale(1, 1) rotate(45deg);
     transform: scale(1, 1) rotate(45deg);
-  }
-}
-
-@-webkit-keyframes amCheckboxOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
   }
 }
 
