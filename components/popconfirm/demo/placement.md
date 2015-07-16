@@ -8,10 +8,11 @@
 
 ````jsx
 var Popconfirm = antd.Popconfirm;
+var message = antd.message;
 var text = '确认文案';
 
 function confirm() {
-  console.log('点击了确定');
+  message.info('点击了确定');
 }
 
 React.render(<div>
