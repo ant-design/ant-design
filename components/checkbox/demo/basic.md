@@ -13,5 +13,5 @@ function onChange(checked){
   console.log('checked = ' + checked);
 }
 
-React.render(<Checkbox defaultChecked={false} onChange={onChange} label={"checkbox"}/>, container);
+React.render(<label><Checkbox defaultChecked={false} onChange={onChange}/> &nbsp; &nbsp; checkbox</label>, container);
 ````

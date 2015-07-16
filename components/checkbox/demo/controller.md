@@ -22,18 +22,20 @@ var App = React.createClass({
         var label = (this.state.checked ? "选中":"取消") + "-" + (this.state.disabled ? "不可用":"可用");
         return <ul>
             <li>
-                <Checkbox checked={this.state.checked} disabled={this.state.disabled} label={"checkbox"} label={label} onChange={this.onChange}/>
+                <label><Checkbox checked={this.state.checked} disabled={this.state.disabled} onChange={this.onChange}/>
+                {label}
+                </label>
             </li>
             <li>
                 <button className="ant-btn ant-btn-primary ant-btn-sm" onClick={this.toggleChecked}>
                     {!this.state.checked ? "选中":"取消"}
                 </button>
-                
+
                 <button style={{"marginLeft":"10px"}} className="ant-btn ant-btn-primary ant-btn-sm" onClick={this.toggleDisable}>
                                     {!this.state.disabled ? "不可用":"可用"}
                 </button>
             </li>
-             
+
         </ul>;
     },
     toggleChecked(e){
@@ -46,7 +48,7 @@ var App = React.createClass({
         console.log('checked = ',checked);
         this.setState({checked:checked});
     }
-    
+
 });
 
 React.render(<App />, container);
