@@ -14,7 +14,7 @@
   border: 1px solid #ccc;
   background-color: #ccc;
   cursor: pointer;
-  transition: all @switch-duration cubic-bezier(0.35, 0, 0.25, 1);
+  transition: all @switch-duration @ease-in-out-circ;
 
   &-inner {
     color:#fff;
@@ -34,8 +34,8 @@
     content: " ";
     cursor: pointer;
     transform: scale(1);
-    transition: left @switch-duration cubic-bezier(0.35, 0, 0.25, 1);
-    animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
+    transition: left @switch-duration @ease-in-out-circ;
+    animation-timing-function: linear;
     animation-duration: @switch-duration;
     animation-name: rcSwitchOff;
   }
@@ -85,7 +85,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.25);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1.1);
@@ -94,6 +94,9 @@
 @keyframes rcSwitchOff {
   0% {
     transform: scale(1.1);
+  }
+  50%{
+    transform: scale(.9);
   }
   100% {
     transform: scale(1);
