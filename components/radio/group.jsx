@@ -1,5 +1,5 @@
 var React = require('react');
-var Radio = require('rc-radio');
+var Radio = require('./index');
 
 var AntRadioGroup = React.createClass({
   getDefaultProps: function () {
@@ -24,14 +24,10 @@ var AntRadioGroup = React.createClass({
     var props = self.props;
     var children = props.children.map(function (radio) {
       if (radio.props) {
-        return <label>
-          <Radio {...radio.props}
-            onChange={self.onRadioChange}
-            checked = {self.state.selectedValue === radio.props.value}
-            children={null}
-          />
-        {radio.props.children}
-        </label>;
+        return <Radio {...radio.props}
+          onChange={self.onRadioChange}
+          checked = {self.state.selectedValue === radio.props.value}
+        />;
       }
       return radio;
     });

@@ -8,7 +8,13 @@ var AntRadio = React.createClass({
     };
   },
   render() {
-    return <Radio {...this.props} />;
+
+    return (
+      <label>
+        <Radio {...this.props} children={null}/>
+        {this.props.children}
+      </label>
+    );
   }
 });
 
