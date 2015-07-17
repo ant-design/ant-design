@@ -102,13 +102,13 @@ React.render(
       <label for="" className="col-6" required>ant-radio:</label>
       <div className="col-16">
         <label className="ant-radio-inline">
-          <Radio name="radio" /> 选项一
+          <Radio name="radio" />选项一
         </label>
         <label className="ant-radio-inline">
-          <Radio name="radio" /> 选项二
+          <Radio name="radio" />选项二
         </label>
         <label className="ant-radio-inline">
-          <Radio name="radio" /> 选项三
+          <Radio name="radio" />选项三
         </label>
       </div>
     </div>
@@ -116,13 +116,13 @@ React.render(
       <label for="" className="col-6" required>ant-checkbox:</label>
       <div className="col-16">
         <label className="ant-checkbox-inline">
-          <Checkbox /> 选项一
+          <Checkbox />选项一
         </label>
         <label className="ant-checkbox-inline">
-          <Checkbox /> 选项二
+          <Checkbox />选项二
         </label>
         <label className="ant-checkbox-inline">
-          <Checkbox /> 选项三
+          <Checkbox />选项三
         </label>
       </div>
     </div>

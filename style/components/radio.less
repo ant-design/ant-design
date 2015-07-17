@@ -1,9 +1,9 @@
-@radioWarpPrefixCls: ant-radio;
-@radioInnerPrefixCls: ~"@{radioWarpPrefixCls}-inner";
+@radioWrapPrefixCls: ant-radio;
+@radioInnerPrefixCls: ~"@{radioWrapPrefixCls}-inner";
 @radioDuration: .3s;
 
 /* 一般状态 */
-.@{radioWarpPrefixCls} {
+.@{radioWrapPrefixCls} {
   white-space: nowrap;
   outline: none;
   display: inline-block;
@@ -60,7 +60,7 @@
 }
 
 /* 选中状态 */
-.@{radioWarpPrefixCls}-checked {
+.@{radioWrapPrefixCls}-checked {
 
   .@{radioInnerPrefixCls} {
     border-color: #d9d9d9;
@@ -72,7 +72,7 @@
   }
 }
 
-.@{radioWarpPrefixCls}-disabled {
+.@{radioWrapPrefixCls}-disabled {
   &:hover {
     .@{radioInnerPrefixCls} {
       border-color: #d9d9d9;
@@ -89,4 +89,8 @@
   .@{radioInnerPrefixCls}-input {
     cursor: default;
   }
+}
+
+.@{radioWrapPrefixCls} + span {
+  margin-left: 8px;
 }

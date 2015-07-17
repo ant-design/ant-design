@@ -24,25 +24,29 @@ var RadioGroup = React.createClass({
         <label>
           <Radio value="a"
             checked={this.state.value === 'a'}
-            onChange={this.handleChange} /> A
+            onChange={this.handleChange} />
+            A
         </label>
         <br/>
         <label>
           <Radio value="b"
             checked={this.state.value === 'b'}
-            onChange={this.handleChange} /> B
+            onChange={this.handleChange} />
+            B
         </label>
         <br/>
         <label>
           <Radio value="c"
             checked={this.state.value === 'c'}
-            onChange={this.handleChange} /> C
+            onChange={this.handleChange} />
+            C
         </label>
         <br/>
         <label>
           <Radio value="d"
             checked={this.state.value === 'd'}
-            onChange={this.handleChange} /> D
+            onChange={this.handleChange} />
+            D
         </label>
       </p>
       <p style={{"margin-top": 20}}>

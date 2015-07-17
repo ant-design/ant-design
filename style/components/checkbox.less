@@ -1,8 +1,8 @@
-@checkboxWarpPrefixCls: ant-checkbox;
-@checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
+@checkboxWrapPrefixCls: ant-checkbox;
+@checkboxInnerPrefixCls: ~"@{checkboxWrapPrefixCls}-inner";
 
 /* 一般状态 */
-.@{checkboxWarpPrefixCls} {
+.@{checkboxWrapPrefixCls} {
   white-space: nowrap;
   cursor: pointer;
   outline: none;
@@ -62,7 +62,7 @@
 }
 
 /* 选中状态 */
-.@{checkboxWarpPrefixCls}-checked {
+.@{checkboxWrapPrefixCls}-checked {
 
   &:hover {
     .@{checkboxInnerPrefixCls} {
@@ -93,9 +93,9 @@
   }
 }
 
-.@{checkboxWarpPrefixCls}-disabled {
+.@{checkboxWrapPrefixCls}-disabled {
 
-  &.@{checkboxWarpPrefixCls}-checked {
+  &.@{checkboxWrapPrefixCls}-checked {
 
     &:hover {
       .@{checkboxInnerPrefixCls} {
@@ -132,4 +132,8 @@
   .@{checkboxInnerPrefixCls}-input {
     cursor: default;
   }
+}
+
+.@{checkboxWrapPrefixCls} + span {
+  margin-left: 8px;
 }

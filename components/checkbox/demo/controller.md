@@ -25,7 +25,8 @@ var App = React.createClass({
         <label>
           <Checkbox checked={this.state.checked}
             disabled={this.state.disabled}
-            onChange={this.onChange} /> {label}
+            onChange={this.onChange} />
+            {label}
         </label>
       </p>
       <p>
