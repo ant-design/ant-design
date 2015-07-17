@@ -19,7 +19,7 @@
 
   &-inner {
     &:after {
-      transform: rotate(45deg);
+      transform: rotate(45deg) scale(0);
       position: absolute;
       left: 4px;
       top: 1px;
@@ -30,9 +30,7 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      animation-timing-function: @ease-in-out-back;
-      animation-duration: 0.3s;
-      animation-name: fadeOut;
+      transition: all .3s @ease-in-back ;
     }
 
     position: relative;
@@ -75,7 +73,7 @@
     background-color: @primary-color;
 
     &:after {
-      transform: rotate(45deg);
+      transform: rotate(45deg) scale(1);
       position: absolute;
       left: 4px;
       top: 1px;
@@ -86,9 +84,7 @@
       border-top: 0;
       border-left: 0;
       content: ' ';
-      animation-timing-function: @ease-in-out-back;
-      animation-duration: 0.3s;
-      animation-name: fadeOut;
+      transition: all .3s @ease-out-back .2s;
     }
   }
 }
