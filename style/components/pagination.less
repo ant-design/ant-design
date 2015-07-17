@@ -53,6 +53,7 @@
   }
 
   &-jump-prev, &-jump-next {
+
     &:after {
       content: "•••";
       display: block;
@@ -73,7 +74,9 @@
   &-jump-prev {
     &:hover {
       &:after {
-        content: "‹‹";
+        font-family: "anticon";
+        content: "\e604";
+        transform: rotate(180deg);
       }
     }
   }
@@ -81,7 +84,8 @@
   &-jump-next {
     &:hover {
       &:after {
-        content: "››";
+        font-family: "anticon";
+        content: "\e604";
       }
     }
   }
@@ -106,14 +110,19 @@
 
   &-prev, &-next {
     border: 1px solid #d9d9d9;
+    font-size: 18px;
 
     a {
       font-size: 16px;
       color: #666;
       &:after {
         display: block;
-        margin-top: -2px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 10px;
+        font-family: "anticon";
       }
+
     }
 
     &:hover {
@@ -133,6 +142,25 @@
   &-next {
     a:after {
       content: "›";
+    }
+  }
+
+  &-prev {
+    a {
+      &:after {
+        content: "\e611";
+        display: block;
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &-next {
+    a {
+      &:after {
+        content: "\e611";
+        display: block;
+      }
     }
   }
 
@@ -225,6 +253,13 @@
     height: 20px;
     line-height: 20px;
     border: none;
+
+    a {
+      &:after {
+        height: 20px;
+        line-height: 20px;
+      }
+    }
   }
 
   &.mini &-jump-prev, &.mini &-jump-next {
