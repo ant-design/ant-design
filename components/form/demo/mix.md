@@ -17,6 +17,7 @@ var Dropdown = antd.Dropdown;
 var Slider = antd.Slider;
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
+var RadioGroup = antd.RadioGroup;
 
 var menu = <Menu>
   <Menu.Item>
@@ -101,15 +102,12 @@ React.render(
     <div className="ant-form-item ant-form-item-compact">
       <label for="" className="col-6" required>ant-radio:</label>
       <div className="col-16">
-        <label className="ant-radio-inline">
-          <Radio name="radio" />选项一
-        </label>
-        <label className="ant-radio-inline">
-          <Radio name="radio" />选项二
-        </label>
-        <label className="ant-radio-inline">
-          <Radio name="radio" />选项三
-        </label>
+        <RadioGroup>
+          <Radio value="a" checked={true}>选项一</Radio>
+          <Radio value="b">选项二</Radio>
+          <Radio value="c">选项三</Radio>
+          <Radio value="d">选项四</Radio>
+        </RadioGroup>
       </div>
     </div>
     <div className="ant-form-item ant-form-item-compact">

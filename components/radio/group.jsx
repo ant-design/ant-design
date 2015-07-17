@@ -26,7 +26,7 @@ var AntRadioGroup = React.createClass({
       if (radio.props) {
         return <Radio {...radio.props}
           onChange={self.onRadioChange}
-          checked = {self.state.selectedValue === radio.props.value}
+          checked={self.state.selectedValue === radio.props.value}
         />;
       }
       return radio;
@@ -41,7 +41,9 @@ var AntRadioGroup = React.createClass({
     this.setState({
       selectedValue: ev.target.value
     });
-    this.props.onChange(ev);
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(ev);
+    }
   }
 });
 
