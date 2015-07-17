@@ -1,6 +1,13 @@
+@radioGroupPrefixCls: rc-radio-group;
 @radioWrapPrefixCls: ant-radio;
 @radioInnerPrefixCls: ~"@{radioWrapPrefixCls}-inner";
 @radioDuration: .3s;
+
+.@{radioGroupPrefixCls} {
+  & label{
+    margin-right: 10px;
+  }
+}
 
 /* 一般状态 */
 .@{radioWrapPrefixCls} {
@@ -21,7 +28,7 @@
       width: 6px;
       height: 6px;
       left: 3px;
-      top:3px;
+      top: 3px;
       border-radius: 6px;
       display: table;
       border-top: 0;
@@ -30,7 +37,7 @@
       background-color: @primary-color;
       transform: scale(0);
       opacity: 0;
-      transition: transform @radioDuration @ease-in-out-circ,opacity @radioDuration @ease-in-out-circ,background-color @radioDuration @ease-in-out-circ;
+      transition: transform @radioDuration @ease-in-out-circ, opacity @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
     }
 
     position: relative;
@@ -67,7 +74,7 @@
     &:after {
       transform: scale(1);
       opacity: 1;
-      transition: transform @radioDuration @ease-out-back,opacity @radioDuration @ease-in-out-circ,background-color @radioDuration @ease-in-out-circ;
+      transition: transform @radioDuration @ease-out-back, opacity @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
     }
   }
 }

@@ -5,7 +5,7 @@
 
 ---
 
-单选框。
+
 
 ## 何时使用
 
@@ -15,10 +15,19 @@
 
 ## API
 
+### Radio
+单选框。
 
-| 参数           | 说明                                     | 类型       |  可选值 | 默认值 |
+| 参数           | 说明                                     | 类型       |  必选值 | 默认值 |
 |----------------|------------------------------------------|------------|---------|--------|
-| checked        | 指定当前是否选中                         | boolean    |         | false  |
-| defaultChecked | 初始是否选中 | boolean |  | false |
-| onChange       | 变化时回调函数，组合时必须 | Function(e:Event) |  |  |
-| value          | 组合时根据此项判定checked | -- | | | |
+| checked        | 指定当前是否选中                         | boolean    |  false   | false  |
+| defaultChecked | 初始是否选中 | boolean | false | false |
+| value          | 组合时根据此项判定checked | -- |true | null|
+
+### RadioGroup
+
+单选框组合；
+
+| 参数           | 说明                                     | 类型       |  必选值 | 默认值 |
+|----------------|------------------------------------------|------------|---------|--------|
+| onChange       | 变化时回调函数，组合时必须 | Function(e:Event) | false | null |
