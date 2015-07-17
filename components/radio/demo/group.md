@@ -50,7 +50,7 @@ var RadioGroup = React.createClass({
             选项D
         </label>
       </p>
-      <p style={{"margin-top": 20}}>
+      <p style={{marginTop: 20}}>
         你选中了：{this.state.value} 。
       </p>
     </div>;
