@@ -70,17 +70,31 @@ $ npm install
 ```jsx
 var antd = require('antd');
 var Datepicker = antd.Datepicker;
+var message = antd.message;
 
-var MyPage = React.creatClass({
+var App = React.createClass({
+  getInitialState() {
+    return {
+      date: ''
+    };
+  },
+  handleChange(value) {
+    this.setState({
+      date: value
+    });
+  },
+  notice() {
+    message.info(this.state.date.toString());
+  },
   render() {
-    return (<div>
-      <Datepicker />
-      <button className="ant-btn ant-btn-primary">确 定</button>
-    </div>);
+    return <div>
+      <Datepicker onSelect={this.handleChange} />
+      <button className="ant-btn ant-btn-primary" onClick={this.notice}>显示日期</button>
+    </div>;
   }
 });
 
-React.render(<MyPage />, document.body);
+React.render(<App />, document.body);
 ```
 
 > `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
@@ -102,7 +116,7 @@ $ touch index.html
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
-    <script src="https://a.alipayobjects.com/react/0.13.3/react.min.js"></script>
+    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
   </head>
   <body>
   </body>
