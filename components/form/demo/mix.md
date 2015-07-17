@@ -127,7 +127,7 @@ React.render(
       </div>
     </div>
     <div className="ant-form-item ant-form-item-compact">
-      <label for="" className="col-6" required>ant-checkbox:</label>
+      <label for="" className="col-6" required>垂直的 ant-checkbox:</label>
       <div className="col-16">
          <label className="ant-checkbox-vertical">
           <Checkbox /> 选项一
