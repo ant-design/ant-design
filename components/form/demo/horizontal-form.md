@@ -8,11 +8,13 @@
 
 为 `label` 标签添加 `required` 属性，表示该项必选。
 
+**注意**：对于表单域(`.ant-form-item`) 为静态文本、`checkbox`、`radio`以及`input[type="file"]`的，其高度不同于一般的表单域，需要在 `.ant-form-item` 类后再加上 `.ant-form-item-compact`。
+
 ---
 
 ````html
 <form class="ant-form-horizontal">
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label for="userName" class="col-6" required>用户名：</label>
     <div class="col-6">
       <p class="ant-form-text">大眼萌 minion</p>
@@ -24,7 +26,7 @@
       <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
 	 </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label  class="col-6" required>您的性别：</label>
     <div class="col-14">
       <label class="ant-radio-inline">
@@ -39,10 +41,9 @@
     <label for="password" class="col-6" required>备注：</label>
     <div class="col-14">
       <textarea class="ant-input" placeholder="随便写"></textarea>
-      <p class="ant-form-explain">随便写点什么吧</p>
     </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <div class="col-14 col-offset-6">
       <label>
         <input type="checkbox"> 我是同意的

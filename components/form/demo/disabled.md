@@ -44,9 +44,9 @@
         </select>
       </div>
     </div>
-    <div class="ant-form-item">
-      <div class="ant-checkbox col-14 col-offset-5">
-        <label>
+    <div class="ant-form-item ant-form-item-compact">
+      <div class="col-14 col-offset-5">
+        <label class="ant-checkbo-inline">
           <input type="checkbox"> checkbox
         </label>
       </div>

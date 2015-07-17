@@ -34,23 +34,19 @@
       </select>
     </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label class="col-6">checkbox 复选框：</label>
     <div class="col-18">
-      <div>
-        <label>
-          <input type="checkbox" value="apple"> Apple
-        </label>
-      </div>
+      <label class="ant-checkbox-vertical">
+        <input type="checkbox" value="apple"> Apple
+      </label>
       <!-- disabled checkbox -->
-      <div>
-        <label>
-          <input type="checkbox" value="banana" disabled> Banana(disabled)
-        </label>
-      </div>
+      <label class="ant-checkbox-vertical">
+        <input type="checkbox" value="banana" disabled> Banana(disabled)
+      </label>
     </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label class="col-6">内联的 checkbox：</label>
     <div class="col-18">
       <!-- 内联的checkbox -->
@@ -65,23 +61,19 @@
       </label>
     </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label class="col-6">radio 单选框：</label>
     <div class="col-18">
-      <div>
-        <label>
-          <input type="radio" name="radios" id="optionsRadios1" value="option1" checked> Apple
-        </label>
-      </div>
+      <label class="ant-radio-vertical">
+        <input type="radio" name="radios" id="optionsRadios1" value="option1" checked> Apple
+      </label>
       <!-- disabled radio -->
-      <div>
-        <label>
-          <input type="radio" name="radios" id="optionsRadios3" value="option3" disabled> Banana(disabled)
-        </label>
-      </div>
+      <label class="ant-radio-vertical">
+        <input type="radio" name="radios" id="optionsRadios3" value="option3" disabled> Banana(disabled)
+      </label>
     </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label class="col-6">内联的 radio：</label>
     <div class="col-18">
       <!-- 内联的radio -->
@@ -96,7 +88,7 @@
       </label>
     </div>
   </div>
-  <div class="ant-form-item">
+  <div class="ant-form-item ant-form-item-compact">
     <label class="col-6" for="InputFile">头像：</label>
     <div class="col-18">
       <input type="file" id="InputFile" class="ant-upload">

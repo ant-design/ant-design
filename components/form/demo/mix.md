@@ -47,7 +47,7 @@ React.render(
       </div>
       <div className="col-3"><p className="ant-form-text"> 台机器</p></div>
     </div>
-    <div className="ant-form-item">
+    <div className="ant-form-item ant-form-item-compact">
       <label className="col-6" required>
         <i className="anticon anticon-exclamation-circle" style={{color: '#f60'}}></i> 我是标题:
       </label>
@@ -98,7 +98,7 @@ React.render(
         </div>
       </div>
     </div>
-    <div className="ant-form-item">
+    <div className="ant-form-item ant-form-item-compact">
       <label for="" className="col-6" required>ant-radio:</label>
       <div className="col-16">
         <label className="ant-radio-inline">
@@ -112,7 +112,7 @@ React.render(
         </label>
       </div>
     </div>
-    <div className="ant-form-item">
+    <div className="ant-form-item ant-form-item-compact">
       <label for="" className="col-6" required>ant-checkbox:</label>
       <div className="col-16">
         <label className="ant-checkbox-inline">
@@ -123,6 +123,20 @@ React.render(
         </label>
         <label className="ant-checkbox-inline">
           <Checkbox />选项三
+        </label>
+      </div>
+    </div>
+    <div className="ant-form-item ant-form-item-compact">
+      <label for="" className="col-6" required>ant-checkbox:</label>
+      <div className="col-16">
+         <label className="ant-checkbox-vertical">
+          <Checkbox /> 选项一
+        </label>
+         <label className="ant-checkbox-vertical">
+          <Checkbox /> 选项二
+        </label>
+         <label className="ant-checkbox-vertical">
+          <Checkbox /> 选项三
         </label>
       </div>
     </div>
