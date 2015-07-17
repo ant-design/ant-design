@@ -109,8 +109,11 @@
 
     a {
       font-size: 16px;
-      line-height: 1;
       color: #666;
+      &:after {
+        display: block;
+        margin-top: -2px;
+      }
     }
 
     &:hover {
@@ -119,6 +122,17 @@
       a {
         color: @primary-color;
       }
+    }
+  }
+
+  &-prev {
+    a:after {
+      content: "‹";
+    }
+  }
+  &-next {
+    a:after {
+      content: "›";
     }
   }
 
@@ -139,7 +153,6 @@
   &-slash {
     margin: 0 10px 0 5px;
   }
-
 
   &-options {
     float: left;
@@ -184,7 +197,7 @@
       outline: none;
       padding: 5px 8px;
       width: 30px;
-      min-height: 20px;
+      height: 24px;
       text-align: center;
 
       &:hover {
