@@ -4,7 +4,7 @@ var Radio = require('rc-radio');
 var AntRadioGroup = React.createClass({
   getDefaultProps: function () {
     return {
-      prefixCls: 'rc-radio-group'
+      prefixCls: 'ant-radio-group'
     };
   },
   getInitialState: function () {
