@@ -17,12 +17,17 @@ var antd = {
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
   Switch: require('./components/switch'),
+  Checkbox: require('./components/checkbox'),
+  Table: require('./components/table'),
   Collapse: require('./components/Collapse'),
   message: require('./components/message'),
-  Slider: require('./components/slider')
+  Slider: require('./components/slider'),
+  Radio: require('./components/radio')
 };
 
 module.exports = antd;
+
+antd.version = require('./package.json').version;
 
 if (typeof window !== undefined) {
   window.antd = antd;

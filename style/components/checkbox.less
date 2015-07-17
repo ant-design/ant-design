@@ -1,0 +1,135 @@
+@checkboxWarpPrefixCls: ant-checkbox;
+@checkboxInnerPrefixCls: ~"@{checkboxWarpPrefixCls}-inner";
+
+/* 一般状态 */
+.@{checkboxWarpPrefixCls} {
+  white-space: nowrap;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  vertical-align: middle;
+
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
+      border-color: #bcbcbc;
+    }
+  }
+
+  &-inner {
+    &:after {
+      transform: rotate(45deg);
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      display: table;
+      width: 5px;
+      height: 8px;
+      border: 2px solid #ffffff;
+      border-top: 0;
+      border-left: 0;
+      content: ' ';
+      animation-timing-function: @ease-in-out-back;
+      animation-duration: 0.3s;
+      animation-name: fadeOut;
+    }
+
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: #d9d9d9;
+    background-color: #ffffff;
+    transition: border-color 0.3s @ease-in-out-back, background-color 0.3s @ease-in-out-back;
+  }
+
+  &-input {
+    position: absolute;
+    left: 0;
+    z-index: 9999;
+    cursor: pointer;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+/* 选中状态 */
+.@{checkboxWarpPrefixCls}-checked {
+
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
+      border-color: @primary-color;
+    }
+  }
+
+  .@{checkboxInnerPrefixCls} {
+    border-color: @primary-color;
+    background-color: @primary-color;
+
+    &:after {
+      transform: rotate(45deg);
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      display: table;
+      width: 5px;
+      height: 8px;
+      border: 2px solid #ffffff;
+      border-top: 0;
+      border-left: 0;
+      content: ' ';
+      animation-timing-function: @ease-in-out-back;
+      animation-duration: 0.3s;
+      animation-name: fadeOut;
+    }
+  }
+}
+
+.@{checkboxWarpPrefixCls}-disabled {
+
+  &.@{checkboxWarpPrefixCls}-checked {
+
+    &:hover {
+      .@{checkboxInnerPrefixCls} {
+        border-color: #d9d9d9;
+      }
+    }
+
+    .@{checkboxInnerPrefixCls} {
+      background-color: #f3f3f3;
+      border-color: #d9d9d9;
+
+      &:after {
+        animation-name: none;
+        border-color: #cccccc;
+      }
+    }
+  }
+
+  &:hover {
+    .@{checkboxInnerPrefixCls} {
+      border-color: #d9d9d9;
+    }
+  }
+
+  .@{checkboxInnerPrefixCls} {
+    border-color: #d9d9d9;
+    background-color: #f3f3f3;
+    &:after {
+      animation-name: none;
+      border-color: #f3f3f3;
+    }
+  }
+
+  .@{checkboxInnerPrefixCls}-input {
+    cursor: default;
+  }
+}

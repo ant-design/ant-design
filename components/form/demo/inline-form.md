@@ -14,9 +14,9 @@
   </div>
   <div class="ant-form-item">
     <label for="password">密码：</label>
-    <input class="ant-input" type="text" id="password" placeholder="请输入密码"/>
+    <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
   </div>
-  <input type="submit" class="ant-btn ant-btn-primary" value="登录" />
+  <input type="submit" class="ant-btn ant-btn-primary" value="登 录" />
 </form>
 
 <br />
@@ -26,14 +26,14 @@
     <input class="ant-input" type="text" id="userName" placeholder="请输入账户名"/>
   </div>
   <div class="ant-form-item">
-    <input class="ant-input" type="text" id="password" placeholder="请输入密码"/>
+    <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
   </div>
-  <div class="ant-checkbox">
+  <div class="ant-checkbox-inline">
     <label>
       <input type="checkbox"> 记住我
     </label>
   </div>
-  <input type="submit" class="ant-btn ant-btn-primary" value="登录" />
+  <input type="submit" class="ant-btn ant-btn-primary" value="登 录" />
 </form>
 
 ````

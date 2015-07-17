@@ -13,7 +13,7 @@
   <div class="ant-form-item">
     <label class="col-6">输入框：</label>
     <div class="col-18">
-      <input type="text" class="ant-input" placeholder="Please enter...">  
+      <input type="text" class="ant-input" placeholder="Please enter...">
     </div>
   </div>
   <div class="ant-form-item">
@@ -37,13 +37,13 @@
   <div class="ant-form-item">
     <label class="col-6">checkbox 复选框：</label>
     <div class="col-18">
-      <div class="ant-checkbox">
+      <div>
         <label>
           <input type="checkbox" value="apple"> Apple
         </label>
       </div>
       <!-- disabled checkbox -->
-      <div class="ant-checkbox disabled">
+      <div>
         <label>
           <input type="checkbox" value="banana" disabled> Banana(disabled)
         </label>
@@ -68,13 +68,13 @@
   <div class="ant-form-item">
     <label class="col-6">radio 单选框：</label>
     <div class="col-18">
-      <div class="ant-radio">
+      <div>
         <label>
           <input type="radio" name="radios" id="optionsRadios1" value="option1" checked> Apple
         </label>
       </div>
       <!-- disabled radio -->
-      <div class="ant-radio disabled">
+      <div>
         <label>
           <input type="radio" name="radios" id="optionsRadios3" value="option3" disabled> Banana(disabled)
         </label>

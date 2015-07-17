@@ -33,7 +33,6 @@
     background-color: #ffffff;
     content: " ";
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
     transform: scale(1);
     transition: left @switch-duration cubic-bezier(0.35, 0, 0.25, 1);
     animation-timing-function: cubic-bezier(0.35, 0, 0.25, 1);
@@ -47,8 +46,8 @@
   }
 
   &-checked{
-    border: 1px solid #87d068;
-    background-color: #87d068;
+    border: 1px solid @success-color;
+    background-color: @success-color;
 
     .@{switchPrefixCls}-inner {
       left:6px;
@@ -61,11 +60,11 @@
 
   &-disabled{
     cursor: no-drop;
-    background: #ccc;
-    border-color:#ccc;
+    background: #f4f4f4;
+    border-color:#f4f4f4;
 
     &:after{
-      background: #9e9e9e;
+      background: #ccc;
       animation-name: none;
       cursor: no-drop;
     }
@@ -74,17 +73,10 @@
       transform: scale(1);
       animation-name: none;
     }
-  }
 
-  &-label {
-    display: inline-block;
-    line-height: 20px;
-    font-size: 14px;
-    padding-left: 10px;
-    vertical-align: middle;
-    white-space: normal;
-    pointer-events: none;
-    user-select: text;
+    &-inner {
+      color:#ccc;
+    }
   }
 }
 

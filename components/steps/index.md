@@ -15,6 +15,14 @@
 
 ## API
 
+```jsx
+<Steps>
+  <Steps.Step title="第一步"></Steps.Step>
+  <Steps.Step title="第二步"></Steps.Step>
+  <Steps.Step title="第三步"></Steps.Step>
+</Steps>
+```
+
 ### Steps
 
 整体步骤条。

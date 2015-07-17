@@ -1,9 +1,8 @@
-@prefixClass: ant-pagination;
+@paginationPrefixClass: ant-pagination;
 
-.@{prefixClass} {
+.@{paginationPrefixClass} {
   user-select: none;
-  font-size: 12px;
-  font-family: 'Arial';
+  font-size: @font-size-base;
 
   &:after {
     content: " ";
@@ -16,7 +15,7 @@
 
   &-item {
     cursor: pointer;
-    border-radius: 6px;
+    border-radius: @border-radius-base;
     min-width: 28px;
     height: 28px;
     line-height: 28px;
@@ -26,14 +25,16 @@
     border: 1px solid #d9d9d9;
     background-color: #fff;
     margin-right: 8px;
-    transition: all 0.3s ease;
+    font-family: Arial;
 
     a {
       text-decoration: none;
       color: #666;
+      transition: none;
     }
 
     &:hover {
+      transition: all 0.3s ease;
       border-color: @primary-color;
       a {
         color: @primary-color;
@@ -89,6 +90,7 @@
     margin-right: 8px;
   }
   &-prev, &-next, &-jump-prev, &-jump-next {
+    font-family: Arial;
     cursor: pointer;
     color: #666;
     font-size: 10px;
@@ -99,6 +101,7 @@
     line-height: 28px;
     float: left;
     text-align: center;
+    transition: all 0.3s ease;
   }
 
   &-prev, &-next {
@@ -135,6 +138,11 @@
     }
   }
 
+  &-slash {
+    margin: 0 10px 0 5px;
+  }
+
+
   &-options {
     float: left;
     margin-left: 15px;
@@ -169,10 +177,6 @@
     float: left;
     margin-right: 8px;
 
-    &-slash {
-      margin: 0 10px;
-    }
-
     input {
       margin: 0 8px;
       box-sizing: border-box;
@@ -194,7 +198,7 @@
   }
 }
 
-.@{prefixClass} {
+.@{paginationPrefixClass} {
 
   &.mini &-item {
     border: none;

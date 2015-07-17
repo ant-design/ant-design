@@ -15,7 +15,9 @@
     "semi": [
       2,
       "always"
-    ]
+    ],
+    "react/react-in-jsx-scope": 1,
+    "react/jsx-uses-react": 1
   },
   "env": {
     "es6": true,

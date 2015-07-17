@@ -10,7 +10,7 @@
 // ------ Base & Require ------
 @body-background        : #fff;
 
-@font-family            : "Helvetica Neue",Helvetica,"Microsoft YaHei","微软雅黑","Hiragino Sans GB",SimSun,sans-serif;
+@font-family            : "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
 @code-family            : "PT Mono", Menlo, "Courier New", monospace;
 @text-color             : #666;
 @font-size-base         : 12px;
@@ -25,6 +25,7 @@
 // LINK
 @link-color             : @primary-color;
 @link-hover-color       : tint(@link-color, 20%);
+@link-active-color      : shade(@link-color, 5%);
 @link-hover-decoration  : none;
 
 // Disabled cursor for form controls and buttons.
@@ -111,7 +112,7 @@
 @legend-border-color         : #d9d9d9;
 // Label
 @label-required-color        : #F60;
-@label-color: #999;
+@label-color 				 : #666;
 // Input
 @input-height-base: 28px;
 @input-height-lg: 32px;

@@ -14,6 +14,9 @@ var Datepicker = antd.Datepicker;
 var Switch = antd.Switch;
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Slider = antd.Slider;
+var Checkbox = antd.Checkbox;
+var Radio = antd.Radio;
 
 var menu = <Menu>
   <Menu.Item>
@@ -45,7 +48,9 @@ React.render(
       <div className="col-3"><p className="ant-form-text"> 台机器</p></div>
     </div>
     <div className="ant-form-item">
-      <label className="col-6" required><i className="anticon anticon-exclamation-circle"></i>我是标题:</label>
+      <label className="col-6" required>
+        <i className="anticon anticon-exclamation-circle" style={{color: '#f60'}}></i> 我是标题:
+      </label>
       <div className="col-7">
         <p className="ant-form-text">唧唧复唧唧木兰当户织呀</p>
       </div>
@@ -64,7 +69,7 @@ React.render(
     <div className="ant-form-item">
       <label for="" className="col-6" required>Slider 滑动输入条:</label>
       <div className="col-10">
-        <p className="ant-form-text">请填写 slider</p>
+        <Slider marks={["A","B","C","D","E","F","G"]} />
       </div>
     </div>
     <div className="ant-form-item">
@@ -79,11 +84,11 @@ React.render(
       </div>
     </div>
     <div className="ant-form-item">
-      <label className="col-6" for="site4">按钮式下拉输入框：</label>
+      <label className="col-6" for="site4">按钮式下拉输入框:</label>
       <div className="col-16">
         <div className="ant-input-group">
           <input type="text" className="ant-input" id="site4" placeholder="Search for..." />
-          <div className="ant-input-group-btn">    
+          <div className="ant-input-group-btn">
             <Dropdown overlay={menu}>
               <button className="ant-btn ant-btn-menu">
                 .com <i className="anticon anticon-down"></i>
@@ -95,14 +100,30 @@ React.render(
     </div>
     <div className="ant-form-item">
       <label for="" className="col-6" required>ant-radio:</label>
-      <div className="col-10">
-        <p className="ant-form-text">请填写 ant-design 的 radio</p>
+      <div className="col-16">
+        <label className="ant-radio-inline">
+          <Radio name="radio" /> 选项一
+        </label>
+        <label className="ant-radio-inline">
+          <Radio name="radio" /> 选项二
+        </label>
+        <label className="ant-radio-inline">
+          <Radio name="radio" /> 选项三
+        </label>
       </div>
     </div>
     <div className="ant-form-item">
       <label for="" className="col-6" required>ant-checkbox:</label>
-      <div className="col-10">
-        <p className="ant-form-text">请填写 ant-design 的 checkbox</p>
+      <div className="col-16">
+        <label className="ant-checkbox-inline">
+          <Checkbox /> 选项一
+        </label>
+        <label className="ant-checkbox-inline">
+          <Checkbox /> 选项二
+        </label>
+        <label className="ant-checkbox-inline">
+          <Checkbox /> 选项三
+        </label>
       </div>
     </div>
     <div className="ant-form-item">

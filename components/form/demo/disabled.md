@@ -53,7 +53,7 @@
     </div>
     <div class="row">
       <div class="col-14 col-offset-5">
-        <input type="submit" class="ant-btn ant-btn-primary" value="确定">
+        <input type="submit" class="ant-btn ant-btn-primary" value="确 定">
       </div>
     </div>
   </fieldset>

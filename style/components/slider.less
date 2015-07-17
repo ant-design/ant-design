@@ -1,19 +1,20 @@
 @sliderClass: ~"@{css-prefix}slider";
 
 // slider color
-@disabledColor: #ccc;
+@slider-disabled-color: #ccc;
 // tooltip
-@tooltip-color: #fff;
-@tooltip-bg: tint(#666, 4%);
-@tooltip-arrow-width: 4px;
-@tooltip-distance: @tooltip-arrow-width+4;
-@tooltip-arrow-color: @tooltip-bg;
+@slider-tooltip-color: #fff;
+@slider-tooltip-bg: tint(#666, 4%);
+@slider-tooltip-arrow-width: 4px;
+@slider-tooltip-distance: @slider-tooltip-arrow-width+4;
+@slider-tooltip-arrow-color: @slider-tooltip-bg;
 
 .@{sliderClass} {
   position: relative;
   margin: 12px 0;
+  margin-left: 7px;
   height: 4px;
-  width: 100%;
+  width: auto;
   border-radius: @border-radius-base;
   background-color: #e9e9e9;
 
@@ -44,7 +45,6 @@
     &-active {
       &:active {
         border-color: tint(@primary-color, 20%);
-        box-shadow: 0 0 5px tint(@primary-color, 20%);
       }
     }
   }
@@ -105,11 +105,11 @@
     background-color: #e9e9e9;
 
     .@{sliderClass}-track {
-      background-color: @disabledColor;
+      background-color: @slider-disabled-color;
     }
 
     .@{sliderClass}-handle {
-      border-color: @disabledColor;
+      border-color: @slider-disabled-color;
       background-color: #fff;
       cursor: not-allowed;
     }
@@ -132,7 +132,7 @@
     }
 
     &-placement-top { 
-      padding: @tooltip-arrow-width 0 @tooltip-distance 0;
+      padding: @slider-tooltip-arrow-width 0 @slider-tooltip-distance 0;
     }
 
     &-inner {
@@ -141,12 +141,11 @@
       height: 24px;
       font-size: @font-size-base;
       line-height: 1;
-      color: @tooltip-color;
+      color: @slider-tooltip-color;
       text-align: center;
       text-decoration: none;
-      background-color: @tooltip-bg;
+      background-color: @slider-tooltip-bg;
       border-radius: @border-radius-base;
-      box-shadow: 0 0 4px #d9d9d9;
     }
 
     &-arrow {
@@ -158,11 +157,11 @@
     }
 
     &-placement-top &-arrow {
-      bottom: @tooltip-distance - @tooltip-arrow-width;
+      bottom: @slider-tooltip-distance - @slider-tooltip-arrow-width;
       left: 50%;
-      margin-left: -@tooltip-arrow-width;
-      border-width: @tooltip-arrow-width @tooltip-arrow-width 0;
-      border-top-color: @tooltip-arrow-color;
+      margin-left: -@slider-tooltip-arrow-width;
+      border-width: @slider-tooltip-arrow-width @slider-tooltip-arrow-width 0;
+      border-top-color: @slider-tooltip-arrow-color;
     }
   }
 }

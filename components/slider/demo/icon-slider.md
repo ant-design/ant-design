@@ -2,6 +2,8 @@
 
 - order: 2
 
+滑块左右可以设置图标来表达业务含义。
+
 ---
 
 ````jsx
@@ -40,7 +42,7 @@ var IconSlider = React.createClass({
       nextIcon = this.props.icon[1];
     }
 
-    this.setState( 
+    this.setState(
       {
         preIcon: preIcon,
         nextIcon: nextIcon,
@@ -48,7 +50,7 @@ var IconSlider = React.createClass({
       }
     );
   },
-  
+
   render() {
     return (
       <div className="iconWrapper">

@@ -8,7 +8,7 @@ var AntInputNumber = React.createClass({
     };
   },
   render() {
-    return <InputNumber {...this.props}/>;
+    return <InputNumber {...this.props} />;
   }
 });
 

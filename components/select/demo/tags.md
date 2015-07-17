@@ -21,7 +21,9 @@ function handleChange(value) {
 }
 
 React.render(
-  <Select tags value={['name2', 'name3']} onChange={handleChange}>
+  <Select
+   style={{width:400}}
+  tags value={['name2', 'name3']} onChange={handleChange}>
     {children}
   </Select>
 , document.getElementById('components-select-demo-tags'));
