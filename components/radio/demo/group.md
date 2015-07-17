@@ -11,6 +11,7 @@ var Radio = antd.Radio;
 var RadioGroup = React.createClass({
   getInitialState() {
     return {
+      value: ''
     };
   },
   handleChange(e) {
@@ -25,28 +26,28 @@ var RadioGroup = React.createClass({
           <Radio value="a"
             checked={this.state.value === 'a'}
             onChange={this.handleChange} />
-            A
+            选项A
         </label>
         <br/>
         <label>
           <Radio value="b"
             checked={this.state.value === 'b'}
             onChange={this.handleChange} />
-            B
+            选项B
         </label>
         <br/>
         <label>
           <Radio value="c"
             checked={this.state.value === 'c'}
             onChange={this.handleChange} />
-            C
+            选项C
         </label>
         <br/>
         <label>
           <Radio value="d"
             checked={this.state.value === 'd'}
             onChange={this.handleChange} />
-            D
+            选项D
         </label>
       </p>
       <p style={{"margin-top": 20}}>
