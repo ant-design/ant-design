@@ -44,7 +44,9 @@
     }
     &-active {
       &:active {
+        @color-rgba: rgba(red(@primary-color), green(@primary-color), blue(@primary-color), .2);
         border-color: tint(@primary-color, 20%);
+        box-shadow: 0 0 0 2px @color-rgba;
       }
     }
   }
