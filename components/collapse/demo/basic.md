@@ -2,7 +2,7 @@
 
 - order: 0
 
-默认打开第二个面板。
+可以同时展开多个面板，这个例子默认展开了第一个。
 
 ---
 
@@ -21,7 +21,7 @@ var text = `
 `;
 
 React.render(
-  <Collapse defaultActiveKey={["2"]} onChange={callback}>
+  <Collapse defaultActiveKey={["1"]} onChange={callback}>
     <Panel header={`This is panel header 1`} key="1">
       <p>{text}</p>
     </Panel>
