@@ -22,6 +22,51 @@ label {
   }
 }
 
+// Input styles
+.@{css-prefix}input {
+  .input;
+}
+
+//== Input type: with extra icon
+.has-feedback {
+  .input-with-icon();
+}
+
+//== Style for input-group: input with label, with button or dropdown...
+.@{css-prefix}input-group {
+  .input-group(~"@{css-prefix}input"; @btnClass)
+}
+
+// Radio && Checkbox
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+}
+// These classes are used directly on <label>s
+.@{css-prefix}radio-inline,
+.@{css-prefix}radio-vertical,
+.@{css-prefix}checkbox-inline,
+.@{css-prefix}checkbox-vertical {
+  &.disabled,
+  fieldset[disabled] & {
+    cursor: @cursor-disabled;
+  }
+}
+// These classes are used on elements with <label> descendants
+.@{css-prefix}radio,
+.@{css-prefix}checkbox {
+  &.disabled,
+  fieldset[disabled] & {
+    label {
+      cursor: @cursor-disabled;
+    }
+  }
+}
+
 // Form items
 // You should wrap labels and controls in .@{css-prefix}form-item for optimum spacing
 .@{css-prefix}form-item {
@@ -38,23 +83,30 @@ label {
   }
 }
 
-// Input styles
-.@{css-prefix}input {
-  .input;
+.@{css-prefix}form-text, .@{css-prefix}form-split {
+  margin: 0!important;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
-//== Input type: with extra icon
-.has-feedback {
-  .input-with-icon();
+.@{css-prefix}form-split {
+  text-align: center;
 }
 
-//== Style for input-group: input with label, with button or dropdown...
-.@{css-prefix}input-group {
-  .input-group(~"@{css-prefix}input"; @btnClass)
+.@{css-prefix}form-explain {
+  position: absolute;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  bottom: - @line-height-computed;
 }
+
 
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
+  * {
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+  }
   .has-feedback {
     .@{iconfont-css-prefix} {
       .square(@input-height-lg);
@@ -72,48 +124,32 @@ form {
 
   // input[type=file]
   .@{css-prefix}upload {
-    padding-top: 7px;
-    padding-bottom: 7px;
-    max-height: 32px;
-    font-size: @font-size-base;
     background: transparent;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
   }
 
   // Radios and checkboxes on same line
   .@{css-prefix}radio-inline,
   .@{css-prefix}checkbox-inline {
     display: inline-block;
-    padding: 7px 0;
     margin-right: 16px;
     vertical-align: middle;
     font-weight: normal;
     cursor: pointer;
   }
-}
 
-input[type="radio"],
-input[type="checkbox"] {
-  &[disabled],
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-  }
-}
-// These classes are used directly on <label>s
-.@{css-prefix}radio-inline,
-.@{css-prefix}checkbox-inline {
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
-  }
-}
-// These classes are used on elements with <label> descendants
-.@{css-prefix}radio,
-.@{css-prefix}checkbox {
-  &.disabled,
-  fieldset[disabled] & {
-    label {
-      cursor: @cursor-disabled;
+  .@{css-prefix}checkbox-vertical,
+  .@{css-prefix}radio-vertical {
+    display: block;
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
     }
   }
 }
@@ -123,6 +159,20 @@ input[type="checkbox"] {
 .@{css-prefix}form-horizontal {
   .@{css-prefix}form-item {
     .make-row;
+  }
+
+  .@{css-prefix}form-item-compact {
+    label,
+    .@{css-prefix}form-text,
+    .@{css-prefix}form-split {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .@{css-prefix}radio-inline,
+  .@{css-prefix}checkbox-inline {
+    vertical-align: top;
   }
 }
 
@@ -169,19 +219,6 @@ input[type="checkbox"] {
   }
 }
 
-.@{css-prefix}form-text, .@{css-prefix}form-split {
-  // min-height: (@line-height-computed + @font-size-base);
-  margin: 0!important;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  font-size: @font-size-base;
-  height: @input-height-lg;
-}
-
-.@{css-prefix}form-split {
-  text-align: center;
-}
-
 // Validation state
 .has-success {
   .form-control-validation(@success-color; @input-hover-border-color;);
@@ -195,8 +232,3 @@ input[type="checkbox"] {
 .has-error {
   .form-control-validation(@error-color; @error-color;);
 }
-.@{css-prefix}form-explain {
-  display: block;
-  font-size: @font-size-base;
-}
-
