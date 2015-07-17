@@ -37,7 +37,7 @@ var AntRadioGroup = React.createClass({
     });
     return (
       <div className={props.prefixCls}>
-                {children}
+        {children}
       </div>
     );
   },
@@ -50,4 +50,3 @@ var AntRadioGroup = React.createClass({
 });
 
 module.exports = AntRadioGroup;
-
