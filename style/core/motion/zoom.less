@@ -1,7 +1,6 @@
 .zoom-motion(@className, @keyframeName) {
   .make-motion(@className, @keyframeName);
   .@{className}-enter {
-    opacity: 0;
     transform: scale(0, 0); // need this by yiminghe
     animation-timing-function: @ease-out-circ;
   }
