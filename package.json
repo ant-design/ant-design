@@ -5,9 +5,15 @@
   "description": "一个设计&前端框架",
   "homepage": "http://ant-design.github.io/",
   "keywords": [
-    "ant design",
+    "ant",
+    "design",
+    "react",
     "react-component",
-    "ui component"
+    "component",
+    "components",
+    "ui",
+    "framework",
+    "frontend"
   ],
   "contributors": ["ant"],
   "repository": {
