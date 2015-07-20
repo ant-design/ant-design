@@ -26,8 +26,7 @@
       margin-left: 4px;
       position: relative;
       top: -1px;
-      font-size: ~"10px \9"; // ie8-9
-      .scale(0.83);
+      .iconfont-size-under-12px(10px);
       cursor: pointer;
       color: #aaa;
       transition: all 0.3s ease;
@@ -45,12 +44,7 @@
         padding: 7px 8px;
         &.ant-dropdown-menu-item-selected:after {
           right: 8px;
-          font-size: @font-size-base;
-          font-size: ~"10px \9"; // ie8-9
-          .scale(0.83);
-          :root & {
-            font-size: @font-size-base; // reset ie9 and above
-          }
+          .iconfont-size-under-12px(10px);
         }
       }
     }
@@ -178,8 +172,7 @@
     }
     .anticon-caret-up,
     .anticon-caret-down {
-      font-size: ~"6px \9"; // ie8-9
-      .scale(0.5);
+      .iconfont-size-under-12px(6px);
       line-height: 6px;
       height: 6px;
       color: #aaa;

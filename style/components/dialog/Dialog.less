@@ -53,15 +53,9 @@
       text-align: center;
       text-transform: none;
       text-rendering: auto;
-      // 更好地渲染字体
-      -webkit-font-smoothing: antialiased;
-      -webkit-text-stroke-width: 0px;
-      -moz-osx-font-smoothing: grayscale;
       width: 12px;
       height: 12px;
-      font-size: @font-size-base;
-      font-size: ~"10px \9"; // ie8-9
-      .scale(0.83);
+      .iconfont-size-under-12px(10px);
       line-height: 12px;
       color:#000;
       top:18px;

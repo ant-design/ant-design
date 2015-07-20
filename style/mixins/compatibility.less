@@ -4,3 +4,15 @@
 .ie-rotate(@rotation) {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@rotation);
 }
+
+// for iconfont font size
+// fix chrome 12px bug, support ie
+.iconfont-size-under-12px(@iconfontSize) {
+  @font-scale: unit(@iconfontSize/@font-size-base);
+  font-size: @font-scale;
+  font-size: ~"@{iconfontSize} \9"; // ie8-9
+  .scale(@font-scale);
+  :root & {
+    font-size: @font-size-base; // reset ie9 and above
+  }
+}
