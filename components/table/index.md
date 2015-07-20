@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 表格
 - cols: 1
+- order: 18
 
 ---
 

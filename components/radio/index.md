@@ -2,10 +2,9 @@
 
 - category: Components
 - chinese: 单选框
+- order: 2
 
 ---
-
-
 
 ## 何时使用
 
