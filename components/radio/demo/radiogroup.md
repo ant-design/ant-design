@@ -13,24 +13,24 @@ var RadioGroup = antd.RadioGroup;
 var App = React.createClass({
   getInitialState: function () {
     return {
-      selectedValue:"a"
+      value:"a"
     };
   },
   onChange(ev) {
     console.log('radio checked:' + ev.target.value);
     this.setState({
-      selectedValue:ev.target.value
+      value:ev.target.value
     })
   },
   render() {
     return<div>
-      <RadioGroup onChange={this.onChange}>
-        <Radio value="a" checked={true}>A</Radio>
+      <RadioGroup onChange={this.onChange} value={this.state.value}>
+        <Radio value="a">A</Radio>
         <Radio value="b" >B</Radio>
         <Radio value="c" >C</Radio>
         <Radio value="d" disabled={true}>D</Radio>
       </RadioGroup>
-      你选中的:&nbsp;&nbsp;{this.state.selectedValue}
+      你选中的:&nbsp;&nbsp;{this.state.value}
     </div>
   }
 });
