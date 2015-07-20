@@ -5,6 +5,17 @@
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@rotation);
 }
 
+// support rotate for all browsers
+.cross-rotate(@degrees) {
+  .rotate(@degrees);
+  @cos: cos(@degrees);
+  @sin: sin(@degrees);
+  @nl: `"\n"`; // Newline
+  /* IE8- */
+  filter: ~"progid:DXImageTransform.Microsoft.Matrix(@{nl}    M11=@{cos},@{nl}    M12=-@{sin},@{nl}    M21=@{sin},@{nl}    M22=@{cos},@{nl}    sizingMethod='auto expand'@{nl}  )";
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(@{nl}    M11=@{cos},@{nl}    M12=-@{sin},@{nl}    M21=@{sin},@{nl}    M22=@{cos},@{nl}    sizingMethod='auto expand'@{nl}  )";
+}
+
 // for iconfont font size
 // fix chrome 12px bug, support ie
 .iconfont-size-under-12px(@iconfontSize) {
