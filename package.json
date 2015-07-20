@@ -42,7 +42,7 @@
     "rc-input-number": "~2.0.1",
     "rc-menu": "~3.4.2",
     "rc-notification": "~1.0.1",
-    "rc-pagination": "~1.0.0",
+    "rc-pagination": "~1.1.0",
     "rc-progress": "~1.0.0",
     "rc-radio": "~2.0.0",
     "rc-select": "~4.4.0",
