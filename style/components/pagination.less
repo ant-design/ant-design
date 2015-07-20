@@ -74,10 +74,10 @@
   }
 
   &-jump-prev {
+    transform: rotate(180deg);
     &:hover {
       &:after {
         content: "\e611\e611";
-        transform: rotate(180deg);
       }
     }
   }
@@ -97,7 +97,6 @@
     font-family: Arial;
     cursor: pointer;
     color: #666;
-    .iconfont-size-under-12px(10px);
     border-radius: 6px;
     list-style: none;
     min-width: 28px;
@@ -106,19 +105,20 @@
     float: left;
     text-align: center;
     transition: all 0.3s ease;
+    display: inline-block;
   }
 
   &-prev, &-next {
     border: 1px solid #d9d9d9;
 
     a {
-      font-size: 16px;
       color: #666;
+
       &:after {
+        .iconfont-size-under-12px(8px);
         display: block;
-        height: 28px;
-        line-height: 28px;
-        font-size: 8px;
+        height: 26px;
+        line-height: 26px;
         font-family: "anticon";
       }
 
@@ -134,11 +134,11 @@
   }
 
   &-prev {
+    transform: rotate(180deg);
     a {
       &:after {
         content: "\e611";
         display: block;
-        transform: rotate(180deg);
       }
     }
   }
