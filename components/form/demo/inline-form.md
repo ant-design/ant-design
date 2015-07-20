@@ -6,34 +6,25 @@
 
 ---
 
-````html
-<form class="ant-form-inline">
-  <div class="ant-form-item">
+````jsx
+var Checkbox = antd.Checkbox;
+
+React.render(
+<form className="ant-form-inline">
+  <div className="ant-form-item">
     <label for="userName">账户：</label>
-    <input class="ant-input" type="text" id="userName" placeholder="请输入"/>
+    <input className="ant-input" type="text" id="userName" placeholder="请输入账户名" />
   </div>
-  <div class="ant-form-item">
+  <div className="ant-form-item">
     <label for="password">密码：</label>
-    <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
+    <input className="ant-input" type="password" id="password" placeholder="请输入密码" />
   </div>
-  <input type="submit" class="ant-btn ant-btn-primary" value="登 录" />
-</form>
-
-<br />
-
-<form class="ant-form-inline">
-  <div class="ant-form-item">
-    <input class="ant-input" type="text" id="userName" placeholder="请输入账户名"/>
-  </div>
-  <div class="ant-form-item">
-    <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
-  </div>
-  <div class="ant-checkbox-inline">
-    <label>
-      <input type="checkbox"> 记住我
+  <div className="ant-checkbox-inline">
+    <label className="ant-checkbox-inline">
+      <Checkbox /> 记住我
     </label>
   </div>
-  <input type="submit" class="ant-btn ant-btn-primary" value="登 录" />
+  <input type="submit" className="ant-btn ant-btn-primary" value="登 录" />
 </form>
-
+, document.getElementById('components-form-demo-inline-form'));
 ````
