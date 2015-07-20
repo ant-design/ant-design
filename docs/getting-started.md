@@ -5,7 +5,7 @@
 
 ---
 
-Ant Design 致力于提供给用户愉悦的开发体验。
+Ant Design 致力于提供给程序员愉悦的开发体验。
 
 ## 第一个例子
 
@@ -13,7 +13,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 
 下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
-<iframe width="100%" height="400" src="//jsfiddle.net/6k22tgpx/3/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="380" src="//jsfiddle.net/afc163/6k22tgpx/4/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 源码如下：
 
@@ -25,7 +25,6 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
     <!-- 引入 react 和 antd.js -->
-    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
     <script src="http://ant.design/dist/antd.js"></script>
   </head>
@@ -117,7 +116,6 @@ $ touch index.html
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
-    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
   </head>
   <body>
@@ -172,7 +170,7 @@ Ant Design 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0 -155px 0 rgba(255, 207, 0, 0.16);
+  box-shadow: 0 -197px 0 rgba(255, 207, 0, 0.16);
   height: 42px;
   margin-bottom: -42px;
 }
