@@ -13,7 +13,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 
 下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
-<iframe width="100%" height="400" src="//jsfiddle.net/afc163/6k22tgpx/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="400" src="//jsfiddle.net/6k22tgpx/3/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 源码如下：
 
@@ -25,6 +25,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
     <!-- 引入 react 和 antd.js -->
+    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
     <script src="http://ant.design/dist/antd.js"></script>
   </head>
@@ -116,6 +117,7 @@ $ touch index.html
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
+    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
   </head>
   <body>
@@ -156,10 +158,10 @@ Ant Design 支持所有的现代浏览器和 IE8+。
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <!-- Polyfills -->
+    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <!-- 引入 jquery 和 react -->
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
-    <!-- Polyfills -->
-    <script src="https://a.alipayobjects.com/react/0.13.3/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
   </head>
   <body>
   </body>

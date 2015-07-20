@@ -231,12 +231,16 @@
         &-selected {
           position: relative;
           &:after {
+            .iconfont-size-under-12px(9px);
+            display: inline-block;
             content: '\e613';
             font-family: 'anticon';
             font-weight: bold;
             position: absolute;
             top: 6px;
-            right: 16px;
+            right: 0;
+            background: tint(@primary-color, 90%);
+            padding-right: 16px;
             color: @primary-color;
           }
         }
