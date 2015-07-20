@@ -7,28 +7,24 @@
   .input();
   margin: 0;
   padding: 0;
-  line-height: 29px;
+  line-height: 28px;
   font-size: 12px;
-  height: 29px;
+  height: 28px;
   display: inline-block;
   vertical-align: middle;
   border: 1px solid #D9D9D9;
-  border-radius: 5px;
+  border-radius: @border-radius-base;
   overflow: hidden;
 
   &-handler {
     text-align: center;
     line-height: 0;
-    height: 15px;
+    height: 14px;
     overflow: hidden;
     color: #999;
     &:hover {
-      color: #666;
+      color: tint(@primary-color, 20%);
     }
-  }
-
-  &-handler-down {
-    height: 14px;
   }
 
   &-handler-up-inner, &-handler-down-inner {
@@ -57,21 +53,21 @@
 
   &-input-wrap {
     overflow: hidden;
-    height: 29px;
+    height: 28px;
   }
 
   &-input {
     width: 100%;
-    text-align: center;
+    text-align: left;
     outline: 0;
     -moz-appearance: textfield;
-    line-height: 29px;
-    height: 22px;
+    line-height: 28px;
+    height: 28px;
     transition: all 0.3s ease;
     color: #666666;
     border: 0;
-    border-radius: 5px;
-    padding: 0 8px;
+    border-radius: @border-radius-base;
+    padding: 0 7px;
 
     &[disabled] {
       .disabled();
@@ -82,8 +78,7 @@
     float: right;
     border-left: 1px solid #D9D9D9;
     width: 22px;
-    height: 29px;
-    margin-top: -1px;
+    height: 28px;
     position: relative;
   }
 
@@ -91,7 +86,7 @@
     border-bottom: 1px solid #D9D9D9;
     cursor: pointer;
     &-inner {
-      top: 2px;
+      top: 1px;
       &:before {
         content: "\e600";
         .ie-rotate(2);
@@ -103,7 +98,7 @@
   &-handler-down {
     cursor: pointer;
     &-inner {
-      bottom: 2px;
+      bottom: 1px;
       &:before {
         content: "\e600";
       }
