@@ -12,48 +12,52 @@
 
 ---
 
-````html
-<form class="ant-form-horizontal">
-  <div class="ant-form-item ant-form-item-compact">
-    <label for="userName" class="col-6" required>用户名：</label>
-    <div class="col-6">
-      <p class="ant-form-text">大眼萌 minion</p>
+````jsx
+var Checkbox = antd.Checkbox;
+var Radio = antd.Radio;
+var RadioGroup = antd.RadioGroup;
+
+React.render(
+<form className="ant-form-horizontal">
+  <div className="ant-form-item ant-form-item-compact">
+    <label for="userName" className="col-6" required>用户名：</label>
+    <div className="col-6">
+      <p className="ant-form-text">大眼萌 minion</p>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label for="password" class="col-6" required>密码：</label>
-    <div class="col-14">
-      <input class="ant-input" type="password" id="password" placeholder="请输入密码"/>
-	 </div>
-  </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <label  class="col-6" required>您的性别：</label>
-    <div class="col-14">
-      <label class="ant-radio-inline">
-        <input type="radio" name="radios" id="male-radio" value="male" checked> 男的
-      </label>
-      <label class="ant-radio-inline">
-        <input type="radio" name="radios" id="female-radio" value="female"> 女的
-      </label>
+  <div className="ant-form-item">
+    <label for="password" className="col-6" required>密码：</label>
+    <div className="col-14">
+      <input className="ant-input" type="password" id="password" placeholder="请输入密码"/>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label for="password" class="col-6" required>备注：</label>
-    <div class="col-14">
-      <textarea class="ant-input" placeholder="随便写"></textarea>
+  <div className="ant-form-item ant-form-item-compact">
+    <label  className="col-6" required>您的性别：</label>
+    <div className="col-14">
+      <RadioGroup>
+        <Radio value="male" checked={true}>男的</Radio>
+        <Radio value="female">女的</Radio>
+      </RadioGroup>
     </div>
   </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <div class="col-14 col-offset-6">
+  <div className="ant-form-item">
+    <label for="password" className="col-6" required>备注：</label>
+    <div className="col-14">
+      <textarea className="ant-input" placeholder="随便写"></textarea>
+    </div>
+  </div>
+  <div className="ant-form-item ant-form-item-compact">
+    <div className="col-14 col-offset-6">
       <label>
-        <input type="checkbox"> 我是同意的
+        <Checkbox /> 同意
       </label>
     </div>
   </div>
-  <div class="row">
-    <div class="col-16 col-offset-6">
-      <input type="submit" class="ant-btn ant-btn-primary" value="确 定" />
+  <div className="row">
+    <div className="col-16 col-offset-6">
+      <input type="submit" className="ant-btn ant-btn-primary" value="确 定" />
     </div>
   </div>
 </form>
+, document.getElementById('components-form-demo-horizontal-form'));
 ````
