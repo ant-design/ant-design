@@ -9,7 +9,7 @@
 ````jsx
 var Popconfirm = antd.Popconfirm;
 var message = antd.message;
-var text = '确认文案';
+var text = '确定要删除这个任务吗？';
 
 function confirm() {
   message.info('点击了确定');
