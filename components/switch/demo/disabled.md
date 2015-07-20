@@ -1,8 +1,8 @@
-# 简单
+# 不可用
 
 - order: 1
 
-最简单的用法。
+Switch 失效状态。
 
 ---
 
@@ -13,7 +13,7 @@ var container = document.getElementById('components-switch-demo-disabled');
 var Test = React.createClass({
   getInitialState() {
     return {
-      disabled: false
+      disabled: true
     }
   },
   toggle(){

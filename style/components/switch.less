@@ -33,16 +33,10 @@
     background-color: #ffffff;
     content: " ";
     cursor: pointer;
-    transform: scale(1);
     transition: left @switch-duration @ease-in-out-circ;
-    animation-timing-function: linear;
-    animation-duration: @switch-duration;
-    animation-name: rcSwitchOff;
   }
 
   &:hover:after{
-    transform: scale(1.1);
-    animation-name: rcSwitchOn;
   }
 
   &-checked{
@@ -65,40 +59,14 @@
 
     &:after{
       background: #ccc;
-      animation-name: none;
       cursor: no-drop;
     }
 
     &:hover:after{
-      transform: scale(1);
-      animation-name: none;
     }
 
     &-inner {
       color:#ccc;
     }
-  }
-}
-
-@keyframes rcSwitchOn {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1.1);
-  }
-}
-@keyframes rcSwitchOff {
-  0% {
-    transform: scale(1.1);
-  }
-  50%{
-    transform: scale(.9);
-  }
-  100% {
-    transform: scale(1);
   }
 }
