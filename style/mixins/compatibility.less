@@ -8,12 +8,13 @@
 // support rotate for all browsers
 .cross-rotate(@degrees) {
   .rotate(@degrees);
-  @cos: cos(@degrees);
-  @sin: sin(@degrees);
-  @nl: `"\n"`; // Newline
-  /* IE8- */
-  filter: ~"progid:DXImageTransform.Microsoft.Matrix(@{nl}    M11=@{cos},@{nl}    M12=-@{sin},@{nl}    M21=@{sin},@{nl}    M22=@{cos},@{nl}    sizingMethod='auto expand'@{nl}  )";
-  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(@{nl}    M11=@{cos},@{nl}    M12=-@{sin},@{nl}    M21=@{sin},@{nl}    M22=@{cos},@{nl}    sizingMethod='auto expand'@{nl}  )";
+  /* IE6-IE8 */
+  @radians: ~`parseInt("@{degrees}") * Math.PI * 2 / 360`;
+  @costheta: ~`Math.cos("@{radians}")`;
+  @sintheta: ~`Math.sin("@{radians}")`;
+  @negsintheta: ~`"@{sintheta}" * -1`;
+  filter: ~"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=@{costheta}, M12=@{negsintheta}, M21=@{sintheta}, M22=@{costheta})";
+  zoom: 1;
 }
 
 // for iconfont font size
