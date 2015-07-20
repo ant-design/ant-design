@@ -31,17 +31,6 @@
     </div>
   </div>
   <div class="ant-form-item">
-    <label class="col-6" for="site5">带按钮的输入框：</label>
-    <div class="col-16">
-      <div class="ant-input-group">
-        <input type="text" class="ant-input" id="site5" placeholder="Search for..." />
-        <div class="ant-input-group-btn">
-          <button class="ant-btn" type="button">GO!</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="ant-form-item">
     <label class="col-6">输入身份证：</label>
     <div class="col-16">
       <div class="ant-input-group">
