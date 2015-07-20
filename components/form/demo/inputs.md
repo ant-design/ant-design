@@ -76,5 +76,5 @@
       <p class="ant-form-explain">请输入正确的电话号码</p>
     </div>
   </div>
-</form> 
+</form>
 ````

@@ -85,13 +85,18 @@ input[type="checkbox"] {
 }
 
 .@{css-prefix}form-text, .@{css-prefix}form-split {
-  display: inline-block;
   margin: 0!important;
   padding-top: 7px;
   padding-bottom: 7px;
 }
 
+.@{css-prefix}form-text {
+  display: inline-block;
+  padding-right: 8px;
+}
+
 .@{css-prefix}form-split {
+  display: block;
   text-align: center;
 }
 
@@ -158,6 +163,10 @@ form {
   .@{inputNumberPrefixCls} {
     margin-top: -1px;
     margin-right: 8px;
+  }
+
+  .@{prefixCalendarClass}-picker {
+    width: 100%;
   }
 }
 

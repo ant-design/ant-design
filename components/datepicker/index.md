@@ -28,7 +28,7 @@
 | disabled     | 禁用           | bool     | false        |
 
 <style>
-.code-box-demo .ant-calendar-picker {
+.code-box-demo .ant-calendar-picker-input {
   width: 200px;
 }
 </style>

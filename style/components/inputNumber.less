@@ -22,7 +22,8 @@
     height: 14px;
     overflow: hidden;
     color: #999;
-    &:hover {
+    &:hover &-up-inner,
+    &:hover &-down-inner {
       color: tint(@primary-color, 20%);
     }
   }
@@ -37,6 +38,7 @@
     height: 12px;
     .iconfont-size-under-12px(8px);
     right: 4px;
+    color: #999;
   }
 
   &:hover {
@@ -98,7 +100,6 @@
   &-handler-down {
     cursor: pointer;
     &-inner {
-      bottom: 1px;
       &:before {
         content: "\e600";
       }

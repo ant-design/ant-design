@@ -3,6 +3,7 @@
 - category: CSS
 - chinese: 组件动画
 - order: 4
+- cols: 1
 
 ---
 

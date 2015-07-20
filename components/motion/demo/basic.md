@@ -220,7 +220,4 @@ React.render(<Test/>, document.getElementById('components-motion-demo-basic'));
 .motion-select {
   text-align: center;
 }
-.code-boxes-col-2-1 {
-  width:100%;
-}
 </style>
