@@ -11,7 +11,7 @@ var Slider = antd.Slider;
 
 React.render(<div>
   <Slider />
-  <Slider value={65} disabled />
+  <Slider defaultValue={65} disabled />
 </div>
 , document.getElementById('components-slider-demo-basic'));
 ````
