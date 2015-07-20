@@ -76,10 +76,10 @@ React.render(
     <label className="col-6">ant-radio：</label>
     <div className="col-18">
       <RadioGroup>
-      <Radio value="a" checked={true}>A</Radio>
+      <Radio value="a" value={true}>A</Radio>
       <Radio value="b" >B</Radio>
       <Radio value="c" >C</Radio>
-      <Radio value="d" disabled={true}>D</Radio>
+      <Radio value="d">D</Radio>
       </RadioGroup>
     </div>
   </div>
