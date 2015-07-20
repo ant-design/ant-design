@@ -34,7 +34,7 @@
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
     "object-assign": "~3.0.0",
-    "rc-calendar": "~3.10.0",
+    "rc-calendar": "~3.11.0",
     "rc-checkbox": "~1.0.6",
     "rc-collapse": "~1.2.2",
     "rc-dialog": "~4.4.0",

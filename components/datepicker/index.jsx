@@ -68,6 +68,7 @@ export default React.createClass({
     return (
       <Datepicker
         transitionName={this.props.transitionName}
+        disabled={this.props.disabled}
         trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
         adjustOrientOnCalendarOverflow={false}
@@ -75,7 +76,7 @@ export default React.createClass({
         value={this.state.value}
         prefixCls="ant-calendar-picker"
         onChange={this.handleChange}>
-        <input disabled={this.props.disabled} placeholder={this.props.placeholder} className="ant-calendar-picker-input ant-input" />
+        <input placeholder={this.props.placeholder} className="ant-calendar-picker-input ant-input" />
       </Datepicker>
     );
   }
