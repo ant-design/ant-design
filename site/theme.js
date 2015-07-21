@@ -1,4 +1,5 @@
 var _ = require('lodash');
+var Posts;
 
 module.exports = function(nico) {
   var exports = {};
@@ -22,11 +23,14 @@ module.exports = function(nico) {
   };
 
   exports.filters = {
-    find_category: function(posts, cat) {
+    find_category: function(posts, cats) {
+      if (typeof cats === 'string') {
+        cats = [cats];
+      }
       var ret = [];
       Object.keys(posts).forEach(function(key) {
         var item = posts[key];
-        if (item.meta.category === cat) {
+        if (cats.indexOf(item.meta.category) >= 0) {
           ret.push(item);
         }
       });
