@@ -1,9 +1,19 @@
 var _ = require('lodash');
-var Posts;
 
 module.exports = function(nico) {
   var exports = {};
   var Categories = {};
+  var Posts = [];
+
+  function getAllPosts(pages) {
+    if (Posts && Posts.length > 0) {
+      return Posts;
+    }
+    Object.keys(pages).map(function(key) {
+      Posts.push(pages[key]);
+    });
+    return Posts;
+  }
 
   exports.reader = function(post) {
     var filepath = post.meta.filepath.toLowerCase();
@@ -28,10 +38,9 @@ module.exports = function(nico) {
         cats = [cats];
       }
       var ret = [];
-      Object.keys(posts).forEach(function(key) {
-        var item = posts[key];
-        if (cats.indexOf(item.meta.category) >= 0) {
-          ret.push(item);
+      getAllPosts(posts).forEach(function(post) {
+        if (cats.indexOf(post.meta.category) >= 0) {
+          ret.push(post);
         }
       });
       ret = ret.sort(function(a, b) {
@@ -43,8 +52,7 @@ module.exports = function(nico) {
     },
     get_categories: function(posts, post) {
       var rootDirectory = post.directory.split('/')[0];
-      var categories = Categories[rootDirectory] || _.uniq(Object.keys(posts).map(function(key) {
-        var item = posts[key];
+      var categories = Categories[rootDirectory] || _.uniq(getAllPosts(posts).map(function(item) {
         if (item.directory.split('/')[0] === post.directory.split('/')[0]) {
           return item.meta.category;
         }
@@ -57,10 +65,9 @@ module.exports = function(nico) {
     },
     find_demo_in_component: function(pages, directory) {
       var ret = [];
-      Object.keys(pages).forEach(function(key) {
-        var page = pages[key];
-        if (key.indexOf(directory + '/demo/') === 0) {
-          ret.push(page);
+      getAllPosts(pages).forEach(function(post) {
+        if (post.filepath.indexOf(directory + '/demo/') === 0) {
+          ret.push(post);
         }
       });
       ret = ret.sort(function(a, b) {
