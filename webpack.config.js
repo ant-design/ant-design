@@ -29,6 +29,7 @@ module.exports = {
       commonjs: 'react',
       amd: 'react'
     },
+    'antd':'antd',
     'jquery': {
       root: 'jQuery',
       commonjs2: 'jquery',

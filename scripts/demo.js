@@ -1,5 +1,6 @@
 window['css-animation'] = require('css-animation');
 window['react-router'] = window.ReactRouter;
+var antd = require('antd');
 
 var $ = require('jquery');
 var React = require('react');
@@ -16,7 +17,7 @@ $(function () {
       return searchData.map(function (s) {
         return <Option sData={s} key={s.title}>
           <strong>{s.title}</strong>
-          &nbsp;
+        &nbsp;
           <span>{s.desc}</span>
         </Option>;
       });
@@ -45,3 +46,4 @@ $(function () {
   React.render(<AutoComplete/>, document.getElementById('autoComplete'));
 });
 
+module.exports = antd;
