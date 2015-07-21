@@ -53,7 +53,7 @@ $ npm start
 
 然后访问 http://127.0.0.1:8000 。
 
-#### 部署到 ant.design
+#### [网站](http://ant.design)部署
 
 ```bash
 $ npm run deploy
