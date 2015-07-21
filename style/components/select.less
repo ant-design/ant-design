@@ -141,8 +141,6 @@
     }
   }
 
-
-
   &-selection--multiple {
     min-height: 28px;
     cursor: text;
@@ -205,6 +203,9 @@
   }
 
   .@{selectPrefixCls}-selection--multiple + .@{selectPrefixCls}-dropdown {
+    .@{selectPrefixCls}-dropdown-menu-item {
+      padding: 7px 33px 7px 16px;
+    }
     .@{selectPrefixCls}-dropdown-menu-item-selected {
       .selected_icon();
     }
