@@ -1,6 +1,6 @@
 # 禁用状态
 
-- order: 3
+- order: 2
 
 1) 单独为输入框设置 `disabled` 属性；
 

@@ -99,7 +99,7 @@
 }
 
 // label input
-.input-group(@inputClass; @btnclass) {
+.input-group(@inputClass) {
   position: relative;
   display: table;
   border-collapse: separate;
@@ -116,7 +116,7 @@
   }
 
   &-addon,
-  &-btn,
+  &-wrap,
   > .@{inputClass} {
     display: table-cell;
 
@@ -126,7 +126,7 @@
   }
 
   &-addon,
-  &-btn {
+  &-wrap {
     width: 1%;
     white-space: nowrap;
     vertical-align: middle;
@@ -152,24 +152,6 @@
     border-radius: @border-radius-base;
   }
 
-  .@{btnclass} {
-    border-radius: @border-radius-base;
-    .button-variant(@input-color; #eee; @input-border-color);
-    margin-left: -1px;
-
-    &:hover {
-      .button-color(@input-color; tint(#eee, 20%); @input-border-color);
-    }
-    &:active, &.active {
-      .button-color(@input-color; shade(#eee, 5%); @input-border-color);
-    }
-
-    .@{iconfont-css-prefix} {
-      line-height: 1;
-      margin-left: 8px;
-    }
-  }
-
   // Reset rounded corners
   > .@{inputClass}:first-child,
   &-addon:first-child {
@@ -185,26 +167,19 @@
   }
 
   > .@{inputClass}:last-child,
-  &-addon:last-child,
-  &-btn .@{btnclass}{
+  &-addon:last-child {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
   }
 
   // Sizing options
   &-lg .@{inputClass},
-  &-lg > &-addon,
-  &-lg > &-btn .@{btnclass} {
+  &-lg > &-addon {
     .input-lg();
   }
 
   &-sm .@{inputClass},
-  &-sm > &-addon,
-  &-sm > &-btn .@{btnclass} {
+  &-sm > &-addon {
     .input-sm();
-  }
-
-  &-sm > &-btn .@{btnclass} {
-    margin-top: ~"-2px \9";
   }
 }

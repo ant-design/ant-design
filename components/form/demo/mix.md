@@ -80,21 +80,6 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6" for="site4">按钮式下拉输入框:</label>
-    <div className="col-16">
-      <div className="ant-input-group">
-        <input type="text" className="ant-input" id="site4" placeholder="Search for..." />
-        <div className="ant-input-group-btn">
-          <Dropdown overlay={menu}>
-          <button className="ant-btn ant-btn-menu">
-          .com <i className="anticon anticon-down"></i>
-          </button>
-          </Dropdown>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="ant-form-item">
     <label for="" className="col-6" required>Datepicker:</label>
     <div className="col-6">
       <Datepicker value="" />
