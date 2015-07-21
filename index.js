@@ -29,7 +29,3 @@ var antd = {
 module.exports = antd;
 
 antd.version = require('./package.json').version;
-
-if (typeof window !== undefined) {
-  window.antd = antd;
-}
