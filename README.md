@@ -59,7 +59,7 @@ $ npm start
 $ npm run deploy
 ```
 
-#### 发布
+#### 版本构建
 
 ```bash
 $ npm run release
