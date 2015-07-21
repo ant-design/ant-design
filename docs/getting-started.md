@@ -68,9 +68,7 @@ $ npm install
 编辑 `index.js`，使用 Ant Design 的组件：
 
 ```jsx
-var antd = require('antd');
-var Datepicker = antd.Datepicker;
-var message = antd.message;
+import {Datepicker, message} from 'antd';
 
 var App = React.createClass({
   getInitialState() {
