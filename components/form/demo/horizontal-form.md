@@ -34,8 +34,8 @@ React.render(
   <div className="ant-form-item ant-form-item-compact">
     <label  className="col-6" required>您的性别：</label>
     <div className="col-14">
-      <RadioGroup>
-        <Radio value="male" checked={true}>男的</Radio>
+      <RadioGroup value="male">
+        <Radio value="male">男的</Radio>
         <Radio value="female">女的</Radio>
       </RadioGroup>
     </div>
