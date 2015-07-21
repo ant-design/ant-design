@@ -12,7 +12,7 @@ var InputNumber = antd.InputNumber;
 var Test = React.createClass({
   getInitialState() {
     return {
-      disabled:false
+      disabled: false
     };
   },
   toggle() {
