@@ -19,7 +19,7 @@ React.render(
     <label for="password">密码：</label>
     <input className="ant-input" type="password" id="password" placeholder="请输入密码" />
   </div>
-  <div className="ant-checkbox-inline">
+  <div className="ant-form-item">
     <label className="ant-checkbox-inline">
       <Checkbox /> 记住我
     </label>
