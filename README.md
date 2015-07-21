@@ -59,8 +59,8 @@ $ npm start
 $ npm run deploy
 ```
 
-#### 构建
+#### 发布
 
 ```bash
-$ npm run build
+$ npm run release
 ```
