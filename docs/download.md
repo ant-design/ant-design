@@ -15,12 +15,20 @@
 
 - **开发版** <span class="versions" id="latest-version"></span>
 
+  开发版并不稳定，随时可能变更。
+
   <ul id="latest-links">
     <li>
       <a href="http://ant.design/dist/antd.js">antd.js</a>
     </li>
     <li>
+      <a href="http://ant.design/dist/antd.min.js">antd.min.js</a>
+    </li>
+    <li>
       <a href="http://ant.design/dist/antd.css">antd.css</a>
+    </li>
+    <li>
+      <a href="http://ant.design/dist/antd.min.css">antd.min.css</a>
     </li>
   </ul>
 
