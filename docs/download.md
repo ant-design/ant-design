@@ -9,6 +9,10 @@
 
 ## 直接下载
 
+- **稳定版** <span class="versions" id="stable-version"></span>
+
+  <a id="stable-link" href="" target="_blank">下载</a>
+
 - **开发版** <span class="versions" id="latest-version"></span>
 
   <ul id="latest-links">
@@ -19,10 +23,6 @@
       <a href="http://ant.design/dist/antd.css">antd.css</a>
     </li>
   </ul>
-
-- **稳定版** <span class="versions" id="stable-version"></span>
-
-  <a id="stable-link" href="" target="_blank">下载</a>
 
 - **历史版本**：https://github.com/ant-design/ant-design/releases
 
