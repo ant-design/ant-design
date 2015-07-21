@@ -1,6 +1,7 @@
 {
   "name": "antd",
-  "version": "0.7.0-beta4",
+  "version": "0.7.1",
+  "stableVersion": "0.7.0",
   "title": "Ant Design",
   "description": "一个设计&前端框架",
   "homepage": "http://ant.design/",
@@ -75,11 +76,10 @@
   },
   "scripts": {
     "babel": "babel components --out-dir lib",
-    "build": "npm run clean && webpack && nico build",
-    "pack": "npm run clean && webpack --optimize-minimize && nico build",
+    "release": "npm run clean && webpack --config webpack.config.production.js && webpack --config webpack.config.min.js && zip dist/${npm_package_name}-${npm_package_version}.zip -j dist dist/*",
     "start": "npm run clean && nico server --watch",
-    "clean": "rm -rf _site",
-    "deploy": "rm -rf node_modules && node scripts/install.js && npm run pack && node scripts/deploy.js",
+    "clean": "rm -rf _site dist",
+    "deploy": "rm -rf node_modules && node scripts/install.js && npm run clean && webpack --optimize-minimize && nico build && node scripts/deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "test": "webpack && npm run lint",
     "prepublish": "npm run babel  && rm -rf dist && webpack && node scripts/prenpm.js"

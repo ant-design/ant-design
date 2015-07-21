@@ -32,6 +32,7 @@ React.render(<Datepicker />, mountNode);
 - [组件](http://ant.design/components/)
 - [构建调试工具](https://github.com/ant-design/antd-bin)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
+- [修改记录](CHANGELOG.md)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
@@ -58,8 +59,8 @@ $ npm start
 $ npm run deploy
 ```
 
-#### 构建
+#### 版本构建
 
 ```bash
-$ npm run build
+$ npm run release
 ```

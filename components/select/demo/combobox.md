@@ -32,7 +32,10 @@ var Test = React.createClass({
     });
   },
   render() {
-    return <Select combobox style={{width:200}} onChange={this.handleChange}>
+    return <Select combobox
+      style={{width:200}}
+      onChange={this.handleChange}
+      searchPlaceholder="请输入账户名">
       {this.state.options}
     </Select>;
   }

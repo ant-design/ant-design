@@ -9,7 +9,7 @@
 
 ## 直接下载
 
-- **开发版** <span class="versions" id="latest-version">1.0.2</span>
+- **开发版** <span class="versions" id="latest-version"></span>
 
   <ul id="latest-links">
     <li>
@@ -20,16 +20,9 @@
     </li>
   </ul>
 
-- **稳定版** <span class="versions" id="stable-version">1.0.0</span>
+- **稳定版** <span class="versions" id="stable-version"></span>
 
-  <ul id="stable-links">
-    <li>
-      <a href="http://ant.design/dist/antd.js">antd.js</a>
-    </li>
-    <li>
-      <a href="http://ant.design/dist/antd.js">antd.css</a>
-    </li>
-  </ul>
+  <a id="stable-link" href="" target="_blank">下载</a>
 
 - **历史版本**：https://github.com/ant-design/ant-design/releases
 
@@ -86,11 +79,9 @@ $('#latest-links a').each(function(i, item) {
 
 if (antdVersion.stable) {
   $('#stable-version').html(antdVersion.stable);
-  $('#stable-links a').each(function(i, item) {
-    $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd-' + antdVersion.stable));
-  });
+  $('#stable-link').attr('href', 'https://github.com/ant-design/ant-design/releases/tag/' + antdVersion.stable);
 } else {
   $('#stable-version').html('暂无');
-  $('#stable-links').hide();
+  $('#stable-link').hide();
 }
 </script>

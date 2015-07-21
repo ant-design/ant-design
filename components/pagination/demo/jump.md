@@ -2,7 +2,7 @@
 
 - order: 3
 
-快速跳转到某一页
+快速跳转到某一页。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 React.render(
-  <Pagination showQuickJumper={true} onChange={onChange} total={500} />, 
+  <Pagination showQuickJumper={true} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-jump'));
 ````

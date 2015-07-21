@@ -10,7 +10,6 @@
     <title>{% block title %}{{ config.site.name }} - {{ config.site.description }}{% endblock %}</title>
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
-    <link href="http://fonts.useso.com/css?family=Raleway:600,500,400,300" rel="stylesheet" type="text/css">
     {% block styles %}{% endblock %}
     <link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}.css">
     <link rel="stylesheet" href="/static/style.css">
@@ -36,14 +35,12 @@
     </script>
     <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.0.5/es5-shim-debug.js,es5-shim/4.0.5/es5-sham-debug.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js,react-router/0.13.3/ReactRouter.js"></script>
     <script>
-      var ANT_COMPONENTS=[];
-      {%- for item in resource.pages %}
-        {%- if item.meta.category === 'Components' %}
-          ANT_COMPONENTS.push({
-            title: '{{item.title}}',
-            desc: '{{item.meta.chinese}}'
-          });
-        {%- endif %}
+      var ANT_COMPONENTS = [];
+      {%- for item in resource.pages|find_category(["CSS","Components"]) %}
+      ANT_COMPONENTS.push({
+        title: '{{item.title}}',
+        desc: '{{item.meta.chinese}}'
+      });
       {%- endfor %}
     </script>
     <script src="/static/script.js"></script>
