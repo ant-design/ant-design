@@ -1,6 +1,7 @@
 {
   "name": "antd",
   "version": "0.7.1",
+  "stableVersion": "0.7.0",
   "title": "Ant Design",
   "description": "一个设计&前端框架",
   "homepage": "http://ant.design/",
