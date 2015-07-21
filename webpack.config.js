@@ -17,12 +17,24 @@ module.exports = {
 
   output: {
     path: path.join(process.cwd(), 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    library: 'antd',
+    libraryTarget: 'umd'
   },
 
   externals: {
-    react: "React",
-    jquery:"jQuery"
+    'react': {
+      root: 'React',
+      commonjs2: 'react',
+      commonjs: 'react',
+      amd: 'react'
+    },
+    'jquery': {
+      root: 'jQuery',
+      commonjs2: 'jquery',
+      commonjs: 'jquery',
+      amd: 'jquery'
+    }
   },
 
   module: {
