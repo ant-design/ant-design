@@ -44,6 +44,7 @@ React.render(
     <label for="password" className="col-6" required>备注：</label>
     <div className="col-14">
       <textarea className="ant-input" placeholder="随便写"></textarea>
+      <p className="ant-form-explain">随便写点什么</p>
     </div>
   </div>
   <div className="ant-form-item ant-form-item-compact">
