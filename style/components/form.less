@@ -34,7 +34,7 @@ label {
 
 //== Style for input-group: input with label, with button or dropdown...
 .@{css-prefix}input-group {
-  .input-group(~"@{css-prefix}input"; @btnClass)
+  .input-group(~"@{css-prefix}input");
 }
 
 // Radio && Checkbox
@@ -122,11 +122,43 @@ form {
   }
   .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input-group-addon,
-  .@{css-prefix}input-group .@{css-prefix}input-group-btn .@{btnClass} {
+  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
     height: @input-height-lg;
     font-size: @font-size-base;
-    padding: @input-padding-horizontal;
+    padding: 6px 7px;
+  }
+
+  // Input combined with select
+  .@{css-prefix}input-group {
+    .@{selectPrefixCls}-selection {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      &:hover {
+        border-color: #d9d9d9;
+      }
+    }
+
+    .@{selectPrefixCls}-selection--single {
+      margin-left: -1px;
+      height: @input-height-lg;
+      background-color: #eee;
+      .@{selectPrefixCls}-selection__rendered {
+        padding-left: 8px;
+        padding-right: 25px;
+        line-height: 32px;
+      }
+    } 
+    .@{selectPrefixCls}-arrow {
+      right: 8px;
+      height: 32px;
+      line-height: 32px;
+      width: auto;
+    }
+
+    .@{selectPrefixCls}-open .@{selectPrefixCls}-selection {
+      border-color: #d9d9d9;
+      box-shadow: none;
+    }
   }
 
   // input[type=file]
