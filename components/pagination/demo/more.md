@@ -2,7 +2,7 @@
 
 - order: 1
 
-更多分页
+更多分页。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 React.render(
-  <Pagination onChange={onChange} total={500} />, 
+  <Pagination onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-more'));
 ````

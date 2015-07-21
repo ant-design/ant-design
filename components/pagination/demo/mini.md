@@ -2,7 +2,7 @@
 
 - order: 4
 
-迷你版本
+迷你版本。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 React.render(
-  <Pagination className="mini" onChange={onChange} total={50} />, 
+  <Pagination className="mini" onChange={onChange} total={50} />,
  document.getElementById('components-pagination-demo-mini'));
 ````

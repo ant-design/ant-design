@@ -2,7 +2,7 @@
 
 - order: 0
 
-基础分页
+基础分页。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 React.render(
-  <Pagination onChange={onChange} total={50} />, 
+  <Pagination onChange={onChange} total={50} />,
  document.getElementById('components-pagination-demo-basic'));
 ````
