@@ -22,7 +22,7 @@ var Alert = React.createClass({
         iconClass += 'default';
     }
     return (
-        <div className={'alert alert-' + this.props.alertStyle}>
+        <div className={'ant-alert ant-alert-' + this.props.alertStyle}>
           <i className={'anticon anticon-' + iconClass}></i>
           {this.props.message}
         </div>

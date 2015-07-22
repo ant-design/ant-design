@@ -1,0 +1,77 @@
+@notificationPrefixCls: ant-notification;
+@noticeWidth: 300px;
+@noticePaddingTop: 10px;
+@noticePaddingBottom: 10px;
+@noticeMarginTop: 10px;
+
+.@{notificationPrefixCls} {
+  position: fixed;
+  z-index: 1000;
+  width: @noticeWidth;
+  padding: 0 10px;
+
+  &-notice {
+    padding: @noticePaddingTop 20px @noticePaddingBottom 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    width: 100%;
+    line-height: 1.5;
+    position: relative;
+    margin-top: @noticeMarginTop;
+    overflow: hidden;
+
+    &-closable {
+      padding-right: 20px;
+    }
+
+    &-close {
+      position: absolute;
+      right: 5px;
+      top: 3px;
+      color: #000;
+      cursor: pointer;
+      outline: none;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1;
+      text-shadow: 0 1px 0 #fff;
+      filter: alpha(opacity=20);
+      opacity: .2;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-fade-enter {
+    left: @noticeWidth;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+
+  &-fade-enter&-fade-enter-active {
+    opacity: 1;
+    left: 0;
+  }
+
+  &-fade-leave {
+    opacity: 1;
+    margin-top: @noticeMarginTop;
+    padding-top: @noticePaddingTop;
+    padding-bottom: @noticePaddingBottom;
+    max-height: 100px;
+    transition: all .3s ease-in-out;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

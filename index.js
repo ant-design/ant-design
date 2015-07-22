@@ -24,7 +24,8 @@ var antd = {
   Slider: require('./components/slider'),
   Radio: require('./components/radio'),
   RadioGroup: require('./components/radio/group'),
-  Alert: require('./components/alert')
+  Alert: require('./components/alert'),
+  Notification: require('./components/notification')
 };
 
 module.exports = antd;
