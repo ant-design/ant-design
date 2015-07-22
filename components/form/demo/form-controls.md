@@ -75,7 +75,7 @@ React.render(
   <div className="ant-form-item ant-form-item-compact">
     <label className="col-6">ant-radio：</label>
     <div className="col-18">
-      <RadioGroup value={"b"}>
+      <RadioGroup value="b">
         <Radio value="a">A</Radio>
         <Radio value="b">B</Radio>
         <Radio value="c">C</Radio>
