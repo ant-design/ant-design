@@ -8,6 +8,7 @@ module.exports = React.createClass({
     return {
       prefixCls: 'ant-select',
       transitionName: 'slide-up',
+      optionLabelProp: 'children',
       showSearch: false
     };
   },

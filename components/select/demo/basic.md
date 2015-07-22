@@ -16,9 +16,9 @@ function handleChange(value) {
 
 React.render(
   <Select value="lucy" style={{width:200}} onChange={handleChange}>
-    <Option value="jack">jack</Option>
-    <Option value="lucy">lucy</Option>
-    <Option value="disabled" disabled>disabled</Option>
+    <Option value="jack">Jack</Option>
+    <Option value="lucy">Lucy</Option>
+    <Option value="disabled" disabled>Disabled</Option>
     <Option value="yiminghe">yiminghe</Option>
   </Select>
 , document.getElementById('components-select-demo-basic'));
