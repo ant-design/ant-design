@@ -41,8 +41,7 @@ var Test = React.createClass({
   render() {
     return <div>
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
-      <Modal ref="modal"
-        title="对话框标题"
+      <Modal title="对话框标题"
         visible={this.state.visible}
         onOk={this.handleOk}
         onCancel={this.handleCancel}>
