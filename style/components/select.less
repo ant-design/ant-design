@@ -18,7 +18,7 @@
     position: absolute;
     top: 6px;
     right: 0;
-    background: tint(@primary-color, 90%);
+    //background: tint(@primary-color, 90%);
     padding-right: 16px;
     color: @primary-color;
   }
@@ -202,6 +202,11 @@
     }
   }
 
+  .@{selectPrefixCls}-selection--single + .@{selectPrefixCls}-dropdown {
+    .@{selectPrefixCls}-dropdown-menu-item-selected {
+      background-color: tint(@primary-color, 90%) !important;
+    }
+  }
   .@{selectPrefixCls}-selection--multiple + .@{selectPrefixCls}-dropdown {
     .@{selectPrefixCls}-dropdown-menu-item {
       padding: 7px 33px 7px 16px;
@@ -247,7 +252,7 @@
         white-space: nowrap;
         cursor: pointer;
 
-        &:hover, &-active, &-selected {
+        &:hover, &-active {
           background-color: tint(@primary-color, 90%) !important;
         }
 
