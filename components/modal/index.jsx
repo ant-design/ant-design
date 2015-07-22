@@ -44,8 +44,8 @@ var Modal = React.createClass({
   render() {
     var props = this.props;
     var footer = props.footer || [
-        <button key="cancel" type="button" className="ant-btn-default ant-btn" onClick={this.handleCancel}>取 消</button>,
-        <button key="confirm" type="button" className="ant-btn-primary ant-btn" onClick={this.handleOk}>确 定</button>
+        <button key="cancel" type="button" className="ant-btn ant-btn-lg" onClick={this.handleCancel}>取 消</button>,
+        <button key="confirm" type="button" className="ant-btn ant-btn-primary ant-btn-lg" onClick={this.handleOk}>确 定</button>
       ];
     return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d"/>;
   }
