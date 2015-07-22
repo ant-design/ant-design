@@ -71,12 +71,16 @@ input[type="checkbox"] {
 // You should wrap labels and controls in .@{css-prefix}form-item for optimum spacing
 .@{css-prefix}form-item {
   margin-bottom: @form-item-margin-bottom;
+  color: #666;
 
   > label {
     color: @label-color;
     text-align: right;
-    padding-right: 8px;
     vertical-align: middle;
+
+    &:lang(en) {
+      padding-right: 8px;
+    } 
   }
 
   .@{css-prefix}switch {
@@ -231,13 +235,7 @@ form {
   @media (min-width: @screen-sm-min) {
     .@{css-prefix}form-item {
       display: inline-block;
-      margin-bottom: 0;
-      vertical-align: middle;
       margin-right: 10px;
-
-      label {
-        padding-right: 0;
-      }
     }
 
     .@{css-prefix}input {

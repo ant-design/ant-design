@@ -34,7 +34,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6">ant-select：</label>
+    <label className="col-6">Select 选择器：</label>
     <div className="col-14">
       <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
@@ -45,7 +45,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6">ant-checkbox：</label>
+    <label className="col-6">Checkbox 多选框：</label>
     <div className="col-18">
       <label className="ant-checkbox-vertical">
         <Checkbox /> 选项一
@@ -59,7 +59,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6">ant-checkbox：</label>
+    <label className="col-6">Checkbox 多选框：</label>
     <div className="col-18">
       <label className="ant-checkbox-inline">
         <Checkbox />选项一
@@ -73,7 +73,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6">ant-radio：</label>
+    <label className="col-6">Radio 单选框：</label>
     <div className="col-18">
       <RadioGroup value="b">
         <Radio value="a">A</Radio>
@@ -81,13 +81,6 @@ React.render(
         <Radio value="c">C</Radio>
         <Radio value="d">D</Radio>
       </RadioGroup>
-    </div>
-  </div>
-  <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6" for="InputFile">头像：</label>
-    <div className="col-18">
-      <input type="file" id="InputFile" className="ant-upload" />
-      <p className="ant-form-explain">请选择一个文件</p>
     </div>
   </div>
 </form>
