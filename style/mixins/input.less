@@ -14,14 +14,14 @@
 // input status
 // == when focus or actived
 .active(@color: @input-hover-border-color) {
-  border-color: @color;
+  border-color: tint(@color, 20%);
   outline: 0;
   box-shadow: 0 0 0 2px tint(@color, 80%);
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color ) {
-  border-color: @color;
+  border-color: tint(@color, 20%);
 }
 
 .disabled() {
