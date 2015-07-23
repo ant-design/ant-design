@@ -1,7 +1,7 @@
 import React from 'react';
 import Steps from 'rc-steps';
 
-export default React.createClass({
+const AntSteps = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-steps',
@@ -20,3 +20,5 @@ export default React.createClass({
   }
 });
 AntSteps.Step = Steps.Step;
+
+export default AntSteps;

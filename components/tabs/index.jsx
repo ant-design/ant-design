@@ -2,7 +2,7 @@ import Tabs from 'rc-tabs';
 import React from 'react';
 const prefixCls = 'ant-tabs';
 
-export default class AntTabs extends React.Component {
+class AntTabs extends React.Component {
   render() {
     var sizeCls = '';
     if (this.props.size === 'mini') {
@@ -19,4 +19,4 @@ AntTabs.defaultProps = {
 
 AntTabs.TabPane = Tabs.TabPane;
 
-module.exports = AntTabs;
+export default AntTabs;
