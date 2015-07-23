@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import Calendar from 'rc-calendar';
 const Datepicker = Calendar.Picker;

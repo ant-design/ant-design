@@ -1,5 +1,3 @@
-'use strict';
-
 var Collapse = require('rc-collapse');
 var React = require('react');
 var prefixCls = 'ant-collapse';

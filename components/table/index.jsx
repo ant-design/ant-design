@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
