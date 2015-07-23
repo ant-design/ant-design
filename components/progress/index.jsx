@@ -1,5 +1,4 @@
-import {default as Progressline, Line} from 'rc-progress';
-import {default as Progresscircle, Circle} from 'rc-progress';
+import {Progressline, Progresscircle} from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
 
@@ -129,7 +128,7 @@ var Circle = React.createClass({
   }
 });
 
-module.exports = {
+export default {
   Line: Line,
   Circle: Circle
 };
