@@ -1696,9 +1696,6 @@ footer ul li > a {
 
 .code-box .code-box-demo {
   border-bottom: 1px solid #E9E9E9;
-}
-
-.code-box .code-box-demo > .code-box-demo-container {
   padding: 42px 20px 50px;
 }
 
