@@ -1,7 +1,7 @@
-var React = require('react');
-var Tooltip = require('rc-tooltip');
+import React from 'react';
+import Tooltip from 'rc-tooltip';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       placement: 'top'

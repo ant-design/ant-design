@@ -1,8 +1,8 @@
-var Tabs = require('rc-tabs');
-var React = require('react');
-var prefixCls = 'ant-tabs';
+import Tabs from 'rc-tabs';
+import React from 'react';
+import prefixCls from 'ant-tabs';
 
-class AntTabs extends React.Component {
+export default class AntTabs extends React.Component {
   render() {
     var sizeCls = '';
     if (this.props.size === 'mini') {

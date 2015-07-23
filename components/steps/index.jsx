@@ -1,7 +1,7 @@
-var React = require('react');
-var Steps = require('rc-steps');
+import React from 'react';
+import Steps from 'rc-steps';
 
-var AntSteps = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-steps',
@@ -20,5 +20,3 @@ var AntSteps = React.createClass({
   }
 });
 AntSteps.Step = Steps.Step;
-
-module.exports = AntSteps;
