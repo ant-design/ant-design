@@ -7,6 +7,8 @@
 
 一套企业级的前端设计语言和基于 React 的实现。
 
+设计文档和组件实现均在紧密整理和开发中，部分页面可能不完善，预计 8 月份释出正式版本。
+
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
 ## 特性
