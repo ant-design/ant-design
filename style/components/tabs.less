@@ -1,7 +1,5 @@
 @tabPrefixClass: ant-tabs;
 
-@easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
-
 @effect-duration: .3s;
 
 .@{tabPrefixClass} {
@@ -20,12 +18,12 @@
     transform: scaleX(1);
     transform-origin: 0 0;
     &-transition-forward {
-      transition: right 0.3s @easing-in-out,
-      left 0.3s @easing-in-out 0.3s * 0.3;
+      transition: right 0.3s @ease-in-out,
+      left 0.3s @ease-in-out 0.3s * 0.3;
     }
     &-transition-backward {
-      transition: right 0.3s @easing-in-out 0.3s * 0.3,
-      left 0.3s @easing-in-out;
+      transition: right 0.3s @ease-in-out 0.3s * 0.3,
+      left 0.3s @ease-in-out;
     }
   }
 
@@ -113,7 +111,7 @@
   &-nav {
     box-sizing: border-box;
     padding-left: 0;
-    transition: left 0.5s @easing-in-out;
+    transition: left 0.5s @ease-in-out;
     position: relative;
     margin: 0;
     list-style: none;
@@ -154,7 +152,7 @@
 
       > a {
         padding: 8px 20px;
-        transition: color 0.3s @easing-in-out;
+        transition: color 0.3s @ease-in-out;
         display: block;
         color: #666;
 
@@ -204,7 +202,7 @@
 
   &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
     transform: translateX(0);
-    transition: transform @effect-duration @easing-in-out;
+    transition: transform @effect-duration @ease-in-out;
   }
 
   &-slide-horizontal-backward-leave {
@@ -218,7 +216,7 @@
 
   &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
     transform: translateX(100%);
-    transition: transform @effect-duration @easing-in-out;
+    transition: transform @effect-duration @ease-in-out;
   }
 
   &-slide-horizontal-forward-enter {
@@ -227,7 +225,7 @@
 
   &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
     transform: translateX(0);
-    transition: transform @effect-duration @easing-in-out;
+    transition: transform @effect-duration @ease-in-out;
   }
 
   &-slide-horizontal-forward-leave {
@@ -241,6 +239,6 @@
 
   &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
     transform: translateX(-100%);
-    transition: transform @effect-duration @easing-in-out;
+    transition: transform @effect-duration @ease-in-out;
   }
 }
