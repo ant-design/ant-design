@@ -1,10 +1,10 @@
-let React = require('react');
-let Pagination = require('rc-pagination');
-let Select = require('rc-select');
+import React from 'react';
+import Pagination from 'rc-pagination';
+import Select from 'rc-select';
 
-let prefixCls = 'ant-pagination';
+const prefixCls = 'ant-pagination';
 
-class AntPagination extends React.Component {
+export default class AntPagination extends React.Component {
   render() {
     return <Pagination selectComponentClass={Select}
       selectPrefixCls="ant-select"
@@ -12,5 +12,3 @@ class AntPagination extends React.Component {
       {...this.props} />;
   }
 }
-
-module.exports = AntPagination;

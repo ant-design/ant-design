@@ -1,7 +1,7 @@
-var React = require('react');
-var Slider = require('rc-slider');
+import React from 'react';
+import Slider from 'rc-slider';
 
-var AntSlider = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-slider'
@@ -11,5 +11,3 @@ var AntSlider = React.createClass({
     return <Slider {...this.props}/>;
   }
 });
-
-module.exports = AntSlider;

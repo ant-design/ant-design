@@ -1,6 +1,6 @@
-var Tabs = require('rc-tabs');
-var React = require('react');
-var prefixCls = 'ant-tabs';
+import Tabs from 'rc-tabs';
+import React from 'react';
+const prefixCls = 'ant-tabs';
 
 class AntTabs extends React.Component {
   render() {
@@ -19,4 +19,4 @@ AntTabs.defaultProps = {
 
 AntTabs.TabPane = Tabs.TabPane;
 
-module.exports = AntTabs;
+export default AntTabs;

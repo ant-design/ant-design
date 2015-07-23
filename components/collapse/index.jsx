@@ -1,6 +1,6 @@
-var Collapse = require('rc-collapse');
-var React = require('react');
-var prefixCls = 'ant-collapse';
+import Collapse from 'rc-collapse';
+import React from 'react';
+const prefixCls = 'ant-collapse';
 
 class AntCollapse extends React.Component {
   render() {
@@ -14,4 +14,4 @@ AntCollapse.defaultProps = {
 
 AntCollapse.Panel = Collapse.Panel;
 
-module.exports = AntCollapse;
+export default AntCollapse;
