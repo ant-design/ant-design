@@ -1,5 +1,3 @@
-'use strict';
-
 let React = require('react');
 let Pagination = require('rc-pagination');
 let Select = require('rc-select');

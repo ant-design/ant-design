@@ -1,5 +1,3 @@
-'use strict';
-
 var Progressline = require('rc-progress').Line;
 var Progresscircle = require('rc-progress').Circle;
 var React = require('react');

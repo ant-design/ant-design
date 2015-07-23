@@ -1,5 +1,3 @@
-'use strict';
-
 var Tabs = require('rc-tabs');
 var React = require('react');
 var prefixCls = 'ant-tabs';
