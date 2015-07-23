@@ -1,6 +1,6 @@
 import Collapse from 'rc-collapse';
 import React from 'react';
-import prefixCls from 'ant-collapse';
+const prefixCls = 'ant-collapse';
 
 class AntCollapse extends React.Component {
   render() {

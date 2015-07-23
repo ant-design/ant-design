@@ -1,6 +1,6 @@
 import Tabs from 'rc-tabs';
 import React from 'react';
-import prefixCls from 'ant-tabs';
+const prefixCls = 'ant-tabs';
 
 export default class AntTabs extends React.Component {
   render() {
