@@ -1,7 +1,7 @@
-var React = require('react');
-var Dropdown = require('rc-dropdown');
+import React from 'react';
+import Dropdown from 'rc-dropdown';
 
-var AntDropdown = React.createClass({
+export default React.createClass({
   getDefaultProps: function () {
     return {
       transitionName: 'slide-up',
@@ -14,5 +14,3 @@ var AntDropdown = React.createClass({
     );
   }
 });
-
-module.exports = AntDropdown;

@@ -1,7 +1,7 @@
-var Radio = require('rc-radio');
-var React = require('react');
+import Radio from 'rc-radio';
+import React from 'react';
 
-var AntRadio = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-radio'
@@ -16,5 +16,3 @@ var AntRadio = React.createClass({
     );
   }
 });
-
-module.exports = AntRadio;

@@ -1,7 +1,7 @@
-var InputNumber = require('rc-input-number');
-var React = require('react');
+import InputNumber from 'rc-input-number';
+import React from 'react';
 
-var AntInputNumber = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-input-number'
@@ -11,5 +11,3 @@ var AntInputNumber = React.createClass({
     return <InputNumber style={{width: 90}} {...this.props} />;
   }
 });
-
-module.exports = AntInputNumber;

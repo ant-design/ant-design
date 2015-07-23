@@ -7,7 +7,7 @@ import FilterMenu from './filterMenu';
 import Pagination from '../pagination';
 import objectAssign from 'object-assign';
 
-let AntTable = React.createClass({
+export default React.createClass({
   getInitialState() {
     // 支持两种模式
     if (Array.isArray(this.props.dataSource)) {
@@ -340,5 +340,3 @@ let AntTable = React.createClass({
     </div>;
   }
 });
-
-export default AntTable;

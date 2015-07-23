@@ -1,7 +1,6 @@
-var Progressline = require('rc-progress').Line;
-var Progresscircle = require('rc-progress').Circle;
-var React = require('react');
-var assign = require('object-assign');
+import {Progressline, Progresscircle} from 'rc-progress';
+import React from 'react';
+import assign from 'object-assign';
 
 var Line = React.createClass({
   getDefaultProps() {
@@ -129,7 +128,7 @@ var Circle = React.createClass({
   }
 });
 
-module.exports = {
+export default {
   Line: Line,
   Circle: Circle
 };
