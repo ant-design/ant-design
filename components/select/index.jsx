@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'rc-select';
 
 export default React.createClass({
-  getDefaultProps: function () {
+  getDefaultProps() {
     return {
       prefixCls: 'ant-select',
       transitionName: 'slide-up',
@@ -10,11 +10,9 @@ export default React.createClass({
       showSearch: false
     };
   },
-  render: function () {
+  render() {
     return (
       <Select {...this.props} />
     );
   }
 });
-
-export const Option = Select.Option;
