@@ -82,25 +82,25 @@ React.render(
   <div className="ant-form-item">
     <label for="" className="col-8" required>Datepicker 日期选择框：</label>
     <div className="col-6">
-      <Datepicker value="" />
+      <Datepicker />
     </div>
-    <div className="col-2">
-      <p className="ant-form-split">--</p>
+    <div className="col-1">
+      <p className="ant-form-split">-</p>
     </div>
     <div className="col-6">
-      <Datepicker value="" />
+      <Datepicker />
     </div>
   </div>
   <div className="ant-form-item has-error">
     <label for="" className="col-8" required>Datepicker 校验：</label>
     <div className="col-6">
-      <Datepicker value="" />
+      <Datepicker />
     </div>
-    <div className="col-2">
-      <p className="ant-form-split">--</p>
+    <div className="col-1">
+      <p className="ant-form-split">-</p>
     </div>
     <div className="col-6">
-      <Datepicker value="" />
+      <Datepicker />
     </div>
     <div className="col-19 col-offset-8">
       <p className="ant-form-explain">请输入正确选项</p>
