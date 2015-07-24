@@ -20,7 +20,10 @@ if(!Notification.notification){
 }
 
 function openNotification() {
-  Notification.open('这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案');
+  var args = {
+    message: '这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案'
+  }; 
+  Notification.show(args);
 }
 
 React.render(
