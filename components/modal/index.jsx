@@ -1,9 +1,9 @@
-var React = require('react');
-var Dialog = require('rc-dialog');
+import React from 'react';
+import Dialog from 'rc-dialog';
 function noop() {
 }
 
-var Modal = React.createClass({
+export default React.createClass({
   getInitialState() {
     return {
       visible: false,
@@ -57,5 +57,3 @@ var Modal = React.createClass({
     return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d" />;
   }
 });
-
-module.exports = Modal;

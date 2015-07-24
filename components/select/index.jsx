@@ -1,7 +1,7 @@
-var React = require('react');
-var Select = require('rc-select');
+import React from 'react';
+import Select from 'rc-select';
 
-module.exports = React.createClass({
+export default React.createClass({
   getDefaultProps: function () {
     return {
       prefixCls: 'ant-select',
@@ -17,4 +17,4 @@ module.exports = React.createClass({
   }
 });
 
-module.exports.Option = Select.Option;
+export const Option = Select.Option;

@@ -1,7 +1,7 @@
-var Switch = require('rc-switch');
-var React = require('react');
+import Switch from 'rc-switch';
+import React from 'react';
 
-var AntSwitch = React.createClass({
+export default React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-switch'
@@ -11,5 +11,3 @@ var AntSwitch = React.createClass({
     return <Switch {...this.props}/>;
   }
 });
-
-module.exports = AntSwitch;

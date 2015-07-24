@@ -1,8 +1,8 @@
-var React = require('react');
-var Dialog = require('rc-dialog');
+import React from 'react';
+import Dialog from 'rc-dialog';
 var div;
 
-module.exports = function (props) {
+export default function (props) {
   var d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'anticon-exclamation-circle';
@@ -82,4 +82,4 @@ module.exports = function (props) {
   </Dialog>, div, function () {
     d = this;
   });
-};
+}

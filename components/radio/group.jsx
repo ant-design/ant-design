@@ -1,5 +1,5 @@
-var React = require('react');
-var Radio = require('./index');
+import React from 'react';
+import Radio from './index';
 
 function getCheckedValue(children) {
   var checkedValue = null;
@@ -11,7 +11,7 @@ function getCheckedValue(children) {
   return checkedValue;
 }
 
-var AntRadioGroup = React.createClass({
+export default React.createClass({
   getDefaultProps: function () {
     return {
       prefixCls: 'ant-radio-group',
@@ -58,5 +58,3 @@ var AntRadioGroup = React.createClass({
     this.props.onChange(ev);
   }
 });
-
-module.exports = AntRadioGroup;
