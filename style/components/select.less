@@ -7,6 +7,22 @@
   float: right;
   font-weight: bold;
 }
+.selected_icon() {
+  position: relative;
+  &:after {
+    .iconfont-size-under-12px(9px);
+    display: inline-block;
+    content: '\e613';
+    font-family: 'anticon';
+    font-weight: bold;
+    position: absolute;
+    top: 6px;
+    right: 0;
+    //background: tint(@primary-color, 90%);
+    padding-right: 16px;
+    color: @primary-color;
+  }
+}
 
 .@{selectPrefixCls} {
   box-sizing: border-box;
@@ -31,15 +47,12 @@
   // arrow
   &-arrow {
     .iconfont-mixin();
-    height: 26px;
     position: absolute;
-    top: 1px;
-    right: 1px;
-    font-size: @font-size-base;
-    font-size: ~"10px \9"; // ie8-9
-    .scale(0.83);
-    width: 26px;
-    line-height: 26px;
+    top: 50%;
+    right: 8px;
+    line-height: 1;
+    margin-top: -5px;
+    .iconfont-size-under-12px(8px);
 
     * {
       display: none;
@@ -67,10 +80,10 @@
     .transition(all .3s @ease-in-out);
 
     &:hover {
-      border-color: @primary-color;
+      .hover;
     }
     &:active {
-      border-color: shade(@primary-color, 5%);
+      .active;
     }
   }
 
@@ -127,8 +140,6 @@
     }
   }
 
-
-
   &-selection--multiple {
     min-height: 28px;
     cursor: text;
@@ -175,9 +186,7 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      font-size: @font-size-base;
-      font-size: ~"8px \9"; // ie8-9
-      .scale(0.67);
+      .iconfont-size-under-12px(8px);
       padding: 0 0 0 4px;
       position: relative;
       top: -1px;
@@ -192,11 +201,25 @@
     }
   }
 
+  .@{selectPrefixCls}-selection--single + .@{selectPrefixCls}-dropdown {
+    .@{selectPrefixCls}-dropdown-menu-item-selected {
+      background-color: tint(@primary-color, 90%) !important;
+    }
+  }
+  .@{selectPrefixCls}-selection--multiple + .@{selectPrefixCls}-dropdown {
+    .@{selectPrefixCls}-dropdown-menu-item {
+      padding: 7px 33px 7px 16px;
+    }
+    .@{selectPrefixCls}-dropdown-menu-item-selected {
+      .selected_icon();
+    }
+  }
+
   &-dropdown {
     display: none;
     background-color: white;
     border: 1px solid #d9d9d9;
-    box-shadow: 0 0px 4px #d9d9d9;
+    box-shadow: @overlay-shadow;
     border-radius: 4px;
     box-sizing: border-box;
     z-index: 100;
@@ -228,21 +251,8 @@
         white-space: nowrap;
         cursor: pointer;
 
-        &:hover, &-active, &-selected {
+        &:hover, &-active {
           background-color: tint(@primary-color, 90%) !important;
-        }
-
-        &-selected {
-          position: relative;
-          &:after {
-            content: '\e613';
-            font-family: 'anticon';
-            font-weight: bold;
-            position: absolute;
-            top: 6px;
-            right: 16px;
-            color: @primary-color;
-          }
         }
 
         &-disabled {
@@ -296,8 +306,7 @@
       .rotate(270deg);
     }
     .@{selectPrefixCls}-selection {
-      border-color: @primary-color;
-      box-shadow: 0 0 3px tint(@primary-color, 20%);
+      .active();
     }
   }
   &-combobox {

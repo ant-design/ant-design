@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 数字输入框
+- order: 4
 
 ---
 
@@ -9,7 +10,7 @@
 
 ## 何时使用
 
-- 当需要获取标准数值时。
+当需要获取标准数值时。
 
 ## API
 
@@ -23,5 +24,4 @@
 | step     | 每次改变步数       | Number      |      1      |
 | defaultValue     | 初始值       | Number      |            |
 | onChange     | 变化回调       | Function      |            |
-| disabled     | 禁用       | Boolean      |            |
-| style     | 根节点样式       | Object      |
+| disabled     | 禁用       | Boolean      |      false      |

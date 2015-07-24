@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
@@ -283,8 +281,15 @@ let AntTable = React.createClass({
       });
     } else {
       let data = this.props.dataSource;
-      let pageSize = this.state.pagination.pageSize;
-      let current = this.state.pagination.current;
+      let current, pageSize;
+      // 如果没有分页的话，默认全部展示
+      if (this.state.pagination === false) {
+        pageSize = Number.POSITIVE_INFINITY;
+        current = 1;
+      } else {
+        pageSize = this.state.pagination.pageSize;
+        current = this.state.pagination.current;
+      }
       // 排序
       if (this.state.sortOrder && this.state.sorter) {
         data = data.sort(this.state.sorter);

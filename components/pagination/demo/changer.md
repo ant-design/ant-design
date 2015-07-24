@@ -2,7 +2,7 @@
 
 - order: 2
 
-改变每页显示条目数
+改变每页显示条目数。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 React.render(
-  <Pagination showSizeChanger={true} onChange={onChange} total={500} />, 
+  <Pagination showSizeChanger={true} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-changer'));
 ````

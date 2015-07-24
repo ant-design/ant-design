@@ -2,7 +2,7 @@
 
 - order: 4
 
-类似账号注册表单输入框的自动完成功能。
+输入框自动完成功能，下面是一个账号注册表单的例子。
 
 ---
 
@@ -19,7 +19,7 @@ var Test = React.createClass({
   },
   handleChange(value) {
     var options;
-    if (!value) {
+    if (!value || value.indexOf('@') >= 0) {
       options = [];
     } else {
       options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
@@ -32,7 +32,10 @@ var Test = React.createClass({
     });
   },
   render() {
-    return <Select combobox style={{width:200}} onChange={this.handleChange}>
+    return <Select combobox
+      style={{width:200}}
+      onChange={this.handleChange}
+      searchPlaceholder="请输入账户名">
       {this.state.options}
     </Select>;
   }

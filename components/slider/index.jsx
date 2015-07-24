@@ -4,7 +4,7 @@ var Slider = require('rc-slider');
 var AntSlider = React.createClass({
   getDefaultProps() {
     return {
-      className: 'ant-slider'
+      prefixCls: 'ant-slider'
     };
   },
   render() {

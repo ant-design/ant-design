@@ -2,10 +2,11 @@
 
 - category: Components
 - chinese: 开关
+- order: 3
 
 ---
 
-开关选择器。
+开关选择器
 
 ## 何时使用
 

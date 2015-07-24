@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 表格
 - cols: 1
+- order: 18
 
 ---
 
@@ -58,7 +59,7 @@ var dataSource = {
 | 参数          | 说明                     | 类型            |  可选值             | 默认值  |
 |---------------|--------------------------|-----------------|---------------------|---------|
 | rowSelection  | 列表项是否可选择         | Object          |                     | false   |
-| pagenation    | 分页器                   | React.Element   | 参考 [pagination](/components/pagination)，设为 false 时不显示分页 |         |
+| pagination    | 分页器                   | React.Element   | 参考 [pagination](/components/pagination)，设为 false 时不显示分页 |         |
 | size          | 正常或迷你类型           | string          | `normal` or `small` | normal  |
 | dataSource    | 数据源，可以为数组（本地模式）或一个数据源描述对象（远程模式） | Array or Object |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |

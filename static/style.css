@@ -59,7 +59,7 @@ body {
 body {
   font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
   line-height: 1.5;
-  color: #888;
+  color: #777;
   font-size: 14px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -1647,7 +1647,7 @@ footer ul li > a {
 }
 
 .code-boxes-col-1-1 {
-  width: 75%;
+  width: 80%;
 }
 
 .code-boxes-col-2-1 {
@@ -1674,18 +1674,29 @@ footer ul li > a {
   border-color: #ccc;
 }
 
-.code-box:hover .code-box-meta {
+.code-box:target {
+  border-color: #bbb;
+}
+
+.code-box:hover .code-box-meta,
+.code-box:target .code-box-meta {
   background: #fbfbfb;
 }
 
-.code-box:hover .code-box-title {
+.code-box:hover .code-box-title,
+.code-box:target .code-box-title {
   background: #fbfbfb;
   box-shadow: 0 -1.2px 0 #e9e9e9;
 }
 
+.code-box .code-box-title a,
+.code-box .code-box-title a:hover {
+  color: #666;
+}
+
 .code-box .code-box-demo {
-  padding: 42px 20px 50px;
   border-bottom: 1px solid #E9E9E9;
+  padding: 42px 20px 50px;
 }
 
 .code-box-meta {
@@ -1719,7 +1730,7 @@ footer ul li > a {
   line-height: 22px;
   position: relative;
   margin-right: 8px;
-  top: -1px;
+  top: -2px;
   color: #ccc;
 }
 

@@ -12,9 +12,9 @@ var Slider = antd.Slider;
 React.render(
 <div className="sliderContainer">
   <p>包含关系</p>
-  <Slider marks={["状态1","状态2","状态3","状态4"]} index={1} />
+  <Slider marks={["状态1","状态2","状态3","状态4"]} defaultIndex={1} />
   <p>并列关系</p>
-  <Slider marks={["状态1","状态2","状态3","状态4"]} isIncluded={false} index={1} />
+  <Slider marks={["状态1","状态2","状态3","状态4"]} isIncluded={false} defaultIndex={1} />
 </div>
 , document.getElementById('components-slider-demo-mark'));
 ````

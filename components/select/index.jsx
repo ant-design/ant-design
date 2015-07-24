@@ -1,5 +1,3 @@
-'use strict';
-
 var React = require('react');
 var Select = require('rc-select');
 
@@ -8,6 +6,7 @@ module.exports = React.createClass({
     return {
       prefixCls: 'ant-select',
       transitionName: 'slide-up',
+      optionLabelProp: 'children',
       showSearch: false
     };
   },

@@ -1,5 +1,6 @@
 window['css-animation'] = require('css-animation');
 window['react-router'] = window.ReactRouter;
+var antd = require('antd');
 
 var $ = require('jquery');
 var React = require('react');
@@ -14,9 +15,9 @@ $(function () {
   var AutoComplete = React.createClass({
     getOptions() {
       return searchData.map(function (s) {
-        return <Option sData={s} key={s.title}>
+        return <Option sData={s} key={s.title} text={'跳转到 ' + s.title}>
           <strong>{s.title}</strong>
-          &nbsp;
+        &nbsp;
           <span>{s.desc}</span>
         </Option>;
       });
@@ -35,6 +36,7 @@ $(function () {
     render() {
       return <Select combobox style={{width: 200}}
         onSelect={this.handleSelect}
+        optionLabelProp="text"
         dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
         searchPlaceholder="搜索组件..."
         renderDropdownToBody={true}
@@ -45,3 +47,4 @@ $(function () {
   React.render(<AutoComplete/>, document.getElementById('autoComplete'));
 });
 
+module.exports = antd;

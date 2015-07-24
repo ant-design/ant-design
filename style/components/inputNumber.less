@@ -7,28 +7,25 @@
   .input();
   margin: 0;
   padding: 0;
-  line-height: 29px;
+  line-height: 28px;
   font-size: 12px;
-  height: 29px;
+  height: 28px;
   display: inline-block;
   vertical-align: middle;
   border: 1px solid #D9D9D9;
-  border-radius: 5px;
+  border-radius: @border-radius-base;
   overflow: hidden;
 
   &-handler {
     text-align: center;
     line-height: 0;
-    height: 15px;
+    height: 14px;
     overflow: hidden;
     color: #999;
-    &:hover {
-      color: #666;
+    &:hover &-up-inner,
+    &:hover &-down-inner {
+      color: tint(@primary-color, 20%);
     }
-  }
-
-  &-handler-down {
-    height: 14px;
   }
 
   &-handler-up-inner, &-handler-down-inner {
@@ -39,10 +36,9 @@
     position: absolute;
     width: 12px;
     height: 12px;
-    font-size: @font-size-base;
-    font-size: ~"8px \9"; // ie8-9
-    .scale(0.67);
+    .iconfont-size-under-12px(8px);
     right: 4px;
+    color: #999;
   }
 
   &:hover {
@@ -59,21 +55,21 @@
 
   &-input-wrap {
     overflow: hidden;
-    height: 29px;
+    height: 28px;
   }
 
   &-input {
     width: 100%;
-    text-align: center;
+    text-align: left;
     outline: 0;
     -moz-appearance: textfield;
-    line-height: 29px;
-    height: 22px;
+    line-height: 28px;
+    height: 28px;
     transition: all 0.3s ease;
     color: #666666;
     border: 0;
-    border-radius: 5px;
-    padding: 0 8px;
+    border-radius: @border-radius-base;
+    padding: 0 7px;
 
     &[disabled] {
       .disabled();
@@ -84,8 +80,7 @@
     float: right;
     border-left: 1px solid #D9D9D9;
     width: 22px;
-    height: 29px;
-    margin-top: -1px;
+    height: 28px;
     position: relative;
   }
 
@@ -93,11 +88,12 @@
     border-bottom: 1px solid #D9D9D9;
     cursor: pointer;
     &-inner {
-      top: 2px;
+      top: 1px;
       &:before {
         content: "\e600";
         .ie-rotate(2);
         transform: rotate(180deg);
+        -webkit-transform-origin: 47.5% 51%; /* fix chrome position */
       }
     }
   }
@@ -105,7 +101,6 @@
   &-handler-down {
     cursor: pointer;
     &-inner {
-      bottom: 2px;
       &:before {
         content: "\e600";
       }
@@ -114,7 +109,7 @@
 
   .handler-disabled() {
     opacity: 0.72;
-    color: #ccc;
+    color: #ccc!important;
     cursor: default;
     &:hover {
       color: #ccc;

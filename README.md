@@ -2,10 +2,9 @@
 
 一套企业级的前端设计语言和基于 React 的实现。
 
-仍在紧密开发中，预计 8 月份推出 beta 版本。
+设计文档和组件实现均在紧密整理和开发中，部分页面可能不完善，预计 8 月份释出正式版本。
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
-
 
 ## 特性
 
@@ -32,6 +31,7 @@ React.render(<Datepicker />, mountNode);
 - [组件](http://ant.design/components/)
 - [构建调试工具](https://github.com/ant-design/antd-bin)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
+- [修改记录](CHANGELOG.md)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
@@ -52,14 +52,14 @@ $ npm start
 
 然后访问 http://127.0.0.1:8000 。
 
-#### 部署到 ant.design
+#### [网站](http://ant.design)部署
 
 ```bash
 $ npm run deploy
 ```
 
-#### 构建
+#### 版本构建
 
 ```bash
-$ npm run build
+$ npm run release
 ```

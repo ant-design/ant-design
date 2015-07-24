@@ -166,10 +166,11 @@
     position: absolute;
     left: 0;
     width: 100%;
-    top: 12px;
+    top: 13px;
     padding:0 10px;
     > i {
       display: inline-block;
+      vertical-align: top;
       background: @wait-tail-color;
       height: 1px;
       border-radius: 1px;
@@ -189,9 +190,7 @@
       font-size: 12px;
       margin-right: 10px;
       > .@{stepsPrefixClass}-icon.anticon {
-        font-size: 12px;
-        font-size: ~"9px \9"; // ie8-9
-        .scale(0.75);
+        .iconfont-size-under-12px(9px);
         top: -1px;
       }
     }

@@ -105,7 +105,7 @@
     background-clip: padding-box;
     border: 1px solid @popover-border-color;
     border-radius: @border-radius-base;
-    box-shadow: 0 0 4px #d9d9d9;
+    box-shadow: @overlay-shadow;
   }
 
   &-title {
@@ -119,13 +119,13 @@
 
   &-content {
     padding: 8px 16px;
-    color: #999;
+    color: @text-color;
   }
 
   &-message {
     padding: 8px 0 16px;
     font-size: 12px;
-    color: #666;
+    color: text-color;
     .anticon {
       margin-right: 8px;
       color: @error-color;

@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 折叠面板
+- order: 9
 
 ---
 

@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 进度条
-- order: 0
+- order: 17
 
 ---
 

@@ -1,58 +1,41 @@
-'use strict';
-
 import React from 'react';
 import Notification from 'rc-notification';
 
-var defaultDuration = 1.5;
+let defaultDuration = 1.5;
 
-var getMessageInstance = function(){
+function getMessageInstance() {
   return Notification.newInstance({
     prefixCls: 'ant-message',
     transitionName: 'move-up',
     style: {}  // 覆盖原来的样式
   });
-};
+}
+
+function notice(content, duration = defaultDuration, type) {
+  let iconClass = ({
+    'info': 'anticon-info-circle ant-message-info',
+    'success': 'anticon-check-circle ant-message-success',
+    'error': 'anticon-exclamation-circle ant-message-error'
+  })[type];
+  getMessageInstance().notice({
+    key: 'simpleMessage',
+    duration: duration,
+    style: {},
+    content: <div className="ant-message-custom-content">
+      <i className={'anticon ' + iconClass}></i>
+      <span>{content}</span>
+    </div>
+  });
+}
 
 export default {
-  info: function(m, t) {
-    var message = getMessageInstance();
-    t = t || defaultDuration;
-    message.notice({
-      key: 'simpleMessage',
-      duration: t,
-      style: {},
-      content: <div className='ant-message-custom-content'>
-                 <i className='anticon anticon-info-circle ant-message-info'></i>
-                 <span>{m}</span>
-               </div>
-    });
+  info(content, duration) {
+    notice(content, duration, 'info');
   },
-  success: function(m, t) {
-    var message = getMessageInstance();
-    t = t || defaultDuration;
-    message.notice({
-      key: 'simpleMessage1',
-      transitionName: 'move-up',
-      duration: t,
-      style: {},
-      content: <div className='ant-message-custom-content'>
-                 <i className='anticon anticon-check-circle ant-message-success'></i>
-                 <span>{m}</span>
-               </div>
-    });
+  success(content, duration) {
+    notice(content, duration, 'success');
   },
-  error: function(m, t) {
-    var message = getMessageInstance();
-    t = t || defaultDuration;
-    message.notice({
-      key: 'simpleMessage2',
-      transitionName: 'move-up',
-      duration: t,
-      style: {},
-      content: <div className='ant-message-custom-content'>
-                 <i className='anticon anticon-exclamation-circle ant-message-error'></i>
-                 <span>{m}</span>
-               </div>
-    });
+  error(content, duration) {
+    notice(content, duration, 'error');
   }
 };

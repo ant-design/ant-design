@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 选择器
-- order: 3
+- order: 5
 
 ---
 
@@ -30,4 +30,6 @@
 | onDeselect | 取消选中时调用，参数为选中的option value值，仅在multiple或tags模式下生效 | function | 无   |
 | onChange | 选中option，或input的value变化(combobox模式下)时，调用此函数 | function | 无 |
 | allowClear | 显示清除按钮 | | false |
+| placeholder | 选择框默认文字 | string | 无 |
+| searchPlaceholder | 搜索框默认文字 | string | 无 |
 | combobox | 输入框自动提示模式 | | false |

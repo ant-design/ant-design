@@ -34,7 +34,7 @@ label {
 
 //== Style for input-group: input with label, with button or dropdown...
 .@{css-prefix}input-group {
-  .input-group(~"@{css-prefix}input"; @btnClass)
+  .input-group(~"@{css-prefix}input");
 }
 
 // Radio && Checkbox
@@ -71,12 +71,16 @@ input[type="checkbox"] {
 // You should wrap labels and controls in .@{css-prefix}form-item for optimum spacing
 .@{css-prefix}form-item {
   margin-bottom: @form-item-margin-bottom;
+  color: #666;
 
   > label {
     color: @label-color;
     text-align: right;
-    padding-right: 8px;
     vertical-align: middle;
+
+    &:lang(en) {
+      padding-right: 8px;
+    } 
   }
 
   .@{css-prefix}switch {
@@ -90,7 +94,13 @@ input[type="checkbox"] {
   padding-bottom: 7px;
 }
 
+.@{css-prefix}form-text {
+  display: inline-block;
+  padding-right: 8px;
+}
+
 .@{css-prefix}form-split {
+  display: block;
   text-align: center;
 }
 
@@ -116,11 +126,43 @@ form {
   }
   .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input-group-addon,
-  .@{css-prefix}input-group .@{css-prefix}input-group-btn .@{btnClass} {
+  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
     height: @input-height-lg;
     font-size: @font-size-base;
-    padding: @input-padding-horizontal;
+    padding: 6px 7px;
+  }
+
+  // Input combined with select
+  .@{css-prefix}input-group {
+    .@{selectPrefixCls}-selection {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+      &:hover {
+        border-color: #d9d9d9;
+      }
+    }
+
+    .@{selectPrefixCls}-selection--single {
+      margin-left: -1px;
+      height: @input-height-lg;
+      background-color: #eee;
+      .@{selectPrefixCls}-selection__rendered {
+        padding-left: 8px;
+        padding-right: 25px;
+        line-height: 32px;
+      }
+    } 
+    .@{selectPrefixCls}-arrow {
+      right: 8px;
+      height: 32px;
+      line-height: 32px;
+      width: auto;
+    }
+
+    .@{selectPrefixCls}-open .@{selectPrefixCls}-selection {
+      border-color: #d9d9d9;
+      box-shadow: none;
+    }
   }
 
   // input[type=file]
@@ -153,6 +195,15 @@ form {
       margin-top: 0;
     }
   }
+
+  .@{inputNumberPrefixCls} {
+    margin-top: -1px;
+    margin-right: 8px;
+  }
+
+  .@{prefixCalendarClass}-picker {
+    width: 100%;
+  }
 }
 
 // Form layout
@@ -184,13 +235,7 @@ form {
   @media (min-width: @screen-sm-min) {
     .@{css-prefix}form-item {
       display: inline-block;
-      margin-bottom: 0;
-      vertical-align: middle;
       margin-right: 10px;
-
-      label {
-        padding-right: 0;
-      }
     }
 
     .@{css-prefix}input {

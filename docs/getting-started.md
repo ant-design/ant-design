@@ -5,7 +5,7 @@
 
 ---
 
-Ant Design 致力于提供给用户愉悦的开发体验。
+Ant Design 致力于提供给程序员愉悦的开发体验。
 
 ## 第一个例子
 
@@ -13,7 +13,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 
 下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
-<iframe width="100%" height="400" src="//jsfiddle.net/afc163/6k22tgpx/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="380" src="//jsfiddle.net/afc163/6k22tgpx/4/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 源码如下：
 
@@ -68,9 +68,7 @@ $ npm install
 编辑 `index.js`，使用 Ant Design 的组件：
 
 ```jsx
-var antd = require('antd');
-var Datepicker = antd.Datepicker;
-var message = antd.message;
+import {Datepicker, message} from 'antd';
 
 var App = React.createClass({
   getInitialState() {
@@ -156,10 +154,10 @@ Ant Design 支持所有的现代浏览器和 IE8+。
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <!-- Polyfills -->
+    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <!-- 引入 jquery 和 react -->
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
-    <!-- Polyfills -->
-    <script src="https://a.alipayobjects.com/react/0.13.3/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
   </head>
   <body>
   </body>
@@ -170,7 +168,7 @@ Ant Design 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0 -155px 0 rgba(255, 207, 0, 0.16);
+  box-shadow: 0 -197px 0 rgba(255, 207, 0, 0.16);
   height: 42px;
   margin-bottom: -42px;
 }

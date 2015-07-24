@@ -1,7 +1,7 @@
 # Notification
 
 - category: Components
-- chinese: 通知框
+- chinese: 系统通知框
 
 ---
 

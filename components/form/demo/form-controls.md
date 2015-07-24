@@ -1,6 +1,6 @@
 # 表单控件
 
-- order: 2
+- order: 3
 
 展示所有支持的表单控件。
 
@@ -8,92 +8,81 @@
 
 ---
 
-````html
-<form class="ant-form-horizontal">
-  <div class="ant-form-item">
-    <label class="col-6">输入框：</label>
-    <div class="col-18">
-      <input type="text" class="ant-input" placeholder="Please enter...">
+````jsx
+var Select = antd.Select;
+var Option = Select.Option;
+var Checkbox = antd.Checkbox;
+var Radio = antd.Radio;
+var RadioGroup = antd.RadioGroup;
+
+function handleSelectChange(value) {
+  console.log('selected ' + value);
+}
+
+React.render(
+<form className="ant-form-horizontal">
+  <div className="ant-form-item">
+    <label className="col-6">输入框：</label>
+    <div className="col-14">
+      <input type="text" className="ant-input" placeholder="Please enter..." />
     </div>
   </div>
-  <div class="ant-form-item">
-    <label class="col-6">文本域：</label>
-    <div class="col-18">
-      <textarea class="ant-input"></textarea>
+  <div className="ant-form-item">
+    <label className="col-6">文本域：</label>
+    <div className="col-14">
+      <textarea className="ant-input"></textarea>
     </div>
   </div>
-  <div class="ant-form-item">
-    <label class="col-6">下拉列表：</label>
-    <div class="col-18">
-      <select class="ant-input">
-        <option>选项一</option>
-        <option>选项二</option>
-        <option>选项三</option>
-        <option>选项四</option>
-        <option>选线五</option>
-      </select>
+  <div className="ant-form-item">
+    <label className="col-6">Select 选择器：</label>
+    <div className="col-14">
+      <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
+        <Option value="jack">jack</Option>
+        <Option value="lucy">lucy</Option>
+        <Option value="disabled" disabled>disabled</Option>
+        <Option value="yiminghe">yiminghe</Option>
+      </Select>
     </div>
   </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <label class="col-6">checkbox 复选框：</label>
-    <div class="col-18">
-      <label class="ant-checkbox-vertical">
-        <input type="checkbox" value="apple"> Apple
+  <div className="ant-form-item ant-form-item-compact">
+    <label className="col-6">Checkbox 多选框：</label>
+    <div className="col-18">
+      <label className="ant-checkbox-vertical">
+        <Checkbox /> 选项一
       </label>
-      <!-- disabled checkbox -->
-      <label class="ant-checkbox-vertical">
-        <input type="checkbox" value="banana" disabled> Banana(disabled)
+      <label className="ant-checkbox-vertical">
+        <Checkbox /> 选项二
       </label>
-    </div>
-  </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <label class="col-6">内联的 checkbox：</label>
-    <div class="col-18">
-      <!-- 内联的checkbox -->
-      <label class="ant-checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox1" value="Kevin"> Kevin
-      </label>
-      <label class="ant-checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox2" value="Bob"> Bob
-      </label>
-      <label class="ant-checkbox-inline">
-        <input type="checkbox" id="inlineCheckbox3" value="Stuart"> Stuart
+      <label className="ant-checkbox-vertical">
+        <Checkbox disabled={true} /> 选项三（不可选）
       </label>
     </div>
   </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <label class="col-6">radio 单选框：</label>
-    <div class="col-18">
-      <label class="ant-radio-vertical">
-        <input type="radio" name="radios" id="optionsRadios1" value="option1" checked> Apple
+  <div className="ant-form-item ant-form-item-compact">
+    <label className="col-6">Checkbox 多选框：</label>
+    <div className="col-18">
+      <label className="ant-checkbox-inline">
+        <Checkbox />选项一
       </label>
-      <!-- disabled radio -->
-      <label class="ant-radio-vertical">
-        <input type="radio" name="radios" id="optionsRadios3" value="option3" disabled> Banana(disabled)
+      <label className="ant-checkbox-inline">
+        <Checkbox />选项二
       </label>
-    </div>
-  </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <label class="col-6">内联的 radio：</label>
-    <div class="col-18">
-      <!-- 内联的radio -->
-      <label class="ant-radio-inline">
-        <input type="radio" name="inlineRadios" id="inlineRadio1" value="Kevin"> Kevin
-      </label>
-      <label class="ant-radio-inline">
-        <input type="radio" name="inlineRadios" id="inlineRadio2" value="Stuart"> Stuart
-      </label>
-      <label class="ant-radio-inline">
-        <input type="radio" name="inlineRadios" id="inlineRadio3" value="Bob"> Bob
+      <label className="ant-checkbox-inline">
+        <Checkbox />选项三
       </label>
     </div>
   </div>
-  <div class="ant-form-item ant-form-item-compact">
-    <label class="col-6" for="InputFile">头像：</label>
-    <div class="col-18">
-      <input type="file" id="InputFile" class="ant-upload">
-      <p class="ant-form-explain">请选择一个文件</p>
+  <div className="ant-form-item ant-form-item-compact">
+    <label className="col-6">Radio 单选框：</label>
+    <div className="col-18">
+      <RadioGroup value="b">
+        <Radio value="a">A</Radio>
+        <Radio value="b">B</Radio>
+        <Radio value="c">C</Radio>
+        <Radio value="d">D</Radio>
+      </RadioGroup>
     </div>
   </div>
 </form>
+, document.getElementById('components-form-demo-form-controls'));
 ````

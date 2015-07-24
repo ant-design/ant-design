@@ -1,32 +1,46 @@
 var React = require('react');
 var Radio = require('./index');
 
+function getCheckedValue(children) {
+  var checkedValue = null;
+  children.forEach(function (radio) {
+    if (radio.props && radio.props.checked) {
+      checkedValue = radio.props.value;
+    }
+  });
+  return checkedValue;
+}
+
 var AntRadioGroup = React.createClass({
   getDefaultProps: function () {
     return {
-      prefixCls: 'ant-radio-group'
+      prefixCls: 'ant-radio-group',
+      onChange: function () {
+      }
     };
   },
   getInitialState: function () {
-    var value = null;
-    this.props.children.forEach(function (radio) {
-      if (radio.props && radio.props.checked) {
-        value = radio.props.value;
-      }
-      return false;
-    });
+    var props = this.props;
     return {
-      selectedValue: value
+      value: props.value || props.defaultValue || getCheckedValue(props.children)
     };
   },
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps || getCheckedValue(nextProps.children)) {
+      this.setState({
+        value: nextProps.value || getCheckedValue(nextProps.children)
+      });
+    }
+  },
   render: function () {
-    var self = this;
-    var props = self.props;
-    var children = props.children.map(function (radio) {
+    var props = this.props;
+    var children = props.children.map((radio) => {
       if (radio.props) {
-        return <Radio {...radio.props}
-          onChange={self.onRadioChange}
-          checked={self.state.selectedValue === radio.props.value}
+        return <Radio
+          key={radio.props.value}
+          {...radio.props}
+          onChange={this.onRadioChange}
+          checked={this.state.value === radio.props.value}
         />;
       }
       return radio;
@@ -39,11 +53,9 @@ var AntRadioGroup = React.createClass({
   },
   onRadioChange: function (ev) {
     this.setState({
-      selectedValue: ev.target.value
+      value: ev.target.value
     });
-    if (typeof this.props.onChange === 'function') {
-      this.props.onChange(ev);
-    }
+    this.props.onChange(ev);
   }
 });
 

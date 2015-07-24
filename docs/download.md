@@ -9,25 +9,26 @@
 
 ## 直接下载
 
-- **开发版** <span class="versions" id="latest-version">1.0.2</span>
+- **稳定版** <span class="versions" id="stable-version"></span>
+
+  <a id="stable-link" href="" target="_blank">下载</a>
+
+- **开发版** <span class="versions" id="latest-version"></span>
+
+  开发版并不稳定，随时可能变更。
 
   <ul id="latest-links">
     <li>
       <a href="http://ant.design/dist/antd.js">antd.js</a>
     </li>
     <li>
+      <a href="http://ant.design/dist/antd.min.js">antd.min.js</a>
+    </li>
+    <li>
       <a href="http://ant.design/dist/antd.css">antd.css</a>
     </li>
-  </ul>
-
-- **稳定版** <span class="versions" id="stable-version">1.0.0</span>
-
-  <ul id="stable-links">
     <li>
-      <a href="http://ant.design/dist/antd.js">antd.js</a>
-    </li>
-    <li>
-      <a href="http://ant.design/dist/antd.js">antd.css</a>
+      <a href="http://ant.design/dist/antd.min.css">antd.min.css</a>
     </li>
   </ul>
 
@@ -86,11 +87,9 @@ $('#latest-links a').each(function(i, item) {
 
 if (antdVersion.stable) {
   $('#stable-version').html(antdVersion.stable);
-  $('#stable-links a').each(function(i, item) {
-    $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd-' + antdVersion.stable));
-  });
+  $('#stable-link').attr('href', 'https://github.com/ant-design/ant-design/releases/tag/' + antdVersion.stable);
 } else {
   $('#stable-version').html('暂无');
-  $('#stable-links').hide();
+  $('#stable-link').hide();
 }
 </script>

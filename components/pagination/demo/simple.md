@@ -2,7 +2,7 @@
 
 - order: 6
 
-简单地翻页
+简单地翻页。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 React.render(
-  <Pagination simple onChange={onChange} total={50} />, 
- document.getElementById('components-pagination-demo-simple'));
+  <Pagination simple onChange={onChange} total={50} />,
+document.getElementById('components-pagination-demo-simple'));
 ````

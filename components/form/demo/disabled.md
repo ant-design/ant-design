@@ -1,6 +1,6 @@
 # 禁用状态
 
-- order: 3
+- order: 2
 
 1) 单独为输入框设置 `disabled` 属性；
 
@@ -30,30 +30,21 @@
 ````html
 <form class="ant-form-horizontal">
   <fieldset disabled>
-    <div class="ant-form-item">
-      <label for="disabledTextInput" class="col-5">Input:</label>
-      <div class="col-12">
-        <input type="text" id="disabledTextInput" class="ant-input" placeholder="Disabled input">
-      </div>
-    </div>
-    <div class="ant-form-item">
-      <label for="disabledSelect" class="col-5">Select:</label>
-      <div class="col-12">
-        <select id="disabledSelect" class="ant-input">
-          <option>Disabled select</option>
-        </select>
-      </div>
-    </div>
     <div class="ant-form-item ant-form-item-compact">
-      <div class="col-14 col-offset-5">
-        <label class="ant-checkbo-inline">
-          <input type="checkbox"> checkbox
-        </label>
+      <label for="userName" class="col-5" required>用户名：</label>
+      <div class="col-12">
+        <p class="ant-form-text">大眼萌 minion</p>
+      </div>
+    </div>
+    <div class="ant-form-item">
+      <label for="password" class="col-5" required>密码：</label>
+      <div class="col-12">
+        <input class="ant-input" type="password" id="password" value="123456"/>
       </div>
     </div>
     <div class="row">
-      <div class="col-14 col-offset-5">
-        <input type="submit" class="ant-btn ant-btn-primary" value="确 定">
+      <div class="col-12 col-offset-5">
+        <input type="submit" class="ant-btn ant-btn-primary" value="确 定" />
       </div>
     </div>
   </fieldset>

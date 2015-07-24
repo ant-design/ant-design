@@ -8,25 +8,19 @@
 
 ````jsx
 var Notification = require('antd/lib/notification');
-var notification = Notification.newInstance({
-  prefixCls: 'ant-notification',
-  style: {
-    top: 0,
-    right: 0
-  }
-});
 
-var open = function(message, close, duration) {
-  notification.notice({
-    content: <span>{message}</span>,
-    duration: duration,
-    closable: close,
-    style: {}
-  })
+if(!Notification.notification){
+  Notification.notification = Notification.newInstance({
+    prefixCls: 'ant-notification',
+    style: {
+      top: 0,
+      right: 0
+    }
+  });
 }
 
 function openNotification() {
-  open('这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案', true);
+  Notification.open('这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案', true);
 }
 
 React.render(

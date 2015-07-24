@@ -53,27 +53,30 @@
   }
 
   &-jump-prev, &-jump-next {
+
     &:after {
       content: "•••";
       display: block;
       letter-spacing: 2px;
       color: #ccc;
-      font-size: 12px;
-      margin-top: 1px;
     }
 
     &:hover {
       &:after {
         color: @primary-color;
+        .iconfont-size-under-12px(8px);
+        letter-spacing: -1px;
+        font-family: "anticon";
       }
     }
 
   }
 
   &-jump-prev {
+    .cross-rotate(180deg);
     &:hover {
       &:after {
-        content: "‹‹";
+        content: "\e611\e611";
       }
     }
   }
@@ -81,7 +84,7 @@
   &-jump-next {
     &:hover {
       &:after {
-        content: "››";
+        content: "\e611\e611";
       }
     }
   }
@@ -93,7 +96,6 @@
     font-family: Arial;
     cursor: pointer;
     color: #666;
-    font-size: 10px;
     border-radius: 6px;
     list-style: none;
     min-width: 28px;
@@ -102,18 +104,23 @@
     float: left;
     text-align: center;
     transition: all 0.3s ease;
+    display: inline-block;
   }
 
   &-prev, &-next {
     border: 1px solid #d9d9d9;
 
     a {
-      font-size: 16px;
       color: #666;
+
       &:after {
+        .iconfont-size-under-12px(8px);
         display: block;
-        margin-top: -2px;
+        height: 26px;
+        line-height: 26px;
+        font-family: "anticon";
       }
+
     }
 
     &:hover {
@@ -126,13 +133,22 @@
   }
 
   &-prev {
-    a:after {
-      content: "‹";
+    .cross-rotate(180deg);
+    a {
+      &:after {
+        margin-top: -.5px;
+        content: "\e611";
+        display: block;
+      }
     }
   }
+
   &-next {
-    a:after {
-      content: "›";
+    a {
+      &:after {
+        content: "\e611";
+        display: block;
+      }
     }
   }
 
@@ -225,6 +241,13 @@
     height: 20px;
     line-height: 20px;
     border: none;
+
+    a {
+      &:after {
+        height: 20px;
+        line-height: 20px;
+      }
+    }
   }
 
   &.mini &-jump-prev, &.mini &-jump-next {

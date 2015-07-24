@@ -1,11 +1,11 @@
 # Alert
 
-- category: Components
-- chinese: 警告框
+- category: CSS
+- chinese: 通知栏
 
 ---
 
-警告框。
+通知栏。
 
 ## 何时使用
 
@@ -15,5 +15,5 @@
 
 | 参数        | 说明                                                   | 类型        | 默认值 |
 |----------- |-----------------------------------------------------   | ---------- |--------|
-| alertStyle | 警告框样式，有四种选择`success`、`info`、`warn`、`error` | String      | 无    |
-| message    | 警告内容                                              | String      | 无    |
+| alertStyle | 通知栏样式，有四种选择`success`、`info`、`warn`、`error` | String      | 无    |
+| message    | 通知内容                                              | String      | 无    |
