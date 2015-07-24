@@ -11,10 +11,22 @@ var Alert = require('antd/lib/alert');
 
 React.render(
 <div>
-  <Alert message="这是一个通知栏" alertType={"success"} />
-  <Alert message="这是一个通知栏" alertType={"info"} />
-  <Alert message="这是一个通知栏" alertType={"warn"} />
-  <Alert message="这是一个通知栏" alertType={"error"} />
+  <Alert
+  message={"警告提示的文案"}
+  alertType={"success"}
+  />
+  <Alert
+  message={"警告提示的文案警告提示的文案"}
+  alertType={"info"}
+  />
+  <Alert
+  message={"警告提示的文案"}
+  alertType={"warn"}
+  />
+  <Alert
+  message={"警告提示的文案警告提示的文案"}
+  alertType={"error"}
+  />
 </div>,
 document.getElementById('components-alert-demo-style'));
 ````
