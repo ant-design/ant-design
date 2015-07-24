@@ -11,7 +11,7 @@ var Alert = require('antd/lib/alert');
 
 React.render(
 <div>
-  <Alert message="这是一个通知栏" alertStyle={"success"} />
+  <Alert message="这是一个通知栏" alertType={"success"} />
 </div>,
 document.getElementById('components-alert-demo-basic'));
 ````

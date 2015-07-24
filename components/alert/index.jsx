@@ -5,7 +5,7 @@ var React = require('react');
 var Alert = React.createClass({
   render: function () {
     var iconClass = '';
-    switch (this.props.alertStyle) {
+    switch (this.props.alertType) {
       case 'success':
         iconClass += 'check-circle';
         break;
@@ -22,7 +22,7 @@ var Alert = React.createClass({
         iconClass += 'default';
     }
     return (
-        <div className={'ant-alert ant-alert-' + this.props.alertStyle}>
+        <div className={'ant-alert ant-alert-' + this.props.alertType}>
           <i className={'anticon anticon-' + iconClass}></i>
           {this.props.message}
         </div>
