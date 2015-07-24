@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import Tooltip from 'rc-tooltip';
 const prefixCls = 'ant-popover';
