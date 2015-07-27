@@ -24,19 +24,18 @@ export default React.createClass({
         getPagination: function() {}
       }, this.props.dataSource);
     }
-    let pagination;
-    if (this.props.pagination === false) {
-      pagination = false;
-    } else {
-      pagination = objectAssign({
-        pageSize: 10,
-        total: this.props.dataSource.length
-      }, this.props.pagination);
-    }
+
+    let noPagination = (this.props.pagination === false);
+    let pagination = objectAssign({
+      pageSize: 10,
+      total: this.props.dataSource.length
+    }, this.props.pagination);
+
     return {
       selectedRowKeys: [],
       loading: false,
       pagination: pagination,
+      noPagination: noPagination,
       data: []
     };
   },
@@ -137,9 +136,9 @@ export default React.createClass({
       this.props.rowSelection.onSelectAll(checked, selectedRows);
     }
   },
-  handlePageChange: function(current) {
+  handlePageChange(current = 1) {
     let pagination = this.state.pagination || {};
-    pagination.current = current || 1;
+    pagination.current = current;
     this.setState({
       pagination: pagination
     }, this.fetch);
@@ -218,7 +217,7 @@ export default React.createClass({
   },
   renderPagination() {
     // 强制不需要分页
-    if (this.props.pagination === false) {
+    if (this.state.noPagination) {
       return '';
     }
     let classString = 'ant-table-pagination';
@@ -283,7 +282,7 @@ export default React.createClass({
       let data = this.props.dataSource;
       let current, pageSize;
       // 如果没有分页的话，默认全部展示
-      if (this.props.pagination === false) {
+      if (this.state.noPagination) {
         pageSize = Number.MAX_VALUE;
         current = 1;
       } else {
