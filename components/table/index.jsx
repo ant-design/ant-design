@@ -138,7 +138,7 @@ export default React.createClass({
     }
   },
   handlePageChange: function(current) {
-    let pagination = this.state.pagination;
+    let pagination = this.state.pagination || {};
     pagination.current = current || 1;
     this.setState({
       pagination: pagination
