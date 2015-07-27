@@ -47,6 +47,7 @@ React.render(<Datepicker />, mountNode);
 #### 本地调试
 
 ```bash
+$ npm install
 $ npm start
 ```
 
