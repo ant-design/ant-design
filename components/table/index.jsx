@@ -218,7 +218,7 @@ export default React.createClass({
   },
   renderPagination() {
     // 强制不需要分页
-    if (this.state.pagination === false) {
+    if (this.props.pagination === false) {
       return '';
     }
     let classString = 'ant-table-pagination';
@@ -248,7 +248,7 @@ export default React.createClass({
     }
     return [pagination, filters, sorter];
   },
-  fetch: function() {
+  fetch() {
     if (this.mode === 'remote') {
       // remote 模式使用 this.dataSource
       let dataSource = this.dataSource;
@@ -283,8 +283,8 @@ export default React.createClass({
       let data = this.props.dataSource;
       let current, pageSize;
       // 如果没有分页的话，默认全部展示
-      if (this.state.pagination === false) {
-        pageSize = Number.POSITIVE_INFINITY;
+      if (this.props.pagination === false) {
+        pageSize = Number.MAX_VALUE;
         current = 1;
       } else {
         pageSize = this.state.pagination.pageSize;
