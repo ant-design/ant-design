@@ -1,0 +1,167 @@
+@import "../mixins/index";
+
+@alertPrefixClass: ~"@{css-prefix}alert";
+@alertTitlePrefixClass: ~"@{css-prefix}alert-with-title";
+
+.@{alertPrefixClass} {
+  position: relative;
+  padding: 8px 8px 8px 16px;
+  border-radius: @border-radius-base;
+  color: @legend-color;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 10px;
+
+  &-icon {
+    margin-right: 8px;
+    font-size: @input-font-size-lg;
+  }
+
+  &-message {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &-success {
+    border: 1px solid tint(@success-color, 50%);
+    background-color: tint(@success-color, 90%);
+    .anticon {
+      color: #87d068;
+    }
+    .anticon.ant-alert-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-info {
+    border: 1px solid tint(@primary-color, 50%);
+    background-color: tint(@primary-color, 90%);
+    .anticon {
+      color: #3fc7fa;
+    }
+    .anticon.ant-alert-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-warn {
+    border: 1px solid tint(@warning-color, 50%);
+    background-color: tint(@warning-color, 90%);
+    .anticon {
+      color: #fd9856;
+    }
+    .anticon.ant-alert-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-error {
+    border: 1px solid tint(@error-color, 50%);
+    background-color: tint(@error-color, 90%);
+    .anticon {
+      color: #ff6600;
+    }
+    .anticon.ant-alert-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-close-icon {
+    .iconfont-size-under-12px(10px);
+    color: @legend-color;
+    cursor: pointer;
+    float: right;
+  }
+
+  &-close-text {
+    color: @legend-color;
+    cursor: pointer;
+    float: right;
+  }
+
+  &-close-text:active {
+    color: shade(@primary-color, 5%);
+  }
+
+  &-close-text:hover {
+    color: tint(@primary-color, 5%);
+  }
+}
+
+.@{alertTitlePrefixClass} {
+  padding: 16px 16px 16px 69px;
+  position: relative;
+  border-radius: @border-radius-base;
+  margin-bottom: 10px;
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    margin-top: -22px;
+    font-size: 29px;
+  }
+
+  &-close-icon {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: @legend-color;
+    cursor: pointer;
+    .iconfont-size-under-12px(10px);
+  }
+
+  &-title {
+    font-size: @input-font-size-lg;
+    color: @text-color;
+  }
+
+  &-message {
+    font-size: 12px;
+    color: @legend-color;
+  }
+
+  &-success {
+    border: 1px solid tint(@success-color, 50%);
+    background-color: tint(@success-color, 90%);
+    .anticon {
+      color: #87d068;
+    }
+    .anticon.ant-alert-with-title-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-info {
+    border: 1px solid tint(@primary-color, 50%);
+    background-color: tint(@primary-color, 90%);
+    .anticon {
+      color: #3fc7fa;
+    }
+    .anticon.ant-alert-with-title-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-warn {
+    border: 1px solid tint(@warning-color, 50%);
+    background-color: tint(@warning-color, 90%);
+    .anticon {
+      color: #fd9856;
+    }
+    .anticon.ant-alert-with-title-close-icon {
+      color: @legend-color;
+    }
+  }
+
+  &-error {
+    border: 1px solid tint(@error-color, 50%);
+    background-color: tint(@error-color, 90%);
+    .anticon {
+      color: #ff6600;
+    }
+    .anticon.ant-alert-with-title-close-icon {
+      color: @legend-color;
+    }
+  }
+}
