@@ -9,12 +9,12 @@ class AntTag extends React.Component {
     this.props.onClose.call(this);
   }
   render() {
-    var close = this.props.closable ?
+    let close = this.props.closable ?
       <i className="anticon anticon-cross" onClick={this.destroy.bind(this)}></i> : '';
-    return <div className={this.props.prefixCls}>
-      <span className={this.props.prefixCls + '-text'}>
-        {this.props.children}
-      </span>
+    let colorClass = this.props.prefixCls + '-' + this.props.color;
+
+    return <div className={this.props.prefixCls + ' ' + colorClass}>
+      <a className={this.props.prefixCls + '-text'} {...this.props} />
       {close}
     </div>;
   }
