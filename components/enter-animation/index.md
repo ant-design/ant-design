@@ -11,15 +11,38 @@
 
 ## 何时使用
 
-1.从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
+- 从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
 
-2.小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
+- 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
 
 ## API
 
-动画默认`right`
+```jsx
+<EnterAnimation>
+  <div>依次进场</div>
+  <div>依次进场</div>
+  <div>依次进场</div>
+  <div>依次进场</div>
+</EnterAnimation>
+```
 
-### EnterAnimation标签下：
+```jsx
+<EnterAnimation type="left" delay={2}>
+  <div>
+    <div enter-data>
+      依次进场
+    </div>
+  </div>
+  <div enter-data>依次进场</div>
+  <div enter-data={{type: 'bottom'}}>依次进场，并修改动画效果</div>
+  <div>没有动画</div>
+</EnterAnimation>
+```
+
+如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
+
+
+### <EnterAnimation />
 
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
@@ -28,24 +51,172 @@
 |delay            |number |0      |整个区块的延时，以秒为单位|
 |interval         |number |0.1    |递增延时值，以秒为单位|
 
-### dom子标签下：
+### enter-data
 
 |参数             |类型    |默认值      |详细                                                 |
 |-----------------|-------|-----------|----------------------------------------------------|
 |enter-data       |object | right     |子标签动画参数|
 
-#### enter-data参数列表
+#### enter-data={}
 
-|参数              |类型             |默认值           |详细                                                 |
+|参数              |类型            |默认值           |详细                                                 |
 |-----------------|-----------------|----------------|----------------------------------------------------|
-|type             |string          |right           |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleFrom` `scaleX` `scaleY`;|
-|style            |string          |null            |style样式，如transform: translateX(100px),每个样式必须以;结束；`type`有值此项无效|
-|direction        |string          |"enter"         |动画进场或出场样式,以 `enter` `leave`两值;默认为 `enter`|
+|type             |string          |right           |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleFrom` `scaleX` `scaleY`|
+|style            |string          |null            |动画样式，如 `transform: translateX(100px)`，`type` 有值此项无效|
+|direction        |string          |"enter"         |动画进出场方向：`enter` `leave`|
 |duration         |number          |0.5             |动画的时间,以秒为单位|
-|ease             |string          |cubic-bezier(0.165, 0.84, 0.44, 1)|样式缓动，只支持css样式缓动|
-|delay            |number          |0               |动画的延时，依照结构递增以上的`interval`|
+|ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|样式缓动，只支持 css 样式缓动|
+|delay            |number          |0               |动画的延时，依照结构递增以上的 `interval`|
 |queueId          |number          |0               |动画的线程|
 
-注：如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
-
-如果标签上的 `enter-data` 没 `type` || `style` ，则执行 `EnterAnimation` 标签上的 `type` || `style`。
+<style>
+.code-box-demo .demo-header {
+  width: 100%;
+  background: #ebedee;
+  height: 30px;
+}
+.code-box-demo .demo-header ul {
+  float: right;
+  margin-right: 10px;
+}
+.code-box-demo .demo-header ul li {
+  width: 30px;
+  height: 30px;
+  float: left;
+  background: #e4e4e4;
+  margin-left: 2px;
+}
+.code-box-demo .demo-header ul li:before {
+  margin: 10px auto;
+  width: 10px;
+  height: 10px;
+  background: #ebeded;
+}
+.code-box-demo .demo-header .logo {
+  float: left;
+  margin: 0px auto 0 10px;
+  line-height: 32px;
+}
+.code-box-demo .demo-header .logo img{
+  margin:auto
+}
+.code-box-demo .demo-header .logo span {
+  display: block;
+  float: right;
+}
+.code-box-demo .demo-content {
+  width: 80%;
+  margin: 10px auto;
+}
+.code-box-demo .demo-content .demo-title {
+  background: #a4a4a4;
+  width: 40%;
+  height: 20px;
+  line-height: 20px;
+  color: #ebeded;
+}
+.code-box-demo .demo-content .demo-listBox {
+  margin-top: 10px;
+}
+.code-box-demo .demo-content .demo-listBox > ul > li {
+  float: left;
+  width: 47.5%;
+  overflow: hidden;
+}
+.code-box-demo .demo-content .demo-listBox > ul > li:last-child {
+  margin-left: 5%;
+}
+.code-box-demo .demo-content .demo-listBox .demo-list .title {
+  height: 25px;
+  background: #cacaca;
+  overflow: hidden;
+}
+.code-box-demo .demo-content .demo-listBox .demo-list .title:before {
+  width: 50%;
+  height: 5px;
+  background: #ebeded;
+  margin: 10px auto;
+}
+.code-box-demo .demo-content .demo-listBox .demo-list ul li {
+  height: 20px;
+  background: #ebeded;
+  border-bottom: 1px solid #cacaca;
+  overflow: hidden;
+  padding: 5px 15px;
+}
+.code-box-demo .demo-content .demo-listBox .demo-list ul li:before {
+  width: 20px;
+  height: 10px;
+  background: #cacaca;
+  float: left;
+}
+.code-box-demo .demo-content .demo-listBox .demo-list ul li:after {
+  width: 60%;
+  height: 5px;
+  background: #cacaca;
+  float: left;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+.code-box-demo .demo-content .demo-kp {
+  margin: 10px auto;
+}
+.code-box-demo .demo-content .demo-kp ul li {
+  display: inline-block;
+  width: 30%;
+  height: 30px;
+  background: #cacaca;
+  color: #ebeded;
+  text-align: left;
+  padding: 10px;
+  margin-right: calc(1%);
+}
+.code-box-demo .demo-content .demo-kp ul li:last-child {
+  margin-right: 0%;
+}
+.code-box-demo .demo-content .demo-kp ul li:after {
+  width: 60%;
+  height: 5px;
+  background: #ebeded;
+  float: left;
+  margin-top: 2px;
+}
+.code-box-demo .demo-content .demo-kp ul li:before {
+  background: #ebeded;
+  float: left;
+  width: 10px;
+  height: 10px;
+  margin-right: 10%;
+}
+.code-box-demo .demo-footer {
+  margin-top: 10px;
+  background: #cacaca;
+  height: 30px;
+  float: left;
+  width: 100%;
+  display: table;
+}
+.code-box-demo .demo-footer:before {
+  width: 60%;
+  height: 5px;
+  background: #ededed;
+  margin: 5px auto 0;
+}
+.code-box-demo .demo-footer:after {
+  width: 30%;
+  height: 5px;
+  background: #ededed;
+  margin: 5px auto;
+}
+.code-box-demo .demo-header ul li:before,
+.code-box-demo .demo-content .demo-kp ul li:before,
+.code-box-demo .demo-content .demo-kp ul li:after,
+.code-box-demo .demo-content .demo-listBox .demo-list .title:before,
+.code-box-demo .demo-content .demo-listBox .demo-list ul li:before,
+.code-box-demo .demo-content .demo-listBox .demo-list ul li:after,
+.code-box-demo .demo-footer:before,
+.code-box-demo .demo-footer:after {
+  display: block;
+  content: "";
+}
+</style>
