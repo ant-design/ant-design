@@ -1,4 +1,4 @@
-# Modal
+# EnterAnimation
 
 - order: 11
 - category: Components
