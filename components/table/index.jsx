@@ -26,10 +26,7 @@ export default React.createClass({
     }
 
     let noPagination = (this.props.pagination === false);
-    let pagination = objectAssign({
-      pageSize: 10,
-      total: this.props.dataSource.length
-    }, this.props.pagination);
+    let pagination = this.initPagination(this.props.pagination);
 
     return {
       selectedRowKeys: [],
@@ -46,6 +43,21 @@ export default React.createClass({
       rowSelection: null,
       size: 'normal'
     };
+  },
+  componentWillReceiveProps(nextProps) {
+    if ('pagination' in nextProps) {
+      let noPagination = (nextProps.pagination === false);
+      this.setState({
+        pagination: this.initPagination(nextProps.pagination),
+        noPagination: noPagination
+      });
+    }
+  },
+  initPagination(pagination) {
+    return objectAssign({
+      pageSize: 10,
+      total: this.props.dataSource.length
+    }, pagination);
   },
   toggleSortOrder(order, column) {
     let sortColumn = this.state.sortColumn;
