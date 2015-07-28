@@ -1,7 +1,7 @@
-# 基本(子节点控制进场)
-- order: 0
+# 主标签控制动画
+- order: 1
 
-模拟页面演示，子节点控制进场。`EnterAnimation` 里延时1秒`enter-data` 用到的参数：`type` `queueId` `delay`。
+主标签上控制进场, `EnterAnimation` 里延时1秒,递增`interval`为0.2;
 
 ---
 ````jsx
@@ -9,65 +9,65 @@ var EnterAnimation = antd.EnterAnimation;
 var Test = React.createClass({
   render() {
     return (
-      <EnterAnimation className="demo-startAnim" delay={1}>
-        <div className="demo-header" enter-data={{type:'alpha'}}>
-          <div className="logo" enter-data={{type:'left'}}>
-            <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"/>
+      <EnterAnimation className="demo-startAnim" delay={1} interval={.2}>
+        <div className="demo-header">
+          <div className="logo">
+            <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
             <span>logo</span>
           </div>
           <ul>
-            <li enter-data></li>
-            <li enter-data></li>
-            <li enter-data></li>
-            <li enter-data></li>
-            <li enter-data></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
           </ul>
         </div>
         <div className="demo-content">
-          <div className="demo-title" enter-data={{type:'alpha'}}>我是标题</div>
+          <div className="demo-title">我是标题</div>
           <div className="demo-kp">
             <ul>
-              <li enter-data></li>
-              <li enter-data></li>
-              <li enter-data></li>
+              <li></li>
+              <li></li>
+              <li></li>
             </ul>
           </div>
-          <div className="demo-title" enter-data={{type:'alpha'}}>我是标题</div>
+          <div className="demo-title">我是标题</div>
           <div className="demo-listBox">
             <ul>
               <li>
                 <div className="demo-list">
-                  <div className="title" enter-data={{type:'bottom'}}></div>
+                  <div className="title"></div>
                   <ul>
-                    <li enter-data={{type:'bottom'}}></li>
-                    <li enter-data={{type:'bottom'}}></li>
-                    <li enter-data={{type:'bottom'}}></li>
-                    <li enter-data={{type:'bottom'}}></li>
-                    <li enter-data={{type:'bottom'}}></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                   </ul>
                 </div>
               </li>
               <li>
                 <div className="demo-list">
-                  <div className="title" enter-data={{type:'bottom',queueId:1,delay:1.4}}></div>
+                  <div className="title"></div>
                   <ul>
-                    <li enter-data={{type:'bottom',queueId:1}}></li>
-                    <li enter-data={{type:'bottom',queueId:1}}></li>
-                    <li enter-data={{type:'bottom',queueId:1}}></li>
-                    <li enter-data={{type:'bottom',queueId:1}}></li>
-                    <li enter-data={{type:'bottom',queueId:1}}></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                   </ul>
                 </div>
               </li>
             </ul>
           </div>
         </div>
-        <div className="demo-footer" enter-data={{type:'bottom',queueId:1}}></div>
+        <div className="demo-footer"></div>
       </EnterAnimation>
     )
   }
 });
-React.render(<Test/> , document.getElementById('components-enter-animation-demo-basic'));
+React.render(<Test/> , document.getElementById('components-enter-animation-demo-label'));
 ````
 <style>
 .demo-startAnim {
