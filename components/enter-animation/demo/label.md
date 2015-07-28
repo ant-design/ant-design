@@ -1,76 +1,73 @@
 # 主标签控制动画
-
 - order: 1
 
 主标签上控制进场, `EnterAnimation` 里延时1秒,递增`interval`为0.2;
 
 ---
-
 ````jsx
-
 var EnterAnimation = antd.EnterAnimation;
 var Test = React.createClass({
   render() {
     return (
-    <EnterAnimation className="demo-startAnim" delay={1} interval={.2}>
+      <EnterAnimation className="demo-startAnim" delay={1} interval={.2}>
         <div className="demo-header">
-            <div className="logo">
-                <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-                <span>logo</span>
-            </div>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+          <div className="logo">
+            <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+            <span>logo</span>
+          </div>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
         </div>
         <div className="demo-content">
-            <div className="demo-title">我是标题</div>
-            <div className="demo-kp">
-                <ul>
+          <div className="demo-title">我是标题</div>
+          <div className="demo-kp">
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+          <div className="demo-title">我是标题</div>
+          <div className="demo-listBox">
+            <ul>
+              <li>
+                <div className="demo-list">
+                  <div className="title"></div>
+                  <ul>
                     <li></li>
                     <li></li>
                     <li></li>
-                </ul>
-            </div>
-            <div className="demo-title">我是标题</div>
-            <div className="demo-listBox">
-                <ul>
-                    <li>
-                        <div className="demo-list">
-                            <div className="title"></div>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="demo-list">
-                            <div className="title"></div>
-                            <ul>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div className="demo-list">
+                  <div className="title"></div>
+                  <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="demo-footer" style={{"width": "100%", "display": "table", "float": "left"}}></div>
-    </EnterAnimation>)
+        <div className="demo-footer"></div>
+      </EnterAnimation>
+    )
   }
 });
 React.render(<Test/> , document.getElementById('components-enter-animation-demo-label'));
-
 ````
 <style>
 .demo-startAnim {
@@ -203,6 +200,7 @@ React.render(<Test/> , document.getElementById('components-enter-animation-demo-
   height: 30px;
   float: left;
   width: 100%;
+  display: table;
 }
 .demo-startAnim .demo-footer:before {
   width: 60%;
@@ -227,5 +225,4 @@ React.render(<Test/> , document.getElementById('components-enter-animation-demo-
   display: block;
   content: "";
 }
-
 </style>

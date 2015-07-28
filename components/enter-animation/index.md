@@ -15,7 +15,6 @@
 
 2.小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
 
-
 ## API
 
 动画默认`right`
@@ -39,14 +38,13 @@
 
 |参数              |类型             |默认值           |详细                                                 |
 |-----------------|-----------------|----------------|----------------------------------------------------|
-|type             |string          |right           |内置动画样式：<br/>`left` `right` `top` `bottom` `scale` `scaleFrom` `scaleX` `scaleY`;|
+|type             |string          |right           |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleFrom` `scaleX` `scaleY`;|
 |style            |string          |null            |style样式，如transform: translateX(100px),每个样式必须以;结束；`type`有值此项无效|
 |direction        |string          |"enter"         |动画进场或出场样式,以 `enter` `leave`两值;默认为 `enter`|
 |duration         |number          |0.5             |动画的时间,以秒为单位|
 |ease             |string          |cubic-bezier(0.165, 0.84, 0.44, 1)|样式缓动，只支持css样式缓动|
 |delay            |number          |0               |动画的延时，依照结构递增以上的`interval`|
 |queueId          |number          |0               |动画的线程|
-
 
 注：如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
 
