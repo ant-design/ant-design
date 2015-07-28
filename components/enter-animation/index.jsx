@@ -6,3 +6,4 @@ export default class AntEnterAnimation extends React.Component {
     return <EnterAnimation {...this.props} />;
   }
 }
+AntEnterAnimation.to = EnterAnimation.to;
