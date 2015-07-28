@@ -9,21 +9,7 @@ import objectAssign from 'object-assign';
 
 export default React.createClass({
   getInitialState() {
-    // 支持两种模式
-    if (Array.isArray(this.props.dataSource)) {
-      this.mode = 'local';
-      // 保留原来的数据
-      this.originDataSource = this.props.dataSource.slice(0);
-    } else {
-      this.mode = 'remote';
-      this.dataSource = objectAssign({
-        resolve: function(data) {
-          return data || [];
-        },
-        getParams: function() {},
-        getPagination: function() {}
-      }, this.props.dataSource);
-    }
+    this.initDataSource(this.props.dataSource);
 
     let noPagination = (this.props.pagination === false);
     let pagination = this.initPagination(this.props.pagination);
@@ -51,6 +37,29 @@ export default React.createClass({
         pagination: this.initPagination(nextProps.pagination),
         noPagination: noPagination
       });
+    }
+    if ('dataSource' in nextProps) {
+      this.initDataSource(nextProps.dataSource);
+      this.setState({
+        data: nextProps.dataSource
+      });
+    }
+  },
+  initDataSource(dataSource) {
+    // 支持两种模式
+    if (Array.isArray(dataSource)) {
+      this.mode = 'local';
+      // 保留原来的数据
+      this.originDataSource = dataSource.slice(0);
+    } else {
+      this.mode = 'remote';
+      this.dataSource = objectAssign({
+        resolve: function(data) {
+          return data || [];
+        },
+        getParams: function() {},
+        getPagination: function() {}
+      }, dataSource);
     }
   },
   initPagination(pagination) {
