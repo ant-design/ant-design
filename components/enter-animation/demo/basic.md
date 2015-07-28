@@ -2,7 +2,7 @@
 
 - order: 0
 
-模拟页面demo;子节点控制进场;`EnterAnimation`里延时1秒`enter-data`用到的参数：`type` `queueId` `delay`;
+模拟页面demo，子节点控制进场。`EnterAnimation` 里延时1秒`enter-data` 用到的参数：`type` `queueId` `delay`。
 
 ---
 
@@ -107,7 +107,7 @@ React.render(<Test/> , document.getElementById('components-enter-animation-demo-
   line-height: 32px;
 }
 .demo-startAnim .demo-header .logo img{
-margin:auto
+  margin:auto
 }
 .demo-startAnim .demo-header .logo span {
   display: block;
@@ -227,69 +227,4 @@ margin:auto
   display: block;
   content: "";
 }
-a.logo {
-  float: left;
-  height: 46px;
-  line-height: 46px;
-  margin: 17px 45px;
-  transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
-  text-transform: uppercase;
-  font-size: 18px;
-  font-family: "Raleway", "Helvetica Neue", Helvetica, "Lantinghei SC", "Microsoft YaHei", "微软雅黑", "Hiragino Sans GB", SimSun, sans-serif;
-  font-weight: 500;
-  color: #6EB4E0;
-}
-a.logo img {
-  float: left;
-  -webkit-animation: rotateCircleBack 0.6s 1 ease-in-out;
-  animation: rotateCircleBack 0.6s 1 ease-in-out;
-}
-.test {
-  opacity: 0;
-  -webkit-animation: TTest 0.5s ease-out;
-          animation: TTest 0.5s ease-out;
-}
-@-webkit-keyframes TTest {
-  0% {
-    opacity: 0;
-  }
-  0%,
-  100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  20%,
-  60% {
-    opacity: 1;
-    -webkit-transform: translateX(30px);
-            transform: translateX(30px);
-  }
-  40%,
-  80% {
-    -webkit-transform: translateX(-30px);
-            transform: translateX(-30px);
-  }
-}
-@keyframes TTest {
-  0% {
-    opacity: 0;
-  }
-  0%,
-  100% {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  20%,
-  60% {
-    opacity: 1;
-    -webkit-transform: translateX(30px);
-            transform: translateX(30px);
-  }
-  40%,
-  80% {
-    -webkit-transform: translateX(-30px);
-            transform: translateX(-30px);
-  }
-}
-
 </style>
