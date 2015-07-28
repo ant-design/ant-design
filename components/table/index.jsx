@@ -136,9 +136,13 @@ export default React.createClass({
       this.props.rowSelection.onSelectAll(checked, selectedRows);
     }
   },
-  handlePageChange(current = 1) {
+  handlePageChange(current) {
     let pagination = this.state.pagination || {};
-    pagination.current = current;
+    if (current) {
+      pagination.current = current;
+    } else {
+      pagination.current = pagination.current || 1;
+    }
     this.setState({
       pagination: pagination
     }, this.fetch);

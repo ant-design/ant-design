@@ -33,7 +33,8 @@ for (let i=0; i<18; i++) {
 }
 
 var pagination = {
-  total: data.length
+  total: data.length,
+  current: 2
 };
 
 React.render(<Table columns={columns} dataSource={data} pagination={pagination} />
