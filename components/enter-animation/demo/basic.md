@@ -1,7 +1,7 @@
 # 基本(子节点控制进场)
 - order: 0
 
-模拟页面demo，子节点控制进场。`EnterAnimation` 里延时1秒`enter-data` 用到的参数：`type` `queueId` `delay`。
+模拟页面演示，子节点控制进场。`EnterAnimation` 里延时1秒`enter-data` 用到的参数：`type` `queueId` `delay`。
 
 ---
 ````jsx
