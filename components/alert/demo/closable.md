@@ -19,3 +19,4 @@ React.render(
   </div>,
 document.getElementById('components-alert-demo-closable'));
 ````
+
