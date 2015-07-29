@@ -58,7 +58,10 @@ module.exports = function(nico) {
         }
       })).filter(function(n){ return n != undefined });
       categories = categories.sort(function(a, b) {
-        return a.length - b.length;
+        var cats = ['文字', '色彩', '动画'];
+        a = cats.indexOf(a);
+        b = cats.indexOf(b);
+        return a - b;
       })
       Categories[rootDirectory] = categories;
       return categories;

@@ -477,6 +477,7 @@ footer ul li > a {
   -webkit-animation: xRightMatrix .5s ease-out;
   animation: xRightMatrix .5s ease-out;
   background: #fff;
+  min-height: 500px;
 }
 
 .main-container-center {

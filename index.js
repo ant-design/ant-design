@@ -22,9 +22,11 @@ var antd = {
   Collapse: require('./components/collapse'),
   message: require('./components/message'),
   Slider: require('./components/slider'),
+  EnterAnimation: require('./components/enter-animation'),
   Radio: require('./components/radio'),
   RadioGroup: require('./components/radio/group'),
-  Notification: require('./components/notification')
+  Notification: require('./components/notification'),
+  Alert: require('./components/alert')
 };
 
 module.exports = antd;

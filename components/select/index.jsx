@@ -1,7 +1,7 @@
 import React from 'react';
 import Select from 'rc-select';
 
-export default React.createClass({
+var AntSelect = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-select',
@@ -16,3 +16,7 @@ export default React.createClass({
     );
   }
 });
+
+AntSelect.Option = Select.Option;
+
+export default AntSelect;

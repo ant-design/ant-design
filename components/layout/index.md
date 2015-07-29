@@ -1,6 +1,6 @@
 # Layout
 
-- category: CSS
+- category: Components
 - chinese: 布局
 - order: 0
 

@@ -1,8 +1,8 @@
 # Button
 
-- category: CSS
+- category: Components
 - chinese: 按钮
-- order: 2
+- order: 0
 
 ---
 
