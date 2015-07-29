@@ -9,7 +9,7 @@
 
 页面进场离场的动画，组件主要帮你完成 transition 的一些烦锁的配置，你只要在 enter-data 里写入样式或自带的 type 就可以完成一系例的动画。
 
-注：由于 CSS3 的 transition 来执行动画，所以`ie9` 以及更早的版本不支持 `EnterAnimation`
+注：由于动画是由 CSS3 的 transition 来执行的，所以`ie9` 以及更早的版本不支持 `EnterAnimation`
 
 ## 何时使用
 
