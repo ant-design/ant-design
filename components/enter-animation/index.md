@@ -7,7 +7,9 @@
 
 ---
 
-页面进场离场的动画。
+页面进场离场的动画，组件主要帮你完成 transition 的一些烦锁的配置，你只要在 enter-data 里写入样式或自带的 type 就可以完成一系例的动画。
+
+注：由于 CSS3 的 transition 来执行动画，所以`ie9` 以及更早的版本不支持 `EnterAnimation`
 
 ## 何时使用
 
@@ -35,6 +37,7 @@
   </div>
   <div enter-data>依次进场</div>
   <div enter-data={{type: 'bottom'}}>依次进场，并修改动画效果</div>
+  <div enter-data={{style: 'margin-top:100px'}}>依次进场，并使用样式修改动画效果</div>
   <div>没有动画</div>
 </EnterAnimation>
 ```

@@ -2,7 +2,7 @@
 
 - order: 0
 
-默认子节点进场动画。`EnterAnimation` 里延时 1 秒，递增 `interval` 为 0.2。
+默认子节点进场动画。为避免与本站页面的进场冲突，所以 `EnterAnimation` 里延时 1 秒，递增 `interval` 为 0.3。
 
 ---
 
