@@ -1,6 +1,6 @@
 # Iconfont
 
-- category: CSS
+- category: Components
 - chinese: 字体图标
 - order: 1
 - nodemos: true
