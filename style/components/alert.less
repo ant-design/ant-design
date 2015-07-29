@@ -1,0 +1,191 @@
+@import "../mixins/index";
+
+@alertPrefixClass: ~"@{css-prefix}alert";
+@alertTitlePrefixClass: ~"@{css-prefix}alert-with-message";
+
+.@{alertPrefixClass} {
+  position: relative;
+  padding: 8px 8px 8px 16px;
+  border-radius: @border-radius-base;
+  color: @legend-color;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 10px;
+
+  &-icon {
+    margin-right: 8px;
+    font-size: @input-font-size-lg;
+  }
+
+  &-description {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &-success {
+    border: 1px solid tint(@success-color, 50%);
+    background-color: tint(@success-color, 90%);
+    .anticon {
+      color: @success-color;
+    }
+  }
+
+  &-info {
+    border: 1px solid tint(@primary-color, 50%);
+    background-color: tint(@primary-color, 90%);
+    .anticon {
+      color: @primary-color;
+    }
+  }
+
+  &-warn {
+    border: 1px solid tint(@warning-color, 50%);
+    background-color: tint(@warning-color, 90%);
+    .anticon {
+      color: @warning-color;
+    }
+  }
+
+  &-error {
+    border: 1px solid tint(@error-color, 50%);
+    background-color: tint(@error-color, 90%);
+    .anticon {
+      color: @error-color;
+    }
+  }
+
+  &-close-icon {
+    .iconfont-size-under-12px(10px);
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -6px;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    transition: opacity .3s ease;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+
+    &-x {
+      position: absolute;
+      top: -3px;
+      &:before {
+        font-weight: 700;
+        text-shadow: 0 1px 0 #fff;
+        color: #000;
+        content: "\e61e";
+        font-family: "anticon";
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+  }
+
+  &-close-text {
+    float: right;
+  }
+}
+
+.@{alertTitlePrefixClass} {
+  padding: 16px 16px 16px 69px;
+  position: relative;
+  border-radius: @border-radius-base;
+  margin-bottom: 10px;
+
+  &-icon {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    margin-top: -22px;
+    font-size: 29px;
+  }
+
+  &-close-icon {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    cursor: pointer;
+    .iconfont-size-under-12px(10px);
+  }
+
+  &-description {
+    font-size: @input-font-size-lg;
+    color: @text-color;
+  }
+
+  &-description {
+    font-size: 12px;
+    color: @legend-color;
+  }
+
+  &-success {
+    border: 1px solid tint(@success-color, 50%);
+    background-color: tint(@success-color, 90%);
+    .anticon {
+      color: @success-color;
+    }
+  }
+
+  &-info {
+    border: 1px solid tint(@primary-color, 50%);
+    background-color: tint(@primary-color, 90%);
+    .anticon {
+      color: @primary-color;
+    }
+  }
+
+  &-warn {
+    border: 1px solid tint(@warning-color, 50%);
+    background-color: tint(@warning-color, 90%);
+    .anticon {
+      color: @warning-color;
+    }
+  }
+
+  &-error {
+    border: 1px solid tint(@error-color, 50%);
+    background-color: tint(@error-color, 90%);
+    .anticon {
+      color: @error-color;
+    }
+  }
+
+  &-close-icon {
+    .iconfont-size-under-12px(10px);
+    float: right;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    transition: opacity .3s ease;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    position: absolute;
+    right: 16px;
+    top: 12px;
+
+    &-x {
+      position: absolute;
+      top: -4px;
+      &:before {
+        font-weight: 700;
+        text-shadow: 0 1px 0 #fff;
+        color: #000;
+        content: "\e61e";
+        font-family: "anticon";
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+  }
+
+  &-close-text {
+    float: right;
+  }
+}

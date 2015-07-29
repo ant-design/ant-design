@@ -24,7 +24,8 @@ var antd = {
   Slider: require('./components/slider'),
   EnterAnimation: require('./components/enter-animation'),
   Radio: require('./components/radio'),
-  RadioGroup: require('./components/radio/group')
+  RadioGroup: require('./components/radio/group'),
+  Alert: require('./components/alert')
 };
 
 module.exports = antd;
