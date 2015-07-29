@@ -2,11 +2,11 @@ import React from 'react';
 const prefixCls = 'ant-tag';
 
 class AntTag extends React.Component {
-  destroy() {
+  destroy(e) {
     let node = React.findDOMNode(this);
     React.unmountComponentAtNode(node);
     node.parentNode.removeChild(node);
-    this.props.onClose.call(this);
+    this.props.onClose.call(this, e);
   }
   render() {
     let close = this.props.closable ?

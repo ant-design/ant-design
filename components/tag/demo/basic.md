@@ -9,7 +9,7 @@
 ````jsx
 var Tag = antd.Tag;
 
-function onClose() {
+function onClose(e) {
   console.log(this.props.children);
 }
 
