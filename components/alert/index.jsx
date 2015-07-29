@@ -2,21 +2,26 @@ import React from 'react';
 
 export default React.createClass({
   getDefaultProps() {
-    return {prefixCls: 'ant-alert'};
+    return {
+      prefixCls: 'ant-alert'
+    };
   },
-  getInitialState () {
-    return {display: 'block'};
+  getInitialState() {
+    return {
+      display: 'block'
+    };
   },
-  handleClose () {
+  handleClose(e) {
     if (this.props.onClose) {
-      this.props.onClose();
+      this.props.onClose.call(this, e);
     }
     this.setState({
       display: 'none'
     });
   },
   render () {
-    var iconClass = this.props.description ? 'ant-alert-with-description-icon anticon-' : 'ant-alert-icon anticon-';
+    var iconClass = this.props.description ?
+      'ant-alert-with-description-icon anticon-' : 'ant-alert-icon anticon-';
     switch (this.props.type) {
       case 'success':
         iconClass += 'check-circle';
@@ -32,7 +37,7 @@ export default React.createClass({
         iconClass += 'default';
     }
     if (this.props.description) {
-      let close = this.props.closable === 'true' ?
+      let close = this.props.closable ?
         <a onClick={this.handleClose} className={'ant-alert-with-description-close-icon'}><span
           className='ant-alert-with-description-close-icon-x'></span></a> : '';
       return (
@@ -54,7 +59,7 @@ export default React.createClass({
           </div>
         );
       } else {
-        let close = this.props.closable === 'true' ?
+        let close = this.props.closable ?
           <a onClick={this.handleClose} className={'ant-alert-close-icon'}>
             <span className='ant-alert-close-icon-x'></span>
           </a> : '';
