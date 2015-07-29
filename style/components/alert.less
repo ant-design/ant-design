@@ -7,14 +7,14 @@
   position: relative;
   padding: 8px 8px 8px 16px;
   border-radius: @border-radius-base;
-  color: @legend-color;
+  color: @text-color;
   font-size: 12px;
   line-height: 16px;
   margin-bottom: 10px;
 
   &-icon {
     margin-right: 8px;
-    font-size: @input-font-size-lg;
+    font-size: 14px;
   }
 
   &-description {
@@ -60,9 +60,8 @@
     right: 8px;
     top: 50%;
     margin-top: -6px;
-    filter: alpha(opacity=20);
-    opacity: .2;
-    transition: opacity .3s ease;
+    transition: color .3s ease;
+    color: #999;
     width: 12px;
     height: 12px;
     overflow: hidden;
@@ -73,15 +72,13 @@
       &:before {
         font-weight: 700;
         text-shadow: 0 1px 0 #fff;
-        color: #000;
         content: "\e61e";
         font-family: "anticon";
       }
     }
 
     &:hover {
-      opacity: 1;
-      filter: alpha(opacity=100);
+      color: #444;
     }
   }
 
@@ -95,6 +92,7 @@
   position: relative;
   border-radius: @border-radius-base;
   margin-bottom: 10px;
+  color: @text-color;
 
   &-icon {
     position: absolute;
@@ -112,8 +110,8 @@
     .iconfont-size-under-12px(10px);
   }
 
-  &-description {
-    font-size: @input-font-size-lg;
+  &-message {
+    font-size: 14px;
     color: @text-color;
   }
 
@@ -157,9 +155,8 @@
   &-close-icon {
     .iconfont-size-under-12px(10px);
     float: right;
-    filter: alpha(opacity=20);
-    opacity: .2;
-    transition: opacity .3s ease;
+    color: #999;
+    transition: color .3s ease;
     width: 12px;
     height: 12px;
     overflow: hidden;
@@ -173,15 +170,13 @@
       &:before {
         font-weight: 700;
         text-shadow: 0 1px 0 #fff;
-        color: #000;
         content: "\e61e";
         font-family: "anticon";
       }
     }
 
     &:hover {
-      opacity: 1;
-      filter: alpha(opacity=100);
+      color: #444;
     }
   }
 
