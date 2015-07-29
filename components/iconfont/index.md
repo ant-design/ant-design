@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 字体图标
-- order: 1
+- order: 0
 - nodemos: true
 
 ---
