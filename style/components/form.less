@@ -260,15 +260,54 @@ form {
 }
 
 // Validation state
+.has-success, .has-warning, .has-error, .is-validating {
+  &.has-feedback:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: "anticon" !important;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
 .has-success {
   .form-control-validation(@success-color; @input-hover-border-color;);
   .@{css-prefix}input {
     border-color: @input-border-color;
   }
+
+  &.has-feedback:after {
+    content: '\e614';
+    color: @success-color;
+  }
 }
+
 .has-warning {
   .form-control-validation(@warning-color; @warning-color;);
+
+  &.has-feedback:after {
+    content: '\e628';
+    color: @warning-color;
+  }
 }
+
 .has-error {
   .form-control-validation(@error-color; @error-color;);
+
+  &.has-feedback:after {
+    content: '\e628';
+    color: @error-color;
+  }
+}
+
+.is-validating {
+  &.has-feedback:after {
+    display: inline-block;
+    .animation(loadingCircle 1s infinite linear);
+    content:"\e610";
+  }
 }
