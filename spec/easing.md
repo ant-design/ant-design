@@ -22,9 +22,9 @@
 
 #### 自然缓动
 
-不要用直线缓动Linear做物体出入动画的缓动；注：Linear函数可做循环动画函数；
+不要用直线缓动Linear做物体出入动画的缓动；注：Linear函数可做循环动画函数。
 
-如下图所示，在没有缓动的情况下启动与停止都显得突兀，感觉动画还没结束就停止了，所以在物体运动中避免直线运动；
+如下图所示，在没有缓动的情况下启动与停止都显得突兀，感觉动画还没结束就停止了，所以在物体运动中避免直线运动。
 
 <script src="/static/TweenMax.min.js"></script>
 <script src="/static/motion.js"></script>
@@ -33,32 +33,32 @@
 
 <script>
 $(function (){
-new Motion("#J-Linear",{lineData:[{open:[],end:[],stroke:"#f2666c"},{open:[0.455, 0.03, 0.515, 0.955],end:[0.455, 0.03, 0.515, 0.955],stroke:"#71B5DE",openEaseName:"easeInOutQuad",endEaseName:"easeInOutQuad"},],mask:false});
+new Motion("#J-Linear"，{lineData:[{open:[]，end:[]，stroke:"#f2666c"}，{open:[0.455， 0.03， 0.515， 0.955]，end:[0.455， 0.03， 0.515， 0.955]，stroke:"#71B5DE"，openEaseName:"easeInOutQuad"，endEaseName:"easeInOutQuad"}，]，mask:false});
 })
 </script>
 
-上图所示缓动函数：红：Linear 蓝：easeInOutQuad；
+上图所示缓动函数：红 `Linear`，蓝 `easeInOutQuad`。
 
 
 #### 出入动画
 
-不要做单向动画，进场后不做出场，直接消失元素或回到原点，会让整个画面不协调,反相只出不进也一样；
+不要做单向动画，进场后不做出场，直接消失元素或回到原点，会让整个画面不协调，反相只出不进也一样。
 
-所以有动画的进场必须要有动画的出场，包括导航上的动画；
+所以有动画的进场必须要有动画的出场，包括导航上的动画。
 
 <div id="J-Symmetric">
 </div>
 
 <script>
 $(function (){
-new Motion("#J-Symmetric",{lineData:[
-{open:[0.455, 0.03, 0.515, 0.955],end:[],openEaseName:"easeInOutQuad",endEaseName:"null",stroke:"#f2666c"},
-{open:[0.645, 0.045, 0.355, 1],end:[0.645, 0.045, 0.355, 1],stroke:"#71B5DE",openEaseName:"easeInOutCubic",endEaseName:"easeInOutCubic"}],
-mask:false,exposure:"top"});
+new Motion("#J-Symmetric"，{lineData:[
+{open:[0.455， 0.03， 0.515， 0.955]，end:[]，openEaseName:"easeInOutQuad"，endEaseName:"null"，stroke:"#f2666c"}，
+{open:[0.645， 0.045， 0.355， 1]，end:[0.645， 0.045， 0.355， 1]，stroke:"#71B5DE"，openEaseName:"easeInOutCubic"，endEaseName:"easeInOutCubic"}]，
+mask:false，exposure:"top"});
 })
 </script>
 
-上图所示缓动函数：红：easeInOutQuad 蓝：easeInOutCubic；
+上图所示缓动函数：红 `easeInOutQuad`，蓝 `easeInOutCubic`。
 
 
 ##### 场外出入
@@ -74,41 +74,40 @@ mask:false,exposure:"top"});
 
 <script>
 $(function (){
-new Motion("#J-Entry",{lineData:[
-{open:[0.25, 0.46, 0.45, 0.94],end:[0.25, 0.46, 0.45, 0.94],openEaseName:"easeOutQuad",endEaseName:"easeOutQuad",stroke:"#f2666c"},
-{open:[0.215, 0.61, 0.355, 1],end:[0.55, 0.055, 0.675, 0.19],stroke:"#71B5DE",openEaseName:"easeOutCubic",endEaseName:"easeInCubic"}],
-mask:true,exposure:"bottom"});
+new Motion("#J-Entry"，{lineData:[
+{open:[0.25， 0.46， 0.45， 0.94]，end:[0.25， 0.46， 0.45， 0.94]，openEaseName:"easeOutQuad"，endEaseName:"easeOutQuad"，stroke:"#f2666c"}，
+{open:[0.215， 0.61， 0.355， 1]，end:[0.55， 0.055， 0.675， 0.19]，stroke:"#71B5DE"，openEaseName:"easeOutCubic"，endEaseName:"easeInCubic"}]，
+mask:true，exposure:"bottom"});
 })
 </script>
 
-上图所示缓动函数：红：easeOutQuad,easeOutQuad 蓝：easeOutCubic,easeInCubic；
+上图所示缓动函数：红 `easeOutQuad` `easeOutQuad`，蓝 `easeOutCubic` `easeInCubic`。
 
-示例组件：<a href="/components/message/">Message全局提示</a>,<a href="/components/dropdown/">Dropdown下拉菜单</a>
+示例组件：[Message 全局提示](/components/message/)，[Dropdown 下拉菜单](/components/dropdown/)。
 
 #### 弹性动画
 
-1.如蹦极跳下来时，刚跳下时速度很快，到达绳子的长度后，由于物体的重量再将绳子拉长再反弹,弹动几次后才停下。
+1. 如蹦极跳下来时，刚跳下时速度很快，到达绳子的长度后，由于物体的重量再将绳子拉长再反弹，弹动几次后才停下。
 
-  动画里也由质量来决定它的反弹，一般元素最好只弹动一次就够了，收回时可以用向下浮动再上拉或直接前缓动，可适用在下拉框与弹出元素;
+   动画里也由质量来决定它的反弹，一般元素最好只弹动一次就够了，收回时可以用向下浮动再上拉或直接前缓动，可适用在下拉框与弹出元素。
 
-2.如球类物体掉地上的后，反弹几次后停止;
+2. 如球类物体掉地上的后，反弹几次后停止。
 
-注:
-1.曲线图用的是3次贝塞尔曲线，没法表示Bounce，所以用line替换;
-2.弹性动画最好结合alpha;
-<div id="J-Back">
-</div>
+  - 曲线图用的是3次贝塞尔曲线，没法表示Bounce，所以用line替换。
+  - 弹性动画最好结合alpha。
+
+<div id="J-Back"></div>
 
 <script>
 $(function (){
-new Motion("#J-Back",{lineData:[
-{open:[],end:[0.455, 0.03, 0.515, 0.955],openEaseName:"easeOutBounce",endEaseName:"easeInOutQuad",stroke:"#70f266"},
-{open:[0.175, 0.885, 0.32, 1.275],end:[0.6, -0.28, 0.735, 0.045],stroke:"#71B5DE",openEaseName:"easeOutBack",endEaseName:"easeInBack"}],
-mask:false,exposure:"top"});
+new Motion("#J-Back"，{lineData:[
+{open:[]，end:[0.455， 0.03， 0.515， 0.955]，openEaseName:"easeOutBounce"，endEaseName:"easeInOutQuad"，stroke:"#70f266"}，
+{open:[0.175， 0.885， 0.32， 1.275]，end:[0.6， -0.28， 0.735， 0.045]，stroke:"#71B5DE"，openEaseName:"easeOutBack"，endEaseName:"easeInBack"}]，
+mask:false，exposure:"top"});
 })
 </script>
 
-上图所示缓动函数：红：easeOutBounce,easeInOutQuad 蓝：easeOutBack,easeInBack；
+上图所示缓动函数：红 `easeOutBounce` `easeInOutQuad`，蓝 `easeOutBack` `easeInBack`。
 
 
 ## 缓动函数
@@ -117,12 +116,12 @@ Ant Design 提供了一套缓动函数规范动画行为。
 
 |名称               |参数                                      |说明与适用                  |
 |-------------------|------------------------------------------|---------------------------|
-|@ease-out          | `cubic-bezier(0.215, 0.61, 0.355, 1);`   |默认后缓动；适合元素展开时；    |
-|@ease-in           | `cubic-bezier(0.55, 0.055, 0.675, 0.19);`|默认前缓动；适合元素关闭时；    |
-|@ease-in-out       | `cubic-bezier(0.645, 0.045, 0.355, 1);`  |默认前后缓动；适合元素移动；    |
-|@ease-out-back     | `cubic-bezier(0.18, 0.89, 0.32, 1.28);`  |结束回动；适合弹出框出现时；    |
-|@ease-in-back      | `cubic-bezier(0.6, -0.3, 0.74, 0.05);`   |开始回动；适合弹出框关闭；     |
-|@ease-in-out-back  | `cubic-bezier(0.68, -0.55, 0.27, 1.55);` |前后回动；                   |
-|@ease-out-circ     | `cubic-bezier(0.08, 0.82, 0.17, 1);`     |圆形后缓动；适合元素展开时；    |
-|@ease-in-circ      | `cubic-bezier(0.6, 0.04, 0.98, 0.34);`   |圆形前缓动；适合元素关闭时；    |
-|@ease-in-out-circ  | `cubic-bezier(0.78, 0.14, 0.15, 0.86);`  |圆形缓动；适合元素移动；       |
+|@ease-out          | `cubic-bezier(0.215， 0.61， 0.355， 1);`   |默认后缓动；适合元素展开时；    |
+|@ease-in           | `cubic-bezier(0.55， 0.055， 0.675， 0.19);`|默认前缓动；适合元素关闭时；    |
+|@ease-in-out       | `cubic-bezier(0.645， 0.045， 0.355， 1);`  |默认前后缓动；适合元素移动；    |
+|@ease-out-back     | `cubic-bezier(0.18， 0.89， 0.32， 1.28);`  |结束回动；适合弹出框出现时；    |
+|@ease-in-back      | `cubic-bezier(0.6， -0.3， 0.74， 0.05);`   |开始回动；适合弹出框关闭；     |
+|@ease-in-out-back  | `cubic-bezier(0.68， -0.55， 0.27， 1.55);` |前后回动；                   |
+|@ease-out-circ     | `cubic-bezier(0.08， 0.82， 0.17， 1);`     |圆形后缓动；适合元素展开时；    |
+|@ease-in-circ      | `cubic-bezier(0.6， 0.04， 0.98， 0.34);`   |圆形前缓动；适合元素关闭时；    |
+|@ease-in-out-circ  | `cubic-bezier(0.78， 0.14， 0.15， 0.86);`  |圆形缓动；适合元素移动；       |
