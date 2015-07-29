@@ -39,41 +39,37 @@
 	<div class="ant-form-item">
   	<label class="col-5" for="validating">校验中：</label>
   	<div class="col-12">
-  		<div class="has-feedback">
+  		<div class="has-feedback is-validating">
     		<input class="ant-input" type="text" id="validating" value="我是被校验的内容"/>
-    		<i class="anticon anticon-loading"></i>
+        <div class="ant-form-explain">信息审核中...</div>
   		</div>
-  		<div class="ant-form-explain">信息审核中...</div>
   	</div>
 	</div>
 
-	<div class="ant-form-item has-success">
+	<div class="ant-form-item">
   	<label class="col-5" for="input1">成功校验：</label>
   	<div class="col-12">
-  		<div class="has-feedback">
+  		<div class="has-feedback has-success">
     		<input class="ant-input" type="text" id="input1" value="我是正文"/>
-    		<i class="anticon anticon-check-circle"></i>
   		</div>
   	</div>
 	</div>
 
-	<div class="ant-form-item has-error">
+	<div class="ant-form-item">
   	<label class="col-5" for="input2">失败校验：</label>
   	<div class="col-12">
-  		<div class="has-feedback">
+  		<div class="has-feedback has-error">
     		<input class="ant-input" type="text" id="input2" value="无效选择"/>
-    		<i class="anticon anticon-cross-circle"></i>
+        <div class="ant-form-explain">请输入数字和字母组合</div>
   		</div>
-  		<div class="ant-form-explain">请输入数字和字母组合</div>
   	</div>
 	</div>
 
-	<div class="ant-form-item has-warning">
+	<div class="ant-form-item">
   	<label class="col-5" for="input3">警告校验：</label>
   	<div class="col-12">
-  		<div class="has-feedback">
+  		<div class="has-feedback has-warning">
     		<input class="ant-input" type="text" id="input3" value="前方高能预警"/>
-    		<i class="anticon anticon-exclamation-circle"></i>
   		</div>
   	</div>
 	</div>
