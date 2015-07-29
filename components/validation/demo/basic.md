@@ -9,6 +9,8 @@
 ````jsx
 var Validation = antd.Validation;
 var Validator = Validation.Validator;
+var Select = antd.Select;
+var Option = Select.Option;
 
 function toNumber(v) {
   var num = Number(v);
@@ -29,30 +31,43 @@ function cx(classNames) {
   }
 }
 
+
 var Form = React.createClass({
   mixins: [Validation.FieldMixin],
 
   getInitialState() {
     return {
       status: {
-        number: {},
-        pass: {},
-        pass2: {},
-        blurNumber: {},
-        optionalNumber: {},
+        must: {},
+        email: {},
         name: {},
-        must: {}
+        select: {},
+        startDate: {},
+        endDate: {}
       },
       formData: {
-        number: 0,
-        pass: undefined,
-        pass2: undefined,
-        blurNumber: undefined,
-        optionalNumber: undefined,
+        must: undefined,
+        email: undefined,
         name: undefined,
-        must: undefined
+        select: undefined,
+        startDate: undefined,
+        endDate: undefined
       }
     };
+  },
+
+  validateStyle(item, hasFeedback=true) {
+    var formData = this.state.formData;
+    var status = this.state.status;
+
+    var classes = cx({
+      'has-feedback': hasFeedback,
+      'has-error': status[item].errors,
+      'is-validating': status[item].isValidating,
+      'has-success': formData[item] && !status[item].errors && !status[item].isValidating
+    });
+
+    return classes;
   },
 
   handleReset(e) {
@@ -76,15 +91,12 @@ var Form = React.createClass({
   },
 
   userExists(rule, value, callback) {
-
     if (!value) {
       callback();
     } else {
       setTimeout(function () {
-        if (value === '1') {
-          callback([new Error('are you kidding?')]);
-        } else if (value === 'yiminghe') {
-          callback([new Error('forbid yiminghe')]);
+        if (value === 'yiminghe') {
+          callback([new Error('抱歉，该用户名已被占用。')]);
         } else {
           callback();
         }
@@ -92,44 +104,64 @@ var Form = React.createClass({
     }
   },
 
-  checkPass(rule, value, callback) {
-    if (this.state.formData.pass2) {
-      this.refs.validation.forceValidate(['pass2']);
-    }
-      callback();
-  },
-
-  checkPass2(rule, value, callback) {
-    if (value !== this.state.formData.pass) {
-      callback('two password are not same!');
-    } else {
-      callback();
-    }
-  },
-
   render() {
     var formData = this.state.formData;
     var status = this.state.status;
-    
-    var nameClasses = cx({
-      'has-feedback': true,
-      'has-error': status.name.errors,
-      'is-validating': status.name.isValidating,
-      'has-success': formData.name && !status.name.errors && !status.name.isValidating
-    });
 
     return (
     <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
       <Validation ref='validation' onValidate={this.handleValidate}>
         <div className="ant-form-item">
+          <label className="col-6" for="must" required>必填选项：</label>
+          <div className="col-12">
+            <div className= {this.validateStyle("must")}>
+              <Validator rules={[{required: true, message: '该项必填' }]}>
+                <input name='must' className="ant-input" id="must" value={formData.must} />
+              </Validator>
+              {status.must.errors ? <div className="ant-form-explain">{status.must.errors.join(',')}</div> : null}
+            </div>
+          </div>
+        </div>
+
+        <div className="ant-form-item">
+          <label className="col-6" for="email" required>邮箱校验：</label>
+          <div className="col-12">
+            <div className= {this.validateStyle("email")}>
+              <Validator rules={{type: 'email', message: '请填写正确的邮箱地址'}} trigger="onBlur">
+                <input name='email' className="ant-input" value={formData.email} onChange={this.setField.bind(this, 'email')}/>
+              </Validator>
+              {status.email.isValidating ? <div className="ant-form-explain">正在校验中...</div> : null}
+              {status.email.errors ? <div className="ant-form-explain">{status.email.errors.join(',')}</div> : null}
+            </div>
+          </div>
+        </div>
+
+        <div className="ant-form-item">
           <label className="col-6" for="name" required>用户名：</label>
           <div className="col-12">
-            <div className= {nameClasses}>
-              <Validator rules={[{required: true, min: 5}, {validator: this.userExists}]}>
-                <input name='name' className="ant-input" id="name" value={formData.name}/>
+            <div className= {this.validateStyle("name")}>
+              <Validator rules={[{required: true, min: 5, message: '用户名至少为 5 个字符'}, {validator: this.userExists}]}>
+                <input name='name' className="ant-input" value={formData.name} />
               </Validator>
-              {status.name.isValidating ? <div className="ant-form-explain">信息审核中...</div> : null}
+              {status.name.isValidating ? <div className="ant-form-explain">正在校验中...</div> : null}
               {status.name.errors ? <div className="ant-form-explain">{status.name.errors.join(',')}</div> : null}
+            </div>
+          </div>
+        </div>
+
+        <div className="ant-form-item">
+          <label className="col-6" for="select" required>选择框：</label>
+          <div className="col-12">
+            <div className= {this.validateStyle("select", false)}>
+              <Validator rules={[{required: true, message: '请输入'}]}>
+                <Select style={{width:200}} name="select">
+                  <Option value="jack">jack</Option>
+                  <Option value="lucy">lucy</Option>
+                  <Option value="disabled" disabled>disabled</Option>
+                  <Option value="yiminghe">yiminghe</Option>
+                </Select>
+              </Validator>
+              {status.select.errors ? <div className="ant-form-explain">{status.select.errors.join(',')}</div> : null}
             </div>
           </div>
         </div>
