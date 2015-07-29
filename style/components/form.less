@@ -278,6 +278,7 @@ form {
   .form-control-validation(@success-color; @input-hover-border-color;);
   .@{css-prefix}input {
     border-color: @input-border-color;
+    box-shadow: none;
   }
 
   &.has-feedback:after {
@@ -293,6 +294,16 @@ form {
     content: '\e628';
     color: @warning-color;
   }
+
+  .@{selectPrefixCls} {
+    &-selection {
+      border-color: @warning-color;
+      box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+    }
+    &-arrow {
+      color: @warning-color;
+    }
+  }
 }
 
 .has-error {
@@ -301,6 +312,17 @@ form {
   &.has-feedback:after {
     content: '\e628';
     color: @error-color;
+  }
+
+  .@{selectPrefixCls} {
+    &-selection {
+      border-color: @error-color;
+      box-shadow: 0 0 0 2px tint(@error-color, 80%);
+    }
+
+    &-arrow {
+      color: @error-color;
+    }
   }
 }
 
