@@ -28,14 +28,14 @@
 
 <script src="/static/TweenMax.min.js"></script>
 <script src="/static/motion.js"></script>
-<div id="J-Linear">
-</div>
+<div id="J-Linear"></div>
 
 <script>
 $(function (){
-new Motion("#J-Linear"，{lineData:[{open:[]，end:[]，stroke:"#f2666c"}，{open:[0.455， 0.03， 0.515， 0.955]，end:[0.455， 0.03， 0.515， 0.955]，stroke:"#71B5DE"，openEaseName:"easeInOutQuad"，endEaseName:"easeInOutQuad"}，]，mask:false});
+new Motion("#J-Linear",{lineData:[{open:[],end:[],stroke:"#f2666c"},{open:[0.455,0.03,0.515,0.955],end:[0.455,0.03,0.515,0.955],stroke:"#71B5DE",openEaseName:"easeInOutQuad",endEaseName:"easeInOutQuad"},],mask:false});
 })
 </script>
+
 
 上图所示缓动函数：红 `Linear`，蓝 `easeInOutQuad`。
 
@@ -46,15 +46,14 @@ new Motion("#J-Linear"，{lineData:[{open:[]，end:[]，stroke:"#f2666c"}，{ope
 
 所以有动画的进场必须要有动画的出场，包括导航上的动画。
 
-<div id="J-Symmetric">
-</div>
+<div id="J-Symmetric"></div>
 
 <script>
 $(function (){
-new Motion("#J-Symmetric"，{lineData:[
-{open:[0.455， 0.03， 0.515， 0.955]，end:[]，openEaseName:"easeInOutQuad"，endEaseName:"null"，stroke:"#f2666c"}，
-{open:[0.645， 0.045， 0.355， 1]，end:[0.645， 0.045， 0.355， 1]，stroke:"#71B5DE"，openEaseName:"easeInOutCubic"，endEaseName:"easeInOutCubic"}]，
-mask:false，exposure:"top"});
+new Motion("#J-Symmetric",{lineData:[
+{open:[0.455,0.03,0.515,0.955],end:[],openEaseName:"easeInOutQuad",endEaseName:"null",stroke:"#f2666c"},
+{open:[0.645,0.045,0.355,1],end:[0.645,0.045,0.355,1],stroke:"#71B5DE",openEaseName:"easeInOutCubic",endEaseName:"easeInOutCubic"}],
+mask:false,exposure:"top"});
 })
 </script>
 
@@ -69,14 +68,13 @@ mask:false，exposure:"top"});
 
 所以在快到达最高点和掉下来时有一定缓冲带；不要做图示红色球体下降时的缓动；
 
-<div id="J-Entry">
-</div>
+<div id="J-Entry"></div>
 
 <script>
 $(function (){
 new Motion("#J-Entry"，{lineData:[
-{open:[0.25， 0.46， 0.45， 0.94]，end:[0.25， 0.46， 0.45， 0.94]，openEaseName:"easeOutQuad"，endEaseName:"easeOutQuad"，stroke:"#f2666c"}，
-{open:[0.215， 0.61， 0.355， 1]，end:[0.55， 0.055， 0.675， 0.19]，stroke:"#71B5DE"，openEaseName:"easeOutCubic"，endEaseName:"easeInCubic"}]，
+{open:[0.25,0.46,0.45,0.94]，end:[0.25,0.46,0.45,0.94]，openEaseName:"easeOutQuad"，endEaseName:"easeOutQuad"，stroke:"#f2666c"}，
+{open:[0.215,0.61,0.355,1]，end:[0.55,0.055,0.675,0.19]，stroke:"#71B5DE"，openEaseName:"easeOutCubic"，endEaseName:"easeInCubic"}]，
 mask:true，exposure:"bottom"});
 })
 </script>
@@ -100,10 +98,10 @@ mask:true，exposure:"bottom"});
 
 <script>
 $(function (){
-new Motion("#J-Back"，{lineData:[
-{open:[]，end:[0.455， 0.03， 0.515， 0.955]，openEaseName:"easeOutBounce"，endEaseName:"easeInOutQuad"，stroke:"#70f266"}，
-{open:[0.175， 0.885， 0.32， 1.275]，end:[0.6， -0.28， 0.735， 0.045]，stroke:"#71B5DE"，openEaseName:"easeOutBack"，endEaseName:"easeInBack"}]，
-mask:false，exposure:"top"});
+new Motion("#J-Back",{lineData:[
+{open:[,end:[0.455,0.03,0.515,0.955],openEaseName:"easeOutBounce",endEaseName:"easeInOutQuad",stroke:"#70f266"},
+{open:[0.175,0.885,0.32,1.275],end:[0.6,-0.28,0.735,0.045],stroke:"#71B5DE",openEaseName:"easeOutBack",endEaseName:"easeInBack"}],
+mask:false,exposure:"top"});
 })
 </script>
 
@@ -116,12 +114,12 @@ Ant Design 提供了一套缓动函数规范动画行为。
 
 |名称               |参数                                      |说明与适用                  |
 |-------------------|------------------------------------------|---------------------------|
-|@ease-out          | `cubic-bezier(0.215， 0.61， 0.355， 1);`   |默认后缓动；适合元素展开时；    |
-|@ease-in           | `cubic-bezier(0.55， 0.055， 0.675， 0.19);`|默认前缓动；适合元素关闭时；    |
-|@ease-in-out       | `cubic-bezier(0.645， 0.045， 0.355， 1);`  |默认前后缓动；适合元素移动；    |
-|@ease-out-back     | `cubic-bezier(0.18， 0.89， 0.32， 1.28);`  |结束回动；适合弹出框出现时；    |
-|@ease-in-back      | `cubic-bezier(0.6， -0.3， 0.74， 0.05);`   |开始回动；适合弹出框关闭；     |
-|@ease-in-out-back  | `cubic-bezier(0.68， -0.55， 0.27， 1.55);` |前后回动；                   |
-|@ease-out-circ     | `cubic-bezier(0.08， 0.82， 0.17， 1);`     |圆形后缓动；适合元素展开时；    |
-|@ease-in-circ      | `cubic-bezier(0.6， 0.04， 0.98， 0.34);`   |圆形前缓动；适合元素关闭时；    |
-|@ease-in-out-circ  | `cubic-bezier(0.78， 0.14， 0.15， 0.86);`  |圆形缓动；适合元素移动；       |
+|@ease-out          | `cubic-bezier(0.215,0.61,0.355,1);`   |默认后缓动；适合元素展开时；    |
+|@ease-in           | `cubic-bezier(0.55,0.055,0.675,0.19);`|默认前缓动；适合元素关闭时；    |
+|@ease-in-out       | `cubic-bezier(0.645,0.045,0.355,1);`  |默认前后缓动；适合元素移动；    |
+|@ease-out-back     | `cubic-bezier(0.18,0.89,0.32,1.28);`  |结束回动；适合弹出框出现时；    |
+|@ease-in-back      | `cubic-bezier(0.6,-0.3,0.74,0.05);`   |开始回动；适合弹出框关闭；     |
+|@ease-in-out-back  | `cubic-bezier(0.68,-0.55,0.27,1.55);` |前后回动；                   |
+|@ease-out-circ     | `cubic-bezier(0.08,0.82,0.17,1);`     |圆形后缓动；适合元素展开时；    |
+|@ease-in-circ      | `cubic-bezier(0.6,0.04,0.98,0.34);`   |圆形前缓动；适合元素关闭时；    |
+|@ease-in-out-circ  | `cubic-bezier(0.78,0.14,0.15,0.86);`  |圆形缓动；适合元素移动；       |
