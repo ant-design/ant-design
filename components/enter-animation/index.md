@@ -7,9 +7,7 @@
 
 ---
 
-页面进场离场的动画，组件主要帮你完成 transition 的一些烦锁的配置，你只要在 enter-data 里写入样式或自带的 type 就可以完成一系例的动画。
-
-注：由于动画是由 CSS3 的 transition 来执行的，所以`ie9` 以及更早的版本不支持 `EnterAnimation`
+通过简单的配置对一组元素添加串行的进场动画效果。
 
 ## 何时使用
 
@@ -17,7 +15,10 @@
 
 - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
 
-## API
+
+## 如何使用
+
+一级子元素依次进场。
 
 ```jsx
 <EnterAnimation>
@@ -27,6 +28,8 @@
   <div>依次进场</div>
 </EnterAnimation>
 ```
+
+如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
 
 ```jsx
 <EnterAnimation type="left" delay={2}>
@@ -42,8 +45,8 @@
 </EnterAnimation>
 ```
 
-如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
 
+## API
 
 ### <EnterAnimation />
 
@@ -71,6 +74,8 @@
 |ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|样式缓动，只支持 css 样式缓动|
 |delay            |number          |0               |动画的延时，依照结构递增以上的 `interval`|
 |queueId          |number          |0               |动画的线程|
+
+> 由于使用了 CSS3 动画，所以 `IE9` 及更早的版本将没有进场效果。
 
 <style>
 .code-box-demo .demo-header {
