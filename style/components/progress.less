@@ -4,6 +4,10 @@
 @statusSuccess: #85D262;
 
 .@{prefixProgressClass} {
+  &-line-wrap,
+  &-circle-wrap {
+    display: inline-block;
+  }
   &-line-wrap {
     width: 100%;
     font-size: 12px;
@@ -70,6 +74,16 @@
 
     .anticon {
       font-size: 14/12em;
+    }
+  }
+  &-circle-wrap.status-exception {
+    .@{prefixProgressClass}-circle-text {
+      color: @statusException;
+    }
+  }
+  &-circle-wrap.status-success {
+    .@{prefixProgressClass}-circle-text {
+      color: @statusSuccess;
     }
   }
 }

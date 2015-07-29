@@ -11,14 +11,6 @@ const statusColorMap = {
 };
 
 var Line = React.createClass({
-  propTypes: {
-    percent: function(props, propName){
-      if ( props[propName] < 0 && props[propName] > 100) {
-        return new Error('Validation failed!');
-      }
-    },
-    strokeWidth: React.PropTypes.string
-  },
   getDefaultProps() {
     return {
       percent: 0,
@@ -87,24 +79,20 @@ var Circle = React.createClass({
 
     var style = {
       'width': props.width,
-      'height': props.width
-    };
-    var wrapStyle = {
+      'height': props.width,
       'fontSize': props.width * 0.16 + 6
-    };
-    var textStyle = {
-      'color': statusColorMap[props.status]
+
     };
     var progressInfo;
     if (props.status === 'exception') {
       progressInfo = (
-        <span style={textStyle} className={prefixCls + '-circle-text'}>
+        <span className={prefixCls + '-circle-text'}>
           <i className='anticon anticon-exclamation'></i>
         </span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
-        <span style={textStyle} className={prefixCls + '-circle-text'}>
+        <span className={prefixCls + '-circle-text'}>
           <i className="anticon anticon-check"></i>
         </span>
       );
@@ -115,7 +103,7 @@ var Circle = React.createClass({
     }
 
     return (
-      <div className={prefixCls + '-circle-wrap'} style={wrapStyle}>
+      <div className={prefixCls + '-circle-wrap status-' + props.status} >
         <div className={prefixCls + '-circle-inner'} style={style}>
           <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
             strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
