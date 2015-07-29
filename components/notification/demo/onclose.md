@@ -1,8 +1,8 @@
-# 自定义关闭按钮
+# 回调函数
 
-- order: 3
+- order: 2
 
-自定义关闭按钮的样式和文字。
+点击关闭按钮时触发回调函数。
 
 ---
 
@@ -19,20 +19,22 @@ if(!Notification.notification){
   });
 }
 
-var btn = <button className="ant-btn ant-btn-primary ant-btn-sm">自定义关闭按钮</button>;
+var close = function() {
+  console.log("我被默认的关闭按钮关闭了！");
+}
 
 var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
-    btn: btn
+    defaultClose: close
   }; 
   Notification.show(args);
 }
 
 React.render(
   <div>
-    <button className="ant-btn ant-btn-primary" onClick={openNotification}>自定义关闭按钮</button>
+    <button className='ant-btn ant-btn-primary' onClick={openNotification}>关闭按钮触发回调函数</button>
   </div>,
-document.getElementById('components-notification-demo-with-btn'));
+document.getElementById('components-notification-demo-onclose'));
 ````

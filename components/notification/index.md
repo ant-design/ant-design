@@ -15,8 +15,9 @@
 
 | 参数        | 说明                                            | 类型         | 默认值 |
 |----------- |---------------------------------------------    | ----------- |--------|
-| title      | 通知提醒内容，必选                                 | String      | 无     |
-| message    | 通知提醒内容，必选                                 | String      | 无     |
-| callback   | 关闭时触发的回调函数                               | Function     | 无    |
-| icon       | 框的左侧有Icon                                   | Boolean      | false |
-| btn        | 自定义关闭按钮                                    | Boolean      | false |
+| message    | 通知提醒标题，必选                                 | String      | 无     |
+| description | 通知提醒内容，必选                                | String      | 无     |
+| icon       | 框的左侧有Icon                                    | Boolean     | false  |
+| btn        | 自定义关闭按钮的文字                                | String      | 无     |
+| defaultClose  | 默认关闭按钮关闭时触发的回调函数                   | Function    | 无     |
+| customClose   | 自定义关闭按钮关闭时触发的回调函数                 | Function    | 无     |

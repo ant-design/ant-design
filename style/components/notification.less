@@ -23,32 +23,32 @@
     margin-top: @noticeMarginTop;
     overflow: hidden;
 
-    &-content{
-      &-title{
+    &-content {
+      &-message {
         font-size: 14px;
         color: @text-color;
         margin-bottom: 4px;
       }
-      &-message{
+      &-description {
         font-size: @font-size-base;
         color: @legend-color;
       }
     }
 
-    &-content-icon{
+    &-content-icon {
       position: relative;
-      &-title{
+      &-message {
         font-size: 14px;
         color: @text-color;
         margin-left: 51px;
         margin-bottom: 4px;
       }
-      &-message{
+      &-description {
         margin-left: 51px;
         font-size: @font-size-base;
         color: @legend-color;
       }
-      &-icon{
+      &-icon {
         position: absolute;
         left: 16px;
         top: 50%;
@@ -58,7 +58,7 @@
       }
     }
 
-    &-close-x:after{
+    &-close-x:after {
       content: "\e61e";
       font-family: "anticon";
       cursor: pointer;
@@ -72,9 +72,8 @@
       color: #999;
       outline: none;
     }
-
-
-    &-content-btn{
+    
+    &-content-btn {
       float: right;
       margin-top: 16px;
     }
@@ -96,7 +95,7 @@
     margin-top: @noticeMarginTop;
     padding-top: @noticePadding;
     padding-bottom: @noticePadding;
-    max-height: 100px;
+    max-height: 150px;
     transition: all .3s ease-in-out;
   }
 

@@ -19,10 +19,10 @@ if(!Notification.notification){
   });
 }
 
-function openNotification() {
+var openNotification = function() {
   var args = {
-    title: '这是标题',
-    message: '这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案'
+    message: "这是标题",
+    description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案"
   }; 
   Notification.show(args);
 }
@@ -30,5 +30,6 @@ function openNotification() {
 React.render(
   <div>
     <button className='ant-btn ant-btn-primary' onClick={openNotification}>基本</button>
-  </div>, document.getElementById('components-notification-demo-basic'));
+  </div>,
+document.getElementById('components-notification-demo-basic'));
 ````

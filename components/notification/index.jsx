@@ -1,9 +1,9 @@
 import Notification from 'rc-notification';
 
-function close(key, callback) {
+function close(key, customCallback) {
   Notification.notification.removeNotice(key);
-  if (callback) {
-    callback();
+  if (customCallback) {
+    customCallback();
   }
 }
 
@@ -13,12 +13,12 @@ Notification.show = function (args) {
     Notification.notification.notice({
       content: <div>
         <i className={'anticon anticon-question-circle-o ' + prefixCls + 'icon'}></i>
-        <p className={prefixCls + 'title'}>{args.title}</p>
         <p className={prefixCls + 'message'}>{args.message}</p>
+        <p className={prefixCls + 'description'}>{args.description}</p>
       </div>,
       duration: null,
       closable: true,
-      onClose: args.callback,
+      onClose: args.defaultClose,
       style: {}
     });
   } else {
@@ -26,12 +26,12 @@ Notification.show = function (args) {
       let prefixCls = 'ant-notification-notice-content-';
       Notification.notification.notice({
         content: <div>
-          <p className={prefixCls + 'title'}>{args.title}</p>
           <p className={prefixCls + 'message'}>{args.message}</p>
+          <p className={prefixCls + 'description'}>{args.description}</p>
         </div>,
         duration: null,
         closable: true,
-        onClose: args.callback,
+        onClose: args.defaultClose,
         style: {}
       });
     } else {
@@ -39,14 +39,15 @@ Notification.show = function (args) {
       let key = 'manual' + new Date().getTime();
       Notification.notification.notice({
         content: <div>
-          <p className={prefixCls + 'title'}>{args.title}</p>
           <p className={prefixCls + 'message'}>{args.message}</p>
-          <button onClick={close.bind(null, key, args.callback)} className={'ant-btn ant-btn-primary ant-btn-sm ' + prefixCls + 'btn'}>立即操作
-          </button>
+          <p className={prefixCls + 'description'}>{args.description}</p>
+          <span onClick={close.bind(null, key, args.customClose)} className={prefixCls + 'btn'}>
+            {args.btn}
+          </span>
         </div>,
         duration: null,
         closable: true,
-        onClose: args.callback,
+        onClose: args.defaultClose,
         key: key,
         style: {}
       });
