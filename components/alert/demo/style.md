@@ -12,11 +12,11 @@ var Alert = require('antd/lib/alert');
 React.render(
   <div>
     <Alert
-      message="警告提示的文案"
+      message="成功提示的文案"
       type="success"
     />
     <Alert
-      message="警告提示的文案警告提示的文案"
+      message="消息提示的文案"
       type="info"
     />
     <Alert
@@ -24,7 +24,7 @@ React.render(
       type="warn"
     />
     <Alert
-      message="警告提示的文案警告提示的文案"
+      message="错误提示的文案"
       type="error"
     />
   </div>,

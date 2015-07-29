@@ -12,7 +12,7 @@ var Alert = require('antd/lib/alert');
 React.render(
   <div>
     <Alert
-      message="警告提示的文案"
+      message="成功提示的文案"
       type="success"
     />
   </div>,

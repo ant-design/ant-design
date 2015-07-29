@@ -13,7 +13,7 @@ var link = <a href="javascript:;">不再提醒</a>
 React.render(
   <div>
     <Alert
-      message="警告提示的文案"
+      message="消息提示的文案"
       type="info"
       closeText={link}
     />
