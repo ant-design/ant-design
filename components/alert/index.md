@@ -16,7 +16,7 @@
 | 参数        | 说明                                                      | 类型        | 默认值 |
 |----------- |---------------------------------------------------------  | ---------- |-------|
 | type       | 必选参数，指定警告提示的样式，有四种选择`success`、`info`、`warn`、`error`   | String     | 无    |
-| closable   | 可选参数，是否显示关闭按钮                                    | Boolean    | false |
+| closable   | 可选参数，值为字符串`true`时显示关闭按钮，默认不显示             | String     | 无   |
 | closeText  | 可选参数，自定义关闭                                         | String     | 无    |
 | message    | 必选参数，警告提示内容                                       | String     | 无    |
 | description | 可选参数，警告提示的辅助性文字介绍                            | String     | 无    |
