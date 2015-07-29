@@ -1,7 +1,7 @@
 @import "../mixins/index";
 
 @alertPrefixClass: ~"@{css-prefix}alert";
-@alertTitlePrefixClass: ~"@{css-prefix}alert-with-title";
+@alertTitlePrefixClass: ~"@{css-prefix}alert-with-message";
 
 .@{alertPrefixClass} {
   position: relative;
@@ -17,7 +17,7 @@
     font-size: @input-font-size-lg;
   }
 
-  &-message {
+  &-description {
     font-size: 12px;
     line-height: 16px;
   }
@@ -26,15 +26,15 @@
     border: 1px solid tint(@success-color, 50%);
     background-color: tint(@success-color, 90%);
     .anticon {
-      color: #87d068;
+      color: @success-color;
     }
     .anticon.ant-alert-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -44,15 +44,15 @@
     border: 1px solid tint(@primary-color, 50%);
     background-color: tint(@primary-color, 90%);
     .anticon {
-      color: #3fc7fa;
+      color: @primary-color;
     }
     .anticon.ant-alert-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -62,15 +62,15 @@
     border: 1px solid tint(@warning-color, 50%);
     background-color: tint(@warning-color, 90%);
     .anticon {
-      color: #fd9856;
+      color: @warning-color;
     }
     .anticon.ant-alert-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -80,15 +80,15 @@
     border: 1px solid tint(@error-color, 50%);
     background-color: tint(@error-color, 90%);
     .anticon {
-      color: #ff6600;
+      color: @error-color;
     }
     .anticon.ant-alert-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -96,24 +96,20 @@
 
   &-close-icon {
     .iconfont-size-under-12px(10px);
-    //color: @legend-color;
-    //color: red;
     cursor: pointer;
     float: right;
-
-    &:active{
-      color: shade(@primary-color, 5%);
-      color: red;
-    }
-    &:hover{
-      color: tint(@primary-color, 5%);
-      color: red;
-    }
   }
 
   &-close-text {
     cursor: pointer;
     float: right;
+    color: @legend-color;
+    &:active {
+      color: shade(@primary-color, 5%);
+    }
+    &:hover {
+      color: tint(@primary-color, 5%);
+    }
   }
 }
 
@@ -139,12 +135,12 @@
     .iconfont-size-under-12px(10px);
   }
 
-  &-title {
+  &-description {
     font-size: @input-font-size-lg;
     color: @text-color;
   }
 
-  &-message {
+  &-description {
     font-size: 12px;
     color: @legend-color;
   }
@@ -153,15 +149,15 @@
     border: 1px solid tint(@success-color, 50%);
     background-color: tint(@success-color, 90%);
     .anticon {
-      color: #87d068;
+      color: @success-color;
     }
-    .anticon.ant-alert-with-title-close-icon {
+    .anticon.ant-alert-with-message-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -171,15 +167,15 @@
     border: 1px solid tint(@primary-color, 50%);
     background-color: tint(@primary-color, 90%);
     .anticon {
-      color: #3fc7fa;
+      color: @primary-color;
     }
-    .anticon.ant-alert-with-title-close-icon {
+    .anticon.ant-alert-with-message-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -189,15 +185,15 @@
     border: 1px solid tint(@warning-color, 50%);
     background-color: tint(@warning-color, 90%);
     .anticon {
-      color: #fd9856;
+      color: @warning-color;
     }
-    .anticon.ant-alert-with-title-close-icon {
+    .anticon.ant-alert-with-message-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }
@@ -207,15 +203,15 @@
     border: 1px solid tint(@error-color, 50%);
     background-color: tint(@error-color, 90%);
     .anticon {
-      color: #ff6600;
+      color: @error-color;
     }
-    .anticon.ant-alert-with-title-close-icon {
+    .anticon.ant-alert-with-message-close-icon {
       color: @legend-color;
 
-      &:active{
+      &:active {
         color: shade(@primary-color, 5%);
       }
-      &:hover{
+      &:hover {
         color: tint(@primary-color, 5%);
       }
     }

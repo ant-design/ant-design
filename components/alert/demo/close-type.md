@@ -1,27 +1,21 @@
-# 关闭的样式
+# 自定义关闭的文字
 
 - order: 3
 
-关闭有`不再提醒`和Iconfont的`cross`两种样式，默认为后者，当警告提示含有标题时，关闭样式只能为默认值。
+可以自定义关闭的文字，自定义的文字会替换原先的关闭 `Icon`，当警告提示含有标题时，关闭样式只能为默认值。
 
 ---
 
 ````jsx
-
 var Alert = require('antd/lib/alert');
 
 React.render(
-<div>
-  <Alert
-  message="警告提示的文案"
-  alertType={"success"}
-  />
-  <Alert
-  message="警告提示的文案"
-  alertType={"info"}
-  alertClose={'text'}
-  />
-</div>,
+  <div>
+    <Alert
+      description="警告提示的文案"
+      type="info"
+      closeText="自定义关闭文字"
+    />
+  </div>,
 document.getElementById('components-alert-demo-close-type'));
-
 ````

@@ -7,28 +7,26 @@
 ---
 
 ````jsx
-
 var Alert = require('antd/lib/alert');
 
 React.render(
-<div>
-  <Alert
-  message={"警告提示的文案"}
-  alertType={"success"}
-  />
-  <Alert
-  message={"警告提示的文案警告提示的文案"}
-  alertType={"info"}
-  />
-  <Alert
-  message={"警告提示的文案"}
-  alertType={"warn"}
-  />
-  <Alert
-  message={"警告提示的文案警告提示的文案"}
-  alertType={"error"}
-  />
-</div>,
+  <div>
+    <Alert
+      description="警告提示的文案"
+      type="success"
+    />
+    <Alert
+      description="警告提示的文案警告提示的文案"
+      type="info"
+    />
+    <Alert
+      description="警告提示的文案"
+      type="warn"
+    />
+    <Alert
+      description="警告提示的文案警告提示的文案"
+      type="error"
+    />
+  </div>,
 document.getElementById('components-alert-demo-style'));
-
 ````

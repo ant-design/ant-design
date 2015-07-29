@@ -15,8 +15,8 @@
 
 | 参数        | 说明                                                      | 类型        | 默认值 |
 |----------- |---------------------------------------------------------  | ---------- |-------|
-| alertType  | 必选参数，指定警告提示的样式，目前有有四种选择`success`、`info`、`warn`、`error`   | String     | 无    |
-| alertClose | 可选参数，指定关闭的样式，目前有两种选择`text`、`icon`             | String     | icon  |
-| title      | 可选参数，指定标题                                           | String     | 无    |
-| message    | 必选参数，指定内容                                           | String     | 无    |
-| callback   | 可选参数，指定关闭时触发的回调函数                             | Function    | 无    |
+| type       | 必选参数，指定警告提示的样式，有四种选择`success`、`info`、`warn`、`error`   | String     | 无    |
+| closeText | 可选参数，关闭的文字                                       | String     | 无  |
+| message    | 可选参数，标题                                           | String     | 无    |
+| description | 必选参数，内容                                           | String     | 无    |
+| callback   | 可选参数，关闭时触发的回调函数                             | Function    | 无    |
