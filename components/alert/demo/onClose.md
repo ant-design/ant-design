@@ -1,8 +1,8 @@
 # 回调函数
 
-- order: 4
+- order: 5
 
-警告提示被关闭时触发的回调函数。
+警告提示被关闭时触发的回调函数，必须设置`closable="true"`。
 
 ---
 
@@ -16,14 +16,16 @@ var onClose = function(){
 React.render(
   <div>
     <Alert
-      description="警告提示的文案"
+      message="警告提示的文案"
       type="warn"
+      closable="true"
       onClose={onClose}
     />
     <Alert
       message="警告提示的标题"
       description="警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案"
       type="error"
+      closable="true"
       onClose={onClose}
     />
   </div>,

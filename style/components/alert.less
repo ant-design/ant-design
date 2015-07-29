@@ -1,7 +1,7 @@
 @import "../mixins/index";
 
 @alertPrefixClass: ~"@{css-prefix}alert";
-@alertTitlePrefixClass: ~"@{css-prefix}alert-with-message";
+@alertTitlePrefixClass: ~"@{css-prefix}alert-with-description";
 
 .@{alertPrefixClass} {
   position: relative;
@@ -23,7 +23,7 @@
   }
 
   &-success {
-    border: 1px solid tint(@success-color, 50%);
+    border: 1px solid tint(@success-color, 80%);
     background-color: tint(@success-color, 90%);
     .anticon {
       color: @success-color;
@@ -31,7 +31,7 @@
   }
 
   &-info {
-    border: 1px solid tint(@primary-color, 50%);
+    border: 1px solid tint(@primary-color, 80%);
     background-color: tint(@primary-color, 90%);
     .anticon {
       color: @primary-color;
@@ -39,7 +39,7 @@
   }
 
   &-warn {
-    border: 1px solid tint(@warning-color, 50%);
+    border: 1px solid tint(@warning-color, 80%);
     background-color: tint(@warning-color, 90%);
     .anticon {
       color: @warning-color;
@@ -47,14 +47,14 @@
   }
 
   &-error {
-    border: 1px solid tint(@error-color, 50%);
+    border: 1px solid tint(@error-color, 80%);
     background-color: tint(@error-color, 90%);
     .anticon {
       color: @error-color;
     }
   }
 
-  &-close-icon {
+  &-close-icon, &-with-description-close-icon {
     .iconfont-size-under-12px(10px);
     position: absolute;
     right: 8px;
@@ -83,104 +83,73 @@
   }
 
   &-close-text {
-    float: right;
-  }
-}
-
-.@{alertTitlePrefixClass} {
-  padding: 16px 16px 16px 69px;
-  position: relative;
-  border-radius: @border-radius-base;
-  margin-bottom: 10px;
-  color: @text-color;
-
-  &-icon {
     position: absolute;
-    top: 50%;
-    left: 24px;
-    margin-top: -22px;
-    font-size: 29px;
-  }
-
-  &-close-icon {
-    position: absolute;
-    top: 12px;
     right: 16px;
-    cursor: pointer;
-    .iconfont-size-under-12px(10px);
   }
 
-  &-message {
-    font-size: 14px;
+  &-with-description {
+    padding: 16px 16px 16px 69px;
+    position: relative;
+    border-radius: @border-radius-base;
+    margin-bottom: 10px;
     color: @text-color;
-  }
 
-  &-description {
-    font-size: 12px;
-    color: @legend-color;
-  }
-
-  &-success {
-    border: 1px solid tint(@success-color, 50%);
-    background-color: tint(@success-color, 90%);
-    .anticon {
-      color: @success-color;
-    }
-  }
-
-  &-info {
-    border: 1px solid tint(@primary-color, 50%);
-    background-color: tint(@primary-color, 90%);
-    .anticon {
-      color: @primary-color;
-    }
-  }
-
-  &-warn {
-    border: 1px solid tint(@warning-color, 50%);
-    background-color: tint(@warning-color, 90%);
-    .anticon {
-      color: @warning-color;
-    }
-  }
-
-  &-error {
-    border: 1px solid tint(@error-color, 50%);
-    background-color: tint(@error-color, 90%);
-    .anticon {
-      color: @error-color;
-    }
-  }
-
-  &-close-icon {
-    .iconfont-size-under-12px(10px);
-    float: right;
-    color: #999;
-    transition: color .3s ease;
-    width: 12px;
-    height: 12px;
-    overflow: hidden;
-    position: absolute;
-    right: 16px;
-    top: 12px;
-
-    &-x {
+    &-icon {
       position: absolute;
-      top: -4px;
-      &:before {
-        font-weight: 700;
-        text-shadow: 0 1px 0 #fff;
-        content: "\e61e";
-        font-family: "anticon";
+      top: 50%;
+      left: 24px;
+      margin-top: -22px;
+      font-size: 29px;
+    }
+
+    &-close-icon {
+      position: absolute;
+      top: 17px;
+      right: 16px;
+      cursor: pointer;
+      .iconfont-size-under-12px(10px);
+    }
+
+    &-message {
+      font-size: 14px;
+      color: @text-color;
+    }
+
+    &-description {
+      font-size: 12px;
+      color: @legend-color;
+    }
+
+    &-success {
+      border: 1px solid tint(@success-color, 80%);
+      background-color: tint(@success-color, 90%);
+      .anticon {
+        color: @success-color;
       }
     }
 
-    &:hover {
-      color: #444;
+    &-info {
+      border: 1px solid tint(@primary-color, 80%);
+      background-color: tint(@primary-color, 90%);
+      .anticon {
+        color: @primary-color;
+      }
     }
-  }
 
-  &-close-text {
-    float: right;
+    &-warn {
+      border: 1px solid tint(@warning-color, 80%);
+      background-color: tint(@warning-color, 90%);
+      .anticon {
+        color: @warning-color;
+      }
+    }
+
+    &-error {
+      border: 1px solid tint(@error-color, 80%);
+      background-color: tint(@error-color, 90%);
+      .anticon {
+        color: @error-color;
+      }
+    }
   }
 }
