@@ -8,8 +8,8 @@ export default React.createClass({
     return {display: 'block'};
   },
   handleClose () {
-    if (this.props.callback) {
-      this.props.callback();
+    if (this.props.onClose) {
+      this.props.onClose();
     }
     this.setState({
       display: 'none'
@@ -37,7 +37,9 @@ export default React.createClass({
           <i className={'anticon ' + iconClass}></i>
           <p className={'ant-alert-with-message-message'}>{this.props.message}</p>
           <span className={'ant-alert-with-message-description'}>{this.props.description}</span>
-          <i onClick={this.handleClose} className={'anticon anticon-cross ant-alert-with-message-close-icon'}></i>
+          <a onClick={this.handleClose} className={'ant-alert-with-message-close-icon'}>
+            <span className='ant-alert-with-message-close-icon-x'></span>
+          </a>
         </div>
       );
     } else {
@@ -46,7 +48,7 @@ export default React.createClass({
           <div style={{display: this.state.display}} className={'ant-alert ant-alert-' + this.props.type}>
             <i className={'anticon ' + iconClass}></i>
             <span className={'ant-alert-description'}>{this.props.description}</span>
-            <a onClick={this.handleClose} className={'ant-alert-close-text'}>{this.props.closeText}</a>
+            <span onClick={this.handleClose} className={'ant-alert-close-text'}>{this.props.closeText}</span>
           </div>
         );
       } else {
@@ -54,7 +56,9 @@ export default React.createClass({
           <div style={{display: this.state.display}} className={'ant-alert ant-alert-' + this.props.type}>
             <i className={'anticon ' + iconClass}></i>
             <span className={'ant-alert-description'}>{this.props.description}</span>
-            <i onClick={this.handleClose} className={'anticon anticon-cross ant-alert-close-icon'}></i>
+            <a onClick={this.handleClose} className={'ant-alert-close-icon'}>
+              <span className='ant-alert-close-icon-x'></span>
+            </a>
           </div>
         );
       }

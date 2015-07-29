@@ -28,16 +28,6 @@
     .anticon {
       color: @success-color;
     }
-    .anticon.ant-alert-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
-    }
   }
 
   &-info {
@@ -45,16 +35,6 @@
     background-color: tint(@primary-color, 90%);
     .anticon {
       color: @primary-color;
-    }
-    .anticon.ant-alert-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
     }
   }
 
@@ -64,16 +44,6 @@
     .anticon {
       color: @warning-color;
     }
-    .anticon.ant-alert-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
-    }
   }
 
   &-error {
@@ -82,34 +52,41 @@
     .anticon {
       color: @error-color;
     }
-    .anticon.ant-alert-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
-    }
   }
 
   &-close-icon {
     .iconfont-size-under-12px(10px);
-    cursor: pointer;
-    float: right;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    margin-top: -6px;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    transition: opacity .3s ease;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+
+    &-x {
+      position: absolute;
+      top: -3px;
+      &:before {
+        font-weight: 700;
+        text-shadow: 0 1px 0 #fff;
+        color: #000;
+        content: "\e61e";
+        font-family: "anticon";
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
   }
 
   &-close-text {
-    cursor: pointer;
     float: right;
-    color: @legend-color;
-    &:active {
-      color: shade(@primary-color, 5%);
-    }
-    &:hover {
-      color: tint(@primary-color, 5%);
-    }
   }
 }
 
@@ -151,16 +128,6 @@
     .anticon {
       color: @success-color;
     }
-    .anticon.ant-alert-with-message-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
-    }
   }
 
   &-info {
@@ -168,16 +135,6 @@
     background-color: tint(@primary-color, 90%);
     .anticon {
       color: @primary-color;
-    }
-    .anticon.ant-alert-with-message-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
     }
   }
 
@@ -187,16 +144,6 @@
     .anticon {
       color: @warning-color;
     }
-    .anticon.ant-alert-with-message-close-icon {
-      color: @legend-color;
-
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
-      }
-    }
   }
 
   &-error {
@@ -205,15 +152,40 @@
     .anticon {
       color: @error-color;
     }
-    .anticon.ant-alert-with-message-close-icon {
-      color: @legend-color;
+  }
 
-      &:active {
-        color: shade(@primary-color, 5%);
-      }
-      &:hover {
-        color: tint(@primary-color, 5%);
+  &-close-icon {
+    .iconfont-size-under-12px(10px);
+    float: right;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    transition: opacity .3s ease;
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    position: absolute;
+    right: 16px;
+    top: 12px;
+
+    &-x {
+      position: absolute;
+      top: -4px;
+      &:before {
+        font-weight: 700;
+        text-shadow: 0 1px 0 #fff;
+        color: #000;
+        content: "\e61e";
+        font-family: "anticon";
       }
     }
+
+    &:hover {
+      opacity: 1;
+      filter: alpha(opacity=100);
+    }
+  }
+
+  &-close-text {
+    float: right;
   }
 }

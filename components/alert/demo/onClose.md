@@ -9,7 +9,7 @@
 ````jsx
 var Alert = require('antd/lib/alert');
 
-var callback = function(){
+var onClose = function(){
   console.log('我要被关闭啦！');
 }
 
@@ -18,14 +18,14 @@ React.render(
     <Alert
       description="警告提示的文案"
       type="warn"
-      callback={callback}
+      onClose={onClose}
     />
     <Alert
       message="警告提示的标题"
       description="警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案"
       type="error"
-      callback={callback}
+      onClose={onClose}
     />
   </div>,
-document.getElementById('components-alert-demo-callback'));
+document.getElementById('components-alert-demo-onclose'));
 ````
