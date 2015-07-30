@@ -1,37 +1,44 @@
 import React from 'react';
 import Menu from 'rc-menu';
 
-export default React.createClass({
+var FilterMenu = React.createClass({
   getInitialState() {
     return {
-      selectedFilters: []
+      selectedFilters: this.props.selectedFilters
     };
+  },
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      selectedFilters: nextProps.selectedFilters
+    });
   },
   getDefaultProps() {
     return {
-      handleFilter: function() {},
+      handleFilter: function () {
+      },
       column: null
     };
   },
-  handleSelectFilter: function(selected) {
-    this.state.selectedFilters.push(selected);
+  handleSelectFilter: function (selected) {
     this.setState({
-      selectedFilters: this.state.selectedFilters
+      selectedFilters: this.state.selectedFilters.concat(selected)
     });
   },
-  handleDeselectFilter: function(key) {
+  handleDeselectFilter: function (key) {
     var index = this.state.selectedFilters.indexOf(key);
     if (index !== -1) {
-      this.state.selectedFilters.splice(index, 1);
+      this.setState({
+        selectedFilters: this.state.selectedFilters.concat().splice(index, 1)
+      });
     }
-    this.setState({
-      selectedFilters: this.state.selectedFilters
-    });
   },
   handleClearFilters() {
     this.setState({
       selectedFilters: []
     });
+  },
+  handleConfirm(){
+    this.props.confirmFilter(this.props.column, this.state.selectedFilters);
   },
   renderMenus(items) {
     let menuItems = items.map((item) => {
@@ -41,33 +48,34 @@ export default React.createClass({
   },
   render() {
     let column = this.props.column;
-    column.selectedFilters = this.state.selectedFilters;
     return <Menu multiple={true}
-      prefixCls="ant-dropdown-menu"
-      className="ant-table-filter-dropdown"
-      onSelect={this.handleSelectFilter}
-      onDeselect={this.handleDeselectFilter}
-      selectedKeys={column.selectedFilters}>
+                 prefixCls="ant-dropdown-menu"
+                 className="ant-table-filter-dropdown"
+                 onSelect={this.handleSelectFilter}
+                 onDeselect={this.handleDeselectFilter}
+                 selectedKeys={this.state.selectedFilters}>
       {this.renderMenus(column.filters)}
       <Menu.Divider />
       <Menu.Item disabled>
         <a className="ant-table-filter-dropdown-link confirm"
-          style={{
+           style={{
             cursor: 'pointer',
             pointerEvents: 'visible'
           }}
-          onClick={this.props.confirmFilter}>
+           onClick={this.handleConfirm}>
           确定
         </a>
         <a className="ant-table-filter-dropdown-link clear"
-          style={{
+           style={{
             cursor: 'pointer',
             pointerEvents: 'visible'
           }}
-          onClick={this.handleClearFilters}>
+           onClick={this.handleClearFilters}>
           清空
         </a>
       </Menu.Item>
     </Menu>;
   }
 });
+
+export default FilterMenu;
