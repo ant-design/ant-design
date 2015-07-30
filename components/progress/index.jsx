@@ -81,7 +81,6 @@ var Circle = React.createClass({
       'width': props.width,
       'height': props.width,
       'fontSize': props.width * 0.16 + 6
-
     };
     var progressInfo;
     if (props.status === 'exception') {
