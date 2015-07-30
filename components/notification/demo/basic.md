@@ -7,29 +7,17 @@
 ---
 
 ````jsx
-var Notification = require('antd/lib/notification');
-
-if(!Notification.notification){
-  Notification.notification = Notification.newInstance({
-    prefixCls: 'ant-notification',
-    style: {
-      top: 0,
-      right: 0
-    }
-  });
-}
+var notification = require('antd/lib/notification');
 
 var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案"
-  }; 
-  Notification.show(args);
-}
+  };
+  notification.show(args);
+};
 
 React.render(
-  <div>
-    <button className='ant-btn ant-btn-primary' onClick={openNotification}>基本</button>
-  </div>,
-document.getElementById('components-notification-demo-basic'));
+  <button className='ant-btn ant-btn-primary' onClick={openNotification}>基本</button>
+, document.getElementById('components-notification-demo-basic'));
 ````

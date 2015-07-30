@@ -1,13 +1,16 @@
 import Notification from 'rc-notification';
 
-function close(key, customCallback) {
-  Notification.notification.removeNotice(key);
-  if (customCallback) {
-    customCallback();
-  }
-}
-
 Notification.show = function (args) {
+  if (!Notification.notification) {
+    Notification.notification = Notification.newInstance({
+      prefixCls: 'ant-notification',
+      style: {
+        top: 0,
+        right: 0
+      }
+    });
+  }
+
   if (args.icon) {
     let prefixCls = 'ant-notification-notice-content-icon-';
     Notification.notification.notice({
@@ -18,7 +21,7 @@ Notification.show = function (args) {
       </div>,
       duration: null,
       closable: true,
-      onClose: args.defaultClose,
+      onClose: args.onClose,
       style: {}
     });
   } else {
@@ -26,12 +29,12 @@ Notification.show = function (args) {
       let prefixCls = 'ant-notification-notice-content-';
       Notification.notification.notice({
         content: <div>
-          <p className={prefixCls + 'message'}>{args.message}</p>
-          <p className={prefixCls + 'description'}>{args.description}</p>
-        </div>,
+            <p className={prefixCls + 'message'}>{args.message}</p>
+            <p className={prefixCls + 'description'}>{args.description}</p>
+          </div>,
         duration: null,
         closable: true,
-        onClose: args.defaultClose,
+        onClose: args.onClose,
         style: {}
       });
     } else {
@@ -41,13 +44,13 @@ Notification.show = function (args) {
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
           <p className={prefixCls + 'description'}>{args.description}</p>
-          <span onClick={close.bind(null, key, args.customClose)} className={prefixCls + 'btn'}>
+          <span onClick={args.customClose ? args.customClose.bind(null, key) : Notification.notification.removeNotice.bind(null, key)} className={prefixCls + 'btn'}>
             {args.btn}
           </span>
         </div>,
         duration: null,
         closable: true,
-        onClose: args.defaultClose,
+        onClose: args.onClose,
         key: key,
         style: {}
       });
