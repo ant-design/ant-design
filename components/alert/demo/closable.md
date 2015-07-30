@@ -9,14 +9,23 @@
 ````jsx
 var Alert = require('antd/lib/alert');
 
+var onClose = function(e) {
+  console.log(e, '我要被关闭啦！');
+};
+
 React.render(
   <div>
-    <Alert
-      message="成功提示的文案"
+    <Alert message="成功提示的文案"
       type="success"
-      closable="true"
+      closable
+      onClose={onClose}
     />
-  </div>,
-document.getElementById('components-alert-demo-closable'));
+    <Alert message="错误提示的文案"
+      description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
+      type="error"
+      closable
+      onClose={onClose}
+    />
+  </div>
+, document.getElementById('components-alert-demo-closable'));
 ````
-

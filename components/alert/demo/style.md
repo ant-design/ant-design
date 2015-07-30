@@ -27,6 +27,6 @@ React.render(
       message="错误提示的文案"
       type="error"
     />
-  </div>,
-document.getElementById('components-alert-demo-style'));
+  </div>
+, document.getElementById('components-alert-demo-style'));
 ````

@@ -31,6 +31,6 @@ React.render(
       description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
       type="error"
     />
-  </div>,
-document.getElementById('components-alert-demo-description'));
+  </div>
+, document.getElementById('components-alert-demo-description'));
 ````

@@ -10,11 +10,9 @@
 var Alert = require('antd/lib/alert');
 
 React.render(
-  <div>
-    <Alert
-      message="成功提示的文案"
-      type="success"
-    />
-  </div>,
-document.getElementById('components-alert-demo-basic'));
+  <Alert
+    message="成功提示的文案"
+    type="success"
+  />
+, document.getElementById('components-alert-demo-basic'));
 ````
