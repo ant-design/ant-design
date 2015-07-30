@@ -18,8 +18,8 @@ React.render(<div>
     type="warn"
     closable
     onClose={onClose} />
-  <Alert message="警告提示的标题"
-    description="警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案警告提示的文案"
+  <Alert message="错误提示的文案"
+    description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
     type="error"
     closable
     onClose={onClose} />
