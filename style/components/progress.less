@@ -27,7 +27,7 @@
   &-line-bg {
     border-radius: 100px;
     background-color: @primary-color;
-    transition: width 0.6s ease 0s, stroke 0.6s ease;
+    transition: all 0.6s linear 0s;
   }
   &-line-text {
     position: absolute;
@@ -53,7 +53,6 @@
       bottom: 0px;
       background: #fff;
       border-radius: 10px;
-      -webkit-animation: progress-active 2s ease infinite;
       animation: progress-active 2s ease infinite;
     }
   }
