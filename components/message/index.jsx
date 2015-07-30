@@ -2,12 +2,15 @@ import React from 'react';
 import Notification from 'rc-notification';
 
 let defaultDuration = 1.5;
+let top;
 
 function getMessageInstance() {
   return Notification.newInstance({
     prefixCls: 'ant-message',
     transitionName: 'move-up',
-    style: {}  // 覆盖原来的样式
+    style: {
+      top: top
+    }  // 覆盖原来的样式
   });
 }
 
@@ -37,5 +40,10 @@ export default {
   },
   error(content, duration) {
     notice(content, duration, 'error');
+  },
+  config(options) {
+    if (options.top) {
+      top = options.top;
+    }
   }
 };
