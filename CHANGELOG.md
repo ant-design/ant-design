@@ -1,3 +1,8 @@
+## 0.7.3 (2015-07-30)
+
+* 小幅重构了 Table 分页，修复了分页导致的数据不展示的问题。
+* 更新了部分文档。
+
 ## 0.7.2 (2015-07-27)
 
 * 修复本地模式下 pagination 为 false 时数据无法显示的 [问题](https://github.com/ant-design/ant-design/commit/1954586665e59031eae5d2c8b2cdb08f83d64fcb)。
