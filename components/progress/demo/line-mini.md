@@ -8,12 +8,9 @@
 
 ````jsx
 var Progress = antd.Progress.Line;
-var style = {
-  width: "170px"
-}
 
 React.render(
-  <div style={style}>
+  <div style={{ width: 170 }}>
     <Progress percent="30" strokeWidth="5" />
     <Progress percent="50" strokeWidth="5" status="active" />
     <Progress percent="70" strokeWidth="5" status="exception" />
