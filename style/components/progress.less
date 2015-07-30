@@ -1,7 +1,4 @@
 @prefixProgressClass: ant-progress;
-@statusNormal: #3FC7FA;
-@statusException: #FE8C6A;
-@statusSuccess: #85D262;
 
 .@{prefixProgressClass} {
   &-line-wrap,
@@ -92,26 +89,16 @@
   }
   &-circle-wrap.status-exception {
     .@{prefixProgressClass}-circle-text {
-      color: @statusException;
+      color: @error-color;
     }
   }
   &-circle-wrap.status-success {
     .@{prefixProgressClass}-circle-text {
-      color: @statusSuccess;
+      color: @success-color;
     }
   }
 }
 
-@-webkit-keyframes progress-active {
-  0% {
-    opacity: .3;
-    width: 0;
-  }
-  100% {
-    opacity: 0;
-    width: 100%;
-  }
-}
 @keyframes progress-active {
   0% {
     opacity: .3;

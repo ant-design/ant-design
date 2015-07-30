@@ -5,9 +5,9 @@ import assign from 'object-assign';
 const prefixCls = 'ant-progress';
 
 const statusColorMap = {
-  'normal': '#3FC7FA',
-  'exception': '#FE8C6A',
-  'success': '#85D262'
+  'normal': '#2db7f5',
+  'exception': '#ff6600',
+  'success': '#87d068'
 };
 
 var Line = React.createClass({
