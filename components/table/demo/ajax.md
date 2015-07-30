@@ -48,7 +48,7 @@ var dataSource = {
   // 和后台接口接收的参数进行适配
   // 参数里提供了分页、筛选、排序的信息
   getParams: function(pagination, filters, sorter) {
-    console.log(pagination, filters, sorter);
+    console.log('getParams 的参数是：', pagination, filters, sorter);
     var params = {
       pageSize: pagination.pageSize,
       currentPage: pagination.current,

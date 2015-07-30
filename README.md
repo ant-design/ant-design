@@ -4,7 +4,11 @@
 
 设计文档和组件实现均在紧密整理和开发中，部分页面可能不完善，预计 8 月份释出正式版本。
 
-![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
+<p align="center">
+  <a href="http://ant.design">
+    <img width="360" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+  </a>
+</p>
 
 ## 特性
 
@@ -47,6 +51,7 @@ React.render(<Datepicker />, mountNode);
 #### 本地调试
 
 ```bash
+$ npm install
 $ npm start
 ```
 

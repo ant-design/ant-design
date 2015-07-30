@@ -24,6 +24,6 @@
 | pageSize        | 每页条数                           | Number   | 10             |
 | onChange        | 页码改变的回调，参数是改变后的页码 | Function | noop           |
 | showSizeChanger | 是否可以改变 pageSize              | Bool     | false          |
-| showQuickJump   | 是否可以快速跳转至某页             | Bool     | false          |
+| showQuickJumper | 是否可以快速跳转至某页             | Bool     | false          |
 | className       | 当为「mini」时，是小尺寸分页       | String   | ant-pagination |
 | simple          | 当添加该属性时，显示为简单分页     | Object   | 无             |
