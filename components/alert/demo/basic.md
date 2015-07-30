@@ -9,6 +9,10 @@
 ````jsx
 var Alert = require('antd/lib/alert');
 
-React.render(<Alert message="警告提示的文案" type="success" />
+React.render(
+  <Alert
+    message="成功提示的文案"
+    type="success"
+  />
 , document.getElementById('components-alert-demo-basic'));
 ````
