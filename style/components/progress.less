@@ -25,7 +25,7 @@
   }
   &-line-bg {
     border-radius: 100px;
-    background-color: @statusNormal;
+    background-color: @primary-color;
   }
   &-line-text {
     position: absolute;
@@ -40,23 +40,37 @@
       font-size: 12px;
     }
   }
+  &-line-wrap.status-active {
+    .@{prefixProgressClass}-line-bg:before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      background: #fff;
+      border-radius: 10px;
+      -webkit-animation: progress-active 2s ease infinite;
+      animation: progress-active 2s ease infinite;
+    }
+  }
   &-line-wrap.status-exception {
     .@{prefixProgressClass}-line-bg {
-      background-color: @statusException;
+      background-color: @error-color;
     }
     .@{prefixProgressClass}-line-text {
-      color: @statusException;
+      color: @error-color;
     }
   }
   &-line-wrap.status-success {
     .@{prefixProgressClass}-line-bg {
-      background-color: @statusSuccess;
+      background-color: @success-color;
     }
     .@{prefixProgressClass}-line-text {
-      color: @statusSuccess;
+      color: @success-color;
     }
   }
-
 
   &-circle-inner {
     position: relative;
@@ -85,5 +99,26 @@
     .@{prefixProgressClass}-circle-text {
       color: @statusSuccess;
     }
+  }
+}
+
+@-webkit-keyframes progress-active {
+  0% {
+    opacity: .3;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}
+@keyframes progress-active {
+  0% {
+    opacity: .3;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
   }
 }
