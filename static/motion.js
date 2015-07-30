@@ -647,7 +647,7 @@ $(function (){
                 var video=self.videoBox.eq(i).find("video");
                 video.css({"width":"100%"});
                 video.append(svg);
-                svg.css({"position":"absolute","top":0});
+                svg.css({"position":"absolute","top":0,"left":0});
                 var playBox=_playBox(svg);
                 svg.addChild(playBox);
                 playBox.addEventListener("click",function (e){

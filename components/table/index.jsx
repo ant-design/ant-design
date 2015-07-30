@@ -329,12 +329,17 @@ export default React.createClass({
         });
       }
       // 分页
-      data = data.filter(function(item, i) {
-        if (i >= (current - 1) * pageSize &&
-            i < current * pageSize) {
-          return item;
-        }
-      });
+      // ---
+      // 当数据量少于每页数量时，直接设置数据
+      // 否则进行读取分页数据
+      if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
+        data = data.filter(function(item, i) {
+          if (i >= (current - 1) * pageSize &&
+              i < current * pageSize) {
+            return item;
+          }
+        });
+      }
       // 完成数据
       this.setState({
         data: data
