@@ -124,38 +124,40 @@ export default React.createClass({
       filters: filters
     });
   },
-  handleSelect(rowIndex, e) {
+  handleSelect(record, rowIndex, e) {
     let checked = e.target.checked;
     var selectedRowKeys = this.state.selectedRowKeys.concat();
+    var key = this.getRecordKey(record, rowIndex);
     if (checked) {
-      selectedRowKeys.push(rowIndex);
+      selectedRowKeys.push(this.getRecordKey(record, rowIndex));
     } else {
       selectedRowKeys = selectedRowKeys.filter((i) => {
-        return rowIndex !== i;
+        return key !== i;
       });
     }
     this.setState({
       selectedRowKeys: selectedRowKeys
     });
     if (this.props.rowSelection.onSelect) {
-      let currentRow = this.state.data[rowIndex - 1];
-      let selectedRows = this.state.data.filter((row, i) => {
-        return this.state.selectedRowKeys.indexOf(i + 1) >= 0;
+      var data = this.getCurrentPageData();
+      let selectedRows = data.filter((row, i) => {
+        return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
-      this.props.rowSelection.onSelect(currentRow, checked, selectedRows);
+      this.props.rowSelection.onSelect(record, checked, selectedRows);
     }
   },
   handleSelectAllRow(e) {
     let checked = e.target.checked;
-    let selectedRowKeys = checked ? this.state.data.map((item, i) => {
-      return i + 1;
+    var data = this.getCurrentPageData();
+    let selectedRowKeys = checked ? data.map((item, i) => {
+      return this.getRecordKey(item, i);
     }) : [];
     this.setState({
       selectedRowKeys: selectedRowKeys
     });
     if (this.props.rowSelection.onSelectAll) {
-      let selectedRows = this.state.data.filter((row, i) => {
-        return selectedRowKeys.indexOf(i + 1) >= 0;
+      let selectedRows = data.filter((row, i) => {
+        return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
       this.props.rowSelection.onSelectAll(checked, selectedRows);
     }
@@ -174,16 +176,26 @@ export default React.createClass({
     });
   },
   renderSelectionCheckBox(value, record, index) {
-    let rowIndex = index + 1; // 从 1 开始
+    let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
-    return <Checkbox checked={checked} onChange={this.handleSelect.bind(this, rowIndex)}/>;
+    return <Checkbox checked={checked} onChange={this.handleSelect.bind(this, record, rowIndex)}/>;
+  },
+  getRecordKey(record, index){
+    return record.key || index;
   },
   renderRowSelection() {
     var columns = this.props.columns.concat();
     if (this.props.rowSelection) {
-      let checked = this.state.data.every((item, i) => {
-        return this.state.selectedRowKeys.indexOf(i + 1) >= 0;
-      }, this);
+      var data = this.getCurrentPageData();
+      let checked;
+      if (!data.length) {
+        checked = false;
+      } else {
+        checked = data.every((item, i) => {
+          var key = this.getRecordKey(item, i);
+          return this.state.selectedRowKeys.indexOf(key) >= 0;
+        });
+      }
       let checkboxAll = <Checkbox checked={checked} onChange={this.handleSelectAllRow}/>;
       let selectionColumn = {
         key: 'selection-column',
@@ -200,6 +212,10 @@ export default React.createClass({
       }
     }
     return columns;
+  },
+
+  getCurrentPageData(){
+    return this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
   },
 
   getColumnKey(column){
@@ -396,7 +412,7 @@ export default React.createClass({
   },
 
   render() {
-    var data = this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
+    var data = this.getCurrentPageData();
     var columns = this.renderRowSelection();
     var classString = '';
     if (this.state.loading && this.isLocalDataSource()) {
