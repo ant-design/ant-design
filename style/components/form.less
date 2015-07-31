@@ -295,6 +295,7 @@ form {
     color: @warning-color;
   }
 
+  // ant-select
   .@{selectPrefixCls} {
     &-selection {
       border-color: @warning-color;
@@ -303,6 +304,11 @@ form {
     &-arrow {
       color: @warning-color;
     }
+  }
+
+  // ant-datepicker
+  .@{prefixCalendarClass}-picker-icon:after {
+    color: @warning-color;
   }
 }
 
@@ -313,7 +319,8 @@ form {
     content: '\e628';
     color: @error-color;
   }
-
+  
+  // ant-select
   .@{selectPrefixCls} {
     &-selection {
       border-color: @error-color;
@@ -323,6 +330,11 @@ form {
     &-arrow {
       color: @error-color;
     }
+  }
+
+  // ant-datepicker
+  .@{prefixCalendarClass}-picker-icon:after {
+    color: @error-color;
   }
 }
 
