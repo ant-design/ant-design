@@ -408,6 +408,9 @@ export default React.createClass({
       Object.keys(state.filters).forEach((columnKey) => {
         let col = this.findColumn(columnKey);
         let values = state.filters[columnKey] || [];
+        if (values.length === 0) {
+          return;
+        }
         data = data.filter((record) => {
           return values.some((v)=> {
             return col.onFilter(v, record);
