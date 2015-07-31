@@ -1,7 +1,7 @@
 # 组件动画
 
 - category: 动画
-- order: 0
+- order: 2
 
 ---
 
@@ -206,7 +206,7 @@ var Test = React.createClass({
     }));
     return <div>
       <div className="motion-container">
-        <div ref="demo" className="motion-example">栗子</div>
+        <div ref="demo" className="motion-example"></div>
       </div>
       <div className="motion-select">
         <select onChange={this.handleChange}>{options}</select>
@@ -220,22 +220,22 @@ React.render(<Test/>, document.getElementById('components-motion-demo-basic'));
 
 <style>
 .motion-container {
-  height: 150px;
-  line-height: 150px;
+  height: 190px;
+  line-height: 190px;
   text-align: center;
   margin-bottom: 20px;
 }
 .motion-example {
-  background: #4AAFDE;
-  width: 140px;
-  height: 140px;
-  line-height: 140px;
+  width: 180px;
+  height: 180px;
+  line-height: 180px;
   font-size: 18px;
   color: #fff;
   text-align: center;
   display: inline-block !important;
   border-radius: 8px;
   font-weight: bold;
+  background: url(https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg) center/230px;
 }
 .motion-select {
   text-align: center;
