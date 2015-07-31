@@ -20,7 +20,7 @@
 
 一级子元素依次进场。
 
-```jsx
+```html
 <EnterAnimation>
   <div>依次进场</div>
   <div>依次进场</div>
@@ -31,7 +31,7 @@
 
 如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
 
-```jsx
+```html
 <EnterAnimation type="left" delay={2}>
   <div>
     <div enter-data>
@@ -40,7 +40,6 @@
   </div>
   <div enter-data>依次进场</div>
   <div enter-data={{type: 'bottom'}}>依次进场，并修改动画效果</div>
-  <div enter-data={{style: 'margin-top:100px'}}>依次进场，并使用样式修改动画效果</div>
   <div>没有动画</div>
 </EnterAnimation>
 ```

@@ -19,6 +19,7 @@ var antd = {
   Switch: require('./components/switch'),
   Checkbox: require('./components/checkbox'),
   Table: require('./components/table'),
+  Tag: require('./components/tag'),
   Collapse: require('./components/collapse'),
   message: require('./components/message'),
   Slider: require('./components/slider'),

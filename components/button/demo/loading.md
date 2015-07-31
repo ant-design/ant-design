@@ -21,9 +21,6 @@ var App = React.createClass({
   render() {
     var loadingClass = this.state.loading ? 'ant-btn-loading' : '';
     return <div>
-      <button className="ant-btn ant-btn-primary ant-btn-circle">
-        <i className="anticon anticon-loading"></i>
-      </button>
       <button className="ant-btn ant-btn-primary ant-btn-lg ant-btn-loading">
         加载中
       </button>
