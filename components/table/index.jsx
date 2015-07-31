@@ -235,7 +235,6 @@ export default React.createClass({
 
   renderColumnsDropdown(columns) {
     return columns.map((column) => {
-      column = objectAssign({}, column);
       let key = this.getColumnKey(column);
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
@@ -270,9 +269,11 @@ export default React.createClass({
           </span>
         </div>;
       }
-      let originalTitle = column.title;
+      if (!column.originalTitle) {
+        column.originalTitle = column.title;
+      }
       column.title = [
-        originalTitle,
+        column.originalTitle,
         sortButton,
         filterDropdown
       ];
