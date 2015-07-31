@@ -20,14 +20,17 @@ export default React.createClass({
     var state = {
       // 减少状态
       selectedRowKeys: [],
+      // only for remote
+      data: [],
       filters: {},
       loading: !this.isLocalDataSource(),
       sortColumn: '',
       sortOrder: '',
       sorter: null,
-      pagination: this.hasPagination() ? this.getLocalPagination() : {}
+      pagination: this.hasPagination() ? objectAssign({
+        pageSize: 10
+      }, this.props.pagination) : {}
     };
-    state.data = this.isLocalDataSource() ? this.getLocalData(state) : [];
     return state;
   },
 
@@ -41,9 +44,15 @@ export default React.createClass({
   },
 
   componentWillReceiveProps(nextProps){
+    if (('pagination' in nextProps) && nextProps.pagination !== false) {
+      this.setState({
+        pagination: objectAssign({}, this.state.pagination, nextProps.pagination)
+      });
+    }
     if (!this.isLocalDataSource()) {
       if (!equals(nextProps, this.props)) {
         this.setState({
+          selectedRowKeys: [],
           loading: true
         }, this.fetch);
       }
@@ -54,8 +63,11 @@ export default React.createClass({
       });
     }
   },
-  hasPagination(){
-    return this.props.pagination !== false;
+  hasPagination(pagination){
+    if (pagination === undefined) {
+      pagination = this.props.pagination;
+    }
+    return pagination !== false;
   },
   isLocalDataSource(){
     return Array.isArray(this.props.dataSource);
@@ -66,12 +78,6 @@ export default React.createClass({
       getParams: noop,
       getPagination: noop
     }, this.props.dataSource);
-  },
-  getLocalPagination(){
-    return objectAssign({
-      pageSize: 10,
-      total: this.props.dataSource.length
-    }, this.props.pagination);
   },
   toggleSortOrder(order, column) {
     let sortColumn = this.state.sortColumn;
@@ -255,8 +261,14 @@ export default React.createClass({
     if (this.props.size === 'small') {
       classString += ' mini';
     }
+    var total;
+    if (this.isLocalDataSource()) {
+      total = this.getLocalData().length;
+    }
     return <Pagination className={classString}
                        onChange={this.handlePageChange}
+                       total={total}
+                       pageSize={10}
       {...this.state.pagination} />;
   },
   prepareParamsArguments(state) {
@@ -281,12 +293,12 @@ export default React.createClass({
   },
 
   fetch(newState) {
-    var state = objectAssign({}, this.state, newState);
     if (this.isLocalDataSource()) {
-      this.setState(objectAssign({
-        data: this.getLocalData(state)
-      }, newState));
+      if (newState) {
+        this.setState(newState);
+      }
     } else {
+      var state = objectAssign({}, this.state, newState);
       if (newState || !this.state.loading) {
         this.setState(objectAssign({
           loading: true
@@ -328,9 +340,10 @@ export default React.createClass({
     })[0];
   },
 
-  getLocalData(state){
-    let data = this.props.dataSource;
+  getLocalDataPaging(){
+    var data = this.getLocalData();
     let current, pageSize;
+    var state = this.state;
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -338,22 +351,6 @@ export default React.createClass({
     } else {
       pageSize = state.pagination.pageSize;
       current = state.pagination.current;
-    }
-    // 排序
-    if (state.sortOrder && state.sorter) {
-      data = data.sort(state.sorter);
-    }
-    // 筛选
-    if (state.filters) {
-      Object.keys(state.filters).forEach((columnKey) => {
-        var col = this.findColumn(columnKey);
-        var values = state.filters[columnKey] || [];
-        data = data.filter((record) => {
-          return values.some((v)=> {
-            return col.onFilter(v, record);
-          });
-        });
-      });
     }
     // 分页
     // ---
@@ -370,6 +367,28 @@ export default React.createClass({
     return data;
   },
 
+  getLocalData(){
+    let state = this.state;
+    let data = this.props.dataSource;
+    // 排序
+    if (state.sortOrder && state.sorter) {
+      data = data.sort(state.sorter);
+    }
+    // 筛选
+    if (state.filters) {
+      Object.keys(state.filters).forEach((columnKey) => {
+        var col = this.findColumn(columnKey);
+        var values = state.filters[columnKey] || [];
+        data = data.filter((record) => {
+          return values.some((v)=> {
+            return col.onFilter(v, record);
+          });
+        });
+      });
+    }
+    return data;
+  },
+
   componentDidMount() {
     if (!this.isLocalDataSource()) {
       this.fetch();
@@ -377,10 +396,10 @@ export default React.createClass({
   },
 
   render() {
-    var data = this.state.data;
+    var data = this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
     var columns = this.renderRowSelection();
     var classString = '';
-    if (this.state.loading) {
+    if (this.state.loading && this.isLocalDataSource()) {
       classString += ' ant-table-loading';
     }
     if (this.props.size === 'small') {
