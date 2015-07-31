@@ -1,6 +1,6 @@
 import Notification from 'rc-notification';
 
-Notification.show = function (args) {
+function getNotificationInstance() {
   if (!Notification.notification) {
     Notification.notification = Notification.newInstance({
       prefixCls: 'ant-notification',
@@ -10,7 +10,11 @@ Notification.show = function (args) {
       }
     });
   }
+  return Notification.notification;
+}
 
+function notice(args) {
+  getNotificationInstance();
   if (args.icon) {
     let prefixCls = 'ant-notification-notice-content-icon-';
     Notification.notification.notice({
@@ -39,23 +43,29 @@ Notification.show = function (args) {
       });
     } else {
       let prefixCls = 'ant-notification-notice-content-';
-      let key = 'manual' + new Date().getTime();
       Notification.notification.notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
           <p className={prefixCls + 'description'}>{args.description}</p>
-          <span onClick={args.customClose ? args.customClose.bind(null, key) : Notification.notification.removeNotice.bind(null, key)} className={prefixCls + 'btn'}>
+          <span className={prefixCls + 'btn'}>
             {args.btn}
           </span>
         </div>,
         duration: null,
         closable: true,
         onClose: args.onClose,
-        key: key,
+        key: args.key,
         style: {}
       });
     }
   }
-};
+}
 
-export default Notification;
+export default {
+  open(args){
+    notice(args);
+  },
+  close(key){
+    Notification.notification.removeNotice(key);
+  }
+};

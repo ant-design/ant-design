@@ -19,7 +19,7 @@ var openNotification = function() {
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     onClose: close
   }; 
-  notification.show(args);
+  notification.open(args);
 };
 
 React.render(
