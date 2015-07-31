@@ -27,8 +27,10 @@ var FilterMenu = React.createClass({
   handleDeselectFilter: function (key) {
     var index = this.state.selectedFilters.indexOf(key);
     if (index !== -1) {
+      var selectedFilters = this.state.selectedFilters.concat();
+      selectedFilters.splice(index, 1);
       this.setState({
-        selectedFilters: this.state.selectedFilters.concat().splice(index, 1)
+        selectedFilters: selectedFilters
       });
     }
   },
