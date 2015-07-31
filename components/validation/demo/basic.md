@@ -2,9 +2,11 @@
 
 - order: 0
 
-表单校验。
+基本的表单校验栗子。
 
-为每一个 Validator 定义 rules 以及 validator，rules 对应 Validation 提供的原生校验规则（通过定义 rules 中的 message 属性可以自定义错误信息的提示，详见 [async-validator](https://github.com/yiminghe/async-validator)），而 validator 为用户提供自定义的校验规则，
+每个表单域要声明 `name` 属性作为校验的标识，可通过其 `isValidating` `errors` 属性判断是否处于校验中、是否校验不通过状态，具体可参见 **用户名** 校验。
+
+表单提交的时候，通过 Validation 的 validate 方法判断是否所有表单域校验通过（isValid 会作为回调函数的参数传入）。
 
 ---
 
