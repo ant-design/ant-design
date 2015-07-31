@@ -27,11 +27,13 @@ export default React.createClass({
         iconClass += 'check-circle';
         break;
       case 'info':
-        iconClass += 'question-circle';
+        iconClass += 'info-circle';
         break;
       case 'error':
+        iconClass += 'exclamation-circle';
+        break;
       case 'warn':
-        iconClass += 'info-circle';
+        iconClass += 'question-circle';
         break;
       default:
         iconClass += 'default';
