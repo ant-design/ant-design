@@ -42,7 +42,7 @@ export default React.createClass({
     };
   },
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
       this.setState({
         pagination: objectAssign({}, this.state.pagination, nextProps.pagination)
@@ -62,22 +62,26 @@ export default React.createClass({
       });
     }
   },
-  hasPagination(pagination){
+
+  hasPagination(pagination) {
     if (pagination === undefined) {
       pagination = this.props.pagination;
     }
     return pagination !== false;
   },
-  isLocalDataSource(){
+
+  isLocalDataSource() {
     return Array.isArray(this.props.dataSource);
   },
-  getRemoteDataSource(){
+
+  getRemoteDataSource() {
     return objectAssign({
       resolve: defaultResolve,
       getParams: noop,
       getPagination: noop
     }, this.props.dataSource);
   },
+
   toggleSortOrder(order, column) {
     let sortColumn = this.state.sortColumn;
     let sortOrder = this.state.sortOrder;
@@ -115,6 +119,7 @@ export default React.createClass({
       sorter: sorter
     });
   },
+
   handleFilter(column, filters) {
     filters = objectAssign({}, this.state.filters, {
       [this.getColumnKey(column)]: filters
@@ -124,6 +129,7 @@ export default React.createClass({
       filters: filters
     });
   },
+
   handleSelect(record, rowIndex, e) {
     let checked = e.target.checked;
     let selectedRowKeys = this.state.selectedRowKeys.concat();
@@ -146,6 +152,7 @@ export default React.createClass({
       this.props.rowSelection.onSelect(record, checked, selectedRows);
     }
   },
+
   handleSelectAllRow(e) {
     let checked = e.target.checked;
     let data = this.getCurrentPageData();
@@ -162,6 +169,7 @@ export default React.createClass({
       this.props.rowSelection.onSelectAll(checked, selectedRows);
     }
   },
+
   handlePageChange(current) {
     let pagination = objectAssign({}, this.state.pagination);
     if (current) {
@@ -175,14 +183,17 @@ export default React.createClass({
       pagination: pagination
     });
   },
+
   renderSelectionCheckBox(value, record, index) {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
     return <Checkbox checked={checked} onChange={this.handleSelect.bind(this, record, rowIndex)}/>;
   },
-  getRecordKey(record, index){
+
+  getRecordKey(record, index) {
     return record.key || index;
   },
+
   renderRowSelection() {
     let columns = this.props.columns.concat();
     if (this.props.rowSelection) {
@@ -214,11 +225,11 @@ export default React.createClass({
     return columns;
   },
 
-  getCurrentPageData(){
+  getCurrentPageData() {
     return this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
   },
 
-  getColumnKey(column){
+  getColumnKey(column) {
     return column.key || column.dataIndex;
   },
 
@@ -268,6 +279,7 @@ export default React.createClass({
       return column;
     });
   },
+
   renderPagination() {
     // 强制不需要分页
     if (!this.hasPagination()) {
@@ -287,6 +299,7 @@ export default React.createClass({
                        pageSize={10}
       {...this.state.pagination} />;
   },
+
   prepareParamsArguments(state) {
     // 准备筛选、排序、分页的参数
     let pagination;
@@ -350,13 +363,13 @@ export default React.createClass({
     }
   },
 
-  findColumn(myKey){
+  findColumn(myKey) {
     return this.props.columns.filter((c) => {
       return this.getColumnKey(c) === myKey;
     })[0];
   },
 
-  getLocalDataPaging(){
+  getLocalDataPaging() {
     let data = this.getLocalData();
     let current, pageSize;
     let state = this.state;
@@ -383,7 +396,7 @@ export default React.createClass({
     return data;
   },
 
-  getLocalData(){
+  getLocalData() {
     let state = this.state;
     let data = this.props.dataSource;
     // 排序
