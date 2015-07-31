@@ -17,7 +17,7 @@ function defaultResolve(data) {
 
 export default React.createClass({
   getInitialState() {
-    var state = {
+    return {
       // 减少状态
       selectedRowKeys: [],
       // only for remote
@@ -31,7 +31,6 @@ export default React.createClass({
         pageSize: 10
       }, this.props.pagination) : {}
     };
-    return state;
   },
 
   getDefaultProps() {
@@ -127,8 +126,8 @@ export default React.createClass({
   },
   handleSelect(record, rowIndex, e) {
     let checked = e.target.checked;
-    var selectedRowKeys = this.state.selectedRowKeys.concat();
-    var key = this.getRecordKey(record, rowIndex);
+    let selectedRowKeys = this.state.selectedRowKeys.concat();
+    let key = this.getRecordKey(record, rowIndex);
     if (checked) {
       selectedRowKeys.push(this.getRecordKey(record, rowIndex));
     } else {
@@ -140,7 +139,7 @@ export default React.createClass({
       selectedRowKeys: selectedRowKeys
     });
     if (this.props.rowSelection.onSelect) {
-      var data = this.getCurrentPageData();
+      let data = this.getCurrentPageData();
       let selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
@@ -149,7 +148,7 @@ export default React.createClass({
   },
   handleSelectAllRow(e) {
     let checked = e.target.checked;
-    var data = this.getCurrentPageData();
+    let data = this.getCurrentPageData();
     let selectedRowKeys = checked ? data.map((item, i) => {
       return this.getRecordKey(item, i);
     }) : [];
@@ -185,15 +184,15 @@ export default React.createClass({
     return record.key || index;
   },
   renderRowSelection() {
-    var columns = this.props.columns.concat();
+    let columns = this.props.columns.concat();
     if (this.props.rowSelection) {
-      var data = this.getCurrentPageData();
+      let data = this.getCurrentPageData();
       let checked;
       if (!data.length) {
         checked = false;
       } else {
         checked = data.every((item, i) => {
-          var key = this.getRecordKey(item, i);
+          let key = this.getRecordKey(item, i);
           return this.state.selectedRowKeys.indexOf(key) >= 0;
         });
       }
@@ -226,10 +225,10 @@ export default React.createClass({
   renderColumnsDropdown(columns) {
     return columns.map((column) => {
       column = objectAssign({}, column);
-      var key = this.getColumnKey(column);
+      let key = this.getColumnKey(column);
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
-        var colFilters = this.state.filters[key] || [];
+        let colFilters = this.state.filters[key] || [];
         menus = <FilterMenu column={column}
                             selectedFilters={colFilters}
                             confirmFilter={this.handleFilter}/>;
@@ -260,7 +259,7 @@ export default React.createClass({
           </span>
         </div>;
       }
-      var originalTitle = column.title;
+      let originalTitle = column.title;
       column.title = [
         originalTitle,
         sortButton,
@@ -278,7 +277,7 @@ export default React.createClass({
     if (this.props.size === 'small') {
       classString += ' mini';
     }
-    var total;
+    let total;
     if (this.isLocalDataSource()) {
       total = this.getLocalData().length;
     }
@@ -295,7 +294,7 @@ export default React.createClass({
     let sorter = {};
     pagination = state.pagination;
     this.props.columns.forEach((column) => {
-      var colFilters = state.filters[this.getColumnKey(column)] || [];
+      let colFilters = state.filters[this.getColumnKey(column)] || [];
       if (colFilters.length > 0) {
         filters[this.getColumnKey(column)] = colFilters;
       }
@@ -315,7 +314,7 @@ export default React.createClass({
         this.setState(newState);
       }
     } else {
-      var state = objectAssign({}, this.state, newState);
+      let state = objectAssign({}, this.state, newState);
       if (newState || !this.state.loading) {
         this.setState(objectAssign({
           loading: true
@@ -358,9 +357,9 @@ export default React.createClass({
   },
 
   getLocalDataPaging(){
-    var data = this.getLocalData();
+    let data = this.getLocalData();
     let current, pageSize;
-    var state = this.state;
+    let state = this.state;
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
       pageSize = Number.MAX_VALUE;
@@ -394,8 +393,8 @@ export default React.createClass({
     // 筛选
     if (state.filters) {
       Object.keys(state.filters).forEach((columnKey) => {
-        var col = this.findColumn(columnKey);
-        var values = state.filters[columnKey] || [];
+        let col = this.findColumn(columnKey);
+        let values = state.filters[columnKey] || [];
         data = data.filter((record) => {
           return values.some((v)=> {
             return col.onFilter(v, record);
@@ -413,9 +412,9 @@ export default React.createClass({
   },
 
   render() {
-    var data = this.getCurrentPageData();
-    var columns = this.renderRowSelection();
-    var classString = '';
+    let data = this.getCurrentPageData();
+    let columns = this.renderRowSelection();
+    let classString = '';
     if (this.state.loading && this.isLocalDataSource()) {
       classString += ' ant-table-loading';
     }
