@@ -24,7 +24,7 @@
 
 #### 自然缓动
 
-不要用直线缓动Linear做物体位移或出入动画的缓动；注：Linear函数可做循环动画函数。
+不要用直线缓动 Linear 做物体位移或出入动画的缓动；注：Linear 函数可做循环动画函数。
 
 如下图所示，在没有缓动的情况下启动与停止都显得突兀，感觉动画还没结束就停止了，所以在物体运动中避免直线运动。
 
@@ -93,7 +93,7 @@ mask:true,exposure:"bottom"});
 
 2. 如球类物体掉地上的后，反弹几次后停止。
 
-  - 弹性动画最好结合alpha。
+  - 弹性动画最好结合 alpha。
 
 > 慎用Bounce或Elastic，这两种适用在特殊元素下，一般back即可满足页面上元素的弹动;
 
@@ -108,7 +108,7 @@ mask:false,exposure:"top"});
 })
 </script>
 
-上图所示缓动函数：绿 `easeOutBounce` `easeOutElastic`(css需自配)， 蓝 `ease-out-back` `ease-in-back`。
+上图所示缓动函数：绿 `easeOutBounce` `easeOutElastic`( css 需自配)， 蓝 `ease-out-back` `ease-in-back`。
 
 
 ## 缓动函数
