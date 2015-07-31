@@ -121,6 +121,7 @@ export default React.createClass({
       [this.getColumnKey(column)]: filters
     });
     this.fetch({
+      selectedRowKeys: [],
       filters: filters
     });
   },
@@ -171,7 +172,7 @@ export default React.createClass({
     }
     this.fetch({
       // 防止内存泄漏，只维持当页
-      selectedKeys: [],
+      selectedRowKeys: [],
       pagination: pagination
     });
   },
