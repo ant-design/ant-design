@@ -18,7 +18,6 @@
     position: absolute;
     top: 6px;
     right: 0;
-    //background: tint(@primary-color, 90%);
     padding-right: 16px;
     color: @primary-color;
   }
@@ -131,7 +130,6 @@
     .@{selectPrefixCls}-search__field {
       border: none;
       font-size: 100%;
-      //margin-top: 5px;
       background: transparent;
       outline: 0;
     }
@@ -152,7 +150,6 @@
     }
 
     .@{selectPrefixCls}-selection__rendered {
-      //display: inline-block;
       overflow: hidden;
       text-overflow: ellipsis;
       padding-left: 4px;
@@ -242,7 +239,23 @@
         padding: 0;
       }
 
-      & > &-item {
+      &-item-group-list {
+        margin: 0;
+        padding: 0;
+
+        > li.@{selectPrefixCls}-menu-item {
+          padding-left: 20px;
+        }
+      }
+
+      &-item-group-title {
+        color: #999;
+        line-height: 1.5;
+        padding: 8px 10px;
+        border-bottom: 1px solid #dedede;
+      }
+
+      li&-item {
         position: relative;
         display: block;
         padding: 7px 16px;

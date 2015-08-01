@@ -18,5 +18,6 @@ var AntSelect = React.createClass({
 });
 
 AntSelect.Option = Select.Option;
+AntSelect.OptGroup = Select.OptGroup;
 
 export default AntSelect;
