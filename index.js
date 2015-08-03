@@ -1,6 +1,7 @@
 require('./style/index.less');
 
 var antd = {
+  Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
   Tabs: require('./components/tabs'),
