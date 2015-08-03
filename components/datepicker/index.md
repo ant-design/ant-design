@@ -32,4 +32,7 @@
 .code-box-demo .ant-calendar-picker-input {
   width: 200px;
 }
+.code-box-demo .ant-calendar-picker {
+  margin: 0 12px 12px 0;
+}
 </style>
