@@ -1853,7 +1853,7 @@ a.entry-link:hover .icon-lego {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
-  .code-boxes-col {
+  .code-boxes-col-2-1 {
     float: none;
     width: 100%;
   }
