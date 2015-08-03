@@ -1852,6 +1852,14 @@ a.entry-link:hover .icon-lego {
   animation: rotateCircle 0.5s 1 ease-in-out;
 }
 
+.entry-version {
+  font-size: 12px;
+  margin-top: 15px;
+  position: absolute;
+  top: 36px;
+  right: -32px;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
   .code-boxes-col-2-1 {
     float: none;
