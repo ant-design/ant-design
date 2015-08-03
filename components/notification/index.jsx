@@ -1,23 +1,23 @@
 import Notification from 'rc-notification';
 
-function getNotificationInstance(top) {
-  if (!Notification.notification) {
-    Notification.notification = Notification.newInstance({
-      prefixCls: 'ant-notification',
-      style: {
-        top: isNaN(top) ? 24 : top,
-        right: 0
-      }
-    });
-  }
-  return Notification.notification;
+let top = 24;
+
+var notificationInstance;
+
+function getNotificationInstance() {
+  notificationInstance = notificationInstance || Notification.newInstance({
+    prefixCls: 'ant-notification',
+    style: {
+      top: top,
+      right: 0
+    }
+  });
+  return notificationInstance;
 }
 
 function notice(args) {
-  getNotificationInstance(args.top);
   if (args.icon) {
     let prefixCls = ' ant-notification-notice-content-icon-';
-
     let iconClass = 'anticon anticon-';
     switch (args.icon) {
       case 'success':
@@ -36,7 +36,7 @@ function notice(args) {
         iconClass += 'info-circle';
     }
 
-    Notification.notification.notice({
+    getNotificationInstance().notice({
       content: <div>
         <i className={iconClass + prefixCls + 'icon-' + args.icon + prefixCls + 'icon'}></i>
         <p className={prefixCls + 'message'}>{args.message}</p>
@@ -50,7 +50,7 @@ function notice(args) {
   } else {
     let prefixCls = 'ant-notification-notice-content-';
     if (!args.btn) {
-      Notification.notification.notice({
+      getNotificationInstance().notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
           <p className={prefixCls + 'description'}>{args.description}</p>
@@ -61,7 +61,7 @@ function notice(args) {
         style: {}
       });
     } else {
-      Notification.notification.notice({
+      getNotificationInstance().notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
           <p className={prefixCls + 'description'}>{args.description}</p>
@@ -85,5 +85,8 @@ export default {
   },
   close(key){
     Notification.notification.removeNotice(key);
+  },
+  config(options) {
+    top = isNaN(options.top) ? 24 : options.top;
   }
 };

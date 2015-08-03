@@ -24,4 +24,5 @@ React.render(<div>
     closable
     onClose={onClose} />
 </div>, document.getElementById('components-alert-demo-closable'));
+
 ````

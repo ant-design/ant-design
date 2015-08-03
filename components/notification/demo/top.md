@@ -2,7 +2,7 @@
 
 - order: 1
 
-自定义通知框距离顶部的距离， **只在初始化时设置有效** ，默认距离顶部`24px`。
+自定义通知框距离顶部的距离，在`config`方法里设置`top`的值， **只在初始化时设置有效** ，默认距离顶部`24px`。
 
 ---
 
@@ -13,8 +13,10 @@ var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
-    top: 100
   };
+  notification.config({
+    top:100
+  });
   notification.open(args);
 };
 
