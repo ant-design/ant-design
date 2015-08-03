@@ -4,11 +4,11 @@
 
 为 `<form>` 标签添加 `.ant-form-horizontal` 类(这让 `.ant-form-item` 表现为栅格系统中的 `row`)，并结合使用我们提供的 [栅格系统](http://ant.design/components/layout/)，可以实现 label 标签和表单控件的水平排列。
 
-如需将一行静态文本和 `<label>` 标签置于同一行，则只需为标签添加 `.ant-form-text` 类即可。
+如需将一行静态文本和 `<label>` 标签置于同一行，则只需为 `<p>` 标签添加 `.ant-form-text` 类即可。
 
 为 `label` 标签添加 `required` 属性，表示该项必选。
 
-**注意**：在我们的设计里，表单域(`.ant-form-item`) 为静态文本、`checkbox`、`radio`以及`input[type="file"]`的，其高度不同于一般的表单域，需要在 `.ant-form-item` 类后再加上 **`.ant-form-item-compact`**。
+**注意**：对于表单域(`.ant-form-item`) 为静态文本、`checkbox`、`radio`以及`input[type="file"]`的，其高度不同于一般的表单域，需要在 `.ant-form-item` 类后再加上 `.ant-form-item-compact`。
 
 ---
 

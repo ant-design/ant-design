@@ -23,8 +23,7 @@ var antd = {
   message: require('./components/message'),
   Slider: require('./components/slider'),
   Radio: require('./components/radio'),
-  RadioGroup: require('./components/radio/group'),
-  Validation: require('./components/validation')
+  RadioGroup: require('./components/radio/group')
 };
 
 module.exports = antd;
