@@ -155,7 +155,7 @@ Ant Design 支持所有的现代浏览器和 IE8+。
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
     <!-- Polyfills -->
-    <script src="https://a.alipayobjects.com/??es5-shim/4.0.5/es5-shim.js,es5-shim/4.0.5/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
+    <script src="https://a.alipayobjects.com/??es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <!-- 引入 jquery 和 react -->
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
   </head>
