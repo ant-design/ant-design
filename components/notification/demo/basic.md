@@ -18,6 +18,8 @@ var openNotification = function() {
 };
 
 React.render(
-  <button className='ant-btn ant-btn-primary' onClick={openNotification}>基本</button>
-, document.getElementById('components-notification-demo-basic'));
+  <div>
+    <button className='ant-btn ant-btn-primary' onClick={openNotification}>基本</button>
+  </div>,
+document.getElementById('components-notification-demo-basic'));
 ````

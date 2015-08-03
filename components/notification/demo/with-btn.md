@@ -21,11 +21,13 @@ var openNotification = function() {
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     btn: btn,
     key: 'singleKey2'
-  }; 
+  };
   notification.open(args);
 };
 
 React.render(
-   <button className="ant-btn ant-btn-primary" onClick={openNotification}>自定义关闭按钮</button>
-, document.getElementById('components-notification-demo-with-btn'));
+  <div>
+    <button className="ant-btn ant-btn-primary" onClick={openNotification}>自定义关闭按钮</button>
+  </div>,
+document.getElementById('components-notification-demo-with-btn'));
 ````

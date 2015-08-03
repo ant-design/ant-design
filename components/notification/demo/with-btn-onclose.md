@@ -19,7 +19,7 @@ var close = function() {
 var onClose = function() {
   // 默认按钮关闭时的业务处理
   console.log("我被默认的关闭按钮关闭了！");
-};
+}
 
 var btn = <button onClick={close} className="ant-btn ant-btn-primary ant-btn-sm">自定义关闭按钮并触发回调函数</button>;
 

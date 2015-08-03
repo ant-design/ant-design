@@ -44,7 +44,7 @@ function notice(args) {
       </div>,
       duration: null,
       closable: true,
-      onClose: args.onClose,
+      onClose: args.defaultClose,
       style: {}
     });
   } else {
@@ -57,7 +57,7 @@ function notice(args) {
         </div>,
         duration: null,
         closable: true,
-        onClose: args.onClose,
+        onClose: args.defaultClose,
         style: {}
       });
     } else {
