@@ -4,6 +4,7 @@ var antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
+  Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
   Modal: require('./components/modal'),
   Menu: require('rc-menu'),
