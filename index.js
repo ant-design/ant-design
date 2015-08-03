@@ -26,7 +26,8 @@ var antd = {
   EnterAnimation: require('./components/enter-animation'),
   Radio: require('./components/radio'),
   RadioGroup: require('./components/radio/group'),
-  Alert: require('./components/alert')
+  Alert: require('./components/alert'),
+  Validation: require('./components/validation')
 };
 
 module.exports = antd;

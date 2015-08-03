@@ -4,8 +4,6 @@
 
 带标签的输入框：使用 `.ant-input-group` 类并结合 `.ant-input-group-addon` 类可以创建带标签的输入框。
 
-输入框组合：`.ant-inputs` 类由多个 `.ant-inputs-item` 组成，使多个 Input 可以在一行显示出来。
-
 ---
 
 ````jsx
@@ -68,7 +66,7 @@ React.render(
       </div>
     </div>
   </div>
-  <div className="ant-form-item has-error">
+  <div className="ant-form-item">
     <label className="col-6">电话号码：</label>
     <div className="col-16">
       <div className="row">
@@ -92,7 +90,6 @@ React.render(
           </div>
         </div>
       </div>
-      <p className="ant-form-explain">请输入正确的电话号码</p>
     </div>
   </div>
 </form>
