@@ -17,7 +17,7 @@ var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
-    defaultClose: close
+    onClose: close
   }; 
   notification.open(args);
 };

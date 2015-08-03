@@ -44,7 +44,7 @@ function notice(args) {
       </div>,
       duration: null,
       closable: true,
-      onClose: args.defaultClose,
+      onClose: args.onClose,
       style: {}
     });
   } else {
@@ -57,7 +57,7 @@ function notice(args) {
         </div>,
         duration: null,
         closable: true,
-        onClose: args.defaultClose,
+        onClose: args.onClose,
         style: {}
       });
     } else {
@@ -84,7 +84,7 @@ export default {
     notice(args);
   },
   close(key){
-    Notification.notification.removeNotice(key);
+    notificationInstance.removeNotice(key);
   },
   config(options) {
     top = isNaN(options.top) ? 24 : options.top;
