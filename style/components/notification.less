@@ -2,16 +2,15 @@
 
 @notificationPrefixCls: ~"@{css-prefix}notification";
 
-@notificationPosition: 24px;
 @noticeWidth: 335px;
 @noticePadding: 16px;
-@noticeMarginTop: 10px;
+@noticeMarginBottom: 10px;
 
 .@{notificationPrefixCls} {
   position: fixed;
   z-index: 1000;
   width: @noticeWidth;
-  margin: (@notificationPosition - @noticeMarginTop) @notificationPosition 0 0;
+  margin-right: 24px;
 
   &-notice {
     padding: @noticePadding;
@@ -20,7 +19,7 @@
     background: @body-background;
     line-height: 1.5;
     position: relative;
-    margin-top: @noticeMarginTop;
+    margin-bottom: @noticeMarginBottom;
     overflow: hidden;
 
     &-content {
@@ -54,7 +53,19 @@
         top: 50%;
         margin-top: -26px;
         font-size: 35px;
-        color: @primary-color;
+
+        &-success{
+          color: @success-color;
+        }
+        &-info{
+          color: @primary-color;
+        }
+        &-warn{
+          color: @warning-color;
+        }
+        &-error{
+          color: @error-color;
+        }
       }
     }
 
@@ -92,7 +103,7 @@
 
   &-fade-leave {
     opacity: 1;
-    margin-top: @noticeMarginTop;
+    margin-bottom: @noticeMarginBottom;
     padding-top: @noticePadding;
     padding-bottom: @noticePadding;
     max-height: 150px;
@@ -102,7 +113,7 @@
   &-fade-leave&-fade-leave-active {
     opacity: 0;
     max-height: 0;
-    margin-top: 0;
+    margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
   }

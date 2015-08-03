@@ -1,11 +1,11 @@
 import Notification from 'rc-notification';
 
-function getNotificationInstance() {
+function getNotificationInstance(top) {
   if (!Notification.notification) {
     Notification.notification = Notification.newInstance({
       prefixCls: 'ant-notification',
       style: {
-        top: 0,
+        top: isNaN(top) ? 24 : top,
         right: 0
       }
     });
@@ -14,12 +14,31 @@ function getNotificationInstance() {
 }
 
 function notice(args) {
-  getNotificationInstance();
+  getNotificationInstance(args.top);
   if (args.icon) {
-    let prefixCls = 'ant-notification-notice-content-icon-';
+    let prefixCls = ' ant-notification-notice-content-icon-';
+
+    let iconClass = 'anticon anticon-';
+    switch (args.icon) {
+      case 'success':
+        iconClass += 'check-circle-o';
+        break;
+      case 'info':
+        iconClass += 'info-circle-o';
+        break;
+      case 'error':
+        iconClass += 'exclamation-circle-o';
+        break;
+      case 'warn':
+        iconClass += 'question-circle-o';
+        break;
+      default:
+        iconClass += 'info-circle';
+    }
+
     Notification.notification.notice({
       content: <div>
-        <i className={'anticon anticon-question-circle-o ' + prefixCls + 'icon'}></i>
+        <i className={iconClass + prefixCls + 'icon-' + args.icon + prefixCls + 'icon'}></i>
         <p className={prefixCls + 'message'}>{args.message}</p>
         <p className={prefixCls + 'description'}>{args.description}</p>
       </div>,
@@ -29,20 +48,19 @@ function notice(args) {
       style: {}
     });
   } else {
+    let prefixCls = 'ant-notification-notice-content-';
     if (!args.btn) {
-      let prefixCls = 'ant-notification-notice-content-';
       Notification.notification.notice({
         content: <div>
-            <p className={prefixCls + 'message'}>{args.message}</p>
-            <p className={prefixCls + 'description'}>{args.description}</p>
-          </div>,
+          <p className={prefixCls + 'message'}>{args.message}</p>
+          <p className={prefixCls + 'description'}>{args.description}</p>
+        </div>,
         duration: null,
         closable: true,
         onClose: args.onClose,
         style: {}
       });
     } else {
-      let prefixCls = 'ant-notification-notice-content-';
       Notification.notification.notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
