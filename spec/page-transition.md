@@ -1,13 +1,9 @@
-# 转场动画
+# 转换动画
 
 - category: 动画
 - order: 1
 
 ---
-
-### 单页面转场动画
-
-从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
 
 ### 视觉连贯性三元素
 
@@ -18,29 +14,35 @@
 - Normal: 指那些从转场开始到结束都没有发生变化的信息元素。
 
 
-### 转场动画
+## 转场动画
 
-大页面转场可采用左出右入的形式。
+从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
 
-小的信息元素排布或块状较多的情况下，最好根据一定的路径层次依次进场，区分维度层级，来凸显量级，间隔时间为动画时间的三分之一。
+ - 大页面转场可采用左出右入的形式。
 
-如不是单页面，页面动画可以为只右入和间隔性出现。
+ - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，来指引用户的视觉轨迹。
 
 <script src="/static/TweenMax.min.js"></script>
 <script src="/static/motion.js"></script>
 
 <div class="video-player">
-  <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T1QZ4gXdJeXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/rmsweb/T1BIdgXkloXXXXXXXX.mp4" type="video/mp4"></video>
+  <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T14q0hXbBdXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/T1qWNhXkpeXXXXXXXX.mp4" type="video/mp4"></video>
 </div>
 
+> 参考我们的进场组件案例。查看[进场动画组件](/components/enter-animation/)
+
+## 响应互动
+
+响应交互一般是指我们在浏览页面时，点击元素时动画给我们视觉上的反馈，每个交互动效都能给我们带来不同视觉效果。
+
+比如：按钮上的 hover 或 click 效果，随着你的鼠标事件而改变自身或增加元素在按钮上，或者折叠面板和弹出框，点击后给你呈现新加入的信息元素。
 
 ### 可折叠面板
 
 对于信息元素内容区域的延伸，显示信息元素和进一步内容对象之间的直接连接。
 
-1.被展开的信息区域内容按照一定的路劲依次进场。
+ - 被展开的信息区域内容按照一定的路径依次进场。
 
-2.信息元素在收起时照收齐点移动，在视觉上跟随关闭物体。
 
 <link rel="stylesheet" href="/static/motionDemo.css">
 <div class="video-player">

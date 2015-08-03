@@ -1,65 +1,72 @@
-import {Line as Progressline, Circle as Progresscircle} from 'rc-progress';
+import {Circle as Progresscircle} from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
 
+const prefixCls = 'ant-progress';
+
+const statusColorMap = {
+  'normal': '#2db7f5',
+  'exception': '#ff6600',
+  'success': '#87d068'
+};
+
 var Line = React.createClass({
+  propTypes: {
+    status: React.PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
+    showInfo: React.PropTypes.bool,
+    percent: React.PropTypes.number,
+    strokeWidth: React.PropTypes.number
+  },
   getDefaultProps() {
     return {
-      width: 300,
       percent: 0,
-      strokeWidth: 3,
-      status: 'normal' // exception
+      strokeWidth: 10,
+      status: 'normal', // exception active
+      showInfo: true
     };
   },
   render() {
-    var statusColorMap = {
-      'normal': '#3FC7FA',
-      'exception': '#FE8C6A',
-      'success': '#85D262'
-    };
-
     var props = assign({}, this.props);
 
     if (parseInt(props.percent) === 100) {
       props.status = 'success';
     }
 
-    var style = {
-      'width': props.width
-    };
-    var fontSize = (props.width / 100 * props.strokeWidth);
-    var iconStyle = {
-      'fontSize': (fontSize < 12) ? 12 : fontSize
-    };
-    var textStyle = {
-      'color': statusColorMap[props.status]
-    };
-    var progressInfo;
-    if (props.status === 'exception') {
-      progressInfo = (
-        <span style={textStyle} className='ant-progress-line-text'>
-          <i style={iconStyle} className="anticon anticon-exclamation-circle"></i>
-        </span>
-      );
-    } else if (props.status === 'success') {
-      progressInfo = (
-        <span style={textStyle} className='ant-progress-line-text'>
-          <i style={iconStyle} className="anticon anticon-check-circle"></i>
-        </span>
-      );
-    } else {
-      progressInfo = (
-        <span className='ant-progress-line-text'>{props.percent}%</span>
-      );
+    var progressInfo, fullCls = '';
+    if(props.showInfo === true){
+      if (props.status === 'exception') {
+        progressInfo = (
+          <span className={prefixCls + '-line-text'}>
+            <i className="anticon anticon-exclamation-circle"></i>
+          </span>
+        );
+      } else if (props.status === 'success') {
+        progressInfo = (
+          <span className={prefixCls + '-line-text'}>
+            <i className="anticon anticon-check-circle"></i>
+          </span>
+        );
+      } else {
+        progressInfo = (
+          <span className={prefixCls + '-line-text'}>{props.percent}%</span>
+        );
+      }
+    }else {
+      fullCls = ' ' + prefixCls + '-line-wrap-full';
     }
+    var persentStyle = {
+      width: props.percent + '%',
+      height: props.strokeWidth
+    };
 
     return (
-      <div className='ant-progress-line-wrap'>
-        <div className='ant-progress-line-inner' style={style}>
-          <Progressline percent={props.percent} strokeWidth={props.strokeWidth}
-            strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
-        </div>
+      <div className={prefixCls + '-line-wrap clearfix status-' + props.status + fullCls}>
         {progressInfo}
+        <div className={prefixCls + '-line-outer'}>
+          <div className={prefixCls + '-line-inner'}>
+            <div className={prefixCls + '-line-bg'} style={persentStyle}></div>
+          </div>
+        </div>
       </div>
     );
   }
@@ -75,12 +82,6 @@ var Circle = React.createClass({
     };
   },
   render() {
-    var statusColorMap = {
-      'normal': '#3FC7FA',
-      'exception': '#FE8C6A',
-      'success': '#85D262'
-    };
-
     var props = assign({}, this.props);
 
     if (parseInt(props.percent) === 100) {
@@ -89,36 +90,31 @@ var Circle = React.createClass({
 
     var style = {
       'width': props.width,
-      'height': props.width
-    };
-    var wrapStyle = {
+      'height': props.width,
       'fontSize': props.width * 0.16 + 6
-    };
-    var textStyle = {
-      'color': statusColorMap[props.status]
     };
     var progressInfo;
     if (props.status === 'exception') {
       progressInfo = (
-        <span style={textStyle} className='ant-progress-circle-text'>
+        <span className={prefixCls + '-circle-text'}>
           <i className='anticon anticon-exclamation'></i>
         </span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
-        <span style={textStyle} className='ant-progress-circle-text'>
+        <span className={prefixCls + '-circle-text'}>
           <i className="anticon anticon-check"></i>
         </span>
       );
     } else {
       progressInfo = (
-        <span className="ant-progress-circle-text">{props.percent}%</span>
+        <span className={prefixCls + '-circle-text'}>{props.percent}%</span>
       );
     }
 
     return (
-      <div className="ant-progress-circle-wrap" style={wrapStyle}>
-        <div className="ant-progress-circle-inner" style={style}>
+      <div className={prefixCls + '-circle-wrap status-' + props.status} >
+        <div className={prefixCls + '-circle-inner'} style={style}>
           <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
             strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
           {progressInfo}

@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 布局
 - order: 0
+- cols: 1
 
 ---
 
