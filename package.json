@@ -55,7 +55,10 @@
     "rc-switch": "~1.2.0",
     "rc-table": "~3.1.0",
     "rc-tabs": "~5.2.0",
-    "rc-tooltip": "~2.4.0"
+    "rc-tooltip": "~2.4.0",
+    "rc-tree": "~0.10.0",
+    "rc-util": "~2.0.3",
+    "react-slick": "~0.6.4"
   },
   "devDependencies": {
     "autoprefixer-loader": "~2.0.0",

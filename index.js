@@ -1,8 +1,10 @@
 require('./style/index.less');
 
 var antd = {
+  Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
+  Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
   Modal: require('./components/modal'),
   Menu: require('rc-menu'),
@@ -28,7 +30,8 @@ var antd = {
   RadioGroup: require('./components/radio/group'),
   Notification: require('./components/notification'),
   Alert: require('./components/alert'),
-  Validation: require('./components/validation')
+  Validation: require('./components/validation'),
+  Tree: require('./components/Tree')
 };
 
 module.exports = antd;
