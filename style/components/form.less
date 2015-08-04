@@ -127,9 +127,7 @@ form {
   .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input-group-addon {
-    height: @input-height-lg;
-    font-size: @font-size-base;
-    padding: 6px 7px;
+    .input-lg();
   }
 
   // Input combined with select
@@ -266,9 +264,8 @@ form {
     bottom: 0;
     right: 0;
     font-family: "anticon" !important;
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
+    .square(@input-height-lg);
+    line-height: @input-height-lg;
     text-align: center;
     font-size: 14px;
   }
