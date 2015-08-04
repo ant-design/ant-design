@@ -30,7 +30,6 @@ config 参数如下：
 | key        | 当前通知唯一标志                               | String      | 无     |
 | onClose    | 点击默认关闭按钮时触发的回调函数                     | Function    | 无     |
 
-
 还提供了一个全局配置方法：
 
 - `notification.config(options)`

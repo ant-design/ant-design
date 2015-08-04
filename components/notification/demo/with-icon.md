@@ -20,10 +20,16 @@ var openNotificationWithIcon = function(type) {
 };
 
 React.render(<div>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationWithIcon('success')}>Success</button>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationWithIcon('info')}>Info</button>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationWithIcon('warn')}>Warn</button>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationWithIcon('error')}>Error</button>
+  <button className="ant-btn" onClick={openNotificationWithIcon('success')}>成功</button>
+  <button className="ant-btn" onClick={openNotificationWithIcon('info')}>消息</button>
+  <button className="ant-btn" onClick={openNotificationWithIcon('warn')}>警告</button>
+  <button className="ant-btn" onClick={openNotificationWithIcon('error')}>错误</button>
   </div>
 , document.getElementById('components-notification-demo-with-icon'));
 ````
+
+<style>
+.code-box-demo .ant-btn {
+  margin-right: 1em;
+}
+</style>

@@ -21,6 +21,6 @@ var openNotification = function() {
 };
 
 React.render(
-  <button className='ant-btn ant-btn-primary' onClick={openNotification}>距离顶部100px</button>
+  <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
 , document.getElementById('components-notification-demo-top'));
 ````
