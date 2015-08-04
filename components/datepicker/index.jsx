@@ -69,12 +69,14 @@ export default React.createClass({
         disabled={this.props.disabled}
         trigger={<span className="ant-calendar-picker-icon" />}
         calendar={calendar}
-        adjustOrientOnCalendarOverflow={false}
+        adjustOrientOnCalendarOverflow={true}
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
         prefixCls="ant-calendar-picker"
         onChange={this.handleChange}>
-        <input placeholder={this.props.placeholder} className="ant-calendar-picker-input ant-input" />
+        <input
+          placeholder={this.props.placeholder}
+          className={'ant-calendar-picker-input ant-input ant-input-' + this.props.size}/>
       </Datepicker>
     );
   }

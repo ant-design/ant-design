@@ -28,6 +28,11 @@ Ant Design 提供了一些预设的组件动画样式。
 
 `````jsx
 var cssAnimation = require('css-animation');
+var Select = antd.Select;
+var Option = Select.Option;
+var OptGroup = Select.OptGroup;
+
+
 var motions = [];
 motions = motions.concat([[{
   name: '淡入',
@@ -182,7 +187,7 @@ motions = motions.concat([[{
 var leave='-leave';
 var Test = React.createClass({
   handleChange(e) {
-    var value = e.target.value;
+    var value = e;
     if(value){
       this.demoNode.style.visibility='';
       cssAnimation(this.demoNode, value, () => {
@@ -198,19 +203,20 @@ var Test = React.createClass({
   },
 
   render() {
-    var options = [<option value="">请选择预设动画</option>].concat(motions.map(function (m) {
+    var options = [<Option value="">请选择预设动画</Option>].concat(motions.map(function (m) {
       var opts = m.map(function (m2) {
-        return <option value={m2.value + "-" + m2.direction}>{m2.name + " " + m2.value}</option>
+        return <Option value={m2.value + "-" + m2.direction}>{m2.name + " " + m2.value}</Option>
       });
-      return <optgroup label={m[0].type}>{opts}</optgroup>;
+      return <OptGroup label={m[0].type}>{opts}</OptGroup>;
     }));
     return <div>
       <div className="motion-container">
         <div ref="demo" className="motion-example"></div>
       </div>
-      <div className="motion-select">
-        <select onChange={this.handleChange}>{options}</select>
+      <div className="motion-select-wrapper">
+        <Select value="" className='motion-select' onChange={this.handleChange}>{options}</Select>
       </div>
+
     </div>;
   }
 });
@@ -237,8 +243,12 @@ React.render(<Test/>, document.getElementById('components-motion-demo-basic'));
   font-weight: bold;
   background: url(https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg) center/230px;
 }
-.motion-select {
+.motion-select-wrapper{
   text-align: center;
+}
+.motion-select {
+  text-align:left;
+  width:180px;
 }
 </style>
 
