@@ -11,7 +11,7 @@ var notification = require('antd/lib/notification');
 
 var openNotificationSuccess = function() {
   var args = {
-    message: "这是标题",
+    message: "这是成功通知提醒框的标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     icon: "success"
   }; 
@@ -20,7 +20,7 @@ var openNotificationSuccess = function() {
 
 var openNotificationInfo = function() {
   var args = {
-    message: "这是标题",
+    message: "这是消息通知提醒框的标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     icon: "info"
   }; 
@@ -29,7 +29,7 @@ var openNotificationInfo = function() {
 
 var openNotificationWarn = function() {
   var args = {
-    message: "这是标题",
+    message: "这是警告通知提醒框的标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     icon: "warn"
   }; 
@@ -38,7 +38,7 @@ var openNotificationWarn = function() {
 
 var openNotificationError = function() {
   var args = {
-    message: "这是标题",
+    message: "这是错误通知提醒框的标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     icon: "error"
   }; 
@@ -46,10 +46,16 @@ var openNotificationError = function() {
 };
 
 React.render(<div>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationSuccess}>Success</button>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationInfo}>Info</button>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationWarn}>Warn</button>
-  <button className="ant-btn ant-btn-primary" onClick={openNotificationError}>Error</button>
+  <button className="ant-btn" onClick={openNotificationSuccess}>成功</button>
+  <button className="ant-btn" onClick={openNotificationInfo}>消息</button>
+  <button className="ant-btn" onClick={openNotificationWarn}>警告</button>
+  <button className="ant-btn" onClick={openNotificationError}>错误</button>
   </div>
 , document.getElementById('components-notification-demo-with-icon'));
 ````
+
+<style>
+.code-box-demo .ant-btn {
+  margin-right: 1em;
+}
+</style>
