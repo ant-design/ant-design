@@ -72,11 +72,15 @@ var Affix = React.createClass({
 
   componentDidMount() {
     this.scrollEvent = rcUtil.Dom.addEventListener(window, 'scroll', this.handleScroll);
+    this.resizeEvent = rcUtil.Dom.addEventListener(window, 'resize', this.handleScroll);
   },
 
   componentWillUnmount() {
     if (this.scrollEvent) {
       this.scrollEvent.remove();
+    }
+    if (this.resizeEvent) {
+      this.resizeEvent.remove();
     }
   },
 
@@ -96,4 +100,3 @@ var Affix = React.createClass({
 });
 
 module.exports = Affix;
-
