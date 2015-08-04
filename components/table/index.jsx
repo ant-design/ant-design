@@ -17,7 +17,7 @@ function defaultResolve(data) {
 
 class DataSource {
   constructor(config) {
-    this.url = config.url || "";
+    this.url = config.url || '';
     this.resolve = config.resolve || defaultResolve;
     this.getParams = config.getParams || noop;
     this.getPagination = config.getPagination || noop;
