@@ -24,7 +24,7 @@ var openNotification = function() {
 
 React.render(
   <div>
-    <button className='ant-btn ant-btn-primary' onClick={openNotification}>关闭按钮触发回调函数</button>
+    <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
   </div>,
 document.getElementById('components-notification-demo-onclose'));
 ````
