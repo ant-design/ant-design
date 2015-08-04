@@ -26,8 +26,9 @@ config 参数如下：
 |----------- |---------------------------------------------    | ----------- |--------|
 | message    | 通知提醒标题，必选                                 | React.Element or String      | 无     |
 | description | 通知提醒内容，必选                                | React.Element or String      | 无     |
+| duration   | 通知提醒自动关闭延时，值为`0`表示不自动关闭           | Number      | 3     |
 | btn        | 自定义关闭按钮                                    | React.Element      | 无     |
-| key        | 当前通知唯一标志                               | String      | 无     |
+| key        | 当前通知唯一标志                                   | String      | 无     |
 | onClose    | 点击默认关闭按钮时触发的回调函数                     | Function    | 无     |
 
 还提供了一个全局配置方法：

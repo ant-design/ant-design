@@ -3,6 +3,7 @@ import assign from 'object-assign';
 import React from 'react';
 
 let top = 24;
+let duration = 3;
 
 var notificationInstance;
 
@@ -46,7 +47,7 @@ function notice(args) {
 
         <p className={prefixCls + 'description'}>{args.description}</p>
       </div>,
-      duration: null,
+      duration: isNaN(args.duration) ? duration : args.duration,
       closable: true,
       onClose: args.onClose,
       style: {}
@@ -60,7 +61,7 @@ function notice(args) {
 
           <p className={prefixCls + 'description'}>{args.description}</p>
         </div>,
-        duration: null,
+        duration: isNaN(args.duration) ? duration : args.duration,
         closable: true,
         onClose: args.onClose,
         style: {}
@@ -75,7 +76,7 @@ function notice(args) {
             {args.btn}
           </span>
         </div>,
-        duration: null,
+        duration: isNaN(args.duration) ? duration : args.duration,
         closable: true,
         onClose: args.onClose,
         key: args.key,

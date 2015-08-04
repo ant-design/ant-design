@@ -1,26 +1,24 @@
-# 距离顶部距离
+# 自动关闭的延时
 
 - order: 1
 
-自定义通知框距离顶部的距离，在`config`方法里设置`top`的值， **只在初始化时设置有效** ，默认距离顶部`24px`。
+自定义通知框自动关闭的延时，默认`3s`，取消自动关闭只要将该值设为`0`即可。
 
 ---
 
 ````jsx
 var notification = require('antd/lib/notification');
-notification.config({
-  top: 100
-});
 
 var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
+    duration: 10
   };
   notification.open(args);
 };
 
 React.render(
   <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
-, document.getElementById('components-notification-demo-top'));
+, document.getElementById('components-notification-demo-duration'));
 ````
