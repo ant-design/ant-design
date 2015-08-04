@@ -11,7 +11,7 @@ var Affix = antd.Affix;
 
 React.render(
   <Affix>
-    <button className="ant-btn ant-btn-primary">offset=0</button>
+    <button className="ant-btn ant-btn-primary">固定在顶部</button>
   </Affix>
 , document.getElementById('components-affix-demo-basic'));
 ````

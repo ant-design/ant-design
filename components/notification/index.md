@@ -13,11 +13,34 @@
 
 ## API
 
+- `notification.success(config)`
+- `notification.error(config)`
+- `notification.info(config)`
+- `notification.warn(config)`
+- `notification.open(config)`
+- `notification.close(key: String)`
+
+config 参数如下：
+
 | 参数        | 说明                                            | 类型         | 默认值 |
 |----------- |---------------------------------------------    | ----------- |--------|
-| message    | 通知提醒标题，必选                                 | String      | 无     |
-| description | 通知提醒内容，必选                                | String      | 无     |
-| icon       | 通知提醒框的左侧Icon，默认没有，有四种选择`success`、`info`、`warn`、`error` | String | 无     |
-| btn        | 自定义关闭按钮                                    | String      | 无     |
-| top        | 通知提醒框距离顶部的距离，只在初始化时设置有效，默认`24`           | Number      | 24     |
+| message    | 通知提醒标题，必选                                 | React.Element or String      | 无     |
+| description | 通知提醒内容，必选                                | React.Element or String      | 无     |
+| btn        | 自定义关闭按钮                                    | React.Element      | 无     |
+| key        | 当前通知唯一标志                               | String      | 无     |
 | onClose    | 点击默认关闭按钮时触发的回调函数                     | Function    | 无     |
+
+
+还提供了一个全局配置方法：
+
+- `notification.config(options)`
+
+```js
+message.config({
+  top: 100
+});
+```
+
+| 参数       | 说明               | 类型                       | 默认值       |
+|------------|--------------------|----------------------------|--------------|
+| top        | 消息距离顶部的位置 | Number                     | 24px         |

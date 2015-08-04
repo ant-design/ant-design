@@ -8,15 +8,15 @@
 
 ````jsx
 var notification = require('antd/lib/notification');
+notification.config({
+  top: 100
+});
 
 var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
   };
-  notification.config({
-    top:100
-  });
   notification.open(args);
 };
 
