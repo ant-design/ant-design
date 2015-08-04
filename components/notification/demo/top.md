@@ -8,19 +8,19 @@
 
 ````jsx
 var notification = require('antd/lib/notification');
+notification.config({
+  top: 100
+});
 
 var openNotification = function() {
   var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
   };
-  notification.config({
-    top:100
-  });
   notification.open(args);
 };
 
 React.render(
-  <button className='ant-btn ant-btn-primary' onClick={openNotification}>距离顶部100px</button>
+  <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
 , document.getElementById('components-notification-demo-top'));
 ````
