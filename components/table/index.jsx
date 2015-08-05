@@ -349,7 +349,7 @@ var AntTable = React.createClass({
       }
       // remote 模式使用 this.dataSource
       let dataSource = this.getRemoteDataSource();
-      jQuery.ajax({
+      return jQuery.ajax({
         url: dataSource.url,
         data: dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {},
         headers: dataSource.headers,

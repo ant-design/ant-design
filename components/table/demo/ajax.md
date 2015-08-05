@@ -65,7 +65,9 @@ var dataSource = new Table.DataSource({
 });
 
 function fetch() {
-  dataSource.fetch();
+  dataSource.fetch().then(function() {
+    console.log('fetch done');
+  });
 }
 
 React.render(<div>
