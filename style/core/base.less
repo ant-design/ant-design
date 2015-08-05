@@ -41,6 +41,11 @@ ol {
   list-style: none;
 }
 
+// Remove the clear button of a text input control in IE10+
+input::-ms-clear, input::-ms-reveal {
+  display: none;
+}
+
 // Links
 // --  TODO  --
 a {
