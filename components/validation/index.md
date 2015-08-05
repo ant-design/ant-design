@@ -53,7 +53,7 @@
 - `type` : 声明校验的值类型（如 string email），这样就会使用默认提供的规则进行校验，更多详见 [type](https://github.com/yiminghe/async-validator#user-content-type)；
 - `required`: 是否必填；
 - `pattern`: 声明校验正则表达式；
-- `min` / `max`: 最小值、最大值声明；
+- `min` / `max`: 最小值、最大值声明（对于 string 和 array 来说，针对的是其长度 length。）；
 - `len`: 字符长度；
 - `enum`: 枚举值，对应 type 值为 `enum`，例如 `role: {type: "enum", enum: ['A', 'B', 'C']}`；
 - `whitespace`: 是否允许空格， `true` 为允许；

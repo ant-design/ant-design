@@ -54,7 +54,7 @@ var Form = React.createClass({
     };
   },
 
-  validateStyle(item, hasFeedback=true) {
+  renderValidateStyle(item, hasFeedback=true) {
     var formData = this.state.formData;
     var status = this.state.status;
 
@@ -93,7 +93,7 @@ var Form = React.createClass({
       callback();
     } else {
       setTimeout(function () {
-        if (value === 'yiminghe') {
+        if (value === 'Jasonwood') {
           callback([new Error('抱歉，该用户名已被占用。')]);
         } else {
           callback();
@@ -103,14 +103,11 @@ var Form = React.createClass({
   },
 
   checkPass(rule, value, callback) {
-    if (this.state.formData.passwd) {
-      this.refs.validation.forceValidate(['rePasswd']);
-    }
     callback();
   },
 
   checkPass2(rule, value, callback) {
-    if (value !== this.state.formData.passwd) {
+    if (value && value !== this.state.formData.passwd) {
       callback('两次输入密码不一致！');
     } else {
       callback();
@@ -123,13 +120,13 @@ var Form = React.createClass({
 
     return (
       <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
-        <Validation ref='validation' onValidate={this.handleValidate}>
+        <Validation ref="validation" onValidate={this.handleValidate}>
           <div className="ant-form-item">
             <label className="col-6" for="name" required>用户名：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("name")}>
+              <div className={this.renderValidateStyle('name')}>
                 <Validator rules={[{required: true, min: 5, message: '用户名至少为 5 个字符'}, {validator: this.userExists}]}>
-                  <input name='name' className="ant-input" value={formData.name} />
+                  <input name="name" className="ant-input" value={formData.name} placeholder="实时校验，输入 JasonWood 看看" />
                 </Validator>
                 {status.name.isValidating ? <div className="ant-form-explain">正在校验中...</div> : null}
                 {status.name.errors ? <div className="ant-form-explain">{status.name.errors.join(',')}</div> : null}
@@ -140,9 +137,9 @@ var Form = React.createClass({
           <div className="ant-form-item">
             <label className="col-6" for="email" required>邮箱：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("email")}>
-                <Validator rules={{type: 'email', message: '请填写正确的邮箱地址'}} trigger="onBlur">
-                  <input name='email' className="ant-input" value={formData.email} onChange={this.setField.bind(this, 'email')}/>
+              <div className={this.renderValidateStyle('email')}>
+                <Validator rules={[{required: true, type:'email', message: '请输入您的邮箱'}]} trigger="onBlur">
+                  <input name="email" className="ant-input" value={formData.email}  placeholder="请按 xxxxxxx@xx.xx 格式输入" onChange={this.setField.bind('email')} />
                 </Validator>
                 {status.email.errors ? <div className="ant-form-explain">{status.email.errors.join(',')}</div> : null}
               </div>
@@ -152,7 +149,7 @@ var Form = React.createClass({
           <div className="ant-form-item">
             <label className="col-6" required>国籍：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("select", false)}>
+              <div className={this.renderValidateStyle('select', false)}>
                 <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
                   <Select style={{width:200}} name="select" value={formData.select}>
                     <Option value="china">中国</Option>
@@ -170,7 +167,7 @@ var Form = React.createClass({
           <div className="ant-form-item ant-form-item-compact">
             <label className="col-6" required>性别：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("radio", false)}>
+              <div className={this.renderValidateStyle('radio', false)}>
                 <Validator rules={[{required: true, message: '请选择您的性别'}]}>
                   <RadioGroup name="radio" value={formData.radio}>
                     <Radio value="male">男</Radio>
@@ -185,9 +182,9 @@ var Form = React.createClass({
           <div className="ant-form-item">
             <label className="col-6" required>密码：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("passwd", false)}>
-                <Validator trigger="onBlur" rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]}>
-                  <input name='passwd' className="ant-input" type="password" value={formData.passwd}/>
+              <div className={this.renderValidateStyle('passwd', false)}>
+                <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]}>
+                  <input name="passwd" className="ant-input" type="password" value={formData.passwd}/>
                 </Validator>
                 {status.passwd.errors ? <div className="ant-form-explain">{status.passwd.errors.join(',')}</div> : null}
               </div>
@@ -197,13 +194,13 @@ var Form = React.createClass({
           <div className="ant-form-item">
             <label className="col-6" required>确认密码：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("rePasswd", false)}>
-                <Validator trigger="onBlur" rules={[{
+              <div className={this.renderValidateStyle('rePasswd', false)}>
+                <Validator rules={[{
                   required: true,
                   whitespace: true,
                   message: '请再次输入密码'
                 }, {validator: this.checkPass2}]}>
-                  <input name='rePasswd' className="ant-input" type="password" value={formData.rePasswd}/>
+                  <input name="rePasswd" className="ant-input" type="password" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
                 </Validator>
                 {status.rePasswd.errors ? <div className="ant-form-explain"> {status.rePasswd.errors.join(', ')}</div> : null}
               </div>
@@ -214,7 +211,7 @@ var Form = React.createClass({
           <div className="ant-form-item">
             <label className="col-6" required>备注：</label>
             <div className="col-12">
-              <div className= {this.validateStyle("textarea", false)}>
+              <div className={this.renderValidateStyle('textarea', false)}>
                 <Validator rules={[{required: true, message: '真的不打算写点什么吗？'}]}>
                   <textarea className="ant-input" name="textarea" placeholder="写点什么吧"></textarea>
                 </Validator>
@@ -227,7 +224,7 @@ var Form = React.createClass({
             <div className="col-offset-6 col-12">
               <button type="submit" className="ant-btn ant-btn-primary">确 定</button>
             &nbsp;&nbsp;&nbsp;
-              <a href='#' className="ant-btn" onClick={this.handleReset}>重 置</a>
+              <a href="#" className="ant-btn" onClick={this.handleReset}>重 置</a>
             </div>
           </div>
         </Validation>
