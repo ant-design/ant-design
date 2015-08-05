@@ -21,6 +21,7 @@ class DataSource {
     this.resolve = config.resolve || defaultResolve;
     this.getParams = config.getParams || noop;
     this.getPagination = config.getPagination || noop;
+    this.headers = config.headers || {};
     this.fetch = noop;
   }
 }
@@ -50,6 +51,10 @@ var AntTable = React.createClass({
       rowSelection: null,
       size: 'normal'
     };
+  },
+
+  propTypes: {
+    dataSource: React.PropTypes.instanceOf(DataSource)
   },
 
   componentWillReceiveProps(nextProps) {
@@ -85,19 +90,9 @@ var AntTable = React.createClass({
   },
 
   getRemoteDataSource() {
-    // 判断传入DataSource类型
-    var dataSource = this.props.dataSource;
-    if ( dataSource.constructor === DataSource ) {
-      // 当传入 dataSource Instance 时，对外部DataSource暴露fetch接口
-      dataSource.fetch = this.fetch;
-      return dataSource;
-    } else {
-      return objectAssign({
-        resolve: defaultResolve,
-        getParams: noop,
-        getPagination: noop
-      }, this.props.dataSource);
-    }
+    let dataSource = this.props.dataSource;
+    dataSource.fetch = this.fetch;
+    return dataSource;
   },
 
   toggleSortOrder(order, column) {
