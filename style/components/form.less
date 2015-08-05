@@ -6,14 +6,12 @@
 label {
   position: relative;
   &[required]:before {
-    position: absolute;
     display: inline-block;
-    left: ~"-5px \9"; // ie8-9
+    margin-right: 4px;
     content: "*";
-    color: @label-required-color;
     font-family: SimSun;
     font-size: @font-size-base;
-    .translate3d(-10px; 0; 0);
+    color: @label-required-color;
   }
 
   > .@{iconfont-css-prefix} {
