@@ -15,7 +15,17 @@ function defaultResolve(data) {
   return data || [];
 }
 
-export default React.createClass({
+class DataSource {
+  constructor(config) {
+    this.url = config.url || '';
+    this.resolve = config.resolve || defaultResolve;
+    this.getParams = config.getParams || noop;
+    this.getPagination = config.getPagination || noop;
+    this.fetch = noop;
+  }
+}
+
+var AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
@@ -75,11 +85,19 @@ export default React.createClass({
   },
 
   getRemoteDataSource() {
-    return objectAssign({
-      resolve: defaultResolve,
-      getParams: noop,
-      getPagination: noop
-    }, this.props.dataSource);
+    // 判断传入DataSource类型
+    var dataSource = this.props.dataSource;
+    if ( dataSource.constructor === DataSource ) {
+      // 当传入 dataSource Instance 时，对外部DataSource暴露fetch接口
+      dataSource.fetch = this.fetch;
+      return dataSource;
+    } else {
+      return objectAssign({
+        resolve: defaultResolve,
+        getParams: noop,
+        getPagination: noop
+      }, this.props.dataSource);
+    }
   },
 
   toggleSortOrder(order, column) {
@@ -450,3 +468,7 @@ export default React.createClass({
     </div>;
   }
 });
+
+AntTable.DataSource = DataSource;
+
+export default AntTable;
