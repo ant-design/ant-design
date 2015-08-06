@@ -33,8 +33,9 @@ config 参数如下：
 | btn        | 自定义关闭按钮                                    | React.Element      | 无     |
 | key        | 当前通知唯一标志                               | String      | 无     |
 | onClose    | 点击默认关闭按钮时触发的回调函数                     | Function    | 无     |
+| duration   | 默认五秒后自动关闭，配置为 null 则不自动关闭         | Number    | 5     |
 
-还提供了一个全局配置方法：
+还提供了一个全局配置方法，需要在调用前提前配置，一次有效。
 
 - `notification.config(options)`
 
