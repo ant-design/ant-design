@@ -3,8 +3,7 @@ import assign from 'object-assign';
 import React from 'react';
 
 let top = 24;
-
-var notificationInstance;
+let notificationInstance;
 
 function getNotificationInstance() {
   notificationInstance = notificationInstance || Notification.newInstance({
@@ -41,9 +40,7 @@ function notice(args) {
     getNotificationInstance().notice({
       content: <div>
         <i className={iconClass + prefixCls + 'icon-' + args.icon + prefixCls + 'icon'}></i>
-
         <p className={prefixCls + 'message'}>{args.message}</p>
-
         <p className={prefixCls + 'description'}>{args.description}</p>
       </div>,
       duration: null,
@@ -57,7 +54,6 @@ function notice(args) {
       getNotificationInstance().notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
-
           <p className={prefixCls + 'description'}>{args.description}</p>
         </div>,
         duration: null,
@@ -69,7 +65,6 @@ function notice(args) {
       getNotificationInstance().notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
-
           <p className={prefixCls + 'description'}>{args.description}</p>
           <span className={prefixCls + 'btn'}>
             {args.btn}
@@ -99,7 +94,7 @@ var api = {
   }
 };
 
-['success', 'info', 'warn', 'error'].forEach((type)=> {
+['success', 'info', 'warn', 'error'].forEach((type) => {
   api[type] = (args) => {
     var newArgs = assign({}, args, {
       icon: type
