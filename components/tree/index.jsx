@@ -8,7 +8,6 @@ var antDTree = React.createClass({
       prefixCls: 'ant-tree'
     };
   },
-
   render() {
     return <Tree {...this.props} showIcon={false} showLine={false}>
       {this.props.children}

@@ -1,22 +1,16 @@
 # 基本
 
-- order: 0
+- order: 1
 
-最简单的用法。
+提供复选框操作功能。
 
 ---
 
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
-function handleSelect(selected, c) {
-  console.log('selected: ', selected, c );
-}
-function handleChecked(checked, c) {
-  console.log('checked: ', checked, c );
-}
 React.render(
-  <Tree className="myCls" onSelect={handleSelect} onChecked={handleChecked}>
+  <Tree className="myCls" checkable={true}>
         <TreeNode title="parent 1" expanded={true}>
           <TreeNode>leaf </TreeNode>
           <TreeNode title="parent 1-1">
@@ -32,7 +26,7 @@ React.render(
         <TreeNode>
           <TreeNode>leaf </TreeNode>
         </TreeNode>
-    </Tree>
-, document.getElementById('components-tree-demo-basic'));
+      </Tree>
+, document.getElementById('components-tree-demo-checkbox'));
 ````
 
