@@ -21,6 +21,7 @@
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
 | value        | 日期           | string   | 无           |
+| defaultValue | 默认日期       | string   | 无           |
 | format       | 展示的日期格式 | string   | "yyyy-MM-dd" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onSelect     | 选择日期的回调 | function | 无           |

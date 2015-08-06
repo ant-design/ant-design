@@ -2,7 +2,7 @@
 
 - order: 0
 
-最简单的用法。
+最简单的用法，五秒后自动关闭。
 
 ---
 
@@ -10,11 +10,10 @@
 var notification = require('antd/lib/notification');
 
 var openNotification = function() {
-  var args = {
+  notification.open({
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案"
-  };
-  notification.open(args);
+  });
 };
 
 React.render(

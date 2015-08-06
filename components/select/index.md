@@ -24,7 +24,8 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| value    | 指定默认选中的条目 | string/Array<String>   |  无  |
+| value    | 指定选中的条目 | string/Array<String>   |  无  |
+| defaultValue    | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选 |   | false |
 | filterOption | 是否根据输入项进行筛选 |  | true     |
 | tags | 可以把随意输入的条目作为tag，输入项不需要与下拉选项匹配 | |false |

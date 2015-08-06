@@ -2,7 +2,7 @@
 
 - order: 2
 
-通知提醒框左侧有Icon图标。
+通知提醒框左侧有图标。
 
 ---
 
@@ -11,11 +11,10 @@ var notification = require('antd/lib/notification');
 
 var openNotificationWithIcon = function(type) {
   return function(){
-    var args = {
+    notification[type]({
       message: "这是标题",
       description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案"
-    };
-    notification[type](args);
+    });
   };
 };
 
