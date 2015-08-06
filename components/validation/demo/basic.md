@@ -157,8 +157,8 @@ var Form = React.createClass({
             <label className="col-7" for="email" required>邮箱：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('email', this.state.isEmailOver)}>
-                <Validator rules={[{required: true, type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
-                  <input name="email" className="ant-input" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onChange={this.setField.bind('email')} onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
+                <Validator rules={[{type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
+                  <input name="email" className="ant-input" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onChange={this.setField.bind(this, 'email')} onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
                 </Validator>
                 {status.email.errors ? <div className="ant-form-explain">{status.email.errors.join(',')}</div> : null}
               </div>
