@@ -11,6 +11,6 @@
 var Datepicker = antd.Datepicker;
 
 React.render(
-  <Datepicker value="" />
+  <Datepicker />
 , document.getElementById('components-datepicker-demo-basic'));
 ````
