@@ -20,6 +20,8 @@
 
 ## API
 
+### Select props
+
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | value    | 指定默认选中的条目 | string/Array<String>   |  无  |
@@ -33,3 +35,18 @@
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
 | combobox | 输入框自动提示模式 | | false |
+
+### Option props
+
+| 参数     | 说明           | 类型     | 默认值       |
+|----------|----------------|----------|--------------|
+| disabled    | 是否禁用 | Boolean   |  false  |
+| key   | 如果react需要你设置此项，此项值与value的值相同，然后可以省略value设置 |  String |  |
+| value   | 默认根据此属性值进行筛选 | String | - |
+
+### OptGroup props
+
+| 参数     | 说明           | 类型     | 默认值       |
+|----------|----------------|----------|--------------|
+| label    | 组名 | String/React.Element   |  无  |
+| key   |  |  String | - |

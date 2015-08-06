@@ -117,7 +117,6 @@ a:hover {
 header {
   width: 100%;
   background: #fff;
-  overflow: hidden;
   border-bottom: 1px solid #eee;
   font-size: 16px;
 }
@@ -167,6 +166,10 @@ a.logo {
   margin-top: -2px;
 }
 
+#autoComplete .ant-select {
+  font-size: 14px;
+}
+
 #autoComplete .ant-select-selection--single {
   border: transparent;
   outline: none;
@@ -177,6 +180,20 @@ a.logo {
   transition: padding .3s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 14px;
   box-shadow: none;
+}
+
+#autoComplete .ant-select-dropdown {
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 0 8px rgba(0,0,0,0.25);
+}
+
+#autoComplete .ant-component-decs {
+  font-size: 12px;
+  position: absolute;
+  top: 9px;
+  color: #aaa;
+  right: 16px;
 }
 
 #autoComplete input::-webkit-input-placeholder,
@@ -477,6 +494,7 @@ footer ul li > a {
   -webkit-animation: xRightMatrix .5s ease-out;
   animation: xRightMatrix .5s ease-out;
   background: #fff;
+  min-height: 500px;
 }
 
 .main-container-center {
@@ -540,6 +558,12 @@ footer ul li > a {
   padding-left: 8px;
 }
 
+.markdown > ol li {
+  list-style: decimal;
+  margin-left: 20px;
+  padding-left: 8px;
+}
+
 .markdown code {
   margin: 0 3px;
 }
@@ -567,6 +591,7 @@ footer ul li > a {
   empty-cells: show;
   border: 1px solid #e9e9e9;
   width: 100%;
+  margin-bottom: 24px;
 }
 
 .markdown > table th {
@@ -1834,8 +1859,16 @@ a.entry-link:hover .icon-lego {
   animation: rotateCircle 0.5s 1 ease-in-out;
 }
 
+.entry-version {
+  font-size: 12px;
+  margin-top: 15px;
+  position: absolute;
+  top: 36px;
+  right: -32px;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
-  .code-boxes-col {
+  .code-boxes-col-2-1 {
     float: none;
     width: 100%;
   }
