@@ -9,8 +9,6 @@
 ````jsx
 var notification = require('antd/lib/notification');
 
-var key = 'someKeyString';
-
 var close = function() {
   // 自定义按钮关闭时的业务处理
   console.log("我被自定义的关闭按钮关闭了！");
@@ -23,15 +21,13 @@ var onClose = function() {
   console.log("我被默认的关闭按钮关闭了！");
 };
 
-var btn = <button onClick={close} className="ant-btn ant-btn-primary ant-btn-sm">自定义关闭按钮并触发回调函数</button>;
+var btn = <button className="ant-btn ant-btn-primary ant-btn-sm">自定义关闭按钮并触发回调函数</button>;
 
 var openNotification = function() {
   notification.open({
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
-    btn: btn,
-    key: key,
-    onClose: onClose
+    btn: btn
   });
 };
 
