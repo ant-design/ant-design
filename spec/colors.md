@@ -37,7 +37,7 @@ Ant Design 提供了16 种主色。每一种颜色都按照添加白色或者黑
 
 设计元素本身由于交互行为会引发一系列细微的视觉变化，而元素本身的颜色变化有时也能很好的实现这一目的。在进行这类设计的同时，建议采取在颜色上添加黑色或者白色并按照 nX5% 的规律递增的方式来实现。以下图为例，当鼠标移动到某个特定元素，就视为浮起，对应颜色就相应增加白色叠加，相反点击的行为可以理解为按下去，在颜色上就相应的增加黑色的叠加。
 
-<img src="https://t.alipayobjects.com/images/T1Qr8hXahhXXXXXXXX.png" width="100%">
+<img src="https://t.alipayobjects.com/images/T1fZJhXahgXXXXXXXX.png" width="100%">
 
 <img src="https://t.alipayobjects.com/images/T1ZHxhXdNmXXXXXXXX.png" width="100%">
 
