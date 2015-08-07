@@ -30,10 +30,6 @@ var columns = [{
   dataIndex: 'address'
 }];
 
-function resolve(result) {
-  return result.data;
-}
-
 var dataSource = new Table.DataSource({
   url: "/components/table/demo/data.json",
   resolve: function(result) {
@@ -65,21 +61,23 @@ var dataSource = new Table.DataSource({
 });
 
 var Test=React.createClass({
-  getInitialState(){
+  getInitialState() {
     return {
-      dataSource:dataSource
+      dataSource: dataSource
     };
   },
-  refresh(){
+  refresh() {
     this.setState({
       dataSource: this.state.dataSource.clone()
     });
   },
-  render(){
+  render() {
     return <div>
-             <Table columns={columns} dataSource={this.state.dataSource} />
-             <button className="ant-btn ant-btn-primary" onClick={this.refresh}>外部重新加载数据</button>
-           </div>;
+      <Table columns={columns} dataSource={this.state.dataSource} />
+      <button className="ant-btn ant-btn-primary" onClick={this.refresh}>
+        外部重新加载数据
+      </button>
+    </div>;
   }
 });
 
