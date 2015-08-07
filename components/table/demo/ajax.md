@@ -56,7 +56,7 @@ var dataSource = new Table.DataSource({
       sortField: sorter.field,
       sortOrder: sorter.order
     };
-    for (let key in filters) {
+    for (var key in filters) {
       params[key] = filters[key];
     }
     console.log('请求参数：', params);
@@ -64,14 +64,24 @@ var dataSource = new Table.DataSource({
   }
 });
 
-function fetch() {
-  dataSource.fetch().then(function() {
-    console.log('fetch done');
-  });
-}
+var Test=React.createClass({
+  getInitialState(){
+    return {
+      dataSource:dataSource
+    };
+  },
+  refresh(){
+    this.setState({
+      dataSource: this.state.dataSource.clone()
+    });
+  },
+  render(){
+    return <div>
+             <Table columns={columns} dataSource={this.state.dataSource} />
+             <button className="ant-btn ant-btn-primary" onClick={this.refresh}>外部重新加载数据</button>
+           </div>;
+  }
+});
 
-React.render(<div>
-  <Table columns={columns} dataSource={dataSource} />
-  <button className="ant-btn ant-btn-primary" onClick={fetch}>外部重新加载数据</button>
-</div>, document.getElementById('components-table-demo-ajax'));
+React.render(<Test />, document.getElementById('components-table-demo-ajax'));
 ````
