@@ -2,6 +2,7 @@
 
 - category: 色彩
 - order: 0
+- disabled: true
 
 ---
 

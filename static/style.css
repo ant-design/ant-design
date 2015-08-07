@@ -225,7 +225,7 @@ a.logo {
   display: block;
 }
 
-.nav ul li a.disabled {
+a.nav-link-disabled {
   cursor: not-allowed;
   color: #ddd !important;
   pointer-events: none;
