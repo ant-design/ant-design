@@ -2,7 +2,7 @@
 
 - order: 0
 
-默认选中第二项。
+默认选中第一项。
 
 ---
 
@@ -15,10 +15,10 @@ function callback(key) {
 }
 
 React.render(
-  <Tabs defaultActiveKey="2" onChange={callback}>
-    <TabPane tab="tab 1" key="1">选项卡一</TabPane>
-    <TabPane tab="tab 2" key="2">选项卡二</TabPane>
-    <TabPane tab="tab 3" key="3">选项卡三</TabPane>
+  <Tabs defaultActiveKey="1" onChange={callback}>
+    <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
+    <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
+    <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
   </Tabs>
 , document.getElementById('components-tabs-demo-basic'));
 ````

@@ -76,6 +76,7 @@ export default React.createClass({
         }}
         formatter={new DateTimeFormat(this.props.format)}
         value={this.state.value}
+        defaultValue={this.props.defaultValue}
         prefixCls="ant-calendar-picker"
         onChange={this.handleChange}>
         <input

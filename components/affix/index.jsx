@@ -85,7 +85,7 @@ var Affix = React.createClass({
   },
 
   render() {
-    var affix = this.state.affix ? 'affix' : '';
+    var affix = this.state.affix ? 'ant-affix' : '';
     var className = this.props.className;
 
     return (
