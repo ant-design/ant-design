@@ -1,8 +1,10 @@
 require('./style/index.less');
 
 var antd = {
+  Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
+  Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
   Modal: require('./components/modal'),
   Menu: require('rc-menu'),
@@ -19,11 +21,17 @@ var antd = {
   Switch: require('./components/switch'),
   Checkbox: require('./components/checkbox'),
   Table: require('./components/table'),
+  Tag: require('./components/tag'),
   Collapse: require('./components/collapse'),
   message: require('./components/message'),
   Slider: require('./components/slider'),
+  EnterAnimation: require('./components/enter-animation'),
   Radio: require('./components/radio'),
-  RadioGroup: require('./components/radio/group')
+  RadioGroup: require('./components/radio/group'),
+  Alert: require('./components/alert'),
+  Validation: require('./components/validation'),
+  Tree: require('./components/Tree'),
+  Upload: require('./components/upload')
 };
 
 module.exports = antd;
