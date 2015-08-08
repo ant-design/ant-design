@@ -57,6 +57,7 @@
     "rc-tabs": "~5.2.0",
     "rc-tooltip": "~2.4.0",
     "rc-tree": "~0.10.0",
+    "rc-upload": "~1.2.4-beta2",
     "rc-util": "~2.0.3",
     "react-slick": "~0.6.4"
   },
@@ -78,7 +79,8 @@
     "nico-jsx": "~0.5.8",
     "precommit-hook": "^1.0.7",
     "webpack": "^1.10.1",
-    "webpack-dev-middleware": "^1.2.0"
+    "webpack-dev-middleware": "^1.2.0",
+    "busboy": "~0.2.9"
   },
   "scripts": {
     "babel": "babel components --out-dir lib",

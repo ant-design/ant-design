@@ -30,7 +30,8 @@ var antd = {
   RadioGroup: require('./components/radio/group'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
-  Tree: require('./components/Tree')
+  Tree: require('./components/Tree'),
+  Upload: require('./components/upload')
 };
 
 module.exports = antd;
