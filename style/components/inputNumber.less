@@ -75,6 +75,60 @@
       .disabled();
     }
   }
+  
+  &-lg{
+    padding: 0!important;
+    .ant-input-number-handler-wrap{
+      height: 32px;
+    }
+    .ant-input-number-input-wrap{
+      height: 32px;
+    }
+    .ant-input-number-handler{
+      height: 16px;
+    }
+
+    input{
+      height: 32px;
+      line-height: 32px;
+      font-size: 14px;
+    }
+
+    .ant-input-number-handler-up-inner{
+      top: 2px;
+    }
+    .ant-input-number-handler-down-inner{
+      top: 18px;
+    }
+  }
+
+  &-sm{
+    padding: 0!important;
+    .ant-input-number-handler-wrap{
+      height: 22px;
+    }
+    .ant-input-number-input-wrap{
+      height: 22px;
+      overflow: hidden;
+      position: relative;
+    }
+    .ant-input-number-handler{
+      height: 11px;
+    }
+
+    input{
+      height: 22px;
+      line-height: 22px;
+      position: absolute;
+      top: 0;
+    }
+    .ant-input-number-handler-up-inner{
+      top: -1px;
+    }
+    .ant-input-number-handler-down-inner{
+      top: 10px;
+    }
+  }
 
   &-handler-wrap {
     float: right;

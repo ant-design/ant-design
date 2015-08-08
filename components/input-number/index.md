@@ -25,3 +25,4 @@
 | defaultValue     | 初始值       | Number      |            |
 | onChange     | 变化回调       | Function      |            |
 | disabled     | 禁用       | Boolean      |      false      |
+| className    | 输入框大小  | String      |      无      |
