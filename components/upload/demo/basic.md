@@ -1,15 +1,15 @@
 # 点击上传
 
-- order: 2
+- order: 1
 
-经典款式
+经典款式，用户点击按钮弹出文件选择框。
 
 ---
 
 ````jsx
 var Upload = antd.Upload;
+
 var props = {
-  type: 'uploadClickStyle',
   description: '支持扩展名为: .rar .zip ...',
   action: '/upload.do',
   data: {},
@@ -25,6 +25,6 @@ var props = {
 
 React.render(
   <Upload {...props} />,
-  document.getElementById('components-upload-demo-click')
+  document.getElementById('components-upload-demo-basic')
 );
 ````
