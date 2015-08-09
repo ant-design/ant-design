@@ -31,6 +31,7 @@ var antd = {
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/Tree'),
+  Upload: require('./components/upload'),
   Menu: require('./components/Menu')
 };
 
