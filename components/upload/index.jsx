@@ -27,13 +27,13 @@ let AntUpload = React.createClass({
   handleSuccess(ret, file) {
     var matchWay = file.uid === '' ? 'byName' : 'byUid';
     Message.success(file.name + '上传完成');
-    for (var i = 0; i < this.state.downloadList.length; i++){
-      if(matchWay === 'byName'){
-        if(this.state.downloadList[i].filename === file.name){
+    for (var i = 0; i < this.state.downloadList.length; i++) {
+      if (matchWay === 'byName') {
+        if (this.state.downloadList[i].filename === file.name) {
           this.state.downloadList[i].status = 'done';
         }
-      }else{
-        if(this.state.downloadList[i].uid === file.uid){
+      } else {
+        if (this.state.downloadList[i].uid === file.uid) {
           this.state.downloadList[i].status = 'done';
         }
       }
