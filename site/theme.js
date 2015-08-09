@@ -105,6 +105,9 @@ module.exports = function(nico) {
     },
     rootDirectoryIs: function(directory, rootDirectory) {
       return directory.split('/')[0] === rootDirectory;
+    },
+    removeCodeBoxIdPrefix: function(id) {
+      return id.split('-').slice(2).join('-');
     }
   };
 

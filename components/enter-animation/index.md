@@ -52,8 +52,12 @@
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
 |type             |string |`right`  |执行动画的内置参数  |
-|style            |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
+|eStyle           |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
+|direction        |string |`enter`|动画进场或出场样式,以 `enter` `leave` 两值|
+|duration         |number |0.5    |每个动画的时间|
+|ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动;|
 |delay            |number |0      |整个区块的延时，以秒为单位|
+|upend            |boolean|false  |是否倒放,从最后一个dom开始往上播放|
 |interval         |number |0.1    |递增延时值，以秒为单位|
 
 ### enter-data
@@ -68,9 +72,9 @@
 |-----------------|-----------------|----------------|----------------------------------------------------|
 |type             |string          |`right`           |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`|
 |style            |string          |null            |动画样式，如 `transform: translateX(100px)`，`type` 有值此项无效|
-|direction        |string          |`enter`         |动画进出场方向：`enter` `leave`|
-|duration         |number          |0.5             |动画的时间,以秒为单位|
-|ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|样式缓动，只支持 css 样式缓动|
+|direction        |string          |`enter`         |动画进出场方向：`enter` `leave`,覆盖标签里的值|
+|duration         |number          |0.5             |动画的时间,以秒为单位,覆盖标签里的值|
+|ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|样式缓动，只支持 css 样式缓动,覆盖标签里的值|
 |delay            |number          |0               |动画的延时，依照结构递增以上的 `interval`|
 |queueId          |number          |0               |动画的线程|
 

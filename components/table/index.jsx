@@ -15,7 +15,30 @@ function defaultResolve(data) {
   return data || [];
 }
 
-export default React.createClass({
+class DataSource {
+  init(config) {
+    this.config = config;
+    this.url = config.url || '';
+    this.resolve = config.resolve || defaultResolve;
+    this.getParams = config.getParams || noop;
+    this.getPagination = config.getPagination || noop;
+    this.headers = config.headers || {};
+  }
+
+  constructor(config) {
+    if (config) {
+      this.init(config);
+    }
+  }
+
+  clone() {
+    var d = new DataSource();
+    d.init(this.config);
+    return d;
+  }
+}
+
+var AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
@@ -40,6 +63,10 @@ export default React.createClass({
       rowSelection: null,
       size: 'normal'
     };
+  },
+
+  propTypes: {
+    dataSource: React.PropTypes.instanceOf(DataSource)
   },
 
   componentWillReceiveProps(nextProps) {
@@ -75,11 +102,7 @@ export default React.createClass({
   },
 
   getRemoteDataSource() {
-    return objectAssign({
-      resolve: defaultResolve,
-      getParams: noop,
-      getPagination: noop
-    }, this.props.dataSource);
+    return this.props.dataSource;
   },
 
   toggleSortOrder(order, column) {
@@ -336,7 +359,7 @@ export default React.createClass({
       }
       // remote 模式使用 this.dataSource
       let dataSource = this.getRemoteDataSource();
-      jQuery.ajax({
+      return jQuery.ajax({
         url: dataSource.url,
         data: dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {},
         headers: dataSource.headers,
@@ -450,3 +473,7 @@ export default React.createClass({
     </div>;
   }
 });
+
+AntTable.DataSource = DataSource;
+
+export default AntTable;

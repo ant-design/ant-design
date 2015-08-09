@@ -7,7 +7,6 @@ var antd = {
   Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
   Modal: require('./components/modal'),
-  Menu: require('rc-menu'),
   Dropdown: require('./components/dropdown'),
   Progress: require('./components/progress'),
   Popover: require('./components/popover'),
@@ -28,10 +27,12 @@ var antd = {
   EnterAnimation: require('./components/enter-animation'),
   Radio: require('./components/radio'),
   RadioGroup: require('./components/radio/group'),
+  Notification: require('./components/notification'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/Tree'),
-  Upload: require('./components/upload')
+  Upload: require('./components/upload'),
+  Menu: require('./components/Menu')
 };
 
 module.exports = antd;

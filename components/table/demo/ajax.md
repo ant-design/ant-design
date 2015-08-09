@@ -10,6 +10,7 @@
 
 ````jsx
 var Table = antd.Table;
+
 var columns = [{
   title: '姓名',
   dataIndex: 'name',
@@ -29,11 +30,7 @@ var columns = [{
   dataIndex: 'address'
 }];
 
-function resolve(result) {
-  return result.data;
-}
-
-var dataSource = {
+var dataSource = new Table.DataSource({
   url: "/components/table/demo/data.json",
   resolve: function(result) {
     return result.data;
@@ -55,14 +52,34 @@ var dataSource = {
       sortField: sorter.field,
       sortOrder: sorter.order
     };
-    for (let key in filters) {
+    for (var key in filters) {
       params[key] = filters[key];
     }
     console.log('请求参数：', params);
     return params;
   }
-};
+});
 
-React.render(<Table columns={columns} dataSource={dataSource} />
-, document.getElementById('components-table-demo-ajax'));
+var Test=React.createClass({
+  getInitialState() {
+    return {
+      dataSource: dataSource
+    };
+  },
+  refresh() {
+    this.setState({
+      dataSource: this.state.dataSource.clone()
+    });
+  },
+  render() {
+    return <div>
+      <Table columns={columns} dataSource={this.state.dataSource} />
+      <button className="ant-btn ant-btn-primary" onClick={this.refresh}>
+        外部重新加载数据
+      </button>
+    </div>;
+  }
+});
+
+React.render(<Test />, document.getElementById('components-table-demo-ajax'));
 ````

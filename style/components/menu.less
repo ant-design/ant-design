@@ -1,0 +1,135 @@
+@import "../mixins/index";
+
+@menuPrefixCls: ~"@{css-prefix}menu";
+
+.@{menuPrefixCls} {
+  outline: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  z-index: 99999;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 0 4px #d9d9d9;
+  border-radius: 3px;
+  color: #666;
+
+  &-item-group-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-item-group-title {
+    color: #999;
+    line-height: 1.5;
+    padding: 8px 10px;
+    border-bottom: 1px solid #dedede;
+  }
+
+  &-item-active, &-submenu-active {
+    background-color: #eaf8fe;
+  }
+
+  &-item-selected {
+    background-color: #eaf8fe;
+  }
+
+  & > li&-submenu {
+    padding: 0;
+  }
+
+  &-submenu-lt-lb > .@{menuPrefixCls} {
+    top: 100%;
+    left: 0;
+    margin-top: 4px;
+  }
+
+  &-submenu-lt-rt > .@{menuPrefixCls} {
+    top: 0;
+    left: 100%;
+    margin-left: 4px;
+  }
+
+  &-item,&-submenu-title {
+    margin: 0;
+    position: relative;
+    display: block;
+    padding: 7px 7px 7px 16px;
+    white-space: nowrap;
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.@{menuPrefixCls}-item-disabled, &.@{menuPrefixCls}-submenu-disabled {
+      color: #777 !important;
+    }
+  }
+  & > &-item-divider {
+    height: 1px;
+    margin: 1px 0;
+    overflow: hidden;
+    padding: 0;
+    line-height: 0;
+    background-color: #e5e5e5;
+  }
+
+  &-submenu {
+    position: relative;
+
+    > .@{menuPrefixCls} {
+      display: none;
+      position: absolute;
+      min-width: 160px;
+      background-color: #fff;
+    }
+
+    &-open {
+      > .@{menuPrefixCls} {
+        display: block;
+      }
+    }
+  }
+
+  .@{menuPrefixCls}-submenu-title, .@{menuPrefixCls}-item {
+    .anticon {
+      width: 14px;
+      height: 14px;
+      margin-right: 8px;
+      top: -1px;
+    }
+  }
+
+  &-horizontal {
+    background-color: #F3F5F7;
+    border: none;
+    border-bottom: 1px solid transparent;
+    border-bottom: 1px solid #d9d9d9;
+    box-shadow: none;
+
+    & > .@{menuPrefixCls}-item , & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+      padding: 15px 20px;
+    }
+
+    & > .@{menuPrefixCls}-submenu, & > .@{menuPrefixCls}-item {
+      float: left;
+      border-bottom: 2px solid transparent;
+
+      &-active {
+        border-bottom: 2px solid #2db7f5;
+        background-color: #F3F5F7;
+        color: #2baee9;
+      }
+    }
+
+    &:after {
+      content: "\20";
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+
+  &-vertical {
+    padding: 12px 0;
+    & > .@{menuPrefixCls}-item , & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+      padding: 12px 8px 12px 24px;
+    }
+  }
+}

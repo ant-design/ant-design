@@ -4,6 +4,8 @@
 
 密码校验实例。
 
+这里使用了 validation 的 `forceValidate(fields, callback)`  方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
+
 ---
 
 ````jsx
@@ -145,14 +147,14 @@ var Form = React.createClass({
 
     return (
       <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
-        <Validation ref='validation' onValidate={this.handleValidate}>
+        <Validation ref="validation" onValidate={this.handleValidate}>
 
           <div className="ant-form-item">
             <label className="col-6" required>密码：</label>
             <div className="col-10">
-              <div className= {this.renderValidateStyle("pass", false)}>
+              <div className={this.renderValidateStyle('pass', false)}>
                 <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                  <input name='pass' className="ant-input" type="password" value={formData.pass}/>
+                  <input name="pass" className="ant-input" type="password" value={formData.pass}/>
                 </Validator>
                 {status.pass.errors ? <div className="ant-form-explain">{status.pass.errors.join(',')}</div> : null}
               </div>
@@ -165,13 +167,13 @@ var Form = React.createClass({
           <div className="ant-form-item">
             <label className="col-6" required>确认密码：</label>
             <div className="col-10">
-              <div className= {this.renderValidateStyle("rePass", false)}>
+              <div className={this.renderValidateStyle('rePass', false)}>
                 <Validator rules={[{
                   required: true,
                   whitespace: true,
                   message: '请再次输入密码'
                 }, {validator: this.checkPass2}]}>
-                  <input name='rePass' className="ant-input" type="password" value={formData.rePass}/>
+                  <input name="rePass" className="ant-input" type="password" value={formData.rePass}/>
                 </Validator>
                 {status.rePass.errors ? <div className="ant-form-explain"> {status.rePass.errors.join(', ')}</div> : null}
               </div>
@@ -185,7 +187,7 @@ var Form = React.createClass({
             <div className="col-offset-6 col-12">
               <button type="submit" className="ant-btn ant-btn-primary">确 定</button>
               &nbsp;&nbsp;&nbsp;
-              <a href='#' className="ant-btn" onClick={this.handleReset}>重 置</a>
+              <a href="#" className="ant-btn" onClick={this.handleReset}>重 置</a>
             </div>
           </div>
         </Validation>
