@@ -19,9 +19,19 @@ export default React.createClass({
       });
     }
   },
-  handleClose(index) {
+  handleClose(file) {
+    var matchWay = file.uid === '' ? 'byName' : 'byUid';
     let items = this.state.items;
-    items.splice(items[index], 1);
+    let removeItem = items.filter((item) => {
+      if (matchWay === 'byName') {
+        return item.filename === file.filename;
+      } else {
+        return item.uid === file.uid;
+      }
+    })[0];
+    if (removeItem) {
+      items.splice(removeItem, 1);
+    }
     this.setState({
       items: items
     });
@@ -30,7 +40,7 @@ export default React.createClass({
     var items = this.state.items;
     var downloadItem = (file) => {
       var statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> : <i className='anticon anticon-loading'></i>;
-      var closeIcon = file.status === 'done' ? <i className='anticon anticon-cross' ref='theCloseBtn' onClick={this.handleClose.bind(this, file.id)}></i> : '';
+      var closeIcon = file.status === 'done' ? <i className='anticon anticon-cross' ref='theCloseBtn' onClick={this.handleClose.bind(this, file)}></i> : '';
       return (
         <div className={prefixCls + '-list-item'} key={file.id}>
           {statusIcon}
