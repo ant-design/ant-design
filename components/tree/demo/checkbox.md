@@ -9,24 +9,22 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
+var Checkbox = antd.Checkbox;
 React.render(
-  <Tree className="myCls" checkable={true}>
-        <TreeNode title="parent 1" expanded={true}>
+  <Tree expandAll={true} checkable={true}>
+    <TreeNode title="parent 1">
+      <TreeNode>leaf </TreeNode>
+      <TreeNode title="parent 1-1">
+        <TreeNode title="parent 2-1">
           <TreeNode>leaf </TreeNode>
-          <TreeNode title="parent 1-1">
-            <TreeNode title="parent 2-1">
-              <TreeNode>leaf </TreeNode>
-              <TreeNode>leaf </TreeNode>
-            </TreeNode>
-            <TreeNode>leaf </TreeNode>
-            <TreeNode>leaf </TreeNode>
-          </TreeNode>
+          <TreeNode>leaf </TreeNode>
         </TreeNode>
         <TreeNode>leaf </TreeNode>
-        <TreeNode>
-          <TreeNode>leaf </TreeNode>
-        </TreeNode>
-      </Tree>
+        <TreeNode>leaf </TreeNode>
+      </TreeNode>
+    </TreeNode>
+    <TreeNode>leaf </TreeNode>
+    <TreeNode>leaf </TreeNode>
+  </Tree>
 , document.getElementById('components-tree-demo-checkbox'));
 ````
-
