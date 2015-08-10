@@ -170,7 +170,7 @@ var Form = React.createClass({
             <div className="col-12">
               <div className={this.renderValidateStyle('select', false)}>
                 <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
-                  <Select style={{width:100 + "%"}} name="select" value={formData.select}>
+                  <Select size="large" placeholder="请选择国家" style={{width:"100%"}} name="select" value={formData.select}>
                     <Option value="china">中国</Option>
                     <Option value="use">美国</Option>
                     <Option value="japan">日本</Option>
@@ -180,9 +180,9 @@ var Form = React.createClass({
                 </Validator>
                 {status.select.errors ? <div className="ant-form-explain">{status.select.errors.join(',')}</div> : null}
               </div>
-            </div> 
+            </div>
           </div>
-          
+
           <div className="ant-form-item ant-form-item-compact">
             <label className="col-7" required>性别：</label>
             <div className="col-12">

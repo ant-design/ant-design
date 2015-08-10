@@ -64,6 +64,12 @@ export default React.createClass({
         showOk={this.props.showTime}
         showClear={false}/>
     );
+    var sizeClass = '';
+    if (this.props.size === 'large') {
+      sizeClass = ' ant-input-lg';
+    } else if (this.props.size === 'small') {
+      sizeClass = ' ant-input-sm';
+    }
     return (
       <Datepicker
         transitionName={this.props.transitionName}
@@ -82,7 +88,7 @@ export default React.createClass({
         onChange={this.handleChange}>
         <input
           placeholder={this.props.placeholder}
-          className={'ant-calendar-picker-input ant-input ant-input-' + this.props.size}/>
+          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
       </Datepicker>
     );
   }
