@@ -64,12 +64,11 @@ export default React.createClass({
         showOk={this.props.showTime}
         showClear={false}/>
     );
-    var sizeClass = ' ant-input-';
-    if(this.props.size === 'large'){
-      sizeClass += 'lg';
-    }
-    if(this.props.size === 'small'){
-      sizeClass += 'sm';
+    var sizeClass = '';
+    if (this.props.size === 'large') {
+      sizeClass = ' ant-input-lg';
+    } else if (this.props.size === 'small') {
+      sizeClass = ' ant-input-sm';
     }
     return (
       <Datepicker

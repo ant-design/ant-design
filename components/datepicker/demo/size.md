@@ -11,9 +11,9 @@ var Datepicker = antd.Datepicker;
 
 React.render(
   <div>
-    <Datepicker size={"large"} />
+    <Datepicker size="large" />
     <Datepicker />
-    <Datepicker size={"small"} />
+    <Datepicker size="small" />
   </div>
 , document.getElementById('components-datepicker-demo-size'));
 ````

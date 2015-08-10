@@ -15,9 +15,9 @@ function onChange(value) {
 
 React.render(
 <div>
-  <InputNumber size={"large"} min={1} max={100000} defaultValue={3} onChange={onChange} />
+  <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
   <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />
-  <InputNumber size={"small"} min={1} max={100000} defaultValue={3} onChange={onChange} />
+  <InputNumber size="small" min={1} max={100000} defaultValue={3} onChange={onChange} />
 </div>
 , document.getElementById('components-input-number-demo-size'));
 ````
