@@ -78,6 +78,7 @@ export default React.createClass({
         value={this.state.value}
         defaultValue={this.props.defaultValue}
         prefixCls="ant-calendar-picker"
+        style={this.props.style}
         onChange={this.handleChange}>
         <input
           placeholder={this.props.placeholder}
