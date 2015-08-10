@@ -36,6 +36,7 @@
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
 | combobox | 输入框自动提示模式 | | false |
+| size    | 选择框大小  | String      |      无      |
 
 ### Option props
 
