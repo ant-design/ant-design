@@ -8,6 +8,12 @@ export default React.createClass({
     };
   },
   render() {
-    return <InputNumber style={{width: 90}} {...this.props} />;
+    var sizeClass = '';
+    if (this.props.size === 'large') {
+      sizeClass = 'ant-input-number-lg';
+    } else if (this.props.size === 'small') {
+      sizeClass = 'ant-input-number-sm';
+    }
+    return <InputNumber className={sizeClass} style={{width: 90}} {...this.props} />;
   }
 });

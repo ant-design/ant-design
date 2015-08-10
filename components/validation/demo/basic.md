@@ -158,7 +158,7 @@ var Form = React.createClass({
             <div className="col-12">
               <div className={this.renderValidateStyle('email', this.state.isEmailOver)}>
                 <Validator rules={[{required: true, type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
-                  <input name="email" className="ant-input" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onChange={this.setField.bind('email')} onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
+                  <input name="email" className="ant-input" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
                 </Validator>
                 {status.email.errors ? <div className="ant-form-explain">{status.email.errors.join(',')}</div> : null}
               </div>
@@ -170,7 +170,7 @@ var Form = React.createClass({
             <div className="col-12">
               <div className={this.renderValidateStyle('select', false)}>
                 <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
-                  <Select style={{width:100 + "%"}} name="select" value={formData.select}>
+                  <Select size="large" placeholder="请选择国家" style={{width:"100%"}} name="select" value={formData.select}>
                     <Option value="china">中国</Option>
                     <Option value="use">美国</Option>
                     <Option value="japan">日本</Option>
@@ -180,9 +180,9 @@ var Form = React.createClass({
                 </Validator>
                 {status.select.errors ? <div className="ant-form-explain">{status.select.errors.join(',')}</div> : null}
               </div>
-            </div> 
+            </div>
           </div>
-          
+
           <div className="ant-form-item ant-form-item-compact">
             <label className="col-7" required>性别：</label>
             <div className="col-12">
