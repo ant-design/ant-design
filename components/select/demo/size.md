@@ -2,7 +2,7 @@
 
 - order: 0
 
-三种大小的选择框，当 className 分别为 `ant-select-lg` 和 `ant-select-sm` 时，输入框高度为 `32px` 和 `22px` ，默认高度为 `28px`
+三种大小的选择框，当 size 分别为 `large` 和 `small` 时，输入框高度为 `32px` 和 `22px` ，默认高度为 `28px`
 
 ---
 
@@ -16,7 +16,7 @@ function handleChange(value) {
 
 React.render(
   <div>
-  <Select className="ant-select-lg" value="lucy" style={{width:200}} onChange={handleChange}>
+  <Select size={"large"} value="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>
@@ -28,7 +28,7 @@ React.render(
       <Option value="disabled" disabled>Disabled</Option>
       <Option value="yiminghe">yiminghe</Option>
     </Select>
-    <Select className="ant-select-sm" value="lucy" style={{width:200}} onChange={handleChange}>
+    <Select size={"small"} value="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>

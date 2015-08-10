@@ -27,7 +27,7 @@
 | onSelect     | 选择日期的回调 | function | 无           |
 | showTime     | 显示时间选择条 | boolean  | false        |
 | disabled     | 禁用           | bool     | false        |
-| size         | 输入框大小，`lg`代表高为32px，`sm`代表高为22px，默认28px      | string   | 无        |
+| size         | 输入框大小，`large`代表高为32px，`small`代表高为22px，默认28px      | string   | 无        |
 
 <style>
 .code-box-demo .ant-calendar-picker-input {
