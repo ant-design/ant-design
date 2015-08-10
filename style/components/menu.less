@@ -25,7 +25,16 @@
     border-bottom: 1px solid #dedede;
   }
 
-  &-item-active, &-submenu-active {
+  &-inline > &-item-active,
+  &-submenu-inline&-submenu-active,
+  &-submenu-inline&-submenu-active > &-submenu-title:hover {
+    background-color: #fff;
+  }
+
+  &-inline > &-item-active:hover,
+  &-item-active,
+  &-submenu-active,
+  &-submenu-inline&-submenu-active > &-submenu-title:hover {
     background-color: #eaf8fe;
   }
 
@@ -37,19 +46,23 @@
     padding: 0;
   }
 
-  &-submenu-lt-lb > .@{menuPrefixCls} {
+  &-submenu-horizontal > .@{menuPrefixCls} {
     top: 100%;
     left: 0;
+    position: absolute;
+    min-width: 160px;
     margin-top: 4px;
   }
 
-  &-submenu-lt-rt > .@{menuPrefixCls} {
+  &-submenu-vertical > .@{menuPrefixCls} {
     top: 0;
     left: 100%;
+    position: absolute;
+    min-width: 160px;
     margin-left: 4px;
   }
 
-  &-item,&-submenu-title {
+  &-item, &-submenu-title {
     margin: 0;
     position: relative;
     display: block;
@@ -75,8 +88,6 @@
 
     > .@{menuPrefixCls} {
       display: none;
-      position: absolute;
-      min-width: 160px;
       background-color: #fff;
     }
 
@@ -103,7 +114,7 @@
     border-bottom: 1px solid #d9d9d9;
     box-shadow: none;
 
-    & > .@{menuPrefixCls}-item , & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
       padding: 15px 20px;
     }
 
@@ -126,10 +137,36 @@
     }
   }
 
-  &-vertical {
+  &-vertical, &-inline {
     padding: 12px 0;
-    & > .@{menuPrefixCls}-item , & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
       padding: 12px 8px 12px 24px;
     }
+  }
+
+  &-vertical&-sub {
+    padding: 0;
+  }
+
+  &-sub&-inline {
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+      padding-top: 8px;
+      padding-bottom: 8px;
+      padding-right: 0;
+    }
+  }
+}
+
+.@{menuPrefixCls}-submenu-title, .@{menuPrefixCls}-item {
+  .anticon {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+    top: -1px;
   }
 }

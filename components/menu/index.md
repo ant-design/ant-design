@@ -26,13 +26,13 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| horizontal    | 是否横向菜单 | boolean   |  false  |
-| vertical    | 是否侧向菜单 | boolean   |  false  |
+| mode    | 菜单类型 | enum: 'vertical', 'horizontal', 'inline' | false |
 | multiple   | 支持多选 |   | false |
 | selectedKeys | 选中的菜单项 key 数组 |  |      |
-| onSelect | 被选中时调用，参数为选中的 menuitem key 值 | function | 无   |
-| onDeselect | 取消选中时调用，参数为选中的 menuitem key 值，仅在multiple生效 | function | 无   |
-| onClick | 点击 menuitem 调用此函数，参数为点击的 menuitem key 值 | function | 无 |
+| defaultSelectedKeys | 选中的菜单项 key 数组 |  |      |
+| onSelect | 被选中时调用，参数 {item, key, selectedKeys} 对象 | function | 无   |
+| onDeselect | 取消选中时调用，参数 {item, key, selectedKeys} 对象，仅在 multiple 生效 | function | 无   |
+| onClick | 点击 menuitem 调用此函数，参数为 {item, key} | function | 无 |
 | style | 根节点样式 | object | | |
 
 ### Menu.Item props
@@ -47,5 +47,4 @@
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | title    | 子菜单项值 | String or React.Element   |    |
-| align    | 子菜单的对齐配置 | object   | {points:['lt','rt']} 弹出子菜单的 left top 和子菜单项的 right top 对齐   |
 | children   | (MenuItem or SubMenu)[] |  子菜单的菜单项 | | |

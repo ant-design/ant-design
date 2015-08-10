@@ -263,14 +263,13 @@ var AntTable = React.createClass({
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
         menus = <FilterMenu column={column}
-                            selectedFilters={colFilters}
+                            selectedKeys={colFilters}
                             confirmFilter={this.handleFilter}/>;
         let dropdownSelectedClass = '';
         if (colFilters.length > 0) {
           dropdownSelectedClass = 'ant-table-filter-selected';
         }
         filterDropdown = <Dropdown trigger="click"
-                                   closeOnSelect={false}
                                    overlay={menus}>
           <i title="筛选" className={'anticon anticon-bars ' + dropdownSelectedClass}></i>
         </Dropdown>;
