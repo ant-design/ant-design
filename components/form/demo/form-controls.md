@@ -36,7 +36,7 @@ React.render(
   <div className="ant-form-item">
     <label className="col-6">Select 选择器：</label>
     <div className="col-14">
-      <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Select size="large" value="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>

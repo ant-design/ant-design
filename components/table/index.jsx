@@ -16,13 +16,25 @@ function defaultResolve(data) {
 }
 
 class DataSource {
-  constructor(config) {
+  init(config) {
+    this.config = config;
     this.url = config.url || '';
     this.resolve = config.resolve || defaultResolve;
     this.getParams = config.getParams || noop;
     this.getPagination = config.getPagination || noop;
     this.headers = config.headers || {};
-    this.fetch = noop;
+  }
+
+  constructor(config) {
+    if (config) {
+      this.init(config);
+    }
+  }
+
+  clone() {
+    var d = new DataSource();
+    d.init(this.config);
+    return d;
   }
 }
 
@@ -90,9 +102,7 @@ var AntTable = React.createClass({
   },
 
   getRemoteDataSource() {
-    let dataSource = this.props.dataSource;
-    dataSource.fetch = this.fetch;
-    return dataSource;
+    return this.props.dataSource;
   },
 
   toggleSortOrder(order, column) {

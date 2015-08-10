@@ -41,7 +41,7 @@ React.render(
   <div className="ant-form-item">
     <label className="col-8" required>InputNumber 数字输入框：</label>
     <div className="col-10">
-      <InputNumber min={1} max={10} defaultValue={3} onChange={onInputNumberChange} style={{width:100}}/>
+      <InputNumber size="large" min={1} max={10} defaultValue={3} onChange={onInputNumberChange} style={{width:100}}/>
       <span className="ant-form-text"> 台机器</span>
     </div>
   </div>
@@ -71,7 +71,7 @@ React.render(
   <div className="ant-form-item">
     <label for="" className="col-8" required>Select 选择器：</label>
     <div className="col-16">
-      <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Select size="large" value="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>
