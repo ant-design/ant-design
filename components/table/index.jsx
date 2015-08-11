@@ -64,7 +64,8 @@ var AntTable = React.createClass({
       prefixCls: 'ant-table',
       useFixedHeader: false,
       rowSelection: null,
-      size: 'normal'
+      size: 'normal',
+      bordered: false
     };
   },
 
@@ -463,6 +464,9 @@ var AntTable = React.createClass({
     }
     if (this.props.size === 'small') {
       classString += ' ant-table-small';
+    }
+    if (this.props.bordered) {
+      classString += ' ant-table-bordered';
     }
     columns = this.renderColumnsDropdown(columns);
     return <div className="clearfix">
