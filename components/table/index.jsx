@@ -23,6 +23,7 @@ class DataSource {
     this.getParams = config.getParams || noop;
     this.getPagination = config.getPagination || noop;
     this.headers = config.headers || {};
+    this.data = config.data || {};
   }
 
   constructor(config) {
@@ -31,10 +32,12 @@ class DataSource {
     }
   }
 
-  clone() {
-    var d = new DataSource();
-    d.init(this.config);
-    return d;
+  clone(config) {
+    if (config) {
+      return new DataSource(objectAssign(config, this.config));
+    } else {
+      return this;
+    }
   }
 }
 
@@ -358,9 +361,10 @@ var AntTable = React.createClass({
       }
       // remote 模式使用 this.dataSource
       let dataSource = this.getRemoteDataSource();
+      let buildInParams = dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {};
       return jQuery.ajax({
         url: dataSource.url,
-        data: dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {},
+        data: objectAssign(buildInParams, dataSource.data),
         headers: dataSource.headers,
         dataType: 'json',
         success: (result) => {
