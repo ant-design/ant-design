@@ -46,6 +46,12 @@
 $ npm install antd --save
 ```
 
+安装最新的开发版本：
+
+```bash
+$ npm install antd@beta --save
+```
+
 ## 开发工具
 
 Ant Design 提供了开发构建的命令行工具，可以安装到全局直接使用：
