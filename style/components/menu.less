@@ -35,11 +35,11 @@
   &-item-active,
   &-submenu-active,
   &-submenu-inline&-submenu-active > &-submenu-title:hover {
-    background-color: #eaf8fe;
+    background-color: tint(@primary-color, 90%);
   }
 
   &-item-selected {
-    background-color: #eaf8fe;
+    background-color: tint(@primary-color, 90%);
   }
 
   & > li&-submenu {
@@ -123,9 +123,9 @@
       border-bottom: 2px solid transparent;
 
       &-active {
-        border-bottom: 2px solid #2db7f5;
+        border-bottom: 2px solid @primary-color;
         background-color: #F3F5F7;
-        color: #2baee9;
+        color: @primary-color;
       }
     }
 
