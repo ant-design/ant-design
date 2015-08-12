@@ -9,20 +9,23 @@
 ````jsx
 var notification = require('antd/lib/notification');
 
-var key = 'someKeyStringString';
-
-var close = function() {
-  notification.close(key);
+var btnClick = function() {
+  console.log('我被自定义的按钮点击了！');
 };
 
-var btn = <button onClick={close} className="ant-btn ant-btn-primary ant-btn-sm">自定义关闭按钮</button>;
+var close = function(){
+  console.log('我被默认的关闭按钮关闭了！');
+}
+
+var btn = <button onClick={btnClick} className="ant-btn ant-btn-primary ant-btn-sm">自定义关闭按钮</button>;
 
 var openNotification = function() {
   notification.open({
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     btn: btn,
-    key: key
+    btnClose: true,
+    onClose: close
   });
 };
 

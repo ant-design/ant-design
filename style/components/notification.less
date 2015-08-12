@@ -54,16 +54,16 @@
         margin-top: -26px;
         font-size: 35px;
 
-        &-success{
+        &-success {
           color: @success-color;
         }
-        &-info{
+        &-info {
           color: @primary-color;
         }
-        &-warn{
+        &-warn {
           color: @warning-color;
         }
-        &-error{
+        &-error {
           color: @error-color;
         }
       }
@@ -90,31 +90,58 @@
     }
   }
 
-  &-fade-enter {
-    left: @noticeWidth;
-    opacity: 0;
-    transition: all .3s ease-in-out;
+  .fade-effect() {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+    animation-timing-function: @ease-in-out;
   }
 
-  &-fade-enter&-fade-enter-active {
-    opacity: 1;
-    left: 0;
+  &-fade-enter {
+    opacity: 0;
+    .fade-effect();
+    animation-play-state: paused;
   }
 
   &-fade-leave {
-    opacity: 1;
-    margin-bottom: @noticeMarginBottom;
-    padding-top: @noticePadding;
-    padding-bottom: @noticePadding;
-    max-height: 150px;
-    transition: all .3s ease-in-out;
+    .fade-effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-enter&-fade-enter-active {
+    animation-name: NotificationFadeIn;
+    animation-play-state: running;
   }
 
   &-fade-leave&-fade-leave-active {
-    opacity: 0;
-    max-height: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
+    animation-name: NotificationFadeOut;
+    animation-play-state: running;
+  }
+
+  @keyframes NotificationFadeIn {
+    0% {
+      opacity: 0;
+      left: @noticeWidth;
+    }
+    100% {
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes NotificationFadeOut {
+    0% {
+      opacity: 1;
+      margin-bottom: @noticeMarginBottom;
+      padding-top: @noticePadding;
+      padding-bottom: @noticePadding;
+      max-height: 150px;
+    }
+    100% {
+      opacity: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      max-height: 0;
+    }
   }
 }

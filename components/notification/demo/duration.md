@@ -1,8 +1,8 @@
-# 不自动消失
+# 自动关闭的延时
 
-- order: 6
+- order: 1
 
-将 duration 配置为 null 即可。
+自定义通知框自动关闭的延时，默认`3s`，取消自动关闭只要将该值设为`0`即可。
 
 ---
 
@@ -10,15 +10,15 @@
 var notification = require('antd/lib/notification');
 
 var openNotification = function() {
-  notification.open({
+  var args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
-    duration: null
-  });
+    duration: 10
+  };
+  notification.open(args);
 };
 
 React.render(
-  <button className="ant-btn ant-btn-primary" onClick={openNotification}>显示通知，不自动消失</button>
+  <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
 , document.getElementById('components-notification-demo-duration'));
 ````
-
