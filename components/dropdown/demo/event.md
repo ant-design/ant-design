@@ -9,7 +9,7 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
-var onClick = function (key){
+var onClick = function ({key}){
   alert('选中了菜单' + key);
 };
 

@@ -60,7 +60,7 @@ var dataSource = new Table.DataSource({
   }
 });
 
-var Test=React.createClass({
+var Test = React.createClass({
   getInitialState() {
     return {
       dataSource: dataSource
@@ -68,14 +68,28 @@ var Test=React.createClass({
   },
   refresh() {
     this.setState({
-      dataSource: this.state.dataSource.clone()
+      dataSource: dataSource.clone()
+    });
+  },
+  changeAndRefresh() {
+    // 可以修改原来的 dataSource 再发请求
+    this.setState({
+      dataSource: dataSource.clone({
+        data: {
+          city: 'hz'
+        }
+      })
     });
   },
   render() {
     return <div>
       <Table columns={columns} dataSource={this.state.dataSource} />
       <button className="ant-btn ant-btn-primary" onClick={this.refresh}>
-        外部重新加载数据
+        重新加载数据
+      </button>
+      &nbsp;
+      <button className="ant-btn" onClick={this.changeAndRefresh}>
+        加载 city=hz 的数据
       </button>
     </div>;
   }
