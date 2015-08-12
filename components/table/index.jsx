@@ -262,6 +262,7 @@ var AntTable = React.createClass({
 
   renderColumnsDropdown(columns) {
     return columns.map((column) => {
+      column = objectAssign({}, column);
       let key = this.getColumnKey(column);
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
@@ -295,11 +296,8 @@ var AntTable = React.createClass({
           </span>
         </div>;
       }
-      if (!column.originalTitle) {
-        column.originalTitle = column.title;
-      }
       column.title = [
-        column.originalTitle,
+        column.title,
         sortButton,
         filterDropdown
       ];
