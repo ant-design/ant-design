@@ -15,6 +15,10 @@ function defaultResolve(data) {
   return data || [];
 }
 
+function getColumnKey(col, index) {
+  return col.key || col.dataIndex || index;
+}
+
 class DataSource {
   init(config) {
     this.config = config;
@@ -113,23 +117,6 @@ var AntTable = React.createClass({
     let sortColumn = this.state.sortColumn;
     let sortOrder = this.state.sortOrder;
     let sorter;
-    // 同时允许一列进行排序，否则会导致排序顺序的逻辑问题
-    if (sortColumn) {
-      sortColumn.className = '';
-    }
-    if (sortColumn !== column) {  // 当前列未排序
-      sortOrder = order;
-      sortColumn = column;
-      sortColumn.className = 'ant-table-column-sort';
-    } else {                      // 当前列已排序
-      if (sortOrder === order) {  // 切换为未排序状态
-        sortOrder = '';
-        sortColumn = null;
-      } else {                    // 切换为排序状态
-        sortOrder = order;
-        sortColumn.className = 'ant-table-column-sort';
-      }
-    }
     if (this.isLocalDataSource()) {
       sorter = function () {
         let result = column.sorter.apply(this, arguments);
@@ -261,7 +248,7 @@ var AntTable = React.createClass({
   },
 
   renderColumnsDropdown(columns) {
-    return columns.map((column) => {
+    return columns.map((column, i) => {
       column = objectAssign({}, column);
       let key = this.getColumnKey(column);
       let filterDropdown, menus, sortButton;
@@ -280,7 +267,12 @@ var AntTable = React.createClass({
         </Dropdown>;
       }
       if (column.sorter) {
-        let isSortColumn = (this.state.sortColumn === column);
+        var colKey = getColumnKey(column, i);
+        let isSortColumn = (getColumnKey(this.state.sortColumn, i) === colKey);
+        if (isSortColumn) {
+          column.className = column.className || '';
+          column.className += ' ant-table-column-sort';
+        }
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
