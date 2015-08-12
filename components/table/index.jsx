@@ -290,8 +290,6 @@ var AntTable = React.createClass({
           column.className = column.className || '';
           if (this.state.sortOrder) {
             column.className += ' ant-table-column-sort';
-          } else {
-            column.className = column.className.replace(' ant-table-column-sort', '');
           }
         }
         sortButton = <div className="ant-table-column-sorter">
