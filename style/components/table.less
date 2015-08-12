@@ -12,7 +12,7 @@
   table {
     width: 100%;
     max-width: 100%;
-    border-collapse: separate;
+    border-collapse: collapse;
     text-align: left;
   }
 
@@ -177,6 +177,23 @@
       color: #aaa;
       &:before {
         -moz-transform-origin: 53% 50%; /* fix firefox position */
+      }
+    }
+  }
+
+  &.@{tablePrefixClass}-bordered {
+    border: 1px solid #E9E9E9;
+    border-bottom: 0;
+    overflow: hidden;
+
+    th {
+      border-bottom: 1px solid #E9E9E9;
+    }
+
+    th, td {
+      border-right: 1px solid #E9E9E9;
+      &:last-child {
+        border-right: 0;
       }
     }
   }

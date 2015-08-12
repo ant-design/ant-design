@@ -8,6 +8,7 @@
 
 ````jsx
 var message = antd.message;
+
 var success = function() {
   message.success('这是一条成功的提示');
 };

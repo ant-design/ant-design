@@ -36,7 +36,7 @@ React.render(
   <div className="ant-form-item">
     <label className="col-6">Select 选择器：</label>
     <div className="col-14">
-      <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Select size="large" value="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>
@@ -48,13 +48,13 @@ React.render(
     <label className="col-6">Checkbox 多选框：</label>
     <div className="col-18">
       <label className="ant-checkbox-vertical">
-        <Checkbox /> 选项一
+        <Checkbox />选项一
       </label>
       <label className="ant-checkbox-vertical">
-        <Checkbox /> 选项二
+        <Checkbox />选项二
       </label>
       <label className="ant-checkbox-vertical">
-        <Checkbox disabled={true} /> 选项三（不可选）
+        <Checkbox disabled={true} />选项三（不可选）
       </label>
     </div>
   </div>

@@ -1,0 +1,120 @@
+@import "../mixins/index";
+
+@notificationPrefixCls: ~"@{css-prefix}notification";
+
+@noticeWidth: 335px;
+@noticePadding: 16px;
+@noticeMarginBottom: 10px;
+
+.@{notificationPrefixCls} {
+  position: fixed;
+  z-index: 1000;
+  width: @noticeWidth;
+  margin-right: 24px;
+
+  &-notice {
+    padding: @noticePadding;
+    border-radius: @border-radius-base;
+    box-shadow: 0 0 4px @legend-border-color;
+    background: @body-background;
+    line-height: 1.5;
+    position: relative;
+    margin-bottom: @noticeMarginBottom;
+    overflow: hidden;
+
+    &-content {
+      &-message {
+        font-size: 14px;
+        color: @text-color;
+        margin-bottom: 4px;
+      }
+      &-description {
+        font-size: @font-size-base;
+        color: @legend-color;
+      }
+    }
+
+    &-content-icon {
+      position: relative;
+      &-message {
+        font-size: 14px;
+        color: @text-color;
+        margin-left: 51px;
+        margin-bottom: 4px;
+      }
+      &-description {
+        margin-left: 51px;
+        font-size: @font-size-base;
+        color: @legend-color;
+      }
+      &-icon {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        margin-top: -26px;
+        font-size: 35px;
+
+        &-success{
+          color: @success-color;
+        }
+        &-info{
+          color: @primary-color;
+        }
+        &-warn{
+          color: @warning-color;
+        }
+        &-error{
+          color: @error-color;
+        }
+      }
+    }
+
+    &-close-x:after {
+      content: "\e61e";
+      font-family: "anticon";
+      cursor: pointer;
+      .iconfont-size-under-12px(10px);
+    }
+
+    &-close {
+      position: absolute;
+      right: 16px;
+      top: 10px;
+      color: #999;
+      outline: none;
+    }
+
+    &-content-btn {
+      float: right;
+      margin-top: 16px;
+    }
+  }
+
+  &-fade-enter {
+    left: @noticeWidth;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+
+  &-fade-enter&-fade-enter-active {
+    opacity: 1;
+    left: 0;
+  }
+
+  &-fade-leave {
+    opacity: 1;
+    margin-bottom: @noticeMarginBottom;
+    padding-top: @noticePadding;
+    padding-bottom: @noticePadding;
+    max-height: 150px;
+    transition: all .3s ease-in-out;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

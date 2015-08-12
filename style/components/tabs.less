@@ -34,15 +34,18 @@
     width: 100%;
     position: relative;
     white-space: nowrap;
-    padding-right: 32px;
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid #e9e9e9;
     margin-bottom: 15px;
     .clearfix;
   }
 
+  &-nav-container-scrolling {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
   &-tab-prev, &-tab-next {
     user-select: none;
-    -webkit-user-select: none;
     z-index: 2;
     margin-right: -2px;
     margin-top: 1px;
@@ -79,6 +82,12 @@
     }
   }
 
+  &-tab-btn-disabled {
+    cursor: default;
+    color: #ccc;
+    pointer-events: none;
+  }
+
   &-tab-next {
     right: 2px;
 
@@ -89,7 +98,6 @@
 
   &-tab-prev {
     left: 0;
-    background: #fff;
     transform: rotate(180deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
     &-icon:before {

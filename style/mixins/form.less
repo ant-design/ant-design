@@ -5,10 +5,8 @@
   // 输入框的不同校验状态
   .@{css-prefix}input {
     border-color: @border-color;
-    &:focus {
-      border-color: @border-color;
-      box-shadow: 0 0 0 2px tint(@border-color, 80%);
-    }
+    box-shadow: 0 0 0 2px tint(@border-color, 80%);
+    
     &:not([disabled]):hover {
       border-color: @border-color;
     }

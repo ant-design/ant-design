@@ -42,6 +42,30 @@
     .btn-circle-outline;
   }
 
+  &-loading {
+    padding-right: 31px;
+    pointer-events: none;
+    opacity: 0.75;
+    &:after {
+      font-family: anticon;
+      .animation(loadingCircle 1s infinite linear);
+      content: "\e610";
+      position: absolute;
+      height: 12px;
+      line-height: 12px;
+      right: 13px;
+      top: 50%;
+      margin-top: -6px;
+    }
+  }
+
+  &-sm&-loading {
+    padding-right: 24px;
+    &:after {
+      right: 8px;
+    }
+  }
+
   &-menu {
     > .@{iconfont-css-prefix} {
       .iconfont-size-under-12px(10px);
