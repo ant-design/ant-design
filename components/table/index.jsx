@@ -15,10 +15,6 @@ function defaultResolve(data) {
   return data || [];
 }
 
-function getColumnKey(col, index) {
-  return col.key || col.dataIndex || index;
-}
-
 class DataSource {
   init(config) {
     this.config = config;
@@ -117,6 +113,19 @@ var AntTable = React.createClass({
     let sortColumn = this.state.sortColumn;
     let sortOrder = this.state.sortOrder;
     let sorter;
+    // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
+    let isSortColumn = this.isSortColumn(column);
+    if (!isSortColumn) {  // 当前列未排序
+      sortOrder = order;
+      sortColumn = column;
+    } else {                      // 当前列已排序
+      if (sortOrder === order) {  // 切换为未排序状态
+        sortOrder = '';
+        sortColumn = null;
+      } else {                    // 切换为排序状态
+        sortOrder = order;
+      }
+    }
     if (this.isLocalDataSource()) {
       sorter = function () {
         let result = column.sorter.apply(this, arguments);
@@ -243,14 +252,23 @@ var AntTable = React.createClass({
     return this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
   },
 
-  getColumnKey(column) {
-    return column.key || column.dataIndex;
+  getColumnKey(column, index) {
+    return column.key || column.dataIndex || index;
+  },
+
+  isSortColumn(column) {
+    if (!column || !this.state.sortColumn) {
+      return false;
+    }
+    let colKey = this.getColumnKey(column);
+    let isSortColumn = (this.getColumnKey(this.state.sortColumn) === colKey);
+    return isSortColumn;
   },
 
   renderColumnsDropdown(columns) {
     return columns.map((column, i) => {
       column = objectAssign({}, column);
-      let key = this.getColumnKey(column);
+      let key = this.getColumnKey(column, i);
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
@@ -267,11 +285,14 @@ var AntTable = React.createClass({
         </Dropdown>;
       }
       if (column.sorter) {
-        var colKey = getColumnKey(column, i);
-        let isSortColumn = (getColumnKey(this.state.sortColumn, i) === colKey);
+        let isSortColumn = this.isSortColumn(column);
         if (isSortColumn) {
           column.className = column.className || '';
-          column.className += ' ant-table-column-sort';
+          if (this.state.sortOrder) {
+            column.className += ' ant-table-column-sort';
+          } else {
+            column.className = column.className.replace(' ant-table-column-sort', '');
+          }
         }
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
