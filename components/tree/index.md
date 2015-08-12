@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 树
+- disabled: true
 
 ---
 

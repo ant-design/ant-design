@@ -55,10 +55,11 @@
 |eStyle           |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
 |direction        |string |`enter`|动画进场或出场样式,以 `enter` `leave` 两值|
 |duration         |number |0.5    |每个动画的时间|
-|ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动;|
+|ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动,只支持 css 样式缓动;|
 |delay            |number |0      |整个区块的延时，以秒为单位|
 |upend            |boolean|false  |是否倒放,从最后一个dom开始往上播放|
 |interval         |number |0.1    |递增延时值，以秒为单位|
+|callback         |function|null  |动画结束回调|
 
 ### enter-data
 

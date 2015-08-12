@@ -554,7 +554,11 @@ $(function () {
             str += 'L' + (c_x + ii) + "," + (c_y - c_h * at);
           }
         } else {
-          str += "L100 250" + "L" + tt_w + "," + ct_y;
+          if (open !== 'null') {
+            str += "L100 250" + "L" + tt_w + "," + ct_y;
+          } else {
+            str += "M100 250";
+          }
         }
       }
       tb.drawPath({
@@ -588,12 +592,12 @@ $(function () {
           }
           str += "L" + (c_w + c_x + 20) + "," + c_y;
         } else {
-          str += "L" + (c_w + c_x ) + "," + c_y + "L" + (c_w + c_x + 20) + "," + c_y;
-          /*if (self.data.lineData[i].endEaseName !== "null") {
+          //str += "L" + (c_w + c_x ) + "," + c_y + "L" + (c_w + c_x + 20) + "," + c_y;
+          if (end !== "null") {
             str += "L" + (c_w + c_x ) + "," + c_y + "L" + (c_w + c_x + 20) + "," + c_y;
           } else {
             str += "L" + e_x + "," + ct_y;
-          }*/
+          }
         }
       }
       tb.drawPath({
@@ -709,14 +713,27 @@ $(function () {
         _x = {y: 20};
         cx = {y: self.data.mask ? 240 : 180};
       }
-      if (self.data.lineData[i].endEaseName !== "null") {
-        _x.ease = oease, cx.ease = eease, cx.delay = self.d_time;
-      } else {
+      if (self.data.lineData[i].openEaseName === "null" && self.data.lineData[i].endEaseName === "null") {
         var t = cx;
         cx = {};
         cx.startAt = t;
         cx.delay = self.d_time;
-        _x.ease = oease, cx.ease = eease;
+        var tt = _x;
+        _x = {};
+        _x.startAt = tt;
+      } else if (self.data.lineData[i].openEaseName === "null") {
+        var tt = _x;
+        _x = {};
+        _x.startAt = tt;
+        cx.ease = eease,cx.delay = self.d_time;
+      } else if (self.data.lineData[i].endEaseName === "null") {
+        var t = cx;
+        cx = {};
+        cx.startAt = t;
+        cx.delay = self.d_time;
+        _x.ease = oease;
+      } else {
+        _x.ease = oease, cx.ease = eease, cx.delay = self.d_time;
       }
       ctl.to(ciric, self.t_time, _x).to(ciric, self.t_time, cx);
       self.tweenArr.push(ctl);

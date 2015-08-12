@@ -1,8 +1,8 @@
-# 侧边菜单
+# 系统菜单
 
 - order: 1
 
-基本使用。
+点击后出现菜单
 
 ---
 
@@ -15,7 +15,7 @@ function handleClick(info) {
   console.log('selected ',info);
 }
 
-React.render(<Menu onClick={handleClick} style={{width:200}} mode="vertical">
+React.render(<Menu onClick={handleClick} mode="horizontal" openSubMenuOnMouseEnter={false}>
   <SubMenu title={<span><i className="anticon anticon-apple"></i><span>导航一</span></span>}>
     <MenuItem key="1">选项1</MenuItem>
     <MenuItem key="2">选项2</MenuItem>
@@ -37,5 +37,5 @@ React.render(<Menu onClick={handleClick} style={{width:200}} mode="vertical">
     <MenuItem key="12">选项12</MenuItem>
   </SubMenu>
   </Menu>
-, document.getElementById('components-menu-demo-side'));
+, document.getElementById('components-menu-demo-system'));
 ````
