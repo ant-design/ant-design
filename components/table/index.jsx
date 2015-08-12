@@ -70,7 +70,7 @@ var AntTable = React.createClass({
   },
 
   propTypes: {
-    dataSource: React.PropTypes.instanceOf(DataSource)
+    dataSource: React.PropTypes.oneOfType([React.PropTypes.array, React.PropTypes.instanceOf(DataSource)])
   },
 
   componentWillReceiveProps(nextProps) {
