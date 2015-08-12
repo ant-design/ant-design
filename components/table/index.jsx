@@ -70,7 +70,7 @@ var AntTable = React.createClass({
   },
 
   propTypes: {
-    dataSource: React.PropTypes.instanceOf(DataSource)
+    dataSource: React.PropTypes.oneOfType([React.PropTypes.array, React.PropTypes.instanceOf(DataSource)])
   },
 
   componentWillReceiveProps(nextProps) {
@@ -113,21 +113,17 @@ var AntTable = React.createClass({
     let sortColumn = this.state.sortColumn;
     let sortOrder = this.state.sortOrder;
     let sorter;
-    // 同时允许一列进行排序，否则会导致排序顺序的逻辑问题
-    if (sortColumn) {
-      sortColumn.className = '';
-    }
-    if (sortColumn !== column) {  // 当前列未排序
+    // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
+    let isSortColumn = this.isSortColumn(column);
+    if (!isSortColumn) {  // 当前列未排序
       sortOrder = order;
       sortColumn = column;
-      sortColumn.className = 'ant-table-column-sort';
     } else {                      // 当前列已排序
       if (sortOrder === order) {  // 切换为未排序状态
         sortOrder = '';
         sortColumn = null;
       } else {                    // 切换为排序状态
         sortOrder = order;
-        sortColumn.className = 'ant-table-column-sort';
       }
     }
     if (this.isLocalDataSource()) {
@@ -256,13 +252,23 @@ var AntTable = React.createClass({
     return this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
   },
 
-  getColumnKey(column) {
-    return column.key || column.dataIndex;
+  getColumnKey(column, index) {
+    return column.key || column.dataIndex || index;
+  },
+
+  isSortColumn(column) {
+    if (!column || !this.state.sortColumn) {
+      return false;
+    }
+    let colKey = this.getColumnKey(column);
+    let isSortColumn = (this.getColumnKey(this.state.sortColumn) === colKey);
+    return isSortColumn;
   },
 
   renderColumnsDropdown(columns) {
-    return columns.map((column) => {
-      let key = this.getColumnKey(column);
+    return columns.map((column, i) => {
+      column = objectAssign({}, column);
+      let key = this.getColumnKey(column, i);
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
@@ -279,7 +285,13 @@ var AntTable = React.createClass({
         </Dropdown>;
       }
       if (column.sorter) {
-        let isSortColumn = (this.state.sortColumn === column);
+        let isSortColumn = this.isSortColumn(column);
+        if (isSortColumn) {
+          column.className = column.className || '';
+          if (this.state.sortOrder) {
+            column.className += ' ant-table-column-sort';
+          }
+        }
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
@@ -295,11 +307,8 @@ var AntTable = React.createClass({
           </span>
         </div>;
       }
-      if (!column.originalTitle) {
-        column.originalTitle = column.title;
-      }
       column.title = [
-        column.originalTitle,
+        column.title,
         sortButton,
         filterDropdown
       ];

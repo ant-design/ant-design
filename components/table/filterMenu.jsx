@@ -27,7 +27,7 @@ var FilterMenu = React.createClass({
   handleClearFilters() {
     this.setState({
       selectedKeys: []
-    });
+    }, this.handleConfirm);
   },
   handleConfirm(){
     this.props.confirmFilter(this.props.column, this.state.selectedKeys);
