@@ -295,11 +295,14 @@ var AntTable = React.createClass({
           </span>
         </div>;
       }
-      if (!column.originalTitle) {
-        column.originalTitle = column.title;
+      let originTitle;
+      if (Array.isArray(column.title)) {
+        originTitle = column.title[0];
+      } else {
+        originTitle = column.title;
       }
       column.title = [
-        column.originalTitle,
+        originTitle,
         sortButton,
         filterDropdown
       ];
