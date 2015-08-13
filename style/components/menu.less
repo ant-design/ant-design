@@ -91,9 +91,30 @@
       background-color: #fff;
     }
 
+    &-inline > .@{menuPrefixCls}-submenu-title:after {
+      font-family: "anticon" !important;
+      font-style: normal;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      position: absolute;
+      transition: transform .3s ease-in;
+      content: "\e600";
+      right: 8px;
+      transform: scale(0.7);
+      top: 11px;
+    }
+
     &-opened {
       > .@{menuPrefixCls} {
         display: block;
+      }
+
+      &.@{menuPrefixCls}-submenu-inline > .@{menuPrefixCls}-submenu-title:after {
+        content: "\e600";
+        .ie-rotate(2);
+        transform: rotate(180deg) scale(0.7);
       }
     }
   }
@@ -146,6 +167,10 @@
 
   &-vertical&-sub {
     padding: 0;
+  }
+
+  &-root&-inline {
+    border-radius: 0;
   }
 
   &-sub&-inline {
