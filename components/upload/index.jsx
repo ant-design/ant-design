@@ -78,9 +78,9 @@ let AntUpload = React.createClass({
       this.handleProgress(step);
       props.progress.call(this, step);
     };
-    props.onError = (err) => {
+    props.onError = (err, responce, file) => {
       this.handleError(err);
-      props.error.call(this, err);
+      props.error.call(this, err, responce, file);
     };
     if (type === 'drag') {
       return (
