@@ -19,7 +19,7 @@
   <Validator>
     <CustomComponent>
       <input />
-    </CustomComponent
+    </CustomComponent>
   </Validator>
 </Validation>
 ```

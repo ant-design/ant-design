@@ -254,7 +254,18 @@
 
   .@{selectPrefixCls}-selection--single + .@{selectPrefixCls}-dropdown {
     .@{selectPrefixCls}-dropdown-menu-item-selected {
-      background-color: tint(@primary-color, 90%) !important;
+      background-color: tint(@primary-color, 90%);
+      position: relative;
+      &:after {
+        content: '\e613';
+        font-family: 'anticon';
+        font-weight: bold;
+        position: absolute;
+        top: 6px;
+        right: 16px;
+        color: @primary-color;
+        background-color: tint(@primary-color, 90%);
+      }
     }
   }
   .@{selectPrefixCls}-selection--multiple + .@{selectPrefixCls}-dropdown {
