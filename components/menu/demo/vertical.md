@@ -11,8 +11,8 @@ var Menu = antd.Menu;
 var MenuItem = Menu.Item;
 var SubMenu = Menu.SubMenu;
 
-function handleClick(item) {
-  console.log('click', item);
+function handleClick(e) {
+  console.log('click', e);
 }
 
 React.render(<Menu onClick={handleClick} style={{width:240}} mode="vertical">

@@ -16,10 +16,10 @@ var App = React.createClass({
       current: 'mail'
     }
   },
-  handleClick(item) {
-    console.log('click ', item);
+  handleClick(e) {
+    console.log('click ', e);
     this.setState({
-      current: item.key
+      current: e.key
     });
   },
   render() {
