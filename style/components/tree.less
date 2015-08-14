@@ -1,7 +1,24 @@
 @treePrefixCls: ant-tree;
 
+@import "../mixins/iconfont";
+@openIcon: '\e60f';
+.switcher_icon() {
+  position: relative;
+  &:after {
+    .iconfont-size-under-12px(6px);
+    content: @openIcon;
+    display: inline-block;
+    font-family: 'anticon';
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    color: #666;
+  }
+}
+
 .@{treePrefixCls} {
-  margin:0; padding:5px;
+  margin:0; padding:5px; font-size: 12px;
   li {
     padding: 0;  margin: 0;
     list-style: none;  white-space: nowrap;  outline: 0;
@@ -16,6 +33,7 @@
       padding:1px 3px 0 0; margin:0;
       cursor:pointer; height:20px;
       text-decoration:none; vertical-align:top;
+      color: #666;
     }
     span {
       line-height:20px;  margin-right:2px;
@@ -30,17 +48,25 @@
             background: #fff; position: relative;
             &:after{content: '-'; position: absolute; top: 8px; left: 6px; color: gray;}
           }
-          &.@{treePrefixCls}-roots_open { background-position: -94px 0}
-          &.@{treePrefixCls}-roots_close{ background-position:-76px 0}
-          &.@{treePrefixCls}-center_open{ background-position:-94px -18px}
-          &.@{treePrefixCls}-center_close{ background-position:-76px -18px}
-          &.@{treePrefixCls}-bottom_open{ background-position:-94px -36px}
-          &.@{treePrefixCls}-bottom_close{ background-position:-76px -36px}
-          &.@{treePrefixCls}-noline_open{ background-position:-94px -72px}
-          &.@{treePrefixCls}-noline_close{ background-position:-76px -72px}
+          background-position: 0 20px;
+          &.@{treePrefixCls}-roots_open,
+          &.@{treePrefixCls}-center_open,
+          &.@{treePrefixCls}-bottom_open,
+          &.@{treePrefixCls}-noline_open{ .switcher_icon(); }
+          &.@{treePrefixCls}-roots_close,
+          &.@{treePrefixCls}-center_close,
+          &.@{treePrefixCls}-bottom_close,
+          &.@{treePrefixCls}-noline_close{
+            .switcher_icon();
+            &:after{
+              .ie-rotate(3);
+              // .rotate(270deg);
+              transform: rotate(270deg) scale(0.5);
+            }
+          }
         }
         &.@{treePrefixCls}-chk {
-          width: 15px;  height: 15px; margin: 0 3px;
+          width: 15px;  height: 15px; margin: 0 3px 0 0;
           &-disabled {
             background-position: 0 -28px;
           }

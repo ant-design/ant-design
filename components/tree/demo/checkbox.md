@@ -9,7 +9,6 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
-var Checkbox = antd.Checkbox;
 React.render(
   <Tree expandAll={true} checkable={true}>
     <TreeNode title="parent 1">

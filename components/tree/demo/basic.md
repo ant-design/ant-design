@@ -9,26 +9,20 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
-function handleSelect(selected, c, selectedKeys) {
-  console.log('selected: ', selected, c, selectedKeys );
-}
 function handleChecked(checked, c) {
   console.log('checked: ', checked, c );
 }
 React.render(
-  <Tree className="myCls" onSelect={handleSelect} onChecked={handleChecked}>
-    <TreeNode title="parent 1" expanded={true}>
+  <Tree className="myCls" expandAll={true} onChecked={handleChecked}>
+    <TreeNode title="parent 1">
       <TreeNode>leaf </TreeNode>
       <TreeNode title="parent 1-1">
         <TreeNode title="parent 2-1">
           <TreeNode>leaf </TreeNode>
-          <TreeNode>leaf </TreeNode>
         </TreeNode>
-        <TreeNode>leaf </TreeNode>
         <TreeNode>leaf </TreeNode>
       </TreeNode>
     </TreeNode>
-    <TreeNode>leaf </TreeNode>
     <TreeNode>leaf </TreeNode>
   </Tree>
 , document.getElementById('components-tree-demo-basic'));
