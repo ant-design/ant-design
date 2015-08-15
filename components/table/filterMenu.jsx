@@ -51,17 +51,17 @@ var FilterMenu = React.createClass({
       <Menu.Item disabled>
         <a className="ant-table-filter-dropdown-link confirm"
            style={{
-            cursor: 'pointer',
-            pointerEvents: 'visible'
-          }}
+             cursor: 'pointer',
+             pointerEvents: 'visible'
+           }}
            onClick={this.handleConfirm}>
           确定
         </a>
         <a className="ant-table-filter-dropdown-link clear"
            style={{
-            cursor: 'pointer',
-            pointerEvents: 'visible'
-          }}
+             cursor: 'pointer',
+             pointerEvents: 'visible'
+           }}
            onClick={this.handleClearFilters}>
           清空
         </a>

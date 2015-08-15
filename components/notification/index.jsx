@@ -13,12 +13,12 @@ function callback(key, btnCose) {
 
 function getNotificationInstance() {
   notificationInstance = notificationInstance || Notification.newInstance({
-      prefixCls: 'ant-notification',
-      style: {
-        top: top,
-        right: 0
-      }
-    });
+    prefixCls: 'ant-notification',
+    style: {
+      top: top,
+      right: 0
+    }
+  });
   return notificationInstance;
 }
 
