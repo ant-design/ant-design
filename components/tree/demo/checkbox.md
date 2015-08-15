@@ -9,8 +9,11 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
+function handleCheck(checked, c, checkedKeys) {
+  console.log('checked: ', checked, c );
+}
 React.render(
-  <Tree expandAll={true} checkable={true}>
+  <Tree defaultExpandAll={true} checkable={true} onCheck={handleCheck}>
     <TreeNode title="parent 1">
       <TreeNode>leaf </TreeNode>
       <TreeNode title="parent 1-1">

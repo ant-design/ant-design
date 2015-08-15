@@ -60,26 +60,18 @@
             .switcher_icon();
             &:after{
               .ie-rotate(3);
-              // .rotate(270deg);
               transform: rotate(270deg) scale(0.5);
             }
           }
         }
-        &.@{treePrefixCls}-chk {
+        &.@{treePrefixCls}-checkbox {
           width: 15px;  height: 15px; margin: 0 3px 0 0;
+          background-position:0 0;
           &-disabled {
             background-position: 0 -28px;
           }
-          &.@{treePrefixCls}-checkbox_false_full {background-position:0 0}
-          &.@{treePrefixCls}-checkbox_false_full_focus {background-position:0 -14px}
-          &.@{treePrefixCls}-checkbox_false_part {background-position:0 -28px}
-          &.@{treePrefixCls}-checkbox_false_part_focus {background-position:0 -42px}
-          &.@{treePrefixCls}-checkbox_false_disable {background-position:0 -56px}
-          &.@{treePrefixCls}-checkbox_true_full {background-position:-14px 0}
-          &.@{treePrefixCls}-checkbox_true_full_focus {background-position:-14px -14px}
-          &.@{treePrefixCls}-checkbox_true_part {background-position:-14px -30px}
-          &.@{treePrefixCls}-checkbox_true_part_focus {background-position:-14px -42px}
-          &.@{treePrefixCls}-checkbox_true_disable {background-position:-14px -56px}
+          &.@{treePrefixCls}-checkbox-checked {background-position:-14px 0}
+          &.@{treePrefixCls}-checkbox-indeterminate {background-position:-14px -30px}
         }
       }
     }
@@ -88,10 +80,6 @@
     >span, >a {
       color: gray;
     }
-  }
-  &-selected{
-    background-color:#FFE6B0;
-    border:1px #FFB951 solid; opacity:0.8;
   }
   &-icon__open {
     margin-right: 2px;
