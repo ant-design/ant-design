@@ -13,7 +13,7 @@ function handleCheck(checked, c, checkedKeys) {
   console.log('checked: ', checked, c );
 }
 React.render(
-  <Tree defaultExpandAll={true} checkable={true} onCheck={handleCheck}>
+  <Tree defaultExpandAll={true} checkable={<span className="ant-tree-checkbox-inner"></span>} onCheck={handleCheck}>
     <TreeNode title="parent 1">
       <TreeNode>leaf </TreeNode>
       <TreeNode title="parent 1-1">

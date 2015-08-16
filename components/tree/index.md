@@ -15,7 +15,7 @@
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| checkable | 是否支持选中 | bool     | false    |
+|checkable | 是否支持选中 | bool/React Node     | false    |
 |defaultExpandAll | 设置展开所有树节点 | bool | false |
 |defaultExpandedKeys | 展开指定的树节点 | String[] | false |
 |defaultCheckedKeys | 默认选中的树节点 | String[] | [] |
