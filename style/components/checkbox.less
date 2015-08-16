@@ -63,20 +63,15 @@
 .@{checkboxWrapPrefixCls}-indeterminate {
   .@{checkboxInnerPrefixCls} {
     border-color: @primary-color;
-    background-color: rgba(215, 216, 217, 1);
+    background-color: @primary-color;
     &:after {
-      transform: rotate(45deg) scale(1);
-      position: absolute;
-      left: 4px;
-      top: 1px;
-      display: table;
-      width: 5px;
-      height: 8px;
-      border: 2px solid #ffffff;
-      border-top: 0;
-      border-left: 0;
       content: ' ';
-      transition: all .2s @ease-out-back .1s;
+      transform: scale(1);
+      position: absolute;
+      left: 2px;
+      top: 5px;
+      width: 8px;
+      height: 1px;
     }
   }
 }
