@@ -1,4 +1,6 @@
-@checkboxWrapPrefixCls: ant-checkbox;
+.checkboxFn();
+.checkboxFn(@checkboxPrefixCls: ant-checkbox) {
+@checkboxWrapPrefixCls: @checkboxPrefixCls;
 @checkboxInnerPrefixCls: ~"@{checkboxWrapPrefixCls}-inner";
 
 /* 一般状态 */
@@ -148,4 +150,6 @@
 
 .@{checkboxWrapPrefixCls} + span {
   margin-left: 8px;
+}
+
 }
