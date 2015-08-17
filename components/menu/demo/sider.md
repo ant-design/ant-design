@@ -13,7 +13,7 @@ var SubMenu = Menu.SubMenu;
 var Sider = React.createClass({
   getInitialState() {
     return {
-      current: 'mail'
+      current: '1'
     }
   },
   handleClick(e) {
@@ -25,6 +25,7 @@ var Sider = React.createClass({
   render() {
     return <Menu onClick={this.handleClick}
                  style={{width:240}}
+                 defaultOpenKeys={['sub1']}
                  selectedKeys={[this.state.current]}
                  mode="inline">
       <SubMenu key="sub1" title={<span><i className="anticon anticon-mail"></i><span>导航一</span></span>}>

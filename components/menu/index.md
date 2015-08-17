@@ -28,9 +28,10 @@
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | mode    | 菜单类型 | enum: 'vertical', 'horizontal', 'inline' | vertical |
-| multiple   | 支持多选 |   | false |
 | selectedKeys | 当前选中的菜单项 key 数组 |  |      |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 |  |      |
+| openKeys | 当前展开的菜单项 key 数组 |  |      |
+| defaultOpenKeys | 初始展开的菜单项 key 数组 |  |      |
 | onSelect | 被选中时调用，参数 {item, key, selectedKeys} 对象 | function | 无   |
 | onDeselect | 取消选中时调用，参数 {item, key, selectedKeys} 对象，仅在 multiple 生效 | function | 无   |
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key} | function | 无 |
