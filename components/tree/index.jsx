@@ -9,7 +9,7 @@ var antDTree = React.createClass({
     };
   },
   render() {
-    return <Tree {...this.props} showIcon={false} showLine={false}>
+    return <Tree {...this.props} showIcon={false}>
       {this.props.children}
     </Tree>;
   }
