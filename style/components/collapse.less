@@ -2,22 +2,11 @@
 @borderStyle: 1px solid #d9d9d9;
 
 #arrow {
-  .common(){
-    width: 0;
-    height: 0;
-    font-size: 0;
-    line-height: 0;
+  .close() {
+    .iconfont-size-under-12px(7px, 270deg);
   }
-  .right(@w, @h, @color) {
-    border-top: @w solid transparent;
-    border-bottom: @w solid transparent;
-    border-left: @h solid @color;
-  }
-
-  .bottom(@w, @h, @color) {
-    border-left: @w solid transparent;
-    border-right: @w solid transparent;
-    border-top: @h solid @color;
+  .open() {
+    .iconfont-size-under-12px(7px, 360deg);
   }
 }
 
@@ -35,24 +24,28 @@
     > .@{prefixCls}-header {
       height: 38px;
       line-height: 38px;
-      text-indent: 16px;
+      padding-left: 16px;
       color: #666;
       cursor: pointer;
       &:before {
+        font-family: "anticon" !important;
+        color: #666;
         display: inline-block;
-        content: '\20';
-        #arrow > .common();
-        #arrow > .right(3px, 4px, #666);
-        vertical-align: middle;
         margin-right: 8px;
+        content:"\e60f";
+        #arrow > .close();
+        vertical-align: middle;
+        transition: transform 0.24s ease;
+        position: relative;
+        top: -1px;
       }
     }
   }
 
   &-content {
     height: 0;
-    transition-duration: .3s;
-    transition-timing-function: @ease-out;
+    transition-duration: .24s;
+    transition-timing-function: @ease-out-circ;
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
@@ -77,10 +70,8 @@
     > .@{prefixCls}-header {
 
       &:before {
-        #arrow > .bottom(3px, 4px, #666);
-        margin-right: 6px;
+        #arrow > .open();
       }
     }
   }
 }
-
