@@ -6,7 +6,6 @@ function noop() {
 export default React.createClass({
   getInitialState() {
     return {
-      visible: false,
       confirmLoading: false
     };
   },
@@ -53,6 +52,6 @@ export default React.createClass({
         确 定 {loadingIcon}
       </button>
     ];
-    return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d" />;
+    return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} maskAnimation="fade" width="500" footer={footer} {...props} ref="d" />;
   }
 });
