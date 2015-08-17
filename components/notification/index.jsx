@@ -7,7 +7,7 @@ let notificationInstance;
 
 function callback(key, btnCose) {
   if (btnCose) {
-    api.close(key);
+    btnCose(key);
   }
 }
 
