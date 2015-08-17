@@ -12,8 +12,7 @@ export default React.createClass({
   },
 
   handleCancel() {
-    var d = this.refs.d;
-    d.requestClose();
+    this.props.onCancel();
   },
 
   getDefaultProps() {
@@ -54,6 +53,7 @@ export default React.createClass({
         确 定 {loadingIcon}
       </button>
     ];
-    return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d" />;
+    return <Dialog transitionName="zoom" onClose={props.onCancel} visible={this.state.visible}
+                   maskAnimation="fade" width="500" footer={footer} {...props}/>;
   }
 });
