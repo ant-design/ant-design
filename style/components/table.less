@@ -41,9 +41,16 @@
       .ant-dropdown-menu-item {
         overflow: hidden;
         padding: 7px 8px;
+        position: relative;
         &.ant-dropdown-menu-item-selected:after {
-          right: 8px;
+          content: '\e613';
+          font-family: 'anticon';
+          font-weight: bold;
+          position: absolute;
+          top: 6px;
+          color: @primary-color;
           .iconfont-size-under-12px(10px);
+          right: 8px;
         }
       }
     }
