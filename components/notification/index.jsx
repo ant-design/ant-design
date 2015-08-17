@@ -5,14 +5,11 @@ import React from 'react';
 let top = 24;
 let notificationInstance;
 
-function callback(key, btnCose) {
-  if (btnCose) {
-    btnCose(key);
-  }
-}
-
 function getNotificationInstance() {
-  notificationInstance = notificationInstance || Notification.newInstance({
+  if (notificationInstance) {
+    return notificationInstance;
+  }
+  notificationInstance = Notification.newInstance({
     prefixCls: 'ant-notification',
     style: {
       top: top,
@@ -78,20 +75,19 @@ function notice(args) {
         style: {}
       });
     } else {
-      let key = 'manual' + new Date().getTime();
       getNotificationInstance().notice({
         content: <div>
           <p className={prefixCls + 'message'}>{args.message}</p>
 
           <p className={prefixCls + 'description'}>{args.description}</p>
-          <span onClick={callback.bind(null, key, args.btnClose)} className={prefixCls + 'btn'}>
+          <span className={prefixCls + 'btn'}>
             {args.btn}
           </span>
         </div>,
         duration: duration,
         closable: true,
         onClose: args.onClose,
-        key: key,
+        key: args.key,
         style: {}
       });
     }
