@@ -178,6 +178,18 @@
     }
   }
 
+  .@{selectPrefixCls}-search__field__wrap {
+    display: inline-block;
+    position: relative;
+  }
+
+  .@{selectPrefixCls}-search__field__placeholder {
+    position: absolute;
+    top: 0;
+    left: 3px;
+    color: #aaa;
+  }
+
   &-search--inline {
     float: left;
 
@@ -365,6 +377,12 @@
   &-search--dropdown {
     display: block;
     padding: 4px;
+    .@{selectPrefixCls}-search__field__placeholder {
+      left: 4px;
+    }
+    .@{selectPrefixCls}-search__field__wrap {
+      width: 100%;
+    }
     .@{selectPrefixCls}-search__field {
       padding: 4px;
       width: 100%;
@@ -393,6 +411,12 @@
     }
     .@{selectPrefixCls}-search--inline {
       float: none;
+    }
+    .@{selectPrefixCls}-search__field__placeholder {
+      left: 10px;
+    }
+    .@{selectPrefixCls}-search__field__wrap {
+      width: 100%;
     }
     .@{selectPrefixCls}-search__field {
       padding: 0 10px;
