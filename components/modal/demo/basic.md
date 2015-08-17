@@ -27,12 +27,6 @@ var Test = React.createClass({
       visible: false
     });
   },
-  handleCancel() {
-    console.log('点击了取消');
-    this.setState({
-      visible: false
-    });
-  },
   render() {
     return <div>
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>

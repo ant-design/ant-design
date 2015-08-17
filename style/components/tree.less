@@ -1,73 +1,103 @@
-@treePrefixCls: rc-tree;
-
+@treePrefixCls: ant-tree;
+.checkboxFn(@checkboxPrefixCls: ant-tree-checkbox);
+@import "../mixins/iconfont";
+@openIcon: '\e60f';
+.switcher_icon() {
+  position: relative;
+  &:after {
+    .iconfont-size-under-12px(6px);
+    content: @openIcon;
+    display: inline-block;
+    font-family: 'anticon';
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    color: #666;
+    transition: transform .3s ease;
+  }
+}
 .@{treePrefixCls} {
-  margin:0; padding:5px;
-
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
   li {
     padding: 0;
     margin: 0;
     list-style: none;
-    line-height: 14px;
     white-space: nowrap;
     outline: 0;
-
-    ul{ margin:0; padding:0 0 0 18px}
-    ul.line{
-      //background:url(./img/line_conn.gif) 0 0 repeat-y;
-      background:url(https://t.alipayobjects.com/images/T13BtfXl0mXXXXXXXX.gif) 0 0 repeat-y;
+    ul {
+      margin: 0;
+      padding: 0 0 0 18px;
+      &.@{treePrefixCls}-line {
+        background: url("https://t.alipayobjects.com/images/T13BtfXl0mXXXXXXXX.gif") 0 0 repeat-y;
+      }
     }
     a {
-      padding:1px 3px 0 0; margin:0;
-      cursor:pointer; height:17px;
-      background-color: transparent;
-      text-decoration:none;
-      vertical-align:top; display: inline-block
+      display: inline-block;
+      padding: 1px 3px 0 0;
+      margin: 0;
+      cursor: pointer;
+      height: 20px;
+      text-decoration: none;
+      vertical-align: top;
+      color: #666;
     }
-    span {line-height:16px; margin-right:2px}
-    span.button {
-      line-height:0; margin:0; width:16px; height:16px;
-      display: inline-block; vertical-align:middle;
-      border:0 none; cursor: pointer;outline:none;
-      background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
-      //background-image:url("./img/zTreeStandard.png");
-      background-image:url("https://t.alipayobjects.com/images/T1.ANfXhXtXXXXXXXX.png");
+    span {
+      &.@{treePrefixCls}-switcher,
+      &.@{treePrefixCls}-iconEle {
+        line-height: 0;
+        margin: 0;
+        width: 16px;
+        height: 17px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 0 none;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        // background-image:url("https://t.alipayobjects.com/images/T1NcthXkFdXXXXXXXX.png");
+      }
+      &.@{treePrefixCls}-switcher {
+        &-disabled {
+          background: #fff;
+          position: relative;
+          &:after {
+            content: '-';
+            position: absolute;
+            top: 8px;
+            left: 6px;
+            color: gray;
+          }
+        }
+        background-position: 0 20px;
+        &.@{treePrefixCls}-roots_open,
+        &.@{treePrefixCls}-center_open,
+        &.@{treePrefixCls}-bottom_open,
+        &.@{treePrefixCls}-noline_open {
+          .switcher_icon();
+        }
+        &.@{treePrefixCls}-roots_close,
+        &.@{treePrefixCls}-center_close,
+        &.@{treePrefixCls}-bottom_close,
+        &.@{treePrefixCls}-noline_close {
+          .switcher_icon();
+          &:after {
+            .ie-rotate(3);
+            transform: rotate(270deg) scale(0.5);
+          }
+        }
+      }
     }
-    span.button.roots_open {  background-position: -92px 0;  }
-    span.button.roots_close{background-position:-74px 0}
-    span.button.center_open{background-position:-92px -18px}
-    span.button.center_close{background-position:-74px -18px}
-    span.button.bottom_open{background-position:-92px -36px}
-    span.button.bottom_close{background-position:-74px -36px}
-
-    span.button.center_docu{background-position:-56px -18px}
-    span.button.bottom_docu{background-position:-56px -36px}
-
-    span.button.chk {
-      width: 13px;  height: 13px;
-      margin: 0 3px 0 0;
-      cursor: auto;
-    }
-    span.button.chk.checkbox_false_full {background-position:0 0}
-    span.button.chk.checkbox_false_full_focus {background-position:0 -14px}
-    span.button.chk.checkbox_false_part {background-position:0 -28px}
-    span.button.chk.checkbox_false_part_focus {background-position:0 -42px}
-    span.button.chk.checkbox_false_disable {background-position:0 -56px}
-    span.button.chk.checkbox_true_full {background-position:-14px 0}
-    span.button.chk.checkbox_true_full_focus {background-position:-14px -14px}
-    span.button.chk.checkbox_true_part {background-position:-14px -28px}
-    span.button.chk.checkbox_true_part_focus {background-position:-14px -42px}
-    span.button.chk.checkbox_true_disable {background-position:-14px -56px}
   }
-
-  &-selected{
-    background-color:#FFE6B0;
-    border:1px #FFB951 solid; opacity:0.8;
-  }
-
-  &-treenode-switcher {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
+  &-treenode-disabled {
+    >span,
+    >a {
+      color: gray;
+    }
   }
   &-icon__open {
     margin-right: 2px;
@@ -78,11 +108,5 @@
     margin-right: 2px;
     background-position: -110px 0;
     vertical-align: top;
-  }
-  &-switcher__open {
-    //background-position: -92px 0;
-  }
-  &-switcher__close {
-    //background-position: -74px 0;
   }
 }

@@ -6,7 +6,6 @@ function noop() {
 export default React.createClass({
   getInitialState() {
     return {
-      visible: false,
       confirmLoading: false
     };
   },
@@ -27,9 +26,7 @@ export default React.createClass({
     this.setState({
       confirmLoading: true
     });
-    if (typeof this.props.onOk === 'function') {
-      this.props.onOk();
-    }
+    this.props.onOk();
   },
 
   componentWillReceiveProps(nextProps) {
@@ -47,12 +44,13 @@ export default React.createClass({
     var loadingIcon = this.state.confirmLoading ?
       <i className="anticon anticon-loading"></i> : '';
     var props = this.props;
-    var footer = props.footer || [
+    var defaultFooter = [
       <button key="cancel" type="button" className="ant-btn ant-btn-lg" onClick={this.handleCancel}>取 消</button>,
       <button key="confirm" type="button" className="ant-btn ant-btn-primary ant-btn-lg" onClick={this.handleOk}>
         确 定 {loadingIcon}
       </button>
     ];
+    var footer = props.footer || defaultFooter;
     return <Dialog transitionName="zoom" onClose={props.onCancel} visible={this.state.visible}
                    maskAnimation="fade" width="500" footer={footer} {...props}/>;
   }

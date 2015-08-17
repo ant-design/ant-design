@@ -1,9 +1,8 @@
 import React from 'react';
 import jQuery from 'jquery';
 import Table from 'rc-table';
-import Dropdown from '../dropdown';
 import Checkbox from '../checkbox';
-import FilterMenu from './filterMenu';
+import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
 import objectAssign from 'object-assign';
 import equals from 'is-equal-shallow';
@@ -272,17 +271,10 @@ var AntTable = React.createClass({
       let filterDropdown, menus, sortButton;
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
-        menus = <FilterMenu column={column}
-                            selectedKeys={colFilters}
-                            confirmFilter={this.handleFilter}/>;
-        let dropdownSelectedClass = '';
-        if (colFilters.length > 0) {
-          dropdownSelectedClass = 'ant-table-filter-selected';
-        }
-        filterDropdown = <Dropdown trigger="click"
-                                   overlay={menus}>
-          <i title="筛选" className={'anticon anticon-bars ' + dropdownSelectedClass}></i>
-        </Dropdown>;
+        filterDropdown =
+          <FilterDropdown column={column}
+                          selectedKeys={colFilters}
+                          confirmFilter={this.handleFilter} />;
       }
       if (column.sorter) {
         let isSortColumn = this.isSortColumn(column);

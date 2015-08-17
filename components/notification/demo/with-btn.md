@@ -9,8 +9,9 @@
 ````jsx
 var notification = require('antd/lib/notification');
 
-var btnClick = function() {
-  console.log('我被自定义的按钮点击了！');
+var btnClick = function(key) {
+  // 隐藏提醒框
+  notification.close(key);
 };
 
 var close = function(){
@@ -24,7 +25,7 @@ var openNotification = function() {
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     btn: btn,
-    btnClose: true,
+    btnClose: btnClick,
     onClose: close
   });
 };

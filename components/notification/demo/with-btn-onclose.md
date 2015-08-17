@@ -9,7 +9,7 @@
 ````jsx
 var notification = require('antd/lib/notification');
 
-var close = function() {
+var close = function(key) {
   // 自定义按钮关闭时的业务处理
   console.log("我被自定义的关闭按钮关闭了！");
   // 隐藏提醒框
@@ -27,7 +27,9 @@ var openNotification = function() {
   notification.open({
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
-    btn: btn
+    btn: btn,
+    btnClose: close,
+    onClose: onClose
   });
 };
 
