@@ -1,13 +1,17 @@
 import React from 'react';
 import Tree from 'rc-tree';
-
-var AntTree = React.createClass({
+var TreeNode = Tree.TreeNode;
+var antDTree = React.createClass({
+  getDefaultProps() {
+    return {
+      prefixCls: 'ant-tree'
+    };
+  },
   render() {
-    return <Tree {...this.props} >
+    return <Tree {...this.props} showIcon={false}>
       {this.props.children}
     </Tree>;
   }
 });
-
-AntTree.TreeNode = Tree.TreeNode;
-export default AntTree;
+antDTree.TreeNode = TreeNode;
+module.exports = antDTree;
