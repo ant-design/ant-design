@@ -13,7 +13,7 @@ var Option = Select.Option;
 React.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
-    <label className="col-6" for="site1">标签输入框：</label>
+    <label className="col-6" htmlFor="site1">标签输入框：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <span className="ant-input-group-addon" id="basic-addon1">Http://</span>
@@ -22,7 +22,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6" for="site3">标签输入框：</label>
+    <label className="col-6" htmlFor="site3">标签输入框：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <span className="ant-input-group-addon" id="basic-addon3">Http://</span>
@@ -32,7 +32,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6" for="site4">select 标签输入框：</label>
+    <label className="col-6" htmlFor="site4">select 标签输入框：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <input type="text" className="ant-input" id="site4" placeholder="www.mysite" />
@@ -48,7 +48,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6">输入身份证：</label>
+    <label className="col-6" htmlFor="certNo1">输入身份证：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <div className="col-6">
@@ -67,7 +67,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6">电话号码：</label>
+    <label className="col-6" htmlFor="tel1">电话号码：</label>
     <div className="col-16">
       <div className="row">
         <div className="col-4">

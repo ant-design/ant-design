@@ -22,15 +22,15 @@ function handleSelectChange(value) {
 React.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
-    <label className="col-6">输入框：</label>
+    <label htmlFor="control-input" className="col-6">输入框：</label>
     <div className="col-14">
-      <input type="text" className="ant-input" placeholder="Please enter..." />
+      <input type="text" className="ant-input" id="control-input" placeholder="Please enter..." />
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6">文本域：</label>
+    <label htmlFor="control-textarea" className="col-6">文本域：</label>
     <div className="col-14">
-      <textarea className="ant-input"></textarea>
+      <textarea className="ant-input" id="control-textarea"></textarea>
     </div>
   </div>
   <div className="ant-form-item">
