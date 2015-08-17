@@ -20,6 +20,7 @@
 |defaultExpandedKeys | 展开指定的树节点 | String[] | false |
 |defaultCheckedKeys | 默认选中的树节点 | String[] | [] |
 |onCheck | 点击树节点触发 | function(e:{checked:bool,node,checkedKeys}) | - |
+|showIcon | 是否设置节点图标 | bool | true |
 
 ### TreeNode props
 
