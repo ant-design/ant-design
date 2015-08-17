@@ -57,19 +57,19 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Switch 开关：</label>
+    <label htmlFor="" className="col-8" required>Switch 开关：</label>
     <div className="col-10">
       <Switch />
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Slider 滑动输入条：</label>
+    <label htmlFor="" className="col-8" required>Slider 滑动输入条：</label>
     <div className="col-10">
       <Slider marks={["A","B","C","D","E","F","G"]} />
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Select 选择器：</label>
+    <label htmlFor="" className="col-8" required>Select 选择器：</label>
     <div className="col-16">
       <Select size="large" value="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
@@ -80,7 +80,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Datepicker 日期选择框：</label>
+    <label htmlFor="" className="col-8" required>Datepicker 日期选择框：</label>
     <div className="col-6">
       <Datepicker />
     </div>
@@ -92,7 +92,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item has-error">
-    <label for="" className="col-8" required>Datepicker 校验：</label>
+    <label htmlFor="" className="col-8" required>Datepicker 校验：</label>
     <div className="col-6">
       <Datepicker />
     </div>
