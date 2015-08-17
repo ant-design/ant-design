@@ -12,8 +12,7 @@ export default React.createClass({
   },
 
   handleCancel() {
-    var d = this.refs.d;
-    d.requestClose();
+    this.refs.d.requestClose();
   },
 
   getDefaultProps() {
