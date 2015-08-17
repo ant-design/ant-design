@@ -156,9 +156,23 @@
 
     & > .@{menuPrefixCls}-item,
     & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
-      padding: 15px 20px;
+      padding: 0 20px;
+      line-height: 50px;
       position: relative;
       top: 1px;
+      > a {
+        display: block;
+        &:before, &:after {
+          position: absolute;
+          background-color: rgba(255,255,255,0.001);
+          width: 20px;
+          height: 50px;
+          content: '';
+        }
+        &:before {
+          left: 0;
+        }
+      }
     }
 
     & > .@{menuPrefixCls}-submenu, & > .@{menuPrefixCls}-item {
