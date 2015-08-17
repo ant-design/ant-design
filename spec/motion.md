@@ -15,14 +15,18 @@ Ant Design 提供了一些预设的组件动画样式。
 
 | 组件         | 中文名              | 采用动画                                        |
 |--------------|---------------------|-------------------------------------------------|
-| popover      | 气泡浮出层          | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| popconfirm   | 气泡确认框          | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| tooltip      | 文字提示框          | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| popover      | 气泡浮出            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| popconfirm   | 气泡确认            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| tooltip      | 文字提示            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
 | modal        | 弹出框              | `zoom`                                          |
 | confirm      | 弹出确认框          | `zoom`                                          |
 | message      | 信息提示条          | `move-up`                                       |
+| notification | 通知框              | `move-right` & `slide-up`                       |
 | dropdown     | 下拉菜单            | `slide-up`                                      |
 | select       | 选择框              | `slide-up`                                      |
+| datepicker   | 日期选择框          | `slide-up`                                      |
+| alert        | 警告提示            | `slide-up`                                      |
+| menu         | 导航菜单            | `slide-up`                                      |
 | datepicker   | 日期选择框          | `slide-up`                                      |
 
 
