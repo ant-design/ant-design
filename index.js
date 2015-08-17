@@ -1,5 +1,15 @@
 require('./style/index.less');
 
+// matchMedia polyfill for
+// https://github.com/WickyNilliams/enquire.js/issues/82
+window.matchMedia = window.matchMedia || function() {
+  return {
+    matches : false,
+    addListener : function() {},
+    removeListener: function() {}
+  };
+};
+
 var antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
