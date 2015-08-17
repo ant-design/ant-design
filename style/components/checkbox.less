@@ -1,4 +1,6 @@
-@checkboxWrapPrefixCls: ant-checkbox;
+.checkboxFn();
+.checkboxFn(@checkboxPrefixCls: ant-checkbox) {
+@checkboxWrapPrefixCls: @checkboxPrefixCls;
 @checkboxInnerPrefixCls: ~"@{checkboxWrapPrefixCls}-inner";
 
 /* 一般状态 */
@@ -59,6 +61,22 @@
   }
 }
 
+/* 半选状态 */
+.@{checkboxWrapPrefixCls}-indeterminate {
+  .@{checkboxInnerPrefixCls} {
+    border-color: @primary-color;
+    background-color: @primary-color;
+    &:after {
+      content: ' ';
+      transform: scale(1);
+      position: absolute;
+      left: 2px;
+      top: 5px;
+      width: 8px;
+      height: 1px;
+    }
+  }
+}
 /* 选中状态 */
 .@{checkboxWrapPrefixCls}-checked {
 
@@ -132,4 +150,6 @@
 
 .@{checkboxWrapPrefixCls} + span {
   margin-left: 8px;
+}
+
 }

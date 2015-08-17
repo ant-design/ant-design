@@ -10,7 +10,7 @@ window.matchMedia = window.matchMedia || function() {
   };
 };
 
-var antd = {
+const antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
