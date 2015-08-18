@@ -13,7 +13,7 @@ var InputNumber = antd.InputNumber;
 var Test = React.createClass({
   getInitialState() {
     return {
-      inputValue: 0
+      inputValue: 1
     };
   },
   onChange(value) {
