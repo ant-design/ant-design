@@ -1,6 +1,6 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
-import eventListener from './eventListener';
+import { Dom } from 'rc-util';
 function noop() {
 }
 
@@ -12,7 +12,7 @@ function onDocumentMousemove(e) {
   };
 }
 
-eventListener.add(document, 'mousemove', onDocumentMousemove);
+Dom.addEventListener(document, 'mousemove', onDocumentMousemove);
 
 export default React.createClass({
   getDefaultProps() {
