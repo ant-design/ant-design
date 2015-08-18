@@ -410,6 +410,7 @@
       display: none;
     }
     .@{selectPrefixCls}-search--inline {
+      height: 100%;
       float: none;
     }
     .@{selectPrefixCls}-search__field__placeholder {
@@ -417,13 +418,18 @@
     }
     .@{selectPrefixCls}-search__field__wrap {
       width: 100%;
+      height: 100%;
     }
     .@{selectPrefixCls}-search__field {
       padding: 0 10px;
       width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
     }
     .@{selectPrefixCls}-selection__rendered {
       padding: 0;
+      height: 100%;
     }
   }
 }
