@@ -96,9 +96,7 @@ let AntUpload = React.createClass({
       return (
         <div className={prefixCls + ' ' + prefixCls + '-select'}>
           <Upload {...props}>
-            <button className='ant-btn ant-btn-ghost'>
-              {this.props.children}
-            </button>
+            {this.props.children}
           </Upload>
           <UploadList items={this.state.downloadList} />
         </div>
