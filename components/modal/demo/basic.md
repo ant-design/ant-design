@@ -18,7 +18,7 @@ var Test = React.createClass({
   showModal(e) {
     this.setState({
       visible: true,
-      mousePosition:{x:e.pageX,y:e.pageY}
+      mousePosition: {x:e.pageX,y:e.pageY}
     });
   },
   handleOk() {
