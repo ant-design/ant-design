@@ -13,25 +13,23 @@ export default React.createClass({
       transitionName: '',
       placement: 'top',
       trigger: 'click',
-      onConfirm: function () {
-      },
-      onCancel: function () {
-      }
+      onConfirm: function () {},
+      onCancel: function () {}
     };
   },
-  confirm: function () {
+  confirm() {
     this.props.onConfirm.call(this);
     this.setState({
       visible: false
     });
   },
-  cancel: function () {
+  cancel() {
     this.props.onCancel.call(this);
     this.setState({
       visible: false
     });
   },
-  onVisibleChange(v){
+  onVisibleChange(v) {
     this.setState({
       visible: v
     });
@@ -43,7 +41,6 @@ export default React.createClass({
           <i className="anticon anticon-exclamation-circle"></i>
           {this.props.title}
         </p>
-
         <div className={prefixCls + '-buttons'}>
           <button onClick={this.cancel} className="ant-btn ant-btn-sm">取 消</button>
           <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>

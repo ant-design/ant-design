@@ -1,5 +1,5 @@
 import React from 'react';
-import jQuery from 'jquery';
+import reqwest from 'reqwest';
 import Table from 'rc-table';
 import Checkbox from '../checkbox';
 import FilterDropdown from './filterDropdown';
@@ -364,11 +364,12 @@ var AntTable = React.createClass({
       // remote 模式使用 this.dataSource
       let dataSource = this.getRemoteDataSource();
       let buildInParams = dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {};
-      return jQuery.ajax({
+      return reqwest({
         url: dataSource.url,
+        method: 'get',
         data: objectAssign(buildInParams, dataSource.data),
         headers: dataSource.headers,
-        dataType: 'json',
+        type: 'json',
         success: (result) => {
           if (this.isMounted()) {
             let pagination = objectAssign(

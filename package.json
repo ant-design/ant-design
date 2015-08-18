@@ -60,7 +60,9 @@
     "rc-tree": "~0.14.x",
     "rc-upload": "~1.3.0",
     "rc-util": "~2.0.3",
-    "react-slick": "~0.6.4"
+    "react-slick": "~0.6.4",
+    "reqwest": "~2.0.1",
+    "xhr2": "~0.1.3"
   },
   "devDependencies": {
     "autoprefixer-loader": "~2.0.0",

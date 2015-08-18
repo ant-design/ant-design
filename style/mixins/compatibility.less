@@ -15,6 +15,10 @@
   @negsintheta: ~`"@{sintheta}" * -1`;
   filter: ~"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=@{costheta}, M12=@{negsintheta}, M21=@{sintheta}, M22=@{costheta})";
   zoom: 1;
+
+  :root & {
+    filter: none;
+  }
 }
 
 // support rotate for all browsers
