@@ -141,11 +141,11 @@ var Form = React.createClass({
       <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
         <Validation ref="validation" onValidate={this.handleValidate}>
           <div className="ant-form-item">
-            <label className="col-7" for="name" required>用户名：</label>
+            <label className="col-7" htmlFor="name" required>用户名：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('name')}>
                 <Validator rules={[{required: true, min: 5, message: '用户名至少为 5 个字符'}, {validator: this.userExists}]}>
-                  <input name="name" className="ant-input" value={formData.name} placeholder="实时校验，输入 JasonWood 看看" />
+                  <input name="name" id="name" className="ant-input" value={formData.name} placeholder="实时校验，输入 JasonWood 看看" />
                 </Validator>
                 {status.name.isValidating ? <div className="ant-form-explain">正在校验中...</div> : null}
                 {status.name.errors ? <div className="ant-form-explain">{status.name.errors.join(',')}</div> : null}
@@ -154,11 +154,11 @@ var Form = React.createClass({
           </div>
 
           <div className="ant-form-item">
-            <label className="col-7" for="email" required>邮箱：</label>
+            <label className="col-7" htmlFor="email" required>邮箱：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('email', this.state.isEmailOver)}>
                 <Validator rules={[{required: true, type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
-                  <input name="email" className="ant-input" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
+                  <input name="email" id="email" className="ant-input" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
                 </Validator>
                 {status.email.errors ? <div className="ant-form-explain">{status.email.errors.join(',')}</div> : null}
               </div>
@@ -199,11 +199,11 @@ var Form = React.createClass({
           </div>
 
           <div className="ant-form-item">
-            <label className="col-7" required>密码：</label>
+            <label className="col-7" htmlFor="password" required>密码：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('passwd')}>
                 <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]}>
-                  <input name="passwd" className="ant-input" type="password" value={formData.passwd}/>
+                  <input name="passwd" id="password" className="ant-input" type="password" value={formData.passwd}/>
                 </Validator>
                 {status.passwd.errors ? <div className="ant-form-explain">{status.passwd.errors.join(',')}</div> : null}
               </div>
@@ -211,7 +211,7 @@ var Form = React.createClass({
           </div>
 
           <div className="ant-form-item">
-            <label className="col-7" required>确认密码：</label>
+            <label className="col-7" htmlFor="password2" required>确认密码：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('rePasswd')}>
                 <Validator rules={[{
@@ -219,7 +219,7 @@ var Form = React.createClass({
                   whitespace: true,
                   message: '请再次输入密码'
                 }, {validator: this.checkPass2}]}>
-                  <input name="rePasswd" className="ant-input" type="password" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
+                  <input name="rePasswd" id="password2" className="ant-input" type="password" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
                 </Validator>
                 {status.rePasswd.errors ? <div className="ant-form-explain"> {status.rePasswd.errors.join(', ')}</div> : null}
               </div>
@@ -227,11 +227,11 @@ var Form = React.createClass({
           </div>
 
           <div className="ant-form-item">
-            <label className="col-7" required>备注：</label>
+            <label className="col-7" htmlFor="remark" required>备注：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('textarea', false)}>
                 <Validator rules={[{required: true, message: '真的不打算写点什么吗？'}]}>
-                  <textarea className="ant-input" name="textarea" value={formData.textarea} placeholder="写点什么吧">
+                  <textarea className="ant-input" id="remark" name="textarea" value={formData.textarea} placeholder="写点什么吧">
                   </textarea>
                 </Validator>
                 {status.textarea.errors ? <div className="ant-form-explain">{status.textarea.errors.join(',')}</div> : null}

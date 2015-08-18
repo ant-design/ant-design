@@ -150,11 +150,11 @@ var Form = React.createClass({
         <Validation ref="validation" onValidate={this.handleValidate}>
 
           <div className="ant-form-item">
-            <label className="col-6" required>密码：</label>
+            <label className="col-6" htmlFor="confirmPass" required>密码：</label>
             <div className="col-10">
               <div className={this.renderValidateStyle('pass', false)}>
                 <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                  <input name="pass" className="ant-input" type="password" value={formData.pass}/>
+                  <input name="pass" id="confirmPass" className="ant-input" type="password" value={formData.pass}/>
                 </Validator>
                 {status.pass.errors ? <div className="ant-form-explain">{status.pass.errors.join(',')}</div> : null}
               </div>
@@ -165,7 +165,7 @@ var Form = React.createClass({
           </div>
 
           <div className="ant-form-item">
-            <label className="col-6" required>确认密码：</label>
+            <label className="col-6" htmlFor="confirmPass2" required>确认密码：</label>
             <div className="col-10">
               <div className={this.renderValidateStyle('rePass', false)}>
                 <Validator rules={[{
@@ -173,7 +173,7 @@ var Form = React.createClass({
                   whitespace: true,
                   message: '请再次输入密码'
                 }, {validator: this.checkPass2}]}>
-                  <input name="rePass" className="ant-input" type="password" value={formData.rePass}/>
+                  <input name="rePass" id="confirmPass2" className="ant-input" type="password" value={formData.rePass}/>
                 </Validator>
                 {status.rePass.errors ? <div className="ant-form-explain"> {status.rePass.errors.join(', ')}</div> : null}
               </div>
