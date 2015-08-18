@@ -1,7 +1,11 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
+import { Dom } from 'rc-util';
 function noop() {
 }
+
+let mousePosition;
+let mousePositionEventBinded;
 
 export default React.createClass({
   getDefaultProps() {
@@ -46,6 +50,24 @@ export default React.createClass({
     }
   },
 
+  componentDidMount() {
+    if (mousePositionEventBinded) {
+      return;
+    }
+    // 只有点击事件支持从鼠标位置动画展开
+    Dom.addEventListener(document.body, 'click', function onDocumentMousemove(e) {
+      mousePosition = {
+        x: e.pageX,
+        y: e.pageY
+      };
+      // 100ms 内发生过点击事件，则从点击位置动画展示
+      // 否则直接 zoom 展示
+      // 这样可以兼容非点击方式展开
+      setTimeout(() => mousePosition = null, 100);
+    });
+    mousePositionEventBinded = true;
+  },
+
   render() {
     let loadingClass = this.state.confirmLoading ? ' ant-btn-loading' : '';
     let props = this.props;
@@ -60,7 +82,8 @@ export default React.createClass({
     ];
     let footer = props.footer || defaultFooter;
     let visible = this.state.visible;
-    return <Dialog transitionName="zoom" onClose={this.handleCancel} maskAnimation="fade"
-                   width="500" footer={footer} {...props} visible={visible} />;
+    return <Dialog transitionName="zoom" onClose={this.handleCancel}
+      maskAnimation="fade" width="500" footer={footer} {...props}
+      visible={visible} mousePosition={mousePosition} />;
   }
 });
