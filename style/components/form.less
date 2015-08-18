@@ -219,28 +219,24 @@ form {
 }
 
 //== Inline Form
-// Attention: Inline form does only apply to within viewports that are at least 768px wide
-// TODO: 优化
 .@{css-prefix}form-inline {
-  @media (min-width: @screen-sm-min) {
-    .@{css-prefix}form-item {
-      display: inline-block;
-      margin-right: 10px;
-    }
+  .@{css-prefix}form-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
 
-    .@{css-prefix}input {
-      display: inline-block;
-      width: auto;
-      vertical-align: middle;
-    }
+  .@{css-prefix}input {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
 
-    .@{css-prefix}form-text {
-      display: inline-block;
-    }
+  .@{css-prefix}form-text {
+    display: inline-block;
+  }
 
-    .has-feedback {
-      display: inline-block;
-    }
+  .has-feedback {
+    display: inline-block;
   }
 }
 
