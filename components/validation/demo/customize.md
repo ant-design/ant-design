@@ -243,6 +243,7 @@ React.render(<Form />, document.getElementById('components-validation-demo-custo
 
   .ant-pwd-strength-medium .ant-pwd-strength-item-2, .ant-pwd-strength-high .ant-pwd-strength-item-2 {
     background-color: rgba(135, 208, 104, .6);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#9987D068,endColorstr=#9987D068);
   }
 
   .ant-pwd-strength-high .ant-pwd-strength-item-3 {
