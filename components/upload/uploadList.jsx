@@ -39,13 +39,13 @@ export default React.createClass({
   render() {
     var items = this.state.items;
     var downloadItem = (file) => {
-      var statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> : <i className='anticon anticon-loading'></i>;
-      var closeIcon = file.status === 'done' ? <i className='anticon anticon-cross' ref='theCloseBtn' onClick={this.handleClose.bind(this, file)}></i> : '';
+      var statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> : <i className="anticon anticon-loading"></i>;
       return (
         <div className={prefixCls + '-list-item'} key={file.id}>
           {statusIcon}
           <b className={prefixCls + '-item-name'}>{file.filename}</b>
-          {closeIcon}
+          <i className="anticon anticon-cross" ref="theCloseBtn"
+             onClick={this.handleClose.bind(this, file)}></i>
         </div>
       );
     };
