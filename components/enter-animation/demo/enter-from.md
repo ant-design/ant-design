@@ -52,13 +52,13 @@ var Test = React.createClass({
         <form className="ant-form-horizontal">
          <EnterAnimation interval={this.state.interval} type={this.state.type} upend={this.state.upend} direction={this.state.direction} callback={this.state.callback}>
            <div className="ant-form-item ant-form-item-compact">
-               <label for="userName" className="col-6" required>用户名：</label>
+               <label htmlFor="userName" className="col-6" required>用户名：</label>
                <div className="col-6">
                  <p className="ant-form-text">大眼萌 minion</p>
                </div>
              </div>
              <div className="ant-form-item">
-               <label for="password" className="col-6" required>密码：</label>
+               <label htmlFor="password" className="col-6" required>密码：</label>
                <div className="col-14">
                  <input className="ant-input" type="password" id="password" placeholder="请输入密码"/>
                </div>
@@ -73,9 +73,9 @@ var Test = React.createClass({
                </div>
              </div>
              <div className="ant-form-item">
-               <label for="password" className="col-6" required>备注：</label>
+               <label htmlFor="remark" className="col-6" required>备注：</label>
                <div className="col-14">
-                 <textarea className="ant-input" placeholder="随便写"></textarea>
+                 <textarea className="ant-input" id="remark" placeholder="随便写"></textarea>
                  <p className="ant-form-explain">随便写点什么</p>
                </div>
              </div>
