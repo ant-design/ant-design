@@ -1,6 +1,6 @@
 # Form
 
-- category: CSS
+- category: Components
 - chinese: 表单
 - order: 3
 

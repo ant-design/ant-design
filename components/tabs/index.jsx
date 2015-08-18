@@ -20,3 +20,4 @@ AntTabs.defaultProps = {
 AntTabs.TabPane = Tabs.TabPane;
 
 export default AntTabs;
+

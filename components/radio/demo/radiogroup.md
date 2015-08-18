@@ -23,7 +23,7 @@ var App = React.createClass({
     });
   },
   render() {
-    return<div>
+    return <div>
       <RadioGroup onChange={this.onChange} value={this.state.value}>
         <Radio value="a">A</Radio>
         <Radio value="b">B</Radio>
@@ -31,7 +31,7 @@ var App = React.createClass({
         <Radio value="d">D</Radio>
       </RadioGroup>
       <div style={{marginTop: 20}}>你选中的: {this.state.value}</div>
-    </div>
+    </div>;
   }
 });
 React.render(<App />, document.getElementById('components-radio-demo-radiogroup'));

@@ -4,18 +4,6 @@ function noop() {
 }
 
 export default React.createClass({
-  getInitialState() {
-    return {
-      visible: false,
-      confirmLoading: false
-    };
-  },
-
-  handleCancel() {
-    var d = this.refs.d;
-    d.requestClose();
-  },
-
   getDefaultProps() {
     return {
       prefixCls: 'ant-modal',
@@ -24,36 +12,55 @@ export default React.createClass({
     };
   },
 
+  getInitialState() {
+    return {
+      confirmLoading: false,
+      visible: this.props.visible
+    };
+  },
+
+  handleCancel() {
+    this.props.onCancel();
+    this.setState({
+      visible: false
+    });
+  },
+
   handleOk() {
     this.setState({
       confirmLoading: true
     });
-    if (typeof this.props.onOk) {
-      this.props.onOk();
-    }
+    this.props.onOk();
   },
 
   componentWillReceiveProps(nextProps) {
     if ('visible' in nextProps) {
+      let newState = {
+        visible: nextProps.visible
+      };
       // 隐藏后去除按钮 loading 效果
       if (!nextProps.visible) {
-        this.setState({
-          confirmLoading: false
-        });
+        newState.confirmLoading = false;
       }
+      this.setState(newState);
     }
   },
 
   render() {
-    var loadingIcon = this.state.confirmLoading ?
-      <i className="anticon anticon-loading"></i> : '';
-    var props = this.props;
-    var footer = props.footer || [
+    let loadingClass = this.state.confirmLoading ? ' ant-btn-loading' : '';
+    let props = this.props;
+    let defaultFooter = [
       <button key="cancel" type="button" className="ant-btn ant-btn-lg" onClick={this.handleCancel}>取 消</button>,
-      <button key="confirm" type="button" className="ant-btn ant-btn-primary ant-btn-lg" onClick={this.handleOk}>
-        确 定 {loadingIcon}
+      <button key="confirm"
+        type="button"
+        className={'ant-btn ant-btn-primary ant-btn-lg' + loadingClass}
+        onClick={this.handleOk}>
+        确 定
       </button>
     ];
-    return <Dialog transitionName="zoom" onBeforeClose={props.onCancel} visible={this.state.visible} maskAnimation="fade" width="500" footer={footer} {...props} ref="d" />;
+    let footer = props.footer || defaultFooter;
+    let visible = this.state.visible;
+    return <Dialog transitionName="zoom" onClose={this.handleCancel} maskAnimation="fade"
+                   width="500" footer={footer} {...props} visible={visible} />;
   }
 });

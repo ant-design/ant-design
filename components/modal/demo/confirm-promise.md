@@ -15,8 +15,8 @@ function showConfirm(){
     content: '一些解释',
     onOk: function() {
       alert('1 秒后关闭');
-      return new Promise(function(resolve){
-        setTimeout(resolve,1000);
+      return new Promise(function(resolve) {
+        setTimeout(resolve, 1000);
       });
     },
     onCancel: function() {}

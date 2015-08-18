@@ -12,12 +12,12 @@ var Checkbox = antd.Checkbox;
 React.render(
 <form className="ant-form-inline">
   <div className="ant-form-item">
-    <label for="userName">账户：</label>
+    <label htmlFor="userName">账户：</label>
     <input className="ant-input" type="text" id="userName" placeholder="请输入账户名" />
   </div>
   <div className="ant-form-item">
-    <label for="password">密码：</label>
-    <input className="ant-input" type="password" id="password" placeholder="请输入密码" />
+    <label htmlFor="password2">密码：</label>
+    <input className="ant-input" type="password" id="password2" placeholder="请输入密码" />
   </div>
   <div className="ant-form-item">
     <label className="ant-checkbox-inline">

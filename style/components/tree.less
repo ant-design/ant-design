@@ -1,0 +1,112 @@
+@treePrefixCls: ant-tree;
+.checkboxFn(@checkboxPrefixCls: ant-tree-checkbox);
+@import "../mixins/iconfont";
+@openIcon: '\e60f';
+.switcher_icon() {
+  position: relative;
+  &:after {
+    .iconfont-size-under-12px(6px);
+    content: @openIcon;
+    display: inline-block;
+    font-family: 'anticon';
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    color: #666;
+    transition: transform .3s ease;
+  }
+}
+.@{treePrefixCls} {
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    white-space: nowrap;
+    outline: 0;
+    ul {
+      margin: 0;
+      padding: 0 0 0 18px;
+      &.@{treePrefixCls}-line {
+        background: url("https://t.alipayobjects.com/images/T13BtfXl0mXXXXXXXX.gif") 0 0 repeat-y;
+      }
+    }
+    a {
+      display: inline-block;
+      padding: 1px 3px 0 0;
+      margin: 0;
+      cursor: pointer;
+      height: 20px;
+      text-decoration: none;
+      vertical-align: top;
+      color: #666;
+    }
+    span {
+      &.@{treePrefixCls}-switcher,
+      &.@{treePrefixCls}-iconEle {
+        line-height: 0;
+        margin: 0;
+        width: 16px;
+        height: 17px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 0 none;
+        cursor: pointer;
+        outline: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
+        // background-image:url("https://t.alipayobjects.com/images/T1NcthXkFdXXXXXXXX.png");
+      }
+      &.@{treePrefixCls}-switcher {
+        &-disabled {
+          background: #fff;
+          position: relative;
+          &:after {
+            content: '-';
+            position: absolute;
+            top: 8px;
+            left: 6px;
+            color: gray;
+          }
+        }
+        background-position: 0 20px;
+        &.@{treePrefixCls}-roots_open,
+        &.@{treePrefixCls}-center_open,
+        &.@{treePrefixCls}-bottom_open,
+        &.@{treePrefixCls}-noline_open {
+          .switcher_icon();
+        }
+        &.@{treePrefixCls}-roots_close,
+        &.@{treePrefixCls}-center_close,
+        &.@{treePrefixCls}-bottom_close,
+        &.@{treePrefixCls}-noline_close {
+          .switcher_icon();
+          &:after {
+            .ie-rotate(3);
+            transform: rotate(270deg) scale(0.5);
+          }
+        }
+      }
+    }
+  }
+  &-treenode-disabled {
+    >span,
+    >a {
+      color: gray;
+    }
+  }
+  &-icon__open {
+    margin-right: 2px;
+    background-position: -110px -16px;
+    vertical-align: top;
+  }
+  &-icon__close {
+    margin-right: 2px;
+    background-position: -110px 0;
+    vertical-align: top;
+  }
+}

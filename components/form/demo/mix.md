@@ -41,7 +41,7 @@ React.render(
   <div className="ant-form-item">
     <label className="col-8" required>InputNumber 数字输入框：</label>
     <div className="col-10">
-      <InputNumber min={1} max={10} defaultValue={3} onChange={onInputNumberChange} style={{width:100}}/>
+      <InputNumber size="large" min={1} max={10} defaultValue={3} onChange={onInputNumberChange} style={{width:100}}/>
       <span className="ant-form-text"> 台机器</span>
     </div>
   </div>
@@ -57,21 +57,21 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Switch 开关：</label>
+    <label htmlFor="" className="col-8" required>Switch 开关：</label>
     <div className="col-10">
       <Switch />
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Slider 滑动输入条：</label>
+    <label htmlFor="" className="col-8" required>Slider 滑动输入条：</label>
     <div className="col-10">
       <Slider marks={["A","B","C","D","E","F","G"]} />
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Select 选择器：</label>
+    <label htmlFor="" className="col-8" required>Select 选择器：</label>
     <div className="col-16">
-      <Select value="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Select size="large" value="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>
@@ -80,7 +80,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label for="" className="col-8" required>Datepicker 日期选择框：</label>
+    <label htmlFor="" className="col-8" required>Datepicker 日期选择框：</label>
     <div className="col-6">
       <Datepicker />
     </div>
@@ -92,7 +92,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item has-error">
-    <label for="" className="col-8" required>Datepicker 校验：</label>
+    <label htmlFor="" className="col-8" required>Datepicker 校验：</label>
     <div className="col-6">
       <Datepicker />
     </div>
