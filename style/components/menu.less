@@ -49,6 +49,7 @@
   & > li&-submenu {
     padding: 0;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   &-submenu-horizontal > .@{menuPrefixCls} {
@@ -163,6 +164,10 @@
       top: 1px;
       > a {
         display: block;
+        color: @text-color;
+        &:hover {
+          color: @primary-color;
+        }
         &:before, &:after {
           position: absolute;
           background-color: rgba(255, 255, 255, 0.001);
