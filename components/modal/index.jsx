@@ -5,14 +5,12 @@ function noop() {
 }
 
 let mousePosition;
-function onDocumentMousemove(e) {
+Dom.addEventListener(document, 'mousemove', function onDocumentMousemove(e) {
   mousePosition = {
     x: e.pageX,
     y: e.pageY
   };
-}
-
-Dom.addEventListener(document, 'mousemove', onDocumentMousemove);
+});
 
 export default React.createClass({
   getDefaultProps() {
