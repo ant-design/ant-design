@@ -67,7 +67,11 @@ exports.middlewares = [
   handle: function(req, res, next) {
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
-      lazy: true,
+      lazy: false,
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: true
+      },
       stats: {
         hash: false,
         cached: false,
