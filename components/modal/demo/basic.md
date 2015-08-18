@@ -43,4 +43,3 @@ var Test = React.createClass({
 
 React.render(<Test/> , document.getElementById('components-modal-demo-basic'));
 ````
-

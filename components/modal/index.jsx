@@ -1,22 +1,18 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
+import eventListener from './eventListener';
 function noop() {
 }
 
-function wrap(standard, fallback) {
-  return function (el, evtName, listener, useCapture) {
-    if (el[standard]) {
-      el[standard](evtName, listener, useCapture);
-    } else if (el[fallback]) {
-      el[fallback]('on' + evtName, listener);
-    }
+let mousePosition;
+function onDocumentMousemove(e) {
+  mousePosition = {
+    x: e.pageX,
+    y: e.pageY
   };
 }
 
-let eventListener = {
-  add: wrap('addEventListener', 'attachEvent'),
-  remove: wrap('removeEventListener', 'detachEvent')
-};
+eventListener.add(document, 'mousemove', onDocumentMousemove);
 
 export default React.createClass({
   getDefaultProps() {
@@ -39,14 +35,6 @@ export default React.createClass({
       x: e.pageX,
       y: e.pageY
     };
-  },
-
-  componentWillMount() {
-    eventListener.add(document, 'mousemove', this.onDocumentMousemove);
-  },
-
-  componentWillUnmount() {
-    eventListener.remove(document, 'mousemove', this.onDocumentMousemove);
   },
 
   handleCancel() {
@@ -92,6 +80,6 @@ export default React.createClass({
     let visible = this.state.visible;
     return <Dialog transitionName="zoom" onClose={this.handleCancel}
       maskAnimation="fade" width="500" footer={footer} {...props}
-      visible={visible} mousePosition={this.mousePosition} />;
+      visible={visible} mousePosition={mousePosition} />;
   }
 });
