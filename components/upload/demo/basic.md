@@ -24,7 +24,9 @@ var props = {
 };
 
 React.render(
-  <Upload {...props} />,
+  <Upload {...props}>
+    <i className="anticon anticon-upload"></i> 点击上传
+  </Upload>,
   document.getElementById('components-upload-demo-basic')
 );
 ````
