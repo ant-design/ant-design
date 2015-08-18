@@ -30,13 +30,6 @@ export default React.createClass({
     };
   },
 
-  onDocumentMousemove(e) {
-    this.mousePosition = {
-      x: e.pageX,
-      y: e.pageY
-    };
-  },
-
   handleCancel() {
     this.props.onCancel();
     this.setState({
