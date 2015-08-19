@@ -9,49 +9,12 @@ const AntMenu = React.createClass({
   },
 
   onCancel(e) {
-    function whichTransitionEvent() {
-      var transitions = {
-        'transition': 'transitionend',
-        'OTransition': 'oTransitionEnd',
-        'MozTransition': 'transitionend',
-        'WebkitTransition': 'webkitTransitionEnd'
-      };
-      for (var t in transitions) {
-        if (t in document.documentElement.style) {
-          return transitions[t];
-        }
-      }
-      return false;
-    };
-    function whichAnimationEvent() {
-      var animation = {
-        'animation': 'animationend',
-        'OAnimation': 'oAnimationEnd',
-        'MozAnimation': 'animationend',
-        'WebkitAnimation': 'webkitAnimationEnd'
-      };
-      for (var t in animation) {
-        if (t in document.documentElement.style) {
-          return animation[t];
-        }
-      }
-      return false;
-    };
-
     var self = this, dom = findDOMNode(e.item), ul = dom.getElementsByClassName(`${this.props.prefixCls}-sub`)[0], props = self.props;
-    var tEnd = whichTransitionEvent();
+    var animStr = props.mode === 'horizontal' ? ' slide-up' : ' zoom', childAnimStr = ' zoom';
+    var enterAndleave = e.open ? '-enter' : '-leave';
 
     ul.style.display = 'block';
     if (props.mode === 'inline') {
-      var _event = function (e) {
-        var m = e.target;
-        m.removeEventListener(tEnd, _event);
-        if (m === ul) {
-          ul.style.height = '';
-          ul.style.display = '';
-        }
-      };
-      ul.addEventListener(tEnd, _event);
       var h = ul.offsetHeight;
       if (e.open) {
         ul.style.height = 0;
@@ -61,34 +24,42 @@ const AntMenu = React.createClass({
       }
       setTimeout(()=> {
         ul.style.height = h + 'px';
-      }, 10);
-      ul.style.animation = 'none';
+      }, 1);
     } else {
-      var aEnd = whichAnimationEvent();
-      var __event = function (e) {
-        var m = e.target;
-        m.removeEventListener(aEnd, _event);
-        if (m === ul) {
-          ul.style.display = '';
-        }
-      };
-      ul.addEventListener(aEnd, __event);
-      if (props.mode === 'vertical') {
-        ul.style.transformOrigin = '0 0';
-      }
+      ul.className += animStr + enterAndleave + animStr + enterAndleave + '-active';
     }
 
-    var ulChild = ul.children;
-    for (var i = 0; i < ulChild.length; i++) {
+
+    var ulChild = ul.children, len = ulChild.length;
+    for (var i = 0; i < len; i++) {
       var m = ulChild[i];
-      var delay = e.open ? i : (ulChild.length - 1 - i);
-      m.style.animationDelay = 0.04 * delay + 's';
-      m.style.animationDuration = (0.8 / ulChild.length + 0.2) + 's';
-      if (props.mode === 'vertical') {
-        m.style.transformOrigin = '0 0';
-      }
+      var delayNum = e.open ? i : (len - 1 - i);
+      var delay = 0.3 / len * delayNum;
+      m.style.animationDelay = delay + 's';
+      m.style.animationDuration = (0.3 - delay + 0.1) + 's';
+      m.className += childAnimStr + enterAndleave + childAnimStr + enterAndleave + '-active';
     }
+    setTimeout(()=> {
+      ul.style.display = '';
+      ul.style.height = '';
+      ul.className = ul.className.replace(/(slide-up-|zoom-|enter|-active|leave)/g, '').trim();
+      for (var j = 0; j < len; j++) {
+        var mc = ulChild[j];
+        mc.style.animationDelay = '';
+        mc.style.animationDuration = '';
+        mc.className = mc.className.replace(/(slide-up-|zoom-|enter|-active|leave)/g, '').trim();
+      }
+    }, 401);
 
+  },
+
+
+  componentDidMount() {
+    this.componentDidUpdate(this.props);
+  },
+  componentDidUpdate(prevProps) {
+    console.log(prevProps);
+    //更改初始进场
   },
 
   render() {

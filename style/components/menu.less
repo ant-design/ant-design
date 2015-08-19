@@ -51,18 +51,12 @@
     cursor: pointer;
   }
 
-  &-submenu-horizontal&-submenu-open > .@{menuPrefixCls}&-vertical&-sub {
-    animation: slideUpIn .4s @ease-in-out-quint;
-  }
   &-submenu-horizontal > .@{menuPrefixCls} {
     top: 100%;
     left: 0;
     position: absolute;
     min-width: 100%;
     margin-top: 7px;
-    &.@{menuPrefixCls}-vertical.@{menuPrefixCls}-sub {
-      animation: slideUpOut .4s @ease-in-out-quint;
-    }
   }
 
   &-submenu-vertical > .@{menuPrefixCls} {
@@ -96,8 +90,7 @@
   &-submenu {
     position: relative;
     & > ul > li {
-      animation: zoomOut .3s @ease-in-out-circ;
-      transform-origin: 50% 0;
+      animation-timing-function: @ease-in-out-circ;
     }
 
     > .@{menuPrefixCls} {
@@ -143,12 +136,7 @@
         .ie-rotate(1);
         transform: rotate(90deg) scale(0.75);
       }
-      & > ul > li {
-        animation: zoomIn .3s @ease-in-out-circ;
-      }
-      > .@{menuPrefixCls}-vertical.@{menuPrefixCls}-sub {
-        animation: zoomIn .4s @ease-in-out-quint;
-      }
+
     }
   }
 
@@ -214,6 +202,12 @@
       height: 0;
       clear: both;
     }
+
+    & .@{menuPrefixCls}-vertical.@{menuPrefixCls}-sub {
+      & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu {
+        transform-origin: 50% 0;
+      }
+    }
   }
 
   &-vertical, &-inline {
@@ -228,7 +222,10 @@
 
   &-vertical&-sub {
     padding: 0;
-    animation: zoomOut .4s @ease-in-out-quint;
+    transform-origin: 0 0;
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu {
+      transform-origin: 0 0;
+    }
   }
 
   &-root&-vertical,
@@ -250,6 +247,10 @@
       height: 34px;
       list-style-type: disc;
       list-style-position: inside;
+    }
+
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu {
+      transform-origin: 50% -30px;
     }
   }
 }
