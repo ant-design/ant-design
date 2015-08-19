@@ -17,10 +17,9 @@ var Test = React.createClass({
       visible: false
     };
   },
-  showModal(e) {
+  showModal() {
     this.setState({
-      visible: true,
-      mousePosition:{x:e.pageX,y:e.pageY}
+      visible: true
     });
   },
   handleOk() {
@@ -40,7 +39,6 @@ var Test = React.createClass({
     return <div>
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
       <Modal title="对话框标题"
-      mousePosition={this.state.mousePosition}
         visible={this.state.visible}
         onOk={this.handleOk}
         onCancel={this.handleCancel}>

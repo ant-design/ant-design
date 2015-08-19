@@ -4,8 +4,8 @@ require('./style/index.less');
 // https://github.com/WickyNilliams/enquire.js/issues/82
 window.matchMedia = window.matchMedia || function() {
   return {
-    matches : false,
-    addListener : function() {},
+    matches: false,
+    addListener: function() {},
     removeListener: function() {}
   };
 };

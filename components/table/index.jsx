@@ -268,7 +268,7 @@ var AntTable = React.createClass({
     return columns.map((column, i) => {
       column = objectAssign({}, column);
       let key = this.getColumnKey(column, i);
-      let filterDropdown, menus, sortButton;
+      let filterDropdown, sortButton;
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown =

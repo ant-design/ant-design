@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog from 'rc-dialog';
+import Dialog from './index';
 var div;
 
 export default function (props) {
@@ -76,6 +76,7 @@ export default function (props) {
     closable={false}
     title=""
     transitionName="zoom"
+    footer=""
     maskTransitionName="fade" width={width}>
     <div style={{zoom: 1, overflow: 'hidden'}}>{body} {footer}</div>
   </Dialog>, div, function () {

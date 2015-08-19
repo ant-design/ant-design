@@ -391,7 +391,7 @@
 		<span class="anticon-class">laptop</span>
 	</li>
 	<li>
-		<i class="anticon anticon-large"></i>
+		<i class="anticon anticon-appstore"></i>
 		<span class="anticon-class">large</span>
 	</li>
 	<li>

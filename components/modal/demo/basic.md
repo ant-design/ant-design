@@ -13,12 +13,11 @@ var Test = React.createClass({
   getInitialState(){
     return{
       visible: false
-    }
+    };
   },
-  showModal(e) {
+  showModal() {
     this.setState({
-      visible: true,
-      mousePosition: {x:e.pageX,y:e.pageY}
+      visible: true
     });
   },
   handleOk() {
@@ -32,7 +31,6 @@ var Test = React.createClass({
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
       <Modal title="第一个 Modal"
         visible={this.state.visible}
-        mousePosition={this.state.mousePosition}
         onOk={this.handleOk}
         onCancel={this.handleCancel}>
         <p>对话框的内容</p>
@@ -45,4 +43,3 @@ var Test = React.createClass({
 
 React.render(<Test/> , document.getElementById('components-modal-demo-basic'));
 ````
-
