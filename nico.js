@@ -14,7 +14,7 @@ webpackCompiler.apply(new ProgressPlugin(function(percentage, msg) {
   var stream = process.stderr;
   if (stream.isTTY && percentage < 0.71) {
     stream.cursorTo(0);
-    stream.write('📦  ' + chalk.green(parseInt(percentage*100)+ '% ') + msg);
+    stream.write('📦  ' + chalk.magenta(msg));
     stream.clearLine(1);
   } else if (percentage === 1) {
     console.log(chalk.green('\nwebpack: bundle build is now finished.'));
