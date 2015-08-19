@@ -9,12 +9,15 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
-function handleCheck(checked, node, checkedKeys) {
-  console.log('checked:', checked, node, checkedKeys);
+function handleCheck(info) {
+  console.log('check: ', info);
+}
+function handleSelect(info) {
+  console.log('select: ', info);
 }
 
 React.render(
-  <Tree defaultExpandAll={true} checkable={<span className="ant-tree-checkbox-inner"></span>} onCheck={handleCheck}>
+  <Tree defaultExpandAll={true} checkable={true} onCheck={handleCheck} onSelect={handleSelect}>
     <TreeNode title="parent 1">
       <TreeNode>leaf</TreeNode>
       <TreeNode title="parent 1-1">
