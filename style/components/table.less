@@ -6,14 +6,14 @@
 .@{tablePrefixClass} {
   font-size: @font-size-base;
   color: @text-color;
-  border-radius: 6px;
   transition: opacity 0.3s ease;
 
   table {
     width: 100%;
     max-width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
     text-align: left;
+    border-radius: @border-radius-base;
   }
 
   th {
@@ -136,8 +136,10 @@
   }
 
   &-small {
-    border: 1px solid #e9e9e9;
-    padding: 0 8px;
+    table {
+      border: 1px solid #e9e9e9;
+      padding: 0 8px;
+    }
 
     th {
       padding: 10px 8px;
@@ -190,12 +192,18 @@
   }
 
   &.@{tablePrefixClass}-bordered {
-    border: 1px solid #E9E9E9;
-    border-bottom: 0;
-    overflow: hidden;
+    table {
+      border: 1px solid #E9E9E9;
+    }
 
     th {
       border-bottom: 1px solid #E9E9E9;
+    }
+
+    tr:last-child {
+      td {
+        border-bottom: 0;
+      }
     }
 
     th, td {
