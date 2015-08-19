@@ -495,7 +495,6 @@ footer ul li > a {
   animation: xRightMatrix .5s ease-out;
   background: #fff;
   min-height: 500px;
-  overflow: hidden;
 }
 
 .main-container-center {
@@ -1677,8 +1676,9 @@ footer ul li > a {
 }
 
 .code-boxes-col-2-1 {
-  width: 50%;
-  float: left;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
   padding-right: 15px;
 }
 
