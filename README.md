@@ -48,25 +48,7 @@ React.render(<Datepicker />, mountNode);
 我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们[提问](https://github.com/ant-design/ant-design/issues)。
 
 
-## 开发说明
+## 组件开发
 
-#### 本地调试
-
-```bash
-$ npm install
-$ npm start
-```
-
-然后访问 http://127.0.0.1:8000 。
-
-#### [网站](http://ant.design)部署
-
-```bash
-$ npm run deploy
-```
-
-#### 版本构建
-
-```bash
-$ npm run release
-```
+- [[网站和组件开发说明]]
+- [[版本发布流程]]
