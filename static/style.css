@@ -420,7 +420,7 @@ footer ul li > a {
   width: 260px;
   background: #F9F9F9;
   padding-top: 10px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   float: left;
 }
 
@@ -1671,17 +1671,14 @@ footer ul li > a {
   color: #3B4357;
 }
 
-.code-boxes {
-  overflow: hidden;
-}
-
 .code-boxes-col-1-1 {
   width: 80%;
 }
 
 .code-boxes-col-2-1 {
-  width: 50%;
-  float: left;
+  width: 49%;
+  display: inline-block;
+  vertical-align: top;
   padding-right: 15px;
 }
 
