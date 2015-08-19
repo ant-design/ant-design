@@ -18,6 +18,7 @@ const AntMenu = React.createClass({
     let enterAndleave = info.open ? '-enter' : '-leave';
 
     if (this.props.mode === 'inline') {
+      ul.style.height='';
       addEventListenerOnce(ul, transitionEndEvent, function (e) {
         ul.style.height = '';
         ul.style.display = '';
@@ -29,9 +30,10 @@ const AntMenu = React.createClass({
         ul.style.height = offsetHeight + 'px';
         offsetHeight = 0;
       }
-      setTimeout(() => {
-        ul.style.height = offsetHeight + 'px';
-      }, 1);
+      // Magic code
+      //跟tag的渲染bug一样,需要再去计算一次dom的height;
+      let a=ul.offsetHeight;
+      ul.style.height = offsetHeight + 'px';
     } else {
       ul.className += animStr + enterAndleave + animStr + enterAndleave + '-active';
       addEventListenerOnce(ul, animationEndEvent, function (e) {

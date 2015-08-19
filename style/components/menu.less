@@ -91,7 +91,7 @@
   &-submenu {
     position: relative;
     & > ul > li {
-      animation-timing-function: @ease-in-out-quint;
+      animation-timing-function: @ease-in-out-circ;
     }
 
     > .@{menuPrefixCls} {
@@ -244,7 +244,7 @@
     border-radius: 0;
     box-shadow: none;
     overflow: hidden;
-    transition: height .3s @ease-in-out-quint;
+    transition: height .3s @ease-in-out;
 
     & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
       line-height: 34px;
