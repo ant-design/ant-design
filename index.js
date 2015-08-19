@@ -4,8 +4,8 @@ require('./style/index.less');
 // https://github.com/WickyNilliams/enquire.js/issues/82
 window.matchMedia = window.matchMedia || function() {
   return {
-    matches : false,
-    addListener : function() {},
+    matches: false,
+    addListener: function() {},
     removeListener: function() {}
   };
 };
@@ -40,9 +40,9 @@ const antd = {
   Notification: require('./components/notification'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
-  Tree: require('./components/Tree'),
+  Tree: require('./components/tree'),
   Upload: require('./components/upload'),
-  Menu: require('./components/Menu')
+  Menu: require('./components/menu')
 };
 
 module.exports = antd;

@@ -34,7 +34,7 @@ var Sider = React.createClass({
         <Menu.Item key="3">选项3</Menu.Item>
         <Menu.Item key="4">选项4</Menu.Item>
       </SubMenu>
-      <SubMenu key="sub2" title={<span><i className="anticon anticon-large"></i><span>导航二</span></span>}>
+      <SubMenu key="sub2" title={<span><i className="anticon anticon-appstore"></i><span>导航二</span></span>}>
         <Menu.Item key="5">选项5</Menu.Item>
         <Menu.Item key="6">选项6</Menu.Item>
         <SubMenu key="sub3" title="三级导航">

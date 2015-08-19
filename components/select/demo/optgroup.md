@@ -20,15 +20,11 @@ React.render(
     style={{width:200}}
     showSearch={false}
     onChange={handleChange}>
-    <OptGroup label="manager">
-      <Option value="jack">
-        <b style={{
-          color: 'red'
-        }}>jack</b>
-      </Option>
+    <OptGroup label="Manager">
+      <Option value="jack">jack</Option>
       <Option value="lucy">lucy</Option>
     </OptGroup>
-    <OptGroup label="engineer">
+    <OptGroup label="Engineer">
       <Option value="yiminghe">yiminghe</Option>
     </OptGroup>
   </Select>

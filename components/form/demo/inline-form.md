@@ -2,7 +2,7 @@
 
 - order: 1
 
-在**视口宽度大于等于 768px **时，你可以为 `<form>` 标签添加 `.ant-form-inline` 类可使其表现为 inline-block 级别的控件。
+你可以为 `<form>` 标签添加 `.ant-form-inline` 类可使其表现为 inline-block 级别的控件。
 
 ---
 

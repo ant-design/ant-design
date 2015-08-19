@@ -1,17 +1,25 @@
 import React from 'react';
 import Tree from 'rc-tree';
-var TreeNode = Tree.TreeNode;
-var antDTree = React.createClass({
+
+const AntTree = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-tree'
+      prefixCls: 'ant-tree',
+      checkable: false,
+      showIcon: false,
     };
   },
   render() {
-    return <Tree {...this.props} showIcon={false}>
+    const props = this.props;
+    let checkable = props.checkable;
+    if (checkable) {
+      checkable = <span className={`${props.prefixCls}-checkbox-inner`}></span>;
+    }
+    return <Tree {...props} checkable={checkable}>
       {this.props.children}
     </Tree>;
   }
 });
-antDTree.TreeNode = TreeNode;
-module.exports = antDTree;
+
+AntTree.TreeNode = Tree.TreeNode;
+export default AntTree;

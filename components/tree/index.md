@@ -15,12 +15,13 @@
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-|checkable | 是否支持选中 | bool/React Node     | false    |
+|multiple | 是否支持多选 | bool | false |
+|checkable | 是否支持选中 | bool   | false    |
 |defaultExpandAll | 设置展开所有树节点 | bool | false |
 |defaultExpandedKeys | 展开指定的树节点 | String[] | false |
-|defaultCheckedKeys | 默认选中的树节点 | String[] | [] |
-|onCheck | 点击树节点触发 | function(e:{checked:bool,node,checkedKeys}) | - |
-|showIcon | 是否设置节点图标 | bool | true |
+|defaultCheckedKeys | 默认选中复选框的树节点 | String[] | [] |
+|defaultSelectedKeys | 默认选中的树节点 | String[] | [] |
+|onCheck | 点击树节点或复选框触发 | function(e:{checked:bool,node,checkedKeys,event}) | - |
 
 ### TreeNode props
 
@@ -28,4 +29,4 @@
 |-----------|------------------------------------------|------------|--------|
 |disabled | 禁掉响应 | bool | false |
 |title | 标题 | String | '---' |
-|key | 被树的selectedKeys或defaultSelectedKeys所用 | String | 内部计算出的节点位置 |
+|key | 被树的defaultCheckedKeys/defaultSelectedKeys/defaultExpandedKeys所用 | String | 内部计算出的节点位置 |

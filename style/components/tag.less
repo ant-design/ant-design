@@ -11,9 +11,10 @@
   font-size: @font-size-base;
   margin-right: 4px;
   margin-bottom: 8px;
-  transition: all 0.3s ease;
+  transition: all 0.3s @ease-in-out-quint;
   vertical-align: middle;
   opacity: 0.85;
+  overflow: hidden;
 
   &:hover {
     opacity: 1;
@@ -69,4 +70,5 @@
   &-red {
     background: @error-color;
   }
+
 }

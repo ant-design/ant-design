@@ -22,7 +22,23 @@
 | name       | 可选参数, 上传的文件                                         | String      | file    |
 | action     | 必选参数, 上传的地址                                         | String      | 无    |
 | data       | 可选参数, 上传所需参数                                       | Object      | 无    |
-| accept     | 可选参数, 接受上传的文件类型, 详见input accept Attribute      | String      | 无    |
+| multiple   | 可选参数, 是否支持多选文件，支持ie10+                        | Boolean     | false |
+| accept     | 可选参数, 接受上传的文件类型, 详见input accept Attribute     | String      | 无    |
 | onError    | 可选参数, error callback                                   |Function     | 无    |
 | onSuccess  | 可选参数, success callback                                 | Function     | 无    |
 | onProgress | 可选参数, progress callback, 现代浏览器有效                  | Function     | 无    |
+
+### onError
+
+错误回调，有三个参数返回：
+
+1. `err` 请求返回错误信息
+2. `responce` 请求响应，包括错误状态码等信息
+3. `file` 错误的文件对象
+
+### onSuccess
+
+成功回调，返回两个参数
+
+1. `result` 上传图片返回结果
+2. `file` 文件对象
