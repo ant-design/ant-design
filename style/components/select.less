@@ -58,9 +58,9 @@
       display: none;
     }
 
+    .ie-rotate(1);
     &:before {
       content: '\e611';
-      .ie-rotate(1);
       .rotate(90deg);
       transition: transform 0.2s ease;
     }
@@ -397,9 +397,11 @@
   }
 
   &-open {
-    .@{selectPrefixCls}-arrow:before {
+    .@{selectPrefixCls}-arrow {
       .ie-rotate(3);
-      .rotate(270deg);
+      &:before {
+        .rotate(270deg);
+      }
     }
     .@{selectPrefixCls}-selection {
       .active();
