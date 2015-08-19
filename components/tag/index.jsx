@@ -12,7 +12,7 @@ class AntTag extends React.Component {
   }
   close(e) {
     var dom = React.findDOMNode(this);
-    addEventListenerOnce(dom,transitionEndEvent, function () {
+    addEventListenerOnce(dom, transitionEndEvent, function () {
       dom.remove();
     });
     dom.style.width = dom.offsetWidth + 'px';
