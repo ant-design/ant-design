@@ -30,4 +30,4 @@
 |-----------|------------------------------------------|------------|--------|
 |disabled | 禁掉响应 | bool | false |
 |title | 标题 | String | '---' |
-|key | 被树的selectedKeys或defaultSelectedKeys所用 | String | 内部计算出的节点位置 |
+|key | 被树的defaultCheckedKeys/defaultSelectedKeys/defaultExpandedKeys所用 | String | 内部计算出的节点位置 |
