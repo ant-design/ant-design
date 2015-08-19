@@ -13,10 +13,14 @@
   position: relative;
   margin: 12px 0;
   margin-left: 7px;
-  height: 4px;
+  height: 8px;
   width: auto;
   border-radius: @border-radius-base;
   background-color: #e9e9e9;
+  cursor: pointer;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transition: background-color 0.3s ease;
 
   &-track {
     position: absolute;
@@ -25,6 +29,15 @@
     border-radius: @border-radius-base;
     background-color: tint(@primary-color, 60%);
     z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #e1e1e1;
+  }
+
+  &:hover &-track {
+    background-color: tint(@primary-color, 40%);
   }
 
   &-handle {
@@ -38,10 +51,12 @@
     border: solid 2px tint(@primary-color, 50%);
     background-color: #fff;
     z-index: 2;
+    transition: border-color 0.3s ease;
 
     &:hover {
       border-color: tint(@primary-color, 20%);
     }
+
     &-active {
       &:active {
         @color-rgba: rgba(red(@primary-color), green(@primary-color), blue(@primary-color), .2);
@@ -104,10 +119,10 @@
   }
 
   &-disabled {
-    background-color: #e9e9e9;
+    background-color: #e9e9e9 !important;
 
     .@{sliderClass}-track {
-      background-color: @slider-disabled-color;
+      background-color: @slider-disabled-color !important;
     }
 
     .@{sliderClass}-handle {
@@ -133,7 +148,7 @@
       display: none;
     }
 
-    &-placement-points-bc-tc { 
+    &-placement-points-bc-tc {
       padding: @slider-tooltip-arrow-width 0 @slider-tooltip-distance 0;
     }
 
