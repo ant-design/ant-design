@@ -68,6 +68,8 @@
     "babel": "^5.8.12",
     "babel-core": "^5.8.12",
     "babel-loader": "^5.3.2",
+    "busboy": "~0.2.9",
+    "chalk": "~1.1.0",
     "css-animation": "~1.0.3",
     "css-loader": "^0.14.1",
     "eslint": "^1.1.0",
@@ -81,8 +83,7 @@
     "nico-jsx": "~0.5.8",
     "precommit-hook": "^1.0.7",
     "webpack": "^1.10.1",
-    "webpack-dev-middleware": "^1.2.0",
-    "busboy": "~0.2.9"
+    "webpack-dev-middleware": "^1.2.0"
   },
   "scripts": {
     "babel": "babel components --out-dir lib",

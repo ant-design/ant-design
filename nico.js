@@ -1,12 +1,25 @@
 var path = require('path');
 var package = require('./package');
 var webpack = require('webpack');
+var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 var inspect = require('util').inspect;
 var Busboy = require('busboy');
+var chalk = require('chalk');
 var webpackMiddleware = require('webpack-dev-middleware');
 var webpackConfig = require('./webpack.config');
 var webpackCompiler = webpack(webpackConfig);
 var handler;
+
+webpackCompiler.apply(new ProgressPlugin(function(percentage, msg) {
+  var stream = process.stderr;
+  if (stream.isTTY && percentage < 0.71) {
+    stream.cursorTo(0);
+    stream.write('📦  ' + chalk.green(parseInt(percentage*100)+ '% ') + msg);
+    stream.clearLine(1);
+  } else if (percentage === 1) {
+    console.log(chalk.green('\nwebpack: bundle build is now finished.'));
+  }
+}));
 
 // {{ settings for nico
 exports.site = {
@@ -72,12 +85,7 @@ exports.middlewares = [
         aggregateTimeout: 300,
         poll: true
       },
-      stats: {
-        hash: false,
-        cached: false,
-        cachedAssets: false,
-        colors: true
-      }
+      quiet: true
     });
     try {
       return handler(req, res, next);
