@@ -2,10 +2,10 @@
   .make-motion(@className, @keyframeName);
   .@{className}-enter {
     transform: scale(0, 0); // need this by yiminghe
-    animation-timing-function: @ease-out-circ;
+    animation-timing-function: @ease-out-quint;
   }
   .@{className}-leave {
-    animation-timing-function: @ease-in-circ;
+    animation-timing-function: @ease-in-quint;
   }
 }
 

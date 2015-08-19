@@ -126,3 +126,6 @@ Ant Design 提供了一套缓动函数规范动画行为供组件使用。
 |@ease-out-circ     | `cubic-bezier(0.08,0.82,0.17,1);`     |圆形后缓动；                 |
 |@ease-in-circ      | `cubic-bezier(0.6,0.04,0.98,0.34);`   |圆形前缓动；                 |
 |@ease-in-out-circ  | `cubic-bezier(0.78,0.14,0.15,0.86);`  |圆形前后缓动；                   |
+|@ease-out-quint    | `cubic-bezier(0.23, 1, 0.32, 1);`|  quint后缓动|
+|@ease-in-quint     | `cubic-bezier(0.755, 0.05, 0.855, 0.06);`|quint前缓动|
+|@ease-in-out-quint | `cubic-bezier(0.86, 0, 0.07, 1);`| quint前后缓动|
