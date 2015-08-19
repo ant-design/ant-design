@@ -1671,6 +1671,10 @@ footer ul li > a {
   color: #3B4357;
 }
 
+.code-boxes {
+  overflow: hidden;
+}
+
 .code-boxes-col-1-1 {
   width: 80%;
 }
