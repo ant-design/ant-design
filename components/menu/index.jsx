@@ -10,7 +10,7 @@ const AntMenu = React.createClass({
   },
 
   toggle(info) {
-    let dom = React.findDOMNode(info.item);
+    let dom = React.findDOMNode(info.item || info);
     let ul = dom.getElementsByTagName('ul')[0] || dom;
     ul.style.display = 'block';
 
@@ -65,7 +65,6 @@ const AntMenu = React.createClass({
     if (!prevProps.mode) {
       var height = React.findDOMNode(this).offsetHeight;
       this.open = height ? true : false;//!this.open;
-      this.item = this;
       this.toggle(this);
     }
   },
