@@ -15,11 +15,14 @@
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-|checkable | 是否支持选中 | bool/React Node     | false    |
+|multiple | 是否支持多选 | bool | false |
+|checkable | 是否支持选中 | bool   | false    |
 |defaultExpandAll | 设置展开所有树节点 | bool | false |
 |defaultExpandedKeys | 展开指定的树节点 | String[] | false |
-|defaultCheckedKeys | 默认选中的树节点 | String[] | [] |
-|onCheck | 点击树节点触发 | function(e:{checked:bool,node,checkedKeys}) | - |
+|defaultCheckedKeys | 默认选中复选框的树节点 | String[] | [] |
+|defaultSelectedKeys | 默认选中的树节点 | String[] | [] |
+|onCheck | 点击树节点或复选框触发 | function(e:{checked:bool,node,checkedKeys,event}) | - |
+|onSelect | 点击树节点触发 | function(e:{selected:bool,node,checkedKeys,event}) | - |
 
 ### TreeNode props
 
