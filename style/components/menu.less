@@ -215,11 +215,13 @@
   }
 
   &-vertical, &-horizontal {
-    .@{menuPrefixCls}-item:first-child {
-      border-radius: @border-radius-base @border-radius-base 0 0;
-    }
-    .@{menuPrefixCls}-item:last-child {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
+    .@{menuPrefixCls}-submenu {
+      .@{menuPrefixCls}-item:first-child {
+        border-radius: @border-radius-base @border-radius-base 0 0;
+      }
+      .@{menuPrefixCls}-item:last-child {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
     }
   }
 
