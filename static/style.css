@@ -1692,7 +1692,7 @@ footer ul li > a {
   width: 100%;
   position: relative;
   margin: 0px 15px 15px 0px;
-  transition: border-color 0.4s ease;
+  transition: all 0.5s ease;
 }
 
 .code-box:hover {
@@ -1700,7 +1700,8 @@ footer ul li > a {
 }
 
 .code-box:target {
-  border-color: #bbb;
+  border: 1px solid rgba(45, 183, 245, 0.7);
+  box-shadow: 0 0 4px rgba(45, 183, 245, 0.5);
 }
 
 .code-box:hover .code-box-meta,
