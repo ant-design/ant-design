@@ -40,9 +40,9 @@ const antd = {
   Notification: require('./components/notification'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
-  Tree: require('./components/Tree'),
+  Tree: require('./components/tree'),
   Upload: require('./components/upload'),
-  Menu: require('./components/Menu')
+  Menu: require('./components/menu')
 };
 
 module.exports = antd;
