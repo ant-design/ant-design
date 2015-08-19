@@ -1,5 +1,4 @@
 import React from 'react';
-import { transitionEndEvent, addEventListenerOnce } from '../util/index';
 const prefixCls = 'ant-tag';
 
 class AntTag extends React.Component {
@@ -11,7 +10,7 @@ class AntTag extends React.Component {
     };
   }
   close(e) {
-    var dom = React.findDOMNode(this);
+    let dom = React.findDOMNode(this);
     dom.style.width = dom.offsetWidth + 'px';
     // Magic code
     // 重复是去除浏览器渲染bug；
@@ -40,8 +39,7 @@ class AntTag extends React.Component {
 AntTag.defaultProps = {
   prefixCls: prefixCls,
   closable: false,
-  onClose: function () {
-  }
+  onClose: function () {}
 };
 
 export default AntTag;
