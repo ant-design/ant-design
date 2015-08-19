@@ -22,7 +22,7 @@ React.render(<Menu onClick={handleClick} style={{width:240}} mode="vertical">
     <MenuItem key="3">选项3</MenuItem>
     <MenuItem key="4">选项4</MenuItem>
   </SubMenu>
-  <SubMenu key="sub2" title={<span><i className="anticon anticon-large"></i><span>导航二</span></span>}>
+  <SubMenu key="sub2" title={<span><i className="anticon anticon-appstore"></i><span>导航二</span></span>}>
     <MenuItem key="5">选项5</MenuItem>
     <MenuItem key="6">选项6</MenuItem>
     <SubMenu key="sub3" title="三级导航">

@@ -28,7 +28,7 @@ var App = React.createClass({
       <i className="anticon anticon-mail"></i>导航一
     </Menu.Item>
     <Menu.Item key="app">
-      <i className="anticon anticon-large"></i>导航二
+      <i className="anticon anticon-appstore"></i>导航二
     </Menu.Item>
     <SubMenu title={<span><i className="anticon anticon-setting"></i>导航 - 子菜单</span>}>
       <Menu.Item key="setting:1">选项1</Menu.Item>
