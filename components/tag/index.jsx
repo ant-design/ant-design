@@ -1,5 +1,5 @@
 import React from 'react';
-import { animationEndEvent, addEventListenerOnce } from '../util/index';
+import { transitionEndEvent, addEventListenerOnce } from '../util/index';
 const prefixCls = 'ant-tag';
 
 class AntTag extends React.Component {
@@ -12,6 +12,9 @@ class AntTag extends React.Component {
   }
   close(e) {
     var dom = React.findDOMNode(this);
+    addEventListenerOnce(dom,transitionEndEvent, function () {
+      dom.remove();
+    });
     dom.style.width = dom.offsetWidth + 'px';
     // Magic code
     // 重复是去除浏览器渲染bug；
@@ -28,7 +31,7 @@ class AntTag extends React.Component {
     let colorClass = this.props.prefixCls + '-' + this.props.color;
 
     let className = this.props.prefixCls + ' ' + colorClass;
-    className = this.state.closed ? className +' '+ this.props.prefixCls + '-close' : className;
+    className = this.state.closed ? className + ' ' + this.props.prefixCls + '-close' : className;
 
     return <div className={className}>
       <a className={this.props.prefixCls + '-text'} {...this.props} />
