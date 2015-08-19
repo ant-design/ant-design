@@ -1,12 +1,11 @@
 @treePrefixCls: ant-tree;
-.checkboxFn(@checkboxPrefixCls: ant-tree-checkbox);
+.antCheckboxFn(@checkboxPrefixCls: ant-tree-checkbox);
 @import "../mixins/iconfont";
-@openIcon: '\e60f';
-.switcher_icon() {
+.antTreeSwitcherIcon() {
   position: relative;
   &:after {
     .iconfont-size-under-12px(6px);
-    content: @openIcon;
+    content: '\e60f';
     display: inline-block;
     font-family: 'anticon';
     font-weight: bold;
@@ -76,15 +75,15 @@
         &.@{treePrefixCls}-center_open,
         &.@{treePrefixCls}-bottom_open,
         &.@{treePrefixCls}-noline_open {
-          .switcher_icon();
+          .antTreeSwitcherIcon();
         }
         &.@{treePrefixCls}-roots_close,
         &.@{treePrefixCls}-center_close,
         &.@{treePrefixCls}-bottom_close,
         &.@{treePrefixCls}-noline_close {
-          .switcher_icon();
+          .antTreeSwitcherIcon();
+          .ie-rotate(3);
           &:after {
-            .ie-rotate(3);
             transform: rotate(270deg) scale(0.5);
           }
         }
