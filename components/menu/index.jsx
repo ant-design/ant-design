@@ -11,10 +11,10 @@ const AntMenu = React.createClass({
 
   toggle(info) {
     let dom = React.findDOMNode(info.item);
-    let ul = dom.getElementsByClassName(`${this.props.prefixCls}-sub`)[0];
+    let ul = dom.getElementsByTagName('ul')[0] || dom;
     ul.style.display = 'block';
 
-    let animStr = this.props.mode === 'horizontal' ? ' slide-up' : ' zoom', childAnimStr = ' zoom';
+    let animStr = this.props.mode === 'horizontal' || !this.props.mode ? ' slide-up' : ' zoom', childAnimStr = ' zoom';
     let enterAndleave = info.open ? '-enter' : '-leave';
 
     if (this.props.mode === 'inline') {
@@ -57,13 +57,16 @@ const AntMenu = React.createClass({
 
   },
 
-
   componentDidMount() {
     this.componentDidUpdate(this.props);
   },
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
-    //更改初始进场
+    //更改初始进场(dropdown)
+    if (!prevProps.mode) {
+      this.open=!this.open;
+      this.item=this;
+      this.toggle(this);
+    }
   },
 
   render() {
