@@ -28,6 +28,12 @@ exports.site = {
   repo: package.repository.url,
   issues: package.bugs.url
 };
+
+// PRODUCTION
+if (process.env.NODE_ENV === 'PRODUCTION') {
+  exports.minimized = '.min';
+}
+
 exports.package = package;
 exports.theme = 'site';
 exports.source = process.cwd();
@@ -92,6 +98,7 @@ exports.middlewares = [
     } catch(e) {}
   }
 }];
+
 exports.writers = [
   'nico-jsx.PageWriter',
   'nico-jsx.StaticWriter',

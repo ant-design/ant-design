@@ -11,7 +11,7 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}.css">
+    <link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}{{ config.minimized }}.css">
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/tomorrow.css">
     <script>
@@ -50,7 +50,7 @@
         stable: '{{config.package.stableVersion}}'
       };
     </script>
-    <script src="/dist/{{ config.package.name }}-{{ config.package.version }}.js"></script>
+    <script src="/dist/{{ config.package.name }}-{{ config.package.version }}{{ config.minimized }}.js"></script>
     <script src="/dist/demo.js"></script>
     <script>
       window.require = function (path) {
