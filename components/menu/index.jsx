@@ -63,8 +63,9 @@ const AntMenu = React.createClass({
   componentDidUpdate(prevProps) {
     //更改初始进场(dropdown)
     if (!prevProps.mode) {
-      this.open=!this.open;
-      this.item=this;
+      var height = React.findDOMNode(this).offsetHeight;
+      this.open = height ? true : false;//!this.open;
+      this.item = this;
       this.toggle(this);
     }
   },
