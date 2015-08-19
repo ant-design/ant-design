@@ -420,7 +420,7 @@ footer ul li > a {
   width: 260px;
   background: #F9F9F9;
   padding-top: 10px;
-  margin-bottom: 50px;
+  padding-bottom: 50px;
   float: left;
 }
 
@@ -495,6 +495,7 @@ footer ul li > a {
   animation: xRightMatrix .5s ease-out;
   background: #fff;
   min-height: 500px;
+  overflow: hidden;
 }
 
 .main-container-center {
@@ -1669,10 +1670,6 @@ footer ul li > a {
 
 .component-demos .icon-all.expand {
   color: #3B4357;
-}
-
-.code-boxes {
-  overflow: hidden;
 }
 
 .code-boxes-col-1-1 {
