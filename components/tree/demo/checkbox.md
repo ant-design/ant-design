@@ -9,8 +9,8 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
-function handleCheck(checked, c, checkedKeys) {
-  console.log('checked: ', checked, c );
+function handleCheck(checked, node, checkedKeys) {
+  console.log('checked:', checked, node, checkedKeys);
 }
 
 React.render(
