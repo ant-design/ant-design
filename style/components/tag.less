@@ -11,7 +11,8 @@
   font-size: @font-size-base;
   margin-right: 4px;
   margin-bottom: 8px;
-  transition: all 0.3s @ease-in-out-quint;
+  transition: all 0.3s @ease-in-out-circ;
+  transform-origin: 100% 50%;
   vertical-align: middle;
   opacity: 0.85;
   overflow: hidden;
@@ -33,7 +34,7 @@
     margin-left: 3px;
     position: relative;
     top: -1px;
-    color: #6666;
+    color: #666;
     transition: all 0.3s ease;
     opacity: 0.66;
 
@@ -71,4 +72,11 @@
     background: @error-color;
   }
 
+  &-close{
+    transform: scale(0);
+    width: 0 !important;
+    opacity: 0 !important;
+    padding: 0;
+    margin-right: 0;
+  }
 }
