@@ -1,5 +1,4 @@
 import React from 'react';
-import { animationEndEvent, addEventListenerOnce } from '../util/index';
 import Animate from 'rc-animate';
 
 export default React.createClass({
@@ -16,10 +15,9 @@ export default React.createClass({
   },
   handleClose(e) {
     let dom = React.findDOMNode(this);
-
     dom.style.height = dom.offsetHeight + 'px';
     // Magic code
-    // 重复是去除浏览器渲染bug；
+    // 重复一次后才能正确设置 height
     dom.style.height = dom.offsetHeight + 'px';
 
     this.setState({
@@ -29,7 +27,7 @@ export default React.createClass({
       this.props.onClose.call(this, e);
     }
   },
-  animationEnd(){
+  animationEnd() {
     this.setState({
       closed: true,
       closing: true
@@ -58,8 +56,7 @@ export default React.createClass({
     if (this.props.description) {
       let close = this.props.closable ?
         <a onClick={this.handleClose} className={'ant-alert-with-description-close-icon'}>
-          <span
-            className='ant-alert-with-description-close-icon-x'></span>
+          <span className='ant-alert-with-description-close-icon-x'></span>
         </a> : '';
       html = <div data-show={this.state.closing} className={'ant-alert-with-description ant-alert-with-description-' + this.props.type + closeName}>
         <i className={'anticon ' + iconClass}></i>
@@ -82,16 +79,16 @@ export default React.createClass({
         html = <div data-show={this.state.closing} className={'ant-alert ant-alert-' + this.props.type + closeName}>
           <i className={'anticon ' + iconClass}></i>
           <span className={'ant-alert-description'}>{this.props.message}</span>
-            {close}
+          {close}
         </div>;
       }
     }
-    return !this.state.closed ? <Animate
+    return this.state.closed ? null : <Animate
       component=""
       showProp='data-show'
       transitionName="slide-up"
       onEnd={this.animationEnd}>
-    {html}
-    </Animate> : null;
+      {html}
+    </Animate>;
   }
 });
