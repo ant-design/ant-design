@@ -85,6 +85,7 @@
     "nico-jsx": "~0.5.8",
     "precommit-hook": "^1.0.7",
     "rc-tabs": "~5.3.3",
+    "react-router": "~1.0.0-beta3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },
