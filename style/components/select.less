@@ -11,7 +11,7 @@
 .selected_icon() {
   position: relative;
   &:after {
-    .iconfont-size-under-12px(9px);
+    .iconfont-size-under-12px(10px);
     display: inline-block;
     content: '\e613';
     font-family: 'anticon';
@@ -267,18 +267,7 @@
   .@{select-prefix-cls}-selection--single + .@{select-prefix-cls}-dropdown {
     .@{select-prefix-cls}-dropdown-menu-item-selected {
       background-color: tint(@primary-color, 90%);
-      position: relative;
-      &:after {
-        content: '\e613';
-        font-family: 'anticon';
-        .iconfont-size-under-12px(8px);
-        font-weight: bold;
-        position: absolute;
-        top: 6px;
-        right: 16px;
-        color: @primary-color;
-        background-color: tint(@primary-color, 90%);
-      }
+      .selected_icon();
     }
   }
   .@{select-prefix-cls}-selection--multiple + .@{select-prefix-cls}-dropdown {
