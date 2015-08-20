@@ -1,31 +1,31 @@
 @import "../mixins/index";
-@btnPrefixClass: ~"@{css-prefix}btn";
+@btn-prefix-cls: ~"@{css-prefix}btn";
 
 // Button styles
 // -----------------------------
-.@{btnPrefixClass} {
+.@{btn-prefix-cls} {
   .btn;
   .btn-default;
 
   &-primary {
     .btn-primary;
 
-    .@{btnPrefixClass}-group &:not(:first-child):not(:last-child) {
+    .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
       border-right-color: @btn-group-border;
       border-left-color: @btn-group-border;
     }
 
-    .@{btnPrefixClass}-group &:first-child {
+    .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
         border-right-color: @btn-group-border;
       }
     }
 
-    .@{btnPrefixClass}-group &:last-child:not(:first-child) {
+    .@{btn-prefix-cls}-group &:last-child:not(:first-child) {
       border-left-color: @btn-group-border;
     }
 
-    .@{btnPrefixClass}-group & + .@{btnPrefixClass} {
+    .@{btn-prefix-cls}-group & + .@{btn-prefix-cls} {
       border-left-color: @btn-group-border;
     }
   }
@@ -35,7 +35,7 @@
   }
 
   &-circle, &-circle-outline {
-    .btn-circle(@btnPrefixClass);
+    .btn-circle(@btn-prefix-cls);
   }
 
   &-circle-outline {
@@ -73,6 +73,6 @@
   }
 
   &-group {
-    .btn-group(@btnPrefixClass);
+    .btn-group(@btn-prefix-cls);
   }
 }

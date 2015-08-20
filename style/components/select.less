@@ -1,4 +1,4 @@
-@selectPrefixCls: ant-select;
+@select-prefix-cls: ant-select;
 
 @import "../mixins/iconfont";
 //mixin
@@ -24,7 +24,7 @@
   }
 }
 
-.@{selectPrefixCls} {
+.@{select-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
   margin: 0;
@@ -103,7 +103,7 @@
     height: 28px;
     cursor: pointer;
 
-    .@{selectPrefixCls}-selection__rendered {
+    .@{select-prefix-cls}-selection__rendered {
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -112,11 +112,11 @@
       line-height: 26px;
     }
 
-    .@{selectPrefixCls}-selection__clear {
+    .@{select-prefix-cls}-selection__clear {
       .selection__clear();
     }
 
-    .@{selectPrefixCls}-selection__placeholder {
+    .@{select-prefix-cls}-selection__placeholder {
       color: #ccc;
     }
   }
@@ -178,12 +178,12 @@
     }
   }
 
-  .@{selectPrefixCls}-search__field__wrap {
+  .@{select-prefix-cls}-search__field__wrap {
     display: inline-block;
     position: relative;
   }
 
-  .@{selectPrefixCls}-search__field__placeholder {
+  .@{select-prefix-cls}-search__field__placeholder {
     position: absolute;
     top: 0;
     left: 3px;
@@ -193,7 +193,7 @@
   &-search--inline {
     float: left;
 
-    .@{selectPrefixCls}-search__field {
+    .@{select-prefix-cls}-search__field {
       border: none;
       font-size: 100%;
       background: transparent;
@@ -208,21 +208,21 @@
     min-height: 28px;
     cursor: text;
 
-    .@{selectPrefixCls}-search--inline {
+    .@{select-prefix-cls}-search--inline {
       width: auto;
-      .@{selectPrefixCls}-search__field {
+      .@{select-prefix-cls}-search__field {
         width: 0.75em;
       }
     }
 
-    .@{selectPrefixCls}-selection__rendered {
+    .@{select-prefix-cls}-selection__rendered {
       overflow: hidden;
       text-overflow: ellipsis;
       padding-left: 4px;
       padding-bottom: 4px;
     }
 
-    .@{selectPrefixCls}-selection__clear {
+    .@{select-prefix-cls}-selection__clear {
       .selection__clear();
       margin-top: 5px;
       margin-right: 10px;
@@ -234,7 +234,7 @@
       line-height: 20px;
     }
 
-    .@{selectPrefixCls}-selection__choice {
+    .@{select-prefix-cls}-selection__choice {
       background-color: #f3f3f3;
       border-radius: 4px;
       cursor: default;
@@ -243,7 +243,7 @@
       margin-right: 4px;
     }
 
-    .@{selectPrefixCls}-selection__choice__remove {
+    .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
       color: #919191;
       cursor: pointer;
@@ -264,8 +264,8 @@
     }
   }
 
-  .@{selectPrefixCls}-selection--single + .@{selectPrefixCls}-dropdown {
-    .@{selectPrefixCls}-dropdown-menu-item-selected {
+  .@{select-prefix-cls}-selection--single + .@{select-prefix-cls}-dropdown {
+    .@{select-prefix-cls}-dropdown-menu-item-selected {
       background-color: tint(@primary-color, 90%);
       position: relative;
       &:after {
@@ -281,11 +281,11 @@
       }
     }
   }
-  .@{selectPrefixCls}-selection--multiple + .@{selectPrefixCls}-dropdown {
-    .@{selectPrefixCls}-dropdown-menu-item {
+  .@{select-prefix-cls}-selection--multiple + .@{select-prefix-cls}-dropdown {
+    .@{select-prefix-cls}-dropdown-menu-item {
       padding: 7px 33px 7px 16px;
     }
-    .@{selectPrefixCls}-dropdown-menu-item-selected {
+    .@{select-prefix-cls}-dropdown-menu-item-selected {
       .selected_icon();
     }
   }
@@ -321,7 +321,7 @@
         margin: 0;
         padding: 0;
 
-        > li.@{selectPrefixCls}-dropdown-menu-item {
+        > li.@{select-prefix-cls}-dropdown-menu-item {
           padding-left: 24px;
         }
       }
@@ -337,7 +337,7 @@
         display: block;
         padding: 7px 16px;
         font-weight: normal;
-        color: #666666;
+        color: #666;
         white-space: nowrap;
         cursor: pointer;
 
@@ -369,7 +369,7 @@
   }
 
   &-dropdown-container-open, &-open {
-    .@{selectPrefixCls}-dropdown {
+    .@{select-prefix-cls}-dropdown {
       display: block;
     }
   }
@@ -377,13 +377,13 @@
   &-search--dropdown {
     display: block;
     padding: 4px;
-    .@{selectPrefixCls}-search__field__placeholder {
+    .@{select-prefix-cls}-search__field__placeholder {
       left: 4px;
     }
-    .@{selectPrefixCls}-search__field__wrap {
+    .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
     }
-    .@{selectPrefixCls}-search__field {
+    .@{select-prefix-cls}-search__field {
       padding: 4px;
       width: 100%;
       box-sizing: border-box;
@@ -391,46 +391,46 @@
       border-radius: 4px;
       outline: none;
     }
-    &.@{selectPrefixCls}-search--hide {
+    &.@{select-prefix-cls}-search--hide {
       display: none;
     }
   }
 
   &-open {
-    .@{selectPrefixCls}-arrow {
+    .@{select-prefix-cls}-arrow {
       .ie-rotate(3);
       &:before {
         .rotate(270deg);
       }
     }
-    .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-selection {
       .active();
     }
   }
   &-combobox {
-    .@{selectPrefixCls}-arrow {
+    .@{select-prefix-cls}-arrow {
       display: none;
     }
-    .@{selectPrefixCls}-search--inline {
+    .@{select-prefix-cls}-search--inline {
       height: 100%;
       float: none;
     }
-    .@{selectPrefixCls}-search__field__placeholder {
+    .@{select-prefix-cls}-search__field__placeholder {
       left: 10px;
       cursor: text;
     }
-    .@{selectPrefixCls}-search__field__wrap {
+    .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
       height: 100%;
     }
-    .@{selectPrefixCls}-search__field {
+    .@{select-prefix-cls}-search__field {
       padding: 0 10px;
       width: 100%;
       height: 100%;
       position: relative;
       z-index: 1;
     }
-    .@{selectPrefixCls}-selection__rendered {
+    .@{select-prefix-cls}-selection__rendered {
       padding: 0;
       height: 100%;
     }

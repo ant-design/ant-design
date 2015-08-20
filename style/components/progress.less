@@ -1,6 +1,6 @@
-@prefixProgressClass: ant-progress;
+@progress-prefix-cls: ant-progress;
 
-.@{prefixProgressClass} {
+.@{progress-prefix-cls} {
   &-line-wrap,
   &-circle-wrap {
     display: inline-block;
@@ -14,7 +14,7 @@
     margin-right: 45px;
   }
   &-line-wrap-full {
-    .@{prefixProgressClass}-line-outer {
+    .@{progress-prefix-cls}-line-outer {
       margin-right: 0;
     }
   }
@@ -43,32 +43,32 @@
     }
   }
   &-line-wrap.status-active {
-    .@{prefixProgressClass}-line-bg:before {
+    .@{progress-prefix-cls}-line-bg:before {
       content: "";
       opacity: 0;
       position: absolute;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       background: #fff;
       border-radius: 10px;
       animation: progress-active 2s ease infinite;
     }
   }
   &-line-wrap.status-exception {
-    .@{prefixProgressClass}-line-bg {
+    .@{progress-prefix-cls}-line-bg {
       background-color: @error-color;
     }
-    .@{prefixProgressClass}-line-text {
+    .@{progress-prefix-cls}-line-text {
       color: @error-color;
     }
   }
   &-line-wrap.status-success {
-    .@{prefixProgressClass}-line-bg {
+    .@{progress-prefix-cls}-line-bg {
       background-color: @success-color;
     }
-    .@{prefixProgressClass}-line-text {
+    .@{progress-prefix-cls}-line-text {
       color: @success-color;
     }
   }
@@ -88,16 +88,16 @@
     left: 0;
 
     .anticon {
-      font-size: 14/12em;
+      font-size: 14 / 12em;
     }
   }
   &-circle-wrap.status-exception {
-    .@{prefixProgressClass}-circle-text {
+    .@{progress-prefix-cls}-circle-text {
       color: @error-color;
     }
   }
   &-circle-wrap.status-success {
-    .@{prefixProgressClass}-circle-text {
+    .@{progress-prefix-cls}-circle-text {
       color: @success-color;
     }
   }
