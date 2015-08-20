@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var notification = require('antd/lib/notification');
+var notification = antd.Notification;
 
 var openNotification = function() {
   var args = {
