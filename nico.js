@@ -90,7 +90,8 @@ exports.middlewares = [
       watchOptions: {
         aggregateTimeout: 300,
         poll: true
-      }
+      },
+      noInfo: true
     });
     try {
       return handler(req, res, next);
