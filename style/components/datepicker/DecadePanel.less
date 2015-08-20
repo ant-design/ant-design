@@ -1,34 +1,34 @@
-.@{prefixCalendarClass}-decade-panel {
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
+.@{calendar-prefix-cls}-decade-panel {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   background: #fff;
   z-index: 10;
   position: absolute;
   outline: none;
 }
 
-.@{prefixCalendarClass}-decade-panel-hidden {
+.@{calendar-prefix-cls}-decade-panel-hidden {
   display: none;
 }
 
-.@{prefixCalendarClass}-decade-panel-header {
-  .calendarPanelHeader(~"@{prefixCalendarClass}-decade-panel");
+.@{calendar-prefix-cls}-decade-panel-header {
+  .calendarPanelHeader(~"@{calendar-prefix-cls}-decade-panel");
 }
 
-.@{prefixCalendarClass}-decade-panel-table {
+.@{calendar-prefix-cls}-decade-panel-table {
   table-layout: fixed;
   width: 100%;
   height: 248px;
   border-collapse: separate;
 }
 
-.@{prefixCalendarClass}-decade-panel-cell {
+.@{calendar-prefix-cls}-decade-panel-cell {
   text-align: center;
 }
 
-.@{prefixCalendarClass}-decade-panel-decade {
+.@{calendar-prefix-cls}-decade-panel-decade {
   display: inline-block;
   margin: 0 auto;
   color: #666;
@@ -36,7 +36,7 @@
   text-align: center;
   height: 24px;
   line-height: 24px;
-  padding: 0px 6px;
+  padding: 0 6px;
   border-radius: 4px;
 
   &:hover {
@@ -45,7 +45,7 @@
   }
 }
 
-.@{prefixCalendarClass}-decade-panel-selected-cell .@{prefixCalendarClass}-decade-panel-decade {
+.@{calendar-prefix-cls}-decade-panel-selected-cell .@{calendar-prefix-cls}-decade-panel-decade {
   background: @primary-color;
   color: #fff;
 
@@ -55,19 +55,19 @@
   }
 }
 
-.@{prefixCalendarClass}-decade-panel-last-century-cell, .@{prefixCalendarClass}-decade-panel-next-century-cell {
-  .@{prefixCalendarClass}-decade-panel-decade{
+.@{calendar-prefix-cls}-decade-panel-last-century-cell, .@{calendar-prefix-cls}-decade-panel-next-century-cell {
+  .@{calendar-prefix-cls}-decade-panel-decade{
     user-select: none;
     -webkit-user-select: none;
   }
-  .@{prefixCalendarClass}-decade-panel-decade:before {
+  .@{calendar-prefix-cls}-decade-panel-decade:before {
     content: "\e611";
     font-family: "anticon" !important;
   }
 }
 
-.@{prefixCalendarClass}-decade-panel-last-century-cell {
-  .@{prefixCalendarClass}-decade-panel-decade {
+.@{calendar-prefix-cls}-decade-panel-last-century-cell {
+  .@{calendar-prefix-cls}-decade-panel-decade {
     transform: rotate(180deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
   }

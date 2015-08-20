@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var notification = require('antd/lib/notification');
+var notification = antd.Notification;
 
 var close = function() {
   console.log("我被默认的关闭按钮关闭了！");

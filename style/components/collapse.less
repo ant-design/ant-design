@@ -1,5 +1,4 @@
-@prefixCls: ant-collapse;
-@borderStyle: 1px solid #d9d9d9;
+@collapse-prefix-cls: ant-collapse;
 
 #arrow {
   .close() {
@@ -10,18 +9,18 @@
   }
 }
 
-.@{prefixCls} {
+.@{collapse-prefix-cls} {
   background-color: #f4f4f4;
   border-radius: 3px;
-  border: @borderStyle;
+  border: 1px solid #d9d9d9;
 
   & > &-item {
-    border-top: @borderStyle;
+    border-top: 1px solid #d9d9d9;
     &:first-child {
       border-top: none;
     }
 
-    > .@{prefixCls}-header {
+    > .@{collapse-prefix-cls}-header {
       height: 38px;
       line-height: 38px;
       padding-left: 16px;
@@ -58,7 +57,7 @@
   }
 
   &-item:last-child {
-    > .@{prefixCls}-content {
+    > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 3px 3px;
     }
   }
@@ -67,7 +66,7 @@
   }
 
   & > &-item-active {
-    > .@{prefixCls}-header {
+    > .@{collapse-prefix-cls}-header {
 
       &:before {
         #arrow > .open();

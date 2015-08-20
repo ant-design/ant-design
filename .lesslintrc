@@ -1,0 +1,6 @@
+{
+  "import": false,
+  "require-newline": false,
+  "leading-zero": false,
+  "single-comment": false
+}

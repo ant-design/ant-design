@@ -1,5 +1,5 @@
 @import "../mixins/index";
-@stepsPrefixClass: ~"@{css-prefix}steps";
+@steps-prefix-cls: ~"@{css-prefix}steps";
 
 @process-icon-color: @primary-color;
 @process-title-color: #666;
@@ -20,102 +20,102 @@
   -moz-transition: @transition;
 }
 
-.@{stepsPrefixClass} {
+.@{steps-prefix-cls} {
   font-size: 0;
   width: 100%;
   line-height: 1.5;
 
-  .@{stepsPrefixClass}-item {
+  .@{steps-prefix-cls}-item {
     position: relative;
     display: inline-block;
     vertical-align: top;
 
-    &.@{stepsPrefixClass}-status-wait {
-      .@{stepsPrefixClass}-head-inner {
+    &.@{steps-prefix-cls}-status-wait {
+      .@{steps-prefix-cls}-head-inner {
         border-color: @wait-icon-color;
         background-color: #fff;
-        > .@{stepsPrefixClass}-icon {
+        > .@{steps-prefix-cls}-icon {
           color: @wait-icon-color;
         }
       }
-      .@{stepsPrefixClass}-title {
+      .@{steps-prefix-cls}-title {
         color: @wait-title-color;
       }
-      .@{stepsPrefixClass}-description {
+      .@{steps-prefix-cls}-description {
         color: @wait-description-color;
       }
-      .@{stepsPrefixClass}-tail > i {
+      .@{steps-prefix-cls}-tail > i {
         background-color: @wait-tail-color;
       }
     }
-    &.@{stepsPrefixClass}-status-process {
-      .@{stepsPrefixClass}-head-inner {
+    &.@{steps-prefix-cls}-status-process {
+      .@{steps-prefix-cls}-head-inner {
         border-color: @process-icon-color;
         background-color: @process-icon-color;
-        > .@{stepsPrefixClass}-icon {
+        > .@{steps-prefix-cls}-icon {
           color: #fff;
         }
       }
-      .@{stepsPrefixClass}-title {
+      .@{steps-prefix-cls}-title {
         color: @process-title-color;
       }
-      .@{stepsPrefixClass}-description {
+      .@{steps-prefix-cls}-description {
         color: @process-description-color;
       }
-      .@{stepsPrefixClass}-tail > i {
+      .@{steps-prefix-cls}-tail > i {
         background-color: @process-tail-color;
       }
     }
-    &.@{stepsPrefixClass}-status-finish {
-      .@{stepsPrefixClass}-head-inner {
+    &.@{steps-prefix-cls}-status-finish {
+      .@{steps-prefix-cls}-head-inner {
         border-color: @finish-icon-color;
         background-color: #fff;
-        > .@{stepsPrefixClass}-icon {
+        > .@{steps-prefix-cls}-icon {
           color: @finish-icon-color;
         }
       }
-      .@{stepsPrefixClass}-tail > i {
+      .@{steps-prefix-cls}-tail > i {
         background-color: @finish-tail-color;
       }
-      .@{stepsPrefixClass}-title {
+      .@{steps-prefix-cls}-title {
         color: @finish-title-color;
       }
-      .@{stepsPrefixClass}-description {
+      .@{steps-prefix-cls}-description {
         color: @finish-description-color;
       }
     }
 
-    &.@{stepsPrefixClass}-custom {
-      .@{stepsPrefixClass}-head-inner {
+    &.@{steps-prefix-cls}-custom {
+      .@{steps-prefix-cls}-head-inner {
         background: none;
         border: 0;
         width: auto;
         height: auto;
-        > .@{stepsPrefixClass}-icon {
+        > .@{steps-prefix-cls}-icon {
           font-size: 20px;
           top: 2px;
           width: 20px;
           height: 20px;
         }
       }
-      &.@{stepsPrefixClass}-status-process {
-        .@{stepsPrefixClass}-head-inner > .@{stepsPrefixClass}-icon {
+      &.@{steps-prefix-cls}-status-process {
+        .@{steps-prefix-cls}-head-inner > .@{steps-prefix-cls}-icon {
           color: @process-icon-color;
         }
       }
     }
   }
 
-  .@{stepsPrefixClass}-head, .@{stepsPrefixClass}-main {
+  .@{steps-prefix-cls}-head, .@{steps-prefix-cls}-main {
     position: relative;
     display: inline-block;
     vertical-align: top;
   }
-  .@{stepsPrefixClass}-head {
+  .@{steps-prefix-cls}-head {
     background: #fff;
   }
 
-  .@{stepsPrefixClass}-head-inner {
+  .@{steps-prefix-cls}-head-inner {
     display: block;
     border:1px solid @wait-icon-color;
     width: 26px;
@@ -128,7 +128,7 @@
     .transition(background-color 0.3s ease);
     .transition(border-color 0.3s ease);
 
-    > .@{stepsPrefixClass}-icon {
+    > .@{steps-prefix-cls}-icon {
       line-height: 1;
       top: -1px;
       color: @primary-color;
@@ -141,10 +141,10 @@
       }
     }
   }
-  .@{stepsPrefixClass}-main {
+  .@{steps-prefix-cls}-main {
     margin-top: 3px;
   }
-  .@{stepsPrefixClass}-title {
+  .@{steps-prefix-cls}-title {
     font-size: 14px;
     margin-bottom: 4px;
     color: #666;
@@ -153,16 +153,16 @@
     display: inline-block;
     padding-right: 10px;
   }
-  .@{stepsPrefixClass}-item-last {
-    .@{stepsPrefixClass}-title {
+  .@{steps-prefix-cls}-item-last {
+    .@{steps-prefix-cls}-title {
       padding-right: 0;
     }
   }
-  .@{stepsPrefixClass}-description {
+  .@{steps-prefix-cls}-description {
     font-size: 12px;
     color: #999;
   }
-  .@{stepsPrefixClass}-tail {
+  .@{steps-prefix-cls}-tail {
     position: absolute;
     left: 0;
     width: 100%;
@@ -179,8 +179,8 @@
     }
   }
 
-  &.@{stepsPrefixClass}-small {
-    .@{stepsPrefixClass}-head-inner {
+  &.@{steps-prefix-cls}-small {
+    .@{steps-prefix-cls}-head-inner {
       border:1px solid @wait-icon-color;
       width: 18px;
       height: 18px;
@@ -189,25 +189,25 @@
       border-radius: 18px;
       font-size: 12px;
       margin-right: 10px;
-      > .@{stepsPrefixClass}-icon.anticon {
+      > .@{steps-prefix-cls}-icon.anticon {
         .iconfont-size-under-12px(9px);
         top: -1px;
       }
     }
-    .@{stepsPrefixClass}-main {
+    .@{steps-prefix-cls}-main {
       margin-top: 0;
     }
-    .@{stepsPrefixClass}-title {
+    .@{steps-prefix-cls}-title {
       font-size: 12px;
       margin-bottom: 4px;
       color: #666;
       font-weight: bold;
     }
-    .@{stepsPrefixClass}-description {
+    .@{steps-prefix-cls}-description {
       font-size: 10px;
       color: #999;
     }
-    .@{stepsPrefixClass}-tail {
+    .@{steps-prefix-cls}-tail {
       top: 8px;
       padding:0 8px;
       > i {
@@ -218,7 +218,7 @@
     }
   }
 
-  &.@{stepsPrefixClass}-small .@{stepsPrefixClass}-item.@{stepsPrefixClass}-custom .@{stepsPrefixClass}-head-inner, .@{stepsPrefixClass}-item.@{stepsPrefixClass}-custom .@{stepsPrefixClass}-head-inner {
+  &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item.@{steps-prefix-cls}-custom .@{steps-prefix-cls}-head-inner, .@{steps-prefix-cls}-item.@{steps-prefix-cls}-custom .@{steps-prefix-cls}-head-inner {
     width: inherit;
     height: inherit;
     line-height: inherit;

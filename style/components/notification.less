@@ -1,25 +1,25 @@
 @import "../mixins/index";
 
-@notificationPrefixCls: ~"@{css-prefix}notification";
+@notification-prefix-cls: ~"@{css-prefix}notification";
 
-@noticeWidth: 335px;
-@noticePadding: 16px;
-@noticeMarginBottom: 10px;
+@notice-width: 335px;
+@notice-padding: 16px;
+@notice-margin-bottom: 10px;
 
-.@{notificationPrefixCls} {
+.@{notification-prefix-cls} {
   position: fixed;
   z-index: 1000;
-  width: @noticeWidth;
+  width: @notice-width;
   margin-right: 24px;
 
   &-notice {
-    padding: @noticePadding;
+    padding: @notice-padding;
     border-radius: @border-radius-base;
     box-shadow: 0 0 4px @legend-border-color;
     background: @body-background;
     line-height: 1.5;
     position: relative;
-    margin-bottom: @noticeMarginBottom;
+    margin-bottom: @notice-margin-bottom;
     overflow: hidden;
 
     &-content {
@@ -120,7 +120,7 @@
   @keyframes NotificationFadeIn {
     0% {
       opacity: 0;
-      left: @noticeWidth;
+      left: @notice-width;
     }
     100% {
       left: 0;
@@ -131,9 +131,9 @@
   @keyframes NotificationFadeOut {
     0% {
       opacity: 1;
-      margin-bottom: @noticeMarginBottom;
-      padding-top: @noticePadding;
-      padding-bottom: @noticePadding;
+      margin-bottom: @notice-margin-bottom;
+      padding-top: @notice-padding;
+      padding-bottom: @notice-padding;
       max-height: 150px;
     }
     100% {

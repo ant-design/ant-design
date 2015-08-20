@@ -80,6 +80,7 @@
     "json-loader": "^0.5.1",
     "less": "~2.5.1",
     "less-loader": "^2.2.0",
+    "lesslint": "^0.1.7",
     "lodash": "^3.10.0",
     "nico-jsx": "~0.5.8",
     "precommit-hook": "^1.0.7",
@@ -94,6 +95,7 @@
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run clean && webpack && webpack --config webpack.config.min.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
+    "lesslint": "lesslint style",
     "test": "webpack && npm run lint",
     "prepublish": "npm run babel && rm -rf dist && webpack --config webpack.config.production.js && node scripts/prenpm.js"
   },
