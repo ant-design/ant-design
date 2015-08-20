@@ -69,6 +69,7 @@ $ npm install
 
 ```jsx
 import {Datepicker, message} from 'antd';
+import React from 'react';
 
 var App = React.createClass({
   getInitialState() {
