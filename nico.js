@@ -91,7 +91,7 @@ exports.middlewares = [
         aggregateTimeout: 300,
         poll: true
       },
-      quiet: true
+      noInfo: true
     });
     try {
       return handler(req, res, next);
