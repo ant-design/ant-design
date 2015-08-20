@@ -266,6 +266,17 @@ form {
     line-height: @input-height-lg;
     text-align: center;
     font-size: 14px;
+    .animation(zoomIn .3s @ease-out-back);
+  }
+}
+.has-error{
+  &.has-feedback:after{
+    animation-name: zoomIn2 !important;
+  }
+}
+.has-warning{
+  &.has-feedback:after{
+    animation-name: zoomIn3 !important;
   }
 }
 
@@ -314,7 +325,7 @@ form {
     content: '\e628';
     color: @error-color;
   }
-  
+
   // ant-select
   .@{selectPrefixCls} {
     &-selection {
@@ -336,7 +347,24 @@ form {
 .is-validating {
   &.has-feedback:after {
     display: inline-block;
-    .animation(loadingCircle 1s infinite linear);
+    .animation(loadingCircle 1s infinite linear );
     content:"\e610";
+  }
+}
+
+@keyframes zoomIn2 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn3 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
   }
 }
