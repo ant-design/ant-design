@@ -1,5 +1,6 @@
 window['css-animation'] = require('css-animation');
-window['react-router'] = window.ReactRouter;
+window['react-router'] = require('react-router');
+window['react-router']['HashHistory'] = require('react-router/lib/HashHistory');
 var antd = require('antd');
 
 var $ = require('jquery');
