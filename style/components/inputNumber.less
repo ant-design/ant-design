@@ -143,9 +143,10 @@
     cursor: pointer;
     &-inner {
       top: 1px;
+      .ie-rotate(2);
       &:before {
+        text-align: center;
         content: "\e600";
-        .ie-rotate(2);
         transform: rotate(180deg);
         -webkit-transform-origin: 47.5% 51%; /* fix chrome position */
       }
@@ -156,6 +157,7 @@
     cursor: pointer;
     &-inner {
       &:before {
+        text-align: center;
         content: "\e600";
       }
     }
