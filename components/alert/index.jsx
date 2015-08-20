@@ -1,4 +1,6 @@
 import React from 'react';
+import { animationEndEvent, addEventListenerOnce } from '../util/index';
+import Animate from 'rc-animate';
 
 export default React.createClass({
   getDefaultProps() {
@@ -8,18 +10,32 @@ export default React.createClass({
   },
   getInitialState() {
     return {
-      display: 'block'
+      closing: true,
+      closed: false
     };
   },
   handleClose(e) {
+    let dom = React.findDOMNode(this);
+
+    dom.style.height = dom.offsetHeight + 'px';
+    // Magic code
+    // 重复是去除浏览器渲染bug；
+    dom.style.height = dom.offsetHeight + 'px';
+
+    this.setState({
+      closing: false
+    });
     if (this.props.onClose) {
       this.props.onClose.call(this, e);
     }
+  },
+  animationEnd(){
     this.setState({
-      display: 'none'
+      closed: true,
+      closing: true
     });
   },
-  render () {
+  render() {
     var iconClass = this.props.description ?
       'ant-alert-with-description-icon anticon-' : 'ant-alert-icon anticon-';
     switch (this.props.type) {
@@ -38,41 +54,44 @@ export default React.createClass({
       default:
         iconClass += 'default';
     }
+    let html, closeName = !this.state.closing ? ' ' + this.props.prefixCls + '-close' : '';
     if (this.props.description) {
       let close = this.props.closable ?
-        <a onClick={this.handleClose} className={'ant-alert-with-description-close-icon'}><span
-          className='ant-alert-with-description-close-icon-x'></span></a> : '';
-      return (
-        <div style={{display: this.state.display}}
-             className={'ant-alert-with-description ant-alert-with-description-' + this.props.type}>
-          <i className={'anticon ' + iconClass}></i>
-          <p className={'ant-alert-with-description-message'}>{this.props.message}</p>
-          <span className={'ant-alert-with-description-description'}>{this.props.description}</span>
+        <a onClick={this.handleClose} className={'ant-alert-with-description-close-icon'}>
+          <span
+            className='ant-alert-with-description-close-icon-x'></span>
+        </a> : '';
+      html = <div data-show={this.state.closing} className={'ant-alert-with-description ant-alert-with-description-' + this.props.type + closeName}>
+        <i className={'anticon ' + iconClass}></i>
+        <p className={'ant-alert-with-description-message'}>{this.props.message}</p>
+        <span className={'ant-alert-with-description-description'}>{this.props.description}</span>
           {close}
-        </div>
-      );
+      </div>;
     } else {
       if (this.props.closeText) {
-        return (
-          <div style={{display: this.state.display}} className={'ant-alert ant-alert-' + this.props.type}>
-            <i className={'anticon ' + iconClass}></i>
-            <span className={'ant-alert-description'}>{this.props.message}</span>
-            <span onClick={this.handleClose} className={'ant-alert-close-text'}>{this.props.closeText}</span>
-          </div>
-        );
+        html = <div data-show={this.state.closing} className={'ant-alert ant-alert-' + this.props.type + closeName}>
+          <i className={'anticon ' + iconClass}></i>
+          <span className={'ant-alert-description'}>{this.props.message}</span>
+          <span onClick={this.handleClose} className={'ant-alert-close-text'}>{this.props.closeText}</span>
+        </div>;
       } else {
         let close = this.props.closable ?
           <a onClick={this.handleClose} className={'ant-alert-close-icon'}>
             <span className='ant-alert-close-icon-x'></span>
           </a> : '';
-        return (
-          <div style={{display: this.state.display}} className={'ant-alert ant-alert-' + this.props.type}>
-            <i className={'anticon ' + iconClass}></i>
-            <span className={'ant-alert-description'}>{this.props.message}</span>
+        html = <div data-show={this.state.closing} className={'ant-alert ant-alert-' + this.props.type + closeName}>
+          <i className={'anticon ' + iconClass}></i>
+          <span className={'ant-alert-description'}>{this.props.message}</span>
             {close}
-          </div>
-        );
+        </div>;
       }
     }
+    return !this.state.closed ? <Animate
+      component=""
+      showProp='data-show'
+      transitionName="slide-up"
+      onEnd={this.animationEnd}>
+    {html}
+    </Animate> : null;
   }
 });
