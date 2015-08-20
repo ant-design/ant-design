@@ -14,10 +14,6 @@ class AntTag extends React.Component {
 
   close(e) {
     let dom = React.findDOMNode(this);
-    dom.style.width = dom.offsetWidth + 'px';
-    // Magic code
-    // 重复是去除浏览器渲染bug；
-    dom.style.width = dom.offsetWidth + 'px';
     this.setState({
       closing: true
     });
@@ -30,6 +26,11 @@ class AntTag extends React.Component {
     this.props.onClose.call(this, e);
   }
 
+  componentDidMount() {
+    let dom = React.findDOMNode(this);
+    dom.style.width = (dom.getBoundingClientRect().width || dom.offsetWidth) + 'px';
+  }
+
   render() {
     let close = this.props.closable ?
       <i className="anticon anticon-cross" onClick={this.close.bind(this)}></i> : '';
@@ -38,17 +39,18 @@ class AntTag extends React.Component {
     let className = this.props.prefixCls + ' ' + colorClass;
     className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 
-    return (this.state.closed && !this.state.closing) ? null : <div className={className}>
-      <a className={this.props.prefixCls + '-text'} {...this.props} />
-      {close}
-    </div>;
+    return (this.state.closed && !this.state.closing) ? null
+      : <div className={className}>
+          <a className={this.props.prefixCls + '-text'} {...this.props} />
+          {close}
+        </div>;
   }
 }
 
 AntTag.defaultProps = {
   prefixCls: prefixCls,
   closable: false,
-  onClose: function () {}
+  onClose: function() {}
 };
 
 export default AntTag;
