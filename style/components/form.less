@@ -1,5 +1,4 @@
 @import "../mixins/index";
-@btnClass: ~"@{css-prefix}btn";
 
 .reset-form();
 
@@ -130,7 +129,7 @@ form {
 
   // Input combined with select
   .@{css-prefix}input-group {
-    .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-selection {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
       &:hover {
@@ -138,18 +137,18 @@ form {
       }
     }
 
-    .@{selectPrefixCls}-selection--single {
+    .@{select-prefix-cls}-selection--single {
       margin-left: -1px;
       height: @input-height-lg;
       background-color: #eee;
-      .@{selectPrefixCls}-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         padding-left: 8px;
         padding-right: 25px;
         line-height: 30px;
       }
     }
 
-    .@{selectPrefixCls}-open .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
       border-color: #d9d9d9;
       box-shadow: none;
     }
@@ -186,12 +185,12 @@ form {
     }
   }
 
-  .@{inputNumberPrefixCls} {
+  .@{input-number-prefix-cls} {
     margin-top: -1px;
     margin-right: 8px;
   }
 
-  .@{prefixCalendarClass}-picker {
+  .@{calendar-prefix-cls}-picker {
     width: 100%;
   }
 }
@@ -231,7 +230,7 @@ form {
     vertical-align: middle;
   }
 
-  .@{prefixCalendarClass}-picker-input {
+  .@{calendar-prefix-cls}-picker-input {
     width: 100%!important;
   }
 
@@ -302,7 +301,7 @@ form {
   }
 
   // ant-select
-  .@{selectPrefixCls} {
+  .@{select-prefix-cls} {
     &-selection {
       border-color: @warning-color;
       box-shadow: 0 0 0 2px tint(@warning-color, 80%);
@@ -313,7 +312,7 @@ form {
   }
 
   // ant-datepicker
-  .@{prefixCalendarClass}-picker-icon:after {
+  .@{calendar-prefix-cls}-picker-icon:after {
     color: @warning-color;
   }
 }
@@ -327,7 +326,7 @@ form {
   }
 
   // ant-select
-  .@{selectPrefixCls} {
+  .@{select-prefix-cls} {
     &-selection {
       border-color: @error-color;
       box-shadow: 0 0 0 2px tint(@error-color, 80%);
@@ -339,7 +338,7 @@ form {
   }
 
   // ant-datepicker
-  .@{prefixCalendarClass}-picker-icon:after {
+  .@{calendar-prefix-cls}-picker-icon:after {
     color: @error-color;
   }
 }

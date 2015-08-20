@@ -1,16 +1,16 @@
-@radioGroupPrefixCls: ant-radio-group;
-@radioWrapPrefixCls: ant-radio;
-@radioInnerPrefixCls: ~"@{radioWrapPrefixCls}-inner";
-@radioDuration: .3s;
+@radio-group-prefix-cls: ant-radio-group;
+@radio-wrap-prefix-cls: ant-radio;
+@radio-inner-prefix-cls: ~"@{radio-wrap-prefix-cls}-inner";
+@radio-duration: .3s;
 
-.@{radioGroupPrefixCls} {
+.@{radio-group-prefix-cls} {
   label {
     margin-right: 16px;
   }
 }
 
-/* 一般状态 */
-.@{radioWrapPrefixCls} {
+// 一般状态
+.@{radio-wrap-prefix-cls} {
   white-space: nowrap;
   outline: none;
   display: inline-block;
@@ -18,7 +18,7 @@
   line-height: 1;
   vertical-align: middle;
   &:hover {
-    .@{radioInnerPrefixCls} {
+    .@{radio-inner-prefix-cls} {
       border-color: #bcbcbc;
     }
   }
@@ -37,7 +37,7 @@
       background-color: @primary-color;
       transform: scale(0);
       opacity: 0;
-      transition: transform @radioDuration @ease-in-out-circ, opacity @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
+      transition: transform @radio-duration @ease-in-out-circ, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
     }
 
     position: relative;
@@ -50,8 +50,8 @@
     border-style: solid;
     border-radius: 14px;
     border-color: #d9d9d9;
-    background-color: #ffffff;
-    transition: border-color @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
+    background-color: #fff;
+    transition: border-color @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
   }
 
   &-input {
@@ -66,26 +66,26 @@
   }
 }
 
-/* 选中状态 */
-.@{radioWrapPrefixCls}-checked {
+// 选中状态
+.@{radio-wrap-prefix-cls}-checked {
 
-  .@{radioInnerPrefixCls} {
+  .@{radio-inner-prefix-cls} {
     border-color: #d9d9d9;
     &:after {
       transform: scale(1);
       opacity: 1;
-      transition: transform @radioDuration @ease-out-back, opacity @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
+      transition: transform @radio-duration @ease-out-back, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
     }
   }
 }
 
-.@{radioWrapPrefixCls}-disabled {
+.@{radio-wrap-prefix-cls}-disabled {
   &:hover {
-    .@{radioInnerPrefixCls} {
+    .@{radio-inner-prefix-cls} {
       border-color: #d9d9d9;
     }
   }
-  .@{radioInnerPrefixCls} {
+  .@{radio-inner-prefix-cls} {
     border-color: #d9d9d9;
     background-color: #f3f3f3;
     &:after {
@@ -93,11 +93,11 @@
     }
   }
 
-  .@{radioInnerPrefixCls}-input {
+  .@{radio-inner-prefix-cls}-input {
     cursor: default;
   }
 }
 
-.@{radioWrapPrefixCls} + span {
+.@{radio-wrap-prefix-cls} + span {
   margin-left: 8px;
 }

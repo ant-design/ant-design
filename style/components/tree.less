@@ -1,5 +1,5 @@
-@treePrefixCls: ant-tree;
-.antCheckboxFn(@checkboxPrefixCls: ant-tree-checkbox);
+@tree-prefix-cls: ant-tree;
+.antCheckboxFn(@checkbox-prefix-cls: ant-tree-checkbox);
 @import "../mixins/iconfont";
 .antTreeSwitcherIcon() {
   position: relative;
@@ -16,7 +16,7 @@
     transition: transform .3s ease;
   }
 }
-.@{treePrefixCls} {
+.@{tree-prefix-cls} {
   margin: 0;
   padding: 5px;
   font-size: 12px;
@@ -41,11 +41,11 @@
       color: #666;
     }
     span {
-      &.@{treePrefixCls}-checkbox {
+      &.@{tree-prefix-cls}-checkbox {
         margin: 3px 7px 0 0;
       }
-      &.@{treePrefixCls}-switcher,
-      &.@{treePrefixCls}-iconEle {
+      &.@{tree-prefix-cls}-switcher,
+      &.@{tree-prefix-cls}-iconEle {
         line-height: 0;
         margin: 0;
         width: 16px;
@@ -59,7 +59,7 @@
         background-repeat: no-repeat;
         background-attachment: scroll;
       }
-      &.@{treePrefixCls}-switcher {
+      &.@{tree-prefix-cls}-switcher {
         &-disabled {
           background: #fff;
           position: relative;
@@ -71,16 +71,16 @@
             color: gray;
           }
         }
-        &.@{treePrefixCls}-roots_open,
-        &.@{treePrefixCls}-center_open,
-        &.@{treePrefixCls}-bottom_open,
-        &.@{treePrefixCls}-noline_open {
+        &.@{tree-prefix-cls}-roots_open,
+        &.@{tree-prefix-cls}-center_open,
+        &.@{tree-prefix-cls}-bottom_open,
+        &.@{tree-prefix-cls}-noline_open {
           .antTreeSwitcherIcon();
         }
-        &.@{treePrefixCls}-roots_close,
-        &.@{treePrefixCls}-center_close,
-        &.@{treePrefixCls}-bottom_close,
-        &.@{treePrefixCls}-noline_close {
+        &.@{tree-prefix-cls}-roots_close,
+        &.@{tree-prefix-cls}-center_close,
+        &.@{tree-prefix-cls}-bottom_close,
+        &.@{tree-prefix-cls}-noline_close {
           .antTreeSwitcherIcon();
           .ie-rotate(3);
           &:after {
