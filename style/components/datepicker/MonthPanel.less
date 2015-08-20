@@ -1,34 +1,34 @@
-.@{prefixCalendarClass}-month-panel {
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
+.@{calendar-prefix-cls}-month-panel {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
   background: #fff;
   z-index: 10;
   position: absolute;
   outline: none;
 }
 
-.@{prefixCalendarClass}-month-panel-hidden {
+.@{calendar-prefix-cls}-month-panel-hidden {
   display: none;
 }
 
-.@{prefixCalendarClass}-month-panel-header {
-  .calendarPanelHeader(~"@{prefixCalendarClass}-month-panel");
+.@{calendar-prefix-cls}-month-panel-header {
+  .calendarPanelHeader(~"@{calendar-prefix-cls}-month-panel");
 }
 
-.@{prefixCalendarClass}-month-panel-table {
+.@{calendar-prefix-cls}-month-panel-table {
   table-layout: fixed;
   width: 100%;
   height: 248px;
   border-collapse: separate;
 }
 
-.@{prefixCalendarClass}-month-panel-cell {
+.@{calendar-prefix-cls}-month-panel-cell {
   text-align: center;
 }
 
-.@{prefixCalendarClass}-month-panel-month {
+.@{calendar-prefix-cls}-month-panel-month {
   display: inline-block;
   margin: 0 auto;
   color: #666;
@@ -36,7 +36,7 @@
   text-align: center;
   height: 24px;
   line-height: 24px;
-  padding: 0px 6px;
+  padding: 0 6px;
   border-radius: 4px;
 
   &:hover {
@@ -45,7 +45,7 @@
   }
 }
 
-.@{prefixCalendarClass}-month-panel-selected-cell .@{prefixCalendarClass}-month-panel-month {
+.@{calendar-prefix-cls}-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
   background: @primary-color;
   color: #fff;
 

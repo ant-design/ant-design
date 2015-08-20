@@ -1,4 +1,4 @@
-.@{dialogPrefixCls} {
+.@{dialog-prefix-cls} {
 
   &-wrap-hidden > &-mask {
     display: none;
@@ -10,7 +10,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgb(55, 55, 55);
+    background-color: #373737;
     background-color: rgba(55, 55, 55, 0.6);
     height: 100%;
     z-index: 1000;
@@ -40,30 +40,12 @@
   }
 
   &-fade-enter&-fade-enter-active {
-    animation-name: rcDialogFadeIn;
+    animation-name: fadeIn;
     animation-play-state: running;
   }
 
   &-fade-leave&-fade-leave-active {
-    animation-name: rcDialogFadeOut;
+    animation-name: fadeOut;
     animation-play-state: running;
-  }
-
-  @keyframes rcDialogFadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes rcDialogFadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
   }
 }
