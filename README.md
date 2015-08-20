@@ -2,9 +2,7 @@
 
 [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-一套企业级的前端设计语言和基于 React 的实现。
-
-设计文档和组件实现均在紧密整理和开发中，部分页面可能不完善，预计 8 月份释出正式版本。
+一套企业级的 UI 设计语言和基于 React 的实现。
 
 <p align="center">
   <a href="http://ant.design">
@@ -14,7 +12,7 @@
 
 ## 特性
 
-- 企业级金融产品的交互语言和视觉体系。
+- 提炼自企业级后台产品的交互语言和视觉风格。
 - 丰富实用的 React UI 组件。
 - 基于 React 的组件化开发模式。
 - 背靠 npm 生态圈。
@@ -35,7 +33,7 @@ React.render(<Datepicker />, mountNode);
 - [首页](http://ant.design/)
 - [文档](http://ant.design/docs/introduce)
 - [组件](http://ant.design/components/)
-- [构建调试工具](https://github.com/ant-design/antd-bin)
+- [构建调试 antd-bin](https://github.com/ant-design/antd-bin)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [修改记录](CHANGELOG.md)
 - [React 模块](http://react-component.github.io/)
