@@ -1,0 +1,82 @@
+@import "../mixins/index";
+@tag-prefix-cls: ~"@{css-prefix}tag";
+
+.@{tag-prefix-cls} {
+  display: inline-block;
+  line-height: 22px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 20px;
+  background: #f3f3f3;
+  font-size: @font-size-base;
+  margin-right: 4px;
+  margin-bottom: 8px;
+  transition: all 0.3s @ease-in-out-circ;
+  transform-origin: 100% 50%;
+  vertical-align: middle;
+  opacity: 0.85;
+  overflow: hidden;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &,
+  a,
+  a:hover {
+    color: @text-color;
+  }
+
+  .anticon-cross {
+    .iconfont-size-under-12px(7px);
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 3px;
+    position: relative;
+    top: -1px;
+    color: #666;
+    transition: all 0.3s ease;
+    opacity: 0.66;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-blue,
+  &-green,
+  &-yellow,
+  &-red {
+    &,
+    a,
+    a:hover,
+    .anticon-cross,
+    .anticon-cross:hover {
+      color: #fff;
+    }
+  }
+
+  &-blue {
+    background: @primary-color;
+  }
+
+  &-green {
+    background: @success-color;
+  }
+
+  &-yellow {
+    background: @warning-color;
+  }
+
+  &-red {
+    background: @error-color;
+  }
+
+  &-close {
+    transform: scale(0);
+    width: 0 !important;
+    opacity: 0 !important;
+    padding: 0;
+    margin-right: 0;
+  }
+}

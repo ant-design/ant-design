@@ -1,5 +1,5 @@
 @import "../mixins/index";
-@tooltipPrefixClass: ~"@{css-prefix}tooltip";
+@tooltip-prefix-cls: ~"@{css-prefix}tooltip";
 
 //
 // Tooltips
@@ -16,12 +16,12 @@
 //** Tooltip arrow width
 @tooltip-arrow-width:         5px;
 //** Tooltip distance with trigger
-@tooltip-distance:            @tooltip-arrow-width+4;
+@tooltip-distance:            @tooltip-arrow-width + 4;
 //** Tooltip arrow color
 @tooltip-arrow-color:         @tooltip-bg;
 
 // Base class
-.@{tooltipPrefixClass} {
+.@{tooltip-prefix-cls} {
   position: absolute;
   z-index: 1070;
   display: block;
@@ -43,7 +43,7 @@
 }
 
 // Wrapper for the tooltip content
-.@{tooltipPrefixClass}-inner {
+.@{tooltip-prefix-cls}-inner {
   max-width: @tooltip-max-width;
   padding: 8px 10px;
   color: @tooltip-color;
@@ -55,7 +55,7 @@
 }
 
 // Arrows
-.@{tooltipPrefixClass}-arrow {
+.@{tooltip-prefix-cls}-arrow {
   position: absolute;
   width: 0;
   height: 0;
@@ -63,7 +63,7 @@
   border-style: solid;
 }
 
-.@{tooltipPrefixClass} {
+.@{tooltip-prefix-cls} {
   &-placement-top &-arrow {
     bottom: @tooltip-distance - @tooltip-arrow-width;
     left: 50%;

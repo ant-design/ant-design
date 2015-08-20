@@ -17,11 +17,13 @@ var Test = React.createClass({
     };
   },
   showModal() {
-    this.setState({ visible: true });
+    this.setState({
+      visible: true
+    });
   },
   handleOk() {
     this.setState({ loading: true });
-    setTimeout(()=> {
+    setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
   },
@@ -37,10 +39,9 @@ var Test = React.createClass({
        visible={this.state.visible}
        title="对话框标题" onOk={this.handleOk} onCancel={this.handleCancel}
         footer={[
-          <button key="back" className="ant-btn" onClick={this.handleCancel}>返 回</button>,
-          <button key="submit" className="ant-btn ant-btn-primary" onClick={this.handleOk}>
+          <button key="back" className="ant-btn ant-btn-lg" onClick={this.handleCancel}>返 回</button>,
+          <button key="submit" className={'ant-btn ant-btn-primary ant-btn-lg ' + (this.state.loading?'ant-btn-loading':'')} onClick={this.handleOk}>
             提 交
-            <i className={'anticon anticon-loading'+(this.state.loading?'':'hide')}></i>
           </button>
         ]}>
         <p>对话框的内容</p>

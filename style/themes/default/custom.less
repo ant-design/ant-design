@@ -4,14 +4,14 @@
 // Color
 @primary-color          : #2db7f5;
 @success-color          : #87d068;
-@error-color            : #ff6600;
+@error-color            : #f60;
 @warning-color          : #fac450;
 
 // ------ Base & Require ------
 @body-background        : #fff;
 
-@font-family            : "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
-@code-family            : "PT Mono", Menlo, "Courier New", monospace;
+@font-family            : "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+@code-family            : "PT Mono",Menlo,Consolas,"Courier New",monospace;
 @text-color             : #666;
 @font-size-base         : 12px;
 @line-height-base       : 1.5;
@@ -23,7 +23,7 @@
 @icon-url               : "//at.alicdn.com/t/font_1437110976_60069";
 
 // LINK
-@link-color             : @primary-color;
+@link-color             : #2db7f5;
 @link-hover-color       : tint(@link-color, 20%);
 @link-active-color      : shade(@link-color, 5%);
 @link-hover-decoration  : none;
@@ -41,6 +41,9 @@
 @ease-out-circ       : cubic-bezier(0.08, 0.82, 0.17, 1);
 @ease-in-circ        : cubic-bezier(0.6, 0.04, 0.98, 0.34);
 @ease-in-out-circ    : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@ease-out-quint      : cubic-bezier(0.23, 1, 0.32, 1);
+@ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
+@ease-in-out-quint   : cubic-bezier(0.86, 0, 0.07, 1);
 
 // Buttons
 @btn-font-weight        : normal;
@@ -111,7 +114,7 @@
 @legend-color                : #999;
 @legend-border-color         : #d9d9d9;
 // Label
-@label-required-color        : #F60;
+@label-required-color        : #f60;
 @label-color                 : #666;
 // Input
 @input-height-base: 28px;
@@ -121,16 +124,12 @@
 @input-padding-horizontal    : 7px;
 @input-padding-vertical-base : 4px;
 @input-padding-vertical-sm   : 1px;
-@input-padding-lg            : 4px 7px 5px;
+@input-padding-vertical-lg   : 6px;
 
 @input-placeholder-color     : #ccc;
 @input-color                 : #666;
 @input-border-color          : #d9d9d9;
 @input-bg                    : #fff;
-
-@input-font-size-lg          : 14px;
-@input-font-size             : @font-size-base;
-@input-font-size-sm          : @font-size-base;
 
 @input-hover-border-color    : @primary-color;
 @input-focus-border-color    : @primary-color;
@@ -138,4 +137,4 @@
 
 @form-item-margin-bottom     : 24px;
 
-@overlay-shadow              : 0px 0px 4px rgba(0, 0, 0, 0.17);
+@overlay-shadow              : 0 0 4px rgba(0, 0, 0, 0.17);

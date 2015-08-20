@@ -8,7 +8,7 @@
       <ul class="{%- if category === post.meta.category %}aside-list-show{%- endif %}">
         {%- for item in items %}
         <li class="{%- if item.title === post.title %}current{%- endif %}">
-          <a href="{{permalink_url(item)}}">
+          <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
             {{item.title}}
             <span class="chinese">{{item.meta.chinese}}</span>
           </a>

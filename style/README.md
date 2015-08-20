@@ -18,4 +18,4 @@ ant-design 样式库
 
 各个组件中如要自定义类名前缀，请误重名变量，可参照如下定义：
 
-`@btnPrefixClass: ~"@{css-prefix}btn";`
+`@btn-prefix-cls: ~"@{css-prefix}btn";`

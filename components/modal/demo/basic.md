@@ -13,7 +13,7 @@ var Test = React.createClass({
   getInitialState(){
     return{
       visible: false
-    }
+    };
   },
   showModal() {
     this.setState({
@@ -22,12 +22,6 @@ var Test = React.createClass({
   },
   handleOk() {
     console.log('点击了确定');
-    this.setState({
-      visible: false
-    });
-  },
-  handleCancel() {
-    console.log('点击了取消');
     this.setState({
       visible: false
     });
@@ -49,4 +43,3 @@ var Test = React.createClass({
 
 React.render(<Test/> , document.getElementById('components-modal-demo-basic'));
 ````
-

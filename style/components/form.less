@@ -1,19 +1,16 @@
 @import "../mixins/index";
-@btnClass: ~"@{css-prefix}btn";
 
 .reset-form();
 
 label {
   position: relative;
   &[required]:before {
-    position: absolute;
     display: inline-block;
-    left: ~"-5px \9"; // ie8-9
+    margin-right: 4px;
     content: "*";
-    color: @label-required-color;
     font-family: SimSun;
     font-size: @font-size-base;
-    .translate3d(-10px; 0; 0);
+    color: @label-required-color;
   }
 
   > .@{iconfont-css-prefix} {
@@ -127,14 +124,12 @@ form {
   .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input-group-addon {
-    height: @input-height-lg;
-    font-size: @font-size-base;
-    padding: 6px 7px;
+    .input-lg();
   }
 
   // Input combined with select
   .@{css-prefix}input-group {
-    .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-selection {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
       &:hover {
@@ -142,18 +137,18 @@ form {
       }
     }
 
-    .@{selectPrefixCls}-selection--single {
+    .@{select-prefix-cls}-selection--single {
       margin-left: -1px;
       height: @input-height-lg;
       background-color: #eee;
-      .@{selectPrefixCls}-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         padding-left: 8px;
         padding-right: 25px;
         line-height: 30px;
       }
     }
 
-    .@{selectPrefixCls}-open .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
       border-color: #d9d9d9;
       box-shadow: none;
     }
@@ -190,12 +185,12 @@ form {
     }
   }
 
-  .@{inputNumberPrefixCls} {
+  .@{input-number-prefix-cls} {
     margin-top: -1px;
     margin-right: 8px;
   }
 
-  .@{prefixCalendarClass}-picker {
+  .@{calendar-prefix-cls}-picker {
     width: 100%;
   }
 }
@@ -223,28 +218,28 @@ form {
 }
 
 //== Inline Form
-// Attention: Inline form does only apply to within viewports that are at least 768px wide
-// TODO: 优化
 .@{css-prefix}form-inline {
-  @media (min-width: @screen-sm-min) {
-    .@{css-prefix}form-item {
-      display: inline-block;
-      margin-right: 10px;
-    }
+  .@{css-prefix}form-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
 
-    .@{css-prefix}input {
-      display: inline-block;
-      width: auto;
-      vertical-align: middle;
-    }
+  .@{css-prefix}input {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+  }
 
-    .@{css-prefix}form-text {
-      display: inline-block;
-    }
+  .@{prefixCalendarClass}-picker-input {
+    width: 100%!important;
+  }
 
-    .has-feedback {
-      display: inline-block;
-    }
+  .@{css-prefix}form-text {
+    display: inline-block;
+  }
+
+  .has-feedback {
+    display: inline-block;
   }
 }
 
@@ -260,15 +255,115 @@ form {
 }
 
 // Validation state
+.has-success, .has-warning, .has-error, .is-validating {
+  &.has-feedback:after {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: "anticon" !important;
+    .square(@input-height-lg);
+    line-height: @input-height-lg;
+    text-align: center;
+    font-size: 14px;
+    .animation(zoomIn .3s @ease-out-back);
+  }
+}
+.has-error{
+  &.has-feedback:after{
+    animation-name: zoomIn2 !important;
+  }
+}
+.has-warning{
+  &.has-feedback:after{
+    animation-name: zoomIn3 !important;
+  }
+}
+
 .has-success {
   .form-control-validation(@success-color; @input-hover-border-color;);
   .@{css-prefix}input {
     border-color: @input-border-color;
+    box-shadow: none;
+  }
+
+  &.has-feedback:after {
+    content: '\e614';
+    color: @success-color;
   }
 }
+
 .has-warning {
   .form-control-validation(@warning-color; @warning-color;);
+
+  &.has-feedback:after {
+    content: '\e628';
+    color: @warning-color;
+  }
+
+  // ant-select
+  .@{select-prefix-cls} {
+    &-selection {
+      border-color: @warning-color;
+      box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+    }
+    &-arrow {
+      color: @warning-color;
+    }
+  }
+
+  // ant-datepicker
+  .@{calendar-prefix-cls}-picker-icon:after {
+    color: @warning-color;
+  }
 }
+
 .has-error {
   .form-control-validation(@error-color; @error-color;);
+
+  &.has-feedback:after {
+    content: '\e628';
+    color: @error-color;
+  }
+
+  // ant-select
+  .@{select-prefix-cls} {
+    &-selection {
+      border-color: @error-color;
+      box-shadow: 0 0 0 2px tint(@error-color, 80%);
+    }
+
+    &-arrow {
+      color: @error-color;
+    }
+  }
+
+  // ant-datepicker
+  .@{calendar-prefix-cls}-picker-icon:after {
+    color: @error-color;
+  }
+}
+
+.is-validating {
+  &.has-feedback:after {
+    display: inline-block;
+    .animation(loadingCircle 1s infinite linear );
+    content:"\e610";
+  }
+}
+
+@keyframes zoomIn2 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn3 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
 }

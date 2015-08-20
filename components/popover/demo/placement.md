@@ -18,14 +18,14 @@ React.render(<div>
   <Popover placement="left" title={text} overlay={content}>
     <button className="ant-btn">左</button>
   </Popover>
-  <Popover placement="right" title={text} overlay={content}>
-    <button className="ant-btn">右</button>
-  </Popover>
   <Popover placement="top" title={text} overlay={content}>
     <button className="ant-btn">上</button>
   </Popover>
   <Popover placement="bottom" title={text} overlay={content}>
     <button className="ant-btn">下</button>
+  </Popover>
+  <Popover placement="right" title={text} overlay={content}>
+    <button className="ant-btn">右</button>
   </Popover>
 </div>, document.getElementById('components-popover-demo-placement'));
 ````
