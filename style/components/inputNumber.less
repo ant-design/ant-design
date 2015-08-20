@@ -1,9 +1,9 @@
-@inputNumberPrefixCls: ant-input-number;
+@input-number-prefix-cls: ant-input-number;
 
 @import "../mixins/iconfont";
 @import "../mixins/input";
 
-.@{inputNumberPrefixCls} {
+.@{input-number-prefix-cls} {
   .input();
   margin: 0;
   padding: 0;
@@ -66,7 +66,7 @@
     line-height: 28px;
     height: 28px;
     transition: all 0.3s ease;
-    color: #666666;
+    color: #666;
     border: 0;
     border-radius: @border-radius-base;
     padding: 0 7px;
@@ -75,7 +75,7 @@
       .disabled();
     }
   }
-  
+
   &-lg {
     padding: 0;
     .ant-input-number-handler-wrap {
@@ -143,9 +143,10 @@
     cursor: pointer;
     &-inner {
       top: 1px;
+      .ie-rotate(2);
       &:before {
+        text-align: center;
         content: "\e600";
-        .ie-rotate(2);
         transform: rotate(180deg);
         -webkit-transform-origin: 47.5% 51%; /* fix chrome position */
       }
@@ -156,6 +157,7 @@
     cursor: pointer;
     &-inner {
       &:before {
+        text-align: center;
         content: "\e600";
       }
     }
@@ -172,19 +174,19 @@
   }
 
   &-handler-down-disabled, &-handler-up-disabled, &-disabled {
-    .@{inputNumberPrefixCls}-handler-down-inner,
-    .@{inputNumberPrefixCls}-handler-up-inner {
+    .@{input-number-prefix-cls}-handler-down-inner,
+    .@{input-number-prefix-cls}-handler-up-inner {
       .handler-disabled();
     }
   }
 
   &-disabled {
-    .@{inputNumberPrefixCls}-input {
+    .@{input-number-prefix-cls}-input {
       opacity: 0.72;
       cursor: not-allowed;
       background-color: #f3f3f3;
     }
-    .@{inputNumberPrefixCls}-handler {
+    .@{input-number-prefix-cls}-handler {
       .handler-disabled();
     }
   }

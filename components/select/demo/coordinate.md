@@ -20,12 +20,19 @@ var cityData = {
 var App = React.createClass({
   getInitialState() {
     return {
-      cities: cityData[provinceData[0]]
+      cities: cityData[provinceData[0]],
+      secondCity:cityData[provinceData[0]][0]
     };
   },
   handleProvinceChange(value) {
     this.setState({
-      cities: cityData[value]
+      cities: cityData[value],
+      secondCity:cityData[value][0]
+    });
+  },
+  onSecondCityChange(value) {
+    this.setState({
+      secondCity: value
     });
   },
   render() {
@@ -40,7 +47,7 @@ var App = React.createClass({
         {provinceOptions}
       </Select>
       &nbsp;
-      <Select value={this.state.cities[0]} style={{width:150}} onChange={this.handleCityChange}>
+      <Select value={this.state.secondCity} style={{width:150}} onChange={this.onSecondCityChange}>
         {cityOptions}
       </Select>
     </div>;

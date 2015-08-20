@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Alert = require('antd/lib/alert');
+var Alert = antd.Alert;
 
 var onClose = function(e) {
   console.log(e, '我要被关闭啦！');

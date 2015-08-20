@@ -23,7 +23,7 @@ function handleChange(value) {
 React.render(
   <Select multiple
   style={{width:400}}
-  value={['a10', 'c12']} onChange={handleChange}>
+  defaultValue={['a10', 'c12']} onChange={handleChange}>
     {children}
   </Select>
 , document.getElementById('components-select-demo-multiple'));

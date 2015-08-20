@@ -1,7 +1,7 @@
-@prefixUploadClass: ant-upload;
+@upload-prefix-cls: ant-upload;
 
-.@{prefixUploadClass} {
-  &.@{prefixUploadClass}-drag {
+.@{upload-prefix-cls} {
+  &.@{upload-prefix-cls}-drag {
     border: 1px dashed #d9d9d9;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -11,7 +11,7 @@
     height: 100%;
     position: relative;
 
-    .@{prefixUploadClass}-drag-container {
+    .@{upload-prefix-cls}-drag-container {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -21,7 +21,7 @@
     &:hover {
       border: 1px dashed #999;
     }
-    p.@{prefixUploadClass}-drag-icon {
+    p.@{upload-prefix-cls}-drag-icon {
       .anticon {
         font-size: 80px;
         margin-top: -30px;
@@ -30,10 +30,10 @@
       height: 60px;
       margin-bottom: 24px;
     }
-    p.@{prefixUploadClass}-text {
+    p.@{upload-prefix-cls}-text {
       font-size: 14px;
     }
-    p.@{prefixUploadClass}-hint {
+    p.@{upload-prefix-cls}-hint {
       font-size: 12px;
       color: #999;
     }
@@ -51,10 +51,10 @@
   }
 }
 
-.@{prefixUploadClass}-list {
+.@{upload-prefix-cls}-list {
   margin-left: 4px;
   margin-top: 8px;
-  .@{prefixUploadClass}-list-item {
+  .@{upload-prefix-cls}-list-item {
     margin-bottom: 4px;
     height: 22px;
     overflow: hidden;
@@ -70,14 +70,14 @@
      }
     }
   }
-  .@{prefixUploadClass}-item-name {
+  .@{upload-prefix-cls}-item-name {
     font-size: 12px;
     color: #666;
     margin-left: 4px;
     margin-right: 8px;
     font-weight: normal;
   }
-  .@{prefixUploadClass}-success-icon {
+  .@{upload-prefix-cls}-success-icon {
     color: @success-color;
     font-weight: bold;
   }

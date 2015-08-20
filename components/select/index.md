@@ -24,7 +24,7 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| value    | 指定选中的条目 | string/Array<String>   |  无  |
+| value    | 指定当前选中的条目 | string/Array<String>   |  无  |
 | defaultValue    | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选 |   | false |
 | filterOption | 是否根据输入项进行筛选 |  | true     |

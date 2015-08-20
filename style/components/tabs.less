@@ -1,8 +1,8 @@
-@tabPrefixClass: ant-tabs;
+@tab-prefix-cls: ant-tabs;
 
 @effect-duration: .3s;
 
-.@{tabPrefixClass} {
+.@{tab-prefix-cls} {
   outline: none;
   box-sizing: border-box;
   position: relative;
@@ -98,8 +98,10 @@
 
   &-tab-prev {
     left: 0;
-    transform: rotate(180deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    &-icon {
+      transform: rotate(180deg);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    }
     &-icon:before {
       content: "\e611";
     }
@@ -138,7 +140,7 @@
       clear: both;
     }
 
-    div.@{tabPrefixClass}-tab-active {
+    div.@{tab-prefix-cls}-tab-active {
       > a, > a:hover, > a:focus {
         color: tint(@primary-color, 20%);
         cursor: pointer;
@@ -146,7 +148,7 @@
       }
     }
 
-    div.@{tabPrefixClass}-tab-disabled {
+    div.@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
 
@@ -155,7 +157,7 @@
       }
     }
 
-    .@{tabPrefixClass}-tab {
+    .@{tab-prefix-cls}-tab {
       float: left;
       height: 100%;
       margin-right: 28px;
