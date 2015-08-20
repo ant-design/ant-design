@@ -14,6 +14,9 @@ class AntTag extends React.Component {
 
   close(e) {
     let dom = React.findDOMNode(this);
+    dom.style.width = dom.offsetWidth + 'px';
+    // It's Magic Code, don't know why
+    dom.style.width = dom.offsetWidth + 'px';
     this.setState({
       closing: true
     });
@@ -24,11 +27,6 @@ class AntTag extends React.Component {
       });
     });
     this.props.onClose.call(this, e);
-  }
-
-  componentDidMount() {
-    let dom = React.findDOMNode(this);
-    dom.style.width = (dom.getBoundingClientRect().width || dom.offsetWidth) + 'px';
   }
 
   render() {
