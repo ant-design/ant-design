@@ -98,8 +98,10 @@
 
   &-tab-prev {
     left: 0;
-    transform: rotate(180deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    &-icon {
+      transform: rotate(180deg);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    }
     &-icon:before {
       content: "\e611";
     }
