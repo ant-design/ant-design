@@ -33,7 +33,6 @@ export default React.createClass({
                prefixCls={prefixCls}
                delay={0.1}
                overlayStyle={this.props.overlayStyle}
-               renderPopupToBody={true}
                transitionName={transitionName}
                trigger={this.props.trigger}
                overlay={overlay}>

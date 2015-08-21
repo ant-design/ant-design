@@ -37,10 +37,10 @@ var App = React.createClass({
   },
   render() {
     var provinceOptions = provinceData.map(function(province) {
-      return <Option value={province}>{province}</Option>;
+      return <Option key={province}>{province}</Option>;
     });
     var cityOptions = this.state.cities.map(function(city) {
-      return <Option value={city}>{city}</Option>;
+      return <Option key={city}>{city}</Option>;
     });
     return <div>
       <Select defaultValue={provinceData[0]} style={{width:150}} onChange={this.handleProvinceChange}>

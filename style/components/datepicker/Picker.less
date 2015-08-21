@@ -1,17 +1,19 @@
-.@{calendar-prefix-cls}-picker .@{calendar-prefix-cls},
 .@{calendar-prefix-cls}-picker-container .@{calendar-prefix-cls} {
+  &-hidden {
+    display: none;
+  }
+
   position: absolute;
-  display: none;
   left: -9999px;
   top: -9999px;
-  z-index: 9;
+  z-index: 1000;
 }
 
 .@{calendar-prefix-cls}-picker {
   position: relative;
   display: inline-block;
 
-  &-input {
+  > input {
     outline: none;
   }
 
