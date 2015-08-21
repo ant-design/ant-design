@@ -126,7 +126,6 @@
       height: 32px;
       .ant-select-selection__rendered {
         line-height: 30px;
-        font-size: 14px;
       }
     }
 
@@ -293,8 +292,10 @@
     top: -9999px;
     position: absolute;
     outline: none;
+    overflow: hidden;
 
     &-menu {
+      font-size: @font-size-base;
       outline: none;
       margin-bottom: 0;
       padding-left: 0; // Override default ul/ol
