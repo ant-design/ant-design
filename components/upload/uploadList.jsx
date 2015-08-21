@@ -1,6 +1,7 @@
 import React from 'react';
 import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
+import Animate from 'rc-animate';
 
 export default React.createClass({
   getDefaultProps() {
@@ -21,7 +22,6 @@ export default React.createClass({
     }
   },
   handleClose(file) {
-    console.log(file.uid, file.id);
     let matchWay = (!file.uid) ? 'byName' : 'byUid';
     let items = this.state.items;
     let removeItem = getFileItem(file, items);
@@ -41,10 +41,14 @@ export default React.createClass({
           {statusIcon}
           <b className={prefixCls + '-item-name'}>{file.filename}</b>
           <i className="anticon anticon-cross" ref="theCloseBtn"
-             onClick={this.handleClose.bind(this, file)}></i>
+            onClick={this.handleClose.bind(this, file)}></i>
         </div>
       );
     };
-    return <div className={prefixCls + '-list'}>{items.map(downloadItem)}</div>;
+    return (<div className={prefixCls + '-list'}>
+      <Animate transitionName='m-top'>
+      {items.map(downloadItem)}
+      </Animate>
+    </div>);
   }
 });
