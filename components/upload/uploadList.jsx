@@ -39,7 +39,7 @@ export default React.createClass({
       return (
         <div className={prefixCls + '-list-item'} key={file.index}>
           {statusIcon}
-          <b className={prefixCls + '-item-name'}>{file.filename} {file.uid}</b>
+          <b className={prefixCls + '-item-name'}>{file.filename}</b>
           <i className="anticon anticon-cross" ref="theCloseBtn"
              onClick={this.handleClose.bind(this, file)}></i>
         </div>
