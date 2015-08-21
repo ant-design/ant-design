@@ -25,9 +25,9 @@ let AntUpload = React.createClass({
     });
   },
   handleSuccess(ret, file) {
-    var matchWay = file.uid === '' ? 'byName' : 'byUid';
+    let matchWay = (!file.uid) ? 'byName' : 'byUid';
     Message.success(file.name + '上传完成');
-    for (var i = 0; i < this.state.downloadList.length; i++) {
+    for (let i = 0; i < this.state.downloadList.length; i++) {
       if (matchWay === 'byName') {
         if (this.state.downloadList[i].filename === file.name) {
           this.state.downloadList[i].status = 'done';
@@ -84,20 +84,22 @@ let AntUpload = React.createClass({
     };
     if (type === 'drag') {
       return (
-        <Upload {...props}>
-          <div className={prefixCls + ' ' + prefixCls + '-drag'}>
+        <div className={prefixCls + ' ' + prefixCls + '-drag'}>
+          <Upload {...props}>
             <div className={prefixCls + '-drag-container'}>
               {this.props.children}
             </div>
-          </div>
-        </Upload>
+          </Upload>
+        </div>
       );
     } else if (type === 'select') {
       return (
-        <div className={prefixCls + ' ' + prefixCls + '-select'}>
-          <Upload {...props}>
-            {this.props.children}
-          </Upload>
+        <div>
+          <div className={prefixCls + ' ' + prefixCls + '-select'}>
+            <Upload {...props}>
+              {this.props.children}
+            </Upload>
+          </div>
           <UploadList items={this.state.downloadList} />
         </div>
       );
