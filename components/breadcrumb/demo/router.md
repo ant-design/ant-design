@@ -44,9 +44,9 @@ var Home = React.createClass({
 
 React.render((
   <Router history={history}>
-    <Route name="首页" path="/" component={Home} ignoreScrollBehavior>
-      <Route name="应用列表" path="apps" component={Apps}>
-        <Route name="应用:id" path=":id" />
+    <Route name="home" breadcrumbName="首页" path="/" component={Home} ignoreScrollBehavior>
+      <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
+        <Route name="app" breadcrumbName="应用:id" path=":id" />
       </Route>
     </Route>
   </Router>

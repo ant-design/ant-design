@@ -25,7 +25,7 @@ let Breadcrumb = React.createClass({
       routes = this.context.router.state.branch;
       params = this.context.router.state.params;
       crumbs = routes.map(function(route, i) {
-        var name = route.name.replace(/\:(.*)/g, function(replacement, key) {
+        var name = route.breadcrumbName.replace(/\:(.*)/g, function(replacement, key) {
           return params[key] || replacement;
         });
         var link;

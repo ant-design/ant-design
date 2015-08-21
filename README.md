@@ -2,7 +2,7 @@
 
 [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-一套企业级的 UI 设计语言和基于 React 的实现。
+一套企业级的 UI 设计语言和 React 实现。
 
 <p align="center">
   <a href="http://ant.design">

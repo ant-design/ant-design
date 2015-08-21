@@ -71,6 +71,7 @@
 .@{upload-prefix-cls}-list {
   margin-left: 4px;
   margin-top: 8px;
+  overflow: hidden;
   .@{upload-prefix-cls}-list-item {
     margin-bottom: 4px;
     height: 22px;
@@ -97,5 +98,27 @@
   .@{upload-prefix-cls}-success-icon {
     color: @success-color;
     font-weight: bold;
+  }
+
+  .@{upload-prefix-cls}-margin-top-enter {
+    animation: marginTopIn .3s @ease-in-out-circ;
+  }
+
+  .@{upload-prefix-cls}-margin-top-leave {
+    animation: marginTopOut .3s @ease-in-out-circ;
+  }
+
+  @keyframes marginTopIn {
+    from {
+      margin-top: -25px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes marginTopOut {
+    to {
+      margin-top: -25px;
+      opacity: 0;
+    }
   }
 }

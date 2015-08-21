@@ -1,6 +1,6 @@
 import React from 'react';
+import Animate from 'rc-animate';
 const prefixCls = 'ant-tag';
-import { transitionEndEvent, addEventListenerOnce } from '../util/index';
 
 class AntTag extends React.Component {
   constructor(props) {
@@ -20,13 +20,14 @@ class AntTag extends React.Component {
     this.setState({
       closing: true
     });
-    addEventListenerOnce(dom, transitionEndEvent, () => {
-      this.setState({
-        closed: true,
-        closing: false
-      });
-    });
     this.props.onClose.call(this, e);
+  }
+
+  animationEnd() {
+    this.setState({
+      closed: true,
+      closing: false
+    });
   }
 
   render() {
@@ -37,11 +38,16 @@ class AntTag extends React.Component {
     let className = this.props.prefixCls + ' ' + colorClass;
     className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 
-    return (this.state.closed && !this.state.closing) ? null
-      : <div className={className}>
+    return this.state.closed ? null
+      : <Animate component=""
+                 showProp='data-show'
+                 transitionName="zoom-tag"
+                 onEnd={this.animationEnd.bind(this)}>
+        <div data-show={!this.state.closing} className={className}>
           <a className={this.props.prefixCls + '-text'} {...this.props} />
           {close}
-        </div>;
+        </div>
+      </Animate>;
   }
 }
 

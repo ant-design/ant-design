@@ -1,5 +1,7 @@
 import React from 'react';
+import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
+import Animate from 'rc-animate';
 
 export default React.createClass({
   getDefaultProps() {
@@ -20,28 +22,21 @@ export default React.createClass({
     }
   },
   handleClose(file) {
-    var matchWay = file.uid === '' ? 'byName' : 'byUid';
     let items = this.state.items;
-    let removeItem = items.filter((item) => {
-      if (matchWay === 'byName') {
-        return item.filename === file.filename;
-      } else {
-        return item.uid === file.uid;
-      }
-    })[0];
+    let removeItem = getFileItem(file, items);
     if (removeItem) {
-      items.splice(removeItem, 1);
+      items.splice(items.indexOf(removeItem), 1);
     }
     this.setState({
       items: items
     });
   },
   render() {
-    var items = this.state.items;
-    var downloadItem = (file) => {
-      var statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> : <i className="anticon anticon-loading"></i>;
+    let items = this.state.items;
+    let downloadItem = (file) => {
+      let statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> : <i className="anticon anticon-loading"></i>;
       return (
-        <div className={prefixCls + '-list-item'} key={file.id}>
+        <div className={prefixCls + '-list-item'} key={file.index}>
           {statusIcon}
           <b className={prefixCls + '-item-name'}>{file.filename}</b>
           <i className="anticon anticon-cross" ref="theCloseBtn"
@@ -49,6 +44,10 @@ export default React.createClass({
         </div>
       );
     };
-    return <div className={prefixCls + '-list'}>{items.map(downloadItem)}</div>;
+    return (<div className={prefixCls + '-list'}>
+      <Animate transitionName={prefixCls + '-margin-top'}>
+        {items.map(downloadItem)}
+      </Animate>
+    </div>);
   }
 });
