@@ -1,5 +1,5 @@
 import React from 'react';
-import Radio from './index';
+import Radio from './radio';
 
 function getCheckedValue(children) {
   var checkedValue = null;

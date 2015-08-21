@@ -1,18 +1,5 @@
-import Radio from 'rc-radio';
-import React from 'react';
+import AntRadio from './radio';
+import Group from './group';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-radio'
-    };
-  },
-  render() {
-    return (
-      <label>
-        <Radio {...this.props} children={null} />
-        {this.props.children}
-      </label>
-    );
-  }
-});
+AntRadio.Group = Group;
+export default AntRadio;
