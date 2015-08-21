@@ -8,9 +8,12 @@ let AntRadio = React.createClass({
     };
   },
   render() {
-    let checkedClassName = this.props.checked ? this.props.className + '-checked' : '';
+    let classString = this.props.className;
+    if (classString) {
+      classString += this.props.checked ? (' ' + classString + '-checked') : '';
+    }
     return (
-      <label className={this.props.className + ' ' + checkedClassName}>
+      <label className={classString}>
         <Radio {...this.props} children={null} />
         {this.props.children}
       </label>

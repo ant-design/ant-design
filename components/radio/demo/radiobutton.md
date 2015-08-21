@@ -16,10 +16,10 @@ function onChange(e) {
 
 React.render((
   <RadioGroup onChange={onChange} defaultValue="a">
-    <RadioButton value="a">A</RadioButton>
-    <RadioButton value="b">B</RadioButton>
-    <RadioButton value="c">C</RadioButton>
-    <RadioButton value="d">D</RadioButton>
+    <RadioButton value="a">杭州</RadioButton>
+    <RadioButton value="b">上海</RadioButton>
+    <RadioButton value="c">北京</RadioButton>
+    <RadioButton value="d">成都</RadioButton>
   </RadioGroup>
 ), document.getElementById('components-radio-demo-radiobutton'));
 ````

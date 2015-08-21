@@ -1,6 +1,6 @@
 @radio-group-prefix-cls: ant-radio-group;
-@radio-wrap-prefix-cls: ant-radio;
-@radio-inner-prefix-cls: ~"@{radio-wrap-prefix-cls}-inner";
+@radio-prefix-cls: ant-radio;
+@radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
 @radio-duration: .3s;
 
 .@{radio-group-prefix-cls} {
@@ -10,7 +10,7 @@
 }
 
 // 一般状态
-.@{radio-wrap-prefix-cls} {
+.@{radio-prefix-cls} {
   white-space: nowrap;
   outline: none;
   display: inline-block;
@@ -67,7 +67,7 @@
 }
 
 // 选中状态
-.@{radio-wrap-prefix-cls}-checked {
+.@{radio-prefix-cls}-checked {
 
   .@{radio-inner-prefix-cls} {
     border-color: #d9d9d9;
@@ -79,7 +79,7 @@
   }
 }
 
-.@{radio-wrap-prefix-cls}-disabled {
+.@{radio-prefix-cls}-disabled {
   &:hover {
     .@{radio-inner-prefix-cls} {
       border-color: #d9d9d9;
@@ -98,6 +98,88 @@
   }
 }
 
-.@{radio-wrap-prefix-cls} + span {
+.@{radio-prefix-cls} + span {
   margin-left: 8px;
+}
+
+.@{radio-prefix-cls} {
+  label&-button {
+    background: #fff;
+    padding: 0 16px;
+    margin: 0;
+    height: 28px;
+    line-height: 26px;
+    color: #666;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #d9d9d9;
+    border-left: 0;
+
+    > span {
+      margin-left: 0;
+    }
+
+    &:before {
+      transition: all 0.3s ease;
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      left: -1px;
+      background: #d9d9d9;
+      content: '';
+      visibility: hidden;
+    }
+
+    &:first-child {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+      border-left: 1px solid #d9d9d9;
+      &:before {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+
+    &:hover {
+      border-color: #aaa;
+      position: relative;
+      &:before {
+        background: #aaa;
+        visibility: visible;
+      }
+    }
+
+    .@{radio-prefix-cls}-inner,
+    input {
+      display: none;
+    }
+
+    &-checked {
+      background: @primary-color;
+      border-color: @primary-color;
+      color: #fff;
+      margin-left: -1px;
+
+      &:before {
+        display: none;
+      }
+
+      &:first-child {
+        border-color: @primary-color;
+      }
+
+      &:hover {
+        background: tint(@primary-color, 20%);
+        border-color: tint(@primary-color, 20%);
+      }
+
+      &:active {
+        background: shade(@primary-color, 5%);
+        border-color: shade(@primary-color, 5%);
+      }
+    }
+  }
 }
