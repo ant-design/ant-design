@@ -1,8 +1,8 @@
-@tabPrefixClass: ant-tabs;
+@tab-prefix-cls: ant-tabs;
 
 @effect-duration: .3s;
 
-.@{tabPrefixClass} {
+.@{tab-prefix-cls} {
   outline: none;
   box-sizing: border-box;
   position: relative;
@@ -34,15 +34,18 @@
     width: 100%;
     position: relative;
     white-space: nowrap;
-    padding-right: 32px;
-    border-bottom: 1px solid #f3f3f3;
+    border-bottom: 1px solid #e9e9e9;
     margin-bottom: 15px;
     .clearfix;
   }
 
+  &-nav-container-scrolling {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
   &-tab-prev, &-tab-next {
     user-select: none;
-    -webkit-user-select: none;
     z-index: 2;
     margin-right: -2px;
     margin-top: 1px;
@@ -79,6 +82,12 @@
     }
   }
 
+  &-tab-btn-disabled {
+    cursor: default;
+    color: #ccc;
+    pointer-events: none;
+  }
+
   &-tab-next {
     right: 2px;
 
@@ -89,11 +98,16 @@
 
   &-tab-prev {
     left: 0;
-    background: #fff;
-    transform: rotate(180deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    &-icon {
+      transform: rotate(180deg);
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    }
     &-icon:before {
       content: "\e611";
+    }
+
+    :root & {
+      filter: none;
     }
   }
 
@@ -126,7 +140,7 @@
       clear: both;
     }
 
-    div.@{tabPrefixClass}-tab-active {
+    div.@{tab-prefix-cls}-tab-active {
       > a, > a:hover, > a:focus {
         color: tint(@primary-color, 20%);
         cursor: pointer;
@@ -134,7 +148,7 @@
       }
     }
 
-    div.@{tabPrefixClass}-tab-disabled {
+    div.@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
 
@@ -143,7 +157,7 @@
       }
     }
 
-    .@{tabPrefixClass}-tab {
+    .@{tab-prefix-cls}-tab {
       float: left;
       height: 100%;
       margin-right: 28px;

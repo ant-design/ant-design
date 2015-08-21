@@ -1,6 +1,6 @@
-@confirmPrefixCls: ant-confirm;
+@confirm-prefix-cls: ant-confirm;
 
-.@{confirmPrefixCls} {
+.@{confirm-prefix-cls} {
 
   .ant-modal-header {
     display: none;
@@ -10,15 +10,17 @@
     padding: 30px 40px;
   }
 
-  .@{confirmPrefixCls}-body {
-    .@{confirmPrefixCls}-title {
+  .@{confirm-prefix-cls}-body {
+    .@{confirm-prefix-cls}-title {
       color: @text-color;
+      font-weight: bold;
+      font-size: 14px;
     }
 
-    .@{confirmPrefixCls}-content {
+    .@{confirm-prefix-cls}-content {
       margin-left: 37px;
-      font-size: 12px;
-      color: #999;
+      font-size: @font-size-base;
+      color: @text-color;
     }
 
     .anticon {
@@ -37,7 +39,7 @@
     }
   }
 
-  .@{confirmPrefixCls}-btns {
+  .@{confirm-prefix-cls}-btns {
     margin-top: 30px;
     float: right;
 

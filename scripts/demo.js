@@ -1,5 +1,6 @@
 window['css-animation'] = require('css-animation');
-window['react-router'] = window.ReactRouter;
+window['react-router'] = require('react-router');
+window['react-router']['HashHistory'] = require('react-router/lib/HashHistory');
 var antd = require('antd');
 
 var $ = require('jquery');
@@ -18,7 +19,7 @@ $(function () {
         return <Option sData={s} key={s.title} text={'跳转到 ' + s.title}>
           <strong>{s.title}</strong>
         &nbsp;
-          <span>{s.desc}</span>
+          <span className="ant-component-decs">{s.desc}</span>
         </Option>;
       });
     },
@@ -34,12 +35,11 @@ $(function () {
     },
 
     render() {
-      return <Select combobox style={{width: 200}}
+      return <Select combobox style={{width: 260}}
         onSelect={this.handleSelect}
         optionLabelProp="text"
         dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
         searchPlaceholder="搜索组件..."
-        renderDropdownToBody={true}
         filterOption={this.filterOption}>{this.getOptions()}</Select>;
     }
   });

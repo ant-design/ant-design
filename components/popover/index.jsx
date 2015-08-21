@@ -7,7 +7,8 @@ export default React.createClass({
     return {
       transitionName: '',
       placement: 'top',
-      trigger: 'hover'
+      trigger: 'hover',
+      overlayStyle: {}
     };
   },
   render() {
@@ -29,12 +30,12 @@ export default React.createClass({
 
     return (
       <Tooltip placement={this.props.placement}
-        prefixCls={prefixCls}
-        delay={0.1}
-        renderPopupToBody={false}
-        transitionName={transitionName}
-        trigger={this.props.trigger}
-        overlay={overlay}>
+               prefixCls={prefixCls}
+               delay={0.1}
+               overlayStyle={this.props.overlayStyle}
+               transitionName={transitionName}
+               trigger={this.props.trigger}
+               overlay={overlay}>
         {this.props.children}
       </Tooltip>
     );

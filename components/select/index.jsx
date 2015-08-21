@@ -11,12 +11,19 @@ var AntSelect = React.createClass({
     };
   },
   render() {
+    var sizeClass = '';
+    if (this.props.size === 'large') {
+      sizeClass = 'ant-select-lg';
+    } else if (this.props.size === 'small') {
+      sizeClass = 'ant-select-sm';
+    }
     return (
-      <Select {...this.props} />
+      <Select className={sizeClass} {...this.props} />
     );
   }
 });
 
 AntSelect.Option = Select.Option;
+AntSelect.OptGroup = Select.OptGroup;
 
 export default AntSelect;

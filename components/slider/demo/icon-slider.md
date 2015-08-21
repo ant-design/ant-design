@@ -83,10 +83,10 @@ React.render(
   color: #ccc;
 }
 
-.iconWrapper .anticon:nth-child(1) {
+.iconWrapper .anticon-lock {
   left: 0;
 }
-.iconWrapper .anticon:nth-child(2){
+.iconWrapper .anticon-unlock{
   right: 0;
 }
 

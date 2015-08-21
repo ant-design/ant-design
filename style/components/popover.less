@@ -1,5 +1,5 @@
 @import "../mixins/index";
-@popoverPrefixClass: ~"@{css-prefix}popover";
+@popover-prefix-cls: ~"@{css-prefix}popover";
 
 //
 // Popovers
@@ -20,7 +20,7 @@
 //** Popover arrow width
 @popover-arrow-width:                 4px;
 //** Popover distance with trigger
-@popover-distance:                    @popover-arrow-width+4;
+@popover-distance:                    @popover-arrow-width + 4;
 //** Popover arrow color
 @popover-arrow-color:                 @popover-bg;
 
@@ -29,7 +29,7 @@
 //** Popover outer arrow color
 @popover-arrow-outer-color:           fadein(@popover-border-color, 5%);
 
-.@{popoverPrefixClass} {
+.@{popover-prefix-cls} {
   position: absolute;
   top: 0;
   left: 0;

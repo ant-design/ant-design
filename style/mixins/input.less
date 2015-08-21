@@ -1,14 +1,12 @@
 // size mixins for input
 .input-lg() {
-  padding: @input-padding-lg;
+  padding: @input-padding-vertical-lg @input-padding-horizontal;
   height: @input-height-lg;
-  font-size: @input-font-size-lg;
 }
 
 .input-sm() {
   padding: @input-padding-vertical-sm @input-padding-horizontal;
   height: @input-height-sm;
-  font-size: @input-font-size-sm;
 }
 
 // input status
@@ -42,7 +40,7 @@
   width: 100%;
   height: @input-height-base;
   cursor: text;
-  font-size: @input-font-size;
+  font-size: @font-size-base;
   line-height: @line-height-base;
   color: @input-color;
   background-color: @input-bg;

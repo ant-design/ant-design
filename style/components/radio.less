@@ -1,16 +1,16 @@
-@radioGroupPrefixCls: ant-radio-group;
-@radioWrapPrefixCls: ant-radio;
-@radioInnerPrefixCls: ~"@{radioWrapPrefixCls}-inner";
-@radioDuration: .3s;
+@radio-group-prefix-cls: ant-radio-group;
+@radio-prefix-cls: ant-radio;
+@radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
+@radio-duration: .3s;
 
-.@{radioGroupPrefixCls} {
+.@{radio-group-prefix-cls} {
   label {
     margin-right: 16px;
   }
 }
 
-/* 一般状态 */
-.@{radioWrapPrefixCls} {
+// 一般状态
+.@{radio-prefix-cls} {
   white-space: nowrap;
   outline: none;
   display: inline-block;
@@ -18,7 +18,7 @@
   line-height: 1;
   vertical-align: middle;
   &:hover {
-    .@{radioInnerPrefixCls} {
+    .@{radio-inner-prefix-cls} {
       border-color: #bcbcbc;
     }
   }
@@ -37,7 +37,7 @@
       background-color: @primary-color;
       transform: scale(0);
       opacity: 0;
-      transition: transform @radioDuration @ease-in-out-circ, opacity @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
+      transition: transform @radio-duration @ease-in-out-circ, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
     }
 
     position: relative;
@@ -50,8 +50,8 @@
     border-style: solid;
     border-radius: 14px;
     border-color: #d9d9d9;
-    background-color: #ffffff;
-    transition: border-color @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
+    background-color: #fff;
+    transition: border-color @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
   }
 
   &-input {
@@ -66,26 +66,26 @@
   }
 }
 
-/* 选中状态 */
-.@{radioWrapPrefixCls}-checked {
+// 选中状态
+.@{radio-prefix-cls}-checked {
 
-  .@{radioInnerPrefixCls} {
+  .@{radio-inner-prefix-cls} {
     border-color: #d9d9d9;
     &:after {
       transform: scale(1);
       opacity: 1;
-      transition: transform @radioDuration @ease-out-back, opacity @radioDuration @ease-in-out-circ, background-color @radioDuration @ease-in-out-circ;
+      transition: transform @radio-duration @ease-out-back, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
     }
   }
 }
 
-.@{radioWrapPrefixCls}-disabled {
+.@{radio-prefix-cls}-disabled {
   &:hover {
-    .@{radioInnerPrefixCls} {
+    .@{radio-inner-prefix-cls} {
       border-color: #d9d9d9;
     }
   }
-  .@{radioInnerPrefixCls} {
+  .@{radio-inner-prefix-cls} {
     border-color: #d9d9d9;
     background-color: #f3f3f3;
     &:after {
@@ -93,11 +93,93 @@
     }
   }
 
-  .@{radioInnerPrefixCls}-input {
+  .@{radio-inner-prefix-cls}-input {
     cursor: default;
   }
 }
 
-.@{radioWrapPrefixCls} + span {
+.@{radio-prefix-cls} + span {
   margin-left: 8px;
+}
+
+.@{radio-prefix-cls} {
+  label&-button {
+    background: #fff;
+    padding: 0 16px;
+    margin: 0;
+    height: 28px;
+    line-height: 26px;
+    color: #666;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #d9d9d9;
+    border-left: 0;
+
+    > span {
+      margin-left: 0;
+    }
+
+    &:before {
+      transition: all 0.3s ease;
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      left: -1px;
+      background: #d9d9d9;
+      content: '';
+      visibility: hidden;
+    }
+
+    &:first-child {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+      border-left: 1px solid #d9d9d9;
+      &:before {
+        display: none;
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+
+    &:hover {
+      border-color: #aaa;
+      position: relative;
+      &:before {
+        background: #aaa;
+        visibility: visible;
+      }
+    }
+
+    .@{radio-prefix-cls}-inner,
+    input {
+      display: none;
+    }
+
+    &-checked {
+      background: @primary-color;
+      border-color: @primary-color;
+      color: #fff;
+      margin-left: -1px;
+
+      &:before {
+        display: none;
+      }
+
+      &:first-child {
+        border-color: @primary-color;
+      }
+
+      &:hover {
+        background: tint(@primary-color, 20%);
+        border-color: tint(@primary-color, 20%);
+      }
+
+      &:active {
+        background: shade(@primary-color, 5%);
+        border-color: shade(@primary-color, 5%);
+      }
+    }
+  }
 }
