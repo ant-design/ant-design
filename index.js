@@ -36,7 +36,6 @@ const antd = {
   Slider: require('./components/slider'),
   EnterAnimation: require('./components/enter-animation'),
   Radio: require('./components/radio'),
-  RadioGroup: require('./components/radio/group'),
   Notification: require('./components/notification'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
