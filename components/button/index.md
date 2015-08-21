@@ -39,3 +39,5 @@
 | `.ant-btn-circle` `.ant-btn-circle-outline`  | 用于创建圆形按钮，`.ant-btn-circle-outline` 为描边按钮。 |
 | `.ant-btn-lg` `.ant-btn-sm`  | 定义按钮大小尺寸，目前提供三种尺寸：大中小，默认为中。 |
 | `.ant-btn-group` | 按钮组合，通过按钮组容器把一组按钮放在同一行里。 |
+
+> 当按钮只有两个汉字时，需要在两字中加空格。
