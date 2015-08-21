@@ -3,19 +3,20 @@ import Upload from 'rc-upload';
 import assign from 'object-assign';
 import Message from '../message';
 import UploadList from './uploadList';
+import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
 
-let AntUpload = React.createClass({
+const AntUpload = React.createClass({
   getInitialState() {
     return {
       downloadList: []
     };
   },
   handleStart(file) {
-    var i = this.state.downloadList.length;
-    var nextDownloadList = this.state.downloadList;
+    let i = this.state.downloadList.length;
+    let nextDownloadList = this.state.downloadList;
     nextDownloadList.push({
-      id: i,
+      index: i,
       uid: file.uid || '',
       filename: file.name,
       status: 'downloading'
@@ -25,19 +26,9 @@ let AntUpload = React.createClass({
     });
   },
   handleSuccess(ret, file) {
-    let matchWay = (!file.uid) ? 'byName' : 'byUid';
     Message.success(file.name + '上传完成');
-    for (let i = 0; i < this.state.downloadList.length; i++) {
-      if (matchWay === 'byName') {
-        if (this.state.downloadList[i].filename === file.name) {
-          this.state.downloadList[i].status = 'done';
-        }
-      } else {
-        if (this.state.downloadList[i].uid === file.uid) {
-          this.state.downloadList[i].status = 'done';
-        }
-      }
-    }
+    let targetItem = getFileItem(file, this.state.downloadList);
+    targetItem.status = 'done';
     this.setState({
       downloadList: this.state.downloadList
     });
@@ -63,8 +54,8 @@ let AntUpload = React.createClass({
     };
   },
   render() {
-    var type = this.props.type || 'select';
-    var props = assign({}, this.props);
+    let type = this.props.type || 'select';
+    let props = assign({}, this.props);
 
     props.onStart = (file) => {
       this.handleStart(file);
