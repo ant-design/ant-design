@@ -63,7 +63,6 @@ export default React.createClass({
       <Tooltip placement={this.props.placement}
                overlayStyle={this.props.overlayStyle}
                prefixCls={prefixCls}
-               renderPopupToBody={true}
                onVisibleChange={this.onVisibleChange}
                transitionName={transitionName}
                visible={this.state.visible}

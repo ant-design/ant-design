@@ -10,7 +10,7 @@
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
 
-var menu = <Menu>
+var menu = <Menu style={{width:150}}>
   <Menu.Item key="0">
     <a href="http://www.alipay.com/">第一个菜单项</a>
   </Menu.Item>

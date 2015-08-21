@@ -9,11 +9,11 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
-var onClick = function ({key}){
+var onSelect = function ({key}){
   alert('选中了菜单' + key);
 };
 
-var menu = <Menu onClick={onClick}>
+var menu = <Menu onSelect={onSelect} style={{width:150}}>
   <Menu.Item key="1">第一个菜单项</Menu.Item>
   <Menu.Item key="2">第二个菜单项</Menu.Item>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
