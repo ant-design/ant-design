@@ -1,15 +1,13 @@
 import React from 'react';
-const prefixCls = 'ant-tag';
-import { transitionEndEvent, addEventListenerOnce } from '../util/index';
-
 import Animate from 'rc-animate';
+const prefixCls = 'ant-tag';
 
 class AntTag extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      closing: true,
+      closing: false,
       closed: false
     };
   }
@@ -20,15 +18,15 @@ class AntTag extends React.Component {
     // It's Magic Code, don't know why
     dom.style.width = dom.offsetWidth + 'px';
     this.setState({
-      closing: false
+      closing: true
     });
-
     this.props.onClose.call(this, e);
   }
+
   animationEnd() {
     this.setState({
       closed: true,
-      closing: true
+      closing: false
     });
   }
 
@@ -38,15 +36,14 @@ class AntTag extends React.Component {
     let colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
 
     let className = this.props.prefixCls + ' ' + colorClass;
-    className = !this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
+    className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 
     return this.state.closed ? null
-      : <Animate
-      component=""
-      showProp='data-show'
-      transitionName="zoom-tag"
-      onEnd={this.animationEnd.bind(this)}>
-      <div data-show={this.state.closing} className={className}>
+      : <Animate component=""
+                 showProp='data-show'
+                 transitionName="zoom-tag"
+                 onEnd={this.animationEnd.bind(this)}>
+        <div data-show={!this.state.closing} className={className}>
           <a className={this.props.prefixCls + '-text'} {...this.props} />
           {close}
         </div>
