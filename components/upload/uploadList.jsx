@@ -22,7 +22,6 @@ export default React.createClass({
     }
   },
   handleClose(file) {
-    let matchWay = (!file.uid) ? 'byName' : 'byUid';
     let items = this.state.items;
     let removeItem = getFileItem(file, items);
     if (removeItem) {
@@ -41,13 +40,13 @@ export default React.createClass({
           {statusIcon}
           <b className={prefixCls + '-item-name'}>{file.filename}</b>
           <i className="anticon anticon-cross" ref="theCloseBtn"
-            onClick={this.handleClose.bind(this, file)}></i>
+             onClick={this.handleClose.bind(this, file)}></i>
         </div>
       );
     };
     return (<div className={prefixCls + '-list'}>
-      <Animate transitionName='m-top'>
-      {items.map(downloadItem)}
+      <Animate transitionName={prefixCls + '-margin-top'}>
+        {items.map(downloadItem)}
       </Animate>
     </div>);
   }

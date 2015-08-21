@@ -99,24 +99,26 @@
     color: @success-color;
     font-weight: bold;
   }
-}
 
-.m-top-enter{
-  animation:marginTopIn .3s  @ease-in-out-circ;
-}
-.m-top-leave{
-  animation:marginTopOut .3s @ease-in-out-circ;
-}
-@keyframes marginTopIn {
-  from{
-    margin-top: -25px;
-    opacity: 0;
+  .@{upload-prefix-cls}-margin-top-enter {
+    animation: marginTopIn .3s @ease-in-out-circ;
   }
-}
 
-@keyframes marginTopOut {
-  to{
-    margin-top: -25px;
-    opacity: 0;
+  .@{upload-prefix-cls}-margin-top-leave {
+    animation: marginTopOut .3s @ease-in-out-circ;
+  }
+
+  @keyframes marginTopIn {
+    from {
+      margin-top: -25px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes marginTopOut {
+    to {
+      margin-top: -25px;
+      opacity: 0;
+    }
   }
 }
