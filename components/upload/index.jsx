@@ -5,6 +5,7 @@ import Message from '../message';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
+let fileIndex = 0;
 
 const AntUpload = React.createClass({
   getInitialState() {
@@ -13,10 +14,9 @@ const AntUpload = React.createClass({
     };
   },
   handleStart(file) {
-    let i = this.state.downloadList.length;
     let nextDownloadList = this.state.downloadList;
     nextDownloadList.push({
-      index: i,
+      index: fileIndex++,
       uid: file.uid || '',
       filename: file.name,
       status: 'downloading'
