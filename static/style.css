@@ -190,6 +190,10 @@ a.logo {
   box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
 
+.autoComplete .ant-select-dropdown-menu {
+  max-height: 200px;
+}
+
 .autoComplete .ant-component-decs {
   font-size: 12px;
   position: absolute;
