@@ -3,7 +3,6 @@
 - category: Components
 - chinese: 字体图标
 - order: 0
-- nodemos: true
 
 ---
 
