@@ -16,7 +16,7 @@ var Validator = Validation.Validator;
 var Select = antd.Select;
 var Option = Select.Option;
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
