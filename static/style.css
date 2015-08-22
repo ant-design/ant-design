@@ -182,24 +182,24 @@ a.logo {
   box-shadow: none;
 }
 
-#autoComplete .ant-select-dropdown {
+#autoComplete input::-webkit-input-placeholder,
+#autoComplete input::-moz-placeholder,
+#autoComplete input:-ms-input-placeholder {
+  color: #CADCE3;
+}
+
+.autoComplete .ant-select-dropdown {
   border: 0;
   border-radius: 0;
   box-shadow: 0 0 8px rgba(0,0,0,0.25);
 }
 
-#autoComplete .ant-component-decs {
+.autoComplete .ant-component-decs {
   font-size: 12px;
   position: absolute;
   top: 9px;
   color: #aaa;
   right: 16px;
-}
-
-#autoComplete input::-webkit-input-placeholder,
-#autoComplete input::-moz-placeholder,
-#autoComplete input:-ms-input-placeholder {
-  color: #CADCE3;
 }
 
 .nav {
