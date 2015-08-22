@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 开关
-- order: 3
+- type: 表单
 
 ---
 

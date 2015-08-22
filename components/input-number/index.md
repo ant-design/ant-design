@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 数字输入框
-- order: 4
+- type: 表单
 
 ---
 

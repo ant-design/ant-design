@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 步骤条
-- order: 7
+- type: 导航
 - cols: 1
 
 ---

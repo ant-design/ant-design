@@ -15,13 +15,17 @@
     <li open="open">
       <h4>{{category.name}}</h4>
       <ul class="{%- if category === post.meta.category %}aside-list-show{%- endif %}">
-        {%- for item in category.pages %}
-        <li class="{%- if item.title === post.title %}current{%- endif %}">
-          <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
-            {{item.title}}
-            <span class="chinese">{{item.meta.chinese}}</span>
-          </a>
-        </li>
+        {%- for item in category.pages|splitComponentsByType(category.name) %}
+          {%- if item.divider === true %}
+          <li class="type-divider">{{item.name}}</li>
+          {%- else %}
+          <li class="{%- if item.title === post.title %}current{%- endif %}">
+            <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
+              {{item.title}}
+              <span class="chinese">{{item.meta.chinese}}</span>
+            </a>
+          </li>
+          {%- endif %}
         {%- endfor %}
       </ul>
     </li>

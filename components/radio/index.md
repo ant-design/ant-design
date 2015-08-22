@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 单选框
-- order: 2
+- type: 表单
 
 ---
 

@@ -478,6 +478,15 @@ footer ul li > a {
   color: #5C6B76;
 }
 
+.aside-container li.type-divider {
+  font-size: 12px;
+  transform: scale(0.9);
+  transform-origin: 0 50%;
+  color: #aaa;
+  text-shadow: 0px 1px 0px #FFF;
+  margin: 6px 0 6px 48px;
+}
+
 .aside-container > ul > li > a {
   padding-left: 46px;
   font-size: 14px;

@@ -1,6 +1,5 @@
 # EnterAnimation
 
-- order: 11
 - category: Components
 - chinese: 进场动画
 - cols: 1

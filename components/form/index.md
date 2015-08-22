@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 表单
-- order: 3
+- type: 表单
 
 ---
 

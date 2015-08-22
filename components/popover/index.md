@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 气泡卡片
-- order: 14
+- type: 展示
 
 ---
 

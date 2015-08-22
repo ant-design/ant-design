@@ -75,14 +75,9 @@ module.exports = function(nico) {
           }
         }));
         categories = Object.keys(categories).map(function(cat) {
-          var pages = categories[cat].sort(function(a, b) {
-            a = a.meta.order || 100;
-            b = b.meta.order || 100;
-            return parseInt(a, 10) - parseInt(b, 10);
-          });
           return {
             name: cat,
-            pages: pages
+            pages: categories[cat]
           };
         });
         // React 的分类排序
@@ -145,6 +140,32 @@ module.exports = function(nico) {
     },
     removeCodeBoxIdPrefix: function(id) {
       return id.split('-').slice(2).join('-');
+    },
+    splitComponentsByType: function(pages, category) {
+      if (category !== 'Components') {
+        return pages.sort(function(a, b) {
+          a = a.meta.order || 100;
+          b = b.meta.order || 100;
+          return parseInt(a, 10) - parseInt(b, 10);
+        });
+      }
+      // 加入组件的类别分隔符
+      var tempResult = _.sortBy(pages, function(p) {
+        var types = ['基本', '表单', '展示', '导航', '其他'];
+        return types.indexOf(p.meta.type || '其他');
+      });
+      var lastType, result = [];
+      tempResult.forEach(function(p) {
+        if (p.meta.type !== lastType) {
+          result.push({
+            name: p.meta.type || '其他',
+            divider: true
+          });
+          lastType = p.meta.type;
+        }
+        result.push(p);
+      });
+      return result;
     }
   };
 

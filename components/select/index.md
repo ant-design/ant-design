@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 选择器
-- order: 5
+- type: 表单
 
 ---
 

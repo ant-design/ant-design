@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 按钮
-- order: 0
+- type: 基本
 
 ---
 

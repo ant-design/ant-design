@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 滑动输入条
-- order: 4
+- type: 表单
 
 ---
 
