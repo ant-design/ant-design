@@ -448,13 +448,17 @@ footer ul li > a {
   transform: scale(0.6);
   font-size: 12px;
   color: #5C6B76;
-  opacity: 0.4;
+  opacity: 0;
   transform: scale(0.6) rotate(180deg);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .aside-container li[open=open] h4:after {
   transform: scale(0.6) rotate(0deg);
+}
+
+.aside-container li:hover h4:after {
+  opacity: 0.8;
 }
 
 .aside-container li > ul.aside-list-show {
@@ -477,7 +481,6 @@ footer ul li > a {
 .aside-container > ul > li > a {
   padding-left: 46px;
   font-size: 14px;
-  font-weight: 600;
   border-left: 3px solid transparent;
 }
 
