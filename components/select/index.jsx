@@ -18,7 +18,7 @@ var AntSelect = React.createClass({
       sizeClass = 'ant-select-sm';
     }
     return (
-      <Select className={sizeClass} {...this.props} />
+      <Select {...this.props} className={this.props.className + ' ' + sizeClass} />
     );
   }
 });
