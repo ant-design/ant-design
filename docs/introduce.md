@@ -7,7 +7,23 @@
 
 这里是 Ant Design 的 React 实现，主要设计和服务于企业级后台产品。
 
-![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
+<div class="pic-plus">
+  <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
+  <span>+</span>
+  <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
+</div>
+<style>
+.pic-plus > * {
+  display: inline-block!important;
+  vertical-align: middle;
+}
+.pic-plus span {
+  font-size: 30px;
+  color: #aaa;
+  margin: 0 20px;
+}
+</style>
+
 
 ## 特性
 
