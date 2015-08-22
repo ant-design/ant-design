@@ -3,7 +3,7 @@
   <ul>
   {%- for category in categories %}
     {%- if category.name === 'top' %}
-      {%- for item in category.pages %}
+      {%- for item in category.pages|splitComponentsByType(category.name) %}
       <li class="{%- if item.title === post.title %}current{%- endif %}">
         <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
           {{item.title}}
