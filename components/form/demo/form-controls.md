@@ -13,7 +13,7 @@ var Select = antd.Select;
 var Option = Select.Option;
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 function handleSelectChange(value) {
   console.log('selected ' + value);
