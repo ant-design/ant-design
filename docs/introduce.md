@@ -1,19 +1,17 @@
 # 介绍
 
-- category: React
+- category: top
 - order: 0
 
 ---
 
-一套企业级的 UI 设计语言和 React 实现。
-
-设计文档和组件实现均在紧密整理和开发中，部分页面可能不完善，预计 8 月份释出正式版本。
+这里是 Ant Design 的 React 实现，主要设计和服务于企业级后台产品。
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
 ## 特性
 
-- 提炼自企业级后台产品的交互语言和视觉风格。
+- Designed as Ant Design.
 - 丰富实用的 React UI 组件。
 - 基于 React 的组件化开发模式。
 - 背靠 npm 生态圈。

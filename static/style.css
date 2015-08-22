@@ -338,22 +338,22 @@ a.nav-link-disabled {
   display: block;
   width: 50px;
   height: 50px;
-    margin: auto;
+  margin: auto;
   animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    -webkit-animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;;
+  -webkit-animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;;
 }
-.load-box span{
-    display: inline-block;
+.load-box span {
+  display: inline-block;
 }
-.load-box span>p{
-    float: left;
+.load-box span > p {
+  float: left;
 }
-.load-main-box .load-bar{
-    width: 0%;
-    height: 2px;
-    background: #6EB4E0;
-    transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-    -webkit-transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);;
+.load-main-box .load-bar {
+  width: 0%;
+  height: 2px;
+  background: #6EB4E0;
+  transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -webkit-transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);;
 }
 .load-out {
   -webkit-animation: alphaOut .5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
@@ -384,14 +384,14 @@ footer ul li {
   padding: 5px 2% 15px;
 }
 
-footer ul li>h2 {
+footer ul li > h2 {
   font-size: 1em;
   color: #5C6B77;
   margin: 10px auto 0;
   font-weight: normal;
 }
 
-footer ul li>h3,
+footer ul li > h3,
 footer h3 {
   font-size: 0.75em;
   color: #5C6B77;
@@ -425,7 +425,7 @@ footer ul li > a {
 }
 
 .aside-container li h4 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   padding: 10px 0 10px 46px;
   margin: 0;
@@ -436,13 +436,32 @@ footer ul li > a {
   position: relative;
   z-index: 1;
   background: #F9F9F9;
+  position: relative;
 }
 
-.aside-container li>ul.aside-list-show {
+.aside-container li h4:after {
+  position: absolute;
+  top: 11px;
+  right: 30px;
+  content: "\e600";
+  font-family: "anticon";
+  transform: scale(0.6);
+  font-size: 12px;
+  color: #5C6B76;
+  opacity: 0.4;
+  transform: scale(0.6) rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.aside-container li[open=open] h4:after {
+  transform: scale(0.6) rotate(0deg);
+}
+
+.aside-container li > ul.aside-list-show {
   display: block;
 }
 
-.aside-container li>ul li {
+.aside-container li > ul li {
   border-left: 3px solid transparent;
 }
 
@@ -453,6 +472,17 @@ footer ul li > a {
   padding-left: 60px;
   font-size: 14px;
   color: #5C6B76;
+}
+
+.aside-container > ul > li > a {
+  padding-left: 46px;
+  font-size: 14px;
+  font-weight: 600;
+  border-left: 3px solid transparent;
+}
+
+.aside-container > ul > li.current > a {
+  border-left: 0;
 }
 
 .aside-container .chinese {

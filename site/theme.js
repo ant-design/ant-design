@@ -61,28 +61,45 @@ module.exports = function(nico) {
         directories = ['docs', 'components'];
       }
       var cacheKey = directories.join('-');
-      var categories = Categories[cacheKey] || _.uniq(getAllPosts(posts).map(function(item) {
-        var itemDirectory = item.directory.split('/')[0];
-        if (directories.indexOf(itemDirectory) >= 0) {
-          return item.meta.category;
-        }
-      })).filter(function(n) {
-        return n != undefined;
-      });
-      // React 的分类排序
-      categories = categories.sort(function(a, b) {
-        var cats = ['React', 'Components'];
-        a = cats.indexOf(a);
-        b = cats.indexOf(b);
-        return a - b;
-      });
-      // 设计的分类排序
-      categories = categories.sort(function(a, b) {
-        var cats = ['文字', '色彩', '动画'];
-        a = cats.indexOf(a);
-        b = cats.indexOf(b);
-        return a - b;
-      })
+      var categories;
+      if (Categories[cacheKey]) {
+        categories = Categories[cacheKey];
+      } else {
+        categories = {};
+        _.uniq(getAllPosts(posts).forEach(function(item) {
+          var itemDirectory = item.directory.split('/')[0];
+          var cat = item.meta.category;
+          if (cat && directories.indexOf(itemDirectory) >= 0) {
+            categories[cat] = categories[cat] || [];
+            categories[cat].push(item);
+          }
+        }));
+        categories = Object.keys(categories).map(function(cat) {
+          var pages = categories[cat].sort(function(a, b) {
+            a = a.meta.order || 100;
+            b = b.meta.order || 100;
+            return parseInt(a, 10) - parseInt(b, 10);
+          });
+          return {
+            name: cat,
+            pages: pages
+          };
+        });
+        // React 的分类排序
+        categories = categories.sort(function(a, b) {
+          var cats = ['React', 'Components'];
+          a = cats.indexOf(a.name);
+          b = cats.indexOf(b.name);
+          return a - b;
+        });
+        // 设计的分类排序
+        categories = categories.sort(function(a, b) {
+          var cats = ['文字', '色彩', '动画'];
+          a = cats.indexOf(a.name);
+          b = cats.indexOf(b.name);
+          return a - b;
+        });
+      }
       Categories[cacheKey] = categories;
       return categories;
     },

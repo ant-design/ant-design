@@ -2,11 +2,20 @@
 <aside class="aside-container">
   <ul>
   {%- for category in categories %}
-  {%- set items = resource.pages|find_category(category) %}
-    <li>
-      <h4>{{category}}</h4>
+    {%- if category.name === 'top' %}
+      {%- for item in category.pages %}
+      <li class="{%- if item.title === post.title %}current{%- endif %}">
+        <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
+          {{item.title}}
+          <span class="chinese">{{item.meta.chinese}}</span>
+        </a>
+      </li>
+      {%- endfor %}
+    {%- else %}
+    <li open="open">
+      <h4>{{category.name}}</h4>
       <ul class="{%- if category === post.meta.category %}aside-list-show{%- endif %}">
-        {%- for item in items %}
+        {%- for item in category.pages %}
         <li class="{%- if item.title === post.title %}current{%- endif %}">
           <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
             {{item.title}}
@@ -16,6 +25,7 @@
         {%- endfor %}
       </ul>
     </li>
+    {%- endif %}
   {%- endfor %}
   </ul>
 </aside>
