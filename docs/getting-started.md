@@ -1,6 +1,6 @@
 # 快速上手
 
-- category: 入门
+- category: React
 - order: 1
 
 ---

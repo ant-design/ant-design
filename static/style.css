@@ -101,10 +101,6 @@ a:hover {
   content: '';
 }
 
-.fn-hide {
-  display: none;
-}
-
 ::selection {
   background: #4BB8FF;
   color: #fff;
@@ -137,7 +133,7 @@ a.logo {
   float: left;
   height: 46px;
   line-height: 46px;
-  margin: 17px 45px;
+  margin: 17px 48px 17px 40px;
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
@@ -253,10 +249,6 @@ a.nav-link-disabled {
 
 .barAnim {
   transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.nav-phone-icon {
-  display: none;
 }
 
 .main-box {
@@ -431,7 +423,7 @@ footer ul li > a {
 .aside-container li h4 {
   font-size: 16px;
   font-weight: 600;
-  padding: 10px 0 10px 50px;
+  padding: 10px 0 10px 46px;
   margin: 0;
   color: #5C6B77;
   cursor: pointer;
@@ -440,10 +432,6 @@ footer ul li > a {
   position: relative;
   z-index: 1;
   background: #F9F9F9;
-}
-
-.aside-container li>ul {
-  display: none;
 }
 
 .aside-container li>ul.aside-list-show {
@@ -455,8 +443,8 @@ footer ul li > a {
 }
 
 .aside-container li a {
-  line-height: 40px;
-  height: 40px;
+  line-height: 38px;
+  height: 38px;
   display: block;
   padding-left: 60px;
   font-size: 14px;
@@ -482,6 +470,8 @@ footer ul li > a {
 
 .aside-container .current a {
   color: #71B5DE;
+  line-height: 40px;
+  height: 40px;
 }
 
 .main-wrapper {

@@ -52,18 +52,38 @@ module.exports = function(nico) {
     },
     get_categories: function(posts, post) {
       var rootDirectory = post.directory.split('/')[0];
-      var categories = Categories[rootDirectory] || _.uniq(getAllPosts(posts).map(function(item) {
-        if (item.directory.split('/')[0] === post.directory.split('/')[0]) {
+      if (!rootDirectory) {
+        return;
+      }
+      var directories = [rootDirectory];
+      // docs 和 components 放在同一页
+      if (rootDirectory === 'docs' || rootDirectory === 'components') {
+        directories = ['docs', 'components'];
+      }
+      var cacheKey = directories.join('-');
+      var categories = Categories[cacheKey] || _.uniq(getAllPosts(posts).map(function(item) {
+        var itemDirectory = item.directory.split('/')[0];
+        if (directories.indexOf(itemDirectory) >= 0) {
           return item.meta.category;
         }
-      })).filter(function(n){ return n != undefined });
+      })).filter(function(n) {
+        return n != undefined;
+      });
+      // React 的分类排序
+      categories = categories.sort(function(a, b) {
+        var cats = ['React', 'Components'];
+        a = cats.indexOf(a);
+        b = cats.indexOf(b);
+        return a - b;
+      });
+      // 设计的分类排序
       categories = categories.sort(function(a, b) {
         var cats = ['文字', '色彩', '动画'];
         a = cats.indexOf(a);
         b = cats.indexOf(b);
         return a - b;
       })
-      Categories[rootDirectory] = categories;
+      Categories[cacheKey] = categories;
       return categories;
     },
     find_demo_in_component: function(pages, directory) {
@@ -103,8 +123,8 @@ module.exports = function(nico) {
         return (i+1)%2 === 0;
       });
     },
-    rootDirectoryIs: function(directory, rootDirectory) {
-      return directory.split('/')[0] === rootDirectory;
+    rootDirectoryIn: function(directory, rootDirectories) {
+      return rootDirectories.indexOf(directory.split('/')[0]) >= 0;
     },
     removeCodeBoxIdPrefix: function(id) {
       return id.split('-').slice(2).join('-');

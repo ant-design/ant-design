@@ -101,7 +101,6 @@ $(function() {
         return;
       }
       self.getUrlNum();
-      self.listBox.children().eq(self.num).attr("open", true).find("ul").css("display", "block");
       //添加标题事件；
       self.addTitleEvent();
     },
