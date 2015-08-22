@@ -42,6 +42,38 @@ var Datepicker = antd.Datepicker;
 React.render(<Datepicker />, mountNode);
 ```
 
+## 版本
+
+- 稳定版：<span class="versions" id="stable-version"></span>
+- 开发版：<span class="versions" id="latest-version"></span>
+
+<style>
+.versions {
+  font-weight: bold;
+  color: #C05B4D;
+  font-family: Consolas;
+  margin-left: 0.3em;
+  background: #FFF1E7;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+</style>
+
+<script>
+$('#latest-version').html(antdVersion.latest);
+$('#latest-links a').each(function(i, item) {
+  $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd-' + antdVersion.latest));
+});
+
+if (antdVersion.stable) {
+  $('#stable-version').html(antdVersion.stable);
+  $('#stable-link').attr('href', 'https://github.com/ant-design/ant-design/releases/tag/' + antdVersion.stable);
+} else {
+  $('#stable-version').html('暂无');
+  $('#stable-link').hide();
+}
+</script>
+
 ## 链接
 
 - [首页](http://ant.design/)

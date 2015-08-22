@@ -17,6 +17,12 @@ Ant Design 源自蚂蚁金服体验技术部的后台产品开发，我们的设
 
 - 蚂蚁金服
 
+## 前端实现
+
+我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库。
+
+- [React](/docs/introduce)
+
 ## 如何贡献
 
-我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://gith
+我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们[提问](https://github.com/ant-design/ant-design/issues)。

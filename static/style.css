@@ -1868,14 +1868,13 @@ footer ul li > a {
 }
 
 a.entry-link {
-  margin-top: 15px;
+  margin-top: 30px;
   border: 1px solid rgba(95, 108, 119, 0.3);
   border-radius: 50px;
   color: #5F6C77;
-  display: block;
+  display: inline-block;
   text-align: center;
-  padding: 8px 0;
-  width: 140px;
+  padding: 8px 20px;
   transition: border 0.3s ease;
 }
 
