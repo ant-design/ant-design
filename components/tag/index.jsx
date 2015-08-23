@@ -34,7 +34,6 @@ class AntTag extends React.Component {
     let close = this.props.closable ?
       <i className="anticon anticon-cross" onClick={this.close.bind(this)}></i> : '';
     let colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
-
     let className = this.props.prefixCls + ' ' + colorClass;
     className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 

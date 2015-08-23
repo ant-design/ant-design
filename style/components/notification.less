@@ -90,24 +90,24 @@
     }
   }
 
-  .fade-effect() {
+  .notification-fade-effect() {
     animation-duration: 0.3s;
     animation-fill-mode: both;
     animation-timing-function: @ease-in-out;
   }
 
-  &-fade-enter {
+  &-fade-enter,&-fade-appear {
     opacity: 0;
-    .fade-effect();
+    .notification-fade-effect();
     animation-play-state: paused;
   }
 
   &-fade-leave {
-    .fade-effect();
+    .notification-fade-effect();
     animation-play-state: paused;
   }
 
-  &-fade-enter&-fade-enter-active {
+  &-fade-enter&-fade-enter-active, &-fade-appear&-fade-appear-active {
     animation-name: NotificationFadeIn;
     animation-play-state: running;
   }
