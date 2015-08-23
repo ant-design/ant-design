@@ -31,7 +31,7 @@
         color: #666;
         display: inline-block;
         margin-right: 8px;
-        content:"\e60f";
+        content: "\e60f";
         #arrow > .close();
         vertical-align: middle;
         transition: transform 0.24s ease;
@@ -43,8 +43,6 @@
 
   &-content {
     height: 0;
-    transition-duration: .24s;
-    transition-timing-function: @ease-out-circ;
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
@@ -56,6 +54,12 @@
     }
   }
 
+  &-collapsing {
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-property: height;
+  }
+
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 3px 3px;
@@ -63,6 +67,7 @@
   }
 
   &-content-active {
+    height: auto;
   }
 
   & > &-item-active {
