@@ -18,8 +18,12 @@ var AntSelect = React.createClass({
       sizeClass = 'ant-select-sm';
     }
     let className = this.props.className || ' ';
+    let notFoundContent = this.props.notFoundContent;
+    if (this.props.combobox) {
+      notFoundContent = null;
+    }
     return (
-      <Select {...this.props} className={className + sizeClass} />
+      <Select {...this.props} className={className + sizeClass} notFoundContent={notFoundContent} />
     );
   }
 });
