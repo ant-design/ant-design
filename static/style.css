@@ -1,50 +1,3 @@
-@font-face {
-  font-family: "iconfont-home";
-  src: url('//at.alicdn.com/t/font_1431765342_6775353.eot');
-  src: url('//at.alicdn.com/t/font_1431765342_6775353.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_1431765342_6775353.woff') format('woff'), url('//at.alicdn.com/t/font_1431765342_6775353.ttf') format('truetype'), url('//at.alicdn.com/t/font_1431765342_6775353.svg#iconfont') format('svg');
-}
-
-.iconfont-home {
-  font-family: "iconfont-home" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-tag:before {
-  content: "\e607";
-}
-
-.icon-lego:before {
-  content: "\e600";
-}
-
-.icon-all:before {
-  content: "\e601";
-}
-
-.icon-chevron:before {
-  content: "\e602";
-}
-
-.icon-externallink:before {
-  content: "\e603";
-}
-
-.icon-download:before {
-  content: "\e604";
-}
-
-.icon-github:before {
-  content: "\e605";
-}
-
-.icon-code:before {
-  content: "\e606";
-}
-
 html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -1687,21 +1640,22 @@ footer ul li > a {
   font-weight: 600;
 }
 
-.component-demos .icon-all {
+.component-demos .anticon-appstore {
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
   color: #9199AC;
   margin-left: 5px;
-  vertical-align: text-bottom;
   opacity: 0.8;
   transition: all 0.3s ease;
+  top: -3px;
+  position: relative;
 }
 
-.component-demos .icon-all:hover {
+.component-demos .anticon-appstore:hover {
   opacity: 1;
 }
 
-.component-demos .icon-all.expand {
+.component-demos .anticon-appstore.expand {
   color: #3B4357;
 }
 
@@ -1784,8 +1738,8 @@ footer ul li > a {
 }
 
 .code-box-title:before {
-  font-family: iconfont-home;
-  content: "\e607";
+  font-family: anticon;
+  content: "\e665";
   font-size: 16px;
   vertical-align: middle;
   line-height: 22px;
@@ -1793,6 +1747,9 @@ footer ul li > a {
   margin-right: 8px;
   top: -2px;
   color: #ccc;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  display: inline-block;
 }
 
 .code-box-meta > p {
@@ -1882,14 +1839,17 @@ a.entry-link:hover {
   border-color: #5F6C77;
 }
 
-a.entry-link .icon-lego {
+a.entry-link .anticon-smile {
   margin-right: 3px;
   display: inline-block;
   -webkit-animation: rotateCircleBack 0.5s 1 ease-in-out;
   animation: rotateCircleBack 0.5s 1 ease-in-out;
+  position: relative;
+  top: -1px;
+  line-height: 1;
 }
 
-a.entry-link:hover .icon-lego {
+a.entry-link:hover .anticon-smile {
   -webkit-animation: rotateCircle 0.5s 1 ease-in-out;
   animation: rotateCircle 0.5s 1 ease-in-out;
 }
