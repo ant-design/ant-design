@@ -11,14 +11,15 @@ var AntSelect = React.createClass({
     };
   },
   render() {
-    var sizeClass = '';
+    let sizeClass = '';
     if (this.props.size === 'large') {
       sizeClass = 'ant-select-lg';
     } else if (this.props.size === 'small') {
       sizeClass = 'ant-select-sm';
     }
+    let className = this.props.className || ' ';
     return (
-      <Select {...this.props} className={this.props.className + ' ' + sizeClass} />
+      <Select {...this.props} className={className + sizeClass} />
     );
   }
 });
