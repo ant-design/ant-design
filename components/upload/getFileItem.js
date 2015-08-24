@@ -8,4 +8,4 @@ export default function getFileItem(file, fileList) {
     }
   })[0];
   return target;
-};
+}
