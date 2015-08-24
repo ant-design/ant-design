@@ -90,6 +90,9 @@
 
   &-submenu {
     position: relative;
+    & > ul > li {
+      animation-timing-function: @ease-in-out-circ;
+    }
 
     > .@{menu-prefix-cls} {
       display: none;
@@ -134,6 +137,7 @@
         .ie-rotate(1);
         transform: rotate(180deg) scale(0.75);
       }
+
     }
   }
 
@@ -202,6 +206,12 @@
       height: 0;
       clear: both;
     }
+
+    & .@{menuPrefixCls}-vertical.@{menuPrefixCls}-sub {
+      & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu {
+        transform-origin: 50% 0;
+      }
+    }
   }
 
   &-vertical, &-inline {
@@ -233,6 +243,10 @@
 
   &-vertical&-sub {
     padding: 0;
+    transform-origin: 0 0;
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu {
+      transform-origin: 0 0;
+    }
   }
 
   &-root&-vertical,
@@ -246,12 +260,18 @@
     border: none;
     border-radius: 0;
     box-shadow: none;
+    overflow: hidden;
+    transition: height .3s @ease-in-out;
 
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       line-height: 34px;
       height: 34px;
       list-style-type: disc;
       list-style-position: inside;
+    }
+
+    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu {
+      transform-origin: 50% -30px;
     }
   }
 }
