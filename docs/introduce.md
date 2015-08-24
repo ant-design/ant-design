@@ -5,7 +5,7 @@
 
 ---
 
-这里是 Ant Design 的 React 实现，主要设计和服务于企业级后台产品。
+这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
