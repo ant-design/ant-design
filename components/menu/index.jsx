@@ -4,47 +4,29 @@ import velocity from 'velocity-animate';
 
 const animation = {
   enter(node, done) {
-    var ok = false;
-
-    function complete() {
-      if (!ok) {
-        ok = 1;
-        done();
-      }
-    }
-    node.style.display = 'none';
-    velocity(node, 'slideDown', {
-      duration: 300,
-      complete: complete,
-      easing: 'easeInOutQuad'
-    });
-    return {
-      stop: function () {
-        velocity(node, 'finish');
-        complete();
-      }
-    };
+    this.animate(node, 'slideDown', done);
+  },
+  leave(node, done) {
+    this.animate(node, 'slideUp', done);
   },
   appear() {
     return this.enter.apply(this, arguments);
   },
-  leave(node, done) {
-    var ok = false;
-
+  animate(node, transitionName, done) {
+    let ok;
     function complete() {
       if (!ok) {
-        ok = 1;
+        ok = true;
         done();
       }
     }
-
-    velocity(node, 'slideUp', {
-      duration: 300,
+    velocity(node, transitionName, {
+      duration: 240,
       complete: complete,
       easing: 'easeInOutQuad'
     });
     return {
-      stop: function () {
+      stop() {
         velocity(node, 'finish');
         complete();
       }
@@ -71,13 +53,11 @@ const AntMenu = React.createClass({
         openAnimation = animation;
         break;
     }
-    let html = '';
     if (this.props.mode === 'inline') {
-      html = <Menu {...this.props} openAnimation={openAnimation} onOpen={this.toggle} onClose={this.toggle}/>;
+      return <Menu {...this.props} openAnimation={openAnimation} />;
     } else {
-      html = <Menu {...this.props} openTransitionName={openAnimation} onOpen={this.toggle} onClose={this.toggle}/>;
+      return <Menu {...this.props} openTransitionName={openAnimation} />;
     }
-    return html;
   }
 });
 
