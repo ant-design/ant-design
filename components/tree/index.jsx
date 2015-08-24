@@ -3,7 +3,7 @@ import Tree from 'rc-tree';
 import velocity from 'velocity-animate';
 
 const animation = {
-  enter(node, done){
+  enter(node, done) {
     var ok = false;
 
     function complete() {
@@ -15,7 +15,7 @@ const animation = {
 
     node.style.display = 'none';
     velocity(node, 'slideDown', {
-      duration: 300,
+      duration: 150,
       complete: complete
     });
     return {
@@ -27,7 +27,7 @@ const animation = {
     };
   },
 
-  leave(node, done){
+  leave(node, done) {
     var ok = false;
 
     node.style.display = 'block';
@@ -40,7 +40,7 @@ const animation = {
     }
 
     velocity(node, 'slideUp', {
-      duration: 300,
+      duration: 150,
       complete: complete
     });
     return {
