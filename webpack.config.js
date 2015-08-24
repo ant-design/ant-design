@@ -60,8 +60,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
-    new webpack.IgnorePlugin(/xhr2/)
+    new ExtractTextPlugin('[name].css')
   ],
 
   devtool: 'source-map'
