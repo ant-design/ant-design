@@ -11,7 +11,7 @@ var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
 
 React.render(
-  <Tree defaultExpandAll={true}>
+  <Tree defaultExpandAll={false}>
     <TreeNode title="parent 1">
       <TreeNode title="leaf" />
       <TreeNode title="parent 1-1">

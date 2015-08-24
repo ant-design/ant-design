@@ -1,5 +1,57 @@
 import React from 'react';
 import Tree from 'rc-tree';
+import velocity from 'velocity-animate';
+
+const animation = {
+  enter(node, done){
+    var ok = false;
+
+    function complete() {
+      if (!ok) {
+        ok = 1;
+        done();
+      }
+    }
+
+    node.style.display = 'none';
+    velocity(node, 'slideDown', {
+      duration: 300,
+      complete: complete
+    });
+    return {
+      stop: function () {
+        velocity(node, 'finish');
+        // velocity complete is async
+        complete();
+      }
+    };
+  },
+
+  leave(node, done){
+    var ok = false;
+
+    node.style.display = 'block';
+
+    function complete() {
+      if (!ok) {
+        ok = 1;
+        done();
+      }
+    }
+
+    velocity(node, 'slideUp', {
+      duration: 300,
+      complete: complete
+    });
+    return {
+      stop: function () {
+        velocity(node, 'finish');
+        // velocity complete is async
+        complete();
+      }
+    };
+  },
+};
 
 const AntTree = React.createClass({
   getDefaultProps() {
@@ -15,7 +67,7 @@ const AntTree = React.createClass({
     if (checkable) {
       checkable = <span className={`${props.prefixCls}-checkbox-inner`}></span>;
     }
-    return <Tree {...props} checkable={checkable}>
+    return <Tree openAnimation={animation} {...props} checkable={checkable}>
       {this.props.children}
     </Tree>;
   }

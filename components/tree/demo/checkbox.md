@@ -9,62 +9,13 @@
 ````jsx
 var Tree = antd.Tree;
 var TreeNode = Tree.TreeNode;
-var velocity = antd.velocity;
 
 function handleCheck(info) {
   console.log('check: ', info);
 }
 
-const animation = {
-  enter(node, done){
-    var ok = false;
-
-    function complete() {
-      if (!ok) {
-        ok = 1;
-        done();
-      }
-    }
-    node.style.display='none';
-    velocity(node, 'slideDown', {
-      duration: 300,
-      complete: complete
-    });
-    return {
-      stop: function () {
-        velocity(node, 'finish');
-        // velocity complete is async
-        complete();
-      }
-    };
-  },
-
-  leave(node, done){
-    var ok = false;
-
-    function complete() {
-      if (!ok) {
-        ok = 1;
-        done();
-      }
-    }
-
-    velocity(node, 'slideUp', {
-      duration: 300,
-      complete: complete
-    });
-    return {
-      stop: function () {
-        velocity(node, 'finish');
-        // velocity complete is async
-        complete();
-      }
-    };
-  },
-};
-
 React.render(<div>
-  {React.cloneElement(<Tree defaultExpandAll={true} checkable={true} onCheck={handleCheck}>
+ <Tree defaultExpandAll={true} checkable={true} onCheck={handleCheck}>
     <TreeNode title="parent 1">
       <TreeNode title="leaf" />
       <TreeNode title="parent 1-1">
@@ -75,10 +26,7 @@ React.render(<div>
         <TreeNode title="leaf" />
       </TreeNode>
     </TreeNode>
-  </Tree>, {
-    openAnimation: animation,
-  })}
+  </Tree>
 </div>
-
 , document.getElementById('components-tree-demo-checkbox'));
 ````
