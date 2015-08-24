@@ -310,6 +310,7 @@
   }
 
   &--multiple &-menu-item-selected {
+    background-color: tint(@primary-color, 90%);
     .selected_icon();
   }
 
@@ -328,9 +329,9 @@
   position: absolute;
   outline: none;
   overflow: hidden;
+  font-size: @font-size-base;
 
   &-menu {
-    font-size: @font-size-base;
     outline: none;
     margin-bottom: 0;
     padding-left: 0; // Override default ul/ol

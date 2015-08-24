@@ -137,10 +137,11 @@ a.logo {
   color: #CADCE3;
 }
 
-.autoComplete .ant-select-dropdown {
+.autoComplete.ant-select-dropdown {
   border: 0;
   border-radius: 0;
   box-shadow: 0 0 8px rgba(0,0,0,0.25);
+  font-size: 14px;
 }
 
 .autoComplete .ant-select-dropdown-menu {
