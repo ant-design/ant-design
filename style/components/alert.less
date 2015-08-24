@@ -1,9 +1,9 @@
 @import "../mixins/index";
 
-@alertPrefixClass: ~"@{css-prefix}alert";
-@alertTitlePrefixClass: ~"@{css-prefix}alert-with-description";
+@alert-prefix-cls: ~"@{css-prefix}alert";
+@alert-title-prefix-cls: ~"@{css-prefix}alert-with-description";
 
-.@{alertPrefixClass} {
+.@{alert-prefix-cls} {
   position: relative;
   padding: 8px 8px 8px 16px;
   border-radius: @border-radius-base;
@@ -55,7 +55,7 @@
   }
 
   &-close-icon, &-with-description-close-icon {
-    .iconfont-size-under-12px(10px);
+    font-size: 12px;
     position: absolute;
     right: 8px;
     top: 50%;
@@ -107,7 +107,7 @@
       top: 17px;
       right: 16px;
       cursor: pointer;
-      .iconfont-size-under-12px(10px);
+      font-size: 12px;
     }
 
     &-message {
@@ -151,5 +151,16 @@
         color: @error-color;
       }
     }
+  }
+
+  &-close {
+    height: 0 !important;
+    opacity: 0 !important;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all .3s @ease-in-out;
+    transform-origin: 50% 0;
+    animation-timing-function: @ease-in-out !important;
   }
 }

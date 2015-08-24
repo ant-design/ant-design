@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 导航菜单
 - cols: 1
+- type: 导航
 
 ---
 

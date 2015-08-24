@@ -1,5 +1,6 @@
 window['css-animation'] = require('css-animation');
-window['react-router'] = window.ReactRouter;
+window['react-router'] = require('react-router');
+window['react-router']['HashHistory'] = require('react-router/lib/HashHistory');
 var antd = require('antd');
 
 var $ = require('jquery');
@@ -37,7 +38,7 @@ $(function () {
       return <Select combobox style={{width: 260}}
         onSelect={this.handleSelect}
         optionLabelProp="text"
-        dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
+        dropdownClassName="autoComplete"
         searchPlaceholder="搜索组件..."
         filterOption={this.filterOption}>{this.getOptions()}</Select>;
     }

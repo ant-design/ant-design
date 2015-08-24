@@ -2,8 +2,7 @@
 
 - category: Components
 - chinese: 字体图标
-- order: 0
-- nodemos: true
+- type: 基本
 
 ---
 
@@ -392,7 +391,7 @@
 	</li>
 	<li>
 		<i class="anticon anticon-appstore"></i>
-		<span class="anticon-class">large</span>
+		<span class="anticon-class">appstore</span>
 	</li>
 	<li>
 		<i class="anticon anticon-line-chart"></i>

@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 分页
-- order: 10
+- type: 导航
 
 ---
 

@@ -16,19 +16,19 @@ function handleChange(value) {
 
 React.render(
   <div>
-  <Select size="large" value="lucy" style={{width:200}} onChange={handleChange}>
+  <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>
       <Option value="yiminghe">yiminghe</Option>
     </Select>
-    <Select value="lucy" style={{width:200}} onChange={handleChange}>
+    <Select defaultValue="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>
       <Option value="yiminghe">yiminghe</Option>
     </Select>
-    <Select size="small" value="lucy" style={{width:200}} onChange={handleChange}>
+    <Select size="small" defaultValue="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>

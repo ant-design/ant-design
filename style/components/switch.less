@@ -1,8 +1,8 @@
-@switchPrefixCls:ant-switch;
+@switch-prefix-cls:ant-switch;
 
 @switch-duration:.3s;
 
-.@{switchPrefixCls}{
+.@{switch-prefix-cls}{
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -20,7 +20,7 @@
     color:#fff;
     font-size: 12px;
     position: absolute;
-    left:24px;
+    left: 24px;
   }
 
   &:after{
@@ -30,7 +30,7 @@
     left: 2px;
     top:1px;
     border-radius: 100%;
-    background-color: #ffffff;
+    background-color: #fff;
     content: " ";
     cursor: pointer;
     transition: left @switch-duration @ease-in-out-circ;
@@ -43,7 +43,7 @@
     border: 1px solid @primary-color;
     background-color: @primary-color;
 
-    .@{switchPrefixCls}-inner {
+    .@{switch-prefix-cls}-inner {
       left:6px;
     }
 

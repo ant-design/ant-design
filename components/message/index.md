@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 全局提示
-- order: 12
+- type: 展示
 
 ---
 

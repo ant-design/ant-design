@@ -1,15 +1,15 @@
 # 快速上手
 
-- category: 入门
+- category: top
 - order: 1
 
 ---
 
-Ant Design 致力于提供给程序员愉悦的开发体验。
+Ant Design React 致力于提供给程序员愉悦的开发体验。
 
 ## 第一个例子
 
-Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的方式直接使用。
+我们封装了一套基于 React 实现的 UI 组件，可以用 React 的方式直接使用。
 
 下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
@@ -43,7 +43,7 @@ Ant Design 封装了一套基于 React 实现的 UI 组件，可以用 React 的
 ## 标准项目
 
 实际项目开发中，你会需要 CommonJS 、JSX 构建、打包部署等一系列工程化的需求。
-Ant Design 提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
+提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
 ### 1. 安装命令行工具
 
@@ -65,10 +65,11 @@ $ npm install
 
 ### 3. 使用组件
 
-编辑 `index.js`，使用 Ant Design 的组件：
+编辑 `index.js`，使用 Ant Design React 的组件：
 
 ```jsx
-import {Datepicker, message} from 'antd';
+import React from 'react';
+import { Datepicker, message } from 'antd';
 
 var App = React.createClass({
   getInitialState() {
@@ -139,11 +140,11 @@ $ npm run build
 
 入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
 
-> 上述例子用于帮助你理解 Ant Design 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
+> 上述例子用于帮助你理解 Ant Design React 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
 
 ## 兼容性
 
-Ant Design 支持所有的现代浏览器和 IE8+。
+Ant Design React 支持所有的现代浏览器和 IE8+。
 
 对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
 

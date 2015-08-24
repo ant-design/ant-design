@@ -1,4 +1,5 @@
 import React from 'react';
+import Animate from 'rc-animate';
 const prefixCls = 'ant-tag';
 
 class AntTag extends React.Component {
@@ -6,24 +7,46 @@ class AntTag extends React.Component {
     super(props);
 
     this.state = {
+      closing: false,
       closed: false
     };
   }
+
   close(e) {
+    let dom = React.findDOMNode(this);
+    dom.style.width = dom.offsetWidth + 'px';
+    // It's Magic Code, don't know why
+    dom.style.width = dom.offsetWidth + 'px';
     this.setState({
-      closed: true
+      closing: true
     });
     this.props.onClose.call(this, e);
   }
+
+  animationEnd() {
+    this.setState({
+      closed: true,
+      closing: false
+    });
+  }
+
   render() {
     let close = this.props.closable ?
       <i className="anticon anticon-cross" onClick={this.close.bind(this)}></i> : '';
-    let colorClass = this.props.prefixCls + '-' + this.props.color;
+    let colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
+    let className = this.props.prefixCls + ' ' + colorClass;
+    className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 
-    return this.state.closed ? null : <div className={this.props.prefixCls + ' ' + colorClass}>
-      <a className={this.props.prefixCls + '-text'} {...this.props} />
-      {close}
-    </div>;
+    return this.state.closed ? null
+      : <Animate component=""
+                 showProp='data-show'
+                 transitionName="zoom-tag"
+                 onEnd={this.animationEnd.bind(this)}>
+        <div data-show={!this.state.closing} className={className}>
+          <a className={this.props.prefixCls + '-text'} {...this.props} />
+          {close}
+        </div>
+      </Animate>;
   }
 }
 

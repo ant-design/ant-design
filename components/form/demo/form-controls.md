@@ -13,7 +13,7 @@ var Select = antd.Select;
 var Option = Select.Option;
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 function handleSelectChange(value) {
   console.log('selected ' + value);
@@ -36,7 +36,7 @@ React.render(
   <div className="ant-form-item">
     <label className="col-6">Select 选择器：</label>
     <div className="col-14">
-      <Select size="large" value="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>

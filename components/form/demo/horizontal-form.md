@@ -15,7 +15,7 @@
 ````jsx
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 React.render(
 <form className="ant-form-horizontal">

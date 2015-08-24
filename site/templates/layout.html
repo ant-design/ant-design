@@ -11,7 +11,7 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}.css">
+    <link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}{{ config.minimized }}.css">
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/tomorrow.css">
     <script>
@@ -33,7 +33,7 @@
         }
       })(this.console = this.console || {});
     </script>
-    <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js,react-router/0.13.3/ReactRouter.js"></script>
+    <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js"></script>
     <script>
       var ANT_COMPONENTS = [];
       {%- for item in resource.pages|find_category(["CSS","Components"]) %}
@@ -50,7 +50,7 @@
         stable: '{{config.package.stableVersion}}'
       };
     </script>
-    <script src="/dist/{{ config.package.name }}-{{ config.package.version }}.js"></script>
+    <script src="/dist/{{ config.package.name }}-{{ config.package.version }}{{ config.minimized }}.js"></script>
     <script src="/dist/demo.js"></script>
     <script>
       window.require = function (path) {
@@ -92,14 +92,14 @@
           <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
             <a href="/">首页</a>
           </li>
-          <li class="{%- if post.directory|rootDirectoryIs('docs') %}current{%- endif %}">
-            <a href="/docs/introduce">使用</a>
+          <li class="{%- if post.directory|rootDirectoryIn(['spec']) %}current{%- endif %}">
+            <a href="/spec/introduce">设计</a>
           </li>
-          <li class="{%- if post.directory|rootDirectoryIs('spec') %}current{%- endif %}">
-            <a href="/spec/font">设计</a>
+          <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) %}current{%- endif %}">
+            <a href="/docs/introduce">React</a>
           </li>
-          <li class="{%- if post.directory|rootDirectoryIs('components') %}current{%- endif %}">
-            <a href="/components">组件</a>
+          <li>
+            <a class="nav-link-disabled" href="">案例</a>
           </li>
           <li>
             <a target="_blank" href="https://github.com/ant-design/ant-design">Github</a>

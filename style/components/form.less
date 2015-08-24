@@ -1,5 +1,4 @@
 @import "../mixins/index";
-@btnClass: ~"@{css-prefix}btn";
 
 .reset-form();
 
@@ -130,7 +129,7 @@ form {
 
   // Input combined with select
   .@{css-prefix}input-group {
-    .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-selection {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
       &:hover {
@@ -138,18 +137,18 @@ form {
       }
     }
 
-    .@{selectPrefixCls}-selection--single {
+    .@{select-prefix-cls}-selection--single {
       margin-left: -1px;
       height: @input-height-lg;
       background-color: #eee;
-      .@{selectPrefixCls}-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         padding-left: 8px;
         padding-right: 25px;
         line-height: 30px;
       }
     }
 
-    .@{selectPrefixCls}-open .@{selectPrefixCls}-selection {
+    .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
       border-color: #d9d9d9;
       box-shadow: none;
     }
@@ -186,12 +185,12 @@ form {
     }
   }
 
-  .@{inputNumberPrefixCls} {
+  .@{input-number-prefix-cls} {
     margin-top: -1px;
     margin-right: 8px;
   }
 
-  .@{prefixCalendarClass}-picker {
+  .@{calendar-prefix-cls}-picker {
     width: 100%;
   }
 }
@@ -231,6 +230,10 @@ form {
     vertical-align: middle;
   }
 
+  .@{calendar-prefix-cls}-picker-input {
+    width: 100%!important;
+  }
+
   .@{css-prefix}form-text {
     display: inline-block;
   }
@@ -262,6 +265,17 @@ form {
     line-height: @input-height-lg;
     text-align: center;
     font-size: 14px;
+    .animation(zoomIn .3s @ease-out-back);
+  }
+}
+.has-error{
+  &.has-feedback:after {
+    animation-name: zoomIn2 !important;
+  }
+}
+.has-warning{
+  &.has-feedback:after {
+    animation-name: zoomIn3 !important;
   }
 }
 
@@ -287,7 +301,7 @@ form {
   }
 
   // ant-select
-  .@{selectPrefixCls} {
+  .@{select-prefix-cls} {
     &-selection {
       border-color: @warning-color;
       box-shadow: 0 0 0 2px tint(@warning-color, 80%);
@@ -298,7 +312,7 @@ form {
   }
 
   // ant-datepicker
-  .@{prefixCalendarClass}-picker-icon:after {
+  .@{calendar-prefix-cls}-picker-icon:after {
     color: @warning-color;
   }
 }
@@ -310,9 +324,9 @@ form {
     content: '\e628';
     color: @error-color;
   }
-  
+
   // ant-select
-  .@{selectPrefixCls} {
+  .@{select-prefix-cls} {
     &-selection {
       border-color: @error-color;
       box-shadow: 0 0 0 2px tint(@error-color, 80%);
@@ -324,7 +338,7 @@ form {
   }
 
   // ant-datepicker
-  .@{prefixCalendarClass}-picker-icon:after {
+  .@{calendar-prefix-cls}-picker-icon:after {
     color: @error-color;
   }
 }
@@ -332,7 +346,24 @@ form {
 .is-validating {
   &.has-feedback:after {
     display: inline-block;
-    .animation(loadingCircle 1s infinite linear);
+    .animation(loadingCircle 1s infinite linear );
     content:"\e610";
+  }
+}
+
+@keyframes zoomIn2 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes zoomIn3 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
   }
 }

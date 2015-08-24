@@ -1,6 +1,6 @@
 .zoom-motion(@className, @keyframeName) {
   .make-motion(@className, @keyframeName);
-  .@{className}-enter {
+  .@{className}-enter, .@{className}-appear {
     transform: scale(0, 0); // need this by yiminghe
     animation-timing-function: @ease-out-quint;
   }

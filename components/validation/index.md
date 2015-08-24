@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 表单校验
-- order: 19
+- type: 表单
 
 ---
 

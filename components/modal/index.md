@@ -1,6 +1,6 @@
 # Modal
 
-- order: 11
+- type: 展示
 - category: Components
 - chinese: 对话框
 

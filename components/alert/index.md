@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 警告提示
+- type: 展示
 
 ---
 

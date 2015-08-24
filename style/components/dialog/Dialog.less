@@ -1,4 +1,4 @@
-.@{dialogPrefixCls} {
+.@{dialog-prefix-cls} {
   outline: none;
   position: absolute;
   left: -9999px;
@@ -23,7 +23,7 @@
 
   &-content {
     position: relative;
-    background-color: #ffffff;
+    background-color: #fff;
     border: none;
     border-radius: 6px 6px;
     background-clip: padding-box;
@@ -54,13 +54,13 @@
       text-rendering: auto;
       width: 12px;
       height: 12px;
-      .iconfont-size-under-12px(10px);
+      font-size: 14px;
       line-height: 12px;
       top: 18px;
       right: 18px;
 
       &:before {
-        content:"\e61e";
+        content: "\e61e";
         display: block;
         font-family: "anticon" !important;
       }
@@ -91,15 +91,5 @@
     padding: 8px 20px 16px 10px;
     text-align: right;
     border-radius: 0 0 5px 5px;
-  }
-
-  .effect() {
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-  }
-
-  &-wrap-hidden > &&-zoom-enter,
-  &-wrap-hidden > &&-zoom-leave {
-    display: block;
   }
 }

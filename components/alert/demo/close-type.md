@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Alert = require('antd/lib/alert');
+var Alert = antd.Alert;
 var link = <a href="javascript:;">不再提醒</a>
 
 React.render(

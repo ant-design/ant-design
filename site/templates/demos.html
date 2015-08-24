@@ -1,15 +1,16 @@
+{%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
+{%- if items.length > 0 %}
 <h2 class="component-demos">
   组件演示
-  <i class="iconfont-home icon-all" title="展开全部代码"></i>
+  <i class="anticon anticon-appstore icon-all" title="展开全部代码"></i>
   {%- if post.meta.sketch %}
   <a class="sketch-link" href="{{ post.meta.sketch }}" target="_blank">
-    <i class="iconfont-home icon-download"></i>
+    <i class="anticon anticon-download"></i>
     Sketch 下载
   </a>
   {%- endif %}
 </h2>
 <div class="code-boxes">
-  {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
   {%- if post.meta.cols == 1 %}
     <div class="code-boxes-col-1-1">
       {%- for item in items %}
@@ -32,3 +33,4 @@
   </div>
   {%- endif %}
 </div>
+{%- endif %}

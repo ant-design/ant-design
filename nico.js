@@ -14,7 +14,7 @@ webpackCompiler.apply(new ProgressPlugin(function(percentage, msg) {
   var stream = process.stderr;
   if (stream.isTTY && percentage < 0.71) {
     stream.cursorTo(0);
-    stream.write('📦  ' + chalk.green(parseInt(percentage*100)+ '% ') + msg);
+    stream.write('📦  ' + chalk.magenta(msg));
     stream.clearLine(1);
   } else if (percentage === 1) {
     console.log(chalk.green('\nwebpack: bundle build is now finished.'));
@@ -28,6 +28,12 @@ exports.site = {
   repo: package.repository.url,
   issues: package.bugs.url
 };
+
+// PRODUCTION
+if (process.env.NODE_ENV === 'PRODUCTION') {
+  exports.minimized = '.min';
+}
+
 exports.package = package;
 exports.theme = 'site';
 exports.source = process.cwd();
@@ -85,13 +91,14 @@ exports.middlewares = [
         aggregateTimeout: 300,
         poll: true
       },
-      quiet: true
+      noInfo: true
     });
     try {
       return handler(req, res, next);
     } catch(e) {}
   }
 }];
+
 exports.writers = [
   'nico-jsx.PageWriter',
   'nico-jsx.StaticWriter',

@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 进度条
-- order: 17
+- type: 展示
 
 ---
 

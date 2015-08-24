@@ -1,14 +1,14 @@
-# RadioGroup组合
+# RadioGroup 组合
 
 - order: 1
 
-RadioGroup 组合。
+一组互斥的 Radio 配合使用。
 
 ---
 
 ````jsx
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 var App = React.createClass({
   getInitialState: function () {

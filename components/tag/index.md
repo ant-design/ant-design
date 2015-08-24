@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 标签
+- type: 展示
 
 ---
 

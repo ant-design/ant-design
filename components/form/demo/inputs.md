@@ -17,7 +17,7 @@ React.render(
     <div className="col-16">
       <div className="ant-input-group">
         <span className="ant-input-group-addon" id="basic-addon1">Http://</span>
-        <input type="text" id="site1" className="ant-input" value="mysite.com" />
+        <input type="text" id="site1" className="ant-input" defaultValue="mysite.com" />
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@ React.render(
     <div className="col-16">
       <div className="ant-input-group">
         <span className="ant-input-group-addon" id="basic-addon3">Http://</span>
-        <input type="text" className="ant-input" id="site3" value="mysite" />
+        <input type="text" className="ant-input" id="site3" defaultValue="mysite" />
         <span className="ant-input-group-addon" id="basic-addon4">.com</span>
       </div>
     </div>
@@ -71,7 +71,7 @@ React.render(
     <div className="col-16">
       <div className="row">
         <div className="col-4">
-          <input className="ant-input" type="text" id="tel1" value="086" />
+          <input className="ant-input" type="text" id="tel1" defaultValue="086" />
         </div>
         <div className="col-2">
           <p className="ant-form-split">--</p>

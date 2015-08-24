@@ -13,8 +13,11 @@ export default React.createClass({
       transitionName: '',
       placement: 'top',
       trigger: 'click',
-      onConfirm: function () {},
-      onCancel: function () {}
+      overlayStyle: {},
+      onConfirm: function () {
+      },
+      onCancel: function () {
+      }
     };
   },
   confirm() {
@@ -41,6 +44,7 @@ export default React.createClass({
           <i className="anticon anticon-exclamation-circle"></i>
           {this.props.title}
         </p>
+
         <div className={prefixCls + '-buttons'}>
           <button onClick={this.cancel} className="ant-btn ant-btn-sm">取 消</button>
           <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>
@@ -57,8 +61,8 @@ export default React.createClass({
 
     return (
       <Tooltip placement={this.props.placement}
+               overlayStyle={this.props.overlayStyle}
                prefixCls={prefixCls}
-               renderPopupToBody={false}
                onVisibleChange={this.onVisibleChange}
                transitionName={transitionName}
                visible={this.state.visible}

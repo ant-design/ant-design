@@ -1,4 +1,4 @@
-.fade-enter {
+.fade-enter, .fade-appear {
   opacity: 0;
   .motion-common();
   animation-timing-function: @ease-out;
@@ -11,7 +11,7 @@
   animation-play-state: paused;
 }
 
-.fade-enter.fade-enter-active {
+.fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
   animation-name: fadeIn;
   animation-play-state: running;
 }

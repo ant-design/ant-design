@@ -22,6 +22,10 @@ function cx(classNames) {
   }
 }
 
+function noop() {
+  return false;
+}
+
 var Form = React.createClass({
   mixins: [Validation.FieldMixin],
 
@@ -154,7 +158,7 @@ var Form = React.createClass({
             <div className="col-10">
               <div className={this.renderValidateStyle('pass', false)}>
                 <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                  <input name="pass" id="confirmPass" className="ant-input" type="password" value={formData.pass}/>
+                  <input name="pass" id="confirmPass" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.pass}/>
                 </Validator>
                 {status.pass.errors ? <div className="ant-form-explain">{status.pass.errors.join(',')}</div> : null}
               </div>
@@ -173,7 +177,7 @@ var Form = React.createClass({
                   whitespace: true,
                   message: '请再次输入密码'
                 }, {validator: this.checkPass2}]}>
-                  <input name="rePass" id="confirmPass2" className="ant-input" type="password" value={formData.rePass}/>
+                  <input name="rePass" id="confirmPass2" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePass}/>
                 </Validator>
                 {status.rePass.errors ? <div className="ant-form-explain"> {status.rePass.errors.join(', ')}</div> : null}
               </div>

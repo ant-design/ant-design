@@ -7,14 +7,14 @@
       {{ post.title }} {{ post.meta.chinese }}
       {%- if post.meta.API %}
       <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
-        <i class="iconfont-home icon-externallink"></i>
+        <i class="anticon anticon-link"></i>
         API 使用说明
       </a>
       {%- endif %}
     </h1>
     {{ post.html }}
   </article>
-  {%- if post.meta.template === 'component' && !post.meta.nodemos %}
+  {%- if post.meta.template === 'component' %}
   {%- include "demos.html" %}
   {%- endif %}
   <div class="api-container markdown"></div>

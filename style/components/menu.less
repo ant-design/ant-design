@@ -1,6 +1,6 @@
-@menuPrefixCls: ~"@{css-prefix}menu";
+@menu-prefix-cls: ~"@{css-prefix}menu";
 
-.@{menuPrefixCls} {
+.@{menu-prefix-cls} {
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
@@ -52,7 +52,7 @@
     transition: all 0.3s ease;
   }
 
-  &-submenu-horizontal > .@{menuPrefixCls} {
+  &-submenu-horizontal > .@{menu-prefix-cls} {
     top: 100%;
     left: 0;
     position: absolute;
@@ -60,7 +60,7 @@
     margin-top: 7px;
   }
 
-  &-submenu-vertical > .@{menuPrefixCls} {
+  &-submenu-vertical > .@{menu-prefix-cls} {
     top: 0;
     left: 100%;
     position: absolute;
@@ -75,7 +75,7 @@
     white-space: nowrap;
 
     // Disabled state sets text to gray and nukes hover/tab effects
-    &.@{menuPrefixCls}-item-disabled, &.@{menuPrefixCls}-submenu-disabled {
+    &.@{menu-prefix-cls}-item-disabled, &.@{menu-prefix-cls}-submenu-disabled {
       color: #999 !important;
     }
   }
@@ -94,12 +94,12 @@
       animation-timing-function: @ease-in-out-circ;
     }
 
-    > .@{menuPrefixCls} {
+    > .@{menu-prefix-cls} {
       display: none;
       background-color: #fff;
     }
 
-    &-vertical > .@{menuPrefixCls}-submenu-title:after {
+    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
       font-family: "anticon" !important;
       font-style: normal;
       vertical-align: baseline;
@@ -114,7 +114,7 @@
       transform: rotate(270deg) scale(0.75);
     }
 
-    &-inline > .@{menuPrefixCls}-submenu-title:after {
+    &-inline > .@{menu-prefix-cls}-submenu-title:after {
       font-family: "anticon" !important;
       font-style: normal;
       vertical-align: baseline;
@@ -130,10 +130,10 @@
     }
 
     &-open {
-      > .@{menuPrefixCls} {
+      > .@{menu-prefix-cls} {
         display: block;
       }
-      &.@{menuPrefixCls}-submenu-inline > .@{menuPrefixCls}-submenu-title:after {
+      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
         .ie-rotate(1);
         transform: rotate(180deg) scale(0.75);
       }
@@ -141,7 +141,7 @@
     }
   }
 
-  .@{menuPrefixCls}-submenu-title, .@{menuPrefixCls}-item {
+  .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
     .anticon {
       width: 14px;
       margin-right: 8px;
@@ -159,8 +159,8 @@
     padding-left: 24px;
     z-index: 0;
 
-    & > .@{menuPrefixCls}-item,
-    & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       padding: 0 20px;
       line-height: 50px;
       position: relative;
@@ -184,7 +184,7 @@
       }
     }
 
-    & > .@{menuPrefixCls}-submenu, & > .@{menuPrefixCls}-item {
+    & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
       float: left;
       border-bottom: 2px solid transparent;
       margin-right: 24px;
@@ -216,11 +216,28 @@
 
   &-vertical, &-inline {
     padding: 12px 0;
-    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       padding: 0 24px;
       font-size: 12px;
       line-height: 42px;
       height: 42px;
+    }
+  }
+
+  &-vertical, &-horizontal {
+    .@{menu-prefix-cls}-submenu {
+      .@{menu-prefix-cls}-item:first-child {
+        border-radius: @border-radius-base @border-radius-base 0 0;
+      }
+      .@{menu-prefix-cls}-item:last-child {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
+      &:first-child {
+        border-radius: @border-radius-base @border-radius-base 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+      }
     }
   }
 
@@ -246,7 +263,7 @@
     overflow: hidden;
     transition: height .3s @ease-in-out;
 
-    & > .@{menuPrefixCls}-item, & > .@{menuPrefixCls}-submenu > .@{menuPrefixCls}-submenu-title {
+    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       line-height: 34px;
       height: 34px;
       list-style-type: disc;
@@ -259,7 +276,7 @@
   }
 }
 
-.@{menuPrefixCls}-submenu-title, .@{menuPrefixCls}-item {
+.@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
   .anticon {
     width: 14px;
     margin-right: 8px;

@@ -1,10 +1,12 @@
-.checkboxFn();
-.checkboxFn(@checkboxPrefixCls: ant-checkbox) {
-@checkboxWrapPrefixCls: @checkboxPrefixCls;
-@checkboxInnerPrefixCls: ~"@{checkboxWrapPrefixCls}-inner";
+.antCheckboxFn();
 
-/* 一般状态 */
-.@{checkboxWrapPrefixCls} {
+.antCheckboxFn(@checkbox-prefix-cls: ant-checkbox) {
+
+@checkbox-wrap-prefix-cls: @checkbox-prefix-cls;
+@checkbox-inner-prefix-cls: ~"@{checkbox-wrap-prefix-cls}-inner";
+
+// 一般状态
+.@{checkbox-wrap-prefix-cls} {
   white-space: nowrap;
   cursor: pointer;
   outline: none;
@@ -14,7 +16,7 @@
   vertical-align: middle;
 
   &:hover {
-    .@{checkboxInnerPrefixCls} {
+    .@{checkbox-inner-prefix-cls} {
       border-color: #bcbcbc;
     }
   }
@@ -28,7 +30,7 @@
       display: table;
       width: 5px;
       height: 8px;
-      border: 2px solid #ffffff;
+      border: 2px solid #fff;
       border-top: 0;
       border-left: 0;
       content: ' ';
@@ -45,7 +47,7 @@
     border-style: solid;
     border-radius: 3px;
     border-color: #d9d9d9;
-    background-color: #ffffff;
+    background-color: #fff;
     transition: border-color 0.1s @ease-in-out-back, background-color 0.1s @ease-in-out-back;
   }
 
@@ -61,9 +63,9 @@
   }
 }
 
-/* 半选状态 */
-.@{checkboxWrapPrefixCls}-indeterminate {
-  .@{checkboxInnerPrefixCls} {
+// 半选状态
+.@{checkbox-wrap-prefix-cls}-indeterminate {
+  .@{checkbox-inner-prefix-cls} {
     border-color: @primary-color;
     background-color: @primary-color;
     &:after {
@@ -77,16 +79,16 @@
     }
   }
 }
-/* 选中状态 */
-.@{checkboxWrapPrefixCls}-checked {
+// 选中状态
+.@{checkbox-wrap-prefix-cls}-checked {
 
   &:hover {
-    .@{checkboxInnerPrefixCls} {
+    .@{checkbox-inner-prefix-cls} {
       border-color: @primary-color;
     }
   }
 
-  .@{checkboxInnerPrefixCls} {
+  .@{checkbox-inner-prefix-cls} {
     border-color: @primary-color;
     background-color: @primary-color;
 
@@ -98,7 +100,7 @@
       display: table;
       width: 5px;
       height: 8px;
-      border: 2px solid #ffffff;
+      border: 2px solid #fff;
       border-top: 0;
       border-left: 0;
       content: ' ';
@@ -107,34 +109,34 @@
   }
 }
 
-.@{checkboxWrapPrefixCls}-disabled {
+.@{checkbox-wrap-prefix-cls}-disabled {
 
-  &.@{checkboxWrapPrefixCls}-checked {
+  &.@{checkbox-wrap-prefix-cls}-checked {
 
     &:hover {
-      .@{checkboxInnerPrefixCls} {
+      .@{checkbox-inner-prefix-cls} {
         border-color: #d9d9d9;
       }
     }
 
-    .@{checkboxInnerPrefixCls} {
+    .@{checkbox-inner-prefix-cls} {
       background-color: #f3f3f3;
       border-color: #d9d9d9;
 
       &:after {
         animation-name: none;
-        border-color: #cccccc;
+        border-color: #ccc;
       }
     }
   }
 
   &:hover {
-    .@{checkboxInnerPrefixCls} {
+    .@{checkbox-inner-prefix-cls} {
       border-color: #d9d9d9;
     }
   }
 
-  .@{checkboxInnerPrefixCls} {
+  .@{checkbox-inner-prefix-cls} {
     border-color: #d9d9d9;
     background-color: #f3f3f3;
     &:after {
@@ -143,12 +145,12 @@
     }
   }
 
-  .@{checkboxInnerPrefixCls}-input {
+  .@{checkbox-inner-prefix-cls}-input {
     cursor: default;
   }
 }
 
-.@{checkboxWrapPrefixCls} + span {
+.@{checkbox-wrap-prefix-cls} + span {
   margin-left: 8px;
 }
 

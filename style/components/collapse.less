@@ -1,5 +1,4 @@
-@prefixCls: ant-collapse;
-@borderStyle: 1px solid #d9d9d9;
+@collapse-prefix-cls: ant-collapse;
 
 #arrow {
   .close() {
@@ -10,66 +9,80 @@
   }
 }
 
-.@{prefixCls} {
+.@{collapse-prefix-cls} {
   background-color: #f4f4f4;
   border-radius: 3px;
-  border: @borderStyle;
+  border: 1px solid #d9d9d9;
 
   & > &-item {
-    border-top: @borderStyle;
+    border-top: 1px solid #d9d9d9;
     &:first-child {
       border-top: none;
     }
 
-    > .@{prefixCls}-header {
+    > .@{collapse-prefix-cls}-header {
       height: 38px;
       line-height: 38px;
-      padding-left: 16px;
+      padding-left: 32px;
       color: #666;
       cursor: pointer;
-      &:before {
-        font-family: "anticon" !important;
+      position: relative;
+
+      .arrow {
+        #arrow > .close();
+        .iconfont-mixin();
+        position: absolute;
         color: #666;
         display: inline-block;
         margin-right: 8px;
-        content:"\e60f";
-        #arrow > .close();
+        content: "\e60f";
         vertical-align: middle;
         transition: transform 0.24s ease;
-        position: relative;
         top: -1px;
+        left: 16px;
+        top: ~"16px \9";
+        left: ~"0 \9";
+        &:before {
+          content:"\e60f";
+        }
       }
     }
   }
 
   &-content {
     height: 0;
-    transition-duration: .24s;
-    transition-timing-function: @ease-out-circ;
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
     background-color: #fff;
 
     & > &-box {
-      margin-top: 16px;
-      margin-bottom: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
   }
 
+  &-collapsing {
+    transition-duration: .24s;
+    transition-timing-function: @ease-out-circ;
+  }
+
   &-item:last-child {
-    > .@{prefixCls}-content {
+    > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 3px 3px;
     }
   }
 
   &-content-active {
+    height: auto;
   }
 
   & > &-item-active {
-    > .@{prefixCls}-header {
+    > .@{collapse-prefix-cls}-header {
 
-      &:before {
+      .arrow {
+        top: -1px;
+        left: 16px;
         #arrow > .open();
       }
     }

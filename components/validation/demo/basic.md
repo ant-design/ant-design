@@ -16,7 +16,7 @@ var Validator = Validation.Validator;
 var Select = antd.Select;
 var Option = Select.Option;
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -26,6 +26,10 @@ function cx(classNames) {
   } else {
     return Array.prototype.join.call(arguments, ' ');
   }
+}
+
+function noop() {
+  return false;
 }
 
 var Form = React.createClass({
@@ -122,6 +126,10 @@ var Form = React.createClass({
   },
 
   checkPass(rule, value, callback) {
+    if (this.state.formData.passwd) {
+      this.refs.validation.forceValidate(['rePasswd']);
+    }
+
     callback();
   },
 
@@ -203,7 +211,7 @@ var Form = React.createClass({
             <div className="col-12">
               <div className={this.renderValidateStyle('passwd')}>
                 <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]}>
-                  <input name="passwd" id="password" className="ant-input" type="password" value={formData.passwd}/>
+                  <input name="passwd" id="password" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.passwd}/>
                 </Validator>
                 {status.passwd.errors ? <div className="ant-form-explain">{status.passwd.errors.join(',')}</div> : null}
               </div>
@@ -219,7 +227,7 @@ var Form = React.createClass({
                   whitespace: true,
                   message: '请再次输入密码'
                 }, {validator: this.checkPass2}]}>
-                  <input name="rePasswd" id="password2" className="ant-input" type="password" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
+                  <input name="rePasswd" id="password2" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
                 </Validator>
                 {status.rePasswd.errors ? <div className="ant-form-explain"> {status.rePasswd.errors.join(', ')}</div> : null}
               </div>

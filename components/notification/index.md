@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 通知提醒框
+- type: 展示
 
 ---
 
