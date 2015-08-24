@@ -1,7 +1,7 @@
 # 色彩
 
-- category: 色彩
-- order: 0
+- category: 风格
+- order: 2
 
 ---
 

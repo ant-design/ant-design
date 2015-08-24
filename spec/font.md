@@ -1,6 +1,6 @@
 # 字体
 
-- category: 文字
+- category: 风格
 - order: 0
 
 ---

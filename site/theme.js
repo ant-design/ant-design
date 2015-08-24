@@ -89,7 +89,7 @@ module.exports = function(nico) {
         });
         // 设计的分类排序
         categories = categories.sort(function(a, b) {
-          var cats = ['文字', '色彩', '动画'];
+          var cats = ['风格', '动画'];
           a = cats.indexOf(a.name);
           b = cats.indexOf(b.name);
           return a - b;
