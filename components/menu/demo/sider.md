@@ -47,6 +47,8 @@ var Sider = React.createClass({
         <Menu.Item key="10">选项10</Menu.Item>
         <Menu.Item key="11">选项11</Menu.Item>
         <Menu.Item key="12">选项12</Menu.Item>
+        <Menu.Item key="13">选项13</Menu.Item>
+        <Menu.Item key="14">选项14</Menu.Item>
       </SubMenu>
     </Menu>;
   }
