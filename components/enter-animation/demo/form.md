@@ -12,7 +12,7 @@ var Select = antd.Select;
 var Option = Select.Option;
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
-var RadioGroup = antd.RadioGroup;
+var RadioGroup = antd.Radio.Group;
 
 var Test = React.createClass({
   getInitialState(){
@@ -99,7 +99,7 @@ var Test = React.createClass({
 });
 
 React.render(<Test />
-, document.getElementById('components-enter-animation-demo-enter-from'));
+, document.getElementById('components-enter-animation-demo-form'));
 ````
 
 <style>
