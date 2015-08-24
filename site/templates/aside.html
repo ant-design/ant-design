@@ -2,7 +2,7 @@
 <aside class="aside-container">
   <ul>
   {%- for category in categories %}
-    {%- if category.name === 'top' %}
+    {%- if category.pages.length === 1 %}
       {%- for item in category.pages|splitComponentsByType(category.name) %}
       <li class="{%- if item.title === post.title %}current{%- endif %}">
         <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">

@@ -95,11 +95,11 @@
           <li class="{%- if post.directory|rootDirectoryIn(['spec']) %}current{%- endif %}">
             <a href="/spec/introduce">设计</a>
           </li>
-          <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) %}current{%- endif %}">
-            <a href="/docs/introduce">React</a>
-          </li>
           <li>
             <a class="nav-link-disabled" href="">案例</a>
+          </li>
+          <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) %}current{%- endif %}">
+            <a href="/docs/introduce">React</a>
           </li>
           <li>
             <a target="_blank" href="https://github.com/ant-design/ant-design">Github</a>

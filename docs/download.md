@@ -1,6 +1,6 @@
 # 下载
 
-- category: top
+- category: 3
 - order: 2
 
 ---

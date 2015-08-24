@@ -180,7 +180,7 @@ a.logo {
 
 a.nav-link-disabled {
   cursor: not-allowed;
-  color: #ddd !important;
+  color: #ccc !important;
   pointer-events: none;
 }
 
