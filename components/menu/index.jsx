@@ -20,6 +20,8 @@ const animation = {
         done();
       }
     }
+    // Fix safari flash bug
+    node.style.display = 'none';
     velocity(node, transitionName, {
       duration: 240,
       complete: complete,
