@@ -45,9 +45,9 @@ var Test = React.createClass({
   render() {
     return (
     <div>
-      <div style={{'margin-bottom':20,'text-align':'center'}}>
+      <div style={{marginBottom:20,textAlign:'center'}}>
         <button className="ant-btn ant-btn-primary" onClick={this.onEnter}>进场</button>
-        <button className="ant-btn ant-btn-primary" style={{'margin-left':20}} onClick={this.onLeave}>出场</button>
+        <button className="ant-btn ant-btn-primary" style={{marginLeft:20}} onClick={this.onLeave}>出场</button>
       </div>
         <form className="ant-form-horizontal">
          <EnterAnimation interval={this.state.interval} type={this.state.type} upend={this.state.upend} direction={this.state.direction} callback={this.state.callback}>
