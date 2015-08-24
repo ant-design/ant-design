@@ -85,7 +85,8 @@
     "precommit-hook": "^1.0.7",
     "react-router": "~1.0.0-beta3",
     "webpack": "^1.10.1",
-    "webpack-dev-middleware": "^1.2.0"
+    "webpack-dev-middleware": "^1.2.0",
+    "velocity-animate": "~1.2.2"
   },
   "scripts": {
     "babel": "babel components --out-dir lib",
