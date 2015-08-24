@@ -1,7 +1,6 @@
 import React from 'react';
 import Menu from 'rc-menu';
 import velocity from 'velocity-animate';
-import EnterAnimation from 'enter-animation';
 
 const animation = {
   enter(node, done) {
@@ -58,40 +57,6 @@ const AntMenu = React.createClass({
     return {
       prefixCls: 'ant-menu'
     };
-  },
-  toggle(info) {
-    let dom = React.findDOMNode(info.item || info);
-    let ul = dom.getElementsByTagName('ul')[0];
-    function TweenAnimate(_dom) {
-      let num=Number((.12/_dom.children.length).toFixed(3));
-      if(info.open){
-        EnterAnimation.to(_dom,{duration:.15,data:'scale',interval:num});
-      }else{
-        EnterAnimation.to(_dom,{duration:.15,data:'scale',interval:num,direction:'leave',upend:true,ease:'cubic-bezier(0.6, 0.04, 0.98, 0.335)'});
-      }
-    }
-    if (this.props.mode && info.item && !ul) {
-      setTimeout(()=> {
-        ul = dom.getElementsByTagName('ul')[0];
-        TweenAnimate(ul);
-      }, 1);
-    } else {
-      if (!ul) {
-        ul = dom;
-      }
-      TweenAnimate(ul);
-    }
-  },
-  componentDidMount() {
-    this.componentDidUpdate(this.props);
-  },
-  componentDidUpdate(prevProps) {
-    //更改初始进场(dropdown)
-    if (!prevProps.mode) {
-      var height = React.findDOMNode(this).offsetHeight;
-      this.open = height ? true : false;//!this.open;
-      this.toggle(this);
-    }
   },
   render() {
     let openAnimation = '';
