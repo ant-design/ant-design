@@ -17,7 +17,7 @@ Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
 let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
-export default React.createClass({
+const AntDatepicker = React.createClass({
   getInitialState() {
     var value;
     if (this.props.value) {
@@ -93,3 +93,19 @@ export default React.createClass({
     );
   }
 });
+
+const AntCalendar = React.createClass({
+  getDefaultProps() {
+    return {
+      locale: CalendarLocale,
+      prefixCls: 'ant-calendar',
+    };
+  },
+  render() {
+    return <Calendar {...this.props}/>;
+  }
+});
+
+AntDatepicker.Calendar = AntCalendar;
+
+export default AntDatepicker;
