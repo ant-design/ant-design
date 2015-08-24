@@ -13,15 +13,15 @@ var TreeNode = Tree.TreeNode;
 React.render(
   <Tree className="myCls" defaultExpandAll={true}>
     <TreeNode title="parent 1">
-      <TreeNode>leaf</TreeNode>
+      <TreeNode title="leaf" />
       <TreeNode title="parent 1-1">
         <TreeNode title="parent 2-1">
-          <TreeNode>leaf</TreeNode>
+          <TreeNode title="leaf" />
+          <TreeNode title="leaf" />
         </TreeNode>
-        <TreeNode>leaf</TreeNode>
+        <TreeNode title="leaf" />
       </TreeNode>
     </TreeNode>
-    <TreeNode>leaf</TreeNode>
   </Tree>
 , document.getElementById('components-tree-demo-basic'));
 ````

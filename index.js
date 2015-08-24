@@ -44,6 +44,8 @@ const antd = {
   Menu: require('./components/menu')
 };
 
+antd.velocity = require('velocity-animate');
+
 module.exports = antd;
 
 antd.version = require('./package.json').version;
