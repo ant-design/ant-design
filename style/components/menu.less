@@ -134,6 +134,7 @@
         .ie-rotate(1);
         transform: rotate(180deg) scale(0.75);
       }
+
     }
   }
 
@@ -233,6 +234,10 @@
 
   &-vertical&-sub {
     padding: 0;
+    transform-origin: 0 0;
+    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu {
+      transform-origin: 0 0;
+    }
   }
 
   &-root&-vertical,
@@ -246,7 +251,7 @@
     border: none;
     border-radius: 0;
     box-shadow: none;
-
+    overflow: hidden;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       line-height: 34px;
       height: 34px;
