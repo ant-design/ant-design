@@ -26,11 +26,11 @@ var Test = React.createClass({
     this.setState({
       ModalText: '对话框将在两秒后关闭'
     });
-    setTimeout((function() {
+    setTimeout(() => {
       this.setState({
         visible: false
       });
-    }).bind(this), 2000);
+    }, 2000);
   },
   handleCancel() {
     console.log('点击了取消');
