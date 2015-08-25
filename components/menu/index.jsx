@@ -1,38 +1,7 @@
 import React from 'react';
 import Menu from 'rc-menu';
 import velocity from 'velocity-animate';
-
-const animation = {
-  enter(node, done) {
-    this.animate(node, 'slideDown', done);
-  },
-  leave(node, done) {
-    this.animate(node, 'slideUp', done);
-  },
-  appear() {
-    return this.enter.apply(this, arguments);
-  },
-  animate(node, transitionName, done) {
-    let ok;
-    function complete() {
-      if (!ok) {
-        ok = true;
-        done();
-      }
-    }
-    velocity(node, transitionName, {
-      duration: 240,
-      complete: complete,
-      easing: 'easeInOutQuad'
-    });
-    return {
-      stop() {
-        velocity(node, 'finish');
-        complete();
-      }
-    };
-  }
-};
+import animation from '../common/openAnimation';
 
 const AntMenu = React.createClass({
   getDefaultProps() {

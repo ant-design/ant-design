@@ -5,7 +5,6 @@ import Checkbox from '../checkbox';
 import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
 import objectAssign from 'object-assign';
-import equals from 'is-equal-shallow';
 
 function noop() {
 }
@@ -31,12 +30,8 @@ class DataSource {
     }
   }
 
-  clone(config) {
-    if (config) {
-      return new DataSource(objectAssign(config, this.config));
-    } else {
-      return this;
-    }
+  clone(config = {}) {
+    return new DataSource(objectAssign(config, this.config));
   }
 }
 
@@ -79,7 +74,8 @@ var AntTable = React.createClass({
       });
     }
     if (!this.isLocalDataSource()) {
-      if (!equals(nextProps, this.props)) {
+      // 外界只有 dataSource 的变化会触发请请求
+      if (nextProps.dataSource !== this.props.dataSource) {
         this.setState({
           selectedRowKeys: [],
           loading: true
