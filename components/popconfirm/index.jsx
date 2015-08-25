@@ -13,20 +13,28 @@ export default React.createClass({
       transitionName: '',
       placement: 'top',
       trigger: 'click',
-      onConfirm: function() {},
-      onCancel: function() {}
+      overlayStyle: {},
+      onConfirm: function () {
+      },
+      onCancel: function () {
+      }
     };
   },
-  confirm: function() {
+  confirm() {
     this.props.onConfirm.call(this);
     this.setState({
       visible: false
     });
   },
-  cancel: function() {
+  cancel() {
     this.props.onCancel.call(this);
     this.setState({
       visible: false
+    });
+  },
+  onVisibleChange(v) {
+    this.setState({
+      visible: v
     });
   },
   render() {
@@ -36,6 +44,7 @@ export default React.createClass({
           <i className="anticon anticon-exclamation-circle"></i>
           {this.props.title}
         </p>
+
         <div className={prefixCls + '-buttons'}>
           <button onClick={this.cancel} className="ant-btn ant-btn-sm">取 消</button>
           <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>
@@ -52,12 +61,13 @@ export default React.createClass({
 
     return (
       <Tooltip placement={this.props.placement}
-        prefixCls={prefixCls}
-        renderPopupToBody={false}
-        transitionName={transitionName}
-        visible={this.state.visible}
-        trigger={this.props.trigger}
-        overlay={overlay}>
+               overlayStyle={this.props.overlayStyle}
+               prefixCls={prefixCls}
+               onVisibleChange={this.onVisibleChange}
+               transitionName={transitionName}
+               visible={this.state.visible}
+               trigger={this.props.trigger}
+               overlay={overlay}>
         {this.props.children}
       </Tooltip>
     );

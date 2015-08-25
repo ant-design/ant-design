@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 数字输入框
-- order: 4
+- type: 表单
 
 ---
 
@@ -25,3 +25,4 @@
 | defaultValue     | 初始值       | Number      |            |
 | onChange     | 变化回调       | Function      |            |
 | disabled     | 禁用       | Boolean      |      false      |
+| size    | 输入框大小  | String      |      无      |

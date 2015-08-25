@@ -3,7 +3,7 @@
 - category: Components
 - chinese: 表格
 - cols: 1
-- order: 18
+- type: 展示
 
 ---
 
@@ -38,17 +38,18 @@ var dataSource = [{
 
 **远程数据模式**是更常见的业务场景，是一次只从服务端读取一页的数据放在前端，执行筛选、排序、切换页码等操作时均向后台发送请求，后台返回当页的数据和相关分页信息。
 
-通过指定表格的数据源 `dataSource` 为一个对象如下。
+通过指定表格的数据源 `dataSource` 为一个 DataSource 的实例如下。
 
 ```jsx
-var dataSource = {
+var dataSource = new Table.DataSource({
   url: '/api/users',
   resolve: function(result) {
     return result.data;
   },
   getPagination: function(result) {}
   getParams: function(pagination, filters, sorter) {}
-};
+});
+
 <Table dataSource={dataSource} />
 ```
 

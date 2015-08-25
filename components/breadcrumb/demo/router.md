@@ -2,16 +2,17 @@
 
 - order: 2
 
-和 `react-router@0.13.x` 进行结合使用。
+和 `react-router@1.0.0-beta3` 进行结合使用。
 
 ---
 
 ````jsx
-var Router = require('react-router');
-var Route = Router.Route;
-var Link = Router.Link;
-var RouteHandler = Router.RouteHandler;
-var Breadcrumb = require('antd/lib/breadcrumb');
+var ReactRouter = require('react-router');
+var history = require('react-router/lib/HashHistory').history;
+var Router = ReactRouter.Router;
+var Route = ReactRouter.Route;
+var Link = ReactRouter.Link;
+var Breadcrumb = require('antd').Breadcrumb;
 
 var Apps = React.createClass({
   render() {
@@ -22,36 +23,34 @@ var Apps = React.createClass({
   }
 });
 
-var App = React.createClass({
+var Home = React.createClass({
   render() {
     return (<div>
       <div className="demo-nav">
         <Link to="/">首页</Link>
         <Link to="/apps">应用列表</Link>
       </div>
-      <RouteHandler />
+      {this.props.children || 'Home'}
       <div style={{
         marginBottom: 15,
         marginTop: 15,
         paddingBottom: 15,
         borderBottom: '1px dashed #ccc'
       }}>点击上面的导航切换页面，面包屑在下面：</div>
-      <Breadcrumb Router={Router} />
+      <Breadcrumb router={ReactRouter} />
     </div>);
   }
 });
 
-var routes = (
-  <Route name="首页" path="/" handler={App} ignoreScrollBehavior>
-    <Route name="应用列表" path="/apps" handler={Apps}>
-      <Route name="应用:id" path="/apps/:id" handler={App} />
+React.render((
+  <Router history={history}>
+    <Route name="home" breadcrumbName="首页" path="/" component={Home} ignoreScrollBehavior>
+      <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
+        <Route name="app" breadcrumbName="应用:id" path=":id" />
+      </Route>
     </Route>
-  </Route>
-);
-
-Router.run(routes, Router.HashLocation, (Root) => {
-  React.render(<Root />, document.getElementById('components-breadcrumb-demo-router'));
-});
+  </Router>
+), document.getElementById('components-breadcrumb-demo-router'));
 ````
 
 <style>

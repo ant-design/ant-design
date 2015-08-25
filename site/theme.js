@@ -52,15 +52,50 @@ module.exports = function(nico) {
     },
     get_categories: function(posts, post) {
       var rootDirectory = post.directory.split('/')[0];
-      var categories = Categories[rootDirectory] || _.uniq(getAllPosts(posts).map(function(item) {
-        if (item.directory.split('/')[0] === post.directory.split('/')[0]) {
-          return item.meta.category;
-        }
-      })).filter(function(n){ return n != undefined });
-      categories = categories.sort(function(a, b) {
-        return a.length - b.length;
-      })
-      Categories[rootDirectory] = categories;
+      if (!rootDirectory) {
+        return;
+      }
+      var directories = [rootDirectory];
+      // docs 和 components 放在同一页
+      if (rootDirectory === 'docs' || rootDirectory === 'components') {
+        directories = ['docs', 'components'];
+      }
+      var cacheKey = directories.join('-');
+      var categories;
+      if (Categories[cacheKey]) {
+        categories = Categories[cacheKey];
+      } else {
+        categories = {};
+        _.uniq(getAllPosts(posts).forEach(function(item) {
+          var itemDirectory = item.directory.split('/')[0];
+          var cat = item.meta.category;
+          if (cat && directories.indexOf(itemDirectory) >= 0) {
+            categories[cat] = categories[cat] || [];
+            categories[cat].push(item);
+          }
+        }));
+        categories = Object.keys(categories).map(function(cat) {
+          return {
+            name: cat,
+            pages: categories[cat]
+          };
+        });
+        // React 的分类排序
+        categories = categories.sort(function(a, b) {
+          var cats = ['React', 'Components'];
+          a = cats.indexOf(a.name);
+          b = cats.indexOf(b.name);
+          return a - b;
+        });
+        // 设计的分类排序
+        categories = categories.sort(function(a, b) {
+          var cats = ['风格', '动画', '模式', '资源'];
+          a = cats.indexOf(a.name);
+          b = cats.indexOf(b.name);
+          return a - b;
+        });
+      }
+      Categories[cacheKey] = categories;
       return categories;
     },
     find_demo_in_component: function(pages, directory) {
@@ -100,8 +135,37 @@ module.exports = function(nico) {
         return (i+1)%2 === 0;
       });
     },
-    rootDirectoryIs: function(directory, rootDirectory) {
-      return directory.split('/')[0] === rootDirectory;
+    rootDirectoryIn: function(directory, rootDirectories) {
+      return rootDirectories.indexOf(directory.split('/')[0]) >= 0;
+    },
+    removeCodeBoxIdPrefix: function(id) {
+      return id.split('-').slice(2).join('-');
+    },
+    splitComponentsByType: function(pages, category) {
+      if (category !== 'Components') {
+        return pages.sort(function(a, b) {
+          a = a.meta.order || 100;
+          b = b.meta.order || 100;
+          return parseInt(a, 10) - parseInt(b, 10);
+        });
+      }
+      // 加入组件的类别分隔符
+      var tempResult = _.sortBy(pages, function(p) {
+        var types = ['基本', '表单', '展示', '导航', '其他'];
+        return types.indexOf(p.meta.type || '其他');
+      });
+      var lastType, result = [];
+      tempResult.forEach(function(p) {
+        if (p.meta.type !== lastType) {
+          result.push({
+            name: p.meta.type || '其他',
+            divider: true
+          });
+          lastType = p.meta.type;
+        }
+        result.push(p);
+      });
+      return result;
     }
   };
 

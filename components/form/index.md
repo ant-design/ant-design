@@ -1,8 +1,8 @@
 # Form
 
-- category: CSS
+- category: Components
 - chinese: 表单
-- order: 3
+- type: 表单
 
 ---
 
@@ -15,8 +15,6 @@
 
 - 水平排列：`.ant-form-horizontal` 类可以实现 `label` 标签和表单控件的水平排列;
 - 行内排列：`.ant-form-inline` 类可使其表现为 inline-block 级别的控件。
-
-**注**: `.ant-form-inline` 类只适用于**视口宽度大于等于 768px **的情形。
 
 ### 表单域
 

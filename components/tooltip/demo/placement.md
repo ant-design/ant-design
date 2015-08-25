@@ -15,14 +15,14 @@ React.render(
     <Tooltip placement="left" title={text}>
       <a href="#">左边左边</a>
     </Tooltip>
-    <Tooltip placement="right" title={text}>
-      <a href="#">右边右边</a>
-    </Tooltip>
     <Tooltip placement="top" title={text}>
       <a href="#">上边上边</a>
     </Tooltip>
     <Tooltip placement="bottom" title={text}>
       <a href="#">下边下边</a>
+    </Tooltip>
+    <Tooltip placement="right" title={text}>
+      <a href="#">右边右边</a>
     </Tooltip>
   </div>
 , document.getElementById('components-tooltip-demo-placement'));

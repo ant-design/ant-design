@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 单选框
-- order: 2
+- type: 表单
 
 ---
 
@@ -32,3 +32,4 @@
 |----------------|----------------------------------|-------------------|--------|--------|
 | onChange       | 选项变化时的回调函数             | Function(e:Event) | 无     | 无     |
 | value          | 用于设置当前选中的值             | String            | 无     | 无     |
+| defaultValue   | 默认选中的值                     | String            | 无     | 无     |

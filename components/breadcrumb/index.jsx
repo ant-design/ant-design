@@ -15,16 +15,17 @@ let BreadcrumbItem = React.createClass({
 
 let Breadcrumb = React.createClass({
   contextTypes: {
-    router: React.PropTypes.func
+    router: React.PropTypes.object
   },
   render() {
-    var crumbs, routes, params;
-    if (this.context.router && this.props.Router) {
-      var Link = this.props.Router.Link;
-      routes = this.context.router.getCurrentRoutes();
-      params = this.context.router.getCurrentParams();
+    let crumbs, routes, params;
+    let ReactRouter = this.props.router;
+    if (this.context.router && ReactRouter) {
+      var Link = ReactRouter.Link;
+      routes = this.context.router.state.branch;
+      params = this.context.router.state.params;
       crumbs = routes.map(function(route, i) {
-        var name = route.name.replace(/\:(.*)/g, function(replacement, key) {
+        var name = route.breadcrumbName.replace(/\:(.*)/g, function(replacement, key) {
           return params[key] || replacement;
         });
         var link;

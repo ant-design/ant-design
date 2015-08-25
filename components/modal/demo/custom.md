@@ -34,9 +34,6 @@ var Test = React.createClass({
   },
   handleCancel() {
     console.log('点击了取消');
-    this.setState({
-      visible: false
-    });
   },
   render() {
     return <div>

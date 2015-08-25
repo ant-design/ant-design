@@ -1,11 +1,11 @@
 .zoom-motion(@className, @keyframeName) {
   .make-motion(@className, @keyframeName);
-  .@{className}-enter {
+  .@{className}-enter, .@{className}-appear {
     transform: scale(0, 0); // need this by yiminghe
-    animation-timing-function: @ease-out-circ;
+    animation-timing-function: @ease-out-quint;
   }
   .@{className}-leave {
-    animation-timing-function: @ease-in-circ;
+    animation-timing-function: @ease-in-quint;
   }
 }
 
@@ -18,23 +18,19 @@
 @keyframes zoomIn {
   0% {
     opacity: 0;
-    transform-origin: 50% 50%;
     transform: scale(0, 0);
   }
   100% {
-    transform-origin: 50% 50%;
     transform: scale(1, 1);
   }
 }
 
 @keyframes zoomOut {
   0% {
-    transform-origin: 50% 50%;
     transform: scale(1, 1);
   }
   100% {
     opacity: 0;
-    transform-origin: 50% 50%;
     transform: scale(0, 0);
   }
 }

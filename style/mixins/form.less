@@ -5,16 +5,14 @@
   // 输入框的不同校验状态
   .@{css-prefix}input {
     border-color: @border-color;
-    &:focus {
-      border-color: @border-color;
-      box-shadow: 0 0 0 2px tint(@border-color, 80%);
-    }
+    box-shadow: 0 0 0 2px tint(@border-color, 80%);
+    
     &:not([disabled]):hover {
       border-color: @border-color;
     }
   }
 
-  .@{prefixCalendarClass}-picker-open .@{prefixCalendarClass}-picker-input {
+  .@{calendar-prefix-cls}-picker-open .@{calendar-prefix-cls}-picker-input {
     box-shadow: 0 0 0 2px tint(@border-color, 80%);
   }
 
@@ -53,9 +51,7 @@
   }
 
   label {
-    display: inline-block;
     font-size: @font-size-base;
-    max-width: 100%;
   }
 
   input[type="search"] {

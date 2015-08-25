@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 面包屑
-- order: 8
+- type: 导航
 
 ---
 

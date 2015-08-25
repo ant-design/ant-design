@@ -1,9 +1,8 @@
 # Iconfont
 
-- category: CSS
+- category: Components
 - chinese: 字体图标
-- order: 1
-- nodemos: true
+- type: 基本
 
 ---
 
@@ -26,7 +25,7 @@
 使用时所有的图标都需要一个基类 `.anticon` 和对应每个图标的类。在这里，我们使用 `<i>` 标签，如下面代码演示使用即可。
 
 ```html
-<i class="anticon anticon-link"></i>
+<i className="anticon anticon-link"></i>
 ```
 
 > 点击图标复制代码。
@@ -391,8 +390,8 @@
 		<span class="anticon-class">laptop</span>
 	</li>
 	<li>
-		<i class="anticon anticon-large"></i>
-		<span class="anticon-class">large</span>
+		<i class="anticon anticon-appstore"></i>
+		<span class="anticon-class">appstore</span>
 	</li>
 	<li>
 		<i class="anticon anticon-line-chart"></i>

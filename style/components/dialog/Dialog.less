@@ -1,4 +1,4 @@
-.@{dialogPrefixCls} {
+.@{dialog-prefix-cls} {
   outline: none;
   position: absolute;
   left: -9999px;
@@ -23,7 +23,7 @@
 
   &-content {
     position: relative;
-    background-color: #ffffff;
+    background-color: #fff;
     border: none;
     border-radius: 6px 6px;
     background-clip: padding-box;
@@ -40,10 +40,9 @@
     line-height: 1;
     color: #000;
     text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
-    opacity: .2;
     text-decoration: none;
-    transition: opacity .3s ease;
+    transition: color .3s ease;
+    color: #999;
 
     &-x {
       position: absolute;
@@ -55,23 +54,20 @@
       text-rendering: auto;
       width: 12px;
       height: 12px;
-      .iconfont-size-under-12px(10px);
+      font-size: 14px;
       line-height: 12px;
-      color:#000;
-      top:18px;
+      top: 18px;
       right: 18px;
 
       &:before {
-        content:"\e61e";
+        content: "\e61e";
         display: block;
         font-family: "anticon" !important;
       }
     }
 
     &:hover {
-      color:#000;
-      opacity: 1;
-      filter: alpha(opacity=100);
+      color: #444;
       text-decoration: none;
     }
   }
@@ -95,15 +91,5 @@
     padding: 8px 20px 16px 10px;
     text-align: right;
     border-radius: 0 0 5px 5px;
-  }
-
-  .effect() {
-    animation-duration: 0.3s;
-    animation-fill-mode: both;
-  }
-
-  &-wrap-hidden > &&-zoom-enter,
-  &-wrap-hidden > &&-zoom-leave {
-    display: block;
   }
 }

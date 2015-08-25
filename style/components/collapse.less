@@ -1,86 +1,90 @@
-@prefixCls: ant-collapse;
-@borderStyle: 1px solid #d9d9d9;
+@collapse-prefix-cls: ant-collapse;
 
 #arrow {
-  .common(){
-    width: 0;
-    height: 0;
-    font-size: 0;
-    line-height: 0;
+  .close() {
+    .iconfont-size-under-12px(7px, 270deg);
   }
-  .right(@w, @h, @color) {
-    border-top: @w solid transparent;
-    border-bottom: @w solid transparent;
-    border-left: @h solid @color;
-  }
-
-  .bottom(@w, @h, @color) {
-    border-left: @w solid transparent;
-    border-right: @w solid transparent;
-    border-top: @h solid @color;
+  .open() {
+    .iconfont-size-under-12px(7px, 360deg);
   }
 }
 
-.@{prefixCls} {
+.@{collapse-prefix-cls} {
   background-color: #f4f4f4;
   border-radius: 3px;
-  border: @borderStyle;
+  border: 1px solid #d9d9d9;
 
   & > &-item {
-    border-top: @borderStyle;
+    border-top: 1px solid #d9d9d9;
     &:first-child {
       border-top: none;
     }
 
-    > .@{prefixCls}-header {
+    > .@{collapse-prefix-cls}-header {
       height: 38px;
       line-height: 38px;
-      text-indent: 16px;
+      padding-left: 32px;
       color: #666;
       cursor: pointer;
-      &:before {
+      position: relative;
+
+      .arrow {
+        #arrow > .close();
+        .iconfont-mixin();
+        position: absolute;
+        color: #666;
         display: inline-block;
-        content: '\20';
-        #arrow > .common();
-        #arrow > .right(3px, 4px, #666);
-        vertical-align: middle;
         margin-right: 8px;
+        content: "\e60f";
+        vertical-align: middle;
+        transition: transform 0.24s ease;
+        top: -1px;
+        left: 16px;
+        top: ~"16px \9";
+        left: ~"0 \9";
+        &:before {
+          content:"\e60f";
+        }
       }
     }
   }
 
   &-content {
     height: 0;
-    transition-duration: .3s;
-    transition-timing-function: @ease-out;
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
     background-color: #fff;
 
     & > &-box {
-      margin-top: 16px;
-      margin-bottom: 16px;
+      padding-top: 16px;
+      padding-bottom: 16px;
     }
   }
 
+  &-collapsing {
+    transition-duration: .24s;
+    transition-timing-function: @ease-out-circ;
+  }
+
   &-item:last-child {
-    > .@{prefixCls}-content {
+    > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 3px 3px;
     }
   }
 
   &-content-active {
+    height: auto;
   }
 
   & > &-item-active {
-    > .@{prefixCls}-header {
+    > .@{collapse-prefix-cls}-header {
 
-      &:before {
-        #arrow > .bottom(3px, 4px, #666);
-        margin-right: 6px;
+      .arrow {
+        top: -1px;
+        left: 16px;
+        #arrow > .open();
       }
     }
   }
 }
-

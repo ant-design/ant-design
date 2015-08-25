@@ -1,8 +1,9 @@
 # Layout
 
-- category: CSS
+- category: Components
 - chinese: 布局
-- order: 0
+- type: 基本
+- cols: 1
 
 ---
 

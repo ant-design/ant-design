@@ -4,8 +4,6 @@
 
 带标签的输入框：使用 `.ant-input-group` 类并结合 `.ant-input-group-addon` 类可以创建带标签的输入框。
 
-输入框组合：`.ant-inputs` 类由多个 `.ant-inputs-item` 组成，使多个 Input 可以在一行显示出来。
-
 ---
 
 ````jsx
@@ -15,26 +13,26 @@ var Option = Select.Option;
 React.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
-    <label className="col-6" for="site1">标签输入框：</label>
+    <label className="col-6" htmlFor="site1">标签输入框：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <span className="ant-input-group-addon" id="basic-addon1">Http://</span>
-        <input type="text" id="site1" className="ant-input" value="mysite.com" />
+        <input type="text" id="site1" className="ant-input" defaultValue="mysite.com" />
       </div>
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6" for="site3">标签输入框：</label>
+    <label className="col-6" htmlFor="site3">标签输入框：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <span className="ant-input-group-addon" id="basic-addon3">Http://</span>
-        <input type="text" className="ant-input" id="site3" value="mysite" />
+        <input type="text" className="ant-input" id="site3" defaultValue="mysite" />
         <span className="ant-input-group-addon" id="basic-addon4">.com</span>
       </div>
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6" for="site4">select 标签输入框：</label>
+    <label className="col-6" htmlFor="site4">select 标签输入框：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <input type="text" className="ant-input" id="site4" placeholder="www.mysite" />
@@ -50,7 +48,7 @@ React.render(
     </div>
   </div>
   <div className="ant-form-item">
-    <label className="col-6">输入身份证：</label>
+    <label className="col-6" htmlFor="certNo1">输入身份证：</label>
     <div className="col-16">
       <div className="ant-input-group">
         <div className="col-6">
@@ -68,12 +66,12 @@ React.render(
       </div>
     </div>
   </div>
-  <div className="ant-form-item has-error">
-    <label className="col-6">电话号码：</label>
+  <div className="ant-form-item">
+    <label className="col-6" htmlFor="tel1">电话号码：</label>
     <div className="col-16">
       <div className="row">
         <div className="col-4">
-          <input className="ant-input" type="text" id="tel1" value="086" />
+          <input className="ant-input" type="text" id="tel1" defaultValue="086" />
         </div>
         <div className="col-2">
           <p className="ant-form-split">--</p>
@@ -92,7 +90,6 @@ React.render(
           </div>
         </div>
       </div>
-      <p className="ant-form-explain">请输入正确的电话号码</p>
     </div>
   </div>
 </form>
