@@ -12,7 +12,10 @@ export default React.createClass({
     return {
       prefixCls: 'ant-modal',
       onOk: noop,
-      onCancel: noop
+      onCancel: noop,
+      width: 520,
+      transitionName: 'zoom',
+      maskAnimation: 'fade'
     };
   },
 
@@ -82,8 +85,7 @@ export default React.createClass({
     ];
     let footer = props.footer || defaultFooter;
     let visible = this.state.visible;
-    return <Dialog transitionName="zoom" onClose={this.handleCancel}
-      maskAnimation="fade" width="520" footer={footer} {...props}
+    return <Dialog onClose={this.handleCancel} footer={footer} {...props}
       visible={visible} mousePosition={mousePosition} />;
   }
 });
