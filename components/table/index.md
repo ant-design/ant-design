@@ -74,7 +74,7 @@ var dataSource = new Table.DataSource({
 | title      | 列头显示文字               | String or React.Element |             |         |
 | dataIndex  | 列数据在 data 中对应的 key | React.Element   |                     |         |
 | key        | React 需要的 key           | String          |                     |         |
-| render     | 生成复杂数据的渲染函数     | Function        |                     |         |
+| render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引 | Function(text, record, index) {} |    |         |
 | filters    | 表头的筛选菜单项           | Array           |                     |         |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                     |         |
 | sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean |  | 无 |
