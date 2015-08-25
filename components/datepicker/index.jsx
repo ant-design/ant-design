@@ -1,7 +1,5 @@
 import React from 'react';
-import Calendar from 'rc-calendar';
-const Datepicker = Calendar.Picker;
-
+import Calendar, {MonthCalendar, Picker as Datepicker} from 'rc-calendar';
 import GregorianCalendar from 'gregorian-calendar';
 import zhCn from 'gregorian-calendar/lib/locale/zh-cn';
 import CalendarLocale from 'rc-calendar/lib/locale/zh-cn';
@@ -17,82 +15,86 @@ Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
 let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
-const AntDatepicker = React.createClass({
-  getInitialState() {
-    var value;
-    if (this.props.value) {
-      value = new GregorianCalendar(zhCn);
-      value.setTime(new Date(this.props.value).valueOf());
-    }
-    return {
-      value: value
-    };
-  },
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.value) {
-      var value = new GregorianCalendar(zhCn);
-      value.setTime(new Date(nextProps.value).valueOf());
-      this.setState({
-        value: value
-      });
-    }
-  },
-  getDefaultProps() {
-    return {
-      format: 'yyyy-MM-dd',
-      placeholder: '请选择日期',
-      transitionName: 'slide-up',
-      onSelect() {
+
+function createPicker(Calendar){
+  return React.createClass({
+    getInitialState() {
+      var value;
+      if (this.props.value) {
+        value = new GregorianCalendar(zhCn);
+        value.setTime(new Date(this.props.value).valueOf());
       }
-    };
-  },
-  handleChange(v) {
-    this.setState({
-      value: v
-    });
-    this.props.onSelect(new Date(v.getTime()));
-  },
-  render() {
-    var calendar = (
-      <Calendar
-        disabledDate={this.props.disabledDate}
-        locale={CalendarLocale}
-        orient={['top', 'left']}
-        defaultValue={defaultCalendarValue}
-        showTime={this.props.showTime}
-        prefixCls="ant-calendar"
-        showOk={this.props.showTime}
-        showClear={false}/>
-    );
-    var sizeClass = '';
-    if (this.props.size === 'large') {
-      sizeClass = ' ant-input-lg';
-    } else if (this.props.size === 'small') {
-      sizeClass = ' ant-input-sm';
+      return {
+        value: value
+      };
+    },
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.value) {
+        var value = new GregorianCalendar(zhCn);
+        value.setTime(new Date(nextProps.value).valueOf());
+        this.setState({
+          value: value
+        });
+      }
+    },
+    getDefaultProps() {
+      return {
+        format: 'yyyy-MM-dd',
+        placeholder: '请选择日期',
+        transitionName: 'slide-up',
+        onSelect() {
+        }
+      };
+    },
+    handleChange(v) {
+      this.setState({
+        value: v
+      });
+      this.props.onSelect(new Date(v.getTime()));
+    },
+    render() {
+      var calendar = (
+        <Calendar
+          disabledDate={this.props.disabledDate}
+          locale={CalendarLocale}
+          orient={['top', 'left']}
+          defaultValue={defaultCalendarValue}
+          showTime={this.props.showTime}
+          prefixCls="ant-calendar"
+          showOk={this.props.showTime}
+          showClear={false}/>
+      );
+      var sizeClass = '';
+      if (this.props.size === 'large') {
+        sizeClass = ' ant-input-lg';
+      } else if (this.props.size === 'small') {
+        sizeClass = ' ant-input-sm';
+      }
+      return (
+        <Datepicker
+          transitionName={this.props.transitionName}
+          disabled={this.props.disabled}
+          trigger={<span className="ant-calendar-picker-icon" />}
+          calendar={calendar}
+          adjustOrientOnCalendarOverflow={{x: true, y: false}}
+          formatter={new DateTimeFormat(this.props.format)}
+          value={this.state.value}
+          defaultValue={this.props.defaultValue}
+          prefixCls="ant-calendar-picker"
+          style={this.props.style}
+          onChange={this.handleChange}>
+          <input
+            placeholder={this.props.placeholder}
+            className={'ant-calendar-picker-input ant-input' + sizeClass}/>
+        </Datepicker>
+      );
     }
-    return (
-      <Datepicker
-        transitionName={this.props.transitionName}
-        disabled={this.props.disabled}
-        trigger={<span className="ant-calendar-picker-icon" />}
-        calendar={calendar}
-        adjustOrientOnCalendarOverflow={{
-          x: true,
-          y: false
-        }}
-        formatter={new DateTimeFormat(this.props.format)}
-        value={this.state.value}
-        defaultValue={this.props.defaultValue}
-        prefixCls="ant-calendar-picker"
-        style={this.props.style}
-        onChange={this.handleChange}>
-        <input
-          placeholder={this.props.placeholder}
-          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
-      </Datepicker>
-    );
-  }
-});
+  });
+}
+
+const AntDatePicker = createPicker(Calendar);
+
+const AntMonthPicker = createPicker(MonthCalendar);
 
 const AntCalendar = React.createClass({
   getDefaultProps() {
@@ -106,6 +108,7 @@ const AntCalendar = React.createClass({
   }
 });
 
-AntDatepicker.Calendar = AntCalendar;
+AntDatePicker.Calendar = AntCalendar;
+AntDatePicker.MonthPicker = AntMonthPicker;
 
-export default AntDatepicker;
+export default AntDatePicker;
