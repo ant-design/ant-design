@@ -403,11 +403,13 @@ footer ul li > a {
   font-size: 12px;
   color: #5C6B76;
   opacity: 0;
+  -webkit-transform: scale(0.6) rotate(180deg);
   transform: scale(0.6) rotate(180deg);
   transition: all 0.3s ease;
 }
 
 .aside-container li[open=open] h4:after {
+  -webkit-transform: scale(0.6) rotate(0deg);
   transform: scale(0.6) rotate(0deg);
 }
 
@@ -434,6 +436,7 @@ footer ul li > a {
 
 .aside-container li.type-divider {
   font-size: 12px;
+  -webkit-transform:  scale(0.9);
   transform: scale(0.9);
   transform-origin: 0 50%;
   color: #aaa;
@@ -1771,6 +1774,7 @@ footer ul li > a {
   opacity: 0.5;
   margin-top: -10px;
   text-align: center;
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   transition: all 0.3s ease;
   color: #999;
@@ -1778,6 +1782,7 @@ footer ul li > a {
 }
 
 .code-box.expand .collapse {
+  -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 
