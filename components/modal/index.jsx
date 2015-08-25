@@ -83,7 +83,7 @@ export default React.createClass({
     let footer = props.footer || defaultFooter;
     let visible = this.state.visible;
     return <Dialog transitionName="zoom" onClose={this.handleCancel}
-      maskAnimation="fade" width="500" footer={footer} {...props}
+      maskAnimation="fade" width="520" footer={footer} {...props}
       visible={visible} mousePosition={mousePosition} />;
   }
 });
