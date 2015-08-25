@@ -36,7 +36,7 @@
     "enter-animation": "~0.3.0",
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
-    "object-assign": "3.x",
+    "object-assign": "~4.0.1",
     "rc-animate": "~1.2.0",
     "rc-calendar": "~3.15.0",
     "rc-checkbox": "~1.1.1",
