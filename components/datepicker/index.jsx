@@ -76,10 +76,7 @@ function createPicker(Calendar){
           disabled={this.props.disabled}
           trigger={<span className="ant-calendar-picker-icon" />}
           calendar={calendar}
-          adjustOrientOnCalendarOverflow={{
-          x: true,
-          y: false
-        }}
+          adjustOrientOnCalendarOverflow={{x: true, y: false}}
           formatter={new DateTimeFormat(this.props.format)}
           value={this.state.value}
           defaultValue={this.props.defaultValue}
