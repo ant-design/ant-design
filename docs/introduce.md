@@ -28,7 +28,7 @@
 ## 特性
 
 - Designed as Ant Design.
-- 丰富实用的 React UI 组件。
+- [React Component](http://react-component.github.io/badgeboard/) 上二次封装的丰富实用的 UI 组件。
 - 基于 React 的组件化开发模式。
 - 背靠 npm 生态圈。
 - 基于 webpack 的调试构建方案，支持 ES6。
