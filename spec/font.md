@@ -23,12 +23,6 @@
 font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 ```
 
-代码字体：
-
-```css
-font-family: "PT Mono",Menlo,Consolas,"Courier New",monospace;
-```
-
 ## 字体使用规范
 
 <div class="row">
