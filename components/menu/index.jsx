@@ -4,6 +4,8 @@ import velocity from 'velocity-animate';
 
 const animation = {
   enter(node, done) {
+    // Fix safari flash bug
+    node.style.display = 'none';
     this.animate(node, 'slideDown', done);
   },
   leave(node, done) {
@@ -20,8 +22,6 @@ const animation = {
         done();
       }
     }
-    // Fix safari flash bug
-    node.style.display = 'none';
     velocity(node, transitionName, {
       duration: 240,
       complete: complete,
