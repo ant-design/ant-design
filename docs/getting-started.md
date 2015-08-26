@@ -78,17 +78,18 @@ var App = React.createClass({
     };
   },
   handleChange(value) {
+    message.info('您选择的日期是: ' + value.toString());
     this.setState({
       date: value
     });
   },
   notice() {
-    message.info(this.state.date.toString());
+
   },
   render() {
-    return <div>
+    return <div style={{width: 400, margin: '100px auto'}}>
       <Datepicker onSelect={this.handleChange} />
-      <button className="ant-btn ant-btn-primary" onClick={this.notice}>显示日期</button>
+      <div style={{marginTop: 20}}>当前日期：{this.state.date.toString()}</div>
     </div>;
   }
 });
