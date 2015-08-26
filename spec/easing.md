@@ -95,7 +95,7 @@ mask:true,exposure:"bottom"});
 
 2. 如球类物体掉地上的后，反弹几次后停止。
 
-  - 弹性动画最好结合 alpha。
+  弹性动画最好结合 alpha。
 
 > 慎用Bounce或Elastic，这两种适用在特殊元素下，一般back即可满足页面上元素的弹动;
 
