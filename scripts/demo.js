@@ -35,7 +35,7 @@ $(function () {
     },
 
     render() {
-      return <Select combobox style={{width: 260}}
+      return <Select combobox style={{width: '100%'}}
         onSelect={this.handleSelect}
         optionLabelProp="text"
         dropdownClassName="autoComplete"
