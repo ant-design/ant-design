@@ -14,7 +14,7 @@ const AntSteps = React.createClass({
     return (<Steps size={this.props.size}
                    iconPrefix={this.props.iconPrefix}
                    maxDescriptionWidth={this.props.maxDescriptionWidth}
-                   prefixCls={this.props.prefixCls}>
+                   prefixCls={this.props.direction==='vertical' ? 'ant-steps-vertical ant-steps' : 'ant-steps'}>
       {this.props.children}
     </Steps>);
   }
