@@ -31,7 +31,7 @@ class DataSource {
   }
 
   clone(config = {}) {
-    return new DataSource(objectAssign(config, this.config));
+    return new DataSource(objectAssign({}, this.config, config));
   }
 }
 
