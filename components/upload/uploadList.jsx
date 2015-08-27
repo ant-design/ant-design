@@ -30,11 +30,13 @@ export default React.createClass({
     this.setState({
       items: items
     });
+    this.props.onRemove(file.file);
   },
   render() {
     let items = this.state.items;
     let downloadItem = (file) => {
-      let statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> : <i className="anticon anticon-loading"></i>;
+      let statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> :
+        <i className="anticon anticon-loading"></i>;
       return (
         <div className={prefixCls + '-list-item'} key={file.index}>
           {statusIcon}

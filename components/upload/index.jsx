@@ -13,30 +13,38 @@ const AntUpload = React.createClass({
       downloadList: []
     };
   },
-  handleStart(file) {
+  onStart(file) {
     let nextDownloadList = this.state.downloadList;
     nextDownloadList.push({
       index: fileIndex++,
       uid: file.uid || '',
       filename: file.name,
+      file: file,
       status: 'downloading'
     });
     this.setState({
       downloadList: nextDownloadList
     });
+    this.props.onStart(file);
   },
-  handleSuccess(ret, file) {
+  onSuccess(ret, file) {
     Message.success(file.name + '上传完成');
     let targetItem = getFileItem(file, this.state.downloadList);
     targetItem.status = 'done';
     this.setState({
       downloadList: this.state.downloadList
     });
+    this.props.onSuccess(ret, file);
   },
-  handleProgress() {
+  onProgress(e, file) {
+    this.props.onProgress(e, file);
   },
-  handleError() {
+  onError(err, responce, file) {
     Message.error('上传失败');
+    this.props.onError(err, responce, file);
+  },
+  onRemove(file){
+    this.props.onRemove(file);
   },
   getDefaultProps() {
     return {
@@ -47,32 +55,24 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       uploadTip: '',
-      start: function() {},
-      error: function() {},
-      success: function() {},
-      progress: function() {}
+      onStart() {
+      },
+      onError() {
+      },
+      onSuccess() {
+      },
+      onProgress() {
+      }
     };
   },
   render() {
     let type = this.props.type || 'select';
-    let props = assign({}, this.props);
-
-    props.onStart = (file) => {
-      this.handleStart(file);
-      props.start.call(this, file);
-    };
-    props.onSuccess = (ret, file) => {
-      this.handleSuccess(ret, file);
-      props.success.call(this, ret, file);
-    };
-    props.onProgress = (step) => {
-      this.handleProgress(step);
-      props.progress.call(this, step);
-    };
-    props.onError = (err, responce, file) => {
-      this.handleError(err);
-      props.error.call(this, err, responce, file);
-    };
+    let props = assign({}, this.props, {
+      onStart: this.onStart,
+      onError: this.onError,
+      onProgress: this.onProgress,
+      onSuccess: this.onSuccess,
+    });
     if (type === 'drag') {
       return (
         <div className={prefixCls + ' ' + prefixCls + '-drag'}>
@@ -91,7 +91,7 @@ const AntUpload = React.createClass({
               {this.props.children}
             </Upload>
           </div>
-          <UploadList items={this.state.downloadList} />
+          <UploadList items={this.state.downloadList} onRemove={this.onRemove}/>
         </div>
       );
     }
@@ -100,7 +100,7 @@ const AntUpload = React.createClass({
 
 AntUpload.Dragger = React.createClass({
   render() {
-    return <AntUpload {...this.props} type="drag" style={{height: this.props.height}} />;
+    return <AntUpload {...this.props} type="drag" style={{height: this.props.height}}/>;
   }
 });
 
