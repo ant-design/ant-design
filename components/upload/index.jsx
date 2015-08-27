@@ -7,6 +7,9 @@ import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
 let fileIndex = 0;
 
+function noop() {
+}
+
 const AntUpload = React.createClass({
   getInitialState() {
     return {
@@ -55,14 +58,11 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       uploadTip: '',
-      onStart() {
-      },
-      onError() {
-      },
-      onSuccess() {
-      },
-      onProgress() {
-      }
+      onStart: noop,
+      onError: noop,
+      onSuccess: noop,
+      onProgress: noop,
+      onRemove: noop,
     };
   },
   render() {
