@@ -34,7 +34,7 @@ export default React.createClass({
   },
   render: function () {
     var props = this.props;
-    var children = props.children.map((radio) => {
+    var children = React.Children.map(props.children, (radio) => {
       if (radio.props) {
         return <Radio
           key={radio.props.value}
