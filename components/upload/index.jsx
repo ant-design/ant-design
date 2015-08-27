@@ -44,6 +44,7 @@ const AntUpload = React.createClass({
   onSuccess(ret, file) {
     var res = this.props.onSuccess(ret, file);
     if (res !== false) {
+      var downloadList = this.state.downloadList.concat();
       Message.success(file.name + '上传完成');
       let targetItem = getFileItem(file, downloadList);
       targetItem.status = 'done';
