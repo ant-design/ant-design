@@ -31,13 +31,15 @@ const AntUpload = React.createClass({
     this.props.onStart(file);
   },
   onSuccess(ret, file) {
-    Message.success(file.name + '上传完成');
-    let targetItem = getFileItem(file, this.state.downloadList);
-    targetItem.status = 'done';
-    this.setState({
-      downloadList: this.state.downloadList
-    });
-    this.props.onSuccess(ret, file);
+    var res = this.props.onSuccess(ret, file);
+    if (res !== false) {
+      Message.success(file.name + '上传完成');
+      let targetItem = getFileItem(file, this.state.downloadList);
+      targetItem.status = 'done';
+      this.setState({
+        downloadList: this.state.downloadList
+      });
+    }
   },
   onProgress(e, file) {
     this.props.onProgress(e, file);
