@@ -457,7 +457,7 @@ var AntTable = React.createClass({
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     let classString = '';
-    if (this.state.loading && this.isLocalDataSource()) {
+    if (this.state.loading && !this.isLocalDataSource()) {
       classString += ' ant-table-loading';
     }
     if (this.props.size === 'small') {
