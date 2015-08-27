@@ -15,12 +15,9 @@ var props = {
   data: {},
   accept: '',
   uploadTip: '',
-  start: function(file){
-    console.log(file.name)
-  },
-  error: function() {},
-  success: function() {},
-  progress: function() {}
+  onStart(file){
+    console.log(file.uid);
+  }
 };
 
 React.render(

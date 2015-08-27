@@ -14,15 +14,7 @@ var props = {
   action: '/upload.do',
   data: {},
   accept: 'i',
-  uploadTip: '',
-  error: function(err) {
-    console.log(err)
-  },
-  success: function() {},
-  progress: function() {},
-  start: function(file){
-    console.log(file)
-  }
+  uploadTip: ''
 };
 
 React.render(
