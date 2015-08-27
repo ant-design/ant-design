@@ -4,14 +4,22 @@ import Steps from 'rc-steps';
 const AntSteps = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-steps',
       iconPrefix: 'ant',
       size: 'default',
       maxDescriptionWidth: 100
     };
   },
   render() {
-    let stepsCls = this.props.direction === 'vertical' ? (this.props.size === 'small' ? 'ant-steps-vertical-small ant-steps' : 'ant-steps-vertical ant-steps') : 'ant-steps';
+    let stepsCls = '';
+    if (this.props.direction === 'vertical') {
+      if (this.props.size === 'small') {
+        stepsCls = 'ant-steps-vertical-small ant-steps';
+      } else {
+        stepsCls = 'ant-steps-vertical ant-steps';
+      }
+    } else {
+      stepsCls = 'ant-steps';
+    }
     return (<Steps size={this.props.size}
                    iconPrefix={this.props.iconPrefix}
                    maxDescriptionWidth={this.props.maxDescriptionWidth}
