@@ -54,7 +54,7 @@ var Line = React.createClass({
     }else {
       fullCls = ' ' + prefixCls + '-line-wrap-full';
     }
-    var persentStyle = {
+    var percentStyle = {
       width: props.percent + '%',
       height: props.strokeWidth
     };
@@ -64,7 +64,7 @@ var Line = React.createClass({
         {progressInfo}
         <div className={prefixCls + '-line-outer'}>
           <div className={prefixCls + '-line-inner'}>
-            <div className={prefixCls + '-line-bg'} style={persentStyle}></div>
+            <div className={prefixCls + '-line-bg'} style={percentStyle}></div>
           </div>
         </div>
       </div>
