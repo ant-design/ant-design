@@ -16,7 +16,7 @@ let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
 
-function createPicker(Calendar){
+function createPicker(Calendar) {
   return React.createClass({
     getInitialState() {
       var value;

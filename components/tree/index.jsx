@@ -1,6 +1,5 @@
 import React from 'react';
 import Tree from 'rc-tree';
-import velocity from 'velocity-animate';
 import animation from '../common/openAnimation';
 
 const AntTree = React.createClass({
