@@ -48,7 +48,8 @@ var AntTable = React.createClass({
       sortOrder: '',
       sorter: null,
       pagination: this.hasPagination() ? objectAssign({
-        pageSize: 10
+        pageSize: 10,
+        current: 1
       }, this.props.pagination) : {}
     };
   },
