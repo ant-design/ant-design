@@ -30,6 +30,7 @@
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 |  size | 可选参数，指定大小（目前只支持普通和迷你两种大小）。 | string    |  small, default | default    |
+|  direction | 可选参数，指定步骤条方向（目前支持水平和竖直两种方向，默认水平方向）。 | string    |  vertical, default | default    |
 |  maxDescriptionWidth | 可选参数，指定步骤的详细描述文字的最大宽度。 | number | 无 | 100 |
 
 ### Steps.Step

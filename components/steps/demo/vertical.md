@@ -2,7 +2,7 @@
 
 - order: 4
 
-简单的步骤条。
+简单的竖直方向的步骤条。
 
 ---
 
@@ -36,5 +36,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps direction={'vertical'} maxDescriptionWidth={'300'}>{steps}</Steps>, container);
+React.render(<Steps direction='vertical' maxDescriptionWidth='400'>{steps}</Steps>, container);
 ````
