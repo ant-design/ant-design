@@ -21,10 +21,6 @@ var steps = [{
   description: '描述啊描述啊描述啊描述啊描述啊描述啊'
 }, {
   status: 'wait',
-  title: '又一个待运行',
-  description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊述啊描述描述述描述啊描述啊描述啊描述啊描述啊'
-}, {
-  status: 'wait',
   title: '待运行',
   description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
 }].map(function(s, i) {
@@ -36,5 +32,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps size='small' direction='vertical' maxDescriptionWidth='400'>{steps}</Steps>, container);
+React.render(<Steps size='small' direction='vertical'>{steps}</Steps>, container);
 ````

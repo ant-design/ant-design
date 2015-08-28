@@ -36,5 +36,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps direction='vertical' maxDescriptionWidth='400'>{steps}</Steps>, container);
+React.render(<Steps direction='vertical'>{steps}</Steps>, container);
 ````
