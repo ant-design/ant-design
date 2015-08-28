@@ -83,9 +83,6 @@ var App = React.createClass({
       date: value
     });
   },
-  notice() {
-
-  },
   render() {
     return <div style={{width: 400, margin: '100px auto'}}>
       <Datepicker onSelect={this.handleChange} />
