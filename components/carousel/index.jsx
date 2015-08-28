@@ -14,6 +14,7 @@ const AntCarousel = React.createClass({
 
     if (props.effect === 'fade') {
       props.fade = true;
+      props.draggable = false;
     }
 
     let className = 'ant-carousel';
