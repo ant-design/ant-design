@@ -22,33 +22,37 @@ var columns = [{
   dataIndex: 'address'
 }];
 var data1 = [{
+  key: '1',
   name: '胡彦斌',
   age: 32,
   address: '西湖区湖底公园1号'
 }, {
+  key: '2',
   name: '胡彦祖',
   age: 42,
   address: '西湖区湖底公园1号'
 }, {
+  key: '3',
   name: '李大嘴',
   age: 32,
   address: '西湖区湖底公园1号'
 }];
 var data2 = [{
+  key: '11',
   name: '胡彦斌2',
   age: 32,
   address: '西湖区湖底公园2号'
 }, {
+  key: '22',
   name: '胡彦祖2',
   age: 42,
   address: '西湖区湖底公园2号'
 }, {
+  key: '33',
   name: '李大嘴2',
   age: 32,
   address: '西湖区湖底公园2号'
 }];
-
-
 
 var App = React.createClass({
   getInitialState() {

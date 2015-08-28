@@ -295,11 +295,11 @@ var AntTable = React.createClass({
           </span>
         </div>;
       }
-      column.title = [
-        column.title,
-        sortButton,
-        filterDropdown
-      ];
+      column.title = <div>
+        {column.title}
+        {sortButton}
+        {filterDropdown}
+      </div>;
       return column;
     });
   },
@@ -467,6 +467,10 @@ var AntTable = React.createClass({
       classString += ' ant-table-bordered';
     }
     columns = this.renderColumnsDropdown(columns);
+    columns = columns.map((column, i) => {
+      column.key = column.dataIndex || i;
+      return column;
+    });
     return <div className="clearfix">
       <Table
         {...this.props}
