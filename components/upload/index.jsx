@@ -49,7 +49,7 @@ const AntUpload = React.createClass({
       let targetItem = getFileItem(file, downloadList);
       targetItem.status = 'done';
       this.setState({
-        downloadList: this.state.downloadList
+        downloadList: downloadList
       });
     } else {
       this.removeFile(file);
