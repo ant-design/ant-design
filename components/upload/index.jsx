@@ -48,6 +48,10 @@ const AntUpload = React.createClass({
       Message.success(file.name + '上传完成');
       let targetItem = getFileItem(file, downloadList);
       targetItem.status = 'done';
+      // 解析出文件上传后的远程地址
+      if (typeof this.props.urlResolver === 'function') {
+        targetItem.url = this.props.urlResolver(ret);
+      }
       this.setState({
         downloadList: downloadList
       });
@@ -80,6 +84,11 @@ const AntUpload = React.createClass({
       onSuccess: noop,
       onProgress: noop,
       onRemove: noop,
+      urlResolver: function(ret) {
+        try {
+          return JSON.parse(ret).url;
+        } catch(e) {}
+      }
     };
   },
   render() {
