@@ -471,13 +471,20 @@ var AntTable = React.createClass({
       column.key = column.dataIndex || i;
       return column;
     });
+    let emptyText;
+    if (!data || data.length === 0) {
+      emptyText = <div className="ant-table-empty">
+        <i className="anticon anticon-frown"></i>暂无数据
+      </div>;
+    }
     return <div className="clearfix">
       <Table
         {...this.props}
-        data={data || []}
+        data={data}
         columns={columns}
         className={classString}
         />
+      {emptyText}
       {this.renderPagination()}
     </div>;
   }
