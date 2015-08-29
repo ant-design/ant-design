@@ -22,7 +22,7 @@ function getNotificationInstance() {
 function notice(args) {
   let duration;
   if (args.duration === undefined) {
-    duration = 500;
+    duration = 4.5;
   } else {
     duration = args.duration;
   }
