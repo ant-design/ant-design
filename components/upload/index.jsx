@@ -25,6 +25,9 @@ const AntUpload = React.createClass({
       file: file,
       status: 'downloading'
     });
+    if (nextDownloadList.length === this.props.limit + 1) {
+      nextDownloadList = nextDownloadList.slice(1);
+    }
     this.setState({
       downloadList: nextDownloadList
     });
@@ -84,6 +87,7 @@ const AntUpload = React.createClass({
       onSuccess: noop,
       onProgress: noop,
       onRemove: noop,
+      limit: Number.MAX_VALUE,
       urlResolver: function(ret) {
         try {
           return JSON.parse(ret).url;
@@ -117,7 +121,9 @@ const AntUpload = React.createClass({
               {this.props.children}
             </Upload>
           </div>
-          <UploadList items={this.state.downloadList} onRemove={this.onRemove}/>
+          <UploadList items={this.state.downloadList}
+                      onRemove={this.onRemove}
+                      limit={props.limit} />
         </div>
       );
     }
