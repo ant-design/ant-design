@@ -50,7 +50,7 @@
   }
 
   &-content {
-    height: 0;
+    display: none;
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
@@ -59,6 +59,10 @@
     & > &-box {
       padding-top: 16px;
       padding-bottom: 16px;
+    }
+
+    &-active {
+      display: block;
     }
   }
 
@@ -71,10 +75,6 @@
     > .@{collapse-prefix-cls}-content {
       border-radius: 0 0 3px 3px;
     }
-  }
-
-  &-content-active {
-    height: auto;
   }
 
   & > &-item-active {
