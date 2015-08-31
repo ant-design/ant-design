@@ -23,7 +23,8 @@ function handleChange(value) {
 React.render(
   <Select
    style={{width: '100%'}}
-  tags defaultValue={['name2', 'name3']} onChange={handleChange}>
+   searchPlaceholder="标签模式"
+  tags onChange={handleChange}>
     {children}
   </Select>
 , document.getElementById('components-select-demo-tags'));
