@@ -231,121 +231,124 @@
   }
 }
 
-.@{steps-prefix-cls} {
-  .@{steps-prefix-cls}-item.@{steps-vertical-prefix-cls} {
+.@{steps-prefix-cls}-vertical {
+  .@{steps-prefix-cls}-item {
     display: block;
   }
-
-  .@{steps-vertical-prefix-cls}.@{steps-prefix-cls}-tail {
+  
+  .@{steps-prefix-cls}-tail {
+    position: absolute;
     left: 13px;
+    top: 0;
     height: 100%;
     width: 1px;
-    top: 0;
     padding: 30px 0 4px 0;
     > i {
       height: 100%;
       width: 1px;
     }
   }
-
-  .@{steps-vertical-prefix-cls}.@{steps-prefix-cls}-main {
+  
+  .@{steps-prefix-cls}-head {
+    float: left;
+    &-inner {
+      margin-right: 16px;
+    }
+  }
+  
+  .@{steps-prefix-cls}-main {
+    max-width: 100%;
     min-height: 47px;
+    overflow: hidden;
+    display: block;
+    .@{steps-prefix-cls}-title {
+      line-height: 26px;
+    }
+    .@{steps-prefix-cls}-description {
+      padding-bottom: 12px;
+    }
   }
+}
 
-  .@{steps-vertical-prefix-cls}.@{steps-prefix-cls}-head-inner {
-    margin-right: 16px;
-  }
-
-  .@{steps-prefix-cls}-item.@{steps-vertical-small-prefix-cls} {
+.@{steps-prefix-cls}-vertical.@{steps-prefix-cls}-small {
+  .@{steps-prefix-cls}-item {
     display: block;
   }
-
-  .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-tail {
+  
+  .@{steps-prefix-cls}-tail {
+    position: absolute;
     left: 6px;
+    top: 0;
     height: 100%;
     width: 2px;
-    top: 0;
     padding: 0;
     > i {
       height: 100%;
       width: 0px;
     }
   }
-
-  .@{steps-prefix-cls}-item.@{steps-prefix-cls}-status-wait {
-    .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-tail {
+  
+  .@{steps-prefix-cls}-status-wait {
+    .@{steps-prefix-cls}-tail {
       > i {
         background-color: #fff;
         border-left: 2px dotted @wait-tail-color;
       }
     }
   }
-
-  .@{steps-prefix-cls}-item.@{steps-prefix-cls}-status-process {
-    .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-tail {
+  
+  .@{steps-prefix-cls}-status-process {
+    .@{steps-prefix-cls}-tail {
       > i {
         background-color: #fff;
         border-left: 2px dotted @process-tail-color;
       }
     }
   }
-
-  .@{steps-prefix-cls}-item.@{steps-prefix-cls}-status-finish {
-    .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-tail {
+  
+  .@{steps-prefix-cls}-status-finish {
+    .@{steps-prefix-cls}-tail {
       > i {
         background-color: #fff;
         border-left: 2px solid @finish-tail-color;
       }
     }
   }
-
-  .@{steps-vertical-prefix-cls}.@{steps-prefix-cls}-main {
+  
+  .@{steps-prefix-cls}-main {
+    max-width: 100%;
     min-height: 47px;
-    display: inline;
-    zoom: 1;
+    overflow: hidden;
+    display: block;
+    .@{steps-prefix-cls}-title {
+      line-height: 14px;
+    }
     .@{steps-prefix-cls}-description {
-      margin-left: 42px;
+      padding-bottom: 12px;
     }
   }
-
-  .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-main {
-    min-height: 47px;
-    display: inline;
-    zoom: 1;
-    .@{steps-prefix-cls}-description {
-      margin-left: 22px;
-    }
-  }
-
-  .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-head-inner {
-    margin-right: 8px;
-    background-color: #2db7f5;
-  }
-
+  
   .@{steps-prefix-cls}-status-wait, .@{steps-prefix-cls}-status-process {
     overflow: hidden;
-    .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-head-inner {
+    .@{steps-prefix-cls}-head-inner {
       text-indent: 10000px;
       display: inline-block;
       background-color: #fff;
     }
   }
-
-  .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-head-inner {
+  
+  .@{steps-prefix-cls}-head-inner {
     width: 14px;
     height: 14px;
+    margin-right: 8px;
+    background-color: #2db7f5;
     border-width: 2px;
   }
-
+  
   .@{steps-prefix-cls}-status-finish {
-    .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-head-inner {
+    .@{steps-prefix-cls}-head-inner {
       background-color: @finish-tail-color;
-    }
-  }
-
-  .@{steps-prefix-cls}-status-finish {
-    .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-head-inner {
-      .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-icon:before {
+      .@{steps-prefix-cls}-icon:before {
         color: #fff;
         font-weight: 700;
         position: absolute;
@@ -353,9 +356,5 @@
         left: -6px;
       }
     }
-  }
-
-  .@{steps-vertical-prefix-cls}.@{steps-prefix-cls}-description, .@{steps-vertical-small-prefix-cls}.@{steps-prefix-cls}-description {
-    padding-bottom: 12px;
   }
 }
