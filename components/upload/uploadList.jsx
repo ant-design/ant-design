@@ -33,8 +33,7 @@ export default React.createClass({
     this.props.onRemove(file.file);
   },
   render() {
-    let items = this.state.items;
-    let downloadItem = (file) => {
+    let list = this.state.items.map((file) => {
       let statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> :
         <i className="anticon anticon-loading"></i>;
       let filename = file.url ? <a className={prefixCls + '-item-name'} href={file.url} _target="_blank">{file.filename}</a> :
@@ -47,10 +46,10 @@ export default React.createClass({
              onClick={this.handleClose.bind(this, file)}></i>
         </div>
       );
-    };
+    });
     return (<div className={prefixCls + '-list'}>
       <Animate transitionName={prefixCls + '-margin-top'}>
-        {items.map(downloadItem)}
+        {list}
       </Animate>
     </div>);
   }

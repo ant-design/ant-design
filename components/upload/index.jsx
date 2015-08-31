@@ -13,50 +13,50 @@ function noop() {
 const AntUpload = React.createClass({
   getInitialState() {
     return {
-      downloadList: []
+      fileList: []
     };
   },
   onStart(file) {
-    let nextDownloadList = this.state.downloadList;
-    nextDownloadList.push({
+    let nextFileList = this.state.fileList;
+    nextFileList.push({
       index: fileIndex++,
       uid: file.uid || '',
       filename: file.name,
       file: file,
-      status: 'downloading'
+      status: 'uploading'
     });
-    if (nextDownloadList.length === this.props.limit + 1) {
-      nextDownloadList = nextDownloadList.slice(1);
+    if (nextFileList.length === this.props.limit + 1) {
+      nextFileList = nextFileList.slice(1);
     }
     this.setState({
-      downloadList: nextDownloadList
+      fileList: nextFileList
     });
     this.props.onStart(file);
   },
   removeFile(file){
-    var downloadList = this.state.downloadList.concat();
-    let targetItem = getFileItem(file, downloadList);
-    var index = downloadList.indexOf(targetItem);
+    var fileList = this.state.fileList.concat();
+    let targetItem = getFileItem(file, fileList);
+    var index = fileList.indexOf(targetItem);
     if (index !== -1) {
-      downloadList.splice(index, 1);
+      fileList.splice(index, 1);
     }
     this.setState({
-      downloadList: downloadList
+      fileList: fileList
     });
   },
   onSuccess(ret, file) {
     var res = this.props.onSuccess(ret, file);
     if (res !== false) {
-      var downloadList = this.state.downloadList.concat();
+      var fileList = this.state.fileList.concat();
       Message.success(file.name + '上传完成');
-      let targetItem = getFileItem(file, downloadList);
+      let targetItem = getFileItem(file, fileList);
       targetItem.status = 'done';
       // 解析出文件上传后的远程地址
       if (typeof this.props.urlResolver === 'function') {
         targetItem.url = this.props.urlResolver(ret);
       }
       this.setState({
-        downloadList: downloadList
+        fileList: fileList
       });
     } else {
       this.removeFile(file);
@@ -121,7 +121,7 @@ const AntUpload = React.createClass({
               {this.props.children}
             </Upload>
           </div>
-          <UploadList items={this.state.downloadList}
+          <UploadList items={this.state.fileList}
                       onRemove={this.onRemove}
                       limit={props.limit} />
         </div>
