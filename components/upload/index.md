@@ -28,6 +28,8 @@
 | onError    | 可选参数, error callback                                   |Function     | 无    |
 | onSuccess  | 可选参数, success callback                                 | Function     | 无    |
 | onProgress | 可选参数, progress callback, 现代浏览器有效                  | Function     | 无    |
+| urlResolver| 通过解析请求返回数据，获得文件上传的远程地址                 | Function     | `function() { return JSON.parse(ret).url }` |
+| limit      | 文件上传数量的限制                 | Number     | Number.MAX_VALUE |
 
 ### onError
 

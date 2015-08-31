@@ -7,36 +7,71 @@ import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
 let fileIndex = 0;
 
+function noop() {
+}
+
 const AntUpload = React.createClass({
   getInitialState() {
     return {
       downloadList: []
     };
   },
-  handleStart(file) {
+  onStart(file) {
     let nextDownloadList = this.state.downloadList;
     nextDownloadList.push({
       index: fileIndex++,
       uid: file.uid || '',
       filename: file.name,
+      file: file,
       status: 'downloading'
     });
+    if (nextDownloadList.length === this.props.limit + 1) {
+      nextDownloadList = nextDownloadList.slice(1);
+    }
     this.setState({
       downloadList: nextDownloadList
     });
+    this.props.onStart(file);
   },
-  handleSuccess(ret, file) {
-    Message.success(file.name + '上传完成');
-    let targetItem = getFileItem(file, this.state.downloadList);
-    targetItem.status = 'done';
+  removeFile(file){
+    var downloadList = this.state.downloadList.concat();
+    let targetItem = getFileItem(file, downloadList);
+    var index = downloadList.indexOf(targetItem);
+    if (index !== -1) {
+      downloadList.splice(index, 1);
+    }
     this.setState({
-      downloadList: this.state.downloadList
+      downloadList: downloadList
     });
   },
-  handleProgress() {
+  onSuccess(ret, file) {
+    var res = this.props.onSuccess(ret, file);
+    if (res !== false) {
+      var downloadList = this.state.downloadList.concat();
+      Message.success(file.name + '上传完成');
+      let targetItem = getFileItem(file, downloadList);
+      targetItem.status = 'done';
+      // 解析出文件上传后的远程地址
+      if (typeof this.props.urlResolver === 'function') {
+        targetItem.url = this.props.urlResolver(ret);
+      }
+      this.setState({
+        downloadList: downloadList
+      });
+    } else {
+      this.removeFile(file);
+    }
   },
-  handleError() {
-    Message.error('上传失败');
+  onProgress(e, file) {
+    this.props.onProgress(e, file);
+  },
+  onError(err, responce, file) {
+    Message.error(file.name + ' 上传失败');
+    this.removeFile(file);
+    this.props.onError(err, responce, file);
+  },
+  onRemove(file){
+    this.props.onRemove(file);
   },
   getDefaultProps() {
     return {
@@ -47,32 +82,27 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       uploadTip: '',
-      start: function() {},
-      error: function() {},
-      success: function() {},
-      progress: function() {}
+      onStart: noop,
+      onError: noop,
+      onSuccess: noop,
+      onProgress: noop,
+      onRemove: noop,
+      limit: Number.MAX_VALUE,
+      urlResolver: function(ret) {
+        try {
+          return JSON.parse(ret).url;
+        } catch(e) {}
+      }
     };
   },
   render() {
     let type = this.props.type || 'select';
-    let props = assign({}, this.props);
-
-    props.onStart = (file) => {
-      this.handleStart(file);
-      props.start.call(this, file);
-    };
-    props.onSuccess = (ret, file) => {
-      this.handleSuccess(ret, file);
-      props.success.call(this, ret, file);
-    };
-    props.onProgress = (step) => {
-      this.handleProgress(step);
-      props.progress.call(this, step);
-    };
-    props.onError = (err, responce, file) => {
-      this.handleError(err);
-      props.error.call(this, err, responce, file);
-    };
+    let props = assign({}, this.props, {
+      onStart: this.onStart,
+      onError: this.onError,
+      onProgress: this.onProgress,
+      onSuccess: this.onSuccess,
+    });
     if (type === 'drag') {
       return (
         <div className={prefixCls + ' ' + prefixCls + '-drag'}>
@@ -91,7 +121,9 @@ const AntUpload = React.createClass({
               {this.props.children}
             </Upload>
           </div>
-          <UploadList items={this.state.downloadList} />
+          <UploadList items={this.state.downloadList}
+                      onRemove={this.onRemove}
+                      limit={props.limit} />
         </div>
       );
     }
@@ -100,7 +132,7 @@ const AntUpload = React.createClass({
 
 AntUpload.Dragger = React.createClass({
   render() {
-    return <AntUpload {...this.props} type="drag" style={{height: this.props.height}} />;
+    return <AntUpload {...this.props} type="drag" style={{height: this.props.height}}/>;
   }
 });
 

@@ -14,15 +14,7 @@ var props = {
   action: '/upload.do',
   data: {},
   accept: 'i',
-  uploadTip: '',
-  error: function(err) {
-    console.log(err)
-  },
-  success: function() {},
-  progress: function() {},
-  start: function(file){
-    console.log(file)
-  }
+  uploadTip: ''
 };
 
 React.render(
@@ -31,7 +23,7 @@ React.render(
       <i className="anticon anticon-inbox"></i>
     </p>
     <p className="ant-upload-text">点击或将文件拖拽到此区域上传</p>
-    <p className="ant-upload-hint">支持单个或批量上传，严谨上传公司内部资料及其他违禁文件</p>
+    <p className="ant-upload-hint">支持单个或批量上传，严禁上传公司内部资料及其他违禁文件</p>
   </Dragger>,
   document.getElementById('components-upload-demo-drag')
 );

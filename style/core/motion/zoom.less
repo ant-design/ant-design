@@ -1,11 +1,11 @@
 .zoom-motion(@className, @keyframeName) {
   .make-motion(@className, @keyframeName);
   .@{className}-enter, .@{className}-appear {
-    transform: scale(0, 0); // need this by yiminghe
-    animation-timing-function: @ease-out-quint;
+    transform: scale(0); // need this by yiminghe
+    animation-timing-function: @ease-out-circ;
   }
   .@{className}-leave {
-    animation-timing-function: @ease-in-quint;
+    animation-timing-function: @ease-in-out-circ;
   }
 }
 
@@ -18,20 +18,20 @@
 @keyframes zoomIn {
   0% {
     opacity: 0;
-    transform: scale(0, 0);
+    transform: scale(0);
   }
   100% {
-    transform: scale(1, 1);
+    transform: scale(1);
   }
 }
 
 @keyframes zoomOut {
   0% {
-    transform: scale(1, 1);
+    transform: scale(1);
   }
   100% {
     opacity: 0;
-    transform: scale(0, 0);
+    transform: scale(0);
   }
 }
 
@@ -39,23 +39,23 @@
   0% {
     opacity: 0;
     transform-origin: 50% 0%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
   100% {
     transform-origin: 50% 0%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
 }
 
 @keyframes zoomUpOut {
   0% {
     transform-origin: 50% 0%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
   100% {
     opacity: 0;
     transform-origin: 50% 0%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
 }
 
@@ -63,23 +63,23 @@
   0% {
     opacity: 0;
     transform-origin: 0% 50%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
   100% {
     transform-origin: 0% 50%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
 }
 
 @keyframes zoomLeftOut {
   0% {
     transform-origin: 0% 50%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
   100% {
     opacity: 0;
     transform-origin: 0% 50%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
 }
 
@@ -87,23 +87,23 @@
   0% {
     opacity: 0;
     transform-origin: 100% 50%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
   100% {
     transform-origin: 100% 50%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
 }
 
 @keyframes zoomRightOut {
   0% {
     transform-origin: 100% 50%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
   100% {
     opacity: 0;
     transform-origin: 100% 50%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
 }
 
@@ -111,22 +111,22 @@
   0% {
     opacity: 0;
     transform-origin: 50% 100%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
   100% {
     transform-origin: 50% 100%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
 }
 
 @keyframes zoomDownOut {
   0% {
     transform-origin: 50% 100%;
-    transform: scale(1, 1);
+    transform: scale(1);
   }
   100% {
     opacity: 0;
     transform-origin: 50% 100%;
-    transform: scale(0, 0);
+    transform: scale(.8);
   }
 }

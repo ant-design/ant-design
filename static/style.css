@@ -105,7 +105,7 @@ a.logo {
 .search {
   float: left;
   height: 22px;
-  padding: 0px 30px;
+  padding: 0px 0 0 30px;
   margin: 32px auto 0;
   border-left: 1px solid #EBEDEE;
   position: relative;
@@ -113,6 +113,7 @@ a.logo {
 
 #autoComplete {
   margin-top: -2px;
+  width: 230px;
 }
 
 #autoComplete .ant-select {
@@ -1883,8 +1884,29 @@ a.entry-link:hover .anticon-smile {
 
   .logo {
     margin: 10px;
-    width: 110px;
     height: auto;
+  }
+
+  .nav {
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    right: 0;
+    background: #fff;
+    overflow: hidden;
+    height: auto;
+    line-height: 50px;
+    margin-right: 0;
+    border: 1px solid #e9e9e9;
+    width: 50%;
+  }
+
+  .nav .bar {
+    display: none!important;
+  }
+
+  .nav ul li {
+    width: 100%;
   }
 
   .nav-phone-icon {
@@ -1915,11 +1937,25 @@ a.entry-link:hover .anticon-smile {
     height: calc(100% - 86px);
   }
 
-  footer ul {
-    display: none;
+  .aside-container {
+    float: none;
+    width: auto;
   }
 
-  footer h3 {
-    display: block;
+  .main-container {
+    margin-left: 0;
+  }
+
+  .markdown {
+    width: 100%;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  footer ul li {
+    float: none;
+    width: auto;
   }
 }

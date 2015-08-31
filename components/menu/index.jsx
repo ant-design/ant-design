@@ -1,6 +1,5 @@
 import React from 'react';
 import Menu from 'rc-menu';
-import velocity from 'velocity-animate';
 import animation from '../common/openAnimation';
 
 const AntMenu = React.createClass({

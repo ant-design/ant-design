@@ -3,7 +3,7 @@ import Radio from './radio';
 
 function getCheckedValue(children) {
   var checkedValue = null;
-  children.forEach(function (radio) {
+  React.Children.forEach(children, function (radio) {
     if (radio.props && radio.props.checked) {
       checkedValue = radio.props.value;
     }
@@ -34,7 +34,7 @@ export default React.createClass({
   },
   render: function () {
     var props = this.props;
-    var children = props.children.map((radio) => {
+    var children = React.Children.map(props.children, (radio) => {
       if (radio.props) {
         return <Radio
           key={radio.props.value}

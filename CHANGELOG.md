@@ -1,3 +1,29 @@
+## 0.8.1 (2015-08-31)
+
+### Table
+
+* 新增无数据的展示样式。[4c54644](https://github.com/ant-design/ant-design/commit/4c54644116d46cb2510d2d475234529bad60e5d5)
+* 修复本地模式 `dataSource` 无法更新的问题。[6d2dcc4](https://github.com/ant-design/ant-design/commit/6d2dcc45393b6ec0ad1ba73caf8b1ec42353743f)
+* 修复远程模式 loading 失效的问题。[9b8abb2](https://github.com/ant-design/ant-design/commit/9b8abb219934c246970a84200818aa8f85974bdf)
+
+### Upload
+
+* 新增 `onRemove(file) {}` 接口，作为移除上传文件的回调。
+* 新增 `urlResolver(res) {}` 接口，可以拿到请求回调数据里的远程文件地址，展示在文件列表中方便下载。
+* 新增 `limit` 属性，用于限制文件上传列表的数量。
+
+### Notification
+
+* 修复不会自动消失的问题。[23fce55](https://github.com/ant-design/ant-design/commit/23fce559b0b2faf4e0b686a92dbcdd045727a464)
+
+### Steps
+
+* 新增竖版的步骤条。
+
+### Carousel
+
+* 修复 fade 模式下可以拖拽的问题。#212
+
 ## 0.8.0 (2015-08-25)
 
 这个版本是第一个稳定版，组件经过三期迭代，基本到齐，并有大量改进和变化，不向下兼容。

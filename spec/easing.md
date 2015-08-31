@@ -95,9 +95,9 @@ mask:true,exposure:"bottom"});
 
 2. 如球类物体掉地上的后，反弹几次后停止。
 
-  - 弹性动画最好结合 alpha。
+  弹性动画最好结合 alpha。
 
-> 慎用Bounce或Elastic，这两种适用在特殊元素下，一般back即可满足页面上元素的弹动;
+> 慎用 Bounce 或 Elastic，这两种适用在特殊元素下，一般 back 即可满足页面上元素的弹动;
 
 <div id="J-Back"></div>
 
@@ -110,7 +110,7 @@ mask:false,exposure:"top"});
 })
 </script>
 
-上图所示缓动函数：绿 `easeOutBounce` `easeOutElastic`( css 需自配)， 蓝 `ease-out-back` `ease-in-back`。
+上图所示缓动函数：绿 `easeOutBounce` `easeOutElastic`（css 需自配）， 蓝 `ease-out-back` `ease-in-back`。
 
 
 ## 缓动函数
@@ -119,15 +119,15 @@ Ant Design 提供了一套缓动函数规范动画行为供组件使用。
 
 |名称               |参数                                      |说明                |
 |-------------------|------------------------------------------|---------------------------|
-|@ease-out          | `cubic-bezier(0.215,0.61,0.355,1);`   |默认后缓动；                  |
-|@ease-in           | `cubic-bezier(0.55,0.055,0.675,0.19);`|默认前缓动；                 |
-|@ease-in-out       | `cubic-bezier(0.645,0.045,0.355,1);`  |默认前后缓动；                |
-|@ease-out-back     | `cubic-bezier(0.18,0.89,0.32,1.28);`  |结束回动；                    |
-|@ease-in-back      | `cubic-bezier(0.6,-0.3,0.74,0.05);`   |开始回动；                   |
-|@ease-in-out-back  | `cubic-bezier(0.68,-0.55,0.27,1.55);` |前后回动；                   |
-|@ease-out-circ     | `cubic-bezier(0.08,0.82,0.17,1);`     |圆形后缓动；                 |
-|@ease-in-circ      | `cubic-bezier(0.6,0.04,0.98,0.34);`   |圆形前缓动；                 |
-|@ease-in-out-circ  | `cubic-bezier(0.78,0.14,0.15,0.86);`  |圆形前后缓动；                   |
-|@ease-out-quint    | `cubic-bezier(0.23, 1, 0.32, 1);`|  quint后缓动|
-|@ease-in-quint     | `cubic-bezier(0.755, 0.05, 0.855, 0.06);`|quint前缓动|
-|@ease-in-out-quint | `cubic-bezier(0.86, 0, 0.07, 1);`| quint前后缓动|
+|@ease-out          | `cubic-bezier(0.215,0.61,0.355,1);`   |默认后缓动                  |
+|@ease-in           | `cubic-bezier(0.55,0.055,0.675,0.19);`|默认前缓动                 |
+|@ease-in-out       | `cubic-bezier(0.645,0.045,0.355,1);`  |默认前后缓动                |
+|@ease-out-back     | `cubic-bezier(0.18,0.89,0.32,1.28);`  |结束回动                    |
+|@ease-in-back      | `cubic-bezier(0.6,-0.3,0.74,0.05);`   |开始回动                   |
+|@ease-in-out-back  | `cubic-bezier(0.68,-0.55,0.27,1.55);` |前后回动                   |
+|@ease-out-circ     | `cubic-bezier(0.08,0.82,0.17,1);`     |圆形后缓动                 |
+|@ease-in-circ      | `cubic-bezier(0.6,0.04,0.98,0.34);`   |圆形前缓动                 |
+|@ease-in-out-circ  | `cubic-bezier(0.78,0.14,0.15,0.86);`  |圆形前后缓动                   |
+|@ease-out-quint    | `cubic-bezier(0.23, 1, 0.32, 1);`|  quint 后缓动|
+|@ease-in-quint     | `cubic-bezier(0.755, 0.05, 0.855, 0.06);`|quint 前缓动|
+|@ease-in-out-quint | `cubic-bezier(0.86, 0, 0.07, 1);`| quint 前后缓动|

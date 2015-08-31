@@ -43,18 +43,22 @@ var columns = [{
 }];
 
 var data = [{
+  key: '1',
   name: '胡斌',
   age: 32,
   address: '西湖区湖底公园1号'
 }, {
+  key: '2',
   name: '胡彦祖',
   age: 42,
   address: '西湖区湖底公园12号'
 }, {
+  key: '3',
   name: '李大嘴',
   age: 32,
   address: '西湖区湖底公园123号'
 }, {
+  key: '4',
   name: '李秀莲大嘴哥',
   age: 32,
   address: '西湖区湖底公园123号'

@@ -74,7 +74,10 @@ exports.middlewares = [
         busboy.on('finish', function() {
           console.log('Done parsing form!');
           //res.writeHead(303, { Connection: 'close', Location: '/' });
-          res.end('success');
+          res.end(JSON.stringify({
+            'status': 'success',
+            'url': '/example.file'
+          }));
         });
         req.pipe(busboy);
       }

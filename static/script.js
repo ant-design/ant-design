@@ -37,6 +37,10 @@ $(function() {
   // 移动 API 文档到演示下方
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
 
+  $('.nav-phone-icon').click(function() {
+    $(this).prev().toggle();
+  });
+
   $.easing['jswing'] = $.easing['swing'];
   $.extend($.easing,{
     easeInCirc: function (x, t, b, c, d) {

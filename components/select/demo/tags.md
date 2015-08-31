@@ -22,7 +22,7 @@ function handleChange(value) {
 
 React.render(
   <Select
-   style={{width:400}}
+   style={{width: '100%'}}
   tags defaultValue={['name2', 'name3']} onChange={handleChange}>
     {children}
   </Select>

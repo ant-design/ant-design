@@ -24,10 +24,12 @@ Table 有两种模式，本地数据和远程数据模式。
 
 ```jsx
 var dataSource = [{
+  key: '1',
   name: '胡彦斌',
   age: 32,
   address: '西湖区湖底公园1号'
 }, {
+  key: '2',
   name: '胡彦祖',
   age: 42,
   address: '西湖区湖底公园1号'
@@ -64,6 +66,7 @@ var dataSource = new Table.DataSource({
 | size          | 正常或迷你类型           | string          | `normal` or `small` | normal  |
 | dataSource    | 数据源，可以为数组（本地模式）或一个数据源描述对象（远程模式） | Array or Object |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
+| rowKey        | 表格列 key 的取值 | Function(recode,index):string |                     |    record.key    |
 
 ### Column
 
