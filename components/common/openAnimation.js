@@ -27,13 +27,13 @@ function animate(node, show, transitionName, done) {
 
 const animation = {
   enter(node, done) {
-    animate(node, false, 'slideDown', done);
+    return animate(node, false, 'slideDown', done);
   },
   leave(node, done) {
-    animate(node, true, 'slideUp', done);
+    return animate(node, true, 'slideUp', done);
   },
   appear(node, done) {
-    animate(node, false, 'slideDown', done);
+    return animate(node, false, 'slideDown', done);
   },
 };
 

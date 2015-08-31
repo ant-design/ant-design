@@ -46,7 +46,7 @@
     right: 8px;
     line-height: 1;
     margin-top: -5px;
-    .iconfont-size-under-12px(8px);
+    font-size: 8px;
 
     * {
       display: none;
@@ -72,10 +72,12 @@
     .transition(all .3s @ease-in-out);
 
     &:hover {
-      .hover;
+      border-color: tint(@primary-color, 20%);
     }
     &:active {
-      .active;
+      border-color: tint(@primary-color, 20%);
+      outline: 0;
+      box-shadow: 0 0 0 2px tint(@primary-color, 80%);
     }
   }
 
@@ -114,19 +116,19 @@
   }
 
   &-lg {
-    .ant-select-selection--single {
+    .@{select-prefix-cls}-selection--single {
       height: 32px;
-      .ant-select-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         line-height: 30px;
       }
     }
 
-    .ant-select-selection--multiple {
+    .@{select-prefix-cls}-selection--multiple {
       min-height: 32px;
-      .ant-select-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         li {
           height: 24px;
-          .ant-select-selection__choice__content {
+          .@{select-prefix-cls}-selection__choice__content {
             font-size: 14px;
             line-height: 24px;
           }
@@ -136,23 +138,23 @@
   }
 
   &-sm {
-    .ant-select-selection--single {
+    .@{select-prefix-cls}-selection--single {
       height: 22px;
-      .ant-select-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         line-height: 20px;
       }
     }
-    .ant-select-selection--multiple {
+    .@{select-prefix-cls}-selection--multiple {
       min-height: 22px;
-      .ant-select-selection__rendered {
+      .@{select-prefix-cls}-selection__rendered {
         li {
           height: 14px;
-          .ant-select-selection__choice__content {
+          .@{select-prefix-cls}-selection__choice__content {
             line-height: 14px;
             position: relative;
             top: -3px;
           }
-          .ant-select-selection__choice__remove {
+          .@{select-prefix-cls}-selection__choice__remove {
             position: relative;
             top: -4px;
           }
@@ -240,7 +242,7 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      .iconfont-size-under-12px(8px);
+      font-size: 8px;
       padding: 0 0 0 4px;
       position: relative;
       top: -1px;
@@ -258,10 +260,7 @@
   &-open {
     .@{select-prefix-cls}-arrow {
       .ie-rotate(2);
-      -ms-transform: rotate(180deg);
-      &:before {
-        .rotate(180deg);
-      }
+      transform: rotate(180deg);
     }
     .@{select-prefix-cls}-selection {
       .active();
