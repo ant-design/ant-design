@@ -10,13 +10,10 @@
 var Upload = antd.Upload;
 
 var props = {
-  description: '支持扩展名为: .rar .zip ...',
   action: '/upload.do',
-  data: {},
-  accept: '',
-  uploadTip: '',
-  onStart(file){
-    console.log(file.uid);
+  onChange(info) {
+    console.log(info.file);
+    console.log(info.fileList);
   }
 };
 

@@ -5,7 +5,6 @@ import Message from '../message';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
-let fileIndex = 0;
 
 function noop() {
 }
@@ -18,20 +17,18 @@ const AntUpload = React.createClass({
   },
   onStart(file) {
     let nextFileList = this.state.fileList;
-    nextFileList.push({
-      index: fileIndex++,
-      uid: file.uid || '',
-      filename: file.name,
-      file: file,
-      status: 'uploading'
-    });
+    file.status = 'started';
+    nextFileList.push(file);
     if (nextFileList.length === this.props.limit + 1) {
       nextFileList = nextFileList.slice(1);
     }
     this.setState({
       fileList: nextFileList
     });
-    this.props.onStart(file);
+    this.props.onChange({
+      file: file,
+      fileList: nextFileList
+    });
   },
   removeFile(file){
     var fileList = this.state.fileList.concat();
@@ -45,33 +42,45 @@ const AntUpload = React.createClass({
     });
   },
   onSuccess(ret, file) {
-    var res = this.props.onSuccess(ret, file);
-    if (res !== false) {
-      var fileList = this.state.fileList.concat();
-      Message.success(file.name + '上传完成');
-      let targetItem = getFileItem(file, fileList);
-      targetItem.status = 'done';
-      // 解析出文件上传后的远程地址
-      if (typeof this.props.urlResolver === 'function') {
-        targetItem.url = this.props.urlResolver(ret);
-      }
-      this.setState({
-        fileList: fileList
-      });
-    } else {
-      this.removeFile(file);
+    var fileList = this.state.fileList.concat();
+    Message.success(file.name + '上传完成');
+    let targetItem = getFileItem(file, fileList);
+    targetItem.status = 'done';
+    // 解析出文件上传后的远程地址
+    if (typeof this.props.urlResolver === 'function') {
+      targetItem.url = this.props.urlResolver(ret);
     }
+    this.setState({
+      fileList: fileList
+    });
+    this.props.onChange({
+      file: targetItem,
+      fileList: this.state.fileList,
+      response: ret
+    });
   },
   onProgress(e, file) {
-    this.props.onProgress(e, file);
+    this.props.onChange({
+      event: e,
+      file: file,
+      fileList: this.state.fileList
+    });
   },
-  onError(err, responce, file) {
+  onError(err, response, file) {
     Message.error(file.name + ' 上传失败');
     this.removeFile(file);
-    this.props.onError(err, responce, file);
+    file.response = response;
+    this.props.onChange({
+      error: err,
+      file: file,
+      fileList: this.fileList
+    });
   },
-  onRemove(file){
-    this.props.onRemove(file);
+  onRemove(file) {
+    this.props.onChange({
+      file: file,
+      fileList: this.fileList
+    });
   },
   getDefaultProps() {
     return {
@@ -81,12 +90,7 @@ const AntUpload = React.createClass({
       action: '',
       data: {},
       accept: '',
-      uploadTip: '',
-      onStart: noop,
-      onError: noop,
-      onSuccess: noop,
-      onProgress: noop,
-      onRemove: noop,
+      onChange: noop,
       limit: Number.MAX_VALUE,
       urlResolver: function(ret) {
         try {
@@ -122,7 +126,6 @@ const AntUpload = React.createClass({
             </Upload>
           </div>
           <UploadList items={this.state.fileList}
-                      onRemove={this.onRemove}
                       limit={props.limit} />
         </div>
       );

@@ -11,10 +11,7 @@ var Dragger = antd.Upload.Dragger;
 
 var props = {
   name: 'file',
-  action: '/upload.do',
-  data: {},
-  accept: '',
-  uploadTip: ''
+  action: '/upload.do'
 };
 
 React.render(
