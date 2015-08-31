@@ -48,7 +48,7 @@ var dataSource = new Table.DataSource({
   resolve: function(result) {
     return result.data;
   },
-  getPagination: function(result) {}
+  getPagination: function(result) {},
   getParams: function(pagination, filters, sorter) {}
 });
 
