@@ -1,3 +1,4 @@
+
 @select-prefix-cls: ant-select;
 
 @import "../mixins/iconfont";
@@ -46,7 +47,7 @@
     right: 8px;
     line-height: 1;
     margin-top: -5px;
-    font-size: 8px;
+    .iconfont-size-under-12px(8px);
 
     * {
       display: none;
@@ -72,12 +73,10 @@
     .transition(all .3s @ease-in-out);
 
     &:hover {
-      border-color: tint(@primary-color, 20%);
+      .hover;
     }
     &:active {
-      border-color: tint(@primary-color, 20%);
-      outline: 0;
-      box-shadow: 0 0 0 2px tint(@primary-color, 80%);
+      .active;
     }
   }
 
@@ -116,19 +115,19 @@
   }
 
   &-lg {
-    .@{select-prefix-cls}-selection--single {
+    .ant-select-selection--single {
       height: 32px;
-      .@{select-prefix-cls}-selection__rendered {
+      .ant-select-selection__rendered {
         line-height: 30px;
       }
     }
 
-    .@{select-prefix-cls}-selection--multiple {
+    .ant-select-selection--multiple {
       min-height: 32px;
-      .@{select-prefix-cls}-selection__rendered {
+      .ant-select-selection__rendered {
         li {
           height: 24px;
-          .@{select-prefix-cls}-selection__choice__content {
+          .ant-select-selection__choice__content {
             font-size: 14px;
             line-height: 24px;
           }
@@ -138,23 +137,23 @@
   }
 
   &-sm {
-    .@{select-prefix-cls}-selection--single {
+    .ant-select-selection--single {
       height: 22px;
-      .@{select-prefix-cls}-selection__rendered {
+      .ant-select-selection__rendered {
         line-height: 20px;
       }
     }
-    .@{select-prefix-cls}-selection--multiple {
+    .ant-select-selection--multiple {
       min-height: 22px;
-      .@{select-prefix-cls}-selection__rendered {
+      .ant-select-selection__rendered {
         li {
           height: 14px;
-          .@{select-prefix-cls}-selection__choice__content {
+          .ant-select-selection__choice__content {
             line-height: 14px;
             position: relative;
             top: -3px;
           }
-          .@{select-prefix-cls}-selection__choice__remove {
+          .ant-select-selection__choice__remove {
             position: relative;
             top: -4px;
           }
@@ -242,7 +241,7 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      font-size: 8px;
+      .iconfont-size-under-12px(8px);
       padding: 0 0 0 4px;
       position: relative;
       top: -1px;
@@ -260,7 +259,10 @@
   &-open {
     .@{select-prefix-cls}-arrow {
       .ie-rotate(2);
-      transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      &:before {
+        .rotate(180deg);
+      }
     }
     .@{select-prefix-cls}-selection {
       .active();
