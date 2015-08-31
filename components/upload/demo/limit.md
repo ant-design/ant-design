@@ -1,8 +1,8 @@
-# 点击上传
+# 文件列表限制
 
-- order: 0
+- order: 3
 
-经典款式，用户点击按钮弹出文件选择框。
+`limit` 属性控制文件列表数的上限。如设为 1 时，表示只能上传一个文件，新文件会顶掉旧文件。
 
 ---
 
@@ -15,6 +15,7 @@ var props = {
   data: {},
   accept: '',
   uploadTip: '',
+  limit: 1,
   onStart(file){
     console.log(file.uid);
   }
@@ -23,9 +24,10 @@ var props = {
 React.render(
   <Upload {...props}>
     <button className="ant-btn ant-btn-ghost">
-      <i className="anticon anticon-upload"></i> 点击上传
+      <i className="anticon anticon-upload"></i> 点击上传，只支持一个文件
     </button>
   </Upload>,
-  document.getElementById('components-upload-demo-basic')
+  document.getElementById('components-upload-demo-limit')
 );
 ````
+
