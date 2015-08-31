@@ -90,8 +90,7 @@ a.logo {
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
-  font-family: "Microsoft YaHei","微软雅黑","Hiragino Sans GB",sans-serif;
-  font-weight: 500;
+  font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",sans-serif;
   color: #6EB4E0;
 }
 
@@ -1885,6 +1884,13 @@ a.entry-link:hover .anticon-smile {
   .logo {
     margin: 10px;
     height: auto;
+  }
+
+  .banner-entry {
+    position: relative;
+    top: 30px;
+    left: 0;
+    text-align: center;
   }
 
   .nav {
