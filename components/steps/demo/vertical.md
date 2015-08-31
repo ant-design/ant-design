@@ -21,11 +21,11 @@ var steps = [{
   description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
 }, {
   status: 'wait',
-  title: '又一个待运行',
+  title: '待运行',
   description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
 }, {
   status: 'wait',
-  title: '待运行',
+  title: '又一个待运行',
   description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
 }].map(function(s, i) {
   return (<Step
