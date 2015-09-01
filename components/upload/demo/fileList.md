@@ -15,7 +15,7 @@
 ````jsx
 var Upload = antd.Upload;
 var fileList = [{
-  uid: 123,
+  uid: -1,
   name: 'xxx.png',
   status: 'done',
   url: 'http://www.baidu.com/xxx.png'
@@ -32,7 +32,7 @@ var MyUpload = React.createClass({
 
     // 1. 上传列表数量的限制
     //    只显示最近上传的一个，旧的会被新的顶掉
-    fileList = fileList.slice(-1);
+    fileList = fileList.slice(-2);
 
     // 2. 读取远程路径并显示链接
     fileList = fileList.map(function(file) {

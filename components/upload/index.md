@@ -43,9 +43,9 @@
 
    ```js
    {
-      uid: 'uid',      // 文件唯一标识
+      uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
       name: 'xx.png'   // 文件名
-      status: 'done',  // 状态：uploading done removed
+      status: 'done',  // 状态：uploading done
       response: '{"status":"success"}'  // 服务端响应内容
    }
    ```
@@ -55,4 +55,4 @@
 
 ## 显示下载链接
 
-默认会解析服务器返回数据的 `body.url` 作为下载链接，需要自行配置请使用 fileList 属性进行展示控制。
+请使用 fileList 属性设置数组项的 url 属性进行展示控制。

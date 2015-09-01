@@ -35,6 +35,7 @@
 | allowClear | 显示清除按钮 | | false |
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
+| optionFilterProp | 输入项过滤对应的 option 属性 | string | value |
 | combobox | 输入框自动提示模式 | | false |
 | size    | 选择框大小  | String      |      无      |
 

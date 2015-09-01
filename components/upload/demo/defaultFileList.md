@@ -18,12 +18,12 @@ var props = {
     }
   },
   defaultFileList: [{
-    uid: 12345,
+    uid: -1,
     name: 'xxx.png',
     status: 'done',
     url: 'http://www.baidu.com/xxx.png'
   }, {
-    uid: 12346,
+    uid: -2,
     name: 'yyy.png',
     status: 'done',
     url: 'http://www.baidu.com/yyy.png'
