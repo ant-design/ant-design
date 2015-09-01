@@ -29,9 +29,12 @@ function createPicker(Calendar) {
       };
     },
     componentWillReceiveProps(nextProps) {
-      if (nextProps.value) {
-        var value = new GregorianCalendar(zhCn);
-        value.setTime(new Date(nextProps.value).valueOf());
+      if ('value' in nextProps) {
+        let value = null;
+        if (nextProps.value) {
+          value = new GregorianCalendar(zhCn);
+          value.setTime(new Date(nextProps.value).valueOf());
+        }
         this.setState({
           value: value
         });
