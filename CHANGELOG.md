@@ -38,8 +38,9 @@
 
 ### 其他
 
-* 文案更新。
+* 新增 [badge](http://ant.design/components/badge) 组件。
 * tooltip、popover、popconfirm 等动画效果优化。
+* 部分文案更新。
 * 优化主站在小分辨率屏幕下的样式。
 
 ## 0.8.0 (2015-08-25)
