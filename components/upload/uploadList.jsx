@@ -22,36 +22,29 @@ export default React.createClass({
     }
   },
   handleClose(file) {
-    let items = this.state.items;
-    let removeItem = getFileItem(file, items);
-    if (removeItem) {
-      items.splice(items.indexOf(removeItem), 1);
-    }
-    this.setState({
-      items: items
-    });
-    this.props.onRemove(file.file);
+    this.props.onRemove(file);
   },
   render() {
-    let items = this.state.items;
-    let downloadItem = (file) => {
-      let statusIcon = file.status === 'done' ? <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> :
+    let list = this.state.items.map((file) => {
+      let statusIcon = file.status === 'done' ?
+        <i className={'anticon anticon-check ' + prefixCls + '-success-icon'}></i> :
         <i className="anticon anticon-loading"></i>;
-      let filename = file.url ? <a className={prefixCls + '-item-name'} href={file.url} _target="_blank">{file.filename}</a> :
-        <b className={prefixCls + '-item-name'}>{file.filename}</b>;
+      let filename = file.url ?
+        <a className={prefixCls + '-item-name'} href={file.url} _target="_blank">{file.name}</a> :
+        <b className={prefixCls + '-item-name'}>{file.name}</b>;
       return (
-        <div className={prefixCls + '-list-item'} key={file.index}>
+        <div className={prefixCls + '-list-item'} key={file.uid}>
           {statusIcon}
           {filename}
           <i className="anticon anticon-cross" ref="theCloseBtn"
              onClick={this.handleClose.bind(this, file)}></i>
         </div>
       );
-    };
-    return (<div className={prefixCls + '-list'}>
+    });
+    return <div className={prefixCls + '-list'}>
       <Animate transitionName={prefixCls + '-margin-top'}>
-        {items.map(downloadItem)}
+        {list}
       </Animate>
-    </div>);
+    </div>;
   }
 });

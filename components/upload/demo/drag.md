@@ -1,6 +1,6 @@
 # 拖拽上传
 
-- order: 1
+- order: 3
 
 可以把文件拖入指定区域，完成上传，同样支持点击上传。
 
@@ -11,10 +11,7 @@ var Dragger = antd.Upload.Dragger;
 
 var props = {
   name: 'file',
-  action: '/upload.do',
-  data: {},
-  accept: 'i',
-  uploadTip: ''
+  action: '/upload.do'
 };
 
 React.render(

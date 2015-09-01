@@ -1,6 +1,6 @@
 # 拖拽上传
 
-- order: 2
+- order: 4
 
 样式简单一些。
 
@@ -11,10 +11,7 @@ var Dragger = antd.Upload.Dragger;
 
 var props = {
   name: 'file',
-  action: '/upload.do',
-  data: {},
-  accept: '',
-  uploadTip: ''
+  action: '/upload.do'
 };
 
 React.render(
