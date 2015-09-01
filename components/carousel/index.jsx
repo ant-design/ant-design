@@ -1,4 +1,4 @@
-import Carousel from 'react-slick2';
+import Carousel from 'react-slick';
 import React from 'react';
 import assign from 'object-assign';
 
