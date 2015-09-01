@@ -1,8 +1,8 @@
-# 点击上传
+# 传入已上传的文件
 
-- order: 0
+- order: 1
 
-经典款式，用户点击按钮弹出文件选择框。
+对已上传的文件进行编辑。
 
 ---
 
@@ -16,7 +16,18 @@ var props = {
       console.log(info.file);
       console.log(info.fileList);
     }
-  }
+  },
+  defaultFileList: [{
+    uid: -1,
+    name: 'xxx.png',
+    status: 'done',
+    url: 'http://www.baidu.com/xxx.png'
+  }, {
+    uid: -2,
+    name: 'yyy.png',
+    status: 'done',
+    url: 'http://www.baidu.com/yyy.png'
+  }]
 };
 
 React.render(
@@ -25,5 +36,5 @@ React.render(
       <i className="anticon anticon-upload"></i> 点击上传
     </button>
   </Upload>
-, document.getElementById('components-upload-demo-basic'));
+, document.getElementById('components-upload-demo-defaultfilelist'));
 ````

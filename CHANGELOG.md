@@ -1,4 +1,13 @@
-## 0.8.1 (not ready)
+## 0.9.0 (not ready)
+
+
+### Upload
+
+**重构了 API 接口，不向下兼容**，支持自定义的功能扩展。
+
+* 新增 `onChange(file) {}` 接口，移出原来的 `onSuccess`、`onProgess`、`onError` 等接口。
+* 新增 `fileList` 和 `defaultFileList` 属性，以满足更多的自定义功能，具体见演示。
+* 设置 fileList 数组项的 url 属性可以作为链接展示在文件列表中方便下载。
 
 ### Table
 
@@ -6,12 +15,6 @@
 * 修复本地模式 `dataSource` 无法更新的问题。[6d2dcc4](https://github.com/ant-design/ant-design/commit/6d2dcc45393b6ec0ad1ba73caf8b1ec42353743f)
 * 修复远程模式 loading 失效的问题。[9b8abb2](https://github.com/ant-design/ant-design/commit/9b8abb219934c246970a84200818aa8f85974bdf)
 * 用 [reqwest-without-xhr2](http://npmjs.com/reqwest-without-xhr2) 代替了 reqwest，解决某些开发环境下 xhr2 依赖的问题。
-
-### Upload
-
-* 新增 `onRemove(file) {}` 接口，作为移除上传文件的回调。
-* 新增 `urlResolver(res) {}` 接口，可以拿到请求回调数据里的远程文件地址，展示在文件列表中方便下载。
-* 新增 `limit` 属性，用于限制文件上传列表的数量。
 
 ### Notification
 

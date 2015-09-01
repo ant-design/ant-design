@@ -2,7 +2,7 @@ export default function getFileItem(file, fileList) {
   let matchWay = (!file.uid) ? 'byName' : 'byUid';
   let target = fileList.filter((item) => {
     if (matchWay === 'byName') {
-      return item.filename === file.filename;
+      return item.name === file.name;
     } else {
       return item.uid === file.uid;
     }
