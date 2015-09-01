@@ -1,0 +1,54 @@
+@import "../mixins/index";
+
+@timeline-prefix-cls: ~"@{css-prefix}timeline";
+
+@line-color: #e9e9e9;
+
+.@{timeline-prefix-cls} {
+  &-item {
+    position: relative;
+    min-height: 50px;
+
+    &-tail {
+      position: absolute;
+      left: 5px;
+      z-index: 1;
+      height: 100%;
+      border-left: 2px solid @line-color;
+      &-end {
+        border-left: 2px dotted @line-color;
+      }
+    }
+
+    &-head {
+      position: relative;
+      z-index: 2;
+      width: 12px;
+      height: 12px;
+      background-color: #fff;
+      border-radius: 6px;
+      &-blue {
+        border: 2px solid @primary-color;
+      }
+      &-red {
+        border: 2px solid @error-color;
+      }
+      &-green {
+        border: 2px solid @success-color;
+      }
+      &-end{
+        position: absolute;
+        bottom: -12px;
+        border: 2px solid @line-color;
+      }
+    }
+
+    &-content {
+      position: relative;
+      top: -14px;
+      margin-left: 26px;
+      padding-bottom: 4px;
+      font-size: 12px;
+    }
+  }
+}
