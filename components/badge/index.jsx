@@ -38,4 +38,8 @@ AntBadge.defaultProps = {
   dot: false
 };
 
+AntBadge.propTypes = {
+  dot: React.PropTypes.bool
+};
+
 export default AntBadge;

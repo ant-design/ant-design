@@ -1,5 +1,4 @@
 import React from 'react';
-import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
 import Animate from 'rc-animate';
 

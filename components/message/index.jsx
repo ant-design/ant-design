@@ -3,8 +3,7 @@ import Notification from 'rc-notification';
 
 let defaultDuration = 1.5;
 let top;
-
-var messageInstance;
+let messageInstance;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({

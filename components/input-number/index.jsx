@@ -8,7 +8,7 @@ export default React.createClass({
     };
   },
   render() {
-    var sizeClass = '';
+    let sizeClass = '';
     if (this.props.size === 'large') {
       sizeClass = 'ant-input-number-lg';
     } else if (this.props.size === 'small') {

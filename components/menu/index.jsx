@@ -11,15 +11,16 @@ const AntMenu = React.createClass({
   render() {
     let openAnimation = '';
     switch (this.props.mode) {
-      case 'horizontal':
-        openAnimation = 'slide-up';
-        break;
-      case 'vertical':
-        openAnimation = 'zoom';
-        break;
-      case 'inline':
-        openAnimation = animation;
-        break;
+    case 'horizontal':
+      openAnimation = 'slide-up';
+      break;
+    case 'vertical':
+      openAnimation = 'zoom';
+      break;
+    case 'inline':
+      openAnimation = animation;
+      break;
+    default:
     }
     if (this.props.mode === 'inline') {
       return <Menu {...this.props} openAnimation={openAnimation} />;

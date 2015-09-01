@@ -4,7 +4,7 @@ const prefixCls = 'ant-tabs';
 
 class AntTabs extends React.Component {
   render() {
-    var sizeCls = '';
+    let sizeCls = '';
     if (this.props.size === 'mini') {
       sizeCls = prefixCls + '-mini';
     }

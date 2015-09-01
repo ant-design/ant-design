@@ -39,7 +39,7 @@ class AntTag extends React.Component {
 
     return this.state.closed ? null
       : <Animate component=""
-                 showProp='data-show'
+                 showProp="data-show"
                  transitionName="zoom-tag"
                  onEnd={this.animationEnd.bind(this)}>
         <div data-show={!this.state.closing} className={className}>

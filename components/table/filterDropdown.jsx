@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
 
-var FilterMenu = React.createClass({
+let FilterMenu = React.createClass({
   getInitialState() {
     return {
       selectedKeys: this.props.selectedKeys
