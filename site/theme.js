@@ -52,12 +52,13 @@ module.exports = function(nico) {
     },
     get_categories: function(posts, post) {
       var rootDirectory = post.directory.split('/')[0];
-      if (!rootDirectory) {
+      if (!rootDirectory && post.filename.indexOf('CHANGELOG') < 0) {
         return;
       }
       var directories = [rootDirectory];
       // docs 和 components 放在同一页
-      if (rootDirectory === 'docs' || rootDirectory === 'components') {
+      if (rootDirectory === 'docs' || rootDirectory === 'components' ||
+          post.filename.indexOf('CHANGELOG') >= 0) {
         directories = ['docs', 'components'];
       }
       var cacheKey = directories.join('-');
@@ -69,7 +70,11 @@ module.exports = function(nico) {
         _.uniq(getAllPosts(posts).forEach(function(item) {
           var itemDirectory = item.directory.split('/')[0];
           var cat = item.meta.category;
-          if (cat && directories.indexOf(itemDirectory) >= 0) {
+          if (!cat) {
+            return;
+          }
+          if (directories.indexOf(itemDirectory) >= 0 ||
+              item.filename.indexOf('CHANGELOG') >= 0) {
             categories[cat] = categories[cat] || [];
             categories[cat].push(item);
           }
