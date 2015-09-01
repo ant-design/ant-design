@@ -43,7 +43,3 @@
 |  title   | 必要参数，标题。 | string/jsx | 无 | 无     |
 |  description | 可选参数，步骤的详情描述。 | string/jsx | 无 | 空  |
 |  icon    | 可选参数，步骤的Icon。如果不指定，则使用默认的样式。 | string/jsx | 无  | 空 |
-
-## Todo
-
-* 竖状步骤条
