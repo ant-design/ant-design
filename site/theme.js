@@ -75,6 +75,7 @@ module.exports = function(nico) {
           }
           if (directories.indexOf(itemDirectory) >= 0 ||
               item.filename.indexOf('CHANGELOG') >= 0) {
+            item.filename = item.filename.toLowerCase();
             categories[cat] = categories[cat] || [];
             categories[cat].push(item);
           }
