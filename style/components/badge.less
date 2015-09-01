@@ -21,12 +21,6 @@
     transition: all 0.3s ease;
     z-index: 10;
     font-family: tahoma;
-    &:hover {
-      background: tint(@error-color, 20%);
-    }
-    &:active {
-      background: shade(@error-color, 5%);
-    }
     a, a:hover {
       color: #fff;
     }
@@ -42,5 +36,14 @@
     background: @error-color;
     transition: all 0.3s ease;
     z-index: 10;
+  }
+}
+
+a .@{badge-prefix-cls} {
+  &-count:hover {
+    background: tint(@error-color, 20%);
+  }
+  &-count:active {
+    background: shade(@error-color, 5%);
   }
 }
