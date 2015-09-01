@@ -38,7 +38,7 @@
 
 ### 其他
 
-* 新增 [badge](http://ant.design/components/badge) 组件。
+* 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
 * tooltip、popover、popconfirm 等动画效果优化。
 * 部分文案更新。
 * 优化主站在小分辨率屏幕下的样式。
