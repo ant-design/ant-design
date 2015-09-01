@@ -42,7 +42,8 @@ const antd = {
   Tree: require('./components/tree'),
   Upload: require('./components/upload'),
   Badge: require('./components/badge'),
-  Menu: require('./components/menu')
+  Menu: require('./components/menu'),
+  Timeline: require('./components/timeline')
 };
 
 module.exports = antd;
