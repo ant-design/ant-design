@@ -35,13 +35,13 @@ Timeline.Item = React.createClass({
     let color = props.color;
     let end = props.end;
     let endCls = end ? prefixCls + '-item-tail-end' : '';
-    let last = end ? <div className={prefixCls + '-item-head '+ prefixCls + '-item-head-end'}></div> : null;
+    let last = end ? <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-end'}></div> : null;
     let lastLineShow = (props.timelineLast && !end) ? 'none' : 'block';
-    
+
     return (
       <li className={prefixCls + '-item'}>
         <div style={{display:lastLineShow}} className={prefixCls + '-item-tail ' + endCls}></div>
-        <div className={prefixCls + '-item-head '+ prefixCls + '-item-head-' + color}></div>
+        <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-' + color}></div>
         <div className={prefixCls + '-item-content'}>{props.children}</div>
         {last}
       </li>

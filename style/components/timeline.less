@@ -2,26 +2,27 @@
 
 @timeline-prefix-cls: ~"@{css-prefix}timeline";
 
-@line-color: #e9e9e9;
+@timeline-color: #e9e9e9;
 
 .@{timeline-prefix-cls} {
   &-item {
     position: relative;
     min-height: 50px;
+    padding-bottom: 12px;
 
     &-tail {
       position: absolute;
       left: 5px;
       z-index: 1;
       height: 100%;
-      border-left: 2px solid @line-color;
+      border-left: 2px solid @timeline-color;
       &-end {
-        border-left: 2px dotted @line-color;
+        border-left: 2px dotted @timeline-color;
       }
     }
 
     &-head {
-      position: relative;
+      position: absolute;
       z-index: 2;
       width: 12px;
       height: 12px;
@@ -39,15 +40,12 @@
       &-end{
         position: absolute;
         bottom: -12px;
-        border: 2px solid @line-color;
+        border: 2px solid @timeline-color;
       }
     }
 
     &-content {
-      position: relative;
-      top: -14px;
       margin-left: 26px;
-      padding-bottom: 4px;
       font-size: 12px;
     }
   }
