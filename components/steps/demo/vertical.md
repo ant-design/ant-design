@@ -14,19 +14,19 @@ var container = document.getElementById('components-steps-demo-vertical');
 var steps = [{
   status: 'finish',
   title: '已完成',
-  description: '这里是多信息的描述啊这里是多信息的描述啊这里是多信息的描述啊这里是多信息的描述啊这里是多信息的描述啊'
+  description: '这里是信息的描述'
 }, {
   status: 'process',
   title: '进行中',
-  description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
+  description: '这里是信息的描述'
 }, {
   status: 'wait',
   title: '待运行',
-  description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
+  description: '这里是信息的描述'
 }, {
   status: 'wait',
   title: '又一个待运行',
-  description: '描述啊描述啊描述啊描述啊描述啊描述啊描述啊描述啊'
+  description: '这里是信息的描述'
 }].map(function(s, i) {
   return (<Step
     key={i}
