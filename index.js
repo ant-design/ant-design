@@ -41,6 +41,7 @@ const antd = {
   Validation: require('./components/validation'),
   Tree: require('./components/tree'),
   Upload: require('./components/upload'),
+  Badge: require('./components/badge'),
   Menu: require('./components/menu')
 };
 
