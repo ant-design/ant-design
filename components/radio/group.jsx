@@ -2,7 +2,7 @@ import React from 'react';
 import Radio from './radio';
 
 function getCheckedValue(children) {
-  var checkedValue = null;
+  var checkedValue = undefined;
   React.Children.forEach(children, function (radio) {
     if (radio.props && radio.props.checked) {
       checkedValue = radio.props.value;
@@ -28,7 +28,7 @@ export default React.createClass({
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps || getCheckedValue(nextProps.children)) {
       this.setState({
-        value: nextProps.value || getCheckedValue(nextProps.children)
+        value: typeof nextProps.value !== 'undefined' ? nextProps.value : getCheckedValue(nextProps.children)
       });
     }
   },
