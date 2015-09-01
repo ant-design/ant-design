@@ -7,7 +7,7 @@
 
 * 新增 `onChange(file) {}` 接口，移出原来的 `onSuccess`、`onProgess`、`onError` 等接口。
 * 新增 `fileList` 和 `defaultFileList` 属性，以满足更多的自定义功能，具体见演示。
-* 默认可以拿到请求回调数据里的远程文件地址：`res.body.url`，作为链接展示在文件列表中方便下载。
+* 设置 fileList 数组项的 url 属性可以作为链接展示在文件列表中方便下载。
 
 ### Table
 
