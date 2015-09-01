@@ -3,10 +3,10 @@ import joinClasses from 'react/lib/joinClasses';
 import rcUtil from 'rc-util';
 
 function getScroll(w, top) {
-  var ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
-  var method = 'scroll' + (top ? 'Top' : 'Left');
+  let ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
+  let method = 'scroll' + (top ? 'Top' : 'Left');
   if (typeof ret !== 'number') {
-    var d = w.document;
+    let d = w.document;
     //ie6,7,8 standard mode
     ret = d.documentElement[method];
     if (typeof ret !== 'number') {
@@ -18,12 +18,12 @@ function getScroll(w, top) {
 }
 
 function getOffset(element) {
-  var rect = element.getBoundingClientRect();
-  var body = document.body;
-  var clientTop = element.clientTop || body.clientTop || 0;
-  var clientLeft = element.clientLeft || body.clientLeft || 0;
-  var scrollTop = getScroll(window, true);
-  var scrollLeft = getScroll(window);
+  let rect = element.getBoundingClientRect();
+  let body = document.body;
+  let clientTop = element.clientTop || body.clientTop || 0;
+  let clientLeft = element.clientLeft || body.clientLeft || 0;
+  let scrollTop = getScroll(window, true);
+  let scrollLeft = getScroll(window);
 
   return {
     top: rect.top + scrollTop - clientTop,
@@ -31,12 +31,16 @@ function getOffset(element) {
   };
 }
 
-var Affix = React.createClass({
+let Affix = React.createClass({
 
   getDefaultProps() {
     return {
       offset: 0
     };
+  },
+
+  propTypes: {
+    offset: React.PropTypes.number
   },
 
   getInitialState() {
@@ -47,9 +51,9 @@ var Affix = React.createClass({
   },
 
   handleScroll() {
-    var affix = this.state.affix;
-    var scrollTop = getScroll(window, true);
-    var elemOffset = getOffset(this.getDOMNode());
+    let affix = this.state.affix;
+    let scrollTop = getScroll(window, true);
+    let elemOffset = getOffset(this.getDOMNode());
 
     if (!affix && (elemOffset.top - this.props.offset) < scrollTop) {
       this.setState({
@@ -85,8 +89,8 @@ var Affix = React.createClass({
   },
 
   render() {
-    var affix = this.state.affix ? 'ant-affix' : '';
-    var className = this.props.className;
+    let affix = this.state.affix ? 'ant-affix' : '';
+    let className = this.props.className;
 
     return (
       <div {...this.props}>

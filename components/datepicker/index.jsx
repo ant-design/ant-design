@@ -16,10 +16,10 @@ let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
 
-function createPicker(Calendar) {
+function createPicker(TheCalendar) {
   return React.createClass({
     getInitialState() {
-      var value;
+      let value;
       if (this.props.value) {
         value = new GregorianCalendar(zhCn);
         value.setTime(new Date(this.props.value).valueOf());
@@ -56,8 +56,8 @@ function createPicker(Calendar) {
       this.props.onSelect(new Date(v.getTime()));
     },
     render() {
-      var calendar = (
-        <Calendar
+      let calendar = (
+        <TheCalendar
           disabledDate={this.props.disabledDate}
           locale={CalendarLocale}
           orient={['top', 'left']}
@@ -65,9 +65,9 @@ function createPicker(Calendar) {
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
-          showClear={false}/>
+          showClear={false} />
       );
-      var sizeClass = '';
+      let sizeClass = '';
       if (this.props.size === 'large') {
         sizeClass = ' ant-input-lg';
       } else if (this.props.size === 'small') {

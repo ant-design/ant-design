@@ -1,12 +1,12 @@
 import React from 'react';
 import Dialog from './index';
-var div;
+let div;
 
 export default function (props) {
-  var d;
+  let d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'anticon-exclamation-circle';
-  var width = props.width || 375;
+  let width = props.width || 375;
 
   function close() {
     d.setState({
@@ -15,9 +15,9 @@ export default function (props) {
   }
 
   function onCancel() {
-    var cancelFn = props.onCancel;
+    let cancelFn = props.onCancel;
     if (cancelFn) {
-      var ret;
+      let ret;
       if (cancelFn.length) {
         ret = cancelFn(close);
       } else {
@@ -35,9 +35,9 @@ export default function (props) {
   }
 
   function onOk() {
-    var okFn = props.onOk;
+    let okFn = props.onOk;
     if (okFn) {
-      var ret;
+      let ret;
       if (okFn.length) {
         ret = okFn(close);
       } else {
@@ -54,12 +54,12 @@ export default function (props) {
     }
   }
 
-  var body = <div className="ant-confirm-body">
+  let body = <div className="ant-confirm-body">
     <i className={'anticon ' + props.iconClassName}></i>
     <span className="ant-confirm-title">{props.title}</span>
     <div className="ant-confirm-content">{props.content}</div>
   </div>;
-  var footer = <div className="ant-confirm-btns">
+  let footer = <div className="ant-confirm-btns">
     <button type="button" className="ant-btn-default ant-btn ant-btn-lg" onClick={onCancel}>取 消</button>
     <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
   </div>;

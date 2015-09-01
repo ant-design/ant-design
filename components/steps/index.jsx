@@ -11,15 +11,18 @@ const AntSteps = React.createClass({
     };
   },
   render() {
-    return (<Steps size={this.props.size}
-                   direction={this.props.direction}
-                   iconPrefix={this.props.iconPrefix}
-                   maxDescriptionWidth={this.props.maxDescriptionWidth}
-                   prefixCls={this.props.prefixCls}>
-      {this.props.children}
-    </Steps>);
+    return (
+      <Steps size={this.props.size}
+             direction={this.props.direction}
+             iconPrefix={this.props.iconPrefix}
+             maxDescriptionWidth={this.props.maxDescriptionWidth}
+             prefixCls={this.props.prefixCls}>
+        {this.props.children}
+      </Steps>
+    );
   }
 });
+
 AntSteps.Step = Steps.Step;
 
 export default AntSteps;

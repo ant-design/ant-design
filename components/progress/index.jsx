@@ -10,7 +10,7 @@ const statusColorMap = {
   'success': '#87d068'
 };
 
-var Line = React.createClass({
+let Line = React.createClass({
   propTypes: {
     status: React.PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
     showInfo: React.PropTypes.bool,
@@ -26,13 +26,14 @@ var Line = React.createClass({
     };
   },
   render() {
-    var props = assign({}, this.props);
+    let props = assign({}, this.props);
 
-    if (parseInt(props.percent) === 100) {
+    if (parseInt(props.percent, 10) === 100) {
       props.status = 'success';
     }
 
-    var progressInfo, fullCls = '';
+    let progressInfo;
+    let fullCls = '';
     if(props.showInfo === true){
       if (props.status === 'exception') {
         progressInfo = (
@@ -54,7 +55,7 @@ var Line = React.createClass({
     }else {
       fullCls = ' ' + prefixCls + '-line-wrap-full';
     }
-    var percentStyle = {
+    let percentStyle = {
       width: props.percent + '%',
       height: props.strokeWidth
     };
@@ -72,7 +73,7 @@ var Line = React.createClass({
   }
 });
 
-var Circle = React.createClass({
+let Circle = React.createClass({
   getDefaultProps: function () {
     return {
       width: 132,
@@ -82,22 +83,22 @@ var Circle = React.createClass({
     };
   },
   render() {
-    var props = assign({}, this.props);
+    let props = assign({}, this.props);
 
-    if (parseInt(props.percent) === 100) {
+    if (parseInt(props.percent, 10) === 100) {
       props.status = 'success';
     }
 
-    var style = {
+    let style = {
       'width': props.width,
       'height': props.width,
       'fontSize': props.width * 0.16 + 6
     };
-    var progressInfo;
+    let progressInfo;
     if (props.status === 'exception') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>
-          <i className='anticon anticon-exclamation'></i>
+          <i className="anticon anticon-exclamation"></i>
         </span>
       );
     } else if (props.status === 'success') {
@@ -128,5 +129,3 @@ export default {
   Line: Line,
   Circle: Circle
 };
-
-

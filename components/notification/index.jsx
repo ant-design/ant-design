@@ -1,6 +1,6 @@
+import React from 'react';
 import Notification from 'rc-notification';
 import assign from 'object-assign';
-import React from 'react';
 
 let top = 24;
 let notificationInstance;
@@ -31,20 +31,20 @@ function notice(args) {
     let prefixCls = ' ant-notification-notice-content-icon-';
     let iconClass = 'anticon anticon-';
     switch (args.icon) {
-      case 'success':
-        iconClass += 'check-circle-o';
-        break;
-      case 'info':
-        iconClass += 'info-circle-o';
-        break;
-      case 'error':
-        iconClass += 'exclamation-circle-o';
-        break;
-      case 'warn':
-        iconClass += 'question-circle-o';
-        break;
-      default:
-        iconClass += 'info-circle';
+    case 'success':
+      iconClass += 'check-circle-o';
+      break;
+    case 'info':
+      iconClass += 'info-circle-o';
+      break;
+    case 'error':
+      iconClass += 'exclamation-circle-o';
+      break;
+    case 'warn':
+      iconClass += 'question-circle-o';
+      break;
+    default:
+      iconClass += 'info-circle';
     }
 
     getNotificationInstance().notice({
@@ -94,7 +94,7 @@ function notice(args) {
   }
 }
 
-var api = {
+let api = {
   open(args){
     notice(args);
   },
@@ -110,7 +110,7 @@ var api = {
 
 ['success', 'info', 'warn', 'error'].forEach((type) => {
   api[type] = (args) => {
-    var newArgs = assign({}, args, {
+    let newArgs = assign({}, args, {
       icon: type
     });
     return api.open(newArgs);

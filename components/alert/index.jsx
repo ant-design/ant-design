@@ -34,29 +34,30 @@ export default React.createClass({
     });
   },
   render() {
-    var iconClass = this.props.description ?
+    let iconClass = this.props.description ?
       'ant-alert-with-description-icon anticon-' : 'ant-alert-icon anticon-';
     switch (this.props.type) {
-      case 'success':
-        iconClass += 'check-circle';
-        break;
-      case 'info':
-        iconClass += 'info-circle';
-        break;
-      case 'error':
-        iconClass += 'exclamation-circle';
-        break;
-      case 'warn':
-        iconClass += 'question-circle';
-        break;
-      default:
-        iconClass += 'default';
+    case 'success':
+      iconClass += 'check-circle';
+      break;
+    case 'info':
+      iconClass += 'info-circle';
+      break;
+    case 'error':
+      iconClass += 'exclamation-circle';
+      break;
+    case 'warn':
+      iconClass += 'question-circle';
+      break;
+    default:
+      iconClass += 'default';
     }
-    let html, closeName = !this.state.closing ? ' ' + this.props.prefixCls + '-close' : '';
+    let html;
+    let closeName = !this.state.closing ? ' ' + this.props.prefixCls + '-close' : '';
     if (this.props.description) {
       let close = this.props.closable ?
         <a onClick={this.handleClose} className={'ant-alert-with-description-close-icon'}>
-          <span className='ant-alert-with-description-close-icon-x'></span>
+          <span className="ant-alert-with-description-close-icon-x"></span>
         </a> : '';
       html = <div data-show={this.state.closing} className={'ant-alert-with-description ant-alert-with-description-' + this.props.type + closeName}>
         <i className={'anticon ' + iconClass}></i>
@@ -74,7 +75,7 @@ export default React.createClass({
       } else {
         let close = this.props.closable ?
           <a onClick={this.handleClose} className={'ant-alert-close-icon'}>
-            <span className='ant-alert-close-icon-x'></span>
+            <span className="ant-alert-close-icon-x"></span>
           </a> : '';
         html = <div data-show={this.state.closing} className={'ant-alert ant-alert-' + this.props.type + closeName}>
           <i className={'anticon ' + iconClass}></i>
@@ -85,7 +86,7 @@ export default React.createClass({
     }
     return this.state.closed ? null : <Animate
       component=""
-      showProp='data-show'
+      showProp="data-show"
       transitionName="slide-up"
       onEnd={this.animationEnd}>
       {html}

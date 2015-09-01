@@ -8,7 +8,7 @@ export default React.createClass({
     };
   },
   render() {
-    var transitionName = ({
+    let transitionName = ({
       top: 'zoom-down',
       bottom: 'zoom-up',
       left: 'zoom-right',

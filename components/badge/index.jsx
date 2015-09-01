@@ -38,4 +38,12 @@ AntBadge.defaultProps = {
   dot: false
 };
 
+AntBadge.propTypes = {
+  count: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]),
+  dot: React.PropTypes.bool
+};
+
 export default AntBadge;

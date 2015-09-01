@@ -35,7 +35,7 @@ class DataSource {
   }
 }
 
-var AntTable = React.createClass({
+let AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
