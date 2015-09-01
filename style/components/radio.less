@@ -161,7 +161,7 @@
       background: @primary-color;
       border-color: @primary-color;
       color: #fff;
-      margin-left: -1px;
+      box-shadow: -1px 0 0 0 @primary-color;
 
       &:before {
         display: none;
@@ -174,11 +174,13 @@
       &:hover {
         background: tint(@primary-color, 20%);
         border-color: tint(@primary-color, 20%);
+        box-shadow: -1px 0 0 0 tint(@primary-color, 20%);
       }
 
       &:active {
         background: shade(@primary-color, 5%);
         border-color: shade(@primary-color, 5%);
+        box-shadow: -1px 0 0 0 shade(@primary-color, 5%);
       }
     }
   }
