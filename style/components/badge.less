@@ -1,0 +1,46 @@
+@badge-prefix-cls: ~"@{css-prefix}badge";
+
+.@{badge-prefix-cls} {
+  position: relative;
+  display: inline-block;
+
+  &-count {
+    position: absolute;
+    transform: translateX(-50%);
+    top: -10px;
+    height: 20px;
+    border-radius: 10px;
+    min-width: 20px;
+    background: @error-color;
+    color: #fff;
+    line-height: 20px;
+    text-align: center;
+    padding: 0 7px;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    z-index: 10;
+    font-family: tahoma;
+    &:hover {
+      background: tint(@error-color, 20%);
+    }
+    &:active {
+      background: shade(@error-color, 5%);
+    }
+    a, a:hover {
+      color: #fff;
+    }
+  }
+
+  &-dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: @error-color;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+}
