@@ -11,7 +11,9 @@ $(function () {
   var Select = antd.Select;
   var Option = Select.Option;
   // 获取搜索数据
-  var searchData = window.ANT_COMPONENTS;
+  var searchData = window.ANT_COMPONENTS.sort(function(a, b){
+    return a.title.localeCompare(b.title);
+  });
 
   var AutoComplete = React.createClass({
     getOptions() {
