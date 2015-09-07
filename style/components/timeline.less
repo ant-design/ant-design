@@ -7,28 +7,21 @@
 .@{timeline-prefix-cls} {
   &-item {
     position: relative;
-    min-height: 36px;
-    padding-bottom: 16px;
+    padding-bottom: 12px;
 
     &-tail {
       position: absolute;
       left: 5px;
-      margin-top: 2px;
-      z-index: 1;
+      top: 0;
       height: 100%;
       border-left: 2px solid @timeline-color;
-      &-end {
-        border-left: 2px dotted @timeline-color;
-      }
     }
 
     &-head {
       position: absolute;
-      z-index: 2;
       width: 12px;
       height: 12px;
       background-color: #fff;
-      margin-top: 2px;
       border-radius: 6px;
       &-blue {
         border: 2px solid @primary-color;
@@ -39,16 +32,28 @@
       &-green {
         border: 2px solid @success-color;
       }
-      &-end{
-        position: absolute;
-        bottom: -12px;
+      &-end {
         border: 2px solid @timeline-color;
       }
     }
 
     &-content {
-      margin-left: 24px;
+      min-height: 36px;
+      position: relative;
+      left: 24px;
+      top: -2px;
       font-size: 12px;
+      padding-bottom: 10px;
+    }
+
+    &-last {
+      .@{timeline-prefix-cls}-item-tail {
+        border-left: 2px dotted @timeline-color;
+      }
+      .@{timeline-prefix-cls}-item-content {
+        min-height: 70px;
+        padding-bottom: 30px;
+      }
     }
   }
 }
