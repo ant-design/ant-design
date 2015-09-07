@@ -41,6 +41,10 @@
 
 * 修复无法设置为空值的问题。
 
+### Modal
+
+* 添加 [通知类型](ant.design/components/modal/#demo-info) 的对话框函数。
+
 ### 其他
 
 * 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
