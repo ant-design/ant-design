@@ -1,6 +1,6 @@
 # 加载中
 
-- order: 4
+- order: 5
 
 进行全局 loading，异步自行移除。
 
