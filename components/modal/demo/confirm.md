@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var confirm = antd.confirm;
+var confirm = antd.Modal.confirm;
 
 function showConfirm(){
   confirm({

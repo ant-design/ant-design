@@ -1,13 +1,15 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
+import confirm from './confirm';
+
 function noop() {
 }
 
 let mousePosition;
 let mousePositionEventBinded;
 
-export default React.createClass({
+let AntModal =  React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-modal',
@@ -89,3 +91,28 @@ export default React.createClass({
       visible={visible} mousePosition={mousePosition} />;
   }
 });
+
+AntModal.info = function(props) {
+  props.iconClassName = 'anticon-info-circle';
+  props.okCancel = false;
+  return confirm(props);
+};
+
+AntModal.success = function(props) {
+  props.iconClassName = 'anticon-check-circle';
+  props.okCancel = false;
+  return confirm(props);
+};
+
+AntModal.error = function(props) {
+  props.iconClassName = 'anticon-exclamation-circle';
+  props.okCancel = false;
+  return confirm(props);
+};
+
+AntModal.confirm = function(props) {
+  props.okCancel = true;
+  return confirm(props);
+};
+
+export default AntModal;
