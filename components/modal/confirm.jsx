@@ -5,8 +5,13 @@ let div;
 export default function (props) {
   let d;
   props = props || {};
-  props.iconClassName = props.iconClassName || 'anticon-exclamation-circle';
-  let width = props.width || 375;
+  props.iconClassName = props.iconClassName || 'anticon-question-circle';
+  let width = props.width || 416;
+
+  // 默认为 true，保持向下兼容
+  if (!('okCancel' in props)) {
+    props.okCancel = true;
+  }
 
   function close() {
     d.setState({
@@ -63,6 +68,17 @@ export default function (props) {
     <button type="button" className="ant-btn-default ant-btn ant-btn-lg" onClick={onCancel}>取 消</button>
     <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
   </div>;
+
+  if (props.okCancel) {
+    footer = <div className="ant-confirm-btns">
+      <button type="button" className="ant-btn-default ant-btn ant-btn-lg" onClick={onCancel}>取 消</button>
+      <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
+    </div>;
+  } else {
+    footer = <div className="ant-confirm-btns">
+      <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
+    </div>;
+  }
 
   if (!div) {
     div = document.createElement('div');

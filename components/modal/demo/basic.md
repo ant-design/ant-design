@@ -9,6 +9,8 @@
 ````jsx
 var Modal = antd.Modal;
 
+console.log(Modal.info);
+
 var Test = React.createClass({
   getInitialState(){
     return{

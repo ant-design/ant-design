@@ -18,6 +18,7 @@
 - `message.success(content, duration)`
 - `message.error(content, duration)`
 - `message.info(content, duration)`
+- `message.loading(content, duration)`
 
 组件提供了三个静态方法，参数如下：
 

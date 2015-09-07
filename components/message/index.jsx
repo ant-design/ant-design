@@ -4,6 +4,7 @@ import Notification from 'rc-notification';
 let defaultDuration = 1.5;
 let top;
 let messageInstance;
+let key = 1;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
@@ -16,31 +17,44 @@ function getMessageInstance() {
   return messageInstance;
 }
 
-function notice(content, duration = defaultDuration, type) {
+function notice(content, duration = defaultDuration, type, onClose) {
   let iconClass = ({
     'info': 'anticon-info-circle ant-message-info',
     'success': 'anticon-check-circle ant-message-success',
-    'error': 'anticon-exclamation-circle ant-message-error'
+    'error': 'anticon-exclamation-circle ant-message-error',
+    'loading': 'anticon-loading ant-message-loading'
   })[type];
-  getMessageInstance().notice({
+  let instance = getMessageInstance();
+  instance.notice({
+    key: key,
     duration: duration,
     style: {},
     content: <div className="ant-message-custom-content">
       <i className={'anticon ' + iconClass}></i>
       <span>{content}</span>
-    </div>
+    </div>,
+    onClose: onClose
   });
+  return (function() {
+    let target = key++;
+    return function() {
+      instance.removeNotice(target);
+    };
+  })();
 }
 
 export default {
-  info(content, duration) {
-    notice(content, duration, 'info');
+  info(content, duration, onClose) {
+    return notice(content, duration, 'info', onClose);
   },
-  success(content, duration) {
-    notice(content, duration, 'success');
+  success(content, duration, onClose) {
+    return notice(content, duration, 'success', onClose);
   },
-  error(content, duration) {
-    notice(content, duration, 'error');
+  error(content, duration, onClose) {
+    return notice(content, duration, 'error', onClose);
+  },
+  loading(content, duration, onClose) {
+    return notice(content, duration, 'loading', onClose);
   },
   config(options) {
     if (options.top) {
