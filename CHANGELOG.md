@@ -45,6 +45,10 @@
 
 * 添加 [通知类型](http://ant.design/components/modal/#demo-info) 的对话框函数。
 
+### Message
+
+* 添加 [加载中类型](http://ant.design/components/message/#demo-loading)。
+
 ### 其他
 
 * 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
