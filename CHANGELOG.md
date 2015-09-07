@@ -43,7 +43,7 @@
 
 ### Modal
 
-* 添加 [通知类型](ant.design/components/modal/#demo-info) 的对话框函数。
+* 添加 [通知类型](http://ant.design/components/modal/#demo-info) 的对话框函数。
 
 ### 其他
 
