@@ -43,10 +43,30 @@
 </EnterAnimation>
 ```
 
+router使用方法:
+
+```html
+<EnterAnimation enter={type:'left'} leave={type:'right'}>
+  {cloneElement(this.props.children || <div/>, {key: 'demo1'})}
+  //或者直接标签
+  <div key='demo2'>
+    <div>依次进场</div>
+    <div>依次进场</div>
+  </div>
+</EnterAnimation>
+```
 
 ## API
 
 ### <EnterAnimation />
+
+|参数             |类型    |默认值        |详细                                                 |
+|-----------------|-------|-------------|----------------------------------------------------|
+|enter|object| `right` |管理进场数据|
+|leave|object| `right` |管理当前元素出场的数据,默认null,null继承上面所有标签的值 |
+|component|string| `div` |EnterAnimation替换的标签名|
+
+### enter = {} | leave = {}
 
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
@@ -60,13 +80,20 @@
 |interval         |number |0.1    |递增延时值，以秒为单位|
 |callback         |function|null  |动画结束回调|
 
-### enter-data
+### 一级标签key：
+
+|参数             |类型    |详细                                                 |
+|-----------------|-------|----------------------------------------------------|
+|key|string|必需，控制进出场；|
+
+### enter-data | data-enter
 
 |参数             |类型    |默认值      |详细                                                 |
 |-----------------|-------|-----------|----------------------------------------------------|
 |enter-data       |object | `right`     |子标签动画参数|
+|data-enter       |JSON String|null     |router下enter-data无效，新增dom标签，router时createClass页面里可用;|
 
-#### enter-data={}
+#### enter-data = {} | data-enter=''
 
 |参数              |类型            |默认值           |详细                                                 |
 |-----------------|-----------------|----------------|----------------------------------------------------|

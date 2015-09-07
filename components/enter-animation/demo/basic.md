@@ -11,75 +11,77 @@
 var EnterAnimation = antd.EnterAnimation;
 
 var Test = React.createClass({
-  getInitialState(){
+  getInitialState() {
     return {
-      direction:'enter',
-      upend:false,
-      type:'right',
-      interval:0.3
+      enter:{
+        type: 'right',
+        interval: 0.3,
+        callback:()=>{
+          console.log('enter');
+        }
+      },
+      leave:{
+        type: 'left',
+        interval: .1,
+        callback:()=>{
+          console.log('leave');
+        }
+      },
+      bool:true,
     }
   },
-  onEnter(){
+  onClick() {
     this.setState({
-      direction:'enter',
-      upend:false,
-      type:'right',
-      interval:0.3
-    })
-  },
-  onLeave(){
-    this.setState({
-      direction:'leave',
-      upend:false,
-      type:'left',
-      interval:.1
+      bool:!this.state.bool,
+
     })
   },
   render() {
     return (
       <div>
-        <div style={{marginBottom:20}}>
-          <button className="ant-btn ant-btn-primary" onClick={this.onEnter}>进场</button>
-          <button className="ant-btn ant-btn-primary" style={{marginLeft:20}} onClick={this.onLeave}>出场</button>
+        <div style={{marginBottom: 20}}>
+          <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
         </div>
-        <EnterAnimation interval={this.state.interval} type={this.state.type} upend={this.state.upend} direction={this.state.direction}>
-          <div className="demo-header" enter-data>
-            <div className="logo">
-              <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-              <span>logo</span>
-            </div>
-            <ul>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </div>
-          <div className="demo-content" enter-data>
-            <div className="demo-title">我是标题</div>
-            <div className="demo-kp">
+        <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
+          {this.state.bool ? <div key='a'>
+            <div className="demo-header">
+              <div className="logo">
+                <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+                <span>logo</span>
+              </div>
               <ul>
+                <li></li>
+                <li></li>
                 <li></li>
                 <li></li>
                 <li></li>
               </ul>
             </div>
-            <div className="demo-title">我是标题</div>
-            <div className="demo-listBox">
-              <div className="demo-list">
-                <div className="title"></div>
+            <div className="demo-content" >
+              <div className="demo-title">我是标题</div>
+              <div className="demo-kp">
                 <ul>
-                  <li></li>
-                  <li></li>
                   <li></li>
                   <li></li>
                   <li></li>
                 </ul>
               </div>
+              <div className="demo-title">我是标题</div>
+              <div className="demo-listBox">
+                <div className="demo-list">
+                  <div className="title"></div>
+                  <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="demo-footer" enter-data></div>
+            <div className="demo-footer"></div>
+          </div> : null}
         </EnterAnimation>
       </div>
     );
