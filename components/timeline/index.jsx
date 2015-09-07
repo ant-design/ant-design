@@ -8,13 +8,12 @@ let Timeline = React.createClass({
   },
   render() {
     let children = this.props.children;
-    let continuee = this.props.continue;
     return (
       <ul className={this.props.prefixCls}>
         {React.Children.map(children, function (ele, idx) {
           let np = {
             timelineLast: idx === children.length - 1,
-            continuee: continuee
+            pending: this.props.pending
           };
           return React.cloneElement(ele, np);
         }, this)}
@@ -28,18 +27,18 @@ Timeline.Item = React.createClass({
     return {
       prefixCls: 'ant-timeline',
       color: 'blue',
-      continuee: false
+      pending: false
     };
   },
   render() {
     let props = this.props;
     let prefixCls = props.prefixCls;
     let color = props.color;
-    let continuee = props.continuee;
+    let pending = props.pending;
     let timelineLast = props.timelineLast;
-    let endCls = continuee && timelineLast ? prefixCls + '-item-last' : '';
-    let last = continuee && timelineLast ? <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-end'}></div> : null;
-    let lastTailShow = (timelineLast && !continuee) ? 'none' : 'block';
+    let endCls = pending && timelineLast ? prefixCls + '-item-last' : '';
+    let last = pending && timelineLast ? <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-end'}></div> : null;
+    let lastTailShow = (timelineLast && !pending) ? 'none' : 'block';
 
     return (
       <li className={prefixCls + '-item ' + endCls}>
