@@ -63,7 +63,7 @@ router使用方法:
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
 |enter|object| `right` |管理进场数据|
-|leave|object| `right` |管理当前元素出场的数据,默认null,null继承上面所有标签的值 |
+|leave|object| null |管理当前元素出场的数据,null时继承enter里的所有标签的值 |
 |component|string| `div` |EnterAnimation替换的标签名|
 
 ### enter = {} | leave = {}
