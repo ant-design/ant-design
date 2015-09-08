@@ -80,14 +80,19 @@ const AntUpload = React.createClass({
           return {
             fileList: prevState.fileList.concat(info.file)
           };
+        }, function() {
+          info.fileList = this.state.fileList;
+          this.props.onChange(info);
         });
       } else {
         this.setState({
           fileList: info.fileList
+        }, function() {
+          info.fileList = this.state.fileList;
+          this.props.onChange(info);
         });
       }
     }
-    this.props.onChange(info);
   },
   getDefaultProps() {
     return {
