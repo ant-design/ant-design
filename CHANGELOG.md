@@ -44,6 +44,7 @@
 ### Modal
 
 * 添加 [通知类型](http://ant.design/components/modal/#demo-info) 的对话框函数。
+* 用 `Modal.confirm()` 代替 `confirm()` 方法。
 
 ### Message
 
