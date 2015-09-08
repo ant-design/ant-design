@@ -26,6 +26,11 @@ var Test = React.createClass({
       visible: false
     });
   },
+  handleCancel() {
+    this.setState({
+      visible: false
+    });
+  },
   render() {
     return <div>
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
