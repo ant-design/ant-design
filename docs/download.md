@@ -38,15 +38,17 @@
 
 **我们推荐使用 npm 的方式进行开发**，这样可以享受整个生态圈和工具链带来的诸多好处。
 
-[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-
 可以通过 npm 直接安装到本地，使用 `require` 或 `import` 进行引用。
+
+[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 ```bash
 $ npm install antd --save
 ```
 
 安装最新的开发版本：
+
+[![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
 
 ```bash
 $ npm install antd@beta --save
