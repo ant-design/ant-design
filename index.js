@@ -1,5 +1,4 @@
-import './style/index.less';
-import deprecate from 'util-deprecate';
+require('./style/index.less');
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
@@ -48,7 +47,7 @@ const antd = {
 };
 
 // deprecate antd.confirm
-antd.confirm = deprecate(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
+antd.confirm = require('util-deprecate')(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
 
 module.exports = antd;
 
