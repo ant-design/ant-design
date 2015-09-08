@@ -31,22 +31,12 @@ var App = React.createClass({
     },
     clickPage1() {
       this.setState({
-        enter: {
-          interval: 0.03,
-          type: 'margin-top:10px;opacity:0',
-          ease: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
-          delay:0.3,
+        enter: {interval: 0.03,type: 'margin-top:10px;opacity:0',ease: 'cubic-bezier(0.075, 0.82, 0.165, 1)',delay:0.3,
           callback: function (e) {
             console.log('你点了page1,进场用的是你自定的效果', e.direction);
           }
         },
-        leave: {
-          type: 'left',
-          upend: true,
-          interval:0.05,
-          duration:0.2,
-          ease: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
-          delay:0.000001,
+        leave: {type: 'left',upend: true,interval:0.05,duration:0.2,ease: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',delay:0,
           callback: function (e) {
             console.log('你点了page1,出场用的是你自定的效果', e.direction);
             console.log('如果你在用了的参数，在出场没有设定，那么出场没设的将用回进场那设定的参数，如upend，从最后个开始')
@@ -56,18 +46,8 @@ var App = React.createClass({
     },
     clickPage2() {
       this.setState({
-        enter: {
-          interval: 0.03,
-          type: 'top',
-          ease: null,
-          delay:.3,
-          callback: function (e) {
-            console.log('你点了page2,leave为null,出场进场同效果', e.direction)
-          }
-        },
-        leave: {
-          delay:0.00001
-        }
+        enter: {interval: 0.03,type: 'top',ease: null,delay:.3,callback: function (e) {console.log('你点了page2,leave为null,出场进场同效果', e.direction)}},
+        leave: {delay:0}
       })
     },
     render() {
@@ -102,21 +82,11 @@ var Page1 = React.createClass({
     return (
       <div className="demo-router-child" ref='page1'>
         <h1 data-enter='{"type":"right"}'>Page 1</h1>
-        <p data-enter='{"type":"top"}'>
-          <Link to="/page2">A link to page 1 should be active</Link>
-          我是页面1</p>
-        <p data-enter='{"type":"top"}'>
-          <Link to="/page2" data-enter='{"type":"bottom"}'>A link to page 1 should be active</Link>
-          我是页面1</p>
-        <p data-enter='{"type":"right"}'>
-          <Link to="/page2">A link to page 1 should be active</Link>
-          我是页面1</p>
-        <p data-enter='{"type":"left"}'>
-          <Link to="/page2">A link to page 1 should be active</Link>
-          我是页面1</p>
-        <p data-enter='{"duration":0.3}'>
-          <Link to="/page2">A link to page 1 should be active</Link>
-          我是页面1</p>
+        <p data-enter='{"type":"top"}'><Link to="/page2">A link to page 1 should be active</Link>我是页面1</p>
+        <p data-enter='{"type":"top"}'><Link to="/page2" data-enter='{"type":"bottom"}'>A link to page 1 should be active</Link>我是页面1</p>
+        <p data-enter='{"type":"right"}'><Link to="/page2">A link to page 1 should be active</Link>我是页面1</p>
+        <p data-enter='{"type":"left"}'><Link to="/page2">A link to page 1 should be active</Link>我是页面1</p>
+        <p data-enter='{"duration":0.3}'><Link to="/page2">A link to page 1 should be active</Link>我是页面1</p>
       </div>
     );
   }
@@ -127,18 +97,10 @@ var Page2 = React.createClass({
     return (
       <div className="demo-router-child" ref='page2'>
         <h1>Page 2</h1>
-        <p>
-          <Link to="/page1">a link to page 2 </Link>
-          我是页面2.</p>
-        <p>
-          <Link to="/page1">a link to page 2 </Link>
-          我是页面2.</p>
-        <p>
-          <Link to="/page1">a link to page 2 </Link>
-          我是页面2.</p>
-        <p>
-          <Link to="/page1">a link to page 2 </Link>
-          我是页面2.</p>
+        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
       </div>
     );
   }

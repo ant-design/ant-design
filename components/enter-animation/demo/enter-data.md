@@ -58,7 +58,7 @@ var Test = React.createClass({
               <li enter-data></li>
             </ul>
           </div>
-          <div className="demo-title" enter-data={{type:'alpha',queueId:1,delay:0.7}}>我是标题</div>
+          <div className="demo-title" enter-data={{type:'alpha',queueId:1,delay:0.8}} leave-data={{delay:0.1}}>我是标题</div>
           <div className="demo-listBox">
             <div className="demo-list">
               <div className="title" enter-data={{type:'bottom',queueId:1}}></div>
