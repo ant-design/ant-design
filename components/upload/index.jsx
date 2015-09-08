@@ -1,7 +1,6 @@
 import React from 'react';
 import Upload from 'rc-upload';
 import assign from 'object-assign';
-import Message from '../message';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
@@ -16,12 +15,10 @@ const AntUpload = React.createClass({
     };
   },
   onStart(file) {
-    let nextFileList = this.state.fileList.concat();
     file.status = 'uploading';
-    nextFileList.push(file);
     this.onChange({
       file: file,
-      fileList: nextFileList
+      add: true
     });
   },
   removeFile(file) {
@@ -37,7 +34,6 @@ const AntUpload = React.createClass({
   },
   onSuccess(response, file) {
     let fileList = this.state.fileList.concat();
-    Message.success(file.name + '上传完成。');
     let targetItem = getFileItem(file, fileList);
     // 之前已经删除
     if (targetItem) {
@@ -61,7 +57,6 @@ const AntUpload = React.createClass({
     }
   },
   onError(error, response, file) {
-    Message.error(file.name + ' 上传失败。');
     file.error = error;
     file.response = response;
     this.handleRemove(file);
@@ -79,9 +74,18 @@ const AntUpload = React.createClass({
     // 1. 有设置外部属性时不改变 fileList
     // 2. 上传中状态（info.event）不改变 fileList
     if (!('fileList' in this.props) && !info.event) {
-      this.setState({
-        fileList: info.fileList
-      });
+      // 新增文件时，使用 multiple 属性会造成同时 setState
+      if (info.add) {
+        this.setState((prevState) => {
+          return {
+            fileList: prevState.fileList.concat(info.file)
+          };
+        });
+      } else {
+        this.setState({
+          fileList: info.fileList
+        });
+      }
     }
     this.props.onChange(info);
   },

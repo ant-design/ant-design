@@ -1,8 +1,8 @@
-# 点击上传
+# 多文件选择
 
-- order: 0
+- order: 5
 
-经典款式，用户点击按钮弹出文件选择框。
+按住 ctrl 可选择多个文件，`ie10+` 支持。
 
 ---
 
@@ -12,6 +12,7 @@ var message = antd.message;
 
 var props = {
   action: '/upload.do',
+  multiple: true,
   onChange(info) {
     if (info.file.status !== 'uploading') {
       console.log(info.file, info.fileList);
@@ -30,5 +31,6 @@ React.render(
       <i className="anticon anticon-upload"></i> 点击上传
     </button>
   </Upload>
-, document.getElementById('components-upload-demo-basic'));
+, document.getElementById('components-upload-demo-multiple'));
 ````
+

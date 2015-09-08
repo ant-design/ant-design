@@ -9,8 +9,6 @@
 ````jsx
 var Modal = antd.Modal;
 
-console.log(Modal.info);
-
 var Test = React.createClass({
   getInitialState(){
     return{
@@ -24,6 +22,11 @@ var Test = React.createClass({
   },
   handleOk() {
     console.log('点击了确定');
+    this.setState({
+      visible: false
+    });
+  },
+  handleCancel() {
     this.setState({
       visible: false
     });

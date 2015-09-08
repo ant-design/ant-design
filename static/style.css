@@ -505,7 +505,7 @@ footer ul li > a {
 }
 
 .markdown img {
-  display: block;
+  vertical-align: middle;
 }
 
 .markdown h1 {

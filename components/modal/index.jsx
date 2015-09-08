@@ -30,9 +30,6 @@ let AntModal =  React.createClass({
 
   handleCancel() {
     this.props.onCancel();
-    this.setState({
-      visible: false
-    });
   },
 
   handleOk() {

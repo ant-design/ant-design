@@ -61,7 +61,7 @@ var MyUpload = React.createClass({
       onChange: this.handleChange
     };
     return <Upload {...props} fileList={this.state.fileList}>
-      <button className="ant-btn ant-btn-ghost">
+      <button type="button" className="ant-btn ant-btn-ghost">
         <i className="anticon anticon-upload"></i> 点击上传
       </button>
     </Upload>;

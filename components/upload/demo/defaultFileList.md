@@ -32,7 +32,7 @@ var props = {
 
 React.render(
   <Upload {...props}>
-    <button className="ant-btn ant-btn-ghost">
+    <button type="button" className="ant-btn ant-btn-ghost">
       <i className="anticon anticon-upload"></i> 点击上传
     </button>
   </Upload>

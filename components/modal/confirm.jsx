@@ -76,7 +76,7 @@ export default function (props) {
     </div>;
   } else {
     footer = <div className="ant-confirm-btns">
-      <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
+      <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>知道了</button>
     </div>;
   }
 
