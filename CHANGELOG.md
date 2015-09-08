@@ -50,6 +50,10 @@
 
 * 添加 [加载中类型](http://ant.design/components/message/#demo-loading)。
 
+### Radio
+
+* 修改 Radio.Group 容器的盒模型属性为 inline-block 。
+
 ### 其他
 
 * 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
