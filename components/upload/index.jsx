@@ -1,7 +1,6 @@
 import React from 'react';
 import Upload from 'rc-upload';
 import assign from 'object-assign';
-import Message from '../message';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 const prefixCls = 'ant-upload';
@@ -37,7 +36,6 @@ const AntUpload = React.createClass({
   },
   onSuccess(response, file) {
     let fileList = this.state.fileList.concat();
-    Message.success(file.name + '上传完成。');
     let targetItem = getFileItem(file, fileList);
     // 之前已经删除
     if (targetItem) {
@@ -61,7 +59,6 @@ const AntUpload = React.createClass({
     }
   },
   onError(error, response, file) {
-    Message.error(file.name + ' 上传失败。');
     file.error = error;
     file.response = response;
     this.handleRemove(file);
