@@ -1,8 +1,8 @@
-# Router动画进场
+# Router动画进出场
 
 - order: 2
 
-router组全合的进场与出场动画。
+router组合的进场与出场动画。
 
 ---
 
