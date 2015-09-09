@@ -58,7 +58,8 @@ var MyUpload = React.createClass({
   render() {
     var props = {
       action: '/upload.do',
-      onChange: this.handleChange
+      onChange: this.handleChange,
+      multiple: true
     };
     return <Upload {...props} fileList={this.state.fileList}>
       <button type="button" className="ant-btn ant-btn-ghost">
