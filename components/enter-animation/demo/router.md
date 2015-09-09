@@ -53,7 +53,7 @@ var App = React.createClass({
             <Link to="/page1" onClick={this.clickPage1} className="ant-btn ant-btn-primary" style={{marginLeft:10}}>Page 1</Link>
             <Link to="/page2" onClick={this.clickPage2} className="ant-btn ant-btn-primary" style={{marginLeft:10}}>Page 2</Link>
           </div>
-          <EnterAnimation className='demo-router-wap' enter={this.state.enter} leave={this.state.leave}  ref='myChild'>
+          <EnterAnimation className='demo-router-wap' enter={this.state.enter} leave={this.state.leave}>
             {React.cloneElement(this.props.children ||<div key='home' className='demo-router-child'><h1>Home</h1><div>这是首页</div></div>, {key: key})}
           </EnterAnimation>
         </div>
@@ -65,13 +65,13 @@ var Page1 = React.createClass({
   render() {
     var enterData = {};
     return (
-      <div className="demo-router-child" ref='page1'>
+      <div className="demo-router-child">
         <h1 data-enter>Page 1</h1>
         <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
         <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
         <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
         <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
-        <p data-enter='{"type":"right"}' data-leave='{"type":"left"}'><Link to="/page2">A link to page 2 should be active</Link>改变样式</p>
+        <p data-enter='{"type":"bottom"}' data-leave='{"type":"left"}'><Link to="/page2">A link to page 2 should be active</Link>改变样式</p>
       </div>
     );
   }
@@ -80,7 +80,7 @@ var Page1 = React.createClass({
 var Page2 = React.createClass({
   render() {
     return (
-      <div className="demo-router-child" ref='page2'>
+      <div className="demo-router-child">
         <h1>Page 2</h1>
         <p><Link to="/page1">a link to page 1 </Link>我是页面2.</p>
         <p><Link to="/page1">a link to page 1 </Link>我是页面2.</p>
