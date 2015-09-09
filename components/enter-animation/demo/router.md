@@ -67,11 +67,11 @@ var Page1 = React.createClass({
     return (
       <div className="demo-router-child" ref='page1'>
         <h1 data-enter>Page 1</h1>
-        <p data-enter><Link to="/page2">A link to page 1 should be active</Link>依次进场</p>
-        <p data-enter><Link to="/page2">A link to page 1 should be active</Link>依次进场</p>
-        <p data-enter><Link to="/page2">A link to page 1 should be active</Link>依次进场</p>
-        <p data-enter><Link to="/page2">A link to page 1 should be active</Link>依次进场</p>
-        <p data-enter='{"type":"right"}' data-leave='{"type":"left"}'><Link to="/page2">A link to page 1 should be active</Link>改变样式</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter='{"type":"right"}' data-leave='{"type":"left"}'><Link to="/page2">A link to page 2 should be active</Link>改变样式</p>
       </div>
     );
   }
@@ -82,10 +82,10 @@ var Page2 = React.createClass({
     return (
       <div className="demo-router-child" ref='page2'>
         <h1>Page 2</h1>
-        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
-        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
-        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
-        <p><Link to="/page1">a link to page 2 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 1 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 1 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 1 </Link>我是页面2.</p>
+        <p><Link to="/page1">a link to page 1 </Link>我是页面2.</p>
       </div>
     );
   }
