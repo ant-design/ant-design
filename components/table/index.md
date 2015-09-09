@@ -81,6 +81,7 @@ var dataSource = new Table.DataSource({
 | filters    | 表头的筛选菜单项           | Array           |                     |         |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                     |         |
 | sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean |  | 无 |
+| width      | 列宽度 | String or Number |  | 无 |
 
 ### dataSource
 
