@@ -1,15 +1,13 @@
 # Ant Design [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd) [![Dependency Status](https://david-dm.org/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design)
 
-An enterprise grade front-end development language and React-based implementation.
-
-Design documents and component implementations are still being revised so several pages are not yet complete.  We are currently planning a release version for August.
+An enterprise-class UI design language and React-based implementation.
 
 ![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
 
 ## Features
 
-- An enterprise-grade graphical design language and framework for financial applications
-- Rich library of React UI components.
+- An enterprise-class graphical design language and framework for financial applications
+- Rich library of UI components base on [React Component](http://react-component.github.io/badgeboard/).
 - A Component development model based on React.
 - Backed by the npm ecosystem.
 - webpack-based debug builds supporting ES6
@@ -18,9 +16,7 @@ Design documents and component implementations are still being revised so severa
 ## Usage example
 
 ```jsx
-var antd = require('antd');
-var Datepicker = antd.Datepicker;
-
+import { Datepicker } from 'antd';
 React.render(<Datepicker />, mountNode);
 ```
 
@@ -35,31 +31,10 @@ React.render(<Datepicker />, mountNode);
 - [React modules](http://react-component.github.io/)
 - [React style guide](https://github.com/react-component/react-component.github.io/blob/master/docs/en-US/component-code-style.md)
 - [React component design guide](https://github.com/react-component/react-component.github.io/blob/master/docs/en-US/component-design.md)
+- [Developer Instruction](https://github.com/ant-design/ant-design/wiki/%E7%BD%91%E7%AB%99%E5%92%8C%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E)
+- [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 
 
 ## Contributing
 
 We welcome all contributions, please submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as a [GitHub issue](https://github.com/ant-design/ant-design/issues).
-
-
-## Development
-
-#### Building locally
-
-```bash
-$ npm start
-```
-
-Then open `http://127.0.0.1:8000`.
-
-#### [Website](http://ant.design) deployment
-
-```bash
-$ npm run deploy
-```
-
-#### Creating a release build
-
-```bash
-$ npm run release
-```

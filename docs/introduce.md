@@ -36,9 +36,7 @@
 ## 示例
 
 ```jsx
-var antd = require('antd');
-var Datepicker = antd.Datepicker;
-
+import { Datepicker } from 'antd';
 React.render(<Datepicker />, mountNode);
 ```
 
