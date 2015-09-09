@@ -71,7 +71,7 @@ router使用方法:
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
 |type             |string |`right`  |执行动画的内置参数  |
-|eStyle           |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
+|style           |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
 |duration         |number |0.5    |每个动画的时间|
 |ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动,只支持 css 样式缓动;|
 |delay            |number |0      |整个区块的延时，以秒为单位|
