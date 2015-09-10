@@ -1,4 +1,5 @@
 @import "../mixins/index";
+
 @table-prefix-cls: ~"@{css-prefix}table";
 @table-border-color: #e9e9e9;
 @table-head-background-color: #f3f3f3;
@@ -84,7 +85,7 @@
       position: absolute;
       display: inline-block;
       .animation(loadingCircle 1.5s infinite linear);
-      content:"\e610";
+      content: "\e610";
       top: 50%;
       left: 50%;
       margin-top: -10px;
@@ -226,6 +227,33 @@
     }
     &.clear {
       float: right;
+    }
+  }
+}
+
+.@{table-prefix-cls} {
+  &-row, &-expanded-row {
+    &-expand-icon {
+      cursor: pointer;
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      text-align: center;
+      line-height: 16px;
+      border: 1px solid #E9E9E9;
+      -webkit-user-select: none;
+      user-select: none;
+      &-cell {
+        width: 18px;
+      }
+    }
+
+    &-expanded:after {
+      content: '-'
+    }
+
+    &-collapsed:after {
+      content: '+'
     }
   }
 }
