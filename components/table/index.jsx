@@ -457,6 +457,7 @@ let AntTable = React.createClass({
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     let classString = '';
+    let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     if (this.state.loading && !this.isLocalDataSource()) {
       classString += ' ant-table-loading';
     }
@@ -483,6 +484,7 @@ let AntTable = React.createClass({
         data={data}
         columns={columns}
         className={classString}
+        expandIconAsCell={expandIconAsCell}
         />
       {emptyText}
       {this.renderPagination()}
