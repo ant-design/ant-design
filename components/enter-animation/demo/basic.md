@@ -94,7 +94,6 @@ React.render(<Test />
 
 <style>
 #components-enter-animation-demo-basic {
-  width: 600px;
   text-align: center;
   overflow: hidden;
   margin: 20px auto;

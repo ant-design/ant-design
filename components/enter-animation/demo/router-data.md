@@ -1,8 +1,8 @@
-# Router默认进出场
+# Router数据控制
 
-- order: 3
+- order: 4
 
-router组合的进场与出场动画。
+router的data-enter和data-leave控制进出场动画。
 
 ---
 
@@ -15,14 +15,14 @@ var Link = ReactRouter.Link;
 var EnterAnimation = antd.EnterAnimation;
 
 var App = React.createClass({
-    getInitialState: function () {
+  getInitialState: function () {
       return {};
     },
     clickPage() {
       this.setState({
-        enter: {delay:0.3},
-        leave: {delay:0}
-      });
+        enter: {interval: 0.05,type: 'bottom',ease: 'cubic-bezier(0.075, 0.82, 0.165, 1)',delay:0.3,},
+        leave: {upend: true,duration:0.2,ease: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',delay:0}//interval与type不重写将继承enter里的数据
+      })
     },
     render() {
       var key = this.props.location.pathname;
@@ -41,14 +41,15 @@ var App = React.createClass({
 });
 var Page1 = React.createClass({
   render() {
+    var enterData = {};
     return (
       <div className="demo-router-child">
-        <h1>Page 1</h1>
-        <p><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
-        <p><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
-        <p><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
-        <p><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
-        <p><Link to="/page2">A link to page 2 should be active</Link>改变样式</p>
+        <h1 data-enter>Page 1</h1>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter><Link to="/page2">A link to page 2 should be active</Link>依次进场</p>
+        <p data-enter='{"type":"right"}' data-leave='{"type":"left"}'><Link to="/page2">A link to page 2 should be active</Link>改变样式</p>
       </div>
     );
   }
@@ -66,6 +67,7 @@ var Page2 = React.createClass({
     );
   }
 });
+
 React.render((
   <Router history={history}>
     <Route path="/" component={App} ignoreScrollBehavior>
@@ -73,11 +75,11 @@ React.render((
       <Route path="page2" component={Page2} />
     </Route>
   </Router>
-), document.getElementById('components-enter-animation-demo-router'));
+), document.getElementById('components-enter-animation-demo-router-data'));
 ````
 
 <style>
-#components-enter-animation-demo-router {
+#components-enter-animation-demo-router-data {
   text-align: center;
   margin: 20px auto;
 }

@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 进场动画
-- cols: 1
+
 
 ---
 
