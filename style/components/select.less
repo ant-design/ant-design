@@ -236,8 +236,19 @@
       border-radius: 4px;
       cursor: default;
       float: left;
-      padding: 0 8px;
+      padding: 0 20px 0 8px;
       margin-right: 4px;
+      max-width: 99%;
+      position: relative;
+    }
+
+    .@{select-prefix-cls}-selection__choice__content {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      vertical-align: middle;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .@{select-prefix-cls}-selection__choice__remove {
@@ -248,9 +259,8 @@
       font-weight: bold;
       .iconfont-size-under-12px(8px);
       padding: 0 0 0 4px;
-      position: relative;
-      top: -1px;
-      left: 4px;
+      position: absolute;
+      right: 4px;
       &:hover {
         color: #333;
       }
