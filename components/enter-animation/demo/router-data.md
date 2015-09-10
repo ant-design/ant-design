@@ -1,6 +1,6 @@
 # Router数据控制
 
-- order: 4
+- order: 5
 
 router的data-enter和data-leave控制进出场动画。
 

@@ -71,7 +71,7 @@ router使用方法:
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
 |type             |string |`right`  |执行动画的内置参数  |
-|style           |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
+|style           |object / string |null   |同上， style 的样式动画, `type` 有值，此项无效|
 |duration         |number |0.5    |每个动画的时间|
 |ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动,只支持 css 样式缓动;|
 |delay            |number |0      |整个区块的延时，以秒为单位|
@@ -99,7 +99,7 @@ router使用方法:
 |参数              |类型            |默认值           |详细                                                 |
 |-----------------|-----------------|----------------|----------------------------------------------------|
 |type             |string          |`right`           |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`|
-|style            |string          |null            |动画样式，如 `transform: translateX(100px)`，`type` 有值此项无效|
+|style            |object / string          |null            |动画样式，如 `transform: translateX(100px)`，`type` 有值此项无效|
 |duration         |number          |0.5             |动画的时间,以秒为单位,覆盖标签里的值|
 |ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|样式缓动，只支持 css 样式缓动,覆盖标签里的值|
 |delay            |number          |0               |动画的延时，依照结构递增以上的 `interval`|

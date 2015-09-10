@@ -1,6 +1,6 @@
 # Router默认进出场
 
-- order: 3
+- order: 4
 
 router组合的进场与出场动画。
 
