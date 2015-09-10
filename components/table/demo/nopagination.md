@@ -1,6 +1,6 @@
 # 不显示分页
 
-- order: 9
+- order: 5
 
 传入 pagination 为 false 即可。
 
