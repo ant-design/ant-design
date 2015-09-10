@@ -9,11 +9,11 @@
 ````jsx
 var Table = antd.Table;
 
-function renderAction () {
+function renderAction() {
   return <a href="javascript:;">删除</a>;
 }
 
-function expandedRowRender(record){
+function expandedRowRender(record) {
   return <p>{record.description}</p>;
 }
 
