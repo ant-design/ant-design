@@ -232,7 +232,7 @@
 }
 
 .@{table-prefix-cls} {
-  &-row, &-expanded-row {
+  &-row {
     &-expand-icon {
       cursor: pointer;
       display: inline-block;
@@ -254,6 +254,11 @@
 
     &-collapsed:after {
       content: '+'
+    }
+  }
+  tr&-expanded-row {
+    &, &:hover {
+      background: #fbfbfb;
     }
   }
 }
