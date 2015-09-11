@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 进场动画
-- cols: 1
+
 
 ---
 
@@ -28,7 +28,7 @@
 </EnterAnimation>
 ```
 
-如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
+如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历 dom 下一级节点来执行动画。
 
 ```html
 <EnterAnimation type="left" delay={2}>
@@ -43,6 +43,18 @@
 </EnterAnimation>
 ```
 
+router 使用方法:
+
+```html
+<EnterAnimation enter={type:'left'} leave={type:'right'}>
+  {cloneElement(this.props.children || <div/>, {key: 'demo1'})}
+  //或者直接标签
+  <div key='demo2'>
+    <div>依次进场</div>
+    <div>依次进场</div>
+  </div>
+</EnterAnimation>
+```
 
 ## API
 
@@ -50,32 +62,46 @@
 
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
-|type             |string |`right`  |执行动画的内置参数  |
-|eStyle           |string |null   |同上， style 的样式动画, `type` 有值，此项无效|
-|direction        |string |`enter`|动画进场或出场样式,以 `enter` `leave` 两值|
-|duration         |number |0.5    |每个动画的时间|
+|enter|object| `{type:'right'}` |管理进场数据|
+|leave|object| null |管理当前元素出场的数据, null 时继承 enter 里的所有标签的值 |
+|component|string| `div` | EnterAnimation 替换的标签名|
+
+### enter = {} | leave = {}
+
+|参数             |类型    |默认值        |详细                                                 |
+|-----------------|-------|-------------|----------------------------------------------------|
+|type             |string |`right`  |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`  |
+|style           |object / string |null   |同上， style 的样式动画, `type` 有值，此项无效。<br/>如 `{transform:'translateX(100px)'}` 或 `'transform: translateX(100px)'`|
+|duration         |number |0.5    |每个动画的时间,以秒为单位|
 |ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动,只支持 css 样式缓动;|
 |delay            |number |0      |整个区块的延时，以秒为单位|
-|upend            |boolean|false  |是否倒放,从最后一个dom开始往上播放|
+|reverse          |boolean|false  |是否倒放,从最后一个 dom 开始往上播放|
 |interval         |number |0.1    |递增延时值，以秒为单位|
 |callback         |function|null  |动画结束回调|
 
-### enter-data
+### 一级标签key：
+
+|参数             |类型    |详细                                                 |
+|-----------------|-------|----------------------------------------------------|
+|key|string|必需，控制进出场；|
+
+### 子标签
 
 |参数             |类型    |默认值      |详细                                                 |
 |-----------------|-------|-----------|----------------------------------------------------|
-|enter-data       |object | `right`     |子标签动画参数|
+|enter-data       |object | `{type:'right'}`     |子标签进场参数|
+|leave-data       |object | `enter-data` |子标签出场参数|
 
-#### enter-data={}
+
+#### enter-data = {}  | leave-data = {}
 
 |参数              |类型            |默认值           |详细                                                 |
 |-----------------|-----------------|----------------|----------------------------------------------------|
-|type             |string          |`right`           |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`|
-|style            |string          |null            |动画样式，如 `transform: translateX(100px)`，`type` 有值此项无效|
-|direction        |string          |`enter`         |动画进出场方向：`enter` `leave`,覆盖标签里的值|
-|duration         |number          |0.5             |动画的时间,以秒为单位,覆盖标签里的值|
-|ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|样式缓动，只支持 css 样式缓动,覆盖标签里的值|
-|delay            |number          |0               |动画的延时，依照结构递增以上的 `interval`|
+|type             |string          |`right`           |同标签里的 `type`,覆盖标签里的值|
+|style            |object / string          |null            |同标签里的 `style`,覆盖标签里的值|
+|duration         |number          |0.5             |同标签里的 `duration`,覆盖标签里的值|
+|ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|同标签里的 `ease`,覆盖标签里的值|
+|delay            |number          |0               |当前动画的延时，依照结构递增以上的 `interval`|
 |queueId          |number          |0               |动画的线程|
 
 > 由于使用了 CSS3 动画，所以 `IE9` 及更早的版本将没有进场效果。
