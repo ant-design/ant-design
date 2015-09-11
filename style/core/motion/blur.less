@@ -1,0 +1,40 @@
+.blur-enter, .blur-appear {
+  .motion-common();
+  animation-timing-function: @ease-in-out;
+  animation-play-state: paused;
+}
+
+.blur-leave {
+  filter:blur(4px);
+  .motion-common();
+  animation-timing-function: @ease-in-out;
+  animation-play-state: paused;
+}
+
+.blur-enter.blur-enter-active, .blur-appear.blur-appear-active {
+  animation-name: blurIn;
+  animation-play-state: running;
+}
+
+.blur-leave.blur-leave-active {
+  animation-name: blurOut;
+  animation-play-state: running;
+}
+
+@keyframes blurIn {
+  0% {
+    filter: blur(0);git
+  }
+  100% {
+    filter: blur(4px);
+  }
+}
+
+@keyframes blurOut {
+  0% {
+    filter: blur(4px);
+  }
+  100% {
+    filter: blur(0);
+  }
+}
