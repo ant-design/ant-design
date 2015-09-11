@@ -15,7 +15,7 @@ const AntMenu = React.createClass({
       openAnimation = 'slide-up';
       break;
     case 'vertical':
-      openAnimation = 'zoom';
+      openAnimation = 'zoom-big';
       break;
     case 'inline':
       openAnimation = animation;
