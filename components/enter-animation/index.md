@@ -15,7 +15,7 @@
 - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
 
 
-## 如何使用
+## API
 
 一级子元素依次进场。
 
@@ -42,21 +42,6 @@
   <div>没有动画</div>
 </EnterAnimation>
 ```
-
-router 使用方法:
-
-```html
-<EnterAnimation enter={type:'left'} leave={type:'right'}>
-  {cloneElement(this.props.children || <div/>, {key: 'demo1'})}
-  //或者直接标签
-  <div key='demo2'>
-    <div>依次进场</div>
-    <div>依次进场</div>
-  </div>
-</EnterAnimation>
-```
-
-## API
 
 ### <EnterAnimation />
 
