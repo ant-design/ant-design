@@ -1,8 +1,8 @@
-# 默认
+# 配置进出场的样式
 
-- order: 0
+- order: 1
 
-默认子节点进场动画。
+配置进出场动画样式。
 
 
 ---
@@ -13,12 +13,27 @@ var EnterAnimation = antd.EnterAnimation;
 var Test = React.createClass({
   getInitialState() {
     return {
+      enter:{
+        type: 'right',
+        interval: 0.3,
+        callback:() => {
+          console.log('enter');
+        }
+      },
+      leave:{
+        type: 'left',
+        interval: .1,
+        callback:() => {
+          console.log('leave');
+        }
+      },
       bool:true,
     }
   },
   onClick() {
     this.setState({
       bool:!this.state.bool,
+
     })
   },
   render() {
@@ -27,7 +42,7 @@ var Test = React.createClass({
         <div style={{marginBottom: 20}}>
           <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
         </div>
-        <EnterAnimation>
+        <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
           {this.state.bool ? <div key='a'>
             <div className="demo-header">
               <div className="logo">
@@ -74,11 +89,11 @@ var Test = React.createClass({
 });
 
 React.render(<Test />
-, document.getElementById('components-enter-animation-demo-basic'));
+, document.getElementById('components-enter-animation-demo-enter-leave'));
 ````
 
 <style>
-#components-enter-animation-demo-basic {
+#components-enter-animation-demo-enter-leave {
   text-align: center;
   overflow: hidden;
   margin: 20px auto;

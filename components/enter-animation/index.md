@@ -28,7 +28,7 @@
 </EnterAnimation>
 ```
 
-如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历dom下一级节点来执行动画。
+如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历 dom 下一级节点来执行动画。
 
 ```html
 <EnterAnimation type="left" delay={2}>
@@ -43,7 +43,7 @@
 </EnterAnimation>
 ```
 
-router使用方法:
+router 使用方法:
 
 ```html
 <EnterAnimation enter={type:'left'} leave={type:'right'}>
@@ -62,9 +62,9 @@ router使用方法:
 
 |参数             |类型    |默认值        |详细                                                 |
 |-----------------|-------|-------------|----------------------------------------------------|
-|enter|object| `right` |管理进场数据|
-|leave|object| null |管理当前元素出场的数据,null时继承enter里的所有标签的值 |
-|component|string| `div` |EnterAnimation替换的标签名|
+|enter|object| `{type:'right'}` |管理进场数据|
+|leave|object| null |管理当前元素出场的数据, null 时继承 enter 里的所有标签的值 |
+|component|string| `div` | EnterAnimation 替换的标签名|
 
 ### enter = {} | leave = {}
 
@@ -75,7 +75,7 @@ router使用方法:
 |duration         |number |0.5    |每个动画的时间,以秒为单位|
 |ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动,只支持 css 样式缓动;|
 |delay            |number |0      |整个区块的延时，以秒为单位|
-|upend            |boolean|false  |是否倒放,从最后一个dom开始往上播放|
+|reverse          |boolean|false  |是否倒放,从最后一个 dom 开始往上播放|
 |interval         |number |0.1    |递增延时值，以秒为单位|
 |callback         |function|null  |动画结束回调|
 
@@ -85,20 +85,15 @@ router使用方法:
 |-----------------|-------|----------------------------------------------------|
 |key|string|必需，控制进出场；|
 
-### enter-data | data-enter
+### 子标签
 
 |参数             |类型    |默认值      |详细                                                 |
 |-----------------|-------|-----------|----------------------------------------------------|
-|enter-data       |object | `right`     |子标签进场参数|
-|data-enter       |JSON String| `right`     |router下enter-data无效，新增dom标签，router时createClass页面里可用;<br/> JSON String: `'{"type":"right","delay":0.1}'`|
+|enter-data       |object | `{type:'right'}`     |子标签进场参数|
 |leave-data       |object | `enter-data` |子标签出场参数|
-|data-leave       |JSON String| `data-leave`      |同 `data-enter`|
 
-> `enter-data` 和 `data-enter` 或 `leave-data` 和 `data-leave` 共存时，合并两对象，以 xxx-data 为主。
 
-> 比如 `enter-data` 里有 `type:'left'`， `data-enter` 也里有 `type:'right'`，取的是 `enter-data` 的 type。
-
-#### enter-data = {} | data-enter='{"type":"right"}' | leave-data={} | data-leave='{"type":"right"}'
+#### enter-data = {}  | leave-data = {}
 
 |参数              |类型            |默认值           |详细                                                 |
 |-----------------|-----------------|----------------|----------------------------------------------------|

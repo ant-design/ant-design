@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "css-animation": "~1.1.0",
-    "enter-animation": "~0.4.8",
+    "enter-animation": "~0.4.9",
     "gregorian-calendar": "~3.0.0",
     "gregorian-calendar-format": "~3.0.1",
     "object-assign": "~4.0.1",

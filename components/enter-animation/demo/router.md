@@ -1,8 +1,8 @@
-# Router默认进出场
+# Router 默认进出场
 
-- order: 4
+- order: 5
 
-router组合的进场与出场动画。
+router 组合的进场与出场动画。
 
 ---
 
@@ -16,29 +16,33 @@ var EnterAnimation = antd.EnterAnimation;
 var Menu = antd.Menu;
 
 var App = React.createClass({
-    getInitialState: function () {
-      return {};
-    },
-    clickPage() {
-      this.setState({
-        enter: {delay:0.3},
-        leave: {delay:0}
-      });
-    },
-    render() {
-      var key = this.props.location.pathname;
-      return (
-        <div>
-          <Menu style={{marginBottom:20}} mode="horizontal">
-            <Menu.Item key='page1'><Link to="/page1" onClick={this.clickPage}>Page 1</Link></Menu.Item>
-            <Menu.Item key='page2'><Link to="/page2" onClick={this.clickPage}>Page 2</Link></Menu.Item>
-          </Menu>
-          <EnterAnimation className='demo-router-wap' enter={this.state.enter} leave={this.state.leave}>
-            {React.cloneElement(this.props.children ||<div key='home' className='demo-router-child'><h1>Home</h1><div>这是首页</div></div>, {key: key})}
-          </EnterAnimation>
-        </div>
-      );
-    }
+  getInitialState: function () {
+    return {};
+  },
+  clickPage() {
+    this.setState({
+      enter: {delay: 0.3},
+      leave: {delay: 0}
+    });
+  },
+  render() {
+    var key = this.props.location.pathname;
+    return (
+      <div>
+        <Menu style={{marginBottom: 20}} mode="horizontal">
+          <Menu.Item key='page1'>
+            <Link to="/page1" onClick={this.clickPage}>Page 1</Link>
+          </Menu.Item>
+          <Menu.Item key='page2'>
+            <Link to="/page2" onClick={this.clickPage}>Page 2</Link>
+          </Menu.Item>
+        </Menu>
+        <EnterAnimation className='demo-router-wap' enter={this.state.enter} leave={this.state.leave}>
+            {React.cloneElement(this.props.children || <div key='home' className='demo-router-child'><h1>Home</h1><div>这是首页</div></div>, {key: key})}
+        </EnterAnimation>
+      </div>
+    );
+  }
 });
 var Page1 = React.createClass({
   render() {

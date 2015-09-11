@@ -1,6 +1,6 @@
 # 表单动画进出场
 
-- order: 3
+- order: 4
 
 表单组合的进场与出场动画。
 
@@ -15,35 +15,37 @@ var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
 
 var Test = React.createClass({
-  getInitialState(){
+  getInitialState() {
     return {
-      enter:{
-        type:'right',
-        callback:null,
-        interval:0.1
+      enter: {
+        type: 'right',
+        callback: null,
+        interval: 0.1
       },
-      leave:{
-        type:'left',
-        upend:true,
-        interval:0.05,
-        callback:()=>{console.log('出场结束')}
+      leave: {
+        type: 'left',
+        reverse: true,
+        interval: 0.05,
+        callback: ()=> {
+          console.log('出场结束')
+        }
       },
-      bool:true
+      show: true
     }
   },
-  onClick(){
+  onClick() {
     this.setState({
-      bool:!this.state.bool
+      show: !this.state.show
     })
   },
   render() {
     return (
       <div>
-        <div style={{marginBottom:20,textAlign:'center'}}>
+        <div style={{marginBottom: 20, textAlign: 'center'}}>
           <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
         </div>
         <EnterAnimation enter={this.state.enter} leave={this.state.leave} component='form' className="ant-form-horizontal">
-          {this.state.bool ? <div key='from'>
+          {this.state.show ? <div key='from'>
             <div className="ant-form-item ant-form-item-compact">
               <label htmlFor="userName" className="col-6" required>用户名：</label>
               <div className="col-6">
@@ -75,7 +77,8 @@ var Test = React.createClass({
             <div className="ant-form-item ant-form-item-compact">
               <div className="col-14 col-offset-6">
                 <label>
-                  <Checkbox /> 同意
+                  <Checkbox />
+                  同意
                 </label>
               </div>
             </div>
