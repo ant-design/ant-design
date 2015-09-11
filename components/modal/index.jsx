@@ -3,8 +3,6 @@ import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
 import confirm from './confirm';
 
-let cssAnimation = require('css-animation');
-
 function noop() {
 }
 
@@ -19,8 +17,7 @@ let AntModal = React.createClass({
       onCancel: noop,
       width: 520,
       transitionName: 'zoom',
-      maskAnimation: 'fade',
-      bgAnimation: ' blur-enter blur-enter-active',
+      maskAnimation: 'fade'
     };
   },
 
@@ -33,7 +30,6 @@ let AntModal = React.createClass({
 
   handleCancel() {
     this.props.onCancel();
-    this.bgBlur(false);
   },
 
   handleOk() {
@@ -41,34 +37,6 @@ let AntModal = React.createClass({
       confirmLoading: true
     });
     this.props.onOk();
-  },
-  bgBlur(b) {
-    //增加背景模糊；
-    function seeDom(callback) {
-      for (let i = 0; i < document.body.children.length; i++) {
-        let m = document.body.children[i];
-        if (m.nodeName !== 'SCRIPT' && m.nodeName !== 'STYLE' && m.className.indexOf('ant-modal') < 0) {
-          callback.call(this, m);
-        }
-      }
-    }
-
-    if (b) {
-      //cssAnimation(document.body, 'blur-enter')
-      seeDom((m)=> {
-        m.className += this.props.bgAnimation;
-      });
-    } else {
-      seeDom((m)=> {
-        let rclass = /[\t\r\n\f]/g;
-        let _classname = (' ' + m.className + ' ').replace(' ' + rclass + ' ', ' ');
-        while (_classname.indexOf(this.props.bgAnimation) >= 0) {
-          _classname = _classname.replace(this.props.bgAnimation, ' ');
-        }
-        m.className = _classname.trim();
-        cssAnimation(m, 'blur-leave');
-      });
-    }
   },
 
   componentWillReceiveProps(nextProps) {
@@ -81,7 +49,6 @@ let AntModal = React.createClass({
         newState.confirmLoading = false;
       }
       this.setState(newState);
-      this.bgBlur(nextProps.visible);
     }
   },
 
