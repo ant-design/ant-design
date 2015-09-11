@@ -58,6 +58,11 @@
 
 * 修改 Radio.Group 容器的盒模型属性为 inline-block 。
 
+### Enter Animation
+
+* 大幅度的重构，全新 API 的设计。
+* 支持和 react-router 结合使用。
+
 ### 其他
 
 * 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
