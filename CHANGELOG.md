@@ -66,10 +66,10 @@
 ### 其他
 
 * 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
-* tooltip、popover、popconfirm 等动画效果优化。
+* 优化弹出层类组件的动画效果，使其更加流畅。
 * 部分文案更新。
 * 优化主站在小分辨率屏幕下的样式。
-* 使用 http://instantclick.io/ 改造主站，加载速度有明显提升。
+* 使用 instantclick 改造主站，加载速度有明显提升。
 
 ## 0.8.0 `2015-08-25`
 
