@@ -100,7 +100,7 @@
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "lesslint": "lesslint style",
     "test": "webpack && npm run lint",
-    "prepublish": "npm run babel && rm -rf dist && webpack --config webpack.config.production.js && node scripts/prenpm.js"
+    "pub": "sh ./scripts/publish.sh"
   },
   "precommit": [
     "lint"
