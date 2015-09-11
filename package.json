@@ -100,7 +100,8 @@
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "lesslint": "lesslint style",
     "test": "webpack && npm run lint",
-    "pub": "sh ./scripts/publish.sh"
+    "pub": "sh ./scripts/publish.sh",
+    "beta": "sh ./scripts/publish.sh --tag beta"
   },
   "precommit": [
     "lint"
