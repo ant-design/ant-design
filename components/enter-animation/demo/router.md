@@ -13,6 +13,7 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
 var EnterAnimation = antd.EnterAnimation;
+var Menu = antd.Menu;
 
 var App = React.createClass({
     getInitialState: function () {
@@ -28,10 +29,10 @@ var App = React.createClass({
       var key = this.props.location.pathname;
       return (
         <div>
-          <div style={{marginBottom:20}}>
-            <Link to="/page1" onClick={this.clickPage} className="ant-btn ant-btn-primary">Page 1</Link>
-            <Link to="/page2" onClick={this.clickPage} className="ant-btn ant-btn-primary" style={{marginLeft:10}}>Page 2</Link>
-          </div>
+          <Menu style={{marginBottom:20}} mode="horizontal">
+            <Menu.Item key='page1'><Link to="/page1" onClick={this.clickPage}>Page 1</Link></Menu.Item>
+            <Menu.Item key='page2'><Link to="/page2" onClick={this.clickPage}>Page 2</Link></Menu.Item>
+          </Menu>
           <EnterAnimation className='demo-router-wap' enter={this.state.enter} leave={this.state.leave}>
             {React.cloneElement(this.props.children ||<div key='home' className='demo-router-child'><h1>Home</h1><div>这是首页</div></div>, {key: key})}
           </EnterAnimation>
@@ -79,7 +80,6 @@ React.render((
 <style>
 #components-enter-animation-demo-router {
   text-align: center;
-  margin: 20px auto;
 }
 .demo-router-wap{
   position: relative;
