@@ -6,8 +6,8 @@ var antd = require('antd');
 var $ = require('jquery');
 var React = require('react');
 
-$(function () {
-// auto complete for components
+InstantClickChangeFns.push(function () {
+  // auto complete for components
   var Select = antd.Select;
   var Option = Select.Option;
   // 获取搜索数据

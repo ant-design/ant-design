@@ -2,6 +2,7 @@
 
 - category: 动画
 - order: 1
+- noinstant: true
 
 ---
 

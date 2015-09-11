@@ -20,7 +20,9 @@
           <li class="type-divider">{{item.name}}</li>
           {%- else %}
           <li class="{%- if item.title === post.title %}current{%- endif %}">
-            <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
+            <a href="{{permalink_url(item)}}"
+               class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}"
+               {%- if item.meta.noinstant %}data-no-instant{%- endif %}>
               {{item.title}}
               <span class="chinese">{{item.meta.chinese}}</span>
             </a>
