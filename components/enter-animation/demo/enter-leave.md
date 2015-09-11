@@ -27,12 +27,12 @@ var Test = React.createClass({
           console.log('leave');
         }
       },
-      bool:true,
+      show:true,
     }
   },
   onClick() {
     this.setState({
-      bool:!this.state.bool,
+      show:!this.state.show,
 
     })
   },
@@ -43,7 +43,7 @@ var Test = React.createClass({
           <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
         </div>
         <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
-          {this.state.bool ? <div key='a'>
+          {this.state.show ? <div key='a'>
             <div className="demo-header">
               <div className="logo">
                 <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
