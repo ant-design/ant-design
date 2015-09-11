@@ -19,19 +19,32 @@
 @keyframes zoomIn {
   0% {
     opacity: 0;
+    filter: blur(20px);
     transform: scale(0);
   }
+  50%{
+    filter: blur(5px);
+  }
   100% {
+    filter: blur(0);
     transform: scale(1);
   }
 }
 
 @keyframes zoomOut {
   0% {
+    filter: blur(0);
     transform: scale(1);
+  }
+  50%{
+    filter: blur(5px);
+  }
+  90%{
+    opacity: 0.03;
   }
   100% {
     opacity: 0;
+    filter: blur(20px);
     transform: scale(0);
   }
 }
