@@ -1,4 +1,4 @@
-$(function() {
+InstantClickChangeFns.push(function() {
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
@@ -142,7 +142,6 @@ $(function() {
           list.css({"display":"block","margin-top":-list.height()});
           list.animate({marginTop:0},400,"easeInOutCirc")
         }
-        //parent.find("ul").slideToggle(300);
       });
     }
   };

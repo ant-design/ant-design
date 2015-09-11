@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 字体图标
 - type: 基本
+- noinstant: true
 
 ---
 
