@@ -10,6 +10,7 @@
 }
 
 .zoom-motion(zoom, zoom);
+.zoom-motion(zoom-big, zoomBig);
 .zoom-motion(zoom-up, zoomUp);
 .zoom-motion(zoom-down, zoomDown);
 .zoom-motion(zoom-left, zoomLeft);
@@ -32,6 +33,25 @@
   100% {
     opacity: 0;
     transform: scale(0);
+  }
+}
+@keyframes zoomBigIn {
+  0% {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomBigOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(.8);
   }
 }
 
