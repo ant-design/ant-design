@@ -6,6 +6,13 @@
 
 ## 0.9.0 `not ready`
 
+* 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
+* tooltip、popover、popconfirm 等动画效果优化。
+* 部分文案更新。
+* 优化主站在小分辨率屏幕下的样式。
+* 使用 http://instantclick.io/ 改造主站，加载速度有明显提升。
+* antd-bin 升级到 [0.6.0](https://github.com/ant-design/antd-bin/blob/master/HISTORY.md#060) 。
+
 ### Upload
 
 **重构了 API 接口，不向下兼容**，支持自定义的功能扩展。
@@ -63,13 +70,6 @@
 * 大幅度的重构，全新 API 的设计。
 * 支持和 react-router 结合使用。
 
-### 其他
-
-* 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
-* tooltip、popover、popconfirm 等动画效果优化。
-* 部分文案更新。
-* 优化主站在小分辨率屏幕下的样式。
-* 使用 http://instantclick.io/ 改造主站，加载速度有明显提升。
 
 ## 0.8.0 `2015-08-25`
 
