@@ -4,14 +4,14 @@
 
 ---
 
-## 0.9.0 `not ready`
+## 0.9.0 `2015-09-14`
 
 * 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
 * 优化弹出层类组件的动画效果，使其更加流畅。
 * 部分文案更新。
 * 优化主站在小分辨率屏幕下的样式。
 * 使用 instantclick 改造主站，加载速度有明显提升。
-* antd-bin 升级到 [0.6.0](https://github.com/ant-design/antd-bin/blob/master/HISTORY.md#060) 。
+* antd-bin 升级到 [0.6.x](https://github.com/ant-design/antd-bin/blob/master/HISTORY.md) 。
 
 ### Upload
 
