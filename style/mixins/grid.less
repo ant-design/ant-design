@@ -42,7 +42,6 @@
 .loop-grid-columns(@index) when (@index > 0) {
   .col-@{index} {
     width: percentage((@index / @grid-columns));
-    flex: 0 0 percentage(@index / @grid-columns);
   }
   .col-push-@{index} {
     left: percentage((@index / @grid-columns));
