@@ -17,14 +17,16 @@
 
 ## 如何使用
 
-一级子元素依次进场。
+元素依次进场。
 
 ```html
 <EnterAnimation>
-  <div>依次进场</div>
-  <div>依次进场</div>
-  <div>依次进场</div>
-  <div>依次进场</div>
+  <div key='demo'>
+    <div>依次进场</div>
+    <div>依次进场</div>
+    <div>依次进场</div>
+    <div>依次进场</div>
+  </div>
 </EnterAnimation>
 ```
 
@@ -32,14 +34,16 @@
 
 ```html
 <EnterAnimation type="left" delay={2}>
-  <div>
-    <div enter-data>
-      依次进场
+  <div key='demo'>
+    <div>
+      <div enter-data>
+        依次进场
+      </div>
     </div>
+    <div enter-data>依次进场</div>
+    <div enter-data={{type: 'bottom'}}>依次进场，并修改动画效果</div>
+    <div>没有动画</div>
   </div>
-  <div enter-data>依次进场</div>
-  <div enter-data={{type: 'bottom'}}>依次进场，并修改动画效果</div>
-  <div>没有动画</div>
 </EnterAnimation>
 ```
 
