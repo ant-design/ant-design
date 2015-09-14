@@ -520,6 +520,7 @@ ul.anticons-list {
   margin: 20px 0;
   list-style: none;
   width: 120%;
+  overflow: hidden;
 }
 ul.anticons-list li {
   float: left;
