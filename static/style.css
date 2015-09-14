@@ -1967,7 +1967,8 @@ a.entry-link:hover .anticon-smile {
 }
 
 #instantclick {
-  margin-top: 80px;
+  top: 80px!important;
+  position: absolute!important;
 }
 
 #instantclick-bar {
