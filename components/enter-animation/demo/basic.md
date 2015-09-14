@@ -1,9 +1,8 @@
-# 默认
+# 进场和离场
 
 - order: 0
 
-默认子节点进场动画。
-
+自动。
 
 ---
 
@@ -13,12 +12,12 @@ var EnterAnimation = antd.EnterAnimation;
 var Test = React.createClass({
   getInitialState() {
     return {
-      show:true,
+      show: true
     }
   },
   onClick() {
     this.setState({
-      show:!this.state.show,
+      show: !this.state.show
     })
   },
   render() {
