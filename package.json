@@ -66,7 +66,7 @@
     "velocity-animate": "~1.2.2"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^2.0.0",
+    "autoprefixer-loader": "^3.1.0",
     "babel": "^5.8.12",
     "babel-core": "^5.8.12",
     "babel-eslint": "^4.1.0",
