@@ -77,11 +77,11 @@ let AntTable = React.createClass({
     // 外界只有 dataSource 的变化会触发新请求
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
-      newState = {
+      newState = objectAssign(newState, {
         selectedRowKeys: [],
         dataSource: nextProps.dataSource,
         loading: true
-      };
+      });
     }
     if (nextProps.columns !== this.props.columns) {
       newState.filters = {};

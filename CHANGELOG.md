@@ -4,7 +4,14 @@
 
 ---
 
-## 0.9.0 `not ready`
+## 0.9.0 `2015-09-14`
+
+* 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
+* 优化弹出层类组件的动画效果，使其更加流畅。
+* 部分文案更新。
+* 优化主站在小分辨率屏幕下的样式。
+* 使用 instantclick 改造主站，加载速度有明显提升。
+* antd-bin 升级到 [0.6.x](https://github.com/ant-design/antd-bin/blob/master/HISTORY.md) 。
 
 ### Upload
 
@@ -23,6 +30,11 @@
 * 修复本地模式 `dataSource` 无法更新的问题。[6d2dcc4](https://github.com/ant-design/ant-design/commit/6d2dcc45393b6ec0ad1ba73caf8b1ec42353743f)
 * 修复远程模式 loading 失效的问题。[9b8abb2](https://github.com/ant-design/ant-design/commit/9b8abb219934c246970a84200818aa8f85974bdf)
 * 用 [reqwest-without-xhr2](http://npmjs.com/reqwest-without-xhr2) 代替了 reqwest，解决某些开发环境下 xhr2 依赖的问题。
+
+### Select
+
+* 增加 label 属性，允许多选模式下展示标签（原来只能显示 value 值）。[演示](http://react-component.github.io/select/examples/mul-suggest.html)
+* 修复 combobox 模式下 value 失效的问题。
 
 ### Notification
 
@@ -63,12 +75,6 @@
 * 大幅度的重构，全新 API 的设计。
 * 支持和 react-router 结合使用。
 
-### 其他
-
-* 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
-* tooltip、popover、popconfirm 等动画效果优化。
-* 部分文案更新。
-* 优化主站在小分辨率屏幕下的样式。
 
 ## 0.8.0 `2015-08-25`
 

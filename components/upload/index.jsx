@@ -31,7 +31,6 @@ const AntUpload = React.createClass({
     });
   },
   removeFile(file) {
-    file.status = 'removed';
     let fileList = this.state.fileList.concat();
     let targetItem = getFileItem(file, fileList);
     let index = fileList.indexOf(targetItem);
@@ -68,6 +67,7 @@ const AntUpload = React.createClass({
   onError(error, response, file) {
     file.error = error;
     file.response = response;
+    file.status = 'error';
     this.handleRemove(file);
   },
   handleRemove(file) {
@@ -78,6 +78,10 @@ const AntUpload = React.createClass({
         fileList: fileList
       });
     }
+  },
+  handleManualRemove(file) {
+    file.status = 'removed';
+    this.handleRemove(file);
   },
   onChange(info) {
     // 1. 有设置外部属性时不改变 fileList
@@ -134,7 +138,7 @@ const AntUpload = React.createClass({
             </Upload>
           </div>
           <UploadList items={this.state.fileList}
-                      onRemove={this.handleRemove}/>
+                      onRemove={this.handleManualRemove} />
         </div>
       );
     }

@@ -1965,3 +1965,12 @@ a.entry-link:hover .anticon-smile {
     width: auto;
   }
 }
+
+#instantclick {
+  top: 80px!important;
+  position: absolute!important;
+}
+
+#instantclick-bar {
+  background: #6EB4E0;
+}
