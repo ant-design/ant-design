@@ -1,25 +1,16 @@
-.fade-enter, .fade-appear {
-  opacity: 0;
-  .motion-common();
-  animation-timing-function: linear;
-  animation-play-state: paused;
+.fade-motion(@className, @keyframeName) {
+  .make-motion(@className, @keyframeName);
+  .@{className}-enter, .@{className}-appear {
+    opacity: 0;
+    animation-timing-function: linear;
+  }
+  .@{className}-leave {
+    animation-timing-function: linear;
+  }
 }
 
-.fade-leave {
-  .motion-common();
-  animation-timing-function: linear;
-  animation-play-state: paused;
-}
-
-.fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
-  animation-name: antFadeIn;
-  animation-play-state: running;
-}
-
-.fade-leave.fade-leave-active {
-  animation-name: antFadeOut;
-  animation-play-state: running;
-}
+.fade-motion(fade, antFade);
+.fade-motion(ant-modal-fade, antFade);
 
 @keyframes antFadeIn {
   0% {
