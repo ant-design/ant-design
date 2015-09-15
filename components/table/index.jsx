@@ -473,12 +473,14 @@ let AntTable = React.createClass({
       return column;
     });
     let emptyText;
+    let emptyClass = '';
     if (!data || data.length === 0) {
-      emptyText = <div className="ant-table-empty">
+      emptyText = <div className="ant-table-placeholder">
         <i className="anticon anticon-frown"></i>暂无数据
       </div>;
+      emptyClass = ' ant-table-empty';
     }
-    return <div className="clearfix">
+    return <div className={'clearfix' + emptyClass}>
       <Table
         {...this.props}
         data={data}

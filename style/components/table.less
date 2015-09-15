@@ -7,7 +7,10 @@
 .@{table-prefix-cls} {
   font-size: @font-size-base;
   color: @text-color;
-  transition: opacity 0.3s ease;
+
+  &-body {
+    transition: opacity 0.3s ease;
+  }
 
   table {
     width: 100%;
@@ -77,10 +80,10 @@
   }
 
   &-loading {
-    .ant-table-body {
+    position: relative;
+    .@{table-prefix-cls}-body {
       opacity: 0.42;
     }
-    position: relative;
     &:after {
       position: absolute;
       display: inline-block;
@@ -179,13 +182,25 @@
   }
 
   &-empty {
+    position: relative;
+    margin-bottom: 16px;
+  }
+
+  &-empty &-body {
+    height: 150px;
+  }
+
+  &-placeholder {
     height: 100px;
     line-height: 100px;
     text-align: center;
     font-size: 12px;
     color: #999;
     border-bottom: 1px solid #E9E9E9;
-    margin-bottom: 16px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
     .anticon {
       margin-right: 4px;
       position: relative;
