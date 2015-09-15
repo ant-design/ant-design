@@ -8,7 +8,6 @@ router 组合的进场与出场动画。
 
 ````jsx
 var ReactRouter = require('react-router');
-var history = require('react-router/lib/HashHistory').history;
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
@@ -75,7 +74,7 @@ var Page2 = React.createClass({
   }
 });
 React.render((
-  <Router history={history}>
+  <Router>
     <Route path="/" component={App} ignoreScrollBehavior>
       <Route path="page1" component={Page1} />
       <Route path="page2" component={Page2} />
