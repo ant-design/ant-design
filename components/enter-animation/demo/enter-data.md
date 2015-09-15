@@ -18,6 +18,7 @@ var Test = React.createClass({
         interval: .1,
       },
       leave: {
+        type:'left',
         interval: 0.03
       },
       show: true

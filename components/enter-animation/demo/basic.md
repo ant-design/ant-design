@@ -27,8 +27,8 @@ var Test = React.createClass({
           <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
         </div>
         <EnterAnimation>
-          {this.state.show ? <div key='a'>
-            <div className="demo-content" >
+          {this.state.show ?
+            <div className="demo-content" key='a'>
               <div className="demo-kp">
                 <ul>
                   <li></li>
@@ -43,12 +43,9 @@ var Test = React.createClass({
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li></li>
-                    <li></li>
                   </ul>
                 </div>
               </div>
-            </div>
           </div> : null}
         </EnterAnimation>
       </div>
