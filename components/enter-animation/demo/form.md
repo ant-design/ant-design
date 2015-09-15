@@ -1,6 +1,6 @@
 # 表单动画进出场
 
-- order: 4
+- order: 6
 
 表单组合的进场与出场动画。
 
@@ -26,6 +26,7 @@ var Test = React.createClass({
         type: 'left',
         reverse: true,
         interval: 0.05,
+        ease:'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
         callback: ()=> {
           console.log('出场结束')
         }

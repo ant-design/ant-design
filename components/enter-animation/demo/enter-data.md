@@ -1,6 +1,6 @@
 # 指定节点动画进出场
 
-- order: 2
+- order: 3
 
 通过加上 `enter-data` 属性来指定需要动画进场的元素，并且可以定义每个元素的动画效果。
 
@@ -18,6 +18,7 @@ var Test = React.createClass({
         interval: .1,
       },
       leave: {
+        type:'left',
         interval: 0.03
       },
       show: true
@@ -37,7 +38,6 @@ var Test = React.createClass({
         <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
         {this.state.show ? <div key='enter-data'>
           <div className="demo-content">
-            <div className="demo-title" enter-data={{type: 'alpha'}}>我是标题</div>
             <div className="demo-kp">
               <ul>
                 <li enter-data></li>
@@ -45,7 +45,6 @@ var Test = React.createClass({
                 <li enter-data></li>
               </ul>
             </div>
-            <div className="demo-title" enter-data={{type: 'alpha', queueId: 1, delay: 0.8}} leave-data={{delay: 0.1}}>我是标题</div>
             <div className="demo-listBox">
               <div className="demo-list">
                 <div className="title" enter-data={{type: 'bottom', queueId: 1}}></div>
