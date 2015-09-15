@@ -9,12 +9,12 @@
   }
 }
 
-.slide-motion(slide-up, slideUp);
-.slide-motion(slide-down, slideDown);
-.slide-motion(slide-left, slideLeft);
-.slide-motion(slide-right, slideRight);
+.slide-motion(slide-up, antSlideUp);
+.slide-motion(slide-down, antSlideDown);
+.slide-motion(slide-left, antSlideLeft);
+.slide-motion(slide-right, antSlideRight);
 
-@keyframes slideUpIn {
+@keyframes antSlideUpIn {
   0% {
     opacity: 0;
     transform-origin: 0% 0%;
@@ -27,7 +27,7 @@
   }
 }
 
-@keyframes slideUpOut {
+@keyframes antSlideUpOut {
   0% {
     opacity: 1;
     transform-origin: 0% 0%;
@@ -40,7 +40,7 @@
   }
 }
 
-@keyframes slideDownIn {
+@keyframes antSlideDownIn {
   0% {
     opacity: 0;
     transform-origin: 100% 100%;
@@ -53,7 +53,7 @@
   }
 }
 
-@keyframes slideDownOut {
+@keyframes antSlideDownOut {
   0% {
     opacity: 1;
     transform-origin: 100% 100%;
@@ -66,7 +66,7 @@
   }
 }
 
-@keyframes slideLeftIn {
+@keyframes antSlideLeftIn {
   0% {
     opacity: 0;
     transform-origin: 0% 0%;
@@ -79,7 +79,7 @@
   }
 }
 
-@keyframes slideLeftOut {
+@keyframes antSlideLeftOut {
   0% {
     opacity: 1;
     transform-origin: 0% 0%;
@@ -92,7 +92,7 @@
   }
 }
 
-@keyframes slideRightIn {
+@keyframes antSlideRightIn {
   0% {
     opacity: 0;
     transform-origin: 100% 0%;
@@ -105,7 +105,7 @@
   }
 }
 
-@keyframes slideRightOut {
+@keyframes antSlideRightOut {
   0% {
     opacity: 1;
     transform-origin: 100% 0%;

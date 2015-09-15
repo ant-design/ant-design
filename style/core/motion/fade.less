@@ -12,16 +12,16 @@
 }
 
 .fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
-  animation-name: fadeIn;
+  animation-name: antFadeIn;
   animation-play-state: running;
 }
 
 .fade-leave.fade-leave-active {
-  animation-name: fadeOut;
+  animation-name: antFadeOut;
   animation-play-state: running;
 }
 
-@keyframes fadeIn {
+@keyframes antFadeIn {
   0% {
     opacity: 0;
   }
@@ -30,7 +30,7 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes antFadeOut {
   0% {
     opacity: 1;
   }

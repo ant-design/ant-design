@@ -9,12 +9,12 @@
   }
 }
 
-.move-motion(move-up, moveUp);
-.move-motion(move-down, moveDown);
-.move-motion(move-left, moveLeft);
-.move-motion(move-right, moveRight);
+.move-motion(move-up, antMoveUp);
+.move-motion(move-down, antMoveDown);
+.move-motion(move-left, antMoveLeft);
+.move-motion(move-right, antMoveRight);
 
-@keyframes moveDownIn {
+@keyframes antMoveDownIn {
   0% {
     transform-origin: 0 0;
     transform: translateY(100%);
@@ -27,7 +27,7 @@
   }
 }
 
-@keyframes moveDownOut {
+@keyframes antMoveDownOut {
   0% {
     transform-origin: 0 0;
     transform: translateY(0%);
@@ -40,7 +40,7 @@
   }
 }
 
-@keyframes moveLeftIn {
+@keyframes antMoveLeftIn {
   0% {
     transform-origin: 0 0;
     transform: translateX(-100%);
@@ -53,7 +53,7 @@
   }
 }
 
-@keyframes moveLeftOut {
+@keyframes antMoveLeftOut {
   0% {
     transform-origin: 0 0;
     transform: translateX(0%);
@@ -66,7 +66,7 @@
   }
 }
 
-@keyframes moveRightIn {
+@keyframes antMoveRightIn {
   0% {
     opacity: 0;
     transform-origin: 0 0;
@@ -79,7 +79,7 @@
   }
 }
 
-@keyframes moveRightOut {
+@keyframes antMoveRightOut {
   0% {
     transform-origin: 0 0;
     transform: translateX(0%);
@@ -92,7 +92,7 @@
   }
 }
 
-@keyframes moveUpIn {
+@keyframes antMoveUpIn {
   0% {
     transform-origin: 0 0;
     transform: translateY(-100%);
@@ -105,7 +105,7 @@
   }
 }
 
-@keyframes moveUpOut {
+@keyframes antMoveUpOut {
   0% {
     transform-origin: 0 0;
     transform: translateY(0%);
