@@ -1,6 +1,6 @@
 # style 自定义样式动画进出场
 
-- order: 3
+- order: 4
 
 通过加上属性里的 `style` 来自定义 CSS 动画进出场。
 
@@ -40,7 +40,6 @@ var Test = React.createClass({
         <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
         {this.state.show ? <div key='enter-data'>
           <div className="demo-content">
-            <div className="demo-title" enter-data={{style: {opacity: 0}}}>我是标题</div>
             <div className="demo-kp">
               <ul>
                 <li enter-data></li>
@@ -48,7 +47,6 @@ var Test = React.createClass({
                 <li enter-data></li>
               </ul>
             </div>
-            <div className="demo-title" enter-data={{style: {opacity: 0}, queueId: 1, delay: 0.8}} leave-data={{delay: 0.1}}>我是标题</div>
             <div className="demo-listBox">
               <div className="demo-list">
                 <div className="title" enter-data={{style: {transform: 'translateY(30px)', opacity: 0}, queueId: 1}}></div>

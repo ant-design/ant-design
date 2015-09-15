@@ -1,6 +1,6 @@
 # 进场和离场
 
-- order: 0
+- order: 1
 
 自动。
 
@@ -28,21 +28,7 @@ var Test = React.createClass({
         </div>
         <EnterAnimation>
           {this.state.show ? <div key='a'>
-            <div className="demo-header">
-              <div className="logo">
-                <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-                <span>logo</span>
-              </div>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
             <div className="demo-content" >
-              <div className="demo-title">我是标题</div>
               <div className="demo-kp">
                 <ul>
                   <li></li>
@@ -50,7 +36,6 @@ var Test = React.createClass({
                   <li></li>
                 </ul>
               </div>
-              <div className="demo-title">我是标题</div>
               <div className="demo-listBox">
                 <div className="demo-list">
                   <div className="title"></div>
@@ -64,7 +49,6 @@ var Test = React.createClass({
                 </div>
               </div>
             </div>
-            <div className="demo-footer"></div>
           </div> : null}
         </EnterAnimation>
       </div>
