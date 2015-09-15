@@ -26,6 +26,7 @@ var Test = React.createClass({
         type: 'left',
         reverse: true,
         interval: 0.05,
+        ease:'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
         callback: ()=> {
           console.log('出场结束')
         }
