@@ -24,12 +24,10 @@ var steps = [{
   status: 'wait',
   title: '待运行'
 }].map(function(s, i) {
-  return (<Step
-    key={i}
-    status={s.status}
-    title={s.title}>
-  </Step>);
+  return (
+    <Step key={i} title={s.title} description={s.description} />
+  );
 });
 
-React.render(<Steps size="small">{steps}</Steps>, container);
+React.render(<Steps size="small" current={1}>{steps}</Steps>, container);
 ````
