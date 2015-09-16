@@ -7,7 +7,7 @@
 ---
 
 ````css
-form.my-step-form > div {
+#components-steps-demo-step-next > div > div {
   margin-bottom: 30px;
 }
 ````
@@ -16,24 +16,20 @@ form.my-step-form > div {
 var Steps = antd.Steps;
 var Step = Steps.Step;
 var container = document.getElementById('components-steps-demo-step-next');
-var steps = (function generateRandomSteps() {
-  var n = Math.floor(Math.random() * 3) + 3;
-  var arr = [];
-  for (var i = 0; i < n; i++ ) {
-    arr.push({
-      title: '步骤' + (i+1)
-    });
-  }
-  return arr;
-})();
+var array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
+var steps = array.map(function(item, i) {
+  return {
+    title: '步骤' + (i + 1)
+  };
+});
 
-var MyForm = React.createClass({
+var App = React.createClass({
   getInitialState() {
     return {
       currentStep: Math.floor(Math.random() * steps.length)
     }
   },
-  nextStep() {
+  next() {
     var s = this.state.currentStep + 1;
     if (s === steps.length) {
       s = 0;
@@ -44,20 +40,19 @@ var MyForm = React.createClass({
   },
   render() {
     var cs = this.state.currentStep;
-    return (<form className='my-step-form'>
-      <div>当前正在执行第{cs + 1}步</div>
-      <div className='my-step-container'><Steps current={cs}>
-        {steps.map(function(s, i) {
-          return <Steps.Step
-            key={i}
-            title={s.title}
-            ></Steps.Step>
-        })}
-      </Steps></div>
-      <div><span className='ant-btn' onClick={this.nextStep}>下一步</span></div>
-    </form>)
+    return (
+      <div>
+        <div>当前正在执行第 {cs + 1} 步</div>
+        <Steps current={cs}>
+          {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
+        </Steps>
+        <div>
+          <button className='ant-btn' onClick={this.next}>下一步</button>
+        </div>
+      </div>
+    );
   }
 });
 
-React.render(<MyForm></MyForm>, container);
+React.render(<App />, container);
 ````
