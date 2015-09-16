@@ -46,11 +46,10 @@ var MyForm = React.createClass({
     var cs = this.state.currentStep;
     return (<form className='my-step-form'>
       <div>当前正在执行第{cs + 1}步</div>
-      <div className='my-step-container'><Steps>
+      <div className='my-step-container'><Steps current={cs}>
         {steps.map(function(s, i) {
           return <Steps.Step
             key={i}
-            status={cs === i ? 'process' : (cs > i ? 'finish' : 'wait')}
             title={s.title}
             ></Steps.Step>
         })}
