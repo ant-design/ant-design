@@ -2,7 +2,6 @@
 
 - category: 动画
 - order: 0
-- noinstant: true
 
 
 ---
@@ -30,15 +29,8 @@
 
 如下图所示，在没有缓动的情况下启动与停止都显得突兀，感觉动画还没结束就停止了，所以在物体运动中避免直线运动。
 
-<script src="/static/TweenMax.min.js"></script>
-<script src="/static/motion.js"></script>
-<div id="J-Linear"></div>
 
-<script>
-$(function (){
-new Motion("#J-Linear",{lineData:[{stroke:"#f2666c"},{stroke:"#71B5DE",openEaseName:"easeInOutQuad",endEaseName:"easeInOutQuad"},],mask:false});
-})
-</script>
+<div id="J-Linear"></div>
 
 
 上图所示缓动函数：红 `Linear`，蓝 `ease-in-out`。
@@ -52,14 +44,6 @@ new Motion("#J-Linear",{lineData:[{stroke:"#f2666c"},{stroke:"#71B5DE",openEaseN
 
 <div id="J-Symmetric"></div>
 
-<script>
-$(function (){
-new Motion("#J-Symmetric",{lineData:[
-{openEaseName:"easeInOutQuad",endEaseName:"null",stroke:"#f2666c"},
-{stroke:"#71B5DE",openEaseName:"easeInOutCubic",endEaseName:"easeInOutCubic"}],
-mask:false,exposure:"top"});
-})
-</script>
 
 上图所示缓动函数：红 `ease-in-out`，蓝 `ease-in-out-cubic`。
 
@@ -76,14 +60,6 @@ mask:false,exposure:"top"});
 
 <div id="J-Entry"></div>
 
-<script>
-$(function (){
-new Motion("#J-Entry",{lineData:[
-{openEaseName:"easeOutQuad",endEaseName:"easeOutQuad",stroke:"#f2666c"},
-{stroke:"#71B5DE",openEaseName:"easeOutCubic",endEaseName:"easeInCubic"}],
-mask:true,exposure:"bottom"});
-})
-</script>
 
 上图所示缓动函数：红 `ease-out` `ease-out`，蓝 `ease-out-cubic` `ease-in-cubic`。
 
@@ -102,15 +78,7 @@ mask:true,exposure:"bottom"});
 > 慎用 Bounce 或 Elastic，这两种适用在特殊元素下，一般 back 即可满足页面上元素的弹动;
 
 <div id="J-Back"></div>
-
-<script>
-$(function (){
-new Motion("#J-Back",{lineData:[
-{openEaseName:"easeOutBounce",endEaseName:"easeOutElastic",stroke:"#70f266"},
-{stroke:"#71B5DE",openEaseName:"easeOutBack",endEaseName:"easeInOutBack"}],
-mask:false,exposure:"top"});
-})
-</script>
+<script src="/static/motionDemoLoad.js?page=easing"></script>
 
 上图所示缓动函数：绿 `easeOutBounce` `easeOutElastic`（css 需自配）， 蓝 `ease-out-back` `ease-in-back`。
 

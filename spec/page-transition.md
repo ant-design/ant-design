@@ -2,7 +2,6 @@
 
 - category: 动画
 - order: 1
-- noinstant: true
 
 ---
 
@@ -59,8 +58,7 @@
 
  - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，来指引用户的视觉轨迹。
 
-<script src="/static/TweenMax.min.js"></script>
-<script src="/static/motion.js"></script>
+<script src="/static/motionDemoLoad.js"></script>
 
 <div class="video-player">
   <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T14q0hXbBdXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/T1qWNhXkpeXXXXXXXX.mp4" type="video/mp4"></video>

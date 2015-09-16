@@ -725,7 +725,7 @@ $(function () {
         var tt = _x;
         _x = {};
         _x.startAt = tt;
-        cx.ease = eease,cx.delay = self.d_time;
+        cx.ease = eease, cx.delay = self.d_time;
       } else if (self.data.lineData[i].endEaseName === "null") {
         var t = cx;
         cx = {};
@@ -773,6 +773,6 @@ $(function () {
       }
     }
   };
-  motionVideo.init();
+  window.Motion.motionVideo = motionVideo;
 });
 
