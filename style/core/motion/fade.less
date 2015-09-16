@@ -1,27 +1,18 @@
-.fade-enter, .fade-appear {
-  opacity: 0;
-  .motion-common();
-  animation-timing-function: linear;
-  animation-play-state: paused;
+.fade-motion(@className, @keyframeName) {
+  .make-motion(@className, @keyframeName);
+  .@{className}-enter, .@{className}-appear {
+    opacity: 0;
+    animation-timing-function: linear;
+  }
+  .@{className}-leave {
+    animation-timing-function: linear;
+  }
 }
 
-.fade-leave {
-  .motion-common();
-  animation-timing-function: linear;
-  animation-play-state: paused;
-}
+.fade-motion(fade, antFade);
+.fade-motion(ant-modal-fade, antFade);
 
-.fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
-  animation-name: fadeIn;
-  animation-play-state: running;
-}
-
-.fade-leave.fade-leave-active {
-  animation-name: fadeOut;
-  animation-play-state: running;
-}
-
-@keyframes fadeIn {
+@keyframes antFadeIn {
   0% {
     opacity: 0;
   }
@@ -30,7 +21,7 @@
   }
 }
 
-@keyframes fadeOut {
+@keyframes antFadeOut {
   0% {
     opacity: 1;
   }

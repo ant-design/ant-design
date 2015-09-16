@@ -33,7 +33,7 @@
 如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历 dom 下一级节点来执行动画。
 
 ```html
-<EnterAnimation type="left" delay={2}>
+<EnterAnimation enter={type:'left',delay:2}>
   <div key='demo'>
     <div>
       <div enter-data>

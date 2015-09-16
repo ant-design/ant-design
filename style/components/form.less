@@ -67,6 +67,7 @@ input[type="checkbox"] {
 // Form items
 // You should wrap labels and controls in .@{css-prefix}form-item for optimum spacing
 .@{css-prefix}form-item {
+  font-size: @font-size-base;
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
@@ -111,10 +112,6 @@ input[type="checkbox"] {
 
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
-  * {
-    font-size: @font-size-base;
-    line-height: @line-height-base;
-  }
   .has-feedback {
     .@{iconfont-css-prefix} {
       .square(@input-height-lg);

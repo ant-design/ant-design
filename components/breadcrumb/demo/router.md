@@ -2,13 +2,12 @@
 
 - order: 2
 
-和 `react-router@1.0.0-beta3` 进行结合使用。
+和 `react-router@1.x` 进行结合使用。
 
 ---
 
 ````jsx
 var ReactRouter = require('react-router');
-var history = require('react-router/lib/HashHistory').history;
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
@@ -37,13 +36,13 @@ var Home = React.createClass({
         paddingBottom: 15,
         borderBottom: '1px dashed #ccc'
       }}>点击上面的导航切换页面，面包屑在下面：</div>
-      <Breadcrumb router={ReactRouter} />
+      <Breadcrumb {...this.props} router={ReactRouter} />
     </div>);
   }
 });
 
 React.render((
-  <Router history={history}>
+  <Router>
     <Route name="home" breadcrumbName="首页" path="/" component={Home} ignoreScrollBehavior>
       <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
         <Route name="app" breadcrumbName="应用:id" path=":id" />

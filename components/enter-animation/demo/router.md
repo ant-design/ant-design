@@ -1,6 +1,6 @@
 # Router 默认进出场
 
-- order: 5
+- order: 7
 
 router 组合的进场与出场动画。
 
@@ -8,7 +8,6 @@ router 组合的进场与出场动画。
 
 ````jsx
 var ReactRouter = require('react-router');
-var history = require('react-router/lib/HashHistory').history;
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var Link = ReactRouter.Link;
@@ -30,6 +29,9 @@ var App = React.createClass({
     return (
       <div>
         <Menu style={{marginBottom: 20}} mode="horizontal">
+          <Menu.Item key='home'>
+            <Link to="/" onClick={this.clickPage}>首页</Link>
+          </Menu.Item>
           <Menu.Item key='page1'>
             <Link to="/page1" onClick={this.clickPage}>Page 1</Link>
           </Menu.Item>
@@ -72,7 +74,7 @@ var Page2 = React.createClass({
   }
 });
 React.render((
-  <Router history={history}>
+  <Router>
     <Route path="/" component={App} ignoreScrollBehavior>
       <Route path="page1" component={Page1} />
       <Route path="page2" component={Page2} />

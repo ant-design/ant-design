@@ -1,6 +1,6 @@
 # 配置进出场的样式
 
-- order: 1
+- order: 2
 
 配置进出场动画样式。
 
@@ -43,22 +43,8 @@ var Test = React.createClass({
           <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
         </div>
         <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
-          {this.state.show ? <div key='a'>
-            <div className="demo-header">
-              <div className="logo">
-                <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
-                <span>logo</span>
-              </div>
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
-            <div className="demo-content" >
-              <div className="demo-title">我是标题</div>
+          {this.state.show ? 
+            <div className="demo-content" key='demo'>
               <div className="demo-kp">
                 <ul>
                   <li></li>
@@ -66,7 +52,6 @@ var Test = React.createClass({
                   <li></li>
                 </ul>
               </div>
-              <div className="demo-title">我是标题</div>
               <div className="demo-listBox">
                 <div className="demo-list">
                   <div className="title"></div>
@@ -74,13 +59,9 @@ var Test = React.createClass({
                     <li></li>
                     <li></li>
                     <li></li>
-                    <li></li>
-                    <li></li>
                   </ul>
                 </div>
               </div>
-            </div>
-            <div className="demo-footer"></div>
           </div> : null}
         </EnterAnimation>
       </div>

@@ -9,14 +9,14 @@
   }
 }
 
-.zoom-motion(zoom, zoom);
-.zoom-motion(zoom-big, zoomBig);
-.zoom-motion(zoom-up, zoomUp);
-.zoom-motion(zoom-down, zoomDown);
-.zoom-motion(zoom-left, zoomLeft);
-.zoom-motion(zoom-right, zoomRight);
+.zoom-motion(zoom, antZoom);
+.zoom-motion(zoom-big, antZoomBig);
+.zoom-motion(zoom-up, antZoomUp);
+.zoom-motion(zoom-down, antZoomDown);
+.zoom-motion(zoom-left, antZoomLeft);
+.zoom-motion(zoom-right, antZoomRight);
 
-@keyframes zoomIn {
+@keyframes antZoomIn {
   0% {
     opacity: 0;
     transform: scale(0);
@@ -26,7 +26,7 @@
   }
 }
 
-@keyframes zoomOut {
+@keyframes antZoomOut {
   0% {
     transform: scale(1);
   }
@@ -35,7 +35,7 @@
     transform: scale(0);
   }
 }
-@keyframes zoomBigIn {
+@keyframes antZoomBigIn {
   0% {
     opacity: 0;
     transform: scale(.8);
@@ -45,7 +45,7 @@
   }
 }
 
-@keyframes zoomBigOut {
+@keyframes antZoomBigOut {
   0% {
     transform: scale(1);
   }
@@ -55,7 +55,7 @@
   }
 }
 
-@keyframes zoomUpIn {
+@keyframes antZoomUpIn {
   0% {
     opacity: 0;
     transform-origin: 50% 0%;
@@ -67,7 +67,7 @@
   }
 }
 
-@keyframes zoomUpOut {
+@keyframes antZoomUpOut {
   0% {
     transform-origin: 50% 0%;
     transform: scale(1);
@@ -79,7 +79,7 @@
   }
 }
 
-@keyframes zoomLeftIn {
+@keyframes antZoomLeftIn {
   0% {
     opacity: 0;
     transform-origin: 0% 50%;
@@ -91,7 +91,7 @@
   }
 }
 
-@keyframes zoomLeftOut {
+@keyframes antZoomLeftOut {
   0% {
     transform-origin: 0% 50%;
     transform: scale(1);
@@ -103,7 +103,7 @@
   }
 }
 
-@keyframes zoomRightIn {
+@keyframes antZoomRightIn {
   0% {
     opacity: 0;
     transform-origin: 100% 50%;
@@ -115,7 +115,7 @@
   }
 }
 
-@keyframes zoomRightOut {
+@keyframes antZoomRightOut {
   0% {
     transform-origin: 100% 50%;
     transform: scale(1);
@@ -127,7 +127,7 @@
   }
 }
 
-@keyframes zoomDownIn {
+@keyframes antZoomDownIn {
   0% {
     opacity: 0;
     transform-origin: 50% 100%;
@@ -139,7 +139,7 @@
   }
 }
 
-@keyframes zoomDownOut {
+@keyframes antZoomDownOut {
   0% {
     transform-origin: 50% 100%;
     transform: scale(1);
