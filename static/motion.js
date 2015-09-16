@@ -752,7 +752,6 @@ $(function () {
         var svg = new SVG();
         self.videoBox.eq(i).append(svg.node);
         var video = self.videoBox.eq(i).find("video");
-        console.log(video[0].canPlayType('video/webm; codecs="vp8.0, vorbis"'));
         if(video[0].canPlayType('video/webm; codecs="vp8.0, vorbis"')) {
           $('<source src="'+self.video[i]+'" type="video/webm">').appendTo(video);
         }else{
