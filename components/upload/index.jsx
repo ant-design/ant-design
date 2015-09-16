@@ -8,6 +8,19 @@ const prefixCls = 'ant-upload';
 function noop() {
 }
 
+// Fix IE file.status problem
+// via coping a new Object
+function fileToObject(file) {
+  return {
+    lastModified: file.lastModified,
+    lastModifiedDate: file.lastModifiedDate,
+    name: file.name,
+    size: file.size,
+    type: file.type,
+    uid: file.uid
+  };
+}
+
 const AntUpload = React.createClass({
   getInitialState() {
     return {
@@ -17,11 +30,14 @@ const AntUpload = React.createClass({
   onStart(file) {
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
-      file.forEach(function(f) {
+      file = file.map(function(f) {
+        f = fileToObject(f);
         f.status = 'uploading';
+        return f;
       });
       nextFileList = nextFileList.concat(file);
     } else {
+      file = fileToObject(file);
       file.status = 'uploading';
       nextFileList.push(file);
     }
