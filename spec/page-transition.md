@@ -14,7 +14,6 @@
 ### 按钮反馈
 
 <div class="video-player">
-  <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T1yHhhXfxkXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/rmsweb/T15IXhXlXbXXXXXXXX.mp4" type="video/mp4"></video>
 </div>
 
 
@@ -37,7 +36,6 @@
 
 <link rel="stylesheet" href="/static/motionDemo.css">
 <div class="video-player">
-  <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T12I8gXexdXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/rmsweb/T1e0hgXcpdXXXXXXXX.mp4" type="video/mp4"></video>
 </div>
 
 
@@ -46,7 +44,7 @@
 从一个触发点触发一个弹出框时，弹框从所触发区域弹出，且触发区域视觉上基本保持不变。这样让触发区域和弹出区域有所关联，提高用户对新内容的认知。
 
 <div class="video-player">
-  <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T1br0gXghtXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/rmsweb/T1lcRgXb4gXXXXXXXX.mp4" type="video/mp4"></video>
+
 </div>
 
 
@@ -61,7 +59,7 @@
 <script src="/static/motionDemoLoad.js"></script>
 
 <div class="video-player">
-  <video preload loop><source src="https://t.alipayobjects.com/images/rmsweb/T14q0hXbBdXXXXXXXX.webm" type="video/webm"><source src="https://t.alipayobjects.com/images/T1qWNhXkpeXXXXXXXX.mp4" type="video/mp4"></video>
+
 </div>
 
 > 参考我们的进场组件案例。查看[进场动画组件](/components/enter-animation/)

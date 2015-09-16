@@ -38,12 +38,12 @@ $(function () {
     var sc = scripts[i].src, str = sc.split('?')[1];
     if (sc.indexOf('motionDemoLoad.js') >= 0 && str) {
       var d = str.split('&');
-      urlData = d.map((s)=> {
+      urlData = d.map(function (s) {
         return {name: s.split('=')[0], param: s.split('=')[1]};
       });
     }
   }
-  urlData.map((m)=> {
+  urlData.map(function (m) {
     if (m.param === 'easing') {
       callback = function () {
         new Motion("#J-Linear", {
