@@ -40,7 +40,7 @@
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-|  status | 可选参数，指定状态。当不配置该属性时，会使用父Steps元素的current来自动指定状态。 | string    |  wait, process, finish | 无    | wait |
+|  status | 可选参数，指定状态。当不配置该属性时，会使用父Steps元素的current来自动指定状态。 | string    |  wait, process, finish | wait |
 |  title   | 必要参数，标题。 | string/jsx | 无 | 无     |
 |  description | 可选参数，步骤的详情描述。 | string/jsx | 无 | 空  |
 |  icon    | 可选参数，步骤的Icon。如果不指定，则使用默认的样式。 | string/jsx | 无  | 空 |
