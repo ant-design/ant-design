@@ -28,7 +28,7 @@ InstantClickChangeFns.push(function () {
     handleSelect(value) {
       location.href = rootUrl + '/components/' + value.replace(/([a-z])([A-Z])/g, function (m, m1, m2) {
         return m1 + '-' + m2;
-      }).toLowerCase();
+      }).toLowerCase() + '/';
     },
 
     filterOption(input, option) {
