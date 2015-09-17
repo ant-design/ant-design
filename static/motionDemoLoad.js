@@ -22,7 +22,7 @@ $(function () {
         if ((str.indexOf('TweenMax') >= 0 && TweenMax) || (str.indexOf('motion.js') >= 0 && Motion)) {
           self.numSub(_callback)
         } else {
-          $.getScript(str, function () {
+          $.getScript(rootUrl + str, function () {
             self.numSub(_callback)
           })
         }

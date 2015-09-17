@@ -34,7 +34,7 @@
  - 被展开的信息区域内容按照一定的路径依次进场。
 
 
-<link rel="stylesheet" href="/static/motionDemo.css">
+<link rel="stylesheet" href="../../static/motionDemo.css">
 <div class="video-player">
 </div>
 

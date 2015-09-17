@@ -70,7 +70,7 @@ $(function () {
             function getLoad(){
                 var str=loadData[num];
                 if(str.indexOf(".js")>=0){
-                    $.getScript(str,function (){
+                    $.getScript(rootUrl + str,function (){
                         num++;
                         self.loadBar.css("width",num/loadData.length*100+"%");
                         if(num>=loadData.length){

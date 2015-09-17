@@ -35,14 +35,22 @@
     </script>
     <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js"></script>
     <script>
-      var ANT_COMPONENTS = [];
-      var InstantClickChangeFns = [];
+    (function() {
+      window.ANT_COMPONENTS = [];
+      window.InstantClickChangeFns = [];
       {%- for item in resource.pages|find_category(["CSS","Components"]) %}
       ANT_COMPONENTS.push({
         title: '{{item.title}}',
         desc: '{{item.meta.chinese}}'
       });
       {%- endfor %}
+      var i = location.pathname.split('/').lastIndexOf('ant-design');
+      if (i > 0) {
+        window.rootUrl = location.origin + location.pathname.split('/').slice(0, 2+1).join('/');
+      } else {
+        window.rootUrl = location.origin;
+      }
+    })();
     </script>
     <script src="{{static_url('script.js')}}"></script>
     <script>
