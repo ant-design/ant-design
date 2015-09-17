@@ -15,15 +15,8 @@
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
 
-.transition(@transition) {
-  transition: @transition;
-  -webkit-transition: @transition;
-  -moz-transition: @transition;
-}
-
 .@{steps-prefix-cls} {
   font-size: 0;
-  width: 100%;
   line-height: 1.5;
 
   .@{steps-prefix-cls}-item {
@@ -126,8 +119,7 @@
     border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
-    .transition(background-color 0.3s ease);
-    .transition(border-color 0.3s ease);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 
     > .@{steps-prefix-cls}-icon {
       line-height: 1;
@@ -155,6 +147,7 @@
     padding-right: 10px;
   }
   .@{steps-prefix-cls}-item-last {
+    position: absolute;
     .@{steps-prefix-cls}-title {
       padding-right: 0;
     }
@@ -176,7 +169,7 @@
       height: 1px;
       border-radius: 1px;
       width: 100%;
-      .transition(background 0.3s ease);
+      transition: background 0.3s ease;
     }
   }
 
