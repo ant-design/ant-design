@@ -1,4 +1,3 @@
-
 @select-prefix-cls: ant-select;
 
 @import "../mixins/iconfont";
@@ -169,12 +168,12 @@
     }
   }
 
-  .@{select-prefix-cls}-search__field__wrap {
+  &-search__field__wrap {
     display: inline-block;
     position: relative;
   }
 
-  .@{select-prefix-cls}-search__field__placeholder {
+  &-search__field__placeholder {
     position: absolute;
     top: 0;
     left: 3px;
@@ -183,6 +182,10 @@
 
   &-search--inline {
     float: left;
+
+    .@{select-prefix-cls}-search__field__wrap {
+      width: 100%;
+    }
 
     .@{select-prefix-cls}-search__field {
       border: none;
@@ -422,6 +425,7 @@
     padding: 4px;
     .@{select-prefix-cls}-search__field__placeholder {
       left: 4px;
+      top: 5px;
     }
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
