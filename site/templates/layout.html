@@ -11,9 +11,9 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="/dist/{{ config.package.name }}-{{ config.package.version }}{{ config.minimized }}.css">
-    <link rel="stylesheet" href="/static/style.css">
-    <link rel="stylesheet" href="/static/tomorrow.css">
+    <link rel="stylesheet" href="{{static_url(config.antdCssUrl)}}">
+    <link rel="stylesheet" href="{{static_url('style.css')}}">
+    <link rel="stylesheet" href="{{static_url('tomorrow.css')}}">
     <script>
       (function (con) {
         'use strict';
@@ -44,15 +44,15 @@
       });
       {%- endfor %}
     </script>
-    <script src="/static/script.js"></script>
+    <script src="{{static_url('script.js')}}"></script>
     <script>
       window.antdVersion = {
         latest: '{{config.package.version}}',
         stable: '{{config.package.stableVersion}}'
       };
     </script>
-    <script src="/dist/{{ config.package.name }}-{{ config.package.version }}{{ config.minimized }}.js"></script>
-    <script src="/dist/demo.js"></script>
+    <script src="{{static_url(config.antdJsUrl)}}"></script>
+    <script src="{{static_url('../dist/demo.js')}}"></script>
     <script>
       window.require = function (path) {
         var result = window;
