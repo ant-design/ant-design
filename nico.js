@@ -43,7 +43,6 @@ exports.output = path.join(process.cwd(), '_site');
 exports.permalink = '{{directory}}/{{filename}}';
 exports.antdCssUrl = '../dist/' + package.name + '-' + package.version + exports.minimized + '.css';
 exports.antdJsUrl = '../dist/' + package.name + '-' + package.version + exports.minimized + '.js';
-console.log(exports.antdCssUrl, exports.antdJsUrl);
 
 exports.ignorefilter = function(filepath, subdir) {
   var extname = path.extname(filepath);
