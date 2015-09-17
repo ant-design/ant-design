@@ -574,7 +574,7 @@ ul.anticons-list li.copied:after {
 }
 </style>
 
-<script src="/static/ZeroClipboard.js"></script>
+<script src="../../static/ZeroClipboard.js"></script>
 <script>
 $(function() {
   ZeroClipboard.config({
