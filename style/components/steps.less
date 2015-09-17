@@ -21,11 +21,22 @@
   -moz-transition: @transition;
 }
 
+.@{steps-prefix-cls}-resize-frame {
+  height: 0;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  position: absolute;
+  width: 100%;
+}
+
 .@{steps-prefix-cls} {
   font-size: 0;
   width: 100%;
   line-height: 1.5;
-
+  position: relative;
   .@{steps-prefix-cls}-item {
     position: relative;
     display: inline-block;
