@@ -16,7 +16,7 @@ React.render(
 , document.getElementById('components-badge-demo-basic'));
 ````
 
-<style>
+````css
 .ant-badge {
   margin-right: 16px;
 }
@@ -27,4 +27,4 @@ React.render(
   background: #eee;
   display: inline-block;
 }
-</style>
+````

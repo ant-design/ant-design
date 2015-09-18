@@ -9,11 +9,14 @@
 ````jsx
 var Badge = antd.Badge;
 
-React.render(
+React.render(<div>
   <Badge dot={true}>
     <i className="anticon anticon-notification"></i>
   </Badge>
-, document.getElementById('components-badge-demo-dot'));
+  <Badge dot={true}>
+    <a href="#">一个链接</a>
+  </Badge>
+</div>, document.getElementById('components-badge-demo-dot'));
 ````
 
 <style>
