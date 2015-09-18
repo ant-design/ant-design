@@ -62,7 +62,9 @@ const AntUpload = React.createClass({
     // 服务器端需要返回标准 json 字符串
     // 否则视为失败
     try {
-      JSON.parse(response);
+      if (typeof response === 'string') {
+        JSON.parse(response);
+      }
     } catch (e) {
       this.onError(new Error('No response'), response, file);
       return;
