@@ -6,7 +6,7 @@
 
 ## 0.9.0 `2015-09-14`
 
-* 新增 [timeline](http://ant.design/components/timeline) 和 [badge](http://ant.design/components/badge) 组件。
+* 新增 [timeline](components/timeline/) 和 [badge](components/badge/) 组件。
 * 优化弹出层类组件的动画效果，使其更加流畅。
 * 部分文案更新。
 * 优化主站在小分辨率屏幕下的样式。
