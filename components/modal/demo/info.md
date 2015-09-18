@@ -15,6 +15,11 @@ function info() {
     content: '一些附加信息一些附加信息一些附加信息',
     onOk: function() {}
   });
+  Modal.info({
+    title: '这是一条通知信息',
+    content: '一些附加信息一些附加信息一些附加信息',
+    onOk: function() {}
+  });
 }
 
 function success() {

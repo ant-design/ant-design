@@ -1,8 +1,10 @@
 import React from 'react';
 import Dialog from './index';
-let div;
 
 export default function (props) {
+  let div = document.createElement('div');
+  document.body.appendChild(div);
+
   let d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'anticon-question-circle';
@@ -17,6 +19,7 @@ export default function (props) {
     d.setState({
       visible: false
     });
+    React.unmountComponentAtNode(div);
   }
 
   function onCancel() {
@@ -78,11 +81,6 @@ export default function (props) {
     footer = <div className="ant-confirm-btns">
       <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>知道了</button>
     </div>;
-  }
-
-  if (!div) {
-    div = document.createElement('div');
-    document.body.appendChild(div);
   }
 
   React.render(<Dialog
