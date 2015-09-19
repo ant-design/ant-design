@@ -30,26 +30,27 @@ const AntUpload = React.createClass({
     };
   },
   onStart(file) {
+    let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
-      file = file.map(function(f) {
+      targetItem = file.map(function(f) {
         f = fileToObject(f);
         f.status = 'uploading';
         return f;
       });
       nextFileList = nextFileList.concat(file);
     } else {
-      file = fileToObject(file);
-      file.status = 'uploading';
-      nextFileList.push(file);
+      targetItem = fileToObject(file);
+      targetItem.status = 'uploading';
+      nextFileList.push(targetItem);
     }
     this.onChange({
-      file: file,
+      file: targetItem,
       fileList: nextFileList
     });
   },
   removeFile(file) {
-    let fileList = this.state.fileList.concat();
+    let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     let index = fileList.indexOf(targetItem);
     if (index !== -1) {
@@ -69,7 +70,7 @@ const AntUpload = React.createClass({
       this.onError(new Error('No response'), response, file);
       return;
     }
-    let fileList = this.state.fileList.concat();
+    let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     // 之前已经删除
     if (targetItem) {
@@ -77,7 +78,7 @@ const AntUpload = React.createClass({
       targetItem.response = response;
       this.onChange({
         file: targetItem,
-        fileList: this.state.fileList
+        fileList: fileList
       });
     }
   },
