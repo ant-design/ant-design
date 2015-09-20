@@ -14,7 +14,7 @@ function fileToObject(file) {
   return {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
-    name: file.name,
+    name: file.filename || file.name,
     size: file.size,
     type: file.type,
     uid: file.uid,
