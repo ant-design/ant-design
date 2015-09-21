@@ -11,6 +11,7 @@ var Upload = antd.Upload;
 var message = antd.message;
 
 var props = {
+  name: 'file',
   action: '/upload.do',
   onChange(info) {
     if (info.file.status !== 'uploading') {
