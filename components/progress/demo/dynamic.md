@@ -15,24 +15,35 @@ var MyProgress = React.createClass({
       percent: 0
     };
   },
-  componentDidMount: function() {
-    var self = this;
-    setInterval(function() {
-      if (self.state.percent < 100) {
-        self.state.percent += 4;
-      }
-      self.setState({
-        percent: self.state.percent
-      });
-    }, 200);
+  increase() {
+    let percent = this.state.percent + 10;
+    if (percent > 100) {
+      percent = 100;
+    }
+    this.setState({ percent });
+  },
+  decline() {
+    let percent = this.state.percent - 10;
+    if (percent < 0) {
+      percent = 0;
+    }
+    this.setState({ percent });
   },
   render() {
-    return <Progress percent={this.state.percent} />;
+    return <div>
+      <Progress percent={this.state.percent} />
+      <div className="ant-btn-group">
+        <button className="ant-btn ant-btn-ghost" onClick={this.decline}>
+          <i className="anticon anticon-minus"></i>
+        </button>
+        <button className="ant-btn ant-btn-ghost" onClick={this.increase}>
+          <i className="anticon anticon-plus"></i>
+        </button>
+      </div>
+    </div>;
   }
 });
 
-React.render(
-  <MyProgress />
-  , document.getElementById('components-progress-demo-dynamic'));
+React.render(<MyProgress />, document.getElementById('components-progress-demo-dynamic'));
 ````
 
