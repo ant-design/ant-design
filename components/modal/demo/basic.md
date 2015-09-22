@@ -9,11 +9,9 @@
 ````jsx
 var Modal = antd.Modal;
 
-var Test = React.createClass({
-  getInitialState(){
-    return{
-      visible: false
-    };
+var App = React.createClass({
+  getInitialState() {
+    return { visible: false };
   },
   showModal() {
     this.setState({
@@ -35,11 +33,8 @@ var Test = React.createClass({
   render() {
     return <div>
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
-      <Modal title="第一个 Modal"
-        visible={this.state.visible}
-        confirmLoading={this.state.confirmLoading}
-        onOk={this.handleOk}
-        onCancel={this.handleCancel}>
+      <Modal title="第一个 Modal" visible={this.state.visible}
+        confirmLoading={this.state.confirmLoading} onOk={this.handleOk} onCancel={this.handleCancel}>
         <p>对话框的内容</p>
         <p>对话框的内容</p>
         <p>对话框的内容</p>
@@ -48,5 +43,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test/> , document.getElementById('components-modal-demo-basic'));
+React.render(<App /> , document.getElementById('components-modal-demo-basic'));
 ````
