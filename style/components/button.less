@@ -42,20 +42,26 @@
     .btn-circle-outline;
   }
 
+  &:after {
+    font-family: anticon;
+    content: "\e610";
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
   &-loading {
     padding-right: 31px;
     pointer-events: none;
     opacity: 0.75;
     &:after {
-      font-family: anticon;
       .animation(loadingCircle 1s infinite linear);
-      content: "\e610";
-      position: absolute;
       height: 12px;
       line-height: 12px;
-      right: 13px;
+      right: 12px;
       top: 50%;
       margin-top: -6px;
+      opacity: 1;
     }
   }
 

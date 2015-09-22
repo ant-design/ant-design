@@ -23,6 +23,7 @@ var Test = React.createClass({
   handleOk() {
     console.log('点击了确定');
     this.setState({
+      confirmLoading: false,
       visible: false
     });
   },
@@ -36,6 +37,7 @@ var Test = React.createClass({
       <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
       <Modal title="第一个 Modal"
         visible={this.state.visible}
+        confirmLoading={this.state.confirmLoading}
         onOk={this.handleOk}
         onCancel={this.handleCancel}>
         <p>对话框的内容</p>

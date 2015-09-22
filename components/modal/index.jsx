@@ -40,16 +40,18 @@ let AntModal = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
+    let newState = {};
     if ('visible' in nextProps) {
-      let newState = {
-        visible: nextProps.visible
-      };
-      // 隐藏后去除按钮 loading 效果
+      newState.visible = nextProps.visible;
+      // 隐藏后默认去除按钮 loading 效果
       if (!nextProps.visible) {
         newState.confirmLoading = false;
       }
-      this.setState(newState);
     }
+    if ('confirmLoading' in nextProps) {
+      newState.confirmLoading = nextProps.confirmLoading;
+    }
+    this.setState(newState);
   },
 
   componentDidMount() {

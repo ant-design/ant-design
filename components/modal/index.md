@@ -20,9 +20,10 @@
 
 | 参数       | 说明           | 类型             | 默认值       |
 |------------|----------------|------------------|--------------|
+| visible    | 对话框是否可见 | Boolean          | 无           |
+| confirmLoading | 确定按钮 loading | Boolean    | 无           |
 | title      | 标题           | React.Element    | 无           |
-| mousePosition      | 鼠标位置，设置弹窗初始位置           | {x:number,y:number}   | 无           |
-| onOk       | 点击确定回调       | function         | 无           |
+| onOk       | 点击确定回调       | function     | 无           |
 | onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function  | 无           |
 | width      | 宽度           | String or Number | 520           |
 | footer     | 底部内容       | React.Element    | 确定取消按钮 |
