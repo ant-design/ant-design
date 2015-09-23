@@ -13,7 +13,11 @@ function onChange(page) {
   console.log(page);
 }
 
+function onShowSizeChange(current, pageSize) {
+  console.log(current, pageSize);
+}
+
 React.render(
-  <Pagination showSizeChanger={true} onChange={onChange} total={500} />,
+  <Pagination showSizeChanger={true} onShowSizeChange={onShowSizeChange} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-changer'));
 ````
