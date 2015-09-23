@@ -316,9 +316,12 @@
 }
 
 .@{select-prefix-cls}-dropdown {
+  &-menu-item {
+    transition: background 0.3s ease;
+  }
 
   &--single &-menu-item-selected {
-    background-color: tint(@primary-color, 90%);
+    .selected_icon();
   }
 
   &--multiple &-menu-item {
@@ -326,7 +329,6 @@
   }
 
   &--multiple &-menu-item-selected {
-    background-color: tint(@primary-color, 90%);
     .selected_icon();
   }
 
