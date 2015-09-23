@@ -8,13 +8,14 @@
 
 * 升级依赖 rc-upload 到 1.6.x，修复 IE8/9 下的兼容性问题。
 * 升级依赖 rc-steps 到 1.3.x。
-  * 新增 current 属性，方便配置当前的步骤。
+  * 新增 current 属性，方便配置当前的步骤。[#290](https://github.com/ant-design/ant-design/issues/290)
   * 修复因滚动条影响页面宽度导致的错位问题。
 * 升级依赖 rc-menu 到 1.5.x。
   * 新增 onSelect 回调中返回参数 keyPath，从而支持只展开当前父级菜单的交互方式。[demo](http://ant.design/components/menu/#demo-sider-current)
-  * 修复 hover 类型的弹出菜单能响应点击事件的问题。[react-component/menu#14)](https://github.com/react-component/menu/issues/14)
+  * 修复 hover 类型的弹出菜单能响应点击事件的问题。[react-component/menu#14](https://github.com/react-component/menu/issues/14)
 * 修复一个 Table 的分页无法正确展示的问题。[#253](https://github.com/ant-design/ant-design/issues/253)
 * 修复一个 combobox 选择框无法选中的问题。[0435ca6](https://github.com/ant-design/ant-design/commit/0435ca60e3b574bac3808a10ba3db62f482335fd)
+* 修复 Radio.Button 在 IE 8 下不可用的问题。[#321](https://github.com/ant-design/ant-design/issues/321)
 * 适配 breadcrumb 面包屑组件和 `react-router@1.0.0-rc1`。
 * 修复只能同时弹出一个 Modal 通知框的问题。[d6a4094](https://github.com/ant-design/ant-design/commit/d6a4094bc4c72acd05be001c7e46dbd17092001a)
 * 部分组件交互和视觉效果修正。
