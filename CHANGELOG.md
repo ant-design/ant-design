@@ -30,68 +30,35 @@
 * 优化主站在小分辨率屏幕下的样式。
 * 使用 instantclick 改造主站，加载速度有明显提升。
 * antd-bin 升级到 [0.6.x](https://github.com/ant-design/antd-bin/blob/master/HISTORY.md) 。
-
-### Upload
-
-**重构了 API 接口，不向下兼容**，支持自定义的功能扩展。
-
-* 新增 `onChange(file) {}` 接口，移出原来的 `onSuccess`、`onProgess`、`onError` 等接口。
-* 新增 `fileList` 和 `defaultFileList` 属性，以满足更多的自定义功能，具体见演示。
-* 设置 fileList 数组项的 url 属性可以作为链接展示在文件列表中方便下载。
-* 移除内建的上传成功或失败的信息提示，业务可自行实现。
-* 修正多文件选择上传时文件列表只展示一个文件的问题。
-
-### Table
-
-* 新增可展开的 table。[#258](https://github.com/ant-design/ant-design/pull/258)
-* 新增无数据的展示样式。[4c54644](https://github.com/ant-design/ant-design/commit/4c54644116d46cb2510d2d475234529bad60e5d5)
-* 修复本地模式 `dataSource` 无法更新的问题。[6d2dcc4](https://github.com/ant-design/ant-design/commit/6d2dcc45393b6ec0ad1ba73caf8b1ec42353743f)
-* 修复远程模式 loading 失效的问题。[9b8abb2](https://github.com/ant-design/ant-design/commit/9b8abb219934c246970a84200818aa8f85974bdf)
-* 用 [reqwest-without-xhr2](http://npmjs.com/reqwest-without-xhr2) 代替了 reqwest，解决某些开发环境下 xhr2 依赖的问题。
-
-### Select
-
-* 增加 label 属性，允许多选模式下展示标签（原来只能显示 value 值）。[演示](http://react-component.github.io/select/examples/mul-suggest.html)
-* 修复 combobox 模式下 value 失效的问题。
-
-### Notification
-
-* 修复不会自动消失的问题。[23fce55](https://github.com/ant-design/ant-design/commit/23fce559b0b2faf4e0b686a92dbcdd045727a464)
-
-### Steps
-
-* 新增竖版的步骤条。
-
-### Carousel
-
-* 修复 fade 模式下可以拖拽的问题。#212
-
-### Collapse
-
-* 修复动画不生效的问题。
-
-### Datepicker
-
-* 修复无法设置为空值的问题。
-
-### Modal
-
-* 添加 [通知类型](http://ant.design/components/modal/#demo-info) 的对话框函数。
-* 用 `Modal.confirm()` 代替 `confirm()` 方法。
-* 修改为需要在 onCancel 手动设置 visible 属性来关闭。
-
-### Message
-
-* 添加 [加载中类型](http://ant.design/components/message/#demo-loading)。
-
-### Radio
-
-* 修改 Radio.Group 容器的盒模型属性为 inline-block 。
-
-### Enter Animation
-
-* 大幅度的重构，全新 API 的设计。
-* 支持和 react-router 结合使用。
+* Upload **重构了 API 接口，不向下兼容**，支持自定义的功能扩展。
+  * 新增 `onChange(file) {}` 接口，移出原来的 `onSuccess`、`onProgess`、`onError` 等接口。
+  * 新增 `fileList` 和 `defaultFileList` 属性，以满足更多的自定义功能，具体见演示。
+  * 设置 fileList 数组项的 url 属性可以作为链接展示在文件列表中方便下载。
+  * 移除内建的上传成功或失败的信息提示，业务可自行实现。
+  * 修正多文件选择上传时文件列表只展示一个文件的问题。
+* Table
+  * 新增可展开的 table。[#258](https://github.com/ant-design/ant-design/pull/258)
+  * 新增无数据的展示样式。[4c54644](https://github.com/ant-design/ant-design/commit/4c54644116d46cb2510d2d475234529bad60e5d5)
+  * 修复本地模式 `dataSource` 无法更新的问题。[6d2dcc4](https://github.com/ant-design/ant-design/commit/6d2dcc45393b6ec0ad1ba73caf8b1ec42353743f)
+  * 修复远程模式 loading 失效的问题。[9b8abb2](https://github.com/ant-design/ant-design/commit/9b8abb219934c246970a84200818aa8f85974bdf)
+  * 用 [reqwest-without-xhr2](http://npmjs.com/reqwest-without-xhr2) 代替了 reqwest，解决某些开发环境下 xhr2 依赖的问题。
+* Select
+  * 增加 label 属性，允许多选模式下展示标签（原来只能显示 value 值）。[演示](http://react-component.github.io/select/examples/mul-suggest.html)
+  * 修复 combobox 模式下 value 失效的问题。
+* Notification 修复不会自动消失的问题。[23fce55](https://github.com/ant-design/ant-design/commit/23fce559b0b2faf4e0b686a92dbcdd045727a464)
+* Steps 新增竖版的步骤条。
+* Carousel 修复 fade 模式下可以拖拽的问题。#212
+* Collapse 修复动画不生效的问题。
+* Datepicker 修复无法设置为空值的问题。
+* Modal
+  * 添加 [通知类型](http://ant.design/components/modal/#demo-info) 的对话框函数。
+  * 用 `Modal.confirm()` 代替 `confirm()` 方法。
+  * 修改为需要在 onCancel 手动设置 visible 属性来关闭。
+* Message 添加 [加载中类型](http://ant.design/components/message/#demo-loading)。
+* Radio 修改 Radio.Group 容器的盒模型属性为 inline-block 。
+* Enter Animation
+  * 大幅度的重构，全新 API 的设计。
+  * 支持和 react-router 结合使用。
 
 
 ## 0.8.0 `2015-08-25`
