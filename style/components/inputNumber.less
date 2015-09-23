@@ -22,6 +22,11 @@
     height: 14px;
     overflow: hidden;
     color: #999;
+    transition: all 0.2s linear;
+    position: relative;
+    &:hover {
+      background: #fefefe;
+    }
     &:hover &-up-inner,
     &:hover &-down-inner {
       color: tint(@primary-color, 20%);
@@ -32,11 +37,11 @@
     .iconfont-mixin();
     line-height: 12px;
     user-select: none;
-    -webkit-user-select: none;
     position: absolute;
     width: 12px;
     height: 12px;
-    .iconfont-size-under-12px(8px);
+    transition: all 0.2s linear;
+    .iconfont-size-under-12px(7px);
     right: 4px;
     color: #999;
   }
@@ -65,7 +70,7 @@
     -moz-appearance: textfield;
     line-height: 28px;
     height: 28px;
-    transition: all 0.3s ease;
+    transition: all 0.3s linear;
     color: #666;
     border: 0;
     border-radius: @border-radius-base;
@@ -78,13 +83,13 @@
 
   &-lg {
     padding: 0;
-    .ant-input-number-handler-wrap {
+    .@{input-number-prefix-cls}-handler-wrap {
       height: 32px;
     }
-    .ant-input-number-input-wrap {
+    .@{input-number-prefix-cls}-input-wrap {
       height: 32px;
     }
-    .ant-input-number-handler {
+    .@{input-number-prefix-cls}-handler {
       height: 16px;
     }
 
@@ -94,25 +99,28 @@
       font-size: 14px;
     }
 
-    .ant-input-number-handler-up-inner {
+    .@{input-number-prefix-cls}-handler-up-inner {
       top: 2px;
     }
-    .ant-input-number-handler-down-inner {
-      top: 18px;
+    .@{input-number-prefix-cls}-handler-down-inner {
+      bottom: 2px;
+    }
+    .@{input-number-prefix-cls}-handler-up:hover {
+      height: 18px;
     }
   }
 
   &-sm {
     padding: 0;
-    .ant-input-number-handler-wrap {
+    .@{input-number-prefix-cls}-handler-wrap {
       height: 22px;
     }
-    .ant-input-number-input-wrap {
+    .@{input-number-prefix-cls}-input-wrap {
       height: 22px;
       overflow: hidden;
       position: relative;
     }
-    .ant-input-number-handler {
+    .@{input-number-prefix-cls}-handler {
       height: 11px;
     }
 
@@ -122,11 +130,17 @@
       position: absolute;
       top: 0;
     }
-    .ant-input-number-handler-up-inner {
+    .@{input-number-prefix-cls}-handler-up-inner {
       top: -1px;
     }
-    .ant-input-number-handler-down-inner {
-      top: 10px;
+    .@{input-number-prefix-cls}-handler-down-inner {
+      bottom: -1px;
+    }
+    .@{input-number-prefix-cls}-handler-up:hover {
+      height: 13px;
+    }
+    .@{input-number-prefix-cls}-handler-down:hover .@{input-number-prefix-cls}-handler-down-inner {
+      bottom: 4px;
     }
   }
 
@@ -137,7 +151,7 @@
     height: 28px;
     position: relative;
     opacity: 0;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s linear;
   }
 
   &:hover &-handler-wrap {
@@ -145,10 +159,10 @@
   }
 
   &-handler-up {
-    border-bottom: 1px solid #D9D9D9;
     cursor: pointer;
     &-inner {
       top: 1px;
+      transition: all 0.2s linear;
       .ie-rotate(2);
       &:before {
         text-align: center;
@@ -157,15 +171,27 @@
         -webkit-transform-origin: 47.5% 51%; /* fix chrome position */
       }
     }
+    &:hover {
+      height: 16px;
+    }
+    &:hover &-inner {
+      margin-top: 2px;
+    }
   }
 
   &-handler-down {
+    border-top: 1px solid #D9D9D9;
+    top: -1px;
     cursor: pointer;
     &-inner {
       &:before {
         text-align: center;
         content: "\e600";
       }
+    }
+    &:hover {
+      height: 16px;
+      margin-top: -2px;
     }
   }
 
@@ -191,6 +217,9 @@
       opacity: 0.72;
       cursor: not-allowed;
       background-color: #f3f3f3;
+    }
+    .@{input-number-prefix-cls}-handler-wrap {
+      display: none;
     }
     .@{input-number-prefix-cls}-handler {
       .handler-disabled();
