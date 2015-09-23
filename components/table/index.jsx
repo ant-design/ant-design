@@ -304,6 +304,13 @@ let AntTable = React.createClass({
     });
   },
 
+  handleShowSizeChange(current, pageSize) {
+    let pagination = objectAssign(this.state.pagination, {
+      pageSize: pageSize
+    });
+    this.fetch({ pagination });
+  },
+
   renderPagination() {
     // 强制不需要分页
     if (!this.hasPagination()) {
@@ -321,6 +328,7 @@ let AntTable = React.createClass({
                        onChange={this.handlePageChange}
                        total={total}
                        pageSize={10}
+                       onShowSizeChange={this.handleShowSizeChange}
       {...this.state.pagination} /> : null;
   },
 
