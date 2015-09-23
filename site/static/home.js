@@ -1,5 +1,4 @@
 $(function () {
-  alert(1);
     var getTransform = function () {
         var style = "transform",
             anim = "animation",
