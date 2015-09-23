@@ -6,7 +6,6 @@
 
 ## 0.9.1 `not ready`
 
-* 添加 Pagination pageSize 发生变化的回调。
 * 升级依赖 rc-upload 到 1.6.x，修复 IE8/9 下的兼容性问题。
 * 升级依赖 rc-steps 到 1.3.x。
   * 新增 current 属性，方便配置当前的步骤。
