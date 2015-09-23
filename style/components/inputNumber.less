@@ -136,6 +136,12 @@
     width: 22px;
     height: 28px;
     position: relative;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover &-handler-wrap {
+    opacity: 1;
   }
 
   &-handler-up {
