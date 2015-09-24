@@ -4,7 +4,10 @@ import Tooltip from 'rc-tooltip';
 export default React.createClass({
   getDefaultProps() {
     return {
-      placement: 'top'
+      prefixCls: 'ant-tooltip',
+      placement: 'top',
+      mouseEnterDelay: 0.1,
+      mouseLeaveDelay: 0.1
     };
   },
   render() {
@@ -15,12 +18,9 @@ export default React.createClass({
       right: 'zoom-left'
     })[this.props.placement];
     return (
-      <Tooltip placement={this.props.placement}
-        prefixCls="ant-tooltip"
-        delay={0.1}
-        trigger={this.props.trigger}
-        transitionName={transitionName}
-        overlay={this.props.title}>
+      <Tooltip transitionName={transitionName}
+        overlay={this.props.title}
+        {...this.props}>
         {this.props.children}
       </Tooltip>
     );

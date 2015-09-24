@@ -23,3 +23,4 @@
 | placement | 气泡框位置，可选 `top/left/right/bottom` | string        | top    |
 | title     | 卡片标题                                 | React.Element | 无     |
 | content   | 卡片内容                                 | React.Element | 无     |
+| overlayClassName | 浮层的类名                        | string        | 无     |
