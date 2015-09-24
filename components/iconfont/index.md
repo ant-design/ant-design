@@ -11,22 +11,28 @@
 
 ## 图标的命名规范
 
-我们为每个图标赋予了语义化的命名。我们的命名规范如：
+我们为每个图标赋予了语义化的命名。只需在 <Icon> 标签内，制定对应的 type 属性即可。
 
-- 使用 `-` 来连接单词；
+不同 type 命名规则如下:
 
 - 实心和描线图标保持同名，用 `-o` 来区分，比如 `question-circle`(实心) 和 `question-circle-o`(描线)；
 
 - 命名顺序：`[icon名]-[描线与否]-[方向]`。
 
-每个图标的类名需要在图标名称前加上 `anticon-` 前缀，如 `.anticon-question-circle`。
+## 实现原理
+
+所有的 Icon 标签最终会渲染为
+
+```
+<i class="anticon anticon-${type}"></i>
+```
 
 ## 如何使用
 
-使用时所有的图标都需要一个基类 `.anticon` 和对应每个图标的类。在这里，我们使用 `<i>` 标签，如下面代码演示使用即可。
+使用 <Icon> 标签申明组件，设置对应的 type 设置需要渲染的图标，示例代码如下:
 
 ```html
-<i className="anticon anticon-link"></i>
+<Icon type="link"></Icon>
 ```
 
 > 点击图标复制代码。
@@ -584,7 +590,7 @@ $(function() {
   $('.anticons-list li').each(function(i, item) {
     var client = new ZeroClipboard(item);
     client.on( "copy", function (event) {
-      client.setText('<i className="anticon anticon-' + $(item).find('.anticon-class').html() + '"></i>');
+      client.setText('<Icon type="' + $(item).find('.anticon-class').html() + '"></Icon>');
     });
     client.on( "ready", function( readyEvent ) {
       client.on( "aftercopy", function( event ) {
