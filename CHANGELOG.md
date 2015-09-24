@@ -19,6 +19,7 @@
 * 修复 Radio.Button 在 IE 8 下不可用的问题。[#321](https://github.com/ant-design/ant-design/issues/321)
 * 适配 breadcrumb 面包屑组件和 `react-router@1.0.0-rc1`。
 * 修复只能同时弹出一个 Modal 通知框的问题。[d6a4094](https://github.com/ant-design/ant-design/commit/d6a4094bc4c72acd05be001c7e46dbd17092001a)
+* 升级依赖 rc-tooltip 到 2.8.0，增加 overlayClassName 属性。
 * 部分组件交互和视觉效果修正。
 
 
