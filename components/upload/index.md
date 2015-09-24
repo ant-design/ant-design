@@ -58,3 +58,7 @@
 ## 显示下载链接
 
 请使用 fileList 属性设置数组项的 url 属性进行展示控制。
+
+## IE note
+
+- [https://github.com/react-component/upload#ie89-note](https://github.com/react-component/upload#ie89-note)
