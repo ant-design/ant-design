@@ -70,23 +70,25 @@ let AntTable = React.createClass({
   },
 
   componentWillReceiveProps(nextProps) {
-    let newState = {};
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
-      newState.pagination = objectAssign({}, this.state.pagination, nextProps.pagination);
+      this.setState({
+        pagination: objectAssign({}, this.state.pagination, nextProps.pagination)
+      });
     }
     // 外界只有 dataSource 的变化会触发新请求
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
-      newState = objectAssign(newState, {
+      this.setState({
         selectedRowKeys: [],
         dataSource: nextProps.dataSource,
         loading: true
-      });
+      }, this.fetch);
     }
     if (nextProps.columns !== this.props.columns) {
-      newState.filters = {};
+      this.setState({
+        filters: {}
+      });
     }
-    this.setState(newState, this.fetch);
   },
 
   hasPagination(pagination) {
