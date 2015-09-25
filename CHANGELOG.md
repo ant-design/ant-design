@@ -4,7 +4,7 @@
 
 ---
 
-## 0.9.1 `not ready`
+## 0.9.1 `2015-09-26`
 
 * 添加 Pagination pageSize 发生变化的回调。[#317](https://github.com/ant-design/ant-design/issues/317)
 * 升级依赖 rc-upload 到 1.6.x，修复 IE8/9 下的兼容性问题。
