@@ -23,7 +23,7 @@
 
 所有的 Icon 标签最终会渲染为
 
-```
+```html
 <i class="anticon anticon-${type}"></i>
 ```
 
