@@ -1,8 +1,9 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
+
 const prefixCls = 'ant-popover';
 
-export default React.createClass({
+const Popover = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: prefixCls,
@@ -13,8 +14,34 @@ export default React.createClass({
       overlayStyle: {}
     };
   },
+
   render() {
-    const overlay = <div>
+    const transitionName = ({
+      top: 'zoom-down',
+      bottom: 'zoom-up',
+      left: 'zoom-right',
+      right: 'zoom-left',
+      topLeft: 'zoom-down',
+      bottomLeft: 'zoom-up',
+      leftTop: 'zoom-right',
+      rightTop: 'zoom-left',
+      topRight: 'zoom-down',
+      bottomRight: 'zoom-up',
+      leftBottom: 'zoom-right',
+      rightBottom: 'zoom-left',
+    })[this.props.placement];
+
+    return (
+      <Tooltip transitionName={transitionName}
+               {...this.props}
+               overlay={this.getOverlay()}>
+        {this.props.children}
+      </Tooltip>
+    );
+  },
+
+  getOverlay() {
+    return <div>
       <div className={prefixCls + '-title'}>
         {this.props.title}
       </div>
@@ -22,19 +49,7 @@ export default React.createClass({
         {this.props.overlay}
       </div>
     </div>;
-
-    const transitionName = ({
-      top: 'zoom-down',
-      bottom: 'zoom-up',
-      left: 'zoom-right',
-      right: 'zoom-left'
-    })[this.props.placement];
-
-    return (
-      <Tooltip transitionName={transitionName}
-        {...this.props} overlay={overlay}>
-        {this.props.children}
-      </Tooltip>
-    );
-  }
+  },
 });
+
+export default Popover;
