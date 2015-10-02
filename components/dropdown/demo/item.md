@@ -9,6 +9,7 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Icon = antd.Icon;
 
 var menu = <Menu>
   <Menu.Item key="0">
@@ -24,7 +25,7 @@ var menu = <Menu>
 React.render(
   <Dropdown overlay={menu}>
     <button className="ant-btn ant-btn-menu">
-      鼠标移入 <i className="anticon anticon-down"></i>
+      鼠标移入 <Icon type="down" />
     </button>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-item'));
