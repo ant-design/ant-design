@@ -4,6 +4,7 @@ import Table from 'rc-table';
 import Checkbox from '../checkbox';
 import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
+import Icon from '../iconfont';
 import objectAssign from 'object-assign';
 
 function noop() {
@@ -287,13 +288,13 @@ let AntTable = React.createClass({
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
                 title="升序排序"
                 onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
-            <i className="anticon anticon-caret-up"></i>
+            <Icon type="caret-up" />
           </span>
           <span className={'ant-table-column-sorter-down ' +
                            ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
                 title="降序排序"
                 onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
-            <i className="anticon anticon-caret-down"></i>
+            <Icon type="caret-down" />
           </span>
         </div>;
       }
@@ -486,7 +487,7 @@ let AntTable = React.createClass({
     let emptyClass = '';
     if (!data || data.length === 0) {
       emptyText = <div className="ant-table-placeholder">
-        <i className="anticon anticon-frown"></i>暂无数据
+        <Icon type="frown" />暂无数据
       </div>;
       emptyClass = ' ant-table-empty';
     }
