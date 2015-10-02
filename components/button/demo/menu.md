@@ -8,12 +8,18 @@
 
 ---
 
-````html
-<button class="ant-btn ant-btn-primary ant-btn-menu">
-  <span>菜单按钮</span>
-  <span class="anticon anticon-down"></span>
-</button>
-<button class="ant-btn ant-btn-ghost ant-btn-circle ant-btn-menu">
-  <span class="anticon anticon-down"></span>
-</button>
+````jsx
+var Icon = antd.Icon;
+
+React.render(
+<div className="nico-insert-code">
+  <button className="ant-btn ant-btn-primary ant-btn-menu">
+    <span>菜单按钮</span>
+    <Icon type="down" />
+  </button>
+  <button className="ant-btn ant-btn-ghost ant-btn-circle ant-btn-menu">
+    <Icon type="down" />
+  </button>
+</div>
+, document.getElementById('components-button-demo-menu'));
 ````
