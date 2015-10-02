@@ -92,19 +92,19 @@ let AntModal = React.createClass({
 });
 
 AntModal.info = function (props) {
-  props.iconClassName = 'anticon-info-circle';
+  props.iconClassName = 'info-circle';
   props.okCancel = false;
   return confirm(props);
 };
 
 AntModal.success = function (props) {
-  props.iconClassName = 'anticon-check-circle';
+  props.iconClassName = 'check-circle';
   props.okCancel = false;
   return confirm(props);
 };
 
 AntModal.error = function (props) {
-  props.iconClassName = 'anticon-exclamation-circle';
+  props.iconClassName = 'exclamation-circle';
   props.okCancel = false;
   return confirm(props);
 };

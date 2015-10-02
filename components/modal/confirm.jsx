@@ -1,5 +1,6 @@
 import React from 'react';
 import Dialog from './index';
+import Icon from '../iconfont';
 
 export default function (props) {
   let div = document.createElement('div');
@@ -7,7 +8,9 @@ export default function (props) {
 
   let d;
   props = props || {};
-  props.iconClassName = props.iconClassName || 'anticon-question-circle';
+  props.iconClassName = props.iconClassName || 'question-circle';
+  let iconClassType = props.iconClassName;
+
   let width = props.width || 416;
 
   // 默认为 true，保持向下兼容
@@ -63,7 +66,7 @@ export default function (props) {
   }
 
   let body = <div className="ant-confirm-body">
-    <i className={'anticon ' + props.iconClassName}></i>
+    <Icon type={iconClassType} />
     <span className="ant-confirm-title">{props.title}</span>
     <div className="ant-confirm-content">{props.content}</div>
   </div>;
