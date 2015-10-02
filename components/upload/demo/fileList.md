@@ -14,6 +14,7 @@
 
 ````jsx
 var Upload = antd.Upload;
+var Icon = antd.Icon;
 var fileList = [{
   uid: -1,
   name: 'xxx.png',
@@ -63,7 +64,7 @@ var MyUpload = React.createClass({
     };
     return <Upload {...props} fileList={this.state.fileList}>
       <button type="button" className="ant-btn ant-btn-ghost">
-        <i className="anticon anticon-upload"></i> 点击上传
+        <Icon type="upload" /> 点击上传
       </button>
     </Upload>;
   }

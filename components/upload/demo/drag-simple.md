@@ -8,6 +8,7 @@
 
 ````jsx
 var Dragger = antd.Upload.Dragger;
+var Icon = antd.Icon;
 
 var props = {
   name: 'file',
@@ -16,7 +17,7 @@ var props = {
 
 React.render(
   <Dragger {...props}>
-    <i className="anticon anticon-plus"></i>
+    <Icon type="plus" />
   </Dragger>,
   document.getElementById('components-upload-demo-drag-simple')
 );
