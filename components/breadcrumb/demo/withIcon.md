@@ -8,14 +8,15 @@
 
 ````jsx
 var Breadcrumb = require('antd/lib/breadcrumb');
+var Icon = require('antd').iconfont;
 
 React.render(
   <Breadcrumb>
     <Breadcrumb.Item href="">
-      <i className="anticon anticon-home"></i>
+      <Icon type="home" />
     </Breadcrumb.Item>
     <Breadcrumb.Item href="">
-      <i className="anticon anticon-user"></i>
+      <Icon type="user" />
       应用列表
     </Breadcrumb.Item>
     <Breadcrumb.Item>
