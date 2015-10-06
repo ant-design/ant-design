@@ -1,8 +1,8 @@
-# 图标按钮
+# 按钮形状
 
-- order: 6
+- order: 1
 
-`Button` 内可以嵌套图标，图标可以放在文字前、后，也可以单独存在。
+通过设置 `shape` 为 `circle` `circle-outline`，可以把按钮形状设为圆形，并且 `circle-outline` 在 hover 时会有动画效果。
 
 ---
 
@@ -14,29 +14,13 @@ React.render(<div>
   <Button type="primary" shape="circle" size="lg">
     <Icon type="search" />
   </Button>
-  <Button type="primary" size="lg">
-    <Icon type="search" />
-  大按钮
-  </Button>
-
   <Button type="primary" shape="circle">
     <Icon type="search" />
   </Button>
-  <Button type="primary">
-    <Icon type="search" />
-  中按钮
-  </Button>
-
   <Button type="primary" shape="circle" size="sm">
     <Icon type="search" />
   </Button>
-  <Button type="primary" size="sm">
-    <Icon type="search" />
-  小按钮
-  </Button>
-
   <br />
-
   <Button type="ghost" shape="circle-outline" size="lg">
     <Icon type="search" />
   </Button>
@@ -46,12 +30,12 @@ React.render(<div>
   <Button type="ghost" shape="circle-outline" size="sm">
     <Icon type="search" />
   </Button>
-</div>,
-document.getElementById('components-button-demo-icon'));
+</div>
+, document.getElementById('components-button-demo-shape'));
 ````
 
 <style>
-#components-button-demo-icon .ant-btn {
+#components-button-demo-shape .ant-btn {
   margin-right: 8px;
   margin-bottom: 12px;
 }

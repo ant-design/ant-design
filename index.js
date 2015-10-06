@@ -44,6 +44,8 @@ const antd = {
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
   Timeline: require('./components/timeline'),
+  Button: require('./components/button').Button,
+  ButtonGroup: require('./components/button').ButtonGroup,
   Icon: require('./components/iconfont')
 };
 
