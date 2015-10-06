@@ -30,7 +30,7 @@ React.render(<div>
   <Button type="ghost">中</Button>
   <Button>右</Button>
 </ButtonGroup>
-  
+
 <h4>带图标按钮组合 </h4>
 <ButtonGroup>
   <Button type="primary">
@@ -50,7 +50,7 @@ React.render(<div>
     <Icon type="cloud-download" />
   </Button>
 </ButtonGroup>
-  
+
 <h4>多个组合</h4>
 <ButtonGroup>
   <Button type="ghost">1</Button>
@@ -62,7 +62,7 @@ React.render(<div>
     <Icon type="right" />
   </Button>
 </ButtonGroup>
-  
+
 <h4>尺寸</h4>
 <ButtonGroup size="lg">
   <Button type="ghost">大</Button>
@@ -96,8 +96,6 @@ React.render(<div>
 .nico-insert-code .ant-btn {
   margin-bottom: 8px;
 }
-
-
 #components-button-demo-button-group .ant-btn-group {
   margin-right: 8px;
 }

@@ -8,6 +8,7 @@
 
 ````jsx
 var Progress = antd.Progress.Line;
+var Icon = antd.Icon;
 
 var MyProgress = React.createClass({
   getInitialState() {
@@ -34,10 +35,10 @@ var MyProgress = React.createClass({
       <Progress percent={this.state.percent} />
       <div className="ant-btn-group">
         <button className="ant-btn ant-btn-ghost" onClick={this.decline}>
-          <i className="anticon anticon-minus"></i>
+          <Icon type="minus" />
         </button>
         <button className="ant-btn ant-btn-ghost" onClick={this.increase}>
-          <i className="anticon anticon-plus"></i>
+          <Icon type="plus" />
         </button>
       </div>
     </div>;

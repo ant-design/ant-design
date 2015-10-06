@@ -1,5 +1,6 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
+import Icon from '../iconfont';
 const prefixCls = 'ant-popover';
 
 export default React.createClass({
@@ -41,7 +42,7 @@ export default React.createClass({
     const overlay = <div>
       <div className={prefixCls + '-content'}>
         <p className={prefixCls + '-message'}>
-          <i className="anticon anticon-exclamation-circle"></i>
+          <Icon type="exclamation-circle" />
           {this.props.title}
         </p>
 

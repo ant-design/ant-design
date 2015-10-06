@@ -1,5 +1,6 @@
 import React from 'react';
 import Animate from 'rc-animate';
+import Icon from '../iconfont';
 const prefixCls = 'ant-tag';
 
 class AntTag extends React.Component {
@@ -32,7 +33,7 @@ class AntTag extends React.Component {
 
   render() {
     let close = this.props.closable ?
-      <i className="anticon anticon-cross" onClick={this.close.bind(this)}></i> : '';
+      <Icon type="cross" onClick={this.close.bind(this)} /> : '';
     let colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
     let className = this.props.prefixCls + ' ' + colorClass;
     className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
