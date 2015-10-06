@@ -81,4 +81,9 @@
   &-group {
     .btn-group(@btn-prefix-cls);
   }
+
+  // To ensure that a space will be placed between character and `Icon`.
+  > .@{iconfont-css-prefix} + span, > span + .@{iconfont-css-prefix} {
+    margin-left: 0.5em;
+  }
 }
