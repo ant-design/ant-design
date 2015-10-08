@@ -9,6 +9,7 @@
 ````jsx
 var Upload = antd.Upload;
 var message = antd.message;
+var Button = antd.Button;
 var Icon = antd.Icon;
 
 var props = {
@@ -28,9 +29,9 @@ var props = {
 
 React.render(
   <Upload {...props}>
-    <button type="button" className="ant-btn ant-btn-ghost">
+    <Button type="ghost">
       <Icon type="upload" /> 点击上传
-    </button>
+    </Button>
   </Upload>
 , document.getElementById('components-upload-demo-multiple'));
 ````

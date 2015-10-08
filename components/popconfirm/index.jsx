@@ -1,6 +1,7 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
 import Icon from '../iconfont';
+import { Button } from '../button';
 const prefixCls = 'ant-popover';
 
 export default React.createClass({
@@ -47,8 +48,8 @@ export default React.createClass({
         </p>
 
         <div className={prefixCls + '-buttons'}>
-          <button onClick={this.cancel} className="ant-btn ant-btn-sm">取 消</button>
-          <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>
+          <Button onClick={this.cancel} size="sm">取 消</Button>
+          <Button onClick={this.confirm} type="primary" size="sm">确 定</Button>
         </div>
       </div>
     </div>;

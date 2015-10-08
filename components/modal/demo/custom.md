@@ -8,6 +8,8 @@
 
 ````jsx
 var Modal = antd.Modal;
+var Button = antd.Button;
+
 var ModalText = '对话框的内容';
 
 var Test = React.createClass({
@@ -40,7 +42,7 @@ var Test = React.createClass({
   },
   render() {
     return <div>
-      <button className="ant-btn ant-btn-primary" onClick={this.showModal}>显示对话框</button>
+      <Button type="primary" onClick={this.showModal}>显示对话框</Button>
       <Modal title="对话框标题"
         visible={this.state.visible}
         onOk={this.handleOk}
