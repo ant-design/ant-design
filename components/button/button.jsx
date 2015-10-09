@@ -26,7 +26,7 @@ function insertSpace(child) {
 export default class Button extends React.Component {
   render() {
     const props = this.props;
-    const {type, shape, size, onClick, className, children, ...others} = props;
+    const {type, shape, size, onClick, className, htmlType, children, ...others} = props;
 
     const classes = rcUtil.classSet({
       'ant-btn': true,
@@ -39,7 +39,7 @@ export default class Button extends React.Component {
 
     const kids = React.Children.map(children, insertSpace);
 
-    return <button {...others} type="button" className={classes} onClick={onClick}>
+    return <button {...others} type={htmlType || 'button'} className={classes} onClick={onClick}>
       {kids}
     </button>;
   }
