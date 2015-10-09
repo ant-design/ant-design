@@ -53,7 +53,8 @@ const antd = {
   Icon: require('./components/iconfont'),
   Row: require('./components/layout').Row,
   Col: require('./components/layout').Col,
-  Spin: require('./components/spin')
+  Spin: require('./components/spin'),
+  Form: require('./components/form'),
 };
 
 antd.version = require('./package.json').version;
