@@ -32,7 +32,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "react": "~0.13.3",
     "css-animation": "~1.1.0",
     "enter-animation": "~0.5.0",
     "gregorian-calendar": "~3.0.0",
