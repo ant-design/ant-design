@@ -14,6 +14,7 @@
 
 ````jsx
 var Upload = antd.Upload;
+var Button = antd.Button;
 var Icon = antd.Icon;
 var fileList = [{
   uid: -1,
@@ -63,9 +64,9 @@ var MyUpload = React.createClass({
       multiple: true
     };
     return <Upload {...props} fileList={this.state.fileList}>
-      <button type="button" className="ant-btn ant-btn-ghost">
+      <Button type="ghost">
         <Icon type="upload" /> 点击上传
-      </button>
+      </Button>
     </Upload>;
   }
 });

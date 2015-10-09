@@ -8,6 +8,8 @@
 
 ````jsx
 var Popover = antd.Popover;
+var Button = antd.Button;
+
 var content = <div>
   <p>内容</p>
   <p>内容</p>
@@ -15,7 +17,7 @@ var content = <div>
 
 React.render(
   <Popover overlay={content} title="标题">
-    <button className="ant-btn ant-btn-primary">弹出卡片</button>
+    <Button type="primary">弹出卡片</Button>
   </Popover>
 , document.getElementById('components-popover-demo-basic'));
 ````
