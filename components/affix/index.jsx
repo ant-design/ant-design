@@ -89,8 +89,8 @@ let Affix = React.createClass({
 
   render() {
     const className = rcUtil.classSet({
-      [`${this.props.className}`]: this.props.className,
-      ['ant-affix']: this.state.affix
+      [this.props.className]: this.props.className,
+      'ant-affix': this.state.affix
     });
 
     return (
