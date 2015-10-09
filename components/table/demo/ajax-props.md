@@ -1,4 +1,4 @@
-# 动态加载数据
+# 配置动态加载数据
 
 - order: 7
 
@@ -61,6 +61,22 @@ var dataSource = new Table.DataSource({
   }
 });
 
+
+var rowSelection = {
+  getCheckboxProps: function (value) {
+    return {
+      defaultValue: value.name === '胡彦祖ajax2', // 配置默认勾选的列
+      disabled: value.name === '李大嘴ajax3'    // 配置无法勾选的列
+    }
+  },
+  onSelect: function(record, selected, selectedRows) {
+    console.log(record, selected, selectedRows);
+  },
+  onSelectAll: function(selected, selectedRows) {
+    console.log(selected, selectedRows);
+  }
+};
+
 var Test = React.createClass({
   getInitialState() {
     return {
@@ -84,7 +100,7 @@ var Test = React.createClass({
   },
   render() {
     return <div>
-      <Table columns={columns} dataSource={this.state.dataSource} />
+      <Table rowSelection={rowSelection} columns={columns} dataSource={this.state.dataSource} />
       <button className="ant-btn ant-btn-primary" onClick={this.refresh}>
         重新加载数据
       </button>
@@ -96,5 +112,6 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />, document.getElementById('components-table-demo-ajax'));
+
+React.render(<Test />, document.getElementById('components-table-demo-ajax-props'));
 ````
