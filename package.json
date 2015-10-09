@@ -60,7 +60,7 @@
     "rc-tree": "~0.15.4",
     "rc-upload": "~1.6.4",
     "rc-util": "~2.0.3",
-    "react-slick": "~0.7.0",
+    "react-slick": "~0.8.0",
     "reqwest-without-xhr2": "~2.0.2",
     "util-deprecate": "~1.0.1",
     "velocity-animate": "~1.2.2"
