@@ -1,4 +1,5 @@
-@dropdown-prefix-cls: ant-dropdown;
+@import "../mixins/index";
+@dropdown-prefix-cls: ~"@{css-prefix}dropdown";
 
 .@{dropdown-prefix-cls} {
   position: absolute;
@@ -13,6 +14,11 @@
 
   &-wrap {
     position: relative;
+
+    .@{btn-prefix-cls} > .@{iconfont-css-prefix}-down {
+      .iconfont-size-under-12px(10px);
+    }
+
     .anticon-down:before {
       transition: transform 0.2s ease;
     }
