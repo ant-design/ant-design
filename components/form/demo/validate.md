@@ -14,64 +14,67 @@
 
 ---
 
-````html
-<h4>不带反馈图标的校验提示</h4>
-<br />
-<form class="ant-form-horizontal">
-  <div class="ant-form-item has-error">
-    <label for="error" class="col-5">失败校验：</label>
-    <div class="col-12">
-      <input class="ant-input" type="text" id="error" value="无效选择"/>
-      <div class="ant-form-explain">请输入数字和字母组合</div>
-    </div>
-  </div>
-  <div class="ant-form-item has-warning">
-    <label for="warning" class="col-5">警告校验：</label>
-    <div class="col-12">
-      <input class="ant-input" type="text" id="warning" value="前方高能预警"/>
-    </div>
-  </div>
-</form>
+````jsx
+var Form = antd.Form;
+var Input = Form.Input;
+var FormItem = Form.Item;
+var InputGroup = Input.Group;
 
-<h4>带图标的校验提示（水平排列的表单）</h4>
-<br />
-<form class="ant-form-horizontal">
-	<div class="ant-form-item">
-  	<label class="col-5" for="validating">校验中：</label>
-  	<div class="col-12">
-  		<div class="has-feedback is-validating">
-    		<input class="ant-input" type="text" id="validating" value="我是被校验的内容"/>
-        <div class="ant-form-explain">信息审核中...</div>
-  		</div>
-  	</div>
-	</div>
+React.render(
+<Form horizontal>
+  <FormItem
+    label="失败校验："
+    labelClassName="col-5"
+    wrapperClassName="col-12"
+    validateStatus="error"
+    help="请输入数字和字母组合">
+    <Input type="text" value="无效选择" id="error" />
+  </FormItem>
 
-	<div class="ant-form-item">
-  	<label class="col-5" for="input1">成功校验：</label>
-  	<div class="col-12">
-  		<div class="has-feedback has-success">
-    		<input class="ant-input" type="text" id="input1" value="我是正文"/>
-  		</div>
-  	</div>
-	</div>
+  <FormItem
+    label="警告校验："
+    labelClassName="col-5"
+    wrapperClassName="col-12"
+    validateStatus="warning">
+    <Input type="text" value="前方高能预警" id="warning" />
+  </FormItem>
+  <FormItem
+    label="校验中："
+    labelClassName="col-5"
+    wrapperClassName="col-12"
+    hasFeedback={true}
+    validateStatus="validating"
+    help="信息审核中...">
+    <Input type="text" value="我是被校验的内容" id="validating" />
+  </FormItem>
 
-	<div class="ant-form-item">
-  	<label class="col-5" for="input2">失败校验：</label>
-  	<div class="col-12">
-  		<div class="has-feedback has-error">
-    		<input class="ant-input" type="text" id="input2" value="无效选择"/>
-        <div class="ant-form-explain">请输入数字和字母组合</div>
-  		</div>
-  	</div>
-	</div>
+  <FormItem
+    label="成功校验："
+    labelClassName="col-5"
+    wrapperClassName="col-12"
+    hasFeedback={true}
+    validateStatus="success">
+    <Input type="text" value="我是正文" id="success" />
+  </FormItem>
 
-	<div class="ant-form-item">
-  	<label class="col-5" for="input3">警告校验：</label>
-  	<div class="col-12">
-  		<div class="has-feedback has-warning">
-    		<input class="ant-input" type="text" id="input3" value="前方高能预警"/>
-  		</div>
-  	</div>
-	</div>
-</form>
+  <FormItem
+    label="失败校验："
+    labelClassName="col-5"
+    wrapperClassName="col-12"
+    hasFeedback={true}
+    validateStatus="error"
+    help="请输入数字和字母组合">
+    <Input type="text" value="无效选择" id="error" />
+  </FormItem>
+
+  <FormItem
+    label="警告校验："
+    labelClassName="col-5"
+    wrapperClassName="col-12"
+    hasFeedback={true}
+    validateStatus="warning">
+    <Input type="text" value="前方高能预警" id="warning" />
+  </FormItem>
+</Form>
+, document.getElementById('components-form-demo-validate'));
 ````

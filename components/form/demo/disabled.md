@@ -8,45 +8,47 @@
 
 ---
 
-#### 禁用的表单控件
+````jsx
+var Form = antd.Form;
+var Input = Form.Input;
+var FormItem = Form.Item;
+var Button = antd.Button;
+var Checkbox = antd.Checkbox;
+var Radio = antd.Radio;
+var RadioGroup = antd.Radio.Group;
 
-<br>
+React.render(
+<Form horizontal>
+  <FormItem
+    label="单独禁用输入框："
+    labelClassName="col-5"
+    wrapperClassName="col-12">
+    <Input type="text" value="我是禁用的" disabled />
+  </FormItem>
 
-````html
-<form class="ant-form-horizontal">
-  <div class="ant-form-item">
-    <label class="col-5">禁用的输入框：</label>
-    <div class="col-12">
-      <input class="ant-input" type="text" value="我是禁用的" disabled>
-    </div>
-  </div>
-</form>
-````
-
-#### 禁用的 fieldset
-
-<br>
-
-````html
-<form class="ant-form-horizontal">
   <fieldset disabled>
-    <div class="ant-form-item ant-form-item-compact">
-      <label for="userName" class="col-5" required>用户名：</label>
-      <div class="col-12">
-        <p class="ant-form-text">大眼萌 minion</p>
-      </div>
-    </div>
-    <div class="ant-form-item">
-      <label for="password" class="col-5" required>密码：</label>
-      <div class="col-12">
-        <input class="ant-input" type="password" id="password" value="123456"/>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-offset-5">
-        <input type="submit" class="ant-btn ant-btn-primary" value="确 定" />
+    <legend>禁用的 fieldset</legend>
+    <FormItem
+      label="用户名："
+      labelClassName="col-5"
+      wrapperClassName="col-12"
+      required={true}
+      isCompact={true} >
+      <Input type="static" value="大眼萌 minion" id="userName" />
+    </FormItem>
+    <FormItem
+      label="密码："
+      labelClassName="col-5"
+      wrapperClassName="col-12"
+      required={true} >
+      <Input type="password" value="123456" id="password" />
+    </FormItem>
+    <div className="row">
+      <div className="col-12 col-offset-5">
+        <input type="submit" className="ant-btn ant-btn-primary" value="确 定" />
       </div>
     </div>
   </fieldset>
-</form>
+</Form>
+, document.getElementById('components-form-demo-disabled'));
 ````

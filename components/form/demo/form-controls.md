@@ -9,6 +9,9 @@
 ---
 
 ````jsx
+var Form = antd.Form;
+var Input = Form.Input;
+var FormItem = Form.Item;
 var Select = antd.Select;
 var Option = Select.Option;
 var Checkbox = antd.Checkbox;
@@ -19,34 +22,39 @@ function handleSelectChange(value) {
   console.log('selected ' + value);
 }
 
-ReactDOM.render(
-<form className="ant-form-horizontal">
-  <div className="ant-form-item">
-    <label htmlFor="control-input" className="col-6">输入框：</label>
-    <div className="col-14">
-      <input type="text" className="ant-input" id="control-input" placeholder="Please enter..." />
-    </div>
-  </div>
-  <div className="ant-form-item">
-    <label htmlFor="control-textarea" className="col-6">文本域：</label>
-    <div className="col-14">
-      <textarea className="ant-input" id="control-textarea"></textarea>
-    </div>
-  </div>
-  <div className="ant-form-item">
-    <label className="col-6">Select 选择器：</label>
-    <div className="col-14">
-      <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
-        <Option value="jack">jack</Option>
-        <Option value="lucy">lucy</Option>
-        <Option value="disabled" disabled>disabled</Option>
-        <Option value="yiminghe">yiminghe</Option>
-      </Select>
-    </div>
-  </div>
-  <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6">Checkbox 多选框：</label>
-    <div className="col-18">
+React.render(
+<Form horizontal>
+  <FormItem
+    label="输入框："
+    labelClassName="col-6"
+    wrapperClassName="col-14">
+    <Input type="text" id="control-input" placeholder="Please enter..." />
+  </FormItem>
+
+  <FormItem
+    label="文本域："
+    labelClassName="col-6"
+    wrapperClassName="col-14">
+    <Input type="textarea" id="control-textarea"/>
+  </FormItem>
+
+  <FormItem
+    label="Select 选择器："
+    labelClassName="col-6"
+    wrapperClassName="col-14">
+    <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Option value="jack">jack</Option>
+      <Option value="lucy">lucy</Option>
+      <Option value="disabled" disabled>disabled</Option>
+      <Option value="yiminghe">yiminghe</Option>
+    </Select>
+  </FormItem>
+
+  <FormItem
+    label="Checkbox 多选框："
+    labelClassName="col-6"
+    wrapperClassName="col-18"
+    isCompact>
       <label className="ant-checkbox-vertical">
         <Checkbox />选项一
       </label>
@@ -56,11 +64,13 @@ ReactDOM.render(
       <label className="ant-checkbox-vertical">
         <Checkbox disabled={true} />选项三（不可选）
       </label>
-    </div>
-  </div>
-  <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6">Checkbox 多选框：</label>
-    <div className="col-18">
+  </FormItem>
+
+  <FormItem
+    label="Checkbox 多选框："
+    labelClassName="col-6"
+    wrapperClassName="col-18"
+    isCompact>
       <label className="ant-checkbox-inline">
         <Checkbox />选项一
       </label>
@@ -70,19 +80,20 @@ ReactDOM.render(
       <label className="ant-checkbox-inline">
         <Checkbox />选项三
       </label>
-    </div>
-  </div>
-  <div className="ant-form-item ant-form-item-compact">
-    <label className="col-6">Radio 单选框：</label>
-    <div className="col-18">
+  </FormItem>
+
+  <FormItem
+    label="Radio 单选框："
+    labelClassName="col-6"
+    wrapperClassName="col-18"
+    isCompact>
       <RadioGroup value="b">
         <Radio value="a">A</Radio>
         <Radio value="b">B</Radio>
         <Radio value="c">C</Radio>
         <Radio value="d">D</Radio>
       </RadioGroup>
-    </div>
-  </div>
-</form>
+  </FormItem>
+</Form>
 , document.getElementById('components-form-demo-form-controls'));
 ````
