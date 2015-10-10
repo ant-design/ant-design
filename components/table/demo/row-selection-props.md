@@ -40,11 +40,11 @@ var data = [{
 
 // 通过 rowSelection 对象表明需要行选择
 var rowSelection = {
-  getCheckboxProps: function (value) {
+  getCheckboxProps: function(record) {
     return {
-      defaultValue: value.name === '李大嘴', // 配置默认勾选的列
-      disabled: value.name === '胡彦祖'    // 配置无法勾选的列
-    }
+      defaultValue: record.name === '李大嘴', // 配置默认勾选的列
+      disabled: record.name === '胡彦祖'    // 配置无法勾选的列
+    };
   },
   onSelect: function(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
