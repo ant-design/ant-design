@@ -18,6 +18,7 @@ var Option = Select.Option;
 var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
 var Button = antd.Button;
+var Datepicker = antd.Datepicker;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -45,7 +46,8 @@ var Form = React.createClass({
         radio: {},
         passwd: {},
         rePasswd: {},
-        textarea: {}
+        textarea: {},
+        birthday: {}
       },
       formData: {
         email: undefined,
@@ -54,7 +56,8 @@ var Form = React.createClass({
         radio: undefined,
         passwd: undefined,
         rePasswd: undefined,
-        textarea: undefined
+        textarea: undefined,
+        birthday: undefined
       },
       isEmailOver: false, // email 是否输入完毕
       emailValidateMethod: 'onBlur' // 用于改变 email 的验证方法
@@ -142,6 +145,14 @@ var Form = React.createClass({
     }
   },
 
+  checkBirthday(rule, value, callback) {
+    if (value && value.getTime() >= Date.now()){
+      callback(new Error('你不可能在未来出生吧!'));
+    } else {
+      callback();
+    }
+  },
+  
   render() {
     var formData = this.state.formData;
     var status = this.state.status;
@@ -231,6 +242,22 @@ var Form = React.createClass({
                   <input name="rePasswd" id="password2" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
                 </Validator>
                 {status.rePasswd.errors ? <div className="ant-form-explain"> {status.rePasswd.errors.join(', ')}</div> : null}
+              </div>
+            </div>
+          </div>
+          
+          <div className="ant-form-item">
+            <label className="col-7" htmlFor="birthday" required>生日：</label>
+            <div className="col-12">
+              <div className={this.renderValidateStyle('birthday')}>
+                <Validator rules={[{
+                  required: true,
+                  type: 'date',
+                  message: '你的生日是什么呢?'
+                }, {validator: this.checkBirthday}]}>
+                  <Datepicker name="birthday" value={formData.birthday}></Datepicker>
+                </Validator>
+                {status.birthday.errors ? <div className="ant-form-explain"> {status.birthday.errors.join(', ')}</div> : null}
               </div>
             </div>
           </div>
