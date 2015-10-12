@@ -15,6 +15,7 @@ Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
 let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
+function noop() {}
 
 function createPicker(TheCalendar) {
   return React.createClass({
@@ -45,15 +46,20 @@ function createPicker(TheCalendar) {
         format: 'yyyy-MM-dd',
         placeholder: '请选择日期',
         transitionName: 'slide-up',
-        onSelect() {
-        }
+        onSelect: null, //向前兼容
+        onChange: noop  //onChange可用于Validator
       };
     },
     handleChange(v) {
       this.setState({
         value: v
       });
-      this.props.onSelect(new Date(v.getTime()));
+      let timeValue = new Date(v.getTime());
+      //onSelect为向前兼容.
+      if (this.props.onSelect !== null) {
+        require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
+      }
+      this.props.onChange(timeValue);
     },
     render() {
       let calendar = (
