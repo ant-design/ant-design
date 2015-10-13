@@ -56,7 +56,7 @@ function createPicker(TheCalendar) {
       });
       let timeValue = new Date(v.getTime());
       //onSelect为向前兼容.
-      if (this.props.onSelect !== null) {
+      if (this.props.onSelect) {
         require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
       }
       this.props.onChange(timeValue);
