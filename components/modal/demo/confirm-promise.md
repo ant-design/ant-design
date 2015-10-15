@@ -8,6 +8,7 @@
 
 ````jsx
 var confirm = antd.Modal.confirm;
+var Button = antd.Button;
 
 function showConfirm(){
   confirm({
@@ -24,7 +25,7 @@ function showConfirm(){
 }
 
 React.render(
-<button className="ant-btn" onClick={showConfirm}>
+<Button onClick={showConfirm}>
   确认对话框
-</button>, document.getElementById('components-modal-demo-confirm-promise'));
+</Button>, document.getElementById('components-modal-demo-confirm-promise'));
 ````

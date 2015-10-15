@@ -8,6 +8,7 @@
 
 ````jsx
 var Checkbox = antd.Checkbox;
+var Button = antd.Button;
 var container = document.getElementById('components-checkbox-demo-controller');
 
 var App = React.createClass({
@@ -30,15 +31,15 @@ var App = React.createClass({
         </label>
       </p>
       <p>
-        <button className="ant-btn ant-btn-primary ant-btn-sm"
+        <Button type="primary" size="sm"
           onClick={this.toggleChecked}>
           {!this.state.checked ? "选中":"取消"}
-        </button>
-        <button style={{'marginLeft': '10px'}}
-          className="ant-btn ant-btn-primary ant-btn-sm"
+        </Button>
+        <Button style={{'marginLeft': '10px'}}
+          type="primary" size="sm"
           onClick={this.toggleDisable}>
           {!this.state.disabled ? "不可用":"可用"}
-        </button>
+        </Button>
       </p>
     </div>;
   },

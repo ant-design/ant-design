@@ -8,6 +8,7 @@
 
 ````jsx
 var InputNumber = antd.InputNumber;
+var Button = antd.Button;
 
 var Test = React.createClass({
   getInitialState() {
@@ -24,7 +25,7 @@ var Test = React.createClass({
     return <div>
       <InputNumber min={1} max={10} disabled={this.state.disabled} defaultValue={3} />
       <div style={{marginTop: 20}}>
-        <button onClick={this.toggle} className="ant-btn ant-btn-primary">Toggle disabled</button>
+        <Button onClick={this.toggle} type="primary">Toggle disabled</Button>
       </div>
     </div>;
   }
