@@ -1,8 +1,8 @@
-# 边框
+# 单选
 
-- order: 10
+- order: 3
 
-添加表格边框线，`bordered={true}`。
+第一列是联动的单选框。
 
 ---
 
@@ -21,7 +21,6 @@ var columns = [{
   title: '住址',
   dataIndex: 'address'
 }];
-
 var data = [{
   key: '1',
   name: '胡彦斌',
@@ -39,6 +38,17 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} bordered={true} />
-, document.getElementById('components-table-demo-bordered'));
+// 通过 rowSelection 对象表明需要行选择
+var rowSelection = {
+  type: 'radio',
+  onSelect: function(record, selected, selectedRows) {
+    console.log(record, selected, selectedRows);
+  },
+  onSelectAll: function(selected, selectedRows) {
+    console.log(selected, selectedRows);
+  }
+};
+
+React.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+, document.getElementById('components-table-demo-row-selection-radio'));
 ````

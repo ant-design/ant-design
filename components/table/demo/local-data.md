@@ -1,6 +1,6 @@
 # 外界控制数据
 
-- order: 8
+- order: 11
 
 由父元素控制自身数据展示。
 
@@ -8,6 +8,8 @@
 
 ````jsx
 var Table = antd.Table;
+var Button = antd.Button;
+
 var columns = [{
   title: '姓名',
   dataIndex: 'name',
@@ -73,9 +75,9 @@ var App = React.createClass({
   render() {
     return <div>
       <Table columns={columns} dataSource={this.state.data} />
-      <button className="ant-btn" onClick={this.handleClick1}>加载本地数据1</button>
+      <Button onClick={this.handleClick1}>加载本地数据1</Button>
       &nbsp;
-      <button className="ant-btn" onClick={this.handleClick2}>加载本地数据2</button>
+      <Button onClick={this.handleClick2}>加载本地数据2</Button>
     </div>;
   }
 })

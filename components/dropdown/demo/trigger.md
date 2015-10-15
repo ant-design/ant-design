@@ -9,6 +9,7 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Button = antd.Button;
 var Icon = antd.Icon;
 
 var menu = <Menu>
@@ -24,14 +25,14 @@ var menu = <Menu>
 
 React.render(<div>
   <Dropdown overlay={menu} trigger="click">
-    <button className="ant-btn ant-btn-primary ant-btn-menu">
+    <Button type="primary">
       点击触发 <Icon type="down" />
-    </button>
+    </Button>
   </Dropdown>
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-menu">
+    <Button>
       鼠标移入 <Icon type="down" />
-    </button>
+    </Button>
   </Dropdown>
 </div>, document.getElementById('components-dropdown-demo-trigger'));
 ````
