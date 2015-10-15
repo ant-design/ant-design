@@ -1,6 +1,7 @@
 import React from 'react';
 import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
+import Icon from '../iconfont';
 
 let FilterMenu = React.createClass({
   getInitialState() {
@@ -83,7 +84,7 @@ let FilterMenu = React.createClass({
     }
 
     return <Dropdown trigger="click" overlay={menus} visible={this.state.visible} onVisibleChange={this.onVisibleChange}>
-      <i title="筛选" className={'anticon anticon-bars ' + dropdownSelectedClass}></i>
+      <Icon title="筛选" type="bars" className={dropdownSelectedClass} />
     </Dropdown>;
   }
 });

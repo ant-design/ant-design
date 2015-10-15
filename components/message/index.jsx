@@ -1,5 +1,6 @@
 import React from 'react';
 import Notification from 'rc-notification';
+import Icon from '../iconfont';
 
 let defaultDuration = 1.5;
 let top;
@@ -19,18 +20,26 @@ function getMessageInstance() {
 
 function notice(content, duration = defaultDuration, type, onClose) {
   let iconClass = ({
-    'info': 'anticon-info-circle ant-message-info',
-    'success': 'anticon-check-circle ant-message-success',
-    'error': 'anticon-exclamation-circle ant-message-error',
-    'loading': 'anticon-loading ant-message-loading'
+    'info': 'ant-message-info',
+    'success': 'ant-message-success',
+    'error': 'ant-message-error',
+    'loading': 'ant-message-loading'
   })[type];
+
+  let iconType = ({
+    'info': 'info-circle',
+    'success': 'check-circle',
+    'error': 'exclamation-circle',
+    'loading': 'loading'
+  })[type];
+
   let instance = getMessageInstance();
   instance.notice({
     key: key,
     duration: duration,
     style: {},
     content: <div className="ant-message-custom-content">
-      <i className={'anticon ' + iconClass}></i>
+      <Icon className={iconClass} type={iconType} />
       <span>{content}</span>
     </div>,
     onClose: onClose

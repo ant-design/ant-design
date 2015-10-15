@@ -25,7 +25,7 @@ Ant Design React 致力于提供给程序员愉悦的开发体验。
     <!-- 引入样式 -->
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
     <!-- 引入 react 和 antd.js -->
-    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://a.alipayobjects.com/??react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
     <script src="http://ant.design/dist/antd.js"></script>
   </head>
   <body>
@@ -113,7 +113,7 @@ $ touch index.html
     <meta charset="utf-8">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
-    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
+    <script src="https://a.alipayobjects.com/??react/0.13.3/react.min.js"></script>
   </head>
   <body>
   </body>
@@ -155,8 +155,8 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
     <link rel="stylesheet" href="http://ant.design/dist/antd.css">
     <!-- Polyfills -->
     <script src="https://a.alipayobjects.com/??es5-shim/4.1.10/es5-shim.min.js,es5-shim/4.1.10/es5-sham.min.js,html5shiv/3.7.2/src/html5shiv.js"></script>
-    <!-- 引入 jquery 和 react -->
-    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
+    <!-- 引入 react -->
+    <script src="https://a.alipayobjects.com/??react/0.13.3/react.min.js"></script>
   </head>
   <body>
   </body>

@@ -17,6 +17,7 @@ var Select = antd.Select;
 var Option = Select.Option;
 var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
+var Button = antd.Button;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -146,7 +147,7 @@ var Form = React.createClass({
     var status = this.state.status;
 
     return (
-      <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
+      <form className="ant-form-horizontal">
         <Validation ref="validation" onValidate={this.handleValidate}>
           <div className="ant-form-item">
             <label className="col-7" htmlFor="name" required>用户名：</label>
@@ -249,9 +250,9 @@ var Form = React.createClass({
 
           <div className="ant-form-item">
             <div className="col-offset-7 col-12">
-              <button type="submit" className="ant-btn ant-btn-primary">确 定</button>
+              <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
             &nbsp;&nbsp;&nbsp;
-              <a href="#" className="ant-btn" onClick={this.handleReset}>重 置</a>
+              <Button onClick={this.handleReset}>重 置</Button>
             </div>
           </div>
         </Validation>

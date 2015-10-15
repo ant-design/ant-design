@@ -1,29 +1,27 @@
-# 标准按钮
+# 按钮类型
 
-- order: 1 
+- order: 0
 
-为 `<button>` `<a>` 或 `<input>` 元素添加 `.ant-btn` 类即可使用 ant-design 提供的样式。
+按钮有三种类型：主按钮、次按钮、幽灵按钮。
 
-另外，通过使用下面的类可创建带有预定义样式的按钮，我们通过样式来显示重要程度的不同。
-
-`.ant-btn-primary` `.ant-btn-ghost`
-
-其中 `.ant-btn` 类定义了按钮的默认样式，语义上代表次按钮。
-
-**注**: 当按钮文字为两个字时，中间需要**间隔一个字符**。
+通过设置 `type` 为 `primary` `ghost` 可分别创建主按钮、幽灵按钮，若不设置 `type` 值则为次按钮。不同的样式可以用来区别其重要程度。
 
 ---
+ 
+````jsx
+var Button = antd.Button;
 
-````html
-<button class="ant-btn">Button</button>
-<a href="javascript:;" class="ant-btn" role="button">Link</a>
-<input class="ant-btn" type="button" value="Input" />
-<input class="ant-btn" type="submit" value="Submit" />
-
-<br>
-
-<!-- Styled Button -->
-<button class="ant-btn ant-btn-primary">主按钮</button>
-<button class="ant-btn">次按钮</button>
-<button class="ant-btn ant-btn-ghost">幽灵按钮</button>
+React.render(<div>
+  <Button type="primary">主按钮</Button>
+  <Button>次按钮</Button>
+  <Button type="ghost">幽灵按钮</Button>
+</div>,
+document.getElementById('components-button-demo-basic'))
 ````
+
+<style>
+#components-button-demo-basic .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+</style>
