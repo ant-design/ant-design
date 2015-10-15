@@ -15,7 +15,6 @@ Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
 let defaultCalendarValue = new GregorianCalendar(zhCn);
 defaultCalendarValue.setTime(Date.now());
 
-
 function createPicker(TheCalendar) {
   return React.createClass({
     getInitialState() {
@@ -73,6 +72,11 @@ function createPicker(TheCalendar) {
       } else if (this.props.size === 'small') {
         sizeClass = ' ant-input-sm';
       }
+      let defaultValue;
+      if (this.props.defaultValue) {
+        defaultValue = new GregorianCalendar(zhCn);
+        defaultValue.setTime(new Date(this.props.defaultValue).valueOf());
+      }
       return (
         <Datepicker
           transitionName={this.props.transitionName}
@@ -82,7 +86,7 @@ function createPicker(TheCalendar) {
           adjustOrientOnCalendarOverflow={{x: true, y: false}}
           formatter={new DateTimeFormat(this.props.format)}
           value={this.state.value}
-          defaultValue={this.props.defaultValue}
+          defaultValue={defaultValue}
           prefixCls="ant-calendar-picker"
           style={this.props.style}
           onChange={this.handleChange}>
