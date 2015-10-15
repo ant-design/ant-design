@@ -312,6 +312,12 @@ form {
   .@{calendar-prefix-cls}-picker-icon:after {
     color: @warning-color;
   }
+
+  // ant-input-number
+  .@{input-number-prefix-cls} {
+    border-color: @warning-color;
+    box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+  }
 }
 
 .has-error {
@@ -337,6 +343,12 @@ form {
   // ant-datepicker
   .@{calendar-prefix-cls}-picker-icon:after {
     color: @error-color;
+  }
+
+  // ant-input-number
+  .@{input-number-prefix-cls} {
+    border-color: @error-color;
+    box-shadow: 0 0 0 2px tint(@error-color, 80%);
   }
 }
 
