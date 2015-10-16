@@ -61,7 +61,7 @@
     "rc-upload": "~1.6.4",
     "rc-util": "~2.0.3",
     "react-slick": "~0.8.0",
-    "reqwest-without-xhr2": "~2.0.2",
+    "reqwest": "~2.0.5",
     "util-deprecate": "~1.0.1",
     "velocity-animate": "~1.2.2"
   },
