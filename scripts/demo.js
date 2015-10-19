@@ -60,7 +60,7 @@ InstantClickChangeFns.push(function () {
   });
   var options = versions.map(function(version) {
     var link = versionsHistory[version];
-    return <option value={version}>{version}</option>;
+    return <option key={version} value={version}>{version}</option>;
   });
   function onChange(e) {
     if (versionsHistory[e.target.value]) {
