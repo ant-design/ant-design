@@ -1,5 +1,5 @@
 import React from 'react';
-import reqwest from 'reqwest-without-xhr2';
+import reqwest from 'reqwest';
 import Table from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
