@@ -89,6 +89,7 @@
     "precommit-hook": "^1.0.7",
     "react": "~0.13.0",
     "react-router": "1.0.0-rc1",
+    "semver": "~5.0.3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },
