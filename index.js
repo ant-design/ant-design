@@ -49,6 +49,9 @@ const antd = {
   Icon: require('./components/iconfont')
 };
 
+// deprecate
+antd.EnterAnimation.prototype.render = require('util-deprecate')(antd.EnterAnimation.prototype.render, 'antd.EnterAnimation is deprecated, use antd.QueueAnim instead: http://ant.design/components/queue-anim');
+
 module.exports = antd;
 
 antd.version = require('./package.json').version;
