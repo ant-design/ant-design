@@ -77,8 +77,8 @@ let Palette = React.createClass({
     let color = this.props.color;
     return <div className="color-palette">
       <div className="main-color">
-        {color.colors.map(function(color){
-          return (<div style={{backgroundColor:color}}></div>);
+        {color.colors.map(function(color) {
+          return (<div key={color} style={{backgroundColor:color}}></div>);
         })}
       </div>
       <div className={"color-msg"}>
@@ -183,8 +183,8 @@ let ExtendPalettes = React.createClass({
       }
     ];
     return <div>
-      {colors.map((color) => {
-        return <Palette color={color} />;
+      {colors.map((color, i) => {
+        return <Palette key={i} color={color} />;
       })}
     </div>;
   }
