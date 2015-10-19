@@ -48,4 +48,24 @@ InstantClickChangeFns.push(function () {
   React.render(<AutoComplete/>, document.getElementById('autoComplete'));
 });
 
+InstantClickChangeFns.push(function () {
+  var versionsHistory = {
+    '0.9.1': 'http://09x.ant.design'
+  };
+  versionsHistory[antdVersion.latest] =
+    versionsHistory[antdVersion.latest] || 'http://ant.design';
+  var options = Object.keys(versionsHistory).map(function(version) {
+    var link = versionsHistory[version];
+    return <option value={version}>{version}</option>;
+  });
+  function onChange(e) {
+    if (versionsHistory[e.target.value]) {
+      location.replace(versionsHistory[e.target.value]);
+    }
+  }
+  React.render(<select defaultValue={antdVersion.latest} onChange={onChange}>
+    {options}
+  </select>, document.getElementById('versions-select'))
+});
+
 module.exports = antd;
