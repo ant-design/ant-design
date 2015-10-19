@@ -4,6 +4,7 @@ var antd = require('antd');
 
 var $ = require('jquery');
 var React = require('react');
+var semver = require('semver');
 
 InstantClickChangeFns.push(function () {
   // auto complete for components
@@ -54,18 +55,19 @@ InstantClickChangeFns.push(function () {
   };
   versionsHistory[antdVersion.latest] =
     versionsHistory[antdVersion.latest] || 'http://ant.design';
-  var options = Object.keys(versionsHistory).map(function(version) {
+  var versions = Object.keys(versionsHistory).sort(function(a, b) {
+    return semver.lt(a, b);
+  });
+  var options = versions.map(function(version) {
     var link = versionsHistory[version];
     return <option value={version}>{version}</option>;
   });
   function onChange(e) {
     if (versionsHistory[e.target.value]) {
-      location.replace(versionsHistory[e.target.value]);
+      location.href = versionsHistory[e.target.value];
     }
   }
-  React.render(<select defaultValue={antdVersion.latest} onChange={onChange}>
-    {options}
-  </select>, document.getElementById('versions-select'))
+  React.render(<select defaultValue={antdVersion.latest} onChange={onChange}>{options}</select>, document.getElementById('versions-select'));
 });
 
 module.exports = antd;
