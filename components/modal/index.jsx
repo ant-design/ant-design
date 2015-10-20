@@ -50,7 +50,7 @@ let AntModal = React.createClass({
       }
     }
     if ('confirmLoading' in nextProps) {
-      newState.confirmLoading = nextProps.confirmLoading;
+      newState.confirmLoading = !!nextProps.confirmLoading;
     }
     this.setState(newState);
   },
