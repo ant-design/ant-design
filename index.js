@@ -24,7 +24,6 @@ const antd = {
   Breadcrumb: require('./components/breadcrumb'),
   Popconfirm: require('./components/popconfirm'),
   Pagination: require('./components/pagination'),
-  confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
   Switch: require('./components/switch'),
@@ -48,9 +47,6 @@ const antd = {
   ButtonGroup: require('./components/button').ButtonGroup,
   Icon: require('./components/iconfont')
 };
-
-// deprecate antd.confirm
-antd.confirm = require('util-deprecate')(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
 
 module.exports = antd;
 

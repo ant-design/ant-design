@@ -4,7 +4,7 @@
 
 列偏移。
 
-使用 `.col-offset-*` 类可以将列向右侧偏。例如，`.col-offset-4` 类将 `.col-md-4` 元素向右侧偏移了4个列（column）的宽度。
+使用 `.col-offset-*` 类可以将列向右侧偏。例如，`.col-offset-4` 类将 `.col-4` 元素向右侧偏移了4个列（column）的宽度。
 
 ---
 

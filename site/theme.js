@@ -172,6 +172,13 @@ module.exports = function(nico) {
         result.push(p);
       });
       return result;
+    },
+    add_anchor: function(content) {
+      for (var i = 1; i <= 6; i++) {
+        var reg = new RegExp('(<h' + i + '\\sid="(.*?)">.*?)(<\/h' + i + '>)', 'g');
+        content = content.replace(reg, '$1<a href="#$2" class="anchor">#</a> $3');
+      }
+      return content;
     }
   };
 
