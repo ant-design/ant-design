@@ -44,15 +44,20 @@ function createPicker(TheCalendar) {
         format: 'yyyy-MM-dd',
         placeholder: '请选择日期',
         transitionName: 'slide-up',
-        onSelect() {
-        }
+        onSelect: null, //向前兼容
+        onChange() {}  //onChange可用于Validator
       };
     },
     handleChange(v) {
       this.setState({
         value: v
       });
-      this.props.onSelect(new Date(v.getTime()));
+      let timeValue = new Date(v.getTime());
+      //onSelect为向前兼容.
+      if (this.props.onSelect) {
+        require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
+      }
+      this.props.onChange(timeValue);
     },
     render() {
       let calendar = (
