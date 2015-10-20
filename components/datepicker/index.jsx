@@ -51,6 +51,7 @@ function createPicker(TheCalendar) {
         placeholder: '请选择日期',
         transitionName: 'slide-up',
         onSelect: null, //向前兼容
+        calendarStyle: {},
         onChange() {
         }  //onChange可用于Validator
       };
@@ -69,6 +70,7 @@ function createPicker(TheCalendar) {
     render() {
       let calendar = (
         <TheCalendar
+          style={this.props.calendarStyle}
           disabledDate={this.props.disabledDate}
           locale={CalendarLocale}
           showTime={this.props.showTime}
