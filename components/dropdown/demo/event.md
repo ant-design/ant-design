@@ -21,7 +21,7 @@ var menu = <Menu onSelect={onSelect}>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
 </Menu>;
 
-React.render(
+ReactDOM.render(
   <Dropdown overlay={menu}>
     <Button>
       鼠标移入，点击菜单 <Icon type="down" />

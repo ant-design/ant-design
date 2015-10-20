@@ -39,6 +39,6 @@ var pagination = {
   showSizeChanger: true
 };
 
-React.render(<Table columns={columns} dataSource={data} pagination={pagination} />
+ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />
 , document.getElementById('components-table-demo-paging'));
 ````

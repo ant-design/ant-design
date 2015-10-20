@@ -9,7 +9,7 @@
 ````jsx
 var ProgressCircle = antd.Progress.Circle;
 
-React.render(
+ReactDOM.render(
   <div>
     <ProgressCircle percent="30" width="80" />
     <ProgressCircle percent="70" width="80" status="exception" />

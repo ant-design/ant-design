@@ -27,7 +27,7 @@ var props = {
   }
 };
 
-React.render(
+ReactDOM.render(
   <Upload {...props}>
     <Button type="ghost">
       <Icon type="upload" /> 点击上传

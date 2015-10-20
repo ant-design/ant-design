@@ -13,7 +13,7 @@ function onChange(page) {
   console.log(page);
 }
 
-React.render(
+ReactDOM.render(
   <Pagination className="mini" onChange={onChange} total={50} />,
  document.getElementById('components-pagination-demo-mini'));
 ````

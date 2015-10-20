@@ -18,7 +18,7 @@ var Picker = React.createClass({
   }
 });
 
-React.render(
+ReactDOM.render(
   <Picker />
 , document.getElementById('components-datepicker-demo-select'));
 ````

@@ -16,7 +16,7 @@ function handleClick(e) {
   console.log('click', e);
 }
 
-React.render(<Menu onClick={handleClick} style={{width:240}} mode="vertical">
+ReactDOM.render(<Menu onClick={handleClick} style={{width:240}} mode="vertical">
   <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
     <MenuItem key="1">选项1</MenuItem>
     <MenuItem key="2">选项2</MenuItem>

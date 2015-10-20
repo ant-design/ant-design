@@ -15,7 +15,7 @@ function confirm() {
   message.info('点击了确定');
 }
 
-React.render(<div>
+ReactDOM.render(<div>
   <Popconfirm placement="left" title={text} onConfirm={confirm}>
     <a href="javascript:;">左边</a>
   </Popconfirm>

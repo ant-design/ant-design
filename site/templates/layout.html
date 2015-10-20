@@ -11,7 +11,7 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="{{static_url(config.antdCssUrl)}}">
+    <link rel="stylesheet" href="{{static_url('../dist/demo.css')}}">
     <link rel="stylesheet" href="{{static_url('style.css')}}">
     <link rel="stylesheet" href="{{static_url('tomorrow.css')}}">
     <script>
@@ -33,7 +33,7 @@
         }
       })(this.console = this.console || {});
     </script>
-    <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js"></script>
+    <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <script>
     (function() {
       window.ANT_COMPONENTS = [];
@@ -59,7 +59,6 @@
         stable: '{{config.package.stableVersion}}'
       };
     </script>
-    <script src="{{static_url(config.antdJsUrl)}}"></script>
     <script src="{{static_url('../dist/demo.js')}}"></script>
     <script>
       window.require = function (path) {

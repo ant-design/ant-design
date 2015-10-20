@@ -43,6 +43,6 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />, document.getElementById('components-select-demo-combobox'));
+ReactDOM.render(<Test />, document.getElementById('components-select-demo-combobox'));
 ````
 

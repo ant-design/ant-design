@@ -13,7 +13,7 @@ function onChange(page) {
   console.log(page);
 }
 
-React.render(
+ReactDOM.render(
   <Pagination showQuickJumper={true} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-jump'));
 ````

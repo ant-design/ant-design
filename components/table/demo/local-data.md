@@ -82,7 +82,7 @@ var App = React.createClass({
   }
 })
 
-React.render(<App />
+ReactDOM.render(<App />
 , document.getElementById('components-table-demo-local-data'));
 ````
 

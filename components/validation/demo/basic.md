@@ -155,7 +155,7 @@ var Form = React.createClass({
       callback();
     }
   },
-  
+
   checkPrime(rule, value, callback) {
     if (value !== 11) {
       callback(new Error('8~12之间的质数明明是11啊!'));
@@ -163,7 +163,7 @@ var Form = React.createClass({
       callback();
     }
   },
-  
+
   render() {
     var formData = this.state.formData;
     var status = this.state.status;
@@ -256,7 +256,7 @@ var Form = React.createClass({
               </div>
             </div>
           </div>
-          
+
           <div className="ant-form-item">
             <label className="col-7" htmlFor="birthday" required>生日：</label>
             <div className="col-12">
@@ -272,7 +272,7 @@ var Form = React.createClass({
               </div>
             </div>
           </div>
-          
+
           <div className="ant-form-item">
             <label className="col-7" htmlFor="birthday" required>8~12间的质数：</label>
             <div className="col-12">
@@ -284,7 +284,7 @@ var Form = React.createClass({
               </div>
             </div>
           </div>
-          
+
           <div className="ant-form-item">
             <label className="col-7" htmlFor="remark" required>备注：</label>
             <div className="col-12">
@@ -311,5 +311,5 @@ var Form = React.createClass({
   }
 });
 
-React.render(<Form />, document.getElementById('components-validation-demo-basic'));
+ReactDOM.render(<Form />, document.getElementById('components-validation-demo-basic'));
 ````

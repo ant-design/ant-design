@@ -37,7 +37,7 @@ function onInputNumberChange(v){
   console.log('changed',v);
 }
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
     <label className="col-8" required>InputNumber 数字输入框：</label>

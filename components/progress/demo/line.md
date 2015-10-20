@@ -9,7 +9,7 @@
 ````jsx
 var Progress = antd.Progress.Line;
 
-React.render(
+ReactDOM.render(
   <div>
     <Progress percent="30" />
     <Progress percent="50" status="active" />

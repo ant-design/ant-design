@@ -9,7 +9,7 @@
 ````jsx
 var EnterAnimation = antd.EnterAnimation;
 
-React.render(
+ReactDOM.render(
   <EnterAnimation>
     <ul key="key">
       <li>依次进场</li>

@@ -20,7 +20,7 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <Select multiple
   style={{width:400}}
   defaultValue={['a10', 'c12']} onChange={handleChange}>

@@ -2,13 +2,15 @@ require('./style/index.less');
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-window.matchMedia = window.matchMedia || function() {
-  return {
-    matches: false,
-    addListener: function() {},
-    removeListener: function() {}
+window.matchMedia = window.matchMedia || function () {
+    return {
+      matches: false,
+      addListener: function () {
+      },
+      removeListener: function () {
+      }
+    };
   };
-};
 
 const antd = {
   Affix: require('./components/affix'),
@@ -48,6 +50,6 @@ const antd = {
   Icon: require('./components/iconfont')
 };
 
-module.exports = antd;
-
 antd.version = require('./package.json').version;
+
+module.exports = antd;

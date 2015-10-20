@@ -55,5 +55,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test/> , document.getElementById('components-modal-demo-footer'));
+ReactDOM.render(<Test/> , document.getElementById('components-modal-demo-footer'));
 ````

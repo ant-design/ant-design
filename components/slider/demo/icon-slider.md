@@ -47,7 +47,7 @@ var IconSlider = React.createClass({
   }
 });
 
-React.render(
+ReactDOM.render(
 <IconSlider min={0} max={20} value={0} icon={['lock', 'unlock']} />
 , document.getElementById('components-slider-demo-icon-slider'));
 ````

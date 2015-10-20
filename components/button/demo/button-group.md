@@ -13,7 +13,7 @@ var Button = antd.Button;
 var ButtonGroup = antd.ButtonGroup;
 var Icon = antd.Icon;
 
-React.render(<div>
+ReactDOM.render(<div>
 <h4>基本组合</h4>
 <ButtonGroup>
   <Button type="primary">确定</Button>

@@ -20,7 +20,7 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <Select
    style={{width: '100%'}}
    searchPlaceholder="标签模式"

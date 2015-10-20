@@ -10,7 +10,7 @@
 var Button = antd.Button;
 var Icon = antd.Icon;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Button type="primary" shape="circle" size="lg">
     <Icon type="search" />
   </Button>

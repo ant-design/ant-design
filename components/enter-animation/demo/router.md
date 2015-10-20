@@ -73,7 +73,7 @@ var Page2 = React.createClass({
     );
   }
 });
-React.render((
+ReactDOM.render((
   <Router>
     <Route path="/" component={App} ignoreScrollBehavior>
       <Route path="page1" component={Page1} />

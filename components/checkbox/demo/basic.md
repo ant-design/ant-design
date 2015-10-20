@@ -13,7 +13,7 @@ function onChange(e) {
   console.log('checked = ' + e.target.checked);
 }
 
-React.render(<label>
+ReactDOM.render(<label>
   <Checkbox defaultChecked={false} onChange={onChange} />
   Checkbox
 </label>, container);

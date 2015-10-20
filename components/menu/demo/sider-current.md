@@ -61,5 +61,5 @@ var Sider = React.createClass({
     </Menu>;
   }
 });
-React.render(<Sider />, document.getElementById('components-menu-demo-sider-current'));
+ReactDOM.render(<Sider />, document.getElementById('components-menu-demo-sider-current'));
 ````

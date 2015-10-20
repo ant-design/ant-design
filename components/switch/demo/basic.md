@@ -14,5 +14,5 @@ function onChange(checked){
   console.log('switch to ' + checked);
 }
 
-React.render(<Switch defaultChecked={false} onChange={onChange} />, container);
+ReactDOM.render(<Switch defaultChecked={false} onChange={onChange} />, container);
 ````
