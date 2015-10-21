@@ -23,7 +23,7 @@ ReactDOM.render(<Datepicker />, mountNode);
 ## Links
 
 - [Home page](http://ant.design/)
-- [Documentation](http://ant.design/docs/introduce)
+- [Documentation and Components](http://ant.design/docs/introduce)
 - [Components](http://ant.design/components/)
 - [Build/Debug tools](https://github.com/ant-design/antd-bin)
 - [Roadmap](https://github.com/ant-design/ant-design/issues/9)
