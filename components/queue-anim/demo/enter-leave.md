@@ -12,6 +12,11 @@ var QueueAnim = antd.QueueAnim;
 var Button = antd.Button;
 
 var Test = React.createClass({
+  getInitialState() {
+    return {
+      show: true,
+    }
+  },
   onClick() {
     this.setState({
       show: !this.state.show,
