@@ -65,7 +65,8 @@ let AntTable = React.createClass({
       useFixedHeader: false,
       rowSelection: null,
       size: 'normal',
-      bordered: false
+      bordered: false,
+      onChange: function() {}
     };
   },
 
@@ -153,21 +154,25 @@ let AntTable = React.createClass({
         }
       };
     }
-    this.fetch({
-      sortOrder: sortOrder,
-      sortColumn: sortColumn,
-      sorter: sorter
-    });
+    const newState = {
+      sortOrder,
+      sortColumn,
+      sorter
+    };
+    this.fetch(newState);
+    this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
   handleFilter(column, filters) {
     filters = objectAssign({}, this.state.filters, {
       [this.getColumnKey(column)]: filters
     });
-    this.fetch({
+    const newState = {
       selectedRowKeys: [],
-      filters: filters
-    });
+      filters
+    };
+    this.fetch(newState);
+    this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
   handleSelect(record, rowIndex, e) {
@@ -251,11 +256,13 @@ let AntTable = React.createClass({
     } else {
       pagination.current = pagination.current || 1;
     }
-    this.fetch({
+    const newState = {
       // 防止内存泄漏，只维持当页
       selectedRowKeys: [],
-      pagination: pagination
-    });
+      pagination
+    };
+    this.fetch(newState);
+    this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
   onRadioChange: function (ev) {
