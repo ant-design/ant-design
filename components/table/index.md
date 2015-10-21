@@ -66,8 +66,9 @@ var dataSource = new Table.DataSource({
 | size          | 正常或迷你类型           | String          | `normal` or `small` | normal  |
 | dataSource    | 数据源，可以为数组（本地模式）或一个数据源描述对象（远程模式） | Array or Object |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
-| rowKey        | 表格列 key 的取值 | Function(recode,index):string |                     |    record.key    |
+| rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
 | expandIconAsCell  | 设置展开 Icon 是否单独一列 | Boolean |                     |    true    |
+| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
 
 ### Column
 
