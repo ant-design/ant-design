@@ -1,6 +1,6 @@
 # 范围
 
-- order: 3
+- order: 6
 
 设置 `disabledDate` 方法，来确定不可选时段。
 

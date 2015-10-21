@@ -60,7 +60,10 @@ function createPicker(TheCalendar) {
       this.setState({
         value: v
       });
-      let timeValue = new Date(v.getTime());
+      let timeValue = null;
+      if (v) {
+        timeValue = new Date(v.getTime());
+      }
       //onSelect为向前兼容.
       if (this.props.onSelect) {
         require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
