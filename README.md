@@ -17,7 +17,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ```jsx
 import { Datepicker } from 'antd';
-React.render(<Datepicker />, mountNode);
+ReactDOM.render(<Datepicker />, mountNode);
 ```
 
 ## Links

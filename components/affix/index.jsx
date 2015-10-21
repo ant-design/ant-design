@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import rcUtil from 'rc-util';
 
 function getScroll(w, top) {
@@ -52,7 +53,7 @@ let Affix = React.createClass({
   handleScroll() {
     let affix = this.state.affix;
     let scrollTop = getScroll(window, true);
-    let elemOffset = getOffset(this.getDOMNode());
+    let elemOffset = getOffset(ReactDOM.findDOMNode(this));
 
     if (!affix && (elemOffset.top - this.props.offset) < scrollTop) {
       this.setState({
@@ -60,7 +61,7 @@ let Affix = React.createClass({
         affixStyle: {
           top: this.props.offset,
           left: elemOffset.left,
-          width: this.getDOMNode().offsetWidth
+          width: ReactDOM.findDOMNode(this).offsetWidth
         }
       });
     }

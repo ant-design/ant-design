@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../iconfont';
 
@@ -15,7 +16,7 @@ export default React.createClass({
     };
   },
   handleClose(e) {
-    let dom = React.findDOMNode(this);
+    let dom = ReactDOM.findDOMNode(this);
     dom.style.height = dom.offsetHeight + 'px';
     // Magic code
     // 重复一次后才能正确设置 height

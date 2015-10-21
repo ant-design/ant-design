@@ -36,6 +36,7 @@ $ npm install
 
 ```jsx
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Datepicker, message } from 'antd';
 
 var App = React.createClass({
@@ -58,7 +59,7 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.body);
+ReactDOM.render(<App />, document.body);
 ```
 
 > `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。

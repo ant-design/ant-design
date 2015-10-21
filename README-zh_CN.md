@@ -21,7 +21,7 @@
 
 ```jsx
 import { Datepicker } from 'antd';
-React.render(<Datepicker />, mountNode);
+ReactDOM.render(<Datepicker />, mountNode);
 ```
 
 ## 链接
