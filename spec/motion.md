@@ -203,7 +203,7 @@ var Test = React.createClass({
   },
 
   componentDidMount() {
-    this.demoNode = React.findDOMNode(this.refs.demo);
+    this.demoNode = ReactDOM.findDOMNode(this.refs.demo);
   },
 
   render() {
@@ -225,7 +225,7 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test/>, document.getElementById('components-motion-demo-basic'));
+ReactDOM.render(<Test/>, document.getElementById('components-motion-demo-basic'));
 `````
 
 <style>

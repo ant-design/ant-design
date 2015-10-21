@@ -189,7 +189,7 @@ let ExtendPalettes = React.createClass({
     </div>;
   }
 });
-React.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
+ReactDOM.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
 `````
 
 ## 色彩换算工具
@@ -265,5 +265,5 @@ let TintShadeTool = React.createClass({
   }
 });
 
-React.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
+ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
 `````
