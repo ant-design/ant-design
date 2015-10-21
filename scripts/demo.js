@@ -48,7 +48,7 @@ InstantClickChangeFns.push(function () {
     }
   });
 
-  React.render(<AutoComplete/>, document.getElementById('autoComplete'));
+  ReactDOM.render(<AutoComplete/>, document.getElementById('autoComplete'));
 });
 
 InstantClickChangeFns.push(function () {
@@ -71,7 +71,7 @@ InstantClickChangeFns.push(function () {
     }
   }
 
-  React.render(<select defaultValue={antdVersion.latest}
+  ReactDOM.render(<select defaultValue={antdVersion.latest}
                        onChange={onChange}>{options}</select>, document.getElementById('versions-select'));
 });
 

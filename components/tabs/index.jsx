@@ -8,7 +8,8 @@ class AntTabs extends React.Component {
     if (this.props.size === 'mini') {
       sizeCls = prefixCls + '-mini';
     }
-    return <Tabs {...this.props} className={sizeCls} />;
+    const className = this.props.className || '';
+    return <Tabs {...this.props} className={className + ' ' + sizeCls}/>;
   }
 }
 
@@ -20,4 +21,3 @@ AntTabs.defaultProps = {
 AntTabs.TabPane = Tabs.TabPane;
 
 export default AntTabs;
-

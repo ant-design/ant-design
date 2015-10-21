@@ -28,10 +28,10 @@
   }
 
   &-nav-container {
+    overflow: hidden;
     font-size: 14px;
     line-height: @line-height-base;
     box-sizing: border-box;
-    width: 100%;
     position: relative;
     white-space: nowrap;
     border-bottom: 1px solid #e9e9e9;
@@ -112,7 +112,6 @@
   }
 
   &-nav-wrap {
-    width: 100%;
     overflow: hidden;
     margin-bottom: -1px;
   }
@@ -141,7 +140,7 @@
     }
 
     div.@{tab-prefix-cls}-tab-active {
-      > a, > a:hover, > a:focus {
+      > .@{tab-prefix-cls}-tab-inner, > .@{tab-prefix-cls}-tab-inner:hover {
         color: tint(@primary-color, 20%);
         cursor: pointer;
         text-decoration: none;
@@ -152,7 +151,7 @@
       pointer-events: none;
       cursor: default;
 
-      a {
+      .@{tab-prefix-cls}-tab-inner {
         color: #ccc;
       }
     }
@@ -164,7 +163,7 @@
       box-sizing: border-box;
       position: relative;
 
-      > a {
+      > .@{tab-prefix-cls}-tab-inner {
         padding: 8px 20px;
         transition: color 0.3s @ease-in-out;
         display: block;
@@ -179,12 +178,12 @@
 
       }
 
-      > a:hover {
+      > .@{tab-prefix-cls}-tab-inner:hover {
         color: tint(@primary-color, 30%);
         cursor: pointer;
       }
 
-      > a:hover, > a:focus {
+      > .@{tab-prefix-cls}-tab-inner:hover {
         text-decoration: none;
       }
     }
@@ -196,7 +195,7 @@
 
   &-mini &-tab {
     margin-right: 24px;
-    > a {
+    > .@{tab-prefix-cls}-tab-inner {
       padding: 8px 16px;
     }
   }
