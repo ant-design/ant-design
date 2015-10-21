@@ -4,12 +4,14 @@ const prefixCls = 'ant-tabs';
 
 class AntTabs extends React.Component {
   render() {
-    let sizeCls = '';
+    let className = (this.props.className || '');
     if (this.props.size === 'mini') {
-      sizeCls = prefixCls + '-mini';
+      className += ' ' + prefixCls + '-mini';
     }
-    const className = this.props.className || '';
-    return <Tabs {...this.props} className={className + ' ' + sizeCls}/>;
+    if (this.props.tabPosition === 'left' || this.props.tabPosition === 'right') {
+      className += ' ' + prefixCls + '-vertical';
+    }
+    return <Tabs {...this.props} className={className} />;
   }
 }
 
