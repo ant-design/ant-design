@@ -28,7 +28,7 @@ ReactDOM.render(<Datepicker />, mountNode);
 
 - [首页](http://ant.design/)
 - [文档和组件](http://ant.design/docs/introduce)
-- [构建调试 antd-bin](https://github.com/ant-design/antd-bin)
+- [构建调试工具](https://github.com/ant-design/antd-bin)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [修改记录](CHANGELOG.md)
 - [React 模块](http://react-component.github.io/)
