@@ -65,7 +65,7 @@ let AntTable = React.createClass({
       useFixedHeader: false,
       rowSelection: null,
       className: '',
-      size: 'normal',
+      size: 'default',
       bordered: false,
       onChange: function () {
       }
