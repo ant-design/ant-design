@@ -7,10 +7,8 @@
 
 Ant Design React 致力于提供给程序员愉悦的开发体验。
 
-## 标准项目
-
 实际项目开发中，你会需要 CommonJS 、JSX 构建、打包部署等一系列工程化的需求。
-提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
+我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
 ### 1. 安装命令行工具
 
@@ -121,12 +119,16 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   <head>
     <meta charset="utf-8">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
-    <script src="https://a.alipayobjects.com/??es5-shim/4.1.10/es5-shim.min.js,es5-shim/4.1.10/es5-sham.min.js,html5shiv/3.7.2/src/html5shiv.js"></script>
+    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.js,es5-shim/4.1.14/es5-sham.js,html5shiv/3.7.2/html5shiv.js"></script>
   </head>
   <body>
   </body>
+  <!-- 引入公用文件 -->
+  <script src="/common.js"></script>
+  <!-- 引入入口文件 -->
+  <script src="/index.js"></script>
 </html>
 ```
 
@@ -134,7 +136,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0 -197px 0 rgba(255, 207, 0, 0.16);
+  box-shadow: 0 -239px 0 rgba(255, 207, 0, 0.16);
   height: 42px;
   margin-bottom: -42px;
 }
