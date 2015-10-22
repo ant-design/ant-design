@@ -1736,7 +1736,7 @@ footer ul li > a {
 
 .code-box-meta {
   position: relative;
-  padding: 12px 15px;
+  padding: 10px 15px;
   border-radius: 0 0 6px 6px;
   transition: background-color 0.4s ease;
   width: 100%;
@@ -1781,7 +1781,7 @@ footer ul li > a {
 .code-box .collapse {
   position: absolute;
   right: 16px;
-  bottom: 16px;
+  bottom: 18px;
   cursor: pointer;
   width: 18px;
   height: 18px;
