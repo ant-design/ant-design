@@ -13,7 +13,7 @@ Ant Design React 致力于提供给程序员愉悦的开发体验。
 
 下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
 
-<iframe width="100%" height="380" src="//jsfiddle.net/afc163/6k22tgpx/4/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="380" src="//jsfiddle.net/afc163/3cwzj0ea/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 源码如下：
 
@@ -23,10 +23,10 @@ Ant Design React 致力于提供给程序员愉悦的开发体验。
   <head>
     <meta charset="utf-8">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <link rel="stylesheet" href="http://09x.ant.design/dist/antd.css">
     <!-- 引入 react 和 antd.js -->
     <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
-    <script src="http://ant.design/dist/antd.js"></script>
+    <script src="http://09x.ant.design/dist/antd.js"></script>
   </head>
   <body>
   </body>
@@ -37,7 +37,7 @@ Ant Design React 致力于提供给程序员愉悦的开发体验。
 </html>
 ```
 
-你可以在 [这里](/components/progress/) 选用更多组件。
+你可以在 [这里](/components/button/) 选用更多组件。
 
 
 ## 标准项目
