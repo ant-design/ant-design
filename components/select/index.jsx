@@ -7,7 +7,8 @@ let AntSelect = React.createClass({
       prefixCls: 'ant-select',
       transitionName: 'slide-up',
       optionLabelProp: 'children',
-      showSearch: false
+      showSearch: false,
+      size: 'default'
     };
   },
   render() {

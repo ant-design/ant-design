@@ -28,11 +28,18 @@ export default class Button extends React.Component {
     const props = this.props;
     const {type, shape, size, onClick, className, htmlType, children, ...others} = props;
 
+    // large => lg
+    // small => sm
+    const sizeCls = ({
+      'large': 'lg',
+      'small': 'sm'
+    })[size] || '';
+
     const classes = rcUtil.classSet({
       'ant-btn': true,
       [prefix + type]: type,
       [prefix + shape]: shape,
-      [prefix + size]: size,
+      [prefix + sizeCls]: sizeCls,
       [prefix + 'loading']: ('loading' in props && props.loading !== false),
       [className]: className
     });

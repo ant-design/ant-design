@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 ReactDOM.render(
-  <Pagination className="mini" onChange={onChange} total={50} />,
+  <Pagination size="small" onChange={onChange} total={50} />,
  document.getElementById('components-pagination-demo-mini'));
 ````
