@@ -56,6 +56,7 @@ function createPicker(TheCalendar) {
         }  //onChange可用于Validator
       };
     },
+    handleInputChange() {},
     handleChange(v) {
       this.setState({
         value: v
@@ -106,6 +107,7 @@ function createPicker(TheCalendar) {
             ({value}) => {
               return ([<input
                 disabled={this.props.disabled}
+                onChange={this.handleInputChange}
                 value={value && this.getFormatter().format(value)}
                 placeholder={this.props.placeholder}
                 className={'ant-calendar-picker-input ant-input' + sizeClass}/>,

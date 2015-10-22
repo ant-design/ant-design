@@ -10,6 +10,6 @@
 var Datepicker = antd.Datepicker;
 
 ReactDOM.render(
-  <Datepicker value="2015-06-06" disabled={true} />
+  <Datepicker defaultValue="2015-06-06" disabled={true} />
 , document.getElementById('components-datepicker-demo-disabled'));
 ````

@@ -10,6 +10,6 @@
 var Datepicker = antd.Datepicker;
 
 ReactDOM.render(
-  <Datepicker value="2015/01/01" format="yyyy/MM/dd" />
+  <Datepicker defaultValue="2015/01/01" format="yyyy/MM/dd" />
 , document.getElementById('components-datepicker-demo-formatter'));
 ````
