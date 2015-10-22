@@ -40,6 +40,6 @@ ReactDOM.render(
 
 ````css
 .code-box-demo .ant-select {
-  margin: 0 10px 10px 0;
+  margin: 0 8px 10px 0;
 }
 ````
