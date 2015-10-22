@@ -25,19 +25,18 @@ $ npm install antd-bin -g
 ```bash
 $ mkdir antd-demo && cd antd-demo
 $ antd init
-$ npm install
+$ npm install  // 0.10.x 仍然在开发中，需要 `npm install antd@beta --save` 进行安装
 ```
 
 ### 3. 使用组件
 
-编辑 `index.js`，使用 Ant Design React 的组件：
+编辑 `src/component/App.jsx`，用 React 的方式直接使用 Ant Design React 的组件。
 
 ```jsx
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Datepicker, message } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       date: ''
@@ -57,37 +56,10 @@ var App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.body);
+export default App;
 ```
 
-> `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
-
-> `lib` 即构建后的 `components` 目录。
-
-然后建一个页面用于开发。
-
-```bash
-$ touch index.html
-```
-
-编辑 `index.html` 如下：
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="/index.css">
-  </head>
-  <body>
-  </body>
-  <!-- 引入公用文件 -->
-  <script src="/common.js"></script>
-  <!-- 引入入口文件 -->
-  <script src="/index.js"></script>
-</html>
-```
+你可以在 [这里](/components/button) 选用更多组件。
 
 ### 4. 开发调试
 
