@@ -47,6 +47,6 @@ var MyProgress = React.createClass({
   }
 });
 
-React.render(<MyProgress />, document.getElementById('components-progress-demo-circle-dynamic'));
+ReactDOM.render(<MyProgress />, document.getElementById('components-progress-demo-circle-dynamic'));
 ````
 

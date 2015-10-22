@@ -57,5 +57,5 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, container);
+ReactDOM.render(<App />, container);
 ````

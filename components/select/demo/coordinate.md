@@ -46,13 +46,12 @@ var App = React.createClass({
       <Select defaultValue={provinceData[0]} style={{width:150}} onChange={this.handleProvinceChange}>
         {provinceOptions}
       </Select>
-      &nbsp;
       <Select value={this.state.secondCity} style={{width:150}} onChange={this.onSecondCityChange}>
         {cityOptions}
       </Select>
     </div>;
   }
 });
-React.render(<App />, document.getElementById('components-select-demo-coordinate'));
+ReactDOM.render(<App />, document.getElementById('components-select-demo-coordinate'));
 ````
 

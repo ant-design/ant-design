@@ -13,7 +13,7 @@ var onClose = function(e) {
   console.log(e, '我要被关闭啦！');
 };
 
-React.render(<div>
+ReactDOM.render(<div>
   <Alert message="警告提示的文案"
     type="warn"
     closable

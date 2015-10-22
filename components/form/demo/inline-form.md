@@ -10,7 +10,7 @@
 var Checkbox = antd.Checkbox;
 var Button = antd.Button;
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-inline">
   <div className="ant-form-item">
     <label htmlFor="userName">账户：</label>

@@ -4,8 +4,7 @@ var path = require('path');
 var pkg = require('./package');
 
 var entry = {};
-entry[pkg.name] = './index.js';
-entry[pkg.name + '-' + pkg.version] = './index.js';
+entry['index'] = './scripts/importCss.js';
 entry['demo'] = './scripts/demo.js';
 
 module.exports = {
@@ -17,26 +16,7 @@ module.exports = {
 
   output: {
     path: path.join(process.cwd(), 'dist'),
-    filename: '[name].js',
-    library: 'antd',
-    libraryTarget: 'umd'
-  },
-
-  externals: {
-    'react': {
-      root: 'React',
-      commonjs2: 'react',
-      commonjs: 'react',
-      amd: 'react'
-    },
-    'react-dom': 'React',
-    'antd':'antd',
-    'jquery': {
-      root: 'jQuery',
-      commonjs2: 'jquery',
-      commonjs: 'jquery',
-      amd: 'jquery'
-    }
+    filename: '[name].js'
   },
 
   module: {

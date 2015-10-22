@@ -39,7 +39,7 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.getElementById('components-button-demo-loading'));
+ReactDOM.render(<App />, document.getElementById('components-button-demo-loading'));
 ````
 
 <style>

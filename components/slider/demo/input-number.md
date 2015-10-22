@@ -36,5 +36,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />, document.getElementById('components-slider-demo-input-number'));
+ReactDOM.render(<Test />, document.getElementById('components-slider-demo-input-number'));
 ````

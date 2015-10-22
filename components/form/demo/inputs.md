@@ -10,7 +10,7 @@
 var Select = antd.Select;
 var Option = Select.Option;
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
     <label className="col-6" htmlFor="site1">标签输入框：</label>

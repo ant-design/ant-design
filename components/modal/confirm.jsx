@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Dialog from './index';
 import Icon from '../iconfont';
 import {Button} from '../button';
@@ -23,7 +24,7 @@ export default function (props) {
     d.setState({
       visible: false
     });
-    React.unmountComponentAtNode(div);
+    ReactDOM.unmountComponentAtNode(div);
   }
 
   function onCancel() {
@@ -87,7 +88,7 @@ export default function (props) {
     </div>;
   }
 
-  React.render(<Dialog
+  ReactDOM.render(<Dialog
     prefixCls="ant-modal"
     className="ant-confirm"
     visible={true}

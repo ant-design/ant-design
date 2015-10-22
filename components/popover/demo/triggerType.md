@@ -15,7 +15,7 @@ var content = <div>
   <p>内容</p>
 </div>;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Popover overlay={content} title="标题" trigger="hover">
     <Button>移入</Button>
   </Popover>

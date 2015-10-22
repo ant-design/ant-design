@@ -2,11 +2,13 @@ require('./style/index.less');
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-window.matchMedia = window.matchMedia || function() {
+window.matchMedia = window.matchMedia || function () {
   return {
     matches: false,
-    addListener: function() {},
-    removeListener: function() {}
+    addListener: function () {
+    },
+    removeListener: function () {
+    }
   };
 };
 
@@ -49,9 +51,6 @@ const antd = {
   Icon: require('./components/iconfont')
 };
 
-// deprecate
-antd.EnterAnimation.prototype.render = require('util-deprecate')(antd.EnterAnimation.prototype.render, 'antd.EnterAnimation is deprecated, use antd.QueueAnim instead: http://ant.design/components/queue-anim');
+antd.version = require('./package.json').version;
 
 module.exports = antd;
-
-antd.version = require('./package.json').version;

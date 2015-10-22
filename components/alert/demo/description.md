@@ -9,7 +9,7 @@
 ````jsx
 var Alert = antd.Alert;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Alert message="成功提示的文案"
     description="成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍"
     type="success" />

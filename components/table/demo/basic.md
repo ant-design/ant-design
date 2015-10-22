@@ -54,6 +54,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} />
+ReactDOM.render(<Table columns={columns} dataSource={data} />
 , document.getElementById('components-table-demo-basic'));
 ````

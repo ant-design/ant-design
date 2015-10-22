@@ -14,7 +14,7 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <div>
   <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>
@@ -39,7 +39,7 @@ React.render(
 ````
 
 ````css
-.ant-select{
-  margin: 0 10px 10px 0;
+.code-box-demo .ant-select {
+  margin: 0 8px 10px 0;
 }
 ````

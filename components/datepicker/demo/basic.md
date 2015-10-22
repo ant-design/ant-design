@@ -10,7 +10,7 @@
 // or require('antd/lib/datepicker');
 var Datepicker = antd.Datepicker;
 
-React.render(
+ReactDOM.render(
   <Datepicker defaultValue="2012-12-12" />
 , document.getElementById('components-datepicker-demo-basic'));
 ````

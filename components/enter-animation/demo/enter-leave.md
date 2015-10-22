@@ -44,7 +44,7 @@ var Test = React.createClass({
           <Button type="primary" onClick={this.onClick}>切换</Button>
         </div>
         <EnterAnimation enter={this.state.enter} leave={this.state.leave}>
-          {this.state.show ? 
+          {this.state.show ?
             <div className="demo-content" key='demo'>
               <div className="demo-kp">
                 <ul>
@@ -70,7 +70,7 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />
+ReactDOM.render(<Test />
 , document.getElementById('components-enter-animation-demo-enter-leave'));
 ````
 

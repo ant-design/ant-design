@@ -36,6 +36,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} pagination={false} />
+ReactDOM.render(<Table columns={columns} dataSource={data} pagination={false} />
 , document.getElementById('components-table-demo-nopagination'));
 ````

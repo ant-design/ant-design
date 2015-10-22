@@ -97,5 +97,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />, document.getElementById('components-table-demo-ajax'));
+ReactDOM.render(<Test />, document.getElementById('components-table-demo-ajax'));
 ````

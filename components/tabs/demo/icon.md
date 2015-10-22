@@ -17,7 +17,7 @@ var tabContent = [
   <span><Icon type="lock" />选项卡三</span>,
 ];
 
-React.render(
+ReactDOM.render(
   <Tabs defaultActiveKey="2">
     <TabPane tab={tabContent[0]} key="1">选项卡一</TabPane>
     <TabPane tab={tabContent[1]} key="2">选项卡二</TabPane>

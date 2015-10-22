@@ -23,7 +23,7 @@ var menu = <Menu>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
 </Menu>;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Dropdown overlay={menu} trigger="click">
     <Button type="primary">
       点击触发 <Icon type="down" />

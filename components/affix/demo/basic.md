@@ -10,7 +10,7 @@
 var Affix = antd.Affix;
 var Button = antd.Button;
 
-React.render(
+ReactDOM.render(
   <Affix>
     <Button type="primary">固定在顶部</Button>
   </Affix>

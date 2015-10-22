@@ -18,7 +18,7 @@ var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
 var Button = antd.Button;
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item ant-form-item-compact">
     <label htmlFor="userName" className="col-6" required>用户名：</label>

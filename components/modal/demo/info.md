@@ -32,7 +32,7 @@ function error() {
   });
 }
 
-React.render(<div>
+ReactDOM.render(<div>
   <Button onClick={info}>信息提示</Button>
   <Button onClick={success}>成功提示</Button>
   <Button onClick={error}>失败提示</Button>

@@ -6,6 +6,5 @@ class AntQueueAnim extends React.Component {
     return <QueueAnim {...this.props} />;
   }
 }
+
 export default AntQueueAnim;
-
-

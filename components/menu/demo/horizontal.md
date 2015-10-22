@@ -44,5 +44,5 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.getElementById('components-menu-demo-horizontal'));
+ReactDOM.render(<App />, document.getElementById('components-menu-demo-horizontal'));
 ````

@@ -55,6 +55,6 @@ var rowSelection = {
   }
 };
 
-React.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
 , document.getElementById('components-table-demo-row-selection-radio-props'));
 ````
