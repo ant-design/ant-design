@@ -247,4 +247,28 @@
     bottom: 9px;
     right: 9px;
   }
+
+  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+  &.slide-up-enter.slide-up-enter-active&-placement-topRight,
+  &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-topRight {
+    animation-name: antSlideUpIn;
+  }
+
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
+    animation-name: antSlideDownIn;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
+  &.slide-up-leave.slide-up-leave-active&-placement-topRight {
+    animation-name: antSlideUpOut;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
+    animation-name: antSlideDownOut;
+  }
 }
