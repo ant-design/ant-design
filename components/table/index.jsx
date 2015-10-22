@@ -64,9 +64,11 @@ let AntTable = React.createClass({
       prefixCls: 'ant-table',
       useFixedHeader: false,
       rowSelection: null,
+      className: '',
       size: 'normal',
       bordered: false,
-      onChange: function() {}
+      onChange: function () {
+      }
     };
   },
 
@@ -98,7 +100,7 @@ let AntTable = React.createClass({
     }
     // 外界只有 dataSource 的变化会触发新请求
     if ('dataSource' in nextProps &&
-        nextProps.dataSource !== this.props.dataSource) {
+      nextProps.dataSource !== this.props.dataSource) {
       this.setState({
         selectedRowKeys: [],
         dataSource: nextProps.dataSource,
@@ -278,7 +280,8 @@ let AntTable = React.createClass({
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
     const checked = this.state.dirty ? this.state.radioIndex === record.key : this.getDefaultSelection().indexOf(rowIndex) >= 0;
-    return <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)} value={record.key} checked={checked} />;
+    return <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
+                  value={record.key} checked={checked}/>;
   },
 
   renderSelectionCheckBox(value, record, index) {
@@ -288,7 +291,8 @@ let AntTable = React.createClass({
     if (this.props.rowSelection.getCheckboxProps) {
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
-    return <Checkbox checked={checked} disabled={props.disabled} onChange={this.handleSelect.bind(this, record, rowIndex)}/>;
+    return <Checkbox checked={checked} disabled={props.disabled}
+                     onChange={this.handleSelect.bind(this, record, rowIndex)}/>;
   },
 
   getRecordKey(record, index) {
@@ -368,7 +372,7 @@ let AntTable = React.createClass({
         filterDropdown =
           <FilterDropdown column={column}
                           selectedKeys={colFilters}
-                          confirmFilter={this.handleFilter} />;
+                          confirmFilter={this.handleFilter}/>;
       }
       if (column.sorter) {
         let isSortColumn = this.isSortColumn(column);
@@ -383,13 +387,13 @@ let AntTable = React.createClass({
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
                 title="升序排序"
                 onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
-            <Icon type="caret-up" />
+            <Icon type="caret-up"/>
           </span>
           <span className={'ant-table-column-sorter-down ' +
                            ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
                 title="降序排序"
                 onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
-            <Icon type="caret-down" />
+            <Icon type="caret-down"/>
           </span>
         </div>;
       }
@@ -406,7 +410,7 @@ let AntTable = React.createClass({
     let pagination = objectAssign(this.state.pagination, {
       pageSize: pageSize
     });
-    this.fetch({ pagination });
+    this.fetch({pagination});
   },
 
   renderPagination() {
@@ -423,10 +427,10 @@ let AntTable = React.createClass({
       total = this.getLocalData().length;
     }
     return (total > 0) ? <Pagination className={classString}
-                       onChange={this.handlePageChange}
-                       total={total}
-                       pageSize={10}
-                       onShowSizeChange={this.handleShowSizeChange}
+                                     onChange={this.handlePageChange}
+                                     total={total}
+                                     pageSize={10}
+                                     onShowSizeChange={this.handleShowSizeChange}
       {...this.state.pagination} /> : null;
   },
 
@@ -563,7 +567,7 @@ let AntTable = React.createClass({
   render() {
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
-    let classString = '';
+    let classString = this.props.className;
     let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     if (this.state.loading && !this.isLocalDataSource()) {
       classString += ' ant-table-loading';
@@ -583,7 +587,7 @@ let AntTable = React.createClass({
     let emptyClass = '';
     if (!data || data.length === 0) {
       emptyText = <div className="ant-table-placeholder">
-        <Icon type="frown" />暂无数据
+        <Icon type="frown"/>暂无数据
       </div>;
       emptyClass = ' ant-table-empty';
     }
