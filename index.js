@@ -2,11 +2,13 @@ require('./style/index.less');
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-window.matchMedia = window.matchMedia || function() {
+window.matchMedia = window.matchMedia || function () {
   return {
     matches: false,
-    addListener: function() {},
-    removeListener: function() {}
+    addListener: function () {
+    },
+    removeListener: function () {
+    }
   };
 };
 
@@ -24,7 +26,6 @@ const antd = {
   Breadcrumb: require('./components/breadcrumb'),
   Popconfirm: require('./components/popconfirm'),
   Pagination: require('./components/pagination'),
-  confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
   Switch: require('./components/switch'),
@@ -43,12 +44,12 @@ const antd = {
   Upload: require('./components/upload'),
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
-  Timeline: require('./components/timeline')
+  Timeline: require('./components/timeline'),
+  Button: require('./components/button').Button,
+  ButtonGroup: require('./components/button').ButtonGroup,
+  Icon: require('./components/iconfont')
 };
 
-// deprecate antd.confirm
-antd.confirm = require('util-deprecate')(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
+antd.version = require('./package.json').version;
 
 module.exports = antd;
-
-antd.version = require('./package.json').version;

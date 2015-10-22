@@ -14,7 +14,7 @@ function onChange(e) {
   console.log('radio checked:' + e.target.value);
 }
 
-React.render((
+ReactDOM.render((
   <RadioGroup onChange={onChange} defaultValue="a">
     <RadioButton value="a">杭州</RadioButton>
     <RadioButton value="b">上海</RadioButton>

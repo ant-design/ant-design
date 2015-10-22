@@ -9,7 +9,7 @@
 ````jsx
 var Badge = antd.Badge;
 
-React.render(
+ReactDOM.render(
   <Badge count="5">
     <a href="#" className="head-example"></a>
   </Badge>

@@ -13,6 +13,7 @@ var Option = Select.Option;
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
+var Button = antd.Button;
 
 var Test = React.createClass({
   getInitialState() {
@@ -43,7 +44,7 @@ var Test = React.createClass({
     return (
       <div>
         <div style={{marginBottom: 20, textAlign: 'center'}}>
-          <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
+          <Button type="primary" onClick={this.onClick}>切换</Button>
         </div>
         <EnterAnimation enter={this.state.enter} leave={this.state.leave} component='form' className="ant-form-horizontal">
           {this.state.show ? <div key='from'>
@@ -85,7 +86,7 @@ var Test = React.createClass({
             </div>
             <div className="row">
               <div className="col-16 col-offset-6">
-                <input type="submit" className="ant-btn ant-btn-primary" value="确 定" />
+                <Button type="primary">确定</Button>
               </div>
             </div>
           </div> : null}
@@ -95,7 +96,7 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />
+ReactDOM.render(<Test />
 , document.getElementById('components-enter-animation-demo-form'));
 ````
 

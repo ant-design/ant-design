@@ -317,6 +317,24 @@
 }
 
 .@{select-prefix-cls}-dropdown {
+  &.slide-up-enter.slide-up-enter-active&--below,
+  &.slide-up-appear.slide-up-appear-active&--below {
+    animation-name: antSlideUpIn;
+  }
+
+  &.slide-up-enter.slide-up-enter-active&--top,
+  &.slide-up-appear.slide-up-appear-active&--top {
+    animation-name: antSlideDownIn;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&--below {
+    animation-name: antSlideUpOut;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&--top {
+    animation-name: antSlideDownOut;
+  }
+
   &-menu-item {
     transition: background 0.3s ease;
   }

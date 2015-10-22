@@ -8,24 +8,26 @@
 
 ````jsx
 var Popover = antd.Popover;
+var Button = antd.Button;
+
 var text = <span>标题</span>;
 var content = <div>
   <p>内容</p>
   <p>内容</p>
 </div>;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Popover placement="left" title={text} overlay={content}>
-    <button className="ant-btn">左</button>
+    <Button>左</Button>
   </Popover>
   <Popover placement="top" title={text} overlay={content}>
-    <button className="ant-btn">上</button>
+    <Button>上</Button>
   </Popover>
   <Popover placement="bottom" title={text} overlay={content}>
-    <button className="ant-btn">下</button>
+    <Button>下</Button>
   </Popover>
   <Popover placement="right" title={text} overlay={content}>
-    <button className="ant-btn">右</button>
+    <Button>右</Button>
   </Popover>
 </div>, document.getElementById('components-popover-demo-placement'));
 ````

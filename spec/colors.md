@@ -189,5 +189,81 @@ let ExtendPalettes = React.createClass({
     </div>;
   }
 });
-React.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
+ReactDOM.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
+`````
+
+## 色彩换算工具
+
+<script src="https://t.alipayobjects.com/images/T1DrxhXe0mXXXXXXXX.js"></script>
+
+> 正数为变淡 `tint` ，负数为加深 `shade`。
+
+<div id="color-tint-shade-tool"></div>
+
+Ant Design 专用色彩换算工具，用于解析类似 `#2db7f5 tint 80%` 的色彩标注。
+
+less 或 scss 语言可以直接使用 `tint(#2db7f5, 80%)` 和  `shade(#2db7f5, 80%)` 的语法。
+
+
+
+`````jsx
+let Button = antd.Button;
+let InputNumber = antd.InputNumber;
+let Slider = antd.Slider;
+let TintShadeTool = React.createClass({
+  getInitialState() {
+    return {
+      result: '',
+      color: '#2db7f5',
+      value: 80
+    };
+  },
+  handleChangeColor(e) {
+    this.setState({
+      color: e.target.value
+    }, this.calculate);
+  },
+  handleChangeValue(value) {
+    this.setState({
+      value: value
+    }, this.calculate);
+  },
+  componentDidMount() {
+    this.calculate();
+  },
+  calculate() {
+    if (this.state.value === 0) {
+      this.setState({
+        result: this.state.color
+      });
+      return;
+    }
+    let tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
+    let c = new Values(this.state.color);
+    this.setState({
+      result: '#' + c[tintOrShade](Math.abs(this.state.value)).hex
+    });
+  },
+  render() {
+    return <div style={{margin: '40px 0'}}>
+      <div>
+        <input className="ant-input" style={{width: 120, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
+        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
+        <span style={{margin: '0 132px 0 8px'}}>%</span>
+        <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
+        <span>{this.state.result}</span>
+      </div>
+      <div style={{marginTop: 20}}>
+        <span>加黑</span>
+        <div style={{width: 400, display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: -1, margin: '0 8px'}}>
+          <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
+          <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: 10, fontSize: 12, textAlign: 'center', left: 202}}></div>
+        </div>
+        <span>加白</span>
+      </div>
+    </div>;
+  }
+});
+
+ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
 `````

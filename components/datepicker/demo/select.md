@@ -2,7 +2,7 @@
 
 - order: 2
 
-通过设置选择日期的回调事件 `onSelect`，完成交互行为。
+通过设置选择日期的回调事件 `onChange`，完成交互行为。
 
 ---
 
@@ -14,11 +14,11 @@ var Picker = React.createClass({
     console.log(new Date(value.getTime()));
   },
   render: function() {
-    return <Datepicker onSelect={this.handleChange} />
+    return <Datepicker onChange={this.handleChange} />
   }
 });
 
-React.render(
+ReactDOM.render(
   <Picker />
 , document.getElementById('components-datepicker-demo-select'));
 ````

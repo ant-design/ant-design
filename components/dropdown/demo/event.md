@@ -9,6 +9,8 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Button = antd.Button;
+var Icon = antd.Icon;
 var onSelect = function ({key}){
   alert('选中了菜单' + key);
 };
@@ -19,11 +21,11 @@ var menu = <Menu onSelect={onSelect}>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
 </Menu>;
 
-React.render(
+ReactDOM.render(
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-menu">
-      鼠标移入，点击菜单 <i className="anticon anticon-down"></i>
-    </button>
+    <Button>
+      鼠标移入，点击菜单 <Icon type="down" />
+    </Button>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-event'));
 ````

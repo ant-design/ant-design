@@ -15,6 +15,7 @@ var Switch = antd.Switch;
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
 var Slider = antd.Slider;
+var Icon = antd.Icon;
 
 var menu = <Menu>
   <Menu.Item>
@@ -36,7 +37,7 @@ function onInputNumberChange(v){
   console.log('changed',v);
 }
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
     <label className="col-8" required>InputNumber 数字输入框：</label>
@@ -47,7 +48,7 @@ React.render(
   </div>
   <div className="ant-form-item ant-form-item-compact">
     <label className="col-8" required>
-      <i className="anticon anticon-exclamation-circle" style={{color: '#f60'}}></i> 我是标题：
+      <Icon type="exclamation-circle" style={{color: '#f60'}} /> 我是标题：
     </label>
     <div className="col-10">
       <p className="ant-form-text">唧唧复唧唧木兰当户织呀</p>

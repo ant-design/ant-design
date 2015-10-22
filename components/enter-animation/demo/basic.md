@@ -8,6 +8,7 @@
 
 ````jsx
 var EnterAnimation = antd.EnterAnimation;
+var Button = antd.Button;
 
 var Test = React.createClass({
   getInitialState() {
@@ -24,7 +25,7 @@ var Test = React.createClass({
     return (
       <div>
         <div style={{marginBottom: 20}}>
-          <button className="ant-btn ant-btn-primary" onClick={this.onClick}>切换</button>
+          <Button type="primary" onClick={this.onClick}>切换</Button>
         </div>
         <EnterAnimation>
           {this.state.show ?
@@ -53,7 +54,7 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />
+ReactDOM.render(<Test />
 , document.getElementById('components-enter-animation-demo-basic'));
 ````
 

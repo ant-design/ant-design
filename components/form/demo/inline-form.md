@@ -8,8 +8,9 @@
 
 ````jsx
 var Checkbox = antd.Checkbox;
+var Button = antd.Button;
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-inline">
   <div className="ant-form-item">
     <label htmlFor="userName">账户：</label>
@@ -24,7 +25,7 @@ React.render(
       <Checkbox /> 记住我
     </label>
   </div>
-  <input type="submit" className="ant-btn ant-btn-primary" value="登 录" />
+  <Button type="primary">登录</Button>
 </form>
 , document.getElementById('components-form-demo-inline-form'));
 ````

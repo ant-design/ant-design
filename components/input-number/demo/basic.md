@@ -13,7 +13,7 @@ function onChange(value) {
   console.log('changed', value);
 }
 
-React.render(
+ReactDOM.render(
 <InputNumber min={1} max={10} defaultValue={3} onChange={onChange} />
 , document.getElementById('components-input-number-demo-basic'));
 ````

@@ -16,7 +16,7 @@ var text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-React.render(
+ReactDOM.render(
   <Collapse accordion={true}>
     <Panel header={`This is panel header 1`} key="1">
       <p>{text}</p>

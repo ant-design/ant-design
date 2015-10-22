@@ -8,6 +8,7 @@
 
 ````jsx
 var notification = antd.Notification;
+var Button = antd.Button;
 
 var close = function() {
   console.log("我被默认的关闭按钮关闭了！");
@@ -22,9 +23,9 @@ var openNotification = function() {
   notification.open(args);
 };
 
-React.render(
+ReactDOM.render(
   <div>
-    <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
+    <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
   </div>,
 document.getElementById('components-notification-demo-onclose'));
 ````

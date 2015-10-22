@@ -8,16 +8,17 @@
 
 ````jsx
 var Dragger = antd.Upload.Dragger;
+var Icon = antd.Icon;
 
 var props = {
   name: 'file',
   action: '/upload.do'
 };
 
-React.render(
+ReactDOM.render(
   <Dragger {...props}>
     <p className="ant-upload-drag-icon">
-      <i className="anticon anticon-inbox"></i>
+      <Icon type="inbox" />
     </p>
     <p className="ant-upload-text">点击或将文件拖拽到此区域上传</p>
     <p className="ant-upload-hint">支持单个或批量上传，严禁上传公司内部资料及其他违禁文件</p>

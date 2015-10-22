@@ -15,7 +15,7 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <Select defaultValue="lucy"
     style={{width:200}}
     showSearch={false}

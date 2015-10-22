@@ -14,7 +14,7 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <div>
   <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleChange}>
       <Option value="jack">Jack</Option>

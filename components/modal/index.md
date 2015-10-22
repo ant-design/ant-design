@@ -46,7 +46,7 @@
 | onOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           |
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
 | width      | 宽度           | String or Number | 416           |
-| iconClassName | 图标样式名 | String | anticon-question-circle |
+| iconClassName | 图标 Icon 类型 | String | question-circle |
 
 <style>
 .code-box-demo .ant-btn {

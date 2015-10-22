@@ -15,6 +15,7 @@
 ````jsx
 var Steps = antd.Steps;
 var Step = Steps.Step;
+var Button = antd.Button;
 var container = document.getElementById('components-steps-demo-step-next');
 var array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
 var steps = array.map(function(item, i) {
@@ -47,12 +48,12 @@ var App = React.createClass({
           {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
         </Steps>
         <div>
-          <button className='ant-btn' onClick={this.next}>下一步</button>
+          <Button onClick={this.next}>下一步</Button>
         </div>
       </div>
     );
   }
 });
 
-React.render(<App />, container);
+ReactDOM.render(<App />, container);
 ````

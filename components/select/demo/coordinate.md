@@ -53,6 +53,6 @@ var App = React.createClass({
     </div>;
   }
 });
-React.render(<App />, document.getElementById('components-select-demo-coordinate'));
+ReactDOM.render(<App />, document.getElementById('components-select-demo-coordinate'));
 ````
 

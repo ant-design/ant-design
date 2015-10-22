@@ -1,4 +1,4 @@
-# 自定义校验规则 
+# 自定义校验规则
 
 - order: 1
 
@@ -11,6 +11,7 @@
 ````jsx
 var Validation = antd.Validation;
 var Validator = Validation.Validator;
+var Button = antd.Button;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -40,7 +41,7 @@ var Form = React.createClass({
         rePass: undefined
       },
       passBarShow: false, // 是否显示密码强度提示条
-      rePassBarShow: false, 
+      rePassBarShow: false,
       passStrength: 'L', // 密码强度
       rePassStrength: 'L'
     };
@@ -150,7 +151,7 @@ var Form = React.createClass({
     var status = this.state.status;
 
     return (
-      <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
+      <form className="ant-form-horizontal">
         <Validation ref="validation" onValidate={this.handleValidate}>
 
           <div className="ant-form-item">
@@ -189,9 +190,9 @@ var Form = React.createClass({
 
           <div className="ant-form-item">
             <div className="col-offset-6 col-12">
-              <button type="submit" className="ant-btn ant-btn-primary">确 定</button>
+              <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
               &nbsp;&nbsp;&nbsp;
-              <a href="#" className="ant-btn" onClick={this.handleReset}>重 置</a>
+              <Button onClick={this.handleReset}>重 置</Button>
             </div>
           </div>
         </Validation>
@@ -200,7 +201,7 @@ var Form = React.createClass({
   }
 });
 
-React.render(<Form />, document.getElementById('components-validation-demo-customize'));
+ReactDOM.render(<Form />, document.getElementById('components-validation-demo-customize'));
 ````
 
 <style>

@@ -1,45 +1,58 @@
 # 图标按钮
 
-- order: 4
+- order: 6
 
-图标一般放在文字前面，也可以单独存在。
+`Button` 内可以嵌套图标，图标可以放在文字前、后，也可以单独存在。
 
 ---
 
-````html
-<button class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg">
-  <i class="anticon anticon-search"></i>
-</button>
-<button class="ant-btn ant-btn-primary ant-btn-lg">
-  <i class="anticon anticon-search"></i>
+````jsx
+var Button = antd.Button;
+var Icon = antd.Icon;
+
+ReactDOM.render(<div>
+  <Button type="primary" shape="circle" size="lg">
+    <Icon type="search" />
+  </Button>
+  <Button type="primary" size="lg">
+    <Icon type="search" />
   大按钮
-</button>
+  </Button>
 
-<button class="ant-btn ant-btn-primary ant-btn-circle">
-  <i class="anticon anticon-search"></i>
-</button>
-<button class="ant-btn ant-btn-primary">
-  <i class="anticon anticon-search"></i>
+  <Button type="primary" shape="circle">
+    <Icon type="search" />
+  </Button>
+  <Button type="primary">
+    <Icon type="search" />
   中按钮
-</button>
+  </Button>
 
-<button class="ant-btn ant-btn-primary ant-btn-circle ant-btn-sm">
-  <i class="anticon anticon-search"></i>
-</button>
-<button class="ant-btn ant-btn-primary ant-btn-sm">
-  <i class="anticon anticon-search"></i>
+  <Button type="primary" shape="circle" size="sm">
+    <Icon type="search" />
+  </Button>
+  <Button type="primary" size="sm">
+    <Icon type="search" />
   小按钮
-</button>
+  </Button>
 
-<p></p>
+  <br />
 
-<button class="ant-btn ant-btn-ghost ant-btn-circle-outline ant-btn-lg">
-  <i class="anticon anticon-search"></i>
-</button>
-<button class="ant-btn ant-btn-ghost ant-btn-circle-outline">
-  <i class="anticon anticon-search"></i>
-</button>
-<button class="ant-btn ant-btn-circle-outline ant-btn-sm">
-  <i class="anticon anticon-search"></i>
-</button>
+  <Button type="ghost" shape="circle-outline" size="lg">
+    <Icon type="search" />
+  </Button>
+  <Button type="ghost" shape="circle-outline">
+    <Icon type="search" />
+  </Button>
+  <Button type="ghost" shape="circle-outline" size="sm">
+    <Icon type="search" />
+  </Button>
+</div>,
+document.getElementById('components-button-demo-icon'));
 ````
+
+<style>
+#components-button-demo-icon .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+</style>

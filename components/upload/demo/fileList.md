@@ -14,6 +14,8 @@
 
 ````jsx
 var Upload = antd.Upload;
+var Button = antd.Button;
+var Icon = antd.Icon;
 var fileList = [{
   uid: -1,
   name: 'xxx.png',
@@ -62,12 +64,12 @@ var MyUpload = React.createClass({
       multiple: true
     };
     return <Upload {...props} fileList={this.state.fileList}>
-      <button type="button" className="ant-btn ant-btn-ghost">
-        <i className="anticon anticon-upload"></i> 点击上传
-      </button>
+      <Button type="ghost">
+        <Icon type="upload" /> 点击上传
+      </Button>
     </Upload>;
   }
 });
 
-React.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
+ReactDOM.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
 ````

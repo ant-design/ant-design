@@ -9,7 +9,7 @@
 ````jsx
 var Datepicker = antd.Datepicker;
 
-React.render(
+ReactDOM.render(
   <div>
     <Datepicker size="large" />
     <Datepicker />

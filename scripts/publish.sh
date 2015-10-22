@@ -1,6 +1,6 @@
 npm run babel
 rm -rf dist
-webpack --config webpack.config.production.js
+webpack
 node scripts/prenpm.js
 npm publish $1 $2
 rm -rf lib

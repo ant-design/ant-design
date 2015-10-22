@@ -12,7 +12,7 @@ var TabPane = Tabs.TabPane;
 
 function callback(key) {}
 
-React.render(
+ReactDOM.render(
   <Tabs defaultActiveKey="1" onChange={callback}>
     <TabPane tab="选项一" key="1">选项卡一</TabPane>
     <TabPane tab="选项二" key="2">选项卡二</TabPane>

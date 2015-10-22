@@ -1,6 +1,6 @@
 # 边框
 
-- order: 7
+- order: 10
 
 添加表格边框线，`bordered={true}`。
 
@@ -39,6 +39,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} bordered={true} />
+ReactDOM.render(<Table columns={columns} dataSource={data} bordered={true} />
 , document.getElementById('components-table-demo-bordered'));
 ````

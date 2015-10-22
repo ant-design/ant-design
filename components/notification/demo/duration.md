@@ -8,6 +8,7 @@
 
 ````jsx
 var notification = antd.Notification;
+var Button = antd.Button;
 
 var openNotification = function() {
   var args = {
@@ -18,7 +19,7 @@ var openNotification = function() {
   notification.open(args);
 };
 
-React.render(
-  <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
+ReactDOM.render(
+  <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
 , document.getElementById('components-notification-demo-duration'));
 ````
