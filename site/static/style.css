@@ -1780,15 +1780,14 @@ footer ul li > a {
 
 .code-box .collapse {
   position: absolute;
-  right: 15px;
-  top: 50%;
+  right: 16px;
+  bottom: 16px;
   cursor: pointer;
   width: 18px;
   height: 18px;
   font-size: 18px;
   line-height: 18px;
   opacity: 0.5;
-  margin-top: -10px;
   text-align: center;
   -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
