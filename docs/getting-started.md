@@ -25,8 +25,10 @@ $ npm install antd-bin -g
 ```bash
 $ mkdir antd-demo && cd antd-demo
 $ antd init
-$ npm install  // 0.10.x 仍然在开发中，需要 `npm install antd@beta --save` 进行安装
+$ npm install
 ```
+
+若下面例子发生报错，尝试用 `npm install antd@beta --save` 安装 `0.10.x` 或更高版本。
 
 ### 3. 使用组件
 
