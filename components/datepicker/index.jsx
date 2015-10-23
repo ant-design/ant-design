@@ -3,20 +3,30 @@ import Calendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import Datepicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
-import zhCn from 'gregorian-calendar/lib/locale/zh-cn';
+import defaultLocale from './locale';
 import CalendarLocale from 'rc-calendar/lib/locale/zh-cn';
 import DateTimeFormat from 'gregorian-calendar-format';
+import objectAssign from 'object-assign';
 
-// 和顶部文案保持一致
-import Locale from 'gregorian-calendar-format/lib/locale/zh-cn';
-Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
-  '7月', '8月', '9月', '10月', '11月', '12月'];
-
-// 以下两行代码
-// 给没有初始值的日期选择框提供本地化信息
-// 否则会以周日开始排
-let defaultCalendarValue = new GregorianCalendar(zhCn);
-defaultCalendarValue.setTime(Date.now());
+// 转换 locale 为 rc-calender 接收的格式
+function getCalendarLocale(locale) {
+  locale.format = locale.format || {};
+  [
+    'eras',
+    'months',
+    'shortMonths',
+    'weekdays',
+    'shortWeekdays',
+    'veryShortWeekdays',
+    'ampms',
+    'datePatterns',
+    'timePatterns',
+    'dateTimePattern'
+  ].forEach(function(key) {
+    locale.format[key] = locale[key];
+  });
+  return locale;
+}
 
 function createPicker(TheCalendar) {
   return React.createClass({
@@ -25,10 +35,10 @@ function createPicker(TheCalendar) {
         format: 'yyyy-MM-dd',
         placeholder: '请选择日期',
         transitionName: 'slide-up',
-        onSelect: null, //向前兼容
         calendarStyle: {},
+        onSelect: null, // 向前兼容
         onChange() {},  // onChange 可用于 Validator
-        onOk() {}
+        locale: {}
       };
     },
     getInitialState() {
@@ -43,6 +53,12 @@ function createPicker(TheCalendar) {
         });
       }
     },
+    getLocale() {
+      // 统一合并为完整的 Locale
+      let locale = objectAssign({}, defaultLocale, this.props.locale);
+      locale.lang = objectAssign({}, defaultLocale.lang, this.props.locale.lang);
+      return locale;
+    },
     getFormatter() {
       const formats = this.formats = this.formats || {};
       const format = this.props.format;
@@ -55,9 +71,9 @@ function createPicker(TheCalendar) {
     parseDateFromValue(value) {
       if (value) {
         if (typeof value === 'string') {
-          return new DateTimeFormat(this.props.format).parse(value, zhCn);
+          return new DateTimeFormat(this.props.format).parse(value, this.getLocale());
         } else if (value instanceof Date) {
-          let date = new GregorianCalendar(zhCn);
+          let date = new GregorianCalendar(this.getLocale());
           date.setTime(value);
           return date;
         }
@@ -76,11 +92,16 @@ function createPicker(TheCalendar) {
       this.props.onChange(timeValue);
     },
     render() {
+      // 以下两行代码
+      // 给没有初始值的日期选择框提供本地化信息
+      // 否则会以周日开始排
+      let defaultCalendarValue = new GregorianCalendar(this.getLocale());
+      defaultCalendarValue.setTime(Date.now());
       const calendar = (
         <TheCalendar
           style={this.props.calendarStyle}
           disabledDate={this.props.disabledDate}
-          locale={CalendarLocale}
+          locale={getCalendarLocale(this.getLocale().lang)}
           defaultValue={defaultCalendarValue}
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
