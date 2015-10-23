@@ -37,7 +37,7 @@ function createPicker(TheCalendar) {
       }
     },
     getFormatter() {
-      let formats = this.formats = this.formats || {};
+      const formats = this.formats = this.formats || {};
       const format = this.props.format;
       if (formats[format]) {
         return formats[format];
@@ -72,7 +72,7 @@ function createPicker(TheCalendar) {
       this.props.onChange(timeValue);
     },
     render() {
-      let calendar = (
+      const calendar = (
         <TheCalendar
           style={this.props.calendarStyle}
           disabledDate={this.props.disabledDate}
@@ -80,7 +80,7 @@ function createPicker(TheCalendar) {
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
-          showClear={false}/>
+          showClear={false} />
       );
       let sizeClass = '';
       if (this.props.size === 'large') {
@@ -110,8 +110,8 @@ function createPicker(TheCalendar) {
                 onChange={this.handleInputChange}
                 value={value && this.getFormatter().format(value)}
                 placeholder={this.props.placeholder}
-                className={'ant-calendar-picker-input ant-input' + sizeClass}/>,
-                <span className="ant-calendar-picker-icon"/>]);
+                className={'ant-calendar-picker-input ant-input' + sizeClass} />,
+                <span className="ant-calendar-picker-icon" />]);
             }
           }
         </Datepicker>
@@ -121,7 +121,6 @@ function createPicker(TheCalendar) {
 }
 
 const AntDatePicker = createPicker(Calendar);
-
 const AntMonthPicker = createPicker(MonthCalendar);
 
 const AntCalendar = React.createClass({
@@ -132,7 +131,7 @@ const AntCalendar = React.createClass({
     };
   },
   render() {
-    return <Calendar {...this.props}/>;
+    return <Calendar {...this.props} />;
   }
 });
 
