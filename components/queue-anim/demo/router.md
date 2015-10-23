@@ -84,7 +84,7 @@ var Page1 = React.createClass({
           <div className="demo-listBox">
             <QueueAnim className="demo-list" delay={200}>
               <div className="title" key='title3'></div>
-              <QueueAnim component='ul' type='bottom' key='ul'>
+              <QueueAnim component='ul' animConfig={{opacity:[1, 0],translateY:[0, 30],scale:[1,0.9]}} key='ul'>
                 <li key='tt_li0'></li>
                 <li key='tt_li1'></li>
                 <li key='tt_li2'></li>
@@ -104,7 +104,7 @@ var Page2 = React.createClass({
           <div className="demo-listBox">
             <QueueAnim className="demo-list">
               <div className="title" key='title3'></div>
-              <QueueAnim component='ul' type='bottom' key='li'>
+              <QueueAnim component='ul' animConfig={{opacity:[1, 0],translateY:[0, 30],scale:[1,0.9]}} key='li'>
                 <li key='tt_li0'></li>
                 <li key='tt_li1'></li>
                 <li key='tt_li2'></li>
