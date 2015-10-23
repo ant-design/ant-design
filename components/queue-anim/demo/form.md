@@ -18,22 +18,23 @@ var Button = antd.Button;
 var Test = React.createClass({
   getInitialState() {
     return {
-      show: true,
-    }
+      show: true
+    };
   },
   onClick() {
     this.setState({
-      show: !this.state.show,
-    })
+      show: !this.state.show
+    });
   },
   render() {
     return (
       <div>
-        <div style={{marginBottom: 20, textAlign: 'center'}}>
+        <p className="buttons">
           <Button type="primary" onClick={this.onClick}>切换</Button>
-        </div>
-        <QueueAnim component='form' className="ant-form-horizontal" type='bottom' leaveReverse={true}>
-          {this.state.show ? [ <div className="ant-form-item ant-form-item-compact" key='name'>
+        </p>
+        <QueueAnim component="form" className="ant-form-horizontal" type="bottom" leaveReverse={true}>
+          {this.state.show ? [
+            <div className="ant-form-item ant-form-item-compact" key='name'>
               <label htmlFor="userName" className="col-6" required>用户名：</label>
               <div className="col-6">
                 <p className="ant-form-text">大眼萌 minion</p>
@@ -73,14 +74,13 @@ var Test = React.createClass({
               <div className="col-16 col-offset-6">
                 <Button type="primary">确定</Button>
               </div>
-            </div>]: null}
+            </div>
+          ] : null}
         </QueueAnim>
       </div>
-    )
+    );
   }
 });
 
-ReactDOM.render(<Test />
-, document.getElementById('components-queue-anim-demo-form'));
+ReactDOM.render(<Test />, document.getElementById('components-queue-anim-demo-form'));
 ````
-

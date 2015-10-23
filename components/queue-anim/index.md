@@ -3,7 +3,6 @@
 - category: Components
 - chinese: 进出场动画
 
-
 ---
 
 通过简单的配置对一组元素添加串行的进场动画效果。
@@ -13,6 +12,8 @@
 - 从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
 
 - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
+
+- 特别适合首页和需要视觉展示效果的宣传页，以及单页应用的切换页面动效。
 
 
 ## API
@@ -27,9 +28,8 @@
   <div key='demo4'>依次进场</div>
 </QueueAnim>
 ```
-### API
 
-> 每个子标签如需要动画，必需带key，如果没key将不执行动画;
+> 每个子标签必须带 key，如果未设置 key 将不执行动画。
 
 |参数        |类型             |默认     |详细             |
 |------------|----------------|---------|----------------|
@@ -37,14 +37,13 @@
 | animConfig | object / array | null    | 配置动画参数 <br/> 如 `{opacity:[1, 0],translateY:[0, -30]}` 具体参考 [velocity](http://julian.com/research/velocity) 的写法|
 | delay      | number / array | 0       | 整个动画的延时,以毫秒为单位 |
 | duration   | number / array | 500     | 每个动画的时间,以毫秒为单位  |
-| interval   | number / array | 100      | 每个动画的间隔时间,以毫秒为单位  |
+| interval   | number / array | 100     | 每个动画的间隔时间,以毫秒为单位  |
 | leaveReverse | boolean      | false   | 出场时是否倒放,从最后一个 dom 开始往上播放 |
 | ease       | string / array | `easeOutQuart` | 动画的缓动函数,[查看详细](http://julian.com/research/velocity/#easing) |
-| animatingClassName | array | `['queue-anim-entering', 'queue-anim-leaving']` | 每个进出场动画开始时的默认样式 |
+| animatingClassName | array | `['queue-anim-entering', 'queue-anim-leaving']` | 进出场动画进行中的类名 |
 | component  | string | `div` | QueueAnim 替换的标签名 |
 
-> 当以上数据为Array时，`['left', 'top']` 第一个为 `enter` 数据, 第二个为 `leave` 数据;
-
+> 当以上数据类型为 Array 时，`['left', 'top']` 第一个为进场动画属性, 第二个为离场属性。
 
 <style>
 .code-box-demo .demo-header {
