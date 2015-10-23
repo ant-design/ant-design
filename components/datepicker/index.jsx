@@ -27,8 +27,8 @@ function createPicker(TheCalendar) {
         transitionName: 'slide-up',
         onSelect: null, //向前兼容
         calendarStyle: {},
-        onChange() {
-        }  //onChange可用于Validator
+        onChange() {},  // onChange 可用于 Validator
+        onOk() {}
       };
     },
     getInitialState() {
@@ -64,16 +64,12 @@ function createPicker(TheCalendar) {
       }
       return null;
     },
+    // remove input readonly warning
     handleInputChange() {},
-    handleChange(v) {
-      this.setState({
-        value: v
-      });
-      let timeValue = null;
-      if (v) {
-        timeValue = new Date(v.getTime());
-      }
-      //onSelect为向前兼容.
+    handleChange(value) {
+      this.setState({ value });
+      const timeValue = value ? new Date(value.getTime()) : null;
+      // onSelect 为向前兼容.
       if (this.props.onSelect) {
         require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
       }
