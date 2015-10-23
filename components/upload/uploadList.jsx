@@ -32,7 +32,7 @@ export default React.createClass({
         <Icon type="check" className={prefixCls + '-success-icon'} /> :
         <Icon type="loading" />;
       let filename = file.url ?
-        <a className={prefixCls + '-item-name'} href={file.url} _target="_blank">{file.name}</a> :
+        <a className={prefixCls + '-item-name'} href={file.url} target="_blank">{file.name}</a> :
         <b className={prefixCls + '-item-name'}>{file.name}</b>;
       return (
         <div className={prefixCls + '-list-item'} key={file.uid}>
