@@ -2,7 +2,7 @@
 
 - order: 9
 
-通过 `locale` 配置时区、语言等。
+通过 `locale` 配置时区、语言等，[默认配置](https://github.com/ant-design/ant-design/issues/424)。
 
 ---
 

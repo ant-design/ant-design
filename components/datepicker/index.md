@@ -29,6 +29,7 @@
 | disabled     | 禁用           | bool     | false        |
 | calendarStyle | 格外的弹出日历样式，例如 zIndex           | object     | {}        |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
+| locale       | 国际化配置，[详细配置](https://github.com/ant-design/ant-design/issues/424) | object   | -  |
 
 <style>
 .code-box-demo .ant-calendar-picker {
