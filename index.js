@@ -35,7 +35,6 @@ const antd = {
   Collapse: require('./components/collapse'),
   message: require('./components/message'),
   Slider: require('./components/slider'),
-  EnterAnimation: require('./components/enter-animation'),
   QueueAnim: require('./components/queue-anim'),
   Radio: require('./components/radio'),
   Notification: require('./components/notification'),
