@@ -113,7 +113,7 @@ var Page2 = React.createClass({
                 <li key="2"></li>
                 <li key="3"></li>
                 <li key="4"></li>
-                <li key="2"></li>
+                <li key="5"></li>
               </QueueAnim>
             </QueueAnim>
           </div>
