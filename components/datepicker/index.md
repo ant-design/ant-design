@@ -15,7 +15,7 @@
 ## API
 
 ```html
-<Datepicker value="2015-01-01" />
+<Datepicker defaultValue="2015-01-01" />
 ```
 
 | 参数         | 说明           | 类型     | 默认值       |
