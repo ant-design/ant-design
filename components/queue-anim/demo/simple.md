@@ -8,7 +8,7 @@
 
 ````jsx
 var QueueAnim = antd.QueueAnim;
-React.render(
+ReactDOM.render(
   <QueueAnim delay={500}>
     <div key='a'>依次进场</div>
     <div key='b'>依次进场</div>

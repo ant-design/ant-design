@@ -80,7 +80,7 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />
+ReactDOM.render(<Test />
 , document.getElementById('components-queue-anim-demo-form'));
 ````
 
