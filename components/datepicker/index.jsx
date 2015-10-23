@@ -3,41 +3,64 @@ import Calendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import Datepicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
-import zhCn from 'gregorian-calendar/lib/locale/zh-cn';
+import defaultLocale from './locale';
 import CalendarLocale from 'rc-calendar/lib/locale/zh-cn';
 import DateTimeFormat from 'gregorian-calendar-format';
+import objectAssign from 'object-assign';
 
-// 和顶部文案保持一致
-import Locale from 'gregorian-calendar-format/lib/locale/zh-cn';
-Locale.shortMonths = ['1月', '2月', '3月', '4月', '5月', '6月',
-  '7月', '8月', '9月', '10月', '11月', '12月'];
+// 转换 locale 为 rc-calender 接收的格式
+function getCalendarLocale(locale) {
+  locale.format = locale.format || {};
+  [
+    'eras',
+    'months',
+    'shortMonths',
+    'weekdays',
+    'shortWeekdays',
+    'veryShortWeekdays',
+    'ampms',
+    'datePatterns',
+    'timePatterns',
+    'dateTimePattern'
+  ].forEach(function(key) {
+    locale.format[key] = locale[key];
+  });
+  return locale;
+}
 
 function createPicker(TheCalendar) {
   return React.createClass({
-    getInitialState() {
-      let value;
-      if (this.props.value) {
-        value = new GregorianCalendar(zhCn);
-        value.setTime(new Date(this.props.value).valueOf());
-      }
+    getDefaultProps() {
       return {
-        value: value
+        format: 'yyyy-MM-dd',
+        placeholder: '请选择日期',
+        transitionName: 'slide-up',
+        calendarStyle: {},
+        onSelect: null, // 向前兼容
+        onChange() {},  // onChange 可用于 Validator
+        locale: {}
+      };
+    },
+    getInitialState() {
+      return {
+        value: this.parseDateFromValue(this.props.value)
       };
     },
     componentWillReceiveProps(nextProps) {
       if ('value' in nextProps) {
-        let value = null;
-        if (nextProps.value) {
-          value = new GregorianCalendar(zhCn);
-          value.setTime(new Date(nextProps.value).valueOf());
-        }
         this.setState({
-          value: value
+          value: this.parseDateFromValue(nextProps.value)
         });
       }
     },
+    getLocale() {
+      // 统一合并为完整的 Locale
+      let locale = objectAssign({}, defaultLocale, this.props.locale);
+      locale.lang = objectAssign({}, defaultLocale.lang, this.props.locale.lang);
+      return locale;
+    },
     getFormatter() {
-      let formats = this.formats = this.formats || {};
+      const formats = this.formats = this.formats || {};
       const format = this.props.format;
       if (formats[format]) {
         return formats[format];
@@ -45,42 +68,45 @@ function createPicker(TheCalendar) {
       formats[format] = new DateTimeFormat(format);
       return formats[format];
     },
-    getDefaultProps() {
-      return {
-        format: 'yyyy-MM-dd',
-        placeholder: '请选择日期',
-        transitionName: 'slide-up',
-        onSelect: null, //向前兼容
-        calendarStyle: {},
-        onChange() {
-        }  //onChange可用于Validator
-      };
-    },
-    handleInputChange() {},
-    handleChange(v) {
-      this.setState({
-        value: v
-      });
-      let timeValue = null;
-      if (v) {
-        timeValue = new Date(v.getTime());
+    parseDateFromValue(value) {
+      if (value) {
+        if (typeof value === 'string') {
+          return new DateTimeFormat(this.props.format).parse(value, this.getLocale());
+        } else if (value instanceof Date) {
+          let date = new GregorianCalendar(this.getLocale());
+          date.setTime(value);
+          return date;
+        }
       }
-      //onSelect为向前兼容.
+      return null;
+    },
+    // remove input readonly warning
+    handleInputChange() {},
+    handleChange(value) {
+      this.setState({ value });
+      const timeValue = value ? new Date(value.getTime()) : null;
+      // onSelect 为向前兼容.
       if (this.props.onSelect) {
         require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
       }
       this.props.onChange(timeValue);
     },
     render() {
-      let calendar = (
+      // 以下两行代码
+      // 给没有初始值的日期选择框提供本地化信息
+      // 否则会以周日开始排
+      let defaultCalendarValue = new GregorianCalendar(this.getLocale());
+      defaultCalendarValue.setTime(Date.now());
+      const calendar = (
         <TheCalendar
           style={this.props.calendarStyle}
           disabledDate={this.props.disabledDate}
-          locale={CalendarLocale}
+          locale={getCalendarLocale(this.getLocale().lang)}
+          defaultValue={defaultCalendarValue}
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
-          showClear={false}/>
+          showClear={false} />
       );
       let sizeClass = '';
       if (this.props.size === 'large') {
@@ -88,11 +114,7 @@ function createPicker(TheCalendar) {
       } else if (this.props.size === 'small') {
         sizeClass = ' ant-input-sm';
       }
-      let defaultValue;
-      if (this.props.defaultValue) {
-        defaultValue = new GregorianCalendar(zhCn);
-        defaultValue.setTime(new Date(this.props.defaultValue).valueOf());
-      }
+      let defaultValue = this.parseDateFromValue(this.props.defaultValue);
       return (
         <Datepicker
           transitionName={this.props.transitionName}
@@ -110,8 +132,8 @@ function createPicker(TheCalendar) {
                 onChange={this.handleInputChange}
                 value={value && this.getFormatter().format(value)}
                 placeholder={this.props.placeholder}
-                className={'ant-calendar-picker-input ant-input' + sizeClass}/>,
-                <span className="ant-calendar-picker-icon"/>]);
+                className={'ant-calendar-picker-input ant-input' + sizeClass} />,
+                <span className="ant-calendar-picker-icon" />]);
             }
           }
         </Datepicker>
@@ -121,7 +143,6 @@ function createPicker(TheCalendar) {
 }
 
 const AntDatePicker = createPicker(Calendar);
-
 const AntMonthPicker = createPicker(MonthCalendar);
 
 const AntCalendar = React.createClass({
@@ -132,7 +153,7 @@ const AntCalendar = React.createClass({
     };
   },
   render() {
-    return <Calendar {...this.props}/>;
+    return <Calendar {...this.props} />;
   }
 });
 

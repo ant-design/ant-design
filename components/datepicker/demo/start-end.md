@@ -57,5 +57,5 @@ var Test = React.createClass({
 
 ReactDOM.render(
   <Test />
-, document.getElementById('components-datepicker-demo-range'));
+, document.getElementById('components-datepicker-demo-start-end'));
 ````

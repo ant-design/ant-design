@@ -107,7 +107,7 @@ module.exports = function(nico) {
     find_demo_in_component: function(pages, directory) {
       var ret = [];
       getAllPosts(pages).forEach(function(post) {
-        if (post.filepath.indexOf(directory + '/demo/') === 0) {
+        if (post.filepath.indexOf(directory + '/demo/') === 0 && !post.meta.hidden) {
           ret.push(post);
         }
       });
