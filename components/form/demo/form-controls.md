@@ -10,8 +10,6 @@
 
 ````jsx
 var Form = antd.Form;
-var Input = Form.Input;
-var FormItem = Form.Item;
 var Select = antd.Select;
 var Option = Select.Option;
 var Checkbox = antd.Checkbox;
@@ -22,23 +20,23 @@ function handleSelectChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
 <Form horizontal>
-  <FormItem
+  <Form.Item
     label="输入框："
     labelClassName="col-6"
     wrapperClassName="col-14">
-    <Input type="text" id="control-input" placeholder="Please enter..." />
-  </FormItem>
+    <Form.Input type="text" id="control-input" placeholder="Please enter..." />
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="文本域："
     labelClassName="col-6"
     wrapperClassName="col-14">
-    <Input type="textarea" id="control-textarea"/>
-  </FormItem>
+    <Form.Input type="textarea" id="control-textarea"/>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="Select 选择器："
     labelClassName="col-6"
     wrapperClassName="col-14">
@@ -48,13 +46,12 @@ React.render(
       <Option value="disabled" disabled>disabled</Option>
       <Option value="yiminghe">yiminghe</Option>
     </Select>
-  </FormItem>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="Checkbox 多选框："
     labelClassName="col-6"
-    wrapperClassName="col-18"
-    isCompact>
+    wrapperClassName="col-18" >
       <label className="ant-checkbox-vertical">
         <Checkbox />选项一
       </label>
@@ -64,13 +61,12 @@ React.render(
       <label className="ant-checkbox-vertical">
         <Checkbox disabled={true} />选项三（不可选）
       </label>
-  </FormItem>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="Checkbox 多选框："
     labelClassName="col-6"
-    wrapperClassName="col-18"
-    isCompact>
+    wrapperClassName="col-18" >
       <label className="ant-checkbox-inline">
         <Checkbox />选项一
       </label>
@@ -80,20 +76,19 @@ React.render(
       <label className="ant-checkbox-inline">
         <Checkbox />选项三
       </label>
-  </FormItem>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="Radio 单选框："
     labelClassName="col-6"
-    wrapperClassName="col-18"
-    isCompact>
+    wrapperClassName="col-18" >
       <RadioGroup value="b">
         <Radio value="a">A</Radio>
         <Radio value="b">B</Radio>
         <Radio value="c">C</Radio>
         <Radio value="d">D</Radio>
       </RadioGroup>
-  </FormItem>
+  </Form.Item>
 </Form>
 , document.getElementById('components-form-demo-form-controls'));
 ````

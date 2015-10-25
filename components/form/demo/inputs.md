@@ -6,34 +6,31 @@
 
 ````jsx
 var Form = antd.Form;
-var Input = Form.Input;
-var FormItem = Form.Item;
-var InputGroup = Input.Group;
 var Select = antd.Select;
 var Option = Select.Option;
 
-React.render(
+ReactDOM.render(
 <Form horizontal>
-  <FormItem
+  <Form.Item
     label="标签输入框："
     labelClassName="col-6"
     wrapperClassName="col-16">
-    <Input type="text" addonBefore="Http://" value="mysite.com" id="site1"/>
-  </FormItem>
+    <Form.Input type="text" addonBefore="Http://" value="mysite.com" id="site1"/>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="标签输入框："
     labelClassName="col-6"
     wrapperClassName="col-16">
-    <Input type="text" addonBefore="Http://"  addonAfter=".com" value="mysite" id="site2"/>
-  </FormItem>
+    <Form.Input type="text" addonBefore="Http://"  addonAfter=".com" value="mysite" id="site2"/>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="select 标签输入框："
     labelClassName="col-6"
     wrapperClassName="col-16">
-    <InputGroup>
-      <Input type="text" id="site4" placeholder="www.mysite" />
+    <Form.InputGroup>
+      <Form.Input type="text" id="site4" placeholder="www.mysite" />
       <div className="ant-input-group-wrap">
         <Select defaultValue=".com" style={{width:70}}>
           <Option value=".com">.com</Option>
@@ -42,55 +39,55 @@ React.render(
           <Option value=".org">.org</Option>
         </Select>
       </div>
-    </InputGroup>
-  </FormItem>
+    </Form.InputGroup>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="输入身份证："
     labelClassName="col-6"
     wrapperClassName="col-16">
-    <InputGroup>
+    <Form.InputGroup>
       <div className="col-6">
-        <Input type="text" id="certNo1" />
+        <Form.Input type="text" id="certNo1" />
       </div>
       <div className="col-6">
-        <Input type="text" id="certNo2" />
+        <Form.Input type="text" id="certNo2" />
       </div>
       <div className="col-6">
-        <Input type="text" id="certNo3" />
+        <Form.Input type="text" id="certNo3" />
       </div>
       <div className="col-6">
-        <Input type="text" id="certNo4" />
+        <Form.Input type="text" id="certNo4" />
       </div>
-    </InputGroup>
-  </FormItem>
+    </Form.InputGroup>
+  </Form.Item>
 
-  <FormItem
+  <Form.Item
     label="电话号码："
     labelClassName="col-6"
     wrapperClassName="col-16">
     <div className="row">
       <div className="col-4">
-        <Input type="text" id="tel1" value="086" />
+        <Form.Input type="text" id="tel1" value="086" />
       </div>
       <div className="col-2">
         <p className="ant-form-split">--</p>
       </div>
       <div className="col-18">
-        <InputGroup type="group">
+        <Form.InputGroup type="group">
           <div className="col-8">
-            <Input type="text" id="tel1" />
+            <Form.Input type="text" id="tel1" />
           </div>
           <div className="col-8">
-            <Input type="text" id="tel2" />
+            <Form.Input type="text" id="tel2" />
           </div>
           <div className="col-8">
-            <Input type="text" id="tel3" />
+            <Form.Input type="text" id="tel3" />
           </div>
-        </InputGroup>
+        </Form.InputGroup>
       </div>
     </div>
-  </FormItem>
+  </Form.Item>
 </Form>
 
 , document.getElementById('components-form-demo-inputs'));

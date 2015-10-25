@@ -2,24 +2,33 @@
 
 - order: 6
 
-我们为定义了 `.ant-input` 类的输入框提供了三种尺寸：大（-lg）、中(默认)、小（-sm），往类名添加以上后缀即可。
+我们为 `<input />` 输入框定义了三种尺寸（大、默认、小）。
 
-但是在 `<form>` 表单里面，我们只使用**大尺寸**， 即高度为 **32px**，作为唯一的尺寸。
+css 样式引用： 定义 `.ant-input` 类的基础上加上 `.ant-input-lg .ant-input-sm` 即可。 
+
+`<Form.Input />` 组件引用需要声明 `site` 属性即可，属性值为 ['small', 'default', 'large']。
+
+注意： 在 `<form>` 表单里面，我们只使用**大尺寸**， 即高度为 **32px**，作为唯一的尺寸。
 
 ---
 
-````html
-<div class="row">
-  <div class="ant-input-group">
-    <div class="col-6">
-      <input class="ant-input ant-input-lg" type="text" id="largeInput" placeholder="大尺寸"/>
-    </div>
-    <div class="col-6">
-      <input class="ant-input" type="text" id="defaultInput" placeholder="默认尺寸"/>
-    </div>
-    <div class="col-6">
-      <input class="ant-input ant-input-sm" type="text" id="smallInput" placeholder="小尺寸"/>
-    </div>
+
+````jsx
+var Form = antd.Form;
+
+ReactDOM.render(
+  <div className="row">
+    <Form.InputGroup>
+      <div className="col-6">
+        <Form.Input type="text" id="largeInput" size="large" placeholder="大尺寸" />
+      </div>
+      <div className="col-6">
+        <Form.Input type="text" id="defaultInput" placeholder="默认尺寸" />
+      </div>
+      <div className="col-6">
+        <Form.Input type="text" id="smallInput" placeholder="小尺寸" size="small" />
+      </div>
+    </Form.InputGroup>
   </div>
-</div>
+, document.getElementById('components-form-demo-input-size'));
 ````
