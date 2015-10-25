@@ -25,13 +25,12 @@ Group.defaultProps = {
   className: 'ant-input-group',
 };
 
+
 class Input extends React.Component {
-  // TODO
   getInputDOMNode() {
     return this.refs.input;
   }
 
-  // TODO
   getValue() {
     if (this.props.type === 'static') {
       return this.props.value;
@@ -70,17 +69,16 @@ class Input extends React.Component {
   renderInput() {
     const props = this.props;
     const prefixCls = props.prefixCls;
-    const inputClassName = prefixClsFn(prefixCls, 'input');
+    let inputClassName = prefixClsFn(prefixCls, 'input');
     if (!props.type) {
       return props.children;
     }
 
-    // let inputClass;
-    // switch (props.size) {
-    // case 'small': inputClass = prefixClsFn(inputClassName, 'sm'); break;
-    // case 'large': inputClass = prefixClsFn(inputClassName, 'lg'); break;
-    // default:
-    // }
+    switch (props.size) {
+    case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
+    case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
+    default:
+    }
 
     switch (props.type) {
     case 'textarea':
@@ -92,6 +90,7 @@ class Input extends React.Component {
         </p>
       );
     default:
+      inputClassName = props.className ? props.className : inputClassName;
       return <input {...props} className={inputClassName} ref="input" key="input"/>;
     }
   }
@@ -107,7 +106,7 @@ Input.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number,
   ]),
-  size: React.PropTypes.oneOf(['small', 'medium', 'large']),
+  size: React.PropTypes.oneOf(['small', 'default', 'large']),
   disabled: React.PropTypes.bool,
   value: React.PropTypes.any,
   defaultValue: React.PropTypes.any,
