@@ -16,15 +16,19 @@
 - 水平排列：可以实现 `label` 标签和表单控件的水平排列;
 - 行内排列：使其表现为 inline-block 级别的控件。
 
-
-
 ## 表单域
 
 表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。
 
 这里我们分别为表单域和输入控件封装了 
-- `<Form.Item></Form.Item>`；
-- `<Form.Input></Form.Input>`。
+
+```html
+  <Form.Item> 
+    {children} 
+  </Form.Item>`；
+```
+
+`<Form.Input />`。
 
 ## API 
 
@@ -40,6 +44,12 @@
 </Form>
 ```
 
+### Form.ValueMixin
+
+双向数据绑定，当表单控件的输入值改变时，更新 formData。
+
+**你需要为每个输入控件声明 `name` 属性**
+
 ### Form.Item
 
 ``` html
@@ -50,7 +60,6 @@
   wrapperClassName={string} // 需要为输入控件设置布局样式时，使用该属性。
   help={string}             // 提示信息。
   required={bool}           // 是否必填，默认为 false。
-  isCompact={bool}          // 样式设置，是否开启紧凑模式，即缩小上下留白，默认为 false。
   hasFeedback={bool}        // 配合 validateStatus 属性使用，是否展示校验状态图标，默认 false。
   validateStatus={'success'|'warning'|'error'|'validating'}     // 校验状态，必须为 'success', 'warning', 'error', 'validating'中的一个值。
 >
@@ -74,12 +83,12 @@
 />
 ```
 
-设置 input group:
+### Form.InputGroup
 
 ```html 
-<Form.Input.Group 
+<Form.InputGroup 
   className={string}      // 样式类名前缀，默认是 ant-input-group，通常您不需要设置。
 >
   {children}
-</Form.Input.Group>
+</Form.InputGroup>
 ```
