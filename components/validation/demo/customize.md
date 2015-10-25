@@ -12,6 +12,7 @@
 var Validation = antd.Validation;
 var Validator = Validation.Validator;
 var Button = antd.Button;
+var Form = antd.Form;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -27,7 +28,7 @@ function noop() {
   return false;
 }
 
-var Form = React.createClass({
+var Demo = React.createClass({
   mixins: [Validation.FieldMixin],
 
   getInitialState() {
@@ -151,57 +152,68 @@ var Form = React.createClass({
     var status = this.state.status;
 
     return (
-      <form className="ant-form-horizontal">
+      <Form horizontal>
         <Validation ref="validation" onValidate={this.handleValidate}>
-
-          <div className="ant-form-item">
-            <label className="col-6" htmlFor="confirmPass" required>密码：</label>
-            <div className="col-10">
-              <div className={this.renderValidateStyle('pass', false)}>
-                <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                  <input name="pass" id="confirmPass" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.pass}/>
-                </Validator>
-                {status.pass.errors ? <div className="ant-form-explain">{status.pass.errors.join(',')}</div> : null}
-              </div>
+          <div className="row">
+            <div className="col-18">
+              <Form.Item
+                label="密码："
+                id="confirmPass"
+                labelClassName="col-6"
+                wrapperClassName="col-18"
+                required>
+                <div className={this.renderValidateStyle('pass', false)}>
+                  <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
+                    <Form.Input name="pass" id="confirmPass" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.pass}/>
+                  </Validator>
+                  {status.pass.errors ? <div className="ant-form-explain">{status.pass.errors.join(',')}</div> : null}
+                </div>
+              </Form.Item>
             </div>
             <div className="col-6">
               {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
             </div>
           </div>
 
-          <div className="ant-form-item">
-            <label className="col-6" htmlFor="confirmPass2" required>确认密码：</label>
-            <div className="col-10">
-              <div className={this.renderValidateStyle('rePass', false)}>
-                <Validator rules={[{
-                  required: true,
-                  whitespace: true,
-                  message: '请再次输入密码'
-                }, {validator: this.checkPass2}]}>
-                  <input name="rePass" id="confirmPass2" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePass}/>
-                </Validator>
-                {status.rePass.errors ? <div className="ant-form-explain"> {status.rePass.errors.join(', ')}</div> : null}
-              </div>
+          <div className="row">
+            <div className="col-18">
+              <Form.Item
+                label="确认密码："
+                id="confirmPass2"
+                labelClassName="col-6"
+                wrapperClassName="col-18"
+                required>
+                <div className={this.renderValidateStyle('rePass', false)}>
+                  <Validator rules={[{
+                    required: true,
+                    whitespace: true,
+                    message: '请再次输入密码'
+                  }, {validator: this.checkPass2}]}>
+                    <Form.Input name="rePass" id="confirmPass2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePass}/>
+                    </Validator>
+                  {status.rePass.errors ? <div className="ant-form-explain"> {status.rePass.errors.join(', ')}</div> : null}
+                </div>
+              </Form.Item>
             </div>
             <div className="col-6">
               {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
             </div>
           </div>
 
-          <div className="ant-form-item">
-            <div className="col-offset-6 col-12">
-              <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
-              &nbsp;&nbsp;&nbsp;
-              <Button type="ghost" onClick={this.handleReset}>重 置</Button>
-            </div>
-          </div>
+          <Form.Item
+            wrapperClassName="col-offset-6 col-12"
+            required>
+            <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button type="ghost" onClick={this.handleReset}>重 置</Button>
+          </Form.Item>
         </Validation>
-      </form>
+      </Form>
     );
   }
 });
 
-ReactDOM.render(<Form />, document.getElementById('components-validation-demo-customize'));
+ReactDOM.render(<Demo />, document.getElementById('components-validation-demo-customize'));
 ````
 
 <style>

@@ -46,7 +46,7 @@
 
 ### Form.ValueMixin
 
-双向数据绑定，当表单控件的输入值改变时，更新 formData。
+Mixin：当表单控件的输入值改变时，更新 formData。
 
 **你需要为每个输入控件声明 `name` 属性**
 
@@ -72,10 +72,10 @@
 ```html 
 <Form.Input 
   prefixCls={string}      // 样式类名前缀，默认是 ant，通常您不需要设置。
-  type={string}           // input 类型，保留原生 input 标签的 type 属性值，新增 static，详见例子。 
+  type={string}           // 【必须】声明 input 类型，保留原生 input 标签的 type 属性值，新增 static，详见例子。 
   value={any}             // value 值 。
   id={number|string}      // id。
-  size={'large'|'small'}  // 控件大小。
+  size={'large'|'default'|'small'}  // 控件大小，默认值为 default。
   defaultValue={any}      // 设置初始默认值。
   disabled={bool}         // 是否禁用状态，默认为 false。
   addonBefore={node}      // 带标签的 input，设置前置标签。
