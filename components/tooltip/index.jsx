@@ -18,11 +18,11 @@ export default React.createClass({
       right: 'zoom-left'
     })[this.props.placement];
     return (
-      <Tooltip transitionName={transitionName}
+      this.props.title ? <Tooltip transitionName={transitionName}
         overlay={this.props.title}
         {...this.props}>
         {this.props.children}
-      </Tooltip>
+      </Tooltip> : this.props.children
     );
   }
 });
