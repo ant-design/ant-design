@@ -72,11 +72,35 @@ class FormItem extends React.Component {
     ];
   }
 
+  // 判断是否要 `.ant-form-item-compact` 样式类
+  _isCompact(children) {
+    const compactControls = ['checkbox', 'radio', 'radio-group', 'static', 'file'];
+    let isCompact = false;
+
+    if (!Array.isArray(children)) {
+      children = [children];
+    }
+    children.map((child, i) => {
+      const type = child.props && child.props.type;
+      let prefixCls = child.props && child.props.prefixCls;
+      prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';
+
+      if ((type && compactControls.indexOf(type) > -1) || (prefixCls && compactControls.indexOf(prefixCls) > -1) ) {
+        isCompact = true;
+      } else if (child.props && typeof child.props.children === 'object') {
+        isCompact = this._isCompact(child.props.children);
+      }
+    });
+
+    return isCompact;
+  }
+
   renderFormItem(children) {
-    const prefixCls = this.props.prefixCls;
+    const props = this.props;
+    const prefixCls = props.prefixCls;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-compact`]: this.props.isCompact,
+      [`${prefixCls}-item-compact`]:  this._isCompact(props.children),
     };
 
     return (
@@ -100,14 +124,12 @@ FormItem.propTypes = {
   validateStatus: React.PropTypes.oneOf(['success', 'warning', 'error', 'validating']),
   hasFeedback: React.PropTypes.bool,
   wrapperClassName: React.PropTypes.string,
-  isCompact: React.PropTypes.bool,
   className: React.PropTypes.string,
   children: React.PropTypes.any,
 };
 
 FormItem.defaultProps = {
   hasFeedback: false,
-  isCompact: false,
   required: false,
   prefixCls: 'ant-form',
 };
