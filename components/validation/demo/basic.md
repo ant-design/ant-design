@@ -302,7 +302,7 @@ var Form = React.createClass({
             <div className="col-offset-7 col-12">
               <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
             &nbsp;&nbsp;&nbsp;
-              <Button onClick={this.handleReset}>重 置</Button>
+              <Button type="ghost" onClick={this.handleReset}>重 置</Button>
             </div>
           </div>
         </Validation>
