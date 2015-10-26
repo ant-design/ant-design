@@ -20,7 +20,7 @@ var openNotification = function() {
     // 隐藏提醒框
     notification.close(key);
   };
-  var btn = <Button type="primary" size="sm" onClick={btnClick}>
+  var btn = <Button type="primary" size="small" onClick={btnClick}>
     自定义关闭按钮并触发回调函数
   </Button>;
   notification.open({

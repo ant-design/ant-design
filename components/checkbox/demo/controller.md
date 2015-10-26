@@ -31,12 +31,12 @@ var App = React.createClass({
         </label>
       </p>
       <p>
-        <Button type="primary" size="sm"
+        <Button type="primary" size="small"
           onClick={this.toggleChecked}>
           {!this.state.checked ? "选中":"取消"}
         </Button>
         <Button style={{'marginLeft': '10px'}}
-          type="primary" size="sm"
+          type="primary" size="small"
           onClick={this.toggleDisable}>
           {!this.state.disabled ? "不可用":"可用"}
         </Button>

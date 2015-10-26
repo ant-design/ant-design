@@ -40,8 +40,8 @@ var Test = React.createClass({
        visible={this.state.visible}
        title="对话框标题" onOk={this.handleOk} onCancel={this.handleCancel}
         footer={[
-          <Button key="back" size="lg" onClick={this.handleCancel}>返 回</Button>,
-          <Button key="submit" type="primary" size="lg" loading={this.state.loading} onClick={this.handleOk}>
+          <Button key="back" size="large" onClick={this.handleCancel}>返 回</Button>,
+          <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>
             提 交
           </Button>
         ]}>
