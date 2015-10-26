@@ -1,7 +1,6 @@
 # 添加
 
 - order: 4
-- hidden: true
 
 演示添加删除功能。
 
@@ -22,9 +21,6 @@ var closeStyle = {
 var addStyle = {
   pointerEvents: 'auto',
   color: 'black',
-};
-var extraStyle = {
-  float: 'right'
 };
 
 var Test = React.createClass({
@@ -77,7 +73,7 @@ var Test = React.createClass({
     return <Tabs
     onChange={this.onChange}
     activeKey={this.state.activeKey}
-    tabBarExtraContent={<div style={extraStyle}><Button type="primary">其它操作</Button></div>}>
+    tabBarExtraContent={<Button type="primary">其它操作</Button>}>
     {
       this.state.tabs.map((t)=>{
         return <TabPane key={t.title} tab={<div>{t.title} <Icon type="cross" style={closeStyle} onClick={this.remove.bind(this,t.title)}></Icon></div>}>
