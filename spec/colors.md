@@ -247,17 +247,17 @@ let TintShadeTool = React.createClass({
   render() {
     return <div style={{margin: '40px 0'}}>
       <div>
-        <input className="ant-input" style={{width: 120, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
-        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
-        <span style={{margin: '0 132px 0 8px'}}>%</span>
         <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
-        <span>{this.state.result}</span>
+        <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
+        <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
+        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
+        <span style={{margin: '0 0 0 8px'}}>%</span>
       </div>
       <div style={{marginTop: 20}}>
         <span>加黑</span>
-        <div style={{width: 400, display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: -1, margin: '0 8px'}}>
+        <div style={{width: 360, display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: -1, margin: '0 8px'}}>
           <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
-          <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: 10, fontSize: 12, textAlign: 'center', left: 202}}></div>
+          <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: 10, fontSize: 12, textAlign: 'center', left: 200}}></div>
         </div>
         <span>加白</span>
       </div>
