@@ -67,6 +67,9 @@ $ npm install
 
 编辑 `index.js`，使用 Ant Design React 的组件：
 
+修改 `package.json` 的 entry 为 `"index": "./index.js"`。
+在目录下建立和编辑 `index.js`，使用 Ant Design React 的组件。
+
 ```jsx
 import React from 'react';
 import { Datepicker, message } from 'antd';
@@ -98,11 +101,7 @@ React.render(<App />, document.body);
 
 > `lib` 即构建后的 `components` 目录。
 
-然后建一个页面用于开发。
-
-```bash
-$ touch index.html
-```
+然后建一个页面 index.html 用于开发，编辑如下：
 
 编辑 `index.html` 如下：
 
@@ -152,7 +151,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   <head>
     <meta charset="utf-8">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
     <script src="https://a.alipayobjects.com/??es5-shim/4.1.10/es5-shim.min.js,es5-shim/4.1.10/es5-sham.min.js,html5shiv/3.7.2/src/html5shiv.js"></script>
     <!-- 引入 jquery 和 react -->
