@@ -2,15 +2,18 @@ require('./style/index.less');
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
-window.matchMedia = window.matchMedia || function () {
-  return {
-    matches: false,
-    addListener: function () {
-    },
-    removeListener: function () {
-    }
+if (typeof window !== 'undefined') {
+  const matchMediaPolyfill = function matchMediaPolyfill() {
+    return {
+      matches: false,
+      addListener: function () {
+      },
+      removeListener: function () {
+      }
+    };
   };
-};
+  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+}
 
 const antd = {
   Affix: require('./components/affix'),
