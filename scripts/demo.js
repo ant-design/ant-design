@@ -53,7 +53,7 @@ InstantClickChangeFns.push(function () {
 
 InstantClickChangeFns.push(function () {
   var versionsHistory = {
-    '0.9.1': '09x.ant.design'
+    '0.9.2': '09x.ant.design'
   };
   versionsHistory[antdVersion.latest] =
     versionsHistory[antdVersion.latest] || 'http://ant.design';
