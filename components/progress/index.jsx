@@ -75,6 +75,12 @@ let Line = React.createClass({
 });
 
 let Circle = React.createClass({
+  propTypes: {
+    status: React.PropTypes.oneOf(['normal', 'exception', 'success']),
+    percent: React.PropTypes.number,
+    strokeWidth: React.PropTypes.number,
+    width: React.PropTypes.number
+  },
   getDefaultProps: function () {
     return {
       width: 132,
