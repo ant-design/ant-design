@@ -600,7 +600,7 @@ let AntTable = React.createClass({
       let spinClass = `${paginationPatchClass} ant-table-spin-holder`;
 
       spinEl = <div className={spinClass}>
-          <Spin type="primary"/>
+          <Spin />
         </div>;
 
       spinWrapperClass = ' ant-table-loading';
