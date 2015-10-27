@@ -104,5 +104,5 @@ const TreeDemo = React.createClass({
   }
 })
 
-React.render(<TreeDemo />, document.getElementById('components-tree-demo-dynamic'));
+ReactDOM.render(<TreeDemo />, document.getElementById('components-tree-demo-dynamic'));
 ````
