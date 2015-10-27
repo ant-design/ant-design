@@ -4,20 +4,18 @@ import { classSet } from 'rc-util';
 let AntSpin = React.createClass({
   getDefaultProps() {
     return {
-      size: 'default',
-      type: 'default'
+      size: 'default'
     };
   },
 
   propTypes: {
     className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
-    type: React.PropTypes.oneOf(['default', 'primary'])
+    size: React.PropTypes.oneOf(['small', 'default', 'large'])
   },
 
   render() {
     const prefix = 'ant-spin';
-    const {type, size, className, ...others} = this.props;
+    const {size, className, ...others} = this.props;
     const sizeCls = ({
       'large': 'lg',
       'small': 'sm'
@@ -25,7 +23,6 @@ let AntSpin = React.createClass({
 
     let componentClassName = classSet({
       'ant-spin': true,
-      [`${prefix}-${type}`]: type,
       [`${prefix}-${sizeCls}`]: sizeCls,
       [className]: !!className
     });

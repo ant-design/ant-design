@@ -23,10 +23,7 @@ var divStyle = {
 ReactDOM.render(
   <div>
     <div style={ divStyle }>
-      <Spin />
-    </div>
-    <div style={ divStyle }>
-      <Spin type="primary" />
+      <Spin size="small" />
     </div>
   </div>, container);
 

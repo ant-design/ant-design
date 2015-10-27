@@ -19,7 +19,7 @@ var pageStyle = {
 
 ReactDOM.render(
   <div style={ pageStyle }>
-    <Spin size="large" type="primary" />
+    <Spin size="large" />
   </div>, container);
 
 ````

@@ -8,20 +8,20 @@
 .@{spin-prefix-cls} {
   display: inline-block;
   font-size: @spin-dot-size;
-  height: @spin-dot-size;
   position: relative;
   text-align: center;
   vertical-align: middle;
 
   // dots
   // ------------------------------
-  
+
   &-dot {
     .animation(antSpinPulse 1s infinite ease-in-out);
     .square(1em);
     border-radius: 50%;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: middle;
+    background-color: @primary-color;
   }
   &-dot-second {
     .animation-delay(200ms);
@@ -32,28 +32,17 @@
     margin-left: 1em;
   }
 
-  // Types
-  // ------------------------------
-
-  // default
-  &-default > &-dot { background-color: @spin-dot-default; }
-
-  // primary
-  &-primary > &-dot { background-color: @primary-color; }
-
   // Sizes
   // ------------------------------
 
   // small
   &-sm {
     font-size: @spin-dot-size-sm;
-    height: @spin-dot-size-sm;
   }
 
   // large
   &-lg {
     font-size: @spin-dot-size-lg;
-    height: @spin-dot-size-lg;
   }
 }
 
