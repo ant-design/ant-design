@@ -15,6 +15,6 @@
 ## API
 
 | 参数       | 类型            | 默认值       |说明           |
-|------------|----------------|-------------|--------------|
-| size        | enum			| sm				| spin组件中点的大小，可选值为sm md lg
-| type        | enum			| default           | spin组件中点的而色值，可选值为default primary inverted
+|-----------|----------------|-------------|--------------|
+| size        | enum      | default       | spin组件中点的大小，可选值为large default small
+| type        | enum      | default       | spin组件中点的而色值，可选值为default primary

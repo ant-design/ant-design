@@ -4,32 +4,37 @@ import { classSet } from 'rc-util';
 let AntSpin = React.createClass({
   getDefaultProps() {
     return {
-      size: 'sm',
+      size: 'default',
       type: 'default'
     };
   },
 
   propTypes: {
     className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['sm', 'md', 'lg']),
-    type: React.PropTypes.oneOf(['default', 'primary', 'inverted'])
+    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+    type: React.PropTypes.oneOf(['default', 'primary'])
   },
 
   render() {
-    const props = this.props;
+    const prefix = 'ant-spin';
+    const {type, size, className, ...others} = this.props;
+    const sizeCls = ({
+      'large': 'lg',
+      'small': 'sm'
+    })[size] || '';
 
-    let className = classSet({
-      spin: 1,
-      [`spin-${props.type}`]: 1,
-      [`spin-${props.size}`]: 1,
-      [props.className]: !!props.className
+    let componentClassName = classSet({
+      'ant-spin': true,
+      [`${prefix}-${type}`]: type,
+      [`${prefix}-${sizeCls}`]: sizeCls,
+      [className]: !!className
     });
 
     return (
-      <div {...this.props} className={ className }>
-        <span className="spin-dot spin-dot-first" />
-        <span className="spin-dot spin-dot-second" />
-        <span className="spin-dot spin-dot-third" />
+      <div {...this.props} className={ componentClassName }>
+        <span className="ant-spin-dot ant-spin-dot-first" />
+        <span className="ant-spin-dot ant-spin-dot-second" />
+        <span className="ant-spin-dot ant-spin-dot-third" />
       </div>
     );
   }
