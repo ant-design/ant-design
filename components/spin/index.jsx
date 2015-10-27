@@ -17,7 +17,7 @@ let AntSpin = React.createClass({
 
   render() {
     const props = this.props;
-    
+
     let className = classSet({
       spin: 1,
       [`spin-${props.type}`]: 1,
