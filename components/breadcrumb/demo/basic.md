@@ -9,7 +9,7 @@
 ````jsx
 var Breadcrumb = require('antd/lib/breadcrumb');
 
-React.render(
+ReactDOM.render(
   <Breadcrumb>
     <Breadcrumb.Item>首页</Breadcrumb.Item>
     <Breadcrumb.Item href="">应用中心</Breadcrumb.Item>

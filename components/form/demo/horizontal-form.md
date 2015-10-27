@@ -16,8 +16,9 @@
 var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
+var Button = antd.Button;
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item ant-form-item-compact">
     <label htmlFor="userName" className="col-6" required>用户名：</label>
@@ -56,7 +57,7 @@ React.render(
   </div>
   <div className="row">
     <div className="col-16 col-offset-6">
-      <input type="submit" className="ant-btn ant-btn-primary" value="确 定" />
+      <Button type="primary">确定</Button>
     </div>
   </div>
 </form>

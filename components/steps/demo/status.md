@@ -33,5 +33,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps>{steps}</Steps>, container);
+ReactDOM.render(<Steps>{steps}</Steps>, container);
 ````

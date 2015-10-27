@@ -1,6 +1,6 @@
 # 范围
 
-- order: 3
+- order: 6
 
 设置 `disabledDate` 方法，来确定不可选时段。
 
@@ -15,7 +15,7 @@ var disabledDate = function(current, value) {
   return current.getTime() > Date.now();
 };
 
-React.render(
+ReactDOM.render(
   <Datepicker disabledDate={disabledDate} />
 , document.getElementById('components-datepicker-demo-range'));
 ````

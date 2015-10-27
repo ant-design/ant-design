@@ -1,6 +1,6 @@
 # 小型列表
 
-- order: 6
+- order: 9
 
 `size="small"`, 用在对话框等空间较小的地方。
 
@@ -35,6 +35,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} size="small" />
+ReactDOM.render(<Table columns={columns} dataSource={data} size="small" />
 , document.getElementById('components-table-demo-small'));
 ````

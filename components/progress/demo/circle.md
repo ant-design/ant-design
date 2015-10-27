@@ -9,11 +9,11 @@
 ````jsx
 var ProgressCircle = antd.Progress.Circle;
 
-React.render(
+ReactDOM.render(
   <div>
-    <ProgressCircle percent="30" />
-    <ProgressCircle percent="70" status="exception" />
-    <ProgressCircle percent="100" />
+    <ProgressCircle percent={30} />
+    <ProgressCircle percent={70} status="exception" />
+    <ProgressCircle percent={100} />
   </div>
   , document.getElementById('components-progress-demo-circle'));
 ````

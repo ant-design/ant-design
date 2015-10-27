@@ -8,6 +8,7 @@ Radio 不可用。
 
 ````jsx
 var Radio = antd.Radio;
+var Button = antd.Button;
 
 function toggleDisabled() {
   disabled = !disabled;
@@ -30,13 +31,13 @@ var App = React.createClass({
       <br />
       <Radio defaultChecked={true} disabled={this.state.disabled}>不可用</Radio>
       <div style={{marginTop: 20}}>
-        <button className="ant-btn ant-btn-primary" onClick={this.toggleDisabled}>
+        <Button type="primary" onClick={this.toggleDisabled}>
           Toggle disabled
-        </button>
+        </Button>
       </div>
     </div>;
   }
 });
 
-React.render(<App />, document.getElementById('components-radio-demo-disable'));
+ReactDOM.render(<App />, document.getElementById('components-radio-demo-disable'));
 ````

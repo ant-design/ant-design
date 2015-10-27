@@ -1,6 +1,6 @@
 # 可展开
 
-- order: 9
+- order: 12
 
 当表格内容较多不能一次性完全展示时。
 
@@ -30,7 +30,7 @@ var data = [
   {name: '李大嘴', age: 32, address: '西湖区湖底公园3号', description: '我是李大嘴，今年32岁，住在西湖区湖底公园3号。'}
 ];
 
-React.render(
+ReactDOM.render(
 <Table columns={columns}
   expandedRowRender={expandedRowRender}
   dataSource={data}

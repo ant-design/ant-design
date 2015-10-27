@@ -26,7 +26,7 @@ let AntSpin = React.createClass({
     });
 
     return (
-      <div className={ className }>
+      <div {...this.props} className={ className }>
         <span className="spin-dot spin-dot-first" />
         <span className="spin-dot spin-dot-second" />
         <span className="spin-dot spin-dot-third" />

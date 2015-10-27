@@ -32,7 +32,7 @@ $ npm install antd@beta --save
 我们提供了开发构建的命令行工具，可以安装到全局直接使用。
 
 ```bash
-$ npm install antd-bin -g
+$ npm install antd-bin@0.6.x -g
 ```
 
 或者安装到仓库下，使用 `package.json` 的 `scripts` 字段来配置命令：

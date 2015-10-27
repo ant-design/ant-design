@@ -12,7 +12,7 @@
       </a>
       {%- endif %}
     </h1>
-    {{ post.html }}
+    {{ post.html|add_anchor }}
   </article>
   {%- if post.meta.template === 'component' %}
   {%- include "demos.html" %}

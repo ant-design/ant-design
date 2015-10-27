@@ -8,6 +8,8 @@
 
 ````jsx
 var Table = antd.Table;
+var Icon = antd.Icon;
+
 var columns = [{
   title: '姓名',
   dataIndex: 'name',
@@ -30,7 +32,7 @@ var columns = [{
       <a href="javascript:;">操作二</a>
       <span className="ant-divider"></span>
       <a href="javascript:;" className="ant-dropdown-link">
-        更多 <i className="anticon anticon-down"></i>
+        更多 <Icon type="down" />
       </a>
     </span>;
   }
@@ -52,6 +54,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} />
+ReactDOM.render(<Table columns={columns} dataSource={data} />
 , document.getElementById('components-table-demo-basic'));
 ````

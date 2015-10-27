@@ -9,6 +9,8 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Button = antd.Button;
+var Icon = antd.Icon;
 
 var menu = <Menu>
   <Menu.Item key="0">
@@ -21,16 +23,16 @@ var menu = <Menu>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
 </Menu>;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Dropdown overlay={menu} trigger="click">
-    <button className="ant-btn ant-btn-primary ant-btn-menu">
-      点击触发 <i className="anticon anticon-down"></i>
-    </button>
+    <Button type="primary">
+      点击触发 <Icon type="down" />
+    </Button>
   </Dropdown>
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-menu">
-      鼠标移入 <i className="anticon anticon-down"></i>
-    </button>
+    <Button>
+      鼠标移入 <Icon type="down" />
+    </Button>
   </Dropdown>
 </div>, document.getElementById('components-dropdown-demo-trigger'));
 ````

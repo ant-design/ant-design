@@ -1,5 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Dialog from './index';
+import Icon from '../iconfont';
+import {Button} from '../button';
 
 export default function (props) {
   let div = document.createElement('div');
@@ -7,7 +10,9 @@ export default function (props) {
 
   let d;
   props = props || {};
-  props.iconClassName = props.iconClassName || 'anticon-question-circle';
+  props.iconClassName = props.iconClassName || 'question-circle';
+  let iconClassType = props.iconClassName;
+
   let width = props.width || 416;
 
   // 默认为 true，保持向下兼容
@@ -19,7 +24,7 @@ export default function (props) {
     d.setState({
       visible: false
     });
-    React.unmountComponentAtNode(div);
+    ReactDOM.unmountComponentAtNode(div);
   }
 
   function onCancel() {
@@ -63,27 +68,27 @@ export default function (props) {
   }
 
   let body = <div className="ant-confirm-body">
-    <i className={'anticon ' + props.iconClassName}></i>
+    <Icon type={iconClassType} />
     <span className="ant-confirm-title">{props.title}</span>
     <div className="ant-confirm-content">{props.content}</div>
   </div>;
   let footer = <div className="ant-confirm-btns">
-    <button type="button" className="ant-btn-default ant-btn ant-btn-lg" onClick={onCancel}>取 消</button>
-    <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
+    <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
+    <Button type="primary" size="large" onClick={onOk}>确 定</Button>
   </div>;
 
   if (props.okCancel) {
     footer = <div className="ant-confirm-btns">
-      <button type="button" className="ant-btn-default ant-btn ant-btn-lg" onClick={onCancel}>取 消</button>
-      <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>确 定</button>
+      <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
+      <Button type="primary" size="large" onClick={onOk}>确 定</Button>
     </div>;
   } else {
     footer = <div className="ant-confirm-btns">
-      <button type="button" className="ant-btn-primary ant-btn ant-btn-lg" onClick={onOk}>知道了</button>
+      <Button type="primary" size="large" onClick={onOk}>知道了</Button>
     </div>;
   }
 
-  React.render(<Dialog
+  ReactDOM.render(<Dialog
     prefixCls="ant-modal"
     className="ant-confirm"
     visible={true}

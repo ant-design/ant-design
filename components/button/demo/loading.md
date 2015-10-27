@@ -1,12 +1,14 @@
 # 加载中
 
-- order: 7
+- order: 4
 
-加载按钮。最后一个按钮演示点击后进入加载状态。
+添加 `loading` 属性即可让按钮处于加载状态，最后一个按钮演示点击后进入加载状态。
 
 ---
 
 ````jsx
+var Button = antd.Button;
+
 var App = React.createClass({
   getInitialState() {
     return {
@@ -19,26 +21,25 @@ var App = React.createClass({
     });
   },
   render() {
-    var loadingClass = this.state.loading ? 'ant-btn-loading' : '';
     return <div>
-      <button className="ant-btn ant-btn-primary ant-btn-lg ant-btn-loading">
+      <Button type="primary" size="large" loading>
         加载中
-      </button>
-      <button className="ant-btn ant-btn-primary ant-btn-loading">
+      </Button>
+      <Button type="primary" loading="true">
         加载中
-      </button>
-      <button className="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading">
+      </Button>
+      <Button type="primary" size="small" loading>
         加载中
-      </button>
+      </Button>
       <br />
-      <button className={'ant-btn ant-btn-primary ' + loadingClass} onClick={this.enterLoading}>
+      <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
         点击变加载
-      </button>
+      </Button>
     </div>;
   }
 });
 
-React.render(<App />, document.getElementById('components-button-demo-loading'));
+ReactDOM.render(<App />, document.getElementById('components-button-demo-loading'));
 ````
 
 <style>

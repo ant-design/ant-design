@@ -8,6 +8,7 @@
 
 ````jsx
 var notification = antd.Notification;
+var Button = antd.Button;
 
 var openNotificationWithIcon = function(type) {
   return function(){
@@ -18,11 +19,11 @@ var openNotificationWithIcon = function(type) {
   };
 };
 
-React.render(<div>
-  <button className="ant-btn" onClick={openNotificationWithIcon('success')}>成功</button>
-  <button className="ant-btn" onClick={openNotificationWithIcon('info')}>消息</button>
-  <button className="ant-btn" onClick={openNotificationWithIcon('warn')}>警告</button>
-  <button className="ant-btn" onClick={openNotificationWithIcon('error')}>错误</button>
+ReactDOM.render(<div>
+  <Button onClick={openNotificationWithIcon('success')}>成功</Button>
+  <Button onClick={openNotificationWithIcon('info')}>消息</Button>
+  <Button onClick={openNotificationWithIcon('warn')}>警告</Button>
+  <Button onClick={openNotificationWithIcon('error')}>错误</Button>
   </div>
 , document.getElementById('components-notification-demo-with-icon'));
 ````

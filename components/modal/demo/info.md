@@ -8,13 +8,9 @@
 
 ````jsx
 var Modal = antd.Modal;
+var Button = antd.Button;
 
 function info() {
-  Modal.info({
-    title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息',
-    onOk: function() {}
-  });
   Modal.info({
     title: '这是一条通知信息',
     content: '一些附加信息一些附加信息一些附加信息',
@@ -36,10 +32,10 @@ function error() {
   });
 }
 
-React.render(<div>
-  <button className="ant-btn" onClick={info}>信息提示</button>
-  <button className="ant-btn" onClick={success}>成功提示</button>
-  <button className="ant-btn" onClick={error}>失败提示</button>
+ReactDOM.render(<div>
+  <Button onClick={info}>信息提示</Button>
+  <Button onClick={success}>成功提示</Button>
+  <Button onClick={error}>失败提示</Button>
 </div>, document.getElementById('components-modal-demo-info'));
 ````
 

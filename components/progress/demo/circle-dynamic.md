@@ -8,6 +8,9 @@
 
 ````jsx
 var ProgressCircle = antd.Progress.Circle;
+var Button = antd.Button;
+var ButtonGroup = antd.ButtonGroup;
+var Icon = antd.Icon;
 
 var MyProgress = React.createClass({
   getInitialState() {
@@ -32,18 +35,18 @@ var MyProgress = React.createClass({
   render() {
     return <div>
       <ProgressCircle percent={this.state.percent} />
-      <div className="ant-btn-group">
-        <button className="ant-btn ant-btn-ghost" onClick={this.decline}>
-          <i className="anticon anticon-minus"></i>
-        </button>
-        <button className="ant-btn ant-btn-ghost" onClick={this.increase}>
-          <i className="anticon anticon-plus"></i>
-        </button>
-      </div>
+      <ButtonGroup>
+        <Button type="ghost" onClick={this.decline}>
+          <Icon type="minus" />
+        </Button>
+        <Button type="ghost" onClick={this.increase}>
+          <Icon type="plus" />
+        </Button>
+      </ButtonGroup>
     </div>;
   }
 });
 
-React.render(<MyProgress />, document.getElementById('components-progress-demo-circle-dynamic'));
+ReactDOM.render(<MyProgress />, document.getElementById('components-progress-demo-circle-dynamic'));
 ````
 

@@ -19,7 +19,7 @@ function handleSelectChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
 <form className="ant-form-horizontal">
   <div className="ant-form-item">
     <label htmlFor="control-input" className="col-6">输入框：</label>

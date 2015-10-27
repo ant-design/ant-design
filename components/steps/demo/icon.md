@@ -11,7 +11,7 @@ var Steps = antd.Steps;
 var Step = Steps.Step;
 var container = document.getElementById('components-steps-demo-icon');
 
-React.render(<Steps>
+ReactDOM.render(<Steps>
   <Step status='finish' title='步骤1' icon='cloud' />
   <Step status='process' title='步骤2' icon='apple' />
   <Step status='wait' title='步骤3' icon='github' />

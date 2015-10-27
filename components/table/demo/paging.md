@@ -1,6 +1,6 @@
 # 分页
 
-- order: 2
+- order: 5
 
 数据项较多时显示分页。
 
@@ -39,6 +39,6 @@ var pagination = {
   showSizeChanger: true
 };
 
-React.render(<Table columns={columns} dataSource={data} pagination={pagination} />
+ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />
 , document.getElementById('components-table-demo-paging'));
 ````

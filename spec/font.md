@@ -173,8 +173,6 @@ font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Mi
 .font-title {
   font-size: 14px;
   width: 100px;
-  text-align: right;
-  margin-right: 30px;
 }
 .font-text {
   width: 300px;

@@ -1,6 +1,6 @@
 # 动态加载数据
 
-- order: 4
+- order: 7
 
 远程读取的表格是**更为常见的模式**，下面的表格使用了 `dataSource` 对象和远程数据源绑定和适配，并具有筛选、排序等功能以及页面 loading 效果。
 
@@ -10,6 +10,7 @@
 
 ````jsx
 var Table = antd.Table;
+var Button = antd.Button;
 
 var columns = [{
   title: '姓名',
@@ -85,16 +86,16 @@ var Test = React.createClass({
   render() {
     return <div>
       <Table columns={columns} dataSource={this.state.dataSource} />
-      <button className="ant-btn ant-btn-primary" onClick={this.refresh}>
+      <Button type="primary" onClick={this.refresh}>
         重新加载数据
-      </button>
+      </Button>
       &nbsp;
-      <button className="ant-btn" onClick={this.changeAndRefresh}>
+      <Button onClick={this.changeAndRefresh}>
         加载 city=hz 的数据
-      </button>
+      </Button>
     </div>;
   }
 });
 
-React.render(<Test />, document.getElementById('components-table-demo-ajax'));
+ReactDOM.render(<Test />, document.getElementById('components-table-demo-ajax'));
 ````

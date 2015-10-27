@@ -1,8 +1,7 @@
-# EnterAnimation
+# QueueAnim
 
 - category: Components
-- chinese: 进场动画
-
+- chinese: 进出场动画
 
 ---
 
@@ -14,86 +13,37 @@
 
 - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
 
+- 特别适合首页和需要视觉展示效果的宣传页，以及单页应用的切换页面动效。
+
 
 ## API
 
 元素依次进场。
 
 ```html
-<EnterAnimation>
-  <div key='demo'>
-    <div>依次进场</div>
-    <div>依次进场</div>
-    <div>依次进场</div>
-    <div>依次进场</div>
-  </div>
-</EnterAnimation>
+<QueueAnim>
+  <div key='demo1'>依次进场</div>
+  <div key='demo2'>依次进场</div>
+  <div key='demo3'>依次进场</div>
+  <div key='demo4'>依次进场</div>
+</QueueAnim>
 ```
 
-如子节点有 `enter-data` 值，则只执行有 `enter-data` 的节点的动画，相反所有子节点上都没有 `enter-data` 值，则执行遍历 dom 下一级节点来执行动画。
+> 每个子标签必须带 key，如果未设置 key 将不执行动画。
 
-```html
-<EnterAnimation enter={type:'left',delay:2}>
-  <div key='demo'>
-    <div>
-      <div enter-data>
-        依次进场
-      </div>
-    </div>
-    <div enter-data>依次进场</div>
-    <div enter-data={{type: 'bottom'}}>依次进场，并修改动画效果</div>
-    <div>没有动画</div>
-  </div>
-</EnterAnimation>
-```
+|参数        |类型             |默认     |详细             |
+|------------|----------------|---------|----------------|
+| type       | string / array | `right` | 动画内置参数 <br/> `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`|
+| animConfig | object / array | null    | 配置动画参数 <br/> 如 `{opacity:[1, 0],translateY:[0, -30]}` 具体参考 [velocity](http://julian.com/research/velocity) 的写法|
+| delay      | number / array | 0       | 整个动画的延时,以毫秒为单位 |
+| duration   | number / array | 500     | 每个动画的时间,以毫秒为单位  |
+| interval   | number / array | 100     | 每个动画的间隔时间,以毫秒为单位  |
+| leaveReverse | boolean      | false   | 出场时是否倒放,从最后一个 dom 开始往上播放 |
+| ease       | string / array | `easeOutQuart` | 动画的缓动函数,[查看详细](http://julian.com/research/velocity/#easing) |
+| animatingClassName | array | `['queue-anim-entering', 'queue-anim-leaving']` | 进出场动画进行中的类名 |
+| component  | string | `div` | QueueAnim 替换的标签名 |
 
-### <EnterAnimation />
-
-|参数             |类型    |默认值        |详细                                                 |
-|-----------------|-------|-------------|----------------------------------------------------|
-|enter|object| `{type:'right'}` |管理进场数据|
-|leave|object| null |管理当前元素出场的数据, null 时继承 enter 里的所有标签的值 |
-|component|string| `div` | EnterAnimation 替换的标签名|
-
-### enter = {} | leave = {}
-
-|参数             |类型    |默认值        |详细                                                 |
-|-----------------|-------|-------------|----------------------------------------------------|
-|type             |string |`right`  |内置动画样式：<br/> `alpha` `left` `right` `top` `bottom` `scale` `scaleBig` `scaleX` `scaleY`  |
-|style           |object / string |null   |同上， style 的样式动画, `type` 有值，此项无效。<br/>如 `{transform:'translateX(100px)'}` 或 `'transform: translateX(100px)'`|
-|duration         |number |0.5    |每个动画的时间,以秒为单位|
-|ease             |string|`cubic-bezier(0.165, 0.84, 0.44, 1);`|样式缓动,只支持 css 样式缓动;|
-|delay            |number |0      |整个区块的延时，以秒为单位|
-|reverse          |boolean|false  |是否倒放,从最后一个 dom 开始往上播放|
-|interval         |number |0.1    |递增延时值，以秒为单位|
-|callback         |function|null  |动画结束回调|
-
-### 一级标签key：
-
-|参数             |类型    |详细                                                 |
-|-----------------|-------|----------------------------------------------------|
-|key|string|必需，控制进出场；|
-
-### 子标签
-
-|参数             |类型    |默认值      |详细                                                 |
-|-----------------|-------|-----------|----------------------------------------------------|
-|enter-data       |object | `{type:'right'}`     |子标签进场参数|
-|leave-data       |object | `enter-data` |子标签出场参数|
-
-
-#### enter-data = {}  | leave-data = {}
-
-|参数              |类型            |默认值           |详细                                                 |
-|-----------------|-----------------|----------------|----------------------------------------------------|
-|type             |string          |`right`           |同标签里的 `type`,覆盖标签里的值|
-|style            |object / string          |null            |同标签里的 `style`,覆盖标签里的值|
-|duration         |number          |0.5             |同标签里的 `duration`,覆盖标签里的值|
-|ease             |string          |`cubic-bezier(0.165, 0.84, 0.44, 1)`|同标签里的 `ease`,覆盖标签里的值|
-|delay            |number          |0               |当前动画的延时，依照结构递增以上的 `interval`|
-|queueId          |number          |0               |动画的线程|
-
-> 由于使用了 CSS3 动画，所以 `IE9` 及更早的版本将没有进场效果。
+> 当以上数据类型为 Array 时，`['left', 'top']` 第一个为进场动画属性, 第二个为离场属性。
 
 <style>
 .code-box-demo .demo-header {

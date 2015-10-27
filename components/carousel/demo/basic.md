@@ -9,7 +9,7 @@
 ````jsx
 var Carousel = antd.Carousel;
 
-React.render(
+ReactDOM.render(
   <Carousel>
     <div><h3>1</h3></div>
     <div><h3>2</h3></div>

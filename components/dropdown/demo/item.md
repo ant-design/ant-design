@@ -9,6 +9,8 @@
 ````jsx
 var Menu = antd.Menu;
 var Dropdown = antd.Dropdown;
+var Button = antd.Button;
+var Icon = antd.Icon;
 
 var menu = <Menu>
   <Menu.Item key="0">
@@ -21,11 +23,11 @@ var menu = <Menu>
   <Menu.Item key="3" disabled>第三个菜单项（不可用）</Menu.Item>
 </Menu>;
 
-React.render(
+ReactDOM.render(
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-menu">
-      鼠标移入 <i className="anticon anticon-down"></i>
-    </button>
+    <Button>
+      鼠标移入 <Icon type="down" />
+    </Button>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-item'));
 ````

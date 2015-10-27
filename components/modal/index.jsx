@@ -2,6 +2,7 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
 import confirm from './confirm';
+import { Button } from '../button';
 
 function noop() {
 }
@@ -49,7 +50,7 @@ let AntModal = React.createClass({
       }
     }
     if ('confirmLoading' in nextProps) {
-      newState.confirmLoading = nextProps.confirmLoading;
+      newState.confirmLoading = !!nextProps.confirmLoading;
     }
     this.setState(newState);
   },
@@ -73,16 +74,21 @@ let AntModal = React.createClass({
   },
 
   render() {
-    let loadingClass = this.state.confirmLoading ? ' ant-btn-loading' : '';
     let props = this.props;
     let defaultFooter = [
-      <button key="cancel" type="button" className="ant-btn ant-btn-lg" onClick={this.handleCancel}>取 消</button>,
-      <button key="confirm"
-        type="button"
-        className={'ant-btn ant-btn-primary ant-btn-lg' + loadingClass}
+      <Button key="cancel"
+        type="ghost"
+        size="large"
+        onClick={this.handleCancel}>
+        取消
+      </Button>,
+      <Button key="confirm"
+        type="primary"
+        size="large"
+        loading={this.state.confirmLoading}
         onClick={this.handleOk}>
-        确 定
-      </button>
+        确定
+      </Button>
     ];
     let footer = props.footer || defaultFooter;
     let visible = this.state.visible;
@@ -92,19 +98,19 @@ let AntModal = React.createClass({
 });
 
 AntModal.info = function (props) {
-  props.iconClassName = 'anticon-info-circle';
+  props.iconClassName = 'info-circle';
   props.okCancel = false;
   return confirm(props);
 };
 
 AntModal.success = function (props) {
-  props.iconClassName = 'anticon-check-circle';
+  props.iconClassName = 'check-circle';
   props.okCancel = false;
   return confirm(props);
 };
 
 AntModal.error = function (props) {
-  props.iconClassName = 'anticon-exclamation-circle';
+  props.iconClassName = 'exclamation-circle';
   props.okCancel = false;
   return confirm(props);
 };

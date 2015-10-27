@@ -8,11 +8,12 @@
 
 ````jsx
 var Switch = antd.Switch;
+var Icon = antd.Icon;
 var container = document.getElementById('components-switch-demo-text');
 
-React.render(<div>
+ReactDOM.render(<div>
   <Switch checkedChildren="开" unCheckedChildren="关" />
   <span> </span>
-  <Switch checkedChildren={<i className="anticon anticon-check"></i>} unCheckedChildren={<i className="anticon anticon-cross"></i>} />
+  <Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="cross" />} />
 </div>, container);
 ````

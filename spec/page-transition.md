@@ -62,4 +62,4 @@
 
 </div>
 
-> 参考我们的进场组件案例。查看[进场动画组件](/components/enter-animation/)
+> 参考我们的进场组件案例。查看[进场动画组件(QueueAnim)](/components/queue-anim/)

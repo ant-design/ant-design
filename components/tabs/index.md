@@ -24,7 +24,7 @@
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | String   | 第一个面板                      |
 | onChange         | 切换面板的回调                               | Function | 无                              |
 | onTabClick       | tab 被点击的回调                             | Function | 无                              |
-
+| tabBarExtraContent | tab bar 上格外的元素                   | React Node | 无                              |
 
 ### Tabs.TabPane
 
