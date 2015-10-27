@@ -22,7 +22,6 @@ var App = React.createClass({
   handleOk() {
     console.log('点击了确定');
     this.setState({
-      confirmLoading: false,
       visible: false
     });
   },
@@ -35,7 +34,7 @@ var App = React.createClass({
     return <div>
       <Button type="primary" onClick={this.showModal}>显示对话框</Button>
       <Modal title="第一个 Modal" visible={this.state.visible}
-        confirmLoading={this.state.confirmLoading} onOk={this.handleOk} onCancel={this.handleCancel}>
+        onOk={this.handleOk} onCancel={this.handleCancel}>
         <p>对话框的内容</p>
         <p>对话框的内容</p>
         <p>对话框的内容</p>
