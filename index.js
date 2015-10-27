@@ -44,7 +44,8 @@ const antd = {
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
   Timeline: require('./components/timeline'),
-  Icon: require('./components/iconfont')
+  Icon: require('./components/iconfont'),
+  Spin: require('./components/spin')
 };
 
 // deprecate antd.confirm

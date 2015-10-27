@@ -1,0 +1,70 @@
+@import "../mixins/index";
+
+// root of component
+// ------------------------------
+
+.spin {
+	display: inline-block;
+	font-size: @spin-dot-size;
+	height: @spin-dot-size;
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+}
+
+// dots
+// ------------------------------
+
+.spin-dot {
+	.animation(pulse 1s infinite ease-in-out);
+	.square(1em);
+	border-radius: 50%;
+	display: inline-block;
+	vertical-align: top;
+}
+&.spin-dot-second {
+	.animation-delay(200ms);
+	margin-left: 1em;
+}
+&.spin-dot-third {
+	.animation-delay(400ms);
+	margin-left: 1em;
+}
+
+// Types
+// ------------------------------
+
+// default
+.spin-default > .spin-dot { background-color: @spin-dot-default; }
+
+// primary
+.spin-primary > .spin-dot { background-color: @spin-dot-primary; }
+
+// inverted
+.spin-inverted > .spin-dot { background-color: @spin-dot-inverted; }
+
+
+// Sizes
+// ------------------------------
+
+// small
+.spin-sm {
+	font-size: @spin-dot-size-sm;
+	height: @spin-dot-size-sm;
+}
+
+// large
+.spin-lg {
+	font-size: @spin-dot-size-lg;
+	height: @spin-dot-size-lg;
+}
+
+// pulse
+@-webkit-keyframes pulse {
+	0%, 80%, 100% { opacity: 0; }
+	40% { opacity: 1; }
+}
+@keyframes pulse {
+	0%, 80%, 100% { opacity: 0; }
+	40% { opacity: 1; }
+}
