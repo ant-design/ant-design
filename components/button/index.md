@@ -24,7 +24,7 @@
 type | 设置按钮类型，可选值为 `primary` `ghost` 或者不设 | Enum | undefined
 htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 HTML标准 | Enum | `button`
 shape | 设置按钮形状，可选值为 `circle` `circle-outline` 或者不设 | Enum | undefined
-size | 设置按钮大小，可选值为 `sm` `lg` 或者不设 | Enum | undefined
+size | 设置按钮大小，可选值为 `small` `large` 或者不设 | Enum | undefined
 loading | 设置按钮载入状态，存在为 `true`，不存在为 `false`，或直接设置值，如：`loading="true"` | Bool | false
 onClick | `click` 事件的 handler | Function | `function() {}`
 

@@ -9,7 +9,7 @@
 ````jsx
 var Datepicker = antd.Datepicker;
 
-React.render(
-  <Datepicker value="2015-06-06" disabled={true} />
+ReactDOM.render(
+  <Datepicker defaultValue="2015-06-06" disabled={true} />
 , document.getElementById('components-datepicker-demo-disabled'));
 ````

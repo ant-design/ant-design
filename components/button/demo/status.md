@@ -9,7 +9,7 @@
 ````jsx
 var Button = antd.Button;
 
-React.render(<div>
+ReactDOM.render(<div>
   <h4>使用 `disabled` 属性</h4>
   <Button type="primary">主按钮</Button>
   <Button type="primary" disabled>主按钮(失效)</Button>

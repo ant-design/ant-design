@@ -18,6 +18,8 @@ var Option = Select.Option;
 var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
 var Button = antd.Button;
+var Datepicker = antd.Datepicker;
+var InputNumber = antd.InputNumber;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -45,7 +47,9 @@ var Form = React.createClass({
         radio: {},
         passwd: {},
         rePasswd: {},
-        textarea: {}
+        textarea: {},
+        birthday: {},
+        primeNumber: {}
       },
       formData: {
         email: undefined,
@@ -54,7 +58,9 @@ var Form = React.createClass({
         radio: undefined,
         passwd: undefined,
         rePasswd: undefined,
-        textarea: undefined
+        textarea: undefined,
+        birthday: undefined,
+        primeNumber: 9
       },
       isEmailOver: false, // email 是否输入完毕
       emailValidateMethod: 'onBlur' // 用于改变 email 的验证方法
@@ -137,6 +143,22 @@ var Form = React.createClass({
   checkPass2(rule, value, callback) {
     if (value && value !== this.state.formData.passwd) {
       callback('两次输入密码不一致！');
+    } else {
+      callback();
+    }
+  },
+
+  checkBirthday(rule, value, callback) {
+    if (value && value.getTime() >= Date.now()){
+      callback(new Error('你不可能在未来出生吧!'));
+    } else {
+      callback();
+    }
+  },
+
+  checkPrime(rule, value, callback) {
+    if (value !== 11) {
+      callback(new Error('8~12之间的质数明明是11啊!'));
     } else {
       callback();
     }
@@ -236,6 +258,34 @@ var Form = React.createClass({
           </div>
 
           <div className="ant-form-item">
+            <label className="col-7" htmlFor="birthday" required>生日：</label>
+            <div className="col-12">
+              <div className={this.renderValidateStyle('birthday', false)}>
+                <Validator rules={[{
+                  required: true,
+                  type: 'date',
+                  message: '你的生日是什么呢?'
+                }, {validator: this.checkBirthday}]}>
+                  <Datepicker name="birthday" value={formData.birthday}></Datepicker>
+                </Validator>
+                {status.birthday.errors ? <div className="ant-form-explain"> {status.birthday.errors.join(', ')}</div> : null}
+              </div>
+            </div>
+          </div>
+
+          <div className="ant-form-item">
+            <label className="col-7" htmlFor="birthday" required>8~12间的质数：</label>
+            <div className="col-12">
+              <div className={this.renderValidateStyle('primeNumber', false)}>
+                <Validator rules={[{validator: this.checkPrime}]}>
+                  <InputNumber name="primeNumber" min={8} max={12} value={formData.primeNumber}/>
+                </Validator>
+                {status.primeNumber.errors ? <div className="ant-form-explain"> {status.primeNumber.errors.join(', ')}</div> : null}
+              </div>
+            </div>
+          </div>
+
+          <div className="ant-form-item">
             <label className="col-7" htmlFor="remark" required>备注：</label>
             <div className="col-12">
               <div className={this.renderValidateStyle('textarea', false)}>
@@ -252,7 +302,7 @@ var Form = React.createClass({
             <div className="col-offset-7 col-12">
               <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
             &nbsp;&nbsp;&nbsp;
-              <Button onClick={this.handleReset}>重 置</Button>
+              <Button type="ghost" onClick={this.handleReset}>重 置</Button>
             </div>
           </div>
         </Validation>
@@ -261,5 +311,5 @@ var Form = React.createClass({
   }
 });
 
-React.render(<Form />, document.getElementById('components-validation-demo-basic'));
+ReactDOM.render(<Form />, document.getElementById('components-validation-demo-basic'));
 ````

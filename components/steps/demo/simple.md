@@ -29,5 +29,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps current={1}>{steps}</Steps>, container);
+ReactDOM.render(<Steps current={1}>{steps}</Steps>, container);
 ````

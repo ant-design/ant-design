@@ -9,7 +9,7 @@
 ````jsx
 var Slider = antd.Slider;
 
-React.render(
+ReactDOM.render(
 <div className="sliderContainer">
   <p>包含关系</p>
   <Slider marks={["状态1","状态2","状态3","状态4"]} defaultIndex={1} />

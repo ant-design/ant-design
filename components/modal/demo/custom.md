@@ -53,5 +53,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test/> , document.getElementById('components-modal-demo-custom'));
+ReactDOM.render(<Test/> , document.getElementById('components-modal-demo-custom'));
 ````

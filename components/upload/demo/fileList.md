@@ -71,5 +71,5 @@ var MyUpload = React.createClass({
   }
 });
 
-React.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
+ReactDOM.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
 ````

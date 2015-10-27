@@ -15,7 +15,7 @@ var props = {
   action: '/upload.do'
 };
 
-React.render(
+ReactDOM.render(
   <Dragger {...props}>
     <Icon type="plus" />
   </Dragger>,

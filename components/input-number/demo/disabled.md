@@ -31,5 +31,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />, document.getElementById('components-input-number-demo-disabled'));
+ReactDOM.render(<Test />, document.getElementById('components-input-number-demo-disabled'));
 ````

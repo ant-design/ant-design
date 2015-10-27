@@ -59,11 +59,11 @@ class TreeDemo extends React.Component {
           </TreeNode>
           <TreeNode key="p12" title="leaf"/>
         </Tree>
-      <Button type="primary" size="sm" onClick={this.handleClick}>点此控制树节点</Button>
+      <Button type="primary" size="small" onClick={this.handleClick}>点此控制树节点</Button>
     </div>);
   }
 }
 
-React.render(<TreeDemo />, document.getElementById('components-tree-demo-special'));
+ReactDOM.render(<TreeDemo />, document.getElementById('components-tree-demo-special'));
 
 ````

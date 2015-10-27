@@ -21,7 +21,7 @@ function showConfirm(){
   });
 }
 
-React.render(
+ReactDOM.render(
 <Button onClick={showConfirm}>
   确认对话框
 </Button>, document.getElementById('components-modal-demo-confirm'));

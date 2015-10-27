@@ -9,7 +9,7 @@
 ````jsx
 var Slider = antd.Slider;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Slider />
   <Slider defaultValue={65} disabled />
 </div>

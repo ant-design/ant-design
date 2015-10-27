@@ -32,5 +32,5 @@ var Test = React.createClass({
   }
 });
 
-React.render(<Test />, container);
+ReactDOM.render(<Test />, container);
 ````

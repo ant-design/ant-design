@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../iconfont';
 const prefixCls = 'ant-tag';
@@ -14,7 +15,7 @@ class AntTag extends React.Component {
   }
 
   close(e) {
-    let dom = React.findDOMNode(this);
+    let dom = ReactDOM.findDOMNode(this);
     dom.style.width = dom.offsetWidth + 'px';
     // It's Magic Code, don't know why
     dom.style.width = dom.offsetWidth + 'px';

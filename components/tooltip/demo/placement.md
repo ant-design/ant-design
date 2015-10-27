@@ -10,7 +10,7 @@
 var Tooltip = antd.Tooltip;
 var text = <span>提示文字</span>;
 
-React.render(
+ReactDOM.render(
   <div>
     <Tooltip placement="left" title={text}>
       <a href="#">左边左边</a>

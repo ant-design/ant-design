@@ -1,4 +1,4 @@
-# 自定义校验规则 
+# 自定义校验规则
 
 - order: 1
 
@@ -41,7 +41,7 @@ var Form = React.createClass({
         rePass: undefined
       },
       passBarShow: false, // 是否显示密码强度提示条
-      rePassBarShow: false, 
+      rePassBarShow: false,
       passStrength: 'L', // 密码强度
       rePassStrength: 'L'
     };
@@ -192,7 +192,7 @@ var Form = React.createClass({
             <div className="col-offset-6 col-12">
               <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
               &nbsp;&nbsp;&nbsp;
-              <Button onClick={this.handleReset}>重 置</Button>
+              <Button type="ghost" onClick={this.handleReset}>重 置</Button>
             </div>
           </div>
         </Validation>
@@ -201,7 +201,7 @@ var Form = React.createClass({
   }
 });
 
-React.render(<Form />, document.getElementById('components-validation-demo-customize'));
+ReactDOM.render(<Form />, document.getElementById('components-validation-demo-customize'));
 ````
 
 <style>

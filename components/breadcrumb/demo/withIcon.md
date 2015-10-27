@@ -10,7 +10,7 @@
 var Breadcrumb = require('antd/lib/breadcrumb');
 var Icon = require('antd').iconfont;
 
-React.render(
+ReactDOM.render(
   <Breadcrumb>
     <Breadcrumb.Item href="">
       <Icon type="home" />

@@ -24,7 +24,7 @@ var menu = <Menu>
   </Menu.Item>
 </Menu>;
 
-React.render(
+ReactDOM.render(
   <Dropdown overlay={menu}>
     <Button>
       某按钮 <Icon type="down" />

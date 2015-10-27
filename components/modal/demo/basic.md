@@ -44,5 +44,5 @@ var App = React.createClass({
   }
 });
 
-React.render(<App /> , document.getElementById('components-modal-demo-basic'));
+ReactDOM.render(<App /> , document.getElementById('components-modal-demo-basic'));
 ````

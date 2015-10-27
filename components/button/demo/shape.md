@@ -10,24 +10,24 @@
 var Button = antd.Button;
 var Icon = antd.Icon;
 
-React.render(<div>
-  <Button type="primary" shape="circle" size="lg">
+ReactDOM.render(<div>
+  <Button type="primary" shape="circle" size="large">
     <Icon type="search" />
   </Button>
   <Button type="primary" shape="circle">
     <Icon type="search" />
   </Button>
-  <Button type="primary" shape="circle" size="sm">
+  <Button type="primary" shape="circle" size="small">
     <Icon type="search" />
   </Button>
   <br />
-  <Button type="ghost" shape="circle-outline" size="lg">
+  <Button type="ghost" shape="circle-outline" size="large">
     <Icon type="search" />
   </Button>
   <Button type="ghost" shape="circle-outline">
     <Icon type="search" />
   </Button>
-  <Button type="ghost" shape="circle-outline" size="sm">
+  <Button type="ghost" shape="circle-outline" size="small">
     <Icon type="search" />
   </Button>
 </div>

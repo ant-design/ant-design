@@ -48,8 +48,8 @@ export default React.createClass({
         </p>
 
         <div className={prefixCls + '-buttons'}>
-          <Button onClick={this.cancel} size="sm">取 消</Button>
-          <Button onClick={this.confirm} type="primary" size="sm">确 定</Button>
+          <Button onClick={this.cancel} type="ghost" size="small">取消</Button>
+          <Button onClick={this.confirm} type="primary" size="small">确定</Button>
         </div>
       </div>
     </div>;

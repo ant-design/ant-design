@@ -77,8 +77,8 @@ let Palette = React.createClass({
     let color = this.props.color;
     return <div className="color-palette">
       <div className="main-color">
-        {color.colors.map(function(color){
-          return (<div style={{backgroundColor:color}}></div>);
+        {color.colors.map(function(color) {
+          return (<div key={color} style={{backgroundColor:color}}></div>);
         })}
       </div>
       <div className={"color-msg"}>
@@ -183,13 +183,13 @@ let ExtendPalettes = React.createClass({
       }
     ];
     return <div>
-      {colors.map((color) => {
-        return <Palette color={color} />;
+      {colors.map((color, i) => {
+        return <Palette key={i} color={color} />;
       })}
     </div>;
   }
 });
-React.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
+ReactDOM.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
 `````
 
 ## 色彩换算工具
@@ -232,7 +232,13 @@ let TintShadeTool = React.createClass({
     this.calculate();
   },
   calculate() {
-    let tintOrShade = this.state.value >= 0 ? 'tint' : 'shade';
+    if (this.state.value === 0) {
+      this.setState({
+        result: this.state.color
+      });
+      return;
+    }
+    let tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
     let c = new Values(this.state.color);
     this.setState({
       result: '#' + c[tintOrShade](Math.abs(this.state.value)).hex
@@ -241,19 +247,23 @@ let TintShadeTool = React.createClass({
   render() {
     return <div style={{margin: '40px 0'}}>
       <div>
-        <input className="ant-input" style={{width: 120, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
-        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} />
-        <span style={{margin: '0 62px 0 8px'}}>%</span>
         <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
-        <span>{this.state.result}</span>
+        <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
+        <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
+        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
+        <span style={{margin: '0 0 0 8px'}}>%</span>
       </div>
-      <div style={{width: 400, marginTop: 20, position: 'relative'}}>
-        <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} />
-        <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: -28, fontSize: 12, textAlign: 'center', top: -1, left: 202}}></div>
+      <div style={{marginTop: 20}}>
+        <span>加黑</span>
+        <div style={{width: 360, display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: -1, margin: '0 8px'}}>
+          <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
+          <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: 10, fontSize: 12, textAlign: 'center', left: 200}}></div>
+        </div>
+        <span>加白</span>
       </div>
     </div>;
   }
 });
 
-React.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
+ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
 `````

@@ -10,7 +10,7 @@
 var Badge = antd.Badge;
 var Icon = antd.Icon;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Badge dot={true}>
     <Icon type="notification" />
   </Badge>

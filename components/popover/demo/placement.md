@@ -16,7 +16,7 @@ var content = <div>
   <p>内容</p>
 </div>;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Popover placement="left" title={text} overlay={content}>
     <Button>左</Button>
   </Popover>

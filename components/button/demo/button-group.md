@@ -4,7 +4,7 @@
 
 可以将多个 `Button` 放入 `ButtonGroup` 的容器中。
 
-通过设置 `size` 为 `lg` `sm` 分别把按钮组合设为大、小尺寸。若不设置 `size`，则尺寸为中。
+通过设置 `size` 为 `large` `small` 分别把按钮组合设为大、小尺寸。若不设置 `size`，则尺寸为中。
 
 ---
 
@@ -13,7 +13,7 @@ var Button = antd.Button;
 var ButtonGroup = antd.ButtonGroup;
 var Icon = antd.Icon;
 
-React.render(<div>
+ReactDOM.render(<div>
 <h4>基本组合</h4>
 <ButtonGroup>
   <Button type="primary">确定</Button>
@@ -64,7 +64,7 @@ React.render(<div>
 </ButtonGroup>
 
 <h4>尺寸</h4>
-<ButtonGroup size="lg">
+<ButtonGroup size="large">
   <Button type="ghost">大</Button>
   <Button type="ghost">大</Button>
   <Button type="ghost">大</Button>
@@ -74,7 +74,7 @@ React.render(<div>
   <Button type="ghost">默认</Button>
   <Button type="ghost">默认</Button>
 </ButtonGroup>
-<ButtonGroup size="sm">
+<ButtonGroup size="small">
   <Button type="ghost">小</Button>
   <Button type="ghost">小</Button>
   <Button type="ghost">小</Button>

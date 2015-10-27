@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Dialog from './index';
 import Icon from '../iconfont';
 import {Button} from '../button';
@@ -23,7 +24,7 @@ export default function (props) {
     d.setState({
       visible: false
     });
-    React.unmountComponentAtNode(div);
+    ReactDOM.unmountComponentAtNode(div);
   }
 
   function onCancel() {
@@ -72,22 +73,22 @@ export default function (props) {
     <div className="ant-confirm-content">{props.content}</div>
   </div>;
   let footer = <div className="ant-confirm-btns">
-    <Button size="lg" onClick={onCancel}>取 消</Button>
-    <Button type="primary" size="lg" onClick={onOk}>确 定</Button>
+    <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
+    <Button type="primary" size="large" onClick={onOk}>确 定</Button>
   </div>;
 
   if (props.okCancel) {
     footer = <div className="ant-confirm-btns">
-      <Button size="lg" onClick={onCancel}>取 消</Button>
-      <Button type="primary" size="lg" onClick={onOk}>确 定</Button>
+      <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
+      <Button type="primary" size="large" onClick={onOk}>确 定</Button>
     </div>;
   } else {
     footer = <div className="ant-confirm-btns">
-      <Button type="primary" size="lg" onClick={onOk}>知道了</Button>
+      <Button type="primary" size="large" onClick={onOk}>知道了</Button>
     </div>;
   }
 
-  React.render(<Dialog
+  ReactDOM.render(<Dialog
     prefixCls="ant-modal"
     className="ant-confirm"
     visible={true}

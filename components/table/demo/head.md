@@ -64,6 +64,11 @@ var data = [{
   address: '西湖区湖底公园123号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} />
+function onChange(pagination, filters, sorter) {
+  // 点击分页、筛选、排序时触发
+  console.log('各类参数是', pagination, filters, sorter);
+}
+
+ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />
 , document.getElementById('components-table-demo-head'));
 ````

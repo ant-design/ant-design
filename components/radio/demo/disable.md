@@ -39,5 +39,5 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.getElementById('components-radio-demo-disable'));
+ReactDOM.render(<App />, document.getElementById('components-radio-demo-disable'));
 ````

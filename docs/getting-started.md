@@ -7,43 +7,8 @@
 
 Ant Design React 致力于提供给程序员愉悦的开发体验。
 
-## 第一个例子
-
-我们封装了一套基于 React 实现的 UI 组件，可以用 React 的方式直接使用。
-
-下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
-
-<iframe width="100%" height="380" src="//jsfiddle.net/afc163/6k22tgpx/4/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-源码如下：
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://ant.design/dist/antd.css">
-    <!-- 引入 react 和 antd.js -->
-    <script src="https://a.alipayobjects.com/??react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
-    <script src="http://ant.design/dist/antd.js"></script>
-  </head>
-  <body>
-  </body>
-  <!-- 直接调用全局变量 -->
-  <script type="text/jsx">
-    React.render(<antd.Datepicker />, document.body);
-  </script>
-</html>
-```
-
-你可以在 [这里](/components/progress/) 选用更多组件。
-
-
-## 标准项目
-
 实际项目开发中，你会需要 CommonJS 、JSX 构建、打包部署等一系列工程化的需求。
-提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
+我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
 ### 1. 安装命令行工具
 
@@ -63,15 +28,17 @@ $ antd init
 $ npm install
 ```
 
+若下面例子发生报错，尝试用 `npm install antd@beta --save` 安装 `0.10.x` 或更高版本。
+
 ### 3. 使用组件
 
-编辑 `index.js`，使用 Ant Design React 的组件：
+编辑 `src/component/App.jsx`，用 React 的方式直接使用 Ant Design React 的组件。
 
 ```jsx
 import React from 'react';
 import { Datepicker, message } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       date: ''
@@ -91,36 +58,10 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.body);
+export default App;
 ```
 
-> `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
-
-> `lib` 即构建后的 `components` 目录。
-
-然后建一个页面用于开发。
-
-```bash
-$ touch index.html
-```
-
-编辑 `index.html` 如下：
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="/index.css">
-    <script src="https://a.alipayobjects.com/??react/0.13.3/react.min.js"></script>
-  </head>
-  <body>
-  </body>
-  <!-- 引入入口文件 -->
-  <script src="/index.js"></script>
-</html>
-```
+你可以在 [这里](/components/button) 选用更多组件。
 
 ### 4. 开发调试
 
@@ -152,14 +93,16 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   <head>
     <meta charset="utf-8">
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://ant.design/dist/antd.css">
+    <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
-    <script src="https://a.alipayobjects.com/??es5-shim/4.1.10/es5-shim.min.js,es5-shim/4.1.10/es5-sham.min.js,html5shiv/3.7.2/src/html5shiv.js"></script>
-    <!-- 引入 react -->
-    <script src="https://a.alipayobjects.com/??react/0.13.3/react.min.js"></script>
+    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.js,es5-shim/4.1.14/es5-sham.js,html5shiv/3.7.2/html5shiv.js"></script>
   </head>
   <body>
   </body>
+  <!-- 引入公用文件 -->
+  <script src="/common.js"></script>
+  <!-- 引入入口文件 -->
+  <script src="/index.js"></script>
 </html>
 ```
 
@@ -167,7 +110,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0 -197px 0 rgba(255, 207, 0, 0.16);
+  box-shadow: 0 -239px 0 rgba(255, 207, 0, 0.16);
   height: 42px;
   margin-bottom: -42px;
 }

@@ -23,7 +23,7 @@ var openNotification = function() {
   notification.open(args);
 };
 
-React.render(
+ReactDOM.render(
   <div>
     <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
   </div>,

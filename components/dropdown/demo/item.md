@@ -23,7 +23,7 @@ var menu = <Menu>
   <Menu.Item key="3" disabled>第三个菜单项（不可用）</Menu.Item>
 </Menu>;
 
-React.render(
+ReactDOM.render(
   <Dropdown overlay={menu}>
     <Button>
       鼠标移入 <Icon type="down" />
