@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Row = React.createClass({
-  propType: {
+  propTypes: {
     type: React.PropTypes.string,
     align: React.PropTypes.string,
     justify: React.PropTypes.string,
@@ -24,7 +24,7 @@ const Row = React.createClass({
       className += ` row-flex-${align}`;
     }
 
-    return <div {...this.props} className={className}>{ this.props.children }</div>
+    return <div {...this.props} className={className}>{ this.props.children }</div>;
   },
 });
 
