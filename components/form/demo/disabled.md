@@ -27,6 +27,7 @@ ReactDOM.render(
   <fieldset disabled>
     <legend>禁用的 fieldset</legend>
     <Form.Item
+      id="userName"
       label="用户名："
       labelClassName="col-5"
       wrapperClassName="col-12"
@@ -34,6 +35,7 @@ ReactDOM.render(
       <Form.Input type="static" value="大眼萌 minion" id="userName" />
     </Form.Item>
     <Form.Item
+      id="password"
       label="密码："
       labelClassName="col-5"
       wrapperClassName="col-12"

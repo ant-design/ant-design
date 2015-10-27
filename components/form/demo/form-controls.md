@@ -23,6 +23,7 @@ function handleSelectChange(value) {
 ReactDOM.render(
 <Form horizontal>
   <Form.Item
+    id="control-input"
     label="输入框："
     labelClassName="col-6"
     wrapperClassName="col-14">
@@ -30,6 +31,7 @@ ReactDOM.render(
   </Form.Item>
 
   <Form.Item
+    id="control-textarea"
     label="文本域："
     labelClassName="col-6"
     wrapperClassName="col-14">
@@ -37,10 +39,11 @@ ReactDOM.render(
   </Form.Item>
 
   <Form.Item
+    id="select"
     label="Select 选择器："
     labelClassName="col-6"
     wrapperClassName="col-14">
-    <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
+    <Select id="select" size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
       <Option value="jack">jack</Option>
       <Option value="lucy">lucy</Option>
       <Option value="disabled" disabled>disabled</Option>

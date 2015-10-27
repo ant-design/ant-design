@@ -9,7 +9,7 @@ function prefixClsFn(prefixCls, ...args) {
 class Group extends React.Component {
   render() {
     return (
-      <div className={this.props.className} key="ant-input-group">
+      <div className={this.props.className}>
         {this.props.children}
       </div>
     );
@@ -46,19 +46,19 @@ class Input extends React.Component {
     const wrapperClassName = prefixClsFn(props.prefixCls, 'input-group');
     const addonClassName = prefixClsFn(wrapperClassName, 'addon');
     const addonBefore = props.addonBefore ? (
-      <span className={addonClassName} key="addonBefore">
+      <span className={addonClassName}>
         {props.addonBefore}
       </span>
     ) : null;
 
     const addonAfter = props.addonAfter ? (
-      <span className={addonClassName} key="addonAfter">
+      <span className={addonClassName}>
         {props.addonAfter}
       </span>
     ) : null;
 
     return addonBefore || addonAfter ? (
-      <div className={wrapperClassName} key="ant-input-group">
+      <div className={wrapperClassName}>
         {addonBefore}
         {children}
         {addonAfter}
@@ -91,7 +91,7 @@ class Input extends React.Component {
       );
     default:
       inputClassName = props.className ? props.className : inputClassName;
-      return <input {...props} className={inputClassName} ref="input" key="input"/>;
+      return <input {...props} className={inputClassName} ref="input"/>;
     }
   }
 

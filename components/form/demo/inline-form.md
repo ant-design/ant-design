@@ -8,6 +8,7 @@
 var Form = antd.Form;
 var Checkbox = antd.Checkbox;
 var Button = antd.Button;
+var message = antd.message;
 
 var Demo = React.createClass({
   mixins: [Form.ValueMixin],
@@ -24,7 +25,12 @@ var Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.formData);
+    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+      if (typeof v === 'undefined') {
+        return '';
+      }
+      return v;
+    }));  
   },
 
   render() {
@@ -32,10 +38,12 @@ var Demo = React.createClass({
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <Form.Item
+          id="userName"
           label="账户：">
           <Form.Input type="text" placeholder="请输入账户名" id="userName" name="userName" onChange={this.setValue.bind(this, 'userName')} />
         </Form.Item>
         <Form.Item
+          id="password"
           label="密码：">
           <Form.Input type="password" placeholder="请输入密码" id="password" name="password" onChange={this.setValue.bind(this, 'password')} />
         </Form.Item>

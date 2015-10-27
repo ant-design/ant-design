@@ -13,7 +13,7 @@ class FormItem extends React.Component {
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     return this.props.help ? (
-      <div className={prefixClsFn(prefixCls, 'explain')} key="help">
+      <div className={prefixClsFn(prefixCls, 'explain')}>
         {this.props.help}
       </div>
     ) : null;
@@ -41,7 +41,7 @@ class FormItem extends React.Component {
 
   renderWrapper(children) {
     return this.props.wrapperClassName ? (
-      <div className={this.props.wrapperClassName} key="wrapper">
+      <div className={this.props.wrapperClassName}>
         {children}
       </div>
     ) : children;
@@ -52,7 +52,7 @@ class FormItem extends React.Component {
     const required = this.props.required ? 'required' : '';
 
     return this.props.label ? (
-      <label htmlFor={this.props.id} className={labelClassName} required={required} key="label">
+      <label htmlFor={this.props.id} className={labelClassName} required={required}>
         {this.props.label}
       </label>
     ) : '';
@@ -104,7 +104,7 @@ class FormItem extends React.Component {
     };
 
     return (
-      <div className={cx(itemClassName)} key="form-item">
+      <div className={cx(itemClassName)}>
         {children}
       </div>
     );

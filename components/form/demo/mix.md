@@ -18,6 +18,7 @@ var Dropdown = antd.Dropdown;
 var Slider = antd.Slider;
 var Icon = antd.Icon;
 var Button = antd.Button;
+var message = antd.message;
 
 var Demo = React.createClass({
   mixins: [Form.ValueMixin],
@@ -38,7 +39,12 @@ var Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.formData);
+    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+      if (typeof v === 'undefined') {
+        return '';
+      }
+      return v;
+    }));
   },
 
   render() {

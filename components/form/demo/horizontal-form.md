@@ -15,6 +15,7 @@ var Checkbox = antd.Checkbox;
 var Radio = antd.Radio;
 var RadioGroup = antd.Radio.Group;
 var Button = antd.Button;
+var message = antd.message;
 
 var Demo = React.createClass({
   mixins: [Form.ValueMixin],
@@ -33,7 +34,12 @@ var Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.formData);
+    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+      if (typeof v === 'undefined') {
+        return '';
+      }
+      return v;
+    }));
   },
 
   render() {
@@ -41,6 +47,7 @@ var Demo = React.createClass({
     return (
       <Form horizontal onSubmit={this.handleSubmit}>
         <Form.Item
+          id="userName"
           label="用户名："
           labelClassName="col-6"
           wrapperClassName="col-6"
@@ -48,6 +55,7 @@ var Demo = React.createClass({
           <Form.Input type="static" value="大眼萌 minion" id="userName" name="userName" />
         </Form.Item>
         <Form.Item
+          id="password"
           label="密码："
           labelClassName="col-6"
           wrapperClassName="col-14"
@@ -65,6 +73,7 @@ var Demo = React.createClass({
             </RadioGroup>
         </Form.Item>
         <Form.Item
+          id="remark"
           label="备注："
           labelClassName="col-6"
           wrapperClassName="col-14"
