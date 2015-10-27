@@ -50,7 +50,9 @@ const antd = {
   Timeline: require('./components/timeline'),
   Button: require('./components/button').Button,
   ButtonGroup: require('./components/button').ButtonGroup,
-  Icon: require('./components/iconfont')
+  Icon: require('./components/iconfont'),
+  Row: require('./components/layout').Row,
+  Col: require('./components/layout').Col,
 };
 
 antd.version = require('./package.json').version;

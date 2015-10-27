@@ -8,49 +8,52 @@ Flex 布局基础。
 
 ---
 
-````html
-<p>子元素居左排列</p>
-<div class="row-flex row-flex-start">
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-</div>
+````jsx
+var Row = antd.Row;
+var Col = antd.Col;
 
-<p>子元素居中排列</p>
-<div class="row-flex row-flex-center">
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-</div>
+ReactDOM.render(
+  <div>
+    <p>子元素居左排列</p>
+    <Row justify="start">
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+    </Row>
+    
+    <p>子元素居中排列</p>
+    <Row justify="center">
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+    </Row>
 
-<p>子元素居右排列</p>
-<div class="row-flex row-flex-end">
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-</div>
+    <p>子元素居右排列</p>
+    <Row justify="end">
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+    </Row>
 
-<p>子元素等宽排列</p>
-<div class="row-flex row-flex-space-between">
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-</div>
+    <p>子元素等宽排列</p>
+    <Row justify="space-between">
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+    </Row>
 
-<p>子元素分散对齐</p>
-<div class="row-flex row-flex-space-around">
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-  <div class="col-4">2</div>
-</div>
-
+    <p>子元素分散对齐</p>
+    <Row justify="space-around">
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+      <Col span="4">.col-4</Col>
+    </Row>
+  </div>,
+  document.getElementById('components-layout-demo-flex')
+)
 ````
-
-
-
-
