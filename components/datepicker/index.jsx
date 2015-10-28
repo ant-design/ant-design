@@ -38,7 +38,13 @@ function createPicker(TheCalendar) {
         calendarStyle: {},
         onSelect: null, // 向前兼容
         onChange() {},  // onChange 可用于 Validator
-        locale: {}
+        locale: {},
+        placement: {
+          points: ['tl', 'tl'],
+          overflow: { adjustX: 0, adjustY: 0 },
+          offset: [0, -3],
+          targetOffset: [0, 0]
+        }
       };
     },
     getInitialState() {
@@ -106,7 +112,7 @@ function createPicker(TheCalendar) {
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
-          showClear={false} />
+          showClear={true} />
       );
       let sizeClass = '';
       if (this.props.size === 'large') {
@@ -124,6 +130,7 @@ function createPicker(TheCalendar) {
           defaultValue={defaultValue}
           prefixCls="ant-calendar-picker"
           style={this.props.style}
+          placement={this.props.placement}
           onChange={this.handleChange}>
           {
             ({value}) => {

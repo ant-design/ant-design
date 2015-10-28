@@ -19,7 +19,8 @@ var App = React.createClass({
         lang: {
           today: 'Today',
           now: 'Now',
-          ok: 'Ok'
+          ok: 'OK',
+          clear: 'Clear'
         }
       }
     };
