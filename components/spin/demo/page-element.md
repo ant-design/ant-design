@@ -10,21 +10,22 @@
 var Spin = antd.Spin;
 var container = document.getElementById('components-spin-demo-page-element');
 
-var divStyle = {
-  textAlign: 'center',
-  width: '100%',
-  backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: '4px',
-    marginBottom: '20px',
-    padding: '.66em 1.5em',
-    margin: '20px 0'
-}
-
 ReactDOM.render(
   <div>
-    <div style={ divStyle }>
+    <div className="example">
       <Spin size="small" />
     </div>
   </div>, container);
 
 ````
+<style>
+  .example {
+    text-align: center;
+    width: 100%;
+    background: rgba(0,0,0,0.05);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 30px 50px;
+    margin: 20px 0;
+  }
+</style>

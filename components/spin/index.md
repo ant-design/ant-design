@@ -17,3 +17,4 @@
 | 参数       | 类型            | 默认值       |说明           |
 |-----------|----------------|-------------|--------------|
 | size        | enum      | default       | spin组件中点的大小，可选值为small default large
+| loading     | boolean      | false         | 当组件嵌套使用时，可以通过设置loading属性，调出spin的loading状态, 单独使用组件无需设置
