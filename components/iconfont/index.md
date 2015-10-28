@@ -32,7 +32,7 @@
 使用 <Icon> 标签申明组件，设置对应的 type 设置需要渲染的图标，示例代码如下:
 
 ```html
-<Icon type="link"></Icon>
+<Icon type="link" />
 ```
 
 > 点击图标复制代码。
@@ -590,7 +590,7 @@ $(function() {
   $('.anticons-list li').each(function(i, item) {
     var client = new ZeroClipboard(item);
     client.on( "copy", function (event) {
-      client.setText('<Icon type="' + $(item).find('.anticon-class').html() + '"></Icon>');
+      client.setText('<Icon type="' + $(item).find('.anticon-class').html() + '" />');
     });
     client.on( "ready", function( readyEvent ) {
       client.on( "aftercopy", function( event ) {
