@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
+import { Datepicker } from 'antd';
 
 ReactDOM.render(
   <Datepicker defaultValue="2015-06-06" disabled={true} />

@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-var Tooltip = antd.Tooltip;
-var text = <span>提示文字</span>;
+import { Tooltip } from 'antd';
+const text = <span>提示文字</span>;
 
 ReactDOM.render(
   <div>

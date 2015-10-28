@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-let Timeline = antd.Timeline;
-let container = document.getElementById('components-timeline-demo-pending');
+import { Timeline } from 'antd';
+const container = document.getElementById('components-timeline-demo-pending');
 
 ReactDOM.render(
 <Timeline pending={true}>

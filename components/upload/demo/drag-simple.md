@@ -7,10 +7,10 @@
 ---
 
 ````jsx
-var Dragger = antd.Upload.Dragger;
-var Icon = antd.Icon;
+import { Upload, Icon } from 'antd';
+const Dragger = Upload.Dragger;
 
-var props = {
+const props = {
   name: 'file',
   action: '/upload.do'
 };

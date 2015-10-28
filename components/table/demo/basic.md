@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
-var Icon = antd.Icon;
+import { Table, Icon } from 'antd';
 
-var columns = [{
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
@@ -37,7 +36,7 @@ var columns = [{
     </span>;
   }
 }];
-var data = [{
+const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,

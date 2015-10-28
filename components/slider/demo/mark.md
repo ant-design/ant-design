@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Slider = antd.Slider;
+import { Slider } from 'antd';
 
 ReactDOM.render(
 <div className="sliderContainer">

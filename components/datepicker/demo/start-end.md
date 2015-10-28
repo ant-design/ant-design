@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
+import { Datepicker } from 'antd';
 
-var DateRange = React.createClass({
+const DateRange = React.createClass({
   getInitialState() {
     return {
       startValue: null,

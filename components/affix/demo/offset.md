@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var Affix = antd.Affix;
-var Button = antd.Button;
+import { Affix, Button } from 'antd';
 
 ReactDOM.render(
   <Affix offset={75}>

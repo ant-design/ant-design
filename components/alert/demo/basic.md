@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Alert = antd.Alert;
+import { Alert } from 'antd';
 
 ReactDOM.render(<Alert message="成功提示的文案" type="success" />
 , document.getElementById('components-alert-demo-basic'));

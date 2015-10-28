@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { Button } from 'antd';
 
 ReactDOM.render(<div>
   <h4>使用 `disabled` 属性</h4>

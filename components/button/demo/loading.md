@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { Button } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       loading: false

@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var Modal = antd.Modal;
-var Button = antd.Button;
+import { Modal, Button } from 'antd';
 
 function info() {
   Modal.info({

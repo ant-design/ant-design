@@ -1,6 +1,6 @@
 # Flex对齐
 
-- order: 5 
+- order: 5
 
 Flex 子元素垂直对齐。
 
@@ -8,8 +8,7 @@ Flex 子元素垂直对齐。
 ---
 
 ````jsx
-var Row = antd.Row;
-var Col = antd.Col;
+import { Row, Col } from 'antd';
 
 var DemoBox = React.createClass({
   render() {
@@ -30,7 +29,7 @@ ReactDOM.render(
       <Col span="4"><DemoBox value="120">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="80">.col-4</DemoBox></Col>
     </Row>
-    
+
     <p>居中对齐</p>
     <Row type="flex" justify="space-around" align="middle">
       <Col span="4"><DemoBox value="100">.col-4</DemoBox></Col>
@@ -38,7 +37,7 @@ ReactDOM.render(
       <Col span="4"><DemoBox value="120">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="80">.col-4</DemoBox></Col>
     </Row>
-    
+
     <p>底部对齐</p>
     <Row type="flex" justify="space-between" align="bottom">
       <Col span="4"><DemoBox value="100">.col-4</DemoBox></Col>
@@ -50,6 +49,3 @@ ReactDOM.render(
   document.getElementById('components-layout-demo-flex-align')
 );
 ````
-
-
-

@@ -1,6 +1,6 @@
 # Flex排序
 
-- order: 6 
+- order: 6
 
 通过 Flex 布局的 Order 来改变元素的排序。
 
@@ -9,8 +9,7 @@
 
 
 ````jsx
-var Row = antd.Row;
-var Col = antd.Col;
+import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>
@@ -23,9 +22,4 @@ ReactDOM.render(
   </div>,
   document.getElementById('components-layout-demo-flex-order')
 );
-
 ````
-
-
-
-

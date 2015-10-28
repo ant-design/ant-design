@@ -7,9 +7,8 @@
 ---
 
 ````jsx
-var Tabs = antd.Tabs;
-var TabPane = Tabs.TabPane;
-var Icon = antd.Icon;
+import { Tabs, Icon } from 'antd';
+const TabPane = Tabs.TabPane;
 
 var tabContent = [
   <span><Icon type="apple" />选项卡一</span>,

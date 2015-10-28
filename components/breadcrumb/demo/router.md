@@ -7,13 +7,11 @@
 ---
 
 ````jsx
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var Link = ReactRouter.Link;
-var Breadcrumb = require('antd').Breadcrumb;
+const ReactRouter = require('react-router');
+let { Router, Route, Link } = ReactRouter;
+import { Breadcrumb } from 'antd';
 
-var Apps = React.createClass({
+const Apps = React.createClass({
   render() {
     return <ul className="app-list">
       <li><Link to="/apps/1">应用1</Link></li>
@@ -22,7 +20,7 @@ var Apps = React.createClass({
   }
 });
 
-var Home = React.createClass({
+const Home = React.createClass({
   render() {
     return (<div>
       <div className="demo-nav">

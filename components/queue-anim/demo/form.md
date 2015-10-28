@@ -7,15 +7,11 @@
 ---
 
 ````jsx
-var QueueAnim = antd.QueueAnim;
-var Select = antd.Select;
-var Option = Select.Option;
-var Checkbox = antd.Checkbox;
-var Radio = antd.Radio;
-var RadioGroup = antd.Radio.Group;
-var Button = antd.Button;
+import { QueueAnim, Button, Select, Checkbox, Radio } from 'antd';
+const Option = Select.Option;
+const RadioGroup = Radio.Group;
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       show: true

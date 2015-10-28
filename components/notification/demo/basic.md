@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
-var Button = antd.Button;
+import { Button, notification } from 'antd';
 
-var openNotification = function() {
+const openNotification = function() {
   notification.open({
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案"
@@ -18,8 +17,6 @@ var openNotification = function() {
 };
 
 ReactDOM.render(
-  <div>
-    <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
-  </div>,
-document.getElementById('components-notification-demo-basic'));
+  <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
+,document.getElementById('components-notification-demo-basic'));
 ````

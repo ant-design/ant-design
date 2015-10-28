@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var Badge = antd.Badge;
-var Icon = antd.Icon;
+import { Badge, Icon } from 'antd';
 
 ReactDOM.render(<div>
   <Badge dot={true}>

@@ -7,12 +7,10 @@
 ---
 
 ````jsx
-var ProgressCircle = antd.Progress.Circle;
-var Button = antd.Button;
-var ButtonGroup = antd.ButtonGroup;
-var Icon = antd.Icon;
+import { Progress, Button, ButtonGroup, Icon } from 'antd';
+const ProgressCircle = Progress.Circle;
 
-var MyProgress = React.createClass({
+const MyProgress = React.createClass({
   getInitialState() {
     return {
       percent: 0

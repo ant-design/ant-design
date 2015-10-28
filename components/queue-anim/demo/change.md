@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var QueueAnim = antd.QueueAnim;
-var Button = antd.Button;
+import { QueueAnim, Button } from 'antd';
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       show: true,
@@ -27,7 +26,7 @@ var Test = React.createClass({
     });
   },
   onAdd() {
-    var items = this.state.items;
+    let items = this.state.items;
     items.push(<li key={Date.now()}></li>);
     this.setState({
       show: true,
@@ -35,7 +34,7 @@ var Test = React.createClass({
     });
   },
   onRemove() {
-    var items = this.state.items;
+    let items = this.state.items;
     items.splice(items.length - 1, 1);
     this.setState({
       show: true,

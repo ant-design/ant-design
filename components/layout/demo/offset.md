@@ -1,6 +1,6 @@
 # 左右偏移
 
-- order: 2 
+- order: 2
 
 列偏移。
 
@@ -9,8 +9,7 @@
 ---
 
 ````jsx
-var Row = antd.Row;
-var Col = antd.Col;
+import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>
@@ -29,4 +28,3 @@ ReactDOM.render(
   document.getElementById('components-layout-demo-offset')
 );
 ````
-

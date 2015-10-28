@@ -1,6 +1,6 @@
 # 布局排序
 
-- order: 3 
+- order: 3
 
 列排序。
 
@@ -9,8 +9,7 @@
 ---
 
 ````jsx
-var Row = antd.Row;
-var Col = antd.Col;
+import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>

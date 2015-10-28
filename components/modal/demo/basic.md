@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Modal = antd.Modal;
-var Button = antd.Button;
+import { Modal, Button } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return { visible: false };
   },

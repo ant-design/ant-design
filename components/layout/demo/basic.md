@@ -1,6 +1,6 @@
 # 基础布局
 
-- order: 1 
+- order: 1
 
 从堆叠到水平排列。
 
@@ -9,8 +9,7 @@
 ---
 
 ````jsx
-var Row = antd.Row;
-var Col = antd.Col;
+import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>

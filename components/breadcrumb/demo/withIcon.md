@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var Breadcrumb = require('antd/lib/breadcrumb');
-var Icon = require('antd').iconfont;
+import { Breadcrumb, Icon } from 'antd';
 
 ReactDOM.render(
   <Breadcrumb>

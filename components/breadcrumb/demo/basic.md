@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Breadcrumb = require('antd/lib/breadcrumb');
+import { Breadcrumb } from 'antd';
 
 ReactDOM.render(
   <Breadcrumb>

@@ -7,12 +7,11 @@
 ---
 
 ````jsx
-var Modal = antd.Modal;
-var Button = antd.Button;
+import { Modal, Button } from 'antd';
 
-var ModalText = '对话框的内容';
+const ModalText = '对话框的内容';
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       ModalText: '对话框的内容',

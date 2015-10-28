@@ -7,12 +7,10 @@
 ---
 
 ````jsx
-var Progress = antd.Progress.Line;
-var Button = antd.Button;
-var ButtonGroup = antd.ButtonGroup;
-var Icon = antd.Icon;
+import { Progress, Button, ButtonGroup, Icon } from 'antd';
+const ProgressLine = Progress.Line;
 
-var MyProgress = React.createClass({
+const MyProgress = React.createClass({
   getInitialState() {
     return {
       percent: 0
@@ -34,7 +32,7 @@ var MyProgress = React.createClass({
   },
   render() {
     return <div>
-      <Progress percent={this.state.percent} />
+      <ProgressLine percent={this.state.percent} />
       <ButtonGroup>
         <Button type="ghost" onClick={this.decline}>
           <Icon type="minus" />

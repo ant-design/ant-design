@@ -1,6 +1,6 @@
 # Flex布局
 
-- order: 4 
+- order: 4
 
 Flex 布局基础。
 
@@ -9,8 +9,7 @@ Flex 布局基础。
 ---
 
 ````jsx
-var Row = antd.Row;
-var Col = antd.Col;
+import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>
@@ -21,7 +20,7 @@ ReactDOM.render(
       <Col span="4">.col-4</Col>
       <Col span="4">.col-4</Col>
     </Row>
-    
+
     <p>子元素居中排列</p>
     <Row type="flex" justify="center">
       <Col span="4">.col-4</Col>

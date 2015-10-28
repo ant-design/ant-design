@@ -9,10 +9,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
-var Button = antd.Button;
+import { Table, Button } from 'antd';
 
-var columns = [{
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   filters: [{
@@ -31,7 +30,7 @@ var columns = [{
   dataIndex: 'address'
 }];
 
-var dataSource = new Table.DataSource({
+const dataSource = new Table.DataSource({
   url: "/components/table/demo/data.json",
   resolve: function(result) {
     return result.data;
@@ -48,13 +47,13 @@ var dataSource = new Table.DataSource({
   // 参数里提供了分页、筛选、排序的信息
   getParams: function(pagination, filters, sorter) {
     console.log('getParams 的参数是：', pagination, filters, sorter);
-    var params = {
+    const params = {
       pageSize: pagination.pageSize,
       currentPage: pagination.current,
       sortField: sorter.field,
       sortOrder: sorter.order
     };
-    for (var key in filters) {
+    for (let key in filters) {
       params[key] = filters[key];
     }
     console.log('请求参数：', params);
@@ -62,7 +61,7 @@ var dataSource = new Table.DataSource({
   }
 });
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       dataSource: dataSource

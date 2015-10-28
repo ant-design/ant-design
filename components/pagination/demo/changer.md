@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Pagination = antd.Pagination;
+import { Pagination } from 'antd';
 
 function onChange(page) {
   console.log(page);

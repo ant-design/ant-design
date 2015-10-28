@@ -8,22 +8,22 @@
 
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
+import { Select } from 'antd';
+const Option = Select.Option;
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       options: []
     };
   },
   handleChange(value) {
-    var options;
+    let options;
     if (!value || value.indexOf('@') >= 0) {
       options = [];
     } else {
       options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
-        var email = value + '@' + domain;
+        const email = value + '@' + domain;
         return <Option key={email}>{email}</Option>;
       });
     }

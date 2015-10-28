@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Tooltip = antd.Tooltip;
+import { Tooltip } from 'antd';
 
 ReactDOM.render(
   <Tooltip title="提示文字">

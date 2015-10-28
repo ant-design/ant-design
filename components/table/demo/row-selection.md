@@ -7,8 +7,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
-var columns = [{
+import { Table } from 'antd';
+
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
@@ -21,7 +22,7 @@ var columns = [{
   title: '住址',
   dataIndex: 'address'
 }];
-var data = [{
+const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
@@ -39,7 +40,7 @@ var data = [{
 }];
 
 // 通过 rowSelection 对象表明需要行选择
-var rowSelection = {
+const rowSelection = {
   onSelect: function(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },

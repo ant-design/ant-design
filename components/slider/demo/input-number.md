@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Slider = antd.Slider;
-var InputNumber = antd.InputNumber;
+import { Slider, InputNumber } from 'antd';
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       inputValue: 1

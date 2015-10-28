@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var Popconfirm = antd.Popconfirm;
-var message = antd.message;
+import { Popconfirm, message } from 'antd';
 
 function confirm() {
   message.success('点击了确定');
