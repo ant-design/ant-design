@@ -17,7 +17,8 @@ const AntSpin = React.createClass({
 
   getIEVersion() {
     let ua = navigator.userAgent.toLowerCase();
-    return ua.match(/msie ([\d.]+)/)[1];
+    let s = ua.match(/msie ([\d.]+)/);
+    return s ? s[1] : false;
   },
 
   isNestedPattern() {
