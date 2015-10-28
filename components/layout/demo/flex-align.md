@@ -24,7 +24,7 @@ var DemoBox = React.createClass({
 ReactDOM.render(
   <div>
     <p>顶部对齐</p>
-    <Row justify="center" align="top">
+    <Row type="flex" justify="center" align="top">
       <Col span="4"><DemoBox value="100">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="50">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="120">.col-4</DemoBox></Col>
@@ -32,7 +32,7 @@ ReactDOM.render(
     </Row>
     
     <p>居中对齐</p>
-    <Row justify="space-around" align="middle">
+    <Row type="flex" justify="space-around" align="middle">
       <Col span="4"><DemoBox value="100">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="50">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="120">.col-4</DemoBox></Col>
@@ -40,7 +40,7 @@ ReactDOM.render(
     </Row>
     
     <p>底部对齐</p>
-    <Row justify="space-between" align="bottom">
+    <Row type="flex" justify="space-between" align="bottom">
       <Col span="4"><DemoBox value="100">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="50">.col-4</DemoBox></Col>
       <Col span="4"><DemoBox value="120">.col-4</DemoBox></Col>
