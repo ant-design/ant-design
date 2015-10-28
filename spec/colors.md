@@ -257,7 +257,7 @@ let TintShadeTool = React.createClass({
         <span>加黑</span>
         <div style={{width: 360, display: 'inline-block', verticalAlign: 'middle', position: 'relative', top: -1, margin: '0 8px'}}>
           <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
-          <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: 10, fontSize: 12, textAlign: 'center', left: 200}}></div>
+          <div style={{backgroundColor:'#81D4F9', width: 2, height: 4, position: 'absolute', top: 10, fontSize: 12, textAlign: 'center', left: 180}}></div>
         </div>
         <span>加白</span>
       </div>
