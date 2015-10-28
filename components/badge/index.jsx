@@ -4,10 +4,6 @@ const prefixCls = 'ant-badge';
 class AntBadge extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      count: props.count
-    };
   }
 
   render() {
@@ -17,13 +13,13 @@ class AntBadge extends React.Component {
         <sup className={prefixCls + '-dot'}></sup>
       </span>;
     }
-    let count = this.state.count;
+    let count = this.props.count;
     if (!count) {
       return cloneElement(this.props.children);
     } else {
       count = count >= 100 ? '99+' : count;
       return (
-        <span className={prefixCls} title={this.state.count} {...this.props}>
+        <span className={prefixCls} title={count} {...this.props}>
           {this.props.children}
           <sup className={prefixCls + '-count'}>{count}</sup>
         </span>
