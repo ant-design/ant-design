@@ -22,13 +22,13 @@ var App = React.createClass({
   },
   render() {
     return <div>
-      <Button type="primary" size="large" loading>
+      <Button type="primary" size="large" loading={true}>
         加载中
       </Button>
-      <Button type="primary" loading="true">
+      <Button type="primary" loading={true}>
         加载中
       </Button>
-      <Button type="primary" size="small" loading>
+      <Button type="primary" size="small" loading={true}>
         加载中
       </Button>
       <br />
