@@ -4,8 +4,7 @@ import { Dom } from 'rc-util';
 import confirm from './confirm';
 import { Button } from '../button';
 
-function noop() {
-}
+function noop() {}
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -18,14 +17,9 @@ let AntModal = React.createClass({
       onCancel: noop,
       width: 520,
       transitionName: 'zoom',
-      maskAnimation: 'fade'
-    };
-  },
-
-  getInitialState() {
-    return {
+      maskAnimation: 'fade',
       confirmLoading: false,
-      visible: this.props.visible
+      visible: false
     };
   },
 
@@ -34,25 +28,7 @@ let AntModal = React.createClass({
   },
 
   handleOk() {
-    this.setState({
-      confirmLoading: true
-    });
     this.props.onOk();
-  },
-
-  componentWillReceiveProps(nextProps) {
-    let newState = {};
-    if ('visible' in nextProps) {
-      newState.visible = nextProps.visible;
-      // 隐藏后默认去除按钮 loading 效果
-      if (!nextProps.visible) {
-        newState.confirmLoading = false;
-      }
-    }
-    if ('confirmLoading' in nextProps) {
-      newState.confirmLoading = !!nextProps.confirmLoading;
-    }
-    this.setState(newState);
   },
 
   componentDidMount() {
@@ -85,15 +61,14 @@ let AntModal = React.createClass({
       <Button key="confirm"
         type="primary"
         size="large"
-        loading={this.state.confirmLoading}
+        loading={props.confirmLoading}
         onClick={this.handleOk}>
         确定
       </Button>
     ];
     let footer = props.footer || defaultFooter;
-    let visible = this.state.visible;
     return <Dialog onClose={this.handleCancel} footer={footer} {...props}
-      visible={visible} mousePosition={mousePosition} />;
+      visible={props.visible} mousePosition={mousePosition} />;
   }
 });
 

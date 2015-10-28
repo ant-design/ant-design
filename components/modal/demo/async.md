@@ -2,7 +2,7 @@
 
 - order: 1
 
-点击确定后异步关闭对话框。
+点击确定后异步关闭对话框，例如提交表单。
 
 ---
 
@@ -26,11 +26,13 @@ var Test = React.createClass({
   },
   handleOk() {
     this.setState({
-      ModalText: '对话框将在两秒后关闭'
+      ModalText: '对话框将在两秒后关闭',
+      confirmLoading: true
     });
     setTimeout(() => {
       this.setState({
-        visible: false
+        visible: false,
+        confirmLoading: false
       });
     }, 2000);
   },
@@ -46,6 +48,7 @@ var Test = React.createClass({
       <Modal title="对话框标题"
         visible={this.state.visible}
         onOk={this.handleOk}
+        confirmLoading={this.state.confirmLoading}
         onCancel={this.handleCancel}>
         <p>{this.state.ModalText}</p>
       </Modal>
@@ -53,5 +56,5 @@ var Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test/> , document.getElementById('components-modal-demo-custom'));
+ReactDOM.render(<Test/> , document.getElementById('components-modal-demo-async'));
 ````

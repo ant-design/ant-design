@@ -80,12 +80,15 @@ var Test = React.createClass({
         data: {
           city: 'hz'
         }
-      })
+      }),
+      pagination: {
+        current: 1
+      }
     });
   },
   render() {
     return <div>
-      <Table columns={columns} dataSource={this.state.dataSource} />
+      <Table columns={columns} dataSource={this.state.dataSource} pagination={this.state.pagination} />
       <Button type="primary" onClick={this.refresh}>
         重新加载数据
       </Button>

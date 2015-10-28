@@ -1,5 +1,6 @@
 import React from 'react';
 import rcUtil from 'rc-util';
+import { findDOMNode } from 'react-dom';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2,2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -24,6 +25,11 @@ function insertSpace(child) {
 }
 
 export default class Button extends React.Component {
+  componentDidMount() {
+    if (window && window.PIE) {
+      window.PIE.attach(findDOMNode(this));
+    }
+  }
   render() {
     const props = this.props;
     const {type, shape, size, onClick, className, htmlType, children, ...others} = props;
@@ -51,6 +57,17 @@ export default class Button extends React.Component {
     </button>;
   }
 }
+
+Button.propTypes = {
+  type: React.PropTypes.string,
+  shape: React.PropTypes.string,
+  size: React.PropTypes.string,
+  htmlType: React.PropTypes.string,
+  onClick: React.PropTypes.func,
+  loading: React.PropTypes.bool,
+  className: React.PropTypes.string,
+};
+
 Button.defaultProps = {
   onClick() {},
 };

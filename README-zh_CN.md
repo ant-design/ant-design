@@ -19,8 +19,18 @@
 
 ## 示例
 
+### 使用全部组件
+
 ```jsx
 import { Datepicker } from 'antd';
+ReactDOM.render(<Datepicker />, mountNode);
+```
+
+### 按需使用
+
+```jsx
+import "antd/lib/index.css"; // 只需在页面入口模块引用一次
+import Datepicker from 'antd/lib/datepicker';
 ReactDOM.render(<Datepicker />, mountNode);
 ```
 
