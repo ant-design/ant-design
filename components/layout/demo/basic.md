@@ -8,22 +8,37 @@
 
 ---
 
-````html
-<div class="row">
-  <div class="col-16">.col-16</div>
-  <div class="col-8">.col-8</div>
-</div>
-<div class="row">
-  <div class="col-8">.col-8</div>
-  <div class="col-8">.col-8</div>
-  <div class="col-8">.col-8</div>
-</div>
-<div class="row">
-  <div class="col-12">.col-12</div>
-  <div class="col-12">.col-12</div>
-</div>
+````jsx
+var Row = antd.Row;
+var Col = antd.Col;
+
+ReactDOM.render(
+  <div>
+    <Row>
+      <Col span="12">.col-12</Col>
+      <Col span="12">.col-12</Col>
+    </Row>
+    <Row className="testRowClassName">
+      <Col span="8">.col-8</Col>
+      <Col span="8">.col-8</Col>
+      <Col span="8" className="testColClassName">.col-8</Col>
+    </Row>
+    <Row>
+      <Col span="6">.col-6</Col>
+      <Col span="6">.col-6</Col>
+      <Col span="6">.col-6</Col>
+      <Col span="6">.col-6</Col>
+    </Row>
+  </div>,
+  document.getElementById('components-layout-demo-basic')
+);
 ````
 
-
-
-
+<style>
+.testRowClassName {
+	background: #f0f0f0;
+}
+div.testColClassName {
+	background: rgba(24, 115, 216, 0.9);
+}
+</style>

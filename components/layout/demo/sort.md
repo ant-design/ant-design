@@ -8,9 +8,17 @@
 
 ---
 
-````html
-<div class="row">
-  <div class="col-18 col-push-6">.col-18 .col-push-6</div>
-  <div class="col-6 col-pull-18">.col-6 .col-pull-18</div>
-</div>
+````jsx
+var Row = antd.Row;
+var Col = antd.Col;
+
+ReactDOM.render(
+  <div>
+    <Row>
+      <Col span="18" push="6">.col-18 .col-push-6</Col>
+      <Col span="6" pull="18">.col-6 .col-pull-18</Col>
+    </Row>
+  </div>,
+  document.getElementById('components-layout-demo-sort')
+);
 ````
