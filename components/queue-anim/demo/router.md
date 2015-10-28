@@ -7,17 +7,14 @@ router 组合的进场与出场动画。
 ---
 
 ````jsx
-var ReactRouter = require('react-router');
-var Router = ReactRouter.Router;
-var Route = ReactRouter.Route;
-var Link = ReactRouter.Link;
-var QueueAnim = antd.QueueAnim;
-var Menu = antd.Menu;
+const ReactRouter = require('react-router');
+let { Router, Route, Link } = ReactRouter;
+import { QueueAnim, Menu } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   render() {
-    var key = this.props.location.pathname;
-    var keys = key.replace('/', '') ? [ key.replace('/', '') ] : [ 'home' ];
+    const key = this.props.location.pathname;
+    const keys = key.replace('/', '') ? [ key.replace('/', '') ] : [ 'home' ];
     return (
       <div>
         <Menu style={{marginBottom: 10}} mode="horizontal" selectedKeys={keys}>
@@ -39,7 +36,7 @@ var App = React.createClass({
   }
 });
 
-var Home = React.createClass({
+const Home = React.createClass({
   render() {
     return (
       <div className="demo-router-child">
@@ -71,7 +68,7 @@ var Home = React.createClass({
   }
 });
 
-var Page1 = React.createClass({
+const Page1 = React.createClass({
   render() {
     return (
       <div className="demo-router-child">
@@ -99,7 +96,7 @@ var Page1 = React.createClass({
   }
 });
 
-var Page2 = React.createClass({
+const Page2 = React.createClass({
   render() {
     return (
       <div className="demo-router-child">

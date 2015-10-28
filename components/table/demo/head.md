@@ -9,8 +9,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
-var columns = [{
+import { Table } from 'antd';
+
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   filters: [{
@@ -42,7 +43,7 @@ var columns = [{
   }
 }];
 
-var data = [{
+const data = [{
   key: '1',
   name: '胡斌',
   age: 32,

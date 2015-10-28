@@ -7,12 +7,9 @@
 ---
 
 ````jsx
-var Upload = antd.Upload;
-var message = antd.message;
-var Button = antd.Button;
-var Icon = antd.Icon;
+import { Upload, message, Button, Icon } from 'antd';
 
-var props = {
+const props = {
   action: '/upload.do',
   multiple: true,
   onChange(info) {

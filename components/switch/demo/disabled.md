@@ -7,11 +7,10 @@ Switch 失效状态。
 ---
 
 ````jsx
-var Switch = antd.Switch;
-var Button = antd.Button;
-var container = document.getElementById('components-switch-demo-disabled');
+import { Switch, Button } from 'antd';
+const container = document.getElementById('components-switch-demo-disabled');
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       disabled: true

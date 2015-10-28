@@ -9,9 +9,7 @@
 ---
 
 ````jsx
-var Button = antd.Button;
-var ButtonGroup = antd.ButtonGroup;
-var Icon = antd.Icon;
+import { Button, ButtonGroup, Icon } from 'antd';
 
 ReactDOM.render(<div>
 <h4>基本组合</h4>
@@ -31,7 +29,7 @@ ReactDOM.render(<div>
   <Button>右</Button>
 </ButtonGroup>
 
-<h4>带图标按钮组合 </h4>
+<h4>带图标按钮组合</h4>
 <ButtonGroup>
   <Button type="primary">
     <Icon type="left" />

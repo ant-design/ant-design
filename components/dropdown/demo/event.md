@@ -7,15 +7,12 @@
 ---
 
 ````jsx
-var Menu = antd.Menu;
-var Dropdown = antd.Dropdown;
-var Button = antd.Button;
-var Icon = antd.Icon;
-var onSelect = function ({key}){
+import { Menu, Dropdown, Button, Icon } from 'antd';
+const onSelect = function ({key}){
   alert('选中了菜单' + key);
 };
 
-var menu = <Menu onSelect={onSelect}>
+const menu = <Menu onSelect={onSelect}>
   <Menu.Item key="1">第一个菜单项</Menu.Item>
   <Menu.Item key="2">第二个菜单项</Menu.Item>
   <Menu.Item key="3">第三个菜单项</Menu.Item>

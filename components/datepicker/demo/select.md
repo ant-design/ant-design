@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
+import { Datepicker } from 'antd';
 
-var Picker = React.createClass({
+const Picker = React.createClass({
   handleChange: function(value) {
     console.log(new Date(value.getTime()));
   },

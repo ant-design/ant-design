@@ -7,11 +7,10 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { message, Button } from 'antd';
 
-var message = antd.message;
-var success = function() {
-  var hide = message.loading('正在执行中...', 0);
+const success = function() {
+  let hide = message.loading('正在执行中...', 0);
   // 异步手动移除
   setTimeout(hide, 2500);
 };

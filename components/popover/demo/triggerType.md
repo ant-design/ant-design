@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Popover = antd.Popover;
-var Button = antd.Button;
+import { Popover, Button } from 'antd';
 
-var content = <div>
+const content = <div>
   <p>内容</p>
   <p>内容</p>
 </div>;

@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
-var Button = antd.Button;
+import { Button, notification } from 'antd';
 
-var openNotificationWithIcon = function(type) {
+const openNotificationWithIcon = function(type) {
   return function(){
     notification[type]({
       message: "这是标题",

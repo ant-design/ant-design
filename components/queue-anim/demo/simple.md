@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var QueueAnim = antd.QueueAnim;
+import { QueueAnim } from 'antd';
 
 ReactDOM.render(
   <QueueAnim delay={500}>

@@ -7,9 +7,9 @@ option分组
 ---
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
-var OptGroup = Select.OptGroup;
+import { Select } from 'antd';
+const Option = Select.Option;
+const OptGroup = Select.OptGroup;
 
 function handleChange(value) {
   console.log('selected ' + value);

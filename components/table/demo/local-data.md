@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
-var Button = antd.Button;
+import { Table, Button } from 'antd';
 
-var columns = [{
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
@@ -23,7 +22,7 @@ var columns = [{
   title: '住址',
   dataIndex: 'address'
 }];
-var data1 = [{
+const data1 = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
@@ -39,7 +38,7 @@ var data1 = [{
   age: 32,
   address: '西湖区湖底公园1号'
 }];
-var data2 = [{
+const data2 = [{
   key: '11',
   name: '胡彦斌2',
   age: 32,
@@ -56,7 +55,7 @@ var data2 = [{
   address: '西湖区湖底公园2号'
 }];
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       data: []

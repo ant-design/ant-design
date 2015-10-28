@@ -7,15 +7,14 @@
 ---
 
 ````jsx
-var Spin = antd.Spin;
-var container = document.getElementById('components-spin-demo-page-element');
+import { Spin } from 'antd';
 
 ReactDOM.render(
   <div>
     <div className="example">
-      <Spin size="small" />
+      <Spin />
     </div>
-  </div>, container);
+  </div>, document.getElementById('components-spin-demo-page-element'));
 
 ````
 <style>

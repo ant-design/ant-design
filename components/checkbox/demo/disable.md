@@ -7,8 +7,8 @@ checkbox 不可用。
 ---
 
 ````jsx
-var Checkbox = antd.Checkbox;
-var container = document.getElementById('components-checkbox-demo-disable');
+import { Checkbox } from 'antd';
+const container = document.getElementById('components-checkbox-demo-disable');
 
 ReactDOM.render(<div>
   <Checkbox defaultChecked={false} disabled={true}/>

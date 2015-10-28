@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var QueueAnim = antd.QueueAnim;
-var Button = antd.Button;
-var Test = React.createClass({
+import { QueueAnim, Button } from 'antd';
+
+const Test = React.createClass({
   getInitialState() {
     return {
       show: true,

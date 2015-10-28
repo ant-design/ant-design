@@ -7,11 +7,10 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
-var Button = antd.Button;
+import { Button, notification } from 'antd';
 
-var openNotification = function() {
-  var args = {
+const openNotification = function() {
+  const args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
     duration: 10

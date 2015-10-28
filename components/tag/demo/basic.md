@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Tag = antd.Tag;
+import { Tag } from 'antd';
 
 function onClose(e) {
   console.log(this.props.children);

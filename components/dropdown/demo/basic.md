@@ -7,12 +7,9 @@
 ---
 
 ````jsx
-var Menu = antd.Menu;
-var Dropdown = antd.Dropdown;
-var Button = antd.Button;
-var Icon = antd.Icon;
+import { Menu, Dropdown, Button, Icon } from 'antd';
 
-var menu = <Menu>
+const menu = <Menu>
   <Menu.Item>
     <a target="_blank" href="http://www.alipay.com/">第一个菜单项</a>
   </Menu.Item>

@@ -7,13 +7,11 @@
 ---
 
 ````jsx
-var Tabs = antd.Tabs;
-var TabPane = Tabs.TabPane;
-var Button = antd.Button;
-var Icon = antd.Icon;
+import { Tabs, Button, Icon } from 'antd';
+const TabPane = Tabs.TabPane;
 
 var index = 0;
-var closeStyle = {
+const closeStyle = {
   position: 'absolute',
   top: 0,
   right: -10,

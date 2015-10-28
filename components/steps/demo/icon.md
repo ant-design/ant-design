@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Steps = antd.Steps;
-var Step = Steps.Step;
-var container = document.getElementById('components-steps-demo-icon');
+import { Steps } from 'antd';
+const Step = Steps.Step;
+const container = document.getElementById('components-steps-demo-icon');
 
 ReactDOM.render(<Steps>
   <Step status='finish' title='步骤1' icon='cloud' />

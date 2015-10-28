@@ -13,17 +13,16 @@
 ---
 
 ````jsx
-var Upload = antd.Upload;
-var Button = antd.Button;
-var Icon = antd.Icon;
-var fileList = [{
+import { Upload, Button, Icon } from 'antd';
+
+const fileList = [{
   uid: -1,
   name: 'xxx.png',
   status: 'done',
   url: 'http://www.baidu.com/xxx.png'
 }];
 
-var MyUpload = React.createClass({
+const MyUpload = React.createClass({
   getInitialState() {
     return {
       fileList: fileList
@@ -58,7 +57,7 @@ var MyUpload = React.createClass({
     });
   },
   render() {
-    var props = {
+    const props = {
       action: '/upload.do',
       onChange: this.handleChange,
       multiple: true

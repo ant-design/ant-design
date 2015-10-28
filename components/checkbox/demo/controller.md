@@ -7,16 +7,15 @@
 ---
 
 ````jsx
-var Checkbox = antd.Checkbox;
-var Button = antd.Button;
-var container = document.getElementById('components-checkbox-demo-controller');
+import { Checkbox, Button } from 'antd';
+const container = document.getElementById('components-checkbox-demo-controller');
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       checked: true,
       disabled: false
-    }
+    };
   },
   render() {
     var label = (this.state.checked ? '选中' : '取消') + '-' +

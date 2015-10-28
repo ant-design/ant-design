@@ -7,8 +7,9 @@
 ---
 
 ````jsx
-var Checkbox = antd.Checkbox;
-var container = document.getElementById('components-checkbox-demo-basic');
+import { Checkbox } from 'antd';
+const container = document.getElementById('components-checkbox-demo-basic');
+
 function onChange(e) {
   console.log('checked = ' + e.target.checked);
 }

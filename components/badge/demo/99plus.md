@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Badge = antd.Badge;
+import { Badge } from 'antd';
 
 ReactDOM.render(<div>
   <Badge count="99">

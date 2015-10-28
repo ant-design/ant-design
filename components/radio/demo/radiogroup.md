@@ -7,10 +7,10 @@
 ---
 
 ````jsx
-var Radio = antd.Radio;
-var RadioGroup = antd.Radio.Group;
+import { Radio } from 'antd';
+const RadioGroup = Radio.Group;
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState: function () {
     return {
       value: 'a'

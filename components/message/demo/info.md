@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { message, Button } from 'antd';
 
-var message = antd.message;
-var info = function() {
+const info = function() {
   message.info('这是一条普通的提醒');
 };
 

@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-var Tabs = antd.Tabs;
-var TabPane = Tabs.TabPane;
+import { Tabs } from 'antd';
+const TabPane = Tabs.TabPane;
 
 ReactDOM.render(
   <Tabs defaultActiveKey="1" tabPosition="left">

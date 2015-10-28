@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var Button = antd.Button;
-var Icon = antd.Icon;
+import { Button, Icon } from 'antd';
 
 ReactDOM.render(<div>
   <Button type="primary" shape="circle" size="large">

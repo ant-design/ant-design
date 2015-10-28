@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
+import { Select } from 'antd';
+const Option = Select.Option;
 
 function handleChange(value) {
   console.log('selected ' + value);

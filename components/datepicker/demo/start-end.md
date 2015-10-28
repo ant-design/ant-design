@@ -7,55 +7,47 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
+import { Datepicker } from 'antd';
 
-var Test = React.createClass({
+const DateRange = React.createClass({
   getInitialState() {
     return {
       startValue: null,
       endValue: null
     };
   },
-
-  disabledEndDate(endValue) {
-    if (!endValue || !this.state.startValue) {
-      return false;
-    }
-    return endValue.getTime() <= this.state.startValue.getTime();
-  },
-
   disabledStartDate(startValue) {
     if (!startValue || !this.state.endValue) {
       return false;
     }
     return startValue.getTime() >= this.state.endValue.getTime();
   },
-
+  disabledEndDate(endValue) {
+    if (!endValue || !this.state.startValue) {
+      return false;
+    }
+    return endValue.getTime() <= this.state.startValue.getTime();
+  },
   onChange(field, value) {
     this.setState({
       [field]: value,
     });
   },
-
   render() {
-    var state = this.state;
-    return <div style={{width: 240, margin: 20}}>
-      <p>
-        开始时间：
-        <Datepicker disabledDate={this.disabledStartDate} value={state.startValue}
-                onChange={this.onChange.bind(this,'startValue')}/>
-      </p>
-
-      <p>
-        结束时间：
-        <Datepicker disabledDate={this.disabledEndDate} value={state.endValue}
-                onChange={this.onChange.bind(this,'endValue')}/>
-      </p>
+    return <div>
+      <Datepicker disabledDate={this.disabledStartDate}
+        value={this.state.startValue}
+        placeholder="开始日期"
+        onChange={this.onChange.bind(this,'startValue')} />
+      <Datepicker disabledDate={this.disabledEndDate}
+        value={this.state.endValue}
+        placeholder="结束日期"
+        onChange={this.onChange.bind(this,'endValue')} />
     </div>;
   }
 });
 
 ReactDOM.render(
-  <Test />
+  <DateRange />
 , document.getElementById('components-datepicker-demo-start-end'));
 ````

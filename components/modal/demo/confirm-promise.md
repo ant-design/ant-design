@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-var confirm = antd.Modal.confirm;
-var Button = antd.Button;
+import { Modal, Button } from 'antd';
+const confirm = antd.Modal.confirm;
 
 function showConfirm(){
   confirm({

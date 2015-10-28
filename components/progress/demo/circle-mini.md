@@ -7,7 +7,8 @@
 ---
 
 ````jsx
-var ProgressCircle = antd.Progress.Circle;
+import { Progress } from 'antd';
+const ProgressCircle = Progress.Circle;
 
 ReactDOM.render(
   <div>

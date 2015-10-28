@@ -2,17 +2,14 @@
 
 - order: 2
 
-区块加载。
+当有内容内嵌在Spin中时，通过添加loading属性，可以进入加载状态。
 
 ---
 
 ````jsx
+import { Spin, Button } from 'antd';
 
-var Spin = antd.Spin;
-var Button = antd.Button;
-var container = document.getElementById('components-spin-demo-full-page-load');
-
-var App = React.createClass({
+let App = React.createClass({
   getInitialState() {
     return {
       loading: false
@@ -32,12 +29,12 @@ var App = React.createClass({
         </div>
       </Spin>
      
-      <Button type="primary" onClick={this.enterLoading} />switch spin loading
+      <Button type="primary" onClick={this.enterLoading}>点击切换</Button>
     </div>;
   }
 });
 
-ReactDOM.render(<App />, container);
+ReactDOM.render(<App />, document.getElementById('components-spin-demo-full-page-load'));
 
 ````
 <style>

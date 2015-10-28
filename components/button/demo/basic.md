@@ -11,7 +11,7 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { Button } from 'antd';
 
 ReactDOM.render(<div>
   <Button type="primary">主按钮</Button>

@@ -7,9 +7,8 @@
 ---
 
 ````jsx
-var Menu = antd.Menu;
-var SubMenu = Menu.SubMenu;
-var Icon = antd.Icon;
+import { Menu, Icon } from 'antd';
+const SubMenu = Menu.SubMenu;
 
 var Sider = React.createClass({
   getInitialState() {

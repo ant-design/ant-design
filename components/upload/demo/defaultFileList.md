@@ -7,11 +7,9 @@
 ---
 
 ````jsx
-var Upload = antd.Upload;
-var Button = antd.Button;
-var Icon = antd.Icon;
+import { Upload, Button, Icon } from 'antd';
 
-var props = {
+const props = {
   action: '/upload.do',
   onChange(info) {
     if (info.file.status !== 'uploading') {

@@ -7,14 +7,13 @@
 ---
 
 ````jsx
-var Slider = antd.Slider;
-var Icon = antd.Icon;
+import { Slider, Icon } from 'antd';
 
-var IconSlider = React.createClass({
+const IconSlider = React.createClass({
   getInitialState() {
-    var max = this.props.max;
-    var min = this.props.min;
-    var mid = ((max - min) / 2).toFixed(5);
+    const max = this.props.max;
+    const min = this.props.min;
+    const mid = ((max - min) / 2).toFixed(5);
 
     return {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
@@ -25,8 +24,6 @@ var IconSlider = React.createClass({
   },
 
   handleChange(v) {
-    var preIcon, nextIcon;
-
     this.setState(
       {
         preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',

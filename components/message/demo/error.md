@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { message, Button } from 'antd';
 
-var message = antd.message;
-var error = function() {
+const error = function() {
   message.error('这是一条失败的提示这是一条失败的提示这是一条失败的提示');
 };
 

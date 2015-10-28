@@ -7,14 +7,13 @@ Radio 不可用。
 ---
 
 ````jsx
-var Radio = antd.Radio;
-var Button = antd.Button;
+import { Radio, Button } from 'antd';
 
 function toggleDisabled() {
   disabled = !disabled;
 }
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       disabled: true

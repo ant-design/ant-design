@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-var InputNumber = antd.InputNumber;
-var Button = antd.Button;
+import { InputNumber, Button } from 'antd';
 
 var Test = React.createClass({
   getInitialState() {

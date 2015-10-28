@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var InputNumber = antd.InputNumber;
+import { InputNumber } from 'antd';
 
 function onChange(value) {
   console.log('changed', value);

@@ -7,20 +7,19 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
-var Button = antd.Button;
+import { Button, notification } from 'antd';
 
-var close = function(){
+const close = function(){
   console.log('我被默认的关闭按钮关闭了！');
 }
 
-var openNotification = function() {
-  var key='open'+Date.now();
-  var btnClick = function() {
+const openNotification = function() {
+  const key='open'+Date.now();
+  const btnClick = function() {
     // 隐藏提醒框
     notification.close(key);
   };
-  var btn = <Button type="primary" size="small" onClick={btnClick}>
+  const btn = <Button type="primary" size="small" onClick={btnClick}>
     自定义关闭按钮并触发回调函数
   </Button>;
   notification.open({

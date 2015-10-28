@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
+import { Datepicker } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       locale: {
@@ -19,7 +19,8 @@ var App = React.createClass({
         lang: {
           today: 'Today',
           now: 'Now',
-          ok: 'Ok'
+          ok: 'OK',
+          clear: 'Clear'
         }
       }
     };

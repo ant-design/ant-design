@@ -40,7 +40,7 @@ const antd = {
   Slider: require('./components/slider'),
   QueueAnim: require('./components/queue-anim'),
   Radio: require('./components/radio'),
-  Notification: require('./components/notification'),
+  notification: require('./components/notification'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/tree'),
@@ -51,6 +51,8 @@ const antd = {
   Button: require('./components/button').Button,
   ButtonGroup: require('./components/button').ButtonGroup,
   Icon: require('./components/iconfont'),
+  Row: require('./components/layout').Row,
+  Col: require('./components/layout').Col,
   Spin: require('./components/spin')
 };
 

@@ -9,7 +9,7 @@
 ---
 
 ````jsx
-var Button = antd.Button;
+import { Button } from 'antd';
 
 ReactDOM.render(<div>
   <Button type="primary" size="large">大号按钮</Button>
