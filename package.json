@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "css-animation": "1.1.x",
-    "gregorian-calendar": "~3.0.0",
+    "gregorian-calendar": "~3.1.0",
     "gregorian-calendar-format": "~3.0.1",
     "object-assign": "~4.0.1",
     "rc-animate": "~2.0.0",
