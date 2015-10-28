@@ -1,30 +1,24 @@
 import React from 'react';
+import rcUtil from 'rc-util';
 
 const Row = React.createClass({
   propTypes: {
     type: React.PropTypes.string,
     align: React.PropTypes.string,
     justify: React.PropTypes.string,
+    className: React.PropTypes.string,
     children: React.PropTypes.node,
   },
-
   render() {
-    const { type, justify, align } = this.props;
-    let className = 'row';
-
-    if (type || justify || align) {
-      className += ` row-flex`;
-    }
-
-    if (justify) {
-      className += ` row-flex-${justify}`;
-    }
-
-    if (align) {
-      className += ` row-flex-${align}`;
-    }
-
-    return <div {...this.props} className={className}>{ this.props.children }</div>;
+    const { type, justify, align, className, ...others } = this.props;
+    const classes = rcUtil.classSet({
+      'row': true,
+      ['row-' + type]: type,
+      ['row-' + type + '-' + justify]: justify,
+      ['row-' + type + '-' + align]: align,
+      [className]: className,
+    });
+    return <div {...others} className={classes}>{ this.props.children }</div>;
   },
 });
 

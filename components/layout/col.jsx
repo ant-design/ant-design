@@ -1,4 +1,5 @@
 import React from 'react';
+import rcUtil from 'rc-util';
 
 const Col = React.createClass({
   propTypes: {
@@ -7,29 +8,20 @@ const Col = React.createClass({
     offset: React.PropTypes.string,
     push: React.PropTypes.string,
     pull: React.PropTypes.string,
+    className: React.PropTypes.string,
     children: React.PropTypes.node,
   },
-
   render() {
-    const {span, order, offset, push, pull } = this.props;
-    let className = `col-${span}`;
-
-    if (order) {
-      className += ` col-order-${order}`;
-    }
-
-    if (offset) {
-      className += ` col-offset-${offset}`;
-    }
-
-    if (push) {
-      className += ` col-push-${push}`;
-    }
-
-    if (pull) {
-      className += ` col-pull-${pull}`;
-    }
-    return <div {...this.props} className={className}>{ this.props.children }</div>;
+    const {span, order, offset, push, pull, className, ...others} = this.props;
+    const classes = rcUtil.classSet({
+      ['col-' + span]: span,
+      ['col-order-' + order]: order,
+      ['col-offset-' + offset]: offset,
+      ['col-push-' + push]: push,
+      ['col-pull-' + pull]: pull,
+      [className]: className,
+    });
+    return <div {...others} className={classes}>{ this.props.children }</div>;
   },
 });
 

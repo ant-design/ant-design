@@ -18,10 +18,10 @@ ReactDOM.render(
       <Col span="12">.col-12</Col>
       <Col span="12">.col-12</Col>
     </Row>
-    <Row>
+    <Row className="testRowClassName">
       <Col span="8">.col-8</Col>
       <Col span="8">.col-8</Col>
-      <Col span="8">.col-8</Col>
+      <Col span="8" className="testColClassName">.col-8</Col>
     </Row>
     <Row>
       <Col span="6">.col-6</Col>
@@ -33,3 +33,12 @@ ReactDOM.render(
   document.getElementById('components-layout-demo-basic')
 );
 ````
+
+<style>
+.testRowClassName {
+	background: #f0f0f0;
+}
+div.testColClassName {
+	background: rgba(24, 115, 216, 0.9);
+}
+</style>
