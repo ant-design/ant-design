@@ -23,26 +23,40 @@
 这里我们分别为表单域和输入控件封装了 
 
 ```html
-  <Form.Item> 
+  <Form.Item {...props}> 
     {children} 
   </Form.Item>`；
 ```
 
-`<Form.Input />`。
+## Input 输入框
+
+```html
+  <Input {...props} />
+```
 
 ## API 
 
 ### Form
-``` html
-<Form
-  prefixCls={string}    // 样式类名，默认为 ant-form，通常您不需要设置。
-  horizontal={bool}     // 水平排列布局。
-  inline={bool}         // 行内排列布局。
-  onSubmit={function}   // 数据验证成功后回调事件。
->  
-  {children}
-</Form>
-```
+
+| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+|  horizontal | 水平排列布局 | boolean  |   | false    |
+|  inline | 行内排列布局 | boolean |  | false |
+|  onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |   |
+|  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
+
+### Form.Item
+
+| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+|  label | label 标签的文本 | string  |   |     |
+|  labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object |  |  |
+|  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  | 
+|  help | 提示信息 | string |  | ''  |
+|  required | 是否必填 | bool |  | false  |
+|  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
+|  validateStatus | 校验状态 | string | 'success' 'warning' 'error' 'validating'  | ''  |
+|  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
 ### Form.ValueMixin
 
@@ -50,45 +64,27 @@ Mixin：当表单控件的输入值改变时，更新 formData。
 
 **你需要为每个输入控件声明 `name` 属性**
 
-### Form.Item
+### Input
 
-``` html
-<FormItem
-  prefixCls={string}        // 样式类名，默认为 ant-form，通常您不需要设置。
-  label={string|element}    // label 标签的文本。
-  labelClassName={string}   // label 标签样式，比如设置布局样式 'col-4'。
-  wrapperClassName={string} // 需要为输入控件设置布局样式时，使用该属性。
-  help={string}             // 提示信息。
-  required={bool}           // 是否必填，默认为 false。
-  hasFeedback={bool}        // 配合 validateStatus 属性使用，是否展示校验状态图标，默认 false。
-  validateStatus={'success'|'warning'|'error'|'validating'}     // 校验状态，必须为 'success', 'warning', 'error', 'validating'中的一个值。
->
-  [<Input /> | <CheckBox> | <Select> | ...]
-</FormItem>
-```
+| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+|  type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
+|  value | value 值 | any |  | '' |
+|  id | id | number 或 string |  |   |
+|  size | 控件大小，默认值为 default | string | {'large','default','small'} |  'default' |
+|  defaultValue | 设置初始默认值 | any |  |  '' |
+|  disabled | 是否禁用状态，默认为 false | bool |  |  false |
+|  addonBefore | 带标签的 input，设置前置标签 | node |  |   |
+|  addonAfter | 带标签的 input，设置后置标签 | node |  |   |
+|  prefixCls | 样式类名前缀，默认是 ant，通常您不需要设置 | string |  |  'ant' |
 
-### Form.Input
+#### Input.Group
 
 ```html 
-<Form.Input 
-  prefixCls={string}      // 样式类名前缀，默认是 ant，通常您不需要设置。
-  type={string}           // 【必须】声明 input 类型，保留原生 input 标签的 type 属性值，新增 static，详见例子。 
-  value={any}             // value 值 。
-  id={number|string}      // id。
-  size={'large'|'default'|'small'}  // 控件大小，默认值为 default。
-  defaultValue={any}      // 设置初始默认值。
-  disabled={bool}         // 是否禁用状态，默认为 false。
-  addonBefore={node}      // 带标签的 input，设置前置标签。
-  addonAfter={node}       // 带标签的 input，设置后置标签。
-/>
-```
-
-### Form.InputGroup
-
-```html 
-<Form.InputGroup 
+<Input.Group 
   className={string}      // 样式类名前缀，默认是 ant-input-group，通常您不需要设置。
 >
   {children}
-</Form.InputGroup>
+</Input.Group>
 ```
+
