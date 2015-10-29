@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import {Form, Input, Select, InputNumber, Datepicker, Switch, Menu, Dropdown, Slider, Icon, Button, Message, Row, Col} from 'antd';
+import {Form, Input, Select, InputNumber, Datepicker, Switch, Menu, Dropdown, Slider, Icon, Button, message, Row, Col} from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 

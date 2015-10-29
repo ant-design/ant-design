@@ -5,7 +5,7 @@
 ---
 
 ````jsx
-import {Form, Input, Button, Checkbox, Message} from 'antd';
+import {Form, Input, Button, Checkbox, message} from 'antd';
 const FormItem = Form.Item;
 
 const Demo = React.createClass({
@@ -23,7 +23,7 @@ const Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    Message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
       if (typeof v === 'undefined') {
         return '';
       }
