@@ -21,7 +21,7 @@ const renderContent = function(value, row, index) {
     obj.props.colSpan = 0;
   }
   return obj;
-}
+};
 
 const columns = [{
   title: '姓名',
@@ -29,7 +29,7 @@ const columns = [{
   render: function(text, row, index) {
     if (index < 4) {
       return <a href="javascript:;">{text}</a>;
-    }else{
+    } else {
       return {
         children: <a href="javascript:;">{text}</a>,
         props: {
