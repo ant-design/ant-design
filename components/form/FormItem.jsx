@@ -132,7 +132,7 @@ FormItem.propTypes = {
   label: React.PropTypes.node,
   labelCol: React.PropTypes.object,
   help: React.PropTypes.node,
-  validateStatus: React.PropTypes.oneOf(['success', 'warning', 'error', 'validating']),
+  validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
   hasFeedback: React.PropTypes.bool,
   wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
