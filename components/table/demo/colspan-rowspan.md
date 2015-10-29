@@ -11,7 +11,8 @@
 ````jsx
 import { Table } from 'antd';
 
-// 事例表中第四行合并了五列，除了第一列设置 colSpan = 5 外，其他列的第四行 colSpan = 0 (被合并掉，不会渲染)
+// 事例表中第四行合并了五列，除了第一列设置 colSpan = 5 外
+// 其他列的第四行 colSpan = 0 (被合并掉，不会渲染)
 const renderContent = function(value, row, index) {
   let obj = {
     children: value,
