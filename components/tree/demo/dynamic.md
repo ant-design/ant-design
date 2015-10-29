@@ -12,35 +12,12 @@ var TreeNode = Tree.TreeNode;
 
 const asyncTree = [
   {name: "pNode 01", key: "0-0"},
-  {name: "pNode 02", key: "0-1"},
-  {name: "pNode 03", key: "0-2"},
-  {name: "pNode 04", key: "0-4"},
-  {name: "pNode 05", key: "0-5"},
-  {name: "pNode 06", key: "0-6"},
-  {name: "pNode 07", key: "0-7"},
-  {name: "pNode 08", key: "0-8"},
 ];
 
-const generateTreeNodes = (treeNode) => {
-  const arr = [];
-  const key = treeNode.props.eventKey;
-  //获取自定义数据
-  if(key=='0-0'){
-    const asyncTree2  = [
+const generateTreeNodes = () => {
+  const arr  = [
        {name: "伯约", key: "0-0-0"},
-       {name: "王磊", key: "0-0-1"},
-       ];
-       asyncTree2.forEach((item) => {
-          arr.push({name: item.name, key: item.key});
-    });
-  }
-  //获取默认数据
-  else{
-    for (let i = 0; i < 6; i++) {
-      arr.push({name: `leaf ${key}-${i}`, key: `${key}-${i}`});
-    }
-  }
-
+  ];
   return arr;
 }
 
@@ -69,7 +46,7 @@ const TreeDemo = React.createClass({
   },
   handleDataLoaded(treeNode) {
     return this.timeout(1000).then(() => {
-      const child = generateTreeNodes(treeNode);
+      const child = generateTreeNodes();
       const treeData = [...this.state.treeData];
       treeData.forEach((item) => {
         if (item.key === treeNode.props.eventKey) {
@@ -90,16 +67,12 @@ const TreeDemo = React.createClass({
         }
       })
     };
-    const parseTreeNode = (data) => {
-      return loop(data);
-    };
+    const parseTreeNode = data => loop(data);
     let treeNodes = parseTreeNode(this.state.treeData);
     return (
-      <div>
         <Tree onSelect={this.handleSelect} onDataLoaded={this.handleDataLoaded} showLine={false}>
           {treeNodes}
         </Tree>
-      </div>
     )
   }
 })
