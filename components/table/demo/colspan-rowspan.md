@@ -2,22 +2,22 @@
 
 - order: 13
 
-表头只支持列合并，columns = [{title: '姓名',`colSpan:2`}]。
+表头只支持列合并，cell = [{title: '姓名', `colSpan: 2`}]。
 
-表格支持行/列合并,可以指定内容对齐方式,colSpan或者rowSpan设值为0时,设置的表格不会渲染。
+表格支持行/列合并，可以指定内容对齐方式，colSpan或者rowSpan设值为 0 时,设置的表格不会渲染。
 
 ---
 
 ````jsx
 import { Table } from 'antd';
 
-//设置第四行colSpan=0(被合并掉,不会渲染)
-const renderContent = function(value, row, index){
+// 事例表中第四行合并了五列，除了第一列设置colSpan=5 外，其他列的第四行colSpan=0 (被合并掉，不会渲染)
+const renderContent = function(value, row, index) {
   let obj = {
     children: value,
-    props:{}
+    props: {}
   }
-  if(index === 4){
+  if (index === 4) {
     obj.props.colSpan = 0;
   }
   return obj;
@@ -27,48 +27,52 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text, row, index) {
-    if(index < 4){
+    if (index < 4) {
       return <a href="javascript:;">{text}</a>;
     }else{
       return {
         children: <a href="javascript:;">{text}</a>,
-        props:{
+        props: {
           align: 'center',
           colSpan: 5
         }
       }
     }
   }
-},{
+}, {
   title: '年龄',
   dataIndex: 'age',
   render: renderContent
-},{
+}, {
   title: '家庭电话',
   colSpan: 2,
   dataIndex: 'tel',
-  render: function(value, row, index){
+  render: function(value, row, index) {
     let obj = {
       children: value,
       props:{}
     }
-    if(index === 2){
+    // 第三列的第三行行合并
+    if (index === 2) {
       obj.props.rowSpan = 2;
     }
-    if(index === 3){
+
+    // 第三列的第四行被合并没了，设置rowSpan=0 直接不用渲染
+    if (index === 3) {
       obj.props.rowSpan = 0;
     }
-    if(index === 4){
+
+    if (index === 4) {
       obj.props.colSpan = 0;
     }
     return obj;
   }
-},{
+}, {
   title: '手机号',
   colSpan: 0,
   dataIndex: 'phone',
   render: renderContent
-},{
+}, {
   title: '住址',
   dataIndex: 'address',
   render: renderContent
@@ -95,14 +99,14 @@ const data = [{
   tel: '0575-22098909',
   phone: 18900010002,
   address: '西湖区湖底公园1号'
-},{
+}, {
   key: '4',
   name: '李夫人',
   age: 18,
   tel: '0575-22098909',
   phone: 18900010002,
   address: '西湖区湖底公园1号'
-},{
+}, {
    key: '5',
    name: '习大大',
    age: 18,
