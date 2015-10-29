@@ -39,6 +39,8 @@ function createPicker(TheCalendar) {
         onSelect: null, // 向前兼容
         onChange() {},  // onChange 可用于 Validator
         locale: {},
+        // 自动换方向有很多视觉和交互问题
+        // 需求不是很大，和设计师协商后不做
         placement: {
           points: ['tl', 'tl'],
           overflow: { adjustX: 0, adjustY: 0 },
@@ -134,13 +136,14 @@ function createPicker(TheCalendar) {
           onChange={this.handleChange}>
           {
             ({value}) => {
-              return ([<input
-                disabled={this.props.disabled}
-                onChange={this.handleInputChange}
-                value={value && this.getFormatter().format(value)}
-                placeholder={this.props.placeholder}
-                className={'ant-calendar-picker-input ant-input' + sizeClass} />,
-                <span className="ant-calendar-picker-icon" />]);
+              return <span>
+                <input disabled={this.props.disabled}
+                  onChange={this.handleInputChange}
+                  value={value && this.getFormatter().format(value)}
+                  placeholder={this.props.placeholder}
+                  className={'ant-calendar-picker-input ant-input' + sizeClass} />
+                <span className="ant-calendar-picker-icon" />
+              </span>;
             }
           }
         </Datepicker>
