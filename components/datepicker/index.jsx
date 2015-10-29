@@ -84,13 +84,13 @@ function createPicker(TheCalendar) {
           return date;
         }
       }
-      return null;
+      return undefined;
     },
     // remove input readonly warning
     handleInputChange() {},
     handleChange(value) {
       this.setState({ value });
-      const timeValue = value ? new Date(value.getTime()) : null;
+      const timeValue = value ? new Date(value.getTime()) : undefined;
       // onSelect 为向前兼容.
       if (this.props.onSelect) {
         require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
