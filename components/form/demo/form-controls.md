@@ -9,89 +9,87 @@
 ---
 
 ````jsx
-var Form = antd.Form;
-var Select = antd.Select;
-var Option = Select.Option;
-var Checkbox = antd.Checkbox;
-var Radio = antd.Radio;
-var RadioGroup = antd.Radio.Group;
+import {Form, Input, Select, Checkbox, Radio} from 'antd';
+const FormItem = Form.Item;
+const Option = Select.Option;
+const RadioGroup = Radio.Group;
 
 function handleSelectChange(value) {
   console.log('selected ' + value);
 }
 
 ReactDOM.render(
-<Form horizontal>
-  <Form.Item
-    id="control-input"
-    label="输入框："
-    labelClassName="col-6"
-    wrapperClassName="col-14">
-    <Form.Input type="text" id="control-input" placeholder="Please enter..." />
-  </Form.Item>
+  <Form horizontal>
+    <FormItem
+      id="control-input"
+      label="输入框："
+      labelCol={{span: 6}}
+      wrapperCol={{span: 14}}>
+      <Input id="control-input" placeholder="Please enter..." />
+    </FormItem>
 
-  <Form.Item
-    id="control-textarea"
-    label="文本域："
-    labelClassName="col-6"
-    wrapperClassName="col-14">
-    <Form.Input type="textarea" id="control-textarea"/>
-  </Form.Item>
+    <FormItem
+      id="control-textarea"
+      label="文本域："
+      labelCol={{span: 6}}
+      wrapperCol={{span: 14}}>
+      <Input type="textarea" id="control-textarea"/>
+    </FormItem>
 
-  <Form.Item
-    id="select"
-    label="Select 选择器："
-    labelClassName="col-6"
-    wrapperClassName="col-14">
-    <Select id="select" size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
-      <Option value="jack">jack</Option>
-      <Option value="lucy">lucy</Option>
-      <Option value="disabled" disabled>disabled</Option>
-      <Option value="yiminghe">yiminghe</Option>
-    </Select>
-  </Form.Item>
+    <FormItem
+      id="select"
+      label="Select 选择器："
+      labelCol={{span: 6}}
+      wrapperCol={{span: 14}}>
+      <Select id="select" size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
+        <Option value="jack">jack</Option>
+        <Option value="lucy">lucy</Option>
+        <Option value="disabled" disabled>disabled</Option>
+        < Option value="yiminghe">yiminghe</Option>
+      </Select>
+    </FormItem>
 
-  <Form.Item
-    label="Checkbox 多选框："
-    labelClassName="col-6"
-    wrapperClassName="col-18" >
-      <label className="ant-checkbox-vertical">
-        <Checkbox />选项一
-      </label>
-      <label className="ant-checkbox-vertical">
-        <Checkbox />选项二
-      </label>
-      <label className="ant-checkbox-vertical">
-        <Checkbox disabled={true} />选项三（不可选）
-      </label>
-  </Form.Item>
+    <FormItem
+      label="Checkbox 多选框："
+      labelCol={{span: 6}}
+      wrapperCol={{span: 18}} >
+        <label className="ant-checkbox-vertical">
+          <Checkbox />选项一
+        </label>
+        <label className="ant-checkbox-vertical">
+          <Checkbox />选项二
+        </label>
+        <label className="ant-checkbox-vertical">
+          <Checkbox disabled={true} />选项三（不可选）
+        </label>
+    </FormItem>
 
-  <Form.Item
-    label="Checkbox 多选框："
-    labelClassName="col-6"
-    wrapperClassName="col-18" >
-      <label className="ant-checkbox-inline">
-        <Checkbox />选项一
-      </label>
-      <label className="ant-checkbox-inline">
-        <Checkbox />选项二
-      </label>
-      <label className="ant-checkbox-inline">
-        <Checkbox />选项三
-      </label>
-  </Form.Item>
+    <FormItem
+      label="Checkbox 多选框："
+      labelCol={{span: 6}}
+      wrapperCol={{span: 18}} >
+        <label className="ant-checkbox-inline">
+          <Checkbox />选项一
+        </label>
+        <label className="ant-checkbox-inline">
+          <Checkbox />选项二
+        </label>
+        <label className="ant-checkbox-inline">
+          <Checkbox />选项三
+        </label>
+    </FormItem>
 
-  <Form.Item
-    label="Radio 单选框："
-    labelClassName="col-6"
-    wrapperClassName="col-18" >
-      <RadioGroup value="b">
-        <Radio value="a">A</Radio>
-        <Radio value="b">B</Radio>
-        <Radio value="c">C</Radio>
-        <Radio value="d">D</Radio>
-      </RadioGroup>
-  </Form.Item>
-</Form>
+    <FormItem
+      label="Radio 单选框："
+      labelCol={{span: 6}}
+      wrapperCol={{span: 18}} >
+        <RadioGroup value="b">
+          <Radio value="a">A</Radio>
+          <Radio value="b">B</Radio>
+          <Radio value="c">C</Radio>
+          <Radio value="d">D</Radio>
+        </RadioGroup>
+    </FormItem>
+  </Form>
 , document.getElementById('components-form-demo-form-controls'));
 ````
