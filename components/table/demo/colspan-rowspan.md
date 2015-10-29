@@ -2,9 +2,9 @@
 
 - order: 13
 
-表头只支持列合并，cell = [{title: '姓名', `colSpan: 2`}]。
+表头只支持列合并，使用 column 里的 colSpan 进行设置。
 
-表格支持行/列合并，可以指定内容对齐方式，colSpan 或者 rowSpan 设值为 0 时，设置的表格不会渲染。
+表格支持行/列合并，可以指定内容对齐方式，使用 render 里的单元格属性 colSpan 或者 rowSpan 设值为 0 时，设置的表格不会渲染。
 
 ---
 
