@@ -11,16 +11,12 @@
 ---
 
 ````jsx
-var Validation = antd.Validation;
-var Validator = Validation.Validator;
-var Select = antd.Select;
-var Option = Select.Option;
-var Radio = antd.Radio;
-var RadioGroup = antd.Radio.Group;
-var Button = antd.Button;
-var Datepicker = antd.Datepicker;
-var InputNumber = antd.InputNumber;
-var Form = antd.Form;
+
+import {Validation, Select, Radio, Button, Datepicker, InputNumber, Form, Input} from 'antd';
+const Validator = Validation.Validator;
+const Option = Select.Option;
+const RadioGroup = Radio.Group;
+const FormItem = Form.Item;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -36,7 +32,7 @@ function noop() {
   return false;
 }
 
-var Demo = React.createClass({
+const Demo = React.createClass({
   mixins: [Validation.FieldMixin],
 
   getInitialState() {
@@ -68,15 +64,14 @@ var Demo = React.createClass({
     };
   },
 
-  renderValidateStyle(item, hasFeedback=true) {
-    var formData = this.state.formData;
-    var status = this.state.status;
+  renderValidateStyle(item) {
+    const formData = this.state.formData;
+    const status = this.state.status;
 
-    var classes = cx({
-      'has-feedback': hasFeedback,
-      'has-error': status[item].errors,
-      'is-validating': status[item].isValidating,
-      'has-success': formData[item] && !status[item].errors && !status[item].isValidating
+    const classes = cx({
+      'error': status[item].errors,
+      'validating': status[item].isValidating,
+      'success': formData[item] && !status[item].errors && !status[item].isValidating
     });
 
     return classes;
@@ -107,7 +102,7 @@ var Demo = React.createClass({
     this.setState({
       isEmailOver: true
     });
-    var validation = this.refs.validation;
+    const validation = this.refs.validation;
     validation.validate((valid) => {
       if (!valid) {
         console.log('error in form');
@@ -166,48 +161,48 @@ var Demo = React.createClass({
   },
 
   render() {
-    var formData = this.state.formData;
-    var status = this.state.status;
+    const formData = this.state.formData;
+    const status = this.state.status;
 
     return (
       <Form horizontal>
         <Validation ref="validation" onValidate={this.handleValidate}>
-          <Form.Item
+          <FormItem
             label="用户名："
             id="name"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('name')}
+            hasFeedback
+            help={status.name.isValidating ? "正在校验中.." : status.name.errors ? status.name.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('name')}>
               <Validator rules={[{required: true, min: 5, message: '用户名至少为 5 个字符'}, {validator: this.userExists}]}>
-                <Form.Input type="text" name="name" id="name" value={formData.name} placeholder="实时校验，输入 JasonWood 看看" />
+                <Input name="name" id="name" value={formData.name} placeholder="实时校验，输入 JasonWood 看看" onChange={this.setField.bind(this, 'name')} />
               </Validator>
-              {status.name.isValidating ? <div className="ant-form-explain">正在校验中...</div> : null}
-              {status.name.errors ? <div className="ant-form-explain">{status.name.errors.join(',')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="邮箱："
             id="email"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('email')}
+            hasFeedback={this.state.isEmailOver}
+            help={status.email.errors ? status.email.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('email', this.state.isEmailOver)}>
               <Validator rules={[{required: true, type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
-                <Form.Input type="email" name="email" id="email" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
+                <Input type="email" name="email" id="email" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
               </Validator>
-              {status.email.errors ? <div className="ant-form-explain">{status.email.errors.join(',')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="国籍："
             id="select"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('select')}
+            help={status.select.errors ? status.select.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('select', false)}>
               <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
                 <Select size="large" placeholder="请选择国家" style={{width:"100%"}} name="select" value={formData.select}>
                   <Option value="china">中国</Option>
@@ -217,66 +212,64 @@ var Demo = React.createClass({
                   <Option value="Thailand">泰国</Option>
                 </Select>
               </Validator>
-              {status.select.errors ? <div className="ant-form-explain">{status.select.errors.join(',')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="性别："
             id="radio"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('radio')}
+            help={status.radio.errors ? status.radio.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('radio', false)}>
               <Validator rules={[{required: true, message: '请选择您的性别'}]}>
                 <RadioGroup name="radio" value={formData.radio}>
                   <Radio value="male">男</Radio>
                   <Radio value="female">女</Radio>
                 </RadioGroup>
               </Validator>
-              {status.radio.errors ? <div className="ant-form-explain">{status.radio.errors.join(',')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="密码："
             id="password"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('passwd')}
+            hasFeedback
+            help={status.passwd.errors ? status.passwd.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('passwd')}>
               <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]}>
-                <Form.Input name="passwd" id="password" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.passwd}/>
-                </Validator>
-              {status.passwd.errors ? <div className="ant-form-explain">{status.passwd.errors.join(',')}</div> : null}
-            </div>
-          </Form.Item>
+                <Input name="passwd" id="password" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.passwd}/>
+              </Validator>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="确认密码："
             id="password2"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('rePasswd')}
+            hasFeedback
+            help={status.rePasswd.errors ? status.rePasswd.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('rePasswd')}>
               <Validator rules={[{
                 required: true,
                 whitespace: true,
                 message: '请再次输入密码'
               }, {validator: this.checkPass2}]}>
-                <Form.Input name="rePasswd" id="password2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
+                <Input name="rePasswd" id="password2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
               </Validator>
-              {status.rePasswd.errors ? <div className="ant-form-explain"> {status.rePasswd.errors.join(', ')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="生日："
             id="birthday"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('birthday')}
+            help={status.birthday.errors ? status.birthday.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('birthday', false)}>
               <Validator rules={[{
                 required: true,
                 type: 'date',
@@ -284,44 +277,40 @@ var Demo = React.createClass({
               }, {validator: this.checkBirthday}]}>
                 <Datepicker name="birthday" value={formData.birthday}></Datepicker>
               </Validator>
-              {status.birthday.errors ? <div className="ant-form-explain"> {status.birthday.errors.join(', ')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="8~12间的质数："
             id="primeNumber"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('primeNumber')}
+            help={status.primeNumber.errors ? status.primeNumber.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('primeNumber', false)}>
               <Validator rules={[{validator: this.checkPrime}]}>
                 <InputNumber name="primeNumber" min={8} max={12} value={formData.primeNumber}/>
               </Validator>
-              {status.primeNumber.errors ? <div className="ant-form-explain"> {status.primeNumber.errors.join(', ')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             label="备注："
             id="textarea"
-            labelClassName="col-7"
-            wrapperClassName="col-12"
+            labelCol={{span: 7}}
+            wrapperCol={{span: 12}}
+            validateStatus={this.renderValidateStyle('textarea')}
+            help={status.textarea.errors ? status.textarea.errors.join(',') : null}
             required>
-            <div className={this.renderValidateStyle('textarea', false)}>
               <Validator rules={[{required: true, message: '真的不打算写点什么吗？'}]}>
-                <Form.Input type="textarea" placeholder="随便写" id="textarea" name="textarea" value={formData.textarea} />
+                <Input type="textarea" placeholder="随便写" id="textarea" name="textarea" value={formData.textarea} />
               </Validator>
-              {status.textarea.errors ? <div className="ant-form-explain">{status.textarea.errors.join(',')}</div> : null}
-            </div>
-          </Form.Item>
+          </FormItem>
 
-          <Form.Item
-            wrapperClassName="col-offset-7 col-12" >
-            <Button type="primary" onClick={this.handleSubmit}>确 定</Button>
+          <FormItem
+            wrapperCol={{span: 12, offset: 7}} >
+            <Button type="primary" onClick={this.handleSubmit}>确定</Button>
             &nbsp;&nbsp;&nbsp;
-            <Button type="ghost" onClick={this.handleReset}>重 置</Button>
-          </Form.Item>
+            <Button type="ghost" onClick={this.handleReset}>重置</Button>
+          </FormItem>
         </Validation>
       </Form>
     );
