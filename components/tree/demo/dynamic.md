@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-var Tree = antd.Tree;
-var TreeNode = Tree.TreeNode;
+import { Tree } from 'antd';
+const TreeNode = Tree.TreeNode;
 
 const asyncTree = [
   {name: "pNode 01", key: "0-0"},
