@@ -20,6 +20,10 @@ const closeStyle = {
 const addStyle = {
   pointerEvents: 'auto',
   color: '#2db7f5',
+  position: 'absolute',
+  top: 8,
+  left: 0,
+  marginLeft: -8,
 };
 
 const Test = React.createClass({
