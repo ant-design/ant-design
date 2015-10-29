@@ -10,6 +10,16 @@ function prefixClsFn(prefixCls, ...args) {
 }
 
 class FormItem extends React.Component {
+  _getLayoutClass(colDef) {
+    if (!colDef) {
+      return '';
+    }
+    const {span, offset} = colDef;
+    const col = span ? 'col-' + span : '';
+    const offsetCol = offset ? ' col-offset-' + offset : '';
+    return col + offsetCol;
+  }
+
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     return this.props.help ? (
@@ -40,19 +50,20 @@ class FormItem extends React.Component {
   }
 
   renderWrapper(children) {
-    return this.props.wrapperClassName ? (
-      <div className={this.props.wrapperClassName}>
+    const wrapperCol = this.props.wrapperCol;
+    return wrapperCol ? (
+      <div className={this._getLayoutClass(wrapperCol)}>
         {children}
       </div>
     ) : children;
   }
 
   renderLabel() {
-    const labelClassName = this.props.labelClassName;
+    const labelCol = this.props.labelCol;
     const required = this.props.required ? 'required' : '';
 
     return this.props.label ? (
-      <label htmlFor={this.props.id} className={labelClassName} required={required}>
+      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)} required={required}>
         {this.props.label}
       </label>
     ) : '';
@@ -119,13 +130,13 @@ class FormItem extends React.Component {
 FormItem.propTypes = {
   prefixCls: React.PropTypes.string,
   label: React.PropTypes.node,
-  labelClassName: React.PropTypes.string,
+  labelCol: React.PropTypes.object,
   help: React.PropTypes.node,
   validateStatus: React.PropTypes.oneOf(['success', 'warning', 'error', 'validating']),
   hasFeedback: React.PropTypes.bool,
-  wrapperClassName: React.PropTypes.string,
+  wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
-  children: React.PropTypes.any,
+  children: React.PropTypes.node,
 };
 
 FormItem.defaultProps = {

@@ -54,7 +54,8 @@ const antd = {
   Row: require('./components/layout').Row,
   Col: require('./components/layout').Col,
   Spin: require('./components/spin'),
-  Form: require('./components/form'),
+  Form: require('./components/form').Form,
+  Input: require('./components/form').Input,
 };
 
 antd.version = require('./package.json').version;

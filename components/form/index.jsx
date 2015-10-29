@@ -1,10 +1,11 @@
 import Form from './Form';
 import FormItem from './FormItem';
-import Input from './Input';
 import ValueMixin from './ValueMixin';
+import Input from './Input';
 
 Form.Item = FormItem;
-Form.Input = Input;
 Form.ValueMixin = ValueMixin;
-Form.InputGroup = Input.Group;
-export default Form;
+export default {
+  Form,
+  Input
+};
