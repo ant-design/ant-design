@@ -27,20 +27,6 @@ Group.defaultProps = {
 
 
 class Input extends React.Component {
-  getInputDOMNode() {
-    return this.refs.input;
-  }
-
-  getValue() {
-    if (this.props.type === 'static') {
-      return this.props.value;
-    } else if (this.props.type) {
-      return this.getInputDOMNode().value;
-    }
-
-    throw new Error('Cannot use getValue without specifying input type.');
-  }
-
   renderLabledInput(children) {
     const props = this.props;
     const wrapperClassName = prefixClsFn(props.prefixCls, 'input-group');
@@ -83,12 +69,6 @@ class Input extends React.Component {
     switch (props.type) {
     case 'textarea':
       return <textarea {...props} className={inputClassName} ref="input" />;
-    case 'static':
-      return (
-        <p id={props.id} className={prefixClsFn(prefixCls, 'form-text')} ref="input">
-          {props.value}
-        </p>
-      );
     default:
       inputClassName = props.className ? props.className : inputClassName;
       return <input {...props} className={inputClassName} ref="input"/>;
@@ -113,7 +93,6 @@ Input.propTypes = {
   className: React.PropTypes.string,
   addonBefore: React.PropTypes.node,
   addonAfter: React.PropTypes.node,
-  children: React.PropTypes.any,
   prefixCls: React.PropTypes.string,
 };
 
@@ -121,6 +100,7 @@ Input.defaultProps = {
   defaultValue: '',
   disabled: false,
   prefixCls: 'ant',
+  type: 'text',
 };
 
 module.exports = Input;
