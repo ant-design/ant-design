@@ -34,7 +34,6 @@ const columns = [{
       return {
         children: <a href="javascript:;">{text}</a>,
         props: {
-          align: 'center',
           colSpan: 5
         }
       }
