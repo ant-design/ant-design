@@ -74,7 +74,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="Datepicker 失败："
+      label="Datepicker："
       labelCol={{span: 5}}
       validateStatus="error">
       <Col span="6">

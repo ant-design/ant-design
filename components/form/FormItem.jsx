@@ -30,8 +30,9 @@ class FormItem extends React.Component {
   }
 
   renderValidateWrapper(children) {
+    let classes = '';
     if (this.props.validateStatus) {
-      const classes = cx(
+      classes = cx(
         {
           'has-feedback': this.props.hasFeedback,
           'has-success': this.props.validateStatus === 'success',
@@ -40,13 +41,12 @@ class FormItem extends React.Component {
           'is-validating': this.props.validateStatus === 'validating',
         }
       );
-      return (
-        <div className={classes}>
-          {children}
-        </div>
-      );
     }
-    return children;
+    return (
+      <div className={classes}>
+        {children}
+      </div>
+    );
   }
 
   renderWrapper(children) {

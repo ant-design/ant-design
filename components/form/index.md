@@ -20,7 +20,7 @@
 
 表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。
 
-这里我们分别为表单域和输入控件封装了 
+这里我们分别封装了表单域 `<Form.Item>` 和输入控件 `<Input>`。
 
 ```html
   <Form.Item {...props}> 
@@ -54,8 +54,8 @@
 |  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  | 
 |  help | 提示信息 | string |  |   |
 |  required | 是否必填 | bool |  | false  |
-|  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
 |  validateStatus | 校验状态 | string | 'success' 'warning' 'error' 'validating'  |   |
+|  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
 |  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
 ### Form.ValueMixin
