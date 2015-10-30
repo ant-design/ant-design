@@ -82,16 +82,16 @@ ReactDOM.render(<div>
 ````
 
 <style>
-.nico-insert-code h4 {
-  margin: 8px 0;
-  font-size: 12px;
-  line-height: 12px;
+#components-button-demo-button-group h4 {
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1;
   font-weight: normal;
 }
-.nico-insert-code h4:first-child {
+#components-button-demo-button-group h4:first-child {
   margin-top: 0;
 }
-.nico-insert-code .ant-btn {
+#components-button-demo-button-group .ant-btn {
   margin-bottom: 8px;
 }
 #components-button-demo-button-group .ant-btn-group {
