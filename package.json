@@ -68,8 +68,8 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
-    "babel": "^6.0.0",
-    "babel-core": "^6.0.0",
+    "babel": "^5.8.29",
+    "babel-core": "^5.8.29",
     "babel-eslint": "^4.1.0",
     "babel-loader": "^5.3.2",
     "busboy": "^0.2.9",
@@ -90,8 +90,8 @@
     "precommit-hook": "^1.0.7",
     "react": "~0.14.0",
     "react-dom": "~0.14.0",
-    "react-router": "1.0.0-rc1",
-    "semver": "~5.0.3",
+    "react-router": "1.0.0-rc3",
+    "semver": "^5.0.3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },
