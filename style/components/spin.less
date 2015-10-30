@@ -1,0 +1,88 @@
+@import "../mixins/index";
+
+@spin-prefix-cls: ant-spin;
+
+// root of component
+// ------------------------------
+
+.@{spin-prefix-cls} {
+  color: @primary-color;
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+  vertical-align: middle;
+
+  &-nested-loading {
+    position: relative;
+  }
+
+  &-wrapper {
+    font-size: @spin-dot-size;  
+  }
+
+  &-nested-loading .ant-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.75em;
+    margin-left: -2.5em;
+    z-index: 4;
+  }
+
+  &-nested-loading > &-container {
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);    
+    filter: blur(10px);
+    
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+    z-index: 19;
+  }
+
+  // dots
+  // ------------------------------
+
+  &-dot {
+    .animation(antSpinPulse 1s infinite ease-in-out);
+    .square(1em);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: @primary-color;
+  }
+  &-dot-second {
+    .animation-delay(200ms);
+    margin-left: 1em;
+  }
+  &-dot-third {
+    .animation-delay(400ms);
+    margin-left: 1em;
+  }
+
+  // Sizes
+  // ------------------------------
+
+  // small
+  &-nested-loading > &-sm, &-not-nested-loading > &-sm {
+    font-size: @spin-dot-size-sm;
+  }
+
+  // large
+  &-nested-loading > &-lg, &-not-nested-loading > &-lg {
+    font-size: @spin-dot-size-lg;
+  }
+}
+
+// pulse
+@keyframes antSpinPulse {
+  0%, 80%, 100% { opacity: 0; }
+  40% { opacity: 1; }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+*/
+  .ant-spin-nested-loading > .ant-spin-container {
+    background: #fff;
+    opacity: 0.5;
+  }
+}

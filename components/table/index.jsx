@@ -7,6 +7,7 @@ import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
 import Icon from '../iconfont';
 import objectAssign from 'object-assign';
+import Spin from '../spin';
 
 function noop() {
 }
@@ -569,9 +570,6 @@ let AntTable = React.createClass({
     let columns = this.renderRowSelection();
     let classString = this.props.className;
     let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    if (this.state.loading && !this.isLocalDataSource()) {
-      classString += ' ant-table-loading';
-    }
     if (this.props.size === 'small') {
       classString += ' ant-table-small';
     }
@@ -591,7 +589,23 @@ let AntTable = React.createClass({
       </div>;
       emptyClass = ' ant-table-empty';
     }
-    return <div className={'clearfix' + emptyClass}>
+    // spin holder
+    let spinEl;
+    let spinWrapperClass = '';
+    if (this.state.loading && !this.isLocalDataSource()) {
+      // if there is no pagination or no data, the height of spin should decrease by half of pagination
+      let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
+              ? 'ant-table-with-pagination'
+              : 'ant-table-without-pagination';
+      let spinClass = `${paginationPatchClass} ant-table-spin-holder`;
+
+      spinEl = <div className={spinClass}>
+          <Spin />
+        </div>;
+
+      spinWrapperClass = ' ant-table-loading';
+    }
+    return <div className={'clearfix' + emptyClass + spinWrapperClass}>
       <Table
         {...this.props}
         data={data}
@@ -600,6 +614,7 @@ let AntTable = React.createClass({
         expandIconAsCell={expandIconAsCell}
         />
       {emptyText}
+      {spinEl}
       {this.renderPagination()}
     </div>;
   }

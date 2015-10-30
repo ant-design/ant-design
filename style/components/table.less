@@ -82,23 +82,22 @@
   &-loading {
     position: relative;
     .@{table-prefix-cls}-body {
-      opacity: 0.42;
+      background: #fff;
+      opacity: 0.5;
     }
-    &:after {
-      position: absolute;
-      display: inline-block;
-      .animation(loadingCircle 1.5s infinite linear);
-      content: "\e610";
-      top: 50%;
-      left: 50%;
-      margin-top: -10px;
-      margin-left: -10px;
-      font-family: anticon;
-      width: 20px;
+    .@{table-prefix-cls}-spin-holder {
       height: 20px;
       line-height: 20px;
-      font-size: 20px;
-      color: @primary-color;
+      left: 50%;
+      top: 50%;
+      margin-left: -30px;
+      position: absolute;
+    }
+    .@{table-prefix-cls}-with-pagination {
+      margin-top: -20px;
+    }
+    .@{table-prefix-cls}-without-pagination {
+      margin-top: 10px;
     }
   }
 
