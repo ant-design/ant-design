@@ -7,9 +7,8 @@
 ---
 
 ````jsx
-var Tree = antd.Tree;
-var TreeNode = Tree.TreeNode;
-var Button = antd.Button;
+import { Tree, Button } from 'antd';
+const TreeNode = Tree.TreeNode;
 
 class TreeDemo extends React.Component {
   constructor(props) {

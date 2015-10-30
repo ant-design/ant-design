@@ -1,85 +1,105 @@
-# 添加
+# 动态的页签
 
 - order: 4
 
-演示添加删除功能。
+演示添加删除和附加操作。
 
 ---
 
 ````jsx
-import { Tabs, Button, Icon } from 'antd';
+import { Tabs, Button, Icon, message } from 'antd';
 const TabPane = Tabs.TabPane;
 
-var index = 0;
+let index = 0;
 const closeStyle = {
   position: 'absolute',
-  top: 0,
-  right: -10,
-};
-var addStyle = {
-  pointerEvents: 'auto',
-  color: 'black',
+  top: 8,
+  right: -9,
 };
 
-var Test = React.createClass({
+const addStyle = {
+  pointerEvents: 'auto',
+  color: '#2db7f5',
+  position: 'absolute',
+  top: 8,
+  left: 0,
+  marginLeft: -8,
+};
+
+const Test = React.createClass({
   getInitialState() {
     return {
       tabs: [{
         title: 'title ' + index,
         content: 'content ' + index,
+        index: index
       }],
-      activeKey: 'title ' + index
+      activeKey: index.toString()
     };
   },
-  remove(title, e) {
+  remove(index, e) {
     e.stopPropagation();
-    if(this.state.tabs.length === 1) {
-      antd.message.error('仅剩一个，不能删除');
+    let tabs = this.state.tabs;
+    let activeKey = this.state.activeKey;
+    let foundIndex = 0;
+
+    if(tabs.length === 1) {
+      message.error('仅剩一个，不能删除');
       return;
     }
-    var foundIndex = 0;
-    var tabs = this.state.tabs.filter(function (t, index) {
-      if (t.title !== title) {
+
+    const newTabs = tabs.filter(tab => {
+      if (tab.index !== index) {
         return true;
       } else {
         foundIndex = index;
         return false;
       }
     });
-    var activeKey = this.state.activeKey;
-    if (activeKey === title) {
-      if (foundIndex) {
-        foundIndex--;
-      }
-      activeKey = tabs[foundIndex].title;
+
+    if (activeKey === index) {
+      activeKey = tabs[foundIndex - 1].index;
     }
-    this.setState({tabs, activeKey})
+
+    this.setState({
+      tabs: newTabs, activeKey
+    });
   },
   add() {
-    index++;
+    index += 1;
     this.setState({
       tabs: this.state.tabs.concat({
-        title: 'title '+index,
-        content: 'content '+index,
-      })
+        title: 'title ' + index,
+        content: 'content ' + index,
+        index: index,
+      }),
+      activeKey: index.toString(),
     });
   },
   onChange(activeKey) {
-    this.setState({activeKey});
+    console.log(activeKey);
+    this.setState({ activeKey });
   },
   render() {
-    return <Tabs
-    onChange={this.onChange}
-    activeKey={this.state.activeKey}
-    tabBarExtraContent={<Button type="primary">其它操作</Button>}>
-    {
-      this.state.tabs.map((t)=>{
-        return <TabPane key={t.title} tab={<div>{t.title} <Icon type="cross" style={closeStyle} onClick={this.remove.bind(this,t.title)}></Icon></div>}>
-          {t.content}
-        </TabPane>;
-      }).concat(<TabPane key="__add" disabled tab={<Icon style={addStyle} type="plus-circle" onClick={this.add}></Icon>} />)
-    }
-    </Tabs>
+    const addBtn = <Icon style={addStyle} type="plus-circle" onClick={this.add} />;
+    const operations = <Button>操作</Button>;
+    return (
+      <Tabs onChange={this.onChange}
+        activeKey={this.state.activeKey}
+        tabBarExtraContent={operations}>
+        {
+          this.state.tabs.map(tab => (
+            <TabPane key={tab.index} tab={
+              <div>
+                {tab.title}
+                <Icon type="cross" style={closeStyle} onClick={this.remove.bind(this, tab.index)} />
+              </div>
+            }>{tab.content}</TabPane>
+          ))
+        }
+        <TabPane key="__add" disabled tab={addBtn} />
+      </Tabs>
+    );
   }
 })
 

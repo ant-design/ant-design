@@ -90,6 +90,7 @@
     border: 0;
     width: 100%;
     cursor: auto;
+    outline: 0;
   }
 
   &-week-number {
@@ -156,6 +157,7 @@
     padding: 0;
     background: transparent;
     text-align: center;
+    transition: background 0.3s ease;
 
     &:hover {
       background: tint(@primary-color, 90%);
@@ -231,6 +233,35 @@
     display: inline-block;
     text-align: center;
     margin: 0 0 0 8px;
+  }
+
+  .@{calendar-prefix-cls}-clear-btn {
+    position: absolute;
+    right: 6px;
+    text-indent: -99px;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    top: 6px;
+    margin: 0;
+  }
+
+  .@{calendar-prefix-cls}-clear-btn:after {
+    content: "\e620";
+    font-family: "anticon";
+    font-size: 12px;
+    color: #aaa;
+    display: inline-block;
+    line-height: 1;
+    width: 20px;
+    text-indent: 43px;
+    transition: color 0.3s ease;
+  }
+
+  .@{calendar-prefix-cls}-clear-btn:hover:after {
+    color: #666;
   }
 
   .@{calendar-prefix-cls}-ok-btn {

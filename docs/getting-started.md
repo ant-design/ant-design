@@ -13,7 +13,7 @@ Ant Design React 致力于提供给程序员愉悦的开发体验。
 ### 1. 安装命令行工具
 
 ```bash
-$ npm install antd-bin -g
+$ npm install antd-init -g
 ```
 
 [更多使用说明](https://github.com/ant-design/antd-bin#使用说明)。
@@ -24,7 +24,7 @@ $ npm install antd-bin -g
 
 ```bash
 $ mkdir antd-demo && cd antd-demo
-$ antd init
+$ antd-init
 $ npm install
 ```
 

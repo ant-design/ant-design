@@ -57,6 +57,16 @@
         cursor: pointer;
         outline: none;
       }
+      &.@{tree-prefix-cls}-icon_loading {
+        &:after {
+          content: '\e610';
+          display: inline-block;
+          font-family: 'anticon';
+          font-weight: bold;
+          .animation(loadingCircle 1s infinite linear);
+          margin-top:8px;
+        }
+      }
       &.@{tree-prefix-cls}-switcher {
         &-disabled {
           background: #fff;
