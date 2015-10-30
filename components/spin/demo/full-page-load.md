@@ -21,16 +21,19 @@ let App = React.createClass({
     });
   },
   render() {
-    return <div>
-      <Spin loading={this.state.loading} size="large">
+    let childEl = (
         <div className="inner-content">
           <img src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" width="200px" height="200px" />
           <div>我是一张图片</div>
         </div>
-      </Spin>
-     
-      <Button type="primary" onClick={this.enterLoading}>点击切换</Button>
-    </div>;
+    );
+    let spinEl = this.state.loading ? (<Spin size="large"> { childEl } </Spin>) : childEl;
+    return (
+      <div>
+        { spinEl }
+        <Button type="primary" onClick={this.enterLoading}>点击切换</Button>
+      </div>
+    );
   }
 });
 

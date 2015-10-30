@@ -1,24 +1,16 @@
 import React from 'react';
 import { classSet } from 'rc-util';
-
+import { isCssAnimationSupported } from 'css-animation';
 const AntSpin = React.createClass({
   getDefaultProps() {
     return {
-      size: 'default',
-      loading: false
+      size: 'default'
     };
   },
 
   propTypes: {
-    loading: React.PropTypes.bool,
     className: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'default', 'large'])
-  },
-
-  getIEVersion() {
-    let ua = navigator.userAgent.toLowerCase();
-    let s = ua.match(/msie ([\d.]+)/);
-    return s ? s[1] : false;
   },
 
   isNestedPattern() {
@@ -28,15 +20,14 @@ const AntSpin = React.createClass({
   render() {
     const prefix = 'ant-spin';
     const nestedStatus = this.isNestedPattern();
-    const { loading, className, size, ...others } = this.props;
+    const { className, size, ...others } = this.props;
     const sizeCls = ({
       'large': 'lg',
       'small': 'sm'
     })[size] || '';
 
     let loadingClassName = classSet({
-      'ant-spin-nested-loading': nestedStatus && !!loading,
-      'ant-spin-not-nested-loading': !nestedStatus
+      'ant-spin-nested-loading': nestedStatus
     });
     let spinClassName = classSet({
       'ant-spin': true,
@@ -44,9 +35,8 @@ const AntSpin = React.createClass({
     });
 
     let spinEl;
-    let _IE = this.getIEVersion();
-    if (_IE === '8.0' || _IE === '9.0') {
-      // IE 8 or IE 9
+    if (!isCssAnimationSupported) {
+      // not support for animation, just use text instead
       spinEl = <div className={ spinClassName }>加载中...</div>;
     }else {
       let spinWrapperClassName = classSet({

@@ -7,7 +7,7 @@
 
 .@{spin-prefix-cls} {
   color: @primary-color;
-  display: none;
+  display: inline-block;
   font-size: 1em;
   text-align: center;
   vertical-align: middle;
@@ -16,12 +16,11 @@
     position: relative;
   }
 
-  &-nested-loading > &-wrapper{
-    font-size: @spin-dot-size;
+  &-wrapper {
+    font-size: @spin-dot-size;  
   }
 
-  &-nested-loading .ant-spin  {
-    display: inline-block;
+  &-nested-loading .ant-spin {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -38,13 +37,6 @@
     
     filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
     z-index: 19;
-  }
-
-  &-not-nested-loading > &-wrapper {
-    font-size: @spin-dot-size;
-  }
-  &-not-nested-loading .ant-spin{
-    display: inline-block;
   }
 
   // dots
