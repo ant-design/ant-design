@@ -86,7 +86,7 @@
     "less-loader": "^2.2.0",
     "lesslint": "^0.1.7",
     "lodash": "^3.10.0",
-    "nico-jsx": "~0.5.8",
+    "nico-jsx": "~0.6.0",
     "precommit-hook": "^1.0.7",
     "react": "~0.14.0",
     "react-dom": "~0.14.0",

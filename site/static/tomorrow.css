@@ -1,36 +1,36 @@
 /* Tomorrow Theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-.tomorrow-comment, pre .comment, pre .title {
+/* http://jmblog.hljs-github.hljs-com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.hljs-com/chriskempson/tomorrow-theme */
+/* http://jmblog.hljs-github.hljs-com/color-themes-for-google-code-highlightjs */
+.hljs-tomorrow-comment, pre .hljs-comment {
   color: #8e908c;
 }
 
-.tomorrow-red, pre .variable, pre .attribute, pre .tag, pre .regexp, pre .ruby .constant, pre .xml .tag .title, pre .xml .pi, pre .xml .doctype, pre .html .doctype, pre .css .id, pre .css .class, pre .css .pseudo {
+.hljs-tomorrow-red, pre .hljs-variable, pre .hljs-attribute, pre .hljs-tag, pre .hljs-regexp, pre .hljs-ruby .hljs-constant, pre .hljs-xml .hljs-tag .hljs-title, pre .hljs-xml .hljs-pi, pre .hljs-xml .hljs-doctype, pre .hljs-html .hljs-doctype, pre .hljs-css .hljs-id, pre .hljs-css .hljs-class, pre .hljs-css .hljs-pseudo {
   color: #c82829;
 }
 
-.tomorrow-orange, pre .number, pre .preprocessor, pre .built_in, pre .literal, pre .params, pre .constant {
+.hljs-tomorrow-orange, pre .hljs-number, pre .hljs-preprocessor, pre .hljs-built_in, pre .hljs-literal, pre .hljs-params, pre .hljs-constant {
   color: #f5871f;
 }
 
-.tomorrow-yellow, pre .class, pre .ruby .class .title, pre .css .rules .attribute {
+.hljs-tomorrow-yellow, pre .hljs-class, pre .hljs-ruby .hljs-class .hljs-title, pre .hljs-css .hljs-rules .hljs-attribute {
   color: #eab700;
 }
 
-.tomorrow-green, pre .string, pre .value, pre .inheritance, pre .header, pre .ruby .symbol, pre .xml .cdata {
+.hljs-tomorrow-green, pre .hljs-string, pre .hljs-value, pre .hljs-inheritance, pre .hljs-header, pre .hljs-ruby .hljs-symbol, pre .hljs-xml .hljs-cdata {
   color: #718c00;
 }
 
-.tomorrow-aqua, pre .css .hexcolor {
+.hljs-tomorrow-aqua, pre .hljs-css .hljs-hexcolor {
   color: #3e999f;
 }
 
-.tomorrow-blue, pre .function, pre .python .decorator, pre .python .title, pre .ruby .function .title, pre .ruby .title .keyword, pre .perl .sub, pre .javascript .title, pre .coffeescript .title {
+.hljs-tomorrow-blue, pre .hljs-function, pre .hljs-python .hljs-decorator, pre .hljs-python .hljs-title, pre .hljs-ruby .hljs-function .hljs-title, pre .hljs-ruby .hljs-title .hljs-keyword, pre .hljs-perl .hljs-sub, pre .hljs-javascript .hljs-title, pre .hljs-coffeescript .hljs-title {
   color: #4271ae;
 }
 
-.tomorrow-purple, pre .keyword, pre .javascript .function {
+.hljs-tomorrow-purple, pre .hljs-keyword, pre .hljs-javascript .hljs-function {
   color: #8959a8;
 }
 
@@ -48,7 +48,7 @@ pre code {
   background: white;
   color: #666;
   font-family: Consolas, monospace;
-  line-height: 1.5;
+  line-height: 1.hljs-5;
   border: 1px solid #e9e9e9;
   padding: 10px 15px;
   border-radius: 6px;
