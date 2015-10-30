@@ -10,17 +10,12 @@
   display: inline-block;
   font-size: 1em;
   text-align: center;
-  vertical-align: middle;
 
   &-nested-loading {
     position: relative;
   }
 
-  &-wrapper {
-    font-size: @spin-dot-size;  
-  }
-
-  &-nested-loading .ant-spin {
+  &-nested-loading & {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -29,14 +24,14 @@
     z-index: 4;
   }
 
+  &-container {
+    transition: all 0.5s ease;
+  }
+
   &-nested-loading > &-container {
-    -webkit-filter: blur(10px); /* Chrome, Opera */
-    -moz-filter: blur(10px);
-    -ms-filter: blur(10px);    
-    filter: blur(10px);
-    
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
-    z-index: 19;
+    opacity: 0.7;
+    filter: blur(1px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=1, MakeShadow=false); /* IE6~IE9 */
   }
 
   // dots
@@ -47,7 +42,6 @@
     .square(1em);
     border-radius: 50%;
     display: inline-block;
-    vertical-align: middle;
     background-color: @primary-color;
   }
   &-dot-second {
@@ -61,14 +55,17 @@
 
   // Sizes
   // ------------------------------
+  &-default {
+    font-size: @spin-dot-size;
+  }
 
   // small
-  &-nested-loading > &-sm, &-not-nested-loading > &-sm {
+  &-small {
     font-size: @spin-dot-size-sm;
   }
 
   // large
-  &-nested-loading > &-lg, &-not-nested-loading > &-lg {
+  &-large {
     font-size: @spin-dot-size-lg;
   }
 }
