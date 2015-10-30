@@ -589,34 +589,27 @@ let AntTable = React.createClass({
       </div>;
       emptyClass = ' ant-table-empty';
     }
-    // spin holder
-    let spinEl;
-    let spinWrapperClass = '';
+
+    const table = (
+      <div className={'clearfix' + emptyClass}>
+        <Table {...this.props}
+          data={data}
+          columns={columns}
+          className={classString}
+          expandIconAsCell={expandIconAsCell} />
+        {emptyText}
+        {this.renderPagination()}
+      </div>
+    );
     if (this.state.loading && !this.isLocalDataSource()) {
       // if there is no pagination or no data, the height of spin should decrease by half of pagination
       let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
               ? 'ant-table-with-pagination'
               : 'ant-table-without-pagination';
-      let spinClass = `${paginationPatchClass} ant-table-spin-holder`;
-
-      spinEl = <div className={spinClass}>
-          <Spin />
-        </div>;
-
-      spinWrapperClass = ' ant-table-loading';
+      let spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
+      return <Spin className={spinClassName}>{table}</Spin>;
     }
-    return <div className={'clearfix' + emptyClass + spinWrapperClass}>
-      <Table
-        {...this.props}
-        data={data}
-        columns={columns}
-        className={classString}
-        expandIconAsCell={expandIconAsCell}
-        />
-      {emptyText}
-      {spinEl}
-      {this.renderPagination()}
-    </div>;
+    return table;
   }
 });
 
