@@ -68,8 +68,8 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
-    "babel": "^5.8.12",
-    "babel-core": "^5.8.12",
+    "babel": "^6.0.0",
+    "babel-core": "^6.0.0",
     "babel-eslint": "^4.1.0",
     "babel-loader": "^5.3.2",
     "busboy": "^0.2.9",
