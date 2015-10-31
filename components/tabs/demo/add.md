@@ -82,7 +82,7 @@ const Test = React.createClass({
   },
   render() {
     const addBtn = <Icon style={addStyle} type="plus-circle" onClick={this.add} />;
-    const operations = <Button>操作</Button>;
+    const operations = <Button style={{ marginTop: 2 }}>操作</Button>;
     return (
       <Tabs onChange={this.onChange}
         activeKey={this.state.activeKey}
