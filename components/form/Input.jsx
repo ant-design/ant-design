@@ -43,13 +43,13 @@ class Input extends React.Component {
       </span>
     ) : null;
 
-    return addonBefore || addonAfter ? (
-      <div className={wrapperClassName}>
+    return (
+      <div className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
         {addonBefore}
         {children}
         {addonAfter}
       </div>
-    ) : children;
+    );
   }
 
   renderInput() {

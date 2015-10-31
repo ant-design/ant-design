@@ -22,11 +22,11 @@ class FormItem extends React.Component {
 
   renderHelp() {
     const prefixCls = this.props.prefixCls;
-    return this.props.help ? (
-      <div className={prefixClsFn(prefixCls, 'explain')}>
+    return (
+      <div className={this.props.help ? prefixClsFn(prefixCls, 'explain') : ''}>
         {this.props.help}
       </div>
-    ) : null;
+    );
   }
 
   renderValidateWrapper(children) {
@@ -51,11 +51,11 @@ class FormItem extends React.Component {
 
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
-    return wrapperCol ? (
+    return (
       <div className={this._getLayoutClass(wrapperCol)}>
         {children}
       </div>
-    ) : children;
+    );
   }
 
   renderLabel() {
