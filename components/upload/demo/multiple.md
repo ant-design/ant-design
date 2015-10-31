@@ -32,4 +32,3 @@ ReactDOM.render(
   </Upload>
 , document.getElementById('components-upload-demo-multiple'));
 ````
-
