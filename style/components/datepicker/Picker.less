@@ -1,12 +1,9 @@
-.@{calendar-prefix-cls}-picker-container .@{calendar-prefix-cls} {
-  &-hidden {
-    display: none;
-  }
-
+.@{calendar-prefix-cls}-picker-container  {
   position: absolute;
-  left: -9999px;
-  top: -9999px;
-  z-index: 1070;
+  .@{calendar-prefix-cls} {
+    position: absolute;
+    z-index: 1070;
+  }
 }
 
 .@{calendar-prefix-cls}-picker {
@@ -38,9 +35,5 @@
       line-height: 1;
       vertical-align: bottom;
     }
-  }
-  &-open .@{calendar-prefix-cls},
-  &-container-open .@{calendar-prefix-cls} {
-    display: block;
   }
 }

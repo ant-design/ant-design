@@ -41,10 +41,10 @@ function createPicker(TheCalendar) {
         locale: {},
         // 自动换方向有很多视觉和交互问题
         // 需求不是很大，和设计师协商后不做
-        placement: {
+        align: {
           points: ['tl', 'tl'],
           overflow: { adjustX: 0, adjustY: 0 },
-          offset: [0, -3],
+          offset: [0, -8],
           targetOffset: [0, 0]
         }
       };
@@ -111,6 +111,7 @@ function createPicker(TheCalendar) {
           disabledDate={this.props.disabledDate}
           locale={getCalendarLocale(this.getLocale().lang)}
           defaultValue={defaultCalendarValue}
+          dateInputPlaceholder={this.props.placeholder}
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
@@ -123,16 +124,16 @@ function createPicker(TheCalendar) {
         sizeClass = ' ant-input-sm';
       }
       let defaultValue = this.parseDateFromValue(this.props.defaultValue);
-      return (
+      return <span className="ant-calendar-picker">
         <Datepicker
           transitionName={this.props.transitionName}
           disabled={this.props.disabled}
           calendar={calendar}
           value={this.state.value}
           defaultValue={defaultValue}
-          prefixCls="ant-calendar-picker"
+          prefixCls="ant-calendar-picker-container"
           style={this.props.style}
-          placement={this.props.placement}
+          align={this.props.align}
           onChange={this.handleChange}>
           {
             ({value}) => {
@@ -147,7 +148,7 @@ function createPicker(TheCalendar) {
             }
           }
         </Datepicker>
-      );
+      </span>;
     }
   });
 }
