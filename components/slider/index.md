@@ -19,12 +19,10 @@
 | min        | Number			| 0				| 最小值
 | max        | Number			| 100           | 最大值
 | step       | Number			| 1				| 步长，取值必须大于 0，并且可被 (max - min) 整除
-| value      | Number 			|            	| 当 `range` 为 `false` 时，设置当前取值
-| values     | [Number, Number] |             	| 当 `range` 为 `true` 时，设置当前取值
-| defaultValue      | Number 			| 0           	| 当 `range` 为 `false` 时，设置初始取值
-| defaultValues     | [Number, Number]  | [0, 0]        | 当 `range` 为 `true` 时，设置初始取值
+| value             | Number or [Number, Number]|             | 设置当前取值。当 `range` 为 `false` 时，使用 `Number`。否则用 `[Number, Number]`
+| defaultValue      | Number or [Number, Number]| 0 or [0, 0] | 设置初始取值。当 `range` 为 `false` 时，使用 `Number`。否则用 `[Number, Number]`
 | marks      | Array		    | [] 			| 分段标记，标记每一个 step，如果 step 属性没有定义，则 `marks` 属性会被忽略。当 `range` 为 `true` 时，忽略该属性
-| isIncluded | Boolean			| true			| 分段式滑块，值为 true 时表示值为包含关系，false 表示并列
+| included   | Boolean			| true			| 分段式滑块，值为 true 时表示值为包含关系，false 表示并列
 | index      | Number 			|            	| 为具备 `step` 或者 `marks` 的 slider 提供滑块操作的当前位置。当 `range` 为 `true` 时，忽略该属性
 | defaultIndex      | Number 			| 0           	| 为具备 `step` 或者 `marks` 的 slider 提供滑块操作的初始位置。当 `range` 为 `true` 时，忽略该属性
 | disabled   | Boolean 			| false         | 值为 `true` 时，滑块为 disable 禁用状态
