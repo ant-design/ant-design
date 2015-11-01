@@ -192,4 +192,7 @@ font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Mi
 .disabled-text .font-text {
   color: #ccc;
 }
+.help-text .font-text {
+  color: #999;
+}
 </style>
