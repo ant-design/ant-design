@@ -206,7 +206,6 @@ const AntUpload = React.createClass({
               </div>
             </Upload>
           </div>
-
           <UploadList items={this.state.fileList}
                       onRemove={this.handleManualRemove} />
         </div>

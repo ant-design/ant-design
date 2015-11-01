@@ -14,7 +14,6 @@ export default React.createClass({
       }
     };
   },
-
   handleClose(file) {
     this.props.onRemove(file);
   },
