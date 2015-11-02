@@ -12,6 +12,18 @@ An enterprise-class UI design language and React-based implementation.
 - Backed by the npm ecosystem.
 - webpack-based debug builds supporting ES6
 
+## Install
+
+```bash
+npm install antd
+```
+
+For a version compatible with React 0.14+ please use our beta version of [0.10.0](https://github.com/ant-design/ant-design/issues/276).
+
+```bash
+npm install antd@beta
+```
+
 
 ## Usage example
 
@@ -29,6 +41,11 @@ import "antd/lib/index.css"; // only need to import once in entry module
 import Datepicker from 'antd/lib/datepicker';
 ReactDOM.render(<Datepicker />, mountNode);
 ```
+
+## Browser Support
+
+Normal browsers and Internet Explorer 8+.
+
 
 ## Links
 

@@ -17,6 +17,19 @@
 - 基于 webpack 的调试构建方案，支持 ES6。
 
 
+## 安装
+
+```bash
+npm install antd
+```
+
+可以提前体验兼容 `react@0.14.x` 的 [0.10.0](https://github.com/ant-design/ant-design/issues/276) 的 beta 版本.
+
+```bash
+npm install antd@beta
+```
+
+
 ## 示例
 
 ### 使用全部组件
@@ -33,6 +46,10 @@ import "antd/lib/index.css"; // 只需在页面入口模块引用一次
 import Datepicker from 'antd/lib/datepicker';
 ReactDOM.render(<Datepicker />, mountNode);
 ```
+
+## 浏览器支持
+
+现代浏览器和IE8 及以上。
 
 ## 链接
 
