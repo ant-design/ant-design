@@ -1,3 +1,5 @@
+import React from 'react';
+
 require('./style/index.less');
 
 // matchMedia polyfill for
@@ -48,6 +50,14 @@ const antd = {
 
 // deprecate antd.confirm
 antd.confirm = require('util-deprecate')(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
+
+if (process.env.NODE_ENV !== 'production') {
+  const warning = require('warning');
+  const semver = require('semver');
+  const reactVersionInDeps = require('./package.json').devDependencies.react;
+  warning(semver.satisfies(React.version, reactVersionInDeps),
+    `antd@${antd.version} need to satisfies react@${reactVersionInDeps}.`);
+}
 
 module.exports = antd;
 

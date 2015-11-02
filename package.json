@@ -1,7 +1,7 @@
 {
   "name": "antd",
-  "version": "0.9.2",
-  "stableVersion": "0.9.2",
+  "version": "0.9.3",
+  "stableVersion": "0.9.3",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -63,7 +63,9 @@
     "react-slick": "~0.8.0",
     "reqwest-without-xhr2": "~2.0.2",
     "util-deprecate": "~1.0.1",
-    "velocity-animate": "~1.2.2"
+    "velocity-animate": "~1.2.2",
+    "warning": "~2.1.0",
+    "semver": "~5.0.3"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -89,7 +91,6 @@
     "precommit-hook": "^1.0.7",
     "react": "~0.13.0",
     "react-router": "1.0.0-rc1",
-    "semver": "~5.0.3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },
