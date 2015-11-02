@@ -1,112 +1,119 @@
 # 表单组合
 
-- order: 7
+- order: 5
 
 集中营，展示和表单相关的其他 ant-design 组件。
 
 ---
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
-var InputNumber = antd.InputNumber;
-var Datepicker = antd.Datepicker;
-var Switch = antd.Switch;
-var Menu = antd.Menu;
-var Dropdown = antd.Dropdown;
-var Slider = antd.Slider;
-var Icon = antd.Icon;
+import {Form, Input, Select, InputNumber, Datepicker, Switch, Menu, Dropdown, Slider, Icon, Button, message, Row, Col} from 'antd';
+const FormItem = Form.Item;
+const Option = Select.Option;
 
-var menu = <Menu>
-  <Menu.Item>
-    <a target="_blank" href="http://www.alipay.com/">.net</a>
-  </Menu.Item>
-  <Menu.Item>
-    <a target="_blank" href="http://www.taobao.com/">.jp</a>
-  </Menu.Item>
-  <Menu.Item>
-    <a target="_blank" href="http://www.tmall.com/">.org</a>
-  </Menu.Item>
-</Menu>;
+var Demo = React.createClass({
+  mixins: [Form.ValueMixin],
 
-function handleSelectChange(value) {
-  console.log('selected ' + value);
-}
+  getInitialState() {
+    return {
+      formData: {
+        inputNumber: undefined,
+        static: "唧唧复唧唧木兰当户织呀",
+        switch: undefined,
+        slider: undefined,
+        select: undefined,
+        startDate: undefined,
+        endDate: undefined,
+      }
+    };
+  },
 
-function onInputNumberChange(v){
-  console.log('changed',v);
-}
+  handleSubmit(e) {
+    e.preventDefault();
+    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+      if (typeof v === 'undefined') {
+        return '';
+      }
+      return v;
+    }));
+  },
 
-ReactDOM.render(
-<form className="ant-form-horizontal">
-  <div className="ant-form-item">
-    <label className="col-8" required>InputNumber 数字输入框：</label>
-    <div className="col-10">
-      <InputNumber size="large" min={1} max={10} defaultValue={3} onChange={onInputNumberChange} style={{width:100}}/>
-      <span className="ant-form-text"> 台机器</span>
-    </div>
-  </div>
-  <div className="ant-form-item ant-form-item-compact">
-    <label className="col-8" required>
-      <Icon type="exclamation-circle" style={{color: '#f60'}} /> 我是标题：
-    </label>
-    <div className="col-10">
-      <p className="ant-form-text">唧唧复唧唧木兰当户织呀</p>
-      <p className="ant-form-text">
-        <a href="javascript:;">链接文字</a>
-      </p>
-    </div>
-  </div>
-  <div className="ant-form-item">
-    <label htmlFor="" className="col-8" required>Switch 开关：</label>
-    <div className="col-10">
-      <Switch />
-    </div>
-  </div>
-  <div className="ant-form-item">
-    <label htmlFor="" className="col-8" required>Slider 滑动输入条：</label>
-    <div className="col-10">
-      <Slider marks={["A","B","C","D","E","F","G"]} />
-    </div>
-  </div>
-  <div className="ant-form-item">
-    <label htmlFor="" className="col-8" required>Select 选择器：</label>
-    <div className="col-16">
-      <Select size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
-        <Option value="jack">jack</Option>
-        <Option value="lucy">lucy</Option>
-        <Option value="disabled" disabled>disabled</Option>
-        <Option value="yiminghe">yiminghe</Option>
-      </Select>
-    </div>
-  </div>
-  <div className="ant-form-item">
-    <label htmlFor="" className="col-8" required>Datepicker 日期选择框：</label>
-    <div className="col-6">
-      <Datepicker />
-    </div>
-    <div className="col-1">
-      <p className="ant-form-split">-</p>
-    </div>
-    <div className="col-6">
-      <Datepicker />
-    </div>
-  </div>
-  <div className="ant-form-item has-error">
-    <label htmlFor="" className="col-8" required>Datepicker 校验：</label>
-    <div className="col-6">
-      <Datepicker />
-    </div>
-    <div className="col-1">
-      <p className="ant-form-split">-</p>
-    </div>
-    <div className="col-6">
-      <Datepicker />
-    </div>
-    <div className="col-19 col-offset-8">
-      <p className="ant-form-explain">请输入正确选项</p>
-    </div>
-  </div>
-</form>
-, document.getElementById('components-form-demo-mix'));
+  render() {
+    var formData = this.state.formData;
+    return (
+      <Form horizontal onSubmit={this.handleSubmit} >
+        <FormItem
+          label="InputNumber 数字输入框："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 10}}
+          required={true} >
+          <InputNumber size="large" min={1} max={10} style={{width:100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
+          <span className="ant-form-text"> 台机器</span>
+        </FormItem>
+
+        <FormItem
+          label="我是标题："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 10}}
+          required={true} >
+          <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
+          <p className="ant-form-text">
+            <a href="javascript:;">链接文字</a>
+          </p>
+        </FormItem>
+
+        <FormItem
+          label="Switch 开关："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 10}}
+          required={true} >
+          <Switch name="switch" onChange={this.setValue.bind(this, 'switch')} value={formData.switch} />
+        </FormItem>
+
+        <FormItem
+          label="Slider 滑动输入条："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 10}}
+          required={true}>
+          <Slider marks={["A","B","C","D","E","F","G"]} name="slider" onChange={this.setValue.bind(this, 'slider')} />
+        </FormItem>
+
+        <FormItem
+          label="Select 选择器："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 16}}
+          required={true}>
+          <Select size="large" defaultValue="lucy" style={{width:200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
+            <Option value="jack">jack</Option>
+            <Option value="lucy">lucy</Option>
+            <Option value="disabled" disabled>disabled</Option>
+            <Option value="yiminghe">yiminghe</Option>
+          </Select>
+        </FormItem>
+
+        <FormItem
+          label="Datepicker 日期选择框："
+          labelCol={{span: 8}}
+          required={true}>
+          <Col span="6">
+            <Datepicker name="startDate" onChange={this.setValue.bind(this, 'startDate')} value={formData.startDate} />
+          </Col>
+          <Col span="1">
+            <p className="ant-form-split">-</p>
+          </Col>
+          <Col span="6">
+            <Datepicker name="endDate" onChange={this.setValue.bind(this, 'endDate')} value={formData.endDate} />
+          </Col>
+        </FormItem>
+        <Row>
+          <Col span="16" offset="8">
+            <Button type="primary" htmlType="submit">确定</Button>
+          </Col>
+        </Row>
+      </Form>
+    );
+  }
+});
+
+ReactDOM.render(<Demo />, document.getElementById('components-form-demo-mix'));
 ````
