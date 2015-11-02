@@ -78,7 +78,7 @@
     "chalk": "^1.1.0",
     "css-loader": "^0.14.1",
     "eslint": "^1.1.0",
-    "eslint-config-airbnb": "^0.0.8",
+    "eslint-config-airbnb": "^0.1.0",
     "eslint-plugin-babel": "^2.1.1",
     "eslint-plugin-react": "^3.3.1",
     "extract-text-webpack-plugin": "^0.8.1",
