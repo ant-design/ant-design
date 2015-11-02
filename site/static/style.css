@@ -523,6 +523,13 @@ footer ul li > a {
   font-weight: 600;
 }
 
+.markdown h1 { font-size: 28px; }
+.markdown h2 { font-size: 24px; }
+.markdown h3 { font-size: 20px; }
+.markdown h4 { font-size: 16px; }
+.markdown h5 { font-size: 14px; }
+.markdown h6 { font-size: 12px; }
+
 .markdown hr {
   border-radius: 10px;
   height: 3px;
