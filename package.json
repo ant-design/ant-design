@@ -64,7 +64,9 @@
     "react-slick": "~0.8.0",
     "reqwest": "~2.0.5",
     "util-deprecate": "~1.0.1",
-    "velocity-animate": "~1.2.2"
+    "velocity-animate": "~1.2.2",
+    "warning": "~2.1.0",
+    "semver": "~5.0.3"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
@@ -91,7 +93,6 @@
     "react": "0.14.0",
     "react-dom": "0.14.0",
     "react-router": "1.0.0-rc3",
-    "semver": "^5.0.3",
     "webpack": "^1.10.1",
     "webpack-dev-middleware": "^1.2.0"
   },

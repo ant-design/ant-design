@@ -1,3 +1,5 @@
+import React from 'react';
+
 require('./style/index.less');
 
 // matchMedia polyfill for
@@ -59,5 +61,13 @@ const antd = {
 };
 
 antd.version = require('./package.json').version;
+
+if (process.env.NODE_ENV !== 'production') {
+  const warning = require('warning');
+  const semver = require('semver');
+  const reactVersionInDeps = require('./package.json').devDependencies.react;
+  warning(semver.satisfies(React.version, reactVersionInDeps) || semver.gtr(React.version, reactVersionInDeps),
+    `antd@${antd.version} need react@${reactVersionInDeps} or higher.`);
+}
 
 module.exports = antd;
