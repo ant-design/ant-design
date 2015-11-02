@@ -44,7 +44,7 @@ function createPicker(TheCalendar) {
         align: {
           points: ['tl', 'tl'],
           overflow: { adjustX: 0, adjustY: 0 },
-          offset: [0, -8],
+          offset: [0, -10],
           targetOffset: [0, 0]
         }
       };
