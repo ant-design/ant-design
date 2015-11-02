@@ -83,6 +83,7 @@
     "eslint-plugin-react": "^3.3.1",
     "extract-text-webpack-plugin": "^0.8.1",
     "gh-pages": "^0.3.1",
+    "jest-cli": "~0.6.1",
     "json-loader": "^0.5.1",
     "less": "~2.5.1",
     "less-loader": "^2.2.0",
@@ -91,9 +92,11 @@
     "nico-jsx": "~0.6.0",
     "precommit-hook": "^1.0.7",
     "react": "0.14.0",
+    "react-addons-test-utils": "0.14.0",
     "react-dom": "0.14.0",
     "react-router": "1.0.0-rc3",
     "webpack": "^1.10.1",
+    "webpack-babel-jest": "^1.0.0",
     "webpack-dev-middleware": "^1.2.0"
   },
   "scripts": {
@@ -104,10 +107,22 @@
     "just-deploy": "npm run clean && webpack --config webpack.deploy.config.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "lesslint": "lesslint style",
-    "test": "npm run lint && webpack",
+    "test": "npm run lint && webpack && jest",
     "pub": "sh ./scripts/publish.sh",
     "webpack": "webpack",
     "beta": "sh ./scripts/publish.sh --tag beta"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/*"
+    ],
+    "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
+    "testDirectoryName": "tests"
   },
   "precommit": [
     "lint"
