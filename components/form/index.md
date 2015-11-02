@@ -14,27 +14,27 @@
 我们为 `form` 提供了以下两种排列方式：
 
 - 水平排列：可以实现 `label` 标签和表单控件的水平排列;
-- 行内排列：使其表现为 inline-block 级别的控件。
+- 行内排列：使其表现为 `inline-block` 级别的控件。
 
 ## 表单域
 
 表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。
 
-这里我们分别封装了表单域 `<Form.Item>` 和输入控件 `<Input>`。
+这里我们分别封装了表单域 `<Form.Item />` 和输入控件 `<Input />`。
 
 ```html
-  <Form.Item {...props}> 
-    {children} 
-  </Form.Item>`；
+<Form.Item {...props}>
+  {children}
+</Form.Item>`；
 ```
 
 ## Input 输入框
 
 ```html
-  <Input {...props} />
+<Input {...props} />
 ```
 
-## API 
+## API
 
 ### Form
 
@@ -51,7 +51,7 @@
 |-----------|------------------------------------------|------------|-------|--------|
 |  label | label 标签的文本 | string  |   |     |
 |  labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object |  |  |
-|  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  | 
+|  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  |
 |  help | 提示信息 | string |  |   |
 |  required | 是否必填 | bool |  | false  |
 |  validateStatus | 校验状态 | string | 'success' 'warning' 'error' 'validating'  |   |
@@ -80,10 +80,8 @@ Mixin：当表单控件的输入值改变时，更新 formData。
 
 #### Input.Group
 
-```html 
-<Input.Group 
-  className={string}      // 样式类名前缀，默认是 ant-input-group，通常您不需要设置。
->
+```html
+<Input.Group className={string}>      // 样式类名前缀，默认是 ant-input-group，通常您不需要设置。
   {children}
 </Input.Group>
 ```
