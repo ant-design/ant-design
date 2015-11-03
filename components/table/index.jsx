@@ -48,7 +48,7 @@ let AntTable = React.createClass({
       dataSource: this.props.dataSource,
       filters: {},
       dirty: false,
-      loading: false,
+      loading: this.props.loading,
       sortColumn: '',
       sortOrder: '',
       sorter: null,
@@ -67,6 +67,7 @@ let AntTable = React.createClass({
       rowSelection: null,
       className: '',
       size: 'default',
+      loading: false,
       bordered: false,
       onChange: function () {
       }
@@ -111,6 +112,11 @@ let AntTable = React.createClass({
     if (nextProps.columns !== this.props.columns) {
       this.setState({
         filters: {}
+      });
+    }
+    if ('loading' in nextProps) {
+      this.setState({
+        loading: nextProps.loading
       });
     }
   },
@@ -597,7 +603,7 @@ let AntTable = React.createClass({
         className={classString}
         expandIconAsCell={expandIconAsCell} />
     );
-    if (this.state.loading && !this.isLocalDataSource()) {
+    if (this.state.loading) {
       // if there is no pagination or no data, the height of spin should decrease by half of pagination
       let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
               ? 'ant-table-with-pagination'

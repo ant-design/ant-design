@@ -69,6 +69,7 @@ var dataSource = new Table.DataSource({
 | rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
 | expandIconAsCell  | 设置展开 Icon 是否单独一列 | Boolean |                     |    true    |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
+| loading       | 页面是否加载中 | Boolean |                     | false      |
 
 ### Column
 
