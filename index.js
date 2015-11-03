@@ -70,12 +70,4 @@ if (process.env.NODE_ENV !== 'production') {
     `antd@${antd.version} need react@${reactVersionInDeps} or higher.`);
 }
 
-if (process.env.NODE_ENV !== 'production') {
-  const warning = require('warning');
-  const semver = require('semver');
-  const reactVersionInDeps = require('./package.json').devDependencies.react;
-  warning(semver.satisfies(React.version, reactVersionInDeps) || semver.gtr(React.version, reactVersionInDeps),
-    `antd@${antd.version} need react@${reactVersionInDeps} or higher.`);
-}
-
 module.exports = antd;

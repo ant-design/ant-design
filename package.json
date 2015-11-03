@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.10.0-beta10",
+  "version": "0.10.0-beta14",
   "stableVersion": "0.9.3",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
@@ -100,7 +100,7 @@
     "webpack-dev-middleware": "^1.2.0"
   },
   "scripts": {
-    "babel": "babel components --out-dir lib",
+    "babel": "babel components index.js --out-dir lib",
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
