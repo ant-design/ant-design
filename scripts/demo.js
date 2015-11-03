@@ -52,6 +52,8 @@ InstantClickChangeFns.push(function () {
 });
 
 InstantClickChangeFns.push(function () {
+  var Select = antd.Select;
+  var Option = Select.Option;
   var versionsHistory = {
     '0.9.2': '09x.ant.design'
   };
@@ -62,17 +64,19 @@ InstantClickChangeFns.push(function () {
   });
   var options = versions.map(function (version) {
     var link = versionsHistory[version];
-    return <option key={version} value={version}>{version}</option>;
+    return <Option key={version} value={version}>{version}</Option>;
   });
 
-  function onChange(e) {
-    if (versionsHistory[e.target.value]) {
-      location.href = location.href.replace(location.host, versionsHistory[e.target.value]);
+  function onChange(value) {
+    if (versionsHistory[value]) {
+      location.href = location.href.replace(location.host, versionsHistory[value]);
     }
   }
 
-  ReactDOM.render(<select defaultValue={antdVersion.latest}
-                       onChange={onChange}>{options}</select>, document.getElementById('versions-select'));
+  ReactDOM.render(
+    <Select defaultValue={antdVersion.latest} size="small" style={{width:130}}
+            onChange={onChange}>{options}</Select>
+  , document.getElementById('versions-select'));
 });
 
 module.exports = antd;
