@@ -123,7 +123,8 @@
       "<rootDir>/node_modules/*"
     ],
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
-    "testDirectoryName": "tests"
+    "testDirectoryName": "tests",
+    "preprocessCachingDisabled": false
   },
   "precommit": [
     "lint"
