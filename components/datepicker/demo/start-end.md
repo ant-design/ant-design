@@ -29,6 +29,7 @@ const DateRange = React.createClass({
     return endValue.getTime() <= this.state.startValue.getTime();
   },
   onChange(field, value) {
+    console.log(field,'change',value);
     this.setState({
       [field]: value,
     });

@@ -1,7 +1,7 @@
 import objectAssign from 'object-assign';
-import GregorianCalendarLocale from 'gregorian-calendar/lib/locale/zh-cn';
-import CalendarLocale from 'rc-calendar/lib/locale/zh-cn';
-import GregorianCalendarFormatLocale from 'gregorian-calendar-format/lib/locale/zh-cn';
+import GregorianCalendarLocale from 'gregorian-calendar/lib/locale/zh_CN.js';
+import CalendarLocale from 'rc-calendar/lib/locale/zh_CN.js';
+import GregorianCalendarFormatLocale from 'gregorian-calendar-format/lib/locale/zh_CN';
 
 // 统一合并为完整的 Locale
 let locale = objectAssign({}, GregorianCalendarLocale);

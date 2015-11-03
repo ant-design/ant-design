@@ -4,25 +4,26 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import Datepicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import defaultLocale from './locale';
-import CalendarLocale from 'rc-calendar/lib/locale/zh-cn';
+import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import DateTimeFormat from 'gregorian-calendar-format';
 import objectAssign from 'object-assign';
+const localeFields = [
+  'eras',
+  'months',
+  'shortMonths',
+  'weekdays',
+  'shortWeekdays',
+  'veryShortWeekdays',
+  'ampms',
+  'datePatterns',
+  'timePatterns',
+  'dateTimePattern'
+];
 
 // 转换 locale 为 rc-calender 接收的格式
 function getCalendarLocale(locale) {
   locale.format = locale.format || {};
-  [
-    'eras',
-    'months',
-    'shortMonths',
-    'weekdays',
-    'shortWeekdays',
-    'veryShortWeekdays',
-    'ampms',
-    'datePatterns',
-    'timePatterns',
-    'dateTimePattern'
-  ].forEach(function(key) {
+  localeFields.forEach(function (key) {
     locale.format[key] = locale[key];
   });
   return locale;
@@ -37,13 +38,14 @@ function createPicker(TheCalendar) {
         transitionName: 'slide-up',
         calendarStyle: {},
         onSelect: null, // 向前兼容
-        onChange() {},  // onChange 可用于 Validator
+        onChange() {
+        },  // onChange 可用于 Validator
         locale: {},
         // 自动换方向有很多视觉和交互问题
         // 需求不是很大，和设计师协商后不做
         align: {
           points: ['tl', 'tl'],
-          overflow: { adjustX: 0, adjustY: 0 },
+          overflow: {adjustX: 0, adjustY: 0},
           offset: [0, -10],
           targetOffset: [0, 0]
         }
@@ -51,7 +53,7 @@ function createPicker(TheCalendar) {
     },
     getInitialState() {
       return {
-        value: this.parseDateFromValue(this.props.value)
+        value: this.parseDateFromValue(this.props.value || this.props.defaultValue)
       };
     },
     componentWillReceiveProps(nextProps) {
@@ -85,14 +87,17 @@ function createPicker(TheCalendar) {
           date.setTime(value);
           return date;
         }
+      } else if (value === null) {
+        return value;
       }
       return undefined;
     },
     // remove input readonly warning
-    handleInputChange() {},
+    handleInputChange() {
+    },
     handleChange(value) {
-      this.setState({ value });
-      const timeValue = value ? new Date(value.getTime()) : undefined;
+      this.setState({value});
+      const timeValue = value ? new Date(value.getTime()) : null;
       // onSelect 为向前兼容.
       if (this.props.onSelect) {
         require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
@@ -115,7 +120,7 @@ function createPicker(TheCalendar) {
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
-          showClear={true} />
+          showClear={true}/>
       );
       let sizeClass = '';
       if (this.props.size === 'large') {
@@ -123,14 +128,13 @@ function createPicker(TheCalendar) {
       } else if (this.props.size === 'small') {
         sizeClass = ' ant-input-sm';
       }
-      let defaultValue = this.parseDateFromValue(this.props.defaultValue);
+
       return <span className="ant-calendar-picker">
         <Datepicker
           transitionName={this.props.transitionName}
           disabled={this.props.disabled}
           calendar={calendar}
           value={this.state.value}
-          defaultValue={defaultValue}
           prefixCls="ant-calendar-picker-container"
           style={this.props.style}
           align={this.props.align}
@@ -139,11 +143,11 @@ function createPicker(TheCalendar) {
             ({value}) => {
               return <span>
                 <input disabled={this.props.disabled}
-                  onChange={this.handleInputChange}
-                  value={value && this.getFormatter().format(value)}
-                  placeholder={this.props.placeholder}
-                  className={'ant-calendar-picker-input ant-input' + sizeClass} />
-                <span className="ant-calendar-picker-icon" />
+                       onChange={this.handleInputChange}
+                       value={value && this.getFormatter().format(value)}
+                       placeholder={this.props.placeholder}
+                       className={'ant-calendar-picker-input ant-input' + sizeClass}/>
+                <span className="ant-calendar-picker-icon"/>
               </span>;
             }
           }

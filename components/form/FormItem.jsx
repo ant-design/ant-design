@@ -23,13 +23,13 @@ class FormItem extends React.Component {
   renderHelp() {
     const prefixCls = this.props.prefixCls;
     return (
-      <div className={this.props.help ? prefixClsFn(prefixCls, 'explain') : ''}>
+      <div className={this.props.help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
         {this.props.help}
       </div>
     );
   }
 
-  renderValidateWrapper(children) {
+  renderValidateWrapper(c1, c2) {
     let classes = '';
     if (this.props.validateStatus) {
       classes = cx(
@@ -44,7 +44,7 @@ class FormItem extends React.Component {
     }
     return (
       <div className={classes}>
-        {children}
+        {c1} {c2}
       </div>
     );
   }
@@ -52,7 +52,7 @@ class FormItem extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <div className={this._getLayoutClass(wrapperCol)}>
+      <div className={this._getLayoutClass(wrapperCol)} key="wrapper">
         {children}
       </div>
     );
@@ -63,10 +63,10 @@ class FormItem extends React.Component {
     const required = this.props.required ? 'required' : '';
 
     return this.props.label ? (
-      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)} required={required}>
+      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)} required={required} key="label">
         {this.props.label}
       </label>
-    ) : '';
+    ) : null;
   }
 
   renderChildren() {
@@ -74,10 +74,8 @@ class FormItem extends React.Component {
       this.renderLabel(),
       this.renderWrapper(
         this.renderValidateWrapper(
-          [
-            this.props.children,
-            this.renderHelp(),
-          ]
+          this.props.children,
+          this.renderHelp()
         )
       ),
     ];
@@ -96,7 +94,7 @@ class FormItem extends React.Component {
       let prefixCls = child.props && child.props.prefixCls;
       prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';
 
-      if ((type && compactControls.indexOf(type) > -1) || (prefixCls && compactControls.indexOf(prefixCls) > -1) ) {
+      if ((type && compactControls.indexOf(type) > -1) || (prefixCls && compactControls.indexOf(prefixCls) > -1)) {
         isCompact = true;
       } else if (child.props && typeof child.props.children === 'object') {
         isCompact = this._isCompact(child.props.children);
@@ -111,7 +109,7 @@ class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-compact`]:  this._isCompact(props.children),
+      [`${prefixCls}-item-compact`]: this._isCompact(props.children),
     };
 
     return (

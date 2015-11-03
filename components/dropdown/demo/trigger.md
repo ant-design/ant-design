@@ -21,7 +21,7 @@ const menu = <Menu>
 </Menu>;
 
 ReactDOM.render(<div>
-  <Dropdown overlay={menu} trigger="click">
+  <Dropdown overlay={menu} trigger={["click"]}>
     <Button type="primary">
       点击触发 <Icon type="down" />
     </Button>
