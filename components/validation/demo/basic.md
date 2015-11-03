@@ -240,7 +240,7 @@ const Demo = React.createClass({
             help={status.passwd.errors ? status.passwd.errors.join(',') : null}
             required>
               <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]}>
-                <Input name="passwd" id="password" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.passwd}/>
+                <Input name="passwd" id="password" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.passwd}/>
               </Validator>
           </FormItem>
 
@@ -258,7 +258,7 @@ const Demo = React.createClass({
                 whitespace: true,
                 message: '请再次输入密码'
               }, {validator: this.checkPass2}]}>
-                <Input name="rePasswd" id="password2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
+                <Input name="rePasswd" id="password2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
               </Validator>
           </FormItem>
 
