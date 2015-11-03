@@ -7,8 +7,9 @@
 ---
 
 ````jsx
-import { Progress, Button, ButtonGroup, Icon } from 'antd';
+import { Progress, Button, Icon } from 'antd';
 const ProgressCircle = Progress.Circle;
+const ButtonGroup = Button.Group;
 
 const MyProgress = React.createClass({
   getInitialState() {

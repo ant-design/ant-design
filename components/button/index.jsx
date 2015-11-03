@@ -1,7 +1,5 @@
 import Button from './button';
 import ButtonGroup from './button-group';
 
-export {
-  Button,
-  ButtonGroup,
-};
+Button.Group = ButtonGroup;
+export default Button;
