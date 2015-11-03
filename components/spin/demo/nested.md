@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Spin, Switch } from 'antd';
+import { Spin, Switch, Alert } from 'antd';
 
 const Card = React.createClass({
   getInitialState() {
@@ -21,9 +21,11 @@ const Card = React.createClass({
     });
   },
   render() {
-    const card = <div className="card-example" />;
+    const container =  <Alert message="消息提示的文案"
+      description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
+      type="info" />;
     return <div>
-      {this.state.loading ? <Spin>{card}</Spin> : card}
+      {this.state.loading ? <Spin>{container}</Spin> : container}
       切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
     </div>;
   }
