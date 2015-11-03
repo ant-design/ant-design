@@ -79,13 +79,14 @@ var dataSource = new Table.DataSource({
 |------------|----------------------------|-----------------|---------------------|---------|
 | title      | 列头显示文字               | String or React.Element |             |         |
 | dataIndex  | 列数据在 data 中对应的 key | String          |                     |         |
-| colSpan    | 表头列合并,设置为 0 时,不渲染 | Number          |                     |         |
+| colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |                     |         |
 | key        | React 需要的 key           | String          |                     |         |
-| render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |    |         |
+| render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |            |         |
 | filters    | 表头的筛选菜单项           | Array           |                     |         |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                     |         |
+| filterMultiple | 是否多选 | Boolean    |                                        | true    |
 | sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean |  | 无 |
-| width      | 列宽度 | String or Number |  | 无 |
+| width      | 列宽度 | String or Number |                                        | 无      |
 
 ### dataSource
 
