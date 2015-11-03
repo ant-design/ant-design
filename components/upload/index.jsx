@@ -168,7 +168,7 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       onChange: noop,
-      uploadList: true
+      showUploadList: true
     };
   },
   componentWillReceiveProps(nextProps) {
@@ -190,7 +190,7 @@ const AntUpload = React.createClass({
       onSuccess: this.onSuccess,
     });
     let uploadList;
-    if (this.props.uploadList) {
+    if (this.props.showUploadList) {
       uploadList = <UploadList items={this.state.fileList} onRemove={this.handleManualRemove} />;
     }
     if (type === 'drag') {

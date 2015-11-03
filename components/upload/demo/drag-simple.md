@@ -12,7 +12,7 @@ const Dragger = Upload.Dragger;
 
 const props = {
   name: 'file',
-  uploadList: false,
+  showUploadList: false,
   action: '/upload.do'
 };
 
