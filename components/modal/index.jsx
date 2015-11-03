@@ -2,7 +2,7 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
 import confirm from './confirm';
-import { Button } from '../button';
+import Button from '../button';
 
 function noop() {}
 

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from './index';
 import Icon from '../iconfont';
-import {Button} from '../button';
+import Button from '../button';
 
 export default function (props) {
   let div = document.createElement('div');
