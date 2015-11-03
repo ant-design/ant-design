@@ -168,6 +168,7 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       onChange: noop,
+      uploadList: true
     };
   },
   componentWillReceiveProps(nextProps) {
@@ -188,6 +189,10 @@ const AntUpload = React.createClass({
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
     });
+    let uploadList;
+    if (this.props.uploadList) {
+      uploadList = <UploadList items={this.state.fileList} onRemove={this.handleManualRemove} />;
+    }
     if (type === 'drag') {
       let dragUploadingClass = '';
       let fileList = this.state.fileList;
@@ -206,8 +211,7 @@ const AntUpload = React.createClass({
               </div>
             </Upload>
           </div>
-          <UploadList items={this.state.fileList}
-                      onRemove={this.handleManualRemove} />
+          { uploadList }
         </div>
       );
     } else if (type === 'select') {
@@ -218,8 +222,7 @@ const AntUpload = React.createClass({
               {this.props.children}
             </Upload>
           </div>
-          <UploadList items={this.state.fileList}
-                      onRemove={this.handleManualRemove} />
+          { uploadList }
         </div>
       );
     }
