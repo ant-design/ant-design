@@ -1,6 +1,6 @@
 # 加载中的表格
 
-- order: 15
+- order: 14
 
 用属性 `loading` 控制表格加载中状态。
 
@@ -50,7 +50,7 @@ const App = React.createClass({
   render() {
     return <div>
       <Table columns={columns} dataSource={data} loading={this.state.loading} />
-      <Button onClick={this.toggleLoading}>切换 loading 状态</Button>
+      <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
     </div>;
   }
 })
