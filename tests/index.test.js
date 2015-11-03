@@ -1,4 +1,6 @@
 jest.dontMock('../index');
+
+import React from 'react';
 import antd, {
   Button,
 } from '../index';

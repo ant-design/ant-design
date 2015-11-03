@@ -73,6 +73,7 @@
     "babel": "^5.8.29",
     "babel-core": "^5.8.29",
     "babel-eslint": "^4.1.0",
+    "babel-jest": "^5.3.0",
     "babel-loader": "^5.3.2",
     "busboy": "^0.2.9",
     "chalk": "^1.1.0",
