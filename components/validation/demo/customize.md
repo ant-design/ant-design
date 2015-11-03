@@ -163,7 +163,7 @@ const Demo = React.createClass({
                 help={status.pass.errors ? status.pass.errors.join(',') : null}
                 required>
                   <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                    <Input name="pass" id="confirmPass" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.pass}/>
+                    <Input name="pass" id="confirmPass" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.pass}/>
                   </Validator>
               </FormItem>
             </Col>
@@ -187,7 +187,7 @@ const Demo = React.createClass({
                     whitespace: true,
                     message: '请再次输入密码'
                   }, {validator: this.checkPass2}]}>
-                    <Input name="rePass" id="confirmPass2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePass}/>
+                    <Input name="rePass" id="confirmPass2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.rePass}/>
                     </Validator>
               </FormItem>
             </Col>
