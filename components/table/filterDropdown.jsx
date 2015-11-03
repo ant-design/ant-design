@@ -6,7 +6,8 @@ import Icon from '../iconfont';
 let FilterMenu = React.createClass({
   getInitialState() {
     return {
-      selectedKeys: this.props.selectedKeys
+      selectedKeys: this.props.selectedKeys,
+      visible: false
     };
   },
   componentWillReceiveProps(nextProps){
@@ -22,9 +23,7 @@ let FilterMenu = React.createClass({
     };
   },
   setSelectedKeys: function ({selectedKeys}) {
-    this.setState({
-      selectedKeys: selectedKeys
-    });
+    this.setState({ selectedKeys });
   },
   handleClearFilters() {
     this.setState({
@@ -83,7 +82,11 @@ let FilterMenu = React.createClass({
       dropdownSelectedClass = 'ant-table-filter-selected';
     }
 
-    return <Dropdown trigger="click" overlay={menus} visible={this.state.visible} onVisibleChange={this.onVisibleChange}>
+    return <Dropdown trigger={['click']}
+                     overlay={menus}
+                     visible={this.state.visible}
+                     onVisibleChange={this.onVisibleChange}
+                     closeOnSelect={false}>
       <Icon title="筛选" type="bars" className={dropdownSelectedClass} />
     </Dropdown>;
   }
