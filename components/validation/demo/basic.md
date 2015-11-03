@@ -1,21 +1,18 @@
-# 基本
+# Input 表单域
 
 - order: 0
 
 基本的表单校验例子。
 
-每个表单域要声明 `name` 属性作为校验的标识，可通过其 `isValidating`、`errors` 属性判断是否处于校验中、是否校验不通过状态，具体可参见 **用户名** 校验。
+**每个表单域要声明 `name` 属性作为校验的标识**，可通过其 `isValidating`、`errors` 属性判断是否处于校验中、是否校验不通过状态，具体可参见 **用户名** 校验。
 
 表单提交的时候，通过 Validation 的 validate 方法判断是否所有表单域校验通过（isValid 会作为回调函数的参数传入）。
 
 ---
 
 ````jsx
-
-import {Validation, Select, Radio, Button, Datepicker, InputNumber, Form, Input} from 'antd';
+import {Validation, Button, Form, Input} from 'antd';
 const Validator = Validation.Validator;
-const Option = Select.Option;
-const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
 
 function cx(classNames) {
@@ -40,24 +37,16 @@ const Demo = React.createClass({
       status: {
         email: {},
         name: {},
-        select: {},
-        radio: {},
         passwd: {},
         rePasswd: {},
-        textarea: {},
-        birthday: {},
-        primeNumber: {}
+        textarea: {}
       },
       formData: {
         email: undefined,
         name: undefined,
-        select: undefined,
-        radio: undefined,
         passwd: undefined,
         rePasswd: undefined,
-        textarea: undefined,
-        birthday: undefined,
-        primeNumber: 9
+        textarea: undefined
       },
       isEmailOver: false, // email 是否输入完毕
       emailValidateMethod: 'onBlur' // 用于改变 email 的验证方法
@@ -144,22 +133,6 @@ const Demo = React.createClass({
     }
   },
 
-  checkBirthday(rule, value, callback) {
-    if (value && value.getTime() >= Date.now()){
-      callback(new Error('你不可能在未来出生吧!'));
-    } else {
-      callback();
-    }
-  },
-
-  checkPrime(rule, value, callback) {
-    if (value !== 11) {
-      callback(new Error('8~12之间的质数明明是11啊!'));
-    } else {
-      callback();
-    }
-  },
-
   render() {
     const formData = this.state.formData;
     const status = this.state.status;
@@ -196,41 +169,6 @@ const Demo = React.createClass({
           </FormItem>
 
           <FormItem
-            label="国籍："
-            id="select"
-            labelCol={{span: 7}}
-            wrapperCol={{span: 12}}
-            validateStatus={this.renderValidateStyle('select')}
-            help={status.select.errors ? status.select.errors.join(',') : null}
-            required>
-              <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
-                <Select size="large" placeholder="请选择国家" style={{width:"100%"}} name="select" value={formData.select}>
-                  <Option value="china">中国</Option>
-                  <Option value="use">美国</Option>
-                  <Option value="japan">日本</Option>
-                  <Option value="korean">韩国</Option>
-                  <Option value="Thailand">泰国</Option>
-                </Select>
-              </Validator>
-          </FormItem>
-
-          <FormItem
-            label="性别："
-            id="radio"
-            labelCol={{span: 7}}
-            wrapperCol={{span: 12}}
-            validateStatus={this.renderValidateStyle('radio')}
-            help={status.radio.errors ? status.radio.errors.join(',') : null}
-            required>
-              <Validator rules={[{required: true, message: '请选择您的性别'}]}>
-                <RadioGroup name="radio" value={formData.radio}>
-                  <Radio value="male">男</Radio>
-                  <Radio value="female">女</Radio>
-                </RadioGroup>
-              </Validator>
-          </FormItem>
-
-          <FormItem
             label="密码："
             id="password"
             labelCol={{span: 7}}
@@ -259,36 +197,6 @@ const Demo = React.createClass({
                 message: '请再次输入密码'
               }, {validator: this.checkPass2}]}>
                 <Input name="rePasswd" id="password2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.rePasswd} placeholder="两次输入密码保持一致"/>
-              </Validator>
-          </FormItem>
-
-          <FormItem
-            label="生日："
-            id="birthday"
-            labelCol={{span: 7}}
-            wrapperCol={{span: 12}}
-            validateStatus={this.renderValidateStyle('birthday')}
-            help={status.birthday.errors ? status.birthday.errors.join(',') : null}
-            required>
-              <Validator rules={[{
-                required: true,
-                type: 'date',
-                message: '你的生日是什么呢?'
-              }, {validator: this.checkBirthday}]}>
-                <Datepicker name="birthday" value={formData.birthday}></Datepicker>
-              </Validator>
-          </FormItem>
-
-          <FormItem
-            label="8~12间的质数："
-            id="primeNumber"
-            labelCol={{span: 7}}
-            wrapperCol={{span: 12}}
-            validateStatus={this.renderValidateStyle('primeNumber')}
-            help={status.primeNumber.errors ? status.primeNumber.errors.join(',') : null}
-            required>
-              <Validator rules={[{validator: this.checkPrime}]}>
-                <InputNumber name="primeNumber" min={8} max={12} value={formData.primeNumber}/>
               </Validator>
           </FormItem>
 
