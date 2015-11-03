@@ -27,20 +27,20 @@ npm install antd@beta
 
 ## Usage example
 
-### Use all components
+- Use all components
 
-```jsx
-import { Datepicker } from 'antd';
-ReactDOM.render(<Datepicker />, mountNode);
-```
+  ```jsx
+  import { Datepicker } from 'antd';
+  ReactDOM.render(<Datepicker />, mountNode);
+  ```
 
-### Use on demand
+- Use on demand
 
-```jsx
-import 'antd/lib/index.css'; // only need to import once in entry module
-import Datepicker from 'antd/lib/datepicker';
-ReactDOM.render(<Datepicker />, mountNode);
-```
+  ```jsx
+  import 'antd/lib/index.css'; // only need to import once in entry module
+  import Datepicker from 'antd/lib/datepicker';
+  ReactDOM.render(<Datepicker />, mountNode);
+  ```
 
 ## Browser Support
 

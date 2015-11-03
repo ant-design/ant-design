@@ -32,24 +32,24 @@ npm install antd@beta
 
 ## 示例
 
-### 使用全部组件
+- 使用全部组件
 
-```jsx
-import { Datepicker } from 'antd';
-ReactDOM.render(<Datepicker />, mountNode);
-```
+  ```jsx
+  import { Datepicker } from 'antd';
+  ReactDOM.render(<Datepicker />, mountNode);
+  ```
 
-### 按需使用
+- 按需使用
 
-```jsx
-import 'antd/lib/index.css'; // 只需在页面入口模块引用一次
-import Datepicker from 'antd/lib/datepicker';
-ReactDOM.render(<Datepicker />, mountNode);
-```
+  ```jsx
+  import 'antd/lib/index.css'; // 只需在页面入口模块引用一次
+  import Datepicker from 'antd/lib/datepicker';
+  ReactDOM.render(<Datepicker />, mountNode);
+  ```
 
 ## 浏览器支持
 
-现代浏览器和IE8 及以上。
+现代浏览器和 IE8 及以上。
 
 ## 链接
 

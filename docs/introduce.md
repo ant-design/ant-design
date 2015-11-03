@@ -45,6 +45,10 @@ ReactDOM.render(<Datepicker />, mountNode);
 - 稳定版：[![npm package](http://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 - 开发版：[![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
 
+## 浏览器支持
+
+现代浏览器和 IE8 及以上。
+
 ## 链接
 
 - [首页](http://ant.design/)
