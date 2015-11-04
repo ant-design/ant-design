@@ -86,7 +86,7 @@ a.logo {
   float: left;
   height: 46px;
   line-height: 46px;
-  margin: 17px 48px 17px 40px;
+  margin: 17px 45px 17px 40px;
   transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   text-transform: uppercase;
   font-size: 18px;
