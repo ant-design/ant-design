@@ -15,7 +15,7 @@
 ## API
 
 ```jsx
-<Badge count="5">
+<Badge count={5}>
   <a href="#" className="head-example"></a>
 </Badge>
 ```
