@@ -12,18 +12,18 @@ const text = <span>提示文字</span>;
 
 ReactDOM.render(
   <div>
-    <div style={{marginLeft: 95}}>
+    <div style={{marginLeft: 60}}>
       <Tooltip placement="topLeft" title={text}>
-        <a href="#">上左 topLeft</a>
+        <a href="#">上左</a>
       </Tooltip>
       <Tooltip placement="top" title={text}>
-        <a href="#">上边 top</a>
+        <a href="#">上边</a>
       </Tooltip>
       <Tooltip placement="topRight" title={text}>
-        <a href="#">上右 topRight</a>
+        <a href="#">上右</a>
       </Tooltip>
     </div>
-    <div style={{width: 100, float: 'left'}}>
+    <div style={{width: 60, float: 'left'}}>
       <Tooltip placement="leftTop" title={text}>
         <a href="#">左上</a>
       </Tooltip>
@@ -34,7 +34,7 @@ ReactDOM.render(
         <a href="#">左下</a>
       </Tooltip>
     </div>
-    <div style={{width: 100, float: 'right'}}>
+    <div style={{width: 60, marginLeft: 270}}>
       <Tooltip placement="rightTop" title={text}>
         <a href="#">右上</a>
       </Tooltip>
@@ -45,7 +45,7 @@ ReactDOM.render(
         <a href="#">右下</a>
       </Tooltip>
     </div>
-    <div style={{marginLeft: 95, clear: 'both'}}>
+    <div style={{marginLeft: 60, clear: 'both'}}>
       <Tooltip placement="bottomLeft" title={text}>
         <a href="#">上右</a>
       </Tooltip>
@@ -65,8 +65,8 @@ ReactDOM.render(
   display: inline-block;
   line-height: 32px;
   height: 32px;
-  width: 90px;
-  font-size: 12px;
+  width: 60px;
+  font-size: 14px;
   text-align: center;
   background: #f5f5f5;
   margin-right: 1em;
