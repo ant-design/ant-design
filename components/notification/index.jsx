@@ -52,9 +52,9 @@ function notice(args) {
       content: <div>
         <Icon className={prefixCls + 'icon-' + args.icon + prefixCls + 'icon'} type={iconType} />
 
-        <p className={prefixCls + 'message'}>{args.message}</p>
+        <div className={prefixCls + 'message'}>{args.message}</div>
 
-        <p className={prefixCls + 'description'}>{args.description}</p>
+        <div className={prefixCls + 'description'}>{args.description}</div>
       </div>,
       duration: duration,
       closable: true,
@@ -66,9 +66,9 @@ function notice(args) {
     if (!args.btn) {
       getNotificationInstance().notice({
         content: <div>
-          <p className={prefixCls + 'message'}>{args.message}</p>
+          <div className={prefixCls + 'message'}>{args.message}</div>
 
-          <p className={prefixCls + 'description'}>{args.description}</p>
+          <div className={prefixCls + 'description'}>{args.description}</div>
         </div>,
         duration: duration,
         closable: true,
@@ -78,9 +78,9 @@ function notice(args) {
     } else {
       getNotificationInstance().notice({
         content: <div>
-          <p className={prefixCls + 'message'}>{args.message}</p>
+          <div className={prefixCls + 'message'}>{args.message}</div>
 
-          <p className={prefixCls + 'description'}>{args.description}</p>
+          <div className={prefixCls + 'description'}>{args.description}</div>
           <span className={prefixCls + 'btn'}>
             {args.btn}
           </span>
