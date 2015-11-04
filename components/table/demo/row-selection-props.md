@@ -43,7 +43,7 @@ const data = [{
 const rowSelection = {
   getCheckboxProps: function(record) {
     return {
-      defaultValue: record.name === '李大嘴', // 配置默认勾选的列
+      defaultChecked: record.name === '李大嘴', // 配置默认勾选的列
       disabled: record.name === '胡彦祖'    // 配置无法勾选的列
     };
   },

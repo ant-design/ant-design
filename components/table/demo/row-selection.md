@@ -2,7 +2,7 @@
 
 - order: 1
 
-第一列是联动的选择框。
+第一列是联动的选择框，rowSelection 中配置 `type="radio"` 可设为单选。
 
 ---
 

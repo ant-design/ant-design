@@ -84,7 +84,7 @@ let AntTable = React.createClass({
       let data = this.getCurrentPageData();
       data.filter((item) => {
         if (this.props.rowSelection.getCheckboxProps) {
-          return this.props.rowSelection.getCheckboxProps(item).defaultValue;
+          return this.props.rowSelection.getCheckboxProps(item).defaultChecked;
         }
         return true;
       }).map((record, rowIndex) => {
