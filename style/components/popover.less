@@ -54,7 +54,7 @@
   }
 
   // Offset the popover to account for the popover arrow
-  &-placement-top {
+  &-placement-top, &-placement-topLeft, &-placement-topRight {
     margin-top: -@popover-arrow-width;
     padding-bottom: @popover-distance;
     &:after {
@@ -65,7 +65,7 @@
     }
   }
 
-  &-placement-right {
+  &-placement-right, &-placement-rightTop, &-placement-rightBottom {
     margin-left: @popover-arrow-width;
     padding-left: @popover-distance;
     &:after {
@@ -76,7 +76,7 @@
     }
   }
 
-  &-placement-bottom {
+  &-placement-bottom, &-placement-bottomLeft, &-placement-bottomRight {
     margin-top: @popover-arrow-width;
     padding-top: @popover-distance;
     &:after {
@@ -87,7 +87,7 @@
     }
   }
 
-  &-placement-left {
+  &-placement-left, &-placement-leftTop, &-placement-leftBottom {
     margin-left: -@popover-arrow-width;
     padding-right: @popover-distance;
     &:after {
@@ -165,7 +165,9 @@
     content: "";
   }
 
-  &-placement-top > &-arrow {
+  &-placement-top > &-arrow,
+  &-placement-topLeft > &-arrow,
+  &-placement-topRight > &-arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
     border-bottom-width: 0;
@@ -179,7 +181,16 @@
       border-top-color: @popover-arrow-color;
     }
   }
-  &-placement-right > &-arrow {
+  &-placement-topLeft > &-arrow {
+    left: 15%;
+  }
+  &-placement-topRight > &-arrow {
+    left: 85%;
+  }
+
+  &-placement-right > &-arrow,
+  &-placement-rightTop > &-arrow,
+  &-placement-rightBottom > &-arrow {
     top: 50%;
     left: @popover-distance - @popover-arrow-outer-width + 1;
     margin-top: -@popover-arrow-outer-width;
@@ -193,7 +204,16 @@
       border-right-color: @popover-arrow-color;
     }
   }
-  &-placement-bottom > &-arrow {
+  &-placement-rightTop > &-arrow {
+    top: 15%;
+  }
+  &-placement-rightBottom > &-arrow {
+    top: 85%;
+  }
+
+  &-placement-bottom > &-arrow,
+  &-placement-bottomLeft > &-arrow,
+  &-placement-bottomRight > &-arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
     border-top-width: 0;
@@ -207,8 +227,16 @@
       border-bottom-color: @popover-arrow-color;
     }
   }
+  &-placement-bottomLeft > &-arrow {
+    left: 15%;
+  }
+  &-placement-bottomRight > &-arrow {
+    left: 85%;
+  }
 
-  &-placement-left > &-arrow {
+  &-placement-left > &-arrow,
+  &-placement-leftTop > &-arrow,
+  &-placement-leftBottom > &-arrow {
     top: 50%;
     right: @popover-distance - @popover-arrow-outer-width + 1;
     margin-top: -@popover-arrow-outer-width;
@@ -222,4 +250,11 @@
       bottom: -@popover-arrow-width;
     }
   }
+  &-placement-leftTop > &-arrow {
+    top: 15%;
+  }
+  &-placement-leftBottom > &-arrow {
+    top: 85%;
+  }
+
 }

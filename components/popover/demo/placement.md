@@ -2,7 +2,7 @@
 
 - order: 1
 
-位置有四个方向。
+位置有十二个方向。
 
 ---
 
@@ -16,17 +16,44 @@ const content = <div>
 </div>;
 
 ReactDOM.render(<div>
-  <Popover placement="left" title={text} overlay={content}>
+  <Popover placement="leftTop" title={text} overlay={content} trigger="click">
+    <Button>左上</Button>
+  </Popover>
+  <Popover placement="left" title={text} overlay={content} trigger="click">
     <Button>左</Button>
   </Popover>
-  <Popover placement="top" title={text} overlay={content}>
+  <Popover placement="leftBottom" title={text} overlay={content} trigger="click">
+    <Button>左下</Button>
+  </Popover>
+  <br/>
+  <Popover placement="topLeft" title={text} overlay={content} trigger="click">
+    <Button>上左</Button>
+  </Popover>
+  <Popover placement="top" title={text} overlay={content} trigger="click">
     <Button>上</Button>
   </Popover>
-  <Popover placement="bottom" title={text} overlay={content}>
+  <Popover placement="topRight" title={text} overlay={content} trigger="click">
+    <Button>上右</Button>
+  </Popover>
+  <br/>
+  <Popover placement="bottomLeft" title={text} overlay={content} trigger="click">
+    <Button>下左</Button>
+  </Popover>
+  <Popover placement="bottom" title={text} overlay={content} trigger="click">
     <Button>下</Button>
   </Popover>
-  <Popover placement="right" title={text} overlay={content}>
+  <Popover placement="bottomRight" title={text} overlay={content} trigger="click">
+    <Button>下右</Button>
+  </Popover>
+  <br/>
+  <Popover placement="rightTop" title={text} overlay={content} trigger="click">
+    <Button>右上</Button>
+  </Popover>
+  <Popover placement="right" title={text} overlay={content} trigger="click">
     <Button>右</Button>
+  </Popover>
+  <Popover placement="rightBottom" title={text} overlay={content} trigger="click">
+    <Button>右下</Button>
   </Popover>
 </div>, document.getElementById('components-popover-demo-placement'));
 ````
@@ -34,5 +61,6 @@ ReactDOM.render(<div>
 <style>
 .code-box-demo .ant-btn {
   margin-right: 1em;
+  margin-bottom: 1em;
 }
 </style>
