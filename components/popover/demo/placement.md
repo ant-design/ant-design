@@ -17,43 +17,43 @@ const content = <div>
 
 ReactDOM.render(<div>
   <Popover placement="leftTop" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">左上</button>
+    <Button>左上</Button>
   </Popover>
   <Popover placement="left" title={text} overlay={content} trigger="click">
     <Button>左</Button>
   </Popover>
   <Popover placement="leftBottom" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">左下</button>
+    <Button>左下</Button>
   </Popover>
   <br/>
   <Popover placement="topLeft" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">上左</button>
+    <Button>上左</Button>
   </Popover>
   <Popover placement="top" title={text} overlay={content} trigger="click">
     <Button>上</Button>
   </Popover>
   <Popover placement="topRight" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">上右</button>
+    <Button>上右</Button>
   </Popover>
   <br/>
   <Popover placement="bottomLeft" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">下左</button>
+    <Button>下左</Button>
   </Popover>
   <Popover placement="bottom" title={text} overlay={content} trigger="click">
     <Button>下</Button>
   </Popover>
   <Popover placement="bottomRight" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">下右</button>
+    <Button>下右</Button>
   </Popover>
   <br/>
   <Popover placement="rightTop" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">右上</button>
+    <Button>右上</Button>
   </Popover>
   <Popover placement="right" title={text} overlay={content} trigger="click">
     <Button>右</Button>
   </Popover>
   <Popover placement="rightBottom" title={text} overlay={content} trigger="click">
-    <button className="ant-btn">右下</button>
+    <Button>右下</Button>
   </Popover>
 </div>, document.getElementById('components-popover-demo-placement'));
 ````
