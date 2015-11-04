@@ -33,11 +33,16 @@ const Popover = React.createClass({
 
     return (
       <Tooltip transitionName={transitionName}
+               ref="tooltip"
                {...this.props}
                overlay={this.getOverlay()}>
         {this.props.children}
       </Tooltip>
     );
+  },
+
+  getPopupDomNode() {
+    return this.refs.tooltip.refs.trigger.popupDomNode;
   },
 
   getOverlay() {
