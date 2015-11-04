@@ -1,7 +1,7 @@
 {
   "name": "antd",
-  "version": "0.9.3",
-  "stableVersion": "0.9.3",
+  "version": "0.9.4",
+  "stableVersion": "0.9.4",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -101,7 +101,7 @@
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
     "just-deploy": "npm run clean && webpack && webpack --config webpack.config.min.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
-    "lint": "eslint components index.js --ext '.js,.jsx'",
+    "lint": "eslint components --ext '.js,.jsx'",
     "lesslint": "lesslint style",
     "test": "webpack && npm run lint",
     "pub": "sh ./scripts/publish.sh",

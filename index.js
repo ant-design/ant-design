@@ -1,5 +1,4 @@
-import React from 'react';
-
+var React = require('react');
 require('./style/index.less');
 
 // matchMedia polyfill for
@@ -12,7 +11,7 @@ window.matchMedia = window.matchMedia || function() {
   };
 };
 
-const antd = {
+var antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
@@ -51,14 +50,14 @@ const antd = {
 // deprecate antd.confirm
 antd.confirm = require('util-deprecate')(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
 
+antd.version = require('./package.json').version;
+
 if (process.env.NODE_ENV !== 'production') {
-  const warning = require('warning');
-  const semver = require('semver');
-  const reactVersionInDeps = require('./package.json').devDependencies.react;
+  var warning = require('warning');
+  var semver = require('semver');
+  var reactVersionInDeps = '~0.13.3';
   warning(semver.satisfies(React.version, reactVersionInDeps),
-    `antd@${antd.version} need to satisfies react@${reactVersionInDeps}.`);
+    `antd@${antd.version} need to satisfies react@${reactVersionInDeps} which is ${React.version} now.`);
 }
 
 module.exports = antd;
-
-antd.version = require('./package.json').version;
