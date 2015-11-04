@@ -12,6 +12,10 @@
   color: @text-color;
   background: #fff;
 
+  &-hidden {
+    display: none;
+  }
+
   &-item-group-list {
     margin: 0;
     padding: 0;
@@ -93,7 +97,6 @@
     position: relative;
 
     > .@{menu-prefix-cls} {
-      display: none;
       background-color: #fff;
     }
 
@@ -128,14 +131,10 @@
     }
 
     &-open {
-      > .@{menu-prefix-cls} {
-        display: block;
-      }
       &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
         .ie-rotate(1);
         transform: rotate(180deg) scale(0.75);
       }
-
     }
   }
 
