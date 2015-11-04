@@ -24,7 +24,7 @@ ReactDOM.render(
       wrapperCol={{span: 12}}
       validateStatus="error"
       help="请输入数字和字母组合">
-      <Input value="无效选择" id="error" />
+      <Input defaultValue="无效选择" id="error" />
     </FormItem>
 
     <FormItem
@@ -32,7 +32,7 @@ ReactDOM.render(
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
       validateStatus="warning">
-      <Input value="前方高能预警" id="warning" />
+      <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
 
     <FormItem
@@ -42,7 +42,7 @@ ReactDOM.render(
       hasFeedback={true}
       validateStatus="validating"
       help="信息审核中...">
-      <Input value="我是被校验的内容" id="validating" />
+      <Input defaultValue="我是被校验的内容" id="validating" />
     </FormItem>
 
     <FormItem
@@ -51,7 +51,7 @@ ReactDOM.render(
       wrapperCol={{span: 12}}
       hasFeedback={true}
       validateStatus="success">
-      <Input value="我是正文" id="success" />
+      <Input defaultValue="我是正文" id="success" />
     </FormItem>
 
     <FormItem
@@ -60,7 +60,7 @@ ReactDOM.render(
       wrapperCol={{span: 12}}
       hasFeedback={true}
       validateStatus="warning">
-      <Input value="前方高能预警" id="warning" />
+      <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
 
     <FormItem
@@ -70,7 +70,7 @@ ReactDOM.render(
       hasFeedback={true}
       validateStatus="error"
       help="请输入数字和字母组合">
-      <Input value="无效选择" id="error" />
+      <Input defaultValue="无效选择" id="error" />
     </FormItem>
 
     <FormItem
