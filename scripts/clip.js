@@ -57,18 +57,13 @@ class Clip extends React.Component {
 
   render() {
     let dataAttributes = this.propsWith(/^data-/);
-    let attributes = this.propsWith(/^span-/, true);
-    return (
-      <span
-        id={this.id}
-        className={this.props.className || ''}
-        style={this.props.style || {}}
-        {...dataAttributes}
-        {...attributes}
-      >
-        {this.props.children}
-      </span>
-    );
+    let component = this.props.component || 'span';
+    return React.createElement(component, {
+      id: this.id,
+      className: this.props.className || '',
+      style: this.props.style || {},
+      ...dataAttributes
+    }, this.props.children);
   }
 }
 
