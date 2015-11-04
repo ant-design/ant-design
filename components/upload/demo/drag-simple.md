@@ -24,8 +24,8 @@ ReactDOM.render(
 );
 ````
 
-<style>
+````css
 #components-upload-demo-drag-simple {
   width: 246px;
 }
-</style>
+````

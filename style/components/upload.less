@@ -36,10 +36,6 @@
     }
 
     &:hover {
-      border: 1px dashed #999;
-    }
-
-    &.@{upload-prefix-cls}-drag-uploading {
       border-color: tint(@primary-color, 20%);
     }
 
@@ -74,34 +70,36 @@
 }
 
 .@{upload-prefix-cls}-list {
-  margin-left: 4px;
-  overflow: hidden;
   .@{upload-prefix-cls}-list-item {
     overflow: hidden;
     margin-top: 8px;
-    color: #999;
-    :hover {
-      background-color: tint(@primary-color, 90%);
-      .anticon.anticon-cross {
-        display: inline-block;
-      }
-    }
-    &.@{upload-prefix-cls}-list-item-uploading {
-      color: #BCBCBC;
-    }
+
     .@{upload-prefix-cls}-list-item-info {
+      height: 22px;
+      line-height: 22px;
+      padding: 0 4px;
+      transition: background-color 0.3s ease;
+
       .anticon-paper-clip {
-        margin-left: 4px;
+        margin-right: 4px;
         font-size: 12px;
+        color: #999;
       }
       .anticon-cross {
-        display: none;
+        .iconfont-size-under-12px(10px);
+        transition: all 0.3s ease;
+        opacity: 0;
         cursor: pointer;
         float: right;
-        margin-right: 8px;
         color: #999;
         &:hover {
           color: #666;
+        }
+      }
+      &:hover {
+        background-color: tint(@primary-color, 90%);
+        .anticon.anticon-cross {
+          opacity: 1;
         }
       }
     }
@@ -119,13 +117,13 @@
   }
   .@{upload-prefix-cls}-item-name {
     font-size: 12px;
-    margin-left: 4px;
-    margin-right: 8px;
     font-weight: normal;
   }
+
   b.@{upload-prefix-cls}-item-name {
     color: #666;
   }
+
   .@{upload-prefix-cls}-success-icon {
     color: @success-color;
     font-weight: bold;

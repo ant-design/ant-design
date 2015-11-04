@@ -2,7 +2,7 @@ import React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../iconfont';
 const prefixCls = 'ant-upload';
-import {Line} from '../progress';
+import { Line } from '../progress';
 
 export default React.createClass({
   getDefaultProps() {
