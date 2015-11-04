@@ -252,9 +252,9 @@ let TintShadeTool = React.createClass({
   render() {
     return <div style={{margin: '40px 0'}}>
       <div>
-        <ClipboardButton onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff'}}>
+        <Clip onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff'}}>
           <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
-        </ClipboardButton>
+        </Clip>
         <Tooltip title="点击左边色块复制色值">
           <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
         </Tooltip>

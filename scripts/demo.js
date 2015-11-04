@@ -1,6 +1,6 @@
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
-window.ClipboardButton = require('react-clipboard.js');
+window.Clip = require('react-clip');
 var antd = require('../index');
 var React = require('react');
 var ReactDOM = require('react-dom');

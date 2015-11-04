@@ -93,7 +93,7 @@
     "precommit-hook": "^1.0.7",
     "react": "~0.14.1",
     "react-addons-test-utils": "~0.14.1",
-    "react-clipboard.js": "^0.1.4",
+    "react-clip": "^0.1.4",
     "react-dom": "~0.14.1",
     "react-router": "1.0.0-rc3",
     "webpack": "^1.10.1",
@@ -108,7 +108,8 @@
     "just-deploy": "npm run clean && webpack --config webpack.deploy.config.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
     "lint": "eslint components index.js --ext '.js,.jsx'",
     "lesslint": "lesslint style",
-    "test": "npm run lint && webpack && jest",
+    "test": "npm run lint && webpack && npm run jest",
+    "jest": "jest",
     "pub": "sh ./scripts/publish.sh",
     "webpack": "webpack",
     "beta": "sh ./scripts/publish.sh --tag beta"
@@ -121,6 +122,10 @@
     ],
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/*"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/_site/"
     ],
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
     "testDirectoryName": "tests",
