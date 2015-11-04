@@ -14,7 +14,8 @@ class AntBadge extends React.Component {
       </span>;
     }
     let count = this.props.count;
-    if (!count) {
+    // null undefined "" "0" 0
+    if (!count || count === '0') {
       return cloneElement(this.props.children);
     } else {
       count = count >= 100 ? '99+' : count;
