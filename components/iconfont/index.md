@@ -147,7 +147,7 @@ const IconSet = React.createClass({
   render() {
     return (
       <ul className="anticons-list clearfix">
-        {this.props.icons.map(type => <CopyableIcon type={type} />)}
+        {this.props.icons.map((type, i) => <CopyableIcon key={i} type={type} />)}
       </ul>
     );
   }
