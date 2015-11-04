@@ -11,7 +11,7 @@ import { Badge } from 'antd';
 
 ReactDOM.render(
   <a href="#">
-    <Badge count="5">
+    <Badge count={5}>
       <span className="head-example"></span>
     </Badge>
   </a>
