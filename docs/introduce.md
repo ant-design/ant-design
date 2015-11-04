@@ -63,6 +63,8 @@ ReactDOM.render(<Datepicker />, mountNode);
 
 - 蚂蚁金服
 
+> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+
 ## 如何贡献
 
 我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们[提问](https://github.com/ant-design/ant-design/issues)。
