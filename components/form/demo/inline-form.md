@@ -40,12 +40,12 @@ const Demo = React.createClass({
         <FormItem
           id="userName"
           label="账户：">
-          <Input placeholder="请输入账户名" id="userName" name="userName" onChange={this.setValue.bind(this, 'userName')} />
+          <Input placeholder="请输入账户名" id="userName" name="userName" onChange={this.setValue.bind(this, 'userName')} value={formData.userName} />
         </FormItem>
         <FormItem
           id="password"
           label="密码：">
-          <Input type="password" placeholder="请输入密码" id="password" name="password" onChange={this.setValue.bind(this, 'password')} />
+          <Input type="password" placeholder="请输入密码" id="password" name="password" onChange={this.setValue.bind(this, 'password')} value={formData.password} />
         </FormItem>
         <FormItem>
           <label className="ant-checkbox-inline">
