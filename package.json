@@ -93,6 +93,7 @@
     "precommit-hook": "^1.0.7",
     "react": "~0.14.1",
     "react-addons-test-utils": "~0.14.1",
+    "react-clipboard.js": "^0.1.4",
     "react-dom": "~0.14.1",
     "react-router": "1.0.0-rc3",
     "webpack": "^1.10.1",

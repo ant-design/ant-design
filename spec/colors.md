@@ -195,6 +195,7 @@ ReactDOM.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
 ## 色彩换算工具
 
 <script src="https://t.alipayobjects.com/images/T1DrxhXe0mXXXXXXXX.js"></script>
+<script src="https://t.alipayobjects.com/images/T1gXXjXeXeXXXXXXXX.js"></script>
 
 > 正数为变淡 `tint` ，负数为加深 `shade`。
 
@@ -210,6 +211,7 @@ less 或 scss 语言可以直接使用 `tint(#2db7f5, 80%)` 和  `shade(#2db7f5,
 let Button = antd.Button;
 let InputNumber = antd.InputNumber;
 let Slider = antd.Slider;
+let Tooltip = antd.Tooltip;
 let TintShadeTool = React.createClass({
   getInitialState() {
     return {
@@ -244,11 +246,18 @@ let TintShadeTool = React.createClass({
       result: '#' + c[tintOrShade](Math.abs(this.state.value)).hex
     });
   },
+  copySuccess(e) {
+    antd.message.success('复制色值成功：' + e.text);
+  },
   render() {
     return <div style={{margin: '40px 0'}}>
       <div>
-        <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
-        <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
+        <ClipboardButton onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff'}}>
+          <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
+        </ClipboardButton>
+        <Tooltip title="点击左边色块复制色值">
+          <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
+        </Tooltip>
         <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
         <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
         <span style={{margin: '0 0 0 8px'}}>%</span>
