@@ -69,7 +69,7 @@ ReactDOM.render(
       wrapperCol={{span: 16}}>
       <Row>
         <Col span="4">
-          <Input id="tel1" value="086" />
+          <Input id="tel1" defaultValue="086" />
         </Col>
         <Col span="2">
           <p className="ant-form-split">--</p>
