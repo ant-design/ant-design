@@ -252,12 +252,12 @@ let TintShadeTool = React.createClass({
   render() {
     return <div style={{margin: '40px 0'}}>
       <div>
-        <Clip onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff'}}>
-          <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
+        <Clip onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff', cursor: 'pointer'}}>
+          <Tooltip title="点击色块复制色值">
+            <div style={{width: 60, borderRadius: 6, height:28, backgroundColor: this.state.result, display: 'inline-block', verticalAlign: 'middle', marginRight: 8}}></div>
+          </Tooltip>
         </Clip>
-        <Tooltip title="点击左边色块复制色值">
-          <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
-        </Tooltip>
+        <span style={{marginRight: 140, fontFamily: 'Consolas'}}>{this.state.result}</span>
         <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
         <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
         <span style={{margin: '0 0 0 8px'}}>%</span>
