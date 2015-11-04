@@ -5,7 +5,6 @@
   > span {
     display: block;
     width: 100%;
-    height: 100%;
   }
 
   input[type=file] {
@@ -23,11 +22,12 @@
     border-radius: @border-radius-base;
     text-align: center;
     width: 100%;
-    height: 100%;
+    height: 180px;
     position: relative;
 
     > span {
       display: table;
+      height: 100%;
     }
 
     .@{upload-prefix-cls}-drag-container {
@@ -38,6 +38,11 @@
     &:hover {
       border: 1px dashed #999;
     }
+
+    &.@{upload-prefix-cls}-drag-uploading {
+      border-color: tint(@primary-color, 20%);
+    }
+
     p.@{upload-prefix-cls}-drag-icon {
       .anticon {
         font-size: 80px;
@@ -70,23 +75,47 @@
 
 .@{upload-prefix-cls}-list {
   margin-left: 4px;
-  margin-top: 8px;
   overflow: hidden;
   .@{upload-prefix-cls}-list-item {
-    margin-bottom: 4px;
-    height: 22px;
     overflow: hidden;
-    .anticon {
-      margin-top: -2px;
-      font-size: 12px;
-      &.anticon-cross {
+    margin-top: 8px;
+    color: #999;
+    :hover {
+      background-color: tint(@primary-color, 90%);
+      .anticon.anticon-cross {
+        display: inline-block;
+      }
+    }
+    &.@{upload-prefix-cls}-list-item-uploading {
+      color: #BCBCBC;
+    }
+    .@{upload-prefix-cls}-list-item-info {
+      .anticon-paper-clip {
+        margin-left: 4px;
+        font-size: 12px;
+      }
+      .anticon-cross {
+        display: none;
         cursor: pointer;
+        float: right;
+        margin-right: 8px;
         color: #999;
         &:hover {
           color: #666;
         }
       }
     }
+
+    .@{upload-prefix-cls}-list-item-progress {
+      padding: 0 8px 0 20px;
+      margin-top: -2px;
+      margin-bottom: 1px;
+      font-size: 12px;
+      .ant-progress-line-inner {
+        vertical-align: middle;
+      }
+    }
+
   }
   .@{upload-prefix-cls}-item-name {
     font-size: 12px;

@@ -12,6 +12,7 @@ const Dragger = Upload.Dragger;
 
 const props = {
   name: 'file',
+  showUploadList: false,
   action: '/upload.do'
 };
 
@@ -26,9 +27,3 @@ ReactDOM.render(
   document.getElementById('components-upload-demo-drag')
 );
 ````
-
-<style>
-#components-upload-demo-drag {
-  height: 300px;
-}
-</style>
