@@ -119,7 +119,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 ## 自行构建
 
-如果想自己维护工作流，推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
+如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
 
 
 ## 小甜点

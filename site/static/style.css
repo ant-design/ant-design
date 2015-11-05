@@ -504,6 +504,10 @@ footer ul li > a {
   width: 80%;
 }
 
+.highlight {
+  line-height: 1.5;
+}
+
 .markdown img {
   vertical-align: middle;
 }
