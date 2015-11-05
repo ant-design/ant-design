@@ -212,54 +212,52 @@ const Demo = React.createClass({
 ReactDOM.render(<Demo />, document.getElementById('components-validation-demo-customize'));
 ````
 
-<style>
-  .ant-pwd-strength {
-    display: inline-block;
-    margin-left: 8px;
-    line-height: 32px;
-    height: 32px;
-    vertical-align: middle;
-  }
+````css
+.ant-pwd-strength {
+  display: inline-block;
+  margin-left: 8px;
+  line-height: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
 
-  .ant-pwd-strength-item {
-    float: left;
-    margin-right: 1px;
-    margin-top: 12px;
-    width: 19px;
-    height: 8px;
-    line-height: 8px;
-    list-style: none;
-    background-color: #f3f3f3;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -moz-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
+.ant-pwd-strength-item {
+  float: left;
+  margin-right: 1px;
+  margin-top: 12px;
+  width: 19px;
+  height: 8px;
+  line-height: 8px;
+  list-style: none;
+  background-color: #f3f3f3;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 
-  .ant-pwd-strength-item-1 {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-  }
+.ant-pwd-strength-item-1 {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
 
-  .ant-pwd-strength-item-2 {
-    width: 20px;
-  }
+.ant-pwd-strength-item-2 {
+  width: 20px;
+}
 
-  .ant-pwd-strength-item-3 {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    margin-right: 8px;
-  }
+.ant-pwd-strength-item-3 {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 8px;
+}
 
-  .ant-pwd-strength-low .ant-pwd-strength-item-1, .ant-pwd-strength-medium .ant-pwd-strength-item-1, .ant-pwd-strength-high .ant-pwd-strength-item-1 {
-    background-color: #FAC450;
-  }
+.ant-pwd-strength-low .ant-pwd-strength-item-1, .ant-pwd-strength-medium .ant-pwd-strength-item-1, .ant-pwd-strength-high .ant-pwd-strength-item-1 {
+  background-color: #FAC450;
+}
 
-  .ant-pwd-strength-medium .ant-pwd-strength-item-2, .ant-pwd-strength-high .ant-pwd-strength-item-2 {
-    background-color: rgba(135, 208, 104, .6);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#9987D068,endColorstr=#9987D068);
-  }
+.ant-pwd-strength-medium .ant-pwd-strength-item-2, .ant-pwd-strength-high .ant-pwd-strength-item-2 {
+  background-color: rgba(135, 208, 104, .6);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#9987D068,endColorstr=#9987D068);
+}
 
-  .ant-pwd-strength-high .ant-pwd-strength-item-3 {
-    background-color: #87D068;
-  }
-</style>
+.ant-pwd-strength-high .ant-pwd-strength-item-3 {
+  background-color: #87D068;
+}
+````
