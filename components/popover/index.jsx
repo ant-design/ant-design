@@ -42,7 +42,7 @@ const Popover = React.createClass({
   },
 
   getPopupDomNode() {
-    return this.refs.tooltip.refs.trigger.popupDomNode;
+    return this.refs.tooltip.getPopupDomNode();
   },
 
   getOverlay() {

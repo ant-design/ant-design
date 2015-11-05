@@ -57,45 +57,21 @@
   &-placement-top, &-placement-topLeft, &-placement-topRight {
     margin-top: -@popover-arrow-width;
     padding-bottom: @popover-distance;
-    &:after {
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 8px;
-    }
   }
 
   &-placement-right, &-placement-rightTop, &-placement-rightBottom {
     margin-left: @popover-arrow-width;
     padding-left: @popover-distance;
-    &:after {
-      top: 0;
-      left: -8px;
-      width: 8px;
-      height: 100%;
-    }
   }
 
   &-placement-bottom, &-placement-bottomLeft, &-placement-bottomRight {
     margin-top: @popover-arrow-width;
     padding-top: @popover-distance;
-    &:after {
-      top: -8px;
-      left: 0;
-      width: 100%;
-      height: 8px;
-    }
   }
 
   &-placement-left, &-placement-leftTop, &-placement-leftBottom {
     margin-left: -@popover-arrow-width;
     padding-right: @popover-distance;
-    &:after {
-      top: 0;
-      left: 100%;
-      width: 8px;
-      height: 100%;
-    }
   }
 
   &-inner {
