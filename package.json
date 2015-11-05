@@ -61,7 +61,7 @@
     "rc-tree": "~0.18.1",
     "rc-upload": "~1.6.4",
     "rc-util": "~2.0.3",
-    "react-slick": "~0.8.0",
+    "react-slick": "~0.9.1",
     "reqwest": "~2.0.5",
     "semver": "~5.0.3",
     "util-deprecate": "~1.0.1",
