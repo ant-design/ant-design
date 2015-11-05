@@ -490,14 +490,17 @@ let AntTable = React.createClass({
         this.setState(newState);
       }
     } else {
+      // remote 模式使用 this.dataSource
+      let dataSource = this.getRemoteDataSource();
+      if (!dataSource) {
+        return null;
+      }
       let state = objectAssign({}, this.state, newState);
       if (newState || !this.state.loading) {
         this.setState(objectAssign({
           loading: true
         }, newState));
       }
-      // remote 模式使用 this.dataSource
-      let dataSource = this.getRemoteDataSource();
       let buildInParams = dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {};
       return reqwest({
         url: dataSource.url,
