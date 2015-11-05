@@ -618,13 +618,14 @@ let AntTable = React.createClass({
       emptyClass = ' ant-table-empty';
     }
 
-    let table = (
+    let table = <div>
       <Table {...this.props}
         data={data}
         columns={columns}
         className={classString}
         expandIconAsCell={expandIconAsCell} />
-    );
+      {emptyText}
+    </div>;
     if (this.state.loading) {
       // if there is no pagination or no data, the height of spin should decrease by half of pagination
       let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
@@ -636,7 +637,6 @@ let AntTable = React.createClass({
     return (
       <div className={'clearfix' + emptyClass}>
         {table}
-        {emptyText}
         {this.renderPagination()}
       </div>
     );
