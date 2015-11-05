@@ -19,11 +19,11 @@ const AntMenu = React.createClass({
       openKeys: []
     };
   },
-  handleClick() {
+  handleClick(e) {
     this.setState({
       openKeys: []
     });
-    this.props.onClick();
+    this.props.onClick(e);
   },
   handleOpenKeys(e) {
     this.setState({
