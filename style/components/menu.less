@@ -52,7 +52,6 @@
   }
 
   & > li&-submenu {
-    padding: 0;
     cursor: pointer;
     transition: all 0.3s ease;
   }
@@ -168,11 +167,14 @@
     z-index: 0;
 
     & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+    & > .@{menu-prefix-cls}-submenu {
       padding: 0 20px;
       line-height: 50px;
       position: relative;
       top: 1px;
+      > a , > span{
+        line-height: 51px;
+      }
       > a {
         display: block;
         color: @text-color;

@@ -47,7 +47,7 @@ let AntTable = React.createClass({
       data: [],
       dataSource: this.props.dataSource,
       filters: {},
-      dirty: false,
+      selectionDirty: false,
       loading: this.props.loading,
       sortColumn: '',
       sortOrder: '',
@@ -102,9 +102,17 @@ let AntTable = React.createClass({
     }
     // 外界只有 dataSource 的变化会触发新请求
     if ('dataSource' in nextProps &&
-      nextProps.dataSource !== this.props.dataSource) {
+        nextProps.dataSource !== this.props.dataSource) {
+      let selectedRowKeys = this.state.selectedRowKeys;
+      // 把不在当前页的选中项去掉
+      if (this.isLocalDataSource()) {
+        let currentPageRowKeys = this.getLocalDataPaging(nextProps.dataSource);
+        selectedRowKeys = selectedRowKeys.filter((key) => {
+          return currentPageRowKeys.indexOf(key) >= 0;
+        });
+      }
       this.setState({
-        selectedRowKeys: [],
+        selectionDirty: false,
         dataSource: nextProps.dataSource,
         loading: true
       }, this.fetch);
@@ -178,6 +186,7 @@ let AntTable = React.createClass({
     });
     const newState = {
       selectedRowKeys: [],
+      selectionDirty: false,
       filters
     };
     this.fetch(newState);
@@ -187,7 +196,7 @@ let AntTable = React.createClass({
   handleSelect(record, rowIndex, e) {
     let checked = e.target.checked;
     let defaultSelection = [];
-    if (!this.state.dirty) {
+    if (!this.state.selectionDirty) {
       defaultSelection = this.getDefaultSelection();
     }
     let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
@@ -201,7 +210,7 @@ let AntTable = React.createClass({
     }
     this.setState({
       selectedRowKeys: selectedRowKeys,
-      dirty: true
+      selectionDirty: true
     });
     if (this.props.rowSelection.onSelect) {
       let data = this.getCurrentPageData();
@@ -215,7 +224,7 @@ let AntTable = React.createClass({
   handleRadioSelect: function (record, rowIndex, e) {
     let checked = e.target.checked;
     let defaultSelection = [];
-    if (!this.state.dirty) {
+    if (!this.state.selectionDirty) {
       defaultSelection = this.getDefaultSelection();
     }
     let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
@@ -224,7 +233,7 @@ let AntTable = React.createClass({
     this.setState({
       selectedRowKeys: selectedRowKeys,
       radioIndex: record.key,
-      dirty: true
+      selectionDirty: true
     });
     if (this.props.rowSelection.onSelect) {
       let data = this.getCurrentPageData();
@@ -248,7 +257,7 @@ let AntTable = React.createClass({
     }) : [];
     this.setState({
       selectedRowKeys: selectedRowKeys,
-      dirty: true
+      selectionDirty: true
     });
     if (this.props.rowSelection.onSelectAll) {
       let selectedRows = data.filter((row, i) => {
@@ -268,6 +277,7 @@ let AntTable = React.createClass({
     const newState = {
       // 防止内存泄漏，只维持当页
       selectedRowKeys: [],
+      selectionDirty: false,
       pagination
     };
     this.fetch(newState);
@@ -286,14 +296,26 @@ let AntTable = React.createClass({
     if (this.props.rowSelection.getCheckboxProps) {
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
-    const checked = this.state.dirty ? this.state.radioIndex === record.key : this.getDefaultSelection().indexOf(rowIndex) >= 0;
+    let checked;
+    if (this.state.selectionDirty) {
+      checked = this.state.radioIndex === record.key;
+    } else {
+      checked = (this.state.radioIndex === record.key ||
+                 this.getDefaultSelection().indexOf(rowIndex) >= 0);
+    }
     return <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
                   value={record.key} checked={checked}/>;
   },
 
   renderSelectionCheckBox(value, record, index) {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-    let checked = this.state.dirty ? this.state.selectedRowKeys.indexOf(rowIndex) >= 0 : this.getDefaultSelection().indexOf(rowIndex) >= 0;
+    let checked;
+    if (this.state.selectionDirty) {
+      checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
+    } else {
+      checked = (this.state.selectedRowKeys.indexOf(rowIndex) >= 0 ||
+                 this.getDefaultSelection().indexOf(rowIndex) >= 0);
+    }
     let props = {};
     if (this.props.rowSelection.getCheckboxProps) {
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
@@ -490,7 +512,7 @@ let AntTable = React.createClass({
               dataSource.getPagination.call(this, result)
             );
             this.setState({
-              dirty: false,
+              selectionDirty: false,
               loading: false,
               data: dataSource.resolve.call(this, result),
               pagination: pagination
@@ -513,8 +535,8 @@ let AntTable = React.createClass({
     })[0];
   },
 
-  getLocalDataPaging() {
-    let data = this.getLocalData();
+  getLocalDataPaging(dataSource) {
+    let data = this.getLocalData(dataSource);
     let current, pageSize;
     let state = this.state;
     // 如果没有分页的话，默认全部展示
@@ -540,9 +562,9 @@ let AntTable = React.createClass({
     return data;
   },
 
-  getLocalData() {
+  getLocalData(dataSource) {
     let state = this.state;
-    let data = this.state.dataSource;
+    let data = dataSource || this.state.dataSource;
     // 排序
     if (state.sortOrder && state.sorter) {
       data = data.sort(state.sorter);
