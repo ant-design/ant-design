@@ -65,7 +65,7 @@ export default App;
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8000 查看效果。
+一键启动调试，访问 http://127.0.0.1:8001 查看效果。
 
 ```bash
 $ npm run dev
@@ -115,6 +115,12 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   margin-bottom: -42px;
 }
 </style>
+
+
+## 自行构建
+
+如果想自己维护工作流，推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
+
 
 ## 小甜点
 
