@@ -6,7 +6,7 @@
   padding-left: 0; // Override default ul/ol
   list-style: none;
   z-index: 999;
-  border: 1px solid #d9d9d9;
+  // border: 1px solid #d9d9d9;
   box-shadow: @overlay-shadow;
   border-radius: @border-radius-base;
   color: @text-color;
@@ -55,6 +55,17 @@
     padding: 0;
     cursor: pointer;
     transition: all 0.3s ease;
+  }
+
+  &-vertical,
+  &-inline {
+    border-right: 1px solid #d9d9d9;
+
+    .ant-menu-item-selected,
+    .ant-menu-item-active {
+      border-right: 2px solid @primary-color;
+      margin-left: -1px;
+    }
   }
 
   &-submenu-horizontal > .@{menu-prefix-cls} {
@@ -251,7 +262,6 @@
     border: none;
     border-radius: 0;
     box-shadow: none;
-    overflow: hidden;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       line-height: 34px;
       height: 34px;
