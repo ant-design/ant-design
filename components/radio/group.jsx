@@ -15,6 +15,7 @@ export default React.createClass({
   getDefaultProps: function () {
     return {
       prefixCls: 'ant-radio-group',
+      disabled: false,
       onChange: function () {
       }
     };
@@ -41,6 +42,7 @@ export default React.createClass({
           {...radio.props}
           onChange={this.onRadioChange}
           checked={this.state.value === radio.props.value}
+          disabled={this.props.disabled}
         />;
       }
       return radio;

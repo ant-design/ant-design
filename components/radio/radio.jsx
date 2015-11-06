@@ -1,7 +1,7 @@
 import Radio from 'rc-radio';
 import React from 'react';
 
-let AntRadio = React.createClass({
+const AntRadio = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-radio'
@@ -12,6 +12,9 @@ let AntRadio = React.createClass({
     if (classString) {
       classString += this.props.checked ? (' ' + classString + '-checked') : '';
     }
+    if (this.props.disabled) {
+      classString += ' ' + this.props.className + '-disabled';
+    }
     return (
       <label className={classString}>
         <Radio {...this.props} children={null} />
@@ -20,20 +23,5 @@ let AntRadio = React.createClass({
     );
   }
 });
-
-let Button = React.createClass({
-  getDefaultProps() {
-    return {
-      className: 'ant-radio-button'
-    };
-  },
-  render() {
-    return (
-      <AntRadio {...this.props} />
-    );
-  }
-});
-
-AntRadio.Button = Button;
 
 export default AntRadio;
