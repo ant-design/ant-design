@@ -12,11 +12,13 @@
   text-align: center;
   opacity: 0;
   position: absolute;
+  visibility: hidden;
   transition: opacity 0.3s @ease-in-out-circ;
 
   &-spining {
     opacity: 1;
     position: static;
+    visibility: visible;
   }
 
   &-nested-loading {
