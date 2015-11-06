@@ -5,7 +5,8 @@ import { isCssAnimationSupported } from 'css-animation';
 const AntSpin = React.createClass({
   getDefaultProps() {
     return {
-      size: 'default'
+      size: 'default',
+      spining: true
     };
   },
 
@@ -24,7 +25,8 @@ const AntSpin = React.createClass({
     let spinClassName = classSet({
       'ant-spin': true,
       [`ant-spin-${size}`]: size,
-      [className]: !!className
+      [className]: !!className,
+      'ant-spin-spining': this.props.spining,
     });
 
     let spinElement;
@@ -43,7 +45,7 @@ const AntSpin = React.createClass({
 
     if (this.isNestedPattern()) {
       return (
-        <div className="ant-spin-nested-loading">
+        <div className={this.props.spining ? 'ant-spin-nested-loading' : ''}>
           {spinElement}
           <div className="ant-spin-container">
             {this.props.children}

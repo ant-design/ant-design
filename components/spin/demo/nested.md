@@ -25,7 +25,7 @@ const Card = React.createClass({
       description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
       type="info" />;
     return <div>
-      {this.state.loading ? <Spin>{container}</Spin> : container}
+      <Spin spining={this.state.loading}>{container}</Spin>
       切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
     </div>;
   }
