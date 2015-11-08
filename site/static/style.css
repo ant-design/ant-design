@@ -363,7 +363,7 @@ footer > h3 {
 
 footer ul li > a {
   font-size: 0.75em;
-  margin: 5px auto;
+  margin: 5px 2px 0 0;
 }
 
 .aside-container {
