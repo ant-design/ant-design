@@ -6,15 +6,15 @@
 
 ````jsx
 ReactDOM.render(
-  <div>
-  示例
+  <div className="ant-common-layout">
+  布局示例
   </div>
 , document.getElementById('spec-layout-demo-aside'));
 ````
 
-
 ````css
-
-```
-
-
+.ant-common-layout {
+  background: #f9f9f9;
+  padding: 24px;
+}
+````
