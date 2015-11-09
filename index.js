@@ -57,7 +57,7 @@ if (process.env.NODE_ENV !== 'production') {
   var semver = require('semver');
   var reactVersionInDeps = '~0.13.3';
   warning(semver.satisfies(React.version, reactVersionInDeps),
-    `antd@${antd.version} need to satisfies react@${reactVersionInDeps} which is ${React.version} now.`);
+    'antd@' + antd.version + ' need to satisfies react@' + reactVersionInDeps + ' which is ' + React.version + ' now.');
 }
 
 module.exports = antd;
