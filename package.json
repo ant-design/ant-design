@@ -91,7 +91,7 @@
     "less-loader": "^2.2.0",
     "lodash": "^3.10.0",
     "nico-jsx": "~0.6.0",
-    "precommit-hook": "^1.0.7",
+    "pre-commit": "1.x",
     "react": "~0.14.1",
     "react-addons-test-utils": "~0.14.1",
     "react-dom": "~0.14.1",
@@ -130,7 +130,7 @@
     "testDirectoryName": "tests",
     "preprocessCachingDisabled": false
   },
-  "precommit": [
+  "pre-commit": [
     "lint"
   ]
 }

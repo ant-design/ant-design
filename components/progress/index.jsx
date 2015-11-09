@@ -53,7 +53,7 @@ let Line = React.createClass({
           <span className={prefixCls + '-line-text'}>{props.percent}%</span>
         );
       }
-    }else {
+    } else {
       fullCls = ' ' + prefixCls + '-line-wrap-full';
     }
     let percentStyle = {
