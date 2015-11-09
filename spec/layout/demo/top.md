@@ -4,36 +4,39 @@
 
 一二级导航都在顶部。
 
+> `<BrowserDemo />` 做演示用，无须复制。
+
 ---
 
 ````jsx
 import { Menu, Breadcrumb } from 'antd';
 
 ReactDOM.render(
-  <div className="ant-layout-top">
-    <div className="ant-layout-header"></div>
-    <div className="ant-layout-subheader"></div>
-    <div className="ant-layout-main">
-      <div className="ant-layout-breadcrumb">
-        <Breadcrumb>
-          <Breadcrumb.Item>首页</Breadcrumb.Item>
-          <Breadcrumb.Item>应用列表</Breadcrumb.Item>
-          <Breadcrumb.Item>某应用</Breadcrumb.Item>
-        </Breadcrumb>
-      </div>
-      <div className="ant-layout-container">
-        <div style={{ height: 240 }}></div>
+  <BrowserDemo>
+    <div className="ant-layout-top">
+      <div className="ant-layout-header"></div>
+      <div className="ant-layout-subheader"></div>
+      <div className="ant-layout-main">
+        <div className="ant-layout-breadcrumb">
+          <Breadcrumb>
+            <Breadcrumb.Item>首页</Breadcrumb.Item>
+            <Breadcrumb.Item>应用列表</Breadcrumb.Item>
+            <Breadcrumb.Item>某应用</Breadcrumb.Item>
+          </Breadcrumb>
+        </div>
+        <div className="ant-layout-container">
+          <div style={{ height: 240 }}></div>
+        </div>
       </div>
     </div>
-  </div>
+  </BrowserDemo>
 , document.getElementById('spec-layout-demo-top'));
 ````
 
 ````css
 .ant-layout-top {
   background: #f4f4f4;
-  height: 400px;
-  overflow: hidden;
+  height: 100%;
 }
 
 .ant-layout-top .ant-layout-header {

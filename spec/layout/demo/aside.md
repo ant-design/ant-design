@@ -10,34 +10,34 @@
 import { Menu, Breadcrumb } from 'antd';
 
 ReactDOM.render(
-  <div className="ant-layout-aside">
-    <aside className="ant-layout-sider">
-    </aside>
-    <div className="ant-layout-main">
-      <div className="ant-layout-header"></div>
-      <div className="ant-layout-container">
-        <div className="ant-layout-breadcrumb">
-          <Breadcrumb>
-            <Breadcrumb.Item>首页</Breadcrumb.Item>
-            <Breadcrumb.Item>应用列表</Breadcrumb.Item>
-            <Breadcrumb.Item>某应用</Breadcrumb.Item>
-          </Breadcrumb>
-        </div>
-        <div className="ant-layout-content">
-          <div style={{ height: 290 }}></div>
+  <BrowserDemo>
+    <div className="ant-layout-aside">
+      <aside className="ant-layout-sider">
+      </aside>
+      <div className="ant-layout-main">
+        <div className="ant-layout-header"></div>
+        <div className="ant-layout-container">
+          <div className="ant-layout-breadcrumb">
+            <Breadcrumb>
+              <Breadcrumb.Item>首页</Breadcrumb.Item>
+              <Breadcrumb.Item>应用列表</Breadcrumb.Item>
+              <Breadcrumb.Item>某应用</Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
+          <div className="ant-layout-content">
+            <div style={{ height: 290 }}></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </BrowserDemo>
 , document.getElementById('spec-layout-demo-aside'));
 ````
 
 ````css
 .ant-layout-aside {
   background: #f4f4f4;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
+  height: 100%;
 }
 
 .ant-layout-aside .ant-layout-sider {
