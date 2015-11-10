@@ -1,6 +1,6 @@
 import objectAssign from 'object-assign';
-import GregorianCalendarLocale from 'gregorian-calendar/lib/locale/zh_CN.js';
-import CalendarLocale from 'rc-calendar/lib/locale/zh_CN.js';
+import GregorianCalendarLocale from 'gregorian-calendar/lib/locale/zh_CN';
+import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import GregorianCalendarFormatLocale from 'gregorian-calendar-format/lib/locale/zh_CN';
 
 // 统一合并为完整的 Locale
