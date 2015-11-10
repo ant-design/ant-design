@@ -7,27 +7,6 @@ import defaultLocale from './locale';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import DateTimeFormat from 'gregorian-calendar-format';
 import objectAssign from 'object-assign';
-const localeFields = [
-  'eras',
-  'months',
-  'shortMonths',
-  'weekdays',
-  'shortWeekdays',
-  'veryShortWeekdays',
-  'ampms',
-  'datePatterns',
-  'timePatterns',
-  'dateTimePattern'
-];
-
-// 转换 locale 为 rc-calender 接收的格式
-function getCalendarLocale(locale) {
-  locale.format = locale.format || {};
-  localeFields.forEach(function (key) {
-    locale.format[key] = locale[key];
-  });
-  return locale;
-}
 
 function createPicker(TheCalendar) {
   return React.createClass({
@@ -75,13 +54,13 @@ function createPicker(TheCalendar) {
       if (formats[format]) {
         return formats[format];
       }
-      formats[format] = new DateTimeFormat(format);
+      formats[format] = new DateTimeFormat(format, this.getLocale().lang.format);
       return formats[format];
     },
     parseDateFromValue(value) {
       if (value) {
         if (typeof value === 'string') {
-          return new DateTimeFormat(this.props.format).parse(value, this.getLocale());
+          return this.getFormatter().parse(value, this.getLocale());
         } else if (value instanceof Date) {
           let date = new GregorianCalendar(this.getLocale());
           date.setTime(value);
@@ -114,7 +93,7 @@ function createPicker(TheCalendar) {
         <TheCalendar
           style={this.props.calendarStyle}
           disabledDate={this.props.disabledDate}
-          locale={getCalendarLocale(this.getLocale().lang)}
+          locale={this.getLocale().lang}
           defaultValue={defaultCalendarValue}
           dateInputPlaceholder={this.props.placeholder}
           showTime={this.props.showTime}
@@ -140,17 +119,17 @@ function createPicker(TheCalendar) {
           align={this.props.align}
           onChange={this.handleChange}>
           {
-            ({value}) => {
-              return <span>
-                <input disabled={this.props.disabled}
-                       onChange={this.handleInputChange}
-                       value={value && this.getFormatter().format(value)}
-                       placeholder={this.props.placeholder}
-                       className={'ant-calendar-picker-input ant-input' + sizeClass}/>
-                <span className="ant-calendar-picker-icon"/>
-              </span>;
+              ({value}) => {
+                return <span>
+                  <input disabled={this.props.disabled}
+                         onChange={this.handleInputChange}
+                         value={value && this.getFormatter().format(value)}
+                         placeholder={this.props.placeholder}
+                         className={'ant-calendar-picker-input ant-input' + sizeClass}/>
+                  <span className="ant-calendar-picker-icon"/>
+                </span>;
+              }
             }
-          }
         </Datepicker>
       </span>;
     }
