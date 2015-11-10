@@ -49,7 +49,8 @@ function genPercentAdd() {
 const AntUpload = React.createClass({
   getInitialState() {
     return {
-      fileList: this.props.fileList || this.props.defaultFileList || []
+      fileList: this.props.fileList || this.props.defaultFileList || [],
+      dragState: 'drop'
     };
   },
   onStart(file) {
@@ -178,6 +179,17 @@ const AntUpload = React.createClass({
       });
     }
   },
+  onFileDrop(e) {
+    if (e.type === 'dragover') {
+      this.setState({
+        dragState: 'dragover'
+      });
+    } else {
+      this.setState({
+        dragState: 'drop'
+      });
+    }
+  },
   clearProgressTimer() {
     clearInterval(this.progressTimer);
   },
@@ -196,14 +208,15 @@ const AntUpload = React.createClass({
     if (type === 'drag') {
       let dragUploadingClass = '';
       let fileList = this.state.fileList;
+      const dragState = this.state.dragState;
       for (let i = 0; i < fileList.length; i ++) {
         if (fileList[i].status === 'uploading') {
-          dragUploadingClass = ` ${prefixCls}-drag-uploading`;
+          dragUploadingClass = ` ${prefixCls}-drag-uploading ${dragState === 'drop' ? '' : `${prefixCls}-drag-hover`}`;
           break;
         }
       }
       return (
-        <div className={prefixCls + ' ' + prefixCls + '-drag-area'}>
+        <div className={prefixCls + ' ' + prefixCls + '-drag-area'} onDrop={this.onFileDrop} onDragOver={this.onFileDrop}>
           <div className={prefixCls + ' ' + prefixCls + '-drag' + dragUploadingClass}>
             <Upload {...props}>
               <div className={prefixCls + '-drag-container'}>
