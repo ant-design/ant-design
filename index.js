@@ -58,6 +58,7 @@ const antd = {
   Spin: require('./components/spin'),
   Form: require('./components/form').Form,
   Input: require('./components/form').Input,
+  Calendar: require('./components/calendar'),
 };
 
 antd.version = require('./package.json').version;
