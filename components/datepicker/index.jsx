@@ -60,7 +60,7 @@ function createPicker(TheCalendar) {
     parseDateFromValue(value) {
       if (value) {
         if (typeof value === 'string') {
-          return this.getFormatter().parse(value, this.getLocale());
+          return this.getFormatter().parse(value, {locale: this.getLocale()});
         } else if (value instanceof Date) {
           let date = new GregorianCalendar(this.getLocale());
           date.setTime(value);
@@ -119,8 +119,8 @@ function createPicker(TheCalendar) {
           align={this.props.align}
           onChange={this.handleChange}>
           {
-              ({value}) => {
-                return <span>
+            ({value}) => {
+              return <span>
                   <input disabled={this.props.disabled}
                          onChange={this.handleInputChange}
                          value={value && this.getFormatter().format(value)}
@@ -128,8 +128,8 @@ function createPicker(TheCalendar) {
                          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
                   <span className="ant-calendar-picker-icon"/>
                 </span>;
-              }
             }
+          }
         </Datepicker>
       </span>;
     }
