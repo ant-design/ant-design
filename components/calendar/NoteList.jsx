@@ -3,13 +3,13 @@ import {PREFIX_CLS} from './Constants';
 
 class NoteList extends Component {
   render() {
-    const {listdata, prefixCls} = this.props;
+    const {listData, prefixCls} = this.props;
 
-    if (!listdata || listdata === 0) return null;
+    if (!listData || listData === 0) return null;
 
     return (
       <ul className={prefixCls}>
-        { listdata.map(function (item, index) {
+        { listData.map(function (item, index) {
           return <li key={`list-${index}`}><span className={`${prefixCls}-node-${item.type}`}>●</span>{ item.content }</li>;
         }) }
       </ul>
@@ -17,7 +17,7 @@ class NoteList extends Component {
   }
 }
 NoteList.propTypes = {
-  listdata: PropTypes.array,
+  listData: PropTypes.array,
   prefixCls: PropTypes.string,
 };
 NoteList.defaultProps = {

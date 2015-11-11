@@ -8,9 +8,9 @@
       float: left;
       height: 24px;
       line-height: 24px;
-      border: 1px solid #d9d9d9;
+      border: 1px solid @btn-default-border;
       padding: 0 10px;
-      color: #666;
+      color: @text-color;
       &:first-child {
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
@@ -22,13 +22,13 @@
         border-left: none;
       }
       &.normal:hover {
-        border-color: #23c0fa;
+        border-color: @primary-color;
         box-shadow: 0 0 2px rgba(45, 183, 245, 0.8);
         cursor: pointer;
       }
       &.focus {
-        border-color: #3fc7fa;
-        background-color: #3fc7fa;
+        border-color: @primary-color;
+        background-color: @link-hover-color;
         color: #fff;
       }
     }
@@ -67,22 +67,21 @@
       border-top: 2px solid #eee;
       text-align: right;
       padding-right: 8px;
-
-      &:hover { color: inherit; }
+      color: @text-color;
     }
     &-today .@{calendar-prefix-cls}-date,
     &-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
-      border-top-color: #3FC7FA;
-      color: #3FC7FA;
+      border-top-color: @primary-color;
+      color: @primary-color;
       background: none;
     }
     &-selected-day .@{calendar-prefix-cls}-date,
     &-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
-      background-color: #ebfaff; 
+      background-color: tint(@primary-color, 90%); 
     }
     &-notes-month-cell {
       text-align: center!important;
-      color: #666;
+      color: @text-color;
 
       > section {
         font-size: 24px;

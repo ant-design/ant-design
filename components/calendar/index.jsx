@@ -34,29 +34,28 @@ class NoticeCalendar extends Component {
         </a>
       );
     }
-
     return (
       <a className={`${prefixCls}-month-panel-month`}>{locale.format.shortMonths[month]}</a>
     );
   }
   fullscreenDateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    let listdata = this.props.getDateData(value);
+    let listData = this.props.getDateData(value);
     return (
       <span className={`${prefixCls}-date ${prefixCls}-notes-date-full`}>
         <span>{ zerofixed(value.getDayOfMonth()) }</span>
-        <NoteList listdata={listdata} />
+        <NoteList listData={listData} />
       </span>
     );
   }
   dateCellRender(value) {
     const prefixCls = this.props.prefixCls;
     const el = (<span className={`${prefixCls}-date ${prefixCls}-notes-date`}>{ zerofixed(value.getDayOfMonth()) }</span>);
-    const listdata = this.props.getDateData(value);
+    const listData = this.props.getDateData(value);
     return (
       <div style={{position: 'relative', height: 32}}>
         { el }
-        { (listdata && listdata.length > 0) ? <Notes listdata={listdata} /> : null }
+        { (listData && listData.length > 0) ? <Notes listData={listData} /> : null }
       </div>
     );
   }

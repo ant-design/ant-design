@@ -4,33 +4,32 @@
     text-align: left;
     margin: 0;
     padding: 0;
-   
-
-    & * { vertical-align: middle; }
 
     > li {
-      color: #999;
+      color: @legend-color;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
 
+      > span { vertical-align: middle; }
+
       > span:first-child {
-      font-size: 9px;
-      margin-right: 4px;
-    } 
+        font-size: 9px;
+        margin-right: 4px;
+      } 
     }
 
     &-node-gray {
       color: #ccc;
     }
     &-node-warn {
-      color: #fac450;
+      color: @warning-color;
     }
     &-node-normal {
-      color: #2db7f5;
+      color: @primary-color;
     }
     &-node-error {
-      color: #f60;
+      color: @error-color;
     }
   }
 }
