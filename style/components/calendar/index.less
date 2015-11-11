@@ -1,0 +1,96 @@
+.@{calendar-prefix-cls}-header{
+  &-switcher {
+    margin-top: 4px;
+    margin-right: 8px;
+    float: right;
+    display: inline-block;
+    > span {
+      float: left;
+      height: 24px;
+      line-height: 24px;
+      border: 1px solid #d9d9d9;
+      padding: 0 10px;
+      color: #666;
+      &:first-child {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        border-right: none;
+      }
+      &:last-child {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        border-left: none;
+      }
+      &.normal:hover {
+        border-color: #23c0fa;
+        box-shadow: 0 0 2px rgba(45, 183, 245, 0.8);
+        cursor: pointer;
+      }
+      &.focus {
+        border-color: #3fc7fa;
+        background-color: #3fc7fa;
+        color: #fff;
+      }
+    }
+  } 
+
+  .rc-select-selection--single {
+    height: 24px;
+    .rc-select-selection__rendered {
+      line-height: 24px;
+    }
+  }
+} 
+
+.@{calendar-prefix-cls}-fullscreen {
+  width: 100%;
+
+  .@{calendar-prefix-cls} {
+    &-table {
+      table-layout: fixed;
+    }  
+    &-header {
+      border-bottom: none;
+    }
+    &-column-header {
+      text-align: right; padding-right: 12px;
+    }
+    &-cell { padding:0; }
+    &-date,
+    &-month-panel-month {
+      display: block;
+      height: 116px; 
+      width: auto;
+      border-radius: 0; 
+      margin: 0 4px;
+      border: none;
+      border-top: 2px solid #eee;
+      text-align: right;
+      padding-right: 8px;
+
+      &:hover { color: inherit; }
+    }
+    &-today .@{calendar-prefix-cls}-date,
+    &-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
+      border-top-color: #3FC7FA;
+      color: #3FC7FA;
+      background: none;
+    }
+    &-selected-day .@{calendar-prefix-cls}-date,
+    &-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
+      background-color: #ebfaff; 
+    }
+    &-notes-month-cell {
+      text-align: center!important;
+      color: #666;
+
+      > section {
+        font-size: 24px;
+      }
+    }
+    &-notes-date-full {
+      overflow: auto;
+      padding: 0 8px 8px 8px;
+    }
+  }
+}
