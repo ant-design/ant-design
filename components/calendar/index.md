@@ -20,7 +20,7 @@
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
 | value        | 展示日期           | gregorian-calendar object   | 当前日期        |
-| fullscrenn  | 是否全屏显示    | bool   | false           |
+| fullscreen  | 是否全屏显示    | bool   | false           |
 | getDateData  | 获取日的显示数据    | function   | 无           |
 | getMonthData       | 获取月的显示数据 | function   | 无  |
 | dateCellRendar  | 自定义渲染日期单元格    | function   | 无           |

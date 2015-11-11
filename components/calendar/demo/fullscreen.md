@@ -10,7 +10,6 @@
 import { Calendar } from 'antd';
 
 function getDateData(value) {
-
   let listdata;
   switch (value.getDayOfMonth()) {
     case 8:
@@ -32,18 +31,14 @@ function getDateData(value) {
         { type: 'error', content: '这里是错误事项.' }
       ]; break;
   }
-  
   return listdata;
-
 }
-
 function getMonthData(value) {
   if (value.getMonth() === 8) {
     return 1394;
   }
   return 0;
 }
-
 ReactDOM.render(
   <Calendar fullscreen={true} getDateData={getDateData} getMonthData={getMonthData} />
 , document.getElementById('components-calendar-demo-fullscreen'));
