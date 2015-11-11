@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 日历
+- cols: 1
 
 ---
 
@@ -27,7 +28,3 @@
 | fullscreenDateCellRendar  | 自定义渲染日期单元格(全屏)    | function   | 无           |
 | monthCellRendar       | 自定义渲染月单元格 | function   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
-
-<style>
-  .code-boxes-col-2-1 { width: 100%; }
-</style>
