@@ -317,21 +317,21 @@
 }
 
 .@{select-prefix-cls}-dropdown {
-  &.slide-up-enter.slide-up-enter-active&--below,
-  &.slide-up-appear.slide-up-appear-active&--below {
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
     animation-name: antSlideUpIn;
   }
 
-  &.slide-up-enter.slide-up-enter-active&--top,
-  &.slide-up-appear.slide-up-appear-active&--top {
+  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
     animation-name: antSlideDownIn;
   }
 
-  &.slide-up-leave.slide-up-leave-active&--below {
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
     animation-name: antSlideUpOut;
   }
 
-  &.slide-up-leave.slide-up-leave-active&--top {
+  &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
     animation-name: antSlideDownOut;
   }
 
@@ -438,7 +438,7 @@
     }
   }
 
-  .@{select-prefix-cls}-search--dropdown {
+  .@{select-prefix-cls}-dropdown-search {
     display: block;
     padding: 4px;
     .@{select-prefix-cls}-search__field__placeholder {
