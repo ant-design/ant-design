@@ -1,0 +1,37 @@
+.@{calendar-prefix-cls}-notes {
+  height: 9px;
+  line-height: 8px;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 4px;
+  bottom: -5px;
+  left: 4px;
+  font-size: 8px;
+  margin: auto;
+  width: 19px;
+  cursor: pointer;
+
+  &-overflow {
+    border: 1px solid @btn-default-border;
+  }
+
+  span&-node-gray {
+    color: #ccc;
+  }
+  span&-node-warn {
+    color: @warning-color;
+  }
+  span&-node-normal {
+    color: @primary-color;
+  }
+  span&-node-error {
+    color: @error-color;
+  }
+
+  &-date {
+    width: 20px; 
+    height: 20px;
+    line-height: 20px;
+  }
+
+}
