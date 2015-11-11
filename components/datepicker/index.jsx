@@ -20,13 +20,8 @@ function createPicker(TheCalendar) {
         onChange() {
         },  // onChange 可用于 Validator
         locale: {},
-        // 自动换方向有很多视觉和交互问题
-        // 需求不是很大，和设计师协商后不做
         align: {
-          points: ['tl', 'tl'],
-          overflow: {adjustX: 0, adjustY: 0},
           offset: [0, -10],
-          targetOffset: [0, 0]
         }
       };
     },
