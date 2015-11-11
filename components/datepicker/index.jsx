@@ -15,7 +15,7 @@ function createPicker(TheCalendar) {
         format: 'yyyy-MM-dd',
         placeholder: '请选择日期',
         transitionName: 'slide-up',
-        calendarStyle: {},
+        popupStyle: {},
         onSelect: null, // 向前兼容
         onChange() {
         },  // onChange 可用于 Validator
@@ -91,7 +91,6 @@ function createPicker(TheCalendar) {
       defaultCalendarValue.setTime(Date.now());
       const calendar = (
         <TheCalendar
-          style={this.props.calendarStyle}
           disabledDate={this.props.disabledDate}
           locale={this.getLocale().lang}
           defaultValue={defaultCalendarValue}
@@ -115,7 +114,7 @@ function createPicker(TheCalendar) {
           calendar={calendar}
           value={this.state.value}
           prefixCls="ant-calendar-picker-container"
-          style={this.props.style}
+          style={this.props.popupStyle}
           align={this.props.align}
           onChange={this.handleChange}>
           {
