@@ -39,6 +39,6 @@ function getDateData(value) {
 
 
 ReactDOM.render(
-  <Calendar getDateData={getDateData} />
+  <Calendar getDateData={getDateData} type="date" />
 , document.getElementById('components-calendar-demo-basic'));
 ````

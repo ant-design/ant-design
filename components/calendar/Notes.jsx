@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import NoteList from './NoteList';
-import Tooltip from '../tooltip';
+import Popover from '../popover';
 import {PREFIX_CLS} from './Constants';
 
 class Notes extends Component {
@@ -26,7 +26,7 @@ class Notes extends Component {
     </div>);
 
     return (
-      <Tooltip placement="right" trigger={['hover']} overlay={<NoteList listData={listData} />}>{el}</Tooltip>
+      <Popover placement="bottomLeft" trigger={['hover']} overlay={<NoteList listData={listData} />}>{el}</Popover>
     );
   }
 }
