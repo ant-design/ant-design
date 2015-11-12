@@ -30,7 +30,7 @@ var Sider = React.createClass({
     });
   },
   render() {
-    return <Menu theme="dark" onClick={this.handleClick}
+    return <Menu onClick={this.handleClick}
                  style={{width:240}}
                  openKeys={this.state.openKeys}
                  onOpen={this.onToggle}
