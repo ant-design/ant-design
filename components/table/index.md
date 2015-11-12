@@ -87,6 +87,7 @@ var dataSource = new Table.DataSource({
 | filterMultiple | 是否多选 | Boolean    |                                        | true    |
 | sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean |  | 无 |
 | width      | 列宽度 | String or Number |                                        | 无      |
+| className  | 列的 className             | String          |                     | 无      |
 
 ### dataSource
 

@@ -23,4 +23,6 @@
 | placement | 气泡框位置，可选 `top/left/right/bottom/topLeft/topRight/bottomLeft/bottomRight/leftTop/leftBottom/rightTop/rightBottom` | string        | top    |
 | title     | 卡片标题                                 | React.Element | 无     |
 | overlay   | 卡片内容                                 | React.Element | 无     |
-| prefixCls | 浮层的类名                        | string        | 无     |
+| prefixCls | 浮层的类名                        | string        | ant-popover   |
+| visible   | 用于手动控制浮层显隐                     | boolean       | false  |
+| onVisibleChange | 显示隐藏改变的回调                 | function      | 无     |

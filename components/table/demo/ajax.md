@@ -64,7 +64,7 @@ const dataSource = new Table.DataSource({
 const Test = React.createClass({
   getInitialState() {
     return {
-      dataSource: dataSource
+      dataSource: null
     };
   },
   refresh() {
@@ -89,7 +89,7 @@ const Test = React.createClass({
     return <div>
       <Table columns={columns} dataSource={this.state.dataSource} pagination={this.state.pagination} />
       <Button type="primary" onClick={this.refresh}>
-        重新加载数据
+        加载初始数据
       </Button>
       &nbsp;
       <Button onClick={this.changeAndRefresh}>

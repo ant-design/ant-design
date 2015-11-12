@@ -6,6 +6,14 @@ function prefixClsFn(prefixCls, ...args) {
   }).join(' ');
 }
 
+function ieGT9() {
+  if (typeof document === undefined) {
+    return false;
+  }
+  const documentMode = document.documentMode || 0;
+  return documentMode > 9;
+}
+
 class Group extends React.Component {
   render() {
     return (
@@ -65,13 +73,16 @@ class Input extends React.Component {
     case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
     default:
     }
-
+    let placeholder = props.placeholder;
+    if(placeholder && ieGT9()){
+      placeholder = null;
+    }
     switch (props.type) {
     case 'textarea':
-      return <textarea {...props} className={inputClassName} ref="input" />;
+      return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
     default:
       inputClassName = props.className ? props.className : inputClassName;
-      return <input {...props} className={inputClassName} ref="input"/>;
+      return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
     }
   }
 

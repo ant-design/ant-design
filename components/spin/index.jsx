@@ -5,7 +5,9 @@ import { isCssAnimationSupported } from 'css-animation';
 const AntSpin = React.createClass({
   getDefaultProps() {
     return {
-      size: 'default'
+      prefixCls: 'ant-spin',
+      size: 'default',
+      spining: true
     };
   },
 
@@ -19,12 +21,13 @@ const AntSpin = React.createClass({
   },
 
   render() {
-    const { className, size, ...others } = this.props;
+    const { className, size, prefixCls, ...others } = this.props;
 
     let spinClassName = classSet({
-      'ant-spin': true,
-      [`ant-spin-${size}`]: size,
-      [className]: !!className
+      [prefixCls]: true,
+      [`${prefixCls}-${size}`]: size,
+      [className]: !!className,
+      [`${prefixCls}-spining`]: this.props.spining,
     });
 
     let spinElement;
@@ -34,18 +37,18 @@ const AntSpin = React.createClass({
     } else {
       spinElement = (
         <div className={spinClassName}>
-          <span className="ant-spin-dot ant-spin-dot-first" />
-          <span className="ant-spin-dot ant-spin-dot-second" />
-          <span className="ant-spin-dot ant-spin-dot-third" />
+          <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
+          <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
+          <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
         </div>
       );
     }
 
     if (this.isNestedPattern()) {
       return (
-        <div className="ant-spin-nested-loading">
+        <div className={this.props.spining ? (prefixCls + '-nested-loading') : ''}>
           {spinElement}
-          <div className="ant-spin-container">
+          <div className={prefixCls + '-container'}>
             {this.props.children}
           </div>
         </div>

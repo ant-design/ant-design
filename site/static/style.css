@@ -12,7 +12,7 @@ body {
 body {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
   line-height: 1.5;
-  color: #777;
+  color: #666;
   font-size: 14px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -363,7 +363,7 @@ footer > h3 {
 
 footer ul li > a {
   font-size: 0.75em;
-  margin: 5px auto;
+  margin: 5px 2px 0 0;
 }
 
 .aside-container {
@@ -498,10 +498,14 @@ footer ul li > a {
 }
 
 .markdown {
-  color: #777;
+  color: #666;
   font-size: 14px;
   line-height: 1.8;
   width: 80%;
+}
+
+.highlight {
+  line-height: 1.5;
 }
 
 .markdown img {

@@ -26,5 +26,5 @@ const steps = [{
   );
 });
 
-ReactDOM.render(<Steps size='small' direction='vertical' current={1}>{steps}</Steps>, container);
+ReactDOM.render(<Steps size="small" direction="vertical" current={1}>{steps}</Steps>, container);
 ````

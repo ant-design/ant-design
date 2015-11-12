@@ -191,5 +191,32 @@
         box-shadow: -1px 0 0 0 shade(@primary-color, 5%);
       }
     }
+
+    &-disabled {
+      border-color: #d9d9d9;
+      background-color: #f3f3f3;
+      cursor: not-allowed;
+      color: #ccc;
+
+      &:first-child,
+      &:hover {
+        border-color: #d9d9d9;
+        background-color: #f3f3f3;
+        &:before {
+          display: none;
+        }
+      }
+      &:first-child {
+        box-shadow: none;
+        border-left-color: #d9d9d9;
+      }
+    }
+
+    &-disabled.@{radio-prefix-cls}-button-checked {
+      color: #fff;
+      background-color: #ccc;
+      box-shadow: -1px 0px 0px 0px #CCC;
+      border-color: #ccc;
+    }
   }
 }

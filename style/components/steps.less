@@ -69,8 +69,11 @@
           color: @finish-icon-color;
         }
       }
-      .@{steps-prefix-cls}-tail > i {
-        background-color: @finish-tail-color;
+      .@{steps-prefix-cls}-tail > i:after {
+        width: 100%;
+        background: @finish-tail-color;
+        transition: all 0.4s ease;
+        opacity: 1;
       }
       .@{steps-prefix-cls}-title {
         color: @finish-title-color;
@@ -169,7 +172,16 @@
       height: 1px;
       border-radius: 1px;
       width: 100%;
-      transition: background 0.3s ease;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 0;
+        background: #e9e9e9;
+        height: 100%;
+        opacity: 0;
+      }
     }
   }
 
@@ -237,6 +249,16 @@
     > i {
       height: 100%;
       width: 1px;
+      &:after {
+        height: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .@{steps-prefix-cls}-status-finish {
+    .@{steps-prefix-cls}-tail > i:after {
+      height: 100%;
     }
   }
 

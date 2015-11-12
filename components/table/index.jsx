@@ -490,14 +490,17 @@ let AntTable = React.createClass({
         this.setState(newState);
       }
     } else {
+      // remote 模式使用 this.dataSource
+      let dataSource = this.getRemoteDataSource();
+      if (!dataSource) {
+        return null;
+      }
       let state = objectAssign({}, this.state, newState);
       if (newState || !this.state.loading) {
         this.setState(objectAssign({
           loading: true
         }, newState));
       }
-      // remote 模式使用 this.dataSource
-      let dataSource = this.getRemoteDataSource();
       let buildInParams = dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {};
       return reqwest({
         url: dataSource.url,
@@ -618,13 +621,14 @@ let AntTable = React.createClass({
       emptyClass = ' ant-table-empty';
     }
 
-    let table = (
+    let table = <div>
       <Table {...this.props}
         data={data}
         columns={columns}
         className={classString}
         expandIconAsCell={expandIconAsCell} />
-    );
+      {emptyText}
+    </div>;
     if (this.state.loading) {
       // if there is no pagination or no data, the height of spin should decrease by half of pagination
       let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
@@ -636,7 +640,6 @@ let AntTable = React.createClass({
     return (
       <div className={'clearfix' + emptyClass}>
         {table}
-        {emptyText}
         {this.renderPagination()}
       </div>
     );

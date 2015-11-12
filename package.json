@@ -1,7 +1,7 @@
 {
   "name": "antd",
-  "version": "0.10.0-beta21",
-  "stableVersion": "0.9.4",
+  "version": "0.10.0-beta23",
+  "stableVersion": "0.9.5",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -38,7 +38,7 @@
     "gregorian-calendar-format": "~4.0.4",
     "object-assign": "~4.0.1",
     "rc-animate": "~2.0.0",
-    "rc-calendar": "4.0.0-alpha10",
+    "rc-calendar": "4.0.0-alpha15",
     "rc-checkbox": "~1.1.1",
     "rc-collapse": "~1.4.0",
     "rc-dialog": "~5.2.0",
@@ -51,16 +51,17 @@
     "rc-progress": "~1.0.0",
     "rc-queue-anim": "~0.10.5",
     "rc-radio": "~2.0.0",
-    "rc-select": "~5.0.2",
+    "rc-select": "~5.1.0",
     "rc-slider": "~2.0.0",
     "rc-steps": "~1.4.0",
     "rc-switch": "~1.2.0",
     "rc-table": "~3.5.0",
-    "rc-tabs": "~5.4.3",
+    "rc-tabs": "~5.5.0",
     "rc-tooltip": "~3.1.0",
     "rc-tree": "~0.18.1",
+    "rc-trigger": "~1.0.6",
     "rc-upload": "~1.6.4",
-    "rc-util": "~2.0.3",
+    "rc-util": "~3.0.1",
     "react-slick": "~0.9.1",
     "reqwest": "~2.0.5",
     "semver": "~5.0.3",
@@ -91,11 +92,11 @@
     "less-loader": "^2.2.0",
     "lodash": "^3.10.0",
     "nico-jsx": "~0.6.0",
-    "precommit-hook": "^1.0.7",
+    "pre-commit": "1.x",
     "react": "~0.14.1",
     "react-addons-test-utils": "~0.14.1",
     "react-dom": "~0.14.1",
-    "react-router": "1.0.0-rc3",
+    "react-router": "~1.0.0",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
     "webpack-dev-middleware": "^1.2.0"
@@ -130,7 +131,7 @@
     "testDirectoryName": "tests",
     "preprocessCachingDisabled": false
   },
-  "precommit": [
+  "pre-commit": [
     "lint"
   ]
 }

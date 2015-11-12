@@ -5,9 +5,9 @@
 
 ---
 
-Ant Design React 致力于提供给程序员愉悦的开发体验。
+Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
-实际项目开发中，你会需要 CommonJS 、JSX 构建、打包部署等一系列工程化的需求。
+实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
 我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
 ### 1. 安装命令行工具
@@ -65,7 +65,7 @@ export default App;
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8000 查看效果。
+一键启动调试，访问 http://127.0.0.1:8001 查看效果。
 
 ```bash
 $ npm run dev
@@ -115,6 +115,12 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   margin-bottom: -42px;
 }
 </style>
+
+
+## 自行构建
+
+如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
+
 
 ## 小甜点
 

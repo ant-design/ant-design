@@ -111,6 +111,17 @@ module.exports = function(nico) {
           ret.push(post);
         }
       });
+      var hasOnly;
+      ret.forEach(function(post) {
+        if (post.meta.only) {
+          hasOnly = true;
+        }
+      });
+      if (hasOnly) {
+        ret = ret.filter(function(post) {
+          return post.meta.only;
+        });
+      }
       ret = ret.sort(function(a, b) {
         if (/index$/i.test(a.filename)) {
           a.meta.order = 1;
