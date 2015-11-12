@@ -7,7 +7,7 @@ function noop() {}
 
 class Header extends Component {
   getYearSelectElement(year) {
-    const {yearSelectOffset, yearSelectTotal, locale, prefixCls} = this.props;
+    const {yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen} = this.props;
     const start = year - yearSelectOffset;
     const end = start + yearSelectTotal;
     const suffix = locale.year === '年' ? '年' : '';
@@ -18,7 +18,7 @@ class Header extends Component {
     }
     return (
       <Select
-        size="small"
+        size={ fullscreen ? null : 'small' }
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange.bind(this)}
@@ -30,7 +30,7 @@ class Header extends Component {
   getMonthSelectElement(month) {
     const props = this.props;
     const months = props.locale.format.months;
-    const {prefixCls} = props;
+    const {prefixCls, fullscreen} = props;
     const options = [];
 
     for (let index = 0; index < 12; index++) {
@@ -39,7 +39,7 @@ class Header extends Component {
 
     return (
       <Select
-        size="small"
+        size={ fullscreen ? null : 'small' }
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}
         value={String(month)}

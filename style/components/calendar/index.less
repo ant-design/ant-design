@@ -3,20 +3,14 @@
 .@{notice-calendar-prefix-cls}-wrapper {
 
   position: relative;
-  font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
-  width: 282px;
-  border: 1px solid @legend-border-color;
   list-style: none;
   font-size: 12px;
   text-align: left;
-  background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 1px 3px @legend-border-color;
   line-height: 1.5;
 
   .@{notice-calendar-prefix-cls} {
     &-month-select {
-      margin-left: 4px;
+      margin-left: 5px;
     }
 
     &-header {
@@ -199,15 +193,18 @@
   
 
   &-fullscreen {
-    width: auto;
-    border: none;
-    box-shadow: none;
-    
     .@{notice-calendar-prefix-cls} {
       border-top: none;
       &-table {
         table-layout: fixed;
       }
+      &-header {
+        label.ant-radio-button {
+          height: 28px;
+          line-height: 28px;
+        }
+      }
+
       &-fullscreen-month,
       &-fullscreen-date {
         margin: 0 4px;
@@ -225,7 +222,8 @@
       }
       
       &-column-header {
-        text-align: right; padding-right: 12px;
+        text-align: right;
+        padding-right: 12px;
       }
       &-cell {
         padding: 0;

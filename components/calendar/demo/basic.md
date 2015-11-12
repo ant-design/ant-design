@@ -36,9 +36,14 @@ function getDateData(value) {
   return listData;
 
 }
-
+function onChange(value) {
+  console.log('change');
+}
+function onSelect(value) {
+  console.log('select');
+}
 
 ReactDOM.render(
-  <Calendar getDateData={getDateData} type="date" />
+  <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}><Calendar getDateData={getDateData} onChange={onChange} onSelect={onSelect} type="date" /></div>
 , document.getElementById('components-calendar-demo-basic'));
 ````

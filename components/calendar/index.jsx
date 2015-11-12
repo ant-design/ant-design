@@ -74,13 +74,16 @@ class NoticeCalendar extends Component {
     );
   }
   setValue(value) {
-    this.setState({ value });
+    if (this.state.value !== value) {
+      this.setState({ value });
+      this.props.onChange(value);
+    }
   }
   setType(type) {
     this.setState({ type });
   }
   onSelect(value) {
-    this.setValue(value);
+    this.setState({ value });
     if (this.state.type === 'month') {
       this.setState({ type: 'date' });
     }
@@ -98,6 +101,7 @@ class NoticeCalendar extends Component {
     return (
       <div className={prefixCls + '-wrapper' + (className ? ' ' + className : '') + (fullscreen ? ' ' + prefixCls + '-wrapper-fullscreen' : '' )} style={style}>
         <Header
+          fullscreen={fullscreen}
           type={type}
           value={value}
           locale={locale}
@@ -129,6 +133,7 @@ NoticeCalendar.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   onSelect: PropTypes.func,
+  onChange: PropTypes.func,
 };
 NoticeCalendar.defaultProps = {
   locale: CalendarLocale,
@@ -137,6 +142,7 @@ NoticeCalendar.defaultProps = {
   fullscreen: false,
   prefixCls: PREFIX_CLS,
   onSelect: noop,
+  onChange: noop,
   type: 'date',
 };
 
