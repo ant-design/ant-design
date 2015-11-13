@@ -126,9 +126,10 @@
       text-rendering: auto;
       position: absolute;
       transition: transform .3s ease;
-      content: "\e600";
+      content: "\e603";
       right: 16px;
-      transform: scale(0.75);
+      .ie-rotate(3);
+      transform: rotate(270deg) scale(0.75);
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title:after {
@@ -148,8 +149,8 @@
 
     &-open {
       &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-        content: "\e602";
-        transform: scale(0.75);
+        .ie-rotate(1);
+        transform: rotate(180deg) scale(0.75);
       }
     }
   }
@@ -158,7 +159,7 @@
     .anticon {
       width: 14px;
       margin-right: 8px;
-      top: 1px;
+      top: -1px;
       color: #999;
     }
   }
@@ -261,7 +262,7 @@
   .anticon {
     width: 14px;
     margin-right: 8px;
-    top: 1px;
+    top: -1px;
   }
 }
 
@@ -384,7 +385,5 @@
     .@{menu-prefix-cls}-item-active {
       border-right: 0px;
     }
-=======
->>>>>>> iconfont引用位置偏移调整
   }
 }
