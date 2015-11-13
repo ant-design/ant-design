@@ -38,7 +38,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     key: key,
     duration: duration,
     style: {},
-    content: <div className="ant-message-custom-content">
+    content: <div className={'ant-message-custom-content ' + iconClass}>
       <Icon className={iconClass} type={iconType} />
       <span>{content}</span>
     </div>,
