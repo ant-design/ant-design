@@ -10,6 +10,6 @@
 import { Datepicker } from 'antd';
 
 ReactDOM.render(
-  <Datepicker defaultValue="2015-12-12" style={{width:500}} />
+  <Datepicker defaultValue="2015-12-12" />
 , document.getElementById('components-datepicker-demo-basic'));
 ````
