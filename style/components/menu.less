@@ -126,10 +126,9 @@
       text-rendering: auto;
       position: absolute;
       transition: transform .3s ease;
-      content: "\e603";
+      content: "\e600";
       right: 16px;
-      .ie-rotate(3);
-      transform: rotate(270deg) scale(0.75);
+      transform: scale(0.75);
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title:after {
@@ -149,8 +148,8 @@
 
     &-open {
       &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-        .ie-rotate(1);
-        transform: rotate(180deg) scale(0.75);
+        content: "\e602";
+        transform: scale(0.75);
       }
     }
   }
