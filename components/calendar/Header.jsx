@@ -18,6 +18,7 @@ class Header extends Component {
     }
     return (
       <Select
+        style={{ width: 75 }}
         size={ fullscreen ? null : 'small' }
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-year-select`}
@@ -39,6 +40,7 @@ class Header extends Component {
 
     return (
       <Select
+        style={{ width: 70 }}
         size={ fullscreen ? null : 'small' }
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}

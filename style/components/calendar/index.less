@@ -17,13 +17,18 @@
       padding: 11px 16px 11px 0;
       text-align: right;
 
+      .ant-select {
+        text-align: left;
+      }
+
       .ant-radio-group {
-        margin-left: 10px;
+        margin-left: 8px;
+        text-align: left;
       }
 
       label.ant-radio-button {
         height: 22px;
-        line-height: 22px;
+        line-height: 20px;
         padding: 0 10px;
       }
     }
@@ -44,7 +49,7 @@
       max-width: 100%;
       background-color: transparent;
       width: 100%;
-      height: 235px;
+      height: 246px;
     }
 
     table, td, th, td {
@@ -175,14 +180,12 @@
     }
 
     &-notes-wrapper {
-      position: absolute; 
+      position: absolute;
       width: 100%;
       left:0;
       bottom: -9px;
     }
   }
-  
-  
 
   &-fullscreen {
     .@{notice-calendar-prefix-cls} {
@@ -191,12 +194,14 @@
         table-layout: fixed;
       }
       &-header {
+        .ant-radio-group {
+          margin-left: 16px;
+        }
         label.ant-radio-button {
           height: 28px;
-          line-height: 28px;
+          line-height: 26px;
         }
       }
-
       &-fullscreen-month,
       &-fullscreen-date {
         margin: 0 4px;
@@ -206,22 +211,24 @@
         padding:4px 8px;
         text-align: right;
         border-top: 2px solid #eee;
+        transition: background 0.3s ease;
 
         &:hover {
           background: tint(@primary-color, 90%);
           cursor: pointer;
         }
       }
-      
+
       &-column-header {
         text-align: right;
         padding-right: 12px;
+        padding-bottom: 5px;
       }
       &-cell {
         padding: 0;
       }
       &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month {
-        background-color: tint(@primary-color, 90%); 
+        background-color: tint(@primary-color, 90%);
         color: @text-color;
       }
       &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month,
@@ -231,12 +238,12 @@
         color: @primary-color;
       }
 
-      &-last-month-cell .@{notice-calendar-prefix-cls}-fullscreen-date, 
+      &-last-month-cell .@{notice-calendar-prefix-cls}-fullscreen-date,
       &-next-month-btn-day .@{notice-calendar-prefix-cls}-fullscreen-date {
         color: #ccc;
       }
       &-note-list-wrapper {
-        height: 90px; 
+        height: 90px;
         overflow-y: auto;
       }
       &-notes-month {

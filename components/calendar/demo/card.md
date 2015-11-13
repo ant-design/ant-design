@@ -1,8 +1,8 @@
-# 全屏
+# 卡片模式
 
-- order: 3
+- order: 0
 
-变大
+用于嵌套在空间有限的容器中。
 
 ---
 
@@ -16,34 +16,38 @@ function getDateData(value) {
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' }
-      ]; break;
+      ];
+      break;
     case 10:
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' },
         { type: 'error', content: '这里是错误事项.' }
-      ]; break;
+      ];
+      break;
     case 15:
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项好长啊。。....' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' },
+        { type: 'normal', content: '这里是普通事项.' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' }
-      ]; break;
+      ];
+      break;
   }
   return listData;
 }
-function getMonthData(value) {
-  if (value.getMonth() === 8) {
-    return 1394;
-  }
-  return 0;
+
+function onChange(value) {
+  console.log('change');
 }
+
+function onTypeChange(type) {
+  console.log('Type change: %s.', type);
+}
+
 ReactDOM.render(
-  <Calendar fullscreen={true} type={'date'} getDateData={getDateData} getMonthData={getMonthData} />
-, document.getElementById('components-calendar-demo-fullscreen'));
+  <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+    <Calendar fullscreen={false} type="date" getDateData={getDateData} onChange={onChange} onTypeChange={onTypeChange} />
+  </div>
+, document.getElementById('components-calendar-demo-card'));
 ````
-
-

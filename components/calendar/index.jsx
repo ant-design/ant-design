@@ -121,6 +121,7 @@ class NoticeCalendar extends Component {
     );
   }
 }
+
 NoticeCalendar.propTypes = {
   monthCellRender: PropTypes.func,
   dateCellRender: PropTypes.func,
@@ -139,7 +140,7 @@ NoticeCalendar.defaultProps = {
   locale: CalendarLocale,
   getMonthData: noop,
   getDateData: noop,
-  fullscreen: false,
+  fullscreen: true,
   prefixCls: PREFIX_CLS,
   onChange: noop,
   onTypeChange: noop,

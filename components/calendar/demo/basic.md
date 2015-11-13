@@ -2,7 +2,7 @@
 
 - order: 0
 
-最简单的用法。
+一个通用的日历面板，支持年/月切换。
 
 ---
 
@@ -10,40 +10,43 @@
 import { Calendar } from 'antd';
 
 function getDateData(value) {
-
   let listData;
   switch (value.getDayOfMonth()) {
     case 8:
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' }
-      ]; break;
+      ];
+      break;
     case 10:
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' },
         { type: 'error', content: '这里是错误事项.' }
-      ]; break;
+      ];
+      break;
     case 15:
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' },
+        { type: 'normal', content: '这里是普通事项好长啊。。....' },
+        { type: 'error', content: '这里是错误事项.' },
+        { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' }
-      ]; break;
+      ];
+      break;
   }
-  
   return listData;
+}
 
-}
-function onChange(value) {
-  console.log('change');
-}
-function onTypeChange(type) {
-  console.log('Type change: %s.', type);
+function getMonthData(value) {
+  if (value.getMonth() === 8) {
+    return 1394;
+  }
+  return 0;
 }
 
 ReactDOM.render(
-  <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}><Calendar getDateData={getDateData} onChange={onChange} onTypeChange={onTypeChange} type="date" /></div>
+  <Calendar type="date" getDateData={getDateData} getMonthData={getMonthData} />
 , document.getElementById('components-calendar-demo-basic'));
 ````
