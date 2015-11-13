@@ -82,12 +82,11 @@ class NoticeCalendar extends Component {
   setType(type) {
     this.setState({ type });
   }
-  onSelect(value) {
-    this.setState({ value });
+  onPanelChange(value) {
     if (this.state.type === 'month') {
-      this.setState({ type: 'date' });
+      this.setType('date');
     }
-    this.props.onSelect(value);
+    this.setValue(value);
   }
   render() {
     const props = this.props;
@@ -97,7 +96,6 @@ class NoticeCalendar extends Component {
     const _monthCellRender = monthCellRender ? monthCellRender : this.monthCellRender;
     const _dateCellRender = dateCellRender ? dateCellRender : this.dateCellRender;
     const _fullscreenDateCellRender = fullscreenDateCellRender ? fullscreenDateCellRender : this.fullscreenDateCellRender;
-
     return (
       <div className={prefixCls + '-wrapper' + (className ? ' ' + className : '') + (fullscreen ? ' ' + prefixCls + '-wrapper-fullscreen' : '' )} style={style}>
         <Header
@@ -114,7 +112,7 @@ class NoticeCalendar extends Component {
           prefixCls={`${prefixCls}`}
           showHeader={false}
           value={value}
-          onSelect={this.onSelect.bind(this)}
+          onChange={this.onPanelChange.bind(this)}
           monthCellRender={ fullscreen ? _monthCellRender.bind(this) : null }
           dateCellRender={ fullscreen ? _fullscreenDateCellRender.bind(this) : _dateCellRender.bind(this) }/>
       </div>
@@ -132,7 +130,6 @@ NoticeCalendar.propTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object,
-  onSelect: PropTypes.func,
   onChange: PropTypes.func,
 };
 NoticeCalendar.defaultProps = {
@@ -141,7 +138,6 @@ NoticeCalendar.defaultProps = {
   getDateData: noop,
   fullscreen: false,
   prefixCls: PREFIX_CLS,
-  onSelect: noop,
   onChange: noop,
   type: 'date',
 };

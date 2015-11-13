@@ -95,17 +95,9 @@
       }
     }
     &-today .@{notice-calendar-prefix-cls}-date {
-      color: @primary-color;
-    }
-    &-selected-day .@{notice-calendar-prefix-cls}-date {
       background: @primary-color;
       color: #fff;
-
-      &:hover {
-        background: @primary-color;
-      }
     }
-
     &-disabled-cell &-date {
       cursor: not-allowed;
       color: #bcbcbc;
@@ -228,14 +220,14 @@
       &-cell {
         padding: 0;
       }
-      &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month,
-      &-selected-day .@{notice-calendar-prefix-cls}-fullscreen-date {
+      &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month {
         background-color: tint(@primary-color, 90%); 
         color: @text-color;
       }
       &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month,
       &-today .@{notice-calendar-prefix-cls}-fullscreen-date {
         border-top-color: @primary-color;
+        background-color: tint(@primary-color, 90%);
         color: @primary-color;
       }
 

@@ -29,4 +29,3 @@
 | monthCellRendar       | 自定义渲染月单元格 | function   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
 | onChange | 日期改变 | bool | 无 |
-| onSelect | 选择日期 | bool | 无 |
