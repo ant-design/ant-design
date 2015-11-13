@@ -188,7 +188,7 @@
         }
         &:before, &:after {
           position: absolute;
-          background-color: rgba(255, 255, 255, 0.001);
+          background-color: transparent;
           width: 20px;
           height: 50px;
           content: '';
@@ -269,7 +269,7 @@
 
 // dark theme
 .dark.@{menu-prefix-cls} {
-  color: rgba(255, 255, 255, 0.45);
+  color: #8c8c8c;
   background: #404040;
 
   .@{menu-prefix-cls}-item-active,
@@ -295,7 +295,7 @@
     box-shadow: none;
     padding-left: 20px;
     z-index: 0;
-    color: rgba(255, 255, 255, 0.45);
+    color: #8c8c8c;
 
     .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
     .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
@@ -304,7 +304,7 @@
       color: #FFF;
 
       .anticon {
-        color: rgba(255, 255, 255, 1);
+        color: #FFF;
       }
     }
 
@@ -321,7 +321,7 @@
       color: #FFF;
 
       .anticon {
-        color: rgba(255, 255, 255, 1);
+        color: #FFF;
       }
     }
 
@@ -333,12 +333,12 @@
         line-height: 51px;
       }
       > a {
-        color: rgba(255, 255, 255, 0.45);
+        color: #8c8c8c;
         &:hover {
-          color: rgba(255, 255, 255, 1);
+          color: #FFF;
         }
         &:before, &:after {
-          background-color: rgba(255, 255, 255, 0.001);
+          background-color: transparent;
         }
         &:before {
           left: 0;
@@ -351,7 +351,7 @@
   .@{menu-prefix-cls}-inline {
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      color: rgba(255, 255, 255, 0.45);
+      color: #8c8c8c;
     }
     .@{menu-prefix-cls}-item {
       background-color: #333333;
