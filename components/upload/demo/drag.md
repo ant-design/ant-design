@@ -27,3 +27,9 @@ ReactDOM.render(
   document.getElementById('components-upload-demo-drag')
 );
 ````
+
+````css
+#components-upload-demo-drag {
+  height: 180px;
+}
+````

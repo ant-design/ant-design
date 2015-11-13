@@ -180,15 +180,9 @@ const AntUpload = React.createClass({
     }
   },
   onFileDrop(e) {
-    if (e.type === 'dragover') {
-      this.setState({
-        dragState: 'dragover'
-      });
-    } else {
-      this.setState({
-        dragState: 'drop'
-      });
-    }
+    this.setState({
+      dragState: e.type
+    });
   },
   clearProgressTimer() {
     clearInterval(this.progressTimer);
@@ -206,37 +200,38 @@ const AntUpload = React.createClass({
       uploadList = <UploadList items={this.state.fileList} onRemove={this.handleManualRemove} />;
     }
     if (type === 'drag') {
-      let dragUploadingClass = '';
-      let fileList = this.state.fileList;
-      const dragState = this.state.dragState;
-      for (let i = 0; i < fileList.length; i ++) {
-        if (fileList[i].status === 'uploading') {
-          dragUploadingClass = ` ${prefixCls}-drag-uploading ${dragState === 'drop' ? '' : `${prefixCls}-drag-hover`}`;
-          break;
-        }
-      }
+      let dragUploadingClass = this.state.fileList.some((file) => {
+        return file.status === 'uploading';
+      }) ? `${prefixCls}-drag-uploading` : '';
+
+      let draggingClass = this.state.dragState === 'dragover'
+                           ? `${prefixCls}-drag-hover` : '';
       return (
-        <div className={prefixCls + ' ' + prefixCls + '-drag-area'} onDrop={this.onFileDrop} onDragOver={this.onFileDrop}>
-          <div className={prefixCls + ' ' + prefixCls + '-drag' + dragUploadingClass}>
+        <span>
+          <div className={prefixCls + ' ' + prefixCls + '-drag '
+            + dragUploadingClass + ' ' + draggingClass}
+            onDrop={this.onFileDrop}
+            onDragOver={this.onFileDrop}
+            onDragLeave={this.onFileDrop}>
             <Upload {...props}>
               <div className={prefixCls + '-drag-container'}>
                 {this.props.children}
               </div>
             </Upload>
           </div>
-          { uploadList }
-        </div>
+          {uploadList}
+        </span>
       );
     } else if (type === 'select') {
       return (
-        <div>
+        <span>
           <div className={prefixCls + ' ' + prefixCls + '-select'}>
             <Upload {...props}>
               {this.props.children}
             </Upload>
           </div>
-          { uploadList }
-        </div>
+          {uploadList}
+        </span>
       );
     }
   }

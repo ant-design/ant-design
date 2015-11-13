@@ -17,16 +17,16 @@
 
   &.@{upload-prefix-cls}-drag {
     border: 1px dashed #d9d9d9;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
     cursor: pointer;
     border-radius: @border-radius-base;
     text-align: center;
     width: 100%;
-    height: 180px;
+    height: 100%;
     position: relative;
 
     &.@{upload-prefix-cls}-drag-hover {
-      border-color: tint(@primary-color, 20%);
+      border: 2px dashed tint(@primary-color, 20%);
     }
 
     > span {

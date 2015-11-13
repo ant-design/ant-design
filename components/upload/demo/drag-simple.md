@@ -27,5 +27,6 @@ ReactDOM.render(
 ````css
 #components-upload-demo-drag-simple {
   width: 246px;
+  height: 146px;
 }
 ````
