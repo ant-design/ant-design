@@ -51,6 +51,10 @@
     border: none;
   }
 
+  td {
+    position: relative;
+  }
+
   &-calendar-table {
     border-spacing: 0;
     margin-bottom: 0;
@@ -73,6 +77,11 @@
     }
   }
 
+  &-month,
+  &-date {
+    text-align: center;
+  }
+
   &-value {
     display: block;
     margin: 0 auto;
@@ -83,7 +92,6 @@
     padding: 0;
     background: transparent;
     line-height: 22px;
-    text-align: center;
 
     &:hover {
       background: tint(@primary-color, 90%);
@@ -139,7 +147,7 @@
       width: 46px;
       margin: 0 auto;
       color: @text-color;
-      border-radius: 4px 4px;
+      border-radius: 4px;
       height: 36px;
       padding: 0;
       background: transparent;
@@ -171,10 +179,10 @@
     }
   }
 
-  &-notes-wrapper {
+  &-content {
     position: absolute;
     width: 100%;
-    left:0;
+    left: 0;
     bottom: -9px;
   }
 
@@ -198,6 +206,7 @@
 
   &-fullscreen &-month,
   &-fullscreen &-date {
+    text-align: left;
     margin: 0 4px;
     display: block;
     color: @text-color;
@@ -245,15 +254,12 @@
     color: #ccc;
   }
 
-  &-fullscreen &-note-list-wrapper {
+  &-fullscreen &-content {
     height: 90px;
     overflow-y: auto;
-  }
-
-  &-fullscreen &-notes-month {
-    text-align: center;
-    > section {
-      font-size: 28px;
-    }
+    position: static;
+    width: auto;
+    left: auto;
+    bottom: auto;
   }
 }

@@ -32,7 +32,9 @@ class Calendar extends Component {
       <div className={`${prefixCls}-value`}>
         {locale.format.shortMonths[month]}
       </div>
-      {this.props.monthCellRender(value)}
+      <div className={`${prefixCls}-content`}>
+        {this.props.monthCellRender(value)}
+      </div>
     </div>;
   }
   dateCellRender(value) {
@@ -41,7 +43,9 @@ class Calendar extends Component {
       <div className={`${prefixCls}-value`}>
         {zerofixed(value.getDayOfMonth())}
       </div>
-      {this.props.dateCellRender(value)}
+      <div className={`${prefixCls}-content`}>
+        {this.props.dateCellRender(value)}
+      </div>
     </div>;
   }
   setValue(value) {

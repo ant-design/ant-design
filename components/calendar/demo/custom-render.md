@@ -1,6 +1,6 @@
 # 自定义渲染
 
-- order: 2
+- order: 1
 
 用 `dateCellRender` 和 `monthCellRender` 函数来自定义需要渲染的数据。
 
@@ -10,11 +10,11 @@
 import { Calendar } from 'antd';
 
 function dateCellRender(value) {
-  return <div>date</div>;
+  return <div>自定义日数据</div>;
 }
 
 function monthCellRender(value) {
-  return <div>month</div>;
+  return <div>自定义月数据</div>;
 }
 
 ReactDOM.render(
