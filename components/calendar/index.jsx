@@ -80,7 +80,9 @@ class NoticeCalendar extends Component {
     }
   }
   setType(type) {
+    const oldType = this.state.type;
     this.setState({ type });
+    this.props.onTypeChange(type, oldType);
   }
   onPanelChange(value) {
     if (this.state.type === 'month') {
@@ -131,6 +133,7 @@ NoticeCalendar.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   onChange: PropTypes.func,
+  onTypeChange: PropTypes.func,
 };
 NoticeCalendar.defaultProps = {
   locale: CalendarLocale,
@@ -139,6 +142,7 @@ NoticeCalendar.defaultProps = {
   fullscreen: false,
   prefixCls: PREFIX_CLS,
   onChange: noop,
+  onTypeChange: noop,
   type: 'date',
 };
 
