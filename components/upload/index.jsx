@@ -200,9 +200,8 @@ const AntUpload = React.createClass({
       uploadList = <UploadList items={this.state.fileList} onRemove={this.handleManualRemove} />;
     }
     if (type === 'drag') {
-      let dragUploadingClass = this.state.fileList.some((file) => {
-        return file.status === 'uploading';
-      }) ? `${prefixCls}-drag-uploading` : '';
+      let dragUploadingClass = this.state.fileList.some(file => file.status === 'uploading')
+                                 ? `${prefixCls}-drag-uploading` : '';
 
       let draggingClass = this.state.dragState === 'dragover'
                            ? `${prefixCls}-drag-hover` : '';
