@@ -87,6 +87,7 @@ class Header extends Component {
     );
   }
 }
+
 Header.propTypes = {
   value: PropTypes.object,
   locale: PropTypes.object,
@@ -98,6 +99,7 @@ Header.propTypes = {
   selectPrefixCls: PropTypes.string,
   type: PropTypes.string,
 };
+
 Header.defaultProps = {
   prefixCls: `${PREFIX_CLS}-header`,
   yearSelectOffset: 10,

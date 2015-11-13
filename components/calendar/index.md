@@ -17,17 +17,18 @@
 ## API
 
 ```html
-<Calendar getDateData={getDateDataMethod} getMonthData={getMonthDataMethod} />
+<Calendar
+  dateCellRender={dateCellRender}
+  monthCellRender={monthCellRender}
+  onChange={onChange}
+/>
 ```
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 展示日期       | gregorian-calendar object   | 当前日期        |
-| fullscreen   | 是否全屏显示    | bool   | true           |
-| getDateData  | 获取日的显示数据    | function   | 无           |
-| getMonthData       | 获取月的显示数据 | function   | 无  |
-| dateCellRender  | 自定义渲染日期单元格    | function   | 无           |
-| monthCellRender       | 自定义渲染月单元格 | function   | 无  |
-| locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
-| onChange | 日期改变 | bool | 无 |
-| onTypeChange | 年月切换 | function | 无 |
+| value        | 展示日期       | Date     | 当前日期     |
+| fullscreen   | 是否全屏显示   | bool     | true         |
+| dateCellRender     | 自定义渲染日期单元格    | function([GregorianCalendar](https://github.com/yiminghe/gregorian-calendar/))| 无           |
+| monthCellRender    | 自定义渲染月单元格 | function([GregorianCalendar](https://github.com/yiminghe/gregorian-calendar/))   | 无  |
+| locale       | 国际化配置     | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
+| onChange     | 日期面板变化回调 | function | 无 |

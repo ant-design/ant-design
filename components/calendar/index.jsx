@@ -2,8 +2,6 @@ import React, {PropTypes, Component} from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import Notes from './Notes';
-import NoteList from './NoteList';
 import {PREFIX_CLS} from './Constants';
 import Header from './Header';
 
@@ -13,22 +11,14 @@ function zerofixed (v) {
   if (v < 10) return '0' + v;
   return v + '';
 }
+
 function getNow() {
   const value = new GregorianCalendar();
   value.setTime(Date.now());
   return value;
 }
 
-const MonthCellNoteNum = ({num, prefixCls}) => {
-  return (
-    <div className={`${prefixCls}-month`}>
-      <section>{num}</section>
-      <span>待办事项数</span>
-    </div>
-  );
-};
-
-class NoticeCalendar extends Component {
+class Calendar extends Component {
   constructor(props) {
     super();
     this.state = {
@@ -38,69 +28,27 @@ class NoticeCalendar extends Component {
   }
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
-    const render = this.props.monthCellRender;
-    let content;
-    if (render) {
-      content = <div className={`${prefixCls}-fullscreen-month`}>
-        {render(value)}
-      </div>;
-    } else {
-      const month = value.getMonth();
-      const noteNum = this.props.getMonthData(value);
-      if (noteNum > 0) {
-        content = (
-          <div className={`${prefixCls}-fullscreen-month`}>
-            <span>{locale.format.shortMonths[month]}</span>
-            <MonthCellNoteNum num={noteNum} prefixCls={`${prefixCls}-notes`} />
-          </div>
-        );
-      } else {
-        content = <div className={`${prefixCls}-fullscreen-month`}>
-          {locale.format.shortMonths[month]}
-        </div>;
-      }
-    }
-    return content;
+    const month = value.getMonth();
+    return <div className={`${prefixCls}-fullscreen-month`}>
+      <span>{locale.format.shortMonths[month]}</span>
+      {this.props.monthCellRender(value)}
+    </div>;
   }
   fullscreenDateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    const render = this.props.dateCellRender;
-    let content;
-    if (render) {
-      content = <span className={`${prefixCls}-fullscreen-date`}>
-        {render(value)}
-      </span>;
-    } else {
-      content = <span className={`${prefixCls}-fullscreen-date`}>
-        <span>{ zerofixed(value.getDayOfMonth()) }</span>
-        <div className={`${prefixCls}-note-list-wrapper`}>
-          <NoteList listData={this.props.getDateData(value)} />
-        </div>
-      </span>;
-    }
-    return content;
+    return <span className={`${prefixCls}-fullscreen-date`}>
+      <span>{ zerofixed(value.getDayOfMonth()) }</span>
+      {this.props.dateCellRender(value)}
+    </span>;
   }
   dateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    const render = this.props.dateCellRender;
-    let content;
-    if (render) {
-      content = <div style={{ position: 'relative' }}>
-        {render(value)}
-      </div>;
-    } else {
-      const listData = this.props.getDateData(value);
-      content = <div style={{ position: 'relative' }}>
-        <span className={`${prefixCls}-date ${prefixCls}-notes-date`}>
-          {zerofixed(value.getDayOfMonth())}
-        </span>
-        {(listData && listData.length > 0) ?
-          <div className={`${prefixCls}-notes-wrapper`}>
-            <Notes listData={listData} />
-          </div> : null}
-      </div>;
-    }
-    return content;
+    return <div style={{ position: 'relative' }}>
+      <span className={`${prefixCls}-date ${prefixCls}-notes-date`}>
+        {zerofixed(value.getDayOfMonth())}
+      </span>
+      {this.props.dateCellRender(value)}
+    </div>;
   }
   setValue(value) {
     if (this.state.value !== value) {
@@ -150,12 +98,9 @@ class NoticeCalendar extends Component {
   }
 }
 
-NoticeCalendar.propTypes = {
+Calendar.propTypes = {
   monthCellRender: PropTypes.func,
   dateCellRender: PropTypes.func,
-  fullDateCellRender: PropTypes.func,
-  getMonthData: PropTypes.func,
-  getDateData: PropTypes.func,
   fullscreen: PropTypes.bool,
   locale: PropTypes.object,
   prefixCls: PropTypes.string,
@@ -165,10 +110,10 @@ NoticeCalendar.propTypes = {
   onTypeChange: PropTypes.func,
 };
 
-NoticeCalendar.defaultProps = {
+Calendar.defaultProps = {
+  monthCellRender: noop,
+  dateCellRender: noop,
   locale: CalendarLocale,
-  getMonthData: noop,
-  getDateData: noop,
   fullscreen: true,
   prefixCls: PREFIX_CLS,
   onChange: noop,
@@ -176,4 +121,4 @@ NoticeCalendar.defaultProps = {
   type: 'date',
 };
 
-export default NoticeCalendar;
+export default Calendar;

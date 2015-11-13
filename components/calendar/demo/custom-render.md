@@ -10,14 +10,14 @@
 import { Calendar } from 'antd';
 
 function dateCellRender(value) {
-  return <span>date</span>;
+  return <div>date</div>;
 }
 
 function monthCellRender(value) {
-  return <span>month</span>;
+  return <div>month</div>;
 }
 
 ReactDOM.render(
-  <Calendar type="date" dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+  <Calendar type="date" value={new Date()} dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
 , document.getElementById('components-calendar-demo-custom-render'));
 ````
