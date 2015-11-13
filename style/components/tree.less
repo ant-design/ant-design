@@ -90,9 +90,9 @@
         &.@{tree-prefix-cls}-bottom_close,
         &.@{tree-prefix-cls}-noline_close {
           .antTreeSwitcherIcon();
+          .ie-rotate(3);
           &:after {
-            content:'\e60a';
-            transform: scale(0.5);
+            transform: rotate(270deg) scale(0.5);
           }
         }
       }
