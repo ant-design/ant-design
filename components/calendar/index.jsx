@@ -28,24 +28,19 @@ class Calendar extends Component {
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
     const month = value.getMonth();
-    return <div className={`${prefixCls}-fullscreen-month`}>
-      <span>{locale.format.shortMonths[month]}</span>
+    return <div className={`${prefixCls}-month`}>
+      <div className={`${prefixCls}-value`}>
+        {locale.format.shortMonths[month]}
+      </div>
       {this.props.monthCellRender(value)}
     </div>;
   }
-  fullscreenDateCellRender(value) {
-    const prefixCls = this.props.prefixCls;
-    return <span className={`${prefixCls}-fullscreen-date`}>
-      <span>{ zerofixed(value.getDayOfMonth()) }</span>
-      {this.props.dateCellRender(value)}
-    </span>;
-  }
   dateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    return <div style={{ position: 'relative' }}>
-      <span className={`${prefixCls}-date ${prefixCls}-notes-date`}>
+    return <div className={`${prefixCls}-date`}>
+      <div className={`${prefixCls}-value`}>
         {zerofixed(value.getDayOfMonth())}
-      </span>
+      </div>
       {this.props.dateCellRender(value)}
     </div>;
   }
@@ -66,28 +61,26 @@ class Calendar extends Component {
     const props = this.props;
     const {value, mode} = this.state;
     const {locale, prefixCls, style, className, fullscreen} = props;
-    const dateCellRender = fullscreen
-      ? this.fullscreenDateCellRender : this.dateCellRender;
     const type = (mode === 'year') ? 'month' : 'date';
 
     return (
-      <div className={prefixCls + '-wrapper' + (className ? ' ' + className : '') + (fullscreen ? ' ' + prefixCls + '-wrapper-fullscreen' : '' )} style={style}>
+      <div className={(className ? className : '') + ' ' + (fullscreen ? prefixCls + '-fullscreen' : '' )} style={style}>
         <Header
           fullscreen={fullscreen}
           type={type}
           value={value}
           locale={locale}
-          prefixCls={`${prefixCls}`}
+          prefixCls={prefixCls}
           onTypeChange={this.setType.bind(this)}
           onValueChange={this.setValue.bind(this)}/>
         <FullCalendar
           {...props}
           type={type}
-          prefixCls={`${prefixCls}`}
+          prefixCls={prefixCls}
           showHeader={false}
           value={value}
-          monthCellRender={ this.monthCellRender.bind(this) }
-          dateCellRender={ dateCellRender.bind(this) } />
+          monthCellRender={this.monthCellRender.bind(this)}
+          dateCellRender={this.dateCellRender.bind(this)} />
       </div>
     );
   }
