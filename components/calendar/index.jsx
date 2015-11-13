@@ -12,19 +12,18 @@ function zerofixed (v) {
   return v + '';
 }
 
-function getNow() {
-  const value = new GregorianCalendar();
-  value.setTime(Date.now());
-  return value;
-}
-
 class Calendar extends Component {
   constructor(props) {
     super();
     this.state = {
-      value: props.value || getNow(),
+      value: this.parseDateFromValue(props.value),
       type: props.type,
     };
+  }
+  parseDateFromValue(value) {
+    const date = new GregorianCalendar();
+    date.setTime(value);
+    return date;
   }
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
@@ -61,12 +60,6 @@ class Calendar extends Component {
     this.setState({ type });
     this.props.onTypeChange(type, oldType);
   }
-  onPanelChange(value) {
-    if (this.state.type === 'month') {
-      this.setType('date');
-    }
-    this.setValue(value);
-  }
   render() {
     const props = this.props;
     const {value, type} = this.state;
@@ -90,7 +83,6 @@ class Calendar extends Component {
           prefixCls={`${prefixCls}`}
           showHeader={false}
           value={value}
-          onChange={this.onPanelChange.bind(this)}
           monthCellRender={ this.monthCellRender.bind(this) }
           dateCellRender={ dateCellRender.bind(this) } />
       </div>
@@ -107,6 +99,7 @@ Calendar.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
   onChange: PropTypes.func,
+  value: PropTypes.instanceOf(Date),
   onTypeChange: PropTypes.func,
 };
 
@@ -119,6 +112,7 @@ Calendar.defaultProps = {
   onChange: noop,
   onTypeChange: noop,
   type: 'date',
+  value: Date.now(),
 };
 
 export default Calendar;
