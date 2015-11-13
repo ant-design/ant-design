@@ -22,7 +22,8 @@ function createPicker(TheCalendar) {
         locale: {},
         align: {
           offset: [0, -10],
-        }
+        },
+        open: false
       };
     },
     getInitialState() {
@@ -69,6 +70,11 @@ function createPicker(TheCalendar) {
     // remove input readonly warning
     handleInputChange() {
     },
+    toggleOpen(e) {
+      this.setState({
+        open: e.open
+      });
+    },
     handleChange(value) {
       this.setState({value});
       const timeValue = value ? new Date(value.getTime()) : null;
@@ -95,6 +101,7 @@ function createPicker(TheCalendar) {
           showOk={this.props.showTime}
           showClear={true}/>
       );
+
       let sizeClass = '';
       if (this.props.size === 'large') {
         sizeClass = ' ant-input-lg';
@@ -102,7 +109,12 @@ function createPicker(TheCalendar) {
         sizeClass = ' ant-input-sm';
       }
 
-      return <span className="ant-calendar-picker">
+      let pickerClass = 'ant-calendar-picker';
+      if (this.state.open) {
+        pickerClass += ' ant-calendar-picker-open';
+      }
+
+      return <span className={pickerClass}>
         <Datepicker
           transitionName={this.props.transitionName}
           disabled={this.props.disabled}
@@ -111,17 +123,21 @@ function createPicker(TheCalendar) {
           prefixCls="ant-calendar-picker-container"
           style={this.props.popupStyle}
           align={this.props.align}
+          onOpen={this.toggleOpen}
+          onClose={this.toggleOpen}
           onChange={this.handleChange}>
           {
             ({value}) => {
-              return <span>
+              return (
+                <span>
                   <input disabled={this.props.disabled}
                          onChange={this.handleInputChange}
                          value={value && this.getFormatter().format(value)}
                          placeholder={this.props.placeholder}
                          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
                   <span className="ant-calendar-picker-icon"/>
-                </span>;
+                </span>
+              );
             }
           }
         </Datepicker>

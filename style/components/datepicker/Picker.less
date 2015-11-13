@@ -32,9 +32,14 @@
   display: inline-block;
   outline: none;
   font-size: @font-size-base;
+  transition: opacity 0.3s ease;
 
   > input {
     outline: none;
+  }
+
+  &-open {
+    opacity: 0;
   }
 
   &-icon {
