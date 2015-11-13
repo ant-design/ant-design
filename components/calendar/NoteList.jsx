@@ -21,7 +21,7 @@ NoteList.propTypes = {
   prefixCls: PropTypes.string,
 };
 NoteList.defaultProps = {
-  prefixCls: `${PREFIX_CLS}-notes-list`,
+  prefixCls: `${PREFIX_CLS}-note-list`,
 };
 
 export default NoteList;

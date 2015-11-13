@@ -1,95 +1,251 @@
-.@{calendar-prefix-cls}-header{
-  &-switcher {
-    margin-top: 4px;
-    margin-right: 8px;
-    float: right;
-    display: inline-block;
-    > span {
-      float: left;
-      height: 24px;
-      line-height: 24px;
-      border: 1px solid @btn-default-border;
-      padding: 0 10px;
+@notice-calendar-prefix-cls: ant-notice-calendar;
+
+.@{notice-calendar-prefix-cls}-wrapper {
+
+  position: relative;
+  list-style: none;
+  font-size: 12px;
+  text-align: left;
+  line-height: 1.5;
+
+  .@{notice-calendar-prefix-cls} {
+    &-month-select {
+      margin-left: 5px;
+    }
+
+    &-header {
+      padding: 11px 16px 11px 0;
+      text-align: right;
+
+      .ant-radio-group {
+        margin-left: 10px;
+      }
+
+      label.ant-radio-button {
+        height: 22px;
+        line-height: 22px;
+        padding: 0 10px;
+      }
+    }
+
+    outline: none;
+    border-top: 1px solid @legend-border-color;
+    &-date-panel {
+      position: relative;
+      outline: none;
+    }
+
+    &-calendar-body {
+      padding: 8px 8px 14px;
+    }
+
+    table {
+      border-collapse: collapse;
+      max-width: 100%;
+      background-color: transparent;
+      width: 100%;
+      height: 235px;
+    }
+
+    table, td, th, td {
+      border: none;
+    }
+
+    &-calendar-table {
+      border-spacing: 0;
+      margin-bottom: 0;
+    }
+
+    &-column-header {
+      line-height: 18px;
+      padding: 0;
+      width: 33px;
+      text-align: center;
+      .@{notice-calendar-prefix-cls}-column-header-inner {
+        display: block;
+        font-weight: normal;
+      }
+    }
+
+    &-week-number-header {
+      .@{notice-calendar-prefix-cls}-column-header-inner {
+        display: none;
+      }
+    }
+
+    &-cell {
+      padding: 8px 0;
+    }
+
+    &-date {
+      display: block;
+      margin: 0 auto;
       color: @text-color;
-      &:first-child {
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        border-right: none;
-      }
-      &:last-child {
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        border-left: none;
-      }
-      &.normal:hover {
-        border-color: @primary-color;
-        box-shadow: 0 0 2px rgba(45, 183, 245, 0.8);
+      border-radius: 4px;
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      background: transparent;
+      line-height: 22px;
+      text-align: center;
+
+      &:hover {
+        background: tint(@primary-color, 90%);
         cursor: pointer;
       }
-      &.focus {
-        border-color: @primary-color;
-        background-color: @link-hover-color;
+    }
+    &-today .@{notice-calendar-prefix-cls}-date {
+      background: @primary-color;
+      color: #fff;
+    }
+    &-disabled-cell &-date {
+      cursor: not-allowed;
+      color: #bcbcbc;
+      background: #f3f3f3;
+      border-radius: 0;
+      width: auto;
+
+      &:hover {
+        background: #f3f3f3;
+      }
+    }
+
+    &-disabled-cell-first-of-row &-date {
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &-disabled-cell-last-of-row &-date {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &-last-month-cell .@{notice-calendar-prefix-cls}-date,
+    &-next-month-btn-day .@{notice-calendar-prefix-cls}-date {
+      color: #ccc;
+    }
+
+    &-month-panel-table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: separate;
+    }
+
+    &-month-panel-cell {
+      text-align: center;
+
+      .@{notice-calendar-prefix-cls}-month-panel-month {
+        display: block;
+        width: 46px;
+        margin: 0 auto;
+        color: @text-color;
+        border-radius: 4px 4px;
+        height: 36px;
+        padding: 0;
+        background: transparent;
+        line-height: 36px;
+        text-align: center;
+
+        &:hover {
+          background: tint(@primary-color, 90%);
+          cursor: pointer;
+        }
+      }
+
+      &-disabled {
+        .@{notice-calendar-prefix-cls}-month-panel-month {
+          color: #bfbfbf;
+
+          &:hover {
+            background: white;
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+
+    &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-month-panel-month {
+      background: @primary-color;
+      color: #fff;
+
+      &:hover {
+        background: @primary-color;
         color: #fff;
       }
     }
-  } 
 
-  .rc-select-selection--single {
-    height: 24px;
-    .rc-select-selection__rendered {
-      line-height: 24px;
+    &-notes-wrapper {
+      position: absolute; 
+      width: 100%;
+      left:0;
+      bottom: -9px;
     }
   }
-} 
+  
+  
 
-.@{calendar-prefix-cls}-fullscreen {
-  width: 100%;
+  &-fullscreen {
+    .@{notice-calendar-prefix-cls} {
+      border-top: none;
+      &-table {
+        table-layout: fixed;
+      }
+      &-header {
+        label.ant-radio-button {
+          height: 28px;
+          line-height: 28px;
+        }
+      }
 
-  .@{calendar-prefix-cls} {
-    &-table {
-      table-layout: fixed;
-    }  
-    &-header {
-      border-bottom: none;
-    }
-    &-column-header {
-      text-align: right; padding-right: 12px;
-    }
-    &-cell { padding:0; }
-    &-date,
-    &-month-panel-month {
-      display: block;
-      height: 116px; 
-      width: auto;
-      border-radius: 0; 
-      margin: 0 4px;
-      border: none;
-      border-top: 2px solid #eee;
-      text-align: right;
-      padding-right: 8px;
-      color: @text-color;
-    }
-    &-today .@{calendar-prefix-cls}-date,
-    &-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
-      border-top-color: @primary-color;
-      color: @primary-color;
-      background: none;
-    }
-    &-selected-day .@{calendar-prefix-cls}-date,
-    &-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
-      background-color: tint(@primary-color, 90%); 
-    }
-    &-notes-month-cell {
-      text-align: center!important;
-      color: @text-color;
+      &-fullscreen-month,
+      &-fullscreen-date {
+        margin: 0 4px;
+        display: block;
+        color: @text-color;
+        height: 116px;
+        padding:4px 8px;
+        text-align: right;
+        border-top: 2px solid #eee;
 
-      > section {
-        font-size: 24px;
+        &:hover {
+          background: tint(@primary-color, 90%);
+          cursor: pointer;
+        }
+      }
+      
+      &-column-header {
+        text-align: right;
+        padding-right: 12px;
+      }
+      &-cell {
+        padding: 0;
+      }
+      &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month {
+        background-color: tint(@primary-color, 90%); 
+        color: @text-color;
+      }
+      &-month-panel-selected-cell .@{notice-calendar-prefix-cls}-fullscreen-month,
+      &-today .@{notice-calendar-prefix-cls}-fullscreen-date {
+        border-top-color: @primary-color;
+        background-color: tint(@primary-color, 90%);
+        color: @primary-color;
+      }
+
+      &-last-month-cell .@{notice-calendar-prefix-cls}-fullscreen-date, 
+      &-next-month-btn-day .@{notice-calendar-prefix-cls}-fullscreen-date {
+        color: #ccc;
+      }
+      &-note-list-wrapper {
+        height: 90px; 
+        overflow-y: auto;
+      }
+      &-notes-month {
+        text-align: center;
+        > section {
+          font-size: 28px;
+        }
       }
     }
-    &-notes-date-full {
-      overflow: auto;
-      padding: 0 8px 8px 8px;
-    }
   }
+
 }

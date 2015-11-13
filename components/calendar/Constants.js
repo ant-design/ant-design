@@ -1,3 +1,3 @@
 export default {
-  PREFIX_CLS: 'ant-calendar',
+  PREFIX_CLS: 'ant-notice-calendar',
 };

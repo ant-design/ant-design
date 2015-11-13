@@ -36,9 +36,14 @@ function getDateData(value) {
   return listData;
 
 }
-
+function onChange(value) {
+  console.log('change');
+}
+function onTypeChange(type) {
+  console.log('Type change: %s.', type);
+}
 
 ReactDOM.render(
-  <Calendar getDateData={getDateData} />
+  <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}><Calendar getDateData={getDateData} onChange={onChange} onTypeChange={onTypeChange} type="date" /></div>
 , document.getElementById('components-calendar-demo-basic'));
 ````

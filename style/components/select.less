@@ -21,6 +21,7 @@
     right: 0;
     padding-right: 14px;
     color: @primary-color;
+    transform: scale(0.75)
   }
 }
 
@@ -275,8 +276,10 @@
 
   &-open {
     .@{select-prefix-cls}-arrow {
+      .ie-rotate(2);
+      -ms-transform: rotate(180deg);
       &:before {
-        content: "\e602";
+        .rotate(180deg);
       }
     }
     .@{select-prefix-cls}-selection {
