@@ -165,11 +165,10 @@
   }
 
   &-horizontal {
-    background-color: #FBFBFB;
     border: none;
     border-bottom: 1px solid #d9d9d9;
     box-shadow: none;
-    padding-left: 24px;
+    padding-left: 20px;
     z-index: 0;
 
     & > .@{menu-prefix-cls}-item,
@@ -203,12 +202,12 @@
     & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
       float: left;
       border-bottom: 2px solid transparent;
-      margin-right: 24px;
+      margin-right: 20px;
 
       &-active,
       &-selected {
         border-bottom: 2px solid @primary-color;
-        background-color: #FBFBFB;
+        background-color: #FFF;
         color: @primary-color;
         .anticon {
           color: @primary-color;
@@ -226,7 +225,7 @@
 
   &-vertical, &-inline {
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 24px;
+      padding: 0 20px;
       font-size: 12px;
       line-height: 42px;
       height: 42px;
@@ -273,22 +272,11 @@
   color: rgba(255, 255, 255, 0.45);
   background: #404040;
 
-  .@{menu-prefix-cls}-item-group-title {
-    color: #999;
-    border-bottom: 1px solid #dedede;
-  }
-
-  .@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item-active,
-  .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active,
-  .@{menu-prefix-cls}-submenu-inline&-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
-    background-color: #3F3F3F;
-  }
-
-  .@{menu-prefix-cls}-inline > .@{menu-prefix-cls}-item-active:hover,
   .@{menu-prefix-cls}-item-active,
-  .@{menu-prefix-cls}-submenu-active,
+  .@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-active,
+  .@{menu-prefix-cls}-submenu-vertical.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover,
   .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
-    background-color: #2DB7F5;
+    background: #404040;
     color: #FFF;
 
     .anticon {
@@ -296,159 +284,68 @@
     }
   }
 
-  .@{menu-prefix-cls}-submenu-vertical:hover {
-    color: #FFF;
-    .anticon {
-      color: #FFF;
-    }
-  }
-
-  &-item, &-submenu-title {
-    margin: 0;
-    position: relative;
-    display: block;
-    white-space: nowrap;
-
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.@{menu-prefix-cls}-item-disabled, &.@{menu-prefix-cls}-submenu-disabled {
-      color: #999 !important;
-    }
-  }
-  .@{menu-prefix-cls} > .@{menu-prefix-cls}-item-divider {
-    height: 1px;
-    margin: 1px 0;
-    overflow: hidden;
-    padding: 0;
-    line-height: 0;
-    background-color: #e5e5e5;
-  }
-
-  &-submenu {
-    position: relative;
-
-    > .@{menu-prefix-cls} {
-      background-color: #fff;
-    }
-
-    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
-      font-family: "anticon" !important;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      position: absolute;
-      transition: transform .3s ease;
-      content: "\e600";
-      right: 16px;
-      .ie-rotate(3);
-      transform: rotate(270deg) scale(0.75);
-    }
-
-    &-inline > .@{menu-prefix-cls}-submenu-title:after {
-      font-family: "anticon" !important;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      position: absolute;
-      transition: transform .3s ease;
-      content: "\e600";
-      right: 16px;
-      top: 0;
-      .iconfont-size-under-12px(8px);
-    }
-
-    &-open {
-      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-        .ie-rotate(1);
-        transform: rotate(180deg) scale(0.75);
-      }
-    }
-  }
-
-  .@{menu-prefix-cls}-submenu-title, .@{menu-prefix-cls}-item {
-    .anticon {
-      width: 14px;
-      margin-right: 8px;
-      top: -1px;
-      color: #999;
-    }
+  .@{menu-prefix-cls}-submenu {
+    background: #404040;
   }
 
   &-horizontal {
-    background-color: #FBFBFB;
+    background-color: #404040;
     border: none;
     border-bottom: 1px solid #d9d9d9;
     box-shadow: none;
-    padding-left: 24px;
+    padding-left: 20px;
     z-index: 0;
+    color: rgba(255, 255, 255, 0.45);
+
+    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
+    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
+      border-bottom: 0px;
+      background-color: #404040;
+      color: #FFF;
+
+      .anticon {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+
+    .@{menu-prefix-cls}-vertical {
+      .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
+      .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
+        background-color: #2DB7F5;
+        color: #FFF;
+      }
+    }
+
+    .@{menu-prefix-cls}-submenu-active {
+      border: 0;
+      color: #FFF;
+
+      .anticon {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
 
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu {
-      padding: 0 20px;
-      line-height: 50px;
-      position: relative;
-      top: 1px;
+      border-bottom: 0px;
+      top: 0px;
       > a , > span{
         line-height: 51px;
       }
       > a {
-        display: block;
-        color: @text-color;
+        color: rgba(255, 255, 255, 0.45);
         &:hover {
-          color: @primary-color;
+          color: rgba(255, 255, 255, 1);
         }
         &:before, &:after {
-          position: absolute;
           background-color: rgba(255, 255, 255, 0.001);
-          width: 20px;
-          height: 50px;
-          content: '';
         }
         &:before {
           left: 0;
         }
       }
     }
-
-    & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
-      float: left;
-      border-bottom: 2px solid transparent;
-      margin-right: 24px;
-
-      &-active,
-      &-selected {
-        border-bottom: 2px solid #2DB7F5;
-        background-color: #2DB7F5;
-        color: @primary-color;
-        .anticon {
-          color: @primary-color;
-        }
-      }
-    }
-
-    &:after {
-      content: "\20";
-      display: block;
-      height: 0;
-      clear: both;
-    }
   }
-
-  .@{menu-prefix-cls}-vertical,
-  .@{menu-prefix-cls}-inline {
-    .@{menu-prefix-cls}-submenu {
-      background: #404040;
-    }
-    .@{menu-prefix-cls}-submenu.@{menu-prefix-cls}-submenu-active {
-      background: #2DB7F5;
-      color: #FFF;
-    }
-  }
-
-
 
   .@{menu-prefix-cls}-vertical,
   .@{menu-prefix-cls}-inline {
@@ -462,8 +359,8 @@
   }
 
 
-  .@{menu-prefix-cls}-vertical,
-  .@{menu-prefix-cls}-inline {
+  &-vertical,
+  &-inline {
     border-right: 0px solid #3F3F3F;
 
     .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
@@ -474,7 +371,6 @@
     }
   }
 
-  // ddd
   .@{menu-prefix-cls}-vertical,
   .@{menu-prefix-cls}-inline {
     border-right: 0px;
@@ -487,24 +383,7 @@
 
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-active {
-      border-right: 0px solid @primary-color;
-    }
-  }
-
-  &-root&-vertical,
-  &-root&-inline {
-    box-shadow: none;
-  }
-
-  &-sub&-inline {
-    padding: 0;
-    border: none;
-    box-shadow: none;
-    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      line-height: 34px;
-      height: 34px;
-      list-style-type: disc;
-      list-style-position: inside;
+      border-right: 0px;
     }
   }
 }
