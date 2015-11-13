@@ -38,40 +38,69 @@ class NoticeCalendar extends Component {
   }
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
-    const month = value.getMonth();
-    const noteNum = this.props.getMonthData(value);
-    if (noteNum > 0) {
-      return (
-        <a className={`${prefixCls}-fullscreen-month`}>
-          <span>{locale.format.shortMonths[month]}</span>
-          <MonthCellNoteNum num={noteNum} prefixCls={`${prefixCls}-notes`} />
-        </a>
-      );
+    const render = this.props.monthCellRender;
+    let content;
+    if (render) {
+      content = <div className={`${prefixCls}-fullscreen-month`}>
+        {render(value)}
+      </div>;
+    } else {
+      const month = value.getMonth();
+      const noteNum = this.props.getMonthData(value);
+      if (noteNum > 0) {
+        content = (
+          <div className={`${prefixCls}-fullscreen-month`}>
+            <span>{locale.format.shortMonths[month]}</span>
+            <MonthCellNoteNum num={noteNum} prefixCls={`${prefixCls}-notes`} />
+          </div>
+        );
+      } else {
+        content = <div className={`${prefixCls}-fullscreen-month`}>
+          {locale.format.shortMonths[month]}
+        </div>;
+      }
     }
-    return (
-      <a className={`${prefixCls}-fullscreen-month`}>{locale.format.shortMonths[month]}</a>
-    );
+    return content;
   }
   fullscreenDateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    let listData = this.props.getDateData(value);
-    return (
-      <span className={`${prefixCls}-fullscreen-date`}>
+    const render = this.props.dateCellRender;
+    let content;
+    if (render) {
+      content = <span className={`${prefixCls}-fullscreen-date`}>
+        {render(value)}
+      </span>;
+    } else {
+      content = <span className={`${prefixCls}-fullscreen-date`}>
         <span>{ zerofixed(value.getDayOfMonth()) }</span>
-        <div className={`${prefixCls}-note-list-wrapper`}><NoteList listData={listData} /></div>
-      </span>
-    );
+        <div className={`${prefixCls}-note-list-wrapper`}>
+          <NoteList listData={this.props.getDateData(value)} />
+        </div>
+      </span>;
+    }
+    return content;
   }
   dateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    const el = (<span className={`${prefixCls}-date ${prefixCls}-notes-date`}>{ zerofixed(value.getDayOfMonth()) }</span>);
-    const listData = this.props.getDateData(value);
-    return (
-      <div style={{ position: 'relative' }}>
-        { el }
-        { (listData && listData.length > 0) ? <div className={`${prefixCls}-notes-wrapper`}><Notes listData={listData} /></div> : null }
-      </div>
-    );
+    const render = this.props.dateCellRender;
+    let content;
+    if (render) {
+      content = <div style={{ position: 'relative' }}>
+        {render(value)}
+      </div>;
+    } else {
+      const listData = this.props.getDateData(value);
+      content = <div style={{ position: 'relative' }}>
+        <span className={`${prefixCls}-date ${prefixCls}-notes-date`}>
+          {zerofixed(value.getDayOfMonth())}
+        </span>
+        {(listData && listData.length > 0) ?
+          <div className={`${prefixCls}-notes-wrapper`}>
+            <Notes listData={listData} />
+          </div> : null}
+      </div>;
+    }
+    return content;
   }
   setValue(value) {
     if (this.state.value !== value) {
@@ -93,11 +122,10 @@ class NoticeCalendar extends Component {
   render() {
     const props = this.props;
     const {value, type} = this.state;
-    const {locale, prefixCls, style, className, fullscreen, monthCellRender, dateCellRender, fullscreenDateCellRender} = props;
+    const {locale, prefixCls, style, className, fullscreen} = props;
+    const dateCellRender = fullscreen
+      ? this.fullscreenDateCellRender : this.dateCellRender;
 
-    const _monthCellRender = monthCellRender ? monthCellRender : this.monthCellRender;
-    const _dateCellRender = dateCellRender ? dateCellRender : this.dateCellRender;
-    const _fullscreenDateCellRender = fullscreenDateCellRender ? fullscreenDateCellRender : this.fullscreenDateCellRender;
     return (
       <div className={prefixCls + '-wrapper' + (className ? ' ' + className : '') + (fullscreen ? ' ' + prefixCls + '-wrapper-fullscreen' : '' )} style={style}>
         <Header
@@ -115,8 +143,8 @@ class NoticeCalendar extends Component {
           showHeader={false}
           value={value}
           onChange={this.onPanelChange.bind(this)}
-          monthCellRender={ fullscreen ? _monthCellRender.bind(this) : null }
-          dateCellRender={ fullscreen ? _fullscreenDateCellRender.bind(this) : _dateCellRender.bind(this) }/>
+          monthCellRender={ this.monthCellRender.bind(this) }
+          dateCellRender={ dateCellRender.bind(this) } />
       </div>
     );
   }
@@ -136,6 +164,7 @@ NoticeCalendar.propTypes = {
   onChange: PropTypes.func,
   onTypeChange: PropTypes.func,
 };
+
 NoticeCalendar.defaultProps = {
   locale: CalendarLocale,
   getMonthData: noop,
