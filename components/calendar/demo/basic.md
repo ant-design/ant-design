@@ -9,11 +9,11 @@
 ````jsx
 import { Calendar } from 'antd';
 
-function onChange(value) {
-  console.log(value);
+function onPanelChange(value, mode) {
+  console.log(value, mode);
 }
 
 ReactDOM.render(
-  <Calendar type="date" onChange={onChange} />
+  <Calendar onPanelChange={onPanelChange} />
 , document.getElementById('components-calendar-demo-basic'));
 ````

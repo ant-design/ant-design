@@ -17,7 +17,7 @@ class Calendar extends Component {
     super();
     this.state = {
       value: this.parseDateFromValue(props.value),
-      type: props.type,
+      mode: props.mode,
     };
   }
   parseDateFromValue(value) {
@@ -52,20 +52,23 @@ class Calendar extends Component {
   setValue(value) {
     if (this.state.value !== value) {
       this.setState({ value });
-      this.props.onChange(value);
+      this.props.onPanelChange(value, this.state.mode);
     }
   }
   setType(type) {
-    const oldType = this.state.type;
-    this.setState({ type });
-    this.props.onTypeChange(type, oldType);
+    const mode = (type === 'date') ? 'month' : 'year';
+    if (this.state.mode !== mode) {
+      this.setState({ mode });
+      this.props.onPanelChange(this.state.value, mode);
+    }
   }
   render() {
     const props = this.props;
-    const {value, type} = this.state;
+    const {value, mode} = this.state;
     const {locale, prefixCls, style, className, fullscreen} = props;
     const dateCellRender = fullscreen
       ? this.fullscreenDateCellRender : this.dateCellRender;
+    const type = (mode === 'year') ? 'month' : 'date';
 
     return (
       <div className={prefixCls + '-wrapper' + (className ? ' ' + className : '') + (fullscreen ? ' ' + prefixCls + '-wrapper-fullscreen' : '' )} style={style}>
@@ -98,9 +101,8 @@ Calendar.propTypes = {
   prefixCls: PropTypes.string,
   className: PropTypes.string,
   style: PropTypes.object,
-  onChange: PropTypes.func,
+  onPanelChange: PropTypes.func,
   value: PropTypes.instanceOf(Date),
-  onTypeChange: PropTypes.func,
 };
 
 Calendar.defaultProps = {
@@ -109,10 +111,9 @@ Calendar.defaultProps = {
   locale: CalendarLocale,
   fullscreen: true,
   prefixCls: PREFIX_CLS,
-  onChange: noop,
-  onTypeChange: noop,
-  type: 'date',
-  value: Date.now(),
+  onPanelChange: noop,
+  mode: 'month',
+  value: new Date(),
 };
 
 export default Calendar;

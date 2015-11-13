@@ -9,14 +9,13 @@
 ````jsx
 import { Calendar } from 'antd';
 
-function onChange(value) {
-  console.log(value);
+function onPanelChange(value, mode) {
+  console.log(value, mode);
 }
 
 ReactDOM.render(
   <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
-    <Calendar fullscreen={false} type="date" onChange={onChange} />
+    <Calendar fullscreen={false} onPanelChange={onPanelChange} />
   </div>
 , document.getElementById('components-calendar-demo-card'));
 ````
-

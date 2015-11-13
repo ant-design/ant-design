@@ -18,7 +18,7 @@ function monthCellRender(value) {
 }
 
 ReactDOM.render(
-  <Calendar type="date" value={new Date('2010-10-10')}
+  <Calendar value={new Date('2010-10-10')}
   dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
 , document.getElementById('components-calendar-demo-custom-render'));
 ````
