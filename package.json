@@ -49,7 +49,7 @@
     "rc-notification": "~1.2.0",
     "rc-pagination": "~1.1.0",
     "rc-progress": "~1.0.0",
-    "rc-queue-anim": "~0.10.5",
+    "rc-queue-anim": "~0.11.0",
     "rc-radio": "~2.0.0",
     "rc-select": "~5.1.0",
     "rc-slider": "~2.0.0",
