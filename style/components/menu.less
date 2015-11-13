@@ -1,14 +1,13 @@
 @menu-prefix-cls: ~"@{css-prefix}menu";
 
+// default theme
 .@{menu-prefix-cls} {
   outline: none;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
   z-index: 999;
-  border: 1px solid #d9d9d9;
   box-shadow: @overlay-shadow;
-  border-radius: @border-radius-base;
   color: @text-color;
   background: #fff;
 
@@ -46,14 +45,33 @@
     background-color: tint(@primary-color, 90%);
   }
 
-  &-item-selected {
-    background-color: tint(@primary-color, 90%);
-    color: @primary-color;
-  }
-
   & > li&-submenu {
     cursor: pointer;
     transition: all 0.3s ease;
+  }
+
+  &-vertical,
+  &-inline {
+    border-right: 1px solid #e9e9e9;
+
+    .@{menu-prefix-cls}-item {
+      border-right: 2px solid transparent;
+      margin-left: -1px;
+      left: 1px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .@{menu-prefix-cls}-selected,
+    .@{menu-prefix-cls}-item-active {
+      border-right: 2px solid @primary-color;
+    }
+
+    .@{menu-prefix-cls}-item-selected {
+      background-color: tint(@primary-color, 90%);
+      color: @primary-color;
+      border-right: 2px solid #2db7f5;
+    }
   }
 
   &-submenu-horizontal > .@{menu-prefix-cls} {
@@ -147,12 +165,10 @@
   }
 
   &-horizontal {
-    background-color: #FBFBFB;
     border: none;
     border-bottom: 1px solid #d9d9d9;
     box-shadow: none;
-    border-radius: 0;
-    padding-left: 24px;
+    padding-left: 20px;
     z-index: 0;
 
     & > .@{menu-prefix-cls}-item,
@@ -172,7 +188,7 @@
         }
         &:before, &:after {
           position: absolute;
-          background-color: rgba(255, 255, 255, 0.001);
+          background-color: transparent;
           width: 20px;
           height: 50px;
           content: '';
@@ -186,12 +202,12 @@
     & > .@{menu-prefix-cls}-submenu, & > .@{menu-prefix-cls}-item {
       float: left;
       border-bottom: 2px solid transparent;
-      margin-right: 24px;
+      margin-right: 20px;
 
       &-active,
       &-selected {
         border-bottom: 2px solid @primary-color;
-        background-color: #FBFBFB;
+        background-color: #FFF;
         color: @primary-color;
         .anticon {
           color: @primary-color;
@@ -208,29 +224,11 @@
   }
 
   &-vertical, &-inline {
-    padding: 12px 0;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 24px;
+      padding: 0 20px;
       font-size: 12px;
       line-height: 42px;
       height: 42px;
-    }
-  }
-
-  &-vertical, &-horizontal {
-    .@{menu-prefix-cls}-submenu {
-      .@{menu-prefix-cls}-item:first-child {
-        border-radius: @border-radius-base @border-radius-base 0 0;
-      }
-      .@{menu-prefix-cls}-item:last-child {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
-      }
-      &:first-child {
-        border-radius: @border-radius-base @border-radius-base 0 0;
-      }
-      &:last-child {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
-      }
     }
   }
 
@@ -244,16 +242,13 @@
 
   &-root&-vertical,
   &-root&-inline {
-    border-radius: 0;
     box-shadow: none;
   }
 
   &-sub&-inline {
     padding: 0;
     border: none;
-    border-radius: 0;
     box-shadow: none;
-    overflow: hidden;
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       line-height: 34px;
       height: 34px;
@@ -268,5 +263,127 @@
     width: 14px;
     margin-right: 8px;
     top: -1px;
+  }
+}
+
+
+// dark theme
+.dark.@{menu-prefix-cls} {
+  color: #8c8c8c;
+  background: #404040;
+
+  .@{menu-prefix-cls}-item-active,
+  .@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-active,
+  .@{menu-prefix-cls}-submenu-vertical.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover,
+  .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
+    background: #404040;
+    color: #FFF;
+
+    .anticon {
+      color: #FFF;
+    }
+  }
+
+  .@{menu-prefix-cls}-submenu {
+    background: #404040;
+  }
+
+  &-horizontal {
+    background-color: #404040;
+    border: none;
+    border-bottom: 1px solid #d9d9d9;
+    box-shadow: none;
+    padding-left: 20px;
+    z-index: 0;
+    color: #8c8c8c;
+
+    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
+    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
+      border-bottom: 0px;
+      background-color: #404040;
+      color: #FFF;
+
+      .anticon {
+        color: #FFF;
+      }
+    }
+
+    .@{menu-prefix-cls}-vertical {
+      .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
+      .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
+        background-color: #2DB7F5;
+        color: #FFF;
+      }
+    }
+
+    .@{menu-prefix-cls}-submenu-active {
+      border: 0;
+      color: #FFF;
+
+      .anticon {
+        color: #FFF;
+      }
+    }
+
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu {
+      border-bottom: 0px;
+      top: 0px;
+      > a , > span{
+        line-height: 51px;
+      }
+      > a {
+        color: #8c8c8c;
+        &:hover {
+          color: #FFF;
+        }
+        &:before, &:after {
+          background-color: transparent;
+        }
+        &:before {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  .@{menu-prefix-cls}-vertical,
+  .@{menu-prefix-cls}-inline {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      color: #8c8c8c;
+    }
+    .@{menu-prefix-cls}-item {
+      background-color: #333333;
+    }
+  }
+
+
+  &-vertical,
+  &-inline {
+    border-right: 0px solid #3F3F3F;
+
+    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
+    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
+      border-right: 0px solid #2DB7F5;
+      background-color: #2DB7F5;
+      color: #FFF;
+    }
+  }
+
+  .@{menu-prefix-cls}-vertical,
+  .@{menu-prefix-cls}-inline {
+    border-right: 0px;
+
+    .@{menu-prefix-cls}-item {
+      border-right: 0px solid transparent;
+      margin-left: 0px;
+      left: 0px;
+    }
+
+    .@{menu-prefix-cls}-selected,
+    .@{menu-prefix-cls}-item-active {
+      border-right: 0px;
+    }
   }
 }
