@@ -110,8 +110,7 @@
       transition: transform .3s ease;
       content: "\e600";
       right: 16px;
-      .ie-rotate(3);
-      transform: rotate(270deg) scale(0.75);
+      transform: scale(0.75);
     }
 
     &-inline > .@{menu-prefix-cls}-submenu-title:after {
@@ -123,7 +122,7 @@
       text-rendering: auto;
       position: absolute;
       transition: transform .3s ease;
-      content: "\e600";
+      content: "\e603";
       right: 16px;
       top: 0;
       .iconfont-size-under-12px(8px);
@@ -131,8 +130,8 @@
 
     &-open {
       &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
-        .ie-rotate(1);
-        transform: rotate(180deg) scale(0.75);
+        content: "\e602";
+        transform: scale(0.75);
       }
     }
   }
