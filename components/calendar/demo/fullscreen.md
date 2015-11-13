@@ -26,7 +26,9 @@ function getDateData(value) {
     case 15:
       listData = [
         { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项好长啊。。.' },
+        { type: 'normal', content: '这里是普通事项好长啊。。....' },
+        { type: 'error', content: '这里是错误事项.' },
+        { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' }
       ]; break;
@@ -40,7 +42,7 @@ function getMonthData(value) {
   return 0;
 }
 ReactDOM.render(
-  <Calendar fullscreen={true} getDateData={getDateData} getMonthData={getMonthData} />
+  <Calendar fullscreen={true} type={'date'} getDateData={getDateData} getMonthData={getMonthData} />
 , document.getElementById('components-calendar-demo-fullscreen'));
 ````
 
