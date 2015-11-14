@@ -70,7 +70,7 @@
     .@{menu-prefix-cls}-item-selected {
       background-color: tint(@primary-color, 90%);
       color: @primary-color;
-      border-right: 2px solid #2db7f5;
+      border-right: 2px solid @primary-color;
     }
   }
 
@@ -207,7 +207,6 @@
       &-active,
       &-selected {
         border-bottom: 2px solid @primary-color;
-        background-color: #FFF;
         color: @primary-color;
         .anticon {
           color: @primary-color;
@@ -263,127 +262,5 @@
     width: 14px;
     margin-right: 8px;
     top: 1px;
-  }
-}
-
-
-// dark theme
-.dark.@{menu-prefix-cls} {
-  color: #8c8c8c;
-  background: #404040;
-
-  .@{menu-prefix-cls}-item-active,
-  .@{menu-prefix-cls}-submenu .@{menu-prefix-cls}-submenu-active,
-  .@{menu-prefix-cls}-submenu-vertical.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover,
-  .@{menu-prefix-cls}-submenu-inline.@{menu-prefix-cls}-submenu-active > .@{menu-prefix-cls}-submenu-title:hover {
-    background: #404040;
-    color: #FFF;
-
-    .anticon {
-      color: #FFF;
-    }
-  }
-
-  .@{menu-prefix-cls}-submenu {
-    background: #404040;
-  }
-
-  &-horizontal {
-    background-color: #404040;
-    border: none;
-    border-bottom: 1px solid #d9d9d9;
-    box-shadow: none;
-    padding-left: 20px;
-    z-index: 0;
-    color: #8c8c8c;
-
-    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
-    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
-      border-bottom: 0px;
-      background-color: #404040;
-      color: #FFF;
-
-      .anticon {
-        color: #FFF;
-      }
-    }
-
-    .@{menu-prefix-cls}-vertical {
-      .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
-      .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
-        background-color: #2DB7F5;
-        color: #FFF;
-      }
-    }
-
-    .@{menu-prefix-cls}-submenu-active {
-      border: 0;
-      color: #FFF;
-
-      .anticon {
-        color: #FFF;
-      }
-    }
-
-    & > .@{menu-prefix-cls}-item,
-    & > .@{menu-prefix-cls}-submenu {
-      border-bottom: 0px;
-      top: 0px;
-      > a , > span{
-        line-height: 51px;
-      }
-      > a {
-        color: #8c8c8c;
-        &:hover {
-          color: #FFF;
-        }
-        &:before, &:after {
-          background-color: transparent;
-        }
-        &:before {
-          left: 0;
-        }
-      }
-    }
-  }
-
-  .@{menu-prefix-cls}-vertical,
-  .@{menu-prefix-cls}-inline {
-    .@{menu-prefix-cls}-item,
-    .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      color: #8c8c8c;
-    }
-    .@{menu-prefix-cls}-item {
-      background-color: #333333;
-    }
-  }
-
-
-  &-vertical,
-  &-inline {
-    border-right: 0px solid #3F3F3F;
-
-    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-selected,
-    .@{menu-prefix-cls}-item.@{menu-prefix-cls}-item-active {
-      border-right: 0px solid #2DB7F5;
-      background-color: #2DB7F5;
-      color: #FFF;
-    }
-  }
-
-  .@{menu-prefix-cls}-vertical,
-  .@{menu-prefix-cls}-inline {
-    border-right: 0px;
-
-    .@{menu-prefix-cls}-item {
-      border-right: 0px solid transparent;
-      margin-left: 0px;
-      left: 0px;
-    }
-
-    .@{menu-prefix-cls}-selected,
-    .@{menu-prefix-cls}-item-active {
-      border-right: 0px;
-    }
   }
 }

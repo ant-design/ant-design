@@ -12,6 +12,7 @@ const AntMenu = React.createClass({
       onClick: noop,
       onOpen: noop,
       onClose: noop,
+      theme: 'light'  // or dark
     };
   },
   getInitialState() {
@@ -38,10 +39,6 @@ const AntMenu = React.createClass({
     this.props.onClose();
   },
   render() {
-    this.theme = '';
-    if (this.props.theme) {
-      this.theme = this.props.theme;
-    }
     let openAnimation = '';
     switch (this.props.mode) {
     case 'horizontal':
@@ -61,12 +58,9 @@ const AntMenu = React.createClass({
       onClick: this.handleClick,
       onOpen: this.handleOpenKeys,
       onClose: this.handleCloseKeys,
-      className: this.theme,
+      className: this.props.prefixCls + '-' + this.props.theme,
     };
     if (this.props.mode === 'inline') {
-      props = {
-        className: this.theme,
-      };
       return <Menu {...this.props} {...props} openAnimation={openAnimation} />;
     } else {
       return <Menu {...this.props} {...props} openTransitionName={openAnimation} />;
