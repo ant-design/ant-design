@@ -19,6 +19,5 @@ ReactDOM.render(<div>
 <style>
 .code-box-demo .ant-slider {
   margin-bottom: 50px;
-  margin-left: 15px;
 }
 </style>

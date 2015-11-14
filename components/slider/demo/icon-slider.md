@@ -49,15 +49,15 @@ ReactDOM.render(
 , document.getElementById('components-slider-demo-icon-slider'));
 ````
 
-<style>
+````css
 .iconWrapper {
   position: relative;
-  padding: 0 24px 0 9px;
+  padding: 0px 30px;
 }
 
 .iconWrapper .anticon {
   position: absolute;
-  top: -6px;
+  top: -3px;
   width: 16px;
   height: 16px;
   line-height: 1;
@@ -75,4 +75,4 @@ ReactDOM.render(
 .anticon.anticon-highlight {
   color: #666;
 }
-</style>
+````
