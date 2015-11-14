@@ -32,15 +32,7 @@
     transition: all 0.3s ease;
   }
 
-  &-inline > &-item-active,
-  &-submenu-inline&-submenu-active,
-  &-submenu-inline&-submenu-active > &-submenu-title:hover {
-    background-color: #fff;
-  }
-
   &-inline > &-item-active:hover,
-  &-item-active,
-  &-submenu-active,
   &-submenu-inline&-submenu-active > &-submenu-title:hover {
     background-color: tint(@primary-color, 90%);
   }
@@ -62,14 +54,17 @@
       z-index: 1;
     }
 
+    .@{menu-prefix-cls}-item-selected {
+      color: @primary-color;
+    }
+  }
+
+  &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-active {
       border-right: 2px solid @primary-color;
     }
-
     .@{menu-prefix-cls}-item-selected {
-      background-color: tint(@primary-color, 90%);
-      color: @primary-color;
       border-right: 2px solid @primary-color;
     }
   }
