@@ -63,14 +63,16 @@
     -webkit-user-select: none;
   }
   .@{calendar-prefix-cls}-year-panel-year:before {
-    content: "\e611";
+    content: "\e600";
     font-family: "anticon" !important;
   }
 }
 
 .@{calendar-prefix-cls}-year-panel-last-decade-cell {
   .@{calendar-prefix-cls}-year-panel-year {
-    transform: rotate(180deg);
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  }
+  .@{calendar-prefix-cls}-year-panel-year:before {
+    content: "\e601";
   }
 }
