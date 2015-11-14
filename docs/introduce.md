@@ -48,6 +48,10 @@ import Datepicker from 'antd/lib/datepicker';
 ReactDOM.render(<Datepicker />, mountNode);
 ```
 
+```jsx
+import 'antd/lib/index.css'; // 样式需要在入口处引用一次
+```
+
 ## 版本
 
 - 稳定版：[![npm package](http://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
