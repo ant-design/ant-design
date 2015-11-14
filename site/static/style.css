@@ -2010,7 +2010,7 @@ a.entry-link:hover .anticon-smile {
   padding: 0;
   border-radius: 5px;
   border: 1px solid #ccc;
-  background-color: white;
+  background-color: #fff;
   line-height: 1;
 }
 
@@ -2091,10 +2091,11 @@ a.entry-link:hover .anticon-smile {
 .window-frame .window-content {
   padding: 0;
   line-height: 1.5;
-  overflow: hidden;
-  height: 400px;
+  overflow: auto;
+  height: 440px;
   position: relative;
   border-radius: 0 0 5px 5px;
+  background: #f4f4f4;
 }
 .window-frame .status-bar {
   height: 2rem;
