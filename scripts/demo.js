@@ -81,4 +81,24 @@ InstantClickChangeFns.push(function () {
   , document.getElementById('versions-select'));
 });
 
+window.BrowserDemo = React.createClass({
+  render() {
+    return (
+      <article className="window-frame focus">
+        <header className="top-bar">
+          <div className="controls">
+            <div className="control close"></div>
+            <div className="control minify"></div>
+            <div className="control expand"></div>
+          </div>
+          <input className="address-bar" defaultValue="http://www.example.com" />
+        </header>
+        <section className="window-content">
+          {this.props.children}
+        </section>
+      </article>
+    );
+  }
+});
+
 module.exports = antd;

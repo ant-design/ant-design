@@ -10,7 +10,7 @@
   box-shadow: @overlay-shadow;
   color: @text-color;
   background: #fff;
-  line-height: 50px;
+  line-height: 46px;
 
   &-hidden {
     display: none;
@@ -25,7 +25,7 @@
     color: #999;
     line-height: 1.5;
     padding: 8px 10px;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid #e9e9e9;
   }
 
   &-item,
@@ -39,6 +39,11 @@
   &-item-active,
   &-submenu-title:hover {
     background-color: tint(@primary-color, 90%);
+  }
+
+  &-horizontal &-item,
+  &-horizontal &-submenu {
+    margin-top: -1px;
   }
 
   &-horizontal > &-item-active,
@@ -156,16 +161,15 @@
   &-submenu-title {
     .anticon {
       width: 14px;
-      margin-right: 8px;
+      margin-right: 9px;
       top: 1px;
     }
   }
 
   &-horizontal {
     border: none;
-    border-bottom: 1px solid #d9d9d9;
+    border-bottom: 1px solid #e9e9e9;
     box-shadow: none;
-    padding-left: 20px;
     z-index: 0;
 
     > .@{menu-prefix-cls}-item,
@@ -211,7 +215,7 @@
 
   &-vertical, &-inline {
     & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
-      padding: 0 20px;
+      padding: 0px 16px 0 28px;
       font-size: 12px;
       line-height: 42px;
       height: 42px;
@@ -264,7 +268,7 @@
 
   &-dark&-horizontal > &-item,
   &-dark&-horizontal > &-submenu {
-    border-bottom: 2px solid transparent;
+    border-bottom: 0;
     top: 0;
   }
 

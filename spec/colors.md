@@ -1,6 +1,6 @@
 # 色彩
 
-- category: 风格
+- category: 基础
 - order: 2
 
 ---

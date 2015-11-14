@@ -1,7 +1,7 @@
 {%- set items = resource.pages|find_demo_in_component(post.meta.directory) %}
 {%- if items.length > 0 %}
 <h2 class="component-demos">
-  组件演示
+  代码演示
   <i class="anticon anticon-appstore icon-all" title="展开全部代码"></i>
   {%- if post.meta.sketch %}
   <a class="sketch-link" href="{{ post.meta.sketch }}" target="_blank">
