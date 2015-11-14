@@ -69,6 +69,9 @@ ReactDOM.render(
             <div style={{ height: 240 }}></div>
           </div>
         </div>
+        <div className="ant-layout-footer">
+        Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+        </div>
       </div>
     </div>
   </BrowserDemo>
@@ -100,7 +103,7 @@ ReactDOM.render(
 
 .ant-layout-topaside .ant-layout-subheader {
   height: 48px;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #e9e9e9;
   background: #fff;
 }
 
@@ -122,7 +125,14 @@ ReactDOM.render(
 }
 
 .ant-layout-topaside .ant-layout-content {
-  border-left: 1px solid #d9d9d9;
+  border-left: 1px solid #e9e9e9;
   margin-left: 223px;
+}
+
+.ant-layout-topaside .ant-layout-footer {
+  margin: 24px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
 }
 ````

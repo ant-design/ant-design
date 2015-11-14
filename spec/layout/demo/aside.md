@@ -4,6 +4,8 @@
 
 顶级导航在侧边栏。
 
+侧边导航在页面布局上采用的是左右的结构，一般主导航放置于页面的左侧固定位置，辅助菜单放置于工作区顶部。内容根据浏览器终端进行自适应，能提高横向空间的使用率，但是整个页面排版不稳定。侧边导航的模式层级扩展性强，一、二、三级导航项目可以更为顺畅且具关联性的被展示，同时侧边导航可以固定，使得用户在操作和浏览中可以快速的定位和切换当前位置，有很高的操作效率。但这类导航横向页面内容的空间会被牺牲一部份。
+
 ---
 
 ````jsx
@@ -51,6 +53,9 @@ ReactDOM.render(
             <div style={{ height: 590 }}></div>
           </div>
         </div>
+        <div className="ant-layout-footer">
+        Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+        </div>
       </div>
     </div>
   </BrowserDemo>
@@ -61,7 +66,6 @@ ReactDOM.render(
 .ant-layout-aside {
   position: relative;
   min-height: 100%;
-  overflow: hidden;
 }
 
 .ant-layout-aside .ant-layout-logo {
@@ -76,8 +80,9 @@ ReactDOM.render(
   width: 224px;
   background: #404040;
   position: absolute;
+  overflow: auto;
   padding-bottom: 24px;
-  min-height: 100%;
+  height: 100%;
 }
 
 .ant-layout-aside .ant-layout-sider > .ant-menu {
@@ -96,7 +101,6 @@ ReactDOM.render(
 
 .ant-layout-aside .ant-layout-main {
   margin-left: 224px;
-  margin-bottom: 24px;
 }
 
 .ant-layout-aside .ant-layout-container {
@@ -106,5 +110,15 @@ ReactDOM.render(
 .ant-layout-aside .ant-layout-content {
   background: #fff;
   padding: 24px;
+}
+
+.ant-layout-aside .ant-layout-footer {
+  padding: 16px 0px;
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  background: #fff;
+  border-top: 1px solid #e9e9e9;
+  width: 100%;
 }
 ````
