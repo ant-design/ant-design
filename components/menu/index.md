@@ -28,8 +28,8 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| theme    | 主题颜色 | enum: 'dark' | 默认为空 |
-| mode    | 菜单类型 | enum: 'vertical', 'horizontal', 'inline' | vertical |
+| theme    | 主题颜色 | enum: `light` `dark` | 'light' |
+| mode    | 菜单类型 | enum: `vertical` `horizontal` `inline` | vertical |
 | selectedKeys | 当前选中的菜单项 key 数组 |  |      |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 |  |      |
 | openKeys | 当前展开的菜单项 key 数组 |  |      |
