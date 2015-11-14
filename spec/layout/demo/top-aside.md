@@ -113,7 +113,7 @@ ReactDOM.render(
 
 .ant-layout-topaside .ant-layout-container {
   background: #fff;
-  margin: 24px 0;
+  margin: 24px 0 0;
   position: relative;
   padding: 24px 0;
   overflow: hidden;
@@ -130,7 +130,8 @@ ReactDOM.render(
 }
 
 .ant-layout-topaside .ant-layout-footer {
-  margin: 24px 0;
+  height; 64px;
+  line-height: 64px;
   text-align: center;
   font-size: 12px;
   color: #999;

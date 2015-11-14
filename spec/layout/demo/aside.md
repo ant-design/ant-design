@@ -113,7 +113,8 @@ ReactDOM.render(
 }
 
 .ant-layout-aside .ant-layout-footer {
-  padding: 16px 0px;
+  height; 64px;
+  line-height: 64px;
   text-align: center;
   font-size: 12px;
   color: #999;

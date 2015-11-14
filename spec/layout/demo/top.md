@@ -92,14 +92,15 @@ ReactDOM.render(
 
 .ant-layout-top .ant-layout-container {
   background: #fff;
-  margin: 24px 0;
+  margin: 24px 0 0;
   position: relative;
   padding-top: 24px;
   overflow: hidden;
 }
 
 .ant-layout-top .ant-layout-footer {
-  margin: 24px 0;
+  height; 64px;
+  line-height: 64px;
   text-align: center;
   font-size: 12px;
   color: #999;
