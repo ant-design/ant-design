@@ -10,7 +10,6 @@
 import { Calendar } from 'antd';
 
 function getListData(value) {
-  console.log(value.getDayOfMonth());
   var listData;
   switch (value.getDayOfMonth()) {
     case 8:

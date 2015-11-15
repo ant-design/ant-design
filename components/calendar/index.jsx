@@ -16,7 +16,7 @@ class Calendar extends Component {
   constructor(props) {
     super();
     this.state = {
-      value: this.parseDateFromValue(props.value),
+      value: this.parseDateFromValue(props.value || new Date()),
       mode: props.mode,
     };
   }
@@ -56,10 +56,10 @@ class Calendar extends Component {
     </div>;
   }
   setValue(value) {
-    if (this.state.value !== value) {
+    if (!('value' in this.props) && this.state.value !== value) {
       this.setState({ value });
-      this.props.onPanelChange(value, this.state.mode);
     }
+    this.props.onPanelChange(value, this.state.mode);
   }
   setType(type) {
     const mode = (type === 'date') ? 'month' : 'year';
@@ -74,8 +74,13 @@ class Calendar extends Component {
     const {locale, prefixCls, style, className, fullscreen} = props;
     const type = (mode === 'year') ? 'month' : 'date';
 
+    let cls = className || '';
+    if (fullscreen) {
+      cls += (' ' + prefixCls + '-fullscreen');
+    }
+
     return (
-      <div className={(className ? className : '') + ' ' + (fullscreen ? prefixCls + '-fullscreen' : '' )} style={style}>
+      <div className={cls} style={style}>
         <Header
           fullscreen={fullscreen}
           type={type}
@@ -117,7 +122,6 @@ Calendar.defaultProps = {
   prefixCls: PREFIX_CLS,
   onPanelChange: noop,
   mode: 'month',
-  value: new Date(),
 };
 
 export default Calendar;
