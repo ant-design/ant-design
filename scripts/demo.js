@@ -57,7 +57,7 @@ InstantClickChangeFns.push(function () {
   var Select = antd.Select;
   var Option = Select.Option;
   var versionsHistory = {
-    '0.9.2': '09x.ant.design'
+    '0.9.x': '09x.ant.design'
   };
   versionsHistory[antdVersion.latest] =
     versionsHistory[antdVersion.latest] || 'ant.design';
