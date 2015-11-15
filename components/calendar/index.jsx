@@ -25,6 +25,13 @@ class Calendar extends Component {
     date.setTime(value);
     return date;
   }
+  componentWillReceiveProps(nextProps) {
+    if ('value' in nextProps) {
+      this.setState({
+        value: this.parseDateFromValue(nextProps.value)
+      });
+    }
+  }
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
     const month = value.getMonth();
