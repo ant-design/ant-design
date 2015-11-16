@@ -325,6 +325,9 @@ let AntTable = React.createClass({
   },
 
   getRecordKey(record, index) {
+    if (this.props.rowKey) {
+      return this.props.rowKey(record, index);
+    }
     return record.key || index;
   },
 
