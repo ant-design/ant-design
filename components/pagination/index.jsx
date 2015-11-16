@@ -23,6 +23,7 @@ AntPagination.defaultProps = {
   locale: zhCN,
 };
 
+// TODO. remove after https://github.com/ant-design/ant-design/issues/487
 AntPagination.locale = {
   en_US: enUS,
   zh_CN: zhCN,
