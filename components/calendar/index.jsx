@@ -68,6 +68,11 @@ class Calendar extends Component {
       this.props.onPanelChange(this.state.value, mode);
     }
   }
+  onPanelSelect(value, e) {
+    if (e && e.target === 'month') {
+      this.forceUpdate();// Because the fullcalendars'type will automaticlly change to 'date' when select month cell, but we didn't want this, so we force update view to get things right, since ours 'mode' would not change.
+    }
+  }
   render() {
     const props = this.props;
     const {value, mode} = this.state;
@@ -94,6 +99,7 @@ class Calendar extends Component {
           type={type}
           prefixCls={prefixCls}
           showHeader={false}
+          onSelect={this.onPanelSelect.bind(this)}
           value={value}
           monthCellRender={this.monthCellRender.bind(this)}
           dateCellRender={this.dateCellRender.bind(this)} />
