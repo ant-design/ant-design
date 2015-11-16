@@ -1,3 +1,1 @@
-export default {
-  PREFIX_CLS: 'ant-fullcalendar',
-};
+export const PREFIX_CLS = 'ant-fullcalendar';

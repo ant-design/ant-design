@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import GregorianCalendar from 'gregorian-calendar';
-import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
+import zhCn from '../datepicker/locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import {PREFIX_CLS} from './Constants';
 import Header from './Header';
@@ -14,15 +14,15 @@ function zerofixed (v) {
 
 class Calendar extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       value: this.parseDateFromValue(props.value || new Date()),
       mode: props.mode,
     };
   }
   parseDateFromValue(value) {
-    const date = new GregorianCalendar();
-    date.setTime(value);
+    const date = new GregorianCalendar(this.props.locale);
+    date.setTime(+value);
     return date;
   }
   componentWillReceiveProps(nextProps) {
@@ -93,12 +93,13 @@ class Calendar extends Component {
           fullscreen={fullscreen}
           type={type}
           value={value}
-          locale={locale}
+          locale={locale.lang}
           prefixCls={prefixCls}
           onTypeChange={this.setType.bind(this)}
           onValueChange={this.setValue.bind(this)}/>
         <FullCalendar
           {...props}
+          locale={locale.lang}
           type={type}
           prefixCls={prefixCls}
           showHeader={false}
@@ -126,7 +127,7 @@ Calendar.propTypes = {
 Calendar.defaultProps = {
   monthCellRender: noop,
   dateCellRender: noop,
-  locale: CalendarLocale,
+  locale: zhCn,
   fullscreen: true,
   prefixCls: PREFIX_CLS,
   onPanelChange: noop,
