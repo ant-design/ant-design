@@ -9,6 +9,7 @@ var semver = require('semver');
 window.antd = antd;
 window.React = React;
 window.ReactDOM = ReactDOM;
+window['object-assign'] = require('object-assign');
 
 InstantClickChangeFns.push(function () {
   // auto complete for components

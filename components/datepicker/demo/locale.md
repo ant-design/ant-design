@@ -9,22 +9,16 @@
 ````jsx
 import { Datepicker } from 'antd';
 import enUS from 'antd/lib/datepicker/locale/en_US';
-
-function assign(target, source) {
-  for(var s in source) {
-    target[s] = source[s];
-  }
-  return target;
-}
+import assign from 'object-assign'
 
 const App = React.createClass({
   getInitialState() {
     return {
-      locale: assign({
+      locale: assign({}, enUS, {
         timezoneOffset: 0 * 60,
         firstDayOfWeek: 0,
         minimalDaysInFirstWeek: 1
-      }, enUS)
+      })
     };
   },
   render() {
