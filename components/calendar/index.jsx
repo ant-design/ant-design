@@ -70,7 +70,10 @@ class Calendar extends Component {
   }
   onPanelSelect(value, e) {
     if (e && e.target === 'month') {
-      this.forceUpdate();// Because the fullcalendars'type will automaticlly change to 'date' when select month cell, but we didn't want this, so we force update view to get things right, since ours 'mode' would not change.
+      // Because the fullcalendars'type will automaticlly change to 'date' when select month cell
+      // but we didn't want this, so we force update view to get things right
+      // since ours 'mode' would not change.
+      this.forceUpdate();
     }
   }
   render() {
