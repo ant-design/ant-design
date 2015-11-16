@@ -2,7 +2,7 @@
 
 - category: Components
 - chinese: 加载中
-- type: 展示
+- type: 其他
 
 ---
 
