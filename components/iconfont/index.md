@@ -68,7 +68,7 @@ ul.anticons-list li {
   color: #5C6B77;
   transition: all 0.2s ease;
   position: relative;
-  padding: 0;
+  padding-top: 10px;
 }
 ul.anticons-list li:hover {
   background-color: #4BB8FF;
