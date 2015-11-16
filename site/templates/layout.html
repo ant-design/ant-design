@@ -51,7 +51,7 @@
         var result = window;
         var namespaces = path.split('/');
         namespaces.forEach(function (key, i) {
-          if (i !== 0 && i === namespaces.length - 1) {
+          if (i === 2) {
             key = capitalizeFirstLetter(key);
           }
           if (key !== 'lib') {
