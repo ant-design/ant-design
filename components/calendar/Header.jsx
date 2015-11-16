@@ -41,8 +41,8 @@ class Header extends Component {
 
     return (
       <Select
-        style={{ width: 70 }}
-        dropdownMenuStyle={{ minWidth: 100 }}
+        style={{ minWidth: 70 }}
+        dropdownMenuStyle={{ minWidth: 125 }}
         size={ fullscreen ? null : 'small' }
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}

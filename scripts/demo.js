@@ -11,6 +11,21 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 
+antd.Datepicker.locale = {
+  en_US: require('../components/datepicker/locale/en_US'),
+  zh_CN: require('../components/datepicker/locale/zh_CN'),
+};
+
+antd.Calendar.locale = {
+  en_US: require('../components/calendar/locale/en_US'),
+  zh_CN: require('../components/calendar/locale/zh_CN'),
+};
+
+antd.Pagination.locale = {
+  en_US: require('../components/pagination/locale/en_US'),
+  zh_CN: require('../components/pagination/locale/zh_CN'),
+};
+
 InstantClickChangeFns.push(function () {
   // auto complete for components
   var Select = antd.Select;

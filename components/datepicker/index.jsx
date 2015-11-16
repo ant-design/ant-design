@@ -4,7 +4,6 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import Datepicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import defaultLocale from './locale/zh_CN';
-import pickerEnUsLocale from './locale/en_US';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import DateTimeFormat from 'gregorian-calendar-format';
 import objectAssign from 'object-assign';
@@ -164,11 +163,5 @@ const AntCalendar = React.createClass({
 
 AntDatePicker.Calendar = AntCalendar;
 AntDatePicker.MonthPicker = AntMonthPicker;
-
-// TODO. remove after https://github.com/ant-design/ant-design/issues/487
-AntDatePicker.locale = {
-  en_US: pickerEnUsLocale,
-  zh_CN: defaultLocale,
-};
 
 export default AntDatePicker;

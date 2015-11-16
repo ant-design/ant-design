@@ -1,6 +1,6 @@
 import React, {PropTypes, Component} from 'react';
 import GregorianCalendar from 'gregorian-calendar';
-import zhCn from '../datepicker/locale/zh_CN';
+import zhCN from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import {PREFIX_CLS} from './Constants';
 import Header from './Header';
@@ -127,7 +127,7 @@ Calendar.propTypes = {
 Calendar.defaultProps = {
   monthCellRender: noop,
   dateCellRender: noop,
-  locale: zhCn,
+  locale: zhCN,
   fullscreen: true,
   prefixCls: PREFIX_CLS,
   onPanelChange: noop,
