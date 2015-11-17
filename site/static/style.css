@@ -1676,7 +1676,7 @@ footer ul li > a {
   margin-left: 5px;
   opacity: 0.8;
   transition: all 0.3s ease;
-  top: -1px;
+  top: -2px;
   position: relative;
 }
 
@@ -1874,8 +1874,6 @@ a.entry-link .anticon-smile {
   display: inline-block;
   -webkit-animation: rotateCircleBack 0.6s 1 ease-in-out;
   animation: rotateCircleBack 0.6s 1 ease-in-out;
-  position: relative;
-  top: 1px;
   line-height: 1;
   width: 16px;
 }
