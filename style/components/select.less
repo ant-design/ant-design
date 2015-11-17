@@ -11,14 +11,14 @@
 .selected_icon() {
   position: relative;
   &:after {
-    .iconfont-size-under-12px(10px);
+    .iconfont-size-under-12px(9px);
     display: inline-block;
     content: '\e62e';
     font-family: 'anticon';
     font-weight: bold;
     position: absolute;
     top: 7px;
-    right: 0;
+    right: -1px;
     padding-right: 14px;
     color: @primary-color;
     transform: scale(0.75)
@@ -398,7 +398,6 @@
       white-space: nowrap;
       cursor: pointer;
       overflow: hidden;
-      text-overflow: ellipsis;
 
       &:first-child {
         border-top-left-radius: 4px;
