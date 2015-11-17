@@ -4,7 +4,8 @@ import React from 'react';
 export default React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-input-number'
+      prefixCls: 'ant-input-number',
+      step: 1,
     };
   },
   render() {
