@@ -1,9 +1,6 @@
 import React from 'react';
-
 import DateTimeFormat from 'gregorian-calendar-format';
-
 import TimePicker from 'rc-time-picker/lib/TimePicker';
-import TimePanel from 'rc-time-picker/lib/TimePanel';
 
 // import defaultLocale from './locale';
 import TimePickerLocale from 'rc-time-picker/lib/locale/zh_CN';
@@ -40,30 +37,8 @@ const AntTimepicker = React.createClass({
       });
     }
 
-    const timePanel = (
-      <TimePanel
-        prefixCls={prefixCls}
-        defaultValue={showValue}
-        locale={TimePickerLocale}
-        formatter={formatter}
-        hourOptions={hourOptions}
-        minuteOptions={minuteOptions}
-        secondOptions={secondOptions}
-      />
-    );
     return (
-      <TimePicker prefixCls={prefixCls} panel={timePanel} align={align} disabled={disabled} value={showValue}>
-        {
-          ({value}) => {
-            return (
-              <span>
-                <input className={`${prefixCls}-picker-input ant-input`} type="text" placeholder={placeholder} readOnly disabled={disabled} value={value && formatter.format(value)} />
-                <span className={`${prefixCls}-picker-icon`} />
-              </span>
-            );
-          }
-        }
-      </TimePicker>
+      <TimePicker prefixCls={prefixCls} locale={TimePickerLocale} formatter={formatter} hourOptions={hourOptions} minuteOptions={minuteOptions} secondOptions={secondOptions} disabled={disabled} align={align} placeholder={placeholder} value={showValue} />
     );
   }
 
