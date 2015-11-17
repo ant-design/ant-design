@@ -18,6 +18,8 @@
 
 ## API
 
+> 此组件取代了 0.9.x 版本的 [enter-animation](http://09x.ant.design/components/enter-animation/)。
+
 元素依次进场。
 
 ```html
