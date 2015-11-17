@@ -8,7 +8,7 @@ import TimePanel from 'rc-time-picker/lib/TimePanel';
 // import defaultLocale from './locale';
 import TimePickerLocale from 'rc-time-picker/lib/locale/zh_CN';
 
-const AntTimePicker = React.createClass({
+const AntTimepicker = React.createClass({
 
   getDefaultProps() {
     return {
@@ -69,4 +69,4 @@ const AntTimePicker = React.createClass({
 
 });
 
-export default AntTimePicker;
+export default AntTimepicker;
