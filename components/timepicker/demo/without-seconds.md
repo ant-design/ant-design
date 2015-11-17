@@ -8,9 +8,9 @@
 ---
 
 ````jsx
-import { TimePicker } from 'antd';
+import { Timepicker } from 'antd';
 
 ReactDOM.render(
-  <TimePicker defaultValue="12:08:23" format="HH:mm" />
+  <Timepicker defaultValue="12:08:23" format="HH:mm" />
 , document.getElementById('components-timepicker-demo-without-seconds'));
 ````

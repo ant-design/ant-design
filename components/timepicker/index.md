@@ -1,4 +1,4 @@
-TimePicker
+Timepicker
 ==========
 
 -	category: Components
@@ -18,7 +18,7 @@ API
 ---
 
 ```html
-<TimePicker value="13:30:56" />
+<Timepicker value="13:30:56" />
 ```
 
 | 参数          | 说明                                                          | 类型     | 默认值                                                          |
