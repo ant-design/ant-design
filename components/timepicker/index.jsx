@@ -1,9 +1,6 @@
 import React from 'react';
-
 import DateTimeFormat from 'gregorian-calendar-format';
-
 import TimePicker from 'rc-time-picker/lib/TimePicker';
-import TimePanel from 'rc-time-picker/lib/TimePanel';
 
 // import defaultLocale from './locale';
 import TimePickerLocale from 'rc-time-picker/lib/locale/zh_CN';
@@ -17,53 +14,67 @@ const AntTimepicker = React.createClass({
       onChange() {},  // onChange 可用于 Validator
       locale: {},
       align: {
-        offset: [0, -8],
+        offset: [0, -1],
       },
       open: false,
       disabled: false,
       hourOptions: undefined,
       minuteOptions: undefined,
       secondOptions: undefined,
+      size: '',
+      placement: 'bottomLeft',
+      transitionName: 'slide-up',
     };
   },
 
-  render() {
-    const { defaultValue, format, placeholder, align, disabled, hourOptions, minuteOptions, secondOptions } = this.props;
-    const prefixCls = 'ant-timepicker';
-    const formatter = new DateTimeFormat(format);
+  /**
+   * 获得输入框的 className
+   */
+  getSizeClass() {
+    let sizeClass = '';
+    if (this.props.size === 'large') {
+      sizeClass = ' ant-input-lg';
+    } else if (this.props.size === 'small') {
+      sizeClass = ' ant-input-sm';
+    }
+    return sizeClass;
+  },
 
-    let showValue = undefined;
+  /**
+   * 获得输入框的默认值
+   */
+  getDefaultValue(formatter) {
+    const defaultValue = this.props.defaultValue;
     if (defaultValue) {
-      showValue = formatter.parse(defaultValue, {
+      return formatter.parse(defaultValue, {
         locale: defaultValue.locale,
         obeyCount: true,
       });
     }
+    return undefined;
+  },
 
-    const timePanel = (
-      <TimePanel
+  render() {
+    const { format, placeholder, align, disabled, hourOptions, minuteOptions, secondOptions, placement, transitionName } = this.props;
+    const prefixCls = 'ant-timepicker';
+    const formatter = new DateTimeFormat(format);
+
+    return (
+      <TimePicker
         prefixCls={prefixCls}
-        defaultValue={showValue}
         locale={TimePickerLocale}
         formatter={formatter}
         hourOptions={hourOptions}
         minuteOptions={minuteOptions}
         secondOptions={secondOptions}
+        disabled={disabled}
+        align={align}
+        placeholder={placeholder}
+        inputClassName={`ant-input ${this.getSizeClass()}`}
+        defaultValue={this.getDefaultValue(formatter)}
+        placement={placement}
+        transitionName={transitionName}
       />
-    );
-    return (
-      <TimePicker prefixCls={prefixCls} panel={timePanel} align={align} disabled={disabled} value={showValue}>
-        {
-          ({value}) => {
-            return (
-              <span>
-                <input className={`${prefixCls}-picker-input ant-input`} type="text" placeholder={placeholder} readOnly disabled={disabled} value={value && formatter.format(value)} />
-                <span className={`${prefixCls}-picker-icon`} />
-              </span>
-            );
-          }
-        }
-      </TimePicker>
     );
   }
 
