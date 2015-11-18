@@ -87,6 +87,18 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
 
+<div class="code-line-highlight"></div>
+
+<style>
+.code-line-highlight {
+  box-shadow: 0px 196px 0px rgba(255, 207, 0, 0.16);
+  height: 42px;
+  margin-top: -42px;
+  position: relative;
+  z-index: 1;
+}
+</style>
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -105,17 +117,6 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   <script src="/index.js"></script>
 </html>
 ```
-
-<div class="code-line-highlight"></div>
-
-<style>
-.code-line-highlight {
-  box-shadow: 0 -239px 0 rgba(255, 207, 0, 0.16);
-  height: 42px;
-  margin-bottom: -42px;
-}
-</style>
-
 
 ## 自行构建
 
