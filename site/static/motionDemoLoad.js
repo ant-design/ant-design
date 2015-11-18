@@ -3,7 +3,10 @@
  */
 var TweenMax = TweenMax, Motion = Motion;
 $(function () {
-  var needData = ["/static/TweenMax.min.js", "/static/motion.js"];
+  var needData = [
+    "https://os.alipayobjects.com/rmsportal/nGFyCGHAblMWsYE.js",  // TweenMax.min.js
+    "/static/motion.js"
+  ];
   var loadFunc = {
     num: 0,
     numSub: function (_callback) {
@@ -19,10 +22,10 @@ $(function () {
     getLoad: function (_callback) {
       var self = this, str = needData[self.num];
       if (str.indexOf(".js") >= 0) {
-        if ((str.indexOf('TweenMax') >= 0 && TweenMax) || (str.indexOf('motion.js') >= 0 && Motion)) {
+        if ((str.indexOf('nGFyCGHAblMWsYE') >= 0 && TweenMax) || (str.indexOf('motion.js') >= 0 && Motion)) {
           self.numSub(_callback)
         } else {
-          $.getScript(rootUrl + str, function () {
+          $.getScript(str.indexOf('http') === 0 ? str : (rootUrl + str), function() {
             self.numSub(_callback)
           })
         }
