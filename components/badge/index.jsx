@@ -1,29 +1,39 @@
 import React from 'react';
 import Animate from 'rc-animate';
-const prefixCls = 'ant-badge';
 
 class AntBadge extends React.Component {
   constructor(props) {
     super(props);
   }
 
-
   render() {
-    let count = this.props.count;
+    let { count, prefixCls } = this.props;
     const dot = this.props.dot;
-    // null undefined "" "0" 0
-    const closed = !count || count === '0';
-    const countIsNull = count === null ? true : false;
+
     count = count >= 100 ? '99+' : count;
+
+    // dot mode don't need count
+    if (dot) {
+      count = '';
+    }
+
+    // null undefined "" "0" 0
+    const hidden = (!count || count === '0') && !dot;
+    const className = prefixCls + (dot ? '-dot' : '-count');
+
     return (
-      <span className={prefixCls} title={!countIsNull ? count : ''} {...this.props}>
-          {this.props.children}
+      <span className={prefixCls} title={count} {...this.props}>
+        {this.props.children}
         <Animate component=""
           showProp="data-show"
-          transitionName="zoom-badge"
-          transitionAppear={true}
-        >
-        {closed && !dot ? null : <sup data-show={countIsNull ? dot : !closed} className={prefixCls + (!countIsNull ? '-count' : '-dot')}>{!countIsNull ? count : ''}</sup>}
+          transitionName={prefixCls + '-zoom'}
+          transitionAppear={true}>
+          {
+            hidden ? null :
+            <sup data-show={!hidden} className={className}>
+              {count}
+            </sup>
+          }
         </Animate>
       </span>
     );
@@ -31,7 +41,7 @@ class AntBadge extends React.Component {
 }
 
 AntBadge.defaultProps = {
-  prefixCls: prefixCls,
+  prefixCls: 'ant-badge',
   count: null,
   dot: false
 };

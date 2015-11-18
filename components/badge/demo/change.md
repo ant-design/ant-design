@@ -29,15 +29,15 @@ const Test = React.createClass({
     this.setState({ count });
   },
   onClick() {
-      this.setState({
-        show:!this.state.show
-      });
-    },
+    this.setState({
+      show: !this.state.show
+    });
+  },
   onNumberClick(){
     const count = this.state.count;
     this.setState({
-     count:count ? 0 : 5
-    })
+      count: count ? 0 : 5
+    });
   },
   render() {
     return <div>

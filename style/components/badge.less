@@ -40,6 +40,17 @@
     z-index: 10;
     box-shadow: 0 0 0 1px #fff;
   }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    animation: antZoomBadgeIn .3s @ease-out-back;
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomBadgeOut .3s @ease-in-back;
+    animation-fill-mode: both;
+  }
 }
 
 a .@{badge-prefix-cls} {
@@ -51,3 +62,22 @@ a .@{badge-prefix-cls} {
   }
 }
 
+@keyframes antZoomBadgeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+  100% {
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translateX(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+}
