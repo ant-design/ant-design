@@ -253,7 +253,7 @@ let TintShadeTool = React.createClass({
   render() {
     var marks = {
       '-100': '加黑',
-      '0.1': '原色',
+      '0': '原色',
       '100': '加白'
     };
     return <div style={{margin: '40px 0'}}>
