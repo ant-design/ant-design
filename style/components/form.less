@@ -268,14 +268,22 @@ form {
     .animation(zoomIn .3s @ease-out-back);
   }
 }
-.has-error{
+
+.has-success {
   &.has-feedback:after {
-    animation-name: zoomIn2 !important;
+    animation-name: diffZoomIn1 !important;
   }
 }
-.has-warning{
+
+.has-error {
   &.has-feedback:after {
-    animation-name: zoomIn3 !important;
+    animation-name: diffZoomIn2 !important;
+  }
+}
+
+.has-warning {
+  &.has-feedback:after {
+    animation-name: diffZoomIn3 !important;
   }
 }
 
@@ -320,6 +328,9 @@ form {
   .@{input-number-prefix-cls} {
     border-color: @warning-color;
     box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+    &:not([disabled]):hover {
+      border-color: @warning-color;
+    }
   }
 }
 
@@ -352,6 +363,9 @@ form {
   .@{input-number-prefix-cls} {
     border-color: @error-color;
     box-shadow: 0 0 0 2px tint(@error-color, 80%);
+    &:not([disabled]):hover {
+      border-color: @error-color;
+    }
   }
 }
 
@@ -363,7 +377,9 @@ form {
   }
 }
 
-@keyframes zoomIn2 {
+// need there different zoom animation
+// otherwise won't trigger anim
+@keyframes diffZoomIn1 {
   0%{
     transform: scale(0);
   }
@@ -371,7 +387,17 @@ form {
     transform: scale(1);
   }
 }
-@keyframes zoomIn3 {
+
+@keyframes diffZoomIn2 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes diffZoomIn3 {
   0%{
     transform: scale(0);
   }
