@@ -16,11 +16,40 @@
 .zoom-motion(zoom-left, antZoomLeft);
 .zoom-motion(zoom-right, antZoomRight);
 
-
-.zoom-tag-leave{
-  animation: antZoomOut .3s @ease-in-out-circ;
+.zoom-badge-appear,.zoom-badge-enter {
+  animation: antZoomBadgeIn .3s @ease-out-back;
+  animation-fill-mode: both;
 }
 
+.zoom-badge-leave {
+  animation: antZoomBadgeOut .3s @ease-in-back;
+  animation-fill-mode: both;
+}
+
+.zoom-tag-leave {
+  animation: antZoomOut .3s @ease-in-out-circ;
+  animation-fill-mode: both;
+}
+
+@keyframes antZoomBadgeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+  100% {
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translateX(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+}
 
 @keyframes antZoomIn {
   0% {
@@ -41,6 +70,7 @@
     transform: scale(0);
   }
 }
+
 @keyframes antZoomBigIn {
   0% {
     opacity: 0;
