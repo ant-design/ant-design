@@ -2,19 +2,29 @@
 
 - order: 3
 
-使用 `marks` 属性标注分段式滑块，结合 `index` 可以指定滑块按钮初始位置。
+使用 `marks` 属性标注分段式滑块，使用 `value` / `defaultValue` 指定滑块位置。可以结合 `step` `included` 使用。
 
 ---
 
 ````jsx
 import { Slider } from 'antd';
 
+const marks = {
+  0: '0°C',
+  26: '26°C',
+  37: '37°C',
+  100: '100°C'
+};
+
 ReactDOM.render(
-<div className="sliderContainer">
+<div>
   <p>包含关系</p>
-  <Slider marks={["状态1","状态2","状态3","状态4"]} defaultIndex={1} />
+  <Slider marks={marks} defaultValue={37} />
+  <Slider range marks={marks} defaultValue={[26, 37]} />
   <p>并列关系</p>
-  <Slider marks={["状态1","状态2","状态3","状态4"]} included={false} defaultIndex={1} />
+  <Slider marks={marks} included={false} defaultValue={37} />
+  <p>结合 `step`</p>
+  <Slider marks={marks} step={10} defaultValue={37} />
 </div>
 , document.getElementById('components-slider-demo-mark'));
 ````
