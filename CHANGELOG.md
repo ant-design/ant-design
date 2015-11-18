@@ -8,7 +8,7 @@
 
 计划和推进：https://github.com/ant-design/ant-design/issues/276
 
-## 0.9.4 `2015-11-04`
+## 0.9.3 ~ 0.9.5 `2015-11-04`
 
 * 增加对 React 版本的检测提示机制，0.9.x 序列只能使用 `react@~0.13.3`。
 
