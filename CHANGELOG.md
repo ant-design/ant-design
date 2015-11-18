@@ -14,9 +14,9 @@
 
 ## 0.9.2 `2015-10-26`
 
-* Tooltip 的 title 为空时不展示浮层。[9b53117](9b5311791e73270c7c16a602ac74dd59719a5f76)
-* 修复 Upload 文件列表链接的 target 属性。[340a170](340a1702b6a7b065ac02d417c891e1886dfe470d)
-* 修复 Datepicker 设置 defaultValue 时星期顺序错误的问题。[9ef1450](9ef14500f3abfcc7081f8dceab8187ec835e3918)
+* Tooltip 的 title 为空时不展示浮层。[9b53117](https://github.com/ant-design/ant-design/commit/9b5311791e73270c7c16a602ac74dd59719a5f76)
+* 修复 Upload 文件列表链接的 target 属性。[340a170](https://github.com/ant-design/ant-design/commit/340a1702b6a7b065ac02d417c891e1886dfe470d)
+* 修复 Datepicker 设置 defaultValue 时星期顺序错误的问题。[9ef1450](https://github.com/ant-design/ant-design/commit/9ef14500f3abfcc7081f8dceab8187ec835e3918)
 * 修复一些小的样式问题。
 
 ## 0.9.1 `2015-09-26`
