@@ -23,7 +23,7 @@ ReactDOM.render(
   <Slider range marks={marks} defaultValue={[26, 37]} />
   <p>并列关系</p>
   <Slider marks={marks} included={false} defaultValue={37} />
-  <p>结合 `step`</p>
+  <p>结合 step</p>
   <Slider marks={marks} step={10} defaultValue={37} />
 </div>
 , document.getElementById('components-slider-demo-mark'));

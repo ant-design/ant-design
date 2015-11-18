@@ -23,6 +23,6 @@ ReactDOM.render(<div>
 }
 
 .code-box-demo .ant-slider:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 </style>
