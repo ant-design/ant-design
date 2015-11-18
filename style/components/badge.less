@@ -19,7 +19,7 @@
     padding: 0 7px;
     font-size: 12px;
     white-space: nowrap;
-    transition: all 0.3s ease;
+    transform-origin: -10% center;
     z-index: 10;
     font-family: tahoma;
     box-shadow: 0 0 0 1px #fff;
@@ -30,13 +30,13 @@
 
   &-dot {
     position: absolute;
+    transform: translateX(-50%);
+    transform-origin: 0px center;
     top: -4px;
-    right: -4px;
     height: 8px;
     width: 8px;
     border-radius: 100%;
     background: @error-color;
-    transition: all 0.3s ease;
     z-index: 10;
     box-shadow: 0 0 0 1px #fff;
   }
@@ -50,3 +50,4 @@ a .@{badge-prefix-cls} {
     background: shade(@error-color, 5%);
   }
 }
+
