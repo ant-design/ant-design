@@ -10,7 +10,9 @@
 import { Timepicker } from 'antd';
 
 function onChange(time) {
-  console.log(time.toTimeString());
+  console.log(time.toLocaleTimeString('zh-CN', {
+    hour12: false
+  }));
 }
 
 ReactDOM.render(
