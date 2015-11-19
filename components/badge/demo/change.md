@@ -67,15 +67,3 @@ ReactDOM.render(
   <Test />
 , document.getElementById('components-badge-demo-change'));
 ````
-````css
-.ant-badge {
-  margin-right: 16px;
-}
-.head-example {
-  width: 42px;
-  height: 42px;
-  border-radius: 6px;
-  background: #eee;
-  display: inline-block;
-}
-````
