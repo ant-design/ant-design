@@ -46,7 +46,7 @@ ReactDOM.render(
           </Breadcrumb>
         </div>
         <div className="ant-layout-container">
-          <div style={{ height: 240 }}></div>
+          <div style={{ height: 210 }}></div>
         </div>
       </div>
       <div className="ant-layout-footer">
