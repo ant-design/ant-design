@@ -1,5 +1,6 @@
 import React from 'react';
 import Animate from 'rc-animate';
+import AntNumber from './AntNumber';
 
 class AntBadge extends React.Component {
   constructor(props) {
@@ -30,9 +31,7 @@ class AntBadge extends React.Component {
           transitionAppear={true}>
           {
             hidden ? null :
-            <sup data-show={!hidden} className={className}>
-              {count}
-            </sup>
+            <AntNumber data-show={!hidden} className={className} count={count}/>
           }
         </Animate>
       </span>
