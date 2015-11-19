@@ -10,10 +10,7 @@
 import { Timepicker } from 'antd';
 
 function onChange(time) {
-  console.log(time.toLocaleTimeString());
-  console.log('时', time.getHours());
-  console.log('分', time.getMinutes());
-  console.log('秒', time.getSeconds());
+  console.log(time.toTimeString());
 }
 
 ReactDOM.render(
