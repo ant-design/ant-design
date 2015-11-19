@@ -1,0 +1,51 @@
+.@{timepicker-prefix-cls}-select {
+  float: left;
+  overflow-y:auto;
+  font-size: 12px;
+  border: 1px solid #e9e9e9;
+  border-width: 0 1px;
+  margin-left: -1px;
+  box-sizing: border-box;
+  width: 56px;
+
+  &:first-child {
+    border-left: 0;
+    margin-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  ul {
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-height: 144px;
+  }
+
+  li {
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 0 0 16px;
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+
+    &.selected {
+      background: tint(@primary-color, 90%);
+      color: @link-color;
+    }
+
+    &:hover {
+      background: tint(@primary-color, 90%);
+      transition: background 0.3s ease;
+    }
+  }
+}

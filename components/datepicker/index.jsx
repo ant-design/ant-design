@@ -13,7 +13,6 @@ function createPicker(TheCalendar) {
     getDefaultProps() {
       return {
         format: 'yyyy-MM-dd',
-        placeholder: '',
         transitionName: 'slide-up',
         popupStyle: {},
         onSelect: null, // 向前兼容
@@ -94,7 +93,8 @@ function createPicker(TheCalendar) {
       let defaultCalendarValue = new GregorianCalendar(this.getLocale());
       defaultCalendarValue.setTime(Date.now());
 
-      const placeholder = this.props.placeholder || this.getLocale().lang.placeholder;
+      const placeholder = ('placeholder' in this.props)
+        ? this.placeholder : this.getLocale().lang.placeholder;
       const calendar = (
         <TheCalendar
           disabledDate={this.props.disabledDate}

@@ -59,6 +59,7 @@ const antd = {
   Form: require('./components/form').Form,
   Input: require('./components/form').Input,
   Calendar: require('./components/calendar'),
+  Timepicker: require('./components/timepicker'),
 };
 
 antd.version = require('./package.json').version;
