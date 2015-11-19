@@ -1,6 +1,6 @@
 # 安装
 
-- category: 3
+- category: 2
 - order: 2
 
 ---
