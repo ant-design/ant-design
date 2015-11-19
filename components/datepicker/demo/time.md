@@ -9,13 +9,16 @@
 ````jsx
 import { Datepicker, Timepicker } from 'antd';
 
-function onChange(value) {
-  console.log(value);
+function onDateChange(date) {
+  console.log(date);
+}
+
+function onTimeChange(time) {
+  console.log(time);
 }
 
 ReactDOM.render(<div>
-  <Datepicker onChange={onChange} />
-  <Timepicker onChange={onChange} />
+  <Datepicker onChange={onDateChange} />
+  <Timepicker onChange={onTimeChange} />
 </div>, document.getElementById('components-datepicker-demo-time'));
 ````
-
