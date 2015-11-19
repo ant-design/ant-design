@@ -23,13 +23,6 @@
 npm install antd
 ```
 
-可以提前体验兼容 `react@0.14.x` 的 [0.10.0](https://github.com/ant-design/ant-design/issues/276) 的 beta 版本.
-
-```bash
-npm install antd@beta
-```
-
-
 ## 示例
 
 - 使用全部组件
