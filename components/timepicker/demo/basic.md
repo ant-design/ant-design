@@ -9,7 +9,14 @@
 ````jsx
 import { Timepicker } from 'antd';
 
+function onChange(time) {
+  console.log(time.toLocaleTimeString());
+  console.log('时', time.getHours());
+  console.log('分', time.getMinutes());
+  console.log('秒', time.getSeconds());
+}
+
 ReactDOM.render(
-  <Timepicker defaultValue="12:08:23" />
+  <Timepicker defaultValue="12:08:23" onChange={onChange} />
 , document.getElementById('components-timepicker-demo-basic'));
 ````

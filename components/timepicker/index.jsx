@@ -11,6 +11,7 @@ const AntTimepicker = React.createClass({
       format: 'HH:mm:ss',
       placeholder: '请选择时间',
       prefixCls: 'ant-timepicker',
+      onChange() {},
       locale: {},
       align: {
         offset: [0, -1],
@@ -53,6 +54,10 @@ const AntTimepicker = React.createClass({
     return undefined;
   },
 
+  handleChange(value) {
+    this.props.onChange(new Date(value.getTime()));
+  },
+
   render() {
     const { format } = this.props;
     const formatter = new DateTimeFormat(format);
@@ -64,6 +69,7 @@ const AntTimepicker = React.createClass({
         inputClassName={`ant-input ${this.getSizeClass()}`}
         formatter={formatter}
         defaultValue={this.getDefaultValue(formatter)}
+        onChange={this.handleChange}
       />
     );
   }
