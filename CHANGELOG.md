@@ -23,10 +23,13 @@
 - 添加布局和导航规范，以及[常用布局](http://ant.design/spec/layout/)。
 - 文档支持标题和演示的锚点，方便分享文档和演示代码。
 - 提供多版本的文档，在[主站](http://ant.design)的右下角提供切换按钮。
-- [antd-bin](https://github.com/ant-design/antd-bin) 升级到 `0.10`。
+- [antd-bin](https://github.com/ant-tool/xtool) 升级到 `0.10`。
 	- 拆分出 [antd-init](https://github.com/ant-design/antd-init) 和 [antd-build](https://github.com/ant-design/antd-build)。
 	- 提供代理功能。
 	- 提供 UI 测试功能。
+
+## 组件变更
+
 - Table
 	- 支持单选。[演示](/components/table/#demo-row-selection-radio-props)
 	- 选择模式支持默认选中和不可用效果。[演示](/components/table/#demo-row-selection-props)
