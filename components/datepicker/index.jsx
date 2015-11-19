@@ -13,7 +13,7 @@ function createPicker(TheCalendar) {
     getDefaultProps() {
       return {
         format: 'yyyy-MM-dd',
-        placeholder: '请选择日期',
+        placeholder: '',
         transitionName: 'slide-up',
         popupStyle: {},
         onSelect: null, // 向前兼容
@@ -80,7 +80,10 @@ function createPicker(TheCalendar) {
       const timeValue = value ? new Date(value.getTime()) : null;
       // onSelect 为向前兼容.
       if (this.props.onSelect) {
-        require('util-deprecate')(this.props.onSelect, 'onSelect property of Datepicker is deprecated, use onChange instead')(timeValue);
+        require('util-deprecate')(
+          this.props.onSelect,
+          'onSelect property of Datepicker is deprecated, use onChange instead'
+        )(timeValue);
       }
       this.props.onChange(timeValue);
     },
@@ -90,12 +93,14 @@ function createPicker(TheCalendar) {
       // 否则会以周日开始排
       let defaultCalendarValue = new GregorianCalendar(this.getLocale());
       defaultCalendarValue.setTime(Date.now());
+
+      const placeholder = this.props.placeholder || this.getLocale().lang.placeholder;
       const calendar = (
         <TheCalendar
           disabledDate={this.props.disabledDate}
           locale={this.getLocale().lang}
           defaultValue={defaultCalendarValue}
-          dateInputPlaceholder={this.props.placeholder}
+          dateInputPlaceholder={placeholder}
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
@@ -133,7 +138,7 @@ function createPicker(TheCalendar) {
                   <input disabled={this.props.disabled}
                          onChange={this.handleInputChange}
                          value={value && this.getFormatter().format(value)}
-                         placeholder={this.props.placeholder}
+                         placeholder={placeholder}
                          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
                   <span className="ant-calendar-picker-icon"/>
                 </span>

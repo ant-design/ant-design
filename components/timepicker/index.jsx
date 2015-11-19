@@ -1,9 +1,8 @@
 import React from 'react';
 import DateTimeFormat from 'gregorian-calendar-format';
 import TimePicker from 'rc-time-picker/lib/TimePicker';
-
-// import defaultLocale from './locale';
-import TimePickerLocale from 'rc-time-picker/lib/locale/zh_CN';
+import objectAssign from 'object-assign';
+import defaultLocale from './locale/zh_CN';
 
 const AntTimepicker = React.createClass({
   getDefaultProps() {
@@ -47,7 +46,7 @@ const AntTimepicker = React.createClass({
     const defaultValue = this.props.defaultValue;
     if (defaultValue) {
       return formatter.parse(defaultValue, {
-        locale: defaultValue.locale,
+        locale: this.getLocale(),
         obeyCount: true,
       });
     }
@@ -58,14 +57,20 @@ const AntTimepicker = React.createClass({
     this.props.onChange(new Date(value.getTime()));
   },
 
+  getLocale() {
+    // 统一合并为完整的 Locale
+    let locale = objectAssign({}, defaultLocale, this.props.locale);
+    locale.lang = objectAssign({}, defaultLocale.lang, this.props.locale.lang);
+    return locale;
+  },
+
+
   render() {
     const { format } = this.props;
     const formatter = new DateTimeFormat(format);
-
     return (
       <TimePicker
         {...this.props}
-        locale={TimePickerLocale}
         inputClassName={`ant-input ${this.getSizeClass()}`}
         formatter={formatter}
         defaultValue={this.getDefaultValue(formatter)}

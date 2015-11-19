@@ -77,7 +77,7 @@ let FilterMenu = React.createClass({
              pointerEvents: 'visible'
            }}
            onClick={this.handleClearFilters}>
-          清空
+          重置
         </a>
       </Menu.Item>
     </Menu>;

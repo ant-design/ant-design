@@ -32,7 +32,7 @@ const Test = React.createClass({
     });
   },
   render() {
-  // filterOption 需要设置为 false，数据是动态设置的
+    // filterOption 需要设置为 false，数据是动态设置的
     return <Select combobox
       style={{width:200}}
       onChange={this.handleChange}

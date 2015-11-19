@@ -24,7 +24,7 @@ API
 |-----------------|-----|-----|-------|
 | defaultValue    | 默认时间 | string | 无 |
 | placeholder     | 没有值的时候显示的内容 | string | "请选择时间" |
-| onChange     | 日期发生变化的回调，发生在用户选择日期时 | function(Date value) | 无           |
+| onChange        | 时间发生变化的回调     | function(Date value) | 无           |
 | format          | 展示的时间格式 | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |
 | disabled        | 禁用 | bool | false |
 | hourOptions     | 特定可选择的小时 | array | 0 到 24 组成的数组 |
