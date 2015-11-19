@@ -8,7 +8,6 @@ const AntTimepicker = React.createClass({
   getDefaultProps() {
     return {
       format: 'HH:mm:ss',
-      placeholder: '',
       prefixCls: 'ant-timepicker',
       onChange() {},
       locale: {},
@@ -67,7 +66,8 @@ const AntTimepicker = React.createClass({
   render() {
     const { format } = this.props;
     const formatter = new DateTimeFormat(format);
-    const placeholder = this.props.placeholder || this.getLocale().lang.placeholder;
+    const placeholder = ('placeholder' in this.props)
+      ? this.props.placeholder : this.getLocale().lang.placeholder;
     return (
       <TimePicker
         {...this.props}
