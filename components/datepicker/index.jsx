@@ -13,7 +13,6 @@ function createPicker(TheCalendar) {
     getDefaultProps() {
       return {
         format: 'yyyy-MM-dd',
-        placeholder: '请选择日期',
         transitionName: 'slide-up',
         popupStyle: {},
         onSelect: null, // 向前兼容
@@ -95,7 +94,7 @@ function createPicker(TheCalendar) {
           disabledDate={this.props.disabledDate}
           locale={this.getLocale().lang}
           defaultValue={defaultCalendarValue}
-          dateInputPlaceholder={this.props.placeholder}
+          dateInputPlaceholder={this.getLocale().lang.placeholder}
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
@@ -133,7 +132,7 @@ function createPicker(TheCalendar) {
                   <input disabled={this.props.disabled}
                          onChange={this.handleInputChange}
                          value={value && this.getFormatter().format(value)}
-                         placeholder={this.props.placeholder}
+                         placeholder={this.getLocale().lang.placeholder}
                          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
                   <span className="ant-calendar-picker-icon"/>
                 </span>
