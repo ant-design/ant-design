@@ -5,7 +5,7 @@ import CalendarLocale from 'rc-calendar/lib/locale/en_US';
 // 统一合并为完整的 Locale
 let locale = objectAssign({}, GregorianCalendarLocale);
 locale.lang = objectAssign({
-  placeholder: 'Please select a date'
+  placeholder: 'Select a date'
 }, CalendarLocale);
 
 // All settings at:
