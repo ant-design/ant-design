@@ -31,11 +31,7 @@ class AntNumber extends React.Component {
     }
     let length = count.toString().length;
     let childrenWap = [];
-    const a = childrenWap.length || 0;
-    if (length < a) {
-      childrenWap.splice(0, 1);
-    }
-    let i = a;//length - 1;
+    let i = 0;
     while (i < length) {
       const children = this.getNumberOnly(i);
       childrenWap.unshift(children);
@@ -49,7 +45,6 @@ class AntNumber extends React.Component {
     });
     return childrenWap;
   }
-
 
   updateChildren(props) {
     if (typeof props.count === 'string') {
