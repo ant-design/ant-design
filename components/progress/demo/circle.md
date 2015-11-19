@@ -7,13 +7,13 @@
 ---
 
 ````jsx
-import { Progress } from 'antd';
+import { Progress, Icon } from 'antd';
 const ProgressCircle = Progress.Circle;
 
 ReactDOM.render(
   <div>
     <ProgressCircle percent={30} />
-    <ProgressCircle percent={70} status="exception" />
+    <ProgressCircle percent={70} status="exception" format={<Icon type="exclamation" />} />
     <ProgressCircle percent={100} />
   </div>
   , document.getElementById('components-progress-demo-circle'));
