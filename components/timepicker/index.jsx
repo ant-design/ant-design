@@ -6,12 +6,11 @@ import TimePicker from 'rc-time-picker/lib/TimePicker';
 import TimePickerLocale from 'rc-time-picker/lib/locale/zh_CN';
 
 const AntTimepicker = React.createClass({
-
   getDefaultProps() {
     return {
       format: 'HH:mm:ss',
       placeholder: '请选择时间',
-      onChange() {},  // onChange 可用于 Validator
+      prefixCls: 'ant-timepicker',
       locale: {},
       align: {
         offset: [0, -1],
@@ -55,25 +54,16 @@ const AntTimepicker = React.createClass({
   },
 
   render() {
-    const { format, placeholder, align, disabled, hourOptions, minuteOptions, secondOptions, placement, transitionName } = this.props;
-    const prefixCls = 'ant-timepicker';
+    const { format } = this.props;
     const formatter = new DateTimeFormat(format);
 
     return (
       <TimePicker
-        prefixCls={prefixCls}
+        {...this.props}
         locale={TimePickerLocale}
-        formatter={formatter}
-        hourOptions={hourOptions}
-        minuteOptions={minuteOptions}
-        secondOptions={secondOptions}
-        disabled={disabled}
-        align={align}
-        placeholder={placeholder}
         inputClassName={`ant-input ${this.getSizeClass()}`}
+        formatter={formatter}
         defaultValue={this.getDefaultValue(formatter)}
-        placement={placement}
-        transitionName={transitionName}
       />
     );
   }

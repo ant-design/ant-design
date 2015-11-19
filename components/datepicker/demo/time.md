@@ -2,15 +2,20 @@
 
 - order: 4
 
-准确到秒的时间选择面板。
+和 [时间选择组件](/components/timepicker) 配合使用。
 
 ---
 
 ````jsx
-import { Datepicker } from 'antd';
+import { Datepicker, Timepicker } from 'antd';
 
-ReactDOM.render(
-  <Datepicker showTime={true} format="yyyy-MM-dd HH:mm:ss" defaultValue="2015-11-11 11:11:11"/>
-, document.getElementById('components-datepicker-demo-time'));
+function onChange(value) {
+  console.log(value);
+}
+
+ReactDOM.render(<div>
+  <Datepicker onChange={onChange} />
+  <Timepicker onChange={onChange} />
+</div>, document.getElementById('components-datepicker-demo-time'));
 ````
 
