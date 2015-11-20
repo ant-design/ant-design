@@ -17,7 +17,7 @@ API
 ---
 
 ```html
-<Timepicker value="13:30:56" />
+<Timepicker defaultValue="13:30:56" />
 ```
 
 | 参数            | 说明 | 类型 | 默认值 |
