@@ -1,4 +1,4 @@
-import React, {createElement, cloneElement} from 'react';
+import React, {createElement} from 'react';
 import {findDOMNode} from 'react-dom';
 import {toArrayChildren, getPartNumber, getTranslateY} from './utils';
 import assign from 'object-assign';
@@ -16,7 +16,7 @@ class AntNumber extends React.Component {
     };
   }
 
-  getNumberOnly(c) {
+  getNumberOnly(c, style) {
     const childrenToReturn = [];
     for (let i = 0; i < 30; i++) {
       let count = i >= 10 ? i % 10 : i;
@@ -24,7 +24,7 @@ class AntNumber extends React.Component {
       childrenToReturn.push(children);
     }
     const key = 'only_' + c;
-    return createElement('span', {className: `${this.props.prefixCls}-only`, key: key}, childrenToReturn);
+    return createElement('span', {className: `${this.props.prefixCls}-only`, style: style, key: key}, childrenToReturn);
   }
 
   setEndState(style) {
@@ -39,27 +39,23 @@ class AntNumber extends React.Component {
     }
     const length = count.toString().length;
     const data = getPartNumber(count);
+    const height = findDOMNode(this).offsetHeight;
     let childrenWap = [];
     let i = 0;
     while (i < length) {
-      const children = this.getNumberOnly(i);
-      childrenWap.unshift(children);
-      i++;
-    }
-    const height = findDOMNode(this).offsetHeight;
-    const _length = childrenWap.length - 1;
-    childrenWap = childrenWap.map((child, j)=> {
-      const oneData = Number(count.toString()[j]);
+      const oneData = Number(count.toString()[i]);
       const style = {};
       let translateY = -(oneData + 10) * height;
       //判断状态
-      translateY = getTranslateY(count, this.count, data, this.data, j, height, _length) || translateY;
+      translateY = getTranslateY(count, this.count, data, this.data, i, height, length - 1) || translateY;
       if (count !== this.count) {
         this.setEndState(style);
       }
-      style.transform = 'translateY(' + translateY + 'px)';
-      return cloneElement(child, {style: style});
-    });
+      style.transform = `translateY(${translateY}px)`;
+      const children = this.getNumberOnly(i, style);
+      childrenWap.push(children);
+      i++;
+    }
     this.data = data;
     this.count = count;
     return childrenWap;
@@ -106,7 +102,7 @@ class AntNumber extends React.Component {
 
   render() {
     const childrenToRender = this.state.children;
-    const props = assign({}, this.props, {className: this.props.prefixCls + ' ' + this.props.className});
+    const props = assign({}, this.props, {className: `${this.props.prefixCls} ${this.props.className}`});
     return createElement(this.props.component, props, childrenToRender);
   }
 }
