@@ -4,7 +4,8 @@ import React from 'react';
 export default React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-input-number'
+      prefixCls: 'ant-input-number',
+      step: 1,
     };
   },
   render() {
@@ -14,6 +15,6 @@ export default React.createClass({
     } else if (this.props.size === 'small') {
       sizeClass = 'ant-input-number-sm';
     }
-    return <InputNumber className={sizeClass} style={{width: 90}} {...this.props} />;
+    return <InputNumber className={sizeClass} {...this.props} />;
   }
 });

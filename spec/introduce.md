@@ -1,6 +1,6 @@
 # Ant Design
 
-- category: top
+- category: 0
 - order: 0
 
 ---
@@ -16,6 +16,8 @@ Ant Design 源自蚂蚁金服体验技术部的后台产品开发，我们的设
 ## 谁在使用
 
 - 蚂蚁金服
+
+> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
 ## 前端实现
 

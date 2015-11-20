@@ -7,45 +7,27 @@
 ---
 
 ````jsx
-var Slider = antd.Slider;
+import { Slider, Icon } from 'antd';
 
-var IconSlider = React.createClass({
+const IconSlider = React.createClass({
   getInitialState() {
-    var max = this.props.max;
-    var min = this.props.min;
-    var mid = ((max - min) / 2).toFixed(5);
-
-    var preIcon, nextIcon;
-    if (this.props.value >= mid) {
-      preIcon = this.props.icon[0];
-      nextIcon = this.props.icon[1] + ' anticon-highlight';
-    } else {
-      preIcon = this.props.icon[0] + ' anticon-highlight';
-      nextIcon = this.props.icon[1];
-    }
+    const max = this.props.max;
+    const min = this.props.min;
+    const mid = ((max - min) / 2).toFixed(5);
 
     return {
-      preIcon: preIcon,
-      nextIcon: nextIcon,
+      preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
+      nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
       mid: mid,
       sliderValue: this.props.value
     };
   },
 
   handleChange(v) {
-    var preIcon, nextIcon;
-    if (v >= this.state.mid) {
-      preIcon = this.props.icon[0];
-      nextIcon = this.props.icon[1] + ' anticon-highlight';
-    } else {
-      preIcon = this.props.icon[0] + ' anticon-highlight';
-      nextIcon = this.props.icon[1];
-    }
-
     this.setState(
       {
-        preIcon: preIcon,
-        nextIcon: nextIcon,
+        preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
+        nextIconClass: v >= this.state.mid ? 'anticon-highlight': '',
         sliderValue: v
       }
     );
@@ -54,28 +36,28 @@ var IconSlider = React.createClass({
   render() {
     return (
       <div className="iconWrapper">
-        <i className={this.state.preIcon}></i>
-        <i className={this.state.nextIcon}></i>
+        <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
+        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
         <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
       </div>
     );
   }
 });
 
-React.render(
-<IconSlider min={0} max={20} value={0} icon={['anticon anticon-lock', 'anticon anticon-unlock']} />
+ReactDOM.render(
+<IconSlider min={0} max={20} value={0} icon={['lock', 'unlock']} />
 , document.getElementById('components-slider-demo-icon-slider'));
 ````
 
-<style>
+````css
 .iconWrapper {
   position: relative;
-  padding: 0 24px 0 9px;
+  padding: 0px 30px;
 }
 
 .iconWrapper .anticon {
   position: absolute;
-  top: -6px;
+  top: -3px;
   width: 16px;
   height: 16px;
   line-height: 1;
@@ -93,4 +75,4 @@ React.render(
 .anticon.anticon-highlight {
   color: #666;
 }
-</style>
+````

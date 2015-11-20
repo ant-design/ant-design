@@ -7,18 +7,18 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
+import { Button, notification } from 'antd';
 
-var openNotification = function() {
-  var args = {
+const openNotification = function() {
+  const args = {
     message: "这是标题",
-    description: "这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案",
-    duration: 10
+    description: "我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，",
+    duration: 0
   };
   notification.open(args);
 };
 
-React.render(
-  <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
+ReactDOM.render(
+  <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
 , document.getElementById('components-notification-demo-duration'));
 ````

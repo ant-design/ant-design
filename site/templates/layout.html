@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -11,29 +12,14 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="{{static_url(config.antdCssUrl)}}">
+    <link rel="stylesheet" href="{{static_url('../dist/demo.css')}}">
     <link rel="stylesheet" href="{{static_url('style.css')}}">
     <link rel="stylesheet" href="{{static_url('tomorrow.css')}}">
-    <script>
-      (function (con) {
-        'use strict';
-        var prop, method;
-        var empty = {};
-        var dummy = function () {
-        };
-        var properties = 'memory'.split(',');
-        var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
-                       'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
-                       'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
-        while (prop = properties.pop()) {
-          con[prop] = con[prop] || empty;
-        }
-        while (method = methods.pop()) {
-          con[method] = con[method] || dummy;
-        }
-      })(this.console = this.console || {});
-    </script>
-    <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js,es5-shim/4.1.10/es5-shim.js,es5-shim/4.1.10/es5-sham.js,html5shiv/3.7.2/src/html5shiv.js,react/0.13.3/react.js"></script>
+    <!--[if IE 8]>
+    <script src="https://t.alipayobjects.com/images/rmsweb/T1q8JiXftaXXXXXXXX.js"></script>
+    <![endif]-->
+    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js"></script>
     <script>
     (function() {
       window.ANT_COMPONENTS = [];
@@ -59,14 +45,13 @@
         stable: '{{config.package.stableVersion}}'
       };
     </script>
-    <script src="{{static_url(config.antdJsUrl)}}"></script>
     <script src="{{static_url('../dist/demo.js')}}"></script>
     <script>
       window.require = function (path) {
         var result = window;
         var namespaces = path.split('/');
         namespaces.forEach(function (key, i) {
-          if (i !== 0 && i === namespaces.length - 1) {
+          if (i === 2) {
             key = capitalizeFirstLetter(key);
           }
           if (key !== 'lib') {
@@ -84,6 +69,7 @@
         return result;
       };
     </script>
+    <script src="https://t.alipayobjects.com/images/T1DrxhXe0mXXXXXXXX.js"></script>
     {% block scripts %}{% endblock %}
   </head>
   <body {% block bodyAttribute %}{% endblock %}>

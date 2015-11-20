@@ -1,6 +1,6 @@
 # 字体
 
-- category: 风格
+- category: 基础
 - order: 0
 
 ---
@@ -191,5 +191,8 @@ font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Mi
 }
 .disabled-text .font-text {
   color: #ccc;
+}
+.help-text .font-text {
+  color: #999;
 }
 </style>

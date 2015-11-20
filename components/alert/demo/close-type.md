@@ -7,10 +7,10 @@
 ---
 
 ````jsx
-var Alert = antd.Alert;
-var link = <a href="javascript:;">不再提醒</a>
+import { Alert } from 'antd';
+const link = <a href="javascript:;">不再提醒</a>;
 
-React.render(
+ReactDOM.render(
 <Alert message="消息提示的文案" type="info" closeText={link} />
 , document.getElementById('components-alert-demo-close-type'));
 ````

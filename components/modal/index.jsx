@@ -2,9 +2,9 @@ import React from 'react';
 import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
 import confirm from './confirm';
+import Button from '../button';
 
-function noop() {
-}
+function noop() {}
 
 let mousePosition;
 let mousePositionEventBinded;
@@ -17,14 +17,9 @@ let AntModal = React.createClass({
       onCancel: noop,
       width: 520,
       transitionName: 'zoom',
-      maskAnimation: 'fade'
-    };
-  },
-
-  getInitialState() {
-    return {
+      maskAnimation: 'fade',
       confirmLoading: false,
-      visible: this.props.visible
+      visible: false
     };
   },
 
@@ -33,25 +28,7 @@ let AntModal = React.createClass({
   },
 
   handleOk() {
-    this.setState({
-      confirmLoading: true
-    });
     this.props.onOk();
-  },
-
-  componentWillReceiveProps(nextProps) {
-    let newState = {};
-    if ('visible' in nextProps) {
-      newState.visible = nextProps.visible;
-      // 隐藏后默认去除按钮 loading 效果
-      if (!nextProps.visible) {
-        newState.confirmLoading = false;
-      }
-    }
-    if ('confirmLoading' in nextProps) {
-      newState.confirmLoading = nextProps.confirmLoading;
-    }
-    this.setState(newState);
   },
 
   componentDidMount() {
@@ -73,38 +50,42 @@ let AntModal = React.createClass({
   },
 
   render() {
-    let loadingClass = this.state.confirmLoading ? ' ant-btn-loading' : '';
     let props = this.props;
     let defaultFooter = [
-      <button key="cancel" type="button" className="ant-btn ant-btn-lg" onClick={this.handleCancel}>取 消</button>,
-      <button key="confirm"
-        type="button"
-        className={'ant-btn ant-btn-primary ant-btn-lg' + loadingClass}
+      <Button key="cancel"
+        type="ghost"
+        size="large"
+        onClick={this.handleCancel}>
+        取消
+      </Button>,
+      <Button key="confirm"
+        type="primary"
+        size="large"
+        loading={props.confirmLoading}
         onClick={this.handleOk}>
-        确 定
-      </button>
+        确定
+      </Button>
     ];
     let footer = props.footer || defaultFooter;
-    let visible = this.state.visible;
     return <Dialog onClose={this.handleCancel} footer={footer} {...props}
-      visible={visible} mousePosition={mousePosition} />;
+      visible={props.visible} mousePosition={mousePosition} />;
   }
 });
 
 AntModal.info = function (props) {
-  props.iconClassName = 'anticon-info-circle';
+  props.iconClassName = 'info-circle';
   props.okCancel = false;
   return confirm(props);
 };
 
 AntModal.success = function (props) {
-  props.iconClassName = 'anticon-check-circle';
+  props.iconClassName = 'check-circle';
   props.okCancel = false;
   return confirm(props);
 };
 
 AntModal.error = function (props) {
-  props.iconClassName = 'anticon-exclamation-circle';
+  props.iconClassName = 'exclamation-circle';
   props.okCancel = false;
   return confirm(props);
 };

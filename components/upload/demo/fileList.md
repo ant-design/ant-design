@@ -13,15 +13,16 @@
 ---
 
 ````jsx
-var Upload = antd.Upload;
-var fileList = [{
+import { Upload, Button, Icon } from 'antd';
+
+const fileList = [{
   uid: -1,
   name: 'xxx.png',
   status: 'done',
   url: 'http://www.baidu.com/xxx.png'
 }];
 
-var MyUpload = React.createClass({
+const MyUpload = React.createClass({
   getInitialState() {
     return {
       fileList: fileList
@@ -56,18 +57,18 @@ var MyUpload = React.createClass({
     });
   },
   render() {
-    var props = {
+    const props = {
       action: '/upload.do',
       onChange: this.handleChange,
       multiple: true
     };
     return <Upload {...props} fileList={this.state.fileList}>
-      <button type="button" className="ant-btn ant-btn-ghost">
-        <i className="anticon anticon-upload"></i> 点击上传
-      </button>
+      <Button type="ghost">
+        <Icon type="upload" /> 点击上传
+      </Button>
     </Upload>;
   }
 });
 
-React.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
+ReactDOM.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
 ````

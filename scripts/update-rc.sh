@@ -1,0 +1,2 @@
+rm -rf node_modules/rc-*
+tnpm install rc-collapse@latest rc-steps@latest rc-animate@latest rc-dialog@latest rc-queue-anim@latest rc-tree@latest rc-notification@latest rc-table@latest rc-upload@latest rc-pagination@latest rc-checkbox@latest rc-radio@latest rc-dropdown@latest rc-util@latest rc-switch@latest rc-calendar@latest rc-input-number@latest rc-menu@latest rc-notification@latest rc-form-validation@latest rc-dialog@latest rc-slider@latest rc-tabs@latest rc-progress@latest rc-tooltip@latest rc-select@latest --save

@@ -7,23 +7,30 @@ let AntSelect = React.createClass({
       prefixCls: 'ant-select',
       transitionName: 'slide-up',
       optionLabelProp: 'children',
-      showSearch: false
+      showSearch: false,
+      size: 'default'
     };
   },
   render() {
-    let sizeClass = '';
-    if (this.props.size === 'large') {
+    const {size, className, combobox, notFoundContent} = this.props;
+
+    let sizeClass = null;
+    if (size === 'large') {
       sizeClass = 'ant-select-lg';
-    } else if (this.props.size === 'small') {
+    } else if (size === 'small') {
       sizeClass = 'ant-select-sm';
     }
-    let className = this.props.className || ' ';
-    let notFoundContent = this.props.notFoundContent;
-    if (this.props.combobox) {
-      notFoundContent = null;
+
+    const classNames = [];
+
+    if (className) {
+      classNames.push(className);
+    }
+    if (sizeClass) {
+      classNames.push(sizeClass);
     }
     return (
-      <Select {...this.props} className={className + sizeClass} notFoundContent={notFoundContent} />
+      <Select {...this.props} className={classNames.join(' ')} notFoundContent={combobox ? null : notFoundContent} />
     );
   }
 });

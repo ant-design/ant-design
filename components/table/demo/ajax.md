@@ -1,6 +1,6 @@
 # 动态加载数据
 
-- order: 4
+- order: 7
 
 远程读取的表格是**更为常见的模式**，下面的表格使用了 `dataSource` 对象和远程数据源绑定和适配，并具有筛选、排序等功能以及页面 loading 效果。
 
@@ -9,9 +9,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
+import { Table, Button } from 'antd';
 
-var columns = [{
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   filters: [{
@@ -30,7 +30,7 @@ var columns = [{
   dataIndex: 'address'
 }];
 
-var dataSource = new Table.DataSource({
+const dataSource = new Table.DataSource({
   url: "/components/table/demo/data.json",
   resolve: function(result) {
     return result.data;
@@ -47,13 +47,13 @@ var dataSource = new Table.DataSource({
   // 参数里提供了分页、筛选、排序的信息
   getParams: function(pagination, filters, sorter) {
     console.log('getParams 的参数是：', pagination, filters, sorter);
-    var params = {
+    const params = {
       pageSize: pagination.pageSize,
       currentPage: pagination.current,
       sortField: sorter.field,
       sortOrder: sorter.order
     };
-    for (var key in filters) {
+    for (let key in filters) {
       params[key] = filters[key];
     }
     console.log('请求参数：', params);
@@ -61,10 +61,10 @@ var dataSource = new Table.DataSource({
   }
 });
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
-      dataSource: dataSource
+      dataSource: null
     };
   },
   refresh() {
@@ -79,22 +79,25 @@ var Test = React.createClass({
         data: {
           city: 'hz'
         }
-      })
+      }),
+      pagination: {
+        current: 1
+      }
     });
   },
   render() {
     return <div>
-      <Table columns={columns} dataSource={this.state.dataSource} />
-      <button className="ant-btn ant-btn-primary" onClick={this.refresh}>
-        重新加载数据
-      </button>
+      <Table columns={columns} dataSource={this.state.dataSource} pagination={this.state.pagination} />
+      <Button type="primary" onClick={this.refresh}>
+        加载初始数据
+      </Button>
       &nbsp;
-      <button className="ant-btn" onClick={this.changeAndRefresh}>
+      <Button onClick={this.changeAndRefresh}>
         加载 city=hz 的数据
-      </button>
+      </Button>
     </div>;
   }
 });
 
-React.render(<Test />, document.getElementById('components-table-demo-ajax'));
+ReactDOM.render(<Test />, document.getElementById('components-table-demo-ajax'));
 ````

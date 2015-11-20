@@ -7,7 +7,8 @@
 ---
 
 ````jsx
-var confirm = antd.Modal.confirm;
+import { Modal, Button } from 'antd';
+const confirm = antd.Modal.confirm;
 
 function showConfirm(){
   confirm({
@@ -20,8 +21,8 @@ function showConfirm(){
   });
 }
 
-React.render(
-<button className="ant-btn" onClick={showConfirm}>
+ReactDOM.render(
+<Button onClick={showConfirm}>
   确认对话框
-</button>, document.getElementById('components-modal-demo-confirm'));
+</Button>, document.getElementById('components-modal-demo-confirm'));
 ````

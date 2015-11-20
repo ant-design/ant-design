@@ -35,15 +35,16 @@
         color: #666;
         display: inline-block;
         margin-right: 8px;
-        content: "\e60f";
+        line-height: 40px;
+        content: "\e611";
         vertical-align: middle;
         transition: transform 0.24s ease;
-        top: -1px;
+        top: 0;
         left: 16px;
         top: ~"16px \9";
         left: ~"0 \9";
         &:before {
-          content:"\e60f";
+          content:"\e611";
         }
       }
     }
@@ -77,14 +78,9 @@
     }
   }
 
-  & > &-item-active {
-    > .@{collapse-prefix-cls}-header {
-
-      .arrow {
-        top: -1px;
-        left: 16px;
-        #arrow > .open();
-      }
+  & > &-item > &-header[aria-expanded="true"] {
+    .arrow {
+      #arrow > .open();
     }
   }
 }

@@ -5,7 +5,7 @@ export default React.createClass({
   getDefaultProps: function () {
     return {
       transitionName: 'slide-up',
-      prefixCls: 'ant-dropdown'
+      prefixCls: 'ant-dropdown',
     };
   },
   render: function () {

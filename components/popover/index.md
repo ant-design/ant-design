@@ -20,7 +20,9 @@
 | 参数      | 说明                                     | 类型          | 默认值 |
 |-----------|------------------------------------------|---------------|--------|
 | trigger   | 触发行为，可选 `hover/focus/click`       | string        | hover  |
-| placement | 气泡框位置，可选 `top/left/right/bottom` | string        | top    |
+| placement | 气泡框位置，可选 `top/left/right/bottom/topLeft/topRight/bottomLeft/bottomRight/leftTop/leftBottom/rightTop/rightBottom` | string        | top    |
 | title     | 卡片标题                                 | React.Element | 无     |
-| content   | 卡片内容                                 | React.Element | 无     |
-| overlayClassName | 浮层的类名                        | string        | 无     |
+| overlay   | 卡片内容                                 | React.Element | 无     |
+| prefixCls | 浮层的类名                        | string        | ant-popover   |
+| visible   | 用于手动控制浮层显隐                     | boolean       | false  |
+| onVisibleChange | 显示隐藏改变的回调                 | function      | 无     |

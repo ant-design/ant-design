@@ -74,10 +74,9 @@
   }
 
   &-jump-prev {
-    .cross-rotate(180deg);
     &:hover {
       &:after {
-        content: "\e611\e611";
+        content: "\e601\e601";
       }
     }
   }
@@ -85,7 +84,7 @@
   &-jump-next {
     &:hover {
       &:after {
-        content: "\e611\e611";
+        content: "\e600\e600";
       }
     }
   }
@@ -97,7 +96,7 @@
     font-family: Arial;
     cursor: pointer;
     color: #666;
-    border-radius: 6px;
+    border-radius: @border-radius-base;
     list-style: none;
     min-width: 28px;
     height: 28px;
@@ -135,11 +134,10 @@
   }
 
   &-prev {
-    .cross-rotate(180deg);
     a {
       &:after {
         margin-top: -.5px;
-        content: "\e611";
+        content: "\e601";
         display: block;
       }
     }
@@ -148,7 +146,7 @@
   &-next {
     a {
       &:after {
-        content: "\e611";
+        content: "\e600";
         display: block;
       }
     }
@@ -210,7 +208,7 @@
       margin: 0 8px;
       box-sizing: border-box;
       background-color: #fff;
-      border-radius: 6px;
+      border-radius: @border-radius-base;
       border: 1px solid #d9d9d9;
       outline: none;
       padding: 5px 8px;

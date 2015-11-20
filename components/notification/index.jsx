@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import assign from 'object-assign';
+import Icon from '../icon';
 
 let top = 24;
 let notificationInstance;
@@ -29,31 +30,31 @@ function notice(args) {
 
   if (args.icon) {
     let prefixCls = ' ant-notification-notice-content-icon-';
-    let iconClass = 'anticon anticon-';
+    let iconType = '';
     switch (args.icon) {
     case 'success':
-      iconClass += 'check-circle-o';
+      iconType = 'check-circle-o';
       break;
     case 'info':
-      iconClass += 'info-circle-o';
+      iconType = 'info-circle-o';
       break;
     case 'error':
-      iconClass += 'exclamation-circle-o';
+      iconType = 'exclamation-circle-o';
       break;
     case 'warn':
-      iconClass += 'question-circle-o';
+      iconType = 'question-circle-o';
       break;
     default:
-      iconClass += 'info-circle';
+      iconType = 'info-circle';
     }
 
     getNotificationInstance().notice({
       content: <div>
-        <i className={iconClass + prefixCls + 'icon-' + args.icon + prefixCls + 'icon'}></i>
+        <Icon className={prefixCls + 'icon-' + args.icon + prefixCls + 'icon'} type={iconType} />
 
-        <p className={prefixCls + 'message'}>{args.message}</p>
+        <div className={prefixCls + 'message'}>{args.message}</div>
 
-        <p className={prefixCls + 'description'}>{args.description}</p>
+        <div className={prefixCls + 'description'}>{args.description}</div>
       </div>,
       duration: duration,
       closable: true,
@@ -65,9 +66,9 @@ function notice(args) {
     if (!args.btn) {
       getNotificationInstance().notice({
         content: <div>
-          <p className={prefixCls + 'message'}>{args.message}</p>
+          <div className={prefixCls + 'message'}>{args.message}</div>
 
-          <p className={prefixCls + 'description'}>{args.description}</p>
+          <div className={prefixCls + 'description'}>{args.description}</div>
         </div>,
         duration: duration,
         closable: true,
@@ -77,9 +78,9 @@ function notice(args) {
     } else {
       getNotificationInstance().notice({
         content: <div>
-          <p className={prefixCls + 'message'}>{args.message}</p>
+          <div className={prefixCls + 'message'}>{args.message}</div>
 
-          <p className={prefixCls + 'description'}>{args.description}</p>
+          <div className={prefixCls + 'description'}>{args.description}</div>
           <span className={prefixCls + 'btn'}>
             {args.btn}
           </span>

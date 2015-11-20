@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Steps = antd.Steps;
-var Step = Steps.Step;
-var container = document.getElementById('components-steps-demo-vertical');
+import { Steps, Button } from 'antd';
+const Step = Steps.Step;
+const container = document.getElementById('components-steps-demo-vertical');
 
-var steps = [{
+const steps = [{
   title: '已完成',
   description: '这里是信息的描述'
 }, {
@@ -29,5 +29,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps direction='vertical' current={1}>{steps}</Steps>, container);
+ReactDOM.render(<Steps direction="vertical" current={1}>{steps}</Steps>, container);
 ````

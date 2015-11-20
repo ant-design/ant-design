@@ -107,10 +107,21 @@ module.exports = function(nico) {
     find_demo_in_component: function(pages, directory) {
       var ret = [];
       getAllPosts(pages).forEach(function(post) {
-        if (post.filepath.indexOf(directory + '/demo/') === 0) {
+        if (post.filepath.indexOf(directory + '/demo/') === 0 && !post.meta.hidden) {
           ret.push(post);
         }
       });
+      var hasOnly;
+      ret.forEach(function(post) {
+        if (post.meta.only) {
+          hasOnly = true;
+        }
+      });
+      if (hasOnly) {
+        ret = ret.filter(function(post) {
+          return post.meta.only;
+        });
+      }
       ret = ret.sort(function(a, b) {
         if (/index$/i.test(a.filename)) {
           a.meta.order = 1;
@@ -172,6 +183,13 @@ module.exports = function(nico) {
         result.push(p);
       });
       return result;
+    },
+    add_anchor: function(content) {
+      for (var i = 1; i <= 6; i++) {
+        var reg = new RegExp('(<h' + i + '\\sid="(.*?)">.*?)(<\/h' + i + '>)', 'g');
+        content = content.replace(reg, '$1<a href="#$2" class="anchor">#</a> $3');
+      }
+      return content;
     }
   };
 

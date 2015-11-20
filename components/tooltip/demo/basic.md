@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Tooltip = antd.Tooltip;
+import { Tooltip } from 'antd';
 
-React.render(
+ReactDOM.render(
   <Tooltip title="提示文字">
     <span>鼠标移上来就会出现提示</span>
   </Tooltip>

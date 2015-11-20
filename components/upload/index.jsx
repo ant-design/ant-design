@@ -19,14 +19,38 @@ function fileToObject(file) {
     type: file.type,
     uid: file.uid,
     response: file.response,
-    error: file.error
+    error: file.error,
+    percent: 0
+  };
+}
+
+/**
+ * 生成Progress percent: 0.1 -> 0.98
+ *   - for ie
+ */
+function genPercentAdd() {
+  let k = 0.1;
+  const i = 0.01;
+  const end = 0.98;
+  return function(start) {
+    if (start >= end) {
+      return start;
+    } else {
+      start += k;
+      k = k - i;
+      if (k < 0.001) {
+        k = 0.001;
+      }
+    }
+    return start * 100;
   };
 }
 
 const AntUpload = React.createClass({
   getInitialState() {
     return {
-      fileList: this.props.fileList || this.props.defaultFileList || []
+      fileList: this.props.fileList || this.props.defaultFileList || [],
+      dragState: 'drop'
     };
   },
   onStart(file) {
@@ -48,6 +72,20 @@ const AntUpload = React.createClass({
       file: targetItem,
       fileList: nextFileList
     });
+    // fix ie progress
+    if (!window.FormData) {
+      this.autoUpdateProgress(0, targetItem);
+    }
+  },
+  autoUpdateProgress(percent, file) {
+    const getPercent = genPercentAdd();
+    let curPercent = 0;
+    this.progressTimer = setInterval(() => {
+      curPercent = getPercent(curPercent);
+      this.onProgress({
+        percent: curPercent
+      }, file);
+    }, 200);
   },
   removeFile(file) {
     let fileList = this.state.fileList;
@@ -60,6 +98,7 @@ const AntUpload = React.createClass({
     return null;
   },
   onSuccess(response, file) {
+    this.clearProgressTimer();
     // 服务器端需要返回标准 json 字符串
     // 否则视为失败
     try {
@@ -85,15 +124,16 @@ const AntUpload = React.createClass({
   onProgress(e, file) {
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
-    if (targetItem) {
-      this.onChange({
-        event: e,
-        file: file,
-        fileList: this.state.fileList
-      });
-    }
+    if (!targetItem) return;
+    targetItem.percent = e.percent;
+    this.onChange({
+      event: e,
+      file: file,
+      fileList: this.state.fileList
+    });
   },
   onError(error, response, file) {
+    this.clearProgressTimer();
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     targetItem.error = error;
@@ -115,13 +155,9 @@ const AntUpload = React.createClass({
     this.handleRemove(file);
   },
   onChange(info) {
-    // 1. 有设置外部属性时不改变 fileList
-    // 2. 上传中状态（info.event）不改变 fileList
-    if (!('fileList' in this.props) && !info.event) {
-      this.setState({
-        fileList: info.fileList
-      });
-    }
+    this.setState({
+      fileList: info.fileList
+    });
     this.props.onChange(info);
   },
   getDefaultProps() {
@@ -133,6 +169,7 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       onChange: noop,
+      showUploadList: true
     };
   },
   componentWillReceiveProps(nextProps) {
@@ -142,6 +179,14 @@ const AntUpload = React.createClass({
       });
     }
   },
+  onFileDrop(e) {
+    this.setState({
+      dragState: e.type
+    });
+  },
+  clearProgressTimer() {
+    clearInterval(this.progressTimer);
+  },
   render() {
     let type = this.props.type || 'select';
     let props = assign({}, this.props, {
@@ -150,27 +195,42 @@ const AntUpload = React.createClass({
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
     });
+    let uploadList;
+    if (this.props.showUploadList) {
+      uploadList = <UploadList items={this.state.fileList} onRemove={this.handleManualRemove} />;
+    }
     if (type === 'drag') {
+      let dragUploadingClass = this.state.fileList.some(file => file.status === 'uploading')
+                                 ? `${prefixCls}-drag-uploading` : '';
+
+      let draggingClass = this.state.dragState === 'dragover'
+                           ? `${prefixCls}-drag-hover` : '';
       return (
-        <div className={prefixCls + ' ' + prefixCls + '-drag'}>
-          <Upload {...props}>
-            <div className={prefixCls + '-drag-container'}>
-              {this.props.children}
-            </div>
-          </Upload>
-        </div>
+        <span>
+          <div className={prefixCls + ' ' + prefixCls + '-drag '
+            + dragUploadingClass + ' ' + draggingClass}
+            onDrop={this.onFileDrop}
+            onDragOver={this.onFileDrop}
+            onDragLeave={this.onFileDrop}>
+            <Upload {...props}>
+              <div className={prefixCls + '-drag-container'}>
+                {this.props.children}
+              </div>
+            </Upload>
+          </div>
+          {uploadList}
+        </span>
       );
     } else if (type === 'select') {
       return (
-        <div>
+        <span>
           <div className={prefixCls + ' ' + prefixCls + '-select'}>
             <Upload {...props}>
               {this.props.children}
             </Upload>
           </div>
-          <UploadList items={this.state.fileList}
-                      onRemove={this.handleManualRemove} />
-        </div>
+          {uploadList}
+        </span>
       );
     }
   }

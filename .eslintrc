@@ -2,12 +2,15 @@
   "extends": ["eslint-config-airbnb"],
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true,
+    "jest": true,
+    "es6": true
   },
   "ecmaFeatures": {
-    "jsx": true
+    "jsx": true,
+    "experimentalObjectRestSpread": true
   },
-  "parser": "babel-eslint",
   "plugins": [
     "react",
     "babel"
@@ -38,6 +41,7 @@
     "space-before-blocks": 0,
     "space-before-function-paren": 0,
     "spaced-comment": 0,
-    "vars-on-top": 0
+    "vars-on-top": 0,
+    "id-length": 0
   }
 }

@@ -15,11 +15,6 @@
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
 
-.transition(@transition) {
-  transition: @transition;
-  -webkit-transition: @transition;
-  -moz-transition: @transition;
-}
 
 .@{steps-prefix-cls} {
   font-size: 0;
@@ -74,8 +69,11 @@
           color: @finish-icon-color;
         }
       }
-      .@{steps-prefix-cls}-tail > i {
-        background-color: @finish-tail-color;
+      .@{steps-prefix-cls}-tail > i:after {
+        width: 100%;
+        background: @finish-tail-color;
+        transition: all 0.4s ease;
+        opacity: 1;
       }
       .@{steps-prefix-cls}-title {
         color: @finish-title-color;
@@ -125,8 +123,7 @@
     border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
-    .transition(background-color 0.3s ease);
-    .transition(border-color 0.3s ease);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 
     > .@{steps-prefix-cls}-icon {
       line-height: 1;
@@ -136,8 +133,6 @@
 
       &.anticon {
         font-size: 12px;
-        position: relative;
-        top: -2px;
       }
     }
   }
@@ -175,7 +170,16 @@
       height: 1px;
       border-radius: 1px;
       width: 100%;
-      .transition(background 0.3s ease);
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 0;
+        background: #e9e9e9;
+        height: 100%;
+        opacity: 0;
+      }
     }
   }
 
@@ -191,7 +195,7 @@
       margin-right: 10px;
       > .@{steps-prefix-cls}-icon.anticon {
         .iconfont-size-under-12px(9px);
-        top: -1px;
+        top: 0;
       }
     }
     .@{steps-prefix-cls}-main {
@@ -243,6 +247,16 @@
     > i {
       height: 100%;
       width: 1px;
+      &:after {
+        height: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .@{steps-prefix-cls}-status-finish {
+    .@{steps-prefix-cls}-tail > i:after {
+      height: 100%;
     }
   }
 

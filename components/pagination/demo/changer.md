@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var Pagination = antd.Pagination;
+import { Pagination } from 'antd';
 
 function onChange(page) {
   console.log(page);
@@ -17,7 +17,7 @@ function onShowSizeChange(current, pageSize) {
   console.log(current, pageSize);
 }
 
-React.render(
+ReactDOM.render(
   <Pagination showSizeChanger={true} onShowSizeChange={onShowSizeChange} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-changer'));
 ````

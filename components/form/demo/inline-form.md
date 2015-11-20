@@ -1,30 +1,62 @@
-# 行内排列的表单
+# 平行排列
 
 - order: 1
 
-你可以为 `<form>` 标签添加 `.ant-form-inline` 类可使其表现为 inline-block 级别的控件。
+行内排列，常用于登录界面。
 
 ---
 
 ````jsx
-var Checkbox = antd.Checkbox;
+import {Form, Input, Button, Checkbox, message} from 'antd';
+const FormItem = Form.Item;
 
-React.render(
-<form className="ant-form-inline">
-  <div className="ant-form-item">
-    <label htmlFor="userName">账户：</label>
-    <input className="ant-input" type="text" id="userName" placeholder="请输入账户名" />
-  </div>
-  <div className="ant-form-item">
-    <label htmlFor="password2">密码：</label>
-    <input className="ant-input" type="password" id="password2" placeholder="请输入密码" />
-  </div>
-  <div className="ant-form-item">
-    <label className="ant-checkbox-inline">
-      <Checkbox /> 记住我
-    </label>
-  </div>
-  <input type="submit" className="ant-btn ant-btn-primary" value="登 录" />
-</form>
-, document.getElementById('components-form-demo-inline-form'));
+const Demo = React.createClass({
+  mixins: [Form.ValueMixin],
+
+  getInitialState() {
+    return {
+      formData: {
+        userName: undefined,
+        password: undefined,
+        agreement: undefined,
+      }
+    };
+  },
+
+  handleSubmit(e) {
+    e.preventDefault();
+    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+      if (typeof v === 'undefined') {
+        return '';
+      }
+      return v;
+    }));
+  },
+
+  render() {
+    const formData = this.state.formData;
+    return (
+      <Form inline onSubmit={this.handleSubmit}>
+        <FormItem
+          id="userName"
+          label="账户：">
+          <Input placeholder="请输入账户名" id="userName" name="userName" onChange={this.setValue.bind(this, 'userName')} value={formData.userName} />
+        </FormItem>
+        <FormItem
+          id="password"
+          label="密码：">
+          <Input type="password" placeholder="请输入密码" id="password" name="password" onChange={this.setValue.bind(this, 'password')} value={formData.password} />
+        </FormItem>
+        <FormItem>
+          <label className="ant-checkbox-inline">
+            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} /> 记住我
+          </label>
+        </FormItem>
+        <Button type="primary" htmlType="submit">登录</Button>
+      </Form>
+    );
+  }
+});
+
+ReactDOM.render(<Demo />, document.getElementById('components-form-demo-inline-form'));
 ````

@@ -7,10 +7,10 @@
 ---
 
 ````jsx
-let Timeline = antd.Timeline;
-let container = document.getElementById('components-timeline-demo-pending');
+import { Timeline } from 'antd';
+const container = document.getElementById('components-timeline-demo-pending');
 
-React.render(
+ReactDOM.render(
 <Timeline pending={true}>
   <Timeline.Item>创建服务现场 2015-09-01</Timeline.Item>
   <Timeline.Item>初步排除网络异常 2015-09-01</Timeline.Item>

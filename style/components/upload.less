@@ -5,7 +5,6 @@
   > span {
     display: block;
     width: 100%;
-    height: 100%;
   }
 
   input[type=file] {
@@ -18,7 +17,7 @@
 
   &.@{upload-prefix-cls}-drag {
     border: 1px dashed #d9d9d9;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
     cursor: pointer;
     border-radius: @border-radius-base;
     text-align: center;
@@ -26,8 +25,13 @@
     height: 100%;
     position: relative;
 
+    &.@{upload-prefix-cls}-drag-hover {
+      border: 2px dashed tint(@primary-color, 20%);
+    }
+
     > span {
       display: table;
+      height: 100%;
     }
 
     .@{upload-prefix-cls}-drag-container {
@@ -36,12 +40,13 @@
     }
 
     &:hover {
-      border: 1px dashed #999;
+      border-color: tint(@primary-color, 20%);
     }
+
     p.@{upload-prefix-cls}-drag-icon {
       .anticon {
         font-size: 80px;
-        margin-top: -30px;
+        margin-top: -5px;
         color: tint(@primary-color, 20%);
       }
       height: 60px;
@@ -69,34 +74,61 @@
 }
 
 .@{upload-prefix-cls}-list {
-  margin-left: 4px;
-  margin-top: 8px;
-  overflow: hidden;
   .@{upload-prefix-cls}-list-item {
-    margin-bottom: 4px;
-    height: 22px;
     overflow: hidden;
-    .anticon {
-      margin-top: -2px;
-      font-size: 12px;
-      &.anticon-cross {
-        cursor: pointer;
+    margin-top: 8px;
+
+    .@{upload-prefix-cls}-list-item-info {
+      height: 22px;
+      line-height: 22px;
+      padding: 0 4px;
+      transition: background-color 0.3s ease;
+
+      .anticon-paper-clip {
+        margin-right: 4px;
+        font-size: 12px;
         color: #999;
+      }
+      .anticon-cross {
+        .iconfont-size-under-12px(10px);
+        transition: all 0.3s ease;
+        opacity: 0;
+        cursor: pointer;
+        float: right;
+        color: #999;
+        line-height: 22px;
         &:hover {
           color: #666;
         }
       }
+      &:hover {
+        background-color: tint(@primary-color, 90%);
+        .anticon.anticon-cross {
+          opacity: 1;
+        }
+      }
     }
+
+    .@{upload-prefix-cls}-list-item-progress {
+      padding: 0 8px 0 20px;
+      margin-top: -2px;
+      margin-bottom: 1px;
+      font-size: 12px;
+      .ant-progress-line-inner {
+        vertical-align: middle;
+      }
+    }
+
   }
   .@{upload-prefix-cls}-item-name {
     font-size: 12px;
-    margin-left: 4px;
-    margin-right: 8px;
     font-weight: normal;
   }
+
   b.@{upload-prefix-cls}-item-name {
     color: #666;
   }
+
   .@{upload-prefix-cls}-success-icon {
     color: @success-color;
     font-weight: bold;

@@ -7,21 +7,22 @@
 ---
 
 ````jsx
-var Popover = antd.Popover;
-var content = <div>
+import { Popover, Button } from 'antd';
+
+const content = <div>
   <p>内容</p>
   <p>内容</p>
 </div>;
 
-React.render(<div>
+ReactDOM.render(<div>
   <Popover overlay={content} title="标题" trigger="hover">
-    <button className="ant-btn">移入</button>
+    <Button>移入</Button>
   </Popover>
   <Popover overlay={content} title="标题" trigger="focus">
-    <a href="javascript:;" className="ant-btn">聚焦</a>
+    <Button>聚焦</Button>
   </Popover>
   <Popover overlay={content} title="标题" trigger="click">
-    <button className="ant-btn">点击</button>
+    <Button>点击</Button>
   </Popover>
 </div>, document.getElementById('components-popover-demo-triggertype'));
 ````

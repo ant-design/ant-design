@@ -216,6 +216,9 @@ form {
 
 //== Inline Form
 .@{css-prefix}form-inline {
+  div {
+    display: inline-block;
+  }
   .@{css-prefix}form-item {
     display: inline-block;
     margin-right: 10px;
@@ -265,14 +268,22 @@ form {
     .animation(zoomIn .3s @ease-out-back);
   }
 }
-.has-error{
+
+.has-success {
   &.has-feedback:after {
-    animation-name: zoomIn2 !important;
+    animation-name: diffZoomIn1 !important;
   }
 }
-.has-warning{
+
+.has-error {
   &.has-feedback:after {
-    animation-name: zoomIn3 !important;
+    animation-name: diffZoomIn2 !important;
+  }
+}
+
+.has-warning {
+  &.has-feedback:after {
+    animation-name: diffZoomIn3 !important;
   }
 }
 
@@ -284,7 +295,7 @@ form {
   }
 
   &.has-feedback:after {
-    content: '\e614';
+    content: '\e62f';
     color: @success-color;
   }
 }
@@ -293,7 +304,7 @@ form {
   .form-control-validation(@warning-color; @warning-color;);
 
   &.has-feedback:after {
-    content: '\e628';
+    content: '\e634';
     color: @warning-color;
   }
 
@@ -312,13 +323,27 @@ form {
   .@{calendar-prefix-cls}-picker-icon:after {
     color: @warning-color;
   }
+
+  // ant-timepicker
+  .@{timepicker-prefix-cls}-picker-icon:after {
+    color: @warning-color;
+  }
+
+  // ant-input-number
+  .@{input-number-prefix-cls} {
+    border-color: @warning-color;
+    box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+    &:not([disabled]):hover {
+      border-color: @warning-color;
+    }
+  }
 }
 
 .has-error {
   .form-control-validation(@error-color; @error-color;);
 
   &.has-feedback:after {
-    content: '\e628';
+    content: '\e634';
     color: @error-color;
   }
 
@@ -338,17 +363,33 @@ form {
   .@{calendar-prefix-cls}-picker-icon:after {
     color: @error-color;
   }
+
+  // ant-timepicker
+  .@{timepicker-prefix-cls}-picker-icon:after {
+    color: @error-color;
+  }
+
+  // ant-input-number
+  .@{input-number-prefix-cls} {
+    border-color: @error-color;
+    box-shadow: 0 0 0 2px tint(@error-color, 80%);
+    &:not([disabled]):hover {
+      border-color: @error-color;
+    }
+  }
 }
 
 .is-validating {
   &.has-feedback:after {
     display: inline-block;
     .animation(loadingCircle 1s infinite linear );
-    content:"\e610";
+    content:"\e6a1";
   }
 }
 
-@keyframes zoomIn2 {
+// need there different zoom animation
+// otherwise won't trigger anim
+@keyframes diffZoomIn1 {
   0%{
     transform: scale(0);
   }
@@ -356,7 +397,17 @@ form {
     transform: scale(1);
   }
 }
-@keyframes zoomIn3 {
+
+@keyframes diffZoomIn2 {
+  0%{
+    transform: scale(0);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes diffZoomIn3 {
   0%{
     transform: scale(0);
   }

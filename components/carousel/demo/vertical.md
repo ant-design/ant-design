@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Carousel = antd.Carousel;
+import { Carousel } from 'antd';
 
-React.render(
+ReactDOM.render(
   <Carousel vertical="true">
     <div><h3>1</h3></div>
     <div><h3>2</h3></div>

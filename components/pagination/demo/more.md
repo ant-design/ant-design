@@ -7,13 +7,13 @@
 ---
 
 ````jsx
-var Pagination = antd.Pagination;
+import { Pagination } from 'antd';
 
 function onChange(page) {
   console.log(page);
 }
 
-React.render(
+ReactDOM.render(
   <Pagination onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-more'));
 ````

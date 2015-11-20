@@ -7,21 +7,21 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
+import { Button, notification } from 'antd';
 
-var close = function(){
+const close = function(){
   console.log('我被默认的关闭按钮关闭了！');
 }
 
-var openNotification = function() {
-  var key='open'+Date.now();
-  var btnClick = function() {
+const openNotification = function() {
+  const key='open'+Date.now();
+  const btnClick = function() {
     // 隐藏提醒框
     notification.close(key);
   };
-  var btn = <button className="ant-btn ant-btn-primary ant-btn-sm" onClick={btnClick}>
+  const btn = <Button type="primary" size="small" onClick={btnClick}>
     自定义关闭按钮并触发回调函数
-  </button>;
+  </Button>;
   notification.open({
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
@@ -31,9 +31,9 @@ var openNotification = function() {
   });
 };
 
-React.render(
+ReactDOM.render(
   <div>
-    <button className="ant-btn ant-btn-primary" onClick={openNotification}>打开通知提醒框</button>
+    <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
   </div>,
 document.getElementById('components-notification-demo-with-btn'));
 ````

@@ -1,6 +1,6 @@
-# 范围
+# 指定不可选择日期
 
-- order: 3
+- order: 6
 
 设置 `disabledDate` 方法，来确定不可选时段。
 
@@ -9,13 +9,14 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
-var disabledDate = function(current, value) {
+import { Datepicker } from 'antd';
+
+const disabledDate = function(current, value) {
   // can not select days after today
-  return current.getTime() > Date.now();
+  return current && current.getTime() > Date.now();
 };
 
-React.render(
+ReactDOM.render(
   <Datepicker disabledDate={disabledDate} />
 , document.getElementById('components-datepicker-demo-range'));
 ````

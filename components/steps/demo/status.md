@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Steps = antd.Steps;
-var Step = Steps.Step;
-var container = document.getElementById('components-steps-demo-status');
+import { Steps } from 'antd';
+const Step = Steps.Step;
+const container = document.getElementById('components-steps-demo-status');
 
-var steps = [{
+const steps = [{
   status: 'finish',
   title: '已完成',
   description: '这里是多信息的描述啊'
@@ -33,5 +33,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps>{steps}</Steps>, container);
+ReactDOM.render(<Steps>{steps}</Steps>, container);
 ````

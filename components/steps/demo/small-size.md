@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Steps = antd.Steps;
-var Step = Steps.Step;
-var container = document.getElementById('components-steps-demo-small-size');
+import { Steps } from 'antd';
+const Step = Steps.Step;
+const container = document.getElementById('components-steps-demo-small-size');
 
-var steps = [{
+const steps = [{
   status: 'finish',
   title: '已完成'
 }, {
@@ -29,5 +29,5 @@ var steps = [{
   );
 });
 
-React.render(<Steps size="small" current={1}>{steps}</Steps>, container);
+ReactDOM.render(<Steps size="small" current={1}>{steps}</Steps>, container);
 ````

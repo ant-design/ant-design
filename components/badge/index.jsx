@@ -1,39 +1,47 @@
-import React, { cloneElement } from 'react';
-const prefixCls = 'ant-badge';
+import React from 'react';
+import Animate from 'rc-animate';
 
 class AntBadge extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      count: props.count
-    };
   }
 
   render() {
-    if (this.props.dot) {
-      return <span className={prefixCls} {...this.props}>
+    let { count, prefixCls } = this.props;
+    const dot = this.props.dot;
+
+    count = count >= 100 ? '99+' : count;
+
+    // dot mode don't need count
+    if (dot) {
+      count = '';
+    }
+
+    // null undefined "" "0" 0
+    const hidden = (!count || count === '0') && !dot;
+    const className = prefixCls + (dot ? '-dot' : '-count');
+
+    return (
+      <span className={prefixCls} title={count} {...this.props}>
         {this.props.children}
-        <sup className={prefixCls + '-dot'}></sup>
-      </span>;
-    }
-    let count = this.state.count;
-    if (!count) {
-      return cloneElement(this.props.children);
-    } else {
-      count = count >= 100 ? '99+' : count;
-      return (
-        <span className={prefixCls} title={this.state.count} {...this.props}>
-          {this.props.children}
-          <sup className={prefixCls + '-count'}>{count}</sup>
-        </span>
-      );
-    }
+        <Animate component=""
+          showProp="data-show"
+          transitionName={prefixCls + '-zoom'}
+          transitionAppear={true}>
+          {
+            hidden ? null :
+            <sup data-show={!hidden} className={className}>
+              {count}
+            </sup>
+          }
+        </Animate>
+      </span>
+    );
   }
 }
 
 AntBadge.defaultProps = {
-  prefixCls: prefixCls,
+  prefixCls: 'ant-badge',
   count: null,
   dot: false
 };

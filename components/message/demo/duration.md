@@ -7,13 +7,13 @@
 ---
 
 ````jsx
+import { message, Button } from 'antd';
 
-var message = antd.message;
-var success = function() {
+const success = function() {
   message.success('这是一条成功的提示,并将于10秒后消失', 10);
 };
 
-React.render(<button className="ant-btn ant-btn-primary" onClick={success}>自定义时长提示</button>
+ReactDOM.render(<Button type="primary" onClick={success}>自定义时长提示</Button>
 , document.getElementById('components-message-demo-duration'));
 ````
 

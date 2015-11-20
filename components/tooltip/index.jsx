@@ -23,7 +23,15 @@ export default React.createClass({
       top: 'zoom-down',
       bottom: 'zoom-up',
       left: 'zoom-right',
-      right: 'zoom-left'
+      right: 'zoom-left',
+      topLeft: 'zoom-down',
+      bottomLeft: 'zoom-up',
+      leftTop: 'zoom-right',
+      rightTop: 'zoom-left',
+      topRight: 'zoom-down',
+      bottomRight: 'zoom-up',
+      leftBottom: 'zoom-right',
+      rightBottom: 'zoom-left',
     })[this.props.placement];
 
     // Hide tooltip when there is no title

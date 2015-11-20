@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Tag = antd.Tag;
+import { Tag } from 'antd';
 
-React.render(<div>
+ReactDOM.render(<div>
   <Tag closable color="blue">蓝色</Tag>
   <Tag closable color="green">绿色</Tag>
   <Tag closable color="yellow">黄色</Tag>

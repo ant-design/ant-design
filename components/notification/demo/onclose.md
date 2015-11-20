@@ -7,14 +7,14 @@
 ---
 
 ````jsx
-var notification = antd.Notification;
+import { Button, notification } from 'antd';
 
-var close = function() {
+const close = function() {
   console.log("我被默认的关闭按钮关闭了！");
 };
 
-var openNotification = function() {
-  var args = {
+const openNotification = function() {
+  const args = {
     message: "这是标题",
     description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案",
     onClose: close
@@ -22,9 +22,9 @@ var openNotification = function() {
   notification.open(args);
 };
 
-React.render(
+ReactDOM.render(
   <div>
-    <button className='ant-btn ant-btn-primary' onClick={openNotification}>打开通知提醒框</button>
+    <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
   </div>,
 document.getElementById('components-notification-demo-onclose'));
 ````

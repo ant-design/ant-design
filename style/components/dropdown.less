@@ -1,4 +1,5 @@
-@dropdown-prefix-cls: ant-dropdown;
+@import "../mixins/index";
+@dropdown-prefix-cls: ~"@{css-prefix}dropdown";
 
 .@{dropdown-prefix-cls} {
   position: absolute;
@@ -13,6 +14,11 @@
 
   &-wrap {
     position: relative;
+
+    .@{btn-prefix-cls} > .@{iconfont-css-prefix}-down {
+      .iconfont-size-under-12px(10px);
+    }
+
     .anticon-down:before {
       transition: transform 0.2s ease;
     }
@@ -36,10 +42,11 @@
     margin: 0;
     text-align: left;
     background-color: #fff;
-    border-radius: 3px;
+    border-radius: @border-radius-base;
     box-shadow: @overlay-shadow;
     background-clip: padding-box;
     border: 1px solid #d9d9d9;
+    overflow: hidden;
 
     > li {
       margin: 0;
@@ -56,8 +63,11 @@
       cursor: pointer;
       transition: background 0.3s ease;
 
-      a {
+      > a {
         color: #666;
+        display: block;
+        padding: 7px 16px;
+        margin: -7px -16px;
       }
 
       &:hover {
@@ -94,12 +104,29 @@
       }
     }
   }
+
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+    animation-name: antSlideUpIn;
+  }
+
+  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+    animation-name: antSlideDownIn;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+    animation-name: antSlideUpOut;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+    animation-name: antSlideDownOut;
+  }
 }
 
 .@{dropdown-prefix-cls}-link {
   .anticon-down {
     .iconfont-size-under-12px(7px);
     font-weight: bold;
-    vertical-align: top;
   }
 }

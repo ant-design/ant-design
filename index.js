@@ -1,17 +1,8 @@
-var React = require('react');
+import React from 'react';
+
 require('./style/index.less');
 
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-window.matchMedia = window.matchMedia || function() {
-  return {
-    matches: false,
-    addListener: function() {},
-    removeListener: function() {}
-  };
-};
-
-var antd = {
+const antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
   Tooltip: require('./components/tooltip'),
@@ -25,7 +16,6 @@ var antd = {
   Breadcrumb: require('./components/breadcrumb'),
   Popconfirm: require('./components/popconfirm'),
   Pagination: require('./components/pagination'),
-  confirm: require('./components/modal/confirm'),
   Steps: require('./components/steps'),
   InputNumber: require('./components/input-number'),
   Switch: require('./components/switch'),
@@ -35,29 +25,36 @@ var antd = {
   Collapse: require('./components/collapse'),
   message: require('./components/message'),
   Slider: require('./components/slider'),
-  EnterAnimation: require('./components/enter-animation'),
+  QueueAnim: require('./components/queue-anim'),
   Radio: require('./components/radio'),
-  Notification: require('./components/notification'),
+  notification: require('./components/notification'),
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/tree'),
   Upload: require('./components/upload'),
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
-  Timeline: require('./components/timeline')
+  Timeline: require('./components/timeline'),
+  Button: require('./components/button'),
+  ButtonGroup: require('./components/button').Group,
+  Icon: require('./components/icon'),
+  Row: require('./components/layout').Row,
+  Col: require('./components/layout').Col,
+  Spin: require('./components/spin'),
+  Form: require('./components/form').Form,
+  Input: require('./components/form').Input,
+  Calendar: require('./components/calendar'),
+  Timepicker: require('./components/timepicker'),
 };
-
-// deprecate antd.confirm
-antd.confirm = require('util-deprecate')(antd.confirm, 'antd.confirm() is deprecated, use antd.Modal.confirm() instead');
 
 antd.version = require('./package.json').version;
 
 if (process.env.NODE_ENV !== 'production') {
-  var warning = require('warning');
-  var semver = require('semver');
-  var reactVersionInDeps = '~0.13.3';
-  warning(semver.satisfies(React.version, reactVersionInDeps),
-    'antd@' + antd.version + ' need to satisfies react@' + reactVersionInDeps + ' which is ' + React.version + ' now.');
+  const warning = require('warning');
+  const semver = require('semver');
+  const reactVersionInDeps = require('./package.json').devDependencies.react;
+  warning(semver.satisfies(React.version, reactVersionInDeps) || semver.gtr(React.version, reactVersionInDeps),
+    `antd@${antd.version} need react@${reactVersionInDeps} or higher, which is react@${React.version} now.`);
 }
 
 module.exports = antd;

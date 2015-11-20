@@ -1,6 +1,6 @@
-# 自定义校验规则 
+# 自定义校验规则
 
-- order: 1
+- order: 2
 
 密码校验实例。
 
@@ -9,8 +9,9 @@
 ---
 
 ````jsx
-var Validation = antd.Validation;
-var Validator = Validation.Validator;
+import {Validation, Button, Form, Input, Row, Col} from 'antd';
+const Validator = Validation.Validator;
+const FormItem = Form.Item;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
@@ -26,7 +27,7 @@ function noop() {
   return false;
 }
 
-var Form = React.createClass({
+const Demo = React.createClass({
   mixins: [Validation.FieldMixin],
 
   getInitialState() {
@@ -40,7 +41,7 @@ var Form = React.createClass({
         rePass: undefined
       },
       passBarShow: false, // 是否显示密码强度提示条
-      rePassBarShow: false, 
+      rePassBarShow: false,
       passStrength: 'L', // 密码强度
       rePassStrength: 'L'
     };
@@ -66,15 +67,14 @@ var Form = React.createClass({
     e.preventDefault();
   },
 
-  renderValidateStyle(item, hasFeedback=true) {
-    var formData = this.state.formData;
-    var status = this.state.status;
+  renderValidateStyle(item) {
+    const formData = this.state.formData;
+    const status = this.state.status;
 
-    var classes = cx({
-      'has-feedback': hasFeedback,
-      'has-error': status[item].errors,
-      'is-validating': status[item].isValidating,
-      'has-success': formData[item] && !status[item].errors && !status[item].isValidating
+    const classes = cx({
+      'error': status[item].errors,
+      'validating': status[item].isValidating,
+      'success': formData[item] && !status[item].errors && !status[item].isValidating
     });
 
     return classes;
@@ -82,7 +82,7 @@ var Form = React.createClass({
 
   getPassStrenth(value, type) {
     if (value) {
-      var strength;
+      let strength;
       // 密码强度的校验规则自定义，这里只是做个简单的示例
       if (value.length < 6) {
         strength = 'L';
@@ -118,14 +118,14 @@ var Form = React.createClass({
   },
 
   renderPassStrengthBar(type) {
-    var strength = type === 'pass' ? this.state.passStrength : this.state.rePassStrength;
-    var classSet = cx({
+    const strength = type === 'pass' ? this.state.passStrength : this.state.rePassStrength;
+    const classSet = cx({
       'ant-pwd-strength': true,
       'ant-pwd-strength-low': strength === 'L',
       'ant-pwd-strength-medium': strength === 'M',
       'ant-pwd-strength-high': strength === 'H'
     });
-    var level = {
+    const level = {
       L: '低',
       M: '中',
       H: '高'
@@ -146,111 +146,118 @@ var Form = React.createClass({
   },
 
   render() {
-    var formData = this.state.formData;
-    var status = this.state.status;
+    const formData = this.state.formData;
+    const status = this.state.status;
 
     return (
-      <form onSubmit={this.handleSubmit} className="ant-form-horizontal">
+      <Form horizontal>
         <Validation ref="validation" onValidate={this.handleValidate}>
-
-          <div className="ant-form-item">
-            <label className="col-6" htmlFor="confirmPass" required>密码：</label>
-            <div className="col-10">
-              <div className={this.renderValidateStyle('pass', false)}>
-                <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                  <input name="pass" id="confirmPass" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.pass}/>
-                </Validator>
-                {status.pass.errors ? <div className="ant-form-explain">{status.pass.errors.join(',')}</div> : null}
-              </div>
-            </div>
-            <div className="col-6">
+          <Row>
+            <Col span="18">
+              <FormItem
+                label="密码："
+                id="confirmPass"
+                labelCol={{span: 6}}
+                wrapperCol={{span: 18}}
+                validateStatus={this.renderValidateStyle('pass')}
+                help={status.pass.errors ? status.pass.errors.join(',') : null}
+                required>
+                  <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
+                    <Input name="pass" id="confirmPass" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.pass}/>
+                  </Validator>
+              </FormItem>
+            </Col>
+            <Col span="6">
               {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div className="ant-form-item">
-            <label className="col-6" htmlFor="confirmPass2" required>确认密码：</label>
-            <div className="col-10">
-              <div className={this.renderValidateStyle('rePass', false)}>
-                <Validator rules={[{
-                  required: true,
-                  whitespace: true,
-                  message: '请再次输入密码'
-                }, {validator: this.checkPass2}]}>
-                  <input name="rePass" id="confirmPass2" className="ant-input" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autocomplete="off" value={formData.rePass}/>
-                </Validator>
-                {status.rePass.errors ? <div className="ant-form-explain"> {status.rePass.errors.join(', ')}</div> : null}
-              </div>
-            </div>
-            <div className="col-6">
+          <Row>
+            <Col span="18">
+              <FormItem
+                label="确认密码："
+                id="confirmPass2"
+                labelCol={{span: 6}}
+                wrapperCol={{span: 18}}
+                validateStatus={this.renderValidateStyle('rePass')}
+                help={status.rePass.errors ? status.rePass.errors.join(',') : null}
+                required>
+                  <Validator rules={[{
+                    required: true,
+                    whitespace: true,
+                    message: '请再次输入密码'
+                  }, {validator: this.checkPass2}]}>
+                    <Input name="rePass" id="confirmPass2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.rePass}/>
+                    </Validator>
+              </FormItem>
+            </Col>
+            <Col span="6">
               {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
-            </div>
-          </div>
+            </Col>
+          </Row>
 
-          <div className="ant-form-item">
-            <div className="col-offset-6 col-12">
-              <button type="submit" className="ant-btn ant-btn-primary">确 定</button>
-              &nbsp;&nbsp;&nbsp;
-              <a href="#" className="ant-btn" onClick={this.handleReset}>重 置</a>
-            </div>
-          </div>
+          <FormItem
+            wrapperCol={{span: 12, offset: 6}}
+            required>
+            <Button type="primary" onClick={this.handleSubmit}>确定</Button>
+            &nbsp;&nbsp;&nbsp;
+            <Button type="ghost" onClick={this.handleReset}>重置</Button>
+          </FormItem>
         </Validation>
-      </form>
+      </Form>
     );
   }
 });
 
-React.render(<Form />, document.getElementById('components-validation-demo-customize'));
+ReactDOM.render(<Demo />, document.getElementById('components-validation-demo-customize'));
 ````
 
-<style>
-  .ant-pwd-strength {
-    display: inline-block;
-    margin-left: 8px;
-    line-height: 32px;
-    height: 32px;
-    vertical-align: middle;
-  }
+````css
+.ant-pwd-strength {
+  display: inline-block;
+  margin-left: 8px;
+  line-height: 32px;
+  height: 32px;
+  vertical-align: middle;
+}
 
-  .ant-pwd-strength-item {
-    float: left;
-    margin-right: 1px;
-    margin-top: 12px;
-    width: 19px;
-    height: 8px;
-    line-height: 8px;
-    list-style: none;
-    background-color: #f3f3f3;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    -moz-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  }
+.ant-pwd-strength-item {
+  float: left;
+  margin-right: 1px;
+  margin-top: 12px;
+  width: 19px;
+  height: 8px;
+  line-height: 8px;
+  list-style: none;
+  background-color: #f3f3f3;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
 
-  .ant-pwd-strength-item-1 {
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
-  }
+.ant-pwd-strength-item-1 {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
 
-  .ant-pwd-strength-item-2 {
-    width: 20px;
-  }
+.ant-pwd-strength-item-2 {
+  width: 20px;
+}
 
-  .ant-pwd-strength-item-3 {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    margin-right: 8px;
-  }
+.ant-pwd-strength-item-3 {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 8px;
+}
 
-  .ant-pwd-strength-low .ant-pwd-strength-item-1, .ant-pwd-strength-medium .ant-pwd-strength-item-1, .ant-pwd-strength-high .ant-pwd-strength-item-1 {
-    background-color: #FAC450;
-  }
+.ant-pwd-strength-low .ant-pwd-strength-item-1, .ant-pwd-strength-medium .ant-pwd-strength-item-1, .ant-pwd-strength-high .ant-pwd-strength-item-1 {
+  background-color: #FAC450;
+}
 
-  .ant-pwd-strength-medium .ant-pwd-strength-item-2, .ant-pwd-strength-high .ant-pwd-strength-item-2 {
-    background-color: rgba(135, 208, 104, .6);
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#9987D068,endColorstr=#9987D068);
-  }
+.ant-pwd-strength-medium .ant-pwd-strength-item-2, .ant-pwd-strength-high .ant-pwd-strength-item-2 {
+  background-color: rgba(135, 208, 104, .6);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#9987D068,endColorstr=#9987D068);
+}
 
-  .ant-pwd-strength-high .ant-pwd-strength-item-3 {
-    background-color: #87D068;
-  }
-</style>
+.ant-pwd-strength-high .ant-pwd-strength-item-3 {
+  background-color: #87D068;
+}
+````

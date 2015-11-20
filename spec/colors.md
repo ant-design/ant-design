@@ -1,6 +1,6 @@
 # 色彩
 
-- category: 风格
+- category: 基础
 - order: 2
 
 ---
@@ -189,5 +189,121 @@ let ExtendPalettes = React.createClass({
     </div>;
   }
 });
-React.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
+ReactDOM.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
 `````
+
+## 色彩换算工具
+
+> 正数为变淡 `tint` ，负数为加深 `shade`。
+
+<div id="color-tint-shade-tool"></div>
+
+Ant Design 专用色彩换算工具，用于解析类似 `#2db7f5 tint 80%` 的色彩标注。
+
+less 或 scss 语言可以直接使用 `tint(#2db7f5, 80%)` 和  `shade(#2db7f5, 80%)` 的语法。
+
+
+`````jsx
+let Button = antd.Button;
+let InputNumber = antd.InputNumber;
+let Slider = antd.Slider;
+let Tooltip = antd.Tooltip;
+let TintShadeTool = React.createClass({
+  getInitialState() {
+    return {
+      result: '#2db7f5',
+      color: '#2db7f5',
+      justCopied: false,
+      value: 80
+    };
+  },
+  handleChangeColor(e) {
+    this.setState({
+      color: e.target.value
+    }, this.calculate);
+  },
+  handleChangeValue(value) {
+    this.setState({
+      value: value
+    }, this.calculate);
+  },
+  componentDidMount() {
+    this.calculate();
+  },
+  calculate() {
+    if (this.state.value === 0) {
+      this.setState({
+        result: this.state.color
+      });
+      return;
+    }
+    let tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
+    let c = new Values(this.state.color);
+    this.setState({
+      result: '#' + c[tintOrShade](Math.abs(this.state.value)).hex
+    });
+  },
+  copySuccess(e) {
+    this.setState({ justCopied: true }, () => {
+      setTimeout(() => {
+        this.setState({ justCopied: false });
+      }, 1000);
+    });
+  },
+  render() {
+    var marks = {
+      '-100': '加黑',
+      '0': '原色',
+      '100': '加白'
+    };
+    return <div style={{margin: '40px 0'}}>
+      <div>
+        <Clip onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff', cursor: 'pointer'}}>
+          <Tooltip title="点击色块复制色值">
+            <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '')}></div>
+          </Tooltip>
+        </Clip>
+        <span style={{width: 188, display: 'inline-block', fontFamily: 'Consolas'}}>{this.state.result}</span>
+        <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
+        <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
+        <span style={{margin: '0 0 0 8px'}}>%</span>
+      </div>
+      <div style={{width: 420, margin: '40px 10px 60px'}}>
+        <Slider value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} marks={marks} />
+      </div>
+    </div>;
+  }
+});
+
+ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
+`````
+
+<style>
+.color-block {
+  position: relative;
+  width: 60px;
+  border-radius: 6px;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.color-block:after {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "Copied!";
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+  color: #444;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  opacity: 0;
+}
+.color-block.copied:after {
+  opacity: 1;
+  top: 0;
+}
+</style>

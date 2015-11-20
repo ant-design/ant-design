@@ -13,24 +13,24 @@
 ````
 
 ````jsx
-var Steps = antd.Steps;
-var Step = Steps.Step;
-var container = document.getElementById('components-steps-demo-step-next');
-var array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
-var steps = array.map(function(item, i) {
+import { Steps, Button } from 'antd';
+const Step = Steps.Step;
+const container = document.getElementById('components-steps-demo-step-next');
+const array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
+const steps = array.map(function(item, i) {
   return {
     title: '步骤' + (i + 1)
   };
 });
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       currentStep: Math.floor(Math.random() * steps.length)
     }
   },
   next() {
-    var s = this.state.currentStep + 1;
+    let s = this.state.currentStep + 1;
     if (s === steps.length) {
       s = 0;
     }
@@ -39,7 +39,7 @@ var App = React.createClass({
     });
   },
   render() {
-    var cs = this.state.currentStep;
+    const cs = this.state.currentStep;
     return (
       <div>
         <div>当前正在执行第 {cs + 1} 步</div>
@@ -47,12 +47,12 @@ var App = React.createClass({
           {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
         </Steps>
         <div>
-          <button className='ant-btn' onClick={this.next}>下一步</button>
+          <Button onClick={this.next}>下一步</Button>
         </div>
       </div>
     );
   }
 });
 
-React.render(<App />, container);
+ReactDOM.render(<App />, container);
 ````

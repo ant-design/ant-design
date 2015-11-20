@@ -8,11 +8,11 @@ tags select，随意输入的内容（scroll the menu）
 
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
+import { Select } from 'antd';
+const Option = Select.Option;
 
-var children = [];
-for (var i = 10; i < 36; i++) {
+let children = [];
+for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
 
@@ -20,7 +20,7 @@ function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <Select
    style={{width: '100%'}}
    searchPlaceholder="标签模式"

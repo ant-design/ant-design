@@ -63,11 +63,13 @@ var dataSource = new Table.DataSource({
 |---------------|--------------------------|-----------------|---------------------|---------|
 | rowSelection  | 列表项是否可选择         | Object          |                     | false   |
 | pagination    | 分页器                   | Object   | 配置项参考 [pagination](/components/pagination)，设为 false 时不显示分页 |         |
-| size          | 正常或迷你类型           | String          | `normal` or `small` | normal  |
+| size          | 正常或迷你类型           | String          | `default` or `small`| default |
 | dataSource    | 数据源，可以为数组（本地模式）或一个数据源描述对象（远程模式） | Array or Object |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
-| rowKey        | 表格列 key 的取值 | Function(recode,index):string |                     |    record.key    |
+| rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
 | expandIconAsCell  | 设置展开 Icon 是否单独一列 | Boolean |                     |    true    |
+| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
+| loading       | 页面是否加载中 | Boolean |                     | false      |
 
 ### Column
 
@@ -76,13 +78,16 @@ var dataSource = new Table.DataSource({
 | 参数       | 说明                       | 类型            |  可选值             | 默认值  |
 |------------|----------------------------|-----------------|---------------------|---------|
 | title      | 列头显示文字               | String or React.Element |             |         |
-| dataIndex  | 列数据在 data 中对应的 key | React.Element   |                     |         |
+| dataIndex  | 列数据在 data 中对应的 key | String          |                     |         |
+| colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |                     |         |
 | key        | React 需要的 key           | String          |                     |         |
-| render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引 | Function(text, record, index) {} |    |         |
+| render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |            |         |
 | filters    | 表头的筛选菜单项           | Array           |                     |         |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                     |         |
+| filterMultiple | 是否多选 | Boolean    |                                        | true    |
 | sorter     | 排序函数，本地模式下为一个函数，远程模式下为布尔值 | Function or Boolean |  | 无 |
-| width      | 列宽度 | String or Number |  | 无 |
+| width      | 列宽度 | String or Number |                                        | 无      |
+| className  | 列的 className             | String          |                     | 无      |
 
 ### dataSource
 

@@ -7,14 +7,14 @@
 ---
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
+import { Select } from 'antd';
+const Option = Select.Option;
 
 function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
+ReactDOM.render(
   <Select defaultValue="lucy" showSearch={true} style={{width:200}}
   searchPlaceholder="输入"
   onChange={handleChange}>

@@ -11,7 +11,7 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
-  &-wrap-hidden > & {
+  &-hidden {
     display: none;
   }
 
@@ -26,7 +26,7 @@
     position: relative;
     background-color: #fff;
     border: none;
-    border-radius: 6px 6px;
+    border-radius: @border-radius-base;
     background-clip: padding-box;
     outline: 0;
   }
@@ -61,7 +61,7 @@
       right: 18px;
 
       &:before {
-        content: "\e61e";
+        content: "\e62d";
         display: block;
         font-family: "anticon" !important;
       }

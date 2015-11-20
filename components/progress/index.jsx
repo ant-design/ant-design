@@ -1,6 +1,7 @@
 import {Circle as Progresscircle} from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
+import Icon from '../icon';
 
 const prefixCls = 'ant-progress';
 
@@ -15,14 +16,15 @@ let Line = React.createClass({
     status: React.PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
     showInfo: React.PropTypes.bool,
     percent: React.PropTypes.number,
-    strokeWidth: React.PropTypes.number
+    strokeWidth: React.PropTypes.number,
   },
   getDefaultProps() {
     return {
       percent: 0,
       strokeWidth: 10,
       status: 'normal', // exception active
-      showInfo: true
+      format: '${percent}%',
+      showInfo: true,
     };
   },
   render() {
@@ -34,25 +36,26 @@ let Line = React.createClass({
 
     let progressInfo;
     let fullCls = '';
+    const text = (typeof props.format === 'string') ?
+      props.format.replace('${percent}', props.percent) : props.format;
+
     if(props.showInfo === true){
       if (props.status === 'exception') {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>
-            <i className="anticon anticon-exclamation-circle"></i>
-          </span>
+          <span className={prefixCls + '-line-text'}>{text}</span>
         );
       } else if (props.status === 'success') {
         progressInfo = (
           <span className={prefixCls + '-line-text'}>
-            <i className="anticon anticon-check-circle"></i>
+            <Icon type="check" />
           </span>
         );
       } else {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>{props.percent}%</span>
+          <span className={prefixCls + '-line-text'}>{text}</span>
         );
       }
-    }else {
+    } else {
       fullCls = ' ' + prefixCls + '-line-wrap-full';
     }
     let percentStyle = {
@@ -74,12 +77,19 @@ let Line = React.createClass({
 });
 
 let Circle = React.createClass({
+  propTypes: {
+    status: React.PropTypes.oneOf(['normal', 'exception', 'success']),
+    percent: React.PropTypes.number,
+    strokeWidth: React.PropTypes.number,
+    width: React.PropTypes.number,
+  },
   getDefaultProps: function () {
     return {
       width: 132,
       percent: 0,
       strokeWidth: 6,
-      status: 'normal' // exception
+      format: '${percent}%',
+      status: 'normal', // exception
     };
   },
   render() {
@@ -95,21 +105,21 @@ let Circle = React.createClass({
       'fontSize': props.width * 0.16 + 6
     };
     let progressInfo;
+    const text = (typeof props.format === 'string') ?
+      props.format.replace('${percent}', props.percent) : props.format;
     if (props.status === 'exception') {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>
-          <i className="anticon anticon-exclamation"></i>
-        </span>
+        <span className={prefixCls + '-circle-text'}>{text}</span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>
-          <i className="anticon anticon-check"></i>
+          <Icon type="check" />
         </span>
       );
     } else {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>{props.percent}%</span>
+        <span className={prefixCls + '-circle-text'}>{text}</span>
       );
     }
 

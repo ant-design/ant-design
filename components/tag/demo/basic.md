@@ -7,13 +7,13 @@
 ---
 
 ````jsx
-var Tag = antd.Tag;
+import { Tag } from 'antd';
 
 function onClose(e) {
   console.log(this.props.children);
 }
 
-React.render(<div>
+ReactDOM.render(<div>
   <Tag>标签一</Tag>
   <Tag>标签二</Tag>
   <Tag closable onClose={onClose}>标签三</Tag>

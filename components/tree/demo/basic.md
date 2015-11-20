@@ -7,10 +7,10 @@
 ---
 
 ````jsx
-var Tree = antd.Tree;
-var TreeNode = Tree.TreeNode;
+import { Tree } from 'antd';
+const TreeNode = Tree.TreeNode;
 
-React.render(
+ReactDOM.render(
   <Tree defaultExpandAll={false}>
     <TreeNode title="parent 1">
       <TreeNode title="leaf" />

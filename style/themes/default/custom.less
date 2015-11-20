@@ -10,7 +10,7 @@
 // ------ Base & Require ------
 @body-background        : #fff;
 
-@font-family            : "Helvetica Neue",Helvetica,"Hiragino Sans GB","STHeitiSC-Light","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+@font-family            : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 @code-family            : Consolas,Menlo,Courier,monospace;
 @text-color             : #666;
 @font-size-base         : 12px;
@@ -20,7 +20,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "//at.alicdn.com/t/font_1440074043_6914854";
+@icon-url               : "//at.alicdn.com/t/font_1447745222_4559345";
 
 // LINK
 @link-color             : #2db7f5;
@@ -65,14 +65,14 @@
 @btn-disable-border     : #d9d9d9;
 
 @btn-padding-base       : 4px 15px;
-@btn-border-radius-base : 14px;
+@btn-border-radius-base : 100px;
 
 @btn-font-size-lg       : 14px;
 @btn-padding-lg         : 4px 15px 5px 15px;
-@btn-border-radius-lg   : 16px;
+@btn-border-radius-lg   : @btn-border-radius-base;
 
 @btn-padding-sm         : 1px 7px;
-@btn-border-radius-sm   : 11px;
+@btn-border-radius-sm   : @btn-border-radius-base;
 
 @btn-circle-size        : 28px;
 @btn-circle-size-lg     : 32px;
@@ -138,3 +138,11 @@
 @form-item-margin-bottom     : 24px;
 
 @overlay-shadow              : 0 0 4px rgba(0, 0, 0, 0.17);
+
+// Spin
+// --------------------------------
+@spin-dot-default            : #999;
+
+@spin-dot-size               : 8px;
+@spin-dot-size-sm            : @spin-dot-size / 2;
+@spin-dot-size-lg            : @spin-dot-size * 2;

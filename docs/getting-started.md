@@ -5,50 +5,15 @@
 
 ---
 
-Ant Design React 致力于提供给程序员愉悦的开发体验。
+Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
-## 第一个例子
-
-我们封装了一套基于 React 实现的 UI 组件，可以用 React 的方式直接使用。
-
-下面有一个使用了 [日期选择](http://ant.design/components/datepicker) 组件的简单例子。
-
-<iframe width="100%" height="380" src="//jsfiddle.net/afc163/3cwzj0ea/embedded/result,html" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
-
-源码如下：
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="http://09x.ant.design/dist/antd.css">
-    <!-- 引入 react 和 antd.js -->
-    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js,react/0.13.3/JSXTransformer.js"></script>
-    <script src="http://09x.ant.design/dist/antd.js"></script>
-  </head>
-  <body>
-  </body>
-  <!-- 直接调用全局变量 -->
-  <script type="text/jsx">
-    React.render(<antd.Datepicker />, document.body);
-  </script>
-</html>
-```
-
-你可以在 [这里](/components/button/) 选用更多组件。
-
-
-## 标准项目
-
-实际项目开发中，你会需要 CommonJS 、JSX 构建、打包部署等一系列工程化的需求。
-提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
+实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
+我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
 ### 1. 安装命令行工具
 
 ```bash
-$ npm install antd-bin@0.6.x -g
+$ npm install antd-init -g
 ```
 
 [更多使用说明](https://github.com/ant-design/antd-bin#使用说明)。
@@ -59,22 +24,21 @@ $ npm install antd-bin@0.6.x -g
 
 ```bash
 $ mkdir antd-demo && cd antd-demo
-$ antd init
+$ antd-init
 $ npm install
 ```
 
+若安装缓慢报错，可尝试用 `cnpm` 或别的镜像源自行安装：`rm -rf node_modules && cnpm install`.
+
 ### 3. 使用组件
 
-编辑 `index.js`，使用 Ant Design React 的组件：
-
-修改 `package.json` 的 entry 为 `"index": "./index.js"`。
-在目录下建立和编辑 `index.js`，使用 Ant Design React 的组件。
+编辑 `src/component/App.jsx`，用 React 的方式直接使用 Ant Design React 的组件。
 
 ```jsx
 import React from 'react';
 import { Datepicker, message } from 'antd';
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       date: ''
@@ -94,36 +58,14 @@ var App = React.createClass({
   }
 });
 
-React.render(<App />, document.body);
+export default App;
 ```
 
-> `var Datepicker = require('antd/lib/datepicker')` 单独引入需要的组件文件可以有效减少最终构建文件的大小。
-
-> `lib` 即构建后的 `components` 目录。
-
-然后建一个页面 index.html 用于开发，编辑如下：
-
-编辑 `index.html` 如下：
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="/index.css">
-    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
-  </head>
-  <body>
-  </body>
-  <!-- 引入入口文件 -->
-  <script src="/index.js"></script>
-</html>
-```
+你可以在 [这里](/components/button) 选用更多组件。
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8000 查看效果。
+一键启动调试，访问 http://127.0.0.1:8001 查看效果。
 
 ```bash
 $ npm run dev
@@ -145,6 +87,18 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
 
+<div class="code-line-highlight"></div>
+
+<style>
+.code-line-highlight {
+  box-shadow: 0px 196px 0px rgba(255, 207, 0, 0.16);
+  height: 42px;
+  margin-top: -42px;
+  position: relative;
+  z-index: 1;
+}
+</style>
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -153,24 +107,21 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
-    <script src="https://a.alipayobjects.com/??es5-shim/4.1.10/es5-shim.min.js,es5-shim/4.1.10/es5-sham.min.js,html5shiv/3.7.2/src/html5shiv.js"></script>
-    <!-- 引入 jquery 和 react -->
-    <script src="https://a.alipayobjects.com/??jquery/jquery/1.11.1/jquery.js,react/0.13.3/react.min.js"></script>
+    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js"></script>
   </head>
   <body>
   </body>
+  <!-- 引入公用文件 -->
+  <script src="/common.js"></script>
+  <!-- 引入入口文件 -->
+  <script src="/index.js"></script>
 </html>
 ```
 
-<div class="code-line-highlight"></div>
+## 自行构建
 
-<style>
-.code-line-highlight {
-  box-shadow: 0 -197px 0 rgba(255, 207, 0, 0.16);
-  height: 42px;
-  margin-bottom: -42px;
-}
-</style>
+如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
+
 
 ## 小甜点
 

@@ -25,23 +25,22 @@
     display: block;
   }
 
-  &-custom-content {
-  }
-
-  &-success {
+  &-success.anticon {
     color: @success-color;
   }
 
-  &-error {
+  &-error.anticon {
     color: @error-color;
   }
 
-  &-info, &-loading  {
+  &-info.anticon,
+  &-loading.anticon  {
     color: @primary-color;
   }
 
   .anticon {
     margin-right: 8px;
     font-size: 14px;
+    top: 1px;
   }
 }

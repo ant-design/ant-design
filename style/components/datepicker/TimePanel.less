@@ -7,7 +7,6 @@
   z-index: 10;
   position: absolute;
   outline: none;
-  border-radius: 6px;
   border-radius: @border-radius-base;
 }
 
@@ -18,7 +17,6 @@
   position: relative;
   text-align: center;
   user-select: none;
-  -webkit-user-select: none;
   border-bottom: 1px solid #e9e9e9;
 }
 
@@ -55,6 +53,7 @@
   border-radius: 4px;
   margin: 0 auto;
   color: #666;
+  transition: background 0.3s ease;
 
   &:hover {
     background: tint(@primary-color, 90%);

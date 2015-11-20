@@ -13,7 +13,6 @@
 @popover-bg:                          #fff;
 //** Popover maximum width
 @popover-min-width:                   177px;
-@popover-max-width:                   276px;
 //** Popover border color
 @popover-border-color:                #d9d9d9;
 
@@ -35,7 +34,6 @@
   left: 0;
   z-index: 1080;
   cursor: auto;
-  -moz-user-select: text;
   user-select: text;
   white-space: normal;
   font-size: @font-size-base;
@@ -54,52 +52,27 @@
   }
 
   // Offset the popover to account for the popover arrow
-  &-placement-top {
+  &-placement-top, &-placement-topLeft, &-placement-topRight {
     margin-top: -@popover-arrow-width;
     padding-bottom: @popover-distance;
-    &:after {
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 8px;
-    }
   }
 
-  &-placement-right {
+  &-placement-right, &-placement-rightTop, &-placement-rightBottom {
     margin-left: @popover-arrow-width;
     padding-left: @popover-distance;
-    &:after {
-      top: 0;
-      left: -8px;
-      width: 8px;
-      height: 100%;
-    }
   }
 
-  &-placement-bottom {
+  &-placement-bottom, &-placement-bottomLeft, &-placement-bottomRight {
     margin-top: @popover-arrow-width;
     padding-top: @popover-distance;
-    &:after {
-      top: -8px;
-      left: 0;
-      width: 100%;
-      height: 8px;
-    }
   }
 
-  &-placement-left {
+  &-placement-left, &-placement-leftTop, &-placement-leftBottom {
     margin-left: -@popover-arrow-width;
     padding-right: @popover-distance;
-    &:after {
-      top: 0;
-      left: 100%;
-      width: 8px;
-      height: 100%;
-    }
   }
 
   &-inner {
-    max-width: @popover-max-width;
     min-width: @popover-min-width;
     background-color: @popover-bg;
     background-clip: padding-box;
@@ -129,8 +102,6 @@
     .anticon {
       margin-right: 8px;
       color: @error-color;
-      position: relative;
-      top: -1px;
     }
   }
 
@@ -165,7 +136,9 @@
     content: "";
   }
 
-  &-placement-top > &-arrow {
+  &-placement-top > &-arrow,
+  &-placement-topLeft > &-arrow,
+  &-placement-topRight > &-arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
     border-bottom-width: 0;
@@ -179,7 +152,16 @@
       border-top-color: @popover-arrow-color;
     }
   }
-  &-placement-right > &-arrow {
+  &-placement-topLeft > &-arrow {
+    left: 15%;
+  }
+  &-placement-topRight > &-arrow {
+    left: 85%;
+  }
+
+  &-placement-right > &-arrow,
+  &-placement-rightTop > &-arrow,
+  &-placement-rightBottom > &-arrow {
     top: 50%;
     left: @popover-distance - @popover-arrow-outer-width + 1;
     margin-top: -@popover-arrow-outer-width;
@@ -193,7 +175,16 @@
       border-right-color: @popover-arrow-color;
     }
   }
-  &-placement-bottom > &-arrow {
+  &-placement-rightTop > &-arrow {
+    top: 15%;
+  }
+  &-placement-rightBottom > &-arrow {
+    top: 85%;
+  }
+
+  &-placement-bottom > &-arrow,
+  &-placement-bottomLeft > &-arrow,
+  &-placement-bottomRight > &-arrow {
     left: 50%;
     margin-left: -@popover-arrow-outer-width;
     border-top-width: 0;
@@ -207,8 +198,16 @@
       border-bottom-color: @popover-arrow-color;
     }
   }
+  &-placement-bottomLeft > &-arrow {
+    left: 15%;
+  }
+  &-placement-bottomRight > &-arrow {
+    left: 85%;
+  }
 
-  &-placement-left > &-arrow {
+  &-placement-left > &-arrow,
+  &-placement-leftTop > &-arrow,
+  &-placement-leftBottom > &-arrow {
     top: 50%;
     right: @popover-distance - @popover-arrow-outer-width + 1;
     margin-top: -@popover-arrow-outer-width;
@@ -222,4 +221,11 @@
       bottom: -@popover-arrow-width;
     }
   }
+  &-placement-leftTop > &-arrow {
+    top: 15%;
+  }
+  &-placement-leftBottom > &-arrow {
+    top: 85%;
+  }
+
 }

@@ -33,11 +33,23 @@
 - 背靠 npm 生态圈。
 - 基于 webpack 的调试构建方案，支持 ES6。
 
+
 ## 示例
 
 ```jsx
 import { Datepicker } from 'antd';
-React.render(<Datepicker />, mountNode);
+ReactDOM.render(<Datepicker />, mountNode);
+```
+
+或者按需加载：
+
+```jsx
+import Datepicker from 'antd/lib/datepicker';
+ReactDOM.render(<Datepicker />, mountNode);
+```
+
+```jsx
+import 'antd/lib/index.css'; // 样式需要在入口处引用一次
 ```
 
 ## 版本
@@ -45,12 +57,15 @@ React.render(<Datepicker />, mountNode);
 - 稳定版：[![npm package](http://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 - 开发版：[![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
 
+## 浏览器支持
+
+现代浏览器和 IE8 及以上。
+
 ## 链接
 
 - [首页](http://ant.design/)
-- [文档](http://ant.design/docs/introduce)
-- [组件](http://ant.design/components/)
-- [构建调试 antd-bin](https://github.com/ant-design/antd-bin)
+- [文档和组件](http://ant.design/docs/introduce)
+- [构建调试工具](https://github.com/ant-design/antd-bin)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
@@ -59,6 +74,8 @@ React.render(<Datepicker />, mountNode);
 ## 谁在使用
 
 - 蚂蚁金服
+
+> 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
 ## 如何贡献
 

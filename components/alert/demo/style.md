@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Alert = antd.Alert;
+import { Alert } from 'antd';
 
-React.render(<div>
+ReactDOM.render(<div>
   <Alert message="成功提示的文案" type="success" />
   <Alert message="消息提示的文案" type="info" />
   <Alert message="警告提示的文案" type="warn" />

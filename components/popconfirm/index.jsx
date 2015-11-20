@@ -1,5 +1,7 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
+import Icon from '../icon';
+import Button from '../button';
 const prefixCls = 'ant-popover';
 
 export default React.createClass({
@@ -41,13 +43,13 @@ export default React.createClass({
     const overlay = <div>
       <div className={prefixCls + '-content'}>
         <p className={prefixCls + '-message'}>
-          <i className="anticon anticon-exclamation-circle"></i>
+          <Icon type="exclamation-circle" />
           {this.props.title}
         </p>
 
         <div className={prefixCls + '-buttons'}>
-          <button onClick={this.cancel} className="ant-btn ant-btn-sm">取 消</button>
-          <button onClick={this.confirm} className="ant-btn ant-btn-primary ant-btn-sm">确 定</button>
+          <Button onClick={this.cancel} type="ghost" size="small">取消</Button>
+          <Button onClick={this.confirm} type="primary" size="small">确定</Button>
         </div>
       </div>
     </div>;
@@ -56,7 +58,15 @@ export default React.createClass({
       top: 'zoom-down',
       bottom: 'zoom-up',
       left: 'zoom-right',
-      right: 'zoom-left'
+      right: 'zoom-left',
+      topLeft: 'zoom-down',
+      bottomLeft: 'zoom-up',
+      leftTop: 'zoom-right',
+      rightTop: 'zoom-left',
+      topRight: 'zoom-down',
+      bottomRight: 'zoom-up',
+      leftBottom: 'zoom-right',
+      rightBottom: 'zoom-left',
     })[this.props.placement];
 
     return (

@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Badge = antd.Badge;
+import { Badge } from 'antd';
 
-React.render(
+ReactDOM.render(
   <a href="#">
-    <Badge count="5">
+    <Badge count={5}>
       <span className="head-example"></span>
     </Badge>
   </a>

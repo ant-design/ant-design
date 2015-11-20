@@ -1,11 +1,13 @@
 import React from 'react';
 import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
+import Icon from '../icon';
 
 let FilterMenu = React.createClass({
   getInitialState() {
     return {
-      selectedKeys: this.props.selectedKeys
+      selectedKeys: this.props.selectedKeys,
+      visible: false
     };
   },
   componentWillReceiveProps(nextProps){
@@ -21,9 +23,7 @@ let FilterMenu = React.createClass({
     };
   },
   setSelectedKeys: function ({selectedKeys}) {
-    this.setState({
-      selectedKeys: selectedKeys
-    });
+    this.setState({ selectedKeys });
   },
   handleClearFilters() {
     this.setState({
@@ -49,7 +49,12 @@ let FilterMenu = React.createClass({
   },
   render() {
     let column = this.props.column;
-    let menus = <Menu multiple={true}
+    // default multiple selection in filter dropdown
+    let multiple = true;
+    if ('filterMultiple' in column) {
+      multiple = column.filterMultiple;
+    }
+    let menus = <Menu multiple={multiple}
                  prefixCls="ant-dropdown-menu"
                  className="ant-table-filter-dropdown"
                  onSelect={this.setSelectedKeys}
@@ -72,7 +77,7 @@ let FilterMenu = React.createClass({
              pointerEvents: 'visible'
            }}
            onClick={this.handleClearFilters}>
-          清空
+          重置
         </a>
       </Menu.Item>
     </Menu>;
@@ -82,8 +87,12 @@ let FilterMenu = React.createClass({
       dropdownSelectedClass = 'ant-table-filter-selected';
     }
 
-    return <Dropdown trigger="click" overlay={menus} visible={this.state.visible} onVisibleChange={this.onVisibleChange}>
-      <i title="筛选" className={'anticon anticon-bars ' + dropdownSelectedClass}></i>
+    return <Dropdown trigger={['click']}
+                     overlay={menus}
+                     visible={this.state.visible}
+                     onVisibleChange={this.onVisibleChange}
+                     closeOnSelect={false}>
+      <Icon title="筛选" type="bars" className={dropdownSelectedClass} />
     </Dropdown>;
   }
 });

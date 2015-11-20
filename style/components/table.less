@@ -24,12 +24,9 @@
     background: @table-head-background-color;
     font-weight: bold;
     transition: background .3s ease;
-    text-align: left;
 
     .anticon-bars {
       margin-left: 4px;
-      position: relative;
-      top: -1px;
       .iconfont-size-under-12px(10px);
       cursor: pointer;
       color: #aaa;
@@ -44,10 +41,10 @@
     }
 
     &:first-child {
-      border-radius: 6px 0 0 0;
+      border-radius: @border-radius-base 0 0 0;
     }
     &:last-child {
-      border-radius: 0 6px 0 0;
+      border-radius: 0 @border-radius-base 0 0;
     }
   }
 
@@ -82,23 +79,22 @@
   &-loading {
     position: relative;
     .@{table-prefix-cls}-body {
-      opacity: 0.42;
+      background: #fff;
+      opacity: 0.5;
     }
-    &:after {
-      position: absolute;
-      display: inline-block;
-      .animation(loadingCircle 1.5s infinite linear);
-      content: "\e610";
-      top: 50%;
-      left: 50%;
-      margin-top: -10px;
-      margin-left: -10px;
-      font-family: anticon;
-      width: 20px;
+    .@{table-prefix-cls}-spin-holder {
       height: 20px;
       line-height: 20px;
-      font-size: 20px;
-      color: @primary-color;
+      left: 50%;
+      top: 50%;
+      margin-left: -30px;
+      position: absolute;
+    }
+    .@{table-prefix-cls}-with-pagination {
+      margin-top: -20px;
+    }
+    .@{table-prefix-cls}-without-pagination {
+      margin-top: 10px;
     }
   }
 
@@ -203,8 +199,6 @@
     width: 100%;
     .anticon {
       margin-right: 4px;
-      position: relative;
-      top: -1px;
     }
   }
 }

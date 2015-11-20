@@ -7,15 +7,16 @@
 ---
 
 ````jsx
-var Progress = antd.Progress.Line;
+import { Progress, Icon } from 'antd';
+const ProgressLine = Progress.Line;
 
-React.render(
+ReactDOM.render(
   <div>
-    <Progress percent="30" />
-    <Progress percent="50" status="active" />
-    <Progress percent="70" status="exception" />
-    <Progress percent="100" />
-    <Progress percent="50" showInfo={false} />
+    <ProgressLine percent={30} />
+    <ProgressLine percent={50} status="active" />
+    <ProgressLine percent={70} status="exception" format={<Icon type="exclamation" />} />
+    <ProgressLine percent={100} />
+    <ProgressLine percent={50} showInfo={false} />
   </div>
-  , document.getElementById('components-progress-demo-line'));
+, document.getElementById('components-progress-demo-line'));
 ````

@@ -1,15 +1,15 @@
 # 分页
 
-- order: 2
+- order: 5
 
 数据项较多时显示分页。
 
 ---
 
 ````jsx
-var Table = antd.Table;
+import { Table } from 'antd';
 
-var columns = [{
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
@@ -22,8 +22,8 @@ var columns = [{
   title: '住址',
   dataIndex: 'address'
 }];
-var data = [];
 
+const data = [];
 for (let i=0; i<46; i++) {
   data.push({
     key: i,
@@ -33,12 +33,12 @@ for (let i=0; i<46; i++) {
   });
 }
 
-var pagination = {
+const pagination = {
   total: data.length,
   current: 2,
   showSizeChanger: true
 };
 
-React.render(<Table columns={columns} dataSource={data} pagination={pagination} />
+ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />
 , document.getElementById('components-table-demo-paging'));
 ````

@@ -7,8 +7,9 @@
 ---
 
 ````jsx
-var Table = antd.Table;
-var columns = [{
+import { Table, Icon } from 'antd';
+
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
@@ -30,12 +31,12 @@ var columns = [{
       <a href="javascript:;">操作二</a>
       <span className="ant-divider"></span>
       <a href="javascript:;" className="ant-dropdown-link">
-        更多 <i className="anticon anticon-down"></i>
+        更多 <Icon type="down" />
       </a>
     </span>;
   }
 }];
-var data = [{
+const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
@@ -52,6 +53,6 @@ var data = [{
   address: '西湖区湖底公园1号'
 }];
 
-React.render(<Table columns={columns} dataSource={data} />
+ReactDOM.render(<Table columns={columns} dataSource={data} />
 , document.getElementById('components-table-demo-basic'));
 ````

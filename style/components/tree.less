@@ -5,7 +5,7 @@
   position: relative;
   &:after {
     .iconfont-size-under-12px(6px);
-    content: '\e60f';
+    content: '\e611';
     display: inline-block;
     font-family: 'anticon';
     font-weight: bold;
@@ -50,12 +50,22 @@
         line-height: 0;
         margin: 0;
         width: 16px;
-        height: 17px;
+        height: 18px;
         display: inline-block;
         vertical-align: middle;
         border: 0 none;
         cursor: pointer;
         outline: none;
+      }
+      &.@{tree-prefix-cls}-icon_loading {
+        &:after {
+          content: '\e6a1';
+          display: inline-block;
+          font-family: 'anticon';
+          font-weight: bold;
+          .animation(loadingCircle 1s infinite linear);
+          margin-top:8px;
+        }
       }
       &.@{tree-prefix-cls}-switcher {
         &-disabled {

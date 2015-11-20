@@ -7,13 +7,13 @@
 ---
 
 ````jsx
-var InputNumber = antd.InputNumber;
+import { InputNumber } from 'antd';
 
 function onChange(value) {
   console.log('changed', value);
 }
 
-React.render(
+ReactDOM.render(
 <div>
   <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
   <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />

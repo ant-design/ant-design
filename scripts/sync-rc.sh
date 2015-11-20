@@ -1,0 +1,1 @@
+tnpm sync rc-collapse rc-steps rc-animate rc-dialog rc-queue-anim rc-tree rc-notification rc-table rc-upload rc-pagination rc-checkbox rc-radio rc-dropdown rc-util rc-switch rc-calendar rc-input-number rc-menu rc-notification rc-form-validation rc-dialog rc-slider rc-tabs rc-progress rc-tooltip rc-select --save

@@ -7,9 +7,9 @@
 ---
 
 ````jsx
-var Datepicker = antd.Datepicker;
+import { Datepicker } from 'antd';
 
-React.render(
+ReactDOM.render(
   <div>
     <Datepicker size="large" />
     <Datepicker />

@@ -1,14 +1,15 @@
 # 外界控制数据
 
-- order: 8
+- order: 11
 
 由父元素控制自身数据展示。
 
 ---
 
 ````jsx
-var Table = antd.Table;
-var columns = [{
+import { Table, Button } from 'antd';
+
+const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
@@ -21,7 +22,7 @@ var columns = [{
   title: '住址',
   dataIndex: 'address'
 }];
-var data1 = [{
+const data1 = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
@@ -37,7 +38,7 @@ var data1 = [{
   age: 32,
   address: '西湖区湖底公园1号'
 }];
-var data2 = [{
+const data2 = [{
   key: '11',
   name: '胡彦斌2',
   age: 32,
@@ -54,7 +55,7 @@ var data2 = [{
   address: '西湖区湖底公园2号'
 }];
 
-var App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       data: []
@@ -73,14 +74,14 @@ var App = React.createClass({
   render() {
     return <div>
       <Table columns={columns} dataSource={this.state.data} />
-      <button className="ant-btn" onClick={this.handleClick1}>加载本地数据1</button>
+      <Button onClick={this.handleClick1}>加载本地数据1</Button>
       &nbsp;
-      <button className="ant-btn" onClick={this.handleClick2}>加载本地数据2</button>
+      <Button onClick={this.handleClick2}>加载本地数据2</Button>
     </div>;
   }
 })
 
-React.render(<App />
+ReactDOM.render(<App />
 , document.getElementById('components-table-demo-local-data'));
 ````
 

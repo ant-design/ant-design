@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Badge = antd.Badge;
+import { Badge, Icon } from 'antd';
 
-React.render(<div>
+ReactDOM.render(<div>
   <Badge dot={true}>
-    <i className="anticon anticon-notification"></i>
+    <Icon type="notification" />
   </Badge>
   <Badge dot={true}>
     <a href="#">一个链接</a>

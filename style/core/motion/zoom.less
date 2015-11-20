@@ -16,12 +16,6 @@
 .zoom-motion(zoom-left, antZoomLeft);
 .zoom-motion(zoom-right, antZoomRight);
 
-
-.zoom-tag-leave{
-  animation: antZoomOut .3s @ease-in-out-circ;
-}
-
-
 @keyframes antZoomIn {
   0% {
     opacity: 0;
@@ -41,6 +35,7 @@
     transform: scale(0);
   }
 }
+
 @keyframes antZoomBigIn {
   0% {
     opacity: 0;

@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-var InputNumber = antd.InputNumber;
+import { InputNumber, Button } from 'antd';
 
 var Test = React.createClass({
   getInitialState() {
@@ -24,11 +24,11 @@ var Test = React.createClass({
     return <div>
       <InputNumber min={1} max={10} disabled={this.state.disabled} defaultValue={3} />
       <div style={{marginTop: 20}}>
-        <button onClick={this.toggle} className="ant-btn ant-btn-primary">Toggle disabled</button>
+        <Button onClick={this.toggle} type="primary">Toggle disabled</Button>
       </div>
     </div>;
   }
 });
 
-React.render(<Test />, document.getElementById('components-input-number-demo-disabled'));
+ReactDOM.render(<Test />, document.getElementById('components-input-number-demo-disabled'));
 ````

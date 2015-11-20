@@ -7,10 +7,10 @@
 ---
 
 ````jsx
-var Badge = antd.Badge;
+import { Badge } from 'antd';
 
-React.render(
-  <Badge count="5">
+ReactDOM.render(
+  <Badge count={5}>
     <a href="#" className="head-example"></a>
   </Badge>
 , document.getElementById('components-badge-demo-basic'));

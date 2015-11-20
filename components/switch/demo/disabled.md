@@ -7,10 +7,10 @@ Switch 失效状态。
 ---
 
 ````jsx
-var Switch = antd.Switch;
-var container = document.getElementById('components-switch-demo-disabled');
+import { Switch, Button } from 'antd';
+const container = document.getElementById('components-switch-demo-disabled');
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       disabled: true
@@ -26,10 +26,10 @@ var Test = React.createClass({
       <Switch disabled={this.state.disabled} />
       <br />
       <br />
-      <button className="ant-btn ant-btn-primary" onClick={this.toggle}>Toggle disabled</button>
+      <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
     </div>;
   }
 });
 
-React.render(<Test />, container);
+ReactDOM.render(<Test />, container);
 ````

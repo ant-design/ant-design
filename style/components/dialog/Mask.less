@@ -1,9 +1,4 @@
 .@{dialog-prefix-cls} {
-
-  &-wrap-hidden > &-mask {
-    display: none;
-  }
-
   &-mask {
     position: fixed;
     top: 0;
@@ -15,6 +10,9 @@
     height: 100%;
     z-index: 1000;
     filter: alpha(opacity=50);
-  }
 
+    &-hidden {
+      display: none;
+    }
+  }
 }

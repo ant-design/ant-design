@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Upload = antd.Upload;
-var message = antd.message;
+import { Upload, message, Button, Icon } from 'antd';
 
-var props = {
+const props = {
   name: 'file',
   action: '/upload.do',
   onChange(info) {
@@ -25,11 +24,11 @@ var props = {
   }
 };
 
-React.render(
+ReactDOM.render(
   <Upload {...props}>
-    <button type="button" className="ant-btn ant-btn-ghost">
-      <i className="anticon anticon-upload"></i> 点击上传
-    </button>
+    <Button type="ghost">
+      <Icon type="upload" /> 点击上传
+    </Button>
   </Upload>
 , document.getElementById('components-upload-demo-basic'));
 ````

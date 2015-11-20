@@ -7,15 +7,15 @@
 ---
 
 ````jsx
-var Select = antd.Select;
-var Option = Select.Option;
+import { Select } from 'antd';
+const Option = Select.Option;
 
 function handleChange(value) {
   console.log('selected ' + value);
 }
 
-React.render(
-  <Select defaultValue="lucy" style={{width:200}} onChange={handleChange}>
+ReactDOM.render(
+  <Select defaultValue="lucy" style={{width:120}} onChange={handleChange}>
     <Option value="jack">Jack</Option>
     <Option value="lucy">Lucy</Option>
     <Option value="disabled" disabled>Disabled</Option>

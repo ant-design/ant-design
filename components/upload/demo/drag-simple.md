@@ -7,24 +7,26 @@
 ---
 
 ````jsx
-var Dragger = antd.Upload.Dragger;
+import { Upload, Icon } from 'antd';
+const Dragger = Upload.Dragger;
 
-var props = {
+const props = {
   name: 'file',
+  showUploadList: false,
   action: '/upload.do'
 };
 
-React.render(
+ReactDOM.render(
   <Dragger {...props}>
-    <i className="anticon anticon-plus"></i>
+    <Icon type="plus" />
   </Dragger>,
   document.getElementById('components-upload-demo-drag-simple')
 );
 ````
 
-<style>
+````css
 #components-upload-demo-drag-simple {
   width: 246px;
   height: 146px;
 }
-</style>
+````

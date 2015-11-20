@@ -7,10 +7,9 @@
 ---
 
 ````jsx
-var Menu = antd.Menu;
-var Dropdown = antd.Dropdown;
+import { Menu, Dropdown, Button, Icon } from 'antd';
 
-var menu = <Menu>
+const menu = <Menu>
   <Menu.Item key="0">
     <a target="_blank" href="http://www.alipay.com/">第一个菜单项</a>
   </Menu.Item>
@@ -21,11 +20,11 @@ var menu = <Menu>
   <Menu.Item key="3" disabled>第三个菜单项（不可用）</Menu.Item>
 </Menu>;
 
-React.render(
+ReactDOM.render(
   <Dropdown overlay={menu}>
-    <button className="ant-btn ant-btn-menu">
-      鼠标移入 <i className="anticon anticon-down"></i>
-    </button>
+    <Button>
+      鼠标移入 <Icon type="down" />
+    </Button>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-item'));
 ````

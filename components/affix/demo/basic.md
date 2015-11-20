@@ -7,11 +7,11 @@
 ---
 
 ````jsx
-var Affix = antd.Affix;
+import { Affix, Button } from 'antd';
 
-React.render(
+ReactDOM.render(
   <Affix>
-    <button className="ant-btn ant-btn-primary">固定在顶部</button>
+    <Button type="primary">固定在顶部</Button>
   </Affix>
 , document.getElementById('components-affix-demo-basic'));
 ````
