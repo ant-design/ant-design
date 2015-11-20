@@ -27,21 +27,22 @@ function createPicker(TheCalendar) {
     },
     getInitialState() {
       return {
-        value: this.parseDateFromValue(this.props.value || this.props.defaultValue)
+        value: this.parseDateFromValue(this.props.value || this.props.defaultValue),
+        locale: this.mergeLocale(this.props.locale)
       };
     },
     componentWillReceiveProps(nextProps) {
+      // `parseDateFromValue` 需要使用 `locale`，所以要在此之前更新 `locale`
+      if ('locale' in nextProps) {
+        this.setState({
+          locale: this.mergeLocale(nextProps.locale)
+        });
+      }
       if ('value' in nextProps) {
         this.setState({
           value: this.parseDateFromValue(nextProps.value)
         });
       }
-    },
-    getLocale() {
-      // 统一合并为完整的 Locale
-      let locale = objectAssign({}, defaultLocale, this.props.locale);
-      locale.lang = objectAssign({}, defaultLocale.lang, this.props.locale.lang);
-      return locale;
     },
     getFormatter() {
       const formats = this.formats = this.formats || {};
@@ -51,6 +52,16 @@ function createPicker(TheCalendar) {
       }
       formats[format] = new DateTimeFormat(format, this.getLocale().lang.format);
       return formats[format];
+    },
+    getLocale() {
+      // `getInitialState` 保证了，只要 `this.state` 存在，则 `this.state.locale` 必然存在
+      return this.state !== null ? this.state.locale : this.mergeLocale(this.props.locale);
+    },
+    mergeLocale(customizedLocale) {
+      // 统一合并为完整的 Locale
+      const locale = objectAssign({}, defaultLocale, customizedLocale);
+      locale.lang = objectAssign({}, defaultLocale.lang, customizedLocale.lang);
+      return locale;
     },
     parseDateFromValue(value) {
       if (value) {
@@ -94,7 +105,7 @@ function createPicker(TheCalendar) {
       defaultCalendarValue.setTime(Date.now());
 
       const placeholder = ('placeholder' in this.props)
-        ? this.placeholder : this.getLocale().lang.placeholder;
+        ? this.props.placeholder : this.getLocale().lang.placeholder;
       const calendar = (
         <TheCalendar
           disabledDate={this.props.disabledDate}
