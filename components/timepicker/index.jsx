@@ -53,7 +53,11 @@ const AntTimepicker = React.createClass({
   },
 
   handleChange(value) {
-    this.props.onChange(new Date(value.getTime()));
+    let args = null;
+    if (value) {
+      args = new Date(value.getTime());
+    }
+    this.props.onChange(args);
   },
 
   getLocale() {
