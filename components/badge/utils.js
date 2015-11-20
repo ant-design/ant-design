@@ -37,7 +37,7 @@ export function getTranslateY(count, preCount, data, preData, j, height, _length
   if (count > preCount) {
     if (on > to) {
       translateY = -(oneData - (to - on)) * height;
-      if (typeof preOn === 'number') {
+      if (typeof preOn === 'number' && preTo - preOn > 1) {
         data[(_length - j) + '_add'] = true;
       }
     } else if (on < to) {
@@ -54,7 +54,7 @@ export function getTranslateY(count, preCount, data, preData, j, height, _length
   } else if (count < preCount) {
     if (on < to) {
       translateY = -(oneData + 20 - ( to - on)) * height;
-      if (typeof preTo === 'number') {
+      if (typeof preTo === 'number' && preOn - preTo > 1) {
         data[(_length - j) + '_rem'] = true;
       }
     } else if (on > to) {
