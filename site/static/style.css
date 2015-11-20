@@ -511,8 +511,8 @@ footer ul li > a {
 }
 
 .markdown h1 {
-  color: #5C6B77;
-  font-weight: 600;
+  color: #404040;
+  font-weight: 500;
 }
 
 .markdown h2,
@@ -520,9 +520,9 @@ footer ul li > a {
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  color: #5C6B77;
+  color: #404040;
   margin: 1.8em 0 1em 0;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .markdown h1 { font-size: 28px; }
