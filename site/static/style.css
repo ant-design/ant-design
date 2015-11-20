@@ -558,6 +558,11 @@ footer ul li > a {
   padding-left: 8px;
 }
 
+.markdown > ul li p,
+.markdown > ol li p {
+  margin: 0.6em 0;
+}
+
 .markdown > ol li {
   list-style: decimal;
   margin-left: 20px;
