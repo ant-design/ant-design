@@ -16,7 +16,7 @@
 
 ### 组件化改造
 
-此版本对 [Button](/components/button/)、[Iconfont](/components/iconfont/)、[Layout](/components/layout/)、[Form](/components/form/)、[Input](/components/form/#demo-input) 模块进行了 React 组件化的改造，请基于新的使用方式修改。
+此版本对 [Button](/components/button/)、[Iconfont](/components/icon/)、[Layout](/components/layout/)、[Form](/components/form/)、[Input](/components/form/#demo-input) 模块进行了 React 组件化的改造，请基于新的使用方式修改。
 
 例如：
 
