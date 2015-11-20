@@ -27,7 +27,8 @@
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(Date value) | 无           |
 | showTime     | 显示时间选择条 | boolean  | false        |
 | disabled     | 禁用           | bool     | false        |
-| calendarStyle | 格外的弹出日历样式，例如 zIndex           | object     | {}        |
+| style        | 自定义输入框样式     | object     | {}   |
+| popupStyle   | 格外的弹出日历样式   | object     | {}   |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
 
