@@ -13,7 +13,7 @@ const ButtonGroup = Button.Group;
 const Test = React.createClass({
   getInitialState() {
     return {
-      count: 5,
+      count: 19,
       show: true,
     };
   },
