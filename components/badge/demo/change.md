@@ -18,11 +18,11 @@ const Test = React.createClass({
     };
   },
   increase() {
-    const count = this.state.count + 117;
+    const count = this.state.count + 114;
     this.setState({ count });
   },
   decline() {
-    let count = this.state.count - 111;
+    let count = this.state.count - 121;
     if (count < 0) {
       count = 0;
     }
@@ -40,7 +40,6 @@ const Test = React.createClass({
     });
   },
   render() {
-  console.log(this.state.count)
     return <div>
       <Badge count={this.state.count}>
         <a href="#" className="head-example"></a>
