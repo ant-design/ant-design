@@ -14,7 +14,7 @@
 
      原有的 `import { Form, Input } from 'antd'` 则不受影响。
 
-- 修复 Datepicker 的 `style` 和 `calendarStyle` 属性失效的问题，并将 `calendarStyle` 更名为 `popStyle`。
+- 修复 Datepicker 的 `style` 和 `calendarStyle` 属性失效的问题，并将 `calendarStyle` 更名为 `popupStyle`。
 
 
 ## 0.10.0 `2015-11-20`
