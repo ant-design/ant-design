@@ -28,7 +28,7 @@ $ antd-init
 $ npm install
 ```
 
-若下面例子发生报错，尝试用 `npm install antd@beta --save` 安装 `0.10.x` 或更高版本。
+若安装缓慢报错，可尝试用 `cnpm` 或别的镜像源自行安装：`rm -rf node_modules && cnpm install`.
 
 ### 3. 使用组件
 
