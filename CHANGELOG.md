@@ -54,6 +54,7 @@
 	- 视觉效果大幅优化。
 	- 新增 [dark 主题](http://ant.design/components/menu/#demo-theme) 的样式。
 	- 修复一个链接点击区域的问题。[#535](https://github.com/ant-design/ant-design/issues/535)
+- Dropdown 用 onClick 代替 onSelect 作为推荐的使用方式，因为原有的 onSelect 只在变化时触发。
 - Slider
 	- 新增[双滑块功能](http://ant.design/components/slider/#demo-range)。
 	- 优化 marks 属性的使用逻辑，使其可以和具体数值进行绑定。[slider#26](https://github.com//react-component/slider/issues/26)
@@ -71,9 +72,11 @@
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
 > - [0.10 升级指南](/docs/upgrade-to-0.10)
 
+
 ## 0.9.3 ~ 0.9.5 `2015-11-04`
 
 * 增加对 React 版本的检测提示机制，0.9.x 序列只能使用 `react@~0.13.3`。
+
 
 ## 0.9.2 `2015-10-26`
 
@@ -81,6 +84,7 @@
 * 修复 Upload 文件列表链接的 target 属性。[340a170](https://github.com/ant-design/ant-design/commit/340a1702b6a7b065ac02d417c891e1886dfe470d)
 * 修复 Datepicker 设置 defaultValue 时星期顺序错误的问题。[9ef1450](https://github.com/ant-design/ant-design/commit/9ef14500f3abfcc7081f8dceab8187ec835e3918)
 * 修复一些小的样式问题。
+
 
 ## 0.9.1 `2015-09-26`
 
