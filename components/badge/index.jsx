@@ -11,7 +11,7 @@ class AntBadge extends React.Component {
     let { count, prefixCls } = this.props;
     const dot = this.props.dot;
 
-    count = count >= 100 ? '99+' : count;
+    //count = count >= 100 ? '99+' : count;
 
     // dot mode don't need count
     if (dot) {
@@ -31,7 +31,7 @@ class AntBadge extends React.Component {
           transitionAppear={true}>
           {
             hidden ? null :
-            <AntNumber data-show={!hidden} className={className} count={count}/>
+            <AntNumber data-show={!hidden} className={className} count={count} callback = {this.props.animEnd}/>
           }
         </Animate>
       </span>
@@ -42,7 +42,8 @@ class AntBadge extends React.Component {
 AntBadge.defaultProps = {
   prefixCls: 'ant-badge',
   count: null,
-  dot: false
+  dot: false,
+  animEnd: null
 };
 
 AntBadge.propTypes = {
@@ -50,7 +51,8 @@ AntBadge.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number
   ]),
-  dot: React.PropTypes.bool
+  dot: React.PropTypes.bool,
+  animEnd: React.PropTypes.func
 };
 
 export default AntBadge;

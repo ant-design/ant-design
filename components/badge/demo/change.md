@@ -13,16 +13,16 @@ const ButtonGroup = Button.Group;
 const Test = React.createClass({
   getInitialState() {
     return {
-      count: 5,
+      count: 691,
       show: true,
     };
   },
   increase() {
-    const count = this.state.count + 1;
+    const count = this.state.count + 117;
     this.setState({ count });
   },
   decline() {
-    let count = this.state.count - 1;
+    let count = this.state.count - 111;
     if (count < 0) {
       count = 0;
     }
@@ -40,6 +40,7 @@ const Test = React.createClass({
     });
   },
   render() {
+  console.log(this.state.count)
     return <div>
       <Badge count={this.state.count}>
         <a href="#" className="head-example"></a>
