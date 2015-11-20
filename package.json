@@ -1,7 +1,7 @@
 {
   "name": "antd",
-  "version": "0.10.0-beta30",
-  "stableVersion": "0.9.5",
+  "version": "0.10.0",
+  "stableVersion": "0.10.0",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
