@@ -1,6 +1,6 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
-import Icon from '../iconfont';
+import Icon from '../icon';
 import Button from '../button';
 const prefixCls = 'ant-popover';
 

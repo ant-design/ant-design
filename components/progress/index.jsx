@@ -1,7 +1,7 @@
 import {Circle as Progresscircle} from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
-import Icon from '../iconfont';
+import Icon from '../icon';
 
 const prefixCls = 'ant-progress';
 

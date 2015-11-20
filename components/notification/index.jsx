@@ -1,7 +1,7 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import assign from 'object-assign';
-import Icon from '../iconfont';
+import Icon from '../icon';
 
 let top = 24;
 let notificationInstance;

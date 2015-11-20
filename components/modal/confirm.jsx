@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Dialog from './index';
-import Icon from '../iconfont';
+import Icon from '../icon';
 import Button from '../button';
 
 export default function (props) {

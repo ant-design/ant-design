@@ -37,7 +37,7 @@ const antd = {
   Timeline: require('./components/timeline'),
   Button: require('./components/button'),
   ButtonGroup: require('./components/button').Group,
-  Icon: require('./components/iconfont'),
+  Icon: require('./components/icon'),
   Row: require('./components/layout').Row,
   Col: require('./components/layout').Col,
   Spin: require('./components/spin'),

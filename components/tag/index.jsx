@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon from '../iconfont';
+import Icon from '../icon';
 
 class AntTag extends React.Component {
   constructor(props) {

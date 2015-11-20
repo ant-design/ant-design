@@ -5,7 +5,7 @@ import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
-import Icon from '../iconfont';
+import Icon from '../icon';
 import objectAssign from 'object-assign';
 import Spin from '../spin';
 

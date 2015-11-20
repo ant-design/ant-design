@@ -1,6 +1,6 @@
 import React from 'react';
 import Animate from 'rc-animate';
-import Icon from '../iconfont';
+import Icon from '../icon';
 const prefixCls = 'ant-upload';
 import { Line } from '../progress';
 

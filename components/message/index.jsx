@@ -1,6 +1,6 @@
 import React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../iconfont';
+import Icon from '../icon';
 
 let defaultDuration = 1.5;
 let top;
