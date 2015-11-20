@@ -20,7 +20,7 @@
 |-------------|------------------|--------------------|--------------|
 | trigger     | 触发下拉的行为   | "click" or "hover" | hover        |
 | overlay     | 菜单节点         | React.Element      | 无           |
-| onSelect    | 选择后的回调     | function(e) {}     | 无           |
+| onClick     | 点击菜单后的回调 | function({key,keyPath,item,domEvent}) {}     | 无           |
 
 
 菜单可由 `antd.Menu` 取得，可设置 `onSelect` 回调，菜单还包括菜单项 `antd.Menu.Item`，分割线 `antd.Menu.Divider`。

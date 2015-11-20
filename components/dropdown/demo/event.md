@@ -8,11 +8,11 @@
 
 ````jsx
 import { Menu, Dropdown, Button, Icon } from 'antd';
-const onSelect = function ({key}){
-  alert('选中了菜单' + key);
+const onClick = function({key}) {
+  console.log('点击了菜单' + key);
 };
 
-const menu = <Menu onSelect={onSelect}>
+const menu = <Menu onClick={onClick}>
   <Menu.Item key="1">第一个菜单项</Menu.Item>
   <Menu.Item key="2">第二个菜单项</Menu.Item>
   <Menu.Item key="3">第三个菜单项</Menu.Item>
