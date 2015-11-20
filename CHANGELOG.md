@@ -4,6 +4,14 @@
 
 ---
 
+## 0.10.1 `2015-11-20`
+
+- 修改内部组件的引用结构，方便工具优化。[#566](https://github.com/ant-design/ant-design/pull/566)
+  - 移除了演示中没有使用过的 `antd.ButtonGroup`，依然用 `const ButtonGroup = Button.Group` 来使用。
+  - Form 和 Input 目录分离，`import { Form, Input } from 'ant/lib/form'` 的引用方式被废弃，现在可以 `import Form from 'ant/lib/form'` 和 `import Input from 'ant/lib/input'`。原有的 `import { form, input } from 'antd'` 则不受影响。
+- 修复 Datepicker 的 `style` 和 `calendarStyle` 属性失效的问题，并将 `calendarStyle` 更名为 `popStyle`。
+
+
 ## 0.10.0 `2015-11-20`
 
 - 全面兼容 `react@0.14.x`。
