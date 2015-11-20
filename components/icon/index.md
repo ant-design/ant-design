@@ -1,7 +1,7 @@
-# Iconfont
+# Icon
 
 - category: Components
-- chinese: 字体图标
+- chinese: 图标
 - type: 基本
 
 ---
