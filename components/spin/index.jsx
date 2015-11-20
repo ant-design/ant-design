@@ -21,7 +21,7 @@ const AntSpin = React.createClass({
   },
 
   render() {
-    const { className, size, prefixCls, ...others } = this.props;
+    const { className, size, prefixCls } = this.props;
 
     let spinClassName = classSet({
       [prefixCls]: true,

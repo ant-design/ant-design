@@ -4,12 +4,13 @@
     "browser": true,
     "node": true,
     "mocha": true,
-    "jest": true
+    "jest": true,
+    "es6": true
   },
   "ecmaFeatures": {
-    "jsx": true
+    "jsx": true,
+    "experimentalObjectRestSpread": true
   },
-  "parser": "babel-eslint",
   "plugins": [
     "react",
     "babel"
