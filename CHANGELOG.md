@@ -28,7 +28,7 @@
 	- 提供代理功能。
 	- 提供 UI 测试功能。
 
-## 组件变更
+#### 组件变更
 
 - Table
 	- 支持单选。[演示](/components/table/#demo-row-selection-radio-props)
