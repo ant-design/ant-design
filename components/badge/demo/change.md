@@ -13,16 +13,16 @@ const ButtonGroup = Button.Group;
 const Test = React.createClass({
   getInitialState() {
     return {
-      count: 691,
+      count: 5,
       show: true,
     };
   },
   increase() {
-    const count = this.state.count + 114;
+    const count = this.state.count + 1;
     this.setState({ count });
   },
   decline() {
-    let count = this.state.count - 121;
+    let count = this.state.count - 1;
     if (count < 0) {
       count = 0;
     }

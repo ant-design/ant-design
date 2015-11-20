@@ -11,7 +11,7 @@ class AntBadge extends React.Component {
     let { count, prefixCls } = this.props;
     const dot = this.props.dot;
 
-    //count = count >= 100 ? '99+' : count;
+    count = count >= 100 ? '99+' : count;
 
     // dot mode don't need count
     if (dot) {
