@@ -1,3 +1,18 @@
+// matchMedia polyfill for
+// https://github.com/WickyNilliams/enquire.js/issues/82
+if (typeof window !== 'undefined') {
+  const matchMediaPolyfill = function matchMediaPolyfill() {
+    return {
+      matches: false,
+      addListener: function () {
+      },
+      removeListener: function () {
+      }
+    };
+  };
+  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+}
+
 import Carousel from 'react-slick';
 import React from 'react';
 import assign from 'object-assign';

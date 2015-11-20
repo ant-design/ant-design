@@ -2,21 +2,6 @@ import React from 'react';
 
 require('./style/index.less');
 
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill() {
-    return {
-      matches: false,
-      addListener: function () {
-      },
-      removeListener: function () {
-      }
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-}
-
 const antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
