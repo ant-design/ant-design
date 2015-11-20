@@ -94,7 +94,7 @@ function createPicker(TheCalendar) {
       defaultCalendarValue.setTime(Date.now());
 
       const placeholder = ('placeholder' in this.props)
-        ? this.placeholder : this.getLocale().lang.placeholder;
+        ? this.props.placeholder : this.getLocale().lang.placeholder;
       const calendar = (
         <TheCalendar
           disabledDate={this.props.disabledDate}
