@@ -5,7 +5,7 @@
 
 ---
 
-`0.10.0` 版本有大量改动，是一个不完全向下兼容的版本。以下文档尽力列出了 `0.9.x` 到 `0.10.0` 的不兼容变动，以帮助开发者升级。
+`0.10.x` 版本有大量改动，是一个不完全向下兼容的版本。以下文档尽力列出了 `0.9.x` 到 `0.10.x` 的不兼容变动，以帮助开发者升级。
 
 - `0.10.x` 文档：http://ant.design
 - `0.9.x` 文档：http://09x.ant.design
@@ -52,6 +52,7 @@
 - Carousel 升级依赖，参考新的[新的 API 和使用方式](/components/carousel/)进行修改。
 - `antd.Notification()` 修改为小写的 `antd.notification()`。
 - Datepicker 的 `onSelect` 属性修改为 `onChange` 属性。
+- Datepicker 的 `calendarStyle` 属性修改为 `popupStyle` 属性。
 - Dropdown 的 `onSelect` 属性应修正为 `onClick` 属性，因为原有的 onSelect 只在变化时触发。
 - Slider 的 `withDots` `isIncluded` 属性修改为 `dots` `included`。
 - iconfont 的基线更新，可能导致原有图标的位置偏移。
