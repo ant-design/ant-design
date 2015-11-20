@@ -31,7 +31,7 @@ class AntBadge extends React.Component {
           transitionAppear={true}>
           {
             hidden ? null :
-            <AntNumber data-show={!hidden} className={className} count={count} callback = {this.props.animEnd}/>
+            <AntNumber data-show={!hidden} className={className} count={count} />
           }
         </Animate>
       </span>
@@ -43,7 +43,6 @@ AntBadge.defaultProps = {
   prefixCls: 'ant-badge',
   count: null,
   dot: false,
-  animEnd: null
 };
 
 AntBadge.propTypes = {
@@ -52,7 +51,6 @@ AntBadge.propTypes = {
     React.PropTypes.number
   ]),
   dot: React.PropTypes.bool,
-  animEnd: React.PropTypes.func
 };
 
 export default AntBadge;
