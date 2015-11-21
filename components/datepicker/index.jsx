@@ -87,18 +87,19 @@ function createPicker(TheCalendar) {
       this.props.onChange(timeValue);
     },
     render() {
+      const locale = this.getLocale();
       // 以下两行代码
       // 给没有初始值的日期选择框提供本地化信息
       // 否则会以周日开始排
-      let defaultCalendarValue = new GregorianCalendar(this.getLocale());
+      let defaultCalendarValue = new GregorianCalendar(locale);
       defaultCalendarValue.setTime(Date.now());
 
       const placeholder = ('placeholder' in this.props)
-        ? this.props.placeholder : this.getLocale().lang.placeholder;
+        ? this.props.placeholder : locale.lang.placeholder;
       const calendar = (
         <TheCalendar
           disabledDate={this.props.disabledDate}
-          locale={this.getLocale().lang}
+          locale={locale.lang}
           defaultValue={defaultCalendarValue}
           dateInputPlaceholder={placeholder}
           showTime={this.props.showTime}
