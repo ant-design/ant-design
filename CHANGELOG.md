@@ -44,7 +44,7 @@
 #### 组件变更
 
 - Table
-	- 支持单选。[演示](/components/table/#demo-row-selection-radio-props)
+	- 支持单选。[演示](http://ant.design/components/table/#demo-row-selection-radio-props)
 	- 选择模式支持默认选中和不可用效果。[演示](/components/table/#demo-row-selection-props)
 	- 列支持了 `colSpan` 和 `rowSpan` 配置。[演示](/components/table/#demo-colspan-rowspan)
 	- 新增 `loading` 属性。
@@ -83,7 +83,7 @@
 > 备注：
 >
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
-> - [0.10 升级指南](/docs/upgrade-to-0.10)
+> - [0.10 升级指南](http://ant.design/docs/upgrade-to-0.10)
 
 
 ## 0.9.3 ~ 0.9.5 `2015-11-04`
