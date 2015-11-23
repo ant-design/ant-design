@@ -1,34 +1,17 @@
-import React from 'react';
-
-export function toArrayChildren(children) {
-  const ret = [];
-  React.Children.forEach(children, (c) => {
-    ret.push(c);
-  });
-  return ret;
-}
-
 export function getPartNumber(num) {
-  if (!num) {
-    return null;
-  }
-  const countStr = num.toString();
-  const obj = {};
-  for (let i = 0; i < countStr.length; i++) {
-    obj[countStr.length - 1 - i] = Number(countStr[i]);
-  }
-  return obj;
+  return num ?
+    num.toString().split('').map(i => Number(i)).reverse() : [];
 }
 
-export function getTranslateY(differ, data, _data, height, i) {
+export function getTranslateY(differ, data, _data, i) {
   let translateY = 0;
   if (!differ) {
     //不想插入40个，改变要滚到的距离；
     if (_data[i + '_add']) {
-      return -(data[i] + 20) * height;
+      return -(data[i] + 20);
     }
     if (_data[i + '_rem']) {
-      return -data[i] * height;
+      return -data[i];
     }
     return false;
   }
@@ -46,7 +29,7 @@ export function getTranslateY(differ, data, _data, height, i) {
   if (differ > 0) {
     if (countLength - 1 > i) {
       //差值位数大于1时，参数的位置，到达减去两个参数的差，在0区域段；
-      translateY = -(to - (to - on)) * height;
+      translateY = -(to - (to - on));
       //on大于to且differ大于10，如9->0,需要设计滚动到的位置＋10;
       if (on > to) {
         data[i + '_add'] = true;
@@ -56,17 +39,17 @@ export function getTranslateY(differ, data, _data, height, i) {
       translateY = null;
     } else if (typeof on === 'undefined') {
       //新增加入时设为0；
-      translateY = -10 * height;
+      translateY = -10;
     } else {
       //如果开始大于到达，到达（to）加10；
       const _to = on > to ? to + 10 : to;
       //差值为一位数时，到达减去两个参数的差，在1区域段，加10；
-      translateY = -(to - (_to - on) + 10) * height;
+      translateY = -(to - (_to - on) + 10);
     }
   } else {
     if (countLength - 1 > i) {
       //差值位数大于1时，参数的位置，到达加上两个参数的差，在2区域段，加20，需要滚动一周；
-      translateY = -(to + (on - to) + 20) * height;
+      translateY = -(to + (on - to) + 20);
       //同上，differ大于10时，且to在于on
       if (to > on) {
         data[i + '_rem'] = true;
@@ -77,7 +60,7 @@ export function getTranslateY(differ, data, _data, height, i) {
       //如果到达大于开始，开始(on)加10;
       const _on = on < to ? on + 10 : on;
       //差值位数小于1时，参数的位置，到达减去两个参数的差，在1区域段，加10，往上滚回差值；
-      translateY = -(to + (_on - to) + 10) * height;
+      translateY = -(to + (_on - to) + 10);
     }
   }
   return translateY;

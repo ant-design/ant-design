@@ -1,12 +1,13 @@
 import React, { createElement } from 'react';
 import { findDOMNode } from 'react-dom';
-import { toArrayChildren, getPartNumber, getTranslateY } from './utils';
+import { getPartNumber, getTranslateY } from './utils';
 import assign from 'object-assign';
+import { Children } from 'rc-util';
 
 class AntNumber extends React.Component {
   constructor(props) {
     super(props);
-    const children = toArrayChildren(this.props.children);
+    const children = Children.toArray(this.props.children);
     this.endSetState = false;
     this.count = this.props.count;
     this.data = getPartNumber(this.count);
@@ -46,12 +47,9 @@ class AntNumber extends React.Component {
     let childrenWap = [];
     let i = 0;
     while (i < length) {
-      const oneData = data[i];
       const style = {};
-      let translateY = -(oneData + 10) * height;
-      //判断状态
-      const Y = getTranslateY(differ, data, this.data, height, i);
-      translateY = typeof Y === 'number' ? Y : translateY;
+      const Y = getTranslateY(differ, data, this.data, i) || -(data[i] + 10);
+      const translateY = Y * height;
       if (count !== this.count) {
         this.setEndState(style);
       }
@@ -77,7 +75,7 @@ class AntNumber extends React.Component {
     if (newChildren && newChildren.length) {
       this.setState({
         children: newChildren,
-      }, ()=> {
+      }, () => {
         if (this.endSetState) {
           this.updateChildren(props);
           this.endSetState = false;
@@ -88,11 +86,7 @@ class AntNumber extends React.Component {
 
   animEnd() {
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(()=> {
-      if (typeof this.props.callback === 'function') {
-        this.props.callback();
-      }
-    }, 300);
+    this.timeout = setTimeout(this.props.callback, 300);
   }
 
   componentDidMount() {
@@ -105,9 +99,14 @@ class AntNumber extends React.Component {
   }
 
   render() {
-    const childrenToRender = this.state.children;
-    const props = assign({}, this.props, {className: `${this.props.prefixCls} ${this.props.className}`});
-    return createElement(this.props.component, props, childrenToRender);
+    const props = assign({}, this.props, {
+      className: `${this.props.prefixCls} ${this.props.className}`
+    });
+    return createElement(
+      this.props.component,
+      props,
+      this.state.children
+    );
   }
 }
 
@@ -116,7 +115,7 @@ AntNumber.defaultProps = {
   count: null,
   max: null,
   component: 'sup',
-  callback: null,
+  callback: function() {},
 };
 
 AntNumber.propTypes = {
