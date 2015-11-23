@@ -11,7 +11,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 最简单尝试 antd 的方式是使用以下 JSFiddle 例子, 也推荐 fork 这个例子来进行 bug report, 注意不要在实际项目中使用
 
-- [antd JSFiddle](http://jsfiddle.net/yiminghe/a0pzy83a/1/)
+- [antd JSFiddle](http://jsfiddle.net/yiminghe/9zrstuto/)
 
 ## Using antd from npm
 
