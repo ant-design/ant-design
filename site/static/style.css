@@ -16,6 +16,7 @@ body {
   font-size: 14px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow-x: hidden;
 }
 
 *,
