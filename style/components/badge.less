@@ -1,5 +1,5 @@
 @badge-prefix-cls: ~"@{css-prefix}badge";
-@number-prefix-cls: ~"@{css-prefix}number";
+@number-prefix-cls: ~"@{css-prefix}scroll-number";
 
 .@{badge-prefix-cls} {
   position: relative;
@@ -67,7 +67,7 @@ a .@{badge-prefix-cls} {
   overflow: hidden;
   &-only{
     display: inline-block;
-    transition: transform .3s @ease-in-out;
+    transition: transform .3s @ease-in-out;//transform .3s @ease-in-out;
   }
 }
 
@@ -90,3 +90,4 @@ a .@{badge-prefix-cls} {
     transform: scale(0) translateX(-50%);
   }
 }
+
