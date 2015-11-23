@@ -1,6 +1,6 @@
-import React, {createElement} from 'react';
-import {findDOMNode} from 'react-dom';
-import {toArrayChildren, getPartNumber, getTranslateY} from './utils';
+import React, { createElement } from 'react';
+import { findDOMNode } from 'react-dom';
+import { toArrayChildren, getPartNumber, getTranslateY } from './utils';
 import assign from 'object-assign';
 
 class AntNumber extends React.Component {
@@ -16,15 +16,17 @@ class AntNumber extends React.Component {
     };
   }
 
-  getNumberOnly(c, style) {
+  getNumberOnly(index, style) {
     const childrenToReturn = [];
     for (let i = 0; i < 30; i++) {
       let count = i >= 10 ? i % 10 : i;
-      const children = <p key={i}>{count}</p>;
-      childrenToReturn.push(children);
+      childrenToReturn.push(<p key={i}>{count}</p>);
     }
-    const key = 'only_' + c;
-    return createElement('span', {className: `${this.props.prefixCls}-only`, style: style, key: key}, childrenToReturn);
+    return createElement('span', {
+      className: `${this.props.prefixCls}-only`,
+      style: style,
+      key: index,
+    }, childrenToReturn);
   }
 
   setEndState(style) {
@@ -108,6 +110,7 @@ class AntNumber extends React.Component {
     return createElement(this.props.component, props, childrenToRender);
   }
 }
+
 AntNumber.defaultProps = {
   prefixCls: 'ant-number',
   count: null,

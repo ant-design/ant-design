@@ -33,7 +33,7 @@ const Test = React.createClass({
       show: !this.state.show
     });
   },
-  onNumberClick(){
+  onNumberClick() {
     const count = this.state.count;
     this.setState({
       count: count ? 0 : 5
@@ -45,9 +45,15 @@ const Test = React.createClass({
         <a href="#" className="head-example"></a>
       </Badge>
       <Badge dot={this.state.show}>
-        <a href="#">一个链接</a>
+        <a href="#" className="head-example"></a>
       </Badge>
       <div style={{ marginTop: 10 }}>
+        <Button type="ghost" onClick={this.onNumberClick} style={{marginRight: 6}}>
+          切换数字显隐
+        </Button>
+        <Button type="ghost" onClick={this.onClick} style={{marginRight: 6}}>
+          切换红点显隐
+        </Button>
         <ButtonGroup>
           <Button type="ghost" onClick={this.decline}>
             <Icon type="minus" />
@@ -56,8 +62,6 @@ const Test = React.createClass({
             <Icon type="plus" />
           </Button>
         </ButtonGroup>
-        <Button type="ghost" onClick={this.onClick} style={{marginLeft:10}}>点切换</Button>
-        <Button type="ghost" onClick={this.onNumberClick} style={{marginLeft:10}}>数字切换</Button>
       </div>
     </div>;
   }
