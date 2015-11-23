@@ -108,7 +108,7 @@
     "start": "npm run clean && nico server --watch",
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
-    "just-deploy": "npm run clean && webpack --config webpack.deploy.config.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
+    "just-deploy": "npm run clean && webpack --config webpack.deploy.config.js && webpack --config webpack.antd.config.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
     "lint": "eslint components test index.js --ext '.js,.jsx'",
     "test": "npm run lint && webpack && npm run jest",
     "jest": "jest",
