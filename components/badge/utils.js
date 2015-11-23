@@ -9,6 +9,9 @@ export function toArrayChildren(children) {
 }
 
 export function getPartNumber(num) {
+  if (!num) {
+    return null;
+  }
   const countStr = num.toString();
   const obj = {};
   for (let i = 0; i < countStr.length; i++) {
@@ -17,59 +20,54 @@ export function getPartNumber(num) {
   return obj;
 }
 
-export function getTranslateY(count, preCount, data, preData, j, height, _length) {
+export function getTranslateY(differ, data, _data, height, i) {
   let translateY = 0;
-  const oneData = Number(count.toString()[j]);
-  const on = preData[_length - j];
-  const to = data[_length - j];
-  const preOn = preData[_length - j + 1];
-  const preTo = data[_length - j + 1];
-  if (count === preCount) {
-    const add = preData[(_length - j) + '_add'];
-    const rem = preData[(_length - j) + '_rem'];
-    if (add) {
-      translateY = -(oneData + 20) * height;
+  if (!differ) {
+    //不想插入40个，改变要滚到的距离；
+    if (_data[i + '_add']) {
+      return -(data[i] + 20) * height;
     }
-    if (rem) {
-      translateY = -oneData * height;
+    if (_data[i + '_rem']) {
+      return -data[i] * height;
     }
+    return false;
   }
-  if (count > preCount) {
-    if (on > to) {
-      translateY = -(oneData - (to - on)) * height;
-      if (typeof preOn === 'number' && preTo - preOn > 1) {
-        data[(_length - j) + '_add'] = true;
+  //判断相差的位数来驱动数字；差个位滚动一格，差10的部分及以上个位滚动一周；
+  const countToString = Math.abs(differ).toString();
+  const countLength = countToString.length;
+  const on = _data[i];
+  const to = data[i];
+  if (differ > 0) {
+    if (countLength - 1 > i) {
+      translateY = -(to - (to - on)) * height;
+      //on大于to且differ大于10，如9->0,需要设计滚动到的位置＋10;
+      if (on > to) {
+        data[i + '_add'] = true;
       }
-    } else if (on < to) {
-      translateY = -(oneData + 10 - (to - on)) * height;
-      if (preTo - preOn) {
-        //translateY = -(oneData + 20 - (to - on)) * height;
-        data[(_length - j) + '_add'] = true;
-      }
+    } else if (countLength - 1 < i && to === on) {
+      //参数不变动；
+      translateY = null;
+    } else if (typeof on === 'undefined') {
+      //新增加入时设为0；
+      translateY = -10 * height;
     } else {
-      if (typeof preOn === 'number' && typeof preTo === 'number') {
-        translateY = -oneData * height;
-      }
+      //如果开始大于到达，到达（to）加10；
+      const _to = on > to ? to + 10 : to;
+      translateY = -(to - (_to - on) + 10) * height;
     }
-  } else if (count < preCount) {
-    if (on < to) {
-      translateY = -(oneData + 20 - ( to - on)) * height;
-      if (typeof preTo === 'number' && preOn - preTo > 1) {
-        data[(_length - j) + '_rem'] = true;
+  } else {
+    if (countLength - 1 > i) {
+      translateY = -(to + (on - to) + 20) * height;
+      //同上，differ大于10时，且to在于on
+      if (to > on) {
+        data[i + '_rem'] = true;
       }
-    } else if (on > to) {
-      translateY = -(oneData + 10 - (to - on)) * height;
-      if (preOn - preTo) {
-        translateY = -(oneData + 20 - (to - on)) * height;
-      }
+    } else if (countLength - 1 < i && to === on) {
+      translateY = null;
     } else {
-      if (typeof preOn === 'number' && typeof preTo === 'number') {
-        translateY = -(oneData + 20) * height;
-      }
+      const _on = on < to ? on + 10 : on;
+      translateY = -(to + (_on - to) + 10) * height;
     }
-  }
-  if (on !== 0 && !on) {
-    translateY = -10 * height;
   }
   return translateY;
 }

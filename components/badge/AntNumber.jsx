@@ -40,20 +40,22 @@ class AntNumber extends React.Component {
     const length = count.toString().length;
     const data = getPartNumber(count);
     const height = findDOMNode(this).offsetHeight;
+    const differ = count - this.count;
     let childrenWap = [];
     let i = 0;
     while (i < length) {
-      const oneData = Number(count.toString()[i]);
+      const oneData = data[i];
       const style = {};
       let translateY = -(oneData + 10) * height;
       //判断状态
-      translateY = getTranslateY(count, this.count, data, this.data, i, height, length - 1) || translateY;
+      const Y = getTranslateY(differ, data, this.data, height, i);
+      translateY = typeof Y === 'number' ? Y : translateY;
       if (count !== this.count) {
         this.setEndState(style);
       }
       style.transform = `translateY(${translateY}px)`;
       const children = this.getNumberOnly(i, style);
-      childrenWap.push(children);
+      childrenWap.unshift(children);
       i++;
     }
     this.data = data;
@@ -109,7 +111,7 @@ class AntNumber extends React.Component {
 AntNumber.defaultProps = {
   prefixCls: 'ant-number',
   count: null,
-  max: 99,
+  max: null,
   component: 'sup',
   callback: null,
 };
