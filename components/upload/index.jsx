@@ -62,7 +62,7 @@ const AntUpload = React.createClass({
         f.status = 'uploading';
         return f;
       });
-      nextFileList = nextFileList.concat(file);
+      nextFileList = nextFileList.concat(targetItem);
     } else {
       targetItem = fileToObject(file);
       targetItem.status = 'uploading';
