@@ -1,5 +1,5 @@
 import React from 'react';
-import rcUtil from 'rc-util';
+import classNames from 'classnames';
 
 const Row = React.createClass({
   propTypes: {
@@ -11,7 +11,7 @@ const Row = React.createClass({
   },
   render() {
     const { type, justify, align, className, ...others } = this.props;
-    const classes = rcUtil.classSet({
+    const classes = classNames({
       'row': true,
       ['row-' + type]: type,
       ['row-' + type + '-' + justify]: justify,

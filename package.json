@@ -33,6 +33,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "classnames": "~2.2.0",
     "css-animation": "1.1.x",
     "gregorian-calendar": "~4.0.1",
     "gregorian-calendar-format": "~4.0.4",

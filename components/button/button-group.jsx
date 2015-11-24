@@ -1,5 +1,5 @@
 import React from 'react';
-import rcUtil from 'rc-util';
+import classNames from 'classnames';
 
 const prefix = 'ant-btn-group-';
 
@@ -14,7 +14,7 @@ export default class ButtonGroup extends React.Component {
       'small': 'sm'
     })[size] || '';
 
-    const classes = rcUtil.classSet({
+    const classes = classNames({
       'ant-btn-group': true,
       [prefix + sizeCls]: sizeCls,
       [className]: className

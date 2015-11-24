@@ -1,5 +1,5 @@
 import React from 'react';
-import rcUtil from 'rc-util';
+import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2,2}$/;
@@ -41,7 +41,7 @@ export default class Button extends React.Component {
       'small': 'sm'
     })[size] || '';
 
-    const classes = rcUtil.classSet({
+    const classes = classNames({
       'ant-btn': true,
       [prefix + type]: type,
       [prefix + shape]: shape,

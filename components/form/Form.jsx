@@ -1,7 +1,5 @@
 import React from 'react';
-import rcUtil from 'rc-util';
-
-const cx = rcUtil.classSet;
+import classNames from 'classnames';
 
 class Form extends React.Component {
   render() {
@@ -10,7 +8,7 @@ class Form extends React.Component {
       [`${prefixCls}-horizontal`]: this.props.horizontal,
       [`${prefixCls}-inline`]: this.props.inline,
     };
-    const classes = cx(formClassName);
+    const classes = classNames(formClassName);
 
     return (
       <form {...this.props} className={classes}>

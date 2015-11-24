@@ -9,19 +9,10 @@
 ---
 
 ````jsx
-import {Validation, Button, Form, Input, Row, Col} from 'antd';
+import { Validation, Button, Form, Input, Row, Col } from 'antd';
+import classNames from 'classnames';
 const Validator = Validation.Validator;
 const FormItem = Form.Item;
-
-function cx(classNames) {
-  if (typeof classNames === 'object') {
-    return Object.keys(classNames).filter(function(className) {
-      return classNames[className];
-    }).join(' ');
-  } else {
-    return Array.prototype.join.call(arguments, ' ');
-  }
-}
 
 function noop() {
   return false;
@@ -71,7 +62,7 @@ const Demo = React.createClass({
     const formData = this.state.formData;
     const status = this.state.status;
 
-    const classes = cx({
+    const classes = classNames({
       'error': status[item].errors,
       'validating': status[item].isValidating,
       'success': formData[item] && !status[item].errors && !status[item].isValidating
@@ -119,7 +110,7 @@ const Demo = React.createClass({
 
   renderPassStrengthBar(type) {
     const strength = type === 'pass' ? this.state.passStrength : this.state.rePassStrength;
-    const classSet = cx({
+    const classSet = classNames({
       'ant-pwd-strength': true,
       'ant-pwd-strength-low': strength === 'L',
       'ant-pwd-strength-medium': strength === 'M',
@@ -132,16 +123,16 @@ const Demo = React.createClass({
     };
 
     return (
-    <div>
-      <ul className={classSet}>
-        <li className="ant-pwd-strength-item ant-pwd-strength-item-1"></li>
-        <li className="ant-pwd-strength-item ant-pwd-strength-item-2"></li>
-        <li className="ant-pwd-strength-item ant-pwd-strength-item-3"></li>
-        <span className="ant-form-text">
-          {level[strength]}
-        </span>
-      </ul>
-    </div>
+      <div>
+        <ul className={classSet}>
+          <li className="ant-pwd-strength-item ant-pwd-strength-item-1"></li>
+          <li className="ant-pwd-strength-item ant-pwd-strength-item-2"></li>
+          <li className="ant-pwd-strength-item ant-pwd-strength-item-3"></li>
+          <span className="ant-form-text">
+            {level[strength]}
+          </span>
+        </ul>
+      </div>
     );
   },
 

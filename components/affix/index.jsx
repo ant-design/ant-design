@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import rcUtil from 'rc-util';
+import classNames from 'classnames';
 
 function getScroll(w, top) {
   let ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
@@ -89,7 +90,7 @@ let Affix = React.createClass({
   },
 
   render() {
-    const className = rcUtil.classSet({
+    const className = classNames({
       [this.props.className]: this.props.className,
       'ant-affix': this.state.affix
     });
