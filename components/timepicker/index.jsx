@@ -12,7 +12,7 @@ const AntTimepicker = React.createClass({
       onChange() {},
       locale: {},
       align: {
-        offset: [0, -1],
+        offset: [0, -2],
       },
       open: false,
       disabled: false,

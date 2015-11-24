@@ -20,7 +20,7 @@ function createPicker(TheCalendar) {
         },  // onChange 可用于 Validator
         locale: {},
         align: {
-          offset: [0, -10],
+          offset: [0, -9],
         },
         open: false
       };
