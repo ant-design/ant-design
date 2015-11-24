@@ -30,8 +30,5 @@ API
 | hourOptions     | 特定可选择的小时 | array | 0 到 24 组成的数组 |
 | minuteOptions   | 特定可选择的分钟 | array | 0 到 60 组成的数组 |
 | secondOptions   | 特定可选择的秒 | array | 0 到 60 组成的数组 |
-| inputClassName  | 输入框的样式 | string |  |
-| placement       | 显示位置 | string | bottomLeft |
-| transitionName  | 显示动画 | string | slide-up |
 
-<style> .code-box-demo .ant-timepicker-picker { margin: 0 12px 12px 0; }</style>
+<style>.code-box-demo .ant-timepicker { margin: 0 8px 12px 0; }</style>
