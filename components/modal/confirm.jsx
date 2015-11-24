@@ -11,6 +11,7 @@ export default function (props) {
   let d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'question-circle';
+
   let iconClassType = props.iconClassName;
 
   let width = props.width || 416;
@@ -19,6 +20,9 @@ export default function (props) {
   if (!('okCancel' in props)) {
     props.okCancel = true;
   }
+
+  props.okText = props.okText || (props.okCancel ? '确定' : '知道了');
+  props.cancelText = props.cancelText || '取消';
 
   function close() {
     d.setState({
@@ -77,16 +81,16 @@ export default function (props) {
   if (props.okCancel) {
     footer = <div className="ant-confirm-btns">
       <Button type="ghost" size="large" onClick={onCancel}>
-        {props.cancelText || '取消'}
+        {props.cancelText}
       </Button>
       <Button type="primary" size="large" onClick={onOk}>
-        {props.okText || '确定'}
+        {props.okText}
       </Button>
     </div>;
   } else {
     footer = <div className="ant-confirm-btns">
       <Button type="primary" size="large" onClick={onOk}>
-        {props.okText || '知道了'}
+        {props.okText}
       </Button>
     </div>;
   }
