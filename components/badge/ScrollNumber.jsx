@@ -3,25 +3,26 @@ import assign from 'object-assign';
 
 function getNumberArray(num) {
   return num ?
-    num.toString().split('').map(i => Number(i)) : [];
+    num.toString().split('').reverse().map(i => Number(i)) : [];
 }
 
 class AntScrollNumber extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      animated: true
+      animateStarted: true,
+      count: props.count
     };
   }
 
   getPositionByNum(num, i) {
-    if (this.state.animated) {
+    if (this.state.animateStarted) {
       return 10 + num;
     }
-    const currentDigit = getNumberArray(this.props.count)[i];
+    const currentDigit = getNumberArray(this.state.count)[i];
     const lastDigit = getNumberArray(this.lastCount)[i];
     // 同方向则在同一侧切换数字
-    if (this.props.count > this.lastCount) {
+    if (this.state.count > this.lastCount) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
       } else {
@@ -38,19 +39,25 @@ class AntScrollNumber extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if ('count' in nextProps && nextProps.count) {
-      if (this.lastCount !== this.props.count) {
-        this.lastCount = this.props.count;
-        this.setState({
-          animated: false
-        }, () => {
-          setTimeout(() => {
-            this.setState({
-              animated: true
-            });
-            this.props.callback();
-          }, 300);
-        });
+      if (this.lastCount === this.state.count) {
+        return;
       }
+      this.lastCount = this.state.count;
+      // 复原数字初始位置
+      this.setState({
+        animateStarted: true,
+      }, () => {
+        // 等待数字位置复原完毕
+        // 开始设置完整的数字
+        setTimeout(() => {
+          this.setState({
+            animateStarted: false,
+            count: nextProps.count,
+          }, () => {
+            this.props.onAnimated();
+          });
+        }, 5);
+      });
     }
   }
 
@@ -65,10 +72,12 @@ class AntScrollNumber extends React.Component {
   renderCurrentNumber(num, i) {
     const position = this.getPositionByNum(num, i);
     const height = this.props.height;
+    const removeTransition = this.state.animateStarted ||
+      (getNumberArray(this.lastCount)[i] === undefined);
     return createElement('span', {
       className: `${this.props.prefixCls}-only`,
       style: {
-        transition: this.state.animated && 'none',
+        transition: removeTransition && 'none',
         transform: 'translate3d(0, ' + (-position * height) + 'px, 0)',
         height: height,
       },
@@ -77,12 +86,12 @@ class AntScrollNumber extends React.Component {
   }
 
   renderNumberElement() {
-    const props = this.props;
-    if (!props.count || isNaN(props.count)) {
-      return props.count;
+    const state = this.state;
+    if (!state.count || isNaN(state.count)) {
+      return state.count;
     }
-    return getNumberArray(props.count)
-      .map((num, i) => this.renderCurrentNumber(num, i));
+    return getNumberArray(state.count)
+      .map((num, i) => this.renderCurrentNumber(num, i)).reverse();
   }
 
   render() {
@@ -101,7 +110,7 @@ AntScrollNumber.defaultProps = {
   prefixCls: 'ant-scroll-number',
   count: null,
   component: 'sup',
-  callback: function() {},
+  onAnimated: function() {},
   height: 20
 };
 
@@ -111,7 +120,7 @@ AntScrollNumber.propTypes = {
     React.PropTypes.number
   ]),
   component: React.PropTypes.string,
-  callback: React.PropTypes.func,
+  onAnimated: React.PropTypes.func,
   height: React.PropTypes.number,
 };
 
