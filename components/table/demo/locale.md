@@ -1,6 +1,6 @@
 # 国际化
 
-- order: 15
+- hidden: true
 
 用 `locale` 设置表格的排序、过滤按钮的文字或 `title`。
 

@@ -51,37 +51,10 @@ function confirm() {
   });
 }
 
-function info() {
-  Modal.info({
-    title: 'Info',
-    content: 'Bla bla ...',
-    okText: 'OK'
-  });
-}
-
-function success() {
-  Modal.success({
-    title: 'Success',
-    content: 'Bla bla ...',
-    okText: 'OK'
-  });
-}
-
-function error() {
-  Modal.error({
-    title: 'Error',
-    content: 'Bla bla ...',
-    okText: 'OK'
-  });
-}
-
 ReactDOM.render(<div>
   <LocalizedModal />
   <br />
   <Button onClick={confirm}>confirm</Button>
-  <Button onClick={info}>Info</Button>
-  <Button onClick={success}>Success</Button>
-  <Button onClick={error}>Error</Button>
 </div>, document.getElementById('components-modal-demo-locale'));
 ````
 
