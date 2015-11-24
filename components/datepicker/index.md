@@ -25,7 +25,6 @@
 | format       | 展示的日期格式 | string   | "yyyy-MM-dd" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(Date value) | 无           |
-| showTime     | 显示时间选择条 | boolean  | false        |
 | disabled     | 禁用           | bool     | false        |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
