@@ -16,6 +16,15 @@ function defaultResolve(data) {
   return data || [];
 }
 
+const defaultLocale = {
+  sortAscend: '升序排序',
+  sortDescend: '降序排序',
+
+  filterTitle: '筛选',
+  filterConfirm: '确定',
+  filterReset: '重置'
+};
+
 class DataSource {
   init(config) {
     this.config = config;
@@ -69,8 +78,8 @@ let AntTable = React.createClass({
       size: 'default',
       loading: false,
       bordered: false,
-      onChange: function () {
-      }
+      onChange: noop,
+      locale: {}
     };
   },
 
@@ -398,6 +407,7 @@ let AntTable = React.createClass({
   },
 
   renderColumnsDropdown(columns) {
+    let locale = objectAssign({}, defaultLocale, this.props.locale);
     return columns.map((column, i) => {
       column = objectAssign({}, column);
       let key = this.getColumnKey(column, i);
@@ -405,7 +415,7 @@ let AntTable = React.createClass({
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown =
-          <FilterDropdown column={column}
+          <FilterDropdown locale={locale} column={column}
                           selectedKeys={colFilters}
                           confirmFilter={this.handleFilter}/>;
       }
@@ -417,16 +427,17 @@ let AntTable = React.createClass({
             column.className += ' ant-table-column-sort';
           }
         }
+
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
-                title="升序排序"
+                title={locale.sortAscend}
                 onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
             <Icon type="caret-up"/>
           </span>
           <span className={'ant-table-column-sorter-down ' +
                            ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
-                title="降序排序"
+                title={locale.sortDescend}
                 onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
             <Icon type="caret-down"/>
           </span>
