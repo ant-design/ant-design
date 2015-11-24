@@ -72,19 +72,22 @@ export default function (props) {
     <span className="ant-confirm-title">{props.title}</span>
     <div className="ant-confirm-content">{props.content}</div>
   </div>;
-  let footer = <div className="ant-confirm-btns">
-    <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
-    <Button type="primary" size="large" onClick={onOk}>确 定</Button>
-  </div>;
 
+  let footer = null;
   if (props.okCancel) {
     footer = <div className="ant-confirm-btns">
-      <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
-      <Button type="primary" size="large" onClick={onOk}>确 定</Button>
+      <Button type="ghost" size="large" onClick={onCancel}>
+        {props.cancelText || '取消'}
+      </Button>
+      <Button type="primary" size="large" onClick={onOk}>
+        {props.okText || '确定'}
+      </Button>
     </div>;
   } else {
     footer = <div className="ant-confirm-btns">
-      <Button type="primary" size="large" onClick={onOk}>知道了</Button>
+      <Button type="primary" size="large" onClick={onOk}>
+        {props.okText || '知道了'}
+      </Button>
     </div>;
   }
 
