@@ -25,7 +25,7 @@
 ```html
 <Form.Item {...props}>
   {children}
-</Form.Item>`；
+</Form.Item>
 ```
 
 ## Input 输入框
