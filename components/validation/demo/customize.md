@@ -40,7 +40,7 @@ const Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    var validation = this.refs.validation;
+    const validation = this.refs.validation;
     validation.validate((valid) => {
       if (!valid) {
         console.log('error in form');
@@ -82,9 +82,17 @@ const Demo = React.createClass({
       } else {
         strength = 'H';
       }
-      type === 'pass' ? this.setState({ passBarShow: true, passStrength: strength }) : this.setState({ rePassBarShow: true, rePassStrength: strength });
+      if (type === 'pass') {
+        this.setState({ passBarShow: true, passStrength: strength });
+      } else {
+        this.setState({ rePassBarShow: true, rePassStrength: strength });
+      }
     } else {
-      type === 'pass' ? this.setState({ passBarShow: false }) : this.setState({ rePassBarShow: false });
+      if (type === 'pass') {
+        this.setState({ passBarShow: false });
+      } else {
+        this.setState({ rePassBarShow: false });
+      }
     }
   },
 

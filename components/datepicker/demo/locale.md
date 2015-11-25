@@ -9,7 +9,7 @@
 ````jsx
 import { Datepicker } from 'antd';
 import enUS from 'antd/lib/datepicker/locale/en_US';
-import assign from 'object-assign'
+import assign from 'object-assign';
 
 const App = React.createClass({
   getInitialState() {

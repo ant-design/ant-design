@@ -6,14 +6,14 @@
 
 validateStatus: ['success', 'warning', 'error', 'validating']。
 
-另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。 
+另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。
 
 **注意**: 反馈图标只对 `<Input />` 有效。
 
 ---
 
 ````jsx
-import {Form, Input, Datepicker, Row, Col} from "antd";
+import { Form, Input, Datepicker, Col } from 'antd';
 const FormItem = Form.Item;
 
 ReactDOM.render(

@@ -9,10 +9,6 @@ Radio 不可用。
 ````jsx
 import { Radio, Button } from 'antd';
 
-function toggleDisabled() {
-  disabled = !disabled;
-}
-
 const App = React.createClass({
   getInitialState() {
     return {

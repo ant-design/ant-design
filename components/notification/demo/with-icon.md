@@ -12,8 +12,8 @@ import { Button, notification } from 'antd';
 const openNotificationWithIcon = function(type) {
   return function(){
     notification[type]({
-      message: "这是标题",
-      description: "这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案"
+      message: '这是标题',
+      description: '这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案'
     });
   };
 };

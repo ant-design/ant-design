@@ -13,12 +13,12 @@ const Test = React.createClass({
   getInitialState() {
     return {
       show: true,
-    }
+    };
   },
   onClick() {
     this.setState({
       show: !this.state.show,
-    })
+    });
   },
   render() {
     return (
@@ -52,7 +52,7 @@ const Test = React.createClass({
           ] : null}
         </QueueAnim>
       </div>
-    )
+    );
   }
 });
 

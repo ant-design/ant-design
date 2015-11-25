@@ -18,7 +18,7 @@ const App = React.createClass({
     };
   },
   render() {
-    var label = (this.state.checked ? '选中' : '取消') + '-' +
+    const label = (this.state.checked ? '选中' : '取消') + '-' +
       (this.state.disabled ? '不可用' : '可用');
     return <div>
       <p style={{marginBottom: '20px'}}>
@@ -32,12 +32,12 @@ const App = React.createClass({
       <p>
         <Button type="primary" size="small"
           onClick={this.toggleChecked}>
-          {!this.state.checked ? "选中":"取消"}
+          {!this.state.checked ? '选中' : '取消'}
         </Button>
-        <Button style={{'marginLeft': '10px'}}
+        <Button style={{marginLeft: '10px'}}
           type="primary" size="small"
           onClick={this.toggleDisable}>
-          {!this.state.disabled ? "不可用":"可用"}
+          {!this.state.disabled ? '不可用' : '可用'}
         </Button>
       </p>
     </div>;

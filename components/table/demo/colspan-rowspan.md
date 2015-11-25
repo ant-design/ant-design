@@ -17,7 +17,7 @@ const renderContent = function(value, row, index) {
   let obj = {
     children: value,
     props: {}
-  }
+  };
   if (index === 4) {
     obj.props.colSpan = 0;
   }
@@ -29,14 +29,14 @@ const columns = [{
   dataIndex: 'name',
   render: function(text, row, index) {
     if (index < 4) {
-      return <a href="javascript:;">{text}</a>;
+      return <a href="#">{text}</a>;
     } else {
       return {
-        children: <a href="javascript:;">{text}</a>,
+        children: <a href="#">{text}</a>,
         props: {
           colSpan: 5
         }
-      }
+      };
     }
   }
 }, {
@@ -51,7 +51,7 @@ const columns = [{
     let obj = {
       children: value,
       props:{}
-    }
+    };
     // 第三列的第三行行合并
     if (index === 2) {
       obj.props.rowSpan = 2;
@@ -107,13 +107,13 @@ const data = [{
   phone: 18900010002,
   address: '西湖区湖底公园1号'
 }, {
-   key: '5',
-   name: '习大大',
-   age: 18,
-   tel: '0575-22098909',
-   phone: 18900010002,
-   address: '西湖区湖底公园1号'
- }];
+  key: '5',
+  name: '习大大',
+  age: 18,
+  tel: '0575-22098909',
+  phone: 18900010002,
+  address: '西湖区湖底公园1号'
+}];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} bordered={true} />
 , document.getElementById('components-table-demo-colspan-rowspan'));

@@ -10,28 +10,29 @@
 import { Calendar } from 'antd';
 
 function getListData(value) {
-  var listData;
+  let listData;
   switch (value.getDayOfMonth()) {
-    case 8:
-      listData = [
-        { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' }
-      ]; break;
-    case 10:
-      listData = [
-        { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' },
-        { type: 'error', content: '这里是错误事项.' }
-      ]; break;
-    case 15:
-      listData = [
-        { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项好长啊。。....' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' }
-      ]; break;
+  case 8:
+    listData = [
+      { type: 'warn', content: '这里是警告事项.' },
+      { type: 'normal', content: '这里是普通事项.' }
+    ]; break;
+  case 10:
+    listData = [
+      { type: 'warn', content: '这里是警告事项.' },
+      { type: 'normal', content: '这里是普通事项.' },
+      { type: 'error', content: '这里是错误事项.' }
+    ]; break;
+  case 15:
+    listData = [
+      { type: 'warn', content: '这里是警告事项.' },
+      { type: 'normal', content: '这里是普通事项好长啊。。....' },
+      { type: 'error', content: '这里是错误事项.' },
+      { type: 'error', content: '这里是错误事项.' },
+      { type: 'error', content: '这里是错误事项.' },
+      { type: 'error', content: '这里是错误事项.' }
+    ]; break;
+  default:
   }
   return listData || [];
 }

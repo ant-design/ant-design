@@ -54,7 +54,7 @@ const Test = React.createClass({
               <div className="demo-list">
                 <div className="title"></div>
                 <QueueAnim component="ul" type={['right', 'left']}>
-                  {this.state.show ? this.state.items: null}
+                  {this.state.show ? this.state.items : null}
                 </QueueAnim>
               </div>
             </div>

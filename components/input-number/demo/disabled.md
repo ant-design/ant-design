@@ -9,7 +9,7 @@
 ````jsx
 import { InputNumber, Button } from 'antd';
 
-var Test = React.createClass({
+const Test = React.createClass({
   getInitialState() {
     return {
       disabled: true

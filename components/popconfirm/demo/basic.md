@@ -19,7 +19,7 @@ function cancel() {
 
 ReactDOM.render(
   <Popconfirm title="确定要删除这个任务吗？" onConfirm={confirm} onCancel={cancel}>
-    <a href="javascript:;">删除</a>
+    <a href="#">删除</a>
   </Popconfirm>
 , document.getElementById('components-popconfirm-demo-basic'));
 ````

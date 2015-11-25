@@ -54,5 +54,5 @@ ReactDOM.render(
     </Row>
   </div>,
   document.getElementById('components-layout-demo-flex')
-)
+);
 ````

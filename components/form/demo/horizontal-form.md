@@ -30,7 +30,7 @@ const Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+    message.success('收到表单值~~~ ：' + JSON.stringify(this.state.formData, function(k, v) {
       if (typeof v === 'undefined') {
         return '';
       }
@@ -62,7 +62,7 @@ const Demo = React.createClass({
           labelCol={{span: 6}}
           wrapperCol={{span: 14}}
           required={true} >
-            <RadioGroup value="male" name="gender" value={formData.gender} onChange={this.setValue.bind(this, 'gender')} >
+            <RadioGroup name="gender" value={formData.gender} onChange={this.setValue.bind(this, 'gender')} >
               <Radio value="male">男的</Radio>
               <Radio value="female">女的</Radio>
             </RadioGroup>

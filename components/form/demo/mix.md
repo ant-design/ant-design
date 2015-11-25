@@ -7,18 +7,18 @@
 ---
 
 ````jsx
-import {Form, Input, Select, InputNumber, Datepicker, Switch, Menu, Dropdown, Slider, Icon, Button, message, Row, Col} from 'antd';
+import { Form, Select, InputNumber, Datepicker, Switch, Slider, Button, message, Row, Col } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-var Demo = React.createClass({
+const Demo = React.createClass({
   mixins: [Form.ValueMixin],
 
   getInitialState() {
     return {
       formData: {
         inputNumber: undefined,
-        static: "唧唧复唧唧木兰当户织呀",
+        static: '唧唧复唧唧木兰当户织呀',
         switch: undefined,
         slider: undefined,
         select: undefined,
@@ -30,7 +30,7 @@ var Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+    message.success('收到表单值~~~ ：' + JSON.stringify(this.state.formData, function(k, v) {
       if (typeof v === 'undefined') {
         return '';
       }
@@ -39,7 +39,7 @@ var Demo = React.createClass({
   },
 
   render() {
-    var formData = this.state.formData;
+    const formData = this.state.formData;
     return (
       <Form horizontal onSubmit={this.handleSubmit} >
         <FormItem
@@ -58,7 +58,7 @@ var Demo = React.createClass({
           required={true} >
           <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
           <p className="ant-form-text">
-            <a href="javascript:;">链接文字</a>
+            <a href="#">链接文字</a>
           </p>
         </FormItem>
 
@@ -75,7 +75,7 @@ var Demo = React.createClass({
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
           required={true}>
-          <Slider marks={["A","B","C","D","E","F","G"]} name="slider" onChange={this.setValue.bind(this, 'slider')} />
+          <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} name="slider" onChange={this.setValue.bind(this, 'slider')} />
         </FormItem>
 
         <FormItem

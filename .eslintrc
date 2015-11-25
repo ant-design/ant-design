@@ -12,6 +12,7 @@
     "experimentalObjectRestSpread": true
   },
   "plugins": [
+    "markdown",
     "react",
     "babel"
   ],
@@ -32,7 +33,6 @@
     "babel/object-shorthand": 0,
     "react/jsx-boolean-value": 0,
     "react/jsx-no-duplicate-props": 2,
-    "react/prop-types": [2, { "ignore": [ "children", "className", "style" ] }],
     "react/sort-comp": 0,
     "react/wrap-multilines": 0,
     "react/no-multi-comp": 0,

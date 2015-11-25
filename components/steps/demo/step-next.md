@@ -27,7 +27,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       currentStep: Math.floor(Math.random() * steps.length)
-    }
+    };
   },
   next() {
     let s = this.state.currentStep + 1;

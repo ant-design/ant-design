@@ -7,14 +7,14 @@
 ---
 
 ````jsx
-import { Menu, Icon, Switch } from 'antd';
+import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
 const App = React.createClass({
   getInitialState() {
     return {
       current: 'mail'
-    }
+    };
   },
   handleClick(e) {
     console.log('click ', e);
