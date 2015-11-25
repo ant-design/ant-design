@@ -100,6 +100,7 @@
     "react-addons-test-utils": "~0.14.2",
     "react-dom": "~0.14.2",
     "react-router": "~1.0.0",
+    "eslint-plugin-markdown": "git+https://github.com/ant-design/eslint-plugin-markdown.git",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
     "webpack-dev-middleware": "^1.2.0"
@@ -110,7 +111,8 @@
     "clean": "rm -rf _site dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
     "just-deploy": "npm run clean && webpack --config webpack.deploy.config.js && webpack --config webpack.antd.config.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
-    "lint": "eslint components test index.js --ext '.js,.jsx'",
+    "lint": "eslint components test index.js --ext '.js,.jsx' && npm run mdlint",
+    "mdlint": "eslint components/*/demo/*.md --ext '.md' --global 'React,ReactDOM' --rule 'no-console: 0'",
     "test": "npm run lint && webpack && npm run jest",
     "jest": "jest",
     "pub": "sh ./scripts/publish.sh",
