@@ -46,7 +46,7 @@ const Demo = React.createClass({
           label="InputNumber 数字输入框："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true} >
+          required>
           <InputNumber size="large" min={1} max={10} style={{width:100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
           <span className="ant-form-text"> 台机器</span>
         </FormItem>
@@ -55,7 +55,7 @@ const Demo = React.createClass({
           label="我是标题："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true} >
+          required>
           <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
           <p className="ant-form-text">
             <a href="#">链接文字</a>
@@ -66,7 +66,7 @@ const Demo = React.createClass({
           label="Switch 开关："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true} >
+          required>
           <Switch name="switch" onChange={this.setValue.bind(this, 'switch')} value={formData.switch} />
         </FormItem>
 
@@ -74,7 +74,7 @@ const Demo = React.createClass({
           label="Slider 滑动输入条："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true}>
+          required>
           <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} name="slider" onChange={this.setValue.bind(this, 'slider')} />
         </FormItem>
 
@@ -82,7 +82,7 @@ const Demo = React.createClass({
           label="Select 选择器："
           labelCol={{span: 8}}
           wrapperCol={{span: 16}}
-          required={true}>
+          required>
           <Select size="large" defaultValue="lucy" style={{width:200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
             <Option value="jack">jack</Option>
             <Option value="lucy">lucy</Option>
@@ -94,7 +94,7 @@ const Demo = React.createClass({
         <FormItem
           label="Datepicker 日期选择框："
           labelCol={{span: 8}}
-          required={true}>
+          required>
           <Col span="6">
             <Datepicker name="startDate" onChange={this.setValue.bind(this, 'startDate')} value={formData.startDate} />
           </Col>

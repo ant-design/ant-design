@@ -24,7 +24,7 @@ const App = React.createClass({
     return <div>
       <Radio defaultChecked={false} disabled={this.state.disabled}>不可用</Radio>
       <br />
-      <Radio defaultChecked={true} disabled={this.state.disabled}>不可用</Radio>
+      <Radio defaultChecked disabled={this.state.disabled}>不可用</Radio>
       <div style={{marginTop: 20}}>
         <Button type="primary" onClick={this.toggleDisabled}>
           Toggle disabled

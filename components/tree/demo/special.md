@@ -43,7 +43,7 @@ class TreeDemo extends React.Component {
   }
   render() {
     return (<div>
-      <Tree defaultExpandAll={true} checkable={true}
+      <Tree defaultExpandAll checkable
             onCheck={this.handleCheck} checkedKeys={this.state.checkedKeys}
             onSelect={this.handleSelect} selectedKeys={this.state.selectedKeys} multiple>
         <TreeNode title="parent 1" key="p1">

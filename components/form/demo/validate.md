@@ -39,7 +39,7 @@ ReactDOM.render(
       label="校验中："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="validating"
       help="信息审核中...">
       <Input defaultValue="我是被校验的内容" id="validating" />
@@ -49,7 +49,7 @@ ReactDOM.render(
       label="成功校验："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="success">
       <Input defaultValue="我是正文" id="success" />
     </FormItem>
@@ -58,7 +58,7 @@ ReactDOM.render(
       label="警告校验："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="warning">
       <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
@@ -67,7 +67,7 @@ ReactDOM.render(
       label="失败校验："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="error"
       help="请输入数字和字母组合">
       <Input defaultValue="无效选择" id="error" />

@@ -27,7 +27,7 @@ const Test = React.createClass({
         <p className="buttons">
           <Button type="primary" onClick={this.onClick}>切换</Button>
         </p>
-        <QueueAnim component="form" className="ant-form-horizontal" type="bottom" leaveReverse={true}>
+        <QueueAnim component="form" className="ant-form-horizontal" type="bottom" leaveReverse>
           {this.state.show ? [
             <div className="ant-form-item ant-form-item-compact" key="name">
               <label htmlFor="userName" className="col-6" required>用户名：</label>

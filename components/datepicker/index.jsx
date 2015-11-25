@@ -105,7 +105,7 @@ function createPicker(TheCalendar) {
           showTime={this.props.showTime}
           prefixCls="ant-calendar"
           showOk={this.props.showTime}
-          showClear={true}/>
+          showClear />
       );
 
       let sizeClass = '';

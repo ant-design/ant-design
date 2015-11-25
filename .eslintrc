@@ -31,7 +31,6 @@
     "no-undef": 2,
     "no-unused-vars": [2, { "vars": "all", "args": "none" }],
     "babel/object-shorthand": 0,
-    "react/jsx-boolean-value": 0,
     "react/jsx-no-duplicate-props": 2,
     "react/sort-comp": 0,
     "react/wrap-multilines": 0,
