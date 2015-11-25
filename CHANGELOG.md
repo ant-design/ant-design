@@ -4,6 +4,17 @@
 
 ---
 
+## 0.10.2 `2015-11-25`
+
+- Slider 新增 `tipFormatter` 用于格式化 Tooltip 的内容。
+- 优化 Badge 动画效果。
+- 修复以下问题：
+  - 文本域的表单校验无法重置。
+  - 设置 Upload 的 `multiple` 为 `true` 时，未显示每个文件的上传进度。
+  - Breadcrumb 配合 Router 的时候如果没有 `breadcrumbName` 会抛错。
+  - InputNumber 同时设置 `size` `className` 时会有冲突。
+
+
 ## 0.10.1 `2015-11-20`
 
 - 修改内部组件的引用结构，方便工具优化。[#566](https://github.com/ant-design/ant-design/pull/566)
