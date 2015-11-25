@@ -8,7 +8,7 @@
 
 ````jsx
 import { Modal, Button } from 'antd';
-const confirm = antd.Modal.confirm;
+const confirm = Modal.confirm;
 
 function showConfirm(){
   confirm({
