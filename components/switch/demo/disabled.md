@@ -14,7 +14,7 @@ const Test = React.createClass({
   getInitialState() {
     return {
       disabled: true
-    }
+    };
   },
   toggle(){
     this.setState({

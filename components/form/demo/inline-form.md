@@ -25,7 +25,7 @@ const Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+    message.success('收到表单值~~~ ：' + JSON.stringify(this.state.formData, function(k, v) {
       if (typeof v === 'undefined') {
         return '';
       }

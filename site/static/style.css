@@ -16,6 +16,7 @@ body {
   font-size: 14px;
   background: #fff;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  overflow-x: hidden;
 }
 
 *,
@@ -556,6 +557,11 @@ footer ul li > a {
   list-style: circle;
   margin-left: 20px;
   padding-left: 8px;
+}
+
+.markdown > ul li p,
+.markdown > ol li p {
+  margin: 0.6em 0;
 }
 
 .markdown > ol li {
@@ -1665,8 +1671,9 @@ footer ul li > a {
 
 .component-demos {
   margin: 2em 0 1em;
-  color: #5C6B77;
-  font-weight: 600;
+  color: #404040;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 .component-demos .anticon-appstore {

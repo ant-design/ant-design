@@ -1,7 +1,5 @@
 import React from 'react';
-import rcUtil from 'rc-util';
-
-const cx = rcUtil.classSet;
+import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
   return args.map((s)=> {
@@ -32,7 +30,7 @@ class FormItem extends React.Component {
   renderValidateWrapper(c1, c2) {
     let classes = '';
     if (this.props.validateStatus) {
-      classes = cx(
+      classes = classNames(
         {
           'has-feedback': this.props.hasFeedback,
           'has-success': this.props.validateStatus === 'success',
@@ -113,7 +111,7 @@ class FormItem extends React.Component {
     };
 
     return (
-      <div className={cx(itemClassName)}>
+      <div className={classNames(itemClassName)}>
         {children}
       </div>
     );

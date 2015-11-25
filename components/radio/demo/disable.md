@@ -9,10 +9,6 @@ Radio 不可用。
 ````jsx
 import { Radio, Button } from 'antd';
 
-function toggleDisabled() {
-  disabled = !disabled;
-}
-
 const App = React.createClass({
   getInitialState() {
     return {
@@ -28,7 +24,7 @@ const App = React.createClass({
     return <div>
       <Radio defaultChecked={false} disabled={this.state.disabled}>不可用</Radio>
       <br />
-      <Radio defaultChecked={true} disabled={this.state.disabled}>不可用</Radio>
+      <Radio defaultChecked disabled={this.state.disabled}>不可用</Radio>
       <div style={{marginTop: 20}}>
         <Button type="primary" onClick={this.toggleDisabled}>
           Toggle disabled

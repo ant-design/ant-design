@@ -31,7 +31,7 @@ const columns = [{
 }];
 
 const dataSource = new Table.DataSource({
-  url: "/components/table/demo/data.json",
+  url: '/components/table/demo/data.json',
   resolve: function(result) {
     return result.data;
   },
@@ -41,7 +41,7 @@ const dataSource = new Table.DataSource({
     return {
       total: result.totalCount,
       pageSize: result.pageSize
-    }
+    };
   },
   // 和后台接口接收的参数进行适配
   // 参数里提供了分页、筛选、排序的信息

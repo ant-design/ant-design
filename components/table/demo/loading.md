@@ -53,7 +53,7 @@ const App = React.createClass({
       <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
     </div>;
   }
-})
+});
 
 ReactDOM.render(<App />, document.getElementById('components-table-demo-loading'));
 ````

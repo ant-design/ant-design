@@ -7,18 +7,18 @@
 ---
 
 ````jsx
-import {Form, Input, Select, InputNumber, Datepicker, Switch, Menu, Dropdown, Slider, Icon, Button, message, Row, Col} from 'antd';
+import { Form, Select, InputNumber, Datepicker, Switch, Slider, Button, message, Row, Col } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
-var Demo = React.createClass({
+const Demo = React.createClass({
   mixins: [Form.ValueMixin],
 
   getInitialState() {
     return {
       formData: {
         inputNumber: undefined,
-        static: "唧唧复唧唧木兰当户织呀",
+        static: '唧唧复唧唧木兰当户织呀',
         switch: undefined,
         slider: undefined,
         select: undefined,
@@ -30,7 +30,7 @@ var Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    message.success("收到表单值~~~ ：" + JSON.stringify(this.state.formData, function(k, v) {
+    message.success('收到表单值~~~ ：' + JSON.stringify(this.state.formData, function(k, v) {
       if (typeof v === 'undefined') {
         return '';
       }
@@ -39,14 +39,14 @@ var Demo = React.createClass({
   },
 
   render() {
-    var formData = this.state.formData;
+    const formData = this.state.formData;
     return (
       <Form horizontal onSubmit={this.handleSubmit} >
         <FormItem
           label="InputNumber 数字输入框："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true} >
+          required>
           <InputNumber size="large" min={1} max={10} style={{width:100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
           <span className="ant-form-text"> 台机器</span>
         </FormItem>
@@ -55,10 +55,10 @@ var Demo = React.createClass({
           label="我是标题："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true} >
+          required>
           <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
           <p className="ant-form-text">
-            <a href="javascript:;">链接文字</a>
+            <a href="#">链接文字</a>
           </p>
         </FormItem>
 
@@ -66,7 +66,7 @@ var Demo = React.createClass({
           label="Switch 开关："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true} >
+          required>
           <Switch name="switch" onChange={this.setValue.bind(this, 'switch')} value={formData.switch} />
         </FormItem>
 
@@ -74,15 +74,15 @@ var Demo = React.createClass({
           label="Slider 滑动输入条："
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
-          required={true}>
-          <Slider marks={["A","B","C","D","E","F","G"]} name="slider" onChange={this.setValue.bind(this, 'slider')} />
+          required>
+          <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} name="slider" onChange={this.setValue.bind(this, 'slider')} />
         </FormItem>
 
         <FormItem
           label="Select 选择器："
           labelCol={{span: 8}}
           wrapperCol={{span: 16}}
-          required={true}>
+          required>
           <Select size="large" defaultValue="lucy" style={{width:200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
             <Option value="jack">jack</Option>
             <Option value="lucy">lucy</Option>
@@ -94,7 +94,7 @@ var Demo = React.createClass({
         <FormItem
           label="Datepicker 日期选择框："
           labelCol={{span: 8}}
-          required={true}>
+          required>
           <Col span="6">
             <Datepicker name="startDate" onChange={this.setValue.bind(this, 'startDate')} value={formData.startDate} />
           </Col>

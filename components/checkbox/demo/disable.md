@@ -1,4 +1,4 @@
-# 不可用
+ 不可用
 
 - order: 1
 
@@ -11,8 +11,8 @@ import { Checkbox } from 'antd';
 const container = document.getElementById('components-checkbox-demo-disable');
 
 ReactDOM.render(<div>
-  <Checkbox defaultChecked={false} disabled={true}/>
+  <Checkbox defaultChecked={false} disabled />
   <br />
-  <Checkbox defaultChecked={true} disabled={true}/>
+  <Checkbox defaultChecked disabled />
 </div>, container);
 ````

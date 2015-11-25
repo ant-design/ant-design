@@ -37,7 +37,7 @@ const Test = React.createClass({
       activeKey: index.toString()
     };
   },
-  remove(index, e) {
+  remove(targetIndex, e) {
     e.stopPropagation();
     let tabs = this.state.tabs;
     let activeKey = this.state.activeKey;
@@ -49,15 +49,15 @@ const Test = React.createClass({
     }
 
     const newTabs = tabs.filter(tab => {
-      if (tab.index !== index) {
+      if (tab.index !== targetIndex) {
         return true;
       } else {
-        foundIndex = index;
+        foundIndex = targetIndex;
         return false;
       }
     });
 
-    if (activeKey === index) {
+    if (activeKey === targetIndex) {
       activeKey = tabs[foundIndex - 1].index;
     }
 
@@ -101,7 +101,7 @@ const Test = React.createClass({
       </Tabs>
     );
   }
-})
+});
 
 ReactDOM.render(<Test />, document.getElementById('components-tabs-demo-add'));
 ````

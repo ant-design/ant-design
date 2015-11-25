@@ -1,5 +1,6 @@
 import React from 'react';
 import Animate from 'rc-animate';
+import ScrollNumber from './ScrollNumber';
 
 class AntBadge extends React.Component {
   constructor(props) {
@@ -27,12 +28,10 @@ class AntBadge extends React.Component {
         <Animate component=""
           showProp="data-show"
           transitionName={prefixCls + '-zoom'}
-          transitionAppear={true}>
+          transitionAppear>
           {
             hidden ? null :
-            <sup data-show={!hidden} className={className}>
-              {count}
-            </sup>
+            <ScrollNumber data-show={!hidden} className={className} count={count} />
           }
         </Animate>
       </span>
@@ -43,7 +42,7 @@ class AntBadge extends React.Component {
 AntBadge.defaultProps = {
   prefixCls: 'ant-badge',
   count: null,
-  dot: false
+  dot: false,
 };
 
 AntBadge.propTypes = {
@@ -51,7 +50,7 @@ AntBadge.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number
   ]),
-  dot: React.PropTypes.bool
+  dot: React.PropTypes.bool,
 };
 
 export default AntBadge;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { classSet } from 'rc-util';
+import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
 
 const AntSpin = React.createClass({
@@ -23,7 +23,7 @@ const AntSpin = React.createClass({
   render() {
     const { className, size, prefixCls } = this.props;
 
-    let spinClassName = classSet({
+    let spinClassName = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${size}`]: size,
       [className]: !!className,

@@ -1,4 +1,5 @@
 @badge-prefix-cls: ~"@{css-prefix}badge";
+@number-prefix-cls: ~"@{css-prefix}scroll-number";
 
 .@{badge-prefix-cls} {
   position: relative;
@@ -62,6 +63,14 @@ a .@{badge-prefix-cls} {
   }
 }
 
+.@{number-prefix-cls}{
+  overflow: hidden;
+  &-only{
+    display: inline-block;
+    transition: transform .3s @ease-in-out;
+  }
+}
+
 @keyframes antZoomBadgeIn {
   0% {
     opacity: 0;
@@ -81,3 +90,4 @@ a .@{badge-prefix-cls} {
     transform: scale(0) translateX(-50%);
   }
 }
+

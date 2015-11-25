@@ -21,7 +21,7 @@ const Card = React.createClass({
     });
   },
   render() {
-    const container =  <Alert message="消息提示的文案"
+    const container = <Alert message="消息提示的文案"
       description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
       type="info" />;
     return <div>

@@ -10,7 +10,7 @@
 import { Table } from 'antd';
 
 function renderAction() {
-  return <a href="javascript:;">删除</a>;
+  return <a href="#">删除</a>;
 }
 
 function expandedRowRender(record) {

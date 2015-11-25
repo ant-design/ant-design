@@ -16,6 +16,7 @@ export default React.createClass({
     };
   },
   handleClose(e) {
+    e.preventDefault();
     let dom = ReactDOM.findDOMNode(this);
     dom.style.height = dom.offsetHeight + 'px';
     // Magic code

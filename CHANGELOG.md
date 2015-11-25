@@ -4,6 +4,30 @@
 
 ---
 
+## 0.10.2 `2015-11-25`
+
+- Slider 新增 `tipFormatter` 用于格式化 Tooltip 的内容。
+- 优化 Badge 动画效果。
+- 修复以下问题：
+  - 文本域的表单校验无法重置。
+  - 设置 Upload 的 `multiple` 为 `true` 时，未显示每个文件的上传进度。
+  - Breadcrumb 配合 Router 的时候如果没有 `breadcrumbName` 会抛错。
+  - InputNumber 同时设置 `size` `className` 时会有冲突。
+
+
+## 0.10.1 `2015-11-20`
+
+- 修改内部组件的引用结构，方便工具优化。[#566](https://github.com/ant-design/ant-design/pull/566)
+  - 移除了演示中没有使用过的 `antd.ButtonGroup`，依然用 `const ButtonGroup = Button.Group` 来使用。
+  - Form 和 Input 目录分离，`import { Form, Input } from 'ant/lib/form'` 的引用方式被废弃。
+
+     现在可以 `import Form from 'ant/lib/form'` 和 `import Input from 'ant/lib/input'`。
+
+     原有的 `import { Form, Input } from 'antd'` 则不受影响。
+
+- 修复 Datepicker 的 `style` 和 `calendarStyle` 属性失效的问题，并将 `calendarStyle` 更名为 `popupStyle`。
+
+
 ## 0.10.0 `2015-11-20`
 
 - 全面兼容 `react@0.14.x`。
@@ -31,7 +55,7 @@
 #### 组件变更
 
 - Table
-	- 支持单选。[演示](/components/table/#demo-row-selection-radio-props)
+	- 支持单选。[演示](http://ant.design/components/table/#demo-row-selection-radio-props)
 	- 选择模式支持默认选中和不可用效果。[演示](/components/table/#demo-row-selection-props)
 	- 列支持了 `colSpan` 和 `rowSpan` 配置。[演示](/components/table/#demo-colspan-rowspan)
 	- 新增 `loading` 属性。
@@ -70,7 +94,7 @@
 > 备注：
 >
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
-> - [0.10 升级指南](/docs/upgrade-to-0.10)
+> - [0.10 升级指南](http://ant.design/docs/upgrade-to-0.10)
 
 
 ## 0.9.3 ~ 0.9.5 `2015-11-04`

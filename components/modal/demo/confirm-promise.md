@@ -8,14 +8,13 @@
 
 ````jsx
 import { Modal, Button } from 'antd';
-const confirm = antd.Modal.confirm;
+const confirm = Modal.confirm;
 
 function showConfirm(){
   confirm({
     title: '您是否确认要删除这项内容',
-    content: '一些解释',
+    content: '点确认 1 秒后关闭',
     onOk: function() {
-      alert('1 秒后关闭');
       return new Promise(function(resolve) {
         setTimeout(resolve, 1000);
       });

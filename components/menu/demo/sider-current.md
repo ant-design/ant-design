@@ -10,12 +10,12 @@
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
-var Sider = React.createClass({
+const Sider = React.createClass({
   getInitialState() {
     return {
       current: '1',
       openKeys: []
-    }
+    };
   },
   handleClick(e) {
     console.log('click ', e);

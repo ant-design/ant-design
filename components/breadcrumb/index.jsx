@@ -30,6 +30,9 @@ let Breadcrumb = React.createClass({
     if (routes && routes.length > 0 && ReactRouter) {
       let Link = ReactRouter.Link;
       crumbs = routes.map(function(route, i) {
+        if (!route.breadcrumbName) {
+          return null;
+        }
         let name = route.breadcrumbName.replace(/\:(.*)/g, function(replacement, key) {
           return params[key] || replacement;
         });

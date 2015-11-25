@@ -60,7 +60,7 @@ ReactDOM.render(
           <Checkbox />选项二
         </label>
         <label className="ant-checkbox-vertical">
-          <Checkbox disabled={true} />选项三（不可选）
+          <Checkbox disabled />选项三（不可选）
         </label>
     </FormItem>
 

@@ -91,7 +91,7 @@ export default function (props) {
   ReactDOM.render(<Dialog
     prefixCls="ant-modal"
     className="ant-confirm"
-    visible={true}
+    visible
     closable={false}
     title=""
     transitionName="zoom"

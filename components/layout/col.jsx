@@ -1,5 +1,5 @@
 import React from 'react';
-import rcUtil from 'rc-util';
+import classNames from 'classnames';
 
 const Col = React.createClass({
   propTypes: {
@@ -13,7 +13,7 @@ const Col = React.createClass({
   },
   render() {
     const {span, order, offset, push, pull, className, ...others} = this.props;
-    const classes = rcUtil.classSet({
+    const classes = classNames({
       ['col-' + span]: span,
       ['col-order-' + order]: order,
       ['col-offset-' + offset]: offset,

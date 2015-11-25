@@ -21,7 +21,7 @@ const text = `
 `;
 
 ReactDOM.render(
-  <Collapse onChange={callback} accordion={true}>
+  <Collapse onChange={callback} accordion>
     <Panel header={`This is panel header 1`} key="1">
       <Collapse defaultActiveKey="1">
         <Panel header={`This is panel nest panel`} key="1">

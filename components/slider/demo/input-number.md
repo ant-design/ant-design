@@ -9,7 +9,7 @@
 ````jsx
 import { Slider, InputNumber } from 'antd';
 
-const Test = React.createClass({
+const IntegerStep = React.createClass({
   getInitialState() {
     return {
       inputValue: 1
@@ -35,5 +35,34 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-slider-demo-input-number'));
+const DecimalStep = React.createClass({
+  getInitialState() {
+    return {
+      inputValue: 0
+    };
+  },
+  onChange(value) {
+    this.setState({
+      inputValue: value
+    });
+  },
+  render() {
+    return (
+      <div className="row">
+        <div className="col-12">
+          <Slider min={0} max={1} onChange={this.onChange} value={this.state.inputValue} step={0.01} />
+        </div>
+        <div className="col-4">
+          <InputNumber min={0} max={1} style={{marginLeft: '16px'}} step={0.01}
+            value={this.state.inputValue} onChange={this.onChange} />
+        </div>
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<div>
+  <IntegerStep />
+  <DecimalStep />
+</div>, document.getElementById('components-slider-demo-input-number'));
 ````

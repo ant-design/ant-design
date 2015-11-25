@@ -6,14 +6,14 @@
 
 validateStatus: ['success', 'warning', 'error', 'validating']。
 
-另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。 
+另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。
 
 **注意**: 反馈图标只对 `<Input />` 有效。
 
 ---
 
 ````jsx
-import {Form, Input, Datepicker, Row, Col} from "antd";
+import { Form, Input, Datepicker, Col } from 'antd';
 const FormItem = Form.Item;
 
 ReactDOM.render(
@@ -39,7 +39,7 @@ ReactDOM.render(
       label="校验中："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="validating"
       help="信息审核中...">
       <Input defaultValue="我是被校验的内容" id="validating" />
@@ -49,7 +49,7 @@ ReactDOM.render(
       label="成功校验："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="success">
       <Input defaultValue="我是正文" id="success" />
     </FormItem>
@@ -58,7 +58,7 @@ ReactDOM.render(
       label="警告校验："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="warning">
       <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
@@ -67,7 +67,7 @@ ReactDOM.render(
       label="失败校验："
       labelCol={{span: 5}}
       wrapperCol={{span: 12}}
-      hasFeedback={true}
+      hasFeedback
       validateStatus="error"
       help="请输入数字和字母组合">
       <Input defaultValue="无效选择" id="error" />

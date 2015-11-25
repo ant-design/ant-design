@@ -25,10 +25,6 @@ function cx(classNames) {
   }
 }
 
-function noop() {
-  return false;
-}
-
 const Demo = React.createClass({
   mixins: [Validation.FieldMixin],
 
@@ -45,7 +41,7 @@ const Demo = React.createClass({
         select: undefined,
         multiSelect: undefined,
         radio: undefined,
-        birthday: undefined,
+        birthday: null,
         primeNumber: 9
       }
     };
@@ -119,7 +115,7 @@ const Demo = React.createClass({
             help={status.select.errors ? status.select.errors.join(',') : null}
             required>
               <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
-                <Select size="large" placeholder="请选择国家" style={{width:"100%"}} name="select" value={formData.select}>
+                <Select size="large" placeholder="请选择国家" style={{width: '100%'}} name="select" value={formData.select}>
                   <Option value="china">中国</Option>
                   <Option value="use">美国</Option>
                   <Option value="japan">日本</Option>
@@ -137,7 +133,7 @@ const Demo = React.createClass({
             help={status.multiSelect.errors ? status.multiSelect.errors.join(',') : null}
             required>
             <Validator rules={[{required: true, message: '请选择您喜欢的颜色', type: 'array'}]}>
-              <Select multiple size="large" placeholder="请选择颜色" style={{width:"100%"}} name="multiSelect" value={formData.multiSelect}>
+              <Select multiple size="large" placeholder="请选择颜色" style={{width: '100%'}} name="multiSelect" value={formData.multiSelect}>
                 <Option value="red">红色</Option>
                 <Option value="orange">橙色</Option>
                 <Option value="yellow">黄色</Option>
@@ -176,7 +172,7 @@ const Demo = React.createClass({
                 type: 'date',
                 message: '你的生日是什么呢?'
               }, {validator: this.checkBirthday}]}>
-                <Datepicker name="birthday" value={formData.birthday}></Datepicker>
+                <Datepicker name="birthday" value={formData.birthday} />
               </Validator>
           </FormItem>
 
@@ -189,7 +185,7 @@ const Demo = React.createClass({
             help={status.primeNumber.errors ? status.primeNumber.errors.join(',') : null}
             required>
               <Validator rules={[{validator: this.checkPrime}]}>
-                <InputNumber name="primeNumber" min={8} max={12} value={formData.primeNumber}/>
+                <InputNumber name="primeNumber" min={8} max={12} value={formData.primeNumber} />
               </Validator>
           </FormItem>
 

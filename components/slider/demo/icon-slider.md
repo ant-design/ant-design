@@ -24,13 +24,11 @@ const IconSlider = React.createClass({
   },
 
   handleChange(v) {
-    this.setState(
-      {
-        preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
-        nextIconClass: v >= this.state.mid ? 'anticon-highlight': '',
-        sliderValue: v
-      }
-    );
+    this.setState({
+      preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
+      nextIconClass: v >= this.state.mid ? 'anticon-highlight' : '',
+      sliderValue: v
+    });
   },
 
   render() {

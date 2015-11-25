@@ -15,17 +15,15 @@
 ````jsx
 import { Upload, Button, Icon } from 'antd';
 
-const fileList = [{
-  uid: -1,
-  name: 'xxx.png',
-  status: 'done',
-  url: 'http://www.baidu.com/xxx.png'
-}];
-
 const MyUpload = React.createClass({
   getInitialState() {
     return {
-      fileList: fileList
+      fileList: [{
+        uid: -1,
+        name: 'xxx.png',
+        status: 'done',
+        url: 'http://www.baidu.com/xxx.png'
+      }]
     };
   },
   handleChange(info) {
@@ -52,9 +50,7 @@ const MyUpload = React.createClass({
       return true;
     });
 
-    this.setState({
-      fileList: fileList
-    });
+    this.setState({ fileList });
   },
   render() {
     const props = {
