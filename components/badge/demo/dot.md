@@ -10,10 +10,10 @@
 import { Badge, Icon } from 'antd';
 
 ReactDOM.render(<div>
-  <Badge dot={true}>
+  <Badge dot>
     <Icon type="notification" />
   </Badge>
-  <Badge dot={true}>
+  <Badge dot>
     <a href="#">一个链接</a>
   </Badge>
 </div>, document.getElementById('components-badge-demo-dot'));

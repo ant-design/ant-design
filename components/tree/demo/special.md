@@ -19,45 +19,45 @@ class TreeDemo extends React.Component {
     this.state = {
       checkedKeys: [],
       selectedKeys: []
-    }
+    };
   }
   handleClick() {
     this.setState({
       checkedKeys: ['p11'],
       selectedKeys: ['p21', 'p11']
-    })
+    });
   }
   handleCheck(info) {
     console.log('check: ', info);
     this.setState({
       checkedKeys: ['p21'],
       selectedKeys: ['p1', 'p21']
-    })
+    });
   }
   handleSelect(info) {
     console.log('selected: ', info);
     this.setState({
       checkedKeys: ['p21'],
       selectedKeys: ['p21']
-    })
+    });
   }
   render() {
     return (<div>
-        <Tree defaultExpandAll={true} checkable={true}
-              onCheck={this.handleCheck} checkedKeys={this.state.checkedKeys}
-              onSelect={this.handleSelect} selectedKeys={this.state.selectedKeys} multiple>
-          <TreeNode title="parent 1" key="p1">
-            <TreeNode key="p10" title="leaf"/>
-            <TreeNode title="parent 1-1" key="p11">
-              <TreeNode title="parent 2-1" key="p21">
-                <TreeNode>test</TreeNode>
-                <TreeNode title={<span>sss</span>}/>
-              </TreeNode>
-              <TreeNode key="p22" title="leaf"/>
+      <Tree defaultExpandAll checkable
+            onCheck={this.handleCheck} checkedKeys={this.state.checkedKeys}
+            onSelect={this.handleSelect} selectedKeys={this.state.selectedKeys} multiple>
+        <TreeNode title="parent 1" key="p1">
+          <TreeNode key="p10" title="leaf"/>
+          <TreeNode title="parent 1-1" key="p11">
+            <TreeNode title="parent 2-1" key="p21">
+              <TreeNode>test</TreeNode>
+              <TreeNode title={<span>sss</span>}/>
             </TreeNode>
+            <TreeNode key="p22" title="leaf"/>
           </TreeNode>
-          <TreeNode key="p12" title="leaf"/>
-        </Tree>
+        </TreeNode>
+        <TreeNode key="p12" title="leaf"/>
+      </Tree>
       <Button type="primary" size="small" onClick={this.handleClick}>点此控制树节点</Button>
     </div>);
   }

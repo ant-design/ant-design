@@ -29,7 +29,7 @@ const DateRange = React.createClass({
     return endValue.getTime() <= this.state.startValue.getTime();
   },
   onChange(field, value) {
-    console.log(field,'change',value);
+    console.log(field, 'change', value);
     this.setState({
       [field]: value,
     });
@@ -39,11 +39,11 @@ const DateRange = React.createClass({
       <Datepicker disabledDate={this.disabledStartDate}
         value={this.state.startValue}
         placeholder="开始日期"
-        onChange={this.onChange.bind(this,'startValue')} />
+        onChange={this.onChange.bind(this, 'startValue')} />
       <Datepicker disabledDate={this.disabledEndDate}
         value={this.state.endValue}
         placeholder="结束日期"
-        onChange={this.onChange.bind(this,'endValue')} />
+        onChange={this.onChange.bind(this, 'endValue')} />
     </div>;
   }
 });

@@ -14,7 +14,7 @@ const Picker = React.createClass({
     console.log(new Date(value.getTime()));
   },
   render: function() {
-    return <Datepicker onChange={this.handleChange} />
+    return <Datepicker onChange={this.handleChange} />;
   }
 });
 

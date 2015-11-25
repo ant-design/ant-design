@@ -15,7 +15,7 @@ function showConfirm(){
     title: '您是否确认要删除这项内容',
     content: '一些解释',
     onOk: function() {
-      alert('确定');
+      console.log('确定');
     },
     onCancel: function() {}
   });

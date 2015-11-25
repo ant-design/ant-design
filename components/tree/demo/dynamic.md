@@ -10,22 +10,23 @@
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 
-const asyncTree = [
-  {name: "pNode 01", key: "0-0"},
-];
+const asyncTree = [{
+  name: 'pNode 01',
+  key: '0-0'
+}];
 
 const generateTreeNodes = () => {
-  const arr  = [
-       {name: "伯约", key: "0-0-0"},
-  ];
-  return arr;
-}
+  return [{
+    name: '伯约',
+    key: '0-0-0'
+  }];
+};
 
 const TreeDemo = React.createClass({
   timeout(duration = 0) {
     return new Promise((resolve, reject) => {
-        setTimeout(resolve.bind(this), duration);
-    })
+      setTimeout(resolve.bind(this), duration);
+    });
   },
   getInitialState() {
     return {
@@ -62,19 +63,19 @@ const TreeDemo = React.createClass({
         if (item.children) {
           return <TreeNode title={item.name} key={item.key}>{loop(item.children)}</TreeNode>;
         } else {
-          return <TreeNode title={item.name} key={item.key}></TreeNode>;
+          return <TreeNode title={item.name} key={item.key} />;
         }
-      })
+      });
     };
     const parseTreeNode = data => loop(data);
     let treeNodes = parseTreeNode(this.state.treeData);
     return (
-        <Tree onSelect={this.handleSelect} onDataLoaded={this.handleDataLoaded} showLine={false}>
-          {treeNodes}
-        </Tree>
-    )
+      <Tree onSelect={this.handleSelect} onDataLoaded={this.handleDataLoaded} showLine={false}>
+        {treeNodes}
+      </Tree>
+    );
   }
-})
+});
 
 ReactDOM.render(<TreeDemo />, document.getElementById('components-tree-demo-dynamic'));
 ````

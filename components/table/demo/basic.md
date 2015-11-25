@@ -13,7 +13,7 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
-    return <a href="javascript:;">{text}</a>;
+    return <a href="#">{text}</a>;
   }
 }, {
   title: '年龄',
@@ -26,11 +26,11 @@ const columns = [{
   dataIndex: '',
   render: function(text, record) {
     return <span>
-      <a href="javascript:;">操作一</a>
+      <a href="#">操作一</a>
       <span className="ant-divider"></span>
-      <a href="javascript:;">操作二</a>
+      <a href="#">操作二</a>
       <span className="ant-divider"></span>
-      <a href="javascript:;" className="ant-dropdown-link">
+      <a href="#" className="ant-dropdown-link">
         更多 <Icon type="down" />
       </a>
     </span>;

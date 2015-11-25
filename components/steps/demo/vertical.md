@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Steps, Button } from 'antd';
+import { Steps } from 'antd';
 const Step = Steps.Step;
 const container = document.getElementById('components-steps-demo-vertical');
 

@@ -147,7 +147,7 @@ const Demo = React.createClass({
             wrapperCol={{span: 12}}
             validateStatus={this.renderValidateStyle('name')}
             hasFeedback
-            help={status.name.isValidating ? "正在校验中.." : status.name.errors ? status.name.errors.join(',') : null}
+            help={status.name.isValidating ? '正在校验中..' : (status.name.errors && status.name.errors.join(','))}
             required>
               <Validator rules={[{required: true, min: 5, message: '用户名至少为 5 个字符'}, {validator: this.userExists}]}>
                 <Input name="name" id="name" value={formData.name} placeholder="实时校验，输入 JasonWood 看看" onChange={this.setField.bind(this, 'name')} />
@@ -164,7 +164,7 @@ const Demo = React.createClass({
             help={status.email.errors ? status.email.errors.join(',') : null}
             required>
               <Validator rules={[{required: true, type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
-                <Input type="email" name="email" id="email" value={formData.email}  placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
+                <Input type="email" name="email" id="email" value={formData.email} placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
               </Validator>
           </FormItem>
 

@@ -28,7 +28,7 @@ ReactDOM.render(
         label="用户名："
         labelCol={{span:5}}
         wrapperCol={{span:12}}
-        required={true} >
+        required>
         <p className="ant-form-text">大眼萌 minion</p>
       </FormItem>
       <FormItem
@@ -36,7 +36,7 @@ ReactDOM.render(
         label="密码："
         labelCol={{span:5}}
         wrapperCol={{span:12}}
-        required={true} >
+        required>
         <Input type="password" defaultValue="123456" id="password" />
       </FormItem>
       <Row>

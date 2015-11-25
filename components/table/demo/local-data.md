@@ -13,7 +13,7 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
-    return <a href="javascript:;">{text}</a>;
+    return <a href="#">{text}</a>;
   }
 }, {
   title: '年龄',
@@ -79,9 +79,8 @@ const App = React.createClass({
       <Button onClick={this.handleClick2}>加载本地数据2</Button>
     </div>;
   }
-})
+});
 
 ReactDOM.render(<App />
 , document.getElementById('components-table-demo-local-data'));
 ````
-

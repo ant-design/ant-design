@@ -10,6 +10,6 @@
 import { Datepicker } from 'antd';
 
 ReactDOM.render(
-  <Datepicker defaultValue="2015-06-06" disabled={true} />
+  <Datepicker defaultValue="2015-06-06" disabled />
 , document.getElementById('components-datepicker-demo-disabled'));
 ````

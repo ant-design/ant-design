@@ -13,7 +13,7 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   render: function(text) {
-    return <a href="javascript:;">{text}</a>;
+    return <a href="#">{text}</a>;
   }
 }, {
   title: '年龄',
@@ -24,7 +24,7 @@ const columns = [{
 }];
 
 const data = [];
-for (let i=0; i<46; i++) {
+for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
     name: '李大嘴' + i,

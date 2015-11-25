@@ -10,11 +10,11 @@
 import { Menu, Icon, Switch } from 'antd';
 const SubMenu = Menu.SubMenu;
 
-var Sider = React.createClass({
+const Sider = React.createClass({
   getInitialState() {
     return {
       theme: 'light'
-    }
+    };
   },
   changeTheme(value) {
     this.setState({

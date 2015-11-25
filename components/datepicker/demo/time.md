@@ -13,8 +13,11 @@ let result = new Date();
 let selectdDate, selectdTime;
 function handleChange(from, value) {
   if (!value) {
-    from === 'date' ?
-      (selectdDate = false) : (selectdTime = false);
+    if (from === 'date') {
+      selectdDate = false;
+    } else {
+      selectdTime = false;
+    }
     return;
   }
   if (from === 'date') {

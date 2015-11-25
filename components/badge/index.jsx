@@ -28,7 +28,7 @@ class AntBadge extends React.Component {
         <Animate component=""
           showProp="data-show"
           transitionName={prefixCls + '-zoom'}
-          transitionAppear={true}>
+          transitionAppear>
           {
             hidden ? null :
             <ScrollNumber data-show={!hidden} className={className} count={count} />

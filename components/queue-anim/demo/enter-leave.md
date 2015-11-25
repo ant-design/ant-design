@@ -48,7 +48,7 @@ const Test = React.createClass({
                 </ul>
               </div>
             </div>
-          ]: null}
+          ] : null}
         </QueueAnim>
       </div>
     );

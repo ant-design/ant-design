@@ -10,13 +10,13 @@ Flex 子元素垂直对齐。
 ````jsx
 import { Row, Col } from 'antd';
 
-var DemoBox = React.createClass({
+const DemoBox = React.createClass({
   render() {
     const { value } = this.props;
     const className = `hight-${value}`;
     return (
       <p className={className}>{this.props.children}</p>
-    )
+    );
   }
 });
 

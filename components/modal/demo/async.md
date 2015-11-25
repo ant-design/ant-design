@@ -9,8 +9,6 @@
 ````jsx
 import { Modal, Button } from 'antd';
 
-const ModalText = '对话框的内容';
-
 const Test = React.createClass({
   getInitialState() {
     return {
@@ -55,5 +53,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test/> , document.getElementById('components-modal-demo-async'));
+ReactDOM.render(<Test/>, document.getElementById('components-modal-demo-async'));
 ````

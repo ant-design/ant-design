@@ -15,7 +15,7 @@ function handleCheck(info) {
 }
 
 ReactDOM.render(<div>
- <Tree defaultExpandAll={true} checkable={true} onCheck={handleCheck}>
+ <Tree defaultExpandAll checkable onCheck={handleCheck}>
     <TreeNode title="parent 1">
       <TreeNode title="leaf" />
       <TreeNode title="parent 1-1">
