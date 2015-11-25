@@ -98,11 +98,19 @@ class AntScrollNumber extends React.Component {
     const props = assign({}, this.props, {
       className: `${this.props.prefixCls} ${this.props.className}`
     });
-    return createElement(
-      this.props.component,
-      props,
-      this.renderNumberElement()
-    );
+    if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+      return createElement(
+        this.props.component,
+        props,
+        this.renderNumberElement()
+      );
+    } else {
+      return createElement(
+        this.props.component,
+        props,
+        props.count
+      );
+    }
   }
 }
 
