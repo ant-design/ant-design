@@ -45,7 +45,7 @@ const Demo = React.createClass({
         select: undefined,
         multiSelect: undefined,
         radio: undefined,
-        birthday: undefined,
+        birthday: null,
         primeNumber: 9
       }
     };
