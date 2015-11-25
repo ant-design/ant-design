@@ -1,0 +1,43 @@
+@transfer-prefix-cls: ~"@{css-prefix}transfer";
+
+.@{transfer-prefix-cls} {
+
+  &-list {
+
+    border: 1px solid #e9e9e9;
+    border-radius: 6px;
+
+    &-header {
+      padding: 13px 20px 14px 20px;
+      border-radius: 5px 5px 0 0;
+      background: #fff;
+      color: #666;
+      border-bottom: 1px solid #e9e9e9;
+    }
+
+    &-body {
+      font-size: 12px;
+      line-height: 1.5;
+      height: 190px;
+      overflow-y: scroll;
+
+      ul {
+        li {
+          padding: 7px 16px;
+
+          &:hover {
+            cursor: pointer;
+            background-color: #EEF9FE;
+          }
+        }
+      }
+    }
+
+    &-footer {
+      border-top: 1px solid #e9e9e9;
+      padding: 8px 20px 16px 10px;
+      text-align: right;
+      border-radius: 0 0 5px 5px;
+    }
+  }
+}

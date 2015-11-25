@@ -44,6 +44,7 @@ const antd = {
   Input: require('./components/input'),
   Calendar: require('./components/calendar'),
   Timepicker: require('./components/timepicker'),
+  Transfer: require('./components/transfer')
 };
 
 antd.version = require('./package.json').version;
