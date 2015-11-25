@@ -79,7 +79,7 @@ class Input extends React.Component {
     }
     switch (props.type) {
     case 'textarea':
-      return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
+      return <textarea {...props} value={props.value || props.defaultValue} placeholder={placeholder} className={inputClassName} ref="input" />;
     default:
       inputClassName = props.className ? props.className : inputClassName;
       return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
