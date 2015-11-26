@@ -54,7 +54,7 @@
 // Prevent browsers from flickering when using CSS 3D transforms.
 // Default value is `visible`, but can be changed to `hidden`
 
-.backface-visibility(@visibility){
+.backface-visibility(@visibility) {
   -webkit-backface-visibility: @visibility;
      -moz-backface-visibility: @visibility;
           backface-visibility: @visibility;
@@ -104,8 +104,14 @@
     color: @color;
     opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
   }
-  &:-ms-input-placeholder { color: @color; } // Internet Explorer 10+
-  &::-webkit-input-placeholder  { color: @color; } // Safari and Chrome
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
 }
 
 // Transformations

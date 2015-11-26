@@ -90,13 +90,14 @@
     }
   }
 
-  .notification-fade-effect() {
+  .notification-fade-effect {
     animation-duration: 0.3s;
     animation-fill-mode: both;
     animation-timing-function: @ease-in-out;
   }
 
-  &-fade-enter,&-fade-appear {
+  &-fade-enter,
+  &-fade-appear {
     opacity: 0;
     .notification-fade-effect();
     animation-play-state: paused;
@@ -107,7 +108,8 @@
     animation-play-state: paused;
   }
 
-  &-fade-enter&-fade-enter-active, &-fade-appear&-fade-appear-active {
+  &-fade-enter&-fade-enter-active,
+  &-fade-appear&-fade-appear-active {
     animation-name: NotificationFadeIn;
     animation-play-state: running;
   }
@@ -116,32 +118,32 @@
     animation-name: NotificationFadeOut;
     animation-play-state: running;
   }
+}
 
-  @keyframes NotificationFadeIn {
-    0% {
-      opacity: 0;
-      left: @notice-width;
-    }
-    100% {
-      left: 0;
-      opacity: 1;
-    }
+@keyframes NotificationFadeIn {
+  0% {
+    opacity: 0;
+    left: @notice-width;
   }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
 
-  @keyframes NotificationFadeOut {
-    0% {
-      opacity: 1;
-      margin-bottom: @notice-margin-bottom;
-      padding-top: @notice-padding;
-      padding-bottom: @notice-padding;
-      max-height: 150px;
-    }
-    100% {
-      opacity: 0;
-      margin-bottom: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      max-height: 0;
-    }
+@keyframes NotificationFadeOut {
+  0% {
+    opacity: 1;
+    margin-bottom: @notice-margin-bottom;
+    padding-top: @notice-padding;
+    padding-bottom: @notice-padding;
+    max-height: 150px;
+  }
+  100% {
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0;
   }
 }
