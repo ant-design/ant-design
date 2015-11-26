@@ -17,9 +17,6 @@ function defaultResolve(data) {
 }
 
 const defaultLocale = {
-  sortAscend: '升序排序',
-  sortDescend: '降序排序',
-
   filterTitle: '筛选',
   filterConfirm: '确定',
   filterReset: '重置'
@@ -431,13 +428,13 @@ let AntTable = React.createClass({
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
-                title={locale.sortAscend}
+                title="↑"
                 onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
             <Icon type="caret-up"/>
           </span>
           <span className={'ant-table-column-sorter-down ' +
                            ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
-                title={locale.sortDescend}
+                title="↓"
                 onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
             <Icon type="caret-down"/>
           </span>
