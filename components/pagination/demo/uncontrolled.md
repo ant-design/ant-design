@@ -28,6 +28,6 @@ let Container = React.createClass({
 
 ReactDOM.render(
 <Container />,
-document.getElementById('components-pagination-demo-aaa'));
+document.getElementById('components-pagination-demo-uncontrolled'));
 ````
 
