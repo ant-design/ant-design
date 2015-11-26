@@ -11,7 +11,7 @@ import { Popconfirm } from 'antd';
 
 ReactDOM.render(
   <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
-    <a href="javascript:;">Delete</a>
+    <a href="#">Delete</a>
   </Popconfirm>
 , document.getElementById('components-popconfirm-demo-locale'));
 ````
