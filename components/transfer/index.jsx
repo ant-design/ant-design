@@ -5,16 +5,6 @@ import Button from '../button';
 function noop() {
 }
 
-let mockData = [];
-for (let i = 0; i < 10; i++) {
-  mockData.push({
-    title: '内容' + (i + 1),
-    value: (i + 1),
-    description: '内容' + (i + 1) + '的描述',
-    chosen: Math.random() * 2 > 1
-  });
-}
-
 class Transfer extends Component {
 
   constructor(props) {
@@ -23,6 +13,12 @@ class Transfer extends Component {
     this.state = {
       dataSource: props.dataSource,
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      dataSource: nextProps.dataSource,
+    });
   }
 
   moveTo(direction) {
@@ -129,7 +125,7 @@ class Transfer extends Component {
 
 Transfer.defaultProps = {
   prefixCls: 'ant-transfer',
-  dataSource: mockData,
+  dataSource: [],
   dataIndex: 'title',
   filterKey: 'chosen',
   onChange: noop,

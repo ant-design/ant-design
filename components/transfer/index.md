@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 穿梭框
 - type: 表单
+- cols: 1
 
 ---
 

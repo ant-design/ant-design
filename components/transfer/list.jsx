@@ -89,7 +89,7 @@ class TransferList extends Component {
           checked: globalCheckStatus === 'all',
           checkPart: globalCheckStatus === 'part',
           checkable: <span className={`ant-tree-checkbox-inner`}></span>
-        })}{dataSource.length} 条{config.title}
+        })} {dataSource.length} 条{config.title}
       </div>
       <div className={`${prefixCls}-body`}>
         <ul>
