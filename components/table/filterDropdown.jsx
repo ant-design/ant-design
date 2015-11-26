@@ -48,7 +48,7 @@ let FilterMenu = React.createClass({
     return menuItems;
   },
   render() {
-    let column = this.props.column;
+    let {column, locale} = this.props;
     // default multiple selection in filter dropdown
     let multiple = true;
     if ('filterMultiple' in column) {
@@ -69,7 +69,7 @@ let FilterMenu = React.createClass({
              pointerEvents: 'visible'
            }}
            onClick={this.handleConfirm}>
-          确定
+          {locale.filterConfirm}
         </a>
         <a className="ant-table-filter-dropdown-link clear"
            style={{
@@ -77,7 +77,7 @@ let FilterMenu = React.createClass({
              pointerEvents: 'visible'
            }}
            onClick={this.handleClearFilters}>
-          重置
+          {locale.filterReset}
         </a>
       </Menu.Item>
     </Menu>;
@@ -92,7 +92,7 @@ let FilterMenu = React.createClass({
                      visible={this.state.visible}
                      onVisibleChange={this.onVisibleChange}
                      closeOnSelect={false}>
-      <Icon title="筛选" type="bars" className={dropdownSelectedClass} />
+      <Icon title={locale.filterTitle} type="bars" className={dropdownSelectedClass} />
     </Dropdown>;
   }
 });
