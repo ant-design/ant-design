@@ -10,11 +10,7 @@
 import { Pagination } from 'antd';
 import enUS from 'antd/lib/pagination/locale/en_US';
 
-function onChange(page) {
-  console.log(page);
-}
-
 ReactDOM.render(
-  <Pagination current={1} onChange={onChange} total={50} locale={enUS} />,
+  <Pagination defaultCurrent={1} total={50} locale={enUS} />,
  document.getElementById('components-pagination-demo-locale'));
 ````

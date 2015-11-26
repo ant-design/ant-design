@@ -9,15 +9,11 @@
 ````jsx
 import { Pagination } from 'antd';
 
-function onChange(page) {
-  console.log(page);
-}
-
 function onShowSizeChange(current, pageSize) {
   console.log(current, pageSize);
 }
 
 ReactDOM.render(
-  <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} current={1} onChange={onChange} total={500} />,
+  <Pagination showSizeChanger onShowSizeChange={onShowSizeChange} defaultCurrent={3} total={500} />,
  document.getElementById('components-pagination-demo-changer'));
 ````
