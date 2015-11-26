@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 ReactDOM.render(
-  <Pagination showQuickJumper onChange={onChange} total={500} />,
+  <Pagination showQuickJumper current={2} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-jump'));
 ````

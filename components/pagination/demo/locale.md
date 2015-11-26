@@ -1,6 +1,6 @@
 # 国际化
 
-- order: 6
+- order: 7
 
 通过 `locale` 配置时区、语言等, 默认支持 en_US, zh_CN
 
@@ -15,6 +15,6 @@ function onChange(page) {
 }
 
 ReactDOM.render(
-  <Pagination onChange={onChange} total={50} locale={enUS} />,
+  <Pagination current={1} onChange={onChange} total={50} locale={enUS} />,
  document.getElementById('components-pagination-demo-locale'));
 ````

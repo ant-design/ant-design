@@ -14,6 +14,6 @@ function onChange(page) {
 }
 
 ReactDOM.render(
-  <Pagination onChange={onChange} total={500} />,
+  <Pagination current={1} onChange={onChange} total={500} />,
  document.getElementById('components-pagination-demo-more'));
 ````
