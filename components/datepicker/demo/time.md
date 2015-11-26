@@ -9,35 +9,44 @@
 ````jsx
 import { Datepicker, Timepicker } from 'antd';
 
-let result = new Date();
-let selectdDate, selectdTime;
-function handleChange(from, value) {
-  if (!value) {
-    if (from === 'date') {
-      selectdDate = false;
-    } else {
-      selectdTime = false;
+const DateTimePicker = React.createClass({
+  handleChange(from, value) {
+    this.result = this.result || new Date();
+    if (!value) {
+      if (from === 'date') {
+        this.selectedDate = false;
+      } else {
+        this.selectedTime = false;
+      }
+      return;
     }
-    return;
+    if (from === 'date') {
+      this.result.setFullYear(value.getFullYear());
+      this.result.setMonth(value.getMonth());
+      this.result.setDate(value.getDate());
+      this.selectedDate = true;
+    } else {
+      this.result.setHours(value.getHours());
+      this.result.setMinutes(value.getMinutes());
+      this.result.setSeconds(value.getSeconds());
+      this.selectedTime = true;
+    }
+    if (this.selectedDate && this.selectedTime) {
+      this.props.onSelect(this.result);
+    }
+  },
+  render() {
+    return <div>
+      <Datepicker onChange={this.handleChange.bind(null, 'date')} />
+      <Timepicker onChange={this.handleChange.bind(null, 'time')} />
+    </div>;
   }
-  if (from === 'date') {
-    result.setFullYear(value.getFullYear());
-    result.setMonth(value.getMonth());
-    result.setDate(value.getDate());
-    selectdDate = true;
-  } else {
-    result.setHours(value.getHours());
-    result.setMinutes(value.getMinutes());
-    result.setSeconds(value.getSeconds());
-    selectdTime = true;
-  }
-  if (selectdDate && selectdTime) {
-    console.log('选择结果是：' + result);
-  }
+});
+
+function onSelect(value) {
+  console.log('选择了时间：', value);
 }
 
-ReactDOM.render(<div>
-  <Datepicker onChange={handleChange.bind(null, 'date')} />
-  <Timepicker onChange={handleChange.bind(null, 'time')} />
-</div>, document.getElementById('components-datepicker-demo-time'));
+ReactDOM.render(<DateTimePicker onSelect={onSelect} />
+, document.getElementById('components-datepicker-demo-time'));
 ````
