@@ -8,6 +8,7 @@ import Pagination from '../pagination';
 import Icon from '../icon';
 import objectAssign from 'object-assign';
 import Spin from '../spin';
+import classNames from 'classnames';
 
 function noop() {
 }
@@ -72,7 +73,7 @@ let AntTable = React.createClass({
       useFixedHeader: false,
       rowSelection: null,
       className: '',
-      size: 'default',
+      size: 'large',
       loading: false,
       bordered: false,
       onChange: noop,
@@ -461,10 +462,10 @@ let AntTable = React.createClass({
     if (!this.hasPagination()) {
       return null;
     }
-    let classString = 'ant-table-pagination';
-    if (this.props.size === 'small') {
-      classString += ' mini';
-    }
+    let classString = classNames({
+      'ant-table-pagination': true,
+      'mini': this.props.size === 'middle' || this.props.size === 'small',
+    });
     let total = this.state.pagination.total;
     if (!total && this.isLocalDataSource()) {
       total = this.getLocalData().length;
@@ -613,14 +614,14 @@ let AntTable = React.createClass({
   render() {
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
-    let classString = this.props.className;
     let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    if (this.props.size === 'small') {
-      classString += ' ant-table-small';
-    }
-    if (this.props.bordered) {
-      classString += ' ant-table-bordered';
-    }
+
+    let classString = classNames({
+      [`ant-table-${this.props.size}`]: true,
+      'ant-table-bordered': this.props.bordered,
+      [this.props.className]: !!this.props.className,
+    });
+
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
       column.key = column.dataIndex || i;
