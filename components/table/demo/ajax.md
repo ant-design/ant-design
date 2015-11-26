@@ -64,25 +64,36 @@ const dataSource = new Table.DataSource({
 const Test = React.createClass({
   getInitialState() {
     return {
-      dataSource: null
+      dataSource: null,
+      pagination: {
+        onChange: this.hanlePageChange
+      }
     };
   },
+  hanlePageChange(page) {
+    // 使用受控属性 current，方便外部设置页数
+    const pagination = this.state.pagination;
+    pagination.current = page;
+    this.setState({ pagination });
+  },
   refresh() {
+    // 回到第一页
+    const pagination = this.state.pagination;
+    pagination.current = 1;
     this.setState({
       dataSource: dataSource.clone()
     });
   },
   changeAndRefresh() {
+    // 回到第一页
+    const pagination = this.state.pagination;
+    pagination.current = 1;
     // 可以修改原来的 dataSource 再发请求
     this.setState({
       dataSource: dataSource.clone({
-        data: {
-          city: 'hz'
-        }
+        data: { city: 'hz' }
       }),
-      pagination: {
-        current: 1
-      }
+      pagination,
     });
   },
   render() {
