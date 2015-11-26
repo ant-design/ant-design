@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Checkbox from '../checkbox';
-import Button from '../button';
+import Search from './search.jsx';
 import {classSet} from 'rc-util';
 
 function noop() {
@@ -18,6 +18,10 @@ class TransferList extends Component {
 
   handleSelect(selectedItem, e) {
     this.props.handleSelect(selectedItem, e.target.checked);
+  }
+
+  handleFilter(e) {
+    this.props.handleFilter(e);
   }
 
   getGlobalCheckStatus() {
@@ -65,20 +69,7 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, config, footer, extraRender, dataSource } = this.props;
-
-    let defaultFooter = [
-      <Button key="reload"
-              type="primary"
-              onClick={this.handleCancel}>
-        刷新
-      </Button>,
-      <Button key="ignore"
-              type="ghost"
-              onClick={this.handleOk}>
-        忽略所选
-      </Button>
-    ];
+    const { prefixCls, config, footer, extraRender, dataSource, filter } = this.props;
 
     let globalCheckStatus = this.getGlobalCheckStatus();
 
@@ -92,6 +83,7 @@ class TransferList extends Component {
         })} {dataSource.length} 条{config.title}
       </div>
       <div className={`${prefixCls}-body`}>
+        <Search onChange={this.handleFilter.bind(this)} value={filter} />
         <ul>
           {dataSource.map((item)=> {
             return <li>
@@ -99,13 +91,15 @@ class TransferList extends Component {
                 <Checkbox checked={item.checked} onChange={this.handleSelect.bind(this, item)} />
                 { item.title }
               </label>
-              {extraRender(item)}
+              <div className="extra-holder">
+                {extraRender(item)}
+              </div>
             </li>;})}
         </ul>
       </div>
-      <div className={`${prefixCls}-footer`}>
-        { defaultFooter || footer }
-      </div>
+      { footer ? <div className={`${prefixCls}-footer`}>
+        { footer }
+      </div> : null }
     </div>);
   }
 }
@@ -114,6 +108,7 @@ TransferList.defaultProps = {
   prefixCls: 'ant-transfer-list',
   dataSource: [],
   onChange: noop,
+  footer: [],
   extraRender: noop,
 };
 
@@ -122,6 +117,7 @@ TransferList.propTypes = {
   dataSource: PropTypes.array,
   footer: PropTypes.array,
   searchPlaceholder: PropTypes.string,
+  handleFilter: PropTypes.func,
   handleSelect: PropTypes.func,
   handleSelectAll: PropTypes.func,
   config: PropTypes.object,

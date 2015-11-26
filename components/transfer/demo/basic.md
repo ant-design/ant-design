@@ -7,14 +7,32 @@
 ---
 
 ````jsx
-import { Transfer, Button } from 'antd';
+import { Transfer, Button, Menu, Dropdown, Icon } from 'antd';
 const container = document.getElementById('components-transfer-demo-basic');
+
+const menu = <Menu>
+  <Menu.Item>
+    <a target="_blank" href="http://www.alipay.com/">编辑</a>
+  </Menu.Item>
+</Menu>;
+
+function makeDropdown(item) {
+  return <Dropdown overlay={menu}>
+           <Button type="small">
+             {item.title} <Icon type="down" />
+           </Button>
+         </Dropdown>;
+}
 
 const App = React.createClass({
   getInitialState() {
     return {
       mockData: []
     };
+  },
+
+  componentDidMount() {
+    this.getMock();
   },
 
   getMock() {
@@ -33,7 +51,7 @@ const App = React.createClass({
   },
   render() {
     return <div>
-      <Transfer dataSource={this.state.mockData} />
+      <Transfer dataSource={this.state.mockData} extraRender={makeDropdown} />
       <Button onClick={this.getMock}>刷新数据</Button>
     </div>;
   }

@@ -1,28 +1,34 @@
-import { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 function noop() {
 }
 
-class TransferSearch extends Component {
-  render() {
+class Search extends Component {
+  constructor(props) {
+    super(props);
+  }
 
+  handleChange(e) {
+    this.props.onChange(e);
+  }
+
+  render() {
+    const {placeholder, value} = this.props;
+    return <input placeholder={placeholder} className="ant-input" value={ value } ref="input" onChange={this.handleChange.bind(this)}/>;
   }
 }
 
-TransferSearch.defaultProps = {
+Search.defaultProps = {
   prefixCls: 'ant-transfer-search',
-  value: PropTypes.string,
-  defaultValue: PropTypes.string,
+  placeholder: '请输入搜索内容',
   onChange: noop,
   onDelete: noop,
 };
 
-TransferSearch.propTypes = {
+Search.propTypes = {
   prefixCls: PropTypes.string,
-  value: PropTypes.string,
-  defaultValue: PropTypes.string,
-  onChange: PropTypes.func,
-  onDelete: PropTypes.func,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func
 };
 
-export default TransferSearch;
+export default Search;

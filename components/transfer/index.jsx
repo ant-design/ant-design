@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import List from './list.jsx';
-import Button from '../button';
+import Operation from './operation.jsx';
 
 function noop() {
 }
@@ -12,6 +12,8 @@ class Transfer extends Component {
 
     this.state = {
       dataSource: props.dataSource,
+      leftFilter: '',
+      rightFilter: '',
     };
   }
 
@@ -22,7 +24,7 @@ class Transfer extends Component {
   }
 
   moveTo(direction) {
-    // TODO: 讨论是否要将新移动的元素置顶
+    // TODO: 将新移动的元素置顶: 存index至state中
     const { filterKey } = this.props;
     let { dataSource } = this.state;
     if ( direction === 'right' ) {
@@ -33,6 +35,10 @@ class Transfer extends Component {
           data.checked = false;
         }
       });
+      this.setState({
+        leftFilter: '',
+        dataSource: dataSource,
+      });
     } else {
       dataSource.forEach((data) => {
         if ( data[filterKey] && data.checked ) {
@@ -40,32 +46,32 @@ class Transfer extends Component {
           data.checked = false;
         }
       });
+      this.setState({
+        rightFilter: '',
+        dataSource: dataSource,
+      });
     }
-
-    this.setState({
-      dataSource: dataSource,
-    });
   }
 
   handleSelectAll(direction, globalCheckStatus) {
     const { filterKey } = this.props;
-    const { dataSource } = this.state;
+    const { dataSource, leftFilter, rightFilter } = this.state;
     switch ( globalCheckStatus ) {
       // 选中部分,则全选
     case 'part':
     case 'none':
       dataSource.forEach((data)=> {
           // data[filterKey] true 时,在右侧
-        if ( direction === 'right' && data[filterKey]
-            || direction === 'left' && !data[filterKey] ) {
+        if ( direction === 'right' && data[filterKey] && this.matchFilter(data.title, rightFilter)
+            || direction === 'left' && !data[filterKey] && this.matchFilter(data.title, leftFilter)) {
           data.checked = true;
         }
       });
       break;
     case 'all':
       dataSource.forEach((data)=> {
-        if ( direction === 'right' && data[filterKey]
-            || direction === 'left' && !data[filterKey] ) {
+        if ( direction === 'right' && data[filterKey] && this.matchFilter(data.title, rightFilter)
+          || direction === 'left' && !data[filterKey] && this.matchFilter(data.title, leftFilter)) {
           data.checked = false;
         }
       });
@@ -77,6 +83,24 @@ class Transfer extends Component {
     this.setState({
       dataSource: dataSource,
     });
+  }
+
+  handleFilter(direction, e) {
+    const filterText = e.target.value;
+    if ( direction === 'left') {
+      this.setState({
+        'leftFilter': filterText
+      });
+    } else {
+      this.setState({
+        'rightFilter': filterText
+      });
+    }
+  }
+
+  matchFilter(text, filterText) {
+    const regex = new RegExp(filterText);
+    return text.match(regex);
   }
 
   handleSelect(selectedItem, checked) {
@@ -93,29 +117,40 @@ class Transfer extends Component {
   }
 
   render() {
-    const { prefixCls, leftConfig, rightConfig, filterKey } = this.props;
-    const { dataSource } = this.state;
+    const { prefixCls, leftConfig, rightConfig, filterKey, extraRender } = this.props;
+    const { dataSource, leftFilter, rightFilter } = this.state;
 
     let leftDataSource = [];
     let rightDataSource = [];
 
     dataSource.map((item)=> {
+      // filter item
       if ( item[filterKey] ) {
-        rightDataSource.push(item);
+        if ( this.matchFilter(item.title, rightFilter) ) {
+          rightDataSource.push(item);
+        }
       } else {
-        leftDataSource.push(item);
+        if ( this.matchFilter(item.title, leftFilter) ) {
+          leftDataSource.push(item);
+        }
       }
     });
 
     return <div className={prefixCls}>
-      <List style={{ width: '45%', display: 'inline-block'}} config={leftConfig} dataSource={leftDataSource}
-            handleSelect={this.handleSelect.bind(this)} handleSelectAll={this.handleSelectAll.bind(this, 'left')}/>
-      <div style={{ width: '10%', display: 'inline-block'}}>
-        <Button shape="circle" onClick={this.moveTo.bind(this, 'right')}>{">"}</Button>
-        <Button shape="circle" onClick={this.moveTo.bind(this, 'left')}>{"<"}</Button>
-      </div>
-      <List style={{ width: '45%', display: 'inline-block'}} config={rightConfig} dataSource={rightDataSource}
-            handleSelect={this.handleSelect.bind(this)} handleSelectAll={this.handleSelectAll.bind(this, 'right')}/>
+      <List style={{ width: '40%', display: 'inline-block'}} config={leftConfig} dataSource={leftDataSource}
+            filter={leftFilter}
+            handleFilter={this.handleFilter.bind(this, 'left')}
+            handleSelect={this.handleSelect.bind(this)}
+            handleSelectAll={this.handleSelectAll.bind(this, 'left')}
+            extraRender={extraRender}/>
+      <Operation rightArrowText={leftConfig.operationText} moveToRight={this.moveTo.bind(this, 'right')}
+                 leftArrowText={rightConfig.operationText} moveToLeft={this.moveTo.bind(this, 'left')} />
+      <List style={{ width: '40%', display: 'inline-block'}} config={rightConfig} dataSource={rightDataSource}
+            filter={rightFilter}
+            handleFilter={this.handleFilter.bind(this, 'right')}
+            handleSelect={this.handleSelect.bind(this)}
+            handleSelectAll={this.handleSelectAll.bind(this, 'right')}
+            extraRender={extraRender} />
     </div>;
   }
 }
@@ -141,7 +176,8 @@ Transfer.defaultProps = {
   showSearch: false,
   searchPlaceholder: '请输入搜索内容',
   extraRender: noop,
-  footer: noop,
+  footer: ()=> {
+  },
 };
 
 Transfer.propTypes = {
