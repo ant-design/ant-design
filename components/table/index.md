@@ -102,3 +102,19 @@ var dataSource = new Table.DataSource({
 | resolve       | 获得数据的解析函数，接收参数为远程数据返回的 result  | Function  |    |    |
 | getPagination | 和后台接口返回的分页数据进行适配的函数，返回值会传给表格中的分页器 | Function |  |  |
 | getParams     | 和后台接口接收的参数进行适配，返回值会作为请求的参数发送 | Function |  | 无 |
+
+## 注意
+
+按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Table 中，默认将每列数据的 `key` 属性作为唯一的标识。
+
+如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
+
+![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+
+```jsx
+const rowKey = function(record) {
+  return record.uid;  // 比如你的数据主键是 uid
+};
+
+return <Table rowKey={rowKey} />;
+```
