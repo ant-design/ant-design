@@ -7,7 +7,7 @@
 ## 0.10.3 `2015-11-26`
 
 - 默认引入 `antd/lib/index.css`，和 0.9.x 保持一致，方便第三方引用。引用 less 文件进行变量配置的可自行 `import 'antd/style/index.less'`。[#593](https://github.com/ant-design/ant-design/issues/593)
-- 升级 Pagination，增加 defaultCurrent 属性，修正原来的 current 为完全受控属性。
+- 升级 Pagination，增加 `defaultCurrent` 属性，修正原来的 `current` 为[完全受控属性](https://facebook.github.io/react/docs/forms.html#controlled-components)。
 - Pagination 的改动也修复了 Table 切换数据源后回到[第一页的例子](http://ant.design/components/table/#demo-ajax)。
 - 对演示和样式代码增加了 lint 检查。
 
