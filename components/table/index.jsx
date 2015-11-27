@@ -8,6 +8,7 @@ import Pagination from '../pagination';
 import Icon from '../icon';
 import objectAssign from 'object-assign';
 import Spin from '../spin';
+import classNames from 'classnames';
 
 function noop() {
 }
@@ -15,6 +16,12 @@ function noop() {
 function defaultResolve(data) {
   return data || [];
 }
+
+const defaultLocale = {
+  filterTitle: '筛选',
+  filterConfirm: '确定',
+  filterReset: '重置'
+};
 
 class DataSource {
   init(config) {
@@ -66,11 +73,11 @@ let AntTable = React.createClass({
       useFixedHeader: false,
       rowSelection: null,
       className: '',
-      size: 'default',
+      size: 'large',
       loading: false,
       bordered: false,
-      onChange: function () {
-      }
+      onChange: noop,
+      locale: {}
     };
   },
 
@@ -398,6 +405,7 @@ let AntTable = React.createClass({
   },
 
   renderColumnsDropdown(columns) {
+    let locale = objectAssign({}, defaultLocale, this.props.locale);
     return columns.map((column, i) => {
       column = objectAssign({}, column);
       let key = this.getColumnKey(column, i);
@@ -405,7 +413,7 @@ let AntTable = React.createClass({
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown =
-          <FilterDropdown column={column}
+          <FilterDropdown locale={locale} column={column}
                           selectedKeys={colFilters}
                           confirmFilter={this.handleFilter}/>;
       }
@@ -417,16 +425,17 @@ let AntTable = React.createClass({
             column.className += ' ant-table-column-sort';
           }
         }
+
         sortButton = <div className="ant-table-column-sorter">
           <span className={'ant-table-column-sorter-up ' +
                            ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
-                title="升序排序"
+                title="↑"
                 onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
             <Icon type="caret-up"/>
           </span>
           <span className={'ant-table-column-sorter-down ' +
                            ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
-                title="降序排序"
+                title="↓"
                 onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
             <Icon type="caret-down"/>
           </span>
@@ -453,10 +462,10 @@ let AntTable = React.createClass({
     if (!this.hasPagination()) {
       return null;
     }
-    let classString = 'ant-table-pagination';
-    if (this.props.size === 'small') {
-      classString += ' mini';
-    }
+    let classString = classNames({
+      'ant-table-pagination': true,
+      'mini': this.props.size === 'middle' || this.props.size === 'small',
+    });
     let total = this.state.pagination.total;
     if (!total && this.isLocalDataSource()) {
       total = this.getLocalData().length;
@@ -605,14 +614,14 @@ let AntTable = React.createClass({
   render() {
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
-    let classString = this.props.className;
     let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    if (this.props.size === 'small') {
-      classString += ' ant-table-small';
-    }
-    if (this.props.bordered) {
-      classString += ' ant-table-bordered';
-    }
+
+    let classString = classNames({
+      [`ant-table-${this.props.size}`]: true,
+      'ant-table-bordered': this.props.bordered,
+      [this.props.className]: !!this.props.className,
+    });
+
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
       column.key = column.dataIndex || i;
