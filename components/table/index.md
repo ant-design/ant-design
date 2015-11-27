@@ -104,8 +104,11 @@ var dataSource = new Table.DataSource({
 
 ## 注意
 
-按照 React 的规范，所有的组件数组必须绑定 key。在 Table 中，默认将每列数据的 `key` 属性作为唯一的标识。
-如果你的数据没有这个属性，你需要使用 `rowKey` 来指定数据列的主键。
+按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Table 中，默认将每列数据的 `key` 属性作为唯一的标识。
+
+如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
+
+![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
 const rowKey = function(record) {
