@@ -2,7 +2,7 @@
 
 - order: 2
 
-受控组件，外部传入参数，控制树对象节点
+受控组件，外部传入参数，控制树对象节点。
 
 ---
 
@@ -64,5 +64,4 @@ class TreeDemo extends React.Component {
 }
 
 ReactDOM.render(<TreeDemo />, document.getElementById('components-tree-demo-special'));
-
 ````
