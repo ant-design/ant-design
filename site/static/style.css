@@ -509,6 +509,7 @@ footer ul li > a {
 
 .markdown img {
   vertical-align: middle;
+  max-width: 100%;
 }
 
 .markdown h1 {
