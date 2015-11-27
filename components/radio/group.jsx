@@ -42,7 +42,7 @@ export default React.createClass({
           {...radio.props}
           onChange={this.onRadioChange}
           checked={this.state.value === radio.props.value}
-          disabled={this.props.disabled}
+          disabled={radio.props.disabled || this.props.disabled}
         />;
       }
       return radio;
