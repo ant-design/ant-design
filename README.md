@@ -43,7 +43,7 @@ Normal browsers and Internet Explorer 8+.
 ## Links
 
 - [Home page](http://ant.design/)
-- [Documentation and Components](http://ant.design/docs/introduce)
+- [Documentation and React Components](http://ant.design/docs/introduce)
 - [Components](http://ant.design/components/)
 - [Build/Debug tools](https://github.com/ant-design/antd-bin)
 - [Roadmap](https://github.com/ant-design/ant-design/issues/9)
