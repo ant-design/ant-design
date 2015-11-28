@@ -1,3 +1,10 @@
+window.require = function(path) {
+  if (path in window) {
+    return window[path];
+  } else {
+    throw 'There should not have modules here: ' + path;
+  }
+};
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
 window.Clip = require('./clip');
