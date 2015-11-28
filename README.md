@@ -44,7 +44,6 @@ Normal browsers and Internet Explorer 8+.
 
 - [Home page](http://ant.design/)
 - [React UI library](http://ant.design/docs/introduce)
-- [Components](http://ant.design/components/)
 - [Build/Debug tools](https://github.com/ant-design/antd-bin)
 - [Roadmap](https://github.com/ant-design/ant-design/issues/9)
 - [ChangeLog](CHANGELOG.md)
