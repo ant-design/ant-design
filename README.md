@@ -43,12 +43,12 @@ Normal browsers and Internet Explorer 8+.
 ## Links
 
 - [Home page](http://ant.design/)
-- [Documentation and React Components](http://ant.design/docs/introduce)
+- [React UI library](http://ant.design/docs/introduce)
 - [Components](http://ant.design/components/)
 - [Build/Debug tools](https://github.com/ant-design/antd-bin)
 - [Roadmap](https://github.com/ant-design/ant-design/issues/9)
 - [ChangeLog](CHANGELOG.md)
-- [React modules](http://react-component.github.io/)
+- [React components](http://react-component.github.io/)
 - [React style guide](https://github.com/react-component/react-component.github.io/blob/master/docs/en-US/component-code-style.md)
 - [React component design guide](https://github.com/react-component/react-component.github.io/blob/master/docs/en-US/component-design.md)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/%E7%BD%91%E7%AB%99%E5%92%8C%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E)
