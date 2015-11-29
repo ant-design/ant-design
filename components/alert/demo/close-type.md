@@ -8,9 +8,8 @@
 
 ````jsx
 import { Alert } from 'antd';
-const link = <a href="#">不再提醒</a>;
 
 ReactDOM.render(
-<Alert message="消息提示的文案" type="info" closeText={link} />
+<Alert message="消息提示的文案" type="info" closeText="不再提醒" />
 , document.getElementById('components-alert-demo-close-type'));
 ````
