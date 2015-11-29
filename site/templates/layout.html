@@ -46,29 +46,6 @@
       };
     </script>
     <script src="{{static_url('../dist/demo.js')}}"></script>
-    <script>
-      window.require = function (path) {
-        var result = window;
-        var namespaces = path.split('/');
-        namespaces.forEach(function (key, i) {
-          if (i === 2) {
-            key = capitalizeFirstLetter(key);
-          }
-          if (key !== 'lib') {
-            if (result[key]) {
-              result = result[key];
-            } else {
-              throw 'There should not have modules here 2.';
-            }
-          }
-        });
-        function capitalizeFirstLetter(string) {
-          return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-
-        return result;
-      };
-    </script>
     <script src="https://t.alipayobjects.com/images/T1DrxhXe0mXXXXXXXX.js"></script>
     {% block scripts %}{% endblock %}
   </head>
