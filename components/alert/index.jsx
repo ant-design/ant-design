@@ -9,7 +9,6 @@ export default React.createClass({
     return {
       prefixCls: 'ant-alert',
       showIcon: false,
-      closeText: <Icon type="cross" />,
       onClose() {}
     };
   },
@@ -40,7 +39,7 @@ export default React.createClass({
   },
   render() {
     let {
-      closable, description, type, prefixCls, message, closeText
+      closable, description, type, prefixCls, message, closeText, showIcon
     } = this.props;
 
     let iconType = '';
@@ -66,6 +65,7 @@ export default React.createClass({
       [prefixCls + '-' + type]: true,
       [prefixCls + '-close']: !this.state.closing,
       [prefixCls + '-with-description']: !!description,
+      [prefixCls + '-no-icon']: !showIcon,
     });
 
     if (closeText) {
@@ -78,11 +78,11 @@ export default React.createClass({
                transitionName="slide-up"
                onEnd={this.animationEnd}>
         <div data-show={this.state.closing} className={alertCls}>
-          <Icon className="ant-alert-icon" type={iconType} />
+          {showIcon ? <Icon className="ant-alert-icon" type={iconType} /> : null}
           <span className={prefixCls + '-message'}>{message}</span>
           <span className={prefixCls + '-description'}>{description}</span>
           {closable ? <a onClick={this.handleClose} className={prefixCls + '-close-icon'}>
-            {closeText}
+            {closeText || <Icon type="cross" />}
           </a> : null}
         </div>
       </Animate>
