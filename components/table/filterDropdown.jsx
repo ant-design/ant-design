@@ -92,7 +92,7 @@ let FilterMenu = React.createClass({
                      visible={this.state.visible}
                      onVisibleChange={this.onVisibleChange}
                      closeOnSelect={false}>
-      <Icon title={locale.filterTitle} type="bars" className={dropdownSelectedClass} />
+      <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
     </Dropdown>;
   }
 });
