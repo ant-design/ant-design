@@ -8,11 +8,11 @@ import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import DateTimeFormat from 'gregorian-calendar-format';
 import objectAssign from 'object-assign';
 
-function createPicker(TheCalendar) {
+function createPicker(TheCalendar, defaultFormat) {
   return React.createClass({
     getDefaultProps() {
       return {
-        format: 'yyyy-MM-dd',
+        format: defaultFormat || 'yyyy-MM-dd',
         transitionName: 'slide-up',
         popupStyle: {},
         onSelect: null, // 向前兼容
@@ -154,7 +154,7 @@ function createPicker(TheCalendar) {
 }
 
 const AntDatePicker = createPicker(Calendar);
-const AntMonthPicker = createPicker(MonthCalendar);
+const AntMonthPicker = createPicker(MonthCalendar, 'yyyy-MM');
 
 const AntCalendar = React.createClass({
   getDefaultProps() {
