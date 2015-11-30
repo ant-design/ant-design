@@ -160,6 +160,20 @@
   }
 }
 
+// ghost button style
+.btn-dashed() {
+  .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+  border-style: dashed;
+
+  &:hover {
+    .button-color(tint(@primary-color, 20%); white; tint(@primary-color, 20%));
+  }
+  &:active,
+  &.active {
+    .button-color(shade(@primary-color, 5%); white; shade(@primary-color, 5%));
+  }
+}
+
 // circle button: the content only contains icon
 .btn-circle(@btnClassName: btn) {
   .square(@btn-circle-size);
