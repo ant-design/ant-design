@@ -4,7 +4,8 @@
 }
 
 .make-motion(@className, @keyframeName) {
-  .@{className}-enter, .@{className}-appear {
+  .@{className}-enter,
+  .@{className}-appear {
     .motion-common();
     animation-play-state: paused;
   }
@@ -12,7 +13,8 @@
     .motion-common();
     animation-play-state: paused;
   }
-  .@{className}-enter.@{className}-enter-active, .@{className}-appear.@{className}-appear-active {
+  .@{className}-enter.@{className}-enter-active,
+  .@{className}-appear.@{className}-appear-active {
     animation-name: ~"@{keyframeName}In";
     animation-play-state: running;
   }

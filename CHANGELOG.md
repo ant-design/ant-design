@@ -4,6 +4,22 @@
 
 ---
 
+## 0.10.4 `2015-11-30`
+
+- 将 media-match 加入默认的 polyfill 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
+- 修复了 [MonthPicker](http://ant.design/components/datepicker/#demo-month-picker) 报错问题，并增加了相关演示。
+- 修复 RadioGroup 中的 Radio/RadioButton 无法单独设置 disabled 的问题。[#603](https://github.com/ant-design/ant-design/issues/603)
+- 修复今天是不可选日期时的一个展示问题。[#606](https://github.com/ant-design/ant-design/issues/606)
+
+
+## 0.10.3 `2015-11-26`
+
+- 和 0.9.x 保持一致默认引入 `antd/lib/index.css`（而非 less 文件），方便第三方引用。引用 less 文件进行变量配置的可自行 `import 'antd/style/index.less'`。[#593](https://github.com/ant-design/ant-design/issues/593)
+- 升级 Pagination，增加 `defaultCurrent` 属性，修正原来的 `current` 为[完全受控属性](https://facebook.github.io/react/docs/forms.html#controlled-components)。
+- Pagination 的改动也修复了 Table 切换数据源后回到[第一页的例子](http://ant.design/components/table/#demo-ajax)。
+- 对演示和样式代码增加了 lint 检查。
+
+
 ## 0.10.2 `2015-11-25`
 
 - Slider 新增 `tipFormatter` 用于格式化 Tooltip 的内容。

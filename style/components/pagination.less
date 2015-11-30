@@ -52,8 +52,8 @@
     }
   }
 
-  &-jump-prev, &-jump-next {
-
+  &-jump-prev,
+  &-jump-next {
     &:after {
       content: "•••";
       display: block;
@@ -89,10 +89,15 @@
     }
   }
 
-  &-prev, &-jump-prev, &-jump-next {
+  &-prev,
+  &-jump-prev,
+  &-jump-next {
     margin-right: 8px;
   }
-  &-prev, &-next, &-jump-prev, &-jump-next {
+  &-prev,
+  &-next,
+  &-jump-prev,
+  &-jump-next {
     font-family: Arial;
     cursor: pointer;
     color: #666;
@@ -107,7 +112,8 @@
     display: inline-block;
   }
 
-  &-prev, &-next {
+  &-prev,
+  &-next {
     border: 1px solid #d9d9d9;
 
     a {
@@ -192,8 +198,9 @@
     }
   }
 
-  &-simple &-prev, &-simple &-next {
-    border: none;
+  &-simple &-prev,
+  &-simple &-next {
+    border: 0;
     height: 24px;
     line-height: 24px;
     margin: 0;
@@ -227,7 +234,7 @@
 .@{pagination-prefix-cls} {
 
   &.mini &-item {
-    border: none;
+    border: 0;
     margin: 0;
     min-width: 20px;
     height: 20px;
@@ -240,7 +247,7 @@
     min-width: 20px;
     height: 20px;
     line-height: 20px;
-    border: none;
+    border: 0;
 
     a {
       &:after {
@@ -250,7 +257,8 @@
     }
   }
 
-  &.mini &-jump-prev, &.mini &-jump-next {
+  &.mini &-jump-prev,
+  &.mini &-jump-next {
     height: 20px;
     line-height: 20px;
   }

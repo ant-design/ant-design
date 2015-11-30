@@ -49,7 +49,8 @@
     padding-right: 32px;
   }
 
-  &-tab-prev, &-tab-next {
+  &-tab-prev,
+  &-tab-next {
     user-select: none;
     z-index: 2;
     margin-right: -2px;
@@ -58,7 +59,7 @@
     height: 100%;
     line-height: 32px;
     cursor: pointer;
-    border: none;
+    border: 0;
     background-color: transparent;
     position: absolute;
     text-align: center;
@@ -134,7 +135,8 @@
     list-style: none;
     float: left;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       display: table;
       content: " ";
     }
@@ -144,7 +146,8 @@
     }
 
     div.@{tab-prefix-cls}-tab-active {
-      > .@{tab-prefix-cls}-tab-inner, > .@{tab-prefix-cls}-tab-inner:hover {
+      > .@{tab-prefix-cls}-tab-inner,
+      > .@{tab-prefix-cls}-tab-inner:hover {
         color: tint(@primary-color, 20%);
         cursor: pointer;
         text-decoration: none;

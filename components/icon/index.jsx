@@ -1,13 +1,9 @@
 import React from 'react';
 
-class Icon extends React.Component {
-
-  render() {
-    let {type, className = '', ...other} = this.props;
-    className += ` anticon anticon-${type}`;
-    return <i className={className} {...other}></i>;
-  }
-
+function Icon(props) {
+  let {type, className = '', ...other} = props;
+  className += ` anticon anticon-${type}`;
+  return <i className={className} {...other} />;
 }
 
 export default Icon;

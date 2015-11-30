@@ -115,8 +115,10 @@
     width: 100%;
   }
 
-  table, td, th, td {
-    border: none;
+  table,
+  th,
+  td {
+    border: 0;
   }
 
   &-calendar-table {
@@ -206,7 +208,8 @@
     border-bottom-right-radius: 4px;
   }
 
-  &-last-month-cell &-date, &-next-month-btn-day &-date {
+  &-last-month-cell &-date,
+  &-next-month-btn-day &-date {
     color: #bbb;
   }
 
@@ -232,6 +235,10 @@
     display: inline-block;
     text-align: center;
     margin: 0 0 0 8px;
+    &-disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
   }
 
   .@{calendar-prefix-cls}-clear-btn {

@@ -9,11 +9,7 @@
 ````jsx
 import { Pagination } from 'antd';
 
-function onChange(page) {
-  console.log(page);
-}
-
 ReactDOM.render(
-  <Pagination simple onChange={onChange} total={50} />,
+  <Pagination simple defaultCurrent={2} total={50} />,
 document.getElementById('components-pagination-demo-simple'));
 ````
