@@ -1,10 +1,25 @@
-window.require = function(path) {
-  if (path in window) {
-    return window[path];
-  } else {
-    throw 'There should not have modules here: ' + path;
-  }
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+window.require = function (path) {
+  var result = window;
+  var namespaces = path.split('/');
+  namespaces.forEach(function (key, i) {
+    if (i === 2) {
+      key = capitalizeFirstLetter(key);
+    }
+    if (key !== 'lib') {
+      if (result[key]) {
+        result = result[key];
+      } else {
+        throw 'There should not have modules here: ' + path;
+      }
+    }
+  });
+  return result;
 };
+
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
 window.Clip = require('./clip');
@@ -101,7 +116,7 @@ InstantClickChangeFns.push(function () {
   ReactDOM.render(
     <Select defaultValue={antdVersion.latest} size="small" style={{width:130}}
             onChange={onChange}>{options}</Select>
-  , document.getElementById('versions-select'));
+    , document.getElementById('versions-select'));
 });
 
 window.BrowserDemo = React.createClass({
@@ -114,7 +129,7 @@ window.BrowserDemo = React.createClass({
             <div className="control minify"></div>
             <div className="control expand"></div>
           </div>
-          <input className="address-bar" defaultValue="http://www.example.com" />
+          <input className="address-bar" defaultValue="http://www.example.com"/>
         </header>
         <section className="window-content">
           {this.props.children}
