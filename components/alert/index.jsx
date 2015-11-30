@@ -60,6 +60,11 @@ export default React.createClass({
       iconType = 'default';
     }
 
+    // use outline icon in alert with description
+    if (!!description) {
+      iconType += '-o';
+    }
+
     let alertCls = classNames({
       [prefixCls]: true,
       [prefixCls + '-' + type]: true,
@@ -68,6 +73,7 @@ export default React.createClass({
       [prefixCls + '-no-icon']: !showIcon,
     });
 
+    // closeable when closeText is assigned
     if (closeText) {
       closable = true;
     }
