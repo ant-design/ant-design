@@ -102,6 +102,7 @@
     "react-addons-test-utils": "~0.14.2",
     "react-dom": "~0.14.2",
     "react-router": "~1.0.0",
+    "react-stateless-wrapper": "~1.0.2",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
     "webpack-dev-middleware": "^1.2.0"
