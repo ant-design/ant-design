@@ -6,7 +6,7 @@
 
 ## 0.10.4 `2015-11-30`
 
-- 将 media-match 加入默认的 polyfil 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
+- 将 media-match 加入默认的 polyfill 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
 - 修复了 [MonthPicker](http://ant.design/components/datepicker/#demo-month-picker) 报错问题，并增加了相关演示。
 - 修复 RadioGroup 中的 Radio/RadioButton 无法单独设置 disabled 的问题。[#603](https://github.com/ant-design/ant-design/issues/603)
 - 修复今天是不可选日期时的一个展示问题。[#606](https://github.com/ant-design/ant-design/issues/606)
