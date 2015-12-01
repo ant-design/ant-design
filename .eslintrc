@@ -12,7 +12,7 @@
     "experimentalObjectRestSpread": true
   },
   "plugins": [
-    "markdown",
+    "markdown-antd",
     "react",
     "babel"
   ],
