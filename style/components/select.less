@@ -81,8 +81,6 @@
 
   &-disabled {
     color: #ccc;
-    cursor: not-allowed;
-    pointer-events: none;
   }
 
   &-disabled &-selection {
@@ -90,6 +88,10 @@
     &:active {
       border-color: #d9d9d9;
     }
+  }
+
+  &-disabled &-selection--single {
+    cursor: not-allowed;
   }
 
   &-selection--single {
@@ -416,7 +418,6 @@
       &-disabled {
         color: #ccc;
         cursor: not-allowed;
-        pointer-events: none;
 
         &:hover {
           color: #ccc;
