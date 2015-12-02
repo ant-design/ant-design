@@ -16,9 +16,10 @@ function ieGT9() {
 
 class Group extends React.Component {
   render() {
+    const className = 'ant-input-group ' + (this.props.className || '');
     return (
-      <span className={this.props.className}
-           style={this.props.style}>
+      <span className={className}
+            style={this.props.style}>
         {this.props.children}
       </span>
     );
@@ -26,14 +27,8 @@ class Group extends React.Component {
 }
 
 Group.propTypes = {
-  className: React.PropTypes.string,
   children: React.PropTypes.any,
 };
-
-Group.defaultProps = {
-  className: 'ant-input-group',
-};
-
 
 class Input extends React.Component {
   renderLabledInput(children) {

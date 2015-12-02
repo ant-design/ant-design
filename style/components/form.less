@@ -125,33 +125,6 @@ form {
     .input-lg();
   }
 
-  // Input combined with select
-  .@{css-prefix}input-group {
-    .@{select-prefix-cls}-selection {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
-      &:hover {
-        border-color: #d9d9d9;
-      }
-    }
-
-    .@{select-prefix-cls}-selection--single {
-      margin-left: -1px;
-      height: @input-height-lg;
-      background-color: #eee;
-      .@{select-prefix-cls}-selection__rendered {
-        padding-left: 8px;
-        padding-right: 25px;
-        line-height: 30px;
-      }
-    }
-
-    .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
-      border-color: #d9d9d9;
-      box-shadow: none;
-    }
-  }
-
   // input[type=file]
   .@{css-prefix}upload {
     background: transparent;
@@ -190,6 +163,57 @@ form {
 
   .@{calendar-prefix-cls}-picker {
     width: 100%;
+  }
+}
+
+// Input combined with select
+.@{css-prefix}input-group {
+  .@{select-prefix-cls}-selection {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    &:hover {
+      border-color: #d9d9d9;
+    }
+  }
+
+  .@{select-prefix-cls}-selection--single {
+    margin-left: -1px;
+    height: @input-height-lg;
+    background-color: #eee;
+    .@{select-prefix-cls}-selection__rendered {
+      padding-left: 8px;
+      padding-right: 25px;
+      line-height: 30px;
+    }
+  }
+
+  .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
+    border-color: #d9d9d9;
+    box-shadow: none;
+  }
+}
+
+.ant-search-input {
+  &.ant-input-group .ant-input:first-child {
+    border-radius: @border-radius-base;
+  }
+  .ant-search-btn {
+    .btn;
+    .btn-default;
+    border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
+    margin-left: -30px;
+    position: relative;
+    border-width: 0 0 0 1px;
+    z-index: 2;
+    padding-left: 8px;
+    padding-right: 8px;
+    &:hover {
+      border-color: @border-color-base;
+    }
+  }
+  &&-focus .ant-search-btn-noempty,
+  &:hover .ant-search-btn-noempty {
+    .btn-primary;
   }
 }
 
