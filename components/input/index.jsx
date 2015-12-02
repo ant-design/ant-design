@@ -17,9 +17,10 @@ function ieGT9() {
 class Group extends React.Component {
   render() {
     return (
-      <div className={this.props.className}>
+      <span className={this.props.className}
+           style={this.props.style}>
         {this.props.children}
-      </div>
+      </span>
     );
   }
 }
@@ -52,11 +53,11 @@ class Input extends React.Component {
     ) : null;
 
     return (
-      <div className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
+      <span className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
         {addonBefore}
         {children}
         {addonAfter}
-      </div>
+      </span>
     );
   }
 
