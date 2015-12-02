@@ -18,6 +18,9 @@ ReactDOM.render(<div>
   <br />
   <Button type="ghost">幽灵按钮</Button>
   <Button type="ghost" disabled>幽灵按钮(失效)</Button>
+  <br />
+  <Button type="dashed">虚线按钮</Button>
+  <Button type="dashed" disabled>虚线按钮(失效)</Button>
 </div>
 , document.getElementById('components-button-demo-disabled'));
 ````

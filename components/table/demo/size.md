@@ -1,8 +1,8 @@
-# 小型列表
+# 中小型列表
 
 - order: 9
 
-`size="small"`, 用在对话框等空间较小的地方。
+紧凑型的列表, 中型列表用于需要数据紧凑展示的情况，小型列表只用于对话框内。
 
 ---
 
@@ -36,6 +36,8 @@ const data = [{
   address: '西湖区湖底公园1号'
 }];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} size="small" />
-, document.getElementById('components-table-demo-small'));
+ReactDOM.render(<div>
+  <Table columns={columns} dataSource={data} size="middle" />
+  <Table columns={columns} dataSource={data} size="small" />
+</div>, document.getElementById('components-table-demo-size'));
 ````

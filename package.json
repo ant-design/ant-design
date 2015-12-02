@@ -90,7 +90,7 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "gh-pages": "^0.5.0",
     "history": "^1.13.1",
-    "jest-cli": "~0.6.1",
+    "jest-cli": "~0.8.0",
     "json-loader": "^0.5.1",
     "less": "~2.5.3",
     "less-loader": "^2.2.0",
@@ -102,6 +102,7 @@
     "react-addons-test-utils": "~0.14.2",
     "react-dom": "~0.14.2",
     "react-router": "~1.0.0",
+    "react-stateless-wrapper": "~1.0.2",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
     "webpack-dev-middleware": "^1.2.0"

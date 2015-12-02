@@ -1,6 +1,6 @@
 # 四种样式
 
-- order: 3
+- order: 1
 
 共有四种样式`success`、`info`、`warn`、`error`。
 
