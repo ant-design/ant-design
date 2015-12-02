@@ -26,19 +26,21 @@
 |----------|----------------|----------|--------------|
 | value    | 指定当前选中的条目 | string/Array<String>   |  无  |
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
-| multiple   | 支持多选 |   | false |
-| filterOption | 是否根据输入项进行筛选 |  | true     |
-| tags | 可以把随意输入的条目作为tag，输入项不需要与下拉选项匹配 | |false |
+| multiple   | 支持多选 | boolean | false |
+| filterOption | 是否根据输入项进行筛选 | boolean | true     |
+| tags | 可以把随意输入的条目作为tag，输入项不需要与下拉选项匹配 | boolean |false |
 | onSelect | 被选中时调用，参数为选中的option value值 | function(value, option) | 无   |
 | onDeselect | 取消选中时调用，参数为选中的option value值，仅在multiple或tags模式下生效 |  function(value, option) | 无   |
 | onChange | 选中option，或input的value变化(combobox模式下)时，调用此函数 | function(value, label) | 无 |
-| allowClear | 显示清除按钮 | | false |
+| allowClear | 显示清除按钮 | boolean | false |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
 | optionFilterProp | 输入项过滤对应的 option 属性 | string | value |
-| combobox | 输入框自动提示模式 | | false |
+| combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
+| showSearch | 在下拉中显示搜索框 | boolean | false |
+| disabled | 是否禁用 | boolean | false |
 
 ### Option props
 

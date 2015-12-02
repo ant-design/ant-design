@@ -21,6 +21,8 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 安装命令行工具
 
+> 使用 `antd-init` 前，务必确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+
 ```bash
 $ npm install antd-init -g
 ```
