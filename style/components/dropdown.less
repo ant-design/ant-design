@@ -125,8 +125,18 @@
 }
 
 .@{dropdown-prefix-cls}-link {
+  font-size: 12px;
   .anticon-down {
-    .iconfont-size-under-12px(7px);
+    .iconfont-size-under-12px(8px);
     font-weight: bold;
+  }
+}
+
+.@{dropdown-prefix-cls}-button {
+  &.ant-btn-group > .ant-btn:last-child:not(:first-child) {
+    padding-right: 8px;
+  }
+  .anticon-down {
+    .iconfont-size-under-12px(10px);
   }
 }

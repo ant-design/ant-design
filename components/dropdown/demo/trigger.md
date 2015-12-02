@@ -2,12 +2,12 @@
 
 - order: 2
 
-点击或鼠标移入触发。
+默认是移入触发菜单，可以点击触发。
 
 ---
 
 ````jsx
-import { Menu, Dropdown, Button, Icon } from 'antd';
+import { Menu, Dropdown, Icon } from 'antd';
 
 const menu = <Menu>
   <Menu.Item key="0">
@@ -22,14 +22,9 @@ const menu = <Menu>
 
 ReactDOM.render(<div>
   <Dropdown overlay={menu} trigger={['click']}>
-    <Button type="primary">
+    <a className="ant-dropdown-link" href="#">
       点击触发 <Icon type="down" />
-    </Button>
-  </Dropdown>
-  <Dropdown overlay={menu}>
-    <Button>
-      鼠标移入 <Icon type="down" />
-    </Button>
+    </a>
   </Dropdown>
 </div>, document.getElementById('components-dropdown-demo-trigger'));
 ````

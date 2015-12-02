@@ -1,13 +1,14 @@
-# 基本
+# 带下拉框的按钮
 
-- order: 0
+- order: 4
 
-最简单的下拉菜单。
+左边是按钮，右边是额外的相关功能菜单。
 
 ---
 
 ````jsx
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown } from 'antd';
+const DropdownButton = Dropdown.Button;
 
 const menu = <Menu>
   <Menu.Item>
@@ -22,10 +23,8 @@ const menu = <Menu>
 </Menu>;
 
 ReactDOM.render(
-  <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" href="#">
-      触发链接 <Icon type="down" />
-    </a>
-  </Dropdown>
-, document.getElementById('components-dropdown-demo-basic'));
+<DropdownButton overlay={menu} type="primary">
+  某功能按钮
+</DropdownButton>
+, document.getElementById('components-dropdown-demo-dropdown-button'));
 ````
