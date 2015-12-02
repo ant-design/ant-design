@@ -2,6 +2,7 @@ import React from 'react';
 import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
+import Checkbox from '../checkbox';
 
 let FilterMenu = React.createClass({
   getInitialState() {
@@ -40,10 +41,16 @@ let FilterMenu = React.createClass({
     this.setState({
       visible: visible
     });
+    if (!visible) {
+      this.props.confirmFilter(this.props.column, this.state.selectedKeys);
+    }
   },
   renderMenus(items) {
     let menuItems = items.map((item) => {
-      return <Menu.Item key={item.value}>{item.text}</Menu.Item>;
+      return <Menu.Item key={item.value}>
+        <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
+        {item.text}
+      </Menu.Item>;
     });
     return menuItems;
   },
