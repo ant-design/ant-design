@@ -1,5 +1,7 @@
 @select-prefix-cls: ant-select;
 
+@duration: .3s;
+
 @import "../mixins/iconfont";
 //mixin
 .selection__clear() {
@@ -243,10 +245,19 @@
       border-radius: 4px;
       cursor: default;
       float: left;
-      padding: 0 20px 0 8px;
+      padding: 0 15px;
       margin-right: 4px;
       max-width: 99%;
       position: relative;
+      overflow: hidden;
+      transition: padding @duration @ease-in-out;
+      &:hover {
+        padding: 0 20px 0 10px;
+        .@{select-prefix-cls}-selection__choice__remove {
+          transform: scale(0.75);
+          opacity: 1;
+        }
+      }
     }
 
     .@{select-prefix-cls}-selection__choice__content {
@@ -255,6 +266,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 100%;
+      transition: margin @duration @ease-in-out;
     }
 
     .@{select-prefix-cls}-selection__choice__remove {
@@ -265,9 +277,13 @@
       display: inline-block;
       font-weight: bold;
       .iconfont-size-under-12px(8px);
-      padding: 0 0 0 4px;
       position: absolute;
       right: 4px;
+      padding: 0 0 0 8px;
+      transform: scale(0);
+      opacity: 0;
+      transition: opacity @duration, transform @duration;
+      transform-origin: 50%;
       &:hover {
         color: #333;
       }
