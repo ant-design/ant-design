@@ -73,17 +73,21 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.1.0",
-    "babel": "^5.8.29",
-    "babel-core": "^5.8.29",
-    "babel-jest": "^5.3.0",
-    "babel-loader": "^5.3.2",
+    "babel-cli": "^6.2.0",
+    "babel-core": "^6.2.1",
+    "babel-jest": "^6.0.1",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-add-module-exports": "^0.1.1",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-0": "^6.1.18",
     "busboy": "^0.2.9",
     "chalk": "^1.1.0",
     "clipboard": "^1.5.5",
     "css-loader": "^0.23.0",
     "eslint": "^1.1.0",
     "eslint-config-airbnb": "^1.0.0",
-    "eslint-plugin-babel": "^2.1.1",
+    "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-markdown-antd": "0.0.0",
     "eslint-plugin-react": "^3.3.1",
     "expect.js": "~0.3.1",
@@ -96,7 +100,7 @@
     "less-loader": "^2.2.0",
     "lesshint-antd": "~1.1.0",
     "lodash": "^3.10.0",
-    "nico-jsx": "~0.6.0",
+    "nico-jsx": "~0.7.0",
     "pre-commit": "1.x",
     "react": "~0.14.2",
     "react-addons-test-utils": "~0.14.2",
@@ -123,6 +127,7 @@
     "beta": "sh ./scripts/publish.sh --tag beta"
   },
   "jest": {
+    "testRunner": "<rootDir>/node_modules/jest-cli/src/testRunners/jasmine/jasmine2",
     "moduleFileExtensions": [
       "js",
       "jsx",
@@ -141,5 +146,15 @@
   },
   "pre-commit": [
     "lint"
-  ]
+  ],
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  }
 }

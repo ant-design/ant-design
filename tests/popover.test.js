@@ -7,7 +7,7 @@ jest.dontMock('../components/popover/index');
 const Popover = require('../components/popover/index');
 
 describe('Popover', function() {
-  it.only('should show overlay when trigger is clicked', () => {
+  it('should show overlay when trigger is clicked', () => {
     const popover = TestUtils.renderIntoDocument(
       <Popover overlay="console.log('hello world')" title="code" trigger="click">
         <a href="#">show me your code</a>
