@@ -218,59 +218,59 @@
   }
 
   &-slide-horizontal-backward-enter {
-    display: block !important;
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
     opacity: 0;
-    transform: translateX(-100%);
   }
 
   &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
-    transform: translateX(0);
-    opacity: 1;
-    transition: opacity @effect-duration @ease-in-out,transform @effect-duration @ease-in-out;
+    animation-name: antMoveLeftIn;
+    animation-play-state: running;
   }
 
   &-slide-horizontal-backward-leave {
-    display: block !important;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(0);
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
   }
 
   &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
-    transform: translateX(100%);
-    opacity: 0;
-    transition: opacity @effect-duration @ease-in-out,transform @effect-duration @ease-in-out;
+    animation-name: antMoveRightOut;
+    animation-play-state: running;
   }
 
   &-slide-horizontal-forward-enter {
-    display: block !important;
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
     opacity: 0;
-    transform: translateX(100%);
   }
 
   &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
-    transform: translateX(0);
-    opacity: 1;
-    transition: opacity @effect-duration @ease-in-out,transform @effect-duration @ease-in-out;
+    animation-name: antMoveRightIn;
+    animation-play-state: running;
   }
 
   &-slide-horizontal-forward-leave {
-    display: block !important;
     position: absolute;
-    transform: translateX(0);
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
   }
 
   &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: opacity @effect-duration @ease-in-out,transform @effect-duration @ease-in-out;
+    animation-name: antMoveLeftOut;
+    animation-play-state: running;
   }
 
   &-vertical {
