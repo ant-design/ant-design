@@ -27,7 +27,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 $ npm install antd-init -g
 ```
 
-[更多使用说明](https://github.com/ant-design/antd-bin#使用说明)。
+[更多使用说明](https://github.com/ant-tool/xtool/#使用说明)。
 
 ### 2. 创建一个项目
 
@@ -131,8 +131,11 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 ## 自行构建
 
-如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
+如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。
 
+### 改变主色系
+
+- [演示](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)。
 
 ## 小甜点
 

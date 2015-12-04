@@ -65,7 +65,7 @@ import 'antd/lib/index.css'; // 样式需要在入口处引用一次
 
 - [首页](http://ant.design/)
 - [文档和组件](http://ant.design/docs/introduce)
-- [构建调试工具](https://github.com/ant-design/antd-bin)
+- [构建调试工具](https://github.com/ant-tool/xtool/)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)

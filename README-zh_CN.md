@@ -48,7 +48,7 @@ npm install antd
 
 - [首页](http://ant.design/)
 - [React UI 库](http://ant.design/docs/introduce)
-- [构建调试工具](https://github.com/ant-design/antd-bin)
+- [构建调试工具](https://github.com/ant-tool/xtool/)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [修改记录](CHANGELOG.md)
 - [React 组件](http://react-component.github.io/)
