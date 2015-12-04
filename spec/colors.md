@@ -214,6 +214,7 @@ let TintShadeTool = React.createClass({
       result: '#2db7f5',
       color: '#2db7f5',
       justCopied: false,
+      darkBackground: false,
       value: 80
     };
   },
@@ -239,8 +240,10 @@ let TintShadeTool = React.createClass({
     }
     let tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
     let c = new Values(this.state.color);
+    let resultColor = c[tintOrShade](Math.abs(this.state.value));
     this.setState({
-      result: '#' + c[tintOrShade](Math.abs(this.state.value)).hex
+      result: '#' + resultColor.hex,
+      darkBackground: resultColor.getBrightness() < 50
     });
   },
   copySuccess(e) {
@@ -260,7 +263,7 @@ let TintShadeTool = React.createClass({
       <div>
         <Clip onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff', cursor: 'pointer'}}>
           <Tooltip title="点击色块复制色值">
-            <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '')}></div>
+            <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '') + (this.state.darkBackground ? ' dark' : '')}></div>
           </Tooltip>
         </Clip>
         <span style={{width: 188, display: 'inline-block', fontFamily: 'Consolas'}}>{this.state.result}</span>
@@ -305,5 +308,8 @@ ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-too
 .color-block.copied:after {
   opacity: 1;
   top: 0;
+}
+.color-block.dark:after {
+  color: #fff;
 }
 </style>
