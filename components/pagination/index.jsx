@@ -1,3 +1,5 @@
+import assign from 'object-assign';
+
 import React from 'react';
 import Pagination from 'rc-pagination';
 import Select from '../select';
@@ -5,11 +7,11 @@ import zhCN from './locale/zh_CN';
 
 const prefixCls = 'ant-pagination';
 
-const MiniSelect = React.createClass({
+class MiniSelect extends React.Component {
   render() {
     return <Select size="small" {...this.props} />;
   }
-});
+}
 
 MiniSelect.Option = Select.Option;
 
@@ -19,13 +21,7 @@ class AntPagination extends React.Component {
 
     if (this.props.simple) {
       // hijiking simple pagination
-      let newProps = {};
-      for (let key in this.props) {
-        if (this.props.hasOwnProperty(key)) {
-          newProps[key] = this.props[key];
-        }
-      }
-
+      let newProps = assign({}, this.props);
       delete newProps.simple;
 
       className += ' mini';
