@@ -35,25 +35,32 @@ export default React.createClass({
       onConfirm: noop,
       onCancel: noop,
       okText: '确定',
-      cancelText: '取消'
+      cancelText: '取消',
+      visible: false,
+      onVisibleChange() {},
     };
   },
+  componentWillReceiveProps(nextProps) {
+    if ('visible' in nextProps) {
+      this.setState({ visible: nextProps.visible });
+    }
+  },
   confirm() {
+    this.setVisible(false);
     this.props.onConfirm.call(this);
-    this.setState({
-      visible: false
-    });
   },
   cancel() {
+    this.setVisible(false);
     this.props.onCancel.call(this);
-    this.setState({
-      visible: false
-    });
   },
-  onVisibleChange(v) {
-    this.setState({
-      visible: v
-    });
+  onVisibleChange(visible) {
+    this.setVisible(visible);
+    this.props.onVisibleChange(visible);
+  },
+  setVisible(visible) {
+    if (!('visible' in this.props)) {
+      this.setState({ visible });
+    }
   },
   render() {
     const {title, okText, cancelText, placement, overlayStyle, trigger} = this.props;
@@ -63,7 +70,6 @@ export default React.createClass({
           <Icon type="exclamation-circle" />
           {title}
         </p>
-
         <div className={prefixCls + '-buttons'}>
           <Button onClick={this.cancel} type="ghost" size="small">{cancelText}</Button>
           <Button onClick={this.confirm} type="primary" size="small">{okText}</Button>

@@ -38,7 +38,7 @@ ReactDOM.render(<div>
       <Button>左下</Button>
     </Popconfirm>
   </div>
-  <div style={{width: 60, marginLeft: 270}}>
+  <div style={{width: 60, marginLeft: 252}}>
     <Popconfirm placement="rightTop" title={text} onConfirm={confirm}>
       <Button>右上</Button>
     </Popconfirm>
