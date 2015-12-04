@@ -135,7 +135,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 ### 改变主色系
 
-- [演示](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)。
+- [配置代码示例](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)
 
 ## 小甜点
 
