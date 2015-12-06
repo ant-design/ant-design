@@ -8,8 +8,6 @@
 
 An enterprise-class UI design language and React-based implementation.
 
-![](https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg)
-
 ## Features
 
 - An enterprise-class graphical design language and framework for financial applications.
