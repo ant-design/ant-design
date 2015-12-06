@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="http://ant.design">
+    <img width="320" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+  </a>
+</p>
+
 # Ant Design [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd) [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 An enterprise-class UI design language and React-based implementation.
@@ -6,11 +12,9 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Features
 
-- An enterprise-class graphical design language and framework for financial applications
+- An enterprise-class graphical design language and framework for financial applications.
 - Rich library of UI components base on [React Component](http://react-component.github.io/badgeboard/).
-- A Component development model based on React.
-- Backed by the npm ecosystem.
-- webpack-based debug builds supporting ES6
+- A npm + webpack + babel workflow, supporting ES2015.
 
 ## Install
 
