@@ -1,7 +1,8 @@
 import React from 'react';
 import Select from 'rc-select';
+import classNames from 'classnames';
 
-let AntSelect = React.createClass({
+const AntSelect = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-select',
@@ -13,25 +14,24 @@ let AntSelect = React.createClass({
     };
   },
   render() {
-    const {size, className, combobox, notFoundContent} = this.props;
+    let {
+      size, className, combobox, notFoundContent
+    } = this.props;
 
-    let sizeClass = null;
-    if (size === 'large') {
-      sizeClass = 'ant-select-lg';
-    } else if (size === 'small') {
-      sizeClass = 'ant-select-sm';
+    const cls = classNames({
+      'ant-select-lg': size === 'large',
+      'ant-select-sm': size === 'small',
+      [className]: !!className,
+    });
+
+    if (combobox) {
+      notFoundContent = null;
     }
 
-    const classNames = [];
-
-    if (className) {
-      classNames.push(className);
-    }
-    if (sizeClass) {
-      classNames.push(sizeClass);
-    }
     return (
-      <Select {...this.props} className={classNames.join(' ')} notFoundContent={combobox ? null : notFoundContent} />
+      <Select {...this.props}
+        className={cls}
+        notFoundContent={notFoundContent} />
     );
   }
 });
