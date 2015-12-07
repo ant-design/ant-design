@@ -1,52 +1,79 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 
-let prefixCls = 'ant-breadcrumb';
-
-let BreadcrumbItem = React.createClass({
+const BreadcrumbItem = React.createClass({
+  getDefaultProps() {
+    return {
+      prefixCls: 'ant-breadcrumb',
+      slash: '/',
+    };
+  },
   propTypes: {
-    href: React.PropTypes.string
+    prefixCls: React.PropTypes.string,
+    slash: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element,
+    ]),
+    href: React.PropTypes.string,
   },
   render() {
-    let link = <a className={prefixCls + '-link'} {...this.props}>{this.props.children}</a>;
-    let slash = <span className={prefixCls + '-slash'}>/</span>;
+    const { prefixCls, slash, children } = this.props;
+    let link = <a className={prefixCls + '-link'} {...this.props}>{children}</a>;
     if (typeof this.props.href === 'undefined') {
-      link = <span className={prefixCls + '-link'} {...this.props}>{this.props.children}</span>;
+      link = <span className={prefixCls + '-link'} {...this.props}>{children}</span>;
     }
-    return <span>{link}{slash}</span>;
+    return <span>
+      {link}
+      <span className={prefixCls + '-slash'}>{slash}</span>
+    </span>;
   }
 });
 
-let Breadcrumb = React.createClass({
+const Breadcrumb = React.createClass({
+  getDefaultProps() {
+    return {
+      prefixCls: 'ant-breadcrumb',
+      slash: '/',
+    };
+  },
   propTypes: {
+    prefixCls: React.PropTypes.string,
+    slash: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element,
+    ]),
     router: React.PropTypes.object,
     routes: React.PropTypes.array,
     params: React.PropTypes.object
   },
   render() {
     let crumbs;
-    let ReactRouter = this.props.router;
-    let routes = this.props.routes;
-    let params = this.props.params;
+    const { slash, prefixCls, router, routes, params, children } = this.props;
+    const ReactRouter = router;
     if (routes && routes.length > 0 && ReactRouter) {
       let Link = ReactRouter.Link;
       crumbs = routes.map(function(route, i) {
         if (!route.breadcrumbName) {
           return null;
         }
-        let name = route.breadcrumbName.replace(/\:(.*)/g, function(replacement, key) {
+        const name = route.breadcrumbName.replace(/\:(.*)/g, function(replacement, key) {
           return params[key] || replacement;
         });
         let link;
-        let path = route.path.indexOf('/') === 0 ? route.path : ('/' + route.path);
+        const path = route.path.indexOf('/') === 0 ? route.path : ('/' + route.path);
         if (i === routes.length - 1) {
           link = <span>{name}</span>;
         } else {
           link = <Link to={path} params={params}>{name}</Link>;
         }
-        return <BreadcrumbItem key={name}>{link}</BreadcrumbItem>;
+        return <BreadcrumbItem slash={slash} key={name}>{link}</BreadcrumbItem>;
       });
     } else {
-      crumbs = this.props.children;
+      crumbs = React.Children.map(children, (element, index) => {
+        return cloneElement(element, {
+          slash,
+          key: index,
+        });
+      });
     }
     return (
       <div className={prefixCls}>
