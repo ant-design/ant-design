@@ -59,6 +59,7 @@ function notice(args) {
       duration: duration,
       closable: true,
       onClose: args.onClose,
+      key: args.key,
       style: {}
     });
   } else {
@@ -73,6 +74,7 @@ function notice(args) {
         duration: duration,
         closable: true,
         onClose: args.onClose,
+        key: args.key,
         style: {}
       });
     } else {
