@@ -1,5 +1,4 @@
 import React from 'react';
-import expect from 'expect.js';
 import TestUtils from 'react-addons-test-utils';
 
 jest.dontMock('../components/popover/index');
@@ -14,16 +13,16 @@ describe('Popover', function() {
       </Popover>
     );
 
-    expect(popover.getPopupDomNode()).to.be(undefined);
+    expect(popover.getPopupDomNode()).toBe(undefined);
 
     TestUtils.Simulate.click(
       TestUtils.findRenderedDOMComponentWithTag(popover, 'a')
     );
 
     const popup = popover.getPopupDomNode();
-    expect(popup).not.to.be(undefined);
-    expect(popup.className).to.contain('ant-popover-placement-top');
-    expect(popup.innerHTML).to.match(/<div class="ant-popover-title".*?>code<\/div>/);
-    expect(popup.innerHTML).to.match(/<div class="ant-popover-content".*?>console\.log\('hello world'\)<\/div>/);
+    expect(popup).not.toBe(undefined);
+    expect(popup.className).toContain('ant-popover-placement-top');
+    expect(popup.innerHTML).toMatch(/<div class="ant-popover-title".*?>code<\/div>/);
+    expect(popup.innerHTML).toMatch(/<div class="ant-popover-content".*?>console\.log\('hello world'\)<\/div>/);
   });
 });

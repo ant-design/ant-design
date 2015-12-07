@@ -90,7 +90,6 @@
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-markdown-antd": "0.0.0",
     "eslint-plugin-react": "^3.3.1",
-    "expect.js": "~0.3.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "gh-pages": "^0.5.0",
     "history": "^1.13.1",
