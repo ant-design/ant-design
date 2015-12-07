@@ -624,7 +624,7 @@ let AntTable = React.createClass({
 
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
-      column.key = column.dataIndex || i;
+      column.key = column.key || column.dataIndex || i;
       return column;
     });
     let emptyText;
