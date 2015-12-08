@@ -3,6 +3,7 @@ import DateTimeFormat from 'gregorian-calendar-format';
 import TimePicker from 'rc-time-picker/lib/TimePicker';
 import objectAssign from 'object-assign';
 import defaultLocale from './locale/zh_CN';
+import classNames from 'classnames';
 
 const AntTimepicker = React.createClass({
   getDefaultProps() {
@@ -19,10 +20,14 @@ const AntTimepicker = React.createClass({
       hourOptions: undefined,
       minuteOptions: undefined,
       secondOptions: undefined,
-      size: '',
+      size: 'default',
       placement: 'bottomLeft',
       transitionName: 'slide-up',
     };
+  },
+
+  getFormatter() {
+    return new DateTimeFormat(this.props.format);
   },
 
   /**
@@ -41,10 +46,9 @@ const AntTimepicker = React.createClass({
   /**
    * 获得输入框的默认值
    */
-  getDefaultValue(formatter) {
-    const defaultValue = this.props.defaultValue;
-    if (defaultValue) {
-      return formatter.parse(defaultValue, {
+  parseTimeFromValue(value) {
+    if (value) {
+      return this.getFormatter().parse(value, {
         locale: this.getLocale(),
         obeyCount: true,
       });
@@ -53,11 +57,7 @@ const AntTimepicker = React.createClass({
   },
 
   handleChange(value) {
-    let args = null;
-    if (value) {
-      args = new Date(value.getTime());
-    }
-    this.props.onChange(args);
+    this.props.onChange(value ? new Date(value.getTime()) : null);
   },
 
   getLocale() {
@@ -68,17 +68,29 @@ const AntTimepicker = React.createClass({
   },
 
   render() {
-    const { format } = this.props;
-    const formatter = new DateTimeFormat(format);
-    const placeholder = ('placeholder' in this.props)
-      ? this.props.placeholder : this.getLocale().lang.placeholder;
+    const props = objectAssign({}, this.props);
+    props.placeholder = ('placeholder' in this.props)
+      ? props.placeholder : this.getLocale().lang.placeholder;
+    if (props.defaultValue) {
+      props.defaultValue = this.parseTimeFromValue(props.defaultValue);
+    } else {
+      delete props.defaultValue;
+    }
+    if (props.value) {
+      props.value = this.parseTimeFromValue(props.value);
+    } else {
+      delete props.value;
+    }
+    let className = classNames({
+      [props.className]: !!props.className,
+      [props.prefixCls + '-' + props.size]: true,
+    });
     return (
       <TimePicker
-        {...this.props}
-        inputClassName={`ant-input ${this.getSizeClass()}`}
-        formatter={formatter}
-        defaultValue={this.getDefaultValue(formatter)}
-        placeholder={placeholder}
+        {...props}
+        className={className}
+        gregorianCalendarLocale={this.getLocale()}
+        formatter={this.getFormatter()}
         onChange={this.handleChange}
       />
     );

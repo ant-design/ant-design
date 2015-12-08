@@ -1,12 +1,16 @@
-.@{timepicker-prefix-cls}-select {
+.@{timepicker-prefix-cls}-panel-select {
   float: left;
-  overflow-y: auto;
   font-size: 12px;
   border: 1px solid @border-color-split;
   border-width: 0 1px;
   margin-left: -1px;
   box-sizing: border-box;
   width: 56px;
+  overflow: hidden;
+
+  &:hover {
+    overflow-y: auto;
+  }
 
   &:first-child {
     border-left: 0;
@@ -38,7 +42,7 @@
     cursor: pointer;
     user-select: none;
 
-    &.selected {
+    &.@{timepicker-prefix-cls}-panel-select-option-selected {
       background: tint(@primary-color, 90%);
       color: @link-color;
     }
