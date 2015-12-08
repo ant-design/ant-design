@@ -16,6 +16,6 @@ function onChange(time) {
 }
 
 ReactDOM.render(
-  <Timepicker defaultValue="12:08:23" onChange={onChange} />
+  <Timepicker onChange={onChange} />
 , document.getElementById('components-timepicker-demo-basic'));
 ````

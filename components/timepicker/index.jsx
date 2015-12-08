@@ -85,6 +85,12 @@ const AntTimepicker = React.createClass({
       [props.className]: !!props.className,
       [props.prefixCls + '-' + props.size]: true,
     });
+    if (props.format.indexOf('ss') < 0) {
+      props.showSecond = false;
+    }
+    if (props.format.indexOf('HH') < 0) {
+      props.showHour = false;
+    }
     return (
       <TimePicker
         {...props}
