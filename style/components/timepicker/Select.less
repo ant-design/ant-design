@@ -41,15 +41,14 @@
     text-align: left;
     cursor: pointer;
     user-select: none;
-
-    &.@{timepicker-prefix-cls}-panel-select-option-selected {
-      background: tint(@primary-color, 90%);
-      color: @link-color;
-    }
+    transition: background 0.3s ease;
 
     &:hover {
       background: tint(@primary-color, 90%);
-      transition: background 0.3s ease;
+    }
+
+    &.@{timepicker-prefix-cls}-panel-select-option-selected {
+      background: tint(@primary-color, 80%);
     }
   }
 }
