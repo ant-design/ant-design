@@ -32,6 +32,7 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
+require('./importCss');
 
 antd.Datepicker.locale = {
   en_US: require('../components/datepicker/locale/en_US'),

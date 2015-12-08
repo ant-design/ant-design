@@ -6,8 +6,7 @@ var pkg = require('../package');
 var originalIndex = fs.readFileSync(path.join(cwd, 'lib/index.js'), 'utf-8');
 var newIndex = originalIndex
   .replace(/\/components\//g, '/')
-  .replace(/require\(\'\.\/package.json\'\)/g, "require('./package')")
-  .replace("require('./style/index.less')", "");
+  .replace(/require\(\'\.\/package.json\'\)/g, "require('./package')");
 fs.writeFileSync(path.join(cwd, 'lib/index.js'), newIndex, 'utf-8');
 fs.writeFileSync(
   path.join(cwd, 'lib/package.js'),

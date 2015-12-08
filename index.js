@@ -1,7 +1,5 @@
 import React from 'react';
 
-require('./style/index.less');
-
 const antd = {
   Affix: require('./components/affix'),
   Datepicker: require('./components/datepicker'),
