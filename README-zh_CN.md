@@ -33,10 +33,21 @@ npm install antd
 - 按需使用
 
   ```jsx
-  import 'antd/lib/index.css'; // 只需在页面入口模块引用一次
   import Datepicker from 'antd/lib/datepicker';
   ReactDOM.render(<Datepicker />, mountNode);
   ```
+
+引入样式：
+
+```jsx
+// only need to import once in entry module
+import 'antd/lib/index.css';
+```
+
+```jsx
+// or less for modifyVars
+import 'antd/style/index.less';
+```
 
 ## 浏览器支持
 

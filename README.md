@@ -32,10 +32,21 @@ npm install antd
 - Use on demand
 
   ```jsx
-  import 'antd/lib/index.css'; // only need to import once in entry module
   import Datepicker from 'antd/lib/datepicker';
   ReactDOM.render(<Datepicker />, mountNode);
   ```
+
+Import style:
+
+```jsx
+// only need to import once in entry module
+import 'antd/lib/index.css';
+```
+
+```jsx
+// or less for modifyVars
+import 'antd/style/index.less';
+```
 
 ## Browser Support
 

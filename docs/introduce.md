@@ -46,8 +46,17 @@ import Datepicker from 'antd/lib/datepicker';
 ReactDOM.render(<Datepicker />, mountNode);
 ```
 
+引入样式：
+
 ```jsx
 import 'antd/lib/index.css'; // 样式需要在入口处引用一次
+```
+
+或者引入 less 文件，可用于主题配置：
+
+```jsx
+// or less for modifyVars
+import 'antd/style/index.less';
 ```
 
 ## 版本
