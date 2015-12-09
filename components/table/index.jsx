@@ -113,13 +113,17 @@ let AntTable = React.createClass({
       let selectedRowKeys = this.state.selectedRowKeys;
       // 把不在当前页的选中项去掉
       if (this.isLocalDataSource()) {
-        let currentPageRowKeys = this.getLocalDataPaging(nextProps.dataSource);
+        let currentPageRowKeys =
+          this.getLocalDataPaging(nextProps.dataSource).map(
+            (record, i) => this.getRecordKey(record, i)
+          );
         selectedRowKeys = selectedRowKeys.filter((key) => {
           return currentPageRowKeys.indexOf(key) >= 0;
         });
       }
       this.setState({
         selectionDirty: false,
+        selectedRowKeys,
         dataSource: nextProps.dataSource,
         loading: true
       }, this.fetch);
