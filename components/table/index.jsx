@@ -124,11 +124,6 @@ let AntTable = React.createClass({
         loading: true
       }, this.fetch);
     }
-    if (nextProps.columns !== this.props.columns) {
-      this.setState({
-        filters: {}
-      });
-    }
     if ('loading' in nextProps) {
       this.setState({
         loading: nextProps.loading
@@ -190,6 +185,13 @@ let AntTable = React.createClass({
   handleFilter(column, filters) {
     filters = objectAssign({}, this.state.filters, {
       [this.getColumnKey(column)]: filters
+    });
+    // Remove filters not in current columns
+    const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
+    Object.keys(filters).forEach((columnKey) => {
+      if (currentColumnKeys.indexOf(columnKey) < 0) {
+        delete filters[columnKey];
+      }
     });
     const newState = {
       selectedRowKeys: [],
@@ -480,16 +482,9 @@ let AntTable = React.createClass({
 
   prepareParamsArguments(state) {
     // 准备筛选、排序、分页的参数
-    let pagination;
-    let filters = {};
-    let sorter = {};
-    pagination = state.pagination;
-    this.props.columns.forEach((column) => {
-      let colFilters = state.filters[this.getColumnKey(column)] || [];
-      if (colFilters.length > 0) {
-        filters[this.getColumnKey(column)] = colFilters;
-      }
-    });
+    const pagination = state.pagination;
+    const filters = state.filters;
+    const sorter = {};
     if (state.sortColumn &&
       state.sortOrder &&
       state.sortColumn.dataIndex) {
@@ -591,6 +586,9 @@ let AntTable = React.createClass({
     if (state.filters) {
       Object.keys(state.filters).forEach((columnKey) => {
         let col = this.findColumn(columnKey);
+        if (!col) {
+          return;
+        }
         let values = state.filters[columnKey] || [];
         if (values.length === 0) {
           return;
