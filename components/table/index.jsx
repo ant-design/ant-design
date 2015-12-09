@@ -365,7 +365,6 @@ let AntTable = React.createClass({
       if (this.props.rowSelection.type === 'radio') {
         selectionColumn = {
           key: 'selection-column',
-          width: 60,
           render: this.renderSelectionRadio,
           className: 'ant-table-selection-column'
         };
@@ -374,7 +373,6 @@ let AntTable = React.createClass({
         selectionColumn = {
           key: 'selection-column',
           title: checkboxAll,
-          width: 60,
           render: this.renderSelectionCheckBox,
           className: 'ant-table-selection-column'
         };
