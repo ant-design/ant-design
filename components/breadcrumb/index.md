@@ -32,7 +32,7 @@
 | router    | 可传入 react-router 的实例        | Object            |         | -      |
 | routes    | router 的路由栈信息               | Array             |         | -      |
 | params    | 路由的参数                        | Object            |         | -      |
-| slash     | 分隔符自定义                      | String or Element |         | '/'    |
+| separator | 分隔符自定义                      | String or Element |         | '/'    |
 
 ### Breadcrumb.Item
 
