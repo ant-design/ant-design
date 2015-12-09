@@ -89,7 +89,7 @@
     "expect.js": "~0.3.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "gh-pages": "^0.5.0",
-    "history": "^1.13.1",
+    "history": "~1.13.1",
     "jest-cli": "~0.6.1",
     "json-loader": "^0.5.1",
     "less": "~2.5.3",
