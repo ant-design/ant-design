@@ -1,5 +1,4 @@
 import React from 'react';
-import reqwest from 'reqwest';
 import Table from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
@@ -13,49 +12,20 @@ import classNames from 'classnames';
 function noop() {
 }
 
-function defaultResolve(data) {
-  return data || [];
-}
-
 const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
   filterReset: '重置'
 };
 
-class DataSource {
-  init(config) {
-    this.config = config;
-    this.url = config.url || '';
-    this.resolve = config.resolve || defaultResolve;
-    this.getParams = config.getParams || noop;
-    this.getPagination = config.getPagination || noop;
-    this.headers = config.headers || {};
-    this.data = config.data || {};
-  }
-
-  constructor(config) {
-    if (config) {
-      this.init(config);
-    }
-  }
-
-  clone(config = {}) {
-    return new DataSource(objectAssign({}, this.config, config));
-  }
-}
-
 let AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
       selectedRowKeys: [],
-      // only for remote
-      data: [],
       dataSource: this.props.dataSource,
       filters: {},
       selectionDirty: false,
-      loading: this.props.loading,
       sortColumn: '',
       sortOrder: '',
       sorter: null,
@@ -82,7 +52,7 @@ let AntTable = React.createClass({
   },
 
   propTypes: {
-    dataSource: React.PropTypes.oneOfType([React.PropTypes.array, React.PropTypes.instanceOf(DataSource)])
+    dataSource: React.PropTypes.array,
   },
 
   getDefaultSelection() {
@@ -112,42 +82,23 @@ let AntTable = React.createClass({
         nextProps.dataSource !== this.props.dataSource) {
       let selectedRowKeys = this.state.selectedRowKeys;
       // 把不在当前页的选中项去掉
-      if (this.isLocalDataSource()) {
-        let currentPageRowKeys =
-          this.getLocalDataPaging(nextProps.dataSource).map(
-            (record, i) => this.getRecordKey(record, i)
-          );
-        selectedRowKeys = selectedRowKeys.filter((key) => {
-          return currentPageRowKeys.indexOf(key) >= 0;
-        });
-      }
+      let currentPageRowKeys =
+        this.getCurrentPageData(nextProps.dataSource).map(
+          (record, i) => this.getRecordKey(record, i)
+        );
+      selectedRowKeys = selectedRowKeys.filter((key) => {
+        return currentPageRowKeys.indexOf(key) >= 0;
+      });
       this.setState({
         selectionDirty: false,
         selectedRowKeys,
         dataSource: nextProps.dataSource,
-        loading: true
-      }, this.fetch);
-    }
-    if ('loading' in nextProps) {
-      this.setState({
-        loading: nextProps.loading
       });
     }
   },
 
   hasPagination(pagination) {
-    if (pagination === undefined) {
-      pagination = this.props.pagination;
-    }
-    return pagination !== false;
-  },
-
-  isLocalDataSource() {
-    return Array.isArray(this.state.dataSource);
-  },
-
-  getRemoteDataSource() {
-    return this.state.dataSource;
+    return this.props.pagination !== false;
   },
 
   toggleSortOrder(order, column) {
@@ -167,7 +118,7 @@ let AntTable = React.createClass({
         sortOrder = order;
       }
     }
-    if (this.isLocalDataSource()) {
+    if (typeof column.sorter === 'function') {
       sorter = function () {
         let result = column.sorter.apply(this, arguments);
         if (sortOrder === 'ascend') {
@@ -182,7 +133,7 @@ let AntTable = React.createClass({
       sortColumn,
       sorter
     };
-    this.fetch(newState);
+    this.setState(newState);
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
@@ -202,7 +153,7 @@ let AntTable = React.createClass({
       selectionDirty: false,
       filters
     };
-    this.fetch(newState);
+    this.setState(newState);
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
@@ -293,7 +244,7 @@ let AntTable = React.createClass({
       selectionDirty: false,
       pagination
     };
-    this.fetch(newState);
+    this.setState(newState);
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
@@ -391,10 +342,6 @@ let AntTable = React.createClass({
     return columns;
   },
 
-  getCurrentPageData() {
-    return this.isLocalDataSource() ? this.getLocalDataPaging() : this.state.data;
-  },
-
   getColumnKey(column, index) {
     return column.key || column.dataIndex || index;
   },
@@ -458,7 +405,7 @@ let AntTable = React.createClass({
     let pagination = objectAssign(this.state.pagination, {
       pageSize: pageSize
     });
-    this.fetch({pagination});
+    this.setState({ pagination });
   },
 
   renderPagination() {
@@ -470,16 +417,14 @@ let AntTable = React.createClass({
       'ant-table-pagination': true,
       'mini': this.props.size === 'middle' || this.props.size === 'small',
     });
-    let total = this.state.pagination.total;
-    if (!total && this.isLocalDataSource()) {
-      total = this.getLocalData().length;
-    }
-    return (total > 0) ? <Pagination className={classString}
-                                     onChange={this.handlePageChange}
-                                     total={total}
-                                     pageSize={10}
-                                     onShowSizeChange={this.handleShowSizeChange}
-      {...this.state.pagination} /> : null;
+    let total = this.state.pagination.total || this.getLocalData().length;
+    return (total > 0) ?
+      <Pagination className={classString}
+                  onChange={this.handlePageChange}
+                  total={total}
+                  pageSize={10}
+                  onShowSizeChange={this.handleShowSizeChange}
+                  {...this.state.pagination} /> : null;
   },
 
   prepareParamsArguments(state) {
@@ -496,61 +441,13 @@ let AntTable = React.createClass({
     return [pagination, filters, sorter];
   },
 
-  fetch(newState) {
-    if (this.isLocalDataSource()) {
-      if (newState) {
-        this.setState(newState);
-      }
-    } else {
-      // remote 模式使用 this.dataSource
-      let dataSource = this.getRemoteDataSource();
-      if (!dataSource) {
-        return null;
-      }
-      let state = objectAssign({}, this.state, newState);
-      if (newState || !this.state.loading) {
-        this.setState(objectAssign({
-          loading: true
-        }, newState));
-      }
-      let buildInParams = dataSource.getParams.apply(this, this.prepareParamsArguments(state)) || {};
-      return reqwest({
-        url: dataSource.url,
-        method: 'get',
-        data: objectAssign(buildInParams, dataSource.data),
-        headers: dataSource.headers,
-        type: 'json',
-        success: (result) => {
-          if (this.isMounted()) {
-            let pagination = objectAssign(
-              state.pagination,
-              dataSource.getPagination.call(this, result)
-            );
-            this.setState({
-              selectionDirty: false,
-              loading: false,
-              data: dataSource.resolve.call(this, result),
-              pagination: pagination
-            });
-          }
-        },
-        error: () => {
-          this.setState({
-            loading: false,
-            data: []
-          });
-        }
-      });
-    }
-  },
-
   findColumn(myKey) {
     return this.props.columns.filter((c) => {
       return this.getColumnKey(c) === myKey;
     })[0];
   },
 
-  getLocalDataPaging(dataSource) {
+  getCurrentPageData(dataSource) {
     let data = this.getLocalData(dataSource);
     let current, pageSize;
     let state = this.state;
@@ -595,20 +492,12 @@ let AntTable = React.createClass({
         if (values.length === 0) {
           return;
         }
-        data = data.filter((record) => {
-          return values.some((v)=> {
-            return col.onFilter(v, record);
-          });
-        });
+        data = col.onFilter ? data.filter(record => {
+          return values.some(v => col.onFilter(v, record));
+        }) : data;
       });
     }
     return data;
-  },
-
-  componentDidMount() {
-    if (!this.isLocalDataSource()) {
-      this.fetch();
-    }
   },
 
   render() {
@@ -644,7 +533,7 @@ let AntTable = React.createClass({
         expandIconAsCell={expandIconAsCell} />
       {emptyText}
     </div>;
-    if (this.state.loading) {
+    if (this.props.loading) {
       // if there is no pagination or no data, the height of spin should decrease by half of pagination
       let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
               ? 'ant-table-with-pagination'
@@ -660,7 +549,5 @@ let AntTable = React.createClass({
     );
   }
 });
-
-AntTable.DataSource = DataSource;
 
 export default AntTable;
