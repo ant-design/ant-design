@@ -12,6 +12,7 @@
 
 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
+> [RadioButton](/components/radio#demo-radiobutton) 可以作为更次级的页签来使用。
 
 ## API
 
