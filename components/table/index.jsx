@@ -38,6 +38,7 @@ let AntTable = React.createClass({
 
   getDefaultProps() {
     return {
+      dataSource: [],
       prefixCls: 'ant-table',
       useFixedHeader: false,
       rowSelection: null,
@@ -52,6 +53,15 @@ let AntTable = React.createClass({
 
   propTypes: {
     dataSource: React.PropTypes.array,
+    prefixCls: React.PropTypes.string,
+    useFixedHeader: React.PropTypes.bool,
+    rowSelection: React.PropTypes.object,
+    className: React.PropTypes.string,
+    size: React.PropTypes.string,
+    loading: React.PropTypes.bool,
+    bordered: React.PropTypes.bool,
+    onChange: React.PropTypes.func,
+    locale: React.PropTypes.object,
   },
 
   getDefaultSelection() {
