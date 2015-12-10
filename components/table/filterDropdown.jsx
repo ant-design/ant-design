@@ -71,18 +71,10 @@ let FilterMenu = React.createClass({
       </Menu>
       <div className="ant-table-filter-dropdown-btns">
         <a className="ant-table-filter-dropdown-link confirm"
-           style={{
-             cursor: 'pointer',
-             pointerEvents: 'visible'
-           }}
            onClick={this.handleConfirm}>
           {locale.filterConfirm}
         </a>
         <a className="ant-table-filter-dropdown-link clear"
-           style={{
-             cursor: 'pointer',
-             pointerEvents: 'visible'
-           }}
            onClick={this.handleClearFilters}>
           {locale.filterReset}
         </a>

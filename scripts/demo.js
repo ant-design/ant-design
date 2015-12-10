@@ -34,6 +34,7 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
+window['reqwest'] = require('reqwest');
 require('./importCss');
 
 antd.DatePicker.locale = {
