@@ -7,8 +7,8 @@
 ---
 
 ````jsx
-import { Datepicker } from 'antd';
-import enUS from 'antd/lib/datepicker/locale/en_US';
+import { DatePicker } from 'antd';
+import enUS from 'antd/lib/date-picker/locale/en_US';
 import assign from 'object-assign';
 
 const App = React.createClass({
@@ -22,10 +22,10 @@ const App = React.createClass({
     };
   },
   render() {
-    return <Datepicker locale={this.state.locale} />;
+    return <DatePicker locale={this.state.locale} />;
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-datepicker-demo-locale'));
+ReactDOM.render(<App />, document.getElementById('components-date-picker-demo-locale'));
 ````
 

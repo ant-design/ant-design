@@ -1,7 +1,7 @@
 import React from 'react';
 import Calendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
-import Datepicker from 'rc-calendar/lib/Picker';
+import DatePicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import defaultLocale from './locale/zh_CN';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
@@ -121,7 +121,7 @@ function createPicker(TheCalendar, defaultFormat) {
       }
 
       return <span className={pickerClass}>
-        <Datepicker
+        <DatePicker
           transitionName={this.props.transitionName}
           disabled={this.props.disabled}
           calendar={calendar}
@@ -147,7 +147,7 @@ function createPicker(TheCalendar, defaultFormat) {
                 );
             }
           }
-        </Datepicker>
+        </DatePicker>
       </span>;
     }
   });

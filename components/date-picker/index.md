@@ -1,4 +1,4 @@
-# Datepicker
+# DatePicker
 
 - category: Components
 - chinese: 日期选择框
@@ -15,7 +15,7 @@
 ## API
 
 ```html
-<Datepicker defaultValue="2015-01-01" />
+<DatePicker defaultValue="2015-01-01" />
 ```
 
 | 参数         | 说明           | 类型     | 默认值       |

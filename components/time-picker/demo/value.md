@@ -7,7 +7,7 @@ value 和 onChange 需要配合使用。
 ---
 
 ````jsx
-import { Timepicker } from 'antd';
+import { TimePicker } from 'antd';
 
 const Test = React.createClass({
   getInitialState() {
@@ -23,9 +23,9 @@ const Test = React.createClass({
     this.setState({ time });
   },
   render() {
-    return <Timepicker value={this.state.value} onChange={this.onChange} />;
+    return <TimePicker value={this.state.value} onChange={this.onChange} />;
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-timepicker-demo-value'));
+ReactDOM.render(<Test />, document.getElementById('components-time-picker-demo-value'));
 ````

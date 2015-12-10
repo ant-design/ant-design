@@ -1,4 +1,4 @@
-# Timepicker
+# TimePicker
 
 -	category: Components
 -	chinese: 时间选择框
@@ -17,7 +17,7 @@ API
 ---
 
 ```html
-<Timepicker defaultValue="13:30:56" />
+<TimePicker defaultValue="13:30:56" />
 ```
 
 | 参数            | 说明 | 类型 | 默认值 |

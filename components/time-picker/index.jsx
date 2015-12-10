@@ -5,7 +5,7 @@ import objectAssign from 'object-assign';
 import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
 
-const AntTimepicker = React.createClass({
+const AntTimePicker = React.createClass({
   getDefaultProps() {
     return {
       format: 'HH:mm:ss',
@@ -104,4 +104,4 @@ const AntTimepicker = React.createClass({
 
 });
 
-export default AntTimepicker;
+export default AntTimePicker;

@@ -25,15 +25,15 @@ npm install antd
 - Use all components
 
   ```jsx
-  import { Datepicker } from 'antd';
-  ReactDOM.render(<Datepicker />, mountNode);
+  import { DatePicker } from 'antd';
+  ReactDOM.render(<DatePicker />, mountNode);
   ```
 
 - Use on demand
 
   ```jsx
-  import Datepicker from 'antd/lib/datepicker';
-  ReactDOM.render(<Datepicker />, mountNode);
+  import DatePicker from 'antd/lib/date-picker';
+  ReactDOM.render(<DatePicker />, mountNode);
   ```
 
 Import style:

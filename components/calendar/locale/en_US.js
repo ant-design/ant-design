@@ -1,1 +1,1 @@
-module.exports = require('../../datepicker/locale/en_US');
+module.exports = require('../../date-picker/locale/en_US');

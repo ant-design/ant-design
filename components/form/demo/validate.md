@@ -13,7 +13,7 @@ validateStatus: ['success', 'warning', 'error', 'validating']。
 ---
 
 ````jsx
-import { Form, Input, Datepicker, Col } from 'antd';
+import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;
 
 ReactDOM.render(
@@ -78,13 +78,13 @@ ReactDOM.render(
       labelCol={{span: 5}}
       validateStatus="error">
       <Col span="6">
-        <Datepicker />
+        <DatePicker />
       </Col>
       <Col span="1">
         <p className="ant-form-split">-</p>
       </Col>
       <Col span="6">
-        <Datepicker />
+        <DatePicker />
       </Col>
       <Col span="19" offset="5">
         <p className="ant-form-explain">请输入正确选项</p>
