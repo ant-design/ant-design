@@ -23,7 +23,6 @@ let AntTable = React.createClass({
     return {
       // 减少状态
       selectedRowKeys: [],
-      dataSource: this.props.dataSource,
       filters: {},
       selectionDirty: false,
       sortColumn: '',
@@ -92,7 +91,6 @@ let AntTable = React.createClass({
       this.setState({
         selectionDirty: false,
         selectedRowKeys,
-        dataSource: nextProps.dataSource,
       });
     }
   },
@@ -476,7 +474,7 @@ let AntTable = React.createClass({
 
   getLocalData(dataSource) {
     let state = this.state;
-    let data = dataSource || this.state.dataSource;
+    let data = dataSource || this.props.dataSource;
     // 排序
     if (state.sortOrder && state.sorter) {
       data = data.sort(state.sorter);

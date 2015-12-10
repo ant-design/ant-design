@@ -51,8 +51,6 @@ const data = [{
 }];
 
 const locale = {
-  sortAscend: 'Sort ascending',
-  sortDescend: 'Sort descending',
   filterTitle: 'Filter',
   filterConfirm: 'Confirm',
   filterReset: 'Reset'
