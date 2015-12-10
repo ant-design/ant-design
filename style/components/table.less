@@ -221,11 +221,29 @@
 .@{table-prefix-cls}-filter-dropdown {
   min-width: 96px;
   margin-left: -8px;
+  background: #fff;
+  border-radius: @border-radius-base;
+  border: 1px solid @border-color-base;
+  box-shadow: @box-shadow-base;
+
+  .ant-dropdown-menu {
+    max-height: 220px;
+    overflow: auto;
+    border: 0;
+    box-shadow: none;
+  }
+
   .ant-dropdown-menu-item {
     overflow: hidden;
   }
 
-  .ant-dropdown-menu-item a&-link {
+  &-btns {
+    overflow: hidden;
+    padding: 7px 15px;
+    border-top: 1px solid @border-color-split;
+  }
+
+  &-link {
     color: @link-color;
     &:hover {
       color: @link-hover-color;

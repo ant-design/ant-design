@@ -61,15 +61,15 @@ let FilterMenu = React.createClass({
     if ('filterMultiple' in column) {
       multiple = column.filterMultiple;
     }
-    let menus = <Menu multiple={multiple}
+    let menus = <div className="ant-table-filter-dropdown">
+      <Menu multiple={multiple}
                  prefixCls="ant-dropdown-menu"
-                 className="ant-table-filter-dropdown"
                  onSelect={this.setSelectedKeys}
                  onDeselect={this.setSelectedKeys}
                  selectedKeys={this.state.selectedKeys}>
       {this.renderMenus(column.filters)}
-      <Menu.Divider />
-      <Menu.Item disabled>
+      </Menu>
+      <div className="ant-table-filter-dropdown-btns">
         <a className="ant-table-filter-dropdown-link confirm"
            style={{
              cursor: 'pointer',
@@ -86,8 +86,8 @@ let FilterMenu = React.createClass({
            onClick={this.handleClearFilters}>
           {locale.filterReset}
         </a>
-      </Menu.Item>
-    </Menu>;
+      </div>
+    </div>;
 
     let dropdownSelectedClass = '';
     if (this.props.selectedKeys.length > 0) {
