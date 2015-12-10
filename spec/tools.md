@@ -12,12 +12,12 @@
 
 ### 组件视觉稿
 
-<a target="_blank" href="" class="download-link disabled">Sketch 源文件</a>
+<a target="_blank" href="" class="download-link disabled">For Sketch</a>
 
 ### 图标
 
 <a target="_blank" href="" class="download-link disabled">svg 图标集</a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/files/57840/iconfont.zip" class="download-link">Iconfont 打包</a>
+<a target="_blank" href="https://github.com/ant-design/ant-design/files/57840/iconfont.zip" class="download-link">Iconfont 压缩包</a>
 
 <style>
 .download-link {
