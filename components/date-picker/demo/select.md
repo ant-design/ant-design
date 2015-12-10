@@ -7,18 +7,18 @@
 ---
 
 ````jsx
-import { Datepicker } from 'antd';
+import { DatePicker } from 'antd';
 
 const Picker = React.createClass({
   handleChange: function(value) {
     console.log(new Date(value.getTime()));
   },
   render: function() {
-    return <Datepicker onChange={this.handleChange} />;
+    return <DatePicker onChange={this.handleChange} />;
   }
 });
 
 ReactDOM.render(
   <Picker />
-, document.getElementById('components-datepicker-demo-select'));
+, document.getElementById('components-date-picker-demo-select'));
 ````

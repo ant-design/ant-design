@@ -9,7 +9,7 @@
 ---
 
 ````jsx
-import { Datepicker } from 'antd';
+import { DatePicker } from 'antd';
 
 const disabledDate = function(current, value) {
   // can not select days after today
@@ -17,6 +17,6 @@ const disabledDate = function(current, value) {
 };
 
 ReactDOM.render(
-  <Datepicker disabledDate={disabledDate} />
-, document.getElementById('components-datepicker-demo-range'));
+  <DatePicker disabledDate={disabledDate} />
+, document.getElementById('components-date-picker-demo-range'));
 ````

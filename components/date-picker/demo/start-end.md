@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Datepicker } from 'antd';
+import { DatePicker } from 'antd';
 
 const DateRange = React.createClass({
   getInitialState() {
@@ -36,11 +36,11 @@ const DateRange = React.createClass({
   },
   render() {
     return <div>
-      <Datepicker disabledDate={this.disabledStartDate}
+      <DatePicker disabledDate={this.disabledStartDate}
         value={this.state.startValue}
         placeholder="开始日期"
         onChange={this.onChange.bind(this, 'startValue')} />
-      <Datepicker disabledDate={this.disabledEndDate}
+      <DatePicker disabledDate={this.disabledEndDate}
         value={this.state.endValue}
         placeholder="结束日期"
         onChange={this.onChange.bind(this, 'endValue')} />
@@ -50,5 +50,5 @@ const DateRange = React.createClass({
 
 ReactDOM.render(
   <DateRange />
-, document.getElementById('components-datepicker-demo-start-end'));
+, document.getElementById('components-date-picker-demo-start-end'));
 ````

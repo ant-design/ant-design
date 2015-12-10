@@ -35,15 +35,15 @@
 ## 示例
 
 ```jsx
-import { Datepicker } from 'antd';
-ReactDOM.render(<Datepicker />, mountNode);
+import { DatePicker } from 'antd';
+ReactDOM.render(<DatePicker />, mountNode);
 ```
 
 或者按需加载：
 
 ```jsx
-import Datepicker from 'antd/lib/datepicker';
-ReactDOM.render(<Datepicker />, mountNode);
+import DatePicker from 'antd/lib/date-picker';
+ReactDOM.render(<DatePicker />, mountNode);
 ```
 
 引入样式：

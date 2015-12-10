@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Datepicker, Timepicker } from 'antd';
+import { DatePicker, TimePicker } from 'antd';
 
 const DateTimePicker = React.createClass({
   handleChange(from, value) {
@@ -37,8 +37,8 @@ const DateTimePicker = React.createClass({
   },
   render() {
     return <div>
-      <Datepicker onChange={this.handleChange.bind(null, 'date')} />
-      <Timepicker onChange={this.handleChange.bind(null, 'time')} />
+      <DatePicker onChange={this.handleChange.bind(null, 'date')} />
+      <TimePicker onChange={this.handleChange.bind(null, 'time')} />
     </div>;
   }
 });
@@ -48,5 +48,5 @@ function onSelect(value) {
 }
 
 ReactDOM.render(<DateTimePicker onSelect={onSelect} />
-, document.getElementById('components-datepicker-demo-time'));
+, document.getElementById('components-date-picker-demo-time'));
 ````

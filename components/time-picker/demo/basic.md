@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Timepicker } from 'antd';
+import { TimePicker } from 'antd';
 
 function onChange(time) {
   if (time) {
@@ -16,6 +16,6 @@ function onChange(time) {
 }
 
 ReactDOM.render(
-  <Timepicker onChange={onChange} />
-, document.getElementById('components-timepicker-demo-basic'));
+  <TimePicker onChange={onChange} />
+, document.getElementById('components-time-picker-demo-basic'));
 ````

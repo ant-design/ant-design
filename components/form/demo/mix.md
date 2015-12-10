@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Form, Select, InputNumber, Datepicker, Switch, Slider, Button, message, Row, Col } from 'antd';
+import { Form, Select, InputNumber, DatePicker, Switch, Slider, Button, message, Row, Col } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -92,17 +92,17 @@ const Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Datepicker 日期选择框："
+          label="DatePicker 日期选择框："
           labelCol={{span: 8}}
           required>
           <Col span="6">
-            <Datepicker name="startDate" onChange={this.setValue.bind(this, 'startDate')} value={formData.startDate} />
+            <DatePicker name="startDate" onChange={this.setValue.bind(this, 'startDate')} value={formData.startDate} />
           </Col>
           <Col span="1">
             <p className="ant-form-split">-</p>
           </Col>
           <Col span="6">
-            <Datepicker name="endDate" onChange={this.setValue.bind(this, 'endDate')} value={formData.endDate} />
+            <DatePicker name="endDate" onChange={this.setValue.bind(this, 'endDate')} value={formData.endDate} />
           </Col>
         </FormItem>
         <Row>

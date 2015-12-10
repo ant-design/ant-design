@@ -47,7 +47,7 @@ $ npm install
 
 ```jsx
 import React from 'react';
-import { Datepicker, message } from 'antd';
+import { DatePicker, message } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
@@ -63,7 +63,7 @@ const App = React.createClass({
   },
   render() {
     return <div style={{width: 400, margin: '100px auto'}}>
-      <Datepicker onSelect={this.handleChange} />
+      <DatePicker onSelect={this.handleChange} />
       <div style={{marginTop: 20}}>当前日期：{this.state.date.toString()}</div>
     </div>;
   }

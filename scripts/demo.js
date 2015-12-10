@@ -1,5 +1,7 @@
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function camelize(str) {
+  return str.replace (/(?:^|[-_])(\w)/g, function (_, c) {
+    return c ? c.toUpperCase () : '';
+  });
 }
 
 window.require = function (path) {
@@ -7,7 +9,7 @@ window.require = function (path) {
   var namespaces = path.split('/');
   namespaces.forEach(function (key, i) {
     if (i === 2) {
-      key = capitalizeFirstLetter(key);
+      key = camelize(key);
     }
     if (key !== 'lib') {
       if (result[key]) {
@@ -34,9 +36,9 @@ window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
 require('./importCss');
 
-antd.Datepicker.locale = {
-  en_US: require('../components/datepicker/locale/en_US'),
-  zh_CN: require('../components/datepicker/locale/zh_CN'),
+antd.DatePicker.locale = {
+  en_US: require('../components/date-picker/locale/en_US'),
+  zh_CN: require('../components/date-picker/locale/zh_CN'),
 };
 
 antd.Calendar.locale = {

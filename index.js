@@ -2,7 +2,7 @@ import React from 'react';
 
 const antd = {
   Affix: require('./components/affix'),
-  Datepicker: require('./components/datepicker'),
+  DatePicker: require('./components/date-picker'),
   Tooltip: require('./components/tooltip'),
   Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
@@ -41,7 +41,7 @@ const antd = {
   Form: require('./components/form'),
   Input: require('./components/input'),
   Calendar: require('./components/calendar'),
-  Timepicker: require('./components/timepicker'),
+  TimePicker: require('./components/time-picker'),
 };
 
 antd.version = require('./package.json').version;
