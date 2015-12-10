@@ -110,7 +110,7 @@
 > 备注：
 >
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
-> - [0.10 升级指南](http://ant.design/docs/upgrade-to-0.10)
+> - [0.10 升级指南](http://ant.design/docs/upgrade-notes)
 
 
 ## 0.9.3 ~ 0.9.5 `2015-11-04`
