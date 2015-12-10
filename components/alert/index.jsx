@@ -54,7 +54,7 @@ export default React.createClass({
       iconType = 'exclamation-circle';
       break;
     case 'warn':
-      iconType = 'question-circle';
+      iconType = 'exclamation-circle';
       break;
     default:
       iconType = 'default';
