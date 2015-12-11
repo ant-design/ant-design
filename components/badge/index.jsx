@@ -8,10 +8,10 @@ class AntBadge extends React.Component {
   }
 
   render() {
-    let { count, prefixCls } = this.props;
+    let { count, prefixCls, overflowCount } = this.props;
     const dot = this.props.dot;
 
-    count = count >= 100 ? '99+' : count;
+    count = count > overflowCount ? '${overflowCount}+' : count;
 
     // dot mode don't need count
     if (dot) {
@@ -43,6 +43,7 @@ AntBadge.defaultProps = {
   prefixCls: 'ant-badge',
   count: null,
   dot: false,
+  overflowCount: 99,
 };
 
 AntBadge.propTypes = {
@@ -51,6 +52,7 @@ AntBadge.propTypes = {
     React.PropTypes.number
   ]),
   dot: React.PropTypes.bool,
+  overflowCount: React.PropTypes.number,
 };
 
 export default AntBadge;
