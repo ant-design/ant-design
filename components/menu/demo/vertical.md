@@ -9,6 +9,7 @@
 ````jsx
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 function handleClick(e) {
   console.log('click', e);
@@ -16,10 +17,14 @@ function handleClick(e) {
 
 ReactDOM.render(<Menu onClick={handleClick} style={{width:240}} mode="vertical">
   <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
-    <Menu.Item key="1">选项1</Menu.Item>
-    <Menu.Item key="2">选项2</Menu.Item>
-    <Menu.Item key="3">选项3</Menu.Item>
-    <Menu.Item key="4">选项4</Menu.Item>
+    <MenuItemGroup title="分组1">
+      <Menu.Item key="1">选项1</Menu.Item>
+      <Menu.Item key="2">选项2</Menu.Item>
+    </MenuItemGroup>
+    <MenuItemGroup title="分组2">
+      <Menu.Item key="3">选项3</Menu.Item>
+      <Menu.Item key="4">选项4</Menu.Item>
+    </MenuItemGroup>
   </SubMenu>
   <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>导航二</span></span>}>
     <Menu.Item key="5">选项5</Menu.Item>
