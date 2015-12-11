@@ -23,9 +23,9 @@
 
   &-item-group-title {
     color: #999;
+    font-size: 12px;
     line-height: 1.5;
-    padding: 8px 10px;
-    border-bottom: 1px solid #e9e9e9;
+    padding: 8px 16px;
   }
 
   &-item,
@@ -215,7 +215,8 @@
   }
 
   &-vertical,
-  &-inline {
+  &-inline,
+  &-item-group-list {
     & > .@{menu-prefix-cls}-item,
     & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       padding: 0px 16px 0 28px;
@@ -250,6 +251,10 @@
       height: 42px;
       list-style-type: disc;
       list-style-position: inside;
+    }
+
+    & .@{menu-prefix-cls}-item-group-title {
+      padding-left: 32px;
     }
   }
 }

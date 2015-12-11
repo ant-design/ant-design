@@ -53,4 +53,11 @@
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | title    | 子菜单项值 | String or React.Element   |    |
-| children   | (MenuItem or SubMenu)[] |  子菜单的菜单项 | | |
+| children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  | |
+
+### Menu.ItemGroup props
+
+| 参数     | 说明           | 类型     | 默认值       |
+|----------|----------------|----------|--------------|
+| title    | 分组标题       | String or React.Element |    |
+| children | 分组的菜单项    | MenuItem[] |  | |
