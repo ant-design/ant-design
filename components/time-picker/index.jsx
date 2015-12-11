@@ -9,7 +9,7 @@ const AntTimePicker = React.createClass({
   getDefaultProps() {
     return {
       format: 'HH:mm:ss',
-      prefixCls: 'ant-timepicker',
+      prefixCls: 'ant-time-picker',
       onChange() {},
       locale: {},
       align: {

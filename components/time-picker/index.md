@@ -33,4 +33,4 @@ API
 | secondOptions   | 特定可选择的秒 | array | 0 到 60 组成的数组 |
 | locale | 国际化配置 | Object | [默认配置](https://github.com/ant-design/ant-design/issues/424) |
 
-<style>.code-box-demo .ant-timepicker { margin: 0 8px 12px 0; }</style>
+<style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>
