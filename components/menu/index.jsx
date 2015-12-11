@@ -72,5 +72,6 @@ const AntMenu = React.createClass({
 AntMenu.Divider = Menu.Divider;
 AntMenu.Item = Menu.Item;
 AntMenu.SubMenu = Menu.SubMenu;
+AntMenu.ItemGroup = Menu.ItemGroup;
 
 export default AntMenu;
