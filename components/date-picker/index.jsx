@@ -75,7 +75,9 @@ function createPicker(TheCalendar, defaultFormat) {
       });
     },
     handleChange(value) {
-      this.setState({value});
+      if (!('value' in this.props)) {
+        this.setState({ value });
+      }
       const timeValue = value ? new Date(value.getTime()) : null;
       // onSelect 为向前兼容.
       if (this.props.onSelect) {
