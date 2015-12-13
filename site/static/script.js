@@ -1,4 +1,11 @@
 InstantClickChangeFns.push(function() {
+  // fix hash id link
+  if (window.location.href.indexOf('#') > 0) {
+    setTimeout(function() {
+      window.location.href = window.location.href;
+    }, 0);
+  }
+
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
