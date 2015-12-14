@@ -158,7 +158,7 @@
       box-sizing: border-box;
       position: relative;
 
-      > .@{tab-prefix-cls}-tab-inner {
+      &-inner {
         padding: 8px 20px;
         transition: color 0.3s @ease-in-out;
         display: block;
@@ -177,12 +177,11 @@
           width: 14px;
           height: 14px;
           margin-right: 8px;
-          line-height: 1.5;
         }
       }
     }
 
-    .@{tab-prefix-cls}-tab-active > .@{tab-prefix-cls}-tab-inner {
+    .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
       color: @primary-color;
     }
   }
@@ -193,7 +192,7 @@
 
   &-mini &-tab {
     margin-right: 24px;
-    > .@{tab-prefix-cls}-tab-inner {
+    .@{tab-prefix-cls}-tab-inner {
       padding: 8px 16px;
     }
   }
@@ -271,7 +270,7 @@
       &:last-child {
         margin-bottom: 0;
       }
-      > .@{tab-prefix-cls}-tab-inner {
+      .@{tab-prefix-cls}-tab-inner {
         padding: 8px 24px;
       }
     }
@@ -321,7 +320,7 @@
       float: left;
     }
     .@{tab-prefix-cls}-tab {
-      > .@{tab-prefix-cls}-tab-inner {
+      .@{tab-prefix-cls}-tab-inner {
         text-align: right;
       }
     }
@@ -370,12 +369,15 @@
   &&-card &-ink-bar {
     visibility: hidden;
   }
+  &&-card &-nav {
+    border-left: 1px solid @border-color-base;
+  }
   &&-card &-tab {
     margin: 0;
     border: 1px solid @border-color-base;
     border-bottom: 0;
+    border-left: 0;
     border-radius: 2px 2px 0 0;
-    margin-right: -1px;
     transition: border-color 0.3s @ease-in-out;
   }
   &&-card &-tab-inner {
@@ -390,5 +392,35 @@
   }
   &&-card &-nav-wrap {
     margin-bottom: 0;
+  }
+  &&-card &-tab-inner .anticon-cross {
+    margin-right: 0;
+    margin-left: 4px;
+    font-size: 12px;
+    color: #999;
+    transition: color 0.3s ease;
+    &:hover {
+      color: @primary-color;
+    }
+  }
+
+  &-extra-content {
+    float: right;
+    line-height: 32px;
+
+    .@{tab-prefix-cls}-new-tab {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 3px;
+      border: 1px solid @border-color-base;
+      font-size: 12px;
+      transition: color 0.3s ease;
+      &:hover {
+        color: @primary-color;
+      }
+    }
   }
 }
