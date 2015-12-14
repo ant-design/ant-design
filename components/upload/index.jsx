@@ -211,7 +211,7 @@ const AntUpload = React.createClass({
       let draggingClass = this.state.dragState === 'dragover'
                            ? `${prefixCls}-drag-hover` : '';
       return (
-        <span>
+        <span className={this.props.className}>
           <div className={prefixCls + ' ' + prefixCls + '-drag '
             + dragUploadingClass + ' ' + draggingClass}
             onDrop={this.onFileDrop}
