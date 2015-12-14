@@ -4,9 +4,12 @@ import Dialog from './index';
 import Icon from '../icon';
 import Button from '../button';
 
+let div;
 export default function (props) {
-  let div = document.createElement('div');
-  document.body.appendChild(div);
+  if (!div) {
+    div = document.createElement('div');
+    document.body.appendChild(div);
+  }
 
   let d;
   props = props || {};
