@@ -112,6 +112,15 @@
       opacity: 1;
     }
 
+    &-error,
+    &-error .anticon-paper-clip {
+      color: @error-color;
+    }
+
+    &-error .anticon-cross {
+      opacity: 1;
+    }
+
     &-progress {
       padding: 0 8px 0 20px;
       margin-top: -2px;
@@ -140,7 +149,6 @@
 
   &-picture &-item:hover &-item-info {
     background: transparent;
-    color: #345678;
   }
 
   &-picture &-item-uploading {

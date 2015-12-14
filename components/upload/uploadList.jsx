@@ -38,7 +38,7 @@ export default React.createClass({
       }
       const infoUploadingClass = classNames({
         [`${prefixCls}-list-item`]: true,
-        [`${prefixCls}-list-item-uploading`]: file.status === 'uploading',
+        [`${prefixCls}-list-item-${file.status}`]: true,
       });
       return (
         <div className={infoUploadingClass} key={file.uid}>
