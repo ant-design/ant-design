@@ -86,7 +86,8 @@ input[type="checkbox"] {
   }
 }
 
-.@{css-prefix}form-text, .@{css-prefix}form-split {
+.@{css-prefix}form-text,
+.@{css-prefix}form-split {
   margin: 0!important;
   padding-top: 7px;
   padding-bottom: 7px;
@@ -122,33 +123,6 @@ form {
   .@{css-prefix}input-group .@{css-prefix}input,
   .@{css-prefix}input-group .@{css-prefix}input-group-addon {
     .input-lg();
-  }
-
-  // Input combined with select
-  .@{css-prefix}input-group {
-    .@{select-prefix-cls}-selection {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0;
-      &:hover {
-        border-color: #d9d9d9;
-      }
-    }
-
-    .@{select-prefix-cls}-selection--single {
-      margin-left: -1px;
-      height: @input-height-lg;
-      background-color: #eee;
-      .@{select-prefix-cls}-selection__rendered {
-        padding-left: 8px;
-        padding-right: 25px;
-        line-height: 30px;
-      }
-    }
-
-    .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
-      border-color: #d9d9d9;
-      box-shadow: none;
-    }
   }
 
   // input[type=file]
@@ -192,6 +166,57 @@ form {
   }
 }
 
+// Input combined with select
+.@{css-prefix}input-group {
+  .@{select-prefix-cls}-selection {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    &:hover {
+      border-color: #d9d9d9;
+    }
+  }
+
+  .@{select-prefix-cls}-selection--single {
+    margin-left: -1px;
+    height: @input-height-lg;
+    background-color: #eee;
+    .@{select-prefix-cls}-selection__rendered {
+      padding-left: 8px;
+      padding-right: 25px;
+      line-height: 30px;
+    }
+  }
+
+  .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
+    border-color: #d9d9d9;
+    box-shadow: none;
+  }
+}
+
+.ant-search-input {
+  &.ant-input-group .ant-input:first-child {
+    border-radius: @border-radius-base;
+  }
+  .ant-search-btn {
+    .btn;
+    .btn-default;
+    border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
+    margin-left: -30px;
+    position: relative;
+    border-width: 0 0 0 1px;
+    z-index: 2;
+    padding-left: 8px;
+    padding-right: 8px;
+    &:hover {
+      border-color: @border-color-base;
+    }
+  }
+  &&-focus .ant-search-btn-noempty,
+  &:hover .ant-search-btn-noempty {
+    .btn-primary;
+  }
+}
+
 // Form layout
 //== Horizontal Form
 .@{css-prefix}form-horizontal {
@@ -216,12 +241,12 @@ form {
 
 //== Inline Form
 .@{css-prefix}form-inline {
-  div {
-    display: inline-block;
-  }
   .@{css-prefix}form-item {
     display: inline-block;
     margin-right: 10px;
+    > div {
+      display: inline-block;
+    }
   }
 
   .@{css-prefix}input {
@@ -243,7 +268,8 @@ form {
   }
 }
 
-.@{css-prefix}form-horizontal, .@{css-prefix}form-inline {
+.@{css-prefix}form-horizontal,
+.@{css-prefix}form-inline {
   label {
     padding-top: 7px;
     padding-bottom: 7px;
@@ -255,7 +281,10 @@ form {
 }
 
 // Validation state
-.has-success, .has-warning, .has-error, .is-validating {
+.has-success,
+.has-warning,
+.has-error,
+.is-validating {
   &.has-feedback:after {
     position: absolute;
     bottom: 0;
@@ -382,36 +411,36 @@ form {
 .is-validating {
   &.has-feedback:after {
     display: inline-block;
-    .animation(loadingCircle 1s infinite linear );
-    content:"\e6a1";
+    .animation(loadingCircle 1s infinite linear);
+    content: "\e6a1";
   }
 }
 
 // need there different zoom animation
 // otherwise won't trigger anim
 @keyframes diffZoomIn1 {
-  0%{
+  0% {
     transform: scale(0);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
 }
 
 @keyframes diffZoomIn2 {
-  0%{
+  0% {
     transform: scale(0);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
 }
 
 @keyframes diffZoomIn3 {
-  0%{
+  0% {
     transform: scale(0);
   }
-  100%{
+  100% {
     transform: scale(1);
   }
 }

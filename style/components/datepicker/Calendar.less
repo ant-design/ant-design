@@ -3,7 +3,7 @@
   line-height: 34px;
   text-align: center;
   user-select: none;
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: 1px solid @border-color-split;
 
   a:hover {
     color: @link-hover-color;
@@ -70,19 +70,19 @@
   position: relative;
   outline: none;
   width: 253px;
-  border: 1px solid #ccc;
+  border: 1px solid @border-color-base;
   list-style: none;
   font-size: @font-size-base;
   text-align: left;
   background-color: #fff;
   border-radius: @border-radius-base;
-  box-shadow: @overlay-shadow;
+  box-shadow: @box-shadow-base;
   background-clip: padding-box;
   line-height: @line-height-base;
 
   &-input-wrap {
     padding: 6px;
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid @border-color-split;
   }
 
   &-input {
@@ -115,8 +115,10 @@
     width: 100%;
   }
 
-  table, td, th, td {
-    border: none;
+  table,
+  th,
+  td {
+    border: 0;
   }
 
   &-calendar-table {
@@ -206,7 +208,8 @@
     border-bottom-right-radius: 4px;
   }
 
-  &-last-month-cell &-date, &-next-month-btn-day &-date {
+  &-last-month-cell &-date,
+  &-next-month-btn-day &-date {
     color: #bbb;
   }
 
@@ -214,7 +217,7 @@
     padding: 0 15px;
     height: 42px;
     line-height: 42px;
-    border-top: 1px solid #e9e9e9;
+    border-top: 1px solid @border-color-split;
   }
 
   &-footer-btn {
@@ -232,6 +235,10 @@
     display: inline-block;
     text-align: center;
     margin: 0 0 0 8px;
+    &-disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
   }
 
   .@{calendar-prefix-cls}-clear-btn {

@@ -1,6 +1,29 @@
+function camelize(str) {
+  return str.replace (/(?:^|[-_])(\w)/g, function (_, c) {
+    return c ? c.toUpperCase () : '';
+  });
+}
+
+window.require = function (path) {
+  var result = window;
+  var namespaces = path.split('/');
+  namespaces.forEach(function (key, i) {
+    if (i === 2) {
+      key = camelize(key);
+    }
+    if (key !== 'lib') {
+      if (result[key]) {
+        result = result[key];
+      } else {
+        throw 'There should not have modules here: ' + path;
+      }
+    }
+  });
+  return result;
+};
+
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
-window.Clipboard = require('clipboard');
 window.Clip = require('./clip');
 var antd = require('../index');
 var React = require('react');
@@ -11,10 +34,12 @@ window.React = React;
 window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
+window['reqwest'] = require('reqwest');
+require('./importCss');
 
-antd.Datepicker.locale = {
-  en_US: require('../components/datepicker/locale/en_US'),
-  zh_CN: require('../components/datepicker/locale/zh_CN'),
+antd.DatePicker.locale = {
+  en_US: require('../components/date-picker/locale/en_US'),
+  zh_CN: require('../components/date-picker/locale/zh_CN'),
 };
 
 antd.Calendar.locale = {
@@ -95,7 +120,7 @@ InstantClickChangeFns.push(function () {
   ReactDOM.render(
     <Select defaultValue={antdVersion.latest} size="small" style={{width:130}}
             onChange={onChange}>{options}</Select>
-  , document.getElementById('versions-select'));
+    , document.getElementById('versions-select'));
 });
 
 window.BrowserDemo = React.createClass({
@@ -108,7 +133,7 @@ window.BrowserDemo = React.createClass({
             <div className="control minify"></div>
             <div className="control expand"></div>
           </div>
-          <input className="address-bar" defaultValue="http://www.example.com" />
+          <input className="address-bar" defaultValue="http://www.example.com"/>
         </header>
         <section className="window-content">
           {this.props.children}

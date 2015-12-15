@@ -18,7 +18,7 @@
     <!--[if IE 8]>
     <script src="https://t.alipayobjects.com/images/rmsweb/T1q8JiXftaXXXXXXXX.js"></script>
     <![endif]-->
-    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://as.alipayobjects.com/??component/console-polyfill/0.2.2/index.js,component/es5-shim/4.1.14/es5-shim.min.js,component/es5-shim/4.1.14/es5-sham.min.js,component/html5shiv/3.7.2/html5shiv.min.js,g/component/media-match/2.0.2/media.match.min.js"></script>
     <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js"></script>
     <script>
     (function() {
@@ -46,29 +46,6 @@
       };
     </script>
     <script src="{{static_url('../dist/demo.js')}}"></script>
-    <script>
-      window.require = function (path) {
-        var result = window;
-        var namespaces = path.split('/');
-        namespaces.forEach(function (key, i) {
-          if (i === 2) {
-            key = capitalizeFirstLetter(key);
-          }
-          if (key !== 'lib') {
-            if (result[key]) {
-              result = result[key];
-            } else {
-              throw 'There should not have modules here 2.';
-            }
-          }
-        });
-        function capitalizeFirstLetter(string) {
-          return string.charAt(0).toUpperCase() + string.slice(1);
-        }
-
-        return result;
-      };
-    </script>
     <script src="https://t.alipayobjects.com/images/T1DrxhXe0mXXXXXXXX.js"></script>
     {% block scripts %}{% endblock %}
   </head>

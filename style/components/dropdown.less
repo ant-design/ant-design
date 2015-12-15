@@ -43,9 +43,9 @@
     text-align: left;
     background-color: #fff;
     border-radius: @border-radius-base;
-    box-shadow: @overlay-shadow;
+    box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @border-color-base;
     overflow: hidden;
 
     > li {
@@ -54,7 +54,7 @@
     }
 
     & > &-item {
-      padding: 7px 16px;
+      padding: 7px 15px;
       clear: both;
       font-size: 12px;
       font-weight: normal;
@@ -66,8 +66,8 @@
       > a {
         color: #666;
         display: block;
-        padding: 7px 16px;
-        margin: -7px -16px;
+        padding: 7px 15px;
+        margin: -7px -15px;
       }
 
       &:hover {
@@ -99,7 +99,7 @@
       &-divider {
         height: 1px;
         overflow: hidden;
-        background-color: #e5e5e5;
+        background-color: @border-color-split;
         line-height: 0;
       }
     }
@@ -125,8 +125,18 @@
 }
 
 .@{dropdown-prefix-cls}-link {
+  font-size: 12px;
   .anticon-down {
-    .iconfont-size-under-12px(7px);
+    .iconfont-size-under-12px(8px);
     font-weight: bold;
+  }
+}
+
+.@{dropdown-prefix-cls}-button {
+  &.ant-btn-group > .ant-btn:last-child:not(:first-child) {
+    padding-right: 7px;
+  }
+  .anticon-down {
+    .iconfont-size-under-12px(10px);
   }
 }

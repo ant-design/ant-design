@@ -15,6 +15,8 @@ let AntModal = React.createClass({
       prefixCls: 'ant-modal',
       onOk: noop,
       onCancel: noop,
+      okText: '确定',
+      cancelText: '取消',
       width: 520,
       transitionName: 'zoom',
       maskAnimation: 'fade',
@@ -56,14 +58,14 @@ let AntModal = React.createClass({
         type="ghost"
         size="large"
         onClick={this.handleCancel}>
-        取消
+        {props.cancelText}
       </Button>,
       <Button key="confirm"
         type="primary"
         size="large"
         loading={props.confirmLoading}
         onClick={this.handleOk}>
-        确定
+        {props.okText}
       </Button>
     ];
     let footer = props.footer || defaultFooter;

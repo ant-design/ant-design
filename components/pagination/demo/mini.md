@@ -9,11 +9,9 @@
 ````jsx
 import { Pagination } from 'antd';
 
-function onChange(page) {
-  console.log(page);
-}
-
-ReactDOM.render(
-  <Pagination size="small" onChange={onChange} total={50} />,
- document.getElementById('components-pagination-demo-mini'));
+ReactDOM.render(<div>
+  <Pagination size="small" total={50} />
+  <br />
+  <Pagination size="small" total={50} showSizeChanger showQuickJumper />
+</div>, document.getElementById('components-pagination-demo-mini'));
 ````

@@ -41,7 +41,7 @@ const Home = React.createClass({
 
 ReactDOM.render((
   <Router>
-    <Route name="home" breadcrumbName="首页" path="/" component={Home} ignoreScrollBehavior>
+    <Route name="home" breadcrumbName="首页" path="/" component={Home}>
       <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
         <Route name="app" breadcrumbName="应用:id" path=":id" />
       </Route>

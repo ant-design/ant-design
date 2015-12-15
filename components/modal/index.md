@@ -27,6 +27,8 @@
 | onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function  | 无           |
 | width      | 宽度           | String or Number | 520           |
 | footer     | 底部内容       | React.Element    | 确定取消按钮 |
+| okText     | 确认按钮文字    | String           | 确定       |
+| cancelText | 取消按钮文字    | String           | 取消       |
 
 
 ### Modal.xxx()
@@ -47,6 +49,8 @@
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
 | width      | 宽度           | String or Number | 416           |
 | iconClassName | 图标 Icon 类型 | String | question-circle |
+| okText     | 确认按钮文字    | String           | 确定       |
+| cancelText | 取消按钮文字    | String           | 取消       |
 
 <style>
 .code-box-demo .ant-btn {

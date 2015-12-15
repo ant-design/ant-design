@@ -35,7 +35,7 @@ for (let i = 0; i < 46; i++) {
 
 const pagination = {
   total: data.length,
-  current: 2,
+  current: 1,
   showSizeChanger: true
 };
 

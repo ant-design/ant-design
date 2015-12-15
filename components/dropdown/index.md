@@ -19,10 +19,18 @@
 | 成员        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|
 | trigger     | 触发下拉的行为   | "click" or "hover" | hover        |
-| overlay     | 菜单节点         | React.Element      | 无           |
-| onClick     | 点击菜单后的回调 | function({key,keyPath,item,domEvent}) {}     | 无           |
+| overlay     | 菜单节点         | [Menu](/components/menu) | 无     |
 
 
 菜单可由 `antd.Menu` 取得，可设置 `onSelect` 回调，菜单还包括菜单项 `antd.Menu.Item`，分割线 `antd.Menu.Divider`。
 
 > 注意： Menu.Item 必须设置唯一的 key 属性。
+
+### DropdownButton
+
+| 成员        | 说明             | 类型               | 默认值       |
+|-------------|------------------|--------------------|--------------|
+| type        | 按钮类型，和 [Button](/components/button) 一致 | String | 'default'        |
+| onClick     | 点击左侧按钮的回调，和 [Button](/components/button) 一致 | Function   | 无           |
+| trigger     | 触发下拉的行为   | "click" or "hover" | hover        |
+| overlay     | 菜单节点         | [Menu](/components/menu) | 无     |

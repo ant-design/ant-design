@@ -1,15 +1,20 @@
-# 动态加载数据
+# 远程加载数据
 
 - order: 7
 
-远程读取的表格是**更为常见的模式**，下面的表格使用了 `dataSource` 对象和远程数据源绑定和适配，并具有筛选、排序等功能以及页面 loading 效果。
+在 `0.11.0` 以后，`dataSource` 远程模式被移除，用户可以自行实现数据读取方式。
 
-**注意，此示例是静态数据模拟，数据并不准确，请打开网络面板查看请求。**
+这个例子通过简单的 ajax 读取方式，演示了如何从服务端读取并展现数据，具有筛选、排序等功能以及页面 loading 效果。开发者可以自行接入其他数据处理方式。
+
+另外，本例也展示了筛选排序功能如何交给服务端实现，列不需要指定具体的 `onFilter` 和 `sorter` 函数，而是在把筛选和排序的参数发到服务端来处理。
+
+**注意，此示例是静态数据模拟，展示数据不会变化，请打开网络面板查看请求。**
 
 ---
 
 ````jsx
-import { Table, Button } from 'antd';
+import { Table } from 'antd';
+import reqwest from 'reqwest';
 
 const columns = [{
   title: '姓名',
@@ -30,23 +35,20 @@ const columns = [{
   dataIndex: 'address'
 }];
 
-const dataSource = new Table.DataSource({
-  url: '/components/table/demo/data.json',
-  resolve: function(result) {
-    return result.data;
-  },
-  data: {},
-  // 和后台接口返回的分页数据进行适配
-  getPagination: function(result) {
+const Test = React.createClass({
+  getInitialState() {
     return {
-      total: result.totalCount,
-      pageSize: result.pageSize
+      data: [],
+      pagination: {},
+      loading: false,
     };
   },
-  // 和后台接口接收的参数进行适配
-  // 参数里提供了分页、筛选、排序的信息
-  getParams: function(pagination, filters, sorter) {
-    console.log('getParams 的参数是：', pagination, filters, sorter);
+  handleTableChange(pagination, filters, sorter) {
+    const pager = this.state.pagination;
+    pager.current = pagination.current;
+    this.setState({
+      pagination: pager
+    });
     const params = {
       pageSize: pagination.pageSize,
       currentPage: pagination.current,
@@ -56,46 +58,38 @@ const dataSource = new Table.DataSource({
     for (let key in filters) {
       params[key] = filters[key];
     }
+    this.fetch(params);
+  },
+  fetch(params = {}) {
     console.log('请求参数：', params);
-    return params;
-  }
-});
-
-const Test = React.createClass({
-  getInitialState() {
-    return {
-      dataSource: null
-    };
-  },
-  refresh() {
-    this.setState({
-      dataSource: dataSource.clone()
-    });
-  },
-  changeAndRefresh() {
-    // 可以修改原来的 dataSource 再发请求
-    this.setState({
-      dataSource: dataSource.clone({
-        data: {
-          city: 'hz'
-        }
-      }),
-      pagination: {
-        current: 1
+    this.setState({ loading: true });
+    reqwest({
+      url: 'demo/data.json',
+      method: 'get',
+      data: params,
+      type: 'json',
+      success: (result) => {
+        const pagination = this.state.pagination;
+        pagination.total = result.totalCount;
+        this.setState({
+          loading: false,
+          data: result.data,
+          pagination,
+        });
       }
     });
   },
+  componentDidMount() {
+    this.fetch();
+  },
   render() {
-    return <div>
-      <Table columns={columns} dataSource={this.state.dataSource} pagination={this.state.pagination} />
-      <Button type="primary" onClick={this.refresh}>
-        加载初始数据
-      </Button>
-      &nbsp;
-      <Button onClick={this.changeAndRefresh}>
-        加载 city=hz 的数据
-      </Button>
-    </div>;
+    return (
+      <Table columns={columns}
+             dataSource={this.state.data}
+             pagination={this.state.pagination}
+             loading={this.state.loading}
+             onChange={this.handleTableChange} />
+    );
   }
 });
 

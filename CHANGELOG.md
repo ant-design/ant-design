@@ -4,6 +4,22 @@
 
 ---
 
+## 0.10.4 `2015-11-30`
+
+- 将 media-match 加入默认的 polyfill 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
+- 修复了 [MonthPicker](http://ant.design/components/datepicker/#demo-month-picker) 报错问题，并增加了相关演示。
+- 修复 RadioGroup 中的 Radio/RadioButton 无法单独设置 disabled 的问题。[#603](https://github.com/ant-design/ant-design/issues/603)
+- 修复今天是不可选日期时的一个展示问题。[#606](https://github.com/ant-design/ant-design/issues/606)
+
+
+## 0.10.3 `2015-11-26`
+
+- 和 0.9.x 保持一致默认引入 `antd/lib/index.css`（而非 less 文件），方便第三方引用。引用 less 文件进行变量配置的可自行 `import 'antd/style/index.less'`。[#593](https://github.com/ant-design/ant-design/issues/593)
+- 升级 Pagination，增加 `defaultCurrent` 属性，修正原来的 `current` 为[完全受控属性](https://facebook.github.io/react/docs/forms.html#controlled-components)。
+- Pagination 的改动也修复了 Table 切换数据源后回到[第一页的例子](http://ant.design/components/table/#demo-ajax)。
+- 对演示和样式代码增加了 lint 检查。
+
+
 ## 0.10.2 `2015-11-25`
 
 - Slider 新增 `tipFormatter` 用于格式化 Tooltip 的内容。
@@ -42,7 +58,7 @@
 - 优先使用苹方字体。
 - 统一 size 属性的可选值为 `small` `default` `large`。
 - 开始初步补充[测试用例](https://github.com/ant-design/ant-design/tree/1a3a19793c0791201666fdcf0dbd12a30fad4be0/tests)。
-- 提供主色系更换的方案。[#384](https://github.com/ant-design/ant-design/issues/384)
+- 提供主色系更换的[方案](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)。[#384](https://github.com/ant-design/ant-design/issues/384)
 - 添加[色彩换算工具](http://ant.design/spec/colors#色彩换算工具)。
 - 添加布局和导航规范，以及[常用布局](http://ant.design/spec/layout/)。
 - 文档支持标题和演示的锚点，方便分享文档和演示代码。
@@ -94,7 +110,7 @@
 > 备注：
 >
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
-> - [0.10 升级指南](http://ant.design/docs/upgrade-to-0.10)
+> - [0.10 升级指南](http://ant.design/docs/upgrade-notes)
 
 
 ## 0.9.3 ~ 0.9.5 `2015-11-04`

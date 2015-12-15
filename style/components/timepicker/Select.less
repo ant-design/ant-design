@@ -1,12 +1,17 @@
-.@{timepicker-prefix-cls}-select {
+.@{timepicker-prefix-cls}-panel-select {
   float: left;
-  overflow-y:auto;
   font-size: 12px;
-  border: 1px solid #e9e9e9;
+  border: 1px solid @border-color-split;
   border-width: 0 1px;
   margin-left: -1px;
   box-sizing: border-box;
   width: 56px;
+  overflow: hidden;
+  position: relative; // Fix chrome weird render bug
+
+  &:hover {
+    overflow-y: auto;
+  }
 
   &:first-child {
     border-left: 0;
@@ -28,7 +33,7 @@
 
   li {
     list-style: none;
-    box-sizing: border-box;
+    box-sizing: content-box;
     margin: 0;
     padding: 0 0 0 16px;
     width: 100%;
@@ -37,15 +42,14 @@
     text-align: left;
     cursor: pointer;
     user-select: none;
-
-    &.selected {
-      background: tint(@primary-color, 90%);
-      color: @link-color;
-    }
+    transition: background 0.3s ease;
 
     &:hover {
       background: tint(@primary-color, 90%);
-      transition: background 0.3s ease;
+    }
+
+    &.@{timepicker-prefix-cls}-panel-select-option-selected {
+      background: tint(@primary-color, 80%);
     }
   }
 }

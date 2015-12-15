@@ -22,7 +22,7 @@
     text-align: center;
     list-style: none;
     float: left;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @border-color-base;
     background-color: #fff;
     margin-right: 8px;
     font-family: Arial;
@@ -52,8 +52,8 @@
     }
   }
 
-  &-jump-prev, &-jump-next {
-
+  &-jump-prev,
+  &-jump-next {
     &:after {
       content: "•••";
       display: block;
@@ -89,10 +89,15 @@
     }
   }
 
-  &-prev, &-jump-prev, &-jump-next {
+  &-prev,
+  &-jump-prev,
+  &-jump-next {
     margin-right: 8px;
   }
-  &-prev, &-next, &-jump-prev, &-jump-next {
+  &-prev,
+  &-next,
+  &-jump-prev,
+  &-jump-next {
     font-family: Arial;
     cursor: pointer;
     color: #666;
@@ -107,8 +112,9 @@
     display: inline-block;
   }
 
-  &-prev, &-next {
-    border: 1px solid #d9d9d9;
+  &-prev,
+  &-next {
+    border: 1px solid @border-color-base;
 
     a {
       color: #666;
@@ -154,7 +160,7 @@
 
   &-disabled {
     &:hover {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
       a {
         color: #ccc;
         cursor: not-allowed;
@@ -175,7 +181,6 @@
     margin-left: 15px;
     &-size-changer {
       float: left;
-      width: 90px;
       margin-right: 10px;
     }
 
@@ -192,8 +197,9 @@
     }
   }
 
-  &-simple &-prev, &-simple &-next {
-    border: none;
+  &-simple &-prev,
+  &-simple &-next {
+    border: 0;
     height: 24px;
     line-height: 24px;
     margin: 0;
@@ -209,7 +215,7 @@
       box-sizing: border-box;
       background-color: #fff;
       border-radius: @border-radius-base;
-      border: 1px solid #d9d9d9;
+      border: 1px solid @border-color-base;
       outline: none;
       padding: 5px 8px;
       width: 30px;
@@ -227,7 +233,7 @@
 .@{pagination-prefix-cls} {
 
   &.mini &-item {
-    border: none;
+    border: 0;
     margin: 0;
     min-width: 20px;
     height: 20px;
@@ -240,7 +246,7 @@
     min-width: 20px;
     height: 20px;
     line-height: 20px;
-    border: none;
+    border: 0;
 
     a {
       &:after {
@@ -250,18 +256,21 @@
     }
   }
 
-  &.mini &-jump-prev, &.mini &-jump-next {
+  &.mini &-jump-prev,
+  &.mini &-jump-next {
     height: 20px;
     line-height: 20px;
   }
 
   &.mini &-options {
+    margin-left: 8px;
     &-quick-jumper {
       height: 20px;
       line-height: 20px;
 
       input {
         .input-sm;
+        width: 44px;
       }
     }
   }

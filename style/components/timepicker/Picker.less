@@ -34,8 +34,17 @@
   font-size: @font-size-base;
   transition: opacity 0.3s ease;
 
-  > input {
+  &-input {
+    .input;
     width: 100px;
+  }
+
+  &-large &-input {
+    .input-lg;
+  }
+
+  &-small &-input {
+    .input-sm;
   }
 
   &-open {

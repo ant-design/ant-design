@@ -1,6 +1,7 @@
 .move-motion(@className, @keyframeName) {
   .make-motion(@className, @keyframeName);
-  .@{className}-enter, .@{className}-appear {
+  .@{className}-enter,
+  .@{className}-appear {
     opacity: 0;
     animation-timing-function: @ease-out-circ;
   }

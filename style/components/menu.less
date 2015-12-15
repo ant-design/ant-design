@@ -7,7 +7,7 @@
   padding-left: 0; // Override default ul/ol
   list-style: none;
   z-index: 999;
-  box-shadow: @overlay-shadow;
+  box-shadow: @box-shadow-base;
   color: @text-color;
   background: #fff;
   line-height: 46px;
@@ -23,9 +23,9 @@
 
   &-item-group-title {
     color: #999;
+    font-size: 12px;
     line-height: 1.5;
-    padding: 8px 10px;
-    border-bottom: 1px solid #e9e9e9;
+    padding: 8px 16px;
   }
 
   &-item,
@@ -34,7 +34,6 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
-
 
   &-item-active,
   &-submenu-title:hover {
@@ -98,8 +97,10 @@
     white-space: nowrap;
 
     // Disabled state sets text to gray and nukes hover/tab effects
-    &.@{menu-prefix-cls}-item-disabled, &.@{menu-prefix-cls}-submenu-disabled {
+    &.@{menu-prefix-cls}-item-disabled,
+    &.@{menu-prefix-cls}-submenu-disabled {
       color: #999 !important;
+      cursor: not-allowed;
     }
   }
   & > &-item-divider {
@@ -166,7 +167,7 @@
   }
 
   &-horizontal {
-    border: none;
+    border: 0;
     border-bottom: 1px solid #e9e9e9;
     box-shadow: none;
     z-index: 0;
@@ -191,7 +192,8 @@
         &:hover {
           color: @primary-color;
         }
-        &:before, &:after {
+        &:before,
+        &:after {
           position: absolute;
           background-color: transparent;
           width: 20px;
@@ -212,8 +214,11 @@
     }
   }
 
-  &-vertical, &-inline {
-    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+  &-vertical,
+  &-inline,
+  &-item-group-list {
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       padding: 0px 16px 0 28px;
       font-size: 12px;
       line-height: 42px;
@@ -224,7 +229,8 @@
   &-vertical&-sub {
     padding: 0;
     transform-origin: 0 0;
-    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu {
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu {
       transform-origin: 0 0;
     }
   }
@@ -236,14 +242,19 @@
 
   &-sub&-inline {
     padding: 0;
-    border: none;
+    border: 0;
     box-shadow: none;
     border-radius: 0;
-    & > .@{menu-prefix-cls}-item, & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       line-height: 42px;
       height: 42px;
       list-style-type: disc;
       list-style-position: inside;
+    }
+
+    & .@{menu-prefix-cls}-item-group-title {
+      padding-left: 32px;
     }
   }
 }

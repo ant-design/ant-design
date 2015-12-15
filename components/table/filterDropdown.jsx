@@ -2,6 +2,7 @@ import React from 'react';
 import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
+import Checkbox from '../checkbox';
 
 let FilterMenu = React.createClass({
   getInitialState() {
@@ -40,47 +41,45 @@ let FilterMenu = React.createClass({
     this.setState({
       visible: visible
     });
+    if (!visible) {
+      this.props.confirmFilter(this.props.column, this.state.selectedKeys);
+    }
   },
   renderMenus(items) {
     let menuItems = items.map((item) => {
-      return <Menu.Item key={item.value}>{item.text}</Menu.Item>;
+      return <Menu.Item key={item.value}>
+        <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
+        {item.text}
+      </Menu.Item>;
     });
     return menuItems;
   },
   render() {
-    let column = this.props.column;
+    let {column, locale} = this.props;
     // default multiple selection in filter dropdown
     let multiple = true;
     if ('filterMultiple' in column) {
       multiple = column.filterMultiple;
     }
-    let menus = <Menu multiple={multiple}
+    let menus = <div className="ant-table-filter-dropdown">
+      <Menu multiple={multiple}
                  prefixCls="ant-dropdown-menu"
-                 className="ant-table-filter-dropdown"
                  onSelect={this.setSelectedKeys}
                  onDeselect={this.setSelectedKeys}
                  selectedKeys={this.state.selectedKeys}>
       {this.renderMenus(column.filters)}
-      <Menu.Divider />
-      <Menu.Item disabled>
+      </Menu>
+      <div className="ant-table-filter-dropdown-btns">
         <a className="ant-table-filter-dropdown-link confirm"
-           style={{
-             cursor: 'pointer',
-             pointerEvents: 'visible'
-           }}
            onClick={this.handleConfirm}>
-          确定
+          {locale.filterConfirm}
         </a>
         <a className="ant-table-filter-dropdown-link clear"
-           style={{
-             cursor: 'pointer',
-             pointerEvents: 'visible'
-           }}
            onClick={this.handleClearFilters}>
-          重置
+          {locale.filterReset}
         </a>
-      </Menu.Item>
-    </Menu>;
+      </div>
+    </div>;
 
     let dropdownSelectedClass = '';
     if (this.props.selectedKeys.length > 0) {
@@ -92,7 +91,7 @@ let FilterMenu = React.createClass({
                      visible={this.state.visible}
                      onVisibleChange={this.onVisibleChange}
                      closeOnSelect={false}>
-      <Icon title="筛选" type="bars" className={dropdownSelectedClass} />
+      <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
     </Dropdown>;
   }
 });

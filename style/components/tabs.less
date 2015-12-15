@@ -6,6 +6,7 @@
   outline: none;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
   .clearfix;
 
   &-ink-bar {
@@ -49,7 +50,8 @@
     padding-right: 32px;
   }
 
-  &-tab-prev, &-tab-next {
+  &-tab-prev,
+  &-tab-next {
     user-select: none;
     z-index: 2;
     margin-right: -2px;
@@ -58,7 +60,7 @@
     height: 100%;
     line-height: 32px;
     cursor: pointer;
-    border: none;
+    border: 0;
     background-color: transparent;
     position: absolute;
     text-align: center;
@@ -134,7 +136,8 @@
     list-style: none;
     float: left;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       display: table;
       content: " ";
     }
@@ -144,7 +147,8 @@
     }
 
     div.@{tab-prefix-cls}-tab-active {
-      > .@{tab-prefix-cls}-tab-inner, > .@{tab-prefix-cls}-tab-inner:hover {
+      > .@{tab-prefix-cls}-tab-inner,
+      > .@{tab-prefix-cls}-tab-inner:hover {
         color: tint(@primary-color, 20%);
         cursor: pointer;
         text-decoration: none;
@@ -214,53 +218,59 @@
   }
 
   &-slide-horizontal-backward-enter {
-    display: block !important;
-    transform: translateX(-100%);
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
+    opacity: 0;
   }
 
   &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
-    transform: translateX(0);
-    transition: transform @effect-duration @ease-in-out;
+    animation-name: antMoveLeftIn;
+    animation-play-state: running;
   }
 
   &-slide-horizontal-backward-leave {
-    display: block !important;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    transform: translateX(0);
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
   }
 
   &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
-    transform: translateX(100%);
-    transition: transform @effect-duration @ease-in-out;
+    animation-name: antMoveRightOut;
+    animation-play-state: running;
   }
 
   &-slide-horizontal-forward-enter {
-    display: block !important;
-    transform: translateX(100%);
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
+    opacity: 0;
   }
 
   &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
-    transform: translateX(0);
-    transition: transform @effect-duration @ease-in-out;
+    animation-name: antMoveRightIn;
+    animation-play-state: running;
   }
 
   &-slide-horizontal-forward-leave {
-    display: block !important;
     position: absolute;
-    transform: translateX(0);
     top: 0;
     right: 0;
     left: 0;
     bottom: 0;
+    .motion-common();
+    animation-play-state: paused;
+    animation-timing-function: @ease-in-out-quint;
   }
 
   &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
-    transform: translateX(-100%);
-    transition: transform @effect-duration @ease-in-out;
+    animation-name: antMoveLeftOut;
+    animation-play-state: running;
   }
 
   &-vertical {

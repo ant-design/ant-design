@@ -52,22 +52,30 @@
   }
 
   // Offset the popover to account for the popover arrow
-  &-placement-top, &-placement-topLeft, &-placement-topRight {
+  &-placement-top,
+  &-placement-topLeft,
+  &-placement-topRight {
     margin-top: -@popover-arrow-width;
     padding-bottom: @popover-distance;
   }
 
-  &-placement-right, &-placement-rightTop, &-placement-rightBottom {
+  &-placement-right,
+  &-placement-rightTop,
+  &-placement-rightBottom {
     margin-left: @popover-arrow-width;
     padding-left: @popover-distance;
   }
 
-  &-placement-bottom, &-placement-bottomLeft, &-placement-bottomRight {
+  &-placement-bottom,
+  &-placement-bottomLeft,
+  &-placement-bottomRight {
     margin-top: @popover-arrow-width;
     padding-top: @popover-distance;
   }
 
-  &-placement-left, &-placement-leftTop, &-placement-leftBottom {
+  &-placement-left,
+  &-placement-leftTop,
+  &-placement-leftBottom {
     margin-left: -@popover-arrow-width;
     padding-right: @popover-distance;
   }
@@ -78,7 +86,7 @@
     background-clip: padding-box;
     border: 1px solid @popover-border-color;
     border-radius: @border-radius-base;
-    box-shadow: @overlay-shadow;
+    box-shadow: @box-shadow-base;
   }
 
   &-title {

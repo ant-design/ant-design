@@ -34,7 +34,12 @@
     .btn-ghost;
   }
 
-  &-circle, &-circle-outline {
+  &-dashed {
+    .btn-dashed;
+  }
+
+  &-circle,
+  &-circle-outline {
     .btn-circle(@btn-prefix-cls);
   }
 
@@ -59,7 +64,7 @@
       .animation(loadingCircle 1s infinite linear);
       height: 12px;
       line-height: 12px;
-      right: 12px;
+      right: 11px;
       top: 50%;
       margin-top: -6px;
       opacity: 1;
@@ -70,7 +75,7 @@
   &-sm&-loading {
     padding-right: 24px;
     &:after {
-      right: 8px;
+      right: 7px;
     }
   }
 
@@ -79,7 +84,8 @@
   }
 
   // To ensure that a space will be placed between character and `Icon`.
-  > .@{iconfont-css-prefix} + span, > span + .@{iconfont-css-prefix} {
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
     margin-left: 0.5em;
   }
 }

@@ -21,11 +21,13 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ### 1. 安装命令行工具
 
+> 使用 `antd-init` 前，务必确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
+
 ```bash
 $ npm install antd-init -g
 ```
 
-[更多使用说明](https://github.com/ant-design/antd-bin#使用说明)。
+[更多使用说明](https://github.com/ant-tool/xtool/#使用说明)。
 
 ### 2. 创建一个项目
 
@@ -45,7 +47,7 @@ $ npm install
 
 ```jsx
 import React from 'react';
-import { Datepicker, message } from 'antd';
+import { DatePicker, message } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
@@ -61,7 +63,7 @@ const App = React.createClass({
   },
   render() {
     return <div style={{width: 400, margin: '100px auto'}}>
-      <Datepicker onSelect={this.handleChange} />
+      <DatePicker onSelect={this.handleChange} />
       <div style={{marginTop: 20}}>当前日期：{this.state.date.toString()}</div>
     </div>;
   }
@@ -116,7 +118,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
-    <script src="https://as.alipayobjects.com/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://as.alipayobjects.com/??component/console-polyfill/0.2.2/index.js,component/es5-shim/4.1.14/es5-shim.min.js,component/es5-shim/4.1.14/es5-sham.min.js,component/html5shiv/3.7.2/html5shiv.min.js,g/component/media-match/2.0.2/media.match.min.js"></script>
   </head>
   <body>
   </body>
@@ -129,8 +131,11 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 ## 自行构建
 
-如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-design/antd-build/blob/master/lib/webpack.common.config.js)。
+如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试，可以参考我们所使用的 [webpack 配置](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。
 
+### 改变主色系
+
+- [配置代码示例](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)
 
 ## 小甜点
 

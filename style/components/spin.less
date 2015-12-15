@@ -1,6 +1,8 @@
-@import "../mixins/index";
-
 @spin-prefix-cls: ant-spin;
+@spin-dot-default            : #999;
+@spin-dot-size               : 8px;
+@spin-dot-size-sm            : @spin-dot-size / 2;
+@spin-dot-size-lg            : @spin-dot-size * 2;
 
 // root of component
 // ------------------------------
@@ -83,8 +85,14 @@
 
 // pulse
 @keyframes antSpinPulse {
-  0%, 80%, 100% { opacity: 0; }
-  40% { opacity: 1; }
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

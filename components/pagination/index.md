@@ -21,7 +21,8 @@
 
 | 参数             | 说明                               | 类型     | 默认值         |
 |------------------|------------------------------------|----------|----------------|
-| current          | 当前页数                           | Number   | 1              |
+| current          | 当前页数                           | Number   | 无             |
+| defaultCurrent   | 默认的当前页数                     | Number   | 1              |
 | total            | 数据总数                           | Number   | 0              |
 | pageSize         | 每页条数                           | Number   | 10             |
 | onChange         | 页码改变的回调，参数是改变后的页码 | Function | noop           |

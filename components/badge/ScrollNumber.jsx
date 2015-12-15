@@ -1,5 +1,6 @@
 import React, { createElement } from 'react';
 import assign from 'object-assign';
+import { isCssAnimationSupported } from 'css-animation';
 
 function getNumberArray(num) {
   return num ?
@@ -98,7 +99,8 @@ class AntScrollNumber extends React.Component {
     const props = assign({}, this.props, {
       className: `${this.props.prefixCls} ${this.props.className}`
     });
-    if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+    const isBrowser = (typeof document !== 'undefined' && typeof window !== 'undefined');
+    if (isBrowser && isCssAnimationSupported) {
       return createElement(
         this.props.component,
         props,

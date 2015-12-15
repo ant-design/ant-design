@@ -1,10 +1,8 @@
 import React from 'react';
 
-require('./style/index.less');
-
 const antd = {
   Affix: require('./components/affix'),
-  Datepicker: require('./components/datepicker'),
+  DatePicker: require('./components/date-picker'),
   Tooltip: require('./components/tooltip'),
   Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
@@ -43,8 +41,8 @@ const antd = {
   Form: require('./components/form'),
   Input: require('./components/input'),
   Calendar: require('./components/calendar'),
-  Timepicker: require('./components/timepicker'),
-  Transfer: require('./components/transfer')
+  Timepicker: require('./components/time-picker'),
+  Transfer: require('./components/transfer'),
 };
 
 antd.version = require('./package.json').version;

@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Menu, Dropdown, Button, Icon } from 'antd';
+import { Menu, Dropdown, Icon } from 'antd';
 const onClick = function({key}) {
   console.log('点击了菜单' + key);
 };
@@ -20,9 +20,9 @@ const menu = <Menu onClick={onClick}>
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
-    <Button>
+    <a className="ant-dropdown-link" href="#">
       鼠标移入，点击菜单 <Icon type="down" />
-    </Button>
+    </a>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-event'));
 ````
