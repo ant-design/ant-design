@@ -1,20 +1,18 @@
+<p align="center">
+  <a href="http://ant.design">
+    <img width="320" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+  </a>
+</p>
+
 # Ant Design [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd) [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 一套企业级的 UI 设计语言和 React 实现。
 
-<p align="center">
-  <a href="http://ant.design">
-    <img width="360" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
-  </a>
-</p>
-
 ## 特性
 
-- 提炼自企业级后台产品的交互语言和视觉风格。
-- [React Component](http://react-component.github.io/badgeboard/) 基础上二次封装的丰富实用的 UI 组件。
-- 基于 React 的组件化开发模式。
-- 背靠 npm 生态圈。
-- 基于 webpack 的调试构建方案，支持 ES6。
+- 提炼和服务企业级中后台产品的交互语言和视觉风格。
+- [React Component](http://react-component.github.io/badgeboard/) 上精心封装的高质量 UI 库。
+- 基于 npm + webpack + babel 的工作流，支持 ES2015。
 
 
 ## 安装
@@ -48,7 +46,7 @@ npm install antd
 
 - [首页](http://ant.design/)
 - [React UI 库](http://ant.design/docs/introduce)
-- [构建调试工具](https://github.com/ant-design/antd-bin)
+- [构建调试工具](https://github.com/ant-tool/xtool/)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [修改记录](CHANGELOG.md)
 - [React 组件](http://react-component.github.io/)

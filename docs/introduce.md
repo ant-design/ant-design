@@ -27,11 +27,9 @@
 
 ## 特性
 
-- Designed as Ant Design.
-- [React Component](http://react-component.github.io/badgeboard/) 上二次封装的丰富实用的 UI 组件。
-- 基于 React 的组件化开发模式。
-- 背靠 npm 生态圈。
-- 基于 webpack 的调试构建方案，支持 ES6。
+- Designed as Ant Design, 提炼和服务企业级中后台产品的交互语言和视觉风格。
+- [React Component](http://react-component.github.io/badgeboard/) 上精心封装的高质量 UI 库。
+- 基于 npm + webpack + babel 的工作流，支持 ES2015。
 
 
 ## 示例
@@ -65,7 +63,7 @@ import 'antd/lib/index.css'; // 样式需要在入口处引用一次
 
 - [首页](http://ant.design/)
 - [文档和组件](http://ant.design/docs/introduce)
-- [构建调试工具](https://github.com/ant-design/antd-bin)
+- [构建调试工具](https://github.com/ant-tool/xtool/)
 - [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [React 模块](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)

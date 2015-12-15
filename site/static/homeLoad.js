@@ -2,6 +2,9 @@
  * Created by jljsj on 15/6/3.
  */
 $(function() {
+  $.ajaxSetup({
+    cache: true
+  });
   var loadData = [
     "https://os.alipayobjects.com/rmsportal/PfhNcINWBAnMIWR.js", // easeljs-0.8.0.min.js
     "https://os.alipayobjects.com/rmsportal/nGFyCGHAblMWsYE.js", // TweenMax.min.js

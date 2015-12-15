@@ -58,7 +58,7 @@
 - 优先使用苹方字体。
 - 统一 size 属性的可选值为 `small` `default` `large`。
 - 开始初步补充[测试用例](https://github.com/ant-design/ant-design/tree/1a3a19793c0791201666fdcf0dbd12a30fad4be0/tests)。
-- 提供主色系更换的方案。[#384](https://github.com/ant-design/ant-design/issues/384)
+- 提供主色系更换的[方案](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)。[#384](https://github.com/ant-design/ant-design/issues/384)
 - 添加[色彩换算工具](http://ant.design/spec/colors#色彩换算工具)。
 - 添加布局和导航规范，以及[常用布局](http://ant.design/spec/layout/)。
 - 文档支持标题和演示的锚点，方便分享文档和演示代码。

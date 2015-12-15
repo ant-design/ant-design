@@ -32,8 +32,7 @@ export default React.createClass({
           <div className={prefixCls + '-list-item-info'}>
             <Icon type="paper-clip" />
             <span className="ant-upload-item-name">{file.name}</span>
-            <Icon type="cross" ref="theCloseBtn"
-              onClick={this.handleClose.bind(this, file)} />
+            <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
           </div>
           { progress }
         </div>

@@ -74,14 +74,18 @@ const Test = React.createClass({
     // 使用受控属性 current，方便外部设置页数
     const pagination = this.state.pagination;
     pagination.current = page;
-    this.setState({ pagination });
+    this.setState({
+      pagination,
+      dataSource: dataSource.clone(),
+    });
   },
   refresh() {
     // 回到第一页
     const pagination = this.state.pagination;
     pagination.current = 1;
     this.setState({
-      dataSource: dataSource.clone()
+      pagination,
+      dataSource: dataSource.clone(),
     });
   },
   changeAndRefresh() {
@@ -90,10 +94,10 @@ const Test = React.createClass({
     pagination.current = 1;
     // 可以修改原来的 dataSource 再发请求
     this.setState({
+      pagination,
       dataSource: dataSource.clone({
         data: { city: 'hz' }
       }),
-      pagination,
     });
   },
   render() {
