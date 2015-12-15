@@ -24,7 +24,6 @@ class Transfer extends Component {
   }
 
   moveTo(direction) {
-    // TODO: 将新移动的元素置顶: 存index至state中
     const { filterKey } = this.props;
     let { dataSource } = this.state;
     if ( direction === 'right' ) {
@@ -89,11 +88,11 @@ class Transfer extends Component {
     const filterText = e.target.value;
     if ( direction === 'left') {
       this.setState({
-        'leftFilter': filterText
+        'leftFilter': filterText,
       });
     } else {
       this.setState({
-        'rightFilter': filterText
+        'rightFilter': filterText,
       });
     }
   }
@@ -117,7 +116,7 @@ class Transfer extends Component {
   }
 
   render() {
-    const { prefixCls, leftConfig, rightConfig, filterKey, extraRender } = this.props;
+    const { prefixCls, leftConfig, rightConfig, filterKey, showSearch, header, body, footer } = this.props;
     const { dataSource, leftFilter, rightFilter } = this.state;
 
     let leftDataSource = [];
@@ -142,7 +141,12 @@ class Transfer extends Component {
             handleFilter={this.handleFilter.bind(this, 'left')}
             handleSelect={this.handleSelect.bind(this)}
             handleSelectAll={this.handleSelectAll.bind(this, 'left')}
-            extraRender={extraRender}/>
+            position={'left'}
+            showSearch={showSearch}
+            header={header}
+            body={body}
+            footer={footer}
+      />
       <Operation rightArrowText={leftConfig.operationText} moveToRight={this.moveTo.bind(this, 'right')}
                  leftArrowText={rightConfig.operationText} moveToLeft={this.moveTo.bind(this, 'left')} />
       <List style={{ width: '40%', display: 'inline-block'}} config={rightConfig} dataSource={rightDataSource}
@@ -150,7 +154,12 @@ class Transfer extends Component {
             handleFilter={this.handleFilter.bind(this, 'right')}
             handleSelect={this.handleSelect.bind(this)}
             handleSelectAll={this.handleSelectAll.bind(this, 'right')}
-            extraRender={extraRender} />
+            position={'right'}
+            showSearch={showSearch}
+            header={header}
+            body={body}
+            footer={footer}
+      />
     </div>;
   }
 }
@@ -175,9 +184,9 @@ Transfer.defaultProps = {
   },
   showSearch: false,
   searchPlaceholder: '请输入搜索内容',
-  extraRender: noop,
-  footer: ()=> {
-  },
+  header: noop,
+  footer: noop,
+  body: noop,
 };
 
 Transfer.propTypes = {

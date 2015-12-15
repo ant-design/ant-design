@@ -69,36 +69,41 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, config, footer, extraRender, dataSource, filter } = this.props;
+    const { prefixCls, config, header, footer, dataSource, filter, customLayout } = this.props;
 
     let globalCheckStatus = this.getGlobalCheckStatus();
 
+    const headerDom = header({...this.props, globalCheckStatus});
+    const footerDom = footer({...this.props, globalCheckStatus});
+    const layout = customLayout({...this.props, globalCheckStatus});
+
     return (<div className={prefixCls} {...this.props}>
-      <div className={`${prefixCls}-header`}>
+      { headerDom ? <div className={`${prefixCls}-header`}>
+        { headerDom }
+      </div> : <div className={`${prefixCls}-header`}>
         {this.renderCheckbox({
           prefixCls: 'ant-tree',
           checked: globalCheckStatus === 'all',
           checkPart: globalCheckStatus === 'part',
           checkable: <span className={`ant-tree-checkbox-inner`}></span>
         })} {dataSource.length} 条{config.title}
-      </div>
+      </div> }
       <div className={`${prefixCls}-body`}>
-        <Search onChange={this.handleFilter.bind(this)} value={filter} />
-        <ul>
-          {dataSource.map((item)=> {
-            return <li>
-              <label>
-                <Checkbox checked={item.checked} onChange={this.handleSelect.bind(this, item)} />
-                { item.title }
-              </label>
-              <div className="extra-holder">
-                {extraRender(item)}
-              </div>
-            </li>;})}
-        </ul>
+        { layout ? layout : <div>
+          <Search onChange={this.handleFilter.bind(this)} value={filter} />
+          <ul>
+            {dataSource.map((item)=> {
+              return <li>
+                <label>
+                  <Checkbox checked={item.checked} onChange={this.handleSelect.bind(this, item)} />
+                  { item.title }
+                </label>
+              </li>;})}
+          </ul>
+        </div>}
       </div>
-      { footer ? <div className={`${prefixCls}-footer`}>
-        { footer }
+      { footerDom ? <div className={`${prefixCls}-footer`}>
+        { footerDom }
       </div> : null }
     </div>);
   }
@@ -107,15 +112,20 @@ class TransferList extends Component {
 TransferList.defaultProps = {
   prefixCls: 'ant-transfer-list',
   dataSource: [],
+  defaultDataSource: [],
+  handleFilter: noop,
+  handleSelect: noop,
   onChange: noop,
-  footer: [],
-  extraRender: noop,
+  //advanced
+  header: noop,
+  footer: noop,
+  customLayout: noop,
 };
 
 TransferList.propTypes = {
   prefixCls: PropTypes.string,
   dataSource: PropTypes.array,
-  footer: PropTypes.array,
+  footer: PropTypes.func,
   searchPlaceholder: PropTypes.string,
   handleFilter: PropTypes.func,
   handleSelect: PropTypes.func,

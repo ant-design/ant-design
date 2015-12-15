@@ -7,22 +7,8 @@
 ---
 
 ````jsx
-import { Transfer, Button, Menu, Dropdown, Icon } from 'antd';
+import { Transfer, Button } from 'antd';
 const container = document.getElementById('components-transfer-demo-basic');
-
-const menu = <Menu>
-  <Menu.Item>
-    <a target="_blank" href="http://www.alipay.com/">编辑</a>
-  </Menu.Item>
-</Menu>;
-
-function makeDropdown(item) {
-  return <Dropdown overlay={menu}>
-           <Button type="small">
-             {item.title} <Icon type="down" />
-           </Button>
-         </Dropdown>;
-}
 
 const App = React.createClass({
   getInitialState() {
@@ -51,7 +37,7 @@ const App = React.createClass({
   },
   render() {
     return <div>
-      <Transfer dataSource={this.state.mockData} extraRender={makeDropdown} />
+      <Transfer dataSource={this.state.mockData} />
       <Button onClick={this.getMock}>刷新数据</Button>
     </div>;
   }
