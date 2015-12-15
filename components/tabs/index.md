@@ -12,7 +12,11 @@
 
 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-> [RadioButton](/components/radio#demo-radiobutton) 可以作为更次级的页签来使用。
+Ant Design 提供了三级选项卡，分别用于不同的场景。
+
+- 卡片式的页签，用于容器顶部。
+- 标准线条式页签，用于容器内部的主功能切换。
+- [RadioButton](/components/radio/#demo-radiobutton) 作为更次级的页签来使用。
 
 ## API
 
@@ -25,6 +29,8 @@
 | onChange         | 切换面板的回调                               | Function | 无            |
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
 | tabBarExtraContent | tab bar 上额外的元素                       | React Node | 无          |
+| type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型   | String   | 'line'      |
+| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | Function(targetKey, action) | 无 |
 
 ### Tabs.TabPane
 
