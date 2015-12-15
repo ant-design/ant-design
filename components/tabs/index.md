@@ -25,9 +25,8 @@
 | onChange         | 切换面板的回调                               | Function | 无            |
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
 | tabBarExtraContent | tab bar 上额外的元素                       | React Node | 无          |
-| type             | 页签的基本样式，可选 `line` 或 `card` 类型   | String   | 'line'        |
-| editable         | 页签可关闭和新增，在 `type="card"` 时有效    | Boolean  | false         |
-| newTabPane       | 新建页签的初始模板，在 `editable` 时有效     | Function | 无            |
+| type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型   | String   | 'line'      |
+| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | Function(targetKey, action) | 无 |
 
 ### Tabs.TabPane
 

@@ -1,89 +1,46 @@
-import Tabs, { TabPane } from 'rc-tabs';
+import Tabs from 'rc-tabs';
 import React, { cloneElement } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
-let newTabIndex = 0;
 
 class AntTabs extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      tabs: props.children,
-      activeKey: props.activeKey || props.defaultActiveKey,
-    };
     [
       'createNewTab',
       'removeTab',
       'handleChange',
     ].forEach((method) => this[method] = this[method].bind(this));
   }
-  componentWillReceiveProps(nextProps) {
-    if ('activeKey' in nextProps) {
-      this.setState({
-        activeKey: nextProps.activeKey,
-      });
-    }
+  createNewTab(targetKey) {
+    this.props.onEdit(targetKey, 'add');
   }
-  createNewTab() {
-    const tabs = this.state.tabs;
-    let newTab = this.props.newTabPane();
-    const newTabKey = newTab.key || ('newTab' + newTabIndex++);
-    newTab = cloneElement(newTab, {
-      key: newTabKey,
-    });
-    tabs.push(newTab);
-    this.setState({
-      tabs,
-      activeKey: newTabKey,
-    });
-  }
-  removeTab(key, e) {
-    if (!key) {
+  removeTab(targetKey, e) {
+    e.stopPropagation();
+    if (!targetKey) {
       return;
     }
-    e.stopPropagation();
-    let foundIndex = 0;
-    let activeKey = this.state.activeKey;
-    const tabs = this.state.tabs.filter((tab, index) => {
-      if (tab.key !== key) {
-        return true;
-      } else {
-        foundIndex = index;
-        return false;
-      }
-    });
-    if (activeKey === key) {
-      foundIndex = foundIndex - 1;
-      foundIndex = foundIndex >= 0 ? foundIndex : 0;
-      activeKey = tabs[foundIndex].key;
-    }
-    this.setState({
-      tabs,
-      activeKey,
-    });
+    this.props.onEdit(targetKey, 'remove');
   }
   handleChange(activeKey) {
-    if (!('activeKey' in this.props)) {
-      this.setState({ activeKey });
-    }
     this.props.onChange(activeKey);
   }
   render() {
     let { prefixCls, size, tabPosition, animation, type,
-          children, editable, tabBarExtraContent } = this.props;
+          children, tabBarExtraContent } = this.props;
     let className = classNames({
       [this.props.className]: !!this. props.className,
       [prefixCls + '-mini']: size === 'small' || size === 'mini',
       [prefixCls + '-vertical']: tabPosition === 'left' || tabPosition === 'right',
-      [prefixCls + '-' + type]: true,
+      [prefixCls + '-card']: type.indexOf('card') >= 0,
     });
-    if (tabPosition === 'left' || tabPosition === 'right' || type === 'card') {
+    if (tabPosition === 'left' || tabPosition === 'right' || type.indexOf('card') >= 0) {
       animation = null;
     }
     // only card type tabs can be added and closed
-    if (type === 'card' && editable) {
-      if (this.state.tabs.length > 1) {
-        children = this.state.tabs.map((child, index) => {
+    if (type === 'editable-card') {
+      if (children.length > 1) {
+        children = children.map((child, index) => {
           return cloneElement(child, {
             tab: <div>
               {child.props.tab}
@@ -92,8 +49,6 @@ class AntTabs extends React.Component {
             key: child.key || index,
           });
         });
-      } else {
-        children = this.state.tabs;
       }
       // Add new tab handler
       tabBarExtraContent = <span>
@@ -105,12 +60,10 @@ class AntTabs extends React.Component {
     tabBarExtraContent = <div className={prefixCls + '-extra-content'}>
       {tabBarExtraContent}
     </div>;
-    let activeKey = this.state.activeKey || children[0].key;
     return <Tabs {...this.props}
       className={className}
       tabBarExtraContent={tabBarExtraContent}
       onChange={this.handleChange}
-      activeKey={activeKey}
       animation={animation}>{children}</Tabs>;
   }
 }
@@ -119,12 +72,9 @@ AntTabs.defaultProps = {
   prefixCls: 'ant-tabs',
   size: 'default',
   animation: 'slide-horizontal',
-  type: 'line', // or 'card'
-  editable: false,
-  newTabPane() {
-    return <TabPane tab="New Tab" />;
-  },
+  type: 'line', // or 'card' 'editable-card'
   onChange() {},
+  onEdit() {},
 };
 
 AntTabs.TabPane = Tabs.TabPane;
