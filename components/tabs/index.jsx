@@ -53,7 +53,9 @@ class AntTabs extends React.Component {
       }
     });
     if (activeKey === key) {
-      activeKey = tabs[foundIndex - 1].key;
+      foundIndex = foundIndex - 1;
+      foundIndex = foundIndex >= 0 ? foundIndex : 0;
+      activeKey = tabs[foundIndex].key;
     }
     this.setState({
       tabs,
@@ -94,10 +96,10 @@ class AntTabs extends React.Component {
         children = this.state.tabs;
       }
       // Add new tab handler
-      tabBarExtraContent = [
-        <Icon type="plus" className={prefixCls + '-new-tab'} onClick={this.createNewTab} />,
-        tabBarExtraContent,
-      ];
+      tabBarExtraContent = <span>
+        <Icon type="plus" className={prefixCls + '-new-tab'} onClick={this.createNewTab} />
+        {tabBarExtraContent}
+      </span>;
     }
     // Wrap the extra content
     tabBarExtraContent = <div className={prefixCls + '-extra-content'}>

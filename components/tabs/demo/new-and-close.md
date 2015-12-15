@@ -20,9 +20,9 @@ function newTabPane() {
 
 ReactDOM.render(
   <Tabs onChange={callback} type="card" editable newTabPane={newTabPane}>
-    <TabPane tab="卡一" key="1">选项卡一内容</TabPane>
-    <TabPane tab="卡二" key="2">选项卡二内容</TabPane>
-    <TabPane tab="卡三" key="3">选项卡三内容</TabPane>
+    <TabPane tab="选项卡" key="1">选项卡一内容</TabPane>
+    <TabPane tab="选项卡" key="2">选项卡二内容</TabPane>
+    <TabPane tab="选项卡" key="3">选项卡三内容</TabPane>
   </Tabs>
 , document.getElementById('components-tabs-demo-new-and-close'));
 ````
