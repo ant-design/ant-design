@@ -19,7 +19,7 @@ const Demo = React.createClass({
     ];
     return {
       activeKey: panes[0].key,
-      panes
+      panes: panes,
     };
   },
   onChange(activeKey) {
@@ -31,11 +31,7 @@ const Demo = React.createClass({
   add(targetKey) {
     const panes = this.state.panes;
     const activeKey = 'newTab' + this.newTabIndex++;
-    panes.push(
-      <TabPane tab="新建页签" key={activeKey}>
-        新页面模板
-      </TabPane>
-    );
+    panes.push(<TabPane tab="新建页签" key={activeKey}>新页面</TabPane>);
     this.setState({ panes, activeKey });
   },
   remove(targetKey) {
