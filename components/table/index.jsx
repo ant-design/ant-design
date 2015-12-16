@@ -306,17 +306,16 @@ let AntTable = React.createClass({
   renderRowSelection() {
     let columns = this.props.columns.concat();
     if (this.props.rowSelection) {
-      let data = this.getCurrentPageData();
+      let data = this.getCurrentPageData().filter((item) => {
+        if (this.props.rowSelection.getCheckboxProps) {
+          return !this.props.rowSelection.getCheckboxProps(item).disabled;
+        }
+        return true;
+      });
       let checked;
       if (!data.length) {
         checked = false;
       } else {
-        data = data.filter((item) => {
-          if (this.props.rowSelection.getCheckboxProps) {
-            return !this.props.rowSelection.getCheckboxProps(item).disabled;
-          }
-          return true;
-        });
         checked = this.state.selectionDirty
           ? data.every((item, i) =>
               this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
