@@ -8,7 +8,6 @@
 
 ````jsx
 import { Checkbox, Button } from 'antd';
-const container = document.getElementById('components-checkbox-demo-controller');
 
 const App = React.createClass({
   getInitialState() {
@@ -56,5 +55,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, container);
+ReactDOM.render(<App />, document.getElementById('components-checkbox-demo-controller'));
 ````

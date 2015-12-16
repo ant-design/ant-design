@@ -9,11 +9,10 @@
 ````jsx
 import { Steps } from 'antd';
 const Step = Steps.Step;
-const container = document.getElementById('components-steps-demo-icon');
 
 ReactDOM.render(<Steps>
   <Step status="finish" title="步骤1" icon="cloud" />
   <Step status="process" title="步骤2" icon="apple" />
   <Step status="wait" title="步骤3" icon="github" />
-</Steps>, container);
+</Steps>, document.getElementById('components-steps-demo-icon'));
 ````

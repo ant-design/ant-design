@@ -15,7 +15,6 @@
 ````jsx
 import { Steps, Button } from 'antd';
 const Step = Steps.Step;
-const container = document.getElementById('components-steps-demo-step-next');
 const array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
 const steps = array.map(function(item, i) {
   return {
@@ -54,5 +53,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, container);
+ReactDOM.render(<App />, document.getElementById('components-steps-demo-step-next'));
 ````
