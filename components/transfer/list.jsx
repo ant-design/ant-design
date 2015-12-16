@@ -16,8 +16,8 @@ class TransferList extends Component {
     this.props.handleSelectAll(this.getGlobalCheckStatus());
   }
 
-  handleSelect(selectedItem, e) {
-    this.props.handleSelect(selectedItem, e.target.checked);
+  handleSelect(selectedItem) {
+    this.props.handleSelect(selectedItem, !selectedItem.checked);
   }
 
   handleFilter(e) {
@@ -69,13 +69,14 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, config, header, footer, dataSource, filter, customLayout } = this.props;
+    const { prefixCls, config, header, footer, dataSource, filter, body } = this.props;
 
     let globalCheckStatus = this.getGlobalCheckStatus();
 
+    // Custom Layout
     const headerDom = header({...this.props, globalCheckStatus});
     const footerDom = footer({...this.props, globalCheckStatus});
-    const layout = customLayout({...this.props, globalCheckStatus});
+    const bodyDom = body({...this.props, globalCheckStatus});
 
     return (<div className={prefixCls} {...this.props}>
       { headerDom ? <div className={`${prefixCls}-header`}>
@@ -86,22 +87,21 @@ class TransferList extends Component {
           checked: globalCheckStatus === 'all',
           checkPart: globalCheckStatus === 'part',
           checkable: <span className={`ant-tree-checkbox-inner`}></span>
-        })} {dataSource.length} 条{config.title}
+        })} {dataSource.length} 条
+        <span className={`${prefixCls}-header-title`}>{config.title}</span>
       </div> }
-      <div className={`${prefixCls}-body`}>
-        { layout ? layout : <div>
-          <Search onChange={this.handleFilter.bind(this)} value={filter} />
-          <ul>
-            {dataSource.map((item)=> {
-              return <li>
-                <label>
-                  <Checkbox checked={item.checked} onChange={this.handleSelect.bind(this, item)} />
-                  { item.title }
-                </label>
-              </li>;})}
-          </ul>
-        </div>}
-      </div>
+      { bodyDom ? bodyDom : <div className={`${prefixCls}-body`}>
+        <div className={`${prefixCls}-body-search-wrapper`}>
+          <Search className={`${prefixCls}-body-search-bar`} onChange={this.handleFilter.bind(this)} value={filter} />
+        </div>
+        <ul className="">
+          {dataSource.map((item)=> {
+            return <li onClick={this.handleSelect.bind(this, item)}>
+                <Checkbox checked={item.checked} />
+                { item.title }
+            </li>;})}
+        </ul>
+      </div>}
       { footerDom ? <div className={`${prefixCls}-footer`}>
         { footerDom }
       </div> : null }
@@ -119,7 +119,7 @@ TransferList.defaultProps = {
   //advanced
   header: noop,
   footer: noop,
-  customLayout: noop,
+  body: noop,
 };
 
 TransferList.propTypes = {

@@ -13,13 +13,13 @@ class Search extends Component {
   }
 
   render() {
-    const {placeholder, value} = this.props;
-    return <input placeholder={placeholder} className="ant-input" value={ value } ref="input" onChange={this.handleChange.bind(this)}/>;
+    const {placeholder, value, prefixCls} = this.props;
+    return <input placeholder={placeholder} className={ prefixCls + ' ant-input' } value={ value } ref="input" onChange={this.handleChange.bind(this)}/>;
   }
 }
 
 Search.defaultProps = {
-  prefixCls: 'ant-transfer-search',
+  prefixCls: 'ant-transfer-list-search',
   placeholder: '请输入搜索内容',
   onChange: noop,
   onDelete: noop,

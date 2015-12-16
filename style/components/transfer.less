@@ -5,38 +5,63 @@
   &-list {
 
     border: 1px solid #e9e9e9;
+    display: inline-block;
     border-radius: 6px;
+    width: 160px;
+    height: 191px;
 
     &-header {
-      padding: 13px 20px 14px 20px;
+      padding: 7px 14px;
       border-radius: 5px 5px 0 0;
       background: #fff;
       color: #666;
       border-bottom: 1px solid #e9e9e9;
+
+      &-title {
+        float: right;
+      }
     }
 
     &-body {
       font-size: 12px;
       line-height: 1.5;
-      height: 190px;
-      overflow-y: scroll;
+      position: relative;
+      padding-top: 30px;
+      height: 150px;
+
+      &-search-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 28px;
+        padding: 4px;
+        width: 100%;
+
+        &:after {
+        //"\E631" cross-circle
+          content: "\E68C";
+          color: #ccc;
+          position: absolute;
+          top: 2px;
+          right: 2px;
+          font-family: "anticon";
+          width: 32px;
+          height: 32px;
+          line-height: 32px;
+          text-align: center;
+          font-size: 14px;
+        }
+
+      }
 
       ul {
+        height: 100%;
+        overflow: auto;
         li {
           padding: 7px 16px;
-
-          .extra-holder {
-            display: none;
-          }
-
           &:hover {
             cursor: pointer;
             background-color: #eef9fe;
-
-            .extra-holder {
-              float: right;
-              display: inline-block;
-            }
           }
         }
       }
@@ -47,6 +72,18 @@
       padding: 8px 20px 16px 10px;
       text-align: right;
       border-radius: 0 0 5px 5px;
+    }
+  }
+
+  &-operation {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    margin: 80px 8px;
+
+    button {
+      float: left;
+      clear: both;
     }
   }
 }

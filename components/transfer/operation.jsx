@@ -6,11 +6,11 @@ function noop() {
 
 class TransferOperation extends Component {
   render() {
-    const { moveToLeft, moveToRight, leftArrowText, rightArrowText } = this.props;
+    const { moveToLeft, moveToRight, leftArrowText, rightArrowText, leftActive, rightActive, prefixCls } = this.props;
 
-    return <div style={{ width: '20%', display: 'inline-block'}}>
-      <Button onClick={moveToRight}>{rightArrowText + '>'}</Button>
-      <Button onClick={moveToLeft}>{'<' + leftArrowText}</Button>
+    return <div className={`${prefixCls}`}>
+      <Button style={{ 'margin-bottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}>{rightArrowText + '>'}</Button>
+      <Button disabled={ !leftActive ? 'disabled' : false } onClick={moveToLeft}>{'<' + leftArrowText}</Button>
     </div>;
   }
 }

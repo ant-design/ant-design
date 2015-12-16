@@ -23,9 +23,21 @@ class Transfer extends Component {
     });
   }
 
+  checkDirection(direction) {
+    //const { filterKey } = this.props;
+    let { dataSource } = this.state;
+
+    dataSource.forEach((data) => {
+      //if ( !data[filterKey] && data.checked ) {
+      //}
+    });
+    return true;
+  }
+
   moveTo(direction) {
     const { filterKey } = this.props;
     let { dataSource } = this.state;
+    // TODO: 验证是否可点
     if ( direction === 'right' ) {
       dataSource.forEach((data) => {
        // 左边向右移动
@@ -122,6 +134,9 @@ class Transfer extends Component {
     let leftDataSource = [];
     let rightDataSource = [];
 
+    let leftActive = false;
+    let rightActive = false;
+
     dataSource.map((item)=> {
       // filter item
       if ( item[filterKey] ) {
@@ -136,25 +151,27 @@ class Transfer extends Component {
     });
 
     return <div className={prefixCls}>
-      <List style={{ width: '40%', display: 'inline-block'}} config={leftConfig} dataSource={leftDataSource}
+      <List config={leftConfig}
+            dataSource={leftDataSource}
             filter={leftFilter}
             handleFilter={this.handleFilter.bind(this, 'left')}
             handleSelect={this.handleSelect.bind(this)}
             handleSelectAll={this.handleSelectAll.bind(this, 'left')}
-            position={'left'}
+            position="left"
             showSearch={showSearch}
             header={header}
             body={body}
             footer={footer}
       />
-      <Operation rightArrowText={leftConfig.operationText} moveToRight={this.moveTo.bind(this, 'right')}
-                 leftArrowText={rightConfig.operationText} moveToLeft={this.moveTo.bind(this, 'left')} />
-      <List style={{ width: '40%', display: 'inline-block'}} config={rightConfig} dataSource={rightDataSource}
+      <Operation rightActive={rightActive} rightArrowText={leftConfig.operationText} moveToRight={this.moveTo.bind(this, 'right')}
+                 leftActive={leftActive} leftArrowText={rightConfig.operationText} moveToLeft={this.moveTo.bind(this, 'left')} />
+      <List config={rightConfig}
+            dataSource={rightDataSource}
             filter={rightFilter}
             handleFilter={this.handleFilter.bind(this, 'right')}
             handleSelect={this.handleSelect.bind(this)}
             handleSelectAll={this.handleSelectAll.bind(this, 'right')}
-            position={'right'}
+            position="right"
             showSearch={showSearch}
             header={header}
             body={body}
