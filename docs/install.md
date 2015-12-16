@@ -9,7 +9,7 @@
 
 **我们推荐使用 npm 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
-可以通过 npm 直接安装到本地，使用 `require` 或 `import` 进行引用。
+可以通过 npm 直接安装到项目中，使用 `import` 或 `require` 进行引用。
 
 稳定版 <span class="versions" id="stable-version"></span>：
 
@@ -32,26 +32,15 @@ $ npm install antd@beta --save
 
 ## 开发工具
 
-我们提供了开发构建的命令行工具，可以安装到全局直接使用。
+我们提供了 React 前端应用开发的 [脚手架工具](https://github.com/ant-design/antd-init)，可以安装到全局直接使用。
 
 ```bash
-$ npm install antd-bin -g
+$ npm install antd-init -g
 ```
 
-或者安装到仓库下，使用 `package.json` 的 `scripts` 字段来配置命令：
+在空目录运行 `antd-init` 可以初始化一个 antd 的前端应用。
 
-```bash
-$ npm install antd-bin --save-dev
-```
-
-```json
-"scripts": {
-  "dev": "antd server",
-  "build": "antd build"
-}
-```
-
-> 更多[使用方式](https://github.com/ant-tool/xtool/)。
+> 更多 [使用方式](https://github.com/ant-tool/xtool/)。
 
 <style>
 .versions {
@@ -67,15 +56,10 @@ $ npm install antd-bin --save-dev
 
 <script>
 $('#latest-version').html(antdVersion.latest);
-$('#latest-links a').each(function(i, item) {
-  $(item).attr('href', $(item).attr('href').replace('dist/antd', 'dist/antd-' + antdVersion.latest));
-});
 
 if (antdVersion.stable) {
   $('#stable-version').html(antdVersion.stable);
-  $('#stable-link').attr('href', 'https://github.com/ant-design/ant-design/releases/tag/' + antdVersion.stable);
 } else {
   $('#stable-version').html('暂无');
-  $('#stable-link').hide();
 }
 </script>
