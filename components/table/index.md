@@ -33,13 +33,16 @@ const dataSource = [{
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
+  key: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
+  key: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
+  key: 'age',
 }];
 
 <Table dataSource={dataSource} columns={columns} />
@@ -72,14 +75,14 @@ const columns = [{
 | 参数       | 说明                       | 类型            |  可选值             | 默认值  |
 |------------|----------------------------|-----------------|---------------------|---------|
 | title      | 列头显示文字               | String or React.Element |             |         |
-| dataIndex  | 列数据在 data 中对应的 key | String          |                     |         |
-| colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |                     |         |
-| key        | React 需要的 key           | String          |                     |         |
+| key        | React 需要的 key，建议设置 | String          |                     |         |
+| dataIndex  | 列数据在数据项中对应的 key | String          |                     |         |
 | render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |            |         |
 | filters    | 表头的筛选菜单项           | Array           |                     |         |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                     |         |
 | filterMultiple | 是否多选 | Boolean    |                                        | true    |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean |  | 无 |
+| colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |                     |         |
 | width      | 列宽度 | String or Number |                                        | 无      |
 | className  | 列的 className             | String          |                     | 无      |
 
