@@ -32,7 +32,7 @@
 .iconfont-size-under-12px(@size, @rotate: 0deg) {
   display: inline-block;
   @font-scale: unit(@size/@font-size-base);
-  font-size: @font-scale;
+  font-size: @font-size-base;
   font-size: ~"@{size} \9"; // ie8-9
   transform: scale(@font-scale) rotate(@rotate);
   .ie-rotate-via-degrees(@rotate);

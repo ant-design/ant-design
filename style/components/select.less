@@ -237,7 +237,7 @@
       &:hover {
         padding: 0 20px 0 10px;
         .@{select-prefix-cls}-selection__choice__remove {
-          transform: scale(0.75);
+          transform: scale(0.67);
           opacity: 1;
         }
       }
@@ -254,12 +254,12 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
-      color: #919191;
+      color: #999;
       line-height: 20px;
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      .iconfont-size-under-12px(8px);
+      .iconfont-size-under-12px(12px);
       position: absolute;
       right: 4px;
       padding: 0 0 0 8px;
@@ -268,7 +268,7 @@
       transition: opacity @duration, transform @duration;
       transform-origin: 50%;
       &:hover {
-        color: #333;
+        color: #404040;
       }
 
       &:before {
