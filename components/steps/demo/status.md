@@ -9,7 +9,6 @@
 ````jsx
 import { Steps } from 'antd';
 const Step = Steps.Step;
-const container = document.getElementById('components-steps-demo-status');
 
 const steps = [{
   status: 'finish',
@@ -33,5 +32,5 @@ const steps = [{
   );
 });
 
-ReactDOM.render(<Steps>{steps}</Steps>, container);
+ReactDOM.render(<Steps>{steps}</Steps>, document.getElementById('components-steps-demo-status'));
 ````

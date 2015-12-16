@@ -8,7 +8,6 @@
 
 ````jsx
 import { Timeline } from 'antd';
-const container = document.getElementById('components-timeline-demo-basic');
 
 ReactDOM.render(
 <Timeline>
@@ -17,5 +16,5 @@ ReactDOM.render(
   <Timeline.Item>技术测试异常 2015-09-01</Timeline.Item>
   <Timeline.Item>网络异常正在修复 2015-09-01</Timeline.Item>
 </Timeline>
-, container);
+, document.getElementById('components-timeline-demo-basic'));
 ````
