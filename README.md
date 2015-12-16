@@ -33,7 +33,7 @@ Import style:
 import 'antd/lib/index.css';  // or 'antd/style/index.less'
 ```
 
-Use antd on demand by `import DatePicker from 'antd/lib/date-picker';` or use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd).
+Use components on demand by writing as `import DatePicker from 'antd/lib/date-picker'` or use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd).
 
 
 ## Browser Support
