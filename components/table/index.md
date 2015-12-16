@@ -59,7 +59,8 @@ const columns = [{
 | dataSource    | 数据数组                 | Array           |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
 | rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
-| expandIconAsCell  | 设置展开 Icon 是否单独一列 | Boolean |                     |    true    |
+| expandedRowRender  | 额外的列展开元素 | Function |                     | - |
+| defaultExpandedRowKeys | 默认展开的列 | Array |                     | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
 | loading       | 页面是否加载中 | Boolean |                     | false      |
 | locale        | 设置排序、过滤按钮的文字或 `title` | Object         | | [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
