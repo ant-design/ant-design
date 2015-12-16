@@ -15,7 +15,8 @@ function noop() {
 const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
-  filterReset: '重置'
+  filterReset: '重置',
+  emptyText: '暂无数据',
 };
 
 let AntTable = React.createClass({
@@ -511,6 +512,7 @@ let AntTable = React.createClass({
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
+    let locale = objectAssign({}, defaultLocale, this.props.locale);
 
     let classString = classNames({
       [`ant-table-${this.props.size}`]: true,
@@ -527,7 +529,7 @@ let AntTable = React.createClass({
     let emptyClass = '';
     if (!data || data.length === 0) {
       emptyText = <div className="ant-table-placeholder">
-        <Icon type="frown"/>暂无数据
+        <Icon type="frown"/>{locale.emptyText}
       </div>;
       emptyClass = ' ant-table-empty';
     }
