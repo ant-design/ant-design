@@ -36,7 +36,7 @@
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | false |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
 | optionFilterProp | 输入项过滤对应的 option 属性 | string | value |
 | combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
