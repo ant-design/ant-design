@@ -17,9 +17,10 @@ const AntTimePicker = React.createClass({
       },
       open: false,
       disabled: false,
-      hourOptions: undefined,
-      minuteOptions: undefined,
-      secondOptions: undefined,
+      disabledHours: undefined,
+      disabledMinutes: undefined,
+      disabledSeconds: undefined,
+      hideDisabledOptions: false,
       size: 'default',
       placement: 'bottomLeft',
       transitionName: 'slide-up',
@@ -91,6 +92,7 @@ const AntTimePicker = React.createClass({
     if (props.format.indexOf('HH') < 0) {
       props.showHour = false;
     }
+
     return (
       <TimePicker
         {...props}
