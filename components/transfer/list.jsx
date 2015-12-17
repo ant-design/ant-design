@@ -24,6 +24,10 @@ class TransferList extends Component {
     this.props.handleFilter(e);
   }
 
+  handleClear() {
+    this.props.handleClear();
+  }
+
   getGlobalCheckStatus() {
     let { dataSource } = this.props;
 
@@ -92,7 +96,7 @@ class TransferList extends Component {
       </div> }
       { bodyDom ? bodyDom : <div className={`${prefixCls}-body`}>
         <div className={`${prefixCls}-body-search-wrapper`}>
-          <Search className={`${prefixCls}-body-search-bar`} onChange={this.handleFilter.bind(this)} value={filter} />
+          <Search className={`${prefixCls}-body-search-bar`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
         </div>
         <ul className="">
           {dataSource.map((item)=> {

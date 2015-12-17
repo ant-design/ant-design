@@ -24,14 +24,25 @@ class Transfer extends Component {
   }
 
   checkDirection(direction) {
-    //const { filterKey } = this.props;
+    const { filterKey } = this.props;
     let { dataSource } = this.state;
 
-    dataSource.forEach((data) => {
-      //if ( !data[filterKey] && data.checked ) {
-      //}
-    });
-    return true;
+    let result = false;
+
+    if ( direction === 'right' ) {
+      dataSource.forEach((data) => {
+        if ( !data[filterKey] && data.checked ) {
+          result = true;
+        }
+      });
+    } else {
+      dataSource.forEach((data) => {
+        if ( data[filterKey] && data.checked ) {
+          result = true;
+        }
+      });
+    }
+    return result;
   }
 
   moveTo(direction) {
@@ -109,6 +120,18 @@ class Transfer extends Component {
     }
   }
 
+  handleClear(direction) {
+    if ( direction === 'left') {
+      this.setState({
+        'leftFilter': '',
+      });
+    } else {
+      this.setState({
+        'rightFilter': '',
+      });
+    }
+  }
+
   matchFilter(text, filterText) {
     const regex = new RegExp(filterText);
     return text.match(regex);
@@ -134,8 +157,8 @@ class Transfer extends Component {
     let leftDataSource = [];
     let rightDataSource = [];
 
-    let leftActive = false;
-    let rightActive = false;
+    let leftActive = this.checkDirection('left');
+    let rightActive = this.checkDirection('right');
 
     dataSource.map((item)=> {
       // filter item
@@ -155,6 +178,7 @@ class Transfer extends Component {
             dataSource={leftDataSource}
             filter={leftFilter}
             handleFilter={this.handleFilter.bind(this, 'left')}
+            handleClear={this.handleClear.bind(this, 'left')}
             handleSelect={this.handleSelect.bind(this)}
             handleSelectAll={this.handleSelectAll.bind(this, 'left')}
             position="left"
@@ -169,6 +193,7 @@ class Transfer extends Component {
             dataSource={rightDataSource}
             filter={rightFilter}
             handleFilter={this.handleFilter.bind(this, 'right')}
+            handleClear={this.handleClear.bind(this, 'right')}
             handleSelect={this.handleSelect.bind(this)}
             handleSelectAll={this.handleSelectAll.bind(this, 'right')}
             position="right"

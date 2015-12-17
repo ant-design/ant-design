@@ -14,7 +14,13 @@ class Search extends Component {
 
   render() {
     const {placeholder, value, prefixCls} = this.props;
-    return <input placeholder={placeholder} className={ prefixCls + ' ant-input' } value={ value } ref="input" onChange={this.handleChange.bind(this)}/>;
+    return <div>
+      <input placeholder={placeholder} className={ prefixCls + ' ant-input' } value={ value } ref="input" onChange={this.handleChange.bind(this)}/>
+      { value && value.length > 0 ?
+        <a href="javascirpt:;" className={ prefixCls + '-action' } onClick={this.props.handleClear}><i className="anticon anticon-cross-circle"></i></a>
+        : <span className={ prefixCls + '-action' }><i className="anticon anticon-search"></i></span>
+      }
+    </div>;
   }
 }
 
