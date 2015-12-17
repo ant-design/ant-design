@@ -27,14 +27,14 @@ ReactDOM.render(
   padding: 24px;
 }
 
-.card-container .ant-tabs-content {
+.card-container > .ant-tabs-card .ant-tabs-content {
   background: #fff;
   padding: 16px;
   height: 120px;
   margin-top: -16px;
 }
-.card-container .ant-tabs-tabs-bar,
-.card-container .ant-tabs.ant-tabs-card .ant-tabs-tab-active {
+.card-container > .ant-tabs-card .ant-tabs-tabs-bar,
+.card-container > .ant-tabs-card .ant-tabs-tab-active {
   border-color: #fff;
 }
 ````
