@@ -51,5 +51,13 @@
     &.@{timepicker-prefix-cls}-panel-select-option-selected {
       background: tint(@primary-color, 80%);
     }
+
+    &.@{timepicker-prefix-cls}-panel-select-option-disabled {
+      color: @btn-disable-color;
+      &:hover {
+        background: transparent;
+        cursor: @cursor-disabled;
+      }
+    }
   }
 }

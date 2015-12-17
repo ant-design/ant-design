@@ -1,6 +1,6 @@
 # 受控组件
 
-- order: 6
+- order: 1
 
 value 和 onChange 需要配合使用。
 
