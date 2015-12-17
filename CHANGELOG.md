@@ -4,6 +4,53 @@
 
 ---
 
+## 0.11.0 `2015-12-17`
+
+### 设计
+
+最重要的消息莫过于，设计资源开放 [下载](TODO) 啦！
+
+- 新增 [吊顶规范](TODO)。
+- 新增 [通用搜索框](TODO) 样式。
+- Button 新增虚线型按钮，并把圆角调整为 6px。
+- Table 新增 [紧凑型表格](TODO)。
+- Switch 新增小尺寸。
+- Icon 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
+
+- 调整警告和错误状态色。
+- Select.Option 被选中样式调整。
+- Table 调整 filter 的样式，trigger 图标改为漏斗，小勾改为 Checkbox。[演示](TODO)
+- Alert 默认不显示 Icon，且对于设置了 `description` 的情况，Icon 改为描线图标。
+- Tabs 调整 [新增和关闭页签](TODO) 的样式。
+
+
+### 组件
+
+`0.11.0` 在为组件进行了大量的视觉、交互优化的同时，也给组件添加了不少功能。
+
+- 新增 [Transfer](TODO) 组件。
+- Modal、Popconfirm、Table 支持国际化。
+- Dropdown 新增 `Dropdown.Button`，左边是普通按钮，右边是打开额外相关功能菜单的 trigger。[演示](TODO)
+- Menu 新增 `Menu.ItemGroup` 用于把菜单项分组。
+- Badge 现在可以设置封顶的数字。[演示](TODO)
+- Upload 上传文件为图片时，可以显示缩略图。[演示](TODO)
+- Slider 双滑块交互修改，一个滑块在拖动时可以直接跨过另一滑块。设置 `allowCross={false}` 可以禁用该行为。
+- Breadcrumb 可以自定义分隔符。
+- Popconfirm 可以控制是否显示。[演示](TODO)
+- Tabs `tabPosition` 现在支持四个位置 `top|right|bottom|left`。
+
+- Timepicker
+  - 重命名为 TimePicker。
+  - 移除 `hourOptions` `minuteOptions` `secondOptions`，分别提供对应的替代功能 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](TODO)
+- Datepicker
+  - 重命名为 DatePicker。
+  - 改为受控组件。
+  - 新增 [日期范围选择控件](TODO)。
+- Table 移除 `dataSource` 远程模式。
+- Tabs 移除 `animation` 属性，并且当 `tabPosition` 为 `left` `right` 时，无切换动画。
+- 移除默认加载的样式文件，样式需要独立加载。
+
+
 ## 0.10.4 `2015-11-30`
 
 - 将 media-match 加入默认的 polyfill 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)

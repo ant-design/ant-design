@@ -7,7 +7,35 @@
 
 ## 0.10 => 0.11 升级指南
 
-待补充。
+`0.11.x` 版本有大量更新，其中部分为不兼容更新。以下列表为其中不兼容的更新，及对应升级方案。如果您在升级过程中遇到下面没有提到的情况，可以到 Github 上面咨询。
+
+### Timepicker、Datepicker 重命名
+
+`0.11.0` 中，`Timepicker` 被重命名为 `TimePicker`，`Datepicker` 被重命名为 `DatePicker`，所以需要做以下改动：
+
+```jsx
+<Timepicker />
+  ==>
+<TimePicker />
+```
+
+
+```jsx
+<Datepicker />
+  ==>
+<DatePicker />
+```
+
+### 受控的 DatePicker
+
+由于 `DatePicker` 已改为 [受控组件](https://facebook.github.io/react/docs/forms.html#controlled-components)，所以 `DatePicker` 显示的值必然与其 `value` 一致。
+
+如果无法理解受控组件，只须在发现在选中日期后 `Datepicker` 显示的值不变的情况后，把其 `value` 属性改为 `defaultValue` 即可。
+
+### 其它
+
+- `Table` 的 `dataSource` 远程模式被移除，用户应该自行实现数据获取方式，具体方案参见 [演示](TODO)。
+
 
 ## 0.9 => 0.10 升级指南
 
