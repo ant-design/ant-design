@@ -77,7 +77,7 @@
       text-align: center;
       text-transform: none;
       font-family: sans-serif;
-      font-size: 12px;
+      .iconfont-size-under-12px(10px);
 
       &:before {
         display: block;
@@ -374,41 +374,46 @@
   &&-card &-ink-bar {
     visibility: hidden;
   }
-  &&-card &-nav {
-    border-left: 1px solid @border-color-base;
-    border-radius: 2px 0 0 0;
-  }
   &&-card &-tab {
     margin: 0;
-    border: 1px solid @border-color-base;
+    border: 1px solid transparent;
     border-bottom: 0;
-    border-left: 0;
-    border-radius: 2px 2px 0 0;
-    transition: border-color 0.3s @ease-in-out;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.3s @ease-in-out;
+    background: #f7f7f7;
+    margin-right: 2px;
   }
   &&-card &-tab-inner {
-    padding: 7px 16px;
+    padding: 7px 16px 6px;
   }
   &&-card &-tab-active {
     background: #fff;
-    border-top: 2px solid @primary-color;
+    border-color: @border-color-base;
+    color: @primary-color;
   }
   &&-card &-tab-active &-tab-inner {
-    padding-top: 6px;
+    padding-bottom: 7px;
   }
   &&-card &-nav-wrap {
     margin-bottom: 0;
   }
   &&-card &-tab-inner .anticon-cross {
     margin-right: 0;
-    margin-left: 4px;
-    font-size: 12px;
-    width: 12px;
     color: #999;
-    transition: color 0.3s ease;
+    transition: all 0.3s @ease-in-out;
+    .iconfont-size-under-12px(9px);
+    width: 0;
+    text-align: right;
+    vertical-align: middle;
+    overflow: hidden;
     &:hover {
-      color: @primary-color;
+      color: #404040;
     }
+  }
+
+  &&-card &-tab-active .anticon-cross,
+  &&-card &-tab:hover .anticon-cross {
+    width: 16px;
   }
 
   &-extra-content {
@@ -425,9 +430,10 @@
       border: 1px solid @border-color-base;
       font-size: 12px;
       .iconfont-size-under-12px(10px);
+      color: #999;
       transition: color 0.3s ease;
       &:hover {
-        color: @primary-color;
+        color: #404040;
       }
     }
   }
