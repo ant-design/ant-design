@@ -12,11 +12,11 @@
 
 提供平级的区域将大块内容进行收纳和展现，保持界面整洁。
 
-Ant Design 提供了三级选项卡，分别用于不同的场景。
+Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
-- 卡片式的页签，用于容器顶部。
-- 标准线条式页签，用于容器内部的主功能切换。
-- [RadioButton](/components/radio/#demo-radiobutton) 作为更次级的页签来使用。
+- 卡片式的页签，提供可关闭的样式，常用于容器顶部。
+- 标准线条式页签，用于容器内部的主功能切换，这是最常用的 Tabs。
+- [RadioButton](/components/radio/#demo-radiobutton) 可作为更次级的页签来使用。
 
 ## API
 
