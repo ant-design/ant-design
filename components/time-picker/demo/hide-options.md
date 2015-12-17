@@ -1,27 +1,31 @@
-# 隐藏选项
+# 只显示部分选项
 
--	order: 6
+- order: 6
 
-禁止部分选项。
+通过 `hideDisabledOptions` 将不可选的选项隐藏。
 
 ---
 
 ````jsx
 import { TimePicker } from 'antd';
 
-function disabledHours() {
-  return [0, 4, 8, 12, 16, 20];
+function newArray(start, end) {
+  let result = [];
+  for (let i = start; i < end; i++) {
+    result.push(i);
+  }
+  return result;
 }
 
 function disabledMinutes(h) {
-  return [h % 60];
+  return newArray(0, 60).filter(value => value % 10 !== 0);
 }
 
 function disabledSeconds(h, m) {
-  return [h + m % 60];
+  return newArray(0, 60).filter(value => value % 30 !== 0);
 }
 
 ReactDOM.render(
-  <TimePicker defaultValue="12:08:23" disabledHours={disabledHours} disabledMinutes={disabledMinutes} disabledSeconds={disabledSeconds} hideDisabledOptions />
+  <TimePicker disabledMinutes={disabledMinutes} disabledSeconds={disabledSeconds} hideDisabledOptions />
 , document.getElementById('components-time-picker-demo-hide-options'));
 ````
