@@ -23,7 +23,7 @@ const App = React.createClass({
 
   getMock() {
     let mockData = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
       mockData.push({
         title: '内容' + (i + 1),
         value: (i + 1),
