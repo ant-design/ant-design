@@ -96,7 +96,7 @@
     "json-loader": "^0.5.1",
     "less": "~2.5.3",
     "less-loader": "^2.2.0",
-    "lesshint-antd": "~1.1.0",
+    "lesshint-antd": "^1.2.1",
     "lodash": "^3.10.0",
     "nico-jsx": "~0.7.0",
     "pre-commit": "1.x",
