@@ -205,7 +205,7 @@ let AntTable = React.createClass({
     selectedRowKeys = [key];
     this.setState({
       selectedRowKeys: selectedRowKeys,
-      radioIndex: record.key,
+      radioIndex: key,
       selectionDirty: true
     });
     if (this.props.rowSelection.onSelect) {
@@ -271,13 +271,13 @@ let AntTable = React.createClass({
     }
     let checked;
     if (this.state.selectionDirty) {
-      checked = this.state.radioIndex === record.key;
+      checked = this.state.radioIndex === rowIndex;
     } else {
-      checked = (this.state.radioIndex === record.key ||
+      checked = (this.state.radioIndex === rowIndex ||
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
-                  value={record.key} checked={checked}/>;
+                  value={rowIndex} checked={checked}/>;
   },
 
   renderSelectionCheckBox(value, record, index) {

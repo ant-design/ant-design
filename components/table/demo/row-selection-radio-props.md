@@ -23,17 +23,17 @@ const columns = [{
   dataIndex: 'address'
 }];
 const data = [{
-  key: '1',
+  id: '1',
   name: '胡彦斌',
   age: 32,
   address: '西湖区湖底公园1号'
 }, {
-  key: '2',
+  id: '2',
   name: '胡彦祖',
   age: 42,
   address: '西湖区湖底公园1号'
 }, {
-  key: '3',
+  id: '3',
   name: '李大嘴',
   age: 32,
   address: '西湖区湖底公园1号'
@@ -56,6 +56,10 @@ const rowSelection = {
   }
 };
 
-ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+function rowKey(record) {
+  return record.id;
+}
+
+ReactDOM.render(<Table rowSelection={rowSelection} rowKey={rowKey} columns={columns} dataSource={data} />
 , document.getElementById('components-table-demo-row-selection-radio-props'));
 ````
