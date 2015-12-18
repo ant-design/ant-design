@@ -46,12 +46,13 @@ const antd = {
 
 antd.version = require('./package.json').version;
 
+const ReactVersion = React.version;
 if (process.env.NODE_ENV !== 'production') {
   const warning = require('warning');
   const semver = require('semver');
   const reactVersionInDeps = require('./package.json').devDependencies.react;
-  warning(semver.satisfies(React.version, reactVersionInDeps) || semver.gtr(React.version, reactVersionInDeps),
-    `antd@${antd.version} need react@${reactVersionInDeps} or higher, which is react@${React.version} now.`);
+  warning(semver.satisfies(ReactVersion, reactVersionInDeps) || semver.gtr(ReactVersion, reactVersionInDeps),
+    `antd@${antd.version} need react@${reactVersionInDeps} or higher, which is react@${ReactVersion} now.`);
 }
 
 module.exports = antd;
