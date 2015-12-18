@@ -23,10 +23,14 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
+      loader: 'es3ify',
+    }, {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
       loader: 'babel',
       query: {
         presets: ['es2015', 'react', 'stage-0'],
-        plugins: ['add-module-exports', 'transform-es3-member-expression-literals', 'transform-es3-property-literals']
+        plugins: ['add-module-exports']
       }
     }, {
       test: /\.json$/,
