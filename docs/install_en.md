@@ -54,6 +54,6 @@ $('#latest-version').html(antdVersion.latest);
 if (antdVersion.stable) {
   $('#stable-version').html(antdVersion.stable);
 } else {
-  $('#stable-version').html('暂无');
+  $('#stable-version').html('not available');
 }
 </script>
