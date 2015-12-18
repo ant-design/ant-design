@@ -120,16 +120,15 @@ const CopyableIcon = React.createClass({
       }, 1000);
     });
   },
-  getCopyCode(type) {
-    return '<Icon type="' + type + '" />';
-  },
   render() {
+    const text = '&lt;Icon type="' + this.props.type + '" /&gt;';
     return (
-      <Clip component="li" data-clipboard-text={this.getCopyCode(this.props.type)}
-        onSuccess={this.onCopied} className={this.state.justCopied ? 'copied' : ''}>
-        <Icon type={this.props.type} />
-        <span className="anticon-class">{this.props.type}</span>
-      </Clip>
+      <CopyToClipboard text={text} onCopy={this.onCopied}>
+        <li className={this.state.justCopied ? 'copied' : ''}>
+          <Icon type={this.props.type} />
+          <span className="anticon-class">{this.props.type}</span>
+        </li>
+      </CopyToClipboard>
     );
   }
 });

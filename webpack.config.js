@@ -26,7 +26,7 @@ module.exports = {
       loader: 'babel',
       query: {
         presets: ['es2015', 'react', 'stage-0'],
-        plugins: ['add-module-exports'],
+        plugins: ['add-module-exports', 'transform-es3-member-expression-literals', 'transform-es3-property-literals']
       }
     }, {
       test: /\.json$/,
