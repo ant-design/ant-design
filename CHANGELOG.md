@@ -19,7 +19,6 @@
 - 新增卡片样式的页签。
 - 新增穿梭框 [Transfer](TODO) 组件。
 - 新增小尺寸的 Switch 开关组件。
-- 去除了简单型的分页样式。
 - 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
 - 调整警告和错误状态色。
 - Select 选中样式进行了调整。
