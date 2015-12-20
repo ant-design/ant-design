@@ -6,50 +6,53 @@
 
 ## 0.11.0 `2015-12-17`
 
-### 设计
-
-最重要的消息莫过于，设计资源开放 [下载](TODO) 啦！
-
-- 新增 [吊顶规范](TODO)。
+- Table 移除 `dataSource` 的远程模式。
+- 移除默认加载的样式文件，样式现在需要独立加载。
+- Modal、Popconfirm、Table 支持国际化配置。
+- 按钮圆角调整为 `6px`。
+- 新增虚线型按钮。
 - 新增 [通用搜索框](TODO) 样式。
-- Button 新增虚线型按钮，并把圆角调整为 6px。
-- Table 新增 [紧凑型表格](TODO)。
-- Switch 新增小尺寸。
-- Icon 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
-
+- 新增 [紧凑型表格](TODO)。
+- 新增图片上传列表样式[演示](TODO)。
+- 部分设计资源开放 [下载](TODO)。
+- 新增 [吊顶规范](TODO)。
+- 新增卡片样式的页签。
+- 新增穿梭框 [Transfer](TODO) 组件。
+- 新增小尺寸的 Switch 开关组件。
+- 去除了简单型的分页样式。
+- 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
 - 调整警告和错误状态色。
-- Select.Option 被选中样式调整。
-- Table 调整 filter 的样式，trigger 图标改为漏斗，小勾改为 Checkbox。[演示](TODO)
-- Alert 默认不显示 Icon，且对于设置了 `description` 的情况，Icon 改为描线图标。
-- Tabs 调整 [新增和关闭页签](TODO) 的样式。
-
-
-### 组件
-
-`0.11.0` 在为组件进行了大量的视觉、交互优化的同时，也给组件添加了不少功能。
-
-- 新增 [Transfer](TODO) 组件。
-- Modal、Popconfirm、Table 支持国际化。
-- Dropdown 新增 `Dropdown.Button`，左边是普通按钮，右边是打开额外相关功能菜单的 trigger。[演示](TODO)
+- Select 选中样式进行了调整。
+- Alert 默认样式不展示图标；带描述的警告框图标改为描线图标。
+- Dropdown 新增带菜单触发的按钮 `Dropdown.Button`。[演示](TODO)
 - Menu 新增 `Menu.ItemGroup` 用于把菜单项分组。
-- Badge 现在可以设置封顶的数字。[演示](TODO)
-- Upload 上传文件为图片时，可以显示缩略图。[演示](TODO)
-- Slider 双滑块交互修改，一个滑块在拖动时可以直接跨过另一滑块。设置 `allowCross={false}` 可以禁用该行为。
-- Breadcrumb 可以自定义分隔符。
-- Popconfirm 可以控制是否显示。[演示](TODO)
-- Tabs `tabPosition` 现在支持四个位置 `top|right|bottom|left`。
-
+- Badge
+ - 徽章可以独立使用。[演示](TODO)
+ - 支持设置封顶的 `99+` 的数字。[演示](TODO)
+- Slider 双滑块拖动体验优化，一个滑块在拖动时可以直接跨过另一滑块。
+- Breadcrumb 可以自定义分隔符。[演示](TODO)
+- Popconfirm 添加 visible 属性，使其可以控制是否显示。[演示](TODO)
+- Tabs 现在支持页签的四个位置 `tabPosition="top|right|bottom|left"`。
 - Timepicker
   - 重命名为 TimePicker。
-  - 移除 `hourOptions` `minuteOptions` `secondOptions`，分别提供对应的替代功能 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](TODO)
+  - 新增 value 属性。
+  - 新增属性 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](TODO)
+  - 移除 `hourOptions` `minuteOptions` `secondOptions`，新增 `hideDisabled` 属性用于替代。
 - Datepicker
   - 重命名为 DatePicker。
-  - 改为受控组件。
   - 新增 [日期范围选择控件](TODO)。
-- Table 移除 `dataSource` 远程模式。
-- Tabs 移除 `animation` 属性，并且当 `tabPosition` 为 `left` `right` 时，无切换动画。
-- 移除默认加载的样式文件，样式需要独立加载。
+  - 修正为受控组件。
+- Table
+  - 优化了筛选菜单的样式，并添加了最大高度。[演示](TODO)。
+  - 修复 column.key 设置失效的问题。[#642](https://github.com/ant-design/ant-design/issues/642)
+  - 修复设置时 rowKey 时单选会导致全部选中的问题。[#697](https://github.com/ant-design/ant-design/issues/697)
+  - 修复一个列重新渲染导致选项错乱的问题。[#418](https://github.com/ant-design/ant-design/issues/418#issuecomment-163093580)
+  - 修复选择列无法设置宽度的问题。[#649](https://github.com/ant-design/ant-design/issues/649)
+- Form
+  - 修复了 Textarea 无法输入的问题。[#646](https://github.com/ant-design/ant-design/issues/646)
+  - 修复了 Textarea 设置 cols 和 rows 属性失效的问题。[#694](https://github.com/ant-design/ant-design/issues/694)
 
+> - [0.11 升级指南](http://ant.design/docs/upgrade-notes)
 
 ## 0.10.4 `2015-11-30`
 
