@@ -15,7 +15,8 @@ function noop() {
 const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
-  filterReset: '重置'
+  filterReset: '重置',
+  emptyText: '暂无数据',
 };
 
 let AntTable = React.createClass({
@@ -204,7 +205,7 @@ let AntTable = React.createClass({
     selectedRowKeys = [key];
     this.setState({
       selectedRowKeys: selectedRowKeys,
-      radioIndex: record.key,
+      radioIndex: key,
       selectionDirty: true
     });
     if (this.props.rowSelection.onSelect) {
@@ -270,13 +271,13 @@ let AntTable = React.createClass({
     }
     let checked;
     if (this.state.selectionDirty) {
-      checked = this.state.radioIndex === record.key;
+      checked = this.state.radioIndex === rowIndex;
     } else {
-      checked = (this.state.radioIndex === record.key ||
+      checked = (this.state.radioIndex === rowIndex ||
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
-                  value={record.key} checked={checked}/>;
+                  value={rowIndex} checked={checked}/>;
   },
 
   renderSelectionCheckBox(value, record, index) {
@@ -306,17 +307,16 @@ let AntTable = React.createClass({
   renderRowSelection() {
     let columns = this.props.columns.concat();
     if (this.props.rowSelection) {
-      let data = this.getCurrentPageData();
+      let data = this.getCurrentPageData().filter((item) => {
+        if (this.props.rowSelection.getCheckboxProps) {
+          return !this.props.rowSelection.getCheckboxProps(item).disabled;
+        }
+        return true;
+      });
       let checked;
       if (!data.length) {
         checked = false;
       } else {
-        data = data.filter((item) => {
-          if (this.props.rowSelection.getCheckboxProps) {
-            return !this.props.rowSelection.getCheckboxProps(item).disabled;
-          }
-          return true;
-        });
         checked = this.state.selectionDirty
           ? data.every((item, i) =>
               this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
@@ -512,6 +512,7 @@ let AntTable = React.createClass({
     let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
+    let locale = objectAssign({}, defaultLocale, this.props.locale);
 
     let classString = classNames({
       [`ant-table-${this.props.size}`]: true,
@@ -528,7 +529,7 @@ let AntTable = React.createClass({
     let emptyClass = '';
     if (!data || data.length === 0) {
       emptyText = <div className="ant-table-placeholder">
-        <Icon type="frown"/>暂无数据
+        <Icon type="frown"/>{locale.emptyText}
       </div>;
       emptyClass = ' ant-table-empty';
     }

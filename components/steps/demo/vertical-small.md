@@ -9,7 +9,6 @@
 ````jsx
 import { Steps } from 'antd';
 const Step = Steps.Step;
-const container = document.getElementById('components-steps-demo-vertical-small');
 
 const steps = [{
   title: '已完成',
@@ -26,5 +25,6 @@ const steps = [{
   );
 });
 
-ReactDOM.render(<Steps size="small" direction="vertical" current={1}>{steps}</Steps>, container);
+ReactDOM.render(<Steps size="small" direction="vertical" current={1}>{steps}</Steps>,
+  document.getElementById('components-steps-demo-vertical-small'));
 ````

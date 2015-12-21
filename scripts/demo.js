@@ -24,7 +24,7 @@ window.require = function (path) {
 
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
-window.Clip = require('./clip');
+window.CopyToClipboard = require('react-copy-to-clipboard');
 var antd = require('../index');
 var React = require('react');
 var ReactDOM = require('react-dom');

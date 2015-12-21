@@ -125,6 +125,10 @@ form {
     .input-lg();
   }
 
+  textarea.@{css-prefix}input {
+    height: auto;
+  }
+
   // input[type=file]
   .@{css-prefix}upload {
     background: transparent;
@@ -140,10 +144,14 @@ form {
   .@{css-prefix}radio-inline,
   .@{css-prefix}checkbox-inline {
     display: inline-block;
-    margin-right: 16px;
     vertical-align: middle;
     font-weight: normal;
     cursor: pointer;
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
   }
 
   .@{css-prefix}checkbox-vertical,

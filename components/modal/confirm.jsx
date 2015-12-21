@@ -29,6 +29,7 @@ export default function (props) {
       visible: false
     });
     ReactDOM.unmountComponentAtNode(div);
+    div.parentNode.removeChild(div);
   }
 
   function onCancel() {

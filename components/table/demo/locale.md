@@ -53,7 +53,8 @@ const data = [{
 const locale = {
   filterTitle: 'Filter',
   filterConfirm: 'Confirm',
-  filterReset: 'Reset'
+  filterReset: 'Reset',
+  emptyText: 'No Data',
 };
 
 ReactDOM.render(

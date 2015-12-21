@@ -261,11 +261,11 @@ let TintShadeTool = React.createClass({
     };
     return <div style={{margin: '40px 0'}}>
       <div>
-        <Clip onSuccess={this.copySuccess} data-clipboard-text={this.state.result} style={{border: 0, background: '#fff', cursor: 'pointer'}}>
-          <Tooltip title="点击色块复制色值">
+        <Tooltip title="点击色块复制色值">
+          <CopyToClipboard onCopy={this.copySuccess} text={this.state.result}>
             <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '') + (this.state.darkBackground ? ' dark' : '')}></div>
-          </Tooltip>
-        </Clip>
+          </CopyToClipboard>
+        </Tooltip>
         <span style={{width: 188, display: 'inline-block', fontFamily: 'Consolas'}}>{this.state.result}</span>
         <input className="ant-input" style={{width: 80, color: this.state.color, marginRight: 8}} value={this.state.color} onChange={this.handleChangeColor} />
         <InputNumber style={{width: 70}} value={this.state.value} onChange={this.handleChangeValue} min={-100} max={100} step={5} />
@@ -290,6 +290,7 @@ ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-too
   display: inline-block;
   vertical-align: middle;
   margin-right: 8px;
+  cursor: pointer;
 }
 .color-block:after {
   position: absolute;

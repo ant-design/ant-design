@@ -8,6 +8,7 @@
   position: relative;
   overflow: hidden;
   .clearfix;
+  color: @text-color;
 
   &-ink-bar {
     z-index: 1;
@@ -30,7 +31,7 @@
   }
 
   &-tabs-bar {
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid @border-color-base;
     margin-bottom: 16px;
   }
 
@@ -76,16 +77,12 @@
       text-align: center;
       text-transform: none;
       font-family: sans-serif;
-      font-size: 12px;
+      .iconfont-size-under-12px(10px);
 
       &:before {
         display: block;
         font-family: "anticon" !important;
       }
-    }
-
-    &:hover {
-      color: tint(@primary-color, 20%);
     }
   }
 
@@ -111,7 +108,6 @@
     &-icon:before {
       content: "\e601";
     }
-
     :root & {
       filter: none;
     }
@@ -146,16 +142,7 @@
       clear: both;
     }
 
-    div.@{tab-prefix-cls}-tab-active {
-      > .@{tab-prefix-cls}-tab-inner,
-      > .@{tab-prefix-cls}-tab-inner:hover {
-        color: tint(@primary-color, 20%);
-        cursor: pointer;
-        text-decoration: none;
-      }
-    }
-
-    div.@{tab-prefix-cls}-tab-disabled {
+    .@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
 
@@ -171,29 +158,31 @@
       box-sizing: border-box;
       position: relative;
 
-      > .@{tab-prefix-cls}-tab-inner {
+      &-inner {
         padding: 8px 20px;
         transition: color 0.3s @ease-in-out;
         display: block;
-        color: #666;
+        cursor: pointer;
+        text-decoration: none;
+
+        &:hover {
+          color: tint(@primary-color, 20%);
+        }
+
+        &:active {
+          color: shade(@primary-color, 5%);
+        }
 
         .anticon {
           width: 14px;
           height: 14px;
           margin-right: 8px;
-          line-height: 1.5;
         }
-
       }
+    }
 
-      > .@{tab-prefix-cls}-tab-inner:hover {
-        color: tint(@primary-color, 30%);
-        cursor: pointer;
-      }
-
-      > .@{tab-prefix-cls}-tab-inner:hover {
-        text-decoration: none;
-      }
+    .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
+      color: @primary-color;
     }
   }
 
@@ -203,7 +192,7 @@
 
   &-mini &-tab {
     margin-right: 24px;
-    > .@{tab-prefix-cls}-tab-inner {
+    .@{tab-prefix-cls}-tab-inner {
       padding: 8px 16px;
     }
   }
@@ -281,7 +270,7 @@
       &:last-child {
         margin-bottom: 0;
       }
-      > .@{tab-prefix-cls}-tab-inner {
+      .@{tab-prefix-cls}-tab-inner {
         padding: 8px 24px;
       }
     }
@@ -329,15 +318,14 @@
   &-vertical&-left {
     .@{tab-prefix-cls}-tabs-bar {
       float: left;
+      border-right: 1px solid @border-color-split;
+      margin-right: -1px;
+      margin-bottom: 0;
     }
     .@{tab-prefix-cls}-tab {
-      > .@{tab-prefix-cls}-tab-inner {
+      .@{tab-prefix-cls}-tab-inner {
         text-align: right;
       }
-    }
-    .@{tab-prefix-cls}-tabs-bar {
-      border-right: 1px solid #e9e9e9;
-      margin-right: -1px;
     }
     .@{tab-prefix-cls}-nav-container {
       margin-right: -1px;
@@ -350,15 +338,16 @@
     }
     .@{tab-prefix-cls}-content {
       padding-left: 24px;
-      border-left: 1px solid #e9e9e9;
+      border-left: 1px solid @border-color-split;
     }
   }
 
   &-vertical&-right {
     .@{tab-prefix-cls}-tabs-bar {
       float: right;
-      border-left: 1px solid #e9e9e9;
+      border-left: 1px solid @border-color-split;
       margin-left: -1px;
+      margin-bottom: 0;
     }
     .@{tab-prefix-cls}-nav-container {
       margin-left: -1px;
@@ -371,7 +360,82 @@
     }
     .@{tab-prefix-cls}-content {
       padding-right: 24px;
-      border-right: 1px solid #e9e9e9;
+      border-right: 1px solid @border-color-split;
+    }
+  }
+
+  &-bottom &-tabs-bar {
+    margin-bottom: 0;
+    margin-top: 16px;
+  }
+
+
+  // card style
+  &&-card &-ink-bar {
+    visibility: hidden;
+  }
+  &&-card &-tab {
+    margin: 0;
+    border: 1px solid transparent;
+    border-bottom: 0;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.3s @ease-in-out;
+    background: #f9f9f9;
+    margin-right: 2px;
+  }
+  &&-card &-tab-inner {
+    padding: 7px 16px 6px;
+  }
+  &&-card &-tab-active {
+    background: #fff;
+    border-color: @border-color-base;
+    color: @primary-color;
+  }
+  &&-card &-tab-active &-tab-inner {
+    padding-bottom: 7px;
+  }
+  &&-card &-nav-wrap {
+    margin-bottom: 0;
+  }
+  &&-card &-tab-inner .anticon-cross {
+    margin-right: 0;
+    color: #999;
+    transition: all 0.3s @ease-in-out;
+    .iconfont-size-under-12px(9px);
+    width: 0;
+    text-align: right;
+    vertical-align: middle;
+    overflow: hidden;
+    &:hover {
+      color: #404040;
+      font-weight: bold;
+    }
+  }
+
+  &&-card &-tab-active .anticon-cross,
+  &&-card &-tab:hover .anticon-cross {
+    width: 16px;
+  }
+
+  &-extra-content {
+    float: right;
+    line-height: 32px;
+
+    .@{tab-prefix-cls}-new-tab {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 3px;
+      border: 1px solid @border-color-base;
+      font-size: 12px;
+      .iconfont-size-under-12px(10px);
+      color: #999;
+      transition: color 0.3s ease;
+      &:hover {
+        color: #404040;
+      }
     }
   }
 }

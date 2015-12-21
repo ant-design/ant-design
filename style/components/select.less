@@ -234,13 +234,7 @@
       position: relative;
       overflow: hidden;
       transition: padding @duration @ease-in-out;
-      &:hover {
-        padding: 0 20px 0 10px;
-        .@{select-prefix-cls}-selection__choice__remove {
-          transform: scale(0.75);
-          opacity: 1;
-        }
-      }
+      padding: 0 20px 0 10px;
     }
 
     .@{select-prefix-cls}-selection__choice__content {
@@ -254,23 +248,19 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
-      color: #919191;
+      color: #999;
       line-height: 20px;
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
+      transition: all 0.3s @ease-in-out;
       .iconfont-size-under-12px(8px);
       position: absolute;
       right: 4px;
       padding: 0 0 0 8px;
-      transform: scale(0);
-      opacity: 0;
-      transition: opacity @duration, transform @duration;
-      transform-origin: 50%;
       &:hover {
-        color: #333;
+        color: #404040;
       }
-
       &:before {
         content: "\e62d";
       }

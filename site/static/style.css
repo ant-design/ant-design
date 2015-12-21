@@ -158,18 +158,18 @@ a.logo {
 }
 
 .nav {
-  width: 30%;
   height: 80px;
   line-height: 80px;
   float: right;
   font-size: 0.875em;
   position: relative;
   margin-right: 25px;
+  overflow: hidden;
 }
 
 .nav ul li {
   float: left;
-  width: 20%;
+  padding: 0 22px;
   text-align: center;
 }
 
@@ -187,13 +187,13 @@ a.nav-link-disabled {
 }
 
 .nav ul li.current a {
-  color: #71B5DE;
+  color: #6AC2F5;
   font-weight: 600;
 }
 
 .nav ul li a:hover,
 .nav ul li .hover {
-  color: #6EB4E0;
+  color: #6AC2F5;
 }
 
 .nav .bar {
@@ -202,12 +202,9 @@ a.nav-link-disabled {
   position: absolute;
   top: 0;
   left: 0;
-  background: #6EB4E0;
+  background: #6AC2F5;
   display: none;
-}
-
-.barAnim {
-  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1), width 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .main-box {
@@ -2101,7 +2098,7 @@ a.entry-link:hover .anticon-smile {
   height: 440px;
   position: relative;
   border-radius: 0 0 5px 5px;
-  background: #f4f4f4;
+  background: #ececec;
 }
 .window-frame .status-bar {
   height: 2rem;

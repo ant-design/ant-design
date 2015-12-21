@@ -8,7 +8,6 @@
 
 ````jsx
 import { Timeline } from 'antd';
-const container = document.getElementById('components-timeline-demo-color');
 
 ReactDOM.render(
 <Timeline>
@@ -25,5 +24,5 @@ ReactDOM.render(
     <p>技术测试异常3 2015-09-01</p>
   </Timeline.Item>
 </Timeline>
-, container);
+, document.getElementById('components-timeline-demo-color'));
 ````

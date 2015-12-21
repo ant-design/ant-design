@@ -24,5 +24,6 @@
 | defaultValue      | Number or [Number, Number]| 0 or [0, 0] | 设置初始取值。当 `range` 为 `false` 时，使用 `Number`，否则用 `[Number, Number]`
 | included   | Boolean			| true			| `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列
 | disabled   | Boolean 			| false         | 值为 `true` 时，滑块为禁用状态
+| allowCross | Boolean          | true          | 当 `range` 为 `true` 时，该属性可以设置是否允许两个滑块交换位置。
 | onChange   | Function         | NOOP          | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入。
 | tipFormatter | Function       |               | Slider 会把当前值传给 `tipFormatter`，并在 Tooltip 中显示 `tipFormatter` 的返回值。

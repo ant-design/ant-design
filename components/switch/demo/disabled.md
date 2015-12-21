@@ -8,7 +8,6 @@ Switch 失效状态。
 
 ````jsx
 import { Switch, Button } from 'antd';
-const container = document.getElementById('components-switch-demo-disabled');
 
 const Test = React.createClass({
   getInitialState() {
@@ -31,5 +30,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, container);
+ReactDOM.render(<Test />, document.getElementById('components-switch-demo-disabled'));
 ````
