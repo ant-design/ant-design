@@ -11,15 +11,18 @@
 
 ## 何时使用
 
-- 需要表示开关状态/两种状态之间的切换时；
-- 和 `switch`的区别是，切换 `switch` 会直接触发状态改变，而 `checkbox` 一般用于状态标记，需要和提交操作配合。
 
 ## API
 
-### Checkbox
+### Transfer
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-|  dataSource | 指定当前是否选中 | boolean  |   | false    |
-|  defaultChecked | 初始是否选中 | boolean |  | false |
-|  onChange | 变化时回调函数 | Function(e:Event) |  |  | |
+| dataSource | 数据源 | Array |   | [] |
+| render | 渲染每行数据 | Function(record)  |   | false    |
+| targetKeys | 显示在右侧框的数据 | Array  |   | |
+| onChange | 变化时回调函数 | Function(e:Event) |  |  |
+| titles | 标题集合,顺序从左至右 | Array |  | [] |
+| operations | 集合,顺序从左至右 | Array |  | [] |
+| showSearch | 是否显示搜索框 | Boolean |  | false |
+| searchPlaceholder | 搜索框的默认值 | String  |   |  |

@@ -11,194 +11,133 @@ class Transfer extends Component {
     super(props);
 
     this.state = {
-      dataSource: props.dataSource,
       leftFilter: '',
       rightFilter: '',
+      leftCheckedKeys: [],
+      rightCheckedKeys: []
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      dataSource: nextProps.dataSource,
-    });
-  }
+  splitDataSource() {
+    const { targetKeys, dataSource } = this.props;
 
-  checkDirection(direction) {
-    const { filterKey } = this.props;
-    let { dataSource } = this.state;
+    let leftDataSource = Object.assign([], dataSource);
+    let rightDataSource = [];
 
-    let result = false;
-
-    if ( direction === 'right' ) {
-      dataSource.forEach((data) => {
-        if ( !data[filterKey] && data.checked ) {
-          result = true;
-        }
-      });
-    } else {
-      dataSource.forEach((data) => {
-        if ( data[filterKey] && data.checked ) {
-          result = true;
-        }
+    if ( targetKeys.length > 0 ) {
+      targetKeys.forEach((targetKey) => {
+        rightDataSource.push(leftDataSource.find((data, index) => {
+          if( data.key === targetKey ) {
+            leftDataSource.splice(index, 1);
+            return true;
+          }
+        }));
       });
     }
-    return result;
+
+    return {
+      leftDataSource: leftDataSource,
+      rightDataSource: rightDataSource,
+    };
   }
 
   moveTo(direction) {
-    const { filterKey } = this.props;
-    let { dataSource } = this.state;
-    // TODO: 验证是否可点
-    if ( direction === 'right' ) {
-      dataSource.forEach((data) => {
-       // 左边向右移动
-        if ( !data[filterKey] && data.checked ) {
-          data[filterKey] = true;
-          data.checked = false;
-        }
-      });
-      this.setState({
-        leftFilter: '',
-        dataSource: dataSource,
-      });
-    } else {
-      dataSource.forEach((data) => {
-        if ( data[filterKey] && data.checked ) {
-          data[filterKey] = false;
-          data.checked = false;
-        }
-      });
-      this.setState({
-        rightFilter: '',
-        dataSource: dataSource,
-      });
-    }
+    const { targetKeys } = this.props;
+    const { leftCheckedKeys, rightCheckedKeys } = this.state;
+    // move items to target box
+    const newTargetKeys = direction === 'right' ?
+      leftCheckedKeys.concat(targetKeys) :
+      targetKeys.filter((targetKey) => !rightCheckedKeys.some((checkedKey) => targetKey === checkedKey));
+
+    // empty checked keys
+    this.setState({
+      [direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys']:  [],
+    });
+
+    this.props.onChange(newTargetKeys);
   }
 
   handleSelectAll(direction, globalCheckStatus) {
-    const { filterKey } = this.props;
-    const { dataSource, leftFilter, rightFilter } = this.state;
-    switch ( globalCheckStatus ) {
-      // 选中部分,则全选
-    case 'part':
-    case 'none':
-      dataSource.forEach((data)=> {
-          // data[filterKey] true 时,在右侧
-        if ( direction === 'right' && data[filterKey] && this.matchFilter(data.title, rightFilter)
-            || direction === 'left' && !data[filterKey] && this.matchFilter(data.title, leftFilter)) {
-          data.checked = true;
-        }
-      });
-      break;
-    case 'all':
-      dataSource.forEach((data)=> {
-        if ( direction === 'right' && data[filterKey] && this.matchFilter(data.title, rightFilter)
-          || direction === 'left' && !data[filterKey] && this.matchFilter(data.title, leftFilter)) {
-          data.checked = false;
-        }
-      });
-      break;
-    default:
-      break;
+    const { leftDataSource, rightDataSource } = this.splitDataSource();
+    const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
+    let holder = [];
+
+    if ( globalCheckStatus === 'all' ) {
+      holder = [];
+    } else {
+      holder = dataSource.map((data) => data.key);
     }
 
     this.setState({
-      dataSource: dataSource,
+      [direction === 'left' ? 'leftCheckedKeys' : 'rightCheckedKeys']: holder,
     });
   }
 
   handleFilter(direction, e) {
-    const filterText = e.target.value;
-    if ( direction === 'left') {
-      this.setState({
-        'leftFilter': filterText,
-      });
-    } else {
-      this.setState({
-        'rightFilter': filterText,
-      });
-    }
+    this.setState({
+      [direction === 'left' ? 'leftFilter' : 'rightFilter']: e.target.value,
+    });
   }
 
   handleClear(direction) {
-    if ( direction === 'left') {
-      this.setState({
-        'leftFilter': '',
-      });
-    } else {
-      this.setState({
-        'rightFilter': '',
-      });
-    }
-  }
-
-  matchFilter(text, filterText) {
-    const regex = new RegExp(filterText);
-    return text.match(regex);
-  }
-
-  handleSelect(selectedItem, checked) {
-    const { dataSource } = this.state;
-    dataSource.forEach((data)=> {
-      if ( data.value === selectedItem.value ) {
-        data.checked = checked;
-      }
-    });
-
     this.setState({
-      dataSource: dataSource,
+      [direction === 'left' ? 'leftFilter' : 'rightFilter']: '',
+    });
+  }
+
+  handleSelect(direction, selectedItem, checked) {
+    const { leftCheckedKeys, rightCheckedKeys } = this.state;
+    const holder = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
+    const index = holder.findIndex((key) => key === selectedItem.key);
+    if ( index > -1 ) {
+      holder.splice(index, 1);
+    }
+    if ( checked ) {
+      holder.push(selectedItem.key);
+    }
+    this.setState({
+      [direction === 'left' ? 'leftCheckedKeys' : 'rightCheckedKeys']: holder,
     });
   }
 
   render() {
-    const { prefixCls, leftConfig, rightConfig, filterKey, showSearch, header, body, footer } = this.props;
-    const { dataSource, leftFilter, rightFilter } = this.state;
+    const { prefixCls, titles, operations, showSearch, searchPlaceholder, body, footer } = this.props;
+    const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
-    let leftDataSource = [];
-    let rightDataSource = [];
-
-    let leftActive = this.checkDirection('left');
-    let rightActive = this.checkDirection('right');
-
-    dataSource.map((item)=> {
-      // filter item
-      if ( item[filterKey] ) {
-        if ( this.matchFilter(item.title, rightFilter) ) {
-          rightDataSource.push(item);
-        }
-      } else {
-        if ( this.matchFilter(item.title, leftFilter) ) {
-          leftDataSource.push(item);
-        }
-      }
-    });
+    const { leftDataSource, rightDataSource } = this.splitDataSource();
+    let leftActive = rightCheckedKeys.length > 0;
+    let rightActive = leftCheckedKeys.length > 0;
 
     return <div className={prefixCls}>
-      <List config={leftConfig}
+      <List title={titles[0]}
             dataSource={leftDataSource}
             filter={leftFilter}
+            checkedKeys={leftCheckedKeys}
             handleFilter={this.handleFilter.bind(this, 'left')}
             handleClear={this.handleClear.bind(this, 'left')}
-            handleSelect={this.handleSelect.bind(this)}
+            handleSelect={this.handleSelect.bind(this, 'left')}
             handleSelectAll={this.handleSelectAll.bind(this, 'left')}
             position="left"
+            render={this.props.render}
             showSearch={showSearch}
-            header={header}
+            searchPlaceholder={searchPlaceholder}
             body={body}
             footer={footer}
       />
-      <Operation rightActive={rightActive} rightArrowText={leftConfig.operationText} moveToRight={this.moveTo.bind(this, 'right')}
-                 leftActive={leftActive} leftArrowText={rightConfig.operationText} moveToLeft={this.moveTo.bind(this, 'left')} />
-      <List config={rightConfig}
+      <Operation rightActive={rightActive} rightArrowText={operations[0]} moveToRight={this.moveTo.bind(this, 'right')}
+                 leftActive={leftActive} leftArrowText={operations[1]} moveToLeft={this.moveTo.bind(this, 'left')} />
+      <List title={titles[1]}
             dataSource={rightDataSource}
             filter={rightFilter}
+            checkedKeys={rightCheckedKeys}
             handleFilter={this.handleFilter.bind(this, 'right')}
             handleClear={this.handleClear.bind(this, 'right')}
-            handleSelect={this.handleSelect.bind(this)}
+            handleSelect={this.handleSelect.bind(this, 'right')}
             handleSelectAll={this.handleSelectAll.bind(this, 'right')}
             position="right"
+            render={this.props.render}
             showSearch={showSearch}
-            header={header}
+            searchPlaceholder={searchPlaceholder}
             body={body}
             footer={footer}
       />
@@ -206,41 +145,32 @@ class Transfer extends Component {
   }
 }
 
-// onChange-> do operation
-// onSelect-> select action row
-
 Transfer.defaultProps = {
   prefixCls: 'ant-transfer',
   dataSource: [],
-  dataIndex: 'title',
-  filterKey: 'chosen',
+  render: noop,
+  targetKeys: [],
   onChange: noop,
-  onSelect: noop,
-  leftConfig: {
-    title: '源列表',
-    operationText: '审核入库',
-  },
-  rightConfig: {
-    title: '目的列表',
-    operationText: '审核出库',
-  },
+  titles: ['源列表', '目的列表'],
+  operations: [],
   showSearch: false,
   searchPlaceholder: '请输入搜索内容',
-  header: noop,
-  footer: noop,
   body: noop,
+  footer: noop,
 };
 
 Transfer.propTypes = {
   prefixCls: PropTypes.string,
   dataSource: PropTypes.array,
+  render: PropTypes.func,
+  targetKeys: PropTypes.array,
+  onChange: PropTypes.func,
+  titles: PropTypes.array,
+  operations: PropTypes.array,
   showSearch: PropTypes.bool,
   searchPlaceholder: PropTypes.string,
-  operationText: PropTypes.string,
-  leftTitle: PropTypes.string,
-  rightTitle: PropTypes.string,
-  onChange: PropTypes.func,
-  extraRender: PropTypes.func,
+  body: PropTypes.func,
+  footer: PropTypes.func,
 };
 
 export default Transfer;
