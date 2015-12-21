@@ -41,7 +41,7 @@ const antd = {
   Form: require('./components/form'),
   Input: require('./components/input'),
   Calendar: require('./components/calendar'),
-  Timepicker: require('./components/time-picker'),
+  TimePicker: require('./components/time-picker'),
   Transfer: require('./components/transfer'),
 };
 
