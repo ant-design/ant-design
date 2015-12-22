@@ -119,7 +119,8 @@ InstantClickChangeFns.push(function () {
   }
 
   ReactDOM.render(
-    <Select defaultValue={antdVersion.latest} size="small" style={{width:130}}
+    <Select defaultValue={antdVersion.latest} size="small"
+            dropdownMatchSelectWidth={false}
             onChange={onChange}>{options}</Select>
     , document.getElementById('versions-select'));
 });
