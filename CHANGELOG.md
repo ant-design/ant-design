@@ -10,11 +10,10 @@
 - Modal、Popconfirm、Table、TimePicker 支持国际化配置。
 - 按钮圆角调整为 `6px`。
 - 新增虚线型按钮。
-- 新增 [通用搜索框](TODO) 样式。
-- 新增图片上传列表样式[演示](TODO)。
-- 部分设计资源开放 [下载](TODO)，包括 iconfont 字体文件和 Axure 组件库。
-- 新增 [吊顶规范](TODO)。
-- 新增卡片样式的页签。
+- 新增 [通用搜索框](http://ant.design/components/form/#demo-search-input) 样式。
+- 新增图片上传列表样式[演示](http://ant.design/components/upload/#demo-picture-style)。
+- 部分设计资源开放 [下载](http://ant.design/spec/tools)。
+- 新增 [吊顶规范](http://ant.design/spec/layout/#demo-ceiling)。
 - 新增穿梭框 [Transfer](TODO) 组件。
 - 新增小尺寸的 Switch 开关组件。
 - 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
@@ -26,32 +25,33 @@
   - 默认样式不展示图标。
   - 带描述的警告框图标改为描线图标。
   - `type="warn"` 图标修改。
-- Dropdown 新增带菜单触发的按钮 `Dropdown.Button`。[演示](TODO)
+- Dropdown 新增带菜单触发的按钮 `Dropdown.Button`。[演示](http://ant.design/components/dropdown/#demo-dropdown-button)
 - Menu 新增 `Menu.ItemGroup` 用于把菜单项分组。
 - Badge
- - 徽章可以独立使用。[演示](TODO)
- - 支持设置封顶的 `99+` 的数字。[演示](TODO)
+ - 徽章可以独立使用。[演示](http://ant.design/components/badge/#demo-no-wrapper)
+ - 支持设置封顶的 `99+` 的数字。[演示](http://ant.design/components/badge/#demo-overflow)
 - Slider 双滑块拖动体验优化，一个滑块在拖动时可以直接跨过另一滑块。
-- Breadcrumb 可以自定义分隔符。[演示](TODO)
-- Popconfirm 添加 `visible` 属性，使其可以控制是否显示。[演示](TODO)
+- Breadcrumb 可以自定义分隔符。[演示](http://ant.design/components/breadcrumb/#demo-separator)
+- Popconfirm 添加 `visible` 属性，使其可以控制是否显示。[演示](http://ant.design/components/popconfirm/#demo-dynamic-trigger)
+- 修复 Icon `ref` 引起的报错。
 - Tabs
-  - 新增 [卡片式页签](TODO)。
-  - 调整 [新增和关闭页签](TODO) 的样式。
+  - 新增 [卡片式页签](http://ant.design/components/tabs/#demo-card)。
+  - 调整 [新增和关闭页签](http://ant.design/components/tabs/#demo-editable-card) 的样式。
   - 现在支持页签的四个位置 `tabPosition="top|right|bottom|left"`。
   - 移除 `animation` 属性，并在 `tabPosition="top|bottom"` 时默认启用切换动画。
 - Timepicker
   - 重命名为 TimePicker。
   - 新增 `value` 属性。
-  - 新增属性 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](TODO)
+  - 新增属性 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](http://ant.design/components/time-picker/#picker-demo-disable-options)
   - 移除 `hourOptions` `minuteOptions` `secondOptions`，新增 `hideDisabled` 属性用于替代。
 - Datepicker
   - 重命名为 DatePicker。
   - 新增 [日期范围选择控件](TODO)。
   - 修正为受控组件。
 - Table
+  - 新增 [紧凑型表格](http://ant.design/components/table/#demo-size)。
   - 移除 `dataSource` 的远程模式。
-  - 新增 [紧凑型表格](TODO)。
-  - 优化了筛选菜单的样式，并添加了最大高度。[演示](TODO)。
+  - 优化了筛选菜单的样式，并添加了最大高度。[演示](http://ant.design/components/table/#demo-head)。
   - 修复 column.key 设置失效的问题。[#642](https://github.com/ant-design/ant-design/issues/642)
   - 修复设置时 rowKey 时单选会导致全部选中的问题。[#697](https://github.com/ant-design/ant-design/issues/697)
   - 修复一个列重新渲染导致选项错乱的问题。[#418](https://github.com/ant-design/ant-design/issues/418#issuecomment-163093580)
