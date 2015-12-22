@@ -12,18 +12,16 @@
 - 新增虚线型按钮。
 - 新增 [通用搜索框](TODO) 样式。
 - 新增图片上传列表样式[演示](TODO)。
-- 部分设计资源开放 [下载](TODO)。
+- 部分设计资源开放 [下载](TODO)，包括 iconfont 字体文件和 Axure 组件库。
 - 新增 [吊顶规范](TODO)。
 - 新增卡片样式的页签。
 - 新增穿梭框 [Transfer](TODO) 组件。
 - 新增小尺寸的 Switch 开关组件。
 - 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
 - 调整警告和错误状态色。
-- Tree 节点标签增加 2px 圆角。
 - Select
   - 选中样式进行了调整。
   - 在标签/多选模式下，选中或删除选项增加了动画效果。
-- Pagination 的 `pageSize` 选择器样式与 Select 样式统一。
 - Alert
   - 默认样式不展示图标。
   - 带描述的警告框图标改为描线图标。
@@ -51,8 +49,8 @@
   - 新增 [日期范围选择控件](TODO)。
   - 修正为受控组件。
 - Table
-  - 新增 [紧凑型表格](TODO)。
   - 移除 `dataSource` 的远程模式。
+  - 新增 [紧凑型表格](TODO)。
   - 优化了筛选菜单的样式，并添加了最大高度。[演示](TODO)。
   - 修复 column.key 设置失效的问题。[#642](https://github.com/ant-design/ant-design/issues/642)
   - 修复设置时 rowKey 时单选会导致全部选中的问题。[#697](https://github.com/ant-design/ant-design/issues/697)
@@ -62,10 +60,10 @@
   - 修复了 Textarea 无法输入的问题。[#646](https://github.com/ant-design/ant-design/issues/646)
   - 修复了 Textarea 设置 cols 和 rows 属性失效的问题。[#694](https://github.com/ant-design/ant-design/issues/694)
 - 工具
-  - 替换 `antd build` 为 [atool-build](https://github.com/ant-tool/atool-build)，重构，并改善了 webpack 配置的自定义方式
-  - 替换 `antd server` 为 [dora](https://github.com/dora-js/dora)，一个完全插件化的开发服务器，支持[代理转发和数据 Mock](https://github.com/dora-js/dora-plugin-proxy)、[atool-build](https://github.com/dora-js/dora-plugin-atool-build)、[热替换](https://github.com/dora-js/dora-plugin-hmr)
-  - 新增 babel 插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)，转换 `import {Button} from 'antd'` 为 `import Button from 'antd/lib/button'`
-  - antd-init@0.5.0，支持以上改动
+  - 替换 `antd build` 为 [atool-build](https://github.com/ant-tool/atool-build)，重构并改善了 webpack 配置的自定义方式。
+  - 替换 `antd server` 为 [dora](https://github.com/dora-js/dora)，一个完全插件化的开发服务器，支持[代理转发和数据 Mock](https://github.com/dora-js/dora-plugin-proxy)、[atool-build](https://github.com/dora-js/dora-plugin-atool-build)、[热替换](https://github.com/dora-js/dora-plugin-hmr)。
+  - 新增 babel 插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)，转换 `import {Button} from 'antd'` 为 `import Button from 'antd/lib/button'`。
+  - antd-init@0.5.1，支持以上改动。
 
 > - [0.11 升级指南](http://ant.design/docs/upgrade-notes)
 
