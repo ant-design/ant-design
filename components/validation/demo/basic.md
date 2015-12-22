@@ -8,6 +8,8 @@
 
 表单提交的时候，通过 Validation 的 validate 方法判断是否所有表单域校验通过（isValid 会作为回调函数的参数传入）。
 
+**注意：** ES6 语法 [不支持 `mixins`](https://facebook.github.io/react/docs/reusable-components.html#no-mixins)。
+
 ---
 
 ````jsx
