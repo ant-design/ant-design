@@ -22,6 +22,7 @@ window.require = function (path) {
   return result;
 };
 
+require('../style/index.less');
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
 window.CopyToClipboard = require('react-copy-to-clipboard');
@@ -35,7 +36,6 @@ window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
 window['reqwest'] = require('reqwest');
-require('./importCss');
 
 antd.DatePicker.locale = {
   en_US: require('../components/date-picker/locale/en_US'),
