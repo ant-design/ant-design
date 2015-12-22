@@ -8,7 +8,7 @@
 
 ### 交互部件库
 
-<a target="_blank" href="" class="download-link disabled">
+<a target="_blank" href="https://github.com/ant-design/ant-design/files/69428/Ant_Design_Components.rplib.zip" class="download-link">
   <img src="https://os.alipayobjects.com/rmsportal/sJkbErZhOdoiRia.svg" width="30" style="position: relative; top: -2px;">
   Axure Widgets
 </a>
