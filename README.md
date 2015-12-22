@@ -45,9 +45,8 @@ Normal browsers and Internet Explorer 8+.
 
 - [Home page](http://ant.design/)
 - [React UI library](http://ant.design/docs/introduce)
-- [Build/Debug tools](https://github.com/ant-tool/xtool/)
-- [Roadmap](https://github.com/ant-design/ant-design/issues/9)
 - [ChangeLog](CHANGELOG.md)
+- [Build/Debug tools](https://github.com/ant-tool/xtool/)
 - [React components](http://react-component.github.io/)
 - [React style guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [React component design guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
