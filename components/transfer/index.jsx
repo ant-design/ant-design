@@ -109,22 +109,22 @@ class Transfer extends Component {
     }
 
     this.setState({
-      [direction === 'left' ? 'leftCheckedKeys' : 'rightCheckedKeys']: holder,
+      [direction + 'CheckedKeys']: holder,
     });
   }
 
   handleFilter(direction, e) {
     this.setState({
       // deselect all
-      [direction === 'left' ? 'leftCheckedKeys' : 'rightCheckedKeys']: [],
+      [direction + 'CheckedKeys']: [],
       // add filter
-      [direction === 'left' ? 'leftFilter' : 'rightFilter']: e.target.value,
+      [direction + 'Filter']: e.target.value,
     });
   }
 
   handleClear(direction) {
     this.setState({
-      [direction === 'left' ? 'leftFilter' : 'rightFilter']: '',
+      [direction + 'Filter']: '',
     });
   }
 
@@ -139,7 +139,7 @@ class Transfer extends Component {
       holder.push(selectedItem.key);
     }
     this.setState({
-      [direction === 'left' ? 'leftCheckedKeys' : 'rightCheckedKeys']: holder,
+      [direction + 'CheckedKeys']: holder,
     });
   }
 
