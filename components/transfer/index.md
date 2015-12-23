@@ -22,6 +22,7 @@
 | render | 渲染每行数据 | Function(record)  | false    |
 | targetKeys | 显示在右侧框的数据 | Array  | [] |
 | onChange | 变化时回调函数 | Function(e:Event) |  |
+| boxWidth | 单个穿梭框的宽度 | Number | 160 |
 | titles | 标题集合,顺序从左至右 | Array | ['源列表', '目的列表'] |
 | operations | 操作文案集合,顺序从上至下 | Array | [] |
 | showSearch | 是否显示搜索框 | Boolean | false |

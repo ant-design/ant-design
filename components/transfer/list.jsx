@@ -57,13 +57,13 @@ class TransferList extends Component {
 
   render() {
     let self = this;
-    const { prefixCls, dataSource, title, filter, checkedKeys, checkStatus, body, footer, showSearch } = this.props;
+    const { prefixCls, dataSource, title, filter, width, checkedKeys, checkStatus, body, footer, showSearch } = this.props;
 
     // Custom Layout
     const footerDom = footer({...this.props});
     const bodyDom = body({...this.props});
 
-    return (<div className={prefixCls} {...this.props}>
+    return (<div className={prefixCls} {...this.props} style={{width: width}}>
       <div className={`${prefixCls}-header`}>
         {this.renderCheckbox({
           prefixCls: 'ant-tree',
@@ -109,6 +109,7 @@ TransferList.defaultProps = {
   dataSource: [],
   showSearch: false,
   searchPlaceholder: '',
+  width: 160,
   handleFilter: noop,
   handleSelect: noop,
   handleSelectAll: noop,
@@ -123,6 +124,7 @@ TransferList.propTypes = {
   dataSource: PropTypes.array,
   showSearch: PropTypes.bool,
   searchPlaceholder: PropTypes.string,
+  width: PropTypes.number,
   handleFilter: PropTypes.func,
   handleSelect: PropTypes.func,
   handleSelectAll: PropTypes.func,

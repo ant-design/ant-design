@@ -144,7 +144,7 @@ class Transfer extends Component {
   }
 
   render() {
-    const { prefixCls, titles, operations, showSearch, searchPlaceholder, body, footer } = this.props;
+    const { prefixCls, titles, operations, showSearch, searchPlaceholder, body, footer, boxWidth } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
     const { leftDataSource, rightDataSource } = this.splitDataSource();
@@ -158,6 +158,7 @@ class Transfer extends Component {
       <List title={titles[0]}
             dataSource={leftDataSource}
             filter={leftFilter}
+            width={boxWidth}
             checkedKeys={leftCheckedKeys}
             checkStatus={leftCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'left')}
@@ -176,6 +177,7 @@ class Transfer extends Component {
       <List title={titles[1]}
             dataSource={rightDataSource}
             filter={rightFilter}
+            width={boxWidth}
             checkedKeys={rightCheckedKeys}
             checkStatus={rightCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'right')}
@@ -199,6 +201,7 @@ Transfer.defaultProps = {
   render: noop,
   targetKeys: [],
   onChange: noop,
+  boxWidth: 160,
   titles: ['源列表', '目的列表'],
   operations: [],
   showSearch: false,
@@ -213,6 +216,7 @@ Transfer.propTypes = {
   render: PropTypes.func,
   targetKeys: PropTypes.array,
   onChange: PropTypes.func,
+  boxWidth: PropTypes.number,
   titles: PropTypes.array,
   operations: PropTypes.array,
   showSearch: PropTypes.bool,
