@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import List from './list.jsx';
 import Operation from './operation.jsx';
+import Search from './search.jsx';
 
 function noop() {
 }
@@ -14,7 +15,7 @@ class Transfer extends Component {
       leftFilter: '',
       rightFilter: '',
       leftCheckedKeys: [],
-      rightCheckedKeys: []
+      rightCheckedKeys: [],
     };
   }
 
@@ -57,15 +58,54 @@ class Transfer extends Component {
     this.props.onChange(newTargetKeys);
   }
 
-  handleSelectAll(direction, globalCheckStatus) {
+  getGlobalCheckStatus(direction) {
     const { leftDataSource, rightDataSource } = this.splitDataSource();
+    const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
+
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
+    const filter = direction === 'left' ? leftFilter : rightFilter;
+    const checkedKeys = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
+    const filteredDataSource = this.filterDataSource(dataSource, filter);
+
+    let globalCheckStatus;
+
+    if ( checkedKeys.length > 0 ) {
+      if ( checkedKeys.length < filteredDataSource.length ) {
+        globalCheckStatus = 'part';
+      } else {
+        globalCheckStatus = 'all';
+      }
+    } else {
+      globalCheckStatus = 'none';
+    }
+    return globalCheckStatus;
+  }
+
+  filterDataSource(dataSource, filter) {
+    const self = this;
+    return dataSource.filter(item => {
+      const itemText = self.props.render(item);
+      return self.matchFilter(itemText, filter);
+    });
+  }
+
+  matchFilter(text, filterText) {
+    const regex = new RegExp(filterText);
+    return text.match(regex);
+  }
+
+  handleSelectAll(direction) {
+    const { leftDataSource, rightDataSource } = this.splitDataSource();
+    const { leftFilter, rightFilter } = this.state;
+    const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
+    const filter = direction === 'left' ? leftFilter : rightFilter;
+    const checkStatus = this.getGlobalCheckStatus(direction);
     let holder = [];
 
-    if ( globalCheckStatus === 'all' ) {
+    if ( checkStatus === 'all' ) {
       holder = [];
     } else {
-      holder = dataSource.map((data) => data.key);
+      holder = this.filterDataSource(dataSource, filter).map(item => item.key);
     }
 
     this.setState({
@@ -75,6 +115,9 @@ class Transfer extends Component {
 
   handleFilter(direction, e) {
     this.setState({
+      // deselect all
+      [direction === 'left' ? 'leftCheckedKeys' : 'rightCheckedKeys']: [],
+      // add filter
       [direction === 'left' ? 'leftFilter' : 'rightFilter']: e.target.value,
     });
   }
@@ -105,14 +148,18 @@ class Transfer extends Component {
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
     const { leftDataSource, rightDataSource } = this.splitDataSource();
-    let leftActive = rightCheckedKeys.length > 0;
-    let rightActive = leftCheckedKeys.length > 0;
+    const leftActive = rightCheckedKeys.length > 0;
+    const rightActive = leftCheckedKeys.length > 0;
+
+    const leftCheckStatus = this.getGlobalCheckStatus('left');
+    const rightCheckStatus = this.getGlobalCheckStatus('right');
 
     return <div className={prefixCls}>
       <List title={titles[0]}
             dataSource={leftDataSource}
             filter={leftFilter}
             checkedKeys={leftCheckedKeys}
+            checkStatus={leftCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'left')}
             handleClear={this.handleClear.bind(this, 'left')}
             handleSelect={this.handleSelect.bind(this, 'left')}
@@ -130,6 +177,7 @@ class Transfer extends Component {
             dataSource={rightDataSource}
             filter={rightFilter}
             checkedKeys={rightCheckedKeys}
+            checkStatus={rightCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'right')}
             handleClear={this.handleClear.bind(this, 'right')}
             handleSelect={this.handleSelect.bind(this, 'right')}
@@ -172,5 +220,9 @@ Transfer.propTypes = {
   body: PropTypes.func,
   footer: PropTypes.func,
 };
+
+Transfer.List = List;
+Transfer.Operation = Operation;
+Transfer.Search = Search;
 
 export default Transfer;

@@ -59,7 +59,7 @@ const App = React.createClass({
       <Transfer
         dataSource={this.state.mockData}
         showSearch
-        operations={['hello', 'world']}
+        operations={['向右操作文案', '向左操作文案']}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
         render={(item) => { return item.title + item.description; }}

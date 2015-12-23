@@ -12,7 +12,7 @@ class TransferList extends Component {
   }
 
   handleSelectALl() {
-    this.props.handleSelectAll(this.getGlobalCheckStatus(), this.filter);
+    this.props.handleSelectAll();
   }
 
   handleSelect(selectedItem) {
@@ -27,23 +27,6 @@ class TransferList extends Component {
 
   handleClear() {
     this.props.handleClear();
-  }
-
-  getGlobalCheckStatus() {
-    const { dataSource, checkedKeys } = this.props;
-
-    let globalCheckStatus;
-
-    if ( checkedKeys.length > 0 ) {
-      if ( checkedKeys.length < dataSource.length ) {
-        globalCheckStatus = 'part';
-      } else {
-        globalCheckStatus = 'all';
-      }
-    } else {
-      globalCheckStatus = 'none';
-    }
-    return globalCheckStatus;
   }
 
   renderCheckbox(props) {
@@ -74,20 +57,18 @@ class TransferList extends Component {
 
   render() {
     let self = this;
-    const { prefixCls, dataSource, title, filter, checkedKeys, body, footer, showSearch } = this.props;
-
-    let globalCheckStatus = this.getGlobalCheckStatus();
+    const { prefixCls, dataSource, title, filter, checkedKeys, checkStatus, body, footer, showSearch } = this.props;
 
     // Custom Layout
-    const footerDom = footer({...this.props, globalCheckStatus});
-    const bodyDom = body({...this.props, globalCheckStatus});
+    const footerDom = footer({...this.props});
+    const bodyDom = body({...this.props});
 
     return (<div className={prefixCls} {...this.props}>
       <div className={`${prefixCls}-header`}>
         {this.renderCheckbox({
           prefixCls: 'ant-tree',
-          checked: globalCheckStatus === 'all',
-          checkPart: globalCheckStatus === 'part',
+          checked: checkStatus === 'all',
+          checkPart: checkStatus === 'part',
           checkable: <span className={`ant-tree-checkbox-inner`}></span>
         })} { (checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条
         <span className={`${prefixCls}-header-title`}>{title}</span>

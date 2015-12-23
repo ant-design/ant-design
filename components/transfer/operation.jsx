@@ -10,8 +10,8 @@ class TransferOperation extends Component {
     const { moveToLeft, moveToRight, leftArrowText, rightArrowText, leftActive, rightActive, prefixCls } = this.props;
 
     return <div className={`${prefixCls}`}>
-      { rightArrowText ? <Button type="primary" style={{ 'margin-bottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}>{rightArrowText}<Icon type="right" /></Button> :
-        <Button type="primary" style={{ 'margin-bottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}><Icon type="right" /></Button>}
+      { rightArrowText ? <Button type="primary" style={{ 'marginBottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}>{rightArrowText}<Icon type="right" /></Button> :
+        <Button type="primary" style={{ 'marginBottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}><Icon type="right" /></Button>}
       {leftArrowText ? <Button type="primary" disabled={ !leftActive ? 'disabled' : false } onClick={moveToLeft}><Icon type="left" />{leftArrowText}</Button> :
         <Button type="primary" disabled={ !leftActive ? 'disabled' : false } onClick={moveToLeft}><Icon type="left" /></Button>}
     </div>;
