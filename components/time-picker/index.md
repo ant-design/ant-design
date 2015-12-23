@@ -20,6 +20,8 @@ API
 <TimePicker defaultValue="13:30:56" />
 ```
 
+> 注意：`0.11+` 后 `Timepicker` 改名为 `TimePicker`。
+
 | 参数                 | 说明 | 类型 | 默认值 |
 |---------------------|-----|-----|-------|
 | defaultValue        | 初始默认时间 | string | 无 |

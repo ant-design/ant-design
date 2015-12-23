@@ -4,7 +4,7 @@
 
 示例展示了如何通过使用 `Form.ValueMixin` 来获取和更新表单提交的数值。
 
-**注意：** 你需要为每个输入控件声明 `name` 属性。
+**注意：** 1）需要为每个输入控件声明 `name` 属性；2）ES6 语法 [不支持 `mixins`](https://facebook.github.io/react/docs/reusable-components.html#no-mixins)；
 
 ---
 

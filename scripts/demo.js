@@ -22,6 +22,7 @@ window.require = function (path) {
   return result;
 };
 
+require('../style/index.less');
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
 window.CopyToClipboard = require('react-copy-to-clipboard');
@@ -35,7 +36,6 @@ window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
 window['reqwest'] = require('reqwest');
-require('./importCss');
 
 antd.DatePicker.locale = {
   en_US: require('../components/date-picker/locale/en_US'),
@@ -99,7 +99,8 @@ InstantClickChangeFns.push(function () {
   var Select = antd.Select;
   var Option = Select.Option;
   var versionsHistory = {
-    '0.9.2': '09x.ant.design'
+    '0.9.2': '09x.ant.design',
+    '0.10.4': '010x.ant.design'
   };
   versionsHistory[antdVersion.latest] =
     versionsHistory[antdVersion.latest] || 'ant.design';
@@ -118,7 +119,8 @@ InstantClickChangeFns.push(function () {
   }
 
   ReactDOM.render(
-    <Select defaultValue={antdVersion.latest} size="small" style={{width:130}}
+    <Select defaultValue={antdVersion.latest} size="small"
+            dropdownMatchSelectWidth={false}
             onChange={onChange}>{options}</Select>
     , document.getElementById('versions-select'));
 });
