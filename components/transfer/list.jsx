@@ -86,7 +86,7 @@ class TransferList extends Component {
               const filterResult = self.matchFilter(itemText, filter);
 
               if ( filterResult ) {
-                return <li onClick={this.handleSelect.bind(this, item)}>
+                return <li onClick={this.handleSelect.bind(this, item)} key={item.key}>
                   <Checkbox checked={checkedKeys.some((key) => key === item.key)} />
                   { self.props.render(item) }
                 </li>;
@@ -114,17 +114,19 @@ TransferList.defaultProps = {
   handleSelectAll: noop,
   render: noop,
   //advanced
-  footer: noop,
   body: noop,
+  footer: noop,
 };
 
 TransferList.propTypes = {
   prefixCls: PropTypes.string,
   dataSource: PropTypes.array,
+  showSearch: PropTypes.bool,
   searchPlaceholder: PropTypes.string,
   handleFilter: PropTypes.func,
   handleSelect: PropTypes.func,
   handleSelectAll: PropTypes.func,
+  render: PropTypes.func,
   body: PropTypes.func,
   footer: PropTypes.func,
 };
