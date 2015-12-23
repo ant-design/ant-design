@@ -1,9 +1,12 @@
 @transfer-prefix-cls: ~"@{css-prefix}transfer";
-
+.antCheckboxFn(@checkbox-prefix-cls: ant-transfer-checkbox);
 .@{transfer-prefix-cls} {
+
+  position: relative;
 
   &-list {
 
+    font-size: 12px;
     border: 1px solid #e9e9e9;
     display: inline-block;
     border-radius: 6px;
@@ -24,15 +27,17 @@
     }
 
     &-header {
-      padding: 7px 14px;
+      padding: 7px 16px;
       border-radius: 5px 5px 0 0;
       background: #fff;
       color: #666;
       border-bottom: 1px solid #e9e9e9;
+      overflow: hidden;
 
       &-title {
         float: right;
       }
+
     }
 
     &-body {
@@ -60,6 +65,9 @@
         height: 100%;
         overflow: auto;
         li {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
           padding: 7px 16px;
           &:hover {
             cursor: pointer;
@@ -82,12 +90,17 @@
   &-operation {
     display: inline-block;
     overflow: hidden;
+    margin: 0 8px;
     vertical-align: top;
-    margin: 80px 8px;
 
-    button {
+    .ant-btn {
       float: left;
       clear: both;
+      padding: 1px 5px;
+
+      i {
+        font-size: 10px;
+      }
     }
   }
 }

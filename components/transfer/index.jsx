@@ -144,7 +144,7 @@ class Transfer extends Component {
   }
 
   render() {
-    const { prefixCls, titles, operations, showSearch, searchPlaceholder, body, footer, boxWidth } = this.props;
+    const { prefixCls, titles, operations, showSearch, searchPlaceholder, body, footer, width, height } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
     const { leftDataSource, rightDataSource } = this.splitDataSource();
@@ -155,10 +155,11 @@ class Transfer extends Component {
     const rightCheckStatus = this.getGlobalCheckStatus('right');
 
     return <div className={prefixCls}>
-      <List title={titles[0]}
+      <List titleText={titles[0]}
             dataSource={leftDataSource}
             filter={leftFilter}
-            width={boxWidth}
+            width={width}
+            height={height}
             checkedKeys={leftCheckedKeys}
             checkStatus={leftCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'left')}
@@ -173,11 +174,13 @@ class Transfer extends Component {
             footer={footer}
       />
       <Operation rightActive={rightActive} rightArrowText={operations[0]} moveToRight={this.moveTo.bind(this, 'right')}
-                 leftActive={leftActive} leftArrowText={operations[1]} moveToLeft={this.moveTo.bind(this, 'left')} />
-      <List title={titles[1]}
+                 leftActive={leftActive} leftArrowText={operations[1]} moveToLeft={this.moveTo.bind(this, 'left')}
+                 height={height}/>
+      <List titleText={titles[1]}
             dataSource={rightDataSource}
             filter={rightFilter}
-            width={boxWidth}
+            width={width}
+            height={height}
             checkedKeys={rightCheckedKeys}
             checkStatus={rightCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'right')}
@@ -201,7 +204,8 @@ Transfer.defaultProps = {
   render: noop,
   targetKeys: [],
   onChange: noop,
-  boxWidth: 160,
+  height: 150,
+  width: 160,
   titles: ['源列表', '目的列表'],
   operations: [],
   showSearch: false,
@@ -216,7 +220,8 @@ Transfer.propTypes = {
   render: PropTypes.func,
   targetKeys: PropTypes.array,
   onChange: PropTypes.func,
-  boxWidth: PropTypes.number,
+  height: PropTypes.number,
+  width: PropTypes.number,
   titles: PropTypes.array,
   operations: PropTypes.array,
   showSearch: PropTypes.bool,

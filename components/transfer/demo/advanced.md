@@ -2,7 +2,7 @@
 
 - order: 2
 
-穿梭框高级用法
+穿梭框高级用法,可配置操作文案,可定制宽高,可对底部进行自定义渲染。
 
 ---
 
@@ -59,10 +59,12 @@ const App = React.createClass({
       <Transfer
         dataSource={this.state.mockData}
         showSearch
+        height={200}
+        width={200}
         operations={['向右操作文案', '向左操作文案']}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={(item) => { return item.title + item.description; }}
+        render={(item) => { return item.title + '-' + item.description; }}
         footer={this.renderFooter}/>
     </div>;
   }

@@ -1,4 +1,4 @@
-# 基本用法
+# 带搜索框
 
 - order: 1
 
@@ -56,7 +56,7 @@ const App = React.createClass({
         showSearch
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={(item) => { return item.title + item.description;}} />
+        render={(item) => { return item.title;}} />
     </div>;
   }
 });
