@@ -1,0 +1,114 @@
+@input-box-height: 35px;
+
+.@{calendar-prefix-cls}-range-picker-input {
+  background-color: transparent;
+  border: 0;
+  height: 18px;
+  line-height: 18px;
+  width: 44%;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.@{calendar-prefix-cls}-range {
+  width: 502px;
+  overflow: hidden;
+
+  &-part {
+    width: 250px;
+    position: relative;
+  }
+
+  &-left {
+    float: left;
+  }
+
+  &-right {
+    float: right;
+  }
+
+  &-middle {
+    position: absolute;
+    left: 50%;
+    width: 20px;
+    margin-left: -10px;
+    text-align: center;
+    height: @input-box-height;
+    line-height: @input-box-height;
+  }
+
+  .@{calendar-prefix-cls}-date-input-wrap,
+  .@{calendar-prefix-cls}-time-picker-wrap {
+    width: 47%;
+  }
+
+  .@{calendar-prefix-cls}-time-picker-wrap {
+    position: absolute;
+    left: 50%;
+  }
+  .@{css-prefix}time-picker-input {
+    width: 100%;
+  }
+
+  .@{calendar-prefix-cls}-input-wrap {
+    height: @input-box-height;
+  }
+  .@{calendar-prefix-cls}-input {
+    border: 1px solid @border-color-base;
+    border-radius: @border-radius-base;
+  }
+  .@{calendar-prefix-cls}-input,
+  .@{css-prefix}time-picker-input {
+    padding: 1px 7px;
+    height: @input-height-sm;
+  }
+  .@{css-prefix}time-picker-icon {
+    display: none;
+  }
+
+  .@{calendar-prefix-cls}-calendar-body,
+  .@{calendar-prefix-cls}-decade-panel-body,
+  .@{calendar-prefix-cls}-year-panel-body,
+  .@{calendar-prefix-cls}-month-panel-body {
+    border-bottom: 1px solid #e9e9e9;
+  }
+
+  &.@{calendar-prefix-cls}-week-number {
+    width: 574px;
+
+    .@{calendar-prefix-cls}-range-part {
+      width: 286px;
+    }
+  }
+
+  .@{calendar-prefix-cls}-year-panel,
+  .@{calendar-prefix-cls}-month-panel {
+    top: @input-box-height;
+  }
+  .@{calendar-prefix-cls}-month-panel .@{calendar-prefix-cls}-year-panel {
+    top: 0;
+  }
+  .@{calendar-prefix-cls}-decade-panel-table,
+  .@{calendar-prefix-cls}-year-panel-table,
+  .@{calendar-prefix-cls}-month-panel-table {
+    height: 208px;
+  }
+
+  .@{calendar-prefix-cls}-in-range-cell {
+    background: tint(@primary-color, 90%);
+    border-radius: 0;
+  }
+
+  &-bottom {
+    text-align: right;
+  }
+  .@{calendar-prefix-cls}-ok-btn {
+    position: static;
+    margin: 7px 9px 9px;
+  }
+  .@{calendar-prefix-cls}-today-btn {
+    margin: 9px;
+  }
+}
