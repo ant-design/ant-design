@@ -2,7 +2,7 @@
 
 - order: 9
 
-使用 MonthPicker 实现月选择器.
+使用 `MonthPicker` 实现月选择器.
 
 ---
 

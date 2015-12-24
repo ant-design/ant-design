@@ -1,20 +1,18 @@
 @import "../../mixins/input";
 
 .@{calendar-prefix-cls}-time {
-  > span {
-    margin: 0 2px;
+  .@{calendar-prefix-cls}-input,
+  .@{timepicker-prefix-cls}-input {
+    .input;
+    height: 22px;
+    width: 96px;
   }
-  ~ .@{calendar-prefix-cls}-footer-btn {
-    display: inline;
-    text-align: left;
+  .@{timepicker-prefix-cls}-icon {
+    display: none;
   }
-}
-
-.@{calendar-prefix-cls}-time-input {
-  .input;
-  margin: 0;
-  width: 30px;
-  height: 26px;
-  padding: 0;
-  text-align: center;
+  &-picker-wrap {
+    position: absolute;
+    left: 108px;
+    top: 6px;
+  }
 }

@@ -1,11 +1,16 @@
-@input-box-height: 35px;
+@input-box-height: 34px;
+
+.@{calendar-prefix-cls}-range-picker.ant-input {
+  padding-right: 26px;
+}
 
 .@{calendar-prefix-cls}-range-picker-input {
   background-color: transparent;
   border: 0;
   height: 18px;
   line-height: 18px;
-  width: 44%;
+  outline: 0;
+  width: 43%;
 
   &[disabled] {
     cursor: not-allowed;
@@ -33,23 +38,26 @@
     position: absolute;
     left: 50%;
     width: 20px;
-    margin-left: -10px;
+    margin-left: -147px;
     text-align: center;
     height: @input-box-height;
     line-height: @input-box-height;
   }
 
-  .@{calendar-prefix-cls}-date-input-wrap,
-  .@{calendar-prefix-cls}-time-picker-wrap {
-    width: 47%;
+  &-right .@{calendar-prefix-cls}-date-input-wrap {
+    margin-left: -133px;
   }
 
-  .@{calendar-prefix-cls}-time-picker-wrap {
-    position: absolute;
-    left: 50%;
+  &.@{calendar-prefix-cls}-time &-middle {
+    margin-left: -45px;
   }
-  .@{css-prefix}time-picker-input {
-    width: 100%;
+
+  &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
+    margin-left: -30px;
+  }
+
+  &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-time-picker-wrap {
+    left: 78px;
   }
 
   .@{calendar-prefix-cls}-input-wrap {

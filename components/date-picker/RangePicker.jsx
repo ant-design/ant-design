@@ -1,8 +1,8 @@
 import React from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
-import Datepicker from 'rc-calendar/lib/Picker';
-import Timepicker from 'rc-time-picker';
+import DatePicker from 'rc-calendar/lib/Picker';
+import TimePicker from 'rc-time-picker';
 import classNames from 'classnames';
 import PickerMixin from './PickerMixin';
 
@@ -10,7 +10,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       defaultValue: [],
-      format: 'yyyy-MM-dd HH:mm:ss',
+      format: 'yyyy-MM-dd',
       startPlaceholder: '开始时间',
       endPlaceholder: '结束时间',
       transitionName: 'slide-up',
@@ -46,8 +46,9 @@ export default React.createClass({
     }
   },
   handleChange(value) {
-    this.setState({value});
-
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
     const startTime = value[0] ? new Date(value[0].getTime()) : null;
     const endTime = value[1] ? new Date(value[1].getTime()) : null;
     this.props.onChange([startTime, endTime]);
@@ -64,14 +65,23 @@ export default React.createClass({
            transitionName, disabled, popupStyle, align, style} = this.props;
     const state = this.state;
 
-    const calendar = (<RangeCalendar prefixCls="ant-calendar"
-                        timePicker={<Timepicker prefixCls="ant-time-picker" />}
+    const timePicker = showTime
+      ? <TimePicker prefixCls="ant-time-picker"
+          placeholder={locale.lang.timePlaceholder}
+          transitionName="slide-up" />
+      : null;
+
+    const calendarClassName = classNames({
+      ['ant-calendar-time']: this.props.showTime,
+    });
+
+    const calendar = <RangeCalendar prefixCls="ant-calendar"
+                        className={calendarClassName}
+                        timePicker={timePicker}
                         disabledDate={disabledDate}
                         locale={locale.lang}
                         defaultValue={defaultCalendarValue}
-                        showTime={showTime}
-                        showOk={showTime}
-                        showClear />);
+                        showClear />;
 
     const pickerClass = classNames({
       'ant-calendar-picker': true,
@@ -79,13 +89,14 @@ export default React.createClass({
     });
 
     const pickerInputClass = classNames({
+      'ant-calendar-range-picker': true,
       'ant-input': true,
       'ant-input-lg': size === 'large',
-      'ant-input-sm': size === 'small'
+      'ant-input-sm': size === 'small',
     });
 
-    return (<span className={pickerClass}>
-      <Datepicker
+    return (<span className={pickerClass} style={style}>
+      <DatePicker
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}
@@ -100,25 +111,25 @@ export default React.createClass({
           ({value}) => {
             const start = value[0];
             const end = value[1];
-            return (<span className={pickerInputClass} disabled={disabled}>
-              <input disabled={disabled}
-                onChange={this.handleInputChange}
-                value={start && this.getFormatter().format(start)}
-                placeholder={startPlaceholder}
-                style={style}
-                className="ant-calendar-range-picker-input"/>
-              <span> ~ </span>
-              <input disabled={disabled}
-                onChange={this.handleInputChange}
-                value={end && this.getFormatter().format(end)}
-                placeholder={endPlaceholder}
-                style={style}
-                className="ant-calendar-range-picker-input"/>
-              <span className="ant-calendar-picker-icon"/>
-            </span>);
+            return (
+              <span className={pickerInputClass} disabled={disabled}>
+                <input disabled={disabled}
+                  onChange={this.handleInputChange}
+                  value={start && this.getFormatter().format(start)}
+                  placeholder={startPlaceholder}
+                  className="ant-calendar-range-picker-input" />
+                <span> ~ </span>
+                <input disabled={disabled}
+                  onChange={this.handleInputChange}
+                  value={end && this.getFormatter().format(end)}
+                  placeholder={endPlaceholder}
+                  className="ant-calendar-range-picker-input" />
+                <span className="ant-calendar-picker-icon" />
+              </span>
+            );
           }
         }
-      </Datepicker>
+      </DatePicker>
     </span>);
   }
 });

@@ -9,7 +9,11 @@
 ````jsx
 import { DatePicker } from 'antd';
 
+function onChange(value) {
+  console.log(value);
+}
+
 ReactDOM.render(
-  <DatePicker defaultValue="2015-12-12" />
+  <DatePicker onChange={onChange} />
 , document.getElementById('components-date-picker-demo-basic'));
 ````

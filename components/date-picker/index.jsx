@@ -5,7 +5,9 @@ import DatePicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import AntRangePicker from './RangePicker';
-import PickerMixin from './Pickermixin';
+import PickerMixin from './PickerMixin';
+import TimePicker from 'rc-time-picker';
+import classNames from 'classnames';
 
 function createPicker(TheCalendar, defaultFormat) {
   return React.createClass({
@@ -61,14 +63,26 @@ function createPicker(TheCalendar, defaultFormat) {
 
       const placeholder = ('placeholder' in this.props)
         ? this.props.placeholder : locale.lang.placeholder;
+
+      const timePicker = this.props.showTime
+        ? <TimePicker prefixCls="ant-time-picker"
+            placeholder={locale.lang.timePlaceholder}
+            transitionName="slide-up" />
+        : null;
+
+      const calendarClassName = classNames({
+        ['ant-calendar-time']: this.props.showTime,
+      });
+
       const calendar = (
         <TheCalendar
           disabledDate={this.props.disabledDate}
           locale={locale.lang}
+          timePicker={timePicker}
           defaultValue={defaultCalendarValue}
           dateInputPlaceholder={placeholder}
-          showTime={this.props.showTime}
           prefixCls="ant-calendar"
+          className={calendarClassName}
           showOk={this.props.showTime}
           showClear />
       );
@@ -100,7 +114,7 @@ function createPicker(TheCalendar, defaultFormat) {
           {
             ({value}) => {
               return (
-              <span>
+                <span>
                   <input disabled={this.props.disabled}
                          onChange={this.handleInputChange}
                          value={value && this.getFormatter().format(value)}
@@ -109,7 +123,7 @@ function createPicker(TheCalendar, defaultFormat) {
                          className={'ant-calendar-picker-input ant-input' + sizeClass}/>
                   <span className="ant-calendar-picker-icon"/>
                 </span>
-                );
+              );
             }
           }
         </DatePicker>
