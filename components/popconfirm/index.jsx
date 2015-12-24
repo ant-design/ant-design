@@ -36,7 +36,6 @@ export default React.createClass({
       onCancel: noop,
       okText: '确定',
       cancelText: '取消',
-      visible: false,
       onVisibleChange() {},
     };
   },
