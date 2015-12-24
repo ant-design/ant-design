@@ -18,21 +18,13 @@ class TransferOperation extends Component {
     } = this.props;
 
     const moveToLeftButton = (
-      <Button type="primary" disabled={!leftActive} onClick={moveToLeft}>
-        {
-          leftArrowText
-            ? <Icon type="left" /> + leftArrowText
-            : <Icon type="left" />
-        }
+      <Button type="primary" size="small" disabled={!leftActive} onClick={moveToLeft}>
+        {<span><Icon type="left" />{leftArrowText}</span>}
       </Button>
     );
     const moveToRightButton = (
-      <Button type="primary" disabled={!rightActive} onClick={moveToRight}>
-        {
-          rightArrowText
-            ? rightArrowText + <Icon type="right" />
-            : <Icon type="right" />
-        }
+      <Button type="primary" size="small" disabled={!rightActive} onClick={moveToRight}>
+        {<span>{rightArrowText}<Icon type="right" /></span>}
       </Button>
     );
     return <div className={className}>

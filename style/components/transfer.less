@@ -10,6 +10,7 @@
     display: inline-block;
     border-radius: @border-radius-base;
     width: 160px;
+    vertical-align: middle;
 
     &-search {
       &-action {
@@ -90,15 +91,18 @@
     display: inline-block;
     overflow: hidden;
     margin: 0 8px;
-    vertical-align: top;
+    vertical-align: middle;
 
     .ant-btn {
       float: left;
       clear: both;
-      padding: 1px 5px;
 
-      i {
-        font-size: 10px;
+      &:first-child {
+        margin-bottom: 4px;
+      }
+
+      .anticon {
+        .iconfont-size-under-12px(10px);
       }
     }
   }
