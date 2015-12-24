@@ -15,6 +15,6 @@ function onChange(checkedValues) {
 }
 
 ReactDOM.render(<label>
-  <CheckboxGroup options={["apple", "pear"]}onChange={onChange} />
+  <CheckboxGroup options={['apple', 'pear']}onChange={onChange} />
 </label>, document.getElementById('components-checkbox-demo-group'));
 ````
