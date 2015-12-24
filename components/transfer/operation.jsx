@@ -7,13 +7,39 @@ function noop() {
 
 class TransferOperation extends Component {
   render() {
-    const { moveToLeft, moveToRight, leftArrowText, rightArrowText, leftActive, rightActive, prefixCls, height } = this.props;
+    const {
+      moveToLeft,
+      moveToRight,
+      leftArrowText,
+      rightArrowText,
+      leftActive,
+      rightActive,
+      prefixCls,
+    } = this.props;
 
-    return <div className={`${prefixCls}`} style={{marginTop: (height + 35) / 2 - 24}}>
-      { rightArrowText ? <Button type="primary" style={{ 'marginBottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}>{rightArrowText}<Icon type="right" /></Button> :
-        <Button type="primary" style={{ 'marginBottom': '4px' }} disabled={ !rightActive ? 'disabled' : false } onClick={moveToRight}><Icon type="right" /></Button>}
-      {leftArrowText ? <Button type="primary" disabled={ !leftActive ? 'disabled' : false } onClick={moveToLeft}><Icon type="left" />{leftArrowText}</Button> :
-        <Button type="primary" disabled={ !leftActive ? 'disabled' : false } onClick={moveToLeft}><Icon type="left" /></Button>}
+    const moveToLeftButton = (
+      <Button type="primary" disabled={!leftActive} onClick={moveToLeft}>
+        {
+          leftArrowText
+            ? <Icon type="left" /> + leftArrowText
+            : <Icon type="left" />
+        }
+      </Button>
+    );
+
+    const moveToRightButton = (
+      <Button type="primary" disabled={!rightActive} onClick={moveToRight}>
+        {
+          rightArrowText
+            ? rightArrowText + <Icon type="right" />
+            : <Icon type="right" />
+        }
+      </Button>
+    );
+
+    return <div className={prefixCls}>
+      {moveToLeftButton}
+      {moveToRightButton}
     </div>;
   }
 }
@@ -22,7 +48,6 @@ TransferOperation.defaultProps = {
   prefixCls: 'ant-transfer-operation',
   leftArrowText: '',
   rightArrowText: '',
-  height: 150,
   moveToLeft: noop,
   moveToRight: noop,
 };
