@@ -9,6 +9,9 @@ locale.lang = objectAssign({
   timePlaceholder: '请选择时间',
 }, CalendarLocale);
 
+// should add whitespace between char in Button
+locale.lang.ok = '确 定';
+
 // All settings at:
 // https://github.com/ant-design/ant-design/issues/424
 

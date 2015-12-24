@@ -17,7 +17,7 @@ const App = React.createClass({
       locale: assign({}, enUS, {
         timezoneOffset: 0 * 60,
         firstDayOfWeek: 0,
-        minimalDaysInFirstWeek: 1
+        minimalDaysInFirstWeek: 1,
       })
     };
   },
