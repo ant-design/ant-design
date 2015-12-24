@@ -15,4 +15,4 @@ const Checkbox = React.createClass({
 
 Checkbox.Group = Group;
 
-export default Checkbox
+export default Checkbox;
