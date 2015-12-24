@@ -5,11 +5,10 @@
   position: relative;
 
   &-list {
-
     font-size: 12px;
-    border: 1px solid #e9e9e9;
+    border: 1px solid @border-color-base;
     display: inline-block;
-    border-radius: 6px;
+    border-radius: @border-radius-base;
     width: 160px;
 
     &-search {
@@ -28,16 +27,15 @@
 
     &-header {
       padding: 7px 16px;
-      border-radius: 6px 6px 0 0;
+      border-radius: @border-radius-base @border-radius-base 0 0;
       background: #fff;
       color: #666;
-      border-bottom: 1px solid #e9e9e9;
+      border-bottom: 1px solid @border-color-split;
       overflow: hidden;
 
       &-title {
         float: right;
       }
-
     }
 
     &-body {
@@ -69,9 +67,10 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           padding: 7px 16px;
+          transition: all 0.3s ease;
           &:hover {
             cursor: pointer;
-            background-color: #eef9fe;
+            background-color: tint(@primary-color, 90%);
           }
         }
       }
@@ -82,7 +81,7 @@
     }
 
     &-footer {
-      border-top: 1px solid #e9e9e9;
+      border-top: 1px solid @border-color-split;
       border-radius: 0 0 5px 5px;
     }
   }

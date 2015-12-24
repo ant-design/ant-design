@@ -2,7 +2,7 @@
 
 - order: 2
 
-穿梭框高级用法,可配置操作文案,可定制宽高,可对底部进行自定义渲染。
+穿梭框高级用法，可配置操作文案，可定制宽高，可对底部进行自定义渲染。
 
 ---
 
@@ -50,7 +50,7 @@ const App = React.createClass({
   },
 
   renderFooter(props) {
-    return <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
+    return <Button type="ghost" size="small" style={{ float: 'right', margin: '5' }}
                    onClick={this.getMock}>刷新</Button>;
   },
 
