@@ -60,7 +60,7 @@ const App = React.createClass({
         dataSource={this.state.mockData}
         showSearch
         listStyle={{
-          width: 200,
+          width: 250,
           height: 300,
         }}
         operations={['向右操作文案', '向左操作文案']}
