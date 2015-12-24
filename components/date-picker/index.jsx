@@ -16,7 +16,6 @@ function createPicker(TheCalendar, defaultFormat) {
         format: defaultFormat || 'yyyy-MM-dd',
         transitionName: 'slide-up',
         popupStyle: {},
-        onSelect: null, // 向前兼容
         onChange() {
         },  // onChange 可用于 Validator
         locale: {},
@@ -44,13 +43,6 @@ function createPicker(TheCalendar, defaultFormat) {
         this.setState({ value });
       }
       const timeValue = value ? new Date(value.getTime()) : null;
-      // onSelect 为向前兼容.
-      if (this.props.onSelect) {
-        require('util-deprecate')(
-          this.props.onSelect,
-          'onSelect property of Datepicker is deprecated, use onChange instead'
-        )(timeValue);
-      }
       this.props.onChange(timeValue);
     },
     render() {
