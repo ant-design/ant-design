@@ -14,7 +14,7 @@ class TransferOperation extends Component {
       rightArrowText,
       leftActive,
       rightActive,
-      prefixCls,
+      className,
     } = this.props;
 
     const moveToLeftButton = (
@@ -26,7 +26,6 @@ class TransferOperation extends Component {
         }
       </Button>
     );
-
     const moveToRightButton = (
       <Button type="primary" disabled={!rightActive} onClick={moveToRight}>
         {
@@ -36,8 +35,7 @@ class TransferOperation extends Component {
         }
       </Button>
     );
-
-    return <div className={prefixCls}>
+    return <div className={className}>
       {moveToLeftButton}
       {moveToRightButton}
     </div>;
@@ -45,7 +43,6 @@ class TransferOperation extends Component {
 }
 
 TransferOperation.defaultProps = {
-  prefixCls: 'ant-transfer-operation',
   leftArrowText: '',
   rightArrowText: '',
   moveToLeft: noop,
@@ -53,7 +50,7 @@ TransferOperation.defaultProps = {
 };
 
 TransferOperation.propTypes = {
-  prefixCls: PropTypes.string,
+  className: PropTypes.string,
   leftArrowText: PropTypes.string,
   rightArrowText: PropTypes.string,
   moveToLeft: PropTypes.func,

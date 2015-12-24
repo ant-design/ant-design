@@ -173,9 +173,14 @@ class Transfer extends Component {
             body={body}
             footer={footer}
       />
-      <Operation rightActive={rightActive} rightArrowText={operations[0]} moveToRight={this.moveTo.bind(this, 'right')}
-                 leftActive={leftActive} leftArrowText={operations[1]} moveToLeft={this.moveTo.bind(this, 'left')}
-                 height={height}/>
+      <Operation rightActive={rightActive}
+                 rightArrowText={operations[0]}
+                 moveToRight={this.moveTo.bind(this, 'right')}
+                 leftActive={leftActive}
+                 leftArrowText={operations[1]}
+                 moveToLeft={this.moveTo.bind(this, 'left')}
+                 className={prefixCls + '-operation'}
+      />
       <List titleText={titles[1]}
             dataSource={rightDataSource}
             filter={rightFilter}
