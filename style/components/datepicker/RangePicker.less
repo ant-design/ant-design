@@ -48,7 +48,7 @@
     position: absolute;
     left: 50%;
   }
-  .ant-time-picker-input {
+  .@{css-prefix}time-picker-input {
     width: 100%;
   }
 
@@ -56,15 +56,15 @@
     height: @input-box-height;
   }
   .@{calendar-prefix-cls}-input {
-    border: 1px solid #d9d9d9;
-    border-radius: 6px;
+    border: 1px solid @border-color-base;
+    border-radius: @border-radius-base;
   }
   .@{calendar-prefix-cls}-input,
-  .ant-time-picker-input {
+  .@{css-prefix}time-picker-input {
     padding: 1px 7px;
-    height: 22px;
+    height: @input-height-sm;
   }
-  .ant-time-picker-icon {
+  .@{css-prefix}time-picker-icon {
     display: none;
   }
 
@@ -97,7 +97,7 @@
   }
 
   .@{calendar-prefix-cls}-in-range-cell {
-    background: #ebf4f8;
+    background: tint(@primary-color, 90%);
     border-radius: 0;
   }
 
@@ -106,9 +106,9 @@
   }
   .@{calendar-prefix-cls}-ok-btn {
     position: static;
-    margin: 9px;
+    margin: 7px 9px 9px;
   }
   .@{calendar-prefix-cls}-today-btn {
-    margin: 12px 9px 0;
+    margin: 9px;
   }
 }
