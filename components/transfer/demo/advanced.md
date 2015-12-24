@@ -59,8 +59,10 @@ const App = React.createClass({
       <Transfer
         dataSource={this.state.mockData}
         showSearch
-        height={200}
-        width={200}
+        listStyle={{
+          width: 200,
+          height: 300,
+        }}
         operations={['向右操作文案', '向左操作文案']}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}

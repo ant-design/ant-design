@@ -28,7 +28,6 @@ class Search extends Component {
 }
 
 Search.defaultProps = {
-  prefixCls: 'ant-transfer-list-search',
   placeholder: '请输入搜索内容',
   onChange: noop,
 };

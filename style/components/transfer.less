@@ -9,8 +9,15 @@
     border: 1px solid @border-color-base;
     display: inline-block;
     border-radius: @border-radius-base;
-    width: 160px;
     vertical-align: middle;
+    position: relative;
+    width: 160px;
+    height: 200px;
+    padding-top: 33px;
+
+    &-with-footer {
+      padding-bottom: 33px;
+    }
 
     &-search {
       &-action {
@@ -33,6 +40,10 @@
       color: #666;
       border-bottom: 1px solid @border-color-split;
       overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
 
       &-title {
         float: right;
@@ -43,7 +54,7 @@
       font-size: 12px;
       line-height: 1.5;
       position: relative;
-      height: 150px;
+      height: 100%;
 
       &-search-wrapper {
         position: absolute;
@@ -83,7 +94,11 @@
 
     &-footer {
       border-top: 1px solid @border-color-split;
-      border-radius: 0 0 5px 5px;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
     }
   }
 

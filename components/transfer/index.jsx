@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import List from './list.jsx';
 import Operation from './operation.jsx';
 import Search from './search.jsx';
+import classNames from 'classnames';
 
 function noop() {
 }
@@ -82,10 +83,9 @@ class Transfer extends Component {
   }
 
   filterDataSource(dataSource, filter) {
-    const self = this;
     return dataSource.filter(item => {
-      const itemText = self.props.render(item);
-      return self.matchFilter(itemText, filter);
+      const itemText = this.props.render(item);
+      return this.matchFilter(itemText, filter);
     });
   }
 
@@ -144,7 +144,10 @@ class Transfer extends Component {
   }
 
   render() {
-    const { prefixCls, titles, operations, showSearch, searchPlaceholder, body, footer, width, height } = this.props;
+    const {
+      prefixCls, titles, operations, showSearch,
+      searchPlaceholder, body, footer, listStyle, className,
+    } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
     const { leftDataSource, rightDataSource } = this.splitDataSource();
@@ -154,12 +157,16 @@ class Transfer extends Component {
     const leftCheckStatus = this.getGlobalCheckStatus('left');
     const rightCheckStatus = this.getGlobalCheckStatus('right');
 
-    return <div className={prefixCls}>
+    const cls = classNames({
+      [className]: !!className,
+      prefixCls: true,
+    });
+
+    return <div className={cls}>
       <List titleText={titles[0]}
             dataSource={leftDataSource}
             filter={leftFilter}
-            width={width}
-            height={height}
+            style={listStyle}
             checkedKeys={leftCheckedKeys}
             checkStatus={leftCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'left')}
@@ -172,6 +179,7 @@ class Transfer extends Component {
             searchPlaceholder={searchPlaceholder}
             body={body}
             footer={footer}
+            prefixCls={prefixCls + '-list'}
       />
       <Operation rightActive={rightActive}
                  rightArrowText={operations[0]}
@@ -184,8 +192,7 @@ class Transfer extends Component {
       <List titleText={titles[1]}
             dataSource={rightDataSource}
             filter={rightFilter}
-            width={width}
-            height={height}
+            style={listStyle}
             checkedKeys={rightCheckedKeys}
             checkStatus={rightCheckStatus}
             handleFilter={this.handleFilter.bind(this, 'right')}
@@ -198,6 +205,7 @@ class Transfer extends Component {
             searchPlaceholder={searchPlaceholder}
             body={body}
             footer={footer}
+            prefixCls={prefixCls + '-list'}
       />
     </div>;
   }
@@ -209,8 +217,6 @@ Transfer.defaultProps = {
   render: noop,
   targetKeys: [],
   onChange: noop,
-  height: 150,
-  width: 160,
   titles: ['源列表', '目的列表'],
   operations: [],
   showSearch: false,
@@ -226,7 +232,8 @@ Transfer.propTypes = {
   targetKeys: PropTypes.array,
   onChange: PropTypes.func,
   height: PropTypes.number,
-  width: PropTypes.number,
+  listStyle: PropTypes.object,
+  className: PropTypes.string,
   titles: PropTypes.array,
   operations: PropTypes.array,
   showSearch: PropTypes.bool,
