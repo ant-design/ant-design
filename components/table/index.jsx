@@ -410,10 +410,15 @@ let AntTable = React.createClass({
   },
 
   handleShowSizeChange(current, pageSize) {
-    let pagination = objectAssign(this.state.pagination, {
+    const pagination = this.state.pagination;
+    if (pagination.onShowSizeChange) {
+      pagination.onShowSizeChange(current, pageSize);
+    }
+
+    let nextPagination = objectAssign(pagination, {
       pageSize: pageSize
     });
-    this.setState({ pagination });
+    this.setState({ pagination: nextPagination });
   },
 
   renderPagination() {
@@ -427,12 +432,12 @@ let AntTable = React.createClass({
     });
     let total = this.state.pagination.total || this.getLocalData().length;
     return (total > 0) ?
-      <Pagination className={classString}
+      <Pagination {...this.state.pagination}
+                  className={classString}
                   onChange={this.handlePageChange}
                   total={total}
                   pageSize={10}
-                  onShowSizeChange={this.handleShowSizeChange}
-                  {...this.state.pagination} /> : null;
+                  onShowSizeChange={this.handleShowSizeChange} /> : null;
   },
 
   prepareParamsArguments(state) {
