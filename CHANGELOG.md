@@ -28,9 +28,12 @@
 - Dropdown 新增带菜单触发的按钮 `Dropdown.Button`。[演示](http://ant.design/components/dropdown/#demo-dropdown-button)
 - Menu 新增 `Menu.ItemGroup` 用于把菜单项分组。
 - Badge
- - 徽章可以独立使用。[演示](http://ant.design/components/badge/#demo-no-wrapper)
- - 支持设置封顶的 `99+` 的数字。[演示](http://ant.design/components/badge/#demo-overflow)
-- Slider 双滑块拖动体验优化，一个滑块在拖动时可以直接跨过另一滑块。
+  - 徽章可以独立使用。[演示](http://ant.design/components/badge/#demo-no-wrapper)
+  - 支持设置封顶的 `99+` 的数字。[演示](http://ant.design/components/badge/#demo-overflow)
+- Slider
+  - 增加 `onAfterChange` 事件。[演示](TODO)
+  - 现在设置 `tipFormatter={null}` 可以隐藏 `Tooltip`。
+  - 双滑块拖动体验优化，一个滑块在拖动时可以直接跨过另一滑块。
 - Breadcrumb 可以自定义分隔符。[演示](http://ant.design/components/breadcrumb/#demo-separator)
 - Popconfirm 添加 `visible` 属性，使其可以控制是否显示。[演示](http://ant.design/components/popconfirm/#demo-dynamic-trigger)
 - 修复 Icon `ref` 引起的报错。
@@ -46,11 +49,14 @@
   - 移除 `hourOptions` `minuteOptions` `secondOptions`，新增 `hideDisabled` 属性用于替代。
 - Datepicker
   - 重命名为 DatePicker。
+  - 修改 `showTime` 后的交互。[演示](TODO)
   - 新增 [日期范围选择控件](TODO)。
   - 修正为受控组件。
 - Table
   - 新增 [紧凑型表格](http://ant.design/components/table/#demo-size)。
+  - 允许监听分页的 `onShowSizeChange`。[演示](TODO)
   - 移除 `dataSource` 的远程模式。
+  - 优化表格对树形数据的显示。[演示](TODO)
   - 优化了筛选菜单的样式，并添加了最大高度。[演示](http://ant.design/components/table/#demo-head)。
   - 修复 column.key 设置失效的问题。[#642](https://github.com/ant-design/ant-design/issues/642)
   - 修复设置时 rowKey 时单选会导致全部选中的问题。[#697](https://github.com/ant-design/ant-design/issues/697)
@@ -58,7 +64,8 @@
   - 修复选择列无法设置宽度的问题。[#649](https://github.com/ant-design/ant-design/issues/649)
 - Form
   - 修复了 Textarea 无法输入的问题。[#646](https://github.com/ant-design/ant-design/issues/646)
-  - 修复了 Textarea 设置 cols 和 rows 属性失效的问题。[#694](https://github.com/ant-design/ant-design/issues/694)
+  - 修复了 Textarea 设置 `cols` 和 `rows` 属性失效的问题。[#694](https://github.com/ant-design/ant-design/issues/694)
+  - 修复无法设置 `className` 的问题。[#711](https://github.com/ant-design/ant-design/issues/711)
 - 工具
   - 替换 `antd build` 为 [atool-build](https://github.com/ant-tool/atool-build)，重构并改善了 webpack 配置的自定义方式。
   - 替换 `antd server` 为 [dora](https://github.com/dora-js/dora)，一个完全插件化的开发服务器，支持[代理转发和数据 Mock](https://github.com/dora-js/dora-plugin-proxy)、[atool-build](https://github.com/dora-js/dora-plugin-atool-build)、[热替换](https://github.com/dora-js/dora-plugin-hmr)。
