@@ -35,6 +35,8 @@ import 'antd/style/index.less';
 <Datepicker /> ==> <DatePicker />
 ```
 
+相应的，两个组件的文档地址也改为 [/components/date-picker](/components/date-picker) 和 [/components/time-picker](/components/time-picker)。
+
 ### 受控的 DatePicker
 
 由于 `DatePicker` 已改为 [受控组件](https://facebook.github.io/react/docs/forms.html#controlled-components)，所以 `DatePicker` 显示的值必然与其 `value` 一致。
@@ -44,6 +46,7 @@ import 'antd/style/index.less';
 ## 其他
 
 - Alert 组件默认不展示样式，可以用 `showIcon` 属性添加图标。
+- 在 `0.10.x` 中 Datepicker 已废弃的 `onSelect` 属性被删除，请使用 `onChange` 属性。。
 - TimePicker 的 `hourOptions` `minuteOptions` `secondOptions` 属性已移除，可使用 `disabledHours` `disabledMinutes` `disabledSeconds` 配和 `hideDisabled` 属性来完成原有功能。[演示](TODO)
 
 
