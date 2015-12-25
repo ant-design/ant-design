@@ -76,7 +76,7 @@ InstantClickChangeFns.push(function() {
     },
     highlightCurrentNav: function(target) {
       target = target || this.navList.eq(this.navNum);
-      this.navBar.css({
+      this.navBar && this.navBar.css({
         left: target.position().left,
         width: target.outerWidth()
       });
