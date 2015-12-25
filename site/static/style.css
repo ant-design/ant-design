@@ -1698,7 +1698,7 @@ footer ul li > a {
 }
 
 .code-boxes-col-2-1 {
-  width: 49%;
+  width: 48%;
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
@@ -2124,7 +2124,7 @@ a.entry-link:hover .anticon-smile {
 
 .demos-anchor li {
   list-style: decimal outside;
-  width: 86px;
+  width: 75px;
 }
 
 .demos-anchor a {
