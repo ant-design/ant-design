@@ -2,7 +2,7 @@
 
 - order: 3
 
-checkbox 组。
+方便的生成一个 Checkbox 组。
 
 ---
 
@@ -14,7 +14,7 @@ function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
 
-ReactDOM.render(<label>
-  <CheckboxGroup options={['apple', 'pear']}onChange={onChange} />
-</label>, document.getElementById('components-checkbox-demo-group'));
+ReactDOM.render(
+  <CheckboxGroup options={['Apple', 'Pear', 'Orange']} defaultValue={['Apple']} onChange={onChange} />
+, document.getElementById('components-checkbox-demo-group'));
 ````
