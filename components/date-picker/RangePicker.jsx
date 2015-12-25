@@ -11,8 +11,8 @@ export default React.createClass({
     return {
       defaultValue: [],
       format: 'yyyy-MM-dd',
-      startPlaceholder: '开始时间',
-      endPlaceholder: '结束时间',
+      startPlaceholder: '开始日期',
+      endPlaceholder: '结束日期',
       transitionName: 'slide-up',
       popupStyle: {},
       onChange() {
@@ -79,6 +79,7 @@ export default React.createClass({
                         className={calendarClassName}
                         timePicker={timePicker}
                         disabledDate={disabledDate}
+                        dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
                         locale={locale.lang}
                         defaultValue={defaultCalendarValue}
                         showClear />;
