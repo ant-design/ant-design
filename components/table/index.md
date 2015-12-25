@@ -83,6 +83,7 @@ const columns = [{
 | filterMultiple | 是否多选 | Boolean    |                                        | true    |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean |  | 无 |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |                     |         |
+| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位    | Number   |          | 15      |
 | width      | 列宽度 | String or Number |                                        | 无      |
 | className  | 列的 className             | String          |                     | 无      |
 
