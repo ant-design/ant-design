@@ -2110,30 +2110,50 @@ a.entry-link:hover .anticon-smile {
   color: #aaa;
   position: fixed;
   bottom: 50%;
-  right: 10px;
+  right: 0;
   z-index: 100;
   transform: translateY(50%);
   transition: all 0.3s ease;
   background: #fff;
-  padding: 8px 8px 8px 28px;
+  padding: 8px 18px 8px 28px;
   border: 1px dashed #e9e9e9;
-  border-radius: 6px;
+  border-radius: 6px 0 0 6px;
   margin: 0;
   font-size: 12px;
+  border-right: 0;
 }
 
 .demos-anchor li {
   list-style: decimal outside;
   width: 75px;
+  margin-bottom: 2px;
 }
 
 .demos-anchor a {
   color: #666;
-  margin-bottom: 4px;
   text-align: right;
+  position: relative;
 }
 
 .demos-anchor a:hover {
-  text-decoration: underline;
   color: #2db7f5;
+}
+
+.demos-anchor a:after {
+  text-decoration: underline;
+  position: absolute;
+  top: auto;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #2db7f5;
+  content: '';
+  transition: all 0.2s;
+  backface-visibility: hidden;
+  transform: scaleX(0);
+}
+
+.demos-anchor a:hover:after {
+  transform: scaleX(1);
 }
