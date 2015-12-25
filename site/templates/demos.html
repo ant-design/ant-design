@@ -33,4 +33,10 @@
   </div>
   {%- endif %}
 </div>
+<ul class="demos-anchor">
+  {%- for item in items %}
+  {%- set post = item.meta.filepath|parsePost %}
+  <li><a title="{{ post.title }}" href="#{{post.meta.id|removeCodeBoxIdPrefix}}">{{ post.title }}</a></li>
+  {%- endfor %}
+</ul>
 {%- endif %}
