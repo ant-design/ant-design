@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import List from './list.jsx';
-import Operation from './operation.jsx';
-import Search from './search.jsx';
+import List from './list';
+import Operation from './operation';
+import Search from './search';
 import classNames from 'classnames';
 
 function noop() {

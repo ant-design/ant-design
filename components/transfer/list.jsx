@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Checkbox from '../checkbox';
-import Search from './search.jsx';
+import Search from './search';
 import classNames from 'classnames';
 
 function noop() {
