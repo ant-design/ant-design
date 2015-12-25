@@ -4,7 +4,7 @@
 
 ---
 
-## 0.11.0 `2015-12-21`
+## 0.11.0 `2015-12-25`
 
 - 移除默认加载的样式文件，样式现在需要独立加载。
 - Modal、Popconfirm、Table、TimePicker 支持国际化配置。
@@ -14,7 +14,7 @@
 - 新增图片上传列表样式[演示](http://ant.design/components/upload/#demo-picture-style)。
 - 部分设计资源开放 [下载](http://ant.design/spec/tools)。
 - 新增 [吊顶规范](http://ant.design/spec/layout/#demo-ceiling)。
-- 新增穿梭框 [Transfer](TODO) 组件。
+- 新增穿梭框 [Transfer](http://ant.design/components/transfer/) 组件。
 - 新增小尺寸的 Switch 开关组件。
 - 增加更多的图标。[#](https://github.com/ant-design/ant-design/commit/087c64649d73206a4d62e52f9b3f6042c1d28608#diff-dc1a1f4794c1c4ee3b083381d4c50c47R180)
 - 调整警告和错误状态色。
@@ -31,12 +31,13 @@
   - 徽章可以独立使用。[演示](http://ant.design/components/badge/#demo-no-wrapper)
   - 支持设置封顶的 `99+` 的数字。[演示](http://ant.design/components/badge/#demo-overflow)
 - Slider
-  - 增加 `onAfterChange` 事件。[演示](TODO)
+  - 增加 `onAfterChange` 事件。[演示](http://ant.design/components/slider/#demo-event)
   - 现在设置 `tipFormatter={null}` 可以隐藏 `Tooltip`。
   - 双滑块拖动体验优化，一个滑块在拖动时可以直接跨过另一滑块。
 - Breadcrumb 可以自定义分隔符。[演示](http://ant.design/components/breadcrumb/#demo-separator)
 - Popconfirm 添加 `visible` 属性，使其可以控制是否显示。[演示](http://ant.design/components/popconfirm/#demo-dynamic-trigger)
 - 修复 Icon `ref` 引起的报错。
+- Checkbox 新增 `Checkbox.Group`，现可以方便的 [生成一组 checkbox](http://ant.design/components/checkbox/#demo-group)
 - Tabs
   - 新增 [卡片式页签](http://ant.design/components/tabs/#demo-card)。
   - 调整 [新增和关闭页签](http://ant.design/components/tabs/#demo-editable-card) 的样式。
@@ -49,14 +50,14 @@
   - 移除 `hourOptions` `minuteOptions` `secondOptions`，新增 `hideDisabled` 属性用于替代。
 - Datepicker
   - 重命名为 DatePicker。
-  - 修改 `showTime` 后的交互。[演示](TODO)
-  - 新增 [日期范围选择控件](TODO)。
+  - 修改 `showTime` 的交互。[演示](http://ant.design/components/date-picker/#picker-demo-time)
+  - 新增 [日期范围选择控件](http://ant.design/components/date-picker/#picker-demo-range)。
   - 修正为受控组件。
 - Table
   - 新增 [紧凑型表格](http://ant.design/components/table/#demo-size)。
-  - 允许监听分页的 `onShowSizeChange`。[演示](TODO)
+  - 允许监听分页的 `onShowSizeChange`。[演示](http://ant.design/components/table/#demo-paging)
   - 移除 `dataSource` 的远程模式。
-  - 优化表格对树形数据的显示。[演示](TODO)
+  - 优化表格对树形数据的显示。[演示](http://ant.design/components/table/#demo-indent-size)
   - 优化了筛选菜单的样式，并添加了最大高度。[演示](http://ant.design/components/table/#demo-head)。
   - 修复 column.key 设置失效的问题。[#642](https://github.com/ant-design/ant-design/issues/642)
   - 修复设置时 rowKey 时单选会导致全部选中的问题。[#697](https://github.com/ant-design/ant-design/issues/697)
