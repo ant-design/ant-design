@@ -2131,15 +2131,23 @@ a.entry-link:hover .anticon-smile {
 
 .demos-anchor a {
   color: #666;
-  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 100%;
+}
+
+.demos-anchor a > span {
   position: relative;
 }
 
-.demos-anchor a:hover {
+.demos-anchor a > span:hover {
   color: #2db7f5;
 }
 
-.demos-anchor a:after {
+.demos-anchor a > span:after {
   text-decoration: underline;
   position: absolute;
   top: auto;
@@ -2154,6 +2162,6 @@ a.entry-link:hover .anticon-smile {
   transform: scaleX(0);
 }
 
-.demos-anchor a:hover:after {
+.demos-anchor a > span:hover:after {
   transform: scaleX(1);
 }
