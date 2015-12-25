@@ -3,15 +3,15 @@ import classNames from 'classnames';
 
 class Form extends React.Component {
   render() {
-    const prefixCls = this.props.prefixCls;
-    const formClassName = {
+    const { prefixCls, className } = this.props;
+    const formClassName = classNames({
+      [className]: !!className,
       [`${prefixCls}-horizontal`]: this.props.horizontal,
       [`${prefixCls}-inline`]: this.props.inline,
-    };
-    const classes = classNames(formClassName);
+    });
 
     return (
-      <form {...this.props} className={classes}>
+      <form {...this.props} className={formClassName}>
         {this.props.children}
       </form>
     );
