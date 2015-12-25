@@ -118,7 +118,7 @@ export default React.createClass({
                   value={start && this.getFormatter().format(start)}
                   placeholder={startPlaceholder}
                   className="ant-calendar-range-picker-input" />
-                <span> ~ </span>
+                <span className="ant-calendar-range-picker-separator"> ~ </span>
                 <input disabled={disabled}
                   onChange={this.handleInputChange}
                   value={end && this.getFormatter().format(end)}

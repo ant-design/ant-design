@@ -11,10 +11,15 @@
   line-height: 18px;
   outline: 0;
   width: 43%;
+  text-align: center;
 
   &[disabled] {
     cursor: not-allowed;
   }
+}
+
+.@{calendar-prefix-cls}-range-picker-separator {
+  color: #999;
 }
 
 .@{calendar-prefix-cls}-range {
@@ -22,7 +27,7 @@
   overflow: hidden;
 
   &-part {
-    width: 231px;
+    width: 50%;
     position: relative;
   }
 
@@ -38,26 +43,23 @@
     position: absolute;
     left: 50%;
     width: 20px;
-    margin-left: -147px;
+    margin-left: -132px;
     text-align: center;
     height: @input-box-height;
     line-height: @input-box-height;
+    color: #999;
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {
-    margin-left: -133px;
+    margin-left: -118px;
   }
 
   &.@{calendar-prefix-cls}-time &-middle {
-    margin-left: -45px;
+    margin-left: -29px;
   }
 
   &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
-    margin-left: -30px;
-  }
-
-  &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-time-picker-wrap {
-    left: 78px;
+    margin-left: -15px;
   }
 
   .@{calendar-prefix-cls}-input-wrap {
