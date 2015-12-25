@@ -1,4 +1,4 @@
-# 基本用法
+# Checkbox 组
 
 - order: 3
 
