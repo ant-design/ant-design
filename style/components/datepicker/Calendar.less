@@ -69,7 +69,7 @@
 .@{calendar-prefix-cls} {
   position: relative;
   outline: none;
-  width: 253px;
+  width: 231px;
   border: 1px solid @border-color-base;
   list-style: none;
   font-size: @font-size-base;
@@ -107,7 +107,7 @@
   }
 
   &-calendar-body {
-    padding: 5px 8px;
+    padding: 4px 8px;
   }
 
   table {
@@ -153,10 +153,11 @@
     display: block;
     margin: 0 auto;
     color: #666;
-    border-radius: 4px 4px;
+    border-radius: 4px;
     width: 20px;
     height: 20px;
     line-height: 18px;
+    border: 1px solid transparent;
     padding: 0;
     background: transparent;
     text-align: center;
@@ -173,9 +174,9 @@
   }
 
   &-today &-date {
-    border: 1px solid tint(@primary-color, 50%);
-    line-height: 18px;
-    background: tint(@primary-color, 90%);
+    border-color: @primary-color;
+    font-weight: bold;
+    color: @primary-color;
   }
 
   &-selected-day &-date {
@@ -217,15 +218,15 @@
 
   &-footer {
     padding: 0 15px;
-    height: 42px;
-    line-height: 42px;
+    height: 38px;
+    line-height: 38px;
     border-top: 1px solid @border-color-split;
   }
 
   &-footer-btn {
     text-align: center;
     display: block;
-    line-height: 42px;
+    line-height: 38px;
   }
 
   &-footer > div {
