@@ -99,6 +99,7 @@ class Calendar extends Component {
           onValueChange={this.setValue.bind(this)}/>
         <FullCalendar
           {...props}
+          Select={noop}
           locale={locale.lang}
           type={type}
           prefixCls={prefixCls}
