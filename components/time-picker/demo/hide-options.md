@@ -17,11 +17,11 @@ function newArray(start, end) {
   return result;
 }
 
-function disabledMinutes(h) {
+function disabledMinutes() {
   return newArray(0, 60).filter(value => value % 10 !== 0);
 }
 
-function disabledSeconds(h, m) {
+function disabledSeconds() {
   return newArray(0, 60).filter(value => value % 30 !== 0);
 }
 

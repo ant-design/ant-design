@@ -28,7 +28,7 @@ const Demo = React.createClass({
   onEdit(targetKey, action) {
     this[action](targetKey);
   },
-  add(targetKey) {
+  add() {
     const panes = this.state.panes;
     const activeKey = 'newTab' + this.newTabIndex++;
     panes.push(<TabPane tab="新建页签" key={activeKey}>新页面</TabPane>);

@@ -106,7 +106,7 @@ let AntTable = React.createClass({
     }
   },
 
-  hasPagination(pagination) {
+  hasPagination() {
     return this.props.pagination !== false;
   },
 
@@ -320,7 +320,7 @@ let AntTable = React.createClass({
         checked = this.state.selectionDirty
           ? data.every((item, i) =>
               this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
-          : data.every((item, i) =>
+          : data.every((item) =>
               this.props.rowSelection.getCheckboxProps &&
               this.props.rowSelection.getCheckboxProps(item).defaultChecked);
       }

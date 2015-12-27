@@ -41,16 +41,16 @@ const App = React.createClass({
       </p>
     </div>;
   },
-  toggleChecked(e) {
+  toggleChecked() {
     this.setState({checked: !this.state.checked});
   },
-  toggleDisable(e) {
+  toggleDisable() {
     this.setState({disabled: !this.state.disabled});
   },
   onChange(e) {
     console.log('checked = ', e.target.checked);
     this.setState({
-      checked: e.target.checked
+      checked: e.target.checked,
     });
   }
 });

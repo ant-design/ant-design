@@ -49,7 +49,7 @@ const App = React.createClass({
     });
   },
 
-  renderFooter(props) {
+  renderFooter() {
     return <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
                    onClick={this.getMock}>刷新</Button>;
   },

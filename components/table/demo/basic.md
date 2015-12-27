@@ -29,7 +29,7 @@ const columns = [{
   key: 'operation',
   render: function(text, record) {
     return <span>
-      <a href="#">操作一</a>
+      <a href="#">操作一{record.name}</a>
       <span className="ant-divider"></span>
       <a href="#">操作二</a>
       <span className="ant-divider"></span>

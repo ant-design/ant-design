@@ -11,7 +11,7 @@
 ````jsx
 import { DatePicker } from 'antd';
 
-const disabledDate = function(current, value) {
+const disabledDate = function(current) {
   // can not select days after today
   return current && current.getTime() > Date.now();
 };

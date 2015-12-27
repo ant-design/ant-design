@@ -9,11 +9,11 @@
 ````jsx
 import { Calendar } from 'antd';
 
-function dateCellRender(value) {
+function dateCellRender() {
   return <div>自定义日数据</div>;
 }
 
-function monthCellRender(value) {
+function monthCellRender() {
   return <div>自定义月数据</div>;
 }
 
