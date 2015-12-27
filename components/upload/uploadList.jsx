@@ -7,12 +7,6 @@ import classNames from 'classnames';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = function(file, callback) {
-  if (typeof document === 'undefined' && typeof window === 'undefined') {
-    return;
-  }
-  if (!window.FileReader) {
-    return;
-  }
   const reader = new FileReader();
   reader.onloadend = function() {
     callback(reader.result);
@@ -34,10 +28,12 @@ export default React.createClass({
   handleClose(file) {
     this.props.onRemove(file);
   },
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     this.props.items.forEach(file => {
-      if (!file.originFileObj ||
-          !(file.originFileObj instanceof File) ||
+      if (typeof document === 'undefined' ||
+          typeof window === 'undefined' ||
+          !window.FileReader || !window.File ||
+          (!file.originFileObj instanceof File) ||
           file.thumbUrl !== undefined) {
         return;
       }
