@@ -83,7 +83,7 @@
   .@{calendar-prefix-cls}-decade-panel-body,
   .@{calendar-prefix-cls}-year-panel-body,
   .@{calendar-prefix-cls}-month-panel-body {
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid @border-color-split;
   }
 
   &.@{calendar-prefix-cls}-week-number {
@@ -108,8 +108,13 @@
   }
 
   .@{calendar-prefix-cls}-in-range-cell {
-    background: tint(@primary-color, 90%);
     border-radius: 0;
+    > span {
+      background: tint(@primary-color, 90%);
+      width: 100%;
+      border-radius: 0;
+      border: 0;
+    }
   }
 
   &-bottom {
