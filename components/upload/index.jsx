@@ -20,7 +20,8 @@ function fileToObject(file) {
     uid: file.uid,
     response: file.response,
     error: file.error,
-    percent: 0
+    percent: 0,
+    originFileObj: file,
   };
 }
 
