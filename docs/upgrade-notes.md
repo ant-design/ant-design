@@ -5,9 +5,12 @@
 
 ---
 
-## 0.10 => 0.11 升级指南
+## 0.10 => 0.11
 
 `0.11.x` 版本有大量更新，其中部分为不兼容更新。以下列表为其中不兼容的更新及对应升级方案。如果您在升级过程中遇到下面没有提到的情况，可以到 Github 上面咨询。
+
+- `0.11.x` 文档：http://ant.design
+- `0.10.x` 文档：http://010x.ant.design
 
 ### 默认加载样式
 
@@ -50,11 +53,11 @@ import 'antd/style/index.less';
 - TimePicker 的 `hourOptions` `minuteOptions` `secondOptions` 属性已移除，可使用 `disabledHours` `disabledMinutes` `disabledSeconds` 配和 `hideDisabled` 属性来完成原有功能。[演示](TODO)
 
 
-## 0.9 => 0.10 升级指南
+## 0.9 => 0.10
 
 `0.10.x` 版本有大量改动，是一个不完全向下兼容的版本。以下文档尽力列出了 `0.9.x` 到 `0.10.x` 的不兼容变动，以帮助开发者升级。
 
-- `0.10.x` 文档：http://ant.design
+- `0.10.x` 文档：http://010x.ant.design
 - `0.9.x` 文档：http://09x.ant.design
 
 ### 升级 React
