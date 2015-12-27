@@ -31,13 +31,13 @@ const AntMenu = React.createClass({
     this.setState({
       openKeys: e.openKeys
     });
-    this.props.onOpen();
+    this.props.onOpen(e);
   },
   handleCloseKeys(e) {
     this.setState({
       openKeys: e.openKeys
     });
-    this.props.onClose();
+    this.props.onClose(e);
   },
   render() {
     let openAnimation = '';
@@ -54,6 +54,9 @@ const AntMenu = React.createClass({
     default:
     }
 
+    // 这组属性的目的是
+    // 弹出型的菜单需要点击后立即关闭
+    // 另外，弹出型的菜单的受控模式没有使用场景
     let props = {
       openKeys: this.state.openKeys,
       onClick: this.handleClick,

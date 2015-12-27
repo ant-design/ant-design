@@ -24,7 +24,7 @@ const Sider = React.createClass({
       openKeys: e.keyPath.slice(1)
     });
   },
-  onToggle(info){
+  onToggle(info) {
     this.setState({
       openKeys: info.open ? info.keyPath : info.keyPath.slice(1)
     });
