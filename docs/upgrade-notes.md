@@ -24,7 +24,7 @@ import 'antd/style/index.less';
 
 ### 表格远程模式
 
-`Table` 的 `dataSource` 远程模式被移除，用户需要自行实现数据获取方式，ajax 获取数据的演示可以参见 [演示](TODO)。
+`Table` 的 `dataSource` 远程模式被移除，用户需要自行实现数据获取方式，ajax 获取数据的演示可以参见 [演示](http://ant.design/components/table/#demo-ajax)。
 
 ### Timepicker、Datepicker 重命名
 
@@ -50,7 +50,7 @@ import 'antd/style/index.less';
 
 - Alert 组件默认不展示样式，可以用 `showIcon` 属性添加图标。
 - 在 `0.10.x` 中 Datepicker 已废弃的 `onSelect` 属性被删除，请使用 `onChange` 属性。。
-- TimePicker 的 `hourOptions` `minuteOptions` `secondOptions` 属性已移除，可使用 `disabledHours` `disabledMinutes` `disabledSeconds` 配和 `hideDisabled` 属性来完成原有功能。[演示](TODO)
+- TimePicker 的 `hourOptions` `minuteOptions` `secondOptions` 属性已移除，可使用 `disabledHours` `disabledMinutes` `disabledSeconds` 配和 `hideDisabled` 属性来完成原有功能。[演示](http://ant.design/components/time-picker/#picker-demo-disable-options)
 
 
 ## 0.9 => 0.10
