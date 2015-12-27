@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = function(file, callback) {
-  if (typeof document !== 'undefined' && typeof window !== 'undefined') {
+  if (typeof document === 'undefined' && typeof window === 'undefined') {
     return;
   }
   if (!window.FileReader) {
