@@ -5,15 +5,59 @@
 
 ---
 
-## 0.10 => 0.11 升级指南
+## 0.10 => 0.11
 
-待补充。
+`0.11.x` 版本有大量更新，其中部分为不兼容更新。以下列表为其中不兼容的更新及对应升级方案。如果您在升级过程中遇到下面没有提到的情况，可以到 Github 上面咨询。
 
-## 0.9 => 0.10 升级指南
+- `0.11.x` 文档：http://ant.design
+- `0.10.x` 文档：http://010x.ant.design
+
+### 默认加载样式
+
+样式现在不再会在 `antd` 中默认加载，如果升级后没有样式，开发者需要手动自行引入样式。
+
+```js
+import 'antd/lib/index.css';
+// 或者
+import 'antd/style/index.less';
+```
+
+### 表格远程模式
+
+`Table` 的 `dataSource` 远程模式被移除，用户需要自行实现数据获取方式，ajax 获取数据的演示可以参见 [演示](http://ant.design/components/table/#demo-ajax)。
+
+### Timepicker、Datepicker 重命名
+
+`Timepicker` 被重命名为 `TimePicker`，`Datepicker` 被重命名为 `DatePicker`，需要做以下改动：
+
+```jsx
+<Timepicker /> ==> <TimePicker />
+```
+
+```jsx
+<Datepicker /> ==> <DatePicker />
+```
+
+相应的，两个组件的文档地址也改为 [/components/date-picker](/components/date-picker) 和 [/components/time-picker](/components/time-picker)。
+
+### 受控的 DatePicker
+
+由于 `DatePicker` 已改为 [受控组件](https://facebook.github.io/react/docs/forms.html#controlled-components)，所以 `DatePicker` 显示的值必然与其 `value` 一致。
+
+如果无法理解受控组件，只须在发现在选中日期后 `Datepicker` 显示的值不变的情况后，把其 `value` 属性改为 `defaultValue` 即可。
+
+## 其他
+
+- Alert 组件默认不展示样式，可以用 `showIcon` 属性添加图标。
+- 在 `0.10.x` 中 Datepicker 已废弃的 `onSelect` 属性被删除，请使用 `onChange` 属性。。
+- TimePicker 的 `hourOptions` `minuteOptions` `secondOptions` 属性已移除，可使用 `disabledHours` `disabledMinutes` `disabledSeconds` 配和 `hideDisabled` 属性来完成原有功能。[演示](http://ant.design/components/time-picker/#picker-demo-disable-options)
+
+
+## 0.9 => 0.10
 
 `0.10.x` 版本有大量改动，是一个不完全向下兼容的版本。以下文档尽力列出了 `0.9.x` 到 `0.10.x` 的不兼容变动，以帮助开发者升级。
 
-- `0.10.x` 文档：http://ant.design
+- `0.10.x` 文档：http://010x.ant.design
 - `0.9.x` 文档：http://09x.ant.design
 
 ### 升级 React
