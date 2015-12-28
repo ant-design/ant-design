@@ -162,15 +162,16 @@ a.logo {
 }
 
 .global-hint {
-  float: left;
   color: #666;
-  margin-left: 80px;
   font-size: 12px;
-  padding: 4px 10px;
-  margin-top: 26px;
-  border-radius: 6px;
-  box-shadow: 0 0 3px #ddd;
+  padding: 5px 14px 6px;
+  margin-top: 0;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 1px 3px #ddd;
   opacity: 0.8;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav {
