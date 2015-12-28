@@ -129,7 +129,7 @@ ReactDOM.render(
 .ant-layout-topaside .ant-layout-content {
   border-left: 1px solid #e9e9e9;
   padding: 0 24px;
-  overflow: hidden;
+  overflow: auto;
   position: relative;
   left: -1px;
 }
