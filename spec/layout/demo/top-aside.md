@@ -66,7 +66,9 @@ ReactDOM.render(
             </Menu>
           </aside>
           <div className="ant-layout-content">
-            <div style={{ height: 240 }}></div>
+            <div style={{ height: 240 }}>
+              <div style={{clear: 'both'}}>内容区域</div>
+            </div>
           </div>
         </div>
         <div className="ant-layout-footer">
@@ -126,7 +128,10 @@ ReactDOM.render(
 
 .ant-layout-topaside .ant-layout-content {
   border-left: 1px solid #e9e9e9;
-  margin-left: 223px;
+  padding: 0 24px;
+  overflow: hidden;
+  position: relative;
+  left: -1px;
 }
 
 .ant-layout-topaside .ant-layout-footer {

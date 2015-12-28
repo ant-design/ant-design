@@ -50,7 +50,9 @@ ReactDOM.render(
         </div>
         <div className="ant-layout-container">
           <div className="ant-layout-content">
-            <div style={{ height: 590 }}></div>
+            <div style={{ height: 590 }}>
+              内容区域
+            </div>
           </div>
         </div>
         <div className="ant-layout-footer">
