@@ -71,6 +71,7 @@
   - 修复了 Textarea 无法输入的问题。[#646](https://github.com/ant-design/ant-design/issues/646)
   - 修复了 Textarea 设置 `cols` 和 `rows` 属性失效的问题。[#694](https://github.com/ant-design/ant-design/issues/694)
   - 修复无法设置 `className` 的问题。[#711](https://github.com/ant-design/ant-design/issues/711)
+- 修复 Upload 组件在 `beforeUpload` 返回 `false` 后依然更新上传列表问题。[#757](https://github.com/ant-design/ant-design/issues/757)
 - 工具
   - 替换 `antd build` 为 [atool-build](https://github.com/ant-tool/atool-build)，重构并改善了 webpack 配置的自定义方式。
   - 替换 `antd server` 为 [dora](https://github.com/dora-js/dora)，一个完全插件化的开发服务器，支持[代理转发和数据 Mock](https://github.com/dora-js/dora-plugin-proxy)、[atool-build](https://github.com/dora-js/dora-plugin-atool-build)、[热替换](https://github.com/dora-js/dora-plugin-hmr)。
