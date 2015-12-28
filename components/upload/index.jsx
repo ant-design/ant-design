@@ -8,6 +8,10 @@ const prefixCls = 'ant-upload';
 function noop() {
 }
 
+function T() {
+  return true;
+}
+
 // Fix IE file.status problem
 // via coping a new Object
 function fileToObject(file) {
@@ -55,6 +59,8 @@ const AntUpload = React.createClass({
     };
   },
   onStart(file) {
+    if (this.recentUploadStatus === false) return;
+
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
@@ -142,6 +148,10 @@ const AntUpload = React.createClass({
     targetItem.status = 'error';
     this.handleRemove(targetItem);
   },
+  beforeUpload(file) {
+    this.recentUploadStatus = this.props.beforeUpload(file);
+    return this.recentUploadStatus;
+  },
   handleRemove(file) {
     let fileList = this.removeFile(file);
     if (fileList) {
@@ -170,6 +180,7 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       onChange: noop,
+      beforeUpload: T,
       showUploadList: true,
       listType: 'text', // or pictrue
       className: '',
@@ -197,6 +208,7 @@ const AntUpload = React.createClass({
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
+      beforeUpload: this.beforeUpload,
     });
     let uploadList;
     if (this.props.showUploadList) {

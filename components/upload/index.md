@@ -26,6 +26,7 @@
 | showUploadList | 可选参数, 是否展示 uploadList, 默认开启                  | Boolean     | true  |
 | multiple   | 可选参数, 是否支持多选文件，支持 `ie10+`                     | Boolean     | false |
 | accept     | 可选参数, 接受上传的文件类型, 详见 input accept Attribute    | String      | 无    |
+| beforeUpload | 可选参数, 上传文件之前的钩子，参数为上传的文件，若返回 `false` 或者 Promise 则停止上传。**注意：该方法不支持老 IE**。 | Function    | 无    |
 | onChange   | 可选参数, 上传文件改变时的状态，详见 onChange                | Function    | 无    |
 | listType   | 上传列表的内建样式，支持两种基本样式 `text` or `picture`     | String      | 'text'|
 | className  | 自定义类名                                                   | String      | 无    |
