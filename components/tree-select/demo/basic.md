@@ -37,10 +37,10 @@ const Demo = React.createClass({
           <TreeNode value="parent 1" title="parent 1" key="0-1">
             <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
               <TreeNode value="leaf" title="leaf" key="random" />
-              <TreeNode value="leaf" title="leaf" />
+              <TreeNode value="leaf" title="leaf" key="random1" />
             </TreeNode>
-            <TreeNode value="parent 1-1" title="parent 1-1">
-              <TreeNode value="sss" title={<span style={{color: 'red'}}>sss</span>} />
+            <TreeNode value="parent 1-1" title="parent 1-1" key="random2">
+              <TreeNode value="sss" title={<span style={{color: 'red'}}>sss</span>} key="random3" />
             </TreeNode>
           </TreeNode>
         </TreeSelect>
