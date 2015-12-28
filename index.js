@@ -29,6 +29,7 @@ const antd = {
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/tree'),
+  TreeSelect: require('./components/tree-select'),
   Upload: require('./components/upload'),
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
