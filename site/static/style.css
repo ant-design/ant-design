@@ -149,12 +149,28 @@ a.logo {
   max-height: 200px;
 }
 
+.autoComplete .ant-select-dropdown-menu-item {
+  border-radius: 0!important;
+}
+
 .autoComplete .ant-component-decs {
   font-size: 12px;
   position: absolute;
   top: 9px;
   color: #aaa;
   right: 16px;
+}
+
+.global-hint {
+  float: left;
+  color: #666;
+  margin-left: 80px;
+  font-size: 12px;
+  padding: 4px 10px;
+  margin-top: 26px;
+  border-radius: 6px;
+  box-shadow: 0 0 3px #ddd;
+  opacity: 0.8;
 }
 
 .nav {
