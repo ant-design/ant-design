@@ -1,10 +1,8 @@
 import React from 'react';
 
-require('./style/index.less');
-
 const antd = {
   Affix: require('./components/affix'),
-  Datepicker: require('./components/datepicker'),
+  DatePicker: require('./components/date-picker'),
   Tooltip: require('./components/tooltip'),
   Carousel: require('./components/carousel'),
   Tabs: require('./components/tabs'),
@@ -43,17 +41,19 @@ const antd = {
   Form: require('./components/form'),
   Input: require('./components/input'),
   Calendar: require('./components/calendar'),
-  Timepicker: require('./components/timepicker'),
+  TimePicker: require('./components/time-picker'),
+  Transfer: require('./components/transfer'),
 };
 
 antd.version = require('./package.json').version;
 
+const ReactVersion = React.version;
 if (process.env.NODE_ENV !== 'production') {
   const warning = require('warning');
   const semver = require('semver');
   const reactVersionInDeps = require('./package.json').devDependencies.react;
-  warning(semver.satisfies(React.version, reactVersionInDeps) || semver.gtr(React.version, reactVersionInDeps),
-    `antd@${antd.version} need react@${reactVersionInDeps} or higher, which is react@${React.version} now.`);
+  warning(semver.satisfies(ReactVersion, reactVersionInDeps) || semver.gtr(ReactVersion, reactVersionInDeps),
+    `antd@${antd.version} need react@${reactVersionInDeps} or higher, which is react@${ReactVersion} now.`);
 }
 
 module.exports = antd;

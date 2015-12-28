@@ -4,8 +4,8 @@
 // Color
 @primary-color          : #2db7f5;
 @success-color          : #87d068;
-@error-color            : #f60;
-@warning-color          : #fac450;
+@error-color            : #f50;
+@warning-color          : #fa0;
 
 // ------ Base & Require ------
 @body-background        : #fff;
@@ -20,7 +20,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "//at.alicdn.com/t/font_1447745222_4559345";
+@icon-url               : "//at.alicdn.com/t/font_1450842624_7594283";
 
 // LINK
 @link-color             : #2db7f5;
@@ -45,6 +45,11 @@
 @ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
 @ease-in-out-quint   : cubic-bezier(0.86, 0, 0.07, 1);
 
+// Border color
+@border-color-base      : #d9d9d9;        // base border outline a component
+@box-shadow-base        : 0 0 4px rgba(0, 0, 0, 0.17);
+@border-color-split     : #e9e9e9;        // split border inside a component
+
 // Buttons
 @btn-font-weight        : normal;
 
@@ -52,23 +57,23 @@
 @btn-primary-bg         : @primary-color;
 @btn-group-border       : shade(@primary-color, 5%);
 
-@btn-default-color      : #666;
+@btn-default-color      : @text-color;
 @btn-default-bg         : #f4f4f4;
-@btn-default-border     : #d9d9d9;
+@btn-default-border     : @border-color-base;
 
-@btn-ghost-color        : #666;
+@btn-ghost-color        : @text-color;
 @btn-ghost-bg           : #fff;
-@btn-ghost-border       : #d9d9d9;
+@btn-ghost-border       : @border-color-base;
 
 @btn-disable-color      : #ccc;
 @btn-disable-bg         : #f3f5f7;
-@btn-disable-border     : #d9d9d9;
+@btn-disable-border     : @border-color-base;
 
-@btn-padding-base       : 4px 15px;
-@btn-border-radius-base : 100px;
+@btn-padding-base       : 4px 11px;
+@btn-border-radius-base : 6px;
 
 @btn-font-size-lg       : 14px;
-@btn-padding-lg         : 4px 15px 5px 15px;
+@btn-padding-lg         : 4px 11px 5px 11px;
 @btn-border-radius-lg   : @btn-border-radius-base;
 
 @btn-padding-sm         : 1px 7px;
@@ -112,10 +117,10 @@
 // --------------------------------
 // Legend
 @legend-color                : #999;
-@legend-border-color         : #d9d9d9;
+@legend-border-color         : @border-color-base;
 // Label
 @label-required-color        : #f60;
-@label-color                 : #666;
+@label-color                 : @text-color;
 // Input
 @input-height-base: 28px;
 @input-height-lg: 32px;
@@ -127,8 +132,8 @@
 @input-padding-vertical-lg   : 6px;
 
 @input-placeholder-color     : #ccc;
-@input-color                 : #666;
-@input-border-color          : #d9d9d9;
+@input-color                 : @text-color;
+@input-border-color          : @border-color-base;
 @input-bg                    : #fff;
 
 @input-hover-border-color    : @primary-color;
@@ -136,13 +141,3 @@
 @input-disabled-bg           : #f3f5f7;
 
 @form-item-margin-bottom     : 24px;
-
-@overlay-shadow              : 0 0 4px rgba(0, 0, 0, 0.17);
-
-// Spin
-// --------------------------------
-@spin-dot-default            : #999;
-
-@spin-dot-size               : 8px;
-@spin-dot-size-sm            : @spin-dot-size / 2;
-@spin-dot-size-lg            : @spin-dot-size * 2;

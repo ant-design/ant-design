@@ -18,7 +18,7 @@
     <!--[if IE 8]>
     <script src="https://t.alipayobjects.com/images/rmsweb/T1q8JiXftaXXXXXXXX.js"></script>
     <![endif]-->
-    <script src="https://as.alipayobjects.com/??component/console-polyfill/0.2.2/index.js,component/es5-shim/4.1.14/es5-shim.min.js,component/es5-shim/4.1.14/es5-sham.min.js,component/html5shiv/3.7.2/html5shiv.min.js,g/component/media-match/2.0.2/media.match.min.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <script src="https://a.alipayobjects.com/??bluebird/2.9.30/bluebird.js,jquery/jquery/1.11.1/jquery.js"></script>
     <script>
     (function() {
@@ -58,6 +58,9 @@
       <div class="search">
         <div id="autoComplete"></div>
       </div>
+      <div class="global-hint">
+        0.11 已发布，0.10 文档请访问 <a href="http://010x.ant.design/">010x.ant.design</a>
+      </div>
       <nav class="nav">
         <span class="bar"></span>
         <ul>
@@ -67,11 +70,8 @@
           <li class="{%- if post.directory|rootDirectoryIn(['spec']) %}current{%- endif %}">
             <a href="{{static_url('../spec/introduce')}}">设计</a>
           </li>
-          <li>
-            <a class="nav-link-disabled" href="">案例</a>
-          </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) %}current{%- endif %}">
-            <a href="{{static_url('../docs/introduce')}}">React</a>
+            <a href="{{static_url('../docs/introduce')}}">React UI</a>
           </li>
           <li>
             <a target="_blank" href="https://github.com/ant-design/ant-design">Github</a>

@@ -1,0 +1,27 @@
+@import "../../mixins/input";
+
+.@{calendar-prefix-cls}-time {
+  // Change display order in DOM
+  .@{calendar-prefix-cls}-input-wrap {
+    direction: rtl;
+    .@{calendar-prefix-cls}-date-input-wrap,
+    .@{calendar-prefix-cls}-time-picker-wrap {
+      direction: ltr;
+      display: inline-block;
+    }
+    .@{timepicker-prefix-cls}-panel,
+    .@{calendar-prefix-cls}-clear-btn {
+      direction: ltr;
+    }
+  }
+  .@{calendar-prefix-cls}-input,
+  .@{timepicker-prefix-cls}-input {
+    .input;
+    height: 22px;
+    width: 96px;
+    margin-right: 6px;
+  }
+  .@{timepicker-prefix-cls}-icon {
+    display: none;
+  }
+}

@@ -24,23 +24,19 @@ function fixControlledValue(value) {
 
 class Group extends React.Component {
   render() {
+    const className = 'ant-input-group ' + (this.props.className || '');
     return (
-      <div className={this.props.className}>
+      <span className={className}
+            style={this.props.style}>
         {this.props.children}
-      </div>
+      </span>
     );
   }
 }
 
 Group.propTypes = {
-  className: React.PropTypes.string,
   children: React.PropTypes.any,
 };
-
-Group.defaultProps = {
-  className: 'ant-input-group',
-};
-
 
 class Input extends React.Component {
   renderLabledInput(children) {
@@ -60,11 +56,11 @@ class Input extends React.Component {
     ) : null;
 
     return (
-      <div className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
+      <span className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
         {addonBefore}
         {children}
         {addonAfter}
-      </div>
+      </span>
     );
   }
 

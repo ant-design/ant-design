@@ -1,13 +1,18 @@
-import Checkbox from 'rc-checkbox';
+import RcCheckbox from 'rc-checkbox';
 import React from 'react';
+import Group from './Group';
 
-export default React.createClass({
+const Checkbox = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-checkbox'
     };
   },
   render() {
-    return <Checkbox {...this.props} />;
+    return <RcCheckbox {...this.props} />;
   }
 });
+
+Checkbox.Group = Group;
+
+export default Checkbox;

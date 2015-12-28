@@ -1,16 +1,5 @@
-import React from 'react';
-import Dropdown from 'rc-dropdown';
+import Dropdown from './dropdown';
+import DropdownButton from './dropdown-button';
 
-export default React.createClass({
-  getDefaultProps: function () {
-    return {
-      transitionName: 'slide-up',
-      prefixCls: 'ant-dropdown',
-    };
-  },
-  render: function () {
-    return (
-      <Dropdown {...this.props} />
-    );
-  }
-});
+Dropdown.Button = DropdownButton;
+export default Dropdown;

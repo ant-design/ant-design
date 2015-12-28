@@ -35,20 +35,18 @@
 ## 示例
 
 ```jsx
-import { Datepicker } from 'antd';
-ReactDOM.render(<Datepicker />, mountNode);
+import { DatePicker } from 'antd';
+ReactDOM.render(<DatePicker />, mountNode);
 ```
 
-或者按需加载：
-
-```jsx
-import Datepicker from 'antd/lib/datepicker';
-ReactDOM.render(<Datepicker />, mountNode);
-```
+引入样式：
 
 ```jsx
-import 'antd/lib/index.css'; // 样式需要在入口处引用一次
+import 'antd/lib/index.css';  // or 'antd/style/index.less'
 ```
+
+按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)。
+
 
 ## 版本
 
@@ -62,12 +60,12 @@ import 'antd/lib/index.css'; // 样式需要在入口处引用一次
 ## 链接
 
 - [首页](http://ant.design/)
-- [文档和组件](http://ant.design/docs/introduce)
+- [修改记录](http://ant.design/changelog)
 - [构建调试工具](https://github.com/ant-tool/xtool/)
-- [开发计划](https://github.com/ant-design/ant-design/issues/9)
-- [React 模块](http://react-component.github.io/)
+- [React 组件](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
+- [设计规范速查手册](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
 
 ## 谁在使用
 

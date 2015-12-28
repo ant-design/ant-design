@@ -1,1 +1,1 @@
-module.exports = require('../../datepicker/locale/zh_CN');
+module.exports = require('../../date-picker/locale/zh_CN');

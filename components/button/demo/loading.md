@@ -2,23 +2,25 @@
 
 - order: 4
 
-添加 `loading` 属性即可让按钮处于加载状态，最后一个按钮演示点击后进入加载状态。
+添加 `loading` 属性即可让按钮处于加载状态，最后两个按钮演示点击后进入加载状态。
 
 ---
 
 ````jsx
-import { Button } from 'antd';
+import { Button, Icon } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      loading: false
+      loading: false,
+      iconLoading: false,
     };
   },
   enterLoading() {
-    this.setState({
-      loading: true
-    });
+    this.setState({ loading: true });
+  },
+  enterIconLoading() {
+    this.setState({ iconLoading: true });
   },
   render() {
     return <div>
@@ -34,6 +36,9 @@ const App = React.createClass({
       <br />
       <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
         点击变加载
+      </Button>
+      <Button type="primary" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
+        <Icon type="poweroff" />点击变加载
       </Button>
     </div>;
   }

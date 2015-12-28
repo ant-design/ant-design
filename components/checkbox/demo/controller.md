@@ -8,7 +8,6 @@
 
 ````jsx
 import { Checkbox, Button } from 'antd';
-const container = document.getElementById('components-checkbox-demo-controller');
 
 const App = React.createClass({
   getInitialState() {
@@ -42,19 +41,19 @@ const App = React.createClass({
       </p>
     </div>;
   },
-  toggleChecked(e) {
+  toggleChecked() {
     this.setState({checked: !this.state.checked});
   },
-  toggleDisable(e) {
+  toggleDisable() {
     this.setState({disabled: !this.state.disabled});
   },
   onChange(e) {
     console.log('checked = ', e.target.checked);
     this.setState({
-      checked: e.target.checked
+      checked: e.target.checked,
     });
   }
 });
 
-ReactDOM.render(<App />, container);
+ReactDOM.render(<App />, document.getElementById('components-checkbox-demo-controller'));
 ````

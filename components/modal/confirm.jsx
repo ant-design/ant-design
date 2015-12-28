@@ -11,6 +11,7 @@ export default function (props) {
   let d;
   props = props || {};
   props.iconClassName = props.iconClassName || 'question-circle';
+
   let iconClassType = props.iconClassName;
 
   let width = props.width || 416;
@@ -20,11 +21,15 @@ export default function (props) {
     props.okCancel = true;
   }
 
+  props.okText = props.okText || (props.okCancel ? '确定' : '知道了');
+  props.cancelText = props.cancelText || '取消';
+
   function close() {
     d.setState({
       visible: false
     });
     ReactDOM.unmountComponentAtNode(div);
+    div.parentNode.removeChild(div);
   }
 
   function onCancel() {
@@ -72,19 +77,22 @@ export default function (props) {
     <span className="ant-confirm-title">{props.title}</span>
     <div className="ant-confirm-content">{props.content}</div>
   </div>;
-  let footer = <div className="ant-confirm-btns">
-    <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
-    <Button type="primary" size="large" onClick={onOk}>确 定</Button>
-  </div>;
 
+  let footer = null;
   if (props.okCancel) {
     footer = <div className="ant-confirm-btns">
-      <Button type="ghost" size="large" onClick={onCancel}>取 消</Button>
-      <Button type="primary" size="large" onClick={onOk}>确 定</Button>
+      <Button type="ghost" size="large" onClick={onCancel}>
+        {props.cancelText}
+      </Button>
+      <Button type="primary" size="large" onClick={onOk}>
+        {props.okText}
+      </Button>
     </div>;
   } else {
     footer = <div className="ant-confirm-btns">
-      <Button type="primary" size="large" onClick={onOk}>知道了</Button>
+      <Button type="primary" size="large" onClick={onOk}>
+        {props.okText}
+      </Button>
     </div>;
   }
 

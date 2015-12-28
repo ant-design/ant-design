@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Menu, Dropdown, Button, Icon } from 'antd';
+import { Menu, Dropdown, Icon } from 'antd';
 
 const menu = <Menu>
   <Menu.Item key="0">
@@ -22,9 +22,9 @@ const menu = <Menu>
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
-    <Button>
+    <a className="ant-dropdown-link" href="#">
       鼠标移入 <Icon type="down" />
-    </Button>
+    </a>
   </Dropdown>
 , document.getElementById('components-dropdown-demo-item'));
 ````

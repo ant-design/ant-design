@@ -121,7 +121,7 @@ AntScrollNumber.defaultProps = {
   count: null,
   component: 'sup',
   onAnimated: function() {},
-  height: 20
+  height: 18,
 };
 
 AntScrollNumber.propTypes = {

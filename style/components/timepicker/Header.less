@@ -1,4 +1,4 @@
-.@{timepicker-prefix-cls} {
+.@{timepicker-prefix-cls}-panel {
   &-input {
     margin: 0;
     padding: 0;
@@ -12,7 +12,7 @@
       box-sizing: border-box;
       position: relative;
       padding: 6px;
-      border-bottom: 1px solid #e9e9e9;
+      border-bottom: 1px solid @border-color-split;
     }
 
     &-invalid {
@@ -47,8 +47,8 @@
   &-clear-btn:hover:after {
     color: #999;
   }
-}
 
-.narrow .@{timepicker-prefix-cls}-input-wrap {
-  max-width: 111px;
+  &-narrow &-input-wrap {
+    max-width: 111px;
+  }
 }

@@ -8,7 +8,6 @@
 
 ````jsx
 import { Checkbox } from 'antd';
-const container = document.getElementById('components-checkbox-demo-basic');
 
 function onChange(e) {
   console.log('checked = ' + e.target.checked);
@@ -17,5 +16,5 @@ function onChange(e) {
 ReactDOM.render(<label>
   <Checkbox defaultChecked={false} onChange={onChange} />
   Checkbox
-</label>, container);
+</label>, document.getElementById('components-checkbox-demo-basic'));
 ````

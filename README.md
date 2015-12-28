@@ -22,20 +22,19 @@ npm install antd
 
 ## Usage example
 
-- Use all components
+```jsx
+import { DatePicker } from 'antd';
+ReactDOM.render(<DatePicker />, mountNode);
+```
 
-  ```jsx
-  import { Datepicker } from 'antd';
-  ReactDOM.render(<Datepicker />, mountNode);
-  ```
+Import style:
 
-- Use on demand
+```jsx
+import 'antd/lib/index.css';  // or 'antd/style/index.less'
+```
 
-  ```jsx
-  import 'antd/lib/index.css'; // only need to import once in entry module
-  import Datepicker from 'antd/lib/datepicker';
-  ReactDOM.render(<Datepicker />, mountNode);
-  ```
+Use components on demand by writing as `import DatePicker from 'antd/lib/date-picker'` or use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd).
+
 
 ## Browser Support
 
@@ -46,9 +45,8 @@ Normal browsers and Internet Explorer 8+.
 
 - [Home page](http://ant.design/)
 - [React UI library](http://ant.design/docs/introduce)
-- [Build/Debug tools](https://github.com/ant-tool/xtool/)
-- [Roadmap](https://github.com/ant-design/ant-design/issues/9)
 - [ChangeLog](CHANGELOG.md)
+- [Build/Debug tools](https://github.com/ant-tool/xtool/)
 - [React components](http://react-component.github.io/)
 - [React style guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [React component design guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)

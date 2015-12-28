@@ -1,28 +1,13 @@
 @select-prefix-cls: ant-select;
 
+@duration: .3s;
+
 @import "../mixins/iconfont";
 //mixin
 .selection__clear() {
   cursor: pointer;
   float: right;
   font-weight: bold;
-}
-
-.selected_icon() {
-  position: relative;
-  &:after {
-    .iconfont-size-under-12px(9px);
-    display: inline-block;
-    content: '\e62e';
-    font-family: 'anticon';
-    font-weight: bold;
-    position: absolute;
-    top: 7px;
-    right: -1px;
-    padding-right: 14px;
-    color: @primary-color;
-    transform: scale(0.75);
-  }
 }
 
 .@{select-prefix-cls} {
@@ -81,8 +66,6 @@
 
   &-disabled {
     color: #ccc;
-    cursor: not-allowed;
-    pointer-events: none;
   }
 
   &-disabled &-selection {
@@ -90,6 +73,10 @@
     &:active {
       border-color: #d9d9d9;
     }
+  }
+
+  &-disabled &-selection--single {
+    cursor: not-allowed;
   }
 
   &-selection--single {
@@ -101,7 +88,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      padding-left: 10px;
+      padding-left: 8px;
       padding-right: 24px;
       line-height: 26px;
     }
@@ -241,10 +228,13 @@
       border-radius: 4px;
       cursor: default;
       float: left;
-      padding: 0 20px 0 8px;
+      padding: 0 15px;
       margin-right: 4px;
       max-width: 99%;
       position: relative;
+      overflow: hidden;
+      transition: padding @duration @ease-in-out;
+      padding: 0 20px 0 10px;
     }
 
     .@{select-prefix-cls}-selection__choice__content {
@@ -253,23 +243,24 @@
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 100%;
+      transition: margin @duration @ease-in-out;
     }
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
-      color: #919191;
+      color: #999;
       line-height: 20px;
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
+      transition: all 0.3s @ease-in-out;
       .iconfont-size-under-12px(8px);
-      padding: 0 0 0 4px;
       position: absolute;
       right: 4px;
+      padding: 0 0 0 8px;
       &:hover {
-        color: #333;
+        color: #404040;
       }
-
       &:before {
         content: "\e62d";
       }
@@ -338,25 +329,13 @@
     animation-name: antSlideDownOut;
   }
 
-  &-menu-item {
-    transition: background 0.3s ease;
-  }
-
-  &--single &-menu-item-selected {
-    .selected_icon();
-  }
-
-  &--multiple &-menu-item-selected {
-    .selected_icon();
-  }
-
   &-hidden {
     display: none;
   }
 
   background-color: white;
   border: 1px solid #d9d9d9;
-  box-shadow: @overlay-shadow;
+  box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
   z-index: 1070;
@@ -387,18 +366,19 @@
     &-item-group-title {
       color: #999;
       line-height: 1.5;
-      padding: 8px 16px;
+      padding: 8px 15px;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px 33px 7px 16px;
+      padding: 7px 15px;
       font-weight: normal;
       color: #666;
       white-space: nowrap;
       cursor: pointer;
       overflow: hidden;
+      transition: background 0.3s ease;
 
       &:first-child {
         border-top-left-radius: 4px;
@@ -410,13 +390,19 @@
       }
       &:hover,
       &-active {
-        background-color: tint(@primary-color, 90%) !important;
+        background-color: tint(@primary-color, 90%);
+      }
+
+      &-selected {
+        background-color: tint(@primary-color, 80%);
+        &:hover {
+          background-color: tint(@primary-color, 80%);
+        }
       }
 
       &-disabled {
         color: #ccc;
         cursor: not-allowed;
-        pointer-events: none;
 
         &:hover {
           color: #ccc;

@@ -35,8 +35,11 @@ for (let i = 0; i < 46; i++) {
 
 const pagination = {
   total: data.length,
-  current: 2,
-  showSizeChanger: true
+  current: 1,
+  showSizeChanger: true,
+  onShowSizeChange: function(current, pageSize) {
+    console.log('Current: ', current, '; PageSize: ', pageSize);
+  }
 };
 
 ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />

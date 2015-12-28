@@ -37,6 +37,22 @@
     transition: left @switch-duration @ease-in-out-circ;
   }
 
+  &-small {
+    height: 14px;
+    line-height: 12px;
+    width: 28px;
+    &:after {
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-small&-checked:after {
+    left: 14px;
+  }
+
   &-checked {
     border: 1px solid @primary-color;
     background-color: @primary-color;

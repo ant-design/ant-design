@@ -149,6 +149,10 @@ a.logo {
   max-height: 200px;
 }
 
+.autoComplete .ant-select-dropdown-menu-item {
+  border-radius: 0!important;
+}
+
 .autoComplete .ant-component-decs {
   font-size: 12px;
   position: absolute;
@@ -157,19 +161,31 @@ a.logo {
   right: 16px;
 }
 
+.global-hint {
+  float: left;
+  color: #666;
+  margin-left: 80px;
+  font-size: 12px;
+  padding: 4px 10px;
+  margin-top: 26px;
+  border-radius: 6px;
+  box-shadow: 0 0 3px #ddd;
+  opacity: 0.8;
+}
+
 .nav {
-  width: 30%;
   height: 80px;
   line-height: 80px;
   float: right;
   font-size: 0.875em;
   position: relative;
   margin-right: 25px;
+  overflow: hidden;
 }
 
 .nav ul li {
   float: left;
-  width: 20%;
+  padding: 0 22px;
   text-align: center;
 }
 
@@ -187,13 +203,13 @@ a.nav-link-disabled {
 }
 
 .nav ul li.current a {
-  color: #71B5DE;
+  color: #6AC2F5;
   font-weight: 600;
 }
 
 .nav ul li a:hover,
 .nav ul li .hover {
-  color: #6EB4E0;
+  color: #6AC2F5;
 }
 
 .nav .bar {
@@ -202,12 +218,9 @@ a.nav-link-disabled {
   position: absolute;
   top: 0;
   left: 0;
-  background: #6EB4E0;
+  background: #6AC2F5;
   display: none;
-}
-
-.barAnim {
-  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1), width 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .main-box {
@@ -1701,7 +1714,7 @@ footer ul li > a {
 }
 
 .code-boxes-col-2-1 {
-  width: 49%;
+  width: 48%;
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
@@ -2101,10 +2114,70 @@ a.entry-link:hover .anticon-smile {
   height: 440px;
   position: relative;
   border-radius: 0 0 5px 5px;
-  background: #f4f4f4;
+  background: #ececec;
 }
 .window-frame .status-bar {
   height: 2rem;
   border-radius: 0 0 0.35rem 0.35rem;
   display: none;
+}
+
+.demos-anchor {
+  color: #aaa;
+  position: fixed;
+  bottom: 50%;
+  right: 0;
+  z-index: 100;
+  transform: translateY(50%);
+  transition: all 0.3s ease;
+  background: #fff;
+  padding: 8px 18px 8px 28px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 6px 0 0 6px;
+  margin: 0;
+  font-size: 12px;
+  border-right: 0;
+}
+
+.demos-anchor li {
+  list-style: decimal outside;
+  width: 75px;
+  margin-bottom: 2px;
+}
+
+.demos-anchor a {
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 100%;
+}
+
+.demos-anchor a > span {
+  position: relative;
+}
+
+.demos-anchor a > span:hover {
+  color: #2db7f5;
+}
+
+.demos-anchor a > span:after {
+  text-decoration: underline;
+  position: absolute;
+  top: auto;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #2db7f5;
+  content: '';
+  transition: all 0.2s;
+  backface-visibility: hidden;
+  transform: scaleX(0);
+}
+
+.demos-anchor a > span:hover:after {
+  transform: scaleX(1);
 }

@@ -87,7 +87,7 @@ class FormItem extends React.Component {
     if (!Array.isArray(children)) {
       children = [children];
     }
-    children.map((child, i) => {
+    children.map((child) => {
       const type = child.props && child.props.type;
       let prefixCls = child.props && child.props.prefixCls;
       prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';

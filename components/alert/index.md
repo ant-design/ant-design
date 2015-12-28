@@ -23,3 +23,4 @@
 | message    | 必选参数，警告提示内容                                       | String     | 无    |
 | description | 可选参数，警告提示的辅助性文字介绍                            | String     | 无    |
 | onClose     | 可选参数，关闭时触发的回调函数                                | Function   | 无    |
+| showIcon   | 可选参数，是否显示辅助图标                                 | Boolean   | false    |

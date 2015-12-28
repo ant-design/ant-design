@@ -11,12 +11,12 @@
     cursor: pointer;
   }
 
-  &.@{upload-prefix-cls}-select {
+  &&-select {
     display: inline-block;
   }
 
-  &.@{upload-prefix-cls}-drag {
-    border: 1px dashed #d9d9d9;
+  &&-drag {
+    border: 1px dashed @border-color-base;
     transition: border-color 0.3s ease;
     cursor: pointer;
     border-radius: @border-radius-base;
@@ -74,11 +74,12 @@
 }
 
 .@{upload-prefix-cls}-list {
-  .@{upload-prefix-cls}-list-item {
+  &-item {
     overflow: hidden;
     margin-top: 8px;
+    font-size: 12px;
 
-    .@{upload-prefix-cls}-list-item-info {
+    &-info {
       height: 22px;
       line-height: 22px;
       padding: 0 4px;
@@ -101,15 +102,26 @@
           color: #666;
         }
       }
-      &:hover {
-        background-color: tint(@primary-color, 90%);
-        .anticon.anticon-cross {
-          opacity: 1;
-        }
-      }
     }
 
-    .@{upload-prefix-cls}-list-item-progress {
+    &:hover &-info {
+      background-color: tint(@primary-color, 90%);
+    }
+
+    &:hover .anticon-cross {
+      opacity: 1;
+    }
+
+    &-error,
+    &-error .anticon-paper-clip {
+      color: @error-color;
+    }
+
+    &-error .anticon-cross {
+      opacity: 1;
+    }
+
+    &-progress {
       padding: 0 8px 0 20px;
       margin-top: -2px;
       margin-bottom: 1px;
@@ -118,15 +130,74 @@
         vertical-align: middle;
       }
     }
-
-  }
-  .@{upload-prefix-cls}-item-name {
-    font-size: 12px;
-    font-weight: normal;
   }
 
-  b.@{upload-prefix-cls}-item-name {
-    color: #666;
+  &-picture &-item {
+    padding: 8px;
+    border-radius: @border-radius-base;
+    border: 1px solid @border-color-base;
+    height: 66px;
+    position: relative;
+    &:hover {
+      background: transparent;
+    }
+  }
+
+  &-picture &-item-info {
+    padding: 0;
+  }
+
+  &-picture &-item:hover &-item-info {
+    background: transparent;
+  }
+
+  &-picture &-item-uploading {
+    border-style: dashed;
+  }
+
+  &-picture &-item-thumbnail {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  &-picture &-item-thumbnail img {
+    width: 48px;
+    height: 48px;
+    display: block;
+  }
+
+  &-picture &-item-thumbnail.anticon:before {
+    line-height: 48px;
+    font-size: 24px;
+    color: #999;
+  }
+
+  &-picture &-item-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+    margin: 0 0 0 8px;
+    line-height: 42px;
+    transition: all 0.3s ease;
+  }
+
+  &-picture &-item-uploading &-item-name {
+    line-height: 28px;
+  }
+
+  &-picture &-item-progress {
+    padding-left: 56px;
+    margin-top: 0;
+  }
+
+  &-picture .anticon-cross {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    line-height: 1;
   }
 
   .@{upload-prefix-cls}-success-icon {

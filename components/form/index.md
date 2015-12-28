@@ -71,7 +71,7 @@ Mixin：当表单控件的输入值改变时，更新 formData。
 |  type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
 |  value | value 值 | any |  | |
 |  id | id | number 或 string |  |   |
-|  size | 控件大小，默认值为 default | string | {'large','default','small'} |  'default' |
+|  size | 控件大小，默认值为 default 。注：标准表单内的输入框大小限制为 large。 | string | {'large','default','small'} |  'default' |
 |  defaultValue | 设置初始默认值 | any |  |  |
 |  disabled | 是否禁用状态，默认为 false | bool |  |  false |
 |  addonBefore | 带标签的 input，设置前置标签 | node |  |   |

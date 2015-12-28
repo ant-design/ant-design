@@ -23,20 +23,19 @@ npm install antd
 
 ## 示例
 
-- 使用全部组件
+```jsx
+import { DatePicker } from 'antd';
+ReactDOM.render(<DatePicker />, mountNode);
+```
 
-  ```jsx
-  import { Datepicker } from 'antd';
-  ReactDOM.render(<Datepicker />, mountNode);
-  ```
+引入样式：
 
-- 按需使用
+```jsx
+import 'antd/lib/index.css';  // or 'antd/style/index.less'
+```
 
-  ```jsx
-  import 'antd/lib/index.css'; // 只需在页面入口模块引用一次
-  import Datepicker from 'antd/lib/datepicker';
-  ReactDOM.render(<Datepicker />, mountNode);
-  ```
+按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)。
+
 
 ## 浏览器支持
 
@@ -46,9 +45,8 @@ npm install antd
 
 - [首页](http://ant.design/)
 - [React UI 库](http://ant.design/docs/introduce)
-- [构建调试工具](https://github.com/ant-tool/xtool/)
-- [开发计划](https://github.com/ant-design/ant-design/issues/9)
 - [修改记录](CHANGELOG.md)
+- [构建调试工具](https://github.com/ant-tool/xtool/)
 - [React 组件](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)

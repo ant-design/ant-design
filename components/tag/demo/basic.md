@@ -10,7 +10,7 @@
 import { Tag } from 'antd';
 
 function onClose(e) {
-  console.log(this.props.children);
+  console.log(e, this);
 }
 
 ReactDOM.render(<div>

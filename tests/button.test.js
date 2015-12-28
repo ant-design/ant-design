@@ -22,5 +22,13 @@ describe('Button', function() {
   it('should set the default className to button', () => {
     expect(buttonNode.className).toBe('ant-btn');
   });
+
+  it('should has a whitespace in two Chinese charactor', () => {
+    button = TestUtils.renderIntoDocument(
+      <Button>按钮</Button>
+    );
+    buttonNode = TestUtils.findRenderedDOMComponentWithTag(button, 'button');
+    expect(buttonNode.textContent).toBe('按 钮');
+  });
 });
 

@@ -23,6 +23,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     'info': 'ant-message-info',
     'success': 'ant-message-success',
     'error': 'ant-message-error',
+    'warn': 'ant-message-warn',
     'loading': 'ant-message-loading'
   })[type];
 
@@ -30,6 +31,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     'info': 'info-circle',
     'success': 'check-circle',
     'error': 'exclamation-circle',
+    'warn': 'exclamation-circle',
     'loading': 'loading'
   })[type];
 
@@ -61,6 +63,9 @@ export default {
   },
   error(content, duration, onClose) {
     return notice(content, duration, 'error', onClose);
+  },
+  warn(content, duration, onClose) {
+    return notice(content, duration, 'warn', onClose);
   },
   loading(content, duration, onClose) {
     return notice(content, duration, 'loading', onClose);

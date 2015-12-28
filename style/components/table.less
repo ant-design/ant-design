@@ -25,7 +25,7 @@
     font-weight: bold;
     transition: background .3s ease;
 
-    .anticon-bars {
+    .anticon-filter {
       margin-left: 4px;
       .iconfont-size-under-12px(10px);
       cursor: pointer;
@@ -36,7 +36,7 @@
       }
     }
 
-    .@{table-prefix-cls}-filter-selected.anticon-bars {
+    .@{table-prefix-cls}-filter-selected.anticon-filter {
       color: @primary-color;
     }
 
@@ -75,6 +75,7 @@
   th.@{table-prefix-cls}-selection-column,
   td.@{table-prefix-cls}-selection-column {
     text-align: center;
+    width: 60px;
   }
 
   &-loading {
@@ -96,6 +97,13 @@
     }
     .@{table-prefix-cls}-without-pagination {
       margin-top: 10px;
+    }
+  }
+
+  &-middle {
+    th,
+    td {
+      padding: 10px 8px;
     }
   }
 
@@ -211,21 +219,32 @@
 }
 
 .@{table-prefix-cls}-filter-dropdown {
-  min-width: 88px;
+  min-width: 96px;
   margin-left: -8px;
-  margin-top: -6px;
-  .ant-dropdown-menu-item {
-    overflow: hidden;
-    padding: 7px 24px 8px 7px;
-    &.ant-dropdown-menu-item-selected {
-      .selected_icon();
-    }
-    &.ant-dropdown-menu-item-selected:after {
-      padding-right: 8px;
-    }
+  background: #fff;
+  border-radius: @border-radius-base;
+  border: 1px solid @border-color-base;
+  box-shadow: @box-shadow-base;
+
+  .ant-dropdown-menu {
+    max-height: 220px;
+    overflow: auto;
+    border: 0;
+    box-shadow: none;
+    border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
-  a&-link {
+  .ant-dropdown-menu-item {
+    overflow: hidden;
+  }
+
+  &-btns {
+    overflow: hidden;
+    padding: 7px 15px;
+    border-top: 1px solid @border-color-split;
+  }
+
+  &-link {
     color: @link-color;
     &:hover {
       color: @link-hover-color;
@@ -238,7 +257,6 @@
     }
     &.clear {
       float: right;
-      margin-right: -32px;
     }
   }
 }
@@ -273,5 +291,9 @@
     &:hover {
       background: #fbfbfb;
     }
+  }
+
+  .@{table-prefix-cls}-row-indent + .@{table-prefix-cls}-row-expand-icon {
+    margin-right: 5px;
   }
 }

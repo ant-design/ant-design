@@ -12,21 +12,24 @@ import { Table, Icon } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
+  key: 'name',
   render: function(text) {
     return <a href="#">{text}</a>;
   }
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
+  key: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
+  key: 'address',
 }, {
   title: '操作',
-  dataIndex: '',
+  key: 'operation',
   render: function(text, record) {
     return <span>
-      <a href="#">操作一</a>
+      <a href="#">操作一{record.name}</a>
       <span className="ant-divider"></span>
       <a href="#">操作二</a>
       <span className="ant-divider"></span>

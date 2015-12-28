@@ -8,6 +8,10 @@ const prefixCls = 'ant-upload';
 function noop() {
 }
 
+function T() {
+  return true;
+}
+
 // Fix IE file.status problem
 // via coping a new Object
 function fileToObject(file) {
@@ -20,7 +24,8 @@ function fileToObject(file) {
     uid: file.uid,
     response: file.response,
     error: file.error,
-    percent: 0
+    percent: 0,
+    originFileObj: file,
   };
 }
 
@@ -54,6 +59,8 @@ const AntUpload = React.createClass({
     };
   },
   onStart(file) {
+    if (this.recentUploadStatus === false) return;
+
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
@@ -141,6 +148,10 @@ const AntUpload = React.createClass({
     targetItem.status = 'error';
     this.handleRemove(targetItem);
   },
+  beforeUpload(file) {
+    this.recentUploadStatus = this.props.beforeUpload(file);
+    return this.recentUploadStatus;
+  },
   handleRemove(file) {
     let fileList = this.removeFile(file);
     if (fileList) {
@@ -169,7 +180,10 @@ const AntUpload = React.createClass({
       data: {},
       accept: '',
       onChange: noop,
-      showUploadList: true
+      beforeUpload: T,
+      showUploadList: true,
+      listType: 'text', // or pictrue
+      className: '',
     };
   },
   componentWillReceiveProps(nextProps) {
@@ -194,19 +208,23 @@ const AntUpload = React.createClass({
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
+      beforeUpload: this.beforeUpload,
     });
     let uploadList;
     if (this.props.showUploadList) {
-      uploadList = <UploadList items={this.state.fileList} onRemove={this.handleManualRemove} />;
+      uploadList = (
+        <UploadList listType={this.props.listType}
+          items={this.state.fileList}
+          onRemove={this.handleManualRemove} />
+      );
     }
     if (type === 'drag') {
       let dragUploadingClass = this.state.fileList.some(file => file.status === 'uploading')
                                  ? `${prefixCls}-drag-uploading` : '';
-
       let draggingClass = this.state.dragState === 'dragover'
                            ? `${prefixCls}-drag-hover` : '';
       return (
-        <span>
+        <span className={this.props.className}>
           <div className={prefixCls + ' ' + prefixCls + '-drag '
             + dragUploadingClass + ' ' + draggingClass}
             onDrop={this.onFileDrop}
@@ -223,7 +241,7 @@ const AntUpload = React.createClass({
       );
     } else if (type === 'select') {
       return (
-        <span>
+        <span className={this.props.className}>
           <div className={prefixCls + ' ' + prefixCls + '-select'}>
             <Upload {...props}>
               {this.props.children}

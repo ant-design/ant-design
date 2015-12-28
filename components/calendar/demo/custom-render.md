@@ -10,11 +10,11 @@
 import { Calendar } from 'antd';
 
 function dateCellRender(value) {
-  return <div>自定义日数据</div>;
+  return <div>自定义日数据 {value.getDayOfMonth()}</div>;
 }
 
 function monthCellRender(value) {
-  return <div>自定义月数据</div>;
+  return <div>自定义月数据 {value.getMonth()}</div>;
 }
 
 ReactDOM.render(

@@ -4,12 +4,12 @@
 
 提供以下组件表单域的校验。
 
-`Select` `Radio` `Datepicker` `InputNumber`。
+`Select` `Radio` `DatePicker` `InputNumber`。
 
 ---
 
 ````jsx
-import {Validation, Select, Radio, Button, Datepicker, InputNumber, Form} from 'antd';
+import {Validation, Select, Radio, Button, DatePicker, InputNumber, Form} from 'antd';
 const Validator = Validation.Validator;
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
@@ -172,7 +172,7 @@ const Demo = React.createClass({
                 type: 'date',
                 message: '你的生日是什么呢?'
               }, {validator: this.checkBirthday}]}>
-                <Datepicker name="birthday" value={formData.birthday} />
+                <DatePicker name="birthday" value={formData.birthday} />
               </Validator>
           </FormItem>
 

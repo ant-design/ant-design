@@ -1,4 +1,11 @@
 InstantClickChangeFns.push(function() {
+  // fix hash id link
+  if (window.location.href.indexOf('#') > 0) {
+    setTimeout(function() {
+      window.location.href = window.location.href;
+    }, 0);
+  }
+
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
@@ -58,39 +65,31 @@ InstantClickChangeFns.push(function() {
   var navFunc = {
     navStrArr: [],
     init: function() {
-      var self = this;
-      self.navBox = $(".nav");
-      self.navBar = self.navBox.find(".bar");
-      self.navList = self.navBox.find("ul li");
-      self.navNum = $(".current").index();
-      self.navBarAnim();
-      self.navResize(null);
-      $(window).bind("resize", self.navResize);
-      self.navBar.show();
+      this.navBox = $(".nav");
+      this.navBar = this.navBox.find(".bar");
+      this.navList = this.navBox.find("ul li");
+      this.navNum = $(".current").index();
+      this.navBarAnim();
+      this.highlightCurrentNav();
+      $(window).bind("resize", this.highlightCurrentNav);
+      this.navBar.show();
     },
-    navResize: function(e) {
-      var self = navFunc;
-      self.navBar.css("left", self.navList.width() * self.navNum);
-
-      self.navList.eq(self.navNum).find("a").addClass("hover");
+    highlightCurrentNav: function(target) {
+      target = target || this.navList.eq(this.navNum);
+      this.navBar && this.navBar.css({
+        left: target.position().left,
+        width: target.outerWidth()
+      });
     },
     navBarAnim: function() {
-      var self = this,
-        delay;
-
-      function startBarAnim(num) {
-        self.navBar.css("left", self.navList.width() * num);
-        self.navList.eq(num).find("a").addClass("hover");
-      }
+      var self = this, delay;
       self.navList.bind("mouseenter", function(e) {
         clearTimeout(delay);
-        var m = e.currentTarget;
-        self.navList.find("a").removeClass("hover");
-        self.navBar.addClass("barAnim").css("left", $(m).width() * $(m).index());
+        self.highlightCurrentNav($(e.currentTarget));
       });
       self.navList.bind("mouseleave", function(e) {
         delay = setTimeout(function() {
-          startBarAnim(self.navNum);
+          self.highlightCurrentNav();
         }, 500);
       });
     }
@@ -99,20 +98,17 @@ InstantClickChangeFns.push(function() {
   var listFunc = {
     num: 0,
     init: function() {
-      var self = this;
-      self.listBox = $(".aside-container>ul");
-      if (!self.listBox.length) {
+      this.listBox = $(".aside-container>ul");
+      if (!this.listBox.length) {
         return;
       }
-      self.getUrlNum();
-      //添加标题事件；
-      self.addTitleEvent();
+      this.getUrlNum();
+      this.addTitleEvent();
     },
     getUrlNum: function() {
       var self = this,
         url = location.href,
         str = "";
-      //console.log(self.listBox.find("a"))
       for (var i = 0; i < self.listBox.find("a").length; i++) {
         var m = self.listBox.find("a").eq(i);
         if (m.attr("href") == "./" || url.indexOf(m.attr("href")) >= 0) {
