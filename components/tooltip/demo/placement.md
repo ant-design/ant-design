@@ -28,7 +28,7 @@ ReactDOM.render(
         <a href="#">左上</a>
       </Tooltip>
       <Tooltip placement="left" title={text}>
-        <a href="#">左下</a>
+        <a href="#">左边</a>
       </Tooltip>
       <Tooltip placement="leftBottom" title={text}>
         <a href="#">左下</a>
