@@ -29,6 +29,9 @@ export default React.createClass({
     this.props.onRemove(file);
   },
   componentDidUpdate() {
+    if (this.props.listType !== 'picture') {
+      return;
+    }
     this.props.items.forEach(file => {
       if (typeof document === 'undefined' ||
           typeof window === 'undefined' ||
