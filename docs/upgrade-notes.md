@@ -46,7 +46,7 @@ import 'antd/style/index.less';
 
 如果无法理解受控组件，只须在发现在选中日期后 `Datepicker` 显示的值不变的情况后，把其 `value` 属性改为 `defaultValue` 即可。
 
-## 其他
+### 其他
 
 - Alert 组件默认不展示样式，可以用 `showIcon` 属性添加图标。
 - 在 `0.10.x` 中 Datepicker 已废弃的 `onSelect` 属性被删除，请使用 `onChange` 属性。。
