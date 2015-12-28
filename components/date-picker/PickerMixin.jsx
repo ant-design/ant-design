@@ -27,7 +27,7 @@ export default {
         return this.getFormatter().parse(value, {locale: this.getLocale()});
       } else if (value instanceof Date) {
         let date = new GregorianCalendar(this.getLocale());
-        date.setTime(value);
+        date.setTime(+value);
         return date;
       }
     } else if (value === null) {
