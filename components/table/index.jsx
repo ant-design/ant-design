@@ -431,12 +431,13 @@ let AntTable = React.createClass({
       'mini': this.props.size === 'middle' || this.props.size === 'small',
     });
     let total = this.state.pagination.total || this.getLocalData().length;
+    const pageSize = this.state.pagination.pageSize;
     return (total > 0) ?
       <Pagination {...this.state.pagination}
                   className={classString}
                   onChange={this.handlePageChange}
                   total={total}
-                  pageSize={10}
+                  pageSize={pageSize}
                   onShowSizeChange={this.handleShowSizeChange} /> : null;
   },
 
