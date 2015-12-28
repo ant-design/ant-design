@@ -17,11 +17,9 @@ const App = React.createClass({
       targetKeys: [],
     };
   },
-
   componentDidMount() {
     this.getMock();
   },
-
   getMock() {
     let targetKeys = [];
     let mockData = [];
@@ -37,25 +35,17 @@ const App = React.createClass({
       }
       mockData.push(data);
     }
-    this.setState({
-      mockData: mockData,
-      targetKeys: targetKeys,
-    });
+    this.setState({ mockData, targetKeys });
   },
-
   handleChange(targetKeys) {
-    this.setState({
-      targetKeys: targetKeys,
-    });
+    this.setState({ targetKeys });
   },
-
   renderFooter() {
     return <Button type="ghost" size="small" style={{ float: 'right', margin: '5' }}
                    onClick={this.getMock}>刷新</Button>;
   },
-
   render() {
-    return <div>
+    return (
       <Transfer
         dataSource={this.state.mockData}
         showSearch
@@ -66,9 +56,9 @@ const App = React.createClass({
         operations={['向右操作文案', '向左操作文案']}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={(item) => { return item.title + '-' + item.description; }}
-        footer={this.renderFooter}/>
-    </div>;
+        render={item => item.title + '-' + item.description}
+        footer={this.renderFooter} />
+    );
   }
 });
 

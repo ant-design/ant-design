@@ -8,7 +8,6 @@
 
 ````jsx
 import { Transfer } from 'antd';
-const container = document.getElementById('components-transfer-demo-search');
 
 const App = React.createClass({
   getInitialState() {
@@ -17,11 +16,9 @@ const App = React.createClass({
       targetKeys: [],
     };
   },
-
   componentDidMount() {
     this.getMock();
   },
-
   getMock() {
     let targetKeys = [];
     let mockData = [];
@@ -37,29 +34,22 @@ const App = React.createClass({
       }
       mockData.push(data);
     }
-    this.setState({
-      mockData: mockData,
-      targetKeys: targetKeys,
-    });
+    this.setState({ mockData, targetKeys });
   },
-
   handleChange(targetKeys) {
-    this.setState({
-      targetKeys: targetKeys,
-    });
+    this.setState({ targetKeys });
   },
-
   render() {
-    return <div>
+    return (
       <Transfer
         dataSource={this.state.mockData}
         showSearch
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={(item) => { return item.title;}} />
-    </div>;
+        render={item => item.title} />
+    );
   }
 });
 
-ReactDOM.render(<App />, container);
+ReactDOM.render(<App />, document.getElementById('components-transfer-demo-search'));
 ````
