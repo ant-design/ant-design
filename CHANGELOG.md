@@ -40,6 +40,7 @@
 - Breadcrumb 可以自定义分隔符。[演示](http://ant.design/components/breadcrumb/#demo-separator)
 - Popconfirm 添加 `visible` 属性，使其可以控制是否显示。[演示](http://ant.design/components/popconfirm/#demo-dynamic-trigger)
 - 修复 Icon `ref` 引起的报错。
+- 修复 Calendar 组件无法切换年/月的问题。[#757](https://github.com/ant-design/ant-design/issues/757)
 - Checkbox 新增 `Checkbox.Group`，现可以方便的 [生成一组选择框](http://ant.design/components/checkbox/#demo-group)
 - Tabs
   - 新增 [卡片式页签](http://ant.design/components/tabs/#demo-card)。
