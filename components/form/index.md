@@ -3,6 +3,7 @@
 - category: Components
 - chinese: 表单
 - type: 表单
+- cols: 1
 
 ---
 
@@ -86,3 +87,8 @@ Mixin：当表单控件的输入值改变时，更新 formData。
 </Input.Group>
 ```
 
+<style>
+.code-box-demo .ant-form-horizontal {
+  max-width: 540px;
+}
+</style>
