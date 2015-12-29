@@ -4,6 +4,32 @@
     width: 172px;
     display: block;
   }
+  &-picker {
+    position: relative;
+    display: inline-block;
+    &-clear {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      font-size: 12px;
+      color: #ccc;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      line-height: 12px;
+      cursor: pointer;
+      transition: color 0.3s ease, opacity 0.15s ease;
+      &:hover {
+        color: #999;
+      }
+    }
+    &:hover &-clear {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
   &-menus {
     font-size: 12px;
     overflow: hidden;
