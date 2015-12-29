@@ -43,6 +43,7 @@ const antd = {
   Calendar: require('./components/calendar'),
   TimePicker: require('./components/time-picker'),
   Transfer: require('./components/transfer'),
+  Cascader: require('./components/cascader'),
 };
 
 antd.version = require('./package.json').version;
