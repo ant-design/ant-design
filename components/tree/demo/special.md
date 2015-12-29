@@ -63,5 +63,5 @@ class TreeDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<TreeDemo />, document.getElementById('components-tree-demo-special'));
+ReactDOM.render(<TreeDemo />, mountNode);
 ````

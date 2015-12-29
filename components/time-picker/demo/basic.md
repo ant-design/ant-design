@@ -17,5 +17,5 @@ function onChange(time) {
 
 ReactDOM.render(
   <TimePicker onChange={onChange} />
-, document.getElementById('components-time-picker-demo-basic'));
+, mountNode);
 ````

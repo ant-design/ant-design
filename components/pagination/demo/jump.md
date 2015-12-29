@@ -11,5 +11,5 @@ import { Pagination } from 'antd';
 
 ReactDOM.render(
   <Pagination showQuickJumper defaultCurrent={2} total={500} />,
- document.getElementById('components-pagination-demo-jump'));
+ mountNode);
 ````

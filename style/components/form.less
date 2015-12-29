@@ -206,7 +206,6 @@ form {
     border-radius: @border-radius-base;
   }
   .ant-search-btn {
-    .btn;
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
     margin-left: -30px;
@@ -217,6 +216,10 @@ form {
     padding-right: 8px;
     &:hover {
       border-color: @border-color-base;
+    }
+    form & {
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
   }
   &&-focus .ant-search-btn-noempty,

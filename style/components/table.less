@@ -285,6 +285,13 @@
     &-collapsed:after {
       content: '+';
     }
+
+    &-spaced {
+      visibility: hidden;
+      &:after {
+        content: '.';
+      }
+    }
   }
   tr&-expanded-row {
     &,

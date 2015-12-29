@@ -27,5 +27,5 @@ ReactDOM.render(
       触发链接 <Icon type="down" />
     </a>
   </Dropdown>
-, document.getElementById('components-dropdown-demo-basic'));
+, mountNode);
 ````

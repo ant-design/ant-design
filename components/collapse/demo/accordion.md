@@ -28,5 +28,5 @@ ReactDOM.render(
       <p>{text}</p>
     </Panel>
   </Collapse>
-, document.getElementById('components-collapse-demo-accordion'));
+, mountNode);
 ````

@@ -41,8 +41,7 @@
     <script src="{{static_url('script.js')}}"></script>
     <script>
       window.antdVersion = {
-        latest: '{{config.package.version}}',
-        stable: '{{config.package.stableVersion}}'
+        latest: '{{config.package.version}}'
       };
     </script>
     <script src="{{static_url('../dist/demo.js')}}"></script>
@@ -58,6 +57,9 @@
       <div class="search">
         <div id="autoComplete"></div>
       </div>
+      <div class="global-hint">
+        0.11 已发布，0.10 文档请访问 <a href="http://010x.ant.design/">010x.ant.design</a>
+      </div>
       <nav class="nav">
         <span class="bar"></span>
         <ul>
@@ -67,7 +69,7 @@
           <li class="{%- if post.directory|rootDirectoryIn(['spec']) %}current{%- endif %}">
             <a href="{{static_url('../spec/introduce')}}">设计</a>
           </li>
-          <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) %}current{%- endif %}">
+          <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) or post.meta.filepath === 'CHANGELOG.md' %}current{%- endif %}">
             <a href="{{static_url('../docs/introduce')}}">React UI</a>
           </li>
           <li>

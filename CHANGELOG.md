@@ -4,15 +4,22 @@
 
 ---
 
-## 0.11.0 `2015-12-25`
+## 0.11.1 `developing`
 
-- 移除默认加载的样式文件，样式现在需要独立加载。
+- 修复一个 Table 无法修改 pageSize 的问题。
+- 修复一个 Table 子表格展开的对齐问题。
+- 修复一个 chrome 下部分图标左侧切边的问题。
+- 修复搜索输入框在表单下使用的样式问题。
+
+## 0.11.0 `2015-12-28`
+
+- **移除默认加载的样式文件，样式现在需要独立加载。**
 - 按钮圆角调整为 `6px`。
 - Modal、Popconfirm、Table、TimePicker 支持国际化配置。
 - 新增虚线型按钮。
 - 新增 [通用搜索框](http://ant.design/components/form/#demo-search-input) 样式。
 - 新增图片上传列表样式[演示](http://ant.design/components/upload/#demo-picture-style)。
-- 部分设计资源开放 [下载](http://ant.design/spec/tools)，包括 Axure 组件库和 Iconfont 字体打包文件。
+- **部分设计资源开放 [下载](http://ant.design/spec/tools)，包括 Axure 组件库和 Iconfont 字体打包文件。**
 - 新增 [吊顶规范](http://ant.design/spec/layout/#demo-ceiling)。
 - 组件演示页面增加锚点。
 - 新增穿梭框 [Transfer](http://ant.design/components/transfer/) 组件。
@@ -71,13 +78,14 @@
   - 修复了 Textarea 无法输入的问题。[#646](https://github.com/ant-design/ant-design/issues/646)
   - 修复了 Textarea 设置 `cols` 和 `rows` 属性失效的问题。[#694](https://github.com/ant-design/ant-design/issues/694)
   - 修复无法设置 `className` 的问题。[#711](https://github.com/ant-design/ant-design/issues/711)
+- 修复 Upload 组件在 `beforeUpload` 返回 `false` 后依然更新上传列表问题。[#757](https://github.com/ant-design/ant-design/issues/757)
 - 工具
   - 替换 `antd build` 为 [atool-build](https://github.com/ant-tool/atool-build)，重构并改善了 webpack 配置的自定义方式。
   - 替换 `antd server` 为 [dora](https://github.com/dora-js/dora)，一个完全插件化的开发服务器，支持[代理转发和数据 Mock](https://github.com/dora-js/dora-plugin-proxy)、[atool-build](https://github.com/dora-js/dora-plugin-atool-build)、[热替换](https://github.com/dora-js/dora-plugin-hmr)。
   - 新增 babel 插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)，转换 `import {Button} from 'antd'` 为 `import Button from 'antd/lib/button'`。
-  - 发布了 `antd-init@0.5.x`，支持以上改动。
+  - 发布了 `antd-init@0.6.x`，支持以上改动。
 
-> - [0.11 升级指南](http://ant.design/docs/upgrade-notes#0-10-gt-0-11)
+> [0.11 升级指南](http://ant.design/docs/upgrade-notes#0-10-gt-0-11)
 
 ## 0.10.4 `2015-11-30`
 

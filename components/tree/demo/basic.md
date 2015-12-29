@@ -23,5 +23,5 @@ ReactDOM.render(
       </TreeNode>
     </TreeNode>
   </Tree>
-, document.getElementById('components-tree-demo-basic'));
+, mountNode);
 ````

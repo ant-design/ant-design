@@ -91,5 +91,5 @@ ReactDOM.render(
         </RadioGroup>
     </FormItem>
   </Form>
-, document.getElementById('components-form-demo-form-controls'));
+, mountNode);
 ````

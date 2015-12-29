@@ -53,6 +53,6 @@ ReactDOM.render(
       <Col span="4">.col-4</Col>
     </Row>
   </div>,
-  document.getElementById('components-layout-demo-flex')
+  mountNode
 );
 ````

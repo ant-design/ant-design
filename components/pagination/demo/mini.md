@@ -13,5 +13,5 @@ ReactDOM.render(<div>
   <Pagination size="small" total={50} />
   <br />
   <Pagination size="small" total={50} showSizeChanger showQuickJumper />
-</div>, document.getElementById('components-pagination-demo-mini'));
+</div>, mountNode);
 ````

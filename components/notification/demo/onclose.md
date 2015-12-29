@@ -26,5 +26,5 @@ ReactDOM.render(
   <div>
     <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
   </div>,
-document.getElementById('components-notification-demo-onclose'));
+mountNode);
 ````

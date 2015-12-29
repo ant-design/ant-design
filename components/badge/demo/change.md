@@ -69,5 +69,5 @@ const Test = React.createClass({
 
 ReactDOM.render(
   <Test />
-, document.getElementById('components-badge-demo-change'));
+, mountNode);
 ````

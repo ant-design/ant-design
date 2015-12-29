@@ -15,5 +15,5 @@ ReactDOM.render(
     <DatePicker />
     <DatePicker size="small" />
   </div>
-, document.getElementById('components-date-picker-demo-size'));
+, mountNode);
 ````

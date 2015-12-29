@@ -27,5 +27,5 @@ ReactDOM.render(
       </Col>
     </InputGroup>
   </Row>
-, document.getElementById('components-form-demo-input'));
+, mountNode);
 ````

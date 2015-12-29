@@ -17,5 +17,5 @@ ReactDOM.render(<div>
   <RangePicker style={{width: 184}} onChange={onChange} />
   <br />
   <RangePicker showTime format="yyyy-MM-dd HH:mm:ss" onChange={onChange} />
-</div>, document.getElementById('components-date-picker-demo-range'));
+</div>, mountNode);
 ````

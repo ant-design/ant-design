@@ -53,5 +53,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test/>, document.getElementById('components-modal-demo-async'));
+ReactDOM.render(<Test/>, mountNode);
 ````

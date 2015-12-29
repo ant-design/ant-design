@@ -38,5 +38,5 @@ const data = [{
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} pagination={false} />
-, document.getElementById('components-table-demo-nopagination'));
+, mountNode);
 ````

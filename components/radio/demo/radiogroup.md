@@ -34,5 +34,5 @@ const App = React.createClass({
     </div>;
   }
 });
-ReactDOM.render(<App />, document.getElementById('components-radio-demo-radiogroup'));
+ReactDOM.render(<App />, mountNode);
 ````

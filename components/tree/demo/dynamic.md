@@ -77,5 +77,5 @@ const TreeDemo = React.createClass({
   }
 });
 
-ReactDOM.render(<TreeDemo />, document.getElementById('components-tree-demo-dynamic'));
+ReactDOM.render(<TreeDemo />, mountNode);
 ````

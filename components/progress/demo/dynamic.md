@@ -46,6 +46,6 @@ const MyProgress = React.createClass({
   }
 });
 
-ReactDOM.render(<MyProgress />, document.getElementById('components-progress-demo-dynamic'));
+ReactDOM.render(<MyProgress />, mountNode);
 ````
 

@@ -32,5 +32,5 @@ ReactDOM.render(<div>
     description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
     type="error"
     showIcon />
-</div>, document.getElementById('components-alert-demo-icon'));
+</div>, mountNode);
 ````

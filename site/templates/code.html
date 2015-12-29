@@ -1,6 +1,7 @@
 <div class="code-box" id="{{post.meta.id|removeCodeBoxIdPrefix}}">
   <div class="code-box-demo">
     <div id="{{post.meta.id}}"></div>
+    <script>mountNode = document.getElementById('{{post.meta.id}}');</script>
     {{ post.html }}
   </div>
   <div class="code-box-meta markdown">

@@ -27,5 +27,5 @@ function disabledSeconds() {
 
 ReactDOM.render(
   <TimePicker disabledMinutes={disabledMinutes} disabledSeconds={disabledSeconds} hideDisabledOptions />
-, document.getElementById('components-time-picker-demo-hide-options'));
+, mountNode);
 ````

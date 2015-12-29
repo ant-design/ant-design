@@ -88,6 +88,11 @@
       }
     }
 
+    ul li&-highlight-enter {
+      animation: transferHighlightIn 1s ease;
+      transition: none;
+    }
+
     &-body-with-search {
       padding-top: 34px;
     }
@@ -120,5 +125,14 @@
         .iconfont-size-under-12px(10px);
       }
     }
+  }
+}
+
+@keyframes transferHighlightIn {
+  0% {
+    background: tint(@primary-color, 80%);
+  }
+  100% {
+    background: transparent;
   }
 }

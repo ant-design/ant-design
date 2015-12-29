@@ -35,5 +35,5 @@ function disabledMinutes(h) {
 
 ReactDOM.render(
   <TimePicker disabledHours={disabledHours} disabledMinutes={disabledMinutes} />
-, document.getElementById('components-time-picker-demo-disable-options'));
+, mountNode);
 ````

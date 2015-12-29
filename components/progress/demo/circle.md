@@ -16,7 +16,7 @@ ReactDOM.render(
     <ProgressCircle percent={70} status="exception" format={<Icon type="exclamation" />} />
     <ProgressCircle percent={100} />
   </div>
-  , document.getElementById('components-progress-demo-circle'));
+  , mountNode);
 ````
 
 <style>

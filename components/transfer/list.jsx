@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
+import Animate from 'rc-animate';
 
 function noop() {
 }
@@ -10,6 +11,17 @@ class TransferList extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      mounted: false,
+    };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        mounted: true,
+      });
+    }, 0);
   }
 
   handleSelectALl() {
@@ -81,8 +93,10 @@ class TransferList extends Component {
         { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
           <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
         </div> : null }
-        <ul>
-          { dataSource.length > 0 ?
+        <Animate component="ul"
+          transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
+          transitionLeave={false}>
+          {dataSource.length > 0 ?
             dataSource.map((item) => {
               // apply filter
               const itemText = this.props.render(item);
@@ -90,17 +104,17 @@ class TransferList extends Component {
 
               const renderedText = this.props.render(item);
 
-              if ( filterResult ) {
-                return <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
-                  <Checkbox checked={checkedKeys.some((key) => key === item.key)} />
-                  { renderedText }
-                </li>;
+              if (filterResult) {
+                return (
+                  <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
+                    <Checkbox checked={checkedKeys.some(key => key === item.key)} />
+                    {renderedText}
+                  </li>
+                );
               }
-            }) : <div className={`${prefixCls}-body-not-found`}>
-            Not Found
-          </div>
-            }
-        </ul>
+            }) : <div className={`${prefixCls}-body-not-found`}>Not Found</div>
+          }
+        </Animate>
       </div>}
       { footerDom ? <div className={`${prefixCls}-footer`}>
         { footerDom }

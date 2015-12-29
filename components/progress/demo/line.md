@@ -18,5 +18,5 @@ ReactDOM.render(
     <ProgressLine percent={100} />
     <ProgressLine percent={50} showInfo={false} />
   </div>
-, document.getElementById('components-progress-demo-line'));
+, mountNode);
 ````

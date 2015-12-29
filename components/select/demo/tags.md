@@ -27,5 +27,5 @@ ReactDOM.render(
   tags onChange={handleChange}>
     {children}
   </Select>
-, document.getElementById('components-select-demo-tags'));
+, mountNode);
 ````

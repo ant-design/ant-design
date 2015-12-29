@@ -61,5 +61,5 @@ function rowKey(record) {
 }
 
 ReactDOM.render(<Table rowSelection={rowSelection} rowKey={rowKey} columns={columns} dataSource={data} />
-, document.getElementById('components-table-demo-row-selection-radio-props'));
+, mountNode);
 ````

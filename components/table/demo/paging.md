@@ -43,5 +43,5 @@ const pagination = {
 };
 
 ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />
-, document.getElementById('components-table-demo-paging'));
+, mountNode);
 ````

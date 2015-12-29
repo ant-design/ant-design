@@ -53,6 +53,6 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-tabs-demo-editable-card'));
+ReactDOM.render(<Demo />, mountNode);
 ````
 

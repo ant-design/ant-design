@@ -60,7 +60,7 @@ ReactDOM.render(<div>
       <Button>下右</Button>
     </Popconfirm>
   </div>
-</div>, document.getElementById('components-popconfirm-demo-placement'));
+</div>, mountNode);
 ````
 
 <style>

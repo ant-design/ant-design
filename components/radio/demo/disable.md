@@ -34,5 +34,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-radio-demo-disable'));
+ReactDOM.render(<App />, mountNode);
 ````

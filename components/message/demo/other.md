@@ -25,7 +25,7 @@ ReactDOM.render(<div>
   <Button onClick={success}>显示成功提示</Button>
   <Button onClick={error}>显示报错提示</Button>
   <Button onClick={warn}>显示警告提示</Button>
-</div>, document.getElementById('components-message-demo-other'));
+</div>, mountNode);
 ````
 
 <style>

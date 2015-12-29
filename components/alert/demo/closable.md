@@ -23,5 +23,5 @@ ReactDOM.render(<div>
     type="error"
     closable
     onClose={onClose} />
-</div>, document.getElementById('components-alert-demo-closable'));
+</div>, mountNode);
 ````

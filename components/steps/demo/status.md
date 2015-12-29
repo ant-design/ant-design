@@ -32,5 +32,5 @@ const steps = [{
   );
 });
 
-ReactDOM.render(<Steps>{steps}</Steps>, document.getElementById('components-steps-demo-status'));
+ReactDOM.render(<Steps>{steps}</Steps>, mountNode);
 ````

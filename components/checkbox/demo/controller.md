@@ -55,5 +55,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-checkbox-demo-controller'));
+ReactDOM.render(<App />, mountNode);
 ````

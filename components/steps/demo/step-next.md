@@ -53,5 +53,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-steps-demo-step-next'));
+ReactDOM.render(<App />, mountNode);
 ````

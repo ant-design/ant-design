@@ -50,5 +50,5 @@ const DateRange = React.createClass({
 
 ReactDOM.render(
   <DateRange />
-, document.getElementById('components-date-picker-demo-start-end'));
+, mountNode);
 ````

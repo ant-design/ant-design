@@ -13,7 +13,5 @@ function onChange(value) {
   console.log(value);
 }
 
-ReactDOM.render(
-  <DatePicker onChange={onChange} />
-, document.getElementById('components-date-picker-demo-basic'));
+ReactDOM.render(<DatePicker onChange={onChange} />, mountNode);
 ````

@@ -26,5 +26,5 @@ ReactDOM.render(<div>
       点击触发 <Icon type="down" />
     </a>
   </Dropdown>
-</div>, document.getElementById('components-dropdown-demo-trigger'));
+</div>, mountNode);
 ````

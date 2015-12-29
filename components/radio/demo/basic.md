@@ -10,5 +10,5 @@
 import { Radio } from 'antd';
 
 ReactDOM.render(<Radio>Radio</Radio>
-, document.getElementById('components-radio-demo-basic'));
+, mountNode);
 ````

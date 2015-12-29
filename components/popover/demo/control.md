@@ -34,5 +34,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-popover-demo-control'));
+ReactDOM.render(<App />, mountNode);
 ````

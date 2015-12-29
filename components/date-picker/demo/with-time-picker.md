@@ -49,5 +49,5 @@ function onSelect(value) {
 }
 
 ReactDOM.render(<DateTimePicker onSelect={onSelect} />
-, document.getElementById('components-date-picker-demo-with-time-picker'));
+, mountNode);
 ````

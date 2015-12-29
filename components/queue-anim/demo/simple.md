@@ -18,7 +18,7 @@ ReactDOM.render(
     <div key="e">依次进场</div>
     <div key="f">依次进场</div>
   </QueueAnim>
-, document.getElementById('components-queue-anim-demo-simple'));
+, mountNode);
 ````
 
 ````css

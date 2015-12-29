@@ -64,5 +64,5 @@ const DecimalStep = React.createClass({
 ReactDOM.render(<div>
   <IntegerStep />
   <DecimalStep />
-</div>, document.getElementById('components-slider-demo-input-number'));
+</div>, mountNode);
 ````

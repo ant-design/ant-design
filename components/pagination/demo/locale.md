@@ -12,5 +12,5 @@ import enUS from 'antd/lib/pagination/locale/en_US';
 
 ReactDOM.render(
   <Pagination defaultCurrent={1} total={50} locale={enUS} />,
- document.getElementById('components-pagination-demo-locale'));
+ mountNode);
 ````

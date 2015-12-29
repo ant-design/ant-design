@@ -41,5 +41,5 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-tabs-demo-position'));
+ReactDOM.render(<Demo />, mountNode);
 ````

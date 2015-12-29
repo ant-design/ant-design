@@ -16,7 +16,7 @@ ReactDOM.render(<div>
   <Button type="primary">中号按钮(默认)</Button>
   <Button type="primary" size="small">小号按钮</Button>
 </div>
-, document.getElementById('components-button-demo-size'));
+, mountNode);
 ````
 
 <style>

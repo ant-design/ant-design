@@ -54,5 +54,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-transfer-demo-basic'));
+ReactDOM.render(<App />, mountNode);
 ````

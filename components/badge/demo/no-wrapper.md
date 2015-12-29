@@ -15,5 +15,5 @@ ReactDOM.render(<div>
   <Badge count={25} />
   <Badge count={4} style={{backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9'}} />
   <Badge count={109} style={{backgroundColor: '#87d068'}} />
-</div>, document.getElementById('components-badge-demo-no-wrapper'));
+</div>, mountNode);
 ````

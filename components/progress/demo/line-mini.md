@@ -17,5 +17,5 @@ ReactDOM.render(
     <ProgressLine percent={70} strokeWidth={5} status="exception" format={<Icon type="exclamation" />} />
     <ProgressLine percent={100} strokeWidth={5} />
   </div>
-, document.getElementById('components-progress-demo-line-mini'));
+, mountNode);
 ````

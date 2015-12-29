@@ -19,5 +19,5 @@ ReactDOM.render(
   <Slider range step={10} defaultValue={[20, 50]} onChange={log} />
   <Slider defaultValue={30} onAfterChange={log} />
 </div>
-, document.getElementById('components-slider-demo-event'));
+, mountNode);
 ````

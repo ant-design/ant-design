@@ -26,5 +26,5 @@ ReactDOM.render(
 <DropdownButton overlay={menu} type="primary">
   某功能按钮
 </DropdownButton>
-, document.getElementById('components-dropdown-demo-dropdown-button'));
+, mountNode);
 ````

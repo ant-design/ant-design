@@ -79,7 +79,7 @@ ReactDOM.render(<div>
   <Button type="ghost">小</Button>
 </ButtonGroup>
 </div>
-, document.getElementById('components-button-demo-button-group'));
+, mountNode);
 ````
 
 <style>

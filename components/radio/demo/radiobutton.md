@@ -32,5 +32,5 @@ ReactDOM.render(<div>
       <RadioButton value="d">成都</RadioButton>
     </RadioGroup>
   </div>
-</div>, document.getElementById('components-radio-demo-radiobutton'));
+</div>, mountNode);
 ````

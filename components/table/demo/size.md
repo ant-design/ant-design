@@ -41,7 +41,7 @@ ReactDOM.render(<div>
   <Table columns={columns} dataSource={data} size="middle" />
   <h4>小号表格</h4>
   <Table columns={columns} dataSource={data} size="small" />
-</div>, document.getElementById('components-table-demo-size'));
+</div>, mountNode);
 ````
 
 <style>#components-table-demo-size h4 { margin-bottom: 16px; }</style>

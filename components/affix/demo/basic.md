@@ -13,5 +13,5 @@ ReactDOM.render(
   <Affix>
     <Button type="primary">固定在顶部</Button>
   </Affix>
-, document.getElementById('components-affix-demo-basic'));
+, mountNode);
 ````

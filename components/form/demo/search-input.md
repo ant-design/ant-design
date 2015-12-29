@@ -57,5 +57,5 @@ const SearchInput = React.createClass({
 
 ReactDOM.render(
   <SearchInput placeholder="input search text" style={{width: 200}} />
-, document.getElementById('components-form-demo-search-input'));
+, mountNode);
 ````
