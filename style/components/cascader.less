@@ -1,17 +1,23 @@
-.ant-cascader {
+@cascader-prefix-cls: ant-cascader;
+
+.@{cascader-prefix-cls} {
   font-size: @font-size-base;
   &-input {
     width: 172px;
     display: block;
+    cursor: pointer;
   }
   &-picker {
     position: relative;
     display: inline-block;
+    cursor: pointer;
+
     &-clear {
       opacity: 0;
-      visibility: hidden;
       position: absolute;
       right: 8px;
+      z-index: 1;
+      background: #fff;
       top: 50%;
       font-size: 12px;
       color: #ccc;
@@ -25,9 +31,30 @@
         color: #999;
       }
     }
+
     &:hover &-clear {
       opacity: 1;
-      visibility: visible;
+    }
+
+    // arrow
+    &-arrow {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      line-height: 12px;
+      .iconfont-size-under-12px(8px);
+      &:before {
+        transition: transform 0.2s ease;
+      }
+      &&-expand {
+        .ie-rotate(2);
+        &:before {
+          .rotate(180deg);
+        }
+      }
     }
   }
   &-menus {

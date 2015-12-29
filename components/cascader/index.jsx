@@ -46,6 +46,7 @@ class AntCascader extends React.Component {
   }
   clearSelection(e) {
     e.preventDefault();
+    e.stopPropagation();
     this.setValue([]);
     this.setState({ popupVisible: false });
   }
@@ -59,6 +60,10 @@ class AntCascader extends React.Component {
       <Icon type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection} /> : null;
+    const arrowCls = classNames({
+      [`${prefixCls}-picker-arrow`]: true,
+      [`${prefixCls}-picker-arrow-expand`]: this.state.popupVisible,
+    });
     return (
       <Cascader {...this.props}
         value={this.state.value}
@@ -73,6 +78,7 @@ class AntCascader extends React.Component {
               value={this.getLabel()}
               readOnly />
             {clearIcon}
+            <Icon type="down" className={arrowCls} />
           </span>
         }
       </Cascader>
