@@ -2,6 +2,7 @@ import React from 'react';
 import Cascader from 'rc-cascader';
 import Input from '../input';
 import arrayTreeFilter from 'array-tree-filter';
+import classNames from 'classnames';
 
 class AntCascader extends React.Component {
   constructor(props) {
@@ -25,12 +26,16 @@ class AntCascader extends React.Component {
     return displayRender(label);
   }
   render() {
-    const { prefixCls, children, placeholder, style } = this.props;
+    const { prefixCls, children, placeholder, style, size } = this.props;
+    const sizeCls = classNames({
+      'ant-input-lg': size === 'large',
+      'ant-input-sm': size === 'small',
+    });
     return (
       <Cascader {...this.props} onChange={this.handleChange}>
         {children ||
           <Input placeholder={placeholder}
-            className={`${prefixCls}-input ant-input`}
+            className={`${prefixCls}-input ant-input ${sizeCls}`}
             style={style}
             value={this.getLabel()}
             readOnly />}
@@ -48,6 +53,7 @@ AntCascader.defaultProps = {
   displayRender(label) {
     return label.join(' / ');
   },
+  size: 'default',
 };
 
 export default AntCascader;
