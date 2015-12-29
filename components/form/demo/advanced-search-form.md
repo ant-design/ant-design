@@ -91,7 +91,7 @@ ReactDOM.render(
 
 .advanced-search-form {
   padding: 16px 8px;
-  background: #FBFBFB;
+  background: #f8f8f8;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
 }
@@ -115,7 +115,7 @@ ReactDOM.render(
 ````
 
 <style>
-#components-form-demo-three-cols .ant-form-horizontal {
+#components-form-demo-advanced-search-form .ant-form-horizontal {
   max-width: none;
 }
 </style>
