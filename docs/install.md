@@ -11,7 +11,7 @@
 
 可以通过 npm 直接安装到项目中，使用 `import` 或 `require` 进行引用。
 
-稳定版 <span class="versions" id="stable-version"></span>：
+稳定版：
 
 [![npm package](http://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
@@ -19,7 +19,7 @@
 $ npm install antd --save
 ```
 
-安装最新的开发版本 <span class="versions" id="latest-version"></span>：
+开发版本：
 
 [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
 
@@ -41,25 +41,3 @@ $ npm install antd-init -g
 在空目录运行 `antd-init` 可以初始化一个 antd 的前端应用。
 
 > 更多 [使用方式](https://github.com/ant-tool/xtool/)。
-
-<style>
-.versions {
-  font-weight: bold;
-  color: #C05B4D;
-  font-family: Consolas;
-  margin-left: 0.3em;
-  background: #FFF1E7;
-  padding: 2px 5px;
-  border-radius: 3px;
-}
-</style>
-
-<script>
-$('#latest-version').html(antdVersion.latest);
-
-if (antdVersion.stable) {
-  $('#stable-version').html(antdVersion.stable);
-} else {
-  $('#stable-version').html('暂无');
-}
-</script>
