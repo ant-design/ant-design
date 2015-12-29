@@ -556,13 +556,6 @@ footer ul li > a {
   margin: 20px 0;
 }
 
-.markdown code,
-.markdown kbd,
-.markdown pre,
-.markdown samp {
-  font-family: Consolas, monospace;
-}
-
 .markdown p,
 .markdown pre {
   margin: 1.2em 0;
@@ -590,14 +583,13 @@ footer ul li > a {
 }
 
 .markdown pre {
-  background: #F7F7F7;
   border-radius: 6px;
 }
 
 .markdown pre code {
-  background: #F7F7F7;
   border: none;
-  padding: 12px 20px;
+  padding: 1em 2em;
+  background: #f9f9f9;
   margin: 0;
 }
 
