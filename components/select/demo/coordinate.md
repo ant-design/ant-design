@@ -4,6 +4,8 @@
 
 省市联动是典型的例子。
 
+推荐使用 [cascader](/components/cascader/) 组件。
+
 ---
 
 ````jsx
