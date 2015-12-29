@@ -1,0 +1,80 @@
+.ant-cascader {
+  font-size: @font-size-base;
+  &-input {
+    width: 172px;
+    display: block;
+  }
+  &-menus {
+    font-size: 12px;
+    overflow: hidden;
+    background: #fff;
+    position: absolute;
+    border: 1px solid @border-color-base;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    &-hidden {
+      display: none;
+    }
+    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+      animation-name: antSlideUpIn;
+    }
+
+    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+      animation-name: antSlideDownIn;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+      animation-name: antSlideUpOut;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+      animation-name: antSlideDownOut;
+    }
+  }
+  &-menu {
+    float: left;
+    width: 111px;
+    height: 180px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-right: 1px solid @border-color-split;
+    &:last-child {
+      border-right-color: transparent;
+      margin-right: -1px;
+    }
+  }
+  &-menu-item {
+    height: 32px;
+    line-height: 32px;
+    padding: 0 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all 0.3s ease;
+    &:hover {
+      background: tint(@primary-color, 90%);
+    }
+    &-active {
+      background: tint(@primary-color, 80%);
+      &:hover {
+        background: tint(@primary-color, 80%);
+      }
+    }
+    &-expand {
+      position: relative;
+      &:after {
+        content: '\e600';
+        font-family: 'anticon';
+        .iconfont-size-under-12px(8px);
+        color: #999;
+        position: absolute;
+        right: 15px;
+        line-height: 32px;
+      }
+    }
+  }
+}
