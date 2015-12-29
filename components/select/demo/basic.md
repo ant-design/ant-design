@@ -24,5 +24,5 @@ ReactDOM.render(<div>
   <Select defaultValue="lucy" style={{width:120}} disabled>
     <Option value="lucy">Lucy</Option>
   </Select>
-</div>, document.getElementById('components-select-demo-basic'));
+</div>, mountNode);
 ````

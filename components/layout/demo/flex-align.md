@@ -46,6 +46,6 @@ ReactDOM.render(
       <Col span="4"><DemoBox value="80">.col-4</DemoBox></Col>
     </Row>
   </div>,
-  document.getElementById('components-layout-demo-flex-align')
+  mountNode
 );
 ````

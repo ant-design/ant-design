@@ -41,5 +41,5 @@ ReactDOM.render(<Menu onClick={handleClick} style={{width:240}} mode="vertical">
     <Menu.Item key="12">选项12</Menu.Item>
   </SubMenu>
 </Menu>
-, document.getElementById('components-menu-demo-vertical'));
+, mountNode);
 ````

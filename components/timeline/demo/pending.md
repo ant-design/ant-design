@@ -15,5 +15,5 @@ ReactDOM.render(
   <Timeline.Item>初步排除网络异常 2015-09-01</Timeline.Item>
   <Timeline.Item>技术测试异常 2015-09-01</Timeline.Item>
 </Timeline>
-, document.getElementById('components-timeline-demo-pending'));
+, mountNode);
 ````

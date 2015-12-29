@@ -16,5 +16,5 @@ function formatter(value) {
 ReactDOM.render(<div>
   <Slider tipFormatter={formatter} />
   <Slider tipFormatter={null} />
-</div>, document.getElementById('components-slider-demo-tip-formatter'));
+</div>, mountNode);
 ````

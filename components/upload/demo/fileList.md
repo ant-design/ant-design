@@ -66,5 +66,5 @@ const MyUpload = React.createClass({
   }
 });
 
-ReactDOM.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
+ReactDOM.render(<MyUpload />, mountNode);
 ````

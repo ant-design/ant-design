@@ -55,5 +55,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-table-demo-loading'));
+ReactDOM.render(<App />, mountNode);
 ````

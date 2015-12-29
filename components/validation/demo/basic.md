@@ -227,5 +227,5 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-validation-demo-basic'));
+ReactDOM.render(<Demo />, mountNode);
 ````

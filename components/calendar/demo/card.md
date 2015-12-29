@@ -17,5 +17,5 @@ ReactDOM.render(
   <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
     <Calendar fullscreen={false} onPanelChange={onPanelChange} />
   </div>
-, document.getElementById('components-calendar-demo-card'));
+, mountNode);
 ````

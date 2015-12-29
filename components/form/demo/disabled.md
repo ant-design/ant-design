@@ -46,5 +46,5 @@ ReactDOM.render(
       </Row>
     </fieldset>
   </Form>
-, document.getElementById('components-form-demo-disabled'));
+, mountNode);
 ````

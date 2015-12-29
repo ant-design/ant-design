@@ -15,5 +15,5 @@ ReactDOM.render(
     &nbsp;
     <Switch size="small" />
   </div>
-, document.getElementById('components-switch-demo-size'));
+, mountNode);
 ````

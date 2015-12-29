@@ -27,5 +27,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-time-picker-demo-value'));
+ReactDOM.render(<Test />, mountNode);
 ````

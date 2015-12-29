@@ -15,5 +15,5 @@ function onPanelChange(value, mode) {
 
 ReactDOM.render(
   <Calendar onPanelChange={onPanelChange} />
-, document.getElementById('components-calendar-demo-basic'));
+, mountNode);
 ````

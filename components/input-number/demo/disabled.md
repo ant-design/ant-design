@@ -30,5 +30,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-input-number-demo-disabled'));
+ReactDOM.render(<Test />, mountNode);
 ````

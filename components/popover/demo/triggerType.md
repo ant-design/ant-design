@@ -24,5 +24,5 @@ ReactDOM.render(<div>
   <Popover overlay={content} title="标题" trigger="click">
     <Button>点击</Button>
   </Popover>
-</div>, document.getElementById('components-popover-demo-triggertype'));
+</div>, mountNode);
 ````

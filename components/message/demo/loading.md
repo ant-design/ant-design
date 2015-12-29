@@ -16,5 +16,5 @@ const success = function() {
 };
 
 ReactDOM.render(<Button onClick={success}>显示加载中...</Button>
-, document.getElementById('components-message-demo-loading'));
+, mountNode);
 ````

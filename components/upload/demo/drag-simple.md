@@ -20,7 +20,7 @@ ReactDOM.render(
   <Dragger {...props}>
     <Icon type="plus" />
   </Dragger>,
-  document.getElementById('components-upload-demo-drag-simple')
+  mountNode
 );
 ````
 

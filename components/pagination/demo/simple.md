@@ -11,5 +11,5 @@ import { Pagination } from 'antd';
 
 ReactDOM.render(
   <Pagination simple defaultCurrent={2} total={50} />,
-document.getElementById('components-pagination-demo-simple'));
+mountNode);
 ````

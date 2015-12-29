@@ -18,5 +18,5 @@ const openNotification = function() {
 
 ReactDOM.render(
   <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
-, document.getElementById('components-notification-demo-basic'));
+, mountNode);
 ````

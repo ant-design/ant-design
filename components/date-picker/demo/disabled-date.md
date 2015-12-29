@@ -18,5 +18,5 @@ const disabledDate = function(current) {
 
 ReactDOM.render(
   <DatePicker disabledDate={disabledDate} />
-, document.getElementById('components-date-picker-demo-disabled-date'));
+, mountNode);
 ````

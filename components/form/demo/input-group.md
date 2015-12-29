@@ -93,5 +93,5 @@ ReactDOM.render(
     </FormItem>
   </Form>
 
-, document.getElementById('components-form-demo-input-group'));
+, mountNode);
 ````

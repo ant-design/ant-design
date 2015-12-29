@@ -23,5 +23,5 @@ ReactDOM.render(
     <Option value="disabled" disabled>disabled</Option>
     <Option value="yiminghe">yiminghe</Option>
   </Select>
-, document.getElementById('components-select-demo-search'));
+, mountNode);
 ````

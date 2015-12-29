@@ -20,6 +20,6 @@ ReactDOM.render(
       <Col span="6" order="1">4 col-order-1</Col>
     </Row>
   </div>,
-  document.getElementById('components-layout-demo-flex-order')
+  mountNode
 );
 ````

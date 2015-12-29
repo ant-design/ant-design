@@ -51,5 +51,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-transfer-demo-search'));
+ReactDOM.render(<App />, mountNode);
 ````

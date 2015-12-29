@@ -26,6 +26,6 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-date-picker-demo-locale'));
+ReactDOM.render(<App />, mountNode);
 ````
 

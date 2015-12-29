@@ -92,5 +92,5 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-form-demo-horizontal-form'));
+ReactDOM.render(<Demo />, mountNode);
 ````

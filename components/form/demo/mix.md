@@ -115,5 +115,5 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-form-demo-mix'));
+ReactDOM.render(<Demo />, mountNode);
 ````

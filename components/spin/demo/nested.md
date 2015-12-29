@@ -31,7 +31,7 @@ const Card = React.createClass({
   }
 });
 
-ReactDOM.render(<Card />, document.getElementById('components-spin-demo-nested'));
+ReactDOM.render(<Card />, mountNode);
 ````
 
 ````css

@@ -62,6 +62,6 @@ const Sider = React.createClass({
     </div>;
   }
 });
-ReactDOM.render(<Sider />, document.getElementById('components-menu-demo-theme'));
+ReactDOM.render(<Sider />, mountNode);
 ````
 

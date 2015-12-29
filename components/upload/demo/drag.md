@@ -24,7 +24,7 @@ ReactDOM.render(
     <p className="ant-upload-text">点击或将文件拖拽到此区域上传</p>
     <p className="ant-upload-hint">支持单个或批量上传，严禁上传公司内部资料及其他违禁文件</p>
   </Dragger>,
-  document.getElementById('components-upload-demo-drag')
+  mountNode
 );
 ````
 

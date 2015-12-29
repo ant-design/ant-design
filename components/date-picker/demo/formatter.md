@@ -11,5 +11,5 @@ import { DatePicker } from 'antd';
 
 ReactDOM.render(
   <DatePicker defaultValue="2015/01/01" format="yyyy/MM/dd" />
-, document.getElementById('components-date-picker-demo-formatter'));
+, mountNode);
 ````

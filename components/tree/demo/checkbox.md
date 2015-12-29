@@ -28,5 +28,5 @@ ReactDOM.render(<div>
     </TreeNode>
   </Tree>
 </div>
-, document.getElementById('components-tree-demo-checkbox'));
+, mountNode);
 ````

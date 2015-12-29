@@ -118,7 +118,7 @@
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
     "just-deploy": "npm run clean && webpack --config webpack.deploy.config.js && webpack --config webpack.antd.config.js && NODE_ENV=PRODUCTION nico build && node scripts/deploy.js",
     "lint": "eslint components test index.js --ext '.js,.jsx' && npm run mdlint && npm run lesshint",
-    "mdlint": "eslint components/*/demo/*.md --ext '.md' --global 'React,ReactDOM' --rule 'no-console: 0'",
+    "mdlint": "eslint components/*/demo/*.md --ext '.md' --global 'React,ReactDOM,mountNode' --rule 'no-console: 0'",
     "lesshint": "lesshint style/ -e 'style/+(core|mixins)/+(base|iconfont|normalize|layouts|compatibility|grid).less'",
     "test": "npm run lint && webpack && npm run jest",
     "jest": "jest",

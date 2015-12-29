@@ -64,5 +64,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-queue-anim-demo-change'));
+ReactDOM.render(<Test />, mountNode);
 ````

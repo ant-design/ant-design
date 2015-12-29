@@ -16,5 +16,5 @@ function onChange(checkedValues) {
 
 ReactDOM.render(
   <CheckboxGroup options={['Apple', 'Pear', 'Orange']} defaultValue={['Apple']} onChange={onChange} />
-, document.getElementById('components-checkbox-demo-group'));
+, mountNode);
 ````

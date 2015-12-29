@@ -30,7 +30,7 @@ ReactDOM.render(<div>
     <Icon type="search" />
   </Button>
 </div>
-, document.getElementById('components-button-demo-shape'));
+, mountNode);
 ````
 
 <style>

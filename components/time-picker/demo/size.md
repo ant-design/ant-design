@@ -15,5 +15,5 @@ ReactDOM.render(
     <TimePicker defaultValue="12:08:23" />
     <TimePicker defaultValue="12:08:23" size="small" />
   </div>
-, document.getElementById('components-time-picker-demo-size'));
+, mountNode);
 ````

@@ -47,7 +47,7 @@ ReactDOM.render((
       </Route>
     </Route>
   </Router>
-), document.getElementById('components-breadcrumb-demo-router'));
+), mountNode);
 ````
 
 <style>

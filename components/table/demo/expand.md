@@ -35,5 +35,5 @@ ReactDOM.render(
   expandedRowRender={expandedRowRender}
   dataSource={data}
   className="table" />
-, document.getElementById('components-table-demo-expand'));
+, mountNode);
 ````

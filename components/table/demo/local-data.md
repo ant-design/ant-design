@@ -92,5 +92,5 @@ const App = React.createClass({
 });
 
 ReactDOM.render(<App />
-, document.getElementById('components-table-demo-local-data'));
+, mountNode);
 ````

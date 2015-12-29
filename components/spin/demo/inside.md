@@ -13,7 +13,7 @@ ReactDOM.render(
   <div className="example">
     <Spin />
   </div>
-, document.getElementById('components-spin-demo-inside'));
+, mountNode);
 ````
 
 ````css

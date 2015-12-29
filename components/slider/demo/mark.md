@@ -28,5 +28,5 @@ ReactDOM.render(
   <p>`step=null`</p>
   <Slider marks={marks} step={null} defaultValue={37} />
 </div>
-, document.getElementById('components-slider-demo-mark'));
+, mountNode);
 ````

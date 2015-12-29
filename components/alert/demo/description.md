@@ -24,5 +24,5 @@ ReactDOM.render(<div>
     message="错误提示的文案"
     description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
     type="error" />
-</div>, document.getElementById('components-alert-demo-description'));
+</div>, mountNode);
 ````

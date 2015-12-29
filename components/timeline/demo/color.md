@@ -24,5 +24,5 @@ ReactDOM.render(
     <p>技术测试异常3 2015-09-01</p>
   </Timeline.Item>
 </Timeline>
-, document.getElementById('components-timeline-demo-color'));
+, mountNode);
 ````

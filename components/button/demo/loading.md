@@ -44,7 +44,7 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-button-demo-loading'));
+ReactDOM.render(<App />, mountNode);
 ````
 
 <style>

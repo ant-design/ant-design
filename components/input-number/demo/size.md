@@ -19,7 +19,7 @@ ReactDOM.render(
   <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />
   <InputNumber size="small" min={1} max={100000} defaultValue={3} onChange={onChange} />
 </div>
-, document.getElementById('components-input-number-demo-size'));
+, mountNode);
 ````
 
 ````css

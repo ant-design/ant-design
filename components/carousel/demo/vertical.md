@@ -16,5 +16,5 @@ ReactDOM.render(
     <div><h3>3</h3></div>
     <div><h3>4</h3></div>
   </Carousel>
-, document.getElementById('components-carousel-demo-vertical'));
+, mountNode);
 ````

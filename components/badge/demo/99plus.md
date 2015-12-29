@@ -16,5 +16,5 @@ ReactDOM.render(<div>
   <Badge count={200}>
     <a href="#" className="head-example"></a>
   </Badge>
-</div>, document.getElementById('components-badge-demo-99plus'));
+</div>, mountNode);
 ````

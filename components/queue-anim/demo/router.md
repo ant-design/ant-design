@@ -127,7 +127,7 @@ ReactDOM.render((
       <Route path="page2" component={Page2} />
     </Route>
   </Router>
-), document.getElementById('components-queue-anim-demo-router'));
+), mountNode);
 ````
 
 ````css

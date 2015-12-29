@@ -52,6 +52,6 @@ const App = React.createClass({
     </div>;
   }
 });
-ReactDOM.render(<App />, document.getElementById('components-select-demo-coordinate'));
+ReactDOM.render(<App />, mountNode);
 ````
 

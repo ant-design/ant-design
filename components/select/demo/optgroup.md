@@ -28,5 +28,5 @@ ReactDOM.render(
       <Option value="yiminghe">yiminghe</Option>
     </OptGroup>
   </Select>
-, document.getElementById('components-select-demo-optgroup'));
+, mountNode);
 ````

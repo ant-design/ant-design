@@ -79,6 +79,6 @@ const data = [{
 
 ReactDOM.render(
   <Table columns={columns} dataSource={data} indentSize={30} />,
-  document.getElementById('components-table-demo-indent-size')
+  mountNode
 );
 ````

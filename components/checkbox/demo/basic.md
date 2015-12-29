@@ -16,5 +16,5 @@ function onChange(e) {
 ReactDOM.render(<label>
   <Checkbox defaultChecked={false} onChange={onChange} />
   Checkbox
-</label>, document.getElementById('components-checkbox-demo-basic'));
+</label>, mountNode);
 ````

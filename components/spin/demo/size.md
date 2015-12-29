@@ -17,5 +17,5 @@ ReactDOM.render(
     <br />
     <Spin size="large" />
   </div>
-, document.getElementById('components-spin-demo-size'));
+, mountNode);
 ````

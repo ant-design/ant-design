@@ -14,6 +14,6 @@ const success = function() {
 };
 
 ReactDOM.render(<Button onClick={success}>自定义时长提示</Button>
-, document.getElementById('components-message-demo-duration'));
+, mountNode);
 ````
 

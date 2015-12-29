@@ -82,5 +82,5 @@ function onChange(pagination, filters, sorter) {
 }
 
 ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />
-, document.getElementById('components-table-demo-head'));
+, mountNode);
 ````

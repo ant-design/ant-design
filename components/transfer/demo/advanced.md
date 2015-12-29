@@ -8,7 +8,7 @@
 
 ````jsx
 import { Transfer, Button } from 'antd';
-const container = document.getElementById('components-transfer-demo-advanced');
+const container = mountNode;
 
 const App = React.createClass({
   getInitialState() {

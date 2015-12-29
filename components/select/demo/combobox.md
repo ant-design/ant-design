@@ -43,6 +43,6 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-select-demo-combobox'));
+ReactDOM.render(<Test />, mountNode);
 ````
 

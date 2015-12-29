@@ -14,7 +14,7 @@ ReactDOM.render(<div>
   <Slider range defaultValue={[20, 50]} />
   <Slider range defaultValue={[20, 50]} disabled />
 </div>
-, document.getElementById('components-slider-demo-basic'));
+, mountNode);
 ````
 
 <style>

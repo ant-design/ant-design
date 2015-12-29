@@ -91,5 +91,5 @@ ReactDOM.render(
       </Col>
     </FormItem>
   </Form>
-, document.getElementById('components-form-demo-validate'));
+, mountNode);
 ````

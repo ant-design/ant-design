@@ -14,5 +14,5 @@ const info = function() {
 };
 
 ReactDOM.render(<Button type="primary" onClick={info}>显示普通提醒</Button>
-, document.getElementById('components-message-demo-info'));
+, mountNode);
 ````

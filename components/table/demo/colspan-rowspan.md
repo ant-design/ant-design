@@ -116,5 +116,5 @@ const data = [{
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} bordered />
-, document.getElementById('components-table-demo-colspan-rowspan'));
+, mountNode);
 ````

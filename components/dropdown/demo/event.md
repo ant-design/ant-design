@@ -24,5 +24,5 @@ ReactDOM.render(
       鼠标移入，点击菜单 <Icon type="down" />
     </a>
   </Dropdown>
-, document.getElementById('components-dropdown-demo-event'));
+, mountNode);
 ````

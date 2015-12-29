@@ -24,7 +24,7 @@ ReactDOM.render(<div>
   <Button onClick={openNotificationWithIcon('warn')}>警告</Button>
   <Button onClick={openNotificationWithIcon('error')}>错误</Button>
   </div>
-, document.getElementById('components-notification-demo-with-icon'));
+, mountNode);
 ````
 
 <style>

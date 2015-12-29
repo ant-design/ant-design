@@ -55,6 +55,6 @@ ReactDOM.render(<div>
   <LocalizedModal />
   <br />
   <Button onClick={confirm}>confirm</Button>
-</div>, document.getElementById('components-modal-demo-locale'));
+</div>, mountNode);
 ````
 

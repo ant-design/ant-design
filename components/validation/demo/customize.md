@@ -208,7 +208,7 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-validation-demo-customize'));
+ReactDOM.render(<Demo />, mountNode);
 ````
 
 ````css

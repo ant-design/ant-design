@@ -54,5 +54,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test/>, document.getElementById('components-modal-demo-footer'));
+ReactDOM.render(<Test/>, mountNode);
 ````

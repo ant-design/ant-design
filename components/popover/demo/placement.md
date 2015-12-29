@@ -60,7 +60,7 @@ ReactDOM.render(<div>
       <Button>下右</Button>
     </Popover>
   </div>
-</div>, document.getElementById('components-popover-demo-placement'));
+</div>, mountNode);
 ````
 
 <style>

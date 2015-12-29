@@ -59,6 +59,6 @@ const locale = {
 
 ReactDOM.render(
   <Table columns={columns} dataSource={data} locale={locale} />,
-  document.getElementById('components-table-demo-locale')
+  mountNode
 );
 ````

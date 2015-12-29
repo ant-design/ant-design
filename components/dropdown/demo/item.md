@@ -26,5 +26,5 @@ ReactDOM.render(
       鼠标移入 <Icon type="down" />
     </a>
   </Dropdown>
-, document.getElementById('components-dropdown-demo-item'));
+, mountNode);
 ````

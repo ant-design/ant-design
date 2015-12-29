@@ -26,5 +26,5 @@ const steps = [{
 });
 
 ReactDOM.render(<Steps size="small" direction="vertical" current={1}>{steps}</Steps>,
-  document.getElementById('components-steps-demo-vertical-small'));
+  mountNode);
 ````

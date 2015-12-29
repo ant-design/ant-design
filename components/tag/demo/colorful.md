@@ -14,6 +14,6 @@ ReactDOM.render(<div>
   <Tag closable color="green">绿色</Tag>
   <Tag closable color="yellow">黄色</Tag>
   <Tag closable color="red">红色</Tag>
-</div>, document.getElementById('components-tag-demo-colorful'));
+</div>, mountNode);
 ````
 

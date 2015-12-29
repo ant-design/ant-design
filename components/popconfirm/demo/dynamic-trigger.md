@@ -54,5 +54,5 @@ let App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-popconfirm-demo-dynamic-trigger'));
+ReactDOM.render(<App />, mountNode);
 ````

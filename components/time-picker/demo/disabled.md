@@ -11,5 +11,5 @@ import { TimePicker } from 'antd';
 
 ReactDOM.render(
   <TimePicker defaultValue="12:08:23" disabled />
-, document.getElementById('components-time-picker-demo-disabled'));
+, mountNode);
 ````

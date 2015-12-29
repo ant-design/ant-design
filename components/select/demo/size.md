@@ -35,7 +35,7 @@ ReactDOM.render(
       <Option value="yiminghe">yiminghe</Option>
     </Select>
   </div>
-, document.getElementById('components-select-demo-size'));
+, mountNode);
 ````
 
 ````css

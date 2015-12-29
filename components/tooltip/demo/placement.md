@@ -57,7 +57,7 @@ ReactDOM.render(
       </Tooltip>
     </div>
   </div>
-, document.getElementById('components-tooltip-demo-placement'));
+, mountNode);
 ````
 
 <style>
