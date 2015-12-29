@@ -47,6 +47,7 @@ let AntTable = React.createClass({
       size: 'large',
       loading: false,
       bordered: false,
+      indentSize: 20,
       onChange: noop,
       locale: {}
     };
