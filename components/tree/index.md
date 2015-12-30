@@ -19,9 +19,12 @@
 |multiple | 是否支持多选 | bool | false |
 |checkable | 是否支持选中 | bool   | false    |
 |defaultExpandAll | 设置展开所有树节点 | bool | false |
-|defaultExpandedKeys | 展开指定的树节点 | String[] | false |
+|defaultExpandedKeys | 默认展开指定的树节点 | String[] | [] |
 |defaultCheckedKeys | 默认选中复选框的树节点 | String[] | [] |
 |defaultSelectedKeys | 默认选中的树节点 | String[] | [] |
+|expandedKeys | 设置展开指定的树节点 | String[] | - |
+|checkedKeys | 设置选中复选框的树节点 | String[] | - |
+|selectedKeys | 设置选中的树节点 | String[] | - |
 |onCheck | 点击树节点或复选框触发 | function(e:{checked:bool,node,checkedKeys,event}) | - |
 |onSelect | 点击树节点触发 | function(e:{checked:bool,node,checkedKeys,event}) | - |
 |onDataLoaded | 异步加载数据 | function(node)| - |
