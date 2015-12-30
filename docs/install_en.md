@@ -34,4 +34,4 @@ $ npm install antd-init -g
 
 Inside an empty folder run `antd-init` to init.
 
-> [More tools](https://github.com/ant-tool/xtool/)。
+> [More tools](https://github.com/dora-js/dora/)。
