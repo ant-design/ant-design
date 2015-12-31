@@ -120,13 +120,13 @@ const Demo = React.createClass({
         <FormItem
           label="logo图："
           labelCol={{span: 8}}
-          wrapperCol={{span: 16}}>
+          wrapperCol={{span: 16}}
+          help="提示信息要长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长">
           <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
             <Button type="ghost">
               <Icon type="upload" /> 点击上传
             </Button>
           </Upload>
-          <p>仅支持上传一张。</p>
         </FormItem>
         <Row>
           <Col span="16" offset="8">
