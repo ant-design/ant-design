@@ -1,13 +1,13 @@
 import React from 'react';
 import TreeSelect, { TreeNode } from 'rc-tree-select';
 import classNames from 'classnames';
-import assign from 'object-assign';
-import animation from '../common/openAnimation';
+// import assign from 'object-assign';
+// import animation from '../common/openAnimation';
 
 const AntTreeSelect = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-select',
+      prefixCls: 'ant-tree-select',
       transitionName: 'slide-up',
       optionLabelProp: 'value',
       choiceTransitionName: 'zoom',
@@ -31,22 +31,14 @@ const AntTreeSelect = React.createClass({
       notFoundContent = null;
     }
 
-    const treeProps = {
-      prefixCls: 'ant-tree',
-      checkable: false,
-      showIcon: false,
-      openAnimation: animation
-    };
-    assign(treeProps, props.treeProps);
-
-    let checkable = treeProps.checkable;
+    let checkable = props.treeCheckable;
     if (checkable) {
-      treeProps.checkable = <span className={`${treeProps.prefixCls}-checkbox-inner`}></span>;
+      checkable = <span className={`${props.prefixCls}-tree-checkbox-inner`}></span>;
     }
 
     return (
       <TreeSelect {...this.props}
-        treeProps={treeProps}
+        treeCheckable={checkable}
         className={cls}
         notFoundContent={notFoundContent} />
     );
