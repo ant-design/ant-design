@@ -7,7 +7,8 @@
 ---
 
 ````jsx
-import { Form, Select, InputNumber, DatePicker, Switch, Slider, Button, message, Row, Col } from 'antd';
+import { Form, Select, InputNumber, DatePicker, Switch,
+         Slider, Button, message, Row, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -26,6 +27,17 @@ const Demo = React.createClass({
         endDate: undefined,
       }
     };
+  },
+
+  handleUpload(info) {
+    if (info.file.status !== 'uploading') {
+      console.log(info.file, info.fileList);
+    }
+    if (info.file.status === 'done') {
+      message.success(info.file.name + ' 上传成功。');
+    } else if (info.file.status === 'error') {
+      message.error(info.file.name + ' 上传失败。');
+    }
   },
 
   handleSubmit(e) {
@@ -104,6 +116,17 @@ const Demo = React.createClass({
           <Col span="6">
             <DatePicker name="endDate" onChange={this.setValue.bind(this, 'endDate')} value={formData.endDate} />
           </Col>
+        </FormItem>
+        <FormItem
+          label="logo图："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 16}}>
+          <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
+            <Button type="ghost">
+              <Icon type="upload" /> 点击上传
+            </Button>
+          </Upload>
+          <p>仅支持上传一张。</p>
         </FormItem>
         <Row>
           <Col span="16" offset="8">
