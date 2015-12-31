@@ -61,7 +61,8 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 
 - [首页](http://ant.design/)
 - [修改记录](http://ant.design/changelog)
-- [构建调试工具](https://github.com/ant-tool/xtool/)
+- [开发脚手架](https://github.com/ant-design/antd-init/)
+- [本地调试工具集](https://github.com/dora-js/dora/)
 - [React 组件](http://react-component.github.io/)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)

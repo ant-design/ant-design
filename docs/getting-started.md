@@ -27,7 +27,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 $ npm install antd-init -g
 ```
 
-[更多使用说明](https://github.com/ant-tool/xtool/#使用说明)。
+[更多使用说明](https://github.com/ant-design/antd-init/)。
 
 ### 2. 创建一个项目
 

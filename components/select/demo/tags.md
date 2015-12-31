@@ -21,10 +21,10 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select
+  <Select tags
    style={{width: '100%'}}
    searchPlaceholder="标签模式"
-  tags onChange={handleChange}>
+    onChange={handleChange}>
     {children}
   </Select>
 , mountNode);
