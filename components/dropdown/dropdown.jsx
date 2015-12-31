@@ -9,8 +9,12 @@ export default React.createClass({
     };
   },
   render: function () {
+    const { overlay, ...otherProps } = this.props;
+    const menu = React.cloneElement(overlay, {
+      openTransitionName: 'zoom-big',
+    });
     return (
-      <Dropdown {...this.props} />
+      <Dropdown {...otherProps} overlay={menu} />
     );
   }
 });
