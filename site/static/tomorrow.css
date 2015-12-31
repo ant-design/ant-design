@@ -35,22 +35,23 @@
 }
 
 code {
-  background: #f6f6f6;
+  background: #f7f7f7;
   padding: 1px 6px;
   border-radius: 3px;
   color: #888;
-  font-size: 90%;
+  font-size: 0.8rem;
   border: 1px solid #e9e9e9;
+  white-space: nowrap;
 }
 
 pre code {
   display: block;
   background: white;
   color: #666;
-  font-family: Consolas, monospace;
   line-height: 1.5;
   border: 1px solid #e9e9e9;
   padding: 10px 15px;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 0.9rem;
+  white-space: pre;
 }

@@ -9,9 +9,9 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-最简单的试用方式参照以下 JSFiddle 演示, 也推荐 Fork 本例来进行 Bug Report, 注意不要在实际项目中这样使用。
+最简单的试用方式参照以下 JSFiddle 演示, 也推荐 Fork 本例来进行 `Bug Report`, 注意不要在实际项目中这样使用。
 
-- [antd JSFiddle](http://jsfiddle.net/yiminghe/9zrstuto/1/)
+- [antd JSFiddle](http://jsfiddle.net/9zrstuto/70/)
 
 
 ## 标准开发

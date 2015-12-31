@@ -29,6 +29,7 @@ const antd = {
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/tree'),
+  TreeSelect: require('./components/tree-select'),
   Upload: require('./components/upload'),
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
@@ -43,6 +44,7 @@ const antd = {
   Calendar: require('./components/calendar'),
   TimePicker: require('./components/time-picker'),
   Transfer: require('./components/transfer'),
+  Cascader: require('./components/cascader'),
 };
 
 antd.version = require('./package.json').version;
