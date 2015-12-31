@@ -10,9 +10,9 @@
 import { TreeSelect } from 'antd';
 const TreeNode = TreeSelect.TreeNode;
 
-const x = 5;
-const y = 3;
-const z = 2;
+const x = 3;
+const y = 2;
+const z = 1;
 const gData = [];
 const generateData = (_level, _preKey, _tns) => {
   const preKey = _preKey || '0';
@@ -40,16 +40,8 @@ generateData(z);
 const Demo = React.createClass({
   getInitialState() {
     return {
-      value: [],
+      value: ['0-0'],
     };
-  },
-  onDeselect(selectedValue) {
-    console.log('onDeselect', selectedValue);
-    const newVal = [...this.state.value];
-    newVal.splice(newVal.indexOf(selectedValue), 1);
-    this.setState({
-      value: newVal,
-    });
   },
   onSelect(selectedKey, node, selectedKeys) {
     console.log('selected: ', selectedKey, selectedKeys);
@@ -57,10 +49,10 @@ const Demo = React.createClass({
       value: selectedKeys,
     });
   },
-  onCheck(checkedKey, node, checkedKeys) {
-    console.log('onCheck:', checkedKey);
+  onChange(value) {
+    console.log('selected ' + value);
     this.setState({
-      value: checkedKeys,
+      value: value,
     });
   },
   render() {
@@ -72,20 +64,18 @@ const Demo = React.createClass({
         return <TreeNode key={item.key} value={item.key} title={item.key} />;
       });
     };
-    const treeProps = {
-      showIcon: false,
-      showLine: true,
-      checkable: true,
-      defaultCheckedKeys: this.state.value,
-      defaultSelectedKeys:  this.state.value,
-      // selectedKeys:  this.state.value,
-      // checkedKeys: this.state.value,
-      // onCheck: this.onCheck,
+    const tProps = {
+      // defaultValue: this.state.value,
+      value: this.state.value,
+      onChange: this.onChange,
+      onSelect: this.onSelect,
+      multiple: true,
+      // treeCheckable: true,
+      treeDefaultExpandAll: true,
     };
     return (<div style={{padding: '10px 30px'}}>
       <h3>more</h3>
-      <TreeSelect style={{width: 300}} defaultValue={this.state.value} multiple treeProps={treeProps}
-        onSelect={this.onSelect} onCheck={this.onCheck} onDeselect={this.onDeselect}>
+      <TreeSelect style={{width: 300}} {...tProps}>
         {loop(gData)}
       </TreeSelect>
     </div>);
