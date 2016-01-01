@@ -4,6 +4,8 @@
 
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
 
+不支持跨页选择，选中项只限当页，换页后将会清空。
+
 ---
 
 ````jsx
@@ -20,22 +22,15 @@ const columns = [{
   dataIndex: 'address',
 }];
 
-const data = [{
-  key: '1',
-  name: '胡彦斌',
-  age: 32,
-  address: '西湖区湖底公园1号',
-}, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
-  address: '西湖区湖底公园1号',
-}, {
-  key: '3',
-  name: '李大嘴',
-  age: 32,
-  address: '西湖区湖底公园1号',
-}];
+const data = [];
+for (let i = 0; i < 46; i++) {
+  data.push({
+    key: i,
+    name: '李大嘴' + i,
+    age: 32,
+    address: '西湖区湖底公园' + i + '号'
+  });
+}
 
 const App = React.createClass({
   getInitialState() {
@@ -55,6 +50,7 @@ const App = React.createClass({
     }, 1000);
   },
   onSelectChange(selectedRowKeys) {
+    console.log('selectedRowKeys changed: ' + selectedRowKeys);
     this.setState({ selectedRowKeys });
   },
   render() {
