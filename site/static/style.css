@@ -584,6 +584,7 @@ footer ul li > a {
 
 .markdown pre {
   border-radius: 6px;
+  background: #f9f9f9;
 }
 
 .markdown pre code {
