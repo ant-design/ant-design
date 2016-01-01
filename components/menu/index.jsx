@@ -58,7 +58,7 @@ const AntMenu = React.createClass({
 
     let props = {};
     const className = this.props.className + ' ' + this.props.prefixCls + '-' + this.props.theme;
-    if (this.props.mode === 'inline') {
+    if (this.props.mode !== 'inline') {
       // 这组属性的目的是
       // 弹出型的菜单需要点击后立即关闭
       // 另外，弹出型的菜单的受控模式没有使用场景
@@ -67,12 +67,12 @@ const AntMenu = React.createClass({
         onClick: this.handleClick,
         onOpen: this.handleOpenKeys,
         onClose: this.handleCloseKeys,
-        openAnimation,
+        openTransitionName: openAnimation,
         className,
       };
     } else {
       props = {
-        openTransitionName: openAnimation,
+        openAnimation,
         className,
       };
     }
