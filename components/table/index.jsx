@@ -88,6 +88,9 @@ let AntTable = React.createClass({
         selectionDirty: false,
         selectedRowKeys: [],
       });
+      if (this.props.rowSelection && this.props.rowSelection.onChange) {
+        this.props.rowSelection.onChange([]);
+      }
     }
   },
 
@@ -164,7 +167,7 @@ let AntTable = React.createClass({
       });
     }
     this.setState({
-      selectedRowKeys: selectedRowKeys,
+      selectedRowKeys,
       selectionDirty: true
     });
     if (this.props.rowSelection.onSelect) {
@@ -173,6 +176,9 @@ let AntTable = React.createClass({
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
+    }
+    if (this.props.rowSelection.onChange) {
+      this.props.rowSelection.onChange(selectedRowKeys);
     }
   },
 
@@ -183,7 +189,7 @@ let AntTable = React.createClass({
     let key = this.getRecordKey(record, rowIndex);
     selectedRowKeys = [key];
     this.setState({
-      selectedRowKeys: selectedRowKeys,
+      selectedRowKeys,
       radioIndex: key,
       selectionDirty: true
     });
@@ -193,6 +199,9 @@ let AntTable = React.createClass({
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
+    }
+    if (this.props.rowSelection.onChange) {
+      this.props.rowSelection.onChange(selectedRowKeys);
     }
   },
 
@@ -228,6 +237,9 @@ let AntTable = React.createClass({
       });
       this.props.rowSelection.onSelectAll(checked, selectedRows);
     }
+    if (this.props.rowSelection.onChange) {
+      this.props.rowSelection.onChange(selectedRowKeys);
+    }
   },
 
   handlePageChange(current) {
@@ -244,6 +256,9 @@ let AntTable = React.createClass({
       pagination
     };
     this.setState(newState);
+    if (this.props.rowSelection && this.props.rowSelection.onChange) {
+      this.props.rowSelection.onChange([]);
+    }
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 

@@ -47,12 +47,15 @@ const rowSelection = {
       disabled: record.name === '胡彦祖'    // 配置无法勾选的列
     };
   },
+  onChange(selectedRowKeys) {
+    console.log('selectedRowKeys changed: ' + selectedRowKeys);
+  },
   onSelect: function(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
   onSelectAll: function(selected, selectedRows) {
     console.log(selected, selectedRows);
-  }
+  },
 };
 
 ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />

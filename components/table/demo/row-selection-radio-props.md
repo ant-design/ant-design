@@ -51,9 +51,6 @@ const rowSelection = {
   onSelect: function(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll: function(selected, selectedRows) {
-    console.log(selected, selectedRows);
-  }
 };
 
 function rowKey(record) {
