@@ -1711,11 +1711,12 @@ footer ul li > a {
   width: 48%;
   display: inline-block;
   vertical-align: top;
-  padding-right: 15px;
+  padding-right: 8px;
 }
 
 .code-boxes-col-2-1:last-child {
   padding-right: 0;
+  padding-left: 8px;
 }
 
 .code-box {
