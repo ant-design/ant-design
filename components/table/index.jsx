@@ -67,19 +67,12 @@ let AntTable = React.createClass({
   },
 
   getDefaultSelection() {
-    let selectedRowKeys = [];
-    if (this.props.rowSelection && this.props.rowSelection.getCheckboxProps) {
-      let data = this.getCurrentPageData();
-      data.filter((item) => {
-        if (this.props.rowSelection.getCheckboxProps) {
-          return this.props.rowSelection.getCheckboxProps(item).defaultChecked;
-        }
-        return true;
-      }).map((record, rowIndex) => {
-        selectedRowKeys.push(this.getRecordKey(record, rowIndex));
-      });
+    if (!this.props.rowSelection || !this.props.rowSelection.getCheckboxProps) {
+      return [];
     }
-    return selectedRowKeys;
+    return this.getCurrentPageData()
+      .filter(item => this.props.rowSelection.getCheckboxProps(item).defaultChecked)
+      .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   },
 
   componentWillReceiveProps(nextProps) {
