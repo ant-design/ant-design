@@ -4,6 +4,18 @@
 
 ---
 
+## 0.11.2 `fixing`
+
+- 新增了[贡献文档](https://github.com/ant-design/ant-design/blob/master/CONTRIBUTING.md)。
+- 修复一个 DatePicker 中选择的国际化文案问题。[#771](https://github.com/ant-design/ant-design/issues/771)
+- 增加了一个高级搜索类型表单的[演示](http://ant.design/components/form/#demo-advanced-search-form)。
+- Dropdown 支持多级的下拉菜单。[演示](http://ant.design/components/dropdown/#demo-sub-menu)
+- Table
+  - 新增 rowSelection.onChange 方法。
+  - 更新 dataSource 时，选中项现在会被清空。
+  - 修复一个全选框和禁用的选择项配合的问题。
+- 组件和文档的样式小调整。
+
 ## 0.11.1 `2015-12-29`
 
 - 修复一个 Table 无法修改 pageSize 的问题。
