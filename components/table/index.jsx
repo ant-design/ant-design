@@ -23,7 +23,7 @@ let AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
-      selectedRowKeys: [],
+      selectedRowKeys: this.props.selectedRowKeys || [],
       filters: {},
       selectionDirty: false,
       sortColumn: '',
@@ -81,16 +81,29 @@ let AntTable = React.createClass({
         pagination: objectAssign({}, this.state.pagination, nextProps.pagination)
       });
     }
-    // 外界只有 dataSource 的变化会触发新请求
+    // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
       this.setState({
         selectionDirty: false,
-        selectedRowKeys: [],
       });
-      if (this.props.rowSelection && this.props.rowSelection.onChange) {
-        this.props.rowSelection.onChange([]);
-      }
+      this.setSelectedRowKeys([]);
+    }
+    if (nextProps.rowSelection &&
+        'selectedRowKeys' in nextProps.rowSelection) {
+      this.setState({
+        selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
+      });
+    }
+  },
+
+  setSelectedRowKeys(selectedRowKeys) {
+    if (this.props.rowSelection &&
+        !('selectedRowKeys' in this.props.rowSelection)) {
+      this.setState({ selectedRowKeys });
+    }
+    if (this.props.rowSelection && this.props.rowSelection.onChange) {
+      this.props.rowSelection.onChange(selectedRowKeys);
     }
   },
 
@@ -146,11 +159,11 @@ let AntTable = React.createClass({
       }
     });
     const newState = {
-      selectedRowKeys: [],
       selectionDirty: false,
       filters
     };
     this.setState(newState);
+    this.setSelectedRowKeys([]);
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
@@ -167,18 +180,15 @@ let AntTable = React.createClass({
       });
     }
     this.setState({
-      selectedRowKeys,
-      selectionDirty: true
+      selectionDirty: true,
     });
+    this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelect) {
       let data = this.getCurrentPageData();
       let selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
-    }
-    if (this.props.rowSelection.onChange) {
-      this.props.rowSelection.onChange(selectedRowKeys);
     }
   },
 
@@ -189,19 +199,16 @@ let AntTable = React.createClass({
     let key = this.getRecordKey(record, rowIndex);
     selectedRowKeys = [key];
     this.setState({
-      selectedRowKeys,
       radioIndex: key,
-      selectionDirty: true
+      selectionDirty: true,
     });
+    this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelect) {
       let data = this.getCurrentPageData();
       let selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
-    }
-    if (this.props.rowSelection.onChange) {
-      this.props.rowSelection.onChange(selectedRowKeys);
     }
   },
 
@@ -228,17 +235,14 @@ let AntTable = React.createClass({
       });
     }
     this.setState({
-      selectedRowKeys,
-      selectionDirty: true
+      selectionDirty: true,
     });
+    this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelectAll) {
       let selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
       this.props.rowSelection.onSelectAll(checked, selectedRows);
-    }
-    if (this.props.rowSelection.onChange) {
-      this.props.rowSelection.onChange(selectedRowKeys);
     }
   },
 
@@ -250,15 +254,11 @@ let AntTable = React.createClass({
       pagination.current = pagination.current || 1;
     }
     const newState = {
-      // 防止内存泄漏，只维持当页
-      selectedRowKeys: [],
       selectionDirty: false,
       pagination
     };
     this.setState(newState);
-    if (this.props.rowSelection && this.props.rowSelection.onChange) {
-      this.props.rowSelection.onChange([]);
-    }
+    this.setSelectedRowKeys([]);
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
