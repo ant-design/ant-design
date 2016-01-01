@@ -91,18 +91,9 @@ let AntTable = React.createClass({
     // 外界只有 dataSource 的变化会触发新请求
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
-      let selectedRowKeys = this.state.selectedRowKeys;
-      // 把不在当前页的选中项去掉
-      let currentPageRowKeys =
-        this.getCurrentPageData(nextProps.dataSource).map(
-          (record, i) => this.getRecordKey(record, i)
-        );
-      selectedRowKeys = selectedRowKeys.filter((key) => {
-        return currentPageRowKeys.indexOf(key) >= 0;
-      });
       this.setState({
         selectionDirty: false,
-        selectedRowKeys,
+        selectedRowKeys: [],
       });
     }
   },
