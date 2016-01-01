@@ -93,6 +93,7 @@ const columns = [{
 
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|---------|
+| type | 多选/单选，`checkbox` or `radio` | String | `checkbox`  |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | Array | []  |
 | onChange | 选中项发生变化的时的回调，用户手动点选、换页、更新数据均会触发 | Function(selectedRowKeys) | -   |
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
