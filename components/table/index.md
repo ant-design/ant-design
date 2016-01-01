@@ -54,9 +54,9 @@ const columns = [{
 
 ### Table
 
-| 参数          | 说明                     | 类型            |  可选值             | 默认值  |
+| 参数           | 说明                     | 类型             |  可选值              | 默认值   |
 |---------------|--------------------------|-----------------|---------------------|---------|
-| rowSelection  | 列表项是否可选择         | Object          |                     | false   |
+| rowSelection  | 列表项是否可选择         | Object          |  [配置项](#rowSelection)   | null   |
 | pagination    | 分页器                   | Object   | 配置项参考 [pagination](/components/pagination)，设为 false 时不显示分页 |         |
 | size          | 正常或迷你类型           | String          | `default` or `small`| default |
 | dataSource    | 数据数组                 | Array           |                     |         |
@@ -86,6 +86,18 @@ const columns = [{
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位    | Number   |          | 15      |
 | width      | 列宽度 | String or Number |                                        | 无      |
 | className  | 列的 className             | String          |                     | 无      |
+
+### rowSelection
+
+选择功能的配置。
+
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|---------|
+| getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
+| onChange | 选中项发生变化的时的回调，用户手动点选、换页、更新数据均会触发 | Function(selectedRowKeys) | -   |
+| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
+| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(record, selected, selectedRows) |   -   |
+
 
 ## 注意
 
