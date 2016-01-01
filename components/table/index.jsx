@@ -317,7 +317,14 @@ let AntTable = React.createClass({
           className: 'ant-table-selection-column'
         };
       } else {
-        let checkboxAll = <Checkbox checked={checked} onChange={this.handleSelectAllRow}/>;
+        const checkboxAllDisabled = data.every(item =>
+          this.props.rowSelection.getCheckboxProps &&
+          this.props.rowSelection.getCheckboxProps(item).disabled);
+        const checkboxAll = (
+            <Checkbox checked={checked}
+                      disabled={checkboxAllDisabled}
+                      onChange={this.handleSelectAllRow} />
+        );
         selectionColumn = {
           key: 'selection-column',
           title: checkboxAll,
