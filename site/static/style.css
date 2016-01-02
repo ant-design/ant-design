@@ -1725,7 +1725,7 @@ footer ul li > a {
   display: inline-block;
   width: 100%;
   position: relative;
-  margin: 0px 15px 15px 0px;
+  margin: 0px 0 16px 0px;
   transition: all 0.5s ease;
 }
 
@@ -2111,6 +2111,7 @@ a.entry-link:hover .anticon-smile {
   border-radius: 0 0 5px 5px;
   background: #ececec;
 }
+
 .window-frame .status-bar {
   height: 2rem;
   border-radius: 0 0 0.35rem 0.35rem;
@@ -2120,18 +2121,22 @@ a.entry-link:hover .anticon-smile {
 .demos-anchor {
   color: #aaa;
   position: fixed;
-  bottom: 50%;
+  top: 120px;
   right: 0;
   z-index: 100;
-  transform: translateY(50%);
   transition: all 0.3s ease;
   background: #fff;
-  padding: 8px 18px 8px 28px;
-  border: 1px dashed #e9e9e9;
+  background: rgba(255,255,255,0.9);
+  padding: 8px 10px 8px 24px;
   border-radius: 6px 0 0 6px;
   margin: 0;
   font-size: 12px;
   border-right: 0;
+  -webkit-animation: .5s ease-out 0.5s xRightMatrix;
+  animation: .5s ease-out 0.5s xRightMatrix;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .demos-anchor li {
@@ -2154,6 +2159,7 @@ a.entry-link:hover .anticon-smile {
   position: relative;
 }
 
+.demos-anchor a.current > span,
 .demos-anchor a > span:hover {
   color: #2db7f5;
 }

@@ -4,7 +4,7 @@
 
 ---
 
-## 0.11.2 `fixing`
+## 0.11.2 `2015-01-03`
 
 - 新增了[贡献文档](https://github.com/ant-design/ant-design/blob/master/CONTRIBUTING.md)。
 - 修复一个 DatePicker 中选择的国际化文案问题。[#771](https://github.com/ant-design/ant-design/issues/771)
