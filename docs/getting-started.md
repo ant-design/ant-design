@@ -11,7 +11,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 最简单的试用方式参照以下 JSFiddle 演示, 也推荐 Fork 本例来进行 `Bug Report`, 注意不要在实际项目中这样使用。
 
-- [antd JSFiddle](http://jsfiddle.net/9zrstuto/70/)
+- [antd JSFiddle](http://jsfiddle.net/0dso5y0x/)
 
 
 ## 标准开发
@@ -63,7 +63,7 @@ const App = React.createClass({
   },
   render() {
     return <div style={{width: 400, margin: '100px auto'}}>
-      <DatePicker onSelect={this.handleChange} />
+      <DatePicker onChange={this.handleChange} />
       <div style={{marginTop: 20}}>当前日期：{this.state.date.toString()}</div>
     </div>;
   }

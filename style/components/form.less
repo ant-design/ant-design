@@ -71,6 +71,10 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
+  &.@{css-prefix}form-item-with-help {
+    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
+  }
+
   > label {
     color: @label-color;
     text-align: right;
@@ -104,10 +108,7 @@ input[type="checkbox"] {
 }
 
 .@{css-prefix}form-explain {
-  position: absolute;
-  font-size: @font-size-base;
-  line-height: @line-height-base;
-  bottom: -@line-height-computed;
+  float: left;
 }
 
 

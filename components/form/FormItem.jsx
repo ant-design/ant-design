@@ -108,6 +108,7 @@ class FormItem extends React.Component {
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-compact`]: this._isCompact(props.children),
+      [`${prefixCls}-item-with-help`]: !!props.help,
     };
 
     return (

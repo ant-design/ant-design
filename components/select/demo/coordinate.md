@@ -45,10 +45,10 @@ const App = React.createClass({
       return <Option key={city}>{city}</Option>;
     });
     return <div>
-      <Select defaultValue={provinceData[0]} style={{width:150}} onChange={this.handleProvinceChange}>
+      <Select defaultValue={provinceData[0]} style={{width: 90}} onChange={this.handleProvinceChange}>
         {provinceOptions}
       </Select>
-      <Select value={this.state.secondCity} style={{width:150}} onChange={this.onSecondCityChange}>
+      <Select value={this.state.secondCity} style={{width: 90}} onChange={this.onSecondCityChange}>
         {cityOptions}
       </Select>
     </div>;
