@@ -38,8 +38,9 @@ export default React.createClass({
   mixins: [ PickerMixin ],
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      const start = this.parseDateFromValue(nextProps.value[0]);
-      const end = this.parseDateFromValue(nextProps.value[1]);
+      const value = nextProps.value || [];
+      const start = this.parseDateFromValue(value[0]);
+      const end = this.parseDateFromValue(value[1]);
       this.setState({
         value: [start, end]
       });
