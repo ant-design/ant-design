@@ -41,6 +41,18 @@ InstantClickChangeFns.push(function() {
     }
   });
 
+  function hashChange() {
+    if (location.hash.indexOf('#demo-') === 0) {
+      $('.demos-anchor a').removeClass('current');
+      $('.demos-anchor a[href="' + location.hash + '"]').addClass('current');
+    }
+  }
+
+  hashChange();
+
+  // 高亮侧边演示菜单
+  $(window).on('hashchange', hashChange);
+
   // 移动 API 文档到演示下方
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
 

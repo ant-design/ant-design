@@ -10,6 +10,16 @@
   </a>
   {%- endif %}
 </h2>
+<ul class="demos-anchor">
+  {%- for item in items %}
+  {%- set post = item.meta.filepath|parsePost %}
+  <li>
+    <a title="{{ post.title }}" href="#{{post.meta.id|removeCodeBoxIdPrefix}}">
+      <span>{{ post.title }}</span>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>
 <div class="code-boxes">
   {%- if post.meta.cols == 1 %}
     <div class="code-boxes-col-1-1">
@@ -33,14 +43,4 @@
   </div>
   {%- endif %}
 </div>
-<ul class="demos-anchor">
-  {%- for item in items %}
-  {%- set post = item.meta.filepath|parsePost %}
-  <li>
-    <a title="{{ post.title }}" href="#{{post.meta.id|removeCodeBoxIdPrefix}}">
-      <span>{{ post.title }}</span>
-    </a>
-  </li>
-  {%- endfor %}
-</ul>
 {%- endif %}
