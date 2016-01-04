@@ -25,7 +25,7 @@
 |checkedKeys | 设置选中复选框的树节点 | String[] | - |
 |selectedKeys | 设置选中的树节点 | String[] | - |
 |onCheck | 点击树节点或复选框触发 | function(e:{checked:bool,node,checkedKeys,event}) | - |
-|onSelect | 点击树节点触发 | function(e:{checked:bool,node,checkedKeys,event}) | - |
+|onSelect | 点击树节点触发 | function(e:{selected:bool,node,selectedKeys,event}) | - |
 |onDataLoaded | 异步加载数据 | function(node)| - |
 
 ### TreeNode props
