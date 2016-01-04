@@ -4,6 +4,10 @@
 
 ---
 
+## 0.10.5 `2016-01-04`
+
+- 修复 Table 更新 dataSource 后，选中项没有置空的问题。[#793](https://github.com/ant-design/ant-design/issues/793)
+
 ## 0.10.4 `2015-11-30`
 
 - 将 media-match 加入默认的 polyfil 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
