@@ -56,6 +56,27 @@ InstantClickChangeFns.push(function() {
   // 移动 API 文档到演示下方
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
 
+  // 添加上一页下一页
+  if ($('.aside-container li > a').length > 0) {
+    var links = $('.aside-container li > a');
+    var currentLinkIndex = -1;
+    links.each(function(i, item) {
+      if ($(item).parent().hasClass('current')) {
+        currentLinkIndex = i;
+      }
+    });
+    var prevNextNavNode = $('<div class="prev-next-nav"></div>');
+    var prevLink = links[currentLinkIndex - 1];
+    var nextLink = links[currentLinkIndex + 1];
+    if (prevLink) {
+      prevNextNavNode.append('<a href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
+    }
+    if (nextLink) {
+      prevNextNavNode.append('<a href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
+    }
+    prevNextNavNode.appendTo('.main-container');
+  }
+
   $('.nav-phone-icon').click(function() {
     $(this).prev().toggle();
   });
