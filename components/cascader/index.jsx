@@ -71,10 +71,12 @@ class AntCascader extends React.Component {
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}>
         {children ||
-          <span className={`${prefixCls}-picker`}>
+          <span
+            style={style}
+            className={`${prefixCls}-picker`}>
             <Input placeholder={placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
-              style={style}
+              style={{width: '100%'}}
               value={this.getLabel()}
               readOnly />
             {clearIcon}
