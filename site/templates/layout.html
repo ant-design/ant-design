@@ -66,14 +66,17 @@
           <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
             <a href="{{static_url('../')}}" data-no-instant>首页</a>
           </li>
+          <li class="{%- if post.directory|rootDirectoryIn(['practice']) %}current{%- endif %}">
+            <a href="{{static_url('../practice/')}}">实践</a>
+          </li>
+          <li class="{%- if post.directory|rootDirectoryIn(['pattern']) %}current{%- endif %}">
+            <a href="{{static_url('../pattern/')}}">模式</a>
+          </li>
           <li class="{%- if post.directory|rootDirectoryIn(['spec']) %}current{%- endif %}">
-            <a href="{{static_url('../spec/introduce')}}">设计</a>
+            <a href="{{static_url('../spec/introduce')}}">语言</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs','components']) or post.meta.filepath === 'CHANGELOG.md' %}current{%- endif %}">
             <a href="{{static_url('../docs/introduce')}}">React UI</a>
-          </li>
-          <li>
-            <a target="_blank" href="https://github.com/ant-design/ant-design">Github</a>
           </li>
         </ul>
       </nav>
