@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
-  return args.map((s)=> {
+  return args.map((s) => {
     return prefixCls + '-' + s;
   }).join(' ');
 }
@@ -12,7 +12,7 @@ class FormItem extends React.Component {
     if (!colDef) {
       return '';
     }
-    const {span, offset} = colDef;
+    const { span, offset } = colDef;
     const col = span ? 'col-' + span : '';
     const offsetCol = offset ? ' col-offset-' + offset : '';
     return col + offsetCol;
@@ -61,7 +61,8 @@ class FormItem extends React.Component {
     const required = this.props.required ? 'required' : '';
 
     return this.props.label ? (
-      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)} required={required} key="label">
+      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)}
+        required={required} key="label">
         {this.props.label}
       </label>
     ) : null;
@@ -92,7 +93,8 @@ class FormItem extends React.Component {
       let prefixCls = child.props && child.props.prefixCls;
       prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';
 
-      if ((type && compactControls.indexOf(type) > -1) || (prefixCls && compactControls.indexOf(prefixCls) > -1)) {
+      if ((type && compactControls.indexOf(type) > -1) ||
+          (prefixCls && compactControls.indexOf(prefixCls) > -1)) {
         isCompact = true;
       } else if (child.props && typeof child.props.children === 'object') {
         isCompact = this._isCompact(child.props.children);

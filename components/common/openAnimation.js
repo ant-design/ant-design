@@ -17,7 +17,7 @@ function animate(node, show, transitionName, done) {
   node.style.display = show ? 'block' : 'none';
   velocity(node, transitionName, {
     duration: 240,
-    complete: complete,
+    complete,
     easing: 'easeInOutQuad'
   });
   return {

@@ -10,7 +10,7 @@ export default React.createClass({
     };
   },
   render() {
-    const {className, size, ...other} = this.props;
+    const { className, size, ...other } = this.props;
     const inputNumberClass = classNames({
       'ant-input-number-lg': size === 'large',
       'ant-input-number-sm': size === 'small',

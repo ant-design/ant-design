@@ -80,7 +80,7 @@ class AntScrollNumber extends React.Component {
       style: {
         transition: removeTransition && 'none',
         transform: 'translate3d(0, ' + (-position * height) + 'px, 0)',
-        height: height,
+        height,
       },
       key: i,
     }, this.renderNumberList());
@@ -120,7 +120,7 @@ AntScrollNumber.defaultProps = {
   prefixCls: 'ant-scroll-number',
   count: null,
   component: 'sup',
-  onAnimated: function() {},
+  onAnimated() {},
   height: 18,
 };
 

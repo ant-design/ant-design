@@ -87,7 +87,7 @@
     "css-loader": "^0.23.0",
     "es3ify-loader": "^0.1.0",
     "eslint": "^1.1.0",
-    "eslint-config-airbnb": "^1.0.0",
+    "eslint-config-airbnb": "^3.0.0",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-markdown-antd": "0.0.0",
     "eslint-plugin-react": "^3.3.1",

@@ -1,8 +1,8 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import zhCN from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import {PREFIX_CLS} from './Constants';
+import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 
 function noop () { return null; }
@@ -70,8 +70,8 @@ class Calendar extends Component {
   }
   render() {
     const props = this.props;
-    const {value, mode} = this.state;
-    const {locale, prefixCls, style, className, fullscreen} = props;
+    const { value, mode } = this.state;
+    const { locale, prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
 
     let cls = className || '';

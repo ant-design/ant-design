@@ -17,7 +17,7 @@ const align = {
 export default React.createClass({
   getDefaultProps() {
     return {
-      align: align,
+      align,
       type: 'default',
     };
   },

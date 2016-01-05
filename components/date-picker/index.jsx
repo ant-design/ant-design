@@ -30,7 +30,7 @@ function createPicker(TheCalendar, defaultFormat) {
         value: this.parseDateFromValue(this.props.value || this.props.defaultValue)
       };
     },
-    mixins: [ PickerMixin ],
+    mixins: [PickerMixin],
     componentWillReceiveProps(nextProps) {
       if ('value' in nextProps) {
         this.setState({
@@ -58,8 +58,8 @@ function createPicker(TheCalendar, defaultFormat) {
 
       const timePicker = this.props.showTime
         ? <TimePicker prefixCls="ant-time-picker"
-            placeholder={locale.lang.timePlaceholder}
-            transitionName="slide-up" />
+          placeholder={locale.lang.timePlaceholder}
+          transitionName="slide-up" />
         : null;
 
       const calendarClassName = classNames({
@@ -104,15 +104,15 @@ function createPicker(TheCalendar, defaultFormat) {
           onClose={this.toggleOpen}
           onChange={this.handleChange}>
           {
-            ({value}) => {
+            ({ value }) => {
               return (
                 <span>
                   <input disabled={this.props.disabled}
-                         onChange={this.handleInputChange}
-                         value={value && this.getFormatter().format(value)}
-                         placeholder={placeholder}
-                         style={this.props.style}
-                         className={'ant-calendar-picker-input ant-input' + sizeClass}/>
+                    onChange={this.handleInputChange}
+                    value={value && this.getFormatter().format(value)}
+                    placeholder={placeholder}
+                    style={this.props.style}
+                    className={'ant-calendar-picker-input ant-input' + sizeClass}/>
                   <span className="ant-calendar-picker-icon"/>
                 </span>
               );
