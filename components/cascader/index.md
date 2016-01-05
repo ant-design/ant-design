@@ -32,3 +32,4 @@
 | popupClassName | 自定义浮层类名 | string | - |
 | placeholder | 输入框占位文本 | string | '请选择' |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
+| disabled | 禁用 | boolean | false |

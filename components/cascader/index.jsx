@@ -51,7 +51,7 @@ class AntCascader extends React.Component {
     this.setState({ popupVisible: false });
   }
   render() {
-    const { prefixCls, children, placeholder, style, size } = this.props;
+    const { prefixCls, children, placeholder, style, size, disabled } = this.props;
     const sizeCls = classNames({
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
@@ -64,6 +64,10 @@ class AntCascader extends React.Component {
       [`${prefixCls}-picker-arrow`]: true,
       [`${prefixCls}-picker-arrow-expand`]: this.state.popupVisible,
     });
+    const pickerCls = classNames({
+      [`${prefixCls}-picker`]: true,
+      [`${prefixCls}-picker-disabled`]: disabled,
+    });
     return (
       <Cascader {...this.props}
         value={this.state.value}
@@ -73,11 +77,12 @@ class AntCascader extends React.Component {
         {children ||
           <span
             style={style}
-            className={`${prefixCls}-picker`}>
+            className={pickerCls}>
             <Input placeholder={placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
               style={{width: '100%'}}
               value={this.getLabel()}
+              disabled={disabled}
               readOnly />
             {clearIcon}
             <Icon type="down" className={arrowCls} />
@@ -97,6 +102,7 @@ AntCascader.defaultProps = {
   displayRender(label) {
     return label.join(' / ');
   },
+  disabled: false,
   size: 'default',
   onPopupVisibleChange() {},
 };
