@@ -76,7 +76,12 @@
   }
 
   &-disabled &-selection--single {
+    background: #f4f4f4;
     cursor: not-allowed;
+  }
+
+  &-disabled &-selection--multiple &-selection__choice__remove {
+    display: none;
   }
 
   &-selection--single {
