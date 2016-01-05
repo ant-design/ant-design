@@ -17,18 +17,18 @@
 
 <a target="_blank" href="" class="download-link disabled">
   <img src="https://os.alipayobjects.com/rmsportal/gdYSqrQMvHHrOoC.svg" width="32">
-  Components in Sketch
+  Sketch
 </a>
 
 ### 图标
 
 <a target="_blank" href="" class="download-link disabled">
   <img src="https://os.alipayobjects.com/rmsportal/gdYSqrQMvHHrOoC.svg" width="32">
-  Icon in AI
+  AI
 </a>
 <a target="_blank" href="https://github.com/ant-design/ant-design/files/57840/iconfont.zip" class="download-link">
   <img src="https://os.alipayobjects.com/rmsportal/ytqOwOOWgYrDPfT.svg" width="32">
-  Iconfont for web
+  Web font
 </a>
 
 <style>

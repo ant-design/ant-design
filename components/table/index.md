@@ -42,7 +42,7 @@ const columns = [{
 }, {
   title: '住址',
   dataIndex: 'address',
-  key: 'age',
+  key: 'address',
 }];
 
 <Table dataSource={dataSource} columns={columns} />

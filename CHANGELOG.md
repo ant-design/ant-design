@@ -101,6 +101,12 @@
 
 > [0.11 升级指南](http://ant.design/docs/upgrade-notes#0-10-gt-0-11)
 
+---
+
+## 0.10.5 `2016-01-04`
+
+- 修复 Table 更新 dataSource 后，选中项没有置空的问题。[#793](https://github.com/ant-design/ant-design/issues/793)
+
 ## 0.10.4 `2015-11-30`
 
 - 将 media-match 加入默认的 polyfill 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
@@ -209,6 +215,7 @@
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
 > - [0.10 升级指南](http://ant.design/docs/upgrade-notes#0-0-gt-0-10)
 
+---
 
 ## 0.9.3 ~ 0.9.5 `2015-11-04`
 
