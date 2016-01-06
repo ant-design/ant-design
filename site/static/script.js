@@ -42,10 +42,8 @@ InstantClickChangeFns.push(function() {
   });
 
   function hashChange() {
-    if (location.hash.indexOf('#demo-') === 0) {
-      $('.demos-anchor a').removeClass('current');
-      $('.demos-anchor a[href="' + location.hash + '"]').addClass('current');
-    }
+    $('.anchor a').removeClass('current');
+    $('.anchor a[href="' + decodeURI(location.hash) + '"]').addClass('current');
   }
 
   hashChange();
@@ -55,6 +53,31 @@ InstantClickChangeFns.push(function() {
 
   // 移动 API 文档到演示下方
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
+
+  var titles = $('.markdown :header:not(h1)');
+  function onScroll() {
+    var doc = $(document);
+    var top = doc.scrollTop(), i;
+    if (top >= doc.height()- $(window).height() - 20) {
+      i = titles.length - 1;
+    } else {
+      for (i=0; i<titles.length; i++) {
+        if (top < titles.eq(i).offset().top - 20) {
+          break;
+        }
+      }
+      i--;
+      i = (i < 0) ? 0 : i;
+      i = (i > titles.length - 1) ? (title.length - 1) : i;
+    }
+    $('.anchor a').removeClass('current');
+    $('.anchor a').eq(i).addClass('current');
+  }
+
+  onScroll();
+
+  // 滚动高亮
+  $(window).on('scroll', onScroll);
 
   // 添加上一页下一页
   if ($('.aside-container li > a').length > 0) {
@@ -69,10 +92,10 @@ InstantClickChangeFns.push(function() {
     var prevLink = links[currentLinkIndex - 1];
     var nextLink = links[currentLinkIndex + 1];
     if (prevLink) {
-      prevNextNavNode.append('<a href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
+      prevNextNavNode.append('<a class="prev-page" href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
     }
     if (nextLink) {
-      prevNextNavNode.append('<a href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
+      prevNextNavNode.append('<a class="next-page" href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
     }
     prevNextNavNode.appendTo('.main-container');
   }

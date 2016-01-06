@@ -499,6 +499,7 @@ footer ul li > a {
   animation: xRightMatrix .5s ease-out;
   background: #fff;
   min-height: 500px;
+  position: relative;
 }
 
 .main-container-center {
@@ -654,6 +655,69 @@ footer ul li > a {
   color: #CC7300;
   border: none;
   margin-left: 0.5em;
+}
+
+.prev-next-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #e9e9e9;
+  font-size: 16px;
+}
+
+.prev-next-nav > a {
+  padding: 0 24px;
+  width: 50%;
+  float: left;
+  line-height: 72px;
+  height: 72px;
+}
+
+.prev-next-nav > .prev-page:before {
+  font-family: 'anticon';
+  content: '\e601';
+  font-size: 12px;
+  margin-right: 1em;
+}
+
+.prev-next-nav > .next-page {
+  text-align: right;
+  float: right;
+}
+
+.prev-next-nav > .next-page:after {
+  font-family: 'anticon';
+  content: '\e600';
+  font-size: 12px;
+  margin-left: 1em;
+}
+
+.toc {
+  position: sticky;
+  top: 40px;
+  float: right;
+  font-size: 12px;
+}
+
+.toc li > ul {
+  text-indent: 10px;
+}
+
+.toc a {
+  padding-left: 10px;
+  border-left: 2px solid #eee;
+  display: block;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 120px;
+}
+
+.toc a.current {
+  border-color: #2db7f5;
 }
 
 /****************************动画样式*********************************/
@@ -2121,8 +2185,8 @@ a.entry-link:hover .anticon-smile {
 .demos-anchor {
   color: #aaa;
   position: fixed;
-  top: 120px;
-  right: 0;
+  top: 100px;
+  right: 32px;
   z-index: 100;
   transition: all 0.3s ease;
   background: #fff;
@@ -2137,48 +2201,4 @@ a.entry-link:hover .anticon-smile {
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   opacity: 0;
-}
-
-.demos-anchor li {
-  list-style: decimal outside;
-  width: 75px;
-  margin-bottom: 2px;
-}
-
-.demos-anchor a {
-  color: #666;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  vertical-align: bottom;
-  display: inline-block;
-  width: 100%;
-}
-
-.demos-anchor a > span {
-  position: relative;
-}
-
-.demos-anchor a.current > span,
-.demos-anchor a > span:hover {
-  color: #2db7f5;
-}
-
-.demos-anchor a > span:after {
-  text-decoration: underline;
-  position: absolute;
-  top: auto;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-color: #2db7f5;
-  content: '';
-  transition: all 0.2s;
-  backface-visibility: hidden;
-  transform: scaleX(0);
-}
-
-.demos-anchor a > span:hover:after {
-  transform: scaleX(1);
 }
