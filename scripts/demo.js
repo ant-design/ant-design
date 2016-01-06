@@ -145,4 +145,40 @@ window.BrowserDemo = React.createClass({
   }
 });
 
+var Modal = antd.Modal;
+var PriviewImg = React.createClass({
+  getInitialState() {
+    return {
+      visible: false
+    };
+  },
+  showImageModal() {
+    this.setState({
+      visible: true
+    });
+  },
+  handleCancel() {
+    this.setState({
+      visible: false
+    });
+  },
+  render() {
+    return (
+      <span className="preview-image-wrapper">
+        <img src={this.props.src} onClick={this.showImageModal} alt={this.props.alt} />
+        <Modal className="image-modal" width="800" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
+          <img src={this.props.src} alt={this.props.alt} />
+        </Modal>
+      </span>
+    );
+  }
+});
+
+$(function() {
+  Array.slice(document.querySelectorAll('.preview-img')).forEach(function(img) {
+    img.parentNode.className = 'preview-image';
+    ReactDOM.render(<PriviewImg src={img.src} />, img.parentNode);
+  });
+});
+
 module.exports = antd;

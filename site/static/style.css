@@ -1229,3 +1229,34 @@ a.entry-link:hover .anticon-smile {
   background: #fff;
   font-size: 12px;
 }
+
+p.preview-image {
+  float: right;
+  margin: 0;
+  margin-right: -10%;
+}
+
+.preview-image-wrapper {
+  width: 600px;
+  background: #F2F2F2;
+  padding: 24px;
+  display: inline-block;
+  text-align: center;
+}
+
+.preview-image img {
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.image-modal {
+  text-align: center;
+}
+
+.image-modal .ant-modal-header {
+  display: none;
+}
+
+.image-modal img {
+  max-width: 100%;
+}
