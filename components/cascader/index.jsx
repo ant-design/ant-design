@@ -22,7 +22,7 @@ class AntCascader extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      this.setState({ value: nextProps.value });
+      this.setState({ value: nextProps.value || [] });
     }
   }
   handleChange(value, selectedOptions) {
