@@ -1,6 +1,7 @@
 # 资源下载
 
-- category: 资源
+- order: 0
+- category: 0
 
 ---
 

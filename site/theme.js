@@ -84,7 +84,6 @@ module.exports = function(nico) {
           if (!cat) {
             return;
           }
-          console.log(itemDirectory, item.directory, directories);
           if (directories.indexOf(itemDirectory) >= 0 ||
               item.filename.indexOf('CHANGELOG') >= 0) {
             item.filename = item.filename.toLowerCase();

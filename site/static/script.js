@@ -93,9 +93,13 @@ InstantClickChangeFns.push(function() {
     var nextLink = links[currentLinkIndex + 1];
     if (prevLink) {
       prevNextNavNode.append('<a class="prev-page" href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
+    } else {
+      prevNextNavNode.append('<span class="prev-page"></span>');
     }
     if (nextLink) {
       prevNextNavNode.append('<a class="next-page" href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
+    } else {
+      prevNextNavNode.append('<span class="next-page"></span>');
     }
     prevNextNavNode.appendTo('.main-container');
   }
@@ -121,6 +125,9 @@ InstantClickChangeFns.push(function() {
   var navFunc = {
     navStrArr: [],
     init: function() {
+      if (this.navBar) {
+        return;
+      }
       this.navBox = $(".nav");
       this.navBar = this.navBox.find(".bar");
       this.navList = this.navBox.find("ul li");

@@ -67,10 +67,10 @@
             <a href="{{static_url('../')}}" data-no-instant>首页</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/practice']) %}current{%- endif %}">
-            <a href="{{static_url('../docs/practice/index')}}">实践</a>
+            <a href="{{static_url('../docs/practice/cases')}}">实践</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/pattern']) %}current{%- endif %}">
-            <a href="{{static_url('../docs/pattern/index')}}">模式</a>
+            <a href="{{static_url('../docs/pattern/navigation')}}">模式</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/spec']) %}current{%- endif %}">
             <a href="{{static_url('../docs/spec/introduce')}}">语言</a>
@@ -79,7 +79,7 @@
             <a href="{{static_url('../docs/react/introduce')}}">组件</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/resource']) %}current{%- endif %}">
-            <a href="{{static_url('../docs/resource/index')}}">资源</a>
+            <a href="{{static_url('../docs/resource/download')}}">资源</a>
           </li>
         </ul>
       </nav>
