@@ -28,6 +28,7 @@ InstantClickChangeFns.push(function() {
     item.find('.highlight').appendTo(item);
   });
 
+  $('.code-boxes').off('click');
   $('.code-boxes').on('click', '.collapse', function() {
     var highlightBox = $(this).parent().parent().find('.highlight');
     var codeVisible = highlightBox.is(':visible');
@@ -56,9 +57,12 @@ InstantClickChangeFns.push(function() {
   // 移动 API 文档到演示下方
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
 
+  // 滚动时固定锚点、高亮当前项
   var titles = $('.markdown :header:not(h1)');
+  var doc = $(document);
+  var tocTop = $('.toc').offset().top;
+  console.log($('.toc').offset(), $('.toc').css('position'));
   function onScroll() {
-    var doc = $(document);
     var top = doc.scrollTop(), i;
     if (top >= doc.height()- $(window).height() - 20) {
       i = titles.length - 1;
@@ -74,6 +78,12 @@ InstantClickChangeFns.push(function() {
     }
     $('.anchor a').removeClass('current');
     $('.anchor a').eq(i).addClass('current');
+
+    if (top >= tocTop) {
+      $('.toc').addClass('sticky');
+    } else {
+      $('.toc').removeClass('sticky');
+    }
   }
 
   onScroll();

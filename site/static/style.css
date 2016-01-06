@@ -490,7 +490,7 @@ footer ul li > a {
 .main-container {
   border-left: 1px solid #e9e9e9;
   margin-left: 259px;
-  padding: 0 40px 120px;
+  padding: 0 24px 120px;
   background: #fff;
   min-height: 500px;
 }
@@ -692,12 +692,17 @@ footer ul li > a {
 }
 
 .toc {
-  position: fixed;
-  top: 130px;
-  right: 4%;
-  margin-right: 24px;
+  float: right;
   font-size: 12px;
   background: #fff;
+  padding-top: 12px;
+}
+
+.toc.sticky {
+  position: fixed;
+  top: 0;
+  right: 4%;
+  margin-right: 24px;
   z-index: 100;
 }
 
@@ -1221,10 +1226,10 @@ a.entry-link:hover .anticon-smile {
 
 .demos-anchor {
   color: #aaa;
-  position: fixed;
+  position: absolute;
   margin-right: 24px;
-  top: 128px;
-  right: 4%;
+  top: 24px;
+  right: 0;
   z-index: 100;
   background: #fff;
   font-size: 12px;

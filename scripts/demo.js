@@ -166,7 +166,7 @@ var PriviewImg = React.createClass({
     return (
       <span className="preview-image-wrapper">
         <img src={this.props.src} onClick={this.showImageModal} alt={this.props.alt} />
-        <Modal className="image-modal" width="800" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
+        <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
           <img src={this.props.src} alt={this.props.alt} />
         </Modal>
       </span>
