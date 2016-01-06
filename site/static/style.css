@@ -14,7 +14,7 @@ body {
   line-height: 1.5;
   color: #666;
   font-size: 14px;
-  background: #fff;
+  background: #ECECEC;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow-x: hidden;
 }
@@ -67,8 +67,8 @@ a:hover {
 header {
   width: 100%;
   background: #fff;
-  border-bottom: 1px solid #eee;
   font-size: 16px;
+  margin-bottom: 24px;
 }
 
 .fn-hide {
@@ -92,7 +92,7 @@ a.logo {
   text-transform: uppercase;
   font-size: 18px;
   font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",sans-serif;
-  color: #6EB4E0;
+  color: #2db7f5;
 }
 
 .logo img {
@@ -204,22 +204,22 @@ a.nav-link-disabled {
 }
 
 .nav ul li.current a {
-  color: #6AC2F5;
+  color: #2db7f5;
   font-weight: 600;
 }
 
 .nav ul li a:hover,
 .nav ul li .hover {
-  color: #6AC2F5;
+  color: #2db7f5;
 }
 
 .nav .bar {
   width: 20%;
   height: 3px;
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
-  background: #6AC2F5;
+  background: #2db7f5;
   display: none;
   transition: left .3s cubic-bezier(0.075, 0.82, 0.165, 1), width 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
@@ -320,7 +320,7 @@ a.nav-link-disabled {
 .load-main-box .load-bar {
   width: 0%;
   height: 2px;
-  background: #6EB4E0;
+  background: #2db7f5;
   transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   -webkit-transition: width .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);;
 }
@@ -383,40 +383,45 @@ footer ul li > a {
 
 .aside-container {
   width: 260px;
-  background: #F9F9F9;
-  padding-top: 10px;
   padding-bottom: 50px;
   float: left;
+  border-right: 1px solid #e9e9e9;
 }
 
 .aside-container > ul > li {
   overflow: hidden;
+  position: relative;
+  right: -1px;
+  z-index: 1;
+}
+
+.aside-container > ul > li > ul {
+  margin-left: 24px;
 }
 
 .aside-container li h4 {
   font-size: 14px;
   font-weight: 600;
-  padding: 10px 0 10px 46px;
+  padding: 0 0 0 24px;
+  line-height: 40px;
+  height: 40px;
   margin: 0;
-  color: #5C6B77;
   cursor: pointer;
-  transition: background .5s, border .5s;
-  border-left: 3px solid transparent;
   position: relative;
   z-index: 1;
-  background: #F9F9F9;
   position: relative;
+  background: #fff;
+  right: 1px;
 }
 
 .aside-container li h4:after {
   position: absolute;
-  top: 11px;
-  right: 30px;
+  top: 0;
+  right: 20px;
   content: "\e602";
   font-family: "anticon";
   transform: scale(0.6);
   font-size: 12px;
-  color: #5C6B76;
   opacity: 0;
   transition: all 0.3s ease;
 }
@@ -434,17 +439,13 @@ footer ul li > a {
   display: block;
 }
 
-.aside-container li > ul li {
-  border-left: 3px solid transparent;
-}
-
 .aside-container li a {
   line-height: 40px;
   height: 40px;
   display: block;
-  padding-left: 60px;
+  padding-left: 24px;
   font-size: 14px;
-  color: #5C6B76;
+  color: #666;
 }
 
 .aside-container li.type-divider {
@@ -453,18 +454,7 @@ footer ul li > a {
   transform: scale(0.9);
   transform-origin: 0 50%;
   color: #aaa;
-  text-shadow: 0px 1px 0px #FFF;
-  margin: 6px 0 6px 48px;
-}
-
-.aside-container > ul > li > a {
-  padding-left: 46px;
-  font-size: 14px;
-  border-left: 3px solid transparent;
-}
-
-.aside-container > ul > li.current > a {
-  border-left: 0;
+  margin: 6px 0 6px 24px;
 }
 
 .aside-container .chinese {
@@ -475,31 +465,36 @@ footer ul li > a {
 }
 
 .aside-container li a:hover {
-  color: #6EB4E0;
+  color: #2db7f5;
 }
 
 .aside-container .current {
-  background: #fff;
-  border-left: 3px solid #71B5DE;
-  color: #71B5DE;
+  border-right: 2px solid #2db7f5;
+  color: #2db7f5;
 }
 
 .aside-container .current a {
-  color: #71B5DE;
+  color: #2db7f5;
 }
 
 .main-wrapper {
-  background: #f9f9f9;
+  background: #fff;
+  width: 92%;
+  margin: 0 auto;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 24px 0 0;
+  margin-bottom: 24px;
 }
 
 .main-container {
+  border-left: 1px solid #e9e9e9;
   margin-left: 260px;
-  padding: 30px 40px 120px;
-  -webkit-animation: xRightMatrix .5s ease-out;
-  animation: xRightMatrix .5s ease-out;
+  padding: 0 40px 120px;
   background: #fff;
   min-height: 500px;
   position: relative;
+  left: -1px;
 }
 
 .main-container-center {
@@ -530,6 +525,8 @@ footer ul li > a {
 .markdown h1 {
   color: #404040;
   font-weight: 500;
+  line-height: 40px;
+  margin-bottom: 24px;
 }
 
 .markdown h2,
@@ -538,7 +535,7 @@ footer ul li > a {
 .markdown h5,
 .markdown h6 {
   color: #404040;
-  margin: 1.8em 0 1em 0;
+  margin: 1.6em 0 1em 0;
   font-weight: 500;
 }
 
@@ -695,9 +692,10 @@ footer ul li > a {
 }
 
 .toc {
-  position: sticky;
-  top: 40px;
-  float: right;
+  position: fixed;
+  top: 130px;
+  right: 4%;
+  margin-right: 24px;
   font-size: 12px;
 }
 
@@ -714,6 +712,7 @@ footer ul li > a {
   text-overflow: ellipsis;
   overflow: hidden;
   max-width: 120px;
+  line-height: 20px;
 }
 
 .toc a.current {
@@ -1692,32 +1691,8 @@ footer ul li > a {
     -webkit-transform: rotateX(-180deg);
   }
 }
+
 /***************************************************************************/
-.index-page header {
-    transition: opacity 0.5S;
-    -webkit-animation: xRightMatrix .5s ease-out;
-    animation: xRightMatrix .5s ease-out;
-}
-.index-page .nav {
-  -webkit-animation: yTopMatrix .5s ease-out .4s backwards;
-  animation: yTopMatrix .5s ease-out .4s backwards;
-}
-
-.index-page footer {
-  -webkit-animation: yBottomMatrix .5s ease-out .6s backwards;
-  animation: yBottomMatrix .5s ease-out .6s backwards;
-}
-
-.index-page .logo {
-  -webkit-animation: xLeftMatrix .5s ease-out;
-  animation: xLeftMatrix .5s ease-out;
-}
-
-.index-page .search {
-  -webkit-animation: xRightMatrix .5s ease-out .2s backwards;
-  animation: xRightMatrix .5s ease-out .2s backwards;
-}
-
 .api-link {
   font-size: 16px;
   vertical-align: middle;
@@ -2074,7 +2049,7 @@ a.entry-link:hover .anticon-smile {
 }
 
 #instantclick-bar {
-  background: #6EB4E0;
+  background: #2db7f5;
 }
 
 #versions-select {

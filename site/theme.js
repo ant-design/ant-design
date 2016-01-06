@@ -15,6 +15,17 @@ module.exports = function(nico) {
     return Posts;
   }
 
+  function getRootDirectory(directory) {
+    var rootDirectory;
+    var directoryArray = directory.split('/');
+    if (directory.indexOf('docs/') === 0) {
+      rootDirectory = directoryArray[0] + '/' + directoryArray[1];
+    } else {
+      rootDirectory = directoryArray[0];
+    }
+    return rootDirectory;
+  }
+
   exports.reader = function(post) {
     var filepath = post.meta.filepath.toLowerCase();
     if (filepath.indexOf('components') === 0) {
@@ -51,15 +62,15 @@ module.exports = function(nico) {
       return ret;
     },
     get_categories: function(posts, post) {
-      var rootDirectory = post.directory.split('/')[0];
+      var rootDirectory = getRootDirectory(post.directory);
       if (!rootDirectory && post.filename.indexOf('CHANGELOG') < 0) {
         return;
       }
       var directories = [rootDirectory];
       // docs 和 components 放在同一页
-      if (rootDirectory === 'docs' || rootDirectory === 'components' ||
+      if (rootDirectory === 'docs/react' || rootDirectory === 'components' ||
           post.filename.indexOf('CHANGELOG') >= 0) {
-        directories = ['docs', 'components'];
+        directories = ['docs/react', 'components'];
       }
       var cacheKey = directories.join('-');
       var categories;
@@ -68,11 +79,12 @@ module.exports = function(nico) {
       } else {
         categories = {};
         _.uniq(getAllPosts(posts).forEach(function(item) {
-          var itemDirectory = item.directory.split('/')[0];
+          var itemDirectory = getRootDirectory(item.directory);
           var cat = item.meta.category;
           if (!cat) {
             return;
           }
+          console.log(itemDirectory, item.directory, directories);
           if (directories.indexOf(itemDirectory) >= 0 ||
               item.filename.indexOf('CHANGELOG') >= 0) {
             item.filename = item.filename.toLowerCase();
