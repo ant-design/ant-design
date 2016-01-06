@@ -68,7 +68,7 @@ InstantClickChangeFns.push(function() {
       }
       i--;
       i = (i < 0) ? 0 : i;
-      i = (i > titles.length - 1) ? (title.length - 1) : i;
+      i = (i > titles.length - 1) ? (titles.length - 1) : i;
     }
     $('.anchor a').removeClass('current');
     $('.anchor a').eq(i).addClass('current');
