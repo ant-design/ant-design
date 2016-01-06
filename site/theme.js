@@ -164,7 +164,7 @@ module.exports = function(nico) {
       });
     },
     rootDirectoryIn: function(directory, rootDirectories) {
-      return rootDirectories.indexOf(directory.split('/')[0]) >= 0;
+      return rootDirectories.indexOf(getRootDirectory(directory)) >= 0;
     },
     removeCodeBoxIdPrefix: function(id) {
       return id.split('-').slice(2).join('-');

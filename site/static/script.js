@@ -6,6 +6,7 @@ InstantClickChangeFns.push(function() {
     }, 0);
   }
 
+  $('.component-demos .icon-all').off('click');
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
@@ -49,6 +50,7 @@ InstantClickChangeFns.push(function() {
   hashChange();
 
   // 高亮侧边演示菜单
+  $(window).off('hashchange');
   $(window).on('hashchange', hashChange);
 
   // 移动 API 文档到演示下方
@@ -77,6 +79,7 @@ InstantClickChangeFns.push(function() {
   onScroll();
 
   // 滚动高亮
+  $(window).off('scroll');
   $(window).on('scroll', onScroll);
 
   // 添加上一页下一页
