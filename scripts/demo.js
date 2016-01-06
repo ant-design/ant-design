@@ -174,7 +174,7 @@ var PriviewImg = React.createClass({
   }
 });
 
-$(function() {
+InstantClickChangeFns.push(function() {
   Array.slice(document.querySelectorAll('.preview-img')).forEach(function(img) {
     img.parentNode.className = 'preview-image';
     ReactDOM.render(<PriviewImg src={img.src} />, img.parentNode);

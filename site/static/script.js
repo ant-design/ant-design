@@ -61,7 +61,6 @@ InstantClickChangeFns.push(function() {
   var titles = $('.markdown :header:not(h1)');
   var doc = $(document);
   var tocTop = $('.toc').offset().top;
-  console.log($('.toc').offset(), $('.toc').css('position'));
   function onScroll() {
     var top = doc.scrollTop(), i;
     if (top >= doc.height()- $(window).height() - 20) {
