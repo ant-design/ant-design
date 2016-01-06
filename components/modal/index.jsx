@@ -21,7 +21,8 @@ let AntModal = React.createClass({
       transitionName: 'zoom',
       maskAnimation: 'fade',
       confirmLoading: false,
-      visible: false
+      visible: false,
+      closable: true,
     };
   },
 
