@@ -4,7 +4,7 @@ import { QueueAnim, Icon, Button } from '../index';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import EventDispatcher from 'rc-scroll-anim/lib/EventDispatcher';
 import TweenOne from 'rc-tween-one';
-console.log(EventDispatcher)
+
 const DivId = ['page4', 'page3', 'page2', 'page1', 'banner'];
 const header = document.getElementById('header');
 DivId.forEach(id=> {
@@ -95,7 +95,6 @@ ReactDOM.render((
     </QueueAnim>
   </ScrollOverPack>
 ), page3);
-
 
 //page4
 ReactDOM.render((
