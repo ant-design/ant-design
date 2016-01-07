@@ -46,9 +46,8 @@ class Banner extends React.Component {
   render() {
     return (
       <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
-        <h1 key="h1">ANT DESIGN <p>V1.0</p></h1>
-        <p key="content">一套面向中后台的设计解决方案</p>
-        <span className="line" key="line"/>
+        <h1 key="h1">ANT DESIGN</h1>
+        <p key="content">一套 UI 设计语言</p>
         <a key="button" href="/docs/spec/introduce"><Icon type="smile-circle"/>开始探索</a>
       </QueueAnim>)
   }
@@ -89,8 +88,8 @@ ReactDOM.render((
     <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
               style={{transform: 'translateX(-100px)', opacity: 0}}/>
     <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}>
-      <h1 key="h1">30+的基础设计组件</h1>
-      <p key="p" style={{maxWidth: 280}}>为中后台设计中反复出现的问题提供一套相应的解决方案</p>
+      <h1 key="h1">数十个基础设计组件</h1>
+      <p key="p" style={{maxWidth: 280}}>为中后台设计中反复出现的问题提供一套完整的解决方案</p>
       <div key="button"><Button type="primary" size="large" onClick={()=>{window.location.href='/docs/react/introduce'}}>了解更多<Icon type="right"/></Button></div>
     </QueueAnim>
   </ScrollOverPack>

@@ -85,21 +85,20 @@ header {
 
 a.logo {
   float: left;
-  height: 46px;
-  line-height: 46px;
-  margin: 17px 45px 17px 4%;
-  transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+  height: 40px;
+  line-height: 40px;
+  margin: 17px 0 17px 4%;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",sans-serif;
   color: #2db7f5;
+  width: 219px;
 }
 
 .logo img {
+  width: 40px;
   float: left;
-  margin-top: -7px;
-  -webkit-animation: rotateCircleBack 0.6s 1 ease-in-out;
-  animation: rotateCircleBack 0.6s 1 ease-in-out;
+  margin-right: 8px;
 }
 
 .search {
