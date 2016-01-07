@@ -49,6 +49,7 @@ class Banner extends React.Component {
         <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
           <h1 key="h1">ANT <p>DESIGN</p></h1>
           <p key="content">一个 UI 设计语言</p>
+          <span className="line" key="line"/>
           <a key="button" href="/docs/spec/introduce"><Icon type="smile-circle"/>开始探索</a>
         </QueueAnim>
         <TweenOne className='down' vars={[{opacity: 1},{y: 10, duration: 800, yoyo: true, repeat: -1}]}>
