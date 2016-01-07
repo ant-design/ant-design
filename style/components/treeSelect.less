@@ -26,6 +26,12 @@
     list-style: none;
     white-space: nowrap;
     outline: 0;
+    &.filter-node {
+      > a {
+        color: #a60000!important;
+        font-weight: bold!important;
+      }
+    }
     ul {
       margin: 0;
       padding: 0 0 0 18px;
@@ -45,7 +51,6 @@
       &.@{tree-select-tree-prefix-cls}-checkbox {
         margin: 3px 4px 0 0;
       }
-      &.@{tree-select-tree-prefix-cls}-switcher-noop,
       &.@{tree-select-tree-prefix-cls}-switcher,
       &.@{tree-select-tree-prefix-cls}-iconEle {
         line-height: 0;
@@ -69,17 +74,6 @@
         }
       }
       &.@{tree-select-tree-prefix-cls}-switcher {
-        &-disabled {
-          background: #fff;
-          position: relative;
-          &:after {
-            content: '-';
-            position: absolute;
-            top: 8px;
-            left: 6px;
-            color: gray;
-          }
-        }
         &.@{tree-select-tree-prefix-cls}-roots_open,
         &.@{tree-select-tree-prefix-cls}-center_open,
         &.@{tree-select-tree-prefix-cls}-bottom_open,
@@ -107,8 +101,10 @@
   }
   &-treenode-disabled {
     >span,
-    >a {
-      color: gray;
+    >a,
+    >a span {
+      color: #ccc;
+      cursor: not-allowed;
     }
   }
   &-node-selected {

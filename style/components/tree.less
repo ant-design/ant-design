@@ -26,6 +26,41 @@
     list-style: none;
     white-space: nowrap;
     outline: 0;
+    a[draggable],
+    a[draggable="true"] {
+      color: #333;
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      /* Required to make elements draggable in old WebKit */
+      -khtml-user-drag: element;
+      -webkit-user-drag: element;
+    }
+    &.drag-over {
+      > a[draggable] {
+        background-color: #316ac5;
+        color: white;
+        border: 1px #316ac5 solid;
+        opacity: 0.8;
+      }
+    }
+    &.drag-over-gap-top {
+      > a[draggable] {
+        border-top: 2px blue solid;
+      }
+    }
+    &.drag-over-gap-bottom {
+      > a[draggable] {
+        border-bottom: 2px blue solid;
+      }
+    }
+    &.filter-node {
+      > a {
+        color: #a60000!important;
+        font-weight: bold!important;
+      }
+    }
     ul {
       margin: 0;
       padding: 0 0 0 18px;
@@ -45,7 +80,6 @@
       &.@{tree-prefix-cls}-checkbox {
         margin: 3px 4px 0 0;
       }
-      &.@{tree-prefix-cls}-switcher-noop,
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
         line-height: 0;
@@ -69,17 +103,6 @@
         }
       }
       &.@{tree-prefix-cls}-switcher {
-        &-disabled {
-          background: #fff;
-          position: relative;
-          &:after {
-            content: '-';
-            position: absolute;
-            top: 8px;
-            left: 6px;
-            color: gray;
-          }
-        }
         &.@{tree-prefix-cls}-roots_open,
         &.@{tree-prefix-cls}-center_open,
         &.@{tree-prefix-cls}-bottom_open,
@@ -107,8 +130,10 @@
   }
   &-treenode-disabled {
     >span,
-    >a {
-      color: gray;
+    >a,
+    >a span {
+      color: #ccc;
+      cursor: not-allowed;
     }
   }
   &-node-selected {

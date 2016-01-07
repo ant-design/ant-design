@@ -1,7 +1,6 @@
 import React from 'react';
 import TreeSelect, { TreeNode } from 'rc-tree-select';
 import classNames from 'classnames';
-// import assign from 'object-assign';
 // import animation from '../common/openAnimation';
 
 const AntTreeSelect = React.createClass({
@@ -12,7 +11,8 @@ const AntTreeSelect = React.createClass({
       optionLabelProp: 'value',
       choiceTransitionName: 'zoom',
       showSearch: false,
-      size: 'default'
+      size: 'default',
+      // openAnimation: animation,
     };
   },
   render() {
