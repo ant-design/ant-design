@@ -47,7 +47,7 @@ class Banner extends React.Component {
     return (
       <div>
         <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
-          <h1 key="h1">ANT DESIGN</h1>
+          <h1 key="h1">ANT <p>DESIGN</p></h1>
           <p key="content">一个 UI 设计语言</p>
           <a key="button" href="/docs/spec/introduce"><Icon type="smile-circle"/>开始探索</a>
         </QueueAnim>
@@ -97,8 +97,8 @@ ReactDOM.render((
     <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
               style={{transform: 'translateX(-100px)', opacity: 0}}/>
     <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}>
-      <h1 key="h1">40+ 基础设计组件</h1>
-      <p key="p" style={{maxWidth: 280}}>为中后台设计中反复出现的问题提供一套完整的解决方案</p>
+      <h1 key="h1">几十个基础设计组件</h1>
+      <p key="p" style={{maxWidth: 280}}>丰富而且灵活的基础组件，为业务产品提供强有力的设计支持。</p>
       <div key="button"><Button type="primary" size="large"
                                 onClick={()=>{window.location.href='/docs/react/introduce'}}>了解更多<Icon
         type="right"/></Button></div>
@@ -112,7 +112,7 @@ ReactDOM.render((
 
     <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom">
       <h1 key="h1">微小·确定·幸福</h1>
-      <p key="p">为中后台设计中反复出现的问题提供一套相应的解决方案</p>
+      <p key="p">这是一套致力于提升“用户”和“设计者”使用体验的中后台设计语言。</p>
     </QueueAnim>
     <TweenOne key="image" className="image4 bottom-wrapper" vars={{y: 0, opacity: 1, duration: 550, delay: 550}}
               style={{transform: 'translateY(50px)', opacity: 0}}/>
