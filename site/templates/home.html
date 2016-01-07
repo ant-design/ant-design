@@ -3,13 +3,229 @@
 {% block bodyAttribute %}class="index-page"{% endblock %}
 
 {% block content %}
-<div id="home-container"></div>
 <script src="{{static_url('../dist/home.js')}}"></script>
 <style>
-.home-page {
-  text-align: center;
-  min-height: 560px;
-  padding-top: 200px;
-}
+  html, body, div, section, {
+    font-family: 'PingFang SC', "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", SimSun, sans-serif;
+  }
+
+  header {
+    position: fixed;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.75);
+    border-bottom: 1px solid transparent;
+    transition: border .5s cubic-bezier(0.455, 0.03, 0.515, 0.955), background .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  .global-hint {
+    display: none;
+  }
+
+  a.logo {
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    text-indent: 5px;
+  }
+
+  a.logo img {
+    width: 40px;
+    margin-top: 0;
+  }
+
+  .main-wrapper {
+    display: none;
+  }
+
+  .nav ul li a {
+    transition: color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  .search {
+    border-left-color: rgba(235, 237, 238, .5);
+    height: 20px;
+    margin-top: 28px;
+    transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  .search #autoComplete .ant-select-selection {
+    background: transparent;
+  }
+
+  #banner {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: url("https://t.alipayobjects.com/images/T1OhFkXfpgXXXXXXXX.png") no-repeat center / cover;
+  }
+
+  .banner-text-wrapper {
+    position: absolute;
+    left: 5%;
+    top: 60%;
+    color: #fff;
+    text-align: right;
+  }
+
+  header.home-nav-bottom {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: #EBEDEE;
+  }
+
+  .home-nav-bottom .search {
+    border-left-color: #EBEDEE;
+  }
+
+  .home-nav-bottom .nav a {
+    color: #666;
+  }
+
+  .banner-text-wrapper h1 {
+    font-size: 40px;
+    font-weight: normal;
+  }
+
+  .banner-text-wrapper h1 p {
+    color: #FF3171;
+    display: inline-block;
+
+  }
+
+  .banner-text-wrapper .line {
+    width: 1px;
+    height: 80px;
+    position: absolute;
+    background: #fff;
+    top: 10px;
+    right: -25px;
+    opacity: 0.5;
+  }
+
+  .banner-text-wrapper > p {
+    margin: 10px auto 30px;
+    font-size: 16px;
+  }
+
+  .banner-text-wrapper a {
+    float: right;
+    width: 155px;
+    height: 45px;
+    border-radius: 6px;
+    border: 1px solid #00AAEE;
+    color: #00AAEE;
+    font-size: 18px;
+    background: transparent;
+    transition: box-shadow .45s ease-out;
+    text-align: center;
+    line-height: 42px;
+  }
+
+  .banner-text-wrapper a:hover {
+    box-shadow: 0 0 10px #00AAEE;
+  }
+
+  .banner-text-wrapper a span {
+    margin-left: 15px;
+  }
+
+  section {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+  }
+
+  .page {
+    min-height: 700px;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1850px;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .content-wrapper .image-wrapper {
+    width: 65%;
+    float: left;
+    position: relative;
+  }
+
+  .image1 {
+    background: url("https://t.alipayobjects.com/images/T1Ch8kXfpdXXXXXXXX.png") no-repeat right / 841px;
+    height: 511px;
+    top: 50%;
+    margin-top: -256px;
+  }
+
+  .image2 {
+    background: url("https://t.alipayobjects.com/images/T1r5RkXotXXXXXXXXX.png") no-repeat left / 800px;
+    height: 474px;
+    top: 50%;
+    margin-top: -266px;
+  }
+
+  .image3 {
+    padding-right: 10%;
+    background: url("https://t.alipayobjects.com/images/T1nx0kXdFfXXXXXXXX.png") no-repeat right / 639px;
+    background-origin: content-box;
+    height: 500px;
+    top: 50%;
+    margin-top: -250px;
+  }
+
+  .image4 {
+    background: url("https://t.alipayobjects.com/images/T1lyJkXg4aXXXXXXXX.png") no-repeat center / 615px;
+    height: 364px;
+    margin: auto;
+  }
+
+  .content-wrapper .text-wrapper {
+    width: 35%;
+    float: left;
+    position: relative;
+    top: 20%;
+    left: 10px;
+  }
+
+  .content-wrapper .text-wrapper h1 {
+    font-size: 32px;
+    color: #666;
+  }
+
+  .content-wrapper .text-wrapper p {
+    margin: 10px 0 20px;
+    font-size: 16px;
+    line-height: 28px;
+    color: #999999;
+  }
+
+  .content-wrapper .left-text {
+    padding-left: 10%;
+  }
+
+  .text-wrapper-bottom {
+    text-align: center;
+    margin: 10% auto 40px;
+  }
+
+  .text-wrapper-bottom p {
+    margin: 20px auto;
+    font-size: 16px;
+    line-height: 28px;
+    color: #999999;
+  }
+
+  #footer {
+    background: #000;
+  }
+
+  footer ul li > h2 {
+    color: #656975;
+  }
+  footer ul li > a{
+    color: #BEC4C8
+  }
 </style>
 {% endblock %}
