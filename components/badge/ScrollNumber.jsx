@@ -26,16 +26,13 @@ class AntScrollNumber extends React.Component {
     if (this.state.count > this.lastCount) {
       if (currentDigit >= lastDigit) {
         return 10 + num;
-      } else {
-        return 20 + num;
       }
-    } else {
-      if (currentDigit <= lastDigit) {
-        return 10 + num;
-      } else {
-        return num;
-      }
+      return 20 + num;
     }
+    if (currentDigit <= lastDigit) {
+      return 10 + num;
+    }
+    return num;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -106,13 +103,12 @@ class AntScrollNumber extends React.Component {
         props,
         this.renderNumberElement()
       );
-    } else {
-      return createElement(
-        this.props.component,
-        props,
-        props.count
-      );
     }
+    return createElement(
+      this.props.component,
+      props,
+      props.count
+    );
   }
 }
 

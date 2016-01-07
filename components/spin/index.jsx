@@ -53,9 +53,8 @@ const AntSpin = React.createClass({
           </div>
         </div>
       );
-    } else {
-      return spinElement;
     }
+    return spinElement;
   }
 });
 

@@ -54,11 +54,13 @@ class TransferList extends Component {
     if (typeof props.checkable !== 'boolean') {
       customEle = props.checkable;
     }
-    return <span ref="checkbox"
-      className={checkboxCls}
-      onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
-      {customEle}
-    </span>;
+    return (
+      <span ref="checkbox"
+            className={checkboxCls}
+            onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
+        {customEle}
+      </span>
+    );
   }
 
   matchFilter(text, filterText) {
@@ -78,48 +80,50 @@ class TransferList extends Component {
       [prefixCls + '-with-footer']: !!footerDom,
     });
 
-    return <div className={listCls} {...this.props}>
-      <div className={`${prefixCls}-header`}>
-        {this.renderCheckbox({
-          prefixCls: 'ant-transfer',
-          checked: checkStatus === 'all',
-          checkPart: checkStatus === 'part',
-          checkable: <span className={`ant-transfer-checkbox-inner`}></span>
-        })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条</span>
-        <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
-      </div>
-      { bodyDom ? bodyDom :
-      <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
-        { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-          <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
+    return (
+      <div className={listCls} {...this.props}>
+        <div className={`${prefixCls}-header`}>
+          {this.renderCheckbox({
+            prefixCls: 'ant-transfer',
+            checked: checkStatus === 'all',
+            checkPart: checkStatus === 'part',
+            checkable: <span className={`ant-transfer-checkbox-inner`}></span>
+          })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条</span>
+          <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
+        </div>
+        { bodyDom ? bodyDom :
+        <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+          { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
+            <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
+          </div> : null }
+          <Animate component="ul"
+            transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
+            transitionLeave={false}>
+            {dataSource.length > 0 ?
+              dataSource.map((item) => {
+                // apply filter
+                const itemText = this.props.render(item);
+                const filterResult = this.matchFilter(itemText, filter);
+
+                const renderedText = this.props.render(item);
+
+                if (filterResult) {
+                  return (
+                    <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
+                      <Checkbox checked={checkedKeys.some(key => key === item.key)} />
+                      {renderedText}
+                    </li>
+                  );
+                }
+              }) : <div className={`${prefixCls}-body-not-found`}>Not Found</div>
+            }
+          </Animate>
+        </div>}
+        { footerDom ? <div className={`${prefixCls}-footer`}>
+          { footerDom }
         </div> : null }
-        <Animate component="ul"
-          transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
-          transitionLeave={false}>
-          {dataSource.length > 0 ?
-            dataSource.map((item) => {
-              // apply filter
-              const itemText = this.props.render(item);
-              const filterResult = this.matchFilter(itemText, filter);
-
-              const renderedText = this.props.render(item);
-
-              if (filterResult) {
-                return (
-                  <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
-                    <Checkbox checked={checkedKeys.some(key => key === item.key)} />
-                    {renderedText}
-                  </li>
-                );
-              }
-            }) : <div className={`${prefixCls}-body-not-found`}>Not Found</div>
-          }
-        </Animate>
-      </div>}
-      { footerDom ? <div className={`${prefixCls}-footer`}>
-        { footerDom }
-      </div> : null }
-    </div>;
+      </div>
+    );
   }
 }
 
@@ -132,7 +136,7 @@ TransferList.defaultProps = {
   handleSelect: noop,
   handleSelectAll: noop,
   render: noop,
-  //advanced
+  // advanced
   body: noop,
   footer: noop,
 };

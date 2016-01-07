@@ -21,10 +21,12 @@ const BreadcrumbItem = React.createClass({
     if (typeof this.props.href === 'undefined') {
       link = <span className={prefixCls + '-link'} {...this.props}>{children}</span>;
     }
-    return <span>
-      {link}
-      <span className={prefixCls + '-separator'}>{separator}</span>
-    </span>;
+    return (
+      <span>
+        {link}
+        <span className={prefixCls + '-separator'}>{separator}</span>
+      </span>
+    );
   }
 });
 

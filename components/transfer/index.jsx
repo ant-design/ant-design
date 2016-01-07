@@ -29,7 +29,7 @@ class Transfer extends Component {
     if ( targetKeys.length > 0 ) {
       targetKeys.forEach((targetKey) => {
         rightDataSource.push(leftDataSource.find((data, index) => {
-          if( data.key === targetKey ) {
+          if ( data.key === targetKey ) {
             leftDataSource.splice(index, 1);
             return true;
           }
@@ -53,7 +53,7 @@ class Transfer extends Component {
 
     // empty checked keys
     this.setState({
-      [direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys']:  [],
+      [ direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys' ]: [],
     });
 
     this.props.onChange(newTargetKeys);
@@ -162,52 +162,51 @@ class Transfer extends Component {
       prefixCls: true,
     });
 
-    return <div className={cls}>
-      <List titleText={titles[0]}
-            dataSource={leftDataSource}
-            filter={leftFilter}
-            style={listStyle}
-            checkedKeys={leftCheckedKeys}
-            checkStatus={leftCheckStatus}
-            handleFilter={this.handleFilter.bind(this, 'left')}
-            handleClear={this.handleClear.bind(this, 'left')}
-            handleSelect={this.handleSelect.bind(this, 'left')}
-            handleSelectAll={this.handleSelectAll.bind(this, 'left')}
-            position="left"
-            render={this.props.render}
-            showSearch={showSearch}
-            searchPlaceholder={searchPlaceholder}
-            body={body}
-            footer={footer}
-            prefixCls={prefixCls + '-list'}
-      />
-      <Operation rightActive={rightActive}
-                 rightArrowText={operations[0]}
-                 moveToRight={this.moveTo.bind(this, 'right')}
-                 leftActive={leftActive}
-                 leftArrowText={operations[1]}
-                 moveToLeft={this.moveTo.bind(this, 'left')}
-                 className={prefixCls + '-operation'}
-      />
-      <List titleText={titles[1]}
-            dataSource={rightDataSource}
-            filter={rightFilter}
-            style={listStyle}
-            checkedKeys={rightCheckedKeys}
-            checkStatus={rightCheckStatus}
-            handleFilter={this.handleFilter.bind(this, 'right')}
-            handleClear={this.handleClear.bind(this, 'right')}
-            handleSelect={this.handleSelect.bind(this, 'right')}
-            handleSelectAll={this.handleSelectAll.bind(this, 'right')}
-            position="right"
-            render={this.props.render}
-            showSearch={showSearch}
-            searchPlaceholder={searchPlaceholder}
-            body={body}
-            footer={footer}
-            prefixCls={prefixCls + '-list'}
-      />
-    </div>;
+    return (
+      <div className={cls}>
+        <List titleText={titles[0]}
+              dataSource={leftDataSource}
+              filter={leftFilter}
+              style={listStyle}
+              checkedKeys={leftCheckedKeys}
+              checkStatus={leftCheckStatus}
+              handleFilter={this.handleFilter.bind(this, 'left')}
+              handleClear={this.handleClear.bind(this, 'left')}
+              handleSelect={this.handleSelect.bind(this, 'left')}
+              handleSelectAll={this.handleSelectAll.bind(this, 'left')}
+              position="left"
+              render={this.props.render}
+              showSearch={showSearch}
+              searchPlaceholder={searchPlaceholder}
+              body={body}
+              footer={footer}
+              prefixCls={prefixCls + '-list'}/>
+        <Operation rightActive={rightActive}
+                   rightArrowText={operations[0]}
+                   moveToRight={this.moveTo.bind(this, 'right')}
+                   leftActive={leftActive}
+                   leftArrowText={operations[1]}
+                   moveToLeft={this.moveTo.bind(this, 'left')}
+                   className={prefixCls + '-operation'}/>
+        <List titleText={titles[1]}
+              dataSource={rightDataSource}
+              filter={rightFilter}
+              style={listStyle}
+              checkedKeys={rightCheckedKeys}
+              checkStatus={rightCheckStatus}
+              handleFilter={this.handleFilter.bind(this, 'right')}
+              handleClear={this.handleClear.bind(this, 'right')}
+              handleSelect={this.handleSelect.bind(this, 'right')}
+              handleSelectAll={this.handleSelectAll.bind(this, 'right')}
+              position="right"
+              render={this.props.render}
+              showSearch={showSearch}
+              searchPlaceholder={searchPlaceholder}
+              body={body}
+              footer={footer}
+              prefixCls={prefixCls + '-list'}/>
+      </div>
+    );
   }
 }
 

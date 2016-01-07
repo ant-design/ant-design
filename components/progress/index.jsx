@@ -39,7 +39,7 @@ let Line = React.createClass({
     const text = (typeof props.format === 'string') ?
       props.format.replace('${percent}', props.percent) : props.format;
 
-    if(props.showInfo === true){
+    if (props.showInfo === true) {
       if (props.status === 'exception') {
         progressInfo = (
           <span className={prefixCls + '-line-text'}>{text}</span>

@@ -4,12 +4,11 @@ import Dialog from './index';
 import Icon from '../icon';
 import Button from '../button';
 
-export default function (props) {
+export default function (props = {}) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
   let d;
-  props = props || {};
   props.iconClassName = props.iconClassName || 'question-circle';
 
   let iconClassType = props.iconClassName;
@@ -72,28 +71,34 @@ export default function (props) {
     }
   }
 
-  let body = <div className="ant-confirm-body">
-    <Icon type={iconClassType} />
-    <span className="ant-confirm-title">{props.title}</span>
-    <div className="ant-confirm-content">{props.content}</div>
-  </div>;
+  let body = (
+    <div className="ant-confirm-body">
+      <Icon type={iconClassType} />
+      <span className="ant-confirm-title">{props.title}</span>
+      <div className="ant-confirm-content">{props.content}</div>
+    </div>
+  );
 
   let footer = null;
   if (props.okCancel) {
-    footer = <div className="ant-confirm-btns">
-      <Button type="ghost" size="large" onClick={onCancel}>
-        {props.cancelText}
-      </Button>
-      <Button type="primary" size="large" onClick={onOk}>
-        {props.okText}
-      </Button>
-    </div>;
+    footer = (
+      <div className="ant-confirm-btns">
+        <Button type="ghost" size="large" onClick={onCancel}>
+          {props.cancelText}
+        </Button>
+        <Button type="primary" size="large" onClick={onOk}>
+          {props.okText}
+        </Button>
+      </div>
+    );
   } else {
-    footer = <div className="ant-confirm-btns">
-      <Button type="primary" size="large" onClick={onOk}>
-        {props.okText}
-      </Button>
-    </div>;
+    footer = (
+      <div className="ant-confirm-btns">
+        <Button type="primary" size="large" onClick={onOk}>
+          {props.okText}
+        </Button>
+      </div>
+    );
   }
 
   ReactDOM.render(<Dialog

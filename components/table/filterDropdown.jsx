@@ -13,7 +13,7 @@ let FilterMenu = React.createClass({
       visible: false,
     };
   },
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     this.setState({
       selectedKeys: nextProps.selectedKeys
     });
@@ -95,6 +95,7 @@ let FilterMenu = React.createClass({
     if ('filterMultiple' in column) {
       multiple = column.filterMultiple;
     }
+<<<<<<< 1e001d2d82c5816b55d3953939fcaedbbacf1a3c
     let menus = <div className="ant-table-filter-dropdown">
       <Menu multiple={multiple} onClick={this.handleMenuItemClick}
                  prefixCls="ant-dropdown-menu"
@@ -112,21 +113,44 @@ let FilterMenu = React.createClass({
            onClick={this.handleClearFilters}>
           {locale.filterReset}
         </a>
+=======
+    let menus = (
+      <div className="ant-table-filter-dropdown">
+        <Menu multiple={multiple}
+              prefixCls="ant-dropdown-menu"
+              onSelect={this.setSelectedKeys}
+              onDeselect={this.setSelectedKeys}
+              selectedKeys={this.state.selectedKeys}>
+          {this.renderMenus(column.filters)}
+        </Menu>
+        <div className="ant-table-filter-dropdown-btns">
+          <a className="ant-table-filter-dropdown-link confirm"
+             onClick={this.handleConfirm}>
+            {locale.filterConfirm}
+          </a>
+          <a className="ant-table-filter-dropdown-link clear"
+             onClick={this.handleClearFilters}>
+            {locale.filterReset}
+          </a>
+        </div>
+>>>>>>> style: update code style to please lint
       </div>
-    </div>;
+    );
 
     let dropdownSelectedClass = '';
     if (this.props.selectedKeys.length > 0) {
       dropdownSelectedClass = 'ant-table-filter-selected';
     }
 
-    return <Dropdown trigger={['click']}
-                     overlay={menus}
-                     visible={this.state.visible}
-                     onVisibleChange={this.onVisibleChange}
-                     closeOnSelect={false}>
-      <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
-    </Dropdown>;
+    return (
+      <Dropdown trigger={['click']}
+                overlay={menus}
+                visible={this.state.visible}
+                onVisibleChange={this.onVisibleChange}
+                closeOnSelect={false}>
+        <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
+      </Dropdown>
+    );
   }
 });
 

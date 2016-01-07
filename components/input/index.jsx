@@ -72,12 +72,12 @@ class Input extends React.Component {
     }
 
     switch (props.size) {
-      case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
-      case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
-      default:
+    case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
+    case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
+    default:
     }
     let placeholder = props.placeholder;
-    if(placeholder && ieGT9()){
+    if (placeholder && ieGT9()) {
       placeholder = null;
     }
     if ('value' in props) {

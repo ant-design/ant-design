@@ -42,7 +42,7 @@ Timeline.Item = React.createClass({
 
     return (
       <li className={prefixCls + '-item ' + endCls}>
-        <div style={{display:lastTailShow}} className={prefixCls + '-item-tail'}></div>
+        <div style={{display: lastTailShow}} className={prefixCls + '-item-tail'}></div>
         <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-' + color}></div>
         <div className={prefixCls + '-item-content'}>{props.children}</div>
         {last}

@@ -147,9 +147,9 @@ let AntTable = React.createClass({
     this.props.onChange.apply(this, this.prepareParamsArguments(objectAssign({}, this.state, newState)));
   },
 
-  handleFilter(column, filters) {
-    filters = objectAssign({}, this.state.filters, {
-      [this.getColumnKey(column)]: filters
+  handleFilter(column, nextFilters) {
+    const filters = objectAssign({}, this.state.filters, {
+      [this.getColumnKey(column)]: nextFilters
     });
     // Remove filters not in current columns
     const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
@@ -281,8 +281,10 @@ let AntTable = React.createClass({
       checked = (this.state.radioIndex === rowIndex ||
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
-    return <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
-                  value={rowIndex} checked={checked}/>;
+    return (
+      <Radio disabled={props.disabled} onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
+             value={rowIndex} checked={checked}/>
+    );
   },
 
   renderSelectionCheckBox(value, record, index) {
@@ -298,8 +300,10 @@ let AntTable = React.createClass({
     if (this.props.rowSelection.getCheckboxProps) {
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
-    return <Checkbox checked={checked} disabled={props.disabled}
-                     onChange={this.handleSelect.bind(this, record, rowIndex)}/>;
+    return (
+      <Checkbox checked={checked} disabled={props.disabled}
+                onChange={this.handleSelect.bind(this, record, rowIndex)}/>
+    );
   },
 
   getRecordKey(record, index) {
@@ -377,16 +381,18 @@ let AntTable = React.createClass({
 
   renderColumnsDropdown(columns) {
     let locale = objectAssign({}, defaultLocale, this.props.locale);
-    return columns.map((column, i) => {
-      column = objectAssign({}, column);
+    return columns.map((originColumn, i) => {
+      let column = objectAssign({}, originColumn);
       let key = this.getColumnKey(column, i);
-      let filterDropdown, sortButton;
+      let filterDropdown;
+      let sortButton;
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
-        filterDropdown =
+        filterDropdown = (
           <FilterDropdown locale={locale} column={column}
                           selectedKeys={colFilters}
-                          confirmFilter={this.handleFilter}/>;
+                          confirmFilter={this.handleFilter}/>
+        );
       }
       if (column.sorter) {
         let isSortColumn = this.isSortColumn(column);
@@ -397,26 +403,30 @@ let AntTable = React.createClass({
           }
         }
 
-        sortButton = <div className="ant-table-column-sorter">
-          <span className={'ant-table-column-sorter-up ' +
-                           ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
-                title="↑"
-                onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
-            <Icon type="caret-up"/>
-          </span>
-          <span className={'ant-table-column-sorter-down ' +
-                           ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
-                title="↓"
-                onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
-            <Icon type="caret-down"/>
-          </span>
-        </div>;
+        sortButton = (
+          <div className="ant-table-column-sorter">
+            <span className={'ant-table-column-sorter-up ' +
+                             ((isSortColumn && this.state.sortOrder === 'ascend') ? 'on' : 'off')}
+                  title="↑"
+                  onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
+              <Icon type="caret-up"/>
+            </span>
+            <span className={'ant-table-column-sorter-down ' +
+                             ((isSortColumn && this.state.sortOrder === 'descend') ? 'on' : 'off')}
+                  title="↓"
+                  onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
+              <Icon type="caret-down"/>
+            </span>
+          </div>
+        );
       }
-      column.title = <div>
-        {column.title}
-        {sortButton}
-        {filterDropdown}
-      </div>;
+      column.title = (
+        <div>
+          {column.title}
+          {sortButton}
+          {filterDropdown}
+        </div>
+      );
       return column;
     });
   },
@@ -475,7 +485,8 @@ let AntTable = React.createClass({
 
   getCurrentPageData(dataSource) {
     let data = this.getLocalData(dataSource);
-    let current, pageSize;
+    let current;
+    let pageSize;
     let state = this.state;
     // 如果没有分页的话，默认全部展示
     if (!this.hasPagination()) {
@@ -546,20 +557,24 @@ let AntTable = React.createClass({
     let emptyText;
     let emptyClass = '';
     if (!data || data.length === 0) {
-      emptyText = <div className="ant-table-placeholder">
-        <Icon type="frown"/>{locale.emptyText}
-      </div>;
+      emptyText = (
+        <div className="ant-table-placeholder">
+          <Icon type="frown"/>{locale.emptyText}
+        </div>
+      );
       emptyClass = ' ant-table-empty';
     }
 
-    let table = <div>
-      <Table {...this.props}
-        data={data}
-        columns={columns}
-        className={classString}
-        expandIconAsCell={expandIconAsCell} />
-      {emptyText}
-    </div>;
+    let table = (
+      <div>
+        <Table {...this.props}
+               data={data}
+               columns={columns}
+               className={classString}
+               expandIconAsCell={expandIconAsCell} />
+          {emptyText}
+      </div>
+    );
     if (this.props.loading) {
       // if there is no pagination or no data, the height of spin should decrease by half of pagination
       let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)

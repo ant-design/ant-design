@@ -35,25 +35,29 @@ class Calendar extends Component {
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
     const month = value.getMonth();
-    return <div className={`${prefixCls}-month`}>
-      <div className={`${prefixCls}-value`}>
-        {locale.format.shortMonths[month]}
+    return (
+      <div className={`${prefixCls}-month`}>
+        <div className={`${prefixCls}-value`}>
+          {locale.format.shortMonths[month]}
+        </div>
+        <div className={`${prefixCls}-content`}>
+          {this.props.monthCellRender(value)}
+        </div>
       </div>
-      <div className={`${prefixCls}-content`}>
-        {this.props.monthCellRender(value)}
-      </div>
-    </div>;
+    );
   }
   dateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    return <div className={`${prefixCls}-date`}>
-      <div className={`${prefixCls}-value`}>
-        {zerofixed(value.getDayOfMonth())}
+    return (
+      <div className={`${prefixCls}-date`}>
+        <div className={`${prefixCls}-value`}>
+          {zerofixed(value.getDayOfMonth())}
+        </div>
+        <div className={`${prefixCls}-content`}>
+          {this.props.dateCellRender(value)}
+        </div>
       </div>
-      <div className={`${prefixCls}-content`}>
-        {this.props.dateCellRender(value)}
-      </div>
-    </div>;
+    );
   }
   setValue(value) {
     if (!('value' in this.props) && this.state.value !== value) {

@@ -22,15 +22,17 @@ export default React.createClass({
     };
   },
   render() {
-    return <ButtonGroup className="ant-dropdown-button">
-      <Button type={this.props.type}>
-        {this.props.children}
-      </Button>
-      <Dropdown {...this.props}>
+    return (
+      <ButtonGroup className="ant-dropdown-button">
         <Button type={this.props.type}>
-          <Icon type="down" />
+          {this.props.children}
         </Button>
-      </Dropdown>
-    </ButtonGroup>;
+        <Dropdown {...this.props}>
+          <Button type={this.props.type}>
+            <Icon type="down" />
+          </Button>
+        </Dropdown>
+      </ButtonGroup>
+    );
   }
 });

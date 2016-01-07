@@ -70,8 +70,10 @@ let AntModal = React.createClass({
       </Button>
     ];
     let footer = props.footer || defaultFooter;
-    return <Dialog onClose={this.handleCancel} footer={footer} {...props}
-      visible={props.visible} mousePosition={mousePosition} />;
+    return (
+      <Dialog onClose={this.handleCancel} footer={footer} {...props}
+              visible={props.visible} mousePosition={mousePosition} />
+    );
   }
 });
 

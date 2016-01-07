@@ -60,9 +60,11 @@ export default React.createClass({
                target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>;
       }
       if (file.status === 'uploading') {
-        progress = <div className={prefixCls + '-list-item-progress'}>
-          <Line {...this.props.progressAttr} percent={file.percent} />
-        </div>;
+        progress = (
+          <div className={prefixCls + '-list-item-progress'}>
+            <Line {...this.props.progressAttr} percent={file.percent} />
+          </div>
+        );
       }
       const infoUploadingClass = classNames({
         [`${prefixCls}-list-item`]: true,
@@ -83,10 +85,12 @@ export default React.createClass({
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${this.props.listType}`]: true,
     });
-    return <div className={listClassNames}>
-      <Animate transitionName={prefixCls + '-margin-top'}>
-        {list}
-      </Animate>
-    </div>;
+    return (
+      <div className={listClassNames}>
+        <Animate transitionName={prefixCls + '-margin-top'}>
+          {list}
+        </Animate>
+      </div>
+    );
   }
 });

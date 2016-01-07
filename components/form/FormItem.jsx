@@ -85,10 +85,8 @@ class FormItem extends React.Component {
     const compactControls = ['checkbox', 'radio', 'radio-group', 'static', 'file'];
     let isCompact = false;
 
-    if (!Array.isArray(children)) {
-      children = [children];
-    }
-    children.map((child) => {
+    const childrenArray = Array.isArray(children) ? children : [children];
+    childrenArray.map((child) => {
       const type = child.props && child.props.type;
       let prefixCls = child.props && child.props.prefixCls;
       prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';

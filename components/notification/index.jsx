@@ -98,10 +98,10 @@ function notice(args) {
 }
 
 let api = {
-  open(args){
+  open(args) {
     notice(args);
   },
-  close(key){
+  close(key) {
     if (notificationInstance) {
       notificationInstance.removeNotice(key);
     }

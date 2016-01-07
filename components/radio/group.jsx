@@ -37,13 +37,13 @@ export default React.createClass({
     let props = this.props;
     let children = React.Children.map(props.children, (radio) => {
       if (radio.props) {
-        return <Radio
-          key={radio.props.value}
-          {...radio.props}
-          onChange={this.onRadioChange}
-          checked={this.state.value === radio.props.value}
-          disabled={radio.props.disabled || this.props.disabled}
-        />;
+        return (
+          <Radio key={radio.props.value}
+                 {...radio.props}
+                 onChange={this.onRadioChange}
+                 checked={this.state.value === radio.props.value}
+                 disabled={radio.props.disabled || this.props.disabled}/>
+        );
       }
       return radio;
     });

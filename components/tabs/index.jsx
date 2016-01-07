@@ -51,20 +51,28 @@ class AntTabs extends React.Component {
         });
       }
       // Add new tab handler
-      tabBarExtraContent = <span>
-        <Icon type="plus" className={prefixCls + '-new-tab'} onClick={this.createNewTab} />
-        {tabBarExtraContent}
-      </span>;
+      tabBarExtraContent = (
+        <span>
+          <Icon type="plus" className={prefixCls + '-new-tab'} onClick={this.createNewTab} />
+          {tabBarExtraContent}
+        </span>
+      );
     }
     // Wrap the extra content
-    tabBarExtraContent = <div className={prefixCls + '-extra-content'}>
-      {tabBarExtraContent}
-    </div>;
-    return <Tabs {...this.props}
-      className={className}
-      tabBarExtraContent={tabBarExtraContent}
-      onChange={this.handleChange}
-      animation={animation}>{children}</Tabs>;
+    tabBarExtraContent = (
+      <div className={prefixCls + '-extra-content'}>
+        {tabBarExtraContent}
+      </div>
+    );
+    return (
+      <Tabs {...this.props}
+            className={className}
+            tabBarExtraContent={tabBarExtraContent}
+            onChange={this.handleChange}
+            animation={animation}>
+        {children}
+      </Tabs>
+    );
   }
 }
 
