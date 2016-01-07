@@ -149,7 +149,8 @@ var Modal = antd.Modal;
 var PriviewImg = React.createClass({
   getInitialState() {
     return {
-      visible: false
+      visible: false,
+      boxLength: 1,
     };
   },
   showImageModal() {
@@ -163,21 +164,40 @@ var PriviewImg = React.createClass({
     });
   },
   render() {
+    const width = (100.0 / this.props.boxLength) + '%';
+    const goodCls = this.props.good ? 'good' : '';
+    const badCls = this.props.bad ? 'bad' : '';
     return (
-      <span className="preview-image-wrapper">
-        <img src={this.props.src} onClick={this.showImageModal} alt={this.props.alt} />
+      <div className="preview-image-box" style={{ width: width }}>
+        <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
+          <img src={this.props.src} onClick={this.showImageModal} alt="Sample Picture" />
+        </div>
+        <div className="preview-image-description">{this.props.alt}</div>
         <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
-          <img src={this.props.src} alt={this.props.alt} />
+          <img src={this.props.src} />
+          <div className="preview-image-description">{this.props.alt}</div>
         </Modal>
-      </span>
+      </div>
     );
   }
 });
 
 InstantClickChangeFns.push(function() {
-  Array.slice(document.querySelectorAll('.preview-img')).forEach(function(img) {
-    img.parentNode.className = 'preview-image';
-    ReactDOM.render(<PriviewImg src={img.src} />, img.parentNode);
+  const previewImageBoxes = $('.preview-img').parent();
+  previewImageBoxes.each(function(i, box) {
+    box = $(box);
+    const priviewImgs = [];
+    const boxLength = box.find('.preview-img').length;
+    box.find('.preview-img').each(function(i, img) {
+      console.log(img.hasAttribute('good'));
+      priviewImgs.push(
+        <PriviewImg boxLength={boxLength} key={i} src={img.src}
+          alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
+      );
+    });
+    const mountNode = $('<div class="preview-image-boxes"></div>');
+    box.replaceWith(mountNode);
+    ReactDOM.render(<span>{priviewImgs}</span>, mountNode[0]);
   });
 });
 

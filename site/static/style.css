@@ -386,6 +386,7 @@ footer ul li > a {
   padding-bottom: 50px;
   float: left;
   border-right: 1px solid #e9e9e9;
+  margin-right: -1px;
 }
 
 .aside-container > ul > li {
@@ -411,7 +412,7 @@ footer ul li > a {
   z-index: 1;
   position: relative;
   background: #fff;
-  right: 1px;
+  border-right: 1px solid #e9e9e9;
 }
 
 .aside-container li h4:after {
@@ -425,6 +426,7 @@ footer ul li > a {
   opacity: 0;
   transition: all 0.3s ease;
 }
+
 
 .aside-container li[open=open] h4:after {
   -webkit-transform: scale(0.6) rotate(180deg);
@@ -494,22 +496,14 @@ footer ul li > a {
   padding: 0 40px 120px;
   background: #fff;
   min-height: 500px;
-}
-
-.main-container-center {
-  margin: 0 auto;
-  padding: 30px 80px 120px;
-  border-left: 1px solid #e9e9e9;
-  border-right: 1px solid #e9e9e9;
-  width: 90%;
-  height: 100%;
+  overflow: hidden;
 }
 
 .markdown {
   color: #666;
   font-size: 14px;
   line-height: 1.8;
-  width: 90%;
+  width: 80%;
 }
 
 .highlight {
@@ -536,6 +530,7 @@ footer ul li > a {
   color: #404040;
   margin: 1.6em 0 0.6em 0;
   font-weight: 500;
+  clear: both;
 }
 
 .markdown h1 { font-size: 28px; }
@@ -546,11 +541,10 @@ footer ul li > a {
 .markdown h6 { font-size: 12px; }
 
 .markdown hr {
-  border-radius: 10px;
-  height: 3px;
+  height: 1px;
   border: 0;
-  background: #eee;
-  margin: 20px 0;
+  background: #e9e9e9;
+  margin: 16px 0;
 }
 
 .markdown p,
@@ -558,10 +552,11 @@ footer ul li > a {
   margin: 1em 0;
 }
 
-.markdown > ul li {
+.markdown > ul li,
+.markdown blockquote ul > li {
   list-style: circle;
-  margin-left: 20px;
-  padding-left: 8px;
+  margin-left: 1em;
+  padding-left: 0.4em;
 }
 
 .markdown > ul li p,
@@ -569,10 +564,11 @@ footer ul li > a {
   margin: 0.6em 0;
 }
 
-.markdown > ol li {
+.markdown > ol li,
+.markdown blockquote ol > li {
   list-style: decimal;
-  margin-left: 20px;
-  padding-left: 8px;
+  margin-left: 1em;
+  padding-left: 0.4em;
 }
 
 .markdown code {
@@ -627,6 +623,11 @@ footer ul li > a {
   color: #999;
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.markdown blockquote p {
   margin: 0;
 }
 
@@ -644,6 +645,11 @@ footer ul li > a {
 .markdown h6:hover .anchor {
   opacity: 1;
   display: inline-block;
+}
+
+.markdown > br,
+.markdown > p > br {
+  clear: both;
 }
 
 #api ~ ul > li > p > strong ~ code {
@@ -709,18 +715,18 @@ footer ul li > a {
 }
 
 .toc li > ul {
-  text-indent: 10px;
+  text-indent: 8px;
 }
 
 .toc a {
-  padding-left: 10px;
+  padding-left: 8px;
   border-left: 2px solid #eee;
   display: block;
   transition: all 0.3s ease;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-width: 100px;
+  max-width: 90px;
   line-height: 20px;
   color: #999;
 }
@@ -818,7 +824,7 @@ footer ul li > a {
 }
 
 .code-boxes-col-1-1 {
-  width: 90%;
+  width: 80%;
 }
 
 .code-boxes-col-2-1 {
@@ -1070,6 +1076,10 @@ a.entry-link:hover .anticon-smile {
     width: 100%;
   }
 
+  .toc {
+    display: none;
+  }
+
   .nav-phone-icon {
     display: block;
     width: 49px;
@@ -1246,23 +1256,72 @@ a.entry-link:hover .anticon-smile {
   font-size: 12px;
 }
 
-p.preview-image {
+.preview-image-boxes {
   float: right;
-  margin: 0;
-  margin-right: -10%;
+  margin: 0 -14% 30px 60px;
+  width: 600px;
+  overflow: hidden;
+}
+
+.preview-image-box {
+  width: 100%;
+  float: left;
+  padding: 0 8px;
+}
+
+.preview-image-box:first-child {
+  margin-left: -8px;
+}
+
+.preview-image-box:last-child {
+  margin-right: -8px;
 }
 
 .preview-image-wrapper {
-  width: 600px;
   background: #F2F2F2;
   padding: 24px;
   display: inline-block;
   text-align: center;
+  width: 100%;
+  position: relative;
 }
 
-.preview-image img {
+.preview-image-wrapper.good:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #2db7f5;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.preview-image-wrapper.bad:after {
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #f50;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.preview-image-description {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #999;
+}
+
+.preview-image-box img {
   cursor: pointer;
   max-width: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.preview-image-box img:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .image-modal {
