@@ -59,7 +59,7 @@ const Demo = React.createClass({
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
           required>
-          <InputNumber size="large" min={1} max={10} style={{width:100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
+          <InputNumber size="large" min={1} max={10} style={{width: 100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
           <span className="ant-form-text"> 台机器</span>
         </FormItem>
 
@@ -95,7 +95,7 @@ const Demo = React.createClass({
           labelCol={{span: 8}}
           wrapperCol={{span: 16}}
           required>
-          <Select size="large" defaultValue="lucy" style={{width:200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
+          <Select size="large" defaultValue="lucy" style={{width: 200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
             <Option value="jack">jack</Option>
             <Option value="lucy">lucy</Option>
             <Option value="disabled" disabled>disabled</Option>

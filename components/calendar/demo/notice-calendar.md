@@ -39,14 +39,18 @@ function getListData(value) {
 
 function dateCellRender(value) {
   let listData = getListData(value);
-  return <ul className="events">
-    {listData.map((item, index) =>
-      <li key={index}>
-        <span className={`event-${item.type}`}>●</span>
-        {item.content}
-      </li>
-    )}
-  </ul>;
+  return (
+    <ul className="events">
+      {
+        listData.map((item, index) =>
+          <li key={index}>
+            <span className={`event-${item.type}`}>●</span>
+            {item.content}
+          </li>
+        )
+      }
+    </ul>
+  );
 }
 
 

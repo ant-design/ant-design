@@ -20,9 +20,8 @@ function cx(classNames) {
     return Object.keys(classNames).filter(function(className) {
       return classNames[className];
     }).join(' ');
-  } else {
-    return Array.prototype.join.call(arguments, ' ');
   }
+  return Array.prototype.join.call(arguments, ' ');
 }
 
 const Demo = React.createClass({
@@ -76,15 +75,14 @@ const Demo = React.createClass({
       if (!valid) {
         console.log('error in form');
         return;
-      } else {
-        console.log('submit');
       }
+      console.log('submit: ');
       console.log(this.state.formData);
     });
   },
 
   checkBirthday(rule, value, callback) {
-    if (value && value.getTime() >= Date.now()){
+    if (value && value.getTime() >= Date.now()) {
       callback(new Error('你不可能在未来出生吧!'));
     } else {
       callback();

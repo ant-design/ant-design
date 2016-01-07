@@ -41,16 +41,18 @@ let App = React.createClass({
     }
   },
   render() {
-    return <div>
-      <Popconfirm title="确定要删除这个任务吗？"
-        visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
-        onConfirm={this.confirm} onCancel={this.cancel}>
-        <a href="#">删除某任务</a>
-      </Popconfirm>
-      <br />
-      <br />
-      点击是否直接执行：<Switch defaultChecked onChange={this.changeCondition} />
-    </div>;
+    return (
+      <div>
+        <Popconfirm title="确定要删除这个任务吗？"
+                    visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
+                    onConfirm={this.confirm} onCancel={this.cancel}>
+          <a href="#">删除某任务</a>
+        </Popconfirm>
+        <br />
+        <br />
+        点击是否直接执行：<Switch defaultChecked onChange={this.changeCondition} />
+      </div>
+    );
   }
 });
 

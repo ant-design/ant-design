@@ -41,7 +41,7 @@ ReactDOM.render(
       label="Select 选择器："
       labelCol={{span: 6}}
       wrapperCol={{span: 14}}>
-      <Select id="select" size="large" defaultValue="lucy" style={{width:200}} onChange={handleSelectChange}>
+      <Select id="select" size="large" defaultValue="lucy" style={{width: 200}} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>

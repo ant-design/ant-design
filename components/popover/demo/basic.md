@@ -9,10 +9,12 @@
 ````jsx
 import { Popover, Button } from 'antd';
 
-const content = <div>
-  <p>内容</p>
-  <p>内容</p>
-</div>;
+const content = (
+  <div>
+    <p>内容</p>
+    <p>内容</p>
+  </div>
+);
 
 ReactDOM.render(
   <Popover overlay={content} title="标题">

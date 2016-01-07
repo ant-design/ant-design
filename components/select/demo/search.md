@@ -15,9 +15,9 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select defaultValue="lucy" showSearch style={{width:200}}
-  searchPlaceholder="输入"
-  onChange={handleChange}>
+  <Select defaultValue="lucy" showSearch style={{width: 200}}
+          searchPlaceholder="输入"
+          onChange={handleChange}>
     <Option value="jack">jack</Option>
     <Option value="lucy">lucy</Option>
     <Option value="disabled" disabled>disabled</Option>

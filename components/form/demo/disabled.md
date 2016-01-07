@@ -16,8 +16,8 @@ ReactDOM.render(
   <Form horizontal>
     <FormItem
       label="单独禁用输入框："
-      labelCol={{span:5}}
-      wrapperCol={{span:12}}>
+      labelCol={{span: 5}}
+      wrapperCol={{span: 12}}>
       <Input defaultValue="我是禁用的" disabled />
     </FormItem>
 
@@ -26,16 +26,16 @@ ReactDOM.render(
       <FormItem
         id="userName"
         label="用户名："
-        labelCol={{span:5}}
-        wrapperCol={{span:12}}
+        labelCol={{span: 5}}
+        wrapperCol={{span: 12}}
         required>
         <p className="ant-form-text">大眼萌 minion</p>
       </FormItem>
       <FormItem
         id="password"
         label="密码："
-        labelCol={{span:5}}
-        wrapperCol={{span:12}}
+        labelCol={{span: 5}}
+        wrapperCol={{span: 12}}
         required>
         <Input type="password" defaultValue="123456" id="password" />
       </FormItem>

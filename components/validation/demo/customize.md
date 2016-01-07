@@ -45,9 +45,8 @@ const Demo = React.createClass({
       if (!valid) {
         console.log('error in form');
         return;
-      } else {
-        console.log('submit');
       }
+      console.log('submit: ');
       console.log(this.state.formData);
     });
   },

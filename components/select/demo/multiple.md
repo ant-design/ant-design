@@ -22,8 +22,8 @@ function handleChange(value) {
 
 ReactDOM.render(
   <Select multiple
-  style={{width:400}}
-  defaultValue={['a10', 'c12']} onChange={handleChange}>
+          style={{width: 400}}
+          defaultValue={['a10', 'c12']} onChange={handleChange}>
     {children}
   </Select>
 , mountNode);

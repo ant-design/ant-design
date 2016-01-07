@@ -56,7 +56,9 @@ const Test = React.createClass({
       sortOrder: sorter.order
     };
     for (let key in filters) {
-      params[key] = filters[key];
+      if (filters.hasOwnProperty(key)) {
+        params[key] = filters[key];
+      }
     }
     this.fetch(params);
   },
