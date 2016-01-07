@@ -37,12 +37,14 @@ Timeline.Item = React.createClass({
     let pending = props.pending;
     let timelineLast = props.timelineLast;
     let endCls = pending && timelineLast ? prefixCls + '-item-last' : '';
-    let last = pending && timelineLast ? <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-end'}></div> : null;
+    let last = pending && timelineLast ?
+          <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-end'}></div> :
+          null;
     let lastTailShow = (timelineLast && !pending) ? 'none' : 'block';
 
     return (
       <li className={prefixCls + '-item ' + endCls}>
-        <div style={{display: lastTailShow}} className={prefixCls + '-item-tail'}></div>
+        <div style={{ display: lastTailShow }} className={prefixCls + '-item-tail'}></div>
         <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-' + color}></div>
         <div className={prefixCls + '-item-content'}>{props.children}</div>
         {last}

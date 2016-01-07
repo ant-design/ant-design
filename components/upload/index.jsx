@@ -125,7 +125,7 @@ const AntUpload = React.createClass({
       targetItem.response = response;
       this.onChange({
         file: targetItem,
-        fileList: fileList
+        fileList
       });
     }
   },
@@ -136,7 +136,7 @@ const AntUpload = React.createClass({
     targetItem.percent = e.percent;
     this.onChange({
       event: e,
-      file: file,
+      file,
       fileList: this.state.fileList
     });
   },
@@ -157,8 +157,8 @@ const AntUpload = React.createClass({
     let fileList = this.removeFile(file);
     if (fileList) {
       this.onChange({
-        file: file,
-        fileList: fileList
+        file,
+        fileList,
       });
     }
   },
@@ -257,7 +257,7 @@ const AntUpload = React.createClass({
 
 AntUpload.Dragger = React.createClass({
   render() {
-    return <AntUpload {...this.props} type="drag" style={{height: this.props.height}}/>;
+    return <AntUpload {...this.props} type="drag" style={{ height: this.props.height }}/>;
   }
 });
 

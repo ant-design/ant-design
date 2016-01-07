@@ -23,9 +23,9 @@ class AntPagination extends React.Component {
 
     return (
       <Pagination selectComponentClass={selectComponentClass}
-                  selectPrefixCls="ant-select"
-                  {...this.props}
-                  className={className} />
+        selectPrefixCls="ant-select"
+        {...this.props}
+        className={className} />
     );
   }
 }

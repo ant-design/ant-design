@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom';
 import Dialog from './index';
 import Icon from '../icon';
 import Button from '../button';
+import objectAssign from 'object-assign';
 
-export default function (props = {}) {
+export default function (config) {
+  const props = objectAssign({}, config || {});
   let div = document.createElement('div');
   document.body.appendChild(div);
 
@@ -110,7 +112,7 @@ export default function (props = {}) {
     transitionName="zoom"
     footer=""
     maskTransitionName="fade" width={width}>
-    <div style={{zoom: 1, overflow: 'hidden'}}>{body} {footer}</div>
+    <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
   </Dialog>, div, function () {
     d = this;
   });

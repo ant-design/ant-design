@@ -13,7 +13,7 @@ function getNotificationInstance() {
   notificationInstance = Notification.newInstance({
     prefixCls: 'ant-notification',
     style: {
-      top: top,
+      top,
       right: 0
     }
   });
@@ -32,20 +32,20 @@ function notice(args) {
     let prefixCls = ' ant-notification-notice-content-icon-';
     let iconType = '';
     switch (args.icon) {
-    case 'success':
-      iconType = 'check-circle-o';
-      break;
-    case 'info':
-      iconType = 'info-circle-o';
-      break;
-    case 'error':
-      iconType = 'exclamation-circle-o';
-      break;
-    case 'warn':
-      iconType = 'question-circle-o';
-      break;
-    default:
-      iconType = 'info-circle';
+      case 'success':
+        iconType = 'check-circle-o';
+        break;
+      case 'info':
+        iconType = 'info-circle-o';
+        break;
+      case 'error':
+        iconType = 'exclamation-circle-o';
+        break;
+      case 'warn':
+        iconType = 'question-circle-o';
+        break;
+      default:
+        iconType = 'info-circle';
     }
 
     getNotificationInstance().notice({
@@ -56,7 +56,7 @@ function notice(args) {
 
         <div className={prefixCls + 'description'}>{args.description}</div>
       </div>,
-      duration: duration,
+      duration,
       closable: true,
       onClose: args.onClose,
       key: args.key,
@@ -71,7 +71,7 @@ function notice(args) {
 
           <div className={prefixCls + 'description'}>{args.description}</div>
         </div>,
-        duration: duration,
+        duration,
         closable: true,
         onClose: args.onClose,
         key: args.key,
@@ -87,7 +87,7 @@ function notice(args) {
             {args.btn}
           </span>
         </div>,
-        duration: duration,
+        duration,
         closable: true,
         onClose: args.onClose,
         key: args.key,

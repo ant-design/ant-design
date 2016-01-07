@@ -1,6 +1,7 @@
 import React from 'react';
 import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
+import objectAssign from 'object-assign';
 import confirm from './confirm';
 import Button from '../button';
 
@@ -72,32 +73,40 @@ let AntModal = React.createClass({
     let footer = props.footer || defaultFooter;
     return (
       <Dialog onClose={this.handleCancel} footer={footer} {...props}
-              visible={props.visible} mousePosition={mousePosition} />
+        visible={props.visible} mousePosition={mousePosition} />
     );
   }
 });
 
 AntModal.info = function (props) {
-  props.iconClassName = 'info-circle';
-  props.okCancel = false;
-  return confirm(props);
+  const config = objectAssign({}, props, {
+    iconClassName: 'info-circle',
+    okCancel: false,
+  });
+  return confirm(config);
 };
 
 AntModal.success = function (props) {
-  props.iconClassName = 'check-circle';
-  props.okCancel = false;
-  return confirm(props);
+  const config = objectAssign({}, props, {
+    iconClassName: 'check-circle',
+    okCancel: false,
+  });
+  return confirm(config);
 };
 
 AntModal.error = function (props) {
-  props.iconClassName = 'exclamation-circle';
-  props.okCancel = false;
-  return confirm(props);
+  const config = objectAssign({}, props, {
+    iconClassName: 'exclamation-circle',
+    okCancel: false,
+  });
+  return confirm(config);
 };
 
 AntModal.confirm = function (props) {
-  props.okCancel = true;
-  return confirm(props);
+  const config = objectAssign({}, props, {
+    okCancel: true,
+  });
+  return confirm(config);
 };
 
 export default AntModal;

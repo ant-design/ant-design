@@ -9,7 +9,7 @@ export default React.createClass({
     };
   },
   render() {
-    const {isIncluded, marks, index, defaultIndex, ...rest} = this.props;
+    const { isIncluded, marks, index, defaultIndex, ...rest } = this.props;
 
     if (isIncluded !== undefined) {
       // 兼容 `isIncluded`

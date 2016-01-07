@@ -20,12 +20,11 @@ let FilterMenu = React.createClass({
   },
   getDefaultProps() {
     return {
-      handleFilter: function () {
-      },
+      handleFilter() {},
       column: null
     };
   },
-  setSelectedKeys: function ({selectedKeys}) {
+  setSelectedKeys({ selectedKeys }) {
     this.setState({ selectedKeys });
   },
   handleClearFilters() {
@@ -41,7 +40,7 @@ let FilterMenu = React.createClass({
   },
   onVisibleChange(visible) {
     this.setState({
-      visible: visible
+      visible,
     });
     if (!visible) {
       this.props.confirmFilter(this.props.column, this.state.selectedKeys);
@@ -89,7 +88,7 @@ let FilterMenu = React.createClass({
     this.setState({ keyPathOfSelectedItem });
   },
   render() {
-    let {column, locale} = this.props;
+    let { column, locale } = this.props;
     // default multiple selection in filter dropdown
     let multiple = true;
     if ('filterMultiple' in column) {
@@ -117,19 +116,19 @@ let FilterMenu = React.createClass({
     let menus = (
       <div className="ant-table-filter-dropdown">
         <Menu multiple={multiple}
-              prefixCls="ant-dropdown-menu"
-              onSelect={this.setSelectedKeys}
-              onDeselect={this.setSelectedKeys}
-              selectedKeys={this.state.selectedKeys}>
+          prefixCls="ant-dropdown-menu"
+          onSelect={this.setSelectedKeys}
+          onDeselect={this.setSelectedKeys}
+          selectedKeys={this.state.selectedKeys}>
           {this.renderMenus(column.filters)}
         </Menu>
         <div className="ant-table-filter-dropdown-btns">
           <a className="ant-table-filter-dropdown-link confirm"
-             onClick={this.handleConfirm}>
+            onClick={this.handleConfirm}>
             {locale.filterConfirm}
           </a>
           <a className="ant-table-filter-dropdown-link clear"
-             onClick={this.handleClearFilters}>
+            onClick={this.handleClearFilters}>
             {locale.filterReset}
           </a>
         </div>
@@ -144,10 +143,10 @@ let FilterMenu = React.createClass({
 
     return (
       <Dropdown trigger={['click']}
-                overlay={menus}
-                visible={this.state.visible}
-                onVisibleChange={this.onVisibleChange}
-                closeOnSelect={false}>
+        overlay={menus}
+        visible={this.state.visible}
+        onVisibleChange={this.onVisibleChange}
+        closeOnSelect={false}>
         <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
       </Dropdown>
     );

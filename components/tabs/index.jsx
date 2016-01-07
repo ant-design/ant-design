@@ -66,10 +66,10 @@ class AntTabs extends React.Component {
     );
     return (
       <Tabs {...this.props}
-            className={className}
-            tabBarExtraContent={tabBarExtraContent}
-            onChange={this.handleChange}
-            animation={animation}>
+        className={className}
+        tabBarExtraContent={tabBarExtraContent}
+        onChange={this.handleChange}
+        animation={animation}>
         {children}
       </Tabs>
     );

@@ -55,9 +55,11 @@ export default React.createClass({
       if (this.props.listType === 'picture') {
         icon = (file.status === 'uploading' || (!file.thumbUrl && !file.url))
           ? <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />
-          : <a className={prefixCls + '-list-item-thumbnail'}
-               href={file.url}
-               target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>;
+          : (
+              <a className={prefixCls + '-list-item-thumbnail'}
+                href={file.url}
+                target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
+          );
       }
       if (file.status === 'uploading') {
         progress = (

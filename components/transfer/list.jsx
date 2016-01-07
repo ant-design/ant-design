@@ -56,8 +56,8 @@ class TransferList extends Component {
     }
     return (
       <span ref="checkbox"
-            className={checkboxCls}
-            onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
+        className={checkboxCls}
+        onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
         {customEle}
       </span>
     );
@@ -69,11 +69,12 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys, checkStatus, body, footer, showSearch } = this.props;
+    const { prefixCls, dataSource, titleText, filter, checkedKeys,
+            checkStatus, body, footer, showSearch } = this.props;
 
     // Custom Layout
-    const footerDom = footer({...this.props});
-    const bodyDom = body({...this.props});
+    const footerDom = footer({ ...this.props });
+    const bodyDom = body({ ...this.props });
 
     const listCls = classNames({
       [prefixCls]: true,
@@ -88,13 +89,27 @@ class TransferList extends Component {
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
             checkable: <span className={`ant-transfer-checkbox-inner`}></span>
-          })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条</span>
-          <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
+          })}
+          <span className={`${prefixCls}-header-selected`}>
+            <span>
+              {
+                (checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length
+              } 条
+            </span>
+            <span className={`${prefixCls}-header-title`}>{titleText}</span>
+          </span>
         </div>
         { bodyDom ? bodyDom :
-        <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+        <div className={
+          showSearch ?
+          `${prefixCls}-body ${prefixCls}-body-with-search` :
+          `${prefixCls}-body`
+          }>
           { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-            <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
+          <Search prefixCls={`${prefixCls}-search`}
+            onChange={this.handleFilter.bind(this)}
+            handleClear={this.handleClear.bind(this)}
+            value={filter} />
           </div> : null }
           <Animate component="ul"
             transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
@@ -109,7 +124,8 @@ class TransferList extends Component {
 
                 if (filterResult) {
                   return (
-                    <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
+                    <li onClick={this.handleSelect.bind(this, item)}
+                      key={item.key} title={renderedText}>
                       <Checkbox checked={checkedKeys.some(key => key === item.key)} />
                       {renderedText}
                     </li>

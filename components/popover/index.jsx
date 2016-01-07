@@ -6,7 +6,7 @@ const prefixCls = 'ant-popover';
 const Popover = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: prefixCls,
+      prefixCls,
       placement: 'top',
       trigger: 'hover',
       mouseEnterDelay: 0.1,
@@ -33,9 +33,9 @@ const Popover = React.createClass({
 
     return (
       <Tooltip transitionName={transitionName}
-               ref="tooltip"
-               {...this.props}
-               overlay={this.getOverlay()}>
+        ref="tooltip"
+        {...this.props}
+        overlay={this.getOverlay()}>
         {this.props.children}
       </Tooltip>
     );
