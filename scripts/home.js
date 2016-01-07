@@ -5,19 +5,9 @@ import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import EventDispatcher from 'rc-scroll-anim/lib/EventDispatcher';
 import TweenOne from 'rc-tween-one';
 
-const DivId = ['page4', 'page3', 'page2', 'page1', 'banner'];
-const header = document.getElementById('header');
-DivId.forEach(id=> {
-  const page = document.createElement('section');
-  page.id = id;
-  if (id.indexOf('page') >= 0) {
-    page.className = 'page';
-  }
-  document.body.insertBefore(page, header.nextSibling);
-});
-
-// 导航处理；
+// 导航处理
 function scrollNavEvent() {
+  console.log(document.body.scrollTop);
   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   const clientHeight = document.documentElement.clientHeight;
   if (scrollTop >= clientHeight) {
@@ -60,7 +50,7 @@ class Banner extends React.Component {
   }
 }
 
-ReactDOM.render(<Banner />, banner);
+ReactDOM.render(<Banner />, document.getElementById('banner'));
 
 
 // page1
@@ -75,7 +65,7 @@ ReactDOM.render((
         type="right"/></Button></div>
     </QueueAnim>
   </ScrollOverPack>
-), page1);
+), document.getElementById('page1'));
 
 //page2
 ReactDOM.render((
@@ -90,9 +80,9 @@ ReactDOM.render((
     <TweenOne key="image" className="image2 image-wrapper" vars={{x: 0, opacity: 1, delay: 300, duration: 550}}
               style={{transform: 'translateX(100px)', opacity: 0}}/>
   </ScrollOverPack>
-), page2);
+), document.getElementById('page2'));
 
-//page3
+// page3
 ReactDOM.render((
   <ScrollOverPack className="content-wrapper">
     <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
@@ -105,12 +95,11 @@ ReactDOM.render((
         type="right"/></Button></div>
     </QueueAnim>
   </ScrollOverPack>
-), page3);
+), document.getElementById('page3'));
 
-//page4
+// page4
 ReactDOM.render((
   <ScrollOverPack className="content-wrapper">
-
     <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom">
       <h1 key="h1">微小·确定·幸福</h1>
       <p key="p">这是一套致力于提升“用户”和“设计者”使用体验的中后台设计语言。</p>
@@ -118,4 +107,4 @@ ReactDOM.render((
     <TweenOne key="image" className="image4 bottom-wrapper" vars={{y: 0, opacity: 1, duration: 550, delay: 550}}
               style={{transform: 'translateY(50px)', opacity: 0}}/>
   </ScrollOverPack>
-), page4);
+), document.getElementById('page4'));

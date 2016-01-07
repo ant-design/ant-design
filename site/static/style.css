@@ -335,10 +335,11 @@ a.nav-link-disabled {
 footer {
   clear: both;
   border-top: 1px solid #eee;
-  font-size: 16px;
+  font-size: 12px;
   background: #fff;
   position: relative;
   z-index: 1;
+  color: #666;
 }
 
 footer ul {
@@ -353,30 +354,18 @@ footer ul li {
 }
 
 footer ul li > h2 {
-  font-size: 1em;
-  color: #5C6B77;
-  margin: 10px auto 0;
+  font-size: 16px;
+  margin: 10px auto 5px;
   font-weight: normal;
 }
 
-footer ul li > h3,
-footer h3 {
-  font-size: 0.75em;
-  color: #5C6B77;
-  font-weight: normal;
-  margin-top: 12px;
-}
-
-footer > h3 {
-  text-align: center;
-  font-size: .75em;
-  display: none;
+footer ul li > div {
+  text-align: left;
   margin: auto;
-  padding: 10px 0;
+  margin: 10px 0;
 }
 
 footer ul li > a {
-  font-size: 0.75em;
   margin: 5px 2px 0 0;
 }
 

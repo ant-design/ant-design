@@ -3,10 +3,26 @@
 {% block bodyAttribute %}class="index-page"{% endblock %}
 
 {% block content %}
+<section id="banner"></section>
+<section id="page1" class="page"></section>
+<section id="page2" class="page"></section>
+<section id="page3" class="page"></section>
+<section id="page4" class="page"></section>
 <script src="{{static_url('../dist/home.js')}}"></script>
 <style>
-  html, body, div, section, {
-    font-family: 'PingFang SC', "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", SimSun, sans-serif;
+  .main-wrapper {
+    background: transparent;
+    width: auto;
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    overflow: unset;
+    display: inline;
+  }
+
+  #home-page,
+  #home-page > div {
+    height: 100%;
   }
 
   .index-page {
@@ -23,10 +39,6 @@
 
   header .nav ul li a {
     color: #eee;
-  }
-
-  .main-wrapper {
-    display: none;
   }
 
   .nav ul li a {
@@ -215,7 +227,7 @@
     margin: 20px auto;
     font-size: 16px;
     line-height: 28px;
-    color: #999999;
+    color: #999;
   }
 
   #footer {
@@ -223,11 +235,11 @@
   }
 
   footer ul li > h2 {
-    color: #656975;
+    color: #777;
   }
 
   footer ul li > a {
-    color: #BEC4C8
+    color: #eee;
   }
 </style>
 {% endblock %}

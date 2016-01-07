@@ -189,7 +189,6 @@ InstantClickChangeFns.push(function() {
     const priviewImgs = [];
     const boxLength = box.find('.preview-img').length;
     box.find('.preview-img').each(function(i, img) {
-      console.log(img.hasAttribute('good'));
       priviewImgs.push(
         <PriviewImg boxLength={boxLength} key={i} src={img.src}
           alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
