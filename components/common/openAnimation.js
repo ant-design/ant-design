@@ -14,7 +14,9 @@ function animate(node, show, transitionName, done) {
   }
 
   // Fix safari flash bug
+  /*eslint-disable */
   node.style.display = show ? 'block' : 'none';
+  /*eslint-enable */
   velocity(node, transitionName, {
     duration: 240,
     complete,

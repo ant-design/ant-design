@@ -163,7 +163,9 @@ const AntUpload = React.createClass({
     }
   },
   handleManualRemove(file) {
+    /*eslint-disable */
     file.status = 'removed';
+    /*eslint-enable */
     this.handleRemove(file);
   },
   onChange(info) {
