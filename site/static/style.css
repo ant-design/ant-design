@@ -89,7 +89,7 @@ a.logo {
   line-height: 40px;
   margin: 17px 0 17px 4%;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",sans-serif;
   color: #2db7f5;
   width: 219px;
@@ -103,9 +103,9 @@ a.logo {
 
 .search {
   float: left;
-  height: 22px;
+  height: 20px;
   padding: 0px 0 0 30px;
-  margin: 32px auto 0;
+  margin: 28px auto 0;
   border-left: 1px solid #EBEDEE;
   position: relative;
 }

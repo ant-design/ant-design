@@ -12,9 +12,13 @@
   header {
     position: fixed;
     z-index: 999;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0,0,0,0.25);
     border-bottom: 1px solid transparent;
     transition: border .5s cubic-bezier(0.455, 0.03, 0.515, 0.955), background .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  }
+
+  header .nav ul li a {
+    color: #eee;
   }
 
   .global-hint {
@@ -43,8 +47,6 @@
 
   .search {
     border-left-color: rgba(235, 237, 238, .5);
-    height: 20px;
-    margin-top: 28px;
     transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   }
 
@@ -126,6 +128,15 @@
 
   .banner-text-wrapper a span {
     margin-left: 15px;
+  }
+
+  .down {
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    color: rgba(255, 255, 255, .75);
+    left: 50%;
+    margin-left: -7px;
   }
 
   section {
@@ -224,7 +235,8 @@
   footer ul li > h2 {
     color: #656975;
   }
-  footer ul li > a{
+
+  footer ul li > a {
     color: #BEC4C8
   }
 </style>
