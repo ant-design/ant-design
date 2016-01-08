@@ -150,7 +150,6 @@ var PriviewImg = React.createClass({
   getInitialState() {
     return {
       visible: false,
-      boxLength: 1,
     };
   },
   showImageModal() {
@@ -164,11 +163,10 @@ var PriviewImg = React.createClass({
     });
   },
   render() {
-    const width = (100.0 / this.props.boxLength) + '%';
     const goodCls = this.props.good ? 'good' : '';
     const badCls = this.props.bad ? 'bad' : '';
     return (
-      <div className="preview-image-box" style={{ width: width }}>
+      <div className="preview-image-box" style={{ width: this.props.width }}>
         <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
           <img src={this.props.src} onClick={this.showImageModal} alt="Sample Picture" />
         </div>
@@ -190,16 +188,20 @@ InstantClickChangeFns.push(function() {
   previewImageBoxes.each(function(i, box) {
     box = $(box);
     const priviewImgs = [];
-    const boxLength = box.find('.preview-img').length;
-    box.find('.preview-img').each(function(i, img) {
+    const priviewImgNodes = box.find('.preview-img');
+    priviewImgNodes.each(function(i, img) {
       priviewImgs.push(
-        <PriviewImg boxLength={boxLength} key={i} src={img.src}
+        <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'}
           alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
       );
     });
     let mountNode = $('<div class="preview-image-boxes"></div>');
-    if (boxLength === 1) {
-      mountNode = $('<div class="preview-image-boxes" style="width: ' + box.find('.preview-img').eq(0).attr('width') + 'px"></div>');
+    if (priviewImgNodes.length === 1) {
+      let width = priviewImgNodes.eq(0).attr('width') || '';
+      if (width && width.indexOf('%') < 0) {
+        width += 'px';
+      }
+      mountNode = $('<div class="preview-image-boxes" style="width: ' + width + '"></div>');
     }
     box.replaceWith(mountNode);
     ReactDOM.render(<span>{priviewImgs}</span>, mountNode[0]);

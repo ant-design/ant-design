@@ -40,39 +40,39 @@
 
 ### 填空
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 在一种描述性的上下文中出现输入项，可以帮助用户理解当前的状况，以及需要提供什么数据。
 
 ### 组合输入框
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 当两个输入框关联性很强时，可以前后拼接，减少页面空间。
 
 ### 对齐方式
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 在页面设计表单时，按钮组必须和输入框左对齐。
 
 ### 禁用主按钮
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png" good>
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png" bad>
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png" good>
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png" bad>
 
 当输入框非常少时（一般少于 3 个），如果用户没有在必填项中输入内容，可禁用『提交』等主按钮；当输入框非常多时（超过 5 项以上），不建议禁用主按钮。
 
 ### 结构化的格式
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 用户对输入的内容很熟悉，且系统不希望接受任何偏离期望的格式。
 
 ### 输入提示 & 输入提醒
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 输入提示：不希望在标签上放置太多文字进行解释，同时只有标签又会引起误解。
 
@@ -80,25 +80,25 @@
 
 ### 密码加强计
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 提供关于密码强度和有效性的及时反馈，适用在注册页面时的密码输入框。
 
 ### 校验
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 
 通过不同的“校验”规则和形式进行反馈，避免用户在点击提交后才刚刚开始“校验”，让用户提前纠正错误。
 
 ### 字数校验框
 
-<img class="preview-img" width="50%" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="图片的描述语句" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 用于统计当前输入长度，以及是否超过系统阈值。
 

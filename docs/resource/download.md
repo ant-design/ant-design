@@ -29,10 +29,10 @@
   </span>
 </a>
 <a target="_blank" class="resource-card disabled">
-  <img src="https://os.alipayobjects.com/rmsportal/bAfRYPEppiuUQjR.png">
+  <img src="https://os.alipayobjects.com/rmsportal/CxXbSpIXckHOtWl.png">
   <span class="resource-card-content">
-    <span class="resource-card-title">Sketch Components</span>
-    <span class="resource-card-description">Ant Design 组件的 Sketch 视觉稿</span>
+    <span class="resource-card-title">Ant Cool</span>
+    <span class="resource-card-description">一个机智的设计资源共享工具</span>
   </span>
 </a>
 
