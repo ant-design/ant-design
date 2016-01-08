@@ -111,7 +111,7 @@ a.logo {
 }
 
 #autoComplete {
-  margin-top: -2px;
+  margin-top: -3px;
   width: 200px;
 }
 
@@ -533,6 +533,7 @@ footer ul li > a {
   border: 0;
   background: #e9e9e9;
   margin: 16px 0;
+  clear: both;
 }
 
 .markdown p,
@@ -687,11 +688,12 @@ footer ul li > a {
 }
 
 .toc {
-  float: right;
+  position: absolute;
   font-size: 12px;
   background: #fff;
   padding-top: 12px;
-  margin-right: -16px;
+  right: 24px;
+  overflow: hidden;
 }
 
 .toc.sticky {
@@ -1312,12 +1314,29 @@ a.entry-link:hover .anticon-smile {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.outside-link:after {
+  content: '\e669';
+  font-family: 'anticon';
+  margin-left: 5px;
+  font-size: 12px;
+}
+
 .image-modal {
   text-align: center;
 }
 
+.image-modal-container {
+  padding: 8px 8px 32px 8px;
+}
+
 .image-modal .ant-modal-header {
   display: none;
+}
+
+.image-modal .outside-link {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
 }
 
 .image-modal img {

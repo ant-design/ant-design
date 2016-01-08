@@ -23,7 +23,6 @@
 
 导航的结构由以下几部分组成。
 
-
 1. 产品 Logo 和名称。
 2. 业务类目。
 3. 登陆工具。
@@ -32,9 +31,11 @@
 > 注：
 > 1. 尽可能不使用面包屑，尤其是当前页面的导航能清晰的告诉用户他在哪里时；
 > 2. 面包屑可以分为这几类：
->    - 路径型：路径型面包屑是一个动态显示用户到达页面经过的途径。
->    - 位置型：位置型面包屑是固定的，显示了页面在网站结构中的位置。
->    - 属性型：属性型面包屑给出的当前页面的分类信息。
+>   - 路径型：是一个动态显示用户到达页面经过的途径。
+>   - 位置型：位置型是固定的，显示了页面在网站结构中的位置。
+>   - 属性型：属性型给出当前页面的分类信息。
+
+<br>
 
 <img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
@@ -58,13 +59,10 @@
 3. 登陆工具。
 4. 面包屑（可选）。
 
-<br>
-
 <img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 <img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 <img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
-
 
 不同类目层级。

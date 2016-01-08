@@ -174,8 +174,11 @@ var PriviewImg = React.createClass({
         </div>
         <div className="preview-image-description">{this.props.alt}</div>
         <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
-          <img src={this.props.src} />
+          <div className="image-modal-container">
+            <img src={this.props.src} />
+          </div>
           <div className="preview-image-description">{this.props.alt}</div>
+          <a className="outside-link" href={this.props.src} target="_blank">查看原图</a>
         </Modal>
       </div>
     );
@@ -194,7 +197,10 @@ InstantClickChangeFns.push(function() {
           alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
       );
     });
-    const mountNode = $('<div class="preview-image-boxes"></div>');
+    let mountNode = $('<div class="preview-image-boxes"></div>');
+    if (boxLength === 1) {
+      mountNode = $('<div class="preview-image-boxes" style="width: ' + box.find('.preview-img').eq(0).attr('width') + 'px"></div>');
+    }
     box.replaceWith(mountNode);
     ReactDOM.render(<span>{priviewImgs}</span>, mountNode[0]);
   });

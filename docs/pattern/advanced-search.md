@@ -5,4 +5,53 @@
 
 ---
 
-占位。
+借助『高级搜索』，用户可以缩小复杂列表／表格等的展示范围。
+
+## 常规型
+
+### 交互
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+
+常规型常和表格搭配使用，适合在搜索条件多以及搜索值个数不确定的场景中。
+
+“高级搜索”功能一般开放给中间用户／专家用户使用，一般通过点击“高级搜索”触发；如果非常高频使用，可以默认展开“高级搜索”。
+
+<br>
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+
+当已经输入了值的“高级搜索”被隐藏时，需要展示检索条件和值。
+
+### 排列规则
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+
+搜索条件的排布顺序需要和表格中的标题顺序，尽可能保持一致；如果非常高频使用的搜索条件，可以放在最前面。
+
+### 规格
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+
+- 横向排版
+  在一行不要放置3列以上的输入框；标签和输入框应该落在栅格上。
+- 纵向排版
+  使用16px作为间距。
+
+
+## 字段型
+
+### 交互
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+
+字段型一般会出现在主搜索框底部，适合搜索条件和值都比较少的场景中。
+
+
+## 案例
+
+高级搜索和表格配合使用的案例。
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
