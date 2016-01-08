@@ -19,6 +19,13 @@ const defaultLocale = {
   emptyText: '暂无数据',
 };
 
+const defaultPagination = {
+  pageSize: 10,
+  current: 1,
+  onChange: noop,
+  onShowSizeChange: noop,
+};
+
 let AntTable = React.createClass({
   getInitialState() {
     return {
@@ -30,10 +37,9 @@ let AntTable = React.createClass({
       sortOrder: '',
       sorter: null,
       radioIndex: null,
-      pagination: this.hasPagination() ? objectAssign({
-        pageSize: 10,
-        current: 1
-      }, this.props.pagination) : {}
+      pagination: this.hasPagination() ?
+        objectAssign({}, defaultPagination, this.props.pagination) :
+        {},
     };
   },
 
@@ -425,9 +431,7 @@ let AntTable = React.createClass({
 
   handleShowSizeChange(current, pageSize) {
     const pagination = this.state.pagination;
-    if (pagination.onShowSizeChange) {
-      pagination.onShowSizeChange(current, pageSize);
-    }
+    pagination.onShowSizeChange(current, pageSize);
 
     let nextPagination = objectAssign(pagination, {
       pageSize: pageSize
