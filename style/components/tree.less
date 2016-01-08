@@ -28,7 +28,6 @@
     outline: 0;
     a[draggable],
     a[draggable="true"] {
-      color: #333;
       -moz-user-select: none;
       -khtml-user-select: none;
       -webkit-user-select: none;
@@ -47,17 +46,17 @@
     }
     &.drag-over-gap-top {
       > a[draggable] {
-        border-top: 2px blue solid;
+        border-top: 2px @primary-color solid;
       }
     }
     &.drag-over-gap-bottom {
       > a[draggable] {
-        border-bottom: 2px blue solid;
+        border-bottom: 2px @primary-color solid;
       }
     }
     &.filter-node {
       > a {
-        color: #a60000!important;
+        color: @error-color!important;
         font-weight: bold!important;
       }
     }
