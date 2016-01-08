@@ -253,6 +253,8 @@ let AntTable = React.createClass({
     } else {
       pagination.current = pagination.current || 1;
     }
+    pagination.onChange(pagination.current);
+
     const newState = {
       selectionDirty: false,
       pagination
