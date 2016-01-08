@@ -108,10 +108,9 @@ const Demo = React.createClass({
       <p>drag a node into another node</p>
       <div className="draggable-container">
         <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
-              onTreeDragStart={this.onTreeDragStart}
-              onTreeDragEnter={this.onTreeDragEnter}
-              onTreeDrop={this.onTreeDrop}
-              >
+          onTreeDragStart={this.onTreeDragStart}
+          onTreeDragEnter={this.onTreeDragEnter}
+          onTreeDrop={this.onTreeDrop}>
           {loop(this.state.gData)}
         </Tree>
       </div>

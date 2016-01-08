@@ -43,7 +43,7 @@ const App = React.createClass({
   renderFooter() {
     return (
       <Button type="ghost" size="small" style={{ float: 'right', margin: '5' }}
-              onClick={this.getMock}>
+        onClick={this.getMock}>
         刷新
       </Button>
     );

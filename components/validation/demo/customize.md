@@ -62,9 +62,9 @@ const Demo = React.createClass({
     const status = this.state.status;
 
     const classes = classNames({
-      'error': status[item].errors,
-      'validating': status[item].isValidating,
-      'success': formData[item] && !status[item].errors && !status[item].isValidating
+      error: status[item].errors,
+      validating: status[item].isValidating,
+      success: formData[item] && !status[item].errors && !status[item].isValidating
     });
 
     return classes;
@@ -160,9 +160,15 @@ const Demo = React.createClass({
                 validateStatus={this.renderValidateStyle('pass')}
                 help={status.pass.errors ? status.pass.errors.join(',') : null}
                 required>
-                  <Validator rules={[{required: true, whitespace: true, message: '请填写密码'}, {validator: this.checkPass}]} trigger="onChange">
-                    <Input name="pass" id="confirmPass" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.pass}/>
-                  </Validator>
+                <Validator rules={[
+                  {required: true, whitespace: true, message: '请填写密码'},
+                  {validator: this.checkPass}
+                ]}
+                  trigger="onChange">
+                  <Input name="pass" id="confirmPass" type="password"
+                    onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                    autoComplete="off" value={formData.pass}/>
+                </Validator>
               </FormItem>
             </Col>
             <Col span="6">
@@ -185,8 +191,10 @@ const Demo = React.createClass({
                     whitespace: true,
                     message: '请再次输入密码'
                   }, {validator: this.checkPass2}]}>
-                    <Input name="rePass" id="confirmPass2" type="password" onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} autoComplete="off" value={formData.rePass}/>
-                    </Validator>
+                    <Input name="rePass" id="confirmPass2" type="password"
+                      onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                      autoComplete="off" value={formData.rePass}/>
+                  </Validator>
               </FormItem>
             </Col>
             <Col span="6">

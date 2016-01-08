@@ -26,10 +26,10 @@ const Sider = React.createClass({
   render() {
     return (
       <Menu onClick={this.handleClick}
-            style={{width: 240}}
-            defaultOpenKeys={['sub1']}
-            selectedKeys={[this.state.current]}
-            mode="inline">
+        style={{width: 240}}
+        defaultOpenKeys={['sub1']}
+        selectedKeys={[this.state.current]}
+        mode="inline">
         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
           <MenuItemGroup title="分组1">
             <Menu.Item key="1">选项1</Menu.Item>

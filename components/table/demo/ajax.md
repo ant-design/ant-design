@@ -87,10 +87,10 @@ const Test = React.createClass({
   render() {
     return (
       <Table columns={columns}
-             dataSource={this.state.data}
-             pagination={this.state.pagination}
-             loading={this.state.loading}
-             onChange={this.handleTableChange} />
+        dataSource={this.state.data}
+        pagination={this.state.pagination}
+        loading={this.state.loading}
+        onChange={this.handleTableChange} />
     );
   }
 });

@@ -50,11 +50,11 @@ const Demo = React.createClass({
     return (<div style={{margin: '0 20px'}}>
       <h2>simple</h2>
       <Tree className="myCls" showLine multiple checkable
-          defaultExpandedKeys={this.state.defaultExpandedKeys}
-          onExpand={this.onExpand}
-          defaultSelectedKeys={this.state.defaultSelectedKeys}
-          defaultCheckedKeys={this.state.defaultCheckedKeys}
-          onSelect={this.onSelect} onCheck={this.onCheck}>
+        defaultExpandedKeys={this.state.defaultExpandedKeys}
+        onExpand={this.onExpand}
+        defaultSelectedKeys={this.state.defaultSelectedKeys}
+        defaultCheckedKeys={this.state.defaultCheckedKeys}
+        onSelect={this.onSelect} onCheck={this.onCheck}>
         <TreeNode title="parent 1" key="0-0">
           <TreeNode title="parent 1-0" key="0-0-0" disabled>
             <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />

@@ -34,11 +34,11 @@ const Sider = React.createClass({
         <br />
         <br />
         <Menu theme={this.state.theme}
-              onClick={this.handleClick}
-              style={{width: 240}}
-              defaultOpenKeys={['sub1']}
-              selectedKeys={[this.state.current]}
-              mode="inline">
+          onClick={this.handleClick}
+          style={{width: 240}}
+          defaultOpenKeys={['sub1']}
+          selectedKeys={[this.state.current]}
+          mode="inline">
           <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
             <Menu.Item key="1">选项1</Menu.Item>
             <Menu.Item key="2">选项2</Menu.Item>

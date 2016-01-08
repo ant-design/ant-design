@@ -14,7 +14,7 @@ import { QueueAnim, Menu } from 'antd';
 const App = React.createClass({
   render() {
     const key = this.props.location.pathname;
-    const keys = key.replace('/', '') ? [ key.replace('/', '') ] : [ 'home' ];
+    const keys = key.replace('/', '') ? [key.replace('/', '')] : ['home'];
     return (
       <div>
         <Menu style={{marginBottom: 10}} mode="horizontal" selectedKeys={keys}>

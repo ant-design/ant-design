@@ -22,8 +22,8 @@ function handleChange(value) {
 
 ReactDOM.render(
   <Select tags
-   style={{width: '100%'}}
-   searchPlaceholder="标签模式"
+    style={{width: '100%'}}
+    searchPlaceholder="标签模式"
     onChange={handleChange}>
     {children}
   </Select>
