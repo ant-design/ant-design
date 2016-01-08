@@ -35,7 +35,7 @@
 | treeCheckable | 显示checkbox | bool | false |
 | filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | String | 'value' |
-| treeNodeLabelProp | 作为显示的prop设置 | String | 'value' |
+| treeNodeLabelProp | 作为显示的prop设置 | String | 'title' |
 | loadData | 异步加载数据 | function(node) | - |
 
 ### TreeNode props
