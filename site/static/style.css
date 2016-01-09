@@ -697,8 +697,11 @@ footer ul li > a {
   font-size: 14px;
   margin-bottom: 20px;
   background: #fbfbfb;
-  padding: 8px 0;
   border-left: 2px solid #eee;
+}
+
+.toc > ul {
+  padding: 8px 0;
 }
 
 .toc li > ul {
