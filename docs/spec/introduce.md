@@ -5,9 +5,9 @@
 
 ---
 
-Ant Design 是一个 UI 设计语言，是一套提炼和应用于企业级后台产品的交互语言和视觉体系。
+Ant Design 是一个 UI 设计语言，是一套提炼和应用于企业级中后台产品的交互语言和视觉体系。
 
-<img width="360" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
+<img width="300" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg">
 
 Ant Design 源自蚂蚁金服体验技术部的后台产品开发，我们的设计师和前端工程师经过大量的项目实践和总结，希望能抽象出一套企业级的交互视觉规范，统一后台项目的前端 UI 设计，屏蔽各种不必要的设计差异和前端实现成本，解放设计和前端开发资源。
 

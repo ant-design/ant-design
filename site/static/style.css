@@ -1298,6 +1298,12 @@ a.entry-link:hover .anticon-smile {
   left: 0;
 }
 
+.preview-image-title {
+  font-size: 12px;
+  margin-top: 8px;
+  color: #666;
+}
+
 .preview-image-description {
   font-size: 12px;
   margin-top: 8px;
@@ -1311,7 +1317,7 @@ a.entry-link:hover .anticon-smile {
 }
 
 .preview-image-box img:hover {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .outside-link:after {
@@ -1326,19 +1332,40 @@ a.entry-link:hover .anticon-smile {
 }
 
 .image-modal-container {
-  padding: 8px 8px 32px 8px;
+  position: relative;
 }
 
 .image-modal .ant-modal-header {
   display: none;
 }
 
+.image-modal .ant-carousel .slick-slider {
+  padding-bottom: 24px;
+}
+
+.image-modal .ant-carousel .slick-dots {
+  text-align: left;
+  bottom: -6px;
+}
+
+.image-modal .ant-carousel .slick-dots li {
+  margin: 0;
+}
+
+.image-modal .preview-image-title {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  display: inline-block;
+  transform: translateX(-50%);;
+}
+
 .image-modal .outside-link {
   position: absolute;
   right: 16px;
-  bottom: 16px;
+  bottom: 12px;
 }
 
 .image-modal img {
-  max-width: 100%;
+  width: 100%;
 }

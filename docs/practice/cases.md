@@ -15,7 +15,9 @@ Ant Design 是面向中后台的 UI 设计语言。
 
 ### 金融云
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img as-cover class="preview-img" width="420" alt="图例1" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" width="420" alt="图例2" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" width="420" alt="图例3" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 是面向金融机构深度定制的行业云计算服务；助力金融机构向新金融转型升级，推动平台、数据和技术方面的能力全面对外开放。
 
@@ -25,7 +27,7 @@ Ant Design 是面向中后台的 UI 设计语言。
 
 ### OceanBase Cloud Platform
 
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" width="420" alt="图例3" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
 
 OceanBase是 一款真正意义上的云端分布式关系型数据库，而 OceanBase Cloud Platform（云平台）是以 OceanBase 数据库为基础的云服务，可以帮助用户快速创建、使用 OB 服务。
 

@@ -145,11 +145,20 @@ window.BrowserDemo = React.createClass({
   }
 });
 
-var Modal = antd.Modal;
-var PriviewImg = React.createClass({
+/*
+<Carousel>
+  <div><img src={this.props.src} /></div>
+  <div><img src={this.props.src} /></div>
+  <div><img src={this.props.src} /></div>
+</Carousel>
+*/
+
+const { Modal, Carousel } = antd;
+const PriviewImg = React.createClass({
   getInitialState() {
     return {
       visible: false,
+      current: 0,
     };
   },
   showImageModal() {
@@ -162,21 +171,38 @@ var PriviewImg = React.createClass({
       visible: false
     });
   },
+  handleImgChange(current) {
+    this.setState({ current });
+  },
   render() {
     const goodCls = this.props.good ? 'good' : '';
     const badCls = this.props.bad ? 'bad' : '';
+    const imgsPack = this.props.imgsPack || [{
+      src: this.props.src,
+      alt: this.props.alt,
+    }];
+    const current = this.state.current;
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
         <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
           <img src={this.props.src} onClick={this.showImageModal} alt="Sample Picture" />
         </div>
-        <div className="preview-image-description">{this.props.alt}</div>
-        <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
-          <div className="image-modal-container">
-            <img src={this.props.src} />
-          </div>
-          <div className="preview-image-description">{this.props.alt}</div>
-          <a className="outside-link" href={this.props.src} target="_blank">查看原图</a>
+        <div className="preview-image-title">{this.props.alt}</div>
+        <div className="preview-image-description">{this.props.description}</div>
+        <Modal className="image-modal" width="840" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
+          <Carousel afterChange={this.handleImgChange}>
+            {
+              imgsPack.map((img, i) =>
+                <div key={i}>
+                  <div className="image-modal-container">
+                    <img src={img.src} />
+                  </div>
+                </div>
+              )
+            }
+          </Carousel>
+          <div className="preview-image-title">{imgsPack[current].alt}</div>
+          <a className="outside-link" href={imgsPack[current].src} target="_blank">查看原图</a>
         </Modal>
       </div>
     );
@@ -187,24 +213,46 @@ InstantClickChangeFns.push(function() {
   const previewImageBoxes = $('.preview-img').parent();
   previewImageBoxes.each(function(i, box) {
     box = $(box);
-    const priviewImgs = [];
+    let priviewImgs = [];
     const priviewImgNodes = box.find('.preview-img');
+
+    // 判断是否要做成图片集合
+    // 指定了封面图片就是
+    let coverImg;
     priviewImgNodes.each(function(i, img) {
-      priviewImgs.push(
-        <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'}
-          alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
-      );
-    });
-    let mountNode = $('<div class="preview-image-boxes"></div>');
-    if (priviewImgNodes.length === 1) {
-      let width = priviewImgNodes.eq(0).attr('width') || '';
-      if (width && width.indexOf('%') < 0) {
-        width += 'px';
+      if (img.hasAttribute('as-cover')) {
+        coverImg = img;
+        return false;
       }
-      mountNode = $('<div class="preview-image-boxes" style="width: ' + width + '"></div>');
+    });
+
+    if (coverImg) {
+      const imgs = [];
+      priviewImgNodes.each((i, img) => imgs.push(img));
+      priviewImgs = <PriviewImg src={coverImg.src} alt={coverImg.alt} imgsPack={imgs} />;
+    } else {
+      priviewImgNodes.each(function(i, img) {
+        priviewImgs.push(
+          <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'}
+            alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
+        );
+      });
     }
+
+    // 计算宽度
+    let width = 'auto';
+    if (priviewImgs.length === 1) {
+      width = priviewImgNodes[0].getAttribute('width') || '';
+    } else if (coverImg) {
+      width = coverImg.getAttribute('width');
+    }
+    if (width && width.indexOf('%') < 0 && width !== 'auto') {
+      width += 'px';
+    }
+
+    let mountNode = $('<div class="preview-image-boxes ' + (coverImg ? 'pack' : '') + '" style="width: ' + width + '"></div>')[0];
     box.replaceWith(mountNode);
-    ReactDOM.render(<span>{priviewImgs}</span>, mountNode[0]);
+    ReactDOM.render(<span>{priviewImgs}</span>, mountNode);
   });
 });
 
