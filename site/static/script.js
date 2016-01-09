@@ -58,27 +58,11 @@ InstantClickChangeFns.push(function() {
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
 
   // 滚动时固定锚点、高亮当前项
-  if ($('.toc')[0]) {
-    var titles = $('.markdown :header:not(h1)');
+  if ($('.demos-anchor')[0]) {
     var doc = $(document);
     var tocTop = $('.toc').offset().top;
     function onScroll() {
-      var top = doc.scrollTop(), i;
-      if (top >= doc.height()- $(window).height() - 20) {
-        i = titles.length - 1;
-      } else {
-        for (i=0; i<titles.length; i++) {
-          if (top < titles.eq(i).offset().top - 20) {
-            break;
-          }
-        }
-        i--;
-        i = (i < 0) ? 0 : i;
-        i = (i > titles.length - 1) ? (titles.length - 1) : i;
-      }
-      $('.anchor a').removeClass('current');
-      $('.anchor a').eq(i).addClass('current');
-
+      var top = doc.scrollTop();
       if (top >= tocTop) {
         $('.toc').addClass('sticky');
       } else {
@@ -86,7 +70,6 @@ InstantClickChangeFns.push(function() {
       }
     }
     onScroll();
-    // 滚动高亮
     $(window).off('scroll');
     $(window).on('scroll', onScroll);
   }

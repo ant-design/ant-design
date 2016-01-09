@@ -145,14 +145,6 @@ window.BrowserDemo = React.createClass({
   }
 });
 
-/*
-<Carousel>
-  <div><img src={this.props.src} /></div>
-  <div><img src={this.props.src} /></div>
-  <div><img src={this.props.src} /></div>
-</Carousel>
-*/
-
 const { Modal, Carousel } = antd;
 const PriviewImg = React.createClass({
   getInitialState() {
@@ -190,7 +182,7 @@ const PriviewImg = React.createClass({
         <div className="preview-image-title">{this.props.alt}</div>
         <div className="preview-image-description">{this.props.description}</div>
         <Modal className="image-modal" width="840" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
-          <Carousel afterChange={this.handleImgChange}>
+          <Carousel afterChange={this.handleImgChange} adaptiveHeight>
             {
               imgsPack.map((img, i) =>
                 <div key={i}>
@@ -240,7 +232,7 @@ InstantClickChangeFns.push(function() {
     }
 
     // 计算宽度
-    let width = 'auto';
+    let width = '';
     if (priviewImgs.length === 1) {
       width = priviewImgNodes[0].getAttribute('width') || '';
     } else if (coverImg) {

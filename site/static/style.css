@@ -491,7 +491,6 @@ footer ul li > a {
   color: #666;
   font-size: 14px;
   line-height: 1.8;
-  width: 80%;
 }
 
 .highlight {
@@ -539,6 +538,14 @@ footer ul li > a {
 .markdown p,
 .markdown pre {
   margin: 1em 0;
+}
+
+.markdown > p,
+.markdown > blockquote,
+.markdown > .highlight,
+.markdown > ol,
+.markdown > ul {
+  width: 80%;
 }
 
 .markdown > ul li,
@@ -613,7 +620,6 @@ footer ul li > a {
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
   margin: 1em 0;
-  overflow: hidden;
 }
 
 .markdown blockquote p {
@@ -688,37 +694,28 @@ footer ul li > a {
 }
 
 .toc {
-  position: absolute;
-  font-size: 12px;
-  background: #fff;
-  padding-top: 12px;
-  right: 24px;
-  overflow: hidden;
-}
-
-.toc.sticky {
-  position: fixed;
-  top: 0;
-  right: 4%;
-  margin-right: 24px;
-  z-index: 100;
+  font-size: 14px;
+  margin-bottom: 20px;
+  background: #fbfbfb;
+  padding: 8px 0;
+  border-left: 2px solid #eee;
 }
 
 .toc li > ul {
   text-indent: 8px;
+  font-size: 12px;
+  display: none;
 }
 
 .toc a {
-  padding-left: 8px;
+  padding-left: 16px;
   border-left: 2px solid #eee;
+  margin-left: -2px;
   display: block;
   transition: all 0.3s ease;
   white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
-  max-width: 90px;
-  line-height: 20px;
-  color: #999;
+  color: #666;
 }
 
 .toc a:hover {
@@ -1246,9 +1243,17 @@ a.entry-link:hover .anticon-smile {
   font-size: 12px;
 }
 
+.demos-anchor.toc.sticky {
+  position: fixed;
+  top: 0;
+  right: 4%;
+  margin-right: 24px;
+  z-index: 100;
+}
+
 .preview-image-boxes {
   float: right;
-  margin: 0 -14% 30px 60px;
+  margin: 0 0 30px 60px;
   width: 600px;
   overflow: hidden;
 }
