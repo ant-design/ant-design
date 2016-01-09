@@ -15,9 +15,9 @@ Ant Design 是面向中后台的 UI 设计语言。
 
 ### 金融云
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/MKspFSBnDPrmqnz.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/ssKQluRCiuOFMFH.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/OhdrPCvCabsVUuQ.png">
+<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/UkUJgmsRKhxwvSR.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/SeXqPPyixccDJBY.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/IRjHVNFWRlCMdnb.png">
 
 是面向金融机构深度定制的行业云计算服务；助力金融机构向新金融转型升级，推动平台、数据和技术方面的能力全面对外开放。
 
@@ -27,9 +27,9 @@ Ant Design 是面向中后台的 UI 设计语言。
 
 ### OceanBase Cloud Platform
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/zarxEZDIRYfwFKB.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/xqcXkzAxbApmjKC.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/LBNAgCWuXcOkmSM.png">
+<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/StdoWgtFplToSgd.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/lpzTKvgLpJgKGpq.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/GVJGaWbqfBFedWN.png">
 
 OceanBase是 一款真正意义上的云端分布式关系型数据库，而 OceanBase Cloud Platform（云平台）是以 OceanBase 数据库为基础的云服务，可以帮助用户快速创建、使用 OB 服务。
 
@@ -37,11 +37,11 @@ OceanBase是 一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ### 服务宝体验平台
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/UAZCIqsrVgtLhKP.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/graXLoQUgPXcVDv.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/CZXDKssYFNYZgeb.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/IhPfMRswdRzfmOr.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/uQOssWBwFGyWEbZ.png">
+<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/khisYONMFbBTOdh.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/vsoYArBwcPRZnVE.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/TMyfsUGQSjOdGIm.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/sBlmIcJXZdJTJbC.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/fRDuTjVbVApxyzU.png">
 
 体验平台是将用户与公司所有的接触点包括来电咨询／微博等渠道数据，通过数据挖掘和体验同学运营的方式推送给公司内部的业务团队／产品经理，推动体验问题解决，实现良性运转流。
 
@@ -49,9 +49,9 @@ OceanBase是 一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ### AntV
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/anuTfymhGNvBBsU.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/STnKKwGLsmhdpHB.png">
-<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/dIWogehNYmeAamw.png">
+<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/yWNVSFBhKsoShvi.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/nvJftlNzfzhVDVW.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/LugOCvzybKsmQCj.png">
 
 AntV 是把这几年来数据图形组在探索数据可视化过程中有价值的东西沉淀、总结出来，并用分享给所有需要数据可视理论的人。
 

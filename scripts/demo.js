@@ -181,7 +181,7 @@ const PriviewImg = React.createClass({
         </div>
         <div className="preview-image-title">{this.props.alt}</div>
         <div className="preview-image-description">{this.props.description}</div>
-        <Modal className="image-modal" width="840" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
+        <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
           <Carousel afterChange={this.handleImgChange} adaptiveHeight>
             {
               imgsPack.map((img, i) =>
