@@ -226,7 +226,6 @@
   box-shadow: @box-shadow-base;
 
   .ant-dropdown-menu {
-    max-height: 220px;
     border: 0;
     box-shadow: none;
     border-radius: @border-radius-base @border-radius-base 0 0;
@@ -241,6 +240,7 @@
       .ant-dropdown-menu-submenu-title:after {
         color: @primary-color;
         font-weight: bold;
+        text-shadow: 0 0 2px tint(@primary-color, 80%);
       }
     }
   }
