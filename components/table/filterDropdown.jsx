@@ -3,12 +3,14 @@ import Menu from 'rc-menu';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
+const { SubMenu } = Menu;
 
 let FilterMenu = React.createClass({
   getInitialState() {
     return {
       selectedKeys: this.props.selectedKeys,
-      visible: false
+      keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
+      visible: false,
     };
   },
   componentWillReceiveProps(nextProps){
@@ -45,14 +47,46 @@ let FilterMenu = React.createClass({
       this.props.confirmFilter(this.props.column, this.state.selectedKeys);
     }
   },
+  renderMenuItem(item) {
+    return <Menu.Item key={item.value}>
+      <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
+      {item.text}
+    </Menu.Item>;
+  },
   renderMenus(items) {
-    let menuItems = items.map((item) => {
-      return <Menu.Item key={item.value}>
-        <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
-        {item.text}
-      </Menu.Item>;
+    let menuItems = items.map(item => {
+      if (item.children && item.children.length > 0) {
+        const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
+        const containSelected = Object.keys(keyPathOfSelectedItem).some(key => {
+          const keyPath = keyPathOfSelectedItem[key];
+          if (keyPath.indexOf(item.value) >= 0) {
+            return true;
+          }
+        });
+        const subMenuCls = containSelected ? 'ant-dropdown-submenu-contain-selected' : '';
+        return (
+          <SubMenu title={item.text} className={subMenuCls} key={item.value}>
+            {item.children.map(child => this.renderMenuItem(child))}
+          </SubMenu>
+        );
+      }
+      return this.renderMenuItem(item);
     });
     return menuItems;
+  },
+  handleMenuItemClick(info) {
+    if (info.keyPath.length <= 1) {
+      return;
+    }
+    const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
+    if (this.state.selectedKeys.indexOf(info.key) >= 0) {
+      // deselect SubMenu child
+      delete keyPathOfSelectedItem[info.key];
+    } else {
+      // select SubMenu child
+      keyPathOfSelectedItem[info.key] = info.keyPath;
+    }
+    this.setState({ keyPathOfSelectedItem });
   },
   render() {
     let {column, locale} = this.props;
@@ -62,7 +96,7 @@ let FilterMenu = React.createClass({
       multiple = column.filterMultiple;
     }
     let menus = <div className="ant-table-filter-dropdown">
-      <Menu multiple={multiple}
+      <Menu multiple={multiple} onClick={this.handleMenuItemClick}
                  prefixCls="ant-dropdown-menu"
                  onSelect={this.setSelectedKeys}
                  onDeselect={this.setSelectedKeys}

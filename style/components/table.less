@@ -227,14 +227,31 @@
 
   .ant-dropdown-menu {
     max-height: 220px;
-    overflow: auto;
     border: 0;
     box-shadow: none;
     border-radius: @border-radius-base @border-radius-base 0 0;
+
+    &-sub {
+      border-radius: @border-radius-base;
+      border: 1px solid @border-color-base;
+      box-shadow: @box-shadow-base;
+    }
+
+    .ant-dropdown-submenu-contain-selected {
+      .ant-dropdown-menu-submenu-title:after {
+        color: @primary-color;
+        font-weight: bold;
+      }
+    }
   }
 
   .ant-dropdown-menu-item {
     overflow: hidden;
+  }
+
+  > .ant-dropdown-menu > .ant-dropdown-menu-item:last-child,
+  > .ant-dropdown-menu > .ant-dropdown-menu-submenu:last-child .ant-dropdown-menu-submenu-title {
+    border-radius: 0;
   }
 
   &-btns {
