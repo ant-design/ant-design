@@ -44,8 +44,8 @@ InstantClickChangeFns.push(function() {
   });
 
   function hashChange() {
-    $('.anchor a').removeClass('current');
-    $('.anchor a[href="' + decodeURI(location.hash) + '"]').addClass('current');
+    $('.demos-anchor a').removeClass('current');
+    $('.demos-anchor a[href="' + decodeURI(location.hash) + '"]').addClass('current');
   }
 
   hashChange();
