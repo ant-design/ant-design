@@ -2,7 +2,7 @@
 
 @table-prefix-cls: ~"@{css-prefix}table";
 @table-border-color: #e9e9e9;
-@table-head-background-color: #f3f3f3;
+@table-head-background-color: #f4f4f4;
 
 .@{table-prefix-cls} {
   font-size: @font-size-base;
@@ -18,6 +18,7 @@
     border-collapse: separate;
     text-align: left;
     border-radius: @border-radius-base;
+    overflow: hidden;
   }
 
   th {
@@ -39,13 +40,6 @@
     .@{table-prefix-cls}-filter-selected.anticon-filter {
       color: @primary-color;
     }
-
-    &:first-child {
-      border-radius: @border-radius-base 0 0 0;
-    }
-    &:last-child {
-      border-radius: 0 @border-radius-base 0 0;
-    }
   }
 
   td {
@@ -57,6 +51,10 @@
     &:hover {
       background: tint(@primary-color, 90%);
     }
+  }
+
+  thead tr:hover {
+    background: none;
   }
 
   tr.@{table-prefix-cls}-row-selected {
@@ -173,6 +171,7 @@
     }
 
     tr:last-child {
+      th,
       td {
         border-bottom: 0;
       }
