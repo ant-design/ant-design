@@ -107,6 +107,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   margin-top: -42px;
   position: relative;
   z-index: 1;
+  width: 80%;
 }
 </style>
 

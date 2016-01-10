@@ -1257,8 +1257,7 @@ a.entry-link:hover .anticon-smile {
 .preview-image-boxes {
   float: right;
   margin: 0 0 30px 60px;
-  width: 600px;
-  overflow: hidden;
+  width: 616px;
 }
 
 .preview-image-box {
@@ -1267,17 +1266,9 @@ a.entry-link:hover .anticon-smile {
   padding: 0 8px;
 }
 
-.preview-image-box:first-child {
-  margin-left: -8px;
-}
-
-.preview-image-box:last-child {
-  margin-right: -8px;
-}
-
 .preview-image-wrapper {
-  background: #F2F2F2;
-  padding: 24px;
+  background: #f4f4f4;
+  padding: 16px;
   display: inline-block;
   text-align: center;
   width: 100%;
@@ -1308,24 +1299,28 @@ a.entry-link:hover .anticon-smile {
 
 .preview-image-title {
   font-size: 12px;
-  margin-top: 8px;
+  margin-top: 5px;
   color: #666;
 }
 
 .preview-image-description {
   font-size: 12px;
-  margin-top: 8px;
+  margin-top: 2px;
   color: #999;
+  line-height: 1.5;
 }
 
 .preview-image-box img {
   cursor: pointer;
   max-width: 100%;
   transition: box-shadow 0.3s ease;
+  background: #fff;
+  padding: 12px;
+  border-radius: 6px;
 }
 
 .preview-image-box img:hover {
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 .outside-link:after {
@@ -1341,6 +1336,7 @@ a.entry-link:hover .anticon-smile {
 
 .image-modal-container {
   position: relative;
+  text-align: center;
 }
 
 .image-modal .ant-modal-header {
@@ -1368,12 +1364,59 @@ a.entry-link:hover .anticon-smile {
   transform: translateX(-50%);;
 }
 
+.image-modal .slick-prev {
+  left: 0;
+  height: 100%;
+  top: 0;
+  margin-top: 0;
+  width: 50%;
+  text-align: left;
+}
+
+.image-modal .slick-prev:after {
+  content: "\e601";
+  font-size: 28px;
+  font-family: "anticon";
+  color: #000;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-left: 24px;
+}
+
+.image-modal .slick-prev:hover:after {
+  opacity: 0.38;
+}
+
+.image-modal .slick-next {
+  right: 0;
+  height: 100%;
+  top: 0;
+  margin-top: 0;
+  width: 50%;
+  text-align: right;
+}
+
+.image-modal .slick-next:after {
+  content: "\e600";
+  font-size: 28px;
+  font-family: "anticon";
+  color: #000;
+  opacity: 0;
+  transition: all 0.3s ease;
+  margin-right: 24px;
+}
+
+.image-modal .slick-next:hover:after {
+  opacity: 0.38;
+}
+
 .image-modal .outside-link {
   position: absolute;
   right: 16px;
   bottom: 12px;
 }
 
-.image-modal img {
-  width: 100%;
+.image-modal .ant-carousel .slick-slide img {
+  max-width: 100%;
+  display: inline-block;
 }

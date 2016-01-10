@@ -11,7 +11,7 @@
 
 ### 交互
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" description="在收起状态时，用户点击“高级搜索”展开；如果此前用户已经输入过文案，需要将值带到对应的输入框中。" src="https://os.alipayobjects.com/rmsportal/NpRKspdYRDwsKnw.png">
 
 常规型常和表格搭配使用，适合在搜索条件多以及搜索值个数不确定的场景中。
 
@@ -19,39 +19,35 @@
 
 <br>
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/gKiZtjopvLufqSP.png">
 
 当已经输入了值的“高级搜索”被隐藏时，需要展示检索条件和值。
 
 ### 排列规则
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/TsdXCWLPIETykye.png">
 
 搜索条件的排布顺序需要和表格中的标题顺序，尽可能保持一致；如果非常高频使用的搜索条件，可以放在最前面。
 
 ### 规格
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/fuPcwZCYiohhdSt.png">
+
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/bFLUSbwoNoakKYS.png">
 
 - 横向排版
-  在一行不要放置3列以上的输入框；标签和输入框应该落在栅格上。
+  在一行不要放置 3 列以上的输入框；标签和输入框应该落在栅格上。
 - 纵向排版
-  使用16px作为间距。
+  使用 `16px` 作为间距。
 
 
 ## 字段型
 
 ### 交互
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/dWLomHNPHuTZHGN.png">
 
 字段型一般会出现在主搜索框底部，适合搜索条件和值都比较少的场景中。
 
 
-## 案例
-
-高级搜索和表格配合使用的案例。
-
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
-
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+## 案例（敬请期待）

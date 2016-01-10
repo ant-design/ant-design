@@ -173,16 +173,21 @@ const PriviewImg = React.createClass({
       src: this.props.src,
       alt: this.props.alt,
     }];
+    const imgStyle = {};
+    if (this.props.noPadding) {
+      imgStyle.padding = '0';
+      imgStyle.background = 'none';
+    }
     const current = this.state.current;
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
         <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
-          <img src={this.props.src} onClick={this.showImageModal} alt="Sample Picture" />
+          <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture" />
         </div>
         <div className="preview-image-title">{this.props.alt}</div>
         <div className="preview-image-description">{this.props.description}</div>
         <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
-          <Carousel afterChange={this.handleImgChange} adaptiveHeight>
+          <Carousel afterChange={this.handleImgChange} adaptiveHeight arrows>
             {
               imgsPack.map((img, i) =>
                 <div key={i}>
@@ -194,7 +199,6 @@ const PriviewImg = React.createClass({
             }
           </Carousel>
           <div className="preview-image-title">{imgsPack[current].alt}</div>
-          <a className="outside-link" href={imgsPack[current].src} target="_blank">查看原图</a>
         </Modal>
       </div>
     );
@@ -225,8 +229,9 @@ InstantClickChangeFns.push(function() {
     } else {
       priviewImgNodes.each(function(i, img) {
         priviewImgs.push(
-          <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'}
-            alt={img.alt} good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
+          <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'} alt={img.alt}
+            noPadding={img.hasAttribute('noPadding')} description={img.getAttribute('description')}
+            good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
         );
       });
     }
