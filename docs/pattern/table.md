@@ -69,17 +69,9 @@
 
 ## 交互
 
-### 显示非常长的表格
+### 显示长表格
 
-<img class="preview-img" align="right" description="当系统性能是一个主要考虑因素时，适合使用分页器。" src="https://os.alipayobjects.com/rmsportal/ehDKShrNveYpTFK.png">
-
-分页器：以分段的形式加载表格，将是否需要加载其他项的选择权交给用户。
-
-<br>
-
-<img class="preview-img" align="right" description="当需要对数据进行频繁操作时，分页器会导致操作变的笨拙，尤其是出现一些跨页选择时，所以适合用无限加载；当倾向显示用户的“个人所有”的数据时（例如：个人订单），或者数据不是临时性的，适合使用无限加载。" src="https://os.alipayobjects.com/rmsportal/afDpGUyoyQZFgks.png">
-
-无限加载：当用户加载到第一段内容的最下方，通过监听滚轮事件或者用户点击按钮，继续加载下一段内容。
+参考『列表页面』中的 [显示长列表](/docs/pattern/list#%E6%98%BE%E7%A4%BA%E9%95%BF%E5%88%97%E8%A1%A8)。
 
 ### 全选数据
 
