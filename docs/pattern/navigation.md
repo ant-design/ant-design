@@ -44,7 +44,7 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" src="https://os.alipayobjects.com/rmsportal/fHxLgTBlEJhYsIA.png">
+<img class="preview-img" noPadding align="right" src="https://os.alipayobjects.com/rmsportal/BywMIfnGDOyWivF.png">
 
 导航的结构由以下几部分组成。
 

@@ -9,7 +9,7 @@
 
 ## 内容
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/zFqqEqKKAylKkxv.png">
 
 通常表格的组成元素以及相关元素会有，这几部分组成。
 

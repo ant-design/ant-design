@@ -25,7 +25,7 @@
 
 ## 内容
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/ZYPgWZsYBRCixGg.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/RSeLkJwbpYNLDHd.png">
 
 通常表单会有四个部分组成。
 
