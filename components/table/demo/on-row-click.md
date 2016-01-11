@@ -1,6 +1,7 @@
 # 行点击事件
 
 - order: 17
+- hidden: true
 
 通过传入 `onRowClick` 处理表格行点击事件，函数的两个参数为 `record` 和 `index`，`index` 代表当前行在其兄弟节点中的次序
 
