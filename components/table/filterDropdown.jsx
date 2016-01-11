@@ -47,10 +47,12 @@ let FilterMenu = React.createClass({
     }
   },
   renderMenuItem(item) {
-    return <Menu.Item key={item.value}>
-      <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
-      {item.text}
-    </Menu.Item>;
+    return (
+      <Menu.Item key={item.value}>
+        <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
+        {item.text}
+      </Menu.Item>
+    );
   },
   renderMenus(items) {
     let menuItems = items.map(item => {
@@ -94,25 +96,6 @@ let FilterMenu = React.createClass({
     if ('filterMultiple' in column) {
       multiple = column.filterMultiple;
     }
-<<<<<<< 1e001d2d82c5816b55d3953939fcaedbbacf1a3c
-    let menus = <div className="ant-table-filter-dropdown">
-      <Menu multiple={multiple} onClick={this.handleMenuItemClick}
-                 prefixCls="ant-dropdown-menu"
-                 onSelect={this.setSelectedKeys}
-                 onDeselect={this.setSelectedKeys}
-                 selectedKeys={this.state.selectedKeys}>
-      {this.renderMenus(column.filters)}
-      </Menu>
-      <div className="ant-table-filter-dropdown-btns">
-        <a className="ant-table-filter-dropdown-link confirm"
-           onClick={this.handleConfirm}>
-          {locale.filterConfirm}
-        </a>
-        <a className="ant-table-filter-dropdown-link clear"
-           onClick={this.handleClearFilters}>
-          {locale.filterReset}
-        </a>
-=======
     let menus = (
       <div className="ant-table-filter-dropdown">
         <Menu multiple={multiple}
@@ -132,7 +115,6 @@ let FilterMenu = React.createClass({
             {locale.filterReset}
           </a>
         </div>
->>>>>>> style: update code style to please lint
       </div>
     );
 
