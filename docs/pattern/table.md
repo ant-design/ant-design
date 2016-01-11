@@ -33,12 +33,6 @@
 
 一般用四种颜色来表明系统的不同状态。
 
-<br>
-
-<img class="preview-img" align="right" alt="多列状态示例" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
-
-当一个表格中出现两项需要强化的状态时，可以弱化其中一项，通过文字颜色的变化来进行强化。
-
 ### 更多操作
 
 <img class="preview-img" align="right" alt="依次分别为：完整内容、暂时不可用、没有该权限。" src="https://os.alipayobjects.com/rmsportal/ZlcZDOZNZpYQcMM.png">
@@ -130,21 +124,23 @@
 悬浮层会遮挡部分页面，适用在上下文对编辑任务不那么重要时。
 
 
-## 规格（敬请期待）
+## 规格
 
 ### 行高
 
-<img class="preview-img" align="right" alt="标准" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="标准" src="https://os.alipayobjects.com/rmsportal/OXTCkOkAtaWtzNA.png">
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="适中" src="https://os.alipayobjects.com/rmsportal/irjamuwZFdQLYWJ.png">
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="紧凑" src="https://os.alipayobjects.com/rmsportal/SdlTVIAoxickNMM.png">
 
 提供了多种规格的行高，适用在页面、弹出框等场景中。
 
 ### 列宽
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/TbuuZNfOTrSflVg.png" bad>
+
+<img class="preview-img" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/cSSSfNrFMioHDBJ.png" good>
 
 一般是根据栅格来排版，通过设定每一列的宽度比列，来保证一定尺寸之上（eg：1366px）有好的浏览效果。需要注意：
 
@@ -153,9 +149,9 @@
 
 ### 对齐方式
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/OeChYAOTenMzJmG.png">
+<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/RWCMGdnGSZXYULc.png">
 
-数值右对齐，其余左对齐。
+数值右对齐（带小数则按小数点对齐），其余左对齐。
 
 
 ## 案例（敬请期待）
