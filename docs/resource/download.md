@@ -21,7 +21,7 @@
     <span class="resource-card-description">网络字体图标的本地文件包</span>
   </span>
 </a>
-<a target="_blank" class="resource-card disabled">
+<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/0.11.2/AntD_Box_v1.2.rp" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/QCKTwaWQLEOXtgL.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Axure Box</span>
@@ -45,8 +45,17 @@
   font-size: 12px;
   color: #777;
   display: inline-block;
-  margin: 20px 40px 20px 0;
+  margin: 20px 40px 10px 0;
   vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+  box-shadow: 0 1px 4px rgba(64,64,64,.2);
+}
+
+.resource-card:hover .resource-card-title {
+  color: #2db7f5;
 }
 
 .resource-card.disabled {
