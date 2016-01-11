@@ -77,4 +77,4 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 
 ## 如何贡献
 
-我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们[提问](https://github.com/ant-design/ant-design/issues)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](http://t.cn/R4XEpoQ) 或  [提问](https://github.com/ant-design/ant-design/issues)。
