@@ -1313,14 +1313,21 @@ a.entry-link:hover .anticon-smile {
 .preview-image-box img {
   cursor: pointer;
   max-width: 100%;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   background: #fff;
   padding: 12px;
   border-radius: 6px;
 }
 
+.preview-image-boxes.pack img {
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 0 0 #fff, 0 3px 0 0 #ddd, 0 5px 0 0 #fff,  0 6px 0 0 #ddd;
+}
+
 .preview-image-box img:hover {
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+  border-bottom-width: 0;
 }
 
 .outside-link:after {
