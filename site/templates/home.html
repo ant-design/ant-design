@@ -3,6 +3,7 @@
 {% block bodyAttribute %}class="index-page"{% endblock %}
 
 {% block content %}
+<link href="http://fonts.useso.com/css?family=Raleway:600,500,400,300" rel="stylesheet" type="text/css">
 <section id="banner"></section>
 <section id="page1" class="page"></section>
 <section id="page2" class="page"></section>
@@ -79,12 +80,13 @@
     color: #666;
   }
 
-  .banner-text-wrapper h1 {
+  .banner-text-wrapper h2 {
     font-size: 40px;
     font-weight: normal;
+    font-family: 'Raleway';
   }
 
-  .banner-text-wrapper h1 p {
+  .banner-text-wrapper h2 p {
     color: #FF3171;
     display: inline-block;
   }
@@ -199,9 +201,11 @@
     left: 10px;
   }
 
-  .content-wrapper .text-wrapper h1 {
+  .content-wrapper .text-wrapper h2,
+  .content-wrapper .text-wrapper-bottom h2 {
     font-size: 32px;
     color: #666;
+    font-weight: normal;
   }
 
   .content-wrapper .text-wrapper p {
