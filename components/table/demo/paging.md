@@ -39,6 +39,9 @@ const pagination = {
   showSizeChanger: true,
   onShowSizeChange: function(current, pageSize) {
     console.log('Current: ', current, '; PageSize: ', pageSize);
+  },
+  onChange: function(current) {
+    console.log('Current: ', current);
   }
 };
 
