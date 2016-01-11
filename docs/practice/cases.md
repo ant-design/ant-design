@@ -61,6 +61,7 @@ AntV 是把这几年来数据图形组在探索数据可视化过程中有价值
 }
 .preview-image-wrapper {
   padding: 0;
+  background: #fff;
 }
 .toc {
   display: none;
