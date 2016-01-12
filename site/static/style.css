@@ -1246,6 +1246,10 @@ a.entry-link:hover .anticon-smile {
   font-size: 12px;
 }
 
+.demos-anchor a {
+  padding-left: 8px;
+}
+
 .demos-anchor.toc.sticky {
   position: fixed;
   top: 0;
