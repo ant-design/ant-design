@@ -76,7 +76,8 @@ ReactDOM.render(
     <FormItem
       label="Datepicker："
       labelCol={{span: 5}}
-      validateStatus="error">
+      validateStatus="error"
+      help>
       <Col span="6">
         <DatePicker />
       </Col>
