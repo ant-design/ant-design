@@ -11,11 +11,11 @@
 import { Table } from 'antd';
 
 const onRowClick = function(record, index) {
-  alert(`u click the nth(${index}) element of yourFather.children, record.name: ${record.name}`);
+  console.log(`u click the nth(${index}) element of yourFather.children, record.name: ${record.name}`);
 };
 
 const onOperationClick = function(text, record) {
-  alert(`u click ${text}, record.name is ${record.name}`);
+  console.log(`u click ${text}, record.name is ${record.name}`);
 };
 
 const columns = [{
