@@ -5,7 +5,7 @@
 
 ---
 
-在进行模式、组件和语言的整理中，《交互设计精髓》、《Web 界面设计》、《界面设计模式》、《写给大家看的设计书》、《设计心理学》、《Web表单设计：点石成金的艺术》等书籍给了我们很多的启示，帮助我们节约了大量时间，并成功克服了很多困难。如果想了解更多设计相关的内容，建议你去阅读这些非常棒的书籍。
+在进行模式、组件和语言的整理中，《About Face 4》、《Web 界面设计》、《界面设计模式》、《写给大家看的设计书》、《设计心理学》、《Web表单设计：点石成金的艺术》等书籍给了我们很多的启示，帮助我们节约了大量时间，并成功克服了很多困难。如果想了解更多设计相关的内容，建议你去阅读这些非常棒的书籍。
 
 <a target="_blank" href="http://book.douban.com/subject/26642302/" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/PeeRQQIGQJCswxe.png">
@@ -66,16 +66,19 @@
 
 <style>
 .resource-card {
-  width: 350px;
+  max-width: 350px;
+  width: 40%;
   height: 130px;
   border: 1px solid #e9e9e9;
-  border-radius: 12px;
+  border-radius: 6px;
   font-size: 12px;
   color: #777;
   display: inline-block;
   margin: 20px 40px 10px 0;
   vertical-align: middle;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .resource-card:hover {
@@ -96,13 +99,18 @@
   vertical-align: middle;
   width: 64px;
   margin: 0 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .resource-card-content {
   display: inline-block;
   vertical-align: middle;
-  height: 130px;
-  padding-top: 24px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 106px;
 }
 
 .resource-card-title {

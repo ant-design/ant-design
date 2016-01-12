@@ -179,15 +179,17 @@ const PriviewImg = React.createClass({
       imgStyle.background = 'none';
     }
     const current = this.state.current;
+    const arrows = imgsPack.length > 1;
+    const createMarkup = () => { return { __html: this.props.description } };
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
         <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
           <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture" />
         </div>
         <div className="preview-image-title">{this.props.alt}</div>
-        <div className="preview-image-description">{this.props.description}</div>
+        <div className="preview-image-description" dangerouslySetInnerHTML={createMarkup()} />
         <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
-          <Carousel afterChange={this.handleImgChange} adaptiveHeight arrows>
+          <Carousel afterChange={this.handleImgChange} adaptiveHeight arrows={arrows}>
             {
               imgsPack.map((img, i) =>
                 <div key={i}>

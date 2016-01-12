@@ -9,21 +9,21 @@
 
 ## 内容
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/zFqqEqKKAylKkxv.png">
+<img class="preview-img" align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/zFqqEqKKAylKkxv.png">
 
 通常表格的组成元素以及相关元素会有，这几部分组成。
 
 1. 按钮组
 2. 搜索条件
-3. 筛选
-4. 排序
+3. 排序
+4. 筛选
 5. 状态点
 6. 单行操作
 7. 分页器／无限加载（可选）
 
 ### 筛选
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/YRcnmAFUvcfMlpN.png">
+<img class="preview-img" align="right" alt="筛选示例" src="https://os.alipayobjects.com/rmsportal/YRcnmAFUvcfMlpN.png">
 
 当该列选项有限，用户又希望只查看一个或者多个值时，可考虑使用。
 
@@ -35,7 +35,7 @@
 
 ### 更多操作
 
-<img class="preview-img" align="right" alt="依次分别为：完整内容、暂时不可用、没有该权限。" src="https://os.alipayobjects.com/rmsportal/ZlcZDOZNZpYQcMM.png">
+<img class="preview-img" align="right" alt="更多操作示例" description="依次分别为：完整内容、暂时不可用、没有该权限。" src="https://os.alipayobjects.com/rmsportal/ZlcZDOZNZpYQcMM.png">
 
 该项暂时不可用时，直接灰化该操作；用户没有该权限时，直接隐藏该操作。
 
@@ -43,10 +43,10 @@
 
 <img class="preview-img" align="right" alt="名称跳转示例" src="https://os.alipayobjects.com/rmsportal/tfJiUmrUJRzBlzt.png">
 
-把ID、名称等唯一性的表格项处理成文字链，点击后跳转至详情。
+把 ID、名称等唯一性的表格项处理成文字链，点击后跳转至详情。
 
 - 优点：节省空间；
-- 缺点：可发现性较低；点击区域受到内容限制，可能出现不易点击的情况
+- 缺点：可发现性较低；点击区域受到内容限制，可能出现不易点击的情况。
 
 <br>
 
@@ -69,11 +69,11 @@
 
 ### 全选数据
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/QqafGErOPnuDKyy.png">
+<img class="preview-img" align="right" alt="状态一" src="https://os.alipayobjects.com/rmsportal/QqafGErOPnuDKyy.png">
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/POvEJGjMYAexGut.png">
+<img class="preview-img" align="right" alt="点击 Table 顶部的复选框，出现『Alert』" src="https://os.alipayobjects.com/rmsportal/qwRSMFNilVCNoym.png">
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/qwRSMFNilVCNoym.png">
+<img class="preview-img" align="right" alt="点击『选择全部』" src="https://os.alipayobjects.com/rmsportal/POvEJGjMYAexGut.png">
 
 当使用了分页器，又想实现全选数据的功能，可以结合『Alert』来实现。
 
@@ -93,33 +93,33 @@
 
 ### 固定按钮组
 
-<img class="preview-img" align="right" alt="顶部固定按钮" src="https://os.alipayobjects.com/rmsportal/AhgnVIhTIvtHpok.png">
+<img class="preview-img" align="right" alt="顶部固定示例" src="https://os.alipayobjects.com/rmsportal/AhgnVIhTIvtHpok.png">
 
-<img class="preview-img" align="right" alt="底部固定按钮" src="https://os.alipayobjects.com/rmsportal/hUHidNAJczLRVCg.png">
+<img class="preview-img" align="right" alt="底部固定示例" src="https://os.alipayobjects.com/rmsportal/hUHidNAJczLRVCg.png">
 
-用在表格行数很多时（一般多于20行），又想对表格数据进行频繁的操作时，尤其适用在无限加载的表格中。
+用在表格行数很多时（一般多于 20 行），又想对表格数据进行频繁的操作时，尤其适用在无限加载的表格中。
 
 ### 某一项内容过长
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/vgNHOYAiuQbXCOi.png">
+<img class="preview-img" align="right" alt="气泡显示示例" description="当过长信息可以被隐藏时，用户悬浮／点击该项时，用『Tooltip／Popover』来显示完整内容。" src="https://os.alipayobjects.com/rmsportal/vgNHOYAiuQbXCOi.png">
 
 某一项内容过长／不确定长度，既不希望用户在列表和详情之间来回跳转，又不希望不确定的数据撑爆表格时。
 
 ### 模块编辑
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/mUhSLOTjzGYTQaE.png">
+<img class="preview-img" align="right" alt="模块编辑示例" description="启动和禁用要尽可能相似（对称性交互）；保证启用和禁用切换时，页面不在水平方向不错位。" src="https://os.alipayobjects.com/rmsportal/mUhSLOTjzGYTQaE.png">
 
 适用在易读性高于易编辑性时；适用在有一定数量的项需要编辑时。
 
 ### 直接编辑
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/VgvZjqTZBuAfGuO.png">
+<img class="preview-img" align="right" alt="直接编辑示例" description="用户输入后，系统需要及时保存数据。" src="https://os.alipayobjects.com/rmsportal/VgvZjqTZBuAfGuO.png">
 
 适用在易编辑性高于易读性时。
 
 ### 悬浮层编辑
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/QhIyXeNxAZEaLjT.png">
+<img class="preview-img" align="right" alt="悬浮层编辑示例" src="https://os.alipayobjects.com/rmsportal/QhIyXeNxAZEaLjT.png">
 
 悬浮层会遮挡部分页面，适用在上下文对编辑任务不那么重要时。
 
@@ -149,7 +149,7 @@
 
 ### 对齐方式
 
-<img class="preview-img" align="right" src="https://os.alipayobjects.com/rmsportal/RWCMGdnGSZXYULc.png">
+<img class="preview-img" align="right" alt="对齐示例" src="https://os.alipayobjects.com/rmsportal/RWCMGdnGSZXYULc.png">
 
 数值右对齐（带小数则按小数点对齐），其余左对齐。
 

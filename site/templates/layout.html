@@ -64,7 +64,7 @@
         <span class="bar"></span>
         <ul>
           <li class="{%- if post.meta.filepath === 'README.md' %}current{%- endif %}">
-            <a href="{{static_url('../')}}" data-no-instant>首页</a>
+            <a href="{{static_url('../')}}">首页</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/practice']) %}current{%- endif %}">
             <a href="{{static_url('../docs/practice/cases')}}">实践</a>
@@ -72,11 +72,11 @@
           <li class="{%- if post.directory|rootDirectoryIn(['docs/pattern']) %}current{%- endif %}">
             <a href="{{static_url('../docs/pattern/navigation')}}">模式</a>
           </li>
-          <li class="{%- if post.directory|rootDirectoryIn(['docs/spec']) %}current{%- endif %}">
-            <a href="{{static_url('../docs/spec/introduce')}}">语言</a>
-          </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/react','components']) or post.meta.filepath === 'CHANGELOG.md' %}current{%- endif %}">
             <a href="{{static_url('../docs/react/introduce')}}">组件</a>
+          </li>
+          <li class="{%- if post.directory|rootDirectoryIn(['docs/spec']) %}current{%- endif %}">
+            <a href="{{static_url('../docs/spec/introduce')}}">语言</a>
           </li>
           <li class="{%- if post.directory|rootDirectoryIn(['docs/resource']) %}current{%- endif %}">
             <a href="{{static_url('../docs/resource/download')}}">资源</a>

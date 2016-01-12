@@ -2,7 +2,6 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 import { QueueAnim, Icon, Button } from '../index';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import EventDispatcher from 'rc-scroll-anim/lib/EventDispatcher';
 import TweenOne from 'rc-tween-one';
 
 // 导航处理
@@ -16,7 +15,8 @@ function scrollNavEvent() {
   }
 }
 
-EventDispatcher.addEventListener('scroll.scrollNavEvent', scrollNavEvent);
+$(window).off('scroll.scrollNavEvent');
+$(window).on('scroll.scrollNavEvent', scrollNavEvent);
 
 class Banner extends React.Component {
   constructor() {

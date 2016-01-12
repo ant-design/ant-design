@@ -44,7 +44,7 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" src="https://os.alipayobjects.com/rmsportal/BywMIfnGDOyWivF.png">
+<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/DKtNtqOckLayIpj.png">
 
 导航的结构由以下几部分组成。
 
@@ -53,8 +53,7 @@
 3. 登陆工具
 4. 面包屑（可选）
 
-> 注：
-> 1. 尽可能不使用面包屑，尤其是当前页面的导航能清晰的告诉用户他在哪里时；
+> 1. 尽可能不使用面包屑，尤其是当前页面的导航能清晰的告诉用户他在哪里时。
 > 2. 面包屑可以分为这几类：
 >   - 路径型：是一个动态显示用户到达页面经过的途径。
 >   - 位置型：位置型是固定的，显示了页面在网站结构中的位置。
@@ -64,7 +63,9 @@
 
 <img class="preview-img" noPadding align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/GsVlBheKLGHCRLe.png">
 
-<img class="preview-img" noPadding align="right" alt="多级类目展开" src="https://os.alipayobjects.com/rmsportal/qaOifucSTWooBTL.png">
+<img class="preview-img" noPadding align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/kAbbeJekohMtubV.png">
+
+<img class="preview-img" noPadding align="right" alt="三级类目及以上" src="https://os.alipayobjects.com/rmsportal/qaOifucSTWooBTL.png">
 
 我们定义了不同类目层级所对应的导航样式。
 
@@ -73,19 +74,19 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" alt="顶部导航结构" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
+<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
 
 结构如右图所示：
 
-1. 产品 Logo 和名称。
-2. 业务类目。
-3. 登陆工具。
-4. 面包屑（可选）。
+1. 产品 Logo 和名称
+2. 业务类目
+3. 登陆工具
+4. 面包屑（可选）
 
 <br>
 
 <img class="preview-img" noPadding align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/xXaCRVPIfmjDyIL.png">
 
-<img class="preview-img" noPadding align="right" alt="四级类目" src="https://os.alipayobjects.com/rmsportal/ollkHeFUFQElelm.png">
+<img class="preview-img" noPadding align="right" alt="三级类目及以上" src="https://os.alipayobjects.com/rmsportal/ollkHeFUFQElelm.png">
 
 不同类目层级。

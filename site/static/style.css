@@ -551,8 +551,8 @@ footer ul li > a {
 .markdown > ul li,
 .markdown blockquote ul > li {
   list-style: circle;
-  margin-left: 1em;
-  padding-left: 0.4em;
+  margin-left: 20px;
+  padding-left: 4px;
 }
 
 .markdown > ul li p,
@@ -563,8 +563,8 @@ footer ul li > a {
 .markdown > ol li,
 .markdown blockquote ol > li {
   list-style: decimal;
-  margin-left: 1em;
-  padding-left: 0.4em;
+  margin-left: 20px;
+  padding-left: 4px;
 }
 
 .markdown code {
@@ -1248,6 +1248,11 @@ a.entry-link:hover .anticon-smile {
 
 .demos-anchor a {
   padding-left: 8px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90px;
 }
 
 .demos-anchor.toc.sticky {
@@ -1260,8 +1265,12 @@ a.entry-link:hover .anticon-smile {
 
 .preview-image-boxes {
   float: right;
-  margin: 0 0 30px 60px;
+  margin: 0 0 110px 60px;
   width: 616px;
+}
+
+.preview-image-boxes + .preview-image-boxes {
+  margin-top: -75px;
 }
 
 .preview-image-box {
@@ -1312,6 +1321,12 @@ a.entry-link:hover .anticon-smile {
   margin-top: 2px;
   color: #999;
   line-height: 1.5;
+}
+
+.preview-image-description hr {
+  margin: 2px 0;
+  border: 0;
+  background: none;
 }
 
 .preview-image-box img {
@@ -1389,7 +1404,9 @@ a.entry-link:hover .anticon-smile {
   color: #000;
   opacity: 0;
   transition: all 0.3s ease;
-  margin-left: 24px;
+  position: absolute;
+  top: 220px;
+  right: 24px;
 }
 
 .image-modal .slick-prev:hover:after {
@@ -1412,7 +1429,9 @@ a.entry-link:hover .anticon-smile {
   color: #000;
   opacity: 0;
   transition: all 0.3s ease;
-  margin-right: 24px;
+  position: absolute;
+  top: 220px;
+  right: 24px;
 }
 
 .image-modal .slick-next:hover:after {
