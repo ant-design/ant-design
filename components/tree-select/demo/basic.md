@@ -30,10 +30,10 @@ const Demo = React.createClass({
       <div style={{margin: 20}}>
         <h2>Single Select</h2>
         <TreeSelect style={{width: 300}} showSearch
-              value={this.state.value} optionLabelProp="title"
-              dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
-              treeDefaultExpandAll
-              onChange={this.onChange}>
+          value={this.state.value} optionLabelProp="title"
+          dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
+          treeDefaultExpandAll
+          onChange={this.onChange}>
           <TreeNode value="parent 1" title="parent 1" key="0-1">
             <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
               <TreeNode value="leaf1" title="my leaf" key="random" />

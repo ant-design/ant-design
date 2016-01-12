@@ -82,12 +82,14 @@ const App = React.createClass({
         console.log(selected, selectedRows);
       }
     };
-    return <div>
-      <Table columns={columns} dataSource={this.state.data} rowSelection={rowSelection} />
-      <Button onClick={this.handleClick1}>加载本地数据1</Button>
-      &nbsp;
-      <Button onClick={this.handleClick2}>加载本地数据2</Button>
-    </div>;
+    return (
+      <div>
+        <Table columns={columns} dataSource={this.state.data} rowSelection={rowSelection} />
+        <Button onClick={this.handleClick1}>加载本地数据1</Button>
+        &nbsp;
+        <Button onClick={this.handleClick2}>加载本地数据2</Button>
+      </div>
+    );
   }
 });
 

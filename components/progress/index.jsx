@@ -1,4 +1,4 @@
-import {Circle as Progresscircle} from 'rc-progress';
+import { Circle as Progresscircle } from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
 import Icon from '../icon';
@@ -6,9 +6,9 @@ import Icon from '../icon';
 const prefixCls = 'ant-progress';
 
 const statusColorMap = {
-  'normal': '#2db7f5',
-  'exception': '#ff6600',
-  'success': '#87d068'
+  normal: '#2db7f5',
+  exception: '#ff6600',
+  success: '#87d068'
 };
 
 let Line = React.createClass({
@@ -39,7 +39,7 @@ let Line = React.createClass({
     const text = (typeof props.format === 'string') ?
       props.format.replace('${percent}', props.percent) : props.format;
 
-    if(props.showInfo === true){
+    if (props.showInfo === true) {
       if (props.status === 'exception') {
         progressInfo = (
           <span className={prefixCls + '-line-text'}>{text}</span>
@@ -83,7 +83,7 @@ let Circle = React.createClass({
     strokeWidth: React.PropTypes.number,
     width: React.PropTypes.number,
   },
-  getDefaultProps: function () {
+  getDefaultProps() {
     return {
       width: 132,
       percent: 0,
@@ -100,9 +100,9 @@ let Circle = React.createClass({
     }
 
     let style = {
-      'width': props.width,
-      'height': props.width,
-      'fontSize': props.width * 0.16 + 6
+      width: props.width,
+      height: props.width,
+      fontSize: props.width * 0.16 + 6
     };
     let progressInfo;
     const text = (typeof props.format === 'string') ?
@@ -136,6 +136,6 @@ let Circle = React.createClass({
 });
 
 export default {
-  Line: Line,
-  Circle: Circle
+  Line,
+  Circle,
 };

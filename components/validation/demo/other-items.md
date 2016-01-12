@@ -20,9 +20,8 @@ function cx(classNames) {
     return Object.keys(classNames).filter(function(className) {
       return classNames[className];
     }).join(' ');
-  } else {
-    return Array.prototype.join.call(arguments, ' ');
   }
+  return Array.prototype.join.call(arguments, ' ');
 }
 
 const Demo = React.createClass({
@@ -52,9 +51,9 @@ const Demo = React.createClass({
     const status = this.state.status;
 
     const classes = cx({
-      'error': status[item].errors,
-      'validating': status[item].isValidating,
-      'success': formData[item] && !status[item].errors && !status[item].isValidating
+      error: status[item].errors,
+      validating: status[item].isValidating,
+      success: formData[item] && !status[item].errors && !status[item].isValidating
     });
 
     return classes;
@@ -76,15 +75,14 @@ const Demo = React.createClass({
       if (!valid) {
         console.log('error in form');
         return;
-      } else {
-        console.log('submit');
       }
+      console.log('submit: ');
       console.log(this.state.formData);
     });
   },
 
   checkBirthday(rule, value, callback) {
-    if (value && value.getTime() >= Date.now()){
+    if (value && value.getTime() >= Date.now()) {
       callback(new Error('你不可能在未来出生吧!'));
     } else {
       callback();
@@ -114,15 +112,16 @@ const Demo = React.createClass({
             validateStatus={this.renderValidateStyle('select')}
             help={status.select.errors ? status.select.errors.join(',') : null}
             required>
-              <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
-                <Select size="large" placeholder="请选择国家" style={{width: '100%'}} name="select" value={formData.select}>
-                  <Option value="china">中国</Option>
-                  <Option value="use">美国</Option>
-                  <Option value="japan">日本</Option>
-                  <Option value="korean">韩国</Option>
-                  <Option value="Thailand">泰国</Option>
-                </Select>
-              </Validator>
+            <Validator rules={[{required: true, message: '请选择您的国籍'}]}>
+              <Select size="large" placeholder="请选择国家" style={{width: '100%'}}
+                name="select" value={formData.select}>
+                <Option value="china">中国</Option>
+                <Option value="use">美国</Option>
+                <Option value="japan">日本</Option>
+                <Option value="korean">韩国</Option>
+                <Option value="Thailand">泰国</Option>
+              </Select>
+            </Validator>
           </FormItem>
 
           <FormItem
@@ -133,7 +132,8 @@ const Demo = React.createClass({
             help={status.multiSelect.errors ? status.multiSelect.errors.join(',') : null}
             required>
             <Validator rules={[{required: true, message: '请选择您喜欢的颜色', type: 'array'}]}>
-              <Select multiple size="large" placeholder="请选择颜色" style={{width: '100%'}} name="multiSelect" value={formData.multiSelect}>
+              <Select multiple size="large" placeholder="请选择颜色" style={{width: '100%'}}
+                name="multiSelect" value={formData.multiSelect}>
                 <Option value="red">红色</Option>
                 <Option value="orange">橙色</Option>
                 <Option value="yellow">黄色</Option>

@@ -39,22 +39,25 @@ class AntTag extends React.Component {
     className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 
     return this.state.closed ? null
-      : <Animate component=""
-                 showProp="data-show"
-                 transitionName={this.props.prefixCls + '-zoom'}
-                 onEnd={this.animationEnd.bind(this)}>
-        <div data-show={!this.state.closing} className={className}>
-          <a className={this.props.prefixCls + '-text'} {...this.props} />
-          {close}
-        </div>
-      </Animate>;
+      : (
+          <Animate component=""
+            showProp="data-show"
+            transitionName={this.props.prefixCls + '-zoom'}
+            onEnd={this.animationEnd.bind(this)}>
+          <div data-show={!this.state.closing} className={className}>
+            <a className={this.props.prefixCls + '-text'} {...this.props} />
+            {close}
+          </div>
+        </Animate>
+      );
   }
 }
 
+function NOOP() {}
 AntTag.defaultProps = {
   prefixCls: 'ant-tag',
   closable: false,
-  onClose: function() {}
+  onClose: NOOP,
 };
 
 export default AntTag;

@@ -32,13 +32,13 @@ export default class Button extends React.Component {
   }
   render() {
     const props = this.props;
-    const {type, shape, size, onClick, className, htmlType, children, ...others} = props;
+    const { type, shape, size, onClick, className, htmlType, children, ...others } = props;
 
     // large => lg
     // small => sm
     const sizeCls = ({
-      'large': 'lg',
-      'small': 'sm'
+      large: 'lg',
+      small: 'sm',
     })[size] || '';
 
     const classes = classNames({
@@ -52,9 +52,11 @@ export default class Button extends React.Component {
 
     const kids = React.Children.map(children, insertSpace);
 
-    return <button {...others} type={htmlType || 'button'} className={classes} onClick={onClick}>
-      {kids}
-    </button>;
+    return (
+      <button {...others} type={htmlType || 'button'} className={classes} onClick={onClick}>
+        {kids}
+      </button>
+    );
   }
 }
 

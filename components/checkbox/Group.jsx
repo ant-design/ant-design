@@ -42,17 +42,19 @@ export default React.createClass({
   },
   render() {
     const options = this.props.options;
-    return <div className="ant-checkbox-group">
-      {
-        options.map(option =>
-          <label className="ant-checkbox-group-item" key={option}>
-            <Checkbox disabled={this.props.disabled}
-            checked={this.state.value.indexOf(option) !== -1}
-            onChange={this.toggleOption.bind(this, option)} />
-            {option}
-          </label>
-        )
-      }
-    </div>;
+    return (
+      <div className="ant-checkbox-group">
+        {
+          options.map(option =>
+            <label className="ant-checkbox-group-item" key={option}>
+              <Checkbox disabled={this.props.disabled}
+                checked={this.state.value.indexOf(option) !== -1}
+                onChange={this.toggleOption.bind(this, option)} />
+              {option}
+            </label>
+          )
+        }
+      </div>
+    );
   },
 });

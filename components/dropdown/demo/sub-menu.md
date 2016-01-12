@@ -10,14 +10,16 @@
 import { Menu, Dropdown, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
-const menu = <Menu>
-  <Menu.Item>第一个菜单项</Menu.Item>
-  <Menu.Item>第二个菜单项</Menu.Item>
-  <SubMenu title="子菜单">
-    <Menu.Item>第三个菜单项</Menu.Item>
-    <Menu.Item>第四个菜单项</Menu.Item>
-  </SubMenu>
-</Menu>;
+const menu = (
+  <Menu>
+    <Menu.Item>第一个菜单项</Menu.Item>
+    <Menu.Item>第二个菜单项</Menu.Item>
+    <SubMenu title="子菜单">
+      <Menu.Item>第三个菜单项</Menu.Item>
+      <Menu.Item>第四个菜单项</Menu.Item>
+    </SubMenu>
+  </Menu>
+);
 
 ReactDOM.render(
   <Dropdown overlay={menu}>

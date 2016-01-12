@@ -14,7 +14,7 @@ import { QueueAnim, Menu } from 'antd';
 const App = React.createClass({
   render() {
     const key = this.props.location.pathname;
-    const keys = key.replace('/', '') ? [ key.replace('/', '') ] : [ 'home' ];
+    const keys = key.replace('/', '') ? [key.replace('/', '')] : ['home'];
     return (
       <div>
         <Menu style={{marginBottom: 10}} mode="horizontal" selectedKeys={keys}>
@@ -83,7 +83,7 @@ const Page1 = React.createClass({
           <div className="demo-listBox">
             <QueueAnim className="demo-list" delay={200}>
               <div className="title" key="title3"></div>
-              <QueueAnim component="ul" animConfig={{opacity:[1, 0], translateY:[0, 30], scale:[1, 0.9]}} key="ul">
+              <QueueAnim component="ul" animConfig={{opacity: [1, 0], translateY: [0, 30], scale: [1, 0.9]}} key="ul">
                 <li key="0"></li>
                 <li key="1"></li>
                 <li key="2"></li>
@@ -104,7 +104,7 @@ const Page2 = React.createClass({
           <div className="demo-listBox">
             <QueueAnim className="demo-list">
               <div className="title" key="title3"></div>
-              <QueueAnim component="ul" animConfig={{opacity:[1, 0], translateY:[0, 30], scale:[1, 0.9]}} key="li">
+              <QueueAnim component="ul" animConfig={{opacity: [1, 0], translateY: [0, 30], scale: [1, 0.9]}} key="li">
                 <li key="0"></li>
                 <li key="1"></li>
                 <li key="2"></li>

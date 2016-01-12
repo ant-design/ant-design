@@ -32,17 +32,19 @@ const MyProgress = React.createClass({
     this.setState({ percent });
   },
   render() {
-    return <div>
-      <ProgressCircle percent={this.state.percent} />
-      <ButtonGroup>
-        <Button type="ghost" onClick={this.decline}>
-          <Icon type="minus" />
-        </Button>
-        <Button type="ghost" onClick={this.increase}>
-          <Icon type="plus" />
-        </Button>
-      </ButtonGroup>
-    </div>;
+    return (
+      <div>
+        <ProgressCircle percent={this.state.percent} />
+        <ButtonGroup>
+          <Button type="ghost" onClick={this.decline}>
+            <Icon type="minus" />
+          </Button>
+          <Button type="ghost" onClick={this.increase}>
+            <Icon type="plus" />
+          </Button>
+        </ButtonGroup>
+      </div>
+    );
   }
 });
 

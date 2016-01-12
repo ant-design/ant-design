@@ -4,10 +4,10 @@ if (typeof window !== 'undefined') {
   const matchMediaPolyfill = function matchMediaPolyfill() {
     return {
       matches: false,
-      addListener: function () {
+      addListener() {
       },
-      removeListener: function () {
-      }
+      removeListener() {
+      },
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
@@ -21,7 +21,7 @@ const AntCarousel = React.createClass({
   getDefaultProps() {
     return {
       dots: true,
-      arrows: false
+      arrows: false,
     };
   },
   render() {

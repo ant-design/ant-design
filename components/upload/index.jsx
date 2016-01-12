@@ -37,15 +37,16 @@ function genPercentAdd() {
   let k = 0.1;
   const i = 0.01;
   const end = 0.98;
-  return function(start) {
+  return function(s) {
+    let start = s;
     if (start >= end) {
       return start;
-    } else {
-      start += k;
-      k = k - i;
-      if (k < 0.001) {
-        k = 0.001;
-      }
+    }
+
+    start += k;
+    k = k - i;
+    if (k < 0.001) {
+      k = 0.001;
     }
     return start * 100;
   };
@@ -65,9 +66,9 @@ const AntUpload = React.createClass({
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
       targetItem = file.map(function(f) {
-        f = fileToObject(f);
-        f.status = 'uploading';
-        return f;
+        const fileObject = fileToObject(f);
+        fileObject.status = 'uploading';
+        return fileObject;
       });
       nextFileList = nextFileList.concat(targetItem);
     } else {
@@ -124,7 +125,7 @@ const AntUpload = React.createClass({
       targetItem.response = response;
       this.onChange({
         file: targetItem,
-        fileList: fileList
+        fileList
       });
     }
   },
@@ -135,7 +136,7 @@ const AntUpload = React.createClass({
     targetItem.percent = e.percent;
     this.onChange({
       event: e,
-      file: file,
+      file,
       fileList: this.state.fileList
     });
   },
@@ -156,13 +157,15 @@ const AntUpload = React.createClass({
     let fileList = this.removeFile(file);
     if (fileList) {
       this.onChange({
-        file: file,
-        fileList: fileList
+        file,
+        fileList,
       });
     }
   },
   handleManualRemove(file) {
+    /*eslint-disable */
     file.status = 'removed';
+    /*eslint-enable */
     this.handleRemove(file);
   },
   onChange(info) {
@@ -256,7 +259,7 @@ const AntUpload = React.createClass({
 
 AntUpload.Dragger = React.createClass({
   render() {
-    return <AntUpload {...this.props} type="drag" style={{height: this.props.height}}/>;
+    return <AntUpload {...this.props} type="drag" style={{ height: this.props.height }}/>;
   }
 });
 

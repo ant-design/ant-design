@@ -2,7 +2,7 @@ import React from 'react';
 import assign from 'object-assign';
 
 function prefixClsFn(prefixCls, ...args) {
-  return args.map((s)=> {
+  return args.map((s) => {
     return prefixCls + '-' + s;
   }).join(' ');
 }
@@ -26,8 +26,7 @@ class Group extends React.Component {
   render() {
     const className = 'ant-input-group ' + (this.props.className || '');
     return (
-      <span className={className}
-            style={this.props.style}>
+      <span className={className} style={this.props.style}>
         {this.props.children}
       </span>
     );
@@ -73,23 +72,26 @@ class Input extends React.Component {
     }
 
     switch (props.size) {
-    case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
-    case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
-    default:
+      case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
+      case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
+      default:
     }
     let placeholder = props.placeholder;
-    if(placeholder && ieGT9()){
+    if (placeholder && ieGT9()) {
       placeholder = null;
     }
     if ('value' in props) {
       props.value = fixControlledValue(props.value);
     }
     switch (props.type) {
-    case 'textarea':
-      return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
-    default:
-      inputClassName = props.className ? props.className : inputClassName;
-      return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
+      case 'textarea':
+        return (
+          <textarea {...props} placeholder={placeholder}
+            className={inputClassName} ref="input" />
+        );
+      default:
+        inputClassName = props.className ? props.className : inputClassName;
+        return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
     }
   }
 

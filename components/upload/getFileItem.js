@@ -3,9 +3,8 @@ export default function getFileItem(file, fileList) {
   let target = fileList.filter((item) => {
     if (matchWay === 'byName') {
       return item.name === file.name;
-    } else {
-      return item.uid === file.uid;
     }
+    return item.uid === file.uid;
   })[0];
   return target;
 }

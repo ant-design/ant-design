@@ -80,7 +80,7 @@ class AntCascader extends React.Component {
             className={pickerCls}>
             <Input placeholder={placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
-              style={{width: '100%'}}
+              style={{ width: '100%' }}
               value={this.getLabel()}
               disabled={disabled}
               readOnly />

@@ -19,9 +19,11 @@ const openNotification = function() {
     // 隐藏提醒框
     notification.close(key);
   };
-  const btn = <Button type="primary" size="small" onClick={btnClick}>
-    自定义关闭按钮并触发回调函数
-  </Button>;
+  const btn = (
+    <Button type="primary" size="small" onClick={btnClick}>
+      自定义关闭按钮并触发回调函数
+    </Button>
+  );
   notification.open({
     message: '这是标题',
     description: '这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案',

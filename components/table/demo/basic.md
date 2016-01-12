@@ -28,15 +28,17 @@ const columns = [{
   title: '操作',
   key: 'operation',
   render: function(text, record) {
-    return <span>
-      <a href="#">操作一{record.name}</a>
-      <span className="ant-divider"></span>
-      <a href="#">操作二</a>
-      <span className="ant-divider"></span>
-      <a href="#" className="ant-dropdown-link">
-        更多 <Icon type="down" />
-      </a>
-    </span>;
+    return (
+      <span>
+        <a href="#">操作一{record.name}</a>
+        <span className="ant-divider"></span>
+        <a href="#">操作二</a>
+        <span className="ant-divider"></span>
+        <a href="#" className="ant-dropdown-link">
+          更多 <Icon type="down" />
+        </a>
+      </span>
+    );
   }
 }];
 const data = [{

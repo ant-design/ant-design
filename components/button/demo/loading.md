@@ -23,24 +23,26 @@ const App = React.createClass({
     this.setState({ iconLoading: true });
   },
   render() {
-    return <div>
-      <Button type="primary" size="large" loading>
-        加载中
-      </Button>
-      <Button type="primary" loading>
-        加载中
-      </Button>
-      <Button type="primary" size="small" loading>
-        加载中
-      </Button>
-      <br />
-      <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
-        点击变加载
-      </Button>
-      <Button type="primary" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
-        <Icon type="poweroff" />点击变加载
-      </Button>
-    </div>;
+    return (
+      <div>
+        <Button type="primary" size="large" loading>
+          加载中
+        </Button>
+        <Button type="primary" loading>
+          加载中
+        </Button>
+        <Button type="primary" size="small" loading>
+          加载中
+        </Button>
+        <br />
+        <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
+          点击变加载
+        </Button>
+        <Button type="primary" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
+          <Icon type="poweroff" />点击变加载
+        </Button>
+      </div>
+    );
   }
 });
 

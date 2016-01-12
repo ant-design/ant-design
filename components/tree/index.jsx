@@ -17,9 +17,11 @@ const AntTree = React.createClass({
     if (checkable) {
       checkable = <span className={`${props.prefixCls}-checkbox-inner`}></span>;
     }
-    return <Tree {...props} checkable={checkable}>
-      {this.props.children}
-    </Tree>;
+    return (
+      <Tree {...props} checkable={checkable}>
+        {this.props.children}
+      </Tree>
+    );
   }
 });
 
