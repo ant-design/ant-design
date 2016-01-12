@@ -89,7 +89,7 @@
     "eslint": "^1.1.0",
     "eslint-config-airbnb": "latest",
     "eslint-plugin-babel": "^3.0.0",
-    "eslint-plugin-markdown-antd": "0.0.0",
+    "eslint-plugin-markdown-antd": "latest",
     "eslint-plugin-react": "^3.3.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "gh-pages": "^0.8.0",
