@@ -15,7 +15,6 @@ const AntTimePicker = React.createClass({
       align: {
         offset: [0, -2],
       },
-      open: false,
       disabled: false,
       disabledHours: undefined,
       disabledMinutes: undefined,
