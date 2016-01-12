@@ -109,6 +109,7 @@ class FormItem extends React.Component {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-compact`]: this._isCompact(props.children),
       [`${prefixCls}-item-with-help`]: !!props.help,
+      [`${props.className}`]: !!props.className,
     };
 
     return (
@@ -128,7 +129,7 @@ FormItem.propTypes = {
   prefixCls: React.PropTypes.string,
   label: React.PropTypes.node,
   labelCol: React.PropTypes.object,
-  help: React.PropTypes.node,
+  help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
   validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
   hasFeedback: React.PropTypes.bool,
   wrapperCol: React.PropTypes.object,
