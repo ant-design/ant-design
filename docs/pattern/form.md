@@ -106,16 +106,60 @@
 
 ### 字数校验框
 
-<img class="preview-img" align="right" alt="字数校验框示例" retina src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+<img class="preview-img" align="right" alt="字数校验框示例" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
 
 用于统计当前输入长度，以及是否超过系统阈值。
 
-### 容错格式（敬请期待）
 
-### 自动完成（敬请期待）
+## 规格
 
-### 列表构造器（敬请期待）
+### 间距
 
-### 良好的默认值（敬请期待）
+<img class="preview-img" align="right" alt="间隔示例" src="https://os.alipayobjects.com/rmsportal/dlTiHzZvCGRbMzL.png">
 
-## 规格（敬请期待）
+典型表单的间隔规范。
+
+### 输入框宽度
+
+<img class="preview-img" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png" good>
+<img class="preview-img" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png" bad>
+
+当内容可预知，可以根据内容长短进行定义其落在多少个栅格上。
+
+<br>
+
+### 对齐方式
+
+<img class="preview-img" align="right" alt="间隔示例" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+
+无论左对齐、右对齐还是顶部对齐，都有其优缺点和应用场景，所以正确的解决方案取决于具体目标和制约因素，诸如：希望用户加快或者降低填写速度（有时设计者希望用户深思熟虑每个输入）、屏幕显示的限制、本地化考虑等多种因素。
+
+<br>
+
+<img class="preview-img" align="right" alt="右对齐（推荐）" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+
+右对齐（推荐）。
+
+- 优点：减少垂直空间。
+- 缺点：降低可读性；标签长度和输入框弹性小。
+- 场景：既要减少垂直空间，又要加快填写速度。
+
+<br>
+
+<img class="preview-img" align="right" alt="顶部对齐" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+
+顶部对齐。
+
+- 优点：有最快的浏览和处理速度；标签长度弹性大。
+- 缺点：非常占垂直空间。
+- 场景：希望用户快速填写表单，完成任务。
+
+<br>
+
+<img class="preview-img" align="right" alt="左对齐" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+
+左对齐。
+
+- 优点：容易浏览；减少垂直空间。
+- 缺点：填写速度慢；标签长度和输入框弹性小。
+- 场景：希望用户放慢速度，仔细思考表单中的每个输入框。
