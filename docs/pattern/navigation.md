@@ -61,7 +61,7 @@
 
 <br>
 
-<img class="preview-img" noPadding align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/GsVlBheKLGHCRLe.png">
+<img class="preview-img" noPadding align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/IeuIHdFfKCIABHV.png">
 
 <img class="preview-img" noPadding align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/kAbbeJekohMtubV.png">
 
@@ -74,7 +74,7 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
+<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/MVccMQxgCeYfwjS.png">
 
 导航的结构由以下几部分组成。
 
@@ -84,6 +84,8 @@
 4. 面包屑（可选）
 
 <br>
+
+<img class="preview-img" noPadding align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
 
 <img class="preview-img" noPadding align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/xXaCRVPIfmjDyIL.png">
 

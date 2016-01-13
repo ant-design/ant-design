@@ -14,13 +14,6 @@
     <span class="resource-card-description">一套强大的 Ant Design 的 Axure 部件库</span>
   </span>
 </a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/files/57840/iconfont.zip" class="resource-card">
-  <img src="https://os.alipayobjects.com/rmsportal/UEpOFKUQTZaUfnW.png">
-  <span class="resource-card-content">
-    <span class="resource-card-title">Web Font</span>
-    <span class="resource-card-description">网络字体图标的本地文件包</span>
-  </span>
-</a>
 <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/0.11.2/AntD_Box_v1.2.rp" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/UuYRXxndGMKdaiE.png">
   <span class="resource-card-content">
@@ -33,6 +26,13 @@
   <span class="resource-card-content">
     <span class="resource-card-title">Ant UX</span>
     <span class="resource-card-description">一套页面逻辑原型库，帮你梳理页面逻辑</span>
+  </span>
+</a>
+<a target="_blank" href="https://github.com/ant-design/ant-design/files/57840/iconfont.zip" class="resource-card">
+  <img src="https://os.alipayobjects.com/rmsportal/UEpOFKUQTZaUfnW.png">
+  <span class="resource-card-content">
+    <span class="resource-card-title">Web Font</span>
+    <span class="resource-card-description">网络字体图标的本地文件包</span>
   </span>
 </a>
 <a target="_blank" class="resource-card disabled">
