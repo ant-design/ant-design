@@ -73,6 +73,8 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
+    "rc-scroll-anim": "0.0.5",
+    "rc-tween-one": "0.1.5",
     "autoprefixer-loader": "^3.1.0",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",

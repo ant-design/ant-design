@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Dialog from './index';
+import Dialog from './Modal';
 import Icon from '../icon';
 import Button from '../button';
 import objectAssign from 'object-assign';

@@ -54,7 +54,7 @@ ReactDOM.render(
       </div>
     </div>
   </BrowserDemo>
-, document.getElementById('spec-layout-demo-top'));
+, mountNode);
 ````
 
 ````css

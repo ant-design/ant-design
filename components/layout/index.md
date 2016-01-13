@@ -11,7 +11,7 @@
 
 ## 设计理念
 
-<div class="row demo-row" >
+<div class="row demo-row">
   <div class="col-24 demo-col demo-col-1">
     100%
   </div>
