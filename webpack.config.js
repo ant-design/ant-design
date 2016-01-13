@@ -4,9 +4,7 @@ var path = require('path');
 var pkg = require('./package');
 
 var entry = {};
-entry['index'] = './scripts/importCss.js';
 entry['demo'] = './scripts/demo.js';
-entry['home'] = './scripts/home.js';
 
 module.exports = {
   entry: entry,
