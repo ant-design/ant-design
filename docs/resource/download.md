@@ -35,6 +35,13 @@
     <span class="resource-card-description">一个机智的设计资源共享工具</span>
   </span>
 </a>
+<a target="_blank" class="resource-card disabled">
+  <img src="https://os.alipayobjects.com/rmsportal/yfTqrQuSKcqBDLY.png">
+  <span class="resource-card-content">
+    <span class="resource-card-title">Ant UX</span>
+    <span class="resource-card-description">一套页面逻辑原型库，帮你梳理页面逻辑</span>
+  </span>
+</a>
 
 <style>
 .resource-card {
