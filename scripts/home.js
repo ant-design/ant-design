@@ -87,7 +87,7 @@ ReactDOM.render((
               style={{transform: 'translateX(-100px)', opacity: 0}}/>
     <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}>
       <h2 key="h2">丰富的基础组件</h2>
-      <p key="p" style={{maxWidth: 280}}>大量灵活实用的基础组件，为业务产品提供强有力的设计支持。</p>
+      <p key="p" style={{maxWidth: 280}}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。</p>
       <div key="button"><Button type="primary" size="large"
                                 onClick={()=>{window.location.href='/docs/react/introduce'}}>了解更多<Icon
         type="right"/></Button></div>

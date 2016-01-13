@@ -15,11 +15,11 @@
 
 常规型常和表格搭配使用，适合在搜索条件多以及搜索值个数不确定的场景中。
 
-『高级搜索』功能一般开放给中间用户／专家用户使用，一般通过点击高级搜索』触发；如果非常高频使用，可以默认展开『高级搜索』。
+『高级搜索』功能一般开放给中间用户／专家用户使用，一般通过点击『高级搜索』触发；如果非常高频使用，可以默认展开『高级搜索』。
 
 <br>
 
-<img class="preview-img" align="right" alt="交互示例" description="在『高级搜索』顶部放置 Alert ，用于展现已经输入的值；用户点击『清空』可以清空所有输入值；点击『高级搜索』可以再次展开高级搜索。" src="https://os.alipayobjects.com/rmsportal/gKiZtjopvLufqSP.png">
+<img class="preview-img" align="right" alt="交互示例" description="在『高级搜索』顶部放置 Alert ，用于展现已经输入的值；用户点击『清空』可以清空所有输入值；点击『高级搜索』可以再次展开『高级搜索』。" src="https://os.alipayobjects.com/rmsportal/gKiZtjopvLufqSP.png">
 
 当已经输入了值的『高级搜索』被隐藏时，需要展示检索条件和值。
 

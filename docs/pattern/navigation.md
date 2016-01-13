@@ -13,7 +13,7 @@
 
 ## 常见导航
 
-<Table style="font-size:12px;float:right;width:600px;margin-left:60px;">
+<Table style="font-size:12px;float:right;width:600px;margin-left:60px;margin-bottom:100px;">
   <tr>
     <th></th>
     <th>侧栏导航</th>
@@ -76,7 +76,7 @@
 
 <img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
 
-结构如右图所示：
+导航的结构由以下几部分组成。
 
 1. 产品 Logo 和名称
 2. 业务类目
