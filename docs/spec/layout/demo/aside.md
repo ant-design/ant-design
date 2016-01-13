@@ -61,7 +61,7 @@ ReactDOM.render(
       </div>
     </div>
   </BrowserDemo>
-, document.getElementById('spec-layout-demo-aside'));
+, mountNode);
 ````
 
 ````css

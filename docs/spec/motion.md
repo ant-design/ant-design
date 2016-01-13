@@ -136,7 +136,7 @@ motions = motions.concat([[{
   direction: 'enter',
   type: '移动'
 }, {
-  name: '右方滑入',
+  name: '右方滑出',
   value: 'move-right',
   direction: 'leave',
   type: '移动'

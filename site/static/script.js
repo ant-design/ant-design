@@ -6,6 +6,7 @@ InstantClickChangeFns.push(function() {
     }, 0);
   }
 
+  $('.component-demos .icon-all').off('click');
   $('.component-demos .icon-all').on('click', function() {
     if ($(this).hasClass('expand')) {
       $(this).removeClass('expand');
@@ -27,6 +28,7 @@ InstantClickChangeFns.push(function() {
     item.find('.highlight').appendTo(item);
   });
 
+  $('.code-boxes').off('click');
   $('.code-boxes').on('click', '.collapse', function() {
     var highlightBox = $(this).parent().parent().find('.highlight');
     var codeVisible = highlightBox.is(':visible');
@@ -42,19 +44,60 @@ InstantClickChangeFns.push(function() {
   });
 
   function hashChange() {
-    if (location.hash.indexOf('#demo-') === 0) {
-      $('.demos-anchor a').removeClass('current');
-      $('.demos-anchor a[href="' + location.hash + '"]').addClass('current');
-    }
+    $('.demos-anchor a').removeClass('current');
+    $('.demos-anchor a[href="' + decodeURI(location.hash) + '"]').addClass('current');
   }
 
   hashChange();
 
   // 高亮侧边演示菜单
+  $(window).off('hashchange');
   $(window).on('hashchange', hashChange);
 
   // 移动 API 文档到演示下方
   $('.markdown #api').nextAll().andSelf().appendTo('.api-container');
+
+  // 滚动时固定锚点、高亮当前项
+  if ($('.demos-anchor')[0]) {
+    var doc = $(document);
+    var tocTop = $('.toc').offset().top;
+    function onScroll() {
+      var top = doc.scrollTop();
+      if (top >= tocTop) {
+        $('.toc').addClass('sticky');
+      } else {
+        $('.toc').removeClass('sticky');
+      }
+    }
+    onScroll();
+    $(window).off('scroll');
+    $(window).on('scroll', onScroll);
+  }
+
+  // 添加上一页下一页
+  if ($('.aside-container li > a').length > 0) {
+    var links = $('.aside-container li > a');
+    var currentLinkIndex = -1;
+    links.each(function(i, item) {
+      if ($(item).parent().hasClass('current')) {
+        currentLinkIndex = i;
+      }
+    });
+    var prevNextNavNode = $('<div class="prev-next-nav"></div>');
+    var prevLink = links[currentLinkIndex - 1];
+    var nextLink = links[currentLinkIndex + 1];
+    if (prevLink) {
+      prevNextNavNode.append('<a class="prev-page" href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
+    } else {
+      prevNextNavNode.append('<span class="prev-page"></span>');
+    }
+    if (nextLink) {
+      prevNextNavNode.append('<a class="next-page" href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
+    } else {
+      prevNextNavNode.append('<span class="next-page"></span>');
+    }
+    prevNextNavNode.appendTo('.main-container');
+  }
 
   $('.nav-phone-icon').click(function() {
     $(this).prev().toggle();
@@ -77,6 +120,9 @@ InstantClickChangeFns.push(function() {
   var navFunc = {
     navStrArr: [],
     init: function() {
+      if (this.navBar) {
+        return;
+      }
       this.navBox = $(".nav");
       this.navBar = this.navBox.find(".bar");
       this.navList = this.navBox.find("ul li");

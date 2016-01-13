@@ -9,7 +9,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-最简单的试用方式参照以下 JSFiddle 演示, 也推荐 Fork 本例来进行 `Bug Report`, 注意不要在实际项目中这样使用。
+最简单的试用方式参照以下 JSFiddle 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
 
 - [antd JSFiddle](http://jsfiddle.net/0dso5y0x/)
 
@@ -107,6 +107,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   margin-top: -42px;
   position: relative;
   z-index: 1;
+  width: 80%;
 }
 </style>
 
