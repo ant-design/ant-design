@@ -132,72 +132,83 @@
     }
   }
 
-  &-picture &-item {
-    padding: 8px;
-    border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
-    height: 66px;
-    position: relative;
-    &:hover {
+  &-picture,
+  &-picture-inline {
+    .@{upload-prefix-cls}-list-item {
+      padding: 8px;
+      border-radius: @border-radius-base;
+      border: 1px solid @border-color-base;
+      height: 66px;
+      position: relative;
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .@{upload-prefix-cls}-list-item-info {
+      padding: 0;
+    }
+
+    .@{upload-prefix-cls}-list-item:hover .@{upload-prefix-cls}-list-item-info {
       background: transparent;
+    }
+
+    .@{upload-prefix-cls}-list-item-uploading {
+      border-style: dashed;
+    }
+
+    .@{upload-prefix-cls}-list-item-thumbnail {
+      width: 48px;
+      height: 48px;
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+
+    .@{upload-prefix-cls}-list-item-thumbnail img {
+      width: 48px;
+      height: 48px;
+      display: block;
+    }
+
+    .@{upload-prefix-cls}-list-item-thumbnail.anticon:before {
+      line-height: 48px;
+      font-size: 24px;
+      color: #999;
+    }
+
+    .@{upload-prefix-cls}-list-item-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 0 0 8px;
+      line-height: 42px;
+      transition: all 0.3s ease;
+    }
+
+    .@{upload-prefix-cls}-list-item-uploading .@{upload-prefix-cls}-list-item-name {
+      line-height: 28px;
+    }
+
+    .@{upload-prefix-cls}-list-item-progress {
+      padding-left: 56px;
+      margin-top: 0;
+    }
+
+    .anticon-cross {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      line-height: 1;
     }
   }
 
-  &-picture &-item-info {
-    padding: 0;
-  }
-
-  &-picture &-item:hover &-item-info {
-    background: transparent;
-  }
-
-  &-picture &-item-uploading {
-    border-style: dashed;
-  }
-
-  &-picture &-item-thumbnail {
-    width: 48px;
-    height: 48px;
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: middle;
-  }
-
-  &-picture &-item-thumbnail img {
-    width: 48px;
-    height: 48px;
-    display: block;
-  }
-
-  &-picture &-item-thumbnail.anticon:before {
-    line-height: 48px;
-    font-size: 24px;
-    color: #999;
-  }
-
-  &-picture &-item-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0 0 0 8px;
-    line-height: 42px;
-    transition: all 0.3s ease;
-  }
-
-  &-picture &-item-uploading &-item-name {
-    line-height: 28px;
-  }
-
-  &-picture &-item-progress {
-    padding-left: 56px;
-    margin-top: 0;
-  }
-
-  &-picture .anticon-cross {
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    line-height: 1;
+  &-picture-inline {
+    .@{upload-prefix-cls}-list-item {
+      display: inline-block;
+      width: 200px;
+      margin-right: 8px;
+    }
   }
 
   .@{upload-prefix-cls}-success-icon {
