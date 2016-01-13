@@ -78,6 +78,22 @@ class TransferList extends Component {
       [prefixCls + '-with-footer']: !!footerDom,
     });
 
+    const showItems = dataSource.map((item) => {
+      // apply filter
+      const itemText = this.props.render(item);
+      const filterResult = this.matchFilter(itemText, filter);
+      const renderedText = this.props.render(item);
+
+      if (filterResult) {
+        return (
+          <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
+            <Checkbox checked={checkedKeys.some(key => key === item.key)} />
+            {renderedText}
+          </li>
+        );
+      }
+    }).filter(item => !!item);
+
     return <div className={listCls} {...this.props}>
       <div className={`${prefixCls}-header`}>
         {this.renderCheckbox({
@@ -96,24 +112,7 @@ class TransferList extends Component {
         <Animate component="ul"
           transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
           transitionLeave={false}>
-          {dataSource.length > 0 ?
-            dataSource.map((item) => {
-              // apply filter
-              const itemText = this.props.render(item);
-              const filterResult = this.matchFilter(itemText, filter);
-
-              const renderedText = this.props.render(item);
-
-              if (filterResult) {
-                return (
-                  <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
-                    <Checkbox checked={checkedKeys.some(key => key === item.key)} />
-                    {renderedText}
-                  </li>
-                );
-              }
-            }) : <div className={`${prefixCls}-body-not-found`}>Not Found</div>
-          }
+          {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>Not Found</div>}
         </Animate>
       </div>}
       { footerDom ? <div className={`${prefixCls}-footer`}>

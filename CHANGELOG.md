@@ -9,6 +9,8 @@
 - 修复 TimePicker 受控模式点选即关闭面板的问题。[#818](https://github.com/ant-design/ant-design/issues/818)
 - 修复一个两栏的 TimePicker 点击右边空白处无法关闭面板的问题。[#826](https://github.com/ant-design/ant-design/issues/826)
 - 修复 Table `pagination.onChange` 指定无效的问题。[#824](https://github.com/ant-design/ant-design/issues/824)
+- 修复 Transfer 搜索功能失效的问题。
+- 修复二维码图标，新增一个扫描图标。[#772](https://github.com/ant-design/ant-design/issues/772)
 
 ## 0.11.2
 
