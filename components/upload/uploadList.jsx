@@ -56,7 +56,7 @@ export default React.createClass({
       let progress;
       let icon = <Icon type="paper-clip" />;
 
-      if (this.props.listType === 'picture') {
+      if (this.props.listType === 'picture' || this.props.listType === 'picture-inline') {
         icon = (file.status === 'uploading' || (!file.thumbUrl && !file.url))
           ? <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />
           : (
