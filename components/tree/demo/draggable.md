@@ -45,15 +45,15 @@ const Demo = React.createClass({
       expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
     };
   },
-  onTreeDragStart() {
+  onDragStart() {
   },
-  onTreeDragEnter(info) {
+  onDragEnter(info) {
     // console.log(info);
     this.setState({
       expandedKeys: info.expandedKeys,
     });
   },
-  onTreeDrop(info) {
+  onDrop(info) {
     console.log(info);
     const dropKey = info.node.props.eventKey;
     const dragKey = info.dragNode.props.eventKey;
@@ -108,9 +108,9 @@ const Demo = React.createClass({
       <p>drag a node into another node</p>
       <div className="draggable-container">
         <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
-          onTreeDragStart={this.onTreeDragStart}
-          onTreeDragEnter={this.onTreeDragEnter}
-          onTreeDrop={this.onTreeDrop}>
+          onDragStart={this.onDragStart}
+          onDragEnter={this.onDragEnter}
+          onDrop={this.onDrop}>
           {loop(this.state.gData)}
         </Tree>
       </div>
