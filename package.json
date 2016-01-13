@@ -61,7 +61,7 @@
     "rc-tabs": "~5.6.0",
     "rc-time-picker": "~1.0.0",
     "rc-tooltip": "~3.3.0",
-    "rc-tree": "^0.25.3",
+    "rc-tree": "~0.26.1",
     "rc-tree-select": "^0.3.3",
     "rc-trigger": "~1.0.6",
     "rc-upload": "~1.7.0",

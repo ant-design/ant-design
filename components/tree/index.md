@@ -32,11 +32,11 @@
 |loadData | 异步加载数据 | function(node)| - |
 |onRightClick | 显示右键菜单 | function({event,node}) | - |
 |draggable | 设置节点可拖拽（IE>8） | bool | false |
-|onTreeDragStart | 开始拖拽时调用 | function({event,node}) | - |
-|onTreeDragEnter | dragenter 触发时调用 | function({event,node,expandedKeys}) | - |
-|onTreeDragOver | dragover 触发时调用 | function({event,node}) | - |
-|onTreeDragLeave | dragleave 触发时调用 | function({event,node}) | - |
-|onTreeDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
+|onDragStart | 开始拖拽时调用 | function({event,node}) | - |
+|onDragEnter | dragenter 触发时调用 | function({event,node,expandedKeys}) | - |
+|onDragOver | dragover 触发时调用 | function({event,node}) | - |
+|onDragLeave | dragleave 触发时调用 | function({event,node}) | - |
+|onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
 
 ### TreeNode props
 
