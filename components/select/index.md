@@ -32,7 +32,6 @@
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无   |
 | onDeselect | 取消选中时调用，参数为选中项的 option value 值，仅在 multiple 或 tags 模式下生效 |  function(value, option) | 无   |
 | onChange | 选中option，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label) | 无 |
-| allowClear | 显示清除按钮 | boolean | false |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |

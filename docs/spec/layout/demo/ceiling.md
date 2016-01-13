@@ -32,7 +32,7 @@ ReactDOM.render(
       </div>
     </div>
   </BrowserDemo>
-, document.getElementById('spec-layout-demo-ceiling'));
+, mountNode);
 ````
 
 ````css
