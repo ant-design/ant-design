@@ -548,9 +548,12 @@ footer ul li > a {
   width: 80%;
 }
 
+.markdown ul li {
+  list-style: circle;
+}
+
 .markdown > ul li,
 .markdown blockquote ul > li {
-  list-style: circle;
   margin-left: 20px;
   padding-left: 4px;
 }
@@ -560,9 +563,12 @@ footer ul li > a {
   margin: 0.6em 0;
 }
 
+.markdown ol li {
+  list-style: decimal;
+}
+
 .markdown > ol li,
 .markdown blockquote ol > li {
-  list-style: decimal;
   margin-left: 20px;
   padding-left: 4px;
 }
@@ -702,6 +708,10 @@ footer ul li > a {
 
 .toc > ul {
   padding: 8px 0;
+}
+
+.toc > ul li {
+  list-style: none;
 }
 
 .toc li > ul {
