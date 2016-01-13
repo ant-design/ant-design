@@ -64,6 +64,7 @@ function createPicker(TheCalendar, defaultFormat) {
 
       const calendarClassName = classNames({
         ['ant-calendar-time']: this.props.showTime,
+        ['ant-calendar-month']: MonthCalendar === TheCalendar,
       });
 
       const calendar = (
