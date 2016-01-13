@@ -90,7 +90,7 @@ exports.middlewares = [
   },
   {
   name: 'webpackDevMiddleware',
-  filter: /\.(js|css)(\.map)?$/,
+  filter: /\.(js|css)(\.map)?(\?.*)?$/,
   handle: function(req, res, next) {
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
