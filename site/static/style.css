@@ -911,6 +911,7 @@ footer ul li > a {
   font-size: 12px;
   margin: 0.5em 0;
   padding-right: 25px;
+  width: 100%;
 }
 
 .code-box .collapse {
