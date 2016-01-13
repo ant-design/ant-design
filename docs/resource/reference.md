@@ -117,6 +117,11 @@
   display: block;
   font-size: 16px;
   color: #666;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 1;
+  margin-bottom: 8px;
 }
 
 .resource-card-description {
