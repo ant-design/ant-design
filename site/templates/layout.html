@@ -12,8 +12,8 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="{{static_url('../dist/demo.css')}}">
-    <link rel="stylesheet" href="{{static_url('style.css')}}">
+    <link rel="stylesheet" href="{{static_url('../dist/demo.css')}}?20160114">
+    <link rel="stylesheet" href="{{static_url('style.css')}}?20160114">
     <link rel="stylesheet" href="{{static_url('tomorrow.css')}}">
     <!--[if IE 8]>
     <script src="https://t.alipayobjects.com/images/rmsweb/T1q8JiXftaXXXXXXXX.js"></script>
@@ -38,13 +38,13 @@
       }
     })();
     </script>
-    <script src="{{static_url('script.js')}}"></script>
+    <script src="{{static_url('script.js')}}?20160114"></script>
     <script>
       window.antdVersion = {
         latest: '{{config.package.version}}'
       };
     </script>
-    <script src="{{static_url('../dist/demo.js')}}"></script>
+    <script src="{{static_url('../dist/demo.js')}}?20160114"></script>
     <script src="https://t.alipayobjects.com/images/T1DrxhXe0mXXXXXXXX.js"></script>
     {% block scripts %}{% endblock %}
   </head>
@@ -56,9 +56,6 @@
       </a>
       <div class="search">
         <div id="autoComplete"></div>
-      </div>
-      <div class="global-hint">
-        0.11 已发布，0.10 文档请访问 <a href="http://010x.ant.design/">010x.ant.design</a>
       </div>
       <nav class="nav">
         <span class="bar"></span>

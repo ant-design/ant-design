@@ -44,7 +44,7 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/DKtNtqOckLayIpj.png">
+<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/hutiGZWQYmIspjw.png">
 
 导航的结构由以下几部分组成。
 
@@ -53,11 +53,13 @@
 3. 登陆工具
 4. 面包屑（可选）
 
+#### 关于面包屑
+
 > 1. 尽可能不使用面包屑，尤其是当前页面的导航能清晰的告诉用户他在哪里时。
 > 2. 面包屑可以分为这几类：
->   - 路径型：是一个动态显示用户到达页面经过的途径。
->   - 位置型：位置型是固定的，显示了页面在网站结构中的位置。
->   - 属性型：属性型给出当前页面的分类信息。
+>    - 路径型：是一个动态显示用户到达页面经过的途径。
+>    - 位置型：位置型是固定的，显示了页面在网站结构中的位置。
+>    - 属性型：属性型给出当前页面的分类信息。
 
 <br>
 

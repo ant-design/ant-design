@@ -6,7 +6,7 @@ var inspect = require('util').inspect;
 var Busboy = require('busboy');
 var chalk = require('chalk');
 var webpackMiddleware = require('webpack-dev-middleware');
-var webpackConfig = require('./webpack.deploy.config');
+var webpackConfig = require('./webpack.config');
 var webpackCompiler = webpack(webpackConfig);
 var handler;
 
@@ -90,7 +90,7 @@ exports.middlewares = [
   },
   {
   name: 'webpackDevMiddleware',
-  filter: /\.(js|css)(\.map)?$/,
+  filter: /\.(js|css)(\.map)?(\?.*)?$/,
   handle: function(req, res, next) {
     handler = handler || webpackMiddleware(webpackCompiler, {
       publicPath: '/dist/',
