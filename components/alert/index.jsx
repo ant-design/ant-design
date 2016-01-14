@@ -44,20 +44,20 @@ export default React.createClass({
 
     let iconType = '';
     switch (type) {
-    case 'success':
-      iconType = 'check-circle';
-      break;
-    case 'info':
-      iconType = 'info-circle';
-      break;
-    case 'error':
-      iconType = 'exclamation-circle';
-      break;
-    case 'warn':
-      iconType = 'exclamation-circle';
-      break;
-    default:
-      iconType = 'default';
+      case 'success':
+        iconType = 'check-circle';
+        break;
+      case 'info':
+        iconType = 'info-circle';
+        break;
+      case 'error':
+        iconType = 'exclamation-circle';
+        break;
+      case 'warn':
+        iconType = 'exclamation-circle';
+        break;
+      default:
+        iconType = 'default';
     }
 
     // use outline icon in alert with description

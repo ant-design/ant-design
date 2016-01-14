@@ -32,20 +32,20 @@ function notice(args) {
     let prefixCls = ' ant-notification-notice-content-icon-';
     let iconType = '';
     switch (args.icon) {
-    case 'success':
-      iconType = 'check-circle-o';
-      break;
-    case 'info':
-      iconType = 'info-circle-o';
-      break;
-    case 'error':
-      iconType = 'exclamation-circle-o';
-      break;
-    case 'warn':
-      iconType = 'question-circle-o';
-      break;
-    default:
-      iconType = 'info-circle';
+      case 'success':
+        iconType = 'check-circle-o';
+        break;
+      case 'info':
+        iconType = 'info-circle-o';
+        break;
+      case 'error':
+        iconType = 'exclamation-circle-o';
+        break;
+      case 'warn':
+        iconType = 'question-circle-o';
+        break;
+      default:
+        iconType = 'info-circle';
     }
 
     getNotificationInstance().notice({
