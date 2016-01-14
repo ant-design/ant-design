@@ -548,7 +548,7 @@ footer ul li > a {
   width: 80%;
 }
 
-.markdown ul li {
+.markdown ul > li {
   list-style: circle;
 }
 
@@ -563,7 +563,7 @@ footer ul li > a {
   margin: 0.6em 0;
 }
 
-.markdown ol li {
+.markdown ol > li {
   list-style: decimal;
 }
 
