@@ -44,7 +44,7 @@ Normal browsers and Internet Explorer 8+.
 ## Links
 
 - [Home page](http://ant.design/)
-- [React UI library](http://ant.design/docs/introduce)
+- [React UI library](http://ant.design/docs/react/introduce)
 - [ChangeLog](CHANGELOG.md)
 - [Scaffold tool](https://github.com/ant-design/antd-init/)
 - [Debug tools set](https://github.com/dora-js/dora)
