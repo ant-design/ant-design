@@ -35,7 +35,7 @@ const Sider = React.createClass({
           <Menu.Item key="2">选项2</Menu.Item>
         </MenuItemGroup>
         <MenuItemGroup title="分组2">
-          <Menu.Item key="3">选项3</Menu.Item>
+          <Menu.Item key="3"><a href="#">选项3</a></Menu.Item>
           <Menu.Item key="4">选项4</Menu.Item>
         </MenuItemGroup>
       </SubMenu>
