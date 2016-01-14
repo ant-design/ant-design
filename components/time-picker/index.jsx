@@ -10,7 +10,8 @@ const AntTimePicker = React.createClass({
     return {
       format: 'HH:mm:ss',
       prefixCls: 'ant-time-picker',
-      onChange() {},
+      onChange() {
+      },
       locale: {},
       align: {
         offset: [0, -2],
@@ -49,7 +50,7 @@ const AntTimePicker = React.createClass({
   parseTimeFromValue(value) {
     if (value) {
       return this.getFormatter().parse(value, {
-        locale: this.getLocale(),
+        locale: this.getLocale().calendar,
         obeyCount: true,
       });
     }
@@ -62,15 +63,13 @@ const AntTimePicker = React.createClass({
 
   getLocale() {
     // 统一合并为完整的 Locale
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
-    locale.lang = objectAssign({}, defaultLocale.lang, this.props.locale.lang);
-    return locale;
+    return objectAssign({}, defaultLocale, this.props.locale);
   },
 
   render() {
     const props = objectAssign({}, this.props);
     props.placeholder = ('placeholder' in this.props)
-      ? props.placeholder : this.getLocale().lang.placeholder;
+      ? props.placeholder : this.getLocale().placeholder;
     if (props.defaultValue) {
       props.defaultValue = this.parseTimeFromValue(props.defaultValue);
     } else {
@@ -96,7 +95,7 @@ const AntTimePicker = React.createClass({
       <TimePicker
         {...props}
         className={className}
-        gregorianCalendarLocale={this.getLocale()}
+        locale={this.getLocale()}
         formatter={this.getFormatter()}
         onChange={this.handleChange}
       />
