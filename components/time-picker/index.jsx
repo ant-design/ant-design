@@ -4,6 +4,7 @@ import TimePicker from 'rc-time-picker/lib/TimePicker';
 import objectAssign from 'object-assign';
 import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
+import GregorianCalendar from 'gregorian-calendar';
 
 const AntTimePicker = React.createClass({
   getDefaultProps() {
@@ -49,12 +50,18 @@ const AntTimePicker = React.createClass({
    */
   parseTimeFromValue(value) {
     if (value) {
-      return this.getFormatter().parse(value, {
-        locale: this.getLocale().calendar,
-        obeyCount: true,
-      });
+      if (typeof value === 'string') {
+        return this.getFormatter().parse(value, {
+          locale: this.getLocale().calendar,
+          obeyCount: true,
+        });
+      } else if (value instanceof Date) {
+        let date = new GregorianCalendar(this.getLocale().calendar);
+        date.setTime(+value);
+        return date;
+      }
     }
-    return undefined;
+    return value;
   },
 
   handleChange(value) {
@@ -77,8 +84,6 @@ const AntTimePicker = React.createClass({
     }
     if (props.value) {
       props.value = this.parseTimeFromValue(props.value);
-    } else {
-      delete props.value;
     }
     let className = classNames({
       [props.className]: !!props.className,
