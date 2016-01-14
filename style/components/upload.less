@@ -158,9 +158,9 @@
   &-picture &-item-thumbnail {
     width: 48px;
     height: 48px;
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: middle;
+    position: absolute;
+    top: 8px;
+    left: 8px;
   }
 
   &-picture &-item-thumbnail img {
@@ -182,6 +182,11 @@
     margin: 0 0 0 8px;
     line-height: 42px;
     transition: all 0.3s ease;
+    padding-left: 48px;
+    padding-right: 8px;
+    max-width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
   }
 
   &-picture &-item-uploading &-item-name {
