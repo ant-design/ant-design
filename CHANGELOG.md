@@ -9,6 +9,7 @@
 - 修复 TimePicker 受控模式点选即关闭面板的问题。[#818](https://github.com/ant-design/ant-design/issues/818)
 - 修复一个两栏的 TimePicker 点击右边空白处无法关闭面板的问题。[#826](https://github.com/ant-design/ant-design/issues/826)
 - 修复 Table `pagination.onChange` 指定无效的问题。[#824](https://github.com/ant-design/ant-design/issues/824)
+- 移除 Tag `href` 属性。[#862](https://github.com/ant-design/ant-design/issues/862)
 
 ## 0.11.2 `2015-01-03`
 
