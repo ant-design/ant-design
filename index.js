@@ -1,4 +1,6 @@
-import React from 'react';
+// this file is not used if use https://github.com/ant-design/babel-plugin-antd
+
+const React = require('react');
 
 const antd = {
   Affix: require('./components/affix'),
@@ -47,10 +49,9 @@ const antd = {
   Cascader: require('./components/cascader'),
 };
 
-antd.version = require('./package.json').version;
-
-const ReactVersion = React.version;
 if (process.env.NODE_ENV !== 'production') {
+  antd.version = require('./package.json').version;
+  const ReactVersion = React.version;
   const warning = require('warning');
   const semver = require('semver');
   const reactVersionInDeps = require('./package.json').devDependencies.react;

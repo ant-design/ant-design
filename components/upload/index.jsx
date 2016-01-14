@@ -37,7 +37,7 @@ function genPercentAdd() {
   let k = 0.1;
   const i = 0.01;
   const end = 0.98;
-  return function(s) {
+  return function (s) {
     let start = s;
     if (start >= end) {
       return start;
@@ -65,7 +65,7 @@ const AntUpload = React.createClass({
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
-      targetItem = file.map(function(f) {
+      targetItem = file.map(function (f) {
         const fileObject = fileToObject(f);
         fileObject.status = 'uploading';
         return fileObject;

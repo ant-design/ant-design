@@ -5,9 +5,9 @@ import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 
-function noop () { return null; }
+function noop() { return null; }
 
-function zerofixed (v) {
+function zerofixed(v) {
   if (v < 10) return '0' + v;
   return v + '';
 }

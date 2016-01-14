@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.12.0-beta8",
+  "version": "0.12.0-beta10",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -73,8 +73,6 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
-    "rc-scroll-anim": "0.0.5",
-    "rc-tween-one": "0.1.5",
     "autoprefixer-loader": "^3.1.0",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
@@ -104,6 +102,9 @@
     "lodash": "^3.10.0",
     "nico-jsx": "~0.7.0",
     "pre-commit": "1.x",
+    "rc-form": "^0.8.0",
+    "rc-scroll-anim": "0.0.5",
+    "rc-tween-one": "0.1.5",
     "react": "0.14.x",
     "react-addons-test-utils": "0.14.x",
     "react-copy-to-clipboard": "^3.0.4",
@@ -122,8 +123,9 @@
     "site": "npm run clean && webpack --config webpack.deploy.config.js && webpack --config webpack.antd.config.js && NODE_ENV=PRODUCTION nico build",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
     "just-deploy": "npm run site && node scripts/deploy.js",
-    "lint": "eslint components test index.js --ext '.js,.jsx' && npm run mdlint && npm run lesshint",
-    "mdlint": "eslint components/*/demo/*.md --ext '.md' --global 'React,ReactDOM,mountNode' --rule 'no-console: 0'",
+    "lint": "npm run srclint && npm run mdlint && npm run lesshint",
+    "srclint": "eslint --fix components test index.js --ext '.js,.jsx'",
+    "mdlint": "eslint --fix components/*/demo/*.md --ext '.md' --global 'React,ReactDOM,mountNode' --rule 'no-console: 0'",
     "lesshint": "lesshint style/ -e 'style/+(core|mixins)/+(base|iconfont|normalize|layouts|compatibility|grid).less'",
     "test": "npm run lint && webpack && npm run jest",
     "jest": "jest",

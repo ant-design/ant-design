@@ -30,10 +30,8 @@ export default {
         date.setTime(+value);
         return date;
       }
-    } else if (value === null) {
-      return value;
     }
-    return undefined;
+    return value;
   },
 
   // remove input readonly warning
