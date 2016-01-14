@@ -23,6 +23,7 @@
 | visible    | 对话框是否可见 | Boolean          | 无           |
 | confirmLoading | 确定按钮 loading | Boolean    | 无           |
 | title      | 标题           | React.Element    | 无           |
+| closable   | 是否显示右上角的关闭按钮 | Boolean    | true        |
 | onOk       | 点击确定回调       | function     | 无           |
 | onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function  | 无           |
 | width      | 宽度           | String or Number | 520           |

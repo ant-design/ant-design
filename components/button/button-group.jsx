@@ -5,13 +5,13 @@ const prefix = 'ant-btn-group-';
 
 export default class ButtonGroup extends React.Component {
   render() {
-    const {size, className, ...others} = this.props;
+    const { size, className, ...others } = this.props;
 
     // large => lg
     // small => sm
     const sizeCls = ({
-      'large': 'lg',
-      'small': 'sm'
+      large: 'lg',
+      small: 'sm',
     })[size] || '';
 
     const classes = classNames({

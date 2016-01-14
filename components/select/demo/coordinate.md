@@ -4,6 +4,8 @@
 
 省市联动是典型的例子。
 
+推荐使用 [cascader](/components/cascader/) 组件。
+
 ---
 
 ````jsx
@@ -21,13 +23,13 @@ const App = React.createClass({
   getInitialState() {
     return {
       cities: cityData[provinceData[0]],
-      secondCity:cityData[provinceData[0]][0]
+      secondCity: cityData[provinceData[0]][0]
     };
   },
   handleProvinceChange(value) {
     this.setState({
       cities: cityData[value],
-      secondCity:cityData[value][0]
+      secondCity: cityData[value][0]
     });
   },
   onSecondCityChange(value) {
@@ -42,14 +44,16 @@ const App = React.createClass({
     const cityOptions = this.state.cities.map(function(city) {
       return <Option key={city}>{city}</Option>;
     });
-    return <div>
-      <Select defaultValue={provinceData[0]} style={{width: 90}} onChange={this.handleProvinceChange}>
-        {provinceOptions}
-      </Select>
-      <Select value={this.state.secondCity} style={{width: 90}} onChange={this.onSecondCityChange}>
-        {cityOptions}
-      </Select>
-    </div>;
+    return (
+      <div>
+        <Select defaultValue={provinceData[0]} style={{width: 90}} onChange={this.handleProvinceChange}>
+          {provinceOptions}
+        </Select>
+        <Select value={this.state.secondCity} style={{width: 90}} onChange={this.onSecondCityChange}>
+          {cityOptions}
+        </Select>
+      </div>
+    );
   }
 });
 ReactDOM.render(<App />, mountNode);

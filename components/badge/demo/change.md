@@ -40,30 +40,32 @@ const Test = React.createClass({
     });
   },
   render() {
-    return <div>
-      <Badge count={this.state.count}>
-        <a href="#" className="head-example"></a>
-      </Badge>
-      <Badge dot={this.state.show}>
-        <a href="#" className="head-example"></a>
-      </Badge>
-      <div style={{ marginTop: 10 }}>
-        <Button type="ghost" onClick={this.onNumberClick} style={{marginRight: 6}}>
-          切换数字显隐
-        </Button>
-        <Button type="ghost" onClick={this.onClick} style={{marginRight: 6}}>
-          切换红点显隐
-        </Button>
-        <ButtonGroup>
-          <Button type="ghost" onClick={this.decline}>
-            <Icon type="minus" />
+    return (
+      <div>
+        <Badge count={this.state.count}>
+          <a href="#" className="head-example"></a>
+        </Badge>
+        <Badge dot={this.state.show}>
+          <a href="#" className="head-example"></a>
+        </Badge>
+        <div style={{ marginTop: 10 }}>
+          <Button type="ghost" onClick={this.onNumberClick} style={{marginRight: 6}}>
+            切换数字显隐
           </Button>
-          <Button type="ghost" onClick={this.increase}>
-            <Icon type="plus" />
+          <Button type="ghost" onClick={this.onClick} style={{marginRight: 6}}>
+            切换红点显隐
           </Button>
-        </ButtonGroup>
+          <ButtonGroup>
+            <Button type="ghost" onClick={this.decline}>
+              <Icon type="minus" />
+            </Button>
+            <Button type="ghost" onClick={this.increase}>
+              <Icon type="plus" />
+            </Button>
+          </ButtonGroup>
+        </div>
       </div>
-    </div>;
+    );
   }
 });
 

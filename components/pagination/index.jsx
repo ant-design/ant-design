@@ -21,10 +21,12 @@ class AntPagination extends React.Component {
       selectComponentClass = MiniSelect;
     }
 
-    return <Pagination selectComponentClass={selectComponentClass}
-                       selectPrefixCls="ant-select"
-                       {...this.props}
-                       className={className} />;
+    return (
+      <Pagination selectComponentClass={selectComponentClass}
+        selectPrefixCls="ant-select"
+        {...this.props}
+        className={className} />
+    );
   }
 }
 

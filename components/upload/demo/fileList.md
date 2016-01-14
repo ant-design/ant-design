@@ -58,11 +58,13 @@ const MyUpload = React.createClass({
       onChange: this.handleChange,
       multiple: true
     };
-    return <Upload {...props} fileList={this.state.fileList}>
-      <Button type="ghost">
-        <Icon type="upload" /> 点击上传
-      </Button>
-    </Upload>;
+    return (
+      <Upload {...props} fileList={this.state.fileList}>
+        <Button type="ghost">
+          <Icon type="upload" /> 点击上传
+        </Button>
+      </Upload>
+    );
   }
 });
 

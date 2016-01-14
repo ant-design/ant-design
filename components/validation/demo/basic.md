@@ -22,9 +22,8 @@ function cx(classNames) {
     return Object.keys(classNames).filter(function(className) {
       return classNames[className];
     }).join(' ');
-  } else {
-    return Array.prototype.join.call(arguments, ' ');
   }
+  return Array.prototype.join.call(arguments, ' ');
 }
 
 function noop() {
@@ -98,9 +97,8 @@ const Demo = React.createClass({
       if (!valid) {
         console.log('error in form');
         return;
-      } else {
-        console.log('submit');
       }
+      console.log('submit: ');
       console.log(this.state.formData);
     });
   },
@@ -165,7 +163,7 @@ const Demo = React.createClass({
             hasFeedback={this.state.isEmailOver}
             help={status.email.errors ? status.email.errors.join(',') : null}
             required>
-              <Validator rules={[{required: true, type:'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
+              <Validator rules={[{required: true, type: 'email', message: '请输入正确的邮箱地址'}]} trigger={this.state.emailValidateMethod}>
                 <Input type="email" name="email" id="email" value={formData.email} placeholder="onBlur 与 onChange 相结合" onBlur={this.handleEmailInputBlur} onFocus={this.handleEmailInputFocus} />
               </Validator>
           </FormItem>

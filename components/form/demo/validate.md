@@ -76,6 +76,25 @@ ReactDOM.render(
     <FormItem
       label="Datepicker："
       labelCol={{span: 5}}
+      help>
+      <Col span="6">
+        <FormItem validateStatus="error" help="请选择正确日期">
+          <DatePicker />
+        </FormItem>
+      </Col>
+      <Col span="1">
+        <p className="ant-form-split">-</p>
+      </Col>
+      <Col span="6">
+        <FormItem>
+          <DatePicker />
+        </FormItem>
+      </Col>
+    </FormItem>
+
+    <FormItem
+      label="Datepicker："
+      labelCol={{span: 5}}
       validateStatus="error"
       help>
       <Col span="6">
@@ -88,26 +107,7 @@ ReactDOM.render(
         <DatePicker />
       </Col>
       <Col span="19" offset="5">
-        <p className="ant-form-explain">请输入正确选项</p>
-      </Col>
-    </FormItem>
-
-    <FormItem
-      label="Datepicker："
-      labelCol={{span: 5}}>
-      <Col span="6">
-        <FormItem validateStatus="error">
-          <DatePicker />
-          <p className="ant-form-explain">请输入正确选项</p>
-        </FormItem>
-      </Col>
-      <Col span="1">
-        <p className="ant-form-split">-</p>
-      </Col>
-      <Col span="6">
-        <FormItem>
-          <DatePicker />
-        </FormItem>
+        <p className="ant-form-explain">请选择正确日期</p>
       </Col>
     </FormItem>
   </Form>

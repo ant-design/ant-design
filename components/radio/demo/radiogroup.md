@@ -23,15 +23,17 @@ const App = React.createClass({
     });
   },
   render() {
-    return <div>
-      <RadioGroup onChange={this.onChange} value={this.state.value}>
-        <Radio value="a">A</Radio>
-        <Radio value="b">B</Radio>
-        <Radio value="c">C</Radio>
-        <Radio value="d">D</Radio>
-      </RadioGroup>
-      <div style={{marginTop: 20}}>你选中的: {this.state.value}</div>
-    </div>;
+    return (
+      <div>
+        <RadioGroup onChange={this.onChange} value={this.state.value}>
+          <Radio value="a">A</Radio>
+          <Radio value="b">B</Radio>
+          <Radio value="c">C</Radio>
+          <Radio value="d">D</Radio>
+        </RadioGroup>
+        <div style={{marginTop: 20}}>你选中的: {this.state.value}</div>
+      </div>
+    );
   }
 });
 ReactDOM.render(<App />, mountNode);

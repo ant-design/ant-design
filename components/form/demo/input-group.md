@@ -35,7 +35,7 @@ ReactDOM.render(
       <InputGroup>
         <Input id="site4" placeholder="www.mysite" />
         <div className="ant-input-group-wrap">
-          <Select defaultValue=".com" style={{width:70}}>
+          <Select defaultValue=".com" style={{width: 70}}>
             <Option value=".com">.com</Option>
             <Option value=".jp">.jp</Option>
             <Option value=".cn">.cn</Option>

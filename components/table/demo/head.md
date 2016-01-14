@@ -16,10 +16,20 @@ const columns = [{
   dataIndex: 'name',
   filters: [{
     text: '姓李的',
-    value: '李'
+    value: '李',
   }, {
     text: '姓胡的',
-    value: '胡'
+    value: '胡',
+  }, {
+    text: '子菜单',
+    value: '子菜单',
+    children: [{
+      text: '姓陈的',
+      value: '陈',
+    }, {
+      text: '姓王的',
+      value: '王',
+    }]
   }],
   // 指定确定筛选的条件函数
   // 这里是名字中第一个字是 value

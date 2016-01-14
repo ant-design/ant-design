@@ -15,18 +15,20 @@ const Test = React.createClass({
       disabled: true
     };
   },
-  toggle(){
+  toggle() {
     this.setState({
       disabled: !this.state.disabled
     });
   },
   render() {
-    return <div>
-      <Switch disabled={this.state.disabled} />
-      <br />
-      <br />
-      <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
-    </div>;
+    return (
+      <div>
+        <Switch disabled={this.state.disabled} />
+        <br />
+        <br />
+        <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
+      </div>
+    );
   }
 });
 

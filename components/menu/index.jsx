@@ -43,16 +43,16 @@ const AntMenu = React.createClass({
     let openAnimation = this.props.openAnimation || this.props.openTransitionName;
     if (!openAnimation) {
       switch (this.props.mode) {
-      case 'horizontal':
-        openAnimation = 'slide-up';
-        break;
-      case 'vertical':
-        openAnimation = 'zoom-big';
-        break;
-      case 'inline':
-        openAnimation = animation;
-        break;
-      default:
+        case 'horizontal':
+          openAnimation = 'slide-up';
+          break;
+        case 'vertical':
+          openAnimation = 'zoom-big';
+          break;
+        case 'inline':
+          openAnimation = animation;
+          break;
+        default:
       }
     }
 

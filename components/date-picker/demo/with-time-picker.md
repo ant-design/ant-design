@@ -37,10 +37,12 @@ const DateTimePicker = React.createClass({
     }
   },
   render() {
-    return <div>
-      <DatePicker onChange={this.handleChange.bind(null, 'date')} />
-      <TimePicker onChange={this.handleChange.bind(null, 'time')} />
-    </div>;
+    return (
+      <div>
+        <DatePicker onChange={this.handleChange.bind(null, 'date')} />
+        <TimePicker onChange={this.handleChange.bind(null, 'time')} />
+      </div>
+    );
   }
 });
 

@@ -29,16 +29,18 @@ const LocalizedModal = React.createClass({
     });
   },
   render() {
-    return <div>
-      <Button type="primary" onClick={this.showModal}>Show Modal</Button>
-      <Modal title="Modal" visible={this.state.visible}
-             onOk={this.handleOk} onCancel={this.handleCancel}
-             okText="OK" cancelText="Cancel">
-        <p>Bla bla ...</p>
-        <p>Bla bla ...</p>
-        <p>Bla bla ...</p>
-      </Modal>
-    </div>;
+    return (
+      <div>
+        <Button type="primary" onClick={this.showModal}>Show Modal</Button>
+        <Modal title="Modal" visible={this.state.visible}
+          onOk={this.handleOk} onCancel={this.handleCancel}
+          okText="OK" cancelText="Cancel">
+          <p>Bla bla ...</p>
+          <p>Bla bla ...</p>
+          <p>Bla bla ...</p>
+        </Modal>
+      </div>
+    );
   }
 });
 

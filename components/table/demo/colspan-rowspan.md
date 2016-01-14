@@ -30,14 +30,13 @@ const columns = [{
   render: function(text, row, index) {
     if (index < 4) {
       return <a href="#">{text}</a>;
-    } else {
-      return {
-        children: <a href="#">{text}</a>,
-        props: {
-          colSpan: 5
-        }
-      };
     }
+    return {
+      children: <a href="#">{text}</a>,
+      props: {
+        colSpan: 5
+      }
+    };
   }
 }, {
   title: '年龄',
@@ -50,7 +49,7 @@ const columns = [{
   render: function(value, row, index) {
     let obj = {
       children: value,
-      props:{}
+      props: {}
     };
     // 第三列的第三行行合并
     if (index === 2) {

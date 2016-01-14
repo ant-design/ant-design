@@ -21,13 +21,17 @@ const Card = React.createClass({
     });
   },
   render() {
-    const container = <Alert message="消息提示的文案"
-      description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
-      type="info" />;
-    return <div>
-      <Spin spining={this.state.loading}>{container}</Spin>
-      切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
-    </div>;
+    const container = (
+      <Alert message="消息提示的文案"
+        description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
+        type="info" />
+    );
+    return (
+      <div>
+        <Spin spining={this.state.loading}>{container}</Spin>
+        切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
+      </div>
+    );
   }
 });
 

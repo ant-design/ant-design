@@ -40,8 +40,12 @@ const App = React.createClass({
     this.setState({ targetKeys });
   },
   renderFooter() {
-    return <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
-                   onClick={this.getMock}>刷新</Button>;
+    return (
+      <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
+        onClick={this.getMock}>
+        刷新
+      </Button>
+    );
   },
   render() {
     return (

@@ -40,9 +40,13 @@ export default React.createClass({
           file.thumbUrl !== undefined) {
         return;
       }
+      /*eslint-disable */
       file.thumbUrl = '';
+      /*eslint-enable */
       previewFile(file.originFileObj, (previewDataUrl) => {
+        /*eslint-disable */
         file.thumbUrl = previewDataUrl;
+        /*eslint-enable */
         this.forceUpdate();
       });
     });
@@ -55,14 +59,18 @@ export default React.createClass({
       if (this.props.listType === 'picture') {
         icon = (file.status === 'uploading' || (!file.thumbUrl && !file.url))
           ? <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />
-          : <a className={prefixCls + '-list-item-thumbnail'}
-               href={file.url}
-               target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>;
+          : (
+              <a className={prefixCls + '-list-item-thumbnail'}
+                href={file.url}
+                target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
+          );
       }
       if (file.status === 'uploading') {
-        progress = <div className={prefixCls + '-list-item-progress'}>
-          <Line {...this.props.progressAttr} percent={file.percent} />
-        </div>;
+        progress = (
+          <div className={prefixCls + '-list-item-progress'}>
+            <Line {...this.props.progressAttr} percent={file.percent} />
+          </div>
+        );
       }
       const infoUploadingClass = classNames({
         [`${prefixCls}-list-item`]: true,
@@ -83,10 +91,12 @@ export default React.createClass({
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${this.props.listType}`]: true,
     });
-    return <div className={listClassNames}>
-      <Animate transitionName={prefixCls + '-margin-top'}>
-        {list}
-      </Animate>
-    </div>;
+    return (
+      <div className={listClassNames}>
+        <Animate transitionName={prefixCls + '-margin-top'}>
+          {list}
+        </Animate>
+      </div>
+    );
   }
 });

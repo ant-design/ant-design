@@ -24,7 +24,7 @@ export default {
   parseDateFromValue(value) {
     if (value) {
       if (typeof value === 'string') {
-        return this.getFormatter().parse(value, {locale: this.getLocale()});
+        return this.getFormatter().parse(value, { locale: this.getLocale() });
       } else if (value instanceof Date) {
         let date = new GregorianCalendar(this.getLocale());
         date.setTime(+value);
