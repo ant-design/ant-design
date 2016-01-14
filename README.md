@@ -40,6 +40,7 @@ Use components on demand by writing as `import DatePicker from 'antd/lib/date-pi
 
 Normal browsers and Internet Explorer 8+.
 
+> [IE8 issues](https://github.com/xcatliu/react-ie8)
 
 ## Links
 
