@@ -64,7 +64,7 @@
     "rc-tree": "~0.26.1",
     "rc-tree-select": "~0.3.3",
     "rc-trigger": "~1.0.6",
-    "rc-upload": "~1.7.0",
+    "rc-upload": "~1.8.0",
     "rc-util": "~3.0.1",
     "react-slick": "~0.9.1",
     "semver": "~5.1.0",
