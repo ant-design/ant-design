@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.12.0-beta.10",
+  "version": "0.12.0-beta.12",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -67,7 +67,6 @@
     "rc-upload": "~1.8.0",
     "rc-util": "~3.0.1",
     "react-slick": "~0.9.1",
-    "semver": "~5.1.0",
     "util-deprecate": "~1.0.1",
     "velocity-animate": "~1.2.2",
     "warning": "~2.1.0"

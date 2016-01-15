@@ -257,4 +257,5 @@ InstantClickChangeFns.push(function() {
   });
 });
 
+antd.version = require('../package.json').version;
 module.exports = antd;

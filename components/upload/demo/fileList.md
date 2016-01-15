@@ -37,7 +37,7 @@ const MyUpload = React.createClass({
     fileList = fileList.map(function(file) {
       if (file.response) {
         // 组件会将 file.url 作为链接进行展示
-        file.url = JSON.parse(file.response).url;
+        file.url = file.response.url;
       }
       return file;
     });
@@ -45,7 +45,7 @@ const MyUpload = React.createClass({
     // 3. 按照服务器返回信息筛选成功上传的文件
     fileList = fileList.filter(function(file) {
       if (file.response) {
-        return JSON.parse(file.response).status === 'success';
+        return file.response.status === 'success';
       }
       return true;
     });
