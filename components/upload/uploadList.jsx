@@ -57,22 +57,18 @@ export default React.createClass({
       let icon = <Icon type="paper-clip" />;
 
       if (this.props.listType === 'picture' || this.props.listType === 'picture-card') {
-
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
-
-          if (this.props.listType  === 'picture-card') {
-            icon = <div className={prefixCls + '-list-item-uploading-text'}>文件上传中</div>
+          if (this.props.listType === 'picture-card') {
+            icon = <div className={prefixCls + '-list-item-uploading-text'}>文件上传中</div>;
           } else {
             icon = <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />;
           }
-
         } else {
           icon = (<a className={prefixCls + '-list-item-thumbnail'}
             href={file.url}
             target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
           );
         }
-
       }
 
       if (file.status === 'uploading') {
