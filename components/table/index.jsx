@@ -93,7 +93,6 @@ let AntTable = React.createClass({
       this.setState({
         selectionDirty: false,
       });
-      this.setSelectedRowKeys([]);
     }
     if (nextProps.rowSelection &&
         'selectedRowKeys' in nextProps.rowSelection) {
@@ -270,7 +269,6 @@ let AntTable = React.createClass({
       pagination
     };
     this.setState(newState);
-    this.setSelectedRowKeys([]);
     this.props.onChange.apply(this, this.prepareParamsArguments(
       objectAssign({}, this.state, newState)
     ));
