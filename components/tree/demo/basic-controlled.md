@@ -9,6 +9,7 @@
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
+import React, {PropTypes} from 'react';
 
 const x = 3;
 const y = 2;
@@ -37,44 +38,6 @@ const generateData = (_level, _preKey, _tns) => {
   });
 };
 generateData(z);
-
-
-function isInclude(smallArray, bigArray) {
-  return smallArray.every((ii, i) => {
-    return ii === bigArray[i];
-  });
-}
-// console.log(isInclude(['0', '1'], ['0', '10', '1']));
-
-function getCheckedKeys(node, checkedKeys, allCheckedNodesKeys) {
-  const nodeKey = node.props.eventKey;
-  let newCks = [...checkedKeys];
-  let nodePos;
-  const unCheck = allCheckedNodesKeys.some(item => {
-    if (item.key === nodeKey) {
-      nodePos = item.pos;
-      return true;
-    }
-  });
-  if (unCheck) {
-    const nArr = nodePos.split('-');
-    newCks = [];
-    allCheckedNodesKeys.forEach(item => {
-      const iArr = item.pos.split('-');
-      if (item.pos === nodePos ||
-        nArr.length > iArr.length && isInclude(iArr, nArr) ||
-        nArr.length < iArr.length && isInclude(nArr, iArr)) {
-        // 过滤掉 非父级节点 和 所有子节点。
-        // 因为 node节点 不选时，其 非父级节点 和 所有子节点 都不选。
-        return;
-      }
-      newCks.push(item.key);
-    });
-  } else {
-    newCks.push(nodeKey);
-  }
-  return newCks;
-}
 
 function loopData(data, callback) {
   const loop = (d, level = 0) => {
@@ -111,11 +74,11 @@ function getFilterExpandedKeys(data, expandedKeys) {
 
 const Demo = React.createClass({
   propTypes: {
-    multiple: React.PropTypes.bool,
+    multiple: PropTypes.bool,
   },
   getDefaultProps() {
     return {
-      multiple: false,
+      multiple: true,
     };
   },
   getInitialState() {
@@ -141,35 +104,27 @@ const Demo = React.createClass({
       expandedKeys: expandedKeys,
     });
   },
-  onCheck(info) {
-    console.log('check: ', info);
+  onCheck(checkedKeys) {
     this.setState({
-      checkedKeys: getCheckedKeys(info.node, info.checkedKeys, info.allCheckedNodesKeys),
+      checkedKeys,
       selectedKeys: ['0-3', '0-4'],
     });
   },
-  onSelect(info) {
-    console.log('selected: ', info);
-    let selectedKeys = [...this.state.selectedKeys];
-    const index = selectedKeys.indexOf(info.node.props.eventKey);
-    if (index > -1) {
-      selectedKeys.splice(index, 1);
-    } else if (this.props.multiple) {
-      selectedKeys.push(info.node.props.eventKey);
-    } else {
-      selectedKeys = [info.node.props.eventKey];
-    }
+  onSelect(selectedKeys, info) {
+    console.log('onSelect', info);
     this.setState({
-      selectedKeys: selectedKeys,
+      selectedKeys,
     });
   },
   render() {
     const loop = data => {
       return data.map((item) => {
         if (item.children) {
-          return <TreeNode key={item.key} title={item.key} disableCheckbox={item.key === '0-0-0' ? true : false}>{loop(item.children)}</TreeNode>;
+          return (<TreeNode key={item.key} title={item.key} disableCheckbox={item.key === '0-0-0' ? true : false}>
+            {loop(item.children)}
+          </TreeNode>);
         }
-        return <TreeNode key={item.key} title={item.key} />;
+        return <TreeNode key={item.key} title={item.key}/>;
       });
     };
     return (<div>

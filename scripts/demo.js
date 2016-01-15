@@ -1,6 +1,6 @@
 function camelize(str) {
-  return str.replace (/(?:^|[-_])(\w)/g, function (_, c) {
-    return c ? c.toUpperCase () : '';
+  return str.replace(/(?:^|[-_])(\w)/g, function (_, c) {
+    return c ? c.toUpperCase() : '';
   });
 }
 
@@ -32,7 +32,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var semver = require('semver');
 window.antd = antd;
-window.React = React;
+window.React = window.react = React;
 window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
@@ -166,15 +166,15 @@ const PriviewImg = React.createClass({
     });
   },
   handleImgChange(current) {
-    this.setState({ current });
+    this.setState({current});
   },
   render() {
     const goodCls = this.props.good ? 'good' : '';
     const badCls = this.props.bad ? 'bad' : '';
     const imgsPack = this.props.imgsPack || [{
-      src: this.props.src,
-      alt: this.props.alt,
-    }];
+        src: this.props.src,
+        alt: this.props.alt,
+      }];
     const imgStyle = {};
     if (this.props.noPadding) {
       imgStyle.padding = '0';
@@ -182,21 +182,24 @@ const PriviewImg = React.createClass({
     }
     const current = this.state.current;
     const arrows = imgsPack.length > 1;
-    const createMarkup = () => { return { __html: this.props.description } };
+    const createMarkup = () => {
+      return {__html: this.props.description}
+    };
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
         <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
-          <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture" />
+          <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture"/>
         </div>
         <div className="preview-image-title">{this.props.alt}</div>
-        <div className="preview-image-description" dangerouslySetInnerHTML={createMarkup()} />
-        <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer="" title="">
+        <div className="preview-image-description" dangerouslySetInnerHTML={createMarkup()}/>
+        <Modal className="image-modal" width="960" visible={this.state.visible} onCancel={this.handleCancel} footer=""
+               title="">
           <Carousel afterChange={this.handleImgChange} adaptiveHeight arrows={arrows}>
             {
               imgsPack.map((img, i) =>
                 <div key={i}>
                   <div className="image-modal-container">
-                    <img src={img.src} />
+                    <img src={img.src}/>
                   </div>
                 </div>
               )
@@ -209,9 +212,9 @@ const PriviewImg = React.createClass({
   }
 });
 
-InstantClickChangeFns.push(function() {
+InstantClickChangeFns.push(function () {
   const previewImageBoxes = $('.preview-img').parent();
-  previewImageBoxes.each(function(i, box) {
+  previewImageBoxes.each(function (i, box) {
     box = $(box);
     let priviewImgs = [];
     const priviewImgNodes = box.find('.preview-img');
@@ -219,7 +222,7 @@ InstantClickChangeFns.push(function() {
     // 判断是否要做成图片集合
     // 指定了封面图片就是
     let coverImg;
-    priviewImgNodes.each(function(i, img) {
+    priviewImgNodes.each(function (i, img) {
       if (img.hasAttribute('as-cover')) {
         coverImg = img;
         return false;
@@ -229,13 +232,13 @@ InstantClickChangeFns.push(function() {
     if (coverImg) {
       const imgs = [];
       priviewImgNodes.each((i, img) => imgs.push(img));
-      priviewImgs = <PriviewImg src={coverImg.src} alt={coverImg.alt} imgsPack={imgs} />;
+      priviewImgs = <PriviewImg src={coverImg.src} alt={coverImg.alt} imgsPack={imgs}/>;
     } else {
-      priviewImgNodes.each(function(i, img) {
+      priviewImgNodes.each(function (i, img) {
         priviewImgs.push(
           <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'} alt={img.alt}
-            noPadding={img.hasAttribute('noPadding')} description={img.getAttribute('description')}
-            good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')} />
+                      noPadding={img.hasAttribute('noPadding')} description={img.getAttribute('description')}
+                      good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')}/>
         );
       });
     }

@@ -9,6 +9,7 @@
 ````jsx
 import { TreeSelect } from 'antd';
 const TreeNode = TreeSelect.TreeNode;
+import React from 'react';
 
 const x = 3;
 const y = 2;
@@ -43,14 +44,8 @@ const Demo = React.createClass({
       value: ['0-0'],
     };
   },
-  onSelect(selectedKey, node, selectedKeys) {
-    console.log('selected: ', selectedKey, selectedKeys);
-    this.setState({
-      value: selectedKeys,
-    });
-  },
   onChange(value) {
-    console.log('selected ' + value);
+    console.log('onChange ' + value);
     this.setState({
       value: value,
     });
@@ -65,12 +60,10 @@ const Demo = React.createClass({
       });
     };
     const tProps = {
-      // defaultValue: this.state.value,
       value: this.state.value,
       onChange: this.onChange,
-      onSelect: this.onSelect,
       multiple: true,
-      // treeCheckable: true,
+      treeCheckable: true,
       treeDefaultExpandAll: true,
     };
     return (<div style={{padding: '10px 30px'}}>
@@ -82,8 +75,5 @@ const Demo = React.createClass({
   },
 });
 
-ReactDOM.render(<div>
-  <Demo />
-</div>
-, document.getElementById('components-tree-select-demo-enhance'));
+ReactDOM.render(<Demo />, document.getElementById('components-tree-select-demo-checkable'));
 ````

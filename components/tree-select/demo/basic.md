@@ -9,6 +9,7 @@
 ````jsx
 import { TreeSelect } from 'antd';
 const TreeNode = TreeSelect.TreeNode;
+import React from 'react';
 
 const Demo = React.createClass({
   getInitialState() {
@@ -16,13 +17,7 @@ const Demo = React.createClass({
       value: 'leaf1',
     };
   },
-  onChange(e) {
-    let value;
-    if (e.target) {
-      value = e.target.value;
-    } else {
-      value = e;
-    }
+  onChange(value) {
     this.setState({value});
   },
   render() {
