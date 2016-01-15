@@ -4,7 +4,7 @@ import Icon from '../icon';
 import Button from '../button';
 
 const prefixCls = 'ant-popover';
-const noop = function() {};
+const noop = function () {};
 const transitionNames = {
   top: 'zoom-down',
   bottom: 'zoom-up',

@@ -45,7 +45,7 @@ class AntTag extends React.Component {
             transitionName={this.props.prefixCls + '-zoom'}
             onEnd={this.animationEnd.bind(this)}>
           <div data-show={!this.state.closing} className={className}>
-            <a className={this.props.prefixCls + '-text'} {...this.props} />
+            <span className={this.props.prefixCls + '-text'} {...this.props} />
             {close}
           </div>
         </Animate>

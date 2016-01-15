@@ -107,7 +107,6 @@ AntV 将数据图形小组近几年在探索数据可视化过程中取得的成
     };
     img.src = url;
     setTimeout(function() {
-      console.log('timeout');
       finish('timeout');
     }, 1500);
   }

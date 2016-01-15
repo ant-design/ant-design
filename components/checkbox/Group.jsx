@@ -5,6 +5,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       options: [],
+      defaultValue: [],
       onChange() {},
     };
   },
@@ -17,13 +18,13 @@ export default React.createClass({
   getInitialState() {
     const { value, defaultValue } = this.props;
     return {
-      value: value || defaultValue || [],
+      value: value || defaultValue,
     };
   },
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: nextProps.value,
+        value: nextProps.value || [],
       });
     }
   },

@@ -57,6 +57,8 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 
 现代浏览器和 IE8 及以上。
 
+> [IE8 issues](https://github.com/xcatliu/react-ie8)
+
 ## 链接
 
 - [首页](http://ant.design/)

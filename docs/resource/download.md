@@ -14,7 +14,7 @@
     <span class="resource-card-description">一套强大的 Ant Design 的 Axure 部件库</span>
   </span>
 </a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/0.11.2/AntD_Box_v1.2.rp" class="resource-card">
+<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/AntD_Box_v1.2.rp" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/UuYRXxndGMKdaiE.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Axure Box</span>

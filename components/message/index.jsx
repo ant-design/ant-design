@@ -46,9 +46,9 @@ function notice(content, duration = defaultDuration, type, onClose) {
     </div>,
     onClose
   });
-  return (function() {
+  return (function () {
     let target = key++;
-    return function() {
+    return function () {
       instance.removeNotice(target);
     };
   })();

@@ -162,9 +162,9 @@
     .@{upload-item}-thumbnail {
       width: 48px;
       height: 48px;
-      display: inline-block;
-      overflow: hidden;
-      vertical-align: middle;
+      position: absolute;
+      top: 8px;
+      left: 8px;
     }
 
     .@{upload-item}-thumbnail img {
@@ -186,6 +186,11 @@
       margin: 0 0 0 8px;
       line-height: 42px;
       transition: all 0.3s ease;
+      padding-left: 48px;
+      padding-right: 8px;
+      max-width: 100%;
+      display: inline-block;
+      box-sizing: border-box;
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {
@@ -224,6 +229,7 @@
       &:before {
         content: ' ';
         position: absolute;
+        z-index: 1;
         width: @imgupload-size;
         height: @imgupload-size;
         background-color: #808080;
@@ -236,6 +242,7 @@
         position: absolute;
         left: 25px;
         top: 40px;
+        z-index: 10;
         transition: all 0.3s ease;
         cursor: pointer;
         font-size: 16px;

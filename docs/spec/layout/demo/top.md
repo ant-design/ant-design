@@ -99,7 +99,7 @@ ReactDOM.render(
 }
 
 .ant-layout-top .ant-layout-footer {
-  height; 64px;
+  height: 64px;
   line-height: 64px;
   text-align: center;
   font-size: 12px;

@@ -25,6 +25,7 @@ window.require = function (path) {
 require('../style/index.less');
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
+window['rc-form'] = require('rc-form');
 window.CopyToClipboard = require('react-copy-to-clipboard');
 var antd = require('../index');
 var React = require('react');

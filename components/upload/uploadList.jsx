@@ -6,9 +6,9 @@ import { Line } from '../progress';
 import classNames from 'classnames';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = function(file, callback) {
+const previewFile = function (file, callback) {
   const reader = new FileReader();
-  reader.onloadend = function() {
+  reader.onloadend = function () {
     callback(reader.result);
   };
   reader.readAsDataURL(file);
