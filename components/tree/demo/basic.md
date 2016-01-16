@@ -9,10 +9,11 @@
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
+import React, {PropTypes} from 'react';
 
 const Demo = React.createClass({
   propTypes: {
-    keys: React.PropTypes.array,
+    keys: PropTypes.array,
   },
   getDefaultProps() {
     return {

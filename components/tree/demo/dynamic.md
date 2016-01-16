@@ -9,6 +9,7 @@
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
+import React from 'react';
 
 function generateTreeNodes(treeNode) {
   const arr = [];
