@@ -3,6 +3,7 @@ import Upload from 'rc-upload';
 import assign from 'object-assign';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
+import classNames from 'classnames';
 const prefixCls = 'ant-upload';
 
 function noop() {
@@ -258,9 +259,26 @@ const AntUpload = React.createClass({
         </span>
       );
     } else if (type === 'select') {
+      const uploadButtonCls = classNames({
+        [prefixCls]: true,
+        [prefixCls + '-select']: true,
+        [prefixCls + '-select-' + this.props.listType]: true,
+      });
+      if (this.props.listType === 'picture-card') {
+        return (
+          <span className={this.props.className}>
+            {uploadList}
+            <div className={uploadButtonCls}>
+              <Upload {...props}>
+                {this.props.children}
+              </Upload>
+            </div>
+          </span>
+        );
+      }
       return (
         <span className={this.props.className}>
-          <div className={prefixCls + ' ' + prefixCls + '-select'}>
+          <div className={uploadButtonCls}>
             <Upload {...props}>
               {this.props.children}
             </Upload>

@@ -23,14 +23,10 @@ const props = {
 
 ReactDOM.render(
 <div className="clearfix">
-  <div style={{float: 'left'}}>
-    <Upload {...props}>
-      <div className="upload-trigger">
-        <Icon type="plus" />
-        <div className="upload-trigger-text">上传照片</div>
-      </div>
-    </Upload>
-  </div>
+  <Upload {...props}>
+    <Icon type="plus" />
+    <div className="ant-upload-text">上传照片</div>
+  </Upload>
   <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" className="upload-example">
     <img src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png"/>
     <span>示例</span>
@@ -41,23 +37,12 @@ ReactDOM.render(
 
 ````css
 /* 配合样式可以做出上传按钮和示例效果 */
-.upload-trigger {
-  width: 96px;
-  height: 96px;
-  padding: 24px 0;
-  border: 1px dashed #d9d9d9;
-  border-radius: 6px;
-  background-color: #fbfbfb;
-  text-align: center;
-  cursor: pointer;
-}
-
-.upload-trigger i {
+.ant-upload-select-picture-card i {
   font-size: 28px;
   color: #999;
 }
 
-.upload-trigger-text {
+.ant-upload-select-picture-card .ant-upload-text {
   margin-top: 8px;
   font-size: 12px;
   color: #666;
@@ -68,10 +53,10 @@ ReactDOM.render(
   display: inline-block;
   height: 96px;
   width: 96px;
-  margin-left: 8px;
   padding: 8px;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
+  vertical-align: top;
 }
 
 .upload-example img {

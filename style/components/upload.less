@@ -1,8 +1,9 @@
 @upload-prefix-cls: ant-upload;
 @upload-item: ant-upload-list-item;
-@imgupload-size: 78px;
+@pictrue-card-size: 96px;
 
 .@{upload-prefix-cls} {
+  font-size: @font-size-base;
 
   > span {
     display: block;
@@ -16,6 +17,26 @@
 
   &&-select {
     display: inline-block;
+  }
+
+  &&-select-picture-card {
+    border: 1px dashed @border-color-base;
+    width: @pictrue-card-size;
+    height: @pictrue-card-size;
+    padding: 24px 0;
+    border-radius: @border-radius-base;
+    background-color: #fbfbfb;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
+    &:hover {
+      border-color: @primary-color;
+    }
   }
 
   &&-drag {
@@ -213,47 +234,53 @@
 
   &-picture-card {
     display: inline-block;
-    float: left;
-    height: @imgupload-size + 18;
 
     .@{upload-item} {
       display: inline-block;
-      width: @imgupload-size + 18;
-      height: @imgupload-size + 18;
-      margin-right: 8px;
-      margin-top: 0;
+      width: @pictrue-card-size;
+      height: @pictrue-card-size;
+      margin: 0 8px 8px 0;
     }
 
     .@{upload-item}-info {
-      height: auto;
+      height: 100%;
+      position: relative;
 
       &:before {
         content: ' ';
         position: absolute;
         z-index: 1;
-        width: @imgupload-size;
-        height: @imgupload-size;
         background-color: #808080;
         transition: all 0.3s ease;
         opacity: 0;
+        width: 100%;
+        height: 100%;
       }
 
       .anticon-eye-o,
       .anticon-delete {
         position: absolute;
-        left: 25px;
-        top: 40px;
+        left: 50%;
+        top: 50%;
         z-index: 10;
+        -webkit-transition: all 0.3s ease;
         transition: all 0.3s ease;
         cursor: pointer;
         font-size: 16px;
+        width: 16px;
         line-height: 1;
-        color: #fff;
+        color: #eee;
         opacity: 0;
+        margin-top: -8px;
+        margin-left: -22px;
+        &:hover {
+          color: #fff;
+        }
       }
 
       .anticon-delete {
-        left: 56px;
+        left: 50%;
+        margin-left: 6px;
       }
 
       &:hover {
@@ -268,14 +295,12 @@
       }
     }
 
-    .@{upload-item}-thumbnail {
-      width: @imgupload-size;
-      height: @imgupload-size;
-    }
-
+    .@{upload-item}-thumbnail,
     .@{upload-item}-thumbnail img {
-      width: @imgupload-size;
-      height: @imgupload-size;
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: static;
     }
 
     .@{upload-item}-name {
@@ -283,7 +308,6 @@
     }
 
     .@{upload-item}-uploading {
-
       &.@{upload-item} {
         background-color: #fbfbfb;
       }

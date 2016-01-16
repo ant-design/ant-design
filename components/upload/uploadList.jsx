@@ -89,11 +89,12 @@ export default React.createClass({
             <span className={prefixCls + '-list-item-name'}>{file.name}</span>
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
-              ? (<span>
-                <a href={file.url} target="_blank"><Icon type="eye-o" /></a>
-                <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
-              </span>)
-              : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
+              ? (
+                <span>
+                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none'}}><Icon type="eye-o" /></a>
+                  <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
+                </span>
+              ) : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
             }
           </div>
           { progress }
