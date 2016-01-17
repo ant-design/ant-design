@@ -250,7 +250,7 @@ InstantClickChangeFns.push(function() {
       width += 'px';
     }
 
-    let mountNode = $('<div class="preview-image-boxes ' + (coverImg ? 'pack' : '') + '" style="width: ' + width + '"></div>')[0];
+    let mountNode = $('<div class="preview-image-boxes cleafix ' + (coverImg ? 'pack' : '') + '" style="width: ' + width + '"></div>')[0];
     box.replaceWith(mountNode);
     ReactDOM.render(<span>{priviewImgs}</span>, mountNode);
   });
