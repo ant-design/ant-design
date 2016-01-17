@@ -71,9 +71,9 @@
 
 <img class="preview-img" align="right" alt="状态一" src="https://os.alipayobjects.com/rmsportal/QqafGErOPnuDKyy.png">
 
-<img class="preview-img" align="right" alt="状态二" description="点击 Table 顶部的复选框，出现『Alert』" src="https://os.alipayobjects.com/rmsportal/qwRSMFNilVCNoym.png">
+<img class="preview-img" align="right" alt="状态二：点击 Table 顶部的复选框，出现『Alert』" src="https://os.alipayobjects.com/rmsportal/qwRSMFNilVCNoym.png">
 
-<img class="preview-img" align="right" alt="状态三" description="点击『选择全部』后" src="https://os.alipayobjects.com/rmsportal/POvEJGjMYAexGut.png">
+<img class="preview-img" align="right" alt="状态三：点击『选择全部』后" src="https://os.alipayobjects.com/rmsportal/POvEJGjMYAexGut.png">
 
 当使用了分页器，又想实现全选数据的功能，可以结合『Alert』来实现。
 
