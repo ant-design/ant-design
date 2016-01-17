@@ -3,6 +3,7 @@ import Upload from 'rc-upload';
 import assign from 'object-assign';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
+import classNames from 'classnames';
 const prefixCls = 'ant-upload';
 
 function noop() {
@@ -59,6 +60,7 @@ const AntUpload = React.createClass({
       dragState: 'drop'
     };
   },
+
   onStart(file) {
     if (this.recentUploadStatus === false) return;
 
@@ -85,6 +87,7 @@ const AntUpload = React.createClass({
       this.autoUpdateProgress(0, targetItem);
     }
   },
+
   autoUpdateProgress(percent, file) {
     const getPercent = genPercentAdd();
     let curPercent = 0;
@@ -95,6 +98,7 @@ const AntUpload = React.createClass({
       }, file);
     }, 200);
   },
+
   removeFile(file) {
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
@@ -105,6 +109,7 @@ const AntUpload = React.createClass({
     }
     return null;
   },
+
   onSuccess(response, file) {
     this.clearProgressTimer();
     // 服务器端需要返回标准 json 字符串
@@ -129,6 +134,7 @@ const AntUpload = React.createClass({
       });
     }
   },
+
   onProgress(e, file) {
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
@@ -140,6 +146,7 @@ const AntUpload = React.createClass({
       fileList: this.state.fileList
     });
   },
+
   onError(error, response, file) {
     this.clearProgressTimer();
     let fileList = this.state.fileList;
@@ -149,10 +156,12 @@ const AntUpload = React.createClass({
     targetItem.status = 'error';
     this.handleRemove(targetItem);
   },
+
   beforeUpload(file) {
     this.recentUploadStatus = this.props.beforeUpload(file);
     return this.recentUploadStatus;
   },
+
   handleRemove(file) {
     let fileList = this.removeFile(file);
     if (fileList) {
@@ -162,23 +171,26 @@ const AntUpload = React.createClass({
       });
     }
   },
+
   handleManualRemove(file) {
     /*eslint-disable */
     file.status = 'removed';
     /*eslint-enable */
     this.handleRemove(file);
   },
+
   onChange(info) {
     this.setState({
       fileList: info.fileList
     });
     this.props.onChange(info);
   },
+
   getDefaultProps() {
     return {
       type: 'select',
       name: '',
-      multipart: false,
+      multiple: false,
       action: '',
       data: {},
       accept: '',
@@ -189,6 +201,7 @@ const AntUpload = React.createClass({
       className: '',
     };
   },
+
   componentWillReceiveProps(nextProps) {
     if ('fileList' in nextProps) {
       this.setState({
@@ -196,14 +209,17 @@ const AntUpload = React.createClass({
       });
     }
   },
+
   onFileDrop(e) {
     this.setState({
       dragState: e.type
     });
   },
+
   clearProgressTimer() {
     clearInterval(this.progressTimer);
   },
+
   render() {
     let type = this.props.type || 'select';
     let props = assign({}, this.props, {
@@ -243,9 +259,26 @@ const AntUpload = React.createClass({
         </span>
       );
     } else if (type === 'select') {
+      const uploadButtonCls = classNames({
+        [prefixCls]: true,
+        [prefixCls + '-select']: true,
+        [prefixCls + '-select-' + this.props.listType]: true,
+      });
+      if (this.props.listType === 'picture-card') {
+        return (
+          <span className={this.props.className}>
+            {uploadList}
+            <div className={uploadButtonCls}>
+              <Upload {...props}>
+                {this.props.children}
+              </Upload>
+            </div>
+          </span>
+        );
+      }
       return (
         <span className={this.props.className}>
-          <div className={prefixCls + ' ' + prefixCls + '-select'}>
+          <div className={uploadButtonCls}>
             <Upload {...props}>
               {this.props.children}
             </Upload>

@@ -29,7 +29,7 @@ export default React.createClass({
     this.props.onRemove(file);
   },
   componentDidUpdate() {
-    if (this.props.listType !== 'picture') {
+    if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
     }
     this.props.items.forEach(file => {
@@ -56,15 +56,21 @@ export default React.createClass({
       let progress;
       let icon = <Icon type="paper-clip" />;
 
-      if (this.props.listType === 'picture') {
-        icon = (file.status === 'uploading' || (!file.thumbUrl && !file.url))
-          ? <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />
-          : (
-              <a className={prefixCls + '-list-item-thumbnail'}
-                href={file.url}
-                target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
+      if (this.props.listType === 'picture' || this.props.listType === 'picture-card') {
+        if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
+          if (this.props.listType === 'picture-card') {
+            icon = <div className={prefixCls + '-list-item-uploading-text'}>文件上传中</div>;
+          } else {
+            icon = <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />;
+          }
+        } else {
+          icon = (<a className={prefixCls + '-list-item-thumbnail'}
+            href={file.url}
+            target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
           );
+        }
       }
+
       if (file.status === 'uploading') {
         progress = (
           <div className={prefixCls + '-list-item-progress'}>
@@ -81,7 +87,15 @@ export default React.createClass({
           <div className={prefixCls + '-list-item-info'}>
             {icon}
             <span className={prefixCls + '-list-item-name'}>{file.name}</span>
-            <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
+            {
+              this.props.listType === 'picture-card' && file.status !== 'uploading'
+              ? (
+                <span>
+                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none'}}><Icon type="eye-o" /></a>
+                  <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
+                </span>
+              ) : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
+            }
           </div>
           { progress }
         </div>
