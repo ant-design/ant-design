@@ -35,7 +35,7 @@ Ant Design 的色板由 9 种基本色彩组成，每种基本色又衍生出九
 .color-palette {
   margin: 45px 0;
   overflow: hidden;
-  width: 100%;
+  width: 80%;
   height: 165px;
 }
 .main-color {
