@@ -342,9 +342,13 @@ let AntTable = React.createClass({
         checked = this.state.selectionDirty
           ? data.every((item, i) =>
               this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
-          : data.every((item) =>
+          : (
+            data.every((item, i) =>
+              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) ||
+            data.every((item) =>
               this.props.rowSelection.getCheckboxProps &&
-              this.props.rowSelection.getCheckboxProps(item).defaultChecked);
+              this.props.rowSelection.getCheckboxProps(item).defaultChecked)
+          );
       }
       let selectionColumn;
       if (this.props.rowSelection.type === 'radio') {

@@ -11,7 +11,7 @@
 
 考虑到阅读的舒适度和节奏感，句子和段落间需要合适的间距。行距決定了段落中各行文字的垂直距离，通过字体本身行高来控制，我们行高默认为字号的 1.5 倍。段落间距決定了段落上下的间距，一般为字号的一倍宽。
 
-<div class="row">
+<div class="row" style="width: 80%">
   <div class="col col-12 paragraph-12px">
     <h3>12px 段落</h3>
     <p>汉学家称这个空白字为「盘古之白」，因为它劈开了全角字和半角字之间的混沌。</p>
@@ -115,5 +115,3 @@
 我们可以采用 [模糊测试](https://chrome.google.com/webstore/detail/the-squint-test/gppnipfbappicilfniaimcnagbpfflpg) 的方法，即眯起眼睛从整体来检视结构上的合理与否。
 
 <img src="https://t.alipayobjects.com/images/T1bY4hXkpfXXXXXXXX.png" width="600">
-
-

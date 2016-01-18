@@ -26,9 +26,13 @@ Someone may think all of the questions that he/she meets in developing are about
 Your questions may be asked and solved by others. So please spend several minutes on searching. Remember [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself), both code and questions.
 
 P.S.
+
 1. [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
 1. [Issues list](https://github.com/ant-design/ant-design/issues)
 
+## Close your issue if it's solved
+
+It is a good habit which will save maintainers' time. Thank you!
 
 ## Providing a demo while reporting a bug
 
@@ -46,7 +50,7 @@ If you believe that Ant Design should provide some features, but it does not. Yo
 
 It's welcomed to pull request. And there are some tips about that:
 
-1. It is a good habit to create a feature request issue to disscuss whether the feature is necessary before you implement it.
+1. It is a good habit to create a feature request issue to disscuss whether the feature is necessary before you implement it. However, it's unnecessary to create an issue to claim that you found a typo or improved the readability of documentaion, just create a pull request.
 1. Run `npm run lint` and fix those errors before committing in order to keep consistent code style.
 1. Rebase before creating a PR to keep commit history clear.
 1. Add some descriptions and refer relative issues for you PR.
