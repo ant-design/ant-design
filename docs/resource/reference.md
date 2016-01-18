@@ -19,7 +19,7 @@
 <a target="_blank" href="http://book.douban.com/subject/3821157/" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/CoojVXLtoWrUSmI.png">
   <span class="resource-card-content">
-    <span class="resource-card-title">Web界面设计</span>
+    <span class="resource-card-title">Web 界面设计</span>
     <span class="resource-card-description">作者: Bill Scott / Theresa Neil</span>
     <span class="resource-card-description">出版社: 电子工业出版社</span>
   </span>
