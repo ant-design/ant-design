@@ -40,4 +40,4 @@ $ npm install antd-init -g
 
 在空目录运行 `antd-init` 可以初始化一个 antd 的前端应用。
 
-> 更多 [使用方式](https://github.com/dora-js/dora/)。
+> 更多开发工具 [使用方式](http://ant-tool.github.io/)。

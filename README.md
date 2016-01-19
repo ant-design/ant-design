@@ -48,7 +48,7 @@ Normal browsers and Internet Explorer 8+.
 - [React UI library](http://ant.design/docs/react/introduce)
 - [ChangeLog](CHANGELOG.md)
 - [Scaffold tool](https://github.com/ant-design/antd-init/)
-- [Debug tools set](https://github.com/dora-js/dora)
+- [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
 - [React style guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [React component design guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
