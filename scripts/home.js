@@ -6,8 +6,8 @@ import ScrollLink from 'rc-scroll-anim/lib/ScrollLink';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import TweenOne from 'rc-tween-one';
 
-module.exports = function () {
-  InstantClickChangeFns.push(function () {
+module.exports = function() {
+  InstantClickChangeFns.push(function() {
     if (!document.getElementById('banner')) {
       return;
     }
