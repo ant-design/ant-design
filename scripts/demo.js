@@ -37,6 +37,9 @@ window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
 window['reqwest'] = require('reqwest');
+window['Values'] = require('values.js');
+var InstantClick = require('instantclick');
+window['InstantClick'] = InstantClick;
 require('./home')();
 
 antd.DatePicker.locale = {

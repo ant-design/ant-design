@@ -4,6 +4,7 @@
 
 {% block content %}
 <link href="http://fonts.useso.com/css?family=Raleway:600,500,400,300" rel="stylesheet" type="text/css">
+<div id="list"></div>
 <section id="banner"></section>
 <section id="page1" class="page"></section>
 <section id="page2" class="page"></section>
@@ -95,10 +96,10 @@
     height: 76px;
     position: absolute;
     background: rgba(255, 255, 255, .44);
-    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.03), rgba(255,255,255,0.6), rgba(255,255,255,0.03));
-    background-image: -moz-linear-gradient(top, rgba(255,255,255,0.03), rgba(255,255,255,0.6), rgba(255,255,255,0.03));
-    background-image: -ms-linear-gradient(top, rgba(255,255,255,0.03), rgba(255,255,255,0.6), rgba(255,255,255,0.03));
-    background-image: -o-linear-gradient(top, rgba(255,255,255,0.03), rgba(255,255,255,0.6), rgba(255,255,255,0.03));
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
+    background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.03));
     top: 16px;
     right: -25px;
   }
@@ -245,6 +246,31 @@
 
   footer ul li > a {
     color: #eee;
+  }
+
+  #list {
+    position: fixed;
+    z-index: 9998;
+    top: 50%;
+    right: 20px;
+    width: 6px;
+    margin-top: -35px;
+  }
+
+  .list-point {
+    width: 6px;
+    height: 6px;
+    background: #00AAEE;
+    border-radius: 6px;
+    float: left;
+    margin: 4px auto;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity .3s;
+  }
+
+  .list-point:hover, .list-point.active {
+    opacity: 1;
   }
 </style>
 {% endblock %}
