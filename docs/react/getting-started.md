@@ -19,7 +19,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 实际项目开发中，你会需要对 ES2015 和 JSX 代码的构建、调试、代理、打包部署等一系列工程化的需求。
 我们提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
 
-### 1. 安装命令行工具
+### 1. 安装脚手架工具
 
 > 使用 `antd-init` 前，务必确认 [Node.js](https://nodejs.org/en/) 已经升级到 v4.x 或以上。
 
@@ -27,7 +27,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 $ npm install antd-init -g
 ```
 
-[更多使用说明](https://github.com/ant-design/antd-init/)。
+更多功能请参考 [脚手架工具](https://github.com/ant-design/antd-init/) 和 [开发工具文档](http://ant-tool.github.io/)。
 
 ### 2. 创建一个项目
 
