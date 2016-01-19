@@ -2,10 +2,12 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 import { QueueAnim, Icon, Button } from '../index';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import ScrollLink from 'rc-scroll-anim/lib/ScrollLink';
+import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import TweenOne from 'rc-tween-one';
 
-module.exports = function() {
-  InstantClickChangeFns.push(function() {
+module.exports = function () {
+  InstantClickChangeFns.push(function () {
     if (!document.getElementById('banner')) {
       return;
     }
@@ -23,6 +25,19 @@ module.exports = function() {
     $(window).off('scroll.scrollNavEvent');
     $(window).on('scroll.scrollNavEvent', scrollNavEvent);
 
+    // list point
+    ReactDOM.render((
+      <div>
+        <ScrollLink className="list-point" location="banner" showHeightActive="50%"/>
+        <ScrollLink className="list-point" location="page1" showHeightActive="50%"/>
+        <ScrollLink className="list-point" location="page2" showHeightActive="50%"/>
+        <ScrollLink className="list-point" location="page3" showHeightActive="50%"/>
+        <ScrollLink className="list-point" location="page4" showHeightActive="50%"/>
+      </div>
+    ), document.getElementById('list'));
+
+    // banner
+
     class Banner extends React.Component {
       constructor() {
         super(...arguments);
@@ -39,7 +54,7 @@ module.exports = function() {
 
       render() {
         return (
-          <div>
+          <ScrollElement scrollName="banner" style={{height: '100%'}}>
             <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
               <h2 key="h2">ANT <p>DESIGN</p></h2>
               <p key="content">一个 UI 设计语言</p>
@@ -49,7 +64,7 @@ module.exports = function() {
             <TweenOne className='down' vars={[{opacity: 1},{y: 10, duration: 800, yoyo: true, repeat: -1}]}>
               <Icon type="down"/>
             </TweenOne>
-          </div>
+          </ScrollElement>
         )
       }
     }
@@ -58,7 +73,7 @@ module.exports = function() {
 
     // page1
     ReactDOM.render((
-      <ScrollOverPack className="content-wrapper">
+      <ScrollOverPack scrollName="page1" className="content-wrapper" playScale={0.4}>
         <TweenOne key="image" className="image1 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
                   style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
         <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
@@ -74,7 +89,7 @@ module.exports = function() {
 
     //page2
     ReactDOM.render((
-      <ScrollOverPack className="content-wrapper">
+      <ScrollOverPack scrollName="page2" className="content-wrapper" playScale={0.4}>
         <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type='bottom' leaveReverse
                    scrollHideProps={{child: null}}>
           <h2 key="h2">设计模式</h2>
@@ -91,7 +106,7 @@ module.exports = function() {
 
     // page3
     ReactDOM.render((
-      <ScrollOverPack className="content-wrapper">
+      <ScrollOverPack scrollName="page3" className="content-wrapper" playScale={0.4}>
         <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
                   style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
         <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}
@@ -107,7 +122,7 @@ module.exports = function() {
 
     // page4
     ReactDOM.render((
-      <ScrollOverPack className="content-wrapper">
+      <ScrollOverPack scrollName="page4" className="content-wrapper" playScale={0.4}>
         <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom"
                    scrollHideProps={{child: null}}>
           <h2 key="h2">微小·确定·幸福</h2>
