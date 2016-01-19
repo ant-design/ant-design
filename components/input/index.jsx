@@ -72,9 +72,9 @@ class Input extends React.Component {
     }
 
     switch (props.size) {
-    case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
-    case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
-    default:
+      case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
+      case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
+      default:
     }
     let placeholder = props.placeholder;
     if (placeholder && ieGT9()) {
@@ -84,14 +84,14 @@ class Input extends React.Component {
       props.value = fixControlledValue(props.value);
     }
     switch (props.type) {
-    case 'textarea':
-      return (
+      case 'textarea':
+        return (
           <textarea {...props} placeholder={placeholder}
             className={inputClassName} ref="input" />
         );
-    default:
-      inputClassName = props.className ? props.className : inputClassName;
-      return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
+      default:
+        inputClassName = props.className ? props.className : inputClassName;
+        return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
     }
   }
 
