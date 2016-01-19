@@ -70,8 +70,6 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
-    "rc-scroll-anim": "0.1.0",
-    "rc-tween-one": "0.1.8",
     "autoprefixer-loader": "^3.1.0",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
@@ -101,6 +99,8 @@
     "lodash": "^3.10.0",
     "nico-jsx": "~0.7.0",
     "pre-commit": "1.x",
+    "rc-scroll-anim": "^0.1.0",
+    "rc-tween-one": "^0.1.8",
     "react": "0.14.x",
     "react-addons-test-utils": "0.14.x",
     "react-copy-to-clipboard": "^3.0.4",
