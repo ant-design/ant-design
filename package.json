@@ -71,7 +71,6 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^3.2.0",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
     "babel-jest": "^6.0.1",
@@ -100,6 +99,7 @@
     "lesshint-antd": "^1.2.1",
     "lodash": "^4.0.0",
     "nico-jsx": "~0.7.2",
+    "postcss-loader": "^0.8.0",
     "pre-commit": "1.x",
     "rc-form": "^0.8.0",
     "rc-scroll-anim": "^0.1.1",
