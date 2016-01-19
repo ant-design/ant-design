@@ -81,7 +81,7 @@ export default React.createClass({
                         disabledDate={disabledDate}
                         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
                         locale={locale.lang}
-                        defaultValue={defaultCalendarValue}
+                        defaultValue={[defaultCalendarValue, defaultCalendarValue]}
                         showClear />;
 
     const pickerClass = classNames({
