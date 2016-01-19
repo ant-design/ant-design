@@ -4,7 +4,9 @@
 
 ---
 
-## 0.11.3 `fixing`
+## 0.11.3
+
+`2016-01-19`
 
 - 修复 TimePicker 受控模式点选即关闭面板的问题。[#818](https://github.com/ant-design/ant-design/issues/818)
 - 修复一个两栏的 TimePicker 点击右边空白处无法关闭面板的问题。[#826](https://github.com/ant-design/ant-design/issues/826)
