@@ -31,13 +31,13 @@
       height: 6px;
       left: 3px;
       top: 3px;
-      border-radius: 6px;
+      border-radius: @border-radius-base;
       display: table;
       border-top: 0;
       border-left: 0;
       content: ' ';
       background-color: @primary-color;
-      transform: scale(0);
+      background: #fff;
       opacity: 0;
       transition: transform @radio-duration @ease-in-out-circ, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
     }
@@ -51,7 +51,7 @@
     border-width: 1px;
     border-style: solid;
     border-radius: 14px;
-    border-color: #d9d9d9;
+    border-color: @border-color-base;
     background-color: #fff;
     transition: border-color @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
   }
@@ -72,7 +72,7 @@
 .@{radio-prefix-cls}-checked {
 
   .@{radio-inner-prefix-cls} {
-    border-color: #d9d9d9;
+    border-color: @border-color-base;
     &:after {
       transform: scale(1);
       opacity: 1;
@@ -84,11 +84,11 @@
 .@{radio-prefix-cls}-disabled {
   &:hover {
     .@{radio-inner-prefix-cls} {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
     }
   }
   .@{radio-inner-prefix-cls} {
-    border-color: #d9d9d9;
+    border-color: @border-color-base;
     background-color: #f3f3f3;
     &:after {
       background-color: #cccccc;
@@ -115,7 +115,7 @@
     display: inline-block;
     transition: all 0.3s ease;
     cursor: pointer;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @border-color-base;
     border-left: 0;
 
     > span {
@@ -135,7 +135,7 @@
 
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
-      border-left: 1px solid #d9d9d9;
+      border-left: 1px solid @border-color-base;
       &:before {
         display: none;
       }
@@ -150,12 +150,8 @@
     }
 
     &:hover {
-      border-color: #aaa;
+      color: @primary-color;
       position: relative;
-      &:before {
-        background: #aaa;
-        visibility: visible;
-      }
     }
 
     .@{radio-prefix-cls}-inner,
@@ -166,9 +162,9 @@
     }
 
     &-checked {
-      background: @primary-color;
+      background: #fff;
       border-color: @primary-color;
-      color: #fff;
+      color: @primary-color;
       box-shadow: -1px 0 0 0 @primary-color;
 
       &:before {
@@ -177,46 +173,46 @@
 
       &:first-child {
         border-color: @primary-color;
+        box-shadow: none!important;
       }
 
       &:hover {
-        background: tint(@primary-color, 20%);
         border-color: tint(@primary-color, 20%);
         box-shadow: -1px 0 0 0 tint(@primary-color, 20%);
+        color: tint(@primary-color, 20%);
       }
 
       &:active {
-        background: shade(@primary-color, 5%);
         border-color: shade(@primary-color, 5%);
         box-shadow: -1px 0 0 0 shade(@primary-color, 5%);
+        color: shade(@primary-color, 5%);
       }
     }
 
     &-disabled {
-      border-color: #d9d9d9;
-      background-color: #f3f3f3;
+      border-color: @border-color-base;
+      background-color: #f4f4f4;
       cursor: not-allowed;
       color: #ccc;
 
       &:first-child,
       &:hover {
-        border-color: #d9d9d9;
-        background-color: #f3f3f3;
+        border-color: @border-color-base;
+        background-color: #f4f4f4;
+        color: #ccc;
         &:before {
           display: none;
         }
       }
       &:first-child {
-        box-shadow: none;
-        border-left-color: #d9d9d9;
+        border-left-color: @border-color-base;
       }
     }
 
     &-disabled.@{radio-prefix-cls}-button-checked {
       color: #fff;
-      background-color: #ccc;
-      box-shadow: -1px 0px 0px 0px #ccc;
-      border-color: #ccc;
+      background-color: #e6e6e6;
+      border-color: @border-color-base;
     }
   }
 }
