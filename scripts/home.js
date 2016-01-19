@@ -4,8 +4,8 @@ import { QueueAnim, Icon, Button } from '../index';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import TweenOne from 'rc-tween-one';
 
-module.exports = function() {
-  InstantClickChangeFns.push(function() {
+module.exports = function () {
+  InstantClickChangeFns.push(function () {
     if (!document.getElementById('banner')) {
       return;
     }
@@ -60,11 +60,13 @@ module.exports = function() {
     ReactDOM.render((
       <ScrollOverPack className="content-wrapper">
         <TweenOne key="image" className="image1 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
-                  style={{transform: 'translateX(-100px)', opacity: 0}}/>
-        <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse>
+                  style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
+        <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
+                   scrollHideProps={{child: null}}>
           <h2 key="h2">最佳实践</h2>
           <p key="p" style={{maxWidth: 310}}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
-          <div key="button"><Button type="primary" size="large" onClick={()=>{window.location.href='/docs/practice/cases'}}>了解更多<Icon
+          <div key="button"><Button type="primary" size="large"
+                                    onClick={()=>{window.location.href='/docs/practice/cases'}}>了解更多<Icon
             type="right"/></Button></div>
         </QueueAnim>
       </ScrollOverPack>
@@ -73,15 +75,17 @@ module.exports = function() {
     //page2
     ReactDOM.render((
       <ScrollOverPack className="content-wrapper">
-        <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type='bottom' leaveReverse>
+        <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type='bottom' leaveReverse
+                   scrollHideProps={{child: null}}>
           <h2 key="h2">设计模式</h2>
           <p key="p" style={{maxWidth: 260}}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
           <div key="button"><Button type="primary" size="large"
-                                    onClick={()=>{window.location.href='/docs/pattern/navigation'}}>了解更多<Icon type="right"/></Button>
+                                    onClick={()=>{window.location.href='/docs/pattern/navigation'}}>了解更多<Icon
+            type="right"/></Button>
           </div>
         </QueueAnim>
         <TweenOne key="image" className="image2 image-wrapper" vars={{x: 0, opacity: 1, delay: 300, duration: 550}}
-                  style={{transform: 'translateX(100px)', opacity: 0}}/>
+                  style={{transform: 'translateX(100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
       </ScrollOverPack>
     ), document.getElementById('page2'));
 
@@ -89,8 +93,9 @@ module.exports = function() {
     ReactDOM.render((
       <ScrollOverPack className="content-wrapper">
         <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
-                  style={{transform: 'translateX(-100px)', opacity: 0}}/>
-        <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}>
+                  style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
+        <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}
+                   scrollHideProps={{child: null}}>
           <h2 key="h2">丰富的基础组件</h2>
           <p key="p" style={{maxWidth: 280}}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。</p>
           <div key="button"><Button type="primary" size="large"
@@ -103,12 +108,13 @@ module.exports = function() {
     // page4
     ReactDOM.render((
       <ScrollOverPack className="content-wrapper">
-        <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom">
+        <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom"
+                   scrollHideProps={{child: null}}>
           <h2 key="h2">微小·确定·幸福</h2>
           <p key="p">这是一套致力于提升『用户』和『设计者』使用体验的中后台设计语言。</p>
         </QueueAnim>
         <TweenOne key="image" className="image4 bottom-wrapper" vars={{y: 0, opacity: 1, duration: 550, delay: 550}}
-                  style={{transform: 'translateY(50px)', opacity: 0}}/>
+                  style={{transform: 'translateY(50px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
       </ScrollOverPack>
     ), document.getElementById('page4'));
   });
