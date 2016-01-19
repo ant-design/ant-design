@@ -11,6 +11,7 @@
 - 修复 Table `pagination.onChange` 指定无效的问题。[#824](https://github.com/ant-design/ant-design/issues/824)
 - 修复 Transfer 搜索功能失效的问题。
 - 修复 DatePicker 的 MonthPicker 样式错乱的问题。
+- 修复 RangePicker 时区无法设置的问题。[#837](https://github.com/ant-design/ant-design/issues/837)
 - 修复二维码图标，新增一个扫描图标。[#772](https://github.com/ant-design/ant-design/issues/772)
 
 ## 0.11.2
