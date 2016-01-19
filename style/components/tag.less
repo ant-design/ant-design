@@ -6,7 +6,7 @@
   line-height: 22px;
   height: 22px;
   padding: 0 8px;
-  border-radius: 20px;
+  border-radius: @border-radius-base;
   background: #f3f3f3;
   font-size: @font-size-base;
   margin-right: 4px;
@@ -77,7 +77,7 @@
   }
 
   &-zoom-leave {
-    animation: antZoomOut .3s @ease-in-out-circ;
+    animation: antZoomOut .2s @ease-in-out-circ;
     animation-fill-mode: both;
   }
 }
