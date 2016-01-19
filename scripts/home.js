@@ -4,7 +4,7 @@ import { QueueAnim, Icon, Button } from '../index';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import TweenOne from 'rc-tween-one';
 
-module.exports = function () {
+module.exports = function() {
   InstantClickChangeFns.push(function() {
     if (!document.getElementById('banner')) {
       return;
