@@ -5,11 +5,16 @@ import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import ScrollLink from 'rc-scroll-anim/lib/ScrollLink';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import scrollScreen from 'rc-scroll-anim/lib/ScrollScreen';
+import ScrollEvent from 'rc-scroll-anim/lib/EventDispatcher';
+import mapped from 'rc-scroll-anim/lib/Mapped';
 import TweenOne from 'rc-tween-one';
 
-module.exports = function() {
-  InstantClickChangeFns.push(function() {
+module.exports = function () {
+  InstantClickChangeFns.push(function () {
     if (!document.getElementById('banner')) {
+      // componentWillUnmount 不会触发, 手动删掉事件;
+      ScrollEvent._listeners = {};
+      mapped.unMount();
       return;
     }
     // 导航处理
@@ -26,7 +31,7 @@ module.exports = function() {
     $(window).off('scroll.scrollNavEvent');
     $(window).on('scroll.scrollNavEvent', scrollNavEvent);
     // 整屏滚动;
-    scrollScreen({docHeight: 4746});
+    scrollScreen.init({docHeight: 4746});
     // list point
     ReactDOM.render((
       <div>
