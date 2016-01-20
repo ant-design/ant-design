@@ -1,6 +1,6 @@
 var config = require('./webpack.config');
 config.entry = {
-  'antd': ['./index.js', './style/index.less']
+  'antd': ['./style/index.less', './index.js']
 };
 config.externals = {
   'react': {
