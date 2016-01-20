@@ -1,6 +1,7 @@
 import { Circle as Progresscircle } from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
+import warning from 'warning';
 import Icon from '../icon';
 
 const prefixCls = 'ant-progress';
@@ -29,7 +30,6 @@ let Line = React.createClass({
       percent: 0,
       strokeWidth: 10,
       status: 'normal', // exception active
-      format: '${percent}%',
       showInfo: true,
       trailColor: '#e9e9e9'
     };
@@ -43,8 +43,15 @@ let Line = React.createClass({
 
     let progressInfo;
     let fullCls = '';
-    let text = props.format;
+
+    if (props.format) {
+      warning(typeof props.format === 'function',
+       'antd.Progress props.format type is function, change format={xxx} to format={() => xxx}');
+    }
+
+    let text = props.format || `${props.percent}%`;
     if (typeof props.format === 'string') {
+      // 向下兼容原来的字符串替换方式
       text = props.format.replace('${percent}', props.percent);
     } else if (typeof props.format === 'function') {
       text = props.format(props.percent);
@@ -53,12 +60,14 @@ let Line = React.createClass({
     if (props.showInfo === true) {
       if (props.status === 'exception') {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>{text}</span>
+          <span className={prefixCls + '-line-text'}>
+            {props.format ? text : <Icon type="exclamation" />}
+          </span>
         );
       } else if (props.status === 'success') {
         progressInfo = (
           <span className={prefixCls + '-line-text'}>
-            <Icon type="check" />
+            {props.format ? text : <Icon type="check" />}
           </span>
         );
       } else {
@@ -105,7 +114,6 @@ let Circle = React.createClass({
       width: 132,
       percent: 0,
       strokeWidth: 6,
-      format: '${percent}%',
       status: 'normal', // exception
       trailColor: '#f9f9f9',
     };
@@ -123,20 +131,29 @@ let Circle = React.createClass({
       fontSize: props.width * 0.16 + 6
     };
     let progressInfo;
-    let text = props.format;
+    let text = props.format || `${props.percent}%`;
+
+    if (props.format) {
+      warning(typeof props.format === 'function',
+       'antd.Progress props.format type is function, change format={xxx} to format={() => xxx}');
+    }
+
     if (typeof props.format === 'string') {
-      text = props.format.replace('${percent}', props.percent);
+      // 向下兼容原来的字符串替换方式
+      text = '${percent}%'.replace('', props.percent);
     } else if (typeof props.format === 'function') {
       text = props.format(props.percent);
     }
     if (props.status === 'exception') {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>{text}</span>
+        <span className={prefixCls + '-circle-text'}>
+          {props.format ? text : <Icon type="exclamation" />}
+        </span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>
-          {text ? text : <Icon type="check" />}
+          {props.format ? text : <Icon type="check" />}
         </span>
       );
     } else {

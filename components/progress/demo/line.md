@@ -7,14 +7,14 @@
 ---
 
 ````jsx
-import { Progress, Icon } from 'antd';
+import { Progress } from 'antd';
 const ProgressLine = Progress.Line;
 
 ReactDOM.render(
   <div>
     <ProgressLine percent={30} />
     <ProgressLine percent={50} status="active" />
-    <ProgressLine percent={70} status="exception" format={() => <Icon type="exclamation" />} />
+    <ProgressLine percent={70} status="exception" />
     <ProgressLine percent={100} />
     <ProgressLine percent={50} showInfo={false} />
   </div>
