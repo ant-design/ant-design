@@ -4,6 +4,7 @@ import { QueueAnim, Icon, Button } from '../index';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import ScrollLink from 'rc-scroll-anim/lib/ScrollLink';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
+import scrollScreen from 'rc-scroll-anim/lib/ScrollScreen';
 import TweenOne from 'rc-tween-one';
 
 module.exports = function() {
@@ -24,15 +25,16 @@ module.exports = function() {
 
     $(window).off('scroll.scrollNavEvent');
     $(window).on('scroll.scrollNavEvent', scrollNavEvent);
-
+    // 整屏滚动;
+    scrollScreen({docHeight: 4746});
     // list point
     ReactDOM.render((
       <div>
-        <ScrollLink className="list-point" location="banner" showHeightActive="50%"/>
-        <ScrollLink className="list-point" location="page1" showHeightActive="50%"/>
-        <ScrollLink className="list-point" location="page2" showHeightActive="50%"/>
-        <ScrollLink className="list-point" location="page3" showHeightActive="50%"/>
-        <ScrollLink className="list-point" location="page4" showHeightActive="50%"/>
+        <ScrollLink className="list-point" location="banner"/>
+        <ScrollLink className="list-point" location="page1"/>
+        <ScrollLink className="list-point" location="page2"/>
+        <ScrollLink className="list-point" location="page3"/>
+        <ScrollLink className="list-point" location="page4"/>
       </div>
     ), document.getElementById('list'));
 
