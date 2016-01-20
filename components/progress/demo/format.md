@@ -1,8 +1,8 @@
-# 进度圈
+# 自定义文字格式
 
-- order: 1
+- order: 6
 
-圈形的进度。
+`format` 属性指定格式。
 
 ---
 
@@ -12,9 +12,9 @@ const ProgressCircle = Progress.Circle;
 
 ReactDOM.render(
   <div>
-    <ProgressCircle percent={75} />
+    <ProgressCircle percent={75} format={percent => percent / 10.0 + '折' } />
     <ProgressCircle percent={70} status="exception" format={() => <Icon type="exclamation" />} />
-    <ProgressCircle percent={100} />
+    <ProgressCircle percent={100} format={() => '成功'} />
   </div>
   , mountNode);
 ````

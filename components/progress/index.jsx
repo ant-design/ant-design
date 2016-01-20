@@ -17,6 +17,12 @@ let Line = React.createClass({
     showInfo: React.PropTypes.bool,
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
+    trailColor: React.PropTypes.string,
+    format: React.PropTypes.oneOfType([
+      React.PropTypes.node,
+      React.PropTypes.string,
+      React.PropTypes.func,
+    ]),
   },
   getDefaultProps() {
     return {
@@ -25,6 +31,7 @@ let Line = React.createClass({
       status: 'normal', // exception active
       format: '${percent}%',
       showInfo: true,
+      trailColor: '#e9e9e9'
     };
   },
   render() {
@@ -36,8 +43,12 @@ let Line = React.createClass({
 
     let progressInfo;
     let fullCls = '';
-    const text = (typeof props.format === 'string') ?
-      props.format.replace('${percent}', props.percent) : props.format;
+    let text = props.format;
+    if (typeof props.format === 'string') {
+      text = props.format.replace('${percent}', props.percent);
+    } else if (typeof props.format === 'function') {
+      text = props.format(props.percent);
+    }
 
     if (props.showInfo === true) {
       if (props.status === 'exception') {
@@ -82,6 +93,12 @@ let Circle = React.createClass({
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
     width: React.PropTypes.number,
+    trailColor: React.PropTypes.string,
+    format: React.PropTypes.oneOfType([
+      React.PropTypes.node,
+      React.PropTypes.string,
+      React.PropTypes.func,
+    ]),
   },
   getDefaultProps() {
     return {
@@ -90,6 +107,7 @@ let Circle = React.createClass({
       strokeWidth: 6,
       format: '${percent}%',
       status: 'normal', // exception
+      trailColor: '#f9f9f9',
     };
   },
   render() {
@@ -105,8 +123,12 @@ let Circle = React.createClass({
       fontSize: props.width * 0.16 + 6
     };
     let progressInfo;
-    const text = (typeof props.format === 'string') ?
-      props.format.replace('${percent}', props.percent) : props.format;
+    let text = props.format;
+    if (typeof props.format === 'string') {
+      text = props.format.replace('${percent}', props.percent);
+    } else if (typeof props.format === 'function') {
+      text = props.format(props.percent);
+    }
     if (props.status === 'exception') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>{text}</span>
@@ -114,7 +136,7 @@ let Circle = React.createClass({
     } else if (props.status === 'success') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>
-          <Icon type="check" />
+          {text ? text : <Icon type="check" />}
         </span>
       );
     } else {
@@ -127,7 +149,7 @@ let Circle = React.createClass({
       <div className={prefixCls + '-circle-wrap status-' + props.status} >
         <div className={prefixCls + '-circle-inner'} style={style}>
           <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
-            strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
+            strokeColor={statusColorMap[props.status]} trailColor={props.trailColor} />
           {progressInfo}
         </div>
       </div>

@@ -50,4 +50,3 @@ const MyProgress = React.createClass({
 
 ReactDOM.render(<MyProgress />, mountNode);
 ````
-
