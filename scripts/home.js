@@ -9,8 +9,8 @@ import ScrollEvent from 'rc-scroll-anim/lib/EventDispatcher';
 import mapped from 'rc-scroll-anim/lib/Mapped';
 import TweenOne from 'rc-tween-one';
 
-module.exports = function () {
-  InstantClickChangeFns.push(function () {
+module.exports = function() {
+  InstantClickChangeFns.push(function() {
     if (!document.getElementById('banner')) {
       // componentWillUnmount 不会触发, 手动删掉事件;
       ScrollEvent._listeners = {};
