@@ -265,9 +265,6 @@ InstantClickChangeFns.push(function () {
   });
 });
 
-<<<<<<< HEAD
-antd.version = require('../package.json').version;
-=======
 InstantClickChangeFns.push(function() {
   // fix hash id link
   if (window.location.href.indexOf('#') > 0) {
@@ -472,5 +469,5 @@ InstantClickChangeFns.push(function() {
   listFunc.init();
 });
 
->>>>>>> master
+antd.version = require('../package.json').version;
 module.exports = antd;
