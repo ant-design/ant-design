@@ -186,7 +186,6 @@ a.logo {
 
 .nav ul li {
   float: left;
-  padding: 0 22px;
   text-align: center;
 }
 
@@ -195,6 +194,7 @@ a.logo {
   width: 100%;
   height: 100%;
   display: block;
+  padding: 0 22px;
 }
 
 a.nav-link-disabled {
