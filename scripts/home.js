@@ -31,7 +31,7 @@ module.exports = function () {
     $(window).off('scroll.scrollNavEvent');
     $(window).on('scroll.scrollNavEvent', scrollNavEvent);
     // 整屏滚动;
-    scrollScreen({docHeight: 4746});
+    scrollScreen.init({docHeight: 4746});
     // list point
     ReactDOM.render((
       <div>
@@ -57,10 +57,6 @@ module.exports = function () {
           return 'bottom';
         }
         return 'left';
-      }
-
-      componentWillUnmount() {
-        console.log(122112)
       }
 
       render() {
