@@ -84,7 +84,7 @@ let Line = React.createClass({
     };
 
     return (
-      <div className={prefixCls + '-line-wrap clearfix status-' + props.status + fullCls}>
+      <div className={prefixCls + '-line-wrap clearfix status-' + props.status + fullCls} style={props.style}>
         {progressInfo}
         <div className={prefixCls + '-line-outer'}>
           <div className={prefixCls + '-line-inner'}>
@@ -163,7 +163,7 @@ let Circle = React.createClass({
     }
 
     return (
-      <div className={prefixCls + '-circle-wrap status-' + props.status} >
+      <div className={prefixCls + '-circle-wrap status-' + props.status} style={props.style}>
         <div className={prefixCls + '-circle-inner'} style={style}>
           <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
             strokeColor={statusColorMap[props.status]} trailColor={props.trailColor} />
