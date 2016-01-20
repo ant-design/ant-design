@@ -438,11 +438,11 @@ let AntTable = React.createClass({
         );
       }
       column.title = (
-        <div>
+        <span>
           {column.title}
           {sortButton}
           {filterDropdown}
-        </div>
+        </span>
       );
       return column;
     });
