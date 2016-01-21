@@ -65,12 +65,11 @@ const Demo = React.createClass({
       treeCheckable: true,
       treeDefaultExpandAll: true,
     };
-    return (<div style={{padding: '10px 30px'}}>
-      <h3>more</h3>
-      <TreeSelect style={{width: 300}} {...tProps}>
+    return (
+      <TreeSelect {...tProps}>
         {loop(gData)}
       </TreeSelect>
-    </div>);
+    );
   },
 });
 
