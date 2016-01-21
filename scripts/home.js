@@ -11,6 +11,7 @@ import TweenOne from 'rc-tween-one';
 
 module.exports = function () {
   InstantClickChangeFns.push(function () {
+    $(window).off('scroll.scrollNavEvent');
     if (!document.getElementById('banner')) {
       // componentWillUnmount 不会触发, 手动删掉事件;
       ScrollEvent._listeners = {};
@@ -28,7 +29,6 @@ module.exports = function () {
       }
     }
 
-    $(window).off('scroll.scrollNavEvent');
     $(window).on('scroll.scrollNavEvent', scrollNavEvent);
     // 整屏滚动;
     scrollScreen.init({docHeight: 4746});
