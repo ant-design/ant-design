@@ -117,7 +117,7 @@
   - 新增 babel 插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)，转换 `import {Button} from 'antd'` 为 `import Button from 'antd/lib/button'`。
   - 发布了 `antd-init@0.6.x`，支持以上改动。
 
-> [0.11 升级指南](http://ant.design/docs/upgrade-notes#0-10-gt-0-11)
+> [0.11 升级指南](http://ant.design/docs/react/upgrade-notes#0-10-gt-0-11)
 
 ---
 
@@ -243,7 +243,7 @@
 > 备注：
 >
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
-> - [0.10 升级指南](http://ant.design/docs/upgrade-notes#0-0-gt-0-10)
+> - [0.10 升级指南](http://010x.ant.design/docs/upgrade-to-0.10)
 
 ---
 
