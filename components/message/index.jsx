@@ -74,5 +74,11 @@ export default {
     if (options.top) {
       top = options.top;
     }
-  }
+  },
+  destroy() {
+    if (messageInstance) {
+      messageInstance.destroy();
+      messageInstance = null;
+    }
+  },
 };

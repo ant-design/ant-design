@@ -97,7 +97,7 @@ function notice(args) {
   }
 }
 
-let api = {
+const api = {
   open(args) {
     notice(args);
   },
@@ -108,7 +108,13 @@ let api = {
   },
   config(options) {
     top = isNaN(options.top) ? 24 : options.top;
-  }
+  },
+  destroy() {
+    if (notificationInstance) {
+      notificationInstance.destroy();
+      notificationInstance = null;
+    }
+  },
 };
 
 ['success', 'info', 'warn', 'error'].forEach((type) => {
