@@ -107,11 +107,6 @@ input[type="checkbox"] {
   text-align: center;
 }
 
-.@{css-prefix}form-explain {
-  float: left;
-}
-
-
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
   .has-feedback {
@@ -300,7 +295,7 @@ form {
 .is-validating {
   &.has-feedback:after {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     font-family: "anticon" !important;
     .square(@input-height-lg);

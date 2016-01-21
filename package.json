@@ -102,7 +102,7 @@
     "postcss-loader": "^0.8.0",
     "pre-commit": "1.x",
     "rc-form": "^0.8.0",
-    "rc-scroll-anim": "^0.1.1",
+    "rc-scroll-anim": "^0.1.7",
     "rc-tween-one": "^0.1.8",
     "react": "0.14.x",
     "react-addons-test-utils": "0.14.x",
