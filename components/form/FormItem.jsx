@@ -42,7 +42,7 @@ class FormItem extends React.Component {
     }
     return (
       <div className={classes}>
-        {c1} {c2}
+        {c1}{c2}
       </div>
     );
   }

@@ -30,21 +30,29 @@ module.exports = function() {
 
     $(window).off('scroll.scrollNavEvent');
     $(window).on('scroll.scrollNavEvent', scrollNavEvent);
-    // 整屏滚动;
-    scrollScreen.init({docHeight: 4746});
+
     // list point
-    ReactDOM.render((
-      <div>
-        <ScrollLink className="list-point" location="banner"/>
-        <ScrollLink className="list-point" location="page1"/>
-        <ScrollLink className="list-point" location="page2"/>
-        <ScrollLink className="list-point" location="page3"/>
-        <ScrollLink className="list-point" location="page4"/>
-      </div>
-    ), document.getElementById('list'));
+    class Link extends React.Component {
+      componentDidMount() {
+        // 整屏滚动;
+        scrollScreen.init({docHeight: 4746});
+      }
+
+      render() {
+        return (
+          <div>
+            <ScrollLink className="list-point" location="banner"/>
+            <ScrollLink className="list-point" location="page1"/>
+            <ScrollLink className="list-point" location="page2"/>
+            <ScrollLink className="list-point" location="page3"/>
+            <ScrollLink className="list-point" location="page4"/>
+          </div>
+        );
+      }
+    }
+    ReactDOM.render(<Link />, document.getElementById('list'));
 
     // banner
-
     class Banner extends React.Component {
       constructor() {
         super(...arguments);
@@ -79,65 +87,86 @@ module.exports = function() {
     ReactDOM.render(<Banner />, document.getElementById('banner'));
 
     // page1
-    ReactDOM.render((
-      <ScrollOverPack scrollName="page1" className="content-wrapper" playScale={0.4}>
-        <TweenOne key="image" className="image1 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
-                  style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
-        <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
-                   scrollHideProps={{child: null}}>
-          <h2 key="h2">最佳实践</h2>
-          <p key="p" style={{maxWidth: 310}}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
-          <div key="button"><Button type="primary" size="large"
-                                    onClick={()=>{window.location.href='/docs/practice/cases'}}>了解更多<Icon
-            type="right"/></Button></div>
-        </QueueAnim>
-      </ScrollOverPack>
-    ), document.getElementById('page1'));
+    class Page1 extends React.Component {
+      render() {
+        return (
+          <ScrollOverPack scrollName="page1" className="content-wrapper" playScale={1} replay>
+            <TweenOne key="image" className="image1 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
+                      style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
+            <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
+                       scrollHideProps={{child: null}}>
+              <h2 key="h2">最佳实践</h2>
+              <p key="p" style={{maxWidth: 310}}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
+              <div key="button"><Button type="primary" size="large"
+                                        onClick={()=>{window.location.href='/docs/practice/cases'}}>了解更多<Icon
+                type="right"/></Button></div>
+            </QueueAnim>
+          </ScrollOverPack>
+        );
+      }
+    }
+    ReactDOM.render(<Page1 />, document.getElementById('page1'));
 
     //page2
-    ReactDOM.render((
-      <ScrollOverPack scrollName="page2" className="content-wrapper" playScale={0.4}>
-        <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type='bottom' leaveReverse
-                   scrollHideProps={{child: null}}>
-          <h2 key="h2">设计模式</h2>
-          <p key="p" style={{maxWidth: 260}}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
-          <div key="button"><Button type="primary" size="large"
-                                    onClick={()=>{window.location.href='/docs/pattern/navigation'}}>了解更多<Icon
-            type="right"/></Button>
-          </div>
-        </QueueAnim>
-        <TweenOne key="image" className="image2 image-wrapper" vars={{x: 0, opacity: 1, delay: 300, duration: 550}}
-                  style={{transform: 'translateX(100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
-      </ScrollOverPack>
-    ), document.getElementById('page2'));
+    class Page2 extends React.Component {
+      render() {
+        return (
+          <ScrollOverPack scrollName="page2" className="content-wrapper" playScale={1} replay>
+            <QueueAnim className="text-wrapper left-text" delay={300} key="text" duration={550} type='bottom'
+                       leaveReverse
+                       scrollHideProps={{child: null}}>
+              <h2 key="h2">设计模式</h2>
+              <p key="p" style={{maxWidth: 260}}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
+              <div key="button"><Button type="primary" size="large"
+                                        onClick={()=>{window.location.href='/docs/pattern/navigation'}}>了解更多<Icon
+                type="right"/></Button>
+              </div>
+            </QueueAnim>
+            <TweenOne key="image" className="image2 image-wrapper" vars={{x: 0, opacity: 1, delay: 300, duration: 550}}
+                      style={{transform: 'translateX(100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
+          </ScrollOverPack>
+        );
+      }
+    }
+    ReactDOM.render(<Page2 />, document.getElementById('page2'));
 
     // page3
-    ReactDOM.render((
-      <ScrollOverPack scrollName="page3" className="content-wrapper" playScale={0.4}>
-        <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
-                  style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
-        <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}
-                   scrollHideProps={{child: null}}>
-          <h2 key="h2">丰富的基础组件</h2>
-          <p key="p" style={{maxWidth: 280}}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。</p>
-          <div key="button"><Button type="primary" size="large"
-                                    onClick={()=>{window.location.href='/docs/react/introduce'}}>了解更多<Icon
-            type="right"/></Button></div>
-        </QueueAnim>
-      </ScrollOverPack>
-    ), document.getElementById('page3'));
+    class Page3 extends React.Component {
+      render() {
+        return (
+          <ScrollOverPack scrollName="page3" className="content-wrapper" playScale={1} replay>
+            <TweenOne key="image" className="image3 image-wrapper" vars={{x: 0, opacity: 1, duration: 550}}
+                      style={{transform: 'translateX(-100px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
+            <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{top: '40%'}}
+                       scrollHideProps={{child: null}}>
+              <h2 key="h2">丰富的基础组件</h2>
+              <p key="p" style={{maxWidth: 280}}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。</p>
+              <div key="button"><Button type="primary" size="large"
+                                        onClick={()=>{window.location.href='/docs/react/introduce'}}>了解更多<Icon
+                type="right"/></Button></div>
+            </QueueAnim>
+          </ScrollOverPack>
+        );
+      }
+    }
+    ReactDOM.render(<Page3/>, document.getElementById('page3'));
 
     // page4
-    ReactDOM.render((
-      <ScrollOverPack scrollName="page4" className="content-wrapper" playScale={0.4}>
-        <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom"
-                   scrollHideProps={{child: null}}>
-          <h2 key="h2">微小·确定·幸福</h2>
-          <p key="p">这是一套致力于提升『用户』和『设计者』使用体验的中后台设计语言。</p>
-        </QueueAnim>
-        <TweenOne key="image" className="image4 bottom-wrapper" vars={{y: 0, opacity: 1, duration: 550, delay: 550}}
-                  style={{transform: 'translateY(50px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
-      </ScrollOverPack>
-    ), document.getElementById('page4'));
+    class Page4 extends React.Component {
+      render(){
+        return (
+          <ScrollOverPack scrollName="page4" className="content-wrapper" playScale={1}>
+            <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom"
+                       scrollHideProps={{child: null}}>
+              <h2 key="h2">微小·确定·幸福</h2>
+              <p key="p">这是一套致力于提升『用户』和『设计者』使用体验的中后台设计语言。</p>
+            </QueueAnim>
+            <TweenOne key="image" className="image4 bottom-wrapper" vars={{y: 0, opacity: 1, duration: 550, delay: 550}}
+                      style={{transform: 'translateY(50px)', opacity: 0}} scrollHideProps={{type: 'reverse'}}/>
+          </ScrollOverPack>
+        );
+      }
+    }
+    ReactDOM.render(<Page4 />, document.getElementById('page4'));
   });
-}
+};
