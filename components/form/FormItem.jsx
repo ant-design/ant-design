@@ -18,25 +18,57 @@ class FormItem extends React.Component {
     return col + offsetCol;
   }
 
+  getHelpMsg() {
+    const context = this.context;
+    const props = this.props;
+    if (props.help === undefined && context.form) {
+      return (context.form.getFieldError(props.name) || []).join(', ');
+    }
+
+    return props.help;
+  }
+
   renderHelp() {
-    const prefixCls = this.props.prefixCls;
+    const props = this.props;
+    const prefixCls = props.prefixCls;
+    const help = this.getHelpMsg();
     return (
-      <div className={this.props.help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
-        {this.props.help}
+      <div className={!!help ? prefixClsFn(prefixCls, 'explain') : ''}
+        key="help">
+        { help }
       </div>
     );
   }
 
+  getValidateStatus() {
+    const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
+    const field = this.props.name;
+
+    if (isFieldValidating(field)) {
+      return 'validating';
+    } else if (!!getFieldError(field)) {
+      return 'error';
+    } else if (getFieldValue(field)) {
+      return 'success';
+    }
+  }
+
   renderValidateWrapper(c1, c2) {
     let classes = '';
-    if (this.props.validateStatus) {
+    const form = this.context.form;
+    const props = this.props;
+    const validateStatus = (props.validateStatus === undefined && form) ?
+            this.getValidateStatus() :
+            props.validateStatus;
+
+    if (validateStatus) {
       classes = classNames(
         {
-          'has-feedback': this.props.hasFeedback,
-          'has-success': this.props.validateStatus === 'success',
-          'has-warning': this.props.validateStatus === 'warning',
-          'has-error': this.props.validateStatus === 'error',
-          'is-validating': this.props.validateStatus === 'validating',
+          'has-feedback': props.hasFeedback,
+          'has-success': validateStatus === 'success',
+          'has-warning': validateStatus === 'warning',
+          'has-error': validateStatus === 'error',
+          'is-validating': validateStatus === 'validating',
         }
       );
     }
@@ -56,24 +88,48 @@ class FormItem extends React.Component {
     );
   }
 
-  renderLabel() {
-    const labelCol = this.props.labelCol;
-    const required = this.props.required ? 'required' : '';
+  isRequired() {
+    const options = this.props.options;
+    if (options === undefined) return false;
 
-    return this.props.label ? (
-      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)}
+    const allRules = (options.validate || []).concat({
+      rules: options.rules || [],
+    });
+    return allRules.some((item) => {
+      return item.rules.some((rule) => rule.required);
+    });
+  }
+
+  renderLabel() {
+    const props = this.props;
+    const labelCol = props.labelCol;
+    const required = props.required === undefined ?
+            this.isRequired() :
+            props.required;
+
+    return props.label ? (
+      <label htmlFor={props.id} className={this._getLayoutClass(labelCol)}
         required={required} key="label">
-        {this.props.label}
+        {props.label}
       </label>
     ) : null;
   }
 
   renderChildren() {
+    const context = this.context;
+    const props = this.props;
+    let children = props.children;
+    if (context.form && props.name && props.options) {
+      children = React.cloneElement(
+        React.Children.only(children),
+        context.form.getFieldProps(props.name, props.options)
+      );
+    }
     return [
       this.renderLabel(),
       this.renderWrapper(
         this.renderValidateWrapper(
-          this.props.children,
+          children,
           this.renderHelp()
         )
       ),
@@ -134,13 +190,18 @@ FormItem.propTypes = {
   hasFeedback: React.PropTypes.bool,
   wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
+  name: React.PropTypes.string,
+  options: React.PropTypes.object,
   children: React.PropTypes.node,
 };
 
 FormItem.defaultProps = {
   hasFeedback: false,
-  required: false,
   prefixCls: 'ant-form',
+};
+
+FormItem.contextTypes = {
+  form: React.PropTypes.object,
 };
 
 module.exports = FormItem;
