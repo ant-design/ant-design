@@ -22,8 +22,8 @@ const AntTreeSelect = React.createClass({
     } = this.props;
 
     const cls = classNames({
-      'ant-select-lg': size === 'large',
-      'ant-select-sm': size === 'small',
+      'ant-tree-select-lg': size === 'large',
+      'ant-tree-select-sm': size === 'small',
       [className]: !!className,
     });
 

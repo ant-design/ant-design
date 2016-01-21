@@ -9,7 +9,6 @@
 ````jsx
 import { TreeSelect } from 'antd';
 const TreeNode = TreeSelect.TreeNode;
-import React from 'react';
 
 const x = 3;
 const y = 2;
