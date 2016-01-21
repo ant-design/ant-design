@@ -1,5 +1,4 @@
 import React from 'react';
-import Radio from './radio';
 
 function getCheckedValue(children) {
   let checkedValue = null;
@@ -16,6 +15,7 @@ export default React.createClass({
     return {
       prefixCls: 'ant-radio-group',
       disabled: false,
+      size: 'default',
       onChange() {
       }
     };
@@ -33,30 +33,30 @@ export default React.createClass({
       });
     }
   },
-  render() {
-    let props = this.props;
-    let children = React.Children.map(props.children, (radio) => {
-      if (radio.props) {
-        return (
-          <Radio key={radio.props.value}
-            {...radio.props}
-            onChange={this.onRadioChange}
-            checked={this.state.value === radio.props.value}
-            disabled={radio.props.disabled || this.props.disabled}/>
-        );
-      }
-      return radio;
-    });
-    return (
-      <div className={props.prefixCls}>
-        {children}
-      </div>
-    );
-  },
   onRadioChange(ev) {
     this.setState({
       value: ev.target.value
     });
     this.props.onChange(ev);
-  }
+  },
+  render() {
+    const props = this.props;
+    const children = React.Children.map(props.children, (radio) => {
+      if (radio.props) {
+        return React.cloneElement(radio, {
+          key: radio.props.value,
+          ...radio.props,
+          onChange: this.onRadioChange,
+          checked: this.state.value === radio.props.value,
+          disabled: radio.props.disabled || this.props.disabled,
+        });
+      }
+      return radio;
+    });
+    return (
+      <div className={`${props.prefixCls} ${props.prefixCls}-${props.size}`}>
+        {children}
+      </div>
+    );
+  },
 });

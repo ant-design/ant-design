@@ -69,7 +69,6 @@
 
 // 选中状态
 .@{radio-prefix-cls}-checked {
-
   .@{radio-inner-prefix-cls} {
     border-color: @border-color-base;
     &:after {
@@ -106,7 +105,7 @@
 .@{radio-prefix-cls} {
   label&-button {
     background: #fff;
-    padding: 0 15px;
+    padding: 0 16px;
     margin: 0;
     height: 28px;
     line-height: 26px;
@@ -117,8 +116,26 @@
     border: 1px solid @border-color-base;
     border-left: 0;
 
-    > span {
+    > span.@{radio-prefix-cls}-button {
       margin-left: 0;
+      display: none;
+    }
+
+    .@{radio-group-prefix-cls}-large & {
+      height: 32px;
+      line-height: 30px;
+    }
+
+    .@{radio-group-prefix-cls}-small & {
+      height: 22px;
+      line-height: 20px;
+      padding: 0 12px;
+      &:first-child {
+        border-radius: @border-radius-sm 0 0 @border-radius-sm;
+      }
+      &:last-child {
+        border-radius: 0 @border-radius-sm @border-radius-sm 0;
+      }
     }
 
     &:before {
