@@ -122,7 +122,7 @@ class FormItem extends React.Component {
     if (context.form && props.id && props.options) {
       children = React.cloneElement(
         React.Children.only(children),
-        context.form.getFieldProps(props.id, props.options)
+        { ...context.form.getFieldProps(props.id, props.options), id: props.id }
       );
     }
     return [
