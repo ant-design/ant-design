@@ -71,6 +71,11 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
+  &-control {
+    min-height: 32px;
+    line-height: 32px;
+  }
+
   &.@{css-prefix}form-item-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
   }
@@ -88,13 +93,6 @@ input[type="checkbox"] {
   .@{css-prefix}switch {
     margin: 4px 0;
   }
-}
-
-.@{css-prefix}form-text,
-.@{css-prefix}form-split {
-  margin: 0!important;
-  padding-top: 7px;
-  padding-bottom: 7px;
 }
 
 .@{css-prefix}form-text {
@@ -279,8 +277,7 @@ form {
 .@{css-prefix}form-horizontal,
 .@{css-prefix}form-inline {
   label {
-    padding-top: 7px;
-    padding-bottom: 7px;
+    line-height: 32px;
     > input[type="radio"],
     > input[type="checkbox"] {
       margin-right: 5px;

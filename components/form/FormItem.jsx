@@ -41,7 +41,7 @@ class FormItem extends React.Component {
       );
     }
     return (
-      <div className={classes}>
+      <div className={this.props.prefixCls + '-item-control ' + classes}>
         {c1}{c2}
       </div>
     );
