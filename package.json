@@ -115,7 +115,7 @@
     "values.js": "^1.0.3",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
-    "webpack-dev-middleware": "^1.2.0"
+    "webpack-dev-middleware": "~1.4.0"
   },
   "scripts": {
     "babel": "babel components index.js --out-dir lib",

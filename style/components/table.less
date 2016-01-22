@@ -324,6 +324,10 @@
   &-column-hidden {
     display: none;
   }
+  th&-column-has-prev,
+  td&-column-has-prev {
+    padding-left: 24px;
+  }
   &-prev-columns-page,
   &-next-columns-page {
     cursor: pointer;
@@ -342,7 +346,7 @@
   }
   &-prev-columns-page {
     position: absolute;
-    left: -8px;
+    left: 8px;
     &:before {
       content: '\e601';
       .iconfont-size-under-12px(9px);
@@ -352,6 +356,7 @@
   }
   &-next-columns-page {
     float: right;
+    margin-left: 8px;
     &:before {
       content: '\e600';
       .iconfont-size-under-12px(9px);
