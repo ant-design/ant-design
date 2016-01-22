@@ -54,10 +54,9 @@ let Demo = React.createClass({
       <Form horizontal form={this.props.form}>
         <FormItem
           label="国籍："
-          id="select"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          name="select"
+          id="select"
           options={{
             rules: [
               { required: true, message: '请选择您的国籍' }
@@ -76,7 +75,7 @@ let Demo = React.createClass({
           label="喜欢的颜色："
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          name="multiSelect"
+          id="multiSelect"
           options={{
             rules: [
               { required: true, message: '请选择您喜欢的颜色', type: 'array' },
@@ -93,10 +92,9 @@ let Demo = React.createClass({
 
         <FormItem
           label="性别："
-          id="radio"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          name="radio"
+          id="radio"
           options={{
             rules: [
               { required: true, message: '请选择您的性别' }
@@ -110,10 +108,9 @@ let Demo = React.createClass({
 
         <FormItem
           label="生日："
-          id="birthday"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          name="birthday"
+          id="birthday"
           options={{
             rules: [
               {
@@ -130,11 +127,10 @@ let Demo = React.createClass({
 
         <FormItem
           label="8~12间的质数："
-          id="primeNumber"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           hasFeedback
-          name="primeNumber"
+          id="primeNumber"
           options={{
             rules: [{ validator: this.checkPrime }],
           }}>

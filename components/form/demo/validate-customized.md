@@ -127,17 +127,16 @@ let Demo = React.createClass({
           <Col span="18">
             <FormItem
               label="密码："
-              id="confirmPass"
               labelCol={{span: 6}}
               wrapperCol={{span: 18}}
-              name="pass"
+              id="pass"
               options={{
                 rules: [
                   {required: true, whitespace: true, message: '请填写密码'},
                   {validator: this.checkPass}
                 ]
               }}>
-              <Input id="confirmPass" type="password"
+              <Input type="password"
                 onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                 autoComplete="off"/>
             </FormItem>
@@ -151,10 +150,9 @@ let Demo = React.createClass({
           <Col span="18">
             <FormItem
               label="确认密码："
-              id="confirmPass2"
               labelCol={{span: 6}}
               wrapperCol={{span: 18}}
-              name="rePass"
+              id="rePass"
               options={{
                 rules: [{
                   required: true,
@@ -164,7 +162,7 @@ let Demo = React.createClass({
                   validator: this.checkPass2,
                 }],
               }}>
-              <Input id="confirmPass2" type="password"
+              <Input type="password"
                 onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                 autoComplete="off" />
             </FormItem>

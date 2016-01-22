@@ -77,17 +77,16 @@ class BasicDemo extends React.Component {
   }
 
   render() {
-    const { isFieldValidating, getFieldError, getFieldProps } = this.props.form;
+    const { isFieldValidating, getFieldError } = this.props.form;
 
     return (
       <Form horizontal form={this.props.form}>
         <FormItem
           label="用户名："
-          id="name"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           hasFeedback
-          name="name"
+          id="name"
           options={{
             rules: [
               {required: true, min: 5, message: '用户名至少为 5 个字符'},
@@ -95,16 +94,15 @@ class BasicDemo extends React.Component {
             ],
           }}
           help={isFieldValidating('name') ? '正在校验中..' : (getFieldError('name') || []).join(', ')}>
-          <Input id="name" placeholder="实时校验，输入 JasonWood 看看" />
+          <Input placeholder="实时校验，输入 JasonWood 看看" />
         </FormItem>
 
         <FormItem
           label="邮箱："
-          id="email"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           hasFeedback
-          name="email"
+          id="email"
           options={{
             validate: [{
               rules: [
@@ -118,37 +116,32 @@ class BasicDemo extends React.Component {
               trigger: ['onBlur', 'onChange'],
             }]
           }}>
-          <Input type="email" id="email" placeholder="onBlur 与 onChange 相结合" />
+          <Input type="email" placeholder="onBlur 与 onChange 相结合" />
         </FormItem>
 
         <FormItem
           label="密码："
-          id="password"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          validateStatus={this.getValidateStatus('passwd')}
           hasFeedback
-          help={(getFieldError('passwd') || []).join(', ')}
-          required>
-          <Input {...getFieldProps('passwd', {
+          id="passwd"
+          options={{
             rules: [
               { required: true, whitespace: true, message: '请填写密码' },
               { validator: this.checkPass.bind(this) },
             ],
-          })} id="password" type="password" autoComplete="off"
+          }}>
+          <Input type="password" autoComplete="off"
             onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}/>
         </FormItem>
 
         <FormItem
           label="确认密码："
-          id="password2"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          validateStatus={this.getValidateStatus('rePasswd')}
           hasFeedback
-          help={(getFieldError('rePasswd') || []).join(', ')}
-          required>
-          <Input {...getFieldProps('rePasswd', {
+          id="rePasswd"
+          options={{
             rules: [{
               required: true,
               whitespace: true,
@@ -156,23 +149,22 @@ class BasicDemo extends React.Component {
             }, {
               validator: this.checkPass2.bind(this),
             }],
-          })} id="password2" type="password" autoComplete="off" placeholder="两次输入密码保持一致"
+          }}>
+          <Input type="password" autoComplete="off" placeholder="两次输入密码保持一致"
             onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
         </FormItem>
 
         <FormItem
           label="备注："
-          id="textarea"
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          validateStatus={this.getValidateStatus('textarea')}
-          help={(getFieldError('textarea') || []).join(', ')}
-          required>
-          <Input {...getFieldProps('textarea', {
+          id="textarea"
+          options={{
             rules: [
               {required: true, message: '真的不打算写点什么吗？'},
             ],
-          })} type="textarea" placeholder="随便写" id="textarea" name="textarea" />
+          }}>
+          <Input type="textarea" placeholder="随便写" id="textarea" name="textarea" />
         </FormItem>
 
         <FormItem wrapperCol={{span: 12, offset: 7}} >

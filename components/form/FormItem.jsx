@@ -22,7 +22,7 @@ class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     if (props.help === undefined && context.form) {
-      return (context.form.getFieldError(props.name) || []).join(', ');
+      return (context.form.getFieldError(props.id) || []).join(', ');
     }
 
     return props.help;
@@ -42,7 +42,7 @@ class FormItem extends React.Component {
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const field = this.props.name;
+    const field = this.props.id;
 
     if (isFieldValidating(field)) {
       return 'validating';
@@ -119,10 +119,10 @@ class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     let children = props.children;
-    if (context.form && props.name && props.options) {
+    if (context.form && props.id && props.options) {
       children = React.cloneElement(
         React.Children.only(children),
-        context.form.getFieldProps(props.name, props.options)
+        context.form.getFieldProps(props.id, props.options)
       );
     }
     return [
@@ -190,7 +190,7 @@ FormItem.propTypes = {
   hasFeedback: React.PropTypes.bool,
   wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
-  name: React.PropTypes.string,
+  id: React.PropTypes.string,
   options: React.PropTypes.object,
   children: React.PropTypes.node,
 };
