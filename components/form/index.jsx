@@ -2,8 +2,12 @@ import Form from './Form';
 import FormItem from './FormItem';
 import ValueMixin from './ValueMixin';
 import Input from '../input';
+import { createForm } from 'rc-form';
 
+Form.create = createForm;
 Form.Item = FormItem;
+
+// @Deprecated
 Form.ValueMixin = ValueMixin;
 
 // 对于 import { Form, Input } from 'antd/lib/form/';

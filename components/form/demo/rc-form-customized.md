@@ -11,7 +11,7 @@
 ````jsx
 import { Button, Form, Input, Row, Col } from 'antd';
 import classNames from 'classnames';
-import { createForm } from 'rc-form';
+const createForm = Form.create;
 const FormItem = Form.Item;
 
 function noop() {

@@ -9,10 +9,10 @@
 ---
 
 ````jsx
-import { createForm } from 'rc-form';
 import { Select, Radio, Button, DatePicker, InputNumber, Form } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
+const createForm = Form.create;
 const FormItem = Form.Item;
 
 let Demo = React.createClass({

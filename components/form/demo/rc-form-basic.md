@@ -8,7 +8,7 @@
 
 ````jsx
 import { Button, Form, Input } from 'antd';
-import { createForm } from 'rc-form';
+const createForm = Form.create;
 const FormItem = Form.Item;
 
 function noop() {
