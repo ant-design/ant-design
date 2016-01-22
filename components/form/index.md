@@ -43,6 +43,7 @@
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
+|  form       | rc-form 传给组件的 `form` 属性           | object     |    | 无 |
 |  horizontal | 水平排列布局 | boolean  |   | false    |
 |  inline | 行内排列布局 | boolean |  | false |
 |  onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |   |
@@ -55,17 +56,13 @@
 |  label | label 标签的文本 | string  |   |     |
 |  labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object |  |  |
 |  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  |
-|  help | 提示信息 | string |  |   |
-|  required | 是否必填 | bool |  | false  |
-|  validateStatus | 校验状态 | string | 'success' 'warning' 'error' 'validating'  |   |
+|  name | 即 rc-form [getFieldProps](https://github.com/react-component/form#getfieldpropsname-option-object) 的 `name` 参数，`name` 与 `options` 必须同时设置才会生效 | string | | |
+|  options | 即 rc-from [getFieldProps](https://github.com/react-component/form#getfieldpropsname-option-object) 的 `options` 参数，`name` 与 `options` 必须同时设置才会生效 | object | | |
+|  help | 提示信息，如不设置，则会根据 `options` 中的校验规则自动生成 | string |  |   |
+|  required | 是否必填，如不设置，则会根据 `options` 中的校验规则自动生成 | bool |  | false  |
+|  validateStatus | 校验状态，如不设置，则会根据 `options` 中的校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
 |  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
 |  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
-
-### Form.ValueMixin
-
-Mixin：当表单控件的输入值改变时，更新 formData。
-
-**你需要为每个输入控件声明 `name` 属性**
 
 ### Input
 
@@ -80,6 +77,8 @@ Mixin：当表单控件的输入值改变时，更新 formData。
 |  addonBefore | 带标签的 input，设置前置标签 | node |  |   |
 |  addonAfter | 带标签的 input，设置后置标签 | node |  |   |
 |  prefixCls | 样式类名前缀，默认是 ant，通常您不需要设置 | string |  |  'ant' |
+
+> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `name` 和 `options` 属性，则 `value` 和 `defaultValue` 属性会被自动设置。
 
 #### Input.Group
 
