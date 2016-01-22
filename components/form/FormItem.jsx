@@ -80,34 +80,11 @@ class FormItem extends React.Component {
     ];
   }
 
-  // 判断是否要 `.ant-form-item-compact` 样式类
-  _isCompact(children) {
-    const compactControls = ['checkbox', 'radio', 'radio-group', 'static', 'file'];
-    let isCompact = false;
-
-    const childrenArray = Array.isArray(children) ? children : [children];
-    childrenArray.map((child) => {
-      const type = child.props && child.props.type;
-      let prefixCls = child.props && child.props.prefixCls;
-      prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';
-
-      if ((type && compactControls.indexOf(type) > -1) ||
-          (prefixCls && compactControls.indexOf(prefixCls) > -1)) {
-        isCompact = true;
-      } else if (child.props && typeof child.props.children === 'object') {
-        isCompact = this._isCompact(child.props.children);
-      }
-    });
-
-    return isCompact;
-  }
-
   renderFormItem(children) {
     const props = this.props;
     const prefixCls = props.prefixCls;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-compact`]: this._isCompact(props.children),
       [`${prefixCls}-item-with-help`]: !!props.help,
       [`${props.className}`]: !!props.className,
     };

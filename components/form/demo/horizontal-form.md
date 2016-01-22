@@ -79,7 +79,7 @@ const Demo = React.createClass({
         <FormItem
           wrapperCol={{span: 14, offset: 6}} >
           <label>
-            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} /> 同意
+            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} />同意
           </label>
         </FormItem>
         <Row>

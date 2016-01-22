@@ -7,10 +7,12 @@
 ---
 
 ````jsx
-import { Form, Select, InputNumber, DatePicker, Switch,
+import { Form, Select, InputNumber, DatePicker, Switch, Radio,
          Slider, Button, message, Row, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
 const Demo = React.createClass({
   mixins: [Form.ValueMixin],
@@ -117,18 +119,29 @@ const Demo = React.createClass({
             <DatePicker name="endDate" onChange={this.setValue.bind(this, 'endDate')} value={formData.endDate} />
           </Col>
         </FormItem>
+
+        <FormItem
+          label="选项："
+          labelCol={{span: 8}}>
+          <RadioGroup defaultValue="a" size="large">
+            <RadioButton value="a">选项一</RadioButton>
+            <RadioButton value="b">选项二</RadioButton>
+            <RadioButton value="c">选项三</RadioButton>
+          </RadioGroup>
+        </FormItem>
+
         <FormItem
           label="logo图："
           labelCol={{span: 8}}
           wrapperCol={{span: 16}}
-          help="提示信息要长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长长">
+          help="提示信息要长长长长长长长长长长长长长长">
           <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
             <Button type="ghost">
               <Icon type="upload" /> 点击上传
             </Button>
           </Upload>
         </FormItem>
-        <Row>
+        <Row style={{marginTop: 24}}>
           <Col span="16" offset="8">
             <Button type="primary" htmlType="submit">确定</Button>
           </Col>

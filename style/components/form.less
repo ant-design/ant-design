@@ -72,7 +72,6 @@ input[type="checkbox"] {
   color: #666;
 
   &-control {
-    min-height: 32px;
     line-height: 32px;
   }
 
@@ -84,6 +83,8 @@ input[type="checkbox"] {
     color: @label-color;
     text-align: right;
     vertical-align: middle;
+    padding-top: 7px;
+    padding-bottom: 7px;
 
     &:lang(en) {
       padding-right: 8px;
@@ -93,6 +94,11 @@ input[type="checkbox"] {
   .@{css-prefix}switch {
     margin: 4px 0;
   }
+}
+
+.@{css-prefix}form-explain {
+  line-height: 1.5;
+  margin-top: 3px;
 }
 
 .@{css-prefix}form-text {
@@ -151,11 +157,6 @@ form {
   .@{css-prefix}checkbox-vertical,
   .@{css-prefix}radio-vertical {
     display: block;
-    margin-top: 16px;
-
-    &:first-child {
-      margin-top: 0;
-    }
   }
 
   .@{input-number-prefix-cls} {
@@ -230,15 +231,6 @@ form {
     .make-row;
   }
 
-  .@{css-prefix}form-item-compact {
-    label,
-    .@{css-prefix}form-text,
-    .@{css-prefix}form-split {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
   .@{css-prefix}radio-inline,
   .@{css-prefix}checkbox-inline {
     vertical-align: top;
@@ -277,10 +269,9 @@ form {
 .@{css-prefix}form-horizontal,
 .@{css-prefix}form-inline {
   label {
-    line-height: 32px;
     > input[type="radio"],
     > input[type="checkbox"] {
-      margin-right: 5px;
+      margin-right: 4px;
     }
   }
 }

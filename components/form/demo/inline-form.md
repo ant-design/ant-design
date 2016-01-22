@@ -49,7 +49,7 @@ const Demo = React.createClass({
         </FormItem>
         <FormItem>
           <label className="ant-checkbox-inline">
-            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} /> 记住我
+            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} />记住我
           </label>
         </FormItem>
         <Button type="primary" htmlType="submit">登录</Button>
