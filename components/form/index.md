@@ -43,42 +43,83 @@
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-|  form       | rc-form 传给组件的 `form` 属性           | object     |    | 无 |
+|  form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可 | object | | 无 |
 |  horizontal | 水平排列布局 | boolean  |   | false    |
 |  inline | 行内排列布局 | boolean |  | false |
 |  onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |   |
 |  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
+### Form.create(options)
+
+使用方式如下：
+
+```jsx
+class CustomizedForm extends React.Component {}
+
+CustomizedForm = Form.create({})(CustomizedForm);
+```
+
+`options` 的配置项如下。
+
+| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | | 
+| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props) | | | |
+
+经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
+
+| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+| getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) | | | 
+| getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) | | | 
+| setFieldsValue | 设置一组输入控件的值 | Function(obj: object) | | | 
+| setFields | 设置一组输入控件的值与 Error | Function(obj: object) | | | 
+| validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) | | | 
+| getFieldError | 获取某个输入控件的 Error | Function(name) | | | 
+| isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) | | | 
+| resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) | | | |
+
 ### Form.Item
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
+|  id | 必须设置，且必须唯一 | string | | |
 |  label | label 标签的文本 | string  |   |     |
 |  labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object |  |  |
 |  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  |
-|  name | 即 rc-form [getFieldProps](https://github.com/react-component/form#getfieldpropsname-option-object) 的 `name` 参数，`name` 与 `options` 必须同时设置才会生效 | string | | |
-|  options | 即 rc-from [getFieldProps](https://github.com/react-component/form#getfieldpropsname-option-object) 的 `options` 参数，`name` 与 `options` 必须同时设置才会生效 | object | | |
+|  options | 配置校验规则等，详情请看下面备注。如果设置了 `options`，则 `Form.Item` 只能有一个子节点 | object | | |
 |  help | 提示信息，如不设置，则会根据 `options` 中的校验规则自动生成 | string |  |   |
 |  required | 是否必填，如不设置，则会根据 `options` 中的校验规则自动生成 | bool |  | false  |
 |  validateStatus | 校验状态，如不设置，则会根据 `options` 中的校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
 |  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
 |  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
+#### options
+
+| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+| valuePropName | 子节点的值的属性，如 Checkbox 的是 'checked' | string | | 'value' |
+| initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | | |
+| trigger | 收集子节点的值的时机 | string | | 'onChange' |
+| validateTrigger | 校验子节点值的时机 | string | | 'onChange' |
+| rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | | |
+
+
 ### Input
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 |  type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
-|  value | value 值 | any |  | |
 |  id | id | number 或 string |  |   |
-|  size | 控件大小，默认值为 default 。注：标准表单内的输入框大小限制为 large。 | string | {'large','default','small'} |  'default' |
+|  value | value 值 | any |  | |
 |  defaultValue | 设置初始默认值 | any |  |  |
+|  size | 控件大小，默认值为 default 。注：标准表单内的输入框大小限制为 large。 | string | {'large','default','small'} |  'default' |
 |  disabled | 是否禁用状态，默认为 false | bool |  |  false |
 |  addonBefore | 带标签的 input，设置前置标签 | node |  |   |
 |  addonAfter | 带标签的 input，设置后置标签 | node |  |   |
 |  prefixCls | 样式类名前缀，默认是 ant，通常您不需要设置 | string |  |  'ant' |
 
-> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `name` 和 `options` 属性，则 `value` 和 `defaultValue` 属性会被自动设置。
+> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
 #### Input.Group
 
