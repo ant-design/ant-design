@@ -97,7 +97,7 @@ exports.middlewares = [
       lazy: false,
       watchOptions: {
         aggregateTimeout: 300,
-        poll: true
+        poll: false
       },
       noInfo: true
     });
