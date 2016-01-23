@@ -45,9 +45,7 @@ const Demo = React.createClass({
   },
   onChange(value) {
     console.log('onChange ' + value);
-    this.setState({
-      value: value,
-    });
+    this.setState({ value });
   },
   render() {
     const loop = data => {
