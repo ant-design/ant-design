@@ -23,7 +23,7 @@ let Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields(function(errors, values) {
+    this.props.form.validateFields((errors, values) => {
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
@@ -129,7 +129,6 @@ let Demo = React.createClass({
           label="8~12间的质数："
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
-          hasFeedback
           id="primeNumber"
           options={{
             rules: [{ validator: this.checkPrime }],

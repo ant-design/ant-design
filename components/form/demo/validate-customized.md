@@ -30,7 +30,7 @@ let Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields(function(errors, values) {
+    this.props.form.validateFields((errors, values) => {
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
@@ -172,12 +172,17 @@ let Demo = React.createClass({
           </Col>
         </Row>
 
-        <FormItem
-          wrapperCol={{span: 12, offset: 6}}>
-          <Button type="primary" onClick={this.handleSubmit}>确定</Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>重置</Button>
-        </FormItem>
+        <Row>
+          <Col span="18">
+            <FormItem
+              wrapperCol={{span: 12, offset: 6}}>
+              <Button type="primary" onClick={this.handleSubmit}>确定</Button>
+              &nbsp;&nbsp;&nbsp;
+              <Button type="ghost" onClick={this.handleReset}>重置</Button>
+            </FormItem>
+          </Col>
+          <Col span="6" />
+        </Row>
       </Form>
     );
   }

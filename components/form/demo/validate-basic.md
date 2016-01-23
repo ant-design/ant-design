@@ -35,7 +35,7 @@ class BasicDemo extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields(function(errors, values) {
+    this.props.form.validateFields((errors, values) => {
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
@@ -49,7 +49,7 @@ class BasicDemo extends React.Component {
     if (!value) {
       callback();
     } else {
-      setTimeout(function () {
+      setTimeout(() => {
         if (value === 'JasonWood') {
           callback([new Error('抱歉，该用户名已被占用。')]);
         } else {
