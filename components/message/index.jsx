@@ -51,7 +51,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     return function () {
       instance.removeNotice(target);
     };
-  })();
+  }());
 }
 
 export default {

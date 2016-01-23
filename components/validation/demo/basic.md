@@ -19,9 +19,7 @@ const FormItem = Form.Item;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
-    return Object.keys(classNames).filter(function(className) {
-      return classNames[className];
-    }).join(' ');
+    return Object.keys(classNames).filter(className => classNames[className]).join(' ');
   }
   return Array.prototype.join.call(arguments, ' ');
 }
@@ -107,7 +105,7 @@ const Demo = React.createClass({
     if (!value) {
       callback();
     } else {
-      setTimeout(function () {
+      setTimeout(() => {
         if (value === 'JasonWood') {
           callback([new Error('抱歉，该用户名已被占用。')]);
         } else {

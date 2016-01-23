@@ -44,12 +44,7 @@ const Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    message.success('收到表单值~~~ ：' + JSON.stringify(this.state.formData, function(k, v) {
-      if (typeof v === 'undefined') {
-        return '';
-      }
-      return v;
-    }));
+    console.log('收到表单值：', this.state.formData);
   },
 
   render() {

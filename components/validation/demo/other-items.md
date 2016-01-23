@@ -9,7 +9,7 @@
 ---
 
 ````jsx
-import {Validation, Select, Radio, Button, DatePicker, InputNumber, Form} from 'antd';
+import { Validation, Select, Radio, Button, DatePicker, InputNumber, Form } from 'antd';
 const Validator = Validation.Validator;
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
@@ -17,9 +17,7 @@ const FormItem = Form.Item;
 
 function cx(classNames) {
   if (typeof classNames === 'object') {
-    return Object.keys(classNames).filter(function(className) {
-      return classNames[className];
-    }).join(' ');
+    return Object.keys(classNames).filter(className => classNames[className]).join(' ');
   }
   return Array.prototype.join.call(arguments, ' ');
 }

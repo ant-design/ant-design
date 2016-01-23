@@ -67,7 +67,7 @@ const AntUpload = React.createClass({
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
-      targetItem = file.map(function (f) {
+      targetItem = file.map(f => {
         const fileObject = fileToObject(f);
         fileObject.status = 'uploading';
         return fileObject;

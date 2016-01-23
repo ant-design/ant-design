@@ -26,11 +26,7 @@ const steps = [{
   status: 'wait',
   title: '待运行',
   description: '这里是多信息的描述啊'
-}].map(function(s, i) {
-  return (
-    <Step key={i} title={s.title} status={s.status} description={s.description} />
-  );
-});
+}].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
 ReactDOM.render(<Steps>{steps}</Steps>, mountNode);
 ````

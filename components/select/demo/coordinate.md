@@ -38,12 +38,8 @@ const App = React.createClass({
     });
   },
   render() {
-    const provinceOptions = provinceData.map(function(province) {
-      return <Option key={province}>{province}</Option>;
-    });
-    const cityOptions = this.state.cities.map(function(city) {
-      return <Option key={city}>{city}</Option>;
-    });
+    const provinceOptions = provinceData.map(province => <Option key={province}>{province}</Option>);
+    const cityOptions = this.state.cities.map(city => <Option key={city}>{city}</Option>);
     return (
       <div>
         <Select defaultValue={provinceData[0]} style={{width: 90}} onChange={this.handleProvinceChange}>
@@ -58,4 +54,3 @@ const App = React.createClass({
 });
 ReactDOM.render(<App />, mountNode);
 ````
-
