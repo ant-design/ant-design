@@ -15,8 +15,12 @@ const Apps = React.createClass({
   render() {
     return (
       <ul className="app-list">
-        <li><Link to="/apps/1">应用1</Link></li>
-        <li><Link to="/apps/2">应用2</Link></li>
+        <li>
+          <Link to="/apps/1">应用1</Link>：<Link to="/apps/1/detail">详情</Link>
+        </li>
+        <li>
+          <Link to="/apps/2">应用2</Link>：<Link to="/apps/2/detail">详情</Link>
+        </li>
       </ul>
     );
   }
@@ -39,7 +43,7 @@ const Home = React.createClass({
         }}>
           点击上面的导航切换页面，面包屑在下面：
         </div>
-        <Breadcrumb {...this.props} router={ReactRouter} />
+        <Breadcrumb {...this.props} />
       </div>
     );
   }
@@ -49,7 +53,9 @@ ReactDOM.render(
   <Router>
     <Route name="home" breadcrumbName="首页" path="/" component={Home}>
       <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
-        <Route name="app" breadcrumbName="应用:id" path=":id" />
+        <Route name="app" breadcrumbName="应用:id" path=":id">
+          <Route name="detail" breadcrumbName="详情" path="detail" />
+        </Route>
       </Route>
     </Route>
   </Router>
