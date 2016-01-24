@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.12.0-beta.19",
+  "version": "0.12.0-beta.20",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -36,7 +36,7 @@
     "classnames": "~2.2.0",
     "css-animation": "1.1.x",
     "gregorian-calendar": "~4.1.0",
-    "gregorian-calendar-format": "~4.0.4",
+    "gregorian-calendar-format": "~4.1.0",
     "object-assign": "~4.0.1",
     "rc-animate": "~2.0.2",
     "rc-calendar": "~5.3.0",
