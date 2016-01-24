@@ -69,6 +69,7 @@ const columns = [{
 | locale        | 设置排序、过滤按钮的文字或 `title` | Object         | | [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位    | Number   |          | 15      |
 | onRowClick    | 处理行点击事件              | Function(record, index)   |              |     无     |
+| useFixedHeader  | 是否固定表头             | Boolean          |                   | false      |
 
 ### Column
 

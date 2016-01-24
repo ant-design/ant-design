@@ -77,6 +77,15 @@
     width: 60px;
   }
 
+  &-header + &-body {
+    overflow: auto;
+    height: 360px;
+  }
+
+  &-header table {
+    border-radius: @border-radius-base @border-radius-base 0 0;
+  }
+
   &-loading {
     position: relative;
     .@{table-prefix-cls}-body {
