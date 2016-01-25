@@ -15,13 +15,13 @@ const ButtonGroup = Button.Group;
 ReactDOM.render(<div>
 <h4>基本组合</h4>
 <ButtonGroup>
-  <Button type="primary">确定</Button>
-  <Button type="primary">取消</Button>
+  <Button type="primary" disabled>确定</Button>
+  <Button type="primary" disabled>取消</Button>
 </ButtonGroup>
 <ButtonGroup>
-  <Button>左</Button>
-  <Button>中</Button>
-  <Button>右</Button>
+  <Button disabled>左</Button>
+  <Button disabled>中</Button>
+  <Button disabled>右</Button>
 </ButtonGroup>
 <ButtonGroup>
   <Button type="primary">左</Button>
