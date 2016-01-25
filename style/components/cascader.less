@@ -113,6 +113,13 @@
     &:hover {
       background: tint(@primary-color, 90%);
     }
+    &-disabled {
+      cursor: not-allowed;
+      color: #ccc;
+      &:hover {
+        background: transparent;
+      }
+    }
     &-active {
       background: tint(@primary-color, 80%);
       &:hover {

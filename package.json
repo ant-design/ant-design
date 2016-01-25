@@ -40,7 +40,7 @@
     "object-assign": "~4.0.1",
     "rc-animate": "~2.0.2",
     "rc-calendar": "~5.3.0",
-    "rc-cascader": "~0.6.0",
+    "rc-cascader": "~0.7.0",
     "rc-checkbox": "~1.2.0",
     "rc-collapse": "~1.4.4",
     "rc-dialog": "~5.3.1",
