@@ -75,7 +75,7 @@ let Demo = React.createClass({
     this.getPassStrenth(value, 'pass');
 
     if (form.getFieldValue('pass')) {
-      form.validateFields(['rePass']);
+      form.validateFields(['rePass'], { force: true });
     }
 
     callback();

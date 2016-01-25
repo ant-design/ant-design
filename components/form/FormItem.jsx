@@ -48,7 +48,7 @@ class FormItem extends React.Component {
       return 'validating';
     } else if (!!getFieldError(field)) {
       return 'error';
-    } else if (getFieldValue(field)) {
+    } else if (getFieldValue(field) !== undefined) {
       return 'success';
     }
   }
