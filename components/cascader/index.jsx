@@ -51,7 +51,7 @@ class AntCascader extends React.Component {
     this.setState({ popupVisible: false });
   }
   render() {
-    const { prefixCls, children, placeholder, style, size, disabled } = this.props;
+    const { prefixCls, children, placeholder, size, disabled, className } = this.props;
     const sizeCls = classNames({
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
@@ -65,6 +65,7 @@ class AntCascader extends React.Component {
       [`${prefixCls}-picker-arrow-expand`]: this.state.popupVisible,
     });
     const pickerCls = classNames({
+      [className]: !!className,
       [`${prefixCls}-picker`]: true,
       [`${prefixCls}-picker-disabled`]: disabled,
     });
@@ -76,7 +77,7 @@ class AntCascader extends React.Component {
         onChange={this.handleChange}>
         {children ||
           <span
-            style={style}
+            {...this.props}
             className={pickerCls}>
             <Input placeholder={placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}

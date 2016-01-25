@@ -29,6 +29,7 @@
 | onChange | 选择完成后的回调 | `function(value, selectedOptions)` | - |
 | displayRender | 选择后展示的渲染函数 | `function(label)`` | `function(label) { return label.join(' / ') }` |
 | style | 自定义样式 | string | - |
+| className | 自定义类名 | string | - |
 | popupClassName | 自定义浮层类名 | string | - |
 | placeholder | 输入框占位文本 | string | '请选择' |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
