@@ -9,7 +9,7 @@
 ---
 
 ````jsx
-import { Select, Radio, Button, DatePicker, InputNumber, Form } from 'antd';
+import { Select, Radio, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const createForm = Form.create;
@@ -50,6 +50,14 @@ let Demo = React.createClass({
   },
 
   render() {
+    const address = [{
+      value: 'zhejiang',
+      label: '浙江',
+      children: [{
+        value: 'hangzhou',
+        label: '杭州',
+      }],
+    }];
     return (
       <Form horizontal form={this.props.form}>
         <FormItem
@@ -133,7 +141,18 @@ let Demo = React.createClass({
           options={{
             rules: [{ validator: this.checkPrime }],
           }}>
-          <InputNumber min={8} max={12} />
+          <InputNumber min={8} max={12} size="large" />
+        </FormItem>
+
+        <FormItem
+          label="选择地址："
+          labelCol={{span: 7}}
+          wrapperCol={{span: 12}}
+          id="address"
+          options={{
+            rules: [{ required: true, type: 'array' }],
+          }}>
+          <Cascader options={address} />
         </FormItem>
 
         <FormItem
