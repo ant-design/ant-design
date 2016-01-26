@@ -78,6 +78,7 @@ export default React.createClass({
 
     const calendar = (
       <RangeCalendar prefixCls="ant-calendar"
+        formatter={this.getFormatter()}
         className={calendarClassName}
         timePicker={timePicker}
         disabledDate={disabledDate}
