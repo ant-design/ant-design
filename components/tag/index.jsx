@@ -9,55 +9,53 @@ class AntTag extends React.Component {
 
     this.state = {
       closing: false,
-      closed: false
+      closed: false,
     };
   }
 
   close(e) {
-    let dom = ReactDOM.findDOMNode(this);
+    const dom = ReactDOM.findDOMNode(this);
     dom.style.width = dom.offsetWidth + 'px';
     // It's Magic Code, don't know why
     dom.style.width = dom.offsetWidth + 'px';
     this.setState({
-      closing: true
+      closing: true,
     });
-    this.props.onClose.call(this, e);
+    this.props.onClose(e);
   }
 
   animationEnd() {
     this.setState({
       closed: true,
-      closing: false
+      closing: false,
     });
   }
 
   render() {
-    let close = this.props.closable ?
+    const close = this.props.closable ?
       <Icon type="cross" onClick={this.close.bind(this)} /> : '';
-    let colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
+    const colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
     let className = this.props.prefixCls + ' ' + colorClass;
     className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
 
-    return this.state.closed ? null
-      : (
-          <Animate component=""
-            showProp="data-show"
-            transitionName={this.props.prefixCls + '-zoom'}
-            onEnd={this.animationEnd.bind(this)}>
-          <div data-show={!this.state.closing} className={className}>
-            <span className={this.props.prefixCls + '-text'} {...this.props} />
-            {close}
-          </div>
-        </Animate>
-      );
+    return this.state.closed ? null : (
+        <Animate component=""
+          showProp="data-show"
+          transitionName={this.props.prefixCls + '-zoom'}
+          onEnd={this.animationEnd.bind(this)}>
+        <div data-show={!this.state.closing} className={className}>
+          <span className={this.props.prefixCls + '-text'} {...this.props} />
+          {close}
+        </div>
+      </Animate>
+    );
   }
 }
 
-function NOOP() {}
 AntTag.defaultProps = {
   prefixCls: 'ant-tag',
   closable: false,
-  onClose: NOOP,
+  onClose() {},
 };
 
 export default AntTag;
