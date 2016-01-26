@@ -69,6 +69,7 @@ function createPicker(TheCalendar, defaultFormat) {
 
       const calendar = (
         <TheCalendar
+          formatter={this.getFormatter()}
           disabledDate={this.props.disabledDate}
           locale={locale.lang}
           timePicker={timePicker}
