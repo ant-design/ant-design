@@ -102,7 +102,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0px 196px 0px rgba(255, 207, 0, 0.16);
+  box-shadow: 0px 190px 0px rgba(255, 207, 0, 0.16);
   height: 42px;
   margin-top: -42px;
   position: relative;
@@ -136,7 +136,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 ### 改变主色系
 
-- [配置代码示例](https://github.com/ant-tool/xtool/tree/master/examples/customize-antd-theme)
+- [配置代码示例](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
 
 ## 小甜点
 

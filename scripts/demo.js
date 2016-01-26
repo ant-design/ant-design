@@ -1,6 +1,6 @@
 require('../style/index.less');
-require('../site/static/style.css');
-require('../site/static/tomorrow.css');
+require('../site/static/style.less');
+require('../site/static/tomorrow.less');
 
 window['css-animation'] = require('css-animation');
 window['react-router'] = require('react-router');
