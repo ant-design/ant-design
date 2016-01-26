@@ -24,11 +24,14 @@ class AntTag extends React.Component {
     this.props.onClose(e);
   }
 
-  animationEnd() {
-    this.setState({
-      closed: true,
-      closing: false,
-    });
+  animationEnd(key, existed) {
+    if (!existed) {
+      this.setState({
+        closed: true,
+        closing: false,
+      });
+      this.props.afterClose();
+    }
   }
 
   render() {
@@ -56,6 +59,7 @@ AntTag.defaultProps = {
   prefixCls: 'ant-tag',
   closable: false,
   onClose() {},
+  afterClose() {},
 };
 
 export default AntTag;
