@@ -10,7 +10,7 @@
 import { Tag } from 'antd';
 
 function onClose(e) {
-  console.log(e, this);
+  console.log(e);
 }
 
 ReactDOM.render(<div>
