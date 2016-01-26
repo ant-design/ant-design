@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
+import classNames from 'classnames';
 
 class AntTag extends React.Component {
   constructor(props) {
@@ -35,19 +36,20 @@ class AntTag extends React.Component {
   }
 
   render() {
-    const close = this.props.closable ?
-      <Icon type="cross" onClick={this.close.bind(this)} /> : '';
-    const colorClass = this.props.color ? this.props.prefixCls + '-' + this.props.color : '';
-    let className = this.props.prefixCls + ' ' + colorClass;
-    className = this.state.closing ? className + ' ' + this.props.prefixCls + '-close' : className;
-
+    const { prefixCls, closable, color, ...restProps } = this.props;
+    const close = closable ? <Icon type="cross" onClick={this.close.bind(this)} /> : '';
+    const className = classNames({
+      [prefixCls]: true,
+      [prefixCls + '-' + color]: !!color,
+      [prefixCls + '-close']: this.state.closing,
+    });
     return this.state.closed ? null : (
         <Animate component=""
           showProp="data-show"
-          transitionName={this.props.prefixCls + '-zoom'}
+          transitionName={prefixCls + '-zoom'}
           onEnd={this.animationEnd.bind(this)}>
         <div data-show={!this.state.closing} className={className}>
-          <span className={this.props.prefixCls + '-text'} {...this.props} />
+          <span className={prefixCls + '-text'} {...restProps} />
           {close}
         </div>
       </Animate>
