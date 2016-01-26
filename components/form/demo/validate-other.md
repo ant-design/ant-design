@@ -1,10 +1,10 @@
-# 其他表单域校验
+# 校验其他组件
 
 - order: 12
 
 提供以下组件表单域的校验。
 
-`Select` `Radio` `DatePicker` `InputNumber`。
+`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。
 
 ---
 

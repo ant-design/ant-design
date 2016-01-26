@@ -40,7 +40,7 @@ const Demo = React.createClass({
         <FormItem
           label="用户名："
           labelCol={{span: 6}}
-          wrapperCol={{span: 6}}
+          wrapperCol={{span: 14}}
           required>
           <p className="ant-form-text" id="userName" name="userName">大眼萌 minion</p>
         </FormItem>
