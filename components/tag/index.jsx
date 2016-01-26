@@ -43,15 +43,17 @@ class AntTag extends React.Component {
       [prefixCls + '-' + color]: !!color,
       [prefixCls + '-close']: this.state.closing,
     });
-    return this.state.closed ? null : (
+    return (
         <Animate component=""
           showProp="data-show"
           transitionName={prefixCls + '-zoom'}
           onEnd={this.animationEnd.bind(this)}>
-        <div data-show={!this.state.closing} className={className}>
-          <span className={prefixCls + '-text'} {...restProps} />
-          {close}
-        </div>
+        {this.state.closed ? null : (
+          <div data-show={!this.state.closing} className={className}>
+            <span className={prefixCls + '-text'} {...restProps} />
+            {close}
+          </div>
+        )}
       </Animate>
     );
   }
