@@ -140,10 +140,11 @@ let Circle = React.createClass({
 
     if (typeof props.format === 'string') {
       // 向下兼容原来的字符串替换方式
-      text = '${percent}%'.replace('', props.percent);
+      text = props.format.replace('${percent}', props.percent);
     } else if (typeof props.format === 'function') {
       text = props.format(props.percent);
     }
+
     if (props.status === 'exception') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>
