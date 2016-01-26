@@ -63,20 +63,20 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | | 
+| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | |
 | mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props) | | | |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-| getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) | | | 
-| getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) | | | 
-| setFieldsValue | 设置一组输入控件的值 | Function(obj: object) | | | 
-| setFields | 设置一组输入控件的值与 Error | Function(obj: object) | | | 
-| validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) | | | 
-| getFieldError | 获取某个输入控件的 Error | Function(name) | | | 
-| isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) | | | 
+| getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) | | |
+| getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) | | |
+| setFieldsValue | 设置一组输入控件的值 | Function(obj: object) | | |
+| setFields | 设置一组输入控件的值与 Error | Function(obj: object) | | |
+| validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) | | |
+| getFieldError | 获取某个输入控件的 Error | Function(name) | | |
+| isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) | | |
 | resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) | | | |
 
 ### Form.Item
