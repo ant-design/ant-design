@@ -53,7 +53,7 @@ class FormItem extends React.Component {
     }
   }
 
-  renderValidateWrapper(c1, c2 ,c3) {
+  renderValidateWrapper(c1, c2, c3) {
     let classes = '';
     const form = this.context.form;
     const props = this.props;
