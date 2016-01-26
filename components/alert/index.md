@@ -1,5 +1,5 @@
 # Alert
-
+纯写代码，有没有IDE集成可用，类似ECLIPSE 插件
 - category: Components
 - chinese: 警告提示
 - type: 展示
