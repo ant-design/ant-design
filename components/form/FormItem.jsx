@@ -89,7 +89,7 @@ class FormItem extends React.Component {
   }
 
   isRequired() {
-    const options = this.props.options;
+    const options = this.props.fieldOption;
     if (options === undefined) return false;
 
     const allRules = (options.validate || []).concat({
@@ -119,10 +119,10 @@ class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     let children = props.children;
-    if (context.form && props.id && props.options) {
+    if (context.form && props.id && props.fieldOption) {
       children = React.cloneElement(
         React.Children.only(children),
-        { ...context.form.getFieldProps(props.id, props.options), id: props.id }
+        { ...context.form.getFieldProps(props.id, props.fieldOption), id: props.id }
       );
     }
     return [
@@ -169,7 +169,7 @@ FormItem.propTypes = {
   wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
   id: React.PropTypes.string,
-  options: React.PropTypes.object,
+  fieldOption: React.PropTypes.object,
   children: React.PropTypes.node,
 };
 

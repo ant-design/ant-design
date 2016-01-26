@@ -87,7 +87,7 @@ class BasicDemo extends React.Component {
           wrapperCol={{span: 12}}
           hasFeedback
           id="name"
-          options={{
+          fieldOption={{
             rules: [
               {required: true, min: 5, message: '用户名至少为 5 个字符'},
               {validator: this.userExists},
@@ -103,7 +103,7 @@ class BasicDemo extends React.Component {
           wrapperCol={{span: 12}}
           hasFeedback
           id="email"
-          options={{
+          fieldOption={{
             validate: [{
               rules: [
                 {required: true},
@@ -125,7 +125,7 @@ class BasicDemo extends React.Component {
           wrapperCol={{span: 12}}
           hasFeedback
           id="passwd"
-          options={{
+          fieldOption={{
             rules: [
               { required: true, whitespace: true, message: '请填写密码' },
               { validator: this.checkPass.bind(this) },
@@ -141,7 +141,7 @@ class BasicDemo extends React.Component {
           wrapperCol={{span: 12}}
           hasFeedback
           id="rePasswd"
-          options={{
+          fieldOption={{
             rules: [{
               required: true,
               whitespace: true,
@@ -159,7 +159,7 @@ class BasicDemo extends React.Component {
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="textarea"
-          options={{
+          fieldOption={{
             rules: [
               {required: true, message: '真的不打算写点什么吗？'},
             ],

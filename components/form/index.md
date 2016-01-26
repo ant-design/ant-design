@@ -87,14 +87,14 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |  label | label 标签的文本 | string  |   |     |
 |  labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object |  |  |
 |  wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  |
-|  options | 配置校验规则等，详情请看下面备注。如果设置了 `options`，则 `Form.Item` 只能有一个子节点 | object | | |
-|  help | 提示信息，如不设置，则会根据 `options` 中的校验规则自动生成 | string |  |   |
-|  required | 是否必填，如不设置，则会根据 `options` 中的校验规则自动生成 | bool |  | false  |
-|  validateStatus | 校验状态，如不设置，则会根据 `options` 中的校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
+|  fieldOption | 配置校验规则等，详情请看下面备注。如果设置了 `fieldOption`，则 `Form.Item` 只能有一个子节点 | object | | |
+|  help | 提示信息，如不设置，则会根据 `fieldOption` 中的校验规则自动生成 | string |  |   |
+|  required | 是否必填，如不设置，则会根据 `fieldOption` 中的校验规则自动生成 | bool |  | false  |
+|  validateStatus | 校验状态，如不设置，则会根据 `fieldOption` 中的校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
 |  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
 |  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
-#### options
+#### fieldOption
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
