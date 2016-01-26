@@ -142,7 +142,7 @@ class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: !!props.help,
+      [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
       [`${props.className}`]: !!props.className,
     };
 
