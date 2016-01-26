@@ -106,13 +106,13 @@ InstantClickChangeFns.push(function () {
   var Select = antd.Select;
   var Option = Select.Option;
   var versionsHistory = {
-    '0.9.2': '09x.ant.design',
-    '0.10.4': '010x.ant.design'
+    '0.9.x': '09x.ant.design',
+    '0.10.x': '010x.ant.design',
   };
   versionsHistory[antdVersion.latest] =
     versionsHistory[antdVersion.latest] || 'ant.design';
   var versions = Object.keys(versionsHistory).sort(function (a, b) {
-    return semver.lt(a, b);
+    return semver.lt(a.replace('.x', '.0'), b.replace('.x', '.0'));
   });
   var options = versions.map(function (version) {
     var link = versionsHistory[version];
