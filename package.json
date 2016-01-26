@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.12.0-beta.25",
+  "version": "0.12.0-beta.26",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -83,6 +83,7 @@
     "busboy": "^0.2.9",
     "chalk": "^1.1.0",
     "css-loader": "^0.23.0",
+    "cz-conventional-changelog": "^1.1.5",
     "es3ify-loader": "^0.1.0",
     "eslint": "^1.1.0",
     "eslint-config-airbnb": "latest",
@@ -164,5 +165,10 @@
     "plugins": [
       "add-module-exports"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

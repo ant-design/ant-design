@@ -36,7 +36,7 @@ export default React.createClass({
       if (typeof document === 'undefined' ||
           typeof window === 'undefined' ||
           !window.FileReader || !window.File ||
-          (!file.originFileObj instanceof File) ||
+          !(file.originFileObj instanceof File) ||
           file.thumbUrl !== undefined) {
         return;
       }
