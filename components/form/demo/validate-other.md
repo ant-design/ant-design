@@ -65,7 +65,7 @@ let Demo = React.createClass({
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="select"
-          options={{
+          fieldOption={{
             rules: [
               { required: true, message: '请选择您的国籍' }
             ],
@@ -84,7 +84,7 @@ let Demo = React.createClass({
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="multiSelect"
-          options={{
+          fieldOption={{
             rules: [
               { required: true, message: '请选择您喜欢的颜色', type: 'array' },
             ]
@@ -103,7 +103,7 @@ let Demo = React.createClass({
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="radio"
-          options={{
+          fieldOption={{
             rules: [
               { required: true, message: '请选择您的性别' }
             ]
@@ -119,7 +119,7 @@ let Demo = React.createClass({
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="birthday"
-          options={{
+          fieldOption={{
             rules: [
               {
                 required: true,
@@ -138,7 +138,7 @@ let Demo = React.createClass({
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="primeNumber"
-          options={{
+          fieldOption={{
             rules: [{ validator: this.checkPrime }],
           }}>
           <InputNumber min={8} max={12} size="large" />
@@ -149,7 +149,7 @@ let Demo = React.createClass({
           labelCol={{span: 7}}
           wrapperCol={{span: 12}}
           id="address"
-          options={{
+          fieldOption={{
             rules: [{ required: true, type: 'array' }],
           }}>
           <Cascader options={address} />

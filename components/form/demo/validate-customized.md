@@ -130,7 +130,7 @@ let Demo = React.createClass({
               labelCol={{span: 6}}
               wrapperCol={{span: 18}}
               id="pass"
-              options={{
+              fieldOption={{
                 rules: [
                   {required: true, whitespace: true, message: '请填写密码'},
                   {validator: this.checkPass}
@@ -153,7 +153,7 @@ let Demo = React.createClass({
               labelCol={{span: 6}}
               wrapperCol={{span: 18}}
               id="rePass"
-              options={{
+              fieldOption={{
                 rules: [{
                   required: true,
                   whitespace: true,
