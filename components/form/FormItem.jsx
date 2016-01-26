@@ -53,7 +53,7 @@ class FormItem extends React.Component {
     }
   }
 
-  renderValidateWrapper(c1, c2) {
+  renderValidateWrapper(c1, c2 ,c3) {
     let classes = '';
     const form = this.context.form;
     const props = this.props;
@@ -74,7 +74,7 @@ class FormItem extends React.Component {
     }
     return (
       <div className={this.props.prefixCls + '-item-control ' + classes}>
-        {c1}{c2}
+        {c1}{c2}{c3}
       </div>
     );
   }
@@ -130,7 +130,8 @@ class FormItem extends React.Component {
       this.renderWrapper(
         this.renderValidateWrapper(
           children,
-          this.renderHelp()
+          this.renderHelp(),
+          props.extra
         )
       ),
     ];
