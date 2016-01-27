@@ -119,7 +119,7 @@ class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     let children = null;
-    if (context.form && props.id && props.fieldOption) {
+    if (context.form && props.id) {
       const child = React.Children.only(props.children);
       const size = {};
       if (typeof child.type === 'function' && !child.props.size) {
