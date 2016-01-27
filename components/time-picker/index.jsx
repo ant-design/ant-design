@@ -22,7 +22,6 @@ const AntTimePicker = React.createClass({
       disabledMinutes: undefined,
       disabledSeconds: undefined,
       hideDisabledOptions: false,
-      size: 'default',
       placement: 'bottomLeft',
       transitionName: 'slide-up',
     };

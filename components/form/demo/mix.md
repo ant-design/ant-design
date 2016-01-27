@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Form, Select, InputNumber, DatePicker, Switch, Radio,
+import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
          Slider, Button, message, Row, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -113,6 +113,14 @@ const Demo = React.createClass({
           <Col span="6">
             <DatePicker name="endDate" onChange={this.setValue.bind(this, 'endDate')} value={formData.endDate} />
           </Col>
+        </FormItem>
+
+        <FormItem
+          label="TimePicker 时间选择器："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 16}}
+          required>
+          <TimePicker />
         </FormItem>
 
         <FormItem

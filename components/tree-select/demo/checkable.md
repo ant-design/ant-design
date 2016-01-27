@@ -71,5 +71,5 @@ const Demo = React.createClass({
   },
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-tree-select-demo-checkable'));
+ReactDOM.render(<Demo />, mountNode);
 ````

@@ -11,7 +11,6 @@ const AntTreeSelect = React.createClass({
       optionLabelProp: 'value',
       choiceTransitionName: 'zoom',
       showSearch: false,
-      size: 'default',
       // openAnimation: animation,
     };
   },

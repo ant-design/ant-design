@@ -6,7 +6,6 @@ const AntSteps = React.createClass({
     return {
       prefixCls: 'ant-steps',
       iconPrefix: 'ant',
-      size: 'default',
       maxDescriptionWidth: 100,
       current: 0
     };

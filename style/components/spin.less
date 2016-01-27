@@ -10,7 +10,7 @@
 .@{spin-prefix-cls} {
   color: @primary-color;
   display: inline-block;
-  font-size: 1em;
+  font-size: @spin-dot-size;
   text-align: center;
   opacity: 0;
   position: absolute;
@@ -68,17 +68,13 @@
 
   // Sizes
   // ------------------------------
-  &-default {
-    font-size: @spin-dot-size;
-  }
-
   // small
-  &-small {
+  &-sm {
     font-size: @spin-dot-size-sm;
   }
 
   // large
-  &-large {
+  &-lg {
     font-size: @spin-dot-size-lg;
   }
 }

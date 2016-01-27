@@ -122,7 +122,7 @@ class FormItem extends React.Component {
     if (context.form && props.id && props.fieldOption) {
       const child = React.Children.only(props.children);
       const size = {};
-      if (typeof child.type === 'function') {
+      if (typeof child.type === 'function' && !child.props.size) {
         size.size = 'large';
       }
       children = React.cloneElement(
@@ -135,7 +135,7 @@ class FormItem extends React.Component {
       );
     } else {
       children = React.Children.map(props.children, (child) => {
-        if (typeof child.type === 'function') {
+        if (typeof child.type === 'function' && !child.props.size) {
           return React.cloneElement(child, { size: 'large' });
         }
 

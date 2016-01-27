@@ -78,7 +78,6 @@ class AntTabs extends React.Component {
 
 AntTabs.defaultProps = {
   prefixCls: 'ant-tabs',
-  size: 'default',
   animation: 'slide-horizontal',
   type: 'line', // or 'card' 'editable-card'
   onChange() {},
