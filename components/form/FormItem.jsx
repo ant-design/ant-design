@@ -118,12 +118,29 @@ class FormItem extends React.Component {
   renderChildren() {
     const context = this.context;
     const props = this.props;
-    let children = props.children;
+    let children = null;
     if (context.form && props.id && props.fieldOption) {
+      const child = React.Children.only(props.children);
+      const size = {};
+      if (typeof child.type === 'function') {
+        size.size = 'large';
+      }
       children = React.cloneElement(
-        React.Children.only(children),
-        { ...context.form.getFieldProps(props.id, props.fieldOption), id: props.id }
+        child,
+        {
+          ...context.form.getFieldProps(props.id, props.fieldOption),
+          ...size,
+          id: props.id
+        }
       );
+    } else {
+      children = React.Children.map(props.children, (child) => {
+        if (typeof child.type === 'function') {
+          return React.cloneElement(child, { size: 'large' });
+        }
+
+        return child;
+      });
     }
     return [
       this.renderLabel(),
