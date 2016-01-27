@@ -9,7 +9,7 @@
 ````jsx
 import { message, Button } from 'antd';
 
-const info = function() {
+const info = function () {
   message.info('这是一条普通的提醒');
 };
 

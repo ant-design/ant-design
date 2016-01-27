@@ -21,9 +21,9 @@ const Demo = React.createClass({
   },
   render() {
     return (
-      <TreeSelect style={{width: 180}} showSearch
+      <TreeSelect style={{ width: 180 }} showSearch
         value={this.state.value} optionLabelProp="title"
-        dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
+        dropdownMenuStyle={{ maxHeight: 200, overflow: 'auto' }}
         treeDefaultExpandAll
         onChange={this.onChange}>
         <TreeNode value="parent 1" title="parent 1" key="0-1">

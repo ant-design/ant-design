@@ -19,7 +19,7 @@ const content = (
 
 ReactDOM.render(
   <div>
-    <div style={{marginLeft: 60}}>
+    <div style={{ marginLeft: 60 }}>
       <Popover placement="topLeft" title={text} overlay={content} trigger="click">
         <Button>上左</Button>
       </Popover>
@@ -30,7 +30,7 @@ ReactDOM.render(
         <Button>上右</Button>
       </Popover>
     </div>
-    <div style={{width: 60, float: 'left'}}>
+    <div style={{ width: 60, float: 'left' }}>
       <Popover placement="leftTop" title={text} overlay={content} trigger="click">
         <Button>左上</Button>
       </Popover>
@@ -41,7 +41,7 @@ ReactDOM.render(
         <Button>左下</Button>
       </Popover>
     </div>
-    <div style={{width: 60, marginLeft: 270}}>
+    <div style={{ width: 60, marginLeft: 270 }}>
       <Popover placement="rightTop" title={text} overlay={content} trigger="click">
         <Button>右上</Button>
       </Popover>
@@ -52,7 +52,7 @@ ReactDOM.render(
         <Button>右下</Button>
       </Popover>
     </div>
-    <div style={{marginLeft: 60, clear: 'both'}}>
+    <div style={{ marginLeft: 60, clear: 'both' }}>
       <Popover placement="bottomLeft" title={text} overlay={content} trigger="click">
         <Button>下左</Button>
       </Popover>

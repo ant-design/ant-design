@@ -9,13 +9,13 @@
 ````jsx
 import { Button, notification } from 'antd';
 
-const close = function() {
+const close = function () {
   console.log('我被默认的关闭按钮关闭了！');
 };
 
-const openNotification = function() {
+const openNotification = function () {
   const key = 'open' + Date.now();
-  const btnClick = function() {
+  const btnClick = function () {
     // 隐藏提醒框
     notification.close(key);
   };

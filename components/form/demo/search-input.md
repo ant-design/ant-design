@@ -58,6 +58,6 @@ const SearchInput = React.createClass({
 });
 
 ReactDOM.render(
-  <SearchInput placeholder="input search text" style={{width: 200}} />
+  <SearchInput placeholder="input search text" style={{ width: 200 }} />
 , mountNode);
 ````

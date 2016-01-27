@@ -9,7 +9,7 @@
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 const Demo = React.createClass({
   propTypes: {
@@ -48,7 +48,7 @@ const Demo = React.createClass({
     });
   },
   render() {
-    return (<div style={{margin: '0 20px'}}>
+    return (<div style={{ margin: '0 20px' }}>
       <h2>simple</h2>
       <Tree className="myCls" showLine multiple checkable
         defaultExpandedKeys={this.state.defaultExpandedKeys}
@@ -62,7 +62,7 @@ const Demo = React.createClass({
             <TreeNode title="leaf" key="0-0-0-1" />
           </TreeNode>
           <TreeNode title="parent 1-1" key="0-0-1">
-            <TreeNode title={<span style={{color: 'red'}}>sss</span>} key="0-0-1-0" />
+            <TreeNode title={<span style={{ color: 'red' }}>sss</span>} key="0-0-1-0" />
           </TreeNode>
         </TreeNode>
       </Tree>

@@ -21,7 +21,7 @@ const generateData = (_level, _preKey, _tns) => {
   const children = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;
-    tns.push({title: key, key: key});
+    tns.push({ title: key, key: key });
     if (i < y) {
       children.push(key);
     }

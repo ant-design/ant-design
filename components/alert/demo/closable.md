@@ -9,7 +9,7 @@
 ````jsx
 import { Alert } from 'antd';
 
-const onClose = function(e) {
+const onClose = function (e) {
   console.log(e, '我要被关闭啦！');
 };
 

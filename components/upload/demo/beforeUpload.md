@@ -11,7 +11,7 @@ import { Upload, Button, Icon, message } from 'antd';
 
 const props = {
   action: '/upload.do',
-  beforeUpload: function(file) {
+  beforeUpload: function (file) {
     const isJPG = file.type === 'image/jpeg';
     if (!isJPG) {
       message.error('只能上传 JPG 文件哦！');

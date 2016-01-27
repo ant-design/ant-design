@@ -83,14 +83,14 @@ class BasicDemo extends React.Component {
       <Form horizontal form={this.props.form}>
         <FormItem
           label="用户名："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           hasFeedback
           id="name"
           fieldOption={{
             rules: [
-              {required: true, min: 5, message: '用户名至少为 5 个字符'},
-              {validator: this.userExists},
+              { required: true, min: 5, message: '用户名至少为 5 个字符' },
+              { validator: this.userExists },
             ],
           }}
           help={isFieldValidating('name') ? '正在校验中..' : (getFieldError('name') || []).join(', ')}>
@@ -99,19 +99,19 @@ class BasicDemo extends React.Component {
 
         <FormItem
           label="邮箱："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           hasFeedback
           id="email"
           fieldOption={{
             validate: [{
               rules: [
-                {required: true},
+                { required: true },
               ],
               trigger: 'onBlur',
             }, {
               rules: [
-                {type: 'email', message: '请输入正确的邮箱地址'},
+                { type: 'email', message: '请输入正确的邮箱地址' },
               ],
               trigger: ['onBlur', 'onChange'],
             }]
@@ -121,8 +121,8 @@ class BasicDemo extends React.Component {
 
         <FormItem
           label="密码："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           hasFeedback
           id="passwd"
           fieldOption={{
@@ -137,8 +137,8 @@ class BasicDemo extends React.Component {
 
         <FormItem
           label="确认密码："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           hasFeedback
           id="rePasswd"
           fieldOption={{
@@ -156,18 +156,18 @@ class BasicDemo extends React.Component {
 
         <FormItem
           label="备注："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="textarea"
           fieldOption={{
             rules: [
-              {required: true, message: '真的不打算写点什么吗？'},
+              { required: true, message: '真的不打算写点什么吗？' },
             ],
           }}>
           <Input type="textarea" placeholder="随便写" id="textarea" name="textarea" />
         </FormItem>
 
-        <FormItem wrapperCol={{span: 12, offset: 7}} >
+        <FormItem wrapperCol={{ span: 12, offset: 7 }} >
         <Button type="primary" onClick={this.handleSubmit.bind(this)}>确定</Button>
           &nbsp;&nbsp;&nbsp;
         <Button type="ghost" onClick={this.handleReset.bind(this)}>重置</Button>

@@ -16,7 +16,7 @@ function confirm() {
 }
 
 ReactDOM.render(<div>
-  <div style={{marginLeft: 60}}>
+  <div style={{ marginLeft: 60 }}>
     <Popconfirm placement="topLeft" title={text} onConfirm={confirm}>
       <Button>上左</Button>
     </Popconfirm>
@@ -27,7 +27,7 @@ ReactDOM.render(<div>
       <Button>上右</Button>
     </Popconfirm>
   </div>
-  <div style={{width: 60, float: 'left'}}>
+  <div style={{ width: 60, float: 'left' }}>
     <Popconfirm placement="leftTop" title={text} onConfirm={confirm}>
       <Button>左上</Button>
     </Popconfirm>
@@ -38,7 +38,7 @@ ReactDOM.render(<div>
       <Button>左下</Button>
     </Popconfirm>
   </div>
-  <div style={{width: 60, marginLeft: 252}}>
+  <div style={{ width: 60, marginLeft: 252 }}>
     <Popconfirm placement="rightTop" title={text} onConfirm={confirm}>
       <Button>右上</Button>
     </Popconfirm>
@@ -49,7 +49,7 @@ ReactDOM.render(<div>
       <Button>右下</Button>
     </Popconfirm>
   </div>
-  <div style={{marginLeft: 60, clear: 'both'}}>
+  <div style={{ marginLeft: 60, clear: 'both' }}>
     <Popconfirm placement="bottomLeft" title={text} onConfirm={confirm}>
       <Button>下左</Button>
     </Popconfirm>

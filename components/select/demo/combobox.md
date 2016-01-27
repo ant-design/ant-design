@@ -33,7 +33,7 @@ const Test = React.createClass({
     // filterOption 需要设置为 false，数据是动态设置的
     return (
       <Select combobox
-        style={{width: 200}}
+        style={{ width: 200 }}
         onChange={this.handleChange}
         filterOption={false}
         searchPlaceholder="请输入账户名">

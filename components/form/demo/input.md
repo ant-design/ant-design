@@ -10,7 +10,7 @@
 
 
 ````jsx
-import {Row, Col, Input} from 'antd';
+import { Row, Col, Input } from 'antd';
 const InputGroup = Input.Group;
 
 ReactDOM.render(

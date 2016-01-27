@@ -127,13 +127,13 @@ let Demo = React.createClass({
           <Col span="18">
             <FormItem
               label="密码："
-              labelCol={{span: 6}}
-              wrapperCol={{span: 18}}
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 18 }}
               id="pass"
               fieldOption={{
                 rules: [
-                  {required: true, whitespace: true, message: '请填写密码'},
-                  {validator: this.checkPass}
+                  { required: true, whitespace: true, message: '请填写密码' },
+                  { validator: this.checkPass }
                 ]
               }}>
               <Input type="password"
@@ -150,8 +150,8 @@ let Demo = React.createClass({
           <Col span="18">
             <FormItem
               label="确认密码："
-              labelCol={{span: 6}}
-              wrapperCol={{span: 18}}
+              labelCol={{ span: 6 }}
+              wrapperCol={{ span: 18 }}
               id="rePass"
               fieldOption={{
                 rules: [{
@@ -175,7 +175,7 @@ let Demo = React.createClass({
         <Row>
           <Col span="18">
             <FormItem
-              wrapperCol={{span: 12, offset: 6}}>
+              wrapperCol={{ span: 12, offset: 6 }}>
               <Button type="primary" onClick={this.handleSubmit}>确定</Button>
               &nbsp;&nbsp;&nbsp;
               <Button type="ghost" onClick={this.handleReset}>重置</Button>

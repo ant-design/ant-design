@@ -31,7 +31,7 @@ const App = React.createClass({
           <Radio value="c">C</Radio>
           <Radio value="d">D</Radio>
         </RadioGroup>
-        <div style={{marginTop: 20}}>你选中的: {this.state.value}</div>
+        <div style={{ marginTop: 20 }}>你选中的: {this.state.value}</div>
       </div>
     );
   }

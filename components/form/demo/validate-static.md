@@ -20,8 +20,8 @@ ReactDOM.render(
   <Form horizontal>
     <FormItem
       label="失败校验："
-      labelCol={{span: 5}}
-      wrapperCol={{span: 12}}
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 12 }}
       validateStatus="error"
       help="请输入数字和字母组合">
       <Input defaultValue="无效选择" id="error" />
@@ -29,16 +29,16 @@ ReactDOM.render(
 
     <FormItem
       label="警告校验："
-      labelCol={{span: 5}}
-      wrapperCol={{span: 12}}
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 12 }}
       validateStatus="warning">
       <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
 
     <FormItem
       label="校验中："
-      labelCol={{span: 5}}
-      wrapperCol={{span: 12}}
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="validating"
       help="信息审核中...">
@@ -47,8 +47,8 @@ ReactDOM.render(
 
     <FormItem
       label="成功校验："
-      labelCol={{span: 5}}
-      wrapperCol={{span: 12}}
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="success">
       <Input defaultValue="我是正文" id="success" />
@@ -56,8 +56,8 @@ ReactDOM.render(
 
     <FormItem
       label="警告校验："
-      labelCol={{span: 5}}
-      wrapperCol={{span: 12}}
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="warning">
       <Input defaultValue="前方高能预警" id="warning" />
@@ -65,8 +65,8 @@ ReactDOM.render(
 
     <FormItem
       label="失败校验："
-      labelCol={{span: 5}}
-      wrapperCol={{span: 12}}
+      labelCol={{ span: 5 }}
+      wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="error"
       help="请输入数字和字母组合">
@@ -75,7 +75,7 @@ ReactDOM.render(
 
     <FormItem
       label="Datepicker："
-      labelCol={{span: 5}}
+      labelCol={{ span: 5 }}
       help>
       <Col span="6">
         <FormItem validateStatus="error" help="请选择正确日期">
@@ -94,7 +94,7 @@ ReactDOM.render(
 
     <FormItem
       label="Datepicker："
-      labelCol={{span: 5}}
+      labelCol={{ span: 5 }}
       validateStatus="error"
       help>
       <Col span="6">
