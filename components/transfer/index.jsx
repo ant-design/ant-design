@@ -28,12 +28,12 @@ class Transfer extends Component {
 
     if (targetKeys.length > 0) {
       targetKeys.forEach((targetKey) => {
-        rightDataSource.push(leftDataSource.find((data, index) => {
+        rightDataSource.push(leftDataSource.filter((data, index) => {
           if (data.key === targetKey) {
             leftDataSource.splice(index, 1);
             return true;
           }
-        }));
+        })[0]);
       });
     }
 
@@ -133,7 +133,12 @@ class Transfer extends Component {
   handleSelect(direction, selectedItem, checked) {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const holder = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
-    const index = holder.findIndex((key) => key === selectedItem.key);
+    let index;
+    holder.forEach((key, i) => {
+      if (key === selectedItem.key) {
+        index = i;
+      }
+    });
     if (index > -1) {
       holder.splice(index, 1);
     }
