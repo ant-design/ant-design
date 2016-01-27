@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.12.0-beta.26",
+  "version": "0.12.0-beta.27",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -34,7 +34,7 @@
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
-    "css-animation": "1.1.x",
+    "css-animation": "~1.1.0",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
     "object-assign": "~4.0.1",
@@ -45,7 +45,7 @@
     "rc-collapse": "~1.4.4",
     "rc-dialog": "~5.3.1",
     "rc-dropdown": "~1.4.3",
-    "rc-form": "~0.9.0",
+    "rc-form": "~0.10.0",
     "rc-form-validation": "~2.5.0",
     "rc-input-number": "~2.4.1",
     "rc-menu": "~4.9.0",
