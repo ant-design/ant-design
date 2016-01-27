@@ -189,7 +189,8 @@ const AntUpload = React.createClass({
   getDefaultProps() {
     return {
       type: 'select',
-      name: '',
+      // do not set
+      // name: '',
       multiple: false,
       action: '',
       data: {},
