@@ -13,7 +13,7 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   key: 'name',
-  render: function(text) {
+  render: function (text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -27,7 +27,7 @@ const columns = [{
 }, {
   title: '操作',
   key: 'operation',
-  render: function(text, record) {
+  render: function (text, record) {
     return (
       <span>
         <a href="#">操作一{record.name}</a>
