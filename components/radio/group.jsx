@@ -15,7 +15,6 @@ export default React.createClass({
     return {
       prefixCls: 'ant-radio-group',
       disabled: false,
-      size: 'default',
       onChange() {
       }
     };

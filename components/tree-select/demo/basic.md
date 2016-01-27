@@ -42,5 +42,5 @@ const Demo = React.createClass({
 
 ReactDOM.render(
   <Demo />
-, document.getElementById('components-tree-select-demo-basic'));
+, mountNode);
 ````

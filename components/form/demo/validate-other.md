@@ -70,7 +70,7 @@ let Demo = React.createClass({
               { required: true, message: '请选择您的国籍' }
             ],
           }}>
-          <Select size="large" placeholder="请选择国家" style={{width: '100%'}}>
+          <Select placeholder="请选择国家" style={{width: '100%'}}>
             <Option value="china">中国</Option>
             <Option value="use">美国</Option>
             <Option value="japan">日本</Option>
@@ -89,7 +89,7 @@ let Demo = React.createClass({
               { required: true, message: '请选择您喜欢的颜色', type: 'array' },
             ]
           }}>
-          <Select multiple size="large" placeholder="请选择颜色" style={{width: '100%'}}>
+          <Select multiple placeholder="请选择颜色" style={{width: '100%'}}>
             <Option value="red">红色</Option>
             <Option value="orange">橙色</Option>
             <Option value="yellow">黄色</Option>
@@ -141,7 +141,7 @@ let Demo = React.createClass({
           fieldOption={{
             rules: [{ validator: this.checkPrime }],
           }}>
-          <InputNumber min={8} max={12} size="large" />
+          <InputNumber min={8} max={12} />
         </FormItem>
 
         <FormItem

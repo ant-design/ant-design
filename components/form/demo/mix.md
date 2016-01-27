@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Form, Select, InputNumber, DatePicker, Switch, Radio,
+import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
          Slider, Button, message, Row, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -56,7 +56,7 @@ const Demo = React.createClass({
           labelCol={{span: 8}}
           wrapperCol={{span: 10}}
           required>
-          <InputNumber size="large" min={1} max={10} style={{width: 100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
+          <InputNumber min={1} max={10} style={{width: 100}} defaultValue={3} name="inputNumber" onChange={this.setValue.bind(this, 'inputNumber')} value={formData.inputNumber} />
           <span className="ant-form-text"> 台机器</span>
         </FormItem>
 
@@ -92,7 +92,7 @@ const Demo = React.createClass({
           labelCol={{span: 8}}
           wrapperCol={{span: 16}}
           required>
-          <Select size="large" defaultValue="lucy" style={{width: 200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
+          <Select defaultValue="lucy" style={{width: 200}} name="select" onChange={this.setValue.bind(this, 'select')} value={formData.select}>
             <Option value="jack">jack</Option>
             <Option value="lucy">lucy</Option>
             <Option value="disabled" disabled>disabled</Option>
@@ -116,9 +116,17 @@ const Demo = React.createClass({
         </FormItem>
 
         <FormItem
+          label="TimePicker 时间选择器："
+          labelCol={{span: 8}}
+          wrapperCol={{span: 16}}
+          required>
+          <TimePicker />
+        </FormItem>
+
+        <FormItem
           label="选项："
           labelCol={{span: 8}}>
-          <RadioGroup defaultValue="a" size="large">
+          <RadioGroup defaultValue="a">
             <RadioButton value="a">选项一</RadioButton>
             <RadioButton value="b">选项二</RadioButton>
             <RadioButton value="c">选项三</RadioButton>

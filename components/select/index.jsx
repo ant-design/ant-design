@@ -10,7 +10,6 @@ const AntSelect = React.createClass({
       optionLabelProp: 'children',
       choiceTransitionName: 'zoom',
       showSearch: false,
-      size: 'default'
     };
   },
   render() {

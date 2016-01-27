@@ -104,7 +104,6 @@ AntCascader.defaultProps = {
     return label.join(' / ');
   },
   disabled: false,
-  size: 'default',
   onPopupVisibleChange() {},
 };
 
