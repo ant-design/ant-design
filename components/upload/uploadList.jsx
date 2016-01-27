@@ -91,7 +91,7 @@ export default React.createClass({
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
-                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none'}}><Icon type="eye-o" /></a>
+                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
                   <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
                 </span>
               ) : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />

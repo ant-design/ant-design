@@ -35,7 +35,7 @@ const Sider = React.createClass({
         <br />
         <Menu theme={this.state.theme}
           onClick={this.handleClick}
-          style={{width: 240}}
+          style={{ width: 240 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
           mode="inline">

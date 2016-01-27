@@ -62,15 +62,15 @@ let Demo = React.createClass({
       <Form horizontal form={this.props.form}>
         <FormItem
           label="国籍："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="select"
           fieldOption={{
             rules: [
               { required: true, message: '请选择您的国籍' }
             ],
           }}>
-          <Select placeholder="请选择国家" style={{width: '100%'}}>
+          <Select placeholder="请选择国家" style={{ width: '100%' }}>
             <Option value="china">中国</Option>
             <Option value="use">美国</Option>
             <Option value="japan">日本</Option>
@@ -81,15 +81,15 @@ let Demo = React.createClass({
 
         <FormItem
           label="喜欢的颜色："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="multiSelect"
           fieldOption={{
             rules: [
               { required: true, message: '请选择您喜欢的颜色', type: 'array' },
             ]
           }}>
-          <Select multiple placeholder="请选择颜色" style={{width: '100%'}}>
+          <Select multiple placeholder="请选择颜色" style={{ width: '100%' }}>
             <Option value="red">红色</Option>
             <Option value="orange">橙色</Option>
             <Option value="yellow">黄色</Option>
@@ -100,8 +100,8 @@ let Demo = React.createClass({
 
         <FormItem
           label="性别："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="radio"
           fieldOption={{
             rules: [
@@ -116,8 +116,8 @@ let Demo = React.createClass({
 
         <FormItem
           label="生日："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="birthday"
           fieldOption={{
             rules: [
@@ -135,8 +135,8 @@ let Demo = React.createClass({
 
         <FormItem
           label="8~12间的质数："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="primeNumber"
           fieldOption={{
             rules: [{ validator: this.checkPrime }],
@@ -146,8 +146,8 @@ let Demo = React.createClass({
 
         <FormItem
           label="选择地址："
-          labelCol={{span: 7}}
-          wrapperCol={{span: 12}}
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
           id="address"
           fieldOption={{
             rules: [{ required: true, type: 'array' }],
@@ -156,7 +156,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          wrapperCol={{span: 12, offset: 7}} >
+          wrapperCol={{ span: 12, offset: 7 }} >
           <Button type="primary" onClick={this.handleSubmit}>确定</Button>
           &nbsp;&nbsp;&nbsp;
           <Button type="ghost" onClick={this.handleReset}>重置</Button>

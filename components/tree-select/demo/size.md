@@ -22,9 +22,9 @@ const Demo = React.createClass({
   render() {
     return (
       <div>
-        <TreeSelect size="large" style={{width: 180}} showSearch
+        <TreeSelect size="large" style={{ width: 180 }} showSearch
           value={this.state.value} optionLabelProp="title"
-          dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
+          dropdownMenuStyle={{ maxHeight: 200, overflow: 'auto' }}
           treeDefaultExpandAll
           onChange={this.onChange}>
           <TreeNode value="parent 1" title="parent 1" key="0-1">
@@ -38,9 +38,9 @@ const Demo = React.createClass({
           </TreeNode>
         </TreeSelect>
         <br /><br />
-        <TreeSelect style={{width: 180}} showSearch
+        <TreeSelect style={{ width: 180 }} showSearch
           value={this.state.value} optionLabelProp="title"
-          dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
+          dropdownMenuStyle={{ maxHeight: 200, overflow: 'auto' }}
           treeDefaultExpandAll
           onChange={this.onChange}>
           <TreeNode value="parent 1" title="parent 1" key="0-1">
@@ -54,9 +54,9 @@ const Demo = React.createClass({
           </TreeNode>
         </TreeSelect>
         <br /><br />
-        <TreeSelect size="small" style={{width: 180}} showSearch
+        <TreeSelect size="small" style={{ width: 180 }} showSearch
           value={this.state.value} optionLabelProp="title"
-          dropdownMenuStyle={{maxHeight: 200, overflow: 'auto'}}
+          dropdownMenuStyle={{ maxHeight: 200, overflow: 'auto' }}
           treeDefaultExpandAll
           onChange={this.onChange}>
           <TreeNode value="parent 1" title="parent 1" key="0-1">

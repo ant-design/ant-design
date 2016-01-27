@@ -16,8 +16,8 @@ const App = React.createClass({
   getInitialState() {
     return {
       tags: [
-        { key: 1, name: '标签一'},
-        { key: 2, name: '标签二'},
+        { key: 1, name: '标签一' },
+        { key: 2, name: '标签二' },
       ],
     };
   },

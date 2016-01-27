@@ -12,7 +12,7 @@ const text = <span>提示文字</span>;
 
 ReactDOM.render(
   <div>
-    <div style={{marginLeft: 60}}>
+    <div style={{ marginLeft: 60 }}>
       <Tooltip placement="topLeft" title={text}>
         <a href="#">上左</a>
       </Tooltip>
@@ -23,7 +23,7 @@ ReactDOM.render(
         <a href="#">上右</a>
       </Tooltip>
     </div>
-    <div style={{width: 60, float: 'left'}}>
+    <div style={{ width: 60, float: 'left' }}>
       <Tooltip placement="leftTop" title={text}>
         <a href="#">左上</a>
       </Tooltip>
@@ -34,7 +34,7 @@ ReactDOM.render(
         <a href="#">左下</a>
       </Tooltip>
     </div>
-    <div style={{width: 60, marginLeft: 270}}>
+    <div style={{ width: 60, marginLeft: 270 }}>
       <Tooltip placement="rightTop" title={text}>
         <a href="#">右上</a>
       </Tooltip>
@@ -45,7 +45,7 @@ ReactDOM.render(
         <a href="#">右下</a>
       </Tooltip>
     </div>
-    <div style={{marginLeft: 60, clear: 'both'}}>
+    <div style={{ marginLeft: 60, clear: 'both' }}>
       <Tooltip placement="bottomLeft" title={text}>
         <a href="#">上右</a>
       </Tooltip>
