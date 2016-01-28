@@ -15,8 +15,8 @@ const ButtonGroup = Button.Group;
 ReactDOM.render(<div>
 <h4>基本组合</h4>
 <ButtonGroup>
-  <Button type="primary" disabled>确定</Button>
-  <Button type="primary" disabled>取消</Button>
+  <Button type="primary">确定</Button>
+  <Button type="primary">取消</Button>
 </ButtonGroup>
 <ButtonGroup>
   <Button disabled>左</Button>
