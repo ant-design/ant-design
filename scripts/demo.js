@@ -108,6 +108,7 @@ InstantClickChangeFns.push(function () {
   var versionsHistory = {
     '0.9.x': '09x.ant.design',
     '0.10.x': '010x.ant.design',
+    '0.11.x': '011x.ant.design',
   };
   versionsHistory[antdVersion.latest] =
     versionsHistory[antdVersion.latest] || 'ant.design';
