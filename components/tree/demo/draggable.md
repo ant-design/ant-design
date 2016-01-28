@@ -2,14 +2,13 @@
 
 - order: 2
 
-拖动示例
+将节点拖拽到其他节点内部或前后。
 
 ---
 
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
-import React from 'react';
 
 const x = 3;
 const y = 2;
@@ -42,14 +41,11 @@ generateData(z);
 const Demo = React.createClass({
   getInitialState() {
     return {
-      gData: gData,
+      gData,
       expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
     };
   },
-  onDragStart() {
-  },
   onDragEnter(info) {
-    // console.log(info);
     this.setState({
       expandedKeys: info.expandedKeys,
     });
@@ -96,26 +92,19 @@ const Demo = React.createClass({
     });
   },
   render() {
-    const loop = data => {
-      return data.map((item) => {
-        if (item.children) {
-          return <TreeNode key={item.key} title={item.key}>{loop(item.children)}</TreeNode>;
-        }
-        return <TreeNode key={item.key} title={item.key} />;
-      });
-    };
-    return (<div className="draggable-demo">
-      <h2>draggable </h2>
-      <p>drag a node into another node</p>
-      <div className="draggable-container">
-        <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
-          onDragStart={this.onDragStart}
-          onDragEnter={this.onDragEnter}
-          onDrop={this.onDrop}>
-          {loop(this.state.gData)}
-        </Tree>
-      </div>
-    </div>);
+    const loop = data => data.map((item) => {
+      if (item.children) {
+        return <TreeNode key={item.key} title={item.key}>{loop(item.children)}</TreeNode>;
+      }
+      return <TreeNode key={item.key} title={item.key} />;
+    });
+    return (
+      <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
+        onDragEnter={this.onDragEnter}
+        onDrop={this.onDrop}>
+        {loop(this.state.gData)}
+      </Tree>
+    );
   },
 });
 

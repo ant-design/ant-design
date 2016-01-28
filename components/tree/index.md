@@ -30,7 +30,7 @@
 |onSelect | 点击树节点触发 | function(e:{selected:bool,node,selectedKeys,event}) | - |
 |filterTreeNode | filter some treeNodes as you need. it should return true | function(node) | - |
 |loadData | 异步加载数据 | function(node)| - |
-|onRightClick | 显示右键菜单 | function({event,node}) | - |
+|onRightClick | 响应右键点击 | function({event,node}) | - |
 |draggable | 设置节点可拖拽（IE>8） | bool | false |
 |onDragStart | 开始拖拽时调用 | function({event,node}) | - |
 |onDragEnter | dragenter 触发时调用 | function({event,node,expandedKeys}) | - |

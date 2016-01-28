@@ -2,14 +2,13 @@
 
 - order: 3
 
-异步加载数据
+点击展开节点，动态加载数据。
 
 ---
 
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
-import React from 'react';
 
 function generateTreeNodes(treeNode) {
   const arr = [];
@@ -56,7 +55,6 @@ function getNewTreeData(treeData, curKey, child, level) {
 }
 
 const Demo = React.createClass({
-  propTypes: {},
   getInitialState() {
     return {
       treeData: [],
@@ -87,22 +85,17 @@ const Demo = React.createClass({
     });
   },
   render() {
-    const loop = (data) => {
-      return data.map((item) => {
-        if (item.children) {
-          return <TreeNode title={item.name} key={item.key}>{loop(item.children)}</TreeNode>;
-        }
-        return <TreeNode title={item.name} key={item.key} isLeaf={item.isLeaf} disabled={item.key === '0-0-0' ? true : false} />;
-      });
-    };
+    const loop = data => data.map((item) => {
+      if (item.children) {
+        return <TreeNode title={item.name} key={item.key}>{loop(item.children)}</TreeNode>;
+      }
+      return <TreeNode title={item.name} key={item.key} isLeaf={item.isLeaf} disabled={item.key === '0-0-0'} />;
+    });
     const treeNodes = loop(this.state.treeData);
     return (
-      <div>
-        <h2>dynamic render</h2>
-        <Tree onSelect={this.onSelect} loadData={this.onLoadData}>
-          {treeNodes}
-        </Tree>
-      </div>
+      <Tree onSelect={this.onSelect} loadData={this.onLoadData}>
+        {treeNodes}
+      </Tree>
     );
   },
 });

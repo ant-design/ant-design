@@ -2,19 +2,15 @@
 
 - order: 0
 
-最简单的用法。
+最简单的用法，展示可勾选，可选中，禁用，默认展开等功能。
 
 ---
 
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
-import React, { PropTypes } from 'react';
 
 const Demo = React.createClass({
-  propTypes: {
-    keys: PropTypes.array,
-  },
   getDefaultProps() {
     return {
       keys: ['0-0-0', '0-0-1'],
@@ -26,7 +22,6 @@ const Demo = React.createClass({
       defaultExpandedKeys: keys,
       defaultSelectedKeys: keys,
       defaultCheckedKeys: keys,
-      switchIt: true,
     };
   },
   onExpand(treeNode, expand, expandedKeys) {
@@ -38,18 +33,8 @@ const Demo = React.createClass({
   onCheck(info) {
     console.log('onCheck', info);
   },
-  change() {
-    const keys = this.props.keys;
-    this.setState({
-      defaultExpandedKeys: ['0-0', keys[this.state.switchIt ? 0 : 1]],
-      defaultSelectedKeys: [keys[this.state.switchIt ? 0 : 1]],
-      defaultCheckedKeys: [keys[this.state.switchIt ? 1 : 0]],
-      switchIt: !this.state.switchIt,
-    });
-  },
   render() {
-    return (<div style={{ margin: '0 20px' }}>
-      <h2>simple</h2>
+    return (
       <Tree className="myCls" showLine multiple checkable
         defaultExpandedKeys={this.state.defaultExpandedKeys}
         onExpand={this.onExpand}
@@ -62,17 +47,11 @@ const Demo = React.createClass({
             <TreeNode title="leaf" key="0-0-0-1" />
           </TreeNode>
           <TreeNode title="parent 1-1" key="0-0-1">
-            <TreeNode title={<span style={{ color: 'red' }}>sss</span>} key="0-0-1-0" />
+            <TreeNode title={<span style={{ color: '#08c' }}>sss</span>} key="0-0-1-0" />
           </TreeNode>
         </TreeNode>
       </Tree>
-
-      <br />
-      <div>
-        <button onClick={this.change}>change state</button>
-        <p>defaultXX 的初始化状态不会改变</p>
-      </div>
-    </div>);
+    );
   },
 });
 

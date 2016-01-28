@@ -9,7 +9,6 @@
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
-import React, { PropTypes } from 'react';
 
 const x = 3;
 const y = 2;
@@ -73,9 +72,6 @@ function getFilterExpandedKeys(data, expandedKeys) {
 }
 
 const Demo = React.createClass({
-  propTypes: {
-    multiple: PropTypes.bool,
-  },
   getDefaultProps() {
     return {
       multiple: true,
@@ -100,9 +96,7 @@ const Demo = React.createClass({
         expandedKeys.push(treeNode.props.eventKey);
       }
     }
-    this.setState({
-      expandedKeys: expandedKeys,
-    });
+    this.setState({ expandedKeys });
   },
   onCheck(checkedKeys) {
     this.setState({
@@ -112,30 +106,27 @@ const Demo = React.createClass({
   },
   onSelect(selectedKeys, info) {
     console.log('onSelect', info);
-    this.setState({
-      selectedKeys,
-    });
+    this.setState({ selectedKeys });
   },
   render() {
-    const loop = data => {
-      return data.map((item) => {
-        if (item.children) {
-          return (<TreeNode key={item.key} title={item.key} disableCheckbox={item.key === '0-0-0' ? true : false}>
+    const loop = data => data.map((item) => {
+      if (item.children) {
+        return (
+          <TreeNode key={item.key} title={item.key} disableCheckbox={item.key === '0-0-0'}>
             {loop(item.children)}
-          </TreeNode>);
-        }
-        return <TreeNode key={item.key} title={item.key}/>;
-      });
-    };
-    return (<div>
-      <h2>controlled</h2>
+          </TreeNode>
+        );
+      }
+      return <TreeNode key={item.key} title={item.key}/>;
+    });
+    return (
       <Tree checkable multiple={this.props.multiple} defaultExpandAll
         onExpand={this.onExpand} expandedKeys={this.state.expandedKeys}
         onCheck={this.onCheck} checkedKeys={this.state.checkedKeys}
         onSelect={this.onSelect} selectedKeys={this.state.selectedKeys}>
         {loop(gData)}
       </Tree>
-    </div>);
+    );
   },
 });
 
