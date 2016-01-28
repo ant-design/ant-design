@@ -4,7 +4,15 @@ import ValueMixin from './ValueMixin';
 import Input from '../input';
 import { createForm } from 'rc-form';
 
-Form.create = createForm;
+Form.create = (o = {}) => {
+  const options = {
+    ...o,
+    fieldNameProp: 'id',
+    fieldMetaProp: '__meta',
+  };
+
+  return createForm(options);
+};
 Form.Item = FormItem;
 
 // @Deprecated
