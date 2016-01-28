@@ -22,10 +22,18 @@ class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     if (props.help === undefined && context.form) {
-      return (context.form.getFieldError(props.id) || []).join(', ');
+      return (context.form.getFieldError(this.getId()) || []).join(', ');
     }
 
     return props.help;
+  }
+
+  getId() {
+    return this.props.children.props && this.props.children.props.id;
+  }
+
+  getMeta() {
+    return this.props.children.props && this.props.children.props.__meta;
   }
 
   renderHelp() {
@@ -33,8 +41,7 @@ class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const help = this.getHelpMsg();
     return (
-      <div className={!!help ? prefixClsFn(prefixCls, 'explain') : ''}
-        key="help">
+      <div className={!!help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
         { help }
       </div>
     );
@@ -42,7 +49,7 @@ class FormItem extends React.Component {
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const field = this.props.id;
+    const field = this.getId();
 
     if (isFieldValidating(field)) {
       return 'validating';
@@ -58,8 +65,8 @@ class FormItem extends React.Component {
     const form = this.context.form;
     const props = this.props;
     const validateStatus = (props.validateStatus === undefined && form) ?
-            this.getValidateStatus() :
-            props.validateStatus;
+      this.getValidateStatus() :
+      props.validateStatus;
 
     if (validateStatus) {
       classes = classNames(
@@ -89,59 +96,37 @@ class FormItem extends React.Component {
   }
 
   isRequired() {
-    const options = this.props.fieldOption;
-    if (options === undefined) return false;
-
-    const allRules = (options.validate || []).concat({
-      rules: options.rules || [],
-    });
-    return allRules.some((item) => {
-      return item.rules.some((rule) => rule.required);
-    });
+    if (this.context.form) {
+      const meta = this.getMeta() || {};
+      return (meta.validate || []).some((item) => {
+        return item.rules.some((rule) => rule.required);
+      });
+    }
+    return false;
   }
 
   renderLabel() {
     const props = this.props;
     const labelCol = props.labelCol;
     const required = props.required === undefined ?
-            this.isRequired() :
-            props.required;
+      this.isRequired() :
+      props.required;
 
     return props.label ? (
-      <label htmlFor={props.id} className={this._getLayoutClass(labelCol)}
-        required={required} key="label">
+      <label htmlFor={props.id || this.getId()} className={this._getLayoutClass(labelCol)} required={required} key="label">
         {props.label}
       </label>
     ) : null;
   }
 
   renderChildren() {
-    const context = this.context;
     const props = this.props;
-    let children = null;
-    if (context.form && props.id) {
-      const child = React.Children.only(props.children);
-      const size = {};
+    const children = React.Children.map(props.children, (child) => {
       if (typeof child.type === 'function' && !child.props.size) {
-        size.size = 'large';
+        return React.cloneElement(child, {size: 'large'});
       }
-      children = React.cloneElement(
-        child,
-        {
-          ...context.form.getFieldProps(props.id, props.fieldOption),
-          ...size,
-          id: props.id
-        }
-      );
-    } else {
-      children = React.Children.map(props.children, (child) => {
-        if (typeof child.type === 'function' && !child.props.size) {
-          return React.cloneElement(child, { size: 'large' });
-        }
-
-        return child;
-      });
-    }
+      return child;
+    });
     return [
       this.renderLabel(),
       this.renderWrapper(
@@ -186,7 +171,6 @@ FormItem.propTypes = {
   wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
   id: React.PropTypes.string,
-  fieldOption: React.PropTypes.object,
   children: React.PropTypes.node,
 };
 
