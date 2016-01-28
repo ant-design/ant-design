@@ -11,7 +11,7 @@
     font-weight: bold;
     position: absolute;
     top: 10px;
-    right: 4px;
+    right: 3px;
     color: #666;
     transition: transform .3s ease;
   }
@@ -38,9 +38,8 @@
     }
     &.drag-over {
       > a[draggable] {
-        background-color: #316ac5;
+        background-color: @primary-color;
         color: white;
-        border: 1px #316ac5 solid;
         opacity: 0.8;
       }
     }
@@ -66,7 +65,7 @@
     }
     a {
       display: inline-block;
-      padding: 1px 4px;
+      padding: 1px 5px;
       border-radius: 2px;
       margin: 0;
       cursor: pointer;

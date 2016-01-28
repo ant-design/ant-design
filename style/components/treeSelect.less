@@ -1,21 +1,7 @@
 @tree-select-tree-prefix-cls: ant-tree-select-tree;
 .antCheckboxFn(@checkbox-prefix-cls: ant-tree-select-tree-checkbox);
 @import "../mixins/iconfont";
-.antTreeSwitcherIcon() {
-  position: relative;
-  &:after {
-    .iconfont-size-under-12px(6px);
-    content: '\e611';
-    display: inline-block;
-    font-family: 'anticon';
-    font-weight: bold;
-    position: absolute;
-    top: 10px;
-    right: 4px;
-    color: #666;
-    transition: transform .3s ease;
-  }
-}
+
 .@{tree-select-tree-prefix-cls} {
   margin: 0;
   padding: 5px;
@@ -28,7 +14,7 @@
     outline: 0;
     &.filter-node {
       > a {
-        color: #a60000!important;
+        color: @error-color!important;
         font-weight: bold!important;
       }
     }
@@ -38,7 +24,7 @@
     }
     a {
       display: inline-block;
-      padding: 1px 4px;
+      padding: 1px 5px;
       border-radius: 2px;
       margin: 0;
       cursor: pointer;
