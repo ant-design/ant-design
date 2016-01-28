@@ -355,12 +355,20 @@ InstantClickChangeFns.push(function() {
     var prevLink = links[currentLinkIndex - 1];
     var nextLink = links[currentLinkIndex + 1];
     if (prevLink) {
-      prevNextNavNode.append('<a class="prev-page" href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
+      var prevLinkNavNode = $('<a class="prev-page" href="' + prevLink.href + '">' + prevLink.innerHTML + '</a>');
+      if (prevLink.className.indexOf('nav-link-disabled') >= 0) {
+        prevLinkNavNode.attr('disabled', true);
+      }
+      prevNextNavNode.append(prevLinkNavNode);
     } else {
       prevNextNavNode.append('<span class="prev-page"></span>');
     }
     if (nextLink) {
-      prevNextNavNode.append('<a class="next-page" href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
+      var nextLinkNavNode = $('<a class="next-page" href="' + nextLink.href + '">' + nextLink.innerHTML + '</a>');
+      if (nextLink.className.indexOf('nav-link-disabled') >= 0) {
+        nextLinkNavNode.attr('disabled', true);
+      }
+      prevNextNavNode.append(nextLinkNavNode);
     } else {
       prevNextNavNode.append('<span class="next-page"></span>');
     }
