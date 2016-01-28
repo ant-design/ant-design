@@ -10,7 +10,6 @@
 import { Tree, Tooltip } from 'antd';
 import assign from 'object-assign';
 const TreeNode = Tree.TreeNode;
-import React from 'react';
 
 function contains(root, n) {
   let node = n;

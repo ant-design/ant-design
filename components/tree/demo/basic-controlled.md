@@ -9,7 +9,7 @@
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
-import React, { PropTypes } from 'react';
+const PropTypes = React.PropTypes;
 
 const x = 3;
 const y = 2;
