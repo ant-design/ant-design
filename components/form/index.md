@@ -105,6 +105,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |  hasFeedback | 配合 validateStatus 属性使用，是否展示校验状态图标 | bool |  | false  |
 |  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
+`Form.Item` 内的菜单控件必须设置 `id: String`，且必须唯一。
 
 ### Input
 

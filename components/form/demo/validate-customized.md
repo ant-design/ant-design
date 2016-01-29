@@ -138,7 +138,7 @@ let Demo = React.createClass({
                   ]
                 })}
                 onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                autoComplete="off"/>
+                autoComplete="off" id="pass" />
             </FormItem>
           </Col>
           <Col span="6">
@@ -163,7 +163,7 @@ let Demo = React.createClass({
                   }],
                 })}
                 onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                autoComplete="off" />
+                autoComplete="off" id="rePass" />
             </FormItem>
           </Col>
           <Col span="6">
