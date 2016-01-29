@@ -46,9 +46,11 @@ const Demo = React.createClass({
     };
   },
   onDragEnter(info) {
-    this.setState({
-      expandedKeys: info.expandedKeys,
-    });
+    console.log(info);
+    // expandedKeys 需要受控时设置
+    // this.setState({
+    //   expandedKeys: info.expandedKeys,
+    // });
   },
   onDrop(info) {
     console.log(info);
@@ -88,7 +90,6 @@ const Demo = React.createClass({
     }
     this.setState({
       gData: data,
-      expandedKeys: info.originExpandedKeys,
     });
   },
   render() {

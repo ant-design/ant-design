@@ -26,8 +26,8 @@
 |selectedKeys | （受控）设置选中的树节点 | String[] | - |
 |defaultSelectedKeys | 默认选中的树节点 | String[] | [] |
 |onExpand | 展开/收起节点时触发 | function(node, expanded, expandedKeys) | - |
-|onCheck | 点击复选框触发 | function(e:{checked:bool, node, checkedKeys, event}) | - |
-|onSelect | 点击树节点触发 | function(e:{selected:bool,node,selectedKeys,event}) | - |
+|onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - |
+|onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
 |filterTreeNode | filter some treeNodes as you need. it should return true | function(node) | - |
 |loadData | 异步加载数据 | function(node)| - |
 |onRightClick | 响应右键点击 | function({event,node}) | - |
