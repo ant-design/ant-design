@@ -8,7 +8,7 @@
   font-size: 12px;
   li {
     padding: 0;
-    margin: 0;
+    margin: 8px 0;
     list-style: none;
     white-space: nowrap;
     outline: 0;
@@ -28,21 +28,27 @@
       border-radius: 2px;
       margin: 0;
       cursor: pointer;
-      height: 20px;
       text-decoration: none;
       vertical-align: top;
       color: #666;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: tint(@primary-color, 90%);
+      }
+      &.@{tree-select-tree-prefix-cls}-node-selected {
+        background-color: tint(@primary-color, 80%);
+      }
     }
     span {
       &.@{tree-select-tree-prefix-cls}-checkbox {
-        margin: 3px 4px 0 0;
+        margin: 2px 4px 0 0;
       }
       &.@{tree-select-tree-prefix-cls}-switcher,
       &.@{tree-select-tree-prefix-cls}-iconEle {
-        line-height: 0;
         margin: 0;
         width: 16px;
-        height: 18px;
+        height: 16px;
+        line-height: 16px;
         display: inline-block;
         vertical-align: middle;
         border: 0 none;
@@ -92,9 +98,6 @@
       color: #ccc;
       cursor: not-allowed;
     }
-  }
-  &-node-selected {
-    background-color: tint(@primary-color, 90%);
   }
   &-icon__open {
     margin-right: 2px;
@@ -162,7 +165,7 @@
 
     background-color: #fff;
     border-radius: @border-radius-base;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @border-color-base;
     .transition(all .3s @ease-in-out);
 
     &:hover {
@@ -180,7 +183,7 @@
   &-disabled &-selection {
     &:hover,
     &:active {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
     }
   }
 
@@ -446,7 +449,7 @@
   }
 
   background-color: white;
-  border: 1px solid #d9d9d9;
+  border: 1px solid @border-color-base;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
@@ -554,7 +557,7 @@
       padding: 4px 7px;
       width: 100%;
       box-sizing: border-box;
-      border: 1px solid #d9d9d9;
+      border: 1px solid @border-color-base;
       border-radius: 4px;
       outline: none;
     }

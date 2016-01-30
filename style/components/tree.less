@@ -10,8 +10,8 @@
     font-family: 'anticon';
     font-weight: bold;
     position: absolute;
-    top: 10px;
-    right: 3px;
+    top: 0;
+    right: 4px;
     color: #666;
     transition: transform .3s ease;
   }
@@ -22,7 +22,7 @@
   font-size: 12px;
   li {
     padding: 0;
-    margin: 0;
+    margin: 7px 0;
     list-style: none;
     white-space: nowrap;
     outline: 0;
@@ -69,21 +69,27 @@
       border-radius: 2px;
       margin: 0;
       cursor: pointer;
-      height: 20px;
       text-decoration: none;
       vertical-align: top;
       color: #666;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: tint(@primary-color, 90%);
+      }
+      &.@{tree-prefix-cls}-node-selected {
+        background-color: tint(@primary-color, 80%);
+      }
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 3px 4px 0 0;
+        margin: 2px 4px 0 0;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
-        line-height: 0;
         margin: 0;
         width: 16px;
-        height: 18px;
+        height: 16px;
+        line-height: 16px;
         display: inline-block;
         vertical-align: middle;
         border: 0 none;
@@ -133,9 +139,6 @@
       color: #ccc;
       cursor: not-allowed;
     }
-  }
-  &-node-selected {
-    background-color: tint(@primary-color, 90%);
   }
   &-icon__open {
     margin-right: 2px;
