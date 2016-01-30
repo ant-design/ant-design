@@ -9,9 +9,13 @@ entry['demo'] = './scripts/demo.js';
 module.exports = {
   entry: entry,
 
+  cache: true,
+
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
+
+  noParse: /_site|node_modules/,
 
   output: {
     path: path.join(process.cwd(), 'dist'),
@@ -33,14 +37,17 @@ module.exports = {
       }
     }, {
       test: /\.json$/,
+      exclude: /node_modules/,
       loader: 'json-loader'
     }, {
       test: /\.less$/,
+      exclude: /node_modules/,
       loader: ExtractTextPlugin.extract(
         'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
       )
     }, {
       test: /\.css$/,
+      exclude: /node_modules/,
       loader: ExtractTextPlugin.extract(
         'css?sourceMap&-minimize!' + 'postcss-loader'
       )
