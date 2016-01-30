@@ -121,6 +121,7 @@ let Demo = React.createClass({
   },
 
   render() {
+    const { getFieldProps } = this.props.form;
     return (
       <Form horizontal form={this.props.form}>
         <Row>
@@ -128,15 +129,14 @@ let Demo = React.createClass({
             <FormItem
               label="密码："
               labelCol={{ span: 6 }}
-              wrapperCol={{ span: 18 }}
-              id="pass"
-              fieldOption={{
-                rules: [
-                  { required: true, whitespace: true, message: '请填写密码' },
-                  { validator: this.checkPass }
-                ]
-              }}>
+              wrapperCol={{ span: 18 }}>
               <Input type="password"
+                {...getFieldProps('pass', {
+                  rules: [
+                    { required: true, whitespace: true, message: '请填写密码' },
+                    { validator: this.checkPass }
+                  ]
+                })}
                 onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                 autoComplete="off"/>
             </FormItem>
@@ -151,18 +151,17 @@ let Demo = React.createClass({
             <FormItem
               label="确认密码："
               labelCol={{ span: 6 }}
-              wrapperCol={{ span: 18 }}
-              id="rePass"
-              fieldOption={{
-                rules: [{
-                  required: true,
-                  whitespace: true,
-                  message: '请再次输入密码',
-                }, {
-                  validator: this.checkPass2,
-                }],
-              }}>
+              wrapperCol={{ span: 18 }}>
               <Input type="password"
+                {...getFieldProps('rePass', {
+                  rules: [{
+                    required: true,
+                    whitespace: true,
+                    message: '请再次输入密码',
+                  }, {
+                    validator: this.checkPass2,
+                  }],
+                })}
                 onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                 autoComplete="off" />
             </FormItem>

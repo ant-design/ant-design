@@ -58,19 +58,20 @@ let Demo = React.createClass({
         label: '杭州',
       }],
     }];
+    const { getFieldProps } = this.props.form;
     return (
       <Form horizontal form={this.props.form}>
         <FormItem
           label="国籍："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="select"
-          fieldOption={{
-            rules: [
-              { required: true, message: '请选择您的国籍' }
-            ],
-          }}>
-          <Select placeholder="请选择国家" style={{ width: '100%' }}>
+          wrapperCol={{ span: 12 }}>
+          <Select placeholder="请选择国家" style={{ width: '100%' }}
+            {...getFieldProps('select', {
+              rules: [
+                { required: true, message: '请选择您的国籍' }
+              ],
+            })}
+          >
             <Option value="china">中国</Option>
             <Option value="use">美国</Option>
             <Option value="japan">日本</Option>
@@ -82,14 +83,14 @@ let Demo = React.createClass({
         <FormItem
           label="喜欢的颜色："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="multiSelect"
-          fieldOption={{
-            rules: [
-              { required: true, message: '请选择您喜欢的颜色', type: 'array' },
-            ]
-          }}>
-          <Select multiple placeholder="请选择颜色" style={{ width: '100%' }}>
+          wrapperCol={{ span: 12 }}>
+          <Select multiple placeholder="请选择颜色" style={{ width: '100%' }}
+            {...getFieldProps('multiSelect', {
+              rules: [
+                { required: true, message: '请选择您喜欢的颜色', type: 'array' },
+              ]
+            })}
+          >
             <Option value="red">红色</Option>
             <Option value="orange">橙色</Option>
             <Option value="yellow">黄色</Option>
@@ -101,14 +102,14 @@ let Demo = React.createClass({
         <FormItem
           label="性别："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="radio"
-          fieldOption={{
-            rules: [
-              { required: true, message: '请选择您的性别' }
-            ]
-          }}>
-          <RadioGroup>
+          wrapperCol={{ span: 12 }}>
+          <RadioGroup
+            {...getFieldProps('radio', {
+              rules: [
+                { required: true, message: '请选择您的性别' }
+              ]
+            })}
+          >
             <Radio value="male">男</Radio>
             <Radio value="female">女</Radio>
           </RadioGroup>
@@ -117,42 +118,42 @@ let Demo = React.createClass({
         <FormItem
           label="生日："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="birthday"
-          fieldOption={{
-            rules: [
-              {
-                required: true,
-                type: 'date',
-                message: '你的生日是什么呢?',
-              }, {
-                validator: this.checkBirthday,
-              }
-            ]
-          }}>
-          <DatePicker />
+          wrapperCol={{ span: 12 }}>
+          <DatePicker
+            {...getFieldProps('birthday', {
+              rules: [
+                {
+                  required: true,
+                  type: 'date',
+                  message: '你的生日是什么呢?',
+                }, {
+                  validator: this.checkBirthday,
+                }
+              ]
+            })}
+          />
         </FormItem>
 
         <FormItem
           label="8~12间的质数："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="primeNumber"
-          fieldOption={{
-            rules: [{ validator: this.checkPrime }],
-          }}>
-          <InputNumber min={8} max={12} />
+          wrapperCol={{ span: 12 }}>
+          <InputNumber min={8} max={12}
+            {...getFieldProps('primeNumber', {
+              rules: [{ validator: this.checkPrime }],
+            })}
+          />
         </FormItem>
 
         <FormItem
           label="选择地址："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="address"
-          fieldOption={{
-            rules: [{ required: true, type: 'array' }],
-          }}>
-          <Cascader options={address} />
+          wrapperCol={{ span: 12 }}>
+          <Cascader options={address}
+            {...getFieldProps('address', {
+              rules: [{ required: true, type: 'array' }],
+            })}
+          />
         </FormItem>
 
         <FormItem

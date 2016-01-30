@@ -2,9 +2,7 @@
 
 - order: 2
 
-示例展示了如何通过使用 `Form.ValueMixin` 来获取和更新表单提交的数值。
-
-**注意：** 1）需要为每个输入控件声明 `name` 属性；2）ES6 语法 [不支持 `mixins`](https://facebook.github.io/react/docs/reusable-components.html#no-mixins)；
+示例展示了如何通过使用 `Form.create` 来获取和更新表单提交的数值。
 
 ---
 
@@ -13,68 +11,48 @@ import { Form, Input, Button, Checkbox, Radio, Row, Col } from 'antd';
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
-const Demo = React.createClass({
-  mixins: [Form.ValueMixin],
-
-  getInitialState() {
-    return {
-      formData: {
-        userName: '大眼萌 minion',
-        password: undefined,
-        gender: 'male',
-        remark: undefined,
-        agreement: undefined,
-      }
-    };
-  },
-
+let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    console.log('收到表单值：', this.state.formData);
+    console.log('收到表单值：', this.props.form.getFieldsValue());
   },
 
   render() {
-    const formData = this.state.formData;
+    const { getFieldProps } = this.props.form;
     return (
       <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
           label="用户名："
           labelCol={{ span: 6 }}
-          wrapperCol={{ span: 14 }}
-          required>
+          wrapperCol={{ span: 14 }}>
           <p className="ant-form-text" id="userName" name="userName">大眼萌 minion</p>
         </FormItem>
         <FormItem
-          id="password"
           label="密码："
           labelCol={{ span: 6 }}
-          wrapperCol={{ span: 14 }}
-          required>
-          <Input type="password" id="password" name="password" placeholder="请输入密码" value={formData.password} onChange={this.setValue.bind(this, 'password')} />
+          wrapperCol={{ span: 14 }}>
+          <Input type="password" {...getFieldProps('pass')} placeholder="请输入密码" />
         </FormItem>
         <FormItem
           label="您的性别："
           labelCol={{ span: 6 }}
-          wrapperCol={{ span: 14 }}
-          required>
-            <RadioGroup name="gender" value={formData.gender} onChange={this.setValue.bind(this, 'gender')} >
+          wrapperCol={{ span: 14 }}d>
+            <RadioGroup {...getFieldProps('gender', { initialValue: 'female' })}>
               <Radio value="male">男的</Radio>
               <Radio value="female">女的</Radio>
             </RadioGroup>
         </FormItem>
         <FormItem
-          id="remark"
           label="备注："
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
-          required
           help="随便写点什么">
-          <Input type="textarea" placeholder="随便写" id="remark" name="remark" value={formData.remark} onChange={this.setValue.bind(this, 'remark')} />
+          <Input type="textarea" placeholder="随便写" {...getFieldProps('remark')} />
         </FormItem>
         <FormItem
           wrapperCol={{ span: 14, offset: 6 }} >
           <label>
-            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} />同意
+            <Checkbox {...getFieldProps('agreement')} />同意
           </label>
         </FormItem>
         <Row>
@@ -86,6 +64,8 @@ const Demo = React.createClass({
     );
   }
 });
+
+Demo = Form.create()(Demo);
 
 ReactDOM.render(<Demo />, mountNode);
 ````

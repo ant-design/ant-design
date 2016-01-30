@@ -77,7 +77,7 @@ class BasicDemo extends React.Component {
   }
 
   render() {
-    const { isFieldValidating, getFieldError } = this.props.form;
+    const { getFieldProps } = this.props.form;
 
     return (
       <Form horizontal form={this.props.form}>
@@ -85,53 +85,49 @@ class BasicDemo extends React.Component {
           label="用户名："
           labelCol={{ span: 7 }}
           wrapperCol={{ span: 12 }}
-          hasFeedback
-          id="name"
-          fieldOption={{
-            rules: [
-              { required: true, min: 5, message: '用户名至少为 5 个字符' },
-              { validator: this.userExists },
-            ],
-          }}
-          help={isFieldValidating('name') ? '正在校验中..' : (getFieldError('name') || []).join(', ')}>
-          <Input placeholder="实时校验，输入 JasonWood 看看" />
+          hasFeedback>
+          <Input placeholder="实时校验，输入 JasonWood 看看"
+            {...getFieldProps('name', {
+              rules: [
+                { required: true, min: 5, message: '用户名至少为 5 个字符' },
+                { validator: this.userExists },
+              ],
+            })}/>
         </FormItem>
 
         <FormItem
           label="邮箱："
           labelCol={{ span: 7 }}
           wrapperCol={{ span: 12 }}
-          hasFeedback
-          id="email"
-          fieldOption={{
-            validate: [{
-              rules: [
-                { required: true },
-              ],
-              trigger: 'onBlur',
-            }, {
-              rules: [
-                { type: 'email', message: '请输入正确的邮箱地址' },
-              ],
-              trigger: ['onBlur', 'onChange'],
-            }]
-          }}>
-          <Input type="email" placeholder="onBlur 与 onChange 相结合" />
+          hasFeedback>
+          <Input type="email" placeholder="onBlur 与 onChange 相结合"
+            {...getFieldProps('email', {
+              validate: [{
+                rules: [
+                  { required: true },
+                ],
+                trigger: 'onBlur',
+              }, {
+                rules: [
+                  { type: 'email', message: '请输入正确的邮箱地址' },
+                ],
+                trigger: ['onBlur', 'onChange'],
+              }]
+            })}/>
         </FormItem>
 
         <FormItem
           label="密码："
           labelCol={{ span: 7 }}
           wrapperCol={{ span: 12 }}
-          hasFeedback
-          id="passwd"
-          fieldOption={{
-            rules: [
-              { required: true, whitespace: true, message: '请填写密码' },
-              { validator: this.checkPass.bind(this) },
-            ],
-          }}>
+          hasFeedback>
           <Input type="password" autoComplete="off"
+            {...getFieldProps('passwd', {
+              rules: [
+                { required: true, whitespace: true, message: '请填写密码' },
+                { validator: this.checkPass.bind(this) },
+              ],
+            })}
             onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}/>
         </FormItem>
 
@@ -139,32 +135,30 @@ class BasicDemo extends React.Component {
           label="确认密码："
           labelCol={{ span: 7 }}
           wrapperCol={{ span: 12 }}
-          hasFeedback
-          id="rePasswd"
-          fieldOption={{
-            rules: [{
-              required: true,
-              whitespace: true,
-              message: '请再次输入密码',
-            }, {
-              validator: this.checkPass2.bind(this),
-            }],
-          }}>
+          hasFeedback>
           <Input type="password" autoComplete="off" placeholder="两次输入密码保持一致"
-            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
+            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+            {...getFieldProps('rePasswd', {
+              rules: [{
+                required: true,
+                whitespace: true,
+                message: '请再次输入密码',
+              }, {
+                validator: this.checkPass2.bind(this),
+              }],
+            })}/>
         </FormItem>
 
         <FormItem
           label="备注："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          id="textarea"
-          fieldOption={{
-            rules: [
-              { required: true, message: '真的不打算写点什么吗？' },
-            ],
-          }}>
-          <Input type="textarea" placeholder="随便写" id="textarea" name="textarea" />
+          wrapperCol={{ span: 12 }}>
+          <Input type="textarea" placeholder="随便写" id="textarea" name="textarea"
+            {...getFieldProps('textarea', {
+              rules: [
+                { required: true, message: '真的不打算写点什么吗？' },
+              ],
+            })}/>
         </FormItem>
 
         <FormItem wrapperCol={{ span: 12, offset: 7 }} >
@@ -177,7 +171,7 @@ class BasicDemo extends React.Component {
   }
 }
 
-BasicDemo = createForm({})(BasicDemo);
+BasicDemo = createForm()(BasicDemo);
 
 ReactDOM.render(<BasicDemo />, mountNode);
 ````

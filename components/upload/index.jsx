@@ -206,7 +206,7 @@ const AntUpload = React.createClass({
   componentWillReceiveProps(nextProps) {
     if ('fileList' in nextProps) {
       this.setState({
-        fileList: nextProps.fileList
+        fileList: nextProps.fileList || [],
       });
     }
   },
@@ -235,14 +235,14 @@ const AntUpload = React.createClass({
       uploadList = (
         <UploadList listType={this.props.listType}
           items={this.state.fileList}
-          onRemove={this.handleManualRemove} />
+          onRemove={this.handleManualRemove}/>
       );
     }
     if (type === 'drag') {
       let dragUploadingClass = this.state.fileList.some(file => file.status === 'uploading')
-                                 ? `${prefixCls}-drag-uploading` : '';
+        ? `${prefixCls}-drag-uploading` : '';
       let draggingClass = this.state.dragState === 'dragover'
-                           ? `${prefixCls}-drag-hover` : '';
+        ? `${prefixCls}-drag-hover` : '';
       return (
         <span className={this.props.className}>
           <div className={prefixCls + ' ' + prefixCls + '-drag '

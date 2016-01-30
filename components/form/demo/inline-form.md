@@ -10,41 +10,30 @@
 import { Form, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
-const Demo = React.createClass({
-  mixins: [Form.ValueMixin],
-
-  getInitialState() {
-    return {
-      formData: {
-        userName: undefined,
-        password: undefined,
-        agreement: undefined,
-      }
-    };
-  },
-
+let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    console.log('收到表单值：', this.state.formData);
+    console.log('收到表单值：', this.props.form.getFieldsValue());
   },
 
   render() {
-    const formData = this.state.formData;
+    const { getFieldProps } = this.props.form;
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <FormItem
-          id="userName"
           label="账户：">
-          <Input placeholder="请输入账户名" id="userName" name="userName" onChange={this.setValue.bind(this, 'userName')} value={formData.userName} />
+          <Input placeholder="请输入账户名"
+            {...getFieldProps('userName')} />
         </FormItem>
         <FormItem
-          id="password"
           label="密码：">
-          <Input type="password" placeholder="请输入密码" id="password" name="password" onChange={this.setValue.bind(this, 'password')} value={formData.password} />
+          <Input type="password" placeholder="请输入密码"
+            {...getFieldProps('password')} />
         </FormItem>
         <FormItem>
           <label className="ant-checkbox-inline">
-            <Checkbox name="agreement" value={formData.agreement} onChange={this.setValue.bind(this, 'agreement')} />记住我
+            <Checkbox
+              {...getFieldProps('agreement')} />记住我
           </label>
         </FormItem>
         <Button type="primary" htmlType="submit">登录</Button>
@@ -52,6 +41,8 @@ const Demo = React.createClass({
     );
   }
 });
+
+Demo = Form.create()(Demo);
 
 ReactDOM.render(<Demo />, mountNode);
 ````
