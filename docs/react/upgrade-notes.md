@@ -24,6 +24,10 @@ Validation 已经被废弃，并会在以后的版本完全移除，所以建议
 ```jsx
 <Progress.Circle percent={100} format={(_) => <Icon type="check" />} />
 ```
+### Tree
+- `onSelect` 回调函数，由原来的`一个`参数，变为`两个`，第一个为`selectedKeys`，第二个参数为原来第一个参数里的其余信息。另外`selectedKeys`里包含了当前选中的节点key，而原来的不包含。
+- `onCheck` 回调函数，由原来的`一个`参数，变为`两个`，第一个为`checkedKeys`，第二个参数为原来第一个参数里的其余信息。另外`checkedKeys`里包含了当前选中的节点key，而原来的不包含（这样免去业务里自己组装key的工作）。
+- 异步API中`onDataLoaded`重命名为`loadData`，其他不用改。
 
 ## 0.10 => 0.11
 
