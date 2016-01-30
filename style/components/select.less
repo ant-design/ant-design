@@ -53,7 +53,7 @@
 
     background-color: #fff;
     border-radius: @border-radius-base;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @border-color-base;
     .transition(all .3s @ease-in-out);
 
     &:hover {
@@ -71,7 +71,7 @@
   &-disabled &-selection {
     &:hover,
     &:active {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
     }
   }
 
@@ -342,7 +342,7 @@
   }
 
   background-color: white;
-  border: 1px solid #d9d9d9;
+  border: 1px solid @border-color-base;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
@@ -452,7 +452,7 @@
       padding: 4px 7px;
       width: 100%;
       box-sizing: border-box;
-      border: 1px solid #d9d9d9;
+      border: 1px solid @border-color-base;
       border-radius: 4px;
       outline: none;
     }
