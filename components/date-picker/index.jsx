@@ -62,6 +62,8 @@ function createPicker(TheCalendar, defaultFormat) {
           transitionName="slide-up" />
         : null;
 
+      const disabledTime = this.props.showTime ? this.props.disabledTime : null;
+
       const calendarClassName = classNames({
         ['ant-calendar-time']: this.props.showTime,
         ['ant-calendar-month']: MonthCalendar === TheCalendar,
@@ -71,6 +73,7 @@ function createPicker(TheCalendar, defaultFormat) {
         <TheCalendar
           formatter={this.getFormatter()}
           disabledDate={this.props.disabledDate}
+          disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={timePicker}
           defaultValue={defaultCalendarValue}

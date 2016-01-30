@@ -13,7 +13,11 @@ export default {
 
   getFormatter() {
     const formats = this.formats = this.formats || {};
-    const format = this.props.format;
+    let format = this.props.format;
+    // Remove time format text when has time-picker in calendar
+    if (this.props.showTime) {
+      format = format.replace('HH:mm:ss', '');
+    }
     if (formats[format]) {
       return formats[format];
     }

@@ -3,7 +3,7 @@
 - order: 4
 - hidden: true
 
-和 [时间选择框](/components/timepicer) 配合使用。
+和 [时间选择框](/components/time-picker) 配合使用。
 
 ---
 
