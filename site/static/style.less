@@ -262,10 +262,7 @@ a.nav-link-disabled {
   height: 1300px;
   width: 2400px;
   transform-origin: center center;
-  -webkit-transform-origin: center center;
-    -moz-transform-origin: center center;
-    transition: opacity 0.5s ease-out;
-    -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
 }
 
 .banner-box #bannerAnim,
@@ -1527,8 +1524,17 @@ a.entry-link:hover .anticon-smile {
     margin-left: 0;
   }
 
-  .markdown {
+  .markdown > * {
+    width: 100%!important;
+  }
+
+  .main-wrapper {
     width: 100%;
+  }
+
+  .main-container {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 
   footer {
