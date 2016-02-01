@@ -8,6 +8,7 @@
 
 - 新增 [级联选择(Cascader)](http://ant.design/components/cascader/) 组件。
 - 新增 [树选择控件(TreeSelect)](http://ant.design/components/tree-select/) 组件。
+- Form 自身支持校验功能，废弃 Validation。[演示](http://ant.design/components/form/#demo-validate-basic)
 - Tabs
   - `activeKey ` 修正为受控属性。
   - 当前项现在会始终显示。[#815](https://github.com/ant-design/ant-design/issues/815)
@@ -56,10 +57,10 @@
 - Button
   - 小号 Button 的圆角调整为 `4px`。
   - 修复 Button.Group disabled 后的样式问题。[#926](https://github.com/ant-design/ant-design/issues/926)
-- Form 自身支持校验功能，废弃 Validation。[演示](http://ant.design/components/form/#demo-validate-basic)
 - BreadCrumb
   - 移除 `router` 属性，无需设置。
   - 修复一个链接参数不对的问题。
+  - 修复面包屑中链接有多余的 `/` 的问题。[#969](https://github.com/ant-design/ant-design/pull/969)
 
 ## 0.11.3
 
