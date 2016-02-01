@@ -69,7 +69,7 @@ const Breadcrumb = React.createClass({
         if (i === routes.length - 1) {
           link = <span>{name}</span>;
         } else {
-          link = <a href={'#' + paths.join('/')}>{name}</a>;
+          link = <a href={'#' + paths.join('').replace(/^\/+/, '/')}>{name}</a>;
         }
         return <BreadcrumbItem separator={separator} key={name}>{link}</BreadcrumbItem>;
       });
