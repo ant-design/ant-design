@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import objectAssign from 'object-assign';
 
 function prefixClsFn(prefixCls, ...args) {
   return args.map((s) => {
@@ -31,6 +30,10 @@ class FormItem extends React.Component {
 
   getId() {
     return this.props.children.props && this.props.children.props.id;
+  }
+
+  getMeta() {
+    return this.props.children.props && this.props.children.props.__meta;
   }
 
   renderHelp() {
@@ -94,11 +97,8 @@ class FormItem extends React.Component {
 
   isRequired() {
     if (this.context.form) {
-      const meta = this.props.fieldOption || {};
-
-      // Have to merge manually, for children have no `__meta` now.
+      const meta = this.getMeta() || {};
       const validate = (meta.validate || []);
-      validate.push({ rules: meta.rules });
 
       return validate.filter((item) => !!item.rules).some((item) => {
         return item.rules.some((rule) => rule.required);
@@ -122,23 +122,13 @@ class FormItem extends React.Component {
   }
 
   renderChildren() {
-    const context = this.context;
     const props = this.props;
     const children = React.Children.map(props.children, (child) => {
-      // If <Component />&nbsp;&nbsp;&nbsp;<Component />,
-      // React will not convert &nbsp;&nbsp;&nbsp; into component.
-      if (!child.type) {
-        return child;
+      if (typeof child.type === 'function' && !child.props.size) {
+        return React.cloneElement(child, { size: 'large' });
       }
 
-      const childProps = {};
-      if (typeof child.type === 'function' && !child.props.size) {
-        objectAssign(childProps, { size: 'large' });
-      }
-      if (context.form && this.getId()) {
-        objectAssign(childProps, context.form.getFieldProps(this.getId(), props.fieldOption));
-      }
-      return React.cloneElement(child, childProps);
+      return child;
     });
     return [
       this.renderLabel(),
