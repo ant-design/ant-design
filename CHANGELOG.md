@@ -6,6 +6,8 @@
 
 ## 0.12.0
 
+`2016-02-01`
+
 - 新增 [级联选择(Cascader)](http://ant.design/components/cascader/) 组件。
 - 新增 [树选择控件(TreeSelect)](http://ant.design/components/tree-select/) 组件。
 - Form 自身支持校验功能，废弃 Validation。[演示](http://ant.design/components/form/#demo-validate-basic)
