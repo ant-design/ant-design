@@ -1,6 +1,5 @@
 import Collapse from 'rc-collapse';
 import React from 'react';
-const prefixCls = 'ant-collapse';
 
 class AntCollapse extends React.Component {
   render() {
@@ -9,7 +8,7 @@ class AntCollapse extends React.Component {
 }
 
 AntCollapse.defaultProps = {
-  prefixCls: prefixCls
+  prefixCls: 'ant-collapse',
 };
 
 AntCollapse.Panel = Collapse.Panel;

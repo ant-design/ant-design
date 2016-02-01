@@ -54,11 +54,13 @@ class TransferList extends Component {
     if (typeof props.checkable !== 'boolean') {
       customEle = props.checkable;
     }
-    return <span ref="checkbox"
-      className={checkboxCls}
-      onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
-      {customEle}
-    </span>;
+    return (
+      <span ref="checkbox"
+        className={checkboxCls}
+        onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
+        {customEle}
+      </span>
+    );
   }
 
   matchFilter(text, filterText) {
@@ -67,11 +69,12 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys, checkStatus, body, footer, showSearch } = this.props;
+    const { prefixCls, dataSource, titleText, filter, checkedKeys,
+            checkStatus, body, footer, showSearch } = this.props;
 
     // Custom Layout
-    const footerDom = footer({...this.props});
-    const bodyDom = body({...this.props});
+    const footerDom = footer({ ...this.props });
+    const bodyDom = body({ ...this.props });
 
     const listCls = classNames({
       [prefixCls]: true,
@@ -94,31 +97,33 @@ class TransferList extends Component {
       }
     }).filter(item => !!item);
 
-    return <div className={listCls} {...this.props}>
-      <div className={`${prefixCls}-header`}>
-        {this.renderCheckbox({
-          prefixCls: 'ant-transfer',
-          checked: checkStatus === 'all',
-          checkPart: checkStatus === 'part',
-          checkable: <span className={`ant-transfer-checkbox-inner`}></span>
-        })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条</span>
-        <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
-      </div>
-      { bodyDom ? bodyDom :
-      <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
-        { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-          <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
+    return (
+      <div className={listCls} {...this.props}>
+        <div className={`${prefixCls}-header`}>
+          {this.renderCheckbox({
+            prefixCls: 'ant-transfer',
+            checked: checkStatus === 'all',
+            checkPart: checkStatus === 'part',
+            checkable: <span className={`ant-transfer-checkbox-inner`}></span>
+          })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条</span>
+          <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
+        </div>
+        { bodyDom ? bodyDom :
+        <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+          { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
+            <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
+          </div> : null }
+          <Animate component="ul"
+            transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
+            transitionLeave={false}>
+            {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>Not Found</div>}
+          </Animate>
+        </div>}
+        { footerDom ? <div className={`${prefixCls}-footer`}>
+          { footerDom }
         </div> : null }
-        <Animate component="ul"
-          transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
-          transitionLeave={false}>
-          {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>Not Found</div>}
-        </Animate>
-      </div>}
-      { footerDom ? <div className={`${prefixCls}-footer`}>
-        { footerDom }
-      </div> : null }
-    </div>;
+      </div>
+    );
   }
 }
 
@@ -131,7 +136,7 @@ TransferList.defaultProps = {
   handleSelect: noop,
   handleSelectAll: noop,
   render: noop,
-  //advanced
+  // advanced
   body: noop,
   footer: noop,
 };

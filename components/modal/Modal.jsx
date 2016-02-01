@@ -37,7 +37,7 @@ let AntModal = React.createClass({
       return;
     }
     // 只有点击事件支持从鼠标位置动画展开
-    Dom.addEventListener(document.body, 'click', function onDocumentMousemove(e) {
+    Dom.addEventListener(document.documentElement, 'click', (e) => {
       mousePosition = {
         x: e.pageX,
         y: e.pageY
@@ -68,8 +68,10 @@ let AntModal = React.createClass({
       </Button>
     ];
     let footer = props.footer || defaultFooter;
-    return <Dialog onClose={this.handleCancel} footer={footer} {...props}
-      visible={props.visible} mousePosition={mousePosition} />;
+    return (
+      <Dialog onClose={this.handleCancel} footer={footer} {...props}
+        visible={props.visible} mousePosition={mousePosition} />
+    );
   }
 });
 

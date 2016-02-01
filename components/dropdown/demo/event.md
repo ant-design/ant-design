@@ -8,15 +8,17 @@
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
-const onClick = function({key}) {
+const onClick = function ({ key }) {
   console.log('点击了菜单' + key);
 };
 
-const menu = <Menu onClick={onClick}>
-  <Menu.Item key="1">第一个菜单项</Menu.Item>
-  <Menu.Item key="2">第二个菜单项</Menu.Item>
-  <Menu.Item key="3">第三个菜单项</Menu.Item>
-</Menu>;
+const menu = (
+  <Menu onClick={onClick}>
+    <Menu.Item key="1">第一个菜单项</Menu.Item>
+    <Menu.Item key="2">第二个菜单项</Menu.Item>
+    <Menu.Item key="3">第三个菜单项</Menu.Item>
+  </Menu>
+);
 
 ReactDOM.render(
   <Dropdown overlay={menu}>

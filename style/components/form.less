@@ -71,6 +71,10 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
+  &-control {
+    line-height: 32px;
+  }
+
   &.@{css-prefix}form-item-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
   }
@@ -79,6 +83,8 @@ input[type="checkbox"] {
     color: @label-color;
     text-align: right;
     vertical-align: middle;
+    padding-top: 7px;
+    padding-bottom: 7px;
 
     &:lang(en) {
       padding-right: 8px;
@@ -90,11 +96,9 @@ input[type="checkbox"] {
   }
 }
 
-.@{css-prefix}form-text,
-.@{css-prefix}form-split {
-  margin: 0!important;
-  padding-top: 7px;
-  padding-bottom: 7px;
+.@{css-prefix}form-explain {
+  line-height: 1.5;
+  margin-top: 3px;
 }
 
 .@{css-prefix}form-text {
@@ -153,11 +157,6 @@ form {
   .@{css-prefix}checkbox-vertical,
   .@{css-prefix}radio-vertical {
     display: block;
-    margin-top: 16px;
-
-    &:first-child {
-      margin-top: 0;
-    }
   }
 
   .@{input-number-prefix-cls} {
@@ -165,7 +164,8 @@ form {
     margin-right: 8px;
   }
 
-  .@{calendar-prefix-cls}-picker {
+  .@{calendar-prefix-cls}-picker,
+  .@{select-prefix-cls} {
     width: 100%;
   }
 }
@@ -231,15 +231,6 @@ form {
     .make-row;
   }
 
-  .@{css-prefix}form-item-compact {
-    label,
-    .@{css-prefix}form-text,
-    .@{css-prefix}form-split {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-  }
-
   .@{css-prefix}radio-inline,
   .@{css-prefix}checkbox-inline {
     vertical-align: top;
@@ -278,11 +269,9 @@ form {
 .@{css-prefix}form-horizontal,
 .@{css-prefix}form-inline {
   label {
-    padding-top: 7px;
-    padding-bottom: 7px;
     > input[type="radio"],
     > input[type="checkbox"] {
-      margin-right: 5px;
+      margin-right: 4px;
     }
   }
 }

@@ -46,8 +46,8 @@ const Test = React.createClass({
       <div>
         <p className="buttons">
           <Button type="primary" onClick={this.onClick}>切换</Button>
-          <Button onClick={this.onAdd} style={{marginLeft:10}}>添加</Button>
-          <Button onClick={this.onRemove} style={{marginLeft:10}}>删除</Button>
+          <Button onClick={this.onAdd} style={{ marginLeft: 10 }}>添加</Button>
+          <Button onClick={this.onRemove} style={{ marginLeft: 10 }}>删除</Button>
         </p>
         <div className="demo-content">
             <div className="demo-listBox" key="b">

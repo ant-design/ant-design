@@ -14,8 +14,8 @@ function onChange(value) {
   console.log('From: ', value[0], ', to: ', value[1]);
 }
 ReactDOM.render(<div>
-  <RangePicker style={{width: 184}} onChange={onChange} />
+  <RangePicker style={{ width: 184 }} onChange={onChange} />
   <br />
-  <RangePicker showTime format="yyyy-MM-dd HH:mm:ss" onChange={onChange} />
+  <RangePicker showTime format="yyyy/MM/dd HH:mm:ss" onChange={onChange} />
 </div>, mountNode);
 ````

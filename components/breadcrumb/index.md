@@ -29,7 +29,6 @@
 
 | 参数      | 说明                              | 类型              |  可选值 | 默认值 |
 |-----------|-----------------------------------|-------------------|---------|--------|
-| router    | 可传入 react-router 的实例        | Object            |         | -      |
 | routes    | router 的路由栈信息               | Array             |         | -      |
 | params    | 路由的参数                        | Object            |         | -      |
 | separator | 分隔符自定义                      | String or Element |         | '/'    |

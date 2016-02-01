@@ -76,7 +76,7 @@ export default App;
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8001 查看效果。
+一键启动调试，访问 http://127.0.0.1:8989 查看效果。
 
 ```bash
 $ npm run dev
@@ -129,6 +129,12 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
   <script src="/index.js"></script>
 </html>
 ```
+
+另外，由于 babel 对 IE8 的支持不佳，你可能会遇到类似 [#28](https://github.com/ant-tool/atool-build/issues/28) 和 [#858](https://github.com/ant-design/ant-design/issues/858) 的 default 报错的问题。
+
+[antd-init](http://github.com/ant-design/antd-init) 脚手架已经解决了这个问题，你也可以参照这个 [webpack 配置](https://github.com/ant-design/antd-init/blob/8c4a55d205c82a6ad87814bbf997696051713d58/boilerplate/webpack.config.js#L10-L14)。
+
+> 更多 IE8 下使用 React 的相关问题可以参考：https://github.com/xcatliu/react-ie8
 
 ## 自行构建
 

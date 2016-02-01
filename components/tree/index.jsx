@@ -8,6 +8,7 @@ const AntTree = React.createClass({
       prefixCls: 'ant-tree',
       checkable: false,
       showIcon: false,
+      openAnimation: animation,
     };
   },
   render() {
@@ -16,9 +17,11 @@ const AntTree = React.createClass({
     if (checkable) {
       checkable = <span className={`${props.prefixCls}-checkbox-inner`}></span>;
     }
-    return <Tree openAnimation={animation} {...props} checkable={checkable}>
-      {this.props.children}
-    </Tree>;
+    return (
+      <Tree {...props} checkable={checkable}>
+        {this.props.children}
+      </Tree>
+    );
   }
 });
 

@@ -6,14 +6,13 @@ export default React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-switch',
-      size: 'default',
     };
   },
   render() {
     const { prefixCls, size, className } = this.props;
     const cls = classNames({
       [className]: !!className,
-      [prefixCls + '-' + size]: true,
+      [`${prefixCls}-small`]: size === 'small',
     });
     return <Switch className={cls} {...this.props} />;
   }

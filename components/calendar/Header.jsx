@@ -1,20 +1,20 @@
-import React, {PropTypes, Component} from 'react';
-import {PREFIX_CLS} from './Constants';
+import React, { PropTypes, Component } from 'react';
+import { PREFIX_CLS } from './Constants';
 import Select from '../select';
-import {Group, Button} from '../radio';
+import { Group, Button } from '../radio';
 
 function noop() {}
 
 class Header extends Component {
   getYearSelectElement(year) {
-    const {yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen} = this.props;
+    const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
     const start = year - yearSelectOffset;
     const end = start + yearSelectTotal;
     const suffix = locale.year === '年' ? '年' : '';
 
     const options = [];
     for (let index = start; index < end; index++) {
-      options.push(<Option key={`${index}`}>{index + suffix}</Option> );
+      options.push(<Option key={`${index}`}>{index + suffix}</Option>);
     }
     return (
       <Select
@@ -32,7 +32,7 @@ class Header extends Component {
   getMonthSelectElement(month) {
     const props = this.props;
     const months = props.locale.format.months;
-    const {prefixCls, fullscreen} = props;
+    const { prefixCls, fullscreen } = props;
     const options = [];
 
     for (let index = 0; index < 12; index++) {
@@ -67,12 +67,9 @@ class Header extends Component {
     this.props.onTypeChange(e.target.value);
   }
   render() {
-    const {type, value, prefixCls, locale} = this.props;
-
+    const { type, value, prefixCls, locale } = this.props;
     const yearSelect = this.getYearSelectElement(value.getYear());
-
     const monthSelect = type === 'date' ? this.getMonthSelectElement(value.getMonth()) : null;
-
     const typeSwitch = (
       <Group onChange={this.onTypeChange.bind(this)} value={type}>
         <Button value="date">{locale.month}</Button>

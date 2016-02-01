@@ -6,13 +6,12 @@
   line-height: 22px;
   height: 22px;
   padding: 0 8px;
-  border-radius: 20px;
+  border-radius: @border-radius-base;
   background: #f3f3f3;
   font-size: @font-size-base;
   margin-right: 4px;
   margin-bottom: 8px;
   transition: all 0.3s @ease-in-out-circ;
-  transform-origin: 100% 50%;
   vertical-align: middle;
   opacity: 0.85;
   overflow: hidden;
@@ -25,6 +24,14 @@
   a,
   a:hover {
     color: @text-color;
+  }
+
+  &-text {
+    a:first-child:last-child {
+      display: block;
+      margin: 0 -8px;
+      padding: 0 8px;
+    }
   }
 
   .anticon-cross {
@@ -73,11 +80,17 @@
   &-close {
     width: 0 !important;
     padding: 0;
-    margin-right: 0;
+    margin: 0;
+  }
+
+  &-zoom-enter,
+  &-zoom-appear {
+    animation: antZoomIn .2s @ease-in-out-circ;
+    animation-fill-mode: both;
   }
 
   &-zoom-leave {
-    animation: antZoomOut .3s @ease-in-out-circ;
+    animation: antZoomOut .2s @ease-in-out-circ;
     animation-fill-mode: both;
   }
 }

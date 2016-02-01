@@ -21,7 +21,7 @@
 - `message.info(content, duration)`
 - `message.loading(content, duration)`
 
-组件提供了三个静态方法，参数如下：
+组件提供了四个静态方法，参数如下：
 
 | 参数       | 说明           | 类型                       | 默认值       |
 |------------|----------------|----------------------------|--------------|
@@ -29,9 +29,10 @@
 | duration   | 自动关闭的延时 | number                     | 1.5          |
 
 
-还提供了一个全局配置方法：
+还提供了全局配置和全局销毁方法：
 
 - `message.config(options)`
+- `message.destroy()`
 
 ```js
 message.config({

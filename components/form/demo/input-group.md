@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import {Form, Input, Select, Row, Col} from 'antd';
+import { Form, Input, Select, Row, Col } from 'antd';
 const FormItem = Form.Item;
 const InputGroup = Input.Group;
 const Option = Select.Option;
@@ -16,26 +16,26 @@ ReactDOM.render(
   <Form horizontal>
     <FormItem
       label="标签输入框："
-      labelCol={{span: 6}}
-      wrapperCol={{span: 16}}>
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 16 }}>
       <Input addonBefore="Http://" defaultValue="mysite.com" id="site1"/>
     </FormItem>
 
     <FormItem
       label="标签输入框："
-      labelCol={{span: 6}}
-      wrapperCol={{span: 16}}>
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 16 }}>
       <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" id="site2"/>
     </FormItem>
 
     <FormItem
       label="select 标签输入框："
-      labelCol={{span: 6}}
-      wrapperCol={{span: 16}}>
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 16 }}>
       <InputGroup>
         <Input id="site4" placeholder="www.mysite" />
         <div className="ant-input-group-wrap">
-          <Select defaultValue=".com" style={{width:70}}>
+          <Select defaultValue=".com" style={{ width: 70 }}>
             <Option value=".com">.com</Option>
             <Option value=".jp">.jp</Option>
             <Option value=".cn">.cn</Option>
@@ -47,8 +47,8 @@ ReactDOM.render(
 
     <FormItem
       label="输入身份证："
-      labelCol={{span: 6}}
-      wrapperCol={{span: 16}}>
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 16 }}>
       <InputGroup>
         <Col span="6">
           <Input id="certNo1" />
@@ -67,8 +67,8 @@ ReactDOM.render(
 
     <FormItem
       label="电话号码："
-      labelCol={{span: 6}}
-      wrapperCol={{span: 16}}>
+      labelCol={{ span: 6 }}
+      wrapperCol={{ span: 16 }}>
       <Row>
         <Col span="4">
           <Input id="tel1" defaultValue="086" />

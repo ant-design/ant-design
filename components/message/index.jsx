@@ -12,7 +12,7 @@ function getMessageInstance() {
     prefixCls: 'ant-message',
     transitionName: 'move-up',
     style: {
-      top: top
+      top,
     }  // 覆盖原来的样式
   });
   return messageInstance;
@@ -20,38 +20,38 @@ function getMessageInstance() {
 
 function notice(content, duration = defaultDuration, type, onClose) {
   let iconClass = ({
-    'info': 'ant-message-info',
-    'success': 'ant-message-success',
-    'error': 'ant-message-error',
-    'warn': 'ant-message-warn',
-    'loading': 'ant-message-loading'
+    info: 'ant-message-info',
+    success: 'ant-message-success',
+    error: 'ant-message-error',
+    warn: 'ant-message-warn',
+    loading: 'ant-message-loading'
   })[type];
 
   let iconType = ({
-    'info': 'info-circle',
-    'success': 'check-circle',
-    'error': 'exclamation-circle',
-    'warn': 'exclamation-circle',
-    'loading': 'loading'
+    info: 'info-circle',
+    success: 'check-circle',
+    error: 'exclamation-circle',
+    warn: 'exclamation-circle',
+    loading: 'loading'
   })[type];
 
   let instance = getMessageInstance();
   instance.notice({
-    key: key,
-    duration: duration,
+    key,
+    duration,
     style: {},
     content: <div className={'ant-message-custom-content ' + iconClass}>
       <Icon className={iconClass} type={iconType} />
       <span>{content}</span>
     </div>,
-    onClose: onClose
+    onClose
   });
-  return (function() {
+  return (function () {
     let target = key++;
-    return function() {
+    return function () {
       instance.removeNotice(target);
     };
-  })();
+  }());
 }
 
 export default {
@@ -74,5 +74,11 @@ export default {
     if (options.top) {
       top = options.top;
     }
-  }
+  },
+  destroy() {
+    if (messageInstance) {
+      messageInstance.destroy();
+      messageInstance = null;
+    }
+  },
 };

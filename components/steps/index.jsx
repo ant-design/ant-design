@@ -6,7 +6,6 @@ const AntSteps = React.createClass({
     return {
       prefixCls: 'ant-steps',
       iconPrefix: 'ant',
-      size: 'default',
       maxDescriptionWidth: 100,
       current: 0
     };
@@ -18,11 +17,11 @@ const AntSteps = React.createClass({
     }
     return (
       <Steps size={this.props.size}
-             current={this.props.current}
-             direction={this.props.direction}
-             iconPrefix={this.props.iconPrefix}
-             maxDescriptionWidth={maxDescriptionWidth}
-             prefixCls={this.props.prefixCls}>
+        current={this.props.current}
+        direction={this.props.direction}
+        iconPrefix={this.props.iconPrefix}
+        maxDescriptionWidth={maxDescriptionWidth}
+        prefixCls={this.props.prefixCls}>
         {this.props.children}
       </Steps>
     );

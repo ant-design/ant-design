@@ -6,7 +6,6 @@ const AntSpin = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-spin',
-      size: 'default',
       spining: true
     };
   },
@@ -25,7 +24,8 @@ const AntSpin = React.createClass({
 
     let spinClassName = classNames({
       [prefixCls]: true,
-      [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
       [className]: !!className,
       [`${prefixCls}-spining`]: this.props.spining,
     });
@@ -53,9 +53,8 @@ const AntSpin = React.createClass({
           </div>
         </div>
       );
-    } else {
-      return spinElement;
     }
+    return spinElement;
   }
 });
 

@@ -27,7 +27,7 @@ const IntegerStep = React.createClass({
           <Slider min={1} max={20} onChange={this.onChange} value={this.state.inputValue} />
         </div>
         <div className="col-4">
-          <InputNumber min={1} max={20} style={{marginLeft: '16px'}}
+          <InputNumber min={1} max={20} style={{ marginLeft: '16px' }}
             value={this.state.inputValue} onChange={this.onChange} />
         </div>
       </div>
@@ -53,7 +53,7 @@ const DecimalStep = React.createClass({
           <Slider min={0} max={1} onChange={this.onChange} value={this.state.inputValue} step={0.01} />
         </div>
         <div className="col-4">
-          <InputNumber min={0} max={1} style={{marginLeft: '16px'}} step={0.01}
+          <InputNumber min={0} max={1} style={{ marginLeft: '16px' }} step={0.01}
             value={this.state.inputValue} onChange={this.onChange} />
         </div>
       </div>

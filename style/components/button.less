@@ -18,15 +18,18 @@
     .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
         border-right-color: @btn-group-border;
+        &[disabled] {
+          border-right-color: @btn-default-border;
+        }
       }
     }
 
-    .@{btn-prefix-cls}-group &:last-child:not(:first-child) {
-      border-left-color: @btn-group-border;
-    }
-
+    .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + .@{btn-prefix-cls} {
       border-left-color: @btn-group-border;
+      &[disabled] {
+        border-left-color: @btn-default-border;
+      }
     }
   }
 

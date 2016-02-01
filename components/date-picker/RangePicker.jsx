@@ -25,7 +25,7 @@ export default React.createClass({
     };
   },
   getInitialState() {
-    const {value, defaultValue} = this.props;
+    const { value, defaultValue } = this.props;
     const start = (value && value[0]) || defaultValue[0];
     const end = (value && value[1]) || defaultValue[1];
     return {
@@ -35,11 +35,12 @@ export default React.createClass({
       ]
     };
   },
-  mixins: [ PickerMixin ],
+  mixins: [PickerMixin],
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      const start = this.parseDateFromValue(nextProps.value[0]);
-      const end = this.parseDateFromValue(nextProps.value[1]);
+      const value = nextProps.value || [];
+      const start = this.parseDateFromValue(value[0]);
+      const end = this.parseDateFromValue(value[1]);
       this.setState({
         value: [start, end]
       });
@@ -61,28 +62,31 @@ export default React.createClass({
     let defaultCalendarValue = new GregorianCalendar(locale);
     defaultCalendarValue.setTime(Date.now());
 
-    const {disabledDate, showTime, size, startPlaceholder, endPlaceholder,
-           transitionName, disabled, popupStyle, align, style} = this.props;
+    const { disabledDate, showTime, size, startPlaceholder, endPlaceholder,
+            transitionName, disabled, popupStyle, align, style } = this.props;
     const state = this.state;
 
     const timePicker = showTime
       ? <TimePicker prefixCls="ant-time-picker"
-          placeholder={locale.lang.timePlaceholder}
-          transitionName="slide-up" />
+        placeholder={locale.lang.timePlaceholder}
+        transitionName="slide-up" />
       : null;
 
     const calendarClassName = classNames({
       ['ant-calendar-time']: this.props.showTime,
     });
 
-    const calendar = <RangeCalendar prefixCls="ant-calendar"
-                        className={calendarClassName}
-                        timePicker={timePicker}
-                        disabledDate={disabledDate}
-                        dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
-                        locale={locale.lang}
-                        defaultValue={[defaultCalendarValue, defaultCalendarValue]}
-                        showClear />;
+    const calendar = (
+      <RangeCalendar prefixCls="ant-calendar"
+        formatter={this.getFormatter()}
+        className={calendarClassName}
+        timePicker={timePicker}
+        disabledDate={disabledDate}
+        dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
+        locale={locale.lang}
+        defaultValue={[defaultCalendarValue, defaultCalendarValue]}
+        showClear />
+    );
 
     const pickerClass = classNames({
       'ant-calendar-picker': true,
@@ -109,7 +113,7 @@ export default React.createClass({
         onClose={this.toggleOpen}
         onChange={this.handleChange}>
         {
-          ({value}) => {
+          ({ value }) => {
             const start = value[0];
             const end = value[1];
             return (

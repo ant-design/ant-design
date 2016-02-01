@@ -48,10 +48,12 @@ const App = React.createClass({
     });
   },
   render() {
-    return <div>
-      <Table columns={columns} dataSource={data} loading={this.state.loading} />
-      <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
-    </div>;
+    return (
+      <div>
+        <Table columns={columns} dataSource={data} loading={this.state.loading} />
+        <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
+      </div>
+    );
   }
 });
 

@@ -16,23 +16,33 @@ const columns = [{
   dataIndex: 'name',
   filters: [{
     text: '姓李的',
-    value: '李'
+    value: '李',
   }, {
     text: '姓胡的',
-    value: '胡'
+    value: '胡',
+  }, {
+    text: '子菜单',
+    value: '子菜单',
+    children: [{
+      text: '姓陈的',
+      value: '陈',
+    }, {
+      text: '姓王的',
+      value: '王',
+    }]
   }],
   // 指定确定筛选的条件函数
   // 这里是名字中第一个字是 value
-  onFilter: function(value, record) {
+  onFilter: function (value, record) {
     return record.name.indexOf(value) === 0;
   },
-  sorter: function(a, b) {
+  sorter: function (a, b) {
     return a.name.length - b.name.length;
   }
 }, {
   title: '年龄',
   dataIndex: 'age',
-  sorter: function(a, b) {
+  sorter: function (a, b) {
     return a.age - b.age;
   }
 }, {
@@ -46,10 +56,10 @@ const columns = [{
     value: '西湖'
   }],
   filterMultiple: false,
-  onFilter: function(value, record) {
+  onFilter: function (value, record) {
     return record.address.indexOf(value) === 0;
   },
-  sorter: function(a, b) {
+  sorter: function (a, b) {
     return a.address.length - b.address.length;
   }
 }];

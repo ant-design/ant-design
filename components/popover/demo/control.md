@@ -24,13 +24,17 @@ const App = React.createClass({
     this.setState({ visible });
   },
   render() {
-    const content = <div>
-      <a onClick={this.hide}>关闭卡片</a>
-    </div>;
-    return <Popover overlay={content} title="标题" trigger="click"
-      visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
-      <Button type="primary">点击弹出卡片</Button>
-    </Popover>;
+    const content = (
+      <div>
+        <a onClick={this.hide}>关闭卡片</a>
+      </div>
+    );
+    return (
+      <Popover overlay={content} title="标题" trigger="click"
+        visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
+        <Button type="primary">点击弹出卡片</Button>
+      </Popover>
+    );
   }
 });
 

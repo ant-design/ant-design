@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function(text) {
+  render: function (text) {
     return <a href="#">{text}</a>;
   }
 }, {

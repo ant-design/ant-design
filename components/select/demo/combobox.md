@@ -22,27 +22,26 @@ const Test = React.createClass({
     if (!value || value.indexOf('@') >= 0) {
       options = [];
     } else {
-      options = ['gmail.com', '163.com', 'qq.com'].map(function(domain) {
+      options = ['gmail.com', '163.com', 'qq.com'].map((domain) => {
         const email = value + '@' + domain;
         return <Option key={email}>{email}</Option>;
       });
     }
-    this.setState({
-      options: options
-    });
+    this.setState({ options });
   },
   render() {
     // filterOption 需要设置为 false，数据是动态设置的
-    return <Select combobox
-      style={{width:200}}
-      onChange={this.handleChange}
-      filterOption={false}
-      searchPlaceholder="请输入账户名">
-      {this.state.options}
-    </Select>;
+    return (
+      <Select combobox
+        style={{ width: 200 }}
+        onChange={this.handleChange}
+        filterOption={false}
+        searchPlaceholder="请输入账户名">
+        {this.state.options}
+      </Select>
+    );
   }
 });
 
 ReactDOM.render(<Test />, mountNode);
 ````
-

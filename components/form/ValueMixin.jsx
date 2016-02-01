@@ -1,8 +1,8 @@
 function merge() {
   const ret = {};
   const args = [].slice.call(arguments, 0);
-  args.forEach((a)=> {
-    Object.keys(a).forEach((k)=> {
+  args.forEach((a) => {
+    Object.keys(a).forEach((k) => {
       ret[k] = a[k];
     });
   });

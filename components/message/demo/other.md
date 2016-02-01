@@ -9,15 +9,15 @@
 ````jsx
 import { message, Button } from 'antd';
 
-const success = function() {
+const success = function () {
   message.success('这是一条成功提示');
 };
 
-const error = function() {
+const error = function () {
   message.error('这是一条报错提示');
 };
 
-const warn = function() {
+const warn = function () {
   message.warn('这是一条警告提示');
 };
 

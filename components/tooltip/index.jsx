@@ -41,7 +41,7 @@ export default React.createClass({
     }
 
     return (
-       <Tooltip transitionName={transitionName}
+      <Tooltip transitionName={transitionName}
         overlay={this.props.title}
         visible={visible}
         onVisibleChange={this.onVisibleChange}

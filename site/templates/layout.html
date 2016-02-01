@@ -27,6 +27,13 @@
         desc: '{{item.meta.chinese}}'
       });
       {%- endfor %}
+      // fix ie location origin
+      // http://stackoverflow.com/questions/22564167/window-location-origin-gives-wrong-value-when-using-ie
+      if (!window.location.origin) {
+        window.location.origin = window.location.protocol + "//"
+          + window.location.hostname
+          + (window.location.port ? ':' + window.location.port : '');
+      }
       var i = location.pathname.split('/').lastIndexOf('ant-design');
       if (i > 0) {
         window.rootUrl = location.origin + location.pathname.split('/').slice(0, 2+1).join('/');
