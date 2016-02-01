@@ -19,7 +19,7 @@
 - Table
   - filter 支持层级选择。
   - 支持行点击事件 `onRowClick`。
-  - 支持横向的分页。[演示](http://ant.design/components/table/#demo-paging-columns)
+  - 支持多列的横向切换。[演示](http://ant.design/components/table/#demo-paging-columns)
   - 更换 `dataSource` 和变换页面时不再默认清除选择数据，你可以用 `selectedRowKeys` 手动控制。`原来默认清除的行为会触发一个数据更新的死循环，而且难以实现跨页选择。`
   - 支持固定表头。[演示](http://ant.design/components/table/#demo-fixed-header)
 - Tag 去除 `href` 属性，默认标签名从 `a` 改为 `span`。
