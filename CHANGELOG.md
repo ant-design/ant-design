@@ -10,7 +10,7 @@
 - 新增 [树选择控件(TreeSelect)](http://ant.design/components/tree-select/) 组件。
 - Form 自身支持校验功能，废弃 Validation。[演示](http://ant.design/components/form/#demo-validate-basic)
 - Tabs
-  - `activeKey ` 修正为受控属性。
+  - `activeKey` 修正为受控属性。
   - 当前项现在会始终显示。[#815](https://github.com/ant-design/ant-design/issues/815)
 - Modal 可以配置右上关闭按钮是否显示。
 - Select
@@ -27,16 +27,16 @@
 - Tree
   - 节点支持拖拽。
   - 支持动态控制节点展开与否。[演示](http://ant.design/components/tree/#demo-basic-controlled)
-  - 可以监听节点展开/关闭事件 `onExpand `。
+  - 可以监听节点展开/关闭事件 `onExpand`。
   - `onCheck` `onSelect` 参数调整。
-  - `onDataLoaded ` 改为 `loadData `。
-  - 新增 drag&drop API ：
-    - `onDragStart `。
-    - `onDragEnter `。
-    - `onDragOver `。
-    - `onDragLeave `。
-    - `onDrop `。
-  - 新增的 TreeNode 节点上 API
+  - `onDataLoaded` 改为 `loadData`。
+  - 新增 drag&drop 相关属性：
+    - `onDragStart`
+    - `onDragEnter`
+    - `onDragOver`
+    - `onDragLeave`
+    - `onDrop`
+  - 新增 TreeNode 节点属性：
     - `disableCheckbox`
     - `isLeaf`
 - Transfer 给 `onChange` 增加参数。[#972](https://github.com/ant-design/ant-design/issues/972)
@@ -45,7 +45,7 @@
   - 修复 `format` 对浮层不生效问题。[#917](https://github.com/ant-design/ant-design/issues/917)
 - TimePicker 修复一个 `value` 为 `null` 时没有进入受控模式的问题。
 - Upload
-  - 可以用 `headers ` 设置上传头部。
+  - 可以用 `headers` 设置上传头部。
   - 新增上传图片卡片样式。[演示](http://ant.design/components/upload/#demo-picture-card)
 - Radio
   - 更换 Radio.Button 的展现样式。
