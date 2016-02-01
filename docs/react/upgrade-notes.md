@@ -5,6 +5,30 @@
 
 ---
 
+## 0.11 => 0.12
+
+### 使用 Form 提供的校验功能代替 Validation
+
+Validation 已经被废弃，并会在以后的版本完全移除，所以建议尽快使用 Form 自带的校验功能替换 Validation。具体使用方式可以查阅文档和例子([#1](http://ant.design/components/form/#demo-validate-basic) [#2](http://ant.design/components/form/#demo-validate-other) [#3](http://ant.design/components/form/#demo-validate-customized))。
+
+### Progress `format` 属性的值改为函数
+
+把使用了 `format` 属性的代码，如：
+
+```jsx
+<Progress.Circle percent={100} format={<Icon type="check" />} />
+```
+
+改为：
+
+```jsx
+<Progress.Circle percent={100} format={(_) => <Icon type="check" />} />
+```
+### Tree
+- `onSelect` 回调函数，由原来的`一个`参数，变为`两个`，第一个为`selectedKeys`，第二个参数为原来第一个参数里的其余信息。另外`selectedKeys`里包含了当前选中的节点key，而原来的不包含。
+- `onCheck` 回调函数，由原来的`一个`参数，变为`两个`，第一个为`checkedKeys`，第二个参数为原来第一个参数里的其余信息。另外`checkedKeys`里包含了当前选中的节点key，而原来的不包含（这样免去业务里自己组装key的工作）。
+- 异步API中`onDataLoaded`重命名为`loadData`，其他不用改。
+
 ## 0.10 => 0.11
 
 `0.11.x` 版本有大量更新，其中部分为不兼容更新。以下列表为其中不兼容的更新及对应升级方案。如果您在升级过程中遇到下面没有提到的情况，可以到 Github 上面咨询。
