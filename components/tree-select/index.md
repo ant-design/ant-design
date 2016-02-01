@@ -38,14 +38,16 @@
 | filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | String | 'value' |
 | treeNodeLabelProp | 作为显示的prop设置 | String | 'title' |
+| treeData | treeNodes数据，如果设置则不需要手动构造TreeNode节点（如果value在整个树范围内不唯一，需要设置`key`其值为整个树范围内的唯一id | array<{value, label, children}> | [] |
 | loadData | 异步加载数据 | function(node) | - |
 
 ### TreeNode props
+> 建议使用 treeData 来代替 TreeNode，免去手工构造麻烦
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
 | disabled    | 是否禁用 | Boolean   |  false  |
-| key   | 此项必须设置 |  String |  |
+| key   | 此项必须设置（其值在整个树范围内唯一） |  String | - |
 | value   | 默认根据此属性值进行筛选 | String | - |
 | title | 树节点显示的内容 | String | '---' |
 | isLeaf | 是否是叶子节点 | bool | false |
