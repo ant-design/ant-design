@@ -9,7 +9,7 @@
 ---
 
 ````jsx
-import { Button, Form, Input, Row, Col } from 'antd';
+import { Button, Form, Input, Row, Col, Modal } from 'antd';
 import classNames from 'classnames';
 const createForm = Form.create;
 const FormItem = Form.Item;
@@ -24,12 +24,12 @@ let Demo = React.createClass({
       passBarShow: false, // 是否显示密码强度提示条
       rePassBarShow: false,
       passStrength: 'L', // 密码强度
-      rePassStrength: 'L'
+      rePassStrength: 'L',
+      visible: false,
     };
   },
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
     this.props.form.validateFields((errors, values) => {
       if (!!errors) {
         console.log('Errors in form!!!');
@@ -37,12 +37,8 @@ let Demo = React.createClass({
       }
       console.log('Submit!!!');
       console.log(values);
+      this.setState({ visible: false });
     });
-  },
-
-  handleReset(e) {
-    e.preventDefault();
-    this.props.form.resetFields();
   },
 
   getPassStrenth(value, type) {
@@ -68,6 +64,14 @@ let Demo = React.createClass({
         this.setState({ rePassBarShow: false });
       }
     }
+  },
+
+  showModal() {
+    this.setState({ visible: true });
+  },
+
+  hideModal() {
+    this.setState({ visible: false });
   },
 
   checkPass(rule, value, callback) {
@@ -123,66 +127,59 @@ let Demo = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
     return (
-      <Form horizontal form={this.props.form}>
-        <Row>
-          <Col span="18">
-            <FormItem
-              label="密码："
-              labelCol={{ span: 6 }}
-              wrapperCol={{ span: 18 }}>
-              <Input type="password"
-                {...getFieldProps('pass', {
-                  rules: [
-                    { required: true, whitespace: true, message: '请填写密码' },
-                    { validator: this.checkPass }
-                  ]
-                })}
-                onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                autoComplete="off"/>
-            </FormItem>
-          </Col>
-          <Col span="6">
-            {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
-          </Col>
-        </Row>
+      <div>
+        <Button type="primary" onClick={this.showModal}>修改密码</Button>
+        <Modal title="修改密码" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
+          <Form horizontal form={this.props.form}>
+            <Row>
+              <Col span="18">
+                <FormItem
+                  label="密码："
+                  labelCol={{ span: 6 }}
+                  wrapperCol={{ span: 18 }}>
+                  <Input type="password"
+                    {...getFieldProps('pass', {
+                      rules: [
+                        { required: true, whitespace: true, message: '请填写密码' },
+                        { validator: this.checkPass }
+                      ]
+                    })}
+                    onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                    autoComplete="off" id="pass" />
+                </FormItem>
+              </Col>
+              <Col span="6">
+                {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
+              </Col>
+            </Row>
 
-        <Row>
-          <Col span="18">
-            <FormItem
-              label="确认密码："
-              labelCol={{ span: 6 }}
-              wrapperCol={{ span: 18 }}>
-              <Input type="password"
-                {...getFieldProps('rePass', {
-                  rules: [{
-                    required: true,
-                    whitespace: true,
-                    message: '请再次输入密码',
-                  }, {
-                    validator: this.checkPass2,
-                  }],
-                })}
-                onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                autoComplete="off" />
-            </FormItem>
-          </Col>
-          <Col span="6">
-            {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
-          </Col>
-        </Row>
-
-        <Row>
-          <Col span="18">
-            <FormItem
-              wrapperCol={{ span: 12, offset: 6 }}>
-              <Button type="primary" onClick={this.handleSubmit}>确定</Button>
-              &nbsp;&nbsp;&nbsp;
-              <Button type="ghost" onClick={this.handleReset}>重置</Button>
-            </FormItem>
-          </Col>
-          <Col span="6" />
-        </Row>
-      </Form>
+            <Row>
+              <Col span="18">
+                <FormItem
+                  label="确认密码："
+                  labelCol={{ span: 6 }}
+                  wrapperCol={{ span: 18 }}>
+                  <Input type="password"
+                    {...getFieldProps('rePass', {
+                      rules: [{
+                        required: true,
+                        whitespace: true,
+                        message: '请再次输入密码',
+                      }, {
+                        validator: this.checkPass2,
+                      }],
+                    })}
+                    onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                    autoComplete="off" id="rePass" />
+                </FormItem>
+              </Col>
+              <Col span="6">
+                {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
+              </Col>
+            </Row>
+          </Form>
+        </Modal>
+      </div>
     );
   }
 });

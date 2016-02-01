@@ -98,7 +98,9 @@ class FormItem extends React.Component {
   isRequired() {
     if (this.context.form) {
       const meta = this.getMeta() || {};
-      return (meta.validate || []).some((item) => {
+      const validate = (meta.validate || []);
+
+      return validate.filter((item) => !!item.rules).some((item) => {
         return item.rules.some((rule) => rule.required);
       });
     }
@@ -125,6 +127,7 @@ class FormItem extends React.Component {
       if (typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }
+
       return child;
     });
     return [

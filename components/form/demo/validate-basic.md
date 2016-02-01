@@ -77,7 +77,7 @@ class BasicDemo extends React.Component {
   }
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldProps, getFieldError, isFieldValidating } = this.props.form;
 
     return (
       <Form horizontal form={this.props.form}>
@@ -85,14 +85,15 @@ class BasicDemo extends React.Component {
           label="用户名："
           labelCol={{ span: 7 }}
           wrapperCol={{ span: 12 }}
-          hasFeedback>
+          hasFeedback
+          help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}>
           <Input placeholder="实时校验，输入 JasonWood 看看"
             {...getFieldProps('name', {
               rules: [
                 { required: true, min: 5, message: '用户名至少为 5 个字符' },
                 { validator: this.userExists },
               ],
-            })}/>
+            })} />
         </FormItem>
 
         <FormItem
