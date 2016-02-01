@@ -39,6 +39,7 @@
   - 新增的 TreeNode 节点上 API
     - `disableCheckbox`
     - `isLeaf`
+- Transfer 给 `onChange` 增加参数。[#972](https://github.com/ant-design/ant-design/issues/972)
 - DatePicker
   - 修复 RangePicker 开始结束日期相同的 bug。[#822](https://github.com/ant-design/ant-design/issues/822)
   - 修复 `format` 对浮层不生效问题。[#917](https://github.com/ant-design/ant-design/issues/917)
