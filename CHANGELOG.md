@@ -61,7 +61,6 @@
 - BreadCrumb
   - 移除 `router` 属性，无需设置。
   - 修复一个链接参数不对的问题。
-  - 修复面包屑中链接有多余的 `/` 的问题。[#969](https://github.com/ant-design/ant-design/pull/969)
 
 ## 0.11.3
 
