@@ -21,7 +21,7 @@
 | dataSource | 数据源 | Array | [] |
 | render | 每行数据渲染函数 | Function(record)  |     |
 | targetKeys | 显示在右侧框数据的key集合 | Array  | [] |
-| onChange | 变化时回调函数 | Function(newTargetKeys) |  |
+| onChange | 变化时回调函数 | Function(targetKeys, direction, moveKeys) |  |
 | listStyle | 两个穿梭框的自定义样式 | Object |  |
 | className | 自定义类 | String |  |
 | titles | 标题集合,顺序从左至右 | Array | ['源列表', '目的列表'] |

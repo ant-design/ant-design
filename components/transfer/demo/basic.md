@@ -36,7 +36,8 @@ const App = React.createClass({
     }
     this.setState({ mockData, targetKeys });
   },
-  handleChange(targetKeys) {
+  handleChange(targetKeys, direction, moveKeys) {
+    console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
   },
   renderFooter() {

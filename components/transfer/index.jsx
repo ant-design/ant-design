@@ -46,19 +46,18 @@ class Transfer extends Component {
   moveTo(direction) {
     const { targetKeys } = this.props;
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
+    const moveKeys = direction === 'right' ? leftCheckedKeys : rightCheckedKeys;
     // move items to target box
-    const newTargetKeys = direction === 'right' ?
-            leftCheckedKeys.concat(targetKeys) :
-            targetKeys.filter((targetKey) => {
-              return !rightCheckedKeys.some((checkedKey) => targetKey === checkedKey);
-            });
+    const newTargetKeys = direction === 'right'
+      ? moveKeys.concat(targetKeys)
+      : targetKeys.filter(targetKey => !moveKeys.some(checkedKey => targetKey === checkedKey));
 
     // empty checked keys
     this.setState({
       [direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys']: [],
     });
 
-    this.props.onChange(newTargetKeys);
+    this.props.onChange(newTargetKeys, direction, moveKeys);
   }
 
   getGlobalCheckStatus(direction) {
