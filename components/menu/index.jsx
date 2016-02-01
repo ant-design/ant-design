@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from 'rc-menu';
+import Menu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../common/openAnimation';
 
 function noop() {
@@ -80,9 +80,9 @@ const AntMenu = React.createClass({
   }
 });
 
-AntMenu.Divider = Menu.Divider;
-AntMenu.Item = Menu.Item;
-AntMenu.SubMenu = Menu.SubMenu;
-AntMenu.ItemGroup = Menu.ItemGroup;
+AntMenu.Divider = Divider;
+AntMenu.Item = Item;
+AntMenu.SubMenu = SubMenu;
+AntMenu.ItemGroup = ItemGroup;
 
 export default AntMenu;
