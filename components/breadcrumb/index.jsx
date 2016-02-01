@@ -60,16 +60,18 @@ const Breadcrumb = React.createClass({
         });
 
         let link;
-        let path = route.path.indexOf('/') === 0 ? route.path : ('/' + route.path);
+        let path = route.path.replace(/^\//, '');
         Object.keys(params).forEach(key => {
           path = path.replace(':' + key, params[key]);
         });
-        paths.push(path);
+        if (path) {
+          paths.push(path);
+        }
 
         if (i === routes.length - 1) {
           link = <span>{name}</span>;
         } else {
-          link = <a href={'#' + paths.join('/')}>{name}</a>;
+          link = <a href={'#/' + paths.join('/')}>{name}</a>;
         }
         return <BreadcrumbItem separator={separator} key={name}>{link}</BreadcrumbItem>;
       });
