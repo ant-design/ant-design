@@ -8,7 +8,6 @@ const AntTreeSelect = React.createClass({
     return {
       prefixCls: 'ant-tree-select',
       transitionName: 'slide-up',
-      optionLabelProp: 'value',
       choiceTransitionName: 'zoom',
       showSearch: false,
       // openAnimation: animation,

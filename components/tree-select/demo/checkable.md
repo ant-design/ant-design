@@ -8,20 +8,22 @@
 
 ````jsx
 import { TreeSelect } from 'antd';
-const TreeNode = TreeSelect.TreeNode;
 
 const x = 3;
 const y = 2;
 const z = 1;
-const gData = [];
+const gData = []; // 手工构造数据
 const generateData = (_level, _preKey, _tns) => {
   const preKey = _preKey || '0';
   const tns = _tns || gData;
-
   const children = [];
   for (let i = 0; i < x; i++) {
     const key = `${preKey}-${i}`;
-    tns.push({ title: key, key: key });
+    tns.push({
+      label: key + '-label',
+      value: key + '-value',
+      key: key,
+    });
     if (i < y) {
       children.push(key);
     }
@@ -40,23 +42,16 @@ generateData(z);
 const Demo = React.createClass({
   getInitialState() {
     return {
-      value: ['0-0'],
+      value: ['0-0-0-value'],
     };
   },
   onChange(value) {
-    console.log('onChange ' + value);
+    console.log('onChange ', value, arguments);
     this.setState({ value });
   },
   render() {
-    const loop = data => {
-      return data.map((item) => {
-        if (item.children) {
-          return <TreeNode key={item.key} value={item.key} title={item.key}>{loop(item.children)}</TreeNode>;
-        }
-        return <TreeNode key={item.key} value={item.key} title={item.key} />;
-      });
-    };
     const tProps = {
+      treeData: gData,
       value: this.state.value,
       onChange: this.onChange,
       multiple: true,
@@ -64,9 +59,7 @@ const Demo = React.createClass({
       treeDefaultExpandAll: true,
     };
     return (
-      <TreeSelect {...tProps}>
-        {loop(gData)}
-      </TreeSelect>
+      <TreeSelect style={{ width: 360 }} {...tProps} />
     );
   },
 });
