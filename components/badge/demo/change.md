@@ -30,13 +30,7 @@ const Test = React.createClass({
   },
   onClick() {
     this.setState({
-      show: !this.state.show
-    });
-  },
-  onNumberClick() {
-    const count = this.state.count;
-    this.setState({
-      count: count ? 0 : 5
+      show: !this.state.show,
     });
   },
   render() {
@@ -49,12 +43,6 @@ const Test = React.createClass({
           <a href="#" className="head-example"></a>
         </Badge>
         <div style={{ marginTop: 10 }}>
-          <Button type="ghost" onClick={this.onNumberClick} style={{ marginRight: 6 }}>
-            切换数字显隐
-          </Button>
-          <Button type="ghost" onClick={this.onClick} style={{ marginRight: 6 }}>
-            切换红点显隐
-          </Button>
           <ButtonGroup>
             <Button type="ghost" onClick={this.decline}>
               <Icon type="minus" />
@@ -63,6 +51,9 @@ const Test = React.createClass({
               <Icon type="plus" />
             </Button>
           </ButtonGroup>
+          <Button type="ghost" onClick={this.onClick} style={{ marginLeft: 8 }}>
+            切换红点显隐
+          </Button>
         </div>
       </div>
     );

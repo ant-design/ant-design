@@ -11,6 +11,7 @@
 - 修正 Modal `onCancel` 的参数为点击事件。[#980](https://github.com/ant-design/ant-design/issues/980)
 - 修复一个 Tooltip 内嵌套 Popconfirm 的问题。[#977](https://github.com/ant-design/ant-design/issues/977)
 - 修复 DatePicker 和 RangePicker 的 `onOk` 一直不可用的问题。
+- 修复一个 Badge 的 count 无法切换的问题。[#983](https://github.com/ant-design/ant-design/issues/983)
 
 ## 0.12.0
 
