@@ -36,7 +36,7 @@
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
 | showTime     | 增加时间选择功能 | bool | false  |
-| onOk         | 点击确定按钮的回调 | function | 无 |
+| onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
 
 ### RangePicker
 
@@ -46,6 +46,7 @@
 | defaultValue | 默认日期       | [string|Date, string|Date]   | 无           |
 | format       | 展示的日期格式  | string    | "yyyy-MM-dd HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function([Date start, Date end]) | 无           |
+| onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
 
 `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` 属性与 DatePicker 的一致。
 

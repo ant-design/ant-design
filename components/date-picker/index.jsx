@@ -16,8 +16,8 @@ function createPicker(TheCalendar, defaultFormat) {
         format: defaultFormat || 'yyyy-MM-dd',
         transitionName: 'slide-up',
         popupStyle: {},
-        onChange() {
-        },  // onChange 可用于 Validator
+        onChange() {},
+        onOk() {},
         locale: {},
         align: {
           offset: [0, -9],
@@ -81,6 +81,7 @@ function createPicker(TheCalendar, defaultFormat) {
           prefixCls="ant-calendar"
           className={calendarClassName}
           showOk={this.props.showTime}
+          onOk={this.props.onOk}
           showClear />
       );
 

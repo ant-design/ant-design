@@ -15,8 +15,8 @@ export default React.createClass({
       endPlaceholder: '结束日期',
       transitionName: 'slide-up',
       popupStyle: {},
-      onChange() {
-      },  // onChange 可用于 Validator
+      onChange() {},
+      onOk() {},
       locale: {},
       align: {
         offset: [0, -9],
@@ -63,7 +63,7 @@ export default React.createClass({
     defaultCalendarValue.setTime(Date.now());
 
     const { disabledDate, showTime, size, startPlaceholder, endPlaceholder,
-            transitionName, disabled, popupStyle, align, style } = this.props;
+            transitionName, disabled, popupStyle, align, style, onOk } = this.props;
     const state = this.state;
 
     const timePicker = showTime
@@ -84,6 +84,7 @@ export default React.createClass({
         disabledDate={disabledDate}
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
+        onOk={onOk}
         defaultValue={[defaultCalendarValue, defaultCalendarValue]}
         showClear />
     );
