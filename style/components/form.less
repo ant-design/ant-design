@@ -4,19 +4,20 @@
 
 label {
   position: relative;
-  &.required:before {
-    display: inline-block;
-    margin-right: 4px;
-    content: "*";
-    font-family: SimSun;
-    font-size: @font-size-base;
-    color: @label-required-color;
-  }
 
   > .@{iconfont-css-prefix} {
     vertical-align: top;
     font-size: @font-size-base;
   }
+}
+
+.label-required:before {
+  display: inline-block;
+  margin-right: 4px;
+  content: "*";
+  font-family: SimSun;
+  font-size: @font-size-base;
+  color: @label-required-color;
 }
 
 // Input styles
