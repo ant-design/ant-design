@@ -12,7 +12,8 @@ module.exports = {
   cache: true,
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx'],
+    unsafeCache: true
   },
 
   noParse: /_site|node_modules/,
