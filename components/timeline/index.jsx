@@ -1,54 +1,62 @@
 import React from 'react';
+import classNames from 'classnames';
 
-let Timeline = React.createClass({
+const TimelineItem = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-timeline'
+      prefixCls: 'ant-timeline',
+      color: 'blue',
+      last: false,
+      pending: false,
     };
   },
   render() {
-    let children = this.props.children;
+    const { prefixCls, color, last, children, pending } = this.props;
+    const itemClassName = classNames({
+      [prefixCls + '-item']: true,
+      [prefixCls + '-item-last']: last,
+      [prefixCls + '-item-pending']: pending,
+    });
     return (
-      <ul className={this.props.prefixCls}>
-        {React.Children.map(children, function (ele, idx) {
-          let np = {
-            timelineLast: idx === children.length - 1,
-            pending: this.props.pending
-          };
-          return React.cloneElement(ele, np);
-        }, this)}
+      <li className={itemClassName}>
+        <div className={prefixCls + '-item-tail'} />
+        <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-' + color} />
+        <div className={prefixCls + '-item-content'}>{children}</div>
+      </li>
+    );
+  }
+});
+
+const Timeline = React.createClass({
+  getDefaultProps() {
+    return {
+      prefixCls: 'ant-timeline',
+    };
+  },
+  render() {
+    const { prefixCls, children, pending } = this.props;
+    const pendingNode = typeof pending === 'boolean' ? null : pending;
+    const className = classNames({
+      [prefixCls]: true,
+      [prefixCls + '-pending']: !!pending,
+    });
+    return (
+      <ul className={className}>
+        {
+          React.Children.map(children, (ele, idx) =>
+            React.cloneElement(ele, {
+              last: idx === children.length - 1,
+            })
+          )
+        }
+        {(!!pending)
+          ? <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
+          : null}
       </ul>
     );
   }
 });
 
-Timeline.Item = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-timeline',
-      color: 'blue',
-      pending: false
-    };
-  },
-  render() {
-    let props = this.props;
-    let prefixCls = props.prefixCls;
-    let color = props.color;
-    let pending = props.pending;
-    let timelineLast = props.timelineLast;
-    let endCls = pending && timelineLast ? prefixCls + '-item-last' : '';
-    let last = pending && timelineLast ? <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-end'}></div> : null;
-    let lastTailShow = (timelineLast && !pending) ? 'none' : 'block';
-
-    return (
-      <li className={prefixCls + '-item ' + endCls}>
-        <div style={{display:lastTailShow}} className={prefixCls + '-item-tail'}></div>
-        <div className={prefixCls + '-item-head ' + prefixCls + '-item-head-' + color}></div>
-        <div className={prefixCls + '-item-content'}>{props.children}</div>
-        {last}
-      </li>
-    );
-  }
-});
+Timeline.Item = TimelineItem;
 
 export default Timeline;

@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function(text) {
+  render: function (text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -44,10 +44,10 @@ const rowSelection = {
   onChange(selectedRowKeys) {
     console.log('selectedRowKeys changed: ' + selectedRowKeys);
   },
-  onSelect: function(record, selected, selectedRows) {
+  onSelect: function (record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll: function(selected, selectedRows) {
+  onSelectAll: function (selected, selectedRows) {
     console.log(selected, selectedRows);
   }
 };

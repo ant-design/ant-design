@@ -53,7 +53,7 @@
 
     background-color: #fff;
     border-radius: @border-radius-base;
-    border: 1px solid #d9d9d9;
+    border: 1px solid @border-color-base;
     .transition(all .3s @ease-in-out);
 
     &:hover {
@@ -71,12 +71,17 @@
   &-disabled &-selection {
     &:hover,
     &:active {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
     }
   }
 
   &-disabled &-selection--single {
+    background: #f4f4f4;
     cursor: not-allowed;
+  }
+
+  &-disabled &-selection--multiple &-selection__choice__remove {
+    display: none;
   }
 
   &-selection--single {
@@ -125,6 +130,9 @@
   }
 
   &-sm {
+    .ant-select-selection {
+      border-radius: @border-radius-sm;
+    }
     .ant-select-selection--single {
       height: 22px;
       .ant-select-selection__rendered {
@@ -182,6 +190,7 @@
       font-size: 100%;
       background: transparent;
       outline: 0;
+      border-radius: @border-radius-base;
     }
     > i {
       float: right;
@@ -302,10 +311,16 @@
       height: 100%;
       position: relative;
       z-index: 1;
+      transition: all .3s @ease-in-out;
+
+      &:focus {
+        box-shadow: 0 0 0 1px tint(@primary-color, 20%), 0 0 0 3px tint(@primary-color, 80%);
+      }
     }
     .@{select-prefix-cls}-selection__rendered {
       padding: 0;
       height: 100%;
+      overflow: visible;
     }
   }
 }
@@ -334,7 +349,7 @@
   }
 
   background-color: white;
-  border: 1px solid #d9d9d9;
+  border: 1px solid @border-color-base;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
@@ -444,7 +459,7 @@
       padding: 4px 7px;
       width: 100%;
       box-sizing: border-box;
-      border: 1px solid #d9d9d9;
+      border: 1px solid @border-color-base;
       border-radius: 4px;
       outline: none;
     }

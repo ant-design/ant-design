@@ -1,0 +1,67 @@
+# 多选
+
+- order: 2
+
+多选和勾选框功能。
+
+---
+
+````jsx
+import { TreeSelect } from 'antd';
+
+const treeData = [{
+  'label': '节点一',
+  'value': '0-0',
+  'key': '0-0',
+  'children': [{
+    'label': '子节点一',
+    'value': '0-0-0',
+    'key': '0-0-0',
+  }, {
+    'label': '子节点二',
+    'value': '0-0-1',
+    'key': '0-0-1',
+  }],
+}, {
+  'label': '节点二',
+  'value': '0-1',
+  'key': '0-1',
+  'children': [{
+    'label': '子节点三',
+    'value': '0-1-0',
+    'key': '0-1-0',
+  }, {
+    'label': '子节点四',
+    'value': '0-1-1',
+    'key': '0-1-1',
+  }],
+}];
+
+const Demo = React.createClass({
+  getInitialState() {
+    return {
+      value: ['0-0-0'],
+    };
+  },
+  onChange(value) {
+    console.log('onChange ', value, arguments);
+    this.setState({ value });
+  },
+  render() {
+    const tProps = {
+      treeData,
+      value: this.state.value,
+      onChange: this.onChange,
+      multiple: true,
+      treeCheckable: true,
+      treeDefaultExpandAll: true,
+      style: {
+        width: 360,
+      },
+    };
+    return <TreeSelect {...tProps} />;
+  },
+});
+
+ReactDOM.render(<Demo />, mountNode);
+````

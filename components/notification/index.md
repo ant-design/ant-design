@@ -23,8 +23,8 @@
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warn(config)`
-- `notification.open(config)`
 - `notification.close(key: String)`
+- `notification.destroy()`
 
 config 参数如下：
 

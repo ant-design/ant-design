@@ -28,9 +28,8 @@ function disabledMinutes(h) {
     return newArray(0, 31);
   } else if (h === 23) {
     return newArray(30, 60);
-  } else {
-    return [];
   }
+  return [];
 }
 
 ReactDOM.render(

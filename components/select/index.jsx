@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from 'rc-select';
+import Select, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
 const AntSelect = React.createClass({
@@ -10,7 +10,6 @@ const AntSelect = React.createClass({
       optionLabelProp: 'children',
       choiceTransitionName: 'zoom',
       showSearch: false,
-      size: 'default'
     };
   },
   render() {
@@ -36,7 +35,7 @@ const AntSelect = React.createClass({
   }
 });
 
-AntSelect.Option = Select.Option;
-AntSelect.OptGroup = Select.OptGroup;
+AntSelect.Option = Option;
+AntSelect.OptGroup = OptGroup;
 
 export default AntSelect;

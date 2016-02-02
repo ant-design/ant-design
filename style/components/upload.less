@@ -1,10 +1,14 @@
 @upload-prefix-cls: ant-upload;
+@upload-item: ant-upload-list-item;
+@pictrue-card-size: 96px;
 
 .@{upload-prefix-cls} {
+  font-size: @font-size-base;
 
   > span {
     display: block;
     width: 100%;
+    outline: none;
   }
 
   input[type="file"] {
@@ -13,6 +17,26 @@
 
   &&-select {
     display: inline-block;
+  }
+
+  &&-select-picture-card {
+    border: 1px dashed @border-color-base;
+    width: @pictrue-card-size;
+    height: @pictrue-card-size;
+    padding: 24px 0;
+    border-radius: @border-radius-base;
+    background-color: #fbfbfb;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 8px;
+    margin-bottom: 8px;
+
+    &:hover {
+      border-color: @primary-color;
+    }
   }
 
   &&-drag {
@@ -132,72 +156,179 @@
     }
   }
 
-  &-picture &-item {
-    padding: 8px;
-    border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
-    height: 66px;
-    position: relative;
-    &:hover {
+  &-picture,
+  &-picture-card {
+    .@{upload-item} {
+      padding: 8px;
+      border-radius: @border-radius-base;
+      border: 1px solid @border-color-base;
+      height: 66px;
+      position: relative;
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .@{upload-item}-info {
+      padding: 0;
+    }
+
+    .@{upload-item}:hover .@{upload-item}-info {
       background: transparent;
+    }
+
+    .@{upload-item}-uploading {
+      border-style: dashed;
+    }
+
+    .@{upload-item}-thumbnail {
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      top: 8px;
+      left: 8px;
+    }
+
+    .@{upload-item}-thumbnail img {
+      width: 48px;
+      height: 48px;
+      display: block;
+    }
+
+    .@{upload-item}-thumbnail.anticon:before {
+      line-height: 48px;
+      font-size: 24px;
+      color: #999;
+    }
+
+    .@{upload-item}-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin: 0 0 0 8px;
+      line-height: 42px;
+      transition: all 0.3s ease;
+      padding-left: 48px;
+      padding-right: 8px;
+      max-width: 100%;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+
+    .@{upload-item}-uploading .@{upload-item}-name {
+      line-height: 28px;
+    }
+
+    .@{upload-item}-progress {
+      padding-left: 56px;
+      margin-top: 0;
+    }
+
+    .anticon-cross {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      line-height: 1;
     }
   }
 
-  &-picture &-item-info {
-    padding: 0;
-  }
-
-  &-picture &-item:hover &-item-info {
-    background: transparent;
-  }
-
-  &-picture &-item-uploading {
-    border-style: dashed;
-  }
-
-  &-picture &-item-thumbnail {
-    width: 48px;
-    height: 48px;
+  &-picture-card {
     display: inline-block;
-    overflow: hidden;
-    vertical-align: middle;
-  }
 
-  &-picture &-item-thumbnail img {
-    width: 48px;
-    height: 48px;
-    display: block;
-  }
+    .@{upload-item} {
+      display: inline-block;
+      width: @pictrue-card-size;
+      height: @pictrue-card-size;
+      margin: 0 8px 8px 0;
+    }
 
-  &-picture &-item-thumbnail.anticon:before {
-    line-height: 48px;
-    font-size: 24px;
-    color: #999;
-  }
+    .@{upload-item}-info {
+      height: 100%;
+      position: relative;
 
-  &-picture &-item-name {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0 0 0 8px;
-    line-height: 42px;
-    transition: all 0.3s ease;
-  }
+      &:before {
+        content: ' ';
+        position: absolute;
+        z-index: 1;
+        background-color: #808080;
+        transition: all 0.3s ease;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+      }
 
-  &-picture &-item-uploading &-item-name {
-    line-height: 28px;
-  }
+      .anticon-eye-o,
+      .anticon-delete {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 10;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        font-size: 16px;
+        width: 16px;
+        line-height: 1;
+        color: #eee;
+        opacity: 0;
+        margin-top: -8px;
+        margin-left: -22px;
+        &:hover {
+          color: #fff;
+        }
+      }
 
-  &-picture &-item-progress {
-    padding-left: 56px;
-    margin-top: 0;
-  }
+      .anticon-delete {
+        left: 50%;
+        margin-left: 6px;
+      }
 
-  &-picture .anticon-cross {
-    position: absolute;
-    right: 8px;
-    top: 8px;
-    line-height: 1;
+      &:hover {
+        &:before {
+          opacity: .8;
+        }
+
+        .anticon-eye-o,
+        .anticon-delete {
+          opacity: 1;
+        }
+      }
+    }
+
+    .@{upload-item}-thumbnail,
+    .@{upload-item}-thumbnail img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: static;
+    }
+
+    .@{upload-item}-name {
+      display: none;
+    }
+
+    .@{upload-item}-uploading {
+      &.@{upload-item} {
+        background-color: #fbfbfb;
+      }
+
+      .@{upload-item}-info {
+        &:before,
+        .anticon-eye-o,
+        .anticon-delete {
+          display: none;
+        }
+      }
+
+      &-text {
+        margin-top: 18px;
+        color: #999;
+      }
+    }
+
+    .@{upload-item}-progress {
+      padding-left: 0;
+    }
   }
 
   .@{upload-prefix-cls}-success-icon {

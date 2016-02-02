@@ -9,11 +9,11 @@
 ````jsx
 import { Button, notification } from 'antd';
 
-const close = function() {
+const close = function () {
   console.log('我被默认的关闭按钮关闭了！');
 };
 
-const openNotification = function() {
+const openNotification = function () {
   const args = {
     message: '这是标题',
     description: '这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案',

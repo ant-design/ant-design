@@ -33,3 +33,4 @@
 | onChange       | 选项变化时的回调函数             | Function(e:Event) | 无     | 无     |
 | value          | 用于设置当前选中的值             | String            | 无     | 无     |
 | defaultValue   | 默认选中的值                     | String            | 无     | 无     |
+| size           | 大小，只对按钮样式生效           | String            | `large` `default` `small` | `default` |

@@ -13,7 +13,7 @@ import { Table } from 'antd';
 
 // 事例表中第四行合并了五列，除了第一列设置 colSpan = 5 外
 // 其他列的第四行 colSpan = 0 (被合并掉，不会渲染)
-const renderContent = function(value, row, index) {
+const renderContent = function (value, row, index) {
   let obj = {
     children: value,
     props: {}
@@ -27,17 +27,16 @@ const renderContent = function(value, row, index) {
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function(text, row, index) {
+  render: function (text, row, index) {
     if (index < 4) {
       return <a href="#">{text}</a>;
-    } else {
-      return {
-        children: <a href="#">{text}</a>,
-        props: {
-          colSpan: 5
-        }
-      };
     }
+    return {
+      children: <a href="#">{text}</a>,
+      props: {
+        colSpan: 5
+      }
+    };
   }
 }, {
   title: '年龄',
@@ -47,10 +46,10 @@ const columns = [{
   title: '家庭电话',
   colSpan: 2,
   dataIndex: 'tel',
-  render: function(value, row, index) {
+  render: function (value, row, index) {
     let obj = {
       children: value,
-      props:{}
+      props: {}
     };
     // 第三列的第三行行合并
     if (index === 2) {

@@ -25,9 +25,9 @@
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期           | string   | 无           |
-| defaultValue | 默认日期       | string   | 无           |
-| format       | 展示的日期格式 | string   | "yyyy-MM-dd" |
+| value        | 日期           | string or Date   | 无           |
+| defaultValue | 默认日期       | string or Date   | 无           |
+| format       | 展示的日期格式，配置参考 [GregorianCalendarFormat](https://github.com/yiminghe/gregorian-calendar-format) | string   | "yyyy-MM-dd" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(Date value) | 无           |
 | disabled     | 禁用           | bool     | false        |
@@ -42,8 +42,8 @@
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期          | [string, string]   | 无           |
-| defaultValue | 默认日期       | [string, string]   | 无           |
+| value        | 日期          | [string|Date, string|Date]   | 无           |
+| defaultValue | 默认日期       | [string|Date, string|Date]   | 无           |
 | format       | 展示的日期格式  | string    | "yyyy-MM-dd HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function([Date start, Date end]) | 无           |
 

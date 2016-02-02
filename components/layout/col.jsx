@@ -12,7 +12,7 @@ const Col = React.createClass({
     children: React.PropTypes.node,
   },
   render() {
-    const {span, order, offset, push, pull, className, ...others} = this.props;
+    const { span, order, offset, push, pull, className, ...others } = this.props;
     const classes = classNames({
       ['col-' + span]: span,
       ['col-order-' + order]: order,

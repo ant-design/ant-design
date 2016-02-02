@@ -1,14 +1,15 @@
-import {Circle as Progresscircle} from 'rc-progress';
+import { Circle as Progresscircle } from 'rc-progress';
 import React from 'react';
 import assign from 'object-assign';
+import warning from 'warning';
 import Icon from '../icon';
 
 const prefixCls = 'ant-progress';
 
 const statusColorMap = {
-  'normal': '#2db7f5',
-  'exception': '#ff6600',
-  'success': '#87d068'
+  normal: '#2db7f5',
+  exception: '#ff6600',
+  success: '#87d068'
 };
 
 let Line = React.createClass({
@@ -17,14 +18,20 @@ let Line = React.createClass({
     showInfo: React.PropTypes.bool,
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
+    trailColor: React.PropTypes.string,
+    format: React.PropTypes.oneOfType([
+      React.PropTypes.node,
+      React.PropTypes.string,
+      React.PropTypes.func,
+    ]),
   },
   getDefaultProps() {
     return {
       percent: 0,
       strokeWidth: 10,
       status: 'normal', // exception active
-      format: '${percent}%',
       showInfo: true,
+      trailColor: '#e9e9e9'
     };
   },
   render() {
@@ -36,18 +43,31 @@ let Line = React.createClass({
 
     let progressInfo;
     let fullCls = '';
-    const text = (typeof props.format === 'string') ?
-      props.format.replace('${percent}', props.percent) : props.format;
 
-    if(props.showInfo === true){
+    if (props.format) {
+      warning(typeof props.format === 'function',
+       'antd.Progress props.format type is function, change format={xxx} to format={() => xxx}');
+    }
+
+    let text = props.format || `${props.percent}%`;
+    if (typeof props.format === 'string') {
+      // 向下兼容原来的字符串替换方式
+      text = props.format.replace('${percent}', props.percent);
+    } else if (typeof props.format === 'function') {
+      text = props.format(props.percent);
+    }
+
+    if (props.showInfo === true) {
       if (props.status === 'exception') {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>{text}</span>
+          <span className={prefixCls + '-line-text'}>
+            {props.format ? text : <Icon type="exclamation" />}
+          </span>
         );
       } else if (props.status === 'success') {
         progressInfo = (
           <span className={prefixCls + '-line-text'}>
-            <Icon type="check" />
+            {props.format ? text : <Icon type="check" />}
           </span>
         );
       } else {
@@ -64,7 +84,7 @@ let Line = React.createClass({
     };
 
     return (
-      <div className={prefixCls + '-line-wrap clearfix status-' + props.status + fullCls}>
+      <div className={prefixCls + '-line-wrap clearfix status-' + props.status + fullCls} style={props.style}>
         {progressInfo}
         <div className={prefixCls + '-line-outer'}>
           <div className={prefixCls + '-line-inner'}>
@@ -82,14 +102,20 @@ let Circle = React.createClass({
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
     width: React.PropTypes.number,
+    trailColor: React.PropTypes.string,
+    format: React.PropTypes.oneOfType([
+      React.PropTypes.node,
+      React.PropTypes.string,
+      React.PropTypes.func,
+    ]),
   },
-  getDefaultProps: function () {
+  getDefaultProps() {
     return {
       width: 132,
       percent: 0,
       strokeWidth: 6,
-      format: '${percent}%',
       status: 'normal', // exception
+      trailColor: '#f9f9f9',
     };
   },
   render() {
@@ -100,21 +126,35 @@ let Circle = React.createClass({
     }
 
     let style = {
-      'width': props.width,
-      'height': props.width,
-      'fontSize': props.width * 0.16 + 6
+      width: props.width,
+      height: props.width,
+      fontSize: props.width * 0.16 + 6
     };
     let progressInfo;
-    const text = (typeof props.format === 'string') ?
-      props.format.replace('${percent}', props.percent) : props.format;
+    let text = props.format || `${props.percent}%`;
+
+    if (props.format) {
+      warning(typeof props.format === 'function',
+       'antd.Progress props.format type is function, change format={xxx} to format={() => xxx}');
+    }
+
+    if (typeof props.format === 'string') {
+      // 向下兼容原来的字符串替换方式
+      text = props.format.replace('${percent}', props.percent);
+    } else if (typeof props.format === 'function') {
+      text = props.format(props.percent);
+    }
+
     if (props.status === 'exception') {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>{text}</span>
+        <span className={prefixCls + '-circle-text'}>
+          {props.format ? text : <Icon type="exclamation" />}
+        </span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
         <span className={prefixCls + '-circle-text'}>
-          <Icon type="check" />
+          {props.format ? text : <Icon type="check" />}
         </span>
       );
     } else {
@@ -124,10 +164,10 @@ let Circle = React.createClass({
     }
 
     return (
-      <div className={prefixCls + '-circle-wrap status-' + props.status} >
+      <div className={prefixCls + '-circle-wrap status-' + props.status} style={props.style}>
         <div className={prefixCls + '-circle-inner'} style={style}>
           <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
-            strokeColor={statusColorMap[props.status]} trailColor="#e9e9e9" />
+            strokeColor={statusColorMap[props.status]} trailColor={props.trailColor} />
           {progressInfo}
         </div>
       </div>
@@ -136,6 +176,6 @@ let Circle = React.createClass({
 });
 
 export default {
-  Line: Line,
-  Circle: Circle
+  Line,
+  Circle,
 };

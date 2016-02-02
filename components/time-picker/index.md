@@ -24,8 +24,8 @@ API
 
 | 参数                 | 说明 | 类型 | 默认值 |
 |---------------------|-----|-----|-------|
-| defaultValue        | 初始默认时间 | string | 无 |
-| value               | 默认时间 | string | 无 |
+| defaultValue        | 初始默认时间 | string or Date | 无 |
+| value               | 默认时间 | string or Date | 无 |
 | placeholder         | 没有值的时候显示的内容 | string | "请选择时间" |
 | onChange            | 时间发生变化的回调     | function(Date value) | 无 |
 | format              | 展示的时间格式 | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |

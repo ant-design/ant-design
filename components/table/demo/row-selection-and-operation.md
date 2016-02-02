@@ -4,7 +4,7 @@
 
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
 
-不支持跨页选择，选中项只限当页，换页后将会清空。
+此版本换页后将会清空选中。
 
 ---
 
@@ -50,7 +50,7 @@ const App = React.createClass({
     }, 1000);
   },
   onSelectChange(selectedRowKeys) {
-    console.log('selectedRowKeys changed: ' + selectedRowKeys);
+    console.log('selectedRowKeys changed: ', selectedRowKeys);
     this.setState({ selectedRowKeys });
   },
   render() {
@@ -60,14 +60,16 @@ const App = React.createClass({
       onChange: this.onSelectChange,
     };
     const hasSelected = selectedRowKeys.length > 0;
-    return <div>
-      <div style={{marginBottom: 16}}>
-         <Button type="primary" onClick={this.start}
-           disabled={!hasSelected} loading={loading}>操作</Button>
-         <span style={{marginLeft: 8}}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
+    return (
+      <div>
+        <div style={{ marginBottom: 16 }}>
+           <Button type="primary" onClick={this.start}
+             disabled={!hasSelected} loading={loading}>操作</Button>
+           <span style={{ marginLeft: 8 }}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
+        </div>
+        <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>
-      <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
-    </div>;
+    );
   }
 });
 

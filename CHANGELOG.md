@@ -4,7 +4,81 @@
 
 ---
 
-## 0.11.2 `2015-01-03`
+## 0.12.0
+
+`2016-02-01`
+
+- 新增 [级联选择(Cascader)](http://ant.design/components/cascader/) 组件。
+- 新增 [树选择控件(TreeSelect)](http://ant.design/components/tree-select/) 组件。
+- Form 自身支持校验功能，废弃 Validation。[演示](http://ant.design/components/form/#demo-validate-basic)
+- Tabs
+  - `activeKey` 修正为受控属性。
+  - 当前项现在会始终显示。[#815](https://github.com/ant-design/ant-design/issues/815)
+- Modal 可以配置右上关闭按钮是否显示。
+- Select
+  - 打开选项菜单时，自动滚动到选中项。
+  - `combobox` 模式时，可配置是否默认选中第一项。[rc-select#38](https://github.com/react-component/select/issues/38)
+- Table
+  - filter 支持层级选择。
+  - 支持行点击事件 `onRowClick`。
+  - 支持多列的横向切换。[演示](http://ant.design/components/table/#demo-paging-columns)
+  - 更换 `dataSource` 和变换页面时不再默认清除选择数据，你可以用 `selectedRowKeys` 手动控制。`原来默认清除的行为会触发一个数据更新的死循环，而且难以实现跨页选择。`
+  - 支持固定表头。[演示](http://ant.design/components/table/#demo-fixed-header)
+- Tag 去除 `href` 属性，默认标签名从 `a` 改为 `span`。
+- Timeline 支持指定 pending 节点的内容。
+- Tree
+  - 节点支持拖拽。
+  - 支持动态控制节点展开与否。[演示](http://ant.design/components/tree/#demo-basic-controlled)
+  - 可以监听节点展开/关闭事件 `onExpand`。
+  - `onCheck` `onSelect` 参数调整。
+  - `onDataLoaded` 改为 `loadData`。
+  - 新增 drag&drop 相关属性：
+    - `onDragStart`
+    - `onDragEnter`
+    - `onDragOver`
+    - `onDragLeave`
+    - `onDrop`
+  - 新增 TreeNode 节点属性：
+    - `disableCheckbox`
+    - `isLeaf`
+- Transfer 给 `onChange` 增加参数。[#972](https://github.com/ant-design/ant-design/issues/972)
+- DatePicker
+  - 修复 RangePicker 开始结束日期相同的 bug。[#822](https://github.com/ant-design/ant-design/issues/822)
+  - 修复 `format` 对浮层不生效问题。[#917](https://github.com/ant-design/ant-design/issues/917)
+- TimePicker 修复一个 `value` 为 `null` 时没有进入受控模式的问题。
+- Upload
+  - 可以用 `headers` 设置上传头部。
+  - 新增上传图片卡片样式。[演示](http://ant.design/components/upload/#demo-picture-card)
+- Radio
+  - 更换 Radio.Button 的展现样式。
+  - 可以设置 Radio.Button 的大小。
+- Progress
+  - `format` 属性现在支持自定义 function 的方式进行定义。[#893](https://github.com/ant-design/ant-design/issues/893)
+  - `format` 指定 string 和 React.Node 的方式被废弃。
+  - 支持 `style` 属性。[#895](https://github.com/ant-design/ant-design/issues/895)
+- message && notification 现在可以销毁。
+- Button
+  - 小号 Button 的圆角调整为 `4px`。
+  - 修复 Button.Group disabled 后的样式问题。[#926](https://github.com/ant-design/ant-design/issues/926)
+- BreadCrumb
+  - 移除 `router` 属性，无需设置。
+  - 修复一个链接参数不对的问题。
+
+## 0.11.3
+
+`2016-01-19`
+
+- 修复 TimePicker 受控模式点选即关闭面板的问题。[#818](https://github.com/ant-design/ant-design/issues/818)
+- 修复一个两栏的 TimePicker 点击右边空白处无法关闭面板的问题。[#826](https://github.com/ant-design/ant-design/issues/826)
+- 修复 Table `pagination.onChange` 指定无效的问题。[#824](https://github.com/ant-design/ant-design/issues/824)
+- 修复 Transfer 搜索功能失效的问题。
+- 修复 DatePicker 的 MonthPicker 样式错乱的问题。
+- 修复 RangePicker 时区无法设置的问题。[#837](https://github.com/ant-design/ant-design/issues/837)
+- 修复二维码图标，新增一个扫描图标。[#772](https://github.com/ant-design/ant-design/issues/772)
+
+## 0.11.2
+
+`2015-01-03`
 
 - 新增了[贡献文档](https://github.com/ant-design/ant-design/blob/master/CONTRIBUTING.md)。
 - 修复一个 DatePicker 中选择的国际化文案问题。[#771](https://github.com/ant-design/ant-design/issues/771)
@@ -18,14 +92,18 @@
 - 修复 `0.11.1`版本对 React 版本要求太严的问题，对应的警告提示对于 `0.14.x` 将不再出现。
 - 组件和文档的样式小调整。
 
-## 0.11.1 `2015-12-29`
+## 0.11.1
+
+`2015-12-29`
 
 - 修复一个 Table 无法修改 pageSize 的问题。
 - 修复一个 Table 子表格展开的对齐问题。
 - 修复一个 Chrome 下部分图标左侧切边的问题。
 - 修复搜索输入框在表单下使用的样式问题。[#762](https://github.com/ant-design/ant-design/issues/762)
 
-## 0.11.0 `2015-12-28`
+## 0.11.0
+
+`2015-12-28`
 
 - **移除默认加载的样式文件，样式现在需要独立加载。**
 - 按钮圆角调整为 `6px`。
@@ -99,15 +177,19 @@
   - 新增 babel 插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)，转换 `import {Button} from 'antd'` 为 `import Button from 'antd/lib/button'`。
   - 发布了 `antd-init@0.6.x`，支持以上改动。
 
-> [0.11 升级指南](http://ant.design/docs/upgrade-notes#0-10-gt-0-11)
+> [0.11 升级指南](http://ant.design/docs/react/upgrade-notes#0-10-gt-0-11)
 
 ---
 
-## 0.10.5 `2016-01-04`
+## 0.10.5
+
+`2016-01-04`
 
 - 修复 Table 更新 dataSource 后，选中项没有置空的问题。[#793](https://github.com/ant-design/ant-design/issues/793)
 
-## 0.10.4 `2015-11-30`
+## 0.10.4
+
+`2015-11-30`
 
 - 将 media-match 加入默认的 polyfill 文件中。[5626974](https://github.com/ant-design/ant-design/commit/562697423b1139eb324c1dceb051c143f4870ed7)
 - 修复了 [MonthPicker](http://ant.design/components/datepicker/#demo-month-picker) 报错问题，并增加了相关演示。
@@ -115,7 +197,9 @@
 - 修复今天是不可选日期时的一个展示问题。[#606](https://github.com/ant-design/ant-design/issues/606)
 
 
-## 0.10.3 `2015-11-26`
+## 0.10.3
+
+`2015-11-26`
 
 - 和 0.9.x 保持一致默认引入 `antd/lib/index.css`（而非 less 文件），方便第三方引用。引用 less 文件进行变量配置的可自行 `import 'antd/style/index.less'`。[#593](https://github.com/ant-design/ant-design/issues/593)
 - 升级 Pagination，增加 `defaultCurrent` 属性，修正原来的 `current` 为[完全受控属性](https://facebook.github.io/react/docs/forms.html#controlled-components)。
@@ -123,7 +207,9 @@
 - 对演示和样式代码增加了 lint 检查。
 
 
-## 0.10.2 `2015-11-25`
+## 0.10.2
+
+`2015-11-25`
 
 - Slider 新增 `tipFormatter` 用于格式化 Tooltip 的内容。
 - 优化 Badge 动画效果。
@@ -134,7 +220,9 @@
   - InputNumber 同时设置 `size` `className` 时会有冲突。
 
 
-## 0.10.1 `2015-11-20`
+## 0.10.1
+
+`2015-11-20`
 
 - 修改内部组件的引用结构，方便工具优化。[#566](https://github.com/ant-design/ant-design/pull/566)
   - 移除了演示中没有使用过的 `antd.ButtonGroup`，依然用 `const ButtonGroup = Button.Group` 来使用。
@@ -147,7 +235,9 @@
 - 修复 Datepicker 的 `style` 和 `calendarStyle` 属性失效的问题，并将 `calendarStyle` 更名为 `popupStyle`。
 
 
-## 0.10.0 `2015-11-20`
+## 0.10.0
+
+`2015-11-20`
 
 - 全面兼容 `react@0.14.x`。
 - 新增 [时间选择 Timepicker](http://ant.design/components/timepicker/)、[日历 Calendar](http://ant.design/components/calendar/)、[加载中 Spin](http://ant.design/components/spin/) 组件。
@@ -213,16 +303,20 @@
 > 备注：
 >
 > - [计划和推进 issue](https://github.com/ant-design/ant-design/issues/276)
-> - [0.10 升级指南](http://ant.design/docs/upgrade-notes#0-0-gt-0-10)
+> - [0.10 升级指南](http://010x.ant.design/docs/upgrade-to-0.10)
 
 ---
 
-## 0.9.3 ~ 0.9.5 `2015-11-04`
+## 0.9.3 ~ 0.9.5
+
+`2015-11-04`
 
 * 增加对 React 版本的检测提示机制，0.9.x 序列只能使用 `react@~0.13.3`。
 
 
-## 0.9.2 `2015-10-26`
+## 0.9.2
+
+`2015-10-26`
 
 * Tooltip 的 title 为空时不展示浮层。[9b53117](https://github.com/ant-design/ant-design/commit/9b5311791e73270c7c16a602ac74dd59719a5f76)
 * 修复 Upload 文件列表链接的 target 属性。[340a170](https://github.com/ant-design/ant-design/commit/340a1702b6a7b065ac02d417c891e1886dfe470d)
@@ -230,7 +324,9 @@
 * 修复一些小的样式问题。
 
 
-## 0.9.1 `2015-09-26`
+## 0.9.1
+
+`2015-09-26`
 
 * 添加 Pagination pageSize 发生变化的回调。[#317](https://github.com/ant-design/ant-design/issues/317)
 * 升级依赖 rc-upload 到 1.6.x，修复 IE8/9 下的兼容性问题。
@@ -249,7 +345,9 @@
 * 部分组件交互和视觉效果修正。
 
 
-## 0.9.0 `2015-09-14`
+## 0.9.0
+
+`2015-09-14`
 
 * 新增 [timeline](components/timeline/) 和 [badge](components/badge/) 组件。
 * 优化弹出层类组件的动画效果，使其更加流畅。
@@ -288,7 +386,9 @@
   * 支持和 react-router 结合使用。
 
 
-## 0.8.0 `2015-08-25`
+## 0.8.0
+
+`2015-08-25`
 
 这个版本是第一个稳定版，组件经过三期迭代，基本到齐，并有大量改进和变化，不向下兼容。
 
@@ -300,12 +400,16 @@
 * 排查并修复 IE 和 safari 等浏览器的兼容问题。
 * 大量代码重构，演示代码补充，文档更新、以及样式上的优化。
 
-## 0.7.3 `2015-07-30`
+## 0.7.3
+
+`2015-07-30`
 
 * 小幅重构了 Table 分页，修复了分页导致的数据不展示的问题。
 * 更新了部分文档。
 
-## 0.7.2 `2015-07-27`
+## 0.7.2
+
+`2015-07-27`
 
 * 修复本地模式下 pagination 为 false 时数据无法显示的 [问题](https://github.com/ant-design/ant-design/commit/1954586665e59031eae5d2c8b2cdb08f83d64fcb)。
 * 重构了 message 组件。
@@ -313,14 +417,18 @@
 * 部分代码切换至 ES6 模式。
 * 修正了部分组件的样式和演示，优化部分动画。
 
-## 0.7.1 `2015-07-22`
+## 0.7.1
+
+`2015-07-22`
 
 * 修复了 Table 组件的 pagination 为 false 时分页未消失的 [问题](https://github.com/ant-design/ant-design/commit/01a6c0f1e6707b72a54ef30d073d148a87b391a8)。
 * select 组件[选中后默认显示标签内容](https://github.com/ant-design/ant-design/issues/50)（原来是显示 value）。
 * 修正了部分组件的样式和演示。
 * 打包文件为 [umd 模式](https://github.com/ant-design/ant-design/commit/9b7b940cb417429d8fc57d83e252991b043d0f2f)。
 
-## 0.7.0 `2015-07-21`
+## 0.7.0
+
+`2015-07-21`
 
 * 第一个公开版本，发布 `layout`、`iconfont`、`button`、`form`、`checkbox`、`radio`、`switch`、`slider`、`input-number`、`datepicker`、`select`、`tabs`、`steps`、`breadcrumb`、`collapse`、`pagination`、`modal`、`message`、`dropdown`、`popover`、`popconfirm`、`tooltip`、`progress`、`table` 等组件。
 * 发布 [Ant Design 首页](http://ant.design/) 和入门文档。
