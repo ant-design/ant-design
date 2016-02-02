@@ -31,6 +31,11 @@
 - [React Component](http://react-component.github.io/badgeboard/) 上精心封装的高质量 UI 库。
 - 基于 npm + webpack + babel 的工作流，支持 ES2015。
 
+## 安装
+
+```
+$ npm install antd
+```
 
 ## 示例
 
