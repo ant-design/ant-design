@@ -1,9 +1,8 @@
 import React from 'react';
-import Menu from 'rc-menu';
+import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
-const { SubMenu } = Menu;
 
 let FilterMenu = React.createClass({
   getInitialState() {
@@ -48,10 +47,10 @@ let FilterMenu = React.createClass({
   },
   renderMenuItem(item) {
     return (
-      <Menu.Item key={item.value}>
+      <MenuItem key={item.value}>
         <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
         {item.text}
-      </Menu.Item>
+      </MenuItem>
     );
   },
   renderMenus(items) {
