@@ -23,4 +23,3 @@ ReactDOM.render(
   </Popconfirm>
 , mountNode);
 ````
-

@@ -62,7 +62,7 @@ export default React.createClass({
     }
   },
   render() {
-    const { title, okText, cancelText, placement, overlayStyle, trigger } = this.props;
+    const { title, okText, cancelText, placement, overlayStyle, trigger, ...restProps } = this.props;
     const overlay = (
       <div>
         <div className={prefixCls + '-content'}>
@@ -81,7 +81,7 @@ export default React.createClass({
     const transitionName = transitionNames[placement];
 
     return (
-      <Tooltip placement={placement}
+      <Tooltip {...restProps} placement={placement}
         overlayStyle={overlayStyle}
         prefixCls={prefixCls}
         onVisibleChange={this.onVisibleChange}
