@@ -20,12 +20,12 @@ let AntModal = React.createClass({
       transitionName: 'zoom',
       maskAnimation: 'fade',
       confirmLoading: false,
-      visible: false
+      visible: false,
     };
   },
 
-  handleCancel() {
-    this.props.onCancel();
+  handleCancel(e) {
+    this.props.onCancel(e);
   },
 
   handleOk() {

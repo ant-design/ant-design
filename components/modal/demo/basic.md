@@ -24,7 +24,8 @@ const App = React.createClass({
       visible: false
     });
   },
-  handleCancel() {
+  handleCancel(e) {
+    console.log(e);
     this.setState({
       visible: false
     });

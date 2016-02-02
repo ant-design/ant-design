@@ -25,7 +25,7 @@
 | title      | 标题           | React.Element    | 无           |
 | closable   | 是否显示右上角的关闭按钮 | Boolean    | true        |
 | onOk       | 点击确定回调       | function     | 无           |
-| onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function  | 无           |
+| onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无         |
 | width      | 宽度           | String or Number | 520           |
 | footer     | 底部内容       | React.Element    | 确定取消按钮 |
 | okText     | 确认按钮文字    | String           | 确定       |
