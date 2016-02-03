@@ -36,7 +36,7 @@ let Demo = React.createClass({
         <FormItem
           label="您的性别："
           labelCol={{ span: 6 }}
-          wrapperCol={{ span: 14 }}d>
+          wrapperCol={{ span: 14 }}>
             <RadioGroup {...getFieldProps('gender', { initialValue: 'female' })}>
               <Radio value="male">男的</Radio>
               <Radio value="female">女的</Radio>
@@ -50,7 +50,7 @@ let Demo = React.createClass({
           <Input type="textarea" placeholder="随便写" {...getFieldProps('remark')} />
         </FormItem>
         <FormItem
-          wrapperCol={{ span: 14, offset: 6 }} >
+          wrapperCol={{ span: 14, offset: 6 }}>
           <label>
             <Checkbox {...getFieldProps('agreement')} />同意
           </label>
