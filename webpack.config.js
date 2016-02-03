@@ -4,7 +4,7 @@ var path = require('path');
 var pkg = require('./package');
 
 var entry = {};
-entry['demo'] = './scripts/demo.js';
+entry['demo'] = ['./scripts/demo.js', 'webpack-hot-middleware/client'];
 
 module.exports = {
   entry: entry,
@@ -20,6 +20,7 @@ module.exports = {
 
   output: {
     path: path.join(process.cwd(), 'dist'),
+    publicPath: '/dist/',
     filename: '[name].js'
   },
 
@@ -57,7 +58,10 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
 
   devtool: 'source-map'

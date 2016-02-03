@@ -117,11 +117,12 @@
     "values.js": "^1.0.3",
     "webpack": "^1.10.1",
     "webpack-babel-jest": "^1.0.0",
-    "webpack-dev-middleware": "^1.5.1"
+    "webpack-dev-middleware": "^1.5.1",
+    "webpack-hot-middleware": "^2.6.4"
   },
   "scripts": {
     "babel": "babel components index.js --out-dir lib",
-    "start": "npm run clean && nico server --watch",
+    "start": "npm run clean && nico server",
     "clean": "rm -rf _site dist",
     "site": "npm run clean && webpack --config webpack.deploy.config.js && webpack --config webpack.antd.config.js && NODE_ENV=PRODUCTION nico build",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",

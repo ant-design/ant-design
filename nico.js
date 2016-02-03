@@ -6,6 +6,7 @@ var inspect = require('util').inspect;
 var Busboy = require('busboy');
 var chalk = require('chalk');
 var webpackMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 var webpackConfig = require('./webpack.config');
 var webpackCompiler = webpack(webpackConfig);
 var handler;
@@ -89,23 +90,29 @@ exports.middlewares = [
     }
   },
   {
-  name: 'webpackDevMiddleware',
-  filter: /\.(js|css)(\.map)?(\?.*)?$/,
-  handle: function(req, res, next) {
-    handler = handler || webpackMiddleware(webpackCompiler, {
-      publicPath: '/dist/',
-      lazy: false,
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: false
-      },
-      noInfo: true
-    });
-    try {
-      return handler(req, res, next);
-    } catch(e) {}
+    name: 'webpackDevMiddleware',
+    filter: /\.(js|css|json)(\.map)?(\?.*)?$/,
+    handle: function(req, res, next) {
+      handler = handler || webpackMiddleware(webpackCompiler, {
+        publicPath: webpackConfig.output.publicPath,
+        lazy: false,
+        watchOptions: {
+          aggregateTimeout: 300,
+          poll: false
+        },
+        noInfo: true
+      });
+      try {
+        return handler(req, res, next);
+      } catch(e) {}
+    }
+  },
+  {
+    name: 'webpackHotMiddleware',
+    filter: /.*/,
+    handle: webpackHotMiddleware(webpackCompiler)
   }
-}];
+];
 
 exports.writers = [
   'nico-jsx.PageWriter',
