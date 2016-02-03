@@ -37,17 +37,18 @@
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
 | showTime     | 增加时间选择功能 | bool | false  |
 | onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
+| getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 
 ### RangePicker
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期          | [string|Date, string|Date]   | 无           |
-| defaultValue | 默认日期       | [string|Date, string|Date]   | 无           |
+| value        | 日期          | [string/Date, string/Date]   | 无           |
+| defaultValue | 默认日期       | [string/Date, string/Date]   | 无           |
 | format       | 展示的日期格式  | string    | "yyyy-MM-dd HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function([Date start, Date end]) | 无           |
 
-`disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` 属性与 DatePicker 的一致。
+`disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer` 属性与 DatePicker 的一致。
 
 <style>
 .code-box-demo .ant-calendar-picker {

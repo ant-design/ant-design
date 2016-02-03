@@ -106,6 +106,7 @@ function createPicker(TheCalendar, defaultFormat) {
             prefixCls="ant-calendar-picker-container"
             style={this.props.popupStyle}
             align={this.props.align}
+            getCalendarContainer={this.props.getCalendarContainer}
             onOpen={this.toggleOpen}
             onClose={this.toggleOpen}
             onChange={this.handleChange}>

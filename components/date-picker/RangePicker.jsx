@@ -62,7 +62,7 @@ export default React.createClass({
     let defaultCalendarValue = new GregorianCalendar(locale);
     defaultCalendarValue.setTime(Date.now());
 
-    const { disabledDate, showTime, size, startPlaceholder, endPlaceholder,
+    const { disabledDate, showTime, size, startPlaceholder, endPlaceholder, getCalendarContainer,
             transitionName, disabled, popupStyle, align, style, onOk } = this.props;
     const state = this.state;
 
@@ -110,6 +110,7 @@ export default React.createClass({
         prefixCls="ant-calendar-picker-container"
         style={popupStyle}
         align={align}
+        getCalendarContainer={getCalendarContainer}
         onOpen={this.toggleOpen}
         onClose={this.toggleOpen}
         onChange={this.handleChange}>

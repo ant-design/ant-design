@@ -8,6 +8,7 @@
 
 - 升级 rc-pagination 和 rc-menu 的依赖。
 - 修复 TreeSelect 的不可用样式。
+- DatePicker 补充 `getCalendarContainer` 属性，用于解决问题 [#991](https://github.com/ant-design/ant-design/issues/991)。
 - 修正 Modal `onCancel` 的参数为点击事件。[#980](https://github.com/ant-design/ant-design/issues/980)
 - 修复一个 Tooltip 内嵌套 Popconfirm 的问题。[#977](https://github.com/ant-design/ant-design/issues/977)
 - 修复 DatePicker 和 RangePicker 的 `onOk` 一直不可用的问题。
