@@ -116,7 +116,7 @@ class FormItem extends React.Component {
 
     const className = classNames({
       [this._getLayoutClass(labelCol)]: true,
-      'label-required': required,
+      [`${props.prefixCls}-item-required`]: required,
     });
 
     return props.label ? (
