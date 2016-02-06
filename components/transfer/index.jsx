@@ -101,13 +101,8 @@ class Transfer extends Component {
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
     const filter = direction === 'left' ? leftFilter : rightFilter;
     const checkStatus = this.getGlobalCheckStatus(direction);
-    let holder = [];
-
-    if (checkStatus === 'all') {
-      holder = [];
-    } else {
-      holder = this.filterDataSource(dataSource, filter).map(item => item.key);
-    }
+    const holder = (checkStatus === 'all') ? [] :
+      this.filterDataSource(dataSource, filter).map(item => item.key);
 
     this.setState({
       [direction + 'CheckedKeys']: holder,
