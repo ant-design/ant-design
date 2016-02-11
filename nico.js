@@ -119,6 +119,21 @@ exports.writers = [
   'nico-jsx.StaticWriter',
   'nico-jsx.FileWriter'
 ];
+
+exports.watchFunc = function(e) {
+  console.log('reload: ' + e.filepath);
+  var post = e.post;
+  if (post && post.template === 'code' && post.id) {
+    var demoNode = $('#' + post.id);
+    if (demoNode[0]) {
+      ReactDOM.unmountComponentAtNode(demoNode[0]);
+      demoNode.next().remove().insertAfter(demoNode);
+      $(post.html).insertAfter(demoNode.next());
+    }
+  } else if (!(/\.js(x?)$/.test(post.filename))) {
+    location.reload();
+  }
+};
 // end settings }}
 
 process.on('uncaughtException', function(err) {
