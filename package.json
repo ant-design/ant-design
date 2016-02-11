@@ -79,6 +79,7 @@
     "babel-plugin-add-module-exports": "^0.1.1",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "babel-preset-react-hmre": "^1.1.0",
     "babel-preset-stage-0": "^6.1.18",
     "busboy": "^0.2.9",
     "chalk": "^1.1.0",
