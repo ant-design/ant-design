@@ -61,7 +61,7 @@ const columns = [{
 | size          | 正常或迷你类型           | String          | `default` or `small`| default |
 | dataSource    | 数据数组                 | Array           |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
-| rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
+| rowKey        | 表格列 key 的取值 | Function(record, index):string |                     |    record.key    |
 | expandedRowRender  | 额外的列展开元素 | Function |                     | - |
 | defaultExpandedRowKeys | 默认展开的列 | Array |                     | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
