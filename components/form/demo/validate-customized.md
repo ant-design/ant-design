@@ -4,7 +4,7 @@
 
 密码校验实例。
 
-这里使用了 validation 的 `forceValidate(fields, callback)`  方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
+这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
 
 ---
 
