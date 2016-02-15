@@ -43,7 +43,7 @@ Form.create = (o = {}) => {
     refComponent: true,
     mapProps(props) {
       const form = props.form;
-      form.validateFields = wrapValidateFields(form.validateFields);
+      form.validateFieldsAndScroll = wrapValidateFields(form.validateFields);
       if (typeof o.mapProps === 'function') {
         return o.mapProps(props);
       }
