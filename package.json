@@ -35,6 +35,7 @@
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
     "css-animation": "~1.1.0",
+    "dom-scroll-into-view": "^1.0.1",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
     "object-assign": "~4.0.1",

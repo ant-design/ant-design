@@ -35,7 +35,7 @@ class BasicDemo extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields((errors, values) => {
+    this.props.form.validateFieldsAndScroll((errors, values) => {
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
