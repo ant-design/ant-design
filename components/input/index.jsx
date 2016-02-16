@@ -1,5 +1,6 @@
 import React from 'react';
 import assign from 'object-assign';
+import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
   return args.map((s) => {
@@ -54,8 +55,12 @@ class Input extends React.Component {
       </span>
     ) : null;
 
+    const className = classNames({
+      [`${props.prefixCls}-input-wrapper`]: true,
+      [wrapperClassName]: (addonBefore || addonAfter),
+    });
     return (
-      <span className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
+      <span className={className}>
         {addonBefore}
         {children}
         {addonAfter}
