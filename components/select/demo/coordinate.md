@@ -14,8 +14,8 @@ const Option = Select.Option;
 
 const provinceData = ['浙江', '江苏'];
 const cityData = {
-  '浙江': ['杭州', '宁波', '温州'],
-  '江苏': ['南京', '苏州', '镇江']
+  浙江: ['杭州', '宁波', '温州'],
+  江苏: ['南京', '苏州', '镇江']
 };
 
 
