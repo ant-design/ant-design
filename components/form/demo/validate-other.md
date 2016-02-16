@@ -2,9 +2,7 @@
 
 - order: 12
 
-提供以下组件表单域的校验。
-
-`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。
+提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
 
 ---
 
@@ -23,7 +21,7 @@ let Demo = React.createClass({
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields((errors, values) => {
+    this.props.form.validateFieldsAndScroll((errors, values) => {
       if (!!errors) {
         console.log('Errors in form!!!');
         return;
