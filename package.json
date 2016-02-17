@@ -111,7 +111,7 @@
     "react-addons-test-utils": "0.14.x",
     "react-copy-to-clipboard": "^4.0.1",
     "react-dom": "0.14.x",
-    "react-router": "~1.0.3",
+    "react-router": "^2.0.0",
     "react-stateless-wrapper": "~1.0.2",
     "reqwest": "~2.0.5",
     "semver": "^5.1.0",
