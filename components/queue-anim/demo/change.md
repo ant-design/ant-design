@@ -30,7 +30,7 @@ const Test = React.createClass({
     items.push(<li key={Date.now()}></li>);
     this.setState({
       show: true,
-      items: items,
+      items,
     });
   },
   onRemove() {
@@ -38,7 +38,7 @@ const Test = React.createClass({
     items.splice(items.length - 1, 1);
     this.setState({
       show: true,
-      items: items,
+      items,
     });
   },
   render() {

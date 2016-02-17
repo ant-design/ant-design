@@ -10,7 +10,7 @@
 import { Modal, Button } from 'antd';
 
 const Test = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {
       loading: false,
       visible: false

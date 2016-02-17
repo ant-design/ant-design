@@ -29,7 +29,7 @@ const App = React.createClass({
           </Menu.Item>
         </Menu>
         <QueueAnim type={['right', 'left']} className="demo-router-wrap">
-          {React.cloneElement(this.props.children || <Home/>, { key: key })}
+          {React.cloneElement(this.props.children || <Home/>, { key })}
         </QueueAnim>
       </div>
     );

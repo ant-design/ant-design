@@ -11,7 +11,7 @@ import { Radio } from 'antd';
 const RadioGroup = Radio.Group;
 
 const App = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {
       value: 'a'
     };
