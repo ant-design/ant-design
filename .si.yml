@@ -2,6 +2,6 @@ before_deploy:
   - tnpm install && tnpm update
   - tnpm run site
 options:
-  dist: '.'
+  dist: '_site'
 cname: 'antd.alipay.net'
 thumb: 'https://t.alipayobjects.com/images/rmsweb/T1gqXjXdRfXXXXXXXX.png'
