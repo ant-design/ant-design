@@ -42,7 +42,7 @@ const data = [{
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
   onChange(selectedRowKeys) {
-    console.log('selectedRowKeys changed: ' + selectedRowKeys);
+    console.log(`selectedRowKeys changed: ${selectedRowKeys}`);
   },
   onSelect(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);

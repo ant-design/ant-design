@@ -60,35 +60,35 @@ let Line = React.createClass({
     if (props.showInfo === true) {
       if (props.status === 'exception') {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>
+          <span className={`${prefixCls}-line-text`}>
             {props.format ? text : <Icon type="exclamation" />}
           </span>
         );
       } else if (props.status === 'success') {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>
+          <span className={`${prefixCls}-line-text`}>
             {props.format ? text : <Icon type="check" />}
           </span>
         );
       } else {
         progressInfo = (
-          <span className={prefixCls + '-line-text'}>{text}</span>
+          <span className={`${prefixCls}-line-text`}>{text}</span>
         );
       }
     } else {
-      fullCls = ' ' + prefixCls + '-line-wrap-full';
+      fullCls = ` ${prefixCls}-line-wrap-full`;
     }
     let percentStyle = {
-      width: props.percent + '%',
+      width: `${props.percent}%`,
       height: props.strokeWidth
     };
 
     return (
-      <div className={prefixCls + '-line-wrap clearfix status-' + props.status + fullCls} style={props.style}>
+      <div className={`${prefixCls}-line-wrap clearfix status-${props.status}${fullCls}`} style={props.style}>
         {progressInfo}
-        <div className={prefixCls + '-line-outer'}>
-          <div className={prefixCls + '-line-inner'}>
-            <div className={prefixCls + '-line-bg'} style={percentStyle}></div>
+        <div className={`${prefixCls}-line-outer`}>
+          <div className={`${prefixCls}-line-inner`}>
+            <div className={`${prefixCls}-line-bg`} style={percentStyle}></div>
           </div>
         </div>
       </div>
@@ -147,25 +147,25 @@ let Circle = React.createClass({
 
     if (props.status === 'exception') {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>
+        <span className={`${prefixCls}-circle-text`}>
           {props.format ? text : <Icon type="exclamation" />}
         </span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>
+        <span className={`${prefixCls}-circle-text`}>
           {props.format ? text : <Icon type="check" />}
         </span>
       );
     } else {
       progressInfo = (
-        <span className={prefixCls + '-circle-text'}>{text}</span>
+        <span className={`${prefixCls}-circle-text`}>{text}</span>
       );
     }
 
     return (
-      <div className={prefixCls + '-circle-wrap status-' + props.status} style={props.style}>
-        <div className={prefixCls + '-circle-inner'} style={style}>
+      <div className={`${prefixCls}-circle-wrap status-${props.status}`} style={props.style}>
+        <div className={`${prefixCls}-circle-inner`} style={style}>
           <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
             strokeColor={statusColorMap[props.status]} trailColor={props.trailColor} />
           {progressInfo}

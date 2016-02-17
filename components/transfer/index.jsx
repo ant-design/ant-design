@@ -105,22 +105,22 @@ class Transfer extends Component {
       this.filterDataSource(dataSource, filter).map(item => item.key);
 
     this.setState({
-      [direction + 'CheckedKeys']: holder,
+      [`${direction}CheckedKeys`]: holder,
     });
   }
 
   handleFilter(direction, e) {
     this.setState({
       // deselect all
-      [direction + 'CheckedKeys']: [],
+      [`${direction}CheckedKeys`]: [],
       // add filter
-      [direction + 'Filter']: e.target.value,
+      [`${direction}Filter`]: e.target.value,
     });
   }
 
   handleClear(direction) {
     this.setState({
-      [direction + 'Filter']: '',
+      [`${direction}Filter`]: '',
     });
   }
 
@@ -140,7 +140,7 @@ class Transfer extends Component {
       holder.push(selectedItem.key);
     }
     this.setState({
-      [direction + 'CheckedKeys']: holder,
+      [`${direction}CheckedKeys`]: holder,
     });
   }
 
@@ -181,14 +181,14 @@ class Transfer extends Component {
           searchPlaceholder={searchPlaceholder}
           body={body}
           footer={footer}
-          prefixCls={prefixCls + '-list'}/>
+          prefixCls={`${prefixCls}-list`}/>
         <Operation rightActive={rightActive}
           rightArrowText={operations[0]}
           moveToRight={this.moveTo.bind(this, 'right')}
           leftActive={leftActive}
           leftArrowText={operations[1]}
           moveToLeft={this.moveTo.bind(this, 'left')}
-          className={prefixCls + '-operation'}/>
+          className={`${prefixCls}-operation`}/>
         <List titleText={titles[1]}
           dataSource={rightDataSource}
           filter={rightFilter}
@@ -205,7 +205,7 @@ class Transfer extends Component {
           searchPlaceholder={searchPlaceholder}
           body={body}
           footer={footer}
-          prefixCls={prefixCls + '-list'}/>
+          prefixCls={`${prefixCls}-list`}/>
       </div>
     );
   }

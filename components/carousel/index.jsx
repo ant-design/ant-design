@@ -34,7 +34,7 @@ const AntCarousel = React.createClass({
 
     let className = 'ant-carousel';
     if (props.vertical) {
-      className = className + ' ant-carousel-vertical';
+      className = `${className} ant-carousel-vertical`;
     }
 
     return (

@@ -30,7 +30,7 @@ const Demo = React.createClass({
   },
   add() {
     const panes = this.state.panes;
-    const activeKey = 'newTab' + this.newTabIndex++;
+    const activeKey = `newTab${this.newTabIndex++}`;
     panes.push(<TabPane tab="新建页签" key={activeKey}>新页面</TabPane>);
     this.setState({ panes, activeKey });
   },

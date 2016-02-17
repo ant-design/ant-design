@@ -14,7 +14,7 @@ const close = function () {
 };
 
 const openNotification = function () {
-  const key = 'open' + Date.now();
+  const key = `open${Date.now()}`;
   const btnClick = function () {
     // 隐藏提醒框
     notification.close(key);

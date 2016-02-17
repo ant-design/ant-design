@@ -15,7 +15,7 @@ const Option = Select.Option;
 const RadioGroup = Radio.Group;
 
 function handleSelectChange(value) {
-  console.log('selected ' + value);
+  console.log(`selected ${value}`);
 }
 
 ReactDOM.render(

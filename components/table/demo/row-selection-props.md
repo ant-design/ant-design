@@ -48,7 +48,7 @@ const rowSelection = {
     };
   },
   onChange(selectedRowKeys) {
-    console.log('selectedRowKeys changed: ' + selectedRowKeys);
+    console.log(`selectedRowKeys changed: ${selectedRowKeys}`);
   },
   onSelect(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);

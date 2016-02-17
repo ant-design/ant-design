@@ -10,7 +10,7 @@
 import { Checkbox } from 'antd';
 
 function onChange(e) {
-  console.log('checked = ' + e.target.checked);
+  console.log(`checked = ${e.target.checked}`);
 }
 
 ReactDOM.render(<label>

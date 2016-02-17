@@ -23,7 +23,7 @@ const Test = React.createClass({
       options = [];
     } else {
       options = ['gmail.com', '163.com', 'qq.com'].map((domain) => {
-        const email = value + '@' + domain;
+        const email = `${value}@${domain}`;
         return <Option key={email}>{email}</Option>;
       });
     }

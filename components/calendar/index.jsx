@@ -8,8 +8,8 @@ import Header from './Header';
 function noop() { return null; }
 
 function zerofixed(v) {
-  if (v < 10) return '0' + v;
-  return v + '';
+  if (v < 10) return `0${v}`;
+  return `${v}`;
 }
 
 class Calendar extends Component {
@@ -80,7 +80,7 @@ class Calendar extends Component {
 
     let cls = className || '';
     if (fullscreen) {
-      cls += (' ' + prefixCls + '-fullscreen');
+      cls += (` ${prefixCls}-fullscreen`);
     }
 
     return (

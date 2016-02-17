@@ -30,9 +30,9 @@ class AntTabs extends React.Component {
           children, tabBarExtraContent } = this.props;
     let className = classNames({
       [this.props.className]: !!this. props.className,
-      [prefixCls + '-mini']: size === 'small' || size === 'mini',
-      [prefixCls + '-vertical']: tabPosition === 'left' || tabPosition === 'right',
-      [prefixCls + '-card']: type.indexOf('card') >= 0,
+      [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
+      [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
+      [`${prefixCls}-card`]: type.indexOf('card') >= 0,
     });
     if (tabPosition === 'left' || tabPosition === 'right' || type.indexOf('card') >= 0) {
       animation = null;
@@ -53,14 +53,14 @@ class AntTabs extends React.Component {
       // Add new tab handler
       tabBarExtraContent = (
         <span>
-          <Icon type="plus" className={prefixCls + '-new-tab'} onClick={this.createNewTab} />
+          <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
           {tabBarExtraContent}
         </span>
       );
     }
     // Wrap the extra content
     tabBarExtraContent = (
-      <div className={prefixCls + '-extra-content'}>
+      <div className={`${prefixCls}-extra-content`}>
         {tabBarExtraContent}
       </div>
     );

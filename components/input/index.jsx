@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
   return args.map((s) => {
-    return prefixCls + '-' + s;
+    return `${prefixCls}-${s}`;
   }).join(' ');
 }
 
@@ -25,7 +25,10 @@ function fixControlledValue(value) {
 
 class Group extends React.Component {
   render() {
-    const className = 'ant-input-group ' + (this.props.className || '');
+    const className = classNames({
+      'ant-input-group': true,
+      [this.props.className]: !!this.props.className,
+    });
     return (
       <span className={className} style={this.props.style}>
         {this.props.children}

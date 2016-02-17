@@ -26,8 +26,8 @@ const App = React.createClass({
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,
-        title: '内容' + (i + 1),
-        description: '内容' + (i + 1) + '的描述',
+        title: `内容${i + 1}`,
+        description: `内容${i + 1}的描述`,
         chosen: Math.random() * 2 > 1
       };
       if (data.chosen) {
@@ -60,7 +60,7 @@ const App = React.createClass({
         operations={['向右操作文案', '向左操作文案']}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={item => item.title + '-' + item.description}
+        render={item => `${item.title}-${item.description}`}
         footer={this.renderFooter} />
     );
   }

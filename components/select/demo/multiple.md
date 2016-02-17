@@ -17,7 +17,7 @@ for (let i = 10; i < 36; i++) {
 }
 
 function handleChange(value) {
-  console.log('selected ' + value);
+  console.log(`selected ${value}`);
 }
 
 ReactDOM.render(

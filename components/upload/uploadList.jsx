@@ -59,12 +59,12 @@ export default React.createClass({
       if (this.props.listType === 'picture' || this.props.listType === 'picture-card') {
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
           if (this.props.listType === 'picture-card') {
-            icon = <div className={prefixCls + '-list-item-uploading-text'}>文件上传中</div>;
+            icon = <div className={`${prefixCls}-list-item-uploading-text`}>文件上传中</div>;
           } else {
-            icon = <Icon className={prefixCls + '-list-item-thumbnail'} type="picture" />;
+            icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
           }
         } else {
-          icon = (<a className={prefixCls + '-list-item-thumbnail'}
+          icon = (<a className={`${prefixCls}-list-item-thumbnail`}
             href={file.url}
             target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
           );
@@ -73,7 +73,7 @@ export default React.createClass({
 
       if (file.status === 'uploading') {
         progress = (
-          <div className={prefixCls + '-list-item-progress'}>
+          <div className={`${prefixCls}-list-item-progress`}>
             <Line {...this.props.progressAttr} percent={file.percent} />
           </div>
         );
@@ -84,9 +84,9 @@ export default React.createClass({
       });
       return (
         <div className={infoUploadingClass} key={file.uid}>
-          <div className={prefixCls + '-list-item-info'}>
+          <div className={`${prefixCls}-list-item-info`}>
             {icon}
-            <span className={prefixCls + '-list-item-name'}>{file.name}</span>
+            <span className={`${prefixCls}-list-item-name`}>{file.name}</span>
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
@@ -107,7 +107,7 @@ export default React.createClass({
     });
     return (
       <div className={listClassNames}>
-        <Animate transitionName={prefixCls + '-margin-top'}>
+        <Animate transitionName={`${prefixCls}-margin-top`}>
           {list}
         </Animate>
       </div>

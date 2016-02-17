@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
   return args.map((s) => {
-    return prefixCls + '-' + s;
+    return `${prefixCls}-${s}`;
   }).join(' ');
 }
 
@@ -13,8 +13,8 @@ class FormItem extends React.Component {
       return '';
     }
     const { span, offset } = colDef;
-    const col = span ? 'col-' + span : '';
-    const offsetCol = offset ? ' col-offset-' + offset : '';
+    const col = span ? `col-${span}` : '';
+    const offsetCol = offset ? ` col-offset-${offset}` : '';
     return col + offsetCol;
   }
 
@@ -80,7 +80,7 @@ class FormItem extends React.Component {
       );
     }
     return (
-      <div className={this.props.prefixCls + '-item-control ' + classes}>
+      <div className={`${this.props.prefixCls}-item-control ${classes}`}>
         {c1}{c2}{c3}
       </div>
     );

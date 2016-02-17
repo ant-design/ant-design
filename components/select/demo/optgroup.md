@@ -12,7 +12,7 @@ const Option = Select.Option;
 const OptGroup = Select.OptGroup;
 
 function handleChange(value) {
-  console.log('selected ' + value);
+  console.log(`selected ${value}`);
 }
 
 ReactDOM.render(

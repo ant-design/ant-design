@@ -10,7 +10,7 @@
 import { Switch } from 'antd';
 
 function onChange(checked) {
-  console.log('switch to ' + checked);
+  console.log(`switch to ${checked}`);
 }
 
 ReactDOM.render(

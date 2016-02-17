@@ -4,8 +4,8 @@ import rcUtil from 'rc-util';
 import classNames from 'classnames';
 
 function getScroll(w, top) {
-  let ret = w['page' + (top ? 'Y' : 'X') + 'Offset'];
-  let method = 'scroll' + (top ? 'Top' : 'Left');
+  let ret = w[`page${top ? 'Y' : 'X'}Offset`];
+  let method = `scroll${top ? 'Top' : 'Left'}`;
   if (typeof ret !== 'number') {
     let d = w.document;
     // ie6,7,8 standard mode
