@@ -2,11 +2,10 @@
 
 .antCheckboxFn(@checkbox-prefix-cls: ant-checkbox) {
 
-@checkbox-wrap-prefix-cls: @checkbox-prefix-cls;
-@checkbox-inner-prefix-cls: ~"@{checkbox-wrap-prefix-cls}-inner";
+@checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
 
 // 一般状态
-.@{checkbox-wrap-prefix-cls} {
+.@{checkbox-prefix-cls} {
   white-space: nowrap;
   cursor: pointer;
   outline: none;
@@ -66,7 +65,7 @@
 }
 
 // 半选状态
-.@{checkbox-wrap-prefix-cls}-indeterminate {
+.@{checkbox-prefix-cls}-indeterminate {
   .@{checkbox-inner-prefix-cls} {
     border-color: @primary-color;
     background-color: @primary-color;
@@ -87,7 +86,7 @@
   }
 }
 // 选中状态
-.@{checkbox-wrap-prefix-cls}-checked {
+.@{checkbox-prefix-cls}-checked {
 
   &:hover {
     .@{checkbox-inner-prefix-cls} {
@@ -116,9 +115,9 @@
   }
 }
 
-.@{checkbox-wrap-prefix-cls}-disabled {
+.@{checkbox-prefix-cls}-disabled {
 
-  &.@{checkbox-wrap-prefix-cls}-checked {
+  &.@{checkbox-prefix-cls}-checked {
 
     &:hover {
       .@{checkbox-inner-prefix-cls} {
@@ -157,11 +156,12 @@
   }
 }
 
-.@{checkbox-wrap-prefix-cls} + span {
+.@{checkbox-prefix-cls}-wrapper + span,
+.@{checkbox-prefix-cls} + span {
   margin-left: 8px;
 }
 
-.@{checkbox-wrap-prefix-cls}-group {
+.@{checkbox-prefix-cls}-group {
   font-size: @font-size-base;
   &-item {
     display: inline-block;
