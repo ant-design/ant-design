@@ -6,6 +6,7 @@ var inspect = require('util').inspect;
 var Busboy = require('busboy');
 var chalk = require('chalk');
 var webpackMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 var webpackConfig = require('./webpack.config');
 var webpackCompiler = webpack(webpackConfig);
 var handler;
@@ -89,29 +90,50 @@ exports.middlewares = [
     }
   },
   {
-  name: 'webpackDevMiddleware',
-  filter: /\.(js|css)(\.map)?(\?.*)?$/,
-  handle: function(req, res, next) {
-    handler = handler || webpackMiddleware(webpackCompiler, {
-      publicPath: '/dist/',
-      lazy: false,
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: false
-      },
-      noInfo: true
-    });
-    try {
-      return handler(req, res, next);
-    } catch(e) {}
+    name: 'webpackDevMiddleware',
+    filter: /\.(js|css|json)(\.map)?(\?.*)?$/,
+    handle: function(req, res, next) {
+      handler = handler || webpackMiddleware(webpackCompiler, {
+        publicPath: webpackConfig.output.publicPath,
+        lazy: false,
+        watchOptions: {
+          aggregateTimeout: 300,
+          poll: false
+        },
+        noInfo: true
+      });
+      try {
+        return handler(req, res, next);
+      } catch(e) {}
+    }
+  },
+  {
+    name: 'webpackHotMiddleware',
+    filter: /.*/,
+    handle: webpackHotMiddleware(webpackCompiler)
   }
-}];
+];
 
 exports.writers = [
   'nico-jsx.PageWriter',
   'nico-jsx.StaticWriter',
   'nico-jsx.FileWriter'
 ];
+
+exports.watchFunc = function(e) {
+  console.log('reload: ' + e.filepath);
+  var post = e.post;
+  if (post && post.template === 'code' && post.id) {
+    var demoNode = $('#' + post.id);
+    if (demoNode[0]) {
+      ReactDOM.unmountComponentAtNode(demoNode[0]);
+      demoNode.next().remove().insertAfter(demoNode);
+      $(post.html).insertAfter(demoNode.next());
+    }
+  } else if (!(/\.js(x?)$/.test(post.filename))) {
+    location.reload();
+  }
+};
 // end settings }}
 
 process.on('uncaughtException', function(err) {
