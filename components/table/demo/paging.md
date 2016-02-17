@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function (text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -37,10 +37,10 @@ const pagination = {
   total: data.length,
   current: 1,
   showSizeChanger: true,
-  onShowSizeChange: function (current, pageSize) {
+  onShowSizeChange(current, pageSize) {
     console.log('Current: ', current, '; PageSize: ', pageSize);
   },
-  onChange: function (current) {
+  onChange(current) {
     console.log('Current: ', current);
   }
 };

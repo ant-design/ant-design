@@ -19,7 +19,7 @@ const Demo = React.createClass({
     ];
     return {
       activeKey: panes[0].key,
-      panes: panes,
+      panes,
     };
   },
   onChange(activeKey) {

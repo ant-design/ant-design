@@ -27,7 +27,7 @@ const renderContent = function (value, row, index) {
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function (text, row, index) {
+  render(text, row, index) {
     if (index < 4) {
       return <a href="#">{text}</a>;
     }
@@ -46,7 +46,7 @@ const columns = [{
   title: '家庭电话',
   colSpan: 2,
   dataIndex: 'tel',
-  render: function (value, row, index) {
+  render(value, row, index) {
     let obj = {
       children: value,
       props: {}

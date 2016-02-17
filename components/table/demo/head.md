@@ -33,16 +33,16 @@ const columns = [{
   }],
   // 指定确定筛选的条件函数
   // 这里是名字中第一个字是 value
-  onFilter: function (value, record) {
+  onFilter(value, record) {
     return record.name.indexOf(value) === 0;
   },
-  sorter: function (a, b) {
+  sorter(a, b) {
     return a.name.length - b.name.length;
   }
 }, {
   title: '年龄',
   dataIndex: 'age',
-  sorter: function (a, b) {
+  sorter(a, b) {
     return a.age - b.age;
   }
 }, {
@@ -56,10 +56,10 @@ const columns = [{
     value: '西湖'
   }],
   filterMultiple: false,
-  onFilter: function (value, record) {
+  onFilter(value, record) {
     return record.address.indexOf(value) === 0;
   },
-  sorter: function (a, b) {
+  sorter(a, b) {
     return a.address.length - b.address.length;
   }
 }];

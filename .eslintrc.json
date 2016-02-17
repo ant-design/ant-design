@@ -29,7 +29,6 @@
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-no-bind": 0,
     "no-param-reassign": 0,
-    "max-len": 0,
-    "object-shorthand": 0
+    "max-len": 0
   }
 }
