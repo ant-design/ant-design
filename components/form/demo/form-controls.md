@@ -53,42 +53,30 @@ ReactDOM.render(
       label="Checkbox 多选框："
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }} >
-        <label className="ant-checkbox-vertical">
-          <Checkbox />选项一
-        </label>
-        <label className="ant-checkbox-vertical">
-          <Checkbox />选项二
-        </label>
-        <label className="ant-checkbox-vertical">
-          <Checkbox disabled />选项三（不可选）
-        </label>
+      <Checkbox className="ant-checkbox-vertical">选项一</Checkbox>
+      <Checkbox className="ant-checkbox-vertical">选项二</Checkbox>
+      <Checkbox className="ant-checkbox-vertical" disabled>选项三（不可选）</Checkbox>
     </FormItem>
 
     <FormItem
       label="Checkbox 多选框："
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }} >
-        <label className="ant-checkbox-inline">
-          <Checkbox />选项一
-        </label>
-        <label className="ant-checkbox-inline">
-          <Checkbox />选项二
-        </label>
-        <label className="ant-checkbox-inline">
-          <Checkbox />选项三
-        </label>
+      <Checkbox className="ant-checkbox-inline">选项一</Checkbox>
+      <Checkbox className="ant-checkbox-inline">选项二</Checkbox>
+      <Checkbox className="ant-checkbox-inline">选项三</Checkbox>
     </FormItem>
 
     <FormItem
       label="Radio 单选框："
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }} >
-        <RadioGroup value="b">
-          <Radio value="a">A</Radio>
-          <Radio value="b">B</Radio>
-          <Radio value="c">C</Radio>
-          <Radio value="d">D</Radio>
-        </RadioGroup>
+      <RadioGroup value="b">
+        <Radio value="a">A</Radio>
+        <Radio value="b">B</Radio>
+        <Radio value="c">C</Radio>
+        <Radio value="d">D</Radio>
+      </RadioGroup>
     </FormItem>
   </Form>
 , mountNode);
