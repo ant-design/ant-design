@@ -35,6 +35,7 @@ const Breadcrumb = React.createClass({
     return {
       prefixCls: 'ant-breadcrumb',
       separator: '/',
+      linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
     };
   },
   propTypes: {
@@ -48,7 +49,7 @@ const Breadcrumb = React.createClass({
   },
   render() {
     let crumbs;
-    const { separator, prefixCls, routes, params, children } = this.props;
+    const { separator, prefixCls, routes, params, children, linkRender } = this.props;
     if (routes && routes.length > 0) {
       const paths = [];
       crumbs = routes.map((route, i) => {
@@ -71,7 +72,7 @@ const Breadcrumb = React.createClass({
         if (i === routes.length - 1) {
           link = <span>{name}</span>;
         } else {
-          link = <a href={`#/${paths.join('/')}`}>{name}</a>;
+          link = linkRender(`/${paths.join('/')}`, name);
         }
         return <BreadcrumbItem separator={separator} key={name}>{link}</BreadcrumbItem>;
       });
