@@ -126,6 +126,23 @@ let Demo = React.createClass({
 
   render() {
     const { getFieldProps } = this.props.form;
+
+    // 如果觉得在 JSX 中写 `getFieldProps` 会影响阅读，可以先用变量保存 `getFieldProps` 的返回值。
+    const passProps = getFieldProps('pass', {
+      rules: [
+        { required: true, whitespace: true, message: '请填写密码' },
+        { validator: this.checkPass }
+      ]
+    });
+    const rePassProps = getFieldProps('rePass', {
+      rules: [{
+        required: true,
+        whitespace: true,
+        message: '请再次输入密码',
+      }, {
+        validator: this.checkPass2,
+      }],
+    });
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>修改密码</Button>
@@ -137,13 +154,7 @@ let Demo = React.createClass({
                   label="密码："
                   labelCol={{ span: 6 }}
                   wrapperCol={{ span: 18 }}>
-                  <Input type="password"
-                    {...getFieldProps('pass', {
-                      rules: [
-                        { required: true, whitespace: true, message: '请填写密码' },
-                        { validator: this.checkPass }
-                      ]
-                    })}
+                  <Input {...passProps} type="password"
                     onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                     autoComplete="off" id="pass" />
                 </FormItem>
@@ -159,16 +170,7 @@ let Demo = React.createClass({
                   label="确认密码："
                   labelCol={{ span: 6 }}
                   wrapperCol={{ span: 18 }}>
-                  <Input type="password"
-                    {...getFieldProps('rePass', {
-                      rules: [{
-                        required: true,
-                        whitespace: true,
-                        message: '请再次输入密码',
-                      }, {
-                        validator: this.checkPass2,
-                      }],
-                    })}
+                  <Input {...rePassProps} type="password"
                     onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                     autoComplete="off" id="rePass" />
                 </FormItem>
