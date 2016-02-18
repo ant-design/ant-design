@@ -8,6 +8,7 @@
 
 `developing`
 
+- 优化了带时间选择的 DatePicker 和 RangePicker 交互，现在只有点击 `确定` 按钮才会触发 onChange 事件。
 - 修复带时间选择的 DatePicker 日期格式缺少时间部分的问题。[#1005](https://github.com/ant-design/ant-design/issues/1005)
 - 修复 DatePicker 内输入框多余的时间展示的问题。[#953](https://github.com/ant-design/ant-design/issues/953)
 - 支持表单校验错误时自动滚动到第一个错误项。[#993](https://github.com/ant-design/ant-design/issues/993)
