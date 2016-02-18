@@ -86,7 +86,9 @@ export default React.createClass({
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
-            <span className={`${prefixCls}-list-item-name`}>{file.name}</span>
+            {file.url
+               ? <a href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
+               : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>}
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
