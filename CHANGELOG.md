@@ -4,6 +4,17 @@
 
 ---
 
+## 0.12.2
+
+`developing`
+
+- 修复带时间选择的 DatePicker 日期格式缺少时间部分的问题。[#1005](https://github.com/ant-design/ant-design/issues/1005)
+- 修复 DatePicker 内输入框多余的时间展示的问题。[#953](https://github.com/ant-design/ant-design/issues/953)
+- 支持表单校验错误时自动滚动到第一个错误项。[#993](https://github.com/ant-design/ant-design/issues/993)
+- 优化了 Select 和 TreeSelect 多选禁用的样式。
+- Upload 列表项支持链接展现形式。[#1013](https://github.com/ant-design/ant-design/issues/1013)
+- 修复 Safari 下的样式警告信息。[#999](https://github.com/ant-design/ant-design/issues/999)
+
 ## 0.12.1
 
 `2016-02-03`
