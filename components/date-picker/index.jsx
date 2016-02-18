@@ -16,8 +16,10 @@ function createPicker(TheCalendar, defaultFormat) {
         format: defaultFormat || 'yyyy-MM-dd',
         transitionName: 'slide-up',
         popupStyle: {},
-        onChange() {},
-        onOk() {},
+        onChange() {
+        },
+        onOk() {
+        },
         locale: {},
         align: {
           offset: [0, -9],
@@ -40,7 +42,9 @@ function createPicker(TheCalendar, defaultFormat) {
     },
     handleChange(value) {
       if (!('value' in this.props)) {
-        this.setState({ value });
+        this.setState({
+          value,
+        });
       }
       const timeValue = value ? new Date(value.getTime()) : null;
       this.props.onChange(timeValue);
@@ -56,10 +60,10 @@ function createPicker(TheCalendar, defaultFormat) {
       const placeholder = ('placeholder' in this.props)
         ? this.props.placeholder : locale.lang.placeholder;
 
-      const timePicker = this.props.showTime
-        ? <TimePicker prefixCls="ant-time-picker"
-          placeholder={locale.lang.timePlaceholder}
-          transitionName="slide-up" />
+      const timePicker = this.props.showTime ? (<TimePicker
+        prefixCls="ant-time-picker"
+        placeholder={locale.lang.timePlaceholder}
+        transitionName="slide-up"/>)
         : null;
 
       const disabledTime = this.props.showTime ? this.props.disabledTime : null;
@@ -69,9 +73,22 @@ function createPicker(TheCalendar, defaultFormat) {
         ['ant-calendar-month']: MonthCalendar === TheCalendar,
       });
 
+      let pickerChangeHandler = {
+        onChange: this.handleChange,
+      };
+
+      let calendarHandler = {
+        onOk: this.handleChange,
+      };
+
+      if (this.props.showTime) {
+        pickerChangeHandler = {};
+      } else {
+        calendarHandler = {};
+      }
+
       const calendar = (
         <TheCalendar
-          formatter={this.getFormatter()}
           disabledDate={this.props.disabledDate}
           disabledTime={disabledTime}
           locale={locale.lang}
@@ -80,9 +97,8 @@ function createPicker(TheCalendar, defaultFormat) {
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
-          showOk={this.props.showTime}
-          onOk={this.props.onOk}
-          showClear />
+          {...calendarHandler}
+          showClear/>
       );
 
       let sizeClass = '';
@@ -96,10 +112,10 @@ function createPicker(TheCalendar, defaultFormat) {
       if (this.state.open) {
         pickerClass += ' ant-calendar-picker-open';
       }
-
       return (
         <span className={pickerClass}>
-          <DatePicker transitionName={this.props.transitionName}
+          <DatePicker
+            transitionName={this.props.transitionName}
             disabled={this.props.disabled}
             calendar={calendar}
             value={this.state.value}
@@ -109,12 +125,14 @@ function createPicker(TheCalendar, defaultFormat) {
             getCalendarContainer={this.props.getCalendarContainer}
             onOpen={this.toggleOpen}
             onClose={this.toggleOpen}
-            onChange={this.handleChange}>
+            {...pickerChangeHandler}
+          >
             {
               ({ value }) => {
                 return (
                   <span>
-                    <input disabled={this.props.disabled}
+                    <input
+                      disabled={this.props.disabled}
                       onChange={this.handleInputChange}
                       value={value && this.getFormatter().format(value)}
                       placeholder={placeholder}
