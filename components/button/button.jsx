@@ -30,9 +30,17 @@ export default class Button extends React.Component {
       window.PIE.attach(findDOMNode(this));
     }
   }
+  handleClick() {
+    const buttonNode = findDOMNode(this);
+    buttonNode.className = buttonNode.className.replace(`${prefix}clicked`, '');
+    setTimeout(() => {
+      buttonNode.className += ` ${prefix}clicked`;
+    }, 10);
+    this.props.onClick();
+  }
   render() {
     const props = this.props;
-    const { type, shape, size, onClick, className, htmlType, children, ...others } = props;
+    const { type, shape, size, className, htmlType, children, ...others } = props;
 
     // large => lg
     // small => sm
@@ -53,7 +61,7 @@ export default class Button extends React.Component {
     const kids = React.Children.map(children, insertSpace);
 
     return (
-      <button {...others} type={htmlType || 'button'} className={classes} onClick={onClick}>
+      <button {...others} type={htmlType || 'button'} className={classes} onClick={this.handleClick.bind(this)}>
         {kids}
       </button>
     );
