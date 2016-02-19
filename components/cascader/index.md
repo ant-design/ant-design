@@ -31,6 +31,7 @@
 | style | 自定义样式 | string | - |
 | className | 自定义类名 | string | - |
 | popupClassName | 自定义浮层类名 | string | - |
+| popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |
 | placeholder | 输入框占位文本 | string | '请选择' |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | disabled | 禁用 | boolean | false |

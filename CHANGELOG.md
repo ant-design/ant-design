@@ -16,6 +16,7 @@
 - 优化了 Select 和 TreeSelect 多选禁用的样式。
 - Upload 列表项支持链接展现形式。[#1013](https://github.com/ant-design/ant-design/issues/1013)
 - 修复 Safari 下的样式警告信息。[#999](https://github.com/ant-design/ant-design/issues/999)
+- Cascader 支持 popupPlacement 位置配置。
 
 ## 0.12.1
 

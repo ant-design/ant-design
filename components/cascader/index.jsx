@@ -98,6 +98,7 @@ AntCascader.defaultProps = {
   prefixCls: 'ant-cascader',
   placeholder: '请选择',
   transitionName: 'slide-up',
+  popupPlacement: 'bottomLeft',
   onChange() {},
   options: [],
   displayRender(label) {
