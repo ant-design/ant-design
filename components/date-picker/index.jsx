@@ -24,7 +24,7 @@ function createPicker(TheCalendar, defaultFormat) {
         align: {
           offset: [0, -9],
         },
-        open: false
+        open: false,
       };
     },
     getInitialState() {
@@ -42,9 +42,7 @@ function createPicker(TheCalendar, defaultFormat) {
     },
     handleChange(value) {
       if (!('value' in this.props)) {
-        this.setState({
-          value,
-        });
+        this.setState({ value });
       }
       const timeValue = value ? new Date(value.getTime()) : null;
       this.props.onChange(timeValue);
@@ -82,7 +80,12 @@ function createPicker(TheCalendar, defaultFormat) {
       };
 
       if (this.props.showTime) {
-        pickerChangeHandler = {};
+        pickerChangeHandler.onChange = (value) => {
+          // Click clear button
+          if (value === null) {
+            this.handleChange(value);
+          }
+        };
       } else {
         calendarHandler = {};
       }
@@ -97,8 +100,7 @@ function createPicker(TheCalendar, defaultFormat) {
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
-          {...calendarHandler}
-          showClear/>
+          {...calendarHandler} />
       );
 
       let sizeClass = '';
