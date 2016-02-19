@@ -50,9 +50,7 @@ export default React.createClass({
   },
   handleChange(value) {
     if (!('value' in this.props)) {
-      this.setState({
-        value
-      });
+      this.setState({ value });
     }
     const startTime = value[0] ? new Date(value[0].getTime()) : null;
     const endTime = value[1] ? new Date(value[1].getTime()) : null;
@@ -107,7 +105,6 @@ export default React.createClass({
         locale={locale.lang}
         onOk={onOk}
         defaultValue={[defaultCalendarValue, defaultCalendarValue]}
-        showClear
         {...calendarHandler}
       />
     );
