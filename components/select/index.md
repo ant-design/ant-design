@@ -27,6 +27,7 @@
 | value    | 指定当前选中的条目 | string/Array<String>   |  无  |
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选 | boolean | false |
+| allowClear   | 支持清除, 单选模式有效 | boolean | false |
 | filterOption | 是否根据输入项进行筛选 | boolean | true     |
 | tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配 | boolean |false |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无   |

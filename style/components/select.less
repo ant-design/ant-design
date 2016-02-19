@@ -3,12 +3,6 @@
 @duration: .3s;
 
 @import "../mixins/iconfont";
-//mixin
-.selection__clear() {
-  cursor: pointer;
-  float: right;
-  font-weight: bold;
-}
 
 .@{select-prefix-cls} {
   box-sizing: border-box;
@@ -62,6 +56,41 @@
     &:active {
       .active;
     }
+
+    &__clear {
+      display: inline-block;
+      font-style: normal;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      opacity: 0;
+      position: absolute;
+      right: 8px;
+      z-index: 1;
+      background: #fff;
+      top: 50%;
+      font-size: 12px;
+      color: #ccc;
+      width: 12px;
+      height: 12px;
+      margin-top: -6px;
+      line-height: 12px;
+      cursor: pointer;
+      transition: color 0.3s ease, opacity 0.15s ease;
+      &:before {
+        display: block;
+        font-family: "anticon" !important;
+        content: "\E631";
+      }
+      &:hover {
+        color: #999;
+      }
+    }
+
+    &:hover &__clear {
+      opacity: 1;
+    }
   }
 
   &-disabled {
@@ -98,10 +127,6 @@
       padding-left: 8px;
       padding-right: 24px;
       line-height: 26px;
-    }
-
-    .@{select-prefix-cls}-selection__clear {
-      .selection__clear();
     }
 
     .@{select-prefix-cls}-selection__placeholder {
@@ -220,12 +245,6 @@
       text-overflow: ellipsis;
       padding-left: 6px;
       padding-bottom: 4px;
-    }
-
-    .@{select-prefix-cls}-selection__clear {
-      .selection__clear();
-      margin-top: 5px;
-      margin-right: 10px;
     }
 
     > ul > li {
