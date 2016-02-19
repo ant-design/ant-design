@@ -36,7 +36,7 @@ It is a good habit which will save maintainers' time. Thank you!
 
 ## Providing a demo while reporting a bug
 
-It would be helpful to provide a demo which can re-produce the bug 100%. Please fork this [CodePen](http://codepen.io/anon/pen/pgdXYp?editors=001) and re-produce the bug you met. Then, create an issue like this [example](http://dwz.cn/2AF9ao). The most important thing is: double check before claiming that you have found a bug.
+It would be helpful to provide a demo which can re-produce the bug 100%. Please fork this [CodePen](http://codepen.io/anon/pen/pgdXYp?editors=001) and re-produce the bug you met. Then, create an issue. The most important thing is: double check before claiming that you have found a bug.
 
 
 ## Tips about Feature Request
