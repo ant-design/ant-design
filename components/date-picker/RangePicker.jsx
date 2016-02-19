@@ -90,7 +90,12 @@ export default React.createClass({
     };
 
     if (timePicker) {
-      pickerChangeHandler = {};
+      pickerChangeHandler.onChange = (value) => {
+        // Click clear button
+        if (value === null || value.length === 0) {
+          this.handleChange(value);
+        }
+      };
     } else {
       calendarHandler = {};
     }

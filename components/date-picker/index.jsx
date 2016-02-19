@@ -80,7 +80,12 @@ function createPicker(TheCalendar, defaultFormat) {
       };
 
       if (this.props.showTime) {
-        pickerChangeHandler = {};
+        pickerChangeHandler.onChange = (value) => {
+          // Click clear button
+          if (value === null) {
+            this.handleChange(value);
+          }
+        };
       } else {
         calendarHandler = {};
       }
