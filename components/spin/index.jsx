@@ -20,7 +20,7 @@ const AntSpin = React.createClass({
   },
 
   render() {
-    const { className, size, prefixCls } = this.props;
+    const { className, size, prefixCls, tip } = this.props;
 
     let spinClassName = classNames({
       [prefixCls]: true,
@@ -33,13 +33,16 @@ const AntSpin = React.createClass({
     let spinElement;
     if (!isCssAnimationSupported) {
       // not support for animation, just use text instead
-      spinElement = <div className={spinClassName}>加载中...</div>;
+      spinElement = <div className={spinClassName}>{tip || '加载中...'}</div>;
     } else {
       spinElement = (
         <div className={spinClassName}>
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
+          <div className={`${prefixCls}-tip`}>{tip}</div>
+          <div className={`${prefixCls}-dots`}>
+            <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
+            <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
+            <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
+          </div>
         </div>
       );
     }
