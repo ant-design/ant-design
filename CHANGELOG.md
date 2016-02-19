@@ -6,7 +6,7 @@
 
 ## 0.12.2
 
-`developing`
+`2016-02-19`
 
 - DatePicker 如果有 `确定` 按钮，现在只有点击 `确定` 按钮才会触发 onChange 事件。
 - 修复带时间选择的 DatePicker 日期格式缺少时间部分的问题。[#1005](https://github.com/ant-design/ant-design/issues/1005)
