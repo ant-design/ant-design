@@ -21,13 +21,13 @@ class Search extends Component {
     const { placeholder, value, prefixCls } = this.props;
     return (
       <div>
-        <input placeholder={placeholder} className={ prefixCls + ' ant-input' } value={ value } ref="input"
+        <input placeholder={placeholder} className={ `${prefixCls} ant-input` } value={ value } ref="input"
           onChange={this.handleChange.bind(this)}/>
         { value && value.length > 0 ?
-          <a href="#" className={ prefixCls + '-action' } onClick={this.handleClear.bind(this)}>
+          <a href="#" className={ `${prefixCls}-action` } onClick={this.handleClear.bind(this)}>
             <Icon type="cross-circle" />
           </a>
-          : <span className={ prefixCls + '-action' }><Icon type="search" /></span>
+          : <span className={ `${prefixCls}-action` }><Icon type="search" /></span>
         }
       </div>
     );

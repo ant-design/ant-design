@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function (text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -27,9 +27,9 @@ const data = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
-    name: '李大嘴' + i,
+    name: `李大嘴${i}`,
     age: 32,
-    address: '西湖区湖底公园' + i + '号'
+    address: `西湖区湖底公园${i}号`
   });
 }
 
@@ -37,10 +37,10 @@ const pagination = {
   total: data.length,
   current: 1,
   showSizeChanger: true,
-  onShowSizeChange: function (current, pageSize) {
+  onShowSizeChange(current, pageSize) {
     console.log('Current: ', current, '; PageSize: ', pageSize);
   },
-  onChange: function (current) {
+  onChange(current) {
     console.log('Current: ', current);
   }
 };

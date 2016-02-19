@@ -11,13 +11,13 @@ import { Radio } from 'antd';
 const RadioGroup = Radio.Group;
 
 const App = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {
       value: 'a'
     };
   },
   onChange(e) {
-    console.log('radio checked:' + e.target.value);
+    console.log(`radio checked:${e.target.value}`);
     this.setState({
       value: e.target.value
     });

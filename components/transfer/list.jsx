@@ -78,7 +78,7 @@ class TransferList extends Component {
 
     const listCls = classNames({
       [prefixCls]: true,
-      [prefixCls + '-with-footer']: !!footerDom,
+      [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
     const showItems = dataSource.map((item) => {
@@ -105,10 +105,10 @@ class TransferList extends Component {
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
             checkable: <span className={`ant-transfer-checkbox-inner`}></span>
-          })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? checkedKeys.length + '/' : '') + dataSource.length} 条</span>
+          })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} 条</span>
           <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
         </div>
-        { bodyDom ? bodyDom :
+        { bodyDom ||
         <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
           { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
             <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />

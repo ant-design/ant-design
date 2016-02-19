@@ -57,7 +57,7 @@ const AntMenu = React.createClass({
     }
 
     let props = {};
-    const className = this.props.className + ' ' + this.props.prefixCls + '-' + this.props.theme;
+    const className = `${this.props.className} ${this.props.prefixCls}-${this.props.theme}`;
     if (this.props.mode !== 'inline') {
       // 这组属性的目的是
       // 弹出型的菜单需要点击后立即关闭

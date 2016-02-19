@@ -10,22 +10,22 @@
 import { TreeSelect } from 'antd';
 
 const treeData = [{
-  'label': '节点一',
-  'value': '0-0',
-  'key': '0-0',
-  'children': [{
-    'label': '子节点一',
-    'value': '0-0-1',
-    'key': '0-0-1',
+  label: '节点一',
+  value: '0-0',
+  key: '0-0',
+  children: [{
+    label: '子节点一',
+    value: '0-0-1',
+    key: '0-0-1',
   }, {
-    'label': '子节点二',
-    'value': '0-0-2',
-    'key': '0-0-2',
+    label: '子节点二',
+    value: '0-0-2',
+    key: '0-0-2',
   }],
 }, {
-  'label': '节点二',
-  'value': '0-1',
-  'key': '0-1',
+  label: '节点二',
+  value: '0-1',
+  key: '0-1',
 }];
 
 const Demo = React.createClass({

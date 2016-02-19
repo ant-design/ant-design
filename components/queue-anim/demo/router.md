@@ -8,7 +8,7 @@ router 组合的进场与出场动画。
 
 ````jsx
 const ReactRouter = require('react-router');
-let { Router, Route, Link } = ReactRouter;
+let { Router, Route, Link, hashHistory } = ReactRouter;
 import { QueueAnim, Menu } from 'antd';
 
 const App = React.createClass({
@@ -29,7 +29,7 @@ const App = React.createClass({
           </Menu.Item>
         </Menu>
         <QueueAnim type={['right', 'left']} className="demo-router-wrap">
-          {React.cloneElement(this.props.children || <Home/>, { key: key })}
+          {React.cloneElement(this.props.children || <Home/>, { key })}
         </QueueAnim>
       </div>
     );
@@ -121,7 +121,7 @@ const Page2 = React.createClass({
 });
 
 ReactDOM.render((
-  <Router>
+  <Router history={hashHistory}>
     <Route path="/" component={App} ignoreScrollBehavior>
       <Route path="page1" component={Page1} />
       <Route path="page2" component={Page2} />

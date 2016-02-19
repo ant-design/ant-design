@@ -29,7 +29,7 @@ const App = React.createClass({
   addTag() {
     const tags = [...this.state.tags];
     index += 1;
-    tags.push({ key: index, name: '新标签' + index });
+    tags.push({ key: index, name: `新标签${index}` });
     this.setState({ tags });
   },
   render() {

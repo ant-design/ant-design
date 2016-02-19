@@ -9,7 +9,7 @@
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 const onClick = function ({ key }) {
-  console.log('点击了菜单' + key);
+  console.log(`点击了菜单${key}`);
 };
 
 const menu = (

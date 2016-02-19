@@ -17,14 +17,14 @@ const BreadcrumbItem = React.createClass({
   },
   render() {
     const { prefixCls, separator, children } = this.props;
-    let link = <a className={prefixCls + '-link'} {...this.props}>{children}</a>;
+    let link = <a className={`${prefixCls}-link`} {...this.props}>{children}</a>;
     if (typeof this.props.href === 'undefined') {
-      link = <span className={prefixCls + '-link'} {...this.props}>{children}</span>;
+      link = <span className={`${prefixCls}-link`} {...this.props}>{children}</span>;
     }
     return (
       <span>
         {link}
-        <span className={prefixCls + '-separator'}>{separator}</span>
+        <span className={`${prefixCls}-separator`}>{separator}</span>
       </span>
     );
   }
@@ -62,7 +62,7 @@ const Breadcrumb = React.createClass({
         let link;
         let path = route.path.replace(/^\//, '');
         Object.keys(params).forEach(key => {
-          path = path.replace(':' + key, params[key]);
+          path = path.replace(`:${key}`, params[key]);
         });
         if (path) {
           paths.push(path);
@@ -71,7 +71,7 @@ const Breadcrumb = React.createClass({
         if (i === routes.length - 1) {
           link = <span>{name}</span>;
         } else {
-          link = <a href={'#/' + paths.join('/')}>{name}</a>;
+          link = <a href={`#/${paths.join('/')}`}>{name}</a>;
         }
         return <BreadcrumbItem separator={separator} key={name}>{link}</BreadcrumbItem>;
       });

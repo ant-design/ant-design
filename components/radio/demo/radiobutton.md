@@ -12,7 +12,7 @@ const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 
 function onChange(e) {
-  console.log('radio checked:' + e.target.value);
+  console.log(`radio checked:${e.target.value}`);
 }
 
 ReactDOM.render(<div>

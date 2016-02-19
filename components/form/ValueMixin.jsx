@@ -14,7 +14,7 @@ const ValueMixin = {
     let v = e;
     const target = e && e.target;
     if (target) {
-      if ((target.nodeName + '').toLowerCase() === 'input' &&
+      if ((`${target.nodeName}`).toLowerCase() === 'input' &&
         target.type === 'checkbox') {
         v = target.checked;
       } else {

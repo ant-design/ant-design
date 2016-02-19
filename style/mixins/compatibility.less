@@ -2,7 +2,7 @@
 
 // rotate for ie8 and blow
 .ie-rotate(@rotation) {
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=@rotation);
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=@{rotation})";
 }
 
 // rotate for ie8 and blow
@@ -13,7 +13,7 @@
   @costheta: ~`Math.cos("@{radians}")`;
   @sintheta: ~`Math.sin("@{radians}")`;
   @negsintheta: ~`"@{sintheta}" * -1`;
-  filter: ~"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=@{costheta}, M12=@{negsintheta}, M21=@{sintheta}, M22=@{costheta})";
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=@{costheta}, M12=@{negsintheta}, M21=@{sintheta}, M22=@{costheta})";
   zoom: 1;
 
   :root & {

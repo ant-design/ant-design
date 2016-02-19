@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function (text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -42,12 +42,12 @@ const data = [{
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
   onChange(selectedRowKeys) {
-    console.log('selectedRowKeys changed: ' + selectedRowKeys);
+    console.log(`selectedRowKeys changed: ${selectedRowKeys}`);
   },
-  onSelect: function (record, selected, selectedRows) {
+  onSelect(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll: function (selected, selectedRows) {
+  onSelectAll(selected, selectedRows) {
     console.log(selected, selectedRows);
   }
 };

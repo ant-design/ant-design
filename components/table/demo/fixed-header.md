@@ -26,9 +26,9 @@ const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
-    name: '李大嘴' + i,
+    name: `李大嘴${i}`,
     age: 32,
-    address: '西湖区湖底公园' + i + '号'
+    address: `西湖区湖底公园${i}号`
   });
 }
 

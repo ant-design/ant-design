@@ -12,8 +12,8 @@ const AntRadio = React.createClass({
     const { prefixCls, children, checked, disabled, className } = this.props;
     const classString = classNames({
       [prefixCls]: true,
-      [prefixCls + '-checked']: checked,
-      [prefixCls + '-disabled']: disabled,
+      [`${prefixCls}-checked`]: checked,
+      [`${prefixCls}-disabled`]: disabled,
       [className]: !!className,
     });
     return (

@@ -17,8 +17,7 @@ const App = React.createClass({
     };
   },
   render() {
-    const label = (this.state.checked ? '选中' : '取消') + '-' +
-      (this.state.disabled ? '不可用' : '可用');
+    const label = `${this.state.checked ? '选中' : '取消'}-${this.state.disabled ? '不可用' : '可用'}`;
     return (
       <div>
         <p style={{ marginBottom: '20px' }}>

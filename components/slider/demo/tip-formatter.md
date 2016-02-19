@@ -10,7 +10,7 @@
 import { Slider } from 'antd';
 
 function formatter(value) {
-  return value + '%';
+  return `${value}%`;
 }
 
 ReactDOM.render(<div>

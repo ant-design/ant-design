@@ -12,7 +12,7 @@ const ProgressCircle = Progress.Circle;
 
 ReactDOM.render(
   <div>
-    <ProgressCircle percent={75} format={percent => percent / 10.0 + '折' } />
+    <ProgressCircle percent={75} format={percent => `${percent / 10.0}折` } />
     <ProgressCircle percent={100} format={() => '成功'} />
   </div>
   , mountNode);

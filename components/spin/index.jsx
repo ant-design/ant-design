@@ -46,9 +46,9 @@ const AntSpin = React.createClass({
 
     if (this.isNestedPattern()) {
       return (
-        <div className={this.props.spining ? (prefixCls + '-nested-loading') : ''}>
+        <div className={this.props.spining ? (`${prefixCls}-nested-loading`) : ''}>
           {spinElement}
-          <div className={prefixCls + '-container'}>
+          <div className={`${prefixCls}-container`}>
             {this.props.children}
           </div>
         </div>

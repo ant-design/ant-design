@@ -75,6 +75,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | setFieldsValue | 设置一组输入控件的值 | Function(obj: object) | | |
 | setFields | 设置一组输入控件的值与 Error | Function(obj: object) | | |
 | validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) | | |
+| validateFieldsAndScroll | 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 | 参考 `validateFields` | | |
 | getFieldError | 获取某个输入控件的 Error | Function(name) | | |
 | isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) | | |
 | resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) | | | |

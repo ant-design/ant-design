@@ -18,7 +18,7 @@ const IconSlider = React.createClass({
     return {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
-      mid: mid,
+      mid,
       sliderValue: this.props.value
     };
   },

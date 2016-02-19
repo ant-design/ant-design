@@ -2,13 +2,13 @@
 
 - order: 2
 
-和 `react-router@1.x` 进行结合使用。
+和 `react-router@2.x` 进行结合使用。
 
 ---
 
 ````jsx
 const ReactRouter = require('react-router');
-let { Router, Route, Link } = ReactRouter;
+let { Router, Route, Link, hashHistory } = ReactRouter;
 import { Breadcrumb } from 'antd';
 
 const Apps = React.createClass({
@@ -50,7 +50,7 @@ const Home = React.createClass({
 });
 
 ReactDOM.render(
-  <Router>
+  <Router history={hashHistory}>
     <Route name="home" breadcrumbName="首页" path="/" component={Home}>
       <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
         <Route name="app" breadcrumbName="应用:id" path=":id">

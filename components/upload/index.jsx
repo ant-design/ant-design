@@ -245,13 +245,12 @@ const AntUpload = React.createClass({
         ? `${prefixCls}-drag-hover` : '';
       return (
         <span className={this.props.className}>
-          <div className={prefixCls + ' ' + prefixCls + '-drag '
-            + dragUploadingClass + ' ' + draggingClass}
+          <div className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
             onDrop={this.onFileDrop}
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}>
             <Upload {...props}>
-              <div className={prefixCls + '-drag-container'}>
+              <div className={`${prefixCls}-drag-container`}>
                 {this.props.children}
               </div>
             </Upload>
@@ -262,8 +261,8 @@ const AntUpload = React.createClass({
     } else if (type === 'select') {
       const uploadButtonCls = classNames({
         [prefixCls]: true,
-        [prefixCls + '-select']: true,
-        [prefixCls + '-select-' + this.props.listType]: true,
+        [`${prefixCls}-select`]: true,
+        [`${prefixCls}-select-${this.props.listType}`]: true,
       });
       if (this.props.listType === 'picture-card') {
         return (

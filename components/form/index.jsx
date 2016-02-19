@@ -2,7 +2,7 @@ import Form from './Form';
 import FormItem from './FormItem';
 import ValueMixin from './ValueMixin';
 import Input from '../input';
-import { createForm } from 'rc-form';
+import createDOMForm from 'rc-form/lib/createDOMForm';
 
 Form.create = (o = {}) => {
   const options = {
@@ -11,7 +11,7 @@ Form.create = (o = {}) => {
     fieldMetaProp: '__meta',
   };
 
-  return createForm(options);
+  return createDOMForm(options);
 };
 Form.Item = FormItem;
 

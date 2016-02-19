@@ -21,10 +21,10 @@ export default React.createClass({
   handleClose(e) {
     e.preventDefault();
     let dom = ReactDOM.findDOMNode(this);
-    dom.style.height = dom.offsetHeight + 'px';
+    dom.style.height = `${dom.offsetHeight}px`;
     // Magic code
     // 重复一次后才能正确设置 height
-    dom.style.height = dom.offsetHeight + 'px';
+    dom.style.height = `${dom.offsetHeight}px`;
 
     this.setState({
       closing: false
@@ -67,10 +67,10 @@ export default React.createClass({
 
     let alertCls = classNames({
       [prefixCls]: true,
-      [prefixCls + '-' + type]: true,
-      [prefixCls + '-close']: !this.state.closing,
-      [prefixCls + '-with-description']: !!description,
-      [prefixCls + '-no-icon']: !showIcon,
+      [`${prefixCls}-${type}`]: true,
+      [`${prefixCls}-close`]: !this.state.closing,
+      [`${prefixCls}-with-description`]: !!description,
+      [`${prefixCls}-no-icon`]: !showIcon,
     });
 
     // closeable when closeText is assigned
@@ -85,9 +85,9 @@ export default React.createClass({
         onEnd={this.animationEnd}>
         <div data-show={this.state.closing} className={alertCls}>
           {showIcon ? <Icon className="ant-alert-icon" type={iconType} /> : null}
-          <span className={prefixCls + '-message'}>{message}</span>
-          <span className={prefixCls + '-description'}>{description}</span>
-          {closable ? <a onClick={this.handleClose} className={prefixCls + '-close-icon'}>
+          <span className={`${prefixCls}-message`}>{message}</span>
+          <span className={`${prefixCls}-description`}>{description}</span>
+          {closable ? <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
             {closeText || <Icon type="cross" />}
           </a> : null}
         </div>

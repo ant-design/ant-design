@@ -33,7 +33,7 @@ class AntBadge extends React.Component {
         {children}
         <Animate component=""
           showProp="data-show"
-          transitionName={prefixCls + '-zoom'}
+          transitionName={`${prefixCls}-zoom`}
           transitionAppear>
           {
             hidden ? null :

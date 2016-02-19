@@ -61,7 +61,7 @@ const columns = [{
 | size          | 正常或迷你类型           | String          | `default` or `small`| default |
 | dataSource    | 数据数组                 | Array           |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
-| rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
+| rowKey        | 表格列 key 的取值 | Function(record, index):string |                     |    record.key    |
 | expandedRowRender  | 额外的列展开元素 | Function |                     | - |
 | defaultExpandedRowKeys | 默认展开的列 | Array |                     | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
@@ -100,7 +100,7 @@ const columns = [{
 | onChange | 选中项发生变化的时的回调，用户手动点选、换页、更新数据均会触发 | Function(selectedRowKeys) | -   |
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
-| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(record, selected, selectedRows) |   -   |
+| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows) |   -   |
 
 
 ## 注意
