@@ -10,7 +10,6 @@
 .@{spin-prefix-cls} {
   color: @primary-color;
   display: inline-block;
-  font-size: @spin-dot-size;
   text-align: center;
   opacity: 0;
   position: absolute;
@@ -52,30 +51,38 @@
 
   &-dot {
     .animation(antSpinPulse 1.2s infinite @ease-in-out-circ);
-    .square(1em);
+    .square(@spin-dot-size);
     border-radius: 50%;
     display: inline-block;
     background-color: @primary-color;
   }
   &-dot-second {
     .animation-delay(200ms);
-    margin-left: 1em;
   }
   &-dot-third {
     .animation-delay(400ms);
-    margin-left: 1em;
+  }
+
+  &-dot + &-dot {
+    margin-left: @spin-dot-size;
   }
 
   // Sizes
   // ------------------------------
   // small
-  &-sm {
-    font-size: @spin-dot-size-sm;
+  &-sm &-dot {
+    .square(@spin-dot-size-sm);
+    + & {
+      margin-left: @spin-dot-size-sm;
+    }
   }
 
   // large
-  &-lg {
-    font-size: @spin-dot-size-lg;
+  &-lg &-dot {
+    .square(@spin-dot-size-lg);
+    + & {
+      margin-left: @spin-dot-size-lg;
+    }
   }
 }
 
