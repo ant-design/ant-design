@@ -1,4 +1,4 @@
-# 基本卡片
+# 典型卡片
 
 - order: 0
 
@@ -9,5 +9,9 @@
 ````jsx
 import { Card } from 'antd';
 
-ReactDOM.render(<Card title="卡片标题" extra={<a href="#">更多</a>}>卡片的内容</Card>, mountNode);
+ReactDOM.render(
+  <Card title="卡片标题" extra={<a href="#">更多</a>} style={{ width: 300 }}>
+    卡片的内容
+  </Card>
+, mountNode);
 ````

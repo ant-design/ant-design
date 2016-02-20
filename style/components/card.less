@@ -3,7 +3,35 @@
 
 .@{card-prefix-cls} {
   background: #fff;
-  padding: 24px;
-  border: 1px solid @border-color-base;
   border-radius: @border-radius-sm;
+  box-shadow: @box-shadow-base;
+  font-size: @font-size-base;
+  position: relative;
+  overflow: hidden;
+
+  &-head {
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid @border-color-split;
+    padding: 0 24px;
+
+    &-title {
+      font-size: 14px;
+      display: inline-block;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  &-extra {
+    position: absolute;
+    right: 24px;
+    top: 14px;
+  }
+
+  &-body {
+    padding: 24px;
+  }
 }
