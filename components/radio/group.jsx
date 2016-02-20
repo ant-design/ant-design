@@ -1,13 +1,17 @@
 import React from 'react';
 
 function getCheckedValue(children) {
-  let checkedValue = null;
+  let value = null;
+  let matched = 0;
   React.Children.forEach(children, (radio) => {
     if (radio.props && radio.props.checked) {
-      checkedValue = radio.props.value;
+      value = radio.props.value;
+      matched = 1;
     }
   });
-  return checkedValue;
+  return matched ? {
+    value,
+  } : undefined;
 }
 
 export default React.createClass({
@@ -21,29 +25,51 @@ export default React.createClass({
   },
   getInitialState() {
     let props = this.props;
+    let value;
+    if ('value' in props) {
+      value = props.value;
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue;
+    } else {
+      const checkedValue = getCheckedValue(props.children);
+      value = checkedValue && checkedValue.value;
+    }
     return {
-      value: props.value || props.defaultValue || getCheckedValue(props.children)
+      value,
     };
   },
   componentWillReceiveProps(nextProps) {
-    if ('value' in nextProps || getCheckedValue(nextProps.children)) {
+    if ('value' in nextProps) {
       this.setState({
-        value: nextProps.value || getCheckedValue(nextProps.children)
+        value: nextProps.value
       });
+    } else {
+      const checkedValue = getCheckedValue(nextProps.children);
+      if (checkedValue) {
+        this.setState({
+          value: checkedValue.value
+        });
+      }
     }
   },
   onRadioChange(ev) {
-    this.setState({
-      value: ev.target.value
-    });
+    if (!('value' in this.props)) {
+      this.setState({
+        value: ev.target.value
+      });
+    }
     this.props.onChange(ev);
   },
   render() {
     const props = this.props;
     const children = React.Children.map(props.children, (radio) => {
       if (radio.props) {
+        const keyProps = {};
+        if (!('key' in radio) && typeof radio.props.value === 'string') {
+          keyProps.key = radio.props.value;
+        }
         return React.cloneElement(radio, {
-          key: radio.props.value,
+          ...keyProps,
           ...radio.props,
           onChange: this.onRadioChange,
           checked: this.state.value === radio.props.value,
