@@ -2,16 +2,14 @@ import React from 'react';
 
 function getCheckedValue(children) {
   let value = null;
-  let matched = 0;
+  let matched = false;
   React.Children.forEach(children, (radio) => {
     if (radio.props && radio.props.checked) {
       value = radio.props.value;
-      matched = 1;
+      matched = true;
     }
   });
-  return matched ? {
-    value,
-  } : undefined;
+  return matched ? { value } : undefined;
 }
 
 export default React.createClass({
@@ -20,7 +18,7 @@ export default React.createClass({
       prefixCls: 'ant-radio-group',
       disabled: false,
       onChange() {
-      }
+      },
     };
   },
   getInitialState() {
@@ -41,13 +39,13 @@ export default React.createClass({
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: nextProps.value
+        value: nextProps.value,
       });
     } else {
       const checkedValue = getCheckedValue(nextProps.children);
       if (checkedValue) {
         this.setState({
-          value: checkedValue.value
+          value: checkedValue.value,
         });
       }
     }
@@ -55,7 +53,7 @@ export default React.createClass({
   onRadioChange(ev) {
     if (!('value' in this.props)) {
       this.setState({
-        value: ev.target.value
+        value: ev.target.value,
       });
     }
     this.props.onChange(ev);
