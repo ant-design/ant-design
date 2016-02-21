@@ -16,10 +16,14 @@ export default React.createClass({
     onChange: React.PropTypes.func,
   },
   getInitialState() {
-    const { value, defaultValue } = this.props;
-    return {
-      value: value || defaultValue,
-    };
+    const props = this.props;
+    let value;
+    if ('value' in props) {
+      value = props.value;
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue;
+    }
+    return { value };
   },
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {

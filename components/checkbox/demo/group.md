@@ -2,7 +2,7 @@
 
 - order: 3
 
-方便的生成一个 Checkbox 组。
+方便的从数组生成 Checkbox 组。若需要 label 和 value 分离请直接使用 Checkbox。
 
 ---
 
