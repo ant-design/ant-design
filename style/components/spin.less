@@ -10,11 +10,13 @@
 .@{spin-prefix-cls} {
   color: @primary-color;
   display: inline-block;
+  vertical-align: middle;
   text-align: center;
   opacity: 0;
   position: absolute;
   visibility: hidden;
   transition: opacity 0.3s @ease-in-out-circ;
+  font-size: @font-size-base;
 
   &-spining {
     opacity: 1;
@@ -30,8 +32,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -0.75em;
-    margin-left: -2.5em;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -10px;
+    margin-left: -2.5 * @spin-dot-size;
     z-index: 4;
   }
 
@@ -41,6 +45,7 @@
 
   &-nested-loading > &-container {
     opacity: 0.7;
+    -webkit-filter: blur(1px);
     filter: blur(1px);
     filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
     pointer-events: none;
@@ -77,12 +82,20 @@
     }
   }
 
+  &-nested-loading &-sm {
+    margin-left: -2.5 * @spin-dot-size-sm;
+  }
+
   // large
   &-lg &-dot {
     .square(@spin-dot-size-lg);
     + & {
       margin-left: @spin-dot-size-lg;
     }
+  }
+
+  &-nested-loading &-sm {
+    margin-left: -2.5 * @spin-dot-size-lg;
   }
 }
 
