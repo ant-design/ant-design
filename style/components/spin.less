@@ -31,12 +31,12 @@
   &-nested-loading & {
     position: absolute;
     top: 50%;
-    left: 50%;
     height: 20px;
     line-height: 20px;
     margin-top: -10px;
-    margin-left: -2.5 * @spin-dot-size;
     z-index: 4;
+    text-align: center;
+    width: 100%;
   }
 
   &-container {
@@ -82,20 +82,12 @@
     }
   }
 
-  &-nested-loading &-sm {
-    margin-left: -2.5 * @spin-dot-size-sm;
-  }
-
   // large
   &-lg &-dot {
     .square(@spin-dot-size-lg);
     + & {
       margin-left: @spin-dot-size-lg;
     }
-  }
-
-  &-nested-loading &-sm {
-    margin-left: -2.5 * @spin-dot-size-lg;
   }
 }
 
