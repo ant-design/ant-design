@@ -81,21 +81,19 @@ class TransferList extends Component {
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
-    const showItems = dataSource.map((item) => {
-      // apply filter
+    const showItems = dataSource.filter((item) => {
       const itemText = this.props.render(item);
       const filterResult = this.matchFilter(itemText, filter);
+      return !!filterResult;
+    }).map((item) => {
       const renderedText = this.props.render(item);
-
-      if (filterResult) {
-        return (
-          <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
-            <Checkbox checked={checkedKeys.some(key => key === item.key)} />
-            {renderedText}
-          </li>
-        );
-      }
-    }).filter(item => !!item);
+      return (
+        <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
+          <Checkbox checked={checkedKeys.some(key => key === item.key)} />
+          {renderedText}
+        </li>
+      );
+    });
 
     return (
       <div className={listCls} {...this.props}>
@@ -104,7 +102,7 @@ class TransferList extends Component {
             prefixCls: 'ant-transfer',
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
-            checkable: <span className={`ant-transfer-checkbox-inner`}></span>
+            checkable: <span className={'ant-transfer-checkbox-inner'}></span>
           })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} 条</span>
           <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
         </div>

@@ -99,7 +99,7 @@ class Input extends React.Component {
         );
       default:
         inputClassName = props.className ? props.className : inputClassName;
-        return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
+        return <input {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
     }
   }
 

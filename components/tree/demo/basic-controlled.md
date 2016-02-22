@@ -117,7 +117,7 @@ const Demo = React.createClass({
           </TreeNode>
         );
       }
-      return <TreeNode key={item.key} title={item.key}/>;
+      return <TreeNode key={item.key} title={item.key} />;
     });
     return (
       <Tree checkable multiple={this.props.multiple} defaultExpandAll
