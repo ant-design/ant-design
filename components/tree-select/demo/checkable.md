@@ -50,7 +50,7 @@ const Demo = React.createClass({
   render() {
     const tProps = {
       treeData,
-      size: 'small',
+      size: 'large',
       value: this.state.value,
       onChange: this.onChange,
       multiple: true,
