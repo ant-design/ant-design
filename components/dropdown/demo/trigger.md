@@ -17,7 +17,7 @@ const menu = (
     <Menu.Item key="1">
       <a href="http://www.taobao.com/">第二个菜单项</a>
     </Menu.Item>
-    <Menu.Divider/>
+    <Menu.Divider />
     <Menu.Item key="3">第三个菜单项</Menu.Item>
   </Menu>
 );

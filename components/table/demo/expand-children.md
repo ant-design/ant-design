@@ -78,7 +78,7 @@ const data = [{
 }];
 
 ReactDOM.render(
-  <Table columns={columns} dataSource={data} indentSize={30} />,
+  <Table columns={columns} dataSource={data} indentSize={20} />,
   mountNode
 );
 ````

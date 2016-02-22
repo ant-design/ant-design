@@ -134,8 +134,8 @@ let AntTable = React.createClass({
       }
     }
     if (typeof column.sorter === 'function') {
-      sorter = function () {
-        let result = column.sorter.apply(this, arguments);
+      sorter = function (...args) {
+        let result = column.sorter.apply(this, args);
         if (sortOrder === 'ascend') {
           return result;
         } else if (sortOrder === 'descend') {
@@ -296,7 +296,7 @@ let AntTable = React.createClass({
     return (
       <Radio disabled={props.disabled}
         onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
-        value={rowIndex} checked={checked}/>
+        value={rowIndex} checked={checked} />
     );
   },
 
@@ -315,7 +315,7 @@ let AntTable = React.createClass({
     }
     return (
       <Checkbox checked={checked} disabled={props.disabled}
-        onChange={this.handleSelect.bind(this, record, rowIndex)}/>
+        onChange={this.handleSelect.bind(this, record, rowIndex)} />
     );
   },
 
@@ -408,7 +408,7 @@ let AntTable = React.createClass({
         filterDropdown = (
           <FilterDropdown locale={locale} column={column}
             selectedKeys={colFilters}
-            confirmFilter={this.handleFilter}/>
+            confirmFilter={this.handleFilter} />
         );
       }
       if (column.sorter) {
@@ -427,12 +427,12 @@ let AntTable = React.createClass({
             <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
               onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
-              <Icon type="caret-up"/>
+              <Icon type="caret-up" />
             </span>
             <span className={`ant-table-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
               onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
-              <Icon type="caret-down"/>
+              <Icon type="caret-down" />
             </span>
           </div>
         );
@@ -517,10 +517,7 @@ let AntTable = React.createClass({
     // 否则进行读取分页数据
     if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
       data = data.filter((item, i) => {
-        if (i >= (current - 1) * pageSize &&
-          i < current * pageSize) {
-          return item;
-        }
+        return i >= (current - 1) * pageSize && i < current * pageSize;
       });
     }
     return data;
@@ -575,7 +572,7 @@ let AntTable = React.createClass({
     if (!data || data.length === 0) {
       emptyText = (
         <div className="ant-table-placeholder">
-          <Icon type="frown"/>{locale.emptyText}
+          <Icon type="frown" />{locale.emptyText}
         </div>
       );
       emptyClass = ' ant-table-empty';
@@ -587,6 +584,7 @@ let AntTable = React.createClass({
           data={data}
           columns={columns}
           className={classString}
+          expandIconColumnIndex={columns[0].key === 'selection-column' ? 1 : 0}
           expandIconAsCell={expandIconAsCell} />
           {emptyText}
       </div>

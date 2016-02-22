@@ -29,7 +29,7 @@ class AntTabs extends React.Component {
     let { prefixCls, size, tabPosition, animation, type,
           children, tabBarExtraContent } = this.props;
     let className = classNames({
-      [this.props.className]: !!this. props.className,
+      [this.props.className]: !!this.props.className,
       [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,

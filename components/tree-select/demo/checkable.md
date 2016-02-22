@@ -54,9 +54,10 @@ const Demo = React.createClass({
       onChange: this.onChange,
       multiple: true,
       treeCheckable: true,
+      searchPlaceholder: '请选择',
       treeDefaultExpandAll: true,
       style: {
-        width: 360,
+        width: 300,
       },
     };
     return <TreeSelect {...tProps} />;

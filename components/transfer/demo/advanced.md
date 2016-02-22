@@ -8,7 +8,6 @@
 
 ````jsx
 import { Transfer, Button } from 'antd';
-const container = mountNode;
 
 const App = React.createClass({
   getInitialState() {
@@ -66,5 +65,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, container);
+ReactDOM.render(<App />, mountNode);
 ````

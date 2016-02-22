@@ -59,9 +59,7 @@ let FilterMenu = React.createClass({
         const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
         const containSelected = Object.keys(keyPathOfSelectedItem).some(key => {
           const keyPath = keyPathOfSelectedItem[key];
-          if (keyPath.indexOf(item.value) >= 0) {
-            return true;
-          }
+          return keyPath.indexOf(item.value) >= 0;
         });
         const subMenuCls = containSelected ? 'ant-dropdown-submenu-contain-selected' : '';
         return (

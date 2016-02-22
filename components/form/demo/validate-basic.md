@@ -114,7 +114,7 @@ class BasicDemo extends React.Component {
                 ],
                 trigger: ['onBlur', 'onChange'],
               }]
-            })}/>
+            })} />
         </FormItem>
 
         <FormItem
@@ -129,7 +129,7 @@ class BasicDemo extends React.Component {
                 { validator: this.checkPass.bind(this) },
               ],
             })}
-            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}/>
+            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
         </FormItem>
 
         <FormItem
@@ -147,7 +147,7 @@ class BasicDemo extends React.Component {
               }, {
                 validator: this.checkPass2.bind(this),
               }],
-            })}/>
+            })} />
         </FormItem>
 
         <FormItem
@@ -159,7 +159,7 @@ class BasicDemo extends React.Component {
               rules: [
                 { required: true, message: '真的不打算写点什么吗？' },
               ],
-            })}/>
+            })} />
         </FormItem>
 
         <FormItem wrapperCol={{ span: 12, offset: 7 }} >

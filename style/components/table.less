@@ -318,6 +318,15 @@
         content: '.';
       }
     }
+
+    // Hide selection component in children data
+    &[class*="@{table-prefix-cls}-row-level-"] .@{table-prefix-cls}-selection-column > span {
+      display: none;
+    }
+
+    &[class*="@{table-prefix-cls}-row-level-0"] .@{table-prefix-cls}-selection-column > span {
+      display: inline-block;
+    }
   }
   tr&-expanded-row {
     &,
