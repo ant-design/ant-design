@@ -40,7 +40,7 @@ const Demo = React.createClass({
   },
   render() {
     return (
-      <TreeSelect style={{ width: 360 }}
+      <TreeSelect style={{ width: 300 }}
         value={this.state.value}
         dropdownMenuStyle={{ maxHeight: 400, overflow: 'auto' }}
         treeData={treeData}
