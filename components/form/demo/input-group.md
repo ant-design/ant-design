@@ -18,14 +18,14 @@ ReactDOM.render(
       label="标签输入框："
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}>
-      <Input addonBefore="Http://" defaultValue="mysite.com" id="site1"/>
+      <Input addonBefore="Http://" defaultValue="mysite.com" id="site1" />
     </FormItem>
 
     <FormItem
       label="标签输入框："
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}>
-      <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" id="site2"/>
+      <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" id="site2" />
     </FormItem>
 
     <FormItem

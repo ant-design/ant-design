@@ -15,6 +15,6 @@ function onPanelChange(value, mode) {
 }
 
 ReactDOM.render(
-  <Calendar onPanelChange={onPanelChange} locale={enUS}/>
+  <Calendar onPanelChange={onPanelChange} locale={enUS} />
 , mountNode);
 ````

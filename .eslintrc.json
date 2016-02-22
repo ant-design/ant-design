@@ -7,9 +7,12 @@
     "jest": true,
     "es6": true
   },
-  "ecmaFeatures": {
-    "jsx": true,
-    "experimentalObjectRestSpread": true
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
   },
   "plugins": [
     "markdown",
@@ -28,6 +31,8 @@
     "react/jsx-closing-bracket-location": 0,
     "react/jsx-no-bind": 0,
     "no-param-reassign": 0,
-    "max-len": 0
+    "no-return-assign": 0,
+    "max-len": 0,
+    "consistent-return": 0
   }
 }
