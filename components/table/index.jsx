@@ -584,6 +584,7 @@ let AntTable = React.createClass({
           data={data}
           columns={columns}
           className={classString}
+          expandIconColumnIndex={columns[0].key === 'selection-column' ? 1 : 0}
           expandIconAsCell={expandIconAsCell} />
           {emptyText}
       </div>
