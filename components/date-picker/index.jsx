@@ -61,7 +61,7 @@ function createPicker(TheCalendar, defaultFormat) {
       const timePicker = this.props.showTime ? (<TimePicker
         prefixCls="ant-time-picker"
         placeholder={locale.lang.timePlaceholder}
-        transitionName="slide-up"/>)
+        transitionName="slide-up" />)
         : null;
 
       const disabledTime = this.props.showTime ? this.props.disabledTime : null;
@@ -139,8 +139,8 @@ function createPicker(TheCalendar, defaultFormat) {
                       value={value && this.getFormatter().format(value)}
                       placeholder={placeholder}
                       style={this.props.style}
-                      className={`ant-calendar-picker-input ant-input${sizeClass}`}/>
-                    <span className="ant-calendar-picker-icon"/>
+                      className={`ant-calendar-picker-input ant-input${sizeClass}`} />
+                    <span className="ant-calendar-picker-icon" />
                   </span>
                 );
               }

@@ -4,10 +4,6 @@ import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 
 class AntBadge extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     let { count, prefixCls, overflowCount, className, style, children } = this.props;
     const dot = this.props.dot;

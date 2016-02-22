@@ -63,7 +63,7 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required>
-          <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} {...getFieldProps('slider')}/>
+          <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} {...getFieldProps('slider')} />
         </FormItem>
 
         <FormItem
@@ -85,7 +85,7 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           required>
           <Col span="6">
-            <DatePicker {...getFieldProps('startDate')}/>
+            <DatePicker {...getFieldProps('startDate')} />
           </Col>
           <Col span="1">
             <p className="ant-form-split">-</p>
@@ -100,7 +100,7 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required>
-          <TimePicker {...getFieldProps('time')}/>
+          <TimePicker {...getFieldProps('time')} />
         </FormItem>
 
         <FormItem

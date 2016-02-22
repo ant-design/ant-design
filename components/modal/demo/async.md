@@ -55,5 +55,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test/>, mountNode);
+ReactDOM.render(<Test />, mountNode);
 ````

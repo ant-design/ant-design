@@ -74,7 +74,7 @@ export default React.createClass({
       timePicker = (<TimePicker
         prefixCls="ant-time-picker"
         placeholder={locale.lang.timePlaceholder}
-        transitionName="slide-up"/>);
+        transitionName="slide-up" />);
     }
 
     const calendarClassName = classNames({
@@ -151,15 +151,15 @@ export default React.createClass({
                   onChange={this.handleInputChange}
                   value={start && this.getFormatter().format(start)}
                   placeholder={startPlaceholder}
-                  className="ant-calendar-range-picker-input"/>
+                  className="ant-calendar-range-picker-input" />
                 <span className="ant-calendar-range-picker-separator"> ~ </span>
                 <input
                   disabled={disabled}
                   onChange={this.handleInputChange}
                   value={end && this.getFormatter().format(end)}
                   placeholder={endPlaceholder}
-                  className="ant-calendar-range-picker-input"/>
-                <span className="ant-calendar-picker-icon"/>
+                  className="ant-calendar-range-picker-input" />
+                <span className="ant-calendar-picker-icon" />
               </span>
             );
           }

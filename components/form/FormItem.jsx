@@ -58,6 +58,8 @@ class FormItem extends React.Component {
     } else if (getFieldValue(field) !== undefined) {
       return 'success';
     }
+
+    return '';
   }
 
   renderValidateWrapper(c1, c2, c3) {
