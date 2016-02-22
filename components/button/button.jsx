@@ -30,13 +30,13 @@ export default class Button extends React.Component {
       window.PIE.attach(findDOMNode(this));
     }
   }
-  handleClick() {
+  handleClick(...args) {
     const buttonNode = findDOMNode(this);
     buttonNode.className = buttonNode.className.replace(`${prefix}clicked`, '');
     setTimeout(() => {
       buttonNode.className += ` ${prefix}clicked`;
     }, 10);
-    this.props.onClick();
+    this.props.onClick(...args);
   }
   render() {
     const props = this.props;
