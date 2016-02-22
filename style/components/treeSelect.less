@@ -231,6 +231,15 @@
 
     .@{tree-select-prefix-cls}-selection--multiple {
       min-height: 32px;
+
+      .@{tree-select-prefix-cls}-search__field__placeholder {
+        left: 10px;
+        margin-top: 4px;
+        font-size: 14px;
+        line-height: 24px;
+        height: 24px;
+      }
+
       .@{tree-select-prefix-cls}-selection__rendered {
         li {
           height: 24px;
@@ -259,7 +268,8 @@
         li {
           height: 14px;
           .@{tree-select-prefix-cls}-selection__choice__content {
-            line-height: 14px;
+            line-height: 10px;
+            font-size: 8px;
             position: relative;
             top: -3px;
           }
@@ -315,8 +325,10 @@
     cursor: text;
 
     .@{tree-select-prefix-cls}-search__field__placeholder {
-      top: 6px;
       left: 10px;
+      margin-top: 4px;
+      height: 20px;
+      line-height: 20px;
     }
 
     .@{tree-select-prefix-cls}-search--inline {

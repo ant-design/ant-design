@@ -50,10 +50,12 @@ const Demo = React.createClass({
   render() {
     const tProps = {
       treeData,
+      size: 'small',
       value: this.state.value,
       onChange: this.onChange,
       multiple: true,
       treeCheckable: true,
+      searchPlaceholder: '请选择',
       treeDefaultExpandAll: true,
       style: {
         width: 360,
