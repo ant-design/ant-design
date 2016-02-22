@@ -4,6 +4,18 @@
 
 ---
 
+## 0.12.4
+
+`2016-02-22`
+
+- Radio 的 value 支持更多类型。[#1043](https://github.com/ant-design/ant-design/pull/1043)
+- 修复 Spin 组件的大小、居中等样式问题。
+- FormItem 补充 extra 属性的文档。[#931](https://github.com/ant-design/ant-design/issues/931)
+- 修复的 Table 下树形数据和选择框配合时的样式问题。
+- 修复一个水平表单的错误提示的样式错位问题。[#1040](https://github.com/ant-design/ant-design/issues/1040)
+- 改进 Input disabled 的样式。
+- 添加了一个轻微的 Button 点击动效。
+
 ## 0.12.3
 
 `2016-02-19`
