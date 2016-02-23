@@ -38,7 +38,7 @@
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
-| optionFilterProp | 输入项过滤对应的 option 属性 | string | value |
+| optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在下拉中显示搜索框 | boolean | false |

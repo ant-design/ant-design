@@ -120,7 +120,7 @@ const CopyableIcon = React.createClass({
     });
   },
   render() {
-    const text = '&lt;Icon type="' + this.props.type + '" /&gt;';
+    const text = '<Icon type="' + this.props.type + '" />';
     return (
       <CopyToClipboard text={text} onCopy={this.onCopied}>
         <li className={this.state.justCopied ? 'copied' : ''}>

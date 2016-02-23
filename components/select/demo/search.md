@@ -15,14 +15,16 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select defaultValue="lucy" showSearch style={{ width: 200 }}
-    notFoundContent="找不到呐！"
-    searchPlaceholder="输入"
+  <Select showSearch
+    style={{ width: 200 }}
+    placeholder="请选择人员"
+    optionFilterProp="children"
+    notFoundContent="无法找到"
+    searchPlaceholder="输入关键词"
     onChange={handleChange}>
-    <Option value="jack">jack</Option>
-    <Option value="lucy">lucy</Option>
-    <Option value="disabled" disabled>disabled</Option>
-    <Option value="yiminghe">yiminghe</Option>
+    <Option value="jack">杰克</Option>
+    <Option value="lucy">露西</Option>
+    <Option value="tom">汤姆</Option>
   </Select>
 , mountNode);
 ````
