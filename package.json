@@ -137,7 +137,8 @@
     "jest": "jest",
     "pub": "sh ./scripts/publish.sh",
     "webpack": "webpack",
-    "beta": "sh ./scripts/publish.sh --tag beta"
+    "beta": "sh ./scripts/publish.sh --tag beta",
+    "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt"
   },
   "jest": {
     "testRunner": "<rootDir>/node_modules/jest-cli/src/testRunners/jasmine/jasmine2",
