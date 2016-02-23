@@ -1,0 +1,46 @@
+# 区块间隔
+
+- order: 6
+
+栅格常常需要和间隔进行配置，我们推荐使用 `(16+8n)px` 作为栅格间隔。
+
+---
+
+````jsx
+import { Row, Col } from 'antd';
+
+ReactDOM.render(
+  <div className="gutter-example">
+    <Row gutter={16}>
+      <Col span="6">
+        <div className="gutter-box">.col-6</div>
+      </Col>
+      <Col span="6">
+        <div className="gutter-box">.col-6</div>
+      </Col>
+      <Col span="6">
+        <div className="gutter-box">.col-6</div>
+      </Col>
+      <Col span="6">
+        <div className="gutter-box">.col-6</div>
+      </Col>
+    </Row>
+  </div>
+, mountNode);
+````
+
+````css
+.gutter-example {
+  background: #f4f4f4;
+}
+.gutter-example .row > div {
+  background: transparent;
+  border: 0;
+}
+.gutter-box {
+  background: #2db7f5;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 6px;
+}
+````
