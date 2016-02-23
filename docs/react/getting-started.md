@@ -102,7 +102,7 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0px 195px 0px rgba(255, 207, 0, 0.16);
+  box-shadow: 0px 184px 0px rgba(255, 207, 0, 0.16);
   height: 42px;
   margin-top: -42px;
   position: relative;

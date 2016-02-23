@@ -25,11 +25,6 @@ function insertSpace(child) {
 }
 
 export default class Button extends React.Component {
-  componentDidMount() {
-    if (window && window.PIE) {
-      window.PIE.attach(findDOMNode(this));
-    }
-  }
   handleClick(...args) {
     const buttonNode = findDOMNode(this);
     buttonNode.className = buttonNode.className.replace(`${prefix}clicked`, '');
