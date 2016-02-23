@@ -29,17 +29,3 @@ loading | 设置按钮载入状态 | boolean | false
 onClick | `click` 事件的 handler | function | `function() {}`
 
 - `<Button>Hello world!</Button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`
-
-
-### IE8 border radius support
-
-Ant Design 视觉上采用渐进降级的方案，在 IE8 下圆角按钮将降级为直角。
-如果强烈需要圆角按钮，我们提供了 [css3pie](http://css3pie.com/) 的兼容方案。
-
-使用时只需在 html 头部加入以下代码即可。
-
-```html
-<!--[if IE 8]>
-<script src="https://t.alipayobjects.com/images/rmsweb/T1q8JiXftaXXXXXXXX.js"></script>
-<![endif]-->
-```
