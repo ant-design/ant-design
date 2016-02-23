@@ -10,7 +10,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Features
 
-- An enterprise-class design language and high quality UI framework.
+- An enterprise-class design language and high quality UI style.
 - Rich library of UI components base on [React Component](http://react-component.github.io/badgeboard/).
 - A npm + webpack + babel + dora [workflow](http://ant-tool.github.io/index.html).
 
