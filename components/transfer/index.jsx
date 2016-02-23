@@ -23,7 +23,7 @@ class Transfer extends Component {
   splitDataSource() {
     const { targetKeys, dataSource } = this.props;
 
-    let leftDataSource = Object.assign([], dataSource);
+    let leftDataSource = [...dataSource];
     let rightDataSource = [];
 
     if (targetKeys.length > 0) {
