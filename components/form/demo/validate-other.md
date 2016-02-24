@@ -7,13 +7,21 @@
 ---
 
 ````jsx
-import { Select, Radio, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
+import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const createForm = Form.create;
 const FormItem = Form.Item;
 
 let Demo = React.createClass({
+  componentDidMount() {
+    this.props.form.setFieldsValue({
+      eat: true,
+      sleep: true,
+      beat: true,
+    });
+  },
+
   handleReset(e) {
     e.preventDefault();
     this.props.form.resetFields();
@@ -111,6 +119,22 @@ let Demo = React.createClass({
             <Radio value="male">男</Radio>
             <Radio value="female">女</Radio>
           </RadioGroup>
+        </FormItem>
+
+        <FormItem
+          label="兴趣爱好："
+          labelCol={{ span: 7 }}
+          wrapperCol={{ span: 12 }}
+          help="Checkbox 必须设置 `valuePropName`">
+          <Checkbox {...getFieldProps('eat', {
+            valuePropName: 'checked',
+          })} />吃饭饭 &nbsp;
+          <Checkbox {...getFieldProps('sleep', {
+            valuePropName: 'checked',
+          })} />睡觉觉 &nbsp;
+          <Checkbox {...getFieldProps('beat', {
+            valuePropName: 'checked',
+          })} />打豆豆 &nbsp;
         </FormItem>
 
         <FormItem
