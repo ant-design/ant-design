@@ -16,6 +16,8 @@ window.ReactDOM = ReactDOM;
 window['object-assign'] = require('object-assign');
 window['classnames'] = require('classnames');
 window['reqwest'] = require('reqwest');
+window['jsonp'] = require('jsonp');
+window['querystring'] = require('querystring');
 window['Values'] = require('values.js');
 window['InstantClick'] = require('instantclick');
 require('./home')();
