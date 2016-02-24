@@ -1,8 +1,8 @@
 # 各种类型
 
-四种颜色的标签。
-
 - order: 1
+
+四种颜色的标签。
 
 ---
 
@@ -16,4 +16,3 @@ ReactDOM.render(<div>
   <Tag closable color="red">红色</Tag>
 </div>, mountNode);
 ````
-
