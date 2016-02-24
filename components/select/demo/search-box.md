@@ -2,7 +2,7 @@
 
 - order: 9
 
-带有搜索按钮。
+带有搜索按钮的自动补全输入框。
 
 ---
 
@@ -10,6 +10,7 @@
 import { Input, Select, Button, Icon } from 'antd';
 import jsonp from 'jsonp';
 import querystring from 'querystring';
+import classNames from 'classnames';
 const Option = Select.Option;
 
 let timeout;
@@ -49,26 +50,36 @@ const SearchInput = React.createClass({
   getInitialState() {
     return {
       data: [],
+      value: '',
+      focus: false,
     };
   },
-
   handleChange(value) {
-    fetch(value, (data) => {
-      this.setState({
-        data,
-      });
+    this.setState({ value });
+    fetch(value, (data) => this.setState({ data }));
+  },
+  handleSubmit() {
+    console.log('输入框内容是: ', this.state.value);
+  },
+  handleFocusBlur(e) {
+    this.setState({
+      focus: e.target === document.activeElement,
     });
   },
-
   render() {
-    const data = this.state.data;
-    const options = data.map((d) => {
-      return <Option key={d.value}>{d.text}</Option>;
+    const btnCls = classNames({
+      'ant-search-btn': true,
+      'ant-search-btn-noempty': !!this.state.value.trim(),
+    });
+    const searchCls = classNames({
+      'ant-search-input': true,
+      'ant-search-input-focus': this.state.focus,
     });
     return (
-      <Input.Group className="ant-search-input" style={this.props.style}>
+      <Input.Group className={searchCls} style={this.props.style}>
         <Select
           combobox
+          value={this.state.value}
           searchPlaceholder={this.props.placeholder}
           notFoundContent=""
           defaultActiveFirstOption={false}
@@ -77,10 +88,10 @@ const SearchInput = React.createClass({
           onChange={this.handleChange}
           onFocus={this.handleFocusBlur}
           onBlur={this.handleFocusBlur}>
-          {options}
+          {this.state.data.map(d => <Option key={d.value}>{d.text}</Option>)}
         </Select>
         <div className="ant-input-group-wrap">
-          <Button className="ant-search-btn">
+          <Button className={btnCls} onClick={this.handleSubmit}>
             <Icon type="search" />
           </Button>
         </div>
