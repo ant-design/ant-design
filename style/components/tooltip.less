@@ -87,85 +87,83 @@
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
     bottom: @tooltip-distance - @tooltip-arrow-width;
-    margin-left: -@tooltip-arrow-width;
     border-width: @tooltip-arrow-width @tooltip-arrow-width 0;
     border-top-color: @tooltip-arrow-color;
   }
 
   &-placement-top &-arrow {
     left: 50%;
+    margin-left: -@tooltip-arrow-width;
   }
 
   &-placement-topLeft &-arrow {
-    left: 15%;
+    left: 16px;
   }
 
   &-placement-topRight &-arrow {
-    right: 15%;
+    right: 16px;
   }
 
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
     left: @tooltip-distance - @tooltip-arrow-width;
-    margin-top: -@tooltip-arrow-width;
     border-width: @tooltip-arrow-width @tooltip-arrow-width @tooltip-arrow-width 0;
     border-right-color: @tooltip-arrow-color;
   }
 
   &-placement-right &-arrow {
     top: 50%;
+    margin-top: -@tooltip-arrow-width;
   }
 
   &-placement-rightTop &-arrow {
-    top: 15%;
-    margin-top: 0;
+    top: 8px;
   }
 
   &-placement-rightBottom &-arrow {
-    bottom: 15%;
+    bottom: 8px;
   }
 
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
     right: @tooltip-distance - @tooltip-arrow-width;
-    margin-top: -@tooltip-arrow-width;
     border-width: @tooltip-arrow-width 0 @tooltip-arrow-width @tooltip-arrow-width;
     border-left-color: @tooltip-arrow-color;
   }
 
   &-placement-left &-arrow {
     top: 50%;
+    margin-top: -@tooltip-arrow-width;
   }
 
   &-placement-leftTop &-arrow {
-    top: 15%;
-    margin-top: 0;
+    top: 8px;
   }
 
   &-placement-leftBottom &-arrow {
-    bottom: 15%;
+    bottom: 8px;
   }
 
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
     top: @tooltip-distance - @tooltip-arrow-width;
-    margin-left: -@tooltip-arrow-width;
     border-width: 0 @tooltip-arrow-width @tooltip-arrow-width;
     border-bottom-color: @tooltip-arrow-color;
   }
 
   &-placement-bottom &-arrow {
     left: 50%;
+    margin-left: -@tooltip-arrow-width;
   }
 
   &-placement-bottomLeft &-arrow {
-    left: 15%;
+    left: 16px;
   }
 
   &-placement-bottomRight &-arrow {
-    right: 15%;
+    right: 16px;
   }
 }
