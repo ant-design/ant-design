@@ -18,8 +18,7 @@
 
 //** Popover arrow width
 @popover-arrow-width:                 4px;
-//** Popover distance with trigger
-@popover-distance:                    @popover-arrow-width + 4;
+
 //** Popover arrow color
 @popover-arrow-color:                 @popover-bg;
 
@@ -55,29 +54,25 @@
   &-placement-top,
   &-placement-topLeft,
   &-placement-topRight {
-    margin-top: -@popover-arrow-width;
-    padding-bottom: @popover-distance;
+    padding-bottom: @popover-arrow-width;
   }
 
   &-placement-right,
   &-placement-rightTop,
   &-placement-rightBottom {
-    margin-left: @popover-arrow-width;
-    padding-left: @popover-distance;
+    padding-left: @popover-arrow-width;
   }
 
   &-placement-bottom,
   &-placement-bottomLeft,
   &-placement-bottomRight {
-    margin-top: @popover-arrow-width;
-    padding-top: @popover-distance;
+    padding-top: @popover-arrow-width;
   }
 
   &-placement-left,
   &-placement-leftTop,
   &-placement-leftBottom {
-    margin-left: -@popover-arrow-width;
-    padding-right: @popover-distance;
+    padding-right: @popover-arrow-width;
   }
 
   &-inner {
@@ -149,7 +144,7 @@
   &-placement-topRight > &-arrow {
     border-bottom-width: 0;
     border-top-color: @popover-arrow-outer-color;
-    bottom: @popover-distance - @popover-arrow-outer-width + 1;
+    bottom: 0;
     &:after {
       content: " ";
       bottom: 1px;
@@ -169,9 +164,10 @@
     right: 16px;
   }
 
+  &-placement-right > &-arrow,
   &-placement-rightTop > &-arrow,
   &-placement-rightBottom > &-arrow {
-    left: @popover-distance - @popover-arrow-outer-width + 1;
+    left: 0;
     border-left-width: 0;
     border-right-color: @popover-arrow-outer-color;
     &:after {
@@ -198,7 +194,7 @@
   &-placement-bottomRight > &-arrow {
     border-top-width: 0;
     border-bottom-color: @popover-arrow-outer-color;
-    top: @popover-distance - @popover-arrow-outer-width + 1;
+    top: 0;
     &:after {
       content: " ";
       top: 1px;
@@ -221,7 +217,7 @@
   &-placement-left > &-arrow,
   &-placement-leftTop > &-arrow,
   &-placement-leftBottom > &-arrow {
-    right: @popover-distance - @popover-arrow-outer-width + 1;
+    right: 0;
     border-right-width: 0;
     border-left-color: @popover-arrow-outer-color;
     &:after {
