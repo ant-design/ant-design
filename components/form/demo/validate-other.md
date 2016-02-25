@@ -124,8 +124,7 @@ let Demo = React.createClass({
         <FormItem
           label="兴趣爱好："
           labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}
-          help="Checkbox 必须设置 `valuePropName`">
+          wrapperCol={{ span: 12 }}>
           <Checkbox {...getFieldProps('eat', {
             valuePropName: 'checked',
           })} />吃饭饭 &nbsp;

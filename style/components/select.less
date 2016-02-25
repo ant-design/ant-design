@@ -147,9 +147,9 @@
       .ant-select-selection__rendered {
         li {
           height: 24px;
+          line-height: 24px;
           .ant-select-selection__choice__content {
             font-size: 14px;
-            line-height: 24px;
           }
         }
       }
@@ -171,15 +171,7 @@
       .ant-select-selection__rendered {
         li {
           height: 14px;
-          .ant-select-selection__choice__content {
-            line-height: 14px;
-            position: relative;
-            top: -3px;
-          }
-          .ant-select-selection__choice__remove {
-            position: relative;
-            top: -4px;
-          }
+          line-height: 14px;
         }
       }
     }
@@ -200,9 +192,13 @@
 
   &-search__field__placeholder {
     position: absolute;
-    top: 0;
-    left: 3px;
-    color: #aaa;
+    top: 50%;
+    left: 9px;
+    color: #ccc;
+    line-height: 20px;
+    height: 20px;
+    margin-top: -10px;
+    cursor: text;
   }
 
   &-search--inline {
@@ -227,11 +223,6 @@
   &-selection--multiple {
     min-height: 28px;
     cursor: text;
-
-    .@{select-prefix-cls}-search__field__placeholder {
-      top: 6px;
-      left: 10px;
-    }
 
     .@{select-prefix-cls}-search--inline {
       width: auto;
@@ -279,7 +270,7 @@
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
       color: #999;
-      line-height: 20px;
+      line-height: inherit;
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
@@ -317,10 +308,6 @@
     .@{select-prefix-cls}-search--inline {
       height: 100%;
       float: none;
-    }
-    .@{select-prefix-cls}-search__field__placeholder {
-      left: 10px;
-      cursor: text;
     }
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -469,10 +456,6 @@
   .@{select-prefix-cls}-dropdown-search {
     display: block;
     padding: 4px;
-    .@{select-prefix-cls}-search__field__placeholder {
-      left: 7px;
-      top: 5px;
-    }
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
     }
