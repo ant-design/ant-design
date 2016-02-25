@@ -13,6 +13,13 @@
     visibility: hidden;
   }
 
+  &-total-text {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+  }
+
   &-item {
     cursor: pointer;
     border-radius: @border-radius-base;
@@ -232,6 +239,10 @@
 }
 
 .@{pagination-prefix-cls} {
+  &.mini &-total-text {
+      height: 20px;
+      line-height: 20px;
+  }
 
   &.mini &-item {
     border: 0;
