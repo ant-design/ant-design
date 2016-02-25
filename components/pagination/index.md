@@ -32,3 +32,4 @@
 | showQuickJumper  | 是否可以快速跳转至某页             | Bool          | false                    |
 | size             | 当为「small」时，是小尺寸分页      | String        | ""                       |
 | simple           | 当添加该属性时，显示为简单分页     | Object        | 无                       |
+| showTotal        | 用于显示总共有多少条数据          | Function      | 无                       |
