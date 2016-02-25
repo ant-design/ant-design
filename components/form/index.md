@@ -41,6 +41,8 @@
 
 ### Form
 
+更多示例参考 [rc-form](http://react-component.github.io/form/)。
+
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 |  form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可 | object | | 无 |
