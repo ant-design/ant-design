@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
+
+const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 
 const Col = React.createClass({
   propTypes: {
-    span: React.PropTypes.string,
-    order: React.PropTypes.string,
-    offset: React.PropTypes.string,
-    push: React.PropTypes.string,
-    pull: React.PropTypes.string,
-    className: React.PropTypes.string,
-    children: React.PropTypes.node,
+    span: stringOrNumber,
+    order: stringOrNumber,
+    offset: stringOrNumber,
+    push: stringOrNumber,
+    pull: stringOrNumber,
+    className: PropTypes.string,
+    children: PropTypes.node,
   },
   render() {
     const { span, order, offset, push, pull, className, ...others } = this.props;
@@ -19,7 +21,7 @@ const Col = React.createClass({
       [`col-offset-${offset}`]: offset,
       [`col-push-${push}`]: push,
       [`col-pull-${pull}`]: pull,
-      [className]: className,
+      [className]: !!className,
     });
     return <div {...others} className={classes}>{ this.props.children }</div>;
   },

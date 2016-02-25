@@ -79,6 +79,32 @@
 
 Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排版则不拘泥于栅格。
 
+## API
+
+Ant Design 的布局组件暂不支持响应式设计和元素对齐等特性，若不能满足你的需求，你可以直接使用社区的优秀布局组件：
+
+- [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
+- [react-blocks](http://whoisandie.github.io/react-blocks/)
+
+### Row
+
+| 成员        | 说明             | 类型               | 默认值       |
+|------------|-----------------|--------------------|-------------|
+| gutter     | 栅格间隔   | number | 0        |
+| type     | 布局模式，可选 `flex`，现代浏览器下有效 | string |         |
+| align     | flex 布局下的垂直对齐方式：`top` `middle` `bottom`  | string | `top`      |
+| justify   | flex 布局下的水平排列方式：`start` `end` `center` `space-around` `space-between`   | string | `start`        |
+
+### Col
+
+| 成员        | 说明             | 类型               | 默认值       |
+|------------|-----------------|--------------------|-------------|
+| span     | 栅格占位格数   | number | 0        |
+| order     | 栅格顺序，`flex` 布局模式下有效   | number | 0        |
+| offset     | 栅格左侧的间隔格数，间隔内不可以有栅格  | number | 0        |
+| push     | 栅格向右移动格数   | number | 0        |
+| pull     | 栅格向左移动格数   | number | 0        |
+
 <style>
 .demo-row {
   background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
