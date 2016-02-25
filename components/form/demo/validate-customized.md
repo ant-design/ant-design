@@ -143,6 +143,10 @@ let Demo = React.createClass({
         validator: this.checkPass2,
       }],
     });
+    const formItemLayout = {
+      labelCol: { span: 6 },
+      wrapperCol: { span: 18 },
+    };
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>修改密码</Button>
@@ -151,9 +155,8 @@ let Demo = React.createClass({
             <Row>
               <Col span="18">
                 <FormItem
-                  label="密码："
-                  labelCol={{ span: 6 }}
-                  wrapperCol={{ span: 18 }}>
+                  {...formItemLayout}
+                  label="密码：">
                   <Input {...passProps} type="password"
                     onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                     autoComplete="off" id="pass" />
@@ -167,9 +170,8 @@ let Demo = React.createClass({
             <Row>
               <Col span="18">
                 <FormItem
-                  label="确认密码："
-                  labelCol={{ span: 6 }}
-                  wrapperCol={{ span: 18 }}>
+                  {...formItemLayout}
+                  label="确认密码：">
                   <Input {...rePassProps} type="password"
                     onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                     autoComplete="off" id="rePass" />
