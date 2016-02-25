@@ -10,7 +10,7 @@ const align = {
     adjustX: 1,
     adjustY: 1,
   },
-  offset: [0, 3],
+  offset: [0, 4],
   targetOffset: [0, 0],
 };
 

@@ -18,8 +18,7 @@
 
 //** Popover arrow width
 @popover-arrow-width:                 4px;
-//** Popover distance with trigger
-@popover-distance:                    @popover-arrow-width + 4;
+
 //** Popover arrow color
 @popover-arrow-color:                 @popover-bg;
 
@@ -55,29 +54,25 @@
   &-placement-top,
   &-placement-topLeft,
   &-placement-topRight {
-    margin-top: -@popover-arrow-width;
-    padding-bottom: @popover-distance;
+    padding-bottom: @popover-arrow-width;
   }
 
   &-placement-right,
   &-placement-rightTop,
   &-placement-rightBottom {
-    margin-left: @popover-arrow-width;
-    padding-left: @popover-distance;
+    padding-left: @popover-arrow-width;
   }
 
   &-placement-bottom,
   &-placement-bottomLeft,
   &-placement-bottomRight {
-    margin-top: @popover-arrow-width;
-    padding-top: @popover-distance;
+    padding-top: @popover-arrow-width;
   }
 
   &-placement-left,
   &-placement-leftTop,
   &-placement-leftBottom {
-    margin-left: -@popover-arrow-width;
-    padding-right: @popover-distance;
+    padding-right: @popover-arrow-width;
   }
 
   &-inner {
@@ -147,11 +142,9 @@
   &-placement-top > &-arrow,
   &-placement-topLeft > &-arrow,
   &-placement-topRight > &-arrow {
-    left: 50%;
-    margin-left: -@popover-arrow-outer-width;
     border-bottom-width: 0;
     border-top-color: @popover-arrow-outer-color;
-    bottom: @popover-distance - @popover-arrow-outer-width + 1;
+    bottom: 0;
     &:after {
       content: " ";
       bottom: 1px;
@@ -160,19 +153,21 @@
       border-top-color: @popover-arrow-color;
     }
   }
+  &-placement-top > &-arrow {
+    left: 50%;
+    margin-left: -@popover-arrow-outer-width;
+  }
   &-placement-topLeft > &-arrow {
-    left: 15%;
+    left: 16px;
   }
   &-placement-topRight > &-arrow {
-    left: 85%;
+    right: 16px;
   }
 
   &-placement-right > &-arrow,
   &-placement-rightTop > &-arrow,
   &-placement-rightBottom > &-arrow {
-    top: 50%;
-    left: @popover-distance - @popover-arrow-outer-width + 1;
-    margin-top: -@popover-arrow-outer-width;
+    left: 0;
     border-left-width: 0;
     border-right-color: @popover-arrow-outer-color;
     &:after {
@@ -183,21 +178,23 @@
       border-right-color: @popover-arrow-color;
     }
   }
+  &-placement-right > &-arrow {
+    top: 50%;
+    margin-top: -@popover-arrow-outer-width;
+  }
   &-placement-rightTop > &-arrow {
-    top: 15%;
+    top: 12px;
   }
   &-placement-rightBottom > &-arrow {
-    top: 85%;
+    bottom: 12px;
   }
 
   &-placement-bottom > &-arrow,
   &-placement-bottomLeft > &-arrow,
   &-placement-bottomRight > &-arrow {
-    left: 50%;
-    margin-left: -@popover-arrow-outer-width;
     border-top-width: 0;
     border-bottom-color: @popover-arrow-outer-color;
-    top: @popover-distance - @popover-arrow-outer-width + 1;
+    top: 0;
     &:after {
       content: " ";
       top: 1px;
@@ -206,19 +203,21 @@
       border-bottom-color: @popover-arrow-color;
     }
   }
+  &-placement-bottom > &-arrow {
+    left: 50%;
+    margin-left: -@popover-arrow-outer-width;
+  }
   &-placement-bottomLeft > &-arrow {
-    left: 15%;
+    left: 16px;
   }
   &-placement-bottomRight > &-arrow {
-    left: 85%;
+    right: 16px;
   }
 
   &-placement-left > &-arrow,
   &-placement-leftTop > &-arrow,
   &-placement-leftBottom > &-arrow {
-    top: 50%;
-    right: @popover-distance - @popover-arrow-outer-width + 1;
-    margin-top: -@popover-arrow-outer-width;
+    right: 0;
     border-right-width: 0;
     border-left-color: @popover-arrow-outer-color;
     &:after {
@@ -229,11 +228,14 @@
       bottom: -@popover-arrow-width;
     }
   }
+  &-placement-left > &-arrow {
+    top: 50%;
+    margin-top: -@popover-arrow-outer-width;
+  }
   &-placement-leftTop > &-arrow {
-    top: 15%;
+    top: 12px;
   }
   &-placement-leftBottom > &-arrow {
-    top: 85%;
+    bottom: 12px;
   }
-
 }

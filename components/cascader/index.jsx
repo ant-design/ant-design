@@ -51,12 +51,12 @@ class AntCascader extends React.Component {
     this.setState({ popupVisible: false });
   }
   render() {
-    const { prefixCls, children, placeholder, size, disabled, className } = this.props;
+    const { prefixCls, children, placeholder, size, disabled, className, allowClear } = this.props;
     const sizeCls = classNames({
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
     });
-    const clearIcon = this.state.value.length > 0 ?
+    const clearIcon = (allowClear && !disabled && this.state.value.length > 0) ?
       <Icon type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection} /> : null;
@@ -105,6 +105,7 @@ AntCascader.defaultProps = {
     return label.join(' / ');
   },
   disabled: false,
+  allowClear: true,
   onPopupVisibleChange() {},
 };
 

@@ -4,6 +4,18 @@
 
 ---
 
+## 0.12.5
+
+`2016-02-25`
+
+- Pagination 支持 `showTotal` 属性。[#1077](https://github.com/ant-design/ant-design/pull/1077)
+- Cascader 添加 `allowClear` 属性，允许隐藏清除按钮。
+- 补充了一个带图标的搜索建议框的例子。[#1067](https://github.com/ant-design/ant-design/issues/1067)
+- 修复 Transfer 在不支持 Object.assign 的浏览器上报错的问题。
+- 修复 Cascader 在 Safari 下错位的问题。[#1066](https://github.com/ant-design/ant-design/issues/1066)
+- 移除对 Button 圆角的降级方案。
+- 修复了部分组件样式的小问题。
+
 ## 0.12.4
 
 `2016-02-22`
