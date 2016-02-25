@@ -34,7 +34,8 @@ const Row = React.createClass({
         style: gutter > 0 ? {
           paddingLeft: gutter / 2,
           paddingRight: gutter / 2,
-        } : null
+          ...col.props.style
+        } : col.props.style,
       })
     );
     return <div {...others} className={classes} style={rowStyle}>{cols}</div>;
