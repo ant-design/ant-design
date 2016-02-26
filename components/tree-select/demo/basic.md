@@ -26,6 +26,7 @@ const Demo = React.createClass({
         value={this.state.value}
         dropdownMenuStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="请选择"
+        allowClear
         treeDefaultExpandAll
         onChange={this.onChange}>
         <TreeNode value="parent 1" title="parent 1" key="0-1">

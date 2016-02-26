@@ -4,6 +4,37 @@
 
 @import "../mixins/iconfont";
 
+.selection__clear() {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+  opacity: 0;
+  position: absolute;
+  right: 8px;
+  z-index: 1;
+  background: #fff;
+  top: 50%;
+  font-size: 12px;
+  color: #ccc;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  line-height: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease, opacity 0.15s ease;
+  &:before {
+    display: block;
+    font-family: "anticon" !important;
+    content: "\E631";
+  }
+  &:hover {
+    color: #999;
+  }
+}
+
 .@{select-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
@@ -53,39 +84,13 @@
     &:hover {
       .hover;
     }
+
     &:active {
       .active;
     }
 
     &__clear {
-      display: inline-block;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      opacity: 0;
-      position: absolute;
-      right: 8px;
-      z-index: 1;
-      background: #fff;
-      top: 50%;
-      font-size: 12px;
-      color: #ccc;
-      width: 12px;
-      height: 12px;
-      margin-top: -6px;
-      line-height: 12px;
-      cursor: pointer;
-      transition: color 0.3s ease, opacity 0.15s ease;
-      &:before {
-        display: block;
-        font-family: "anticon" !important;
-        content: "\E631";
-      }
-      &:hover {
-        color: #999;
-      }
+      .selection__clear();
     }
 
     &:hover &__clear {

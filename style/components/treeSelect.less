@@ -115,12 +115,6 @@
 @duration: .3s;
 
 @import "../mixins/iconfont";
-//mixin
-.selection__clear() {
-  cursor: pointer;
-  float: right;
-  font-weight: bold;
-}
 
 .@{tree-select-prefix-cls} {
   box-sizing: border-box;
@@ -214,6 +208,10 @@
 
     .@{tree-select-prefix-cls}-selection__clear {
       .selection__clear();
+    }
+
+    &:hover .@{tree-select-prefix-cls}-selection__clear {
+      opacity: 1;
     }
 
     .@{tree-select-prefix-cls}-selection__placeholder {
@@ -343,12 +341,6 @@
       text-overflow: ellipsis;
       padding-left: 6px;
       padding-bottom: 4px;
-    }
-
-    .@{tree-select-prefix-cls}-selection__clear {
-      .selection__clear();
-      margin-top: 5px;
-      margin-right: 10px;
     }
 
     > ul > li {
