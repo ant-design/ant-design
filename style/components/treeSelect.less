@@ -1,8 +1,9 @@
-@tree-select-tree-prefix-cls: ant-tree-select-tree;
-.antCheckboxFn(@checkbox-prefix-cls: ant-tree-select-tree-checkbox);
+@select-tree-prefix-cls: ant-select-tree;
 @import "../mixins/iconfont";
 
-.@{tree-select-tree-prefix-cls} {
+.antCheckboxFn(@checkbox-prefix-cls: ant-select-tree-checkbox);
+
+.@{select-tree-prefix-cls} {
   margin: 0;
   padding: 8px;
   font-size: 12px;
@@ -35,16 +36,16 @@
       &:hover {
         background-color: tint(@primary-color, 90%);
       }
-      &.@{tree-select-tree-prefix-cls}-node-selected {
+      &.@{select-tree-prefix-cls}-node-selected {
         background-color: tint(@primary-color, 80%);
       }
     }
     span {
-      &.@{tree-select-tree-prefix-cls}-checkbox {
+      &.@{select-tree-prefix-cls}-checkbox {
         margin: 2px 4px 0 0;
       }
-      &.@{tree-select-tree-prefix-cls}-switcher,
-      &.@{tree-select-tree-prefix-cls}-iconEle {
+      &.@{select-tree-prefix-cls}-switcher,
+      &.@{select-tree-prefix-cls}-iconEle {
         margin: 0;
         width: 16px;
         height: 16px;
@@ -55,7 +56,7 @@
         cursor: pointer;
         outline: none;
       }
-      &.@{tree-select-tree-prefix-cls}-icon_loading {
+      &.@{select-tree-prefix-cls}-icon_loading {
         &:after {
           content: '\e6a1';
           display: inline-block;
@@ -65,17 +66,17 @@
           margin-top: 8px;
         }
       }
-      &.@{tree-select-tree-prefix-cls}-switcher {
-        &.@{tree-select-tree-prefix-cls}-roots_open,
-        &.@{tree-select-tree-prefix-cls}-center_open,
-        &.@{tree-select-tree-prefix-cls}-bottom_open,
-        &.@{tree-select-tree-prefix-cls}-noline_open {
+      &.@{select-tree-prefix-cls}-switcher {
+        &.@{select-tree-prefix-cls}-roots_open,
+        &.@{select-tree-prefix-cls}-center_open,
+        &.@{select-tree-prefix-cls}-bottom_open,
+        &.@{select-tree-prefix-cls}-noline_open {
           .antTreeSwitcherIcon();
         }
-        &.@{tree-select-tree-prefix-cls}-roots_close,
-        &.@{tree-select-tree-prefix-cls}-center_close,
-        &.@{tree-select-tree-prefix-cls}-bottom_close,
-        &.@{tree-select-tree-prefix-cls}-noline_close {
+        &.@{select-tree-prefix-cls}-roots_close,
+        &.@{select-tree-prefix-cls}-center_close,
+        &.@{select-tree-prefix-cls}-bottom_close,
+        &.@{select-tree-prefix-cls}-noline_close {
           .antTreeSwitcherIcon();
           .ie-rotate(3);
           &:after {
@@ -106,474 +107,5 @@
   &-icon__close {
     margin-right: 2px;
     vertical-align: top;
-  }
-}
-
-
-@tree-select-prefix-cls: ant-tree-select;
-
-@duration: .3s;
-
-@import "../mixins/iconfont";
-
-.@{tree-select-prefix-cls} {
-  box-sizing: border-box;
-  display: inline-block;
-  margin: 0;
-  position: relative;
-  vertical-align: middle;
-  color: #666;
-  font-size: @font-size-base;
-
-  > ul > li > a {
-    padding: 0;
-    background-color: #fff;
-  }
-
-  // arrow
-  &-arrow {
-    .iconfont-mixin();
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    line-height: 1;
-    margin-top: -5px;
-    .iconfont-size-under-12px(8px);
-
-    * {
-      display: none;
-    }
-
-    &:before {
-      content: '\e603';
-      transition: transform 0.2s ease;
-    }
-  }
-
-  &-selection {
-    outline: none;
-    user-select: none;
-
-    box-sizing: border-box;
-    display: block;
-
-    background-color: #fff;
-    border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
-    .transition(all .3s @ease-in-out);
-
-    &:hover {
-      .hover;
-    }
-    &:active {
-      .active;
-    }
-  }
-
-  &-disabled {
-    color: #ccc;
-  }
-
-  &-disabled &-selection {
-    background: #f4f4f4;
-    cursor: not-allowed;
-    &:hover,
-    &:active {
-      border-color: @border-color-base;
-    }
-  }
-
-  &-disabled &-selection--multiple &-selection__choice {
-    background: #e9e9e9;
-    color: #999;
-    padding-right: 10px;
-    &__remove {
-      display: none;
-    }
-  }
-
-  &-selection--single {
-    height: 28px;
-    cursor: pointer;
-
-    .@{tree-select-prefix-cls}-selection__rendered {
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      padding-left: 8px;
-      padding-right: 24px;
-      line-height: 26px;
-    }
-
-    .@{tree-select-prefix-cls}-selection__clear {
-      .selection__clear();
-    }
-
-    &:hover .@{tree-select-prefix-cls}-selection__clear {
-      opacity: 1;
-    }
-
-    .@{tree-select-prefix-cls}-selection__placeholder {
-      color: #ccc;
-    }
-  }
-
-  &-lg {
-    .@{tree-select-prefix-cls}-selection--single {
-      height: 32px;
-      .@{tree-select-prefix-cls}-selection__rendered {
-        line-height: 30px;
-      }
-    }
-
-    .@{tree-select-prefix-cls}-selection--multiple {
-      min-height: 32px;
-
-      .@{tree-select-prefix-cls}-search__field__placeholder {
-        left: 10px;
-        margin-top: 4px;
-        font-size: 14px;
-        line-height: 24px;
-        height: 24px;
-      }
-
-      .@{tree-select-prefix-cls}-selection__rendered {
-        li {
-          height: 22px;
-          .@{tree-select-prefix-cls}-selection__choice__content {
-            font-size: 14px;
-            line-height: 22px;
-          }
-        }
-      }
-    }
-  }
-
-  &-sm {
-    .@{tree-select-prefix-cls}-selection {
-      border-radius: @border-radius-sm;
-    }
-    .@{tree-select-prefix-cls}-selection--single {
-      height: 22px;
-      .@{tree-select-prefix-cls}-selection__rendered {
-        line-height: 20px;
-      }
-    }
-    .@{tree-select-prefix-cls}-selection--multiple {
-      min-height: 22px;
-      .@{tree-select-prefix-cls}-selection__rendered {
-        li {
-          height: 14px;
-          .@{tree-select-prefix-cls}-selection__choice__content {
-            line-height: 10px;
-            font-size: 8px;
-            position: relative;
-            top: -3px;
-          }
-          .@{tree-select-prefix-cls}-selection__choice__remove {
-            position: relative;
-            top: -4px;
-          }
-        }
-      }
-    }
-  }
-
-  &-disabled &-selection__choice__remove {
-    color: #ccc;
-    cursor: default;
-    &:hover {
-      color: #ccc;
-    }
-  }
-
-  &-search__field__wrap {
-    display: inline-block;
-    position: relative;
-  }
-
-  &-search__field__placeholder {
-    position: absolute;
-    top: 0;
-    left: 3px;
-    color: #aaa;
-  }
-
-  &-search--inline {
-    float: left;
-
-    .@{tree-select-prefix-cls}-search__field__wrap {
-      width: 100%;
-    }
-
-    .@{tree-select-prefix-cls}-search__field {
-      border: 0;
-      font-size: 100%;
-      background: transparent;
-      outline: 0;
-    }
-    > i {
-      float: right;
-    }
-  }
-
-  &-selection--multiple {
-    min-height: 28px;
-    cursor: text;
-
-    .@{tree-select-prefix-cls}-search__field__placeholder {
-      left: 10px;
-      margin-top: 4px;
-      height: 20px;
-      line-height: 20px;
-    }
-
-    .@{tree-select-prefix-cls}-search--inline {
-      width: auto;
-      .@{tree-select-prefix-cls}-search__field {
-        width: 0.75em;
-      }
-    }
-
-    .@{tree-select-prefix-cls}-selection__rendered {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-left: 6px;
-      padding-bottom: 4px;
-    }
-
-    > ul > li {
-      margin-top: 4px;
-      height: 20px;
-      line-height: 20px;
-    }
-
-    .@{tree-select-prefix-cls}-selection__choice {
-      background-color: #f3f3f3;
-      border-radius: 4px;
-      cursor: default;
-      float: left;
-      padding: 0 15px;
-      margin-right: 4px;
-      max-width: 99%;
-      position: relative;
-      overflow: hidden;
-      transition: padding @duration @ease-in-out;
-      padding: 0 20px 0 10px;
-    }
-
-    .@{tree-select-prefix-cls}-selection__choice__content {
-      display: inline-block;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-      transition: margin @duration @ease-in-out;
-    }
-
-    .@{tree-select-prefix-cls}-selection__choice__remove {
-      .iconfont-mixin();
-      color: #999;
-      line-height: 20px;
-      cursor: pointer;
-      display: inline-block;
-      font-weight: bold;
-      transition: all 0.3s @ease-in-out;
-      .iconfont-size-under-12px(8px);
-      position: absolute;
-      right: 4px;
-      padding: 0 0 0 8px;
-      &:hover {
-        color: #404040;
-      }
-      &:before {
-        content: "\e62d";
-      }
-    }
-  }
-
-  &-open {
-    .@{tree-select-prefix-cls}-arrow {
-      .ie-rotate(2);
-      -ms-transform: rotate(180deg);
-      &:before {
-        .rotate(180deg);
-      }
-    }
-    .@{tree-select-prefix-cls}-selection {
-      .active();
-    }
-  }
-
-  &-combobox {
-    .@{tree-select-prefix-cls}-arrow {
-      display: none;
-    }
-    .@{tree-select-prefix-cls}-search--inline {
-      height: 100%;
-      float: none;
-    }
-    .@{tree-select-prefix-cls}-search__field__placeholder {
-      left: 10px;
-      cursor: text;
-    }
-    .@{tree-select-prefix-cls}-search__field__wrap {
-      width: 100%;
-      height: 100%;
-    }
-    .@{tree-select-prefix-cls}-search__field {
-      padding: 0 10px;
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: 1;
-    }
-    .@{tree-select-prefix-cls}-selection__rendered {
-      padding: 0;
-      height: 100%;
-    }
-  }
-}
-
-.@{tree-select-prefix-cls}-dropdown {
-  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
-    animation-name: antSlideUpIn;
-  }
-
-  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
-    animation-name: antSlideDownIn;
-  }
-
-  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
-    animation-name: antSlideUpOut;
-  }
-
-  &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
-    animation-name: antSlideDownOut;
-  }
-
-  &-hidden {
-    display: none;
-  }
-
-  background-color: white;
-  border: 1px solid @border-color-base;
-  box-shadow: @box-shadow-base;
-  border-radius: @border-radius-base;
-  box-sizing: border-box;
-  z-index: 1070;
-  left: -9999px;
-  top: -9999px;
-  position: absolute;
-  outline: none;
-  overflow: hidden;
-  font-size: @font-size-base;
-
-  &-menu {
-    outline: none;
-    margin-bottom: 0;
-    padding-left: 0; // Override default ul/ol
-    list-style: none;
-    max-height: 250px;
-    overflow: auto;
-
-    &-item-group-list {
-      margin: 0;
-      padding: 0;
-
-      > .@{tree-select-prefix-cls}-dropdown-menu-item {
-        padding-left: 24px;
-      }
-    }
-
-    &-item-group-title {
-      color: #999;
-      line-height: 1.5;
-      padding: 8px 15px;
-    }
-
-    &-item {
-      position: relative;
-      display: block;
-      padding: 7px 15px;
-      font-weight: normal;
-      color: #666;
-      white-space: nowrap;
-      cursor: pointer;
-      overflow: hidden;
-      transition: background 0.3s ease;
-
-      &:first-child {
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-      }
-      &:last-child {
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-      }
-      &:hover,
-      &-active {
-        background-color: tint(@primary-color, 90%);
-      }
-
-      &-selected {
-        background-color: tint(@primary-color, 80%);
-        &:hover {
-          background-color: tint(@primary-color, 80%);
-        }
-      }
-
-      &-disabled {
-        color: #ccc;
-        cursor: not-allowed;
-
-        &:hover {
-          color: #ccc;
-          background-color: #fff;
-          cursor: not-allowed;
-        }
-      }
-
-      &-divider {
-        height: 1px;
-        margin: 1px 0;
-        overflow: hidden;
-        background-color: #e5e5e5;
-        line-height: 0;
-      }
-    }
-  }
-
-  &-container-open,
-  &-open {
-    .@{tree-select-prefix-cls}-dropdown {
-      display: block;
-    }
-  }
-
-  .@{tree-select-prefix-cls}-dropdown-search {
-    display: block;
-    padding: 4px;
-    .@{tree-select-prefix-cls}-search__field__placeholder {
-      left: 7px;
-      top: 5px;
-    }
-    .@{tree-select-prefix-cls}-search__field__wrap {
-      width: 100%;
-    }
-    .@{tree-select-prefix-cls}-search__field {
-      padding: 4px 7px;
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid @border-color-base;
-      border-radius: 4px;
-      outline: none;
-    }
-    &.@{tree-select-prefix-cls}-search--hide {
-      display: none;
-    }
   }
 }
