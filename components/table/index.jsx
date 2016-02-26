@@ -136,19 +136,18 @@ let AntTable = React.createClass({
       }
     }
     if (typeof column.sorter === 'function') {
-      sorter = function (...args) {
-        let result = column.sorter.apply(this, args);
-        if (sortOrder === 'ascend') {
-          return result;
-        } else if (sortOrder === 'descend') {
-          return -result;
+      sorter = (a, b) => {
+        let result = column.sorter(a, b);
+        if (result !== 0) {
+          return (sortOrder === 'descend') ? -result : result;
         }
+        return a.index - b.index;
       };
     }
     const newState = {
       sortOrder,
       sortColumn,
-      sorter
+      sorter,
     };
     this.setState(newState);
     this.props.onChange.apply(this, this.prepareParamsArguments(
@@ -495,9 +494,7 @@ let AntTable = React.createClass({
   },
 
   findColumn(myKey) {
-    return this.props.columns.filter((c) => {
-      return this.getColumnKey(c) === myKey;
-    })[0];
+    return this.props.columns.filter(c => this.getColumnKey(c) === myKey)[0];
   },
 
   getCurrentPageData(dataSource) {
@@ -530,6 +527,10 @@ let AntTable = React.createClass({
     let data = dataSource || this.props.dataSource;
     // 排序
     if (state.sortOrder && state.sorter) {
+      data = data.slice(0);
+      for (let i = 0; i < data.length; i++) {
+        data[i].index = i;
+      }
       data = data.sort(state.sorter);
     }
     // 筛选
