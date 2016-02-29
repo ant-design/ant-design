@@ -71,6 +71,7 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
+    "atool-build": "^0.5.0",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
     "babel-jest": "^6.0.1",
@@ -84,6 +85,8 @@
     "chalk": "^1.1.0",
     "css-loader": "^0.23.0",
     "cz-conventional-changelog": "^1.1.5",
+    "dora": "^0.2.3",
+    "dora-plugin-atool-build": "^0.4.1",
     "es3ify-loader": "^0.1.0",
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "^6.0.1",
@@ -124,7 +127,7 @@
   },
   "scripts": {
     "babel": "babel components index.js --out-dir lib",
-    "start": "npm run clean && nico server --watch",
+    "start": "dora -p 8001 --plugins atool-build?config=webpack.website.config.js",
     "clean": "rm -rf _site dist",
     "site": "npm run clean && webpack --config webpack.deploy.config.js && webpack --config webpack.antd.config.js && NODE_ENV=PRODUCTION nico build",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
