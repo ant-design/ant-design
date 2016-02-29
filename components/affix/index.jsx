@@ -33,43 +33,60 @@ function getOffset(element) {
 }
 
 const Affix = React.createClass({
-
-  getDefaultProps() {
-    return {
-      offset: 0,
-    };
-  },
-
   propTypes: {
-    offset: React.PropTypes.number,
+    offsetTop: React.PropTypes.number,
+    offsetBottom: React.PropTypes.number,
   },
 
   getInitialState() {
     return {
-      affix: false,
       affixStyle: null,
     };
   },
 
   handleScroll() {
-    const affix = this.state.affix;
+    let { offsetTop, offsetBottom } = this.props;
     const scrollTop = getScroll(window, true);
     const elemOffset = getOffset(ReactDOM.findDOMNode(this));
+    const elemSize = {
+      width: ReactDOM.findDOMNode(this.refs.fixedNode).offsetWidth,
+      height: ReactDOM.findDOMNode(this.refs.fixedNode).offsetHeight,
+    };
 
-    if (!affix && (elemOffset.top - this.props.offset) < scrollTop) {
-      this.setState({
-        affix: true,
-        affixStyle: {
-          top: this.props.offset,
-          left: elemOffset.left,
-          width: ReactDOM.findDOMNode(this).offsetWidth,
-        },
-      });
+    const offsetMode = {};
+    if (typeof offsetTop !== 'number' && typeof offsetBottom !== 'number') {
+      offsetMode.top = true;
+      offsetTop = 0;
+    } else {
+      offsetMode.top = typeof offsetTop === 'number';
+      offsetMode.bottom = typeof offsetBottom === 'number';
     }
 
-    if (affix && (elemOffset.top - this.props.offset) > scrollTop) {
+    if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
+      // Fixed Top
+      if (!this.state.affixStyle) {
+        this.setState({
+          affixStyle: {
+            position: 'fixed',
+            top: offsetTop,
+            left: elemOffset.left,
+          },
+        });
+      }
+    } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
+               offsetMode.bottom) {
+      // Fixed Bottom
+      if (!this.state.affixStyle) {
+        this.setState({
+          affixStyle: {
+            position: 'fixed',
+            bottom: offsetBottom,
+            left: elemOffset.left,
+          },
+        });
+      }
+    } else if (this.state.affixStyle) {
       this.setState({
-        affix: false,
         affixStyle: null,
       });
     }
@@ -92,12 +109,12 @@ const Affix = React.createClass({
   render() {
     const className = classNames({
       [this.props.className]: this.props.className,
-      'ant-affix': this.state.affix,
+      'ant-affix': this.state.affixStyle,
     });
 
     return (
       <div {...this.props}>
-        <div className={className} style={this.state.affixStyle}>
+        <div className={className} ref="fixedNode" style={this.state.affixStyle}>
           {this.props.children}
         </div>
       </div>
