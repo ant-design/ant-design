@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { Collapse } from '../../../';
 import * as utils from '../utils';
 import hljs from 'highlight.js';
@@ -24,7 +23,7 @@ export default class Demo extends React.Component {
                 <pre>
                   <code className="javascript" dangerouslySetInnerHTML={{
                     __html: highlightedCode,
-                    }} />
+                  }} />
                   </pre>
                 </div>
               </Collapse.Panel>

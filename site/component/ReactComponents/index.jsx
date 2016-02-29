@@ -1,13 +1,13 @@
 import React from 'react';
-import { Route, Link } from 'react-router';
+import { Link } from 'react-router';
 import { Row, Col, Menu } from '../../../';
 import componentsList from '../../../_site/data/components-list';
 
 export default class ReactComponents extends React.Component {
   render() {
     const componentMenuItems = [];
-    ['基本', '表单', '展示', '导航', '其它'].forEach((key) => {
-      const grandChildren = componentsList[key].map((item) => {
+    ['基本', '表单', '展示', '导航', '其它'].forEach((category) => {
+      const grandChildren = componentsList[category].map((item) => {
         const key = item.english.toLowerCase();
         return (
           <Menu.Item key={key}>
@@ -17,7 +17,7 @@ export default class ReactComponents extends React.Component {
       });
 
       componentMenuItems.push(
-        <Menu.ItemGroup title={key} key={key} mode="vertical">
+        <Menu.ItemGroup title={category} key={category} mode="vertical">
           { grandChildren }
         </Menu.ItemGroup>
       );
@@ -27,7 +27,7 @@ export default class ReactComponents extends React.Component {
       <Row className="main-wrapper">
         <Col span="4">
           <Menu className="sidebar" mode="inline"
-                defaultOpenKeys={['components']}>
+            defaultOpenKeys={['components']}>
             <Menu.Item key="introduce">
               <Link to="/components/introduce">Ant Design of React</Link>
             </Menu.Item>
