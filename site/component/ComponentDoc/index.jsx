@@ -6,11 +6,12 @@ import * as utils from '../utils';
 export default class ComponentDoc extends React.Component {
   render() {
     const { demos = [], doc } = this.props;
+    const isSingleCol = doc.meta.cols === '1';
 
     const leftChildren = [];
     const rightChildren = [];
     demos.forEach((demoData, index) => {
-      if (index % 2 === 0) {
+      if (index % 2 === 0 || isSingleCol) {
         leftChildren.push(<Demo {...demoData} key={index} />);
       } else {
         rightChildren.push(<Demo {...demoData} key={index} />);
@@ -18,16 +19,20 @@ export default class ComponentDoc extends React.Component {
     });
 
     return (
-      <section className="markdown">
-        <h1>{doc.meta.title}</h1>
-        { doc.description.map(utils.objectToComponent) }
-        <h2>代码演示</h2>
+      <div>
+        <section className="markdown">
+          <h1>{doc.meta.title}</h1>
+          { doc.description.map(utils.objectToComponent) }
+          <h2>代码演示</h2>
+        </section>
         <Row>
-          <Col span="12">{ leftChildren }</Col>
-          <Col span="12">{ rightChildren }</Col>
+          <Col span={ isSingleCol ? '24' : '12' }>{ leftChildren }</Col>
+          { isSingleCol ? null : <Col span="12">{ rightChildren }</Col> }
         </Row>
-        { doc.api.map(utils.objectToComponent) }
-      </section>
+        <section className="markdown">
+          { doc.api.map(utils.objectToComponent) }
+        </section>
+      </div>
     );
   }
 }
