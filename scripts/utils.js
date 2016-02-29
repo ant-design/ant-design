@@ -34,7 +34,7 @@ exports.parseFileContent = R.pipe(
 
 const parseBasicMeta = R.pipe(
   R.path(['1', 'children']),
-  R.map((child) => R.split(/:\s?/, child.children[0].children)),
+  R.map((child) => R.split(/:\s?/, child.children)),
   R.fromPairs
 );
 const parseEnglishTitle = R.path(['0', 'children']);

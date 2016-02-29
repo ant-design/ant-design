@@ -105,7 +105,7 @@
     "less-loader": "^2.2.0",
     "lesshint-antd": "^1.2.1",
     "lodash": "^4.1.0",
-    "mark-twain": "^0.2.0-beta",
+    "mark-twain": "^0.2.0-beta.4",
     "nico-jsx": "~0.8.2",
     "postcss-loader": "^0.8.0",
     "pre-commit": "1.x",
