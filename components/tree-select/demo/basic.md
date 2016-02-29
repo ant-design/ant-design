@@ -24,7 +24,7 @@ const Demo = React.createClass({
     return (
       <TreeSelect style={{ width: 300 }}
         value={this.state.value}
-        dropdownMenuStyle={{ maxHeight: 400, overflow: 'auto' }}
+        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="请选择"
         allowClear
         treeDefaultExpandAll
