@@ -10,7 +10,7 @@ const componentMenuItems = [];
     const key = item.english.toLowerCase();
     return (
       <Menu.Item key={key}>
-        <Link to={`/components/${key}`}>{item.title}</Link>
+        <Link to={`/components/${key}`}>{item.english}<span className="chinese">{item.chinese}</span></Link>
       </Menu.Item>
     );
   });
@@ -45,7 +45,7 @@ export default class ReactComponents extends React.Component {
 
   render() {
     const routes = this.props.routes;
-    const activeMenuItem = routes[routes.length - 1].path;
+    const activeMenuItem = routes[routes.length - 1].path || 'introduce';
 
     const topLevelMenuItems = this.getTopLevelMenuItems();
     const menuItems = topLevelMenuItems.concat(
@@ -65,7 +65,7 @@ export default class ReactComponents extends React.Component {
             defaultOpenKeys={['components']}
             selectedKeys={[activeMenuItem]}>
             { topLevelMenuItems }
-            <Menu.SubMenu title="Components" key="components">
+            <Menu.SubMenu title={<h4>Components</h4>} key="components">
               { componentMenuItems }
             </Menu.SubMenu>
           </Menu>

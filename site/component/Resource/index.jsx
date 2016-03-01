@@ -4,16 +4,19 @@ import { Row, Col, Menu } from '../../../';
 
 export default class Resource extends React.Component {
   render() {
+    const routes = this.props.routes;
+    const activeMenuItem = routes[routes.length - 1].path || 'download';
+
     return (
       <Row className="main-wrapper">
         <Col span="4">
-          <Menu>
-            <Menu.Item>
+          <Menu mode="inline" selectedKeys={[activeMenuItem]}>
+            <Menu.Item key="download">
               <Link to="/resource/download">
                 资源下载
               </Link>
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item key="reference">
               <Link to="/resource/reference">
                 文献素材
               </Link>

@@ -2,6 +2,10 @@ import React from 'react';
 import hljs from 'highlight.js';
 import { Menu } from '../../';
 
+function isHeading(type) {
+  return /h[1-6]/i.test(type);
+}
+
 export function objectToComponent(object, index) {
   if (object === null) return;
 
@@ -28,6 +32,15 @@ export function objectToComponent(object, index) {
         </pre>
       </div>
     );
+  }
+
+  if (isHeading(object.type)) {
+    return React.createElement(object.type, {
+      key: index,
+    }, [
+      object.children,
+      <a className="anchor" key="anchor">#</a>,
+    ]);
   }
 
   if (typeof children === 'string') {
