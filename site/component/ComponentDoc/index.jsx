@@ -19,7 +19,7 @@ export default class ComponentDoc extends React.Component {
     });
 
     return (
-      <div>
+      <article>
         <section className="markdown">
           <h1>{doc.meta.title}</h1>
           { doc.description.map(utils.objectToComponent) }
@@ -32,7 +32,7 @@ export default class ComponentDoc extends React.Component {
         <section className="markdown">
           { doc.api.map(utils.objectToComponent) }
         </section>
-      </div>
+      </article>
     );
   }
 }

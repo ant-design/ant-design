@@ -1,5 +1,6 @@
 import React from 'react';
 import hljs from 'highlight.js';
+import { Menu } from '../../';
 
 export function objectToComponent(object, index) {
   if (object === null) return;
@@ -35,4 +36,18 @@ export function objectToComponent(object, index) {
     object.type, { key: index },
     children && children.map(objectToComponent) // `hr` has no children
   );
+}
+
+export function flattenMenu(menu) {
+  if (menu.type === Menu.Item) {
+    return menu;
+  }
+
+  if (Array.isArray(menu)) {
+    return menu.reduce((acc, item) => {
+      return acc.concat(flattenMenu(item));
+    }, []);
+  }
+
+  return flattenMenu(menu.props.children);
 }
