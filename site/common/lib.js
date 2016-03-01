@@ -8,3 +8,4 @@ import './styles/resource.less';
 import './styles/clearfix.less';
 import './styles/demo.less';
 import './styles/page-nav.less';
+import './styles/footer.less';
