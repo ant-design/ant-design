@@ -107,6 +107,7 @@
     "lodash": "^4.1.0",
     "mark-twain": "^0.2.0-beta.4",
     "nico-jsx": "~0.8.2",
+    "node-mkdirp": "0.0.1",
     "postcss-loader": "^0.8.0",
     "pre-commit": "1.x",
     "querystring": "^0.2.0",

@@ -2,6 +2,9 @@
 
 'use strict';
 
+// Ensure that data directory exist.
+require('mkdirp').sync('./_site/data');
+
 const fs = require('fs');
 const R = require('ramda');
 const utils = require('./utils');
@@ -9,17 +12,6 @@ const buildComponentsList = require('./build-components-list');
 const buildDocsList = require('./build-docs-list');
 const buildDemosList = require('./build-demos-list');
 
-// Ensure that data directory exist.
-try {
-  fs.statSync('./_site');
-} catch (e) {
-  fs.mkdir('./_site');
-}
-try {
-  fs.statSync('./_site/data');
-} catch (e) {
-  fs.mkdir('./_site/data');
-}
 
 // TODO: configurable
 const componentPath = './components';
