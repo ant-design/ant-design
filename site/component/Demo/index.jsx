@@ -4,8 +4,23 @@ import * as utils from '../utils';
 import hljs from 'highlight.js';
 
 export default class Demo extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeKey: '',
+    };
+  }
+
+  handleChange(activeKey) {
+    this.setState({
+      activeKey: this.state.activeKey === activeKey ?
+        '' : activeKey
+    });
+  }
+
   render() {
-    const { id, preview, title, intro, code } = this.props;
+    const { id, preview, title, intro, code, expand } = this.props;
     const introChildren = intro.map(utils.objectToComponent);
     const highlightedCode = hljs.highlight('javascript', code).value;
     return (
@@ -17,8 +32,9 @@ export default class Demo extends React.Component {
           <div className="code-box-title">
             <a>{ title }</a>
           </div>
-          <Collapse>
-            <Collapse.Panel header={introChildren}>
+          <Collapse activeKey={expand ? 'code' : this.state.activeKey}
+            onChange={this.handleChange.bind(this)}>
+            <Collapse.Panel key="code" header={introChildren}>
               <div className="highlight">
                 <pre>
                   <code className="javascript" dangerouslySetInnerHTML={{
