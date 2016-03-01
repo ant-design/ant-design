@@ -44,19 +44,13 @@ export default class ReactComponents extends React.Component {
   }
 
   render() {
-    const routes = this.props.routes;
-    const activeMenuItem = routes[routes.length - 1].path || 'introduce';
-
+    const activeMenuItem = utils.getActiveMenuItem(this.props, 'introduce');
     const topLevelMenuItems = this.getTopLevelMenuItems();
     const menuItems = topLevelMenuItems.concat(
       utils.flattenMenu(componentMenuItems)
     );
 
-    const activeMenuItemIndex = menuItems.findIndex((menuItem) => {
-      return menuItem.key === activeMenuItem;
-    });
-    const prev = menuItems[activeMenuItemIndex - 1];
-    const next = menuItems[activeMenuItemIndex + 1];
+    const { prev, next } = utils.getFooterNav(menuItems, activeMenuItem);
 
     return (
       <Row className="main-wrapper">
