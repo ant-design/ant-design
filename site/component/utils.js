@@ -5,6 +5,10 @@ import { Menu } from '../../';
 export function objectToComponent(object, index) {
   if (object === null) return;
 
+  if (typeof object === 'string') {
+    return <span key={index}>{ object }</span>;
+  }
+
   const children = object.children;
 
   if (object.type === 'html') {
