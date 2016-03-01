@@ -21,7 +21,7 @@ export default React.createClass({
     if ('value' in props) {
       value = props.value;
     } else if ('defaultValue' in props) {
-      value = props.defaultValue;
+      value = [...props.defaultValue];
     }
     return { value };
   },
