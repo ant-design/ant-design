@@ -66,11 +66,12 @@
   }
   .@{calendar-prefix-cls}-input {
     border: 1px solid @border-color-base;
-    border-radius: @border-radius-base;
+    border-radius: @border-radius-sm;
   }
   .@{calendar-prefix-cls}-input,
   .@{css-prefix}time-picker-input {
-    padding: 1px 7px;
+    .input;
+    border-radius: @border-radius-sm;
     height: @input-height-sm;
     width: 96px;
   }
@@ -121,9 +122,11 @@
   }
   .@{calendar-prefix-cls}-ok-btn {
     position: static;
-    margin: 7px 9px 9px;
+    height: 22px;
+    margin: 8px;
   }
   .@{calendar-prefix-cls}-today-btn {
-    margin: 9px;
+    margin: 8px 12px;
+    height: 22px;
   }
 }

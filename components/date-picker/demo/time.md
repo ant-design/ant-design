@@ -14,6 +14,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-<DatePicker showTime format="yyyy-MM-dd HH:mm:ss" onChange={onChange} style={{ width: 160 }} />
+<DatePicker showTime format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间" onChange={onChange} style={{ width: 160 }} />
 , mountNode);
 ````

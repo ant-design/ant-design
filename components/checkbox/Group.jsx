@@ -34,7 +34,7 @@ export default React.createClass({
   },
   toggleOption(option) {
     const optionIndex = this.state.value.indexOf(option);
-    const value = this.state.value;
+    const value = [...this.state.value];
     if (optionIndex === - 1) {
       value.push(option);
     } else {

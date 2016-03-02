@@ -39,6 +39,7 @@
     overflow: hidden;
     font-size: 14px;
     line-height: @line-height-base;
+    height: 36px;
     box-sizing: border-box;
     position: relative;
     white-space: nowrap;
@@ -65,6 +66,12 @@
     background-color: transparent;
     position: absolute;
     text-align: center;
+    color: #999;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #666;
+    }
 
     &-icon {
       position: relative;
@@ -87,9 +94,11 @@
   }
 
   &-tab-btn-disabled {
-    cursor: default;
-    color: #ccc;
-    pointer-events: none;
+    cursor: not-allowed;
+    &,
+    &:hover {
+      color: #ccc;
+    }
   }
 
   &-tab-next {
@@ -411,7 +420,7 @@
     }
   }
 
-  &&-card &-tab:not(&-tab-active):hover &-tab-inner {
+  &&-editable-card &-tab:not(&-tab-active):hover &-tab-inner {
     padding-left: 8px;
     padding-right: 8px;
   }

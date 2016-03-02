@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 function getCheckedValue(children) {
   let value = null;
@@ -76,10 +77,10 @@ export default React.createClass({
       }
       return radio;
     });
-    return (
-      <div className={`${props.prefixCls} ${props.prefixCls}-${props.size}`}>
-        {children}
-      </div>
-    );
+    const classString = classNames({
+      [props.prefixCls]: true,
+      [`${props.prefixCls}-${props.size}`]: props.size,
+    });
+    return <div className={classString}>{children}</div>;
   },
 });

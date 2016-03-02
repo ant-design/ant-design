@@ -2,12 +2,6 @@ import React from 'react';
 import assign from 'object-assign';
 import classNames from 'classnames';
 
-function prefixClsFn(prefixCls, ...args) {
-  return args.map((s) => {
-    return `${prefixCls}-${s}`;
-  }).join(' ');
-}
-
 function ieGT9() {
   if (typeof document === undefined) {
     return false;
@@ -44,8 +38,8 @@ Group.propTypes = {
 class Input extends React.Component {
   renderLabledInput(children) {
     const props = this.props;
-    const wrapperClassName = prefixClsFn(props.prefixCls, 'input-group');
-    const addonClassName = prefixClsFn(wrapperClassName, 'addon');
+    const wrapperClassName = `${props.prefixCls}-group`;
+    const addonClassName = `${wrapperClassName}-addon`;
     const addonBefore = props.addonBefore ? (
       <span className={addonClassName}>
         {props.addonBefore}
@@ -59,9 +53,10 @@ class Input extends React.Component {
     ) : null;
 
     const className = classNames({
-      [`${props.prefixCls}-input-wrapper`]: true,
+      [`${props.prefixCls}-wrapper`]: true,
       [wrapperClassName]: (addonBefore || addonAfter),
     });
+
     return (
       <span className={className}>
         {addonBefore}
@@ -74,16 +69,17 @@ class Input extends React.Component {
   renderInput() {
     const props = assign({}, this.props);
     const prefixCls = props.prefixCls;
-    let inputClassName = prefixClsFn(prefixCls, 'input');
     if (!props.type) {
       return props.children;
     }
 
-    switch (props.size) {
-      case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
-      case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
-      default:
-    }
+    const inputClassName = classNames({
+      [prefixCls]: true,
+      [`${prefixCls}-sm`]: props.size === 'small',
+      [`${prefixCls}-lg`]: props.size === 'large',
+      [props.className]: !!props.className,
+    });
+
     let placeholder = props.placeholder;
     if (placeholder && ieGT9()) {
       placeholder = null;
@@ -93,12 +89,8 @@ class Input extends React.Component {
     }
     switch (props.type) {
       case 'textarea':
-        return (
-          <textarea {...props} placeholder={placeholder}
-            className={inputClassName} ref="input" />
-        );
+        return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
       default:
-        inputClassName = props.className ? props.className : inputClassName;
         return <input {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
     }
   }
@@ -127,7 +119,7 @@ Input.propTypes = {
 Input.defaultProps = {
   defaultValue: '',
   disabled: false,
-  prefixCls: 'ant',
+  prefixCls: 'ant-input',
   type: 'text',
 };
 

@@ -9,19 +9,11 @@
 ````jsx
 import { Table } from 'antd';
 
-function renderAction() {
-  return <a href="#">删除</a>;
-}
-
-function expandedRowRender(record) {
-  return <p>{record.description}</p>;
-}
-
 const columns = [
   { title: '姓名', dataIndex: 'name', key: 'name' },
   { title: '年龄', dataIndex: 'age', key: 'age' },
   { title: '住址', dataIndex: 'address', key: 'address' },
-  { title: '操作', dataIndex: '', key: 'x', render: renderAction }
+  { title: '操作', dataIndex: '', key: 'x', render: () => <a href="#">删除</a> }
 ];
 
 const data = [
@@ -32,7 +24,7 @@ const data = [
 
 ReactDOM.render(
 <Table columns={columns}
-  expandedRowRender={expandedRowRender}
+  expandedRowRender={record => <p>{record.description}</p>}
   dataSource={data}
   className="table" />
 , mountNode);
