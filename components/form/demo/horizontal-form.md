@@ -1,4 +1,4 @@
-# 水平排列的表单
+# 典型表单
 
 - order: 2
 
@@ -37,10 +37,10 @@ let Demo = React.createClass({
           label="您的性别："
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}>
-            <RadioGroup {...getFieldProps('gender', { initialValue: 'female' })}>
-              <Radio value="male">男的</Radio>
-              <Radio value="female">女的</Radio>
-            </RadioGroup>
+          <RadioGroup {...getFieldProps('gender', { initialValue: 'female' })}>
+            <Radio value="male">男的</Radio>
+            <Radio value="female">女的</Radio>
+          </RadioGroup>
         </FormItem>
         <FormItem
           label="备注："
