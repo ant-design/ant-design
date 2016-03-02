@@ -110,7 +110,9 @@ let AntTable = React.createClass({
       this.setState({ selectedRowKeys });
     }
     if (this.props.rowSelection && this.props.rowSelection.onChange) {
-      this.props.rowSelection.onChange(selectedRowKeys);
+      const data = this.getCurrentPageData();
+      const selectedRows = data.filter(row => selectedRowKeys.indexOf(row.key) >= 0);
+      this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
     }
   },
 
@@ -249,10 +251,13 @@ let AntTable = React.createClass({
     });
     this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelectAll) {
-      let selectedRows = data.filter((row, i) => {
+      const selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
-      this.props.rowSelection.onSelectAll(checked, selectedRows);
+      const deselectedRows = checked ? [] : data.filter((row, i) => {
+        return changableRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
+      });
+      this.props.rowSelection.onSelectAll(checked, selectedRows, deselectedRows);
     }
   },
 
@@ -511,7 +516,7 @@ let AntTable = React.createClass({
     }
     // 分页
     // ---
-    // 当数据量少于每页数量时，直接设置数据
+    // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
     if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
       data = data.filter((item, i) => {
