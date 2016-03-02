@@ -233,16 +233,21 @@ let AntTable = React.createClass({
       !this.props.rowSelection.getCheckboxProps ||
       !this.props.rowSelection.getCheckboxProps(item).disabled
     ).map((item, i) => this.getRecordKey(item, i));
+
+    // 记录变化的列
+    const changeRowKeys = [];
     if (checked) {
       changableRowKeys.forEach(key => {
         if (selectedRowKeys.indexOf(key) < 0) {
           selectedRowKeys.push(key);
+          changeRowKeys.push(key);
         }
       });
     } else {
       changableRowKeys.forEach(key => {
         if (selectedRowKeys.indexOf(key) >= 0) {
           selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
+          changeRowKeys.push(key);
         }
       });
     }
@@ -251,13 +256,11 @@ let AntTable = React.createClass({
     });
     this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelectAll) {
-      const selectedRows = data.filter((row, i) => {
-        return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
-      });
-      const deselectedRows = checked ? [] : data.filter((row, i) => {
-        return changableRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
-      });
-      this.props.rowSelection.onSelectAll(checked, selectedRows, deselectedRows);
+      const selectedRows = data.filter((row, i) =>
+        selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
+      const changeRows = data.filter((row, i) =>
+        changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
+      this.props.rowSelection.onSelectAll(checked, selectedRows, changeRows);
     }
   },
 
