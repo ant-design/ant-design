@@ -553,12 +553,12 @@ let AntTable = React.createClass({
   },
 
   render() {
-    let data = this.getCurrentPageData();
+    const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
-    let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
+    const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
+    const locale = objectAssign({}, defaultLocale, this.props.locale);
 
-    let classString = classNames({
+    const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
       'ant-table-bordered': this.props.bordered,
       [this.props.className]: !!this.props.className,
@@ -595,10 +595,10 @@ let AntTable = React.createClass({
     if (this.props.loading) {
       // if there is no pagination or no data,
       // the height of spin should decrease by half of pagination
-      let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
+      const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
               ? 'ant-table-with-pagination'
               : 'ant-table-without-pagination';
-      let spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
+      const spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
       table = <Spin className={spinClassName}>{table}</Spin>;
     }
     return (
