@@ -374,8 +374,7 @@ let AntTable = React.createClass({
           className: 'ant-table-selection-column'
         };
       }
-      if (columns[0] &&
-        columns[0].key === 'selection-column') {
+      if (columns[0] && columns[0].key === 'selection-column') {
         columns[0] = selectionColumn;
       } else {
         columns.unshift(selectionColumn);
@@ -587,7 +586,7 @@ let AntTable = React.createClass({
           data={data}
           columns={columns}
           className={classString}
-          expandIconColumnIndex={columns[0].key === 'selection-column' ? 1 : 0}
+          expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
           expandIconAsCell={expandIconAsCell} />
           {emptyText}
       </div>
