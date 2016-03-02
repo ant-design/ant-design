@@ -19,6 +19,7 @@
 - 修复 FormItem 的子元素为 `null` 时报错的问题。
 - 修复 Table 组件的选择功能和展开功能配合使用的问题。[#1102](https://github.com/ant-design/ant-design/issues/1102)
 - 增加了一个搜索框和提示功能结合的 [例子](http://ant.design/components/select/#demo-search-box)。
+- 允许可编辑的 Tabs 删除最后一个页签。[#1071](https://github.com/ant-design/ant-design/issues/1071)
 - 修复了部分组件样式的小问题。
 
 ## 0.12.5
