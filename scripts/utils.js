@@ -41,7 +41,6 @@ const parseEnglishTitle = R.path(['0', 'children']);
 exports.parseMeta = function parseMeta(fileContent) {
   const meta = parseBasicMeta(fileContent);
   meta.english = parseEnglishTitle(fileContent);
-  meta.title = `${meta.english} ${meta.chinese || ''}`;
 
   return meta;
 };

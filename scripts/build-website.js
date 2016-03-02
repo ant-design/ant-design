@@ -11,6 +11,7 @@ const utils = require('./utils');
 const buildComponentsList = require('./build-components-list');
 const buildDocsList = require('./build-docs-list');
 const buildDemosList = require('./build-demos-list');
+const buildCommon = require('./build-common');
 
 
 // TODO: configurable
@@ -39,13 +40,6 @@ buildDocsList([installPath], './_site/data/install.js');
 const upgradeNotesPath = './docs/react/upgrade-notes.md';
 buildDocsList([upgradeNotesPath], './_site/data/upgrade-notes.js');
 
-const downloadPath = './docs/resource/download.md';
-buildDocsList([downloadPath], './_site/data/download.js')
-
-const referencePath =
-        './docs/resource/reference.md';
-buildDocsList([referencePath], './_site/data/reference.js')
-
 const specIntroPath =
         './docs/spec/introduce.md'
 buildDocsList([specIntroPath], './_site/data/specIntro.js');
@@ -67,3 +61,7 @@ buildDocsList([pageTransitionPath], './_site/data/page-transition.js');
 const motionPath =
         './docs/spec/motion.md'
 buildDocsList([motionPath], './_site/data/motion.js');
+
+buildCommon('./docs/practice', './_site/data/practice.js');
+buildCommon('./docs/pattern', './_site/data/pattern.js');
+buildCommon('./docs/resource', './_site/data/resource.js');

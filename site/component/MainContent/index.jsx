@@ -3,29 +3,31 @@ import { Link } from 'react-router';
 import { Row, Col, Menu } from '../../../';
 import * as utils from '../utils';
 
-export default class Resource extends React.Component {
+export default class MainContent extends React.Component {
   getMenuItems() {
-    return [
-      <Menu.Item key="download">
-        <Link to="/resource/download">
-          资源下载
-        </Link>
-      </Menu.Item>,
-      <Menu.Item key="reference">
-        <Link to="/resource/reference">
-          文献素材
-        </Link>
-      </Menu.Item>,
-      <Menu.Item key="github">
-        <a href="https://github.com/ant-design/ant-design" target="_blank">
-          GitHub
-        </a>
-      </Menu.Item>,
-    ];
+    const props = this.props;
+    return props.menuItems.map((item) => {
+      const key = item.english.toLowerCase();
+      const text = item.chinese || item.english;
+
+      const child = !item.link ?
+              <Link to={`/${props.category}/${key}`}>
+                { text }
+              </Link> :
+              <a href={item.link} target="_blank">
+                { text }
+              </a>;
+
+      return (
+        <Menu.Item key={key} disabled={item.disabled === 'true'}>
+          { item.disabled ? <span>{text}</span> : child }
+        </Menu.Item>
+      );
+    });
   }
 
   render() {
-    const activeMenuItem = utils.getActiveMenuItem(this.props, 'download');
+    const activeMenuItem = utils.getActiveMenuItem(this.props);
     const menuItems = this.getMenuItems();
     const { prev, next } = utils.getFooterNav(menuItems, activeMenuItem);
 

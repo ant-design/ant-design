@@ -51,10 +51,14 @@ export default class Header extends React.Component {
                 </Link>
               </Menu.Item>
               <Menu.Item key="practice">
-                实践
+                <Link to="practice">
+                  实践
+                </Link>
               </Menu.Item>
               <Menu.Item key="pattern">
-                模式
+                <Link to="pattern">
+                  模式
+                </Link>
               </Menu.Item>
               <Menu.Item key="components">
                 <Link to="/components">
