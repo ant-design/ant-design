@@ -9,18 +9,19 @@ export default class MainContent extends React.Component {
     return props.menuItems.map((item) => {
       const key = item.english.toLowerCase();
       const text = item.chinese || item.english;
+      const disabled = item.disabled === 'true';
 
       const child = !item.link ?
-              <Link to={`/${props.category}/${key}`}>
+              <Link to={`/${props.category}/${key}`} disabled={disabled}>
                 { text }
               </Link> :
-              <a href={item.link} target="_blank">
+              <a href={item.link} target="_blank" disabled={disabled}>
                 { text }
               </a>;
 
       return (
-        <Menu.Item key={key} disabled={item.disabled === 'true'}>
-          { item.disabled ? <span>{text}</span> : child }
+        <Menu.Item key={key} disabled={disabled}>
+          { child }
         </Menu.Item>
       );
     });
@@ -34,7 +35,7 @@ export default class MainContent extends React.Component {
     return (
       <Row className="main-wrapper">
         <Col span="4">
-          <Menu mode="inline" selectedKeys={[activeMenuItem]}>
+          <Menu mode="inline" selectedKeys={[activeMenuItem]} className="sidebar">
             { menuItems }
           </Menu>
         </Col>
