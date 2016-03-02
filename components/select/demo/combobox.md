@@ -36,7 +36,7 @@ const Test = React.createClass({
         style={{ width: 200 }}
         onChange={this.handleChange}
         filterOption={false}
-        searchPlaceholder="请输入账户名">
+        placeholder="请输入账户名">
         {this.state.options}
       </Select>
     );

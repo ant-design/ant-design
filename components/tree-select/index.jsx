@@ -1,27 +1,25 @@
 import React from 'react';
 import TreeSelect, { TreeNode } from 'rc-tree-select';
 import classNames from 'classnames';
-// import animation from '../common/openAnimation';
 
 const AntTreeSelect = React.createClass({
   getDefaultProps() {
     return {
-      prefixCls: 'ant-tree-select',
+      prefixCls: 'ant-select',
       transitionName: 'slide-up',
       choiceTransitionName: 'zoom',
       showSearch: false,
-      // openAnimation: animation,
     };
   },
   render() {
     const props = this.props;
     let {
-      size, className, combobox, notFoundContent
+      size, className, combobox, notFoundContent, prefixCls
     } = this.props;
 
     const cls = classNames({
-      'ant-tree-select-lg': size === 'large',
-      'ant-tree-select-sm': size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
     });
 
@@ -31,7 +29,7 @@ const AntTreeSelect = React.createClass({
 
     let checkable = props.treeCheckable;
     if (checkable) {
-      checkable = <span className={`${props.prefixCls}-tree-checkbox-inner`}></span>;
+      checkable = <span className={`${prefixCls}-tree-checkbox-inner`}></span>;
     }
 
     return (

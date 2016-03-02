@@ -7,13 +7,21 @@
 ---
 
 ````jsx
-import { Select, Radio, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
+import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const createForm = Form.create;
 const FormItem = Form.Item;
 
 let Demo = React.createClass({
+  componentDidMount() {
+    this.props.form.setFieldsValue({
+      eat: true,
+      sleep: true,
+      beat: true,
+    });
+  },
+
   handleReset(e) {
     e.preventDefault();
     this.props.form.resetFields();
@@ -57,19 +65,48 @@ let Demo = React.createClass({
       }],
     }];
     const { getFieldProps } = this.props.form;
+    const selectProps = getFieldProps('select', {
+      rules: [
+        { required: true, message: '请选择您的国籍' }
+      ],
+    });
+    const multiSelectProps = getFieldProps('multiSelect', {
+      rules: [
+        { required: true, message: '请选择您喜欢的颜色', type: 'array' },
+      ]
+    });
+    const radioProps = getFieldProps('radio', {
+      rules: [
+        { required: true, message: '请选择您的性别' }
+      ]
+    });
+    const birthdayProps = getFieldProps('birthday', {
+      rules: [
+        {
+          required: true,
+          type: 'date',
+          message: '你的生日是什么呢?',
+        }, {
+          validator: this.checkBirthday,
+        }
+      ]
+    });
+    const primeNumberProps = getFieldProps('primeNumber', {
+      rules: [{ validator: this.checkPrime }],
+    });
+    const addressProps = getFieldProps('address', {
+      rules: [{ required: true, type: 'array' }],
+    });
+    const formItemLayout = {
+      labelCol: { span: 7 },
+      wrapperCol: { span: 12 },
+    };
     return (
       <Form horizontal form={this.props.form}>
         <FormItem
-          label="国籍："
-          labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}>
-          <Select placeholder="请选择国家" style={{ width: '100%' }}
-            {...getFieldProps('select', {
-              rules: [
-                { required: true, message: '请选择您的国籍' }
-              ],
-            })}
-          >
+          {...formItemLayout}
+          label="国籍：">
+          <Select {...selectProps} placeholder="请选择国家" style={{ width: '100%' }}>
             <Option value="china">中国</Option>
             <Option value="use">美国</Option>
             <Option value="japan">日本</Option>
@@ -79,16 +116,9 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="喜欢的颜色："
-          labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}>
-          <Select multiple placeholder="请选择颜色" style={{ width: '100%' }}
-            {...getFieldProps('multiSelect', {
-              rules: [
-                { required: true, message: '请选择您喜欢的颜色', type: 'array' },
-              ]
-            })}
-          >
+          {...formItemLayout}
+          label="喜欢的颜色：">
+          <Select {...multiSelectProps} multiple placeholder="请选择颜色" style={{ width: '100%' }}>
             <Option value="red">红色</Option>
             <Option value="orange">橙色</Option>
             <Option value="yellow">黄色</Option>
@@ -98,60 +128,44 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="性别："
-          labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}>
-          <RadioGroup
-            {...getFieldProps('radio', {
-              rules: [
-                { required: true, message: '请选择您的性别' }
-              ]
-            })}
-          >
+          {...formItemLayout}
+          label="性别：">
+          <RadioGroup {...radioProps}>
             <Radio value="male">男</Radio>
             <Radio value="female">女</Radio>
           </RadioGroup>
         </FormItem>
 
         <FormItem
-          label="生日："
-          labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}>
-          <DatePicker
-            {...getFieldProps('birthday', {
-              rules: [
-                {
-                  required: true,
-                  type: 'date',
-                  message: '你的生日是什么呢?',
-                }, {
-                  validator: this.checkBirthday,
-                }
-              ]
-            })}
-          />
+          {...formItemLayout}
+          label="兴趣爱好：">
+          <Checkbox {...getFieldProps('eat', {
+            valuePropName: 'checked',
+          })} />吃饭饭 &nbsp;
+          <Checkbox {...getFieldProps('sleep', {
+            valuePropName: 'checked',
+          })} />睡觉觉 &nbsp;
+          <Checkbox {...getFieldProps('beat', {
+            valuePropName: 'checked',
+          })} />打豆豆 &nbsp;
         </FormItem>
 
         <FormItem
-          label="8~12间的质数："
-          labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}>
-          <InputNumber min={8} max={12}
-            {...getFieldProps('primeNumber', {
-              rules: [{ validator: this.checkPrime }],
-            })}
-          />
+          {...formItemLayout}
+          label="生日：">
+          <DatePicker {...birthdayProps} />
         </FormItem>
 
         <FormItem
-          label="选择地址："
-          labelCol={{ span: 7 }}
-          wrapperCol={{ span: 12 }}>
-          <Cascader options={address}
-            {...getFieldProps('address', {
-              rules: [{ required: true, type: 'array' }],
-            })}
-          />
+          {...formItemLayout}
+          label="8~12间的质数：">
+          <InputNumber {...primeNumberProps} min={8} max={12} />
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="选择地址：">
+          <Cascader {...addressProps} options={address} />
         </FormItem>
 
         <FormItem

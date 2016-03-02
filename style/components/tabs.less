@@ -65,6 +65,12 @@
     background-color: transparent;
     position: absolute;
     text-align: center;
+    color: #999;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #666;
+    }
 
     &-icon {
       position: relative;
@@ -87,9 +93,11 @@
   }
 
   &-tab-btn-disabled {
-    cursor: default;
-    color: #ccc;
-    pointer-events: none;
+    cursor: not-allowed;
+    &,
+    &:hover {
+      color: #ccc;
+    }
   }
 
   &-tab-next {
@@ -382,6 +390,7 @@
   }
   &&-card &-tab-inner {
     padding: 7px 16px 6px;
+    transition: all 0.3s @ease-in-out;
   }
   &&-card &-tab-active {
     background: #fff;
@@ -399,6 +408,7 @@
     color: #999;
     transition: all 0.3s @ease-in-out;
     .iconfont-size-under-12px(9px);
+    transform-origin: 100% 50%;
     width: 0;
     text-align: right;
     vertical-align: middle;
@@ -407,6 +417,11 @@
       color: #404040;
       font-weight: bold;
     }
+  }
+
+  &&-card &-tab:not(&-tab-active):hover &-tab-inner {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   &&-card &-tab-active .anticon-cross,

@@ -21,9 +21,6 @@ label {
 }
 
 // Input styles
-.@{css-prefix}input-wrapper {
-  display: block;
-}
 .@{css-prefix}input {
   .input;
 }
@@ -168,14 +165,13 @@ form {
     margin-right: 8px;
   }
 
-  .@{calendar-prefix-cls}-picker,
   .@{select-prefix-cls} {
     width: 100%;
   }
 }
 
 // Input combined with select
-.@{css-prefix}input-group {
+.@{css-prefix}input-group-wrap {
   .@{select-prefix-cls}-selection {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -255,10 +251,6 @@ form {
     display: inline-block;
     width: auto;
     vertical-align: middle;
-  }
-
-  .@{calendar-prefix-cls}-picker-input {
-    width: 100%!important;
   }
 
   .@{css-prefix}form-text {

@@ -24,7 +24,8 @@
 | current          | 当前页数                           | Number        | 无                       |
 | defaultCurrent   | 默认的当前页数                     | Number        | 1                        |
 | total            | 数据总数                           | Number        | 0                        |
-| pageSize         | 每页条数                           | Number        | 10                       |
+| defaultPageSize  | 初始的每页条数                      | Number        | 10                       |
+| pageSize         | 每页条数                           | Number        |                          |
 | onChange         | 页码改变的回调，参数是改变后的页码 | Function      | noop                     |
 | showSizeChanger  | 是否可以改变 pageSize              | Bool          | false                    |
 | pageSizeOptions  | 指定每页可以显示多少条             | Array<String> | ['10', '20', '30', '40'] |
@@ -32,3 +33,4 @@
 | showQuickJumper  | 是否可以快速跳转至某页             | Bool          | false                    |
 | size             | 当为「small」时，是小尺寸分页      | String        | ""                       |
 | simple           | 当添加该属性时，显示为简单分页     | Object        | 无                       |
+| showTotal        | 用于显示总共有多少条数据          | Function      | 无                       |

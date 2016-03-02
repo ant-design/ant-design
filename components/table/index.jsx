@@ -38,7 +38,9 @@ let AntTable = React.createClass({
       sorter: null,
       radioIndex: null,
       pagination: this.hasPagination() ?
-        objectAssign({}, defaultPagination, this.props.pagination) :
+        objectAssign({
+          size: this.props.size,
+        }, defaultPagination, this.props.pagination) :
         {},
     };
   },
@@ -134,19 +136,18 @@ let AntTable = React.createClass({
       }
     }
     if (typeof column.sorter === 'function') {
-      sorter = function (...args) {
-        let result = column.sorter.apply(this, args);
-        if (sortOrder === 'ascend') {
-          return result;
-        } else if (sortOrder === 'descend') {
-          return -result;
+      sorter = (a, b) => {
+        let result = column.sorter(a, b);
+        if (result !== 0) {
+          return (sortOrder === 'descend') ? -result : result;
         }
+        return a.index - b.index;
       };
     }
     const newState = {
       sortOrder,
       sortColumn,
-      sorter
+      sorter,
     };
     this.setState(newState);
     this.props.onChange.apply(this, this.prepareParamsArguments(
@@ -373,8 +374,7 @@ let AntTable = React.createClass({
           className: 'ant-table-selection-column'
         };
       }
-      if (columns[0] &&
-        columns[0].key === 'selection-column') {
+      if (columns[0] && columns[0].key === 'selection-column') {
         columns[0] = selectionColumn;
       } else {
         columns.unshift(selectionColumn);
@@ -493,9 +493,7 @@ let AntTable = React.createClass({
   },
 
   findColumn(myKey) {
-    return this.props.columns.filter((c) => {
-      return this.getColumnKey(c) === myKey;
-    })[0];
+    return this.props.columns.filter(c => this.getColumnKey(c) === myKey)[0];
   },
 
   getCurrentPageData(dataSource) {
@@ -528,6 +526,10 @@ let AntTable = React.createClass({
     let data = dataSource || this.props.dataSource;
     // 排序
     if (state.sortOrder && state.sorter) {
+      data = data.slice(0);
+      for (let i = 0; i < data.length; i++) {
+        data[i].index = i;
+      }
       data = data.sort(state.sorter);
     }
     // 筛选
@@ -550,12 +552,12 @@ let AntTable = React.createClass({
   },
 
   render() {
-    let data = this.getCurrentPageData();
+    const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
-    let expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
+    const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
+    const locale = objectAssign({}, defaultLocale, this.props.locale);
 
-    let classString = classNames({
+    const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
       'ant-table-bordered': this.props.bordered,
       [this.props.className]: !!this.props.className,
@@ -584,7 +586,7 @@ let AntTable = React.createClass({
           data={data}
           columns={columns}
           className={classString}
-          expandIconColumnIndex={columns[0].key === 'selection-column' ? 1 : 0}
+          expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
           expandIconAsCell={expandIconAsCell} />
           {emptyText}
       </div>
@@ -592,10 +594,10 @@ let AntTable = React.createClass({
     if (this.props.loading) {
       // if there is no pagination or no data,
       // the height of spin should decrease by half of pagination
-      let paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
+      const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
               ? 'ant-table-with-pagination'
               : 'ant-table-without-pagination';
-      let spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
+      const spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
       table = <Spin className={spinClassName}>{table}</Spin>;
     }
     return (

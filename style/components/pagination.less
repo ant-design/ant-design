@@ -13,6 +13,13 @@
     visibility: hidden;
   }
 
+  &-total-text {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+  }
+
   &-item {
     cursor: pointer;
     border-radius: @border-radius-base;
@@ -222,16 +229,20 @@
       width: 30px;
       height: 24px;
       text-align: center;
+      transition: border-color 0.3s ease;
 
       &:hover {
         border-color: @primary-color;
       }
     }
-
   }
 }
 
 .@{pagination-prefix-cls} {
+  &.mini &-total-text {
+      height: 20px;
+      line-height: 20px;
+  }
 
   &.mini &-item {
     border: 0;

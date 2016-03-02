@@ -23,5 +23,6 @@
 | title     | 确认框的描述                             | string        | 无     |
 | onConfirm | 点击确认的回调                           | function      | 无     |
 | onCancel  | 卡片内容                                 | function      | 无     |
+| onVisibleChange | 显示隐藏的回调                      | function(visible) | 无     |
 | okText    | 确认按钮文字                              | String        | 确定   |
 | cancelText| 取消按钮文字                              | String        | 取消   |

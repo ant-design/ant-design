@@ -35,3 +35,4 @@
 | placeholder | 输入框占位文本 | string | '请选择' |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | disabled | 禁用 | boolean | false |
+| allowClear | 是否支持清除 | boolean | true |

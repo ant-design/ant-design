@@ -4,6 +4,37 @@
 
 @import "../mixins/iconfont";
 
+.selection__clear() {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: baseline;
+  text-align: center;
+  text-transform: none;
+  text-rendering: auto;
+  opacity: 0;
+  position: absolute;
+  right: 8px;
+  z-index: 1;
+  background: #fff;
+  top: 50%;
+  font-size: 12px;
+  color: #ccc;
+  width: 12px;
+  height: 12px;
+  margin-top: -6px;
+  line-height: 12px;
+  cursor: pointer;
+  transition: color 0.3s ease, opacity 0.15s ease;
+  &:before {
+    display: block;
+    font-family: "anticon" !important;
+    content: "\E631";
+  }
+  &:hover {
+    color: #999;
+  }
+}
+
 .@{select-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
@@ -53,39 +84,13 @@
     &:hover {
       .hover;
     }
+
     &:active {
       .active;
     }
 
     &__clear {
-      display: inline-block;
-      font-style: normal;
-      vertical-align: baseline;
-      text-align: center;
-      text-transform: none;
-      text-rendering: auto;
-      opacity: 0;
-      position: absolute;
-      right: 8px;
-      z-index: 1;
-      background: #fff;
-      top: 50%;
-      font-size: 12px;
-      color: #ccc;
-      width: 12px;
-      height: 12px;
-      margin-top: -6px;
-      line-height: 12px;
-      cursor: pointer;
-      transition: color 0.3s ease, opacity 0.15s ease;
-      &:before {
-        display: block;
-        font-family: "anticon" !important;
-        content: "\E631";
-      }
-      &:hover {
-        color: #999;
-      }
+      .selection__clear();
     }
 
     &:hover &__clear {
@@ -147,10 +152,7 @@
       .ant-select-selection__rendered {
         li {
           height: 24px;
-          .ant-select-selection__choice__content {
-            font-size: 14px;
-            line-height: 24px;
-          }
+          line-height: 24px;
         }
       }
     }
@@ -171,15 +173,7 @@
       .ant-select-selection__rendered {
         li {
           height: 14px;
-          .ant-select-selection__choice__content {
-            line-height: 14px;
-            position: relative;
-            top: -3px;
-          }
-          .ant-select-selection__choice__remove {
-            position: relative;
-            top: -4px;
-          }
+          line-height: 14px;
         }
       }
     }
@@ -200,9 +194,13 @@
 
   &-search__field__placeholder {
     position: absolute;
-    top: 0;
-    left: 3px;
-    color: #aaa;
+    top: 50%;
+    left: 9px;
+    color: #ccc;
+    line-height: 20px;
+    height: 20px;
+    margin-top: -10px;
+    cursor: text;
   }
 
   &-search--inline {
@@ -227,11 +225,6 @@
   &-selection--multiple {
     min-height: 28px;
     cursor: text;
-
-    .@{select-prefix-cls}-search__field__placeholder {
-      top: 6px;
-      left: 10px;
-    }
 
     .@{select-prefix-cls}-search--inline {
       width: auto;
@@ -279,7 +272,7 @@
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
       color: #999;
-      line-height: 20px;
+      line-height: inherit;
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
@@ -317,10 +310,6 @@
     .@{select-prefix-cls}-search--inline {
       height: 100%;
       float: none;
-    }
-    .@{select-prefix-cls}-search__field__placeholder {
-      left: 10px;
-      cursor: text;
     }
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -469,10 +458,6 @@
   .@{select-prefix-cls}-dropdown-search {
     display: block;
     padding: 4px;
-    .@{select-prefix-cls}-search__field__placeholder {
-      left: 7px;
-      top: 5px;
-    }
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
     }
@@ -487,5 +472,13 @@
     &.@{select-prefix-cls}-search--hide {
       display: none;
     }
+  }
+}
+
+.ant-search-input .@{select-prefix-cls} {
+  width: 100%;
+
+  & + .ant-input-group-wrap > button {
+    top: -5px;
   }
 }
