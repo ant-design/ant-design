@@ -4,6 +4,23 @@
 
 ---
 
+## 0.12.6
+
+`2016-03-02`
+
+- 优化 Table 本地排序在 Chrome 下的稳定性问题。
+- 修正 Pagination 的 pageSize 属性为受控属性，并补充了 `defaultPageSize` 属性。[#1087](https://github.com/ant-design/ant-design/issues/1087)
+- 优化 Select 的 combobox 模式的交互体验。
+- 升级 react-slick 依赖到 `0.11`，修复自动播放有时会失效的问题。[#1009](https://github.com/ant-design/ant-design/issues/1009)
+- 修复 TreeSelect 的 allowClear 属性失效的问题。[#1084](https://github.com/ant-design/ant-design/issues/1084)
+- 修复 Input 组件的 className 属性失效的问题。[#1103](https://github.com/ant-design/ant-design/issues/1103)
+- 修复 Dropdown 的 onClick 属性失效的问题。[#1097](https://github.com/ant-design/ant-design/issues/1097)
+- 修复多个 CheckboxGroup 选项互相影响的问题。[#1101](https://github.com/ant-design/ant-design/pull/1101)
+- 修复 FormItem 的子元素为 `null` 时报错的问题。
+- 修复 Table 组件的选择功能和展开功能配合使用的问题。[#1102](https://github.com/ant-design/ant-design/issues/1102)
+- 增加了一个搜索框和提示功能结合的 [例子](http://ant.design/components/select/#demo-search-box)。
+- 修复了部分组件样式的小问题。
+
 ## 0.12.5
 
 `2016-02-25`
