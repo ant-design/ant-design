@@ -153,7 +153,7 @@
     display: block;
     margin: 0 auto;
     color: #666;
-    border-radius: 4px;
+    border-radius: @border-radius-sm;
     width: 20px;
     height: 20px;
     line-height: 18px;
@@ -167,6 +167,7 @@
       background: tint(@primary-color, 90%);
       cursor: pointer;
     }
+
     &:active {
       color: #fff;
       background: tint(@primary-color, 20%);
