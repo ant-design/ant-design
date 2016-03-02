@@ -9,3 +9,4 @@ import './styles/clearfix.less';
 import './styles/demo.less';
 import './styles/page-nav.less';
 import './styles/footer.less';
+import './styles/preview-img.less';

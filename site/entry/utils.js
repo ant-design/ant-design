@@ -2,12 +2,16 @@ import React from 'react';
 import { Route, IndexRedirect } from 'react-router';
 import Article from '../component/Article';
 
+function dashed(name) {
+  return name.toLowerCase().trim().replace(/\s+/g, '-');
+}
+
 export function generateChildren(pagesData) {
   const children = pagesData.map((pageData, index) => {
     const ArticleWrapper = () => <Article content={pageData} />;
     return (
       <Route key={index}
-        path={pageData.meta.english.toLowerCase()}
+        path={dashed(pageData.meta.english)}
         component={ArticleWrapper} />
     );
   });
@@ -16,7 +20,7 @@ export function generateChildren(pagesData) {
   });
   children.unshift(
     <IndexRedirect key="index"
-      to={firstChild.meta.english.toLowerCase()} />
+      to={dashed(firstChild.meta.english)} />
   );
   return children;
 }

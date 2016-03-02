@@ -9,6 +9,10 @@ function isHeading(type) {
 export function objectToComponent(object, index) {
   if (object === null) return;
 
+  if (React.isValidElement(object)) {
+    return React.cloneElement(object, { key: index });
+  }
+
   if (typeof object === 'string') {
     return <span key={index}>{ object }</span>;
   }

@@ -1,7 +1,8 @@
-# 表单
+# Form
 
 - category: 2
 - order: 2
+- chinese: 表单
 
 ---
 
@@ -121,8 +122,8 @@
 
 ### 输入框宽度
 
-<img class="preview-img" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/vypllNQZsEHRszB.png" good>
-<img class="preview-img" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/XSLwnrlLbKFjiNj.png" bad>
+<img class="preview-img good" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/vypllNQZsEHRszB.png">
+<img class="preview-img bad" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/XSLwnrlLbKFjiNj.png">
 
 当内容可预知，可以根据内容长短进行定义其落在多少个栅格上。
 

@@ -3,11 +3,15 @@ import { Link } from 'react-router';
 import { Row, Col, Menu } from '../../../';
 import * as utils from '../utils';
 
+function dashed(name) {
+  return name.toLowerCase().trim().replace(/\s+/g, '-');
+}
+
 export default class MainContent extends React.Component {
   getMenuItems() {
     const props = this.props;
     return props.menuItems.map((item) => {
-      const key = item.english.toLowerCase();
+      const key = dashed(item.english);
       const text = item.chinese || item.english;
       const disabled = item.disabled === 'true';
 

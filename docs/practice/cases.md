@@ -18,7 +18,7 @@ Ant Design 目前在外部也有 [许多产品实践](https://github.com/ant-des
 
 ### 金融云
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/kBgLUfEwxlBdwUr.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/kBgLUfEwxlBdwUr.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/SeXqPPyixccDJBY.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/IRjHVNFWRlCMdnb.png">
 
@@ -30,7 +30,7 @@ Ant Design 目前在外部也有 [许多产品实践](https://github.com/ant-des
 
 ### OceanBase Cloud Platform
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/JUAXPZYtVyUQfGu.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/JUAXPZYtVyUQfGu.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/lpzTKvgLpJgKGpq.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/GVJGaWbqfBFedWN.png">
 
@@ -42,7 +42,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ### 服务宝体验平台
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/PiSveQClPzmxPTy.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/PiSveQClPzmxPTy.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/vsoYArBwcPRZnVE.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/TMyfsUGQSjOdGIm.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/sBlmIcJXZdJTJbC.png">
@@ -56,7 +56,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 ### AntV
 
-<img as-cover class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/yWNVSFBhKsoShvi.png">
+<img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/yWNVSFBhKsoShvi.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/nvJftlNzfzhVDVW.png">
 <img class="preview-img" width="420" align="right" src="https://os.alipayobjects.com/rmsportal/LugOCvzybKsmQCj.png">
 
