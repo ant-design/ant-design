@@ -38,6 +38,7 @@ export default class ImagePreview extends React.Component {
       const { alt, description, src } = attributes;
       const imgClassName = attributes.class.nodeValue;
       return {
+        className: imgClassName,
         alt: alt && alt.nodeValue,
         description: description && description.nodeValue,
         src: src.nodeValue,
@@ -60,18 +61,23 @@ export default class ImagePreview extends React.Component {
           style={style}
           onClick={this.handleClick.bind(this, 'left')}>
           <div className={`preview-image-wrapper ${cover.isGood && 'good'} ${cover.isBad && 'bad'}`}>
-            <img src={cover.src} alt="Sample Picture" />
+            <img className={cover.className} src={cover.src} alt="Sample Picture" />
           </div>
           <div className="preview-image-title">{cover.alt}</div>
           <div className="preview-image-description">
             {cover.description}
           </div>
 
-          <Modal visible={this.state.leftVisible} title={null} footer={null}
+          <Modal className="image-modal" visible={this.state.leftVisible} title={null} footer={null}
             onCancel={this.handleCancel.bind(this)}>
             <Carousel>
               { comparable ? imagesList[0] : imagesList }
             </Carousel>
+            {
+              comparable || imagesList.length === 1 ?
+                <div className="preview-image-title">{cover.alt}</div> :
+                null
+            }
           </Modal>
         </div>
         {
@@ -80,18 +86,19 @@ export default class ImagePreview extends React.Component {
               style={style}
               onClick={this.handleClick.bind(this, 'right')}>
               <div className={`preview-image-wrapper ${imgsMeta[1].isGood && 'good'} ${imgsMeta[1].isBad && 'bad'}`}>
-                <img src={imgsMeta[1].src} alt="Sample Picture" />
+                <img className={imgsMeta[1].className} src={imgsMeta[1].src} alt="Sample Picture" />
               </div>
               <div className="preview-image-title">{imgsMeta[1].alt}</div>
               <div className="preview-image-description">
                 {imgsMeta[1].description}
               </div>
 
-              <Modal visible={this.state.rightVisible} title={null} footer={null}
+              <Modal className="image-modal" visible={this.state.rightVisible} title={null} footer={null}
                 onCancel={this.handleCancel.bind(this)}>
                 <Carousel>
                   { comparable ? imagesList[1] : imagesList }
                 </Carousel>
+                <div className="preview-image-title">{imagesList[1].alt}</div>
               </Modal>
             </div> : null
         }
