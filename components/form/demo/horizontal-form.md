@@ -51,7 +51,7 @@ let Demo = React.createClass({
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={<span>卖身华府<Tooltip title="我为秋香"><Icon type="question" /></Tooltip></span>}>
+          label={<span>卖身华府 <Tooltip title="我为秋香"><Icon type="question-circle-o" /></Tooltip> ：</span>}>
           <label>
             <Checkbox {...getFieldProps('agreement')} />同意
           </label>
