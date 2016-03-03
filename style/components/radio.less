@@ -98,7 +98,7 @@
   }
 }
 
-.@{radio-prefix-cls} + span {
+span.@{radio-prefix-cls} + * {
   margin-left: 8px;
 }
 
@@ -115,6 +115,10 @@
     cursor: pointer;
     border: 1px solid @border-color-base;
     border-left: 0;
+
+    a {
+      color: #666;
+    }
 
     > span.@{radio-prefix-cls}-button {
       margin-left: 0;
