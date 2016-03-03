@@ -7,31 +7,23 @@
 ---
 
 ````jsx
-import { LocaleProvider, Pagination, DatePicker, TimePicker, Popconfirm, Table, Modal, Button } from 'antd';
+import { LocaleProvider, Pagination, DatePicker, TimePicker, Popconfirm, Table, Modal, Button, Select } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
+const Option = Select.Option;
 
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
-  render() {
-    return 'Luck';
-  },
   filters: [{
     text: 'filter1',
     value: 'filter1',
-  }, {
-    text: 'filter2',
-    value: 'filter2',
   }],
 }, {
   title: 'Age',
   dataIndex: 'age',
-  render() {
-    return 18;
-  },
 }];
 
-const App = React.createClass({
+const Page = React.createClass({
   getInitialState() {
     return {
       visible: false,
@@ -62,9 +54,29 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(
-  <LocaleProvider locale={enUS}>
-    <App />
-  </LocaleProvider>
-, mountNode);
+const App = React.createClass({
+  getInitialState() {
+    return {
+      locale: enUS,
+    };
+  },
+  changeLocale(locale) {
+    this.setState({ locale });
+  },
+  render() {
+    return (
+      <div>
+        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
+        <div>
+          <Select defaultValue={enUS} onChange={this.changeLocale}>
+            <Option value={enUS}>English</Option>
+            <Option value={null}>中文</Option>
+          </Select>
+        </div>
+      </div>
+    );
+  }
+});
+
+ReactDOM.render(<App />, mountNode);
 ````

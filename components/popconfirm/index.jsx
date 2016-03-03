@@ -34,8 +34,6 @@ export default React.createClass({
       overlayStyle: {},
       onConfirm: noop,
       onCancel: noop,
-      okText: '确定',
-      cancelText: '取消',
       onVisibleChange() {},
     };
   },
@@ -79,8 +77,8 @@ export default React.createClass({
             {title}
           </p>
           <div className={`${prefixCls}-buttons`}>
-            <Button onClick={this.cancel} type="ghost" size="small">{cancelText}</Button>
-            <Button onClick={this.confirm} type="primary" size="small">{okText}</Button>
+            <Button onClick={this.cancel} type="ghost" size="small">{cancelText || '取消'}</Button>
+            <Button onClick={this.confirm} type="primary" size="small">{okText || '确定'}</Button>
           </div>
         </div>
       </div>
