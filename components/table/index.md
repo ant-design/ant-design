@@ -112,9 +112,6 @@ const columns = [{
 ![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
-const rowKey = function(record) {
-  return record.uid;  // 比如你的数据主键是 uid
-};
-
-return <Table rowKey={rowKey} />;
+// 比如你的数据主键是 uid
+return <Table rowKey={record => record.uid} />;
 ```
