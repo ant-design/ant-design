@@ -36,12 +36,13 @@ class AntTag extends React.Component {
   }
 
   render() {
-    const { prefixCls, closable, color, ...restProps } = this.props;
+    const { prefixCls, closable, color, className, children, ...restProps } = this.props;
     const close = closable ? <Icon type="cross" onClick={this.close.bind(this)} /> : '';
-    const className = classNames({
+    const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${color}`]: !!color,
       [`${prefixCls}-close`]: this.state.closing,
+      [className]: !!className,
     });
     return (
       <Animate component=""
@@ -50,8 +51,8 @@ class AntTag extends React.Component {
         transitionAppear
         onEnd={this.animationEnd.bind(this)}>
         {this.state.closed ? null : (
-          <div data-show={!this.state.closing} className={className}>
-            <span className={`${prefixCls}-text`} {...restProps} />
+          <div data-show={!this.state.closing} {...restProps} className={classString}>
+            <span className={`${prefixCls}-text`}>{children}</span>
             {close}
           </div>
         )}
