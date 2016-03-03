@@ -1,7 +1,9 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const R = require('ramda');
+const buildDemosList = require('./build-demos-list');
 const utils = require('./utils');
 
 const isMeta = R.complement(R.propEq('type', 'hr'));
@@ -12,12 +14,20 @@ const getMenuItems = R.compose(
   R.map(getMeta)
 );
 const sortByOrder = R.sortBy(getOrder);
+const parseDemos = function parseDemos(fileName) {
+  const demosPath = path.join(path.dirname(fileName), 'demo');
+  const demosMDFild = utils.findMDFile(demosPath);
+
+  return buildDemosList.parse(demosMDFild).docs; // TODO
+};
 const parse = function parse(fileName) {
   const fileContent = utils.parseFileContent(fileName);
   const meta = utils.parseMeta(fileContent);
   const description = R.tail(R.dropWhile(isMeta, fileContent));
 
-  return { meta, description };
+  const demos = !utils.isIndex(fileName) ? null : parseDemos(fileName);
+
+  return { meta, description, demos };
 };
 module.exports = function buildCommon(inputDir, outputFile) {
   const mds = utils.findMDFile(inputDir, true);
@@ -28,7 +38,11 @@ module.exports = function buildCommon(inputDir, outputFile) {
     pagesData: parsed,
   };
 
-  const content = 'module.exports = ' +
-          JSON.stringify(result, null, 2) + ';';
+  const content = 'const React = require(\'react\');\n' +
+          'const ReactDOM = require(\'react-dom\');\n' +
+          'const _antd = require(\'../../\');\n' +
+          'const BrowserDemo = require(\'../../site/component/BrowserDemo\');\n' +
+          'module.exports = ' +
+          utils.stringify(result, null, 2) + ';';
   fs.writeFile(outputFile, content);
 };

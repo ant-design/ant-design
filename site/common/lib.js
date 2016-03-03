@@ -10,3 +10,4 @@ import './styles/demo.less';
 import './styles/page-nav.less';
 import './styles/footer.less';
 import './styles/preview-img.less';
+import './styles/mock-browser.less';

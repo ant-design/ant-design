@@ -41,7 +41,7 @@ export default class ComponentDoc extends React.Component {
     return (
       <article>
         <section className="markdown">
-          <h1>{doc.meta.title}</h1>
+          <h1>{doc.meta.chinese || doc.meta.english}</h1>
           { doc.description.map(utils.objectToComponent) }
           <h2>
             代码演示
@@ -54,7 +54,7 @@ export default class ComponentDoc extends React.Component {
           { isSingleCol ? null : <Col span="12">{ rightChildren }</Col> }
         </Row>
         <section className="markdown">
-          { doc.api.map(utils.objectToComponent) }
+          { (doc.api || []).map(utils.objectToComponent) }
         </section>
       </article>
     );
