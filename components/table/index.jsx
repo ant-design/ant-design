@@ -74,6 +74,10 @@ let AntTable = React.createClass({
     locale: React.PropTypes.object,
   },
 
+  contextTypes: {
+    locale: React.PropTypes.object,
+  },
+
   getDefaultSelection() {
     if (!this.props.rowSelection || !this.props.rowSelection.getCheckboxProps) {
       return [];
@@ -81,6 +85,14 @@ let AntTable = React.createClass({
     return this.getCurrentPageData()
       .filter(item => this.props.rowSelection.getCheckboxProps(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
+  },
+
+  getLocale() {
+    let locale = {};
+    if (this.context.locale && this.context.locale.Table) {
+      locale = this.context.locale.Table;
+    }
+    return objectAssign({}, defaultLocale, locale, this.props.locale);
   },
 
   componentWillReceiveProps(nextProps) {
@@ -405,7 +417,7 @@ let AntTable = React.createClass({
   },
 
   renderColumnsDropdown(columns) {
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
+    const locale = this.getLocale();
     return columns.map((originColumn, i) => {
       let column = objectAssign({}, originColumn);
       let key = this.getColumnKey(column, i);
@@ -563,7 +575,7 @@ let AntTable = React.createClass({
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    const locale = objectAssign({}, defaultLocale, this.props.locale);
+    const locale = this.getLocale();
 
     const classString = classNames({
       [`ant-table-${this.props.size}`]: true,

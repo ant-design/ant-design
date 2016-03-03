@@ -7,14 +7,13 @@
 ---
 
 ````jsx
-import { Pagination, DatePicker, LocaleProvider } from 'antd';
+import { Pagination, LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 
 const App = React.createClass({
   render() {
     return (
       <div>
-        <DatePicker />
         <Pagination defaultCurrent={1} total={50} showSizeChanger />
       </div>
     );

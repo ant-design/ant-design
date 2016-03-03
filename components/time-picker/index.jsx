@@ -27,6 +27,10 @@ const AntTimePicker = React.createClass({
     };
   },
 
+  contextTypes: {
+    locale: React.PropTypes.object,
+  },
+
   getFormatter() {
     return new DateTimeFormat(this.props.format);
   },
@@ -68,14 +72,19 @@ const AntTimePicker = React.createClass({
   },
 
   getLocale() {
+    let locale = defaultLocale;
+    if (this.context.locale && this.context.locale.TimePicker) {
+      locale = this.context.locale.TimePicker;
+    }
     // 统一合并为完整的 Locale
-    return objectAssign({}, defaultLocale, this.props.locale);
+    return objectAssign({}, locale, this.props.locale);
   },
 
   render() {
+    const locale = this.getLocale();
     const props = objectAssign({}, this.props);
     props.placeholder = ('placeholder' in this.props)
-      ? props.placeholder : this.getLocale().placeholder;
+      ? props.placeholder : locale.placeholder;
     if (props.defaultValue) {
       props.defaultValue = this.parseTimeFromValue(props.defaultValue);
     } else {
@@ -99,7 +108,7 @@ const AntTimePicker = React.createClass({
       <TimePicker
         {...props}
         className={className}
-        locale={this.getLocale()}
+        locale={locale}
         formatter={this.getFormatter()}
         onChange={this.handleChange}
       />

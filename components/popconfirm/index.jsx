@@ -39,6 +39,9 @@ export default React.createClass({
       onVisibleChange() {},
     };
   },
+  contextTypes: {
+    locale: React.PropTypes.object,
+  },
   componentWillReceiveProps(nextProps) {
     if ('visible' in nextProps) {
       this.setState({ visible: nextProps.visible });
@@ -62,7 +65,12 @@ export default React.createClass({
     }
   },
   render() {
-    const { title, okText, cancelText, placement, overlayStyle, trigger, ...restProps } = this.props;
+    const { title, placement, overlayStyle, trigger, ...restProps } = this.props;
+    let { okText, cancelText } = this.props;
+    if (this.context.locale && this.context.locale.Popconfirm) {
+      okText = okText || this.context.locale.Popconfirm.okText;
+      cancelText = cancelText || this.context.locale.Popconfirm.cancelText;
+    }
     const overlay = (
       <div>
         <div className={`${prefixCls}-content`}>

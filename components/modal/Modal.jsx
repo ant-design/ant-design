@@ -14,14 +14,16 @@ let AntModal = React.createClass({
       prefixCls: 'ant-modal',
       onOk: noop,
       onCancel: noop,
-      okText: '确定',
-      cancelText: '取消',
       width: 520,
       transitionName: 'zoom',
       maskAnimation: 'fade',
       confirmLoading: false,
       visible: false,
     };
+  },
+
+  contextTypes: {
+    locale: React.PropTypes.object,
   },
 
   handleCancel(e) {
@@ -52,19 +54,26 @@ let AntModal = React.createClass({
 
   render() {
     let props = this.props;
+
+    let { okText, cancelText } = props;
+    if (this.context.locale && this.context.locale.Modal) {
+      okText = okText || this.context.locale.Modal.okText;
+      cancelText = cancelText || this.context.locale.Modal.cancelText;
+    }
+
     let defaultFooter = [
       <Button key="cancel"
         type="ghost"
         size="large"
         onClick={this.handleCancel}>
-        {props.cancelText}
+        {cancelText || '确定'}
       </Button>,
       <Button key="confirm"
         type="primary"
         size="large"
         loading={props.confirmLoading}
         onClick={this.handleOk}>
-        {props.okText}
+        {okText || '取消'}
       </Button>
     ];
     let footer = props.footer || defaultFooter;
