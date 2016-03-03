@@ -1,6 +1,5 @@
 # Cases
 
-- category: 0
 - order: 0
 - chinese: 实践案例
 

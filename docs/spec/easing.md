@@ -1,7 +1,8 @@
-# 自然运动
+# Easing
 
 - category: 动画
 - order: 0
+- chinese: 自然运动
 
 ---
 

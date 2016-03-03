@@ -1,6 +1,5 @@
 # List
 
-- category: 3
 - order: 3
 - chinese: 列表
 

@@ -2,33 +2,55 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Menu } from '../../../';
 import * as utils from '../utils';
+const SubMenu = Menu.SubMenu;
 
 function dashed(name) {
   return name.toLowerCase().trim().replace(/\s+/g, '-');
 }
 
 export default class MainContent extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.generateMenuItem = this.generateMenuItem.bind(this);
+  }
+
+  generateMenuItem(item) {
+    const key = dashed(item.english);
+    const text = item.chinese || item.english;
+    const disabled = item.disabled === 'true';
+
+    const child = !item.link ?
+            <Link to={`/${this.props.category}/${key}`} disabled={disabled}>
+              { text }
+            </Link> :
+            <a href={item.link} target="_blank" disabled={disabled}>
+              { text }
+            </a>;
+
+    return (
+        <Menu.Item key={key} disabled={disabled}>
+        { child }
+      </Menu.Item>
+    );
+  }
+
   getMenuItems() {
     const props = this.props;
-    return props.menuItems.map((item) => {
-      const key = dashed(item.english);
-      const text = item.chinese || item.english;
-      const disabled = item.disabled === 'true';
+    const menuItems = props.menuItems;
+    const topLevel = menuItems.topLevel.map(this.generateMenuItem);
+    const subMenu = Object.keys(menuItems).filter((category) => category !== 'topLevel')
+            .map((category) => {
+              const subMenuItems = menuItems[category].map(this.generateMenuItem);
 
-      const child = !item.link ?
-              <Link to={`/${props.category}/${key}`} disabled={disabled}>
-                { text }
-              </Link> :
-              <a href={item.link} target="_blank" disabled={disabled}>
-                { text }
-              </a>;
+              return (
+                <SubMenu title={<h4>{category}</h4>} key={category}>
+                  { subMenuItems }
+                </SubMenu>
+              );
+            });
 
-      return (
-        <Menu.Item key={key} disabled={disabled}>
-          { child }
-        </Menu.Item>
-      );
-    });
+    return [...topLevel, ...subMenu];
   }
 
   render() {
@@ -39,7 +61,9 @@ export default class MainContent extends React.Component {
     return (
       <Row className="main-wrapper">
         <Col span="4">
-          <Menu mode="inline" selectedKeys={[activeMenuItem]} className="sidebar">
+          <Menu className="sidebar" mode="inline"
+            defaultOpenKeys={Object.keys(this.props.menuItems)}
+            selectedKeys={[activeMenuItem]}>
             { menuItems }
           </Menu>
         </Col>

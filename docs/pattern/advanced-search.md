@@ -1,6 +1,5 @@
 # Advanced Search
 
-- category: 6
 - order: 6
 - chinese: 高级搜索
 

@@ -35,7 +35,7 @@ export default class Article extends React.Component {
 
     return (
       <article className="markdown">
-        <h1>{ content.meta.chinese }</h1>
+        <h1>{ content.meta.chinese || content.meta.english }</h1>
         {
           jumper.length > 0 ?
             <section className="toc"><ul>{ jumper }</ul></section> :

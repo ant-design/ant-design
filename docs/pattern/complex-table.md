@@ -1,6 +1,5 @@
 # Complex Table
 
-- category: 5
 - order: 5
 - chinese: 表格：复杂数据
 

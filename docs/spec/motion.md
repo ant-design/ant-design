@@ -1,7 +1,8 @@
-# 组件动画
+# Motion
 
 - category: 动画
 - order: 2
+- chinese: 组件动画
 
 ---
 

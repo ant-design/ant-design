@@ -5,7 +5,7 @@ const path = require('path');
 const R = require('ramda');
 
 const isMDFile = R.compose(R.equals('.md'), path.extname);
-exports.findMDFile = function findMDFile(dirPath) {
+exports.findMDFile = function findMDFile(dirPath, shallow) {
   let mds = [];
 
   R.forEach((fileName) => {
@@ -15,7 +15,12 @@ exports.findMDFile = function findMDFile(dirPath) {
       mds.push(filePath);
     }
     if (stat.isDirectory()) {
-      mds = mds.concat(findMDFile(filePath));
+      const indexFile = path.join(filePath, 'index.md');
+      if (shallow && fs.statSync(indexFile).isFile()) {
+        mds.push(indexFile);
+      } else {
+        mds = mds.concat(findMDFile(filePath));
+      }
     }
   }, fs.readdirSync(dirPath));
 

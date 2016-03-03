@@ -1,9 +1,19 @@
 import React from 'react';
 import { Route, IndexRedirect } from 'react-router';
+import MainContent from '../component/MainContent';
 import Article from '../component/Article';
 
 function dashed(name) {
   return name.toLowerCase().trim().replace(/\s+/g, '-');
+}
+
+export function generateContainer(category, menuItems) {
+  return (props) => {
+    return (
+      <MainContent {...props}
+        category={category} menuItems={menuItems} />
+    );
+  };
 }
 
 export function generateChildren(pagesData) {

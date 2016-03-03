@@ -1,6 +1,5 @@
 # Navigation
 
-- category: 1
 - order: 1
 - chinese: 导航
 

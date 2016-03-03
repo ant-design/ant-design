@@ -1,7 +1,6 @@
 # Download
 
 - order: 0
-- category: 0
 - chinese: 资源下载
 
 ---

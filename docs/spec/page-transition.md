@@ -1,7 +1,8 @@
-# 互动转换
+# Page Transition
 
 - category: 动画
 - order: 1
+- chinese: 互动转换
 
 ---
 

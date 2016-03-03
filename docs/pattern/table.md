@@ -1,6 +1,5 @@
 # Table
 
-- category: 4
 - order: 4
 - chinese: 表格
 

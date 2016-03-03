@@ -40,28 +40,7 @@ buildDocsList([installPath], './_site/data/install.js');
 const upgradeNotesPath = './docs/react/upgrade-notes.md';
 buildDocsList([upgradeNotesPath], './_site/data/upgrade-notes.js');
 
-const specIntroPath =
-        './docs/spec/introduce.md'
-buildDocsList([specIntroPath], './_site/data/specIntro.js');
-
-const fontPath =
-        './docs/spec/font.md'
-buildDocsList([fontPath], './_site/data/font.js');
-
-const typographyPath =
-        './docs/spec/typography.md'
-buildDocsList([typographyPath], './_site/data/typography.js');
-
-const easingPath =
-        './docs/spec/easing.md'
-buildDocsList([easingPath], './_site/data/easing.js');
-const pageTransitionPath =
-        './docs/spec/page-transition.md'
-buildDocsList([pageTransitionPath], './_site/data/page-transition.js');
-const motionPath =
-        './docs/spec/motion.md'
-buildDocsList([motionPath], './_site/data/motion.js');
-
 buildCommon('./docs/practice', './_site/data/practice.js');
 buildCommon('./docs/pattern', './_site/data/pattern.js');
+buildCommon('./docs/spec', './_site/data/spec.js');
 buildCommon('./docs/resource', './_site/data/resource.js');

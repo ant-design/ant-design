@@ -1,6 +1,5 @@
 # Form
 
-- category: 2
 - order: 2
 - chinese: 表单
 

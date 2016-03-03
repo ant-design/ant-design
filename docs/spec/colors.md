@@ -1,7 +1,8 @@
-# 色彩
+# Colors
 
 - category: 基础
 - order: 2
+- chinese: 色彩
 
 ---
 

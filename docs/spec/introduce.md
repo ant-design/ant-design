@@ -1,6 +1,5 @@
 # Ant Design
 
-- category: 0
 - order: 0
 
 ---

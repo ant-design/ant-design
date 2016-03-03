@@ -7,7 +7,10 @@ const utils = require('./utils');
 const isMeta = R.complement(R.propEq('type', 'hr'));
 const getMeta = R.prop('meta');
 const getOrder = R.compose(parseInt, R.path(['meta', 'order']));
-const getMenuItems = R.map(getMeta);
+const getMenuItems = R.compose(
+  R.groupBy(R.compose(R.defaultTo('topLevel'), R.prop('category'))),
+  R.map(getMeta)
+);
 const sortByOrder = R.sortBy(getOrder);
 const parse = function parse(fileName) {
   const fileContent = utils.parseFileContent(fileName);
@@ -16,8 +19,8 @@ const parse = function parse(fileName) {
 
   return { meta, description };
 };
-module.exports = function buildCommon(inputPath, outputPath) {
-  const mds = utils.findMDFile(inputPath);
+module.exports = function buildCommon(inputDir, outputFile) {
+  const mds = utils.findMDFile(inputDir, true);
   const parsed = sortByOrder(R.map(parse, mds));
 
   const result = {
@@ -27,5 +30,5 @@ module.exports = function buildCommon(inputPath, outputPath) {
 
   const content = 'module.exports = ' +
           JSON.stringify(result, null, 2) + ';';
-  fs.writeFile(outputPath, content);
+  fs.writeFile(outputFile, content);
 };
