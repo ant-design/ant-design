@@ -63,7 +63,7 @@ const columns = [{
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
 | rowKey        | 表格列 key 的取值 | Function(record, index):string |                     |    record.key    |
 | expandedRowRender  | 额外的列展开元素 | Function |                     | - |
-| defaultExpandedRowKeys | 默认展开的列 | Array |                     | - |
+| defaultExpandedRowKeys | 默认展开的行 | Array |                     | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
 | loading       | 页面是否加载中 | Boolean |                     | false      |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | Object         | | `{ filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据' }` [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
