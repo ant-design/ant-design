@@ -22,7 +22,7 @@
   height: 28px;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #d9d9d9;
+  border: 1px solid @border-color-base;
   border-radius: @border-radius-base;
   overflow: hidden;
   width: 90px;
@@ -158,11 +158,13 @@
   }
 
   &-handler-wrap {
-    float: right;
-    border-left: 1px solid #d9d9d9;
+    border-left: 1px solid @border-color-base;
     width: 22px;
     height: 28px;
-    position: relative;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
   }
@@ -189,7 +191,7 @@
   }
 
   &-handler-down {
-    border-top: 1px solid #d9d9d9;
+    border-top: 1px solid @border-color-base;
     top: -1px;
     cursor: pointer;
     &-inner {

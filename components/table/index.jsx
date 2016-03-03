@@ -110,7 +110,9 @@ let AntTable = React.createClass({
       this.setState({ selectedRowKeys });
     }
     if (this.props.rowSelection && this.props.rowSelection.onChange) {
-      this.props.rowSelection.onChange(selectedRowKeys);
+      const data = this.getCurrentPageData();
+      const selectedRows = data.filter(row => selectedRowKeys.indexOf(row.key) >= 0);
+      this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
     }
   },
 
@@ -231,16 +233,21 @@ let AntTable = React.createClass({
       !this.props.rowSelection.getCheckboxProps ||
       !this.props.rowSelection.getCheckboxProps(item).disabled
     ).map((item, i) => this.getRecordKey(item, i));
+
+    // 记录变化的列
+    const changeRowKeys = [];
     if (checked) {
       changableRowKeys.forEach(key => {
         if (selectedRowKeys.indexOf(key) < 0) {
           selectedRowKeys.push(key);
+          changeRowKeys.push(key);
         }
       });
     } else {
       changableRowKeys.forEach(key => {
         if (selectedRowKeys.indexOf(key) >= 0) {
           selectedRowKeys.splice(selectedRowKeys.indexOf(key), 1);
+          changeRowKeys.push(key);
         }
       });
     }
@@ -249,10 +256,11 @@ let AntTable = React.createClass({
     });
     this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelectAll) {
-      let selectedRows = data.filter((row, i) => {
-        return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
-      });
-      this.props.rowSelection.onSelectAll(checked, selectedRows);
+      const selectedRows = data.filter((row, i) =>
+        selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
+      const changeRows = data.filter((row, i) =>
+        changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
+      this.props.rowSelection.onSelectAll(checked, selectedRows, changeRows);
     }
   },
 
@@ -511,7 +519,7 @@ let AntTable = React.createClass({
     }
     // 分页
     // ---
-    // 当数据量少于每页数量时，直接设置数据
+    // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
     if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
       data = data.filter((item, i) => {
