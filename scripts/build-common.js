@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const R = require('ramda');
 const buildDemosList = require('./build-demos-list');
+const devil = require('./devil');
 const utils = require('./utils');
 
 const isMeta = R.complement(R.propEq('type', 'hr'));
@@ -23,7 +24,15 @@ const parseDemos = function parseDemos(fileName) {
 const parse = function parse(fileName) {
   const fileContent = utils.parseFileContent(fileName);
   const meta = utils.parseMeta(fileContent);
-  const description = R.tail(R.dropWhile(isMeta, fileContent));
+  const description = R.map(
+    (node) => {
+      if (node.type === 'code' && node.props.lang === '__react') {
+        return devil(node.children, ['React', 'antd', 'CopyToClipboard']);
+      }
+      return node;
+    },
+    R.tail(R.dropWhile(isMeta, fileContent))
+  );
 
   const demos = !utils.isIndex(fileName) ? null : parseDemos(fileName);
 

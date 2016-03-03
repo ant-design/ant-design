@@ -9,6 +9,7 @@
     height: @header-height;
     margin-bottom: 24px;
     padding: 0 4%;
+    width: 100%;
 }
 
 #logo {
@@ -17,19 +18,20 @@
 
     float: left;
     height: 60px;
-    margin: 10px 45px 10px 0;
+    margin: 20px 45px 20px 0;
 }
 #logo img {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
 }
 #logo span {
     color: #6EB4E0;
     float: right;
-    font-size: 18px;
+    font-size: 14px;
     font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
-    height: 60px;
-    line-height: 60px;
+    height: 40px;
+    line-height: 40px;
     text-transform: uppercase;
 }
 
@@ -69,4 +71,8 @@
     top: 9px;
     color: #aaa;
     right: 16px;
+}
+
+.ant-select-combobox .ant-select-search__field:focus {
+    box-shadow: none;
 }

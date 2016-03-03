@@ -1,6 +1,7 @@
 import React from 'react';
 import hljs from 'highlight.js';
-import { Menu } from '../../';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import antd, { Menu } from '../../';
 
 function isHeading(type) {
   return /h[1-6]/i.test(type);
@@ -11,6 +12,10 @@ export function objectToComponent(object, index) {
 
   if (React.isValidElement(object)) {
     return React.cloneElement(object, { key: index });
+  }
+
+  if (typeof object === 'function') {
+    return object(React, antd, CopyToClipboard);
   }
 
   if (typeof object === 'string') {

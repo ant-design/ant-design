@@ -37,16 +37,16 @@ const demosListChildren = componentDocsList.map((componentDoc) => {
 });
 
 const Practice = utils.generateContainer('practice', practice.menuItems);
-const practiceChildren = utils.generateChildren(practice.pagesData);
+const practiceChildren = utils.generateChildren(practice);
 
 const Pattern = utils.generateContainer('pattern', pattern.menuItems);
-const patternChildren = utils.generateChildren(pattern.pagesData);
+const patternChildren = utils.generateChildren(pattern);
 
 const Spec = utils.generateContainer('spec', spec.menuItems);
-const specChildren = utils.generateChildren(spec.pagesData);
+const specChildren = utils.generateChildren(spec);
 
 const Resource = utils.generateContainer('resource', resource.menuItems);
-const resourceChildren = utils.generateChildren(resource.pagesData);
+const resourceChildren = utils.generateChildren(resource);
 
 ReactDOM.render(
   <Router history={hashHistory}>

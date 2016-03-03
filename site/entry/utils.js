@@ -17,7 +17,7 @@ export function generateContainer(category, menuItems) {
   };
 }
 
-export function generateChildren(pagesData) {
+export function generateChildren({ pagesData, menuItems }) {
   const children = pagesData.map((pageData, index) => {
     const Wrapper = pageData.demos === null ?
             () => <Article content={pageData} /> :
@@ -28,12 +28,12 @@ export function generateChildren(pagesData) {
         component={Wrapper} />
     );
   });
-  const firstChild = pagesData.find((pageData) => {
-    return pageData.meta.disabled !== 'true';
+  const firstChild = menuItems.topLevel.find((item) => {
+    return item.disabled !== 'true';
   });
   children.unshift(
     <IndexRedirect key="index"
-      to={dashed(firstChild.meta.english)} />
+      to={dashed(firstChild.english)} />
   );
   return children;
 }
