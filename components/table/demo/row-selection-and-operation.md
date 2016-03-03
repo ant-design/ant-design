@@ -4,8 +4,6 @@
 
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
 
-此版本换页后将会清空选中。
-
 ---
 
 ````jsx
