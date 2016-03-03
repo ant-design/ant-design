@@ -100,7 +100,7 @@ const columns = [{
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
-| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, deselectedRows) |   -   |
+| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 
 
 ## 注意

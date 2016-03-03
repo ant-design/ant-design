@@ -47,8 +47,8 @@ const rowSelection = {
   onSelect(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll(selected, selectedRows, deselectedRowKeys) {
-    console.log(selected, selectedRows, deselectedRowKeys);
+  onSelectAll(selected, selectedRows, changeRows) {
+    console.log(selected, selectedRows, changeRows);
   }
 };
 

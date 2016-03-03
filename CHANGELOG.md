@@ -4,6 +4,12 @@
 
 ---
 
+## 0.12.7
+
+`2016-03-03`
+
+- 修正 Table 的 `rowSelect.onSelectAll` 的第三个参数 `deselectedRows` 为 `changeRows`，记录每次变化的列。
+
 ## 0.12.6
 
 `2016-03-02`
