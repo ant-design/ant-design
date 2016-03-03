@@ -61,6 +61,8 @@ antd.Pagination.locale = {
   zh_CN: require('../components/pagination/locale/zh_CN'),
 };
 
+antd.LocaleProvider['en_US'] = require('../components/locale-provider/en_US'),
+
 InstantClickChangeFns.push(function () {
   // auto complete for components
   var Select = antd.Select;
