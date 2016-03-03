@@ -7,10 +7,12 @@
 ---
 
 ````jsx
-import { Pagination } from 'antd';
-import enUS from 'antd/lib/pagination/locale/en_US';
+import { Pagination, LocaleProvider } from 'antd';
+import enUS from 'antd/lib/locale-provider/en_US';
 
 ReactDOM.render(
-  <Pagination defaultCurrent={1} total={50} locale={enUS} />,
+  <LocaleProvider locale={enUS}>
+    <Pagination defaultCurrent={1} total={50} />
+  </LocaleProvider>,
  mountNode);
 ````
