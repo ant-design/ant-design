@@ -83,6 +83,6 @@ export default React.createClass({
       [props.prefixCls]: true,
       [`${props.prefixCls}-${props.size}`]: props.size,
     });
-    return <div className={classString}>{children}</div>;
+    return <div className={classString} style={props.style}>{children}</div>;
   },
 });
