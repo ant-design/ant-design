@@ -9,7 +9,7 @@ const AntRadio = React.createClass({
     };
   },
   render() {
-    const { prefixCls, children, checked, disabled, className } = this.props;
+    const { prefixCls, children, checked, disabled, className, style } = this.props;
     const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-checked`]: checked,
@@ -17,8 +17,8 @@ const AntRadio = React.createClass({
       [className]: !!className,
     });
     return (
-      <label className={classString}>
-        <Radio {...this.props} children={null} />
+      <label className={classString} style={style}>
+        <Radio {...this.props} style={null} children={null} />
         {children}
       </label>
     );
