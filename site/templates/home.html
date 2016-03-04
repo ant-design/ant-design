@@ -62,7 +62,7 @@
   .banner-text-wrapper {
     position: absolute;
     left: 10%;
-    top: 58%;
+    top: 55%;
     color: #fff;
     text-align: right;
   }
@@ -105,26 +105,40 @@
   }
 
   .banner-text-wrapper > p {
-    margin: 10px auto 30px;
+    margin: 10px auto 24px;
     font-size: 16px;
   }
 
-  .banner-text-wrapper a {
-    float: right;
+  .banner-text-wrapper .start-button {
+    margin-bottom: 24px;
+  }
+
+  .banner-text-wrapper .start-button a {
     width: 155px;
     height: 45px;
     border-radius: 6px;
-    border: 1px solid #00AAEE;
-    color: #00AAEE;
+    border: 1px solid #2db7f5;
+    color: #2db7f5;
     font-size: 18px;
     background: transparent;
     transition: box-shadow .45s ease-out;
     text-align: center;
     line-height: 42px;
+    display: inline-block;
+  }
+
+  .banner-text-wrapper iframe {
+    border: 0;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .banner-text-wrapper iframe:hover {
+    opacity: 1;
   }
 
   .banner-text-wrapper a:hover {
-    box-shadow: 0 0 10px #00AAEE;
+    box-shadow: 0 0 10px #2db7f5;
   }
 
   .banner-text-wrapper a span {
