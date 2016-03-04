@@ -71,6 +71,7 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
+    "antd-md-loader": "0.1.0-beta",
     "atool-build": "^0.5.0",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
@@ -106,8 +107,8 @@
     "lesshint-antd": "^1.2.1",
     "lodash": "^4.1.0",
     "mark-twain": "^0.2.0-beta.4",
-    "nico-jsx": "~0.8.2",
     "mkdirp": "~0.5.1",
+    "nico-jsx": "~0.8.2",
     "postcss-loader": "^0.8.0",
     "pre-commit": "1.x",
     "querystring": "^0.2.0",

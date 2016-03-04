@@ -36,16 +36,16 @@ const demosListChildren = componentDocsList.map((componentDoc) => {
   return <Route path={key} component={ComponentDocWrapper} key={key} />;
 });
 
-const Practice = utils.generateContainer('practice', practice.menuItems);
+const Practice = utils.generateContainer('practice', practice);
 const practiceChildren = utils.generateChildren(practice);
 
-const Pattern = utils.generateContainer('pattern', pattern.menuItems);
+const Pattern = utils.generateContainer('pattern', pattern);
 const patternChildren = utils.generateChildren(pattern);
 
-const Spec = utils.generateContainer('spec', spec.menuItems);
+const Spec = utils.generateContainer('spec', spec);
 const specChildren = utils.generateChildren(spec);
 
-const Resource = utils.generateContainer('resource', resource.menuItems);
+const Resource = utils.generateContainer('resource', resource);
 const resourceChildren = utils.generateChildren(resource);
 
 ReactDOM.render(

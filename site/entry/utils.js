@@ -8,7 +8,28 @@ function dashed(name) {
   return name.toLowerCase().trim().replace(/\s+/g, '-');
 }
 
-export function generateContainer(category, menuItems) {
+function getMenuItems(data) {
+  const menuMeta = Object.keys(data)
+          .map((key) => data[key])
+          .map((file) => file.meta);
+
+  const menuItems = {};
+  menuMeta.sort((a, b) => {
+    return parseInt(a.order, 10) - parseInt(b.order, 10);
+  }).forEach((meta) => {
+    const category = meta.category || 'topLevel';
+    if (!menuItems[category]) {
+      menuItems[category] = [];
+    }
+
+    menuItems[category].push(meta);
+  });
+
+  return menuItems;
+}
+
+export function generateContainer(category, data) {
+  const menuItems = getMenuItems(data);
   return (props) => {
     return (
       <MainContent {...props}
@@ -17,9 +38,16 @@ export function generateContainer(category, menuItems) {
   };
 }
 
-export function generateChildren({ pagesData, menuItems }) {
+function getPagesData(data) {
+  return Object.keys(data)
+    .map((key) => data[key]);
+}
+
+export function generateChildren(data) {
+  const pagesData = getPagesData(data);
+  const menuItems = getMenuItems(data);
   const children = pagesData.map((pageData, index) => {
-    const Wrapper = pageData.demos === null ?
+    const Wrapper = !pageData.meta.hasDemos ?
             () => <Article content={pageData} /> :
           () => <ComponentDoc doc={pageData} demos={pageData.demos} />;
     return (

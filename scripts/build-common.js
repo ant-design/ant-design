@@ -40,18 +40,12 @@ const parse = function parse(fileName) {
 };
 module.exports = function buildCommon(inputDir, outputFile) {
   const mds = utils.findMDFile(inputDir, true);
-  const parsed = sortByOrder(R.map(parse, mds));
 
-  const result = {
-    menuItems: getMenuItems(parsed),
-    pagesData: parsed,
-  };
+  let content = 'module.exports = {';
+  mds.forEach((md) => {
+    content += `\n  '${md}': require('antd-md!../../${md}'),`;
+  });
+  content += '\n};';
 
-  const content = 'const React = require(\'react\');\n' +
-          'const ReactDOM = require(\'react-dom\');\n' +
-          'const _antd = require(\'../../\');\n' +
-          'const BrowserDemo = require(\'../../site/component/BrowserDemo\');\n' +
-          'module.exports = ' +
-          utils.stringify(result, null, 2) + ';';
   fs.writeFile(outputFile, content);
 };

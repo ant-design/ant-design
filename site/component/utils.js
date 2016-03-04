@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import hljs from 'highlight.js';
 import antd, { Menu } from '../../';
 
@@ -14,7 +15,7 @@ export function objectToComponent(object, index) {
   }
 
   if (typeof object === 'function') {
-    return object(React, antd);
+    return object(React, ReactDOM, antd, antd);
   }
 
   if (typeof object === 'string') {
