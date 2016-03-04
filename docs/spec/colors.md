@@ -15,9 +15,9 @@
 Ant Design 的色板由 9 种基本色彩组成，每种基本色又衍生出九宫格色板，在此基础上还可以通过黑白叠加的方式实现色彩明暗的效果。
 
 `````__react
-let Palette = React.createClass({
+const Palette = React.createClass({
   render() {
-    let color = this.props.color;
+    const color = this.props.color;
     return <div className="color-palette">
       <div className="main-color">
         {color.colors.map(function(color) {
@@ -31,9 +31,9 @@ let Palette = React.createClass({
     </div>;
   }
 });
-let ExtendPalettes = React.createClass({
+const ExtendPalettes = React.createClass({
   render() {
-    let colors = [
+    const colors = [
       {
         'title': 'Primary Color',
         'description': '尽管同一种颜色传达的含义会因人而异，受到文化和地域的影响。但颜色还是可以提取出一些共通的特性，例如暖色系的红、橙、黄通常用于象征活力，激情，积极；而冷色系的绿、蓝、紫通常给人感觉是安全、稳定、专业。',
@@ -132,7 +132,7 @@ let ExtendPalettes = React.createClass({
     </div>;
   }
 });
-ReactDOM.render(<ExtendPalettes />, mountNode);
+ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 `````
 
 ## 色彩和交互
@@ -156,11 +156,13 @@ ReactDOM.render(<ExtendPalettes />, mountNode);
 > 正数为变淡 `tint` ，负数为加深 `shade`。
 
 `````__react
-let Button = antd.Button;
-let InputNumber = antd.InputNumber;
-let Slider = antd.Slider;
-let Tooltip = antd.Tooltip;
-let TintShadeTool = React.createClass({
+const Values = require('values.js');
+const CopyToClipboard = require('react-copy-to-clipboard');
+const Button = antd.Button;
+const InputNumber = antd.InputNumber;
+const Slider = antd.Slider;
+const Tooltip = antd.Tooltip;
+const TintShadeTool = React.createClass({
   getInitialState() {
     return {
       result: '#2db7f5',
@@ -190,9 +192,9 @@ let TintShadeTool = React.createClass({
       });
       return;
     }
-    let tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
-    let c = new Values(this.state.color);
-    let resultColor = c[tintOrShade](Math.abs(this.state.value));
+    const tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
+    const c = new Values(this.state.color);
+    const resultColor = c[tintOrShade](Math.abs(this.state.value));
     this.setState({
       result: '#' + resultColor.hex,
       darkBackground: resultColor.getBrightness() < 50
@@ -206,7 +208,7 @@ let TintShadeTool = React.createClass({
     });
   },
   render() {
-    var marks = {
+    const marks = {
       '-100': '加黑',
       '0': '原色',
       '100': '加白'
@@ -230,7 +232,7 @@ let TintShadeTool = React.createClass({
   }
 });
 
-ReactDOM.render(<TintShadeTool />, mountNode);
+ReactDOM.render(<TintShadeTool key="tintShadeTool" />, mountNode);
 `````
 
 Ant Design 专用色彩换算工具，用于解析类似 `#2db7f5 tint 80%` 的色彩标注。

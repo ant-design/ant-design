@@ -1,6 +1,5 @@
 import React from 'react';
 import hljs from 'highlight.js';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import antd, { Menu } from '../../';
 
 function isHeading(type) {
@@ -15,7 +14,7 @@ export function objectToComponent(object, index) {
   }
 
   if (typeof object === 'function') {
-    return object(React, antd, CopyToClipboard);
+    return object(React, antd);
   }
 
   if (typeof object === 'string') {

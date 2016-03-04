@@ -27,7 +27,7 @@ const parse = function parse(fileName) {
   const description = R.map(
     (node) => {
       if (node.type === 'code' && node.props.lang === '__react') {
-        return devil(node.children, ['React', 'antd', 'CopyToClipboard']);
+        return devil(node.children, ['React', 'antd']);
       }
       return node;
     },

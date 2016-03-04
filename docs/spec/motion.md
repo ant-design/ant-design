@@ -9,13 +9,13 @@
 Ant Design 提供了一些预设的组件动画样式。
 
 `````__react
-var cssAnimation = require('css-animation');
-var Select = antd.Select;
-var Option = Select.Option;
-var OptGroup = Select.OptGroup;
+const cssAnimation = require('css-animation');
+const Select = antd.Select;
+const Option = Select.Option;
+const OptGroup = Select.OptGroup;
 
 
-var motions = [];
+let motions = [];
 motions = motions.concat([[{
   name: '淡入',
   value: 'fade',
@@ -166,10 +166,10 @@ motions = motions.concat([[{
   direction: 'enter',
   type: '其他'
 }]]);
-var leave='-leave';
-var Test = React.createClass({
+const leave='-leave';
+const Test = React.createClass({
   handleChange(e) {
-    var value = e;
+    const value = e;
     if(value){
       this.demoNode.style.visibility='';
       cssAnimation(this.demoNode, value, () => {
@@ -185,11 +185,11 @@ var Test = React.createClass({
   },
 
   render() {
-    var options = [<Option value="">请选择预设动画</Option>].concat(motions.map(function (m) {
-      var opts = m.map(function (m2) {
-        return <Option value={m2.value + "-" + m2.direction}>{m2.name + " " + m2.value}</Option>
+    const options = [<Option value="" key="placeholder">请选择预设动画</Option>].concat(motions.map(function (m, groupIndex) {
+      const opts = m.map(function (m2, optIndex) {
+        return <Option key={optIndex} value={m2.value + "-" + m2.direction}>{m2.name + " " + m2.value}</Option>
       });
-      return <OptGroup label={m[0].type}>{opts}</OptGroup>;
+      return <OptGroup key={groupIndex} label={m[0].type}>{opts}</OptGroup>;
     }));
     return <div>
       <div className="motion-container">
@@ -198,12 +198,11 @@ var Test = React.createClass({
       <div className="motion-select-wrapper">
         <Select value="" className='motion-select' onChange={this.handleChange}>{options}</Select>
       </div>
-
     </div>;
   }
 });
 
-ReactDOM.render(<Test/>, mountNode);
+ReactDOM.render(<Test key="motion" />, mountNode);
 `````
 
 ## 组件动画
