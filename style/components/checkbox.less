@@ -46,7 +46,7 @@
     border-width: 1px;
     border-style: solid;
     border-radius: 3px;
-    border-color: #d9d9d9;
+    border-color: @border-color-base;
     background-color: #fff;
     transition: border-color 0.1s @ease-in-out-back, background-color 0.1s @ease-in-out-back;
   }
@@ -122,13 +122,13 @@
 
     &:hover {
       .@{checkbox-inner-prefix-cls} {
-        border-color: #d9d9d9;
+        border-color: @border-color-base;
       }
     }
 
     .@{checkbox-inner-prefix-cls} {
       background-color: #f3f3f3;
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
 
       &:after {
         animation-name: none;
@@ -139,12 +139,12 @@
 
   &:hover {
     .@{checkbox-inner-prefix-cls} {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
     }
   }
 
   .@{checkbox-inner-prefix-cls} {
-    border-color: #d9d9d9;
+    border-color: @border-color-base;
     background-color: #f3f3f3;
     &:after {
       animation-name: none;

@@ -142,23 +142,9 @@ span.@{radio-prefix-cls} + * {
       }
     }
 
-    &:before {
-      transition: all 0.3s ease;
-      position: absolute;
-      width: 1px;
-      height: 100%;
-      left: -1px;
-      background: #d9d9d9;
-      content: '';
-      visibility: hidden;
-    }
-
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
       border-left: 1px solid @border-color-base;
-      &:before {
-        display: none;
-      }
     }
 
     &:last-child {
@@ -186,10 +172,6 @@ span.@{radio-prefix-cls} + * {
       border-color: @primary-color;
       color: @primary-color;
       box-shadow: -1px 0 0 0 @primary-color;
-
-      &:before {
-        display: none;
-      }
 
       &:first-child {
         border-color: @primary-color;
@@ -220,9 +202,6 @@ span.@{radio-prefix-cls} + * {
         border-color: @border-color-base;
         background-color: #f4f4f4;
         color: #ccc;
-        &:before {
-          display: none;
-        }
       }
       &:first-child {
         border-left-color: @border-color-base;
