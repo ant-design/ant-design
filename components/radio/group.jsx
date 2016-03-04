@@ -1,11 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
+import Radio from './radio';
+import RadioButton from './radioButton';
 
 function getCheckedValue(children) {
   let value = null;
   let matched = false;
   React.Children.forEach(children, (radio) => {
-    if (radio.props && radio.props.checked) {
+    if (radio && radio.props && radio.props.checked) {
       value = radio.props.value;
       matched = true;
     }
@@ -62,7 +64,7 @@ export default React.createClass({
   render() {
     const props = this.props;
     const children = React.Children.map(props.children, (radio) => {
-      if (radio.props) {
+      if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
         const keyProps = {};
         if (!('key' in radio) && typeof radio.props.value === 'string') {
           keyProps.key = radio.props.value;
