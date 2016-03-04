@@ -49,7 +49,7 @@ export function generateChildren(data) {
   const children = pagesData.map((pageData, index) => {
     const Wrapper = !pageData.meta.hasDemos ?
             () => <Article content={pageData} /> :
-          () => <ComponentDoc doc={pageData} demos={pageData.demos} />;
+          () => <ComponentDoc doc={pageData} />;
     return (
       <Route key={index}
         path={dashed(pageData.meta.english)}

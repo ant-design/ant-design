@@ -5,7 +5,7 @@ const Option = Select.Option;
 
 import './index.less';
 
-import componentsList from '../../../_site/data/components-list';
+import componentsList from '../../../_site/data/react-components';
 export default class Header extends React.Component {
   handleSearch(value) {
     console.log(value);
@@ -16,18 +16,18 @@ export default class Header extends React.Component {
     const activeMenuItem = routes[1].path || 'home';
 
     const options = [];
-    for (let key of Object.keys(componentsList)) {
-      componentsList[key].forEach((item) => {
-        const url = `/components/${item.english.toLowerCase()}`;
+    Object.keys(componentsList).map((key) => {
+      return componentsList[key];
+    }).forEach(({ meta }) => {
+      const url = `/components/${meta.english.toLowerCase()}`;
 
-        options.push(
-          <Option value={url} key={key}>
-            <strong>{item.english}</strong>
-            <span className="ant-component-decs">{item.chinese}</span>
-          </Option>
-        );
-      });
-    }
+      options.push(
+        <Option value={url} key={url}>
+          <strong>{meta.english}</strong>
+          <span className="ant-component-decs">{meta.chinese}</span>
+        </Option>
+      );
+    });
 
     return (
       <header id="header" className="clearfix">

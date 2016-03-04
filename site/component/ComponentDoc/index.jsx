@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Row, Col, Icon } from '../../../';
 import Demo from '../Demo';
 import * as utils from '../utils';
+import demosList from '../../../_site/data/demos-list';
 
 export default class ComponentDoc extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ export default class ComponentDoc extends React.Component {
   }
 
   render() {
-    const { demos = [], doc } = this.props;
+    const { doc } = this.props;
+    const demos = demosList[doc.meta.fileName] || [];
     const expand = this.state.expandAll;
     const isSingleCol = doc.meta.cols === '1';
 

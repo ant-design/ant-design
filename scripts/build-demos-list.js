@@ -21,12 +21,13 @@ const parseDemosList = function parseDemosList(demoList) {
 
     const demo = {};
     demo.order = parseInt(utils.parseMeta(data).order);
-    demo.parent = parts[parts.indexOf('components') + 1];
+    const demoIndex = parts.indexOf('demo');
+    demo.parent = parts.slice(0, demoIndex).join('/') + '/index.md';
     demo.id = 'components-' + demo.parent + '-demo-' + path.basename(fileName, '.md');
     demo.title = data[0].children;
     demo.intro = data.filter(isIntro);
     demo.code = getChildren(data.find(isCode));
-    demo.preview = devil(demo.code);
+    demo.preview = devil(demo.code, ['React', 'ReactDOM', '_antd', 'BrowserDemo']);
     demo.style = getChildren(data.find(isStyle));
 
     return demo;
@@ -39,11 +40,7 @@ const parseDemosList = function parseDemosList(demoList) {
 
 module.exports = function buildDemosList(demoList, outputPath) {
   const parsedDemosList = parseDemosList(demoList);
-  const content = 'const React = require(\'react\');\n' +
-          'const ReactDOM = require(\'react-dom\');\n' +
-          'const _antd = require(\'../../\');\n' +
-          'module.exports = ' +
-          utils.stringify(parsedDemosList, null, 2) + ';';
+  const content = 'module.exports = ' + utils.stringify(parsedDemosList) + ';';
 
   fs.writeFile(outputPath, content);
 };

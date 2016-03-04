@@ -1,5 +1,7 @@
 import React from 'react';
-import { Collapse } from '../../../';
+import ReactDOM from 'react-dom';
+import antd, { Collapse } from '../../../';
+import BrowserDemo from '../BrowserDemo';
 import * as utils from '../utils';
 import hljs from 'highlight.js';
 
@@ -26,7 +28,7 @@ export default class Demo extends React.Component {
     return (
       <section className="code-box" id={id}>
         <section className="code-box-demo">
-          { preview() }
+        { preview(React, ReactDOM, antd, BrowserDemo) }
           {
             !!style ?
               <style dangerouslySetInnerHTML={{ __html: style }} /> :

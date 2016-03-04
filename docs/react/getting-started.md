@@ -1,6 +1,5 @@
 # 快速上手
 
-- category: 1
 - order: 1
 
 ---

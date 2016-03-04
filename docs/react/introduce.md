@@ -1,6 +1,5 @@
 # Ant Design of React
 
-- category: 0
 - order: 0
 
 ---

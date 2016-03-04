@@ -5,29 +5,35 @@ const path = require('path');
 const R = require('ramda');
 
 const isMDFile = R.compose(R.equals('.md'), path.extname);
-exports.findMDFile = function findMDFile(dirPath, shallow) {
+exports.findMDFile = function findMDFile(fileName, shallow) {
+  const filePaths = Array.isArray(fileName) ? fileName : [fileName];
   let mds = [];
 
-  R.forEach((fileName) => {
-    const filePath = path.join(dirPath, fileName);
+  R.forEach((filePath) => {
     const stat = fs.statSync(filePath);
     if (stat.isFile() && isMDFile(filePath)) {
       mds.push(filePath);
     }
     if (stat.isDirectory()) {
       const indexFile = path.join(filePath, 'index.md');
-      if (shallow && fs.statSync(indexFile).isFile()) {
+      let hasIndexFile = false;
+      try {
+        hasIndexFile = fs.statSync(indexFile).isFile();
+      } catch (e) {}
+
+      if (shallow && hasIndexFile) {
         mds.push(indexFile);
       } else {
-        mds = mds.concat(findMDFile(filePath));
+        const subFiles = fs.readdirSync(filePath)
+                .map((subFile) => path.join(filePath, subFile));
+        mds = mds.concat(findMDFile(subFiles, shallow));
       }
     }
-  }, fs.readdirSync(dirPath));
+  }, filePaths);
 
   return mds;
 };
 exports.isIndex = R.compose(R.equals('index.md'), R.unary(path.basename));
-exports.isDemo = R.complement(exports.isIndex);
 
 const MT = require('mark-twain');
 exports.parseFileContent = R.pipe(
