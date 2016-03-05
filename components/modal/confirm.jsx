@@ -5,8 +5,24 @@ import Icon from '../icon';
 import Button from '../button';
 import objectAssign from 'object-assign';
 
-export default function (config) {
-  const props = objectAssign({}, config || {});
+const defaultLocale = {
+  okText: '确定',
+  cancelText: '取消',
+  justOkText: '知道了',
+};
+
+let runtimeLocale = { ...defaultLocale };
+
+export function changeConfirmLocale(newLocale) {
+  if (newLocale) {
+    objectAssign(runtimeLocale, newLocale);
+  } else {
+    runtimeLocale = defaultLocale;
+  }
+}
+
+export default function confirm(config) {
+  const props = objectAssign({}, config);
   let div = document.createElement('div');
   document.body.appendChild(div);
 
@@ -22,12 +38,13 @@ export default function (config) {
     props.okCancel = true;
   }
 
-  props.okText = props.okText || (props.okCancel ? '确定' : '知道了');
-  props.cancelText = props.cancelText || '取消';
+  props.okText = props.okText ||
+    (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
+  props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
   function close() {
     d.setState({
-      visible: false
+      visible: false,
     });
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);

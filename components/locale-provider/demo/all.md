@@ -37,6 +37,18 @@ const Page = React.createClass({
     this.setState({ visible: false });
   },
   render() {
+    const info = () => {
+      Modal.info({
+        title: 'some info',
+        content: 'some info',
+      });
+    };
+    const confirm = () => {
+      Modal.confirm({
+        title: 'some info',
+        content: 'some info',
+      });
+    };
     return (
       <div>
         <Pagination defaultCurrent={1} total={50} showSizeChanger />
@@ -50,6 +62,8 @@ const Page = React.createClass({
         <Modal title="Locale Modal" visible={this.state.visible} onCancel={this.hideModal}>
           <p>Locale Modal</p>
         </Modal>
+        <Button onClick={info}>Show info</Button>
+        <Button onClick={confirm}>Show confirm</Button>
       </div>
     );
   }

@@ -11,6 +11,7 @@ module.exports = {
   Modal: {
     okText: 'OK',
     cancelText: 'Cancel',
+    justOkText: 'OK',
   },
   Popconfirm: {
     okText: 'OK',
