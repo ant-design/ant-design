@@ -70,6 +70,9 @@ const columns = [{
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位    | Number   |          | 15      |
 | onRowClick    | 处理行点击事件              | Function(record, index)   |              |     无     |
 | useFixedHeader  | 是否固定表头             | Boolean          |                   | false      |
+| bordered  | 是否展示外边框和列边框       | Boolean          |                   | false      |
+| showHeader  | 是否显示表头             | Boolean          |                   | true      |
+| footer  | 表格底部自定义渲染函数         | Function(currentPageData)   |        |       |
 
 ### Column
 
