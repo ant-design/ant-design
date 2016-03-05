@@ -28,7 +28,7 @@ const AntTimePicker = React.createClass({
   },
 
   contextTypes: {
-    locale: React.PropTypes.object,
+    antLocale: React.PropTypes.object,
   },
 
   getFormatter() {
@@ -73,8 +73,8 @@ const AntTimePicker = React.createClass({
 
   getLocale() {
     let locale = defaultLocale;
-    if (this.context.locale && this.context.locale.TimePicker) {
-      locale = this.context.locale.TimePicker;
+    if (this.context.antLocale && this.context.antLocale.TimePicker) {
+      locale = this.context.antLocale.TimePicker;
     }
     // 统一合并为完整的 Locale
     return objectAssign({}, locale, this.props.locale);

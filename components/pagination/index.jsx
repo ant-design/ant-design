@@ -17,8 +17,8 @@ class AntPagination extends React.Component {
     let selectComponentClass = Select;
 
     let locale;
-    if (this.context.locale && this.context.locale.Pagination) {
-      locale = this.context.locale.Pagination;
+    if (this.context.antLocale && this.context.antLocale.Pagination) {
+      locale = this.context.antLocale.Pagination;
     } else {
       locale = this.props.locale;
     }
@@ -45,7 +45,7 @@ AntPagination.defaultProps = {
 };
 
 AntPagination.contextTypes = {
-  locale: React.PropTypes.object,
+  antLocale: React.PropTypes.object,
 };
 
 export default AntPagination;

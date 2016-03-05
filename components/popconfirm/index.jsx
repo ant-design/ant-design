@@ -38,7 +38,7 @@ export default React.createClass({
     };
   },
   contextTypes: {
-    locale: React.PropTypes.object,
+    antLocale: React.PropTypes.object,
   },
   componentWillReceiveProps(nextProps) {
     if ('visible' in nextProps) {
@@ -65,9 +65,9 @@ export default React.createClass({
   render() {
     const { title, placement, overlayStyle, trigger, ...restProps } = this.props;
     let { okText, cancelText } = this.props;
-    if (this.context.locale && this.context.locale.Popconfirm) {
-      okText = okText || this.context.locale.Popconfirm.okText;
-      cancelText = cancelText || this.context.locale.Popconfirm.cancelText;
+    if (this.context.antLocale && this.context.antLocale.Popconfirm) {
+      okText = okText || this.context.antLocale.Popconfirm.okText;
+      cancelText = cancelText || this.context.antLocale.Popconfirm.cancelText;
     }
     const overlay = (
       <div>

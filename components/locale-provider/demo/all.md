@@ -7,7 +7,8 @@
 ---
 
 ````jsx
-import { LocaleProvider, Pagination, DatePicker, TimePicker, Popconfirm, Table, Modal, Button, Select } from 'antd';
+import { LocaleProvider, Pagination, DatePicker, TimePicker,
+         Popconfirm, Table, Modal, Button, Select } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 const Option = Select.Option;
 
@@ -68,7 +69,7 @@ const App = React.createClass({
       <div>
         <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
         <div>
-          <Select defaultValue={enUS} onChange={this.changeLocale}>
+          <Select defaultValue={enUS} onChange={this.changeLocale} dropdownMatchSelectWidth={false}>
             <Option value={enUS}>English</Option>
             <Option value={null}>中文</Option>
           </Select>

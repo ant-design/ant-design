@@ -75,7 +75,7 @@ let AntTable = React.createClass({
   },
 
   contextTypes: {
-    locale: React.PropTypes.object,
+    antLocale: React.PropTypes.object,
   },
 
   getDefaultSelection() {
@@ -89,8 +89,8 @@ let AntTable = React.createClass({
 
   getLocale() {
     let locale = {};
-    if (this.context.locale && this.context.locale.Table) {
-      locale = this.context.locale.Table;
+    if (this.context.antLocale && this.context.antLocale.Table) {
+      locale = this.context.antLocale.Table;
     }
     return objectAssign({}, defaultLocale, locale, this.props.locale);
   },

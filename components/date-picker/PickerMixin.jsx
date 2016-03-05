@@ -6,13 +6,13 @@ import GregorianCalendar from 'gregorian-calendar';
 
 export default {
   contextTypes: {
-    locale: React.PropTypes.object,
+    antLocale: React.PropTypes.object,
   },
 
   getLocale() {
     let locale = defaultLocale;
-    if (this.context.locale && this.context.locale.DatePicker) {
-      locale = this.context.locale.DatePicker;
+    if (this.context.antLocale && this.context.antLocale.DatePicker) {
+      locale = this.context.antLocale.DatePicker;
     }
     // 统一合并为完整的 Locale
     const result = objectAssign({}, locale, this.props.locale);

@@ -3,16 +3,16 @@ import React from 'react';
 export default class LocaleProvider extends React.Component {
   getChildContext() {
     return {
-      locale: this.props.locale,
+      antLocale: this.props.locale,
     };
   }
   render() {
-    return React.cloneElement(this.props.children);
+    return React.Children.only(this.props.children);
   }
 }
 
 LocaleProvider.childContextTypes = {
-  locale: React.PropTypes.object,
+  antLocale: React.PropTypes.object,
 };
 
 LocaleProvider.propTypes = {

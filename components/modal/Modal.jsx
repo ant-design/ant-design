@@ -23,7 +23,7 @@ let AntModal = React.createClass({
   },
 
   contextTypes: {
-    locale: React.PropTypes.object,
+    antLocale: React.PropTypes.object,
   },
 
   handleCancel(e) {
@@ -56,9 +56,9 @@ let AntModal = React.createClass({
     let props = this.props;
 
     let { okText, cancelText } = props;
-    if (this.context.locale && this.context.locale.Modal) {
-      okText = okText || this.context.locale.Modal.okText;
-      cancelText = cancelText || this.context.locale.Modal.cancelText;
+    if (this.context.antLocale && this.context.antLocale.Modal) {
+      okText = okText || this.context.antLocale.Modal.okText;
+      cancelText = cancelText || this.context.antLocale.Modal.cancelText;
     }
 
     let defaultFooter = [
