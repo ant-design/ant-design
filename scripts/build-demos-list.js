@@ -39,8 +39,22 @@ const parseDemosList = function parseDemosList(demoList) {
 };
 
 module.exports = function buildDemosList(demoList, outputPath) {
-  const parsedDemosList = parseDemosList(demoList);
-  const content = 'module.exports = ' + utils.stringify(parsedDemosList) + ';';
+  const groupedDemos = R.groupBy((fileName) => {
+    const parts = fileName.split(path.sep);
+    const demoIndex = parts.indexOf('demo');
+    const relativeIndex = path.join(parts.slice(0, demoIndex).join(path.sep), 'index.md');
+    return relativeIndex;
+  }, demoList);
+
+  let content = 'module.exports = {';
+  Object.keys(groupedDemos).forEach((key) => {
+    content += `\n  '${key}': [`;
+    groupedDemos[key].forEach((fileName) => {
+      content += `\n    require('antd-md?demo!../../${fileName}'),`;
+    });
+    content += '\n  ],'
+  });
+  content += '\n};';
 
   fs.writeFile(outputPath, content);
 };
