@@ -39,6 +39,17 @@
     color: #eee;
   }
 
+  @media only screen and (min-width: 320px) and (max-width: 767px) {
+    header .nav ul li a {
+      color: #666;
+    }
+  }
+
+  .nav-phone-icon:before {
+    background: #eee;
+    box-shadow: 0 7px 0 0 #eee, 0 14px 0 0 #eee;
+  }
+
   .nav ul li a {
     transition: color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   }
@@ -74,6 +85,10 @@
 
   .home-nav-bottom .search {
     border-left-color: #EBEDEE;
+  }
+
+  .home-nav-bottom .nav {
+    background: #fff;
   }
 
   .home-nav-bottom .nav a {
