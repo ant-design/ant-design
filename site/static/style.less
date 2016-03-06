@@ -1453,9 +1453,12 @@ a.entry-link:hover .anticon-smile {
     display: none;
   }
 
-  .logo {
-    margin: 10px;
-    height: auto;
+  a.logo {
+    width: 144px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    display: block;
   }
 
   .banner-entry {
@@ -1469,24 +1472,25 @@ a.entry-link:hover .anticon-smile {
     position: fixed;
     z-index: 1000;
     top: 0;
-    right: 0;
+    left: 0;
     background: #fff;
-    overflow: hidden;
     line-height: 60px;
     margin-right: 0;
-    width: 44%;
+    width: 50%;
     height: 100%;
-    box-shadow: -10px 0 12px rgba(0,0,0,0.1);
+    box-shadow: 10px 0 12px rgba(0,0,0,0.1);
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(-100%);
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .nav.nav-show {
-    animation: moveRight .2s ease-in forwards;
+    animation: moveLeft .2s ease-in forwards;
   }
 
   .nav.nav-hide {
-    animation: moveRightOut .2s ease-in forwards;
+    animation: moveLeftOut .2s ease-in forwards;
   }
 
   .nav .bar {
@@ -1506,8 +1510,8 @@ a.entry-link:hover .anticon-smile {
     width: 18px;
     height: 50px;
     position: absolute;
-    right: 30px;
-    top: 30px;
+    left: 30px;
+    top: 32px;
     cursor: pointer;
   }
 
@@ -1566,9 +1570,9 @@ a.entry-link:hover .anticon-smile {
   }
 }
 
-@keyframes moveRight {
+@keyframes moveLeft {
   0% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
     opacity: 0;
   }
   100% {
@@ -1577,13 +1581,13 @@ a.entry-link:hover .anticon-smile {
   }
 }
 
-@keyframes moveRightOut {
+@keyframes moveLeftOut {
   0% {
     transform: translateX(0px);
     opacity: 1;
   }
   100% {
-    transform: translateX(100%);
+    transform: translateX(-100%);
     opacity: 0;
   }
 }
