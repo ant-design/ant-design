@@ -940,6 +940,7 @@ footer ul li > a {
   transition: all 0.3s ease;
   color: #999;
   background: #fff;
+  user-select: none;
 }
 
 .code-box.expand .collapse {
@@ -1507,7 +1508,7 @@ a.entry-link:hover .anticon-smile {
 
   .nav-phone-icon {
     display: block;
-    width: 18px;
+    width: 16px;
     height: 50px;
     position: absolute;
     left: 30px;
@@ -1518,11 +1519,11 @@ a.entry-link:hover .anticon-smile {
   .nav-phone-icon:before {
     content: "";
     display: block;
-    border-radius: 1px;
-    width: 18px;
+    border-radius: 2px;
+    width: 16px;
     height: 2px;
-    background: #666;
-    box-shadow: 0 7px 0 0 #666, 0 14px 0 0 #666;
+    background: #777;
+    box-shadow: 0 6px 0 0 #777, 0 12px 0 0 #777;
     position: absolute;
   }
 
@@ -1540,10 +1541,9 @@ a.entry-link:hover .anticon-smile {
 
   .main-container {
     margin-left: 0;
-  }
-
-  .markdown > * {
-    width: 100%!important;
+    > .markdown > * {
+      width: 100%!important;
+    }
   }
 
   .main-wrapper {
