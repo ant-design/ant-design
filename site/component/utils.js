@@ -7,6 +7,12 @@ function isHeading(type) {
   return /h[1-6]/i.test(type);
 }
 
+function mdLangToHljsLang(lang) {
+  return lang.toLowerCase() === 'jsx' ?
+    'javascript' :
+    lang;
+}
+
 export function objectToComponent(object, index) {
   if (object === null) return;
 
@@ -26,21 +32,10 @@ export function objectToComponent(object, index) {
 
   if (object.type === 'html') {
     return React.createElement('div', {
+      className: 'markdown',
       key: index,
       dangerouslySetInnerHTML: { __html: children }
     });
-  }
-
-  if (object.type === 'code') {
-    const highlightedCode = hljs.highlight('javascript', children).value;
-    return (
-      <div className="highlight" key={index}>
-        <pre>
-          <code className={object.props.lang}
-            dangerouslySetInnerHTML={{ __html: highlightedCode }} />
-        </pre>
-      </div>
-    );
   }
 
   if (isHeading(object.type)) {
@@ -52,12 +47,28 @@ export function objectToComponent(object, index) {
     ]);
   }
 
+  if (object.type === 'code') {
+    const highlightedCode = hljs.highlight(
+      mdLangToHljsLang(object.props.lang),
+      children
+    ).value;
+    return (
+      <div className="highlight" key={index}>
+        <pre>
+          <code className={object.props.lang}
+            dangerouslySetInnerHTML={{ __html: highlightedCode }} />
+        </pre>
+      </div>
+    );
+  }
+
   if (typeof children === 'string') {
     return React.createElement(object.type, {
       key: index,
       dangerouslySetInnerHTML: { __html: children }
     });
   }
+
   return React.createElement(
     object.type, { key: index },
     children && children.map(objectToComponent) // `hr` has no children

@@ -74,9 +74,6 @@ AntV 将数据图形小组近几年在探索数据可视化过程中取得的成
 .toc {
   display: none;
 }
-.outside-link.internal {
-  display: none;
-}
 </style>
 
 <script>

@@ -19,10 +19,15 @@ function getMenuItems(data) {
   }).forEach((meta) => {
     const category = meta.category || 'topLevel';
     if (!menuItems[category]) {
-      menuItems[category] = [];
+      menuItems[category] = {};
     }
 
-    menuItems[category].push(meta);
+    const type = meta.type || 'topLevel';
+    if (!menuItems[category][type]) {
+      menuItems[category][type] = [];
+    }
+
+    menuItems[category][type].push(meta);
   });
 
   return menuItems;
@@ -56,7 +61,7 @@ export function generateChildren(data) {
         component={Wrapper} />
     );
   });
-  const firstChild = menuItems.topLevel.find((item) => {
+  const firstChild = menuItems.topLevel.topLevel.find((item) => {
     return item.disabled !== 'true';
   });
   children.unshift(

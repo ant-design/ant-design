@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Menu } from '../../../';
+import config from '../../website.config';
 const SubMenu = Menu.SubMenu;
 
 function dashed(name) {
@@ -39,13 +40,38 @@ export default class MainContent extends React.Component {
     );
   }
 
+  isNotTopLevel(level) {
+    return level !== 'topLevel';
+  }
+
+  generateSubMenuItems(obj) {
+    const topLevel = (obj.topLevel || []).map(this.generateMenuItem);
+    const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
+            .sort((a, b) => {
+              return config.typeOrder[a] - config.typeOrder[b];
+            })
+            .map((type, index) => {
+              const groupItems = obj[type].map(this.generateMenuItem);
+
+              return (
+                <Menu.ItemGroup title={type} key={index}>
+                  { groupItems }
+                </Menu.ItemGroup>
+              );
+            });
+    return [...topLevel, ...itemGroups];
+  }
+
   getMenuItems() {
     const props = this.props;
     const menuItems = props.menuItems;
-    const topLevel = menuItems.topLevel.map(this.generateMenuItem);
-    const subMenu = Object.keys(menuItems).filter((category) => category !== 'topLevel')
+    const topLevel = this.generateSubMenuItems(menuItems.topLevel);
+    const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
+            .sort((a, b) => {
+              return config.categoryOrder[a] - config.categoryOrder[b];
+            })
             .map((category) => {
-              const subMenuItems = menuItems[category].map(this.generateMenuItem);
+              const subMenuItems = this.generateSubMenuItems(menuItems[category]);
 
               return (
                 <SubMenu title={<h4>{category}</h4>} key={category}>
