@@ -8,7 +8,6 @@ function isBad(className) {
   return /\bbad\b/i.test(className);
 }
 
-const parser = new DOMParser();
 export default class ImagePreview extends React.Component {
   constructor(props) {
     super(props);
@@ -33,8 +32,10 @@ export default class ImagePreview extends React.Component {
   render() {
     const { className, imgs } = this.props;
     const imgsMeta = imgs.map((img) => {
-      const xml = parser.parseFromString(img, 'application/xml');
-      const attributes = xml.firstChild.attributes;
+      const span = document.createElement('span');
+      span.innerHTML = img;
+      const imgNode = span.children[0];
+      const attributes = imgNode.attributes;
       const { alt, description, src } = attributes;
       const imgClassName = attributes.class.nodeValue;
       return {
