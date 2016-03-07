@@ -50,7 +50,7 @@ module.exports = function buildDemosList(demoList, outputPath) {
   Object.keys(groupedDemos).forEach((key) => {
     content += `\n  '${key}': [`;
     groupedDemos[key].forEach((fileName) => {
-      content += `\n    require('antd-md?demo!../../${fileName}'),`;
+      content += `\n    require('antd-md?demo&fileName=${fileName}!../../${fileName}'),`;
     });
     content += '\n  ],'
   });

@@ -3,26 +3,32 @@ import classNames from 'classnames';
 import ImagePreview from './ImagePreview';
 import * as utils from '../utils';
 
-function isPreviewImg(string) {
-  return /^<img\s/i.test(string) && /preview-img/gi.test(string);
-}
+export default class Article extends React.Component {
+  constructor(props) {
+    super(props);
 
-function imgToPreview(node) {
-  if (!isPreviewImg(node.children)) {
-    return node;
+    this.imgToPreview = this.imgToPreview.bind(this);
+  }
+  
+  isPreviewImg(string) {
+    return /^<img\s/i.test(string) && /preview-img/gi.test(string);
   }
 
-  const imgs = node.children.split(/\r|\n/);
-  const hasPopup = imgs.length > 1;
-  const previewClassName = classNames({
-    'preview-image-boxes': true,
-    clearfix: true,
-    'preview-image-boxes-with-popup': hasPopup,
-  });
-  return <ImagePreview className={previewClassName} imgs={imgs} />;
-}
+  imgToPreview(node) {
+    if (!this.isPreviewImg(node.children)) {
+      return node;
+    }
 
-export default class Article extends React.Component {
+    const imgs = node.children.split(/\r|\n/);
+    const hasPopup = imgs.length > 1;
+    const previewClassName = classNames({
+      'preview-image-boxes': true,
+      clearfix: true,
+      'preview-image-boxes-with-popup': hasPopup,
+    });
+    return <ImagePreview className={previewClassName} imgs={imgs} />;
+  }
+
   render() {
     const content = this.props.content;
     const jumper = content.description.filter((node) => {
@@ -31,7 +37,7 @@ export default class Article extends React.Component {
       return <li key={node.children}><a href={`#${node.children}`}>{ node.children }</a></li>;
     });
 
-    content.description = content.description.map(imgToPreview);
+    content.description = content.description.map(this.imgToPreview);
 
     return (
       <article className="markdown">

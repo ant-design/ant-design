@@ -22,19 +22,21 @@ export default class ComponentDoc extends React.Component {
 
   render() {
     const { doc } = this.props;
-    const demos = demosList[doc.meta.fileName] || [];
+    const { description, meta } = doc;
+    const demos = demosList[meta.fileName] || [];
     const expand = this.state.expandAll;
-    const isSingleCol = doc.meta.cols === '1';
 
+    const parentId = meta.fileName.split('/').slice(0, 2).join('-');
+    const isSingleCol = meta.cols === '1';
     const leftChildren = [];
     const rightChildren = [];
     demos.sort((a, b) => {
       return a.order - b.order;
     }).forEach((demoData, index) => {
       if (index % 2 === 0 || isSingleCol) {
-        leftChildren.push(<Demo {...demoData} expand={expand} key={index} />);
+        leftChildren.push(<Demo {...demoData} expand={expand} key={index} parentId={parentId} />);
       } else {
-        rightChildren.push(<Demo {...demoData} expand={expand} key={index} />);
+        rightChildren.push(<Demo {...demoData} expand={expand} key={index} parentId={parentId} />);
       }
     });
     const expandTriggerClass = classNames({
@@ -42,11 +44,22 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
+    const jumper = demos.map((demo) => {
+      return (
+        <li key={demo.id}>
+          <a href={`#${parentId}-${demo.id}`}>{ demo.title }</a>
+        </li>
+      );
+    });
+
     return (
       <article>
+        <ul className="toc demos-anchor">
+          { jumper }
+        </ul>
         <section className="markdown">
-          <h1>{doc.meta.chinese || doc.meta.english}</h1>
-          { doc.description.map(utils.objectToComponent) }
+          <h1>{meta.chinese || meta.english}</h1>
+          { description.map(utils.objectToComponent) }
           <h2>
             代码演示
             <Icon type="appstore" className={expandTriggerClass}

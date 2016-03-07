@@ -22,11 +22,13 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, preview, title, intro, code, style, expand } = this.props;
+    const { id, parentId, preview, title, intro, code, style, expand } = this.props;
+    const demoId = `${parentId}-${id}`;
     const introChildren = intro.map(utils.objectToComponent);
     const highlightedCode = hljs.highlight('javascript', code).value;
+
     return (
-      <section className="code-box" id={id}>
+      <section className="code-box" id={demoId}>
         <section className="code-box-demo">
         { preview(React, ReactDOM, antd, BrowserDemo) }
           {
@@ -37,7 +39,7 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <a>{ title }</a>
+          <a href={`#${demoId}`}>{ title }</a>
           </div>
           <Collapse activeKey={expand ? 'code' : this.state.activeKey}
             onChange={this.handleChange.bind(this)}>
