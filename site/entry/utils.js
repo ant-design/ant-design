@@ -3,6 +3,7 @@ import { Route, IndexRedirect } from 'react-router';
 import MainContent from '../component/MainContent';
 import Article from '../component/Article';
 import ComponentDoc from '../component/ComponentDoc';
+import demosList from '../../_site/data/demos-list';
 
 function dashed(name) {
   return name.toLowerCase().trim().replace(/\s+/g, '-');
@@ -52,7 +53,8 @@ export function generateChildren(data) {
   const pagesData = getPagesData(data);
   const menuItems = getMenuItems(data);
   const children = pagesData.map((pageData, index) => {
-    const Wrapper = !pageData.meta.hasDemos ?
+    const hasDemos = demosList[pageData.meta.fileName];
+    const Wrapper = !hasDemos ?
             () => <Article content={pageData} /> :
           () => <ComponentDoc doc={pageData} />;
     return (
