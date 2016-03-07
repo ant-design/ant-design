@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Menu } from '../../../';
-import * as utils from '../utils';
 const SubMenu = Menu.SubMenu;
 
 function dashed(name) {
@@ -13,6 +12,11 @@ export default class MainContent extends React.Component {
     super(props);
 
     this.generateMenuItem = this.generateMenuItem.bind(this);
+  }
+
+  getActiveMenuItem(props, index) {
+    const routes = props.routes;
+    return routes[routes.length - 1].path || index;
   }
 
   generateMenuItem(item) {
@@ -29,7 +33,7 @@ export default class MainContent extends React.Component {
             </a>;
 
     return (
-        <Menu.Item key={key} disabled={disabled}>
+      <Menu.Item key={key} disabled={disabled}>
         { child }
       </Menu.Item>
     );
@@ -53,10 +57,34 @@ export default class MainContent extends React.Component {
     return [...topLevel, ...subMenu];
   }
 
+  flattenMenu(menu) {
+    if (menu.type === Menu.Item) {
+      return menu;
+    }
+
+    if (Array.isArray(menu)) {
+      return menu.reduce((acc, item) => {
+        return acc.concat(this.flattenMenu(item));
+      }, []);
+    }
+
+    return this.flattenMenu(menu.props.children);
+  }
+
+  getFooterNav(menuItems, activeMenuItem) {
+    const menuItemsList = this.flattenMenu(menuItems);
+    const activeMenuItemIndex = menuItemsList.findIndex((menuItem) => {
+      return menuItem.key === activeMenuItem;
+    });
+    const prev = menuItemsList[activeMenuItemIndex - 1];
+    const next = menuItemsList[activeMenuItemIndex + 1];
+    return { prev, next };
+  }
+
   render() {
-    const activeMenuItem = utils.getActiveMenuItem(this.props);
+    const activeMenuItem = this.getActiveMenuItem(this.props);
     const menuItems = this.getMenuItems();
-    const { prev, next } = utils.getFooterNav(menuItems, activeMenuItem);
+    const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
     return (
       <Row className="main-wrapper">
