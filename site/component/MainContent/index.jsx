@@ -113,22 +113,37 @@ export default class MainContent extends React.Component {
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
     return (
-      <Row className="main-wrapper">
-        <Col span="4">
-          <Menu className="sidebar" mode="inline"
-            defaultOpenKeys={Object.keys(this.props.menuItems)}
-            selectedKeys={[activeMenuItem]}>
-            { menuItems }
-          </Menu>
-        </Col>
-        <Col span="20" className="main-container">
-          { this.props.children }
-          <section className="prev-next-nav">
-            { !!prev ? React.cloneElement(prev.props.children, { className: 'prev-page' }) : null }
-            { !!next ? React.cloneElement(next.props.children, { className: 'next-page' }) : null }
-          </section>
-        </Col>
-      </Row>
+      <div className="main-wrapper">
+        <Row>
+          <Col span="4">
+            <Menu className="sidebar" mode="inline"
+                  defaultOpenKeys={Object.keys(this.props.menuItems)}
+              selectedKeys={[activeMenuItem]}>
+              { menuItems }
+            </Menu>
+          </Col>
+          <Col span="20" className="main-container">
+            { this.props.children }
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span="20" offset="4">
+            <section className="prev-next-nav">
+              {
+                !!prev ?
+                  React.cloneElement(prev.props.children, { className: 'prev-page' }) :
+                  null
+              }
+              {
+                !!next ?
+                  React.cloneElement(next.props.children, { className: 'next-page' }) :
+                  null
+              }
+            </section>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }
