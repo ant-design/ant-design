@@ -2,7 +2,7 @@
 
 - order: 2
 
-此处列出 Ant Design 中需要国际化支持的组件。
+此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。
 
 ---
 
@@ -96,7 +96,7 @@ const App = React.createClass({
     return (
       <div>
         <div className="change-locale">
-          <span>Change Locale: </span>
+          <span>Change locale of components: </span>
           <Select defaultValue={enUS} onChange={this.changeLocale} dropdownMatchSelectWidth={false}>
             <Option value={enUS}>English</Option>
             <Option value={null}>中文</Option>
