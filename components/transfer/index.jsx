@@ -222,6 +222,7 @@ Transfer.defaultProps = {
   operations: [],
   showSearch: false,
   searchPlaceholder: '请输入搜索内容',
+  notFoundContent: '请输入搜索内容',
   body: noop,
   footer: noop,
 };

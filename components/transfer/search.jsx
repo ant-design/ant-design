@@ -31,7 +31,7 @@ class Search extends Component {
 }
 
 Search.defaultProps = {
-  placeholder: '请输入搜索内容',
+  placeholder: '',
   onChange: noop,
   handleClear: noop,
 };
