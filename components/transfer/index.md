@@ -28,4 +28,5 @@
 | operations | 操作文案集合,顺序从上至下 | Array | [] |
 | showSearch | 是否显示搜索框 | Boolean | false |
 | searchPlaceholder | 搜索框的默认值 | String | 请输入搜索的内容  |
+| notFoundContent | 当列表为空时显示的内容 | React.node | 'Not Found'  |
 | footer | 底部渲染函数 | Function(props) |  |  |

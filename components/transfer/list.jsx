@@ -69,7 +69,7 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys,
+    const { prefixCls, dataSource, titleText, filter, checkedKeys, notFoundContent,
             checkStatus, body, footer, showSearch, searchPlaceholder } = this.props;
 
     // Custom Layout
@@ -118,7 +118,7 @@ class TransferList extends Component {
           <Animate component="ul"
             transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
             transitionLeave={false}>
-            {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>Not Found</div>}
+            {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>}
           </Animate>
         </div>}
         { footerDom ? <div className={`${prefixCls}-footer`}>
