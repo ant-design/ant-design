@@ -940,6 +940,7 @@ footer ul li > a {
   transition: all 0.3s ease;
   color: #999;
   background: #fff;
+  user-select: none;
 }
 
 .code-box.expand .collapse {
@@ -1540,10 +1541,9 @@ a.entry-link:hover .anticon-smile {
 
   .main-container {
     margin-left: 0;
-  }
-
-  .markdown > * {
-    width: 100%!important;
+    > .markdown > * {
+      width: 100%!important;
+    }
   }
 
   .main-wrapper {
