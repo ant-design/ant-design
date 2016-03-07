@@ -8,7 +8,7 @@
 
 ````jsx
 import { LocaleProvider, Pagination, DatePicker, TimePicker,
-         Popconfirm, Table, Modal, Button, Select } from 'antd';
+         Popconfirm, Table, Modal, Button, Select, Transfer } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 const Option = Select.Option;
 
@@ -50,20 +50,34 @@ const Page = React.createClass({
       });
     };
     return (
-      <div>
-        <Pagination defaultCurrent={1} total={50} showSizeChanger />
-        <DatePicker />
-        <TimePicker />
-        <Popconfirm title="Question?">
-          <a href="#">Click to confirm</a>
-        </Popconfirm>
-        <Table dataSource={[]} columns={columns} />
-        <Button type="primary" onClick={this.showModal}>Show Modal</Button>
+      <div className="locale-components">
+        <div className="example">
+          <Pagination defaultCurrent={1} total={50} showSizeChanger />
+        </div>
+        <div className="example">
+          <DatePicker />
+          <TimePicker />
+          <Button type="primary" onClick={this.showModal}>Show Modal</Button>
+          <Button onClick={info}>Show info</Button>
+          <Button onClick={confirm}>Show confirm</Button>
+          <Popconfirm title="Question?">
+            <a href="#">Click to confirm</a>
+          </Popconfirm>
+        </div>
+        <div className="example">
+        <Transfer
+          dataSource={[]}
+          showSearch
+          titles={['', '']}
+          targetKeys={[]}
+          render={item => item.title} />
+        </div>
+        <div className="example">
+          <Table dataSource={[]} columns={columns} />
+        </div>
         <Modal title="Locale Modal" visible={this.state.visible} onCancel={this.hideModal}>
           <p>Locale Modal</p>
         </Modal>
-        <Button onClick={info}>Show info</Button>
-        <Button onClick={confirm}>Show confirm</Button>
       </div>
     );
   }
@@ -81,17 +95,37 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
-        <div>
+        <div className="change-locale">
+          <span>Change Locale: </span>
           <Select defaultValue={enUS} onChange={this.changeLocale} dropdownMatchSelectWidth={false}>
             <Option value={enUS}>English</Option>
             <Option value={null}>中文</Option>
           </Select>
         </div>
+        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>
     );
   }
 });
 
 ReactDOM.render(<App />, mountNode);
+````
+
+````css
+.locale-components {
+  border-top: 1px solid #d9d9d9;
+  padding-top: 16px;
+}
+
+.example {
+  margin: 16px 0;
+}
+
+.example > * {
+  margin-right: 8px;
+}
+
+.change-locale {
+  margin-bottom: 16px;
+}
 ````

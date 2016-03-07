@@ -17,4 +17,10 @@ module.exports = {
     okText: 'OK',
     cancelText: 'Cancel',
   },
+  Transfer: {
+    notFoundContent: 'Not Found',
+    searchPlaceholder: 'Search here',
+    itemUnit: 'item',
+    itemsUnit: 'items',
+  },
 };
