@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import classNames from 'classnames';
 import { Row, Col, Icon } from '../../../';
 import Demo from '../Demo';
@@ -21,7 +22,7 @@ export default class ComponentDoc extends React.Component {
   }
 
   render() {
-    const { doc } = this.props;
+    const { doc, location } = this.props;
     const { description, meta } = doc;
     const demos = demosList[meta.fileName] || [];
     const expand = this.state.expandAll;
@@ -34,9 +35,15 @@ export default class ComponentDoc extends React.Component {
       return a.order - b.order;
     }).forEach((demoData, index) => {
       if (index % 2 === 0 || isSingleCol) {
-        leftChildren.push(<Demo {...demoData} expand={expand} key={index} parentId={parentId} />);
+        leftChildren.push(
+            <Demo {...demoData} key={index}
+              expand={expand} parentId={parentId} pathname={location.pathname} />
+        );
       } else {
-        rightChildren.push(<Demo {...demoData} expand={expand} key={index} parentId={parentId} />);
+        rightChildren.push(
+            <Demo {...demoData} key={index}
+              expand={expand} parentId={parentId} pathname={location.pathname} />
+        );
       }
     });
     const expandTriggerClass = classNames({
@@ -47,7 +54,9 @@ export default class ComponentDoc extends React.Component {
     const jumper = demos.map((demo) => {
       return (
         <li key={demo.id}>
-          <a href={`#${parentId}-${demo.id}`}>{ demo.title }</a>
+          <Link to={{ pathname: location.pathname, query: { scrollTo: `${parentId}-${demo.id}` } }}>
+            { demo.title }
+          </Link>
         </li>
       );
     });
@@ -59,7 +68,7 @@ export default class ComponentDoc extends React.Component {
         </ul>
         <section className="markdown">
           <h1>{meta.chinese || meta.english}</h1>
-          { description.map(utils.objectToComponent) }
+          { description.map(utils.objectToComponent.bind(null, location.pathname)) }
           <h2>
             代码演示
             <Icon type="appstore" className={expandTriggerClass}
@@ -73,7 +82,7 @@ export default class ComponentDoc extends React.Component {
           { isSingleCol ? null : <Col className="demo-list-right" span="12">{ rightChildren }</Col> }
         </Row>
         <section className="markdown">
-          { (doc.api || []).map(utils.objectToComponent) }
+          { (doc.api || []).map(utils.objectToComponent.bind(null, location.pathname)) }
         </section>
       </article>
     );

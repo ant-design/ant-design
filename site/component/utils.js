@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router';
 import hljs from 'highlight.js';
 import antd from '../../';
 
@@ -13,7 +14,7 @@ function mdLangToHljsLang(lang) {
     lang;
 }
 
-export function objectToComponent(object, index) {
+export function objectToComponent(pathname, object, index) {
   if (object === null) return;
 
   if (React.isValidElement(object)) {
@@ -41,9 +42,10 @@ export function objectToComponent(object, index) {
   if (isHeading(object.type)) {
     return React.createElement(object.type, {
       key: index,
+      id: children,
     }, [
       object.children,
-      <a className="anchor" key="anchor">#</a>,
+      <Link to={{ pathname, query: { scrollTo: object.children } }} className="anchor" key="anchor">#</Link>,
     ]);
   }
 
@@ -71,6 +73,6 @@ export function objectToComponent(object, index) {
 
   return React.createElement(
     object.type, { key: index },
-    children && children.map(objectToComponent) // `hr` has no children
+    children && children.map(objectToComponent.bind(null, pathname)) // `hr` has no children
   );
 }

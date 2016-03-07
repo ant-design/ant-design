@@ -9,7 +9,7 @@ const CopyableIcon = React.createClass({
       justCopied: false
     };
   },
-  onCopied(e) {
+  onCopied() {
     this.setState({ justCopied: true }, () => {
       setTimeout(() => {
         this.setState({ justCopied: false });
@@ -17,7 +17,7 @@ const CopyableIcon = React.createClass({
     });
   },
   render() {
-    const text = '<Icon type="' + this.props.type + '" />';
+    const text = `<Icon type="${this.props.type}" />`;
     return (
       <CopyToClipboard text={text} onCopy={this.onCopied}>
         <li className={this.state.justCopied ? 'copied' : ''}>

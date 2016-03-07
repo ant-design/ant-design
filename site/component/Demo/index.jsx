@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router';
 import antd, { Collapse } from '../../../';
 import BrowserDemo from '../BrowserDemo';
 import * as utils from '../utils';
@@ -22,9 +23,10 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, parentId, preview, title, intro, code, style, expand } = this.props;
+    const { id, parentId, preview, title,
+            intro, code, style, expand, pathname } = this.props;
     const demoId = `${parentId}-${id}`;
-    const introChildren = intro.map(utils.objectToComponent);
+    const introChildren = intro.map(utils.objectToComponent.bind(null, pathname));
     const highlightedCode = hljs.highlight('javascript', code).value;
 
     return (
@@ -39,7 +41,7 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-          <a href={`#${demoId}`}>{ title }</a>
+        <Link to={{ pathname, query: { scrollTo: demoId } }}>{ title }</Link>
           </div>
           <Collapse activeKey={expand ? 'code' : this.state.activeKey}
             onChange={this.handleChange.bind(this)}>

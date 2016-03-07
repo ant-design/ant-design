@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import classNames from 'classnames';
 import ImagePreview from './ImagePreview';
 import * as utils from '../utils';
@@ -9,7 +10,7 @@ export default class Article extends React.Component {
 
     this.imgToPreview = this.imgToPreview.bind(this);
   }
-  
+
   isPreviewImg(string) {
     return /^<img\s/i.test(string) && /preview-img/gi.test(string);
   }
@@ -30,11 +31,17 @@ export default class Article extends React.Component {
   }
 
   render() {
-    const content = this.props.content;
+    const { content, location } = this.props;
     const jumper = content.description.filter((node) => {
       return node.type === 'h2';
     }).map((node) => {
-      return <li key={node.children}><a href={`#${node.children}`}>{ node.children }</a></li>;
+      return (
+        <li key={node.children}>
+          <Link to={{ pathname: location.pathname, query: { scrollTo: node.children } }}>
+            { node.children }
+          </Link>
+        </li>
+      );
     });
 
     content.description = content.description.map(this.imgToPreview);
@@ -47,7 +54,7 @@ export default class Article extends React.Component {
             <section className="toc"><ul>{ jumper }</ul></section> :
             null
         }
-        { content.description.map(utils.objectToComponent) }
+        { content.description.map(utils.objectToComponent.bind(null, location.pathname)) }
       </article>
     );
   }

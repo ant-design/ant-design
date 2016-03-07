@@ -86,6 +86,7 @@
     "chalk": "^1.1.0",
     "css-loader": "^0.23.0",
     "cz-conventional-changelog": "^1.1.5",
+    "dom-scroll-into-view": "^1.1.0",
     "dora": "^0.2.3",
     "dora-plugin-atool-build": "^0.4.1",
     "es3ify-loader": "^0.1.0",

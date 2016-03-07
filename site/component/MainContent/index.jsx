@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import scrollIntoView from 'dom-scroll-into-view';
 import { Row, Col, Menu } from '../../../';
 import config from '../../website.config';
 const SubMenu = Menu.SubMenu;
@@ -9,10 +10,23 @@ function dashed(name) {
 }
 
 export default class MainContent extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
 
-    this.generateMenuItem = this.generateMenuItem.bind(this);
+  componentDidUpdate() {
+    const scrollTo = this.props.location.query.scrollTo;
+    if (scrollTo !== undefined) {
+      const target = document.getElementById(scrollTo);
+
+      if (target !== null) {
+        scrollIntoView(
+          target,
+          document,
+          { alignWithTop: true, onlyScrollIfNeeded: false }
+        );
+      }
+    }
   }
 
   getActiveMenuItem(props, index) {
@@ -20,9 +34,14 @@ export default class MainContent extends React.Component {
     return routes[routes.length - 1].path || index;
   }
 
-  generateMenuItem(item) {
+  generateMenuItem(isTop, item) {
     const key = dashed(item.english);
-    const text = item.chinese || item.english;
+    const text = isTop ?
+            item.chinese || item.english :
+      [
+        <span key="english">{ item.english }</span>,
+        <span className="chinese" key="chinese">{ item.chinese }</span>
+      ];
     const disabled = item.disabled === 'true';
 
     const child = !item.link ?
@@ -45,13 +64,13 @@ export default class MainContent extends React.Component {
   }
 
   generateSubMenuItems(obj) {
-    const topLevel = (obj.topLevel || []).map(this.generateMenuItem);
+    const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
             .sort((a, b) => {
               return config.typeOrder[a] - config.typeOrder[b];
             })
             .map((type, index) => {
-              const groupItems = obj[type].map(this.generateMenuItem);
+              const groupItems = obj[type].map(this.generateMenuItem.bind(this, false));
 
               return (
                 <Menu.ItemGroup title={type} key={index}>
@@ -117,7 +136,7 @@ export default class MainContent extends React.Component {
         <Row>
           <Col span="4">
             <Menu className="sidebar" mode="inline"
-                  defaultOpenKeys={Object.keys(this.props.menuItems)}
+              defaultOpenKeys={Object.keys(this.props.menuItems)}
               selectedKeys={[activeMenuItem]}>
               { menuItems }
             </Menu>

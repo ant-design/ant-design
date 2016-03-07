@@ -55,8 +55,8 @@ export function generateChildren(data) {
   const children = pagesData.map((pageData, index) => {
     const hasDemos = demosList[pageData.meta.fileName];
     const Wrapper = !hasDemos ?
-            () => <Article content={pageData} /> :
-          () => <ComponentDoc doc={pageData} />;
+            (props) => <Article {...props} content={pageData} /> :
+          (props) => <ComponentDoc {...props} doc={pageData} />;
     return (
       <Route key={index}
         path={dashed(pageData.meta.english)}
