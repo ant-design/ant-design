@@ -377,12 +377,17 @@ InstantClickChangeFns.push(function() {
     prevNextNavNode.appendTo('.main-container');
   }
 
+  var navMenu = $('.nav');
   $('.nav-phone-icon').click(function() {
-    var navMenu = $(this).prev();
-    navMenu.removeClass('nav-hide').addClass('nav-show').focus();
-    navMenu.one('blur', function() {
+    navMenu.removeClass('nav-hide').addClass('nav-show');
+  });
+
+  $('body').on('click', function (e) {
+    if (e.target !== $('.nav-phone-icon')[0] &&
+        !navMenu[0].contains(e.target) &&
+        navMenu.hasClass('nav-show')) {
       navMenu.removeClass('nav-show').addClass('nav-hide');
-    });
+    }
   });
 
   $.easing['jswing'] = $.easing['swing'];
