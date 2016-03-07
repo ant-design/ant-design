@@ -74,7 +74,10 @@ module.exports = function() {
               <h2 key="h2">ANT <p>DESIGN</p></h2>
               <p key="content">一个 UI 设计语言</p>
               <span className="line" key="line"/>
-              <a key="button" href="/docs/spec/introduce"><Icon type="smile-circle"/>开始探索</a>
+              <div className="start-button" key="button">
+                <a href="/docs/spec/introduce"><Icon type="smile-circle"/>开始探索</a>
+              </div>
+              <iframe key="github-btn" src="https://ghbtns.com/github-btn.html?user=ant-design&repo=ant-design&type=star&count=true" frameBorder="0" scrolling="0" width="98px" height="20px" />
             </QueueAnim>
             <TweenOne className='down' vars={[{opacity: 1},{y: 10, duration: 800, yoyo: true, repeat: -1}]}>
               <Icon type="down"/>

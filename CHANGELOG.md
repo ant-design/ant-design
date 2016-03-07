@@ -4,6 +4,19 @@
 
 ---
 
+## 0.12.8
+
+`2016-03-06`
+
+- 新增 `heart` `calculator` 图标。
+- Table 补充了 `showHeader` 和 `footer` 属性。
+- Modal 补充了 `maskClosable` 属性。
+- 修正一个 Tag 和 Popover 配合使用的问题。[#1111](https://github.com/ant-design/ant-design/issues/1111)
+- 将 TreeSelect 的 `treeDefaultExpandAll` 默认属性设为 false，并优化了性能。
+- 修复 RadioGroup 无法垂直布局的问题。[#1119](https://github.com/ant-design/ant-design/issues/1119)
+- 统一了 less 文件的部分变量。
+- 修正部分组件的样式。
+
 ## 0.12.7
 
 `2016-03-03`
@@ -27,7 +40,7 @@
 - 增加了一个搜索框和提示功能结合的 [例子](http://ant.design/components/select/#demo-search-box)。
 - 允许可编辑的 Tabs 删除最后一个页签。[#1071](https://github.com/ant-design/ant-design/issues/1071)
 - Table 的 `rowSelect.onSelectAll` 补充了第三个参数 `deselectedRows`, `rowSelect.onChange` 补充了第二个参数 `selectedRows`。[#1105](https://github.com/ant-design/ant-design/issues/1105)
-- 修复了部分组件样式的小问题。
+- 修正部分组件的样式。
 
 ## 0.12.5
 

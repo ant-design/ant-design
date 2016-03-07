@@ -147,7 +147,7 @@ class Transfer extends Component {
 
   render() {
     const {
-      prefixCls, titles, operations, showSearch,
+      prefixCls, titles, operations, showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
@@ -180,6 +180,7 @@ class Transfer extends Component {
           render={this.props.render}
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder}
+          notFoundContent={notFoundContent}
           body={body}
           footer={footer}
           prefixCls={`${prefixCls}-list`} />
@@ -204,6 +205,7 @@ class Transfer extends Component {
           render={this.props.render}
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder}
+          notFoundContent={notFoundContent}
           body={body}
           footer={footer}
           prefixCls={`${prefixCls}-list`} />
@@ -222,6 +224,7 @@ Transfer.defaultProps = {
   operations: [],
   showSearch: false,
   searchPlaceholder: '请输入搜索内容',
+  notFoundContent: 'Not Found',
   body: noop,
   footer: noop,
 };
@@ -239,6 +242,7 @@ Transfer.propTypes = {
   operations: PropTypes.array,
   showSearch: PropTypes.bool,
   searchPlaceholder: PropTypes.string,
+  notFoundContent: PropTypes.node,
   body: PropTypes.func,
   footer: PropTypes.func,
 };

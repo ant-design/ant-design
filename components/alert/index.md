@@ -19,8 +19,8 @@
 |----------- |---------------------------------------------------------  | ---------- |-------|
 | type       | 必选参数，指定警告提示的样式，有四种选择`success`、`info`、`warn`、`error`   | String     | 无    |
 | closable   | 可选参数，默认不显示关闭按钮                                  | Boolean   | 无    |
-| closeText  | 可选参数，自定义关闭按钮                                     | String     | 无    |
-| message    | 必选参数，警告提示内容                                       | String     | 无    |
-| description | 可选参数，警告提示的辅助性文字介绍                            | String     | 无    |
+| closeText  | 可选参数，自定义关闭按钮                                     | React.Node   | 无    |
+| message    | 必选参数，警告提示内容                                       | React.Node   | 无    |
+| description | 可选参数，警告提示的辅助性文字介绍                            | React.Node   | 无    |
 | onClose     | 可选参数，关闭时触发的回调函数                                | Function   | 无    |
 | showIcon   | 可选参数，是否显示辅助图标                                 | Boolean   | false    |

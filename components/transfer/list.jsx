@@ -69,8 +69,8 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys,
-            checkStatus, body, footer, showSearch } = this.props;
+    const { prefixCls, dataSource, titleText, filter, checkedKeys, notFoundContent,
+            checkStatus, body, footer, showSearch, searchPlaceholder } = this.props;
 
     // Custom Layout
     const footerDom = footer({ ...this.props });
@@ -109,12 +109,16 @@ class TransferList extends Component {
         { bodyDom ||
         <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
           { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-            <Search prefixCls={`${prefixCls}-search`} onChange={this.handleFilter.bind(this)} handleClear={this.handleClear.bind(this)} value={filter} />
+            <Search prefixCls={`${prefixCls}-search`}
+              onChange={this.handleFilter.bind(this)}
+              handleClear={this.handleClear.bind(this)}
+              placeholder={searchPlaceholder}
+              value={filter} />
           </div> : null }
           <Animate component="ul"
             transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
             transitionLeave={false}>
-            {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>Not Found</div>}
+            {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>}
           </Animate>
         </div>}
         { footerDom ? <div className={`${prefixCls}-footer`}>

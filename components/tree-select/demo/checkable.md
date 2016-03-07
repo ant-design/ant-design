@@ -55,7 +55,6 @@ const Demo = React.createClass({
       multiple: true,
       treeCheckable: true,
       searchPlaceholder: '请选择',
-      treeDefaultExpandAll: true,
       style: {
         width: 300,
       },

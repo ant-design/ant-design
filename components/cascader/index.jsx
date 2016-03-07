@@ -70,6 +70,10 @@ class AntCascader extends React.Component {
       [`${prefixCls}-picker`]: true,
       [`${prefixCls}-picker-disabled`]: disabled,
     });
+
+    // Fix bug of https://github.com/facebook/react/pull/5004
+    delete otherProps.onChange;
+
     return (
       <Cascader {...this.props}
         value={this.state.value}

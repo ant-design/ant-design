@@ -25,8 +25,27 @@
   border-collapse: separate;
 }
 
+.@{calendar-prefix-cls}-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
+  background: @primary-color;
+  color: #fff;
+
+  &:hover {
+    background: @primary-color;
+    color: #fff;
+  }
+}
+
 .@{calendar-prefix-cls}-month-panel-cell {
   text-align: center;
+
+  &-disabled .@{calendar-prefix-cls}-month-panel-month {
+    &,
+    &:hover {
+      cursor: not-allowed;
+      color: #bcbcbc;
+      background: #f3f3f3;
+    }
+  }
 }
 
 .@{calendar-prefix-cls}-month-panel-month {
@@ -44,15 +63,5 @@
   &:hover {
     background: tint(@primary-color, 90%);
     cursor: pointer;
-  }
-}
-
-.@{calendar-prefix-cls}-month-panel-selected-cell .@{calendar-prefix-cls}-month-panel-month {
-  background: @primary-color;
-  color: #fff;
-
-  &:hover {
-    background: @primary-color;
-    color: #fff;
   }
 }

@@ -8,7 +8,7 @@ const prefixCls = 'ant-progress';
 
 const statusColorMap = {
   normal: '#2db7f5',
-  exception: '#ff6600',
+  exception: '#ff5500',
   success: '#87d068'
 };
 
@@ -31,7 +31,7 @@ let Line = React.createClass({
       strokeWidth: 10,
       status: 'normal', // exception active
       showInfo: true,
-      trailColor: '#e9e9e9'
+      trailColor: '#f3f3f3'
     };
   },
   render() {
@@ -115,7 +115,7 @@ let Circle = React.createClass({
       percent: 0,
       strokeWidth: 6,
       status: 'normal', // exception
-      trailColor: '#f9f9f9',
+      trailColor: '#f3f3f3',
     };
   },
   render() {

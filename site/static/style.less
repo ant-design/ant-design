@@ -197,7 +197,7 @@ a.logo {
   color: #666;
   width: 100%;
   height: 100%;
-  display: block;
+  display: inline-block;
   padding: 0 22px;
 }
 
@@ -1448,13 +1448,17 @@ a.entry-link:hover .anticon-smile {
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  .nav, .search {
+  #list,
+  .search {
     display: none;
   }
 
-  .logo {
-    margin: 10px;
-    height: auto;
+  a.logo {
+    width: 144px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    display: block;
   }
 
   .banner-entry {
@@ -1465,17 +1469,28 @@ a.entry-link:hover .anticon-smile {
   }
 
   .nav {
-    position: absolute;
+    position: fixed;
     z-index: 1000;
-    top: 50px;
-    right: 0;
+    top: 0;
+    left: 0;
     background: #fff;
-    overflow: hidden;
-    height: auto;
-    line-height: 50px;
+    line-height: 60px;
     margin-right: 0;
-    border: 1px solid #e9e9e9;
     width: 50%;
+    height: 100%;
+    box-shadow: 10px 0 12px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateX(-100%);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .nav.nav-show {
+    animation: moveLeft .2s ease-in forwards;
+  }
+
+  .nav.nav-hide {
+    animation: moveLeftOut .2s ease-in forwards;
   }
 
   .nav .bar {
@@ -1492,26 +1507,23 @@ a.entry-link:hover .anticon-smile {
 
   .nav-phone-icon {
     display: block;
-    width: 49px;
-    height: 49px;
-    float: right;
+    width: 18px;
+    height: 50px;
+    position: absolute;
+    left: 30px;
+    top: 32px;
     cursor: pointer;
-    background: #BEC4C8;
   }
 
-  .nav-phone-icon:before,
-  .nav-phone-icon:after {
+  .nav-phone-icon:before {
     content: "";
     display: block;
     border-radius: 1px;
-    width: 15px;
+    width: 18px;
     height: 2px;
-    background: #EBEDEE;
-    margin: 20px 0 0 18px;
-  }
-
-  .nav-phone-icon:after {
-    margin-top: 5px;
+    background: #666;
+    box-shadow: 0 7px 0 0 #666, 0 14px 0 0 #666;
+    position: absolute;
   }
 
   .main {
@@ -1521,6 +1533,9 @@ a.entry-link:hover .anticon-smile {
   .aside-container {
     float: none;
     width: auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e9e9e9;
+    margin-bottom: 30px;
   }
 
   .main-container {
@@ -1533,6 +1548,7 @@ a.entry-link:hover .anticon-smile {
 
   .main-wrapper {
     width: 100%;
+    border-radius: 0;
   }
 
   .main-container {
@@ -1551,5 +1567,27 @@ a.entry-link:hover .anticon-smile {
   footer ul li {
     float: none;
     width: auto;
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes moveLeftOut {
+  0% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
 }

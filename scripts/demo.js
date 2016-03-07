@@ -378,7 +378,11 @@ InstantClickChangeFns.push(function() {
   }
 
   $('.nav-phone-icon').click(function() {
-    $(this).prev().toggle();
+    var navMenu = $(this).prev();
+    navMenu.removeClass('nav-hide').addClass('nav-show').focus();
+    navMenu.one('blur', function() {
+      navMenu.removeClass('nav-show').addClass('nav-hide');
+    });
   });
 
   $.easing['jswing'] = $.easing['swing'];

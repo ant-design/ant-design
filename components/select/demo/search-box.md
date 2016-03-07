@@ -75,6 +75,7 @@ const SearchInput = React.createClass({
       'ant-search-input': true,
       'ant-search-input-focus': this.state.focus,
     });
+    const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
       <Input.Group className={searchCls} style={this.props.style}>
         <Select
@@ -88,7 +89,7 @@ const SearchInput = React.createClass({
           onChange={this.handleChange}
           onFocus={this.handleFocusBlur}
           onBlur={this.handleFocusBlur}>
-          {this.state.data.map(d => <Option key={d.value}>{d.text}</Option>)}
+          {options}
         </Select>
         <div className="ant-input-group-wrap">
           <Button className={btnCls} onClick={this.handleSubmit}>
