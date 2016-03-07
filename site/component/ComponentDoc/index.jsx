@@ -28,7 +28,9 @@ export default class ComponentDoc extends React.Component {
 
     const leftChildren = [];
     const rightChildren = [];
-    demos.forEach((demoData, index) => {
+    demos.sort((a, b) => {
+      return a.order - b.order;
+    }).forEach((demoData, index) => {
       if (index % 2 === 0 || isSingleCol) {
         leftChildren.push(<Demo {...demoData} expand={expand} key={index} />);
       } else {
@@ -52,8 +54,10 @@ export default class ComponentDoc extends React.Component {
           </h2>
         </section>
         <Row>
-          <Col span={ isSingleCol ? '24' : '12' }>{ leftChildren }</Col>
-          { isSingleCol ? null : <Col span="12">{ rightChildren }</Col> }
+          <Col span={ isSingleCol ? '24' : '12' } className={ isSingleCol ? '' : 'demo-list-left'}>
+            { leftChildren }
+          </Col>
+          { isSingleCol ? null : <Col className="demo-list-right" span="12">{ rightChildren }</Col> }
         </Row>
         <section className="markdown">
           { (doc.api || []).map(utils.objectToComponent) }
