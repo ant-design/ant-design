@@ -81,7 +81,7 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 
 ## API
 
-Ant Design 的布局组件暂不支持响应式设计和元素对齐等特性，若不能满足你的需求，你可以直接使用社区的优秀布局组件：
+Ant Design 的布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：
 
 - [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
 - [react-blocks](http://whoisandie.github.io/react-blocks/)
