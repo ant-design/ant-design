@@ -1,6 +1,7 @@
 # Router 默认进出场
 
 - order: 7
+- iframe: true
 
 router 组合的进场与出场动画。
 
@@ -131,6 +132,9 @@ ReactDOM.render((
 ````
 
 ````css
+#components-queue-anim-demo-router iframe {
+  height: 260px;
+}
 #components-queue-anim-demo-router .demo-router-wrap {
   position: relative;
   width: 100%;

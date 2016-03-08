@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import antd from '../../';
 import * as utils from './utils';
 import '../common/lib';
 import App from '../component/App';
@@ -10,6 +11,11 @@ import pattern from '../../_site/data/pattern';
 import reactComponents from '../../_site/data/react-components';
 import spec from '../../_site/data/spec';
 import resource from '../../_site/data/resource';
+
+// Expose React, ReactDOM
+window.react = React;
+window['react-dom'] = ReactDOM;
+window.antd = antd;
 
 function addFileNameToMeta(data) {
   Object.keys(data).forEach((key) => {

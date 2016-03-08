@@ -1,8 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
-import antd, { Collapse } from '../../../';
-import BrowserDemo from '../BrowserDemo';
+import { Collapse } from '../../../';
 import * as utils from '../utils';
 import hljs from 'highlight.js';
 
@@ -23,16 +21,19 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, parentId, preview, title,
-            intro, code, style, expand, pathname } = this.props;
-    const demoId = `${parentId}-${id}`;
+    const { id, meta, intro, code, preview, style, src,
+            expand, pathname } = this.props;
     const introChildren = intro.map(utils.objectToComponent.bind(null, pathname));
     const highlightedCode = hljs.highlight('javascript', code).value;
 
     return (
-      <section className="code-box" id={demoId}>
+      <section className="code-box" id={id}>
         <section className="code-box-demo">
-        { preview(React, ReactDOM, antd, BrowserDemo) }
+          {
+            meta.iframe === 'true' ?
+              <iframe src={src} /> :
+              preview
+          }
           {
             !!style ?
               <style dangerouslySetInnerHTML={{ __html: style }} /> :
@@ -41,7 +42,9 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-        <Link to={{ pathname, query: { scrollTo: demoId } }}>{ title }</Link>
+            <Link to={{ pathname, query: { scrollTo: id } }}>
+              { meta.chinese || meta.english }
+            </Link>
           </div>
           <Collapse activeKey={expand ? 'code' : this.state.activeKey}
             onChange={this.handleChange.bind(this)}>

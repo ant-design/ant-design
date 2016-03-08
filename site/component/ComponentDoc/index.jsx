@@ -1,8 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import { Row, Col, Icon } from '../../../';
+import antd, { Row, Col, Icon } from '../../../';
 import Demo from '../Demo';
+import BrowserDemo from '../BrowserDemo';
 import * as utils from '../utils';
 import demosList from '../../../_site/data/demos-list';
 
@@ -27,22 +29,23 @@ export default class ComponentDoc extends React.Component {
     const demos = demosList[meta.fileName] || [];
     const expand = this.state.expandAll;
 
-    const parentId = meta.fileName.split('/').slice(0, 2).join('-');
     const isSingleCol = meta.cols === '1';
     const leftChildren = [];
     const rightChildren = [];
     demos.sort((a, b) => {
-      return a.order - b.order;
+      return parseInt(a.meta.order, 10) - parseInt(b.meta.order, 10);
     }).forEach((demoData, index) => {
       if (index % 2 === 0 || isSingleCol) {
         leftChildren.push(
             <Demo {...demoData} key={index}
-              expand={expand} parentId={parentId} pathname={location.pathname} />
+              preview={demoData.preview(React, ReactDOM, antd, BrowserDemo)}
+              expand={expand} pathname={location.pathname} />
         );
       } else {
         rightChildren.push(
             <Demo {...demoData} key={index}
-              expand={expand} parentId={parentId} pathname={location.pathname} />
+              preview={demoData.preview(React, ReactDOM, antd, BrowserDemo)}
+              expand={expand} pathname={location.pathname} />
         );
       }
     });
@@ -54,8 +57,8 @@ export default class ComponentDoc extends React.Component {
     const jumper = demos.map((demo) => {
       return (
         <li key={demo.id}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: `${parentId}-${demo.id}` } }}>
-            { demo.title }
+          <Link to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
+            { demo.meta.chinese || demo.meta.english }
           </Link>
         </li>
       );
