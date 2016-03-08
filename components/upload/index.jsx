@@ -133,6 +133,7 @@ const AntUpload = React.createClass({
         fileList
       });
     }
+    this.props.onSuccess(response,file);
   },
 
   onProgress(e, file) {
@@ -155,6 +156,7 @@ const AntUpload = React.createClass({
     targetItem.response = response;
     targetItem.status = 'error';
     this.handleRemove(targetItem);
+    this.props.onError(error,response,file);
   },
 
   beforeUpload(file) {
