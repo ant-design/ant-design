@@ -382,7 +382,7 @@ InstantClickChangeFns.push(function() {
     navMenu.removeClass('nav-hide').addClass('nav-show');
   });
 
-  $('body').on('click', function (e) {
+  $('body').on('click touchstart', function (e) {
     if (e.target !== $('.nav-phone-icon')[0] &&
         !navMenu[0].contains(e.target) &&
         navMenu.hasClass('nav-show')) {
