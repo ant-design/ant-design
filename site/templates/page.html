@@ -17,7 +17,7 @@
 {% block content %}
 <section class="main-container">
   <article class="markdown">
-    <h1>{{ post.title }} {{ post.meta.chinese }}</h1>
+    <h1>{{ post.title }} {{ post.meta.subtitle }}</h1>
     <div class="toc">{{ post.toc }}</div>
     {{ post.html|add_anchor }}
   </article>
