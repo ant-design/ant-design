@@ -28,10 +28,6 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'es3ify',
-    }, {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
       loader: 'babel',
       query: {
         cacheDirectory: true,
