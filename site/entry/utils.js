@@ -51,18 +51,20 @@ function getPagesData(data) {
 
 export function generateChildren(data) {
   const pagesData = getPagesData(data);
-  const menuItems = getMenuItems(data);
   const children = pagesData.map((pageData, index) => {
-    const hasDemos = demosList[pageData.meta.fileName];
+    const meta = pageData.meta;
+    const hasDemos = demosList[meta.fileName];
     const Wrapper = !hasDemos ?
             (props) => <Article {...props} content={pageData} /> :
-          (props) => <ComponentDoc {...props} doc={pageData} />;
+            (props) => <ComponentDoc {...props} doc={pageData} />;
     return (
       <Route key={index}
-        path={dashed(pageData.meta.english)}
+        path={dashed(meta.english)}
         component={Wrapper} />
     );
   });
+
+  const menuItems = getMenuItems(data);
   const firstChild = menuItems.topLevel.topLevel.find((item) => {
     return item.disabled !== 'true';
   });

@@ -8,6 +8,14 @@ import BrowserDemo from '../BrowserDemo';
 import * as utils from '../utils';
 import demosList from '../../../_site/data/demos-list';
 
+// Extract preview as a component
+Object.keys(demosList).map((key) => demosList[key])
+  .forEach((demos) => {
+    demos.forEach((demo) => {
+      demo.preview = demo.preview(React, ReactDOM, antd, BrowserDemo);
+    });
+  });
+
 export default class ComponentDoc extends React.Component {
   constructor(props) {
     super(props);
@@ -38,13 +46,11 @@ export default class ComponentDoc extends React.Component {
       if (index % 2 === 0 || isSingleCol) {
         leftChildren.push(
             <Demo {...demoData} key={index}
-              preview={demoData.preview(React, ReactDOM, antd, BrowserDemo)}
               expand={expand} pathname={location.pathname} />
         );
       } else {
         rightChildren.push(
             <Demo {...demoData} key={index}
-              preview={demoData.preview(React, ReactDOM, antd, BrowserDemo)}
               expand={expand} pathname={location.pathname} />
         );
       }

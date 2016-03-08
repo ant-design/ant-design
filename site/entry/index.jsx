@@ -12,20 +12,14 @@ import reactComponents from '../../_site/data/react-components';
 import spec from '../../_site/data/spec';
 import resource from '../../_site/data/resource';
 
+// TODO: pack dependencies with atool build
 // Expose React, ReactDOM
 window.react = React;
 window['react-dom'] = ReactDOM;
 window.antd = antd;
 
-function addFileNameToMeta(data) {
-  Object.keys(data).forEach((key) => {
-    data[key].meta.fileName = key;
-  });
-  return data;
-}
-
 const ReactComponents = utils.generateContainer('components', reactComponents);
-const reactComponentsChildren = utils.generateChildren(addFileNameToMeta(reactComponents));
+const reactComponentsChildren = utils.generateChildren(reactComponents);
 
 const Practice = utils.generateContainer('practice', practice);
 const practiceChildren = utils.generateChildren(practice);
@@ -34,7 +28,7 @@ const Pattern = utils.generateContainer('pattern', pattern);
 const patternChildren = utils.generateChildren(pattern);
 
 const Spec = utils.generateContainer('spec', spec);
-const specChildren = utils.generateChildren(addFileNameToMeta(spec));
+const specChildren = utils.generateChildren(spec);
 
 const Resource = utils.generateContainer('resource', resource);
 const resourceChildren = utils.generateChildren(resource);
