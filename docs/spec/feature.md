@@ -5,25 +5,29 @@
 
 ---
 
+<div style="text-align:center;background:#FBFBFB;margin:40px 0;">
+  <img align="middle" width="600" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
+</div>
+
 Ant Design 是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。
 
 在中台设计中，我们模糊了产品经理、交互设计师、视觉设计师、前端工程师、开发工程师等角色边界，将进行体验设计和界面设计人员统称为『设计者』，并为其提供一系列工具和服务来支持他们进行业务创新。
 
 ## 三大特性
 
-<div class="row" style="margin-left: -12px; margin-right: -12px;">
+<div style="margin-left:-40px;margin-right:-40px;">
   <div class="col-8 features">
-    <img src="https://os.alipayobjects.com/rmsportal/IRjHVNFWRlCMdnb.png">
+    <img src="https://os.alipayobjects.com/rmsportal/OVirOHTeAdzDBuQ.png">
     <h5>微小</h5>
     <div>致力于微小而美好的改变，力求在细节上精益求精，不仅让业务产品更加实用和可靠，而且还能让『用户』感到小惊喜。</div>
   </div>
   <div class="col-8 features">
-    <img src="https://os.alipayobjects.com/rmsportal/IRjHVNFWRlCMdnb.png">
+    <img src="https://os.alipayobjects.com/rmsportal/iJbUiLYpuPBXUhV.png">
     <h5>确定</h5>
     <div>通过制定通俗而科学的规则、运用面向对象的方法、使用一致的文档沟通机制，给予研发团队一种高确定性、低熵值的研发状态。</div>
   </div>
   <div class="col-8 features">
-    <img src="https://os.alipayobjects.com/rmsportal/IRjHVNFWRlCMdnb.png">
+    <img src="https://os.alipayobjects.com/rmsportal/uSOjjlCRjRIhtIY.png">
     <h5>幸福</h5>
     <div>不苛求简单，但是力求让『用户』和『设计者』流畅的完成目标，并带着成功和满足离开。</div>
   </div>
@@ -31,12 +35,12 @@ Ant Design 是一个致力于提升『用户』和『设计者』使用体验的
 
 <style>
 .features {
-  padding: 12px;
+  padding: 40px;
   font-size: 12px;
 }
 .features h5 {
   font-size: 14px;
-  margin-top: 24px;
+  margin-top: 16px;
 }
 </style>
 
