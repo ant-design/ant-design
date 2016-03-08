@@ -33,28 +33,6 @@ exports.findMDFile = function findMDFile(fileName, shallow) {
 
   return mds;
 };
-exports.isIndex = R.compose(R.equals('index.md'), R.unary(path.basename));
-
-const MT = require('mark-twain');
-exports.parseFileContent = R.pipe(
-  fs.readFileSync,
-  R.toString,
-  MT,
-  R.prop('content')
-);
-
-const parseBasicMeta = R.pipe(
-  R.path(['1', 'children']),
-  R.map((child) => R.split(/:\s?/, child.children)),
-  R.fromPairs
-);
-const parseEnglishTitle = R.path(['0', 'children']);
-exports.parseMeta = function parseMeta(fileContent) {
-  const meta = parseBasicMeta(fileContent);
-  meta.english = parseEnglishTitle(fileContent);
-
-  return meta;
-};
 
 exports.stringify = function stringify(data, d) {
   const depth = d || 1;

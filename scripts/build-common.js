@@ -9,8 +9,8 @@ module.exports = function buildCommon(dirs, outputFile) {
           .filter((file) => !/install_en\.md$/gi.test(file)); // TODO
 
   let content = 'module.exports = {';
-  mds.forEach((md) => {
-    content += `\n  '${md}': require('antd-md!../../${md}'),`;
+  mds.forEach((fileName) => {
+    content += `\n  '${fileName}': require('antd-md?fileName=${fileName}!../../${fileName}'),`;
   });
   content += '\n};';
 
