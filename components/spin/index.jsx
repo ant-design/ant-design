@@ -37,11 +37,9 @@ const AntSpin = React.createClass({
     } else {
       spinElement = (
         <div className={spinClassName}>
-          <div className={`${prefixCls}-dots`}>
-            <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
-            <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
-            <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
-          </div>
+          <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
+          <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
+          <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
         </div>
       );
     }
