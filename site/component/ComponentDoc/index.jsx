@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import antd, { Row, Col, Icon } from '../../../';
+import antd, { Row, Col, Icon, Affix } from '../../../';
 import Demo from '../Demo';
 import BrowserDemo from '../BrowserDemo';
 import * as utils from '../utils';
@@ -72,9 +72,11 @@ export default class ComponentDoc extends React.Component {
 
     return (
       <article>
-        <ul className="toc demos-anchor">
-          { jumper }
-        </ul>
+        <Affix className="toc-affix">
+          <ul className="toc demos-anchor">
+            { jumper }
+          </ul>
+        </Affix>
         <section className="markdown">
           <h1>{meta.chinese || meta.english}</h1>
           { description.map(utils.objectToComponent.bind(null, location.pathname)) }

@@ -70,7 +70,9 @@ export default class MainContent extends React.Component {
               return config.typeOrder[a] - config.typeOrder[b];
             })
             .map((type, index) => {
-              const groupItems = obj[type].map(this.generateMenuItem.bind(this, false));
+              const groupItems = obj[type].sort((a, b) => {
+                return a.english.charCodeAt(0) - b.english.charCodeAt(0);
+              }).map(this.generateMenuItem.bind(this, false));
 
               return (
                 <Menu.ItemGroup title={type} key={index}>
