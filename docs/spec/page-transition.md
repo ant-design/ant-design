@@ -34,8 +34,6 @@
 
  - 被展开的信息区域内容按照一定的路径依次进场。
 
-
-<link rel="stylesheet" href="../../static/motionDemo.css">
 <div class="video-player">
 </div>
 
@@ -57,10 +55,23 @@
 
  - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，来指引用户的视觉轨迹。
 
-<script src="/static/motionDemoLoad.js"></script>
-
 <div class="video-player">
 
 </div>
 
 > 参考我们的进场组件案例。查看[进场动画组件(QueueAnim)](/components/queue-anim/)
+
+```__react
+import scripts from '../../site/component/Motion/page-transition';
+class ExecuteJS extends React.Component {
+  componentDidMount() {
+    scripts();
+  }
+  
+  render() {
+    return null;
+  }
+}
+
+ReactDOM.render(<ExecuteJS key="execute" />, mountNode);
+```
