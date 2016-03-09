@@ -72,6 +72,7 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.3.3",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
     "babel-jest": "^6.0.1",

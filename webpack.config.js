@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var path = require('path');
 var pkg = require('./package');
+var autoprefixer = require('autoprefixer');
 
 var entry = {};
 entry['demo'] = ['./scripts/demo.js', 'webpack-hot-middleware/client'];
@@ -52,6 +53,8 @@ module.exports = {
       )
     }]
   },
+
+  postcss: [autoprefixer],
 
   plugins: [
     new ExtractTextPlugin('[name].css'),
