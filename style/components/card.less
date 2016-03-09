@@ -1,0 +1,48 @@
+@card-prefix-cls: ~"@{css-prefix}card";
+@number-prefix-cls: ~"@{css-prefix}scroll-number";
+
+.@{card-prefix-cls} {
+  background: #fff;
+  border-radius: @border-radius-sm;
+  box-shadow: @box-shadow-base;
+  font-size: @font-size-base;
+  position: relative;
+  overflow: hidden;
+
+  &-head {
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid @border-color-split;
+    padding: 0 24px;
+
+    &-title {
+      font-size: 14px;
+      display: inline-block;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  &-extra {
+    position: absolute;
+    right: 24px;
+    top: 14px;
+  }
+
+  &-body {
+    padding: 24px;
+  }
+
+  &-loading &-body {
+    letter-spacing: -2px;
+    color: #eee;
+    font-size: 0.75rem;
+  }
+
+  &-loading &-body p {
+    word-break: break-all;
+    line-height: 2;
+  }
+}
