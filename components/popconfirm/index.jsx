@@ -2,7 +2,9 @@ import React from 'react';
 import Tooltip from 'rc-tooltip';
 import Icon from '../icon';
 import Button from '../button';
+import getPlacements from '../popover/placements';
 
+const placements = getPlacements();
 const prefixCls = 'ant-popover';
 const noop = function () {};
 const transitionNames = {
@@ -81,7 +83,9 @@ export default React.createClass({
     const transitionName = transitionNames[placement];
 
     return (
-      <Tooltip {...restProps} placement={placement}
+      <Tooltip {...restProps}
+        placement={placement}
+        builtinPlacements={placements}
         overlayStyle={overlayStyle}
         prefixCls={prefixCls}
         onVisibleChange={this.onVisibleChange}
