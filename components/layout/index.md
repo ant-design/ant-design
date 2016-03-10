@@ -116,19 +116,22 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
   background: #F5F5F5;
 }
 
-.markdown .row div,
-.code-box-demo .row div,
-.markdown .row-flex div,
-.code-box-demo .row-flex div {
+.markdown .row > div,
+.code-box-demo .row > div,
+.markdown .row-flex > div,
+.code-box-demo .row-flex > div {
   padding: 5px 0;
   text-align: center;
   border-radius: 6px;
   min-height: 30px;
-  background: #6AC2F5;
-  border: 1px solid rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   margin-bottom: 10px;
   color: #fff;
+}
+
+.code-box-demo .row > div:not(.gutter-row) {
+  background: #6AC2F5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .markdown .row .demo-col,
