@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const path = require('path');
 const R = require('ramda');
 const utils = require('./utils');
 
@@ -10,7 +11,8 @@ module.exports = function buildCommon(dirs, outputFile) {
 
   let content = 'module.exports = {';
   mds.forEach((fileName) => {
-    content += `\n  '${fileName}': require('antd-md!../../${fileName}'),`;
+    const requirePath = path.relative(path.dirname(outputFile), fileName);
+    content += `\n  '${fileName}': require('antd-md!${requirePath}'),`;
   });
   content += '\n};';
 

@@ -20,7 +20,8 @@ module.exports = function buildDemosList(dirs, outputPath) {
   Object.keys(groupedDemos).forEach((key) => {
     content += `\n  '${key}': [`;
     groupedDemos[key].forEach((fileName) => {
-      content += `\n    require('antd-md?demo!../../${fileName}'),`;
+      const requirePath = path.relative(path.dirname(outputPath), fileName)
+      content += `\n    require('antd-md?demo!${requirePath}'),`;
     });
     content += '\n  ],'
   });
