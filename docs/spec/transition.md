@@ -20,6 +20,11 @@ video{
 }
 ````
 
+<br>
+
+---
+
+
 ## 在视图变化时保持上下文
 
 <div class="preview-image-boxes cleafix">
@@ -69,6 +74,10 @@ video{
 
 视图定位：在视图切换时，保持定位。
 
+<br>
+
+---
+
 ## 解释刚刚发生了什么
 <div class="preview-image-boxes cleafix">
   <span>
@@ -109,6 +118,7 @@ video{
 对象更改：在列表/表格中，更改了一个对象。
 
 <br>
+
 <div class="preview-image-boxes cleafix">
   <span>
     <div class="preview-image-box">
@@ -121,6 +131,9 @@ video{
 
 弹出框唤起：从页面的某个按钮唤起弹出框时, 弹框从按钮处唤起, 可提示用户弹框与按钮的关第;。
 
+
+
+---
 
 ## 改善感知性能
 

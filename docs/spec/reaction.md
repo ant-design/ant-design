@@ -14,11 +14,15 @@
 
 > 牛顿第三定律：当两个物体互相作用时，彼此施加于对方的力，其大小相等、方向相反。——摘自《维基百科》
 
+<br>
+
+---
+
 ## 查询模式
 
 自动完成：用户输入时，下拉列表会随着输入的关键词显示匹配项。
 
-<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『问题广场』、『报告广场』、『用户声音』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/aqLuHYzLAXiMVbo.png">
+<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/aqLuHYzLAXiMVbo.png">
 
 <img class="preview-img" align="right" alt="不确定类目示例" description="用户所查询的关键词，其所属的类目数量不确定，可能 4 个，可能 5 个，可能更多。" src="https://os.alipayobjects.com/rmsportal/XFfjaNslhLTKPBF.png">
 
@@ -35,7 +39,9 @@
 
 微调搜索：随着用户调整搜索条件，实时调整搜索结构。具体可见：[『模式』－『高级搜索』](../pattern/advanced-search)。
 
+<br>
 
+---
 ## 反馈模式
 
 <img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。
