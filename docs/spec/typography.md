@@ -1,6 +1,6 @@
 # 排版
 
-- category: 基础
+- category: 设计基础
 - order: 1
 
 ---

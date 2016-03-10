@@ -1,6 +1,6 @@
 # 简化交互
 
-- category: 设计原则
+- category: 十大原则
 - order: 6
 - subtitle: Keep it Lightweight
 

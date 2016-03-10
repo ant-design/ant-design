@@ -1,6 +1,6 @@
 # 对齐
 
-- category: 设计原则
+- category: 十大原则
 - order: 2
 - subtitle: Alignment
 
