@@ -10,7 +10,7 @@ module.exports = function buildCommon(dirs, outputFile) {
 
   let content = 'module.exports = {';
   mds.forEach((fileName) => {
-    content += `\n  '${fileName}': require('antd-md?fileName=${fileName}!../../${fileName}'),`;
+    content += `\n  '${fileName}': require('antd-md!../../${fileName}'),`;
   });
   content += '\n};';
 
