@@ -29,15 +29,17 @@ const Row = React.createClass({
       marginRight: gutter / -2,
       ...style,
     } : style;
-    const cols = Children.map(children, col =>
-      cloneElement(col, {
+    const cols = Children.map(children, col => {
+      if (col === null) return null;
+
+      return cloneElement(col, {
         style: gutter > 0 ? {
           paddingLeft: gutter / 2,
           paddingRight: gutter / 2,
           ...col.props.style
         } : col.props.style,
-      })
-    );
+      });
+    });
     return <div {...others} className={classes} style={rowStyle}>{cols}</div>;
   },
 });

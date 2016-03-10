@@ -1,0 +1,78 @@
+@header-height: 80px;
+
+#header {
+    animation: xRightMatrix .5s ease-out;
+    transition: opacity 0.5S;
+
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    height: @header-height;
+    margin-bottom: 24px;
+    padding: 0 4%;
+    width: 100%;
+}
+
+#logo {
+    animation: xLeftMatrix .5s ease-out;
+    transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+
+    float: left;
+    height: 60px;
+    margin: 20px 45px 20px 0;
+}
+#logo img {
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
+}
+#logo span {
+    color: #6EB4E0;
+    float: right;
+    font-size: 14px;
+    font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", sans-serif;
+    height: 40px;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+#search-box {
+    border-left: 1px solid #EBEDEE;
+    float: left;
+    height: 22px;
+    padding-left: 30px;
+    margin: 32px auto 0;
+}
+#search-box .ant-select {
+    font-size: 14px;
+    margin-top: -2px;
+    width: 230px;
+}
+
+#search-box .ant-select-selection {
+    border: 0;
+    box-shadow: none;
+}
+
+#nav {
+    border: 0;
+    float: right;
+    font-size: 14px;
+}
+#nav li {
+    height: @header-height;
+    line-height: @header-height;
+    width: 86px;
+    text-align: center;
+}
+
+.ant-component-decs {
+    font-size: 12px;
+    position: absolute;
+    top: 9px;
+    color: #aaa;
+    right: 16px;
+}
+
+.ant-select-combobox .ant-select-search__field:focus {
+    box-shadow: none;
+}

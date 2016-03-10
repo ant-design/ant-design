@@ -1,0 +1,37 @@
+.prev-next-nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  border-top: 1px solid #e9e9e9;
+}
+
+.prev-next-nav > .prev-page,
+.prev-next-nav > .next-page {
+  padding: 0 24px;
+  width: 50%;
+  float: left;
+  line-height: 72px;
+  height: 72px;
+}
+
+.prev-next-nav > a.prev-page:before {
+  font-family: 'anticon';
+  content: '\e601';
+  font-size: 12px;
+  margin-right: 1em;
+}
+
+.prev-next-nav > .next-page {
+  text-align: right;
+  float: right;
+}
+
+.prev-next-nav > a.next-page:after {
+  font-family: 'anticon';
+  content: '\e600';
+  font-size: 12px;
+  margin-left: 1em;
+}

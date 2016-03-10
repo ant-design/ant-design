@@ -1,7 +1,8 @@
-# 排版
+# Typography
 
 - category: 基础
 - order: 1
+- chinese: 排版
 
 ---
 

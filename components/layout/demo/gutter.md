@@ -12,16 +12,16 @@ import { Row, Col } from 'antd';
 ReactDOM.render(
   <div className="gutter-example">
     <Row gutter={16}>
-      <Col span={6}>
+      <Col className="gutter-row" span={6}>
         <div className="gutter-box">.col-6</div>
       </Col>
-      <Col span={6}>
+      <Col className="gutter-row" span={6}>
         <div className="gutter-box">.col-6</div>
       </Col>
-      <Col span={6}>
+      <Col className="gutter-row" span={6}>
         <div className="gutter-box">.col-6</div>
       </Col>
-      <Col span={6}>
+      <Col className="gutter-row" span={6}>
         <div className="gutter-box">.col-6</div>
       </Col>
     </Row>

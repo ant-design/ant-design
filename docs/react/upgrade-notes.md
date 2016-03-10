@@ -1,6 +1,5 @@
 # 升级指南
 
-- category: 3
 - order: 3
 
 ---

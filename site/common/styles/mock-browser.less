@@ -1,0 +1,99 @@
+.window-frame {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  line-height: 1;
+}
+
+.window-frame .top-bar {
+  background: #DCD9DC;
+  background-image: -webkit-linear-gradient(#F6F6F6, #dadada);
+  background-image: linear-gradient(#F6F6F6, #dadada);
+  min-height: 2rem;
+  border-radius: 0.35rem 0.35rem 0 0;
+  padding: 0.41528rem 0.83056rem;
+  border-bottom: 1px solid transparent;
+  border-bottom-color: #ccc;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.window-frame .top-bar .address-bar {
+  border-radius: 0.245rem;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: black;
+  box-shadow: 0 0.5px 0 0 rgba(255, 255, 255, 0.75), inset 0 1px 1px rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  padding: 0 0.5em 0 1em;
+  font-size: 0.75rem;
+  line-height: 2;
+  background: white;
+  width: 60%;
+  margin-left: 15%;
+}
+
+.window-frame .top-bar .controls {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  padding-top: 0.2em;
+}
+.window-frame .top-bar .controls > * {
+  position: relative;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 0.41528rem;
+  -webkit-transition: 0.1s linear;
+          transition: 0.1s linear;
+}
+.window-frame .top-bar .control {
+  width: 0.83056rem;
+  height: 0.83056rem;
+  background: #DCD9DC;
+  border-radius: 0.83056rem;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+.window-frame .top-bar .control:hover {
+  background: #b0adb0;
+}
+.window-frame .top-bar .control:before,
+.window-frame .top-bar .control:after {
+  line-height: 0.5;
+  color: black;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  vertical-align: middle;
+  line-height: 0.5;
+}
+.window-frame .top-bar .control.close {
+  background: #FC625C;
+}
+.window-frame .top-bar .control.minify {
+  background: #FDC041;
+}
+.window-frame .top-bar .control.expand {
+  background: #35CD4B;
+}
+.window-frame .window-content {
+  padding: 0;
+  line-height: 1.5;
+  overflow: auto;
+  height: 440px;
+  position: relative;
+  border-radius: 0 0 5px 5px;
+  background: #ececec;
+}
+
+.window-frame .status-bar {
+  height: 2rem;
+  border-radius: 0 0 0.35rem 0.35rem;
+  display: none;
+}

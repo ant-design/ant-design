@@ -1,7 +1,7 @@
-# 导航
+# Navigation
 
-- category: 1
 - order: 1
+- chinese: 导航
 
 ---
 
@@ -44,7 +44,7 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/hutiGZWQYmIspjw.png">
+<img class="preview-img no-padding" align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/hutiGZWQYmIspjw.png">
 
 导航的结构由以下几部分组成。
 
@@ -63,11 +63,11 @@
 
 <br>
 
-<img class="preview-img" noPadding align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/IeuIHdFfKCIABHV.png">
+<img class="preview-img no-padding" align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/IeuIHdFfKCIABHV.png">
 
-<img class="preview-img" noPadding align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/kAbbeJekohMtubV.png">
+<img class="preview-img no-padding" align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/kAbbeJekohMtubV.png">
 
-<img class="preview-img" noPadding align="right" alt="三级类目及以上" src="https://os.alipayobjects.com/rmsportal/qaOifucSTWooBTL.png">
+<img class="preview-img no-padding" align="right" alt="三级类目及以上" src="https://os.alipayobjects.com/rmsportal/qaOifucSTWooBTL.png">
 
 我们定义了不同类目层级所对应的导航样式。
 
@@ -76,7 +76,7 @@
 
 ---
 
-<img class="preview-img" noPadding align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/MVccMQxgCeYfwjS.png">
+<img class="preview-img no-padding" align="right" alt="结构示例" src="https://os.alipayobjects.com/rmsportal/MVccMQxgCeYfwjS.png">
 
 导航的结构由以下几部分组成。
 
@@ -87,10 +87,10 @@
 
 <br>
 
-<img class="preview-img" noPadding align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
+<img class="preview-img no-padding" align="right" alt="一级类目" src="https://os.alipayobjects.com/rmsportal/KvEsIDOYzknbsPT.png">
 
-<img class="preview-img" noPadding align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/xXaCRVPIfmjDyIL.png">
+<img class="preview-img no-padding" align="right" alt="二级类目" src="https://os.alipayobjects.com/rmsportal/xXaCRVPIfmjDyIL.png">
 
-<img class="preview-img" noPadding align="right" alt="三级类目及以上" src="https://os.alipayobjects.com/rmsportal/ollkHeFUFQElelm.png">
+<img class="preview-img no-padding" align="right" alt="三级类目及以上" src="https://os.alipayobjects.com/rmsportal/ollkHeFUFQElelm.png">
 
 不同类目层级。
