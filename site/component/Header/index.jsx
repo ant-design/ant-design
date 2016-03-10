@@ -8,7 +8,7 @@ import './index.less';
 import componentsList from '../../../_site/data/react-components';
 export default class Header extends React.Component {
   handleSearch(value) {
-    console.log(value);
+    this.props.history.push({ pathname: value });
   }
 
   render() {
@@ -40,7 +40,9 @@ export default class Header extends React.Component {
           </Col>
           <Col span="20">
             <div id="search-box">
-              <Select combobox searchPlaceholder="搜索组件..." onChange={this.handleSearch.bind(this)}>
+              <Select combobox
+                searchPlaceholder="搜索组件..." optionLabelProp="nothing"
+                onChange={this.handleSearch.bind(this)}>
                 {options}
               </Select>
             </div>
