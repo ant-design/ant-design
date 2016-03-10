@@ -68,10 +68,10 @@ export default React.createClass({
     const overlay = (
       <div>
         <div className={`${prefixCls}-content`}>
-          <p className={`${prefixCls}-message`}>
+          <div className={`${prefixCls}-message`}>
             <Icon type="exclamation-circle" />
-            {title}
-          </p>
+            <div className={`${prefixCls}-message-title`}>{title}</div>
+          </div>
           <div className={`${prefixCls}-buttons`}>
             <Button onClick={this.cancel} type="ghost" size="small">{cancelText}</Button>
             <Button onClick={this.confirm} type="primary" size="small">{okText}</Button>
