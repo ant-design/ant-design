@@ -1,6 +1,6 @@
 # 直截了当
 
-- category: 设计原则
+- category: 十大原则
 - order: 5
 - subtitle: Make it Direct
 
