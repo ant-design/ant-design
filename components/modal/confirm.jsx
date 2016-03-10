@@ -17,7 +17,7 @@ export function changeConfirmLocale(newLocale) {
   if (newLocale) {
     objectAssign(runtimeLocale, newLocale);
   } else {
-    runtimeLocale = defaultLocale;
+    runtimeLocale = { ...defaultLocale };
   }
 }
 
