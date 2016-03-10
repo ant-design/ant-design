@@ -2,7 +2,7 @@
 
 - order: 3
 
-方便的从数组生成 Checkbox 组。若需要 label 和 value 分离请直接使用 Checkbox。
+方便的从数组生成 Checkbox 组。
 
 ---
 
@@ -14,7 +14,23 @@ function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
 
+const plainOptions = ['Apple', 'Pear', 'Orange'];
+const options = [{
+  label: '苹果',
+  value: 'Apple',
+}, {
+  label: '梨',
+  value: 'Pear',
+}, {
+  label: '橘',
+  value: 'Orange',
+}];
+
 ReactDOM.render(
-  <CheckboxGroup options={['Apple', 'Pear', 'Orange']} defaultValue={['Apple']} onChange={onChange} />
+<div>
+  <CheckboxGroup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+  <br />
+  <CheckboxGroup options={options} defaultValue={['Pear']} onChange={onChange} />
+</div>
 , mountNode);
 ````
