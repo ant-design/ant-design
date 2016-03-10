@@ -223,8 +223,6 @@ Transfer.defaultProps = {
   titles: ['源列表', '目的列表'],
   operations: [],
   showSearch: false,
-  searchPlaceholder: '请输入搜索内容',
-  notFoundContent: 'Not Found',
   body: noop,
   footer: noop,
 };

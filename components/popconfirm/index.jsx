@@ -34,10 +34,11 @@ export default React.createClass({
       overlayStyle: {},
       onConfirm: noop,
       onCancel: noop,
-      okText: '确定',
-      cancelText: '取消',
       onVisibleChange() {},
     };
+  },
+  contextTypes: {
+    antLocale: React.PropTypes.object,
   },
   componentWillReceiveProps(nextProps) {
     if ('visible' in nextProps) {
@@ -62,7 +63,12 @@ export default React.createClass({
     }
   },
   render() {
-    const { title, okText, cancelText, placement, overlayStyle, trigger, ...restProps } = this.props;
+    const { title, placement, overlayStyle, trigger, ...restProps } = this.props;
+    let { okText, cancelText } = this.props;
+    if (this.context.antLocale && this.context.antLocale.Popconfirm) {
+      okText = okText || this.context.antLocale.Popconfirm.okText;
+      cancelText = cancelText || this.context.antLocale.Popconfirm.cancelText;
+    }
     const overlay = (
       <div>
         <div className={`${prefixCls}-content`}>
@@ -71,8 +77,8 @@ export default React.createClass({
             {title}
           </p>
           <div className={`${prefixCls}-buttons`}>
-            <Button onClick={this.cancel} type="ghost" size="small">{cancelText}</Button>
-            <Button onClick={this.confirm} type="primary" size="small">{okText}</Button>
+            <Button onClick={this.cancel} type="ghost" size="small">{cancelText || '取消'}</Button>
+            <Button onClick={this.confirm} type="primary" size="small">{okText || '确定'}</Button>
           </div>
         </div>
       </div>

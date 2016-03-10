@@ -1,14 +1,23 @@
+import React from 'react';
 import objectAssign from 'object-assign';
 import defaultLocale from './locale/zh_CN';
 import DateTimeFormat from 'gregorian-calendar-format';
 import GregorianCalendar from 'gregorian-calendar';
 
 export default {
+  contextTypes: {
+    antLocale: React.PropTypes.object,
+  },
+
   getLocale() {
+    let locale = defaultLocale;
+    if (this.context.antLocale && this.context.antLocale.DatePicker) {
+      locale = this.context.antLocale.DatePicker;
+    }
     // 统一合并为完整的 Locale
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
-    locale.lang = objectAssign({}, defaultLocale.lang, this.props.locale.lang);
-    return locale;
+    const result = objectAssign({}, locale, this.props.locale);
+    result.lang = objectAssign({}, locale.lang, this.props.locale.lang);
+    return result;
   },
 
   getFormatter() {

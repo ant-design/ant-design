@@ -69,8 +69,10 @@ class TransferList extends Component {
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys, notFoundContent,
-            checkStatus, body, footer, showSearch, searchPlaceholder } = this.props;
+    const { prefixCls, dataSource, titleText, filter, checkedKeys,
+            checkStatus, body, footer, showSearch } = this.props;
+
+    let { searchPlaceholder, notFoundContent } = this.props;
 
     // Custom Layout
     const footerDom = footer({ ...this.props });
@@ -95,6 +97,18 @@ class TransferList extends Component {
       );
     });
 
+    let unit = '条';
+    if (this.context.antLocale &&
+        this.context.antLocale.Transfer) {
+      unit = dataSource.length > 1
+        ? this.context.antLocale.Transfer.itemsUnit
+        : this.context.antLocale.Transfer.itemUnit;
+      searchPlaceholder = searchPlaceholder
+        || this.context.antLocale.Transfer.searchPlaceholder;
+      notFoundContent = notFoundContent
+        || this.context.antLocale.Transfer.notFoundContent;
+    }
+
     return (
       <div className={listCls} {...this.props}>
         <div className={`${prefixCls}-header`}>
@@ -103,8 +117,15 @@ class TransferList extends Component {
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
             checkable: <span className={'ant-transfer-checkbox-inner'}></span>
-          })}<span className={`${prefixCls}-header-selected`}><span>{(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} 条</span>
-          <span className={`${prefixCls}-header-title`}>{titleText}</span></span>
+          })}
+          <span className={`${prefixCls}-header-selected`}>
+            <span>
+              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} {unit}
+            </span>
+            <span className={`${prefixCls}-header-title`}>
+              {titleText}
+            </span>
+          </span>
         </div>
         { bodyDom ||
         <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
@@ -112,13 +133,15 @@ class TransferList extends Component {
             <Search prefixCls={`${prefixCls}-search`}
               onChange={this.handleFilter.bind(this)}
               handleClear={this.handleClear.bind(this)}
-              placeholder={searchPlaceholder}
+              placeholder={searchPlaceholder || '请输入搜索内容'}
               value={filter} />
           </div> : null }
           <Animate component="ul"
             transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
             transitionLeave={false}>
-            {showItems.length > 0 ? showItems : <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>}
+            {showItems.length > 0
+              ? showItems
+              : <div className={`${prefixCls}-body-not-found`}>{notFoundContent || '列表为空'}</div>}
           </Animate>
         </div>}
         { footerDom ? <div className={`${prefixCls}-footer`}>
@@ -133,7 +156,6 @@ TransferList.defaultProps = {
   dataSource: [],
   titleText: '',
   showSearch: false,
-  searchPlaceholder: '',
   handleFilter: noop,
   handleSelect: noop,
   handleSelectAll: noop,
@@ -156,6 +178,10 @@ TransferList.propTypes = {
   render: PropTypes.func,
   body: PropTypes.func,
   footer: PropTypes.func,
+};
+
+TransferList.contextTypes = {
+  antLocale: React.PropTypes.object,
 };
 
 export default TransferList;

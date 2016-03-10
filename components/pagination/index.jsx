@@ -16,6 +16,13 @@ class AntPagination extends React.Component {
     let className = this.props.className;
     let selectComponentClass = Select;
 
+    let locale;
+    if (this.context.antLocale && this.context.antLocale.Pagination) {
+      locale = this.context.antLocale.Pagination;
+    } else {
+      locale = this.props.locale;
+    }
+
     if (this.props.size === 'small') {
       className += ' mini';
       selectComponentClass = MiniSelect;
@@ -25,6 +32,7 @@ class AntPagination extends React.Component {
       <Pagination selectComponentClass={selectComponentClass}
         selectPrefixCls="ant-select"
         {...this.props}
+        locale={locale}
         className={className} />
     );
   }
@@ -34,6 +42,10 @@ AntPagination.defaultProps = {
   locale: zhCN,
   className: '',
   prefixCls: 'ant-pagination',
+};
+
+AntPagination.contextTypes = {
+  antLocale: React.PropTypes.object,
 };
 
 export default AntPagination;
