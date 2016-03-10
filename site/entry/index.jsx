@@ -40,16 +40,16 @@ ReactDOM.render(
       <Route path="components" component={ReactComponents}>
         { reactComponentsChildren }
       </Route>
-      <Route path="practice" component={Practice}>
+      <Route path="docs/practice" component={Practice}>
         { practiceChildren }
       </Route>
-      <Route path="pattern" component={Pattern}>
+      <Route path="docs/pattern" component={Pattern}>
         { patternChildren }
       </Route>
-      <Route path="spec" component={Spec}>
+      <Route path="docs/spec" component={Spec}>
         { specChildren }
       </Route>
-      <Route path="resource" component={Resource}>
+      <Route path="docs/resource" component={Resource}>
         { resourceChildren }
       </Route>
     </Route>

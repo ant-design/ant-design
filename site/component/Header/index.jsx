@@ -52,13 +52,13 @@ export default class Header extends React.Component {
                   首页
                 </Link>
               </Menu.Item>
-              <Menu.Item key="practice">
-                <Link to="practice">
+              <Menu.Item key="docs/practice">
+                <Link to="/docs/practice">
                   实践
                 </Link>
               </Menu.Item>
-              <Menu.Item key="pattern">
-                <Link to="pattern">
+              <Menu.Item key="docs/pattern">
+                <Link to="/docs/pattern">
                   模式
                 </Link>
               </Menu.Item>
@@ -67,13 +67,13 @@ export default class Header extends React.Component {
                   组件
                 </Link>
               </Menu.Item>
-              <Menu.Item key="spec">
-                <Link to="/spec">
+              <Menu.Item key="docs/spec">
+                <Link to="/docs/spec">
                   语言
                 </Link>
               </Menu.Item>
-              <Menu.Item key="resource">
-                <Link to="/resource">
+              <Menu.Item key="docs/resource">
+                <Link to="/docs/resource">
                   资源
                 </Link>
               </Menu.Item>

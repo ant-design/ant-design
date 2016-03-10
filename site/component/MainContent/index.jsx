@@ -5,9 +5,13 @@ import { Row, Col, Menu } from '../../../';
 import config from '../../website.config';
 const SubMenu = Menu.SubMenu;
 
-function dashed(name) {
-  return name.toLowerCase().trim().replace(/\s+/g, '-');
-}
+const fileNameUrlMap = {
+  'docs/react/introduce': 'components/introduce',
+  'docs/react/getting-started': 'components/getting-started',
+  'docs/react/install': 'components/install',
+  'docs/react/upgrade-notes': 'components/upgrade-notes',
+  CHANGELOG: 'components/changelog',
+};
 
 export default class MainContent extends React.Component {
   componentDidMount() {
@@ -29,13 +33,18 @@ export default class MainContent extends React.Component {
     }
   }
 
-  getActiveMenuItem(props, index) {
+  getActiveMenuItem(props) {
     const routes = props.routes;
-    return routes[routes.length - 1].path || index;
+    return routes[routes.length - 1].path;
+  }
+
+  fileNameToPath(fileName) {
+    const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
+    return snippets[snippets.length - 1];
   }
 
   generateMenuItem(isTop, item) {
-    const key = dashed(item.english);
+    const key = this.fileNameToPath(item.fileName);
     const text = isTop ?
             item.chinese || item.english :
       [
@@ -43,9 +52,9 @@ export default class MainContent extends React.Component {
         <span className="chinese" key="chinese">{ item.chinese }</span>
       ];
     const disabled = item.disabled === 'true';
-
+    const url = item.fileName.replace(/(\/index)?\.md$/i, '');
     const child = !item.link ?
-            <Link to={`/${this.props.category}/${key}`} disabled={disabled}>
+            <Link to={fileNameUrlMap[url] || url} disabled={disabled}>
               { text }
             </Link> :
             <a href={item.link} target="_blank" disabled={disabled}>

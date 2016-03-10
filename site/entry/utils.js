@@ -5,8 +5,9 @@ import Article from '../component/Article';
 import ComponentDoc from '../component/ComponentDoc';
 import demosList from '../../_site/data/demos-list';
 
-function dashed(name) {
-  return name.toLowerCase().trim().replace(/\s+/g, '-');
+function fileNameToPath(fileName) {
+  const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
+  return snippets[snippets.length - 1];
 }
 
 function getMenuItems(data) {
@@ -59,7 +60,7 @@ export function generateChildren(data) {
             (props) => <ComponentDoc {...props} doc={pageData} />;
     return (
       <Route key={index}
-        path={dashed(meta.english)}
+        path={fileNameToPath(meta.fileName)}
         component={Wrapper} />
     );
   });
@@ -70,7 +71,7 @@ export function generateChildren(data) {
   });
   children.unshift(
     <IndexRedirect key="index"
-      to={dashed(firstChild.english)} />
+      to={fileNameToPath(firstChild.fileName)} />
   );
   return children;
 }
