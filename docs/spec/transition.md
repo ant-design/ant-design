@@ -39,10 +39,7 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="视图定位示例" description="点击评论 A 的『查看对话』时，系统随即跳转至新界面，置顶并高亮评论 A ，以便用户快速识别评论 A 在该对话中的位置。" src="https://os.alipayobjects.com/rmsportal/MjXZjESTHYphDUE.png">
-
-
-视图定位：在视图切换时，保持定位。
+视图定位 (敬请期待)
 
 <br>
 
@@ -82,9 +79,7 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="按钮过渡示例" src="https://os.alipayobjects.com/rmsportal/MjXZjESTHYphDUE.png">
 
-<img class="preview-img" align="right" alt="页面过渡示例" src="https://os.alipayobjects.com/rmsportal/MjXZjESTHYphDUE.png">
 
 常见过渡效果：『按钮过渡』、『页面过渡』。
 
