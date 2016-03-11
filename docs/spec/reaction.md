@@ -22,16 +22,16 @@
 
 自动完成：用户输入时，下拉列表会随着输入的关键词显示匹配项。
 
-<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/aqLuHYzLAXiMVbo.png">
+<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/ZmfTeKXnrdCBONH.png">
 
-<img class="preview-img" align="right" alt="不确定类目示例" description="用户所查询的关键词，其所属的类目数量不确定，可能 4 个，可能 5 个，可能更多。" src="https://os.alipayobjects.com/rmsportal/XFfjaNslhLTKPBF.png">
+<img class="preview-img" align="right" alt="不确定类目示例" description="用户所查询的关键词，其所属的类目数量不确定，可能 4 个，可能 5 个，可能更多。" src="https://os.alipayobjects.com/rmsportal/hUfCsXwnOsVlskl.png">
 
 根据查询结果分类的多少，可以分为『确定类目』、『不确定类目』两种类型。
 
 <br>
 
 <img class="preview-img" align="right" alt="实时搜索示例" description="用户输入一个搜索值，系统随即显示查询结果。
-" src="https://os.alipayobjects.com/rmsportal/wzManNXzJlVjjYf.png">
+" src="https://os.alipayobjects.com/rmsportal/OyJCVmOigyXKWCf.png">
 
 实时搜索：随着用户输入，实时显示搜索结果。『自动完成』、『实时建议』的近亲。
 
@@ -45,7 +45,7 @@
 ## 反馈模式
 
 <img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。
-" src="https://os.alipayobjects.com/rmsportal/GSJwgYCffMHXZBp.png">
+" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">
 
 实时预览：在用户提交输入之前，让他先行了解系统将如何处理他的输入。
 
@@ -57,13 +57,13 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="按钮加载示例" src="https://os.alipayobjects.com/rmsportal/pGiCbTHbwjqiWkp.png">
+<img class="preview-img" align="right" alt="按钮加载示例" src="https://os.alipayobjects.com/rmsportal/FBAZGqfeUnDlUtw.png">
 
-<img class="preview-img" align="right" alt="表格加载示例" src="https://os.alipayobjects.com/rmsportal/WRCeBEZQqWLmjKw.png">
+<img class="preview-img" align="right" alt="表格加载示例" src="https://os.alipayobjects.com/rmsportal/UiDmpTCCKWaOHSA.png">
 
-<img class="preview-img" align="right" alt="富列表加载示例" src="https://os.alipayobjects.com/rmsportal/ixEHkTtfczFFLYy.png">
+<img class="preview-img" align="right" alt="富列表加载示例" src="https://os.alipayobjects.com/rmsportal/WJqeUHzthTXaHnW.png">
 
-<img class="preview-img" align="right" alt="页面加载示例" src="https://os.alipayobjects.com/rmsportal/OuEHxrkmIrYNKhN.png">
+<img class="preview-img" align="right" alt="页面加载示例" src="https://os.alipayobjects.com/rmsportal/qPWjexSmFfCiLVJ.png">
 
 
 进度指示：当一个操作需要一定时间完成时，就需要即时告知进度，保持与用户的沟通。
@@ -71,12 +71,12 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="点击刷新示例" src="https://os.alipayobjects.com/rmsportal/MGFgiXdiJQLzNrm.png">
+<img class="preview-img" align="right" alt="点击刷新示例" src="https://os.alipayobjects.com/rmsportal/DdmWqoqIFSCSAvq.png">
 
 点击刷新：告知用户有新内容，并提供按钮等工具帮助用户查看新内容。
 
 <br>
 
-<img class="preview-img" align="right" alt="定时示例"  description="新增的列表项『高亮』，持续几秒后恢复正常。" src="https://os.alipayobjects.com/rmsportal/XcdyTEKIdjCjaQs.png">
+<img class="preview-img" align="right" alt="定时示例"  description="新增的列表项『高亮』，持续几秒后恢复正常。" src="https://os.alipayobjects.com/rmsportal/guiuShsfpJzxZQx.png">
 
 定时刷新：无需用户介入，定时展示新内容。
