@@ -40,9 +40,9 @@
 
 ### 微创新
 
-<img class="preview-img" noPadding align="right" alt="数值输入框示例" description="鼠标『悬停』时，可点击区域会放大。" src="https://os.alipayobjects.com/rmsportal/GGXdyrOtvUtOKXe.png">
+<img class="preview-img" align="right" alt="数值输入框示例" description="鼠标『悬停』时，可点击区域会放大。" src="https://os.alipayobjects.com/rmsportal/GGXdyrOtvUtOKXe.png">
 
-<img class="preview-img" noPadding align="right" alt="分页示例" description="鼠标点击省略符，可以实现批量切换。" src="https://os.alipayobjects.com/rmsportal/UEYPnVhQsOjytSa.png">
+<img class="preview-img" align="right" alt="分页示例" description="鼠标点击省略符，可以实现批量切换。" src="https://os.alipayobjects.com/rmsportal/UEYPnVhQsOjytSa.png">
 
 <img class="preview-img" align="right" alt="字数校验框示例" description="使用颜色和下划线标注超出的文案，系统即时反应，以便用户进行调整。" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
 
@@ -82,7 +82,7 @@
 
 ### 用户的幸福
 
-<img class="preview-img" noPadding align="right" alt="用户的幸福示例" description="想了解更多内容，可阅读唐纳德•A•诺曼所著的 《设计心理学 3》。" src="https://os.alipayobjects.com/rmsportal/teEHEjczcyAqMHR.png">
+<img class="preview-img" noPadding align="right" alt="用户的幸福示例" description="想了解更多内容，可阅读唐纳德•A•诺曼所著的 《设计心理学 3》。" src="https://os.alipayobjects.com/rmsportal/sBjNEGgHEpNfqTs.png">
 
 漂亮的组件、精致的排版、流畅的动画等的元素，使用户在『本能层次』中产生积极反应；
 
@@ -92,7 +92,7 @@
 
 ### 设计者的幸福
 
-<img class="preview-img" noPadding align="right" alt="设计者的幸福示例" description="Ant Design 无法保证业务产品能否成功，但是能帮助业务产品『正确的成功』或者『正确的失败』。" src="https://os.alipayobjects.com/rmsportal/pdOFnnzyfDIAsjE.png">
+<img class="preview-img" noPadding align="right" alt="设计者的幸福示例" description="Ant Design 无法保证业务产品能否成功，但是能帮助业务产品『正确的成功』或者『正确的失败』。" src="https://os.alipayobjects.com/rmsportal/eMcdBWuZxRbvlvW.png">
 
 从『无』到『有』时，提供一整套设计解决方案，帮助『设计者』将商业想法快速形成产品并推向市场，快速、低成本试错。
 

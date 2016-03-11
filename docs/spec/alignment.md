@@ -10,12 +10,16 @@
 
 > 格式塔学派（德语：Gestalttheorie）：是心理学重要流派之一，兴起于 20 世纪初的德国，又称为完形心理学；主张人脑的运作原理是整体的，『整体不同于其部件的总和』。——摘自『维基百科』
 
+---
+
 ## 文案类对齐
 
 <img class="preview-img" align="right" alt="推荐示例" description="标题和正文左对齐，使用了一个视觉起点。" good src="https://os.alipayobjects.com/rmsportal/halNrWDrYoFPYzC.png">
 <img class="preview-img" align="right" alt="不推荐示例" description="标题和正文使用了两个视觉起点，不推荐该种对齐方式，除非刻意强调两者区别。" bad src="https://os.alipayobjects.com/rmsportal/WBHYfadyasYcEIN.png">
 
 如果页面的字段或段落较短、较散时，需要确定一个统一的视觉起点。
+
+---
 
 ## 表单类对齐
 
@@ -24,6 +28,8 @@
 冒号对齐（右对齐）能让内容锁定在一定范围内，让用户眼球顺着冒号的视觉流，就能找到所有填写项，从而提高填写效率。
 
 更多对齐方式，请查看[『模式』-『表单』-『规格』-『对齐方式』](../pattern/form#对齐方式)。
+
+---
 
 ## 数字类对齐
 

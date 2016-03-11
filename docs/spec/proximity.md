@@ -8,6 +8,10 @@
 
 如果信息之间关联性越高，它们之间的距离就应该越接近，也越像一个视觉单元；反之，则它们的距离就应该越远，也越像多个视觉单元。亲密性的根本目的是实现**组织性**，让用户对页面结构和信息层次一目了然。
 
+<br>
+
+---
+
 ## 纵向间距关系
 
 <img class="preview-img" align="right" alt="纵向间距示例" description="在 Ant Design 中，这三种规格分别为：8px（小号间距）、16px（中号间距）、24px（大号间距）。" src="https://os.alipayobjects.com/rmsportal/clilcwkwtpZduHV.png">
@@ -22,14 +26,16 @@
 
 > 注：在 Ant Design 中，`y=8+8*n`。其中，`n>=0`，y 是纵向间距，8 是『基础间距』。
 
+---
+
 ## 横向间距关系
 
-<img class="preview-img" align="right" alt="组合排布示例" src="https://os.alipayobjects.com/rmsportal/IxhCpgqwjPUXmzr.png">
+<img class="preview-img" align="right" alt="组合排布示例" src="https://os.alipayobjects.com/rmsportal/LdomydjSKKlFhiv.png">
 
 为了适用不同尺寸的屏幕，在横向采用栅格布局来排布组件，从而保证布局的灵活性。
 
 <br>
 
-<img class="preview-img" align="right" alt="复选框内示例" src="https://os.alipayobjects.com/rmsportal/CiQXThPLBLokMmw.png">
+<img class="preview-img" align="right" alt="复选框内示例" src="https://os.alipayobjects.com/rmsportal/DxzQXtIEnFcFxGY.png">
 
 在一个组件内部，元素的横向间距也应该有所不同。

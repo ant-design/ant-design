@@ -10,6 +10,10 @@
 
 > 注：要实现有效的对比，对比就必须强烈，切不可畏畏缩缩。
 
+<br>
+
+---
+
 ## 主次关系对比
 
 <img class="preview-img" align="right" alt="正确示例" good src="https://os.alipayobjects.com/rmsportal/RruKZUSYEwauGdF.png">
@@ -25,6 +29,8 @@
 
 在一些需要用户慎重决策的场景中，系统应该保持中立，不能替用户或者诱导用户做出判断。
 
+---
+
 ## 总分关系对比
 
 <img class="preview-img" align="right" alt="总分关系示例 1" src="https://os.alipayobjects.com/rmsportal/HEDJpTyufnfXUOP.png">
@@ -33,7 +39,9 @@
 
 通过调整排版、字体、大小等方式来突出层次感，区分总分关系，使得页面更具张力和节奏感。
 
-### 状态关系对比
+---
+
+## 状态关系对比
 
 <img class="preview-img" align="right" alt="静态对比示例" description="用不同颜色点，来表明不同状态。" src="https://os.alipayobjects.com/rmsportal/UHjarNwxrXndznP.png">
 
