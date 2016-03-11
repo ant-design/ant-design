@@ -4,6 +4,26 @@
 
 ---
 
+## 0.12.9
+
+`2016-03-11`
+
+- Transfer 
+  - 可以定义 `notFoundContent `。
+  - 修复 `searchPlaceholder` 使用了 `placeholder` 的值的问题。
+- 调整 Tabs 样式。
+- 修复 Table 中的 Pagination 默认配置问题。
+- 调整 Form.Item 的 `margin-bottom`。[#1141](https://github.com/ant-design/ant-design/issues/1141)
+- 修复 DatePicker  `style` 设置错误的问题。
+- 修正 Badge 样式问题。
+- 修复 Popconfirm 箭头位置问题。
+- 优化 Popconfirm、Button 样式。
+- Dropdown hover 后增加延时效果。
+- 修复 Dialog 样式问题。
+- 修复 Upload 上传状态问题。
+- 优化 Menu、Tabs 在 Chorme 下的渲染性能。
+- Form 默认 supress submit 事件。
+
 ## 0.12.8
 
 `2016-03-06`
