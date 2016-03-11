@@ -2,7 +2,9 @@ import React from 'react';
 import Tooltip from 'rc-tooltip';
 import Icon from '../icon';
 import Button from '../button';
+import getPlacements from '../popover/placements';
 
+const placements = getPlacements();
 const prefixCls = 'ant-popover';
 const noop = function () {};
 const transitionNames = {
@@ -66,10 +68,10 @@ export default React.createClass({
     const overlay = (
       <div>
         <div className={`${prefixCls}-content`}>
-          <p className={`${prefixCls}-message`}>
+          <div className={`${prefixCls}-message`}>
             <Icon type="exclamation-circle" />
-            {title}
-          </p>
+            <div className={`${prefixCls}-message-title`}>{title}</div>
+          </div>
           <div className={`${prefixCls}-buttons`}>
             <Button onClick={this.cancel} type="ghost" size="small">{cancelText}</Button>
             <Button onClick={this.confirm} type="primary" size="small">{okText}</Button>
@@ -81,7 +83,9 @@ export default React.createClass({
     const transitionName = transitionNames[placement];
 
     return (
-      <Tooltip {...restProps} placement={placement}
+      <Tooltip {...restProps}
+        placement={placement}
+        builtinPlacements={placements}
         overlayStyle={overlayStyle}
         prefixCls={prefixCls}
         onVisibleChange={this.onVisibleChange}
