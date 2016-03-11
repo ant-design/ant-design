@@ -5,14 +5,6 @@ import { Row, Col, Menu } from '../../../';
 import config from '../../website.config';
 const SubMenu = Menu.SubMenu;
 
-const fileNameUrlMap = {
-  'docs/react/introduce': 'components/introduce',
-  'docs/react/getting-started': 'components/getting-started',
-  'docs/react/install': 'components/install',
-  'docs/react/upgrade-notes': 'components/upgrade-notes',
-  CHANGELOG: 'components/changelog',
-};
-
 export default class MainContent extends React.Component {
   componentDidMount() {
     this.componentDidUpdate();
@@ -54,7 +46,7 @@ export default class MainContent extends React.Component {
     const disabled = item.disabled === 'true';
     const url = item.fileName.replace(/(\/index)?\.md$/i, '');
     const child = !item.link ?
-            <Link to={fileNameUrlMap[url] || url} disabled={disabled}>
+            <Link to={url} disabled={disabled}>
               { text }
             </Link> :
             <a href={item.link} target="_blank" disabled={disabled}>

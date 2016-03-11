@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router';
 import antd from '../../';
 import * as utils from './utils';
 import '../common/lib';
@@ -18,19 +18,19 @@ window.react = React;
 window['react-dom'] = ReactDOM;
 window.antd = antd;
 
-const ReactComponents = utils.generateContainer('components', reactComponents);
+const ReactComponents = utils.generateContainer(reactComponents);
 const reactComponentsChildren = utils.generateChildren(reactComponents);
 
-const Practice = utils.generateContainer('practice', practice);
+const Practice = utils.generateContainer(practice);
 const practiceChildren = utils.generateChildren(practice);
 
-const Pattern = utils.generateContainer('pattern', pattern);
+const Pattern = utils.generateContainer(pattern);
 const patternChildren = utils.generateChildren(pattern);
 
-const Spec = utils.generateContainer('spec', spec);
+const Spec = utils.generateContainer(spec);
 const specChildren = utils.generateChildren(spec);
 
-const Resource = utils.generateContainer('resource', resource);
+const Resource = utils.generateContainer(resource);
 const resourceChildren = utils.generateChildren(resource);
 
 ReactDOM.render(
@@ -40,6 +40,12 @@ ReactDOM.render(
       <Route path="components" component={ReactComponents}>
         { reactComponentsChildren }
       </Route>
+      <Redirect from="docs/react/introduce" to="components/introduce" />
+      <Redirect from="docs/react/getting-started"
+        to="components/getting-started" />
+      <Redirect from="docs/react/install" to="components/install" />
+      <Redirect from="docs/react/upgrade-notes" to="components/upgrade-notes" />
+      <Redirect from="CHANGELOG" to="components/changelog" />
       <Route path="docs/practice" component={Practice}>
         { practiceChildren }
       </Route>

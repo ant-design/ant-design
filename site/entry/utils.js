@@ -35,12 +35,11 @@ function getMenuItems(data) {
   return menuItems;
 }
 
-export function generateContainer(category, data) {
+export function generateContainer(data) {
   const menuItems = getMenuItems(data);
   return (props) => {
     return (
-      <MainContent {...props}
-        category={category} menuItems={menuItems} />
+      <MainContent {...props} menuItems={menuItems} />
     );
   };
 }
