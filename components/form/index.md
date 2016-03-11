@@ -21,12 +21,12 @@
 
 表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。
 
-这里我们分别封装了表单域 `<Form.Item />` 和输入控件 `<Input />`。
+这里我们分别封装了表单域 `<FormItem />` 和输入控件 `<Input />`。
 
 ```html
-<Form.Item {...props}>
+<FormItem {...props}>
   {children}
-</Form.Item>
+</FormItem>
 ```
 
 ## Input 输入框
@@ -65,7 +65,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | |
+| onFieldsChange | 当 `FormItem` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | |
 | mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props) | | | |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
@@ -95,7 +95,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | | |
 
 
-### Form.Item
+### FormItem
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
@@ -123,7 +123,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |  addonAfter | 带标签的 input，设置后置标签 | node |  |   |
 |  prefixCls | 样式类名前缀，默认是 ant，通常您不需要设置 | string |  |  'ant' |
 
-> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
+> 如果 `Input` 在 `FormItem` 内，并且 `FormItem` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
 #### Input.Group
 
