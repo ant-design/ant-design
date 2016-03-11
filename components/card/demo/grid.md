@@ -26,11 +26,11 @@ ReactDOM.render(
 
 ````css
 /* 增加 16px 栅格间距 */
-.row {
+.code-box-demo .row {
   margin-left: -8px;
   margin-right: -8px;
 }
-.row > div {
+.code-box-demo .row > div {
   padding: 0 8px;
 }
 ````
