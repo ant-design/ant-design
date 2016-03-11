@@ -846,23 +846,10 @@ $(function() {
       'https://os.alipayobjects.com/rmsportal/gSNilqbiXOufDXF.mp4',
     ],
     init: function() {
-      var self = this;
-      self.videoBox = $(".video-player");
-      $('<video preload loop></video>').appendTo(self.videoBox);
-      for (var i = 0; i < self.videoBox.length; i++) {
+      $(".preview-image-box video").each(function(i, video) {
         var svg = new SVG();
-        self.videoBox.eq(i).append(svg.node);
-        var video = self.videoBox.eq(i).find("video");
-        $('<source src="' + self.video[i] + '" type="video/mp4">').appendTo(video);
-        video.css({
-          "width": "100%"
-        });
-        video.append(svg);
-        svg.css({
-          "position": "absolute",
-          "top": 0,
-          "left": 0
-        });
+        video = $(video);
+        video.parent().append(svg.node);
         var playBox = _playBox(svg);
         svg.addChild(playBox);
         playBox.addEventListener("click", function(e) {
@@ -877,11 +864,10 @@ $(function() {
             this.setTimeout = setTimeout(function() {
               video[0].play();
             }, 500);
-
             m.attr("play", "true")
           }
-        })
-      }
+        });
+      });
     }
   };
   window.Motion.motionVideo = motionVideo;

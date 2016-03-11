@@ -1202,6 +1202,16 @@ a.entry-link:hover .anticon-smile {
   position: relative;
 }
 
+.preview-image-wrapper video {
+  display: block;
+  width: 100%;
+  + svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
 .preview-image-wrapper.good:after {
   content: '';
   width: 100%;

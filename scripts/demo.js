@@ -193,10 +193,20 @@ const PriviewImg = React.createClass({
     const createMarkup = () => {
       return {__html: this.props.description}
     };
+
+    let node = <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture" />;
+    if (this.props.type === 'video') {
+      node = (
+        <video preload loop style={imgStyle}>
+          <source src={this.props.src} type="video/mp4" />
+        </video>
+      );
+    }
+
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
         <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
-          <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture"/>
+          {node}
         </div>
         <div className="preview-image-title">{this.props.alt}</div>
         <div className="preview-image-description" dangerouslySetInnerHTML={createMarkup()}/>
@@ -245,7 +255,9 @@ InstantClickChangeFns.push(function () {
       priviewImgNodes.each(function (i, img) {
         priviewImgs.push(
           <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'} alt={img.alt}
-                      noPadding={img.hasAttribute('noPadding')} description={img.getAttribute('description')}
+                      noPadding={img.hasAttribute('noPadding')}
+                      description={img.getAttribute('description')}
+                      type={img.getAttribute('type')}
                       good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')}/>
         );
       });
