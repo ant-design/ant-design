@@ -66,9 +66,9 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="弹出框唤起示例" src="https://os.alipayobjects.com/rmsportal/gSNilqbiXOufDXF.mp4" type="video" />
+<img class="preview-img" align="right" alt="对象呼出示例" src="https://os.alipayobjects.com/rmsportal/gSNilqbiXOufDXF.mp4" type="video" />
 
-弹出框唤起：从页面的某个按钮唤起弹出框时, 弹框从按钮处唤起, 可提示用户弹框与按钮的关联。
+对象呼出：点击页面中元素，呼出一个新对象
 
 ---
 
