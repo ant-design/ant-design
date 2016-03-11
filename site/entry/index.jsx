@@ -11,6 +11,7 @@ import pattern from '../../_site/data/pattern';
 import reactComponents from '../../_site/data/react-components';
 import spec from '../../_site/data/spec';
 import resource from '../../_site/data/resource';
+import config from '../website.config';
 
 // TODO: pack dependencies with atool build
 // Expose React, ReactDOM
@@ -33,6 +34,10 @@ const specChildren = utils.generateChildren(spec);
 const Resource = utils.generateContainer(resource);
 const resourceChildren = utils.generateChildren(resource);
 
+const redirects = Object.keys(config.redirects).map((from) => {
+  return <Redirect from={from} to={config.redirects[from]} />;
+});
+
 ReactDOM.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
@@ -40,12 +45,7 @@ ReactDOM.render(
       <Route path="components" component={ReactComponents}>
         { reactComponentsChildren }
       </Route>
-      <Redirect from="docs/react/introduce" to="components/introduce" />
-      <Redirect from="docs/react/getting-started"
-        to="components/getting-started" />
-      <Redirect from="docs/react/install" to="components/install" />
-      <Redirect from="docs/react/upgrade-notes" to="components/upgrade-notes" />
-      <Redirect from="CHANGELOG" to="components/changelog" />
+      { redirects }
       <Route path="docs/practice" component={Practice}>
         { practiceChildren }
       </Route>

@@ -12,4 +12,12 @@ export default {
     导航: 3,
     其它: 4,
   },
+
+  redirects: {
+    'docs/react/introduce': 'components/introduce',
+    'docs/react/getting-started': 'components/getting-started',
+    'docs/react/install': 'components/install',
+    'docs/react/upgrade-notes': 'components/upgrade-notes',
+    CHANGELOG: 'components/changelog',
+  },
 };
