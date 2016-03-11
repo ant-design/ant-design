@@ -38,7 +38,7 @@
 
 <br>
 
-视图定位 (敬请期待)
+视图定位（敬请期待）
 
 <br>
 
@@ -60,7 +60,7 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="对象更改示例" description="状态一：用户更改了『详情』中的值；<br>状态二：用户点击『保存』后，详情所在的网格出现『黄底』，表明该对象发生了更改；<br>状态三：底色持续『 1 秒』后消失，回复正常。" src="https://os.alipayobjects.com/rmsportal/XrUIWmsmOlEnZGc.mp4" type="video" />
+<img class="preview-img" align="right" alt="对象更改示例" description="状态一：用户更改了『详情』中的值；<br>状态二：用户点击『保存』后，详情所在的网格出现『黄底』，表明该对象发生了更改；<br>状态三：底色持续几秒后，恢复正常。" src="https://os.alipayobjects.com/rmsportal/XrUIWmsmOlEnZGc.mp4" type="video" />
 
 对象更改：在列表/表格中，更改了一个对象。
 
