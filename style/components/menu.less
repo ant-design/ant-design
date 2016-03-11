@@ -45,6 +45,7 @@
 
   &-item-active,
   &-submenu-title:hover {
+    transform: translateZ(0);
     background-color: tint(@primary-color, 90%);
   }
 
@@ -56,10 +57,13 @@
   &-horizontal > &-item-active,
   &-horizontal > &-submenu &-submenu-title:hover {
     background-color: transparent;
+    transform: translateZ(0);
   }
 
   &-item-selected {
     color: @primary-color;
+    // fix chrome render bug
+    transform: translateZ(0);
   }
 
   &-inline,
@@ -78,6 +82,7 @@
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
       border-right: 2px solid @primary-color;
+      transform: translateZ(0);
     }
   }
 
@@ -192,6 +197,7 @@
       &-selected {
         border-bottom: 2px solid @primary-color;
         color: @primary-color;
+        transform: translateZ(0);
       }
 
       > a {
@@ -295,6 +301,7 @@
   &-dark&-horizontal > &-submenu:hover,
   &-dark&-horizontal > &-submenu &-submenu-title:hover {
     color: #fff;
+    transform: translateZ(0);
   }
 
   &-dark &-item > a {
@@ -320,11 +327,13 @@
     border-right: 0;
     background-color: @primary-color;
     color: #fff;
+    transform: translateZ(0);
   }
 
   &-dark &-item-active,
   &-dark &-submenu-title:hover {
     background-color: transparent;
     color: @primary-color;
+    transform: translateZ(0);
   }
 }
