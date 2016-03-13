@@ -17,9 +17,9 @@
 
 ### 显示详情信息
 
-<img class="preview-img" align="right" alt="气泡显示示例" description="使用『点击』触发时，应当保证激活／禁用的对称性，即在哪里打开，就在哪里关闭；另外。也支持用户点击空白区域关闭。<hr>使用『悬停』触发时，移入时设计约 0.5 秒的延时，然后激活详情气泡；移出时，立即关闭详情气泡。" src="https://os.alipayobjects.com/rmsportal/GmpRYixxnePBPPW.png">
+<img class="preview-img" align="right" alt="气泡显示示例" description="使用『点击』触发时，应当保证激活、禁用的对称性，即在哪里打开，就在哪里关闭；另外。也支持用户点击空白区域关闭。<hr>使用『悬停』触发时，移入时设计约 0.5 秒的延时，然后激活详情气泡；移出时，立即关闭详情气泡。" src="https://os.alipayobjects.com/rmsportal/GmpRYixxnePBPPW.png">
 
-气泡显示：用户鼠标点击／悬停某个链接或内容时，在悬浮层上显示该条列表项少量的详情信息。
+气泡显示：用户鼠标点击、悬停某个链接或内容时，在悬浮层上显示该条列表项少量的详情信息。
 
 <br />
 
