@@ -38,7 +38,7 @@
 
 <br>
 
-视图定位 (敬请期待)
+<span class="waiting">视图定位 (敬请期待)</span>
 
 <br>
 

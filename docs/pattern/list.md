@@ -98,4 +98,4 @@
 
 <br />
 
-## 案例（敬请期待）
+## <span class="waiting">案例（敬请期待）</span>

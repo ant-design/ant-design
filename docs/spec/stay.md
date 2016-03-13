@@ -53,7 +53,7 @@
 <br>
 
 
-详情嵌入层 (敬请期待)
+<span class="waiting">详情嵌入层 (敬请期待)</span>
 
 <br>
 
@@ -75,7 +75,7 @@
 
 <br>
 
-伸缩式用户界面（敬请期待）
+<span class="waiting">伸缩式用户界面（敬请期待）</span>
 
 <br>
 

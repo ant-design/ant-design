@@ -63,13 +63,12 @@
 
 <br>
 
-拖放对象（敬请期待）
- 
-拖放多个对象（敬请期待）
+<span class="waiting">拖放对象（敬请期待）</span>
+
+<span class="waiting">拖放多个对象（敬请期待）</span>
 
 <br>
 
 ---
 
-## 直接选择（敬请期待）
-
+## <span class="waiting">直接选择（敬请期待）</span>

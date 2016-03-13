@@ -285,7 +285,7 @@ InstantClickChangeFns.push(function() {
   if (window.location.href.indexOf('#') > 0) {
     setTimeout(function() {
       window.location.href = window.location.href;
-    }, 0);
+    }, 30);
   }
 
   $('.component-demos .icon-all').off('click');

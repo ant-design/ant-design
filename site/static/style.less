@@ -625,6 +625,7 @@ footer ul li > a {
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
   margin: 1em 0;
+  font-style: italic;
 }
 
 .markdown blockquote p {
@@ -635,6 +636,10 @@ footer ul li > a {
   opacity: 0;
   transition: opacity 0.3s ease;
   margin-left: 8px;
+}
+
+.markdown .waiting {
+  color: #ccc;
 }
 
 .markdown h1:hover .anchor,
@@ -1179,7 +1184,7 @@ a.entry-link:hover .anticon-smile {
 
 .preview-image-boxes {
   float: right;
-  margin: 0 0 70px 60px;
+  margin: 0 0 70px 20px;
   width: 616px;
 }
 
@@ -1203,7 +1208,6 @@ a.entry-link:hover .anticon-smile {
 }
 
 .preview-image-wrapper video {
-  display: block;
   width: 100%;
   + svg {
     position: absolute;
