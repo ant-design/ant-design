@@ -25,29 +25,30 @@ const options = [{
   }],
 }];
 
-const CitySwitcher = React.createClass({
-  getInitialState() {
-    return {
+class CitySwitcher extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       text: '未选择',
     };
-  },
+  }
   onChange(value, selectedOptions) {
     this.setState({
       text: selectedOptions.map(o => o.label).join(', '),
     });
-  },
+  }
   render() {
     return (
       <span>
         {this.state.text}
         &nbsp;
-        <Cascader options={options} onChange={this.onChange}>
+        <Cascader options={options} onChange={this.onChange.bind(this)}>
           <a href="#">切换城市</a>
         </Cascader>
       </span>
     );
-  },
-});
+  }
+}
 
 ReactDOM.render(<CitySwitcher />, mountNode);
 ````

@@ -9,19 +9,20 @@
 ````jsx
 import { Button, Icon } from 'antd';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       loading: false,
       iconLoading: false,
     };
-  },
+  }
   enterLoading() {
     this.setState({ loading: true });
-  },
+  }
   enterIconLoading() {
     this.setState({ iconLoading: true });
-  },
+  }
   render() {
     return (
       <div>
@@ -35,16 +36,16 @@ const App = React.createClass({
           加载中
         </Button>
         <br />
-        <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
+        <Button type="primary" loading={this.state.loading} onClick={this.enterLoading.bind(this)}>
           点击变加载
         </Button>
-        <Button type="primary" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
+        <Button type="primary" loading={this.state.iconLoading} onClick={this.enterIconLoading.bind(this)}>
           <Icon type="poweroff" />点击变加载
         </Button>
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

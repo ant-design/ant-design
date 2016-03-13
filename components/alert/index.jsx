@@ -4,20 +4,14 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-alert',
-      showIcon: false,
-      onClose() {}
-    };
-  },
-  getInitialState() {
-    return {
+export default class Alert extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       closing: true,
       closed: false
     };
-  },
+  }
   handleClose(e) {
     e.preventDefault();
     let dom = ReactDOM.findDOMNode(this);
@@ -30,13 +24,13 @@ export default React.createClass({
       closing: false
     });
     this.props.onClose.call(this, e);
-  },
+  }
   animationEnd() {
     this.setState({
       closed: true,
       closing: true
     });
-  },
+  }
   render() {
     let {
       closable, description, type, prefixCls, message, closeText, showIcon
@@ -82,16 +76,22 @@ export default React.createClass({
       <Animate component=""
         showProp="data-show"
         transitionName="slide-up"
-        onEnd={this.animationEnd}>
+        onEnd={this.animationEnd.bind(this)}>
         <div data-show={this.state.closing} className={alertCls}>
           {showIcon ? <Icon className="ant-alert-icon" type={iconType} /> : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>
-          {closable ? <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
+          {closable ? <a onClick={this.handleClose.bind(this)} className={`${prefixCls}-close-icon`}>
             {closeText || <Icon type="cross" />}
           </a> : null}
         </div>
       </Animate>
     );
   }
-});
+}
+
+Alert.defaultProps = {
+  prefixCls: 'ant-alert',
+  showIcon: false,
+  onClose() {}
+};

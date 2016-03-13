@@ -32,24 +32,15 @@ function getOffset(element) {
   };
 }
 
-let Affix = React.createClass({
+class Affix extends React.Component {
 
-  getDefaultProps() {
-    return {
-      offset: 0
-    };
-  },
-
-  propTypes: {
-    offset: React.PropTypes.number
-  },
-
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       affix: false,
       affixStyle: null
     };
-  },
+  }
 
   handleScroll() {
     let affix = this.state.affix;
@@ -73,12 +64,12 @@ let Affix = React.createClass({
         affixStyle: null
       });
     }
-  },
+  }
 
   componentDidMount() {
-    this.scrollEvent = rcUtil.Dom.addEventListener(window, 'scroll', this.handleScroll);
-    this.resizeEvent = rcUtil.Dom.addEventListener(window, 'resize', this.handleScroll);
-  },
+    this.scrollEvent = rcUtil.Dom.addEventListener(window, 'scroll', this.handleScroll.bind(this));
+    this.resizeEvent = rcUtil.Dom.addEventListener(window, 'resize', this.handleScroll.bind(this));
+  }
 
   componentWillUnmount() {
     if (this.scrollEvent) {
@@ -87,7 +78,7 @@ let Affix = React.createClass({
     if (this.resizeEvent) {
       this.resizeEvent.remove();
     }
-  },
+  }
 
   render() {
     const className = classNames({
@@ -104,6 +95,14 @@ let Affix = React.createClass({
     );
   }
 
-});
+}
+
+Affix.propTypes = {
+  offset: React.PropTypes.number
+};
+
+Affix.defaultProps = {
+  offset: 0
+};
 
 module.exports = Affix;

@@ -11,7 +11,7 @@ const ReactRouter = require('react-router');
 let { Router, Route, Link, hashHistory } = ReactRouter;
 import { Breadcrumb } from 'antd';
 
-const Apps = React.createClass({
+class Apps extends React.Component {
   render() {
     return (
       <ul className="app-list">
@@ -24,9 +24,9 @@ const Apps = React.createClass({
       </ul>
     );
   }
-});
+}
 
-const Home = React.createClass({
+class Home extends React.Component {
   render() {
     return (
       <div>
@@ -47,7 +47,7 @@ const Home = React.createClass({
       </div>
     );
   }
-});
+}
 
 ReactDOM.render(
   <Router history={hashHistory}>
