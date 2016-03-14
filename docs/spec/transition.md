@@ -38,7 +38,7 @@
 
 <br>
 
-视图定位（敬请期待）
+<span class="waiting">视图定位 (敬请期待)</span>
 
 <br>
 
@@ -79,7 +79,7 @@
 <br>
 
 
+<span class="waiting">图片（敬请期待）</span>
 
-常见过渡效果：『按钮过渡』、『页面过渡』。
 
 <script src="/static/motionDemoLoad.js"></script>

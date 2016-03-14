@@ -17,7 +17,7 @@
 ## 实时可见工具
 
 
-<img class="preview-img" align="right" alt="实时可见工具示例--摘自知乎" description="状态一：在文案中出现一个相对明显的点击区域；<br>
+<img class="preview-img" align="right" alt="实时可见工具示例 --摘自知乎" description="状态一：在文案中出现一个相对明显的点击区域；<br>
 状态二：鼠标悬停时，鼠标『指针』变为『手型』，底色发生变化，邀请用户点击。<br>
 状态三：鼠标点击后，和未点击前有明显的区分。" src="https://os.alipayobjects.com/rmsportal/sfytaOSssRrdYFg.png">
 

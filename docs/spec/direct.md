@@ -49,7 +49,7 @@
 
 <img class="preview-img" align="right" alt="拖放列表示例" description="状态一：鼠标悬停该行时，出现可移动的『图标』；<br>
 状态二：鼠标悬停在该『图标』时，指针变为『手型』，点击即可进行拖动；<br>
-状态三：拖动到可放置区块，出现蓝色描边，告知用户该区块可放置该对象。" src="https://os.alipayobjects.com/rmsportal/ZQxzyqMpeJwalbe.png">
+状态三：拖动到可放置区块，出现蓝色描边，告知用户该区块可放置该对象。" src="https://os.alipayobjects.com/rmsportal/DjMFcqSxZrulbGF.png">
 
 拖放列表
 
@@ -63,13 +63,12 @@
 
 <br>
 
-拖放对象（敬请期待）
- 
-拖放多个对象（敬请期待）
+<span class="waiting">拖放对象（敬请期待）</span>
+
+<span class="waiting">拖放多个对象（敬请期待）</span>
 
 <br>
 
 ---
 
-## 直接选择（敬请期待）
-
+## <span class="waiting">直接选择（敬请期待）</span>

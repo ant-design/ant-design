@@ -18,7 +18,7 @@
 
 ## 覆盖层
 
-<img class="preview-img" align="right" alt="推荐示例" description="用户点击『删除』后，直接操作；并出现 Message 告知用户操作成功，并提供用户『撤消』的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再『撤消』。" src="https://os.alipayobjects.com/rmsportal/woHOTIZeXCYmtkv.png" good>
+<img class="preview-img" align="right" alt="推荐示例" description="用户点击『删除』后，直接操作；出现 Message 告知用户操作成功，并提供用户『撤消』的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再『撤消』。" src="https://os.alipayobjects.com/rmsportal/woHOTIZeXCYmtkv.png" good>
 
 <img class="preview-img" align="right" alt="推荐示例" description="特例：在执行某些无法『撤消』的操作时，可以点击『删除』后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://os.alipayobjects.com/rmsportal/hDlhNscVtHdvvgu.png" good>
 
@@ -52,8 +52,7 @@
 
 <br>
 
-
-详情嵌入层（敬请期待）
+<span class="waiting">详情嵌入层 (敬请期待)</span>
 
 <br>
 
@@ -75,7 +74,7 @@
 
 <br>
 
-伸缩式用户界面（敬请期待）
+<span class="waiting">伸缩式用户界面（敬请期待）</span>
 
 <br>
 

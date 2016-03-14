@@ -6,7 +6,7 @@
 
 ---
 
-『提供邀请』的强大体现在**交互之前**给出反馈，解决易发现性问题；『巧用过渡』的有用体现在它能够在**交互期间**为用户提供视觉反馈；『即时反应』的重要性体现在**交互之后**立即给出反馈。
+『提供邀请』的强大体现在`交互之前`给出反馈，解决易发现性问题；『巧用过渡』的有用体现在它能够在**交互期间**为用户提供视觉反馈；『即时反应』的重要性体现在**交互之后**立即给出反馈。
 
 就像『牛顿第三定律』所描述作用力和反作用一样，用户进行了操作或者内部数据发生了变化，系统就应该立即有一个对应的反馈，同时输入量级越大、重要性越高，那么反馈量级越大、重要性越高。
 
@@ -21,7 +21,7 @@
 ## 查询模式
 
 
-<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/ZmfTeKXnrdCBONH.png">
+<img class="preview-img" align="right" alt="确定类目示例" description="用户所查询的关键词，只会在『话题』、『问题』、『文章』这 3 种类目中出现。" src="https://os.alipayobjects.com/rmsportal/fgQfkNakHrUiAun.png">
 
 <img class="preview-img" align="right" alt="不确定类目示例" description="用户所查询的关键词，其所属的类目数量不确定，可能 4 个，可能 5 个，可能更多。" src="https://os.alipayobjects.com/rmsportal/hUfCsXwnOsVlskl.png">
 
@@ -59,7 +59,7 @@
 
 <img class="preview-img" align="right" alt="按钮加载示例" src="https://os.alipayobjects.com/rmsportal/FBAZGqfeUnDlUtw.png">
 
-<img class="preview-img" align="right" alt="表格加载示例" src="https://os.alipayobjects.com/rmsportal/UiDmpTCCKWaOHSA.png">
+<img class="preview-img" align="right" alt="表格加载示例" src="https://os.alipayobjects.com/rmsportal/FPXsINbTgsuSStI.png">
 
 <img class="preview-img" align="right" alt="富列表加载示例" src="https://os.alipayobjects.com/rmsportal/WJqeUHzthTXaHnW.png">
 
