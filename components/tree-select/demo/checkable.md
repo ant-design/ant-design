@@ -8,6 +8,7 @@
 
 ````jsx
 import { TreeSelect } from 'antd';
+const SHOW_PARENT = TreeSelect.SHOW_PARENT;
 
 const treeData = [{
   label: '节点一',
@@ -54,6 +55,7 @@ const Demo = React.createClass({
       onChange: this.onChange,
       multiple: true,
       treeCheckable: true,
+      showCheckedStrategy: SHOW_PARENT,
       searchPlaceholder: '请选择',
       style: {
         width: 300,
