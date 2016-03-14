@@ -3,11 +3,9 @@
 - category: 1
 - order: 1
 
----
-
 与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』的使用体验，真真正正贯彻和践行『以人为本』的设计理念。
 
-<div style="margin-left:-40px;margin-right:-40px;">
+<div style="margin-left:-40px;margin-right:-40px;overflow:hidden;">
   <div class="col-8 features">
     <img src="https://os.alipayobjects.com/rmsportal/OVirOHTeAdzDBuQ.png">
     <h5>微小</h5>
@@ -27,7 +25,7 @@
 
 <style>
 .features {
-  padding: 40px;
+  padding: 0 40px;
   font-size: 12px;
 }
 .features h5 {
@@ -35,6 +33,8 @@
   margin-top: 16px;
 }
 </style>
+
+---
 
 ## 微小
 

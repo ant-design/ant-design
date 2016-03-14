@@ -104,7 +104,7 @@
     "less-loader": "^2.2.0",
     "lesshint-antd": "^1.2.1",
     "lodash": "^4.1.0",
-    "nico-jsx": "~0.8.2",
+    "nico-jsx": "~0.9.0",
     "postcss-loader": "^0.8.0",
     "pre-commit": "1.x",
     "querystring": "^0.2.0",
