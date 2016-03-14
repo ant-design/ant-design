@@ -205,7 +205,7 @@ const PriviewImg = React.createClass({
 
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
-        <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
+        <div className={`preview-image-wrapper ${this.props.type} ${goodCls} ${badCls}`}>
           {node}
         </div>
         <div className="preview-image-title">{this.props.alt}</div>

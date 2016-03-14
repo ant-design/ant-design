@@ -44,7 +44,7 @@
 
 <img class="preview-img" align="right" alt="分页示例" description="鼠标点击省略符，可以实现批量切换。" src="https://os.alipayobjects.com/rmsportal/UEYPnVhQsOjytSa.png">
 
-<img class="preview-img" align="right" alt="字数校验框示例" description="使用颜色和下划线标注超出的文案，系统即时反应，以便用户进行调整。" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+<img class="preview-img" align="right" alt="字数校验框示例" description="使用颜色和下划线标注超出的文案，系统即时反应，以便用户进行调整。" src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
 『不同』不一定『更好』，但是『更好』一定『不同』。不断追求细节上的『更好』，使得我们的组件和同类产品都不一样，自然而然的『不同』。
 

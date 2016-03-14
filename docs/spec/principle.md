@@ -31,7 +31,7 @@
 </a>
 </div>
 
-### 中台十大设计原则
+#### Ant Design 十大设计原则
 
 - [亲密性 Proximity](./proximity)
 - [对齐 Alignment](./alignment)

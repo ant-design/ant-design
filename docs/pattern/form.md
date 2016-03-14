@@ -106,7 +106,7 @@
 
 ### 字数校验框
 
-<img class="preview-img" align="right" alt="字数校验框示例" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+<img class="preview-img" align="right" alt="字数校验框示例" src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
 用于统计当前输入长度，以及是否超过系统阈值。
 
