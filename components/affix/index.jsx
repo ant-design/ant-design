@@ -123,4 +123,4 @@ const Affix = React.createClass({
 
 });
 
-module.exports = Affix;
+export default Affix;

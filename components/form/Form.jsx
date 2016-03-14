@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-class Form extends React.Component {
+export default class Form extends React.Component {
   getChildContext() {
     return {
       form: this.props.form,
@@ -40,5 +40,3 @@ Form.defaultProps = {
 Form.childContextTypes = {
   form: React.PropTypes.object,
 };
-
-module.exports = Form;
