@@ -122,6 +122,7 @@
     "react-addons-test-utils": "0.14.x",
     "react-copy-to-clipboard": "^4.0.1",
     "react-dom": "0.14.x",
+    "react-github-button": "^0.1.1",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "~1.0.2",
     "recast": "^0.11.2",

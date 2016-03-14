@@ -30,7 +30,7 @@
 .banner-text-wrapper {
     position: absolute;
     left: 10%;
-    top: 58%;
+    top: 55%;
     color: #fff;
     text-align: right;
 }
@@ -56,28 +56,43 @@
     right: -25px;
 }
 .banner-text-wrapper > p {
-    margin: 10px auto 30px;
+    margin: 10px auto 24px;
     font-size: 16px;
 }
-.banner-text-wrapper a {
+
+.banner-text-wrapper .start-button {
+    margin-bottom: 24px;
+
+    > a {
+        float: right;
+        width: 155px;
+        height: 45px;
+        border-radius: 6px;
+        border: 1px solid #00AAEE;
+        color: #00AAEE;
+        font-size: 18px;
+        background: transparent;
+        transition: box-shadow .45s ease-out;
+        text-align: center;
+        line-height: 42px;
+    }
+    > a:hover {
+        box-shadow: 0 0 10px #00AAEE;
+    }
+    > a span {
+        margin-left: 15px;
+    }
+}
+
+.banner-text-wrapper .github-btn {
     float: right;
-    width: 155px;
-    height: 45px;
-    border-radius: 6px;
-    border: 1px solid #00AAEE;
-    color: #00AAEE;
-    font-size: 18px;
-    background: transparent;
-    transition: box-shadow .45s ease-out;
-    text-align: center;
-    line-height: 42px;
+    line-height: 14px;
+
+    a:hover {
+        color: #333;
+    }
 }
-.banner-text-wrapper a:hover {
-    box-shadow: 0 0 10px #00AAEE;
-}
-.banner-text-wrapper a span {
-    margin-left: 15px;
-}
+
 .down {
     text-align: center;
     position: absolute;
