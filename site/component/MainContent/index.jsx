@@ -38,11 +38,10 @@ export default class MainContent extends React.Component {
   generateMenuItem(isTop, item) {
     const key = this.fileNameToPath(item.fileName);
     const text = isTop ?
-            item.chinese || item.english :
-      [
-        <span key="english">{ item.english }</span>,
-        <span className="chinese" key="chinese">{ item.chinese }</span>
-      ];
+            item.chinese || item.english : [
+              <span key="english">{ item.english }</span>,
+              <span className="chinese" key="chinese">{ item.chinese }</span>
+            ];
     const disabled = item.disabled === 'true';
     const url = item.fileName.replace(/(\/index)?\.md$/i, '');
     const child = !item.link ?
