@@ -34,6 +34,7 @@
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在下拉中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
+| showCheckedStrategy | `TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | treeDefaultExpandAll | 默认展开所有树节点 | bool | false |
 | treeCheckable | 显示checkbox | bool | false |
 | filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
