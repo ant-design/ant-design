@@ -531,7 +531,7 @@ let AntTable = React.createClass({
 
   getLocalData(dataSource) {
     let state = this.state;
-    let data = dataSource || this.props.dataSource;
+    let data = dataSource || this.props.dataSource || [];
     // 排序
     if (state.sortOrder && state.sorter) {
       data = data.slice(0);

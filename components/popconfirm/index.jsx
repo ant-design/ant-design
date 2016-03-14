@@ -56,12 +56,12 @@ export default React.createClass({
   },
   onVisibleChange(visible) {
     this.setVisible(visible);
-    this.props.onVisibleChange(visible);
   },
   setVisible(visible) {
     if (!('visible' in this.props)) {
       this.setState({ visible });
     }
+    this.props.onVisibleChange(visible);
   },
   render() {
     const { title, okText, cancelText, placement, overlayStyle, trigger, ...restProps } = this.props;

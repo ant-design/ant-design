@@ -341,6 +341,7 @@ footer {
   position: relative;
   z-index: 1;
   color: #666;
+  box-shadow: 0 1000px 0 1000px #fff;
 }
 
 footer ul {
@@ -474,6 +475,7 @@ footer ul li > a {
   overflow: hidden;
   padding: 24px 0 0;
   margin-bottom: 24px;
+  min-height: 400px;
   position: relative;
 }
 
@@ -482,7 +484,8 @@ footer ul li > a {
   margin-left: 219px;
   padding: 0 40px 120px;
   background: #fff;
-  min-height: 500px;
+  min-height: 400px;
+  min-height: 80vh;
   overflow: hidden;
 }
 
@@ -711,7 +714,7 @@ footer ul li > a {
 
 .toc {
   font-size: 14px;
-  margin: 20px 0;
+  margin: 36px 0 24px;
   background: #fbfbfb;
   border-left: 2px solid #eee;
 }
@@ -1184,8 +1187,9 @@ a.entry-link:hover .anticon-smile {
 
 .preview-image-boxes {
   float: right;
-  margin: 0 0 70px 20px;
+  margin: 0 0 70px 28px;
   width: 616px;
+  clear: both;
 }
 
 .preview-image-boxes + .preview-image-boxes {
