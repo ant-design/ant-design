@@ -19,7 +19,7 @@
 4. 筛选
 5. 状态点
 6. 单行操作
-7. 分页器／无限加载（可选）
+7. 分页器、无限加载（可选）
 
 ### 筛选
 
@@ -89,7 +89,7 @@
 
 <img class="preview-img" align="right" alt="状态五：表格选择框同步取消选择" src="https://os.alipayobjects.com/rmsportal/OAVQZqxPyuAWvTh.png">
 
-当需要对表格／列表的数据进行跨分页器选择时，结合『Alert』来实现。
+当需要对表格、列表的数据进行跨分页器选择时，结合『Alert』来实现。
 
 ### 固定按钮组
 
@@ -97,19 +97,19 @@
 
 <img class="preview-img" align="right" alt="底部固定示例" src="https://os.alipayobjects.com/rmsportal/hUHidNAJczLRVCg.png">
 
-用在表格行数很多时（一般多于 20 行），又想对表格数据进行频繁的操作时，尤其适用在无限加载的表格中。
+用于表格行数很多（一般多于 20 行），同时又需要对表格数据进行频繁操作时。特别适用于无限加载的表格中。
 
 ### 某一项内容过长
 
-<img class="preview-img" align="right" alt="气泡显示示例" description="当过长信息可以被隐藏时，用户悬浮／点击该项时，用『Tooltip／Popover』来显示完整内容。" src="https://os.alipayobjects.com/rmsportal/vgNHOYAiuQbXCOi.png">
+<img class="preview-img" align="right" alt="气泡显示示例" description="当过长信息可以被隐藏时，用户悬浮、点击该项时，用『Tooltip、Popover』来显示完整内容。" src="https://os.alipayobjects.com/rmsportal/vgNHOYAiuQbXCOi.png">
 
-某一项内容过长／不确定长度，既不希望用户在列表和详情之间来回跳转，又不希望不确定的数据撑爆表格时。
+如果某一项内容过长、或长度不确定，用户希望不确定的数据撑爆表格，同时无需在列表和详情之间来回跳转时。
 
 ### 模块编辑
 
 <img class="preview-img" align="right" alt="模块编辑示例" description="启动和禁用要尽可能相似（对称性交互）；保证启用和禁用切换时，页面不在水平方向不错位。" src="https://os.alipayobjects.com/rmsportal/mUhSLOTjzGYTQaE.png">
 
-适用在易读性高于易编辑性时；适用在有一定数量的项需要编辑时。
+适用于易读性高于易编辑性时；适用于有一定数量的项需要同时编辑时。
 
 ### 直接编辑
 
