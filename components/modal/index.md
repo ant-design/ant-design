@@ -30,7 +30,8 @@
 | footer     | 底部内容       | React.Element    | 确定取消按钮 |
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
-| maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       | 
+| maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       |
+| align | 浮层自定义位置 | Object, [dom-align](https://github.com/yiminghe/dom-align) | 距离顶部 100px | 
 
 ### Modal.xxx()
 
