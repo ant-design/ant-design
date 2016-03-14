@@ -24,7 +24,7 @@ return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
 
 ### Add a language
 
-We supply an English locale package by now. Other language users can custumize your locale package as [en_US](https://github.com/ant-design/ant-design/blob/26b1f37392a278285aec6c573b99c6feea09e218/components/locale-provider/en_US.js) and ask a pull request to us.
+We supply an English locale package. Other language users can create a locale package based on [en_US](https://github.com/ant-design/ant-design/blob/26b1f37392a278285aec6c573b99c6feea09e218/components/locale-provider/en_US.js) and send us a pull request.
 
 ### 其他国际化需求
 
