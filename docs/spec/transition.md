@@ -68,7 +68,7 @@
 
 <img class="preview-img" align="right" alt="对象呼出示例" src="https://os.alipayobjects.com/rmsportal/gSNilqbiXOufDXF.mp4" type="video" />
 
-对象呼出：点击页面中元素，呼出一个新对象
+对象呼出：点击页面中元素，呼出一个新对象。
 
 ---
 
