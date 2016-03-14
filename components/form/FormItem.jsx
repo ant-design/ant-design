@@ -7,7 +7,7 @@ function prefixClsFn(prefixCls, ...args) {
   }).join(' ');
 }
 
-class FormItem extends React.Component {
+export default class FormItem extends React.Component {
   _getLayoutClass(colDef) {
     if (!colDef) {
       return '';
@@ -191,5 +191,3 @@ FormItem.defaultProps = {
 FormItem.contextTypes = {
   form: React.PropTypes.object,
 };
-
-module.exports = FormItem;
