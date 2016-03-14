@@ -23,10 +23,12 @@
     &-transition-forward {
       transition: right 0.3s @ease-in-out,
       left 0.3s @ease-in-out 0.3s * 0.3;
+      transform: translateZ(0);
     }
     &-transition-backward {
       transition: right 0.3s @ease-in-out 0.3s * 0.3,
       left 0.3s @ease-in-out;
+      transform: translateZ(0);
     }
   }
 
@@ -176,6 +178,7 @@
 
         &:active {
           color: shade(@primary-color, 5%);
+          transform: translateZ(0);
         }
 
         .anticon {
@@ -188,6 +191,7 @@
 
     .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
       color: @primary-color;
+      transform: translateZ(0);
     }
   }
 
@@ -220,6 +224,7 @@
 
   &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
     animation-name: antMoveLeftIn;
+    transform: translateZ(0);
     animation-play-state: running;
   }
 
@@ -236,6 +241,7 @@
 
   &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
     animation-name: antMoveRightOut;
+    transform: translateZ(0);
     animation-play-state: running;
   }
 
@@ -249,6 +255,7 @@
   &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
     animation-name: antMoveRightIn;
     animation-play-state: running;
+    transform: translateZ(0);
   }
 
   &-slide-horizontal-forward-leave {
@@ -263,6 +270,7 @@
   }
 
   &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
+    transform: translateZ(0);
     animation-name: antMoveLeftOut;
     animation-play-state: running;
   }
@@ -397,11 +405,13 @@
   }
   &&-card &-tab-active {
     background: #fff;
+    transform: translateZ(0);
     border-color: @border-color-base;
     color: @primary-color;
   }
   &&-card &-tab-active &-tab-inner {
     padding-bottom: 7px;
+    transform: translateZ(0);
   }
   &&-card &-nav-wrap {
     margin-bottom: 0;
@@ -430,6 +440,7 @@
   &&-card &-tab-active .anticon-cross,
   &&-card &-tab:hover .anticon-cross {
     width: 16px;
+    transform: translateZ(0);
   }
 
   &-extra-content {

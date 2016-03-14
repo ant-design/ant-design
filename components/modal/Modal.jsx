@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Dialog from 'rc-dialog';
 import { Dom } from 'rc-util';
 import Button from '../button';
@@ -8,7 +8,7 @@ function noop() {}
 let mousePosition;
 let mousePositionEventBinded;
 
-let AntModal = React.createClass({
+const AntModal = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-modal',
@@ -22,6 +22,21 @@ let AntModal = React.createClass({
       confirmLoading: false,
       visible: false,
     };
+  },
+
+  propTypes: {
+    prefixCls: PropTypes.string,
+    onOk: PropTypes.func,
+    onCancel: PropTypes.func,
+    okText: PropTypes.node,
+    cancelText: PropTypes.node,
+    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    confirmLoading: PropTypes.bool,
+    visible: PropTypes.bool,
+    align: PropTypes.object,
+    footer: PropTypes.node,
+    title: PropTypes.node,
+    closable: PropTypes.bool,
   },
 
   handleCancel(e) {

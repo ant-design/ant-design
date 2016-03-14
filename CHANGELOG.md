@@ -4,6 +4,30 @@
 
 ---
 
+## 0.12.10
+
+- 修复 0.12.9 版本 npm 包打包错误的问题。
+
+## 0.12.9
+
+`2016-03-11`
+
+- Transfer
+  - 可以定义 `notFoundContent `。
+  - 修复 `searchPlaceholder` 使用了 `placeholder` 的值的问题。
+- 修复 Popconfirm、Popover、Tooltip 的箭头位置未指向元素的问题。
+- 修正 Badge 在搜狗等旧版 webkit 浏览器下无法使用的问题。
+- 调整 Tabs 样式。
+- 修复 Table 中的 Pagination 默认配置问题。
+- 调整 Form.Item 在 inline 模式下的 `margin-bottom`。[#1141](https://github.com/ant-design/ant-design/issues/1141)
+- 修复 DatePicker `style` 设置错误的问题。
+- 优化 Popconfirm、Button 样式。
+- Dropdown 增加默认的 mouseEnterDelay 延迟以优化体验。
+- 修复 Dialog 样式问题。
+- 修复 Upload 上传中的状态问题。[#1159](https://github.com/ant-design/ant-design/issues/1159)
+- 优化 Menu、Tabs 在 Chorme 下的渲染问题。
+- Form 默认阻止 submit 事件。
+
 ## 0.12.8
 
 `2016-03-06`

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "0.12.8",
+  "version": "0.12.10",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -102,7 +102,7 @@
     "jsonp": "^0.2.0",
     "less": "~2.6.0",
     "less-loader": "^2.2.0",
-    "lesshint-antd": "^1.2.1",
+    "lesshint": "^1.2.1",
     "lodash": "^4.1.0",
     "nico-jsx": "~0.9.0",
     "postcss-loader": "^0.8.0",
