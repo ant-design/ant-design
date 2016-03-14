@@ -4,7 +4,7 @@
 <section class="main-container">
   <article class="markdown">
     <h1>
-      {{ post.title }} {{ post.meta.chinese }}
+      {{ post.title }} {{ post.meta.chinese }}{{ post.meta.subtitle }}
       {%- if post.meta.API %}
       <a class="api-link" href="http://{{ post.meta.API }}" target="_blank">
         <i class="anticon anticon-link"></i>

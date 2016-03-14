@@ -628,6 +628,7 @@ footer ul li > a {
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
   margin: 1em 0;
+  font-style: italic;
 }
 
 .markdown blockquote p {
@@ -638,6 +639,10 @@ footer ul li > a {
   opacity: 0;
   transition: opacity 0.3s ease;
   margin-left: 8px;
+}
+
+.markdown .waiting {
+  color: #ccc;
 }
 
 .markdown h1:hover .anchor,
@@ -701,9 +706,15 @@ footer ul li > a {
   margin-left: 1em;
 }
 
+.subtitle {
+  font-size: 80%;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica;
+}
+
 .toc {
   font-size: 14px;
-  margin-bottom: 20px;
+  margin: 36px 0 24px;
   background: #fbfbfb;
   border-left: 2px solid #eee;
 }
@@ -1176,12 +1187,13 @@ a.entry-link:hover .anticon-smile {
 
 .preview-image-boxes {
   float: right;
-  margin: 0 0 110px 60px;
+  margin: 0 0 70px 28px;
   width: 616px;
+  clear: both;
 }
 
 .preview-image-boxes + .preview-image-boxes {
-  margin-top: -75px;
+  margin-top: -35px;
 }
 
 .preview-image-box {
@@ -1197,6 +1209,22 @@ a.entry-link:hover .anticon-smile {
   text-align: center;
   width: 100%;
   position: relative;
+}
+
+.preview-image-wrapper.video {
+  padding: 0;
+  background: 0;
+  display: block;
+}
+
+.preview-image-wrapper video {
+  width: 100%;
+  display: block;
+  + svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .preview-image-wrapper.good:after {
