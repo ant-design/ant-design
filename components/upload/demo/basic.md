@@ -17,9 +17,9 @@ const props = {
       console.log(info.file, info.fileList);
     }
     if (info.file.status === 'done') {
-      message.success(info.file.name + ' 上传成功。');
+      message.success(`${info.file.name} 上传成功。`);
     } else if (info.file.status === 'error') {
-      message.error(info.file.name + ' 上传失败。');
+      message.error(`${info.file.name} 上传失败。`);
     }
   }
 };
@@ -30,5 +30,5 @@ ReactDOM.render(
       <Icon type="upload" /> 点击上传
     </Button>
   </Upload>
-, document.getElementById('components-upload-demo-basic'));
+, mountNode);
 ````

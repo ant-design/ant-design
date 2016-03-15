@@ -10,21 +10,25 @@
 import { Menu, Dropdown } from 'antd';
 const DropdownButton = Dropdown.Button;
 
-const menu = <Menu>
-  <Menu.Item>
-    <a target="_blank" href="http://www.alipay.com/">第一个菜单项</a>
-  </Menu.Item>
-  <Menu.Item>
-    <a target="_blank" href="http://www.taobao.com/">第二个菜单项</a>
-  </Menu.Item>
-  <Menu.Item>
-    <a target="_blank" href="http://www.tmall.com/">第三个菜单项</a>
-  </Menu.Item>
-</Menu>;
+function handleButtonClick() {
+  console.log('click button');
+}
+
+function handleMenuClick(e) {
+  console.log('click', e);
+}
+
+const menu = (
+  <Menu onClick={handleMenuClick}>
+    <Menu.Item key="1">第一个菜单项</Menu.Item>
+    <Menu.Item key="2">第二个菜单项</Menu.Item>
+    <Menu.Item key="3">第三个菜单项</Menu.Item>
+  </Menu>
+);
 
 ReactDOM.render(
-<DropdownButton overlay={menu} type="primary">
-  某功能按钮
-</DropdownButton>
-, document.getElementById('components-dropdown-demo-dropdown-button'));
+  <DropdownButton onClick={handleButtonClick} overlay={menu} type="primary">
+    某功能按钮
+  </DropdownButton>
+, mountNode);
 ````

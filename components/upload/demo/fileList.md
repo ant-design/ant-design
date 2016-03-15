@@ -34,18 +34,18 @@ const MyUpload = React.createClass({
     fileList = fileList.slice(-2);
 
     // 2. 读取远程路径并显示链接
-    fileList = fileList.map(function(file) {
+    fileList = fileList.map((file) => {
       if (file.response) {
         // 组件会将 file.url 作为链接进行展示
-        file.url = JSON.parse(file.response).url;
+        file.url = file.response.url;
       }
       return file;
     });
 
     // 3. 按照服务器返回信息筛选成功上传的文件
-    fileList = fileList.filter(function(file) {
+    fileList = fileList.filter((file) => {
       if (file.response) {
-        return JSON.parse(file.response).status === 'success';
+        return file.response.status === 'success';
       }
       return true;
     });
@@ -58,13 +58,15 @@ const MyUpload = React.createClass({
       onChange: this.handleChange,
       multiple: true
     };
-    return <Upload {...props} fileList={this.state.fileList}>
-      <Button type="ghost">
-        <Icon type="upload" /> 点击上传
-      </Button>
-    </Upload>;
+    return (
+      <Upload {...props} fileList={this.state.fileList}>
+        <Button type="ghost">
+          <Icon type="upload" /> 点击上传
+        </Button>
+      </Upload>
+    );
   }
 });
 
-ReactDOM.render(<MyUpload />, document.getElementById('components-upload-demo-filelist'));
+ReactDOM.render(<MyUpload />, mountNode);
 ````

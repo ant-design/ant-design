@@ -55,5 +55,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-queue-anim-demo-enter-leave'));
+ReactDOM.render(<Test />, mountNode);
 ````

@@ -13,7 +13,7 @@ export default {
 
   getFormatter() {
     const formats = this.formats = this.formats || {};
-    const format = this.props.format;
+    let format = this.props.format;
     if (formats[format]) {
       return formats[format];
     }
@@ -24,21 +24,20 @@ export default {
   parseDateFromValue(value) {
     if (value) {
       if (typeof value === 'string') {
-        return this.getFormatter().parse(value, {locale: this.getLocale()});
+        return this.getFormatter().parse(value, { locale: this.getLocale() });
       } else if (value instanceof Date) {
         let date = new GregorianCalendar(this.getLocale());
         date.setTime(+value);
         return date;
       }
-    } else if (value === null) {
-      return value;
     }
-    return undefined;
+    return value;
   },
 
   // remove input readonly warning
   handleInputChange() {
   },
+
   toggleOpen(e) {
     this.setState({
       open: e.open

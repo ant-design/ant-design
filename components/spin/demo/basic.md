@@ -11,5 +11,5 @@ import { Spin } from 'antd';
 
 ReactDOM.render(
   <Spin />
-, document.getElementById('components-spin-demo-basic'));
+, mountNode);
 ````

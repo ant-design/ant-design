@@ -17,9 +17,9 @@
 
 ```jsx
 <Steps>
-  <Steps.Step title="第一步"></Steps.Step>
-  <Steps.Step title="第二步"></Steps.Step>
-  <Steps.Step title="第三步"></Steps.Step>
+  <Step title="第一步" />
+  <Step title="第二步" />
+  <Step title="第三步" />
 </Steps>
 ```
 

@@ -38,7 +38,7 @@ const Test = React.createClass({
             <div className="ant-form-item" key="password">
               <label htmlFor="password" className="col-6" required>密码：</label>
               <div className="col-14">
-                <input className="ant-input" type="password" id="password" placeholder="请输入密码"/>
+                <input className="ant-input" type="password" id="password" placeholder="请输入密码" />
               </div>
             </div>,
             <div className="ant-form-item ant-form-item-compact" key="sex">
@@ -77,5 +77,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-queue-anim-demo-form'));
+ReactDOM.render(<Test />, mountNode);
 ````

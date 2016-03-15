@@ -10,11 +10,11 @@
 import { Slider } from 'antd';
 
 function formatter(value) {
-  return '$' + value;
+  return `${value}%`;
 }
 
 ReactDOM.render(<div>
   <Slider tipFormatter={formatter} />
   <Slider tipFormatter={null} />
-</div>, document.getElementById('components-slider-demo-tip-formatter'));
+</div>, mountNode);
 ````

@@ -4,19 +4,20 @@
 
 label {
   position: relative;
-  &[required]:before {
-    display: inline-block;
-    margin-right: 4px;
-    content: "*";
-    font-family: SimSun;
-    font-size: @font-size-base;
-    color: @label-required-color;
-  }
 
   > .@{iconfont-css-prefix} {
     vertical-align: top;
     font-size: @font-size-base;
   }
+}
+
+.@{css-prefix}form-item-required:before {
+  display: inline-block;
+  margin-right: 4px;
+  content: "*";
+  font-family: SimSun;
+  font-size: @font-size-base;
+  color: @label-required-color;
 }
 
 // Input styles
@@ -71,10 +72,20 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
+  &-control {
+    line-height: 32px;
+  }
+
+  &.@{css-prefix}form-item-with-help {
+    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
+  }
+
   > label {
     color: @label-color;
     text-align: right;
     vertical-align: middle;
+    padding-top: 7px;
+    padding-bottom: 7px;
 
     &:lang(en) {
       padding-right: 8px;
@@ -86,11 +97,9 @@ input[type="checkbox"] {
   }
 }
 
-.@{css-prefix}form-text,
-.@{css-prefix}form-split {
-  margin: 0!important;
-  padding-top: 7px;
-  padding-bottom: 7px;
+.@{css-prefix}form-explain {
+  line-height: 1.5;
+  margin-top: 3px;
 }
 
 .@{css-prefix}form-text {
@@ -102,14 +111,6 @@ input[type="checkbox"] {
   display: block;
   text-align: center;
 }
-
-.@{css-prefix}form-explain {
-  position: absolute;
-  font-size: @font-size-base;
-  line-height: @line-height-base;
-  bottom: -@line-height-computed;
-}
-
 
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
@@ -157,11 +158,6 @@ form {
   .@{css-prefix}checkbox-vertical,
   .@{css-prefix}radio-vertical {
     display: block;
-    margin-top: 16px;
-
-    &:first-child {
-      margin-top: 0;
-    }
   }
 
   .@{input-number-prefix-cls} {
@@ -169,18 +165,18 @@ form {
     margin-right: 8px;
   }
 
-  .@{calendar-prefix-cls}-picker {
+  .@{select-prefix-cls} {
     width: 100%;
   }
 }
 
 // Input combined with select
-.@{css-prefix}input-group {
+.@{css-prefix}input-group-wrap {
   .@{select-prefix-cls}-selection {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     &:hover {
-      border-color: #d9d9d9;
+      border-color: @border-color-base;
     }
   }
 
@@ -196,7 +192,7 @@ form {
   }
 
   .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
-    border-color: #d9d9d9;
+    border-color: @border-color-base;
     box-shadow: none;
   }
 }
@@ -206,7 +202,6 @@ form {
     border-radius: @border-radius-base;
   }
   .ant-search-btn {
-    .btn;
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
     margin-left: -30px;
@@ -217,6 +212,10 @@ form {
     padding-right: 8px;
     &:hover {
       border-color: @border-color-base;
+    }
+    form & {
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
   }
   &&-focus .ant-search-btn-noempty,
@@ -230,15 +229,6 @@ form {
 .@{css-prefix}form-horizontal {
   .@{css-prefix}form-item {
     .make-row;
-  }
-
-  .@{css-prefix}form-item-compact {
-    label,
-    .@{css-prefix}form-text,
-    .@{css-prefix}form-split {
-      padding-top: 0;
-      padding-bottom: 0;
-    }
   }
 
   .@{css-prefix}radio-inline,
@@ -263,10 +253,6 @@ form {
     vertical-align: middle;
   }
 
-  .@{calendar-prefix-cls}-picker-input {
-    width: 100%!important;
-  }
-
   .@{css-prefix}form-text {
     display: inline-block;
   }
@@ -274,16 +260,19 @@ form {
   .has-feedback {
     display: inline-block;
   }
+
+  // Fix https://github.com/ant-design/ant-design/issues/1040
+  .@{css-prefix}form-explain {
+    position: absolute;
+  }
 }
 
 .@{css-prefix}form-horizontal,
 .@{css-prefix}form-inline {
   label {
-    padding-top: 7px;
-    padding-bottom: 7px;
     > input[type="radio"],
     > input[type="checkbox"] {
-      margin-right: 5px;
+      margin-right: 4px;
     }
   }
 }
@@ -295,7 +284,7 @@ form {
 .is-validating {
   &.has-feedback:after {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     font-family: "anticon" !important;
     .square(@input-height-lg);

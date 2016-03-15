@@ -5,6 +5,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       options: [],
+      defaultValue: [],
       onChange() {},
     };
   },
@@ -15,21 +16,25 @@ export default React.createClass({
     onChange: React.PropTypes.func,
   },
   getInitialState() {
-    const { value, defaultValue } = this.props;
-    return {
-      value: value || defaultValue || [],
-    };
+    const props = this.props;
+    let value;
+    if ('value' in props) {
+      value = props.value;
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue;
+    }
+    return { value };
   },
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: nextProps.value,
+        value: nextProps.value || [],
       });
     }
   },
   toggleOption(option) {
     const optionIndex = this.state.value.indexOf(option);
-    const value = this.state.value;
+    const value = [...this.state.value];
     if (optionIndex === - 1) {
       value.push(option);
     } else {
@@ -42,17 +47,19 @@ export default React.createClass({
   },
   render() {
     const options = this.props.options;
-    return <div className="ant-checkbox-group">
-      {
-        options.map(option =>
-          <label className="ant-checkbox-group-item" key={option}>
-            <Checkbox disabled={this.props.disabled}
-            checked={this.state.value.indexOf(option) !== -1}
-            onChange={this.toggleOption.bind(this, option)} />
-            {option}
-          </label>
-        )
-      }
-    </div>;
+    return (
+      <div className="ant-checkbox-group">
+        {
+          options.map(option =>
+            <label className="ant-checkbox-group-item" key={option}>
+              <Checkbox disabled={this.props.disabled}
+                checked={this.state.value.indexOf(option) !== -1}
+                onChange={this.toggleOption.bind(this, option)} />
+              {option}
+            </label>
+          )
+        }
+      </div>
+    );
   },
 });

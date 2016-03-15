@@ -1,6 +1,6 @@
-# 默认选择
+# 选择框属性
 
-- order: 2
+- order: 3
 
 配置选择框的默认属性。
 
@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function(text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -41,20 +41,23 @@ const data = [{
 
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
-  getCheckboxProps: function(record) {
+  getCheckboxProps(record) {
     return {
       defaultChecked: record.name === '李大嘴', // 配置默认勾选的列
       disabled: record.name === '胡彦祖'    // 配置无法勾选的列
     };
   },
-  onSelect: function(record, selected, selectedRows) {
+  onChange(selectedRowKeys) {
+    console.log(`selectedRowKeys changed: ${selectedRowKeys}`);
+  },
+  onSelect(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll: function(selected, selectedRows) {
+  onSelectAll(selected, selectedRows) {
     console.log(selected, selectedRows);
-  }
+  },
 };
 
 ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
-, document.getElementById('components-table-demo-row-selection-props'));
+, mountNode);
 ````

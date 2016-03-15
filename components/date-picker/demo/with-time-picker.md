@@ -3,7 +3,7 @@
 - order: 4
 - hidden: true
 
-和 [时间选择框](/components/timepicer) 配合使用。
+和 [时间选择框](/components/time-picker) 配合使用。
 
 ---
 
@@ -37,10 +37,12 @@ const DateTimePicker = React.createClass({
     }
   },
   render() {
-    return <div>
-      <DatePicker onChange={this.handleChange.bind(null, 'date')} />
-      <TimePicker onChange={this.handleChange.bind(null, 'time')} />
-    </div>;
+    return (
+      <div>
+        <DatePicker onChange={this.handleChange.bind(null, 'date')} />
+        <TimePicker onChange={this.handleChange.bind(null, 'time')} />
+      </div>
+    );
   }
 });
 
@@ -49,5 +51,5 @@ function onSelect(value) {
 }
 
 ReactDOM.render(<DateTimePicker onSelect={onSelect} />
-, document.getElementById('components-date-picker-demo-with-time-picker'));
+, mountNode);
 ````

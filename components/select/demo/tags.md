@@ -17,15 +17,15 @@ for (let i = 10; i < 36; i++) {
 }
 
 function handleChange(value) {
-  console.log('selected ' + value);
+  console.log(`selected ${value}`);
 }
 
 ReactDOM.render(
-  <Select
-   style={{width: '100%'}}
-   searchPlaceholder="标签模式"
-  tags onChange={handleChange}>
+  <Select tags
+    style={{ width: '100%' }}
+    searchPlaceholder="标签模式"
+    onChange={handleChange}>
     {children}
   </Select>
-, document.getElementById('components-select-demo-tags'));
+, mountNode);
 ````

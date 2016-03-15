@@ -10,12 +10,13 @@
 .@{spin-prefix-cls} {
   color: @primary-color;
   display: inline-block;
-  font-size: 1em;
+  vertical-align: middle;
   text-align: center;
   opacity: 0;
   position: absolute;
   visibility: hidden;
   transition: opacity 0.3s @ease-in-out-circ;
+  font-size: @font-size-base;
 
   &-spining {
     opacity: 1;
@@ -30,10 +31,12 @@
   &-nested-loading & {
     position: absolute;
     top: 50%;
-    left: 50%;
-    margin-top: -0.75em;
-    margin-left: -2.5em;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -10px;
     z-index: 4;
+    text-align: center;
+    width: 100%;
   }
 
   &-container {
@@ -42,8 +45,9 @@
 
   &-nested-loading > &-container {
     opacity: 0.7;
+    -webkit-filter: blur(1px);
     filter: blur(1px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=1, MakeShadow=false); /* IE6~IE9 */
+    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
     pointer-events: none;
   }
 
@@ -52,34 +56,38 @@
 
   &-dot {
     .animation(antSpinPulse 1.2s infinite @ease-in-out-circ);
-    .square(1em);
+    .square(@spin-dot-size);
     border-radius: 50%;
     display: inline-block;
     background-color: @primary-color;
   }
   &-dot-second {
     .animation-delay(200ms);
-    margin-left: 1em;
   }
   &-dot-third {
     .animation-delay(400ms);
-    margin-left: 1em;
+  }
+
+  &-dot + &-dot {
+    margin-left: @spin-dot-size;
   }
 
   // Sizes
   // ------------------------------
-  &-default {
-    font-size: @spin-dot-size;
-  }
-
   // small
-  &-small {
-    font-size: @spin-dot-size-sm;
+  &-sm &-dot {
+    .square(@spin-dot-size-sm);
+    + & {
+      margin-left: @spin-dot-size-sm;
+    }
   }
 
   // large
-  &-large {
-    font-size: @spin-dot-size-lg;
+  &-lg &-dot {
+    .square(@spin-dot-size-lg);
+    + & {
+      margin-left: @spin-dot-size-lg;
+    }
   }
 }
 

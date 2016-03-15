@@ -11,28 +11,28 @@ import { Radio } from 'antd';
 const RadioGroup = Radio.Group;
 
 const App = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {
-      value: 'a'
+      value: 1,
     };
   },
   onChange(e) {
-    console.log('radio checked:' + e.target.value);
+    console.log('radio checked', e.target.value);
     this.setState({
-      value: e.target.value
+      value: e.target.value,
     });
   },
   render() {
-    return <div>
+    return (
       <RadioGroup onChange={this.onChange} value={this.state.value}>
-        <Radio value="a">A</Radio>
-        <Radio value="b">B</Radio>
-        <Radio value="c">C</Radio>
-        <Radio value="d">D</Radio>
+        <Radio key="a" value={1}>A</Radio>
+        <Radio key="b" value={2}>B</Radio>
+        <Radio key="c" value={3}>C</Radio>
+        <Radio key="d" value={null}>D</Radio>
       </RadioGroup>
-      <div style={{marginTop: 20}}>你选中的: {this.state.value}</div>
-    </div>;
+    );
   }
 });
-ReactDOM.render(<App />, document.getElementById('components-radio-demo-radiogroup'));
+
+ReactDOM.render(<App />, mountNode);
 ````

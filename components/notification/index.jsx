@@ -13,7 +13,7 @@ function getNotificationInstance() {
   notificationInstance = Notification.newInstance({
     prefixCls: 'ant-notification',
     style: {
-      top: top,
+      top,
       right: 0
     }
   });
@@ -32,31 +32,31 @@ function notice(args) {
     let prefixCls = ' ant-notification-notice-content-icon-';
     let iconType = '';
     switch (args.icon) {
-    case 'success':
-      iconType = 'check-circle-o';
-      break;
-    case 'info':
-      iconType = 'info-circle-o';
-      break;
-    case 'error':
-      iconType = 'exclamation-circle-o';
-      break;
-    case 'warn':
-      iconType = 'question-circle-o';
-      break;
-    default:
-      iconType = 'info-circle';
+      case 'success':
+        iconType = 'check-circle-o';
+        break;
+      case 'info':
+        iconType = 'info-circle-o';
+        break;
+      case 'error':
+        iconType = 'exclamation-circle-o';
+        break;
+      case 'warn':
+        iconType = 'question-circle-o';
+        break;
+      default:
+        iconType = 'info-circle';
     }
 
     getNotificationInstance().notice({
       content: <div>
-        <Icon className={prefixCls + 'icon-' + args.icon + prefixCls + 'icon'} type={iconType} />
+        <Icon className={`${prefixCls}icon-${args.icon}${prefixCls}icon`} type={iconType} />
 
-        <div className={prefixCls + 'message'}>{args.message}</div>
+        <div className={`${prefixCls}message`}>{args.message}</div>
 
-        <div className={prefixCls + 'description'}>{args.description}</div>
+        <div className={`${prefixCls}description`}>{args.description}</div>
       </div>,
-      duration: duration,
+      duration,
       closable: true,
       onClose: args.onClose,
       key: args.key,
@@ -67,11 +67,11 @@ function notice(args) {
     if (!args.btn) {
       getNotificationInstance().notice({
         content: <div>
-          <div className={prefixCls + 'message'}>{args.message}</div>
+          <div className={`${prefixCls}message`}>{args.message}</div>
 
-          <div className={prefixCls + 'description'}>{args.description}</div>
+          <div className={`${prefixCls}description`}>{args.description}</div>
         </div>,
-        duration: duration,
+        duration,
         closable: true,
         onClose: args.onClose,
         key: args.key,
@@ -80,14 +80,14 @@ function notice(args) {
     } else {
       getNotificationInstance().notice({
         content: <div>
-          <div className={prefixCls + 'message'}>{args.message}</div>
+          <div className={`${prefixCls}message`}>{args.message}</div>
 
-          <div className={prefixCls + 'description'}>{args.description}</div>
-          <span className={prefixCls + 'btn'}>
+          <div className={`${prefixCls}description`}>{args.description}</div>
+          <span className={`${prefixCls}btn`}>
             {args.btn}
           </span>
         </div>,
-        duration: duration,
+        duration,
         closable: true,
         onClose: args.onClose,
         key: args.key,
@@ -97,18 +97,24 @@ function notice(args) {
   }
 }
 
-let api = {
-  open(args){
+const api = {
+  open(args) {
     notice(args);
   },
-  close(key){
+  close(key) {
     if (notificationInstance) {
       notificationInstance.removeNotice(key);
     }
   },
   config(options) {
     top = isNaN(options.top) ? 24 : options.top;
-  }
+  },
+  destroy() {
+    if (notificationInstance) {
+      notificationInstance.destroy();
+      notificationInstance = null;
+    }
+  },
 };
 
 ['success', 'info', 'warn', 'error'].forEach((type) => {

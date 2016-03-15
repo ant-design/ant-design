@@ -16,5 +16,5 @@ ReactDOM.render(<div>
   <Badge count={1000} overflowCount={999}>
     <a href="#" className="head-example"></a>
   </Badge>
-</div>, document.getElementById('components-badge-demo-overflow'));
+</div>, mountNode);
 ````

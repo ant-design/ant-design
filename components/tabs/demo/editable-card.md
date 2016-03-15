@@ -19,7 +19,7 @@ const Demo = React.createClass({
     ];
     return {
       activeKey: panes[0].key,
-      panes: panes,
+      panes,
     };
   },
   onChange(activeKey) {
@@ -30,16 +30,21 @@ const Demo = React.createClass({
   },
   add() {
     const panes = this.state.panes;
-    const activeKey = 'newTab' + this.newTabIndex++;
+    const activeKey = `newTab${this.newTabIndex++}`;
     panes.push(<TabPane tab="新建页签" key={activeKey}>新页面</TabPane>);
     this.setState({ panes, activeKey });
   },
   remove(targetKey) {
     let activeKey = this.state.activeKey;
-    let lastIndex = this.state.panes.findIndex(pane => pane.key === targetKey) - 1;
+    let lastIndex;
+    this.state.panes.forEach((pane, i) => {
+      if (pane.key === targetKey) {
+        lastIndex = i - 1;
+      }
+    });
     const panes = this.state.panes.filter(pane => pane.key !== targetKey);
-    if (activeKey === targetKey) {
-      activeKey = panes[lastIndex >= 0 ? lastIndex : 0].key;
+    if (lastIndex >= 0 && activeKey === targetKey) {
+      activeKey = panes[lastIndex].key;
     }
     this.setState({ panes, activeKey });
   },
@@ -53,6 +58,5 @@ const Demo = React.createClass({
   }
 });
 
-ReactDOM.render(<Demo />, document.getElementById('components-tabs-demo-editable-card'));
+ReactDOM.render(<Demo />, mountNode);
 ````
-

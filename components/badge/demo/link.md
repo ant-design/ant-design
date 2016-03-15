@@ -15,5 +15,5 @@ ReactDOM.render(
       <span className="head-example"></span>
     </Badge>
   </a>
-, document.getElementById('components-badge-demo-link'));
+, mountNode);
 ````

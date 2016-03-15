@@ -9,7 +9,7 @@
 ````jsx
 import { Button, notification } from 'antd';
 
-const openNotification = function() {
+const openNotification = function () {
   const args = {
     message: '这是标题',
     description: '我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭',
@@ -20,5 +20,5 @@ const openNotification = function() {
 
 ReactDOM.render(
   <Button type="primary" onClick={openNotification}>打开通知提醒框</Button>
-, document.getElementById('components-notification-demo-duration'));
+, mountNode);
 ````

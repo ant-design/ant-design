@@ -16,16 +16,13 @@ const Test = React.createClass({
     };
   },
   onChange(time) {
-    time = time && time.toLocaleTimeString('zh-CN', {
-      hour12: false
-    });
     console.log(time);
-    this.setState({ time });
+    this.setState({ value: time });
   },
   render() {
     return <TimePicker value={this.state.value} onChange={this.onChange} />;
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-time-picker-demo-value'));
+ReactDOM.render(<Test />, mountNode);
 ````

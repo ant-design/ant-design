@@ -12,41 +12,45 @@ import { Calendar } from 'antd';
 function getListData(value) {
   let listData;
   switch (value.getDayOfMonth()) {
-  case 8:
-    listData = [
-      { type: 'warn', content: '这里是警告事项.' },
-      { type: 'normal', content: '这里是普通事项.' }
-    ]; break;
-  case 10:
-    listData = [
-      { type: 'warn', content: '这里是警告事项.' },
-      { type: 'normal', content: '这里是普通事项.' },
-      { type: 'error', content: '这里是错误事项.' }
-    ]; break;
-  case 15:
-    listData = [
-      { type: 'warn', content: '这里是警告事项.' },
-      { type: 'normal', content: '这里是普通事项好长啊。。....' },
-      { type: 'error', content: '这里是错误事项.' },
-      { type: 'error', content: '这里是错误事项.' },
-      { type: 'error', content: '这里是错误事项.' },
-      { type: 'error', content: '这里是错误事项.' }
-    ]; break;
-  default:
+    case 8:
+      listData = [
+        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'normal', content: '这里是普通事项.' }
+      ]; break;
+    case 10:
+      listData = [
+        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'normal', content: '这里是普通事项.' },
+        { type: 'error', content: '这里是错误事项.' }
+      ]; break;
+    case 15:
+      listData = [
+        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'normal', content: '这里是普通事项好长啊。。....' },
+        { type: 'error', content: '这里是错误事项.' },
+        { type: 'error', content: '这里是错误事项.' },
+        { type: 'error', content: '这里是错误事项.' },
+        { type: 'error', content: '这里是错误事项.' }
+      ]; break;
+    default:
   }
   return listData || [];
 }
 
 function dateCellRender(value) {
   let listData = getListData(value);
-  return <ul className="events">
-    {listData.map((item, index) =>
-      <li key={index}>
-        <span className={`event-${item.type}`}>●</span>
-        {item.content}
-      </li>
-    )}
-  </ul>;
+  return (
+    <ul className="events">
+      {
+        listData.map((item, index) =>
+          <li key={index}>
+            <span className={`event-${item.type}`}>●</span>
+            {item.content}
+          </li>
+        )
+      }
+    </ul>
+  );
 }
 
 
@@ -66,7 +70,7 @@ function monthCellRender(value) {
 
 ReactDOM.render(
   <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
-, document.getElementById('components-calendar-demo-notice-calendar'));
+, mountNode);
 ````
 
 

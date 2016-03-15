@@ -9,9 +9,15 @@
 ````jsx
 import { Pagination } from 'antd';
 
+function showTotal(total) {
+  return `共 ${total} 条`;
+}
+
 ReactDOM.render(<div>
   <Pagination size="small" total={50} />
   <br />
   <Pagination size="small" total={50} showSizeChanger showQuickJumper />
-</div>, document.getElementById('components-pagination-demo-mini'));
+  <br />
+  <Pagination size="small" total={50} showTotal={showTotal} />
+</div>, mountNode);
 ````

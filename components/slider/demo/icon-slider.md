@@ -18,7 +18,7 @@ const IconSlider = React.createClass({
     return {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
-      mid: mid,
+      mid,
       sliderValue: this.props.value
     };
   },
@@ -44,7 +44,7 @@ const IconSlider = React.createClass({
 
 ReactDOM.render(
 <IconSlider min={0} max={20} value={0} icon={['lock', 'unlock']} />
-, document.getElementById('components-slider-demo-icon-slider'));
+, mountNode);
 ````
 
 ````css

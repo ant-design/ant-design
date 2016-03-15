@@ -8,16 +8,16 @@ router 组合的进场与出场动画。
 
 ````jsx
 const ReactRouter = require('react-router');
-let { Router, Route, Link } = ReactRouter;
+let { Router, Route, Link, hashHistory } = ReactRouter;
 import { QueueAnim, Menu } from 'antd';
 
 const App = React.createClass({
   render() {
     const key = this.props.location.pathname;
-    const keys = key.replace('/', '') ? [ key.replace('/', '') ] : [ 'home' ];
+    const keys = key.replace('/', '') ? [key.replace('/', '')] : ['home'];
     return (
       <div>
-        <Menu style={{marginBottom: 10}} mode="horizontal" selectedKeys={keys}>
+        <Menu style={{ marginBottom: 10 }} mode="horizontal" selectedKeys={keys}>
           <Menu.Item key="home">
             <Link to="/">首页</Link>
           </Menu.Item>
@@ -29,7 +29,7 @@ const App = React.createClass({
           </Menu.Item>
         </Menu>
         <QueueAnim type={['right', 'left']} className="demo-router-wrap">
-          {React.cloneElement(this.props.children || <Home/>, {key: key})}
+          {React.cloneElement(this.props.children || <Home />, { key })}
         </QueueAnim>
       </div>
     );
@@ -83,7 +83,7 @@ const Page1 = React.createClass({
           <div className="demo-listBox">
             <QueueAnim className="demo-list" delay={200}>
               <div className="title" key="title3"></div>
-              <QueueAnim component="ul" animConfig={{opacity:[1, 0], translateY:[0, 30], scale:[1, 0.9]}} key="ul">
+              <QueueAnim component="ul" animConfig={{ opacity: [1, 0], translateY: [0, 30], scale: [1, 0.9] }} key="ul">
                 <li key="0"></li>
                 <li key="1"></li>
                 <li key="2"></li>
@@ -104,7 +104,7 @@ const Page2 = React.createClass({
           <div className="demo-listBox">
             <QueueAnim className="demo-list">
               <div className="title" key="title3"></div>
-              <QueueAnim component="ul" animConfig={{opacity:[1, 0], translateY:[0, 30], scale:[1, 0.9]}} key="li">
+              <QueueAnim component="ul" animConfig={{ opacity: [1, 0], translateY: [0, 30], scale: [1, 0.9] }} key="li">
                 <li key="0"></li>
                 <li key="1"></li>
                 <li key="2"></li>
@@ -121,13 +121,13 @@ const Page2 = React.createClass({
 });
 
 ReactDOM.render((
-  <Router>
+  <Router history={hashHistory}>
     <Route path="/" component={App} ignoreScrollBehavior>
       <Route path="page1" component={Page1} />
       <Route path="page2" component={Page2} />
     </Route>
   </Router>
-), document.getElementById('components-queue-anim-demo-router'));
+), mountNode);
 ````
 
 ````css

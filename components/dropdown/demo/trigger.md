@@ -9,16 +9,18 @@
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 
-const menu = <Menu>
-  <Menu.Item key="0">
-    <a href="http://www.alipay.com/">第一个菜单项</a>
-  </Menu.Item>
-  <Menu.Item key="1">
-    <a href="http://www.taobao.com/">第二个菜单项</a>
-  </Menu.Item>
-  <Menu.Divider/>
-  <Menu.Item key="3">第三个菜单项</Menu.Item>
-</Menu>;
+const menu = (
+  <Menu>
+    <Menu.Item key="0">
+      <a href="http://www.alipay.com/">第一个菜单项</a>
+    </Menu.Item>
+    <Menu.Item key="1">
+      <a href="http://www.taobao.com/">第二个菜单项</a>
+    </Menu.Item>
+    <Menu.Divider />
+    <Menu.Item key="3">第三个菜单项</Menu.Item>
+  </Menu>
+);
 
 ReactDOM.render(<div>
   <Dropdown overlay={menu} trigger={['click']}>
@@ -26,5 +28,5 @@ ReactDOM.render(<div>
       点击触发 <Icon type="down" />
     </a>
   </Dropdown>
-</div>, document.getElementById('components-dropdown-demo-trigger'));
+</div>, mountNode);
 ````

@@ -11,12 +11,12 @@
 ````jsx
 import { DatePicker } from 'antd';
 
-const disabledDate = function(current) {
+const disabledDate = function (current) {
   // can not select days after today
   return current && current.getTime() > Date.now();
 };
 
 ReactDOM.render(
   <DatePicker disabledDate={disabledDate} />
-, document.getElementById('components-date-picker-demo-disabled-date'));
+, mountNode);
 ````

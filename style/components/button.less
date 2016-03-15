@@ -18,15 +18,18 @@
     .@{btn-prefix-cls}-group &:first-child {
       &:not(:last-child) {
         border-right-color: @btn-group-border;
+        &[disabled] {
+          border-right-color: @btn-default-border;
+        }
       }
     }
 
-    .@{btn-prefix-cls}-group &:last-child:not(:first-child) {
-      border-left-color: @btn-group-border;
-    }
-
+    .@{btn-prefix-cls}-group &:last-child:not(:first-child),
     .@{btn-prefix-cls}-group & + .@{btn-prefix-cls} {
       border-left-color: @btn-group-border;
+      &[disabled] {
+        border-left-color: @btn-default-border;
+      }
     }
   }
 
@@ -94,4 +97,26 @@
   > span + .@{iconfont-css-prefix} {
     margin-left: 0.5em;
   }
+
+  &-clicked:before {
+  	content: '';
+  	position: absolute;
+  	top: -6px;
+  	left: -6px;
+  	bottom: -6px;
+  	right: -6px;
+  	border-radius: inherit;
+  	z-index: -1;
+    background: inherit;
+  	opacity: 1;
+  	transform: scale3d(0.5, 0.5, 1);
+    animation: buttonEffect 0.48s ease forwards;
+  }
+}
+
+@keyframes buttonEffect {
+	to {
+		opacity: 0;
+		transform: scale3d(1, 1, 1);
+	}
 }

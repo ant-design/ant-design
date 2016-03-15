@@ -22,11 +22,7 @@ const steps = [{
 }, {
   title: '待运行',
   description: '这里是多信息的描述啊'
-}].map(function(s, i) {
-  return (
-    <Step key={i} title={s.title} description={s.description} />
-  );
-});
+}].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
-ReactDOM.render(<Steps current={1}>{steps}</Steps>, document.getElementById('components-steps-demo-simple'));
+ReactDOM.render(<Steps current={1}>{steps}</Steps>, mountNode);
 ````

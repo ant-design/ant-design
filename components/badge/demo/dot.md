@@ -16,7 +16,7 @@ ReactDOM.render(<div>
   <Badge dot>
     <a href="#">一个链接</a>
   </Badge>
-</div>, document.getElementById('components-badge-demo-dot'));
+</div>, mountNode);
 ````
 
 <style>

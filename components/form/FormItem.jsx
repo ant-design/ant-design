@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
-  return args.map((s)=> {
-    return prefixCls + '-' + s;
+  return args.map((s) => {
+    return `${prefixCls}-${s}`;
   }).join(' ');
 }
 
@@ -12,37 +12,78 @@ class FormItem extends React.Component {
     if (!colDef) {
       return '';
     }
-    const {span, offset} = colDef;
-    const col = span ? 'col-' + span : '';
-    const offsetCol = offset ? ' col-offset-' + offset : '';
+    const { span, offset } = colDef;
+    const col = span ? `col-${span}` : '';
+    const offsetCol = offset ? ` col-offset-${offset}` : '';
     return col + offsetCol;
   }
 
+  getHelpMsg() {
+    const context = this.context;
+    const props = this.props;
+    if (props.help === undefined && context.form) {
+      return (context.form.getFieldError(this.getId()) || []).join(', ');
+    }
+
+    return props.help;
+  }
+
+  getId() {
+    return this.props.children.props && this.props.children.props.id;
+  }
+
+  getMeta() {
+    return this.props.children.props && this.props.children.props.__meta;
+  }
+
   renderHelp() {
-    const prefixCls = this.props.prefixCls;
+    const props = this.props;
+    const prefixCls = props.prefixCls;
+    const help = this.getHelpMsg();
     return (
-      <div className={this.props.help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
-        {this.props.help}
+      <div className={!!help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
+        { help }
       </div>
     );
   }
 
-  renderValidateWrapper(c1, c2) {
+  getValidateStatus() {
+    const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
+    const field = this.getId();
+
+    if (isFieldValidating(field)) {
+      return 'validating';
+    } else if (!!getFieldError(field)) {
+      return 'error';
+    } else if (getFieldValue(field) !== undefined) {
+      return 'success';
+    }
+
+    return '';
+  }
+
+  renderValidateWrapper(c1, c2, c3) {
     let classes = '';
-    if (this.props.validateStatus) {
+    const form = this.context.form;
+    const props = this.props;
+    const validateStatus = (props.validateStatus === undefined && form) ?
+      this.getValidateStatus() :
+      props.validateStatus;
+
+    if (validateStatus) {
       classes = classNames(
         {
-          'has-feedback': this.props.hasFeedback,
-          'has-success': this.props.validateStatus === 'success',
-          'has-warning': this.props.validateStatus === 'warning',
-          'has-error': this.props.validateStatus === 'error',
-          'is-validating': this.props.validateStatus === 'validating',
+          'has-feedback': props.hasFeedback,
+          'has-success': validateStatus === 'success',
+          'has-warning': validateStatus === 'warning',
+          'has-error': validateStatus === 'error',
+          'is-validating': validateStatus === 'validating',
         }
       );
     }
     return (
-      <div className={classes}>
-        {c1} {c2}
+      <div className={`${this.props.prefixCls}-item-control ${classes}`}>
+        {c1}{c2}{c3}
       </div>
     );
   }
@@ -56,50 +97,55 @@ class FormItem extends React.Component {
     );
   }
 
-  renderLabel() {
-    const labelCol = this.props.labelCol;
-    const required = this.props.required ? 'required' : '';
+  isRequired() {
+    if (this.context.form) {
+      const meta = this.getMeta() || {};
+      const validate = (meta.validate || []);
 
-    return this.props.label ? (
-      <label htmlFor={this.props.id} className={this._getLayoutClass(labelCol)} required={required} key="label">
-        {this.props.label}
+      return validate.filter((item) => !!item.rules).some((item) => {
+        return item.rules.some((rule) => rule.required);
+      });
+    }
+    return false;
+  }
+
+  renderLabel() {
+    const props = this.props;
+    const labelCol = props.labelCol;
+    const required = props.required === undefined ?
+      this.isRequired() :
+      props.required;
+
+    const className = classNames({
+      [this._getLayoutClass(labelCol)]: true,
+      [`${props.prefixCls}-item-required`]: required,
+    });
+
+    return props.label ? (
+      <label htmlFor={props.id || this.getId()} className={className} key="label">
+        {props.label}
       </label>
     ) : null;
   }
 
   renderChildren() {
+    const props = this.props;
+    const children = React.Children.map(props.children, (child) => {
+      if (child && typeof child.type === 'function' && !child.props.size) {
+        return React.cloneElement(child, { size: 'large' });
+      }
+      return child;
+    });
     return [
       this.renderLabel(),
       this.renderWrapper(
         this.renderValidateWrapper(
-          this.props.children,
-          this.renderHelp()
+          children,
+          this.renderHelp(),
+          props.extra
         )
       ),
     ];
-  }
-
-  // 判断是否要 `.ant-form-item-compact` 样式类
-  _isCompact(children) {
-    const compactControls = ['checkbox', 'radio', 'radio-group', 'static', 'file'];
-    let isCompact = false;
-
-    if (!Array.isArray(children)) {
-      children = [children];
-    }
-    children.map((child) => {
-      const type = child.props && child.props.type;
-      let prefixCls = child.props && child.props.prefixCls;
-      prefixCls = prefixCls ? prefixCls.substring(prefixCls.indexOf('-') + 1) : '';
-
-      if ((type && compactControls.indexOf(type) > -1) || (prefixCls && compactControls.indexOf(prefixCls) > -1)) {
-        isCompact = true;
-      } else if (child.props && typeof child.props.children === 'object') {
-        isCompact = this._isCompact(child.props.children);
-      }
-    });
-
-    return isCompact;
   }
 
   renderFormItem(children) {
@@ -107,7 +153,8 @@ class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-compact`]: this._isCompact(props.children),
+      [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
+      [`${props.className}`]: !!props.className,
     };
 
     return (
@@ -127,18 +174,22 @@ FormItem.propTypes = {
   prefixCls: React.PropTypes.string,
   label: React.PropTypes.node,
   labelCol: React.PropTypes.object,
-  help: React.PropTypes.node,
+  help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
   validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
   hasFeedback: React.PropTypes.bool,
   wrapperCol: React.PropTypes.object,
   className: React.PropTypes.string,
+  id: React.PropTypes.string,
   children: React.PropTypes.node,
 };
 
 FormItem.defaultProps = {
   hasFeedback: false,
-  required: false,
   prefixCls: 'ant-form',
+};
+
+FormItem.contextTypes = {
+  form: React.PropTypes.object,
 };
 
 module.exports = FormItem;

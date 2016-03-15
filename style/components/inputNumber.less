@@ -22,10 +22,10 @@
   height: 28px;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #d9d9d9;
+  border: 1px solid @border-color-base;
   border-radius: @border-radius-base;
   overflow: hidden;
-  width: 90px;
+  width: 80px;
 
   &-handler {
     text-align: center;
@@ -110,7 +110,6 @@
     input {
       height: 32px;
       line-height: 32px;
-      font-size: 14px;
     }
 
     .@{input-number-prefix-cls}-handler-up-inner {
@@ -131,8 +130,6 @@
     }
     .@{input-number-prefix-cls}-input-wrap {
       height: 22px;
-      overflow: hidden;
-      position: relative;
     }
     .@{input-number-prefix-cls}-handler {
       height: 11px;
@@ -141,8 +138,8 @@
     input {
       height: 22px;
       line-height: 22px;
-      position: absolute;
-      top: 0;
+      margin-top: -1px;
+      vertical-align: top;
     }
     .@{input-number-prefix-cls}-handler-up-inner {
       top: -1px;
@@ -159,11 +156,13 @@
   }
 
   &-handler-wrap {
-    float: right;
-    border-left: 1px solid #d9d9d9;
+    border-left: 1px solid @border-color-base;
     width: 22px;
     height: 28px;
-    position: relative;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
   }
@@ -190,7 +189,7 @@
   }
 
   &-handler-down {
-    border-top: 1px solid #d9d9d9;
+    border-top: 1px solid @border-color-base;
     top: -1px;
     cursor: pointer;
     &-inner {

@@ -40,18 +40,20 @@ const Test = React.createClass({
     });
   },
   render() {
-    return <div>
-      <Button type="primary" onClick={this.showModal}>显示对话框</Button>
-      <Modal title="对话框标题"
-        visible={this.state.visible}
-        onOk={this.handleOk}
-        confirmLoading={this.state.confirmLoading}
-        onCancel={this.handleCancel}>
-        <p>{this.state.ModalText}</p>
-      </Modal>
-    </div>;
+    return (
+      <div>
+        <Button type="primary" onClick={this.showModal}>显示对话框</Button>
+        <Modal title="对话框标题"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          confirmLoading={this.state.confirmLoading}
+          onCancel={this.handleCancel}>
+          <p>{this.state.ModalText}</p>
+        </Modal>
+      </div>
+    );
   }
 });
 
-ReactDOM.render(<Test/>, document.getElementById('components-modal-demo-async'));
+ReactDOM.render(<Test />, mountNode);
 ````

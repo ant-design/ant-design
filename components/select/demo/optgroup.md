@@ -2,7 +2,7 @@
 
 - order: 5
 
-option分组
+用 `OptGroup` 进行选项分组。
 
 ---
 
@@ -12,12 +12,12 @@ const Option = Select.Option;
 const OptGroup = Select.OptGroup;
 
 function handleChange(value) {
-  console.log('selected ' + value);
+  console.log(`selected ${value}`);
 }
 
 ReactDOM.render(
   <Select defaultValue="lucy"
-    style={{width:200}}
+    style={{ width: 200 }}
     showSearch={false}
     onChange={handleChange}>
     <OptGroup label="Manager">
@@ -28,5 +28,5 @@ ReactDOM.render(
       <Option value="yiminghe">yiminghe</Option>
     </OptGroup>
   </Select>
-, document.getElementById('components-select-demo-optgroup'));
+, mountNode);
 ````

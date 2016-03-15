@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function(text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -41,14 +41,17 @@ const data = [{
 
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
-  onSelect: function(record, selected, selectedRows) {
+  onChange(selectedRowKeys, selectedRows) {
+    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+  },
+  onSelect(record, selected, selectedRows) {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll: function(selected, selectedRows) {
-    console.log(selected, selectedRows);
+  onSelectAll(selected, selectedRows, changeRows) {
+    console.log(selected, selectedRows, changeRows);
   }
 };
 
 ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
-, document.getElementById('components-table-demo-row-selection'));
+, mountNode);
 ````

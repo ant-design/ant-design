@@ -22,11 +22,7 @@ const steps = [{
 }, {
   status: 'wait',
   title: '待运行'
-}].map(function(s, i) {
-  return (
-    <Step key={i} title={s.title} description={s.description} />
-  );
-});
+}].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
-ReactDOM.render(<Steps size="small" current={1}>{steps}</Steps>, document.getElementById('components-steps-demo-small-size'));
+ReactDOM.render(<Steps size="small" current={1}>{steps}</Steps>, mountNode);
 ````

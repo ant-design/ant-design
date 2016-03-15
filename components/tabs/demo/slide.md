@@ -22,5 +22,5 @@ ReactDOM.render(
     <TabPane tab="选项八" key="8">选项卡八</TabPane>
     <TabPane tab="选项九" key="9">选项卡九</TabPane>
   </Tabs>
-, document.getElementById('components-tabs-demo-slide'));
+, mountNode);
 ````

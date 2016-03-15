@@ -11,7 +11,7 @@ import { Upload, Button, Icon, message } from 'antd';
 
 const props = {
   action: '/upload.do',
-  beforeUpload: function(file) {
+  beforeUpload(file) {
     const isJPG = file.type === 'image/jpeg';
     if (!isJPG) {
       message.error('只能上传 JPG 文件哦！');
@@ -26,5 +26,5 @@ ReactDOM.render(
       <Icon type="upload" /> 点击上传
     </Button>
   </Upload>
-, document.getElementById('components-upload-demo-beforeupload'));
+, mountNode);
 ````

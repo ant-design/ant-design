@@ -42,7 +42,7 @@ const columns = [{
 }, {
   title: '住址',
   dataIndex: 'address',
-  key: 'age',
+  key: 'address',
 }];
 
 <Table dataSource={dataSource} columns={columns} />
@@ -54,19 +54,25 @@ const columns = [{
 
 ### Table
 
-| 参数          | 说明                     | 类型            |  可选值             | 默认值  |
+| 参数           | 说明                     | 类型             |  可选值              | 默认值   |
 |---------------|--------------------------|-----------------|---------------------|---------|
-| rowSelection  | 列表项是否可选择         | Object          |                     | false   |
+| rowSelection  | 列表项是否可选择         | Object          |  [配置项](#rowSelection)   | null   |
 | pagination    | 分页器                   | Object   | 配置项参考 [pagination](/components/pagination)，设为 false 时不显示分页 |         |
 | size          | 正常或迷你类型           | String          | `default` or `small`| default |
 | dataSource    | 数据数组                 | Array           |                     |         |
 | columns       | 表格列的配置描述，具体项见下表 | Array |                     |    无    |
-| rowKey        | 表格列 key 的取值 | Function(recode, index):string |                     |    record.key    |
-| expandedRowRender  | 额外的列展开元素 | Function |                     | - |
-| defaultExpandedRowKeys | 默认展开的列 | Array |                     | - |
+| rowKey        | 表格行 key 的取值 | Function(record, index):string |                     |    record.key    |
+| expandedRowRender  | 额外的展开行 | Function |                     | - |
+| defaultExpandedRowKeys | 默认展开的行 | Array |                     | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |                     |       |
 | loading       | 页面是否加载中 | Boolean |                     | false      |
-| locale        | 设置排序、过滤按钮的文字或 `title` | Object         | | [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
+| locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | Object         | | `{ filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据' }` [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
+| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位    | Number   |          | 15      |
+| onRowClick    | 处理行点击事件              | Function(record, index)   |              |     无     |
+| useFixedHeader  | 是否固定表头             | Boolean          |                   | false      |
+| bordered  | 是否展示外边框和列边框       | Boolean          |                   | false      |
+| showHeader  | 是否显示表头             | Boolean          |                   | true      |
+| footer  | 表格底部自定义渲染函数         | Function(currentPageData)   |        |       |
 
 ### Column
 
@@ -83,9 +89,22 @@ const columns = [{
 | filterMultiple | 是否多选 | Boolean    |                                        | true    |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean |  | 无 |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |                     |         |
-| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位    | Number   |          | 15      |
 | width      | 列宽度 | String or Number |                                        | 无      |
 | className  | 列的 className             | String          |                     | 无      |
+
+### rowSelection
+
+选择功能的配置。
+
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|---------|
+| type | 多选/单选，`checkbox` or `radio` | String | `checkbox`  |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | Array | []  |
+| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
+| getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
+| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
+| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
+
 
 ## 注意
 
@@ -96,9 +115,6 @@ const columns = [{
 ![](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
 
 ```jsx
-const rowKey = function(record) {
-  return record.uid;  // 比如你的数据主键是 uid
-};
-
-return <Table rowKey={rowKey} />;
+// 比如你的数据主键是 uid
+return <Table rowKey={record => record.uid} />;
 ```

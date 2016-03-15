@@ -35,20 +35,22 @@ const DateRange = React.createClass({
     });
   },
   render() {
-    return <div>
-      <DatePicker disabledDate={this.disabledStartDate}
-        value={this.state.startValue}
-        placeholder="开始日期"
-        onChange={this.onChange.bind(this, 'startValue')} />
-      <DatePicker disabledDate={this.disabledEndDate}
-        value={this.state.endValue}
-        placeholder="结束日期"
-        onChange={this.onChange.bind(this, 'endValue')} />
-    </div>;
+    return (
+      <div>
+        <DatePicker disabledDate={this.disabledStartDate}
+          value={this.state.startValue}
+          placeholder="开始日期"
+          onChange={this.onChange.bind(this, 'startValue')} />
+        <DatePicker disabledDate={this.disabledEndDate}
+          value={this.state.endValue}
+          placeholder="结束日期"
+          onChange={this.onChange.bind(this, 'endValue')} />
+      </div>
+    );
   }
 });
 
 ReactDOM.render(
   <DateRange />
-, document.getElementById('components-date-picker-demo-start-end'));
+, mountNode);
 ````

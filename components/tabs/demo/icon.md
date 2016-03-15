@@ -22,5 +22,5 @@ ReactDOM.render(
     <TabPane tab={tabContent[1]} key="2">选项卡二</TabPane>
     <TabPane tab={tabContent[2]} key="3">选项卡三</TabPane>
   </Tabs>
-, document.getElementById('components-tabs-demo-icon'));
+, mountNode);
 ````

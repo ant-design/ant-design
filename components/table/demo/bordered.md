@@ -12,7 +12,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render: function(text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -42,7 +42,7 @@ const data = [{
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} bordered />
-, document.getElementById('components-table-demo-bordered'));
+, mountNode);
 ````
 
 ````css

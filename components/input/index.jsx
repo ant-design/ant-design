@@ -1,11 +1,6 @@
 import React from 'react';
 import assign from 'object-assign';
-
-function prefixClsFn(prefixCls, ...args) {
-  return args.map((s)=> {
-    return prefixCls + '-' + s;
-  }).join(' ');
-}
+import classNames from 'classnames';
 
 function ieGT9() {
   if (typeof document === undefined) {
@@ -24,10 +19,12 @@ function fixControlledValue(value) {
 
 class Group extends React.Component {
   render() {
-    const className = 'ant-input-group ' + (this.props.className || '');
+    const className = classNames({
+      'ant-input-group': true,
+      [this.props.className]: !!this.props.className,
+    });
     return (
-      <span className={className}
-            style={this.props.style}>
+      <span className={className} style={this.props.style}>
         {this.props.children}
       </span>
     );
@@ -41,8 +38,8 @@ Group.propTypes = {
 class Input extends React.Component {
   renderLabledInput(children) {
     const props = this.props;
-    const wrapperClassName = prefixClsFn(props.prefixCls, 'input-group');
-    const addonClassName = prefixClsFn(wrapperClassName, 'addon');
+    const wrapperClassName = `${props.prefixCls}-group`;
+    const addonClassName = `${wrapperClassName}-addon`;
     const addonBefore = props.addonBefore ? (
       <span className={addonClassName}>
         {props.addonBefore}
@@ -55,8 +52,13 @@ class Input extends React.Component {
       </span>
     ) : null;
 
+    const className = classNames({
+      [`${props.prefixCls}-wrapper`]: true,
+      [wrapperClassName]: (addonBefore || addonAfter),
+    });
+
     return (
-      <span className={(addonBefore || addonAfter) ? wrapperClassName : ''}>
+      <span className={className}>
         {addonBefore}
         {children}
         {addonAfter}
@@ -67,29 +69,29 @@ class Input extends React.Component {
   renderInput() {
     const props = assign({}, this.props);
     const prefixCls = props.prefixCls;
-    let inputClassName = prefixClsFn(prefixCls, 'input');
     if (!props.type) {
       return props.children;
     }
 
-    switch (props.size) {
-    case 'small': inputClassName = prefixClsFn(prefixCls, 'input', 'input-sm'); break;
-    case 'large': inputClassName = prefixClsFn(prefixCls, 'input', 'input-lg'); break;
-    default:
-    }
+    const inputClassName = classNames({
+      [prefixCls]: true,
+      [`${prefixCls}-sm`]: props.size === 'small',
+      [`${prefixCls}-lg`]: props.size === 'large',
+      [props.className]: !!props.className,
+    });
+
     let placeholder = props.placeholder;
-    if(placeholder && ieGT9()){
+    if (placeholder && ieGT9()) {
       placeholder = null;
     }
     if ('value' in props) {
       props.value = fixControlledValue(props.value);
     }
     switch (props.type) {
-    case 'textarea':
-      return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
-    default:
-      inputClassName = props.className ? props.className : inputClassName;
-      return <input {...props} placeholder={placeholder} className={inputClassName} ref="input"/>;
+      case 'textarea':
+        return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
+      default:
+        return <input {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
     }
   }
 
@@ -117,7 +119,7 @@ Input.propTypes = {
 Input.defaultProps = {
   defaultValue: '',
   disabled: false,
-  prefixCls: 'ant',
+  prefixCls: 'ant-input',
   type: 'text',
 };
 

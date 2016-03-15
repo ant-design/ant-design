@@ -23,8 +23,8 @@
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warn(config)`
-- `notification.open(config)`
 - `notification.close(key: String)`
+- `notification.destroy()`
 
 config 参数如下：
 
@@ -42,7 +42,7 @@ config 参数如下：
 - `notification.config(options)`
 
 ```js
-message.config({
+notification.config({
   top: 100
 });
 ```

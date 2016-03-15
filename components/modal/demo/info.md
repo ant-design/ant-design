@@ -13,7 +13,7 @@ function info() {
   Modal.info({
     title: '这是一条通知信息',
     content: '一些附加信息一些附加信息一些附加信息',
-    onOk: function() {}
+    onOk() {}
   });
 }
 
@@ -35,6 +35,6 @@ ReactDOM.render(<div>
   <Button onClick={info}>信息提示</Button>
   <Button onClick={success}>成功提示</Button>
   <Button onClick={error}>失败提示</Button>
-</div>, document.getElementById('components-modal-demo-info'));
+</div>, mountNode);
 ````
 

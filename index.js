@@ -1,4 +1,4 @@
-import React from 'react';
+// this file is not used if use https://github.com/ant-design/babel-plugin-antd
 
 const antd = {
   Affix: require('./components/affix'),
@@ -29,6 +29,7 @@ const antd = {
   Alert: require('./components/alert'),
   Validation: require('./components/validation'),
   Tree: require('./components/tree'),
+  TreeSelect: require('./components/tree-select'),
   Upload: require('./components/upload'),
   Badge: require('./components/badge'),
   Menu: require('./components/menu'),
@@ -43,17 +44,7 @@ const antd = {
   Calendar: require('./components/calendar'),
   TimePicker: require('./components/time-picker'),
   Transfer: require('./components/transfer'),
+  Cascader: require('./components/cascader'),
 };
-
-antd.version = require('./package.json').version;
-
-const ReactVersion = React.version;
-if (process.env.NODE_ENV !== 'production') {
-  const warning = require('warning');
-  const semver = require('semver');
-  const reactVersionInDeps = require('./package.json').devDependencies.react;
-  warning(semver.satisfies(ReactVersion, reactVersionInDeps) || semver.gtr(ReactVersion, reactVersionInDeps),
-    `antd@${antd.version} need react@${reactVersionInDeps} or higher, which is react@${ReactVersion} now.`);
-}
 
 module.exports = antd;

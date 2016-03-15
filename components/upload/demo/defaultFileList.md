@@ -36,5 +36,5 @@ ReactDOM.render(
       <Icon type="upload" /> 点击上传
     </Button>
   </Upload>
-, document.getElementById('components-upload-demo-defaultfilelist'));
+, mountNode);
 ````

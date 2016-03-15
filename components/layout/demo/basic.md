@@ -29,7 +29,7 @@ ReactDOM.render(
       <Col span="6">.col-6</Col>
     </Row>
   </div>,
-  document.getElementById('components-layout-demo-basic')
+  mountNode
 );
 ````
 

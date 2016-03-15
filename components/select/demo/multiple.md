@@ -17,14 +17,14 @@ for (let i = 10; i < 36; i++) {
 }
 
 function handleChange(value) {
-  console.log('selected ' + value);
+  console.log(`selected ${value}`);
 }
 
 ReactDOM.render(
   <Select multiple
-  style={{width:400}}
-  defaultValue={['a10', 'c12']} onChange={handleChange}>
+    style={{ width: 400 }}
+    defaultValue={['a10', 'c12']} onChange={handleChange}>
     {children}
   </Select>
-, document.getElementById('components-select-demo-multiple'));
+, mountNode);
 ````

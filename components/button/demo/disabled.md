@@ -22,7 +22,7 @@ ReactDOM.render(<div>
   <Button type="dashed">虚线按钮</Button>
   <Button type="dashed" disabled>虚线按钮(失效)</Button>
 </div>
-, document.getElementById('components-button-demo-disabled'));
+, mountNode);
 ````
 
 <style>

@@ -56,7 +56,9 @@ const Test = React.createClass({
       sortOrder: sorter.order
     };
     for (let key in filters) {
-      params[key] = filters[key];
+      if (filters.hasOwnProperty(key)) {
+        params[key] = filters[key];
+      }
     }
     this.fetch(params);
   },
@@ -85,13 +87,13 @@ const Test = React.createClass({
   render() {
     return (
       <Table columns={columns}
-             dataSource={this.state.data}
-             pagination={this.state.pagination}
-             loading={this.state.loading}
-             onChange={this.handleTableChange} />
+        dataSource={this.state.data}
+        pagination={this.state.pagination}
+        loading={this.state.loading}
+        onChange={this.handleTableChange} />
     );
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-table-demo-ajax'));
+ReactDOM.render(<Test />, mountNode);
 ````

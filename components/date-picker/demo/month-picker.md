@@ -11,5 +11,5 @@ import { DatePicker } from 'antd';
 const MonthPicker = DatePicker.MonthPicker;
 ReactDOM.render(
   <MonthPicker defaultValue="2015-12" />
-, document.getElementById('components-date-picker-demo-month-picker'));
+, mountNode);
 ````

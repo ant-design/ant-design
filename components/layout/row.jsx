@@ -12,10 +12,10 @@ const Row = React.createClass({
   render() {
     const { type, justify, align, className, ...others } = this.props;
     const classes = classNames({
-      'row': true,
-      ['row-' + type]: type,
-      ['row-' + type + '-' + justify]: justify,
-      ['row-' + type + '-' + align]: align,
+      row: true,
+      [`row-${type}`]: type,
+      [`row-${type}-${justify}`]: justify,
+      [`row-${type}-${align}`]: align,
       [className]: className,
     });
     return <div {...others} className={classes}>{ this.props.children }</div>;

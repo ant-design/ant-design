@@ -23,40 +23,42 @@ class Transfer extends Component {
   splitDataSource() {
     const { targetKeys, dataSource } = this.props;
 
-    let leftDataSource = Object.assign([], dataSource);
+    let leftDataSource = [...dataSource];
     let rightDataSource = [];
 
-    if ( targetKeys.length > 0 ) {
+    if (targetKeys.length > 0) {
       targetKeys.forEach((targetKey) => {
-        rightDataSource.push(leftDataSource.find((data, index) => {
-          if( data.key === targetKey ) {
+        rightDataSource.push(leftDataSource.filter((data, index) => {
+          if (data.key === targetKey) {
             leftDataSource.splice(index, 1);
             return true;
           }
-        }));
+          return false;
+        })[0]);
       });
     }
 
     return {
-      leftDataSource: leftDataSource,
-      rightDataSource: rightDataSource,
+      leftDataSource,
+      rightDataSource,
     };
   }
 
   moveTo(direction) {
     const { targetKeys } = this.props;
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
+    const moveKeys = direction === 'right' ? leftCheckedKeys : rightCheckedKeys;
     // move items to target box
-    const newTargetKeys = direction === 'right' ?
-      leftCheckedKeys.concat(targetKeys) :
-      targetKeys.filter((targetKey) => !rightCheckedKeys.some((checkedKey) => targetKey === checkedKey));
+    const newTargetKeys = direction === 'right'
+      ? moveKeys.concat(targetKeys)
+      : targetKeys.filter(targetKey => !moveKeys.some(checkedKey => targetKey === checkedKey));
 
     // empty checked keys
     this.setState({
-      [direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys']:  [],
+      [direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys']: [],
     });
 
-    this.props.onChange(newTargetKeys);
+    this.props.onChange(newTargetKeys, direction, moveKeys);
   }
 
   getGlobalCheckStatus(direction) {
@@ -70,8 +72,8 @@ class Transfer extends Component {
 
     let globalCheckStatus;
 
-    if ( checkedKeys.length > 0 ) {
-      if ( checkedKeys.length < filteredDataSource.length ) {
+    if (checkedKeys.length > 0) {
+      if (checkedKeys.length < filteredDataSource.length) {
         globalCheckStatus = 'part';
       } else {
         globalCheckStatus = 'all';
@@ -100,52 +102,52 @@ class Transfer extends Component {
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
     const filter = direction === 'left' ? leftFilter : rightFilter;
     const checkStatus = this.getGlobalCheckStatus(direction);
-    let holder = [];
-
-    if ( checkStatus === 'all' ) {
-      holder = [];
-    } else {
-      holder = this.filterDataSource(dataSource, filter).map(item => item.key);
-    }
+    const holder = (checkStatus === 'all') ? [] :
+      this.filterDataSource(dataSource, filter).map(item => item.key);
 
     this.setState({
-      [direction + 'CheckedKeys']: holder,
+      [`${direction}CheckedKeys`]: holder,
     });
   }
 
   handleFilter(direction, e) {
     this.setState({
       // deselect all
-      [direction + 'CheckedKeys']: [],
+      [`${direction}CheckedKeys`]: [],
       // add filter
-      [direction + 'Filter']: e.target.value,
+      [`${direction}Filter`]: e.target.value,
     });
   }
 
   handleClear(direction) {
     this.setState({
-      [direction + 'Filter']: '',
+      [`${direction}Filter`]: '',
     });
   }
 
   handleSelect(direction, selectedItem, checked) {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const holder = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
-    const index = holder.findIndex((key) => key === selectedItem.key);
-    if ( index > -1 ) {
+    let index;
+    holder.forEach((key, i) => {
+      if (key === selectedItem.key) {
+        index = i;
+      }
+    });
+    if (index > -1) {
       holder.splice(index, 1);
     }
-    if ( checked ) {
+    if (checked) {
       holder.push(selectedItem.key);
     }
     this.setState({
-      [direction + 'CheckedKeys']: holder,
+      [`${direction}CheckedKeys`]: holder,
     });
   }
 
   render() {
     const {
-      prefixCls, titles, operations, showSearch,
+      prefixCls, titles, operations, showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
@@ -162,52 +164,53 @@ class Transfer extends Component {
       prefixCls: true,
     });
 
-    return <div className={cls}>
-      <List titleText={titles[0]}
-            dataSource={leftDataSource}
-            filter={leftFilter}
-            style={listStyle}
-            checkedKeys={leftCheckedKeys}
-            checkStatus={leftCheckStatus}
-            handleFilter={this.handleFilter.bind(this, 'left')}
-            handleClear={this.handleClear.bind(this, 'left')}
-            handleSelect={this.handleSelect.bind(this, 'left')}
-            handleSelectAll={this.handleSelectAll.bind(this, 'left')}
-            position="left"
-            render={this.props.render}
-            showSearch={showSearch}
-            searchPlaceholder={searchPlaceholder}
-            body={body}
-            footer={footer}
-            prefixCls={prefixCls + '-list'}
-      />
-      <Operation rightActive={rightActive}
-                 rightArrowText={operations[0]}
-                 moveToRight={this.moveTo.bind(this, 'right')}
-                 leftActive={leftActive}
-                 leftArrowText={operations[1]}
-                 moveToLeft={this.moveTo.bind(this, 'left')}
-                 className={prefixCls + '-operation'}
-      />
-      <List titleText={titles[1]}
-            dataSource={rightDataSource}
-            filter={rightFilter}
-            style={listStyle}
-            checkedKeys={rightCheckedKeys}
-            checkStatus={rightCheckStatus}
-            handleFilter={this.handleFilter.bind(this, 'right')}
-            handleClear={this.handleClear.bind(this, 'right')}
-            handleSelect={this.handleSelect.bind(this, 'right')}
-            handleSelectAll={this.handleSelectAll.bind(this, 'right')}
-            position="right"
-            render={this.props.render}
-            showSearch={showSearch}
-            searchPlaceholder={searchPlaceholder}
-            body={body}
-            footer={footer}
-            prefixCls={prefixCls + '-list'}
-      />
-    </div>;
+    return (
+      <div className={cls}>
+        <List titleText={titles[0]}
+          dataSource={leftDataSource}
+          filter={leftFilter}
+          style={listStyle}
+          checkedKeys={leftCheckedKeys}
+          checkStatus={leftCheckStatus}
+          handleFilter={this.handleFilter.bind(this, 'left')}
+          handleClear={this.handleClear.bind(this, 'left')}
+          handleSelect={this.handleSelect.bind(this, 'left')}
+          handleSelectAll={this.handleSelectAll.bind(this, 'left')}
+          position="left"
+          render={this.props.render}
+          showSearch={showSearch}
+          searchPlaceholder={searchPlaceholder}
+          notFoundContent={notFoundContent}
+          body={body}
+          footer={footer}
+          prefixCls={`${prefixCls}-list`} />
+        <Operation rightActive={rightActive}
+          rightArrowText={operations[0]}
+          moveToRight={this.moveTo.bind(this, 'right')}
+          leftActive={leftActive}
+          leftArrowText={operations[1]}
+          moveToLeft={this.moveTo.bind(this, 'left')}
+          className={`${prefixCls}-operation`} />
+        <List titleText={titles[1]}
+          dataSource={rightDataSource}
+          filter={rightFilter}
+          style={listStyle}
+          checkedKeys={rightCheckedKeys}
+          checkStatus={rightCheckStatus}
+          handleFilter={this.handleFilter.bind(this, 'right')}
+          handleClear={this.handleClear.bind(this, 'right')}
+          handleSelect={this.handleSelect.bind(this, 'right')}
+          handleSelectAll={this.handleSelectAll.bind(this, 'right')}
+          position="right"
+          render={this.props.render}
+          showSearch={showSearch}
+          searchPlaceholder={searchPlaceholder}
+          notFoundContent={notFoundContent}
+          body={body}
+          footer={footer}
+          prefixCls={`${prefixCls}-list`} />
+      </div>
+    );
   }
 }
 
@@ -221,6 +224,7 @@ Transfer.defaultProps = {
   operations: [],
   showSearch: false,
   searchPlaceholder: '请输入搜索内容',
+  notFoundContent: 'Not Found',
   body: noop,
   footer: noop,
 };
@@ -238,6 +242,7 @@ Transfer.propTypes = {
   operations: PropTypes.array,
   showSearch: PropTypes.bool,
   searchPlaceholder: PropTypes.string,
+  notFoundContent: PropTypes.node,
   body: PropTypes.func,
   footer: PropTypes.func,
 };

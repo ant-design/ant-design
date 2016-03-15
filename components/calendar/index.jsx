@@ -1,15 +1,15 @@
-import React, {PropTypes, Component} from 'react';
+import React, { PropTypes, Component } from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import zhCN from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import {PREFIX_CLS} from './Constants';
+import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 
-function noop () { return null; }
+function noop() { return null; }
 
-function zerofixed (v) {
-  if (v < 10) return '0' + v;
-  return v + '';
+function zerofixed(v) {
+  if (v < 10) return `0${v}`;
+  return `${v}`;
 }
 
 class Calendar extends Component {
@@ -35,25 +35,29 @@ class Calendar extends Component {
   monthCellRender(value, locale) {
     const prefixCls = this.props.prefixCls;
     const month = value.getMonth();
-    return <div className={`${prefixCls}-month`}>
-      <div className={`${prefixCls}-value`}>
-        {locale.format.shortMonths[month]}
+    return (
+      <div className={`${prefixCls}-month`}>
+        <div className={`${prefixCls}-value`}>
+          {locale.format.shortMonths[month]}
+        </div>
+        <div className={`${prefixCls}-content`}>
+          {this.props.monthCellRender(value)}
+        </div>
       </div>
-      <div className={`${prefixCls}-content`}>
-        {this.props.monthCellRender(value)}
-      </div>
-    </div>;
+    );
   }
   dateCellRender(value) {
     const prefixCls = this.props.prefixCls;
-    return <div className={`${prefixCls}-date`}>
-      <div className={`${prefixCls}-value`}>
-        {zerofixed(value.getDayOfMonth())}
+    return (
+      <div className={`${prefixCls}-date`}>
+        <div className={`${prefixCls}-value`}>
+          {zerofixed(value.getDayOfMonth())}
+        </div>
+        <div className={`${prefixCls}-content`}>
+          {this.props.dateCellRender(value)}
+        </div>
       </div>
-      <div className={`${prefixCls}-content`}>
-        {this.props.dateCellRender(value)}
-      </div>
-    </div>;
+    );
   }
   setValue(value) {
     if (!('value' in this.props) && this.state.value !== value) {
@@ -70,13 +74,13 @@ class Calendar extends Component {
   }
   render() {
     const props = this.props;
-    const {value, mode} = this.state;
-    const {locale, prefixCls, style, className, fullscreen} = props;
+    const { value, mode } = this.state;
+    const { locale, prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
 
     let cls = className || '';
     if (fullscreen) {
-      cls += (' ' + prefixCls + '-fullscreen');
+      cls += (` ${prefixCls}-fullscreen`);
     }
 
     return (
@@ -88,7 +92,7 @@ class Calendar extends Component {
           locale={locale.lang}
           prefixCls={prefixCls}
           onTypeChange={this.setType.bind(this)}
-          onValueChange={this.setValue.bind(this)}/>
+          onValueChange={this.setValue.bind(this)} />
         <FullCalendar
           {...props}
           Select={noop}

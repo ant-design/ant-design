@@ -9,10 +9,12 @@
 ````jsx
 import { Switch } from 'antd';
 
-function onChange(checked){
-  console.log('switch to ' + checked);
+function onChange(checked) {
+  console.log(`switch to ${checked}`);
 }
 
-ReactDOM.render(<Switch defaultChecked={false} onChange={onChange} />,
-  document.getElementById('components-switch-demo-basic'));
+ReactDOM.render(
+  <Switch defaultChecked={false} onChange={onChange} />,
+  mountNode
+);
 ````

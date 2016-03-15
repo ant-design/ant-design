@@ -25,8 +25,8 @@ const App = React.createClass({
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,
-        title: '内容' + (i + 1),
-        description: '内容' + (i + 1) + '的描述',
+        title: `内容${i + 1}`,
+        description: `内容${i + 1}的描述`,
         chosen: Math.random() * 2 > 1
       };
       if (data.chosen) {
@@ -44,6 +44,7 @@ const App = React.createClass({
       <Transfer
         dataSource={this.state.mockData}
         showSearch
+        notFoundContent="xxxxxx"
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
         render={item => item.title} />
@@ -51,5 +52,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-transfer-demo-search'));
+ReactDOM.render(<App />, mountNode);
 ````

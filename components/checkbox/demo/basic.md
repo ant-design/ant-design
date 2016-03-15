@@ -10,11 +10,11 @@
 import { Checkbox } from 'antd';
 
 function onChange(e) {
-  console.log('checked = ' + e.target.checked);
+  console.log(`checked = ${e.target.checked}`);
 }
 
 ReactDOM.render(<label>
   <Checkbox defaultChecked={false} onChange={onChange} />
   Checkbox
-</label>, document.getElementById('components-checkbox-demo-basic'));
+</label>, mountNode);
 ````

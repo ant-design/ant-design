@@ -19,9 +19,9 @@ ReactDOM.render(<div>
   <Button type="primary">取消</Button>
 </ButtonGroup>
 <ButtonGroup>
-  <Button>左</Button>
-  <Button>中</Button>
-  <Button>右</Button>
+  <Button disabled>左</Button>
+  <Button disabled>中</Button>
+  <Button disabled>右</Button>
 </ButtonGroup>
 <ButtonGroup>
   <Button type="primary">左</Button>
@@ -79,7 +79,7 @@ ReactDOM.render(<div>
   <Button type="ghost">小</Button>
 </ButtonGroup>
 </div>
-, document.getElementById('components-button-demo-button-group'));
+, mountNode);
 ````
 
 <style>

@@ -6,7 +6,6 @@ const AntSpin = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-spin',
-      size: 'default',
       spining: true
     };
   },
@@ -25,7 +24,8 @@ const AntSpin = React.createClass({
 
     let spinClassName = classNames({
       [prefixCls]: true,
-      [`${prefixCls}-${size}`]: size,
+      [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
       [className]: !!className,
       [`${prefixCls}-spining`]: this.props.spining,
     });
@@ -46,16 +46,15 @@ const AntSpin = React.createClass({
 
     if (this.isNestedPattern()) {
       return (
-        <div className={this.props.spining ? (prefixCls + '-nested-loading') : ''}>
+        <div className={this.props.spining ? (`${prefixCls}-nested-loading`) : ''}>
           {spinElement}
-          <div className={prefixCls + '-container'}>
+          <div className={`${prefixCls}-container`}>
             {this.props.children}
           </div>
         </div>
       );
-    } else {
-      return spinElement;
     }
+    return spinElement;
   }
 });
 

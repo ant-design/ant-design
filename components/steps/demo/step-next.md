@@ -16,9 +16,9 @@
 import { Steps, Button } from 'antd';
 const Step = Steps.Step;
 const array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
-const steps = array.map(function(item, i) {
+const steps = array.map((item, i) => {
   return {
-    title: '步骤' + (i + 1)
+    title: `步骤${i + 1}`
   };
 });
 
@@ -53,5 +53,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-steps-demo-step-next'));
+ReactDOM.render(<App />, mountNode);
 ````

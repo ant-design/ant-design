@@ -52,5 +52,5 @@ const Test = React.createClass({
   }
 });
 
-ReactDOM.render(<Test />, document.getElementById('components-queue-anim-demo-basic'));
+ReactDOM.render(<Test />, mountNode);
 ````

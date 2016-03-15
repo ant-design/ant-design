@@ -153,7 +153,7 @@
     display: block;
     margin: 0 auto;
     color: #666;
-    border-radius: 4px;
+    border-radius: @border-radius-sm;
     width: 20px;
     height: 20px;
     line-height: 18px;
@@ -167,6 +167,7 @@
       background: tint(@primary-color, 90%);
       cursor: pointer;
     }
+
     &:active {
       color: #fff;
       background: tint(@primary-color, 20%);
@@ -177,6 +178,11 @@
     border-color: @primary-color;
     font-weight: bold;
     color: @primary-color;
+  }
+
+  &-last-month-cell &-date,
+  &-next-month-btn-day &-date {
+    color: #ccc;
   }
 
   &-selected-day &-date {
@@ -209,11 +215,6 @@
   &-disabled-cell-last-of-row &-date {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-  }
-
-  &-last-month-cell &-date,
-  &-next-month-btn-day &-date {
-    color: #bbb;
   }
 
   &-footer {
@@ -276,9 +277,14 @@
   .@{calendar-prefix-cls}-ok-btn {
     .btn;
     .btn-primary;
-    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
     position: absolute;
-    bottom: 9px;
+    bottom: 8px;
     right: 9px;
+
+    &-disabled {
+      .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+      cursor: not-allowed;
+    }
   }
 }

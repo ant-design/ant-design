@@ -27,10 +27,12 @@ class TransferOperation extends Component {
         {<span>{rightArrowText}<Icon type="right" /></span>}
       </Button>
     );
-    return <div className={className}>
-      {moveToLeftButton}
-      {moveToRightButton}
-    </div>;
+    return (
+      <div className={className}>
+        {moveToLeftButton}
+        {moveToRightButton}
+      </div>
+    );
   }
 }
 

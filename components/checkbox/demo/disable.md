@@ -13,5 +13,5 @@ ReactDOM.render(<div>
   <Checkbox defaultChecked={false} disabled />
   <br />
   <Checkbox defaultChecked disabled />
-</div>, document.getElementById('components-checkbox-demo-disable'));
+</div>, mountNode);
 ````

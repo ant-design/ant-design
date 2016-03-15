@@ -18,7 +18,7 @@
 
 | 成员        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|
-| trigger     | 触发下拉的行为   | "click" or "hover" | hover        |
+| trigger     | 触发下拉的行为   | ['click'] or ['hover'] | ['hover']        |
 | overlay     | 菜单节点         | [Menu](/components/menu) | 无     |
 
 

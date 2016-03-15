@@ -10,19 +10,19 @@
 import { Modal, Button } from 'antd';
 const confirm = Modal.confirm;
 
-function showConfirm(){
+function showConfirm() {
   confirm({
     title: '您是否确认要删除这项内容',
     content: '一些解释',
-    onOk: function() {
+    onOk() {
       console.log('确定');
     },
-    onCancel: function() {}
+    onCancel() {}
   });
 }
 
 ReactDOM.render(
 <Button onClick={showConfirm}>
   确认对话框
-</Button>, document.getElementById('components-modal-demo-confirm'));
+</Button>, mountNode);
 ````

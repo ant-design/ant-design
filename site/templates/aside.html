@@ -5,7 +5,9 @@
     {%- if category.pages.length === 1 %}
       {%- for item in category.pages|splitComponentsByType(category.name) %}
       <li class="{%- if item.title === post.title %}current{%- endif %}">
-        <a href="{{permalink_url(item)}}" class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
+        <a href="{%- if item.meta.link %}{{item.meta.link}}{%- else %}{{permalink_url(item)}}{%- endif %}"
+           {%- if item.meta.link %}target="_blank"{%- endif %}
+           class="{%- if item.meta.disabled %}nav-link-disabled{%- endif %}">
           {{item.title}}
           <span class="chinese">{{item.meta.chinese}}</span>
         </a>

@@ -13,7 +13,7 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   key: 'name',
-  render: function(text) {
+  render(text) {
     return <a href="#">{text}</a>;
   }
 }, {
@@ -27,16 +27,18 @@ const columns = [{
 }, {
   title: '操作',
   key: 'operation',
-  render: function(text, record) {
-    return <span>
-      <a href="#">操作一{record.name}</a>
-      <span className="ant-divider"></span>
-      <a href="#">操作二</a>
-      <span className="ant-divider"></span>
-      <a href="#" className="ant-dropdown-link">
-        更多 <Icon type="down" />
-      </a>
-    </span>;
+  render(text, record) {
+    return (
+      <span>
+        <a href="#">操作一{record.name}</a>
+        <span className="ant-divider"></span>
+        <a href="#">操作二</a>
+        <span className="ant-divider"></span>
+        <a href="#" className="ant-dropdown-link">
+          更多 <Icon type="down" />
+        </a>
+      </span>
+    );
   }
 }];
 const data = [{
@@ -57,5 +59,5 @@ const data = [{
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} />
-, document.getElementById('components-table-demo-basic'));
+, mountNode);
 ````

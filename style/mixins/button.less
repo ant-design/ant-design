@@ -9,16 +9,13 @@
 .button-variant(@color; @background; @border) {
   .button-color(@color; @background; @border);
 
-  &:hover {
+  &:hover,
+  &:focus {
     .button-color(tint(@color, 20%); tint(@background, 20%); tint(@border, 20%));
   }
   &:active,
   &.active {
     .button-color(shade(@color, 5%); shade(@background, 5%); shade(@background, 5%));
-  }
-  &:active,
-  &.active {
-    background-image: none;
   }
 
   &.disabled,
@@ -26,6 +23,7 @@
   fieldset[disabled] & {
     &,
     &:hover,
+    &:focus,
     &:active,
     &.active {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
@@ -56,11 +54,11 @@
 
   // size
   &-lg > .@{btnClassName} {
-    .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-lg);
+    .button-size(@btn-padding-lg; @btn-font-size-lg; @border-radius-base);
   }
 
   &-sm > .@{btnClassName} {
-    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -82,7 +80,7 @@
   // outline: none;
   white-space: nowrap;
   line-height: @line-height-base;
-  .button-size(@btn-padding-base; @font-size-base; @btn-border-radius-base);
+  .button-size(@btn-padding-base; @font-size-base; @border-radius-base);
   .user-select(none);
   .transition(all .3s @ease-in-out);
   transform: translate3d(0, 0, 0);
@@ -115,11 +113,11 @@
   }
 
   &-lg {
-    .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-lg);
+    .button-size(@btn-padding-lg; @btn-font-size-lg; @border-radius-base);
   }
 
   &-sm {
-    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
+    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
   }
 }
 
@@ -128,6 +126,7 @@
   .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
 
   &:hover,
+  &:focus,
   &:active,
   &.active {
     color: @btn-primary-color;
@@ -138,7 +137,8 @@
 .btn-default() {
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 
-  &:hover {
+  &:hover,
+  &:focus {
     .button-color(tint(@primary-color, 20%); white; tint(@primary-color, 20%));
   }
   &:active,
@@ -151,12 +151,13 @@
 .btn-ghost() {
   .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 
-  &:hover {
-    .button-color(tint(@primary-color, 20%); white; tint(@primary-color, 20%));
+  &:hover,
+  &:focus {
+    .button-color(tint(@primary-color, 20%); @btn-ghost-bg; tint(@primary-color, 20%));
   }
   &:active,
   &.active {
-    .button-color(shade(@primary-color, 5%); white; shade(@primary-color, 5%));
+    .button-color(shade(@primary-color, 5%); @btn-ghost-bg; shade(@primary-color, 5%));
   }
 }
 
@@ -165,12 +166,13 @@
   .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
   border-style: dashed;
 
-  &:hover {
-    .button-color(tint(@primary-color, 20%); white; tint(@primary-color, 20%));
+  &:hover,
+  &:focus {
+    .button-color(tint(@primary-color, 20%); @btn-ghost-bg; tint(@primary-color, 20%));
   }
   &:active,
   &.active {
-    .button-color(shade(@primary-color, 5%); white; shade(@primary-color, 5%));
+    .button-color(shade(@primary-color, 5%); @btn-ghost-bg; shade(@primary-color, 5%));
   }
 }
 
@@ -211,14 +213,17 @@
   }
 
   &:not([disabled]):hover,
+  &:not([disabled]):focus,
   &:not([disabled]):active,
   &:not([disabled]).active {
     > .@{iconfont-css-prefix} {
       color: @btn-primary-color;
+      position: relative;
     }
   }
 
   &:not([disabled]):hover:before,
+  &:not([disabled]):focus:before,
   &:not([disabled]):active:before,
   &:not([disabled]).active:before {
     .opacity(1);
@@ -245,8 +250,8 @@
 
   .@{btnClassName}:not(:first-child):not(:last-child) {
     border-radius: 0;
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   > .@{btnClassName}:first-child {
@@ -254,14 +259,14 @@
     &:not(:last-child) {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
-      padding-right: 7px;
+      padding-right: 8px;
     }
   }
 
   > .@{btnClassName}:last-child:not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    padding-left: 7px;
+    padding-left: 8px;
   }
 
  & > & {
@@ -276,13 +281,13 @@
     > .@{btnClassName}:last-child {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
-      padding-right: 7px;
+      padding-right: 8px;
     }
   }
 
  & > &:last-child:not(:first-child) > .@{btnClassName}:first-child {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-    padding-left: 7px;
+    padding-left: 8px;
   }
 }

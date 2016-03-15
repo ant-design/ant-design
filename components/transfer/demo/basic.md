@@ -25,8 +25,8 @@ const App = React.createClass({
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,
-        title: '内容' + (i + 1),
-        description: '内容' + (i + 1) + '的描述',
+        title: `内容${i + 1}`,
+        description: `内容${i + 1}的描述`,
         chosen: Math.random() * 2 > 1
       };
       if (data.chosen) {
@@ -36,12 +36,17 @@ const App = React.createClass({
     }
     this.setState({ mockData, targetKeys });
   },
-  handleChange(targetKeys) {
+  handleChange(targetKeys, direction, moveKeys) {
+    console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
   },
   renderFooter() {
-    return <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
-                   onClick={this.getMock}>刷新</Button>;
+    return (
+      <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
+        onClick={this.getMock}>
+        刷新
+      </Button>
+    );
   },
   render() {
     return (
@@ -54,5 +59,5 @@ const App = React.createClass({
   }
 });
 
-ReactDOM.render(<App />, document.getElementById('components-transfer-demo-basic'));
+ReactDOM.render(<App />, mountNode);
 ````

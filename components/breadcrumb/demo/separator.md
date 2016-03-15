@@ -16,5 +16,5 @@ ReactDOM.render(
     <Breadcrumb.Item href="">应用列表</Breadcrumb.Item>
     <Breadcrumb.Item>某应用</Breadcrumb.Item>
   </Breadcrumb>
-, document.getElementById('components-breadcrumb-demo-separator'));
+, mountNode);
 ````

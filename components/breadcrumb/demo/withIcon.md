@@ -22,6 +22,6 @@ ReactDOM.render(
       应用
     </Breadcrumb.Item>
   </Breadcrumb>
-, document.getElementById('components-breadcrumb-demo-withicon'));
+, mountNode);
 ````
 

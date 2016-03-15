@@ -2,7 +2,7 @@
 
 - order: 4
 
-增加选择时间功能。
+增加选择时间功能。不要修改时间的格式 `HH:mm:ss`。
 
 ---
 
@@ -14,6 +14,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-<DatePicker showTime format="yyyy-MM-dd HH:mm:ss" onChange={onChange} style={{width: 160}} />
-, document.getElementById('components-date-picker-demo-time'));
+<DatePicker showTime format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间" onChange={onChange} style={{ width: 160 }} />
+, mountNode);
 ````

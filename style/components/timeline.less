@@ -2,7 +2,7 @@
 
 @timeline-prefix-cls: ~"@{css-prefix}timeline";
 
-@timeline-color: #e9e9e9;
+@timeline-color: @border-color-split;
 
 .@{timeline-prefix-cls} {
   &-item {
@@ -15,6 +15,10 @@
       top: 0;
       height: 100%;
       border-left: 2px solid @timeline-color;
+    }
+
+    &-pending &-tail {
+      display: none;
     }
 
     &-head {
@@ -32,9 +36,6 @@
       &-green {
         border: 2px solid @success-color;
       }
-      &-end {
-        border: 2px solid @timeline-color;
-      }
     }
 
     &-content {
@@ -47,10 +48,15 @@
     &-last {
       .@{timeline-prefix-cls}-item-tail {
         border-left: 2px dotted @timeline-color;
+        display: none;
       }
       .@{timeline-prefix-cls}-item-content {
         min-height: 48px;
       }
     }
+  }
+
+  &&-pending &-item-last &-item-tail {
+    display: block;
   }
 }

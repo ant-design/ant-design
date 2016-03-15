@@ -66,9 +66,10 @@
       }
 
       &-not-found {
-        margin-top: 24px;
+        padding-top: 24px;
         color: #ccc;
         text-align: center;
+        height: 100%;
       }
 
       ul {
@@ -86,6 +87,11 @@
           }
         }
       }
+    }
+
+    ul li&-highlight-enter {
+      animation: transferHighlightIn 1s ease;
+      transition: none;
     }
 
     &-body-with-search {
@@ -120,5 +126,14 @@
         .iconfont-size-under-12px(10px);
       }
     }
+  }
+}
+
+@keyframes transferHighlightIn {
+  0% {
+    background: tint(@primary-color, 80%);
+  }
+  100% {
+    background: transparent;
   }
 }
