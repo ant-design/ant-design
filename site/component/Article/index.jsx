@@ -37,9 +37,8 @@ export default class Article extends React.Component {
     }).map((node) => {
       return (
         <li key={node.children}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: node.children } }}>
-            { node.children }
-          </Link>
+          <Link to={{ pathname: location.pathname, query: { scrollTo: node.children } }}
+            dangerouslySetInnerHTML={{ __html: node.children }} />
         </li>
       );
     });
