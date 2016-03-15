@@ -101,22 +101,24 @@
   &-clicked:before {
   	content: '';
   	position: absolute;
-  	top: -6px;
-  	left: -6px;
-  	bottom: -6px;
-  	right: -6px;
+  	top: -1px;
+  	left: -1px;
+  	bottom: -1px;
+  	right: -1px;
   	border-radius: inherit;
-  	z-index: -1;
-    background: inherit;
-  	opacity: 1;
-  	transform: scale3d(0.5, 0.5, 1);
-    animation: buttonEffect 0.48s ease forwards;
+    border: 0 solid @primary-color;
+  	opacity: 0.4;
+    animation: buttonEffect 0.32s ease forwards;
   }
 }
 
 @keyframes buttonEffect {
 	to {
 		opacity: 0;
-		transform: scale3d(1, 1, 1);
+    top: -5px;
+  	left: -5px;
+  	bottom: -5px;
+  	right: -5px;
+    border-width: 5px;
 	}
 }

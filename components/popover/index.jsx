@@ -1,6 +1,8 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
+import getPlacements from './placements';
 
+const placements = getPlacements();
 const prefixCls = 'ant-popover';
 
 const Popover = React.createClass({
@@ -33,6 +35,7 @@ const Popover = React.createClass({
 
     return (
       <Tooltip transitionName={transitionName}
+        builtinPlacements={placements}
         ref="tooltip"
         {...this.props}
         overlay={this.getOverlay()}>

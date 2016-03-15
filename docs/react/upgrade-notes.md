@@ -4,13 +4,15 @@
 
 ---
 
+这里只列出升级中的不兼容改动，其他改动见 [Changelog](/changelog)。
+
 ## 0.11 => 0.12
 
 ---
 
 ### 使用 Form 提供的校验功能代替 Validation
 
-Validation 已经被废弃，并会在以后的版本完全移除，所以建议尽快使用 Form 自带的校验功能替换 Validation。具体使用方式可以查阅文档和例子([#1](http://ant.design/components/form/#demo-validate-basic) [#2](http://ant.design/components/form/#demo-validate-other) [#3](http://ant.design/components/form/#demo-validate-customized))。
+Validation 已经被废弃，并会在以后的版本完全移除，所以建议尽快使用 Form 自带的校验功能替换 Validation。具体使用方式可以查阅文档和例子（[#1](http://ant.design/components/form/#demo-validate-basic) [#2](http://ant.design/components/form/#demo-validate-other) [#3](http://ant.design/components/form/#demo-validate-customized)）。
 
 ### Progress `format` 属性的值改为函数
 
