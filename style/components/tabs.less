@@ -3,12 +3,15 @@
 @effect-duration: .3s;
 
 .@{tab-prefix-cls} {
-  outline: none;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   .clearfix;
   color: @text-color;
+
+  &-bar {
+    outline: none;
+  }
 
   &-ink-bar {
     z-index: 1;
@@ -32,7 +35,7 @@
     }
   }
 
-  &-tabs-bar {
+  &-bar {
     border-bottom: 1px solid @border-color-base;
     margin-bottom: 16px;
   }
@@ -292,7 +295,7 @@
       width: auto;
     }
 
-    .@{tab-prefix-cls}-tabs-bar {
+    .@{tab-prefix-cls}-bar {
       border-bottom: 0;
     }
 
@@ -329,7 +332,7 @@
   }
 
   &-vertical&-left {
-    .@{tab-prefix-cls}-tabs-bar {
+    .@{tab-prefix-cls}-bar {
       float: left;
       border-right: 1px solid @border-color-split;
       margin-right: -1px;
@@ -356,7 +359,7 @@
   }
 
   &-vertical&-right {
-    .@{tab-prefix-cls}-tabs-bar {
+    .@{tab-prefix-cls}-bar {
       float: right;
       border-left: 1px solid @border-color-split;
       margin-left: -1px;
@@ -377,7 +380,7 @@
     }
   }
 
-  &-bottom &-tabs-bar {
+  &-bottom &-bar {
     margin-bottom: 0;
     margin-top: 16px;
   }
