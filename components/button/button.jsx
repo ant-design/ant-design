@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 
-const rxTwoCNChar = /^[\u4e00-\u9fa5]{2,2}$/;
+const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str) {
   return typeof str === 'string';
