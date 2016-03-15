@@ -44,7 +44,7 @@ export function objectToComponent(pathname, object, index) {
       key: index,
       id: children,
     }, [
-      object.children,
+      <span dangerouslySetInnerHTML={{ __html: object.children }} />,
       <Link to={{ pathname, query: { scrollTo: object.children } }} className="anchor" key="anchor">#</Link>,
     ]);
   }
