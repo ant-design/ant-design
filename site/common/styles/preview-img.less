@@ -1,15 +1,12 @@
 .preview-image-boxes {
   float: right;
-  margin: 0 0 110px 60px;
+  margin: 0 0 70px 28px;
   width: 616px;
-
-  &-with-popup {
-    width: 420px;
-  }
+  clear: both;
 }
 
 .preview-image-boxes + .preview-image-boxes {
-  margin-top: -75px;
+  margin-top: -35px;
 }
 
 .preview-image-box {
@@ -25,6 +22,22 @@
   text-align: center;
   width: 100%;
   position: relative;
+}
+
+.preview-image-wrapper.video {
+  padding: 0;
+  background: 0;
+  display: block;
+}
+
+.preview-image-wrapper video {
+  width: 100%;
+  display: block;
+  + svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .preview-image-wrapper.good:after {

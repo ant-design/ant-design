@@ -4,8 +4,8 @@
   line-height: 1.8;
 }
 
-.markdown > * {
-  // width: 100%!important;
+.highlight {
+  line-height: 1.5;
 }
 
 .markdown img {
@@ -143,6 +143,7 @@
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
   margin: 1em 0;
+  font-style: italic;
 }
 
 .markdown blockquote p {
@@ -153,6 +154,10 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   margin-left: 8px;
+}
+
+.markdown .waiting {
+  color: #ccc;
 }
 
 .markdown h1:hover .anchor,
@@ -168,8 +173,4 @@
 .markdown > br,
 .markdown > p > br {
   clear: both;
-}
-
-.markdown .waiting {
-  color: #ccc;
 }

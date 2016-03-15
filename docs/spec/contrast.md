@@ -12,8 +12,8 @@
 
 ## 主次关系对比
 
-<img class="preview-img" align="right" alt="正确示例" good src="https://os.alipayobjects.com/rmsportal/RruKZUSYEwauGdF.png">
-<img class="preview-img" align="right" alt="错误示例" bad src="https://os.alipayobjects.com/rmsportal/TOupLSPNQkBTmYw.png">
+<img class="preview-img good" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/RruKZUSYEwauGdF.png">
+<img class="preview-img bad" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/TOupLSPNQkBTmYw.png">
 
 为了让用户能在操作上（类似表单、弹出框等场景）快速做出判断， 来突出其中一项相对更重要或者更高频的操作。
 

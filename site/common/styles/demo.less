@@ -13,15 +13,20 @@
   }
 }
 
-.demo-list-left,
-.demo-list-right {
-  width: 49%;
+.code-boxes-col-1-1 {
+  width: 80%;
 }
-.demo-list-left {
-  margin-right: 1%;
+
+.code-boxes-col-2-1 {
+  width: 48%;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 8px;
 }
-.demo-list-right {
-  margin-left: 1%;
+
+.code-boxes-col-2-1:last-child {
+  padding-right: 0;
+  padding-left: 8px;
 }
 
 .code-box {
@@ -127,6 +132,7 @@
   margin: 0.5em 0;
   padding-right: 25px;
   width: 100%;
+  word-break: break-word;
 }
 
 .code-box .collapse {
@@ -145,6 +151,7 @@
   transition: all 0.3s ease;
   color: #999;
   background: #fff;
+  user-select: none;
 }
 
 .code-box.expand .collapse {
