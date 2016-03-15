@@ -846,9 +846,7 @@ nm.start = function (self) {
 module.exports = newMotion;
 
 var motionVideo = {
-  video: ['https://t.alipayobjects.com/images/rmsweb/T1yHhhXfxkXXXXXXXX.webm', 'https://t.alipayobjects.com/images/rmsweb/T12I8gXexdXXXXXXXX.webm', 'https://t.alipayobjects.com/images/rmsweb/T1br0gXghtXXXXXXXX.webm', 'https://t.alipayobjects.com/images/rmsweb/T14q0hXbBdXXXXXXXX.webm'],
-  videoMp4: ['https://t.alipayobjects.com/images/rmsweb/T15IXhXlXbXXXXXXXX.mp4', 'https://t.alipayobjects.com/images/rmsweb/T1e0hgXcpdXXXXXXXX.mp4', 'https://t.alipayobjects.com/images/rmsweb/T1lcRgXb4gXXXXXXXX.mp4', 'https://t.alipayobjects.com/images/T1qWNhXkpeXXXXXXXX.mp4'],
-  init: function () {
+  init: function (videoList, videoMp4List) {
     var self = this;
 
     $('.video-player').each((i, videoBox) => {
@@ -860,9 +858,9 @@ var motionVideo = {
       $videoBox.append(svg.node);
       var video = $videoBox.find('video');
       if (video[0].canPlayType('video/webm; codecs="vp8.0, vorbis"')) {
-        $('<source src="' + self.video[i] + '" type="video/webm">').appendTo(video);
+        $('<source src="' + videoList[i] + '" type="video/webm">').appendTo(video);
       } else {
-        $('<source src="' + self.videoMp4[i] + '" type="video/mp4">').appendTo(video);
+        $('<source src="' + videoMp4List[i] + '" type="video/mp4">').appendTo(video);
       }
       video.css({
         'width': '100%'

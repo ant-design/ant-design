@@ -2,8 +2,9 @@ export default {
   categoryOrder: {
     组件: 0,
 
-    基础: 0,
-    动画: 1,
+    十大原则: 0,
+    设计基础: 1,
+    动画: 2,
   },
   typeOrder: {
     基本: 0,

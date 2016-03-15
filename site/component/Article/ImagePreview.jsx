@@ -65,9 +65,8 @@ export default class ImagePreview extends React.Component {
             <img className={cover.className} src={cover.src} alt="Sample Picture" />
           </div>
           <div className="preview-image-title">{cover.alt}</div>
-          <div className="preview-image-description">
-            {cover.description}
-          </div>
+          <div className="preview-image-description"
+            dangerouslySetInnerHTML={{ __html: cover.description }} />
 
           <Modal className="image-modal" visible={this.state.leftVisible} title={null} footer={null}
             onCancel={this.handleCancel.bind(this)}>

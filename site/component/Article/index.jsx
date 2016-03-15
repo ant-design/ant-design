@@ -48,7 +48,17 @@ export default class Article extends React.Component {
 
     return (
       <article className="markdown">
-        <h1>{ content.meta.chinese || content.meta.english }</h1>
+        <h1>
+          { content.meta.chinese || content.meta.english }
+          {
+            !content.meta.subtitle ? null :
+              <span className="subtitle">{ content.meta.subtitle }</span>
+          }
+        </h1>
+        {
+          !content.intro ? null :
+            content.intro.map(utils.objectToComponent.bind(null, location.pathname))
+        }
         {
           jumper.length > 0 ?
             <section className="toc"><ul>{ jumper }</ul></section> :
