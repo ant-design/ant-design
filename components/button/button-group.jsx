@@ -24,5 +24,5 @@ export default class ButtonGroup extends React.Component {
   }
 }
 ButtonGroup.propTypes = {
-  size: React.PropTypes.string,
+  size: React.PropTypes.oneOf(['large', 'small']),
 };
