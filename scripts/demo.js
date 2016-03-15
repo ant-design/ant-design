@@ -193,10 +193,20 @@ const PriviewImg = React.createClass({
     const createMarkup = () => {
       return {__html: this.props.description}
     };
+
+    let node = <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture" />;
+    if (this.props.type === 'video') {
+      node = (
+        <video preload loop style={imgStyle}>
+          <source src={this.props.src} type="video/mp4" />
+        </video>
+      );
+    }
+
     return (
       <div className="preview-image-box" style={{ width: this.props.width }}>
-        <div className={`preview-image-wrapper ${goodCls} ${badCls}`}>
-          <img src={this.props.src} onClick={this.showImageModal} style={imgStyle} alt="Sample Picture"/>
+        <div className={`preview-image-wrapper ${this.props.type} ${goodCls} ${badCls}`}>
+          {node}
         </div>
         <div className="preview-image-title">{this.props.alt}</div>
         <div className="preview-image-description" dangerouslySetInnerHTML={createMarkup()}/>
@@ -245,7 +255,9 @@ InstantClickChangeFns.push(function () {
       priviewImgNodes.each(function (i, img) {
         priviewImgs.push(
           <PriviewImg key={i} src={img.src} width={100.0/priviewImgNodes.length + '%'} alt={img.alt}
-                      noPadding={img.hasAttribute('noPadding')} description={img.getAttribute('description')}
+                      noPadding={img.hasAttribute('noPadding')}
+                      description={img.getAttribute('description')}
+                      type={img.getAttribute('type')}
                       good={!!img.hasAttribute('good')} bad={!!img.hasAttribute('bad')}/>
         );
       });
@@ -273,7 +285,7 @@ InstantClickChangeFns.push(function() {
   if (window.location.href.indexOf('#') > 0) {
     setTimeout(function() {
       window.location.href = window.location.href;
-    }, 0);
+    }, 30);
   }
 
   $('.component-demos .icon-all').off('click');
@@ -377,12 +389,17 @@ InstantClickChangeFns.push(function() {
     prevNextNavNode.appendTo('.main-container');
   }
 
+  var navMenu = $('.nav');
   $('.nav-phone-icon').click(function() {
-    var navMenu = $(this).prev();
-    navMenu.removeClass('nav-hide').addClass('nav-show').focus();
-    navMenu.one('blur', function() {
+    navMenu.removeClass('nav-hide').addClass('nav-show');
+  });
+
+  $('body').on('click touchstart', function (e) {
+    if (e.target !== $('.nav-phone-icon')[0] &&
+        !navMenu[0].contains(e.target) &&
+        navMenu.hasClass('nav-show')) {
       navMenu.removeClass('nav-show').addClass('nav-hide');
-    });
+    }
   });
 
   $.easing['jswing'] = $.easing['swing'];

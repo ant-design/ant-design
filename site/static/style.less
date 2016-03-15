@@ -341,6 +341,7 @@ footer {
   position: relative;
   z-index: 1;
   color: #666;
+  box-shadow: 0 1000px 0 1000px #fff;
 }
 
 footer ul {
@@ -474,6 +475,7 @@ footer ul li > a {
   overflow: hidden;
   padding: 24px 0 0;
   margin-bottom: 24px;
+  min-height: 400px;
   position: relative;
 }
 
@@ -482,7 +484,8 @@ footer ul li > a {
   margin-left: 219px;
   padding: 0 40px 120px;
   background: #fff;
-  min-height: 500px;
+  min-height: 400px;
+  min-height: 80vh;
   overflow: hidden;
 }
 
@@ -625,6 +628,7 @@ footer ul li > a {
   border-left: 4px solid #e9e9e9;
   padding-left: 0.8em;
   margin: 1em 0;
+  font-style: italic;
 }
 
 .markdown blockquote p {
@@ -635,6 +639,10 @@ footer ul li > a {
   opacity: 0;
   transition: opacity 0.3s ease;
   margin-left: 8px;
+}
+
+.markdown .waiting {
+  color: #ccc;
 }
 
 .markdown h1:hover .anchor,
@@ -698,9 +706,15 @@ footer ul li > a {
   margin-left: 1em;
 }
 
+.subtitle {
+  font-size: 80%;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica;
+}
+
 .toc {
   font-size: 14px;
-  margin-bottom: 20px;
+  margin: 36px 0 24px;
   background: #fbfbfb;
   border-left: 2px solid #eee;
 }
@@ -940,6 +954,7 @@ footer ul li > a {
   transition: all 0.3s ease;
   color: #999;
   background: #fff;
+  user-select: none;
 }
 
 .code-box.expand .collapse {
@@ -1172,12 +1187,13 @@ a.entry-link:hover .anticon-smile {
 
 .preview-image-boxes {
   float: right;
-  margin: 0 0 110px 60px;
+  margin: 0 0 70px 28px;
   width: 616px;
+  clear: both;
 }
 
 .preview-image-boxes + .preview-image-boxes {
-  margin-top: -75px;
+  margin-top: -35px;
 }
 
 .preview-image-box {
@@ -1193,6 +1209,22 @@ a.entry-link:hover .anticon-smile {
   text-align: center;
   width: 100%;
   position: relative;
+}
+
+.preview-image-wrapper.video {
+  padding: 0;
+  background: 0;
+  display: block;
+}
+
+.preview-image-wrapper video {
+  width: 100%;
+  display: block;
+  + svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .preview-image-wrapper.good:after {
@@ -1507,7 +1539,7 @@ a.entry-link:hover .anticon-smile {
 
   .nav-phone-icon {
     display: block;
-    width: 18px;
+    width: 16px;
     height: 50px;
     position: absolute;
     left: 30px;
@@ -1518,11 +1550,11 @@ a.entry-link:hover .anticon-smile {
   .nav-phone-icon:before {
     content: "";
     display: block;
-    border-radius: 1px;
-    width: 18px;
+    border-radius: 2px;
+    width: 16px;
     height: 2px;
-    background: #666;
-    box-shadow: 0 7px 0 0 #666, 0 14px 0 0 #666;
+    background: #777;
+    box-shadow: 0 6px 0 0 #777, 0 12px 0 0 #777;
     position: absolute;
   }
 
@@ -1540,10 +1572,9 @@ a.entry-link:hover .anticon-smile {
 
   .main-container {
     margin-left: 0;
-  }
-
-  .markdown > * {
-    width: 100%!important;
+    > .markdown > * {
+      width: 100%!important;
+    }
   }
 
   .main-wrapper {

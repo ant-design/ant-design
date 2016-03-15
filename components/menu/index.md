@@ -17,9 +17,9 @@
 
 ```html
 <Menu>
-  <MenuItem>菜单项</MenuItem>
+  <Menu.Item>菜单项</Menu.Item>
   <SubMenu title="子菜单">
-    <MenuItem>子菜单项</MenuItem>
+    <Menu.Item>子菜单项</Menu.Item>
   </SubMenu>
 </Menu>
 ```

@@ -9,8 +9,6 @@ Ant Design 提供了一些预设的组件动画样式。
 
 <div id="components-motion-demo-basic"></div>
 
-## 组件动画
-
 通过设置组件的 `transitionName` 指定组件动画。
 
 | 组件         | 中文名              | 采用动画                                        |
@@ -255,4 +253,3 @@ ReactDOM.render(<Test/>, document.getElementById('components-motion-demo-basic')
   width:180px;
 }
 </style>
-

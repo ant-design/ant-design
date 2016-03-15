@@ -99,7 +99,7 @@ module.exports = function() {
             <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
                        hideProps={{child: null}}>
               <h2 key="h2">最佳实践</h2>
-              <p key="p" style={{maxWidth: 310}}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
+              <p key="p" style={{maxWidth: 310}}>近一年的中台设计实践，积累了大量的优秀案例。</p>
               <div key="button"><Button type="primary" size="large"
                                         onClick={()=>{window.location.href='/docs/practice/cases'}}>了解更多<Icon
                 type="right"/></Button></div>
@@ -119,7 +119,7 @@ module.exports = function() {
                        leaveReverse
                        hideProps={{child: null}}>
               <h2 key="h2">设计模式</h2>
-              <p key="p" style={{maxWidth: 260}}>总结中后台设计中反复出现的问题，并提供相应的解决方案。</p>
+              <p key="p" style={{maxWidth: 260}}>总结中台设计中反复出现的问题，并提供相应的解决方案。</p>
               <div key="button"><Button type="primary" size="large"
                                         onClick={()=>{window.location.href='/docs/pattern/navigation'}}>了解更多<Icon
                 type="right"/></Button>
@@ -162,7 +162,7 @@ module.exports = function() {
             <QueueAnim className="text-wrapper-bottom" delay={300} key="text" duration={550} leaveReverse type="bottom"
                        hideProps={{child: null}}>
               <h2 key="h2">微小·确定·幸福</h2>
-              <p key="p">这是一套致力于提升『用户』和『设计者』使用体验的中后台设计语言。</p>
+              <p key="p">这是一个致力于提升『用户』和『设计者』使用体验的中台设计语言。</p>
             </QueueAnim>
             <TweenOne key="image" className="image4 bottom-wrapper" vars={{y: 0, opacity: 1, duration: 550, delay: 550}}
                       style={{transform: 'translateY(50px)', opacity: 0}} hideProps={{type: 'reverse'}}/>

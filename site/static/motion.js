@@ -839,30 +839,17 @@ $(function() {
   window.Motion = newMotion;
 
   var motionVideo = {
-    video: ['https://t.alipayobjects.com/images/rmsweb/T1yHhhXfxkXXXXXXXX.webm', 'https://t.alipayobjects.com/images/rmsweb/T12I8gXexdXXXXXXXX.webm', 'https://t.alipayobjects.com/images/rmsweb/T1br0gXghtXXXXXXXX.webm', 'https://t.alipayobjects.com/images/rmsweb/T14q0hXbBdXXXXXXXX.webm'],
-    videoMp4: ['https://t.alipayobjects.com/images/rmsweb/T15IXhXlXbXXXXXXXX.mp4', 'https://t.alipayobjects.com/images/rmsweb/T1e0hgXcpdXXXXXXXX.mp4', 'https://t.alipayobjects.com/images/rmsweb/T1lcRgXb4gXXXXXXXX.mp4', 'https://t.alipayobjects.com/images/T1qWNhXkpeXXXXXXXX.mp4'],
+    video: [
+      'https://os.alipayobjects.com/rmsportal/EejaUGsyExkXyXr.mp4', 'https://os.alipayobjects.com/rmsportal/GIutPgZMTyfFfrH.mp4',
+      'https://os.alipayobjects.com/rmsportal/ERKhqHlcHiCDSQu.mp4', 'https://os.alipayobjects.com/rmsportal/FqkQMyFqNqielOw.mp4',
+      'https://os.alipayobjects.com/rmsportal/pnNkNIMoowmGUQy.mp4', 'https://os.alipayobjects.com/rmsportal/XrUIWmsmOlEnZGc.mp4',
+      'https://os.alipayobjects.com/rmsportal/gSNilqbiXOufDXF.mp4',
+    ],
     init: function() {
-      var self = this;
-      self.videoBox = $(".video-player");
-      $('<video preload loop></video>').appendTo(self.videoBox);
-      for (var i = 0; i < self.videoBox.length; i++) {
+      $(".preview-image-box video").each(function(i, video) {
         var svg = new SVG();
-        self.videoBox.eq(i).append(svg.node);
-        var video = self.videoBox.eq(i).find("video");
-        if (video[0].canPlayType('video/webm; codecs="vp8.0, vorbis"')) {
-          $('<source src="' + self.video[i] + '" type="video/webm">').appendTo(video);
-        } else {
-          $('<source src="' + self.videoMp4[i] + '" type="video/mp4">').appendTo(video);
-        }
-        video.css({
-          "width": "100%"
-        });
-        video.append(svg);
-        svg.css({
-          "position": "absolute",
-          "top": 0,
-          "left": 0
-        });
+        video = $(video);
+        video.parent().append(svg.node);
         var playBox = _playBox(svg);
         svg.addChild(playBox);
         playBox.addEventListener("click", function(e) {
@@ -877,11 +864,10 @@ $(function() {
             this.setTimeout = setTimeout(function() {
               video[0].play();
             }, 500);
-
             m.attr("play", "true")
           }
-        })
-      }
+        });
+      });
     }
   };
   window.Motion.motionVideo = motionVideo;

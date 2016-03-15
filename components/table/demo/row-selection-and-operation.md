@@ -33,7 +33,7 @@ for (let i = 0; i < 46; i++) {
 const App = React.createClass({
   getInitialState() {
     return {
-      selectedRowKeys: [],
+      selectedRowKeys: [],  // 这里配置默认勾选列
       loading: false,
     };
   },

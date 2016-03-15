@@ -1,5 +1,10 @@
 import React from 'react';
 import Tooltip from 'rc-tooltip';
+import getPlacements from '../popover/placements';
+
+const placements = getPlacements({
+  verticalArrowShift: 8,
+});
 
 export default React.createClass({
   getDefaultProps() {
@@ -42,6 +47,7 @@ export default React.createClass({
 
     return (
       <Tooltip transitionName={transitionName}
+        builtinPlacements={placements}
         overlay={this.props.title}
         visible={visible}
         onVisibleChange={this.onVisibleChange}

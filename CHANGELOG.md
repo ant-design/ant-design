@@ -4,6 +4,43 @@
 
 ---
 
+## 0.12.11
+
+`fixing`
+
+- 全新的设计文档 `语言` 部分。
+- 修复 Popconfirm `onConfirm` 和 `onCancel` 时没有触发 `onVisibleChange` 的问题。
+- TreeSelect 组件补充 `showCheckedStrategy` 属性，支持回填数据的不同展示方式。
+- 补充 Modal `align` 属性的文档。
+- 修复 Menu 菜单 z-index 丢失的问题。
+- Progress 的默认颜色固定，不再随着主色变化。
+- 优化 Button 点击动画在 Chrome 下的效果。
+- 修复一个 Affix 的 `z-index` 太低的问题。
+
+## 0.12.10
+
+- 修复 0.12.9 版本 npm 包打包错误的问题。
+
+## 0.12.9
+
+`2016-03-11`
+
+- Transfer
+  - 可以定义 `notFoundContent `。
+  - 修复 `searchPlaceholder` 使用了 `placeholder` 的值的问题。
+- 修复 Popconfirm、Popover、Tooltip 的箭头位置未指向元素的问题。
+- 修正 Badge 在搜狗等旧版 webkit 浏览器下无法使用的问题。
+- 调整 Tabs 样式。
+- 修复 Table 中的 Pagination 默认配置问题。
+- 调整 Form.Item 在 inline 模式下的 `margin-bottom`。[#1141](https://github.com/ant-design/ant-design/issues/1141)
+- 修复 DatePicker `style` 设置错误的问题。
+- 优化 Popconfirm、Button 样式。
+- Dropdown 增加默认的 mouseEnterDelay 延迟以优化体验。
+- 修复 Dialog 样式问题。
+- 修复 Upload 上传中的状态问题。[#1159](https://github.com/ant-design/ant-design/issues/1159)
+- 优化 Menu、Tabs 在 Chorme 下的渲染问题。
+- Form 默认阻止 submit 事件。
+
 ## 0.12.8
 
 `2016-03-06`
