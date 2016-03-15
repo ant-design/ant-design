@@ -94,7 +94,7 @@
     "eslint-plugin-react": "^4.0.0",
     "eslint-tinker": "^0.3.1",
     "extract-text-webpack-plugin": "^1.0.1",
-    "gh-pages": "^0.9.0",
+    "gh-pages": "^0.11.0",
     "history": "^1.17.0",
     "instantclick": "^3.1.0",
     "jest-cli": "~0.8.0",
