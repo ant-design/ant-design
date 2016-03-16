@@ -154,7 +154,7 @@ let AntTable = React.createClass({
       sorter,
     };
     this.setState(newState);
-    this.props.onChange(this.prepareParamsArguments({ ...this.state, ...newState }));
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
   handleFilter(column, nextFilters) {
@@ -174,7 +174,7 @@ let AntTable = React.createClass({
     };
     this.setState(newState);
     this.setSelectedRowKeys([]);
-    this.props.onChange(this.prepareParamsArguments({ ...this.state, ...newState }));
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
   handleSelect(record, rowIndex, e) {
@@ -276,7 +276,7 @@ let AntTable = React.createClass({
       pagination
     };
     this.setState(newState);
-    this.props.onChange(this.prepareParamsArguments({ ...this.state, ...newState }));
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
   onRadioChange(ev) {
@@ -457,7 +457,7 @@ let AntTable = React.createClass({
     pagination.onShowSizeChange(current, pageSize);
     const nextPagination = { ...pagination, pageSize };
     this.setState({ pagination: nextPagination });
-    this.props.onChange(this.prepareParamsArguments({
+    this.props.onChange(...this.prepareParamsArguments({
       ...this.state,
       pagination: nextPagination,
     }));
