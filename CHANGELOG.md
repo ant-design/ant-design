@@ -6,15 +6,19 @@
 
 ## 0.12.11
 
-`fixing`
+`2016-03-16`
 
 - 全新的设计文档 `语言` 部分。
 - 修复 Popconfirm `onConfirm` 和 `onCancel` 时没有触发 `onVisibleChange` 的问题。
 - TreeSelect 组件补充 `showCheckedStrategy` 属性，支持回填数据的不同展示方式。
 - 补充 Modal `align` 属性的文档。
-- 修复 Menu 菜单 z-index 丢失的问题。
+- 修复 Menu 弹出菜单 `z-index` 丢失的问题。
 - Progress 的默认颜色固定，不再随着主色变化。
 - 优化 Button 点击动画在 Chrome 下的效果。
+- 修复一个 Affix 的 `z-index` 太低的问题。
+- 修复 Table 树形数据的二级节点前无法选择的问题。[#1212](https://github.com/ant-design/ant-design/issues/1212)
+- 修复 Table 修改 `pageSize` 没有触发 `onChange` 的问题。[#1206](https://github.com/ant-design/ant-design/issues/1206)
+- 修复 Table 指定 `rowKey 时导致 `rowSelection.onChange` 的 `selectedRows` 参数为空的问题。
 - 修复一个 Affix 的 `z-index` 太低的问题。
 
 ## 0.12.10
