@@ -17,13 +17,7 @@ import Carousel from 'react-slick';
 import React from 'react';
 import assign from 'object-assign';
 
-const AntCarousel = React.createClass({
-  getDefaultProps() {
-    return {
-      dots: true,
-      arrows: false,
-    };
-  },
+class AntCarousel extends React.Component {
   render() {
     let props = assign({}, this.props);
 
@@ -43,6 +37,11 @@ const AntCarousel = React.createClass({
       </div>
     );
   }
-});
+}
+
+AntCarousel.defaultProps = {
+  dots: true,
+  arrows: false,
+};
 
 export default AntCarousel;
