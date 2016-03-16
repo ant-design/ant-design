@@ -19,7 +19,6 @@
 - 修复 Table 树形数据的二级节点列前无法选择的问题。[#1212](https://github.com/ant-design/ant-design/issues/1212)
 - 修复 Table 修改 `pageSize` 没有触发 `onChange` 的问题。[#1206](https://github.com/ant-design/ant-design/issues/1206)
 - 修复 Table 指定 `rowKey` 时导致 `rowSelection.onChange` 的 `selectedRows` 参数为空的问题。
-- 修复一个 Affix 的 `z-index` 太低的问题。
 
 ## 0.12.10
 
