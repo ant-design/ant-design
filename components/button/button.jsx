@@ -73,10 +73,10 @@ export default class Button extends React.Component {
 }
 
 Button.propTypes = {
-  type: React.PropTypes.string,
-  shape: React.PropTypes.string,
-  size: React.PropTypes.string,
-  htmlType: React.PropTypes.string,
+  type: React.PropTypes.oneOf(['primary', 'ghost', 'dashed']),
+  shape: React.PropTypes.oneOf(['circle', 'circle-outline']),
+  size: React.PropTypes.oneOf(['large', 'small']),
+  htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
   onClick: React.PropTypes.func,
   loading: React.PropTypes.bool,
   className: React.PropTypes.string,
