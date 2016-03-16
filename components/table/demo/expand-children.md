@@ -4,6 +4,8 @@
 
 表格支持树形数据的展示，可以通过设置 `indentSize` 以控制每一层的缩进宽度。
 
+> 注：暂不支持父子数据递归关联选择。
+
 ---
 
 ````jsx
@@ -77,8 +79,21 @@ const data = [{
   address: '我是b',
 }];
 
+// 通过 rowSelection 对象表明需要行选择
+const rowSelection = {
+  onChange(selectedRowKeys, selectedRows) {
+    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+  },
+  onSelect(record, selected, selectedRows) {
+    console.log(record, selected, selectedRows);
+  },
+  onSelectAll(selected, selectedRows, changeRows) {
+    console.log(selected, selectedRows, changeRows);
+  }
+};
+
 ReactDOM.render(
-  <Table columns={columns} dataSource={data} indentSize={20} />,
+  <Table columns={columns} rowSelection={rowSelection} dataSource={data} />,
   mountNode
 );
 ````
