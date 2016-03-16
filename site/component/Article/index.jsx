@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import ImagePreview from './ImagePreview';
+import VideoPlayer from './VideoPlayer';
 import * as utils from '../utils';
 
 export default class Article extends React.Component {
@@ -9,6 +10,7 @@ export default class Article extends React.Component {
     super(props);
 
     this.imgToPreview = this.imgToPreview.bind(this);
+    this.enhanceVideo = this.enhanceVideo.bind(this);
   }
 
   isPreviewImg(string) {
@@ -30,6 +32,18 @@ export default class Article extends React.Component {
     return <ImagePreview className={previewClassName} imgs={imgs} />;
   }
 
+  isVideo(string) {
+    return /^<video\s/i.test(string);
+  }
+
+  enhanceVideo(node) {
+    if (!this.isVideo(node.children)) {
+      return node;
+    }
+
+    return <VideoPlayer video={node.children} />;
+  }
+
   render() {
     const { content, location } = this.props;
     const jumper = content.description.filter((node) => {
@@ -43,7 +57,9 @@ export default class Article extends React.Component {
       );
     });
 
-    content.description = content.description.map(this.imgToPreview);
+    content.description = content.description
+      .map(this.imgToPreview)
+      .map(this.enhanceVideo);
 
     return (
       <article className="markdown">

@@ -18,9 +18,8 @@ function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
         <img className={coverMeta.className} src={coverMeta.src} alt="Sample Picture" />
       </div>
       <div className="preview-image-title">{coverMeta.alt}</div>
-      <div className="preview-image-description">
-        {coverMeta.description}
-      </div>
+      <div className="preview-image-description"
+        dangerouslySetInnerHTML={{ __html: coverMeta.description }} />
 
       <Modal className="image-modal" visible={previewVisible} title={null} footer={null}
         onCancel={onCancel}>

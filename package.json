@@ -71,7 +71,7 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
-    "antd-md-loader": "0.1.0-beta.9",
+    "antd-md-loader": "0.1.0-beta.10",
     "atool-build": "^0.5.0",
     "autoprefixer": "^6.3.3",
     "babel-cli": "^6.2.0",
@@ -126,6 +126,7 @@
     "react-github-button": "^0.1.1",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "~1.0.2",
+    "react-sublime-video": "0.1.0-beta",
     "recast": "^0.11.2",
     "reqwest": "~2.0.5",
     "semver": "^5.1.0",
