@@ -1,7 +1,7 @@
 # Upload
 
 - category: Components
-- chinese: 文件上传
+- chinese: 上传
 - type: 表单
 
 ---
