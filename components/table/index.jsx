@@ -111,7 +111,9 @@ let AntTable = React.createClass({
     }
     if (this.props.rowSelection && this.props.rowSelection.onChange) {
       const data = this.getCurrentPageData();
-      const selectedRows = data.filter(row => selectedRowKeys.indexOf(row.key) >= 0);
+      const selectedRows = data.filter(
+        (row, i) => selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
+      );
       this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
     }
   },
