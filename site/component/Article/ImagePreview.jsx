@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Modal, Carousel } from '../../../';
 
 function isGood(className) {
@@ -10,6 +11,7 @@ function isBad(className) {
 
 function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
                            comparable, onClick, onCancel }) {
+  const onlyOneImg = comparable || imgs.length === 1;
   return (
     <div className="preview-image-box"
       style={style}
@@ -23,7 +25,7 @@ function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
 
       <Modal className="image-modal" width="960" visible={previewVisible} title={null} footer={null}
         onCancel={onCancel}>
-        <Carousel adaptiveHeight>
+        <Carousel className={`${onlyOneImg ? 'image-modal-single' : ''}`} adaptiveHeight>
           { comparable ? cover : imgs }
         </Carousel>
         <div className="preview-image-title">{coverMeta.alt}</div>
@@ -54,7 +56,7 @@ export default class ImagePreview extends React.Component {
   }
 
   render() {
-    const { className, imgs } = this.props;
+    const { imgs } = this.props;
     const imgsMeta = imgs.map((img) => {
       const span = document.createElement('span');
       span.innerHTML = img;
@@ -85,8 +87,15 @@ export default class ImagePreview extends React.Component {
             (imgsMeta[0].isGood || imgsMeta[0].isBad) &&
             (imgsMeta[1].isGood || imgsMeta[1].isBad);
     const style = comparable ? { width: '50%' } : null;
+
+    const hasCarousel = imgs.length > 1 && !comparable;
+    const previewClassName = classNames({
+      'preview-image-boxes': true,
+      clearfix: true,
+      'preview-image-boxes-with-carousel': hasCarousel,
+    });
     return (
-      <div className={className}>
+      <div className={previewClassName}>
         <PreviewImageBox style={style}
           comparable={comparable}
           previewVisible={this.state.leftVisible}

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import classNames from 'classnames';
 import ImagePreview from './ImagePreview';
 import VideoPlayer from './VideoPlayer';
 import * as utils from '../utils';
@@ -23,13 +22,7 @@ export default class Article extends React.Component {
     }
 
     const imgs = node.children.split(/\r|\n/);
-    const hasCarousel = imgs.length > 1;
-    const previewClassName = classNames({
-      'preview-image-boxes': true,
-      clearfix: true,
-      'preview-image-boxes-with-carousel': hasCarousel,
-    });
-    return <ImagePreview className={previewClassName} imgs={imgs} />;
+    return <ImagePreview imgs={imgs} />;
   }
 
   isVideo(string) {
