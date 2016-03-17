@@ -172,11 +172,23 @@ const AntUpload = React.createClass({
     }
   },
 
+  handlePreview(file) {
+    if (this.props.onPreview) {
+      this.props.onPreview(file);
+    } else {
+      window.open(file.url, '_blank');
+    }
+  },
+
   handleManualRemove(file) {
     /*eslint-disable */
     file.status = 'removed';
     /*eslint-enable */
-    this.handleRemove(file);
+    if (this.props.onRemove) {
+      this.props.onRemove(file);
+    } else {
+      this.handleRemove(file);
+    }
   },
 
   onChange(info) {
@@ -235,6 +247,7 @@ const AntUpload = React.createClass({
       uploadList = (
         <UploadList listType={this.props.listType}
           items={this.state.fileList}
+          onPreview={this.handlePreview}
           onRemove={this.handleManualRemove} />
       );
     }
