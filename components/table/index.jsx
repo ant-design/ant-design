@@ -456,7 +456,7 @@ let AntTable = React.createClass({
   handleShowSizeChange(current, pageSize) {
     const pagination = this.state.pagination;
     pagination.onShowSizeChange(current, pageSize);
-    const nextPagination = { ...pagination, pageSize };
+    const nextPagination = { ...pagination, pageSize, current };
     this.setState({ pagination: nextPagination });
     this.props.onChange(...this.prepareParamsArguments({
       ...this.state,
