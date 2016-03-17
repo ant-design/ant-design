@@ -21,9 +21,9 @@ function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
       <div className="preview-image-description"
         dangerouslySetInnerHTML={{ __html: coverMeta.description }} />
 
-      <Modal className="image-modal" visible={previewVisible} title={null} footer={null}
+      <Modal className="image-modal" width="960" visible={previewVisible} title={null} footer={null}
         onCancel={onCancel}>
-        <Carousel>
+        <Carousel adaptiveHeight>
           { comparable ? cover : imgs }
         </Carousel>
         <div className="preview-image-title">{coverMeta.alt}</div>
@@ -73,7 +73,13 @@ export default class ImagePreview extends React.Component {
     });
 
     const imagesList = imgsMeta.map((meta, index) => {
-      return <img {...meta} key={index} />;
+      return (
+        <div key={index}>
+          <div className="image-modal-container">
+            <img {...meta} />
+          </div>
+        </div>
+      );
     });
     const comparable = imgs.length === 2 &&
             (imgsMeta[0].isGood || imgsMeta[0].isBad) &&

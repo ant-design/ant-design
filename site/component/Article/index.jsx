@@ -23,11 +23,11 @@ export default class Article extends React.Component {
     }
 
     const imgs = node.children.split(/\r|\n/);
-    const hasPopup = imgs.length > 1;
+    const hasCarousel = imgs.length > 1;
     const previewClassName = classNames({
       'preview-image-boxes': true,
       clearfix: true,
-      'preview-image-boxes-with-popup': hasPopup,
+      'preview-image-boxes-with-carousel': hasCarousel,
     });
     return <ImagePreview className={previewClassName} imgs={imgs} />;
   }

@@ -3,6 +3,14 @@
   margin: 0 0 70px 28px;
   width: 616px;
   clear: both;
+
+  &-with-carousel {
+    width: 420px;
+
+    .preview-image-box {
+      padding: 0;
+    }
+  }
 }
 
 .preview-image-boxes + .preview-image-boxes {
@@ -101,6 +109,20 @@
 
 .image-modal {
   text-align: center;
+
+  &-container {
+    position: relative;
+    text-align: center;
+  }
+}
+
+.ant-carousel .slick-slider {
+  padding-bottom: 0;
+
+  img {
+    display: inline;
+    max-width: 100%;
+  }
 }
 
 .no-padding {
