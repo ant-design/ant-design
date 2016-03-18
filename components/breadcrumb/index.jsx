@@ -1,20 +1,7 @@
 import React, { cloneElement } from 'react';
 
-const BreadcrumbItem = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-breadcrumb',
-      separator: '/',
-    };
-  },
-  propTypes: {
-    prefixCls: React.PropTypes.string,
-    separator: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element,
-    ]),
-    href: React.PropTypes.string,
-  },
+/* Exported as Breadcrumb.Item */
+class BreadcrumbItem extends React.Component {
   render() {
     const { prefixCls, separator, children } = this.props;
     let link = <a className={`${prefixCls}-link`} {...this.props}>{children}</a>;
@@ -28,25 +15,23 @@ const BreadcrumbItem = React.createClass({
       </span>
     );
   }
-});
+}
 
-const Breadcrumb = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-breadcrumb',
-      separator: '/',
-      linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
-    };
-  },
-  propTypes: {
-    prefixCls: React.PropTypes.string,
-    separator: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.element,
-    ]),
-    routes: React.PropTypes.array,
-    params: React.PropTypes.object,
-  },
+BreadcrumbItem.defaultProps = {
+  prefixCls: 'ant-breadcrumb',
+  separator: '/',
+};
+
+BreadcrumbItem.propTypes = {
+  prefixCls: React.PropTypes.string,
+  separator: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.element,
+  ]),
+  href: React.PropTypes.string,
+};
+
+export default class Breadcrumb extends React.Component {
   render() {
     let crumbs;
     const { separator, prefixCls, routes, params, children, linkRender } = this.props;
@@ -90,7 +75,22 @@ const Breadcrumb = React.createClass({
       </div>
     );
   }
-});
+}
+
+Breadcrumb.defaultProps = {
+  prefixCls: 'ant-breadcrumb',
+  separator: '/',
+  linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
+};
+
+Breadcrumb.propTypes = {
+  prefixCls: React.PropTypes.string,
+  separator: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.element,
+  ]),
+  routes: React.PropTypes.array,
+  params: React.PropTypes.object,
+};
 
 Breadcrumb.Item = BreadcrumbItem;
-export default Breadcrumb;
