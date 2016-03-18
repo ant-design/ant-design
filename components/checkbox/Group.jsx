@@ -63,7 +63,7 @@ export default React.createClass({
       <div className="ant-checkbox-group">
         {
           options.map(option =>
-            <Checkbox disabled={this.props.disabled}
+            <Checkbox disabled={'disabled' in option ? option.disabled : this.props.disabled}
               checked={this.state.value.indexOf(option.value) !== -1}
               onChange={this.toggleOption.bind(this, option)}
               className="ant-checkbox-group-item" key={option.value}>

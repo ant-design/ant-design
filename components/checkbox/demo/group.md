@@ -25,12 +25,19 @@ const options = [{
   label: '橘',
   value: 'Orange',
 }];
+const optionsWithDisabled = [
+  { label: '苹果', value: 'Apple' },
+  { label: '梨', value: 'Pear' },
+  { label: '橘', value: 'Orange', disabled: false },
+];
 
 ReactDOM.render(
 <div>
   <CheckboxGroup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
   <br />
   <CheckboxGroup options={options} defaultValue={['Pear']} onChange={onChange} />
+  <br />
+  <CheckboxGroup options={optionsWithDisabled} disabled defaultValue={['Apple']} onChange={onChange} />
 </div>
 , mountNode);
 ````
