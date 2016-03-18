@@ -2,8 +2,6 @@
 
 - order: 0
 
----
-
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
 
 <div class="pic-plus">
@@ -23,6 +21,7 @@
 }
 </style>
 
+---
 
 ## 特性
 
@@ -77,7 +76,10 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 ## 谁在使用
 
 - 蚂蚁金服
+- 阿里巴巴
 - 口碑
+- 新美大
+- 滴滴
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import TreeSelect, { TreeNode } from 'rc-tree-select';
+import TreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 
 const AntTreeSelect = React.createClass({
@@ -42,4 +42,7 @@ const AntTreeSelect = React.createClass({
 });
 
 AntTreeSelect.TreeNode = TreeNode;
+AntTreeSelect.SHOW_ALL = SHOW_ALL;
+AntTreeSelect.SHOW_PARENT = SHOW_PARENT;
+AntTreeSelect.SHOW_CHILD = SHOW_CHILD;
 export default AntTreeSelect;

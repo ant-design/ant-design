@@ -16,4 +16,6 @@ export default class Dropdown extends React.Component {
 Dropdown.defaultProps = {
   transitionName: 'slide-up',
   prefixCls: 'ant-dropdown',
+  mouseEnterDelay: 0.15,
+  mouseLeaveDelay: 0.1,
 };

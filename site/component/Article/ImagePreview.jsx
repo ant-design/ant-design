@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { Modal, Carousel } from '../../../';
 
 function isGood(className) {
@@ -6,6 +7,31 @@ function isGood(className) {
 }
 function isBad(className) {
   return /\bbad\b/i.test(className);
+}
+
+function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
+                           comparable, onClick, onCancel }) {
+  const onlyOneImg = comparable || imgs.length === 1;
+  return (
+    <div className="preview-image-box"
+      style={style}
+      onClick={onClick}>
+      <div className={`preview-image-wrapper ${coverMeta.isGood && 'good'} ${coverMeta.isBad && 'bad'}`}>
+        <img className={coverMeta.className} src={coverMeta.src} alt="Sample Picture" />
+      </div>
+      <div className="preview-image-title">{coverMeta.alt}</div>
+      <div className="preview-image-description"
+        dangerouslySetInnerHTML={{ __html: coverMeta.description }} />
+
+      <Modal className="image-modal" width="960" visible={previewVisible} title={null} footer={null}
+        onCancel={onCancel}>
+        <Carousel className={`${onlyOneImg ? 'image-modal-single' : ''}`} adaptiveHeight>
+          { comparable ? cover : imgs }
+        </Carousel>
+        <div className="preview-image-title">{coverMeta.alt}</div>
+      </Modal>
+    </div>
+  );
 }
 
 export default class ImagePreview extends React.Component {
@@ -30,7 +56,7 @@ export default class ImagePreview extends React.Component {
   }
 
   render() {
-    const { className, imgs } = this.props;
+    const { imgs } = this.props;
     const imgsMeta = imgs.map((img) => {
       const span = document.createElement('span');
       span.innerHTML = img;
@@ -48,60 +74,48 @@ export default class ImagePreview extends React.Component {
       };
     });
 
-    const cover = imgsMeta[0];
     const imagesList = imgsMeta.map((meta, index) => {
-      return <img {...meta} key={index} />;
+      return (
+        <div key={index}>
+          <div className="image-modal-container">
+            <img {...meta} />
+          </div>
+        </div>
+      );
     });
     const comparable = imgs.length === 2 &&
             (imgsMeta[0].isGood || imgsMeta[0].isBad) &&
             (imgsMeta[1].isGood || imgsMeta[1].isBad);
     const style = comparable ? { width: '50%' } : null;
-    return (
-      <div className={className}>
-        <div className="preview-image-box"
-          style={style}
-          onClick={this.handleClick.bind(this, 'left')}>
-          <div className={`preview-image-wrapper ${cover.isGood && 'good'} ${cover.isBad && 'bad'}`}>
-            <img className={cover.className} src={cover.src} alt="Sample Picture" />
-          </div>
-          <div className="preview-image-title">{cover.alt}</div>
-          <div className="preview-image-description">
-            {cover.description}
-          </div>
 
-          <Modal className="image-modal" visible={this.state.leftVisible} title={null} footer={null}
-            onCancel={this.handleCancel.bind(this)}>
-            <Carousel>
-              { comparable ? imagesList[0] : imagesList }
-            </Carousel>
-            {
-              comparable || imagesList.length === 1 ?
-                <div className="preview-image-title">{cover.alt}</div> :
-                null
-            }
-          </Modal>
-        </div>
+    const hasCarousel = imgs.length > 1 && !comparable;
+    const previewClassName = classNames({
+      'preview-image-boxes': true,
+      clearfix: true,
+      'preview-image-boxes-with-carousel': hasCarousel,
+    });
+    return (
+      <div className={previewClassName}>
+        <PreviewImageBox style={style}
+          comparable={comparable}
+          previewVisible={this.state.leftVisible}
+          cover={imagesList[0]}
+          coverMeta={imgsMeta[0]}
+          imgs={imagesList}
+          onClick={this.handleClick.bind(this, 'left')}
+          onCancel={this.handleCancel.bind(this)}
+        />
         {
           comparable ?
-            <div className="preview-image-box"
-              style={style}
-              onClick={this.handleClick.bind(this, 'right')}>
-              <div className={`preview-image-wrapper ${imgsMeta[1].isGood && 'good'} ${imgsMeta[1].isBad && 'bad'}`}>
-                <img className={imgsMeta[1].className} src={imgsMeta[1].src} alt="Sample Picture" />
-              </div>
-              <div className="preview-image-title">{imgsMeta[1].alt}</div>
-              <div className="preview-image-description">
-                {imgsMeta[1].description}
-              </div>
-
-              <Modal className="image-modal" visible={this.state.rightVisible} title={null} footer={null}
-                onCancel={this.handleCancel.bind(this)}>
-                <Carousel>
-                  { comparable ? imagesList[1] : imagesList }
-                </Carousel>
-                <div className="preview-image-title">{imagesList[1].alt}</div>
-              </Modal>
-            </div> : null
+            <PreviewImageBox style={style}
+              comparable
+              previewVisible={this.state.rightVisible}
+              cover={imagesList[1]}
+              coverMeta={imgsMeta[1]}
+              imgs={imagesList}
+              onClick={this.handleClick.bind(this, 'right')}
+              onCancel={this.handleCancel.bind(this)}
+            /> : null
         }
       </div>
     );

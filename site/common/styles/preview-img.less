@@ -1,15 +1,20 @@
 .preview-image-boxes {
   float: right;
-  margin: 0 0 110px 60px;
+  margin: 0 0 70px 28px;
   width: 616px;
+  clear: both;
 
-  &-with-popup {
+  &-with-carousel {
     width: 420px;
+
+    .preview-image-box img {
+      padding: 0;
+    }
   }
 }
 
 .preview-image-boxes + .preview-image-boxes {
-  margin-top: -75px;
+  margin-top: -35px;
 }
 
 .preview-image-box {
@@ -25,6 +30,22 @@
   text-align: center;
   width: 100%;
   position: relative;
+}
+
+.preview-image-wrapper.video {
+  padding: 0;
+  background: 0;
+  display: block;
+}
+
+.preview-image-wrapper video {
+  width: 100%;
+  display: block;
+  + svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 }
 
 .preview-image-wrapper.good:after {
@@ -88,8 +109,31 @@
 
 .image-modal {
   text-align: center;
+
+  &-container {
+    position: relative;
+    text-align: center;
+  }
+}
+
+.image-modal-single.slick-slider {
+  padding-bottom: 0;
+}
+.ant-carousel .slick-slider img {
+  display: inline;
+  max-width: 100%;
 }
 
 .no-padding {
   padding: 0!important;
+}
+
+.transition-video-player {
+  float: right;
+  padding: 0;
+  width: 600px;
+
+  .preview-image-wrapper {
+    padding: 0;
+  }
 }

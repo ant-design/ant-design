@@ -87,10 +87,18 @@ export default class ComponentDoc extends React.Component {
           </h2>
         </section>
         <Row>
-          <Col span={ isSingleCol ? '24' : '12' } className={ isSingleCol ? '' : 'demo-list-left'}>
+          <Col span={ isSingleCol ? '24' : '12' }
+            className={ isSingleCol ?
+              'code-boxes-col-1-1' :
+              'code-boxes-col-2-1'
+            }
+          >
             { leftChildren }
           </Col>
-          { isSingleCol ? null : <Col className="demo-list-right" span="12">{ rightChildren }</Col> }
+          {
+            isSingleCol ? null :
+            <Col className="code-boxes-col-2-1" span="12">{ rightChildren }</Col>
+          }
         </Row>
         <section className="markdown">
           { (doc.api || []).map(utils.objectToComponent.bind(null, location.pathname)) }

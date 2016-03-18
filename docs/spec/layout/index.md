@@ -1,7 +1,7 @@
 # Layout
 
 - template: component
-- category: 基础
+- category: 设计基础
 - order: 4
 - cols: 1
 - chinese: 常用布局

@@ -19,7 +19,7 @@
 
 | 参数      | 说明                                     | 类型          | 默认值 |
 |-----------|------------------------------------------|---------------|--------|
-| placement | 气泡框位置，可选 `top/left/right/bottom` | string        | top    |
+| placement | 气泡框位置，可选 `top/left/right/bottom` `topLeft/topRight/bottomLeft/bottomRight` `leftTop/leftBottom/rightTop/rightBottom` | string        | top    |
 | title     | 确认框的描述                             | string        | 无     |
 | onConfirm | 点击确认的回调                           | function      | 无     |
 | onCancel  | 卡片内容                                 | function      | 无     |

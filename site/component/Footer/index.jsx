@@ -1,8 +1,28 @@
 import React from 'react';
 import { Select } from '../../../';
+import { version as antdVersion } from '../../../package.json';
+import { docVersions } from '../../website.config';
+const Option = Select.Option;
 
 export default class Footer extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleVersionChange = this.handleVersionChange.bind(this);
+  }
+
+  handleVersionChange(url) {
+    window.location.href = url;
+  }
+
   render() {
+    const options = Object.keys(docVersions).map((version, index) => {
+      return (
+        <Option value={docVersions[version]} key={index}>
+          { version }
+        </Option>
+      );
+    });
     return (
       <footer id="footer">
         <ul>
@@ -38,9 +58,9 @@ export default class Footer extends React.Component {
             <div>©2015 蚂蚁金服体验技术部出品</div>
             <div>
               文档版本：
-              <Select defaultValue="0.10.4" size="small">
-                <Option value="0.10.4">0.10.4</Option>
-                <Option value="0.9.2">0.9.2</Option>
+              <Select className="versions-selector" size="small"
+                placeholder={antdVersion} onChange={this.handleVersionChange}>
+                { options }
               </Select>
             </div>
           </li>

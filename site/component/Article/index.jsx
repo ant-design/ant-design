@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import classNames from 'classnames';
 import ImagePreview from './ImagePreview';
+import VideoPlayer from './VideoPlayer';
 import * as utils from '../utils';
 
 export default class Article extends React.Component {
@@ -9,6 +9,7 @@ export default class Article extends React.Component {
     super(props);
 
     this.imgToPreview = this.imgToPreview.bind(this);
+    this.enhanceVideo = this.enhanceVideo.bind(this);
   }
 
   isPreviewImg(string) {
@@ -21,13 +22,19 @@ export default class Article extends React.Component {
     }
 
     const imgs = node.children.split(/\r|\n/);
-    const hasPopup = imgs.length > 1;
-    const previewClassName = classNames({
-      'preview-image-boxes': true,
-      clearfix: true,
-      'preview-image-boxes-with-popup': hasPopup,
-    });
-    return <ImagePreview className={previewClassName} imgs={imgs} />;
+    return <ImagePreview imgs={imgs} />;
+  }
+
+  isVideo(string) {
+    return /^<video\s/i.test(string);
+  }
+
+  enhanceVideo(node) {
+    if (!this.isVideo(node.children)) {
+      return node;
+    }
+
+    return <VideoPlayer video={node.children} />;
   }
 
   render() {
@@ -37,18 +44,29 @@ export default class Article extends React.Component {
     }).map((node) => {
       return (
         <li key={node.children}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: node.children } }}>
-            { node.children }
-          </Link>
+          <Link to={{ pathname: location.pathname, query: { scrollTo: node.children } }}
+            dangerouslySetInnerHTML={{ __html: node.children }} />
         </li>
       );
     });
 
-    content.description = content.description.map(this.imgToPreview);
+    content.description = content.description
+      .map(this.imgToPreview)
+      .map(this.enhanceVideo);
 
     return (
       <article className="markdown">
-        <h1>{ content.meta.chinese || content.meta.english }</h1>
+        <h1>
+          { content.meta.chinese || content.meta.english }
+          {
+            !content.meta.subtitle ? null :
+              <span className="subtitle">{ content.meta.subtitle }</span>
+          }
+        </h1>
+        {
+          !content.intro ? null :
+            content.intro.map(utils.objectToComponent.bind(null, location.pathname))
+        }
         {
           jumper.length > 0 ?
             <section className="toc"><ul>{ jumper }</ul></section> :
