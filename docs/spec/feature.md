@@ -31,6 +31,16 @@
   font-size: 14px;
   margin-top: 16px;
 }
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  .features {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;;
+  }
+  .features img {
+    width: 80%;
+  }
+}
 </style>
 
 ---

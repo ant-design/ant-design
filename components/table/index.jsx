@@ -8,6 +8,7 @@ import Icon from '../icon';
 import objectAssign from 'object-assign';
 import Spin from '../spin';
 import classNames from 'classnames';
+import { flatArray } from './util';
 
 function noop() {
 }
@@ -82,7 +83,7 @@ let AntTable = React.createClass({
     if (!this.props.rowSelection || !this.props.rowSelection.getCheckboxProps) {
       return [];
     }
-    return this.getCurrentPageData()
+    return this.getFlatCurrentPageData()
       .filter(item => this.props.rowSelection.getCheckboxProps(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   },
@@ -122,8 +123,10 @@ let AntTable = React.createClass({
       this.setState({ selectedRowKeys });
     }
     if (this.props.rowSelection && this.props.rowSelection.onChange) {
-      const data = this.getCurrentPageData();
-      const selectedRows = data.filter(row => selectedRowKeys.indexOf(row.key) >= 0);
+      const data = this.getFlatCurrentPageData();
+      const selectedRows = data.filter(
+        (row, i) => selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
+      );
       this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
     }
   },
@@ -164,9 +167,7 @@ let AntTable = React.createClass({
       sorter,
     };
     this.setState(newState);
-    this.props.onChange.apply(this, this.prepareParamsArguments(
-      objectAssign({}, this.state, newState)
-    ));
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
   handleFilter(column, nextFilters) {
@@ -186,9 +187,7 @@ let AntTable = React.createClass({
     };
     this.setState(newState);
     this.setSelectedRowKeys([]);
-    this.props.onChange.apply(this, this.prepareParamsArguments(
-      objectAssign({}, this.state, newState)
-    ));
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
   handleSelect(record, rowIndex, e) {
@@ -208,7 +207,7 @@ let AntTable = React.createClass({
     });
     this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelect) {
-      let data = this.getCurrentPageData();
+      let data = this.getFlatCurrentPageData();
       let selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
@@ -228,7 +227,7 @@ let AntTable = React.createClass({
     });
     this.setSelectedRowKeys(selectedRowKeys);
     if (this.props.rowSelection.onSelect) {
-      let data = this.getCurrentPageData();
+      let data = this.getFlatCurrentPageData();
       let selectedRows = data.filter((row, i) => {
         return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
       });
@@ -238,7 +237,7 @@ let AntTable = React.createClass({
 
   handleSelectAllRow(e) {
     const checked = e.target.checked;
-    const data = this.getCurrentPageData();
+    const data = this.getFlatCurrentPageData();
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
     const changableRowKeys = data.filter(item =>
@@ -290,9 +289,7 @@ let AntTable = React.createClass({
       pagination
     };
     this.setState(newState);
-    this.props.onChange.apply(this, this.prepareParamsArguments(
-      objectAssign({}, this.state, newState)
-    ));
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
   onRadioChange(ev) {
@@ -350,7 +347,7 @@ let AntTable = React.createClass({
   renderRowSelection() {
     let columns = this.props.columns.concat();
     if (this.props.rowSelection) {
-      let data = this.getCurrentPageData().filter((item) => {
+      let data = this.getFlatCurrentPageData().filter((item) => {
         if (this.props.rowSelection.getCheckboxProps) {
           return !this.props.rowSelection.getCheckboxProps(item).disabled;
         }
@@ -471,11 +468,12 @@ let AntTable = React.createClass({
   handleShowSizeChange(current, pageSize) {
     const pagination = this.state.pagination;
     pagination.onShowSizeChange(current, pageSize);
-
-    let nextPagination = objectAssign(pagination, {
-      pageSize,
-    });
+    const nextPagination = { ...pagination, pageSize, current };
     this.setState({ pagination: nextPagination });
+    this.props.onChange(...this.prepareParamsArguments({
+      ...this.state,
+      pagination: nextPagination,
+    }));
   },
 
   renderPagination() {
@@ -516,8 +514,8 @@ let AntTable = React.createClass({
     return this.props.columns.filter(c => this.getColumnKey(c) === myKey)[0];
   },
 
-  getCurrentPageData(dataSource) {
-    let data = this.getLocalData(dataSource);
+  getCurrentPageData() {
+    let data = this.getLocalData();
     let current;
     let pageSize;
     let state = this.state;
@@ -541,9 +539,13 @@ let AntTable = React.createClass({
     return data;
   },
 
-  getLocalData(dataSource) {
+  getFlatCurrentPageData() {
+    return flatArray(this.getCurrentPageData());
+  },
+
+  getLocalData() {
     let state = this.state;
-    let data = dataSource || this.props.dataSource || [];
+    let data = this.props.dataSource || [];
     // 排序
     if (state.sortOrder && state.sorter) {
       data = data.slice(0);

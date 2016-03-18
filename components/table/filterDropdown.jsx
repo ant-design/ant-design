@@ -96,6 +96,7 @@ let FilterMenu = React.createClass({
     let menus = (
       <div className="ant-table-filter-dropdown">
         <Menu multiple={multiple}
+          onClick={this.handleMenuItemClick}
           prefixCls="ant-dropdown-menu"
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}

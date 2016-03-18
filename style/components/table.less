@@ -82,6 +82,7 @@
   th,
   td {
     padding: 16px 8px;
+    word-break: break-all;
   }
 
   th.@{table-prefix-cls}-selection-column,
@@ -193,7 +194,7 @@
       border-bottom: 1px solid @border-color-split;
     }
 
-    tr:last-child {
+    tbody tr:last-child {
       th,
       td {
         border-bottom: 0;
@@ -330,11 +331,6 @@
       &:after {
         content: '.';
       }
-    }
-
-    // Hide selection component in children data
-    &[class*="@{table-prefix-cls}-row-level-"] .@{table-prefix-cls}-selection-column > span {
-      display: none;
     }
 
     &[class*="@{table-prefix-cls}-row-level-0"] .@{table-prefix-cls}-selection-column > span {

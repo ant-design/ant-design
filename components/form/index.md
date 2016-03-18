@@ -85,6 +85,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 #### this.props.form.getFieldProps(id, options)
 
+`getFieldProps` 返回的属性包括 `id`、`value`(或你设置的其它 `valuePropName`)、`ref`、`onChange`(或者你设置的其它 `trigger` `validateTrigger`)，所以不应再设置同样的属性，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
+
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 | options.id | 必填输入控件唯一标志 | string | |  |

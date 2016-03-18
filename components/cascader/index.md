@@ -36,3 +36,5 @@
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
 | disabled | 禁用 | boolean | false |
 | allowClear | 是否支持清除 | boolean | true |
+| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |
+| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |

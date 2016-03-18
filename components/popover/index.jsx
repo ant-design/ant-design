@@ -52,7 +52,7 @@ const Popover = React.createClass({
     return (
       <div>
         {this.props.title && <div className={`${prefixCls}-title`}>{this.props.title}</div>}
-        <div className={`${prefixCls}-content`}>
+        <div className={`${prefixCls}-inner-content`}>
           {this.props.overlay}
         </div>
       </div>

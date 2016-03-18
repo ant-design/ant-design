@@ -73,7 +73,7 @@ export default React.createClass({
     }
     const overlay = (
       <div>
-        <div className={`${prefixCls}-content`}>
+        <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
             <Icon type="exclamation-circle" />
             <div className={`${prefixCls}-message-title`}>{title}</div>
