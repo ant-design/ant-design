@@ -5,21 +5,7 @@ import Dropdown from './dropdown';
 const ButtonGroup = Button.Group;
 import classNames from 'classnames';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      align: {
-        points: ['tr', 'br'],
-        overlay: {
-          adjustX: 1,
-          adjustY: 1,
-        },
-        offset: [0, 4],
-        targetOffset: [0, 0],
-      },
-      type: 'default',
-    };
-  },
+export default class DropdownButton extends React.Component {
   render() {
     const { type, overlay, trigger, align, children, className, ...restProps } = this.props;
     const cls = classNames({
@@ -37,4 +23,17 @@ export default React.createClass({
       </ButtonGroup>
     );
   }
-});
+}
+
+DropdownButton.defaultProps = {
+  align: {
+    points: ['tr', 'br'],
+    overlay: {
+      adjustX: 1,
+      adjustY: 1,
+    },
+    offset: [0, 4],
+    targetOffset: [0, 0],
+  },
+  type: 'default',
+};

@@ -1,15 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const TimelineItem = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-timeline',
-      color: 'blue',
-      last: false,
-      pending: false,
-    };
-  },
+/* Exported as Timeline.Item */
+class TimelineItem extends React.Component {
   render() {
     const { prefixCls, color, last, children, pending } = this.props;
     const itemClassName = classNames({
@@ -25,14 +18,16 @@ const TimelineItem = React.createClass({
       </li>
     );
   }
-});
+}
 
-const Timeline = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-timeline',
-    };
-  },
+TimelineItem.defaultProps = {
+  prefixCls: 'ant-timeline',
+  color: 'blue',
+  last: false,
+  pending: false,
+};
+
+export default class Timeline extends React.Component {
   render() {
     const { prefixCls, children, pending } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
@@ -55,8 +50,10 @@ const Timeline = React.createClass({
       </ul>
     );
   }
-});
+}
+
+Timeline.defaultProps = {
+  prefixCls: 'ant-timeline',
+};
 
 Timeline.Item = TimelineItem;
-
-export default Timeline;

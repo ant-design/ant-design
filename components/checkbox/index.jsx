@@ -3,12 +3,7 @@ import React from 'react';
 import Group from './Group';
 import classNames from 'classnames';
 
-const Checkbox = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-checkbox'
-    };
-  },
+export default class Checkbox extends React.Component {
   render() {
     const { prefixCls, style, children, className, ...restProps } = this.props;
     const classString = classNames({
@@ -22,8 +17,10 @@ const Checkbox = React.createClass({
       </label>
     );
   }
-});
+}
+
+Checkbox.defaultProps = {
+  prefixCls: 'ant-checkbox'
+};
 
 Checkbox.Group = Group;
-
-export default Checkbox;

@@ -1,33 +1,30 @@
 import React from 'react';
-import Steps from 'rc-steps';
+import RcSteps from 'rc-steps';
 
-const AntSteps = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-steps',
-      iconPrefix: 'ant',
-      maxDescriptionWidth: 100,
-      current: 0
-    };
-  },
+export default class Steps extends React.Component {
   render() {
     let maxDescriptionWidth = this.props.maxDescriptionWidth;
     if (this.props.direction === 'vertical') {
       maxDescriptionWidth = 'auto';
     }
     return (
-      <Steps size={this.props.size}
+      <RcSteps size={this.props.size}
         current={this.props.current}
         direction={this.props.direction}
         iconPrefix={this.props.iconPrefix}
         maxDescriptionWidth={maxDescriptionWidth}
         prefixCls={this.props.prefixCls}>
         {this.props.children}
-      </Steps>
+      </RcSteps>
     );
   }
-});
+}
 
-AntSteps.Step = Steps.Step;
+Steps.defaultProps = {
+  prefixCls: 'ant-steps',
+  iconPrefix: 'ant',
+  maxDescriptionWidth: 100,
+  current: 0
+};
 
-export default AntSteps;
+Steps.Step = RcSteps.Step;
