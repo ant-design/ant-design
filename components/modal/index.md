@@ -31,7 +31,7 @@
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       |
-| align | 浮层自定义位置 | Object, [dom-align](https://github.com/yiminghe/dom-align) | 距离顶部 100px | 
+| align | 浮层自定义位置 | Object, [dom-align](https://github.com/yiminghe/dom-align) | 距离顶部 100px |
 
 ### Modal.xxx()
 
@@ -47,6 +47,7 @@
 | 参数       | 说明           | 类型             | 默认值       |
 |------------|----------------|------------------|--------------|
 | title      | 标题           | React.Element or String    | 无           |
+| content    | 内容           | React.Element or String    | 无           |
 | onOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           |
 | onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
 | width      | 宽度           | String or Number | 416           |
