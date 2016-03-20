@@ -2,22 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
 
-const AntSpin = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-spin',
-      spining: true,
-    };
-  },
-
-  propTypes: {
-    className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
-  },
-
+export default class Spin extends React.Component {
   isNestedPattern() {
     return !!(this.props && this.props.children);
-  },
+  }
 
   render() {
     const { className, size, prefixCls, tip } = this.props;
@@ -56,6 +44,14 @@ const AntSpin = React.createClass({
     }
     return spinElement;
   }
-});
+}
 
-export default AntSpin;
+Spin.defaultProps = {
+  prefixCls: 'ant-spin',
+  spining: true,
+};
+
+Spin.propTypes = {
+  className: React.PropTypes.string,
+  size: React.PropTypes.oneOf(['small', 'default', 'large']),
+};
