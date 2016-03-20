@@ -67,5 +67,5 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
 
-  devtool: 'source-map'
+  devtool: 'cheap-module-source-map'
 };

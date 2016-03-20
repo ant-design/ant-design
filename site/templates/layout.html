@@ -12,7 +12,7 @@
     <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     <link rel="shortcut icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
     {% block styles %}{% endblock %}
-    <link rel="stylesheet" href="{{static_url('../dist/demo.css')}}?20160114">
+    <link rel="stylesheet" href="{{static_url('../dist/demo.css')}}">
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js,jquery/1.11.3/jquery.min.js,bluebird/3.1.1/bluebird.min.js"></script>
     <script>
     (function() {
@@ -44,7 +44,7 @@
         latest: '{{config.package.version}}'
       };
     </script>
-    <script src="{{static_url('../dist/demo.js')}}?20160114"></script>
+    <script src="{{static_url('../dist/demo.js')}}"></script>
     {% block scripts %}{% endblock %}
   </head>
   <body {% block bodyAttribute %}{% endblock %}>
