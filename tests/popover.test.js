@@ -23,6 +23,6 @@ describe('Popover', function() {
     expect(popup).not.toBe(undefined);
     expect(popup.className).toContain('ant-popover-placement-top');
     expect(popup.innerHTML).toMatch(/<div class="ant-popover-title".*?>code<\/div>/);
-    expect(popup.innerHTML).toMatch(/<div class="ant-popover-content".*?>console\.log\('hello world'\)<\/div>/);
+    expect(popup.innerHTML).toMatch(/<div class="ant-popover-inner-content".*?>console\.log\('hello world'\)<\/div>/);
   });
 });
