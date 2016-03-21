@@ -13,17 +13,11 @@ if (typeof window !== 'undefined') {
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
 }
 
-import Carousel from 'react-slick';
+import SlickCarousel from 'react-slick';
 import React from 'react';
 import assign from 'object-assign';
 
-const AntCarousel = React.createClass({
-  getDefaultProps() {
-    return {
-      dots: true,
-      arrows: false,
-    };
-  },
+export default class Carousel extends React.Component {
   render() {
     let props = assign({}, this.props);
 
@@ -39,10 +33,13 @@ const AntCarousel = React.createClass({
 
     return (
       <div className={className}>
-        <Carousel {...props} />
+        <SlickCarousel {...props} />
       </div>
     );
   }
-});
+}
 
-export default AntCarousel;
+Carousel.defaultProps = {
+  dots: true,
+  arrows: false,
+};
