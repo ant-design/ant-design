@@ -1,7 +1,7 @@
 @radio-group-prefix-cls: ant-radio-group;
 @radio-prefix-cls: ant-radio;
 @radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
-@radio-duration: .3s;
+@radio-duration: .2s;
 
 .@{radio-group-prefix-cls} {
   display: inline-block;
@@ -38,7 +38,8 @@
       content: ' ';
       background-color: @primary-color;
       opacity: 0;
-      transition: transform @radio-duration @ease-in-out-circ, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
+      transform: scale(0);
+      transition: all @radio-duration @ease-in-out-circ;
     }
 
     position: relative;
@@ -52,7 +53,7 @@
     border-radius: 14px;
     border-color: @border-color-base;
     background-color: #fff;
-    transition: border-color @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
+    transition: all @radio-duration @ease-in-out-circ;
   }
 
   &-input {
@@ -74,7 +75,7 @@
     &:after {
       transform: scale(1);
       opacity: 1;
-      transition: transform @radio-duration @ease-out-back, opacity @radio-duration @ease-in-out-circ, background-color @radio-duration @ease-in-out-circ;
+      transition: all @radio-duration @ease-in-out-circ;
     }
   }
 }
