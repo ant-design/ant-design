@@ -29,6 +29,7 @@ Ant Design 是一个致力于提升『用户』和『设计者』使用体验的
 
 - [Ant Design of React](/docs/react/introduce)（官方实现）
 - [vue-antd](https://github.com/okoala/vue-antd)
+- [antd-ember](https://github.com/idcos/antd-ember)
 
 ## 如何贡献
 
