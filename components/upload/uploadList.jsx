@@ -28,6 +28,10 @@ export default React.createClass({
   handleClose(file) {
     this.props.onRemove(file);
   },
+  handlePreview(file, e) {
+    e.preventDefault();
+    return this.props.onPreview(file);
+  },
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
@@ -65,6 +69,7 @@ export default React.createClass({
           }
         } else {
           icon = (<a className={`${prefixCls}-list-item-thumbnail`}
+            onClick={this.handlePreview.bind(this, file)}
             href={file.url}
             target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
           );
@@ -87,13 +92,13 @@ export default React.createClass({
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
             {file.url
-               ? <a href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
+               ? <a onClick={this.handlePreview.bind(this, file)} href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
                : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>}
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
-                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
+                  <a onClick={this.handlePreview.bind(this, file)} href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
                   <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
                 </span>
               ) : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
