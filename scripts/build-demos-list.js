@@ -16,7 +16,12 @@ module.exports = function buildDemosList(dirs, outputPath) {
     return relativeIndex;
   }, demos);
 
-  let content = 'module.exports = {';
+  let content =
+        'const React  = require("react");\n' +
+        'const ReactDOM = require("react-dom");\n' +
+        'const antd  = require("../../");\n' +
+        'const BrowserDemo = require("../../site/component/BrowserDemo");\n' +
+        'module.exports = {';
   Object.keys(groupedDemos).forEach((key) => {
     content += `\n  '${key}': [`;
     groupedDemos[key].forEach((fileName) => {
@@ -25,7 +30,17 @@ module.exports = function buildDemosList(dirs, outputPath) {
     });
     content += '\n  ],'
   });
-  content += '\n};';
+  content += '\n};\n';
+
+  // Extract preview as a component
+  content +=
+    'Object.keys(module.exports).map((key) => module.exports[key])\n' +
+    '  .forEach((demos) => {\n' +
+    '    demos.forEach((demo) => {\n' +
+    '      if (typeof demo.preview !== "function") return;\n' +
+    '      demo.preview = demo.preview(React, ReactDOM, antd, BrowserDemo);\n' +
+    '    });\n' +
+    '  });';
 
   fs.writeFile(outputPath, content);
 };

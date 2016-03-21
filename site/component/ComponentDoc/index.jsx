@@ -1,20 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import antd, { Row, Col, Icon, Affix } from '../../../';
+import { Row, Col, Icon, Affix } from '../../../';
 import Demo from '../Demo';
-import BrowserDemo from '../BrowserDemo';
 import * as utils from '../utils';
 import demosList from '../../../_site/data/demos-list';
-
-// Extract preview as a component
-Object.keys(demosList).map((key) => demosList[key])
-  .forEach((demos) => {
-    demos.forEach((demo) => {
-      demo.preview = demo.preview(React, ReactDOM, antd, BrowserDemo);
-    });
-  });
 
 export default class ComponentDoc extends React.Component {
   constructor(props) {
