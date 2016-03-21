@@ -31,6 +31,8 @@
 | onChange   | 可选参数, 上传文件改变时的状态，详见 onChange                | Function    | 无    |
 | listType   | 上传列表的内建样式，支持两种基本样式 `text` or `picture`     | String      | 'text'|
 | className  | 自定义类名                                                   | String      | 无    |
+| onRemove   | 可选参数, 当用户删除文件时被调用                             | Function | 无 |
+| onPreview  | 可选参数, 当用户点击文件(预览)时被调用                        | Function | 无 |
 
 
 ### onChange
