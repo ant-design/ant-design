@@ -22,7 +22,7 @@ export function objectToComponent(pathname, object, index) {
   }
 
   if (typeof object === 'function') {
-    return object(React, ReactDOM, antd, antd);
+    return React.cloneElement(object(React, ReactDOM, antd, antd), { key: index });
   }
 
   if (typeof object === 'string') {
@@ -44,7 +44,7 @@ export function objectToComponent(pathname, object, index) {
       key: index,
       id: children,
     }, [
-      <span dangerouslySetInnerHTML={{ __html: object.children }} />,
+      <span key="title" dangerouslySetInnerHTML={{ __html: object.children }} />,
       <Link to={{ pathname, query: { scrollTo: object.children } }} className="anchor" key="anchor">#</Link>,
     ]);
   }

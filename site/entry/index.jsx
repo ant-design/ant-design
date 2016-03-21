@@ -25,7 +25,7 @@ const Pattern = utils.generateContainer(pattern);
 const Spec = utils.generateContainer(spec);
 const Resource = utils.generateContainer(resource);
 const redirects = Object.keys(config.redirects).map((from, index) => {
-  return <Redirect from={from} to={config.redirects[from]} index={index} />;
+  return <Redirect from={from} to={config.redirects[from]} key={index} />;
 });
 
 ReactDOM.render(
