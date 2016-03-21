@@ -1,5 +1,5 @@
 import React from 'react';
-import Pagination from 'rc-pagination';
+import RcPagination from 'rc-pagination';
 import Select from '../select';
 import zhCN from './locale/zh_CN';
 
@@ -11,7 +11,7 @@ class MiniSelect extends React.Component {
 
 MiniSelect.Option = Select.Option;
 
-class AntPagination extends React.Component {
+export default class Pagination extends React.Component {
   render() {
     let className = this.props.className;
     let selectComponentClass = Select;
@@ -29,7 +29,7 @@ class AntPagination extends React.Component {
     }
 
     return (
-      <Pagination selectComponentClass={selectComponentClass}
+      <RcPagination selectComponentClass={selectComponentClass}
         selectPrefixCls="ant-select"
         {...this.props}
         locale={locale}
@@ -38,14 +38,12 @@ class AntPagination extends React.Component {
   }
 }
 
-AntPagination.defaultProps = {
+Pagination.defaultProps = {
   locale: zhCN,
   className: '',
   prefixCls: 'ant-pagination',
 };
 
-AntPagination.contextTypes = {
+Pagination.contextTypes = {
   antLocale: React.PropTypes.object,
 };
-
-export default AntPagination;

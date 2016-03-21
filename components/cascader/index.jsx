@@ -1,11 +1,11 @@
 import React from 'react';
-import Cascader from 'rc-cascader';
+import RcCascader from 'rc-cascader';
 import Input from '../input';
 import Icon from '../icon';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 
-class AntCascader extends React.Component {
+export default class Cascader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,7 +75,7 @@ class AntCascader extends React.Component {
     delete otherProps.onChange;
 
     return (
-      <Cascader {...this.props}
+      <RcCascader {...this.props}
         value={this.state.value}
         popupVisible={this.state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}
@@ -95,12 +95,12 @@ class AntCascader extends React.Component {
             <Icon type="down" className={arrowCls} />
           </span>
         }
-      </Cascader>
+      </RcCascader>
     );
   }
 }
 
-AntCascader.defaultProps = {
+Cascader.defaultProps = {
   prefixCls: 'ant-cascader',
   placeholder: '请选择',
   transitionName: 'slide-up',
@@ -114,5 +114,3 @@ AntCascader.defaultProps = {
   allowClear: true,
   onPopupVisibleChange() {},
 };
-
-export default AntCascader;

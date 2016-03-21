@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from 'rc-table';
+import RcTable from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
@@ -27,7 +27,7 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-let AntTable = React.createClass({
+let Table = React.createClass({
   getInitialState() {
     return {
       // 减少状态
@@ -604,7 +604,7 @@ let AntTable = React.createClass({
 
     let table = (
       <div>
-        <Table {...this.props}
+        <RcTable {...this.props}
           data={data}
           columns={columns}
           className={classString}
@@ -631,4 +631,4 @@ let AntTable = React.createClass({
   }
 });
 
-export default AntTable;
+export default Table;

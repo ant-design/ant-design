@@ -1,9 +1,9 @@
-import Tabs from 'rc-tabs';
+import RcTabs from 'rc-tabs';
 import React, { cloneElement } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-class AntTabs extends React.Component {
+export default class Tabs extends React.Component {
   constructor(props) {
     super(props);
     [
@@ -59,7 +59,7 @@ class AntTabs extends React.Component {
     }
 
     return (
-      <Tabs {...this.props}
+      <RcTabs {...this.props}
         className={className}
         tabBarExtraContent={
           <div className={`${prefixCls}-extra-content`}>
@@ -69,12 +69,12 @@ class AntTabs extends React.Component {
         onChange={this.handleChange}
         animation={animation}>
         {children}
-      </Tabs>
+      </RcTabs>
     );
   }
 }
 
-AntTabs.defaultProps = {
+Tabs.defaultProps = {
   prefixCls: 'ant-tabs',
   animation: 'slide-horizontal',
   type: 'line', // or 'card' 'editable-card'
@@ -82,6 +82,4 @@ AntTabs.defaultProps = {
   onEdit() {},
 };
 
-AntTabs.TabPane = Tabs.TabPane;
-
-export default AntTabs;
+Tabs.TabPane = RcTabs.TabPane;
