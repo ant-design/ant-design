@@ -20,22 +20,12 @@ window['react-dom'] = ReactDOM;
 window.antd = antd;
 
 const ReactComponents = utils.generateContainer(reactComponents);
-const reactComponentsChildren = utils.generateChildren(reactComponents);
-
 const Practice = utils.generateContainer(practice);
-const practiceChildren = utils.generateChildren(practice);
-
 const Pattern = utils.generateContainer(pattern);
-const patternChildren = utils.generateChildren(pattern);
-
 const Spec = utils.generateContainer(spec);
-const specChildren = utils.generateChildren(spec);
-
 const Resource = utils.generateContainer(resource);
-const resourceChildren = utils.generateChildren(resource);
-
-const redirects = Object.keys(config.redirects).map((from) => {
-  return <Redirect from={from} to={config.redirects[from]} />;
+const redirects = Object.keys(config.redirects).map((from, index) => {
+  return <Redirect from={from} to={config.redirects[from]} index={index} />;
 });
 
 ReactDOM.render(
@@ -43,20 +33,30 @@ ReactDOM.render(
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="components" component={ReactComponents}>
-        { reactComponentsChildren }
+        { utils.generateIndex(reactComponents) }
+        <Route path=":children"
+          component={utils.getChildrenWrapper(reactComponents)} />
       </Route>
       { redirects }
       <Route path="docs/practice" component={Practice}>
-        { practiceChildren }
+        { utils.generateIndex(practice) }
+        <Route path=":children"
+          component={utils.getChildrenWrapper(practice)} />
       </Route>
       <Route path="docs/pattern" component={Pattern}>
-        { patternChildren }
+        { utils.generateIndex(pattern) }
+        <Route path=":children"
+          component={utils.getChildrenWrapper(pattern)} />
       </Route>
       <Route path="docs/spec" component={Spec}>
-        { specChildren }
+        { utils.generateIndex(spec) }
+        <Route path=":children"
+          component={utils.getChildrenWrapper(spec)} />
       </Route>
       <Route path="docs/resource" component={Resource}>
-        { resourceChildren }
+        { utils.generateIndex(resource) }
+        <Route path=":children"
+          component={utils.getChildrenWrapper(resource)} />
       </Route>
     </Route>
   </Router>

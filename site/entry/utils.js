@@ -1,9 +1,10 @@
 import React from 'react';
-import { Route, IndexRedirect } from 'react-router';
+import { IndexRedirect } from 'react-router';
 import MainContent from '../component/MainContent';
 import Article from '../component/Article';
 import ComponentDoc from '../component/ComponentDoc';
 import demosList from '../../_site/data/demos-list';
+import { redirects } from '../website.config';
 
 function fileNameToPath(fileName) {
   const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
@@ -44,33 +45,29 @@ export function generateContainer(data) {
   };
 }
 
-function getPagesData(data) {
-  return Object.keys(data)
-    .map((key) => data[key]);
-}
-
-export function generateChildren(data) {
-  const pagesData = getPagesData(data);
-  const children = pagesData.map((pageData, index) => {
-    const meta = pageData.meta;
-    const hasDemos = demosList[meta.fileName];
-    const Wrapper = !hasDemos ?
-            (props) => <Article {...props} content={pageData} /> :
-            (props) => <ComponentDoc {...props} doc={pageData} />;
-    return (
-      <Route key={index}
-        path={fileNameToPath(meta.fileName)}
-        component={Wrapper} />
-    );
-  });
-
+export function generateIndex(data) {
   const menuItems = getMenuItems(data);
   const firstChild = menuItems.topLevel.topLevel.find((item) => {
     return item.disabled !== 'true';
   });
-  children.unshift(
+  return (
     <IndexRedirect key="index"
       to={fileNameToPath(firstChild.fileName)} />
   );
-  return children;
+}
+
+const pathToFile = {};
+Object.keys(redirects).forEach((key) => pathToFile[redirects[key]] = key);
+pathToFile['components/changelog'] = './CHANGELOG'; // TODO
+export function getChildrenWrapper(data) {
+  return function childrenWrapper(props) {
+    const trimedPathname = props.location.pathname.replace(/^\//, '');
+    const processedPathname = pathToFile[trimedPathname] || trimedPathname;
+    const doc = data[`${processedPathname}.md`] ||
+            data[`${processedPathname}/index.md`];
+    const hasDemos = demosList[doc.meta.fileName];
+    return !hasDemos ?
+      <Article {...props} content={doc} /> :
+      <ComponentDoc {...props} doc={doc} />;
+  };
 }
