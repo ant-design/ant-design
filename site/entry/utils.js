@@ -6,6 +6,10 @@ import ComponentDoc from '../component/ComponentDoc';
 import demosList from '../../_site/data/demos-list';
 import { redirects } from '../website.config';
 
+if (module.hot) {
+  module.hot.accept('../../_site/data/demos-list', () => {});
+}
+
 function fileNameToPath(fileName) {
   const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
   return snippets[snippets.length - 1];
