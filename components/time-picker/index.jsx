@@ -1,12 +1,12 @@
 import React from 'react';
 import DateTimeFormat from 'gregorian-calendar-format';
-import TimePicker from 'rc-time-picker/lib/TimePicker';
+import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import objectAssign from 'object-assign';
 import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
 import GregorianCalendar from 'gregorian-calendar';
 
-const AntTimePicker = React.createClass({
+const TimePicker = React.createClass({
   getDefaultProps() {
     return {
       format: 'HH:mm:ss',
@@ -105,7 +105,7 @@ const AntTimePicker = React.createClass({
     }
 
     return (
-      <TimePicker
+      <RcTimePicker
         {...props}
         className={className}
         locale={locale}
@@ -117,4 +117,4 @@ const AntTimePicker = React.createClass({
 
 });
 
-export default AntTimePicker;
+export default TimePicker;

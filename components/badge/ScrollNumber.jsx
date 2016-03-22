@@ -7,7 +7,7 @@ function getNumberArray(num) {
     num.toString().split('').reverse().map(i => Number(i)) : [];
 }
 
-class AntScrollNumber extends React.Component {
+export default class ScrollNumber extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -113,7 +113,7 @@ class AntScrollNumber extends React.Component {
   }
 }
 
-AntScrollNumber.defaultProps = {
+ScrollNumber.defaultProps = {
   prefixCls: 'ant-scroll-number',
   count: null,
   component: 'sup',
@@ -121,7 +121,7 @@ AntScrollNumber.defaultProps = {
   height: 18,
 };
 
-AntScrollNumber.propTypes = {
+ScrollNumber.propTypes = {
   count: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number
@@ -130,5 +130,3 @@ AntScrollNumber.propTypes = {
   onAnimated: React.PropTypes.func,
   height: React.PropTypes.number,
 };
-
-export default AntScrollNumber;

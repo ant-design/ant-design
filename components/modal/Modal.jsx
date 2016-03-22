@@ -8,7 +8,7 @@ function noop() {}
 let mousePosition;
 let mousePositionEventBinded;
 
-const AntModal = React.createClass({
+const Modal = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-modal',
@@ -99,4 +99,4 @@ const AntModal = React.createClass({
   }
 });
 
-export default AntModal;
+export default Modal;

@@ -1,5 +1,5 @@
 import React from 'react';
-import AntRadio from './radio';
+import Radio from './radio';
 
 const RadioButton = React.createClass({
   getDefaultProps() {
@@ -9,7 +9,7 @@ const RadioButton = React.createClass({
   },
   render() {
     return (
-      <AntRadio {...this.props} />
+      <Radio {...this.props} />
     );
   }
 });

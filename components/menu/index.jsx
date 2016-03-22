@@ -1,11 +1,11 @@
 import React from 'react';
-import Menu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
+import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../common/openAnimation';
 
 function noop() {
 }
 
-const AntMenu = React.createClass({
+const Menu = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-menu',
@@ -76,13 +76,13 @@ const AntMenu = React.createClass({
         className,
       };
     }
-    return <Menu {...this.props} {...props} />;
+    return <RcMenu {...this.props} {...props} />;
   }
 });
 
-AntMenu.Divider = Divider;
-AntMenu.Item = Item;
-AntMenu.SubMenu = SubMenu;
-AntMenu.ItemGroup = ItemGroup;
+Menu.Divider = Divider;
+Menu.Item = Item;
+Menu.SubMenu = SubMenu;
+Menu.ItemGroup = ItemGroup;
 
-export default AntMenu;
+export default Menu;

@@ -1,8 +1,8 @@
-import Radio from 'rc-radio';
+import RcRadio from 'rc-radio';
 import React from 'react';
 import classNames from 'classnames';
 
-const AntRadio = React.createClass({
+const Radio = React.createClass({
   getDefaultProps() {
     return {
       prefixCls: 'ant-radio'
@@ -18,11 +18,11 @@ const AntRadio = React.createClass({
     });
     return (
       <label className={classString} style={style}>
-        <Radio {...this.props} style={null} children={null} />
+        <RcRadio {...this.props} style={null} children={null} />
         {children}
       </label>
     );
   }
 });
 
-export default AntRadio;
+export default Radio;

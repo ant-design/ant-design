@@ -3,7 +3,7 @@ import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 
-class AntBadge extends React.Component {
+export default class Badge extends React.Component {
   render() {
     let { count, prefixCls, overflowCount, className, style, children } = this.props;
     const dot = this.props.dot;
@@ -42,14 +42,14 @@ class AntBadge extends React.Component {
   }
 }
 
-AntBadge.defaultProps = {
+Badge.defaultProps = {
   prefixCls: 'ant-badge',
   count: null,
   dot: false,
   overflowCount: 99,
 };
 
-AntBadge.propTypes = {
+Badge.propTypes = {
   count: React.PropTypes.oneOfType([
     React.PropTypes.string,
     React.PropTypes.number
@@ -57,5 +57,3 @@ AntBadge.propTypes = {
   dot: React.PropTypes.bool,
   overflowCount: React.PropTypes.number,
 };
-
-export default AntBadge;

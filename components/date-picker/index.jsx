@@ -1,10 +1,10 @@
 import React from 'react';
-import Calendar from 'rc-calendar';
+import RcCalendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
-import DatePicker from 'rc-calendar/lib/Picker';
+import RcDatePicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
-import AntRangePicker from './RangePicker';
+import RangePicker from './RangePicker';
 import PickerMixin from './PickerMixin';
 import TimePicker from 'rc-time-picker';
 import classNames from 'classnames';
@@ -116,7 +116,7 @@ function createPicker(TheCalendar, defaultFormat) {
       }
       return (
         <span className={pickerClass} style={this.props.style}>
-          <DatePicker
+          <RcDatePicker
             transitionName={this.props.transitionName}
             disabled={this.props.disabled}
             calendar={calendar}
@@ -144,17 +144,17 @@ function createPicker(TheCalendar, defaultFormat) {
                 );
               }
             }
-          </DatePicker>
+          </RcDatePicker>
         </span>
       );
     }
   });
 }
 
-const AntDatePicker = createPicker(Calendar);
-const AntMonthPicker = createPicker(MonthCalendar, 'yyyy-MM');
+const DatePicker = createPicker(RcCalendar);
+const MonthPicker = createPicker(MonthCalendar, 'yyyy-MM');
 
-const AntCalendar = React.createClass({
+const Calendar = React.createClass({
   getDefaultProps() {
     return {
       locale: CalendarLocale,
@@ -162,12 +162,12 @@ const AntCalendar = React.createClass({
     };
   },
   render() {
-    return <Calendar {...this.props} />;
+    return <RcCalendar {...this.props} />;
   }
 });
 
-AntDatePicker.Calendar = AntCalendar;
-AntDatePicker.RangePicker = AntRangePicker;
-AntDatePicker.MonthPicker = AntMonthPicker;
+DatePicker.Calendar = Calendar;
+DatePicker.RangePicker = RangePicker;
+DatePicker.MonthPicker = MonthPicker;
 
-export default AntDatePicker;
+export default DatePicker;
