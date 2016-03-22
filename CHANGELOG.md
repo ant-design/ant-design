@@ -4,6 +4,14 @@
 
 ---
 
+## 0.12.12
+
+`2016-03-18`
+
+- [设计资源](http://ant.design/docs/resource/download)文件更新。
+- 修复 Popover 和 Popconfirm 箭头消失的问题。
+- 修复一个 Table 切换分页长度时的页码溢出的问题。
+
 ## 0.12.11
 
 `2016-03-16`

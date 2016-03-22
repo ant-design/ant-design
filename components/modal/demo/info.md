@@ -12,8 +12,13 @@ import { Modal, Button } from 'antd';
 function info() {
   Modal.info({
     title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息',
-    onOk() {}
+    content: (
+      <div>
+        <p>一些附加信息一些附加信息一些附加信息</p>
+        <p>一些附加信息一些附加信息一些附加信息</p>
+      </div>
+    ),
+    onOk() {},
   });
 }
 
