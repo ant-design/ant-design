@@ -99,6 +99,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### Form.Item
 
+> 一个 From.Item 建议只放一个 child，有多个 child 时，`help` `required` `validateStatus` 无法自动生成。
+
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 |  label | label 标签的文本 | string  |   |     |
