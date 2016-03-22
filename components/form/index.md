@@ -14,7 +14,7 @@
 
 我们为 `form` 提供了以下两种排列方式：
 
-- 水平排列：可以实现 `label` 标签和表单控件的水平排列;
+- 水平排列：可以实现 `label` 标签和表单控件的水平排列；
 - 行内排列：使其表现为 `inline-block` 级别的控件。
 
 ## 表单域
@@ -85,7 +85,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 #### this.props.form.getFieldProps(id, options)
 
-`getFieldProps` 返回的属性包括 `id`、`value`(或你设置的其它 `valuePropName`)、`ref`、`onChange`(或者你设置的其它 `trigger` `validateTrigger`)，所以不应再设置同样的属性，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
+`getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`（或者你设置的其它 `trigger` `validateTrigger`），所以不应再设置同样的属性，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
@@ -99,7 +99,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### Form.Item
 
-> 一个 From.Item 建议只放一个 child，有多个 child 时，`help` `required` `validateStatus` 无法自动生成。
+> 一个 Form.Item 建议只放一个 child，有多个 child 时，`help` `required` `validateStatus` 无法自动生成。
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
