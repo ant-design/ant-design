@@ -10,13 +10,17 @@ body {
 }
 
 body {
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",SimSun,sans-serif;
   line-height: 1.5;
   color: #666;
   font-size: 14px;
   background: #ECECEC;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow-x: hidden;
+}
+
+a {
+  transition: color .3s ease;
 }
 
 .main-wrapper {
@@ -42,7 +46,9 @@ body {
 .sidebar {
   padding-bottom: 50px;
 
-  &.ant-menu-inline > .ant-menu-item {
+  &.ant-menu-inline .ant-menu-submenu-title h4,
+  &.ant-menu-inline > .ant-menu-item,
+  &.ant-menu-inline .ant-menu-item a {
     font-size: 14px;
   }
 
