@@ -11,4 +11,4 @@ Collapse.defaultProps = {
   prefixCls: 'ant-collapse',
 };
 
-Collapse.Panel = Collapse.Panel;
+Collapse.Panel = RcCollapse.Panel;
