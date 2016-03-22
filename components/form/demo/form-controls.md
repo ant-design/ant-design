@@ -45,7 +45,7 @@ ReactDOM.render(
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
         <Option value="disabled" disabled>disabled</Option>
-        < Option value="yiminghe">yiminghe</Option>
+        <Option value="yiminghe">yiminghe</Option>
       </Select>
     </FormItem>
 
@@ -71,7 +71,7 @@ ReactDOM.render(
       label="Radio 单选框："
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }} >
-      <RadioGroup value="b">
+      <RadioGroup defaultValue="b">
         <Radio value="a">A</Radio>
         <Radio value="b">B</Radio>
         <Radio value="c">C</Radio>
