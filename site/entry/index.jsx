@@ -6,11 +6,11 @@ import * as utils from './utils';
 import '../common/lib';
 import App from '../component/App';
 import Home from '../component/Home';
-import practice from '../../_site/data/practice';
-import pattern from '../../_site/data/pattern';
-import reactComponents from '../../_site/data/react-components';
-import spec from '../../_site/data/spec';
-import resource from '../../_site/data/resource';
+import practice from '../../_data/practice';
+import pattern from '../../_data/pattern';
+import reactComponents from '../../_data/react-components';
+import spec from '../../_data/spec';
+import resource from '../../_data/resource';
 import config from '../website.config';
 
 // TODO: pack dependencies with atool build

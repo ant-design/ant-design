@@ -3,11 +3,11 @@ import { IndexRedirect } from 'react-router';
 import MainContent from '../component/MainContent';
 import Article from '../component/Article';
 import ComponentDoc from '../component/ComponentDoc';
-import demosList from '../../_site/data/demos-list';
+import demosList from '../../_data/demos-list';
 import { redirects } from '../website.config';
 
 if (module.hot) {
-  module.hot.accept('../../_site/data/demos-list', () => {});
+  module.hot.accept('../../_data/demos-list', () => {});
 }
 
 function fileNameToPath(fileName) {

@@ -5,7 +5,7 @@ const Option = Select.Option;
 
 import './index.less';
 
-import componentsList from '../../../_site/data/react-components';
+import componentsList from '../../../_data/react-components';
 export default class Header extends React.Component {
   handleSearch(value) {
     this.props.history.push({ pathname: value });

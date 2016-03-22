@@ -25,3 +25,4 @@ dist
 lib
 elasticsearch-*
 config/base.yaml
+_data/

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { Row, Col, Icon, Affix } from '../../../';
 import Demo from '../Demo';
 import * as utils from '../utils';
-import demosList from '../../../_site/data/demos-list';
+import demosList from '../../../_data/demos-list';
 
 export default class ComponentDoc extends React.Component {
   constructor(props) {
