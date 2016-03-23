@@ -76,7 +76,6 @@ export function objectToComponent(pathname, object, index) {
   );
 }
 
-const docTitle = document.head.querySelector('title');
 export function setTitle(title) {
-  docTitle.text = title;
+  document.title = title;
 }
