@@ -86,7 +86,7 @@ const AntTimePicker = React.createClass({
     }
     let className = classNames({
       [props.className]: !!props.className,
-      [`${props.prefixCls}-${props.size}`]: true,
+      [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
     if (props.format.indexOf('ss') < 0) {
       props.showSecond = false;
