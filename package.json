@@ -140,10 +140,10 @@
   "scripts": {
     "babel": "babel components index.js --out-dir lib",
     "clean-build": "rm -rf _site _data && ./scripts/build-website.js",
-    "dora": "dora -p 8001 --plugins \"webpack?disableNpmInstall&config=webpack.website.config.js,hmr?config=webpack.website.config.js\"",
+    "dora": "ANTD=WEBSITE dora -p 8001 --plugins webpack?disableNpmInstall,hmr",
     "start": "npm run clean-build && npm run dora",
     "copy-html": "cp ./index.html ./_site/index.html && mkdir ./_site/_site && mv ./_site/demo-* ./_site/_site",
-    "site": "npm run clean-build && atool-build -o ./_site --config webpack.website.config.js && npm run copy-html",
+    "site": "npm run clean-build && ANTD=WEBSITE atool-build -o ./_site && npm run copy-html && ANTD=PRODUCTION atool-build && cp -R dist _site/dist",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
     "just-deploy": "npm run site && node scripts/deploy.js",
     "lint": "npm run srclint && npm run mdlint && npm run lesshint",
