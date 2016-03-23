@@ -26,8 +26,7 @@ export default class MainContent extends React.Component {
   }
 
   getActiveMenuItem(props) {
-    const routes = props.routes;
-    return routes[routes.length - 1].path;
+    return props.params.children;
   }
 
   fileNameToPath(fileName) {
