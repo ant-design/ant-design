@@ -1,71 +1,36 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var path = require('path');
-var pkg = require('./package');
-var autoprefixer = require('autoprefixer');
+module.exports = function(webpackConfig) {
+  if (process.env.ANTD === 'WEBSITE') {
+    webpackConfig.entry = {
+      index: './site/entry/index.jsx',
+    };
+    webpackConfig.resolve.root = process.cwd();
+    webpackConfig.resolve.alias = {
+      antd: 'index',
+      BrowserDemo: 'site/component/BrowserDemo',
+    };
+  }
 
-var entry = {};
-entry['demo'] = ['./scripts/demo.js', 'webpack-hot-middleware/client'];
-
-module.exports = {
-  entry: entry,
-
-  cache: true,
-
-  resolve: {
-    extensions: ['', '.js', '.jsx'],
-    unsafeCache: true
-  },
-
-  noParse: /_site|node_modules/,
-
-  output: {
-    path: path.join(process.cwd(), 'dist'),
-    publicPath: '/dist/',
-    filename: '[name].js'
-  },
-
-  module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'es3ify'
-    }, {
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        cacheDirectory: true,
-        presets: ['es2015', 'react', 'stage-0', 'react-hmre'],
-        plugins: ['add-module-exports']
+  if (process.env.ANTD === 'PRODUCTION') {
+    webpackConfig.entry = {
+      'antd': ['./style/index.less', './index.js']
+    };
+    webpackConfig.externals = {
+      'react': {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      },
+      'react-dom': {
+        root: 'ReactDOM',
+        commonjs2: 'react-dom',
+        commonjs: 'react-dom',
+        amd: 'react-dom'
       }
-    }, {
-      test: /\.json$/,
-      exclude: /node_modules/,
-      loader: 'json-loader'
-    }, {
-      test: /\.less$/,
-      exclude: /node_modules/,
-      loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
-      )
-    }, {
-      test: /\.css$/,
-      exclude: /node_modules/,
-      loader: ExtractTextPlugin.extract(
-        'css?sourceMap&-minimize!' + 'postcss-loader'
-      )
-    }]
-  },
+    };
+    webpackConfig.output.library = 'antd';
+    webpackConfig.output.libraryTarget = 'umd';
+  }
 
-  postcss: [autoprefixer],
-
-  plugins: [
-    new ExtractTextPlugin('[name].css'),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
-  ],
-
-  devtool: 'cheap-module-source-map'
+  return webpackConfig;
 };
