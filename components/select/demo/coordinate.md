@@ -9,8 +9,7 @@
 ---
 
 ````jsx
-import { Select } from 'antd';
-const Option = Select.Option;
+import { Select, Option } from 'antd';
 
 const provinceData = ['浙江', '江苏'];
 const cityData = {

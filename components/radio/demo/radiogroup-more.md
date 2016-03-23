@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-import { Radio, Input } from 'antd';
-const RadioGroup = Radio.Group;
+import { Radio, RadioGroup, Input } from 'antd';
 
 const App = React.createClass({
   getInitialState() {

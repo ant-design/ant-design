@@ -8,8 +8,7 @@
 
 
 ````jsx
-import { Select } from 'antd';
-const Option = Select.Option;
+import { Select, Option } from 'antd';
 
 const Test = React.createClass({
   getInitialState() {

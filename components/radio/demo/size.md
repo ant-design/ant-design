@@ -7,9 +7,7 @@
 ---
 
 ````jsx
-import { Radio } from 'antd';
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
+import { RadioButton, RadioGroup } from 'antd';
 
 ReactDOM.render(<div>
   <div>

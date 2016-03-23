@@ -8,8 +8,7 @@
 
 
 ````jsx
-import { Select } from 'antd';
-const Option = Select.Option;
+import { Select, Option } from 'antd';
 
 let children = [];
 for (let i = 10; i < 36; i++) {
