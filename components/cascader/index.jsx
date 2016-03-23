@@ -12,27 +12,20 @@ export default class Cascader extends React.Component {
       value: props.value || props.defaultValue || [],
       popupVisible: false,
     };
-    [
-      'handleChange',
-      'handlePopupVisibleChange',
-      'setValue',
-      'getLabel',
-      'clearSelection',
-    ].forEach((method) => this[method] = this[method].bind(this));
   }
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({ value: nextProps.value || [] });
     }
   }
-  handleChange(value, selectedOptions) {
+  handleChange = (value, selectedOptions) => {
     this.setValue(value, selectedOptions);
   }
-  handlePopupVisibleChange(popupVisible) {
+  handlePopupVisibleChange = (popupVisible) => {
     this.setState({ popupVisible });
     this.props.onPopupVisibleChange(popupVisible);
   }
-  setValue(value, selectedOptions = []) {
+  setValue = (value, selectedOptions = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
@@ -44,7 +37,7 @@ export default class Cascader extends React.Component {
       .map(o => o.label);
     return displayRender(label);
   }
-  clearSelection(e) {
+  clearSelection = (e) => {
     e.preventDefault();
     e.stopPropagation();
     this.setValue([]);

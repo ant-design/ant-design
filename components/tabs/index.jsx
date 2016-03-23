@@ -4,25 +4,17 @@ import classNames from 'classnames';
 import Icon from '../icon';
 
 export default class Tabs extends React.Component {
-  constructor(props) {
-    super(props);
-    [
-      'createNewTab',
-      'removeTab',
-      'handleChange',
-    ].forEach((method) => this[method] = this[method].bind(this));
-  }
-  createNewTab(targetKey) {
+  createNewTab = (targetKey) => {
     this.props.onEdit(targetKey, 'add');
   }
-  removeTab(targetKey, e) {
+  removeTab = (targetKey, e) => {
     e.stopPropagation();
     if (!targetKey) {
       return;
     }
     this.props.onEdit(targetKey, 'remove');
   }
-  handleChange(activeKey) {
+  handleChange = (activeKey) => {
     this.props.onChange(activeKey);
   }
   render() {

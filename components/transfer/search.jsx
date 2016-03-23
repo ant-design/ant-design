@@ -4,11 +4,11 @@ function noop() {
 }
 
 export default class Search extends React.Component {
-  handleChange(e) {
+  handleChange = (e) => {
     this.props.onChange(e);
   }
 
-  handleClear(e) {
+  handleClear = (e) => {
     e.preventDefault();
     this.props.handleClear(e);
   }
@@ -18,9 +18,9 @@ export default class Search extends React.Component {
     return (
       <div>
         <input placeholder={placeholder} className={ `${prefixCls} ant-input` } value={ value } ref="input"
-          onChange={this.handleChange.bind(this)} />
+          onChange={this.handleChange} />
         { value && value.length > 0 ?
-          <a href="#" className={ `${prefixCls}-action` } onClick={this.handleClear.bind(this)}>
+          <a href="#" className={ `${prefixCls}-action` } onClick={this.handleClear}>
             <Icon type="cross-circle" />
           </a>
           : <span className={ `${prefixCls}-action` }><Icon type="search" /></span>

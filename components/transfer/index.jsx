@@ -44,7 +44,7 @@ export default class Transfer extends React.Component {
     };
   }
 
-  moveTo(direction) {
+  moveTo = (direction) => {
     const { targetKeys } = this.props;
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const moveKeys = direction === 'right' ? leftCheckedKeys : rightCheckedKeys;
@@ -96,7 +96,7 @@ export default class Transfer extends React.Component {
     return text.match(regex);
   }
 
-  handleSelectAll(direction) {
+  handleSelectAll = (direction) => {
     const { leftDataSource, rightDataSource } = this.splitDataSource();
     const { leftFilter, rightFilter } = this.state;
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
@@ -110,7 +110,7 @@ export default class Transfer extends React.Component {
     });
   }
 
-  handleFilter(direction, e) {
+  handleFilter = (direction, e) => {
     this.setState({
       // deselect all
       [`${direction}CheckedKeys`]: [],
@@ -119,13 +119,13 @@ export default class Transfer extends React.Component {
     });
   }
 
-  handleClear(direction) {
+  handleClear = (direction) => {
     this.setState({
       [`${direction}Filter`]: '',
     });
   }
 
-  handleSelect(direction, selectedItem, checked) {
+  handleSelect = (direction, selectedItem, checked) => {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const holder = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
     let index;

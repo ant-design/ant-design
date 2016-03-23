@@ -32,7 +32,7 @@ export default class Calendar extends React.Component {
       });
     }
   }
-  monthCellRender(value, locale) {
+  monthCellRender = (value, locale) => {
     const prefixCls = this.props.prefixCls;
     const month = value.getMonth();
     return (
@@ -46,7 +46,7 @@ export default class Calendar extends React.Component {
       </div>
     );
   }
-  dateCellRender(value) {
+  dateCellRender = (value) => {
     const prefixCls = this.props.prefixCls;
     return (
       <div className={`${prefixCls}-date`}>
@@ -59,13 +59,13 @@ export default class Calendar extends React.Component {
       </div>
     );
   }
-  setValue(value) {
+  setValue = (value) => {
     if (!('value' in this.props) && this.state.value !== value) {
       this.setState({ value });
     }
     this.props.onPanelChange(value, this.state.mode);
   }
-  setType(type) {
+  setType = (type) => {
     const mode = (type === 'date') ? 'month' : 'year';
     if (this.state.mode !== mode) {
       this.setState({ mode });
@@ -91,8 +91,8 @@ export default class Calendar extends React.Component {
           value={value}
           locale={locale.lang}
           prefixCls={prefixCls}
-          onTypeChange={this.setType.bind(this)}
-          onValueChange={this.setValue.bind(this)} />
+          onTypeChange={this.setType}
+          onValueChange={this.setValue} />
         <FullCalendar
           {...props}
           Select={noop}
@@ -101,8 +101,8 @@ export default class Calendar extends React.Component {
           prefixCls={prefixCls}
           showHeader={false}
           value={value}
-          monthCellRender={this.monthCellRender.bind(this)}
-          dateCellRender={this.dateCellRender.bind(this)} />
+          monthCellRender={this.monthCellRender}
+          dateCellRender={this.dateCellRender} />
       </div>
     );
   }
