@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import hljs from 'highlight.js';
-import antd from '../../';
 
 function isHeading(type) {
   return /h[1-6]/i.test(type);
@@ -22,7 +21,7 @@ export function objectToComponent(pathname, object, index) {
   }
 
   if (typeof object === 'function') {
-    return React.cloneElement(object(React, ReactDOM, antd, antd), { key: index });
+    return React.cloneElement(object(React, ReactDOM), { key: index });
   }
 
   if (typeof object === 'string') {
