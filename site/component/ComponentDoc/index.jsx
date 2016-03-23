@@ -15,6 +15,14 @@ export default class ComponentDoc extends React.Component {
     };
   }
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    const { chinese, english } = this.props.doc.meta;
+    utils.setTitle(`${chinese} ${english} - Ant Design`);
+  }
+
   handleExpandToggle() {
     this.setState({
       expandAll: !this.state.expandAll,

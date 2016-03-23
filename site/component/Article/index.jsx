@@ -12,6 +12,14 @@ export default class Article extends React.Component {
     this.enhanceVideo = this.enhanceVideo.bind(this);
   }
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    const { chinese, english } = this.props.content.meta;
+    utils.setTitle(`${chinese || english} - Ant Design`);
+  }
+
   isPreviewImg(string) {
     return /^<img\s/i.test(string) && /preview-img/gi.test(string);
   }

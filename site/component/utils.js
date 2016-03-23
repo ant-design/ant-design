@@ -75,3 +75,8 @@ export function objectToComponent(pathname, object, index) {
     children && children.map(objectToComponent.bind(null, pathname)) // `hr` has no children
   );
 }
+
+const docTitle = document.head.querySelector('title');
+export function setTitle(title) {
+  docTitle.text = title;
+}

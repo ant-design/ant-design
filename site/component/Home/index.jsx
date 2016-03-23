@@ -7,7 +7,16 @@ import Page3 from './Page3';
 import Page4 from './Page4';
 import './index.less';
 
+import * as utils from '../utils';
+
 export default class Home extends React.Component {
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+  componentDidUpdate() {
+    utils.setTitle('Ant Design - 一个 UI 设计语言');
+  }
+
   // To store style which is only for Home and has conflicts with others.
   getStyle() {
     return `
