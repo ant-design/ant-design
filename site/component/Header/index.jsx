@@ -42,7 +42,7 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select combobox
                 searchPlaceholder="搜索组件..." optionLabelProp="nothing"
-                onChange={this.handleSearch.bind(this)}>
+                onSelect={this.handleSearch.bind(this)}>
                 {options}
               </Select>
             </div>

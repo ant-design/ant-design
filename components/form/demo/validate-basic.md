@@ -62,7 +62,7 @@ class BasicDemo extends React.Component {
   checkPass(rule, value, callback) {
     const { validateFields } = this.props.form;
     if (value) {
-      validateFields(['rePasswd']);
+      validateFields(['rePasswd'], { force: true });
     }
     callback();
   }
