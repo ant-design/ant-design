@@ -25,7 +25,7 @@ export default class Banner extends React.Component {
             <p key="content">一个 UI 设计语言</p>
             <span className="line" key="line" />
             <div className="start-button clearfix">
-              <Link key="button" to="/spec">
+              <Link key="button" to="/docs/spec/introduce">
                 <Icon type="smile-circle" />开始探索
               </Link>
             </div>

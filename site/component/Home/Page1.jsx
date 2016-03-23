@@ -15,7 +15,7 @@ export default class Page1 extends React.Component {
             <h2 key="h2">最佳实践</h2>
             <p key="p" style={{ maxWidth: 310 }}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
             <div key="button">
-              <Link to="/practice">
+              <Link to="/docs/practice/cases">
                 <Button type="primary" size="large">
                   了解更多
                   <Icon type="right" />
