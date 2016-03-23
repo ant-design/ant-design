@@ -7,9 +7,7 @@
 ---
 
 ````jsx
-import { Radio } from 'antd';
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
+import { RadioGroup, RadioButton } from 'antd';
 
 function onChange(e) {
   console.log(`radio checked:${e.target.value}`);

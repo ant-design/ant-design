@@ -36,3 +36,4 @@ Select.defaultProps = {
 
 Select.Option = Option;
 Select.OptGroup = OptGroup;
+Select.OptionGroup = OptGroup;

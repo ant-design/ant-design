@@ -2,14 +2,12 @@
 
 - order: 5
 
-用 `OptGroup` 进行选项分组。
+用 `OptionGroup` 进行选项分组。
 
 ---
 
 ````jsx
-import { Select } from 'antd';
-const Option = Select.Option;
-const OptGroup = Select.OptGroup;
+import { Select, Option, OptionGroup } from 'antd';
 
 function handleChange(value) {
   console.log(`selected ${value}`);
@@ -20,13 +18,13 @@ ReactDOM.render(
     style={{ width: 200 }}
     showSearch={false}
     onChange={handleChange}>
-    <OptGroup label="Manager">
+    <OptionGroup label="Manager">
       <Option value="jack">jack</Option>
       <Option value="lucy">lucy</Option>
-    </OptGroup>
-    <OptGroup label="Engineer">
+    </OptionGroup>
+    <OptionGroup label="Engineer">
       <Option value="yiminghe">yiminghe</Option>
-    </OptGroup>
+    </OptionGroup>
   </Select>
 , mountNode);
 ````

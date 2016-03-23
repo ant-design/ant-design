@@ -9,8 +9,7 @@
 ---
 
 ````jsx
-import { Form, Input, Row, Col, Button } from 'antd';
-const FormItem = Form.Item;
+import { Form, FormItem, Input, Row, Col, Button } from 'antd';
 
 ReactDOM.render(
 <Form horizontal className="advanced-search-form">

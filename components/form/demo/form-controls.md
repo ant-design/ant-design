@@ -9,10 +9,7 @@
 ---
 
 ````jsx
-import { Form, Input, Select, Checkbox, Radio } from 'antd';
-const FormItem = Form.Item;
-const Option = Select.Option;
-const RadioGroup = Radio.Group;
+import { Form, FormItem, RadioGroup, Input, Select, Option, Checkbox, Radio } from 'antd';
 
 function handleSelectChange(value) {
   console.log(`selected ${value}`);

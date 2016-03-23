@@ -7,8 +7,7 @@
 ---
 
 ````jsx
-import { Checkbox } from 'antd';
-const CheckboxGroup = Checkbox.Group;
+import { CheckboxGroup } from 'antd';
 
 function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
