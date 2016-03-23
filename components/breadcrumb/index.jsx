@@ -38,14 +38,6 @@ export default class Breadcrumb extends React.Component {
     if (routes && routes.length > 0) {
       const paths = [];
       crumbs = routes.map((route, i) => {
-        if (!route.breadcrumbName) {
-          return null;
-        }
-        const name = route.breadcrumbName.replace(/\:(.*)/g, (replacement, key) => {
-          return params[key] || replacement;
-        });
-
-        let link;
         let path = route.path.replace(/^\//, '');
         Object.keys(params).forEach(key => {
           path = path.replace(`:${key}`, params[key]);
@@ -54,6 +46,14 @@ export default class Breadcrumb extends React.Component {
           paths.push(path);
         }
 
+        if (!route.breadcrumbName) {
+          return null;
+        }
+        const name = route.breadcrumbName.replace(/\:(.*)/g, (replacement, key) => {
+          return params[key] || replacement;
+        });
+
+        let link;
         if (i === routes.length - 1) {
           link = <span>{name}</span>;
         } else {
