@@ -112,16 +112,11 @@ const AntUpload = React.createClass({
 
   onSuccess(response, file) {
     this.clearProgressTimer();
-    // 服务器端需要返回标准 json 字符串
-    // 否则视为失败
     try {
       if (typeof response === 'string') {
-        JSON.parse(response);
+        response = JSON.parse(response);
       }
-    } catch (e) {
-      this.onError(new Error('No response'), response, file);
-      return;
-    }
+    } catch (e) {/* do nothing */}
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     // 之前已经删除
