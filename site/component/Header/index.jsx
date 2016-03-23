@@ -15,13 +15,11 @@ export default class Header extends React.Component {
     const routes = this.props.routes;
     const activeMenuItem = routes[1].path || 'home';
 
-    const options = [];
-    Object.keys(componentsList).map((key) => {
+    const options = Object.keys(componentsList).map((key) => {
       return componentsList[key];
-    }).forEach(({ meta }) => {
+    }).map(({ meta }) => {
       const url = `/components/${meta.english.toLowerCase()}`;
-
-      options.push(
+      return (
         <Option value={url} key={url}>
           <strong>{meta.english}</strong>
           <span className="ant-component-decs">{meta.chinese}</span>
@@ -41,7 +39,9 @@ export default class Header extends React.Component {
           <Col span="20">
             <div id="search-box">
               <Select combobox
-                searchPlaceholder="搜索组件..." optionLabelProp="nothing"
+                dropdownClassName="component-select"
+                searchPlaceholder="搜索组件..."
+                optionLabelProp="nothing"
                 onSelect={this.handleSearch.bind(this)}>
                 {options}
               </Select>
