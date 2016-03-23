@@ -29,9 +29,14 @@
   }
 
   &-item,
+  &-submenu,
   &-submenu-title {
     cursor: pointer;
     transition: all 0.3s ease;
+  }
+
+  &-submenu &-sub {
+    cursor: initial;
   }
 
   &-item > a {
