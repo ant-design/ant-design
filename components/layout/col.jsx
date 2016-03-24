@@ -31,7 +31,7 @@ const Col = React.createClass({
       }
       sizeClassObj = {
         ...sizeClassObj,
-        [`col-${size}-${sizeProps.span}`]: sizeProps.span,
+        [`col-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
         [`col-${size}-order-${sizeProps.order}`]: sizeProps.order,
         [`col-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
         [`col-${size}-push-${sizeProps.push}`]: sizeProps.push,
@@ -39,7 +39,7 @@ const Col = React.createClass({
       };
     });
     const classes = classNames({
-      [`col-${span}`]: span,
+      [`col-${span}`]: span !== undefined,
       [`col-order-${order}`]: order,
       [`col-offset-${offset}`]: offset,
       [`col-push-${push}`]: push,
