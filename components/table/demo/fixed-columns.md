@@ -2,9 +2,9 @@
 
 - order: 17
 
-对于列数很多的数据，可以固定前后的列，横向滚动查看其它数据，需要和 `scroll={{ x: true }}` 配合使用。
+对于列数很多的数据，可以固定前后的列，横向滚动查看其它数据，需要和 `scroll.x` 配合使用。
 
-> 需要给每列都指定宽度 `width`。
+> 需要指定 scroll.x 为宽度，或者指定每列宽度 `width`，否则可能有错位问题，
 
 ---
 
@@ -14,14 +14,14 @@ import { Table } from 'antd';
 const columns = [
   { title: '姓名', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
   { title: '年龄', width: 100, dataIndex: 'age', key: 'age', fixed: 'left' },
-  { title: '列1', width: 75, dataIndex: 'age', key: '1' },
-  { title: '列2', width: 75, dataIndex: 'age', key: '2' },
-  { title: '列3', width: 75, dataIndex: 'age', key: '3' },
-  { title: '列4', width: 75, dataIndex: 'age', key: '4' },
-  { title: '列5', width: 75, dataIndex: 'age', key: '5' },
-  { title: '列6', width: 75, dataIndex: 'age', key: '6' },
-  { title: '列7', width: 75, dataIndex: 'age', key: '7' },
-  { title: '列8', width: 75, dataIndex: 'age', key: '8' },
+  { title: '列1', dataIndex: 'age', key: '1' },
+  { title: '列2', dataIndex: 'age', key: '2' },
+  { title: '列3', dataIndex: 'age', key: '3' },
+  { title: '列4', dataIndex: 'age', key: '4' },
+  { title: '列5', dataIndex: 'age', key: '5' },
+  { title: '列6', dataIndex: 'age', key: '6' },
+  { title: '列7', dataIndex: 'age', key: '7' },
+  { title: '列8', dataIndex: 'age', key: '8' },
   {
     title: '操作',
     key: 'operation',
@@ -43,7 +43,7 @@ const data = [{
 
 const App = React.createClass({
   render() {
-    return <Table columns={columns} dataSource={data} scroll={{ x: true }} />;
+    return <Table columns={columns} dataSource={data} scroll={{ x: 1000 }} />;
   }
 });
 
