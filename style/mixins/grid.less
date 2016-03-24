@@ -32,6 +32,7 @@
 
 .loop-grid-columns(@index, @class) when (@index > 0) {
   .col@{class}-@{index} {
+    display: block;
     width: percentage((@index / @grid-columns));
   }
   .col@{class}-push-@{index} {
@@ -49,7 +50,10 @@
   .loop-grid-columns((@index - 1), @class);
 }
 
-.loop-grid-columns(@index) when (@index = 0) {
+.loop-grid-columns(@index, @class) when (@index = 0) {
+  .col@{class}-@{index} {
+    display: none;
+  }
   .col-push-@{index} {
     left: auto;
   }
