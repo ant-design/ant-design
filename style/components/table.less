@@ -57,17 +57,13 @@
     background: none;
   }
 
-  tfoot tr {
+  &-footer {
+    padding: 16px 8px;
+    margin: 0 3px;
     background: @table-head-background-color;
     position: relative;
     top: -1px;
-    &:hover {
-      background: @table-head-background-color;
-    }
-    td {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
-      border: 0;
-    }
+    border-radius: 0 0 @border-radius-base @border-radius-base;
   }
 
   tr.@{table-prefix-cls}-row-selected {
