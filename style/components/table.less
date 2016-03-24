@@ -96,11 +96,6 @@
     overflow: hidden;
   }
 
-  &-header + &-body {
-    overflow: auto;
-    height: 360px;
-  }
-
   &-header table {
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
@@ -357,8 +352,11 @@
   }
 
   &-body-inner {
-    overflow: scroll;
     height: 100%;
+  }
+
+  &-fixed-header &-body-inner {
+    overflow: scroll;
   }
 
   &-fixed {
@@ -371,6 +369,7 @@
     top: 0;
     overflow: hidden;
     z-index: 1;
+    transition: box-shadow .3s ease;
     table {
       width: auto;
       background: #fff;
@@ -379,7 +378,7 @@
 
   &-fixed-left {
     left: 0;
-    box-shadow: 4px 0 4px rgba(100, 100, 100, 0.1);
+    box-shadow: 4px 0 4px rgba(0, 0, 0, 0.08);
     & .@{table-prefix-cls}-body-inner {
       margin-right: -20px;
     }
@@ -387,7 +386,7 @@
 
   &-fixed-right {
     right: 0;
-    box-shadow: -4px 0 4px rgba(100, 100, 100, 0.1);
+    box-shadow: -4px 0 4px rgba(0, 0, 0, 0.08);
   }
 
   &&-scroll-position-left &-fixed-left {
