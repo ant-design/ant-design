@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Collapse } from '../../../';
 import * as utils from '../utils';
-import hljs from 'highlight.js';
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -21,10 +20,9 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, meta, intro, code, preview, style, src,
-            expand, pathname } = this.props;
+    const { id, meta, intro, preview, style, src,
+            highlightedCode, highlightedStyle, expand, pathname } = this.props;
     const introChildren = intro.map(utils.objectToComponent.bind(null, pathname));
-    const highlightedCode = hljs.highlight('javascript', code).value;
 
     return (
       <section className="code-box" id={id}>
@@ -61,7 +59,7 @@ export default class Demo extends React.Component {
                   <div className="highlight">
                     <pre>
                       <code className="css" dangerouslySetInnerHTML={{
-                        __html: hljs.highlight('css', style).value,
+                        __html: highlightedStyle,
                       }} />
                     </pre>
                   </div> :
