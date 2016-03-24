@@ -24,12 +24,12 @@ export default class Banner extends React.Component {
             <h2 key="h2">ANT <p>DESIGN</p></h2>
             <p key="content">一个 UI 设计语言</p>
             <span className="line" key="line" />
-            <div className="start-button clearfix">
-              <Link key="button" to="/docs/spec/introduce">
+            <div key="button" className="start-button clearfix">
+              <Link to="/docs/spec/introduce">
                 <Icon type="smile-circle" />开始探索
               </Link>
             </div>
-            <GitHubButton type="stargazers"
+            <GitHubButton key="github-button" type="stargazers"
               namespace="ant-design" repo="ant-design" />
           </QueueAnim>
           <TweenOne className="down" vars={[{ opacity: 1 }, { y: 10, duration: 800, yoyo: true, repeat: -1 }]}>
