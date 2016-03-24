@@ -66,7 +66,7 @@ const Test = React.createClass({
     console.log('请求参数：', params);
     this.setState({ loading: true });
     reqwest({
-      url: 'demo/data.json',
+      url: '/components/table/demo/data.json',
       method: 'get',
       data: params,
       type: 'json',
