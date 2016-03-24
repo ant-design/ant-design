@@ -44,9 +44,9 @@ export default class Demo extends React.Component {
               { meta.chinese || meta.english }
             </Link>
           </div>
-          <Collapse activeKey={expand ? 'code' : this.state.activeKey}
+          <Collapse activeKey={expand ? `${id}-code` : this.state.activeKey}
             onChange={this.handleChange.bind(this)}>
-            <Collapse.Panel key="code" header={introChildren}>
+            <Collapse.Panel key={`${id}-code`} header={introChildren}>
               <div className="highlight">
                 <pre>
                   <code className="javascript" dangerouslySetInnerHTML={{
