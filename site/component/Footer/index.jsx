@@ -6,7 +6,6 @@ const Option = Select.Option;
 
 docVersions[antdVersion] = antdVersion;
 
-console.log(docVersions);
 export default class Footer extends React.Component {
   constructor(props) {
     super(props);
