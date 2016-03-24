@@ -91,6 +91,7 @@
     "dora": "^0.3.1",
     "dora-plugin-hmr": "^0.5.0",
     "dora-plugin-webpack": "^0.6.2",
+    "enquire.js": "^2.1.1",
     "es3ify-loader": "^0.1.0",
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "^6.0.1",

@@ -135,20 +135,22 @@ export default class MainContent extends React.Component {
     return (
       <div className="main-wrapper">
         <Row>
-          <Col span="4">
-            <Menu className="sidebar" mode="inline"
+          <Col lg={4} md={6} sm={24} xs={24}>
+            <Menu className="aside-container" mode="inline"
               defaultOpenKeys={Object.keys(this.props.menuItems)}
               selectedKeys={[activeMenuItem]}>
               { menuItems }
             </Menu>
           </Col>
-          <Col span="20" className="main-container">
+          <Col lg={20} md={18} sm={24} xs={24} className="main-container">
             { this.props.children }
           </Col>
         </Row>
 
         <Row>
-          <Col span="20" offset="4">
+          <Col lg={{ span: 20, offset: 4 }}
+            md={{ span: 18, offset: 6 }}
+            sm={24} xs={24}>
             <section className="prev-next-nav">
               {
                 !!prev ?

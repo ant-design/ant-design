@@ -13,3 +13,4 @@ import './styles/preview-img.less';
 import './styles/mock-browser.less';
 import './styles/colors.less';
 import './styles/motion.less';
+import './styles/responsive.less';
