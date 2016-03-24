@@ -31,6 +31,7 @@ export default class ComponentDoc extends React.Component {
 
   render() {
     const { doc, location } = this.props;
+    const scrollTo = location.query.scrollTo;
     const { description, meta } = doc;
     const demos = demosList[meta.fileName] || [];
     const expand = this.state.expandAll;
@@ -43,13 +44,15 @@ export default class ComponentDoc extends React.Component {
     }).forEach((demoData, index) => {
       if (index % 2 === 0 || isSingleCol) {
         leftChildren.push(
-            <Demo {...demoData} key={index}
-              expand={expand} pathname={location.pathname} />
+          <Demo {...demoData} className={scrollTo === demoData.id ? 'code-box-target' : ''}
+            key={index}
+            expand={expand} pathname={location.pathname} />
         );
       } else {
         rightChildren.push(
-            <Demo {...demoData} key={index}
-              expand={expand} pathname={location.pathname} />
+          <Demo {...demoData} className={scrollTo === demoData.id ? 'code-box-target' : ''}
+            key={index}
+            expand={expand} pathname={location.pathname} />
         );
       }
     });
@@ -61,7 +64,8 @@ export default class ComponentDoc extends React.Component {
     const jumper = demos.map((demo) => {
       return (
         <li key={demo.id}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
+          <Link className={ demo.id === scrollTo ? 'current' : ''}
+            to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
             { demo.meta.chinese || demo.meta.english }
           </Link>
         </li>

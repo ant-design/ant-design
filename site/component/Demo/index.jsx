@@ -20,12 +20,12 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, meta, intro, preview, style, src,
+    const { id, className, meta, intro, preview, style, src,
             highlightedCode, highlightedStyle, expand, pathname } = this.props;
     const introChildren = intro.map(utils.objectToComponent.bind(null, pathname));
 
     return (
-      <section className="code-box" id={id}>
+      <section className={`code-box ${className}`} id={id}>
         <section className="code-box-demo">
           {
             meta.iframe === 'true' ?
