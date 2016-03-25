@@ -76,6 +76,7 @@
     "autoprefixer": "^6.3.3",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
+    "babel-eslint": "^6.0.0-beta.6",
     "babel-jest": "^6.0.1",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.1",
