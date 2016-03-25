@@ -9,6 +9,8 @@
   border-radius: @border-radius-base @border-radius-base 0 0;
   overflow: hidden;
   position: relative;
+  border-radius: @border-radius-base @border-radius-base 0 0;
+  overflow: hidden;
 
   &-body {
     transition: opacity 0.3s ease;
@@ -89,6 +91,7 @@
   &-header {
     background: @table-head-background-color;
     overflow: hidden;
+    border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &-header table {
@@ -365,9 +368,11 @@
     overflow: hidden;
     z-index: 1;
     transition: box-shadow .3s ease;
+    border-radius: 0;
     table {
       width: auto;
       background: #fff;
+      border-radius: 0;
     }
   }
 
