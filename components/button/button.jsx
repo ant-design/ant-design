@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
+import Icon from '../icon';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -41,7 +42,7 @@ export default class Button extends React.Component {
   }
   render() {
     const props = this.props;
-    const { type, shape, size, className, htmlType, children, ...others } = props;
+    const { type, shape, size, className, htmlType, children, icon, ...others } = props;
 
     // large => lg
     // small => sm
@@ -66,7 +67,7 @@ export default class Button extends React.Component {
         type={htmlType || 'button'}
         className={classes}
         onClick={this.handleClick.bind(this)}>
-        {kids}
+        {icon ? <Icon type={icon} /> : null}{kids}
       </button>
     );
   }
@@ -80,6 +81,7 @@ Button.propTypes = {
   onClick: React.PropTypes.func,
   loading: React.PropTypes.bool,
   className: React.PropTypes.string,
+  icon: React.PropTypes.string,
 };
 
 Button.defaultProps = {

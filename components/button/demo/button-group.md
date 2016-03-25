@@ -32,13 +32,11 @@ ReactDOM.render(<div>
 
 <h4>带图标按钮组合</h4>
 <ButtonGroup>
-  <Button type="primary">
-    <Icon type="left" />
-    <span>后退</span>
+  <Button type="primary" icon="left">
+    <Icon type="left" />后退
   </Button>
   <Button type="primary">
-    前进
-    <Icon type="right" />
+    前进<Icon type="right" />
   </Button>
 </ButtonGroup>
 <ButtonGroup>
