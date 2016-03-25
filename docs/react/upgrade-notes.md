@@ -77,6 +77,10 @@ import 'antd/style/index.less';
 
 如果无法理解受控组件，只须在发现在选中日期后 `Datepicker` 显示的值不变的情况后，把其 `value` 属性改为 `defaultValue` 即可。
 
+### TimePicker locale 结构改变
+
+属性 `locale` 结构发生了 [变化](https://github.com/ant-design/ant-design/commit/fd1312803fd49586ded9af39d923457540c515cc#diff-fe4bfc98d91fc3dab8f391e3258622d4L1)，需要将原有的属性改为现有的[结构](https://github.com/ant-design/ant-design/issues/1270#issuecomment-201181384)。
+
 ### 其他
 
 - Alert 组件默认不展示样式，可以用 `showIcon` 属性添加图标。
