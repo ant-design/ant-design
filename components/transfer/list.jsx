@@ -24,7 +24,7 @@ class TransferList extends Component {
     }, 0);
   }
 
-  handleSelectALl() {
+  handleSelectAll() {
     this.props.handleSelectAll();
   }
 
@@ -57,7 +57,7 @@ class TransferList extends Component {
     return (
       <span ref="checkbox"
         className={checkboxCls}
-        onClick={(!props.disabled) && this.handleSelectALl.bind(this)}>
+        onClick={(!props.disabled) && this.handleSelectAll.bind(this)}>
         {customEle}
       </span>
     );
