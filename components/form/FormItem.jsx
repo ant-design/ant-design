@@ -22,18 +22,31 @@ export default class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     if (props.help === undefined && context.form) {
-      return (context.form.getFieldError(this.getId()) || []).join(', ');
+      return this.getId() ? (context.form.getFieldError(this.getId()) || []).join(', ') : '';
     }
 
     return props.help;
   }
 
+  getOnlyChildren() {
+    const children = React.Children.toArray(this.props.children);
+    if (children.length === 1) {
+      return children[0];
+    }
+    return null;
+  }
+
+  getChildProp(prop) {
+    const child = this.getOnlyChildren();
+    return child && child.props && child.props[prop];
+  }
+
   getId() {
-    return this.props.children.props && this.props.children.props.id;
+    return this.getChildProp('id');
   }
 
   getMeta() {
-    return this.props.children.props && this.props.children.props.__meta;
+    return this.getChildProp('__meta');
   }
 
   renderHelp() {
@@ -50,7 +63,9 @@ export default class FormItem extends React.Component {
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
     const field = this.getId();
-
+    if (!field) {
+      return '';
+    }
     if (isFieldValidating(field)) {
       return 'validating';
     } else if (!!getFieldError(field)) {
@@ -58,7 +73,6 @@ export default class FormItem extends React.Component {
     } else if (getFieldValue(field) !== undefined) {
       return 'success';
     }
-
     return '';
   }
 
