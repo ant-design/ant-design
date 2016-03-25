@@ -102,7 +102,7 @@ export default class ComponentDoc extends React.Component {
             <Col className="code-boxes-col-2-1" span="12">{ rightChildren }</Col>
           }
         </Row>
-        <section className="markdown">
+        <section className="markdown api-container">
           { (doc.api || []).map(utils.objectToComponent.bind(null, location.pathname)) }
         </section>
       </article>
