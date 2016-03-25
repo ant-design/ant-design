@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import Animate from 'rc-animate';
 import * as utils from '../utils';
 
 export default class Demo extends React.Component {
@@ -61,32 +60,27 @@ export default class Demo extends React.Component {
             onClick={this.handleCodeExapnd.bind(this)}
             unselectable="none" />
         </section>
-        <Animate
-          transitionEnter transitionLeave>
+        <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
+          key="code">
+          <div className="highlight">
+            <pre>
+              <code className="javascript" dangerouslySetInnerHTML={{
+                __html: highlightedCode,
+              }} />
+            </pre>
+          </div>
           {
-            codeExpand ?
-              <section key="code">
-                <div className="highlight">
-                  <pre>
-                    <code className="javascript" dangerouslySetInnerHTML={{
-                      __html: highlightedCode,
-                    }} />
-                  </pre>
-                </div>
-                {
-                  style ?
-                    <div key="style" className="highlight">
-                      <pre>
-                        <code className="css" dangerouslySetInnerHTML={{
-                          __html: highlightedStyle,
-                        }} />
-                      </pre>
-                    </div> :
-                    null
-                }
-              </section> : <div key="nothing" />
+            style ?
+              <div key="style" className="highlight">
+                <pre>
+                  <code className="css" dangerouslySetInnerHTML={{
+                    __html: highlightedStyle,
+                  }} />
+                </pre>
+              </div> :
+              null
           }
-        </Animate>
+        </section>
       </section>
     );
   }

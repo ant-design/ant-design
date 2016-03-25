@@ -120,6 +120,10 @@
   word-break: break-word;
 }
 
+.code-box.expand .code-box-meta {
+   border-bottom: 1px dashed #e9e9e9;
+}
+
 .code-box .collapse {
   position: absolute;
   right: 16px;
@@ -148,10 +152,24 @@
   opacity: 1;
 }
 
+.code-box .highlight-wrapper {
+  max-height: 0;
+  opacity: 0;
+  overflow: auto;
+  transition: all 0.4s ease;
+}
+.code-box .highlight-wrapper-expand {
+  max-height: 500px;
+  opacity: 1;
+}
+
 .code-box .highlight {
   overflow: hidden;
   padding: 5px;
-  border-top: 1px dashed #e9e9e9;
+
+  &:not(:first-child) {
+     border-top: 1px dashed #e9e9e9;
+  }
 }
 
 .code-box pre {
