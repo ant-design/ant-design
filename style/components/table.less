@@ -372,13 +372,13 @@
     table {
       width: auto;
       background: #fff;
-      border-radius: 0;
     }
   }
 
   &-fixed-left {
     left: 0;
     box-shadow: 4px 0 4px rgba(0, 0, 0, 0.08);
+    border-radius: @border-radius-base 0 0 0;
     & .@{table-prefix-cls}-body-inner {
       margin-right: -20px;
     }
@@ -387,6 +387,7 @@
   &-fixed-right {
     right: 0;
     box-shadow: -4px 0 4px rgba(0, 0, 0, 0.08);
+    border-radius: 0 @border-radius-base 0 0;
   }
 
   &&-scroll-position-left &-fixed-left {
