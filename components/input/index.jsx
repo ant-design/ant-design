@@ -1,5 +1,4 @@
 import React from 'react';
-import assign from 'object-assign';
 import classNames from 'classnames';
 
 function ieGT9() {
@@ -67,7 +66,7 @@ class Input extends React.Component {
   }
 
   renderInput() {
-    const props = assign({}, this.props);
+    const props = { ...this.props };
     const prefixCls = props.prefixCls;
     if (!props.type) {
       return props.children;

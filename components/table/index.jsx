@@ -5,7 +5,6 @@ import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
 import Icon from '../icon';
-import objectAssign from 'object-assign';
 import Spin from '../spin';
 import classNames from 'classnames';
 import { flatArray } from './util';
@@ -39,10 +38,11 @@ let Table = React.createClass({
       sorter: null,
       radioIndex: null,
       pagination: this.hasPagination() ?
-        objectAssign({
-          size: this.props.size,
-        }, defaultPagination, this.props.pagination) :
-        {},
+      {
+        size: this.props.size,
+        ...defaultPagination,
+        ...this.props.pagination,
+      } : {},
     };
   },
 
@@ -93,13 +93,13 @@ let Table = React.createClass({
     if (this.context.antLocale && this.context.antLocale.Table) {
       locale = this.context.antLocale.Table;
     }
-    return objectAssign({}, defaultLocale, locale, this.props.locale);
+    return { ...defaultLocale, ...locale, ...this.props.locale };
   },
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
       this.setState({
-        pagination: objectAssign({}, defaultPagination, this.state.pagination, nextProps.pagination)
+        pagination: { ...defaultPagination, ...this.state.pagination, ...nextProps.pagination },
       });
     }
     // dataSource 的变化会清空选中项
@@ -171,9 +171,10 @@ let Table = React.createClass({
   },
 
   handleFilter(column, nextFilters) {
-    const filters = objectAssign({}, this.state.filters, {
+    const filters = {
+      ...this.state.filters,
       [this.getColumnKey(column)]: nextFilters
-    });
+    };
     // Remove filters not in current columns
     const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
     Object.keys(filters).forEach((columnKey) => {
@@ -276,7 +277,7 @@ let Table = React.createClass({
   },
 
   handlePageChange(current) {
-    let pagination = objectAssign({}, this.state.pagination);
+    let pagination = { ...this.state.pagination };
     if (current) {
       pagination.current = current;
     } else {
@@ -416,7 +417,7 @@ let Table = React.createClass({
   renderColumnsDropdown(columns) {
     const locale = this.getLocale();
     return columns.map((originColumn, i) => {
-      let column = objectAssign({}, originColumn);
+      let column = { ...originColumn };
       let key = this.getColumnKey(column, i);
       let filterDropdown;
       let sortButton;
@@ -587,7 +588,7 @@ let Table = React.createClass({
 
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
-      const newColumn = objectAssign({}, column);
+      const newColumn = { ...column };
       newColumn.key = newColumn.key || newColumn.dataIndex || i;
       return newColumn;
     });

@@ -15,11 +15,10 @@ if (typeof window !== 'undefined') {
 
 import SlickCarousel from 'react-slick';
 import React from 'react';
-import assign from 'object-assign';
 
 export default class Carousel extends React.Component {
   render() {
-    let props = assign({}, this.props);
+    let props = { ...this.props };
 
     if (props.effect === 'fade') {
       props.fade = true;

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import Dialog from './Modal';
 import Icon from '../icon';
 import Button from '../button';
-import objectAssign from 'object-assign';
 
 const defaultLocale = {
   okText: '确定',
@@ -15,14 +14,14 @@ let runtimeLocale = { ...defaultLocale };
 
 export function changeConfirmLocale(newLocale) {
   if (newLocale) {
-    objectAssign(runtimeLocale, newLocale);
+    runtimeLocale = { ...runtimeLocale, ...newLocale };
   } else {
     runtimeLocale = { ...defaultLocale };
   }
 }
 
 export default function confirm(config) {
-  const props = objectAssign({}, config);
+  const props = { ...config };
   let div = document.createElement('div');
   document.body.appendChild(div);
 

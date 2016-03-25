@@ -1,6 +1,5 @@
 import React from 'react';
 import RcUpload from 'rc-upload';
-import assign from 'object-assign';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 import classNames from 'classnames';
@@ -218,13 +217,14 @@ const Upload = React.createClass({
 
   render() {
     let type = this.props.type || 'select';
-    let props = assign({}, this.props, {
+    let props = {
+      ...this.props,
       onStart: this.onStart,
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
       beforeUpload: this.beforeUpload,
-    });
+    };
     let uploadList;
     if (this.props.showUploadList) {
       uploadList = (
