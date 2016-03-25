@@ -1,6 +1,5 @@
 import { Circle as Progresscircle } from 'rc-progress';
 import React from 'react';
-import assign from 'object-assign';
 import warning from 'warning';
 import Icon from '../icon';
 
@@ -35,7 +34,7 @@ let Line = React.createClass({
     };
   },
   render() {
-    let props = assign({}, this.props);
+    let props = { ...this.props };
 
     if (parseInt(props.percent, 10) === 100) {
       props.status = 'success';
@@ -119,7 +118,7 @@ let Circle = React.createClass({
     };
   },
   render() {
-    let props = assign({}, this.props);
+    let props = { ...this.props };
 
     if (parseInt(props.percent, 10) === 100) {
       props.status = 'success';

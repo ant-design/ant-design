@@ -1,6 +1,5 @@
 import React from 'react';
 import Notification from 'rc-notification';
-import assign from 'object-assign';
 import Icon from '../icon';
 
 let defaultTop = 24;
@@ -124,9 +123,10 @@ const api = {
 
 ['success', 'info', 'warn', 'error'].forEach((type) => {
   api[type] = (args) => {
-    let newArgs = assign({}, args, {
+    let newArgs = {
+      ...args,
       icon: type
-    });
+    };
     return api.open(newArgs);
   };
 });

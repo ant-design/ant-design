@@ -1,7 +1,6 @@
 import React from 'react';
 import DateTimeFormat from 'gregorian-calendar-format';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
-import objectAssign from 'object-assign';
 import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
 import GregorianCalendar from 'gregorian-calendar';
@@ -77,12 +76,12 @@ const TimePicker = React.createClass({
       locale = this.context.antLocale.TimePicker;
     }
     // 统一合并为完整的 Locale
-    return objectAssign({}, locale, this.props.locale);
+    return { ...locale, ...this.props.locale };
   },
 
   render() {
     const locale = this.getLocale();
-    const props = objectAssign({}, this.props);
+    const props = { ...this.props };
     props.placeholder = ('placeholder' in this.props)
       ? props.placeholder : locale.placeholder;
     if (props.defaultValue) {
