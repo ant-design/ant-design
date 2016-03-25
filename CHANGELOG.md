@@ -291,6 +291,7 @@
   - 移除 `animation` 属性，并在 `tabPosition="top|bottom"` 时默认启用切换动画。
 - Timepicker
   - **重命名为 TimePicker。**
+  - 国际化属性 `locale` 结构发生了 [变化](https://github.com/ant-design/ant-design/issues/1270#issuecomment-201181384)。
   - 新增 `value` 属性。
   - 新增属性 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](http://ant.design/components/time-picker/#picker-demo-disable-options)
   - 移除 `hourOptions` `minuteOptions` `secondOptions`，新增 `hideDisabled` 属性用于替代。

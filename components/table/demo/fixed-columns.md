@@ -1,8 +1,10 @@
-# 横向滚屏表格
+# 固定列
 
-- order: 16
+- order: 17
 
-对于列数很多的数据，可以进行横向的分页，通过切换符切换当前展现的列。
+对于列数很多的数据，可以固定前后的列，横向滚动查看其它数据，需要和 `scroll.x` 配合使用。
+
+> 需要指定 scroll.x 为宽度，或者指定每列宽度 `width`，否则可能有错位问题，
 
 ---
 
@@ -10,8 +12,8 @@
 import { Table } from 'antd';
 
 const columns = [
-  { title: '姓名', dataIndex: 'name', key: 'name' },
-  { title: '年龄', dataIndex: 'age', key: 'age' },
+  { title: '姓名', width: 100, dataIndex: 'name', key: 'name', fixed: 'left' },
+  { title: '年龄', width: 100, dataIndex: 'age', key: 'age', fixed: 'left' },
   { title: '列1', dataIndex: 'age', key: '1' },
   { title: '列2', dataIndex: 'age', key: '2' },
   { title: '列3', dataIndex: 'age', key: '3' },
@@ -23,11 +25,12 @@ const columns = [
   {
     title: '操作',
     key: 'operation',
-    render() {
-      return <a href="#">操作</a>;
-    }
+    fixed: 'right',
+    width: 100,
+    render: () => <a href="#">操作</a>,
   },
 ];
+
 const data = [{
   key: '1',
   name: '胡彦斌',
@@ -40,7 +43,7 @@ const data = [{
 
 const App = React.createClass({
   render() {
-    return <Table columns={columns} dataSource={data} columnsPageRange={[2, 9]} columnsPageSize={4} />;
+    return <Table columns={columns} dataSource={data} scroll={{ x: 1000 }} />;
   }
 });
 

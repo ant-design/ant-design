@@ -4,7 +4,7 @@
 
 ---
 
-这里只列出升级中的不兼容改动，其他改动见 [Changelog](/changelog)。
+此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/changelog)。
 
 ## 0.11 => 0.12
 
@@ -75,6 +75,10 @@ import 'antd/style/index.less';
 由于 `DatePicker` 已改为 [受控组件](https://facebook.github.io/react/docs/forms.html#controlled-components)，所以 `DatePicker` 显示的值必然与其 `value` 一致。
 
 如果无法理解受控组件，只须在发现在选中日期后 `Datepicker` 显示的值不变的情况后，把其 `value` 属性改为 `defaultValue` 即可。
+
+### TimePicker locale 结构改变
+
+属性 `locale` 结构发生了 [变化](https://github.com/ant-design/ant-design/commit/fd1312803fd49586ded9af39d923457540c515cc#diff-fe4bfc98d91fc3dab8f391e3258622d4L1)，需要将原有的属性改为现有的[结构](https://github.com/ant-design/ant-design/issues/1270#issuecomment-201181384)。
 
 ### 其他
 
