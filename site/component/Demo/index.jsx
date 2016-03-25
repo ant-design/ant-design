@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Collapse } from '../../../';
+import classNames from 'classnames';
+import Animate from 'rc-animate';
 import * as utils from '../utils';
 
 export default class Demo extends React.Component {
@@ -8,24 +9,35 @@ export default class Demo extends React.Component {
     super(props);
 
     this.state = {
-      activeKey: '',
+      codeExpand: false,
     };
   }
 
-  handleChange(activeKey) {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expand === undefined) return;
+
     this.setState({
-      activeKey: this.state.activeKey === activeKey ?
-        '' : activeKey
+      codeExpand: nextProps.expand,
     });
+  }
+
+  handleCodeExapnd() {
+    this.setState({ codeExpand: !this.state.codeExpand });
   }
 
   render() {
     const { id, className, meta, intro, preview, style, src,
-            highlightedCode, highlightedStyle, expand, pathname } = this.props;
+            highlightedCode, highlightedStyle, pathname } = this.props;
+    const codeExpand = this.state.codeExpand;
+    const codeBoxClass = classNames({
+      'code-box': true,
+      [className]: className,
+      expand: codeExpand,
+    });
     const introChildren = intro.map(utils.objectToComponent.bind(null, pathname));
 
     return (
-      <section className={`code-box ${className}`} id={id}>
+      <section className={codeBoxClass} id={id}>
         <section className="code-box-demo">
           {
             meta.iframe === 'true' ?
@@ -44,30 +56,37 @@ export default class Demo extends React.Component {
               { meta.chinese || meta.english }
             </Link>
           </div>
-          <Collapse activeKey={expand ? `${id}-code` : this.state.activeKey}
-            onChange={this.handleChange.bind(this)}>
-            <Collapse.Panel key={`${id}-code`} header={introChildren}>
-              <div className="highlight">
-                <pre>
-                  <code className="javascript" dangerouslySetInnerHTML={{
-                    __html: highlightedCode,
-                  }} />
-                </pre>
-              </div>
-              {
-                !!style ?
-                  <div className="highlight">
-                    <pre>
-                      <code className="css" dangerouslySetInnerHTML={{
-                        __html: highlightedStyle,
-                      }} />
-                    </pre>
-                  </div> :
-                  null
-              }
-            </Collapse.Panel>
-          </Collapse>
+          { introChildren }
+          <span className="collapse anticon anticon-circle-o-right"
+            onClick={this.handleCodeExapnd.bind(this)}
+            unselectable="none" />
         </section>
+        <Animate
+          transitionEnter transitionLeave>
+          {
+            codeExpand ?
+              <section key="code">
+                <div className="highlight">
+                  <pre>
+                    <code className="javascript" dangerouslySetInnerHTML={{
+                      __html: highlightedCode,
+                    }} />
+                  </pre>
+                </div>
+                {
+                  style ?
+                    <div key="style" className="highlight">
+                      <pre>
+                        <code className="css" dangerouslySetInnerHTML={{
+                          __html: highlightedStyle,
+                        }} />
+                      </pre>
+                    </div> :
+                    null
+                }
+              </section> : <div key="nothing" />
+          }
+        </Animate>
       </section>
     );
   }

@@ -76,49 +76,25 @@
 
 .code-box-meta {
   position: relative;
+  padding: 10px 15px;
   border-radius: 0 0 6px 6px;
   transition: background-color 0.4s ease;
   width: 100%;
-  font-size: 12px;
+}
 
-  .ant-collapse,
-  .ant-collapse-content,
-  .ant-collapse-content-box {
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-  }
-
-  .ant-collapse-item > .ant-collapse-header {
-    height: auto;
-    line-height: 1.8;
-    padding: 9px 15px 10px 32px;
-  }
-
-  h4,
-  p {
-    margin: 0;
-  }
-
-  > p {
-    font-size: 12px;
-    margin: .5em 0;
-    padding-right: 25px;
-    width: 100%;
-    word-wrap: break-word;
-  }
+.code-box-meta h4,
+.code-box-meta p {
+  margin: 0;
 }
 
 .code-box-title {
   position: absolute;
   top: -14px;
-  left: 14px;
   padding: 1px 1.1em;
   color: #777;
   border-radius: 6px;
   background: #fff;
   transition: all 0.4s ease;
-  font-size: 14px;
 }
 
 .code-box-title:before {
@@ -129,7 +105,7 @@
   line-height: 22px;
   position: relative;
   margin-right: 8px;
-  top: -1px;
+  top: -2px;
   color: #ccc;
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -155,6 +131,7 @@
   line-height: 18px;
   opacity: 0.5;
   text-align: center;
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   transition: all 0.3s ease;
   color: #999;
@@ -173,6 +150,7 @@
 
 .code-box .highlight {
   overflow: hidden;
+  padding: 5px;
   border-top: 1px dashed #e9e9e9;
 }
 
