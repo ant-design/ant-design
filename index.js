@@ -45,6 +45,8 @@ const antd = {
   TimePicker: require('./components/time-picker'),
   Transfer: require('./components/transfer'),
   Cascader: require('./components/cascader'),
+  Card: require('./components/card'),
+  LocaleProvider: require('./components/locale-provider'),
 };
 
 module.exports = antd;

@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 加载中
+- type: 其它
 
 ---
 
@@ -19,3 +20,4 @@
 |------------|----------------|-------------|--------------|
 | size       | enum           | default     | spin组件中点的大小，可选值为 small default large |
 | spining    | boolean        | true        | 用于内嵌其他组件的模式，可以关闭 loading 效果    |
+| tip    | string        | 无        | 自定义描述文案 |

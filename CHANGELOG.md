@@ -1,6 +1,6 @@
 # 更新日志
 
-- category: 4
+- order: 4
 
 ---
 

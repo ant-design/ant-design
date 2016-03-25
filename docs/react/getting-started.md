@@ -1,6 +1,5 @@
 # 快速上手
 
-- category: 1
 - order: 1
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。

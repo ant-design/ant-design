@@ -1,41 +1,20 @@
-# 组件动画
+# Motion
 
 - category: 动画
 - order: 2
+- chinese: 组件动画
 
 ---
 
 Ant Design 提供了一些预设的组件动画样式。
 
-<div id="components-motion-demo-basic"></div>
+`````__react
+const cssAnimation = require('css-animation');
+const Select = antd.Select;
+const Option = Select.Option;
+const OptGroup = Select.OptGroup;
 
-通过设置组件的 `transitionName` 指定组件动画。
-
-| 组件         | 中文名              | 采用动画                                        |
-|--------------|---------------------|-------------------------------------------------|
-| popover      | 气泡浮出            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| popconfirm   | 气泡确认            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| tooltip      | 文字提示            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| modal        | 弹出框              | `zoom`                                          |
-| confirm      | 弹出确认框          | `zoom`                                          |
-| message      | 信息提示条          | `move-up`                                       |
-| notification | 通知框              | `move-right` & `slide-up`                       |
-| dropdown     | 下拉菜单            | `slide-up`                                      |
-| select       | 选择框              | `slide-up`                                      |
-| datepicker   | 日期选择框          | `slide-up`                                      |
-| alert        | 警告提示            | `slide-up`                                      |
-| menu         | 导航菜单            | `slide-up`                                      |
-| datepicker   | 日期选择框          | `slide-up`                                      |
-
-
-`````jsx
-var cssAnimation = require('css-animation');
-var Select = antd.Select;
-var Option = Select.Option;
-var OptGroup = Select.OptGroup;
-
-
-var motions = [];
+let motions = [];
 motions = motions.concat([[{
   name: '淡入',
   value: 'fade',
@@ -186,10 +165,10 @@ motions = motions.concat([[{
   direction: 'enter',
   type: '其他'
 }]]);
-var leave='-leave';
-var Test = React.createClass({
+const leave='-leave';
+const Test = React.createClass({
   handleChange(e) {
-    var value = e;
+    const value = e;
     if(value){
       this.demoNode.style.visibility='';
       cssAnimation(this.demoNode, value, () => {
@@ -205,11 +184,11 @@ var Test = React.createClass({
   },
 
   render() {
-    var options = [<Option value="">请选择预设动画</Option>].concat(motions.map(function (m) {
-      var opts = m.map(function (m2) {
-        return <Option value={m2.value + "-" + m2.direction}>{m2.name + " " + m2.value}</Option>
+    const options = [<Option value="" key="placeholder">请选择预设动画</Option>].concat(motions.map(function (m, groupIndex) {
+      const opts = m.map(function (m2, optIndex) {
+        return <Option key={optIndex} value={m2.value + "-" + m2.direction}>{m2.name + " " + m2.value}</Option>
       });
-      return <OptGroup label={m[0].type}>{opts}</OptGroup>;
+      return <OptGroup key={groupIndex} label={m[0].type}>{opts}</OptGroup>;
     }));
     return <div>
       <div className="motion-container">
@@ -218,38 +197,29 @@ var Test = React.createClass({
       <div className="motion-select-wrapper">
         <Select value="" className='motion-select' onChange={this.handleChange}>{options}</Select>
       </div>
-
     </div>;
   }
 });
 
-ReactDOM.render(<Test/>, document.getElementById('components-motion-demo-basic'));
+ReactDOM.render(<Test key="motion" />, mountNode);
 `````
 
-<style>
-.motion-container {
-  height: 190px;
-  line-height: 190px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-.motion-example {
-  width: 180px;
-  height: 180px;
-  line-height: 180px;
-  font-size: 18px;
-  color: #fff;
-  text-align: center;
-  display: inline-block !important;
-  border-radius: 8px;
-  font-weight: bold;
-  background: url(https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg) center/230px;
-}
-.motion-select-wrapper{
-  text-align: center;
-}
-.motion-select {
-  text-align:left;
-  width:180px;
-}
-</style>
+## 组件动画
+
+通过设置组件的 `transitionName` 指定组件动画。
+
+| 组件         | 中文名              | 采用动画                                        |
+|--------------|---------------------|-------------------------------------------------|
+| popover      | 气泡浮出            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| popconfirm   | 气泡确认            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| tooltip      | 文字提示            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| modal        | 弹出框              | `zoom`                                          |
+| confirm      | 弹出确认框          | `zoom`                                          |
+| message      | 信息提示条          | `move-up`                                       |
+| notification | 通知框              | `move-right` & `slide-up`                       |
+| dropdown     | 下拉菜单            | `slide-up`                                      |
+| select       | 选择框              | `slide-up`                                      |
+| datepicker   | 日期选择框          | `slide-up`                                      |
+| alert        | 警告提示            | `slide-up`                                      |
+| menu         | 导航菜单            | `slide-up`                                      |
+| datepicker   | 日期选择框          | `slide-up`                                      |

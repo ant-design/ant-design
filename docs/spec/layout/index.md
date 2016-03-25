@@ -1,9 +1,10 @@
-# 常用布局
+# Layout
 
 - template: component
 - category: 设计基础
 - order: 4
 - cols: 1
+- chinese: 常用布局
 
 ---
 

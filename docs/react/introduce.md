@@ -1,6 +1,5 @@
 # Ant Design of React
 
-- category: 0
 - order: 0
 
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
@@ -10,6 +9,7 @@
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
+
 <style>
 .pic-plus > * {
   display: inline-block!important;

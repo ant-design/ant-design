@@ -10,6 +10,7 @@
 
 ````jsx
 import { Menu, Breadcrumb } from 'antd';
+import BrowserDemo from 'BrowserDemo';
 
 ReactDOM.render(
   <BrowserDemo>

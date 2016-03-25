@@ -1,13 +1,5 @@
 // mixins for grid system
 // ------------------------
-.container-fixed(@gutter: @grid-gutter-width) {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left:  (@gutter / 2);
-  padding-right: (@gutter / 2);
-  &:extend(.clearfix all);
-}
-
 .make-row(@gutter: @grid-gutter-width) {
   position: relative;
   margin-left: (@gutter / -2);
@@ -18,11 +10,11 @@
 
 .make-grid-columns() {
   .col(@index) {
-    @item: ~".col-@{index}";
+    @item: ~".col-@{index}, .col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
     .col((@index + 1), @item);
   }
   .col(@index, @list) when (@index =< @grid-columns) {
-    @item: ~".col-@{index}";
+    @item: ~".col-@{index}, .col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
     .col((@index + 1), ~"@{list}, @{item}");
   }
   .col(@index, @list) when (@index > @grid-columns) {
@@ -38,26 +30,30 @@
   .col(1);
 }
 
-.loop-grid-columns(@index) when (@index > 0) {
-  .col-@{index} {
+.loop-grid-columns(@index, @class) when (@index > 0) {
+  .col@{class}-@{index} {
+    display: block;
     width: percentage((@index / @grid-columns));
   }
-  .col-push-@{index} {
+  .col@{class}-push-@{index} {
     left: percentage((@index / @grid-columns));
   }
-  .col-pull-@{index} {
+  .col@{class}-pull-@{index} {
     right: percentage((@index / @grid-columns));
   }
-  .col-offset-@{index} {
+  .col@{class}-offset-@{index} {
     margin-left: percentage((@index / @grid-columns));
   }
-  .col-order-@{index} {
+  .col@{class}-order-@{index} {
     order: @index;
   }
-  .loop-grid-columns((@index - 1));
+  .loop-grid-columns((@index - 1), @class);
 }
 
-.loop-grid-columns(@index) when (@index = 0) {
+.loop-grid-columns(@index, @class) when (@index = 0) {
+  .col@{class}-@{index} {
+    display: none;
+  }
   .col-push-@{index} {
     left: auto;
   }
@@ -66,6 +62,6 @@
   }
 }
 
-.make-grid() {
-  .loop-grid-columns(@grid-columns);
+.make-grid(@class: ~'') {
+  .loop-grid-columns(@grid-columns, @class);
 }

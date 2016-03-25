@@ -58,6 +58,5 @@ const data = [{
   address: '西湖区湖底公园1号'
 }];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} />
-, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
 ````

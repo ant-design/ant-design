@@ -42,4 +42,4 @@ const animation = {
   },
 };
 
-module.exports = animation;
+export default animation;

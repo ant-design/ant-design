@@ -1,6 +1,7 @@
 # 路由
 
 - order: 2
+- iframe: true
 
 和 `react-router@2.x` 进行结合使用。
 
@@ -62,7 +63,11 @@ ReactDOM.render(
 , mountNode);
 ````
 
-<style>
+
+````css
+#components-breadcrumb-demo-router iframe {
+  height: 165px;
+}
 .demo-nav {
   height: 30px;
   line-height: 30px;
@@ -76,4 +81,4 @@ ReactDOM.render(
 .app-list {
   margin-top: 15px;
 }
-</style>
+````

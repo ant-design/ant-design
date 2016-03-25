@@ -1,7 +1,8 @@
-# 自然运动
+# Easing
 
 - category: 动画
 - order: 0
+- chinese: 自然运动
 
 ---
 
@@ -77,7 +78,21 @@
 > 慎用 Bounce 或 Elastic，这两种适用在特殊元素下，一般 back 即可满足页面上元素的弹动;
 
 <div id="J-Back"></div>
-<script src="../../static/motionDemoLoad.js?page=easing"></script>
+
+```__react
+import scripts from '../../site/component/Motion/easing';
+class ExecuteJS extends React.Component {
+  componentDidMount() {
+    scripts();
+  }
+
+  render() {
+    return null;
+  }
+}
+
+ReactDOM.render(<ExecuteJS key="execute" />, mountNode);
+```
 
 上图所示缓动函数：绿 `easeOutBounce` `easeOutElastic`（css 需自配）， 蓝 `ease-out-back` `ease-in-back`。
 

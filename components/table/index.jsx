@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from 'rc-table';
+import RcTable from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
@@ -27,7 +27,7 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-let AntTable = React.createClass({
+let Table = React.createClass({
   getInitialState() {
     return {
       // 减少状态
@@ -75,6 +75,10 @@ let AntTable = React.createClass({
     locale: React.PropTypes.object,
   },
 
+  contextTypes: {
+    antLocale: React.PropTypes.object,
+  },
+
   getDefaultSelection() {
     if (!this.props.rowSelection || !this.props.rowSelection.getCheckboxProps) {
       return [];
@@ -82,6 +86,14 @@ let AntTable = React.createClass({
     return this.getFlatCurrentPageData()
       .filter(item => this.props.rowSelection.getCheckboxProps(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
+  },
+
+  getLocale() {
+    let locale = {};
+    if (this.context.antLocale && this.context.antLocale.Table) {
+      locale = this.context.antLocale.Table;
+    }
+    return objectAssign({}, defaultLocale, locale, this.props.locale);
   },
 
   componentWillReceiveProps(nextProps) {
@@ -402,7 +414,7 @@ let AntTable = React.createClass({
   },
 
   renderColumnsDropdown(columns) {
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
+    const locale = this.getLocale();
     return columns.map((originColumn, i) => {
       let column = objectAssign({}, originColumn);
       let key = this.getColumnKey(column, i);
@@ -565,7 +577,7 @@ let AntTable = React.createClass({
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    const locale = objectAssign({}, defaultLocale, this.props.locale);
+    const locale = this.getLocale();
 
     const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
@@ -592,7 +604,7 @@ let AntTable = React.createClass({
 
     let table = (
       <div>
-        <Table {...this.props}
+        <RcTable {...this.props}
           data={data}
           columns={columns}
           className={classString}
@@ -619,4 +631,4 @@ let AntTable = React.createClass({
   }
 });
 
-export default AntTable;
+export default Table;

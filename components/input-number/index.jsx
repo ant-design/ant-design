@@ -1,14 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import InputNumber from 'rc-input-number';
+import RcInputNumber from 'rc-input-number';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-input-number',
-      step: 1,
-    };
-  },
+export default class InputNumber extends React.Component {
   render() {
     const { className, size, ...other } = this.props;
     const inputNumberClass = classNames({
@@ -17,6 +11,11 @@ export default React.createClass({
       [className]: !!className,
     });
 
-    return <InputNumber className={inputNumberClass} {...other} />;
+    return <RcInputNumber className={inputNumberClass} {...other} />;
   }
-});
+}
+
+InputNumber.defaultProps = {
+  prefixCls: 'ant-input-number',
+  step: 1,
+};

@@ -73,13 +73,15 @@ const columns = [{
 | bordered  | 是否展示外边框和列边框 | Boolean | false      |
 | showHeader  | 是否显示表头 | Boolean          | true      |
 | footer  | 表格底部自定义渲染函数         | Function(currentPageData)   | |
+| scroll  | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | Object   | -  |
+
 
 ### Column
 
 列描述数据对象，是 columns 中的一项。
 
 | 参数       | 说明                       | 类型            |  默认值  |
-|------------|----------------------------|-----------------|---------------------|---------|
+|-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | String or React.Element |                   |
 | key        | React 需要的 key，建议设置 | String          |                             |
 | dataIndex  | 列数据在数据项中对应的 key | String          |                              |
@@ -91,6 +93,7 @@ const columns = [{
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
 | width      | 列宽度 | String or Number | -  |
 | className  | 列的 className             | String          |  -      |
+| fixed  | 列是否固定，可选 true(和 left 效果一致) 'left' 'right' | Boolean or String | false |
 
 ### rowSelection
 

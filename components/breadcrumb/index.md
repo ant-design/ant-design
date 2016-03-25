@@ -11,7 +11,7 @@
 ## 何时使用
 
 - 当系统拥有超过两级以上的层级结构时；
-- 当需要告知用户“你在哪里”时；
+- 当需要告知用户『你在哪里』时；
 - 当需要向上导航的功能时。
 
 ## API
@@ -32,6 +32,7 @@
 | routes    | router 的路由栈信息               | Array             |         | -      |
 | params    | 路由的参数                        | Object            |         | -      |
 | separator | 分隔符自定义                      | String or Element |         | '/'    |
+| linkRender | 自定义链接函数，和 react-router 配置使用               | Function(href, name) |         | -    |
 
 ### Breadcrumb.Item
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Upload from 'rc-upload';
+import RcUpload from 'rc-upload';
 import assign from 'object-assign';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
@@ -53,7 +53,7 @@ function genPercentAdd() {
   };
 }
 
-const AntUpload = React.createClass({
+const Upload = React.createClass({
   getInitialState() {
     return {
       fileList: this.props.fileList || this.props.defaultFileList || [],
@@ -244,11 +244,11 @@ const AntUpload = React.createClass({
             onDrop={this.onFileDrop}
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}>
-            <Upload {...props}>
+            <RcUpload {...props}>
               <div className={`${prefixCls}-drag-container`}>
                 {this.props.children}
               </div>
-            </Upload>
+            </RcUpload>
           </div>
           {uploadList}
         </span>
@@ -264,9 +264,9 @@ const AntUpload = React.createClass({
           <span className={this.props.className}>
             {uploadList}
             <div className={uploadButtonCls}>
-              <Upload {...props}>
+              <RcUpload {...props}>
                 {this.props.children}
-              </Upload>
+              </RcUpload>
             </div>
           </span>
         );
@@ -274,9 +274,9 @@ const AntUpload = React.createClass({
       return (
         <span className={this.props.className}>
           <div className={uploadButtonCls}>
-            <Upload {...props}>
+            <RcUpload {...props}>
               {this.props.children}
-            </Upload>
+            </RcUpload>
           </div>
           {uploadList}
         </span>
@@ -285,10 +285,10 @@ const AntUpload = React.createClass({
   }
 });
 
-AntUpload.Dragger = React.createClass({
+Upload.Dragger = React.createClass({
   render() {
-    return <AntUpload {...this.props} type="drag" style={{ height: this.props.height }} />;
+    return <Upload {...this.props} type="drag" style={{ height: this.props.height }} />;
   }
 });
 
-export default AntUpload;
+export default Upload;

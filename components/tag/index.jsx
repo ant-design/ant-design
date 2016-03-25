@@ -4,7 +4,7 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
-class AntTag extends React.Component {
+export default class Tag extends React.Component {
   constructor(props) {
     super(props);
 
@@ -61,11 +61,9 @@ class AntTag extends React.Component {
   }
 }
 
-AntTag.defaultProps = {
+Tag.defaultProps = {
   prefixCls: 'ant-tag',
   closable: false,
   onClose() {},
   afterClose() {},
 };
-
-export default AntTag;

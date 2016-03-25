@@ -66,8 +66,7 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="更多内容邀请示例" description="在 Modal 中会出现前后切换的箭头。
-" src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
+<img class="preview-img" align="right" alt="更多内容邀请示例" description="在 Modal 中会出现前后切换的箭头。" src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
 
 更多内容邀请：用于邀请用户查看更多内容。
 

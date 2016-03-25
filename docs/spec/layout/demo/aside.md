@@ -10,6 +10,7 @@
 
 ````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
+import BrowserDemo from 'BrowserDemo';
 const SubMenu = Menu.SubMenu;
 
 ReactDOM.render(

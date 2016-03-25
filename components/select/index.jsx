@@ -1,17 +1,8 @@
 import React from 'react';
-import Select, { Option, OptGroup } from 'rc-select';
+import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-const AntSelect = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-select',
-      transitionName: 'slide-up',
-      optionLabelProp: 'children',
-      choiceTransitionName: 'zoom',
-      showSearch: false,
-    };
-  },
+export default class Select extends React.Component {
   render() {
     let {
       size, className, combobox, notFoundContent
@@ -28,14 +19,20 @@ const AntSelect = React.createClass({
     }
 
     return (
-      <Select {...this.props}
+      <RcSelect {...this.props}
         className={cls}
         notFoundContent={notFoundContent} />
     );
   }
-});
+}
 
-AntSelect.Option = Option;
-AntSelect.OptGroup = OptGroup;
+Select.defaultProps = {
+  prefixCls: 'ant-select',
+  transitionName: 'slide-up',
+  optionLabelProp: 'children',
+  choiceTransitionName: 'zoom',
+  showSearch: false,
+};
 
-export default AntSelect;
+Select.Option = Option;
+Select.OptGroup = OptGroup;

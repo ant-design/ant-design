@@ -2,6 +2,7 @@
 
 - category: Components
 - chinese: 进出场动画
+- type: 其它
 
 ---
 

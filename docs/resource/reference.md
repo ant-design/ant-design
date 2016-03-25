@@ -1,7 +1,7 @@
-# 文献素材
+# Reference
 
 - order: 1
-- category: 1
+- chinese: 文献素材
 
 ---
 

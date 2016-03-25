@@ -3,8 +3,9 @@ import Notification from 'rc-notification';
 import assign from 'object-assign';
 import Icon from '../icon';
 
-let top = 24;
+let defaultTop = 24;
 let notificationInstance;
+let defaultDuration = 4.5;
 
 function getNotificationInstance() {
   if (notificationInstance) {
@@ -13,8 +14,8 @@ function getNotificationInstance() {
   notificationInstance = Notification.newInstance({
     prefixCls: 'ant-notification',
     style: {
-      top,
-      right: 0
+      top: defaultTop,
+      right: 0,
     }
   });
   return notificationInstance;
@@ -23,11 +24,10 @@ function getNotificationInstance() {
 function notice(args) {
   let duration;
   if (args.duration === undefined) {
-    duration = 4.5;
+    duration = defaultDuration;
   } else {
     duration = args.duration;
   }
-
   if (args.icon) {
     let prefixCls = ' ant-notification-notice-content-icon-';
     let iconType = '';
@@ -107,7 +107,12 @@ const api = {
     }
   },
   config(options) {
-    top = isNaN(options.top) ? 24 : options.top;
+    if ('top' in options) {
+      defaultTop = options.top;
+    }
+    if ('duration' in options) {
+      defaultDuration = options.duration;
+    }
   },
   destroy() {
     if (notificationInstance) {

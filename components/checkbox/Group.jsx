@@ -32,11 +32,23 @@ export default React.createClass({
       });
     }
   },
+  getOptions() {
+    const { options } = this.props;
+    return options.map(option => {
+      if (typeof option === 'string') {
+        return {
+          label: option,
+          value: option,
+        };
+      }
+      return option;
+    });
+  },
   toggleOption(option) {
-    const optionIndex = this.state.value.indexOf(option);
+    const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
     if (optionIndex === - 1) {
-      value.push(option);
+      value.push(option.value);
     } else {
       value.splice(optionIndex, 1);
     }
@@ -46,17 +58,17 @@ export default React.createClass({
     this.props.onChange(value);
   },
   render() {
-    const options = this.props.options;
+    const options = this.getOptions();
     return (
       <div className="ant-checkbox-group">
         {
           options.map(option =>
-            <label className="ant-checkbox-group-item" key={option}>
-              <Checkbox disabled={this.props.disabled}
-                checked={this.state.value.indexOf(option) !== -1}
-                onChange={this.toggleOption.bind(this, option)} />
-              {option}
-            </label>
+            <Checkbox disabled={'disabled' in option ? option.disabled : this.props.disabled}
+              checked={this.state.value.indexOf(option.value) !== -1}
+              onChange={this.toggleOption.bind(this, option)}
+              className="ant-checkbox-group-item" key={option.value}>
+              {option.label}
+            </Checkbox>
           )
         }
       </div>

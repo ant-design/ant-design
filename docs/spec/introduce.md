@@ -1,6 +1,5 @@
 # Ant Design
 
-- category: 0
 - order: 0
 
 <div style="text-align:center;background:#FBFBFB;margin:40px 0;">

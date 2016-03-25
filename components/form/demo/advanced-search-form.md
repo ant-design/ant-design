@@ -14,7 +14,7 @@ const FormItem = Form.Item;
 
 ReactDOM.render(
 <Form horizontal className="advanced-search-form">
-  <Row>
+  <Row gutter={16}>
     <Col span="8">
       <FormItem
         label="搜索名称："
@@ -98,11 +98,8 @@ ReactDOM.render(
 
 /* 由于输入标签长度不确定，所以需要微调使之看上去居中 */
 .advanced-search-form > .row {
-  margin-left: -10px;
-}
-
-.advanced-search-form > .row > .col-8 {
-  padding: 0 8px;
+  position: relative;
+  left: -6px;
 }
 
 .advanced-search-form .ant-form-item {

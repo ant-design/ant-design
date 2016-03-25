@@ -2,25 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
 
-const AntSpin = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-spin',
-      spining: true
-    };
-  },
-
-  propTypes: {
-    className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large'])
-  },
-
+export default class Spin extends React.Component {
   isNestedPattern() {
     return !!(this.props && this.props.children);
-  },
+  }
 
   render() {
-    const { className, size, prefixCls } = this.props;
+    const { className, size, prefixCls, tip } = this.props;
 
     let spinClassName = classNames({
       [prefixCls]: true,
@@ -31,9 +19,9 @@ const AntSpin = React.createClass({
     });
 
     let spinElement;
-    if (!isCssAnimationSupported) {
+    if (!isCssAnimationSupported || 'tip' in this.props) {
       // not support for animation, just use text instead
-      spinElement = <div className={spinClassName}>加载中...</div>;
+      spinElement = <div className={spinClassName}>{tip || '加载中...'}</div>;
     } else {
       spinElement = (
         <div className={spinClassName}>
@@ -56,6 +44,14 @@ const AntSpin = React.createClass({
     }
     return spinElement;
   }
-});
+}
 
-export default AntSpin;
+Spin.defaultProps = {
+  prefixCls: 'ant-spin',
+  spining: true,
+};
+
+Spin.propTypes = {
+  className: React.PropTypes.string,
+  size: React.PropTypes.oneOf(['small', 'default', 'large']),
+};

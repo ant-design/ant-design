@@ -5,18 +5,7 @@ import getPlacements from './placements';
 const placements = getPlacements();
 const prefixCls = 'ant-popover';
 
-const Popover = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls,
-      placement: 'top',
-      trigger: 'hover',
-      mouseEnterDelay: 0.1,
-      mouseLeaveDelay: 0.1,
-      overlayStyle: {}
-    };
-  },
-
+export default class Popover extends React.Component {
   render() {
     const transitionName = ({
       top: 'zoom-down',
@@ -42,11 +31,11 @@ const Popover = React.createClass({
         {this.props.children}
       </Tooltip>
     );
-  },
+  }
 
   getPopupDomNode() {
     return this.refs.tooltip.getPopupDomNode();
-  },
+  }
 
   getOverlay() {
     return (
@@ -57,7 +46,14 @@ const Popover = React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+}
 
-export default Popover;
+Popover.defaultProps = {
+  prefixCls,
+  placement: 'top',
+  trigger: 'hover',
+  mouseEnterDelay: 0.1,
+  mouseLeaveDelay: 0.1,
+  overlayStyle: {}
+};

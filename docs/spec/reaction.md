@@ -26,8 +26,7 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="实时搜索示例" description="用户输入一个搜索值，系统随即显示查询结果。
-" src="https://os.alipayobjects.com/rmsportal/OyJCVmOigyXKWCf.png">
+<img class="preview-img" align="right" alt="实时搜索示例" description="用户输入一个搜索值，系统随即显示查询结果。" src="https://os.alipayobjects.com/rmsportal/OyJCVmOigyXKWCf.png">
 
 实时搜索：随着用户输入，实时显示搜索结果。『自动完成』、『实时建议』的近亲。
 
@@ -40,8 +39,7 @@
 ---
 ## 反馈模式
 
-<img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。
-" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">
+<img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">
 
 实时预览：在用户提交输入之前，让他先行了解系统将如何处理他的输入。
 

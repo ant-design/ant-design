@@ -3,7 +3,7 @@ import Notification from 'rc-notification';
 import Icon from '../icon';
 
 let defaultDuration = 1.5;
-let top;
+let defaultTop;
 let messageInstance;
 let key = 1;
 
@@ -11,9 +11,7 @@ function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
     prefixCls: 'ant-message',
     transitionName: 'move-up',
-    style: {
-      top,
-    }  // 覆盖原来的样式
+    style: { defaultTop }, // 覆盖原来的样式
   });
   return messageInstance;
 }
@@ -71,8 +69,11 @@ export default {
     return notice(content, duration, 'loading', onClose);
   },
   config(options) {
-    if (options.top) {
-      top = options.top;
+    if ('top' in options) {
+      defaultTop = options.top;
+    }
+    if ('duration' in options) {
+      defaultDuration = options.duration;
     }
   },
   destroy() {
