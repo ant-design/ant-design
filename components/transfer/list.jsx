@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
@@ -7,7 +7,7 @@ import Animate from 'rc-animate';
 function noop() {
 }
 
-class TransferList extends Component {
+export default class TransferList extends React.Component {
 
   constructor(props) {
     super(props);
@@ -183,5 +183,3 @@ TransferList.propTypes = {
 TransferList.contextTypes = {
   antLocale: React.PropTypes.object,
 };
-
-export default TransferList;

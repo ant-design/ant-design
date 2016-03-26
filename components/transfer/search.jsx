@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import Icon from '../icon';
 function noop() {
 }
 
-class Search extends Component {
+export default class Search extends React.Component {
   handleChange(e) {
     this.props.onChange(e);
   }
@@ -42,5 +42,3 @@ Search.propTypes = {
   onChange: PropTypes.func,
   handleClear: PropTypes.func,
 };
-
-export default Search;

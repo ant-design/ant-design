@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import Button from '../button';
 import Icon from '../icon';
 
 function noop() {
 }
 
-class TransferOperation extends Component {
+export default class TransferOperation extends React.Component {
   render() {
     const {
       moveToLeft,
@@ -50,5 +50,3 @@ TransferOperation.propTypes = {
   moveToLeft: PropTypes.func,
   moveToRight: PropTypes.func,
 };
-
-export default TransferOperation;

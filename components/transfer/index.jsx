@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import List from './list';
 import Operation from './operation';
 import Search from './search';
@@ -7,7 +7,7 @@ import classNames from 'classnames';
 function noop() {
 }
 
-class Transfer extends Component {
+export default class Transfer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -248,5 +248,3 @@ Transfer.propTypes = {
 Transfer.List = List;
 Transfer.Operation = Operation;
 Transfer.Search = Search;
-
-export default Transfer;
