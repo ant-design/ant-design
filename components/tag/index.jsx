@@ -16,7 +16,7 @@ export default class Tag extends React.Component {
 
   close(e) {
     this.props.onClose(e);
-    if(e.defaultPrevented) return;
+    if (e.defaultPrevented) return;
     const dom = ReactDOM.findDOMNode(this);
     dom.style.width = `${dom.offsetWidth}px`;
     // It's Magic Code, don't know why
