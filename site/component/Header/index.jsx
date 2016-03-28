@@ -52,10 +52,13 @@ export default class Header extends React.Component {
 
     const options = Object.keys(componentsList).map((key) => {
       return componentsList[key];
+    }).filter(({ meta }) => {
+      return /^component/.test(meta.fileName);
     }).map(({ meta }) => {
-      const url = `/components/${meta.english.toLowerCase()}`;
+      const pathSnippet = meta.fileName.split('/')[1];
+      const url = `/components/${pathSnippet}`;
       return (
-        <Option value={url} key={url}>
+        <Option value={url} key={url} data-label={`${meta.english} {meta.chinese}`}>
           <strong>{meta.english}</strong>
           <span className="ant-component-decs">{meta.chinese}</span>
         </Option>
@@ -86,6 +89,7 @@ export default class Header extends React.Component {
                 dropdownClassName="component-select"
                 searchPlaceholder="搜索组件..."
                 optionLabelProp="nothing"
+                optionFilterProp="data-label"
                 onSelect={this.handleSearch.bind(this)}>
                 {options}
               </Select>
