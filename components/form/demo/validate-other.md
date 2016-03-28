@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
+import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader, Icon } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const createForm = Form.create;
@@ -134,6 +134,7 @@ let Demo = React.createClass({
             <Radio value="male">男</Radio>
             <Radio value="female">女</Radio>
           </RadioGroup>
+          <span><Icon type="info-circle-o" /> 暂不支持其它性别</span>
         </FormItem>
 
         <FormItem
