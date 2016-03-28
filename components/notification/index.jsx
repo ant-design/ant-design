@@ -39,10 +39,10 @@ function notice(args) {
         iconType = 'info-circle-o';
         break;
       case 'error':
-        iconType = 'exclamation-circle-o';
+        iconType = 'cross-circle-o';
         break;
       case 'warn':
-        iconType = 'question-circle-o';
+        iconType = 'exclamation-circle-o';
         break;
       default:
         iconType = 'info-circle';
