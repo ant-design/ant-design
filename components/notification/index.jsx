@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
+import warning from 'warning';
 
 let defaultTop = 24;
 let notificationInstance;
@@ -40,7 +41,7 @@ function notice(args) {
       case 'error':
         iconType = 'cross-circle-o';
         break;
-      case 'warn':
+      case 'warning':
         iconType = 'exclamation-circle-o';
         break;
       default:
@@ -50,9 +51,7 @@ function notice(args) {
     getNotificationInstance().notice({
       content: <div>
         <Icon className={`${prefixCls}icon-${args.icon}${prefixCls}icon`} type={iconType} />
-
         <div className={`${prefixCls}message`}>{args.message}</div>
-
         <div className={`${prefixCls}description`}>{args.description}</div>
       </div>,
       duration,
@@ -80,7 +79,6 @@ function notice(args) {
       getNotificationInstance().notice({
         content: <div>
           <div className={`${prefixCls}message`}>{args.message}</div>
-
           <div className={`${prefixCls}description`}>{args.description}</div>
           <span className={`${prefixCls}btn`}>
             {args.btn}
@@ -121,14 +119,14 @@ const api = {
   },
 };
 
-['success', 'info', 'warn', 'error'].forEach((type) => {
-  api[type] = (args) => {
-    let newArgs = {
-      ...args,
-      icon: type
-    };
-    return api.open(newArgs);
-  };
+['success', 'info', 'warning', 'error'].forEach((type) => {
+  api[type] = (args) => api.open({ ...args, icon: type });
 });
+
+// warn: Departed usage, please use warning()
+api.warn = (...args) => {
+  warning(false, 'notification.warn() is departed, please use notification.warning()');
+  api.warning(...args);
+};
 
 export default api;

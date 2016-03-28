@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
+import warning from 'warning';
 
 let defaultDuration = 1.5;
 let defaultTop;
@@ -21,7 +22,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     info: 'ant-message-info',
     success: 'ant-message-success',
     error: 'ant-message-error',
-    warn: 'ant-message-warn',
+    warning: 'ant-message-warning',
     loading: 'ant-message-loading'
   })[type];
 
@@ -29,7 +30,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     info: 'info-circle',
     success: 'check-circle',
     error: 'cross-circle',
-    warn: 'exclamation-circle',
+    warning: 'exclamation-circle',
     loading: 'loading'
   })[type];
 
@@ -62,8 +63,13 @@ export default {
   error(content, duration, onClose) {
     return notice(content, duration, 'error', onClose);
   },
+  // Departed usage, please use warning()
   warn(content, duration, onClose) {
-    return notice(content, duration, 'warn', onClose);
+    warning(false, 'message.warn() is departed, please use message.warning()');
+    return notice(content, duration, 'warning', onClose);
+  },
+  warning(content, duration, onClose) {
+    return notice(content, duration, 'warning', onClose);
   },
   loading(content, duration, onClose) {
     return notice(content, duration, 'loading', onClose);

@@ -14,18 +14,18 @@ function getListData(value) {
   switch (value.getDayOfMonth()) {
     case 8:
       listData = [
-        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'warning', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' }
       ]; break;
     case 10:
       listData = [
-        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'warning', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' },
         { type: 'error', content: '这里是错误事项.' }
       ]; break;
     case 15:
       listData = [
-        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'warning', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项好长啊。。....' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
@@ -98,7 +98,7 @@ ReactDOM.render(
   margin-right: 4px;
 }
 
-.event-warn {
+.event-warning {
   color: #fac450;
 }
 
@@ -107,7 +107,7 @@ ReactDOM.render(
 }
 
 .event-error {
-  color: #f60;
+  color: #f50;
 }
 
 .notes-month {
