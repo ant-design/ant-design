@@ -26,7 +26,7 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-let Table = React.createClass({
+const Table = React.createClass({
   getInitialState() {
     return {
       // 减少状态
@@ -35,7 +35,6 @@ let Table = React.createClass({
       selectionDirty: false,
       sortColumn: '',
       sortOrder: '',
-      sorter: null,
       radioIndex: null,
       pagination: this.hasPagination() ?
       {
@@ -135,10 +134,22 @@ let Table = React.createClass({
     return this.props.pagination !== false;
   },
 
+  getSorterFn() {
+    const { sortOrder, sortColumn } = this.state;
+    if (!sortOrder || !sortColumn) {
+      return () => {};
+    }
+    return (a, b) => {
+      let result = sortColumn.sorter(a, b);
+      if (result !== 0) {
+        return (sortOrder === 'descend') ? -result : result;
+      }
+      return a.index - b.index;
+    };
+  },
+
   toggleSortOrder(order, column) {
-    let sortColumn = this.state.sortColumn;
-    let sortOrder = this.state.sortOrder;
-    let sorter;
+    let { sortColumn, sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let isSortColumn = this.isSortColumn(column);
     if (!isSortColumn) {  // 当前列未排序
@@ -152,19 +163,9 @@ let Table = React.createClass({
         sortOrder = order;
       }
     }
-    if (typeof column.sorter === 'function') {
-      sorter = (a, b) => {
-        let result = column.sorter(a, b);
-        if (result !== 0) {
-          return (sortOrder === 'descend') ? -result : result;
-        }
-        return a.index - b.index;
-      };
-    }
     const newState = {
       sortOrder,
       sortColumn,
-      sorter,
     };
     this.setState(newState);
     this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
@@ -184,7 +185,7 @@ let Table = React.createClass({
     });
     const newState = {
       selectionDirty: false,
-      filters
+      filters,
     };
     this.setState(newState);
     this.setSelectedRowKeys([]);
@@ -406,15 +407,15 @@ let Table = React.createClass({
   },
 
   isSortColumn(column) {
-    if (!column || !this.state.sortColumn) {
+    const { sortColumn } = this.state;
+    if (!column || !sortColumn) {
       return false;
     }
-    let colKey = this.getColumnKey(column);
-    let isSortColumn = (this.getColumnKey(this.state.sortColumn) === colKey);
-    return isSortColumn;
+    return this.getColumnKey(sortColumn) === this.getColumnKey(column);
   },
 
   renderColumnsDropdown(columns) {
+    const { sortOrder } = this.state;
     const locale = this.getLocale();
     return columns.map((originColumn, i) => {
       let column = { ...originColumn };
@@ -433,13 +434,12 @@ let Table = React.createClass({
         let isSortColumn = this.isSortColumn(column);
         if (isSortColumn) {
           column.className = column.className || '';
-          if (this.state.sortOrder) {
+          if (sortOrder) {
             column.className += ' ant-table-column-sort';
           }
         }
-
-        const isAscend = isSortColumn && this.state.sortOrder === 'ascend';
-        const isDescend = isSortColumn && this.state.sortOrder === 'descend';
+        const isAscend = isSortColumn && sortOrder === 'ascend';
+        const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
           <div className="ant-table-column-sorter">
             <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
@@ -502,11 +502,10 @@ let Table = React.createClass({
     const pagination = state.pagination;
     const filters = state.filters;
     const sorter = {};
-    if (state.sortColumn &&
-      state.sortOrder &&
-      state.sortColumn.dataIndex) {
-      sorter.field = state.sortColumn.dataIndex;
-      sorter.order = state.sortOrder;
+    if (this.state.sortColumn && this.state.sortOrder) {
+      sorter.column = this.state.sortColumn;
+      sorter.order = this.state.sortOrder;
+      sorter.field = this.state.sortColumn.dataIndex;
     }
     return [pagination, filters, sorter];
   },
@@ -545,16 +544,14 @@ let Table = React.createClass({
   },
 
   getLocalData() {
-    let state = this.state;
+    const state = this.state;
     let data = this.props.dataSource || [];
     // 排序
-    if (state.sortOrder && state.sorter) {
-      data = data.slice(0);
-      for (let i = 0; i < data.length; i++) {
-        data[i].index = i;
-      }
-      data = data.sort(state.sorter);
+    data = data.slice(0);
+    for (let i = 0; i < data.length; i++) {
+      data[i].index = i;
     }
+    data = data.sort(this.getSorterFn());
     // 筛选
     if (state.filters) {
       Object.keys(state.filters).forEach((columnKey) => {
