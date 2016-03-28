@@ -132,7 +132,10 @@ let Demo = React.createClass({
       rules: [
         { required: true, whitespace: true, message: '请填写密码' },
         { validator: this.checkPass }
-      ]
+      ],
+      onChange: (e) => {
+        console.log('你的密码就是这样被盗的：', e.target.value);
+      },
     });
     const rePassProps = getFieldProps('rePass', {
       rules: [{

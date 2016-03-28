@@ -81,7 +81,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | getFieldError | 获取某个输入控件的 Error | Function(name) | | |
 | isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) | | |
 | resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) | | |
-| getFieldProps | 用于和表单进行双向绑定，详见下方描述 | | | |
+| getFieldProps | 用于和表单进行双向绑定，详见下方描述 | | | | |
 
 #### this.props.form.getFieldProps(id, options)
 
@@ -94,7 +94,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | | |
 | options.trigger | 收集子节点的值的时机 | string | | 'onChange' |
 | options.validateTrigger | 校验子节点值的时机 | string | | 'onChange' |
-| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | | |
+| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | | 
+| options.onXXX | 由于 `getFieldProps` 会占用 `onChange` 等事件（即你所设置的 `trigger` `validateTrigger`），所以如果仍需绑定事件，请在 `options` 内设置 | function |  | 无 |
 
 
 ### Form.Item
