@@ -46,6 +46,10 @@ export default class Header extends React.Component {
     this.props.history.push({ pathname: value });
   }
 
+  handleSelectFilter(value, option) {
+    return option.props['data-label'].indexOf(value.toLowerCase()) > -1;
+  }
+
   render() {
     const routes = this.props.routes;
     const activeMenuItem = routes[1].path || 'home';
@@ -58,7 +62,7 @@ export default class Header extends React.Component {
       const pathSnippet = meta.fileName.split('/')[1];
       const url = `/components/${pathSnippet}`;
       return (
-        <Option value={url} key={url} data-label={`${meta.english} {meta.chinese}`}>
+        <Option value={url} key={url} data-label={`${meta.english.toLowerCase()} ${meta.chinese}`}>
           <strong>{meta.english}</strong>
           <span className="ant-component-decs">{meta.chinese}</span>
         </Option>
@@ -90,6 +94,7 @@ export default class Header extends React.Component {
                 searchPlaceholder="搜索组件..."
                 optionLabelProp="nothing"
                 optionFilterProp="data-label"
+                filterOption={this.handleSelectFilter.bind(this)}
                 onSelect={this.handleSearch.bind(this)}>
                 {options}
               </Select>
