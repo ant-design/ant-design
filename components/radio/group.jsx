@@ -15,17 +15,15 @@ function getCheckedValue(children) {
   return matched ? { value } : undefined;
 }
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-radio-group',
-      disabled: false,
-      onChange() {
-      },
-    };
-  },
-  getInitialState() {
-    let props = this.props;
+export default class RadioGroup extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-radio-group',
+    disabled: false,
+    onChange() {
+    },
+  }
+  constructor(props) {
+    super(props);
     let value;
     if ('value' in props) {
       value = props.value;
@@ -35,10 +33,10 @@ export default React.createClass({
       const checkedValue = getCheckedValue(props.children);
       value = checkedValue && checkedValue.value;
     }
-    return {
+    this.state = {
       value,
     };
-  },
+  }
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
@@ -52,15 +50,15 @@ export default React.createClass({
         });
       }
     }
-  },
-  onRadioChange(ev) {
+  }
+  onRadioChange = (ev) => {
     if (!('value' in this.props)) {
       this.setState({
         value: ev.target.value,
       });
     }
     this.props.onChange(ev);
-  },
+  }
   render() {
     const props = this.props;
     const children = React.Children.map(props.children, (radio) => {
@@ -84,5 +82,5 @@ export default React.createClass({
       [`${props.prefixCls}-${props.size}`]: props.size,
     });
     return <div className={classString} style={props.style}>{children}</div>;
-  },
-});
+  }
+}

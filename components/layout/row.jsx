@@ -1,20 +1,18 @@
 import React, { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 
-const Row = React.createClass({
-  propTypes: {
+export default class Row extends React.Component {
+  static defaultProps = {
+    gutter: 0,
+  }
+  static propTypes = {
     type: React.PropTypes.string,
     align: React.PropTypes.string,
     justify: React.PropTypes.string,
     className: React.PropTypes.string,
     children: React.PropTypes.node,
     gutter: React.PropTypes.number,
-  },
-  getDefaultProps() {
-    return {
-      gutter: 0,
-    };
-  },
+  }
   render() {
     const { type, justify, align, className, gutter, style, children, ...others } = this.props;
     const classes = classNames({
@@ -41,7 +39,5 @@ const Row = React.createClass({
       });
     });
     return <div {...others} className={classes} style={rowStyle}>{cols}</div>;
-  },
-});
-
-export default Row;
+  }
+}

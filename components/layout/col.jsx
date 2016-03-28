@@ -4,8 +4,8 @@ import classNames from 'classnames';
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
-const Col = React.createClass({
-  propTypes: {
+export default class Col extends React.Component {
+  static propTypes = {
     span: stringOrNumber,
     order: stringOrNumber,
     offset: stringOrNumber,
@@ -17,7 +17,7 @@ const Col = React.createClass({
     sm: objectOrNumber,
     md: objectOrNumber,
     lg: objectOrNumber,
-  },
+  }
   render() {
     const props = this.props;
     const { span, order, offset, push, pull, className, children, ...others } = props;
@@ -49,7 +49,5 @@ const Col = React.createClass({
     });
 
     return <div {...others} className={classes}>{children}</div>;
-  },
-});
-
-export default Col;
+  }
+}

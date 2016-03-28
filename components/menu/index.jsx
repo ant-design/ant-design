@@ -5,40 +5,43 @@ import animation from '../common/openAnimation';
 function noop() {
 }
 
-const Menu = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-menu',
-      onClick: noop,
-      onOpen: noop,
-      onClose: noop,
-      className: '',
-      theme: 'light',  // or dark
-    };
-  },
-  getInitialState() {
-    return {
+export default class Menu extends React.Component {
+  static Divider = Divider;
+  static Item = Item;
+  static SubMenu = SubMenu;
+  static ItemGroup = ItemGroup;
+  static defaultProps = {
+    prefixCls: 'ant-menu',
+    onClick: noop,
+    onOpen: noop,
+    onClose: noop,
+    className: '',
+    theme: 'light',  // or dark
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
       openKeys: []
     };
-  },
-  handleClick(e) {
+  }
+  handleClick = (e) => {
     this.setState({
       openKeys: []
     });
     this.props.onClick(e);
-  },
-  handleOpenKeys(e) {
+  }
+  handleOpenKeys = (e) => {
     this.setState({
       openKeys: e.openKeys
     });
     this.props.onOpen(e);
-  },
-  handleCloseKeys(e) {
+  }
+  handleCloseKeys = (e) => {
     this.setState({
       openKeys: e.openKeys
     });
     this.props.onClose(e);
-  },
+  }
   render() {
     let openAnimation = this.props.openAnimation || this.props.openTransitionName;
     if (!openAnimation) {
@@ -78,11 +81,4 @@ const Menu = React.createClass({
     }
     return <RcMenu {...this.props} {...props} />;
   }
-});
-
-Menu.Divider = Divider;
-Menu.Item = Item;
-Menu.SubMenu = SubMenu;
-Menu.ItemGroup = ItemGroup;
-
-export default Menu;
+}
