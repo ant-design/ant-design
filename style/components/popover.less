@@ -31,7 +31,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1080;
+  z-index: @zindex-popover;
   cursor: auto;
   user-select: text;
   white-space: normal;
@@ -103,7 +103,7 @@
     font-size: 12px;
     color: @text-color;
     > .anticon {
-      color: @error-color;
+      color: @warning-color;
       line-height: 17px;
       position: absolute;
     }

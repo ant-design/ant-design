@@ -52,7 +52,7 @@ export default React.createClass({
         iconType = 'info-circle';
         break;
       case 'error':
-        iconType = 'exclamation-circle';
+        iconType = 'cross-circle';
         break;
       case 'warn':
         iconType = 'exclamation-circle';

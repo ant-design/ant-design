@@ -28,7 +28,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
-    error: 'exclamation-circle',
+    error: 'cross-circle',
     warn: 'exclamation-circle',
     loading: 'loading'
   })[type];

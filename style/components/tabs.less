@@ -1,7 +1,5 @@
 @tab-prefix-cls: ant-tabs;
 
-@effect-duration: .3s;
-
 .@{tab-prefix-cls} {
   box-sizing: border-box;
   position: relative;
@@ -223,6 +221,7 @@
     animation-play-state: paused;
     animation-timing-function: @ease-in-out-quint;
     opacity: 0;
+    animation-duration: 0.4s;
   }
 
   &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
@@ -240,6 +239,7 @@
     .motion-common();
     animation-play-state: paused;
     animation-timing-function: @ease-in-out-quint;
+    animation-duration: 0.4s;
   }
 
   &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
@@ -253,6 +253,7 @@
     animation-play-state: paused;
     animation-timing-function: @ease-in-out-quint;
     opacity: 0;
+    animation-duration: 0.4s;
   }
 
   &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
@@ -268,6 +269,7 @@
     left: 0;
     bottom: 0;
     .motion-common();
+    animation-duration: 0.4s;
     animation-play-state: paused;
     animation-timing-function: @ease-in-out-quint;
   }

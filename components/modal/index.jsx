@@ -22,7 +22,7 @@ Modal.success = function (props) {
 Modal.error = function (props) {
   const config = {
     ...props,
-    iconClassName: 'exclamation-circle',
+    iconClassName: 'cross-circle',
     okCancel: false,
   };
   return confirm(config);

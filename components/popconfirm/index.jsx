@@ -75,7 +75,7 @@ export default React.createClass({
       <div>
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
-            <Icon type="exclamation-circle" />
+            <Icon type="question-circle" />
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
