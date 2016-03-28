@@ -9,8 +9,8 @@
 ````jsx
 import { DatePicker } from 'antd';
 
-function onChange(value) {
-  console.log(value);
+function onChange(value, dateString) {
+  console.log(value, dateString);
 }
 
 ReactDOM.render(<DatePicker onChange={onChange} />, mountNode);

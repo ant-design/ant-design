@@ -10,8 +10,9 @@
 import { DatePicker } from 'antd';
 const RangePicker = DatePicker.RangePicker;
 
-function onChange(value) {
+function onChange(value, dateString) {
   console.log('From: ', value[0], ', to: ', value[1]);
+  console.log('From: ', dateString[0], ', to: ', dateString[1]);
 }
 ReactDOM.render(<div>
   <RangePicker style={{ width: 184 }} onChange={onChange} />

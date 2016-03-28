@@ -29,7 +29,7 @@
 | defaultValue | 默认日期       | string or Date   | 无           |
 | format       | 展示的日期格式，配置参考 [GregorianCalendarFormat](https://github.com/yiminghe/gregorian-calendar-format) | string   | "yyyy-MM-dd" |
 | disabledDate | 不可选择的日期 | function | 无           |
-| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(Date value) | 无           |
+| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date, dateString) | 无           |
 | disabled     | 禁用           | bool     | false        |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
@@ -46,7 +46,7 @@
 | value        | 日期          | [string/Date, string/Date]   | 无           |
 | defaultValue | 默认日期       | [string/Date, string/Date]   | 无           |
 | format       | 展示的日期格式  | string    | "yyyy-MM-dd HH:mm:ss" |
-| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function([Date start, Date end]) | 无           |
+| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date[], dateString[]) | 无           |
 
 `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer` 属性与 DatePicker 的一致。
 

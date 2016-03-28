@@ -45,7 +45,7 @@ function createPicker(TheCalendar, defaultFormat) {
         this.setState({ value });
       }
       const timeValue = value ? new Date(value.getTime()) : null;
-      this.props.onChange(timeValue);
+      this.props.onChange(timeValue, value ? this.getFormatter().format(value) : '');
     },
     render() {
       const locale = this.getLocale();

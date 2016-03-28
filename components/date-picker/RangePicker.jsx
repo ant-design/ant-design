@@ -52,9 +52,11 @@ export default React.createClass({
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    const startTime = value[0] ? new Date(value[0].getTime()) : null;
-    const endTime = value[1] ? new Date(value[1].getTime()) : null;
-    this.props.onChange([startTime, endTime]);
+    const startDate = value[0] ? new Date(value[0].getTime()) : null;
+    const endDate = value[1] ? new Date(value[1].getTime()) : null;
+    const startDateString = value[0] ? this.getFormatter().format(value[0]) : '';
+    const endDateString = value[1] ? this.getFormatter().format(value[1]) : '';
+    this.props.onChange([startDate, endDate], [startDateString, endDateString]);
   },
   render() {
     const locale = this.getLocale();
