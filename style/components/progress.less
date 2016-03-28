@@ -11,11 +11,13 @@
     position: relative;
   }
   &-line-outer {
-    margin-right: 45px;
-  }
-  &-line-wrap-full {
-    .@{progress-prefix-cls}-line-outer {
+    padding-right: 45px;
+    display: inline-block;
+    width: 100%;
+    margin-right: -45px;
+    .@{progress-prefix-cls}-line-wrap-full & {
       margin-right: 0;
+      padding-right: 0;
     }
   }
   &-line-inner {
@@ -23,6 +25,7 @@
     width: 100%;
     background-color: #f3f3f3;
     border-radius: 100px;
+    vertical-align: middle;
   }
   &-line-bg {
     border-radius: 100px;
@@ -31,14 +34,13 @@
     position: relative;
   }
   &-line-text {
-    position: absolute;
-    top: 0;
-    right: 0;
     width: 35px;
     text-align: left;
     font-size: 1em;
     margin-left: 10px;
-
+    vertical-align: middle;
+    display: inline-block;
+    font-family: tahoma;
     .anticon {
       font-weight: bold;
       font-size: 12px;
@@ -88,6 +90,7 @@
     top: 50%;
     transform: translateY(-50%);
     left: 0;
+    font-family: tahoma;
 
     .anticon {
       font-size: 14 / 12em;
