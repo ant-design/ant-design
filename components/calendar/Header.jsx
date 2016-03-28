@@ -1,11 +1,11 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
 
 function noop() {}
 
-class Header extends Component {
+export default class Header extends React.Component {
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
     const start = year - yearSelectOffset;
@@ -106,5 +106,3 @@ Header.defaultProps = {
   onValueChange: noop,
   onTypeChange: noop,
 };
-
-export default Header;

@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import zhCN from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
@@ -12,7 +12,7 @@ function zerofixed(v) {
   return `${v}`;
 }
 
-class Calendar extends Component {
+export default class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,5 +129,3 @@ Calendar.defaultProps = {
   onPanelChange: noop,
   mode: 'month',
 };
-
-export default Calendar;
