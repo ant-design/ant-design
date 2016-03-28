@@ -1,6 +1,5 @@
 import { Circle as Progresscircle } from 'rc-progress';
 import React from 'react';
-import warning from 'warning';
 import Icon from '../icon';
 
 const prefixCls = 'ant-progress';
@@ -18,11 +17,7 @@ let Line = React.createClass({
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
     trailColor: React.PropTypes.string,
-    format: React.PropTypes.oneOfType([
-      React.PropTypes.node,
-      React.PropTypes.string,
-      React.PropTypes.func,
-    ]),
+    format: React.PropTypes.func,
   },
   getDefaultProps() {
     return {
@@ -43,35 +38,24 @@ let Line = React.createClass({
     let progressInfo;
     let fullCls = '';
 
-    if (props.format) {
-      warning(typeof props.format === 'function',
-       'antd.Progress props.format type is function, change format={xxx} to format={() => xxx}');
-    }
-
-    let text = props.format || `${props.percent}%`;
-    if (typeof props.format === 'string') {
-      // 向下兼容原来的字符串替换方式
-      text = props.format.replace('${percent}', props.percent);
-    } else if (typeof props.format === 'function') {
-      text = props.format(props.percent);
-    }
+    const format = props.format || (percent => `${percent}%`);
 
     if (props.showInfo) {
       if (props.status === 'exception') {
         progressInfo = (
           <span className={`${prefixCls}-line-text`}>
-            {props.format ? text : <Icon type="cross-circle" />}
+            {props.format ? format(props.percent) : <Icon type="cross-circle" />}
           </span>
         );
       } else if (props.status === 'success') {
         progressInfo = (
           <span className={`${prefixCls}-line-text`}>
-            {props.format ? text : <Icon type="check-circle" />}
+            {props.format ? format(props.percent) : <Icon type="check-circle" />}
           </span>
         );
       } else {
         progressInfo = (
-          <span className={`${prefixCls}-line-text`}>{text}</span>
+          <span className={`${prefixCls}-line-text`}>{format(props.percent)}</span>
         );
       }
     } else {
@@ -102,11 +86,7 @@ let Circle = React.createClass({
     strokeWidth: React.PropTypes.number,
     width: React.PropTypes.number,
     trailColor: React.PropTypes.string,
-    format: React.PropTypes.oneOfType([
-      React.PropTypes.node,
-      React.PropTypes.string,
-      React.PropTypes.func,
-    ]),
+    format: React.PropTypes.func,
   },
   getDefaultProps() {
     return {
@@ -130,35 +110,24 @@ let Circle = React.createClass({
       fontSize: props.width * 0.16 + 6
     };
     let progressInfo;
-    let text = props.format || `${props.percent}%`;
 
-    if (props.format) {
-      warning(typeof props.format === 'function',
-       'antd.Progress props.format type is function, change format={xxx} to format={() => xxx}');
-    }
-
-    if (typeof props.format === 'string') {
-      // 向下兼容原来的字符串替换方式
-      text = props.format.replace('${percent}', props.percent);
-    } else if (typeof props.format === 'function') {
-      text = props.format(props.percent);
-    }
+    const format = props.format || (percent => `${percent}%`);
 
     if (props.status === 'exception') {
       progressInfo = (
         <span className={`${prefixCls}-circle-text`}>
-          {props.format ? text : <Icon type="exclamation" />}
+          {props.format ? format(props.percent) : <Icon type="exclamation" />}
         </span>
       );
     } else if (props.status === 'success') {
       progressInfo = (
         <span className={`${prefixCls}-circle-text`}>
-          {props.format ? text : <Icon type="check" />}
+          {props.format ? format(props.percent) : <Icon type="check" />}
         </span>
       );
     } else {
       progressInfo = (
-        <span className={`${prefixCls}-circle-text`}>{text}</span>
+        <span className={`${prefixCls}-circle-text`}>{format(props.percent)}</span>
       );
     }
 
