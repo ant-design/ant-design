@@ -62,6 +62,7 @@ const columns = [{
 | dataSource    | 数据数组 | Array |            |
 | columns       | 表格列的配置描述，具体项见下表 | Array | - |
 | rowKey        | 表格行 key 的取值 | Function(record, index):string | record.key |
+| rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | Array | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
