@@ -20,7 +20,7 @@ AntModal.success = function (props) {
 
 AntModal.error = function (props) {
   const config = objectAssign({}, props, {
-    iconClassName: 'exclamation-circle',
+    iconClassName: 'cross-circle',
     okCancel: false,
   });
   return confirm(config);

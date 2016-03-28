@@ -57,17 +57,17 @@ let Line = React.createClass({
       text = props.format(props.percent);
     }
 
-    if (props.showInfo === true) {
+    if (props.showInfo) {
       if (props.status === 'exception') {
         progressInfo = (
           <span className={`${prefixCls}-line-text`}>
-            {props.format ? text : <Icon type="exclamation" />}
+            {props.format ? text : <Icon type="cross-circle" />}
           </span>
         );
       } else if (props.status === 'success') {
         progressInfo = (
           <span className={`${prefixCls}-line-text`}>
-            {props.format ? text : <Icon type="check" />}
+            {props.format ? text : <Icon type="check-circle" />}
           </span>
         );
       } else {
@@ -85,12 +85,12 @@ let Line = React.createClass({
 
     return (
       <div className={`${prefixCls}-line-wrap clearfix status-${props.status}${fullCls}`} style={props.style}>
-        {progressInfo}
         <div className={`${prefixCls}-line-outer`}>
           <div className={`${prefixCls}-line-inner`}>
             <div className={`${prefixCls}-line-bg`} style={percentStyle}></div>
           </div>
         </div>
+        {progressInfo}
       </div>
     );
   }
