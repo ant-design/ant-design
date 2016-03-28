@@ -67,7 +67,10 @@ const TimePicker = React.createClass({
   },
 
   handleChange(value) {
-    this.props.onChange(value ? new Date(value.getTime()) : null);
+    this.props.onChange(
+      value ? new Date(value.getTime()) : null,
+      value ? this.getFormatter().format(value) : '',
+    );
   },
 
   getLocale() {
