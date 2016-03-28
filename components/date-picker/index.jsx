@@ -114,8 +114,15 @@ function createPicker(TheCalendar, defaultFormat) {
       if (this.state.open) {
         pickerClass += ' ant-calendar-picker-open';
       }
+
+      // default width for showTime
+      const pickerStyle = {};
+      if (this.props.showTime) {
+        pickerStyle.width = 180;
+      }
+
       return (
-        <span className={pickerClass} style={this.props.style}>
+        <span className={pickerClass} style={{ ...pickerStyle, ...this.props.style }}>
           <DatePicker
             transitionName={this.props.transitionName}
             disabled={this.props.disabled}

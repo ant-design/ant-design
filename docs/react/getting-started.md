@@ -102,12 +102,13 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0px 184px 0px rgba(255, 207, 0, 0.16);
+  box-shadow: 0px 184px 0px rgba(255, 207, 0, 0.1);
   height: 42px;
   margin-top: -42px;
   position: relative;
   z-index: 1;
   width: 80%;
+  pointer-events: none;
 }
 </style>
 
@@ -130,11 +131,17 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 </html>
 ```
 
+另外，由于 `babel@6.x` 对 IE8 的支持不佳，你可能会遇到类似 [#28](https://github.com/ant-tool/atool-build/issues/28) 和 [#858](https://github.com/ant-design/ant-design/issues/858) 的 default 报错的问题。
+
+[antd-init](http://github.com/ant-design/antd-init) 脚手架已经解决了这个问题，你也可以参照这个 [webpack 配置](https://github.com/ant-design/antd-init/blob/f5fb9479ca973fade51fd6754e50f8b3fafbb1df/boilerplate/webpack.config.js#L4-L8)。
+
 > 更多 IE8 下使用 React 的相关问题可以参考：https://github.com/xcatliu/react-ie8
 
 ## 自行构建
 
 如果想自己维护工作流，我们推荐使用 [webpack](http://webpack.github.io/) 进行构建和调试。理论上你可以利用 React 生态圈中的 [各种脚手架](https://github.com/enaqx/awesome-react#boilerplates) 进行开发，如果遇到问题可参考我们所使用的 [webpack 配置](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js) 进行 [定制](http://ant-tool.github.io/webpack-config.htm)。
+
+目前社区也有很多基于 antd 定制的 [脚手架](https://github.com/ant-design/ant-design/issues/129)，欢迎进行试用和贡献。
 
 ### 改变主色系
 

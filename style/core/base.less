@@ -46,14 +46,19 @@ input::-ms-clear, input::-ms-reveal {
   display: none;
 }
 
+::selection {
+  background: @primary-color;
+  color: #fff;
+}
+
 // Links
-// --  TODO  --
 a {
   color: @link-color;
   background: transparent;
   text-decoration: none;
   outline: none;
   cursor: pointer;
+  transition: color .3s ease;
 
   &:hover {
     color: @link-hover-color;

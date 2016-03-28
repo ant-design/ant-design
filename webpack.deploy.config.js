@@ -8,6 +8,9 @@ config.plugins = [config.plugins[0], new webpack.optimize.UglifyJsPlugin({
   sourceMap: false,
   output: {
     ascii_only: true
+  },
+  compress: {
+    warnings: false
   }
 })];
 

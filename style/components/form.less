@@ -204,7 +204,8 @@ form {
   .ant-search-btn {
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
-    margin-left: -30px;
+    margin-left: -100%;
+    left: -1px;
     position: relative;
     border-width: 0 0 0 1px;
     z-index: 2;
@@ -389,6 +390,10 @@ form {
     &-arrow {
       color: @error-color;
     }
+  }
+
+  .@{select-prefix-cls}-combobox .@{select-prefix-cls}-search__field:focus {
+    box-shadow: none;
   }
 
   // ant-datepicker

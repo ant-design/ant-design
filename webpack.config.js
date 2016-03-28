@@ -29,6 +29,10 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
+      loader: 'es3ify'
+    }, {
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
       loader: 'babel',
       query: {
         cacheDirectory: true,
@@ -63,5 +67,5 @@ module.exports = {
     new webpack.NoErrorsPlugin()
   ],
 
-  devtool: 'source-map'
+  devtool: 'cheap-module-source-map'
 };

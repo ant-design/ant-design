@@ -4,6 +4,14 @@
 
 ---
 
+## 0.12.12
+
+`2016-03-18`
+
+- [设计资源](http://ant.design/docs/resource/download)文件更新。
+- 修复 Popover 和 Popconfirm 箭头消失的问题。
+- 修复一个 Table 切换分页长度时的页码溢出的问题。
+
 ## 0.12.11
 
 `2016-03-16`
@@ -283,6 +291,7 @@
   - 移除 `animation` 属性，并在 `tabPosition="top|bottom"` 时默认启用切换动画。
 - Timepicker
   - **重命名为 TimePicker。**
+  - 国际化属性 `locale` 结构发生了 [变化](https://github.com/ant-design/ant-design/issues/1270#issuecomment-201181384)。
   - 新增 `value` 属性。
   - 新增属性 `disabledHours` `disabledMinutes` `disabledSeconds`。[演示](http://ant.design/components/time-picker/#picker-demo-disable-options)
   - 移除 `hourOptions` `minuteOptions` `secondOptions`，新增 `hideDisabled` 属性用于替代。
