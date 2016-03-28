@@ -1,6 +1,7 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
+import warning from 'warning';
 
 let defaultDuration = 1.5;
 let defaultTop;
@@ -61,6 +62,11 @@ export default {
   },
   error(content, duration, onClose) {
     return notice(content, duration, 'error', onClose);
+  },
+  // Departed usage, please use warning()
+  warn(content, duration, onClose) {
+    warning(false, 'message.warn() is departed, please use message.warning()');
+    return notice(content, duration, 'warning', onClose);
   },
   warning(content, duration, onClose) {
     return notice(content, duration, 'warning', onClose);
