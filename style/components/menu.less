@@ -6,7 +6,7 @@
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  z-index: 999;
+  z-index: @zindex-dropdown;
   box-shadow: @box-shadow-base;
   color: @text-color;
   background: #fff;
@@ -96,7 +96,7 @@
     position: absolute;
     min-width: 100%;
     margin-top: 7px;
-    z-index: 1070;
+    z-index: @zindex-dropdown;
   }
 
   &-submenu-vertical > & {
@@ -105,7 +105,7 @@
     position: absolute;
     min-width: 160px;
     margin-left: 4px;
-    z-index: 1070;
+    z-index: @zindex-dropdown;
   }
 
   &-item,
