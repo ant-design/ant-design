@@ -28,16 +28,16 @@ export default class FormItem extends React.Component {
     return props.help;
   }
 
-  getOnlyChildren() {
+  getOnlyControl() {
     const children = React.Children.toArray(this.props.children);
-    if (children.length === 1) {
-      return children[0];
-    }
-    return null;
+    const child = children.filter((c) => {
+      return c.props && '__meta' in c.props;
+    })[0];
+    return child !== undefined ? child : null;
   }
 
   getChildProp(prop) {
-    const child = this.getOnlyChildren();
+    const child = this.getOnlyControl();
     return child && child.props && child.props[prop];
   }
 
