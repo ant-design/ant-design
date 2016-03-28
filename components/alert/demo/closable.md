@@ -15,7 +15,7 @@ const onClose = function (e) {
 
 ReactDOM.render(<div>
   <Alert message="警告提示的文案"
-    type="warn"
+    type="warning"
     closable
     onClose={onClose} />
   <Alert message="错误提示的文案"

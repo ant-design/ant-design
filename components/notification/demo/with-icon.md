@@ -22,7 +22,7 @@ ReactDOM.render(
   <div>
     <Button onClick={openNotificationWithIcon('success')}>成功</Button>
     <Button onClick={openNotificationWithIcon('info')}>消息</Button>
-    <Button onClick={openNotificationWithIcon('warn')}>警告</Button>
+    <Button onClick={openNotificationWithIcon('warning')}>警告</Button>
     <Button onClick={openNotificationWithIcon('error')}>错误</Button>
   </div>
 , mountNode);

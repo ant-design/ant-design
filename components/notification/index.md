@@ -22,7 +22,7 @@
 - `notification.success(config)`
 - `notification.error(config)`
 - `notification.info(config)`
-- `notification.warn(config)`
+- `notification.warning(config)`
 - `notification.close(key: String)`
 - `notification.destroy()`
 

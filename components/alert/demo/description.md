@@ -19,7 +19,7 @@ ReactDOM.render(<div>
   <Alert
     message="警告提示的文案"
     description="警告提示的辅助性文字介绍警告提示的辅助性文字介绍"
-    type="warn" />
+    type="warning" />
   <Alert
     message="错误提示的文案"
     description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"

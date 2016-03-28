@@ -40,7 +40,7 @@ function notice(args) {
       case 'error':
         iconType = 'cross-circle-o';
         break;
-      case 'warn':
+      case 'warning':
         iconType = 'exclamation-circle-o';
         break;
       default:
@@ -121,7 +121,7 @@ const api = {
   },
 };
 
-['success', 'info', 'warn', 'error'].forEach((type) => {
+['success', 'info', 'warning', 'error'].forEach((type) => {
   api[type] = (args) => {
     let newArgs = {
       ...args,
