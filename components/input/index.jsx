@@ -17,6 +17,10 @@ function fixControlledValue(value) {
 }
 
 class Group extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.any,
+  }
+
   render() {
     const className = classNames({
       'ant-input-group': true,
@@ -30,11 +34,32 @@ class Group extends React.Component {
   }
 }
 
-Group.propTypes = {
-  children: React.PropTypes.any,
-};
+export default class Input extends React.Component {
+  static Group = Group;
 
-class Input extends React.Component {
+  static defaultProps = {
+    defaultValue: '',
+    disabled: false,
+    prefixCls: 'ant-input',
+    type: 'text',
+  }
+
+  static propTypes = {
+    type: React.PropTypes.string,
+    id: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
+    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+    disabled: React.PropTypes.bool,
+    value: React.PropTypes.any,
+    defaultValue: React.PropTypes.any,
+    className: React.PropTypes.string,
+    addonBefore: React.PropTypes.node,
+    addonAfter: React.PropTypes.node,
+    prefixCls: React.PropTypes.string,
+  }
+
   renderLabledInput(children) {
     const props = this.props;
     const wrapperClassName = `${props.prefixCls}-group`;
@@ -98,29 +123,3 @@ class Input extends React.Component {
     return this.renderLabledInput(this.renderInput());
   }
 }
-
-Input.propTypes = {
-  type: React.PropTypes.string,
-  id: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
-  ]),
-  size: React.PropTypes.oneOf(['small', 'default', 'large']),
-  disabled: React.PropTypes.bool,
-  value: React.PropTypes.any,
-  defaultValue: React.PropTypes.any,
-  className: React.PropTypes.string,
-  addonBefore: React.PropTypes.node,
-  addonAfter: React.PropTypes.node,
-  prefixCls: React.PropTypes.string,
-};
-
-Input.defaultProps = {
-  defaultValue: '',
-  disabled: false,
-  prefixCls: 'ant-input',
-  type: 'text',
-};
-
-Input.Group = Group;
-export default Input;

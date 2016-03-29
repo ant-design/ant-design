@@ -4,6 +4,10 @@ import classNames from 'classnames';
 const prefix = 'ant-btn-group-';
 
 export default class ButtonGroup extends React.Component {
+  static propTypes = {
+    size: React.PropTypes.oneOf(['large', 'small']),
+  }
+
   render() {
     const { size, className, ...others } = this.props;
 
@@ -23,6 +27,3 @@ export default class ButtonGroup extends React.Component {
     return <div {...others} className={classes} />;
   }
 }
-ButtonGroup.propTypes = {
-  size: React.PropTypes.oneOf(['large', 'small']),
-};

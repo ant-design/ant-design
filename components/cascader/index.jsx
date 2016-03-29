@@ -6,6 +6,21 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 
 export default class Cascader extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-cascader',
+    placeholder: '请选择',
+    transitionName: 'slide-up',
+    popupPlacement: 'bottomLeft',
+    onChange() {},
+    options: [],
+    displayRender(label) {
+      return label.join(' / ');
+    },
+    disabled: false,
+    allowClear: true,
+    onPopupVisibleChange() {},
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -13,36 +28,43 @@ export default class Cascader extends React.Component {
       popupVisible: false,
     };
   }
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({ value: nextProps.value || [] });
     }
   }
+
   handleChange = (value, selectedOptions) => {
     this.setValue(value, selectedOptions);
   }
+
   handlePopupVisibleChange = (popupVisible) => {
     this.setState({ popupVisible });
     this.props.onPopupVisibleChange(popupVisible);
   }
+
   setValue = (value, selectedOptions = []) => {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
     this.props.onChange(value, selectedOptions);
   }
+
   getLabel() {
     const { options, displayRender } = this.props;
     const label = arrayTreeFilter(options, (o, level) => o.value === this.state.value[level])
       .map(o => o.label);
     return displayRender(label);
   }
+
   clearSelection = (e) => {
     e.preventDefault();
     e.stopPropagation();
     this.setValue([]);
     this.setState({ popupVisible: false });
   }
+
   render() {
     const { prefixCls, children, placeholder, size, disabled,
             className, style, allowClear, ...otherProps } = this.props;
@@ -92,18 +114,3 @@ export default class Cascader extends React.Component {
     );
   }
 }
-
-Cascader.defaultProps = {
-  prefixCls: 'ant-cascader',
-  placeholder: '请选择',
-  transitionName: 'slide-up',
-  popupPlacement: 'bottomLeft',
-  onChange() {},
-  options: [],
-  displayRender(label) {
-    return label.join(' / ');
-  },
-  disabled: false,
-  allowClear: true,
-  onPopupVisibleChange() {},
-};

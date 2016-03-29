@@ -6,6 +6,26 @@ import { Group, Button } from '../radio';
 function noop() {}
 
 export default class Header extends React.Component {
+  static defaultProps = {
+    prefixCls: `${PREFIX_CLS}-header`,
+    yearSelectOffset: 10,
+    yearSelectTotal: 20,
+    onValueChange: noop,
+    onTypeChange: noop,
+  }
+
+  static propTypes = {
+    value: PropTypes.object,
+    locale: PropTypes.object,
+    yearSelectOffset: PropTypes.number,
+    yearSelectTotal: PropTypes.number,
+    onValueChange: PropTypes.func,
+    onTypeChange: PropTypes.func,
+    prefixCls: PropTypes.string,
+    selectPrefixCls: PropTypes.string,
+    type: PropTypes.string,
+  }
+
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
     const start = year - yearSelectOffset;
@@ -29,6 +49,7 @@ export default class Header extends React.Component {
       </Select>
     );
   }
+
   getMonthSelectElement(month) {
     const props = this.props;
     const months = props.locale.format.months;
@@ -52,6 +73,7 @@ export default class Header extends React.Component {
       </Select>
     );
   }
+
   onYearChange = (year) => {
     const newValue = this.props.value.clone();
     newValue.setYear(parseInt(year, 10));
@@ -63,9 +85,11 @@ export default class Header extends React.Component {
     newValue.setMonth(parseInt(month, 10));
     this.props.onValueChange(newValue);
   }
+
   onTypeChange = (e) => {
     this.props.onTypeChange(e.target.value);
   }
+
   render() {
     const { type, value, prefixCls, locale } = this.props;
     const yearSelect = this.getYearSelectElement(value.getYear());
@@ -86,23 +110,3 @@ export default class Header extends React.Component {
     );
   }
 }
-
-Header.propTypes = {
-  value: PropTypes.object,
-  locale: PropTypes.object,
-  yearSelectOffset: PropTypes.number,
-  yearSelectTotal: PropTypes.number,
-  onValueChange: PropTypes.func,
-  onTypeChange: PropTypes.func,
-  prefixCls: PropTypes.string,
-  selectPrefixCls: PropTypes.string,
-  type: PropTypes.string,
-};
-
-Header.defaultProps = {
-  prefixCls: `${PREFIX_CLS}-header`,
-  yearSelectOffset: 10,
-  yearSelectTotal: 20,
-  onValueChange: noop,
-  onTypeChange: noop,
-};

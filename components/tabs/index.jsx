@@ -4,9 +4,20 @@ import classNames from 'classnames';
 import Icon from '../icon';
 
 export default class Tabs extends React.Component {
+  static TabPane = RcTabs.TabPane;
+
+  static defaultProps = {
+    prefixCls: 'ant-tabs',
+    animation: 'slide-horizontal',
+    type: 'line', // or 'card' 'editable-card'
+    onChange() {},
+    onEdit() {},
+  }
+
   createNewTab = (targetKey) => {
     this.props.onEdit(targetKey, 'add');
   }
+
   removeTab = (targetKey, e) => {
     e.stopPropagation();
     if (!targetKey) {
@@ -14,9 +25,11 @@ export default class Tabs extends React.Component {
     }
     this.props.onEdit(targetKey, 'remove');
   }
+
   handleChange = (activeKey) => {
     this.props.onChange(activeKey);
   }
+
   render() {
     let { prefixCls, size, tabPosition, animation, type,
           children, tabBarExtraContent } = this.props;
@@ -65,13 +78,3 @@ export default class Tabs extends React.Component {
     );
   }
 }
-
-Tabs.defaultProps = {
-  prefixCls: 'ant-tabs',
-  animation: 'slide-horizontal',
-  type: 'line', // or 'card' 'editable-card'
-  onChange() {},
-  onEdit() {},
-};
-
-Tabs.TabPane = RcTabs.TabPane;

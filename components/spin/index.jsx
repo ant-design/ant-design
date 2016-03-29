@@ -3,6 +3,16 @@ import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
 
 export default class Spin extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-spin',
+    spining: true,
+  }
+
+  static propTypes = {
+    className: React.PropTypes.string,
+    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+  }
+
   isNestedPattern() {
     return !!(this.props && this.props.children);
   }
@@ -45,13 +55,3 @@ export default class Spin extends React.Component {
     return spinElement;
   }
 }
-
-Spin.defaultProps = {
-  prefixCls: 'ant-spin',
-  spining: true,
-};
-
-Spin.propTypes = {
-  className: React.PropTypes.string,
-  size: React.PropTypes.oneOf(['small', 'default', 'large']),
-};

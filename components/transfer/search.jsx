@@ -4,6 +4,19 @@ function noop() {
 }
 
 export default class Search extends React.Component {
+  static defaultProps = {
+    placeholder: '',
+    onChange: noop,
+    handleClear: noop,
+  }
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
+    handleClear: PropTypes.func,
+  }
+
   handleChange = (e) => {
     this.props.onChange(e);
   }
@@ -29,16 +42,3 @@ export default class Search extends React.Component {
     );
   }
 }
-
-Search.defaultProps = {
-  placeholder: '',
-  onChange: noop,
-  handleClear: noop,
-};
-
-Search.propTypes = {
-  prefixCls: PropTypes.string,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func,
-  handleClear: PropTypes.func,
-};

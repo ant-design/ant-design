@@ -5,6 +5,13 @@ import Icon from '../icon';
 import classNames from 'classnames';
 
 export default class Tag extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-tag',
+    closable: false,
+    onClose() {},
+    afterClose() {},
+  }
+
   constructor(props) {
     super(props);
 
@@ -61,10 +68,3 @@ export default class Tag extends React.Component {
     );
   }
 }
-
-Tag.defaultProps = {
-  prefixCls: 'ant-tag',
-  closable: false,
-  onClose() {},
-  afterClose() {},
-};

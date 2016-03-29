@@ -4,14 +4,24 @@ import Select from '../select';
 import zhCN from './locale/zh_CN';
 
 class MiniSelect extends React.Component {
+  static Option = Select.Option;
+
   render() {
     return <Select size="small" {...this.props} />;
   }
 }
 
-MiniSelect.Option = Select.Option;
-
 export default class Pagination extends React.Component {
+  static defaultProps = {
+    locale: zhCN,
+    className: '',
+    prefixCls: 'ant-pagination',
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
   render() {
     let className = this.props.className;
     let selectComponentClass = Select;
@@ -37,13 +47,3 @@ export default class Pagination extends React.Component {
     );
   }
 }
-
-Pagination.defaultProps = {
-  locale: zhCN,
-  className: '',
-  prefixCls: 'ant-pagination',
-};
-
-Pagination.contextTypes = {
-  antLocale: React.PropTypes.object,
-};
