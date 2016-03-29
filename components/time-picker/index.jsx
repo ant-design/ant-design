@@ -5,34 +5,32 @@ import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
 import GregorianCalendar from 'gregorian-calendar';
 
-const TimePicker = React.createClass({
-  getDefaultProps() {
-    return {
-      format: 'HH:mm:ss',
-      prefixCls: 'ant-time-picker',
-      onChange() {
-      },
-      locale: {},
-      align: {
-        offset: [0, -2],
-      },
-      disabled: false,
-      disabledHours: undefined,
-      disabledMinutes: undefined,
-      disabledSeconds: undefined,
-      hideDisabledOptions: false,
-      placement: 'bottomLeft',
-      transitionName: 'slide-up',
-    };
-  },
+export default class TimePicker extends React.Component {
+  static defaultProps = {
+    format: 'HH:mm:ss',
+    prefixCls: 'ant-time-picker',
+    onChange() {
+    },
+    locale: {},
+    align: {
+      offset: [0, -2],
+    },
+    disabled: false,
+    disabledHours: undefined,
+    disabledMinutes: undefined,
+    disabledSeconds: undefined,
+    hideDisabledOptions: false,
+    placement: 'bottomLeft',
+    transitionName: 'slide-up',
+  }
 
-  contextTypes: {
+  static contextTypes = {
     antLocale: React.PropTypes.object,
-  },
+  }
 
   getFormatter() {
     return new DateTimeFormat(this.props.format);
-  },
+  }
 
   /**
    * 获得输入框的 className
@@ -45,7 +43,7 @@ const TimePicker = React.createClass({
       sizeClass = ' ant-input-sm';
     }
     return sizeClass;
-  },
+  }
 
   /**
    * 获得输入框的默认值
@@ -64,14 +62,14 @@ const TimePicker = React.createClass({
       }
     }
     return value;
-  },
+  }
 
-  handleChange(value) {
+  handleChange = (value) => {
     this.props.onChange(
       value ? new Date(value.getTime()) : null,
       value ? this.getFormatter().format(value) : '',
     );
-  },
+  }
 
   getLocale() {
     let locale = defaultLocale;
@@ -80,7 +78,7 @@ const TimePicker = React.createClass({
     }
     // 统一合并为完整的 Locale
     return { ...locale, ...this.props.locale };
-  },
+  }
 
   render() {
     const locale = this.getLocale();
@@ -116,7 +114,4 @@ const TimePicker = React.createClass({
       />
     );
   }
-
-});
-
-export default TimePicker;
+}

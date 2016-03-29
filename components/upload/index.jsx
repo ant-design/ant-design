@@ -52,15 +52,39 @@ function genPercentAdd() {
   };
 }
 
-const Upload = React.createClass({
-  getInitialState() {
-    return {
+class UploadDragger extends React.Component {
+  render() {
+    return <Upload {...this.props} type="drag" style={{ height: this.props.height }} />;
+  }
+}
+
+export default class Upload extends React.Component {
+  static Dragger = UploadDragger;
+
+  static defaultProps = {
+    type: 'select',
+    // do not set
+    // name: '',
+    multiple: false,
+    action: '',
+    data: {},
+    accept: '',
+    onChange: noop,
+    beforeUpload: T,
+    showUploadList: true,
+    listType: 'text', // or pictrue
+    className: '',
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
       fileList: this.props.fileList || this.props.defaultFileList || [],
       dragState: 'drop'
     };
-  },
+  }
 
-  onStart(file) {
+  onStart = (file) => {
     if (this.recentUploadStatus === false) return;
 
     let targetItem;
@@ -85,7 +109,7 @@ const Upload = React.createClass({
     if (!window.FormData) {
       this.autoUpdateProgress(0, targetItem);
     }
-  },
+  }
 
   autoUpdateProgress(percent, file) {
     const getPercent = genPercentAdd();
@@ -96,7 +120,7 @@ const Upload = React.createClass({
         percent: curPercent
       }, file);
     }, 200);
-  },
+  }
 
   removeFile(file) {
     let fileList = this.state.fileList;
@@ -107,9 +131,9 @@ const Upload = React.createClass({
       return fileList;
     }
     return null;
-  },
+  }
 
-  onSuccess(response, file) {
+  onSuccess = (response, file) => {
     this.clearProgressTimer();
     try {
       if (typeof response === 'string') {
@@ -127,9 +151,9 @@ const Upload = React.createClass({
         fileList
       });
     }
-  },
+  }
 
-  onProgress(e, file) {
+  onProgress = (e, file) => {
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     if (!targetItem) return;
@@ -139,9 +163,9 @@ const Upload = React.createClass({
       file: targetItem,
       fileList: this.state.fileList
     });
-  },
+  }
 
-  onError(error, response, file) {
+  onError = (error, response, file) => {
     this.clearProgressTimer();
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
@@ -149,12 +173,12 @@ const Upload = React.createClass({
     targetItem.response = response;
     targetItem.status = 'error';
     this.handleRemove(targetItem);
-  },
+  }
 
   beforeUpload(file) {
     this.recentUploadStatus = this.props.beforeUpload(file);
     return this.recentUploadStatus;
-  },
+  }
 
   handleRemove(file) {
     let fileList = this.removeFile(file);
@@ -164,38 +188,21 @@ const Upload = React.createClass({
         fileList,
       });
     }
-  },
+  }
 
-  handleManualRemove(file) {
+  handleManualRemove = (file) => {
     /*eslint-disable */
     file.status = 'removed';
     /*eslint-enable */
     this.handleRemove(file);
-  },
+  }
 
-  onChange(info) {
+  onChange = (info) => {
     this.setState({
       fileList: info.fileList
     });
     this.props.onChange(info);
-  },
-
-  getDefaultProps() {
-    return {
-      type: 'select',
-      // do not set
-      // name: '',
-      multiple: false,
-      action: '',
-      data: {},
-      accept: '',
-      onChange: noop,
-      beforeUpload: T,
-      showUploadList: true,
-      listType: 'text', // or pictrue
-      className: '',
-    };
-  },
+  }
 
   componentWillReceiveProps(nextProps) {
     if ('fileList' in nextProps) {
@@ -203,17 +210,17 @@ const Upload = React.createClass({
         fileList: nextProps.fileList || [],
       });
     }
-  },
+  }
 
-  onFileDrop(e) {
+  onFileDrop = (e) => {
     this.setState({
       dragState: e.type
     });
-  },
+  }
 
   clearProgressTimer() {
     clearInterval(this.progressTimer);
-  },
+  }
 
   render() {
     let type = this.props.type || 'select';
@@ -283,12 +290,4 @@ const Upload = React.createClass({
       );
     }
   }
-});
-
-Upload.Dragger = React.createClass({
-  render() {
-    return <Upload {...this.props} type="drag" style={{ height: this.props.height }} />;
-  }
-});
-
-export default Upload;
+}

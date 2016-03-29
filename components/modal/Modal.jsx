@@ -8,25 +8,19 @@ function noop() {}
 let mousePosition;
 let mousePositionEventBinded;
 
-const Modal = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-modal',
-      onOk: noop,
-      onCancel: noop,
-      width: 520,
-      transitionName: 'zoom',
-      maskAnimation: 'fade',
-      confirmLoading: false,
-      visible: false,
-    };
-  },
+export default class Modal extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-modal',
+    onOk: noop,
+    onCancel: noop,
+    width: 520,
+    transitionName: 'zoom',
+    maskAnimation: 'fade',
+    confirmLoading: false,
+    visible: false,
+  }
 
-  contextTypes: {
-    antLocale: React.PropTypes.object,
-  },
-
-  propTypes: {
+  static propTypes = {
     prefixCls: PropTypes.string,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
@@ -39,15 +33,19 @@ const Modal = React.createClass({
     footer: PropTypes.node,
     title: PropTypes.node,
     closable: PropTypes.bool,
-  },
+  }
 
-  handleCancel(e) {
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
+  handleCancel = (e) => {
     this.props.onCancel(e);
-  },
+  }
 
-  handleOk() {
+  handleOk = () => {
     this.props.onOk();
-  },
+  }
 
   componentDidMount() {
     if (mousePositionEventBinded) {
@@ -65,7 +63,7 @@ const Modal = React.createClass({
       setTimeout(() => mousePosition = null, 20);
     });
     mousePositionEventBinded = true;
-  },
+  }
 
   render() {
     let props = this.props;
@@ -97,6 +95,4 @@ const Modal = React.createClass({
         visible={props.visible} mousePosition={mousePosition} />
     );
   }
-});
-
-export default Modal;
+}

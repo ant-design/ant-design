@@ -10,24 +10,24 @@ const statusColorMap = {
   success: '#87d068'
 };
 
-let Line = React.createClass({
-  propTypes: {
+class Line extends React.Component {
+  static defaultProps = {
+    percent: 0,
+    strokeWidth: 10,
+    status: 'normal', // exception active
+    showInfo: true,
+    trailColor: '#f3f3f3'
+  }
+
+  static propTypes = {
     status: React.PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
     showInfo: React.PropTypes.bool,
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
     trailColor: React.PropTypes.string,
     format: React.PropTypes.func,
-  },
-  getDefaultProps() {
-    return {
-      percent: 0,
-      strokeWidth: 10,
-      status: 'normal', // exception active
-      showInfo: true,
-      trailColor: '#f3f3f3'
-    };
-  },
+  }
+
   render() {
     let props = { ...this.props };
 
@@ -77,26 +77,26 @@ let Line = React.createClass({
       </div>
     );
   }
-});
+}
 
-let Circle = React.createClass({
-  propTypes: {
+class Circle extends React.Component {
+  static defaultProps = {
+    width: 132,
+    percent: 0,
+    strokeWidth: 6,
+    status: 'normal', // exception
+    trailColor: '#f3f3f3',
+  }
+
+  static propTypes = {
     status: React.PropTypes.oneOf(['normal', 'exception', 'success']),
     percent: React.PropTypes.number,
     strokeWidth: React.PropTypes.number,
     width: React.PropTypes.number,
     trailColor: React.PropTypes.string,
     format: React.PropTypes.func,
-  },
-  getDefaultProps() {
-    return {
-      width: 132,
-      percent: 0,
-      strokeWidth: 6,
-      status: 'normal', // exception
-      trailColor: '#f3f3f3',
-    };
-  },
+  }
+
   render() {
     let props = { ...this.props };
 
@@ -141,7 +141,7 @@ let Circle = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default {
   Line,
