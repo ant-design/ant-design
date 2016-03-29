@@ -142,7 +142,7 @@ const Table = React.createClass({
   },
 
   getSortedColumn(columns) {
-    return (columns || this.props.columns).filter(col => col.sorted)[0];
+    return (columns || this.props.columns).filter(col => col.sortOrder)[0];
   },
 
   getSortStateFromColumns(columns) {
@@ -150,7 +150,7 @@ const Table = React.createClass({
     if (sortedColumn) {
       return {
         sortColumn: sortedColumn,
-        sortOrder: sortedColumn.sorted,
+        sortOrder: sortedColumn.sortOrder,
       };
     }
     return {
