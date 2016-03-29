@@ -37,7 +37,7 @@ const App = React.createClass({
       filteredValue: {},
       sortedValue: {
         order: 'descend',
-        field: 'name',
+        columnKey: 'name',
       },
     };
   },
@@ -63,13 +63,13 @@ const App = React.createClass({
       filteredValue: filteredValue.name,
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
-      sorted: sortedValue.field === 'name' && sortedValue.order,
+      sorted: sortedValue.columnKey === 'name' && sortedValue.order,
     }, {
       title: '年龄',
       dataIndex: 'age',
       key: 'age',
       sorter: (a, b) => a.age - b.age,
-      sorted: sortedValue.field === 'age' && sortedValue.order,
+      sorted: sortedValue.columnKey === 'age' && sortedValue.order,
     }, {
       title: '地址',
       dataIndex: 'address',
@@ -81,7 +81,7 @@ const App = React.createClass({
       filteredValue: filteredValue.address,
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
-      sorted: sortedValue.column.key === 'address' && sortedValue.order,
+      sorted: sortedValue.columnKey === 'address' && sortedValue.order,
     }];
     return <Table columns={columns} dataSource={data} onChange={this.handleChange} />;
   }

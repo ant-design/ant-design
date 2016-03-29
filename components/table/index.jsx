@@ -33,7 +33,7 @@ const Table = React.createClass({
       selectedRowKeys: this.props.selectedRowKeys || [],
       filters: {},
       selectionDirty: false,
-      ...this.getSortState(),
+      ...this.getSortStateFromColumns(),
       radioIndex: null,
       pagination: this.hasPagination() ?
       {
@@ -114,8 +114,10 @@ const Table = React.createClass({
       });
     }
     if ('columns' in nextProps) {
-      const sortState = this.getSortState(nextProps.columns);
-      if (sortState) {
+      const sortState = this.getSortStateFromColumns(nextProps.columns);
+      if (sortState && (
+        sortState.sortColumn !== this.state.sortColumn ||
+        sortState.sortOrder !== this.state.sortOrder)) {
         this.setState(sortState);
       }
     }
@@ -143,7 +145,7 @@ const Table = React.createClass({
     return (columns || this.props.columns).filter(col => col.sorted)[0];
   },
 
-  getSortState(columns) {
+  getSortStateFromColumns(columns) {
     const sortedColumn = this.getSortedColumn(columns);
     if (sortedColumn) {
       return {
@@ -155,7 +157,8 @@ const Table = React.createClass({
 
   getSorterFn() {
     const { sortOrder, sortColumn } = this.state;
-    if (!sortOrder || !sortColumn) {
+    if (!sortOrder || !sortColumn ||
+        typeof sortColumn.sorter !== 'function') {
       return () => {};
     }
     return (a, b) => {
@@ -186,7 +189,10 @@ const Table = React.createClass({
       sortOrder,
       sortColumn,
     };
-    this.setState(newState);
+    // Controlled
+    if (!this.getSortStateFromColumns()) {
+      this.setState(newState);
+    }
     this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
@@ -525,6 +531,7 @@ const Table = React.createClass({
       sorter.column = state.sortColumn;
       sorter.order = state.sortOrder;
       sorter.field = state.sortColumn.dataIndex;
+      sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
     return [pagination, filters, sorter];
   },
