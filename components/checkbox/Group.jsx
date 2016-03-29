@@ -1,37 +1,35 @@
 import React from 'react';
 import Checkbox from './index';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      options: [],
-      defaultValue: [],
-      onChange() {},
-    };
-  },
-  propTypes: {
+export default class CheckboxGroup extends React.Component {
+  static defaultProps = {
+    options: [],
+    defaultValue: [],
+    onChange() {},
+  }
+  static propTypes = {
     defaultValue: React.PropTypes.array,
     value: React.PropTypes.array,
     options: React.PropTypes.array.isRequired,
     onChange: React.PropTypes.func,
-  },
-  getInitialState() {
-    const props = this.props;
+  }
+  constructor(props) {
+    super(props);
     let value;
     if ('value' in props) {
       value = props.value;
     } else if ('defaultValue' in props) {
       value = props.defaultValue;
     }
-    return { value };
-  },
+    this.state = { value };
+  }
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value || [],
       });
     }
-  },
+  }
   getOptions() {
     const { options } = this.props;
     return options.map(option => {
@@ -43,8 +41,8 @@ export default React.createClass({
       }
       return option;
     });
-  },
-  toggleOption(option) {
+  }
+  toggleOption = (option) => {
     const optionIndex = this.state.value.indexOf(option.value);
     const value = [...this.state.value];
     if (optionIndex === - 1) {
@@ -56,7 +54,7 @@ export default React.createClass({
       this.setState({ value });
     }
     this.props.onChange(value);
-  },
+  }
   render() {
     const options = this.getOptions();
     return (
@@ -73,5 +71,5 @@ export default React.createClass({
         }
       </div>
     );
-  },
-});
+  }
+}

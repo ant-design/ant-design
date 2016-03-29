@@ -1,28 +1,27 @@
 import React from 'react';
-import Tooltip from 'rc-tooltip';
+import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
 
 const placements = getPlacements({
   verticalArrowShift: 8,
 });
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-tooltip',
-      placement: 'top',
-      mouseEnterDelay: 0.1,
-      mouseLeaveDelay: 0.1
-    };
-  },
-  getInitialState() {
-    return {
+export default class Tooltip extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-tooltip',
+    placement: 'top',
+    mouseEnterDelay: 0.1,
+    mouseLeaveDelay: 0.1
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
       visible: false
     };
-  },
-  onVisibleChange(visible) {
+  }
+  onVisibleChange = (visible) => {
     this.setState({ visible });
-  },
+  }
   render() {
     let transitionName = ({
       top: 'zoom-down',
@@ -46,14 +45,14 @@ export default React.createClass({
     }
 
     return (
-      <Tooltip transitionName={transitionName}
+      <RcTooltip transitionName={transitionName}
         builtinPlacements={placements}
         overlay={this.props.title}
         visible={visible}
         onVisibleChange={this.onVisibleChange}
         {...this.props}>
         {this.props.children}
-      </Tooltip>
+      </RcTooltip>
     );
   }
-});
+}
