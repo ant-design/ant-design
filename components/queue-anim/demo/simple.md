@@ -10,7 +10,7 @@
 import { QueueAnim } from 'antd';
 
 ReactDOM.render(
-  <QueueAnim delay={500}>
+  <QueueAnim delay={500} style={{ height: 150 }}>
     <div key="a">依次进场</div>
     <div key="b">依次进场</div>
     <div key="c">依次进场</div>
