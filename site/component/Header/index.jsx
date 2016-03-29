@@ -43,7 +43,7 @@ export default class Header extends React.Component {
   }
 
   handleSearch(value) {
-    this.props.history.push({ pathname: value });
+    this.context.router.push({ pathname: value });
   }
 
   handleSelectFilter(value, option) {
@@ -137,3 +137,7 @@ export default class Header extends React.Component {
     );
   }
 }
+
+Header.contextTypes = {
+  router: React.PropTypes.object.isRequired,
+};
