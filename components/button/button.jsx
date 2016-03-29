@@ -30,7 +30,7 @@ function clearButton(button) {
 }
 
 export default class Button extends React.Component {
-  handleClick(...args) {
+  handleClick = (...args) => {
     // Add click effect
     const buttonNode = findDOMNode(this);
     clearButton(buttonNode);
@@ -66,7 +66,7 @@ export default class Button extends React.Component {
       <button {...others}
         type={htmlType || 'button'}
         className={classes}
-        onClick={this.handleClick.bind(this)}>
+        onClick={this.handleClick}>
         {icon ? <Icon type={icon} /> : null}{kids}
       </button>
     );

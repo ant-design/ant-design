@@ -23,7 +23,7 @@ export default class Header extends React.Component {
         dropdownMatchSelectWidth={false}
         dropdownMenuStyle={{ minWidth: 103 }}
         className={`${prefixCls}-year-select`}
-        onChange={this.onYearChange.bind(this)}
+        onChange={this.onYearChange}
         value={String(year)}>
         { options }
       </Select>
@@ -47,23 +47,23 @@ export default class Header extends React.Component {
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}
         value={String(month)}
-        onChange={this.onMonthChange.bind(this)}>
+        onChange={this.onMonthChange}>
         { options }
       </Select>
     );
   }
-  onYearChange(year) {
+  onYearChange = (year) => {
     const newValue = this.props.value.clone();
     newValue.setYear(parseInt(year, 10));
     this.props.onValueChange(newValue);
   }
 
-  onMonthChange(month) {
+  onMonthChange = (month) => {
     const newValue = this.props.value.clone();
     newValue.setMonth(parseInt(month, 10));
     this.props.onValueChange(newValue);
   }
-  onTypeChange(e) {
+  onTypeChange = (e) => {
     this.props.onTypeChange(e.target.value);
   }
   render() {
@@ -71,7 +71,7 @@ export default class Header extends React.Component {
     const yearSelect = this.getYearSelectElement(value.getYear());
     const monthSelect = type === 'date' ? this.getMonthSelectElement(value.getMonth()) : null;
     const typeSwitch = (
-      <Group onChange={this.onTypeChange.bind(this)} value={type}>
+      <Group onChange={this.onTypeChange} value={type}>
         <Button value="date">{locale.month}</Button>
         <Button value="month">{locale.year}</Button>
       </Group>

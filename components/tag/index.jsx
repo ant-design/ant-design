@@ -14,7 +14,7 @@ export default class Tag extends React.Component {
     };
   }
 
-  close(e) {
+  close = (e) => {
     this.props.onClose(e);
     if (e.defaultPrevented) return;
     const dom = ReactDOM.findDOMNode(this);
@@ -26,7 +26,7 @@ export default class Tag extends React.Component {
     });
   }
 
-  animationEnd(key, existed) {
+  animationEnd = (key, existed) => {
     if (!existed) {
       this.setState({
         closed: true,
@@ -38,7 +38,7 @@ export default class Tag extends React.Component {
 
   render() {
     const { prefixCls, closable, color, className, children, ...restProps } = this.props;
-    const close = closable ? <Icon type="cross" onClick={this.close.bind(this)} /> : '';
+    const close = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${color}`]: !!color,
@@ -50,7 +50,7 @@ export default class Tag extends React.Component {
         showProp="data-show"
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
-        onEnd={this.animationEnd.bind(this)}>
+        onEnd={this.animationEnd}>
         {this.state.closed ? null : (
           <div data-show={!this.state.closing} {...restProps} className={classString}>
             <span className={`${prefixCls}-text`}>{children}</span>
