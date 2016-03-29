@@ -153,6 +153,10 @@ const Table = React.createClass({
         sortOrder: sortedColumn.sorted,
       };
     }
+    return {
+      sortColumn: null,
+      sortOrder: null,
+    };
   },
 
   getSorterFn() {

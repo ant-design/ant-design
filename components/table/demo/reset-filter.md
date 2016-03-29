@@ -35,18 +35,27 @@ const App = React.createClass({
   getInitialState() {
     return {
       filteredValue: {},
-      sortedValue: {
-        order: 'descend',
-        columnKey: 'name',
-      },
+      sortedValue: {},
     };
   },
   handleChange(pagination, filters, sorter) {
-    // 点击分页、筛选、排序时触发
     console.log('各类参数是', pagination, filters, sorter);
     this.setState({
       filteredValue: filters,
       sortedValue: sorter,
+    });
+  },
+  clearFilters(e) {
+    e.preventDefault();
+    this.setState({ filteredValue: {} });
+  },
+  setAgeSort(e) {
+    e.preventDefault();
+    this.setState({
+      sortedValue: {
+        order: 'descend',
+        columnKey: 'age',
+      },
     });
   },
   render() {
@@ -83,9 +92,29 @@ const App = React.createClass({
       sorter: (a, b) => a.address.length - b.address.length,
       sorted: sortedValue.columnKey === 'address' && sortedValue.order,
     }];
-    return <Table columns={columns} dataSource={data} onChange={this.handleChange} />;
+    return (
+      <div>
+        <div className="table-operations">
+          <a href="#" onClick={this.clearFilters}>清除筛选</a>
+          <a href="#" onClick={this.setAgeSort}>年龄降序排序</a>
+        </div>
+        <Table columns={columns} dataSource={data} onChange={this.handleChange} />
+      </div>
+    );
   }
 });
 
 ReactDOM.render(<App />, mountNode);
+````
+
+````css
+.table-operations {
+  font-size: 12px;
+  text-align: right;
+  margin-bottom: 16px;
+}
+
+.table-operations a {
+  margin-left: 8px;
+}
 ````
