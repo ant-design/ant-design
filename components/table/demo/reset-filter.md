@@ -4,6 +4,10 @@
 
 使用受控属性对筛选和排序状态进行控制。
 
+> 1. columns 中定义了 fileredValue 和 sortOrder 属性即视为受控模式。
+
+> 2. 只支持同时对一列进行排序，请保证只有一列的 sortOrder 属性是生效的。
+
 ---
 
 ````jsx
@@ -34,33 +38,41 @@ const data = [{
 const App = React.createClass({
   getInitialState() {
     return {
-      filteredValue: {},
-      sortedValue: {},
+      filteredInfo: null,
+      sortedInfo: null,
     };
   },
   handleChange(pagination, filters, sorter) {
     console.log('各类参数是', pagination, filters, sorter);
     this.setState({
-      filteredValue: filters,
-      sortedValue: sorter,
+      filteredInfo: filters,
+      sortedInfo: sorter,
     });
   },
   clearFilters(e) {
     e.preventDefault();
-    this.setState({ filteredValue: {} });
+    this.setState({ filteredInfo: null });
+  },
+  clearAll(e) {
+    e.preventDefault();
+    this.setState({
+      filteredInfo: null,
+      sortedInfo: null,
+    });
   },
   setAgeSort(e) {
     e.preventDefault();
     this.setState({
-      sortedValue: {
+      sortedInfo: {
         order: 'descend',
         columnKey: 'age',
       },
     });
   },
   render() {
-    const { sortedValue, filteredValue } = this.state;
-    sortedValue.column = sortedValue.column || {};
+    let { sortedInfo, filteredInfo } = this.state;
+    sortedInfo = sortedInfo || {};
+    filteredInfo = filteredInfo || {};
     const columns = [{
       title: '姓名',
       dataIndex: 'name',
@@ -69,16 +81,16 @@ const App = React.createClass({
         { text: '姓李的', value: '李' },
         { text: '姓胡的', value: '胡' },
       ],
-      filteredValue: filteredValue.name,
+      filteredValue: filteredInfo.name,
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
-      sortOrder: sortedValue.columnKey === 'name' && sortedValue.order,
+      sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
     }, {
       title: '年龄',
       dataIndex: 'age',
       key: 'age',
       sorter: (a, b) => a.age - b.age,
-      sortOrder: sortedValue.columnKey === 'age' && sortedValue.order,
+      sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
     }, {
       title: '地址',
       dataIndex: 'address',
@@ -87,16 +99,17 @@ const App = React.createClass({
         { text: '南湖', value: '南湖' },
         { text: '西湖', value: '西湖' },
       ],
-      filteredValue: filteredValue.address,
+      filteredValue: filteredInfo.address,
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
-      sortOrder: sortedValue.columnKey === 'address' && sortedValue.order,
+      sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
     }];
     return (
       <div>
         <div className="table-operations">
-          <a href="#" onClick={this.clearFilters}>清除筛选</a>
           <a href="#" onClick={this.setAgeSort}>年龄降序排序</a>
+          <a href="#" onClick={this.clearFilters}>清除筛选</a>
+          <a href="#" onClick={this.clearAll}>清除筛选和排序</a>
         </div>
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>

@@ -31,7 +31,7 @@ const Table = React.createClass({
     return {
       // 减少状态
       selectedRowKeys: this.props.selectedRowKeys || [],
-      filters: {},
+      filters: this.getFiltersFromColumns(),
       selectionDirty: false,
       ...this.getSortStateFromColumns(),
       radioIndex: null,
@@ -113,12 +113,17 @@ const Table = React.createClass({
         selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
       });
     }
-    if ('columns' in nextProps) {
+    if (this.hasSortOrderInColumns(nextProps.columns)) {
       const sortState = this.getSortStateFromColumns(nextProps.columns);
-      if (sortState && (
-        sortState.sortColumn !== this.state.sortColumn ||
-        sortState.sortOrder !== this.state.sortOrder)) {
+      if (sortState.sortColumn !== this.state.sortColumn ||
+          sortState.sortOrder !== this.state.sortOrder) {
         this.setState(sortState);
+      }
+    }
+    if (this.hasFilteredValueInColumns(nextProps.columns)) {
+      const filters = this.getFiltersFromColumns(nextProps.columns);
+      if (this.isFiltersChanged(filters)) {
+        this.setState({ filters });
       }
     }
   },
@@ -139,6 +144,38 @@ const Table = React.createClass({
 
   hasPagination() {
     return this.props.pagination !== false;
+  },
+
+  isFiltersChanged(filters) {
+    let filtersChanged = false;
+    if (Object.keys(filters).length !== Object.keys(this.state.filters).length) {
+      filtersChanged = true;
+    } else {
+      Object.keys(filters).forEach(columnKey => {
+        if (filters[columnKey] !== this.state.filters[columnKey]) {
+          filtersChanged = true;
+        }
+      });
+    }
+    return filtersChanged;
+  },
+
+  hasSortOrderInColumns(columns) {
+    return (columns || this.props.columns).some(column => 'sortOrder' in column);
+  },
+
+  hasFilteredValueInColumns(columns) {
+    return (columns || this.props.columns).some(column => 'filteredValue' in column);
+  },
+
+  getFiltersFromColumns(columns) {
+    let filters = {};
+    (columns || this.props.columns).forEach(col => {
+      if (col.filteredValue) {
+        filters[this.getColumnKey(col)] = col.filteredValue;
+      }
+    });
+    return filters;
   },
 
   getSortedColumn(columns) {
@@ -194,7 +231,7 @@ const Table = React.createClass({
       sortColumn,
     };
     // Controlled
-    if (!this.getSortStateFromColumns()) {
+    if (!this.hasSortOrderInColumns()) {
       this.setState(newState);
     }
     this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
@@ -203,7 +240,7 @@ const Table = React.createClass({
   handleFilter(column, nextFilters) {
     const filters = {
       ...this.state.filters,
-      [this.getColumnKey(column)]: nextFilters
+      [this.getColumnKey(column)]: nextFilters,
     };
     // Remove filters not in current columns
     const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
@@ -216,8 +253,10 @@ const Table = React.createClass({
       selectionDirty: false,
       filters,
     };
-    this.setState(newState);
-    this.setSelectedRowKeys([]);
+    // Controlled
+    if (!this.hasFilteredValueInColumns()) {
+      this.setState(newState);
+    }
     this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
   },
 
