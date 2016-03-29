@@ -19,7 +19,7 @@
 
 ## API
 
-> 此组件取代了 0.9.x 版本的 [enter-animation](http://09x.ant.design/components/enter-animation/)。
+> 此组件 `antd@1.0.0+` 后标记为废弃，您可以直接使用 `import QueueAnim from 'rc-queue-anim'` 来代替。文档后续会移到 [ant-motioin](http://motion.ant.design/#/component/queue-anim)。
 
 元素依次进场。
 
