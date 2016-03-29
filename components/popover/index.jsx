@@ -6,6 +6,15 @@ const placements = getPlacements();
 const prefixCls = 'ant-popover';
 
 export default class Popover extends React.Component {
+  static defaultProps = {
+    prefixCls,
+    placement: 'top',
+    trigger: 'hover',
+    mouseEnterDelay: 0.1,
+    mouseLeaveDelay: 0.1,
+    overlayStyle: {}
+  }
+
   render() {
     const transitionName = ({
       top: 'zoom-down',
@@ -48,12 +57,3 @@ export default class Popover extends React.Component {
     );
   }
 }
-
-Popover.defaultProps = {
-  prefixCls,
-  placement: 'top',
-  trigger: 'hover',
-  mouseEnterDelay: 0.1,
-  mouseLeaveDelay: 0.1,
-  overlayStyle: {}
-};

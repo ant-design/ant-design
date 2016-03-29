@@ -8,6 +8,37 @@ function noop() {
 }
 
 export default class TransferList extends React.Component {
+  static defaultProps = {
+    dataSource: [],
+    titleText: '',
+    showSearch: false,
+    handleFilter: noop,
+    handleSelect: noop,
+    handleSelectAll: noop,
+    render: noop,
+    // advanced
+    body: noop,
+    footer: noop,
+  }
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    dataSource: PropTypes.array,
+    showSearch: PropTypes.bool,
+    searchPlaceholder: PropTypes.string,
+    titleText: PropTypes.string,
+    style: PropTypes.object,
+    handleFilter: PropTypes.func,
+    handleSelect: PropTypes.func,
+    handleSelectAll: PropTypes.func,
+    render: PropTypes.func,
+    body: PropTypes.func,
+    footer: PropTypes.func,
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
 
   constructor(props) {
     super(props);
@@ -151,35 +182,3 @@ export default class TransferList extends React.Component {
     );
   }
 }
-
-TransferList.defaultProps = {
-  dataSource: [],
-  titleText: '',
-  showSearch: false,
-  handleFilter: noop,
-  handleSelect: noop,
-  handleSelectAll: noop,
-  render: noop,
-  // advanced
-  body: noop,
-  footer: noop,
-};
-
-TransferList.propTypes = {
-  prefixCls: PropTypes.string,
-  dataSource: PropTypes.array,
-  showSearch: PropTypes.bool,
-  searchPlaceholder: PropTypes.string,
-  titleText: PropTypes.string,
-  style: PropTypes.object,
-  handleFilter: PropTypes.func,
-  handleSelect: PropTypes.func,
-  handleSelectAll: PropTypes.func,
-  render: PropTypes.func,
-  body: PropTypes.func,
-  footer: PropTypes.func,
-};
-
-TransferList.contextTypes = {
-  antLocale: React.PropTypes.object,
-};

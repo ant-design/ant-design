@@ -17,6 +17,11 @@ import SlickCarousel from 'react-slick';
 import React from 'react';
 
 export default class Carousel extends React.Component {
+  static defaultProps = {
+    dots: true,
+    arrows: false,
+  }
+
   render() {
     let props = { ...this.props };
 
@@ -37,8 +42,3 @@ export default class Carousel extends React.Component {
     );
   }
 }
-
-Carousel.defaultProps = {
-  dots: true,
-  arrows: false,
-};

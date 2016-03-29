@@ -3,6 +3,13 @@ import classNames from 'classnames';
 
 /* Exported as Timeline.Item */
 class TimelineItem extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-timeline',
+    color: 'blue',
+    last: false,
+    pending: false,
+  }
+
   render() {
     const { prefixCls, color, last, children, pending } = this.props;
     const itemClassName = classNames({
@@ -20,14 +27,13 @@ class TimelineItem extends React.Component {
   }
 }
 
-TimelineItem.defaultProps = {
-  prefixCls: 'ant-timeline',
-  color: 'blue',
-  last: false,
-  pending: false,
-};
-
 export default class Timeline extends React.Component {
+  static Item = TimelineItem;
+
+  static defaultProps = {
+    prefixCls: 'ant-timeline',
+  }
+
   render() {
     const { prefixCls, children, pending } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
@@ -51,9 +57,3 @@ export default class Timeline extends React.Component {
     );
   }
 }
-
-Timeline.defaultProps = {
-  prefixCls: 'ant-timeline',
-};
-
-Timeline.Item = TimelineItem;

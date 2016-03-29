@@ -2,6 +2,26 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default class Form extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-form',
+    onSubmit(e) {
+      e.preventDefault();
+    },
+  }
+
+  static propTypes = {
+    prefixCls: React.PropTypes.string,
+    horizontal: React.PropTypes.bool,
+    inline: React.PropTypes.bool,
+    form: React.PropTypes.object,
+    children: React.PropTypes.any,
+    onSubmit: React.PropTypes.func,
+  }
+
+  static childContextTypes = {
+    form: React.PropTypes.object,
+  }
+
   getChildContext() {
     return {
       form: this.props.form,
@@ -23,23 +43,3 @@ export default class Form extends React.Component {
     );
   }
 }
-
-Form.propTypes = {
-  prefixCls: React.PropTypes.string,
-  horizontal: React.PropTypes.bool,
-  inline: React.PropTypes.bool,
-  form: React.PropTypes.object,
-  children: React.PropTypes.any,
-  onSubmit: React.PropTypes.func,
-};
-
-Form.defaultProps = {
-  prefixCls: 'ant-form',
-  onSubmit(e) {
-    e.preventDefault();
-  },
-};
-
-Form.childContextTypes = {
-  form: React.PropTypes.object,
-};

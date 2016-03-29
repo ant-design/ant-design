@@ -4,6 +4,22 @@ import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 
 export default class Badge extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-badge',
+    count: null,
+    dot: false,
+    overflowCount: 99,
+  }
+
+  static propTypes = {
+    count: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number
+    ]),
+    dot: React.PropTypes.bool,
+    overflowCount: React.PropTypes.number,
+  }
+
   render() {
     let { count, prefixCls, overflowCount, className, style, children } = this.props;
     const dot = this.props.dot;
@@ -41,19 +57,3 @@ export default class Badge extends React.Component {
     );
   }
 }
-
-Badge.defaultProps = {
-  prefixCls: 'ant-badge',
-  count: null,
-  dot: false,
-  overflowCount: 99,
-};
-
-Badge.propTypes = {
-  count: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
-  ]),
-  dot: React.PropTypes.bool,
-  overflowCount: React.PropTypes.number,
-};

@@ -8,6 +8,28 @@ function prefixClsFn(prefixCls, ...args) {
 }
 
 export default class FormItem extends React.Component {
+  static defaultProps = {
+    hasFeedback: false,
+    prefixCls: 'ant-form',
+  }
+
+  static propTypes = {
+    prefixCls: React.PropTypes.string,
+    label: React.PropTypes.node,
+    labelCol: React.PropTypes.object,
+    help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
+    validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
+    hasFeedback: React.PropTypes.bool,
+    wrapperCol: React.PropTypes.object,
+    className: React.PropTypes.string,
+    id: React.PropTypes.string,
+    children: React.PropTypes.node,
+  }
+
+  static contextTypes = {
+    form: React.PropTypes.object,
+  }
+
   _getLayoutClass(colDef) {
     if (!colDef) {
       return '';
@@ -183,25 +205,3 @@ export default class FormItem extends React.Component {
     return this.renderFormItem(children);
   }
 }
-
-FormItem.propTypes = {
-  prefixCls: React.PropTypes.string,
-  label: React.PropTypes.node,
-  labelCol: React.PropTypes.object,
-  help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
-  validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
-  hasFeedback: React.PropTypes.bool,
-  wrapperCol: React.PropTypes.object,
-  className: React.PropTypes.string,
-  id: React.PropTypes.string,
-  children: React.PropTypes.node,
-};
-
-FormItem.defaultProps = {
-  hasFeedback: false,
-  prefixCls: 'ant-form',
-};
-
-FormItem.contextTypes = {
-  form: React.PropTypes.object,
-};

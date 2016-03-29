@@ -3,6 +3,17 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
 export default class Select extends React.Component {
+  static Option = Option;
+  static OptGroup = OptGroup;
+
+  static defaultProps = {
+    prefixCls: 'ant-select',
+    transitionName: 'slide-up',
+    optionLabelProp: 'children',
+    choiceTransitionName: 'zoom',
+    showSearch: false,
+  }
+
   render() {
     let {
       size, className, combobox, notFoundContent
@@ -25,14 +36,3 @@ export default class Select extends React.Component {
     );
   }
 }
-
-Select.defaultProps = {
-  prefixCls: 'ant-select',
-  transitionName: 'slide-up',
-  optionLabelProp: 'children',
-  choiceTransitionName: 'zoom',
-  showSearch: false,
-};
-
-Select.Option = Option;
-Select.OptGroup = OptGroup;
