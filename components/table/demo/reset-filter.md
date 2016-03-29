@@ -35,7 +35,10 @@ const App = React.createClass({
   getInitialState() {
     return {
       filteredValue: {},
-      sortedValue: {},
+      sortedValue: {
+        order: 'descend',
+        field: 'name',
+      },
     };
   },
   handleChange(pagination, filters, sorter) {
@@ -60,13 +63,13 @@ const App = React.createClass({
       filteredValue: filteredValue.name,
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
-      sorted: sortedValue.column.key === 'name' && sortedValue.order,
+      sorted: sortedValue.field === 'name' && sortedValue.order,
     }, {
       title: '年龄',
       dataIndex: 'age',
       key: 'age',
       sorter: (a, b) => a.age - b.age,
-      sorted: sortedValue.column.key === 'age' && sortedValue.order,
+      sorted: sortedValue.field === 'age' && sortedValue.order,
     }, {
       title: '地址',
       dataIndex: 'address',
