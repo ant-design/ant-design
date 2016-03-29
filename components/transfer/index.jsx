@@ -161,7 +161,7 @@ export default class Transfer extends React.Component {
 
     const cls = classNames({
       [className]: !!className,
-      prefixCls: true,
+      [prefixCls]: true,
     });
 
     return (

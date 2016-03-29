@@ -19,20 +19,17 @@ import reqwest from 'reqwest';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  filters: [{
-    text: '姓李的',
-    value: '李'
-  }, {
-    text: '姓胡的',
-    value: '胡'
-  }]
+  filters: [
+    { text: '姓李的', value: '李' },
+    { text: '姓胡的', value: '胡' },
+  ],
 }, {
   title: '年龄',
   dataIndex: 'age',
-  sorter: true
+  sorter: true,
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 
 const Test = React.createClass({
@@ -47,20 +44,15 @@ const Test = React.createClass({
     const pager = this.state.pagination;
     pager.current = pagination.current;
     this.setState({
-      pagination: pager
+      pagination: pager,
     });
-    const params = {
+    this.fetch({
       pageSize: pagination.pageSize,
       currentPage: pagination.current,
       sortField: sorter.field,
-      sortOrder: sorter.order
-    };
-    for (let key in filters) {
-      if (filters.hasOwnProperty(key)) {
-        params[key] = filters[key];
-      }
-    }
-    this.fetch(params);
+      sortOrder: sorter.order,
+      ...filters,
+    });
   },
   fetch(params = {}) {
     console.log('请求参数：', params);
