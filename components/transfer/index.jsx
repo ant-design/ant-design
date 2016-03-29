@@ -161,7 +161,7 @@ class Transfer extends Component {
 
     const cls = classNames({
       [className]: !!className,
-      prefixCls: true,
+      [prefixCls]: true,
     });
 
     return (
