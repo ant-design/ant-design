@@ -1,9 +1,13 @@
 import RcCheckbox from 'rc-checkbox';
 import React from 'react';
-import Group from './Group';
+import CheckboxGroup from './Group';
 import classNames from 'classnames';
 
 export default class Checkbox extends React.Component {
+  static Group = CheckboxGroup;
+  static defaultProps = {
+    prefixCls: 'ant-checkbox'
+  }
   render() {
     const { prefixCls, style, children, className, ...restProps } = this.props;
     const classString = classNames({
@@ -18,9 +22,3 @@ export default class Checkbox extends React.Component {
     );
   }
 }
-
-Checkbox.defaultProps = {
-  prefixCls: 'ant-checkbox'
-};
-
-Checkbox.Group = Group;

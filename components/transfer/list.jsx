@@ -24,21 +24,21 @@ export default class TransferList extends React.Component {
     }, 0);
   }
 
-  handleSelectAll() {
+  handleSelectAll = () => {
     this.props.handleSelectAll();
   }
 
-  handleSelect(selectedItem) {
+  handleSelect = (selectedItem) => {
     const { checkedKeys } = this.props;
     const result = checkedKeys.some((key) => key === selectedItem.key);
     this.props.handleSelect(selectedItem, !result);
   }
 
-  handleFilter(e) {
+  handleFilter = (e) => {
     this.props.handleFilter(e);
   }
 
-  handleClear() {
+  handleClear = () => {
     this.props.handleClear();
   }
 
@@ -57,7 +57,7 @@ export default class TransferList extends React.Component {
     return (
       <span ref="checkbox"
         className={checkboxCls}
-        onClick={(!props.disabled) && this.handleSelectAll.bind(this)}>
+        onClick={(!props.disabled) && this.handleSelectAll}>
         {customEle}
       </span>
     );
@@ -90,7 +90,7 @@ export default class TransferList extends React.Component {
     }).map((item) => {
       const renderedText = this.props.render(item);
       return (
-        <li onClick={this.handleSelect.bind(this, item)} key={item.key} title={renderedText}>
+        <li onClick={() => { this.handleSelect(item); }} key={item.key} title={renderedText}>
           <Checkbox checked={checkedKeys.some(key => key === item.key)} />
           {renderedText}
         </li>
@@ -131,8 +131,8 @@ export default class TransferList extends React.Component {
         <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
           { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
             <Search prefixCls={`${prefixCls}-search`}
-              onChange={this.handleFilter.bind(this)}
-              handleClear={this.handleClear.bind(this)}
+              onChange={this.handleFilter}
+              handleClear={this.handleClear}
               placeholder={searchPlaceholder || '请输入搜索内容'}
               value={filter} />
           </div> : null }
