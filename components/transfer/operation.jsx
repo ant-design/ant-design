@@ -6,6 +6,21 @@ function noop() {
 }
 
 export default class TransferOperation extends React.Component {
+  static defaultProps = {
+    leftArrowText: '',
+    rightArrowText: '',
+    moveToLeft: noop,
+    moveToRight: noop,
+  }
+
+  static propTypes = {
+    className: PropTypes.string,
+    leftArrowText: PropTypes.string,
+    rightArrowText: PropTypes.string,
+    moveToLeft: PropTypes.func,
+    moveToRight: PropTypes.func,
+  }
+
   render() {
     const {
       moveToLeft,
@@ -35,18 +50,3 @@ export default class TransferOperation extends React.Component {
     );
   }
 }
-
-TransferOperation.defaultProps = {
-  leftArrowText: '',
-  rightArrowText: '',
-  moveToLeft: noop,
-  moveToRight: noop,
-};
-
-TransferOperation.propTypes = {
-  className: PropTypes.string,
-  leftArrowText: PropTypes.string,
-  rightArrowText: PropTypes.string,
-  moveToLeft: PropTypes.func,
-  moveToRight: PropTypes.func,
-};

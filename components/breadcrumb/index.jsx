@@ -2,6 +2,20 @@ import React, { cloneElement } from 'react';
 
 /* Exported as Breadcrumb.Item */
 class BreadcrumbItem extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-breadcrumb',
+    separator: '/',
+  }
+
+  static propTypes = {
+    prefixCls: React.PropTypes.string,
+    separator: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element,
+    ]),
+    href: React.PropTypes.string,
+  }
+
   render() {
     const { prefixCls, separator, children } = this.props;
     let link = <a className={`${prefixCls}-link`} {...this.props}>{children}</a>;
@@ -17,21 +31,25 @@ class BreadcrumbItem extends React.Component {
   }
 }
 
-BreadcrumbItem.defaultProps = {
-  prefixCls: 'ant-breadcrumb',
-  separator: '/',
-};
-
-BreadcrumbItem.propTypes = {
-  prefixCls: React.PropTypes.string,
-  separator: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.element,
-  ]),
-  href: React.PropTypes.string,
-};
-
 export default class Breadcrumb extends React.Component {
+  static Item = BreadcrumbItem;
+
+  static defaultProps = {
+    prefixCls: 'ant-breadcrumb',
+    separator: '/',
+    linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
+  }
+
+  static propTypes = {
+    prefixCls: React.PropTypes.string,
+    separator: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.element,
+    ]),
+    routes: React.PropTypes.array,
+    params: React.PropTypes.object,
+  }
+
   render() {
     let crumbs;
     const { separator, prefixCls, routes, params, children, linkRender } = this.props;
@@ -76,21 +94,3 @@ export default class Breadcrumb extends React.Component {
     );
   }
 }
-
-Breadcrumb.defaultProps = {
-  prefixCls: 'ant-breadcrumb',
-  separator: '/',
-  linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
-};
-
-Breadcrumb.propTypes = {
-  prefixCls: React.PropTypes.string,
-  separator: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.element,
-  ]),
-  routes: React.PropTypes.array,
-  params: React.PropTypes.object,
-};
-
-Breadcrumb.Item = BreadcrumbItem;

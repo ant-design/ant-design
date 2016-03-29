@@ -66,7 +66,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | |
-| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props) | | | |
+| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props): Object{ fieldName: Object{ value } } | | | |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 

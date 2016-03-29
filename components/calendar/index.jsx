@@ -13,6 +13,28 @@ function zerofixed(v) {
 }
 
 export default class Calendar extends React.Component {
+  static defaultProps = {
+    monthCellRender: noop,
+    dateCellRender: noop,
+    locale: zhCN,
+    fullscreen: true,
+    prefixCls: PREFIX_CLS,
+    onPanelChange: noop,
+    mode: 'month',
+  }
+
+  static propTypes = {
+    monthCellRender: PropTypes.func,
+    dateCellRender: PropTypes.func,
+    fullscreen: PropTypes.bool,
+    locale: PropTypes.object,
+    prefixCls: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    onPanelChange: PropTypes.func,
+    value: PropTypes.instanceOf(Date),
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,11 +42,13 @@ export default class Calendar extends React.Component {
       mode: props.mode,
     };
   }
+
   parseDateFromValue(value) {
     const date = new GregorianCalendar(this.props.locale);
     date.setTime(+value);
     return date;
   }
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
@@ -32,6 +56,7 @@ export default class Calendar extends React.Component {
       });
     }
   }
+
   monthCellRender = (value, locale) => {
     const prefixCls = this.props.prefixCls;
     const month = value.getMonth();
@@ -46,6 +71,7 @@ export default class Calendar extends React.Component {
       </div>
     );
   }
+
   dateCellRender = (value) => {
     const prefixCls = this.props.prefixCls;
     return (
@@ -59,12 +85,14 @@ export default class Calendar extends React.Component {
       </div>
     );
   }
+
   setValue = (value) => {
     if (!('value' in this.props) && this.state.value !== value) {
       this.setState({ value });
     }
     this.props.onPanelChange(value, this.state.mode);
   }
+
   setType = (type) => {
     const mode = (type === 'date') ? 'month' : 'year';
     if (this.state.mode !== mode) {
@@ -72,6 +100,7 @@ export default class Calendar extends React.Component {
       this.props.onPanelChange(this.state.value, mode);
     }
   }
+
   render() {
     const props = this.props;
     const { value, mode } = this.state;
@@ -107,25 +136,3 @@ export default class Calendar extends React.Component {
     );
   }
 }
-
-Calendar.propTypes = {
-  monthCellRender: PropTypes.func,
-  dateCellRender: PropTypes.func,
-  fullscreen: PropTypes.bool,
-  locale: PropTypes.object,
-  prefixCls: PropTypes.string,
-  className: PropTypes.string,
-  style: PropTypes.object,
-  onPanelChange: PropTypes.func,
-  value: PropTypes.instanceOf(Date),
-};
-
-Calendar.defaultProps = {
-  monthCellRender: noop,
-  dateCellRender: noop,
-  locale: zhCN,
-  fullscreen: true,
-  prefixCls: PREFIX_CLS,
-  onPanelChange: noop,
-  mode: 'month',
-};

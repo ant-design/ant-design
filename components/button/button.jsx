@@ -30,6 +30,21 @@ function clearButton(button) {
 }
 
 export default class Button extends React.Component {
+  static defaultProps = {
+    onClick() {},
+  }
+
+  static propTypes = {
+    type: React.PropTypes.oneOf(['primary', 'ghost', 'dashed']),
+    shape: React.PropTypes.oneOf(['circle', 'circle-outline']),
+    size: React.PropTypes.oneOf(['large', 'small']),
+    htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
+    onClick: React.PropTypes.func,
+    loading: React.PropTypes.bool,
+    className: React.PropTypes.string,
+    icon: React.PropTypes.string,
+  }
+
   handleClick = (...args) => {
     // Add click effect
     const buttonNode = findDOMNode(this);
@@ -40,6 +55,7 @@ export default class Button extends React.Component {
 
     this.props.onClick(...args);
   }
+
   render() {
     const props = this.props;
     const { type, shape, size, className, htmlType, children, icon, ...others } = props;
@@ -72,18 +88,3 @@ export default class Button extends React.Component {
     );
   }
 }
-
-Button.propTypes = {
-  type: React.PropTypes.oneOf(['primary', 'ghost', 'dashed']),
-  shape: React.PropTypes.oneOf(['circle', 'circle-outline']),
-  size: React.PropTypes.oneOf(['large', 'small']),
-  htmlType: React.PropTypes.oneOf(['submit', 'button', 'reset']),
-  onClick: React.PropTypes.func,
-  loading: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-};
-
-Button.defaultProps = {
-  onClick() {},
-};

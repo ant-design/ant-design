@@ -2,6 +2,11 @@ import React from 'react';
 import RcSlider from 'rc-slider';
 
 export default class Slider extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-slider',
+    tipTransitionName: 'zoom-down'
+  }
+
   render() {
     const { isIncluded, marks, index, defaultIndex, ...rest } = this.props;
 
@@ -34,8 +39,3 @@ export default class Slider extends React.Component {
     return <RcSlider {...rest} />;
   }
 }
-
-Slider.defaultProps = {
-  prefixCls: 'ant-slider',
-  tipTransitionName: 'zoom-down'
-};

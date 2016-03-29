@@ -8,6 +8,40 @@ function noop() {
 }
 
 export default class Transfer extends React.Component {
+  static List = List;
+  static Operation = Operation;
+  static Search = Search;
+
+  static defaultProps = {
+    prefixCls: 'ant-transfer',
+    dataSource: [],
+    render: noop,
+    targetKeys: [],
+    onChange: noop,
+    titles: ['源列表', '目的列表'],
+    operations: [],
+    showSearch: false,
+    body: noop,
+    footer: noop,
+  }
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    dataSource: PropTypes.array,
+    render: PropTypes.func,
+    targetKeys: PropTypes.array,
+    onChange: PropTypes.func,
+    height: PropTypes.number,
+    listStyle: PropTypes.object,
+    className: PropTypes.string,
+    titles: PropTypes.array,
+    operations: PropTypes.array,
+    showSearch: PropTypes.bool,
+    searchPlaceholder: PropTypes.string,
+    notFoundContent: PropTypes.node,
+    body: PropTypes.func,
+    footer: PropTypes.func,
+  }
 
   constructor(props) {
     super(props);
@@ -213,38 +247,3 @@ export default class Transfer extends React.Component {
     );
   }
 }
-
-Transfer.defaultProps = {
-  prefixCls: 'ant-transfer',
-  dataSource: [],
-  render: noop,
-  targetKeys: [],
-  onChange: noop,
-  titles: ['源列表', '目的列表'],
-  operations: [],
-  showSearch: false,
-  body: noop,
-  footer: noop,
-};
-
-Transfer.propTypes = {
-  prefixCls: PropTypes.string,
-  dataSource: PropTypes.array,
-  render: PropTypes.func,
-  targetKeys: PropTypes.array,
-  onChange: PropTypes.func,
-  height: PropTypes.number,
-  listStyle: PropTypes.object,
-  className: PropTypes.string,
-  titles: PropTypes.array,
-  operations: PropTypes.array,
-  showSearch: PropTypes.bool,
-  searchPlaceholder: PropTypes.string,
-  notFoundContent: PropTypes.node,
-  body: PropTypes.func,
-  footer: PropTypes.func,
-};
-
-Transfer.List = List;
-Transfer.Operation = Operation;
-Transfer.Search = Search;

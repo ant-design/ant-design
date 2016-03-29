@@ -3,6 +3,18 @@ import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tr
 import classNames from 'classnames';
 
 export default class TreeSelect extends React.Component {
+  static TreeNode = TreeNode;
+  static SHOW_ALL = SHOW_ALL;
+  static SHOW_PARENT = SHOW_PARENT;
+  static SHOW_CHILD = SHOW_CHILD;
+
+  static defaultProps = {
+    prefixCls: 'ant-select',
+    transitionName: 'slide-up',
+    choiceTransitionName: 'zoom',
+    showSearch: false,
+  }
+
   render() {
     const props = this.props;
     let {
@@ -32,15 +44,3 @@ export default class TreeSelect extends React.Component {
     );
   }
 }
-
-TreeSelect.defaultProps = {
-  prefixCls: 'ant-select',
-  transitionName: 'slide-up',
-  choiceTransitionName: 'zoom',
-  showSearch: false,
-};
-
-TreeSelect.TreeNode = TreeNode;
-TreeSelect.SHOW_ALL = SHOW_ALL;
-TreeSelect.SHOW_PARENT = SHOW_PARENT;
-TreeSelect.SHOW_CHILD = SHOW_CHILD;
