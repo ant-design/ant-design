@@ -43,7 +43,7 @@
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在下拉中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试改为滚动的区域 | Function | () => document.body |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试改为滚动的区域 | Function(triggerNode) | () => document.body |
 
 ### Option props
 
