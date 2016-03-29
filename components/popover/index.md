@@ -26,3 +26,4 @@
 | prefixCls | 浮层的类名                        | string        | ant-popover   |
 | visible   | 用于手动控制浮层显隐                     | boolean       | false  |
 | onVisibleChange | 显示隐藏改变的回调                 | function      | 无     |
+| getTooltipContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/ONjyba?editors=001) | Function(triggerNode) | () => document.body |
