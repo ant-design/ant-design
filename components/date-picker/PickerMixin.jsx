@@ -20,8 +20,12 @@ export default {
   },
 
   getFormatter() {
-    const formats = this.formats = this.formats || {};
-    let format = this.props.format;
+    if (!this.formats) {
+      this.formats = {};
+    }
+
+    const formats = this.formats;
+    const format = this.props.format;
     if (formats[format]) {
       return formats[format];
     }

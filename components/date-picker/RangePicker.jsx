@@ -80,7 +80,7 @@ export default React.createClass({
     }
 
     const calendarClassName = classNames({
-      ['ant-calendar-time']: this.props.showTime,
+      ['ant-calendar-time']: showTime,
     });
 
     let pickerChangeHandler = {
