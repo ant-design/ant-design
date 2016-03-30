@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
+const isBrowser = (typeof document !== 'undefined' && typeof window !== 'undefined');
 
 export default class Spin extends React.Component {
   static defaultProps = {
@@ -29,7 +30,7 @@ export default class Spin extends React.Component {
     });
 
     let spinElement;
-    if (!isCssAnimationSupported || 'tip' in this.props) {
+    if (!isBrowser || !isCssAnimationSupported || 'tip' in this.props) {
       // not support for animation, just use text instead
       spinElement = <div className={spinClassName}>{tip || '加载中...'}</div>;
     } else {

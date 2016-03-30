@@ -1,5 +1,6 @@
 import React, { createElement } from 'react';
 import { isCssAnimationSupported } from 'css-animation';
+const isBrowser = (typeof document !== 'undefined' && typeof window !== 'undefined');
 
 function getNumberArray(num) {
   return num ?
@@ -115,7 +116,6 @@ export default class ScrollNumber extends React.Component {
       ...this.props,
       className: `${this.props.prefixCls} ${this.props.className}`
     };
-    const isBrowser = (typeof document !== 'undefined' && typeof window !== 'undefined');
     if (isBrowser && isCssAnimationSupported) {
       return createElement(
         this.props.component,
