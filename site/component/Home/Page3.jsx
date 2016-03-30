@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { QueueAnim, Icon, Button } from '../../../';
+import { Icon, Button } from '../../../';
+import QueueAnim from 'rc-queue-anim';
 
 export default class Page3 extends React.Component {
   render() {

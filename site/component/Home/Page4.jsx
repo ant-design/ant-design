@@ -1,7 +1,7 @@
 import React from 'react';
 import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { QueueAnim } from '../../../';
+import QueueAnim from 'rc-queue-anim';
 
 export default class Page4 extends React.Component {
   render() {
