@@ -72,7 +72,7 @@
   "devDependencies": {
     "antd-md-loader": "0.1.0-beta.15",
     "atool-build": "^0.5.0",
-    "autoprefixer": "^6.3.3",
+    "autoprefixer": "^6.3.5",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
     "babel-eslint": "^6.0.0-beta.6",
