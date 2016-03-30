@@ -1,7 +1,7 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
-const isBrowser = (typeof document !== 'undefined' && typeof window !== 'undefined');
 
 export default class Spin extends React.Component {
   static defaultProps = {
@@ -18,6 +18,13 @@ export default class Spin extends React.Component {
     return !!(this.props && this.props.children);
   }
 
+  componentDidMount() {
+    if (!isCssAnimationSupported) {
+      // Show text in IE8/9
+      findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
+    }
+  }
+
   render() {
     const { className, size, prefixCls, tip } = this.props;
 
@@ -27,21 +34,17 @@ export default class Spin extends React.Component {
       [`${prefixCls}-lg`]: size === 'large',
       [className]: !!className,
       [`${prefixCls}-spining`]: this.props.spining,
+      [`${prefixCls}-show-text`]: !!this.props.tip,
     });
 
-    let spinElement;
-    if (!isBrowser || !isCssAnimationSupported || 'tip' in this.props) {
-      // not support for animation, just use text instead
-      spinElement = <div className={spinClassName}>{tip || '加载中...'}</div>;
-    } else {
-      spinElement = (
-        <div className={spinClassName}>
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
-        </div>
-      );
-    }
+    const spinElement = (
+      <div className={spinClassName}>
+        <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
+        <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
+        <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
+        <div className={`${prefixCls}-text`}>{tip || '加载中...'}</div>
+      </div>
+    );
 
     if (this.isNestedPattern()) {
       return (

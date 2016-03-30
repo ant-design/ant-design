@@ -9,7 +9,5 @@
 ````jsx
 import { Spin } from 'antd';
 
-ReactDOM.render(
-  <Spin />
-, mountNode);
+ReactDOM.render(<Spin />, mountNode);
 ````

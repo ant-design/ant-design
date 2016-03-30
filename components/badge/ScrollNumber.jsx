@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
+import { findDOMNode } from 'react-dom';
 import { isCssAnimationSupported } from 'css-animation';
-const isBrowser = (typeof document !== 'undefined' && typeof window !== 'undefined');
 
 function getNumberArray(num) {
   return num ?
@@ -32,6 +32,12 @@ export default class ScrollNumber extends React.Component {
       animateStarted: true,
       count: props.count
     };
+  }
+
+  componentDidMount() {
+    if (!isCssAnimationSupported) {
+      findDOMNode(this).className += ' not-support-css-animation';
+    }
   }
 
   getPositionByNum(num, i) {
@@ -77,10 +83,11 @@ export default class ScrollNumber extends React.Component {
     }
   }
 
-  renderNumberList() {
+  renderNumberList(position) {
     const childrenToReturn = [];
     for (let i = 0; i < 30; i++) {
-      childrenToReturn.push(<p key={i}>{i % 10}</p>);
+      const currentClassName = (position === i) ? 'current' : null;
+      childrenToReturn.push(<p key={i} className={currentClassName}>{i % 10}</p>);
     }
     return childrenToReturn;
   }
@@ -99,7 +106,7 @@ export default class ScrollNumber extends React.Component {
         height,
       },
       key: i,
-    }, this.renderNumberList());
+    }, this.renderNumberList(position));
   }
 
   renderNumberElement() {
@@ -116,17 +123,10 @@ export default class ScrollNumber extends React.Component {
       ...this.props,
       className: `${this.props.prefixCls} ${this.props.className}`
     };
-    if (isBrowser && isCssAnimationSupported) {
-      return createElement(
-        this.props.component,
-        props,
-        this.renderNumberElement()
-      );
-    }
     return createElement(
       this.props.component,
       props,
-      props.count
+      this.renderNumberElement()
     );
   }
 }

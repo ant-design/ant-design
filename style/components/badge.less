@@ -79,6 +79,15 @@ a & {
     display: inline-block;
     transition: transform .3s @ease-in-out;
   }
+  // for IE8/9 display
+  &.not-support-css-animation &-only {
+    > p {
+      display: none;
+      &.current {
+        display: block;
+      }
+    }
+  }
 }
 
 @keyframes antZoomBadgeIn {
