@@ -38,6 +38,7 @@ export default class Breadcrumb extends React.Component {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
     linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
+    spanRender: (name) => <span>{name}</span>,
   }
 
   static propTypes = {
@@ -52,7 +53,7 @@ export default class Breadcrumb extends React.Component {
 
   render() {
     let crumbs;
-    const { separator, prefixCls, routes, params, children, linkRender } = this.props;
+    const { separator, prefixCls, routes, params, children, linkRender, spanRender } = this.props;
     if (routes && routes.length > 0) {
       const paths = [];
       crumbs = routes.map((route, i) => {
@@ -73,7 +74,7 @@ export default class Breadcrumb extends React.Component {
 
         let link;
         if (i === routes.length - 1) {
-          link = <span>{name}</span>;
+          link = spanRender(name);
         } else {
           link = linkRender(`/${paths.join('/')}`, name);
         }
