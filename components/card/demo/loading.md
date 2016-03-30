@@ -10,25 +10,10 @@
 import { Card } from 'antd';
 
 const App = React.createClass({
-  getInitialState() {
-    return {
-      loading: true,
-      content: '',
-    };
-  },
-  componentDidMount() {
-    // mock loading
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-        content: '卡片的内容',
-      });
-    }, 2000);
-  },
   render() {
     return (
-      <Card loading={this.state.loading} title="卡片标题" style={{ width: 300 }}>
-        {this.state.content}
+      <Card loading title="卡片标题" style={{ width: 300 }}>
+        Whatever content
       </Card>
     );
   },
