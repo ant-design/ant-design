@@ -3,19 +3,22 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import { Icon } from '../../../';
 
-const CopyableIcon = React.createClass({
-  getInitialState() {
-    return {
+class CopyableIcon extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       justCopied: false
     };
-  },
-  onCopied() {
+  }
+
+  onCopied = () => {
     this.setState({ justCopied: true }, () => {
       setTimeout(() => {
         this.setState({ justCopied: false });
       }, 1000);
     });
-  },
+  }
+
   render() {
     const text = `<Icon type="${this.props.type}" />`;
     return (
@@ -27,14 +30,13 @@ const CopyableIcon = React.createClass({
       </CopyToClipboard>
     );
   }
-});
+}
 
-const IconSet = React.createClass({
-  getDefaultProps() {
-    return {
-      icons: []
-    };
-  },
+export default class IconSet extends React.Component {
+  static defaultProps = {
+    icons: []
+  }
+
   render() {
     const className = this.props.className;
     const listClassName = classNames({
@@ -48,6 +50,4 @@ const IconSet = React.createClass({
       </ul>
     );
   }
-});
-
-export default IconSet;
+}
