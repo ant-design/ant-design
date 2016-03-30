@@ -43,6 +43,7 @@
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在下拉中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/ONjyba?editors=001) | Function(triggerNode) | () => document.body |
 
 ### Option props
 

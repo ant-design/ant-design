@@ -29,15 +29,15 @@ export default class Form extends React.Component {
   }
 
   render() {
-    const { prefixCls, className } = this.props;
+    const { prefixCls, className, style } = this.props;
     const formClassName = classNames({
-      [className]: !!className,
       [`${prefixCls}-horizontal`]: this.props.horizontal,
       [`${prefixCls}-inline`]: this.props.inline,
+      [className]: !!className,
     });
 
     return (
-      <form {...this.props} className={formClassName}>
+      <form {...this.props} className={formClassName} style={style}>
         {this.props.children}
       </form>
     );
