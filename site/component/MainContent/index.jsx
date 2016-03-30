@@ -119,8 +119,11 @@ export default class MainContent extends React.Component {
 
   getFooterNav(menuItems, activeMenuItem) {
     const menuItemsList = this.flattenMenu(menuItems);
-    const activeMenuItemIndex = menuItemsList.findIndex((menuItem) => {
-      return menuItem.key === activeMenuItem;
+    let activeMenuItemIndex = -1;
+    menuItemsList.forEach((menuItem, i) => {
+      if (menuItem.key === activeMenuItem) {
+        activeMenuItemIndex = i;
+      }
     });
     const prev = menuItemsList[activeMenuItemIndex - 1];
     const next = menuItemsList[activeMenuItemIndex + 1];

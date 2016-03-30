@@ -51,9 +51,9 @@ export function generateContainer(data) {
 
 export function generateIndex(data) {
   const menuItems = getMenuItems(data);
-  const firstChild = menuItems.topLevel.topLevel.find((item) => {
+  const firstChild = menuItems.topLevel.topLevel.filter((item) => {
     return item.disabled !== 'true';
-  });
+  })[0];
   return (
     <IndexRedirect key="index"
       to={fileNameToPath(firstChild.fileName)} />
