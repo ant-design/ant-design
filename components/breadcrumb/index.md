@@ -19,13 +19,11 @@
 ```html
 <Breadcrumb>
   <Breadcrumb.Item>首页</Breadcrumb.Item>
-  <Breadcrumb.Item href="">应用中心</Breadcrumb.Item>
-  <Breadcrumb.Item href="">应用列表</Breadcrumb.Item>
+  <Breadcrumb.Item>应用中心</Breadcrumb.Item>
+  <Breadcrumb.Item>应用列表</Breadcrumb.Item>
   <Breadcrumb.Item>某应用</Breadcrumb.Item>
 </Breadcrumb>
 ```
-
-### Breadcrumb
 
 | 参数      | 说明                              | 类型              |  可选值 | 默认值 |
 |-----------|-----------------------------------|-------------------|---------|--------|
@@ -33,9 +31,3 @@
 | params    | 路由的参数                        | Object            |         | -      |
 | separator | 分隔符自定义                      | String or Element |         | '/'    |
 | linkRender | 自定义链接函数，和 react-router 配置使用               | Function(href, name) |         | -    |
-
-### Breadcrumb.Item
-
-| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
-|-----------|------------------------------------------|------------|---------|--------|
-| href      | 链接，如不传则不可点击                   | string     |         | -      |

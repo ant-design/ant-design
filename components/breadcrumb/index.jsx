@@ -17,10 +17,12 @@ class BreadcrumbItem extends React.Component {
   }
 
   render() {
-    const { prefixCls, separator, children } = this.props;
-    let link = <a className={`${prefixCls}-link`} {...this.props}>{children}</a>;
-    if (typeof this.props.href === 'undefined') {
-      link = <span className={`${prefixCls}-link`} {...this.props}>{children}</span>;
+    const { prefixCls, separator, children, ...restProps } = this.props;
+    let link;
+    if ('href' in this.props) {
+      link = <a className={`${prefixCls}-link`} {...restProps}>{children}</a>;
+    } else {
+      link = <span className={`${prefixCls}-link`} {...restProps}>{children}</span>;
     }
     return (
       <span>
