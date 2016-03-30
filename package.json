@@ -52,6 +52,7 @@
     "rc-progress": "~1.0.4",
     "rc-queue-anim": "~0.11.2",
     "rc-radio": "~2.0.0",
+    "rc-rate": "~1.1.0",
     "rc-select": "~6.0.1",
     "rc-slider": "~3.5.1",
     "rc-steps": "~1.4.1",
