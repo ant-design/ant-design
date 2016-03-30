@@ -13,9 +13,7 @@ export default class Cascader extends React.Component {
     popupPlacement: 'bottomLeft',
     onChange() {},
     options: [],
-    displayRender(label) {
-      return label.join(' / ');
-    },
+    displayRender: label => label.join(' / '),
     disabled: false,
     allowClear: true,
     onPopupVisibleChange() {},
