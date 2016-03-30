@@ -42,7 +42,7 @@ const Home = React.createClass({
           paddingBottom: 15,
           borderBottom: '1px dashed #ccc'
         }}>
-          点击上面的导航切换页面，面包屑在下面：
+        点击上面的导航切换页面，面包屑在下面：
         </div>
         <Breadcrumb {...this.props} />
       </div>
@@ -66,7 +66,7 @@ ReactDOM.render(
 
 ````css
 #components-breadcrumb-demo-router iframe {
-  height: 165px;
+  height: 180px;
 }
 .demo-nav {
   height: 30px;
