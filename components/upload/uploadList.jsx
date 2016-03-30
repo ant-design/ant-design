@@ -14,20 +14,20 @@ const previewFile = function (file, callback) {
   reader.readAsDataURL(file);
 };
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      listType: 'text',  // or picture
-      items: [],
-      progressAttr: {
-        strokeWidth: 3,
-        showInfo: false
-      }
-    };
-  },
+export default class UploadList extends React.Component {
+  static defaultProps = {
+    listType: 'text',  // or picture
+    items: [],
+    progressAttr: {
+      strokeWidth: 3,
+      showInfo: false
+    }
+  };
+
   handleClose(file) {
     this.props.onRemove(file);
-  },
+  }
+
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
@@ -50,7 +50,8 @@ export default React.createClass({
         this.forceUpdate();
       });
     });
-  },
+  }
+
   render() {
     let list = this.props.items.map(file => {
       let progress;
@@ -115,4 +116,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

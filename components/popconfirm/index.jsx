@@ -22,48 +22,55 @@ const transitionNames = {
   rightBottom: 'zoom-left',
 };
 
-export default React.createClass({
-  getInitialState() {
-    return {
+export default class Popconfirm extends React.Component {
+  static defaultProps = {
+    transitionName: '',
+    placement: 'top',
+    trigger: 'click',
+    overlayStyle: {},
+    onConfirm: noop,
+    onCancel: noop,
+    onVisibleChange() {},
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
       visible: false
     };
-  },
-  getDefaultProps() {
-    return {
-      transitionName: '',
-      placement: 'top',
-      trigger: 'click',
-      overlayStyle: {},
-      onConfirm: noop,
-      onCancel: noop,
-      onVisibleChange() {},
-    };
-  },
-  contextTypes: {
-    antLocale: React.PropTypes.object,
-  },
+  }
+
   componentWillReceiveProps(nextProps) {
     if ('visible' in nextProps) {
       this.setState({ visible: nextProps.visible });
     }
-  },
-  confirm() {
+  }
+
+  confirm = () => {
     this.setVisible(false);
     this.props.onConfirm.call(this);
-  },
-  cancel() {
+  }
+
+  cancel = () => {
     this.setVisible(false);
     this.props.onCancel.call(this);
-  },
-  onVisibleChange(visible) {
+  }
+
+  onVisibleChange = (visible) => {
     this.setVisible(visible);
-  },
+  }
+
   setVisible(visible) {
     if (!('visible' in this.props)) {
       this.setState({ visible });
     }
     this.props.onVisibleChange(visible);
-  },
+  }
+
   render() {
     const { title, placement, overlayStyle, trigger, ...restProps } = this.props;
     let { okText, cancelText } = this.props;
@@ -103,4 +110,4 @@ export default React.createClass({
       </Tooltip>
     );
   }
-});
+}
