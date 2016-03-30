@@ -129,7 +129,9 @@ const Table = React.createClass({
       Object.keys(filtersFromColumns).forEach(key => {
         newFilters[key] = filtersFromColumns[key];
       });
-      this.setState({ filters: newFilters });
+      if (this.isFiltersChanged(newFilters)) {
+        this.setState({ filters: newFilters });
+      }
     }
   },
 
@@ -233,7 +235,7 @@ const Table = React.createClass({
     };
 
     // Controlled
-    if (this.getSortOrderColumns() === 0) {
+    if (this.getSortOrderColumns().length === 0) {
       this.setState(newState);
     }
 
