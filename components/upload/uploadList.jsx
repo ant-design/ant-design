@@ -95,9 +95,9 @@ export default class UploadList extends React.Component {
               ? (
                 <span>
                   <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
-                  <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
+                  <Icon type="delete" onClick={() => this.handleClose(file)} />
                 </span>
-              ) : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
+              ) : <Icon type="cross" onClick={() => this.handleClose(file)} />
             }
           </div>
           { progress }

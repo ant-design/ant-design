@@ -314,7 +314,7 @@ let Table = React.createClass({
     }
     return (
       <Radio disabled={props.disabled}
-        onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
+        onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
         value={rowIndex} checked={checked} />
     );
   },
@@ -334,7 +334,7 @@ let Table = React.createClass({
     }
     return (
       <Checkbox checked={checked} disabled={props.disabled}
-        onChange={this.handleSelect.bind(this, record, rowIndex)} />
+        onChange={(e) => this.handleSelect(record, rowIndex, e)} />
     );
   },
 
@@ -444,12 +444,12 @@ let Table = React.createClass({
           <div className="ant-table-column-sorter">
             <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
-              onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
+              onClick={() => this.toggleSortOrder('ascend', column)}>
               <Icon type="caret-up" />
             </span>
             <span className={`ant-table-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
-              onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
+              onClick={() => this.toggleSortOrder('descend', column)}>
               <Icon type="caret-down" />
             </span>
           </div>

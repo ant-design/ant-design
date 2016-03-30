@@ -31,7 +31,6 @@
     "react/prefer-es6-class": 0,
     "react/prefer-stateless-function": 0,
     "react/jsx-closing-bracket-location": 0,
-    "react/jsx-no-bind": 0,
     "no-param-reassign": 0,
     "no-return-assign": 0,
     "max-len": 0,

@@ -15,7 +15,7 @@ function noop() {
   return false;
 }
 
-class BasicDemo extends React.Component {
+let BasicDemo = React.createClass({
   getValidateStatus(field) {
     const { isFieldValidating, getFieldError, getFieldValue } = this.props.form;
 
@@ -26,12 +26,12 @@ class BasicDemo extends React.Component {
     } else if (getFieldValue(field)) {
       return 'success';
     }
-  }
+  },
 
   handleReset(e) {
     e.preventDefault();
     this.props.form.resetFields();
-  }
+  },
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,7 +43,7 @@ class BasicDemo extends React.Component {
       console.log('Submit!!!');
       console.log(values);
     });
-  }
+  },
 
   userExists(rule, value, callback) {
     if (!value) {
@@ -57,7 +57,7 @@ class BasicDemo extends React.Component {
         }
       }, 800);
     }
-  }
+  },
 
   checkPass(rule, value, callback) {
     const { validateFields } = this.props.form;
@@ -65,7 +65,7 @@ class BasicDemo extends React.Component {
       validateFields(['rePasswd'], { force: true });
     }
     callback();
-  }
+  },
 
   checkPass2(rule, value, callback) {
     const { getFieldValue } = this.props.form;
@@ -74,7 +74,7 @@ class BasicDemo extends React.Component {
     } else {
       callback();
     }
-  }
+  },
 
   render() {
     const { getFieldProps, getFieldError, isFieldValidating } = this.props.form;
@@ -100,7 +100,7 @@ class BasicDemo extends React.Component {
     const passwdProps = getFieldProps('passwd', {
       rules: [
         { required: true, whitespace: true, message: '请填写密码' },
-        { validator: this.checkPass.bind(this) },
+        { validator: this.checkPass },
       ],
     });
     const rePasswdProps = getFieldProps('rePasswd', {
@@ -109,7 +109,7 @@ class BasicDemo extends React.Component {
         whitespace: true,
         message: '请再次输入密码',
       }, {
-        validator: this.checkPass2.bind(this),
+        validator: this.checkPass2,
       }],
     });
     const textareaProps = getFieldProps('textarea', {
@@ -161,14 +161,14 @@ class BasicDemo extends React.Component {
         </FormItem>
 
         <FormItem wrapperCol={{ span: 12, offset: 7 }}>
-          <Button type="primary" onClick={this.handleSubmit.bind(this)}>确定</Button>
+          <Button type="primary" onClick={this.handleSubmit}>确定</Button>
           &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset.bind(this)}>重置</Button>
+          <Button type="ghost" onClick={this.handleReset}>重置</Button>
         </FormItem>
       </Form>
     );
-  }
-}
+  },
+});
 
 BasicDemo = createForm()(BasicDemo);
 

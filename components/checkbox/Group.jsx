@@ -63,7 +63,7 @@ export default class CheckboxGroup extends React.Component {
           options.map(option =>
             <Checkbox disabled={'disabled' in option ? option.disabled : this.props.disabled}
               checked={this.state.value.indexOf(option.value) !== -1}
-              onChange={this.toggleOption.bind(this, option)}
+              onChange={() => this.toggleOption(option)}
               className="ant-checkbox-group-item" key={option.value}>
               {option.label}
             </Checkbox>

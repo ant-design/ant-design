@@ -36,7 +36,7 @@ const App = React.createClass({
     return (
       <div>
         {this.state.tags.map(tag =>
-          <Tag key={tag.key} closable afterClose={this.handleClose.bind(this, tag.key)}>{tag.name}</Tag>
+          <Tag key={tag.key} closable afterClose={() => this.handleClose(tag.key)}>{tag.name}</Tag>
         )}
         <div>
           <Button onClick={this.addTag}>添加标签</Button>
