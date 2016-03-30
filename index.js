@@ -1,6 +1,7 @@
 // this file is not used if use https://github.com/ant-design/babel-plugin-antd
 
 const antd = {
+  Rate: require('./components/rate'),
   Affix: require('./components/affix'),
   DatePicker: require('./components/date-picker'),
   Tooltip: require('./components/tooltip'),

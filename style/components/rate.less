@@ -1,0 +1,58 @@
+
+@rate-prefix-cls: ant-rate;
+
+.@{rate-prefix-cls} {
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 28px;
+  display: inline-block;
+  font-family: 'anticon';
+  font-weight: normal;
+  font-style: normal;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased; /*解决safair和chrome被加粗*/
+  -webkit-text-stroke-width: 0.2px; /*解决chrome锯齿*/
+
+  &-disabled {
+    cursor: default;
+  }
+
+  &-star {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 5px;
+    position: relative;
+
+    &-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      &:before {
+        content: "\E694";
+      }
+    }
+
+    &-half:before {
+      content: "\E693";
+    }
+
+    &-half &-content {
+      display: block;
+    }
+
+    &-full:before {
+      content: "\E694";
+    }
+
+    &-zero:before {
+      content: "\E693";
+    }
+  }
+}
