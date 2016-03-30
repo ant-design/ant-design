@@ -151,6 +151,7 @@ class FormItem extends React.Component {
   renderFormItem(children) {
     const props = this.props;
     const prefixCls = props.prefixCls;
+    const style = props.style;
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
@@ -158,7 +159,7 @@ class FormItem extends React.Component {
     };
 
     return (
-      <div className={classNames(itemClassName)}>
+      <div className={classNames(itemClassName)} style={style}>
         {children}
       </div>
     );
