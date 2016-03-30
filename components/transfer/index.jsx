@@ -95,6 +95,9 @@ export default class Transfer extends React.Component {
     this.props.onChange(newTargetKeys, direction, moveKeys);
   }
 
+  moveToLeft = () => this.moveTo('left')
+  moveToRight = () => this.moveTo('right')
+
   getGlobalCheckStatus(direction) {
     const { leftDataSource, rightDataSource } = this.splitDataSource();
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
@@ -144,6 +147,9 @@ export default class Transfer extends React.Component {
     });
   }
 
+  handleLeftSelectAll = () => this.handleSelectAll('left')
+  handleRightSelectAll = () => this.handleSelectAll('right')
+
   handleFilter = (direction, e) => {
     this.setState({
       // deselect all
@@ -153,11 +159,17 @@ export default class Transfer extends React.Component {
     });
   }
 
+  handleLeftFilter = (e) => this.handleFilter('left', e)
+  handleRightFilter = (e) => this.handleFilter('right', e)
+
   handleClear = (direction) => {
     this.setState({
       [`${direction}Filter`]: '',
     });
   }
+
+  handleLeftClear = () => this.handleClear('left')
+  handleRightClear = () => this.handleClear('right')
 
   handleSelect = (direction, selectedItem, checked) => {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
@@ -178,6 +190,9 @@ export default class Transfer extends React.Component {
       [`${direction}CheckedKeys`]: holder,
     });
   }
+
+  handleLeftSelect = (selectedItem, checked) => this.handleSelect('left', selectedItem, checked);
+  handleRightSelect = (selectedItem, checked) => this.handleSelect('right', selectedItem, checked);
 
   render() {
     const {
@@ -206,10 +221,10 @@ export default class Transfer extends React.Component {
           style={listStyle}
           checkedKeys={leftCheckedKeys}
           checkStatus={leftCheckStatus}
-          handleFilter={this.handleFilter.bind(this, 'left')}
-          handleClear={this.handleClear.bind(this, 'left')}
-          handleSelect={this.handleSelect.bind(this, 'left')}
-          handleSelectAll={this.handleSelectAll.bind(this, 'left')}
+          handleFilter={this.handleLeftFilter}
+          handleClear={this.handleLeftClear}
+          handleSelect={this.handleLeftSelect}
+          handleSelectAll={this.handleLeftSelectAll}
           position="left"
           render={this.props.render}
           showSearch={showSearch}
@@ -220,10 +235,10 @@ export default class Transfer extends React.Component {
           prefixCls={`${prefixCls}-list`} />
         <Operation rightActive={rightActive}
           rightArrowText={operations[0]}
-          moveToRight={this.moveTo.bind(this, 'right')}
+          moveToRight={this.moveToRight}
           leftActive={leftActive}
           leftArrowText={operations[1]}
-          moveToLeft={this.moveTo.bind(this, 'left')}
+          moveToLeft={this.moveToLeft}
           className={`${prefixCls}-operation`} />
         <List titleText={titles[1]}
           dataSource={rightDataSource}
@@ -231,10 +246,10 @@ export default class Transfer extends React.Component {
           style={listStyle}
           checkedKeys={rightCheckedKeys}
           checkStatus={rightCheckStatus}
-          handleFilter={this.handleFilter.bind(this, 'right')}
-          handleClear={this.handleClear.bind(this, 'right')}
-          handleSelect={this.handleSelect.bind(this, 'right')}
-          handleSelectAll={this.handleSelectAll.bind(this, 'right')}
+          handleFilter={this.handleRightFilter}
+          handleClear={this.handleRightClear}
+          handleSelect={this.handleRightSelect}
+          handleSelectAll={this.handleRightSelectAll}
           position="right"
           render={this.props.render}
           showSearch={showSearch}

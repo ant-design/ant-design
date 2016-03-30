@@ -49,7 +49,7 @@ export default class Tabs extends React.Component {
         return cloneElement(child, {
           tab: <div>
             {child.props.tab}
-            <Icon type="cross" onClick={this.removeTab.bind(this, child.key)} />
+            <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
           </div>,
           key: child.key || index,
         });

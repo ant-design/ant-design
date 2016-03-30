@@ -34,17 +34,23 @@ const DateRange = React.createClass({
       [field]: value,
     });
   },
+  onStartChange(value) {
+    this.onChange('startValue', value);
+  },
+  onEndChange(value) {
+    this.onChange('endValue', value);
+  },
   render() {
     return (
       <div>
         <DatePicker disabledDate={this.disabledStartDate}
           value={this.state.startValue}
           placeholder="开始日期"
-          onChange={this.onChange.bind(this, 'startValue')} />
+          onChange={this.onStartChange} />
         <DatePicker disabledDate={this.disabledEndDate}
           value={this.state.endValue}
           placeholder="结束日期"
-          onChange={this.onChange.bind(this, 'endValue')} />
+          onChange={this.onEndChange} />
       </div>
     );
   }

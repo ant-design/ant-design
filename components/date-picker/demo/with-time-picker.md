@@ -36,11 +36,17 @@ const DateTimePicker = React.createClass({
       this.props.onSelect(this.result);
     }
   },
+  handleDateChange(value) {
+    this.handleChange('date', value);
+  },
+  handleTimeChange(value) {
+    this.handleChange('time', value);
+  },
   render() {
     return (
       <div>
-        <DatePicker onChange={this.handleChange.bind(null, 'date')} />
-        <TimePicker onChange={this.handleChange.bind(null, 'time')} />
+        <DatePicker onChange={this.handleDateChange} />
+        <TimePicker onChange={this.handleTimeChange} />
       </div>
     );
   }
