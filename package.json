@@ -34,14 +34,14 @@
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
-    "css-animation": "~1.1.0",
+    "css-animation": "~1.2.0",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
     "rc-animate": "~2.0.2",
     "rc-calendar": "~5.4.0",
     "rc-cascader": "~0.9.0",
     "rc-checkbox": "~1.3.0",
-    "rc-collapse": "~1.4.4",
+    "rc-collapse": "~1.5.0",
     "rc-dialog": "~5.4.0",
     "rc-dropdown": "~1.4.3",
     "rc-form": "~0.14.0",
@@ -67,7 +67,6 @@
     "rc-upload": "~1.9.0",
     "rc-util": "~3.1.2",
     "react-slick": "~0.11.0",
-    "velocity-animate": "~1.2.2",
     "warning": "~2.1.0"
   },
   "devDependencies": {
