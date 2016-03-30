@@ -94,7 +94,9 @@ const columns = [{
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
 | width      | 列宽度 | String or Number | -  |
 | className  | 列的 className             | String          |  -      |
-| fixed  | 列是否固定，可选 true(和 left 效果一致) 'left' 'right' | Boolean or String | false |
+| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean or String | false |
+| filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | Array | - |
+| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean or String | - |
 
 ### rowSelection
 
