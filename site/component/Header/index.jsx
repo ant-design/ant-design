@@ -34,7 +34,7 @@ export default class Header extends React.Component {
     });
   }
 
-  handleMenuIconClick(e) {
+  handleMenuIconClick = (e) => {
     e.stopPropagation();
     e.nativeEvent.stopImmediatePropagation();
     this.setState({
@@ -42,11 +42,11 @@ export default class Header extends React.Component {
     });
   }
 
-  handleSearch(value) {
+  handleSearch = (value) => {
     this.context.router.push({ pathname: value });
   }
 
-  handleSelectFilter(value, option) {
+  handleSelectFilter = (value, option) => {
     return option.props['data-label'].indexOf(value.toLowerCase()) > -1;
   }
 
@@ -79,7 +79,7 @@ export default class Header extends React.Component {
           <Col lg={4} md={6} sm={7} xs={24}>
             <Icon
               className="nav-phone-icon"
-              onClick={this.handleMenuIconClick.bind(this)}
+              onClick={this.handleMenuIconClick}
               type="menu" />
             <Link to="/" id="logo">
               <img src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
@@ -94,8 +94,8 @@ export default class Header extends React.Component {
                 searchPlaceholder="搜索组件..."
                 optionLabelProp="nothing"
                 optionFilterProp="data-label"
-                filterOption={this.handleSelectFilter.bind(this)}
-                onSelect={this.handleSearch.bind(this)}>
+                filterOption={this.handleSelectFilter}
+                onSelect={this.handleSearch}>
                 {options}
               </Select>
             </div>

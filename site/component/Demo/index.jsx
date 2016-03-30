@@ -20,7 +20,7 @@ export default class Demo extends React.Component {
     });
   }
 
-  handleCodeExapnd() {
+  handleCodeExapnd = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
 
@@ -57,7 +57,7 @@ export default class Demo extends React.Component {
           </div>
           { introChildren }
           <span className="collapse anticon anticon-circle-o-right"
-            onClick={this.handleCodeExapnd.bind(this)}
+            onClick={this.handleCodeExapnd}
             unselectable="none" />
         </section>
         <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}

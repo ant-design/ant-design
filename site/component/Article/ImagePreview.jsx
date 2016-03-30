@@ -42,13 +42,16 @@ export default class ImagePreview extends React.Component {
       leftVisible: false,
       rightVisible: false,
     };
+
+    this.handleLeftClick = this.handleClick.bind(this, 'left');
+    this.handleRightClick = this.handleClick.bind(this, 'right');
   }
 
   handleClick(side) {
     this.setState({ [`${side}Visible`]: true });
   }
 
-  handleCancel() {
+  handleCancel = () => {
     this.setState({
       leftVisible: false,
       rightVisible: false,
@@ -102,8 +105,8 @@ export default class ImagePreview extends React.Component {
           cover={imagesList[0]}
           coverMeta={imgsMeta[0]}
           imgs={imagesList}
-          onClick={this.handleClick.bind(this, 'left')}
-          onCancel={this.handleCancel.bind(this)}
+          onClick={this.handleLeftClick}
+          onCancel={this.handleCancel}
         />
         {
           comparable ?
@@ -113,8 +116,8 @@ export default class ImagePreview extends React.Component {
               cover={imagesList[1]}
               coverMeta={imgsMeta[1]}
               imgs={imagesList}
-              onClick={this.handleClick.bind(this, 'right')}
-              onCancel={this.handleCancel.bind(this)}
+              onClick={this.handleRightClick}
+              onCancel={this.handleCancel}
             /> : null
         }
       </div>

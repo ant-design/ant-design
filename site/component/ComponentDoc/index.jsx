@@ -23,7 +23,7 @@ export default class ComponentDoc extends React.Component {
     utils.setTitle(`${chinese} ${english} - Ant Design`);
   }
 
-  handleExpandToggle() {
+  handleExpandToggle = () => {
     this.setState({
       expandAll: !this.state.expandAll,
     });
@@ -85,7 +85,7 @@ export default class ComponentDoc extends React.Component {
           <h2>
             代码演示
             <Icon type="appstore" className={expandTriggerClass}
-              title="展开全部代码" onClick={this.handleExpandToggle.bind(this)} />
+              title="展开全部代码" onClick={this.handleExpandToggle} />
           </h2>
         </section>
         <Row>
