@@ -26,8 +26,9 @@
 ```
 
 | 参数      | 说明                              | 类型              |  可选值 | 默认值 |
-|-----------|-----------------------------------|-------------------|---------|--------|
+|-----------|-----------------------------------|-----------------|---------|--------|
 | routes    | router 的路由栈信息               | Array             |         | -      |
 | params    | 路由的参数                        | Object            |         | -      |
 | separator | 分隔符自定义                      | String or Element |         | '/'    |
-| linkRender | 自定义链接函数，和 react-router 配置使用               | Function(href, name) |         | -    |
+| linkRender | 自定义链接函数，和 react-router 配置使用 | Function(href, name) |         | -    |
+| nameRender | 自定义链接函数，和 react-router 配置使用 | Function(name) |         | -    |
