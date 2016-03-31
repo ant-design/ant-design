@@ -1,28 +1,29 @@
 import React from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
-import DatePicker from 'rc-calendar/lib/Picker';
+import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      defaultValue: [],
-      startPlaceholder: '开始日期',
-      endPlaceholder: '结束日期',
-    };
-  },
-  getInitialState() {
+export default class RangePicker extends React.Component {
+  static defaultProps = {
+    defaultValue: [],
+    startPlaceholder: '开始日期',
+    endPlaceholder: '结束日期',
+  }
+
+  constructor(props) {
+    super(props);
     const { value, defaultValue, parseDateFromValue } = this.props;
     const start = (value && value[0]) || defaultValue[0];
     const end = (value && value[1]) || defaultValue[1];
-    return {
+    this.state = {
       value: [
         parseDateFromValue(start),
         parseDateFromValue(end)
       ]
     };
-  },
+  }
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       const value = nextProps.value || [];
@@ -32,8 +33,9 @@ export default React.createClass({
         value: [start, end]
       });
     }
-  },
-  handleChange(value) {
+  }
+
+  handleChange = (value) => {
     const props = this.props;
     if (!('value' in props)) {
       this.setState({ value });
@@ -43,7 +45,8 @@ export default React.createClass({
     const startDateString = value[0] ? props.getFormatter().format(value[0]) : '';
     const endDateString = value[1] ? props.getFormatter().format(value[1]) : '';
     props.onChange([startDate, endDate], [startDateString, endDateString]);
-  },
+  }
+
   render() {
     const props = this.props;
     const locale = props.locale;
@@ -95,7 +98,7 @@ export default React.createClass({
     );
 
     return (<span className={props.pickerClass} style={style}>
-      <DatePicker
+      <RcDatePicker
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}
@@ -132,7 +135,7 @@ export default React.createClass({
             );
           }
         }
-      </DatePicker>
+      </RcDatePicker>
     </span>);
   }
-});
+}
