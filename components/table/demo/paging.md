@@ -35,7 +35,6 @@ for (let i = 0; i < 46; i++) {
 
 const pagination = {
   total: data.length,
-  current: 1,
   showSizeChanger: true,
   onShowSizeChange(current, pageSize) {
     console.log('Current: ', current, '; PageSize: ', pageSize);
