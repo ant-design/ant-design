@@ -9,7 +9,5 @@
 ````jsx
 import { Rate } from 'antd';
 
-ReactDOM.render(
-  <Rate allowHalf />
-, mountNode);
+ReactDOM.render(<Rate />, mountNode);
 ````

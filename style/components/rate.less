@@ -1,33 +1,53 @@
-
 @rate-prefix-cls: ant-rate;
+@rate-star-color: #f5a623;
 
 .@{rate-prefix-cls} {
-  -webkit-tap-highlight-color: transparent;
   margin: 0;
   padding: 0;
   list-style: none;
-  font-size: 28px;
+  font-size: 18px;
   display: inline-block;
+  vertical-align: middle;
   font-family: 'anticon';
   font-weight: normal;
   font-style: normal;
-  cursor: pointer;
-  -webkit-font-smoothing: antialiased; /*解决safair和chrome被加粗*/
-  -webkit-text-stroke-width: 0.2px; /*解决chrome锯齿*/
+  -webkit-font-smoothing: antialiased; /* 解决safair和chrome被加粗 */
+  -webkit-text-stroke-width: 0.2px; /* 解决chrome锯齿 */
+  -webkit-tap-highlight-color: transparent;
 
-  &-disabled {
-    cursor: default;
+  &-disabled &-star {
+    &:before,
+    &-content:before {
+      cursor: default;
+    }
+    &:hover {
+      transform: scale(1);
+    }
   }
 
   &-star {
     margin: 0;
     padding: 0;
     display: inline-block;
-    margin-right: 5px;
+    margin-right: 8px;
     position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      color: tint(@rate-star-color, 20%);
+    }
+
+    &:before,
+    &-content:before {
+      color: #e9e9e9;
+      cursor: pointer;
+      content: "\E694";
+      transition: all 0.3s ease;
+      display: block;
+    }
 
     &-content {
-      display: none;
       position: absolute;
       left: 0;
       top: 0;
@@ -35,24 +55,20 @@
       height: 100%;
       overflow: hidden;
       &:before {
-        content: "\E694";
+        color: transparent;
       }
     }
 
-    &-half:before {
-      content: "\E693";
-    }
-
-    &-half &-content {
-      display: block;
-    }
-
+    &-half &-content:before,
     &-full:before {
-      content: "\E694";
+      color: @rate-star-color;
     }
+  }
 
-    &-zero:before {
-      content: "\E693";
-    }
+  &-text {
+    margin-left: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: @font-size-base;
   }
 }
