@@ -48,18 +48,6 @@ ReactDOM.render(<div>
   </Button>
 </ButtonGroup>
 
-<h4>多个组合</h4>
-<ButtonGroup>
-  <Button type="ghost">1</Button>
-  <Button type="ghost">2</Button>
-  <Button type="ghost">3</Button>
-  <Button type="ghost">4</Button>
-  <Button type="ghost">
-    <span>前进</span>
-    <Icon type="right" />
-  </Button>
-</ButtonGroup>
-
 <h4>尺寸</h4>
 <ButtonGroup size="large">
   <Button type="ghost">大</Button>
