@@ -52,7 +52,7 @@ export function generateContainer(data) {
 export function generateIndex(data) {
   const menuItems = getMenuItems(data);
   const firstChild = menuItems.topLevel.topLevel.filter((item) => {
-    return item.disabled !== 'true';
+    return !item.disabled;
   })[0];
   return (
     <IndexRedirect key="index"

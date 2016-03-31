@@ -36,7 +36,7 @@ export default class ComponentDoc extends React.Component {
     const demos = demosList[meta.fileName] || [];
     const expand = this.state.expandAll;
 
-    const isSingleCol = meta.cols === '1';
+    const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
     demos.sort((a, b) => {
