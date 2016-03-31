@@ -1,5 +1,3 @@
-var autoprefixer = require('autoprefixer');
-
 module.exports = function(webpackConfig) {
   if (process.env.ANTD === 'WEBSITE') {
     webpackConfig.entry = {
@@ -33,12 +31,6 @@ module.exports = function(webpackConfig) {
     webpackConfig.output.library = 'antd';
     webpackConfig.output.libraryTarget = 'umd';
   }
-
-  webpackConfig.postcss = [
-    autoprefixer({
-      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8']
-    })
-  ];
 
   return webpackConfig;
 };
