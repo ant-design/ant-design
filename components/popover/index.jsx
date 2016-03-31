@@ -3,16 +3,15 @@ import Tooltip from 'rc-tooltip';
 import getPlacements from './placements';
 
 const placements = getPlacements();
-const prefixCls = 'ant-popover';
 
 export default class Popover extends React.Component {
   static defaultProps = {
-    prefixCls,
+    prefixCls: 'ant-popover',
     placement: 'top',
     trigger: 'hover',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    overlayStyle: {}
+    overlayStyle: {},
   }
 
   render() {
@@ -47,11 +46,12 @@ export default class Popover extends React.Component {
   }
 
   getOverlay() {
+    const { title, prefixCls, overlay } = this.props;
     return (
       <div>
-        {this.props.title && <div className={`${prefixCls}-title`}>{this.props.title}</div>}
+        {title && <div className={`${prefixCls}-title`}>{title}</div>}
         <div className={`${prefixCls}-inner-content`}>
-          {this.props.overlay}
+          {overlay}
         </div>
       </div>
     );
