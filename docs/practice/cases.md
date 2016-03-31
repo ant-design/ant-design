@@ -1,9 +1,10 @@
-# Cases
-
-- order: 0
-- chinese: 实践案例
-
 ---
+order: 0
+chinese: 实践案例
+english: Cases
+---
+
+
 
 Ant Design 是面向中台的 UI 设计语言。
 

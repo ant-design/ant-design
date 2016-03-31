@@ -1,11 +1,12 @@
-# Notification
-
-- category: Components
-- chinese: 通知提醒框
-- type: 展示
-- noinstant: true
-
 ---
+category: Components
+chinese: 通知提醒框
+type: 展示
+noinstant: true
+english: Notification
+---
+
+
 
 全局展示通知提醒信息。
 

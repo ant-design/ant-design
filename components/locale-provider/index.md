@@ -1,11 +1,12 @@
-# LocaleProvider
-
-- category: Components
-- chinese: 国际化
-- cols: 1
-- type: 其它
-
 ---
+category: Components
+chinese: 国际化
+cols: 1
+type: 其它
+english: LocaleProvider
+---
+
+
 
 为组件内建文案提供统一的国际化支持。
 

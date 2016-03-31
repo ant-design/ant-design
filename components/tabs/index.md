@@ -1,10 +1,11 @@
-# Tabs
-
-- category: Components
-- chinese: 标签页
-- type: 导航
-
 ---
+category: Components
+chinese: 标签页
+type: 导航
+english: Tabs
+---
+
+
 
 选项卡切换组件。
 

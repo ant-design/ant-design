@@ -1,10 +1,11 @@
-# Popover
-
-- category: Components
-- chinese: 气泡卡片
-- type: 展示
-
 ---
+category: Components
+chinese: 气泡卡片
+type: 展示
+english: Popover
+---
+
+
 
 点击/鼠标移入元素，弹出气泡式的卡片浮层。
 

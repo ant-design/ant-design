@@ -1,10 +1,11 @@
-# Dropdown
-
-- category: Components
-- chinese: 下拉菜单
-- type: 展示
-
 ---
+category: Components
+chinese: 下拉菜单
+type: 展示
+english: Dropdown
+---
+
+
 
 向下弹出的列表。
 

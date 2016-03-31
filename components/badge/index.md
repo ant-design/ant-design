@@ -1,10 +1,11 @@
-# Badge
-
-- category: Components
-- chinese: 徽标数
-- type: 展示
-
 ---
+category: Components
+chinese: 徽标数
+type: 展示
+english: Badge
+---
+
+
 
 图标右上角的圆形徽标数字。
 

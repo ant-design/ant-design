@@ -1,6 +1,7 @@
-# 快速上手
-
-- order: 1
+---
+order: 1
+english: 快速上手
+---
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 

@@ -1,8 +1,9 @@
-# 亲密性
-
-- category: 十大原则
-- order: 1
-- subtitle: Proximity
+---
+category: 十大原则
+order: 1
+subtitle: Proximity
+english: 亲密性
+---
 
 如果信息之间关联性越高，它们之间的距离就应该越接近，也越像一个视觉单元；反之，则它们的距离就应该越远，也越像多个视觉单元。亲密性的根本目的是实现组织性，让用户对页面结构和信息层次一目了然。
 

@@ -1,11 +1,12 @@
-# Transfer
-
-- category: Components
-- chinese: 穿梭框
-- type: 表单
-- cols: 1
-
 ---
+category: Components
+chinese: 穿梭框
+type: 表单
+cols: 1
+english: Transfer
+---
+
+
 
 双栏穿梭选择框。
 

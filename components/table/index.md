@@ -1,11 +1,12 @@
-# Table
-
-- category: Components
-- chinese: 表格
-- cols: 1
-- type: 展示
-
 ---
+category: Components
+chinese: 表格
+cols: 1
+type: 展示
+english: Table
+---
+
+
 
 展示行列数据。
 

@@ -1,10 +1,11 @@
-# Popconfirm
-
-- category: Components
-- chinese: 气泡确认框
-- type: 展示
-
 ---
+category: Components
+chinese: 气泡确认框
+type: 展示
+english: Popconfirm
+---
+
+
 
 点击元素，弹出气泡式的确认框。
 

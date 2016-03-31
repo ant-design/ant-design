@@ -1,10 +1,11 @@
-# Spin
-
-- category: Components
-- chinese: 加载中
-- type: 其它
-
 ---
+category: Components
+chinese: 加载中
+type: 其它
+english: Spin
+---
+
+
 
 用于页面和区块的加载中状态。
 

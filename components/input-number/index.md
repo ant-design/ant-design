@@ -1,10 +1,11 @@
-# InputNumber
-
-- category: Components
-- chinese: 数字输入框
-- type: 表单
-
 ---
+category: Components
+chinese: 数字输入框
+type: 表单
+english: InputNumber
+---
+
+
 
 通过鼠标或键盘，输入范围内的数值。
 

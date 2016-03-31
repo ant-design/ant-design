@@ -1,7 +1,8 @@
-# Form
-
-- order: 2
-- chinese: 表单
+---
+order: 2
+chinese: 表单
+english: Form
+---
 
 作为获取用户输入的重要交互方式，表单也承担将问题和答案进行配对的角色。
 

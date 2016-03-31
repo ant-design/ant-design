@@ -1,11 +1,12 @@
-# Message
-
-- category: Components
-- chinese: 全局提示
-- type: 展示
-- noinstant: true
-
 ---
+category: Components
+chinese: 全局提示
+type: 展示
+noinstant: true
+english: Message
+---
+
+
 
 全局展示操作反馈信息。
 

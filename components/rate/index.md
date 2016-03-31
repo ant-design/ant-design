@@ -1,10 +1,11 @@
-# Rate
-
-- category: Components
-- chinese: 评分
-- type: 表单
-
 ---
+category: Components
+chinese: 评分
+type: 表单
+english: Rate
+---
+
+
 
 评分组件。
 

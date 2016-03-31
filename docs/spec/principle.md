@@ -1,8 +1,9 @@
-# 引言
-
-- category: 十大原则
-- order: 0
-- subtitle: Introduction
+---
+category: 十大原则
+order: 0
+subtitle: Introduction
+english: 引言
+---
 
 『好设计比差设计更难发现』，因为好设计是如此的自然，帮助用户轻松的完成目标，以至于用户根本意识不到好设计的存在。
 

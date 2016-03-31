@@ -1,10 +1,11 @@
-# TimePicker
-
--	category: Components
--	chinese: 时间选择框
--	type: 表单
-
 ---
+category: Components
+chinese: 时间选择框
+type: 表单
+english: TimePicker
+---
+
+
 
 输入或选择时间的控件。
 

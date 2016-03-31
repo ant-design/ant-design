@@ -1,10 +1,11 @@
-# Breadcrumb
-
-- category: Components
-- chinese: 面包屑
-- type: 导航
-
 ---
+category: Components
+chinese: 面包屑
+type: 导航
+english: Breadcrumb
+---
+
+
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
 
