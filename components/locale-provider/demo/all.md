@@ -8,7 +8,7 @@ title: 所有组件
 
 
 ````jsx
-import { LocaleProvider, Pagination, DatePicker, TimePicker,
+import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 const Option = Select.Option;
@@ -72,6 +72,9 @@ const Page = React.createClass({
           titles={['', '']}
           targetKeys={[]}
           render={item => item.title} />
+        </div>
+        <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+          <Calendar fullscreen={false} />
         </div>
         <div className="example">
           <Table dataSource={[]} columns={columns} />

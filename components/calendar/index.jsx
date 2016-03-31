@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import GregorianCalendar from 'gregorian-calendar';
-import zhCN from './locale/zh_CN';
+import defaultLocale from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
@@ -16,7 +16,7 @@ export default class Calendar extends React.Component {
   static defaultProps = {
     monthCellRender: noop,
     dateCellRender: noop,
-    locale: zhCN,
+    locale: {},
     fullscreen: true,
     prefixCls: PREFIX_CLS,
     onPanelChange: noop,
@@ -35,6 +35,10 @@ export default class Calendar extends React.Component {
     value: PropTypes.instanceOf(Date),
   }
 
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -44,7 +48,7 @@ export default class Calendar extends React.Component {
   }
 
   parseDateFromValue(value) {
-    const date = new GregorianCalendar(this.props.locale);
+    const date = new GregorianCalendar(this.getLocale());
     date.setTime(+value);
     return date;
   }
@@ -55,6 +59,19 @@ export default class Calendar extends React.Component {
         value: this.parseDateFromValue(nextProps.value)
       });
     }
+  }
+
+  getLocale = () => {
+    const props = this.props;
+    let locale = defaultLocale;
+    const context = this.context;
+    if (context && context.antLocale && context.antLocale.Calendar) {
+      locale = context.antLocale.Calendar;
+    }
+    // 统一合并为完整的 Locale
+    const result = { ...locale, ...props.locale };
+    result.lang = { ...locale.lang, ...props.locale.lang };
+    return result;
   }
 
   monthCellRender = (value, locale) => {
@@ -104,8 +121,9 @@ export default class Calendar extends React.Component {
   render() {
     const props = this.props;
     const { value, mode } = this.state;
-    const { locale, prefixCls, style, className, fullscreen } = props;
+    const { prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
+    const locale = this.getLocale();
 
     let cls = className || '';
     if (fullscreen) {
