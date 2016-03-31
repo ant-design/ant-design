@@ -1,11 +1,12 @@
-# Card
-
-- category: Components
-- chinese: 卡片
-- type: 展示
-- cols: 1
-
 ---
+category: Components
+chinese: 卡片
+type: 展示
+cols: 1
+english: Card
+---
+
+
 
 通用卡片容器。
 

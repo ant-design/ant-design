@@ -1,10 +1,11 @@
-# 受控
-
-- order: 8
+---
+order: 8
+title: 受控
+---
 
 受控制的页码。
 
----
+
 
 ````jsx
 import { Pagination } from 'antd';

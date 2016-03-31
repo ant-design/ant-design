@@ -1,11 +1,12 @@
-# 日期时间选择二
-
-- order: 4
-- hidden: true
-
-和 [时间选择框](/components/time-picker) 配合使用。
-
 ---
+order: 4
+hidden: true
+title: 日期时间选择二
+---
+
+和 <a href="/components/time-picker">时间选择框</a> 配合使用。
+
+
 
 ````jsx
 import { DatePicker, TimePicker } from 'antd';

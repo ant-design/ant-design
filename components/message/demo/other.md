@@ -1,10 +1,11 @@
-# 其他提示类型
-
-- order: 1
+---
+order: 1
+title: 其他提示类型
+---
 
 包括成功、失败、警告。
 
----
+
 
 ````jsx
 import { message, Button } from 'antd';

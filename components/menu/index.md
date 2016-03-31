@@ -1,11 +1,12 @@
-# Menu
-
-- category: Components
-- chinese: 导航菜单
-- cols: 1
-- type: 导航
-
 ---
+category: Components
+chinese: 导航菜单
+cols: 1
+type: 导航
+english: Menu
+---
+
+
 
 为页面和功能提供导航的菜单列表。
 

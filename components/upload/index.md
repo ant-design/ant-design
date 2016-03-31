@@ -1,10 +1,11 @@
-# Upload
-
-- category: Components
-- chinese: 上传
-- type: 表单
-
 ---
+category: Components
+chinese: 上传
+type: 表单
+english: Upload
+---
+
+
 
 文件选择上传和拖拽上传控件。
 

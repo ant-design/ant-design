@@ -1,12 +1,13 @@
-# 自定义校验规则
-
-- order: 13
+---
+order: 13
+title: 自定义校验规则
+---
 
 密码校验实例。
 
 这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
 
----
+
 
 ````jsx
 import { Button, Form, Input, Row, Col, Modal } from 'antd';

@@ -1,10 +1,11 @@
-# 普通提示
-
-- order: 0
+---
+order: 0
+title: 普通提示
+---
 
 信息提醒反馈。
 
----
+
 
 ````jsx
 import { message, Button } from 'antd';

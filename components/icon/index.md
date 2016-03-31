@@ -1,10 +1,11 @@
-# Icon
-
-- category: Components
-- chinese: 图标
-- type: 基本
-
 ---
+category: Components
+chinese: 图标
+type: 基本
+english: Icon
+---
+
+
 
 有含义的矢量图形，每一个图标打倒一个敌人。
 

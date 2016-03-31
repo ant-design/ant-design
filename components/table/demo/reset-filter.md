@@ -1,6 +1,7 @@
-# 重置筛选和排序
-
-- order: 6
+---
+order: 6
+title: 重置筛选和排序
+---
 
 使用受控属性对筛选和排序状态进行控制。
 
@@ -10,7 +11,7 @@
 
 > 3. 务必指定 `column.key`。
 
----
+
 
 ````jsx
 import { Table } from 'antd';

@@ -1,10 +1,11 @@
-# 信息提示
-
-- order: 5
+---
+order: 5
+title: 信息提示
+---
 
 各种类型的信息提示，只提供一个按钮用于关闭。
 
----
+
 
 ````jsx
 import { Modal, Button } from 'antd';

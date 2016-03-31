@@ -1,10 +1,11 @@
-# 图标按钮
-
-- order: 1
+---
+order: 1
+title: 图标按钮
+---
 
 `Button` 内可以嵌套图标，图标可以放在文字前、后，也可以单独存在。
 
----
+
 
 ````jsx
 import { Button } from 'antd';

@@ -39,7 +39,7 @@ export default class Demo extends React.Component {
       <section className={codeBoxClass} id={id}>
         <section className="code-box-demo">
           {
-            meta.iframe === 'true' ?
+            meta.iframe ?
               <iframe src={src} /> :
               preview
           }
@@ -52,7 +52,7 @@ export default class Demo extends React.Component {
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Link to={{ pathname, query: { scrollTo: id } }}>
-              { meta.chinese || meta.english }
+              { meta.title }
             </Link>
           </div>
           { introChildren }

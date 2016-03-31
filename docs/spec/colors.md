@@ -1,10 +1,11 @@
-# Colors
-
-- category: 设计基础
-- order: 2
-- chinese: 色彩
-
 ---
+category: 设计基础
+order: 2
+chinese: 色彩
+english: Colors
+---
+
+
 
 ## 有意义的色彩
 

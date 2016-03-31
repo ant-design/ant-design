@@ -1,10 +1,11 @@
-# Tree
-
-- category: Components
-- chinese: 树形控件
-- type: 展示
-
 ---
+category: Components
+chinese: 树形控件
+type: 展示
+english: Tree
+---
+
+
 
 ## 何时使用
 

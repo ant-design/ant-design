@@ -1,10 +1,11 @@
-# Motion
-
-- category: 设计基础
-- order: 5
-- chinese: 组件动画
-
 ---
+category: 设计基础
+order: 5
+chinese: 组件动画
+english: Motion
+---
+
+
 
 依据『巧用过渡』的设计原则，Ant Design 提供了一些预设的组件动画和缓动函数。
 

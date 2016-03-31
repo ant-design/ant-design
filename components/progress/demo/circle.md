@@ -1,10 +1,11 @@
-# 进度圈
-
-- order: 1
+---
+order: 1
+title: 进度圈
+---
 
 圈形的进度。
 
----
+
 
 ````jsx
 import { Progress } from 'antd';

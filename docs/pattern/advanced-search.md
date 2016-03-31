@@ -1,7 +1,8 @@
-# Advanced Search
-
-- order: 6
-- chinese: 高级搜索
+---
+order: 6
+chinese: 高级搜索
+english: Advanced Search
+---
 
 借助『高级搜索』，用户可以缩小复杂列表／表格等的展示范围。
 

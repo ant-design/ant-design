@@ -1,11 +1,12 @@
-# Router 默认进出场
-
-- order: 7
-- iframe: true
+---
+order: 7
+iframe: true
+title: Router 默认进出场
+---
 
 router 组合的进场与出场动画。
 
----
+
 
 ````jsx
 const ReactRouter = require('react-router');

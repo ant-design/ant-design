@@ -1,10 +1,11 @@
-# Timeline
-
-- category: Components
-- chinese: 时间轴
-- type: 展示
-
 ---
+category: Components
+chinese: 时间轴
+type: 展示
+english: Timeline
+---
+
+
 
 垂直展示的时间流信息。
 

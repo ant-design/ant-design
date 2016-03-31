@@ -1,10 +1,11 @@
-# 和外部组件通信
-
-- order: 2
+---
+order: 2
+title: 和外部组件通信
+---
 
 联动 checkbox。
 
----
+
 
 ````jsx
 import { Checkbox, Button } from 'antd';

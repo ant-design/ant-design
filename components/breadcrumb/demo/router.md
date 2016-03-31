@@ -1,11 +1,12 @@
-# 路由
-
-- order: 2
-- iframe: true
+---
+order: 2
+iframe: true
+title: 路由
+---
 
 和 `react-router@2.x` 进行结合使用。
 
----
+
 
 ````jsx
 const ReactRouter = require('react-router');

@@ -1,10 +1,11 @@
-# Alert
-
-- category: Components
-- chinese: 警告提示
-- type: 展示
-
 ---
+category: Components
+chinese: 警告提示
+type: 展示
+english: Alert
+---
+
+
 
 警告提示，展现需要关注的信息。
 

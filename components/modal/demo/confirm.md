@@ -1,10 +1,11 @@
-# 确认对话框
-
-- order: 3
+---
+order: 3
+title: 确认对话框
+---
 
 使用 `confirm()` 可以快捷地弹出确认框。
 
----
+
 
 ````jsx
 import { Modal, Button } from 'antd';

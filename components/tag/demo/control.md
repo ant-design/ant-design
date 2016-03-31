@@ -1,12 +1,13 @@
-# 数据生成标签
-
-- order: 2
+---
+order: 2
+title: 数据生成标签
+---
 
 用数组生成一组标签。
 
 > 使用 `afterClose` 而不是 `onClose`，删除时有动画效果。
 
----
+
 
 ````jsx
 import { Tag, Button } from 'antd';

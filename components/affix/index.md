@@ -1,10 +1,11 @@
-# Affix
-
-- category: Components
-- chinese: 固钉
-- type: 其它
-
 ---
+category: Components
+chinese: 固钉
+type: 其它
+english: Affix
+---
+
+
 
 将页面元素钉在可视范围。
 

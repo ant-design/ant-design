@@ -1,10 +1,11 @@
-# DatePicker
-
-- category: Components
-- chinese: 日期选择框
-- type: 表单
-
 ---
+category: Components
+chinese: 日期选择框
+type: 表单
+english: DatePicker
+---
+
+
 
 输入或选择日期的控件。
 

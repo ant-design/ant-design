@@ -1,10 +1,11 @@
-# Slider
-
-- category: Components
-- chinese: 滑动输入条
-- type: 表单
-
 ---
+category: Components
+chinese: 滑动输入条
+type: 表单
+english: Slider
+---
+
+
 
 滑动型输入器，展示当前值和可选范围。
 

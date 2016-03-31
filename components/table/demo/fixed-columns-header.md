@@ -1,12 +1,13 @@
-# 固定头和列
-
-- order: 18
+---
+order: 18
+title: 固定头和列
+---
 
 适合同时展示有大量数据和数据列。
 
 > 需要指定 scroll.x 为宽度，或者指定每列宽度 `width`，否则可能有错位问题。
 
----
+
 
 ````jsx
 import { Table } from 'antd';

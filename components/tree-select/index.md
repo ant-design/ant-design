@@ -1,10 +1,11 @@
-# TreeSelect
-
-- category: Components
-- chinese: 树选择
-- type: 表单
-
 ---
+category: Components
+chinese: 树选择
+type: 表单
+english: TreeSelect
+---
+
+
 
 树型选择控件。
 

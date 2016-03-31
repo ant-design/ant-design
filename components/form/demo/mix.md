@@ -1,10 +1,11 @@
-# 表单组合
-
-- order: 5
+---
+order: 5
+title: 表单组合
+---
 
 集中营，展示和表单相关的其他 ant-design 组件。
 
----
+
 
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,

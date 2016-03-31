@@ -1,10 +1,11 @@
-# Button
-
-- category: Components
-- chinese: 按钮
-- type: 基本
-
 ---
+category: Components
+chinese: 按钮
+type: 基本
+english: Button
+---
+
+
 
 按钮用于开始一个即时操作。
 

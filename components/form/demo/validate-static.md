@@ -1,6 +1,7 @@
-# 校验提示
-
-- order: 6
+---
+order: 6
+title: 校验提示
+---
 
 我们为表单控件定义了三种校验状态，为 `<FormItem>` 定义 `validateStatus` 属性即可。
 
@@ -10,7 +11,7 @@ validateStatus: ['success', 'warning', 'error', 'validating']。
 
 **注意**: 反馈图标只对 `<Input />` 有效。
 
----
+
 
 ````jsx
 import { Form, Input, DatePicker, Col } from 'antd';

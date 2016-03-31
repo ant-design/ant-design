@@ -1,10 +1,11 @@
-# Progress
-
-- category: Components
-- chinese: 进度条
-- type: 展示
-
 ---
+category: Components
+chinese: 进度条
+type: 展示
+english: Progress
+---
+
+
 
 展示操作的当前进度。
 

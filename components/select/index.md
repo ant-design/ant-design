@@ -1,10 +1,11 @@
-# Select
-
-- category: Components
-- chinese: 选择器
-- type: 表单
-
 ---
+category: Components
+chinese: 选择器
+type: 表单
+english: Select
+---
+
+
 
 类似 Select2 的选择器。
 

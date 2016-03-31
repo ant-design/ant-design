@@ -1,10 +1,11 @@
-# 搜索框
-
-- order: 9
+---
+order: 9
+title: 搜索框
+---
 
 带有搜索按钮的自动补全输入框。
 
----
+
 
 ````jsx
 import { Input, Select, Button, Icon } from 'antd';

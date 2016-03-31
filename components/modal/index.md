@@ -1,10 +1,11 @@
-# Modal
-
-- type: 展示
-- category: Components
-- chinese: 对话框
-
 ---
+type: 展示
+category: Components
+chinese: 对话框
+english: Modal
+---
+
+
 
 模态对话框。
 

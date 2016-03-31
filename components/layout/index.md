@@ -1,11 +1,12 @@
-# Layout
-
-- category: Components
-- chinese: 布局
-- type: 基本
-- cols: 1
-
 ---
+category: Components
+chinese: 布局
+type: 基本
+cols: 1
+english: Layout
+---
+
+
 
 24 栅格系统。
 

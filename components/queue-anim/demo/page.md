@@ -1,10 +1,11 @@
-# 一个复杂些的例子
-
-- order: 6
+---
+order: 6
+title: 一个复杂些的例子
+---
 
 模拟一个完整的页面。
 
----
+
 
 ````jsx
 import { QueueAnim, Button } from 'antd';

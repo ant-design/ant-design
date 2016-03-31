@@ -1,10 +1,11 @@
-# Checkbox 组
-
-- order: 3
+---
+order: 3
+title: Checkbox 组
+---
 
 方便的从数组生成 Checkbox 组。
 
----
+
 
 ````jsx
 import { Checkbox } from 'antd';

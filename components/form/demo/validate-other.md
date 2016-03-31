@@ -1,10 +1,11 @@
-# 校验其他组件
-
-- order: 12
+---
+order: 12
+title: 校验其他组件
+---
 
 提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
 
----
+
 
 ````jsx
 import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader, Icon } from 'antd';

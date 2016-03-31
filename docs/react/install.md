@@ -1,8 +1,9 @@
-# 安装
-
-- order: 2
-
 ---
+order: 2
+english: 安装
+---
+
+
 
 ## 使用 npm 安装
 

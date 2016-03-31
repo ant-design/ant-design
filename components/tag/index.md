@@ -1,10 +1,11 @@
-# Tag
-
-- category: Components
-- chinese: 标签
-- type: 展示
-
 ---
+category: Components
+chinese: 标签
+type: 展示
+english: Tag
+---
+
+
 
 进行标记和分类的小标签。
 

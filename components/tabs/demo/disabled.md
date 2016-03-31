@@ -1,10 +1,11 @@
-# 禁用
-
-- order: 1
+---
+order: 1
+title: 禁用
+---
 
 禁用某一项。
 
----
+
 
 ````jsx
 import { Tabs } from 'antd';
