@@ -1,11 +1,11 @@
-# Flex对齐
-
-- order: 5
+---
+order: 5
+title: Flex对齐
+---
 
 Flex 子元素垂直对齐。
 
 
----
 
 ````jsx
 import { Row, Col } from 'antd';

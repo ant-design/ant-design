@@ -1,12 +1,13 @@
-# 按钮组合
-
-- order: 5
+---
+order: 5
+title: 按钮组合
+---
 
 可以将多个 `Button` 放入 `Button.Group` 的容器中。
 
 通过设置 `size` 为 `large` `small` 分别把按钮组合设为大、小尺寸。若不设置 `size`，则尺寸为中。
 
----
+
 
 ````jsx
 import { Button, Icon } from 'antd';

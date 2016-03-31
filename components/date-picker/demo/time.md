@@ -1,10 +1,11 @@
-# 日期时间选择
-
-- order: 4
+---
+order: 4
+title: 日期时间选择
+---
 
 增加选择时间功能。不要修改时间的格式 `HH:mm:ss`。
 
----
+
 
 ````jsx
 import { DatePicker } from 'antd';

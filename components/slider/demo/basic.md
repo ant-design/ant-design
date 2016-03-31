@@ -1,10 +1,11 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 基本滑动条。当 `range` 为 `true` 时，渲染为双滑块。当 `disabled` 为 `true` 时，滑块处于不可用状态。
 
----
+
 
 ````jsx
 import { Slider } from 'antd';

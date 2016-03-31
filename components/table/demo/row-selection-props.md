@@ -1,10 +1,11 @@
-# 选择框属性
-
-- order: 3
+---
+order: 3
+title: 选择框属性
+---
 
 配置选择框的默认属性。
 
----
+
 
 ````jsx
 import { Table } from 'antd';

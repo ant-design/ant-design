@@ -1,10 +1,11 @@
-# 附加内容
-
-- order: 4
+---
+order: 4
+title: 附加内容
+---
 
 可以在页签右边添加附加操作。
 
----
+
 
 ````jsx
 import { Tabs, Button } from 'antd';

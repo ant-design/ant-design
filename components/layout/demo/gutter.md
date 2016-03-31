@@ -1,10 +1,11 @@
-# 区块间隔
-
-- order: 1
+---
+order: 1
+title: 区块间隔
+---
 
 栅格常常需要和间隔进行配合，你可以使用 `Row` 的 `gutter` 属性，我们推荐使用 `(16+8n)px` 作为栅格间隔。
 
----
+
 
 ````jsx
 import { Row, Col } from 'antd';

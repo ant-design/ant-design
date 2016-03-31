@@ -1,10 +1,11 @@
-# 小型进度条
-
-- order: 2
+---
+order: 2
+title: 小型进度条
+---
 
 适合放在较狭窄的区域内。
 
----
+
 
 ````jsx
 import { Progress } from 'antd';

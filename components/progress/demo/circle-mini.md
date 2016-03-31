@@ -1,10 +1,11 @@
-# 小型进度圈
-
-- order: 3
+---
+order: 3
+title: 小型进度圈
+---
 
 小一号的圈形进度。
 
----
+
 
 ````jsx
 import { Progress } from 'antd';

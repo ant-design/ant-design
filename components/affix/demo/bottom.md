@@ -1,10 +1,11 @@
-# 下方固定
-
-- order: 2
+---
+order: 2
+title: 下方固定
+---
 
 固定在屏幕下方
 
----
+
 
 ````jsx
 import { Affix, Button } from 'antd';

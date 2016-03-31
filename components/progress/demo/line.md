@@ -1,10 +1,11 @@
-# 进度条
-
-- order: 0
+---
+order: 0
+title: 进度条
+---
 
 标准的进度条。
 
----
+
 
 ````jsx
 import { Progress } from 'antd';

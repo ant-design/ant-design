@@ -1,10 +1,11 @@
-# 偏移
-
-- order: 1
+---
+order: 1
+title: 偏移
+---
 
 达到一定的偏移量才触发。
 
----
+
 
 ````jsx
 import { Affix, Button } from 'antd';

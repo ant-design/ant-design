@@ -1,10 +1,11 @@
-# 四种样式
-
-- order: 1
+---
+order: 1
+title: 四种样式
+---
 
 共有四种样式 `success`、`info`、`warning`、`error`。
 
----
+
 
 ````jsx
 import { Alert } from 'antd';

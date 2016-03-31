@@ -1,10 +1,11 @@
-# 三种触发方式
-
-- order: 2
+---
+order: 2
+title: 三种触发方式
+---
 
 鼠标移入、聚集、点击。
 
----
+
 
 ````jsx
 import { Popover, Button } from 'antd';

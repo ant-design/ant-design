@@ -1,10 +1,11 @@
-# 位置
-
-- order: 1
+---
+order: 1
+title: 位置
+---
 
 位置有十二个方向。
 
----
+
 
 ````jsx
 import { Popover, Button } from 'antd';

@@ -1,10 +1,11 @@
-# 受控操作示例
-
-- order: 1
+---
+order: 1
+title: 受控操作示例
+---
 
 受控操作示例
 
----
+
 
 ````jsx
 import { Tree } from 'antd';

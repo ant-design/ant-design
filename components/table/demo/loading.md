@@ -1,10 +1,11 @@
-# 加载中的表格
-
-- order: 14
+---
+order: 14
+title: 加载中的表格
+---
 
 用属性 `loading` 控制表格加载中状态。
 
----
+
 
 ````jsx
 import { Table, Button } from 'antd';

@@ -1,10 +1,11 @@
-# 进度圈动态展示
-
-- order: 4
+---
+order: 4
+title: 进度圈动态展示
+---
 
 会动的进度条才是好进度条。
 
----
+
 
 ````jsx
 import { Progress, Button, Icon } from 'antd';

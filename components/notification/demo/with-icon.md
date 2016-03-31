@@ -1,10 +1,11 @@
-# 带有Icon的通知提醒框
-
-- order: 2
+---
+order: 2
+title: 带有Icon的通知提醒框
+---
 
 通知提醒框左侧有图标。
 
----
+
 
 ````jsx
 import { Button, notification } from 'antd';

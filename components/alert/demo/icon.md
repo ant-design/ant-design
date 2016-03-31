@@ -1,10 +1,11 @@
-# 图标
-
-- order: 4
+---
+order: 4
+title: 图标
+---
 
 可口的图标让信息类型更加醒目。
 
----
+
 
 ````jsx
 import { Alert } from 'antd';

@@ -1,10 +1,11 @@
-# 分页
-
-- order: 5
+---
+order: 5
+title: 分页
+---
 
 数据项较多时显示分页。
 
----
+
 
 ````jsx
 import { Table } from 'antd';

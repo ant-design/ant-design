@@ -1,10 +1,11 @@
-# 总数
-
-- order: 9
+---
+order: 9
+title: 总数
+---
 
 通过设置 `showTotal` 展示总共有多少数据。
 
----
+
 
 ````jsx
 import { Pagination, Select } from 'antd';

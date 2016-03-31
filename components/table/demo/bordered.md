@@ -1,10 +1,11 @@
-# 边框
-
-- order: 10
+---
+order: 10
+title: 边框
+---
 
 添加表格边框线，`bordered`。
 
----
+
 
 ````jsx
 import { Table } from 'antd';
