@@ -42,7 +42,7 @@ export default React.createClass({
     const endDate = value[1] ? new Date(value[1].getTime()) : null;
     const startDateString = value[0] ? props.getFormatter().format(value[0]) : '';
     const endDateString = value[1] ? props.getFormatter().format(value[1]) : '';
-    props.props.onChange([startDate, endDate], [startDateString, endDateString]);
+    props.onChange([startDate, endDate], [startDateString, endDateString]);
   },
   render() {
     const props = this.props;
