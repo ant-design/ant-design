@@ -362,6 +362,7 @@ const Table = React.createClass({
   },
 
   handlePageChange(current) {
+    const props = this.props;
     let pagination = { ...this.state.pagination };
     if (current) {
       pagination.current = current;
@@ -372,10 +373,22 @@ const Table = React.createClass({
 
     const newState = {
       selectionDirty: false,
-      pagination
+      pagination,
     };
+    // Controlled current prop will not respond user interaction
+    if (props.pagination && 'current' in props.pagination) {
+      newState.pagination = {
+        ...pagination,
+        current: this.state.pagination.current,
+      };
+    }
     this.setState(newState);
-    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
+
+    this.props.onChange(...this.prepareParamsArguments({
+      ...this.state,
+      selectionDirty: false,
+      pagination,
+    }));
   },
 
   onRadioChange(ev) {
