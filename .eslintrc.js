@@ -28,7 +28,6 @@ const eslintrc = {
     'prefer-const': 0,
     'arrow-body-style': 0,
     'react/sort-comp': 0,
-    'react/no-multi-comp': 0,
     'react/prop-types': 0,
     'react/prefer-es6-class': 0,
     'react/prefer-stateless-function': 0,
@@ -51,6 +50,7 @@ if (process.env.ANTD === 'DEMO') {
     'no-console': 0,
     'eol-last': 0,
     'prefer-rest-params': 0,
+    'react/no-multi-comp': 0,
   });
 }
 

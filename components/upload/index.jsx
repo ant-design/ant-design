@@ -52,10 +52,8 @@ function genPercentAdd() {
   };
 }
 
-class UploadDragger extends React.Component {
-  render() {
-    return <Upload {...this.props} type="drag" style={{ height: this.props.height }} />;
-  }
+function UploadDragger(props) {
+  return <Upload {...props} type="drag" style={{ height: props.height }} />;
 }
 
 export default class Upload extends React.Component {
