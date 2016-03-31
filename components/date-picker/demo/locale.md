@@ -10,16 +10,16 @@ title: 国际化
 ````jsx
 import { DatePicker } from 'antd';
 import enUS from 'antd/lib/date-picker/locale/en_US';
-import assign from 'object-assign';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      locale: assign({}, enUS, {
+      locale: {
+        ...enUS,
         timezoneOffset: 0 * 60,
         firstDayOfWeek: 0,
         minimalDaysInFirstWeek: 1,
-      })
+      }
     };
   },
   render() {
