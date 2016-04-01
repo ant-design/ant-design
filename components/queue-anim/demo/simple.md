@@ -5,8 +5,6 @@ title: 默认
 
 最简单的进场例子。
 
-
-
 ````jsx
 import { QueueAnim } from 'antd';
 

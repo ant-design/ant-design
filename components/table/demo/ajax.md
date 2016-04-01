@@ -11,8 +11,6 @@ title: 远程加载数据
 
 **注意，此示例是静态数据模拟，展示数据不会变化，请打开网络面板查看请求。**
 
-
-
 ````jsx
 import { Table } from 'antd';
 import reqwest from 'reqwest';

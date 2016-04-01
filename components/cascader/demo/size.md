@@ -5,8 +5,6 @@ title: 大小
 
 不同大小的级联选择器。
 
-
-
 ````jsx
 import { Cascader } from 'antd';
 

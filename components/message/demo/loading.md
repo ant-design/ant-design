@@ -5,8 +5,6 @@ title: 加载中
 
 进行全局 loading，异步自行移除。
 
-
-
 ````jsx
 import { message, Button } from 'antd';
 

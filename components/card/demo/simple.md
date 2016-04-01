@@ -5,8 +5,6 @@ title: 简洁卡片
 
 只包含内容区域。
 
-
-
 ````jsx
 import { Card } from 'antd';
 

@@ -5,8 +5,6 @@ title: 可选择
 
 第一列是联动的选择框。
 
-
-
 ````jsx
 import { Table } from 'antd';
 

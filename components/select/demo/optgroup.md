@@ -5,8 +5,6 @@ title: 分组
 
 用 `OptGroup` 进行选项分组。
 
-
-
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;

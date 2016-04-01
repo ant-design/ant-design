@@ -5,8 +5,6 @@ title: 迷你
 
 迷你版本。
 
-
-
 ````jsx
 import { Pagination } from 'antd';
 

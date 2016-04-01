@@ -6,8 +6,6 @@ cols: 1
 english: Card
 ---
 
-
-
 通用卡片容器。
 
 ## 何时使用

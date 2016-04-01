@@ -5,8 +5,6 @@ type: 展示
 english: Timeline
 ---
 
-
-
 垂直展示的时间流信息。
 
 ## 何时使用

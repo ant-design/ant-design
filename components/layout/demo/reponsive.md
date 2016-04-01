@@ -5,8 +5,6 @@ title: 响应式布局
 
 参照 Bootstrap 的<a href="http://getbootstrap.com/css/#grid-media-queries">响应式设计</a>，预设四个响应尺寸：`xs` `sm` `md` `lg`。
 
-
-
 ````jsx
 import { Row, Col } from 'antd';
 

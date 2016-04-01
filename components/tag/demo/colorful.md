@@ -5,8 +5,6 @@ title: 各种类型
 
 四种颜色的标签。
 
-
-
 ````jsx
 import { Tag } from 'antd';
 

@@ -5,8 +5,6 @@ type: 表单
 english: Switch
 ---
 
-
-
 开关选择器。
 
 ## 何时使用

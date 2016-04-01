@@ -5,8 +5,6 @@ title: 文字和图标
 
 带有文字和图标。
 
-
-
 ````jsx
 import { Switch, Icon } from 'antd';
 

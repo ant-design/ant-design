@@ -7,8 +7,6 @@ title: 自定义校验规则
 
 这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
 
-
-
 ````jsx
 import { Button, Form, Input, Row, Col, Modal } from 'antd';
 import classNames from 'classnames';

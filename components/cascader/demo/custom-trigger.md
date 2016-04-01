@@ -5,8 +5,6 @@ title: 可以自定义显示
 
 切换按钮和结果分开。
 
-
-
 ````jsx
 import { Cascader } from 'antd';
 

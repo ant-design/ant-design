@@ -5,8 +5,6 @@ title: 从浮层内关闭
 
 使用 `visible` 属性控制浮层显示。
 
-
-
 ````jsx
 import { Popover, Button } from 'antd';
 

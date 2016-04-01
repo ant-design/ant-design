@@ -5,8 +5,6 @@ title: 改变
 
 改变每页显示条目数。
 
-
-
 ````jsx
 import { Pagination } from 'antd';
 

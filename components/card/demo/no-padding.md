@@ -5,8 +5,6 @@ title: 更灵活的内容展示
 
 可以调整默认边距，设定宽度。
 
-
-
 ````jsx
 import { Card } from 'antd';
 

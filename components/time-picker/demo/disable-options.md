@@ -5,8 +5,6 @@ title: 禁止选项
 
 限制选择 `20:30` 到 `23:30` 这个时间段。
 
-
-
 ````jsx
 import { TimePicker } from 'antd';
 

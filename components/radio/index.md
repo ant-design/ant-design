@@ -5,8 +5,6 @@ type: 表单
 english: Radio
 ---
 
-
-
 单选框。
 
 ## 何时使用

@@ -5,8 +5,6 @@ type: 表单
 english: Rate
 ---
 
-
-
 评分组件。
 
 ## 何时使用

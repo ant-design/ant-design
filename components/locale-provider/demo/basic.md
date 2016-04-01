@@ -5,8 +5,6 @@ title: 国际化
 
 用 `LocaleProvider` 包裹你的应用，并引用对应的语言包。
 
-
-
 ````jsx
 import { Pagination, LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';

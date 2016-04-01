@@ -5,8 +5,6 @@ title: 附加内容
 
 可以在页签右边添加附加操作。
 
-
-
 ````jsx
 import { Tabs, Button } from 'antd';
 const TabPane = Tabs.TabPane;

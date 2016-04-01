@@ -5,8 +5,6 @@ type: 展示
 english: Progress
 ---
 
-
-
 展示操作的当前进度。
 
 ## 何时使用

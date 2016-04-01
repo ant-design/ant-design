@@ -6,8 +6,6 @@ cols: 1
 english: Layout
 ---
 
-
-
 24 栅格系统。
 
 ## 设计理念

@@ -6,8 +6,6 @@ noinstant: true
 english: Notification
 ---
 
-
-
 全局展示通知提醒信息。
 
 ## 何时使用

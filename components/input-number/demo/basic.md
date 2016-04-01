@@ -5,8 +5,6 @@ title: 基本
 
 数字输入框
 
-
-
 ````jsx
 import { InputNumber } from 'antd';
 

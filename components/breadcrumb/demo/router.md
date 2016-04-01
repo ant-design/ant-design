@@ -6,8 +6,6 @@ title: 路由
 
 和 `react-router@2.x` 进行结合使用。
 
-
-
 ````jsx
 const ReactRouter = require('react-router');
 let { Router, Route, Link, hashHistory } = ReactRouter;
@@ -63,7 +61,6 @@ ReactDOM.render(
   </Router>
 , mountNode);
 ````
-
 
 ````css
 #components-breadcrumb-demo-router iframe {

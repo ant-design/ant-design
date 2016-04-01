@@ -5,8 +5,6 @@ title: 异步关闭
 
 点击确定后异步关闭对话框，例如提交表单。
 
-
-
 ````jsx
 import { Modal, Button } from 'antd';
 

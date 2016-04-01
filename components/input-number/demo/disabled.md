@@ -5,8 +5,6 @@ title: 不可用
 
 点击按钮切换可用状态。
 
-
-
 ````jsx
 import { InputNumber, Button } from 'antd';
 

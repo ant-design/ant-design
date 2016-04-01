@@ -5,8 +5,6 @@ type: 表单
 english: TreeSelect
 ---
 
-
-
 树型选择控件。
 
 ## 何时使用

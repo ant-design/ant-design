@@ -5,8 +5,6 @@ type: 表单
 english: DatePicker
 ---
 
-
-
 输入或选择日期的控件。
 
 ## 何时使用

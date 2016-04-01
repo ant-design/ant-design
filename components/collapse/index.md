@@ -5,8 +5,6 @@ type: 展示
 english: Collapse
 ---
 
-
-
 可以折叠/展开的内容区域。
 
 ## 何时使用

@@ -7,8 +7,6 @@ title: 表格行/列合并
 
 表格支持行/列合并，使用 render 里的单元格属性 colSpan 或者 rowSpan 设值为 0 时，设置的表格不会渲染。
 
-
-
 ````jsx
 import { Table } from 'antd';
 

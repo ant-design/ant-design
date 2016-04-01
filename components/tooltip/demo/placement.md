@@ -5,8 +5,6 @@ title: 位置
 
 位置有 12 个方向。
 
-
-
 ````jsx
 import { Tooltip } from 'antd';
 const text = <span>提示文字</span>;

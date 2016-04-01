@@ -5,8 +5,6 @@ type: 表单
 english: Checkbox
 ---
 
-
-
 多选框。
 
 ## 何时使用

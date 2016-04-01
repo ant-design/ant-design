@@ -7,8 +7,6 @@ title: 联动
 
 推荐使用 <a href="/components/cascader/">cascader</a> 组件。
 
-
-
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;
@@ -18,7 +16,6 @@ const cityData = {
   浙江: ['杭州', '宁波', '温州'],
   江苏: ['南京', '苏州', '镇江']
 };
-
 
 const App = React.createClass({
   getInitialState() {

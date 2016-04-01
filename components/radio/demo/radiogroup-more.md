@@ -5,8 +5,6 @@ title: RadioGroup 垂直
 
 垂直的 RadioGroup，配合更多输入框选项。
 
-
-
 ````jsx
 import { Radio, Input } from 'antd';
 const RadioGroup = Radio.Group;

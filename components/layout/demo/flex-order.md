@@ -5,9 +5,6 @@ title: Flex排序
 
 通过 Flex 布局的 Order 来改变元素的排序。
 
-
-
-
 ````jsx
 import { Row, Col } from 'antd';
 

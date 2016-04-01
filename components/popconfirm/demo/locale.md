@@ -5,8 +5,6 @@ title: 国际化
 
 设置 `okText` `cancelText` 以自定义按钮文字。
 
-
-
 ````jsx
 import { Popconfirm } from 'antd';
 

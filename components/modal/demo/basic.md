@@ -5,8 +5,6 @@ title: 基本
 
 第一个对话框。
 
-
-
 ````jsx
 import { Modal, Button } from 'antd';
 

@@ -5,8 +5,6 @@ title: 通知事项日历演示
 
 一个复杂的应用实例。
 
-
-
 ````jsx
 import { Calendar } from 'antd';
 
@@ -54,7 +52,6 @@ function dateCellRender(value) {
   );
 }
 
-
 function getMonthData(value) {
   if (value.getMonth() === 8) {
     return 1394;
@@ -73,7 +70,6 @@ ReactDOM.render(
   <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
 , mountNode);
 ````
-
 
 ````css
 .events {

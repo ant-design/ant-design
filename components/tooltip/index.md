@@ -5,8 +5,6 @@ type: 展示
 english: Tooltip
 ---
 
-
-
 简单的文字提示气泡框。
 
 ## 何时使用

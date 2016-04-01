@@ -5,8 +5,6 @@ title: 平行排列
 
 行内排列，常用于登录界面。
 
-
-
 ````jsx
 import { Form, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;

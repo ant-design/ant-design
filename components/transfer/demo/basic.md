@@ -5,8 +5,6 @@ title: 基本用法
 
 最基本的用法。
 
-
-
 ````jsx
 import { Transfer, Button } from 'antd';
 

@@ -5,8 +5,6 @@ title: 自定义动画进出场
 
 通过 `animConfig` 来自定义动画进出场。
 
-
-
 ````jsx
 import { QueueAnim, Button } from 'antd';
 

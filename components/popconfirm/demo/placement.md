@@ -5,8 +5,6 @@ title: 位置
 
 位置有十二个方向。
 
-
-
 ````jsx
 import { Popconfirm, message, Button } from 'antd';
 

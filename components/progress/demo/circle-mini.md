@@ -5,8 +5,6 @@ title: 小型进度圈
 
 小一号的圈形进度。
 
-
-
 ````jsx
 import { Progress } from 'antd';
 const ProgressCircle = Progress.Circle;

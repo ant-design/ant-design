@@ -5,8 +5,6 @@ title: 边框
 
 添加表格边框线，`bordered`。
 
-
-
 ````jsx
 import { Table } from 'antd';
 

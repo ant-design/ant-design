@@ -5,8 +5,6 @@ chinese: 对话框
 english: Modal
 ---
 
-
-
 模态对话框。
 
 ## 何时使用

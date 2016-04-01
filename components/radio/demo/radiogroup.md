@@ -5,8 +5,6 @@ title: RadioGroup 组合
 
 一组互斥的 Radio 配合使用。
 
-
-
 ````jsx
 import { Radio } from 'antd';
 const RadioGroup = Radio.Group;

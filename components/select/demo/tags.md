@@ -5,9 +5,6 @@ title: 标签
 
 tags select，随意输入的内容（scroll the menu）
 
-
-
-
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;

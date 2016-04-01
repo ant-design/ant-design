@@ -5,8 +5,6 @@ title: 自定义渲染
 
 用 `dateCellRender` 和 `monthCellRender` 函数来自定义需要渲染的数据。
 
-
-
 ````jsx
 import { Calendar } from 'antd';
 

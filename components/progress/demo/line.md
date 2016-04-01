@@ -5,8 +5,6 @@ title: 进度条
 
 标准的进度条。
 
-
-
 ````jsx
 import { Progress } from 'antd';
 const ProgressLine = Progress.Line;

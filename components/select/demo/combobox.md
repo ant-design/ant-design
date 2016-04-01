@@ -5,9 +5,6 @@ title: 智能提示
 
 输入框自动完成功能，下面是一个账号注册表单的例子。
 
-
-
-
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;

@@ -5,8 +5,6 @@ title: 和外部组件通信
 
 联动 checkbox。
 
-
-
 ````jsx
 import { Checkbox, Button } from 'antd';
 

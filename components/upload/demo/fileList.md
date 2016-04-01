@@ -11,8 +11,6 @@ title: 完全控制的上传列表
 
 3) 按照服务器返回信息筛选成功上传的文件。
 
-
-
 ````jsx
 import { Upload, Button, Icon } from 'antd';
 

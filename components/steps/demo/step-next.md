@@ -5,8 +5,6 @@ title: 切换到下一步
 
 随机生成 3~6 个步骤，初始随机进行到其中一个步骤。
 
-
-
 ````css
 #components-steps-demo-step-next > div > div {
   margin-bottom: 30px;

@@ -5,8 +5,6 @@ title: 受控操作示例
 
 受控操作示例
 
-
-
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;

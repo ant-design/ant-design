@@ -5,8 +5,6 @@ type: 展示
 english: Carousel
 ---
 
-
-
 旋转木马，一组轮播的区域。
 
 ## 何时使用

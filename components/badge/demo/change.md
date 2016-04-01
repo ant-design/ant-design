@@ -5,8 +5,6 @@ title: 动态
 
 展示动态变化的效果。
 
-
-
 ````jsx
 import { Badge, Button, Icon } from 'antd';
 const ButtonGroup = Button.Group;

@@ -5,8 +5,6 @@ title: 拖动示例
 
 将节点拖拽到其他节点内部或前后。
 
-
-
 ````jsx
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;

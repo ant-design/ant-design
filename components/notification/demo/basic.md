@@ -5,8 +5,6 @@ title: 基本
 
 最简单的用法，五秒后自动关闭。
 
-
-
 ````jsx
 import { Button, notification } from 'antd';
 

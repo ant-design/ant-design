@@ -5,8 +5,6 @@ title: 禁用
 
 禁用时间选择。
 
-
-
 ````jsx
 import { TimePicker } from 'antd';
 

@@ -6,8 +6,6 @@ type: 其它
 english: LocaleProvider
 ---
 
-
-
 为组件内建文案提供统一的国际化支持。
 
 ## 使用

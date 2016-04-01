@@ -5,8 +5,6 @@ title: 面板嵌套
 
 手风琴嵌套折叠面板。
 
-
-
 ````jsx
 import { Collapse } from 'antd';
 const Panel = Collapse.Panel;

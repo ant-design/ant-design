@@ -5,8 +5,6 @@ title: 多选
 
 多选和勾选框功能。
 
-
-
 ````jsx
 import { TreeSelect } from 'antd';
 const SHOW_PARENT = TreeSelect.SHOW_PARENT;

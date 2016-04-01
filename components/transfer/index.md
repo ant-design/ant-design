@@ -6,8 +6,6 @@ cols: 1
 english: Transfer
 ---
 
-
-
 双栏穿梭选择框。
 
 ## 何时使用

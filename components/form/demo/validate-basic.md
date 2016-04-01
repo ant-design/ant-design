@@ -5,8 +5,6 @@ title: 表单校验
 
 基本的表单校验例子。
 
-
-
 ````jsx
 import { Button, Form, Input } from 'antd';
 const createForm = Form.create;

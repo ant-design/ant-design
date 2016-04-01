@@ -5,8 +5,6 @@ title: 垂直
 
 垂直显示。
 
-
-
 ````jsx
 import { Carousel } from 'antd';
 

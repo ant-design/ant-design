@@ -5,8 +5,6 @@ title: 基本用法
 
 简单的步骤条。
 
-
-
 ````jsx
 import { Steps } from 'antd';
 const Step = Steps.Step;

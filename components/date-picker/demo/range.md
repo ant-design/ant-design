@@ -5,8 +5,6 @@ title: 日期范围二
 
 使用 `RangePicker` 实现日期范围选择有更好的交互体验。
 
-
-
 ````jsx
 import { DatePicker } from 'antd';
 const RangePicker = DatePicker.RangePicker;

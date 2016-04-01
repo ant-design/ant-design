@@ -5,8 +5,6 @@ title: 小型进度条
 
 适合放在较狭窄的区域内。
 
-
-
 ````jsx
 import { Progress } from 'antd';
 const ProgressLine = Progress.Line;

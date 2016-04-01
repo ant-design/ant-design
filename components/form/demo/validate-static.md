@@ -11,8 +11,6 @@ validateStatus: ['success', 'warning', 'error', 'validating']。
 
 **注意**: 反馈图标只对 `<Input />` 有效。
 
-
-
 ````jsx
 import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;

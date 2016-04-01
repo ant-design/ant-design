@@ -5,8 +5,6 @@ title: 进度圈动态展示
 
 会动的进度条才是好进度条。
 
-
-
 ````jsx
 import { Progress, Button, Icon } from 'antd';
 const ProgressCircle = Progress.Circle;

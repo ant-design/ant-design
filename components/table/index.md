@@ -6,8 +6,6 @@ type: 展示
 english: Table
 ---
 
-
-
 展示行列数据。
 
 ## 何时使用

@@ -5,8 +5,6 @@ title: 格式化 `Tooltip` 内容
 
 使用 `tipFormatter` 可以格式化 `Tooltip` 的内容，设置 `tipFormatter={null}`，则隐藏 `Tooltip`。
 
-
-
 ````jsx
 import { Slider } from 'antd';
 

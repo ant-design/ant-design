@@ -5,8 +5,6 @@ title: 按钮样式
 
 按钮样式的单选组合。
 
-
-
 ````jsx
 import { Radio } from 'antd';
 const RadioButton = Radio.Button;

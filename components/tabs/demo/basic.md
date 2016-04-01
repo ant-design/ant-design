@@ -5,8 +5,6 @@ title: 基本
 
 默认选中第一项。
 
-
-
 ````jsx
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;

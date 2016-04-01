@@ -5,8 +5,6 @@ title: 输入框组合
 
 各类输入框的组合展现。
 
-
-
 ````jsx
 import { Form, Input, Select, Row, Col } from 'antd';
 const FormItem = Form.Item;

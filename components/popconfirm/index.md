@@ -5,8 +5,6 @@ type: 展示
 english: Popconfirm
 ---
 
-
-
 点击元素，弹出气泡式的确认框。
 
 ## 何时使用

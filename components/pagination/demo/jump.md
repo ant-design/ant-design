@@ -5,8 +5,6 @@ title: 跳转
 
 快速跳转到某一页。
 
-
-
 ````jsx
 import { Pagination } from 'antd';
 

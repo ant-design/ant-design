@@ -5,8 +5,6 @@ type: 表单
 english: TimePicker
 ---
 
-
-
 输入或选择时间的控件。
 
 何时使用

@@ -5,8 +5,6 @@ title: 大小
 
 大中小三种组合，可以和表单输入框进行对应配合。
 
-
-
 ````jsx
 import { Radio } from 'antd';
 const RadioButton = Radio.Button;

@@ -5,8 +5,6 @@ title: 典型卡片
 
 包含标题、内容、操作区域。
 
-
-
 ````jsx
 import { Card } from 'antd';
 

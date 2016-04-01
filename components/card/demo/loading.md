@@ -5,8 +5,6 @@ title: 预加载的卡片
 
 数据读入前会有文本块样式。
 
-
-
 ````jsx
 import { Card } from 'antd';
 

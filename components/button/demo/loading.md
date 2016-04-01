@@ -5,8 +5,6 @@ title: 加载中
 
 添加 `loading` 属性即可让按钮处于加载状态，最后两个按钮演示点击后进入加载状态。
 
-
-
 ````jsx
 import { Button, Icon } from 'antd';
 

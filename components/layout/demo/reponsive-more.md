@@ -7,8 +7,6 @@ title: 其他属性的响应式
 
 其中 `xs={6}` 相当于 `xs={{ span: 6 }}`。
 
-
-
 ````jsx
 import { Row, Col } from 'antd';
 

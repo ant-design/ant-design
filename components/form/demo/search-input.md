@@ -5,9 +5,6 @@ title: 搜索框
 
 带有搜索按钮。
 
-
-
-
 ````jsx
 import { Icon, Input, Button } from 'antd';
 import classNames from 'classnames';

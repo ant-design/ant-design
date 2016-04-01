@@ -5,8 +5,6 @@ title: 触发事件
 
 点击菜单项后会触发事件，用户可以通过相应的菜单项 key 进行不同的操作。
 
-
-
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
 const onClick = function ({ key }) {

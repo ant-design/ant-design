@@ -6,8 +6,6 @@ title: Router 默认进出场
 
 router 组合的进场与出场动画。
 
-
-
 ````jsx
 const ReactRouter = require('react-router');
 let { Router, Route, Link, hashHistory } = ReactRouter;

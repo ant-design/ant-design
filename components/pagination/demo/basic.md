@@ -5,8 +5,6 @@ title: 基本
 
 基础分页。
 
-
-
 ````jsx
 import { Pagination } from 'antd';
 

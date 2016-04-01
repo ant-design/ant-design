@@ -5,8 +5,6 @@ type: 展示
 english: Dropdown
 ---
 
-
-
 向下弹出的列表。
 
 ## 何时使用

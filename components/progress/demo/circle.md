@@ -5,8 +5,6 @@ title: 进度圈
 
 圈形的进度。
 
-
-
 ````jsx
 import { Progress } from 'antd';
 const ProgressCircle = Progress.Circle;

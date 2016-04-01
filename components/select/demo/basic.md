@@ -5,8 +5,6 @@ title: 基本使用
 
 基本使用。
 
-
-
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;

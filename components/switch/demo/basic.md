@@ -5,8 +5,6 @@ title: 简单
 
 最简单的用法。
 
-
-
 ````jsx
 import { Switch } from 'antd';
 

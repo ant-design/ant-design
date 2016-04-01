@@ -5,8 +5,6 @@ title: 日期范围一
 
 可以设置 `disabledDate` 方法，来约束开始和结束日期。
 
-
-
 ````jsx
 import { DatePicker } from 'antd';
 

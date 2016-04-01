@@ -7,8 +7,6 @@ title: 按钮组合
 
 通过设置 `size` 为 `large` `small` 分别把按钮组合设为大、小尺寸。若不设置 `size`，则尺寸为中。
 
-
-
 ````jsx
 import { Button, Icon } from 'antd';
 const ButtonGroup = Button.Group;

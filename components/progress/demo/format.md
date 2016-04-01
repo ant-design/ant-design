@@ -5,8 +5,6 @@ title: 自定义文字格式
 
 `format` 属性指定格式。
 
-
-
 ````jsx
 import { Progress } from 'antd';
 const ProgressCircle = Progress.Circle;
