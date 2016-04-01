@@ -58,7 +58,11 @@ module.exports = {
     }]
   },
 
-  postcss: [autoprefixer],
+  postcss: [
+    autoprefixer({
+      browsers: ['last 2 versions', 'Firefox ESR', '> 1%', 'ie >= 8']
+    })
+  ],
 
   plugins: [
     new ExtractTextPlugin('[name].css'),

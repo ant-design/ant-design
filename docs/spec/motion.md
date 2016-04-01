@@ -7,25 +7,29 @@
 
 Ant Design 提供了一些预设的组件动画样式。
 
+可以使用 [rc-animate](https://github.com/react-component/animate) 的 [transitionName](http://react-component.github.io/animate/examples/simple.html) 属性来给任意元素指定动画。
+
+> 示例延长了动画时长以便展示。
+
 <div id="components-motion-demo-basic"></div>
 
-通过设置组件的 `transitionName` 指定组件动画。
-
 | 组件         | 中文名              | 采用动画                                        |
-|--------------|---------------------|-------------------------------------------------|
-| popover      | 气泡浮出            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| popconfirm   | 气泡确认            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| tooltip      | 文字提示            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
-| modal        | 弹出框              | `zoom`                                          |
-| confirm      | 弹出确认框          | `zoom`                                          |
+|--------------|--------------------|-------------------------------------------------|
+| Popover      | 气泡浮出            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| Popconfirm   | 气泡确认            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| Tooltip      | 文字提示            | `zoom-up` `zoom-down` `zoom-left` `zoom-right`  |
+| Modal        | 弹出框              | `zoom`                                          |
+| Badge        | 徽标数              | `zoom`                                          |
 | message      | 信息提示条          | `move-up`                                       |
 | notification | 通知框              | `move-right` & `slide-up`                       |
-| dropdown     | 下拉菜单            | `slide-up`                                      |
-| select       | 选择框              | `slide-up`                                      |
-| datepicker   | 日期选择框          | `slide-up`                                      |
-| alert        | 警告提示            | `slide-up`                                      |
-| menu         | 导航菜单            | `slide-up`                                      |
-| datepicker   | 日期选择框          | `slide-up`                                      |
+| Dropdown     | 下拉菜单            | `slide-up`                                      |
+| Select       | 选择框              | `slide-up`                                      |
+| Cascader     | 级联选择框          | `slide-up`                                      |
+| TreeSelect   | 树选择框            | `slide-up`                                      |
+| DatePicker   | 日期选择框          | `slide-up`                                      |
+| TatePicker   | 日期选择框          | `slide-up`                                      |
+| Alert        | 警告提示            | `slide-up`                                      |
+| Menu         | 导航菜单            | `slide-up`                                      |
 
 
 `````jsx
@@ -33,7 +37,6 @@ var cssAnimation = require('css-animation');
 var Select = antd.Select;
 var Option = Select.Option;
 var OptGroup = Select.OptGroup;
-
 
 var motions = [];
 motions = motions.concat([[{
@@ -186,15 +189,15 @@ motions = motions.concat([[{
   direction: 'enter',
   type: '其他'
 }]]);
-var leave='-leave';
+var leave = '-leave';
 var Test = React.createClass({
   handleChange(e) {
     var value = e;
-    if(value){
-      this.demoNode.style.visibility='';
+    if (value) {
+      this.demoNode.style.visibility = '';
       cssAnimation(this.demoNode, value, () => {
-        if(value.slice(-leave.length)===leave){
-          this.demoNode.style.visibility='hidden';
+        if (value.slice(-leave.length) === leave) {
+          this.demoNode.style.visibility = 'hidden';
         }
       });
     }
@@ -218,7 +221,6 @@ var Test = React.createClass({
       <div className="motion-select-wrapper">
         <Select value="" className='motion-select' onChange={this.handleChange}>{options}</Select>
       </div>
-
     </div>;
   }
 });
@@ -227,6 +229,11 @@ ReactDOM.render(<Test/>, document.getElementById('components-motion-demo-basic')
 `````
 
 <style>
+#components-motion-demo-basic {
+  margin: 40px 0;
+  width: 80%;
+}
+
 .motion-container {
   height: 190px;
   line-height: 190px;
@@ -243,6 +250,7 @@ ReactDOM.render(<Test/>, document.getElementById('components-motion-demo-basic')
   display: inline-block !important;
   border-radius: 8px;
   font-weight: bold;
+  animation-duration: 0.5s!important;
   background: url(https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg) center/230px;
 }
 .motion-select-wrapper{
