@@ -10,6 +10,7 @@ import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 const Option = Select.Option;
+const RangePicker = DatePicker.RangePicker;
 
 const columns = [{
   title: 'Name',
@@ -56,6 +57,9 @@ const Page = React.createClass({
         <div className="example">
           <DatePicker />
           <TimePicker />
+          <RangePicker style={{ width: 200 }} />
+        </div>
+        <div className="example">
           <Button type="primary" onClick={this.showModal}>Show Modal</Button>
           <Button onClick={info}>Show info</Button>
           <Button onClick={confirm}>Show confirm</Button>

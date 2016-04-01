@@ -6,6 +6,7 @@ let locale = { ...GregorianCalendarLocale };
 locale.lang = {
   placeholder: 'Select date',
   timePlaceholder: 'Select time',
+  rangePlaceholder: ['Start date', 'End date'],
   ...CalendarLocale,
 };
 

@@ -7,8 +7,6 @@ import classNames from 'classnames';
 export default class RangePicker extends React.Component {
   static defaultProps = {
     defaultValue: [],
-    startPlaceholder: '开始日期',
-    endPlaceholder: '结束日期',
   }
 
   constructor(props) {
@@ -56,7 +54,7 @@ export default class RangePicker extends React.Component {
     let defaultCalendarValue = new GregorianCalendar(locale);
     defaultCalendarValue.setTime(Date.now());
 
-    const { disabledDate, showTime, startPlaceholder, endPlaceholder, getCalendarContainer,
+    const { disabledDate, showTime, getCalendarContainer,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;
     const state = this.state;
 
@@ -82,6 +80,11 @@ export default class RangePicker extends React.Component {
     } else {
       calendarHandler = {};
     }
+
+    const startPlaceholder = ('startPlaceholder' in this.props)
+      ? props.startPlaceholder : locale.lang.rangePlaceholder[0];
+    const endPlaceholder = ('endPlaceholder' in props)
+      ? props.endPlaceholder : locale.lang.rangePlaceholder[1];
 
     const calendar = (
       <RangeCalendar

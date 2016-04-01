@@ -6,6 +6,7 @@ let locale = { ...GregorianCalendarLocale };
 locale.lang = {
   placeholder: '请选择日期',
   timePlaceholder: '请选择时间',
+  rangePlaceholder: ['开始日期', '结束日期'],
   ...CalendarLocale,
 };
 
