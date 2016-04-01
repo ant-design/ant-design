@@ -1,10 +1,9 @@
-# 半星
-
-- order: 1
+---
+order: 1
+title: 半星
+---
 
 支持选中半星。
-
----
 
 ````jsx
 import { Rate } from 'antd';

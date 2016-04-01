@@ -1,10 +1,9 @@
-# 只读
-
-- order: 3
+---
+order: 3
+title: 只读
+---
 
 只读，无法进行鼠标交互。
-
----
 
 ````jsx
 import { Rate } from 'antd';

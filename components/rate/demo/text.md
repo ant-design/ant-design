@@ -1,10 +1,9 @@
-# 文案展现
-
-- order: 2
+---
+order: 2
+title: 文案展现
+---
 
 给评分组件加上文案展示。
-
----
 
 ````jsx
 import { Rate } from 'antd';
