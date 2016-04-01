@@ -17,13 +17,13 @@ const content = (
 
 ReactDOM.render(
   <div>
-    <Popover overlay={content} title="标题" trigger="hover">
+    <Popover content={content} title="标题" trigger="hover">
       <Button>移入</Button>
     </Popover>
-    <Popover overlay={content} title="标题" trigger="focus">
+    <Popover content={content} title="标题" trigger="focus">
       <Button>聚焦</Button>
     </Popover>
-    <Popover overlay={content} title="标题" trigger="click">
+    <Popover content={content} title="标题" trigger="click">
       <Button>点击</Button>
     </Popover>
   </div>

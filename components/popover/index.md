@@ -20,7 +20,7 @@ english: Popover
 | trigger   | 触发行为，可选 `hover/focus/click`       | string        | hover  |
 | placement | 气泡框位置，可选 `top/left/right/bottom` `topLeft/topRight/bottomLeft/bottomRight` `leftTop/leftBottom/rightTop/rightBottom` | string        | top    |
 | title     | 卡片标题                                 | React.Element | 无     |
-| overlay   | 卡片内容                            | React.Element | 无     |
+| content   | 卡片内容                            | React.Element | 无     |
 | overlayClassName | 卡片类名                            | string | 无     |
 | overlayStyle | 卡片样式                            | object | 无     |
 | visible   | 用于手动控制浮层显隐                     | boolean       | false  |

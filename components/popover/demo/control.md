@@ -29,7 +29,7 @@ const App = React.createClass({
       </div>
     );
     return (
-      <Popover overlay={content} title="标题" trigger="click"
+      <Popover content={content} title="标题" trigger="click"
         visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
         <Button type="primary">点击弹出卡片</Button>
       </Popover>
