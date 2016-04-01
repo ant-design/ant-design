@@ -35,7 +35,6 @@
 
     &:hover {
       transform: scale(1.1);
-      color: tint(@rate-star-color, 20%);
     }
 
     &:before,
@@ -62,6 +61,11 @@
     &-half &-content:before,
     &-full:before {
       color: @rate-star-color;
+    }
+
+    &-half:hover &-content:before,
+    &-full:hover:before {
+      color: tint(@rate-star-color, 20%);
     }
   }
 
