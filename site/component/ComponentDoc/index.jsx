@@ -66,7 +66,7 @@ export default class ComponentDoc extends React.Component {
         <li key={demo.id}>
           <Link className={ demo.id === scrollTo ? 'current' : ''}
             to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
-            { demo.meta.chinese || demo.meta.english }
+            { demo.meta.title }
           </Link>
         </li>
       );
