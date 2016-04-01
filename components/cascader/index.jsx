@@ -8,7 +8,7 @@ import classNames from 'classnames';
 export default class Cascader extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-cascader',
-    placeholder: '请选择',
+    placeholder: 'Please select',
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
     onChange() {},

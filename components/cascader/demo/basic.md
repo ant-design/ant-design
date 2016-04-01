@@ -37,6 +37,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <Cascader options={options} onChange={onChange} />
+  <Cascader options={options} onChange={onChange} placeholder="请选择地区" />
 , mountNode);
 ````
