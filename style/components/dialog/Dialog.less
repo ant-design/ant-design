@@ -1,17 +1,18 @@
 .@{dialog-prefix-cls} {
-  outline: none;
-  position: absolute;
-  left: -9999px;
-  top: -9999px;
-  z-index: @zindex-modal;
+  position: relative;
+  width: auto;
+  margin: 10px;
 
-  &-wrap * {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  }
-
-  &-hidden {
-    display: none;
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @zindex-modal;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
   }
 
   &-title {
@@ -27,12 +28,12 @@
     border: 0;
     border-radius: @border-radius-base;
     background-clip: padding-box;
-    outline: 0;
   }
 
   &-close {
     cursor: pointer;
-    outline: none;
+    border: 0;
+    background: transparent;
     margin-top: -2px;
     float: right;
     font-size: 21px;
@@ -92,5 +93,12 @@
     padding: 8px 20px 16px 10px;
     text-align: right;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+  }
+}
+
+@media (min-width: 768px) {
+  .@{dialog-prefix-cls} {
+    width: 600px;
+    margin: 30px auto;
   }
 }
