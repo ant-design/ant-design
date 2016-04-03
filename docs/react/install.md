@@ -30,6 +30,10 @@ $ npm install antd@beta --save
 > **历史版本**：https://github.com/ant-design/ant-design/releases
 
 
+## 浏览器引入
+
+官方不再提供单独的构建文件，建议开发者自行构建 `antd.js` 和 `antd.css`。我们提供了一个 [构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
+
 ## 开发工具
 
 我们提供了 React 前端应用开发的 [脚手架工具](https://github.com/ant-design/antd-init)，可以安装到全局直接使用。
@@ -39,5 +43,7 @@ $ npm install antd-init -g
 ```
 
 在空目录运行 `antd-init` 可以初始化一个 antd 的前端应用。
+
+最新的脚手架结构可以到这里 [查看](https://github.com/ant-design/antd-init/tree/master/boilerplate)，建议持续关注更新以便获得最新的开发工程特性。
 
 > 更多开发工具 [使用方式](http://ant-tool.github.io/)。
