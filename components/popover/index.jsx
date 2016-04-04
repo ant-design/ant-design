@@ -48,7 +48,7 @@ export default class Popover extends React.Component {
 
   componentDidMount() {
     if ('overlay' in this.props) {
-      warning(false, '`overlay` prop of Popover is deperated, use `content` instead.');
+      warning(false, '`overlay` prop of Popover is deprecated, use `content` instead.');
     }
   }
 
