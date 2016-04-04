@@ -94,11 +94,17 @@
     text-align: right;
     border-radius: 0 0 @border-radius-base @border-radius-base;
   }
+
+  &.zoom-enter,
+  &.zoom-appear {
+    animation-duration: .3s;
+    transform: none; // reset scale avoid mousePosition bug
+    opacity: 0;
+  }
 }
 
 @media (min-width: 768px) {
   .@{dialog-prefix-cls} {
-    width: 600px;
-    margin: 30px auto;
+    margin: 100px auto;
   }
 }
