@@ -15,7 +15,7 @@ export default class Modal extends React.Component {
     onCancel: noop,
     width: 520,
     transitionName: 'zoom',
-    maskAnimation: 'fade',
+    maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false,
   }
