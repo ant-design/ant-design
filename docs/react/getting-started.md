@@ -143,11 +143,13 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 目前社区也有很多基于 antd 定制的 [脚手架](https://github.com/ant-design/ant-design/issues/129)，欢迎进行试用和贡献。
 
-### 改变主色系
+## 配置案例
 
-- [配置代码示例](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [改变主色系](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [使用本地字体](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
+- [构建独立文件](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone)
 
 ## 小甜点
 
 - 你可以享用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，试试用 [ES6](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/) 的写法来提升编码的愉悦感。
+- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/) 的写法来提升编码的愉悦感。
