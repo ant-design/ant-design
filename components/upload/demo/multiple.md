@@ -1,6 +1,6 @@
 ---
 order: 5
-hidden: 5
+hidden: true
 title: 多文件选择
 ---
 
