@@ -24,8 +24,13 @@ export default class UploadList extends React.Component {
     }
   };
 
-  handleClose(file) {
+  handleClose = (file) => {
     this.props.onRemove(file);
+  }
+
+  handlePreview = (file, e) => {
+    e.preventDefault();
+    return this.props.onPreview(file);
   }
 
   componentDidUpdate() {
@@ -66,6 +71,7 @@ export default class UploadList extends React.Component {
           }
         } else {
           icon = (<a className={`${prefixCls}-list-item-thumbnail`}
+            onClick={(e) => this.handlePreview(file, e)}
             href={file.url}
             target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
           );
@@ -88,13 +94,13 @@ export default class UploadList extends React.Component {
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
             {file.url
-               ? <a href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
+               ? <a onClick={(e) => this.handlePreview(file, e)} href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
                : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>}
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
-                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
+                  <a onClick={(e) => this.handlePreview(file, e)} href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
                   <Icon type="delete" onClick={() => this.handleClose(file)} />
                 </span>
               ) : <Icon type="cross" onClick={() => this.handleClose(file)} />

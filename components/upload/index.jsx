@@ -188,11 +188,21 @@ export default class Upload extends React.Component {
     }
   }
 
+  handlePreview = (file) => {
+    if ('onPreview' in this.props) {
+      this.props.onPreview(file);
+    }
+  }
+
   handleManualRemove = (file) => {
     /*eslint-disable */
     file.status = 'removed';
     /*eslint-enable */
-    this.handleRemove(file);
+    if ('onRemove' in this.props) {
+      this.props.onRemove(file);
+    } else {
+      this.handleRemove(file);
+    }
   }
 
   onChange = (info) => {
@@ -235,6 +245,7 @@ export default class Upload extends React.Component {
       uploadList = (
         <UploadList listType={this.props.listType}
           items={this.state.fileList}
+          onPreview={this.handlePreview}
           onRemove={this.handleManualRemove} />
       );
     }
