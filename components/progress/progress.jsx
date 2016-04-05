@@ -20,8 +20,10 @@ export default class Line extends React.Component {
 
   static propTypes = {
     status: PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
+    type: PropTypes.oneOf(['line', 'circle']),
     showInfo: PropTypes.bool,
     percent: PropTypes.number,
+    width: PropTypes.number,
     strokeWidth: PropTypes.number,
     trailColor: PropTypes.string,
     format: PropTypes.func,

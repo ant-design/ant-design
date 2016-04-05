@@ -1,12 +1,17 @@
 import React from 'react';
-import Line from './Line';
-import Circle from './Circle';
+import Progress from './progress';
+import warning from 'warning';
 
-const Progress = Line;
-Progress.Line = Line;
+const AntProgress = Progress;
 
-Progress.Circle = (props) => {
-  return <Circle {...props} />;
+// For downward compatibility
+AntProgress.Line = (props) => {
+  warning(false, '<Progress.Line /> is deprecated, use <Progress type="line" /> instead.');
+  return <Progress {...props} type="line" />;
+};
+AntProgress.Circle = (props) => {
+  warning(false, '<Progress.Circle /> is deprecated, use <Progress type="circle" /> instead.');
+  return <Progress {...props} type="circle" />;
 };
 
-export default Progress;
+export default AntProgress;
