@@ -34,32 +34,27 @@
     cursor: pointer;
     border: 0;
     background: transparent;
-    margin-top: -2px;
-    float: right;
-    font-size: 21px;
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    z-index: 10;
     font-weight: 700;
     line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
     text-decoration: none;
     transition: color .3s ease;
     color: #999;
 
     &-x {
-      position: absolute;
-      display: inline-block;
+      display: block;
       font-style: normal;
       vertical-align: baseline;
       text-align: center;
       text-transform: none;
       text-rendering: auto;
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
       font-size: 14px;
-      line-height: 12px;
-      top: 18px;
-      right: 18px;
-      z-index: 1;
+      line-height: 1;
 
       &:before {
         content: "\e62d";
