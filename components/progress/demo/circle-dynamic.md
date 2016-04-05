@@ -7,7 +7,6 @@ title: 进度圈动态展示
 
 ````jsx
 import { Progress, Button, Icon } from 'antd';
-const ProgressCircle = Progress.Circle;
 const ButtonGroup = Button.Group;
 
 const MyProgress = React.createClass({
@@ -33,7 +32,7 @@ const MyProgress = React.createClass({
   render() {
     return (
       <div>
-        <ProgressCircle percent={this.state.percent} />
+        <Progress type="circle" percent={this.state.percent} />
         <ButtonGroup>
           <Button type="ghost" onClick={this.decline}>
             <Icon type="minus" />

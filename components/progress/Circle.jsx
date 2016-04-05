@@ -1,4 +1,4 @@
-import { Circle as Progresscircle } from 'rc-progress';
+import { RcProgressCircle } from 'rc-progress';
 import React from 'react';
 import Icon from '../icon';
 
@@ -65,7 +65,7 @@ export default class Circle extends React.Component {
     return (
       <div className={`${prefixCls}-circle-wrap status-${props.status}`} style={props.style}>
         <div className={`${prefixCls}-circle-inner`} style={style}>
-          <Progresscircle percent={props.percent} strokeWidth={props.strokeWidth}
+          <RcProgressCircle percent={props.percent} strokeWidth={props.strokeWidth}
             strokeColor={statusColorMap[props.status]} trailColor={props.trailColor} />
           {progressInfo}
         </div>

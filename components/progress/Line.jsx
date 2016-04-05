@@ -1,71 +1,96 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Icon from '../icon';
+import { Circle } from 'rc-progress';
+import classNames from 'classnames';
 
-const prefixCls = 'ant-progress';
+const statusColorMap = {
+  normal: '#2db7f5',
+  exception: '#ff5500',
+  success: '#87d068'
+};
+
 export default class Line extends React.Component {
   static defaultProps = {
+    type: 'line',
     percent: 0,
-    strokeWidth: 10,
-    status: 'normal', // exception active
     showInfo: true,
-    trailColor: '#f3f3f3'
+    trailColor: '#f3f3f3',
+    prefixCls: 'ant-progress',
   }
 
   static propTypes = {
-    status: React.PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
-    showInfo: React.PropTypes.bool,
-    percent: React.PropTypes.number,
-    strokeWidth: React.PropTypes.number,
-    trailColor: React.PropTypes.string,
-    format: React.PropTypes.func,
+    status: PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
+    showInfo: PropTypes.bool,
+    percent: PropTypes.number,
+    strokeWidth: PropTypes.number,
+    trailColor: PropTypes.string,
+    format: PropTypes.func,
   }
 
   render() {
-    let props = { ...this.props };
-
-    if (parseInt(props.percent, 10) === 100) {
-      props.status = 'success';
-    }
-
+    const { prefixCls, status, format, percent, trailColor,
+      type, strokeWidth, width, className, showInfo, ...restProps } = this.props;
+    const progressStatus = (parseInt(percent, 10) >= 100 && !('status' in this.props))
+      ? 'success' : (status || 'normal');
     let progressInfo;
-    let fullCls = '';
+    let progress;
+    const textFormatter = format || (percentNumber => `${percentNumber}%`);
 
-    const format = props.format || (percent => `${percent}%`);
-
-    if (props.showInfo) {
-      if (props.status === 'exception') {
-        progressInfo = (
-          <span className={`${prefixCls}-line-text`}>
-            {props.format ? format(props.percent) : <Icon type="cross-circle" />}
-          </span>
-        );
-      } else if (props.status === 'success') {
-        progressInfo = (
-          <span className={`${prefixCls}-line-text`}>
-            {props.format ? format(props.percent) : <Icon type="check-circle" />}
-          </span>
-        );
+    if (showInfo) {
+      let text;
+      const iconType = type === 'circle' ? '' : '-circle';
+      if (progressStatus === 'exception') {
+        text = format ? textFormatter(percent) : <Icon type={`cross${iconType}`} />;
+      } else if (progressStatus === 'success') {
+        text = format ? textFormatter(percent) : <Icon type={`check${iconType}`} />;
       } else {
-        progressInfo = (
-          <span className={`${prefixCls}-line-text`}>{format(props.percent)}</span>
-        );
+        text = textFormatter(percent);
       }
-    } else {
-      fullCls = ` ${prefixCls}-line-wrap-full`;
+      progressInfo = <span className={`${prefixCls}-text`}>{text}</span>;
     }
-    let percentStyle = {
-      width: `${props.percent}%`,
-      height: props.strokeWidth
-    };
+
+    if (type === 'line') {
+      const percentStyle = {
+        width: `${percent}%`,
+        height: strokeWidth || 10,
+      };
+      progress = (
+        <div>
+          <div className={`${prefixCls}-outer`}>
+            <div className={`${prefixCls}-inner`}>
+              <div className={`${prefixCls}-bg`} style={percentStyle}></div>
+            </div>
+          </div>
+          {progressInfo}
+        </div>
+      );
+    } else if (type === 'circle') {
+      const circleSize = width || 132;
+      const circleStyle = {
+        width: circleSize,
+        height: circleSize,
+        fontSize: circleSize * 0.16 + 6,
+      };
+      progress = (
+        <div className={`${prefixCls}-inner`} style={circleStyle}>
+          <Circle percent={percent} strokeWidth={strokeWidth || 6}
+            strokeColor={statusColorMap[progressStatus]} trailColor={trailColor} />
+          {progressInfo}
+        </div>
+      );
+    }
+
+    const classString = classNames({
+      [`${prefixCls}`]: true,
+      [`${prefixCls}-${type}`]: true,
+      [`${prefixCls}-status-${progressStatus}`]: true,
+      [`${prefixCls}-show-info`]: showInfo,
+      [className]: !!className,
+    });
 
     return (
-      <div className={`${prefixCls}-line-wrap clearfix status-${props.status}${fullCls}`} style={props.style}>
-        <div className={`${prefixCls}-line-outer`}>
-          <div className={`${prefixCls}-line-inner`}>
-            <div className={`${prefixCls}-line-bg`} style={percentStyle}></div>
-          </div>
-        </div>
-        {progressInfo}
+      <div {...restProps} className={classString}>
+        {progress}
       </div>
     );
   }

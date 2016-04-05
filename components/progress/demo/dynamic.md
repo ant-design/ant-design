@@ -7,7 +7,6 @@ title: 动态展示
 
 ````jsx
 import { Progress, Button, Icon } from 'antd';
-const ProgressLine = Progress.Line;
 const ButtonGroup = Button.Group;
 
 const MyProgress = React.createClass({
@@ -33,7 +32,7 @@ const MyProgress = React.createClass({
   render() {
     return (
       <div>
-        <ProgressLine percent={this.state.percent} />
+        <Progress percent={this.state.percent} />
         <ButtonGroup>
           <Button type="ghost" onClick={this.decline}>
             <Icon type="minus" />
@@ -49,4 +48,3 @@ const MyProgress = React.createClass({
 
 ReactDOM.render(<MyProgress />, mountNode);
 ````
-
