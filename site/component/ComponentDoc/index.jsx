@@ -33,7 +33,8 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const scrollTo = location.query.scrollTo;
     const { description, meta } = doc;
-    const demos = demosList[meta.fileName] || [];
+    const demos = (demosList[meta.fileName] || [])
+            .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
 
     const isSingleCol = meta.cols === 1;
