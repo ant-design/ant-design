@@ -89,9 +89,9 @@
     &.@{steps-prefix-cls}-status-error {
       .@{steps-prefix-cls}-head-inner {
         border-color: @error-icon-color;
-        background-color: @error-icon-color;
+        background-color: #fff;
         > .@{steps-prefix-cls}-icon {
-          color: #fff;
+          color: @error-icon-color;
         }
       }
       .@{steps-prefix-cls}-title {
@@ -157,12 +157,16 @@
 
     > .@{steps-prefix-cls}-icon {
       line-height: 1;
-      top: -1px;
+      top: -1.5px;
       color: @primary-color;
       position: relative;
 
       &.anticon {
         font-size: 12px;
+        &-cross,
+        &-check {
+          font-weight: bold;
+        }
       }
     }
   }
