@@ -9,5 +9,5 @@ ghPages.publish(path.join(process.cwd(), '_site'), {
   if (err) {
     throw err;
   }
-  console.log('Site has been published to http://ant.design');
+  console.log('Site has been published to http://ant.design 🎉');
 });
