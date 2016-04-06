@@ -16,12 +16,12 @@ export default class Select extends React.Component {
 
   render() {
     let {
-      size, className, combobox, notFoundContent
+      size, className, combobox, notFoundContent, prefixCls,
     } = this.props;
 
     const cls = classNames({
-      'ant-select-lg': size === 'large',
-      'ant-select-sm': size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
     });
 

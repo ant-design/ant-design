@@ -9,8 +9,6 @@ function isString(str) {
   return typeof str === 'string';
 }
 
-const prefix = 'ant-btn-';
-
 // Insert one space between two chinese characters automatically.
 function insertSpace(child) {
   if (isString(child) && isTwoCNChar(child)) {
@@ -25,12 +23,9 @@ function insertSpace(child) {
   return child;
 }
 
-function clearButton(button) {
-  button.className = button.className.replace(`${prefix}clicked`, '');
-}
-
 export default class Button extends React.Component {
   static defaultProps = {
+    prefixCls: 'ant-btn',
     onClick() {},
   }
 
@@ -45,20 +40,24 @@ export default class Button extends React.Component {
     icon: React.PropTypes.string,
   }
 
+  clearButton = (button) => {
+    button.className = button.className.replace(`${this.props.prefixCls}-clicked`, '');
+  }
+
   handleClick = (...args) => {
     // Add click effect
     const buttonNode = findDOMNode(this);
-    clearButton(buttonNode);
-    setTimeout(() => buttonNode.className += ` ${prefix}clicked`, 10);
+    this.clearButton(buttonNode);
+    setTimeout(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`, 10);
     clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => clearButton(buttonNode), 500);
+    this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 
     this.props.onClick(...args);
   }
 
   render() {
     const props = this.props;
-    const { type, shape, size, className, htmlType, children, icon, ...others } = props;
+    const { type, shape, size, className, htmlType, children, icon, prefixCls, ...others } = props;
 
     // large => lg
     // small => sm
@@ -67,14 +66,13 @@ export default class Button extends React.Component {
       small: 'sm',
     })[size] || '';
 
-    console.log(children, icon);
     const classes = classNames({
-      'ant-btn': true,
-      [prefix + type]: type,
-      [prefix + shape]: shape,
-      [prefix + sizeCls]: sizeCls,
-      [`${prefix}icon-only`]: !children && icon,
-      [`${prefix}loading`]: ('loading' in props && props.loading !== false),
+      [prefixCls]: true,
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${shape}`]: shape,
+      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-icon-only`]: !children && icon,
+      [`${prefixCls}-loading`]: ('loading' in props && props.loading !== false),
       [className]: className,
     });
 
