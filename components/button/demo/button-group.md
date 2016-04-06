@@ -39,12 +39,8 @@ ReactDOM.render(<div>
   </Button>
 </ButtonGroup>
 <ButtonGroup>
-  <Button type="primary">
-    <Icon type="cloud" />
-  </Button>
-  <Button type="primary">
-    <Icon type="cloud-download" />
-  </Button>
+  <Button type="primary" icon="cloud" />
+  <Button type="primary" icon="cloud-download" />
 </ButtonGroup>
 
 <h4>尺寸</h4>

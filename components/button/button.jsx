@@ -67,11 +67,13 @@ export default class Button extends React.Component {
       small: 'sm',
     })[size] || '';
 
+    console.log(children, icon);
     const classes = classNames({
       'ant-btn': true,
       [prefix + type]: type,
       [prefix + shape]: shape,
       [prefix + sizeCls]: sizeCls,
+      [`${prefix}icon-only`]: !children && icon,
       [`${prefix}loading`]: ('loading' in props && props.loading !== false),
       [className]: className,
     });
