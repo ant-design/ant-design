@@ -7,7 +7,7 @@
 ---
 
 ````jsx
-import { Form, Input, Button, Checkbox, Radio, Row, Col, Tooltip, Icon } from 'antd';
+import { Form, Input, Button, Checkbox, Radio, Tooltip, Icon } from 'antd';
 const FormItem = Form.Item;
 const RadioGroup = Radio.Group;
 
@@ -56,11 +56,9 @@ let Demo = React.createClass({
             <Checkbox {...getFieldProps('agreement')} />同意
           </label>
         </FormItem>
-        <Row>
-          <Col span="16" offset="6">
-            <Button type="primary" htmlType="submit">确定</Button>
-          </Col>
-        </Row>
+        <FormItem wrapperCol={{ span: 16, offset: 6 }} style={{ marginTop: 24 }}>
+          <Button type="primary" htmlType="submit">确定</Button>
+        </FormItem>
       </Form>
     );
   }
