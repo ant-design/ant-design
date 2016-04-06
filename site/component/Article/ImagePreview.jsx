@@ -61,17 +61,11 @@ export default class ImagePreview extends React.Component {
   render() {
     const { imgs } = this.props;
     const imgsMeta = imgs.map((img) => {
-      const span = document.createElement('span');
-      span.innerHTML = img;
-      const imgNode = span.children[0];
-      const attributes = imgNode.attributes;
-      const { alt, description, src } = attributes;
-      const imgClassName = attributes.class.nodeValue;
+      const { alt, description, src } = img;
+      const imgClassName = img.class;
       return {
         className: imgClassName,
-        alt: alt && alt.nodeValue,
-        description: description && description.nodeValue,
-        src: src.nodeValue,
+        alt, description, src,
         isGood: isGood(imgClassName),
         isBad: isBad(imgClassName),
       };

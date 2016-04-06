@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import toReactComponent from 'jsonml-to-react-component';
 import ImagePreview from './ImagePreview';
 import VideoPlayer from './VideoPlayer';
 import * as utils from '../utils';
@@ -20,28 +21,20 @@ export default class Article extends React.Component {
     utils.setTitle(`${chinese || english} - Ant Design`);
   }
 
-  isPreviewImg(string) {
-    return /^<img\s/i.test(string) && /preview-img/gi.test(string);
-  }
-
   imgToPreview(node) {
     if (node[0] === 'p' &&
-        node[1][0] === 'innerHTML' &&
-        this.isPreviewImg(node[1][1])) {
+        node[1][0] === 'img' &&
+        /preview-img/gi.test(node[1][1].class)) {
       const imgs = node.slice(1)
-              .map((n) => n[1])
-              .filter((img) => img);
+              .filter((img) => img[1])
+              .map((n) => n[1]);
       return <ImagePreview imgs={imgs} />;
     }
     return node;
   }
 
-  isVideo(string) {
-    return /^<video\s/i.test(string);
-  }
-
   enhanceVideo(node) {
-    if (node[0] === 'innerHTML' && this.isVideo(node[1])) {
+    if (node[0] === 'video') {
       return <VideoPlayer video={node[1]} />;
     }
     return node;
@@ -54,8 +47,9 @@ export default class Article extends React.Component {
     }).map((node) => {
       return (
         <li key={node[1]}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: node[1] } }}
-            dangerouslySetInnerHTML={{ __html: node[1] }} />
+          <Link to={{ pathname: location.pathname, query: { scrollTo: node[1] } }}>
+            {toReactComponent([], node[1])}
+          </Link>
         </li>
       );
     });
