@@ -27,6 +27,8 @@
   },
   "main": "lib/index",
   "files": [
+    "dist",
+    "!dist/common.js",
     "lib",
     "style"
   ],
@@ -125,7 +127,7 @@
     "dora": "ANTD=WEBSITE dora -p 8001 --plugins webpack?disableNpmInstall,hmr",
     "start": "npm run clean-build && npm run dora",
     "copy-html": "cp ./index.html ./_site/index.html && mkdir ./_site/_site && mv ./_site/demo-* ./_site/_site",
-    "site": "npm run clean-build && ANTD=WEBSITE atool-build -o ./_site && npm run copy-html && ANTD=PRODUCTION atool-build && cp -R dist _site/dist",
+    "site": "npm run clean-build && ANTD=WEBSITE atool-build -o ./_site && npm run copy-html",
     "deploy": "rm -rf node_modules && node scripts/install.js && npm run just-deploy",
     "just-deploy": "npm run site && node scripts/deploy.js",
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
