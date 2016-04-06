@@ -65,4 +65,3 @@ const Sider = React.createClass({
 });
 ReactDOM.render(<Sider />, mountNode);
 ````
-

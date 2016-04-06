@@ -34,7 +34,6 @@ const Table = React.createClass({
       filters: this.getFiltersFromColumns(),
       selectionDirty: false,
       ...this.getSortStateFromColumns(),
-      radioIndex: null,
       pagination: this.hasPagination() ?
       {
         size: this.props.size,
@@ -308,7 +307,6 @@ const Table = React.createClass({
     let key = this.getRecordKey(record, rowIndex);
     selectedRowKeys = [key];
     this.setState({
-      radioIndex: key,
       selectionDirty: true,
     });
     this.setSelectedRowKeys(selectedRowKeys);
@@ -391,12 +389,6 @@ const Table = React.createClass({
     }));
   },
 
-  onRadioChange(ev) {
-    this.setState({
-      radioIndex: ev.target.value
-    });
-  },
-
   renderSelectionRadio(value, record, index) {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let props = {};
@@ -405,9 +397,9 @@ const Table = React.createClass({
     }
     let checked;
     if (this.state.selectionDirty) {
-      checked = this.state.radioIndex === rowIndex;
+      checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
     } else {
-      checked = (this.state.radioIndex === rowIndex ||
+      checked = (this.state.selectedRowKeys.indexOf(rowIndex) >= 0 ||
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return (

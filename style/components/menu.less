@@ -124,6 +124,10 @@
     &.@{menu-prefix-cls}-submenu-disabled {
       color: #999 !important;
       cursor: not-allowed;
+      > a {
+        color: #999 !important;
+        pointer-events: none;
+      }
     }
   }
 
@@ -305,16 +309,18 @@
 
   &-dark&-horizontal > &-item,
   &-dark&-horizontal > &-submenu {
-    border-bottom: 0;
-    top: 0;
+    border-color: #404040;
   }
 
   &-dark&-horizontal > &-item-active,
   &-dark&-horizontal > &-item-selected,
   &-dark&-horizontal > &-submenu:hover,
   &-dark&-horizontal > &-submenu &-submenu-title:hover {
-    color: #fff;
-    transform: translateZ(0);
+    &,
+    & > a {
+      color: #fff;
+      transform: translateZ(0);
+    }
   }
 
   &-dark &-item > a {
@@ -344,6 +350,7 @@
   }
 
   &-dark &-item-active,
+  &-dark &-submenu-active,
   &-dark &-submenu-title:hover {
     background-color: transparent;
     color: @primary-color;

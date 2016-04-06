@@ -7,7 +7,7 @@ title: 表单组合
 
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
-         Slider, Button, Row, Col, Upload, Icon } from 'antd';
+         Slider, Button, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
@@ -128,11 +128,10 @@ let Demo = React.createClass({
             </Button>
           </Upload>
         </FormItem>
-        <Row style={{ marginTop: 24 }}>
-          <Col span="16" offset="8">
-            <Button type="primary" htmlType="submit">确定</Button>
-          </Col>
-        </Row>
+
+        <FormItem wrapperCol={{ span: 16, offset: 8 }} style={{ marginTop: 24 }}>
+          <Button type="primary" htmlType="submit">确定</Button>
+        </FormItem>
       </Form>
     );
   }
