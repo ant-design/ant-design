@@ -14,7 +14,7 @@ const FormItem = Form.Item;
 ReactDOM.render(
 <Form horizontal className="ant-advanced-search-form">
   <Row gutter={16}>
-    <Col span="8">
+    <Col sm={8}>
       <FormItem
         label="搜索名称："
         labelCol={{ span: 10 }}
@@ -34,7 +34,7 @@ ReactDOM.render(
         <Input placeholder="请输入搜索名称" size="default" />
       </FormItem>
     </Col>
-    <Col span="8">
+    <Col sm={8}>
       <FormItem
         label="搜索名称："
         labelCol={{ span: 10 }}
@@ -54,7 +54,7 @@ ReactDOM.render(
         <Input placeholder="请输入搜索名称" size="default" />
       </FormItem>
     </Col>
-    <Col span="8">
+    <Col sm={8}>
       <FormItem
         label="搜索名称："
         labelCol={{ span: 10 }}
@@ -76,7 +76,7 @@ ReactDOM.render(
     </Col>
   </Row>
   <Row>
-    <Col span="8" offset="16" style={{ textAlign: 'right' }}>
+    <Col span={12} offset={12} style={{ textAlign: 'right' }}>
       <Button type="primary" htmlType="submit">搜索</Button>
       <Button>清除条件</Button>
     </Col>

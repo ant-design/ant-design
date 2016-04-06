@@ -20,14 +20,31 @@
   .col(@index, @list) when (@index > @grid-columns) {
     @{list} {
       position: relative;
-      display: block;
-      float: left;
-      flex: 0 0 auto;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
       padding-left:  (@grid-gutter-width / 2);
       padding-right: (@grid-gutter-width / 2);
     }
   }
   .col(1);
+}
+
+.float-grid-columns(@class) {
+  .col(@index) { // initial
+    @item: ~".col@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".col@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+      flex: 0 0 auto;
+    }
+  }
+  .col(1); // kickstart it
 }
 
 .loop-grid-columns(@index, @class) when (@index > 0) {
@@ -63,5 +80,6 @@
 }
 
 .make-grid(@class: ~'') {
+  .float-grid-columns(@class);
   .loop-grid-columns(@grid-columns, @class);
 }
