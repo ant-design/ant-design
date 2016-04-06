@@ -14,7 +14,10 @@
 @finish-title-color: @wait-title-color;
 @finish-description-color: @finish-title-color;
 @finish-tail-color: @process-icon-color;
-
+@error-icon-color: @error-color;
+@error-title-color: @error-color;
+@error-description-color: @error-color;
+@error-tail-color: @error-color;
 
 .@{steps-prefix-cls} {
   font-size: 0;
@@ -80,6 +83,32 @@
       }
       .@{steps-prefix-cls}-description {
         color: @finish-description-color;
+      }
+    }
+
+    &.@{steps-prefix-cls}-status-error {
+      .@{steps-prefix-cls}-head-inner {
+        border-color: @error-icon-color;
+        background-color: @error-icon-color;
+        > .@{steps-prefix-cls}-icon {
+          color: #fff;
+        }
+      }
+      .@{steps-prefix-cls}-title {
+        color: @error-title-color;
+      }
+      .@{steps-prefix-cls}-description {
+        color: @error-description-color;
+      }
+      .@{steps-prefix-cls}-tail > i {
+        background-color: @process-tail-color;
+      }
+    }
+
+    &.@{steps-prefix-cls}-next-error {
+      .@{steps-prefix-cls}-tail > i,
+      .@{steps-prefix-cls}-tail > i:after {
+        background-color: @error-tail-color;
       }
     }
 

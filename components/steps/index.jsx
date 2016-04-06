@@ -8,7 +8,7 @@ export default class Steps extends React.Component {
     prefixCls: 'ant-steps',
     iconPrefix: 'ant',
     maxDescriptionWidth: 100,
-    current: 0
+    current: 0,
   }
 
   render() {
@@ -17,14 +17,7 @@ export default class Steps extends React.Component {
       maxDescriptionWidth = 'auto';
     }
     return (
-      <RcSteps size={this.props.size}
-        current={this.props.current}
-        direction={this.props.direction}
-        iconPrefix={this.props.iconPrefix}
-        maxDescriptionWidth={maxDescriptionWidth}
-        prefixCls={this.props.prefixCls}>
-        {this.props.children}
-      </RcSteps>
+      <RcSteps {...this.props} maxDescriptionWidth={maxDescriptionWidth} />
     );
   }
 }
