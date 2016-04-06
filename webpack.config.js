@@ -1,3 +1,5 @@
+const webpack = require('atool-build/lib/webpack');
+
 module.exports = function(webpackConfig) {
   if (process.env.ANTD === 'WEBSITE') {
     webpackConfig.entry = {
@@ -11,8 +13,9 @@ module.exports = function(webpackConfig) {
   }
 
   if (process.env.ANTD === 'PRODUCTION') {
+    const entry = ['./style/index.less', './index.js'];
     webpackConfig.entry = {
-      'antd': ['./style/index.less', './index.js']
+      'antd.min': entry,
     };
     webpackConfig.externals = {
       'react': {
@@ -30,6 +33,19 @@ module.exports = function(webpackConfig) {
     };
     webpackConfig.output.library = 'antd';
     webpackConfig.output.libraryTarget = 'umd';
+
+    const uncompressedWebpackConfig = Object.assign({}, webpackConfig);
+    uncompressedWebpackConfig.entry = {
+      antd: entry,
+    };
+    uncompressedWebpackConfig.plugins = webpackConfig.plugins.filter((plugin) => {
+      return !(plugin instanceof webpack.optimize.UglifyJsPlugin);
+    });
+
+    return [
+      webpackConfig,
+      uncompressedWebpackConfig,
+    ];
   }
 
   return webpackConfig;
