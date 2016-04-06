@@ -32,7 +32,8 @@ ReactDOM.render(
   height: 120px;
   margin-top: -16px;
 }
-.card-container > .ant-tabs-card .ant-tabs-tabs-bar,
+
+.card-container > .ant-tabs-card .ant-tabs-bar,
 .card-container > .ant-tabs-card .ant-tabs-tab-active {
   border-color: #fff;
 }

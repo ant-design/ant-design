@@ -86,6 +86,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 `getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`（或者你设置的其它 `trigger` `validateTrigger`），所以不应再设置同样的属性，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
 
+> 在表单中 `defaultValue` 也不应该被设置，请使用下面的 `initialValue`。
+
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 | options.id | 必填输入控件唯一标志 | string | |  |
@@ -93,7 +95,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | | |
 | options.trigger | 收集子节点的值的时机 | string | | 'onChange' |
 | options.validateTrigger | 校验子节点值的时机 | string | | 'onChange' |
-| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | | 
+| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | |
 | options.onXXX | 由于 `getFieldProps` 会占用 `onChange` 等事件（即你所设置的 `trigger` `validateTrigger`），所以如果仍需绑定事件，请在 `options` 内设置 | function |  | 无 |
 
 
