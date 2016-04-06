@@ -117,7 +117,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### Input
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 |  type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
 |  id | id | number 或 string |  |   |
@@ -127,7 +127,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |  disabled | 是否禁用状态，默认为 false | bool |  |  false |
 |  addonBefore | 带标签的 input，设置前置标签 | node |  |   |
 |  addonAfter | 带标签的 input，设置后置标签 | node |  |   |
-|  prefixCls | 样式类名前缀，默认是 ant，通常您不需要设置 | string |  |  'ant' |
+|  onPressEnter | 按下回车的回调 | function(e) |  |  |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 

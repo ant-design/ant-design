@@ -22,6 +22,8 @@ export default class Input extends React.Component {
     disabled: false,
     prefixCls: 'ant-input',
     type: 'text',
+    onPressEnter() {},
+    onKeyDown() {},
   }
 
   static propTypes = {
@@ -38,6 +40,15 @@ export default class Input extends React.Component {
     addonBefore: React.PropTypes.node,
     addonAfter: React.PropTypes.node,
     prefixCls: React.PropTypes.string,
+    onPressEnter: React.PropTypes.func,
+    onKeyDown: React.PropTypes.func,
+  }
+
+  handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      this.props.onPressEnter(e);
+    }
+    this.props.onKeyDown(e);
   }
 
   renderLabledInput(children) {
@@ -93,9 +104,15 @@ export default class Input extends React.Component {
     }
     switch (props.type) {
       case 'textarea':
-        return <textarea {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
+        return (
+          <textarea {...props} placeholder={placeholder}
+            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input" />
+        );
       default:
-        return <input {...props} placeholder={placeholder} className={inputClassName} ref="input" />;
+        return (
+          <input {...props} placeholder={placeholder}
+            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input" />
+        );
     }
   }
 
