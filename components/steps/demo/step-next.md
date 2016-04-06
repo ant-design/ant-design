@@ -40,11 +40,11 @@ const App = React.createClass({
     const cs = this.state.currentStep;
     return (
       <div>
-        <div>当前正在执行第 {cs + 1} 步</div>
+        <div style={{ marginBottom: 24 }}>当前正在执行第 {cs + 1} 步</div>
         <Steps current={cs}>
           {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
         </Steps>
-        <div>
+        <div style={{ marginTop: 24 }}>
           <Button onClick={this.next}>下一步</Button>
         </div>
       </div>
