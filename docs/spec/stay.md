@@ -49,7 +49,7 @@ english: 足不出户
 
 <br>
 
-<span class="waiting">详情嵌入层 (敬请期待)</span>
+<p><span class="waiting">详情嵌入层 (敬请期待)</span></p>
 
 <br>
 
@@ -71,7 +71,7 @@ english: 足不出户
 
 <br>
 
-<span class="waiting">伸缩式用户界面（敬请期待）</span>
+<p><span class="waiting">伸缩式用户界面（敬请期待）</span></p>
 
 <br>
 

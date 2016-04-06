@@ -99,4 +99,4 @@ english: List
 
 <br />
 
-## <span class="waiting">案例（敬请期待）</span>
+<h2><span class="waiting">案例（敬请期待）</span></h2>
