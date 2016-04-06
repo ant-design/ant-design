@@ -79,7 +79,7 @@ ReactDOM.render(
   <Row>
     <Col span="8" offset="16" style={{ textAlign: 'right' }}>
       <Button type="primary" htmlType="submit">搜索</Button>
-      <Button type="ghost">清除条件</Button>
+      <Button>清除条件</Button>
     </Col>
   </Row>
 </Form>
