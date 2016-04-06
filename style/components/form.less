@@ -120,11 +120,6 @@ form {
       line-height: @input-height-lg;
     }
   }
-  .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
-    .input-lg();
-  }
 
   textarea.@{css-prefix}input {
     height: auto;
@@ -422,6 +417,10 @@ form {
     .animation(loadingCircle 1s infinite linear);
     content: "\e6a1";
   }
+}
+
+.ant-advanced-search-form .@{css-prefix}form-item {
+  margin-bottom: 16px;
 }
 
 // need there different zoom animation

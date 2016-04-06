@@ -7,29 +7,7 @@ function prefixClsFn(prefixCls, ...args) {
   }).join(' ');
 }
 
-export default class FormItem extends React.Component {
-  static defaultProps = {
-    hasFeedback: false,
-    prefixCls: 'ant-form',
-  }
-
-  static propTypes = {
-    prefixCls: React.PropTypes.string,
-    label: React.PropTypes.node,
-    labelCol: React.PropTypes.object,
-    help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
-    validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
-    hasFeedback: React.PropTypes.bool,
-    wrapperCol: React.PropTypes.object,
-    className: React.PropTypes.string,
-    id: React.PropTypes.string,
-    children: React.PropTypes.node,
-  }
-
-  static contextTypes = {
-    form: React.PropTypes.object,
-  }
-
+class FormItem extends React.Component {
   _getLayoutClass(colDef) {
     if (!colDef) {
       return '';
@@ -44,31 +22,18 @@ export default class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     if (props.help === undefined && context.form) {
-      return this.getId() ? (context.form.getFieldError(this.getId()) || []).join(', ') : '';
+      return (context.form.getFieldError(this.getId()) || []).join(', ');
     }
 
     return props.help;
   }
 
-  getOnlyControl() {
-    const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c) => {
-      return c.props && '__meta' in c.props;
-    })[0];
-    return child !== undefined ? child : null;
-  }
-
-  getChildProp(prop) {
-    const child = this.getOnlyControl();
-    return child && child.props && child.props[prop];
-  }
-
   getId() {
-    return this.getChildProp('id');
+    return this.props.children.props && this.props.children.props.id;
   }
 
   getMeta() {
-    return this.getChildProp('__meta');
+    return this.props.children.props && this.props.children.props.__meta;
   }
 
   renderHelp() {
@@ -85,9 +50,7 @@ export default class FormItem extends React.Component {
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
     const field = this.getId();
-    if (!field) {
-      return '';
-    }
+
     if (isFieldValidating(field)) {
       return 'validating';
     } else if (!!getFieldError(field)) {
@@ -95,6 +58,7 @@ export default class FormItem extends React.Component {
     } else if (getFieldValue(field) !== undefined) {
       return 'success';
     }
+
     return '';
   }
 
@@ -206,3 +170,27 @@ export default class FormItem extends React.Component {
     return this.renderFormItem(children);
   }
 }
+
+FormItem.propTypes = {
+  prefixCls: React.PropTypes.string,
+  label: React.PropTypes.node,
+  labelCol: React.PropTypes.object,
+  help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
+  validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
+  hasFeedback: React.PropTypes.bool,
+  wrapperCol: React.PropTypes.object,
+  className: React.PropTypes.string,
+  id: React.PropTypes.string,
+  children: React.PropTypes.node,
+};
+
+FormItem.defaultProps = {
+  hasFeedback: false,
+  prefixCls: 'ant-form',
+};
+
+FormItem.contextTypes = {
+  form: React.PropTypes.object,
+};
+
+module.exports = FormItem;
