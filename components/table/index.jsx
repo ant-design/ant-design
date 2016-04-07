@@ -115,7 +115,7 @@ const Table = React.createClass({
           : selectedRowKeys[0] !== radioIndex // selectedRowKeys 设为某个指定项时，且不与 radioIndex 相同
           && selectedRowKeys[0]; // 修改 radioIndex (适用于主动设置 selectedRowKeys)
         this.setState({
-          radioIndex
+          radioIndex,
           selectedRowKeys: selectedRowKeys || [],
         });
       } else {
