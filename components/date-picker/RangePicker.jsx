@@ -73,7 +73,8 @@ export default React.createClass({
     if (showTime) {
       timePicker = (<TimePicker
         prefixCls="ant-time-picker"
-        placeholder={locale.lang.timePlaceholder}
+        placeholder={locale.timePickerLocale.placeholder}
+        locale={locale.timePickerLocale}
         transitionName="slide-up" />);
     }
 
