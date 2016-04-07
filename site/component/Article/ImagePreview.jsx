@@ -23,7 +23,7 @@ function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
       <div className="preview-image-description"
         dangerouslySetInnerHTML={{ __html: coverMeta.description }} />
 
-      <Modal className="image-modal" width="960" visible={previewVisible} title={null} footer={null}
+      <Modal className="image-modal" width={960} visible={previewVisible} title={null} footer={null}
         onCancel={onCancel}>
         <Carousel className={`${onlyOneImg ? 'image-modal-single' : ''}`} adaptiveHeight>
           { comparable ? cover : imgs }

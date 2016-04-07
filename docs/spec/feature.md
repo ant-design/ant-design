@@ -92,7 +92,7 @@ english: 三大特性
 
 ### 用户的幸福
 
-<img class="preview-img" noPadding align="right" alt="用户的幸福示例" description="想了解更多内容，可阅读唐纳德•A•诺曼所著的 《设计心理学 3》。" src="https://os.alipayobjects.com/rmsportal/sBjNEGgHEpNfqTs.png">
+<img class="preview-img no-padding" align="right" alt="用户的幸福示例" description="想了解更多内容，可阅读唐纳德•A•诺曼所著的 《设计心理学 3》。" src="https://os.alipayobjects.com/rmsportal/sBjNEGgHEpNfqTs.png">
 
 漂亮的组件、精致的排版、流畅的动画等的元素，使用户在『本能层次』中产生积极反应；
 
@@ -102,7 +102,7 @@ english: 三大特性
 
 ### 设计者的幸福
 
-<img class="preview-img" noPadding align="right" alt="设计者的幸福示例" description="Ant Design 无法保证业务产品能否成功，但是能帮助业务产品『正确的成功』或者『正确的失败』。" src="https://os.alipayobjects.com/rmsportal/eMcdBWuZxRbvlvW.png">
+<img class="preview-img no-padding" align="right" alt="设计者的幸福示例" description="Ant Design 无法保证业务产品能否成功，但是能帮助业务产品『正确的成功』或者『正确的失败』。" src="https://os.alipayobjects.com/rmsportal/eMcdBWuZxRbvlvW.png">
 
 从『无』到『有』时，提供一整套设计解决方案，帮助『设计者』将商业想法快速形成产品并推向市场，快速、低成本试错。
 
