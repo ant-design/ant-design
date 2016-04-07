@@ -1,36 +1,22 @@
 import React from 'react';
-import Tooltip from 'rc-tooltip';
+import Tooltip from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 import getPlacements from '../popover/placements';
 
 const placements = getPlacements();
 const prefixCls = 'ant-popover';
-const noop = function () {};
-const transitionNames = {
-  top: 'zoom-down',
-  bottom: 'zoom-up',
-  left: 'zoom-right',
-  right: 'zoom-left',
-  topLeft: 'zoom-down',
-  bottomLeft: 'zoom-up',
-  leftTop: 'zoom-right',
-  rightTop: 'zoom-left',
-  topRight: 'zoom-down',
-  bottomRight: 'zoom-up',
-  leftBottom: 'zoom-right',
-  rightBottom: 'zoom-left',
-};
+const noop = () => {};
 
 export default class Popconfirm extends React.Component {
   static defaultProps = {
-    transitionName: '',
+    transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
     overlayStyle: {},
     onConfirm: noop,
     onCancel: noop,
-    onVisibleChange() {},
+    onVisibleChange: noop,
   }
 
   static contextTypes = {
@@ -93,8 +79,6 @@ export default class Popconfirm extends React.Component {
       </div>
     );
 
-    const transitionName = transitionNames[placement];
-
     return (
       <Tooltip {...restProps}
         placement={placement}
@@ -102,7 +86,7 @@ export default class Popconfirm extends React.Component {
         overlayStyle={overlayStyle}
         prefixCls={prefixCls}
         onVisibleChange={this.onVisibleChange}
-        transitionName={transitionName}
+        transitionName={this.props.transitionName}
         visible={this.state.visible}
         trigger={trigger}
         overlay={overlay}>
