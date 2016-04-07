@@ -173,7 +173,7 @@ export default class Upload extends React.Component {
     this.handleRemove(targetItem);
   }
 
-  beforeUpload(file) {
+  beforeUpload = (file) => {
     this.recentUploadStatus = this.props.beforeUpload(file);
     return this.recentUploadStatus;
   }
