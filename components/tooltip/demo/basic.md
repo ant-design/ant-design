@@ -14,4 +14,3 @@ ReactDOM.render(
   </Tooltip>
 , mountNode);
 ````
-
