@@ -21,8 +21,8 @@ english: TreeSelect
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选 | boolean | false |
 | tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配 | boolean |false |
-| onSelect | 被选中时调用，参数为选中项的 value 值 | function(value) | 无   |
-| onChange | 选中option，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label) | 无 |
+| onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, node, extra) | 无   |
+| onChange | 选中树节点，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label, extra) | 无 |
 | allowClear | 显示清除按钮 | boolean | false |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
@@ -36,6 +36,8 @@ english: TreeSelect
 | showCheckedStrategy | `TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | treeDefaultExpandAll | 默认展开所有树节点 | bool | false |
 | treeCheckable | 显示checkbox | bool | false |
+| treeCheckStrictly | checkable状态下节点选择完全受控（父子节点选中状态不再关联）| bool | false |
+| treeHalfCheckedValues | 半选的树节点，用于想要在checkable下节点选择完全受控时（需要设置treeCheckStrictly） | array | - |
 | filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | String | 'value' |
 | treeNodeLabelProp | 作为显示的prop设置 | String | 'title' |

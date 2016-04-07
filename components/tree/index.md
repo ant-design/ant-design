@@ -20,10 +20,12 @@ english: Tree
 |defaultExpandAll | 默认展开所有树节点 | bool | false |
 |defaultExpandedKeys | 默认展开指定的树节点 | String[] | [] |
 |expandedKeys | （受控）展开指定的树节点 | String[] | [] |
-|checkedKeys | （受控）选中复选框的树节点 | String[] | [] |
 |defaultCheckedKeys | 默认选中复选框的树节点 | String[] | [] |
-|selectedKeys | （受控）设置选中的树节点 | String[] | - |
+|checkedKeys | （受控）选中复选框的树节点（注意：如果传入父节点key，则子节点自动选中；相应当子节点key都传入，父节点也自动选中） | String[] | [] |
+|halfCheckedKeys | 半选的树节点，用于想要在checkable下节点选择完全受控时（需要设置checkStrictly） | String[] | [] |
+|checkStrictly| checkable状态下节点选择完全受控（父子节点选中状态不再关联）| bool | false |
 |defaultSelectedKeys | 默认选中的树节点 | String[] | [] |
+|selectedKeys | （受控）设置选中的树节点 | String[] | - |
 |onExpand | 展开/收起节点时触发 | function(node, expanded, expandedKeys) | - |
 |onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - |
 |onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
