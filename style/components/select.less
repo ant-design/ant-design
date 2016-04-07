@@ -56,7 +56,7 @@
     top: 50%;
     right: 8px;
     line-height: 1;
-    margin-top: -5px;
+    margin-top: -6px;
     .iconfont-size-under-12px(8px);
 
     * {
@@ -400,7 +400,7 @@
     &-item {
       position: relative;
       display: block;
-      padding: 7px 15px;
+      padding: 7px 36px 7px 15px;
       font-weight: normal;
       color: #666;
       white-space: nowrap;
@@ -415,10 +415,15 @@
         background-color: tint(@primary-color, 90%);
       }
 
-      &-selected {
-        background-color: tint(@primary-color, 80%);
+      &-selected:not(&-disabled) {
+        &,
         &:hover {
-          background-color: tint(@primary-color, 80%);
+          background-color: #f9f9f9;
+          font-weight: bold;
+          &:after {
+            color: @primary-color;
+            text-shadow: 0 0.1px 0 @primary-color, 0.1px 0 0 @primary-color, 0 -0.1px 0 @primary-color, -0.1px 0 @primary-color;
+          }
         }
       }
 
