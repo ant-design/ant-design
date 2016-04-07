@@ -14,7 +14,6 @@ const IconSlider = React.createClass({
     const max = this.props.max;
     const min = this.props.min;
     const mid = ((max - min) / 2).toFixed(5);
-
     return {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
@@ -43,7 +42,7 @@ const IconSlider = React.createClass({
 });
 
 ReactDOM.render(
-<IconSlider min={0} max={20} value={0} icon={['lock', 'unlock']} />
+<IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
 , mountNode);
 ````
 
