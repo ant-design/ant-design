@@ -34,8 +34,8 @@ const IconSlider = React.createClass({
     return (
       <div className="iconWrapper">
         <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
         <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
+        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
       </div>
     );
   }
@@ -62,10 +62,11 @@ ReactDOM.render(
   color: #ccc;
 }
 
-.iconWrapper .anticon-lock {
+.iconWrapper .anticon:first-child {
   left: 0;
 }
-.iconWrapper .anticon-unlock{
+
+.iconWrapper .anticon:last-child {
   right: 0;
 }
 
