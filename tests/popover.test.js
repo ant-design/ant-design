@@ -1,14 +1,16 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 
+jest.dontMock('../components/popover/placements');
 jest.dontMock('../components/popover/index');
+jest.dontMock('../components/tooltip/index');
 
 const Popover = require('../components/popover/index');
 
 describe('Popover', function() {
   it('should show overlay when trigger is clicked', () => {
     const popover = TestUtils.renderIntoDocument(
-      <Popover overlay="console.log('hello world')" title="code" trigger="click">
+      <Popover content="console.log('hello world')" title="code" trigger="click">
         <a href="#">show me your code</a>
       </Popover>
     );

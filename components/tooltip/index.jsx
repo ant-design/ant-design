@@ -26,6 +26,10 @@ export default class Tooltip extends React.Component {
     this.setState({ visible });
   }
 
+  getPopupDomNode() {
+    return this.refs.tooltip.getPopupDomNode();
+  }
+
   // 动态设置动画点
   onPopupAlign = (domNode, align) => {
     // 当前返回的位置
@@ -55,7 +59,7 @@ export default class Tooltip extends React.Component {
       transformOrigin.left = `${-align.offset[0]}px`;
     }
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
-  };
+  }
 
   render() {
     // Hide tooltip when there is no title
@@ -70,6 +74,7 @@ export default class Tooltip extends React.Component {
         visible={visible}
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
+        ref="tooltip"
         {...this.props}>
         {this.props.children}
       </RcTooltip>
