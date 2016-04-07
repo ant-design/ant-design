@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from 'rc-tooltip';
+import Tooltip from '../tooltip';
 import getPlacements from './placements';
 import warning from 'warning';
 
@@ -9,6 +9,7 @@ export default class Popover extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-popover',
     placement: 'top',
+    transitionName: 'zoom-big',
     trigger: 'hover',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
@@ -16,23 +17,8 @@ export default class Popover extends React.Component {
   }
 
   render() {
-    const transitionName = ({
-      top: 'zoom-down',
-      bottom: 'zoom-up',
-      left: 'zoom-right',
-      right: 'zoom-left',
-      topLeft: 'zoom-down',
-      bottomLeft: 'zoom-up',
-      leftTop: 'zoom-right',
-      rightTop: 'zoom-left',
-      topRight: 'zoom-down',
-      bottomRight: 'zoom-up',
-      leftBottom: 'zoom-right',
-      rightBottom: 'zoom-left',
-    })[this.props.placement];
-
     return (
-      <Tooltip transitionName={transitionName}
+      <Tooltip transitionName={this.props.transitionName}
         builtinPlacements={placements}
         ref="tooltip"
         {...this.props}
