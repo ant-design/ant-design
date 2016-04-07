@@ -2,7 +2,7 @@ import React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 const prefixCls = 'ant-upload';
-import { Line } from '../progress';
+import Progress from '../progress';
 import classNames from 'classnames';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
@@ -81,7 +81,7 @@ export default class UploadList extends React.Component {
       if (file.status === 'uploading') {
         progress = (
           <div className={`${prefixCls}-list-item-progress`}>
-            <Line {...this.props.progressAttr} percent={file.percent} />
+            <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
           </div>
         );
       }
