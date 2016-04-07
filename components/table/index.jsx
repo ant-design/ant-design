@@ -119,7 +119,6 @@ const Table = React.createClass({
         });
       } else {
         this.setState({
-          radioIndex
           selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
         });
       }
