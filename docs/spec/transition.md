@@ -33,7 +33,7 @@ english: 巧用过渡
 
 <br>
 
-<span class="waiting">视图定位 (敬请期待)</span>
+<p><span class="waiting">视图定位 (敬请期待)</span></p>
 
 <br>
 
@@ -71,7 +71,7 @@ english: 巧用过渡
 
 <br>
 
-<span class="waiting">图片（敬请期待）</span>
+<p><span class="waiting">图片（敬请期待）</span></p>
 
 ---
 

@@ -76,8 +76,8 @@ english: 提供邀请
 
 <br>
 
-<span class="waiting">预期功能邀请 (敬请期待)</span>
+<p><span class="waiting">预期功能邀请 (敬请期待)</span></p>
 
 <br>
 
-<span class="waiting">拖放邀请 (敬请期待)</span>
+<p><span class="waiting">拖放邀请 (敬请期待)</span></p>

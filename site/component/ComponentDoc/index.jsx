@@ -82,7 +82,13 @@ export default class ComponentDoc extends React.Component {
         </Affix>
         <section className="markdown">
           <h1>{meta.chinese || meta.english}</h1>
-          { description.map(utils.objectToComponent.bind(null, location.pathname)) }
+          {
+            utils.jsonmlToComponent(
+              location.pathname,
+              ['section', { className: 'markdown' }]
+                .concat(description)
+            )
+          }
           <h2>
             代码演示
             <Icon type="appstore" className={expandTriggerClass}
@@ -103,9 +109,14 @@ export default class ComponentDoc extends React.Component {
             <Col className="code-boxes-col-2-1" span="12">{ rightChildren }</Col>
           }
         </Row>
-        <section className="markdown api-container">
-          { (doc.api || []).map(utils.objectToComponent.bind(null, location.pathname)) }
-        </section>
+        {
+          utils.jsonmlToComponent(
+            location.pathname,
+            ['section', {
+              className: 'markdown api-container',
+            }].concat(doc.api || [])
+          )
+        }
       </article>
     );
   }
