@@ -108,18 +108,19 @@ const Table = React.createClass({
     }
     if (nextProps.rowSelection &&
         'selectedRowKeys' in nextProps.rowSelection) {
+      const selectedRowKeys = nextProps.rowSelection.selectedRowKeys;
       if (nextProps.rowSelection.type === 'radio') { // 判断是否单选
-        let radioIndex = nextProps.rowSelection.selectedRowKeys.length === 0
+        let radioIndex = selectedRowKeys.length === 0
           ? null // selectedRowKeys 设为 [] 后，应重置 radioIndex
-          : nextProps.rowSelection.selectedRowKeys[0] !== radioIndex // selectedRowKeys 设为某个指定项时，且不与 radioIndex 相同
-          && nextProps.rowSelection.selectedRowKeys[0]; // 修改 radioIndex (适用于主动设置 selectedRowKeys)
+          : selectedRowKeys[0] !== radioIndex // selectedRowKeys 设为某个指定项时，且不与 radioIndex 相同
+          && selectedRowKeys[0]; // 修改 radioIndex (适用于主动设置 selectedRowKeys)
         this.setState({
           radioIndex
-          selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
+          selectedRowKeys: selectedRowKeys || [],
         });
       } else {
         this.setState({
-          selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
+          selectedRowKeys: selectedRowKeys || [],
         });
       }
     }
