@@ -400,7 +400,7 @@
     &-item {
       position: relative;
       display: block;
-      padding: 7px 36px 7px 15px;
+      padding: 7px 15px;
       font-weight: normal;
       color: #666;
       white-space: nowrap;
@@ -418,12 +418,8 @@
       &-selected:not(&-disabled) {
         &,
         &:hover {
-          background-color: #f9f9f9;
+          background-color: #f7f7f7;
           font-weight: bold;
-          &:after {
-            color: @primary-color;
-            text-shadow: 0 0.1px 0 @primary-color, 0.1px 0 0 @primary-color, 0 -0.1px 0 @primary-color, -0.1px 0 @primary-color;
-          }
         }
       }
 
@@ -444,6 +440,36 @@
         overflow: hidden;
         background-color: #e5e5e5;
         line-height: 0;
+      }
+    }
+  }
+
+  &&--multiple {
+    .@{select-prefix-cls}-dropdown-menu-item {
+      &:after {
+        content: '\e62e';
+        font-family: 'anticon';
+        color: transparent;
+        .iconfont-size-under-12px(10px);
+        transition: all 0.2s ease;
+        position: absolute;
+        right: 15px;
+        font-weight: bold;
+        text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
+      }
+
+      &:hover:after {
+        color: #ddd;
+      }
+
+      &-selected:after,
+      &-selected:hover:after {
+        color: @primary-color;
+      }
+    }
+    .@{select-prefix-cls}-dropdown-menu-item-disabled {
+      &:after {
+        display: none;
       }
     }
   }
@@ -475,7 +501,7 @@
   }
 }
 
-.ant-search-input .@{select-prefix-cls} {
+.@{select-prefix-cls}-input .@{select-prefix-cls} {
   width: 100%;
 
   & + .ant-input-group-wrap > button {

@@ -125,10 +125,11 @@
         background: transparent;
       }
     }
-    &-active {
-      background: tint(@primary-color, 80%);
+    &-active:not(&-disabled) {
+      &,
       &:hover {
-        background: tint(@primary-color, 80%);
+        background-color: #f7f7f7;
+        font-weight: bold;
       }
     }
     &-expand {
