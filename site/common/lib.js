@@ -1,4 +1,4 @@
-import '../../style/index.less';
+import 'antd/style/index.less';
 import './styles/tomorrow.less';
 import './styles/common.less';
 import './styles/markdown.less';
