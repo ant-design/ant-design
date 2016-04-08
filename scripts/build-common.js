@@ -12,7 +12,7 @@ module.exports = function buildCommon(dirs, outputFile) {
   let content = 'module.exports = {';
   mds.forEach((fileName) => {
     const requirePath = path.relative(path.dirname(outputFile), fileName);
-    content += `\n  '${fileName}': require('babel!antd-md!${requirePath}'),`;
+    content += `\n  '${fileName}': require('${requirePath}'),`;
   });
   content += '\n};';
 
