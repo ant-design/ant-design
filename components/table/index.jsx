@@ -37,7 +37,6 @@ let AntTable = React.createClass({
       sortColumn: '',
       sortOrder: '',
       sorter: null,
-      radioIndex: null,
       pagination: this.hasPagination() ?
         objectAssign({
           size: this.props.size,
@@ -210,7 +209,6 @@ let AntTable = React.createClass({
     let key = this.getRecordKey(record, rowIndex);
     selectedRowKeys = [key];
     this.setState({
-      radioIndex: key,
       selectionDirty: true,
     });
     this.setSelectedRowKeys(selectedRowKeys);
@@ -293,12 +291,6 @@ let AntTable = React.createClass({
     }));
   },
 
-  onRadioChange(ev) {
-    this.setState({
-      radioIndex: ev.target.value
-    });
-  },
-
   renderSelectionRadio(value, record, index) {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let props = {};
@@ -307,9 +299,9 @@ let AntTable = React.createClass({
     }
     let checked;
     if (this.state.selectionDirty) {
-      checked = this.state.radioIndex === rowIndex;
+      checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
     } else {
-      checked = (this.state.radioIndex === rowIndex ||
+      checked = (this.state.selectedRowKeys.indexOf(rowIndex) >= 0 ||
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return (

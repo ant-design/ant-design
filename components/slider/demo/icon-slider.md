@@ -14,7 +14,6 @@ const IconSlider = React.createClass({
     const max = this.props.max;
     const min = this.props.min;
     const mid = ((max - min) / 2).toFixed(5);
-
     return {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
@@ -35,15 +34,15 @@ const IconSlider = React.createClass({
     return (
       <div className="iconWrapper">
         <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
         <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
+        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
       </div>
     );
   }
 });
 
 ReactDOM.render(
-<IconSlider min={0} max={20} value={0} icon={['lock', 'unlock']} />
+<IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
 , mountNode);
 ````
 
@@ -63,10 +62,11 @@ ReactDOM.render(
   color: #ccc;
 }
 
-.iconWrapper .anticon-lock {
+.iconWrapper .anticon:first-child {
   left: 0;
 }
-.iconWrapper .anticon-unlock{
+
+.iconWrapper .anticon:last-child {
   right: 0;
 }
 
