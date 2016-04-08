@@ -85,6 +85,7 @@
       .hover;
     }
 
+    &:focus,
     &:active {
       .active;
     }
@@ -106,8 +107,10 @@
     background: #f4f4f4;
     cursor: not-allowed;
     &:hover,
+    &:focus,
     &:active {
       border-color: @border-color-base;
+      box-shadow: none;
     }
   }
 
