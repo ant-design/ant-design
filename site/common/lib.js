@@ -14,3 +14,5 @@ import './styles/mock-browser.less';
 import './styles/colors.less';
 import './styles/motion.less';
 import './styles/responsive.less';
+
+import 'es6-shim';

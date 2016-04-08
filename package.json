@@ -90,6 +90,7 @@
     "dora-plugin-hmr": "^0.5.0",
     "dora-plugin-webpack": "^0.6.2",
     "enquire.js": "^2.1.1",
+    "es6-shim": "^0.35.0",
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "^6.0.1",
     "eslint-plugin-babel": "^3.0.0",
