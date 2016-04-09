@@ -76,5 +76,10 @@ module.exports = function(webpackConfig) {
     ];
   }
 
+  // remove common.js
+  if (webpackConfig.plugins[0].chunkNames === 'common') {
+    webpackConfig.plugins.shift();
+  }
+
   return webpackConfig;
 };
