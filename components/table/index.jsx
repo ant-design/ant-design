@@ -676,7 +676,7 @@ const Table = React.createClass({
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
       const newColumn = { ...column };
-      newColumn.key = newColumn.key || newColumn.dataIndex || i;
+      newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
     let emptyText;
