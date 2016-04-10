@@ -28,7 +28,6 @@
   "main": "lib/index",
   "files": [
     "dist",
-    "!dist/common.js",
     "lib",
     "style"
   ],
