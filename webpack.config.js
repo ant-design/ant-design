@@ -1,6 +1,11 @@
 const webpack = require('atool-build/lib/webpack');
 
 module.exports = function(webpackConfig) {
+  // remove common.js
+  webpackConfig.plugins = webpackConfig.plugins.filter((plugin) => {
+    return !(plugin instanceof webpack.optimize.CommonsChunkPlugin);
+  });
+
   if (process.env.ANTD === 'WEBSITE') {
     const component = process.env.COMPONENT_STYLE;
 
@@ -74,11 +79,6 @@ module.exports = function(webpackConfig) {
       webpackConfig,
       uncompressedWebpackConfig,
     ];
-  }
-
-  // remove common.js
-  if (webpackConfig.plugins[0].chunkNames === 'common') {
-    webpackConfig.plugins.shift();
   }
 
   return webpackConfig;
