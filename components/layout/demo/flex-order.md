@@ -1,6 +1,6 @@
 ---
 order: 6
-title: Flex排序
+title: Flex 排序
 ---
 
 通过 Flex 布局的 Order 来改变元素的排序。
