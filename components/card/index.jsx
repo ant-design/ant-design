@@ -2,11 +2,13 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default props => {
-  let { prefixCls = 'ant-card', className, children, extra, bodyStyle, title, loading, ...other } = props;
+  let { prefixCls = 'ant-card', className, children, extra, bodyStyle,
+        title, loading, bordered = true, ...other } = props;
   const classString = classNames({
     [prefixCls]: true,
     [className]: !!className,
     [`${prefixCls}-loading`]: loading,
+    [`${prefixCls}-bordered`]: bordered,
   });
 
   if (loading) {

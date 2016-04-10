@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title: 预加载的卡片
 ---
 
@@ -8,15 +8,9 @@ title: 预加载的卡片
 ````jsx
 import { Card } from 'antd';
 
-const App = React.createClass({
-  render() {
-    return (
-      <Card loading title="卡片标题" style={{ width: 300 }}>
-        Whatever content
-      </Card>
-    );
-  },
-});
-
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(
+  <Card loading title="卡片标题" style={{ width: 300 }}>
+    Whatever content
+  </Card>
+, mountNode);
 ````

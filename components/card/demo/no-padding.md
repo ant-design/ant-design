@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title: 更灵活的内容展示
 ---
 
