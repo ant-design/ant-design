@@ -105,7 +105,7 @@ export default function createPicker(TheCalendar) {
                     <input
                       disabled={props.disabled}
                       onChange={props.handleInputChange}
-                      value={value && props.getFormatter().format(value)}
+                      value={value ? props.getFormatter().format(value) : ''}
                       placeholder={placeholder}
                       className={props.pickerInputClass} />
                     <span className="ant-calendar-picker-icon" />

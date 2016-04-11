@@ -5,7 +5,7 @@ import warning from 'warning';
 
 let defaultTop = 24;
 let notificationInstance;
-let defaultDuration = 4.5;
+let defaultDuration = 45;
 
 function getNotificationInstance() {
   if (notificationInstance) {
@@ -22,76 +22,48 @@ function getNotificationInstance() {
 }
 
 function notice(args) {
+  const prefixCls = args.prefixCls || 'ant-notification-notice';
+
   let duration;
   if (args.duration === undefined) {
     duration = defaultDuration;
   } else {
     duration = args.duration;
   }
-  if (args.icon) {
-    let prefixCls = ' ant-notification-notice-content-icon-';
-    let iconType = '';
-    switch (args.icon) {
-      case 'success':
-        iconType = 'check-circle-o';
-        break;
-      case 'info':
-        iconType = 'info-circle-o';
-        break;
-      case 'error':
-        iconType = 'cross-circle-o';
-        break;
-      case 'warning':
-        iconType = 'exclamation-circle-o';
-        break;
-      default:
-        iconType = 'info-circle';
-    }
 
-    getNotificationInstance().notice({
-      content: <div>
-        <Icon className={`${prefixCls}icon-${args.icon}${prefixCls}icon`} type={iconType} />
-        <div className={`${prefixCls}message`}>{args.message}</div>
-        <div className={`${prefixCls}description`}>{args.description}</div>
-      </div>,
-      duration,
-      closable: true,
-      onClose: args.onClose,
-      key: args.key,
-      style: {}
-    });
-  } else {
-    let prefixCls = 'ant-notification-notice-content-';
-    if (!args.btn) {
-      getNotificationInstance().notice({
-        content: <div>
-          <div className={`${prefixCls}message`}>{args.message}</div>
-
-          <div className={`${prefixCls}description`}>{args.description}</div>
-        </div>,
-        duration,
-        closable: true,
-        onClose: args.onClose,
-        key: args.key,
-        style: {}
-      });
-    } else {
-      getNotificationInstance().notice({
-        content: <div>
-          <div className={`${prefixCls}message`}>{args.message}</div>
-          <div className={`${prefixCls}description`}>{args.description}</div>
-          <span className={`${prefixCls}btn`}>
-            {args.btn}
-          </span>
-        </div>,
-        duration,
-        closable: true,
-        onClose: args.onClose,
-        key: args.key,
-        style: {}
-      });
-    }
+  let iconType = '';
+  switch (args.icon) {
+    case 'success':
+      iconType = 'check-circle-o';
+      break;
+    case 'info':
+      iconType = 'info-circle-o';
+      break;
+    case 'error':
+      iconType = 'cross-circle-o';
+      break;
+    case 'warning':
+      iconType = 'exclamation-circle-o';
+      break;
+    default:
+      iconType = 'info-circle';
   }
+
+  getNotificationInstance().notice({
+    content: (
+      <div className={`${prefixCls}-content ${args.icon ? `${prefixCls}-with-icon` : ''}`}>
+        {args.icon ? <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.icon}`} type={iconType} /> : null}
+        <div className={`${prefixCls}-message`}>{args.message}</div>
+        <div className={`${prefixCls}-description`}>{args.description}</div>
+        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+      </div>
+    ),
+    duration,
+    closable: true,
+    onClose: args.onClose,
+    key: args.key,
+    style: {},
+  });
 }
 
 const api = {

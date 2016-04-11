@@ -8,6 +8,5 @@ title: 基本
 ````jsx
 import { Radio } from 'antd';
 
-ReactDOM.render(<Radio>Radio</Radio>
-, mountNode);
+ReactDOM.render(<Radio>Radio</Radio>, mountNode);
 ````

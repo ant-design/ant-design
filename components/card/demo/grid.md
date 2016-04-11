@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: 栅格卡片
 ---
 
@@ -9,17 +9,19 @@ title: 栅格卡片
 import { Card, Col, Row } from 'antd';
 
 ReactDOM.render(
-  <Row>
-    <Col span="8">
-      <Card title="卡片标题">卡片的内容</Card>
-    </Col>
-    <Col span="8">
-      <Card title="卡片标题">卡片的内容</Card>
-    </Col>
-    <Col span="8">
-      <Card title="卡片标题">卡片的内容</Card>
-    </Col>
-  </Row>
+  <div style={{ background: '#ECECEC', padding: '30px' }}>
+    <Row>
+      <Col span="8">
+        <Card title="卡片标题" bordered={false}>卡片的内容</Card>
+      </Col>
+      <Col span="8">
+        <Card title="卡片标题" bordered={false}>卡片的内容</Card>
+      </Col>
+      <Col span="8">
+        <Card title="卡片标题" bordered={false}>卡片的内容</Card>
+      </Col>
+    </Row>
+  </div>
 , mountNode);
 ````
 

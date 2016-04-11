@@ -37,6 +37,15 @@
     transition: left @switch-duration @ease-in-out-circ;
   }
 
+  &:focus {
+    box-shadow: 0 0 0 2px tint(@primary-color, 80%);
+    outline: 0;
+  }
+
+  &:focus:hover {
+    box-shadow: none;
+  }
+
   &-small {
     height: 14px;
     line-height: 12px;

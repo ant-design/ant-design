@@ -9,7 +9,7 @@ export default class Radio extends React.Component {
   render() {
     const { prefixCls, children, checked, disabled, className, style } = this.props;
     const classString = classNames({
-      [prefixCls]: true,
+      [`${prefixCls}`]: true,
       [`${prefixCls}-checked`]: checked,
       [`${prefixCls}-disabled`]: disabled,
       [className]: !!className,
@@ -17,7 +17,7 @@ export default class Radio extends React.Component {
     return (
       <label className={classString} style={style}>
         <RcRadio {...this.props} style={null} children={null} />
-        {children}
+        <span>{children}</span>
       </label>
     );
   }

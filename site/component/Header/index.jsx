@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import enquire from 'enquire.js';
-import { Select, Menu, Row, Col, Icon } from '../../../';
+import { Select, Menu, Row, Col, Icon } from 'antd';
 const Option = Select.Option;
 
 import './index.less';

@@ -33,8 +33,7 @@ export default class Demo extends React.Component {
       [className]: className,
       expand: codeExpand,
     });
-    const introChildren = intro.map(utils.objectToComponent.bind(null, pathname));
-
+    const introChildren = utils.jsonmlToComponent(pathname, ['div'].concat(intro));
     return (
       <section className={codeBoxClass} id={id}>
         <section className="code-box-demo">

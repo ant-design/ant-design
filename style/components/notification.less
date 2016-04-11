@@ -23,50 +23,48 @@
     margin-bottom: @notice-margin-bottom;
     overflow: hidden;
 
-    &-content {
-      &-message {
-        font-size: 14px;
-        color: @text-color;
-        margin-bottom: 4px;
-      }
-      &-description {
-        font-size: @font-size-base;
-        color: @legend-color;
-      }
+    &-message {
+      font-size: 14px;
+      color: @text-color;
+      margin-bottom: 4px;
     }
 
-    &-content-icon {
-      position: relative;
-      &-message {
-        font-size: 14px;
-        color: @text-color;
-        margin-left: 51px;
-        margin-bottom: 4px;
-      }
-      &-description {
-        margin-left: 51px;
-        font-size: @font-size-base;
-        color: @legend-color;
-      }
-      &-icon {
-        position: absolute;
-        left: 16px;
-        top: 50%;
-        margin-top: -17px;
-        font-size: 34px;
+    &-description {
+      font-size: @font-size-base;
+      color: @legend-color;
+    }
 
-        &-success {
-          color: @success-color;
-        }
-        &-info {
-          color: @primary-color;
-        }
-        &-warning {
-          color: @warning-color;
-        }
-        &-error {
-          color: @error-color;
-        }
+    &-with-icon  &-message {
+      font-size: 14px;
+      color: @text-color;
+      margin-left: 51px;
+      margin-bottom: 4px;
+    }
+
+    &-with-icon  &-description {
+      margin-left: 51px;
+      font-size: @font-size-base;
+      color: @legend-color;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      margin-top: -17px;
+      font-size: 34px;
+
+      &-success {
+        color: @success-color;
+      }
+      &-info {
+        color: @primary-color;
+      }
+      &-warning {
+        color: @warning-color;
+      }
+      &-error {
+        color: @error-color;
       }
     }
 
@@ -85,7 +83,7 @@
       outline: none;
     }
 
-    &-content-btn {
+    &-btn {
       float: right;
       margin-top: 16px;
     }

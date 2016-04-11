@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: 简洁卡片
 ---
 
@@ -10,7 +10,9 @@ import { Card } from 'antd';
 
 ReactDOM.render(
   <Card style={{ width: 300 }}>
-    卡片的内容
+    <p>卡片的内容</p>
+    <p>卡片的内容</p>
+    <p>卡片的内容</p>
   </Card>
 , mountNode);
 ````

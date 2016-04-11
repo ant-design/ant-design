@@ -4,10 +4,19 @@
 .@{card-prefix-cls} {
   background: #fff;
   border-radius: @border-radius-sm;
-  box-shadow: @box-shadow-base;
   font-size: @font-size-base;
   position: relative;
   overflow: hidden;
+  transition: all .2s;
+
+  &:hover {
+    box-shadow: 0 1px 6px rgba(100, 100, 100, .2);
+  }
+
+  &-bordered {
+    border: 1px solid @border-color-base;
+    border-color: @border-color-split;
+  }
 
   &-head {
     height: 48px;
@@ -49,5 +58,6 @@
     border-radius: @border-radius-base;
     overflow: hidden;
     display: inline-block;
+    user-select: none;
   }
 }

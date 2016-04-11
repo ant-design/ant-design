@@ -54,4 +54,4 @@ english: Advanced Search
 字段型一般会出现在主搜索框底部，适合搜索条件和值都比较少的场景中。
 
 
-## <span class="waiting">案例（敬请期待）</span>
+<h2><span class="waiting">案例（敬请期待）</span></h2>
