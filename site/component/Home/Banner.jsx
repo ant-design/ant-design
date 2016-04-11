@@ -4,7 +4,7 @@ import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import TweenOne from 'rc-tween-one';
 import GitHubButton from 'react-github-button';
 import 'react-github-button/assets/style.css';
-import { Icon } from '../../../';
+import { Icon } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 
 export default class Banner extends React.Component {

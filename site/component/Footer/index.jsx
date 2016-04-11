@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from '../../../';
+import { Select } from 'antd';
 import { version as antdVersion } from '../../../package.json';
 import { docVersions } from '../../website.config';
 const Option = Select.Option;
