@@ -11,6 +11,9 @@ import { Upload, message, Button, Icon } from 'antd';
 const props = {
   name: 'file',
   action: '/upload.do',
+  headers: {
+    authorization: 'authorization-text',
+  },
   onChange(info) {
     if (info.file.status !== 'uploading') {
       console.log(info.file, info.fileList);
