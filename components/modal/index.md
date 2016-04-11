@@ -38,6 +38,7 @@ english: Modal
 - `Modal.info`
 - `Modal.success`
 - `Modal.error`
+- `Modal.warning`
 - `Modal.confirm`
 
 以上均为一个函数，参数为 object，具体属性如下：

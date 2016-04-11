@@ -31,6 +31,16 @@ Modal.error = function (props) {
   return confirm(config);
 };
 
+Modal.warning = function (props) {
+  const config = {
+    type: 'warning',
+    iconType: 'exclamation-circle',
+    okCancel: false,
+    ...props,
+  };
+  return confirm(config);
+};
+
 Modal.confirm = function (props) {
   const config = {
     type: 'confirm',

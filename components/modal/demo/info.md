@@ -35,9 +35,17 @@ function error() {
   });
 }
 
+function warning() {
+  Modal.warning({
+    title: '这是一条警告信息',
+    content: '一些附加信息一些附加信息一些附加信息',
+  });
+}
+
 ReactDOM.render(<div>
   <Button onClick={info}>信息提示</Button>
   <Button onClick={success}>成功提示</Button>
   <Button onClick={error}>失败提示</Button>
+  <Button onClick={warning}>警告提示</Button>
 </div>, mountNode);
 ````
