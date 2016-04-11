@@ -99,7 +99,7 @@
     "eslint-tinker": "^0.3.1",
     "gh-pages": "^0.11.0",
     "history": "^2.0.1",
-    "jest-cli": "^10.0.2",
+    "jest-cli": "^0.10.2",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
