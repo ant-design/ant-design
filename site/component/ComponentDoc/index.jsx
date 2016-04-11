@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix } from '../../../';
+import { Row, Col, Icon, Affix } from 'antd';
 import Demo from '../Demo';
 import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';

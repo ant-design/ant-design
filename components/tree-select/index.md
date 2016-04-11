@@ -17,7 +17,8 @@ english: TreeSelect
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| value    | 指定当前选中的条目 | string/Array<String>   |  无  |
+| value    | 指定当前选中的条目 | 通常: String/Array<String>. 设置labelInValue: {value:String,label:React.Node}/Array<{value,label}>. 设置treeCheckStrictly(halfChecked默认为false): {value:String,label:React.Node, halfChecked}/Array<{value,label,halfChecked}>. |  无  |
+| labelInValue | 是否把 label 嵌入到 value 里，设置后参考以上 value 类型写法  | boolean | false |
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选 | boolean | false |
 | tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配 | boolean |false |
@@ -37,7 +38,6 @@ english: TreeSelect
 | treeDefaultExpandAll | 默认展开所有树节点 | bool | false |
 | treeCheckable | 显示checkbox | bool | false |
 | treeCheckStrictly | checkable状态下节点选择完全受控（父子节点选中状态不再关联）| bool | false |
-| treeHalfCheckedValues | 半选的树节点，用于想要在checkable下节点选择完全受控时（需要设置treeCheckStrictly） | array | - |
 | filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | String | 'value' |
 | treeNodeLabelProp | 作为显示的prop设置 | String | 'title' |
@@ -52,5 +52,5 @@ english: TreeSelect
 | disabled    | 是否禁用 | Boolean   |  false  |
 | key   | 此项必须设置（其值在整个树范围内唯一） |  String | - |
 | value   | 默认根据此属性值进行筛选 | String | - |
-| title | 树节点显示的内容 | String | '---' |
+| title | 树节点显示的内容 | String/element | '---' |
 | isLeaf | 是否是叶子节点 | bool | false |

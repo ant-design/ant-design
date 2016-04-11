@@ -9,7 +9,7 @@ function isHeading(type) {
 }
 
 export function jsonmlToComponent(pathname, jsonml) {
-  return toReactComponent([
+  return toReactComponent(jsonml, [
     [(node) => React.isValidElement(node), (node, index) => {
       return React.cloneElement(node, { key: index });
     }],
@@ -23,11 +23,11 @@ export function jsonmlToComponent(pathname, jsonml) {
         id: children,
         ...getAttributes(node),
       }, [
-        <span key="title">{ children.map(toReactComponent.bind(null, [])) }</span>,
+        <span key="title">{ children.map((child) => toReactComponent(child)) }</span>,
         <Link to={{ pathname, query: { scrollTo: children } }} className="anchor" key="anchor">#</Link>,
       ]);
     }],
-  ], jsonml);
+  ]);
 }
 
 export function setTitle(title) {

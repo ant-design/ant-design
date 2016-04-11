@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Modal, Carousel } from '../../../';
+import { Modal, Carousel } from 'antd';
 
 function isGood(className) {
   return /\bgood\b/i.test(className);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import scrollIntoView from 'dom-scroll-into-view';
-import { Row, Col, Menu } from '../../../';
+import { Row, Col, Menu } from 'antd';
 import config from '../../website.config';
 const SubMenu = Menu.SubMenu;
 

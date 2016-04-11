@@ -100,7 +100,7 @@
     "gh-pages": "^0.11.0",
     "history": "^2.0.1",
     "jest-cli": "^0.10.0",
-    "jsonml-to-react-component": "~0.1.0",
+    "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
     "lesshint": "^1.2.1",

@@ -48,7 +48,7 @@ export default class Article extends React.Component {
       return (
         <li key={node[1]}>
           <Link to={{ pathname: location.pathname, query: { scrollTo: node[1] } }}>
-            {toReactComponent([], node[1])}
+            {toReactComponent(node[1])}
           </Link>
         </li>
       );
