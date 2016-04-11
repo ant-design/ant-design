@@ -1,7 +1,6 @@
 @pagination-prefix-cls: ant-pagination;
 
 .@{pagination-prefix-cls} {
-  user-select: none;
   font-size: @font-size-base;
 
   &:after {
@@ -23,6 +22,7 @@
   &-item {
     cursor: pointer;
     border-radius: @border-radius-base;
+    user-select: none;
     min-width: 28px;
     height: 28px;
     line-height: 28px;
