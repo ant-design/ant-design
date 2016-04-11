@@ -52,6 +52,7 @@ const Breadcrumb = React.createClass({
     if (routes && routes.length > 0) {
       const paths = [];
       crumbs = routes.map((route, i) => {
+        route.path = route.path || '';
         let path = route.path.replace(/^\//, '');
         Object.keys(params).forEach(key => {
           path = path.replace(`:${key}`, params[key]);
