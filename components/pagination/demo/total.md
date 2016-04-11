@@ -8,15 +8,11 @@ title: 总数
 ````jsx
 import { Pagination, Select } from 'antd';
 
-function showTotal(total) {
-  return `共 ${total} 条`;
-}
-
 ReactDOM.render(
   <Pagination
     selectComponentClass={Select}
     total={80}
-    showTotal={showTotal}
+    showTotal={total => `共 ${total} 条`}
     pageSize={20} defaultCurrent={1} />,
   mountNode
 );
