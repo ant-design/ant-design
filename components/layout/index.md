@@ -10,7 +10,7 @@ english: Layout
 
 ## 设计理念
 
-<div style="width:80%">
+<div style="width:80%" class="layout-demo">
 <div class="row demo-row">
   <div class="col-24 demo-col demo-col-1">
     100%
