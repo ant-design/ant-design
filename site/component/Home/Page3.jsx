@@ -9,8 +9,8 @@ export default class Page3 extends React.Component {
   render() {
     return (
       <ScrollOverPack scrollName="page3" className="content-wrapper page" playScale={1} replay>
-        <TweenOne key="image" className="image3 image-wrapper" vars={{ x: 0, opacity: 1, duration: 550 }}
-          style={{ transform: 'translateX(-100px)', opacity: 0 }} hideProps={{ type: 'reverse' }} />
+        <TweenOne key="image" className="image3 image-wrapper" animation={{ x: 0, opacity: 1, duration: 550 }}
+          style={{ transform: 'translateX(-100px)', opacity: 0 }} hideProps={{ reverse: true }} />
         <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{ top: '40%' }}
           hideProps={{ child: null }}>
           <h2 key="h2">丰富的基础组件</h2>

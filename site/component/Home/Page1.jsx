@@ -21,8 +21,8 @@ export default class Page1 extends React.Component {
   render() {
     return (
       <ScrollOverPack scrollName="page1" className="content-wrapper page" playScale={1} replay scrollEvent={onScrollEvent}>
-        <TweenOne key="image" className="image1 image-wrapper" vars={{ x: 0, opacity: 1, duration: 550 }}
-          style={{ transform: 'translateX(-100px)', opacity: 0 }} hideProps={{ type: 'reverse' }} />
+        <TweenOne key="image" className="image1 image-wrapper" animation={{ x: 0, opacity: 1, duration: 550 }}
+          style={{ transform: 'translateX(-100px)', opacity: 0 }} hideProps={{ reverse: true }} />
           <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse
             hideProps={{ child: null }}>
             <h2 key="h2">最佳实践</h2>
