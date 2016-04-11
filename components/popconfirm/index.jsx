@@ -6,8 +6,7 @@ import getPlacements from '../popover/placements';
 
 const placements = getPlacements();
 const prefixCls = 'ant-popover';
-const noop = function () {
-};
+const noop = () => {};
 
 export default class Popconfirm extends React.Component {
   static defaultProps = {
@@ -17,8 +16,7 @@ export default class Popconfirm extends React.Component {
     overlayStyle: {},
     onConfirm: noop,
     onCancel: noop,
-    onVisibleChange() {
-    },
+    onVisibleChange: noop,
   }
 
   static contextTypes = {

@@ -55,12 +55,12 @@ english: 直截了当
 
 <br>
 
-<span class="waiting">拖放对象（敬请期待）</span>
+<p><span class="waiting">拖放对象（敬请期待）</span></p>
 
-<span class="waiting">拖放多个对象（敬请期待）</span>
+<p><span class="waiting">拖放多个对象（敬请期待）</span></p>
 
 <br>
 
 ---
 
-## <span class="waiting">直接选择（敬请期待）</span>
+<h2><span class="waiting">直接选择（敬请期待）</span></h2>

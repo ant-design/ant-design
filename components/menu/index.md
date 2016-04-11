@@ -37,7 +37,7 @@ english: Menu
 | defaultOpenKeys | 初始展开的菜单项 key 数组 |  |      |
 | onSelect | 被选中时调用，参数 {item, key, selectedKeys} 对象 | function | 无   |
 | onDeselect | 取消选中时调用，参数 {item, key, selectedKeys} 对象，仅在 multiple 生效 | function | 无   |
-| onClick | 点击 menuitem 调用此函数，参数为 {item, key} | function | 无 |
+| onClick | 点击 menuitem 调用此函数，参数为 {item, key, keyPath} | function | 无 |
 | style | 根节点样式 | object | | |
 
 ### Menu.Item props

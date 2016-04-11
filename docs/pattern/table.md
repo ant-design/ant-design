@@ -155,4 +155,4 @@ english: Table
 数值右对齐（带小数则按小数点对齐），其余左对齐。
 
 
-## <span class="waiting">案例（敬请期待）</span>
+<h2><span class="waiting">案例（敬请期待）</span></h2>

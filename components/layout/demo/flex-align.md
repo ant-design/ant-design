@@ -1,6 +1,6 @@
 ---
 order: 5
-title: Flex对齐
+title: Flex 对齐
 ---
 
 Flex 子元素垂直对齐。
@@ -8,15 +8,7 @@ Flex 子元素垂直对齐。
 ````jsx
 import { Row, Col } from 'antd';
 
-const DemoBox = React.createClass({
-  render() {
-    const { value } = this.props;
-    const className = `hight-${value}`;
-    return (
-      <p className={className}>{this.props.children}</p>
-    );
-  }
-});
+const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
 
 ReactDOM.render(
   <div>

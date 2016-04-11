@@ -202,14 +202,14 @@ const Table = React.createClass({
     const { sortOrder, sortColumn } = this.state;
     if (!sortOrder || !sortColumn ||
         typeof sortColumn.sorter !== 'function') {
-      return () => {};
+      return;
     }
     return (a, b) => {
       let result = sortColumn.sorter(a, b);
       if (result !== 0) {
         return (sortOrder === 'descend') ? -result : result;
       }
-      return a.index - b.index;
+      return a._index - b._index;
     };
   },
 
@@ -566,7 +566,7 @@ const Table = React.createClass({
     }));
   },
 
-  renderPagination() {
+  renderPagination(data) {
     // 强制不需要分页
     if (!this.hasPagination()) {
       return null;
@@ -575,7 +575,7 @@ const Table = React.createClass({
       'ant-table-pagination': true,
       mini: this.props.size === 'middle' || this.props.size === 'small',
     });
-    let total = this.state.pagination.total || this.getLocalData().length;
+    let total = this.state.pagination.total || (data || this.getLocalData()).length;
     const pageSize = this.state.pagination.pageSize;
     return (total > 0) ?
       <Pagination {...this.state.pagination}
@@ -636,12 +636,15 @@ const Table = React.createClass({
   getLocalData() {
     const state = this.state;
     let data = this.props.dataSource || [];
-    // 排序
+    // 优化本地排序
     data = data.slice(0);
     for (let i = 0; i < data.length; i++) {
-      data[i].index = i;
+      data[i]._index = i;
     }
-    data = data.sort(this.getSorterFn());
+    const sorterFn = this.getSorterFn();
+    if (sorterFn) {
+      data = data.sort(sorterFn);
+    }
     // 筛选
     if (state.filters) {
       Object.keys(state.filters).forEach((columnKey) => {
@@ -676,7 +679,7 @@ const Table = React.createClass({
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
       const newColumn = { ...column };
-      newColumn.key = newColumn.key || newColumn.dataIndex || i;
+      newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
     let emptyText;
@@ -713,7 +716,7 @@ const Table = React.createClass({
     return (
       <div className={`clearfix${emptyClass}`}>
         {table}
-        {this.renderPagination()}
+        {this.renderPagination(data)}
       </div>
     );
   }

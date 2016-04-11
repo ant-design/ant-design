@@ -1,6 +1,6 @@
 ---
 order: 4
-title: Flex布局
+title: Flex 布局
 ---
 
 Flex 布局基础。

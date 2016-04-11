@@ -22,7 +22,7 @@ Ant Design 目前在外部也有 [许多产品实践](https://github.com/ant-des
 
 金融云是面向金融机构深度定制的行业云计算服务；助力金融机构向新金融转型升级，推动平台、数据和技术方面的能力全面对外开放。
 
-<a class="outside-link" href="https://www.cloud.alipay.com/" target="_blank">立即访问</a>
+<p><a class="outside-link" href="https://www.cloud.alipay.com/" target="_blank">立即访问</a></p>
 
 ---
 
@@ -34,7 +34,7 @@ Ant Design 目前在外部也有 [许多产品实践](https://github.com/ant-des
 
 OceanBase 是一款真正意义上的云端分布式关系型数据库，而 OceanBase Cloud Platform（云平台）是以 OceanBase 数据库为基础的云服务，可以帮助用户快速创建、使用 OB 服务。
 
-<a class="outside-link internal" href="http://oceanbase.alipay.com/" target="_blank">立即访问</a>
+<p><a class="outside-link internal" href="http://oceanbase.alipay.com/" target="_blank">立即访问</a></p>
 
 ---
 
@@ -48,7 +48,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 体验平台是收集用户与公司所有的接触点（包括来电咨询／微博等渠道）的数据，通过数据挖掘和体验同学运营的方式推送给公司内部的业务团队／产品经理，并推动体验问题解决，从而实现良性运转流。
 
-<a class="outside-link internal" href="http://tiyan.alipay.com/" target="_blank">立即访问</a>
+<p><a class="outside-link internal" href="http://tiyan.alipay.com/" target="_blank">立即访问</a></p>
 
 ---
 
@@ -60,7 +60,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 AntV 将数据图形小组近几年在探索数据可视化过程中取得的成果进行总结和沉淀，并分享给所有需要数据可视理论的人。
 
-<a class="outside-link internal" href="http://antv.alipay.net/" target="_blank">立即访问</a>
+<p><a class="outside-link internal" href="http://antv.alipay.net/" target="_blank">立即访问</a></p>
 
 <style>
 .preview-image-boxes {
@@ -74,39 +74,3 @@ AntV 将数据图形小组近几年在探索数据可视化过程中取得的成
   display: none;
 }
 </style>
-
-<script>
-(function() {
-  var links = Array.apply(null, document.querySelectorAll('.outside-link.internal'));
-  var checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
-  ping(checkImgUrl, function(status) {
-    if (status === 'responded') {
-      links.forEach(function(link) {
-        link.style.display = 'block';
-      });
-    }
-  });
-
-  function ping(url, callback) {
-    var img = new Image();
-    var done;
-    var finish = function(status) {
-      if (!done) {
-        done = true;
-        img.src = '';
-        callback(status);
-      }
-    }
-    img.onload = function() {
-      finish('responded');
-    };
-    img.onerror = function(e) {
-      finish('error');
-    };
-    img.src = url;
-    setTimeout(function() {
-      finish('timeout');
-    }, 1500);
-  }
-})();
-</script>

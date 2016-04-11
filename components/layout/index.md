@@ -10,7 +10,7 @@ english: Layout
 
 ## 设计理念
 
-<div style="width:80%">
+<div style="width:80%" class="layout-demo">
 <div class="row demo-row">
   <div class="col-24 demo-col demo-col-1">
     100%
@@ -103,83 +103,3 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | offset     | 栅格左侧的间隔格数，间隔内不可以有栅格  | number | 0        |
 | push     | 栅格向右移动格数   | number | 0        |
 | pull     | 栅格向左移动格数   | number | 0        |
-
-<style>
-.markdown .demo-row,
-.code-box-demo .demo-row {
-    background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
-    overflow: hidden;
-}
-.markdown .row-flex,
-.code-box-demo .row-flex {
-  background: #F5F5F5;
-}
-
-.markdown .row > div,
-.code-box-demo .row > div,
-.markdown .row-flex > div,
-.code-box-demo .row-flex > div {
-  padding: 5px 0;
-  text-align: center;
-  border-radius: 6px;
-  min-height: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.code-box-demo .row > div:not(.gutter-row) {
-  background: #6AC2F5;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.markdown .row .demo-col,
-.code-box-demo .row .demo-col {
-  text-align: center;
-  padding: 40px 0;
-  color: #fff;
-  font-size: 18px;
-  border: none;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.markdown .row .demo-col-1,
-.code-box-demo .row .demo-col-1 {
-  background: rgba(29, 128, 211, 0.7);
-}
-.markdown .row .demo-col-2,
-.code-box-demo .row .demo-col-2 {
-  background: rgba(29, 128, 211, 0.5);
-}
-.markdown .row .demo-col-3,
-.code-box-demo .row .demo-col-3{
-  background: rgba(255, 255, 255, 0.2);
-  color: #999;
-}
-.markdown .row .demo-col-4,
-.code-box-demo .row .demo-col-4 {
-  background: rgba(29, 128, 211, 0.6);
-}
-.markdown .row .demo-col-5,
-.code-box-demo .row .demo-col-5 {
-  background: rgba(255, 255, 255, 0.5);
-  color: #999;
-}
-
-.markdown .hight-100,
-.code-box-demo .hight-100 {
-  height: 100px;
-}
-.markdown .hight-50,
-.code-box-demo .hight-50 {
-  height: 50px;
-}
-.markdown .hight-120,
-.code-box-demo .hight-120 {
-  height: 120px;
-}
-.markdown .hight-80,
-.code-box-demo .hight-80 {
-  height: 80px;
-}
-</style>

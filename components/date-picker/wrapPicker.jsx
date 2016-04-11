@@ -97,7 +97,8 @@ export default function wrapPicker(Picker, defaultFormat) {
       const timePicker = props.showTime ? (
         <TimePicker
           prefixCls="ant-time-picker"
-          placeholder={locale.lang.timePlaceholder}
+          placeholder={locale.timePickerLocale.placeholder}
+          locale={locale.timePickerLocale}
           transitionName="slide-up" />
       ) : null;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import toReactComponent from 'jsonml-to-react-component';
 import ImagePreview from './ImagePreview';
 import VideoPlayer from './VideoPlayer';
 import * as utils from '../utils';
@@ -20,67 +21,71 @@ export default class Article extends React.Component {
     utils.setTitle(`${chinese || english} - Ant Design`);
   }
 
-  isPreviewImg(string) {
-    return /^<img\s/i.test(string) && /preview-img/gi.test(string);
-  }
-
   imgToPreview(node) {
-    if (!this.isPreviewImg(node.children)) {
-      return node;
+    if (node[0] === 'p' &&
+        node[1][0] === 'img' &&
+        /preview-img/gi.test(node[1][1].class)) {
+      const imgs = node.slice(1)
+              .filter((img) => img[1])
+              .map((n) => n[1]);
+      return <ImagePreview imgs={imgs} />;
     }
-
-    const imgs = node.children.split(/\r|\n/);
-    return <ImagePreview imgs={imgs} />;
-  }
-
-  isVideo(string) {
-    return /^<video\s/i.test(string);
+    return node;
   }
 
   enhanceVideo(node) {
-    if (!this.isVideo(node.children)) {
-      return node;
+    if (node[0] === 'video') {
+      return <VideoPlayer video={node[1]} />;
     }
-
-    return <VideoPlayer video={node.children} />;
+    return node;
   }
 
   render() {
     const { content, location } = this.props;
     const jumper = content.description.filter((node) => {
-      return node.type === 'h2';
+      return node[0] === 'h2';
     }).map((node) => {
       return (
-        <li key={node.children}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: node.children } }}
-            dangerouslySetInnerHTML={{ __html: node.children }} />
+        <li key={node[1]}>
+          <Link to={{ pathname: location.pathname, query: { scrollTo: node[1] } }}>
+            {toReactComponent(node[1])}
+          </Link>
         </li>
       );
     });
 
-    content.description = content.description
-      .map(this.imgToPreview)
-      .map(this.enhanceVideo);
+    const { meta, intro } = content;
+    const description = content.description
+            .map(this.imgToPreview)
+            .map(this.enhanceVideo);
 
     return (
       <article className="markdown">
         <h1>
-          { content.meta.chinese || content.meta.english }
+          { meta.chinese || meta.english }
           {
-            !content.meta.subtitle ? null :
-              <span className="subtitle">{ content.meta.subtitle }</span>
+            !meta.subtitle ? null :
+              <span className="subtitle">{ meta.subtitle }</span>
           }
         </h1>
         {
-          !content.intro ? null :
-            content.intro.map(utils.objectToComponent.bind(null, location.pathname))
+          !intro ? null :
+            utils.jsonmlToComponent(
+              location.pathname,
+              ['section', { className: 'markdown' }].concat(intro)
+            )
         }
         {
           jumper.length > 0 ?
             <section className="toc"><ul>{ jumper }</ul></section> :
             null
         }
-        { content.description.map(utils.objectToComponent.bind(null, location.pathname)) }
+        {
+          utils.jsonmlToComponent(
+            location.pathname,
+            ['section', { className: 'markdown' }].concat(description)
+          )
+        }
       </article>
     );
   }

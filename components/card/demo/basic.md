@@ -10,7 +10,9 @@ import { Card } from 'antd';
 
 ReactDOM.render(
   <Card title="卡片标题" extra={<a href="#">更多</a>} style={{ width: 300 }}>
-    卡片的内容
+    <p>卡片的内容</p>
+    <p>卡片的内容</p>
+    <p>卡片的内容</p>
   </Card>
 , mountNode);
 ````
