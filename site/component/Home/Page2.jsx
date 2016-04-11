@@ -23,8 +23,8 @@ export default class Page2 extends React.Component {
             </Link>
           </div>
         </QueueAnim>
-        <TweenOne key="image" className="image2 image-wrapper" vars={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
-          style={{ transform: 'translateX(100px)', opacity: 0 }} hideProps={{ type: 'reverse' }} />
+        <TweenOne key="image" className="image2 image-wrapper" animation={{ x: 0, opacity: 1, delay: 300, duration: 550 }}
+          style={{ transform: 'translateX(100px)', opacity: 0 }} hideProps={{ reverse: true }} />
       </ScrollOverPack>
     );
   }
