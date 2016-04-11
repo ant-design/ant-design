@@ -24,14 +24,14 @@ function info() {
 function success() {
   Modal.success({
     title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息'
+    content: '一些附加信息一些附加信息一些附加信息',
   });
 }
 
 function error() {
   Modal.error({
     title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息'
+    content: '一些附加信息一些附加信息一些附加信息',
   });
 }
 
@@ -41,4 +41,3 @@ ReactDOM.render(<div>
   <Button onClick={error}>失败提示</Button>
 </div>, mountNode);
 ````
-

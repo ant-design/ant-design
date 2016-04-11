@@ -47,9 +47,9 @@ english: Modal
 | title      | 标题           | React.Element or String    | 无           |
 | content    | 内容           | React.Element or String    | 无           |
 | onOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
+| onCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
 | width      | 宽度           | String or Number | 416           |
-| iconClassName | 图标 Icon 类型 | String | question-circle |
+| iconType   | 图标 Icon 类型    | String | question-circle |
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
 

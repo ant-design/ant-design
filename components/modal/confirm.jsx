@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Dialog from './Modal';
 import Icon from '../icon';
 import Button from '../button';
+import classNames from 'classnames';
 
 const defaultLocale = {
   okText: '确定',
@@ -26,9 +27,7 @@ export default function confirm(config) {
   document.body.appendChild(div);
 
   let d;
-  props.iconClassName = props.iconClassName || 'question-circle';
-
-  let iconClassType = props.iconClassName;
+  props.iconType = props.iconType || 'question-circle';
 
   let width = props.width || 416;
 
@@ -91,7 +90,7 @@ export default function confirm(config) {
 
   let body = (
     <div className="ant-confirm-body">
-      <Icon type={iconClassType} />
+      <Icon type={props.iconType} />
       <span className="ant-confirm-title">{props.title}</span>
       <div className="ant-confirm-content">{props.content}</div>
     </div>
@@ -119,9 +118,14 @@ export default function confirm(config) {
     );
   }
 
+  const classString = classNames({
+    'ant-confirm': true,
+    [`ant-confirm-${props.type}`]: true,
+    [props.className]: !!props.className,
+  });
+
   ReactDOM.render(<Dialog
-    prefixCls="ant-modal"
-    className="ant-confirm"
+    className={classString}
     visible
     closable={false}
     title=""

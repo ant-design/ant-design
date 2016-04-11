@@ -1,7 +1,6 @@
 @confirm-prefix-cls: ant-confirm;
 
 .@{confirm-prefix-cls} {
-
   .ant-modal-header {
     display: none;
   }
@@ -31,22 +30,22 @@
       position: relative;
       top: 5px;
     }
+  }
 
-    .anticon-exclamation-circle {
-      color: @error-color;
-    }
+  &&-error .anticon {
+    color: @error-color;
+  }
 
-    .anticon-question-circle {
-      color: @warning-color;
-    }
+  &&-warning .anticon {
+    color: @warning-color;
+  }
 
-    .anticon-check-circle {
-      color: @success-color;
-    }
+  &&-success .anticon {
+    color: @success-color;
+  }
 
-    .anticon-info-circle {
-      color: @primary-color;
-    }
+  &&-info .anticon {
+    color: @primary-color;
   }
 
   .@{confirm-prefix-cls}-btns {

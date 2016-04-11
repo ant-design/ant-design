@@ -3,35 +3,39 @@ import confirm from './confirm';
 
 Modal.info = function (props) {
   const config = {
-    ...props,
-    iconClassName: 'info-circle',
+    type: 'info',
+    iconType: 'info-circle',
     okCancel: false,
+    ...props,
   };
   return confirm(config);
 };
 
 Modal.success = function (props) {
   const config = {
-    ...props,
-    iconClassName: 'check-circle',
+    type: 'success',
+    iconType: 'check-circle',
     okCancel: false,
+    ...props,
   };
   return confirm(config);
 };
 
 Modal.error = function (props) {
   const config = {
-    ...props,
-    iconClassName: 'cross-circle',
+    type: 'error',
+    iconType: 'cross-circle',
     okCancel: false,
+    ...props,
   };
   return confirm(config);
 };
 
 Modal.confirm = function (props) {
   const config = {
-    ...props,
+    type: 'confirm',
     okCancel: true,
+    ...props,
   };
   return confirm(config);
 };
