@@ -40,11 +40,11 @@ class FormItem extends React.Component {
     const props = this.props;
     const prefixCls = props.prefixCls;
     const help = this.getHelpMsg();
-    return (
+    return help ? (
       <div className={!!help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
-        { help }
+        {help}
       </div>
-    );
+    ) : null;
   }
 
   getValidateStatus() {

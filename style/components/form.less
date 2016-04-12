@@ -124,6 +124,12 @@ form {
     }
   }
 
+  .@{css-prefix}input,
+  .@{css-prefix}input-group .@{css-prefix}input,
+  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
+    .input-lg();
+  }
+
   textarea.@{css-prefix}input {
     height: auto;
   }
@@ -233,7 +239,7 @@ form {
   .@{css-prefix}radio-inline,
   .@{css-prefix}checkbox-inline,
   .@{css-prefix}input {
-    vertical-align: top;
+    vertical-align: baseline;
   }
 }
 
@@ -423,8 +429,15 @@ form {
   }
 }
 
-.ant-advanced-search-form .@{css-prefix}form-item {
-  margin-bottom: 16px;
+.ant-advanced-search-form {
+  .@{css-prefix}form-item {
+    margin-bottom: 16px;
+  }
+  .@{css-prefix}input,
+  .@{css-prefix}input-group .@{css-prefix}input,
+  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
+    height: 28px;
+  }
 }
 
 // need there different zoom animation

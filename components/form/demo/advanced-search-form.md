@@ -8,7 +8,7 @@ title: 高级搜索
 有部分定制的样式代码，由于输入标签长度不确定，需要根据具体情况自行调整。
 
 ````jsx
-import { Form, Input, Row, Col, Button } from 'antd';
+import { Form, Input, Row, Col, Button, DatePicker } from 'antd';
 const FormItem = Form.Item;
 
 ReactDOM.render(
@@ -19,19 +19,19 @@ ReactDOM.render(
         label="搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <Input placeholder="请输入搜索名称" />
       </FormItem>
       <FormItem
         label="较长搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <DatePicker size="default" />
       </FormItem>
       <FormItem
         label="搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <Input placeholder="请输入搜索名称" />
       </FormItem>
     </Col>
     <Col sm={8}>
@@ -39,19 +39,19 @@ ReactDOM.render(
         label="搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <Input placeholder="请输入搜索名称" />
       </FormItem>
       <FormItem
         label="较长搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <DatePicker size="default" />
       </FormItem>
       <FormItem
         label="搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <Input placeholder="请输入搜索名称" />
       </FormItem>
     </Col>
     <Col sm={8}>
@@ -59,19 +59,19 @@ ReactDOM.render(
         label="搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <Input placeholder="请输入搜索名称" />
       </FormItem>
       <FormItem
         label="较长搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <DatePicker size="default" />
       </FormItem>
       <FormItem
         label="搜索名称："
         labelCol={{ span: 10 }}
         wrapperCol={{ span: 14 }}>
-        <Input placeholder="请输入搜索名称" size="default" />
+        <Input placeholder="请输入搜索名称" />
       </FormItem>
     </Col>
   </Row>
