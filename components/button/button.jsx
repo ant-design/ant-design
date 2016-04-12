@@ -28,6 +28,7 @@ export default class Button extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-btn',
     onClick() {},
+    loading: false,
   }
 
   static propTypes = {
@@ -58,7 +59,7 @@ export default class Button extends React.Component {
 
   render() {
     const props = this.props;
-    const { type, shape, size, className, htmlType, children, icon, prefixCls, ...others } = props;
+    const { type, shape, size, className, htmlType, children, icon, loading, prefixCls, ...others } = props;
 
     // large => lg
     // small => sm
@@ -73,9 +74,11 @@ export default class Button extends React.Component {
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && icon,
-      [`${prefixCls}-loading`]: ('loading' in props && props.loading !== false),
+      [`${prefixCls}-loading`]: loading,
       [className]: className,
     });
+
+    const iconType = loading ? 'loading' : icon;
 
     const kids = React.Children.map(children, insertSpace);
 
@@ -84,7 +87,7 @@ export default class Button extends React.Component {
         type={htmlType || 'button'}
         className={classes}
         onClick={this.handleClick}>
-        {icon ? <Icon type={icon} /> : null}{kids}
+        {iconType ? <Icon type={iconType} /> : null}{kids}
       </button>
     );
   }

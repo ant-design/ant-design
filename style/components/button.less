@@ -59,28 +59,16 @@
     padding-left: 29px;
     pointer-events: none;
     opacity: 0.75;
-    &:after {
-      .animation(loadingCircle 1s infinite linear);
-      height: 12px;
-      line-height: 12px;
-      left: 10px;
-      top: 50%;
-      margin-top: -6px;
-      opacity: 1;
-      visibility: visible;
-    }
-    > .anticon {
-      display: none;
-      & + span {
-        margin-left: 0;
-      }
+    .anticon {
+      margin-left: -14px;
+      .transition(all .3s @ease-in-out);
     }
   }
 
   &-sm&-loading {
     padding-left: 24px;
-    &:after {
-      left: 7px;
+    .anticon {
+      margin-left: -17px;
     }
   }
 
