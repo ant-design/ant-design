@@ -36,7 +36,6 @@ const Table = React.createClass({
       ...this.getSortStateFromColumns(),
       pagination: this.hasPagination() ?
       {
-        size: this.props.size,
         ...defaultPagination,
         ...this.props.pagination,
       } : {},
@@ -571,18 +570,19 @@ const Table = React.createClass({
     if (!this.hasPagination()) {
       return null;
     }
-    let classString = classNames({
-      'ant-table-pagination': true,
-      mini: this.props.size === 'middle' || this.props.size === 'small',
-    });
+    let size = 'default';
+    if (this.state.pagination.size) {
+      size = this.state.pagination.size;
+    } else if (this.props.size === 'middle' || this.props.size === 'small') {
+      size = 'small';
+    }
     let total = this.state.pagination.total || (data || this.getLocalData()).length;
-    const pageSize = this.state.pagination.pageSize;
     return (total > 0) ?
       <Pagination {...this.state.pagination}
-        className={classString}
+        className={`${this.props.prefixCls}-pagination`}
         onChange={this.handlePageChange}
         total={total}
-        pageSize={pageSize}
+        size={size}
         onShowSizeChange={this.handleShowSizeChange} /> : null;
   },
 
