@@ -16,7 +16,7 @@ If you are going to report a bug, please answer the following questions, thank y
 
 ## Online demo
 
-(e.g. http://codepen.io/anon/pen/pgdXYp?editors=001)
+(e.g. http://codepen.io/anon/pen/dMdjeo?editors=001)
 
 ## Environment Information
 

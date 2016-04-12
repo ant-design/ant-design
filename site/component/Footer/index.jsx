@@ -48,7 +48,7 @@ export default class Footer extends React.Component {
             <a target="_blank" href="https://gitter.im/ant-design/ant-design">
               讨论
             </a>
-            <a target="_blank" href="http://dwz.cn/2dJ2mg">
+            <a target="_blank" href="https://github.com/ant-design/ant-design/issues/new">
               报告 Bug
             </a>
           </li>
