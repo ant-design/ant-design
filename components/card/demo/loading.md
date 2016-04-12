@@ -9,7 +9,7 @@ title: 预加载的卡片
 import { Card } from 'antd';
 
 ReactDOM.render(
-  <Card loading title="卡片标题" style={{ width: 300 }}>
+  <Card loading title="卡片标题" style={{ width: '40%' }}>
     Whatever content
   </Card>
 , mountNode);
