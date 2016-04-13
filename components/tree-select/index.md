@@ -38,7 +38,7 @@ english: TreeSelect
 | treeDefaultExpandAll | 默认展开所有树节点 | bool | false |
 | treeCheckable | 显示checkbox | bool | false |
 | treeCheckStrictly | checkable状态下节点选择完全受控（父子节点选中状态不再关联）| bool | false |
-| filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
+| filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | bool/Function(inputValue:string, treeNode:TreeNode) (函数需要返回bool值) | Function |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | String | 'value' |
 | treeNodeLabelProp | 作为显示的prop设置 | String | 'title' |
 | treeData | treeNodes数据，如果设置则不需要手动构造TreeNode节点（如果value在整个树范围内不唯一，需要设置`key`其值为整个树范围内的唯一id | array<{value, label, children}> | [] |
