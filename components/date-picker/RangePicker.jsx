@@ -102,6 +102,7 @@ export default class RangePicker extends React.Component {
 
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
+        formatter={props.getFormatter()}
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}

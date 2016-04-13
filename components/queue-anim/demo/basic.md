@@ -20,31 +20,32 @@ const Test = React.createClass({
     });
   },
   render() {
+    const list = this.state.show ? [
+      <div className="demo-kp" key="a">
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>,
+      <div className="demo-listBox" key="b">
+        <div className="demo-list">
+          <div className="title"></div>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+    ] : null;
     return (
       <div>
         <p className="buttons">
           <Button type="primary" onClick={this.onClick}>切换</Button>
         </p>
         <QueueAnim className="demo-content">
-          {this.state.show ? [
-            <div className="demo-kp" key="a">
-              <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>,
-            <div className="demo-listBox" key="b">
-              <div className="demo-list">
-                <div className="title"></div>
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-          ] : null}
+          {list}
         </QueueAnim>
       </div>
     );
