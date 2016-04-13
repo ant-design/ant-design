@@ -67,6 +67,7 @@
     font-size: 12px;
     background: #fff;
     position: absolute;
+    z-index: @zindex-dropdown;
     border: 1px solid @border-color-base;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
@@ -103,9 +104,16 @@
     padding: 0;
     border-right: 1px solid @border-color-split;
     overflow: auto;
+    &:first-child {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
     &:last-child {
       border-right-color: transparent;
       margin-right: -1px;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+    &:only-child {
+      border-radius: @border-radius-base;
     }
   }
   &-menu-item {

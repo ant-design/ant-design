@@ -69,6 +69,10 @@
     color: @primary-color;
     // fix chrome render bug
     transform: translateZ(0);
+    > a,
+    > a:hover {
+      color: @primary-color;
+    }
   }
 
   &-inline,
@@ -139,7 +143,6 @@
 
   &-submenu {
     position: relative;
-    z-index: 1;
 
     > .@{menu-prefix-cls} {
       background-color: #fff;
@@ -346,6 +349,10 @@
     background-color: @primary-color;
     color: #fff;
     transform: translateZ(0);
+    > a,
+    > a:hover {
+      color: #fff;
+    }
   }
 
   &-dark &-item-active,

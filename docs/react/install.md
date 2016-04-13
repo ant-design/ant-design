@@ -32,7 +32,7 @@ $ npm install antd@beta --save
 
 ## 浏览器引入
 
-官方不再提供单独的构建文件，建议开发者自行构建 `antd.js` 和 `antd.css`。我们提供了一个 [构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
+官方目前不提供单独的构建文件，建议开发者自行构建 `antd.js` 和 `antd.css`。我们提供了一个 [构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
 
 ## 开发工具
 

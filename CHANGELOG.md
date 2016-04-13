@@ -4,6 +4,20 @@
 
 ---
 
+## 0.12.14
+
+`2016-04-13`
+
+- Form 和 Form.Item 支持 style 属性。[#1290](https://github.com/ant-design/ant-design/issues/1290)
+- 修正 IE9 下没有 prefix css3 属性的问题。
+- 修正 Table 中指定了 pagination.current 时依然能响应用户操作的问题。[#1311](https://github.com/ant-design/ant-design/issues/1311)
+- 修正 Table 的单选模式无法用 `selectedRowKeys` 控制的问题。[#1346](https://github.com/ant-design/ant-design/issues/1346)
+- 修正 DatePicker 启用 showTime 时时区失效的问题。[#1356](https://github.com/ant-design/ant-design/issues/1356)
+- 修正 Menu、Progress、Form、Table、Select、Pagination、Cascader 的样式细节问题。
+- 修正 Breadcrumb 不支持 IndexRoute 的问题。[#1375](https://github.com/ant-design/ant-design/issues/1375)
+- 修正 Table 的筛选菜单 filters 的 value 为数字时无法选中的问题。
+- 修正 DatePicker 面板输入框的日期格式 format 和外面不一致的问题。[#1403](https://github.com/ant-design/ant-design/issues/1403)
+
 ## 0.12.13
 
 `2016-03-29`

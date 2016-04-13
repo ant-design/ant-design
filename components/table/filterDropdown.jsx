@@ -48,7 +48,7 @@ let FilterMenu = React.createClass({
   renderMenuItem(item) {
     return (
       <MenuItem key={item.value}>
-        <Checkbox checked={this.state.selectedKeys.indexOf(item.value) >= 0} />
+        <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
         {item.text}
       </MenuItem>
     );
@@ -63,7 +63,7 @@ let FilterMenu = React.createClass({
         });
         const subMenuCls = containSelected ? 'ant-dropdown-submenu-contain-selected' : '';
         return (
-          <SubMenu title={item.text} className={subMenuCls} key={item.value}>
+          <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
             {item.children.map(child => this.renderMenuItem(child))}
           </SubMenu>
         );

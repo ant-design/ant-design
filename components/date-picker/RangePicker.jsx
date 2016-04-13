@@ -129,6 +129,7 @@ export default React.createClass({
 
     return (<span className={pickerClass} style={style}>
       <DatePicker
+        formatter={this.getFormatter()}
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}
