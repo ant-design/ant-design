@@ -30,7 +30,21 @@ $ npm install antd@beta --save
 
 ## 浏览器引入
 
-我们在 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以使用 [npmcdn](https://npmcdn.com/) 引入。
+我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [npmcdn](https://npmcdn.com/) 进行下载。
+
+#### stable
+
+- https://npmcdn.com/antd/dist/antd.js
+- https://npmcdn.com/antd/dist/antd.css
+- https://npmcdn.com/antd/dist/antd.min.js
+- https://npmcdn.com/antd/dist/antd.min.css
+
+#### beta
+
+- https://npmcdn.com/antd@beta/dist/antd.js
+- https://npmcdn.com/antd@beta/dist/antd.css
+- https://npmcdn.com/antd@beta/dist/antd.min.js
+- https://npmcdn.com/antd@beta/dist/antd.min.css
 
 > 对于 1.0 之前的版本，这里有一个 [自行构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
 
