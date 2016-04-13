@@ -39,7 +39,8 @@ export function jsonmlToComponent(pathname, jsonml) {
       <VideoPlayer video={getAttributes(node)} key={index} />
     ],
     [(node) => {
-      return getTagName(node) === 'p' &&
+      return isElement(node) &&
+        getTagName(node) === 'p' &&
         getTagName(getChildren(node)[0]) === 'img' &&
         /preview-img/gi.test(getAttributes(getChildren(node)[0]).class);
     }, (node, index) => {
