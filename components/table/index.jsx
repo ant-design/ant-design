@@ -26,39 +26,8 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-const Table = React.createClass({
-  getInitialState() {
-    return {
-      // 减少状态
-      selectedRowKeys: this.props.selectedRowKeys || [],
-      filters: this.getFiltersFromColumns(),
-      selectionDirty: false,
-      ...this.getSortStateFromColumns(),
-      pagination: this.hasPagination() ?
-      {
-        ...defaultPagination,
-        ...this.props.pagination,
-      } : {},
-    };
-  },
-
-  getDefaultProps() {
-    return {
-      dataSource: [],
-      prefixCls: 'ant-table',
-      useFixedHeader: false,
-      rowSelection: null,
-      className: '',
-      size: 'large',
-      loading: false,
-      bordered: false,
-      indentSize: 20,
-      onChange: noop,
-      locale: {}
-    };
-  },
-
-  propTypes: {
+export default class Table extends React.Component {
+  static propTypes = {
     dataSource: React.PropTypes.array,
     prefixCls: React.PropTypes.string,
     useFixedHeader: React.PropTypes.bool,
@@ -69,11 +38,42 @@ const Table = React.createClass({
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
-  },
+  }
 
-  contextTypes: {
+  static defaultProps = {
+    dataSource: [],
+    prefixCls: 'ant-table',
+    useFixedHeader: false,
+    rowSelection: null,
+    className: '',
+    size: 'large',
+    loading: false,
+    bordered: false,
+    indentSize: 20,
+    onChange: noop,
+    locale: {}
+  }
+
+  static contextTypes = {
     antLocale: React.PropTypes.object,
-  },
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      // 减少状态
+      selectedRowKeys: this.props.selectedRowKeys || [],
+      filters: this.getFiltersFromColumns(),
+      selectionDirty: false,
+      ...this.getSortStateFromColumns(),
+      pagination: this.hasPagination() ?
+        {
+          ...defaultPagination,
+          ...this.props.pagination,
+        } : {},
+    };
+  }
 
   getDefaultSelection() {
     if (!this.props.rowSelection || !this.props.rowSelection.getCheckboxProps) {
@@ -82,7 +82,7 @@ const Table = React.createClass({
     return this.getFlatCurrentPageData()
       .filter(item => this.props.rowSelection.getCheckboxProps(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
-  },
+  }
 
   getLocale() {
     let locale = {};
@@ -90,7 +90,7 @@ const Table = React.createClass({
       locale = this.context.antLocale.Table;
     }
     return { ...defaultLocale, ...locale, ...this.props.locale };
-  },
+  }
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
@@ -131,7 +131,7 @@ const Table = React.createClass({
         this.setState({ filters: newFilters });
       }
     }
-  },
+  }
 
   setSelectedRowKeys(selectedRowKeys) {
     if (this.props.rowSelection &&
@@ -145,11 +145,11 @@ const Table = React.createClass({
       );
       this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
     }
-  },
+  }
 
   hasPagination() {
     return this.props.pagination !== false;
-  },
+  }
 
   isFiltersChanged(filters) {
     let filtersChanged = false;
@@ -163,15 +163,15 @@ const Table = React.createClass({
       });
     }
     return filtersChanged;
-  },
+  }
 
   getSortOrderColumns(columns) {
     return (columns || this.props.columns || []).filter(column => 'sortOrder' in column);
-  },
+  }
 
   getFilteredValueColumns(columns) {
     return (columns || this.props.columns || []).filter(column => 'filteredValue' in column);
-  },
+  }
 
   getFiltersFromColumns(columns) {
     let filters = {};
@@ -179,7 +179,7 @@ const Table = React.createClass({
       filters[this.getColumnKey(col)] = col.filteredValue;
     });
     return filters;
-  },
+  }
 
   getSortStateFromColumns(columns) {
     // return fisrt column which sortOrder is not falsy
@@ -195,7 +195,7 @@ const Table = React.createClass({
       sortColumn: null,
       sortOrder: null,
     };
-  },
+  }
 
   getSorterFn() {
     const { sortOrder, sortColumn } = this.state;
@@ -210,7 +210,7 @@ const Table = React.createClass({
       }
       return a._index - b._index;
     };
-  },
+  }
 
   toggleSortOrder(order, column) {
     let { sortColumn, sortOrder } = this.state;
@@ -238,9 +238,9 @@ const Table = React.createClass({
     }
 
     this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
-  },
+  }
 
-  handleFilter(column, nextFilters) {
+  handleFilter = (column, nextFilters) => {
     const filters = {
       ...this.state.filters,
       [this.getColumnKey(column)]: nextFilters,
@@ -272,9 +272,9 @@ const Table = React.createClass({
         ...this.state, selectionDirty: false, filters,
       }));
     });
-  },
+  }
 
-  handleSelect(record, rowIndex, e) {
+  handleSelect = (record, rowIndex, e) => {
     const checked = e.target.checked;
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
@@ -297,9 +297,9 @@ const Table = React.createClass({
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
     }
-  },
+  }
 
-  handleRadioSelect(record, rowIndex, e) {
+  handleRadioSelect = (record, rowIndex, e) => {
     const checked = e.target.checked;
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
@@ -316,9 +316,9 @@ const Table = React.createClass({
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
     }
-  },
+  }
 
-  handleSelectAllRow(e) {
+  handleSelectAllRow = (e) => {
     const checked = e.target.checked;
     const data = this.getFlatCurrentPageData();
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
@@ -356,9 +356,9 @@ const Table = React.createClass({
         changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
       this.props.rowSelection.onSelectAll(checked, selectedRows, changeRows);
     }
-  },
+  }
 
-  handlePageChange(current) {
+  handlePageChange = (current) => {
     const props = this.props;
     let pagination = { ...this.state.pagination };
     if (current) {
@@ -386,7 +386,7 @@ const Table = React.createClass({
       selectionDirty: false,
       pagination,
     }));
-  },
+  }
 
   renderSelectionRadio(value, record, index) {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
@@ -406,7 +406,7 @@ const Table = React.createClass({
         onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
         value={rowIndex} checked={checked} />
     );
-  },
+  }
 
   renderSelectionCheckBox(value, record, index) {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
@@ -425,14 +425,14 @@ const Table = React.createClass({
       <Checkbox checked={checked} disabled={props.disabled}
         onChange={(e) => this.handleSelect(record, rowIndex, e)} />
     );
-  },
+  }
 
   getRecordKey(record, index) {
     if (this.props.rowKey) {
       return this.props.rowKey(record, index);
     }
     return record.key || index;
-  },
+  }
 
   renderRowSelection() {
     let columns = this.props.columns.concat();
@@ -488,11 +488,11 @@ const Table = React.createClass({
       }
     }
     return columns;
-  },
+  }
 
   getColumnKey(column, index) {
     return column.key || column.dataIndex || index;
-  },
+  }
 
   isSortColumn(column) {
     const { sortColumn } = this.state;
@@ -500,7 +500,7 @@ const Table = React.createClass({
       return false;
     }
     return this.getColumnKey(sortColumn) === this.getColumnKey(column);
-  },
+  }
 
   renderColumnsDropdown(columns) {
     const { sortOrder } = this.state;
@@ -552,9 +552,9 @@ const Table = React.createClass({
       );
       return column;
     });
-  },
+  }
 
-  handleShowSizeChange(current, pageSize) {
+  handleShowSizeChange = (current, pageSize) => {
     const pagination = this.state.pagination;
     pagination.onShowSizeChange(current, pageSize);
     const nextPagination = { ...pagination, pageSize, current };
@@ -563,7 +563,7 @@ const Table = React.createClass({
       ...this.state,
       pagination: nextPagination,
     }));
-  },
+  }
 
   renderPagination(data) {
     // 强制不需要分页
@@ -584,7 +584,7 @@ const Table = React.createClass({
         total={total}
         size={size}
         onShowSizeChange={this.handleShowSizeChange} /> : null;
-  },
+  }
 
   prepareParamsArguments(state) {
     // 准备筛选、排序、分页的参数
@@ -598,11 +598,11 @@ const Table = React.createClass({
       sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
     return [pagination, filters, sorter];
-  },
+  }
 
   findColumn(myKey) {
     return this.props.columns.filter(c => this.getColumnKey(c) === myKey)[0];
-  },
+  }
 
   getCurrentPageData() {
     let data = this.getLocalData();
@@ -627,11 +627,11 @@ const Table = React.createClass({
       });
     }
     return data;
-  },
+  }
 
   getFlatCurrentPageData() {
     return flatArray(this.getCurrentPageData());
-  },
+  }
 
   getLocalData() {
     const state = this.state;
@@ -662,7 +662,7 @@ const Table = React.createClass({
       });
     }
     return data;
-  },
+  }
 
   render() {
     const data = this.getCurrentPageData();
@@ -720,6 +720,4 @@ const Table = React.createClass({
       </div>
     );
   }
-});
-
-export default Table;
+}

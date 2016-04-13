@@ -5,27 +5,32 @@ import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
 
 export default function createPicker(TheCalendar) {
-  return React.createClass({
-    getInitialState() {
-      return {
-        value: this.props.parseDateFromValue(this.props.value || this.props.defaultValue)
+  return class CalenderWrapper extends React.Component {
+    constructor(props) {
+      super(props);
+
+      this.state = {
+        value: this.props.parseDateFromValue(this.props.value || this.props.defaultValue),
       };
-    },
+    }
+
     componentWillReceiveProps(nextProps) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.parseDateFromValue(nextProps.value)
         });
       }
-    },
-    handleChange(value) {
+    }
+
+    handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
         this.setState({ value });
       }
       const timeValue = value ? new Date(value.getTime()) : null;
       props.onChange(timeValue, value ? props.getFormatter().format(value) : '');
-    },
+    }
+
     render() {
       const props = this.props;
       const locale = props.locale;
@@ -118,5 +123,5 @@ export default function createPicker(TheCalendar) {
         </span>
       );
     }
-  });
+  };
 }
