@@ -76,7 +76,7 @@
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",
     "babel-eslint": "^6.0.2",
-    "babel-jest": "^10.0.1",
+    "babel-jest": "^11.0.0",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.1",
     "babel-plugin-antd": "^0.3.1",
@@ -99,7 +99,7 @@
     "eslint-tinker": "^0.3.1",
     "gh-pages": "^0.11.0",
     "history": "^2.0.1",
-    "jest-cli": "^0.10.2",
+    "jest-cli": "^11.0.0",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
@@ -152,13 +152,14 @@
     "unmockedModulePathPatterns": [
       "<rootDir>/node_modules/*"
     ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
+    "modulePathIgnorePatterns": [
       "/_site/"
     ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
-    "testDirectoryName": "tests",
-    "preprocessCachingDisabled": false
+    "testDirectoryName": "tests"
   },
   "pre-commit": [
     "lint"
