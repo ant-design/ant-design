@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
-import toReactComponent from 'jsonml-to-react-component';
 import ImagePreview from './ImagePreview';
 import VideoPlayer from './VideoPlayer';
 import * as utils from '../utils';
+import { getTagName, getAttributes, getChildren, isElement } from 'jsonml.js/lib/utils';
 
 export default class Article extends React.Component {
   constructor(props) {
@@ -22,20 +22,20 @@ export default class Article extends React.Component {
   }
 
   imgToPreview(node) {
-    if (node[0] === 'p' &&
-        node[1][0] === 'img' &&
-        /preview-img/gi.test(node[1][1].class)) {
-      const imgs = node.slice(1)
-              .filter((img) => img[1])
-              .map((n) => n[1]);
+    if (getTagName(node) === 'p' &&
+        getTagName(getChildren(node)[0]) === 'img' &&
+        /preview-img/gi.test(getAttributes(getChildren(node)[0]).class)) {
+      const imgs = getChildren(node)
+              .filter((img) => isElement(img) && Object.keys(getAttributes(img)).length > 0)
+              .map((img) => getAttributes(img));
       return <ImagePreview imgs={imgs} />;
     }
     return node;
   }
 
   enhanceVideo(node) {
-    if (node[0] === 'video') {
-      return <VideoPlayer video={node[1]} />;
+    if (getTagName(node) === 'video') {
+      return <VideoPlayer video={getAttributes(node)} />;
     }
     return node;
   }
@@ -43,12 +43,12 @@ export default class Article extends React.Component {
   render() {
     const { content, location } = this.props;
     const jumper = content.description.filter((node) => {
-      return node[0] === 'h2';
+      return getTagName(node) === 'h2';
     }).map((node) => {
       return (
-        <li key={node[1]}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: node[1] } }}>
-            {toReactComponent(node[1])}
+        <li key={getChildren(node)[0]}>
+          <Link to={{ pathname: location.pathname, query: { scrollTo: getChildren(node)[0] } }}>
+          { utils.jsonmlToComponent(location.pathname, getChildren(node)[0]) }
           </Link>
         </li>
       );

@@ -71,7 +71,7 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
-    "antd-md-loader": "~0.4.0",
+    "antd-md-loader": "~0.5.0",
     "atool-build": "^0.6.5",
     "babel-cli": "^6.2.0",
     "babel-core": "^6.2.1",

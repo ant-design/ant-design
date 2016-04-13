@@ -27,6 +27,12 @@ export function jsonmlToComponent(pathname, jsonml) {
         <Link to={{ pathname, query: { scrollTo: children } }} className="anchor" key="anchor">#</Link>,
       ]);
     }],
+    [(node) => getTagName(node) === 'pre' && getAttributes(node).highlighted, (node, index) => {
+      return React.createElement('pre', { key: index, lang: getAttributes(node).lang }, React.createElement(
+        'code',
+        { dangerouslySetInnerHTML: { __html: getChildren(getChildren(node)[0])[0] } }
+      ));
+    }],
   ]);
 }
 
