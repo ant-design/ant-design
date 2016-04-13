@@ -20,3 +20,9 @@ english: Tag
 | onClose        | 关闭时的回调                   | function   |         | 无     |
 | afterClose     | 动画关闭后的回调                | function   |         | 无     |
 | color          | 标签的色彩                     | string     | blue green yellow red | 无 |
+
+<style>
+  [id^="components-tag-demo-"] .ant-tag {
+    margin: 0 4px 8px 0;
+  }
+</style>
