@@ -69,6 +69,10 @@
     color: @primary-color;
     // fix chrome render bug
     transform: translateZ(0);
+    > a,
+    > a:hover {
+      color: @primary-color;
+    }
   }
 
   &-inline,
@@ -346,6 +350,10 @@
     background-color: @primary-color;
     color: #fff;
     transform: translateZ(0);
+    > a,
+    > a:hover {
+      color: #fff;
+    }
   }
 
   &-dark &-item-active,
