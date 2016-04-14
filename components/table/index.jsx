@@ -21,7 +21,6 @@ const defaultLocale = {
 
 const defaultPagination = {
   pageSize: 10,
-  current: 1,
   onChange: noop,
   onShowSizeChange: noop,
 };
@@ -61,16 +60,19 @@ export default class Table extends React.Component {
   constructor(props) {
     super(props);
 
+    const pagination = props.pagination || {};
+
     this.state = {
       // 减少状态
-      selectedRowKeys: this.props.selectedRowKeys || [],
+      selectedRowKeys: props.selectedRowKeys || [],
       filters: this.getFiltersFromColumns(),
       selectionDirty: false,
       ...this.getSortStateFromColumns(),
       pagination: this.hasPagination() ?
         {
           ...defaultPagination,
-          ...this.props.pagination,
+          ...pagination,
+          current: pagination.defaultCurrent || pagination.current || 1,
         } : {},
     };
   }
