@@ -20,7 +20,7 @@ ReactDOM.render(
         <div className="ant-layout-wrapper">
           <div className="ant-layout-logo"></div>
           <Menu theme="dark" mode="horizontal"
-            defaultSelectedKeys={['2']} style={{lineHeight: '64px'}}>
+            defaultSelectedKeys={['2']} style={{ lineHeight: '64px' }}>
             <Menu.Item key="1">导航一</Menu.Item>
             <Menu.Item key="2">导航二</Menu.Item>
             <Menu.Item key="3">导航三</Menu.Item>
@@ -30,7 +30,7 @@ ReactDOM.render(
       <div className="ant-layout-subheader">
         <div className="ant-layout-wrapper">
           <Menu mode="horizontal"
-            defaultSelectedKeys={['1']} style={{marginLeft: 124}}>
+            defaultSelectedKeys={['1']} style={{ marginLeft: 124 }}>
             <Menu.Item key="1">二级导航</Menu.Item>
             <Menu.Item key="2">二级导航</Menu.Item>
             <Menu.Item key="3">二级导航</Menu.Item>
