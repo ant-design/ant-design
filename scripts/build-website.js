@@ -1,7 +1,5 @@
 #! /usr/bin/env node
 
-'use strict';
-
 // Ensure that data directory exist.
 require('mkdirp').sync('./_data');
 

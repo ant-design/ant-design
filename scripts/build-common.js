@@ -1,8 +1,5 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
-const R = require('ramda');
 const utils = require('./utils');
 
 module.exports = function buildCommon(dirs, outputFile) {

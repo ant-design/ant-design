@@ -1,23 +1,23 @@
 function runCmd(cmd, args, fn) {
   args = args || [];
-  var runner = require('child_process').spawn(cmd, args, {
+  const runner = require('child_process').spawn(cmd, args, {
     // keep color
-    stdio: "inherit"
+    stdio: 'inherit'
   });
-  runner.on('close', function (code) {
+  runner.on('close', (code) => {
     if (fn) {
       fn(code);
     }
   });
 }
 
-runCmd('which', ['tnpm'], function (code) {
-  var npm = 'npm';
+runCmd('which', ['tnpm'], (code) => {
+  let npm = 'npm';
   if (!code) {
     npm = 'tnpm';
   }
-  console.log(npm + ' installing');
-  runCmd(npm, ['install'], function () {
-    console.log(npm + ' install end');
+  console.log(`${npm} installing`);
+  runCmd(npm, ['install'], () => {
+    console.log(`${npm} install end`);
   });
 });

@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const R = require('ramda');
@@ -23,10 +21,10 @@ module.exports = function buildDemosList(dirs, outputPath) {
   Object.keys(groupedDemos).forEach((key) => {
     content += `\n  '${key}': [`;
     groupedDemos[key].forEach((fileName) => {
-      const requirePath = path.relative(path.dirname(outputPath), fileName)
+      const requirePath = path.relative(path.dirname(outputPath), fileName);
       content += `\n    require('${requirePath}'),`;
     });
-    content += '\n  ],'
+    content += '\n  ],';
   });
   content += '\n};\n';
 

@@ -1,8 +1,8 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const R = require('ramda');
+
+function noop() {}
 
 const isMDFile = R.compose(R.equals('.md'), path.extname);
 exports.findMDFile = function findMDFile(fileName, shallow) {
@@ -19,7 +19,7 @@ exports.findMDFile = function findMDFile(fileName, shallow) {
       let hasIndexFile = false;
       try {
         hasIndexFile = fs.statSync(indexFile).isFile();
-      } catch (e) {}
+      } catch (e) { noop(); }
 
       if (shallow && hasIndexFile) {
         mds.push(indexFile);
@@ -34,6 +34,7 @@ exports.findMDFile = function findMDFile(fileName, shallow) {
   return mds;
 };
 
+/* eslint prefer-template: 0 */
 exports.stringify = function stringify(data, d) {
   const depth = d || 1;
   const indent = '  '.repeat(depth);

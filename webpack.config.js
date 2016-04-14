@@ -1,6 +1,6 @@
 const webpack = require('atool-build/lib/webpack');
 
-module.exports = function(webpackConfig) {
+module.exports = function (webpackConfig) {
   // remove common.js
   webpackConfig.plugins = webpackConfig.plugins.filter((plugin) => {
     return !(plugin instanceof webpack.optimize.CommonsChunkPlugin);
@@ -38,7 +38,7 @@ module.exports = function(webpackConfig) {
       webpackConfig.module.loaders.push({
         test: /\.md$/,
         exclude: [/node_modules/, componentRegExp],
-        loader: `babel!antd-md`,
+        loader: 'babel!antd-md',
       });
     }
   }
@@ -49,7 +49,7 @@ module.exports = function(webpackConfig) {
       'antd.min': entry,
     };
     webpackConfig.externals = {
-      'react': {
+      react: {
         root: 'React',
         commonjs2: 'react',
         commonjs: 'react',
