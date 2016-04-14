@@ -102,6 +102,12 @@ export default class Input extends React.Component {
     if ('value' in props) {
       props.value = fixControlledValue(props.value);
     }
+
+    // Remove React warning.
+    // Input elements must be either controlled or uncontrolled
+    // (specify either the value prop, or the defaultValue prop, but not both).
+    delete props.defaultValue;
+
     switch (props.type) {
       case 'textarea':
         return (

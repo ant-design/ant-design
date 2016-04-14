@@ -45,18 +45,18 @@ english: Menu
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | Boolean   |  false  |
-| key   | item 的唯一标志 |  String |  | |
+| key   | item 的唯一标志 |  String |  |
 
 ### Menu.SubMenu props
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | title    | 子菜单项值 | String or React.Element   |    |
-| children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  | |
+| children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |
 
 ### Menu.ItemGroup props
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | title    | 分组标题       | String or React.Element |    |
-| children | 分组的菜单项    | MenuItem[] |  | |
+| children | 分组的菜单项    | MenuItem[] |  |

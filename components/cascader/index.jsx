@@ -64,8 +64,9 @@ export default class Cascader extends React.Component {
   }
 
   render() {
+    const props = this.props;
     const { prefixCls, children, placeholder, size, disabled,
-            className, style, allowClear, ...otherProps } = this.props;
+            className, style, allowClear, ...otherProps } = props;
     const sizeCls = classNames({
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
@@ -88,7 +89,7 @@ export default class Cascader extends React.Component {
     delete otherProps.onChange;
 
     return (
-      <RcCascader {...this.props}
+      <RcCascader {...props}
         value={this.state.value}
         popupVisible={this.state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}

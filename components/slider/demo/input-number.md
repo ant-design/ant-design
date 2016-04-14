@@ -3,7 +3,7 @@ order: 1
 title: 带输入框的滑块
 ---
 
-和 <a href="/components/input-number/">数字输入框</a> 组件保持同步。
+和 [数字输入框](/components/input-number/) 组件保持同步。
 
 ````jsx
 import { Slider, InputNumber } from 'antd';

@@ -20,7 +20,6 @@ ReactDOM.render(<div>
 .code-box-demo .ant-slider {
   margin-bottom: 50px;
 }
-
 .code-box-demo .ant-slider:last-child {
   margin-bottom: 10px;
 }

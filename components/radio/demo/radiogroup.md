@@ -27,7 +27,7 @@ const App = React.createClass({
         <Radio key="a" value={1}>A</Radio>
         <Radio key="b" value={2}>B</Radio>
         <Radio key="c" value={3}>C</Radio>
-        <Radio key="d" value={null}>D</Radio>
+        <Radio key="d" value={4}>D</Radio>
       </RadioGroup>
     );
   }
