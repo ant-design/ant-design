@@ -1,5 +1,8 @@
 #! /usr/bin/env node
 
+/* eslint strict: 0 */
+'use strict';
+
 // Ensure that data directory exist.
 require('mkdirp').sync('./_data');
 

@@ -17,7 +17,7 @@ export default class Checkbox extends React.Component {
     return (
       <label className={classString} style={style}>
         <RcCheckbox {...restProps} prefixCls={prefixCls} children={null} />
-        <span>{children}</span>
+        {children ? <span>{children}</span> : null}
       </label>
     );
   }
