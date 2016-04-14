@@ -6,6 +6,8 @@ import { isCssAnimationSupported } from 'css-animation';
 export default class Spin extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-spin',
+    spinning: true,
+    // Backwards support
     spining: true,
   }
 
@@ -27,13 +29,14 @@ export default class Spin extends React.Component {
 
   render() {
     const { className, size, prefixCls, tip } = this.props;
+    const spinning = this.props.spinning && this.props.spining;
 
     let spinClassName = classNames({
       [prefixCls]: true,
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [className]: !!className,
-      [`${prefixCls}-spining`]: this.props.spining,
+      [`${prefixCls}-spinning`]: spinning,
       [`${prefixCls}-show-text`]: !!this.props.tip,
     });
 
@@ -48,7 +51,7 @@ export default class Spin extends React.Component {
 
     if (this.isNestedPattern()) {
       return (
-        <div className={this.props.spining ? (`${prefixCls}-nested-loading`) : ''}>
+        <div className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
           {spinElement}
           <div className={`${prefixCls}-container`}>
             {this.props.children}
