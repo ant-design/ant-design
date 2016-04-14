@@ -1,3 +1,6 @@
+/* eslint strict: 0 */
+'use strict';
+
 const ghPages = require('gh-pages');
 const path = require('path');
 ghPages.publish(path.join(process.cwd(), '_site'), {

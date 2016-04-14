@@ -1,3 +1,6 @@
+/* eslint strict: 0 */
+'use strict';
+
 const fs = require('fs');
 const cwd = process.cwd();
 const path = require('path');

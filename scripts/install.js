@@ -1,3 +1,6 @@
+/* eslint strict: 0 */
+'use strict';
+
 function runCmd(cmd, args, fn) {
   args = args || [];
   const runner = require('child_process').spawn(cmd, args, {
