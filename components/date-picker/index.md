@@ -34,9 +34,14 @@ english: DatePicker
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
-| showTime     | 增加时间选择功能 | bool | false  |
 | onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
+| showTime     | 增加时间选择功能 | bool | false  |
+| timeFormat     | 时间选择功能的时间格式 | string | "HH:mm:ss"、"HH:mm"、"mm:ss"  |
+| timeHideDisabledOptions     | 隐藏禁止选择的选项 | boolean | false |
+| timeDisabled            | 禁用全部操作 | bool | false |
+| timeDisabledHours       | 禁止时间选择小时选项 | function() | 无 |
+| timeDisabledMinutes     | 禁止选时间选择分钟选项 | function(selectedHour) | 无 |
 
 ### MonthPicker
 

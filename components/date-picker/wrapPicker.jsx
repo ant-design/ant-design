@@ -94,12 +94,23 @@ export default function wrapPicker(Picker, defaultFormat) {
       });
 
       const locale = this.getLocale();
+      const showSecond = props.timeFormat && props.timeFormat.indexOf('ss') >= 0;
+      const showHour = props.timeFormat && props.timeFormat.indexOf('HH') >= 0;
+
       const timePicker = props.showTime ? (
         <TimePicker
           prefixCls="ant-time-picker"
           placeholder={locale.timePickerLocale.placeholder}
           locale={locale.timePickerLocale}
-          transitionName="slide-up" />
+          transitionName="slide-up"
+          hideDisabledOptions={props.timeHideDisabledOptions}
+          disabled={props.timeDisabled}
+          disabledHours={props.timeDisabledHours}
+          disabledMinutes={props.timeDisabledMinutes}
+          formatter={new DateTimeFormat(props.timeFormat || 'HH:mm:ss')}
+          showSecond={showSecond}
+          showHour={showHour}
+          />
       ) : null;
 
       return (
