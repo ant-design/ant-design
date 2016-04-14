@@ -63,6 +63,8 @@ ReactDOM.render(
         { utils.generateIndex(pattern) }
         <Route path=":children"
           component={utils.getChildrenWrapper(pattern)} />
+        <Route path="table/:children"
+          component={utils.getChildrenWrapper(pattern)} />
       </Route>
       <Route path="docs/spec" component={Spec}>
         { utils.generateIndex(spec) }

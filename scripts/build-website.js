@@ -13,6 +13,7 @@ const buildCommon = require('./build-common');
 buildCommon([
   './components',
   './docs/react',
+  './docs/pattern',
   './CHANGELOG.md',
 ], './_data/react-components.js');
 buildCommon('./docs/practice', './_data/practice.js');

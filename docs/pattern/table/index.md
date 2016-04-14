@@ -1,7 +1,7 @@
 ---
 order: 4
-chinese: 表格
-english: Table
+english: 表格
+cols: 1
 ---
 
 表格可被视为一种列表。它经常和其他界面元素一起协同，用于展示和操作结构化数据，并经常用于详情信息的入口。
@@ -68,30 +68,6 @@ english: Table
 
 参考『列表页面』中的 [显示长列表](/docs/pattern/list#%E6%98%BE%E7%A4%BA%E9%95%BF%E5%88%97%E8%A1%A8)。
 
-### 全选数据
-
-<img class="preview-img" align="right" alt="状态一" src="https://os.alipayobjects.com/rmsportal/QqafGErOPnuDKyy.png">
-
-<img class="preview-img" align="right" alt="状态二：点击 Table 顶部的复选框，出现『Alert』" src="https://os.alipayobjects.com/rmsportal/qwRSMFNilVCNoym.png">
-
-<img class="preview-img" align="right" alt="状态三：点击『选择全部』后" src="https://os.alipayobjects.com/rmsportal/POvEJGjMYAexGut.png">
-
-当使用了分页器，又想实现全选数据的功能，可以结合『Alert』来实现。
-
-### 跨页选数据
-
-<img class="preview-img" align="right" alt="状态一：选中一行数据" src="https://os.alipayobjects.com/rmsportal/OcIWSystreURrPV.png">
-
-<img class="preview-img" align="right" alt="状态二：切换分页后，记录所选的项目" src="https://os.alipayobjects.com/rmsportal/HuzwUWDzXszOkEI.png">
-
-<img class="preview-img" align="right" alt="状态三：在其他页中再选择一项，多记录一项选择" src="https://os.alipayobjects.com/rmsportal/yCjrxTSElzNUsFn.png">
-
-<img class="preview-img" align="right" alt="状态四：用户可以在记录条直接取消选择" src="https://os.alipayobjects.com/rmsportal/jtepHsDPApPnQlD.png">
-
-<img class="preview-img" align="right" alt="状态五：表格选择框同步取消选择" src="https://os.alipayobjects.com/rmsportal/OAVQZqxPyuAWvTh.png">
-
-当需要对表格／列表的数据进行跨分页器选择时，结合『Alert』来实现。
-
 ### 固定按钮组
 
 <img class="preview-img" align="right" alt="顶部固定示例" src="https://os.alipayobjects.com/rmsportal/AhgnVIhTIvtHpok.png">
@@ -111,12 +87,6 @@ english: Table
 <img class="preview-img" align="right" alt="模块编辑示例" description="启动和禁用要尽可能相似（对称性交互）；保证启用和禁用切换时，页面不在水平方向不错位。" src="https://os.alipayobjects.com/rmsportal/mUhSLOTjzGYTQaE.png">
 
 适用在易读性高于易编辑性时；适用在有一定数量的项需要编辑时。
-
-### 直接编辑
-
-<img class="preview-img" align="right" alt="直接编辑示例" description="用户输入后，系统需要及时保存数据。" src="https://os.alipayobjects.com/rmsportal/VgvZjqTZBuAfGuO.png">
-
-适用在易编辑性高于易读性时。
 
 ### 悬浮层编辑
 
