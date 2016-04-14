@@ -21,7 +21,7 @@ const defaultLocale = {
 
 const defaultPagination = {
   pageSize: 10,
-  defaultCurrent: 1,
+  current: 1,
   onChange: noop,
   onShowSizeChange: noop,
 };
