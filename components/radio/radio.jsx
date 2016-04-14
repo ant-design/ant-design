@@ -17,7 +17,7 @@ export default class Radio extends React.Component {
     return (
       <label className={classString} style={style}>
         <RcRadio {...this.props} style={null} children={null} />
-        <span>{children}</span>
+        {children ? <span>{children}</span> : null}
       </label>
     );
   }
