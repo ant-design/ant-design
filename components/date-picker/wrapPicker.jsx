@@ -97,9 +97,9 @@ export default function wrapPicker(Picker, defaultFormat) {
 
       const timeFormat = props.showTime && props.showTime.format;
       const rcTimePickerProps = {
-          formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss'),
-          showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
-          showHour: timeFormat && timeFormat.indexOf('HH') >= 0
+        formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss'),
+        showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
+        showHour: timeFormat && timeFormat.indexOf('HH') >= 0
       };
       const timePicker = props.showTime ? (
         <TimePicker
@@ -111,9 +111,6 @@ export default function wrapPicker(Picker, defaultFormat) {
           {...rcTimePickerProps}
           />
       ) : null;
-  
-      console.log(timePicker)
-      console.log('....')
 
       return (
         <Picker
