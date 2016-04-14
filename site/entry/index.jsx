@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router';
-import antd from '../../';
+import antd from 'antd';
 import * as utils from './utils';
 import '../common/lib';
 import App from '../component/App';

@@ -18,31 +18,29 @@ module.exports = function(webpackConfig) {
       BrowserDemo: 'site/component/BrowserDemo',
     };
 
-    if (component !== undefined) {
-      const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
-      babelConfig.plugins.push([
-        'antd',
-        {
-          // style: true,
-          libDir: 'components',
-        }
-      ]);
+    const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
+    babelConfig.plugins.push([
+      'antd',
+      {
+        // style: true,
+        libDir: 'components',
+      }
+    ]);
 
+    const componentRegExp = component && new RegExp(`components/${component.toLowerCase()}/demo/.*\.md`);
+    webpackConfig.module.loaders.push({
+      test: component ? componentRegExp : /\.md$/,
+      exclude: /node_modules/,
+      loader: `babel?${JSON.stringify(babelConfig)}!antd-md`,
+    });
+
+    if (component !== undefined) {
       webpackConfig.module.loaders.push({
-        test: new RegExp(`components/${component}/demo/.*\.md`),
-        loader: `babel?${JSON.stringify(babelConfig)}!antd-md`,
+        test: /\.md$/,
+        exclude: [/node_modules/, componentRegExp],
+        loader: `babel!antd-md`,
       });
     }
-
-    const exclude = [/node_modules/];
-    if (component) {
-      exclude.push(new RegExp(`components/${component}/demo/.*\.md`));
-    }
-    webpackConfig.module.loaders.push({
-      test: /\.md$/,
-      exclude: exclude,
-      loader: `babel!antd-md`,
-    });
   }
 
   if (process.env.ANTD === 'PRODUCTION') {
