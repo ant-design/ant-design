@@ -56,7 +56,7 @@ export default class FilterMenu extends React.Component {
     return (
       <MenuItem key={item.value}>
         <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-        {item.text}
+        <span>{item.text}</span>
       </MenuItem>
     );
   }

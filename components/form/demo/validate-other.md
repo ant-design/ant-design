@@ -141,13 +141,13 @@ let Demo = React.createClass({
           label="兴趣爱好：">
           <Checkbox {...getFieldProps('eat', {
             valuePropName: 'checked',
-          })} />吃饭饭 &nbsp;
+          })}>吃饭饭</Checkbox>
           <Checkbox {...getFieldProps('sleep', {
             valuePropName: 'checked',
-          })} />睡觉觉 &nbsp;
+          })}>睡觉觉</Checkbox>
           <Checkbox {...getFieldProps('beat', {
             valuePropName: 'checked',
-          })} />打豆豆 &nbsp;
+          })}>打豆豆</Checkbox>
         </FormItem>
 
         <FormItem

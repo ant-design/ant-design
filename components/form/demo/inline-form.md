@@ -30,10 +30,7 @@ let Demo = React.createClass({
             {...getFieldProps('password')} />
         </FormItem>
         <FormItem>
-          <label className="ant-checkbox-inline">
-            <Checkbox
-              {...getFieldProps('agreement')} />记住我
-          </label>
+          <Checkbox {...getFieldProps('agreement')}>记住我</Checkbox>
         </FormItem>
         <Button type="primary" htmlType="submit">登录</Button>
       </Form>

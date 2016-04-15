@@ -123,7 +123,7 @@ export default class TransferList extends React.Component {
       return (
         <li onClick={() => { this.handleSelect(item); }} key={item.key} title={renderedText}>
           <Checkbox checked={checkedKeys.some(key => key === item.key)} />
-          {renderedText}
+          <span>{renderedText}</span>
         </li>
       );
     });
