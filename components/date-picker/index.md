@@ -36,7 +36,7 @@ english: DatePicker
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
 | onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
-| showTime     | 增加时间选择功能  | object | [TimePicker Options](http://ant.design/components/time-picker/#api) |
+| showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
 ### MonthPicker
 
@@ -61,6 +61,7 @@ english: DatePicker
 | defaultValue | 默认日期       | [string/Date, string/Date]   | 无           |
 | format       | 展示的日期格式  | string    | "yyyy-MM-dd HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date[], dateString[]) | 无           |
+| showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
 `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer` 属性与 DatePicker 的一致。
 
