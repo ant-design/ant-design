@@ -5,6 +5,8 @@ title: 直接编辑
 
 适用在易编辑性高于易读性时。
 
+1.通过 `handleEdit` 函数收集数据，并发往后端即可。
+
 ```jsx
 import { Table, Select, Input, Switch } from 'antd';
 const Option = Select.Option;
@@ -27,7 +29,7 @@ class EditableTable extends React.Component {
       title: '订单编号',
       dataIndex: 'businessNumber',
       key: 'businessNumber',
-      render(number) {
+      render: (number) => {
         return <a>{number}</a>;
       },
     }, {
@@ -80,7 +82,7 @@ class EditableTable extends React.Component {
       [field]: value,
     };
 
-    // Send edited data to server in real world.
+    // 把收集好的数据发往后端，建议配合 [lodash.debounce](https://lodash.com/docs#debounce) 使用。
     console.log(editedRecord);
   }
 
