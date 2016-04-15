@@ -24,13 +24,13 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <Button type="primary" size="large" loading>
-          加载中
-        </Button>
         <Button type="primary" loading>
           加载中
         </Button>
         <Button type="primary" size="small" loading>
+          加载中
+        </Button>
+        <Button loading>
           加载中
         </Button>
         <br />

@@ -46,6 +46,22 @@
     .btn-circle(@btn-prefix-cls);
   }
 
+  &:before {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    background: #fff;
+    opacity: 0.35;
+    content: '';
+    border-radius: inherit;
+    z-index: 1;
+    transition: opacity .2s;
+    pointer-events: none;
+    display: none;
+  }
+
   &:after {
     font-family: anticon;
     content: "\e6a1";
@@ -58,10 +74,13 @@
   &&-loading {
     padding-left: 29px;
     pointer-events: none;
-    opacity: 0.75;
+    position: relative;
     .anticon {
       margin-left: -14px;
       .transition(all .3s @ease-in-out);
+    }
+    &:before {
+      display: block;
     }
   }
 
