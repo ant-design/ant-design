@@ -27,7 +27,7 @@ const Card = React.createClass({
     );
     return (
       <div>
-        <Spin spining={this.state.loading}>{container}</Spin>
+        <Spin spinning={this.state.loading}>{container}</Spin>
         切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
       </div>
     );
