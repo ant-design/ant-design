@@ -103,8 +103,8 @@ export default function wrapPicker(Picker, defaultFormat) {
       };
       const timePicker = props.showTime ? (
         <TimePicker
-          {...props.showTime}
           {...rcTimePickerProps}
+          {...props.showTime}
           prefixCls="ant-time-picker"
           placeholder={locale.timePickerLocale.placeholder}
           locale={locale.timePickerLocale}
