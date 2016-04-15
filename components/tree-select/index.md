@@ -22,14 +22,13 @@ english: TreeSelect
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, node, extra) | 无   |
-| onChange | 选中树节点，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label, extra) | 无 |
+| onChange | 选中树节点，或input的value变化时，调用此函数 | function(value, label, extra) | 无 |
 | allowClear | 显示清除按钮 | boolean | false |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
 | dropdownStyle | 下拉菜单的样式 | object | 无 |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
-| combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在下拉中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
