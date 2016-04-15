@@ -34,9 +34,9 @@ english: DatePicker
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
-| showTime     | 增加时间选择功能 | bool | false  |
 | onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
+| showTime     | 增加时间选择功能  | object | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
 ### MonthPicker
 
