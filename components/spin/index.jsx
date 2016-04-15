@@ -2,13 +2,12 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
+import warning from 'warning';
 
 export default class Spin extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
-    // Backwards support
-    spining: true,
   }
 
   static propTypes = {
@@ -21,6 +20,7 @@ export default class Spin extends React.Component {
   }
 
   componentDidMount() {
+    warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
     if (!isCssAnimationSupported) {
       // Show text in IE8/9
       findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
@@ -28,10 +28,10 @@ export default class Spin extends React.Component {
   }
 
   render() {
-    const { className, size, prefixCls, tip } = this.props;
-    const spinning = this.props.spinning && this.props.spining;
+    const { className, size, prefixCls, tip, spining = true } = this.props;
+    const spinning = this.props.spinning && spining;  // Backwards support
 
-    let spinClassName = classNames({
+    const spinClassName = classNames({
       [prefixCls]: true,
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
