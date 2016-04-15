@@ -21,7 +21,6 @@
 | value    | 指定当前选中的条目 | string/Array<String>   |  无  |
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
 | multiple   | 支持多选 | boolean | false |
-| tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配 | boolean |false |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value) | 无   |
 | onChange | 选中option，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label) | 无 |
 | allowClear | 显示清除按钮 | boolean | false |
