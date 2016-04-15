@@ -32,7 +32,6 @@ english: Steps
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`）| string | default |
 | direction | 指定步骤条方向。目前支持水平和竖直（`vertical`）两种方向，默认水平方向） | string | -  |
-| maxDescriptionWidth | 指定步骤的详细描述文字的最大宽度（单位 px） | number | 100 |
 
 ### Steps.Step
 

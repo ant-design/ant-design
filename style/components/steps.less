@@ -333,3 +333,16 @@
     line-height: 18px;
   }
 }
+
+.@{steps-prefix-cls}-horizontal {
+   &.@{steps-prefix-cls}-hidden {
+     vertical-align: hidden;
+  }
+  .@{steps-prefix-cls}-description {
+    max-width: 100px;
+  }
+  .@{steps-prefix-cls}-item:not(:first-child) .@{steps-prefix-cls}-head {
+    padding-left: 10px;
+    margin-left: -10px;
+  }
+}
