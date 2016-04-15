@@ -5,6 +5,8 @@ title: 跨页选数据
 
 当需要对表格／列表的数据进行跨分页器选择时，结合『Alert』来实现。
 
+1.当 Tag 或者表格中的文字过长时，可以使用 `limitTextLength` 限制所显示的长度，超出部份显示为 “...”。
+
 ```jsx
 import { Table, Alert, Tag } from 'antd';
 
@@ -17,6 +19,14 @@ for (let i = 1; i < 100; i++) {
   });
 }
 
+function limitTextLength(text, length) {
+  if (text.length > length) {
+    return `${text.slice(0, length)}...`;
+  }
+
+  return text;
+}
+
 class PagedTable extends React.Component {
   constructor(props) {
     super(props);
@@ -25,10 +35,12 @@ class PagedTable extends React.Component {
       selectedRowKeys: [],
     };
 
-    this.handleSelected = this.handleSelected.bind(this);
-    this.handleClearAll = this.handleClearAll.bind(this);
+    // 在 constructor 中绑定 `this` 到 handler 上，确保 `this` 的指向。
+    ['handleSelected', 'handleClearAll'].forEach((method) => {
+      this[method] = this[method].bind(this);
+    });
 
-    // columns 在 constructor 中初始化，保证其可以访问 `this`，同时不会重复生成
+    // columns 在 constructor 中初始化，保证 `column.render` 可以访问 `this`，同时不会重复生成。
     this.columns = [{
       title: '数据库名称',
       dataIndex: 'database',
@@ -40,7 +52,7 @@ class PagedTable extends React.Component {
     }, {
       title: '操作',
       key: 'operation',
-      render() {
+      render: () => {
         return (
           <span>
             <a>操作1</a>
@@ -89,7 +101,7 @@ class PagedTable extends React.Component {
         return (
           <Tag color="blue" key={key}
             closable onClose={() => this.handleCloseTag(key)}>
-            { content }
+            { limitTextLength(content, 10) }
           </Tag>
         );
       });
@@ -110,6 +122,10 @@ class PagedTable extends React.Component {
     );
   }
 }
+
+PagedTable.propTypes = {
+  dataSource: React.PropTypes.arrayOf(React.PropTypes.object),
+};
 
 ReactDOM.render(
   <PagedTable dataSource={mockData} />,

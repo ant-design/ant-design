@@ -27,6 +27,7 @@ class PagedTable extends React.Component {
       allSelected: false,
     };
 
+    // 在 constructor 中绑定 `this` 到 handler 上，确保 `this` 的指向。
     ['handleSelected', 'handleSelectAll',
      'handleSelectAllRecords', 'handleClearAllRecords'].forEach((method) => {
        this[method] = this[method].bind(this);
@@ -39,6 +40,7 @@ class PagedTable extends React.Component {
       </Menu>
     );
 
+    // columns 在 constructor 中初始化，保证 `column.render` 可以访问 `this`，同时不会重复生成。
     this.columns = [{
       title: '数据库名称',
       dataIndex: 'database',
@@ -123,6 +125,10 @@ class PagedTable extends React.Component {
     );
   }
 }
+
+PagedTable.propTypes = {
+  dataSource: React.PropTypes.arrayOf(React.PropTypes.object),
+};
 
 ReactDOM.render(<PagedTable dataSource={mockData} />, mountNode);
 ```
