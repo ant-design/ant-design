@@ -20,17 +20,15 @@ english: TreeSelect
 | value    | 指定当前选中的条目 | 通常: String/Array<String>. 设置labelInValue: {value:String,label:React.Node}/Array<{value,label}>. 设置treeCheckStrictly(halfChecked默认为false): {value:String,label:React.Node, halfChecked}/Array<{value,label,halfChecked}>. |  无  |
 | labelInValue | 是否把 label 嵌入到 value 里，设置后参考以上 value 类型写法  | boolean | false |
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
-| multiple   | 支持多选 | boolean | false |
-| tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配 | boolean |false |
+| multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, node, extra) | 无   |
-| onChange | 选中树节点，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label, extra) | 无 |
+| onChange | 选中树节点，或input的value变化时，调用此函数 | function(value, label, extra) | 无 |
 | allowClear | 显示清除按钮 | boolean | false |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
 | searchPlaceholder | 搜索框默认文字 | string | 无 |
 | dropdownStyle | 下拉菜单的样式 | object | 无 |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
-| combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在下拉中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
