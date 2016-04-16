@@ -68,7 +68,7 @@ export default class Popconfirm extends React.Component {
       <div>
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
-            <Icon type="question-circle" />
+            <Icon type="exclamation-circle" />
             <div className={`${prefixCls}-message-title`}>{title}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>

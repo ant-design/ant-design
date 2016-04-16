@@ -7,10 +7,11 @@ let defaultDuration = 1.5;
 let defaultTop;
 let messageInstance;
 let key = 1;
+let prefixCls = 'ant-message';
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
-    prefixCls: 'ant-message',
+    prefixCls,
     transitionName: 'move-up',
     style: { defaultTop }, // 覆盖原来的样式
   });
@@ -18,14 +19,6 @@ function getMessageInstance() {
 }
 
 function notice(content, duration = defaultDuration, type, onClose) {
-  let iconClass = ({
-    info: 'ant-message-info',
-    success: 'ant-message-success',
-    error: 'ant-message-error',
-    warning: 'ant-message-warning',
-    loading: 'ant-message-loading'
-  })[type];
-
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -39,11 +32,13 @@ function notice(content, duration = defaultDuration, type, onClose) {
     key,
     duration,
     style: {},
-    content: <div className={`ant-message-custom-content ${iconClass}`}>
-      <Icon className={iconClass} type={iconType} />
-      <span>{content}</span>
-    </div>,
-    onClose
+    content: (
+      <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
+        <Icon type={iconType} />
+        <span>{content}</span>
+      </div>
+    ),
+    onClose,
   });
   return (function () {
     let target = key++;
@@ -80,6 +75,9 @@ export default {
     }
     if ('duration' in options) {
       defaultDuration = options.duration;
+    }
+    if ('prefixCls' in options) {
+      prefixCls = options.prefixCls;
     }
   },
   destroy() {
