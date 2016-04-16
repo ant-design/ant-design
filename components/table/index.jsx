@@ -96,9 +96,9 @@ export default class Table extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
-      this.setState({
-        pagination: { ...defaultPagination, ...this.state.pagination, ...nextProps.pagination },
-      });
+      this.setState(previousState => ({
+        pagination: { ...defaultPagination, ...previousState.pagination, ...nextProps.pagination },
+      }));
     }
     // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
