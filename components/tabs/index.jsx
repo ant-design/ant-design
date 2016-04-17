@@ -63,14 +63,16 @@ export default class Tabs extends React.Component {
       );
     }
 
+    tabBarExtraContent = tabBarExtraContent ? (
+      <div className={`${prefixCls}-extra-content`}>
+        {tabBarExtraContent}
+      </div>
+    ) : null;
+
     return (
       <RcTabs {...this.props}
         className={className}
-        tabBarExtraContent={
-          <div className={`${prefixCls}-extra-content`}>
-            {tabBarExtraContent}
-          </div>
-        }
+        tabBarExtraContent={tabBarExtraContent}
         onChange={this.handleChange}
         animation={animation}>
         {children}
