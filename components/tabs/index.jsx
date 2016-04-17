@@ -58,14 +58,16 @@ class AntTabs extends React.Component {
       );
     }
 
+    tabBarExtraContent = tabBarExtraContent ? (
+      <div className={`${prefixCls}-extra-content`}>
+        {tabBarExtraContent}
+      </div>
+    ) : null;
+
     return (
       <Tabs {...this.props}
         className={className}
-        tabBarExtraContent={
-          <div className={`${prefixCls}-extra-content`}>
-            {tabBarExtraContent}
-          </div>
-        }
+        tabBarExtraContent={tabBarExtraContent}
         onChange={this.handleChange}
         animation={animation}>
         {children}
