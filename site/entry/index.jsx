@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { addLocaleData, IntlProvider } from 'react-intl';
 import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router';
 import antd from '../../index.js';
 import * as utils from './utils';
@@ -45,38 +46,43 @@ if (!location.port) {
   /* eslint-enable */
 }
 
+const appLocale = window.appLocale;
+addLocaleData(appLocale.data);
+
 ReactDOM.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home} />
-      <Route path="components" component={ReactComponents}>
-        {utils.generateIndex(reactComponents)}
-        <Route path=":children"
-          component={utils.getChildrenWrapper(reactComponents)} />
+  <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="components" component={ReactComponents}>
+          { utils.generateIndex(reactComponents) }
+          <Route path=":children"
+            component={utils.getChildrenWrapper(reactComponents)} />
+        </Route>
+        { redirects }
+        <Route path="docs/practice" component={Practice}>
+          { utils.generateIndex(practice) }
+          <Route path=":children"
+            component={utils.getChildrenWrapper(practice)} />
+        </Route>
+        <Route path="docs/pattern" component={Pattern}>
+          { utils.generateIndex(pattern) }
+          <Route path=":children"
+            component={utils.getChildrenWrapper(pattern)} />
+        </Route>
+        <Route path="docs/spec" component={Spec}>
+          { utils.generateIndex(spec) }
+          <Route path=":children"
+            component={utils.getChildrenWrapper(spec)} />
+        </Route>
+        <Route path="docs/resource" component={Resource}>
+          { utils.generateIndex(resource) }
+          <Route path=":children"
+            component={utils.getChildrenWrapper(resource)} />
+        </Route>
       </Route>
-      {redirects}
-      <Route path="docs/practice" component={Practice}>
-        {utils.generateIndex(practice)}
-        <Route path=":children"
-          component={utils.getChildrenWrapper(practice)} />
-      </Route>
-      <Route path="docs/pattern" component={Pattern}>
-        {utils.generateIndex(pattern)}
-        <Route path=":children"
-          component={utils.getChildrenWrapper(pattern)} />
-      </Route>
-      <Route path="docs/spec" component={Spec}>
-        {utils.generateIndex(spec)}
-        <Route path=":children"
-          component={utils.getChildrenWrapper(spec)} />
-      </Route>
-      <Route path="docs/resource" component={Resource}>
-        {utils.generateIndex(resource)}
-        <Route path=":children"
-          component={utils.getChildrenWrapper(resource)} />
-      </Route>
-    </Route>
-    <Route path="*" component={NotFound} />
-  </Router>
+      <Route path="*" component={NotFound} />
+    </Router>
+  </IntlProvider>
   , document.getElementById('react-content')
 );
