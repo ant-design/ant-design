@@ -1,7 +1,7 @@
 ---
 order: 5
-chinese: 表格：复杂数据
-english: Complex Table
+english: 表格：复杂数据
+cols: 1
 ---
 
 表格也用于展示复杂和高度结构化数据。
