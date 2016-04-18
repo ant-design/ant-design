@@ -9,8 +9,8 @@ title: 带下拉框的按钮
 import { Menu, Dropdown } from 'antd';
 const DropdownButton = Dropdown.Button;
 
-function handleButtonClick() {
-  console.log('click button');
+function handleButtonClick(e) {
+  console.log('click left button', e);
 }
 
 function handleMenuClick(e) {

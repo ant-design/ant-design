@@ -43,7 +43,7 @@ export default class Button extends React.Component {
   }
 
   clearButton = (button) => {
-    button.className = button.className.replace(`${this.props.prefixCls}-clicked`, '');
+    button.className = button.className.replace(` ${this.props.prefixCls}-clicked`, '');
   }
 
   handleClick = (...args) => {
