@@ -75,7 +75,7 @@ export default class ComponentDoc extends React.Component {
 
     return (
       <article>
-        <Affix className="toc-affix">
+        <Affix className="toc-affix" offsetTop={16}>
           <ul className="toc demos-anchor">
             { jumper }
           </ul>
@@ -95,7 +95,7 @@ export default class ComponentDoc extends React.Component {
               title="展开全部代码" onClick={this.handleExpandToggle} />
           </h2>
         </section>
-        <Row>
+        <Row gutter={16}>
           <Col span={ isSingleCol ? '24' : '12' }
             className={ isSingleCol ?
               'code-boxes-col-1-1' :

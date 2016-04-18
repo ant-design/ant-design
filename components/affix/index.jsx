@@ -109,7 +109,6 @@ export default class Affix extends React.Component {
 
   render() {
     const className = classNames({
-      [this.props.className]: this.props.className,
       'ant-affix': this.state.affixStyle,
     });
 
