@@ -8,14 +8,15 @@ export default class Timeline extends React.Component {
   }
 
   render() {
-    const { prefixCls, children, pending } = this.props;
+    const { prefixCls, children, pending, className, ...restProps } = this.props;
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const className = classNames({
+    const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-pending`]: !!pending,
+      [className]: className,
     });
     return (
-      <ul className={className}>
+      <ul {...restProps} className={classString}>
         {
           React.Children.map(children, (ele, idx) =>
             React.cloneElement(ele, {
