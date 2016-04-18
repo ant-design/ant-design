@@ -44,6 +44,12 @@
     user-select: none;
     transition: background 0.3s ease;
 
+    &:last-child:after {
+      content: '';
+      height: 120px;
+      display: block;
+    }
+
     &:hover {
       background: tint(@primary-color, 90%);
     }
