@@ -1,4 +1,5 @@
 import React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router';
 import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
@@ -132,32 +133,32 @@ export default class Header extends React.Component {
             <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
               <Menu.Item key="home">
                 <Link to="/">
-                  首页
+                  <FormattedMessage id="app.header.menu.home" />
                 </Link>
               </Menu.Item>
               <Menu.Item key="docs/practice">
                 <Link to="/docs/practice">
-                  实践
+                  <FormattedMessage id="app.header.menu.practice" />
                 </Link>
               </Menu.Item>
               <Menu.Item key="docs/pattern">
                 <Link to="/docs/pattern">
-                  模式
+                  <FormattedMessage id="app.header.menu.pattern" />
                 </Link>
               </Menu.Item>
               <Menu.Item key="docs/react">
                 <Link to="/docs/react">
-                  组件
+                  <FormattedMessage id="app.header.menu.react" />
                 </Link>
               </Menu.Item>
               <Menu.Item key="docs/spec">
                 <Link to="/docs/spec">
-                  语言
+                  <FormattedMessage id="app.header.menu.spec" />
                 </Link>
               </Menu.Item>
               <Menu.Item key="docs/resource">
                 <Link to="/docs/resource">
-                  资源
+                  <FormattedMessage id="app.header.menu.resource" />
                 </Link>
               </Menu.Item>
             </Menu>
