@@ -21,14 +21,14 @@ export default React.createClass({
     };
   },
   render() {
-    const { type, overlay, trigger, align, children, className, ...restProps } = this.props;
+    const { type, overlay, trigger, align, children, className, onClick, ...restProps } = this.props;
     const cls = classNames({
       'ant-dropdown-button': true,
       className: !!className,
     });
     return (
       <ButtonGroup {...restProps} className={cls}>
-        <Button type={type}>{children}</Button>
+        <Button type={type} onClick={onClick}>{children}</Button>
         <Dropdown align={align} overlay={overlay} trigger={trigger}>
           <Button type={type}>
             <Icon type="down" />
