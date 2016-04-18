@@ -1,6 +1,12 @@
 ---
 order: 3
 chinese: 更新日志
+toc: false
+timeline: true
+---
+
+你也可以查看 GitHub 上的 [发布日志](https://github.com/ant-design/ant-design/releases)。
+
 ---
 
 ## 0.12.14
@@ -346,8 +352,6 @@ chinese: 更新日志
   - 发布了 `antd-init@0.6.x`，支持以上改动。
 
 > [0.11 升级指南](http://ant.design/docs/react/upgrade-notes#0-10-gt-0-11)
-
----
 
 ## 0.10.5
 

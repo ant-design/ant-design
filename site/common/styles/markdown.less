@@ -67,9 +67,9 @@
   padding-left: 4px;
 }
 
-.markdown > ul li p,
-.markdown > ol li p {
-  margin: 0.6em 0;
+.markdown > ul li > p,
+.markdown > ol li > p {
+  margin: 0.2em 0;
 }
 
 .markdown ol > li {
@@ -242,5 +242,29 @@
   }
   .code-box-demo .height-80 {
     height: 80px;
+  }
+}
+
+// For Changelog
+.markdown {
+  ul.ant-timeline {
+    li.ant-timeline-item {
+      list-style: none;
+      margin: 0;
+      padding: 0 0 30px 0;
+      .ant-timeline-item-content {
+        font-size: 14px;
+        padding-left: 32px;
+        position: relative;
+        top: -15px;
+        > h2 {
+          margin-top: 0;
+          padding-top: 0.5px;
+        }
+      }
+    }
+    li.ant-timeline-item:first-child {
+      margin-top: 40px;
+    }
   }
 }

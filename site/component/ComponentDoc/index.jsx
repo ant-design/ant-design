@@ -81,7 +81,7 @@ export default class ComponentDoc extends React.Component {
           </ul>
         </Affix>
         <section className="markdown">
-          <h1>{meta.chinese || meta.english}</h1>
+          <h1>{meta.english} {meta.chinese}</h1>
           {
             utils.jsonmlToComponent(
               location.pathname,

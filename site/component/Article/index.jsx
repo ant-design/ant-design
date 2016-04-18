@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Children, cloneElement } from 'react';
 import { Link } from 'react-router';
 import * as utils from '../utils';
 import { getTagName, getChildren } from 'jsonml.js/lib/utils';
+import { Timeline } from 'antd';
 
 export default class Article extends React.Component {
   componentDidMount() {
@@ -11,7 +12,25 @@ export default class Article extends React.Component {
     const { chinese, english } = this.props.content.meta;
     utils.setTitle(`${chinese || english} - Ant Design`);
   }
-
+  getTimelineFromArticle(article) {
+    const { content } = this.props;
+    const { meta } = content;
+    if (!meta.timeline) {
+      return article;
+    }
+    const timelineItems = [];
+    let temp = [];
+    Children.forEach(article.props.children, (child, i) => {
+      if (child.type === 'h2' && temp.length > 0) {
+        timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
+        temp = [];
+      }
+      temp.push(child);
+    });
+    return cloneElement(article, {
+      children: <Timeline>{timelineItems}</Timeline>,
+    });
+  }
   render() {
     const { content, location } = this.props;
     const jumper = content.description.filter((node) => {
@@ -31,7 +50,7 @@ export default class Article extends React.Component {
     return (
       <article className="markdown">
         <h1>
-          { meta.chinese || meta.english }
+          {meta.english} {meta.chinese}
           {
             !meta.subtitle ? null :
               <span className="subtitle">{ meta.subtitle }</span>
@@ -45,15 +64,15 @@ export default class Article extends React.Component {
             )
         }
         {
-          jumper.length > 0 ?
+          (jumper.length > 0 && meta.toc !== false) ?
             <section className="toc"><ul>{ jumper }</ul></section> :
             null
         }
         {
-          utils.jsonmlToComponent(
+          this.getTimelineFromArticle(utils.jsonmlToComponent(
             location.pathname,
             ['section', { className: 'markdown' }].concat(description)
-          )
+          ))
         }
       </article>
     );
