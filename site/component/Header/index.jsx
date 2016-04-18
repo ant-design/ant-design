@@ -96,7 +96,7 @@ export default class Header extends React.Component {
               <Select combobox
                 dropdownClassName="component-select"
                 searchPlaceholder="搜索组件..."
-                optionLabelProp="nothing"
+                value={undefined}
                 optionFilterProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}>
