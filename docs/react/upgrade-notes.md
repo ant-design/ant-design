@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 english: 升级指南
 ---
 
