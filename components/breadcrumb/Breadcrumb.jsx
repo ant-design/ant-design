@@ -39,7 +39,7 @@ export default class Breadcrumb extends React.Component {
         if (!route.breadcrumbName) {
           return null;
         }
-        const name = route.breadcrumbName.replace(/\:(.*)/g, (replacement, key) => {
+        const name = route.breadcrumbName.replace(/:(.*)/g, (replacement, key) => {
           return params[key] || replacement;
         });
 

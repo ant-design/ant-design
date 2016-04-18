@@ -45,11 +45,11 @@ const ImageUploadList = React.createClass({
           <div className="ant-upload-text">上传照片</div>
         </Upload>
         <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" className="upload-example">
-          <img src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
+          <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
           <span>示例</span>
         </a>
         <Modal visible={this.state.priviewVisible} footer={null} onCancel={this.handleCancel}>
-          <img src={this.state.priviewImage} />
+          <img alt="example" src={this.state.priviewImage} />
         </Modal>
       </div>
     );

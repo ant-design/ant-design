@@ -11,7 +11,7 @@ import { Card } from 'antd';
 ReactDOM.render(
   <Card style={{ width: 240 }} bodyStyle={{ padding: 0 }}>
     <div className="custom-image">
-      <img width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+      <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
     </div>
     <div className="custom-card">
       <h3>欧美街拍</h3>

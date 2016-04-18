@@ -23,7 +23,7 @@ const Test = React.createClass({
     const page = this.state.show ? [
       <div className="demo-header" key="header">
         <div className="logo">
-          <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+          <img alt="logo" width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
           <span>logo</span>
         </div>
         <QueueAnim component="ul">
