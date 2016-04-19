@@ -18,84 +18,10 @@ class EditableTable extends React.Component {
   constructor(props) {
     super(props);
 
-    // 绑定this
-    this.handleEdit = this.handleEdit.bind(this);
-    this.changeEditState = this.changeEditState.bind(this);
-
-    this.columns = [
-      {
-        title: '订单编号',
-        dataIndex: 'businessNumber',
-        key: 'businessNumber',
-        render: (text) => {
-          return <a>{text}</a>;
-        }
-      },
-      {
-        title: '买家',
-        dataIndex: 'customer',
-        key: 'customer',
-
-        // 你可以使用width来固定单元格的宽度, 避免切换时候的抖动
-        width: 200,
-        render: (text, record, index) => {
-          return (
-            <div>
-              {
-                this.state.editable[index] ?
-                  <Select className="customer-selector" defaultValue={text} onChange={(value) => this.handleEdit(index, 'customer', value)}>
-                    {
-                      props.customerList.map((c, i) => <Option value={c} key={i}>{c}</Option>)
-                    }
-                  </Select>
-                  :
-                  <span>{text}</span>
-              }
-            </div>
-          );
-        }
-      },
-      {
-        title: '详情',
-        dataIndex: 'detail',
-        key: 'detail',
-        width: 400,
-        render: (text, record, index) => {
-          return (
-            <div>
-              {
-                this.state.editable[index] ?
-                  <Input type="text" defaultValue={text} onChange={(e) => this.handleEdit(index, 'detail', e.target.value)} />
-                  :
-                  <span>{text}</span>
-              }
-            </div>
-          );
-        }
-      },
-      {
-        title: '操作',
-        dataIndex: 'operator',
-        key: 'operator',
-        width: 160,
-        render: (text, record, index) => {
-          return (
-            <div>
-              {
-                this.state.editable[index] ?
-                  <p>
-                    <a onClick={ () => this.changeEditState('save', index) } >保存</a>
-                    <span style={ { color: '#DEDEDE', display: 'inline-block', padding: '0 5px', transform: 'scale(1, 0.6)' } } > | </span>
-                    <a onClick={ () => this.changeEditState('cancel', index) } >取消</a>
-                  </p>
-                  :
-                  <a onClick={ () => this.changeEditState('edit', index) } >编辑</a>
-              }
-            </div>
-          );
-        }
-      }
-    ];
+    // 在 constructor 中绑定 `this` 到 handler 上，确保 `this` 的指向。
+    ['changeEditState', 'handleEdit'].forEach((method) => {
+      this[method] = this[method].bind(this);
+    });
 
     this.state = {
       // 是否能够编辑的状态存储
@@ -185,13 +111,91 @@ class EditableTable extends React.Component {
   }
 
   render() {
+    const props = this.props;
+
+    // 和历史动态修改的所以需要放到render中
+    let columns = [
+      {
+        title: '订单编号',
+        dataIndex: 'businessNumber',
+        key: 'businessNumber',
+        render: (text) => {
+          return <a>{text}</a>;
+        }
+      },
+      {
+        title: '买家',
+        dataIndex: 'customer',
+        key: 'customer',
+
+        // 你可以使用width来固定单元格的宽度, 避免切换时候的抖动
+        width: 200,
+        render: (text, record, index) => {
+          return (
+            <div>
+              {
+                this.state.editable[index] ?
+                <Select className="customer-selector" defaultValue={text} onChange={(value) => this.handleEdit(index, 'customer', value)}>
+                  {
+                    props.customerList.map((c, i) => <Option value={c} key={i}>{c}</Option>)
+                  }
+                </Select>
+                :
+                <span>{text}</span>
+              }
+            </div>
+          );
+        }
+      },
+      {
+        title: '详情',
+        dataIndex: 'detail',
+        key: 'detail',
+        width: 400,
+        render: (text, record, index) => {
+          return (
+            <div>
+              {
+                this.state.editable[index] ?
+                  <Input type="text" defaultValue={text} onChange={(e) => this.handleEdit(index, 'detail', e.target.value)} />
+                  :
+                  <span>{text}</span>
+              }
+            </div>
+          );
+        }
+      },
+      {
+        title: '操作',
+        dataIndex: 'operator',
+        key: 'operator',
+        width: 160,
+        render: (text, record, index) => {
+          return (
+            <div>
+              {
+                this.state.editable[index] ?
+                  <p>
+                    <a onClick={ () => this.changeEditState('save', index) } >保存</a>
+                    <span style={ { color: '#DEDEDE', display: 'inline-block', padding: '0 5px', transform: 'scale(1, 0.6)' } } > | </span>
+                    <a onClick={ () => this.changeEditState('cancel', index) } >取消</a>
+                  </p>
+                  :
+                  <a onClick={ () => this.changeEditState('edit', index) } >编辑</a>
+              }
+            </div>
+          );
+        }
+      }
+    ];
+
     const dataSource = this.state.dataSource;
+
     return (
-      <Table columns={this.columns} pagination={false} bordered dataSource={dataSource} />
+      <Table columns={columns} pagination={false} bordered dataSource={dataSource} />
     );
   }
 }
-
 
 // 使用
 const mockData = [
