@@ -1,4 +1,3 @@
-import 'antd/style/index.less';
 import './styles/highlight.less';
 import './styles/common.less';
 import './styles/markdown.less';
