@@ -16,9 +16,6 @@ class EditableTable extends Component {
   constructor(props) {
     super(props);
 
-    this.handleBlur = this.handleBlur.bind(this);
-    this.handleOperation = this.handleOperation.bind(this);
-
     this.columns = [{
       title: '应用名称',
       dataIndex: 'appName',
@@ -27,15 +24,12 @@ class EditableTable extends Component {
         const content = (<Input defaultValue={name} onBlur={(e) => {
           this.handleBlur(record, e.target.value);
         }} />);
-
         return (<div>
-
           <span style={{
             marginRight: 6,
           }}>
             {name}
           </span>
-
           <Popover overlay={content} title="标题" trigger="click">
             <a style={{
               color: '#666',
@@ -43,7 +37,6 @@ class EditableTable extends Component {
               <Icon type="edit" />
             </a>
           </Popover>
-
         </div>);
       },
     }, {
@@ -57,11 +50,9 @@ class EditableTable extends Component {
     }, {
       title: '操作',
       key: 'operation',
-      render: (name, record) => {
-        return (<a onClick={() => {this.handleOperation(record);}}>
-          操作
-        </a>);
-      },
+      render: (name, record) => <a onClick={() => {this.handleOperation(record);}}>
+        操作
+      </a>,
     }];
 
     this.state = {
