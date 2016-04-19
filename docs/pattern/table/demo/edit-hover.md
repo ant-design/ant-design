@@ -16,12 +16,17 @@ class EditableTable extends Component {
   constructor(props) {
     super(props);
 
+    this.handleBlur = this.handleBlur.bind(this);
+    this.handleOperation = this.handleOperation.bind(this);
+
     this.columns = [{
       title: '应用名称',
       dataIndex: 'appName',
       key: 'appName',
       render: (name, record) => {
-        const content = <Input defaultValue={name} onBlur={this.handleBlur(record)} />;
+        const content = (<Input defaultValue={name} onBlur={(e) => {
+          this.handleBlur(record, e.target.value);
+        }} />);
 
         return (<div>
 
@@ -76,9 +81,8 @@ class EditableTable extends Component {
     return nextState.dataSource !== this.state.dataSource;
   }
 
-  handleBlur = (record, e) => {
-    const appName = e.target.value;
-    console.log(appName);
+  handleBlur(record, value) {
+    console.log(value);
 
     // 这里用 setTimeout 模拟网络请求
     setTimeout(() => {
@@ -89,7 +93,7 @@ class EditableTable extends Component {
       const newDataSource = [...dataSource];
       newDataSource[index] = {
         ...record,
-        appName,
+        appName: value,
       };
       this.setState({
         dataSource: newDataSource,
@@ -100,7 +104,7 @@ class EditableTable extends Component {
     }, 200);
   }
 
-  handleOperation = record => {
+  handleOperation(record) {
     console.log(record);
   }
 
