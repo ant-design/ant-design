@@ -99,8 +99,7 @@ const App = React.createClass({
     return (
       <Table columns={columns}
         expandedRowRender={record => this.expandedRowRender(record)}
-        dataSource={data}
-        className="table" />
+        dataSource={data} />
     );
   }
 });
