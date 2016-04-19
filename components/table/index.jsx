@@ -85,9 +85,9 @@ let AntTable = React.createClass({
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
-      this.setState({
-        pagination: objectAssign({}, defaultPagination, this.state.pagination, nextProps.pagination)
-      });
+      this.setState(previousState => ({
+        pagination: objectAssign({}, defaultPagination, previousState.pagination, nextProps.pagination),
+      }));
     }
     // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&

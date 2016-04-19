@@ -25,7 +25,7 @@ function insertSpace(child) {
 }
 
 function clearButton(button) {
-  button.className = button.className.replace(`${prefix}clicked`, '');
+  button.className = button.className.replace(` ${prefix}clicked`, '');
 }
 
 export default class Button extends React.Component {

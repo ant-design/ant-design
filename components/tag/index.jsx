@@ -26,7 +26,7 @@ class AntTag extends React.Component {
   }
 
   animationEnd(key, existed) {
-    if (!existed) {
+    if (!existed && !this.state.closed) {
       this.setState({
         closed: true,
         closing: false,
