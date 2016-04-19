@@ -1,4 +1,5 @@
-@import "../mixins/iconfont";
+@import "../../../style/themes/default";
+@import "./mixin";
 
 // font-face
 // @icon-url： 字体源文件的地址
@@ -191,6 +192,6 @@
 .@{iconfont-css-prefix}-calculator:before               {content:"\e6b1";}
 .@{iconfont-css-prefix}-loading:before {
   display: inline-block;
-  .animation(loadingCircle 1s infinite linear);
+  animation: loadingCircle 1s infinite linear;
   content:"\e6a1";
 }
