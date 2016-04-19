@@ -81,8 +81,8 @@
   white-space: nowrap;
   line-height: @line-height-base;
   .button-size(@btn-padding-base; @font-size-base; @border-radius-base);
-  .user-select(none);
-  .transition(all .3s @ease-in-out);
+  user-select: none;
+  transition: all .3s @ease-in-out;
   transform: translate3d(0, 0, 0);
 
   > .@{iconfont-css-prefix} {
@@ -101,7 +101,7 @@
 
   &:not([disabled]):active {
     outline: 0;
-    .transition(none);
+    transition: none;
   }
 
   &.disabled,
