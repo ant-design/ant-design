@@ -350,7 +350,7 @@ form {
   .@{select-prefix-cls} {
     &-selection {
       border-color: @warning-color;
-      box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+      box-shadow: 0 0 0 2px fade(@warning-color, 20%);
     }
     &-arrow {
       color: @warning-color;
@@ -370,7 +370,7 @@ form {
   // ant-input-number
   .@{input-number-prefix-cls} {
     border-color: @warning-color;
-    box-shadow: 0 0 0 2px tint(@warning-color, 80%);
+    box-shadow: 0 0 0 2px fade(@warning-color, 20%);
     &:not([disabled]):hover {
       border-color: @warning-color;
     }
@@ -389,7 +389,7 @@ form {
   .@{select-prefix-cls} {
     &-selection {
       border-color: @error-color;
-      box-shadow: 0 0 0 2px tint(@error-color, 80%);
+      box-shadow: 0 0 0 2px fade(@error-color, 20%);
     }
 
     &-arrow {
@@ -414,7 +414,7 @@ form {
   // ant-input-number
   .@{input-number-prefix-cls} {
     border-color: @error-color;
-    box-shadow: 0 0 0 2px tint(@error-color, 80%);
+    box-shadow: 0 0 0 2px fade(@error-color, 20%);
     &:not([disabled]):hover {
       border-color: @error-color;
     }
