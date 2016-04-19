@@ -58,7 +58,7 @@ class EditableTable extends Component {
       title: '操作',
       key: 'operation',
       render: (name, record) => {
-        return (<a onClick={this.handleOperation(record)}>
+        return (<a onClick={() => {this.handleOperation(record);}}>
           操作
         </a>);
       },
@@ -132,5 +132,5 @@ const mockData = [{
 ReactDOM.render(<EditableTable dataSource={mockData} onChange={data => {
   // 当编辑成功调用得到新的数据
   console.log(data);
-}} />);
+}} />, mountNode);
 ```
