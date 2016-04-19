@@ -5,14 +5,12 @@ title: 悬浮层编辑
 
 适用在上下文对编辑任务不那么重要时。
 
-通过 `blur` 收集数据，并发往后端即可。
+通过 `onChange` 收集数据，并发往后端即可。
 
 ```jsx
 import { Table, Icon, Popover, Input } from 'antd';
-import React, { Component } from 'react';
 
-
-class EditableTable extends Component {
+class EditableTable extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,22 +18,17 @@ class EditableTable extends Component {
       title: '应用名称',
       dataIndex: 'appName',
       key: 'appName',
-      render: (name, record) => {
+      render: (name, record, index) => {
         const content = (<Input defaultValue={name} onBlur={(e) => {
           this.handleBlur(record, e.target.value);
         }} />);
+        const visible = this.state.visible[index];
         return (<div>
-          <span style={{
-            marginRight: 6,
-          }}>
+          <span className="appName">
             {name}
           </span>
-          <Popover overlay={content} title="标题" trigger="click">
-            <a style={{
-              color: '#666',
-            }}>
-              <Icon type="edit" />
-            </a>
+          <Popover content={content} title="标题" trigger="click" visible={visible} onVisibleChange={value => {this.handleVisibleChange(index, value);}}>
+            <Icon type="edit" className={visible ? 'app-name-edit' : 'app-name-normal'} />
           </Popover>
         </div>);
       },
@@ -56,43 +49,42 @@ class EditableTable extends Component {
     }];
 
     this.state = {
-      dataSource: props.dataSource,
+      visible: props.dataSource.map(() => false),
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.dataSource !== this.props.dataSource) {
       this.setState({
-        dataSource: nextProps.dataSource,
+        visible: nextProps.dataSource.map(() => false),
       });
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.dataSource !== this.state.dataSource;
+    return this.state.visible !== nextState.visible || nextProps.dataSource !== this.props.dataSource;
   }
 
   handleBlur(record, value) {
     console.log(value);
+    const dataSource = this.props.dataSource;
+    const index = dataSource.indexOf(record);
+    const newDataSource = [...dataSource];
+    newDataSource[index] = {
+      ...record,
+      appName: value,
+    };
+    if (this.props.onChange) {
+      this.props.onChange(newDataSource, record, value);
+    }
+  }
 
-    // 这里用 setTimeout 模拟网络请求
-    setTimeout(() => {
-      // 调用接口请求修改名称，成功后则可调用 this.setState 来设置 dataSource
-      // 在这里例子中，需要保证的是 dataSource 为 immutable data
-      const dataSource = this.state.dataSource;
-      const index = dataSource.indexOf(record);
-      const newDataSource = [...dataSource];
-      newDataSource[index] = {
-        ...record,
-        appName: value,
-      };
-      this.setState({
-        dataSource: newDataSource,
-      });
-      if (this.props.onChange) {
-        this.props.onChange(newDataSource);
-      }
-    }, 200);
+  handleVisibleChange(index, value) {
+    const visible = [...this.state.visible];
+    visible[index] = value;
+    this.setState({
+      visible,
+    });
   }
 
   handleOperation(record) {
@@ -100,7 +92,7 @@ class EditableTable extends Component {
   }
 
   render() {
-    const dataSource = this.state.dataSource;
+    const dataSource = this.props.dataSource;
     return (
       <Table columns={this.columns} pagination={false} bordered
         dataSource={dataSource} />
@@ -108,20 +100,53 @@ class EditableTable extends Component {
   }
 }
 
-const mockData = [{
-  appName: '应用名称001',
-  creator: '林外',
-  detail: '这个一个描述描述描述描述描述1',
-  key: 0,
-}, {
-  appName: '应用名称002',
-  creator: '林外',
-  detail: '这个一个描述描述描述描述描述2',
-  key: 1,
-}];
 
-ReactDOM.render(<EditableTable dataSource={mockData} onChange={data => {
-  // 当编辑成功调用得到新的数据
-  console.log(data);
-}} />, mountNode);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      dataSource: [{
+        appName: '应用名称001',
+        creator: '林外',
+        detail: '这个一个描述描述描述描述描述1',
+        key: 0,
+      }, {
+        appName: '应用名称002',
+        creator: '林外',
+        detail: '这个一个描述描述描述描述描述2',
+        key: 1,
+      }],
+    };
+  }
+
+  handleChange(newDataSource) {
+    this.setState({
+      dataSource: newDataSource,
+    });
+  }
+
+  render() {
+    return (<EditableTable
+      dataSource={this.state.dataSource}
+      onChange={this.handleChange}
+      className="edit-hover-table" />);
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
+```
+
+```css
+.app-name {
+  margin-right: 6px;
+}
+.app-name-edit {
+  color: #38bbf6;
+  cursor: pointer;
+}
+.app-name-normal {
+  color: #999;
+  cursor: pointer;
+}
 ```
