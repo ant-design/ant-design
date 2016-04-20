@@ -19,18 +19,18 @@ class EditableTable extends React.Component {
       dataIndex: 'appName',
       key: 'appName',
       render: (name, record, index) => {
-        const content = (<Input defaultValue={name} onBlur={(e) => {
-          this.handleBlur(record, e.target.value);
-        }} />);
+        const content = <Input defaultValue={name} onBlur={e => {this.handleBlur(record, e.target.value);}} />;
         const visible = this.state.visible[index];
-        return (<div>
-          <span className="app-name">
-            {name}
-          </span>
-          <Popover content={content} title="标题" trigger="click" visible={visible} onVisibleChange={value => {this.handleVisibleChange(index, value);}}>
-            <Icon type="edit" className={visible ? 'app-name-edit' : 'app-name-normal'} />
-          </Popover>
-        </div>);
+        return (
+          <div>
+            <span className="app-name">
+              {name}
+            </span>
+            <Popover content={content} title="标题" trigger="click" visible={visible} onVisibleChange={value => {this.handleVisibleChange(index, value);}}>
+              <Icon type="edit" className={visible ? 'app-name-edit' : 'app-name-normal'} />
+            </Popover>
+          </div>
+        );
       },
     }, {
       title: '创建人',
@@ -93,10 +93,7 @@ class EditableTable extends React.Component {
 
   render() {
     const dataSource = this.props.dataSource;
-    return (
-      <Table columns={this.columns} pagination={false} bordered
-        dataSource={dataSource} />
-    );
+    return <Table columns={this.columns} pagination={false} bordered dataSource={dataSource} />;
   }
 }
 
@@ -125,9 +122,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (<EditableTable
-      dataSource={this.state.dataSource}
-      onChange={this.handleChange} />);
+    return <EditableTable dataSource={this.state.dataSource} onChange={this.handleChange} />;
   }
 }
 
