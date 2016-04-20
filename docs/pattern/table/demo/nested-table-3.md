@@ -133,7 +133,6 @@ class NestedTable extends React.Component {
 
     setTimeout(() => {
       this.setState({
-        ...this.state,
         recordSubTableDataMap: {
           ...this.state.recordSubTableDataMap,
           [recordId]: {
