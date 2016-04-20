@@ -111,8 +111,8 @@ class PagedTable extends React.Component {
         选择全部 {props.dataSource.length} 项
       </a>;
     const tips = !state.allSelected ?
-      `已选当前页 ${state.selectedRowKeys.length} 项。` :
-      `已选择全部 ${props.dataSource.length}项。`;
+      `已选 ${state.selectedRowKeys.length} 项。` :
+      `已选择全部 ${props.dataSource.length} 项。`;
     const message = <span>{tips}{operation}</span>;
 
     return (
