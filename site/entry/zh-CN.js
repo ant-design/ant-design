@@ -1,7 +1,7 @@
 import appLocaleData from 'react-intl/locale-data/zh';
 
 window.appLocale = {
-  locale: 'zh-Hans-CN',
+  locale: 'zh-CN',
   data: appLocaleData,
   messages: {
     'app.header.menu.home': '首页',
