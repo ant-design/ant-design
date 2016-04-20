@@ -5,63 +5,27 @@ title: 嵌入列表示例 3
 
 适用表格中有嵌套的子表格时。
 
-1.在 table 字段设置嵌套表格的数据，同父级表格一样，需要有 columns 和 dataSource。
+1.将 dataSource 中的 subTable 字段设置为 true，告诉组件渲染嵌套表格
+
+2.本例子将演示通过异步的方式获取嵌套的表格数据。
 
 ````jsx
+import { Component } from 'react';
 import { Table } from 'antd';
-
-const columns = [
-  { title: '姓名', dataIndex: 'name', key: 'name' },
-  { title: '年龄', dataIndex: 'age', key: 'age' },
-  { title: '住址', dataIndex: 'address', key: 'address' },
-  { title: '操作', dataIndex: '', key: 'x', render: () => <a href="#">删除</a> }
-];
 
 const data = [
   {
     key: 1,
+    id: 11,
     name: '吴彦祖',
     age: 42,
     address: '西湖区湖底公园1号',
     description: '我是吴彦祖，今年42岁，住在西湖区湖底公园1号。',
-    table: {
-      columns: [
-        { title: '姓名', dataIndex: 'name', key: 'name' },
-        { title: '年龄', dataIndex: 'age', key: 'age' },
-        { title: '性别', dataIndex: 'sex', key: 'sex' },
-        { title: '爱好', dataIndex: 'hobby', key: 'hobby' },
-        { title: '住址', dataIndex: 'address', key: 'address' }
-      ],
-      dataSource: [
-        {
-          key: 11,
-          name: '小吴',
-          age: 21,
-          sex: '男',
-          hobby: '女',
-          address: '我是小吴，今年21岁，住在东极岛。'
-        },
-        {
-          key: 44,
-          name: '小彦',
-          age: 25,
-          sex: '男',
-          hobby: '女',
-          address: '我是小彦，今年25岁，住在南极岛。'
-        },
-        {
-          key: 33,
-          name: '小祖',
-          age: 28,
-          sex: '男',
-          hobby: '女',
-          address: '我是小祖，今年28岁，住在北极岛。'
-        }
-      ]
-    }
+    subTable: true
   },
   {
     key: 2,
+    id: 22,
     name: '胡彦斌',
     age: 32,
     address: '西湖区湖底公园2号',
@@ -69,6 +33,7 @@ const data = [
   },
   {
     key: 3,
+    id: 33,
     name: '李大嘴',
     age: 32,
     address: '西湖区湖底公园3号',
@@ -76,35 +41,126 @@ const data = [
   }
 ];
 
-const App = React.createClass({
-  expandedRowRender(record) {
-    if (record.table) {
-      return (
-        <div>
+class NestedTable extends Component {
+  constructor(props) {
+    super(props);
+
+    // 缓存嵌套表格的数据
+    this.state = {
+      recordSubTableDataMap: {},
+    };
+
+    // 在 constructor 中绑定 `this` 到 handler 上，确保 `this` 的指向。
+    ['handleExpandedRowRender'].forEach((method) => {
+      this[method] = this[method].bind(this);
+    });
+
+    // columns 在 constructor 中初始化，保证 `column.render` 可以访问 `this`，同时不会重复生成。
+    this.columns = [
+      { title: '姓名', dataIndex: 'name', key: 'name' },
+      { title: '年龄', dataIndex: 'age', key: 'age' },
+      { title: '住址', dataIndex: 'address', key: 'address' },
+      { title: '操作', dataIndex: '', key: 'x', render: () => <a href="#">删除</a> }
+    ];
+
+    // 嵌套子表格的 columns
+    this.subTableColumns = [
+      { title: '姓名', dataIndex: 'name', key: 'name' },
+      { title: '年龄', dataIndex: 'age', key: 'age' },
+      { title: '性别', dataIndex: 'sex', key: 'sex' },
+      { title: '爱好', dataIndex: 'hobby', key: 'hobby' },
+      { title: '住址', dataIndex: 'address', key: 'address' }
+    ];
+  }
+
+  handleExpandedRowRender(record) {
+    if (record.subTable) {
+      const recordSubTableData = this.state.recordSubTableDataMap[record.id];
+
+      if (recordSubTableData) {
+        return (
           <Table
-            columns={record.table.columns}
-            dataSource={record.table.dataSource}
+            columns={this.subTableColumns}
+            dataSource={recordSubTableData.dataSource}
             pagination={false}
             className="nested-table"
             bordered />
-        </div>
+        );
+      }
+
+      // 模拟 Ajax 请求，1 秒后返回嵌套表格的数据
+      this.getSelectedRecordSubTableData(record);
+
+      return (
+        <p>加载中...</p>
       );
     }
 
     return (
       <p>{record.description}</p>
     );
-  },
+  }
+
+  getSelectedRecordSubTableData(record) {
+    const recordId = record.id;
+
+    // 模拟嵌套子表格的 dataSource
+    const mockSubTableDataSource = [
+      {
+        key: 11,
+        name: '小吴',
+        age: 21,
+        sex: '男',
+        hobby: '女',
+        address: '我是小吴，今年21岁，住在东极岛。'
+      },
+      {
+        key: 44,
+        name: '小彦',
+        age: 25,
+        sex: '男',
+        hobby: '女',
+        address: '我是小彦，今年25岁，住在南极岛。'
+      },
+      {
+        key: 33,
+        name: '小祖',
+        age: 28,
+        sex: '男',
+        hobby: '女',
+        address: '我是小祖，今年28岁，住在北极岛。'
+      }
+    ];
+
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        recordSubTableDataMap: {
+          ...this.state.recordSubTableDataMap,
+          [recordId]: {
+            dataSource: mockSubTableDataSource
+          }
+        }
+      });
+    }, 1000);
+  }
+
   render() {
+    const props = this.props;
+
     return (
-      <Table columns={columns}
-        expandedRowRender={record => this.expandedRowRender(record)}
-        dataSource={data} />
+      <Table columns={this.columns}
+        dataSource={props.dataSource}
+        expandedRowRender={this.handleExpandedRowRender} />
     );
   }
-});
+}
 
-ReactDOM.render(<App />, mountNode);
+NestedTable.propTypes = {
+  dataSource: React.PropTypes.arrayOf(React.PropTypes.object),
+};
+
+ReactDOM.render(<NestedTable dataSource={data} />, mountNode);
 ````
 
 ````css
