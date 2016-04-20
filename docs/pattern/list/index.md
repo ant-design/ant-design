@@ -2,6 +2,7 @@
 order: 3
 chinese: 列表
 english: List
+cols: 1
 ---
 
 列表是非常常见的界面元素，有多种使用场景：
