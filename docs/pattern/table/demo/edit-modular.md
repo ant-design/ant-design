@@ -136,7 +136,7 @@ class EditableTable extends React.Component {
       case 'save':
         // 如果有更新, 则更新数据
         // 发送异步请求也在这里
-        // 需要注意重复点击
+        // 需要注意重复点击, 请自行控制
         if (this.editCache[index]) {
           // 调用接口请求修改名称，成功后则可调用 this.setState 来设置 dataSource
           // 在这里例子中，需要保证的是 dataSource 为 immutable data
@@ -177,6 +177,7 @@ class EditableTable extends React.Component {
   }
 
   handleEdit(index, key, value) {
+    // 暂存编辑中数据
     if (!this.editCache[index]) {
       this.editCache[index] = { ...this.state.dataSource[index] };
     }
