@@ -15,18 +15,6 @@ function noop() {
 }
 
 let BasicDemo = React.createClass({
-  getValidateStatus(field) {
-    const { isFieldValidating, getFieldError, getFieldValue } = this.props.form;
-
-    if (isFieldValidating(field)) {
-      return 'validating';
-    } else if (!!getFieldError(field)) {
-      return 'error';
-    } else if (getFieldValue(field)) {
-      return 'success';
-    }
-  },
-
   handleReset(e) {
     e.preventDefault();
     this.props.form.resetFields();
