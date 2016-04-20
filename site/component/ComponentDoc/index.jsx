@@ -7,6 +7,10 @@ import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
 
 export default class ComponentDoc extends React.Component {
+  static contextTypes = {
+    intl: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -62,12 +66,16 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
+    const locale = this.context.intl.locale;
     const jumper = demos.map((demo) => {
+      const title = demo.meta.title;
+      const localizeTitle = typeof title === 'object' ?
+              title[locale] : title;
       return (
         <li key={demo.id}>
           <Link className={demo.id === scrollTo ? 'current' : ''}
             to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
-            {demo.meta.title}
+            { localizeTitle }
           </Link>
         </li>
       );
