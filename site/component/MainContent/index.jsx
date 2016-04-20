@@ -52,7 +52,7 @@ export default class MainContent extends React.Component {
         <span className="chinese" key="chinese">{item.chinese}</span>,
       ];
     const disabled = item.disabled;
-    const url = item.fileName.replace(/(\/index)?\.md$/i, '');
+    const url = item.fileName.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '');
     const child = !item.link ?
       <Link to={url} disabled={disabled}>
         {text}
