@@ -24,7 +24,7 @@ class EditableTable extends React.Component {
         }} />);
         const visible = this.state.visible[index];
         return (<div>
-          <span className="appName">
+          <span className="app-name">
             {name}
           </span>
           <Popover content={content} title="标题" trigger="click" visible={visible} onVisibleChange={value => {this.handleVisibleChange(index, value);}}>
@@ -120,17 +120,14 @@ class App extends React.Component {
     };
   }
 
-  handleChange(newDataSource) {
-    this.setState({
-      dataSource: newDataSource,
-    });
+  handleChange(dataSource) {
+    this.setState({ dataSource });
   }
 
   render() {
     return (<EditableTable
       dataSource={this.state.dataSource}
-      onChange={this.handleChange}
-      className="edit-hover-table" />);
+      onChange={this.handleChange} />);
   }
 }
 
