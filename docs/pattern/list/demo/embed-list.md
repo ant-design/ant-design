@@ -77,24 +77,24 @@ ReactDOM.render(
 
 ```css
 .state-dot {
-	width: 6px;
-	height: 6px;
-	display: inline-block;
-	background-color: #87D068; 
-	border-radius: 3px;
-	margin-right: 8px;
+    width: 6px;
+    height: 6px;
+    display: inline-block;
+    background-color: #87D068; 
+    border-radius: 3px;
+    margin-right: 8px;
 }
 .state-dot-online {
-	background-color: #87D068; 	
+    background-color: #87D068; 	
 }
 .state-dot-offline {
-	background-color: #CCCCCC; 	
+    background-color: #CCCCCC; 	
 }
 .state-dot-exception {
-	background-color: #FF5500; 	
+    background-color: #FF5500; 	
 }
 .state-dot-processing {
-	background-color: #2DB7F5; 	
+    background-color: #2DB7F5; 	
 }
 
 ```
