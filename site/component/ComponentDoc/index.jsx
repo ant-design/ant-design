@@ -37,7 +37,8 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const scrollTo = location.query.scrollTo;
     const { description, meta } = doc;
-    const demos = (demosList[meta.fileName] || [])
+    const locale = this.context.intl.locale;
+    const demos = (demosList[meta.fileName.replace(`.${locale}`, '')] || [])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
 
@@ -66,7 +67,6 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
-    const locale = this.context.intl.locale;
     const jumper = demos.map((demo) => {
       const title = demo.meta.title;
       const localizeTitle = typeof title === 'object' ?
