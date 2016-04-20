@@ -10,7 +10,6 @@ title: 嵌入列表示例 3
 2.本例子将演示通过异步的方式获取嵌套的表格数据。
 
 ````jsx
-import { Component } from 'react';
 import { Table } from 'antd';
 
 const data = [
@@ -41,7 +40,7 @@ const data = [
   }
 ];
 
-class NestedTable extends Component {
+class NestedTable extends React.Component {
   constructor(props) {
     super(props);
 
