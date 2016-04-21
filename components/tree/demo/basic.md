@@ -23,9 +23,6 @@ const Demo = React.createClass({
       defaultCheckedKeys: keys,
     };
   },
-  onExpand(treeNode, expand, expandedKeys) {
-    console.log('onExpand', expand, expandedKeys);
-  },
   onSelect(info) {
     console.log('selected', info);
   },
@@ -36,7 +33,6 @@ const Demo = React.createClass({
     return (
       <Tree className="myCls" showLine multiple checkable
         defaultExpandedKeys={this.state.defaultExpandedKeys}
-        onExpand={this.onExpand}
         defaultSelectedKeys={this.state.defaultSelectedKeys}
         defaultCheckedKeys={this.state.defaultCheckedKeys}
         onSelect={this.onSelect} onCheck={this.onCheck}>

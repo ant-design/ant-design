@@ -40,11 +40,9 @@ const data = [{
   age: 42,
 }];
 
-const App = React.createClass({
-  render() {
-    return <Table columns={columns} dataSource={data} scroll={{ x: 1000 }} />;
-  }
-});
+function App() {
+  return <Table columns={columns} dataSource={data} scroll={{ x: 1000 }} />;
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

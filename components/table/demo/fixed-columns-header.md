@@ -40,11 +40,9 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App = React.createClass({
-  render() {
-    return <Table columns={columns} dataSource={data} scroll={{ x: 1000, y: 300 }} />;
-  }
-});
+function App() {
+  return <Table columns={columns} dataSource={data} scroll={{ x: 1000, y: 300 }} />;
+}
 
 ReactDOM.render(<App />, mountNode);
 ````

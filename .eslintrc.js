@@ -50,7 +50,6 @@ if (process.env.ANTD === 'DEMO') {
     'prefer-rest-params': 0,
     'react/no-multi-comp': 0,
     'react/prefer-es6-class': 0,
-    'react/prefer-stateless-function': 0,
   });
 }
 
