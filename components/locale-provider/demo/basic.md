@@ -9,15 +9,13 @@ title: 国际化
 import { Pagination, LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 
-const App = React.createClass({
-  render() {
-    return (
-      <div>
-        <Pagination defaultCurrent={1} total={50} showSizeChanger />
-      </div>
-    );
-  }
-});
+function App() {
+  return (
+    <div>
+      <Pagination defaultCurrent={1} total={50} showSizeChanger />
+    </div>
+  );
+}
 
 ReactDOM.render(
   <LocaleProvider locale={enUS}>
