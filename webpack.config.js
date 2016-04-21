@@ -6,7 +6,7 @@ module.exports = function (webpackConfig) {
     return !(plugin instanceof webpack.optimize.CommonsChunkPlugin);
   });
 
-  if (process.env.ANTD === 'WEBSITE') {
+  if (process.env.RUN_ENV === 'WEBSITE') {
     const component = process.env.COMPONENT_STYLE;
 
     webpackConfig.entry = {
@@ -15,7 +15,7 @@ module.exports = function (webpackConfig) {
     webpackConfig.resolve.root = process.cwd();
     webpackConfig.resolve.alias = {
       antd: process.cwd(),
-      BrowserDemo: 'site/component/BrowserDemo',
+      site: 'site',
     };
 
     const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
@@ -43,7 +43,7 @@ module.exports = function (webpackConfig) {
     }
   }
 
-  if (process.env.ANTD === 'PRODUCTION') {
+  if (process.env.RUN_ENV === 'PRODUCTION') {
     const entry = ['./style/index.less', './index.js'];
     webpackConfig.entry = {
       'antd.min': entry,
