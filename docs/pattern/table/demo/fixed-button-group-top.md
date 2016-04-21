@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 固定按钮组
+title: 固定按钮组-顶部固定
 ---
 
 用在表格行数很多时（一般多于 20 行），又想对表格数据进行频繁的操作时，尤其适用在无限加载的表格中。
@@ -72,7 +72,7 @@ const menu = (
 
 let showShadow = false;
 
-class FixedButtonGroup extends React.Component {
+class FixedButtonGroupTop extends React.Component {
   constructor(props) {
     super(props);
 
@@ -85,7 +85,7 @@ class FixedButtonGroup extends React.Component {
 
   onTableScroll(e) {
     // 使用额外变量防止 setState 的非同步性
-    if (e.target.scrollTop > 49 && !showShadow) {
+    if (e.target.scrollTop > 0 && !showShadow) {
       showShadow = true;
       this.setState({
         shadowClass: true
@@ -93,7 +93,7 @@ class FixedButtonGroup extends React.Component {
       return;
     }
 
-    if (e.target.scrollTop <= 49 && showShadow) {
+    if (e.target.scrollTop <= 0 && showShadow) {
       showShadow = false;
       this.setState({
         shadowClass: false
@@ -103,7 +103,7 @@ class FixedButtonGroup extends React.Component {
 
   render() {
     return (
-      <div className="fixed-button-group-demo">
+      <div className="fixed-button-group-demo-t">
         <div className={this.state.shadowClass ? 'fbg-shadow-box fbg-shadow' : 'fbg-shadow-box'}>
           <Button type="primary">按钮</Button>
           <Button type="ghost">按钮</Button>
@@ -121,7 +121,7 @@ class FixedButtonGroup extends React.Component {
   }
 }
 
-ReactDOM.render(<FixedButtonGroup />, mountNode);
+ReactDOM.render(<FixedButtonGroupTop />, mountNode);
 ```
 
 ```css
@@ -136,23 +136,23 @@ ReactDOM.render(<FixedButtonGroup />, mountNode);
   border-radius: 3px;
 }
 
-.fixed-button-group-demo .ant-btn {
+.fixed-button-group-demo-t .ant-btn {
   margin-right: 8px;
   margin-bottom: 12px;
 }
 
-.fixed-button-group-demo .fbg-table {
+.fixed-button-group-demo-t .fbg-table {
   height: 410px;
   overflow: auto;
 }
 
-.fixed-button-group-demo .fbg-shadow-box {
+.fixed-button-group-demo-t .fbg-shadow-box {
   position: relative;
   z-index: 10;
   transition: box-shadow 0.4s;
 }
 
-.fixed-button-group-demo .fbg-shadow-box.fbg-shadow {
+.fixed-button-group-demo-t .fbg-shadow-box.fbg-shadow {
   border-bottom: 1px solid #e9e9e9;
   box-shadow: 0 4px 4px -2px rgba(64, 64, 64, 0.2);
 }
