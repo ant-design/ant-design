@@ -270,9 +270,6 @@ let AntTable = React.createClass({
       pagination
     };
     this.setState(newState);
-    this.props.onChange.apply(this, this.prepareParamsArguments(
-      objectAssign({}, this.state, newState)
-    ));
   },
 
   onRadioChange(ev) {
