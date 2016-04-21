@@ -42,6 +42,13 @@ Normal browsers and Internet Explorer 8+.
 
 > [IE8 issues](https://github.com/xcatliu/react-ie8)
 
+## TypeScript
+
+```js
+///<reference path='./node_modules/antd/dist/antd.d.ts'/>
+...
+```
+
 ## Links
 
 - [Home page](http://ant.design/)
