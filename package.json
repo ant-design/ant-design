@@ -29,8 +29,10 @@
   "files": [
     "dist",
     "lib",
-    "style"
+    "style",
+    "type-definitions"
   ],
+  "typings":"type-definitions/antd.d.ts",
   "license": "MIT",
   "dependencies": {
     "array-tree-filter": "~1.0.0",
