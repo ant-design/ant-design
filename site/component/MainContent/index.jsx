@@ -40,17 +40,17 @@ export default class MainContent extends React.Component {
   }
 
   fileNameToPath(fileName) {
-    const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
+    const snippets = fileName.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
     return snippets[snippets.length - 1];
   }
 
   generateMenuItem(isTop, item) {
     const key = this.fileNameToPath(item.fileName);
     const text = isTop ?
-      item.chinese || item.english : [
-        <span key="english">{item.english}</span>,
-        <span className="chinese" key="chinese">{item.chinese}</span>,
-      ];
+            item.chinese || item.english : [
+              <span key="english">{ item.title || item.english }</span>,
+              <span className="chinese" key="chinese">{ item.subtitle || item.chinese }</span>
+            ];
     const disabled = item.disabled;
     const url = item.fileName.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '');
     const child = !item.link ?
@@ -75,20 +75,21 @@ export default class MainContent extends React.Component {
   generateSubMenuItems(obj) {
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
-      .sort((a, b) => {
-        return config.typeOrder[a] - config.typeOrder[b];
-      })
-      .map((type, index) => {
-        const groupItems = obj[type].sort((a, b) => {
-          return a.english.charCodeAt(0) - b.english.charCodeAt(0);
-        }).map(this.generateMenuItem.bind(this, false));
+            .sort((a, b) => {
+              return config.typeOrder[a] - config.typeOrder[b];
+            })
+            .map((type, index) => {
+              const groupItems = obj[type].sort((a, b) => {
+                return (a.title || a.english).charCodeAt(0) -
+                  (b.title || b.english).charCodeAt(0);
+              }).map(this.generateMenuItem.bind(this, false));
 
-        return (
-          <Menu.ItemGroup title={type} key={index}>
-            {groupItems}
-          </Menu.ItemGroup>
-        );
-      });
+              return (
+                <Menu.ItemGroup title={type} key={index}>
+                  { groupItems }
+                </Menu.ItemGroup>
+              );
+            });
     return [...topLevel, ...itemGroups];
   }
 

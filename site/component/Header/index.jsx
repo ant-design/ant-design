@@ -93,9 +93,9 @@ export default class Header extends React.Component {
       const pathSnippet = meta.fileName.split('/')[1];
       const url = `/components/${pathSnippet}`;
       return (
-        <Option value={url} key={url} data-label={`${meta.english.toLowerCase()} ${meta.chinese}`}>
-          <strong>{meta.english}</strong>
-          <span className="ant-component-decs">{meta.chinese}</span>
+        <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
+          <strong>{meta.title || meta.english}</strong>
+          <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
         </Option>
       );
     });
