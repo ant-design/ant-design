@@ -34,9 +34,3 @@ ReactDOM.render(
   mountNode
 );
 ````
-
-```css
-#components-button-demo-basic .ant-btn {
-  margin-right: 8px;
-}
-```

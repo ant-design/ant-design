@@ -1,9 +1,17 @@
 ---
 order: 4
-title: 加载中
+title:
+  zh-CN: 加载中状态
+  en-US: Loading
 ---
 
+## zh-CN
+
 添加 `loading` 属性即可让按钮处于加载状态，最后两个按钮演示点击后进入加载状态。
+
+## en-US
+
+Set `loading` to `Button`, and then it will become loading button.
 
 ````jsx
 import { Button } from 'antd';
@@ -25,20 +33,17 @@ const App = React.createClass({
     return (
       <div>
         <Button type="primary" loading>
-          加载中
+          Loading
         </Button>
         <Button type="primary" size="small" loading>
-          加载中
-        </Button>
-        <Button loading>
-          加载中
+          Loading
         </Button>
         <br />
         <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
-          点击变加载
+          Click me!
         </Button>
         <Button type="primary" icon="poweroff" loading={this.state.iconLoading} onClick={this.enterIconLoading}>
-          点击变加载
+          Click me!
         </Button>
       </div>
     );
@@ -47,10 +52,3 @@ const App = React.createClass({
 
 ReactDOM.render(<App />, mountNode);
 ````
-
-<style>
-#components-button-demo-loading .ant-btn {
-  margin-right: 8px;
-  margin-bottom: 12px;
-}
-</style>
