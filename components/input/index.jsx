@@ -3,7 +3,7 @@ import assign from 'object-assign';
 import classNames from 'classnames';
 
 function ieGT9() {
-  if (typeof document === undefined) {
+  if (typeof document === 'undefined') {
     return false;
   }
   const documentMode = document.documentMode || 0;

@@ -49,19 +49,19 @@
   }
 
   &-content {
-    display: none;
     overflow: hidden;
     color: @text-color;
     padding: 0 16px;
     background-color: #fff;
+    transition: height .2s @ease-out;
 
     & > &-box {
       padding-top: 16px;
       padding-bottom: 16px;
     }
 
-    &-active {
-      display: block;
+    &-inactive {
+      display: none;
     }
   }
 
