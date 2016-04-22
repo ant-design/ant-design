@@ -1,14 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-function ieGT9() {
-  if (typeof document === 'undefined') {
-    return false;
-  }
-  const documentMode = document.documentMode || 0;
-  return documentMode > 9;
-}
-
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
     return '';
@@ -96,9 +88,6 @@ export default class Input extends React.Component {
     });
 
     let placeholder = props.placeholder;
-    if (placeholder && ieGT9()) {
-      placeholder = null;
-    }
     if ('value' in props) {
       props.value = fixControlledValue(props.value);
       // Input elements must be either controlled or uncontrolled,
