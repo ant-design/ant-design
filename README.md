@@ -45,7 +45,7 @@ Normal browsers and Internet Explorer 8+.
 ## TypeScript
 
 ```js
-///<reference path='./node_modules/antd/dist/antd.d.ts'/>
+///<reference path='./node_modules/antd/type-definitions/antd.d.ts'/>
 ...
 ```
 
