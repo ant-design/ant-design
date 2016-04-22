@@ -23,8 +23,8 @@ export default class ComponentDoc extends React.Component {
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    const { chinese, english } = this.props.doc.meta;
-    utils.setTitle(`${chinese} ${english} - Ant Design`);
+    const { title, subtitle, chinese, english } = this.props.doc.meta;
+    utils.setTitle(`${subtitle || chinese || ''} ${title || english} - Ant Design`);
   }
 
   handleExpandToggle = () => {
@@ -89,7 +89,7 @@ export default class ComponentDoc extends React.Component {
           </ul>
         </Affix>
         <section className="markdown">
-          <h1>{meta.english} {meta.chinese}</h1>
+          <h1>{meta.title || meta.english} {meta.subtitle || meta.chinese}</h1>
           {
             utils.jsonmlToComponent(
               location.pathname,
