@@ -1,0 +1,184 @@
+// mixins for grid system
+// ------------------------
+.make-row(@gutter: @grid-gutter-width) {
+  position: relative;
+  margin-left: (@gutter / -2);
+  margin-right: (@gutter / -2);
+  height: auto;
+  &:extend(.clearfix all);
+}
+
+.make-grid-columns() {
+  .col(@index) {
+    @item: ~".col-@{index}, .col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) {
+    @item: ~".col-@{index}, .col-xs-@{index}, .col-sm-@{index}, .col-md-@{index}, .col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) {
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      padding-left:  (@grid-gutter-width / 2);
+      padding-right: (@grid-gutter-width / 2);
+    }
+  }
+  .col(1);
+}
+
+.float-grid-columns(@class) {
+  .col(@index) { // initial
+    @item: ~".col@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".col@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+      flex: 0 0 auto;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+.loop-grid-columns(@index, @class) when (@index > 0) {
+  .col@{class}-@{index} {
+    display: block;
+    width: percentage((@index / @grid-columns));
+  }
+  .col@{class}-push-@{index} {
+    left: percentage((@index / @grid-columns));
+  }
+  .col@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+  .col@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+  .col@{class}-order-@{index} {
+    order: @index;
+  }
+  .loop-grid-columns((@index - 1), @class);
+}
+
+.loop-grid-columns(@index, @class) when (@index = 0) {
+  .col@{class}-@{index} {
+    display: none;
+  }
+  .col-push-@{index} {
+    left: auto;
+  }
+  .col-pull-@{index} {
+    right: auto;
+  }
+}
+
+.make-grid(@class: ~'') {
+  .float-grid-columns(@class);
+  .loop-grid-columns(@grid-columns, @class);
+}
+
+// Grid system
+.row {
+  .make-row();
+  display: block;
+}
+
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &:before,
+  &:after {
+    display: flex;
+  }
+}
+
+// x轴原点
+.row-flex-start {
+  justify-content: flex-start;
+}
+
+// x轴居中
+.row-flex-center {
+  justify-content: center;
+}
+
+// x轴反方向
+.row-flex-end {
+  justify-content: flex-end;
+}
+
+// x轴平分
+.row-flex-space-between {
+  justify-content: space-between;
+}
+
+// x轴有间隔地平分
+.row-flex-space-around {
+  justify-content: space-around;
+}
+
+// 顶部对齐
+.row-flex-top {
+  align-items: flex-start;
+}
+
+// 居中对齐
+.row-flex-middle {
+  align-items: center;
+}
+
+// 底部对齐
+.row-flex-bottom {
+  align-items: flex-end;
+}
+
+.col {
+  position: relative;
+  display: block;
+}
+
+.make-grid-columns();
+.make-grid();
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+.make-grid(-xs);
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: @screen-sm-min) {
+  .make-grid(-sm);
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: @screen-md-min) {
+  .make-grid(-md);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: @screen-lg-min) {
+  .make-grid(-lg);
+}
