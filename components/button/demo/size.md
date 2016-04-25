@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-Thers are large button, default button and small button in antd.
+Ant Design supports a default button size as well as a large and small size.
 
-To get large/small button, just set `size` as `large`/`small`. If nothing is provided to `size`, we will get default button.
+If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.
 
 ````jsx
 import { Button } from 'antd';

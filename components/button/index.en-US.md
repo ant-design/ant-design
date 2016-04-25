@@ -24,7 +24,7 @@ size | can be set as `small` `large` or nothing | string | `default`
 loading | to set the loading status of button | boolean | false
 onClick | set the handler to handle `click` event | function | -
 
-`<Button>Hello world!</Button>` will be rendered into `<button>Hello world!</button>`, and all the properties which are not listed above will be transfered to `<button />`.
+`<Button>Hello world!</Button>` will be rendered into `<button>Hello world!</button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
 
 <style>
 [id^="components-button-demo-"] .ant-btn {

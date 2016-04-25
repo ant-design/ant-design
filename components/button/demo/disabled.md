@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Set `disabled` to `Button`, and then it will be disabled.
+To mark a button as disabled, add the `disabled` property to the `Button`.
 
 ````jsx
 import { Button } from 'antd';
