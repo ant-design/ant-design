@@ -19,7 +19,8 @@
   line-height: 1;
   vertical-align: middle;
   cursor: pointer;
-  &:hover {
+  &:hover,
+  &-focused {
     .@{radio-inner-prefix-cls} {
       border-color: #bcbcbc;
     }
@@ -158,7 +159,8 @@ span.@{radio-prefix-cls} + * {
       border-radius: @border-radius-base;
     }
 
-    &:hover {
+    &:hover,
+    &-focused {
       color: @primary-color;
       position: relative;
     }
