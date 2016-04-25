@@ -1,0 +1,75 @@
+.@{calendar-prefix-cls}-decade-panel {
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  z-index: 10;
+  position: absolute;
+  outline: none;
+  border-radius: @border-radius-base;
+}
+
+.@{calendar-prefix-cls}-decade-panel-hidden {
+  display: none;
+}
+
+.@{calendar-prefix-cls}-decade-panel-header {
+  .calendarPanelHeader(~"@{calendar-prefix-cls}-decade-panel");
+}
+
+.@{calendar-prefix-cls}-decade-panel-table {
+  table-layout: fixed;
+  width: 100%;
+  height: 248px;
+  border-collapse: separate;
+}
+
+.@{calendar-prefix-cls}-decade-panel-cell {
+  text-align: center;
+}
+
+.@{calendar-prefix-cls}-decade-panel-decade {
+  display: inline-block;
+  margin: 0 auto;
+  color: #666;
+  background: transparent;
+  text-align: center;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 6px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: tint(@primary-color, 90%);
+    cursor: pointer;
+  }
+}
+
+.@{calendar-prefix-cls}-decade-panel-selected-cell .@{calendar-prefix-cls}-decade-panel-decade {
+  background: @primary-color;
+  color: #fff;
+
+  &:hover {
+    background: @primary-color;
+    color: #fff;
+  }
+}
+
+.@{calendar-prefix-cls}-decade-panel-last-century-cell,
+.@{calendar-prefix-cls}-decade-panel-next-century-cell {
+  .@{calendar-prefix-cls}-decade-panel-decade {
+    user-select: none;
+  }
+  .@{calendar-prefix-cls}-decade-panel-decade:before {
+    content: "\e600";
+    font-family: "anticon" !important;
+  }
+}
+
+.@{calendar-prefix-cls}-decade-panel-last-century-cell {
+  .@{calendar-prefix-cls}-decade-panel-decade:before {
+    content: "\e601";
+  }
+}
