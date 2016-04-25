@@ -183,7 +183,7 @@ export default class FormItem extends React.Component {
         this.renderValidateWrapper(
           children,
           this.renderHelp(),
-          this.renderExtra(),
+          this.renderExtra()
         )
       ),
     ];
