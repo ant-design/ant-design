@@ -1,6 +1,6 @@
 import appLocaleData from 'react-intl/locale-data/zh';
 
-window.appLocale = {
+module.exports = {
   locale: 'zh-CN',
   data: appLocaleData,
   messages: {
@@ -10,5 +10,6 @@ window.appLocale = {
     'app.header.menu.react': '组件',
     'app.header.menu.spec': '语言',
     'app.header.menu.resource': '资源',
+    'app.header.lang': 'EN',
   },
 };

@@ -54,6 +54,7 @@ export default class Home extends React.Component {
       .home-nav-white #nav a {
         color: #666;
       }
+      #lang,
       #nav a {
         color: #eee;
         transition: color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
