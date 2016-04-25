@@ -76,7 +76,7 @@ export default class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const help = this.getHelpMsg();
     return help ? (
-      <div className={!!help ? prefixClsFn(prefixCls, 'explain') : ''} key="help">
+      <div className={prefixClsFn(prefixCls, 'explain')} key="help">
         {help}
       </div>
     ) : null;
