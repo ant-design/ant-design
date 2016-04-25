@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-If we put several `Button` into `Button.Group`, they will become a button group.
+Buttons can be grouped by placing multiple `Button` components into a `Button.Group`.
 
-Set `size` as `large` or `small` or nothing, we will get large/small/defualt button group respectively.
+The `size` can be set to `large`, `small` or left unset resulting in a default size.
 
 ````jsx
 import { Button, Icon } from 'antd';
