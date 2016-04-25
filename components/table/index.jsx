@@ -12,6 +12,11 @@ import { flatArray } from './util';
 function noop() {
 }
 
+function stopPropagation(e) {
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+}
+
 const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
@@ -404,7 +409,7 @@ export default class Table extends React.Component {
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return (
-      <Radio disabled={props.disabled}
+      <Radio disabled={props.disabled} onClick={stopPropagation}
         onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
         value={rowIndex} checked={checked} />
     );
@@ -424,7 +429,7 @@ export default class Table extends React.Component {
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
     return (
-      <Checkbox checked={checked} disabled={props.disabled}
+      <Checkbox checked={checked} disabled={props.disabled} onClick={stopPropagation}
         onChange={(e) => this.handleSelect(record, rowIndex, e)} />
     );
   }
