@@ -4,6 +4,18 @@
 
 ---
 
+## 0.12.15
+
+- 升级 rc-collapse 修复一个性能问题。
+- 修复一个 Collapse 内嵌 Tabs 的选中项样式问题。[#1451](https://github.com/ant-design/ant-design/issues/1451)
+- 修复 Input 组件服务端渲染报错的问题。[#1321](https://github.com/ant-design/ant-design/issues/1321)
+- 修复 Tag 组件调用了两次 afterClose 的问题。[#1435](https://github.com/ant-design/ant-design/issues/1435)
+- 修复一个 Table 控制模式的问题。[#1434](https://github.com/ant-design/ant-design/issues/1434)
+- 修复一个 Tabs 相互嵌套的样式问题。[#1435](https://github.com/ant-design/ant-design/issues/1435)
+- 修复 Dropdown.Button 点击右边也触发 onClick 的问题。
+- 修复 Radio.Button 在 IE8 下无法选择的问题。[#1459](https://github.com/ant-design/ant-design/issues/1459)
+- 优化了 Button 点击后仍然有 focus 效果的问题。
+
 ## 0.12.14
 
 `2016-04-13`

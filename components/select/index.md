@@ -31,7 +31,7 @@
 | filterOption | 是否根据输入项进行筛选，可为一个函数，返回满足要求的 option 即可 | boolean or function(inputValue, option) | true     |
 | tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配 | boolean |false |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无   |
-| onDeselect | 取消选中时调用，参数为选中项的 option value 值，仅在 multiple 或 tags 模式下生效 |  function(value, option) | 无   |
+| onDeselect | 取消选中时调用，参数为选中项的 option value 值，仅在 multiple 或 tags 模式下生效 |  function(value) | 无   |
 | onChange | 选中option，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label) | 无 |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |

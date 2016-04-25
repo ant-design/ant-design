@@ -13,6 +13,11 @@ import { flatArray } from './util';
 function noop() {
 }
 
+function stopPropagation(e) {
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+}
+
 const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
@@ -31,7 +36,7 @@ let AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
-      selectedRowKeys: this.props.selectedRowKeys || [],
+      selectedRowKeys: (this.props.rowSelection || {}).selectedRowKeys || [],
       filters: {},
       selectionDirty: false,
       sortColumn: '',
@@ -305,7 +310,7 @@ let AntTable = React.createClass({
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return (
-      <Radio disabled={props.disabled}
+      <Radio disabled={props.disabled} onClick={stopPropagation}
         onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
         value={rowIndex} checked={checked} />
     );
@@ -325,7 +330,7 @@ let AntTable = React.createClass({
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
     return (
-      <Checkbox checked={checked} disabled={props.disabled}
+      <Checkbox checked={checked} disabled={props.disabled} onClick={stopPropagation}
         onChange={this.handleSelect.bind(this, record, rowIndex)} />
     );
   },

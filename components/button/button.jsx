@@ -39,6 +39,13 @@ export default class Button extends React.Component {
 
     this.props.onClick(...args);
   }
+  // Handle auto focus when click button in Chrome
+  handleMouseUp(e) {
+    findDOMNode(this).blur();
+    if (this.props.onMouseUp) {
+      this.props.onMouseUp(e);
+    }
+  }
   render() {
     const props = this.props;
     const { type, shape, size, className, htmlType, children, ...others } = props;
@@ -65,6 +72,7 @@ export default class Button extends React.Component {
       <button {...others}
         type={htmlType || 'button'}
         className={classes}
+        onMouseUp={this.handleMouseUp.bind(this)}
         onClick={this.handleClick.bind(this)}>
         {kids}
       </button>
