@@ -47,6 +47,11 @@ class FormItem extends React.Component {
     );
   }
 
+  renderExtra() {
+    const { prefixCls, extra } = this.props;
+    return <div className={prefixClsFn(prefixCls, 'extra')}>{extra}</div>;
+  }
+
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
     const field = this.getId();
@@ -142,7 +147,7 @@ class FormItem extends React.Component {
         this.renderValidateWrapper(
           children,
           this.renderHelp(),
-          props.extra
+          this.renderExtra(),
         )
       ),
     ];
