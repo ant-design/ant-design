@@ -31,7 +31,7 @@ let AntTable = React.createClass({
   getInitialState() {
     return {
       // 减少状态
-      selectedRowKeys: this.props.selectedRowKeys || [],
+      selectedRowKeys: (this.props.rowSelection || {}).selectedRowKeys || [],
       filters: {},
       selectionDirty: false,
       sortColumn: '',
