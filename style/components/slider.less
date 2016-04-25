@@ -58,11 +58,8 @@
       border-color: tint(@primary-color, 20%);
     }
 
-    &-active {
-      &:active {
-        border-color: tint(@primary-color, 20%);
-        box-shadow: 0 0 0 2px fade(@primary-color, 80%);
-      }
+    &:active {
+      box-shadow: 0 0 0 2px fadeout(@primary-color, 80%);
     }
   }
 
