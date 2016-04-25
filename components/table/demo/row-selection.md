@@ -48,7 +48,7 @@ const rowSelection = {
   },
   onSelectAll(selected, selectedRows, changeRows) {
     console.log(selected, selectedRows, changeRows);
-  }
+  },
 };
 
 ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />

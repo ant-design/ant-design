@@ -64,7 +64,7 @@ export default class Table extends React.Component {
 
     this.state = {
       // 减少状态
-      selectedRowKeys: props.selectedRowKeys || [],
+      selectedRowKeys: (props.rowSelection || {}).selectedRowKeys || [],
       filters: this.getFiltersFromColumns(),
       selectionDirty: false,
       ...this.getSortStateFromColumns(),
