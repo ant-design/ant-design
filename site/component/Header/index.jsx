@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon } from 'antd';
+import { Select, Menu, Row, Col, Icon, Button } from 'antd';
 const Option = Select.Option;
 
 import './index.less';
@@ -78,6 +78,14 @@ export default class Header extends React.Component {
     return option.props['data-label'].indexOf(value.toLowerCase()) > -1;
   }
 
+  handleLangChange = () => {
+    if (typeof localStorage !== 'undefined') {
+      const locale = this.context.intl.locale === 'zh-CN' ? 'en-US' : 'zh-CN';
+      localStorage.setItem('locale', locale);
+      location.reload();
+    }
+  }
+
   render() {
     const routes = this.props.routes;
     let activeMenuItem = routes[1].path || 'home';
@@ -135,6 +143,9 @@ export default class Header extends React.Component {
                 {options}
               </Select>
             </div>
+            <Button id="lang" type="ghost" size="small" onClick={this.handleLangChange}>
+              <FormattedMessage id="app.header.lang" />
+            </Button>
             <Menu mode={this.state.menuMode} selectedKeys={[activeMenuItem]} id="nav">
               <Menu.Item key="home">
                 <Link to="/">

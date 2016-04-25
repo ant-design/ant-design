@@ -14,6 +14,8 @@ import reactComponents from '../../_data/react-components';
 import spec from '../../_data/spec';
 import resource from '../../_data/resource';
 import config from '../website.config';
+import enLocale from './en-US.js';
+import cnLocale from './zh-CN.js';
 import { createHashHistory } from 'history';
 
 // useRouterHistory creates a composable higher-order function
@@ -50,8 +52,12 @@ if (!location.port) {
   /* eslint-enable */
 }
 
-const appLocale = window.appLocale;
+const isZhCN =
+        (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
+        (navigator.language === 'zh-CN');
+const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
+console.log(appLocale);
 
 ReactDOM.render(
   <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>

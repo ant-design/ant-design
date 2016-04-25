@@ -1,6 +1,6 @@
 import appLocaleData from 'react-intl/locale-data/en';
 
-window.appLocale = {
+module.exports = {
   locale: 'en-US',
   data: appLocaleData,
   messages: {
@@ -10,5 +10,6 @@ window.appLocale = {
     'app.header.menu.react': 'React',
     'app.header.menu.spec': 'Specification',
     'app.header.menu.resource': 'Resource',
+    'app.header.lang': '中文',
   },
 };
