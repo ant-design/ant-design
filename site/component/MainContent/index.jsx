@@ -117,9 +117,7 @@ export default class MainContent extends React.Component {
     }
 
     if (Array.isArray(menu)) {
-      return menu.reduce((acc, item) => {
-        return acc.concat(this.flattenMenu(item));
-      }, []);
+      return menu.reduce((acc, item) => acc.concat(this.flattenMenu(item)), []);
     }
 
     return this.flattenMenu(menu.props.children);

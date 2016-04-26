@@ -289,9 +289,7 @@ export default class Table extends React.Component {
     if (checked) {
       selectedRowKeys.push(this.getRecordKey(record, rowIndex));
     } else {
-      selectedRowKeys = selectedRowKeys.filter((i) => {
-        return key !== i;
-      });
+      selectedRowKeys = selectedRowKeys.filter((i) => key !== i);
     }
     this.setState({
       selectionDirty: true,
