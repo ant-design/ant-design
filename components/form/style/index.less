@@ -6,10 +6,6 @@
 @import "./mixin";
 
 @form-prefix-cls: ant-form;
-@select-prefix-cls: ant-select;
-@calendar-prefix-cls: ant-calendar;
-@input-number-prefix-cls: ant-input-number;
-@timepicker-prefix-cls: ant-time-picker;
 
 .reset-form();
 
@@ -37,8 +33,8 @@ label {
 }
 
 //== Style for input-group: input with label, with button or dropdown...
-.@{css-prefix}input-group {
-  .input-group(~"@{css-prefix}input");
+input-group {
+  .input-group("ant-input");
 }
 
 // Radio && Checkbox
@@ -51,18 +47,18 @@ input[type="checkbox"] {
   }
 }
 // These classes are used directly on <label>s
-.@{css-prefix}radio-inline,
-.@{css-prefix}radio-vertical,
-.@{css-prefix}checkbox-inline,
-.@{css-prefix}checkbox-vertical {
+.ant-radio-inline,
+.ant-radio-vertical,
+.ant-checkbox-inline,
+.ant-checkbox-vertical {
   &.disabled,
   fieldset[disabled] & {
     cursor: @cursor-disabled;
   }
 }
 // These classes are used on elements with <label> descendants
-.@{css-prefix}radio,
-.@{css-prefix}checkbox {
+.ant-radio,
+.ant-checkbox {
   &.disabled,
   fieldset[disabled] & {
     label {
@@ -98,7 +94,7 @@ input[type="checkbox"] {
     }
   }
 
-  .@{css-prefix}switch {
+  .ant-switch {
     margin: 4px 0;
   }
 }
@@ -130,23 +126,23 @@ form {
       .square(@input-height-lg);
       line-height: @input-height-lg;
     }
-    .@{css-prefix}input {
+    .ant-input {
       padding-right: 24px;
     }
   }
 
-  .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
+  .ant-input,
+  .ant-input-group .ant-input,
+  .ant-input-group .ant-input-group-addon {
     .input-lg();
   }
 
-  textarea.@{css-prefix}input {
+  textarea.ant-input {
     height: auto;
   }
 
   // input[type=file]
-  .@{css-prefix}upload {
+  .ant-upload {
     background: transparent;
   }
 
@@ -157,8 +153,8 @@ form {
   }
 
   // Radios and checkboxes on same line
-  .@{css-prefix}radio-inline,
-  .@{css-prefix}checkbox-inline {
+  .ant-radio-inline,
+  .ant-checkbox-inline {
     display: inline-block;
     vertical-align: middle;
     font-weight: normal;
@@ -170,24 +166,24 @@ form {
     }
   }
 
-  .@{css-prefix}checkbox-vertical,
-  .@{css-prefix}radio-vertical {
+  .ant-checkbox-vertical,
+  .ant-radio-vertical {
     display: block;
   }
 
-  .@{input-number-prefix-cls} {
+  .ant-input-number {
     margin-top: -1px;
     margin-right: 8px;
   }
 
-  .@{select-prefix-cls} {
+  .ant-select {
     width: 100%;
   }
 }
 
 // Input combined with select
-.@{css-prefix}input-group-wrap {
-  .@{select-prefix-cls}-selection {
+.ant-input-group-wrap {
+  .ant-select-selection {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     &:hover {
@@ -195,28 +191,28 @@ form {
     }
   }
 
-  .@{select-prefix-cls}-selection--single {
+  .ant-select-selection--single {
     margin-left: -1px;
     height: @input-height-lg;
     background-color: #eee;
-    .@{select-prefix-cls}-selection__rendered {
+    .ant-select-selection__rendered {
       padding-left: 8px;
       padding-right: 25px;
       line-height: 30px;
     }
   }
 
-  .@{select-prefix-cls}-open .@{select-prefix-cls}-selection {
+  .ant-select-open .ant-select-selection {
     border-color: @border-color-base;
     box-shadow: none;
   }
 }
 
-.ant-search-input {
-  &.ant-input-group .ant-input:first-child {
+search-input {
+  &input-group input:first-child {
     border-radius: @border-radius-base;
   }
-  .ant-search-btn {
+  search-btn {
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
     margin-left: -100%;
@@ -234,8 +230,8 @@ form {
       padding-bottom: 6px;
     }
   }
-  &&-focus .ant-search-btn-noempty,
-  &:hover .ant-search-btn-noempty {
+  &&-focus search-btn-noempty,
+  &:hover search-btn-noempty {
     .btn-primary;
   }
 }
@@ -247,9 +243,9 @@ form {
     .make-row;
   }
 
-  .@{css-prefix}radio-inline,
-  .@{css-prefix}checkbox-inline,
-  .@{css-prefix}input {
+  .ant-radio-inline,
+  .ant-checkbox-inline,
+  .ant-input {
     vertical-align: baseline;
   }
 }
@@ -270,7 +266,7 @@ form {
     }
   }
 
-  .@{css-prefix}input {
+  .ant-input {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -284,7 +280,7 @@ form {
     display: inline-block;
   }
 
-  // Fix https://github.com/ant-design/ant-design/issues/1040
+  // Fix https://github.comdesigndesign/issues/1040
   .@{form-prefix-cls}-explain {
     position: absolute;
   }
@@ -338,7 +334,7 @@ form {
 
 .has-success {
   .form-control-validation(@success-color; @input-hover-border-color;);
-  .@{css-prefix}input {
+  .ant-input {
     border-color: @input-border-color;
     box-shadow: none;
   }
@@ -357,8 +353,8 @@ form {
     color: @warning-color;
   }
 
-  // ant-select
-  .@{select-prefix-cls} {
+  //select
+  .ant-select {
     &-selection {
       border-color: @warning-color;
       box-shadow: 0 0 0 2px fade(@warning-color, 20%);
@@ -368,18 +364,18 @@ form {
     }
   }
 
-  // ant-datepicker
-  .@{calendar-prefix-cls}-picker-icon:after {
+  //datepicker
+  .ant-calendar-picker-icon:after {
     color: @warning-color;
   }
 
-  // ant-timepicker
-  .@{timepicker-prefix-cls}-icon:after {
+  //timepicker
+  .ant-time-picker-icon:after {
     color: @warning-color;
   }
 
-  // ant-input-number
-  .@{input-number-prefix-cls} {
+  //input-number
+  .ant-input-number {
     border-color: @warning-color;
     box-shadow: 0 0 0 2px fade(@warning-color, 20%);
     &:not([disabled]):hover {
@@ -396,8 +392,8 @@ form {
     color: @error-color;
   }
 
-  // ant-select
-  .@{select-prefix-cls} {
+  //select
+  .ant-select {
     &-selection {
       border-color: @error-color;
       box-shadow: 0 0 0 2px fade(@error-color, 20%);
@@ -408,22 +404,22 @@ form {
     }
   }
 
-  .@{select-prefix-cls}-combobox .@{select-prefix-cls}-search__field:focus {
+  .ant-select-combobox .ant-select-search__field:focus {
     box-shadow: none;
   }
 
-  // ant-datepicker
-  .@{calendar-prefix-cls}-picker-icon:after {
+  //datepicker
+  .ant-calendar-picker-icon:after {
     color: @error-color;
   }
 
-  // ant-timepicker
-  .@{timepicker-prefix-cls}-picker-icon:after {
+  //timepicker
+  .ant-time-picker-picker-icon:after {
     color: @error-color;
   }
 
-  // ant-input-number
-  .@{input-number-prefix-cls} {
+  //input-number
+  .ant-input-number {
     border-color: @error-color;
     box-shadow: 0 0 0 2px fade(@error-color, 20%);
     &:not([disabled]):hover {
@@ -441,13 +437,13 @@ form {
   }
 }
 
-.ant-advanced-search-form {
+advanced-search-form {
   .@{form-prefix-cls}-item {
     margin-bottom: 16px;
   }
-  .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input,
-  .@{css-prefix}input-group .@{css-prefix}input-group-addon {
+  .ant-input,
+  .ant-input-group .ant-input,
+  .ant-input-group .ant-input-group-addon {
     height: 28px;
   }
 }
