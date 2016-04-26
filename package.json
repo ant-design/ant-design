@@ -110,6 +110,7 @@
     "webpack-babel-jest": "^1.0.4"
   },
   "scripts": {
+    "dist":"antd-tools run dist",
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
     "start": "antd-tools run start",
@@ -121,7 +122,7 @@
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components/style -e 'components/style/+(core|mixins)/+(base|iconfont|normalize|layouts|compatibility|grid).less'",
     "eslint-fix": "eslint --fix components test site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
-    "test": "npm run lint && atool-build && npm run jest",
+    "test": "npm run lint && npm run dist && npm run jest",
     "jest": "jest",
     "pub": "antd-tools run pub",
     "beta": "antd-tools run beta",
