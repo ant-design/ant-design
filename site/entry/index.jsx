@@ -6,6 +6,7 @@ import * as utils from './utils';
 import '../common/lib';
 import App from '../component/App';
 import Home from '../component/Home';
+import NotFound from '../component/NotFound';
 import practice from '../../_data/practice';
 import pattern from '../../_data/pattern';
 import reactComponents from '../../_data/react-components';
@@ -75,6 +76,7 @@ ReactDOM.render(
           component={utils.getChildrenWrapper(resource)} />
       </Route>
     </Route>
+    <Route path="*" component={NotFound} />
   </Router>
   , document.getElementById('react-content')
 );
