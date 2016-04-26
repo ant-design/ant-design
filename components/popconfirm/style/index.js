@@ -1,2 +1,2 @@
-import '../../../style/core/index.less';
+import '../../style/index.less';
 import '../../popover/style';

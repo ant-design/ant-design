@@ -1,4 +1,4 @@
-import '../../../style/core/index.less';
+import '../../style/index.less';
 import './index.less';
 
 // style dependencies

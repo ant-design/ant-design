@@ -6,6 +6,23 @@ module.exports = function (webpackConfig) {
     return !(plugin instanceof webpack.optimize.CommonsChunkPlugin);
   });
 
+  const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
+  babelConfig.plugins.push([
+    'antd',
+    {
+      style: true,
+      libDir: 'components',
+    }
+  ]);
+
+  webpackConfig.resolve.alias = {
+    antd: process.cwd()
+  };
+
+
+  webpackConfig.module.loaders[0].query = babelConfig;
+  webpackConfig.module.loaders[1].query = babelConfig;
+
   if (process.env.RUN_ENV === 'WEBSITE') {
     const component = process.env.COMPONENT_STYLE;
 
@@ -13,19 +30,7 @@ module.exports = function (webpackConfig) {
       index: './site/entry/index.jsx',
     };
     webpackConfig.resolve.root = process.cwd();
-    webpackConfig.resolve.alias = {
-      antd: process.cwd(),
-      site: 'site',
-    };
-
-    const babelConfig = require('atool-build/lib/getBabelCommonConfig')();
-    babelConfig.plugins.push([
-      'antd',
-      {
-        style: true,
-        libDir: 'components',
-      }
-    ]);
+    webpackConfig.resolve.alias.site = 'site';
 
     const componentRegExp = component && new RegExp(`components/${component.toLowerCase()}/demo/.*\.md`);
     webpackConfig.module.loaders.push({
@@ -44,7 +49,7 @@ module.exports = function (webpackConfig) {
   }
 
   if (process.env.RUN_ENV === 'PRODUCTION') {
-    const entry = ['./style/index.less', './index.js'];
+    const entry = ['./index.js'];
     webpackConfig.entry = {
       'antd.min': entry,
     };
