@@ -27,7 +27,7 @@ export default class Banner extends React.Component {
             <span className="line" key="line" />
             <div key="button" className="start-button clearfix">
               <Link to="/docs/spec/introduce">
-                <Icon type="smile-circle" />开始探索
+                <Icon type="smile-circle" /> 开始探索
               </Link>
             </div>
             <GitHubButton key="github-button" type="stargazers"
