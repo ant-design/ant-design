@@ -2,9 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
-  return args.map((s) => {
-    return `${prefixCls}-${s}`;
-  }).join(' ');
+  return args.map((s) => `${prefixCls}-${s}`).join(' ');
 }
 
 export default class FormItem extends React.Component {

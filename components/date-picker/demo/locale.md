@@ -9,16 +9,11 @@ title: 国际化
 import { DatePicker } from 'antd';
 import enUS from 'antd/lib/date-picker/locale/en_US';
 
-const App = React.createClass({
-  render() {
-    const customLocale = {
-      timezoneOffset: 0 * 60,
-      firstDayOfWeek: 0,
-      minimalDaysInFirstWeek: 1,
-    };
-    return <DatePicker locale={{ ...enUS, ...customLocale }} />;
-  }
-});
+const customLocale = {
+  timezoneOffset: 0 * 60,
+  firstDayOfWeek: 0,
+  minimalDaysInFirstWeek: 1,
+};
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<DatePicker locale={{ ...enUS, ...customLocale }} />, mountNode);
 ````
