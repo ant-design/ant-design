@@ -1,4 +1,5 @@
 @import "../../../style/themes/default";
+@import "../../../style/mixins/index";
 
 @menu-prefix-cls: ~"@{css-prefix}menu";
 
@@ -86,6 +87,13 @@
       left: 1px;
       position: relative;
       z-index: 1;
+    }
+  }
+
+  &-vertical &-sub {
+    border-right: 0;
+    .@{menu-prefix-cls}-item {
+      border-right: 0;
     }
   }
 

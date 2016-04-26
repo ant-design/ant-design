@@ -22,7 +22,7 @@ module.exports = function (webpackConfig) {
     babelConfig.plugins.push([
       'antd',
       {
-        style: !!component,
+        style: true,
         libDir: 'components',
       }
     ]);

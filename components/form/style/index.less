@@ -1,7 +1,15 @@
 @import "../../../style/themes/default";
 @import "../../../style/mixins/index";
 @import "../../input/style/mixin";
+@import "../../button/style/mixin";
+@import "../../layout/style/mixin";
 @import "./mixin";
+
+@form-prefix-cls: ant-form;
+@select-prefix-cls: ant-select;
+@calendar-prefix-cls: ant-calendar;
+@input-number-prefix-cls: ant-input-number;
+@timepicker-prefix-cls: ant-time-picker;
 
 .reset-form();
 
@@ -14,7 +22,7 @@ label {
   }
 }
 
-.@{css-prefix}form-item-required:before {
+.@{form-prefix-cls}-item-required:before {
   display: inline-block;
   margin-right: 4px;
   content: "*";
@@ -64,8 +72,8 @@ input[type="checkbox"] {
 }
 
 // Form items
-// You should wrap labels and controls in .@{css-prefix}form-item for optimum spacing
-.@{css-prefix}form-item {
+// You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
+.@{form-prefix-cls}-item {
   font-size: @font-size-base;
   margin-bottom: @form-item-margin-bottom;
   color: #666;
@@ -74,7 +82,7 @@ input[type="checkbox"] {
     line-height: 32px;
   }
 
-  &.@{css-prefix}form-item-with-help {
+  &.@{form-prefix-cls}-item-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base;
   }
 
@@ -95,22 +103,22 @@ input[type="checkbox"] {
   }
 }
 
-.@{css-prefix}form-explain {
+.@{form-prefix-cls}-explain {
   line-height: 1.5;
   margin-top: 3px;
 }
 
-.@{css-prefix}form-explain,
-.@{css-prefix}form-extra {
+.@{form-prefix-cls}-explain,
+.@{form-prefix-cls}-extra {
   color: #999;
 }
 
-.@{css-prefix}form-text {
+.@{form-prefix-cls}-text {
   display: inline-block;
   padding-right: 8px;
 }
 
-.@{css-prefix}form-split {
+.@{form-prefix-cls}-split {
   display: block;
   text-align: center;
 }
@@ -234,8 +242,8 @@ form {
 
 // Form layout
 //== Horizontal Form
-.@{css-prefix}form-horizontal {
-  .@{css-prefix}form-item {
+.@{form-prefix-cls}-horizontal {
+  .@{form-prefix-cls}-item {
     .make-row;
   }
 
@@ -247,8 +255,8 @@ form {
 }
 
 //== Inline Form
-.@{css-prefix}form-inline {
-  .@{css-prefix}form-item {
+.@{form-prefix-cls}-inline {
+  .@{form-prefix-cls}-item {
     display: inline-block;
     margin-right: 10px;
     margin-bottom: 0;
@@ -268,7 +276,7 @@ form {
     vertical-align: middle;
   }
 
-  .@{css-prefix}form-text {
+  .@{form-prefix-cls}-text {
     display: inline-block;
   }
 
@@ -277,13 +285,13 @@ form {
   }
 
   // Fix https://github.com/ant-design/ant-design/issues/1040
-  .@{css-prefix}form-explain {
+  .@{form-prefix-cls}-explain {
     position: absolute;
   }
 }
 
-.@{css-prefix}form-horizontal,
-.@{css-prefix}form-inline {
+.@{form-prefix-cls}-horizontal,
+.@{form-prefix-cls}-inline {
   label {
     > input[type="radio"],
     > input[type="checkbox"] {
@@ -366,7 +374,7 @@ form {
   }
 
   // ant-timepicker
-  .@{timepicker-prefix-cls}-picker-icon:after {
+  .@{timepicker-prefix-cls}-icon:after {
     color: @warning-color;
   }
 
@@ -434,7 +442,7 @@ form {
 }
 
 .ant-advanced-search-form {
-  .@{css-prefix}form-item {
+  .@{form-prefix-cls}-item {
     margin-bottom: 16px;
   }
   .@{css-prefix}input,

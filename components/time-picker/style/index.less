@@ -1,5 +1,6 @@
 @import "../../../style/themes/default";
 @import "../../../style/mixins/index";
+@import "../../input/style/mixin";
 
 @timepicker-prefix-cls: ant-time-picker;
 
@@ -76,10 +77,6 @@
 
   &-narrow &-input-wrap {
     max-width: 111px;
-  }
-
-  .@{calendar-prefix-cls}-time & {
-    min-width: 168px;
   }
 
   &-select {
