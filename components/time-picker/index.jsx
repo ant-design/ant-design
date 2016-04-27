@@ -29,7 +29,7 @@ export default class TimePicker extends React.Component {
   }
 
   getFormatter() {
-    return new DateTimeFormat(this.props.format);
+    return new DateTimeFormat(this.props.format, this.getLocale().format);
   }
 
   /**
