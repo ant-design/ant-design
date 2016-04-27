@@ -9,6 +9,7 @@ function animate(node, show, transitionName, done) {
   function complete() {
     if (!ok) {
       ok = true;
+      node.style.display = '';
       done();
     }
   }

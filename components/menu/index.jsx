@@ -21,6 +21,12 @@ const AntMenu = React.createClass({
       openKeys: []
     };
   },
+  componentWillReceiveProps(nextProps) {
+    if (this.props.mode === 'inline' &&
+        nextProps.mode !== 'inline') {
+      this.switchModeFromInline = true;
+    }
+  },
   handleClick(e) {
     this.setState({
       openKeys: []
@@ -47,7 +53,14 @@ const AntMenu = React.createClass({
           openAnimation = 'slide-up';
           break;
         case 'vertical':
-          openAnimation = 'zoom-big';
+          // When mode switch from inline
+          // submenu should hide without animation
+          if (this.switchModeFromInline) {
+            openAnimation = '';
+            this.switchModeFromInline = false;
+          } else {
+            openAnimation = 'zoom-big';
+          }
           break;
         case 'inline':
           openAnimation = animation;
