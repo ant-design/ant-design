@@ -12,7 +12,7 @@ const Option = Select.Option;
 const Test = React.createClass({
   getInitialState() {
     return {
-      options: []
+      options: [],
     };
   },
   handleChange(value) {

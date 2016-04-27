@@ -3,7 +3,7 @@ order: 1
 title: 带搜索框
 ---
 
-在浮层内顶部有搜索框的单项选择器。
+展开后可对选项进行搜索。
 
 ````jsx
 import { Select } from 'antd';

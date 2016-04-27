@@ -80,7 +80,7 @@ const SearchInput = React.createClass({
         <Select
           combobox
           value={this.state.value}
-          searchPlaceholder={this.props.placeholder}
+          placeholder={this.props.placeholder}
           notFoundContent=""
           defaultActiveFirstOption={false}
           showArrow={false}
