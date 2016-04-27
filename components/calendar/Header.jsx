@@ -3,6 +3,8 @@ import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
 
+const { Option } = Select;
+
 function noop() {}
 
 export default class Header extends React.Component {
