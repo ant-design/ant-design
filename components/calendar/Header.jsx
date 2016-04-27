@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
+const Option = Select.Option;
 
 const { Option } = Select;
 
