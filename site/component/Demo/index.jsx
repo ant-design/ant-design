@@ -69,7 +69,7 @@ export default class Demo extends React.Component {
             </pre>
           </div>
           {
-            style ?
+            highlightedStyle ?
               <div key="style" className="highlight">
                 <pre>
                   <code className="css" dangerouslySetInnerHTML={{
