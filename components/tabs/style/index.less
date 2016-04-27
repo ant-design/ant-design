@@ -22,18 +22,8 @@
     box-sizing: border-box;
     height: 2px;
     background-color: @primary-color;
-    transform: scaleX(1);
+    transition: transform 0.3s @ease-in-out;
     transform-origin: 0 0;
-    &-transition-forward {
-      transition: right 0.3s @ease-in-out,
-      left 0.3s @ease-in-out 0.3s * 0.3;
-      transform: translateZ(0);
-    }
-    &-transition-backward {
-      transition: right 0.3s @ease-in-out 0.3s * 0.3,
-      left 0.3s @ease-in-out;
-      transform: translateZ(0);
-    }
   }
 
   &-bar {
@@ -315,14 +305,6 @@
         width: 2px;
         left: auto;
         height: auto;
-        &-transition-forward {
-          transition: bottom 0.3s @ease-in-out,
-          top 0.3s @ease-in-out 0.3s * 0.3;
-        }
-        &-transition-backward {
-          transition: bottom 0.3s @ease-in-out 0.3s * 0.3,
-          top 0.3s @ease-in-out;
-        }
       }
     }
 
