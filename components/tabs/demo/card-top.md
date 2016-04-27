@@ -20,7 +20,7 @@ ReactDOM.render(
 ````
 
 ````css
-#components-tabs-demo-card-top {
+#components-tabs-demo-card-top .code-box-demo {
   background: #ECECEC;
   overflow: hidden;
   padding: 24px;
