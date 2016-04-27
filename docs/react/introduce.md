@@ -67,7 +67,7 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 ## 链接
 
 - [首页](http://ant.design/)
-- [修改记录](http://ant.design/changelog)
+- [修改记录](/components/changelog)
 - [开发脚手架](https://github.com/ant-design/antd-init/)
 - [开发工具文档](http://ant-tool.github.io/)
 - [React 组件](http://react-component.github.io/)

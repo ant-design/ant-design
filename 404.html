@@ -1,3 +1,4 @@
 <script>
-  location.href = '/#' + location.pathname.replace('#', '?scrollTo=');
+  var prefix = /^\/components/.test(location.pathname) ? location.pathname.replace(/^\//, '').split('/').join('-') : '';
+  location.href = '/#' + location.pathname.replace(/\/?#/, '?scrollTo=' + prefix);
 </script>
