@@ -30,7 +30,7 @@ english: Menu
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | theme    | 主题颜色 | enum: `light` `dark` | 'light' |
-| mode    | 菜单类型 | enum: `vertical` `horizontal` `inline` | vertical |
+| mode    | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | enum: `vertical` `horizontal` `inline` | vertical |
 | selectedKeys | 当前选中的菜单项 key 数组 |  |      |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 |  |      |
 | openKeys | 当前展开的菜单项 key 数组 |  |      |
