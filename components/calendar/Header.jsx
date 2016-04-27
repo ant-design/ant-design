@@ -4,8 +4,6 @@ import Select from '../select';
 import { Group, Button } from '../radio';
 const Option = Select.Option;
 
-const { Option } = Select;
-
 function noop() {}
 
 export default class Header extends React.Component {
