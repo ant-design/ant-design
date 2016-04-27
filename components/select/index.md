@@ -34,13 +34,12 @@ english: Select
 | onChange | 选中option，或input的value变化(combobox 模式下)时，调用此函数 | function(value, label) | 无 |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
-| searchPlaceholder | 搜索框默认文字 | string | 无 |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
-| showSearch | 在下拉中显示搜索框 | boolean | false |
+| showSearch | 在选择框中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/ONjyba?editors=001) | Function(triggerNode) | () => document.body |
 
