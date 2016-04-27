@@ -129,9 +129,12 @@
 
   &-selection--single {
     height: 28px;
+    position: relative;
     cursor: pointer;
 
     .@{select-prefix-cls}-selection__rendered {
+      height: 26px;
+      position: relative;
       display: block;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -141,8 +144,21 @@
       line-height: 26px;
     }
 
+    .@{select-prefix-cls}-selection-selected-value {
+      position: absolute;
+      left: 8px;
+      top: 0;
+    }
+
     .@{select-prefix-cls}-selection__placeholder {
+      position: absolute;
+      top: 50%;
+      left: 9px;
       color: #ccc;
+      line-height: 20px;
+      height: 20px;
+      margin-top: -10px;
+      cursor: text;
     }
   }
 
@@ -212,6 +228,7 @@
 
   &-search--inline {
     float: left;
+    width: 100%;
 
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -245,12 +262,11 @@
       text-overflow: ellipsis;
       padding-left: 6px;
       padding-bottom: 4px;
-    }
-
-    > ul > li {
-      margin-top: 4px;
-      height: 20px;
-      line-height: 20px;
+      > ul > li {
+        margin-top: 4px;
+        height: 20px;
+        line-height: 20px;
+      }
     }
 
     .@{select-prefix-cls}-selection__choice {
