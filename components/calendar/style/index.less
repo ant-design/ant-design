@@ -1,0 +1,230 @@
+@import "../../style/themes/default";
+
+@full-calendar-prefix-cls: ant-fullcalendar;
+
+.@{full-calendar-prefix-cls} {
+  font-size: @font-size-base;
+  line-height: 1.5;
+
+  &-month-select {
+    margin-left: 5px;
+  }
+
+  &-header {
+    padding: 11px 16px 11px 0;
+    text-align: right;
+
+    .ant-select {
+      text-align: left;
+    }
+
+    .ant-radio-group {
+      margin-left: 8px;
+      text-align: left;
+    }
+
+    label.ant-radio-button {
+      height: 22px;
+      line-height: 20px;
+      padding: 0 10px;
+    }
+  }
+
+  outline: none;
+  border-top: 1px solid @legend-border-color;
+  &-date-panel {
+    position: relative;
+    outline: none;
+  }
+
+  &-calendar-body {
+    padding: 8px 8px 14px;
+  }
+
+  table {
+    border-collapse: collapse;
+    max-width: 100%;
+    background-color: transparent;
+    width: 100%;
+    height: 246px;
+  }
+
+  table,
+  th,
+  td {
+    border: 0;
+  }
+
+  td {
+    position: relative;
+  }
+
+  &-calendar-table {
+    border-spacing: 0;
+    margin-bottom: 0;
+  }
+
+  &-column-header {
+    line-height: 18px;
+    padding: 0;
+    width: 33px;
+    text-align: center;
+    .@{full-calendar-prefix-cls}-column-header-inner {
+      display: block;
+      font-weight: normal;
+    }
+  }
+
+  &-week-number-header {
+    .@{full-calendar-prefix-cls}-column-header-inner {
+      display: none;
+    }
+  }
+
+  &-month,
+  &-date {
+    text-align: center;
+  }
+
+  &-value {
+    display: block;
+    margin: 0 auto;
+    color: @text-color;
+    border-radius: 4px;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    background: transparent;
+    line-height: 22px;
+
+    &:hover {
+      background: tint(@primary-color, 90%);
+      cursor: pointer;
+    }
+  }
+
+  &-month-panel-cell &-value {
+    width: 48px;
+  }
+
+  &-today &-value,
+  &-month-panel-current-cell &-value {
+    background: @primary-color;
+    color: #fff;
+  }
+
+  &-disabled-cell &-value {
+    cursor: not-allowed;
+    color: #bcbcbc;
+    background: #f3f3f3;
+    border-radius: 0;
+    width: auto;
+
+    &:hover {
+      background: #f3f3f3;
+    }
+  }
+
+  &-disabled-cell-first-of-row &-value {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  &-disabled-cell-last-of-row &-value {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &-last-month-cell &-value,
+  &-next-month-btn-day &-value {
+    color: #ccc;
+  }
+
+  &-month-panel-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+  }
+
+  &-content {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -9px;
+  }
+
+  &-fullscreen {
+    border-top: 0;
+  }
+
+  &-fullscreen &-table {
+    table-layout: fixed;
+  }
+
+  &-fullscreen &-header {
+    .ant-radio-group {
+      margin-left: 16px;
+    }
+    label.ant-radio-button {
+      height: 28px;
+      line-height: 26px;
+    }
+  }
+
+  &-fullscreen &-month,
+  &-fullscreen &-date {
+    text-align: left;
+    margin: 0 4px;
+    display: block;
+    color: @text-color;
+    height: 116px;
+    padding: 4px 8px;
+    border-top: 2px solid #eee;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background: tint(@primary-color, 90%);
+      cursor: pointer;
+    }
+  }
+
+  &-fullscreen &-column-header {
+    text-align: right;
+    padding-right: 12px;
+    padding-bottom: 5px;
+  }
+
+  &-fullscreen &-value {
+    text-align: right;
+    background: transparent;
+    width: auto;
+  }
+
+  &-fullscreen &-today &-value {
+    color: #666;
+  }
+
+
+  &-fullscreen &-month-panel-current-cell &-month,
+  &-fullscreen &-today &-date {
+    border-top-color: @primary-color;
+    background-color: tint(@primary-color, 90%);
+    color: @primary-color;
+  }
+  &-fullscreen &-month-panel-current-cell &-value {
+    color: @primary-color;
+  }
+  &-fullscreen &-last-month-cell &-date,
+  &-fullscreen &-next-month-btn-day &-date {
+    color: #ccc;
+  }
+
+  &-fullscreen &-content {
+    height: 90px;
+    overflow-y: auto;
+    position: static;
+    width: auto;
+    left: auto;
+    bottom: auto;
+  }
+}

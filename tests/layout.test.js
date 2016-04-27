@@ -1,6 +1,6 @@
-jest.dontMock('../components/layout/index');
-jest.dontMock('../components/layout/col');
-jest.dontMock('../components/layout/row');
+jest.unmock('../components/layout/index');
+jest.unmock('../components/layout/col');
+jest.unmock('../components/layout/row');
 
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';

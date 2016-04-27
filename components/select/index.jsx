@@ -16,13 +16,14 @@ export default class Select extends React.Component {
 
   render() {
     let {
-      size, className, combobox, notFoundContent, prefixCls,
+      size, className, combobox, notFoundContent, prefixCls, showSearch,
     } = this.props;
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
+      [`${prefixCls}-show-search`]: showSearch,
     });
 
     if (combobox) {

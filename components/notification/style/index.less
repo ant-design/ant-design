@@ -1,0 +1,149 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@notification-prefix-cls: ant-notification;
+@notification-width: 335px;
+@notification-padding: 16px;
+@notification-margin-bottom: 10px;
+
+.@{notification-prefix-cls} {
+  position: fixed;
+  z-index: @zindex-notification;
+  width: @notification-width;
+  margin-right: 24px;
+
+  &-notice {
+    padding: @notification-padding;
+    border-radius: @border-radius-base;
+    box-shadow: @shadow-2;
+    border: 1px solid @border-color-base;
+    background: @body-background;
+    line-height: 1.5;
+    position: relative;
+    margin-bottom: @notification-margin-bottom;
+    overflow: hidden;
+
+    &-message {
+      font-size: 14px;
+      color: @text-color;
+      margin-bottom: 4px;
+    }
+
+    &-description {
+      font-size: @font-size-base;
+      color: @legend-color;
+    }
+
+    &-with-icon  &-message {
+      font-size: 14px;
+      color: @text-color;
+      margin-left: 51px;
+      margin-bottom: 4px;
+    }
+
+    &-with-icon  &-description {
+      margin-left: 51px;
+      font-size: @font-size-base;
+      color: @legend-color;
+    }
+
+    &-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      margin-top: -17px;
+      font-size: 34px;
+
+      &-success {
+        color: @success-color;
+      }
+      &-info {
+        color: @primary-color;
+      }
+      &-warning {
+        color: @warning-color;
+      }
+      &-error {
+        color: @error-color;
+      }
+    }
+
+    &-close-x:after {
+      font-size: 12px;
+      content: "\e62d";
+      font-family: "anticon";
+      cursor: pointer;
+    }
+
+    &-close {
+      position: absolute;
+      right: 16px;
+      top: 10px;
+      color: #999;
+      outline: none;
+    }
+
+    &-btn {
+      float: right;
+      margin-top: 16px;
+    }
+  }
+
+  .notification-fade-effect {
+    animation-duration: 0.24s;
+    animation-fill-mode: both;
+    animation-timing-function: @ease-in-out;
+  }
+
+  &-fade-enter,
+  &-fade-appear {
+    opacity: 0;
+    .notification-fade-effect();
+    animation-play-state: paused;
+  }
+
+  &-fade-leave {
+    .notification-fade-effect();
+    animation-duration: 0.2s;
+    animation-play-state: paused;
+  }
+
+  &-fade-enter&-fade-enter-active,
+  &-fade-appear&-fade-appear-active {
+    animation-name: NotificationFadeIn;
+    animation-play-state: running;
+  }
+
+  &-fade-leave&-fade-leave-active {
+    animation-name: NotificationFadeOut;
+    animation-play-state: running;
+  }
+}
+
+@keyframes NotificationFadeIn {
+  0% {
+    opacity: 0;
+    left: @notification-width;
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes NotificationFadeOut {
+  0% {
+    opacity: 1;
+    margin-bottom: @notification-margin-bottom;
+    padding-top: @notification-padding;
+    padding-bottom: @notification-padding;
+    max-height: 150px;
+  }
+  100% {
+    opacity: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0;
+  }
+}

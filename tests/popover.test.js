@@ -1,11 +1,10 @@
+jest.unmock('../components/popover/placements');
+jest.unmock('../components/popover/index');
+jest.unmock('../components/tooltip/index');
+
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-
-jest.dontMock('../components/popover/placements');
-jest.dontMock('../components/popover/index');
-jest.dontMock('../components/tooltip/index');
-
-const Popover = require('../components/popover/index');
+import Popover from '../components/popover/index';
 
 describe('Popover', function() {
   it('should show overlay when trigger is clicked', () => {

@@ -1,0 +1,134 @@
+@import "../../style/themes/default";
+
+@alert-prefix-cls: ant-alert;
+
+.@{alert-prefix-cls} {
+  position: relative;
+  padding: 8px 8px 8px 16px;
+  border-radius: @border-radius-base;
+  color: @text-color;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 10px;
+
+  &-icon {
+    margin-right: 8px;
+    font-size: 14px;
+    top: 1px;
+    position: relative;
+  }
+
+  &-description {
+    font-size: 12px;
+    color: @legend-color;
+    line-height: 21px;
+    display: none;
+  }
+
+  &-success {
+    border: 1px solid tint(@success-color, 80%);
+    background-color: tint(@success-color, 90%);
+    .@{alert-prefix-cls}-icon {
+      color: @success-color;
+    }
+  }
+
+  &-info {
+    border: 1px solid tint(@primary-color, 80%);
+    background-color: tint(@primary-color, 90%);
+    .@{alert-prefix-cls}-icon {
+      color: @primary-color;
+    }
+  }
+
+  &-warning {
+    border: 1px solid tint(@warning-color, 80%);
+    background-color: tint(@warning-color, 90%);
+    .@{alert-prefix-cls}-icon {
+      color: @warning-color;
+    }
+  }
+
+  &-error {
+    border: 1px solid tint(@error-color, 80%);
+    background-color: tint(@error-color, 90%);
+    .@{alert-prefix-cls}-icon {
+      color: @error-color;
+    }
+  }
+
+  &-close-icon {
+    font-size: 12px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    margin-top: -6px;
+    height: 12px;
+    line-height: 12px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .anticon-cross {
+      color: @legend-color;
+      transition: color .3s ease;
+      &:hover {
+        color: #444;
+      }
+    }
+  }
+
+  &-close-text {
+    position: absolute;
+    right: 16px;
+  }
+
+  &-with-description {
+    padding: 16px 16px 16px 69px;
+    position: relative;
+    border-radius: @border-radius-base;
+    margin-bottom: 10px;
+    color: @text-color;
+    line-height: 1.5;
+  }
+
+  &-with-description&-no-icon {
+    padding: 16px;
+  }
+
+  &-with-description &-icon {
+    position: absolute;
+    top: 50%;
+    left: 24px;
+    margin-top: -15px;
+    font-size: 29px;
+  }
+
+  &-with-description &-close-icon {
+    position: absolute;
+    top: 17px;
+    right: 16px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+
+  &-with-description &-message {
+    font-size: 14px;
+    color: @text-color;
+    display: block;
+  }
+
+  &-with-description &-description {
+    display: block;
+  }
+
+  &-close {
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all .3s @ease-in-out;
+    transform-origin: 50% 0;
+    animation-timing-function: @ease-in-out !important;
+  }
+}
