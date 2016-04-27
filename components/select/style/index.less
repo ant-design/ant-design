@@ -38,7 +38,6 @@
 .@{select-prefix-cls} {
   box-sizing: border-box;
   display: inline-block;
-  margin: 0;
   position: relative;
   vertical-align: middle;
   color: #666;
@@ -149,17 +148,6 @@
       left: 8px;
       top: 0;
     }
-
-    .@{select-prefix-cls}-selection__placeholder {
-      position: absolute;
-      top: 50%;
-      left: 9px;
-      color: #ccc;
-      line-height: 20px;
-      height: 20px;
-      margin-top: -10px;
-      cursor: text;
-    }
   }
 
   &-lg {
@@ -215,7 +203,7 @@
     position: relative;
   }
 
-  &-search__field__placeholder {
+  &-selection__placeholder {
     position: absolute;
     top: 50%;
     left: 9px;
@@ -262,11 +250,13 @@
       text-overflow: ellipsis;
       padding-left: 6px;
       padding-bottom: 4px;
-      > ul > li {
-        margin-top: 4px;
-        height: 20px;
-        line-height: 20px;
-      }
+    }
+
+    > ul > li,
+    .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
+      margin-top: 4px;
+      height: 20px;
+      line-height: 20px;
     }
 
     .@{select-prefix-cls}-selection__choice {

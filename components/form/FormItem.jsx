@@ -82,7 +82,9 @@ export default class FormItem extends React.Component {
 
   renderExtra() {
     const { prefixCls, extra } = this.props;
-    return <span className={prefixClsFn(prefixCls, 'extra')}>{extra}</span>;
+    return extra ? (
+      <span className={prefixClsFn(prefixCls, 'extra')}>{extra}</span>
+    ) : null;
   }
 
   getValidateStatus() {
