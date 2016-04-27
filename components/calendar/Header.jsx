@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
+const Option = Select.Option;
 
 function noop() {}
 
