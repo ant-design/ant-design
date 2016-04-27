@@ -33,8 +33,8 @@ label {
 }
 
 //== Style for input-group: input with label, with button or dropdown...
-input-group {
-  .input-group("ant-input");
+.ant-input-group {
+  .input-group(~"ant-input");
 }
 
 // Radio && Checkbox
@@ -208,11 +208,11 @@ form {
   }
 }
 
-search-input {
+.ant-search-input {
   &input-group input:first-child {
     border-radius: @border-radius-base;
   }
-  search-btn {
+  .ant-search-btn {
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
     margin-left: -100%;
@@ -230,8 +230,8 @@ search-input {
       padding-bottom: 6px;
     }
   }
-  &&-focus search-btn-noempty,
-  &:hover search-btn-noempty {
+  &&-focus .ant-search-btn-noempty,
+  &:hover .ant-search-btn-noempty {
     .btn-primary;
   }
 }
@@ -437,7 +437,7 @@ search-input {
   }
 }
 
-advanced-search-form {
+.advanced-search-form {
   .@{form-prefix-cls}-item {
     margin-bottom: 16px;
   }
