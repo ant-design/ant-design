@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -29,7 +29,6 @@
   "files": [
     "dist",
     "lib",
-    "style",
     "type-definitions"
   ],
   "typings": "type-definitions/antd.d.ts",
