@@ -46,6 +46,8 @@ english: Menu
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | Boolean   |  false  |
 | key   | item 的唯一标志 |  String |  |
+| onMouseEnter   | 鼠标进入时调用，参数 { key, domEvent } 对象 |  function |  |
+| onMouseLeave   | 鼠标离开时调用，参数 { key, domEvent } 对象 |  function |  |
 
 ### Menu.SubMenu props
 
@@ -53,6 +55,8 @@ english: Menu
 |----------|----------------|----------|--------------|
 | title    | 子菜单项值 | String or React.Element   |    |
 | children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |
+| onMouseEnter   | 鼠标进入时调用，参数 { key, domEvent } 对象 |  function |  |
+| onMouseLeave   | 鼠标离开时调用，参数 { key, domEvent } 对象 |  function |  |
 
 ### Menu.ItemGroup props
 
