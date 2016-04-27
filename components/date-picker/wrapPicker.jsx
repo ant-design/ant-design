@@ -47,17 +47,9 @@ export default function wrapPicker(Picker, defaultFormat) {
     }
 
     getFormatter = () => {
-      if (!this.formats) {
-        this.formats = {};
-      }
-
-      const formats = this.formats;
       const format = this.props.format;
-      if (formats[format]) {
-        return formats[format];
-      }
-      formats[format] = new DateTimeFormat(format, this.getLocale().lang.format);
-      return formats[format];
+      const formatter = new DateTimeFormat(format, this.getLocale().lang.format);
+      return formatter;
     }
 
     parseDateFromValue = (value) => {
