@@ -8,6 +8,7 @@ var fs = require('fs');
 var path = require('path');
 var componentsPath = path.join(process.cwd(), 'components');
 var entryLessContent = `@import "../lib/style/index.less";`;
+console.log('Building a entry less file to dist/antd.less');
 
 fs.readdir(componentsPath, function(err, files) {
   files.forEach(function(file) {
