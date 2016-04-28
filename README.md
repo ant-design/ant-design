@@ -32,7 +32,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 Import style:
 
 ```jsx
-import 'antd/dist/antd.css';  // or 'antd/style/index.less'
+import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
 ### Use modularized antd
@@ -49,7 +49,6 @@ babel plugin config:
 
 ```jsx
 import { DatePicker } from 'antd';
-ReactDOM.render(<DatePicker />, mountNode);
 ```
 
 No need to import style manually.

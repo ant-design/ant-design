@@ -31,7 +31,7 @@ ReactDOM.render(<DatePicker />, mountNode);
 引入样式：
 
 ```jsx
-import 'antd/lib/index.css';  // or 'antd/style/index.less'
+import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
 按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)。
@@ -42,6 +42,13 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 现代浏览器和 IE8 及以上。
 
 > [IE8 issues](https://github.com/xcatliu/react-ie8)
+
+## TypeScript
+
+```js
+///<reference path='./node_modules/antd/type-definitions/antd.d.ts'/>
+...
+```
 
 ## 链接
 
