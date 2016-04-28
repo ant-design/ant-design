@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 import enquire from 'enquire.js';
+import debounce from 'lodash.debounce';
+import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon } from 'antd';
 const Option = Select.Option;
 
@@ -18,10 +20,21 @@ export default class Header extends React.Component {
     this.state = {
       menuVisible: false,
       menuMode: 'horizontal',
+      isFirstFrame: true,
     };
   }
 
   componentDidMount() {
+    window.addEventListener('scroll', debounce(() => {
+      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+      if (scrollTop >= clientHeight) {
+        this.setState({ isFirstFrame: false });
+      } else {
+        this.setState({ isFirstFrame: true });
+      }
+    }, 100));
+
     document.addEventListener('click', () => {
       this.setState({
         menuVisible: false,
@@ -77,8 +90,13 @@ export default class Header extends React.Component {
       display: this.state.menuVisible ? 'block' : '',
     };
 
+    const headerClassName = classNames({
+      clearfix: true,
+      'home-nav-white': !this.state.isFirstFrame,
+    });
+
     return (
-      <header id="header" className="clearfix">
+      <header id="header" className={headerClassName}>
         <Row>
           <Col lg={4} md={6} sm={7} xs={24}>
             <Icon

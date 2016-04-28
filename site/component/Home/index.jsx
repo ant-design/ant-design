@@ -44,6 +44,16 @@ export default class Home extends React.Component {
       #header .ant-menu {
         background: transparent;
       }
+      #header.home-nav-white {
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom-color: #EBEDEE;
+      }
+      .home-nav-white #search-box {
+        border-left-color: #EBEDEE;
+      }
+      .home-nav-white #nav a {
+        color: #666;
+      }
       #nav a {
         color: #eee;
         transition: color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
