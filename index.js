@@ -1,3 +1,4 @@
+/* eslint no-console:0 */
 // this file is not used if use https://github.com/ant-design/babel-plugin-antd
 
 import {
@@ -20,7 +21,7 @@ const antd = {
 /* eslint no-console:0 */
 
 if (typeof console !== 'undefined' && console.warn) {
-  console.warn(`you are using prebuild antd, 
+  console.warn(`you are using prebuild antd,
 please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
 }
 
