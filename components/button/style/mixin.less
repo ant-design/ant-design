@@ -107,6 +107,9 @@
   &.disabled,
   &[disabled] {
     cursor: @cursor-disabled;
+    > * {
+      pointer-events: none;
+    }
   }
 
   &-lg {
