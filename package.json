@@ -123,7 +123,7 @@
     "eslint-fix": "eslint --fix components test site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
     "test": "npm run lint && npm run dist && npm run jest",
     "jest": "jest",
-    "prepub":"node ./scripts/prepub",
+    "pre-pub":"node ./scripts/prepub",
     "pub": "antd-tools run pub",
     "beta": "antd-tools run beta",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt"
