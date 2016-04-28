@@ -17,7 +17,9 @@ const antd = {
   Card, LocaleProvider, Transfer, Cascader,
 };
 
-console.warn(`you are using prebuild antd, 
+if (typeof console !== 'undefined' && console.warn) {
+  console.warn(`you are using prebuild antd, 
 please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
+}
 
 export default antd;
