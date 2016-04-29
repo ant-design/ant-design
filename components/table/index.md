@@ -85,7 +85,7 @@ const columns = [{
 | title      | 列头显示文字               | String or React.Element |                   |
 | key        | React 需要的 key，建议设置 | String          |                             |
 | dataIndex  | 列数据在数据项中对应的 key | String          |                              |
-| render     | 生成复杂数据的渲染函数，参数分别为当前列的值，当前列数据，列索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |                     |
+| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |                     |
 | filters    | 表头的筛选菜单项           | Array           |                              |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                              |
 | filterMultiple | 是否多选 | Boolean    | true    |
