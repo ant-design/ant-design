@@ -30,7 +30,7 @@ const Test = React.createClass({
       </div>,
       <div className="demo-listBox" key="b">
         <div className="demo-list">
-        <div className="title"></div>
+          <div className="title"></div>
           <ul>
             <li></li>
             <li></li>

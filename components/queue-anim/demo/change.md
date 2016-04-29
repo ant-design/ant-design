@@ -49,14 +49,14 @@ const Test = React.createClass({
           <Button onClick={this.onRemove} style={{ marginLeft: 10 }}>删除</Button>
         </p>
         <div className="demo-content">
-            <div className="demo-listBox" key="b">
-              <div className="demo-list">
-                <div className="title"></div>
-                <QueueAnim component="ul" type={['right', 'left']}>
-                  {this.state.show ? this.state.items : null}
-                </QueueAnim>
-              </div>
+          <div className="demo-listBox" key="b">
+            <div className="demo-list">
+              <div className="title"></div>
+              <QueueAnim component="ul" type={['right', 'left']}>
+                {this.state.show ? this.state.items : null}
+              </QueueAnim>
             </div>
+          </div>
         </div>
       </div>
     );

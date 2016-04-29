@@ -10,10 +10,10 @@ import { Popover, Button } from 'antd';
 
 const text = <span>标题</span>;
 const content = (
-   <div>
-     <p>内容</p>
-     <p>内容</p>
-   </div>
+  <div>
+    <p>内容</p>
+    <p>内容</p>
+  </div>
 );
 
 ReactDOM.render(

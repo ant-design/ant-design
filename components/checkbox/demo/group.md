@@ -31,12 +31,12 @@ const optionsWithDisabled = [
 ];
 
 ReactDOM.render(
-<div>
-  <CheckboxGroup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
-  <br />
-  <CheckboxGroup options={options} defaultValue={['Pear']} onChange={onChange} />
-  <br />
-  <CheckboxGroup options={optionsWithDisabled} disabled defaultValue={['Apple']} onChange={onChange} />
-</div>
+  <div>
+    <CheckboxGroup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+    <br />
+    <CheckboxGroup options={options} defaultValue={['Pear']} onChange={onChange} />
+    <br />
+    <CheckboxGroup options={optionsWithDisabled} disabled defaultValue={['Apple']} onChange={onChange} />
+  </div>
 , mountNode);
 ````

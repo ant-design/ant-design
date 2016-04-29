@@ -13,10 +13,10 @@ function log(value) {
 }
 
 ReactDOM.render(
-<div>
-  <Slider defaultValue={30} onChange={log} />
-  <Slider range step={10} defaultValue={[20, 50]} onChange={log} />
-  <Slider defaultValue={30} onAfterChange={log} />
-</div>
+  <div>
+    <Slider defaultValue={30} onChange={log} />
+    <Slider range step={10} defaultValue={[20, 50]} onChange={log} />
+    <Slider defaultValue={30} onAfterChange={log} />
+  </div>
 , mountNode);
 ````

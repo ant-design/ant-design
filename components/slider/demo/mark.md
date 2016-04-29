@@ -21,16 +21,16 @@ const marks = {
 };
 
 ReactDOM.render(
-<div>
-  <p>包含关系</p>
-  <Slider marks={marks} defaultValue={37} />
-  <Slider range marks={marks} defaultValue={[26, 37]} />
-  <p>并列关系</p>
-  <Slider marks={marks} included={false} defaultValue={37} />
-  <p>结合 step</p>
-  <Slider marks={marks} step={10} defaultValue={37} />
-  <p>`step=null`</p>
-  <Slider marks={marks} step={null} defaultValue={37} />
-</div>
+  <div>
+    <p>包含关系</p>
+    <Slider marks={marks} defaultValue={37} />
+    <Slider range marks={marks} defaultValue={[26, 37]} />
+    <p>并列关系</p>
+    <Slider marks={marks} included={false} defaultValue={37} />
+    <p>结合 step</p>
+    <Slider marks={marks} step={10} defaultValue={37} />
+    <p>`step=null`</p>
+    <Slider marks={marks} step={null} defaultValue={37} />
+  </div>
 , mountNode);
 ````

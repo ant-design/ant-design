@@ -29,20 +29,20 @@ const props = {
 };
 
 ReactDOM.render(
-<div>
-  <Upload {...props}>
-    <Button type="ghost">
-      <Icon type="upload" /> 点击上传
-    </Button>
-  </Upload>
-  <br />
-  <br />
-  <Upload {...props} className="upload-list-inline">
-    <Button type="ghost">
-      <Icon type="upload" /> 点击上传
-    </Button>
-  </Upload>
-</div>
+  <div>
+    <Upload {...props}>
+      <Button type="ghost">
+        <Icon type="upload" /> 点击上传
+      </Button>
+    </Upload>
+    <br />
+    <br />
+    <Upload {...props} className="upload-list-inline">
+      <Button type="ghost">
+        <Icon type="upload" /> 点击上传
+      </Button>
+    </Upload>
+  </div>
 , mountNode);
 ````
 

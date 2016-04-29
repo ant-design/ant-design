@@ -8,7 +8,7 @@ title: 受控
 ````jsx
 import { Pagination } from 'antd';
 
-let Container = React.createClass({
+const Container = React.createClass({
   getInitialState() {
     return {
       current: 3
@@ -25,8 +25,5 @@ let Container = React.createClass({
   }
 });
 
-ReactDOM.render(
-<Container />,
-mountNode);
+ReactDOM.render(<Container />, mountNode);
 ````
-

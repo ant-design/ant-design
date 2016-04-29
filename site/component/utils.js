@@ -25,7 +25,7 @@ export function jsonmlToComponent(pathname, jsonml) {
         id: children,
         ...getAttributes(node),
       }, [
-        <span key="title">{ children.map((child) => toReactComponent(child)) }</span>,
+        <span key="title">{children.map((child) => toReactComponent(child))}</span>,
         <Link to={{ pathname, query: { scrollTo: children } }} className="anchor" key="anchor">#</Link>,
       ]);
     }],

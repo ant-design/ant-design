@@ -2,11 +2,16 @@
  * Created by Andrey Gayvoronsky on 13/04/16.
  */
 
+import Pagination from 'rc-pagination/lib/locale/ru_RU';
+import DatePicker from '../date-picker/locale/ru_RU';
+import TimePicker from '../time-picker/locale/ru_RU';
+import Calendar from '../calendar/locale/ru_RU';
+
 export default {
-  Pagination: require('rc-pagination/lib/locale/ru_RU'),
-  DatePicker: require('../date-picker/locale/ru_RU'),
-  TimePicker: require('../time-picker/locale/ru_RU'),
-  Calendar: require('../calendar/locale/ru_RU'),
+  Pagination,
+  DatePicker,
+  TimePicker,
+  Calendar,
   Table: {
     filterTitle: 'Фильтр',
     filterConfirm: 'OK',
@@ -29,4 +34,3 @@ export default {
     itemsUnit: 'items',
   },
 };
-

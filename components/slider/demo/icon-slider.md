@@ -41,7 +41,7 @@ const IconSlider = React.createClass({
 });
 
 ReactDOM.render(
-<IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
+  <IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
 , mountNode);
 ````
 

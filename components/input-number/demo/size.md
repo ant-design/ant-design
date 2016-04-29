@@ -13,16 +13,16 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-<div>
-  <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
-  <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />
-  <InputNumber size="small" min={1} max={100000} defaultValue={3} onChange={onChange} />
-</div>
+  <div>
+    <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
+    <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />
+    <InputNumber size="small" min={1} max={100000} defaultValue={3} onChange={onChange} />
+  </div>
 , mountNode);
 ````
 
 ````css
-.ant-input-number{
+.ant-input-number {
   margin-right: 10px;
 }
 ````

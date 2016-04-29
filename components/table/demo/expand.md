@@ -22,9 +22,9 @@ const data = [
 ];
 
 ReactDOM.render(
-<Table columns={columns}
-  expandedRowRender={record => <p>{record.description}</p>}
-  dataSource={data}
-  className="table" />
+  <Table columns={columns}
+    expandedRowRender={record => <p>{record.description}</p>}
+    dataSource={data}
+    className="table" />
 , mountNode);
 ````

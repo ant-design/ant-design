@@ -13,6 +13,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-<InputNumber min={1} max={10} step={0.1} onChange={onChange} />
+  <InputNumber min={1} max={10} step={0.1} onChange={onChange} />
 , mountNode);
 ````

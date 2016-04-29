@@ -6,7 +6,7 @@ export default function App(props) {
   return (
     <div>
       <Header {...props} />
-      { props.children }
+      {props.children}
       <Footer />
     </div>
   );

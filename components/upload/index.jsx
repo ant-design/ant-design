@@ -137,7 +137,7 @@ export default class Upload extends React.Component {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
-    } catch (e) {/* do nothing */}
+    } catch (e) { /* do nothing */ }
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     // 之前已经删除

@@ -26,7 +26,7 @@ function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
       <Modal className="image-modal" width={960} visible={previewVisible} title={null} footer={null}
         onCancel={onCancel}>
         <Carousel className={`${onlyOneImg ? 'image-modal-single' : ''}`} adaptiveHeight>
-          { comparable ? cover : imgs }
+          {comparable ? cover : imgs}
         </Carousel>
         <div className="preview-image-title">{coverMeta.alt}</div>
       </Modal>

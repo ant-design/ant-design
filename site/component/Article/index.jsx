@@ -39,7 +39,7 @@ export default class Article extends React.Component {
       return (
         <li key={getChildren(node)[0]}>
           <Link to={{ pathname: location.pathname, query: { scrollTo: getChildren(node)[0] } }}>
-          { utils.jsonmlToComponent(location.pathname, getChildren(node)[0]) }
+          {utils.jsonmlToComponent(location.pathname, getChildren(node)[0])}
           </Link>
         </li>
       );
@@ -53,7 +53,7 @@ export default class Article extends React.Component {
           {meta.english} {meta.chinese}
           {
             !meta.subtitle ? null :
-              <span className="subtitle">{ meta.subtitle }</span>
+              <span className="subtitle">{meta.subtitle}</span>
           }
         </h1>
         {
@@ -65,7 +65,7 @@ export default class Article extends React.Component {
         }
         {
           (jumper.length > 0 && meta.toc !== false) ?
-            <section className="toc"><ul>{ jumper }</ul></section> :
+            <section className="toc"><ul>{jumper}</ul></section> :
             null
         }
         {

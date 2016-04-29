@@ -215,7 +215,7 @@ export default class Table extends React.Component {
       if (result !== 0) {
         return (sortOrder === 'descend') ? -result : result;
       }
-      return a._index - b._index;
+      return a.indexForSort - b.indexForSort;
     };
   }
 
@@ -475,9 +475,9 @@ export default class Table extends React.Component {
           this.props.rowSelection.getCheckboxProps &&
           this.props.rowSelection.getCheckboxProps(item).disabled);
         const checkboxAll = (
-            <Checkbox checked={checked}
-              disabled={checkboxAllDisabled}
-              onChange={this.handleSelectAllRow} />
+          <Checkbox checked={checked}
+            disabled={checkboxAllDisabled}
+            onChange={this.handleSelectAllRow} />
         );
         selectionColumn = {
           key: 'selection-column',
@@ -644,7 +644,7 @@ export default class Table extends React.Component {
     // 优化本地排序
     data = data.slice(0);
     for (let i = 0; i < data.length; i++) {
-      data[i]._index = i;
+      data[i].indexForSort = i;
     }
     const sorterFn = this.getSorterFn();
     if (sorterFn) {

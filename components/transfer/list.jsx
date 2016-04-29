@@ -158,26 +158,26 @@ export default class TransferList extends React.Component {
             </span>
           </span>
         </div>
-        { bodyDom ||
-        <div className={ showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
-          { showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-            <Search prefixCls={`${prefixCls}-search`}
-              onChange={this.handleFilter}
-              handleClear={this.handleClear}
-              placeholder={searchPlaceholder || '请输入搜索内容'}
-              value={filter} />
-          </div> : null }
-          <Animate component="ul"
-            transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
-            transitionLeave={false}>
-            {showItems.length > 0
-              ? showItems
-              : <div className={`${prefixCls}-body-not-found`}>{notFoundContent || '列表为空'}</div>}
-          </Animate>
-        </div>}
-        { footerDom ? <div className={`${prefixCls}-footer`}>
-          { footerDom }
-        </div> : null }
+        {bodyDom ||
+          <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+            {showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
+              <Search prefixCls={`${prefixCls}-search`}
+                onChange={this.handleFilter}
+                handleClear={this.handleClear}
+                placeholder={searchPlaceholder || '请输入搜索内容'}
+                value={filter} />
+            </div> : null}
+            <Animate component="ul"
+              transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
+              transitionLeave={false}>
+              {showItems.length > 0
+                ? showItems
+                : <div className={`${prefixCls}-body-not-found`}>{notFoundContent || '列表为空'}</div>}
+            </Animate>
+          </div>}
+        {footerDom ? <div className={`${prefixCls}-footer`}>
+          {footerDom}
+        </div> : null}
       </div>
     );
   }

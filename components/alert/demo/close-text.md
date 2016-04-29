@@ -9,6 +9,6 @@ title: 自定义关闭
 import { Alert } from 'antd';
 
 ReactDOM.render(
-<Alert message="消息提示的文案" type="info" closeText="不再提醒" />
+  <Alert message="消息提示的文案" type="info" closeText="不再提醒" />
 , mountNode);
 ````

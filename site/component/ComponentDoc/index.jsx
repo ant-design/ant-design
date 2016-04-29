@@ -65,9 +65,9 @@ export default class ComponentDoc extends React.Component {
     const jumper = demos.map((demo) => {
       return (
         <li key={demo.id}>
-          <Link className={ demo.id === scrollTo ? 'current' : ''}
+          <Link className={demo.id === scrollTo ? 'current' : ''}
             to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
-            { demo.meta.title }
+            {demo.meta.title}
           </Link>
         </li>
       );
@@ -77,7 +77,7 @@ export default class ComponentDoc extends React.Component {
       <article>
         <Affix className="toc-affix" offsetTop={16}>
           <ul className="toc demos-anchor">
-            { jumper }
+            {jumper}
           </ul>
         </Affix>
         <section className="markdown">
@@ -96,17 +96,17 @@ export default class ComponentDoc extends React.Component {
           </h2>
         </section>
         <Row gutter={16}>
-          <Col span={ isSingleCol ? '24' : '12' }
-            className={ isSingleCol ?
+          <Col span={isSingleCol ? '24' : '12'}
+            className={isSingleCol ?
               'code-boxes-col-1-1' :
               'code-boxes-col-2-1'
             }
           >
-            { leftChildren }
+            {leftChildren}
           </Col>
           {
             isSingleCol ? null :
-            <Col className="code-boxes-col-2-1" span="12">{ rightChildren }</Col>
+              <Col className="code-boxes-col-2-1" span="12">{rightChildren}</Col>
           }
         </Row>
         {

@@ -1,8 +1,13 @@
+import Pagination from 'rc-pagination/lib/locale/en_US';
+import DatePicker from '../date-picker/locale/en_US';
+import TimePicker from '../time-picker/locale/en_US';
+import Calendar from '../calendar/locale/en_US';
+
 export default {
-  Pagination: require('rc-pagination/lib/locale/en_US'),
-  DatePicker: require('../date-picker/locale/en_US'),
-  TimePicker: require('../time-picker/locale/en_US'),
-  Calendar: require('../calendar/locale/en_US'),
+  Pagination,
+  DatePicker,
+  TimePicker,
+  Calendar,
   Table: {
     filterTitle: 'Filter Menu',
     filterConfirm: 'OK',

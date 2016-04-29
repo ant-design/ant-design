@@ -106,7 +106,7 @@ export default class UploadList extends React.Component {
               ) : <Icon type="cross" onClick={() => this.handleClose(file)} />
             }
           </div>
-          { progress }
+          {progress}
         </div>
       );
     });

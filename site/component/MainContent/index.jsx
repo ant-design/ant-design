@@ -45,23 +45,23 @@ export default class MainContent extends React.Component {
   generateMenuItem(isTop, item) {
     const key = this.fileNameToPath(item.fileName);
     const text = isTop ?
-            item.chinese || item.english : [
-              <span key="english">{ item.english }</span>,
-              <span className="chinese" key="chinese">{ item.chinese }</span>
-            ];
+      item.chinese || item.english : [
+        <span key="english">{item.english}</span>,
+        <span className="chinese" key="chinese">{item.chinese}</span>
+      ];
     const disabled = item.disabled;
     const url = item.fileName.replace(/(\/index)?\.md$/i, '');
     const child = !item.link ?
-            <Link to={url} disabled={disabled}>
-              { text }
-            </Link> :
-            <a href={item.link} target="_blank" disabled={disabled}>
-              { text }
-            </a>;
+      <Link to={url} disabled={disabled}>
+        {text}
+      </Link> :
+      <a href={item.link} target="_blank" disabled={disabled}>
+        {text}
+      </a>;
 
     return (
       <Menu.Item key={key} disabled={disabled}>
-        { child }
+        {child}
       </Menu.Item>
     );
   }
@@ -73,20 +73,20 @@ export default class MainContent extends React.Component {
   generateSubMenuItems(obj) {
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
-            .sort((a, b) => {
-              return config.typeOrder[a] - config.typeOrder[b];
-            })
-            .map((type, index) => {
-              const groupItems = obj[type].sort((a, b) => {
-                return a.english.charCodeAt(0) - b.english.charCodeAt(0);
-              }).map(this.generateMenuItem.bind(this, false));
+      .sort((a, b) => {
+        return config.typeOrder[a] - config.typeOrder[b];
+      })
+      .map((type, index) => {
+        const groupItems = obj[type].sort((a, b) => {
+          return a.english.charCodeAt(0) - b.english.charCodeAt(0);
+        }).map(this.generateMenuItem.bind(this, false));
 
-              return (
-                <Menu.ItemGroup title={type} key={index}>
-                  { groupItems }
-                </Menu.ItemGroup>
-              );
-            });
+        return (
+          <Menu.ItemGroup title={type} key={index}>
+            {groupItems}
+          </Menu.ItemGroup>
+        );
+      });
     return [...topLevel, ...itemGroups];
   }
 
@@ -103,7 +103,7 @@ export default class MainContent extends React.Component {
 
               return (
                 <SubMenu title={<h4>{category}</h4>} key={category}>
-                  { subMenuItems }
+                  {subMenuItems}
                 </SubMenu>
               );
             });
@@ -148,11 +148,11 @@ export default class MainContent extends React.Component {
             <Menu className="aside-container" mode="inline"
               defaultOpenKeys={Object.keys(this.props.menuItems)}
               selectedKeys={[activeMenuItem]}>
-              { menuItems }
+              {menuItems}
             </Menu>
           </Col>
           <Col lg={20} md={18} sm={24} xs={24} className="main-container">
-            { this.props.children }
+            {this.props.children}
           </Col>
         </Row>
 

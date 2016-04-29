@@ -40,13 +40,13 @@ export default class Header extends React.Component {
     return (
       <Select
         style={{ width: 75 }}
-        size={ fullscreen ? null : 'small' }
+        size={fullscreen ? null : 'small'}
         dropdownMatchSelectWidth={false}
         dropdownMenuStyle={{ minWidth: 103 }}
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange}
         value={String(year)}>
-        { options }
+        {options}
       </Select>
     );
   }
@@ -65,12 +65,12 @@ export default class Header extends React.Component {
       <Select
         style={{ minWidth: 70 }}
         dropdownMenuStyle={{ minWidth: 125 }}
-        size={ fullscreen ? null : 'small' }
+        size={fullscreen ? null : 'small'}
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}
         value={String(month)}
         onChange={this.onMonthChange}>
-        { options }
+        {options}
       </Select>
     );
   }
@@ -104,9 +104,9 @@ export default class Header extends React.Component {
 
     return (
       <div className={`${prefixCls}-header`}>
-        { yearSelect }
-        { monthSelect }
-        { typeSwitch }
+        {yearSelect}
+        {monthSelect}
+        {typeSwitch}
       </div>
     );
   }

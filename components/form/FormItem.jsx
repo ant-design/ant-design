@@ -28,7 +28,7 @@ export default class FormItem extends React.Component {
     form: React.PropTypes.object,
   }
 
-  _getLayoutClass(colDef) {
+  getLayoutClass(colDef) {
     if (!colDef) {
       return '';
     }
@@ -132,7 +132,7 @@ export default class FormItem extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <div className={this._getLayoutClass(wrapperCol)} key="wrapper">
+      <div className={this.getLayoutClass(wrapperCol)} key="wrapper">
         {children}
       </div>
     );
@@ -158,7 +158,7 @@ export default class FormItem extends React.Component {
       props.required;
 
     const className = classNames({
-      [this._getLayoutClass(labelCol)]: true,
+      [this.getLayoutClass(labelCol)]: true,
       [`${props.prefixCls}-item-required`]: required,
     });
 
