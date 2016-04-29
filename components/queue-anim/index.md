@@ -20,6 +20,8 @@ english: QueueAnim
 
 > 此组件 `antd@1.0.0+` 后标记为废弃，您可以直接使用 `import QueueAnim from 'rc-queue-anim'` 来代替。文档后续会移到 [ant-motioin](http://motion.ant.design/#/component/queue-anim)。
 
+> [ant-motioin](http://motion.ant.design/) 是一个动效设计语言，欢迎关注。
+
 元素依次进场。
 
 ```html
