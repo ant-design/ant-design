@@ -91,7 +91,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | 参数      | 说明                                     | 类型 |默认值 |
 |-----------|-----------------------------------------|-----|--------|
 | options.id | 必填输入控件唯一标志 | string | |
-| options.valuePropName | 子节点的值的属性，如 Checkbox 的是 'checked' | string | 'value' |
+| options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
 | options.validateTrigger | 校验子节点值的时机 | string | 'onChange' |

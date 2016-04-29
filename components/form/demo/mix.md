@@ -54,7 +54,7 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required>
-          <Switch {...getFieldProps('switch')} />
+          <Switch {...getFieldProps('switch', { valuePropName: 'checked' })} />
         </FormItem>
 
         <FormItem
