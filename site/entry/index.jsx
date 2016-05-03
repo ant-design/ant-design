@@ -57,7 +57,6 @@ const isZhCN =
         (navigator.language === 'zh-CN');
 const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
-console.log(appLocale);
 
 ReactDOM.render(
   <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>

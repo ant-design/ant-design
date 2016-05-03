@@ -12,7 +12,8 @@ if (module.hot) {
 }
 
 function fileNameToPath(fileName) {
-  const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
+  const snippets = fileName
+    .replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
   return snippets[snippets.length - 1];
 }
 
@@ -67,7 +68,6 @@ export function generateIndex(data) {
   const firstChild = menuItems.topLevel.topLevel.filter((item) => {
     return !item.disabled;
   })[0];
-
   return (
     <IndexRedirect key="index"
       to={fileNameToPath(firstChild.fileName)} />

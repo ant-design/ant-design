@@ -62,7 +62,7 @@ export default class Demo extends React.Component {
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Link to={{ pathname, query: { scrollTo: id } }}>
-              { localizedTitle }
+              {localizedTitle}
             </Link>
           </div>
           {introChildren}

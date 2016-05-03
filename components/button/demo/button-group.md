@@ -70,7 +70,6 @@ ReactDOM.render(
   </div>,
   mountNode
 );
->>>>>>> docs: translate the documentation of Button to English
 ````
 
 <style>
