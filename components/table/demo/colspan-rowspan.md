@@ -82,35 +82,35 @@ const data = [{
   age: 32,
   tel: '0571-22098909',
   phone: 18889898989,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   tel: '0571-22098333',
   phone: 18889898888,
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
   tel: '0575-22098909',
   phone: 18900010002,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '4',
   name: '李夫人',
   age: 18,
   tel: '0575-22098909',
   phone: 18900010002,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '5',
   name: '习大大',
   age: 18,
   tel: '0575-22098909',
   phone: 18900010002,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} bordered />

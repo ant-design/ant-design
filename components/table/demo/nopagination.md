@@ -10,13 +10,13 @@ import { Table } from 'antd';
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 
 const data = [{

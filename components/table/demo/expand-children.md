@@ -88,7 +88,7 @@ const rowSelection = {
   },
   onSelectAll(selected, selectedRows, changeRows) {
     console.log(selected, selectedRows, changeRows);
-  }
+  },
 };
 
 ReactDOM.render(

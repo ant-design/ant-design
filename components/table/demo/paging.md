@@ -40,7 +40,7 @@ const pagination = {
   },
   onChange(current) {
     console.log('Current: ', current);
-  }
+  },
 };
 
 ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />
