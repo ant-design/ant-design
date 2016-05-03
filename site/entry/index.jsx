@@ -53,7 +53,6 @@ const isZhCN =
         (navigator.language === 'zh-CN');
 const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
-console.log(appLocale);
 
 ReactDOM.render(
   <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
@@ -61,28 +60,28 @@ ReactDOM.render(
       <Route path="/" component={App}>
         <IndexRoute component={Home} />
         <Route path="components" component={ReactComponents}>
-          { utils.generateIndex(reactComponents) }
+          {utils.generateIndex(reactComponents)}
           <Route path=":children"
             component={utils.getChildrenWrapper(reactComponents)} />
         </Route>
-        { redirects }
+        {redirects}
         <Route path="docs/practice" component={Practice}>
-          { utils.generateIndex(practice) }
+          {utils.generateIndex(practice)}
           <Route path=":children"
             component={utils.getChildrenWrapper(practice)} />
         </Route>
         <Route path="docs/pattern" component={Pattern}>
-          { utils.generateIndex(pattern) }
+          {utils.generateIndex(pattern)}
           <Route path=":children"
             component={utils.getChildrenWrapper(pattern)} />
         </Route>
         <Route path="docs/spec" component={Spec}>
-          { utils.generateIndex(spec) }
+          {utils.generateIndex(spec)}
           <Route path=":children"
             component={utils.getChildrenWrapper(spec)} />
         </Route>
         <Route path="docs/resource" component={Resource}>
-          { utils.generateIndex(resource) }
+          {utils.generateIndex(resource)}
           <Route path=":children"
             component={utils.getChildrenWrapper(resource)} />
         </Route>
