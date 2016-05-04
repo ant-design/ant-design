@@ -16,7 +16,7 @@ export default class Select extends React.Component {
 
   render() {
     let {
-      size, className, combobox, notFoundContent, prefixCls, showSearch,
+      size, className, combobox, notFoundContent, prefixCls, showSearch, optionLabelProp,
     } = this.props;
 
     const cls = classNames({
@@ -28,11 +28,14 @@ export default class Select extends React.Component {
 
     if (combobox) {
       notFoundContent = null;
+      // children 带 dom 结构时，无法填入输入框
+      optionLabelProp = 'value';
     }
 
     return (
       <RcSelect {...this.props}
         className={cls}
+        optionLabelProp={optionLabelProp}
         notFoundContent={notFoundContent} />
     );
   }
