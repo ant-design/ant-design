@@ -19,6 +19,8 @@
     max-width: 100%;
     border-collapse: separate;
     text-align: left;
+    border-radius: @border-radius-base;
+    overflow: hidden;
   }
 
   th {
@@ -69,6 +71,10 @@
       border-radius: 0 0 @border-radius-base @border-radius-base;
       border: 0;
     }
+  }
+
+  &.@{table-prefix-cls}-bordered tfoot tr {
+    top: 0;
   }
 
   tr.@{table-prefix-cls}-row-selected {
