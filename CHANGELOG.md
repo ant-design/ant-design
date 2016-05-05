@@ -4,6 +4,21 @@
 
 ---
 
+## 0.12.17
+
+- 修复 FormItem 校验时表单项高度跳动的问题。[#1557](https://github.com/ant-design/ant-design/issues/1557)
+- 修复一个 Table 圆角样式的小问题。
+
+## 0.12.16
+
+- 修复 Collapse 在 safari 中切换动画异常的问题。[#1494](https://github.com/ant-design/ant-design/issues/1494)
+- 修复 Table 的 selectedRowKeys 在初次渲染时失效的问题。[#1501](https://github.com/ant-design/ant-design/issues/1501)
+- Table 现在点击选择框时将不再触发 `onRowClick`。[#1470](https://github.com/ant-design/ant-design/issues/1470)
+- 修复一个 Calender 服务端渲染时提示 `Option is not defined` 的问题。[#1521](https://github.com/ant-design/ant-design/issues/1521)
+- 修复 Menu 动态切换模式时的一些细节问题。
+- 优化了 export 导出图标。
+- 修复 Form 的一些样式细节。
+
 ## 0.12.15
 
 - 升级 rc-collapse 修复一个性能问题。
