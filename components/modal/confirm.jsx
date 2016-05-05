@@ -30,6 +30,7 @@ export default function confirm(config) {
   props.iconType = props.iconType || 'question-circle';
 
   let width = props.width || 416;
+  let style = props.style || {};
 
   // 默认为 true，保持向下兼容
   if (!('okCancel' in props)) {
@@ -124,16 +125,20 @@ export default function confirm(config) {
     [props.className]: !!props.className,
   });
 
-  ReactDOM.render(<Dialog
-    className={classString}
-    visible
-    closable={false}
-    title=""
-    transitionName="zoom"
-    footer=""
-    maskTransitionName="fade" width={width}>
-    <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
-  </Dialog>, div, function () {
+  ReactDOM.render(
+    <Dialog
+      className={classString}
+      visible
+      closable={false}
+      title=""
+      transitionName="zoom"
+      footer=""
+      maskTransitionName="fade"
+      style={style}
+      width={width}>
+      <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
+    </Dialog>
+  , div, function () {
     d = this;
   });
 }
