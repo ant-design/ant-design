@@ -24,6 +24,7 @@ english: Upload
 | fileList   | 可选参数，已经上传的文件列表                                   | Array[Object] | 无 |
 | action     | 必选参数, 上传的地址                                         | String      | 无    |
 | data       | 可选参数, 上传所需参数或返回上传参数的方法                   | Object or function(file) | 无    |
+>>>>>>> master
 | headers    | 可选参数, 设置上传的请求头部，IE10 以上有效                    | Object      | 无    |
 | showUploadList | 可选参数, 是否展示 uploadList, 默认开启                  | Boolean     | true  |
 | multiple   | 可选参数, 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | Boolean     | false |
