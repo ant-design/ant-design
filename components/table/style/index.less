@@ -7,7 +7,6 @@
 .@{table-prefix-cls} {
   font-size: @font-size-base;
   color: @text-color;
-  border-radius: @border-radius-base @border-radius-base 0 0;
   overflow: hidden;
   position: relative;
   border-radius: @border-radius-base @border-radius-base 0 0;
@@ -20,8 +19,9 @@
   table {
     width: 100%;
     border-collapse: separate;
+    border-spacing: 0;
     text-align: left;
-    border-radius: @border-radius-base;
+    border-radius: @border-radius-base @border-radius-base 0 0;
     overflow: hidden;
   }
 
@@ -65,11 +65,14 @@
 
   &-footer {
     padding: 16px 8px;
-    margin: 0 3px;
     background: @table-head-background-color;
     position: relative;
     top: -1px;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+  }
+
+  &.@{table-prefix-cls}-bordered &-footer {
+    border: 1px solid @border-color-split;
   }
 
   tr.@{table-prefix-cls}-row-selected {

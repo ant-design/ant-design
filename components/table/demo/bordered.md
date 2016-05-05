@@ -1,9 +1,9 @@
 ---
 order: 10
-title: 边框
+title: 边框和页脚
 ---
 
-添加表格边框线，`bordered`。
+添加表格边框线和页脚。
 
 ````jsx
 import { Table } from 'antd';
@@ -40,7 +40,7 @@ const data = [{
   address: '西湖区湖底公园1号',
 }];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} bordered />
+ReactDOM.render(<Table columns={columns} dataSource={data} bordered footer={() => '页脚'} />
 , mountNode);
 ````
 
