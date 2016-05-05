@@ -4,6 +4,11 @@
 
 ---
 
+## 0.12.17
+
+- 修复 FormItem 校验时表单项高度跳动的问题。[#1557](https://github.com/ant-design/ant-design/issues/1557)
+- 修复一个 Table 圆角样式的小问题。
+
 ## 0.12.16
 
 - 修复 Collapse 在 safari 中切换动画异常的问题。[#1494](https://github.com/ant-design/ant-design/issues/1494)
