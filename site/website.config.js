@@ -15,11 +15,7 @@ export default {
   },
 
   redirects: {
-    'docs/react/introduce': 'components/introduce',
-    'docs/react/getting-started': 'components/getting-started',
-    'docs/react/install': 'components/install',
-    'docs/react/upgrade-notes': 'components/upgrade-notes',
-    CHANGELOG: 'components/changelog',
+    CHANGELOG: 'docs/react/changelog',
   },
 
   docVersions: {

@@ -55,6 +55,11 @@ ReactDOM.render(
           component={utils.getChildrenWrapper(reactComponents)} />
       </Route>
       {redirects}
+      <Route path="docs/react" component={ReactComponents}>
+        {utils.generateIndex(reactComponents)}
+        <Route path=":children"
+          component={utils.getChildrenWrapper(reactComponents)} />
+      </Route>
       <Route path="docs/practice" component={Practice}>
         {utils.generateIndex(practice)}
         <Route path=":children"

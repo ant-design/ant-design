@@ -60,7 +60,7 @@ export function generateIndex(data) {
 
 const pathToFile = {};
 Object.keys(redirects).forEach((key) => pathToFile[redirects[key]] = key);
-pathToFile['components/changelog'] = './CHANGELOG'; // TODO
+pathToFile['docs/react/changelog'] = './CHANGELOG'; // TODO
 export function getChildrenWrapper(data) {
   return function childrenWrapper(props) {
     const trimedPathname = props.location.pathname.replace(/^\//, '');
