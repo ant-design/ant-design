@@ -60,7 +60,7 @@ export default class MainContent extends React.Component {
       </a>;
 
     return (
-      <Menu.Item key={key} disabled={disabled}>
+      <Menu.Item key={key.toLowerCase()} disabled={disabled}>
         {child}
       </Menu.Item>
     );
