@@ -21,7 +21,7 @@ export default class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openKeys: []
+      openKeys: ('openKeys' in props) ? props.openKeys : [],
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -29,23 +29,28 @@ export default class Menu extends React.Component {
         nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
     }
+    if ('openKeys' in nextProps) {
+      this.setState({ openKeys: nextProps.openKeys });
+    }
   }
   handleClick = (e) => {
     this.setState({
-      openKeys: []
+      openKeys: [],
     });
     this.props.onClick(e);
   }
   handleOpenKeys = (e) => {
-    this.setState({
-      openKeys: e.openKeys
-    });
+    const { openKeys } = e;
+    if (!('openKeys' in this.props)) {
+      this.setState({ openKeys });
+    }
     this.props.onOpen(e);
   }
   handleCloseKeys = (e) => {
-    this.setState({
-      openKeys: e.openKeys
-    });
+    const { openKeys } = e;
+    if (!('openKeys' in this.props)) {
+      this.setState({ openKeys });
+    }
     this.props.onClose(e);
   }
   render() {

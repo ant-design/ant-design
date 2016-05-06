@@ -13,13 +13,13 @@ const MenuItemGroup = Menu.ItemGroup;
 const App = React.createClass({
   getInitialState() {
     return {
-      current: 'mail'
+      current: 'mail',
     };
   },
   handleClick(e) {
     console.log('click ', e);
     this.setState({
-      current: e.key
+      current: e.key,
     });
   },
   render() {
