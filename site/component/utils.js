@@ -38,7 +38,7 @@ export function jsonmlToComponent(pathname, jsonml) {
     [(node) => getTagName(node) === 'video', (node, index) =>
       <VideoPlayer video={getAttributes(node)} key={index} />
     ],
-    [(node) => getTagName(node) === 'a', (node, index) =>
+    [(node) => isElement(node) && getTagName(node) === 'a', (node, index) =>
       <Link to={getAttributes(node).href} key={index}>{toReactComponent(getChildren(node)[0])}</Link>
     ],
     [(node) => {
