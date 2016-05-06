@@ -45,17 +45,28 @@ export default class Transfer extends React.Component {
 
   constructor(props) {
     super(props);
-
+    const { leftDataSource, rightDataSource } = this.splitDataSource(props);
     this.state = {
       leftFilter: '',
       rightFilter: '',
+      leftDataSource,
       leftCheckedKeys: [],
+      rightDataSource,
       rightCheckedKeys: [],
     };
   }
-
-  splitDataSource() {
-    const { targetKeys, dataSource } = this.props;
+  componentWillReceiveProps(nextProps) {
+    const { leftCheckedKeys, rightCheckedKeys } = this.state;
+    const { leftDataSource, rightDataSource } = this.splitDataSource(nextProps);
+    this.setState({
+      leftDataSource,
+      leftCheckedKeys: leftCheckedKeys.filter(data => leftDataSource.filter(leftData => leftData.key === data).length),
+      rightDataSource,
+      rightCheckedKeys: rightCheckedKeys.filter(data => rightDataSource.filter(rightData => rightData.key === data).length),
+    });
+  }
+  splitDataSource(props) {
+    const { targetKeys, dataSource } = props;
 
     let leftDataSource = [...dataSource];
     let rightDataSource = [];
@@ -99,7 +110,7 @@ export default class Transfer extends React.Component {
   moveToRight = () => this.moveTo('right')
 
   getGlobalCheckStatus(direction) {
-    const { leftDataSource, rightDataSource } = this.splitDataSource();
+    const { leftDataSource, rightDataSource } = this.state;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
@@ -134,7 +145,7 @@ export default class Transfer extends React.Component {
   }
 
   handleSelectAll = (direction) => {
-    const { leftDataSource, rightDataSource } = this.splitDataSource();
+    const { leftDataSource, rightDataSource } = this.state;
     const { leftFilter, rightFilter } = this.state;
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
     const filter = direction === 'left' ? leftFilter : rightFilter;
@@ -201,7 +212,7 @@ export default class Transfer extends React.Component {
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
-    const { leftDataSource, rightDataSource } = this.splitDataSource();
+    const { leftDataSource, rightDataSource } = this.state;
     const leftActive = rightCheckedKeys.length > 0;
     const rightActive = leftCheckedKeys.length > 0;
 
