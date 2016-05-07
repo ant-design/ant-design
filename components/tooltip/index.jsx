@@ -9,6 +9,7 @@ const placements = getPlacements({
 export default class Tooltip extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
+    openClassName: 'ant-popup',
     placement: 'top',
     transitionName: 'zoom-big',
     mouseEnterDelay: 0.1,
@@ -67,6 +68,11 @@ export default class Tooltip extends React.Component {
     if (!this.props.title && !this.props.overlay) {
       visible = false;
     }
+    if ('visible' in this.props) {
+      visible = this.props.visible;
+    }
+    const children = this.props.children;
+    const childrenCls = children.props.className ? `${children.props.className} ${this.props.openClassName}` : this.props.openClassName;
     return (
       <RcTooltip transitionName={this.props.transitionName}
         builtinPlacements={placements}
@@ -76,7 +82,7 @@ export default class Tooltip extends React.Component {
         onPopupAlign={this.onPopupAlign}
         ref="tooltip"
         {...this.props}>
-        {this.props.children}
+        {visible ? React.cloneElement(children, { className: childrenCls }) : this.props.children}
       </RcTooltip>
     );
   }
