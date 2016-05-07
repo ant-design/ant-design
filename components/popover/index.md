@@ -26,3 +26,4 @@ english: Popover
 | visible   | 用于手动控制浮层显隐                     | boolean       | false  |
 | onVisibleChange | 显示隐藏改变的回调                 | function      | 无     |
 | getTooltipContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/ONjyba?editors=001) | Function(triggerNode) | () => document.body |
+| openClassName | 气泡框展现时触发器添加的类名，可用于打开浮层时高亮触发器 | string | ant-popover-open |
