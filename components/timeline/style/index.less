@@ -33,20 +33,39 @@
       height: 12px;
       background-color: #fff;
       border-radius: 100px;
+      border: 2px solid transparent;
       &-blue {
-        border: 2px solid @primary-color;
+        border-color: @primary-color;
+        color: @primary-color;
       }
       &-red {
-        border: 2px solid @error-color;
+        border-color: @error-color;
+        color: @error-color;
       }
       &-green {
-        border: 2px solid @success-color;
+        border-color: @success-color;
+        color: @success-color;
       }
+    }
+
+    &-head-custom {
+      position: absolute;
+      text-align: center;
+      width: 40px;
+      left: -14px;
+      line-height: 1;
+      margin-top: 6px;
+      border: 0;
+      height: auto;
+      border-radius: 0;
+      padding: 3px 0;
+      font-size: 12px;
+      transform: translateY(-50%);
     }
 
     &-content {
       padding: 0 0 10px 24px;
-      font-size: 12px;
+      font-size: @font-size-base;
       position: relative;
       top: -3px;
     }

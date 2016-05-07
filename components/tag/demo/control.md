@@ -20,6 +20,15 @@ const App = React.createClass({
       ],
     };
   },
+  onClose(key, e) {
+    e.preventDefault();
+    if (key === 1) {
+      console.log('can not close it', this.state.tags);
+      this.setState({ tags: [...this.state.tags] });
+      return;
+    }
+    this.handleClose(key);
+  },
   handleClose(key) {
     const tags = [...this.state.tags].filter(tag => (tag.key !== key) && tag);
     console.log(tags);
@@ -35,7 +44,8 @@ const App = React.createClass({
     return (
       <div>
         {this.state.tags.map(tag =>
-          <Tag key={tag.key} closable afterClose={() => this.handleClose(tag.key)}>{tag.name}</Tag>
+          <Tag key={tag.key} closable onClose={(e) => this.onClose(tag.key, e)}
+            afterClose={() => this.handleClose(tag.key)}>{tag.name}</Tag>
         )}
         <div>
           <Button onClick={this.addTag}>添加标签</Button>
