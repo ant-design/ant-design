@@ -8,7 +8,6 @@ const placements = getPlacements();
 export default class Popover extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-popover',
-    openClassName: 'ant-popup',
     placement: 'top',
     transitionName: 'zoom-big',
     trigger: 'hover',

@@ -19,5 +19,3 @@ english: Tooltip
 |-----------|------------------------------------------|------------|--------|
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
 | title     | 提示文字                                 | string/React.Element | 无     |
-| openClassName     | 气泡框展现时触发器添加的class，可用于触发时触发器的样式指定 | string | ant-popup    |
-

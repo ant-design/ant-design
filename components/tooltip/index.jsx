@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
 
@@ -9,7 +9,6 @@ const placements = getPlacements({
 export default class Tooltip extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
-    openClassName: 'ant-popup',
     placement: 'top',
     transitionName: 'zoom-big',
     mouseEnterDelay: 0.1,
@@ -63,26 +62,29 @@ export default class Tooltip extends React.Component {
   }
 
   render() {
+    const { prefixCls, title, overlay, children, transitionName } = this.props;
     // Hide tooltip when there is no title
     let visible = this.state.visible;
-    if (!this.props.title && !this.props.overlay) {
+    if (!title && !overlay) {
       visible = false;
     }
     if ('visible' in this.props) {
       visible = this.props.visible;
     }
-    const children = this.props.children;
-    const childrenCls = children.props.className ? `${children.props.className} ${this.props.openClassName}` : this.props.openClassName;
+    const openClassName = this.props.openClassName || `${prefixCls}-open`;
+    const childrenCls = (children && children.props && children.props.className)
+      ? `${children.props.className} ${openClassName}` : openClassName;
     return (
-      <RcTooltip transitionName={this.props.transitionName}
+      <RcTooltip
+        transitionName={transitionName}
         builtinPlacements={placements}
-        overlay={this.props.title}
+        overlay={title}
         visible={visible}
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
         ref="tooltip"
         {...this.props}>
-        {visible ? React.cloneElement(children, { className: childrenCls }) : this.props.children}
+        {visible ? cloneElement(children, { className: childrenCls, }) : children}
       </RcTooltip>
     );
   }
