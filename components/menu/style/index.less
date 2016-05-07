@@ -130,6 +130,7 @@
   &-item,
   &-submenu-title {
     margin: 0;
+    padding: 0 20px;
     position: relative;
     display: block;
     white-space: nowrap;
@@ -143,6 +144,11 @@
         color: #999 !important;
         pointer-events: none;
       }
+    }
+
+    .anticon {
+      width: 14px;
+      margin-right: 8px;
     }
   }
 
@@ -201,14 +207,6 @@
     }
   }
 
-  &-item,
-  &-submenu-title {
-    .anticon {
-      width: 14px;
-      margin-right: 8px;
-    }
-  }
-
   &-horizontal {
     border: 0;
     border-bottom: 1px solid @border-color-split;
@@ -217,7 +215,6 @@
 
     > .@{menu-prefix-cls}-item,
     > .@{menu-prefix-cls}-submenu {
-      padding: 0 20px;
       position: relative;
       top: 1px;
       float: left;

@@ -51,8 +51,11 @@ english: Menu
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
+| disabled    | 是否禁用 | Boolean   |  false  |
+| key | 唯一标志 |  String |  |
 | title    | 子菜单项值 | String or React.Element   |    |
 | children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |
+| onTitleClick | 点击子菜单标题 | Function({ eventKey, domEvent }) |  |
 
 ### Menu.ItemGroup props
 
