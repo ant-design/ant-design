@@ -21,7 +21,7 @@ export default class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      openKeys: ('openKeys' in props) ? props.openKeys : [],
+      openKeys: [],
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -30,28 +30,27 @@ export default class Menu extends React.Component {
       this.switchModeFromInline = true;
     }
     if ('openKeys' in nextProps) {
-      this.setState({ openKeys: nextProps.openKeys });
+      this.setOpenKeys(nextProps.openKeys);
     }
   }
   handleClick = (e) => {
-    this.setState({
-      openKeys: [],
-    });
+    this.setOpenKeys([]);
     this.props.onClick(e);
   }
   handleOpenKeys = (e) => {
     const { openKeys } = e;
-    if (!('openKeys' in this.props)) {
-      this.setState({ openKeys });
-    }
+    this.setOpenKeys(openKeys);
     this.props.onOpen(e);
   }
   handleCloseKeys = (e) => {
     const { openKeys } = e;
+    this.setOpenKeys(openKeys);
+    this.props.onClose(e);
+  }
+  setOpenKeys(openKeys) {
     if (!('openKeys' in this.props)) {
       this.setState({ openKeys });
     }
-    this.props.onClose(e);
   }
   render() {
     let openAnimation = this.props.openAnimation || this.props.openTransitionName;
