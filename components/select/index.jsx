@@ -14,6 +14,10 @@ export default class Select extends React.Component {
     showSearch: false,
   }
 
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
   render() {
     let {
       size, className, combobox, notFoundContent, prefixCls, showSearch, optionLabelProp,
@@ -25,6 +29,11 @@ export default class Select extends React.Component {
       [className]: !!className,
       [`${prefixCls}-show-search`]: showSearch,
     });
+
+    const { antLocale } = this.context;
+    if (antLocale && antLocale.Select) {
+      notFoundContent = notFoundContent || antLocale.Select.notFoundContent;
+    }
 
     if (combobox) {
       notFoundContent = null;
