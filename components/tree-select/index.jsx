@@ -15,6 +15,10 @@ export default class TreeSelect extends React.Component {
     showSearch: false,
   }
 
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
   render() {
     const props = this.props;
     let {
@@ -26,6 +30,11 @@ export default class TreeSelect extends React.Component {
       [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
     });
+
+    const { antLocale } = this.context;
+    if (antLocale && antLocale.Select) {
+      notFoundContent = notFoundContent || antLocale.Select.notFoundContent;
+    }
 
     if (combobox) {
       notFoundContent = null;

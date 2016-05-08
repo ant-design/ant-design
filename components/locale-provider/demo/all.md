@@ -7,8 +7,9 @@ title: 所有组件
 
 ````jsx
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
-         Popconfirm, Table, Modal, Button, Select, Transfer } from 'antd';
+         Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
+import ruRU from 'antd/lib/locale-provider/ru_RU';
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
 
@@ -55,6 +56,10 @@ const Page = React.createClass({
           <Pagination defaultCurrent={1} total={50} showSizeChanger />
         </div>
         <div className="example">
+          <Select showSearch style={{ width: 200 }}>
+            <Option value="jack">jack</Option>
+            <Option value="lucy">lucy</Option>
+          </Select>
           <DatePicker />
           <TimePicker />
           <RangePicker style={{ width: 200 }} />
@@ -95,18 +100,19 @@ const App = React.createClass({
       locale: enUS,
     };
   },
-  changeLocale(locale) {
-    this.setState({ locale });
+  changeLocale(e) {
+    this.setState({ locale: e.target.value });
   },
   render() {
     return (
       <div>
         <div className="change-locale">
-          <span>Change locale of components: </span>
-          <Select defaultValue={enUS} onChange={this.changeLocale} dropdownMatchSelectWidth={false}>
-            <Option value={enUS}>English</Option>
-            <Option value={null}>中文</Option>
-          </Select>
+          <span style={{ marginRight: 16 }}>Change locale of components: </span>
+          <Radio.Group defaultValue={enUS} onChange={this.changeLocale}>
+            <Radio.Button key="en" value={enUS}>English</Radio.Button>
+            <Radio.Button key="ru" value={ruRU}>русский язык</Radio.Button>
+            <Radio.Button key="cn" value={null}>中文</Radio.Button>
+          </Radio.Group>
         </div>
         <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>

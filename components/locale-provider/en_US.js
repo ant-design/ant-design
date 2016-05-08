@@ -29,4 +29,7 @@ export default {
     itemUnit: 'item',
     itemsUnit: 'items',
   },
+  Select: {
+    notFoundContent: 'Not Found',
+  },
 };
