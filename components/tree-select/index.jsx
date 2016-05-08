@@ -13,6 +13,11 @@ export default class TreeSelect extends React.Component {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
     showSearch: false,
+    dropdownClassName: 'ant-select-tree-dropdown',
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
   }
 
   render() {
@@ -26,6 +31,11 @@ export default class TreeSelect extends React.Component {
       [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
     });
+
+    const { antLocale } = this.context;
+    if (antLocale && antLocale.Select) {
+      notFoundContent = notFoundContent || antLocale.Select.notFoundContent;
+    }
 
     if (combobox) {
       notFoundContent = null;

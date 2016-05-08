@@ -19,8 +19,7 @@
     outline: 0;
     &.filter-node {
       > a {
-        color: @error-color!important;
-        font-weight: bold!important;
+        font-weight: bold !important;
       }
     }
     ul {
@@ -112,4 +111,11 @@
     margin-right: 2px;
     vertical-align: top;
   }
+}
+
+.@{select-tree-prefix-cls}-dropdown .ant-select-dropdown-search + span {
+  padding: 7px 15px;
+  color: #ccc;
+  cursor: not-allowed;
+  display: block;
 }
