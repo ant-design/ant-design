@@ -13,6 +13,7 @@ export default class TreeSelect extends React.Component {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
     showSearch: false,
+    dropdownClassName: 'ant-select-tree-dropdown',
   }
 
   static contextTypes = {
