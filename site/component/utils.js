@@ -38,9 +38,13 @@ export function jsonmlToComponent(pathname, jsonml) {
     [(node) => getTagName(node) === 'video', (node, index) =>
       <VideoPlayer video={getAttributes(node)} key={index} />
     ],
-    [(node) => isElement(node) && getTagName(node) === 'a', (node, index) =>
-      <Link to={getAttributes(node).href} key={index}>{toReactComponent(getChildren(node)[0])}</Link>
-    ],
+    [(node) => isElement(node) && getTagName(node) === 'a', (node, index) => {
+      if (getAttributes(node).class ||
+          (getAttributes(node).href && getAttributes(node).href.indexOf('http') === 0)) {
+        return toReactComponent(node);
+      }
+      return <Link to={getAttributes(node).href} key={index}>{toReactComponent(getChildren(node)[0])}</Link>;
+    }],
     [(node) => {
       return isElement(node) &&
         getTagName(node) === 'p' &&
