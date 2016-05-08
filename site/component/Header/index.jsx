@@ -137,8 +137,8 @@ export default class Header extends React.Component {
                   模式
                 </Link>
               </Menu.Item>
-              <Menu.Item key="components">
-                <Link to="/components">
+              <Menu.Item key="docs/react">
+                <Link to="/docs/react">
                   组件
                 </Link>
               </Menu.Item>
