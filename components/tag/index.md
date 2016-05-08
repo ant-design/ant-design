@@ -14,9 +14,9 @@ english: Tag
 
 ## API
 
-| 参数           | 说明                           | 类型       |  可选值 | 默认值 |
-|----------------|--------------------------------|------------|---------|--------|
-| closable       | 标签是否可以关闭               | boolean    |         | false  |
-| onClose        | 关闭时的回调                   | function   |         | 无     |
-| afterClose     | 动画关闭后的回调                | function   |         | 无     |
-| color          | 标签的色彩                     | string     | blue green yellow red | 无 |
+| 参数           | 说明                           | 类型  | 默认值 |
+|----------------|-------------------------------|------|--------|
+| closable       | 标签是否可以关闭               | boolean    | false  |
+| onClose        | 关闭时的回调                   | function(event) | - |
+| afterClose     | 动画关闭后的回调                | function(event) | - |
+| color          | 标签的色彩：`blue` `green` `yellow` `red` | string | - |
