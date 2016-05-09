@@ -10,6 +10,13 @@ export default class Spin extends React.Component {
     spinning: true,
   }
 
+  constructor(props) {
+    super(props);
+    const spinning = this.getSpinning(props);
+    this.state = {
+      spinning,
+    };
+  }
   static propTypes = {
     className: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'default', 'large']),
@@ -26,10 +33,29 @@ export default class Spin extends React.Component {
       findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
     }
   }
-
+  getSpinning(props) {
+    warning(!('spining' in this.props), '`spining` property of Spin is a spell mistake, use `spinning` instead.');
+    const { spinning, spining } = props;
+    // Backwards support
+    if (spining !== undefined) {
+      return spining;
+    }
+    return spinning;
+  }
+  componentWillReceiveProps(nextProps) {
+    const spinning = this.getSpinning(nextProps);
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+    if (spinning) {
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 250);
+    } else {
+      this.setState({ spinning });
+    }
+  }
   render() {
-    const { className, size, prefixCls, tip, spining = true } = this.props;
-    const spinning = this.props.spinning && spining;  // Backwards support
+    const { className, size, prefixCls, tip } = this.props;
+    const { spinning } = this.state;
 
     const spinClassName = classNames({
       [prefixCls]: true,
