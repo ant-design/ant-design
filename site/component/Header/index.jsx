@@ -17,6 +17,22 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onScroll = debounce(() => {
+      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+      if (scrollTop >= clientHeight) {
+        this.setState({ isFirstFrame: false });
+      } else {
+        this.setState({ isFirstFrame: true });
+      }
+    }, 100);
+
+    this.onDocumentClick = () => {
+      this.setState({
+        menuVisible: false,
+      });
+    };
+
     this.state = {
       menuVisible: false,
       menuMode: 'horizontal',
@@ -25,21 +41,9 @@ export default class Header extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', debounce(() => {
-      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-      if (scrollTop >= clientHeight) {
-        this.setState({ isFirstFrame: false });
-      } else {
-        this.setState({ isFirstFrame: true });
-      }
-    }, 100));
+    window.addEventListener('scroll', this.onScroll);
 
-    document.addEventListener('click', () => {
-      this.setState({
-        menuVisible: false,
-      });
-    });
+    document.addEventListener('click', this.onDocumentClick);
 
     enquire.register('only screen and (min-width: 320px) and (max-width: 767px)', {
       match: () => {
@@ -49,6 +53,11 @@ export default class Header extends React.Component {
         this.setState({ menuMode: 'horizontal' });
       },
     });
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    document.removeEventListener('click', this.onDocumentClick);
   }
 
   handleMenuIconClick = (e) => {

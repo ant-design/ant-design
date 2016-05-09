@@ -61,15 +61,30 @@ export function generateIndex(data) {
 const pathToFile = {};
 Object.keys(redirects).forEach((key) => pathToFile[redirects[key]] = key);
 pathToFile['docs/react/changelog'] = './CHANGELOG'; // TODO
+
+function getDoc(data, props) {
+  const trimedPathname = props.location.pathname.replace(/^\//, '');
+  const processedPathname = pathToFile[trimedPathname] || trimedPathname;
+  const doc = data[`${processedPathname}.md`] ||
+          data[`${processedPathname}/index.md`];
+  return doc;
+}
+
 export function getChildrenWrapper(data) {
   return function childrenWrapper(props) {
-    const trimedPathname = props.location.pathname.replace(/^\//, '');
-    const processedPathname = pathToFile[trimedPathname] || trimedPathname;
-    const doc = data[`${processedPathname}.md`] ||
-            data[`${processedPathname}/index.md`];
+    const doc = getDoc(data, props);
     const hasDemos = demosList[doc.meta.fileName];
     return !hasDemos ?
       <Article {...props} content={doc} /> :
       <ComponentDoc {...props} doc={doc} />;
+  };
+}
+
+export function getEnterHandler(data) {
+  return function handleEnter(nextState, replace) {
+    const doc = getDoc(data, nextState);
+    if (!doc) {
+      replace('/404');
+    }
   };
 }
