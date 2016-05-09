@@ -21,8 +21,14 @@ export default class Cascader extends React.Component {
 
   constructor(props) {
     super(props);
+    let value;
+    if ('value' in props) {
+      value = props.value;
+    } else if ('defaultValue' in props) {
+      value = props.defaultValue;
+    }
     this.state = {
-      value: props.value || props.defaultValue || [],
+      value: value || [],
       popupVisible: false,
     };
   }
