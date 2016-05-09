@@ -52,32 +52,38 @@ ReactDOM.render(
       <Route path="components" component={ReactComponents}>
         {utils.generateIndex(reactComponents)}
         <Route path=":children"
+          onEnter={utils.getEnterHandler(reactComponents)}
           component={utils.getChildrenWrapper(reactComponents)} />
       </Route>
       {redirects}
       <Route path="docs/react" component={ReactComponents}>
         {utils.generateIndex(reactComponents)}
         <Route path=":children"
+          onEnter={utils.getEnterHandler(reactComponents)}
           component={utils.getChildrenWrapper(reactComponents)} />
       </Route>
       <Route path="docs/practice" component={Practice}>
         {utils.generateIndex(practice)}
         <Route path=":children"
+          onEnter={utils.getEnterHandler(practice)}
           component={utils.getChildrenWrapper(practice)} />
       </Route>
       <Route path="docs/pattern" component={Pattern}>
         {utils.generateIndex(pattern)}
         <Route path=":children"
+          onEnter={utils.getEnterHandler(pattern)}
           component={utils.getChildrenWrapper(pattern)} />
       </Route>
       <Route path="docs/spec" component={Spec}>
         {utils.generateIndex(spec)}
         <Route path=":children"
+          onEnter={utils.getEnterHandler(spec)}
           component={utils.getChildrenWrapper(spec)} />
       </Route>
       <Route path="docs/resource" component={Resource}>
         {utils.generateIndex(resource)}
         <Route path=":children"
+          onEnter={utils.getEnterHandler(resource)}
           component={utils.getChildrenWrapper(resource)} />
       </Route>
     </Route>
