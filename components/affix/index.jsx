@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Dom } from 'rc-util';
 import classNames from 'classnames';
+import warning from 'warning';
 
 function getScroll(w, top) {
   let ret = w[`page${top ? 'Y' : 'X'}Offset`];
@@ -46,7 +47,11 @@ export default class Affix extends React.Component {
   }
 
   handleScroll = () => {
-    let { offsetTop, offsetBottom } = this.props;
+    let { offsetTop, offsetBottom, offset } = this.props;
+
+    // Backwards support
+    offsetTop = offsetTop || offset;
+
     const scrollTop = getScroll(window, true);
     const elemOffset = getOffset(ReactDOM.findDOMNode(this));
     const elemSize = {
@@ -94,6 +99,7 @@ export default class Affix extends React.Component {
   }
 
   componentDidMount() {
+    warning(!('offset' in this.props), '`offset` prop of Affix is deprecated, use `offsetTop` instead.');
     this.scrollEvent = Dom.addEventListener(window, 'scroll', this.handleScroll);
     this.resizeEvent = Dom.addEventListener(window, 'resize', this.handleScroll);
   }
