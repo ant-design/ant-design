@@ -34,7 +34,7 @@ export default class Spin extends React.Component {
     }
   }
   getSpinning(props) {
-    warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
+    warning(!('spining' in this.props), '`spining` property of Spin is a spell mistake, use `spinning` instead.');
     const { spinning, spining } = props;
     // Backwards support
     if (spining !== undefined) {
@@ -48,7 +48,7 @@ export default class Spin extends React.Component {
       clearTimeout(this.debounceTimeout);
     }
     if (spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 500);
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 250);
     } else {
       this.setState({ spinning });
     }

@@ -709,18 +709,16 @@ export default class Table extends React.Component {
           {emptyText}
       </div>
     );
-    if (this.props.loading) {
-      // if there is no pagination or no data,
-      // the height of spin should decrease by half of pagination
-      const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
-              ? 'ant-table-with-pagination'
-              : 'ant-table-without-pagination';
-      const spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
-      table = <Spin className={spinClassName}>{table}</Spin>;
-    }
+    // if there is no pagination or no data,
+    // the height of spin should decrease by half of pagination
+    const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
+            ? 'ant-table-with-pagination'
+            : 'ant-table-without-pagination';
+    const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
+    table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
       <div className={`clearfix${emptyClass}`}>
-        {table}
+        {<Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>}
         {this.renderPagination(data)}
       </div>
     );

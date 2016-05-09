@@ -10,14 +10,10 @@ import { Spin, Switch, Alert } from 'antd';
 
 const Card = React.createClass({
   getInitialState() {
-    return {
-      loading: false
-    };
+    return { loading: false };
   },
   toggle(value) {
-    this.setState({
-      loading: value
-    });
+    this.setState({ loading: value });
   },
   render() {
     const container = (
@@ -27,7 +23,7 @@ const Card = React.createClass({
     );
     return (
       <div>
-        <Spin spining={this.state.loading}>{container}</Spin>
+        <Spin spinning={this.state.loading}>{container}</Spin>
         切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
       </div>
     );
@@ -36,15 +32,3 @@ const Card = React.createClass({
 
 ReactDOM.render(<Card />, mountNode);
 ````
-
-````css
-.card-example {
-  border-radius: 4px;
-  padding: 24px;
-  height: 100px;
-  border: 1px solid #e9e9e9;
-  background: url(https://t.alipayobjects.com/images/rmsweb/T10_NiXeRcXXXXXXXX.png);
-  margin-bottom: 16px;
-}
-````
-
