@@ -11,7 +11,6 @@ const noop = () => {};
 export default class Popconfirm extends React.Component {
   static defaultProps = {
     transitionName: 'zoom-big',
-    openClassName: 'ant-popup',
     placement: 'top',
     trigger: 'click',
     overlayStyle: {},
