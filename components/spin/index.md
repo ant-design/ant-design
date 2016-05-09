@@ -20,4 +20,3 @@ english: Spin
 | size       | enum           | default     | spin组件中点的大小，可选值为 small default large |
 | spinning   | boolean        | true        | 用于内嵌其他组件的模式，可以关闭 loading 效果    |
 | tip    | string        | 无        | 自定义描述文案 |
-| debounce | number | 0 | 毫秒，用于设定去抖动的 debounce 值。|

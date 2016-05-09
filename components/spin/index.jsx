@@ -8,13 +8,14 @@ export default class Spin extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
-    debounce: 0,
   }
 
   constructor(props) {
     super(props);
+    const { spining } = props;
+    const spinning = props.spinning && spining;
     this.state = {
-      spinning: props.spinning || props.spining,
+      spinning,
     };
   }
   static propTypes = {
@@ -34,13 +35,13 @@ export default class Spin extends React.Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    const { spining = true, debounce } = nextProps;
-    const spinning = this.props.spinning && spining;  // Backwards support
+    const { spining = true } = nextProps;
+    const spinning = nextProps.spinning && spining;  // Backwards support
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    if (debounce && spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), debounce);
+    if (spinning) {
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 500);
     } else {
       this.setState({ spinning });
     }
