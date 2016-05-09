@@ -3,7 +3,11 @@ order: 4
 english: 升级指南
 ---
 
-此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/components/changelog)。
+此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/docs/react/changelog)。
+
+## 0.12 => 1.0.0
+
+`1.0.0` 之后将不再单独提供升级指南，请参考对应版本 [Changelog](/docs/react/changelog) 中的 `不兼容改动` 进行升级。
 
 ## 0.11 => 0.12
 
