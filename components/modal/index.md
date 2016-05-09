@@ -30,7 +30,8 @@ english: Modal
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       |
-| style | 可用于设置浮层的样式，调整浮层位置等 | Object   | -       |
+| style | 可用于设置浮层的样式，调整浮层位置等 | Object   | - |
+| wrapClassName | 对话框外层容器的类名 | String   | - |
 
 ### Modal.xxx()
 
