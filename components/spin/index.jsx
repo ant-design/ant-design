@@ -12,8 +12,7 @@ export default class Spin extends React.Component {
 
   constructor(props) {
     super(props);
-    const { spining } = props;
-    const spinning = props.spinning && spining;
+    const spinning = this.getSpinning(props);
     this.state = {
       spinning,
     };
@@ -34,9 +33,17 @@ export default class Spin extends React.Component {
       findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
     }
   }
+  getSpinning(props) {
+    warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
+    const { spinning, spining } = props;
+    // Backwards support
+    if (spining !== undefined) {
+      return spining;
+    }
+    return spinning;
+  }
   componentWillReceiveProps(nextProps) {
-    const { spining = true } = nextProps;
-    const spinning = nextProps.spinning && spining;  // Backwards support
+    const spinning = this.getSpinning(nextProps);
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
