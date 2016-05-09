@@ -2,7 +2,7 @@ import React from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-export default class Select extends React.Component {
+export default class AutoComplete extends React.Component {
   static Option = Option;
   static OptGroup = OptGroup;
 
@@ -35,7 +35,7 @@ export default class Select extends React.Component {
         case 'string':
           return <Option key={item}>{item}</Option>;
         case 'object':
-          if (item.type && (item.type.name === 'Option')) {
+          if (React.isValidElement(item)) {
             return React.cloneElement(item, {
               key: item.key || index
             });
