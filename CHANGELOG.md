@@ -33,7 +33,6 @@ timeline: true
 
 - 调整了样式目录结构，入口文件变为 `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558)。
 - 完全移除了 `0.12` 中废弃的 Validation 组件。[#1096](https://github.com/ant-design/ant-design/issues/1096)
-- Affix 的 `offset` 属性重命名为 `offsetTop`。
 - Breadcrumb.Item 的 `href` 属性被移除，请直接用 `a` 标签包裹可点击的内容。
 - Modal 移除 了`align` 属性，现在可以使用 `style` 属性调整位置。
 - `Modal.confirm` 等方法的配置项 `iconClassName` 重命名为 `iconType`。
@@ -43,12 +42,14 @@ timeline: true
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
 - 废弃 QueueAnim，可以直接使用 [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。动画方案已移至 [motion.ant.design](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
+- Affix 的 `offset` 属性重命名为 `offsetTop`。
 - Popover 的 `overlay` 属性重命名为 `content`。
 - Progress.Line 使用方式改为 `<Progress />` 或 `<Progress type="line" />`。
 - Progress.Circle 使用方式改为 `<Progress type="circle" />`。
 - Spin 的 `spining` 属性更正为 `spinning`。
 - Alert 的 type `warn` 重命名为 `warning`。[#1225](https://github.com/ant-design/ant-design/issues/1225)
 - `notification.warn`、`message.warn` 修改为 `notification.warning` 和 `message.warning`。[#1225](https://github.com/ant-design/ant-design/issues/1225)
+- Tree 的 `onExpand` 参数从 `function(node, expanded, expandedKeys)` 调整为 `function(expandedKeys, {expanded, node})`。
 
 ### Bug 修复
 
@@ -71,15 +72,15 @@ timeline: true
 - DatePicker 和 TimePicker 的 `onChange(date, dateString)` 方法增加第二个参数用于获得格式化后的日期字符串。[#1104](https://github.com/ant-design/ant-design/issues/1104)
 - DatePicker 和 DatePicker.RangePicker 现在可以设置内部 TimePikcer 的属性。[#1415](https://github.com/ant-design/ant-design/issues/1415)
 - Checkbox
-  - 使用方式修改为 `<Checkbox>option</Checkbox>`。[#1029](https://github.com/ant-design/ant-design/issues/1029)
+  - 支持类似 Radio 的使用方式 `<Checkbox>option</Checkbox>`。[#1029](https://github.com/ant-design/ant-design/issues/1029)
   - Checkbox.Group 现在允许 `label` 和 `value` 不同。[#1025](https://github.com/ant-design/ant-design/issues/1025)
   - Checkbox.Group 允许单独设置某个 Checkbox 为 `disabled`。[#1218](https://github.com/ant-design/ant-design/issues/1218)
 - Breadcrumb
   - 支持路由模式下自定义链接 `linkRender`。[#1026](https://github.com/ant-design/ant-design/issues/1026)
   - 支持路由模式下自定义最后一项内容 `nameRender`。[#1304](https://github.com/ant-design/ant-design/issues/1304)
 - Modal
-  - 新增 `Modal.warning`。
-  - Modal 弹出时时背景不再跟随滚动。[#1195](https://github.com/ant-design/ant-design/issues/1195)
+  - 新增 `Modal.warning` 方法。
+  - 弹出时背景不再跟随滚动。[#1195](https://github.com/ant-design/ant-design/issues/1195)
 - Select
   - 搜索框和单选选择框合并，以优化视觉和交互效果。
   - 优化多选框的选中效果。
@@ -95,7 +96,6 @@ timeline: true
   - `color` 属性现在支持自定义色值。
 - Tree
   - 当子节点被选中时，自动展开父节点。
-  - `onExpand` 参数从 `function(node, expanded, expandedKeys)` 调整为 `function(expandedKeys, {expanded, node})`。
   - 新增 `checkStrictly` 属性，支持父子节点选中关系脱离。
 - Upload
   - 在上传文件列表中的文件被删除时，将触发 `onRemove` 事件。[#1240](https://github.com/ant-design/ant-design/issues/1240)
