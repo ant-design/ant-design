@@ -369,13 +369,13 @@
   }
 
   // card style
-  &&-card &-nav-container {
+  &&-card > &-bar &-nav-container {
     height: 36px;
   }
-  &&-card &-ink-bar {
+  &&-card > &-bar &-ink-bar {
     visibility: hidden;
   }
-  &&-card &-tab {
+  &&-card > &-bar &-tab {
     margin: 0;
     border: 1px solid transparent;
     border-bottom: 0;
@@ -384,24 +384,24 @@
     background: #f9f9f9;
     margin-right: 2px;
   }
-  &&-card &-tab-inner {
+  &&-card > &-bar &-tab-inner {
     padding: 7px 16px 6px;
     transition: all 0.3s @ease-in-out;
   }
-  &&-card &-tab-active {
+  &&-card > &-bar &-tab-active {
     background: #fff;
     transform: translateZ(0);
     border-color: @border-color-base;
     color: @primary-color;
   }
-  &&-card &-tab-active &-tab-inner {
+  &&-card > &-bar &-tab-active &-tab-inner {
     padding-bottom: 7px;
     transform: translateZ(0);
   }
-  &&-card &-nav-wrap {
+  &&-card > &-bar &-nav-wrap {
     margin-bottom: 0;
   }
-  &&-card &-tab-inner .anticon-cross {
+  &&-card > &-bar &-tab-inner .anticon-cross {
     margin-right: 0;
     color: #999;
     transition: all 0.3s @ease-in-out;
@@ -417,13 +417,13 @@
     }
   }
 
-  &&-editable-card &-tab:not(&-tab-active):hover &-tab-inner {
+  &&-editable-card > &-bar &-tab:not(&-tab-active):hover &-tab-inner {
     padding-left: 8px;
     padding-right: 8px;
   }
 
-  &&-card &-tab-active .anticon-cross,
-  &&-card &-tab:hover .anticon-cross {
+  &&-card > &-bar &-tab-active .anticon-cross,
+  &&-card > &-bar &-tab:hover .anticon-cross {
     width: 16px;
     transform: translateZ(0);
   }
