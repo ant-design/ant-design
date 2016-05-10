@@ -93,7 +93,6 @@
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
     "lesshint": "^1.2.1",
-    "lodash": "^4.1.0",
     "lodash.debounce": "^4.0.6",
     "pre-commit": "1.x",
     "querystring": "^0.2.0",
