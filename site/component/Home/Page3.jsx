@@ -15,7 +15,7 @@ export default function Page3() {
         <h2 key="h2">丰富的基础组件</h2>
         <p key="p" style={{ maxWidth: 280 }}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。</p>
         <div key="button">
-          <Link to="/components">
+          <Link to="/docs/react">
             <Button type="primary" size="large">
               了解更多
               <Icon type="right" />
