@@ -33,11 +33,11 @@ timeline: true
 
 此版本是含有不兼容的改动，升级时确保更新相应的使用代码。
 
-- 调整了样式目录结构，**入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558)。
+- 调整了样式目录结构，**入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
 
    ```diff
-   - import 'antd/style/index.css';  // import 'antd/style/index.less';
-   + import 'antd/dist/antd.css';    // import 'antd/style/antd.less';
+   - import 'antd/lib/index.css';  // import 'antd/style/index.less';
+   + import 'antd/dist/antd.css';  // import 'antd/dist/antd.less';
    ```
 
 - 完全移除了 `0.12` 中废弃的 Validation 组件，可以直接 import [rc-form-validation](https://github.com/react-component/form-validation) 用以代替。[#1096](https://github.com/ant-design/ant-design/issues/1096)
