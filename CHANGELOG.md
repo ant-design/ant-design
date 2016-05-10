@@ -24,7 +24,7 @@ timeline: true
 - 新增卡片组件 [Card](/components/card)。
 - 新增评分组件 [Rate](/components/rate)。
 - 新增 [LocaleProvider](/components/locale-provider) 组件，提供组件文案的国际化支持，并新增了英语和俄语的语言配置。[#1411](https://github.com/ant-design/ant-design/issues/1411)
-- 更好的服务端渲染支持，修复了 Badge、Spin、Calendar 等组件服务端渲染的问题。
+- 更好的服务端渲染支持，修复了 Badge、Spin、Calendar、Upload 等组件服务端渲染的问题。
 - 新增 antd.d.ts 以更好的支持 TypeScript。[@bang88](https://github.com/bang88)
 - 布局组件支持响应式布局和栅格间隔设置。[#1082](https://github.com/ant-design/ant-design/issues/1082)
 - Table 支持固定列和横向滚动。[#1265](https://github.com/ant-design/ant-design/issues/1265)

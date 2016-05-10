@@ -24,7 +24,6 @@ english: Upload
 | fileList   | 可选参数，已经上传的文件列表                                   | Array[Object] | 无 |
 | action     | 必选参数, 上传的地址                                         | String      | 无    |
 | data       | 可选参数, 上传所需参数或返回上传参数的方法                   | Object or function(file) | 无    |
->>>>>>> master
 | headers    | 可选参数, 设置上传的请求头部，IE10 以上有效                    | Object      | 无    |
 | showUploadList | 可选参数, 是否展示 uploadList, 默认开启                  | Boolean     | true  |
 | multiple   | 可选参数, 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | Boolean     | false |
@@ -34,16 +33,19 @@ english: Upload
 | listType   | 上传列表的内建样式，支持两种基本样式 `text` or `picture`     | String      | 'text'|
 | onPreview  | 点击文件链接时的回调                                       | Function(file) | 无    |
 | onRemove   | 点击移除文件时的回调                                       | Function(file) | 无    |
+| supportServerRender | 服务端渲染时需要打开这个                           | Boolean | false    |
 
 ### onChange
+
+> 上传中、完成、失败都会调用这个函数。
 
 文件状态改变的回调，返回为：
 
 ```js
 {
-  file: { ... },
-  fileList: [ ... ],
-  event: { ... }
+  file: { /* ... */ },
+  fileList: [ /* ... */ ],
+  event: { /* ... */ },
 }
 ```
 
@@ -54,7 +56,7 @@ english: Upload
       uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突
       name: 'xx.png'   // 文件名
       status: 'done',  // 状态有：uploading done error removed
-      response: '{"status":"success"}'  // 服务端响应内容
+      response: '{"status": "success"}',  // 服务端响应内容
    }
    ```
 
