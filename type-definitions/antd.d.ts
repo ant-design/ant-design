@@ -853,6 +853,7 @@ declare namespace Antd {
   type ModalFunc = (options: {
     visible?: boolean,
     title?: React.ReactNode | string,
+    content?: React.ReactNode | string,
     onOk?: Function,
     onCancel?: Function,
     width?: string | number,
