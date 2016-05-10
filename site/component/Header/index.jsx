@@ -78,7 +78,8 @@ export default class Header extends React.Component {
 
   render() {
     const routes = this.props.routes;
-    const activeMenuItem = routes[1].path || 'home';
+    let activeMenuItem = routes[1].path || 'home';
+    activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
     const options = Object.keys(componentsList).map((key) => {
       return componentsList[key];
