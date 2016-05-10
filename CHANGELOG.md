@@ -31,7 +31,7 @@ timeline: true
 
 ### 不兼容改动
 
-此版本是含有不兼容的改动，升级时确保更新相应的使用代码。
+此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
 
 - 调整了样式目录结构，**入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
 
