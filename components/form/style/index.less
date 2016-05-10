@@ -27,11 +27,6 @@ label {
   color: @label-required-color;
 }
 
-//== Input type: with extra icon
-.has-feedback {
-  .input-with-icon();
-}
-
 //== Style for input-group: input with label, with button or dropdown...
 .ant-input-group {
   .input-group(~"ant-input");
@@ -122,10 +117,6 @@ input[type="checkbox"] {
 // 表单下的输入框尺寸唯一: 大尺寸
 form {
   .has-feedback {
-    .@{iconfont-css-prefix} {
-      .square(@input-height-lg);
-      line-height: @input-height-lg;
-    }
     .ant-input {
       padding-right: 24px;
     }
@@ -176,7 +167,8 @@ form {
     margin-right: 8px;
   }
 
-  .ant-select {
+  .ant-select,
+  .ant-cascader-picker {
     width: 100%;
   }
 }

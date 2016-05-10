@@ -7,11 +7,24 @@ title: 表单组合
 
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
-         Slider, Button, Col, Upload, Icon } from 'antd';
+         Cascader, Slider, Button, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+
+const areaData = [{
+  value: 'shanghai',
+  label: '上海',
+  children: [{
+    value: 'shanghaishi',
+    label: '上海市',
+    children: [{
+      value: 'pudongxinqu',
+      label: '浦东新区',
+    }],
+  }],
+}];
 
 let Demo = React.createClass({
   handleSubmit(e) {
@@ -77,6 +90,15 @@ let Demo = React.createClass({
             <Option value="disabled" disabled>disabled</Option>
             <Option value="yiminghe">yiminghe</Option>
           </Select>
+        </FormItem>
+
+        <FormItem
+          label="级联选择："
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          required
+          hasFeedback>
+          <Cascader style={{ width: 200 }} options={areaData} {...getFieldProps('area')} />
         </FormItem>
 
         <FormItem
