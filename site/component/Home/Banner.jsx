@@ -33,7 +33,7 @@ export default class Banner extends React.Component {
             <GitHubButton key="github-button" type="stargazers"
               namespace="ant-design" repo="ant-design" />
           </QueueAnim>
-          <TweenOne className="down" animation={[{ opacity: 1 }, { y: 10, duration: 800, yoyo: true, repeat: -1 }]}>
+          <TweenOne className="down" animation={{ y: 10, duration: 800, yoyo: true, repeat: -1 }}>
             <Icon type="down" />
           </TweenOne>
         </ScrollElement>
