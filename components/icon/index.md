@@ -74,12 +74,12 @@ ul.anticons-list {
 }
 ul.anticons-list li {
   float: left;
-  margin: 5px 5px 5px 0;
-  width: 155px;
+  margin: 6px 6px 6px 0;
+  width: 145px;
   text-align: center;
   list-style: none;
   cursor: pointer;
-  height: 110px;
+  height: 100px;
   color: #5C6B77;
   transition: all 0.2s ease;
   position: relative;
@@ -117,8 +117,8 @@ ul.anticons-list li.copied:after {
 .anticon-class {
   display: block;
   text-align: center;
-  word-wrap: break-word;
   transform: scale(0.83);
   font-family: Consolas;
+  white-space: nowrap;
 }
 </style>
