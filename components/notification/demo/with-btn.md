@@ -1,10 +1,9 @@
-# 自定义
-
-- order: 4
+---
+order: 4
+title: 自定义
+---
 
 自定义关闭按钮的样式和文字。
-
----
 
 ````jsx
 import { Button, notification } from 'antd';

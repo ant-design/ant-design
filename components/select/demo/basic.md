@@ -1,10 +1,9 @@
-# 基本使用
-
-- order: 0
+---
+order: 0
+title: 基本使用
+---
 
 基本使用。
-
----
 
 ````jsx
 import { Select } from 'antd';
@@ -22,7 +21,7 @@ ReactDOM.render(
       <Option value="disabled" disabled>Disabled</Option>
       <Option value="yiminghe">yiminghe</Option>
     </Select>
-    <Select defaultValue="lucy" style={{ width: 120 }} disabled>
+    <Select defaultValue="lucy" style={{ width: 120 }} allowClear disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
   </div>

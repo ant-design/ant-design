@@ -1,10 +1,9 @@
-# 和外部组件通信
-
-- order: 2
+---
+order: 2
+title: 和外部组件通信
+---
 
 联动 checkbox。
-
----
 
 ````jsx
 import { Checkbox, Button } from 'antd';
@@ -21,25 +20,24 @@ const App = React.createClass({
     return (
       <div>
         <p style={{ marginBottom: '20px' }}>
-          <label>
-            <Checkbox checked={this.state.checked}
-              disabled={this.state.disabled}
-              onChange={this.onChange} />
-              {label}
-            </label>
-          </p>
-          <p>
-            <Button type="primary" size="small"
-              onClick={this.toggleChecked}>
-              {!this.state.checked ? '选中' : '取消'}
-            </Button>
-            <Button style={{ marginLeft: '10px' }}
-              type="primary" size="small"
-              onClick={this.toggleDisable}>
-              {!this.state.disabled ? '不可用' : '可用'}
-            </Button>
-          </p>
-        </div>
+          <Checkbox checked={this.state.checked}
+            disabled={this.state.disabled}
+            onChange={this.onChange}>
+            {label}
+          </Checkbox>
+        </p>
+        <p>
+          <Button type="primary" size="small"
+            onClick={this.toggleChecked}>
+            {!this.state.checked ? '选中' : '取消'}
+          </Button>
+          <Button style={{ marginLeft: '10px' }}
+            type="primary" size="small"
+            onClick={this.toggleDisable}>
+            {!this.state.disabled ? '不可用' : '可用'}
+          </Button>
+        </p>
+      </div>
     );
   },
   toggleChecked() {

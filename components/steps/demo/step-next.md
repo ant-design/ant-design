@@ -1,10 +1,9 @@
-# 切换到下一步
-
-- order: 3
+---
+order: 3
+title: 切换到下一步
+---
 
 随机生成 3~6 个步骤，初始随机进行到其中一个步骤。
-
----
 
 ````css
 #components-steps-demo-step-next > div > div {
@@ -41,11 +40,11 @@ const App = React.createClass({
     const cs = this.state.currentStep;
     return (
       <div>
-        <div>当前正在执行第 {cs + 1} 步</div>
+        <div style={{ marginBottom: 24 }}>当前正在执行第 {cs + 1} 步</div>
         <Steps current={cs}>
           {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
         </Steps>
-        <div>
+        <div style={{ marginTop: 24 }}>
           <Button onClick={this.next}>下一步</Button>
         </div>
       </div>

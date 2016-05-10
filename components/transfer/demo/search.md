@@ -1,10 +1,9 @@
-# 带搜索框
-
-- order: 1
+---
+order: 1
+title: 带搜索框
+---
 
 带搜索框的穿梭框。
-
----
 
 ````jsx
 import { Transfer } from 'antd';

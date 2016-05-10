@@ -1,10 +1,9 @@
-# 基本用法
-
-- order: 0
+---
+order: 0
+title: 基本用法
+---
 
 最基本的用法。
-
----
 
 ````jsx
 import { Transfer, Button } from 'antd';
@@ -42,7 +41,7 @@ const App = React.createClass({
   },
   renderFooter() {
     return (
-      <Button type="primary" size="small" style={{ float: 'right', margin: '5' }}
+      <Button type="primary" size="small" style={{ float: 'right', margin: 5 }}
         onClick={this.getMock}>
         刷新
       </Button>

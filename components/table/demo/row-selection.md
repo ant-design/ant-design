@@ -1,10 +1,9 @@
-# 可选择
-
-- order: 1
+---
+order: 1
+title: 可选择
+---
 
 第一列是联动的选择框。
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -14,29 +13,29 @@ const columns = [{
   dataIndex: 'name',
   render(text) {
     return <a href="#">{text}</a>;
-  }
+  },
 }, {
   title: '年龄',
   dataIndex: 'age'
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 // 通过 rowSelection 对象表明需要行选择

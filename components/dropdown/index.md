@@ -1,9 +1,8 @@
-# Dropdown
-
-- category: Components
-- chinese: 下拉菜单
-- type: 展示
-
+---
+category: Components
+chinese: 下拉菜单
+type: 展示
+english: Dropdown
 ---
 
 向下弹出的列表。
@@ -34,3 +33,5 @@
 | onClick     | 点击左侧按钮的回调，和 [Button](/components/button) 一致 | Function   | 无           |
 | trigger     | 触发下拉的行为   | "click" or "hover" | hover        |
 | overlay     | 菜单节点         | [Menu](/components/menu) | 无     |
+| visible     | 菜单节点是否显示 | Bool   | 无           |
+| onVisibleChange     | 菜单节点显示状态改变时调用，参数为 {visible} | Function   | 无           |

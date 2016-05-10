@@ -1,6 +1,6 @@
 ## Using npm to install
 
-**We recommend use npm to install**，Not only it makes development easier，also you can take advantage of the whole ecosystem.
+**We recommend using npm to install**，it not only makes development easier，but you can also take advantage of the whole ecosystem.
 
 
 If using npm to install, you could use `import` or `require`.

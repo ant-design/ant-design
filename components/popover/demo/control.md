@@ -1,10 +1,9 @@
-# 从浮层内关闭
-
-- order: 3
+---
+order: 3
+title: 从浮层内关闭
+---
 
 使用 `visible` 属性控制浮层显示。
-
----
 
 ````jsx
 import { Popover, Button } from 'antd';
@@ -30,7 +29,7 @@ const App = React.createClass({
       </div>
     );
     return (
-      <Popover overlay={content} title="标题" trigger="click"
+      <Popover content={content} title="标题" trigger="click"
         visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
         <Button type="primary">点击弹出卡片</Button>
       </Popover>

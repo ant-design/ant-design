@@ -1,10 +1,9 @@
-# 卡片模式
-
-- order: 10
+---
+order: 10
+title: 卡片模式
+---
 
 用于嵌套在空间有限的容器中。
-
----
 
 ````jsx
 import { Calendar } from 'antd';

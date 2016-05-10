@@ -1,9 +1,8 @@
-# Tooltip
-
-- category: Components
-- chinese: 文字提示
-- type: 展示
-
+---
+category: Components
+chinese: 文字提示
+type: 展示
+english: Tooltip
 ---
 
 简单的文字提示气泡框。

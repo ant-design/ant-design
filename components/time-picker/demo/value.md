@@ -1,10 +1,9 @@
-# 受控组件
-
-- order: 1
+---
+order: 1
+title: 受控组件
+---
 
 value 和 onChange 需要配合使用。
-
----
 
 ````jsx
 import { TimePicker } from 'antd';

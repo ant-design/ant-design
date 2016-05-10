@@ -1,10 +1,9 @@
-# 只展开当前父级菜单
-
-- order: 2
+---
+order: 2
+title: 只展开当前父级菜单
+---
 
 点击菜单，收起其他展开的所有菜单，保持菜单聚焦简洁。
-
----
 
 ````jsx
 import { Menu, Icon } from 'antd';

@@ -1,12 +1,11 @@
-# 指定不可选择日期
-
-- order: 6
+---
+order: 6
+title: 指定不可选择日期
+---
 
 设置 `disabledDate` 方法，来确定不可选时段。
 
 如上例：不可选择今天之后的日期。
-
----
 
 ````jsx
 import { DatePicker } from 'antd';

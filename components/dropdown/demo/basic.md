@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 最简单的下拉菜单。
-
----
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';

@@ -1,10 +1,9 @@
-# 移入展开
-
-- order: 2
+---
+order: 2
+title: 移入展开
+---
 
 通过移入展开下级菜单，点击完成选择。
-
----
 
 ````jsx
 import { Cascader } from 'antd';

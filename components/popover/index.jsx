@@ -1,40 +1,24 @@
 import React from 'react';
-import Tooltip from 'rc-tooltip';
+import Tooltip from '../tooltip';
 import getPlacements from './placements';
+import warning from 'warning';
 
 const placements = getPlacements();
-const prefixCls = 'ant-popover';
 
-const Popover = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls,
-      placement: 'top',
-      trigger: 'hover',
-      mouseEnterDelay: 0.1,
-      mouseLeaveDelay: 0.1,
-      overlayStyle: {}
-    };
-  },
+export default class Popover extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-popover',
+    placement: 'top',
+    transitionName: 'zoom-big',
+    trigger: 'hover',
+    mouseEnterDelay: 0.1,
+    mouseLeaveDelay: 0.1,
+    overlayStyle: {},
+  }
 
   render() {
-    const transitionName = ({
-      top: 'zoom-down',
-      bottom: 'zoom-up',
-      left: 'zoom-right',
-      right: 'zoom-left',
-      topLeft: 'zoom-down',
-      bottomLeft: 'zoom-up',
-      leftTop: 'zoom-right',
-      rightTop: 'zoom-left',
-      topRight: 'zoom-down',
-      bottomRight: 'zoom-up',
-      leftBottom: 'zoom-right',
-      rightBottom: 'zoom-left',
-    })[this.props.placement];
-
     return (
-      <Tooltip transitionName={transitionName}
+      <Tooltip transitionName={this.props.transitionName}
         builtinPlacements={placements}
         ref="tooltip"
         {...this.props}
@@ -42,22 +26,30 @@ const Popover = React.createClass({
         {this.props.children}
       </Tooltip>
     );
-  },
+  }
 
   getPopupDomNode() {
     return this.refs.tooltip.getPopupDomNode();
-  },
+  }
+
+  componentDidMount() {
+    if ('overlay' in this.props) {
+      warning(false, '`overlay` prop of Popover is deprecated, use `content` instead.');
+    }
+  }
 
   getOverlay() {
+    // use content replace overlay
+    // keep overlay for compatibility
+    const { title, prefixCls, overlay, content } = this.props;
+
     return (
       <div>
-        {this.props.title && <div className={`${prefixCls}-title`}>{this.props.title}</div>}
+        {title && <div className={`${prefixCls}-title`}>{title}</div>}
         <div className={`${prefixCls}-inner-content`}>
-          {this.props.overlay}
+          {content || overlay}
         </div>
       </div>
     );
-  },
-});
-
-export default Popover;
+  }
+}

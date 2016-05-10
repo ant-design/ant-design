@@ -1,8 +1,9 @@
-# 简化交互
-
-- category: 十大原则
-- order: 6
-- subtitle: Keep it Lightweight
+---
+category: 十大原则
+order: 6
+subtitle: Keep it Lightweight
+english: 简化交互
+---
 
 根据费茨法则（Fitts's Law）所描述的，如果用户鼠标移动距离越少、对象相对目标越大，那么用户越容易操作。通过运用上下文工具（即：放在内容中的操作工具），使内容和操作融合，从而简化交互。
 
@@ -13,9 +14,7 @@
 ## 实时可见工具
 
 
-<img class="preview-img" align="right" alt="实时可见工具示例 --摘自知乎" description="状态一：在文案中出现一个相对明显的点击区域；<br>
-状态二：鼠标悬停时，鼠标『指针』变为『手型』，底色发生变化，邀请用户点击。<br>
-状态三：鼠标点击后，和未点击前有明显的区分。" src="https://os.alipayobjects.com/rmsportal/sfytaOSssRrdYFg.png">
+<img class="preview-img" align="right" alt="实时可见工具示例 --摘自知乎" description="状态一：在文案中出现一个相对明显的点击区域；<br>状态二：鼠标悬停时，鼠标『指针』变为『手型』，底色发生变化，邀请用户点击。<br>状态三：鼠标点击后，和未点击前有明显的区分。" src="https://os.alipayobjects.com/rmsportal/sfytaOSssRrdYFg.png">
 
 如果某个操作非常重要，就应该把它放在界面中，并实时可见。
 
@@ -57,7 +56,7 @@
 
 如果操作不重要或者可以通过其他途径完成时，可以将工具放置在用户的操作流程中，减少界面元素，降低认知负担，给用户小惊喜。
 
-此处也可以运用[『提供邀请』](../spec/invitation) 相关的知识点。
+此处也可以运用[『提供邀请』](/docs/spec/invitation) 相关的知识点。
 
 <br>
 

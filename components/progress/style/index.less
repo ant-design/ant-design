@@ -1,0 +1,131 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@progress-prefix-cls: ant-progress;
+
+.@{progress-prefix-cls} {
+  display: inline-block;
+
+  &-line {
+    width: 100%;
+    font-size: 12px;
+    position: relative;
+  }
+
+  &-outer {
+    display: inline-block;
+    width: 100%;
+    margin-right: 0;
+    padding-right: 0;
+    .@{progress-prefix-cls}-show-info & {
+      padding-right: 45px;
+      margin-right: -45px;
+    }
+  }
+
+  &-inner {
+    display: inline-block;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 100px;
+    vertical-align: middle;
+  }
+
+  &-bg {
+    border-radius: 100px;
+    background-color: @info-color;
+    transition: all 0.3s linear 0s;
+    position: relative;
+  }
+
+  &-text {
+    width: 35px;
+    text-align: left;
+    font-size: 1em;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    font-family: tahoma;
+    .anticon {
+      font-size: 12px;
+    }
+  }
+
+  &-status-active {
+    .@{progress-prefix-cls}-bg:before {
+      content: "";
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      border-radius: 10px;
+      animation: ant-progress-active 2s @ease-out-quint infinite;
+    }
+  }
+
+  &-status-exception {
+    .@{progress-prefix-cls}-bg {
+      background-color: @error-color;
+    }
+    .@{progress-prefix-cls}-text {
+      color: @error-color;
+    }
+  }
+
+  &-status-success {
+    .@{progress-prefix-cls}-bg {
+      background-color: @success-color;
+    }
+    .@{progress-prefix-cls}-text {
+      color: @success-color;
+    }
+  }
+
+  &-circle &-inner {
+    position: relative;
+    line-height: 1;
+    background-color: transparent;
+  }
+
+  &-circle &-text {
+    display: block;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    font-family: tahoma;
+    margin: 0;
+
+    .anticon {
+      font-size: 14 / 12em;
+    }
+  }
+
+  &-circle &-status-exception {
+    .@{progress-prefix-cls}-text {
+      color: @error-color;
+    }
+  }
+  &-circle &-status-success {
+    .@{progress-prefix-cls}-text {
+      color: @success-color;
+    }
+  }
+}
+
+@keyframes ant-progress-active {
+  0% {
+    opacity: .3;
+    width: 0;
+  }
+  100% {
+    opacity: 0;
+    width: 100%;
+  }
+}

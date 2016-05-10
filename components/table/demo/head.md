@@ -1,12 +1,11 @@
-# 筛选和排序
-
-- order: 6
+---
+order: 6
+title: 筛选和排序
+---
 
 对某一列数据进行筛选，使用列的 `filter` 属性来指定需要筛选菜单的列，`onFilter` 用于筛选当前数据，`filterMultiple` 用于指定多选和单选。
 
 对某一列数据进行排序，通过指定列的 `sorter` 函数即可启动排序按钮。`sorter: function(a, b) { ... }`， a、b 为比较的两个列数据。
-
----
 
 ````jsx
 import { Table } from 'antd';

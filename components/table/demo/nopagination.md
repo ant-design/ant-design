@@ -1,23 +1,22 @@
-# 不显示分页
-
-- order: 8
+---
+order: 8
+title: 不显示分页
+---
 
 传入 pagination 为 false 即可。此时表格将完整显示 dataSource 内的数据，不进行任何分页。
-
----
 
 ````jsx
 import { Table } from 'antd';
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 
 const data = [{

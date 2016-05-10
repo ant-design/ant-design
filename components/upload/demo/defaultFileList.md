@@ -1,10 +1,9 @@
-# 传入已上传的文件
-
-- order: 1
+---
+order: 1
+title: 传入已上传的文件
+---
 
 对已上传的文件进行编辑。
-
----
 
 ````jsx
 import { Upload, Button, Icon } from 'antd';

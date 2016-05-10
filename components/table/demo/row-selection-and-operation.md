@@ -1,10 +1,9 @@
-# 选择和操作
-
-- order: 2
+---
+order: 2
+title: 选择和操作
+---
 
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
-
----
 
 ````jsx
 import { Table, Button } from 'antd';
@@ -26,7 +25,7 @@ for (let i = 0; i < 46; i++) {
     key: i,
     name: `李大嘴${i}`,
     age: 32,
-    address: `西湖区湖底公园${i}号`
+    address: `西湖区湖底公园${i}号`,
   });
 }
 
@@ -61,9 +60,9 @@ const App = React.createClass({
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-           <Button type="primary" onClick={this.start}
-             disabled={!hasSelected} loading={loading}>操作</Button>
-           <span style={{ marginLeft: 8 }}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
+          <Button type="primary" onClick={this.start}
+            disabled={!hasSelected} loading={loading}>操作</Button>
+          <span style={{ marginLeft: 8 }}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
         </div>
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>

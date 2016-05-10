@@ -2,13 +2,33 @@ import React from 'react';
 import classNames from 'classnames';
 
 function prefixClsFn(prefixCls, ...args) {
-  return args.map((s) => {
-    return `${prefixCls}-${s}`;
-  }).join(' ');
+  return args.map((s) => `${prefixCls}-${s}`).join(' ');
 }
 
-class FormItem extends React.Component {
-  _getLayoutClass(colDef) {
+export default class FormItem extends React.Component {
+  static defaultProps = {
+    hasFeedback: false,
+    prefixCls: 'ant-form',
+  }
+
+  static propTypes = {
+    prefixCls: React.PropTypes.string,
+    label: React.PropTypes.node,
+    labelCol: React.PropTypes.object,
+    help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
+    validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
+    hasFeedback: React.PropTypes.bool,
+    wrapperCol: React.PropTypes.object,
+    className: React.PropTypes.string,
+    id: React.PropTypes.string,
+    children: React.PropTypes.node,
+  }
+
+  static contextTypes = {
+    form: React.PropTypes.object,
+  }
+
+  getLayoutClass(colDef) {
     if (!colDef) {
       return '';
     }
@@ -22,18 +42,31 @@ class FormItem extends React.Component {
     const context = this.context;
     const props = this.props;
     if (props.help === undefined && context.form) {
-      return (context.form.getFieldError(this.getId()) || []).join(', ');
+      return this.getId() ? (context.form.getFieldError(this.getId()) || []).join(', ') : '';
     }
 
     return props.help;
   }
 
+  getOnlyControl() {
+    const children = React.Children.toArray(this.props.children);
+    const child = children.filter((c) => {
+      return c.props && '__meta' in c.props;
+    })[0];
+    return child !== undefined ? child : null;
+  }
+
+  getChildProp(prop) {
+    const child = this.getOnlyControl();
+    return child && child.props && child.props[prop];
+  }
+
   getId() {
-    return this.props.children.props && this.props.children.props.id;
+    return this.getChildProp('id');
   }
 
   getMeta() {
-    return this.props.children.props && this.props.children.props.__meta;
+    return this.getChildProp('__meta');
   }
 
   renderHelp() {
@@ -49,13 +82,17 @@ class FormItem extends React.Component {
 
   renderExtra() {
     const { prefixCls, extra } = this.props;
-    return <span className={prefixClsFn(prefixCls, 'extra')}>{extra}</span>;
+    return extra ? (
+      <span className={prefixClsFn(prefixCls, 'extra')}>{extra}</span>
+    ) : null;
   }
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
     const field = this.getId();
-
+    if (!field) {
+      return '';
+    }
     if (isFieldValidating(field)) {
       return 'validating';
     } else if (!!getFieldError(field)) {
@@ -63,7 +100,6 @@ class FormItem extends React.Component {
     } else if (getFieldValue(field) !== undefined) {
       return 'success';
     }
-
     return '';
   }
 
@@ -96,7 +132,7 @@ class FormItem extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <div className={this._getLayoutClass(wrapperCol)} key="wrapper">
+      <div className={this.getLayoutClass(wrapperCol)} key="wrapper">
         {children}
       </div>
     );
@@ -122,7 +158,7 @@ class FormItem extends React.Component {
       props.required;
 
     const className = classNames({
-      [this._getLayoutClass(labelCol)]: true,
+      [this.getLayoutClass(labelCol)]: true,
       [`${props.prefixCls}-item-required`]: required,
     });
 
@@ -175,27 +211,3 @@ class FormItem extends React.Component {
     return this.renderFormItem(children);
   }
 }
-
-FormItem.propTypes = {
-  prefixCls: React.PropTypes.string,
-  label: React.PropTypes.node,
-  labelCol: React.PropTypes.object,
-  help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
-  validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
-  hasFeedback: React.PropTypes.bool,
-  wrapperCol: React.PropTypes.object,
-  className: React.PropTypes.string,
-  id: React.PropTypes.string,
-  children: React.PropTypes.node,
-};
-
-FormItem.defaultProps = {
-  hasFeedback: false,
-  prefixCls: 'ant-form',
-};
-
-FormItem.contextTypes = {
-  form: React.PropTypes.object,
-};
-
-module.exports = FormItem;

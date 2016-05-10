@@ -1,11 +1,9 @@
-# 标签
-
-- order: 3
-
-tags select，随意输入的内容（scroll the menu）
-
+---
+order: 3
+title: 标签
 ---
 
+tags select，随意输入的内容（scroll the menu）
 
 ````jsx
 import { Select } from 'antd';

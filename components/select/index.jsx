@@ -1,41 +1,51 @@
 import React from 'react';
-import Select, { Option, OptGroup } from 'rc-select';
+import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-const AntSelect = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-select',
-      transitionName: 'slide-up',
-      optionLabelProp: 'children',
-      choiceTransitionName: 'zoom',
-      showSearch: false,
-    };
-  },
+export default class Select extends React.Component {
+  static Option = Option;
+  static OptGroup = OptGroup;
+
+  static defaultProps = {
+    prefixCls: 'ant-select',
+    transitionName: 'slide-up',
+    optionLabelProp: 'children',
+    choiceTransitionName: 'zoom',
+    showSearch: false,
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
   render() {
     let {
-      size, className, combobox, notFoundContent
+      size, className, combobox, notFoundContent, prefixCls, showSearch, optionLabelProp,
     } = this.props;
 
     const cls = classNames({
-      'ant-select-lg': size === 'large',
-      'ant-select-sm': size === 'small',
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
+      [`${prefixCls}-show-search`]: showSearch,
     });
+
+    const { antLocale } = this.context;
+    if (antLocale && antLocale.Select) {
+      notFoundContent = notFoundContent || antLocale.Select.notFoundContent;
+    }
 
     if (combobox) {
       notFoundContent = null;
+      // children 带 dom 结构时，无法填入输入框
+      optionLabelProp = 'value';
     }
 
     return (
-      <Select {...this.props}
+      <RcSelect {...this.props}
         className={cls}
+        optionLabelProp={optionLabelProp}
         notFoundContent={notFoundContent} />
     );
   }
-});
-
-AntSelect.Option = Option;
-AntSelect.OptGroup = OptGroup;
-
-export default AntSelect;
+}

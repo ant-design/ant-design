@@ -1,6 +1,7 @@
-# 远程加载数据
-
-- order: 7
+---
+order: 7
+title: 远程加载数据
+---
 
 在 `0.11.0` 以后，`dataSource` 远程模式被移除，用户可以自行实现数据读取方式。
 
@@ -9,8 +10,6 @@
 另外，本例也展示了筛选排序功能如何交给服务端实现，列不需要指定具体的 `onFilter` 和 `sorter` 函数，而是在把筛选和排序的参数发到服务端来处理。
 
 **注意，此示例是静态数据模拟，展示数据不会变化，请打开网络面板查看请求。**
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -58,7 +57,7 @@ const Test = React.createClass({
     console.log('请求参数：', params);
     this.setState({ loading: true });
     reqwest({
-      url: 'demo/data.json',
+      url: '/components/table/demo/data.json',
       method: 'get',
       data: params,
       type: 'json',

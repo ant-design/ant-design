@@ -1,10 +1,9 @@
-# 可关闭的警告提示
-
-- order: 2
+---
+order: 2
+title: 可关闭的警告提示
+---
 
 显示关闭按钮，点击可关闭警告提示。
-
----
 
 ````jsx
 import { Alert } from 'antd';
@@ -15,7 +14,7 @@ const onClose = function (e) {
 
 ReactDOM.render(<div>
   <Alert message="警告提示的文案"
-    type="warn"
+    type="warning"
     closable
     onClose={onClose} />
   <Alert message="错误提示的文案"

@@ -1,10 +1,9 @@
-# 动态
-
-- order: 4
+---
+order: 4
+title: 动态
+---
 
 展示动态变化的效果。
-
----
 
 ````jsx
 import { Badge, Button, Icon } from 'antd';

@@ -1,9 +1,8 @@
-# Alert
-
-- category: Components
-- chinese: 警告提示
-- type: 展示
-
+---
+category: Components
+chinese: 警告提示
+type: 展示
+english: Alert
 ---
 
 警告提示，展现需要关注的信息。
@@ -17,7 +16,7 @@
 
 | 参数        | 说明                                                      | 类型        | 默认值 |
 |----------- |---------------------------------------------------------  | ---------- |-------|
-| type       | 必选参数，指定警告提示的样式，有四种选择`success`、`info`、`warn`、`error`   | String     | `info`    |
+| type       | 必选参数，指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error`   | String     | `info`    |
 | closable   | 可选参数，默认不显示关闭按钮                                  | Boolean   | 无    |
 | closeText  | 可选参数，自定义关闭按钮                                     | React.Node   | 无    |
 | message    | 必选参数，警告提示内容                                       | React.Node   | 无    |

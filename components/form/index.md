@@ -1,10 +1,9 @@
-# Form
-
-- category: Components
-- chinese: 表单
-- type: 表单
-- cols: 1
-
+---
+category: Components
+chinese: 表单
+type: 表单
+cols: 1
+english: Form
 ---
 
 具有数据收集、校验和提交功能的表单，包含复选框、单选框、输入框、下拉选择框等元素。
@@ -14,7 +13,7 @@
 
 我们为 `form` 提供了以下两种排列方式：
 
-- 水平排列：可以实现 `label` 标签和表单控件的水平排列;
+- 水平排列：可以实现 `label` 标签和表单控件的水平排列；
 - 行内排列：使其表现为 `inline-block` 级别的控件。
 
 ## 表单域
@@ -43,13 +42,13 @@
 
 更多示例参考 [rc-form](http://react-component.github.io/form/)。
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-|  form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可 | object | | 无 |
-|  horizontal | 水平排列布局 | boolean  |   | false    |
-|  inline | 行内排列布局 | boolean |  | false |
-|  onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |   |
-|  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
+| 参数      | 说明                                     | 类型       | 默认值 |
+|-----------|------------------------------------------|------------|-------|
+|  form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可 | object | 无 |
+|  horizontal | 水平排列布局 | boolean  | false    |
+|  inline | 行内排列布局 | boolean | false |
+|  onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
+|  prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string | 'ant-form' |
 
 ### Form.create(options)
 
@@ -63,43 +62,48 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 `options` 的配置项如下。
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) | | |
-| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props) | | | |
+| 参数      | 说明                                     | 类型       |
+|-----------|------------------------------------------|------------|
+| onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
+| mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props): Object{ fieldName: Object{ value } } |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-| getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) | | |
-| getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) | | |
-| setFieldsValue | 设置一组输入控件的值 | Function(obj: object) | | |
-| setFields | 设置一组输入控件的值与 Error | Function(obj: object) | | |
-| validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) | | |
-| validateFieldsAndScroll | 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 | 参考 `validateFields` | | |
-| getFieldError | 获取某个输入控件的 Error | Function(name) | | |
-| isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) | | |
-| resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) | | |
-| getFieldProps | 用于和表单进行双向绑定，详见下方描述 | | | |
+| 参数      | 说明                                     | 类型       |
+|-----------|------------------------------------------|------------|
+| getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function([fieldNames: string[]]) |
+| getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) |
+| setFieldsValue | 设置一组输入控件的值 | Function(obj: object) |
+| setFields | 设置一组输入控件的值与 Error | Function(obj: object) |
+| validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) |
+| validateFieldsAndScroll | 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 | 参考 `validateFields` |
+| getFieldError | 获取某个输入控件的 Error | Function(name) |
+| isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) |
+| resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
+| getFieldProps | 用于和表单进行双向绑定，详见下方描述 | |
 
 #### this.props.form.getFieldProps(id, options)
 
-`getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`(或者你设置的其它 `trigger` `validateTrigger`)，所以不应再设置同样的属性，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
+##### 特别注意
+
+`getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`（或者你设置的其它 `trigger` `validateTrigger`），**所以不应再设置同样的属性**，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
 
 > 在表单中 `defaultValue` 也不应该被设置，请使用下面的 `initialValue`。
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-| options.id | 必填输入控件唯一标志 | string | |  |
-| options.valuePropName | 子节点的值的属性，如 Checkbox 的是 'checked' | string | | 'value' |
-| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | | |
-| options.trigger | 收集子节点的值的时机 | string | | 'onChange' |
-| options.validateTrigger | 校验子节点值的时机 | string | | 'onChange' |
-| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | | | |
+| 参数      | 说明                                     | 类型 |默认值 |
+|-----------|-----------------------------------------|-----|--------|
+| options.id | 必填输入控件唯一标志 | string | |
+| options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
+| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
+| options.trigger | 收集子节点的值的时机 | string | 'onChange' |
+| options.validateTrigger | 校验子节点值的时机 | string | 'onChange' |
+| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | |
+| options.onXXX | 由于 `getFieldProps` 会占用 `onChange` 等事件（即你所设置的 `trigger` `validateTrigger`），所以如果仍需绑定事件，请在 `options` 内设置 | function | 无 |
 
 
 ### Form.Item
+
+> 一个 Form.Item 建议只放一个 child，有多个 child 时，`help` `required` `validateStatus` 无法自动生成。
 
 | 参数      | 说明                                     | 类型       |  可选值 |默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
@@ -115,7 +119,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### Input
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
+| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
 |  type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
 |  id | id | number 或 string |  |   |
@@ -125,7 +129,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |  disabled | 是否禁用状态，默认为 false | bool |  |  false |
 |  addonBefore | 带标签的 input，设置前置标签 | node |  |   |
 |  addonAfter | 带标签的 input，设置后置标签 | node |  |   |
-|  prefixCls | 样式类名前缀，默认是 ant，通常您不需要设置 | string |  |  'ant' |
+|  onPressEnter | 按下回车的回调 | function(e) |  |  |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 

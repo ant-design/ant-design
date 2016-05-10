@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 第一个对话框。
-
----
 
 ````jsx
 import { Modal, Button } from 'antd';

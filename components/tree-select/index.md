@@ -1,9 +1,8 @@
-# TreeSelect
-
-- category: Components
-- chinese: 树选择
-- type: 表单
-
+---
+category: Components
+chinese: 树选择
+type: 表单
+english: TreeSelect
 ---
 
 树型选择控件。
@@ -18,11 +17,12 @@
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| value    | 指定当前选中的条目 | string/Array<String>   |  无  |
+| value    | 指定当前选中的条目 | 通常: String/Array<String>. 设置labelInValue: {value:String,label:React.Node}/Array<{value,label}>. 设置treeCheckStrictly(halfChecked默认为false): {value:String,label:React.Node, halfChecked}/Array<{value,label,halfChecked}>. |  无  |
+| labelInValue | 是否把 label 嵌入到 value 里，设置后参考以上 value 类型写法  | boolean | false |
 | defaultValue | 指定默认选中的条目 | string/Array<String>   |  无  |
-| multiple   | 支持多选 | boolean | false |
-| onSelect | 被选中时调用，参数为选中项的 value 值 | function(value) | 无   |
-| onChange | 选中项变化时调用此函数 | function(value, label) | 无 |
+| multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |
+| onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, node, extra) | 无   |
+| onChange | 选中树节点时调用此函数 | function(value, label, extra) | 无 |
 | allowClear | 显示清除按钮 | boolean | false |
 | onSearch | 文本框值变化时回调 | function(value: String) |  |
 | placeholder | 选择框默认文字 | string | 无 |
@@ -35,10 +35,12 @@
 | showCheckedStrategy | `TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点). `TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). 默认只显示子节点. | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |
 | treeDefaultExpandAll | 默认展开所有树节点 | bool | false |
 | treeCheckable | 显示checkbox | bool | false |
-| filterTreeNode | 是否根据输入项进行筛选，返回值true | function(treeNode) | - |
+| treeCheckStrictly | checkable状态下节点选择完全受控（父子节点选中状态不再关联）| bool | false |
+| filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | bool/Function(inputValue:string, treeNode:TreeNode) (函数需要返回bool值) | Function |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | String | 'value' |
 | treeNodeLabelProp | 作为显示的prop设置 | String | 'title' |
 | treeData | treeNodes数据，如果设置则不需要手动构造TreeNode节点（如果value在整个树范围内不唯一，需要设置`key`其值为整个树范围内的唯一id | array<{value, label, children}> | [] |
+|treeDataSimpleMode | 使用简单格式的treeData，具体设置参考可设置的类型 (此时treeData应变为这样的数据结构: [{"id":1, "pId":0, "label":"test1"},...], `pId`是父节点的id) | bool/object{id:'id', pId:'pId', rootPId:null} | false |
 | loadData | 异步加载数据 | function(node) | - |
 
 ### TreeNode props
@@ -49,5 +51,5 @@
 | disabled    | 是否禁用 | Boolean   |  false  |
 | key   | 此项必须设置（其值在整个树范围内唯一） |  String | - |
 | value   | 默认根据此属性值进行筛选 | String | - |
-| title | 树节点显示的内容 | String | '---' |
+| title | 树节点显示的内容 | String/element | '---' |
 | isLeaf | 是否是叶子节点 | bool | false |

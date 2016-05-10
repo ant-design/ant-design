@@ -1,15 +1,15 @@
-# 吊顶规范
-
-- order: 3
+---
+order: 3
+title: 吊顶规范
+---
 
 吊顶一般用于跨系统/应用场景，可以放置统一的登录/帮助信息。
 
 吊顶背景深色，高度 `30px`，和浅色调的主导航配合使用。
 
----
-
 ````jsx
 import { Menu, Breadcrumb } from 'antd';
+import BrowserDemo from 'site/component/BrowserDemo';
 
 ReactDOM.render(
   <BrowserDemo>

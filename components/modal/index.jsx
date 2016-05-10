@@ -1,36 +1,53 @@
-import AntModal from './Modal';
+import Modal from './Modal';
 import confirm from './confirm';
-import objectAssign from 'object-assign';
 
-AntModal.info = function (props) {
-  const config = objectAssign({}, props, {
-    iconClassName: 'info-circle',
+Modal.info = function (props) {
+  const config = {
+    type: 'info',
+    iconType: 'info-circle',
     okCancel: false,
-  });
+    ...props,
+  };
   return confirm(config);
 };
 
-AntModal.success = function (props) {
-  const config = objectAssign({}, props, {
-    iconClassName: 'check-circle',
+Modal.success = function (props) {
+  const config = {
+    type: 'success',
+    iconType: 'check-circle',
     okCancel: false,
-  });
+    ...props,
+  };
   return confirm(config);
 };
 
-AntModal.error = function (props) {
-  const config = objectAssign({}, props, {
-    iconClassName: 'cross-circle',
+Modal.error = function (props) {
+  const config = {
+    type: 'error',
+    iconType: 'cross-circle',
     okCancel: false,
-  });
+    ...props,
+  };
   return confirm(config);
 };
 
-AntModal.confirm = function (props) {
-  const config = objectAssign({}, props, {
+Modal.warning = function (props) {
+  const config = {
+    type: 'warning',
+    iconType: 'exclamation-circle',
+    okCancel: false,
+    ...props,
+  };
+  return confirm(config);
+};
+
+Modal.confirm = function (props) {
+  const config = {
+    type: 'confirm',
     okCancel: true,
-  });
+    ...props,
+  };
   return confirm(config);
 };
 
-export default AntModal;
+export default Modal;

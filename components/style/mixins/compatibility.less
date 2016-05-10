@@ -1,0 +1,59 @@
+// Compatibility for browsers.
+
+// rotate for ie8 and blow
+.ie-rotate(@rotation) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=@{rotation})";
+}
+
+// rotate for ie8 and blow
+// degrees unit
+.ie-rotate-via-degrees(@degrees) {
+  /* IE6-IE8 */
+  @radians: ~`parseInt("@{degrees}") * Math.PI * 2 / 360`;
+  @costheta: ~`Math.cos("@{radians}")`;
+  @sintheta: ~`Math.sin("@{radians}")`;
+  @negsintheta: ~`"@{sintheta}" * -1`;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=@{costheta}, M12=@{negsintheta}, M21=@{sintheta}, M22=@{costheta})";
+  zoom: 1;
+
+  :root & {
+    filter: none;
+  }
+}
+
+// support rotate for all browsers
+.cross-rotate(@degrees) {
+  .rotate(@degrees);
+  .ie-rotate-via-degrees(@degrees);
+}
+
+// for iconfont font size
+// fix chrome 12px bug, support ie
+.iconfont-size-under-12px(@size, @rotate: 0deg) {
+  display: inline-block;
+  @font-scale: unit(@size/@font-size-base);
+  font-size: @font-size-base;
+  font-size: ~"@{size} \9"; // ie8-9
+  transform: scale(@font-scale) rotate(@rotate);
+  .ie-rotate-via-degrees(@rotate);
+  :root & {
+    font-size: @font-size-base; // reset ie9 and above
+  }
+}
+
+// Placeholder text
+.placeholder(@color: @input-placeholder-color) {
+  // Firefox
+  &::-moz-placeholder {
+    color: @color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  // Internet Explorer 10+
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+  // Safari and Chrome
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+}

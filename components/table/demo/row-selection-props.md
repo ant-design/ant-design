@@ -1,10 +1,9 @@
-# 选择框属性
-
-- order: 3
+---
+order: 3
+title: 选择框属性
+---
 
 配置选择框的默认属性。
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -15,33 +14,33 @@ const columns = [{
   render: text => <a href="#">{text}</a>,
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
   getCheckboxProps(record) {
     return {
-      disabled: record.name === '胡彦祖'    // 配置无法勾选的列
+      disabled: record.name === '胡彦祖',    // 配置无法勾选的列
     };
   },
 };

@@ -1,9 +1,8 @@
-# Popconfirm
-
-- category: Components
-- chinese: 气泡确认框
-- type: 展示
-
+---
+category: Components
+chinese: 气泡确认框
+type: 展示
+english: Popconfirm
 ---
 
 点击元素，弹出气泡式的确认框。
@@ -26,3 +25,4 @@
 | onVisibleChange | 显示隐藏的回调                      | function(visible) | 无     |
 | okText    | 确认按钮文字                              | String        | 确定   |
 | cancelText| 取消按钮文字                              | String        | 取消   |
+| openClassName | 气泡框展现时触发器添加的类名，可用于打开浮层时高亮触发器 | string | ant-popover-open |

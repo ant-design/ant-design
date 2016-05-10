@@ -1,17 +1,13 @@
 import React from 'react';
-import AntRadio from './radio';
+import Radio from './radio';
 
-const RadioButton = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-radio-button',
-    };
-  },
+export default class RadioButton extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-radio-button',
+  }
   render() {
     return (
-      <AntRadio {...this.props} />
+      <Radio {...this.props} />
     );
   }
-});
-
-export default RadioButton;
+}

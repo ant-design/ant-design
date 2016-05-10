@@ -1,10 +1,9 @@
-# 主题
-
-- order: 4
+---
+order: 4
+title: 主题
+---
 
 内建了两套主题 `light|dark`，默认 `light`。
-
----
 
 ````jsx
 import { Menu, Icon, Switch } from 'antd';

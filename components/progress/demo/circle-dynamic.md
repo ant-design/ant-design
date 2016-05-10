@@ -1,14 +1,12 @@
-# 进度圈动态展示
-
-- order: 4
+---
+order: 4
+title: 进度圈动态展示
+---
 
 会动的进度条才是好进度条。
 
----
-
 ````jsx
-import { Progress, Button, Icon } from 'antd';
-const ProgressCircle = Progress.Circle;
+import { Progress, Button } from 'antd';
 const ButtonGroup = Button.Group;
 
 const MyProgress = React.createClass({
@@ -34,14 +32,10 @@ const MyProgress = React.createClass({
   render() {
     return (
       <div>
-        <ProgressCircle percent={this.state.percent} />
+        <Progress type="circle" percent={this.state.percent} />
         <ButtonGroup>
-          <Button type="ghost" onClick={this.decline}>
-            <Icon type="minus" />
-          </Button>
-          <Button type="ghost" onClick={this.increase}>
-            <Icon type="plus" />
-          </Button>
+          <Button type="ghost" onClick={this.decline} icon="minus" />
+          <Button type="ghost" onClick={this.increase} icon="plus" />
         </ButtonGroup>
       </div>
     );

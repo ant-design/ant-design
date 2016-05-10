@@ -1,10 +1,9 @@
-# 竖直方向的步骤条
-
-- order: 4
+---
+order: 4
+title: 竖直方向的步骤条
+---
 
 简单的竖直方向的步骤条。
-
----
 
 ````jsx
 import { Steps } from 'antd';

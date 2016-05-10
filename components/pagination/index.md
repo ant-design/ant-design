@@ -1,9 +1,8 @@
-# Pagination
-
-- category: Components
-- chinese: 分页
-- type: 导航
-
+---
+category: Components
+chinese: 分页
+type: 导航
+english: Pagination
 ---
 
 采用分页的形式分隔长列表，每次只加载一个页面。

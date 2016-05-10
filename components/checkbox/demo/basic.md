@@ -1,10 +1,9 @@
-# 基本用法
-
-- order: 0
+---
+order: 0
+title: 基本用法
+---
 
 简单的 checkbox。
-
----
 
 ````jsx
 import { Checkbox } from 'antd';
@@ -13,8 +12,7 @@ function onChange(e) {
   console.log(`checked = ${e.target.checked}`);
 }
 
-ReactDOM.render(<label>
-  <Checkbox defaultChecked={false} onChange={onChange} />
-  Checkbox
-</label>, mountNode);
+ReactDOM.render(
+  <Checkbox defaultChecked={false} onChange={onChange}>Checkbox</Checkbox>
+, mountNode);
 ````

@@ -1,10 +1,9 @@
-# 条件触发
-
-- order: 3
+---
+order: 3
+title: 条件触发
+---
 
 可以判断是否需要弹出。
-
----
 
 ````jsx
 import { Popconfirm, Switch, message } from 'antd';

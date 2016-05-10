@@ -1,10 +1,9 @@
-# 基本用法
-
-- order: 0
+---
+order: 0
+title: 基本用法
+---
 
 简单的步骤条。
-
----
 
 ````jsx
 import { Steps } from 'antd';

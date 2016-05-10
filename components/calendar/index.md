@@ -1,10 +1,9 @@
-# Calendar
-
-- category: Components
-- type: 展示
-- chinese: 日历
-- cols: 1
-
+---
+category: Components
+type: 展示
+chinese: 日历
+cols: 1
+english: Calendar
 ---
 
 按照日历形式展示数据的容器。

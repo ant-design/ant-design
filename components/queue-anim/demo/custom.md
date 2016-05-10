@@ -1,10 +1,9 @@
-# 自定义动画进出场
-
-- order: 3
+---
+order: 3
+title: 自定义动画进出场
+---
 
 通过 `animConfig` 来自定义动画进出场。
-
----
 
 ````jsx
 import { QueueAnim, Button } from 'antd';

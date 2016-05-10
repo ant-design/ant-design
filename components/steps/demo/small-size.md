@@ -1,10 +1,9 @@
-# 迷你版
-
-- order: 1
+---
+order: 1
+title: 迷你版
+---
 
 迷你版的步骤条，通过设置 `<Steps size="small">` 启用.
-
----
 
 ````jsx
 import { Steps } from 'antd';

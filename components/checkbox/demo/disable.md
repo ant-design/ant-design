@@ -1,10 +1,9 @@
-# 不可用
-
-- order: 1
+---
+order: 1
+title: 不可用
+---
 
 checkbox 不可用。
-
----
 
 ````jsx
 import { Checkbox } from 'antd';

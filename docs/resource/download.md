@@ -1,8 +1,7 @@
-# 资源下载
-
-- order: 0
-- category: 0
-
+---
+order: 0
+chinese: 资源下载
+english: Download
 ---
 
 这里提供 Ant Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。

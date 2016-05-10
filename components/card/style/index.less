@@ -1,0 +1,66 @@
+@import "../../style/themes/default";
+
+@card-prefix-cls: ant-card;
+
+.@{card-prefix-cls} {
+  background: #fff;
+  border-radius: @border-radius-sm;
+  font-size: @font-size-base;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s;
+
+  &:hover {
+    box-shadow: @box-shadow-base;
+    border-color: #eee;
+  }
+
+  &-bordered {
+    border: 1px solid @border-color-base;
+    border-color: @border-color-split;
+  }
+
+  &-head {
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid @border-color-split;
+    padding: 0 24px;
+
+    &-title {
+      font-size: 14px;
+      display: inline-block;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+  &-extra {
+    position: absolute;
+    right: 24px;
+    top: 14px;
+  }
+
+  &-body {
+    padding: 24px;
+  }
+
+  &-loading &-body {
+    letter-spacing: -2px;
+    color: #eee;
+    font-size: 0.75rem;
+  }
+
+  &-loading &-body p {
+    word-break: break-all;
+    line-height: 10px;
+    margin: 5px 0 0;
+    height: 10px;
+    border-radius: @border-radius-base;
+    overflow: hidden;
+    display: inline-block;
+    user-select: none;
+    color: #f3f5f8;
+  }
+}

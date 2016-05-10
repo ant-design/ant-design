@@ -1,7 +1,7 @@
-# 快速上手
-
-- category: 1
-- order: 1
+---
+order: 1
+english: 快速上手
+---
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
@@ -11,7 +11,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 最简单的试用方式参照以下 CodePen 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
 
-- [antd CodePen](http://codepen.io/anon/pen/pgdXYp?editors=001)
+- [antd CodePen](http://codepen.io/anon/pen/dMdjeo?editors=001)
 
 
 ## 标准开发
@@ -102,12 +102,11 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 <style>
 .code-line-highlight {
-  box-shadow: 0px 184px 0px rgba(255, 207, 0, 0.1);
-  height: 42px;
-  margin-top: -42px;
+  box-shadow: 0px 248px 0px rgba(255, 162, 0, 0.1);
+  height: 88px;
+  margin-top: -88px;
   position: relative;
   z-index: 1;
-  width: 80%;
   pointer-events: none;
 }
 </style>
@@ -120,7 +119,9 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
     <!-- 引入样式 -->
     <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
+    <!--[if lt IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
+    <![endif]-->
   </head>
   <body>
   </body>
@@ -147,7 +148,6 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 
 - [改变主色系](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
 - [使用本地字体](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
-- [构建独立文件](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone)
 
 ## 小甜点
 

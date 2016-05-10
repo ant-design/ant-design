@@ -1,10 +1,9 @@
-# 封顶数字
-
-- order: 6
+---
+order: 6
+title: 封顶数字
+---
 
 超过 `overflowCount` 的会显示为 `${overflowCount}+`。
-
----
 
 ````jsx
 import { Badge } from 'antd';

@@ -1,9 +1,8 @@
-# TimePicker
-
--	category: Components
--	chinese: 时间选择框
--	type: 表单
-
+---
+category: Components
+chinese: 时间选择框
+type: 表单
+english: TimePicker
 ---
 
 输入或选择时间的控件。
@@ -27,7 +26,7 @@ API
 | defaultValue        | 初始默认时间 | string or Date | 无 |
 | value               | 默认时间 | string or Date | 无 |
 | placeholder         | 没有值的时候显示的内容 | string | "请选择时间" |
-| onChange            | 时间发生变化的回调     | function(Date value) | 无 |
+| onChange            | 时间发生变化的回调     | function(date, dateString) | 无 |
 | format              | 展示的时间格式 | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |
 | disabled            | 禁用全部操作 | bool | false |
 | disabledHours       | 禁止选择部分小时选项 | function() | 无 |

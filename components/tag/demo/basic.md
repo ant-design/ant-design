@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 简单的标签展示，添加 closable 表示可关闭。
-
----
 
 ````jsx
 import { Tag } from 'antd';

@@ -1,10 +1,9 @@
-# 高级用法
-
-- order: 2
+---
+order: 2
+title: 高级用法
+---
 
 穿梭框高级用法，可配置操作文案，可定制宽高，可对底部进行自定义渲染。
-
----
 
 ````jsx
 import { Transfer, Button } from 'antd';
@@ -41,7 +40,7 @@ const App = React.createClass({
   },
   renderFooter() {
     return (
-      <Button type="ghost" size="small" style={{ float: 'right', margin: '5' }}
+      <Button type="ghost" size="small" style={{ float: 'right', margin: 5 }}
         onClick={this.getMock}>
         刷新
       </Button>

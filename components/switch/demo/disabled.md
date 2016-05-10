@@ -1,10 +1,9 @@
-# 不可用
-
-- order: 1
+---
+order: 1
+title: 不可用
+---
 
 Switch 失效状态。
-
----
 
 ````jsx
 import { Switch, Button } from 'antd';

@@ -1,15 +1,16 @@
-import objectAssign from 'object-assign';
 import GregorianCalendarLocale from 'gregorian-calendar/lib/locale/zh_CN';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import TimePickerLocale from '../../time-picker/locale/zh_CN';
 
 // 统一合并为完整的 Locale
-let locale = objectAssign({}, GregorianCalendarLocale);
-locale.lang = objectAssign({
+const locale = { ...GregorianCalendarLocale };
+locale.lang = {
   placeholder: '请选择日期',
-}, CalendarLocale);
+  rangePlaceholder: ['开始日期', '结束日期'],
+  ...CalendarLocale,
+};
 
-locale.timePickerLocale = objectAssign({}, TimePickerLocale);
+locale.timePickerLocale = { ...TimePickerLocale };
 
 // should add whitespace between char in Button
 locale.lang.ok = '确 定';

@@ -1,10 +1,9 @@
-# 内嵌菜单
-
-- order: 1
+---
+order: 1
+title: 内嵌菜单
+---
 
 垂直菜单，子菜单内嵌在菜单区域。
-
----
 
 ````jsx
 import { Menu, Icon } from 'antd';

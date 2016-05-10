@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 最简单的用法。
-
----
 
 ````jsx
 import { Affix, Button } from 'antd';

@@ -1,52 +1,85 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import { isCssAnimationSupported } from 'css-animation';
+import warning from 'warning';
 
-const AntSpin = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-spin',
-      spining: true
+export default class Spin extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-spin',
+    spinning: true,
+  }
+
+  constructor(props) {
+    super(props);
+    const spinning = this.getSpinning(props);
+    this.state = {
+      spinning,
     };
-  },
-
-  propTypes: {
+  }
+  static propTypes = {
     className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large'])
-  },
+    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+  }
 
   isNestedPattern() {
     return !!(this.props && this.props.children);
-  },
+  }
+
+  componentDidMount() {
+    warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
+    if (!isCssAnimationSupported) {
+      // Show text in IE8/9
+      findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
+    }
+  }
+
+  getSpinning(props) {
+    // Backwards support
+    if ('spining' in props) {
+      warning(false, '`spining` property of Spin is a spell mistake, use `spinning` instead.');
+      return props.spining;
+    }
+    return props.spinning;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const spinning = this.getSpinning(nextProps);
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+    if (spinning) {
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 250);
+    } else {
+      this.setState({ spinning });
+    }
+  }
 
   render() {
-    const { className, size, prefixCls } = this.props;
+    const { className, size, prefixCls, tip } = this.props;
+    const { spinning } = this.state;
 
-    let spinClassName = classNames({
+    const spinClassName = classNames({
       [prefixCls]: true,
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [className]: !!className,
-      [`${prefixCls}-spining`]: this.props.spining,
+      [`${prefixCls}-spinning`]: spinning,
+      [`${prefixCls}-show-text`]: !!this.props.tip,
     });
 
-    let spinElement;
-    if (!isCssAnimationSupported) {
-      // not support for animation, just use text instead
-      spinElement = <div className={spinClassName}>加载中...</div>;
-    } else {
-      spinElement = (
-        <div className={spinClassName}>
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
-          <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
-        </div>
-      );
-    }
+    const spinElement = (
+      <div className={spinClassName}>
+        <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
+        <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
+        <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
+        <div className={`${prefixCls}-text`}>{tip || '加载中...'}</div>
+      </div>
+    );
 
     if (this.isNestedPattern()) {
       return (
-        <div className={this.props.spining ? (`${prefixCls}-nested-loading`) : ''}>
+        <div className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
           {spinElement}
           <div className={`${prefixCls}-container`}>
             {this.props.children}
@@ -56,6 +89,4 @@ const AntSpin = React.createClass({
     }
     return spinElement;
   }
-});
-
-export default AntSpin;
+}

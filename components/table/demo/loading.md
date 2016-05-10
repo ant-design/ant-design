@@ -1,39 +1,38 @@
-# 加载中的表格
-
-- order: 14
+---
+order: 14
+title: 加载中的表格
+---
 
 用属性 `loading` 控制表格加载中状态。
-
----
 
 ````jsx
 import { Table, Button } from 'antd';
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 const App = React.createClass({

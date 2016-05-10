@@ -1,12 +1,11 @@
-# 数据生成标签
-
-- order: 2
-
-用数组生成一组标签。
-
-> 使用 `afterClose` 而不是 `onClose`，删除时有动画效果。
-
 ---
+order: 2
+title: 动态添加和删除
+---
+
+用数组生成一组标签，可以动态添加和删除。
+
+> 使用 `afterClose` 删除时有动画效果。
 
 ````jsx
 import { Tag, Button } from 'antd';
@@ -16,8 +15,9 @@ const App = React.createClass({
   getInitialState() {
     return {
       tags: [
-        { key: 1, name: '标签一' },
+        { key: 1, name: '不可移除' },
         { key: 2, name: '标签二' },
+        { key: 3, name: '标签三' },
       ],
     };
   },
@@ -33,14 +33,15 @@ const App = React.createClass({
     this.setState({ tags });
   },
   render() {
+    const { tags } = this.state;
     return (
       <div>
-        {this.state.tags.map(tag =>
-          <Tag key={tag.key} closable afterClose={this.handleClose.bind(this, tag.key)}>{tag.name}</Tag>
+        {tags.map(tag =>
+          <Tag key={tag.key} closable={tag.key !== 1} afterClose={() => this.handleClose(tag.key)}>
+            {tag.name}
+          </Tag>
         )}
-        <div>
-          <Button onClick={this.addTag}>添加标签</Button>
-        </div>
+        <Button size="small" type="primary" onClick={this.addTag}>添加标签</Button>
       </div>
     );
   }
