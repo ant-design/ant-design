@@ -17,19 +17,21 @@ timeline: true
 
 ### 主要变化
 
-- 兼容 React@15.x 版本。
-- 全新单页站点，使用 React 和 antd 进行了彻底重构，加载更快。
-- 样式支持按需加载。需要配合 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd#usage) 插件。[#900](https://github.com/ant-design/ant-design/issues/900)
+- **兼容 React@15.x**。
+- **全新单页站点**，使用 React 和 antd 进行了彻底重构，加载更快。
+- **样式支持按需加载**。需要配合 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd#usage) 插件和 `style` 配置进行使用。[#900](https://github.com/ant-design/ant-design/issues/900)
+- **提供独立的构建文件**。[文档](/docs/react/install?scrollTo=浏览器引入)
 - 新增卡片组件 [Card](/components/card)。
 - 新增评分组件 [Rate](/components/rate)。
 - 新增 [LocaleProvider](/components/locale-provider) 组件，提供组件文案的国际化支持，并新增了英语和俄语的语言配置。[#1411](https://github.com/ant-design/ant-design/issues/1411)
-- 提供独立的构建文件。[文档](/docs/react/install?scrollTo=浏览器引入)
 - 更好的服务端渲染支持，修复了 Badge、Spin、Calendar 等组件服务端渲染的问题。
 - 新增 antd.d.ts 以更好的支持 TypeScript。[@bang88](https://github.com/bang88)
 - 布局组件支持响应式布局和栅格间隔设置。[#1082](https://github.com/ant-design/ant-design/issues/1082)
 - Table 支持固定列和横向滚动。[#1265](https://github.com/ant-design/ant-design/issues/1265)
 
 ### 不兼容改动
+
+此版本是含有不兼容的改动，升级时确保更新相应的使用代码。
 
 - 调整了样式目录结构，入口文件变为 `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558)。
 - 完全移除了 `0.12` 中废弃的 Validation 组件。[#1096](https://github.com/ant-design/ant-design/issues/1096)
@@ -41,7 +43,7 @@ timeline: true
 
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
-- 废弃 QueueAnim，可以直接使用 [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。动画方案已移至 [motion.ant.design](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
+- 废弃 QueueAnim，可以直接使用 [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [motion.ant.design](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
 - Affix 的 `offset` 属性重命名为 `offsetTop`。
 - Popover 的 `overlay` 属性重命名为 `content`。
 - Progress.Line 使用方式改为 `<Progress />` 或 `<Progress type="line" />`。
@@ -61,10 +63,11 @@ timeline: true
 - 修复 DatePicker 日期格式与国际化配置不同步的问题。[#1509](https://github.com/ant-design/ant-design/issues/1509)
 - 修复 Button 禁用时事件仍然会冒泡的问题。[#1541](https://github.com/ant-design/ant-design/issues/1541)
 - 修复 Carousel 自动播放时的卡顿和报错问题。[#1397](https://github.com/ant-design/ant-design/issues/1397)
+- 修复 Tabs 的 card 类型内嵌标准 Tabs 时的样式问题。[#1617](https://github.com/ant-design/ant-design/issues/1617)
 
 ### 其他改进
 
-- 样式变量整理和大量组件样式细节优化。
+- 样式变量梳理，去除了部分无用的变量，另外还有大量样式细节问题修复。
 - 使用 ES2016 classes 重构了代码。[@waywardmonkeys](https://github.com/waywardmonkeys)
 - Popover、Popconfirm 和 Tooltip 组件根据不同的弹出位置有了更精准方向的弹出动画。
 - 补充 Select TreeSelect Switch Radio Checkbox 等组件的 `focus` 表现，增强表单组件的可用性。[#1358](https://github.com/ant-design/ant-design/issues/1358)
