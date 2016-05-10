@@ -18,7 +18,7 @@ timeline: true
 ### 主要变化
 
 - **兼容 React@15.x**。
-- **全新单页站点**，使用 React 和 antd 进行了彻底重构，加载更快。
+- **全新单页站点**，使用 React 和 antd 进行了彻底重构，加载更快，访问更流畅。
 - **样式支持按需加载**。需要配合 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd#usage) 插件和 `style` 配置进行使用。[#900](https://github.com/ant-design/ant-design/issues/900)
 - **提供独立的构建文件**。[文档](/docs/react/install?scrollTo=浏览器引入)
 - 新增卡片组件 [Card](/components/card)。
@@ -49,7 +49,7 @@ timeline: true
 
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
-- 废弃 QueueAnim，可以直接 import [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [motion.ant.design](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
+- 废弃 QueueAnim，可以直接 import [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [Ant Motion](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
 - Affix 的 `offset` 属性重命名为 `offsetTop`。
 - Popover 的 `overlay` 属性重命名为 `content`。
 - Progress.Line 使用方式改为 `<Progress />` 或 `<Progress type="line" />`。
@@ -118,6 +118,12 @@ timeline: true
 - Button 增加了 `icon` 属性。[#1199](https://github.com/ant-design/ant-design/issues/1199)
 - SubMenu 增加 `onTitleClick` 属性。
 - Affix 增加 `offsetBottm` 属性，支持固定在底部。[#1000](https://github.com/ant-design/ant-design/issues/1000)
+
+### 相关工具发布
+
+- [antd-init](http://github.com/ant-design/antd-init) 同步发布 `1.0.0` 版本，享受最新 [ant-tool](https://github.com/ant-tool/) 工具带来的流畅开发体验。
+- [Ant Motion](http://motion.ant.design) 全新的动效设计解决方案。
+- [Ant UX](http://ux.ant.design/) 发布 1.0 版本，提供多种平台的流程素材支持。
 
 ## 0.12.17
 
