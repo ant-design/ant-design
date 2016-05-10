@@ -33,8 +33,14 @@ timeline: true
 
 此版本是含有不兼容的改动，升级时确保更新相应的使用代码。
 
-- 调整了样式目录结构，入口文件变为 `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558)。
-- 完全移除了 `0.12` 中废弃的 Validation 组件。[#1096](https://github.com/ant-design/ant-design/issues/1096)
+- 调整了样式目录结构，**入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558)。
+
+   ```diff
+   - import 'antd/style/index.css';  // import 'antd/style/index.less';
+   + import 'antd/dist/antd.css';    // import 'antd/style/antd.less';
+   ```
+
+- 完全移除了 `0.12` 中废弃的 Validation 组件，可以直接 import [rc-form-validation](https://github.com/react-component/form-validation) 用以代替。[#1096](https://github.com/ant-design/ant-design/issues/1096)
 - Breadcrumb.Item 的 `href` 属性被移除，请直接用 `a` 标签包裹可点击的内容。
 - Modal 移除 了`align` 属性，现在可以使用 `style` 属性调整位置。
 - `Modal.confirm` 等方法的配置项 `iconClassName` 重命名为 `iconType`。
@@ -43,7 +49,7 @@ timeline: true
 
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
-- 废弃 QueueAnim，可以直接使用 [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [motion.ant.design](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
+- 废弃 QueueAnim，可以直接 import [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [motion.ant.design](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
 - Affix 的 `offset` 属性重命名为 `offsetTop`。
 - Popover 的 `overlay` 属性重命名为 `content`。
 - Progress.Line 使用方式改为 `<Progress />` 或 `<Progress type="line" />`。
