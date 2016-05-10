@@ -1,8 +1,9 @@
 <script>
   var prefix = /^\/components/.test(location.pathname) ? location.pathname.replace(/^\//, '').split('/').join('-') : '';
+  var scrollToString = location.hash ? '?scrollTo=' + prefix + location.hash : '';
   if (location.pathname === '/changelog') {
-    location.href = '/#/docs/react/changelog?scrollTo=' + location.hash;
+    location.href = '/#/docs/react/changelog' + scrollToString;
   } else {
-    location.href = '/#' + location.pathname + '?scrollTo=' + prefix + location.hash;
+    location.href = '/#' + location.pathname + scrollToString;
   }
 </script>
