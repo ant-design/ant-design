@@ -1,4 +1,8 @@
 <script>
   var prefix = /^\/components/.test(location.pathname) ? location.pathname.replace(/^\//, '').split('/').join('-') : '';
-  location.href = '/#' + location.pathname.replace(/\/?#/, '?scrollTo=' + prefix);
+  if (location.pathname === '/changelog') {
+    location.href = '/#/docs/react/' + location.pathname.replace(/\/?#/, '?scrollTo=' + prefix);
+  } else {
+    location.href = '/#' + location.pathname.replace(/\/?#/, '?scrollTo=' + prefix);
+  }
 </script>
