@@ -46,8 +46,8 @@ export default function createPicker(TheCalendar) {
       const disabledTime = props.showTime ? props.disabledTime : null;
 
       const calendarClassName = classNames({
-        ['ant-calendar-time']: props.showTime,
-        ['ant-calendar-month']: MonthCalendar === TheCalendar,
+        'ant-calendar-time': props.showTime,
+        'ant-calendar-month': MonthCalendar === TheCalendar,
       });
 
       let pickerChangeHandler = {

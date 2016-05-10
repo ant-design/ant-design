@@ -81,11 +81,9 @@ export default class Header extends React.Component {
     let activeMenuItem = routes[1].path || 'home';
     activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
-    const options = Object.keys(componentsList).map((key) => {
-      return componentsList[key];
-    }).filter(({ meta }) => {
-      return /^component/.test(meta.fileName);
-    }).map(({ meta }) => {
+    const options = Object.keys(componentsList).map(key => componentsList[key])
+    .filter(({ meta }) => /^component/.test(meta.fileName))
+    .map(({ meta }) => {
       const pathSnippet = meta.fileName.split('/')[1];
       const url = `/components/${pathSnippet}`;
       return (

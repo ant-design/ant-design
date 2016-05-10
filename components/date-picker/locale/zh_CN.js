@@ -3,7 +3,7 @@ import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import TimePickerLocale from '../../time-picker/locale/zh_CN';
 
 // 统一合并为完整的 Locale
-let locale = { ...GregorianCalendarLocale };
+const locale = { ...GregorianCalendarLocale };
 locale.lang = {
   placeholder: '请选择日期',
   rangePlaceholder: ['开始日期', '结束日期'],

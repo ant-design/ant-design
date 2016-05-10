@@ -4,7 +4,10 @@ import { isCssAnimationSupported } from 'css-animation';
 
 function getNumberArray(num) {
   return num ?
-    num.toString().split('').reverse().map(i => Number(i)) : [];
+    num.toString()
+      .split('')
+      .reverse()
+      .map(i => Number(i)) : [];
 }
 
 export default class ScrollNumber extends React.Component {

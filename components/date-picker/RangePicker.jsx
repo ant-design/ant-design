@@ -59,7 +59,7 @@ export default class RangePicker extends React.Component {
     const state = this.state;
 
     const calendarClassName = classNames({
-      ['ant-calendar-time']: showTime,
+      'ant-calendar-time': showTime,
     });
 
     let pickerChangeHandler = {

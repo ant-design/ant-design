@@ -79,7 +79,7 @@
     "dom-scroll-into-view": "^1.1.0",
     "es6-shim": "^0.35.0",
     "eslint": "^2.2.0",
-    "eslint-config-airbnb": "^8.0.0",
+    "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-import": "^1.6.1",
     "eslint-plugin-jsx-a11y": "^1.0.4",

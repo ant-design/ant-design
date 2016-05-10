@@ -6,7 +6,7 @@ import GregorianCalendarLocale from 'gregorian-calendar/lib/locale/ru_RU';
 import CalendarLocale from 'rc-calendar/lib/locale/ru_RU';
 import TimePickerLocale from '../../time-picker/locale/ru_RU';
 
-let locale = { ...GregorianCalendarLocale };
+const locale = { ...GregorianCalendarLocale };
 locale.lang = {
   placeholder: 'Выберите дату',
   rangePlaceholder: ['Начальная дата', 'Конечная дата'],
@@ -19,4 +19,3 @@ locale.timePickerLocale = { ...TimePickerLocale };
 // https://github.com/ant-design/ant-design/issues/424
 
 export default locale;
-
