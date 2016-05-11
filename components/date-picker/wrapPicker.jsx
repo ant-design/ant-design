@@ -89,7 +89,7 @@ export default function wrapPicker(Picker, defaultFormat) {
 
       const timeFormat = props.showTime && props.showTime.format;
       const rcTimePickerProps = {
-        formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss'),
+        formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss', locale.timePickerLocale.format),
         showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
         showHour: timeFormat && timeFormat.indexOf('HH') >= 0,
       };
