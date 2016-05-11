@@ -99,9 +99,10 @@ ReactDOM.render(
           <Route path=":children"
             onEnter={utils.getEnterHandler(resource)}
             component={utils.getChildrenWrapper(resource)} />
-       </Route>
-       <Route path="*" component={NotFound} />
-     </Router>
+        </Route>
+        <Route path="*" component={NotFound} />
+      </Route>
+    </Router>
   </IntlProvider>
   , document.getElementById('react-content')
 );

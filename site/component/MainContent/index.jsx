@@ -49,7 +49,7 @@ export default class MainContent extends React.Component {
     const text = isTop ?
             item.chinese || item.english : [
               <span key="english">{item.title || item.english}</span>,
-              <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>
+              <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
             ];
     const disabled = item.disabled;
     const url = item.fileName.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '');

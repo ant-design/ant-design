@@ -92,21 +92,24 @@ export default class Header extends React.Component {
     activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
     const locale = this.context.intl.locale;
-    const options = Object.keys(componentsList).map((key) => {
-      const value = componentsList[key];
-      return value.localized ? value[locale] : value;
-    }).filter(({ meta }) => {
-      return /^component/.test(meta.fileName);
-    }).map(({ meta }) => {
-      const pathSnippet = meta.fileName.split('/')[1];
-      const url = `/components/${pathSnippet}`;
-      return (
-        <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
-          <strong>{meta.title || meta.english}</strong>
-          <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
-        </Option>
-      );
-    });
+    const options = Object.keys(componentsList)
+            .map((key) => {
+              const value = componentsList[key];
+              return value.localized ? value[locale] : value;
+            })
+            .filter(({ meta }) => {
+              return /^component/.test(meta.fileName);
+            })
+            .map(({ meta }) => {
+              const pathSnippet = meta.fileName.split('/')[1];
+              const url = `/components/${pathSnippet}`;
+              return (
+                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
+                  <strong>{meta.title || meta.english}</strong>
+                  <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
+                </Option>
+              );
+            });
 
     const menuStyle = {
       display: this.state.menuVisible ? 'block' : '',
