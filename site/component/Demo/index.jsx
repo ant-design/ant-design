@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import classNames from 'classnames';
 import * as utils from '../utils';
 
+const isLocal = location.port;
+
 export default class Demo extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +41,7 @@ export default class Demo extends React.Component {
         <section className="code-box-demo">
           {
             meta.iframe ?
-              <iframe src={src} /> :
+              <iframe src={isLocal ? src : src.replace('./_site', '')} /> :
               preview
           }
           {
