@@ -75,3 +75,35 @@ a {
 .outside-link.internal {
   display: none;
 }
+
+.ant-site-loading {
+  height: 100vh;
+  width: 100vw;
+  background: #fff;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  img {
+    animation: siteLoadingCircle 2s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    margin-top: -50px;
+  }
+  div {
+    font-family: lato;
+    color: #777;
+    font-size: 16px;
+    letter-spacing: 2px;
+  }
+}
+
+@keyframes siteLoadingCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
