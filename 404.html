@@ -4,6 +4,6 @@
   if (location.pathname === '/changelog') {
     location.href = '/#/docs/react/changelog' + scrollToString;
   } else {
-    location.href = '/#' + location.pathname + scrollToString;
+    location.href = '/#' + location.pathname.replace(/\/$/, '') + scrollToString;
   }
 </script>
