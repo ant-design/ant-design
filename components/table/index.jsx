@@ -670,6 +670,7 @@ export default class Table extends React.Component {
   }
 
   render() {
+    const { style, className, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
@@ -678,7 +679,6 @@ export default class Table extends React.Component {
     const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
       'ant-table-bordered': this.props.bordered,
-      [this.props.className]: !!this.props.className,
     });
 
     columns = this.renderColumnsDropdown(columns);
@@ -695,12 +695,12 @@ export default class Table extends React.Component {
           <Icon type="frown" />{locale.emptyText}
         </div>
       );
-      emptyClass = ' ant-table-empty';
+      emptyClass = 'ant-table-empty';
     }
 
     let table = (
       <div>
-        <RcTable {...this.props}
+        <RcTable {...restProps}
           data={data}
           columns={columns}
           className={classString}
@@ -717,7 +717,7 @@ export default class Table extends React.Component {
     const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
-      <div className={`clearfix${emptyClass}`}>
+      <div className={`${emptyClass} ${className} clearfix`} style={style}>
         {<Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>}
         {this.renderPagination(data)}
       </div>
