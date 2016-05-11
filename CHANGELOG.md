@@ -81,6 +81,7 @@ timeline: true
 - 修复 Button 禁用时事件仍然会冒泡的问题。[#1541](https://github.com/ant-design/ant-design/issues/1541)
 - 修复 Carousel 自动播放时的卡顿和报错问题。[#1397](https://github.com/ant-design/ant-design/issues/1397)
 - 修复 Tabs 的 card 类型内嵌标准 Tabs 时的样式问题。[#1617](https://github.com/ant-design/ant-design/issues/1617)
+- 修复 Menu `horizontal` 和 `vertical` 模式不支持受控 `openKeys` 的问题。
 
 ### 其他改进
 
