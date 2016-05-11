@@ -9,6 +9,15 @@ timeline: true
 
 ---
 
+## 1.0.1
+
+`2016-05-11`
+
+- 修复当 Table 的 `rowSelection.type` 为 'radio' 时的报错。[#1627](https://github.com/ant-design/ant-design/issues/1627)
+- 修复 CheckboxGroup 与 `getFieldProps`共用时的问题。[#1631](https://github.com/ant-design/ant-design/issues/1631)
+- 修复 RangePicker 中 TimePicker 不会受 locale 控制的问题。[#1635](https://github.com/ant-design/ant-design/issues/1635)
+- 修复 Tag 组件缺失的问题。
+
 ## 1.0.0
 
 `2016-05-09`
