@@ -38,7 +38,7 @@ export default class Footer extends React.Component {
           </li>
           <li>
             <h2>关于我们</h2>
-            <a href="https://github.com/alipay/x/issues">博客 - Ant UED</a>
+            <a href="https://github.com/ant-ued/blog/issues">团队博客 - Ant UED</a>
           </li>
           <li>
             <h2>联系我们</h2>
