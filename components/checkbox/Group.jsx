@@ -17,9 +17,9 @@ export default class CheckboxGroup extends React.Component {
     super(props);
     let value;
     if ('value' in props) {
-      value = props.value;
+      value = props.value || [];
     } else if ('defaultValue' in props) {
-      value = props.defaultValue;
+      value = props.defaultValue || [];
     }
     this.state = { value };
   }
