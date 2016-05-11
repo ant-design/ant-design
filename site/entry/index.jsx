@@ -1,18 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, Redirect, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router';
 import antd from '../../index.js';
 import * as utils from './utils';
 import '../common/lib';
 import App from '../component/App';
-import Home from '../component/Home';
-import NotFound from '../component/NotFound';
+import Home from '../component/Home/index';
+import NotFound from '../component/NotFound/index';
 import practice from '../../_data/practice';
 import pattern from '../../_data/pattern';
 import reactComponents from '../../_data/react-components';
 import spec from '../../_data/spec';
 import resource from '../../_data/resource';
 import config from '../website.config';
+import { createHashHistory } from 'history';
+
+// useRouterHistory creates a composable higher-order function
+const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 // TODO: pack dependencies with atool build
 // Expose React, ReactDOM
@@ -39,14 +43,14 @@ if (!location.port) {
   ga('create', 'UA-72788897-1', 'auto');
   ga('send', 'pageview');
 
-  hashHistory.listen((loc) => {
+  appHistory.listen((loc) => {
     ga('send', 'pageview', loc.pathname + loc.search);
   });
   /* eslint-enable */
 }
 
 ReactDOM.render(
-  <Router history={hashHistory}>
+  <Router history={appHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="components" component={ReactComponents}>
