@@ -4,7 +4,7 @@ import RcSlider from 'rc-slider';
 export default class Slider extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-slider',
-    tipTransitionName: 'zoom-down'
+    tipTransitionName: 'zoom-down',
   }
 
   render() {

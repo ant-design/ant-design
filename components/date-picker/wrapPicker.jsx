@@ -17,7 +17,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       align: {
         offset: [0, -9],
       },
-      open: false
+      open: false,
     }
 
     static contextTypes = {
@@ -67,7 +67,7 @@ export default function wrapPicker(Picker, defaultFormat) {
 
     toggleOpen = (e) => {
       this.setState({
-        open: e.open
+        open: e.open,
       });
     }
 
@@ -76,7 +76,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       const state = this.state;
       const pickerClass = classNames({
         'ant-calendar-picker': true,
-        'ant-calendar-picker-open': state.open
+        'ant-calendar-picker-open': state.open,
       });
       const pickerInputClass = classNames({
         'ant-calendar-range-picker': true,
@@ -91,7 +91,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       const rcTimePickerProps = {
         formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss'),
         showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
-        showHour: timeFormat && timeFormat.indexOf('HH') >= 0
+        showHour: timeFormat && timeFormat.indexOf('HH') >= 0,
       };
       const timePicker = props.showTime ? (
         <TimePicker

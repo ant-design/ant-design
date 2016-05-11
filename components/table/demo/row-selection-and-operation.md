@@ -67,7 +67,7 @@ const App = React.createClass({
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

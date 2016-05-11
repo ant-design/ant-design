@@ -23,7 +23,6 @@ const eslintrc = {
     'babel',
   ],
   rules: {
-    'comma-dangle': 0,
     'func-names': 0,
     'prefer-const': 0,
     'arrow-body-style': 0,

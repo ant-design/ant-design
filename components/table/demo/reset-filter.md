@@ -115,7 +115,7 @@ const App = React.createClass({
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

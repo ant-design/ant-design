@@ -12,30 +12,30 @@ const Test = React.createClass({
   getInitialState() {
     return {
       ModalText: '对话框的内容',
-      visible: false
+      visible: false,
     };
   },
   showModal() {
     this.setState({
-      visible: true
+      visible: true,
     });
   },
   handleOk() {
     this.setState({
       ModalText: '对话框将在两秒后关闭',
-      confirmLoading: true
+      confirmLoading: true,
     });
     setTimeout(() => {
       this.setState({
         visible: false,
-        confirmLoading: false
+        confirmLoading: false,
       });
     }, 2000);
   },
   handleCancel() {
     console.log('点击了取消');
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   render() {
@@ -51,7 +51,7 @@ const Test = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

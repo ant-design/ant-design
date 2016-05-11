@@ -13,19 +13,19 @@ const Sider = React.createClass({
   getInitialState() {
     return {
       current: '1',
-      openKeys: []
+      openKeys: [],
     };
   },
   handleClick(e) {
     console.log('click ', e);
     this.setState({
       current: e.key,
-      openKeys: e.keyPath.slice(1)
+      openKeys: e.keyPath.slice(1),
     });
   },
   onToggle(info) {
     this.setState({
-      openKeys: info.open ? info.keyPath : info.keyPath.slice(1)
+      openKeys: info.open ? info.keyPath : info.keyPath.slice(1),
     });
   },
   render() {
@@ -59,7 +59,7 @@ const Sider = React.createClass({
         </SubMenu>
       </Menu>
     );
-  }
+  },
 });
 ReactDOM.render(<Sider />, mountNode);
 ````

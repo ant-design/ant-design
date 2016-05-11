@@ -54,7 +54,7 @@ let Demo = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 Demo = createForm()(Demo);

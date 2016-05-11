@@ -22,7 +22,7 @@ export default class ScrollNumber extends React.Component {
   static propTypes = {
     count: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]),
     component: React.PropTypes.string,
     onAnimated: React.PropTypes.func,
@@ -33,7 +33,7 @@ export default class ScrollNumber extends React.Component {
     super(props);
     this.state = {
       animateStarted: true,
-      count: props.count
+      count: props.count,
     };
   }
 
@@ -124,7 +124,7 @@ export default class ScrollNumber extends React.Component {
   render() {
     const props = {
       ...this.props,
-      className: `${this.props.prefixCls} ${this.props.className}`
+      className: `${this.props.prefixCls} ${this.props.className}`,
     };
     return createElement(
       this.props.component,

@@ -11,7 +11,7 @@ import { Menu, Dropdown, Icon } from 'antd';
 const OverlayVisible = React.createClass({
   getInitialState() {
     return {
-      visible: false
+      visible: false,
     };
   },
   handleMenuClick(e) {
@@ -39,7 +39,7 @@ const OverlayVisible = React.createClass({
         </a>
       </Dropdown>
     );
-  }
+  },
 });
 
 ReactDOM.render(<OverlayVisible />, mountNode);

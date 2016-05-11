@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 export default class Radio extends React.Component {
   static defaultProps = {
-    prefixCls: 'ant-radio'
+    prefixCls: 'ant-radio',
   }
   render() {
     const { prefixCls, children, checked, disabled, className, style } = this.props;

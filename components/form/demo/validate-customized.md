@@ -91,12 +91,12 @@ let Demo = React.createClass({
       'ant-pwd-strength': true,
       'ant-pwd-strength-low': strength === 'L',
       'ant-pwd-strength-medium': strength === 'M',
-      'ant-pwd-strength-high': strength === 'H'
+      'ant-pwd-strength-high': strength === 'H',
     });
     const level = {
       L: '低',
       M: '中',
-      H: '高'
+      H: '高',
     };
 
     return (
@@ -119,7 +119,7 @@ let Demo = React.createClass({
     const passProps = getFieldProps('pass', {
       rules: [
         { required: true, whitespace: true, message: '请填写密码' },
-        { validator: this.checkPass }
+        { validator: this.checkPass },
       ],
       onChange: (e) => {
         console.log('你的密码就是这样被盗的：', e.target.value);
@@ -182,7 +182,7 @@ let Demo = React.createClass({
         </Form>
       </div>
     );
-  }
+  },
 });
 
 Demo = createForm()(Demo);

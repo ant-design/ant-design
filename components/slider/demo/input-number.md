@@ -11,12 +11,12 @@ import { Slider, InputNumber, Row, Col } from 'antd';
 const IntegerStep = React.createClass({
   getInitialState() {
     return {
-      inputValue: 1
+      inputValue: 1,
     };
   },
   onChange(value) {
     this.setState({
-      inputValue: value
+      inputValue: value,
     });
   },
   render() {
@@ -31,18 +31,18 @@ const IntegerStep = React.createClass({
         </Col>
       </Row>
     );
-  }
+  },
 });
 
 const DecimalStep = React.createClass({
   getInitialState() {
     return {
-      inputValue: 0
+      inputValue: 0,
     };
   },
   onChange(value) {
     this.setState({
-      inputValue: value
+      inputValue: value,
     });
   },
   render() {
@@ -57,7 +57,7 @@ const DecimalStep = React.createClass({
         </Col>
       </Row>
     );
-  }
+  },
 });
 
 ReactDOM.render(<div>

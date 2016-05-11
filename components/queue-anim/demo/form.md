@@ -13,12 +13,12 @@ const RadioGroup = Radio.Group;
 const Test = React.createClass({
   getInitialState() {
     return {
-      show: true
+      show: true,
     };
   },
   onClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   },
   render() {
@@ -57,7 +57,7 @@ const Test = React.createClass({
         </QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

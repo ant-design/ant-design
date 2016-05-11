@@ -23,7 +23,7 @@ export default class TreeSelect extends React.Component {
   render() {
     const props = this.props;
     let {
-      size, className, combobox, notFoundContent, prefixCls
+      size, className, combobox, notFoundContent, prefixCls,
     } = this.props;
 
     const cls = classNames({

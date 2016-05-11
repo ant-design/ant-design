@@ -147,7 +147,7 @@ export default class TransferList extends React.Component {
             prefixCls: 'ant-transfer',
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
-            checkable: <span className={'ant-transfer-checkbox-inner'}></span>
+            checkable: <span className={'ant-transfer-checkbox-inner'}></span>,
           })}
           <span className={`${prefixCls}-header-selected`}>
             <span>

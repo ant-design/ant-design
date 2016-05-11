@@ -17,7 +17,7 @@ export default function createPicker(TheCalendar) {
     componentWillReceiveProps(nextProps) {
       if ('value' in nextProps) {
         this.setState({
-          value: nextProps.parseDateFromValue(nextProps.value)
+          value: nextProps.parseDateFromValue(nextProps.value),
         });
       }
     }

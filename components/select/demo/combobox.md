@@ -38,7 +38,7 @@ const Test = React.createClass({
         {this.state.options}
       </Select>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

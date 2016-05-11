@@ -26,7 +26,7 @@ const Rater = React.createClass({
         {value && <span className="ant-rate-text">{value} 星</span>}
       </span>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Rater />, mountNode);

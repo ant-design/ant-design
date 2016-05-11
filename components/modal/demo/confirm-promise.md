@@ -18,7 +18,7 @@ function showConfirm() {
         setTimeout(resolve, 1000);
       });
     },
-    onCancel() {}
+    onCancel() {},
   });
 }
 

@@ -21,7 +21,7 @@ const props = {
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} 上传失败。`);
     }
-  }
+  },
 };
 
 ReactDOM.render(

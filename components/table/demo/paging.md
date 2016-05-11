@@ -13,13 +13,13 @@ const columns = [{
   dataIndex: 'name',
   render(text) {
     return <a href="#">{text}</a>;
-  }
+  },
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 
 const data = [];
@@ -28,7 +28,7 @@ for (let i = 0; i < 46; i++) {
     key: i,
     name: `李大嘴${i}`,
     age: 32,
-    address: `西湖区湖底公园${i}号`
+    address: `西湖区湖底公园${i}号`,
   });
 }
 

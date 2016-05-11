@@ -58,7 +58,7 @@ const Sider = React.createClass({
         </Menu>
       </div>
     );
-  }
+  },
 });
 ReactDOM.render(<Sider />, mountNode);
 ````

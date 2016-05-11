@@ -48,7 +48,7 @@ const DateTimePicker = React.createClass({
         <TimePicker onChange={this.handleTimeChange} />
       </div>
     );
-  }
+  },
 });
 
 function onSelect(value) {

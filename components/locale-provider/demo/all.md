@@ -91,7 +91,7 @@ const Page = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 const App = React.createClass({
@@ -117,7 +117,7 @@ const App = React.createClass({
         <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

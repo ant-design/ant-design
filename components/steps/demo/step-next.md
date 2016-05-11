@@ -17,14 +17,14 @@ const Step = Steps.Step;
 const array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
 const steps = array.map((item, i) => {
   return {
-    title: `步骤${i + 1}`
+    title: `步骤${i + 1}`,
   };
 });
 
 const App = React.createClass({
   getInitialState() {
     return {
-      currentStep: Math.floor(Math.random() * steps.length)
+      currentStep: Math.floor(Math.random() * steps.length),
     };
   },
   next() {
@@ -33,7 +33,7 @@ const App = React.createClass({
       s = 0;
     }
     this.setState({
-      currentStep: s
+      currentStep: s,
     });
   },
   render() {
@@ -49,7 +49,7 @@ const App = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

@@ -16,7 +16,7 @@ function getNotificationInstance() {
     style: {
       top: defaultTop,
       right: 0,
-    }
+    },
   });
   return notificationInstance;
 }

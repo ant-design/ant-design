@@ -7,7 +7,7 @@ import Checkbox from '../checkbox';
 export default class FilterMenu extends React.Component {
   static defaultProps = {
     handleFilter() {},
-    column: null
+    column: null,
   }
 
   constructor(props) {
@@ -22,7 +22,7 @@ export default class FilterMenu extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      selectedKeys: nextProps.selectedKeys
+      selectedKeys: nextProps.selectedKeys,
     });
   }
 
@@ -32,13 +32,13 @@ export default class FilterMenu extends React.Component {
 
   handleClearFilters = () => {
     this.setState({
-      selectedKeys: []
+      selectedKeys: [],
     }, this.handleConfirm);
   }
 
   handleConfirm = () => {
     this.setState({
-      visible: false
+      visible: false,
     });
     this.props.confirmFilter(this.props.column, this.state.selectedKeys);
   }

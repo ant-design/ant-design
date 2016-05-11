@@ -20,7 +20,7 @@ const Test = React.createClass({
   },
   render() {
     return <TimePicker value={this.state.value} onChange={this.onChange} />;
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

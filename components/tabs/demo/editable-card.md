@@ -54,7 +54,7 @@ const Demo = React.createClass({
         {this.state.panes}
       </Tabs>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

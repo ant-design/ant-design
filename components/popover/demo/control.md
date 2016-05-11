@@ -11,12 +11,12 @@ import { Popover, Button } from 'antd';
 const App = React.createClass({
   getInitialState() {
     return {
-      visible: false
+      visible: false,
     };
   },
   hide() {
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   handleVisibleChange(visible) {
@@ -34,7 +34,7 @@ const App = React.createClass({
         <Button type="primary">点击弹出卡片</Button>
       </Popover>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

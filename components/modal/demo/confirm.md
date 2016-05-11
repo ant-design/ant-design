@@ -16,7 +16,7 @@ function showConfirm() {
     onOk() {
       console.log('确定');
     },
-    onCancel() {}
+    onCancel() {},
   });
 }
 

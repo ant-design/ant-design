@@ -15,7 +15,7 @@ import { Table } from 'antd';
 const renderContent = function (value, row, index) {
   let obj = {
     children: value,
-    props: {}
+    props: {},
   };
   if (index === 4) {
     obj.props.colSpan = 0;
@@ -33,14 +33,14 @@ const columns = [{
     return {
       children: <a href="#">{text}</a>,
       props: {
-        colSpan: 5
-      }
+        colSpan: 5,
+      },
     };
-  }
+  },
 }, {
   title: '年龄',
   dataIndex: 'age',
-  render: renderContent
+  render: renderContent,
 }, {
   title: '家庭电话',
   colSpan: 2,
@@ -48,7 +48,7 @@ const columns = [{
   render(value, row, index) {
     let obj = {
       children: value,
-      props: {}
+      props: {},
     };
     // 第三列的第三行行合并
     if (index === 2) {
@@ -64,16 +64,16 @@ const columns = [{
       obj.props.colSpan = 0;
     }
     return obj;
-  }
+  },
 }, {
   title: '手机号',
   colSpan: 0,
   dataIndex: 'phone',
-  render: renderContent
+  render: renderContent,
 }, {
   title: '住址',
   dataIndex: 'address',
-  render: renderContent
+  render: renderContent,
 }];
 
 const data = [{

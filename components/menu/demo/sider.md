@@ -13,13 +13,13 @@ const MenuItemGroup = Menu.ItemGroup;
 const Sider = React.createClass({
   getInitialState() {
     return {
-      current: '1'
+      current: '1',
     };
   },
   handleClick(e) {
     console.log('click ', e);
     this.setState({
-      current: e.key
+      current: e.key,
     });
   },
   render() {
@@ -55,7 +55,7 @@ const Sider = React.createClass({
         </SubMenu>
       </Menu>
     );
-  }
+  },
 });
 ReactDOM.render(<Sider />, mountNode);
 ````

@@ -14,13 +14,13 @@ function getListData(value) {
     case 8:
       listData = [
         { type: 'warning', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' }
+        { type: 'normal', content: '这里是普通事项.' },
       ]; break;
     case 10:
       listData = [
         { type: 'warning', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' },
-        { type: 'error', content: '这里是错误事项.' }
+        { type: 'error', content: '这里是错误事项.' },
       ]; break;
     case 15:
       listData = [
@@ -29,7 +29,7 @@ function getListData(value) {
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' }
+        { type: 'error', content: '这里是错误事项.' },
       ]; break;
     default:
   }

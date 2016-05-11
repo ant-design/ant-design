@@ -12,7 +12,7 @@ const ButtonGroup = Button.Group;
 const MyProgress = React.createClass({
   getInitialState() {
     return {
-      percent: 0
+      percent: 0,
     };
   },
   increase() {
@@ -39,7 +39,7 @@ const MyProgress = React.createClass({
         </ButtonGroup>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<MyProgress />, mountNode);

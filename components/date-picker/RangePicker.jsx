@@ -17,8 +17,8 @@ export default class RangePicker extends React.Component {
     this.state = {
       value: [
         parseDateFromValue(start),
-        parseDateFromValue(end)
-      ]
+        parseDateFromValue(end),
+      ],
     };
   }
 
@@ -28,7 +28,7 @@ export default class RangePicker extends React.Component {
       const start = nextProps.parseDateFromValue(value[0]);
       const end = nextProps.parseDateFromValue(value[1]);
       this.setState({
-        value: [start, end]
+        value: [start, end],
       });
     }
   }

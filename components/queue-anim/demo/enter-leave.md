@@ -11,12 +11,12 @@ import { QueueAnim, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      show: true
+      show: true,
     };
   },
   onClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   },
   render() {
@@ -37,7 +37,7 @@ const Test = React.createClass({
             <li></li>
           </ul>
         </div>
-      </div>
+      </div>,
     ] : null;
     return (
       <div>
@@ -52,7 +52,7 @@ const Test = React.createClass({
         </QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

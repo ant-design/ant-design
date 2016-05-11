@@ -21,8 +21,8 @@ const MyUpload = React.createClass({
         uid: -1,
         name: 'xxx.png',
         status: 'done',
-        url: 'http://www.baidu.com/xxx.png'
-      }]
+        url: 'http://www.baidu.com/xxx.png',
+      }],
     };
   },
   handleChange(info) {
@@ -55,7 +55,7 @@ const MyUpload = React.createClass({
     const props = {
       action: '/upload.do',
       onChange: this.handleChange,
-      multiple: true
+      multiple: true,
     };
     return (
       <Upload {...props} fileList={this.state.fileList}>
@@ -64,7 +64,7 @@ const MyUpload = React.createClass({
         </Button>
       </Upload>
     );
-  }
+  },
 });
 
 ReactDOM.render(<MyUpload />, mountNode);

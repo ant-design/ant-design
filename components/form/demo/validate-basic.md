@@ -82,7 +82,7 @@ let BasicDemo = React.createClass({
           { type: 'email', message: '请输入正确的邮箱地址' },
         ],
         trigger: ['onBlur', 'onChange'],
-      }]
+      }],
     });
     const passwdProps = getFieldProps('passwd', {
       rules: [

@@ -26,7 +26,7 @@ const App = React.createClass({
         key: i,
         title: `内容${i + 1}`,
         description: `内容${i + 1}的描述`,
-        chosen: Math.random() * 2 > 1
+        chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
         targetKeys.push(data.key);
@@ -61,7 +61,7 @@ const App = React.createClass({
         render={item => `${item.title}-${item.description}`}
         footer={this.renderFooter} />
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

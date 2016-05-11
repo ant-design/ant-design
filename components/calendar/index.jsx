@@ -56,7 +56,7 @@ export default class Calendar extends React.Component {
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: this.parseDateFromValue(nextProps.value)
+        value: this.parseDateFromValue(nextProps.value),
       });
     }
   }

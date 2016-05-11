@@ -44,7 +44,7 @@ const App = React.createClass({
         <Button size="small" type="primary" onClick={this.addTag}>添加标签</Button>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

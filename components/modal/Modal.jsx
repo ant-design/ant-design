@@ -55,7 +55,7 @@ export default class Modal extends React.Component {
     Dom.addEventListener(document.documentElement, 'click', (e) => {
       mousePosition = {
         x: e.pageX,
-        y: e.pageY
+        y: e.pageY,
       };
       // 20ms 内发生过点击事件，则从点击位置动画展示
       // 否则直接 zoom 展示
@@ -87,7 +87,7 @@ export default class Modal extends React.Component {
         loading={props.confirmLoading}
         onClick={this.handleOk}>
         {okText || '确定'}
-      </Button>
+      </Button>,
     ];
     let footer = props.footer || defaultFooter;
     return (

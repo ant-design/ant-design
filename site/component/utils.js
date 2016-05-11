@@ -36,7 +36,7 @@ export function jsonmlToComponent(pathname, jsonml) {
       ));
     }],
     [(node) => getTagName(node) === 'video', (node, index) =>
-      <VideoPlayer video={getAttributes(node)} key={index} />
+      <VideoPlayer video={getAttributes(node)} key={index} />,
     ],
     [(node) => isElement(node) && getTagName(node) === 'a', (node, index) => {
       if (getAttributes(node).class ||

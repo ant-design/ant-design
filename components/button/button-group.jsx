@@ -16,7 +16,7 @@ export default function ButtonGroup(props) {
   const classes = classNames({
     'ant-btn-group': true,
     [prefix + sizeCls]: sizeCls,
-    [className]: className
+    [className]: className,
   });
 
   return <div {...others} className={classes} />;

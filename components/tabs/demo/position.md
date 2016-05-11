@@ -39,7 +39,7 @@ const Demo = React.createClass({
         </Tabs>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

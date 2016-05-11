@@ -66,18 +66,18 @@ let Demo = React.createClass({
     const { getFieldProps } = this.props.form;
     const selectProps = getFieldProps('select', {
       rules: [
-        { required: true, message: '请选择您的国籍' }
+        { required: true, message: '请选择您的国籍' },
       ],
     });
     const multiSelectProps = getFieldProps('multiSelect', {
       rules: [
         { required: true, message: '请选择您喜欢的颜色', type: 'array' },
-      ]
+      ],
     });
     const radioProps = getFieldProps('radio', {
       rules: [
-        { required: true, message: '请选择您的性别' }
-      ]
+        { required: true, message: '请选择您的性别' },
+      ],
     });
     const birthdayProps = getFieldProps('birthday', {
       rules: [
@@ -87,8 +87,8 @@ let Demo = React.createClass({
           message: '你的生日是什么呢?',
         }, {
           validator: this.checkBirthday,
-        }
-      ]
+        },
+      ],
     });
     const primeNumberProps = getFieldProps('primeNumber', {
       rules: [{ validator: this.checkPrime }],

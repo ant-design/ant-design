@@ -6,7 +6,7 @@ import classNames from 'classnames';
 const statusColorMap = {
   normal: '#2db7f5',
   exception: '#ff5500',
-  success: '#87d068'
+  success: '#87d068',
 };
 
 export default class Line extends React.Component {

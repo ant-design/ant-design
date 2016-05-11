@@ -14,17 +14,17 @@ const LocalizedModal = React.createClass({
   },
   showModal() {
     this.setState({
-      visible: true
+      visible: true,
     });
   },
   handleOk() {
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   handleCancel() {
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   render() {
@@ -40,7 +40,7 @@ const LocalizedModal = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 function confirm() {
@@ -48,7 +48,7 @@ function confirm() {
     title: 'Confirm',
     content: 'Bla bla ...',
     okText: 'OK',
-    cancelText: 'Cancel'
+    cancelText: 'Cancel',
   });
 }
 

@@ -27,7 +27,7 @@ const Card = React.createClass({
         切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Card />, mountNode);

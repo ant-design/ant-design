@@ -56,7 +56,7 @@ const Test = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(

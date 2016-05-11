@@ -69,7 +69,7 @@ const Test = React.createClass({
           data: result.data,
           pagination,
         });
-      }
+      },
     });
   },
   componentDidMount() {
@@ -83,7 +83,7 @@ const Test = React.createClass({
         loading={this.state.loading}
         onChange={this.handleTableChange} />
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

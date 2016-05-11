@@ -6,7 +6,7 @@ export default class CopyableIcon extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      justCopied: false
+      justCopied: false,
     };
   }
 

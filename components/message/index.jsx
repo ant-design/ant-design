@@ -24,7 +24,7 @@ function notice(content, duration = defaultDuration, type, onClose) {
     success: 'check-circle',
     error: 'cross-circle',
     warning: 'exclamation-circle',
-    loading: 'loading'
+    loading: 'loading',
   })[type];
 
   let instance = getMessageInstance();

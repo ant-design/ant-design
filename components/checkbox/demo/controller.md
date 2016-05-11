@@ -12,7 +12,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       checked: true,
-      disabled: false
+      disabled: false,
     };
   },
   render() {
@@ -51,7 +51,7 @@ const App = React.createClass({
     this.setState({
       checked: e.target.checked,
     });
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

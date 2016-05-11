@@ -15,7 +15,7 @@ export default class Alert extends React.Component {
     super(props);
     this.state = {
       closing: true,
-      closed: false
+      closed: false,
     };
   }
   handleClose = (e) => {
@@ -27,19 +27,19 @@ export default class Alert extends React.Component {
     dom.style.height = `${dom.offsetHeight}px`;
 
     this.setState({
-      closing: false
+      closing: false,
     });
     this.props.onClose.call(this, e);
   }
   animationEnd = () => {
     this.setState({
       closed: true,
-      closing: true
+      closing: true,
     });
   }
   render() {
     let {
-      closable, description, type, prefixCls, message, closeText, showIcon
+      closable, description, type, prefixCls, message, closeText, showIcon,
     } = this.props;
 
     let iconType = '';

@@ -20,8 +20,8 @@ export default class UploadList extends React.Component {
     items: [],
     progressAttr: {
       strokeWidth: 3,
-      showInfo: false
-    }
+      showInfo: false,
+    },
   };
 
   handleClose = (file) => {

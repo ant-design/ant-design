@@ -58,7 +58,7 @@ let Demo = React.createClass({
         </FormItem>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);

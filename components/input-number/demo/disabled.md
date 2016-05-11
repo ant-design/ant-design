@@ -11,12 +11,12 @@ import { InputNumber, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      disabled: true
+      disabled: true,
     };
   },
   toggle() {
     this.setState({
-      disabled: !this.state.disabled
+      disabled: !this.state.disabled,
     });
   },
   render() {
@@ -28,7 +28,7 @@ const Test = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

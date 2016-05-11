@@ -48,7 +48,7 @@ const App = React.createClass({
         </Menu.Item>
       </Menu>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

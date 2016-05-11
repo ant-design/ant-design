@@ -4,7 +4,7 @@ import CopyableIcon from './CopyableIcon';
 
 export default class IconSet extends React.Component {
   static defaultProps = {
-    icons: []
+    icons: [],
   }
 
   render() {

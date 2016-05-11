@@ -42,7 +42,7 @@ const App = React.createClass({
         </Button>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

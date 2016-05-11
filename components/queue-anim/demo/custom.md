@@ -37,7 +37,7 @@ const Test = React.createClass({
             <li></li>
           </ul>
         </div>
-      </div>
+      </div>,
     ] : null;
     return (
       <div>
@@ -47,13 +47,13 @@ const Test = React.createClass({
         <QueueAnim className="demo-content"
           animConfig={[
             { opacity: [1, 0], translateY: [0, 50] },
-            { opacity: [1, 0], translateY: [0, -50] }
+            { opacity: [1, 0], translateY: [0, -50] },
           ]}>
           {list}
         </QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

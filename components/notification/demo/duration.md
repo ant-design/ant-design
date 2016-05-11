@@ -12,7 +12,7 @@ const openNotification = function () {
   const args = {
     message: '这是标题',
     description: '我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭，我不会自动关闭',
-    duration: 0
+    duration: 0,
   };
   notification.open(args);
 };

@@ -84,7 +84,7 @@ export default class Tooltip extends React.Component {
         onPopupAlign={this.onPopupAlign}
         ref="tooltip"
         {...this.props}>
-        {visible ? cloneElement(children, { className: childrenCls, }) : children}
+        {visible ? cloneElement(children, { className: childrenCls }) : children}
       </RcTooltip>
     );
   }

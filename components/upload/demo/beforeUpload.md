@@ -16,7 +16,7 @@ const props = {
       message.error('只能上传 JPG 文件哦！');
     }
     return isJPG;
-  }
+  },
 };
 
 ReactDOM.render(

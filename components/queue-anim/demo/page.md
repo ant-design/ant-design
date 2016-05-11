@@ -11,12 +11,12 @@ import { QueueAnim, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      show: true
+      show: true,
     };
   },
   onClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   },
   render() {
@@ -59,7 +59,7 @@ const Test = React.createClass({
       </QueueAnim>,
       <QueueAnim delay={1000} type="bottom" key="footerBox">
         <div className="demo-footer" key="footer"></div>
-      </QueueAnim>
+      </QueueAnim>,
     ] : null;
     return (
       <div>
@@ -69,7 +69,7 @@ const Test = React.createClass({
         <QueueAnim type={['right', 'left']}>{page}</QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

@@ -11,13 +11,13 @@ const Step = Steps.Step;
 
 const steps = [{
   title: '已完成',
-  description: '这里是信息的描述'
+  description: '这里是信息的描述',
 }, {
   title: '进行中',
-  description: '这里是信息的描述'
+  description: '这里是信息的描述',
 }, {
   title: '待运行',
-  description: '这里是信息的描述'
+  description: '这里是信息的描述',
 }].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
 
 ReactDOM.render(<Steps size="small" direction="vertical" current={1}>{steps}</Steps>,

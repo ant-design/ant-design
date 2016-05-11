@@ -12,7 +12,7 @@ const DateRange = React.createClass({
   getInitialState() {
     return {
       startValue: null,
-      endValue: null
+      endValue: null,
     };
   },
   disabledStartDate(startValue) {
@@ -52,7 +52,7 @@ const DateRange = React.createClass({
           onChange={this.onEndChange} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(

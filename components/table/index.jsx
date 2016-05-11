@@ -55,7 +55,7 @@ export default class Table extends React.Component {
     bordered: false,
     indentSize: 20,
     onChange: noop,
-    locale: {}
+    locale: {},
   }
 
   static contextTypes = {
@@ -468,7 +468,7 @@ export default class Table extends React.Component {
         selectionColumn = {
           key: 'selection-column',
           render: this.renderSelectionRadio,
-          className: 'ant-table-selection-column'
+          className: 'ant-table-selection-column',
         };
       } else {
         const checkboxAllDisabled = data.every(item =>
@@ -483,7 +483,7 @@ export default class Table extends React.Component {
           key: 'selection-column',
           title: checkboxAll,
           render: this.renderSelectionCheckBox,
-          className: 'ant-table-selection-column'
+          className: 'ant-table-selection-column',
         };
       }
       if (columns[0] && columns[0].key === 'selection-column') {

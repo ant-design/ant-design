@@ -38,12 +38,12 @@ const data = [{
 const App = React.createClass({
   getInitialState() {
     return {
-      loading: false
+      loading: false,
     };
   },
   toggleLoading() {
     this.setState({
-      loading: !this.state.loading
+      loading: !this.state.loading,
     });
   },
   render() {
@@ -53,7 +53,7 @@ const App = React.createClass({
         <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

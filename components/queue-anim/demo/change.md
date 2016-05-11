@@ -15,7 +15,7 @@ const Test = React.createClass({
       items: [
         <li key="0"></li>,
         <li key="1"></li>,
-        <li key="2"></li>
+        <li key="2"></li>,
       ],
     };
   },
@@ -60,7 +60,7 @@ const Test = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

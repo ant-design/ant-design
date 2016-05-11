@@ -38,7 +38,7 @@ const App = React.createClass({
         </Radio>
       </RadioGroup>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

@@ -14,7 +14,7 @@ export default class Badge extends React.Component {
   static propTypes = {
     count: React.PropTypes.oneOfType([
       React.PropTypes.string,
-      React.PropTypes.number
+      React.PropTypes.number,
     ]),
     dot: React.PropTypes.bool,
     overflowCount: React.PropTypes.number,

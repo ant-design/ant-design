@@ -34,7 +34,7 @@ export default class Row extends React.Component {
         style: gutter > 0 ? {
           paddingLeft: gutter / 2,
           paddingRight: gutter / 2,
-          ...col.props.style
+          ...col.props.style,
         } : col.props.style,
       });
     });

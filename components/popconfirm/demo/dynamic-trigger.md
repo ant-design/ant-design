@@ -52,7 +52,7 @@ let App = React.createClass({
         点击是否直接执行：<Switch defaultChecked onChange={this.changeCondition} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

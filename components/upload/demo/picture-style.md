@@ -25,7 +25,7 @@ const props = {
     status: 'done',
     url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
     thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-  }]
+  }],
 };
 
 ReactDOM.render(

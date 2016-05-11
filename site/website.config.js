@@ -23,5 +23,5 @@ export default {
     '0.10.x': 'http://010x.ant.design/',
     '0.11.x': 'http://011x.ant.design/',
     '0.12.x': 'http://012x.ant.design/',
-  }
+  },
 };

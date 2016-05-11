@@ -52,7 +52,7 @@ const SearchInput = React.createClass({
         </div>
       </InputGroup>
     );
-  }
+  },
 });
 
 ReactDOM.render(

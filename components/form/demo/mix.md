@@ -142,7 +142,7 @@ let Demo = React.createClass({
           <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}
             {...getFieldProps('upload', {
               valuePropName: 'fileList',
-              normalize: this.normFile
+              normalize: this.normFile,
             })}
           >
             <Button type="ghost">
@@ -156,7 +156,7 @@ let Demo = React.createClass({
         </FormItem>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);

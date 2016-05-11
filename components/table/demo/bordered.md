@@ -13,7 +13,7 @@ const columns = [{
   dataIndex: 'name',
   render(text) {
     return <a href="#">{text}</a>;
-  }
+  },
 }, {
   title: '资产',
   className: 'column-money',

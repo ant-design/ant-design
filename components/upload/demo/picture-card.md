@@ -36,7 +36,7 @@ const ImageUploadList = React.createClass({
           priviewImage: file.url,
           priviewVisible: true,
         });
-      }
+      },
     };
     return (
       <div className="clearfix">
@@ -53,7 +53,7 @@ const ImageUploadList = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<ImageUploadList />, mountNode);

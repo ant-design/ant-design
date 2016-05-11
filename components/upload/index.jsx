@@ -78,7 +78,7 @@ export default class Upload extends React.Component {
     super(props);
     this.state = {
       fileList: this.props.fileList || this.props.defaultFileList || [],
-      dragState: 'drop'
+      dragState: 'drop',
     };
   }
 
@@ -101,7 +101,7 @@ export default class Upload extends React.Component {
     }
     this.onChange({
       file: targetItem,
-      fileList: nextFileList
+      fileList: nextFileList,
     });
     // fix ie progress
     if (!window.FormData) {
@@ -115,7 +115,7 @@ export default class Upload extends React.Component {
     this.progressTimer = setInterval(() => {
       curPercent = getPercent(curPercent);
       this.onProgress({
-        percent: curPercent
+        percent: curPercent,
       }, file);
     }, 200);
   }
@@ -146,7 +146,7 @@ export default class Upload extends React.Component {
       targetItem.response = response;
       this.onChange({
         file: targetItem,
-        fileList
+        fileList,
       });
     }
   }
@@ -159,7 +159,7 @@ export default class Upload extends React.Component {
     this.onChange({
       event: e,
       file: targetItem,
-      fileList: this.state.fileList
+      fileList: this.state.fileList,
     });
   }
 
@@ -207,7 +207,7 @@ export default class Upload extends React.Component {
 
   onChange = (info) => {
     this.setState({
-      fileList: info.fileList
+      fileList: info.fileList,
     });
     this.props.onChange(info);
   }
@@ -222,7 +222,7 @@ export default class Upload extends React.Component {
 
   onFileDrop = (e) => {
     this.setState({
-      dragState: e.type
+      dragState: e.type,
     });
   }
 

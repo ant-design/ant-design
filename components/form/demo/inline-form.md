@@ -35,7 +35,7 @@ let Demo = React.createClass({
         <Button type="primary" htmlType="submit">登录</Button>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);
