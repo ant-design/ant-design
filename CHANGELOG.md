@@ -19,7 +19,7 @@ timeline: true
 
 - **兼容 React@15.x**。
 - **全新单页站点**，使用 React 和 antd 进行了彻底重构，加载更快，访问更流畅。
-- **样式支持按需加载**。需要配合 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd#usage) 插件和 `style` 配置进行使用。[#900](https://github.com/ant-design/ant-design/issues/900)
+- **样式支持按需加载**。可参考 [antd-init](https://github.com/ant-design/antd-init) 的模版代码, 需要配合 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd#usage) 插件和 `style` 配置进行使用。[#900](https://github.com/ant-design/ant-design/issues/900)
 - **提供独立的构建文件**。[文档](/docs/react/install?scrollTo=浏览器引入)
 - 新增卡片组件 [Card](/components/card)。
 - 新增评分组件 [Rate](/components/rate)。
@@ -33,7 +33,7 @@ timeline: true
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
 
-- 调整了样式目录结构，**入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
+- 推荐使用样式按需加载, 如果需要整体载入样式, **样式入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
 
    ```diff
    - import 'antd/lib/index.css';  // import 'antd/style/index.less';
