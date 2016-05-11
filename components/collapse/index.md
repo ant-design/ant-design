@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 折叠面板
-type: 展示
+type: Presentation
 english: Collapse
 ---
 

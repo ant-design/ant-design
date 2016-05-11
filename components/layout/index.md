@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 布局
-type: 基本
+type: Basic
 cols: 1
 english: Layout
 ---

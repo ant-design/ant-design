@@ -2,7 +2,7 @@
 category: Components
 chinese: 国际化
 cols: 1
-type: 其它
+type: Other
 english: LocaleProvider
 ---
 

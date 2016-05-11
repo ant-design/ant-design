@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 固钉
-type: 其它
+type: Other
 english: Affix
 ---
 
