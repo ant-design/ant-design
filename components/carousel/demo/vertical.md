@@ -1,10 +1,9 @@
-# 垂直
-
-- order: 1
+---
+order: 1
+title: 垂直
+---
 
 垂直显示。
-
----
 
 ````jsx
 import { Carousel } from 'antd';

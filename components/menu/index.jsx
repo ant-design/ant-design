@@ -1,50 +1,57 @@
 import React from 'react';
-import Menu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
+import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../common/openAnimation';
 
 function noop() {
 }
 
-const AntMenu = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-menu',
-      onClick: noop,
-      onOpen: noop,
-      onClose: noop,
-      className: '',
-      theme: 'light',  // or dark
+export default class Menu extends React.Component {
+  static Divider = Divider;
+  static Item = Item;
+  static SubMenu = SubMenu;
+  static ItemGroup = ItemGroup;
+  static defaultProps = {
+    prefixCls: 'ant-menu',
+    onClick: noop,
+    onOpen: noop,
+    onClose: noop,
+    className: '',
+    theme: 'light',  // or dark
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
+      openKeys: [],
     };
-  },
-  getInitialState() {
-    return {
-      openKeys: []
-    };
-  },
+  }
   componentWillReceiveProps(nextProps) {
     if (this.props.mode === 'inline' &&
         nextProps.mode !== 'inline') {
       this.switchModeFromInline = true;
     }
-  },
-  handleClick(e) {
-    this.setState({
-      openKeys: []
-    });
+    if ('openKeys' in nextProps) {
+      this.setOpenKeys(nextProps.openKeys);
+    }
+  }
+  handleClick = (e) => {
+    this.setOpenKeys([]);
     this.props.onClick(e);
-  },
-  handleOpenKeys(e) {
-    this.setState({
-      openKeys: e.openKeys
-    });
+  }
+  handleOpenKeys = (e) => {
+    const { openKeys } = e;
+    this.setOpenKeys(openKeys);
     this.props.onOpen(e);
-  },
-  handleCloseKeys(e) {
-    this.setState({
-      openKeys: e.openKeys
-    });
+  }
+  handleCloseKeys = (e) => {
+    const { openKeys } = e;
+    this.setOpenKeys(openKeys);
     this.props.onClose(e);
-  },
+  }
+  setOpenKeys(openKeys) {
+    if (!('openKeys' in this.props)) {
+      this.setState({ openKeys });
+    }
+  }
   render() {
     let openAnimation = this.props.openAnimation || this.props.openTransitionName;
     if (!openAnimation) {
@@ -89,13 +96,6 @@ const AntMenu = React.createClass({
         className,
       };
     }
-    return <Menu {...this.props} {...props} />;
+    return <RcMenu {...this.props} {...props} />;
   }
-});
-
-AntMenu.Divider = Divider;
-AntMenu.Item = Item;
-AntMenu.SubMenu = SubMenu;
-AntMenu.ItemGroup = ItemGroup;
-
-export default AntMenu;
+}

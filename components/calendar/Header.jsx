@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
@@ -6,7 +6,27 @@ const Option = Select.Option;
 
 function noop() {}
 
-class Header extends Component {
+export default class Header extends React.Component {
+  static defaultProps = {
+    prefixCls: `${PREFIX_CLS}-header`,
+    yearSelectOffset: 10,
+    yearSelectTotal: 20,
+    onValueChange: noop,
+    onTypeChange: noop,
+  }
+
+  static propTypes = {
+    value: PropTypes.object,
+    locale: PropTypes.object,
+    yearSelectOffset: PropTypes.number,
+    yearSelectTotal: PropTypes.number,
+    onValueChange: PropTypes.func,
+    onTypeChange: PropTypes.func,
+    prefixCls: PropTypes.string,
+    selectPrefixCls: PropTypes.string,
+    type: PropTypes.string,
+  }
+
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;
     const start = year - yearSelectOffset;
@@ -20,16 +40,17 @@ class Header extends Component {
     return (
       <Select
         style={{ width: 75 }}
-        size={ fullscreen ? null : 'small' }
+        size={fullscreen ? null : 'small'}
         dropdownMatchSelectWidth={false}
         dropdownMenuStyle={{ minWidth: 103 }}
         className={`${prefixCls}-year-select`}
-        onChange={this.onYearChange.bind(this)}
+        onChange={this.onYearChange}
         value={String(year)}>
-        { options }
+        {options}
       </Select>
     );
   }
+
   getMonthSelectElement(month) {
     const props = this.props;
     const months = props.locale.format.months;
@@ -44,35 +65,38 @@ class Header extends Component {
       <Select
         style={{ minWidth: 70 }}
         dropdownMenuStyle={{ minWidth: 125 }}
-        size={ fullscreen ? null : 'small' }
+        size={fullscreen ? null : 'small'}
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}
         value={String(month)}
-        onChange={this.onMonthChange.bind(this)}>
-        { options }
+        onChange={this.onMonthChange}>
+        {options}
       </Select>
     );
   }
-  onYearChange(year) {
+
+  onYearChange = (year) => {
     const newValue = this.props.value.clone();
     newValue.setYear(parseInt(year, 10));
     this.props.onValueChange(newValue);
   }
 
-  onMonthChange(month) {
+  onMonthChange = (month) => {
     const newValue = this.props.value.clone();
     newValue.setMonth(parseInt(month, 10));
     this.props.onValueChange(newValue);
   }
-  onTypeChange(e) {
+
+  onTypeChange = (e) => {
     this.props.onTypeChange(e.target.value);
   }
+
   render() {
     const { type, value, prefixCls, locale } = this.props;
     const yearSelect = this.getYearSelectElement(value.getYear());
     const monthSelect = type === 'date' ? this.getMonthSelectElement(value.getMonth()) : null;
     const typeSwitch = (
-      <Group onChange={this.onTypeChange.bind(this)} value={type}>
+      <Group onChange={this.onTypeChange} value={type}>
         <Button value="date">{locale.month}</Button>
         <Button value="month">{locale.year}</Button>
       </Group>
@@ -80,32 +104,10 @@ class Header extends Component {
 
     return (
       <div className={`${prefixCls}-header`}>
-        { yearSelect }
-        { monthSelect }
-        { typeSwitch }
+        {yearSelect}
+        {monthSelect}
+        {typeSwitch}
       </div>
     );
   }
 }
-
-Header.propTypes = {
-  value: PropTypes.object,
-  locale: PropTypes.object,
-  yearSelectOffset: PropTypes.number,
-  yearSelectTotal: PropTypes.number,
-  onValueChange: PropTypes.func,
-  onTypeChange: PropTypes.func,
-  prefixCls: PropTypes.string,
-  selectPrefixCls: PropTypes.string,
-  type: PropTypes.string,
-};
-
-Header.defaultProps = {
-  prefixCls: `${PREFIX_CLS}-header`,
-  yearSelectOffset: 10,
-  yearSelectTotal: 20,
-  onValueChange: noop,
-  onTypeChange: noop,
-};
-
-export default Header;

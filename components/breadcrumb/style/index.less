@@ -1,0 +1,30 @@
+@import "../../style/themes/default";
+
+@breadcrumb-prefix-cls: ant-breadcrumb;
+
+.@{breadcrumb-prefix-cls} {
+  color: #999;
+  font-size: @font-size-base;
+
+  a {
+    color: @text-color;
+  }
+
+  & > span:last-child {
+    font-weight: bold;
+    color: @text-color;
+  }
+
+  & > span:last-child &-separator {
+    display: none;
+  }
+
+  &-separator {
+    margin: 0 8px;
+    color: @border-color-base;
+  }
+
+  .anticon + span {
+    margin-left: 4px;
+  }
+}

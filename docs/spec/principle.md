@@ -1,8 +1,9 @@
-# 引言
-
-- category: 十大原则
-- order: 0
-- subtitle: Introduction
+---
+category: 十大原则
+order: 0
+subtitle: Introduction
+english: 引言
+---
 
 『好设计比差设计更难发现』，因为好设计是如此的自然，帮助用户轻松的完成目标，以至于用户根本意识不到好设计的存在。
 
@@ -33,13 +34,13 @@
 
 #### Ant Design 十大设计原则
 
-- [亲密性 Proximity](./proximity)
-- [对齐 Alignment](./alignment)
-- [对比 Contrast](./contrast)
-- [重复 Repetition](./repetition)
-- [直截了当 Make it Direct](./direct)
-- [简化交互 Keep it Lightweight](./lightweight)
-- [足不出户 Stay in the Page](./stay)
-- [提供邀请 Provide Invitation](./invitation)
-- [巧用过渡 Use Transition](./transition)
-- [即时反应 React Immediately](./reaction)
+- [亲密性 Proximity](/docs/spec/proximity)
+- [对齐 Alignment](/docs/spec/alignment)
+- [对比 Contrast](/docs/spec/contrast)
+- [重复 Repetition](/docs/spec/repetition)
+- [直截了当 Make it Direct](/docs/spec/direct)
+- [简化交互 Keep it Lightweight](/docs/spec/lightweight)
+- [足不出户 Stay in the Page](/docs/spec/stay)
+- [提供邀请 Provide Invitation](/docs/spec/invitation)
+- [巧用过渡 Use Transition](/docs/spec/transition)
+- [即时反应 React Immediately](/docs/spec/reaction)

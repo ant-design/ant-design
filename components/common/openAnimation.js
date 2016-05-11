@@ -1,46 +1,36 @@
-let velocity;
-if (typeof document !== 'undefined' && typeof window !== 'undefined') {
-  velocity = require('velocity-animate');
-}
+import cssAnimation from 'css-animation';
 
-function animate(node, show, transitionName, done) {
-  let ok;
-
-  function complete() {
-    if (!ok) {
-      ok = true;
-      node.style.display = '';
+function animate(node, show, done) {
+  let height;
+  return cssAnimation(node, 'ant-motion-collapse', {
+    start() {
+      if (!show) {
+        node.style.height = `${node.offsetHeight}px`;
+      } else {
+        height = node.offsetHeight;
+        node.style.height = 0;
+      }
+    },
+    active() {
+      node.style.height = `${show ? height : 0}px`;
+    },
+    end() {
+      node.style.height = '';
       done();
-    }
-  }
-
-  // Fix safari flash bug
-  /*eslint-disable */
-  node.style.display = show ? 'block' : 'none';
-  /*eslint-enable */
-  velocity(node, transitionName, {
-    duration: 240,
-    complete,
-    easing: 'easeInOutQuad'
+    },
   });
-  return {
-    stop() {
-      velocity(node, 'finish');
-      complete();
-    }
-  };
 }
 
 const animation = {
   enter(node, done) {
-    return animate(node, false, 'slideDown', done);
+    return animate(node, true, done);
   },
   leave(node, done) {
-    return animate(node, true, 'slideUp', done);
+    return animate(node, false, done);
   },
   appear(node, done) {
-    return animate(node, false, 'slideDown', done);
+    return animate(node, true, done);
   },
 };
 
-module.exports = animation;
+export default animation;

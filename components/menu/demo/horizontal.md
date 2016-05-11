@@ -1,10 +1,9 @@
-# 顶部导航
-
-- order: 0
+---
+order: 0
+title: 顶部导航
+---
 
 水平的顶部导航菜单。
-
----
 
 ````jsx
 import { Menu, Icon } from 'antd';
@@ -14,13 +13,13 @@ const MenuItemGroup = Menu.ItemGroup;
 const App = React.createClass({
   getInitialState() {
     return {
-      current: 'mail'
+      current: 'mail',
     };
   },
   handleClick(e) {
     console.log('click ', e);
     this.setState({
-      current: e.key
+      current: e.key,
     });
   },
   render() {
@@ -49,7 +48,7 @@ const App = React.createClass({
         </Menu.Item>
       </Menu>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

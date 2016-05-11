@@ -1,10 +1,9 @@
-# 进场和离场
-
-- order: 1
+---
+order: 1
+title: 进场和离场
+---
 
 同时支持进场和离场动画。
-
----
 
 ````jsx
 import { QueueAnim, Button } from 'antd';
@@ -12,12 +11,12 @@ import { QueueAnim, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      show: true
+      show: true,
     };
   },
   onClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   },
   render() {
@@ -38,7 +37,7 @@ const Test = React.createClass({
             <li></li>
           </ul>
         </div>
-      </div>
+      </div>,
     ] : null;
     return (
       <div>
@@ -50,7 +49,7 @@ const Test = React.createClass({
         </QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

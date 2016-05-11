@@ -1,40 +1,39 @@
-# 不显示分页
-
-- order: 8
+---
+order: 8
+title: 不显示分页
+---
 
 传入 pagination 为 false 即可。此时表格将完整显示 dataSource 内的数据，不进行任何分页。
-
----
 
 ````jsx
 import { Table } from 'antd';
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} pagination={false} />

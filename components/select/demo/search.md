@@ -1,10 +1,9 @@
-# 带搜索框
-
-- order: 1
-
-在浮层内顶部有搜索框的单项选择器。
-
 ---
+order: 1
+title: 带搜索框
+---
+
+展开后可对选项进行搜索。
 
 ````jsx
 import { Select } from 'antd';
@@ -20,7 +19,6 @@ ReactDOM.render(
     placeholder="请选择人员"
     optionFilterProp="children"
     notFoundContent="无法找到"
-    searchPlaceholder="输入关键词"
     onChange={handleChange}>
     <Option value="jack">杰克</Option>
     <Option value="lucy">露西</Option>

@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 第一个对话框。
-
----
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -15,19 +14,19 @@ const App = React.createClass({
   },
   showModal() {
     this.setState({
-      visible: true
+      visible: true,
     });
   },
   handleOk() {
     console.log('点击了确定');
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   handleCancel(e) {
     console.log(e);
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   render() {
@@ -42,7 +41,7 @@ const App = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

@@ -1,0 +1,113 @@
+@import "../../style/themes/default";
+
+@badge-prefix-cls: ant-badge;
+@number-prefix-cls: ant-scroll-number;
+
+.@{badge-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+
+  &-count {
+    position: absolute;
+    transform: translateX(-50%);
+    top: -10px;
+    height: 20px;
+    border-radius: 10px;
+    min-width: 20px;
+    background: @error-color;
+    border: 1px solid transparent;
+    color: #fff;
+    line-height: 18px;
+    text-align: center;
+    padding: 0 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    transform-origin: -10% center;
+    z-index: 10;
+    font-family: tahoma;
+    box-shadow: 0 0 0 1px #fff;
+    a,
+    a:hover {
+      color: #fff;
+    }
+  }
+
+  &-dot {
+    position: absolute;
+    transform: translateX(-50%);
+    transform-origin: 0px center;
+    top: -4px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: @error-color;
+    z-index: 10;
+    box-shadow: 0 0 0 1px #fff;
+  }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    animation: antZoomBadgeIn .3s @ease-out-back;
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomBadgeOut .3s @ease-in-back;
+    animation-fill-mode: both;
+  }
+
+  &-not-a-wrapper &-count {
+    top: auto;
+    display: block;
+    position: relative;
+    transform: translateX(0);
+  }
+}
+
+a & {
+  &-count:hover {
+    background: tint(@error-color, 20%);
+  }
+  &-count:active {
+    background: shade(@error-color, 5%);
+  }
+}
+
+.@{number-prefix-cls} {
+  overflow: hidden;
+  &-only {
+    display: inline-block;
+    transition: transform .3s @ease-in-out;
+  }
+  // for IE8/9 display
+  &.not-support-css-animation &-only {
+    > p {
+      display: none;
+      &.current {
+        display: block;
+      }
+    }
+  }
+}
+
+@keyframes antZoomBadgeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+  100% {
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+@keyframes antZoomBadgeOut {
+  0% {
+    transform: scale(1) translateX(-50%);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+}

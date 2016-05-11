@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 最简单的用法，五秒后自动关闭。
-
----
 
 ````jsx
 import { Button, notification } from 'antd';
@@ -12,7 +11,7 @@ import { Button, notification } from 'antd';
 const openNotification = function () {
   notification.open({
     message: '这是标题',
-    description: '这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案'
+    description: '这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案这是提示框的文案',
   });
 };
 

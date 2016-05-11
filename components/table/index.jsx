@@ -1,11 +1,10 @@
 import React from 'react';
-import Table from 'rc-table';
+import RcTable from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
 import Pagination from '../pagination';
 import Icon from '../icon';
-import objectAssign from 'object-assign';
 import Spin from '../spin';
 import classNames from 'classnames';
 import { flatArray } from './util';
@@ -27,46 +26,12 @@ const defaultLocale = {
 
 const defaultPagination = {
   pageSize: 10,
-  current: 1,
   onChange: noop,
   onShowSizeChange: noop,
 };
 
-let AntTable = React.createClass({
-  getInitialState() {
-    return {
-      // 减少状态
-      selectedRowKeys: (this.props.rowSelection || {}).selectedRowKeys || [],
-      filters: {},
-      selectionDirty: false,
-      sortColumn: '',
-      sortOrder: '',
-      sorter: null,
-      pagination: this.hasPagination() ?
-        objectAssign({
-          size: this.props.size,
-        }, defaultPagination, this.props.pagination) :
-        {},
-    };
-  },
-
-  getDefaultProps() {
-    return {
-      dataSource: [],
-      prefixCls: 'ant-table',
-      useFixedHeader: false,
-      rowSelection: null,
-      className: '',
-      size: 'large',
-      loading: false,
-      bordered: false,
-      indentSize: 20,
-      onChange: noop,
-      locale: {}
-    };
-  },
-
-  propTypes: {
+export default class Table extends React.Component {
+  static propTypes = {
     dataSource: React.PropTypes.array,
     prefixCls: React.PropTypes.string,
     useFixedHeader: React.PropTypes.bool,
@@ -77,7 +42,45 @@ let AntTable = React.createClass({
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
-  },
+  }
+
+  static defaultProps = {
+    dataSource: [],
+    prefixCls: 'ant-table',
+    useFixedHeader: false,
+    rowSelection: null,
+    className: '',
+    size: 'large',
+    loading: false,
+    bordered: false,
+    indentSize: 20,
+    onChange: noop,
+    locale: {},
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
+  constructor(props) {
+    super(props);
+
+    const pagination = props.pagination || {};
+
+    this.state = {
+      // 减少状态
+      selectedRowKeys: (props.rowSelection || {}).selectedRowKeys || [],
+      filters: this.getFiltersFromColumns(),
+      selectionDirty: false,
+      ...this.getSortStateFromColumns(),
+      pagination: this.hasPagination() ?
+        {
+          ...defaultPagination,
+          ...pagination,
+          current: pagination.defaultCurrent || pagination.current || 1,
+        } : {},
+    };
+  }
 
   getDefaultSelection() {
     if (!this.props.rowSelection || !this.props.rowSelection.getCheckboxProps) {
@@ -86,12 +89,20 @@ let AntTable = React.createClass({
     return this.getFlatCurrentPageData()
       .filter(item => this.props.rowSelection.getCheckboxProps(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
-  },
+  }
+
+  getLocale() {
+    let locale = {};
+    if (this.context.antLocale && this.context.antLocale.Table) {
+      locale = this.context.antLocale.Table;
+    }
+    return { ...defaultLocale, ...locale, ...this.props.locale };
+  }
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
       this.setState(previousState => ({
-        pagination: objectAssign({}, defaultPagination, previousState.pagination, nextProps.pagination),
+        pagination: { ...defaultPagination, ...previousState.pagination, ...nextProps.pagination },
       }));
     }
     // dataSource 的变化会清空选中项
@@ -107,7 +118,27 @@ let AntTable = React.createClass({
         selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
       });
     }
-  },
+
+    if (this.getSortOrderColumns(nextProps.columns).length > 0) {
+      const sortState = this.getSortStateFromColumns(nextProps.columns);
+      if (sortState.sortColumn !== this.state.sortColumn ||
+          sortState.sortOrder !== this.state.sortOrder) {
+        this.setState(sortState);
+      }
+    }
+
+    const filteredValueColumns = this.getFilteredValueColumns(nextProps.columns);
+    if (filteredValueColumns.length > 0) {
+      const filtersFromColumns = this.getFiltersFromColumns(nextProps.columns);
+      const newFilters = { ...this.state.filters };
+      Object.keys(filtersFromColumns).forEach(key => {
+        newFilters[key] = filtersFromColumns[key];
+      });
+      if (this.isFiltersChanged(newFilters)) {
+        this.setState({ filters: newFilters });
+      }
+    }
+  }
 
   setSelectedRowKeys(selectedRowKeys) {
     if (this.props.rowSelection &&
@@ -121,16 +152,75 @@ let AntTable = React.createClass({
       );
       this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
     }
-  },
+  }
 
   hasPagination() {
     return this.props.pagination !== false;
-  },
+  }
+
+  isFiltersChanged(filters) {
+    let filtersChanged = false;
+    if (Object.keys(filters).length !== Object.keys(this.state.filters).length) {
+      filtersChanged = true;
+    } else {
+      Object.keys(filters).forEach(columnKey => {
+        if (filters[columnKey] !== this.state.filters[columnKey]) {
+          filtersChanged = true;
+        }
+      });
+    }
+    return filtersChanged;
+  }
+
+  getSortOrderColumns(columns) {
+    return (columns || this.props.columns || []).filter(column => 'sortOrder' in column);
+  }
+
+  getFilteredValueColumns(columns) {
+    return (columns || this.props.columns || []).filter(column => 'filteredValue' in column);
+  }
+
+  getFiltersFromColumns(columns) {
+    let filters = {};
+    this.getFilteredValueColumns(columns).forEach(col => {
+      filters[this.getColumnKey(col)] = col.filteredValue;
+    });
+    return filters;
+  }
+
+  getSortStateFromColumns(columns) {
+    // return fisrt column which sortOrder is not falsy
+    const sortedColumn =
+      this.getSortOrderColumns(columns).filter(col => col.sortOrder)[0];
+    if (sortedColumn) {
+      return {
+        sortColumn: sortedColumn,
+        sortOrder: sortedColumn.sortOrder,
+      };
+    }
+    return {
+      sortColumn: null,
+      sortOrder: null,
+    };
+  }
+
+  getSorterFn() {
+    const { sortOrder, sortColumn } = this.state;
+    if (!sortOrder || !sortColumn ||
+        typeof sortColumn.sorter !== 'function') {
+      return;
+    }
+    return (a, b) => {
+      let result = sortColumn.sorter(a, b);
+      if (result !== 0) {
+        return (sortOrder === 'descend') ? -result : result;
+      }
+      return a.indexForSort - b.indexForSort;
+    };
+  }
 
   toggleSortOrder(order, column) {
-    let sortColumn = this.state.sortColumn;
-    let sortOrder = this.state.sortOrder;
-    let sorter;
+    let { sortColumn, sortOrder } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
     let isSortColumn = this.isSortColumn(column);
     if (!isSortColumn) {  // 当前列未排序
@@ -144,28 +234,24 @@ let AntTable = React.createClass({
         sortOrder = order;
       }
     }
-    if (typeof column.sorter === 'function') {
-      sorter = (a, b) => {
-        let result = column.sorter(a, b);
-        if (result !== 0) {
-          return (sortOrder === 'descend') ? -result : result;
-        }
-        return a.index - b.index;
-      };
-    }
     const newState = {
       sortOrder,
       sortColumn,
-      sorter,
     };
-    this.setState(newState);
-    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
-  },
 
-  handleFilter(column, nextFilters) {
-    const filters = objectAssign({}, this.state.filters, {
-      [this.getColumnKey(column)]: nextFilters
-    });
+    // Controlled
+    if (this.getSortOrderColumns().length === 0) {
+      this.setState(newState);
+    }
+
+    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
+  }
+
+  handleFilter = (column, nextFilters) => {
+    const filters = {
+      ...this.state.filters,
+      [this.getColumnKey(column)]: nextFilters,
+    };
     // Remove filters not in current columns
     const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
     Object.keys(filters).forEach((columnKey) => {
@@ -173,16 +259,29 @@ let AntTable = React.createClass({
         delete filters[columnKey];
       }
     });
+
     const newState = {
       selectionDirty: false,
-      filters
     };
-    this.setState(newState);
-    this.setSelectedRowKeys([]);
-    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
-  },
+    const filtersToSetState = { ...filters };
+    // Remove filters which is controlled
+    this.getFilteredValueColumns().forEach(col => {
+      const columnKey = this.getColumnKey(col);
+      if (columnKey) {
+        delete filtersToSetState[columnKey];
+      }
+    });
+    if (Object.keys(filtersToSetState).length > 0) {
+      newState.filters = filtersToSetState;
+    }
+    this.setState(newState, () => {
+      this.props.onChange(...this.prepareParamsArguments({
+        ...this.state, selectionDirty: false, filters,
+      }));
+    });
+  }
 
-  handleSelect(record, rowIndex, e) {
+  handleSelect = (record, rowIndex, e) => {
     const checked = e.target.checked;
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
@@ -190,9 +289,7 @@ let AntTable = React.createClass({
     if (checked) {
       selectedRowKeys.push(this.getRecordKey(record, rowIndex));
     } else {
-      selectedRowKeys = selectedRowKeys.filter((i) => {
-        return key !== i;
-      });
+      selectedRowKeys = selectedRowKeys.filter((i) => key !== i);
     }
     this.setState({
       selectionDirty: true,
@@ -205,9 +302,9 @@ let AntTable = React.createClass({
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
     }
-  },
+  }
 
-  handleRadioSelect(record, rowIndex, e) {
+  handleRadioSelect = (record, rowIndex, e) => {
     const checked = e.target.checked;
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
     let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
@@ -224,9 +321,9 @@ let AntTable = React.createClass({
       });
       this.props.rowSelection.onSelect(record, checked, selectedRows);
     }
-  },
+  }
 
-  handleSelectAllRow(e) {
+  handleSelectAllRow = (e) => {
     const checked = e.target.checked;
     const data = this.getFlatCurrentPageData();
     const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
@@ -264,11 +361,11 @@ let AntTable = React.createClass({
         changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
       this.props.rowSelection.onSelectAll(checked, selectedRows, changeRows);
     }
-  },
+  }
 
-  handlePageChange(current) {
+  handlePageChange = (current) => {
     const props = this.props;
-    let pagination = objectAssign({}, this.state.pagination);
+    let pagination = { ...this.state.pagination };
     if (current) {
       pagination.current = current;
     } else {
@@ -294,9 +391,9 @@ let AntTable = React.createClass({
       selectionDirty: false,
       pagination,
     }));
-  },
+  }
 
-  renderSelectionRadio(value, record, index) {
+  renderSelectionRadio = (value, record, index) => {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let props = {};
     if (this.props.rowSelection.getCheckboxProps) {
@@ -311,12 +408,12 @@ let AntTable = React.createClass({
     }
     return (
       <Radio disabled={props.disabled} onClick={stopPropagation}
-        onChange={this.handleRadioSelect.bind(this, record, rowIndex)}
+        onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
         value={rowIndex} checked={checked} />
     );
-  },
+  }
 
-  renderSelectionCheckBox(value, record, index) {
+  renderSelectionCheckBox = (value, record, index) => {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let checked;
     if (this.state.selectionDirty) {
@@ -331,16 +428,16 @@ let AntTable = React.createClass({
     }
     return (
       <Checkbox checked={checked} disabled={props.disabled} onClick={stopPropagation}
-        onChange={this.handleSelect.bind(this, record, rowIndex)} />
+        onChange={(e) => this.handleSelect(record, rowIndex, e)} />
     );
-  },
+  }
 
   getRecordKey(record, index) {
     if (this.props.rowKey) {
       return this.props.rowKey(record, index);
     }
     return record.key || index;
-  },
+  }
 
   renderRowSelection() {
     let columns = this.props.columns.concat();
@@ -371,22 +468,22 @@ let AntTable = React.createClass({
         selectionColumn = {
           key: 'selection-column',
           render: this.renderSelectionRadio,
-          className: 'ant-table-selection-column'
+          className: 'ant-table-selection-column',
         };
       } else {
         const checkboxAllDisabled = data.every(item =>
           this.props.rowSelection.getCheckboxProps &&
           this.props.rowSelection.getCheckboxProps(item).disabled);
         const checkboxAll = (
-            <Checkbox checked={checked}
-              disabled={checkboxAllDisabled}
-              onChange={this.handleSelectAllRow} />
+          <Checkbox checked={checked}
+            disabled={checkboxAllDisabled}
+            onChange={this.handleSelectAllRow} />
         );
         selectionColumn = {
           key: 'selection-column',
           title: checkboxAll,
           render: this.renderSelectionCheckBox,
-          className: 'ant-table-selection-column'
+          className: 'ant-table-selection-column',
         };
       }
       if (columns[0] && columns[0].key === 'selection-column') {
@@ -396,25 +493,25 @@ let AntTable = React.createClass({
       }
     }
     return columns;
-  },
+  }
 
   getColumnKey(column, index) {
     return column.key || column.dataIndex || index;
-  },
+  }
 
   isSortColumn(column) {
-    if (!column || !this.state.sortColumn) {
+    const { sortColumn } = this.state;
+    if (!column || !sortColumn) {
       return false;
     }
-    let colKey = this.getColumnKey(column);
-    let isSortColumn = (this.getColumnKey(this.state.sortColumn) === colKey);
-    return isSortColumn;
-  },
+    return this.getColumnKey(sortColumn) === this.getColumnKey(column);
+  }
 
   renderColumnsDropdown(columns) {
-    let locale = objectAssign({}, defaultLocale, this.props.locale);
+    const { sortOrder } = this.state;
+    const locale = this.getLocale();
     return columns.map((originColumn, i) => {
-      let column = objectAssign({}, originColumn);
+      let column = { ...originColumn };
       let key = this.getColumnKey(column, i);
       let filterDropdown;
       let sortButton;
@@ -430,23 +527,22 @@ let AntTable = React.createClass({
         let isSortColumn = this.isSortColumn(column);
         if (isSortColumn) {
           column.className = column.className || '';
-          if (this.state.sortOrder) {
+          if (sortOrder) {
             column.className += ' ant-table-column-sort';
           }
         }
-
-        const isAscend = isSortColumn && this.state.sortOrder === 'ascend';
-        const isDescend = isSortColumn && this.state.sortOrder === 'descend';
+        const isAscend = isSortColumn && sortOrder === 'ascend';
+        const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
           <div className="ant-table-column-sorter">
             <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
-              onClick={this.toggleSortOrder.bind(this, 'ascend', column)}>
+              onClick={() => this.toggleSortOrder('ascend', column)}>
               <Icon type="caret-up" />
             </span>
             <span className={`ant-table-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
-              onClick={this.toggleSortOrder.bind(this, 'descend', column)}>
+              onClick={() => this.toggleSortOrder('descend', column)}>
               <Icon type="caret-down" />
             </span>
           </div>
@@ -461,9 +557,9 @@ let AntTable = React.createClass({
       );
       return column;
     });
-  },
+  }
 
-  handleShowSizeChange(current, pageSize) {
+  handleShowSizeChange = (current, pageSize) => {
     const pagination = this.state.pagination;
     pagination.onShowSizeChange(current, pageSize);
     const nextPagination = { ...pagination, pageSize, current };
@@ -472,45 +568,46 @@ let AntTable = React.createClass({
       ...this.state,
       pagination: nextPagination,
     }));
-  },
+  }
 
-  renderPagination() {
+  renderPagination(data) {
     // 强制不需要分页
     if (!this.hasPagination()) {
       return null;
     }
-    let classString = classNames({
-      'ant-table-pagination': true,
-      mini: this.props.size === 'middle' || this.props.size === 'small',
-    });
-    let total = this.state.pagination.total || this.getLocalData().length;
-    const pageSize = this.state.pagination.pageSize;
+    let size = 'default';
+    if (this.state.pagination.size) {
+      size = this.state.pagination.size;
+    } else if (this.props.size === 'middle' || this.props.size === 'small') {
+      size = 'small';
+    }
+    let total = this.state.pagination.total || (data || this.getLocalData()).length;
     return (total > 0) ?
       <Pagination {...this.state.pagination}
-        className={classString}
+        className={`${this.props.prefixCls}-pagination`}
         onChange={this.handlePageChange}
         total={total}
-        pageSize={pageSize}
+        size={size}
         onShowSizeChange={this.handleShowSizeChange} /> : null;
-  },
+  }
 
   prepareParamsArguments(state) {
     // 准备筛选、排序、分页的参数
     const pagination = state.pagination;
     const filters = state.filters;
     const sorter = {};
-    if (state.sortColumn &&
-      state.sortOrder &&
-      state.sortColumn.dataIndex) {
-      sorter.field = state.sortColumn.dataIndex;
+    if (state.sortColumn && state.sortOrder) {
+      sorter.column = state.sortColumn;
       sorter.order = state.sortOrder;
+      sorter.field = state.sortColumn.dataIndex;
+      sorter.columnKey = this.getColumnKey(state.sortColumn);
     }
     return [pagination, filters, sorter];
-  },
+  }
 
   findColumn(myKey) {
     return this.props.columns.filter(c => this.getColumnKey(c) === myKey)[0];
-  },
+  }
 
   getCurrentPageData() {
     let data = this.getLocalData();
@@ -535,22 +632,23 @@ let AntTable = React.createClass({
       });
     }
     return data;
-  },
+  }
 
   getFlatCurrentPageData() {
     return flatArray(this.getCurrentPageData());
-  },
+  }
 
   getLocalData() {
-    let state = this.state;
+    const state = this.state;
     let data = this.props.dataSource || [];
-    // 排序
-    if (state.sortOrder && state.sorter) {
-      data = data.slice(0);
-      for (let i = 0; i < data.length; i++) {
-        data[i].index = i;
-      }
-      data = data.sort(state.sorter);
+    // 优化本地排序
+    data = data.slice(0);
+    for (let i = 0; i < data.length; i++) {
+      data[i].indexForSort = i;
+    }
+    const sorterFn = this.getSorterFn();
+    if (sorterFn) {
+      data = data.sort(sorterFn);
     }
     // 筛选
     if (state.filters) {
@@ -569,24 +667,24 @@ let AntTable = React.createClass({
       });
     }
     return data;
-  },
+  }
 
   render() {
+    const { style, className, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
-    const locale = objectAssign({}, defaultLocale, this.props.locale);
+    const locale = this.getLocale();
 
     const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
       'ant-table-bordered': this.props.bordered,
-      [this.props.className]: !!this.props.className,
     });
 
     columns = this.renderColumnsDropdown(columns);
     columns = columns.map((column, i) => {
-      const newColumn = objectAssign({}, column);
-      newColumn.key = newColumn.key || newColumn.dataIndex || i;
+      const newColumn = { ...column };
+      newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
     let emptyText;
@@ -597,12 +695,12 @@ let AntTable = React.createClass({
           <Icon type="frown" />{locale.emptyText}
         </div>
       );
-      emptyClass = ' ant-table-empty';
+      emptyClass = 'ant-table-empty';
     }
 
     let table = (
       <div>
-        <Table {...this.props}
+        <RcTable {...restProps}
           data={data}
           columns={columns}
           className={classString}
@@ -611,22 +709,18 @@ let AntTable = React.createClass({
           {emptyText}
       </div>
     );
-    if (this.props.loading) {
-      // if there is no pagination or no data,
-      // the height of spin should decrease by half of pagination
-      const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
-              ? 'ant-table-with-pagination'
-              : 'ant-table-without-pagination';
-      const spinClassName = `${paginationPatchClass} ant-table-spin-holder`;
-      table = <Spin className={spinClassName}>{table}</Spin>;
-    }
+    // if there is no pagination or no data,
+    // the height of spin should decrease by half of pagination
+    const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
+            ? 'ant-table-with-pagination'
+            : 'ant-table-without-pagination';
+    const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
+    table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
-      <div className={`clearfix${emptyClass}`}>
-        {table}
-        {this.renderPagination()}
+      <div className={`${emptyClass} ${className} clearfix`} style={style}>
+        {<Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>}
+        {this.renderPagination(data)}
       </div>
     );
   }
-});
-
-export default AntTable;
+}

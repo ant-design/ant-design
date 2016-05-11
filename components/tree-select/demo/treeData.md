@@ -1,10 +1,9 @@
-# 从数据直接生成
-
-- order: 1
+---
+order: 1
+title: 从数据直接生成
+---
 
 使用 `treeData` 把 JSON 数据直接生成树结构。
-
----
 
 ````jsx
 import { TreeSelect } from 'antd';

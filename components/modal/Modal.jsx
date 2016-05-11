@@ -8,23 +8,19 @@ function noop() {}
 let mousePosition;
 let mousePositionEventBinded;
 
-const AntModal = React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-modal',
-      onOk: noop,
-      onCancel: noop,
-      okText: '确定',
-      cancelText: '取消',
-      width: 520,
-      transitionName: 'zoom',
-      maskAnimation: 'fade',
-      confirmLoading: false,
-      visible: false,
-    };
-  },
+export default class Modal extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-modal',
+    onOk: noop,
+    onCancel: noop,
+    width: 520,
+    transitionName: 'zoom',
+    maskTransitionName: 'fade',
+    confirmLoading: false,
+    visible: false,
+  }
 
-  propTypes: {
+  static propTypes = {
     prefixCls: PropTypes.string,
     onOk: PropTypes.func,
     onCancel: PropTypes.func,
@@ -37,15 +33,19 @@ const AntModal = React.createClass({
     footer: PropTypes.node,
     title: PropTypes.node,
     closable: PropTypes.bool,
-  },
+  }
 
-  handleCancel(e) {
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
+
+  handleCancel = (e) => {
     this.props.onCancel(e);
-  },
+  }
 
-  handleOk() {
+  handleOk = () => {
     this.props.onOk();
-  },
+  }
 
   componentDidMount() {
     if (mousePositionEventBinded) {
@@ -55,7 +55,7 @@ const AntModal = React.createClass({
     Dom.addEventListener(document.documentElement, 'click', (e) => {
       mousePosition = {
         x: e.pageX,
-        y: e.pageY
+        y: e.pageY,
       };
       // 20ms 内发生过点击事件，则从点击位置动画展示
       // 否则直接 zoom 展示
@@ -63,24 +63,31 @@ const AntModal = React.createClass({
       setTimeout(() => mousePosition = null, 20);
     });
     mousePositionEventBinded = true;
-  },
+  }
 
   render() {
     let props = this.props;
+
+    let { okText, cancelText } = props;
+    if (this.context.antLocale && this.context.antLocale.Modal) {
+      okText = okText || this.context.antLocale.Modal.okText;
+      cancelText = cancelText || this.context.antLocale.Modal.cancelText;
+    }
+
     let defaultFooter = [
       <Button key="cancel"
         type="ghost"
         size="large"
         onClick={this.handleCancel}>
-        {props.cancelText}
+        {cancelText || '取消'}
       </Button>,
       <Button key="confirm"
         type="primary"
         size="large"
         loading={props.confirmLoading}
         onClick={this.handleOk}>
-        {props.okText}
-      </Button>
+        {okText || '确定'}
+      </Button>,
     ];
     let footer = props.footer || defaultFooter;
     return (
@@ -88,6 +95,4 @@ const AntModal = React.createClass({
         visible={props.visible} mousePosition={mousePosition} />
     );
   }
-});
-
-export default AntModal;
+}

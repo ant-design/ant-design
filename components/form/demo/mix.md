@@ -1,18 +1,30 @@
-# 表单组合
-
-- order: 5
+---
+order: 5
+title: 表单组合
+---
 
 集中营，展示和表单相关的其他 ant-design 组件。
 
----
-
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
-         Slider, Button, Col, Upload, Icon } from 'antd';
+         Cascader, Slider, Button, Col, Upload, Icon } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
+
+const areaData = [{
+  value: 'shanghai',
+  label: '上海',
+  children: [{
+    value: 'shanghaishi',
+    label: '上海市',
+    children: [{
+      value: 'pudongxinqu',
+      label: '浦东新区',
+    }],
+  }],
+}];
 
 let Demo = React.createClass({
   handleSubmit(e) {
@@ -55,7 +67,7 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required>
-          <Switch {...getFieldProps('switch')} />
+          <Switch {...getFieldProps('switch', { valuePropName: 'checked' })} />
         </FormItem>
 
         <FormItem
@@ -78,6 +90,15 @@ let Demo = React.createClass({
             <Option value="disabled" disabled>disabled</Option>
             <Option value="yiminghe">yiminghe</Option>
           </Select>
+        </FormItem>
+
+        <FormItem
+          label="级联选择："
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          required
+          hasFeedback>
+          <Cascader style={{ width: 200 }} options={areaData} {...getFieldProps('area')} />
         </FormItem>
 
         <FormItem
@@ -121,7 +142,7 @@ let Demo = React.createClass({
           <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}
             {...getFieldProps('upload', {
               valuePropName: 'fileList',
-              normalize: this.normFile
+              normalize: this.normFile,
             })}
           >
             <Button type="ghost">
@@ -135,7 +156,7 @@ let Demo = React.createClass({
         </FormItem>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);

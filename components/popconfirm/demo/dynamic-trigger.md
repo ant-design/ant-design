@@ -1,10 +1,9 @@
-# 条件触发
-
-- order: 3
+---
+order: 3
+title: 条件触发
+---
 
 可以判断是否需要弹出。
-
----
 
 ````jsx
 import { Popconfirm, Switch, message } from 'antd';
@@ -53,7 +52,7 @@ let App = React.createClass({
         点击是否直接执行：<Switch defaultChecked onChange={this.changeCondition} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

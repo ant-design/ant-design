@@ -1,10 +1,9 @@
-# 与 Modal 配合使用
-
-- order: 14
+---
+order: 14
+title: 与 Modal 配合使用
+---
 
 在 Modal 中使用 Form，当点击 Modal 的确定时，调用 `this.props.form.getFieldsValue` 获取表单内的值。
-
----
 
 ````jsx
 import { Button, Form, Input, Modal } from 'antd';
@@ -55,7 +54,7 @@ let Demo = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 Demo = createForm()(Demo);

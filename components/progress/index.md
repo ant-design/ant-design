@@ -1,9 +1,8 @@
-# Progress
-
-- category: Components
-- chinese: 进度条
-- type: 展示
-
+---
+category: Components
+chinese: 进度条
+type: 展示
+english: Progress
 ---
 
 展示操作的当前进度。
@@ -15,24 +14,16 @@
 * 当一个操作会打断当前界面，或者需要在后台运行，且耗时可能超过2秒时；
 * 当需要显示一个操作完成的百分比时。
 
+
 ## API
 
-## Progress Line
-
-| 参数     | 说明           | 类型     | 默认值        |
-|----------|----------------|----------|---------------|
-| percent  | 百分比         | number   | 0             |
-| format   | 内容的模板函数     | function(percent)   | 无 |
-| status   | 状态，可选：normal、exception、active | string   | normal |
-| strokeWidth | 进度条线的宽度，单位是px | number | 1  |
-| showInfo | 是否显示进度数值和状态图标 | bool | true  |
-
-### Progress Circle
-
-| 参数     | 说明           | 类型     | 默认值        |
-|----------|----------------|----------|---------------|
-| percent  | 百分比         | number   | 0             |
-| format   | 内容的模板函数     | function(percent)   | 无 |
-| status   | 状态，可选：normal、exception | string  | normal |
-| strokeWidth | 进度条线的宽度，单位是进度条画布宽度的百分比 | number | 1           |
-| width | 必填，进度条画布宽度，单位px。这里没有提供height属性设置，Line型高度就是strokeWidth，Circle型高度等于width | number | null |
+| 属性      | 说明           | 类型     | 默认值         |
+|----------|---------------|----------|---------------|
+| type     | 类型，可选 `line` `circle` | string   | `line`      |
+| percent  | 百分比 | number | 0 |
+| format   | 内容的模板函数 | function(percent)   | `percent => percent + '%'` |
+| status   | 状态，可选：`success` `exception` `active` | string   | - |
+| showInfo | 是否显示进度数值或状态图标 | bool | true  |
+| strokeWidth `(type=line)` | 进度条线的宽度，单位 px | number | 10 |
+| strokeWidth `(type=circle)` | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
+| width `(type=circle)` | 圆形进度条画布宽度，单位 px | number | 132 |

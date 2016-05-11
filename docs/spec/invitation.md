@@ -1,8 +1,9 @@
-# 提供邀请
-
-- category: 十大原则
-- order: 8
-- subtitle: Provide Invitation
+---
+category: 十大原则
+order: 8
+subtitle: Provide Invitation
+english: 提供邀请
+---
 
 很多富交互模式（eg：『拖放』、『行内编辑』、『上下文工具』）都有一个共同问题，就是缺少易发现性。所以『提供邀请』是成功完成人机交互的关键所在。
 
@@ -66,8 +67,7 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="更多内容邀请示例" description="在 Modal 中会出现前后切换的箭头。
-" src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
+<img class="preview-img" align="right" alt="更多内容邀请示例" description="在 Modal 中会出现前后切换的箭头。" src="https://os.alipayobjects.com/rmsportal/sOqYOydwQjLHqph.png">
 
 更多内容邀请：用于邀请用户查看更多内容。
 
@@ -76,8 +76,8 @@
 
 <br>
 
-<span class="waiting">预期功能邀请 (敬请期待)</span>
+<p><span class="waiting">预期功能邀请 (敬请期待)</span></p>
 
 <br>
 
-<span class="waiting">拖放邀请 (敬请期待)</span>
+<p><span class="waiting">拖放邀请 (敬请期待)</span></p>

@@ -1,12 +1,11 @@
-# 自定义校验规则
-
-- order: 13
+---
+order: 13
+title: 自定义校验规则
+---
 
 密码校验实例。
 
 这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
-
----
 
 ````jsx
 import { Button, Form, Input, Row, Col } from 'antd';
@@ -92,12 +91,12 @@ let Demo = React.createClass({
       'ant-pwd-strength': true,
       'ant-pwd-strength-low': strength === 'L',
       'ant-pwd-strength-medium': strength === 'M',
-      'ant-pwd-strength-high': strength === 'H'
+      'ant-pwd-strength-high': strength === 'H',
     });
     const level = {
       L: '低',
       M: '中',
-      H: '高'
+      H: '高',
     };
 
     return (
@@ -120,8 +119,11 @@ let Demo = React.createClass({
     const passProps = getFieldProps('pass', {
       rules: [
         { required: true, whitespace: true, message: '请填写密码' },
-        { validator: this.checkPass }
-      ]
+        { validator: this.checkPass },
+      ],
+      onChange: (e) => {
+        console.log('你的密码就是这样被盗的：', e.target.value);
+      },
     });
     const rePassProps = getFieldProps('rePass', {
       rules: [{
@@ -180,7 +182,7 @@ let Demo = React.createClass({
         </Form>
       </div>
     );
-  }
+  },
 });
 
 Demo = createForm()(Demo);

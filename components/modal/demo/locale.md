@@ -1,10 +1,9 @@
-# 国际化
-
-- order: 6
+---
+order: 6
+title: 国际化
+---
 
 设置 `okText` 与 `cancelText` 以自定义按钮文字。
-
----
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -15,17 +14,17 @@ const LocalizedModal = React.createClass({
   },
   showModal() {
     this.setState({
-      visible: true
+      visible: true,
     });
   },
   handleOk() {
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   handleCancel() {
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   render() {
@@ -41,7 +40,7 @@ const LocalizedModal = React.createClass({
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 function confirm() {
@@ -49,7 +48,7 @@ function confirm() {
     title: 'Confirm',
     content: 'Bla bla ...',
     okText: 'OK',
-    cancelText: 'Cancel'
+    cancelText: 'Cancel',
   });
 }
 

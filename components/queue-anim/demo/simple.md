@@ -1,10 +1,9 @@
-# 默认
-
-- order: 0
+---
+order: 0
+title: 默认
+---
 
 最简单的进场例子。
-
----
 
 ````jsx
 import { QueueAnim } from 'antd';

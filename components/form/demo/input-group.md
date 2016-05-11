@@ -1,10 +1,9 @@
-# 输入框组合
-
-- order: 4
+---
+order: 4
+title: 输入框组合
+---
 
 各类输入框的组合展现。
-
----
 
 ````jsx
 import { Form, Input, Select, Row, Col } from 'antd';

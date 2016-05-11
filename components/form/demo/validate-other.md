@@ -1,13 +1,12 @@
-# 校验其他组件
-
-- order: 12
+---
+order: 12
+title: 校验其他组件
+---
 
 提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
 
----
-
 ````jsx
-import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader } from 'antd';
+import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader, Icon } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const createForm = Form.create;
@@ -67,18 +66,18 @@ let Demo = React.createClass({
     const { getFieldProps } = this.props.form;
     const selectProps = getFieldProps('select', {
       rules: [
-        { required: true, message: '请选择您的国籍' }
+        { required: true, message: '请选择您的国籍' },
       ],
     });
     const multiSelectProps = getFieldProps('multiSelect', {
       rules: [
         { required: true, message: '请选择您喜欢的颜色', type: 'array' },
-      ]
+      ],
     });
     const radioProps = getFieldProps('radio', {
       rules: [
-        { required: true, message: '请选择您的性别' }
-      ]
+        { required: true, message: '请选择您的性别' },
+      ],
     });
     const birthdayProps = getFieldProps('birthday', {
       rules: [
@@ -88,8 +87,8 @@ let Demo = React.createClass({
           message: '你的生日是什么呢?',
         }, {
           validator: this.checkBirthday,
-        }
-      ]
+        },
+      ],
     });
     const primeNumberProps = getFieldProps('primeNumber', {
       rules: [{ validator: this.checkPrime }],
@@ -134,6 +133,7 @@ let Demo = React.createClass({
             <Radio value="male">男</Radio>
             <Radio value="female">女</Radio>
           </RadioGroup>
+          <span><Icon type="info-circle-o" /> 暂不支持其它性别</span>
         </FormItem>
 
         <FormItem
@@ -141,13 +141,13 @@ let Demo = React.createClass({
           label="兴趣爱好：">
           <Checkbox {...getFieldProps('eat', {
             valuePropName: 'checked',
-          })} />吃饭饭 &nbsp;
+          })}>吃饭饭</Checkbox>
           <Checkbox {...getFieldProps('sleep', {
             valuePropName: 'checked',
-          })} />睡觉觉 &nbsp;
+          })}>睡觉觉</Checkbox>
           <Checkbox {...getFieldProps('beat', {
             valuePropName: 'checked',
-          })} />打豆豆 &nbsp;
+          })}>打豆豆</Checkbox>
         </FormItem>
 
         <FormItem

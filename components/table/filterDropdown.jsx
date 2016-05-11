@@ -4,55 +4,63 @@ import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
 
-let FilterMenu = React.createClass({
-  getInitialState() {
-    return {
+export default class FilterMenu extends React.Component {
+  static defaultProps = {
+    handleFilter() {},
+    column: null,
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
       selectedKeys: this.props.selectedKeys,
       keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
       visible: false,
     };
-  },
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({
-      selectedKeys: nextProps.selectedKeys
+      selectedKeys: nextProps.selectedKeys,
     });
-  },
-  getDefaultProps() {
-    return {
-      handleFilter() {},
-      column: null
-    };
-  },
-  setSelectedKeys({ selectedKeys }) {
+  }
+
+  setSelectedKeys = ({ selectedKeys }) => {
     this.setState({ selectedKeys });
-  },
-  handleClearFilters() {
+  }
+
+  handleClearFilters = () => {
     this.setState({
-      selectedKeys: []
+      selectedKeys: [],
     }, this.handleConfirm);
-  },
-  handleConfirm() {
+  }
+
+  handleConfirm = () => {
     this.setState({
-      visible: false
+      visible: false,
     });
     this.props.confirmFilter(this.props.column, this.state.selectedKeys);
-  },
-  onVisibleChange(visible) {
+  }
+
+  onVisibleChange = (visible) => {
     this.setState({
       visible,
     });
     if (!visible) {
       this.props.confirmFilter(this.props.column, this.state.selectedKeys);
     }
-  },
+  }
+
   renderMenuItem(item) {
     return (
       <MenuItem key={item.value}>
         <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-        {item.text}
+        <span>{item.text}</span>
       </MenuItem>
     );
-  },
+  }
+
   renderMenus(items) {
     let menuItems = items.map(item => {
       if (item.children && item.children.length > 0) {
@@ -71,8 +79,9 @@ let FilterMenu = React.createClass({
       return this.renderMenuItem(item);
     });
     return menuItems;
-  },
-  handleMenuItemClick(info) {
+  }
+
+  handleMenuItemClick = (info) => {
     if (info.keyPath.length <= 1) {
       return;
     }
@@ -85,7 +94,8 @@ let FilterMenu = React.createClass({
       keyPathOfSelectedItem[info.key] = info.keyPath;
     }
     this.setState({ keyPathOfSelectedItem });
-  },
+  }
+
   render() {
     let { column, locale } = this.props;
     // default multiple selection in filter dropdown
@@ -131,6 +141,4 @@ let FilterMenu = React.createClass({
       </Dropdown>
     );
   }
-});
-
-export default FilterMenu;
+}

@@ -1,10 +1,9 @@
-# 图标
-
-- order: 2
+---
+order: 2
+title: 图标
+---
 
 有图标的标签。
-
----
 
 ````jsx
 import { Tabs, Icon } from 'antd';

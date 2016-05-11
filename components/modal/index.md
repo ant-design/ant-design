@@ -1,9 +1,8 @@
-# Modal
-
-- type: 展示
-- category: Components
-- chinese: 对话框
-
+---
+type: 展示
+category: Components
+chinese: 对话框
+english: Modal
 ---
 
 模态对话框。
@@ -31,7 +30,8 @@
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       |
-| align | 浮层自定义位置 | Object, [dom-align](https://github.com/yiminghe/dom-align) | 距离顶部 100px |
+| style | 可用于设置浮层的样式，调整浮层位置等 | Object   | - |
+| wrapClassName | 对话框外层容器的类名 | String   | - |
 
 ### Modal.xxx()
 
@@ -40,6 +40,7 @@
 - `Modal.info`
 - `Modal.success`
 - `Modal.error`
+- `Modal.warning`
 - `Modal.confirm`
 
 以上均为一个函数，参数为 object，具体属性如下：
@@ -49,9 +50,9 @@
 | title      | 标题           | React.Element or String    | 无           |
 | content    | 内容           | React.Element or String    | 无           |
 | onOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           |
-| onCancel | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
+| onCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
 | width      | 宽度           | String or Number | 416           |
-| iconClassName | 图标 Icon 类型 | String | question-circle |
+| iconType   | 图标 Icon 类型    | String | question-circle |
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
 

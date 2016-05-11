@@ -1,10 +1,9 @@
-# 简洁
-
-- order: 6
+---
+order: 6
+title: 简洁
+---
 
 简单地翻页。
-
----
 
 ````jsx
 import { Pagination } from 'antd';

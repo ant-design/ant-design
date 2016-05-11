@@ -1,7 +1,8 @@
-# 表格
-
-- category: 4
-- order: 4
+---
+order: 4
+chinese: 表格
+english: Table
+---
 
 表格可被视为一种列表。它经常和其他界面元素一起协同，用于展示和操作结构化数据，并经常用于详情信息的入口。
 
@@ -138,9 +139,9 @@
 
 ### 列宽
 
-<img class="preview-img" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/TbuuZNfOTrSflVg.png" bad>
+<img class="preview-img bad" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/TbuuZNfOTrSflVg.png" >
 
-<img class="preview-img" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/cSSSfNrFMioHDBJ.png" good>
+<img class="preview-img good" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/cSSSfNrFMioHDBJ.png">
 
 一般是根据栅格来排版，通过设定每一列的宽度比列，来保证一定尺寸之上（eg：1366px）有好的浏览效果。需要注意：
 
@@ -154,4 +155,4 @@
 数值右对齐（带小数则按小数点对齐），其余左对齐。
 
 
-## <span class="waiting">案例（敬请期待）</span>
+<h2><span class="waiting">案例（敬请期待）</span></h2>

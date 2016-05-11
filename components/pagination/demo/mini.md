@@ -1,10 +1,9 @@
-# 迷你
-
-- order: 4
+---
+order: 4
+title: 迷你
+---
 
 迷你版本。
-
----
 
 ````jsx
 import { Pagination } from 'antd';

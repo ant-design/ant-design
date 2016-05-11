@@ -1,10 +1,9 @@
-# 位置
-
-- order: 1
+---
+order: 1
+title: 位置
+---
 
 位置有 12 个方向。
-
----
 
 ````jsx
 import { Tooltip } from 'antd';

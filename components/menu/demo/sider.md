@@ -1,10 +1,9 @@
-# 内嵌菜单
-
-- order: 1
+---
+order: 1
+title: 内嵌菜单
+---
 
 垂直菜单，子菜单内嵌在菜单区域。
-
----
 
 ````jsx
 import { Menu, Icon } from 'antd';
@@ -14,13 +13,13 @@ const MenuItemGroup = Menu.ItemGroup;
 const Sider = React.createClass({
   getInitialState() {
     return {
-      current: '1'
+      current: '1',
     };
   },
   handleClick(e) {
     console.log('click ', e);
     this.setState({
-      current: e.key
+      current: e.key,
     });
   },
   render() {
@@ -56,7 +55,7 @@ const Sider = React.createClass({
         </SubMenu>
       </Menu>
     );
-  }
+  },
 });
 ReactDOM.render(<Sider />, mountNode);
 ````

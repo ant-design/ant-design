@@ -1,9 +1,8 @@
-# Checkbox
-
-- category: Components
-- chinese: 多选框
-- type: 表单
-
+---
+category: Components
+chinese: 多选框
+type: 表单
+english: Checkbox
 ---
 
 多选框。

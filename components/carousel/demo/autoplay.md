@@ -1,10 +1,9 @@
-# 自动切换
-
-- order: 3
+---
+order: 3
+title: 自动切换
+---
 
 定时切换下一张。
-
----
 
 ````jsx
 import { Carousel } from 'antd';

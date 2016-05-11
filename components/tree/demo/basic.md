@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 最简单的用法，展示可勾选，可选中，禁用，默认展开等功能。
-
----
 
 ````jsx
 import { Tree } from 'antd';
@@ -24,9 +23,6 @@ const Demo = React.createClass({
       defaultCheckedKeys: keys,
     };
   },
-  onExpand(treeNode, expand, expandedKeys) {
-    console.log('onExpand', expand, expandedKeys);
-  },
   onSelect(info) {
     console.log('selected', info);
   },
@@ -37,7 +33,6 @@ const Demo = React.createClass({
     return (
       <Tree className="myCls" showLine multiple checkable
         defaultExpandedKeys={this.state.defaultExpandedKeys}
-        onExpand={this.onExpand}
         defaultSelectedKeys={this.state.defaultSelectedKeys}
         defaultCheckedKeys={this.state.defaultCheckedKeys}
         onSelect={this.onSelect} onCheck={this.onCheck}>

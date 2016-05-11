@@ -1,8 +1,9 @@
-# 足不出户
-
-- category: 十大原则
-- order: 6
-- subtitle: Stay on the Page
+---
+category: 十大原则
+order: 6
+subtitle: Stay on the Page
+english: 足不出户
+---
 
 能在这个页面解决的问题，就不要去其它页面解决，因为任何页面刷新和跳转都会引起变化盲视（Change Blindness），导致用户心流（Flow）被打断。频繁的页面刷新和跳转，就像在看戏时，演员说完一行台词就安排一次谢幕一样。
 
@@ -48,7 +49,7 @@
 
 <br>
 
-<span class="waiting">详情嵌入层 (敬请期待)</span>
+<p><span class="waiting">详情嵌入层 (敬请期待)</span></p>
 
 <br>
 
@@ -70,7 +71,7 @@
 
 <br>
 
-<span class="waiting">伸缩式用户界面（敬请期待）</span>
+<p><span class="waiting">伸缩式用户界面（敬请期待）</span></p>
 
 <br>
 

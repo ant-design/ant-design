@@ -1,10 +1,9 @@
-# 位置
-
-- order: 6
+---
+order: 6
+title: 位置
+---
 
 有四个位置，`tabPosition="left|right|top|bottom"`。
-
----
 
 ````jsx
 import { Tabs, Select } from 'antd';
@@ -40,7 +39,7 @@ const Demo = React.createClass({
         </Tabs>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

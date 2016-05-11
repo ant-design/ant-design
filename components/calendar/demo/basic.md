@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 一个通用的日历面板，支持年/月切换。
-
----
 
 ````jsx
 import { Calendar } from 'antd';

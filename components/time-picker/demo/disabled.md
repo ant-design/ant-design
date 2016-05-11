@@ -1,10 +1,9 @@
-# 禁用
-
--	order: 4
+---
+order: 4
+title: 禁用
+---
 
 禁用时间选择。
-
----
 
 ````jsx
 import { TimePicker } from 'antd';

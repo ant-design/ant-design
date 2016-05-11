@@ -1,10 +1,11 @@
-jest.dontMock('../components/icon/index');
+jest.unmock('../components/icon/index');
 
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { wrap } from 'react-stateless-wrapper';
 
-const Icon = wrap(require('../components/icon/index'));
+import AntIcon from '../components/icon/index';
+const Icon = wrap(AntIcon);
 
 describe('Icon', function() {
   let icon;
@@ -24,4 +25,3 @@ describe('Icon', function() {
     expect(iconNode.className).toContain('anticon-appstore');
   });
 });
-

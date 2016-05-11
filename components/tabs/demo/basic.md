@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 默认选中第一项。
-
----
 
 ````jsx
 import { Tabs } from 'antd';

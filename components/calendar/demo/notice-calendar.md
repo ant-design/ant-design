@@ -1,10 +1,9 @@
-# 通知事项日历演示
-
-- order: 2
+---
+order: 2
+title: 通知事项日历演示
+---
 
 一个复杂的应用实例。
-
----
 
 ````jsx
 import { Calendar } from 'antd';
@@ -14,23 +13,23 @@ function getListData(value) {
   switch (value.getDayOfMonth()) {
     case 8:
       listData = [
-        { type: 'warn', content: '这里是警告事项.' },
-        { type: 'normal', content: '这里是普通事项.' }
+        { type: 'warning', content: '这里是警告事项.' },
+        { type: 'normal', content: '这里是普通事项.' },
       ]; break;
     case 10:
       listData = [
-        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'warning', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项.' },
-        { type: 'error', content: '这里是错误事项.' }
+        { type: 'error', content: '这里是错误事项.' },
       ]; break;
     case 15:
       listData = [
-        { type: 'warn', content: '这里是警告事项.' },
+        { type: 'warning', content: '这里是警告事项.' },
         { type: 'normal', content: '这里是普通事项好长啊。。....' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
         { type: 'error', content: '这里是错误事项.' },
-        { type: 'error', content: '这里是错误事项.' }
+        { type: 'error', content: '这里是错误事项.' },
       ]; break;
     default:
   }
@@ -53,7 +52,6 @@ function dateCellRender(value) {
   );
 }
 
-
 function getMonthData(value) {
   if (value.getMonth() === 8) {
     return 1394;
@@ -72,7 +70,6 @@ ReactDOM.render(
   <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
 , mountNode);
 ````
-
 
 ````css
 .events {
@@ -98,7 +95,7 @@ ReactDOM.render(
   margin-right: 4px;
 }
 
-.event-warn {
+.event-warning {
   color: #fac450;
 }
 
@@ -107,7 +104,7 @@ ReactDOM.render(
 }
 
 .event-error {
-  color: #f60;
+  color: #f50;
 }
 
 .notes-month {

@@ -4,22 +4,21 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      prefixCls: 'ant-alert',
-      showIcon: false,
-      onClose() {},
-      type: 'info',
-    };
-  },
-  getInitialState() {
-    return {
+export default class Alert extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-alert',
+    showIcon: false,
+    onClose() {},
+    type: 'info',
+  }
+  constructor(props) {
+    super(props);
+    this.state = {
       closing: true,
-      closed: false
+      closed: false,
     };
-  },
-  handleClose(e) {
+  }
+  handleClose = (e) => {
     e.preventDefault();
     let dom = ReactDOM.findDOMNode(this);
     dom.style.height = `${dom.offsetHeight}px`;
@@ -28,19 +27,19 @@ export default React.createClass({
     dom.style.height = `${dom.offsetHeight}px`;
 
     this.setState({
-      closing: false
+      closing: false,
     });
     this.props.onClose.call(this, e);
-  },
-  animationEnd() {
+  }
+  animationEnd = () => {
     this.setState({
       closed: true,
-      closing: true
+      closing: true,
     });
-  },
+  }
   render() {
     let {
-      closable, description, type, prefixCls, message, closeText, showIcon
+      closable, description, type, prefixCls, message, closeText, showIcon,
     } = this.props;
 
     let iconType = '';
@@ -54,7 +53,7 @@ export default React.createClass({
       case 'error':
         iconType = 'cross-circle';
         break;
-      case 'warn':
+      case 'warning':
         iconType = 'exclamation-circle';
         break;
       default:
@@ -95,4 +94,4 @@ export default React.createClass({
       </Animate>
     );
   }
-});
+}

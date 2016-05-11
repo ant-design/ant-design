@@ -1,3 +1,5 @@
+> 特别提示：报告 bug 前请确保你的问题是可复现的，并务必提供复现步骤，否则恕难解决。
+
 If you want to ask a question, please read [some tips](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md#do-your-homework-before-asking-a-question) first :-)
 
 If you are going to report a bug, please answer the following questions, thank you!
@@ -16,7 +18,7 @@ If you are going to report a bug, please answer the following questions, thank y
 
 ## Online demo
 
-(e.g. http://codepen.io/anon/pen/pgdXYp?editors=001)
+(e.g. http://codepen.io/anon/pen/wGOWGW?editors=001)
 
 ## Environment Information
 

@@ -1,25 +1,17 @@
 import React from 'react';
-import Validation from 'rc-form-validation';
 import warning from 'warning';
 
-export default class AntValidation extends React.Component {
-  validate(callback) {
-    this.refs.validation.validate(callback);
+export default class Validation extends React.Component {
+  componentDidMount() {
+    warning(false, '`Validation` is removed, please use `Form` which has supported validation after antd@0.12.0,' +
+      ' or you can just import Validation from \'rc-form-validation\' for compatibility');
   }
-
-  reset() {
-    this.refs.validation.reset();
-  }
-
-  forceValidate(fields, callback) {
-    this.refs.validation.forceValidate(fields, callback);
-  }
-
   render() {
-    warning(false, '`Validation` is deprecated, please use `Form` which has supported validation after antd@0.12.0.');
-    return <Validation {...this.props} ref="validation" />;
+    return null;
   }
 }
 
-AntValidation.Validator = Validation.Validator;
-AntValidation.FieldMixin = Validation.FieldMixin;
+Validation.Validator = () => {};
+Validation.FieldMixin = {
+  setField() {},
+};

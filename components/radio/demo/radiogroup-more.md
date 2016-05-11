@@ -1,10 +1,9 @@
-# RadioGroup 垂直
-
-- order: 2
+---
+order: 2
+title: RadioGroup 垂直
+---
 
 垂直的 RadioGroup，配合更多输入框选项。
-
----
 
 ````jsx
 import { Radio, Input } from 'antd';
@@ -39,7 +38,7 @@ const App = React.createClass({
         </Radio>
       </RadioGroup>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

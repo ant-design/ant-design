@@ -1,10 +1,11 @@
 import React from 'react';
 import Notification from 'rc-notification';
-import assign from 'object-assign';
 import Icon from '../icon';
+import warning from 'warning';
 
-let top = 24;
+let defaultTop = 24;
 let notificationInstance;
+let defaultDuration = 45;
 
 function getNotificationInstance() {
   if (notificationInstance) {
@@ -13,88 +14,56 @@ function getNotificationInstance() {
   notificationInstance = Notification.newInstance({
     prefixCls: 'ant-notification',
     style: {
-      top,
-      right: 0
-    }
+      top: defaultTop,
+      right: 0,
+    },
   });
   return notificationInstance;
 }
 
 function notice(args) {
+  const prefixCls = args.prefixCls || 'ant-notification-notice';
+
   let duration;
   if (args.duration === undefined) {
-    duration = 4.5;
+    duration = defaultDuration;
   } else {
     duration = args.duration;
   }
 
-  if (args.icon) {
-    let prefixCls = ' ant-notification-notice-content-icon-';
-    let iconType = '';
-    switch (args.icon) {
-      case 'success':
-        iconType = 'check-circle-o';
-        break;
-      case 'info':
-        iconType = 'info-circle-o';
-        break;
-      case 'error':
-        iconType = 'cross-circle-o';
-        break;
-      case 'warn':
-        iconType = 'exclamation-circle-o';
-        break;
-      default:
-        iconType = 'info-circle';
-    }
-
-    getNotificationInstance().notice({
-      content: <div>
-        <Icon className={`${prefixCls}icon-${args.icon}${prefixCls}icon`} type={iconType} />
-
-        <div className={`${prefixCls}message`}>{args.message}</div>
-
-        <div className={`${prefixCls}description`}>{args.description}</div>
-      </div>,
-      duration,
-      closable: true,
-      onClose: args.onClose,
-      key: args.key,
-      style: {}
-    });
-  } else {
-    let prefixCls = 'ant-notification-notice-content-';
-    if (!args.btn) {
-      getNotificationInstance().notice({
-        content: <div>
-          <div className={`${prefixCls}message`}>{args.message}</div>
-
-          <div className={`${prefixCls}description`}>{args.description}</div>
-        </div>,
-        duration,
-        closable: true,
-        onClose: args.onClose,
-        key: args.key,
-        style: {}
-      });
-    } else {
-      getNotificationInstance().notice({
-        content: <div>
-          <div className={`${prefixCls}message`}>{args.message}</div>
-
-          <div className={`${prefixCls}description`}>{args.description}</div>
-          <span className={`${prefixCls}btn`}>
-            {args.btn}
-          </span>
-        </div>,
-        duration,
-        closable: true,
-        onClose: args.onClose,
-        key: args.key,
-        style: {}
-      });
-    }
+  let iconType = '';
+  switch (args.icon) {
+    case 'success':
+      iconType = 'check-circle-o';
+      break;
+    case 'info':
+      iconType = 'info-circle-o';
+      break;
+    case 'error':
+      iconType = 'cross-circle-o';
+      break;
+    case 'warning':
+      iconType = 'exclamation-circle-o';
+      break;
+    default:
+      iconType = 'info-circle';
   }
+
+  getNotificationInstance().notice({
+    content: (
+      <div className={`${prefixCls}-content ${args.icon ? `${prefixCls}-with-icon` : ''}`}>
+        {args.icon ? <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.icon}`} type={iconType} /> : null}
+        <div className={`${prefixCls}-message`}>{args.message}</div>
+        <div className={`${prefixCls}-description`}>{args.description}</div>
+        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+      </div>
+    ),
+    duration,
+    closable: true,
+    onClose: args.onClose,
+    key: args.key,
+    style: {},
+  });
 }
 
 const api = {
@@ -107,7 +76,12 @@ const api = {
     }
   },
   config(options) {
-    top = isNaN(options.top) ? 24 : options.top;
+    if ('top' in options) {
+      defaultTop = options.top;
+    }
+    if ('duration' in options) {
+      defaultDuration = options.duration;
+    }
   },
   destroy() {
     if (notificationInstance) {
@@ -117,13 +91,14 @@ const api = {
   },
 };
 
-['success', 'info', 'warn', 'error'].forEach((type) => {
-  api[type] = (args) => {
-    let newArgs = assign({}, args, {
-      icon: type
-    });
-    return api.open(newArgs);
-  };
+['success', 'info', 'warning', 'error'].forEach((type) => {
+  api[type] = (args) => api.open({ ...args, icon: type });
 });
+
+// warn: Departed usage, please use warning()
+api.warn = (...args) => {
+  warning(false, 'notification.warn() is departed, please use notification.warning()');
+  api.warning(...args);
+};
 
 export default api;

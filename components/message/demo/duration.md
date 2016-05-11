@@ -1,10 +1,9 @@
-# 修改延时
-
-- order: 2
+---
+order: 2
+title: 修改延时
+---
 
 自定义时长 `10s`，默认时长为 `1.5s`。
-
----
 
 ````jsx
 import { message, Button } from 'antd';

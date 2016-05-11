@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 基础分页。
-
----
 
 ````jsx
 import { Pagination } from 'antd';

@@ -1,10 +1,9 @@
-# 受控组件
-
-- order: 1
+---
+order: 1
+title: 受控组件
+---
 
 value 和 onChange 需要配合使用。
-
----
 
 ````jsx
 import { TimePicker } from 'antd';
@@ -21,7 +20,7 @@ const Test = React.createClass({
   },
   render() {
     return <TimePicker value={this.state.value} onChange={this.onChange} />;
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

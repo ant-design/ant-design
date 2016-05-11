@@ -1,8 +1,8 @@
-# Affix
-
-- category: Components
-- chinese: 固钉
-
+---
+category: Components
+chinese: 固钉
+type: 其它
+english: Affix
 ---
 
 将页面元素钉在可视范围。
@@ -18,4 +18,5 @@
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| offset      | 达到指定偏移量后触发   | Number | 0        |
+| offsetTop    | 距离窗口顶部达到指定偏移量后触发   | Number |         |
+| offsetBottom | 距离窗口底部达到指定偏移量后触发   | Number |         |

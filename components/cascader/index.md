@@ -1,9 +1,8 @@
-# Cascader
-
-- category: Components
-- chinese: 级联选择
-- type: 表单
-
+---
+category: Components
+chinese: 级联选择
+type: 表单
+english: Cascader
 ---
 
 级联选择框。

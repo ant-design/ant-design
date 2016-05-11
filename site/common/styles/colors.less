@@ -1,0 +1,70 @@
+.color-palette {
+  margin: 45px 0;
+  overflow: hidden;
+  height: 165px;
+}
+
+.main-color {
+  width: 165px;
+  height: 165px;
+  float: left;
+}
+
+.main-color div {
+  width: 50px;
+  height: 50px;
+  border-radius: 4px;
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+.color-palette .color-msg {
+  margin-left: 180px;
+}
+
+.color-msg .color-msg-title {
+  margin: 0;
+  font-weight: 600;
+  color: #5C6B77;
+  line-height: 1.8;
+  font-size: 21px;
+}
+
+.color-msg .color-msg-description {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.color-block {
+  position: relative;
+  width: 60px;
+  border-radius: 6px;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+  cursor: pointer;
+}
+.color-block:after {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  content: "Copied!";
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+  color: #444;
+  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  opacity: 0;
+}
+.color-block.copied:after {
+  opacity: 1;
+  top: 0;
+}
+.color-block.dark:after {
+  color: #fff;
+}

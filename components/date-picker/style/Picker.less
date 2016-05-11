@@ -1,0 +1,62 @@
+.@{calendar-prefix-cls}-picker-container {
+  position: absolute;
+  z-index: @zindex-picker;
+
+  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+  &.slide-up-enter.slide-up-enter-active&-placement-topRight,
+  &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-topRight {
+    animation-name: antSlideDownIn;
+  }
+
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+  &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
+  &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
+    animation-name: antSlideUpIn;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
+  &.slide-up-leave.slide-up-leave-active&-placement-topRight {
+    animation-name: antSlideDownOut;
+  }
+
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
+  &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
+    animation-name: antSlideUpOut;
+  }
+}
+
+.@{calendar-prefix-cls}-picker {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  font-size: @font-size-base;
+  transition: opacity 0.3s ease;
+
+  > input {
+    outline: none;
+  }
+
+  &-icon {
+    position: absolute;
+    user-select: none;
+    transition: all .3s @ease-in-out;
+    width: 12px;
+    height: 12px;
+    line-height: 12px;
+    right: 8px;
+    color: #999;
+    top: 50%;
+    margin-top: -6px;
+    &:after {
+      content: "\e654";
+      font-family: "anticon";
+      font-size: 12px;
+      color: #999;
+      display: inline-block;
+      line-height: 1;
+      vertical-align: bottom;
+    }
+  }
+}

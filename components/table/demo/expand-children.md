@@ -1,12 +1,11 @@
-# 树形数据展示
-
-- order: 16
+---
+order: 16
+title: 树形数据展示
+---
 
 表格支持树形数据的展示，可以通过设置 `indentSize` 以控制每一层的缩进宽度。
 
 > 注：暂不支持父子数据递归关联选择。
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -89,7 +88,7 @@ const rowSelection = {
   },
   onSelectAll(selected, selectedRows, changeRows) {
     console.log(selected, selectedRows, changeRows);
-  }
+  },
 };
 
 ReactDOM.render(

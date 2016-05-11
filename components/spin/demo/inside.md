@@ -1,10 +1,9 @@
-# 容器
-
-- order: 2
+---
+order: 2
+title: 容器
+---
 
 放入一个容器中。
-
----
 
 ````jsx
 import { Spin } from 'antd';

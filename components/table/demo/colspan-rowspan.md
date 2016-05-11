@@ -1,12 +1,11 @@
-# 表格行/列合并
-
-- order: 13
+---
+order: 13
+title: 表格行/列合并
+---
 
 表头只支持列合并，使用 column 里的 colSpan 进行设置。
 
 表格支持行/列合并，使用 render 里的单元格属性 colSpan 或者 rowSpan 设值为 0 时，设置的表格不会渲染。
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -16,7 +15,7 @@ import { Table } from 'antd';
 const renderContent = function (value, row, index) {
   let obj = {
     children: value,
-    props: {}
+    props: {},
   };
   if (index === 4) {
     obj.props.colSpan = 0;
@@ -34,14 +33,14 @@ const columns = [{
     return {
       children: <a href="#">{text}</a>,
       props: {
-        colSpan: 5
-      }
+        colSpan: 5,
+      },
     };
-  }
+  },
 }, {
   title: '年龄',
   dataIndex: 'age',
-  render: renderContent
+  render: renderContent,
 }, {
   title: '家庭电话',
   colSpan: 2,
@@ -49,7 +48,7 @@ const columns = [{
   render(value, row, index) {
     let obj = {
       children: value,
-      props: {}
+      props: {},
     };
     // 第三列的第三行行合并
     if (index === 2) {
@@ -65,16 +64,16 @@ const columns = [{
       obj.props.colSpan = 0;
     }
     return obj;
-  }
+  },
 }, {
   title: '手机号',
   colSpan: 0,
   dataIndex: 'phone',
-  render: renderContent
+  render: renderContent,
 }, {
   title: '住址',
   dataIndex: 'address',
-  render: renderContent
+  render: renderContent,
 }];
 
 const data = [{
@@ -83,35 +82,35 @@ const data = [{
   age: 32,
   tel: '0571-22098909',
   phone: 18889898989,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   tel: '0571-22098333',
   phone: 18889898888,
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
   tel: '0575-22098909',
   phone: 18900010002,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '4',
   name: '李夫人',
   age: 18,
   tel: '0575-22098909',
   phone: 18900010002,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '5',
   name: '习大大',
   age: 18,
   tel: '0575-22098909',
   phone: 18900010002,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 ReactDOM.render(<Table columns={columns} dataSource={data} bordered />

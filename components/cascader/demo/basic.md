@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 省市区级联。
-
----
 
 ````jsx
 import { Cascader } from 'antd';
@@ -38,6 +37,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <Cascader options={options} onChange={onChange} />
+  <Cascader options={options} onChange={onChange} placeholder="请选择地区" />
 , mountNode);
 ````

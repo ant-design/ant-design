@@ -1,11 +1,13 @@
+jest.unmock('../components/layout/index');
+jest.unmock('../components/layout/col');
+jest.unmock('../components/layout/row');
+
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
+import { wrap } from 'react-stateless-wrapper';
 
-jest.dontMock('../components/layout/index');
-jest.dontMock('../components/layout/col');
-jest.dontMock('../components/layout/row');
-
-const { Col, Row } = require('../components/layout/index');
+let { Col, Row } = require('../components/layout/index');
+Col = wrap(Col);
 
 describe('Layout', function() {
   it('should render Col', () => {

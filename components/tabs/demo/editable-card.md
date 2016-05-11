@@ -1,10 +1,9 @@
-# 新增和关闭页签
-
-- order: 9
+---
+order: 9
+title: 新增和关闭页签
+---
 
 只有卡片样式的页签支持新增和关闭选项。
-
----
 
 ````jsx
 import { Tabs } from 'antd';
@@ -55,7 +54,7 @@ const Demo = React.createClass({
         {this.state.panes}
       </Tabs>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

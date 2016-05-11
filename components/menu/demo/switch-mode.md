@@ -1,10 +1,9 @@
-# 切换
-
-- order: 5
+---
+order: 5
+title: 切换菜单类型
+---
 
 展示动态切换模式。
-
----
 
 ````jsx
 import { Menu, Icon, Switch } from 'antd';
@@ -59,7 +58,7 @@ const Sider = React.createClass({
         </Menu>
       </div>
     );
-  }
+  },
 });
 ReactDOM.render(<Sider />, mountNode);
 ````

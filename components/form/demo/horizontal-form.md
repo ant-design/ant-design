@@ -1,10 +1,9 @@
-# 典型表单
-
-- order: 2
+---
+order: 2
+title: 典型表单
+---
 
 示例展示了如何通过使用 `Form.create` 来获取和更新表单提交的数值。
-
----
 
 ````jsx
 import { Form, Input, Button, Checkbox, Radio, Tooltip, Icon } from 'antd';
@@ -52,16 +51,14 @@ let Demo = React.createClass({
         <FormItem
           {...formItemLayout}
           label={<span>卖身华府 <Tooltip title="我为秋香"><Icon type="question-circle-o" /></Tooltip> ：</span>}>
-          <label>
-            <Checkbox {...getFieldProps('agreement')} />同意
-          </label>
+          <Checkbox {...getFieldProps('agreement')}>同意</Checkbox>
         </FormItem>
         <FormItem wrapperCol={{ span: 16, offset: 6 }} style={{ marginTop: 24 }}>
           <Button type="primary" htmlType="submit">确定</Button>
         </FormItem>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);

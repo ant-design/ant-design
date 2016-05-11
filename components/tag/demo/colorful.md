@@ -1,10 +1,9 @@
-# 各种类型
-
-- order: 1
+---
+order: 1
+title: 各种类型
+---
 
 四种颜色的标签。
-
----
 
 ````jsx
 import { Tag } from 'antd';

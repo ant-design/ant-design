@@ -1,10 +1,9 @@
-# 传入已上传的文件
-
-- order: 1
+---
+order: 1
+title: 传入已上传的文件
+---
 
 对已上传的文件进行编辑。
-
----
 
 ````jsx
 import { Upload, Button, Icon } from 'antd';
@@ -21,13 +20,13 @@ const props = {
     uid: -1,
     name: 'xxx.png',
     status: 'done',
-    url: 'http://www.baidu.com/xxx.png'
+    url: 'http://www.baidu.com/xxx.png',
   }, {
     uid: -2,
     name: 'yyy.png',
     status: 'done',
-    url: 'http://www.baidu.com/yyy.png'
-  }]
+    url: 'http://www.baidu.com/yyy.png',
+  }],
 };
 
 ReactDOM.render(

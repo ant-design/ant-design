@@ -3,31 +3,47 @@ import ReactDOM from 'react-dom';
 import Dialog from './Modal';
 import Icon from '../icon';
 import Button from '../button';
-import objectAssign from 'object-assign';
+import classNames from 'classnames';
 
-export default function (config) {
-  const props = objectAssign({}, config || {});
+const defaultLocale = {
+  okText: '确定',
+  cancelText: '取消',
+  justOkText: '知道了',
+};
+
+let runtimeLocale = { ...defaultLocale };
+
+export function changeConfirmLocale(newLocale) {
+  if (newLocale) {
+    runtimeLocale = { ...runtimeLocale, ...newLocale };
+  } else {
+    runtimeLocale = { ...defaultLocale };
+  }
+}
+
+export default function confirm(config) {
+  const props = { ...config };
   let div = document.createElement('div');
   document.body.appendChild(div);
 
   let d;
-  props.iconClassName = props.iconClassName || 'question-circle';
-
-  let iconClassType = props.iconClassName;
+  props.iconType = props.iconType || 'question-circle';
 
   let width = props.width || 416;
+  let style = props.style || {};
 
   // 默认为 true，保持向下兼容
   if (!('okCancel' in props)) {
     props.okCancel = true;
   }
 
-  props.okText = props.okText || (props.okCancel ? '确定' : '知道了');
-  props.cancelText = props.cancelText || '取消';
+  props.okText = props.okText ||
+    (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
+  props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
   function close() {
     d.setState({
-      visible: false
+      visible: false,
     });
     ReactDOM.unmountComponentAtNode(div);
     div.parentNode.removeChild(div);
@@ -75,7 +91,7 @@ export default function (config) {
 
   let body = (
     <div className="ant-confirm-body">
-      <Icon type={iconClassType} />
+      <Icon type={props.iconType} />
       <span className="ant-confirm-title">{props.title}</span>
       <div className="ant-confirm-content">{props.content}</div>
     </div>
@@ -103,17 +119,26 @@ export default function (config) {
     );
   }
 
-  ReactDOM.render(<Dialog
-    prefixCls="ant-modal"
-    className="ant-confirm"
-    visible
-    closable={false}
-    title=""
-    transitionName="zoom"
-    footer=""
-    maskTransitionName="fade" width={width}>
-    <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
-  </Dialog>, div, function () {
+  const classString = classNames({
+    'ant-confirm': true,
+    [`ant-confirm-${props.type}`]: true,
+    [props.className]: !!props.className,
+  });
+
+  ReactDOM.render(
+    <Dialog
+      className={classString}
+      visible
+      closable={false}
+      title=""
+      transitionName="zoom"
+      footer=""
+      maskTransitionName="fade"
+      style={style}
+      width={width}>
+      <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
+    </Dialog>
+  , div, function () {
     d = this;
   });
 }

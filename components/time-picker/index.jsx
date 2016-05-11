@@ -1,35 +1,36 @@
 import React from 'react';
 import DateTimeFormat from 'gregorian-calendar-format';
-import TimePicker from 'rc-time-picker/lib/TimePicker';
-import objectAssign from 'object-assign';
+import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import defaultLocale from './locale/zh_CN';
 import classNames from 'classnames';
 import GregorianCalendar from 'gregorian-calendar';
 
-const AntTimePicker = React.createClass({
-  getDefaultProps() {
-    return {
-      format: 'HH:mm:ss',
-      prefixCls: 'ant-time-picker',
-      onChange() {
-      },
-      locale: {},
-      align: {
-        offset: [0, -2],
-      },
-      disabled: false,
-      disabledHours: undefined,
-      disabledMinutes: undefined,
-      disabledSeconds: undefined,
-      hideDisabledOptions: false,
-      placement: 'bottomLeft',
-      transitionName: 'slide-up',
-    };
-  },
+export default class TimePicker extends React.Component {
+  static defaultProps = {
+    format: 'HH:mm:ss',
+    prefixCls: 'ant-time-picker',
+    onChange() {
+    },
+    locale: {},
+    align: {
+      offset: [0, -2],
+    },
+    disabled: false,
+    disabledHours: undefined,
+    disabledMinutes: undefined,
+    disabledSeconds: undefined,
+    hideDisabledOptions: false,
+    placement: 'bottomLeft',
+    transitionName: 'slide-up',
+  }
+
+  static contextTypes = {
+    antLocale: React.PropTypes.object,
+  }
 
   getFormatter() {
-    return new DateTimeFormat(this.props.format);
-  },
+    return new DateTimeFormat(this.props.format, this.getLocale().format);
+  }
 
   /**
    * 获得输入框的 className
@@ -42,7 +43,7 @@ const AntTimePicker = React.createClass({
       sizeClass = ' ant-input-sm';
     }
     return sizeClass;
-  },
+  }
 
   /**
    * 获得输入框的默认值
@@ -61,21 +62,29 @@ const AntTimePicker = React.createClass({
       }
     }
     return value;
-  },
+  }
 
-  handleChange(value) {
-    this.props.onChange(value ? new Date(value.getTime()) : null);
-  },
+  handleChange = (value) => {
+    this.props.onChange(
+      value ? new Date(value.getTime()) : null,
+      value ? this.getFormatter().format(value) : '',
+    );
+  }
 
   getLocale() {
+    let locale = defaultLocale;
+    if (this.context.antLocale && this.context.antLocale.TimePicker) {
+      locale = this.context.antLocale.TimePicker;
+    }
     // 统一合并为完整的 Locale
-    return objectAssign({}, defaultLocale, this.props.locale);
-  },
+    return { ...locale, ...this.props.locale };
+  }
 
   render() {
-    const props = objectAssign({}, this.props);
+    const locale = this.getLocale();
+    const props = { ...this.props };
     props.placeholder = ('placeholder' in this.props)
-      ? props.placeholder : this.getLocale().placeholder;
+      ? props.placeholder : locale.placeholder;
     if (props.defaultValue) {
       props.defaultValue = this.parseTimeFromValue(props.defaultValue);
     } else {
@@ -96,16 +105,13 @@ const AntTimePicker = React.createClass({
     }
 
     return (
-      <TimePicker
+      <RcTimePicker
         {...props}
         className={className}
-        locale={this.getLocale()}
+        locale={locale}
         formatter={this.getFormatter()}
         onChange={this.handleChange}
       />
     );
   }
-
-});
-
-export default AntTimePicker;
+}

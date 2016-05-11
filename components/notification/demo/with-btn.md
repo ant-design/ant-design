@@ -1,10 +1,9 @@
-# 自定义
-
-- order: 4
+---
+order: 4
+title: 自定义
+---
 
 自定义关闭按钮的样式和文字。
-
----
 
 ````jsx
 import { Button, notification } from 'antd';
@@ -29,7 +28,7 @@ const openNotification = function () {
     description: '这是提示框的文案这是提示框示框的文案这是提示是提示框的文案这是提示框的文案',
     btn,
     key,
-    onClose: close
+    onClose: close,
   });
 };
 

@@ -1,0 +1,54 @@
+@import "../../style/themes/default";
+
+@message-prefix-cls: ant-message;
+
+.@{message-prefix-cls} {
+  font-size: 12px;
+  position: fixed;
+  z-index: @zindex-message;
+  width: 100%;
+  top: 16px;
+  left: 0;
+
+  &-notice {
+    width: auto;
+    vertical-align: middle;
+    position: absolute;
+    left: 50%;
+  }
+
+  &-notice-content {
+    position: relative;
+    right: 50%;
+    padding: 8px 16px;
+    border-radius: @border-radius-base;
+    border: 1px solid @border-color-base;
+    box-shadow: @shadow-2;
+    background: #fff;
+    display: block;
+  }
+
+  &-success .anticon {
+    color: @success-color;
+  }
+
+  &-error .anticon {
+    color: @error-color;
+  }
+
+  &-warning .anticon {
+    color: @warning-color;
+  }
+
+  &-info .anticon,
+  &-loading .anticon {
+    color: @primary-color;
+  }
+
+  .anticon {
+    margin-right: 8px;
+    font-size: 14px;
+    top: 1px;
+    position: relative;
+  }
+}

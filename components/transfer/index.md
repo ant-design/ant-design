@@ -1,10 +1,9 @@
-# Transfer
-
-- category: Components
-- chinese: 穿梭框
-- type: 表单
-- cols: 1
-
+---
+category: Components
+chinese: 穿梭框
+type: 表单
+cols: 1
+english: Transfer
 ---
 
 双栏穿梭选择框。
@@ -27,6 +26,6 @@
 | titles | 标题集合,顺序从左至右 | Array | ['源列表', '目的列表'] |
 | operations | 操作文案集合,顺序从上至下 | Array | [] |
 | showSearch | 是否显示搜索框 | Boolean | false |
-| searchPlaceholder | 搜索框的默认值 | String | 请输入搜索的内容  |
-| notFoundContent | 当列表为空时显示的内容 | React.node | 'Not Found'  |
-| footer | 底部渲染函数 | Function(props) |  |  |
+| searchPlaceholder | 搜索框的默认值 | String | '请输入搜索内容' |
+| notFoundContent | 当列表为空时显示的内容 | React.node | '列表为空'  |
+| footer | 底部渲染函数 | Function(props) |  |
