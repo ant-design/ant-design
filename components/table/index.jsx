@@ -393,7 +393,7 @@ export default class Table extends React.Component {
     }));
   }
 
-  renderSelectionRadio(value, record, index) {
+  renderSelectionRadio = (value, record, index) => {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let props = {};
     if (this.props.rowSelection.getCheckboxProps) {
