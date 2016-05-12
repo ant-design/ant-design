@@ -23,7 +23,7 @@
         var arr=[];
         function r(i) {
           var t=Math.round(Math.random() * (num - 1));
-          if(t === arr[i - 1]){
+          if(t === arr[i - 1]) {
             r(i);
             return;
           }
@@ -36,7 +36,7 @@
       }
       const randomArray = oneRandom(6, 8);
       const oneTextArr = [];
-      for (let i=0; i<contentText.length; i++) {
+      for (let i = 0; i< contentText.length; i++) {
         let t = contentText[i];
         t = t === ' ' ? '&nbsp;': t;
         let className = 'yoyo-x-left';
