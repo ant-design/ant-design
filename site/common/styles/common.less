@@ -83,69 +83,46 @@ a {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
-  em {
+  img {
     transform-style: preserve-3d;
     display: block;
-    width: 50px;
-    height: 50px;
-    margin: auto;
+    width: 70px;
+    margin: -50px auto 10px;
     animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    -webkit-animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;;
   }
-  div {
-    font-family: lato;
-    color: #777;
-    font-size: 16px;
-    letter-spacing: 2px;
-    & span {
-      display: inline-block;
+}
+
+#loading-text {
+  font-family: lato;
+  color: #777;
+  font-size: 16px;
+  letter-spacing: 2px;
+  > span {
+    display: inline-block;
+    &:first-child {
+      animation: xLeftMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    }
+    &:last-child {
+      animation: xRightMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    }
+    &.blank {
+      width: 0.4em;
     }
   }
 }
 
 .page-wrapper {
-  animation: pageEnter .45s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation: pageEnter .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
-.yoyo-x-right {
-  animation: xRightMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: xRightMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+.loop-yoyo-load(@index) when (@index >= 0) {
+  .yoyo-x-@{index} {
+    animation: ~"Load@{index}" 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+  }
+  .loop-yoyo-load(@index - 1);
 }
 
-.yoyo-x-left {
-  animation: xLeftMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: xLeftMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
-
-.yoyo-load0 {
-  animation: Load0 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: Load0 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
-
-.yoyo-load1 {
-  animation: Load1 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: Load1 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
-
-.yoyo-load2 {
-  animation: Load2 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: Load2 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
-
-.yoyo-load3 {
-  animation: Load3 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: Load3 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
-
-.yoyo-load4 {
-  animation: Load4 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: Load4 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
-
-.yoyo-load5 {
-  animation: Load5 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-  -webkit-animation: Load5 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
-}
+.loop-yoyo-load(5);
 
 @keyframes loadTween {
   0% {
@@ -168,7 +145,6 @@ a {
     opacity: 0;
     transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translateX(0px) rotate(0deg) scale(1, 1);
@@ -184,7 +160,6 @@ a {
     opacity: 0;
     transform: translateX(50px) rotate(30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translateX(0px) rotate(0deg) scale(1, 1);
@@ -200,7 +175,6 @@ a {
     opacity: 0;
     transform: translate(-30px, 30px) rotate(-30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
@@ -216,7 +190,6 @@ a {
     opacity: 0;
     transform: translate(30px, -30px) rotate(-30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
@@ -232,7 +205,6 @@ a {
     opacity: 0;
     transform: translate(-30px, -30px) rotate(30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
@@ -248,7 +220,6 @@ a {
     opacity: 0;
     transform: translate(-30px, 30px) rotate(-30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
@@ -264,7 +235,6 @@ a {
     opacity: 0;
     transform: translate(30px, 30px) rotate(30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
@@ -280,22 +250,9 @@ a {
     opacity: 0;
     transform: translate(30px, -30px) rotate(-30deg) scale(1.5, 1.5);
   }
-
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
-  }
-}
-
-@keyframes siteLoadingCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 

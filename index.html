@@ -13,38 +13,21 @@
 <body>
   <div id="react-content">
     <div class="ant-site-loading">
-      <em><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' width='50' height='50'></em>
-      <div id="text">A Design Language</div>
+      <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' />
+      <div id="loading-text">A Design Language</div>
     </div>
     <script>
-      const content = document.getElementById('text');
-      const contentText = content.innerText;
-      function oneRandom(num, len) {
-        const arr=[];
-        function r(i) {
-          const t=Math.round(Math.random() * (num - 1));
-          if(t === arr[i - 1]) {
-            r(i);
-            return;
-          }
-          arr.push(t);
+      const content = document.getElementById('loading-text');
+      content.innerHTML = content.innerText.split('').map(function(letter, i) {
+        var className;
+        if (i > 0 && i < content.innerText.length - 1) {
+          className = 'yoyo-x-' + (i % 6);
         }
-        for (let i = 0; i < len; i++) {
-          r(i);
+        if (letter.trim() === '') {
+          className += ' blank';
         }
-        return arr;
-      }
-      const randomArray = oneRandom(6, contentText.length - 2);
-      const oneTextArr = [];
-      for (let i = 0; i< contentText.length; i++) {
-        let t = contentText[i];
-        t = t === ' ' ? '&nbsp;': t;
-        let className = 'yoyo-x-left';
-        className = i > 0 && i < contentText.length - 1 ? 'yoyo-load' + randomArray[i - 1] : className;
-        className = i === contentText.length - 1 ? 'yoyo-x-right' : className;
-        oneTextArr.push('<span class="' + className + '">' + t + '</span>');
-      }
-      content.innerHTML = oneTextArr.join('');
+        return '<span class="' + className + '">' + letter + '</span>';
+      }).join('');
     </script>
   </div>
 </body>
