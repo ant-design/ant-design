@@ -111,7 +111,7 @@ const App = React.createClass({
           <Radio.Group defaultValue={enUS} onChange={this.changeLocale}>
             <Radio.Button key="en" value={enUS}>English</Radio.Button>
             <Radio.Button key="ru" value={ruRU}>русский язык</Radio.Button>
-            <Radio.Button key="cn" value={null}>中文</Radio.Button>
+            <Radio.Button key="cn">中文</Radio.Button>
           </Radio.Group>
         </div>
         <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
