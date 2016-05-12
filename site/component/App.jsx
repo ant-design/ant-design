@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 export default function App(props) {
   return (
-    <div>
+    <div className="page-wrapper">
       <Header {...props} />
       {props.children}
       <Footer />

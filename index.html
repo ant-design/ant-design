@@ -13,9 +13,39 @@
 <body>
   <div id="react-content">
     <div class="ant-site-loading">
-      <img width="100" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" alt="loading..." />
-      <div>A Design Langague</div>
+      <em><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' width='50' height='50'></em>
+      <div id="text">Ant Design</div>
     </div>
+    <script>
+      const content = document.getElementById('text');
+      const contentText = content.innerText;
+      function oneRandom(num) {
+        var arr=[];
+        function r(i) {
+          var t=Math.round(Math.random() * (num - 1));
+          if(t === arr[i - 1]){
+            r(i);
+            return;
+          }
+          arr.push(t);
+        }
+        for (var i = 0; i < 8; i++) {
+          r(i);
+        }
+        return arr;
+      }
+      const randomArray = oneRandom(6, 8);
+      const oneTextArr = [];
+      for (let i=0; i<contentText.length; i++) {
+        let t = contentText[i];
+        t = t === ' ' ? '&nbsp;': t;
+        let className = 'yoyo-x-left';
+        className = i > 0 && i < contentText.length - 1 ? 'yoyo-load' + randomArray[i - 1] : className;
+        className = i === contentText.length ? 'yoyo-x-right' : className;
+        oneTextArr.push('<span class="' + className + '">' + t + '</span>');
+      }
+      content.innerHTML = oneTextArr.join('');
+    </script>
   </div>
 </body>
 <script src="./index.js"></script>
