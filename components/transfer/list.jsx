@@ -7,6 +7,11 @@ import Animate from 'rc-animate';
 function noop() {
 }
 
+export function isRenderResultPlainObject(result) {
+  return result && !React.isValidElement(result) &&
+    Object.prototype.toString.call(result) === '[object Object]';
+}
+
 export default class TransferList extends React.Component {
   static defaultProps = {
     dataSource: [],
@@ -19,7 +24,7 @@ export default class TransferList extends React.Component {
     // advanced
     body: noop,
     footer: noop,
-  }
+  };
 
   static propTypes = {
     prefixCls: PropTypes.string,
@@ -34,11 +39,11 @@ export default class TransferList extends React.Component {
     render: PropTypes.func,
     body: PropTypes.func,
     footer: PropTypes.func,
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -101,7 +106,7 @@ export default class TransferList extends React.Component {
 
   render() {
     const { prefixCls, dataSource, titleText, filter, checkedKeys,
-            checkStatus, body, footer, showSearch } = this.props;
+            checkStatus, body, footer, showSearch, render } = this.props;
 
     let { searchPlaceholder, notFoundContent } = this.props;
 
@@ -115,15 +120,33 @@ export default class TransferList extends React.Component {
     });
 
     const showItems = dataSource.filter((item) => {
-      const itemText = this.props.render(item);
+      const renderResult = render(item);
+      let itemText;
+      if (isRenderResultPlainObject(renderResult)) {
+        itemText = renderResult.value;
+      } else {
+        itemText = renderResult;
+      }
+
       const filterResult = this.matchFilter(itemText, filter);
       return !!filterResult;
     }).map((item) => {
-      const renderedText = this.props.render(item);
+      const renderResult = render(item);
+      let renderedText;
+      let renderedEl;
+
+      if (isRenderResultPlainObject(renderResult)) {
+        renderedText = renderResult.value;
+        renderedEl = renderResult.label;
+      } else {
+        renderedText = renderResult;
+        renderedEl = renderResult;
+      }
+
       return (
         <li onClick={() => { this.handleSelect(item); }} key={item.key} title={renderedText}>
           <Checkbox checked={checkedKeys.some(key => key === item.key)} />
-          <span>{renderedText}</span>
+          <span>{renderedEl}</span>
         </li>
       );
     });
