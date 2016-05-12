@@ -20,16 +20,16 @@
       const content = document.getElementById('text');
       const contentText = content.innerText;
       function oneRandom(num, len) {
-        var arr=[];
+        const arr=[];
         function r(i) {
-          var t=Math.round(Math.random() * (num - 1));
+          const t=Math.round(Math.random() * (num - 1));
           if(t === arr[i - 1]) {
             r(i);
             return;
           }
           arr.push(t);
         }
-        for (var i = 0; i < len; i++) {
+        for (let i = 0; i < len; i++) {
           r(i);
         }
         return arr;
