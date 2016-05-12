@@ -14,12 +14,12 @@
   <div id="react-content">
     <div class="ant-site-loading">
       <em><img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' width='50' height='50'></em>
-      <div id="text">Ant Design</div>
+      <div id="text">A Design Langague</div>
     </div>
     <script>
       const content = document.getElementById('text');
       const contentText = content.innerText;
-      function oneRandom(num) {
+      function oneRandom(num, len) {
         var arr=[];
         function r(i) {
           var t=Math.round(Math.random() * (num - 1));
@@ -29,12 +29,12 @@
           }
           arr.push(t);
         }
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < len; i++) {
           r(i);
         }
         return arr;
       }
-      const randomArray = oneRandom(6, 8);
+      const randomArray = oneRandom(6, contentText.length - 2);
       const oneTextArr = [];
       for (let i = 0; i< contentText.length; i++) {
         let t = contentText[i];
