@@ -14,6 +14,6 @@ export function changeConfirmLocale(newLocale) {
   }
 }
 
-export function getConfirmLocale(newLocale) {
+export function getConfirmLocale() {
   return runtimeLocale;
 }
