@@ -14,7 +14,7 @@ body {
   line-height: 1.5;
   color: #666;
   font-size: 14px;
-  background: #ECECEC;
+  background: #FFF;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   overflow-x: hidden;
 }
@@ -77,19 +77,24 @@ a {
 }
 
 .ant-site-loading {
-  height: 100vh;
   width: 100vw;
-  background: #fff;
   text-align: center;
-  display: table-cell;
-  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  margin-top: -50px;
+  transition: opacity .45s;
+  pointer-events: none;
+  opacity: 0;
   img {
     transform-style: preserve-3d;
     display: block;
-    width: 70px;
-    margin: -50px auto 10px;
+    width: 64px;
+    margin: 0 auto 10px;
     animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
   }
+}
+#react-content:empty + .ant-site-loading {
+  opacity: 1;
 }
 
 #loading-text {
@@ -112,7 +117,8 @@ a {
 }
 
 .page-wrapper {
-  animation: pageEnter .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  background: #ECECEC;
+  animation: pageEnter .45s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 .loop-yoyo-load(@index) when (@index >= 0) {
