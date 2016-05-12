@@ -48,7 +48,7 @@ if (!location.port) {
   });
   /* eslint-enable */
 }
-
+document.getElementsByClassName('ant-site-loading')[0].style.opacity = 0;
 ReactDOM.render(
   <Router history={appHistory}>
     <Route path="/" component={App}>
@@ -95,3 +95,4 @@ ReactDOM.render(
   </Router>
   , document.getElementById('react-content')
 );
+
