@@ -30,6 +30,8 @@ export default class MainContent extends React.Component {
           { alignWithTop: true, onlyScrollIfNeeded: false }
         );
       }
+    } else {
+      scrollIntoView(document.body, document, { alignWithTop: true });
     }
   }
 
