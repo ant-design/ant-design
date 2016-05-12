@@ -10,7 +10,7 @@ body {
 }
 
 body {
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",SimSun,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
   line-height: 1.5;
   color: #666;
   font-size: 14px;
@@ -84,26 +84,180 @@ a {
   display: table-cell;
   vertical-align: middle;
   img {
-    animation: siteLoadingCircle 2s ease-in-out infinite;
-    transform-origin: 50% 50%;
-    margin-top: -50px;
-  }
-  div {
-    font-family: lato;
-    color: #777;
-    font-size: 16px;
-    letter-spacing: 2px;
+    transform-style: preserve-3d;
+    display: block;
+    width: 70px;
+    margin: -50px auto 10px;
+    animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
   }
 }
 
-@keyframes siteLoadingCircle {
+#loading-text {
+  font-family: lato;
+  color: #777;
+  font-size: 16px;
+  letter-spacing: 2px;
+  > span {
+    display: inline-block;
+    &:first-child {
+      animation: xLeftMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    }
+    &:last-child {
+      animation: xRightMatrixR 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    }
+    &.blank {
+      width: 0.4em;
+    }
+  }
+}
+
+.page-wrapper {
+  animation: pageEnter .3s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.loop-yoyo-load(@index) when (@index >= 0) {
+  .yoyo-x-@{index} {
+    animation: ~"Load@{index}" 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+  }
+  .loop-yoyo-load(@index - 1);
+}
+
+.loop-yoyo-load(5);
+
+@keyframes loadTween {
   0% {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   50% {
-    transform: rotate(360deg);
+    transform: rotateY(180deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotateX(-180deg);
+  }
+}
+
+@keyframes xLeftMatrixR {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(-50px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes xRightMatrixR {
+  0% {
+    opacity: 0;
+    transform: translateX(50px) rotate(30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translateX(50px) rotate(30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes Load5 {
+  0% {
+    opacity: 0;
+    transform: translate(-30px, 30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-30px, 30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes Load4 {
+  0% {
+    opacity: 0;
+    transform: translate(30px, -30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(30px, -30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes Load3 {
+  0% {
+    opacity: 0;
+    transform: translate(-30px, -30px) rotate(30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-30px, -30px) rotate(30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes Load2 {
+  0% {
+    opacity: 0;
+    transform: translate(-30px, 30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-30px, 30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes Load1 {
+  0% {
+    opacity: 0;
+    transform: translate(30px, 30px) rotate(30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(30px, 30px) rotate(30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes Load0 {
+  0% {
+    opacity: 0;
+    transform: translate(30px, -30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(30px, -30px) rotate(-30deg) scale(1.5, 1.5);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
   }
 }
