@@ -41,7 +41,7 @@
         t = t === ' ' ? '&nbsp;': t;
         let className = 'yoyo-x-left';
         className = i > 0 && i < contentText.length - 1 ? 'yoyo-load' + randomArray[i - 1] : className;
-        className = i === contentText.length ? 'yoyo-x-right' : className;
+        className = i === contentText.length - 1 ? 'yoyo-x-right' : className;
         oneTextArr.push('<span class="' + className + '">' + t + '</span>');
       }
       content.innerHTML = oneTextArr.join('');
