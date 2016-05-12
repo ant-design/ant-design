@@ -48,6 +48,7 @@ if (!location.port) {
   });
   /* eslint-enable */
 }
+
 ReactDOM.render(
   <Router history={appHistory}>
     <Route path="/" component={App}>
@@ -94,4 +95,3 @@ ReactDOM.render(
   </Router>
   , document.getElementById('react-content')
 );
-
