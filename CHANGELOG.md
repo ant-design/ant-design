@@ -9,6 +9,17 @@ timeline: true
 
 ---
 
+## 1.0.1
+
+`2016-05-11`
+
+- 修复当 Table 的 `rowSelection.type` 为 'radio' 时的报错。[#1627](https://github.com/ant-design/ant-design/issues/1627)
+- 修复 CheckboxGroup 与 `getFieldProps`共用时的问题。[#1631](https://github.com/ant-design/ant-design/issues/1631)
+- 修复 RangePicker 中 TimePicker 不会受 locale 控制的问题。[#1635](https://github.com/ant-design/ant-design/issues/1635)
+- 修复 Tag 组件缺失的问题。
+- 修复 Table 的 className 不在最外层容器上的问题。
+- 修复一个样式文件重复打包的问题。
+
 ## 1.0.0
 
 `2016-05-09`
@@ -70,6 +81,7 @@ timeline: true
 - 修复 Button 禁用时事件仍然会冒泡的问题。[#1541](https://github.com/ant-design/ant-design/issues/1541)
 - 修复 Carousel 自动播放时的卡顿和报错问题。[#1397](https://github.com/ant-design/ant-design/issues/1397)
 - 修复 Tabs 的 card 类型内嵌标准 Tabs 时的样式问题。[#1617](https://github.com/ant-design/ant-design/issues/1617)
+- 修复 Menu `horizontal` 和 `vertical` 模式不支持受控 `openKeys` 的问题。
 
 ### 其他改进
 
@@ -565,8 +577,8 @@ timeline: true
 - [Button](http://ant.design/components/button/)、[Iconfont](http://ant.design/components/icon/)、[Layout](http://ant.design/components/layout/)、[Form](http://ant.design/components/form/)、[Input](http://ant.design/components/form/#demo-input) 等样式模块改造为 React 组件。
 - 新增 [Queue-anim](http://ant.design/components/queue-anim/) 组件，更换了原来的 enter-animation。
 - 全新的[字体图标](/components/icon)。
-	- 全面更新视觉风格，补充更多图标。[#313](https://github.com/ant-design/ant-design/issues/313)
-	- 调整字体基线，告别对图标位置的特殊调节。(感谢 [iconfont.cn](http://iconfont.cn) 的鼎力支持)
+  - 全面更新视觉风格，补充更多图标。[#313](https://github.com/ant-design/ant-design/issues/313)
+  - 调整字体基线，告别对图标位置的特殊调节。(感谢 [iconfont.cn](http://iconfont.cn) 的鼎力支持)
 - Datepicker、Dropdown、Select、Popover、Popconfirm 等浮层组件添加在空间不足的情况下自动调整位置功能。
 - Popover、Tooltip、Popconfirm 组件支持 12 个方向。[#312](https://github.com/ant-design/ant-design/issues/312)
 - 优先使用苹方字体。
@@ -578,41 +590,41 @@ timeline: true
 - 文档支持标题和演示的锚点，方便分享文档和演示代码。
 - 提供多版本的文档，在[主站](http://ant.design)的右下角提供切换按钮。
 - [antd-bin](https://github.com/ant-tool/xtool) 升级到 `0.10`。
-	- 拆分出 [antd-init](https://github.com/ant-design/antd-init) 和 [antd-build](https://github.com/ant-design/antd-build)。
-	- 提供代理功能。
-	- 提供 UI 测试功能。
+  - 拆分出 [antd-init](https://github.com/ant-design/antd-init) 和 [antd-build](https://github.com/ant-design/antd-build)。
+  - 提供代理功能。
+  - 提供 UI 测试功能。
 
 #### 组件变更
 
 - Table
-	- 支持单选。[演示](http://ant.design/components/table/#demo-row-selection-radio-props)
-	- 选择模式支持默认选中和不可用效果。[演示](/components/table/#demo-row-selection-props)
-	- 列支持了 `colSpan` 和 `rowSpan` 配置。[演示](/components/table/#demo-colspan-rowspan)
-	- 新增 `loading` 属性。
-	- 筛选增加 `filterMultiple` 属性，支持单选的配置。
+  - 支持单选。[演示](http://ant.design/components/table/#demo-row-selection-radio-props)
+  - 选择模式支持默认选中和不可用效果。[演示](/components/table/#demo-row-selection-props)
+  - 列支持了 `colSpan` 和 `rowSpan` 配置。[演示](/components/table/#demo-colspan-rowspan)
+  - 新增 `loading` 属性。
+  - 筛选增加 `filterMultiple` 属性，支持单选的配置。
 - Datepicker
-	- 添加国际化支持。
-	- 添加手动输入和清除功能。
-	- 优化了视觉样式。
-	- 修复不标准的日期格式导致显示错误的问题。
-	- 用 `onChange` 属性代替 `onSelect` 属性。
+  - 添加国际化支持。
+  - 添加手动输入和清除功能。
+  - 优化了视觉样式。
+  - 修复不标准的日期格式导致显示错误的问题。
+  - 用 `onChange` 属性代替 `onSelect` 属性。
 - Validation 修复了 对 Datepicker、Input-number、Select 的支持，并添加了相关演示。
 - Carousel 的依赖 react-slick 升级到 0.9.x，相关 API 也相应更新。
 - Tree 组件支持完全受控模式。[#397](https://github.com/ant-design/ant-design/issues/397)
 - Input Number
-	- 组件输入体验优化，现在可以键入任意字符，失焦时格式化为合法值。
-	- 修复不支持小数 step 的问题。[#530](https://github.com/ant-design/ant-design/issues/530)
+  - 组件输入体验优化，现在可以键入任意字符，失焦时格式化为合法值。
+  - 修复不支持小数 step 的问题。[#530](https://github.com/ant-design/ant-design/issues/530)
 - Tabs 新增[垂直页签功能](http://ant.design/components/tabs/#demo-vertical-left)。
 - Upload 组件视觉优化，新增高级浏览器下的上传进度展示。[#311](https://github.com/ant-design/ant-design/issues/311)
 - Menu
-	- 视觉效果大幅优化。
-	- 新增 [dark 主题](http://ant.design/components/menu/#demo-theme) 的样式。
-	- 修复一个链接点击区域的问题。[#535](https://github.com/ant-design/ant-design/issues/535)
+  - 视觉效果大幅优化。
+  - 新增 [dark 主题](http://ant.design/components/menu/#demo-theme) 的样式。
+  - 修复一个链接点击区域的问题。[#535](https://github.com/ant-design/ant-design/issues/535)
 - Dropdown 用 onClick 代替 onSelect 作为推荐的使用方式，因为原有的 onSelect 只在变化时触发。
 - Slider
-	- 新增[双滑块功能](http://ant.design/components/slider/#demo-range)。
-	- 优化 marks 属性的使用逻辑，使其可以和具体数值进行绑定。[slider#26](https://github.com//react-component/slider/issues/26)
-	- 属性命名优化，用 `dots` 代替了 `withDots` 属性，用 `included` 代替了 `isIncluded`。
+  - 新增[双滑块功能](http://ant.design/components/slider/#demo-range)。
+  - 优化 marks 属性的使用逻辑，使其可以和具体数值进行绑定。[slider#26](https://github.com//react-component/slider/issues/26)
+  - 属性命名优化，用 `dots` 代替了 `withDots` 属性，用 `included` 代替了 `isIncluded`。
 - Badge 当 `count` 为 0 时不展示。
 - Progress 新增 `format` 属性，能够自定义展示的进度文案。
 - Modal 新增 `confirmLoading` 属性。

@@ -37,7 +37,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ### Use modularized antd
 
-use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) with config:
+```jsx
+import DatePicker from 'antd/lib/date-picker';  // just for js
+```
+
+We recommend use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) with config:
 
 ```js
 ['antd', {
@@ -46,7 +50,7 @@ use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) with co
 ```
 
 ```jsx
-import { DatePicker } from 'antd'; // automatically parse and require css modularly
+import { DatePicker } from 'antd'; // automatically parse and require js and css modularly
 ```
 
 No need to import style manually.

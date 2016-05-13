@@ -6,7 +6,7 @@ title: 搜索框
 带有搜索按钮。
 
 ````jsx
-import { Icon, Input, Button } from 'antd';
+import { Input, Button } from 'antd';
 import classNames from 'classnames';
 const InputGroup = Input.Group;
 
@@ -33,6 +33,7 @@ const SearchInput = React.createClass({
     }
   },
   render() {
+    const { style, size, ...restProps } = this.props;
     const btnCls = classNames({
       'ant-search-btn': true,
       'ant-search-btn-noempty': !!this.state.value.trim(),
@@ -42,21 +43,21 @@ const SearchInput = React.createClass({
       'ant-search-input-focus': this.state.focus,
     });
     return (
-      <InputGroup className={searchCls} style={this.props.style}>
-        <Input {...this.props} value={this.state.value} onChange={this.handleInputChange}
-          onFocus={this.handleFocusBlur} onBlur={this.handleFocusBlur} onPressEnter={this.handleSearch} />
-        <div className="ant-input-group-wrap">
-          <Button className={btnCls} size={this.props.size} onClick={this.handleSearch}>
-            <Icon type="search" />
-          </Button>
-        </div>
-      </InputGroup>
+      <div className="ant-search-input-wrapper" style={style}>
+        <InputGroup className={searchCls}>
+          <Input {...restProps} value={this.state.value} onChange={this.handleInputChange}
+            onFocus={this.handleFocusBlur} onBlur={this.handleFocusBlur} onPressEnter={this.handleSearch} />
+          <div className="ant-input-group-wrap">
+            <Button icon="search" className={btnCls} size={size} onClick={this.handleSearch} />
+          </div>
+        </InputGroup>
+      </div>
     );
   },
 });
 
 ReactDOM.render(
   <SearchInput placeholder="input search text"
-    onSearch={(value) => console.log(value)} style={{ width: 200 }} />
+    onSearch={value => console.log(value)} style={{ width: 200 }} />
 , mountNode);
 ````

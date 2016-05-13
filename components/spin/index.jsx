@@ -34,6 +34,12 @@ export default class Spin extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    if (this.debounceTimeout) {
+      clearTimeout(this.debounceTimeout);
+    }
+  }
+
   getSpinning(props) {
     // Backwards support
     if ('spining' in props) {

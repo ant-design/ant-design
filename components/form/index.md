@@ -22,7 +22,7 @@ english: Form
 
 这里我们分别封装了表单域 `<Form.Item />` 和输入控件 `<Input />`。
 
-```html
+```jsx
 <Form.Item {...props}>
   {children}
 </Form.Item>
@@ -30,7 +30,7 @@ english: Form
 
 ## Input 输入框
 
-```html
+```jsx
 <Input {...props} />
 ```
 

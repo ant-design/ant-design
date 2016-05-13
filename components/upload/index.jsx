@@ -270,30 +270,29 @@ export default class Upload extends React.Component {
         </span>
       );
     }
+
     const uploadButtonCls = classNames({
       [prefixCls]: true,
       [`${prefixCls}-select`]: true,
       [`${prefixCls}-select-${this.props.listType}`]: true,
     });
+
+    const uploadButton = this.props.children
+      ? <div className={uploadButtonCls}><RcUpload {...props} /></div>
+      : null;
+
     if (this.props.listType === 'picture-card') {
       return (
         <span className={this.props.className}>
           {uploadList}
-          <div className={uploadButtonCls}>
-            <RcUpload {...props}>
-              {this.props.children}
-            </RcUpload>
-          </div>
+          {uploadButton}
         </span>
       );
     }
+
     return (
       <span className={this.props.className}>
-        <div className={uploadButtonCls}>
-          <RcUpload {...props}>
-            {this.props.children}
-          </RcUpload>
-        </div>
+        {uploadButton}
         {uploadList}
       </span>
     );

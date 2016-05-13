@@ -2,7 +2,7 @@
 // this file is not used if use https://github.com/ant-design/babel-plugin-antd
 
 import {
-  Rate, Affix, DatePicker, Tooltip, Carousel, Tabs, Modal, Dropdown, Progress, Popover, Select,
+  Rate, Affix, DatePicker, Tooltip, Tag, Carousel, Tabs, Modal, Dropdown, Progress, Popover, Select,
   Breadcrumb, Popconfirm, Pagination, Steps, InputNumber, Switch, Checkbox, Table, Collapse, message,
   Slider, QueueAnim, Radio, notification, Alert, Validation, Tree, TreeSelect, Upload,
   Badge, Menu, Timeline, Button, Icon, Row, Col, Spin, Form, Input, Calendar, TimePicker,
@@ -11,7 +11,7 @@ import {
 
 // copy from above
 const antd = {
-  Rate, Affix, DatePicker, Tooltip, Carousel, Tabs, Modal, Dropdown, Progress, Popover, Select,
+  Rate, Affix, DatePicker, Tooltip, Tag, Carousel, Tabs, Modal, Dropdown, Progress, Popover, Select,
   Breadcrumb, Popconfirm, Pagination, Steps, InputNumber, Switch, Checkbox, Table, Collapse, message,
   Slider, QueueAnim, Radio, notification, Alert, Validation, Tree, TreeSelect, Upload,
   Badge, Menu, Timeline, Button, Icon, Row, Col, Spin, Form, Input, Calendar, TimePicker,

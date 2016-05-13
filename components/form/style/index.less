@@ -200,14 +200,20 @@ form {
   }
 }
 
+.ant-search-input-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .ant-search-input {
   &.ant-input-group .ant-input:first-child {
     border-radius: @border-radius-base;
+    position: absolute;
+    top: -1px;
   }
   .ant-search-btn {
     .btn-default;
     border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
-    margin-left: -100%;
     left: -1px;
     position: relative;
     border-width: 0 0 0 1px;
