@@ -570,7 +570,7 @@ export default class Table extends React.Component {
     }));
   }
 
-  renderPagination(data) {
+  renderPagination() {
     // 强制不需要分页
     if (!this.hasPagination()) {
       return null;
@@ -581,7 +581,7 @@ export default class Table extends React.Component {
     } else if (this.props.size === 'middle' || this.props.size === 'small') {
       size = 'small';
     }
-    let total = this.state.pagination.total || (data || this.getLocalData()).length;
+    let total = this.state.pagination.total || this.getLocalData().length;
     return (total > 0) ?
       <Pagination {...this.state.pagination}
         className={`${this.props.prefixCls}-pagination`}
@@ -719,7 +719,7 @@ export default class Table extends React.Component {
     return (
       <div className={`${emptyClass} ${className} clearfix`} style={style}>
         {<Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>}
-        {this.renderPagination(data)}
+        {this.renderPagination()}
       </div>
     );
   }
