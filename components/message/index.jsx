@@ -13,7 +13,7 @@ function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
     prefixCls,
     transitionName: 'move-up',
-    style: { defaultTop }, // 覆盖原来的样式
+    style: { top: defaultTop }, // 覆盖原来的样式
   });
   return messageInstance;
 }
