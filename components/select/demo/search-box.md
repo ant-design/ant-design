@@ -76,26 +76,28 @@ const SearchInput = React.createClass({
     });
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
-      <Input.Group className={searchCls} style={this.props.style}>
-        <Select
-          combobox
-          value={this.state.value}
-          placeholder={this.props.placeholder}
-          notFoundContent=""
-          defaultActiveFirstOption={false}
-          showArrow={false}
-          filterOption={false}
-          onChange={this.handleChange}
-          onFocus={this.handleFocusBlur}
-          onBlur={this.handleFocusBlur}>
-          {options}
-        </Select>
-        <div className="ant-input-group-wrap">
-          <Button className={btnCls} onClick={this.handleSubmit}>
-            <Icon type="search" />
-          </Button>
-        </div>
-      </Input.Group>
+      <div className="ant-search-input-wrapper" style={this.props.style}>
+        <Input.Group className={searchCls}>
+          <Select
+            combobox
+            value={this.state.value}
+            placeholder={this.props.placeholder}
+            notFoundContent=""
+            defaultActiveFirstOption={false}
+            showArrow={false}
+            filterOption={false}
+            onChange={this.handleChange}
+            onFocus={this.handleFocusBlur}
+            onBlur={this.handleFocusBlur}>
+            {options}
+          </Select>
+          <div className="ant-input-group-wrap">
+            <Button className={btnCls} onClick={this.handleSubmit}>
+              <Icon type="search" />
+            </Button>
+          </div>
+        </Input.Group>
+      </div>
     );
   },
 });

@@ -18,15 +18,15 @@ english: Message
 - `message.success(content, duration)`
 - `message.error(content, duration)`
 - `message.info(content, duration)`
+- `message.warning(content, duration)`
 - `message.loading(content, duration)`
 
 组件提供了四个静态方法，参数如下：
 
 | 参数       | 说明           | 类型                       | 默认值       |
-|------------|----------------|----------------------------|--------------|
-| content    | 提示内容       | React.Element or String    | 无           |
-| duration   | 自动关闭的延时，单位秒 | number                 | 1.5          |
-
+|------------|----------------|--------------------------|--------------|
+| content    | 提示内容       | React.Element or String    | -           |
+| duration   | 自动关闭的延时，单位秒 | number               | 1.5          |
 
 还提供了全局配置和全局销毁方法：
 
@@ -40,7 +40,7 @@ message.config({
 });
 ```
 
-| 参数       | 说明               | 类型                       | 默认值       |
-|------------|--------------------|----------------------------|--------------|
-| top        | 消息距离顶部的位置 | Number                     | 24px         |
-| duration   | 默认自动关闭延时，单位秒 | Number                   | 1.5         |
+| 参数       | 说明                | 类型                       | 默认值       |
+|------------|--------------------|--------------------------|-------------|
+| top        | 消息距离顶部的位置 | Number                      | 24px        |
+| duration   | 默认自动关闭延时，单位秒 | Number                 | 1.5         |

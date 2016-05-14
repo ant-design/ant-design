@@ -32,6 +32,8 @@ $ npm install antd@beta --save
 
 我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [npmcdn](https://npmcdn.com/) 进行下载。
 
+> 不推荐使用构建文件，因为难以获得底层依赖模块的 bug 快速修复支持。
+
 #### stable
 
 - https://npmcdn.com/antd/dist/antd.js

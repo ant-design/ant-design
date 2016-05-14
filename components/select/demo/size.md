@@ -41,4 +41,8 @@ ReactDOM.render(
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
 }
+
+#components-select-demo-search-box .code-box-demo .ant-select {
+  margin: 0;
+}
 ````

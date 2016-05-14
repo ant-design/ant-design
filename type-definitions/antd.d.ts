@@ -3,7 +3,7 @@
 // Definitions by: bang88 <https://github.com/bang88>, Bruce Mitchener <https://github.com/waywardmonkeys/>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
-import React from 'react'
+import * as React from 'react'
 
 declare namespace Antd {
 

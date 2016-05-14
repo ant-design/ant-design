@@ -4,22 +4,7 @@ import Dialog from './Modal';
 import Icon from '../icon';
 import Button from '../button';
 import classNames from 'classnames';
-
-const defaultLocale = {
-  okText: '确定',
-  cancelText: '取消',
-  justOkText: '知道了',
-};
-
-let runtimeLocale = { ...defaultLocale };
-
-export function changeConfirmLocale(newLocale) {
-  if (newLocale) {
-    runtimeLocale = { ...runtimeLocale, ...newLocale };
-  } else {
-    runtimeLocale = { ...defaultLocale };
-  }
-}
+import { getConfirmLocale } from './locale';
 
 export default function confirm(config) {
   const props = { ...config };
@@ -36,6 +21,8 @@ export default function confirm(config) {
   if (!('okCancel' in props)) {
     props.okCancel = true;
   }
+
+  const runtimeLocale = getConfirmLocale();
 
   props.okText = props.okText ||
     (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
