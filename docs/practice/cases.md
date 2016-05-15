@@ -60,7 +60,7 @@ OceanBase 是一款真正意义上的云端分布式关系型数据库，而 Oce
 
 AntV 将数据图形小组近几年在探索数据可视化过程中取得的成果进行总结和沉淀，并分享给所有需要数据可视理论的人。
 
-<p><a class="outside-link internal" href="http://antv.alipay.net/" target="_blank">立即访问</a></p>
+<p><a class="outside-link internal" href="https://antv.alipay.com/" target="_blank">立即访问</a></p>
 
 <style>
 .preview-image-boxes {
