@@ -11,8 +11,18 @@ export default class Article extends React.Component {
   componentDidUpdate() {
     const { chinese, english } = this.props.content.meta;
     utils.setTitle(`${chinese || english} - Ant Design`);
+    const links = Array.apply(null, document.querySelectorAll('.outside-link.internal'));
+    if (links.length === 0) {
+      return;
+    }
+    const checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
+    utils.ping(checkImgUrl, status => {
+      if (status === 'responded') {
+        links.forEach(link => (link.style.display = 'block'));
+      }
+    });
   }
-  getTimelineFromArticle(article) {
+  getArticle(article) {
     const { content } = this.props;
     const { meta } = content;
     if (!meta.timeline) {
@@ -69,7 +79,7 @@ export default class Article extends React.Component {
             null
         }
         {
-          this.getTimelineFromArticle(utils.jsonmlToComponent(
+          this.getArticle(utils.jsonmlToComponent(
             location.pathname,
             ['section', { className: 'markdown' }].concat(description)
           ))
