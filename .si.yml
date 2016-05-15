@@ -1,4 +1,5 @@
 before_deploy:
+  - tnpm i tnpm@release-3 -g
   - tnpm install && tnpm update
   - tnpm run site
 options:
