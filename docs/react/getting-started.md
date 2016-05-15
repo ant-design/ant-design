@@ -167,4 +167,4 @@ import { Button } form 'antd';
 ## 小甜点
 
 - 你可以享用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/) 的写法来提升编码的愉悦感。
+- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。
