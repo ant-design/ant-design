@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select } from 'antd';
+import { Select, Modal } from 'antd';
 import { version as antdVersion } from '../../../package.json';
 import { docVersions } from '../../website.config';
 const Option = Select.Option;
@@ -7,13 +7,36 @@ const Option = Select.Option;
 docVersions[antdVersion] = antdVersion;
 
 export default class Footer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleVersionChange = this.handleVersionChange.bind(this);
+  componentDidMount() {
+    // 大版本发布后全局弹窗提示
+    //   1. 点击『知道了』之后不再提示
+    //   2. 超过截止日期后不再提示
+    if (localStorage.getItem('infoNewVersionSent') !== 'true' ||
+        new Date().getTime() > new Date('2016/05/22').getTime()) {
+      this.infoNewVersion();
+    }
   }
 
-  handleVersionChange(url) {
+  infoNewVersion() {
+    Modal.info({
+      title: '尊敬的用户，antd@1.0 已正式发布。',
+      content: (
+        <div style={{ marginTop: '1em' }}>
+          <p>
+            1.x 版本有 <a target="_blank" href="/#/changelog">大量改进</a>
+            ，欢迎升级。
+          </p>
+          <p style={{ marginTop: '1em' }}>
+            如果您还在使用旧版本，可以访问 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
+            ，也可通过页面右下角的文档版本选择框进行切换。
+          </p>
+        </div>
+      ),
+      onOk: () => localStorage.setItem('infoNewVersionSent', 'true'),
+    });
+  }
+
+  handleVersionChange = (url) => {
     window.location.href = url;
   }
 
