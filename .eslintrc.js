@@ -26,7 +26,6 @@ const eslintrc = {
     'func-names': 0,
     'prefer-const': 0,
     'arrow-body-style': 0,
-    'object-shorthand': 0,
     'react/sort-comp': 0,
     'react/prop-types': 0,
     'react/jsx-closing-bracket-location': 0,
