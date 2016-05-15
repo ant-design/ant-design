@@ -78,7 +78,7 @@ export default App;
 一键启动调试，访问 http://127.0.0.1:8989 查看效果。
 
 ```bash
-$ npm run dev
+$ npm start 
 ```
 
 ### 5. 构建和部署
