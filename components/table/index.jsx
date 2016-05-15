@@ -163,23 +163,43 @@ let AntTable = React.createClass({
   },
 
   handleFilter(column, nextFilters) {
+    const props = this.props;
+    let pagination = objectAssign({}, this.state.pagination);
     const filters = objectAssign({}, this.state.filters, {
       [this.getColumnKey(column)]: nextFilters
     });
     // Remove filters not in current columns
-    const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
+    const currentColumnKeys = props.columns.map(c => this.getColumnKey(c));
     Object.keys(filters).forEach((columnKey) => {
       if (currentColumnKeys.indexOf(columnKey) < 0) {
         delete filters[columnKey];
       }
     });
+
+    // Reset current prop
+    pagination.current = 1;
+    pagination.onChange(pagination.current);
+
     const newState = {
       selectionDirty: false,
-      filters
+      filters,
+      pagination,
     };
+    // Controlled current prop will not respond user interaction
+    if (props.pagination && 'current' in props.pagination) {
+      newState.pagination = {
+        ...pagination,
+        current: this.state.pagination.current,
+      };
+    }
     this.setState(newState);
     this.setSelectedRowKeys([]);
-    this.props.onChange(...this.prepareParamsArguments({ ...this.state, ...newState }));
+    props.onChange(...this.prepareParamsArguments({
+      ...this.state,
+      selectionDirty: false,
+      filters,
+      pagination,
+    }));
   },
 
   handleSelect(record, rowIndex, e) {
