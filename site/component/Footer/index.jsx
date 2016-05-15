@@ -23,12 +23,12 @@ export default class Footer extends React.Component {
       content: (
         <div style={{ marginTop: '1em' }}>
           <p>
-            1.x 版本有 <a target="_blank" href="/#/changelog">大量改进</a>
+            1.0 版本有 <a target="_blank" href="/#/changelog">大量改进</a>
             ，欢迎升级。
           </p>
           <p style={{ marginTop: '1em' }}>
-            如果您还在使用旧版本，可以访问 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
-            ，也可通过页面右下角的文档版本选择框进行切换。
+            如果您还需要使用旧版，请查阅 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
+          ，也可通过页面右下角的文档版本选择框进行切换。
           </p>
         </div>
       ),
