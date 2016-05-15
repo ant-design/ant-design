@@ -19,20 +19,20 @@ export default class Footer extends React.Component {
 
   infoNewVersion() {
     Modal.info({
-      title: '尊敬的用户，antd@1.0 已正式发布。',
+      title: 'antd 新版发布！',
       content: (
-        <div style={{ marginTop: '1em' }}>
+        <div>
+          <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" />
           <p>
-            1.0 版本有 <a target="_blank" href="/#/changelog">大量改进</a>
-            ，欢迎升级。
-          </p>
-          <p style={{ marginTop: '1em' }}>
+            您好，<a target="_blank" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
             如果您还需要使用旧版，请查阅 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
-          ，也可通过页面右下角的文档版本选择框进行切换。
+            ，也可通过页面右下角的文档版本选择框进行切换。
           </p>
         </div>
       ),
       onOk: () => localStorage.setItem('infoNewVersionSent', 'true'),
+      className: 'new-version-info-modal',
+      width: 470,
     });
   }
 
