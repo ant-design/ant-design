@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,26 +10,27 @@
     <!--[if lt IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.1.14/es5-shim.min.js,es5-shim/4.1.14/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
-</head>
-<body>
-  <div id="react-content"></div>
-  <div class="ant-site-loading">
-    <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' />
-    <div id="loading-text">A Design Language</div>
-  </div>
-  <script>
-    const content = document.getElementById('loading-text');
-    content.innerHTML = content.innerText.split('').map(function(letter, i) {
-      var className;
-      if (i > 0 && i < content.innerText.length - 1) {
-        className = 'yoyo-x-' + (i % 6);
-      }
-      if (letter.trim() === '') {
-        className += ' blank';
-      }
-      return '<span class="' + className + '">' + letter + '</span>';
-    }).join('');
-  </script>
-</body>
-<script src="./index.js"></script>
+  </head>
+  <body>
+    <div id="react-content"></div>
+    <div class="ant-site-loading">
+      <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg' />
+      <div id="loading-text">A Design Language</div>
+    </div>
+    <script>
+      const content = document.getElementById('loading-text');
+      content.innerHTML = content.innerText.split('').map(function(letter, i) {
+        var className;
+        if (i > 0 && i < content.innerText.length - 1) {
+          className = 'yoyo-x-' + (i % 6);
+        }
+        if (letter.trim() === '') {
+          className += ' blank';
+        }
+        return '<span class="' + className + '">' + letter + '</span>';
+      }).join('');
+    </script>
+    <script src="./zh-Hans-CN.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>

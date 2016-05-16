@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 气泡卡片
-type: 展示
+type: Presentation
 english: Popover
 ---
 

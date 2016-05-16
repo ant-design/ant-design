@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 时间选择框
-type: 表单
+type: Form Control
 english: TimePicker
 ---
 

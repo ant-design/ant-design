@@ -1,65 +1,75 @@
 ---
 order: 5
-title: 按钮组合
+title:
+  zh-CN: 按钮组合
+  en-US: Button Group
 ---
+
+## zh-CN
 
 可以将多个 `Button` 放入 `Button.Group` 的容器中。
 
 通过设置 `size` 为 `large` `small` 分别把按钮组合设为大、小尺寸。若不设置 `size`，则尺寸为中。
 
+## en-US
+
+Buttons can be grouped by placing multiple `Button` components into a `Button.Group`.
+
+The `size` can be set to `large`, `small` or left unset resulting in a default size.
+
 ````jsx
 import { Button, Icon } from 'antd';
 const ButtonGroup = Button.Group;
 
-ReactDOM.render(<div>
-  <h4>基本组合</h4>
-  <ButtonGroup>
-    <Button type="primary">确定</Button>
-    <Button type="primary">取消</Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button disabled>左</Button>
-    <Button disabled>中</Button>
-    <Button disabled>右</Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button type="primary">左</Button>
-    <Button type="ghost">中</Button>
-    <Button type="ghost">中</Button>
-    <Button>右</Button>
-  </ButtonGroup>
+ReactDOM.render(
+  <div>
+    <h4>Basic</h4>
+    <ButtonGroup>
+      <Button>Cancel</Button>
+      <Button type="primary">OK</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button disabled>L</Button>
+      <Button disabled>M</Button>
+      <Button disabled>R</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button type="primary">L</Button>
+      <Button>M</Button>
+      <Button type="ghost">M</Button>
+      <Button type="dashed">R</Button>
+    </ButtonGroup>
 
-  <h4>带图标按钮组合</h4>
-  <ButtonGroup>
-    <Button type="primary">
-      <Icon type="left" />后退
-    </Button>
-    <Button type="primary">
-      前进<Icon type="right" />
-    </Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button type="primary" icon="cloud" />
-    <Button type="primary" icon="cloud-download" />
-  </ButtonGroup>
+    <h4>With Icon</h4>
+    <ButtonGroup>
+      <Button type="primary">
+        <Icon type="left" />Go back
+      </Button>
+      <Button type="primary">
+        Go forward<Icon type="right" />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button type="primary" icon="cloud" />
+      <Button type="primary" icon="cloud-download" />
+    </ButtonGroup>
 
-  <h4>尺寸</h4>
-  <ButtonGroup size="large">
-    <Button type="ghost">大</Button>
-    <Button type="ghost">大</Button>
-    <Button type="ghost">大</Button>
-  </ButtonGroup>
-  <ButtonGroup>
-    <Button type="ghost">默认</Button>
-    <Button type="ghost">默认</Button>
-    <Button type="ghost">默认</Button>
-  </ButtonGroup>
-  <ButtonGroup size="small">
-    <Button type="ghost">小</Button>
-    <Button type="ghost">小</Button>
-    <Button type="ghost">小</Button>
-  </ButtonGroup>
-</div>, mountNode);
+    <h4>Size</h4>
+    <ButtonGroup size="large">
+      <Button type="ghost">Large</Button>
+      <Button type="ghost">Large</Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button type="ghost">Default</Button>
+      <Button type="ghost">Default</Button>
+    </ButtonGroup>
+    <ButtonGroup size="small">
+      <Button type="ghost">Small</Button>
+      <Button type="ghost">Small</Button>
+    </ButtonGroup>
+  </div>,
+  mountNode
+);
 ````
 
 <style>
@@ -72,13 +82,11 @@ ReactDOM.render(<div>
 #components-button-demo-button-group h4:first-child {
   margin-top: 0;
 }
-#components-button-demo-button-group .ant-btn {
-  margin-bottom: 8px;
-}
 #components-button-demo-button-group .ant-btn-group {
   margin-right: 8px;
 }
 #components-button-demo-button-group .ant-btn {
   margin-bottom: 12px;
+  margin-right: 0;
 }
 </style>

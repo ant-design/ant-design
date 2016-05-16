@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 分页
-type: 导航
+type: Navigation
 english: Pagination
 ---
 

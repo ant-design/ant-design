@@ -1,5 +1,5 @@
 ---
-type: 展示
+type: Presentation
 category: Components
 chinese: 对话框
 english: Modal

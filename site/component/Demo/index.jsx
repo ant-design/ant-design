@@ -6,6 +6,10 @@ import * as utils from '../utils';
 const isLocal = location.port;
 
 export default class Demo extends React.Component {
+  static contextTypes = {
+    intl: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -35,7 +39,12 @@ export default class Demo extends React.Component {
       [className]: className,
       expand: codeExpand,
     });
-    const introChildren = utils.jsonmlToComponent(pathname, ['div'].concat(intro));
+
+    const locale = this.context.intl.locale;
+    const localizeIntro = intro[locale] || intro;
+    const introChildren = utils.jsonmlToComponent(pathname, ['div'].concat(localizeIntro));
+    const localizedTitle = typeof meta.title === 'object' ?
+            meta.title[locale] : meta.title;
     return (
       <section className={codeBoxClass} id={id}>
         <section className="code-box-demo">
@@ -53,7 +62,7 @@ export default class Demo extends React.Component {
         <section className="code-box-meta markdown">
           <div className="code-box-title">
             <Link to={{ pathname, query: { scrollTo: id } }}>
-              {meta.title}
+              {localizedTitle}
             </Link>
           </div>
           {introChildren}

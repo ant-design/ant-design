@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 卡片
-type: 展示
+type: Presentation
 cols: 1
 english: Card
 ---

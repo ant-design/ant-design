@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 徽标数
-type: 展示
+type: Presentation
 english: Badge
 ---
 

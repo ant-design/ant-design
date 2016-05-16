@@ -7,6 +7,10 @@ import * as utils from '../utils';
 import demosList from '../../../_data/demos-list';
 
 export default class ComponentDoc extends React.Component {
+  static contextTypes = {
+    intl: React.PropTypes.object,
+  }
+
   constructor(props) {
     super(props);
 
@@ -19,8 +23,8 @@ export default class ComponentDoc extends React.Component {
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    const { chinese, english } = this.props.doc.meta;
-    utils.setTitle(`${chinese} ${english} - Ant Design`);
+    const { title, subtitle, chinese, english } = this.props.doc.meta;
+    utils.setTitle(`${subtitle || chinese || ''} ${title || english} - Ant Design`);
   }
 
   handleExpandToggle = () => {
@@ -33,7 +37,8 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = this.props;
     const scrollTo = location.query.scrollTo;
     const { description, meta } = doc;
-    const demos = (demosList[meta.fileName] || [])
+    const locale = this.context.intl.locale;
+    const demos = (demosList[meta.fileName.replace(`.${locale}`, '')] || [])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
 
@@ -63,11 +68,14 @@ export default class ComponentDoc extends React.Component {
     });
 
     const jumper = demos.map((demo) => {
+      const title = demo.meta.title;
+      const localizeTitle = typeof title === 'object' ?
+              title[locale] : title;
       return (
         <li key={demo.id}>
           <Link className={demo.id === scrollTo ? 'current' : ''}
             to={{ pathname: location.pathname, query: { scrollTo: `${demo.id}` } }}>
-            {demo.meta.title}
+            {localizeTitle}
           </Link>
         </li>
       );
@@ -81,7 +89,7 @@ export default class ComponentDoc extends React.Component {
           </ul>
         </Affix>
         <section className="markdown">
-          <h1>{meta.english} {meta.chinese}</h1>
+          <h1>{meta.title || meta.english} {meta.subtitle || meta.chinese}</h1>
           {
             utils.jsonmlToComponent(
               location.pathname,

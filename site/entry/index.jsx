@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { addLocaleData, IntlProvider } from 'react-intl';
 import { Router, Route, IndexRoute, Redirect, useRouterHistory } from 'react-router';
 import antd from '../../index.js';
 import * as utils from './utils';
@@ -13,6 +14,8 @@ import reactComponents from '../../_data/react-components';
 import spec from '../../_data/spec';
 import resource from '../../_data/resource';
 import config from '../website.config';
+import enLocale from './en-US.js';
+import cnLocale from './zh-CN.js';
 import { createHashHistory } from 'history';
 
 // useRouterHistory creates a composable higher-order function
@@ -49,49 +52,57 @@ if (!location.port) {
   /* eslint-enable */
 }
 
+const isZhCN =
+        (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
+        (navigator.language === 'zh-CN');
+const appLocale = isZhCN ? cnLocale : enLocale;
+addLocaleData(appLocale.data);
+
 ReactDOM.render(
-  <Router history={appHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home} />
-      <Route path="components" component={ReactComponents}>
-        {utils.generateIndex(reactComponents)}
-        <Route path=":children"
-          onEnter={utils.getEnterHandler(reactComponents)}
-          component={utils.getChildrenWrapper(reactComponents)} />
+  <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+    <Router history={appHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Home} />
+        <Route path="components" component={ReactComponents}>
+          {utils.generateIndex(reactComponents)}
+          <Route path=":children"
+            onEnter={utils.getEnterHandler(reactComponents)}
+            component={utils.getChildrenWrapper(reactComponents)} />
+        </Route>
+        {redirects}
+        <Route path="docs/react" component={ReactComponents}>
+          {utils.generateIndex(reactComponents)}
+          <Route path=":children"
+            onEnter={utils.getEnterHandler(reactComponents)}
+            component={utils.getChildrenWrapper(reactComponents)} />
+        </Route>
+        <Route path="docs/practice" component={Practice}>
+          {utils.generateIndex(practice)}
+          <Route path=":children"
+            onEnter={utils.getEnterHandler(practice)}
+            component={utils.getChildrenWrapper(practice)} />
+        </Route>
+        <Route path="docs/pattern" component={Pattern}>
+          {utils.generateIndex(pattern)}
+          <Route path=":children"
+            onEnter={utils.getEnterHandler(pattern)}
+            component={utils.getChildrenWrapper(pattern)} />
+        </Route>
+        <Route path="docs/spec" component={Spec}>
+          {utils.generateIndex(spec)}
+          <Route path=":children"
+            onEnter={utils.getEnterHandler(spec)}
+            component={utils.getChildrenWrapper(spec)} />
+        </Route>
+        <Route path="docs/resource" component={Resource}>
+          {utils.generateIndex(resource)}
+          <Route path=":children"
+            onEnter={utils.getEnterHandler(resource)}
+            component={utils.getChildrenWrapper(resource)} />
+        </Route>
+        <Route path="*" component={NotFound} />
       </Route>
-      {redirects}
-      <Route path="docs/react" component={ReactComponents}>
-        {utils.generateIndex(reactComponents)}
-        <Route path=":children"
-          onEnter={utils.getEnterHandler(reactComponents)}
-          component={utils.getChildrenWrapper(reactComponents)} />
-      </Route>
-      <Route path="docs/practice" component={Practice}>
-        {utils.generateIndex(practice)}
-        <Route path=":children"
-          onEnter={utils.getEnterHandler(practice)}
-          component={utils.getChildrenWrapper(practice)} />
-      </Route>
-      <Route path="docs/pattern" component={Pattern}>
-        {utils.generateIndex(pattern)}
-        <Route path=":children"
-          onEnter={utils.getEnterHandler(pattern)}
-          component={utils.getChildrenWrapper(pattern)} />
-      </Route>
-      <Route path="docs/spec" component={Spec}>
-        {utils.generateIndex(spec)}
-        <Route path=":children"
-          onEnter={utils.getEnterHandler(spec)}
-          component={utils.getChildrenWrapper(spec)} />
-      </Route>
-      <Route path="docs/resource" component={Resource}>
-        {utils.generateIndex(resource)}
-        <Route path=":children"
-          onEnter={utils.getEnterHandler(resource)}
-          component={utils.getChildrenWrapper(resource)} />
-      </Route>
-    </Route>
-    <Route path="*" component={NotFound} />
-  </Router>
+    </Router>
+  </IntlProvider>
   , document.getElementById('react-content')
 );
