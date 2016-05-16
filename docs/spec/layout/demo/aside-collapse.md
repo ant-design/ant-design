@@ -72,8 +72,8 @@ const AsideCollapse = React.createClass({
     );
   },
 });
+
 ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
-     
 ````
 
 ````css
@@ -120,8 +120,18 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
   margin: 16px 0;
 }
 
+.ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
+  transition: font-size .2s;
+}
+
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item {
   transition: all 0s ease;
+}
+
+.ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {
@@ -136,12 +146,14 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item:hover .nav-text {
   display: inline-block;
+  vertical-align: top;
   background: #2db7f5;
   color: #fff;
   padding-right: 16px;
   border-radius: 0 5px 5px 0;
 }
 
+/* 实际使用中需要改成 position: fixed */
 .ant-layout-aside .ant-aside-action {
   height: 42px;
   width: 224px;
