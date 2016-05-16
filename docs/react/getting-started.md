@@ -148,13 +148,13 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 通过 `import { Button } from 'antd';` 引入会加载 antd 下所有的模块，如果要按需加载可以通过以下的写法来引用。
 
 ```jsx
-import Button form 'antd/lib/button';
+import Button from 'antd/lib/button';
 ```
 
 如果你使用 babel，我们推荐使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 来进行按需加载，加入这个插件后。你可以仍然这么写：
 
 ```jsx
-import { Button } form 'antd';
+import { Button } from 'antd';
 ```
 
 插件会帮你转换成上面的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-antd#usage) 属性可以做到模块样式的按需自动加载。
