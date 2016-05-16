@@ -104,6 +104,7 @@
     "react-copy-to-clipboard": "^4.0.1",
     "react-dom": "^15.0.0",
     "react-github-button": "^0.1.1",
+    "react-intl": "^2.0.1",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "^1.0.2",
     "react-sublime-video": "^0.2.0-beta",

@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 走马灯
-type: 展示
+type: Presentation
 english: Carousel
 ---
 

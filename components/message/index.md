@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 全局提示
-type: 展示
+type: Presentation
 noinstant: true
 english: Message
 ---

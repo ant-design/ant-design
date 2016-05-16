@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 评分
-type: 表单
+type: Form Control
 english: Rate
 ---
 

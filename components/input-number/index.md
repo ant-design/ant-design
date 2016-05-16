@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 数字输入框
-type: 表单
+type: Form Control
 english: InputNumber
 ---
 

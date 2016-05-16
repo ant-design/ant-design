@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 选择器
-type: 表单
+type: Form Control
 english: Select
 ---
 

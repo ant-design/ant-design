@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 树选择
-type: 表单
+type: Form Control
 english: TreeSelect
 ---
 

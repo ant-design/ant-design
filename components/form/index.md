@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 表单
-type: 表单
+type: Form Control
 cols: 1
 english: Form
 ---

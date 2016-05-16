@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 日期选择框
-type: 表单
+type: Form Control
 english: DatePicker
 ---
 
