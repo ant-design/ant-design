@@ -85,6 +85,9 @@ export default class Home extends React.Component {
       #footer a {
         color: #eee;
       }
+      .down {
+        animation: upDownMove 1.2s ease-in-out infinite;
+      }
     `;
   }
 
