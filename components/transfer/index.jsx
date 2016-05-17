@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import List from './list';
+import List, { isRenderResultPlainObject } from './list';
 import Operation from './operation';
 import Search from './search';
 import classNames from 'classnames';
@@ -23,7 +23,7 @@ export default class Transfer extends React.Component {
     showSearch: false,
     body: noop,
     footer: noop,
-  }
+  };
 
   static propTypes = {
     prefixCls: PropTypes.string,
@@ -41,7 +41,7 @@ export default class Transfer extends React.Component {
     notFoundContent: PropTypes.node,
     body: PropTypes.func,
     footer: PropTypes.func,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -129,7 +129,14 @@ export default class Transfer extends React.Component {
 
   filterDataSource(dataSource, filter) {
     return dataSource.filter(item => {
-      const itemText = this.props.render(item);
+      const renderResult = this.props.render(item);
+      let itemText;
+      if (isRenderResultPlainObject(renderResult)) {
+        itemText = renderResult.value;
+      } else {
+        itemText = renderResult;
+      }
+
       return this.matchFilter(itemText, filter);
     });
   }
@@ -204,6 +211,7 @@ export default class Transfer extends React.Component {
     const {
       prefixCls, titles, operations, showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className,
+      render,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
@@ -232,7 +240,7 @@ export default class Transfer extends React.Component {
           handleSelect={this.handleLeftSelect}
           handleSelectAll={this.handleLeftSelectAll}
           position="left"
-          render={this.props.render}
+          render={render}
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder}
           notFoundContent={notFoundContent}
@@ -257,7 +265,7 @@ export default class Transfer extends React.Component {
           handleSelect={this.handleRightSelect}
           handleSelectAll={this.handleRightSelectAll}
           position="right"
-          render={this.props.render}
+          render={render}
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder}
           notFoundContent={notFoundContent}
