@@ -60,7 +60,7 @@ export default class Article extends React.Component {
     return (
       <article className="markdown">
         <h1>
-          {meta.english} {meta.chinese}
+          {meta.title || meta.english} {meta.subtitle || meta.chinese}
           {
             !meta.subtitle ? null :
               <span className="subtitle">{meta.subtitle}</span>

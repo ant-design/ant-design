@@ -47,7 +47,7 @@ export default class MainContent extends React.Component {
   generateMenuItem(isTop, item) {
     const key = this.fileNameToPath(item.fileName);
     const text = isTop ?
-            item.chinese || item.english : [
+            item.title || item.chinese || item.english : [
               <span key="english">{item.title || item.english}</span>,
               <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
             ];
