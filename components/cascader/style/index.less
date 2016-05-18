@@ -8,15 +8,29 @@
   &-input {
     display: block;
     cursor: pointer;
+    width: 100%;
   }
   &-picker {
     position: relative;
     display: inline-block;
     cursor: pointer;
     vertical-align: middle;
+    font-size: @font-size-base;
+    overflow: hidden;
 
     &-disabled {
       cursor: not-allowed;
+    }
+
+    &-label {
+      position: absolute;
+      top: 0;
+      left: 8px;
+      height: 20px;
+      line-height: 20px;
+      top: 50%;
+      margin-top: -10px;
+      white-space: nowrap;
     }
 
     &-clear {
@@ -53,6 +67,7 @@
       margin-top: -6px;
       line-height: 12px;
       color: #999;
+      background: #fff;
       .iconfont-size-under-12px(8px);
       &:before {
         transition: transform 0.2s ease;
