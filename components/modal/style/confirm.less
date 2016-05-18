@@ -9,7 +9,7 @@
     padding: 30px 40px;
   }
 
-  .@{confirm-prefix-cls}-body {
+  &-body {
     .@{confirm-prefix-cls}-title {
       color: @text-color;
       font-weight: bold;
@@ -23,7 +23,7 @@
       margin-top: 8px;
     }
 
-    .anticon {
+    > .anticon {
       font-size: 24px;
       margin-right: 10px;
       padding: 0 1px;
@@ -31,21 +31,8 @@
       top: 5px;
     }
 
-    .anticon-exclamation-circle {
-      color: @error-color;
-    }
 
-    .anticon-question-circle {
-      color: @warning-color;
-    }
 
-    .anticon-check-circle {
-      color: @success-color;
-    }
-
-    .anticon-info-circle {
-      color: @primary-color;
-    }
   }
 
   .@{confirm-prefix-cls}-btns {
@@ -56,5 +43,22 @@
       margin-left: 10px;
       margin-bottom: 0;
     }
+  }
+
+  &-error &-body > .anticon {
+    color: @error-color;
+  }
+
+  &-warning &-body > .anticon,
+  &-confirm &-body > .anticon {
+    color: @warning-color;
+  }
+
+  &-info &-body > .anticon {
+    color: @primary-color;
+  }
+
+  &-success &-body > .anticon {
+    color: @success-color;
   }
 }
