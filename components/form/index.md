@@ -137,6 +137,10 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 #### Input.Group
 
+| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+|  size | `Input.Group` 中所有的 `Input` 的大小 | string | {'large','default','small'} |  'default' |
+
 ```html
 <Input.Group className={string}>
   <Input />
