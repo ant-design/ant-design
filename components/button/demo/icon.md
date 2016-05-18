@@ -18,15 +18,15 @@ title:
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
 ````jsx
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 
 ReactDOM.render(
   <div>
     <Button type="primary" shape="circle" icon="search" />
-    <Button type="primary" icon="search">Button</Button>
+    <Button type="primary" icon="search">搜索</Button>
     <br />
-    <Button type="ghost" shape="circle-outline"><Icon type="search" /></Button>
-    <Button type="ghost"><Icon type="search" />Button</Button>
+    <Button type="ghost" shape="circle-outline" icon="search" />
+    <Button type="ghost" icon="search">Search</Button>
   </div>,
   mountNode
 );
