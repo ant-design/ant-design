@@ -1,12 +1,12 @@
 ---
-order: 1
-title: 带搜索框
+order: 3
+title: 自定义渲染行数据
 ---
 
-带搜索框的穿梭框。
+自定义渲染每一个 Transfer Item，可用于渲染复杂数据。
 
 ````jsx
-import { Transfer } from 'antd';
+import { Transfer, Icon } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
@@ -35,18 +35,33 @@ const App = React.createClass({
     }
     this.setState({ mockData, targetKeys });
   },
-  handleChange(targetKeys) {
+  handleChange(targetKeys, direction, moveKeys) {
+    console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
+  },
+  renderItem(item) {
+    const customLabel = (
+      <div className="custom-item" style={{ color: '#5FBC29' }}>
+        <Icon type="apple" /> {item.title} - {item.description} <Icon type="android" />
+      </div>
+    );
+
+    return {
+      label: customLabel,  // for displayed item
+      value: item.title,   // for title and filter matching
+    };
   },
   render() {
     return (
       <Transfer
         dataSource={this.state.mockData}
-        showSearch
-        notFoundContent="xxxxxx"
+        listStyle={{
+          width: 300,
+          height: 300,
+        }}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={item => item.title} />
+        render={this.renderItem} />
     );
   },
 });
