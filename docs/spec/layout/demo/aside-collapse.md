@@ -120,8 +120,14 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
   margin: 16px 0;
 }
 
+.ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {
+  vertical-align: middle;
+  display: inline-block;
+}
+
 .ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
-  transition: font-size .2s;
+  transition: font-size .3s;
+  vertical-align: middle;
 }
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item {
