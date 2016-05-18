@@ -9,6 +9,26 @@ timeline: true
 
 ---
 
+## 1.1.0
+
+`2016-05-18`
+
+- Cascader 的 `displayRender` 方法增加了 `selectedOptions` 参数，以支持输入框中自定义节点。[#1726](https://github.com/ant-design/ant-design/issues/1726)
+- Input.Group 新增 `size` 属性，可设置控件尺寸。[#1732](https://github.com/ant-design/ant-design/issues/1732)
+- Layout 新增常用布局：侧边导航展开收起模式。[#1643](https://github.com/ant-design/ant-design/issues/1643)
+- Transfer 支持自定义渲染行数据。[#1664](https://github.com/ant-design/ant-design/issues/1664)
+- Upload 的 children 为空时，不再显示上传按钮。[#1610](https://github.com/ant-design/ant-design/issues/1610)
+- 修复 Form 搜索输入框样式问题。[7b7f846](https://github.com/ant-design/ant-design/commit/7b7f8461611e53f4f96ae8d64d37fe28ee8d2553)
+- 修复 Modal 的关闭按钮获得焦点时的样式问题。[#1668](https://github.com/ant-design/ant-design/issues/1668)
+- 修复 Select 获得焦点时的样式问题。[#1684](https://github.com/ant-design/ant-design/issues/1684)
+- Table
+  - 修复 `filter` 过滤数据后显示错误分页的问题。[#1669](https://github.com/ant-design/ant-design/issues/1669)
+  - 修复 `pagination` 不指定时显示错误分页的问题。[#1683](https://github.com/ant-design/ant-design/issues/1683)
+- 修复 TreeSelect 占位符样式问题。[#1657](https://github.com/ant-design/ant-design/issues/1657)
+- 修复了类型定义以更好地支持 `TypeScript`。[#1696](https://github.com/ant-design/ant-design/pull/1696) [@xujihui1985](https://github.com/xujihui1985)
+- 优化了 LocaleProvider。[a3850a4](https://github.com/ant-design/ant-design/commit/a3850a4df84d7055a1a40600919f2f9ba1bbf2b2)
+- 其他组件的样式优化。
+
 ## 1.0.1
 
 `2016-05-11`
