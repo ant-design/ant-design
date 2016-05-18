@@ -57,9 +57,9 @@ export default class Cascader extends React.Component {
 
   getLabel() {
     const { options, displayRender } = this.props;
-    const label = arrayTreeFilter(options, (o, level) => o.value === this.state.value[level])
-      .map(o => o.label);
-    return displayRender(label);
+    const selectedOptions = arrayTreeFilter(options, (o, level) => o.value === this.state.value[level]);
+    const label = selectedOptions.map(o => o.label);
+    return displayRender(label, selectedOptions);
   }
 
   clearSelection = (e) => {
@@ -105,12 +105,12 @@ export default class Cascader extends React.Component {
             style={style}
             className={pickerCls}>
             <Input {...otherProps}
-              placeholder={placeholder}
+              placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
-              style={{ width: '100%' }}
-              value={this.getLabel()}
+              value={null}
               disabled={disabled}
               readOnly />
+            <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
             {clearIcon}
             <Icon type="down" className={arrowCls} />
           </span>

@@ -26,7 +26,7 @@ english: Cascader
 | defaultValue | 默认的选中项 | array  |[] |
 | value | 指定选中项 | array  | - |
 | onChange | 选择完成后的回调 | `function(value, selectedOptions)` | - |
-| displayRender | 选择后展示的渲染函数 | `function(label)` | `label => label.join(' / ')` |
+| displayRender | 选择后展示的渲染函数 | `function(label, selectedOptions)` | `label => label.join(' / ')` |
 | style | 自定义样式 | string | - |
 | className | 自定义类名 | string | - |
 | popupClassName | 自定义浮层类名 | string | - |
