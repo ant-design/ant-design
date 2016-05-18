@@ -65,15 +65,6 @@
     display: none;
   }
 
-  &:after {
-    font-family: anticon;
-    content: "\e6a1";
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.5s ease;
-  }
-
   &&-loading {
     padding-left: 29px;
     pointer-events: none;
@@ -109,7 +100,7 @@
     margin-left: 0.5em;
   }
 
-  &-clicked:before {
+  &-clicked:after {
   	content: '';
   	position: absolute;
   	top: -1px;
