@@ -1,7 +1,7 @@
 import React from 'react';
 import { Select, Modal } from 'antd';
-import { version as antdVersion } from '../../../package.json';
-import { docVersions } from '../../website.config';
+import { version as antdVersion } from '../../../../package.json';
+import { docVersions } from '../../';
 const Option = Select.Option;
 
 function isLocalStorageNameSupported() {

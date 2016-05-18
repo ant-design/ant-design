@@ -1,21 +1,14 @@
 import React from 'react';
+import DocumentTitle from 'react-document-title';
+import Layout from '../Layout';
 import Link from './Link';
 import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
 import Page4 from './Page4';
-import './index.less';
-
-import * as utils from '../utils';
 
 export default class Home extends React.Component {
-  componentDidMount() {
-    this.componentDidUpdate();
-  }
-  componentDidUpdate() {
-    utils.setTitle('Ant Design - 一个 UI 设计语言');
-  }
   // To store style which is only for Home and has conflicts with others.
   getStyle() {
     return `
@@ -94,15 +87,19 @@ export default class Home extends React.Component {
 
   render() {
     return (
-      <div className="main-wrapper">
-        <Link />
-        <Banner />
-        <Page1 />
-        <Page2 />
-        <Page3 />
-        <Page4 />
-        <style dangerouslySetInnerHTML={{ __html: this.getStyle() }} />
-      </div>
+      <DocumentTitle title="Ant Design - 一个 UI 设计语言">
+        <Layout {...this.props}>
+          <div className="main-wrapper">
+            <Link />
+            <Banner />
+            <Page1 />
+            <Page2 />
+            <Page3 />
+            <Page4 />
+            <style dangerouslySetInnerHTML={{ __html: this.getStyle() }} />
+          </div>
+        </Layout>
+      </DocumentTitle>
     );
   }
 }

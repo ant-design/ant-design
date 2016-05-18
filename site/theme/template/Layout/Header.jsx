@@ -7,9 +7,6 @@ import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button } from 'antd';
 const Option = Select.Option;
 
-import './index.less';
-
-import componentsList from '../../../_data/react-components';
 export default class Header extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object.isRequired,
@@ -87,10 +84,13 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const routes = this.props.routes;
-    let activeMenuItem = routes[1].path || 'home';
+    const { routes, data } = this.props;
+    let activeMenuItem = (routes[1] && routes[1].path) || 'home';
     activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
+    const componentsList = Object.keys(data.components)
+            .map((component) => data.components[component].index)
+            .filter(item => item);
     const locale = this.context.intl.locale;
     const options = Object.keys(componentsList)
             .map((key) => {
@@ -98,11 +98,12 @@ export default class Header extends React.Component {
               return value.localized ? value[locale] : value;
             })
             .filter(({ meta }) => {
-              return /^component/.test(meta.fileName);
+              return /^components/.test(meta.filename);
             })
             .map(({ meta }) => {
-              const pathSnippet = meta.fileName.split('/')[1];
+              const pathSnippet = meta.filename.split('/')[1];
               const url = `/components/${pathSnippet}`;
+
               return (
                 <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
                   <strong>{meta.title || meta.english}</strong>
