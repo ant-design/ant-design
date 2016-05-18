@@ -6,7 +6,7 @@ title: 基本用法
 最基本的用法。
 
 ````jsx
-import { Transfer, Button } from 'antd';
+import { Transfer } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
@@ -19,8 +19,8 @@ const App = React.createClass({
     this.getMock();
   },
   getMock() {
-    let targetKeys = [];
-    let mockData = [];
+    const targetKeys = [];
+    const mockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,
@@ -38,14 +38,6 @@ const App = React.createClass({
   handleChange(targetKeys, direction, moveKeys) {
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
-  },
-  renderFooter() {
-    return (
-      <Button type="primary" size="small" style={{ float: 'right', margin: 5 }}
-        onClick={this.getMock}>
-        刷新
-      </Button>
-    );
   },
   render() {
     return (
