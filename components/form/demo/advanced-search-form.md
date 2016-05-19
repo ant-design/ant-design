@@ -19,7 +19,7 @@ ReactDOM.render(
           label="搜索名称："
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
-          <Input placeholder="请输入搜索名称" />
+          <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
           label="较长搜索名称："
@@ -31,7 +31,7 @@ ReactDOM.render(
           label="搜索名称："
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
-          <Input placeholder="请输入搜索名称" />
+          <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
       </Col>
       <Col sm={8}>
@@ -39,7 +39,7 @@ ReactDOM.render(
           label="搜索名称："
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
-          <Input placeholder="请输入搜索名称" />
+          <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
           label="较长搜索名称："
@@ -51,7 +51,7 @@ ReactDOM.render(
           label="搜索名称："
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
-          <Input placeholder="请输入搜索名称" />
+          <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
       </Col>
       <Col sm={8}>
@@ -59,7 +59,7 @@ ReactDOM.render(
           label="搜索名称："
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
-          <Input placeholder="请输入搜索名称" />
+          <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
           label="较长搜索名称："
@@ -71,7 +71,7 @@ ReactDOM.render(
           label="搜索名称："
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
-          <Input placeholder="请输入搜索名称" />
+          <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
       </Col>
     </Row>

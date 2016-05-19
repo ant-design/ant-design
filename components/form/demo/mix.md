@@ -106,15 +106,20 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           required>
           <Col span="6">
-            <DatePicker {...getFieldProps('startDate')} />
+            <FormItem>
+              <DatePicker {...getFieldProps('startDate')} />
+            </FormItem>
           </Col>
           <Col span="1">
             <p className="ant-form-split">-</p>
           </Col>
           <Col span="6">
-            <DatePicker {...getFieldProps('endDate')} />
+            <FormItem>
+              <DatePicker {...getFieldProps('endDate')} />
+            </FormItem>
           </Col>
         </FormItem>
+
 
         <FormItem
           label="TimePicker 时间选择器："

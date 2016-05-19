@@ -69,12 +69,18 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
+  // nested FormItem
+  & & {
+    margin-bottom: -@form-item-margin-bottom;
+  }
+
   &-control {
     line-height: 32px;
     position: relative;
+    .clearfix;
   }
 
-  &.@{form-prefix-cls}-item-with-help {
+  &-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - 3;
   }
 
@@ -237,8 +243,7 @@ form {
   }
 
   .ant-radio-inline,
-  .ant-checkbox-inline,
-  .ant-input {
+  .ant-checkbox-inline {
     vertical-align: baseline;
   }
 }
