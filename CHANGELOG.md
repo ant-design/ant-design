@@ -75,8 +75,9 @@ timeline: true
 
 - 完全移除了 `0.12` 中废弃的 Validation 组件，可以直接 import [rc-form-validation](https://github.com/react-component/form-validation) 用以代替。[#1096](https://github.com/ant-design/ant-design/issues/1096)
 - Breadcrumb.Item 的 `href` 属性被移除，请直接用 `a` 标签包裹可点击的内容。
-- Modal 移除 了`align` 属性，现在可以使用 `style` 属性调整位置。
+- Modal 移除了 `align` 属性，现在可以使用 `style` 属性调整位置。
 - `Modal.confirm` 等方法的配置项 `iconClassName` 重命名为 `iconType`。
+- Select 移除了 `onChange` 中的 `label` 参数，新增了 `labelInValue` 属性。[#1695](https://github.com/ant-design/ant-design/issues/1695)
 
 #### 有兼容提示的改动
 
