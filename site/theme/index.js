@@ -20,9 +20,15 @@ export default {
   },
   routes: {
     '/': './template/Home/index',
+    '/docs/practice/:children': './template/Content/index',
+    '/docs/pattern/:children': './template/Content/index',
+    '/docs/spec/:children': './template/Content/index',
     '/docs/resource/:children': './template/Content/index',
   },
   redirects: {
+    '/docs/practice': '/docs/practice/cases',
+    '/docs/pattern': '/docs/pattern/navigation',
+    '/docs/spec': '/docs/spec/introduce',
     '/docs/resource': '/docs/resource/download',
   },
 };

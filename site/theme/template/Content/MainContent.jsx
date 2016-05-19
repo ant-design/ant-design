@@ -101,8 +101,8 @@ export default class MainContent extends React.Component {
 
   getMenuItems() {
     const props = this.props;
-    // TODO: data
-    const menuItems = utils.getMenuItems(props.data.docs.resource, this.context.intl.locale);
+    const moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
+    const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
             .sort((a, b) => {

@@ -1,6 +1,7 @@
 module.exports = {
   source: ['./components', './docs'],
   theme: './site/theme',
+  plugins: ['./site/bisheng-plugin-antd'],
   webpackConfig(config) {
     config.resolve.alias = {
       antd: process.cwd(),

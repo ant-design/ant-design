@@ -1,7 +1,8 @@
 export function getMenuItems(data, locale) {
   const menuMeta = Object.keys(data)
           .map((key) => data[key])
-          .map((file) => {
+          .map((item) => {
+            const file = item.index || item;
             if (file.meta) {
               return file.meta;
             }

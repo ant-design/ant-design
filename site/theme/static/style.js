@@ -6,4 +6,6 @@ import './page-nav.less';
 import './markdown.less';
 import './resource.less';
 import './responsive.less';
+import './preview-img.less';
+import './toc.less';
 import './not-found.less';
