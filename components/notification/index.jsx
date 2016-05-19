@@ -5,7 +5,7 @@ import warning from 'warning';
 
 let defaultTop = 24;
 let notificationInstance;
-let defaultDuration = 45;
+let defaultDuration = 4.5;
 
 function getNotificationInstance() {
   if (notificationInstance) {
