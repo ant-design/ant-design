@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import scrollIntoView from 'dom-scroll-into-view';
 import { Row, Col, Menu } from 'antd';
+import Article from './Article';
 import * as utils from '../utils';
 import config from '../../';
 const SubMenu = Menu.SubMenu;
@@ -146,22 +147,25 @@ export default class MainContent extends React.Component {
   }
 
   render() {
-    const activeMenuItem = this.getActiveMenuItem(this.props);
+    const props = this.props;
+    const activeMenuItem = this.getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
+    const locale = this.context.intl.locale;
+    const moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              defaultOpenKeys={Object.keys(utils.getMenuItems(this.props.data.docs.resource, this.context.intl.locale))}
+              defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
               selectedKeys={[activeMenuItem]}>
               {menuItems}
             </Menu>
           </Col>
           <Col lg={20} md={18} sm={24} xs={24} className="main-container">
-            {this.props.children}
+            <Article {...props} content={props.pageData[locale] || props.pageData} />
           </Col>
         </Row>
 

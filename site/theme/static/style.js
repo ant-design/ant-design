@@ -3,4 +3,7 @@ import './header.less';
 import './footer.less';
 import './home.less';
 import './page-nav.less';
+import './markdown.less';
+import './resource.less';
+import './responsive.less';
 import './not-found.less';

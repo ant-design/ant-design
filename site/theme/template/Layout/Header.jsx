@@ -85,7 +85,8 @@ export default class Header extends React.Component {
 
   render() {
     const { routes, data } = this.props;
-    let activeMenuItem = (routes[1] && routes[1].path) || 'home';
+    const route = routes[0].path.replace(/^\//, '');
+    let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
     activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
     const locale = this.context.intl.locale;
