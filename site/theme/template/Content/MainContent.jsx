@@ -2,10 +2,15 @@ import React from 'react';
 import { Link } from 'react-router';
 import scrollIntoView from 'dom-scroll-into-view';
 import { Row, Col, Menu } from 'antd';
-import config from '../../website.config';
+import * as utils from '../utils';
+import config from '../../';
 const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
+  static contextTypes = {
+    intl: React.PropTypes.object.isRequired,
+  }
+
   componentDidMount() {
     this.scrollToAnchor(this.props);
   }
@@ -39,20 +44,20 @@ export default class MainContent extends React.Component {
     return props.params.children;
   }
 
-  fileNameToPath(fileName) {
-    const snippets = fileName.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
+  fileNameToPath(filename) {
+    const snippets = filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
     return snippets[snippets.length - 1];
   }
 
   generateMenuItem(isTop, item) {
-    const key = this.fileNameToPath(item.fileName);
+    const key = this.fileNameToPath(item.filename);
     const text = isTop ?
             item.title || item.chinese || item.english : [
               <span key="english">{item.title || item.english}</span>,
               <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
             ];
     const disabled = item.disabled;
-    const url = item.fileName.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '');
+    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '');
     const child = !item.link ?
       <Link to={url} disabled={disabled}>
         {text}
@@ -95,7 +100,8 @@ export default class MainContent extends React.Component {
 
   getMenuItems() {
     const props = this.props;
-    const menuItems = props.menuItems;
+    // TODO: data
+    const menuItems = utils.getMenuItems(props.data.docs.resource, this.context.intl.locale);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
             .sort((a, b) => {
@@ -149,7 +155,7 @@ export default class MainContent extends React.Component {
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              defaultOpenKeys={Object.keys(this.props.menuItems)}
+              defaultOpenKeys={Object.keys(utils.getMenuItems(this.props.data.docs.resource, this.context.intl.locale))}
               selectedKeys={[activeMenuItem]}>
               {menuItems}
             </Menu>

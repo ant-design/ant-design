@@ -88,10 +88,17 @@ export default class Header extends React.Component {
     let activeMenuItem = (routes[1] && routes[1].path) || 'home';
     activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
-    const componentsList = Object.keys(data.components)
-            .map((component) => data.components[component].index)
-            .filter(item => item);
     const locale = this.context.intl.locale;
+    const componentsList = Object.keys(data.components)
+            .map((component) => {
+              const index = data.components[component].index;
+              if (index.meta) {
+                return index;
+              }
+              return index[locale];
+            })
+            .filter(item => item);
+
     const options = Object.keys(componentsList)
             .map((key) => {
               const value = componentsList[key];

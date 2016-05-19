@@ -75,7 +75,7 @@
     "babel-eslint": "^6.0.2",
     "babel-jest": "^12.0.2",
     "babel-plugin-antd": "^0.4.0",
-    "bisheng": "^0.2.0",
+    "bisheng": "^0.3.0",
     "dom-scroll-into-view": "^1.1.0",
     "enquire.js": "^2.1.1",
     "es6-shim": "^0.35.0",

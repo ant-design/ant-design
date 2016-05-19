@@ -12,9 +12,6 @@ export default {
     Navigation: 3,
     Other: 4,
   },
-  redirects: {
-    CHANGELOG: 'docs/react/changelog',
-  },
   docVersions: {
     '0.9.x': 'http://09x.ant.design/',
     '0.10.x': 'http://010x.ant.design/',
@@ -23,5 +20,9 @@ export default {
   },
   routes: {
     '/': './template/Home/index',
+    '/docs/resource/:children': './template/Content/index',
+  },
+  redirects: {
+    '/docs/resource': '/docs/resource/download',
   },
 };
