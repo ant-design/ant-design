@@ -8,22 +8,20 @@ title: Input 输入框
 注意： 在表单里面，我们只使用**大尺寸**， 即高度为 **32px**，作为唯一的尺寸。
 
 ````jsx
-import { Row, Col, Input } from 'antd';
-const InputGroup = Input.Group;
+import { Input } from 'antd';
 
 ReactDOM.render(
-  <Row>
-    <InputGroup>
-      <Col span="6">
-        <Input id="largeInput" size="large" placeholder="大尺寸" />
-      </Col>
-      <Col span="6">
-        <Input id="defaultInput" placeholder="默认尺寸" />
-      </Col>
-      <Col span="6">
-        <Input id="smallInput" placeholder="小尺寸" size="small" />
-      </Col>
-    </InputGroup>
-  </Row>
+  <div className="example-input">
+    <Input size="large" placeholder="大尺寸" />
+    <Input placeholder="默认尺寸" />
+    <Input size="small" placeholder="小尺寸" />
+  </div>
 , mountNode);
+````
+
+````css
+.example-input .ant-input {
+  width: 140px;
+  margin-right: 8px;
+}
 ````
