@@ -25,7 +25,6 @@
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
-  "main": "dist/antd",
   "files": [
     "dist",
     "lib",
@@ -147,7 +146,8 @@
       "/_site/"
     ],
     "testPathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "/dist/"
     ],
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
     "testDirectoryName": "tests"
