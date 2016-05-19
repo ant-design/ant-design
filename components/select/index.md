@@ -37,7 +37,7 @@ english: Select
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
-| optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` |
+| optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | combobox | 输入框自动提示模式 | boolean | false |
 | size    | 选择框大小，可选 `large` `small`  | String      |      default      |
 | showSearch | 在选择框中显示搜索框 | boolean | false |
