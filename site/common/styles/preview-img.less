@@ -1,7 +1,7 @@
 .preview-image-boxes {
   float: right;
   margin: 0 0 70px 28px;
-  width: 616px;
+  width: 608px;
   clear: both;
 
   &-with-carousel {
@@ -96,6 +96,10 @@
   background: #fff;
   padding: 12px;
   border-radius: 6px;
+  &.no-padding {
+    padding: 0;
+    background: none;
+  }
 }
 
 .preview-image-boxes.pack img {
@@ -119,13 +123,10 @@
 .image-modal-single.slick-slider {
   padding-bottom: 0;
 }
+
 .ant-carousel .slick-slider img {
   display: inline;
   max-width: 100%;
-}
-
-.no-padding {
-  padding: 0!important;
 }
 
 .transition-video-player {
