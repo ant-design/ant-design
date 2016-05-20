@@ -121,13 +121,12 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
 }
 
 .ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {
-  vertical-align: middle;
+  vertical-align: baseline;
   display: inline-block;
 }
 
 .ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
   transition: font-size .3s;
-  vertical-align: middle;
 }
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item {
@@ -137,7 +136,6 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
   font-size: 16px;
   display: inline-block;
-  vertical-align: middle;
 }
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {
