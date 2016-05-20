@@ -147,8 +147,7 @@
       "/_site/"
     ],
     "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/dist/"
+      "/node_modules/"
     ],
     "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
     "testDirectoryName": "tests"
