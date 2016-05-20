@@ -17,6 +17,7 @@ export default class Spin extends React.Component {
       spinning,
     };
   }
+
   static propTypes = {
     className: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'default', 'large']),
