@@ -1,7 +1,7 @@
 import React, { Children, cloneElement } from 'react';
 import DocumentTitle from 'react-document-title';
 import { Link } from 'react-router';
-import { getTagName, getChildren } from 'jsonml.js/lib/utils';
+import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline } from 'antd';
 import * as utils from '../utils';
 
@@ -42,9 +42,7 @@ export default class Article extends React.Component {
   }
   render() {
     const { content, location } = this.props;
-    const jumper = content.content.filter((node) => {
-      return getTagName(node) === 'h2';
-    }).map((node) => {
+    const jumper = content.toc.map((node) => {
       return (
         <li key={getChildren(node)[0]}>
           <Link to={{ pathname: location.pathname, query: { scrollTo: getChildren(node)[0] } }}>
@@ -54,7 +52,7 @@ export default class Article extends React.Component {
       );
     });
 
-    const { meta, intro } = content;
+    const { meta, description } = content;
     const { title, chinese, english } = meta;
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
@@ -67,11 +65,10 @@ export default class Article extends React.Component {
             }
           </h1>
           {
-            !intro ? null :
-              utils.jsonmlToComponent(
-              location.pathname,
-              ['section', { className: 'markdown' }].concat(intro)
-            )
+            !description ? null :
+              this.props.utils.toReactComponent(
+                ['section', { className: 'markdown' }].concat(getChildren(description))
+              )
           }
           {
             (jumper.length > 0 && meta.toc !== false) ?
