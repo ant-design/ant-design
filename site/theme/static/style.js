@@ -11,3 +11,4 @@ import './toc.less';
 import './not-found.less';
 import './font.less';
 import './highlight.less';
+import './demo.less';

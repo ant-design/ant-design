@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
-import * as utils from '../utils';
 
 const isLocal = location.port;
 
@@ -31,22 +30,22 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { id, className, meta, intro, preview, style, src,
-            highlightedCode, highlightedStyle, pathname } = this.props;
+    const { className, meta, content, preview, style, src,
+            code, highlightedStyle, pathname } = this.props;
     const codeExpand = this.state.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
       [className]: className,
       expand: codeExpand,
     });
-
     const locale = this.context.intl.locale;
-    const localizeIntro = intro[locale] || intro;
-    const introChildren = utils.jsonmlToComponent(pathname, ['div'].concat(localizeIntro));
+    const localizeIntro = content[locale] || content;
+    const introChildren = this.props.utils
+      .toReactComponent(['div'].concat(localizeIntro));
     const localizedTitle = typeof meta.title === 'object' ?
             meta.title[locale] : meta.title;
     return (
-      <section className={codeBoxClass} id={id}>
+      <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
           {
             meta.iframe ?
@@ -61,7 +60,7 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <Link to={{ pathname, query: { scrollTo: id } }}>
+            <Link to={{ pathname, query: { scrollTo: meta.id } }}>
               {localizedTitle}
             </Link>
           </div>
@@ -73,11 +72,7 @@ export default class Demo extends React.Component {
         <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
           key="code">
           <div className="highlight">
-            <pre>
-              <code className="javascript" dangerouslySetInnerHTML={{
-                __html: highlightedCode,
-              }} />
-            </pre>
+            {this.props.utils.toReactComponent(code)}
           </div>
           {
             highlightedStyle ?
