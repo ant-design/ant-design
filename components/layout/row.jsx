@@ -28,7 +28,7 @@ export default class Row extends React.Component {
       ...style,
     } : style;
     const cols = Children.map(children, col => {
-      if (col === null) return null;
+      if (!col) return null;
 
       return cloneElement(col, {
         style: gutter > 0 ? {
