@@ -1,6 +1,5 @@
 import React, { Children, cloneElement } from 'react';
 import DocumentTitle from 'react-document-title';
-import { Link } from 'react-router';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline } from 'antd';
 import * as utils from '../utils';
@@ -41,32 +40,34 @@ export default class Article extends React.Component {
     });
   }
   render() {
-    const { content, location } = this.props;
-    const jumper = (content.toc || []).map((node) => {
+    const props = this.props;
+    const content = props.content;
+    const jumper = (content.toc || []).map((node, index) => {
+      const headingText = getChildren(node)[0];
       return (
-        <li key={getChildren(node)[0]}>
-          <Link to={{ pathname: location.pathname, query: { scrollTo: getChildren(node)[0] } }}>
-          {this.props.utils.toReactComponent(getChildren(node)[0])}
-          </Link>
+        <li key={index}>
+          <a href={`#${headingText}`}>
+          {props.utils.toReactComponent(headingText)}
+          </a>
         </li>
       );
     });
 
     const { meta, description } = content;
-    const { title, chinese, english } = meta;
+    const { title, subtitle, chinese, english } = meta;
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
         <article className="markdown">
           <h1>
-            {meta.title || meta.english} {meta.subtitle || meta.chinese}
+            {title || english}
             {
-              !meta.subtitle ? null :
-                <span className="subtitle">{meta.subtitle}</span>
+              (!subtitle && !chinese) ? null :
+                <span className="subtitle">{subtitle || chinese}</span>
             }
           </h1>
           {
             !description ? null :
-              this.props.utils.toReactComponent(
+              props.utils.toReactComponent(
                 ['section', { className: 'markdown' }].concat(getChildren(description))
               )
           }
@@ -76,7 +77,7 @@ export default class Article extends React.Component {
               null
           }
           {
-            this.getArticle(this.props.utils.toReactComponent(
+            this.getArticle(props.utils.toReactComponent(
               ['section', { className: 'markdown' }].concat(getChildren(content.content))
             ))
           }

@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
 import classNames from 'classnames';
-
 const isLocal = location.port;
 
 export default class Demo extends React.Component {
@@ -30,20 +28,33 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { className, meta, content, preview, style, src,
-            code, highlightedStyle, pathname } = this.props;
+    const props = this.props;
+    const {
+      meta,
+      src,
+      preview,
+      content,
+      code,
+      style,
+      highlightedStyle,
+    } = props;
+
     const codeExpand = this.state.codeExpand;
     const codeBoxClass = classNames({
       'code-box': true,
-      [className]: className,
       expand: codeExpand,
     });
+
     const locale = this.context.intl.locale;
+    const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = this.props.utils
-      .toReactComponent(['div'].concat(localizeIntro));
-    const localizedTitle = typeof meta.title === 'object' ?
-            meta.title[locale] : meta.title;
+    const introChildren = props.utils
+            .toReactComponent(['div'].concat(localizeIntro));
+
+    const highlightClass = classNames({
+      'highlight-wrapper': true,
+      'highlight-wrapper-expand': codeExpand,
+    });
     return (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
@@ -60,19 +71,19 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <Link to={{ pathname, query: { scrollTo: meta.id } }}>
+            <a href={`#${meta.id}`}>
               {localizedTitle}
-            </Link>
+            </a>
           </div>
           {introChildren}
           <span className="collapse anticon anticon-circle-o-right"
             onClick={this.handleCodeExapnd}
             unselectable="none" />
         </section>
-        <section className={`highlight-wrapper ${codeExpand ? 'highlight-wrapper-expand' : ''}`}
+        <section className={highlightClass}
           key="code">
           <div className="highlight">
-            {this.props.utils.toReactComponent(code)}
+            {props.utils.toReactComponent(code)}
           </div>
           {
             highlightedStyle ?

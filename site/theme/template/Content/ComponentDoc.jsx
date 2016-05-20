@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import DocumentTitle from 'react-document-title';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix } from 'antd';
@@ -28,7 +27,6 @@ export default class ComponentDoc extends React.Component {
   render() {
     const props = this.props;
     const { doc, location } = props;
-    const scrollTo = location.query.scrollTo;
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
@@ -42,13 +40,13 @@ export default class ComponentDoc extends React.Component {
       .forEach((demoData, index) => {
         if (index % 2 === 0 || isSingleCol) {
           leftChildren.push(
-            <Demo {...demoData} className={scrollTo === demoData.meta.id ? 'code-box-target' : ''}
+            <Demo {...demoData}
               key={index} utils={props.utils}
               expand={expand} pathname={location.pathname} />
           );
         } else {
           rightChildren.push(
-            <Demo {...demoData} className={scrollTo === demoData.meta.id ? 'code-box-target' : ''}
+            <Demo {...demoData}
               key={index} utils={props.utils}
               expand={expand} pathname={location.pathname} />
           );
@@ -61,14 +59,12 @@ export default class ComponentDoc extends React.Component {
 
     const jumper = demos.map((demo) => {
       const title = demo.meta.title;
-      const localizeTitle = typeof title === 'object' ?
-              title[locale] : title;
+      const localizeTitle = title[locale] || title;
       return (
         <li key={demo.meta.id}>
-          <Link className={demo.meta.id === scrollTo ? 'current' : ''}
-            to={{ pathname: location.pathname, query: { scrollTo: `${demo.meta.id}` } }}>
+          <a href={`#${demo.meta.id}`}>
             {localizeTitle}
-          </Link>
+          </a>
         </li>
       );
     });
@@ -114,7 +110,7 @@ export default class ComponentDoc extends React.Component {
             props.utils.toReactComponent(
               ['section', {
                 className: 'markdown api-container',
-              }].concat(doc.api || [])
+              }].concat(getChildren(doc.api || []))
             )
           }
         </article>

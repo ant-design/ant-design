@@ -14,32 +14,13 @@ export default class MainContent extends React.Component {
   }
 
   componentDidMount() {
-    this.scrollToAnchor(this.props);
+    scrollIntoView(document.body, document, { alignWithTop: true });
   }
 
   shouldComponentUpdate(nextProps) {
-    this.scrollToAnchor(nextProps);
-
     const pathname = this.props.location.pathname;
     return pathname !== nextProps.location.pathname ||
       /^\/components\//i.test(pathname);
-  }
-
-  scrollToAnchor(props) {
-    const scrollTo = props.location.query.scrollTo;
-    if (scrollTo !== undefined) {
-      const target = document.getElementById(scrollTo);
-
-      if (target !== null) {
-        scrollIntoView(
-          target,
-          document,
-          { alignWithTop: true, onlyScrollIfNeeded: false }
-        );
-      }
-    } else {
-      scrollIntoView(document.body, document, { alignWithTop: true });
-    }
   }
 
   getActiveMenuItem(props) {
