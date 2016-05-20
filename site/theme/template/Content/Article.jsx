@@ -42,7 +42,7 @@ export default class Article extends React.Component {
   }
   render() {
     const { content, location } = this.props;
-    const jumper = content.toc.map((node) => {
+    const jumper = (content.toc || []).map((node) => {
       return (
         <li key={getChildren(node)[0]}>
           <Link to={{ pathname: location.pathname, query: { scrollTo: getChildren(node)[0] } }}>

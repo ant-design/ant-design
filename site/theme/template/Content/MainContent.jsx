@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import scrollIntoView from 'dom-scroll-into-view';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
+import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 import config from '../../';
 const SubMenu = Menu.SubMenu;
@@ -101,7 +102,16 @@ export default class MainContent extends React.Component {
 
   getMenuItems() {
     const props = this.props;
-    const moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
+    let moduleData;
+    if (/(docs\/react\/)|(components\/)/i.test(props.location.pathname)) {
+      moduleData = {
+        ...props.data.docs.react,
+        ...props.data.components,
+      };
+    } else {
+      moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
+    }
+
     const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
@@ -153,7 +163,17 @@ export default class MainContent extends React.Component {
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
     const locale = this.context.intl.locale;
-    const moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
+    let moduleData;
+    if (/(docs\/react\/)|(components\/)/i.test(props.location.pathname)) {
+      moduleData = {
+        ...props.data.docs.react,
+        ...props.data.components,
+      };
+    } else {
+      moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
+    }
+    const pageData = props.pageData.index || props.pageData;
+    const localizedPageData = pageData[locale] || pageData;
     return (
       <div className="main-wrapper">
         <Row>
@@ -165,7 +185,11 @@ export default class MainContent extends React.Component {
             </Menu>
           </Col>
           <Col lg={20} md={18} sm={24} xs={24} className="main-container">
-            <Article {...props} content={props.pageData[locale] || props.pageData} />
+            {
+              props.pageData.demo ?
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.pageData.demo} /> :
+                <Article {...props} content={localizedPageData} />
+            }
           </Col>
         </Row>
 

@@ -1,3 +1,5 @@
+const contentTmpl = './template/Content/index';
+
 export default {
   categoryOrder: {
     组件: 0,
@@ -20,15 +22,11 @@ export default {
   },
   routes: {
     '/': './template/Home/index',
-    '/docs/practice/:children': './template/Content/index',
-    '/docs/pattern/:children': './template/Content/index',
-    '/docs/spec/:children': './template/Content/index',
-    '/docs/resource/:children': './template/Content/index',
-  },
-  redirects: {
-    '/docs/practice': '/docs/practice/cases',
-    '/docs/pattern': '/docs/pattern/navigation',
-    '/docs/spec': '/docs/spec/introduce',
-    '/docs/resource': '/docs/resource/download',
+    '/docs/practice/:children': contentTmpl,
+    '/docs/pattern/:children': contentTmpl,
+    '/docs/react/:children': contentTmpl,
+    '/components/:children': contentTmpl,
+    '/docs/spec/:children': contentTmpl,
+    '/docs/resource/:children': contentTmpl,
   },
 };

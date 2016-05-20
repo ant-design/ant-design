@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix } from 'antd';
-import Demo from '../Demo';
+import { getChildren } from 'jsonml.js/lib/utils';
+import Demo from './Demo';
 import * as utils from '../utils';
-import demosList from '../../../_data/demos-list';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
@@ -34,11 +34,12 @@ export default class ComponentDoc extends React.Component {
   }
 
   render() {
-    const { doc, location } = this.props;
+    const props = this.props;
+    const { doc, location } = props;
     const scrollTo = location.query.scrollTo;
-    const { description, meta } = doc;
+    const { content, meta } = doc;
     const locale = this.context.intl.locale;
-    const demos = (demosList[meta.fileName.replace(`.${locale}`, '')] || [])
+    const demos = Object.keys(props.demos).map((key) => props.demos[key])
             .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
 
@@ -91,10 +92,9 @@ export default class ComponentDoc extends React.Component {
         <section className="markdown">
           <h1>{meta.title || meta.english} {meta.subtitle || meta.chinese}</h1>
           {
-            utils.jsonmlToComponent(
-              location.pathname,
+            props.utils.toReactComponent(
               ['section', { className: 'markdown' }]
-                .concat(description)
+                .concat(getChildren(content))
             )
           }
           <h2>
@@ -118,8 +118,7 @@ export default class ComponentDoc extends React.Component {
           }
         </Row>
         {
-          utils.jsonmlToComponent(
-            location.pathname,
+          props.utils.toReactComponent(
             ['section', {
               className: 'markdown api-container',
             }].concat(doc.api || [])

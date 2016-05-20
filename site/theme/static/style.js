@@ -9,3 +9,5 @@ import './responsive.less';
 import './preview-img.less';
 import './toc.less';
 import './not-found.less';
+import './font.less';
+import './highlight.less';
