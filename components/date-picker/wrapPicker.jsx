@@ -13,6 +13,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       popupStyle: {},
       onChange() {},
       onOk() {},
+      toggleOpen() {},
       locale: {},
       align: {
         offset: [0, -9],
@@ -69,7 +70,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       this.setState({
         open: e.open,
       });
-	  this.props.toggleOpen && this.props.toggleOpen(e);
+      this.props.toggleOpen(e);
     }
 
     render() {
