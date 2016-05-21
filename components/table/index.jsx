@@ -21,7 +21,7 @@ const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
   filterReset: '重置',
-  emptyText: '暂无数据',
+  emptyText: <span><Icon type="frown" />暂无数据</span>,
 };
 
 const defaultPagination = {
@@ -711,7 +711,7 @@ export default class Table extends React.Component {
     if (!data || data.length === 0) {
       emptyText = (
         <div className="ant-table-placeholder">
-          <Icon type="frown" />{locale.emptyText}
+          {locale.emptyText}
         </div>
       );
       emptyClass = 'ant-table-empty';
