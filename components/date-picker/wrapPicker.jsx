@@ -69,6 +69,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       this.setState({
         open: e.open,
       });
+	  this.props.toggleOpen && this.props.toggleOpen(e);
     }
 
     render() {
