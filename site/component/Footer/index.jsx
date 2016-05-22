@@ -28,8 +28,8 @@ export default class Footer extends React.Component {
     // 大版本发布后全局弹窗提示
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
-    if (localStorage.getItem('infoNewVersionSent') !== 'true' ||
-        new Date().getTime() > new Date('2016/05/22').getTime()) {
+    if (localStorage.getItem('infoNewVersionSent') !== 'true' &&
+        new Date().getTime() < new Date('2016/05/22').getTime()) {
       this.infoNewVersion();
     }
   }
