@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 文字提示
-type: 展示
+type: Presentation
 english: Tooltip
 ---
 

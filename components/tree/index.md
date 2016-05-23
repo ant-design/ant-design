@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 树形控件
-type: 展示
+type: Presentation
 english: Tree
 ---
 

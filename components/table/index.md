@@ -2,7 +2,7 @@
 category: Components
 chinese: 表格
 cols: 1
-type: 展示
+type: Presentation
 english: Table
 ---
 

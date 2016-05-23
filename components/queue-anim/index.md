@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 进出场动画
-type: 其它
+type: Other
 english: QueueAnim
 ---
 
@@ -10,15 +10,13 @@ english: QueueAnim
 ## 何时使用
 
 - 从内容A到内容B的转变过程时能有效的吸引用户注意力，突出视觉中心，提高整体视觉效果。
-
 - 小的信息元素排布或块状较多的情况下，根据一定的路径层次依次进场，区分维度层级，来凸显量级，使页面转场更加流畅和舒适，提高整体视觉效果和产品的质感。
-
 - 特别适合首页和需要视觉展示效果的宣传页，以及单页应用的切换页面动效。
 
 
 ## API
 
-> 此组件 `antd@1.0.0+` 后标记为废弃，您可以直接使用 `import QueueAnim from 'rc-queue-anim'` 来代替。文档后续会移到 [ant-motioin](http://motion.ant.design/#/component/queue-anim)。
+> 此组件 `antd@1.0.0+` 后标记为废弃，您可以直接使用 `import QueueAnim from 'rc-queue-anim'` 来代替，相关文档也已移到 [ant-motioin](http://motion.ant.design/#/components/queue-anim)。
 
 > [ant-motioin](http://motion.ant.design/) 是一个动效设计语言，欢迎关注。
 

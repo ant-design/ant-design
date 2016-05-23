@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 面包屑
-type: 导航
+type: Navigation
 english: Breadcrumb
 ---
 

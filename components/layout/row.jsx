@@ -16,7 +16,7 @@ export default class Row extends React.Component {
   render() {
     const { type, justify, align, className, gutter, style, children, ...others } = this.props;
     const classes = classNames({
-      row: true,
+      row: !type,
       [`row-${type}`]: type,
       [`row-${type}-${justify}`]: justify,
       [`row-${type}-${align}`]: align,
@@ -28,7 +28,7 @@ export default class Row extends React.Component {
       ...style,
     } : style;
     const cols = Children.map(children, col => {
-      if (col === null) return null;
+      if (!col) return null;
 
       return cloneElement(col, {
         style: gutter > 0 ? {

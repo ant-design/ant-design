@@ -9,8 +9,8 @@ export default class Article extends React.Component {
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    const { chinese, english } = this.props.content.meta;
-    utils.setTitle(`${chinese || english} - Ant Design`);
+    const { title, chinese, english } = this.props.content.meta;
+    utils.setTitle(`${title || chinese || english} - Ant Design`);
     const links = Array.apply(null, document.querySelectorAll('.outside-link.internal'));
     if (links.length === 0) {
       return;
@@ -60,7 +60,7 @@ export default class Article extends React.Component {
     return (
       <article className="markdown">
         <h1>
-          {meta.english} {meta.chinese}
+          {meta.title || meta.english} {meta.subtitle || meta.chinese}
           {
             !meta.subtitle ? null :
               <span className="subtitle">{meta.subtitle}</span>

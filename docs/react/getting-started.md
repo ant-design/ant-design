@@ -78,7 +78,7 @@ export default App;
 一键启动调试，访问 http://127.0.0.1:8989 查看效果。
 
 ```bash
-$ npm run dev
+$ npm start
 ```
 
 ### 5. 构建和部署
@@ -148,13 +148,13 @@ Ant Design React 支持所有的现代浏览器和 IE8+。
 通过 `import { Button } from 'antd';` 引入会加载 antd 下所有的模块，如果要按需加载可以通过以下的写法来引用。
 
 ```jsx
-import Button form 'antd/lib/button';
+import Button from 'antd/lib/button';
 ```
 
 如果你使用 babel，我们推荐使用 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 来进行按需加载，加入这个插件后。你可以仍然这么写：
 
 ```jsx
-import { Button } form 'antd';
+import { Button } from 'antd';
 ```
 
 插件会帮你转换成上面的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-antd#usage) 属性可以做到模块样式的按需自动加载。
@@ -167,4 +167,4 @@ import { Button } form 'antd';
 ## 小甜点
 
 - 你可以享用 `npm` 生态圈里的所有模块。
-- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus/) 的写法来提升编码的愉悦感。
+- 我们使用了 `babel`，试试用 [ES2015](http://babeljs.io/blog/2015/06/07/react-on-es6-plus) 的写法来提升编码的愉悦感。

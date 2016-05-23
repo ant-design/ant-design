@@ -4,6 +4,8 @@ import classNames from 'classnames';
 export default function Group(props) {
   const className = classNames({
     'ant-input-group': true,
+    'ant-input-group-lg': props.size === 'large',
+    'ant-input-group-sm': props.size === 'small',
     [props.className]: !!props.className,
   });
   return (

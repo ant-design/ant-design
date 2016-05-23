@@ -34,6 +34,9 @@
 
 .code-box:hover {
   box-shadow: 0 0 6px rgba(0,0,0,.15);
+  position: relative;
+  z-index: 10;
+  background: #fff;
 }
 
 .code-box.code-box-target {
@@ -80,6 +83,10 @@
 .code-box-meta p {
   margin: 0;
   width: 93%;
+}
+
+.code-box-meta p + p {
+  margin-top: 8px;
 }
 
 .code-box-meta blockquote {

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: 展示
+type: Presentation
 chinese: 日历
 cols: 1
 english: Calendar

@@ -69,11 +69,18 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
-  &-control {
-    line-height: 32px;
+  // nested FormItem
+  & & {
+    margin-bottom: -@form-item-margin-bottom;
   }
 
-  &.@{form-prefix-cls}-item-with-help {
+  &-control {
+    line-height: 32px;
+    position: relative;
+    .clearfix;
+  }
+
+  &-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - 3;
   }
 
@@ -120,12 +127,6 @@ form {
     .ant-input {
       padding-right: 24px;
     }
-  }
-
-  .ant-input,
-  .ant-input-group .ant-input,
-  .ant-input-group .ant-input-group-addon {
-    .input-lg();
   }
 
   textarea.ant-input {
@@ -242,8 +243,7 @@ form {
   }
 
   .ant-radio-inline,
-  .ant-checkbox-inline,
-  .ant-input {
+  .ant-checkbox-inline {
     vertical-align: baseline;
   }
 }

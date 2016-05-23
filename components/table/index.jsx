@@ -21,7 +21,7 @@ const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
   filterReset: '重置',
-  emptyText: '暂无数据',
+  emptyText: <span><Icon type="frown" />暂无数据</span>,
 };
 
 const defaultPagination = {
@@ -248,20 +248,27 @@ export default class Table extends React.Component {
   }
 
   handleFilter = (column, nextFilters) => {
+    const props = this.props;
+    let pagination = { ...this.state.pagination };
     const filters = {
       ...this.state.filters,
       [this.getColumnKey(column)]: nextFilters,
     };
     // Remove filters not in current columns
-    const currentColumnKeys = this.props.columns.map(c => this.getColumnKey(c));
+    const currentColumnKeys = props.columns.map(c => this.getColumnKey(c));
     Object.keys(filters).forEach((columnKey) => {
       if (currentColumnKeys.indexOf(columnKey) < 0) {
         delete filters[columnKey];
       }
     });
 
+    // Reset current prop
+    pagination.current = 1;
+    pagination.onChange(pagination.current);
+
     const newState = {
       selectionDirty: false,
+      pagination,
     };
     const filtersToSetState = { ...filters };
     // Remove filters which is controlled
@@ -274,9 +281,21 @@ export default class Table extends React.Component {
     if (Object.keys(filtersToSetState).length > 0) {
       newState.filters = filtersToSetState;
     }
+
+    // Controlled current prop will not respond user interaction
+    if (props.pagination && 'current' in props.pagination) {
+      newState.pagination = {
+        ...pagination,
+        current: this.state.pagination.current,
+      };
+    }
+
     this.setState(newState, () => {
-      this.props.onChange(...this.prepareParamsArguments({
-        ...this.state, selectionDirty: false, filters,
+      props.onChange(...this.prepareParamsArguments({
+        ...this.state,
+        selectionDirty: false,
+        filters,
+        pagination,
       }));
     });
   }
@@ -692,7 +711,7 @@ export default class Table extends React.Component {
     if (!data || data.length === 0) {
       emptyText = (
         <div className="ant-table-placeholder">
-          <Icon type="frown" />{locale.emptyText}
+          {locale.emptyText}
         </div>
       );
       emptyClass = 'ant-table-empty';

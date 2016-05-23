@@ -17,6 +17,7 @@ export default class Spin extends React.Component {
       spinning,
     };
   }
+
   static propTypes = {
     className: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'default', 'large']),
@@ -62,20 +63,20 @@ export default class Spin extends React.Component {
   }
 
   render() {
-    const { className, size, prefixCls, tip } = this.props;
+    const { className, size, prefixCls, tip, ...restProps } = this.props;
     const { spinning } = this.state;
 
     const spinClassName = classNames({
       [prefixCls]: true,
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
-      [className]: !!className,
       [`${prefixCls}-spinning`]: spinning,
       [`${prefixCls}-show-text`]: !!this.props.tip,
+      [className]: !!className,
     });
 
     const spinElement = (
-      <div className={spinClassName}>
+      <div {...restProps} className={spinClassName}>
         <span className={`${prefixCls}-dot ${prefixCls}-dot-first`} />
         <span className={`${prefixCls}-dot ${prefixCls}-dot-second`} />
         <span className={`${prefixCls}-dot ${prefixCls}-dot-third`} />
@@ -85,7 +86,7 @@ export default class Spin extends React.Component {
 
     if (this.isNestedPattern()) {
       return (
-        <div className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
+        <div {...restProps} className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
           {spinElement}
           <div className={`${prefixCls}-container`}>
             {this.props.children}

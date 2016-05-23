@@ -19,8 +19,8 @@ const App = React.createClass({
     this.getMock();
   },
   getMock() {
-    let targetKeys = [];
-    let mockData = [];
+    const targetKeys = [];
+    const mockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,

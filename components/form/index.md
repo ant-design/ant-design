@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 表单
-type: 表单
+type: Form Control
 cols: 1
 english: Form
 ---
@@ -136,6 +136,10 @@ CustomizedForm = Form.create({})(CustomizedForm);
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
 #### Input.Group
+
+| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+|  size | `Input.Group` 中所有的 `Input` 的大小 | string | {'large','default','small'} |  'default' |
 
 ```html
 <Input.Group className={string}>

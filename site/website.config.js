@@ -6,11 +6,11 @@ export default {
     动画: 2,
   },
   typeOrder: {
-    基本: 0,
-    表单: 1,
-    展示: 2,
-    导航: 3,
-    其它: 4,
+    Basic: 0,
+    'Form Control': 1,
+    Presentation: 2,
+    Navigation: 3,
+    Other: 4,
   },
   redirects: {
     CHANGELOG: 'docs/react/changelog',

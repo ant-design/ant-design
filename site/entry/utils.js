@@ -1,3 +1,4 @@
+/* eslint-disable react/prefer-stateless-function, react/no-multi-comp */
 import React from 'react';
 import { IndexRedirect } from 'react-router';
 import MainContent from '../component/MainContent';
@@ -11,14 +12,20 @@ if (module.hot) {
 }
 
 function fileNameToPath(fileName) {
-  const snippets = fileName.replace(/(\/index)?\.md$/i, '').split('/');
+  const snippets = fileName
+    .replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').split('/');
   return snippets[snippets.length - 1];
 }
 
-function getMenuItems(data) {
+function getMenuItems(data, locale) {
   const menuMeta = Object.keys(data)
           .map((key) => data[key])
-          .map((file) => file.meta);
+          .map((file) => {
+            if (file.localized) {
+              return file[locale].meta;
+            }
+            return file.meta;
+          });
 
   const menuItems = {};
   menuMeta.sort((a, b) => {
@@ -41,17 +48,26 @@ function getMenuItems(data) {
 }
 
 export function generateContainer(data) {
-  const menuItems = getMenuItems(data);
-  return (props) => {
-    return (
-      <MainContent {...props} menuItems={menuItems} />
-    );
+  return class containerWrapper extends React.Component {
+    static contextTypes = {
+      intl: React.PropTypes.object,
+    }
+
+    render() {
+      const locale = this.context.intl.locale;
+      const menuItems = getMenuItems(data, locale);
+      return (
+        <MainContent {...this.props} menuItems={menuItems} />
+      );
+    }
   };
 }
 
 export function generateIndex(data) {
-  const menuItems = getMenuItems(data);
-  const firstChild = menuItems.topLevel.topLevel.filter((item) => !item.disabled)[0];
+  const menuItems = getMenuItems(data, 'zh-CN'); // 以中文版配置为准
+  const firstChild = menuItems.topLevel.topLevel.filter((item) => {
+    return !item.disabled;
+  })[0];
   return (
     <IndexRedirect key="index"
       to={fileNameToPath(firstChild.fileName)} />
@@ -71,12 +87,26 @@ function getDoc(data, props) {
 }
 
 export function getChildrenWrapper(data) {
-  return function childrenWrapper(props) {
-    const doc = getDoc(data, props);
-    const hasDemos = demosList[doc.meta.fileName];
-    return !hasDemos ?
-      <Article {...props} content={doc} /> :
-      <ComponentDoc {...props} doc={doc} />;
+  return class childrenWrapper extends React.Component {
+    static contextTypes = {
+      intl: React.PropTypes.object,
+    }
+
+    render() {
+      const props = this.props;
+      const trimedPathname = props.location.pathname.replace(/^\//, '');
+      const processedPathname = pathToFile[trimedPathname] || trimedPathname;
+      const rawDoc = data[`${processedPathname}.md`] ||
+              data[`${processedPathname}/index.md`];
+
+      const locale = this.context.intl.locale;
+      const doc = rawDoc.localized ? rawDoc[locale] : rawDoc;
+
+      const hasDemos = demosList[doc.meta.fileName.replace(`.${locale}`, '')];
+      return !hasDemos ?
+        <Article {...props} content={doc} /> :
+        <ComponentDoc {...props} doc={doc} />;
+    }
   };
 }
 

@@ -9,6 +9,28 @@ timeline: true
 
 ---
 
+## 1.1.0
+
+`2016-05-18`
+
+- Cascader 的选择框支持自定义渲染节点，并给 `displayRender` 方法增加了 `selectedOptions` 参数。[#1726](https://github.com/ant-design/ant-design/issues/1726)
+- Input.Group 新增 `size` 属性，可设置控件尺寸。[#1732](https://github.com/ant-design/ant-design/issues/1732)
+- Layout 新增常用布局：侧边导航展开收起模式。[#1643](https://github.com/ant-design/ant-design/issues/1643)
+- Transfer 支持自定义渲染行数据。[#1664](https://github.com/ant-design/ant-design/issues/1664)
+- Upload 的 children 为空时，不再显示上传按钮。[#1610](https://github.com/ant-design/ant-design/issues/1610)
+- Table
+  - 修复 `filter` 过滤数据后显示错误分页的问题。[#1669](https://github.com/ant-design/ant-design/issues/1669)
+  - 修复 `pagination` 不指定时显示错误分页的问题。[#1683](https://github.com/ant-design/ant-design/issues/1683)
+- Modal
+  - 修复弹出时背景依然跟随滚动的问题。[#1751](https://github.com/ant-design/ant-design/issues/1751)
+  - 修复关闭按钮获得焦点时的样式问题。[#1668](https://github.com/ant-design/ant-design/issues/1668)
+- 修复 Form 搜索输入框样式问题。[7b7f846](https://github.com/ant-design/ant-design/commit/7b7f8461611e53f4f96ae8d64d37fe28ee8d2553)
+- 修复 Select 获得焦点时的样式问题。[#1684](https://github.com/ant-design/ant-design/issues/1684)
+- 修复 TreeSelect 占位符样式问题。[#1657](https://github.com/ant-design/ant-design/issues/1657)
+- 修复了类型定义以更好地支持 `TypeScript`。[#1696](https://github.com/ant-design/ant-design/pull/1696) [@xujihui1985](https://github.com/xujihui1985)
+- 优化了 LocaleProvider。[a3850a4](https://github.com/ant-design/ant-design/commit/a3850a4df84d7055a1a40600919f2f9ba1bbf2b2)
+- 其他组件的样式优化。
+
 ## 1.0.1
 
 `2016-05-11`
@@ -53,8 +75,9 @@ timeline: true
 
 - 完全移除了 `0.12` 中废弃的 Validation 组件，可以直接 import [rc-form-validation](https://github.com/react-component/form-validation) 用以代替。[#1096](https://github.com/ant-design/ant-design/issues/1096)
 - Breadcrumb.Item 的 `href` 属性被移除，请直接用 `a` 标签包裹可点击的内容。
-- Modal 移除 了`align` 属性，现在可以使用 `style` 属性调整位置。
+- Modal 移除了 `align` 属性，现在可以使用 `style` 属性调整位置。
 - `Modal.confirm` 等方法的配置项 `iconClassName` 重命名为 `iconType`。
+- Select 移除了 `onChange` 中的 `label` 参数，新增了 `labelInValue` 属性。[#1695](https://github.com/ant-design/ant-design/issues/1695)
 
 #### 有兼容提示的改动
 

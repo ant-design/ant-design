@@ -5,7 +5,7 @@ english: 三大特性
 
 与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』的使用体验，真真正正贯彻和践行『以人为本』的设计理念。
 
-<div style="margin-left:-40px;margin-right:-40px;overflow:hidden;">
+<div style="margin-left:-40px;margin-right:-40px;overflow:hidden;margin-top:30px;">
   <div class="col-8 features">
     <img src="https://os.alipayobjects.com/rmsportal/OVirOHTeAdzDBuQ.png">
     <h5>微小</h5>
@@ -76,9 +76,9 @@ english: 三大特性
 
 <img class="preview-img" align="right" alt="排版规则示例" description="运用『亲密性』原则，只需定义 n 的值，就可以得出确定的间距。" src="https://os.alipayobjects.com/rmsportal/WNEbRORxzEvvFKy.png">
 
-<img class="preview-img" noPadding align="right" alt="操作反馈 - 正确示例" description="将可被通用的文案抽象成『确定』、『操作』等通用术语，集中进行调用和维护。虽然『用户』体验 -1 分，但是『设计者』体验 +5 分。" good src="https://os.alipayobjects.com/rmsportal/rtbYGKfPOpWRJID.png">
+<img class="preview-img no-padding good" align="right" alt="操作反馈 - 正确示例" description="将可被通用的文案抽象成『确定』、『操作』等通用术语，集中进行调用和维护。虽然『用户』体验 -1 分，但是『设计者』体验 +5 分。" src="https://os.alipayobjects.com/rmsportal/rtbYGKfPOpWRJID.png">
 
-<img class="preview-img" noPadding align="right" alt="操作反馈 - 错误示例" bad description="这是体验更好的反馈方式，但是对『设计者』来说是灾难。因为这些『删除』文案只能通过人肉维护，难免产生遗漏和错别字，增大了系统的不确定性，这在多人合作和需求变更时尤为明显。" src="https://os.alipayobjects.com/rmsportal/OWLtvGCGmqawyPt.png">
+<img class="preview-img no-padding bad" align="right" alt="操作反馈 - 错误示例" description="这是体验更好的反馈方式，但是对『设计者』来说是灾难。因为这些『删除』文案只能通过人肉维护，难免产生遗漏和错别字，增大了系统的不确定性，这在多人合作和需求变更时尤为明显。" src="https://os.alipayobjects.com/rmsportal/OWLtvGCGmqawyPt.png">
 
 探索设计规律，并将其抽象成『对象』，增强界面设计的灵活性和可维护性，同时也减少『设计者』的主观干扰，从而降低系统的不确定性。
 

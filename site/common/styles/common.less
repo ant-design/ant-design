@@ -35,7 +35,7 @@ a {
 }
 
 .main-container {
-  padding: 0 8% 120px 4%;
+  padding: 0 6% 120px 4%;
   margin-left: -1px;
   background: #fff;
   min-height: 500px;
@@ -51,6 +51,8 @@ a {
   &.ant-menu-inline > .ant-menu-item,
   &.ant-menu-inline .ant-menu-item a {
     font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   a[disabled] {
@@ -259,6 +261,18 @@ a {
   80% {
     opacity: 1;
     transform: translate(0, 0) rotate(0deg) scale(1, 1);
+  }
+}
+
+@keyframes upDownMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
