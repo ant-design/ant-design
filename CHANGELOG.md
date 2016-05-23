@@ -78,6 +78,7 @@ timeline: true
 - Modal 移除了 `align` 属性，现在可以使用 `style` 属性调整位置。
 - `Modal.confirm` 等方法的配置项 `iconClassName` 重命名为 `iconType`。
 - Select 移除了 `onChange` 中的 `label` 参数，新增了 `labelInValue` 属性。[#1695](https://github.com/ant-design/ant-design/issues/1695)
+- 移除了 `import { Form } from 'antd/lib/form';` 的用法，应统一为 `import { Form } from 'antd';` 或 `import Form from 'antd/lib/form';`。
 
 #### 有兼容提示的改动
 
@@ -109,6 +110,7 @@ timeline: true
 ### 其他改进
 
 - 样式变量梳理，去除了部分无用的变量，另外还有大量样式细节问题修复。
+- 依赖的 normalize.css 升级到 [4.x](https://github.com/necolas/normalize.css/blob/4.1.1/CHANGELOG.md)。
 - 使用 ES2016 classes 重构了代码。[@waywardmonkeys](https://github.com/waywardmonkeys)
 - Popover、Popconfirm 和 Tooltip 组件根据不同的弹出位置有了更精准方向的弹出动画。
 - 补充 Select TreeSelect Switch Radio Checkbox 等组件的 `focus` 表现，增强表单组件的可用性。[#1358](https://github.com/ant-design/ant-design/issues/1358)
