@@ -9,5 +9,6 @@ const path = require('path');
 const execSync = require('child_process').execSync;
 
 if(fs.existsSync(path.join(process.cwd(), '_site'))) {
-  execSync('cp -rf CNAME components _site');
+  execSync('cp CNAME _site');
+  execSync('rsync -R components/**/*.json _site');
 }
