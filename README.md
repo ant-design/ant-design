@@ -44,9 +44,10 @@ import DatePicker from 'antd/lib/date-picker';  // just for js
 Or we recommend use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) with config:
 
 ```js
-plugins: [['antd', {
-  style: 'css'
-}]]
+// .babelrc
+{
+  "plugins": [["antd", { style: "css" }]]
+}
 ```
 
 Then you can import antd modularly and simply:
