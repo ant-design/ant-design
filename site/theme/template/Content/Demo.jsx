@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
-const isLocal = location.port;
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -61,7 +60,7 @@ export default class Demo extends React.Component {
         <section className="code-box-demo">
           {
             meta.iframe ?
-              <iframe src={isLocal ? src : src.replace('./_site', '')} /> :
+              <iframe src={src} /> :
               preview(React, ReactDOM)
           }
           {

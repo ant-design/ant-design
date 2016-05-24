@@ -1,4 +1,20 @@
+const fs = require('fs');
+const path = require('path');
 const JsonML = require('jsonml.js/lib/utils');
+const pkgPath = path.join(process.cwd(), 'package.json');
+const pkgName = require(pkgPath).name;
+
+const nunjucks = require('nunjucks');
+nunjucks.configure({ autoescape: false });
+
+const babel = require('babel-core');
+const babelrc = {
+  presets: ['es2015', 'react'].map((m) => {
+    return require.resolve(`babel-preset-${m}`);
+  }),
+};
+
+const tmpl = fs.readFileSync(path.join(__dirname, 'template.html')).toString();
 
 function isStyleTag(node) {
   return node && JsonML.getTagName(node) === 'style';
@@ -37,9 +53,16 @@ module.exports = (markdownData) => {
   }
 
   markdownData.highlightedCode = contentChildren[codeIndex].slice(0, 2);
-  markdownData.preview = [
+  const preview = [
     'pre', { lang: '__react' },
-  ].concat(JsonML.getChildren(contentChildren[codeIndex]));
+  ];
+  const componentsPath = path.join(process.cwd(), 'components');
+  preview.push([
+    'code',
+    getCode(contentChildren[codeIndex])
+      .replace(`${pkgName}/lib`, componentsPath),
+  ]);
+  markdownData.preview = preview;
 
   const styleNode = contentChildren.find((node) => {
     return isStyleTag(node) ||
@@ -50,6 +73,17 @@ module.exports = (markdownData) => {
   } else if (styleNode) {
     markdownData.style = getCode(styleNode);
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
+  }
+
+  if (meta.iframe) {
+    const html = nunjucks.renderString(tmpl, {
+      id: meta.id,
+      style: markdownData.style,
+      script: babel.transform(getCode(markdownData.preview), babelrc).code,
+    });
+    const fileName = `demo-${Math.random()}.html`;
+    fs.writeFile(path.join(process.cwd(), '_site', fileName), html);
+    markdownData.src = path.join('/', fileName);
   }
 
   return markdownData;
