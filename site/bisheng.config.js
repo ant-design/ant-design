@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  source: ['./components', './docs'],
+  source: ['./components', './docs', './CHANGELOG.md'],
   theme: './site/theme',
   plugins: [
     'bisheng-plugin-description',
@@ -9,10 +9,9 @@ module.exports = {
     './site/bisheng-plugin-antd',
   ],
   webpackConfig(config) {
-    config.resolve.root = process.cwd();
     config.resolve.alias = {
       antd: process.cwd(),
-      site: 'site',
+      site: path.join(process.cwd(), 'site'),
     };
 
     config.module.loaders.forEach((loader) => {

@@ -123,7 +123,7 @@
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
-    "start": "bisheng",
+    "start": "bisheng start -c ./site/bisheng.config.js",
     "site": "antd-tools run site",
     "pre-deploy": "cp CNAME _site && rsync -R components/*/demo/*.json _site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
