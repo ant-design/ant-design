@@ -6,11 +6,9 @@ import Progress from '../progress';
 import classNames from 'classnames';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = function (file, callback) {
+const previewFile = (file, callback) => {
   const reader = new FileReader();
-  reader.onloadend = function () {
-    callback(reader.result);
-  };
+  reader.onloadend = () => callback(reader.result);
   reader.readAsDataURL(file);
 };
 
@@ -70,10 +68,14 @@ export default class UploadList extends React.Component {
             icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
           }
         } else {
-          icon = (<a className={`${prefixCls}-list-item-thumbnail`}
-            onClick={(e) => this.handlePreview(file, e)}
-            href={file.url}
-            target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
+          icon = (
+            <a
+              className={`${prefixCls}-list-item-thumbnail`}
+              onClick={e => this.handlePreview(file, e)}
+              href={file.url}
+              target="_blank">
+              <img src={file.thumbUrl || file.url} alt={file.name} />
+            </a>
           );
         }
       }
@@ -93,14 +95,28 @@ export default class UploadList extends React.Component {
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
-            {file.url
-               ? <a onClick={(e) => this.handlePreview(file, e)} href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
-               : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>}
+            {
+              file.url
+              ? (
+                <a
+                  onClick={(e) => this.handlePreview(file, e)}
+                  href={file.url} target="_blank"
+                  className={`${prefixCls}-list-item-name`}>
+                  {file.name}
+                </a>
+              ) : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>
+            }
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
-                  <a onClick={(e) => this.handlePreview(file, e)} href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
+                  <a
+                    onClick={(e) => this.handlePreview(file, e)}
+                    href={file.url}
+                    target="_blank"
+                    style={{ pointerEvents: file.url ? '' : 'none' }}>
+                    <Icon type="eye-o" />
+                  </a>
                   <Icon type="delete" onClick={() => this.handleClose(file)} />
                 </span>
               ) : <Icon type="cross" onClick={() => this.handleClose(file)} />
