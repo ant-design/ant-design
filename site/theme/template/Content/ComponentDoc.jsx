@@ -110,7 +110,7 @@ export default class ComponentDoc extends React.Component {
             props.utils.toReactComponent(
               ['section', {
                 className: 'markdown api-container',
-              }].concat(getChildren(doc.api || []))
+              }].concat(getChildren(doc.api || ['placeholder']))
             )
           }
         </article>

@@ -1,5 +1,15 @@
 const JsonML = require('jsonml.js/lib/utils');
 
+function isStyleTag(node) {
+  return node && JsonML.getTagName(node) === 'style';
+}
+
+function getCode(node) {
+  return JsonML.getChildren(
+    JsonML.getChildren(node)[0]
+  )[0];
+}
+
 module.exports = (markdownData) => {
   const meta = markdownData.meta;
   meta.id = meta.filename.replace(/\.md$/, '').replace(/\//g, '-');
@@ -26,13 +36,19 @@ module.exports = (markdownData) => {
     markdownData.content = contentChildren.slice(0, codeIndex);
   }
 
-  markdownData.code = contentChildren[codeIndex];
+  markdownData.highlightedCode = contentChildren[codeIndex].slice(0, 2);
+  markdownData.preview = [
+    'pre', { lang: '__react' },
+  ].concat(JsonML.getChildren(contentChildren[codeIndex]));
 
   const styleNode = contentChildren.find((node) => {
-    return JsonML.getTagName(node) === 'pre' &&
-      JsonML.getAttributes(node).lang === 'css';
+    return isStyleTag(node) ||
+      (JsonML.getTagName(node) === 'pre' && JsonML.getAttributes(node).lang === 'css');
   });
-  if (styleNode) {
+  if (isStyleTag(styleNode)) {
+    markdownData.style = JsonML.getChildren(styleNode)[0];
+  } else if (styleNode) {
+    markdownData.style = getCode(styleNode);
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
   }
 

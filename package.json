@@ -89,6 +89,7 @@
     "eslint-plugin-markdown": "*",
     "eslint-plugin-react": "^5.0.1",
     "eslint-tinker": "^0.3.1",
+    "esprima-fb": "^15001.1001.0-dev-harmony-fb",
     "history": "^2.0.1",
     "intl": "^1.2.2",
     "intl-locales-supported": "^1.0.0",
@@ -113,6 +114,7 @@
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "^1.0.2",
     "react-sublime-video": "^0.2.0-beta",
+    "recast": "^0.11.5",
     "reqwest": "^2.0.5",
     "values.js": "^1.0.3",
     "webpack-babel-jest": "^1.0.4"

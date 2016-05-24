@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 const isLocal = location.port;
 
@@ -32,9 +33,9 @@ export default class Demo extends React.Component {
     const {
       meta,
       src,
-      preview,
       content,
-      code,
+      preview,
+      highlightedCode,
       style,
       highlightedStyle,
     } = props;
@@ -61,7 +62,7 @@ export default class Demo extends React.Component {
           {
             meta.iframe ?
               <iframe src={isLocal ? src : src.replace('./_site', '')} /> :
-              preview
+              preview(React, ReactDOM)
           }
           {
             !!style ?
@@ -83,7 +84,7 @@ export default class Demo extends React.Component {
         <section className={highlightClass}
           key="code">
           <div className="highlight">
-            {props.utils.toReactComponent(code)}
+            {props.utils.toReactComponent(highlightedCode)}
           </div>
           {
             highlightedStyle ?

@@ -12,3 +12,6 @@ import './not-found.less';
 import './font.less';
 import './highlight.less';
 import './demo.less';
+import './colors.less';
+import './mock-browser.less';
+import './new-version-info-modal.less';
