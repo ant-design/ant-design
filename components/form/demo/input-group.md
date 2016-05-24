@@ -23,6 +23,7 @@ ReactDOM.render(
     <FormItem
       label="标签输入框："
       labelCol={{ span: 6 }}
+      validateStatus="success"
       wrapperCol={{ span: 16 }}>
       <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" id="site2" />
     </FormItem>

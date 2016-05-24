@@ -264,9 +264,10 @@ form {
     position: absolute;
     top: 0;
     right: 0;
+    visibility: visible;
     font-family: "anticon" !important;
     .square(@input-height-lg);
-    line-height: @input-height-lg;
+    line-height: @input-height-lg + 2;
     text-align: center;
     font-size: 14px;
     animation: zoomIn .3s @ease-out-back;
@@ -292,7 +293,6 @@ form {
 }
 
 .has-success {
-  .form-control-validation(@success-color; @input-hover-border-color;);
   .ant-input {
     border-color: @input-border-color;
     box-shadow: none;
