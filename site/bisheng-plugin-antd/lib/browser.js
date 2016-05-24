@@ -1,5 +1,4 @@
 const React = require('react');
-const ReactDOM = require('react-dom');
 const Link = require('react-router').Link;
 const toReactComponent = require('jsonml-to-react-component');
 const JsonML = require('jsonml.js/lib/utils');
@@ -13,13 +12,7 @@ function isHeading(node) {
 module.exports = () => {
   return {
     converters: [
-      [(node) => React.isValidElement(node), (node, index) => {
-        return React.cloneElement(node, { key: index });
-      }],
-      [(node) => typeof node === 'function', (node, index) => {
-        return React.cloneElement(node(React, ReactDOM), { key: index });
-      }],
-      [(node) => isHeading(node), (node, index) => {
+      [(node) => JsonML.isElement(node) && isHeading(node), (node, index) => {
         const children = JsonML.getChildren(node);
         return React.createElement(JsonML.getTagName(node), {
           key: index,
@@ -30,13 +23,14 @@ module.exports = () => {
           <a href={`#${children}`} className="anchor" key="anchor">#</a>,
         ]);
       }],
-      [(node) => JsonML.getTagName(node) === 'video', (node, index) =>
+      [(node) => JsonML.isElement(node) && JsonML.getTagName(node) === 'video', (node, index) =>
         <VideoPlayer video={JsonML.getAttributes(node)} key={index} />,
       ],
       [(node) => JsonML.isElement(node) && JsonML.getTagName(node) === 'a' && !(
         JsonML.getAttributes(node).class ||
           (JsonML.getAttributes(node).href &&
-           JsonML.getAttributes(node).href.indexOf('http') === 0)
+           JsonML.getAttributes(node).href.indexOf('http') === 0) ||
+          /^#/.test(JsonML.getAttributes(node).href)
       ), (node, index) => {
         return <Link to={JsonML.getAttributes(node).href} key={index}>{toReactComponent(JsonML.getChildren(node)[0])}</Link>;
       }],

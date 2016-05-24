@@ -42,16 +42,6 @@ export default class Article extends React.Component {
   render() {
     const props = this.props;
     const content = props.content;
-    const jumper = (content.toc || []).map((node, index) => {
-      const headingText = getChildren(node)[0];
-      return (
-        <li key={index}>
-          <a href={`#${headingText}`}>
-          {props.utils.toReactComponent(headingText)}
-          </a>
-        </li>
-      );
-    });
 
     const { meta, description } = content;
     const { title, subtitle, chinese, english } = meta;
@@ -72,9 +62,8 @@ export default class Article extends React.Component {
               )
           }
           {
-            (jumper.length > 0 && meta.toc !== false) ?
-              <section className="toc"><ul>{jumper}</ul></section> :
-              null
+            !content.toc ? null :
+              <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
             this.getArticle(props.utils.toReactComponent(

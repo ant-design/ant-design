@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2',
+    'bisheng-plugin-react?lang=__react',
     './site/bisheng-plugin-antd',
   ],
   webpackConfig(config) {
@@ -13,11 +14,6 @@ module.exports = {
       antd: process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
-
-    config.module.loaders.forEach((loader) => {
-      if (loader.test.toString() !== '/\\.md$/') return;
-      loader.loaders.splice(1, 0, path.join(process.cwd(), 'site/bisheng-markdown-react-loader'));
-    });
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-antd'),
