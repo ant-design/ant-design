@@ -1,7 +1,11 @@
 const path = require('path');
 
 module.exports = {
-  source: ['./components', './docs', './CHANGELOG.md'],
+  source: [
+    './components',
+    './docs',
+    'CHANGELOG.md', // TODO: fix it in bisheng
+  ],
   theme: './site/theme',
   plugins: [
     'bisheng-plugin-description',
