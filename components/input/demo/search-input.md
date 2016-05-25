@@ -1,9 +1,9 @@
 ---
-order: 10
+order: 4
 title: 搜索框
 ---
 
-带有搜索按钮。
+带有搜索按钮的输入框。
 
 ````jsx
 import { Input, Button } from 'antd';

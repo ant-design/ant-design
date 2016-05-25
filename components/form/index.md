@@ -20,18 +20,12 @@ english: Form
 
 表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。
 
-这里我们分别封装了表单域 `<Form.Item />` 和输入控件 `<Input />`。
+这里我们封装了表单域 `<Form.Item />` 。
 
 ```jsx
 <Form.Item {...props}>
   {children}
 </Form.Item>
-```
-
-## Input 输入框
-
-```jsx
-<Input {...props} />
 ```
 
 > 注：标准表单中一律使用大号控件。
@@ -118,34 +112,6 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | bool |  | false  |
 | prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
-### Input
-
-| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-| type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
-| id | id | number 或 string |  |   |
-| value | value 值 | any |  | |
-| defaultValue | 设置初始默认值 | any |  |  |
-| size | 控件大小，默认值为 default 。注：标准表单内的输入框大小限制为 large。 | string | {'large','default','small'} |  'default' |
-| disabled | 是否禁用状态，默认为 false | bool |  |  false |
-| addonBefore | 带标签的 input，设置前置标签 | node |  |   |
-| addonAfter | 带标签的 input，设置后置标签 | node |  |   |
-| onPressEnter | 按下回车的回调 | function(e) |  |  |
-
-> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
-
-#### Input.Group
-
-| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-|  size | `Input.Group` 中所有的 `Input` 的大小 | string | {'large','default','small'} |  'default' |
-
-```html
-<Input.Group className={string}>
-  <Input />
-  <Input />
-</Input.Group>
-```
 
 <style>
 .code-box-demo .ant-form-horizontal {
