@@ -16,6 +16,6 @@ ReactDOM.render(<div>
   <Tag>标签一</Tag>
   <Tag>标签二</Tag>
   <Tag closable onClose={onClose}>标签三</Tag>
-  <Tag><a href="https://www.alipay.com/" target="_blank">标签四（链接）</a></Tag>
+  <Tag closable><a href="https://www.alipay.com/" target="_blank">标签四（链接）</a></Tag>
 </div>, mountNode);
 ````
