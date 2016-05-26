@@ -7,6 +7,7 @@ module.exports = {
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
   theme: './site/theme',
+  htmlTemplate: './site/theme/static/template.html',
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2',
