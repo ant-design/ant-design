@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 import { findDOMNode } from 'react-dom';
-import { isCssAnimationSupported } from 'css-animation';
+import isCssAnimationSupported from '../util/isCssAnimationSupported';
 
 function getNumberArray(num) {
   return num ?
@@ -38,7 +38,7 @@ export default class ScrollNumber extends React.Component {
   }
 
   componentDidMount() {
-    if (!isCssAnimationSupported) {
+    if (!isCssAnimationSupported()) {
       findDOMNode(this).className += ' not-support-css-animation';
     }
   }

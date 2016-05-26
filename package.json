@@ -36,7 +36,6 @@
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
-    "css-animation": "~1.2.3",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
     "normalize.css": "^4.1.1",
