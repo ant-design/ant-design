@@ -262,9 +262,11 @@ export default class Table extends React.Component {
       }
     });
 
-    // Reset current prop
-    pagination.current = 1;
-    pagination.onChange(pagination.current);
+    if (props.pagination) {
+      // Reset current prop
+      pagination.current = 1;
+      pagination.onChange(pagination.current);
+    }
 
     const newState = {
       selectionDirty: false,
