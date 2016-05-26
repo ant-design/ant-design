@@ -12,6 +12,7 @@ export default class Tabs extends React.Component {
     type: 'line', // or 'card' 'editable-card'
     onChange() {},
     onEdit() {},
+    hideAdd: false,
   }
 
   createNewTab = (targetKey) => {
@@ -32,7 +33,7 @@ export default class Tabs extends React.Component {
 
   render() {
     let { prefixCls, size, tabPosition, animation, type,
-          children, tabBarExtraContent } = this.props;
+          children, tabBarExtraContent, hideAdd } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
       [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
@@ -55,12 +56,14 @@ export default class Tabs extends React.Component {
         });
       });
       // Add new tab handler
-      tabBarExtraContent = (
-        <span>
-          <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
-          {tabBarExtraContent}
-        </span>
-      );
+      if (!hideAdd) {
+        tabBarExtraContent = (
+          <span>
+            <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
+            {tabBarExtraContent}
+          </span>
+        );
+      }
     }
 
     tabBarExtraContent = tabBarExtraContent ? (
