@@ -1,7 +1,7 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
-import { isCssAnimationSupported } from 'css-animation';
+import isCssAnimationSupported from '../util/isCssAnimationSupported';
 import warning from 'warning';
 
 export default class Spin extends React.Component {
@@ -29,7 +29,7 @@ export default class Spin extends React.Component {
 
   componentDidMount() {
     warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
-    if (!isCssAnimationSupported) {
+    if (!isCssAnimationSupported()) {
       // Show text in IE8/9
       findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
     }

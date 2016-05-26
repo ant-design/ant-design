@@ -27,11 +27,6 @@ label {
   color: @label-required-color;
 }
 
-//== Style for input-group: input with label, with button or dropdown...
-.ant-input-group {
-  .input-group(~"ant-input");
-}
-
 // Radio && Checkbox
 input[type="radio"],
 input[type="checkbox"] {
@@ -41,6 +36,7 @@ input[type="checkbox"] {
     cursor: @cursor-disabled;
   }
 }
+
 // These classes are used directly on <label>s
 .ant-radio-inline,
 .ant-radio-vertical,
@@ -201,40 +197,6 @@ form {
   }
 }
 
-.ant-search-input-wrapper {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.ant-search-input {
-  &.ant-input-group .ant-input:first-child {
-    border-radius: @border-radius-base;
-    position: absolute;
-    top: -1px;
-  }
-  .ant-search-btn {
-    .btn-default;
-    border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
-    left: -1px;
-    position: relative;
-    border-width: 0 0 0 1px;
-    z-index: 2;
-    padding-left: 8px;
-    padding-right: 8px;
-    &:hover {
-      border-color: @border-color-base;
-    }
-    form & {
-      padding-top: 6px;
-      padding-bottom: 6px;
-    }
-  }
-  &&-focus .ant-search-btn-noempty,
-  &:hover .ant-search-btn-noempty {
-    .btn-primary;
-  }
-}
-
 // Form layout
 //== Horizontal Form
 .@{form-prefix-cls}-horizontal {
@@ -302,9 +264,10 @@ form {
     position: absolute;
     top: 0;
     right: 0;
+    visibility: visible;
     font-family: "anticon" !important;
     .square(@input-height-lg);
-    line-height: @input-height-lg;
+    line-height: @input-height-lg + 2;
     text-align: center;
     font-size: 14px;
     animation: zoomIn .3s @ease-out-back;
@@ -330,7 +293,6 @@ form {
 }
 
 .has-success {
-  .form-control-validation(@success-color; @input-hover-border-color;);
   .ant-input {
     border-color: @input-border-color;
     box-shadow: none;

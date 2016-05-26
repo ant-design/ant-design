@@ -36,7 +36,6 @@
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
-    "css-animation": "~1.2.3",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
     "normalize.css": "^4.1.1",
@@ -72,7 +71,7 @@
     "warning": "~2.1.0"
   },
   "devDependencies": {
-    "antd-tools": "^0.7.0",
+    "antd-tools": "^0.8.0",
     "babel-eslint": "^6.0.2",
     "babel-jest": "^12.0.2",
     "babel-plugin-antd": "^0.4.0",
@@ -120,6 +119,7 @@
     "clean": "antd-tools run clean",
     "start": "antd-tools run start",
     "site": "antd-tools run site",
+    "pre-deploy": "cp CNAME _site && rsync -R components/*/demo/*.json _site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
