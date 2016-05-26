@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "title": "Ant Design",
   "description": "一个 UI 设计语言",
   "homepage": "http://ant.design/",
@@ -36,6 +36,7 @@
   "dependencies": {
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
+    "css-animation": "^1.2.5",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
     "normalize.css": "^4.1.1",
