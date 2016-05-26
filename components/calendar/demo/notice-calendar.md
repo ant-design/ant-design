@@ -1,9 +1,17 @@
 ---
 order: 2
-title: 通知事项日历演示
+title:
+  zh-CN: 通知事项日历演示
+  en-US: A demo of Notice Calendar
 ---
 
-一个复杂的应用实例。
+## zh-CN
+
+一个复杂的应用示例。
+
+## en_US
+
+A complex application.
 
 ````jsx
 import { Calendar } from 'antd';
