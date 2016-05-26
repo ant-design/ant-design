@@ -76,6 +76,7 @@ export default class Affix extends React.Component {
             position: 'fixed',
             top: offsetTop,
             left: elemOffset.left,
+            width: ReactDOM.findDOMNode(this).offsetWidth,
           },
         });
       }
@@ -88,6 +89,7 @@ export default class Affix extends React.Component {
             position: 'fixed',
             bottom: offsetBottom,
             left: elemOffset.left,
+            width: ReactDOM.findDOMNode(this).offsetWidth,
           },
         });
       }
