@@ -1,9 +1,18 @@
 ---
 order: 3
-title: 更灵活的内容展示
+title:
+  zh-CN: 更灵活的内容展示
+  en-US: Customized content
 ---
 
+## zh-CN
+
 可以调整默认边距，设定宽度。
+
+## en-US
+
+Customizing default width and margin.
+
 
 ````jsx
 import { Card } from 'antd';
@@ -14,7 +23,7 @@ ReactDOM.render(
       <img alt="example" width="100%" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
     </div>
     <div className="custom-card">
-      <h3>欧美街拍</h3>
+      <h3>Europe Street beat</h3>
       <p>www.instagram.com</p>
     </div>
   </Card>
