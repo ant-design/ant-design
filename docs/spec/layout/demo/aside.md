@@ -9,7 +9,7 @@ title: 侧边导航
 
 ````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
-import BrowserDemo from 'site/theme/template/BrowserDemo';
+import BrowserDemo from 'site/component/BrowserDemo';
 const SubMenu = Menu.SubMenu;
 
 ReactDOM.render(
