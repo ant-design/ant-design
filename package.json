@@ -120,7 +120,7 @@
     "clean": "antd-tools run clean",
     "start": "antd-tools run start",
     "site": "antd-tools run site",
-    "pre-deploy": "cp CNAME _site && rsync -R components/*/demo/*.json _site",
+    "pre-deploy": "cp CNAME _site",
     "deploy": "antd-tools run update-self && antd-tools run deploy",
     "just-deploy": "antd-tools run just-deploy",
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
