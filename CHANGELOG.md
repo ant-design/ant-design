@@ -12,19 +12,19 @@ timeline: true
 
 `2016-05-26`
 
-- Affix 
+- Input 组件的文档现在和 Form 分离。 [3c98d3](https://github.com/ant-design/ant-design/commit/3c98d3f80f4ec80066756adc3b4108141d4383ca)
+- Affix
   - 新增了 `onChange` 属性。当固定状态改变时回调 [#1777](https://github.com/ant-design/ant-design/issues/1777)
-  - 找回了从 affixStyle 中走失的 `width` 属性 [#1820](https://github.com/ant-design/ant-design/issues/1820)
-- Table  
+  - 找回了从 affixStyle 中走失的 `width` 属性，修复固定后错位的问题。[#1820](https://github.com/ant-design/ant-design/issues/1820)
+- Table
   - 修复了 Table 组件的分页相关的一系列问题 [#1669](https://github.com/ant-design/ant-design/issues/1669) [#1842](https://github.com/ant-design/ant-design/issues/1842)
   - 修复了当有列固定在左边时，选择框不显示的问题 [#1829](https://github.com/ant-design/ant-design/issues/1829)
 - 修复了当 Checkbox 的 label 为数字 0 时， label 不显示的问题 [#1811](https://github.com/ant-design/ant-design/issues/1811)
 - 修复了 Tag 组件为 closeable 时，内部链接无法点击的问题 [#1862](https://github.com/ant-design/ant-design/issues/1862)
 - Tab 组件新增 `hideAdd` 属性，用于关闭右边的添加按钮 [#1750](https://github.com/ant-design/ant-design/issues/1750)
-- 更新了 TreeSelect 的文档 [edc9014d13b](https://github.com/ant-design/ant-design/commit/edc9014d13b)
-- Input 组件的文档现在和 Form 分离。 [3c98d3](https://github.com/ant-design/ant-design/commit/3c98d3f80f4ec80066756adc3b4108141d4383ca)
-- 优化了文档中 API 参数说明表格的字体  [#1824](https://github.com/ant-design/ant-design/pull/1824)
-- 更新了第三方依赖
+- 修复了一个在某些情况下找不到 `normalize.css/normalize.css` 文件的问题。[ant-design/antd-init#52](https://github.com/ant-design/antd-init/issues/52)
+- 修复构建文件在 IE8 下报错的问题。[#1804](https://github.com/ant-design/ant-design/issues/1804)
+- 更新了第三方依赖。
 
 ## 1.1.0
 
