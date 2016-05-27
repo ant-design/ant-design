@@ -86,12 +86,13 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 > 在表单中 `defaultValue` 也不应该被设置，请使用下面的 `initialValue`。
 
-| 参数      | 说明                                     | 类型 |默认值 |
+| 参数      | 说明                                     | 类型 | 默认值 |
 |-----------|-----------------------------------------|-----|--------|
 | options.id | 必填输入控件唯一标志 | string | |
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
+| options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：`(date, dateString) => dateString` | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | 校验子节点值的时机 | string | 'onChange' |
 | options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | |
 | options.onXXX | 由于 `getFieldProps` 会占用 `onChange` 等事件（即你所设置的 `trigger` `validateTrigger`），所以如果仍需绑定事件，请在 `options` 内设置 | function | 无 |
