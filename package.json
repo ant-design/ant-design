@@ -29,7 +29,7 @@
   "files": [
     "dist",
     "lib",
-    "type-definitions"
+    "index.d.ts"
   ],
   "typings": "type-definitions/antd.d.ts",
   "license": "MIT",
