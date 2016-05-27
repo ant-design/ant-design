@@ -6,7 +6,7 @@ title: 校验其他组件
 提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
 
 ````jsx
-import { Select, Radio, Checkbox, Button, DatePicker, InputNumber, Form, Cascader, Icon } from 'antd';
+import { Select, Radio, Checkbox, Button, DatePicker, TimePicker, InputNumber, Form, Cascader, Icon } from 'antd';
 const Option = Select.Option;
 const RadioGroup = Radio.Group;
 const createForm = Form.create;
@@ -84,10 +84,16 @@ let Demo = React.createClass({
         {
           required: true,
           type: 'date',
-          message: '你的生日是什么呢?',
+          message: '你的生日是什么呢？',
         }, {
           validator: this.checkBirthday,
         },
+      ],
+    });
+    const timeProps = getFieldProps('time', {
+      getValueFromEvent: (value, timeString) => timeString,
+      rules: [
+        { required: true, message: '请选择一个时间' },
       ],
     });
     const primeNumberProps = getFieldProps('primeNumber', {
@@ -154,6 +160,12 @@ let Demo = React.createClass({
           {...formItemLayout}
           label="生日：">
           <DatePicker {...birthdayProps} />
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="选一个时间：">
+          <TimePicker {...timeProps} />
         </FormItem>
 
         <FormItem
