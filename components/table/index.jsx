@@ -742,7 +742,7 @@ export default class Table extends React.Component {
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
       <div className={`${emptyClass} ${className} clearfix`} style={style}>
-        {<Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>}
+        {table}
         {this.renderPagination()}
       </div>
     );
