@@ -9,7 +9,7 @@ title: 吊顶规范
 
 ````jsx
 import { Menu, Breadcrumb } from 'antd';
-import BrowserDemo from 'site/theme/template/BrowserDemo';
+import BrowserDemo from 'site/component/BrowserDemo';
 
 ReactDOM.render(
   <BrowserDemo>
