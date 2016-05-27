@@ -5,7 +5,7 @@
 
 import * as React from 'react'
 
-declare namespace Antd {
+declare module "antd" {
   // Affix
   interface AffixProps {
     /**
@@ -2003,7 +2003,4 @@ declare namespace Antd {
   }
   export class LocaleProvider extends React.Component<LocaleProviderProps, {}>{
   }
-
 }
-
-export = Antd;
