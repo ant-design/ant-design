@@ -9,7 +9,6 @@ title: 所有组件
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
          Popconfirm, Table, Modal, Button, Select, Transfer, Radio } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
-import ruRU from 'antd/lib/locale-provider/ru_RU';
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
 
@@ -110,7 +109,6 @@ const App = React.createClass({
           <span style={{ marginRight: 16 }}>Change locale of components: </span>
           <Radio.Group defaultValue={enUS} onChange={this.changeLocale}>
             <Radio.Button key="en" value={enUS}>English</Radio.Button>
-            <Radio.Button key="ru" value={ruRU}>русский язык</Radio.Button>
             <Radio.Button key="cn">中文</Radio.Button>
           </Radio.Group>
         </div>

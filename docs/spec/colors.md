@@ -157,6 +157,7 @@ ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 `````__react
 const Values = require('values.js');
 const CopyToClipboard = require('react-copy-to-clipboard');
+const antd = require('antd');
 const Button = antd.Button;
 const InputNumber = antd.InputNumber;
 const Slider = antd.Slider;
