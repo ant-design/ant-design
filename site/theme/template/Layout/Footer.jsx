@@ -103,6 +103,7 @@ export default class Footer extends React.Component {
           </li>
           <li>
             <div>©2016 蚂蚁金服体验技术部出品</div>
+            <div>Powered by <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
             <div style={{ marginTop: 10 }}>
               文档版本：
               <Select
