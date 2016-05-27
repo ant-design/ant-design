@@ -26,3 +26,4 @@ dist
 /lib
 elasticsearch-*
 config/base.yaml
+typings
