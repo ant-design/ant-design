@@ -19,3 +19,4 @@ english: Tooltip
 |-----------|------------------------------------------|------------|--------|
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
 | title     | 提示文字                                 | string/React.Element | 无     |
+| getTooltipContainer | 浮层渲染父节点。默认渲染到 body 上 | Function(triggerNode) | () => document.body |
