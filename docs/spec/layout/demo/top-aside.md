@@ -7,7 +7,7 @@ title: 顶部导航 + 侧边栏
 
 ````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
-import BrowserDemo from 'site/component/BrowserDemo';
+import BrowserDemo from 'site/theme/template/BrowserDemo';
 const SubMenu = Menu.SubMenu;
 
 ReactDOM.render(

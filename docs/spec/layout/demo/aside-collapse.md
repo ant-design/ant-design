@@ -7,7 +7,7 @@ title: 可收起展开的侧边导航
 
 ````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
-import BrowserDemo from 'site/component/BrowserDemo';
+import BrowserDemo from 'site/theme/template/BrowserDemo';
 const SubMenu = Menu.SubMenu;
 
 const AsideCollapse = React.createClass({
