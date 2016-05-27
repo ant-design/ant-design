@@ -71,7 +71,8 @@ module.exports = (markdownData) => {
   if (isStyleTag(styleNode)) {
     markdownData.style = JsonML.getChildren(styleNode)[0];
   } else if (styleNode) {
-    markdownData.style = getCode(styleNode);
+    const styleTag = contentChildren.find(isStyleTag);
+    markdownData.style = getCode(styleNode) + (styleTag ? JsonML.getChildren(styleTag)[0] : '');
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
   }
 
