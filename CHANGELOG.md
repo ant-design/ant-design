@@ -8,6 +8,12 @@ timeline: true
 你也可以查看 GitHub 上的 [发布日志](https://github.com/ant-design/ant-design/releases)。
 
 ---
+## 1.1.1
+
+2016-05-27
+
+-  修复了 Select 组件的样式问题
+
 ## 1.2.0
 
 `2016-05-26`
