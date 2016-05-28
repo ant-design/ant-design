@@ -42,6 +42,15 @@ export default class Button extends React.Component {
     icon: React.PropTypes.string,
   }
 
+  componentWillUnmount() {
+    if (this.clickedTimeout) {
+      clearTimeout(this.clickedTimeout);
+    }
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+  }
+
   clearButton = (button) => {
     button.className = button.className.replace(` ${this.props.prefixCls}-clicked`, '');
   }
@@ -50,7 +59,7 @@ export default class Button extends React.Component {
     // Add click effect
     const buttonNode = findDOMNode(this);
     this.clearButton(buttonNode);
-    setTimeout(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`, 10);
+    this.clickedTimeout = setTimeout(() => buttonNode.className += ` ${this.props.prefixCls}-clicked`, 10);
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 
