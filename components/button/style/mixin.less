@@ -35,6 +35,20 @@
   color: @color;
   background-color: @background;
   border-color: @border;
+  // a inside Button which only work in Chrome
+  // http://stackoverflow.com/a/17253457
+  > a:only-child {
+    color: currentColor;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: transparent;
+    }
+  }
 }
 
 .button-group-base(@btnClassName) {
