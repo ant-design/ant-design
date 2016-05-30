@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 走马灯
 type: Presentation
-english: Carousel
+title: Carousel
+subtitle: 走马灯
 ---
 
 旋转木马，一组轮播的区域。
