@@ -1,9 +1,16 @@
 ---
 order: 2
-title: 多选
+title: 
+  zh-CN: 多选
+  en-US: mutiple selection
 ---
 
+## zh-CN
 多选，从已有条目中选择（scroll the menu）
+
+## en-US
+
+Multiple selection, select from exist items (scroll the menu).
 
 ````jsx
 import { Select } from 'antd';

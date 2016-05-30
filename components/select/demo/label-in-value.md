@@ -1,11 +1,19 @@
 ---
 order: 10
-title: 获得选项的文本
+title: 
+  zh-CN: 获得选项的文本
+  en-US: Get value of selected item
 ---
 
+## zh-CN
 默认情况下 `onChange` 里只能拿到 value，如果需要拿到选中的节点文本 label，可以使用 `labelInValue` 属性。
 
 选中项的 label 会被包装到 value 中传递给 `onChange` 等函数，此时 value 是一个对象。
+
+## en-US
+As a default behavior, `onChange` callback can only get value of selected item. For getting label property of selected item, you can use `labelInValue` props.
+
+Label of selected item will be packed as an object for passing to `onChange` callback.
 
 ````jsx
 import { Select } from 'antd';

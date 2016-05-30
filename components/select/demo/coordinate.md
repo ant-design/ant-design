@@ -1,11 +1,19 @@
 ---
 order: 6
-title: 联动
+title: 
+  zh-CN: 联动
+  en-US: coordinate
 ---
 
+## zh-CN
 省市联动是典型的例子。
 
 推荐使用 [Cascader](/components/cascader) 组件。
+
+## en-US
+Coordination of Province and Cities is a classic demostration.
+
+[Cascader](/components/cascader) component is strongly recommend.
 
 ````jsx
 import { Select } from 'antd';

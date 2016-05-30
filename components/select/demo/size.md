@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 三种大小
+title: 
+  zh-CN: 三种大小
+  en-US: three sizes
 ---
 
+## zh-CN
+
 三种大小的选择框，当 size 分别为 `large` 和 `small` 时，输入框高度为 `32px` 和 `22px` ，默认高度为 `28px`
+
+## en-US
+
+Select of three sizes. The height of input field will be `32px` when `size` get `large`, `22px` when `small`, and default to `28px`.
 
 ````jsx
 import { Select } from 'antd';
