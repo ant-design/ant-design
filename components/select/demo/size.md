@@ -13,7 +13,6 @@ title:
 
 The height of the inpub field for the select defaults to 28px. If size is set to large, the height will be 32px, and if set to small, 22px.
 
-
 ````jsx
 import { Select } from 'antd';
 const Option = Select.Option;
