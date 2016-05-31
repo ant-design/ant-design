@@ -115,7 +115,6 @@ timeline: true
 - Progress.Circle 使用方式改为 `<Progress type="circle" />`。
 - Spin 的 `spining` 属性更正为 `spinning`。
 - Alert 的 type `warn` 重命名为 `warning`。[#1225](https://github.com/ant-design/ant-design/issues/1225)
-- `notification.warn`、`message.warn` 修改为 `notification.warning` 和 `message.warning`。[#1225](https://github.com/ant-design/ant-design/issues/1225)
 - Tree 的 `onExpand` 参数从 `function(node, expanded, expandedKeys)` 调整为 `function(expandedKeys, {expanded, node})`。
 
 ### Bug 修复

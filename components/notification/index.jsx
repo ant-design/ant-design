@@ -1,7 +1,6 @@
 import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
-import warning from 'warning';
 
 let defaultTop = 24;
 let notificationInstance;
@@ -95,10 +94,6 @@ const api = {
   api[type] = (args) => api.open({ ...args, icon: type });
 });
 
-// warn: Departed usage, please use warning()
-api.warn = (...args) => {
-  warning(false, 'notification.warn() is departed, please use notification.warning()');
-  api.warning(...args);
-};
+api.warn = api.warning;
 
 export default api;

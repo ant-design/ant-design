@@ -31,7 +31,7 @@ Modal.error = function (props) {
   return confirm(config);
 };
 
-Modal.warning = function (props) {
+Modal.warning = Modal.warn = function (props) {
   const config = {
     type: 'warning',
     iconType: 'exclamation-circle',

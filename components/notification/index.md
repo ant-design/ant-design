@@ -22,6 +22,7 @@ english: Notification
 - `notification.error(config)`
 - `notification.info(config)`
 - `notification.warning(config)`
+- `notification.warn(config)`
 - `notification.close(key: String)`
 - `notification.destroy()`
 
