@@ -1,7 +1,7 @@
 jest.unmock('../index');
 
 import React from 'react';
-import antd from '../index';
+import * as antd from '../index';
 
 describe('antd', function() {
   it('should has modules in antd', () => {
