@@ -10,7 +10,7 @@ title:
 
 ## en-US
 
-Autocomplete select with search field
+Autocomplete select with search field.
 
 ````jsx
 import { Input, Select, Button, Icon } from 'antd';

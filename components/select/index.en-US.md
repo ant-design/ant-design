@@ -8,7 +8,7 @@ A Selector similar to Select2.
 
 ## When to use
 
-Select provides a dropdown menu for choosen, for replacing origin selector, or demanding of a elegent one.
+A dropdown menu for choosing, an elegant alternative to the native select component.
 
 ```html
 <Select>

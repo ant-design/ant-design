@@ -10,7 +10,7 @@ title:
 
 ## en-US
 
-Multiple selection, select from exist items (scroll the menu).
+Multiple selection, selecting from existing items (scroll the menu).
 
 ````jsx
 import { Select } from 'antd';

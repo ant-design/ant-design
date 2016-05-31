@@ -2,7 +2,7 @@
 order: 0
 title: 
   zh-CN: 三种大小
-  en-US: three sizes
+  en-US: Three sizes
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Select of three sizes. The height of input field will be `32px` when `size` get `large`, `22px` when `small`, and default to `28px`.
+The height of the inpub field for the select defaults to 28px. If size is set to large, the height will be 32px, and if set to small, 22px.
 
 ````jsx
 import { Select } from 'antd';

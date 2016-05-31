@@ -10,7 +10,7 @@ title:
 
 ## en-US
 
-using `OptGroup` to group the options.
+Using `OptGroup` to group the options.
 
 ````jsx
 import { Select } from 'antd';
