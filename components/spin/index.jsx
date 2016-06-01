@@ -1,7 +1,7 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
-import isCssAnimationSupported from '../util/isCssAnimationSupported';
+import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import warning from 'warning';
 
 export default class Spin extends React.Component {

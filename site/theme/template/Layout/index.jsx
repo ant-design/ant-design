@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as antd from '../../../../index';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
@@ -10,7 +11,7 @@ import '../../static/style';
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
-window.antd = require('antd');
+window.antd = antd;
 
 // Enable Google Analytics
 if (!location.port) {
