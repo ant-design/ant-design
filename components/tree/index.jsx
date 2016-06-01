@@ -1,6 +1,6 @@
 import React from 'react';
 import RcTree from 'rc-tree';
-import animation from '../util/openAnimation';
+import animation from '../_util/openAnimation';
 
 export default class Tree extends React.Component {
   static TreeNode = RcTree.TreeNode;

@@ -1,6 +1,6 @@
 import React, { createElement } from 'react';
 import { findDOMNode } from 'react-dom';
-import isCssAnimationSupported from '../util/isCssAnimationSupported';
+import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 
 function getNumberArray(num) {
   return num ?
