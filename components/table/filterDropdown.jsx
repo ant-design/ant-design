@@ -62,13 +62,12 @@ export default class FilterMenu extends React.Component {
   }
 
   renderMenus(items) {
-    let menuItems = items.map(item => {
+    return items.map(item => {
       if (item.children && item.children.length > 0) {
-        const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
-        const containSelected = Object.keys(keyPathOfSelectedItem).some(key => {
-          const keyPath = keyPathOfSelectedItem[key];
-          return keyPath.indexOf(item.value) >= 0;
-        });
+        const { keyPathOfSelectedItem } = this.state;
+        const containSelected = Object.keys(keyPathOfSelectedItem).some(
+          key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0
+        );
         const subMenuCls = containSelected ? 'ant-dropdown-submenu-contain-selected' : '';
         return (
           <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
@@ -78,7 +77,6 @@ export default class FilterMenu extends React.Component {
       }
       return this.renderMenuItem(item);
     });
-    return menuItems;
   }
 
   handleMenuItemClick = (info) => {
