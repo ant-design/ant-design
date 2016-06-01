@@ -317,12 +317,16 @@
     }
   }
 
+  &-expand-icon-th {
+    width: 34px;
+  }
+
   &-row {
     &-expand-icon {
       cursor: pointer;
       display: inline-block;
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       text-align: center;
       line-height: 15px;
       border: 1px solid @border-color-split;
@@ -389,6 +393,11 @@
       width: auto;
       background: #fff;
     }
+  }
+
+  &-fixed-left &-fixed,
+  &-fixed-right &-fixed {
+    border-radius: 0;
   }
 
   &-fixed-left {
