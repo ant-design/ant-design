@@ -427,6 +427,12 @@
     table {
       border-radius: 0 @border-radius-base 0 0;
     }
+    // hide expand row content in right-fixed Table
+    // https://github.com/ant-design/ant-design/issues/1898
+    .@{table-prefix-cls}-expanded-row {
+      color: transparent;
+      pointer-events: none;
+    }
   }
 
   &&-scroll-position-left &-fixed-left {
