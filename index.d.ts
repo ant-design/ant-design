@@ -38,6 +38,8 @@ interface AlertProps {
   message:React.ReactNode,
   /**可选参数，警告提示的辅助性文字介绍 */
   description?:React.ReactNode,
+  /** 固定状态改变时触发的回调函数 */
+  onChange?:(affixed: boolean) => void,
   /**可选参数，关闭时触发的回调函数 */
   onClose?:Function,
   /**可选参数，是否显示辅助图标 */
@@ -1528,6 +1530,8 @@ interface TabsProps extends React.Props<Tabs> {
   activeKey?:string,
   /** 初始化选中面板的 key，如果没有设置 activeKey*/
   defaultActiveKey?:string,
+  /** 是否隐藏加号图标，在 `type="editable-card"` 时有效 */
+  hideAdd?: boolean, 
   /** 切换面板的回调*/
   onChange?:(activeKey:string) => void,
   /** tab 被点击的回调 */
