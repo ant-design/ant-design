@@ -1,9 +1,8 @@
 ---
 category: Components
-chinese: 卡片
 type: Presentation
-cols: 1
-english: Card
+title: Card
+subtitle: 卡片
 ---
 
 通用卡片容器。
