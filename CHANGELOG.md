@@ -9,6 +9,24 @@ timeline: true
 
 ---
 
+## 1.3.0
+
+`2016-06-02`
+
+- Transfer 组件增加 `rowKey` 属性，可自定义数据源主键。 [#1900](https://github.com/ant-design/ant-design/issues/1900)
+- Tag 组件 `default` 类型的样式增加边框，防止淹没在背景中。 [#1910](https://github.com/ant-design/ant-design/issues/1910)
+- Table
+  - 修复筛选为单选时仍旧展示多选框的问题。 [#1880](https://github.com/ant-design/ant-design/issues/1880)
+  - 修复 fixed left 的固定列会覆盖 rowSelection 的 check box 的问题。 [#1829](https://github.com/ant-design/ant-design/issues/1829)
+  - 其他 demo 及样式优化。
+- 修复 Button 组件中添加 `<a>` 标签会导致按钮组效果失效的问题。 [#1882](https://github.com/ant-design/ant-design/issues/1882)
+- Slider 文档样式问题修复。 [#1924](https://github.com/ant-design/ant-design/issues/1924)
+- 修复了 v1.2.0 新增加的组件属性的 Typescript 定义。 [#1933](https://github.com/ant-design/ant-design/issues/1933)
+- 修复国际化 Form label 的冒号样式问题，采用样式实现冒号。 [#1877](https://github.com/ant-design/ant-design/issues/1877)
+- 修复 DatePicker 组件点击“此刻”失效的问题，并进行了一些代码优化。 [#1902](https://github.com/ant-design/ant-design/issues/1902)
+- rc-upload 升级至 ~1.13.0，修复了 IE10 中第二次上传同一文件不触发 `onChange` 的问题。 [058af3c](https://github.com/ant-design/ant-design/commit/b15a4e3165be5e4db995d3fe75d4d557c7f21c61)
+- rc-table 升级至 ~4.1.1，修复了 fixed 列中数据重复的问题。 [#1898](https://github.com/ant-design/ant-design/issues/1898)
+
 ## 1.2.1
 
 `2016-05-27`
