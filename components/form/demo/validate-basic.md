@@ -112,7 +112,7 @@ let BasicDemo = React.createClass({
       <Form horizontal form={this.props.form}>
         <FormItem
           {...formItemLayout}
-          label="用户名："
+          label="用户名"
           hasFeedback
           help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}>
           <Input {...nameProps} placeholder="实时校验，输入 JasonWood 看看" />
@@ -120,14 +120,14 @@ let BasicDemo = React.createClass({
 
         <FormItem
           {...formItemLayout}
-          label="邮箱："
+          label="邮箱"
           hasFeedback>
           <Input {...emailProps} type="email" placeholder="onBlur 与 onChange 相结合" />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="密码："
+          label="密码"
           hasFeedback>
           <Input {...passwdProps} type="password" autoComplete="off"
             onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
@@ -135,7 +135,7 @@ let BasicDemo = React.createClass({
 
         <FormItem
           {...formItemLayout}
-          label="确认密码："
+          label="确认密码"
           hasFeedback>
           <Input {...rePasswdProps} type="password" autoComplete="off" placeholder="两次输入密码保持一致"
             onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
@@ -143,7 +143,7 @@ let BasicDemo = React.createClass({
 
         <FormItem
           {...formItemLayout}
-          label="备注：">
+          label="备注">
           <Input {...textareaProps} type="textarea" placeholder="随便写" id="textarea" name="textarea" />
         </FormItem>
 

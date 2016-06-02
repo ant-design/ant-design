@@ -44,7 +44,7 @@ let Demo = React.createClass({
     return (
       <Form horizontal onSubmit={this.handleSubmit} >
         <FormItem
-          label="InputNumber 数字输入框："
+          label="InputNumber 数字输入框"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}>
           <InputNumber min={1} max={10} style={{ width: 100 }}
@@ -53,7 +53,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="我是标题："
+          label="我是标题"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}>
           <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
@@ -63,7 +63,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Switch 开关："
+          label="Switch 开关"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required>
@@ -71,7 +71,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Slider 滑动输入条："
+          label="Slider 滑动输入条"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required>
@@ -79,7 +79,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Select 选择器："
+          label="Select 选择器"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required>
@@ -93,7 +93,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="级联选择："
+          label="级联选择"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
@@ -102,7 +102,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="DatePicker 日期选择框："
+          label="DatePicker 日期选择框"
           labelCol={{ span: 8 }}
           required>
           <Col span="6">
@@ -122,7 +122,7 @@ let Demo = React.createClass({
 
 
         <FormItem
-          label="TimePicker 时间选择器："
+          label="TimePicker 时间选择器"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required>
@@ -130,7 +130,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="选项："
+          label="选项"
           labelCol={{ span: 8 }}>
           <RadioGroup {...getFieldProps('rg')}>
             <RadioButton value="a">选项一</RadioButton>
@@ -140,7 +140,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="logo图："
+          label="logo图"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           help="提示信息要长长长长长长长长长长长长长长">
