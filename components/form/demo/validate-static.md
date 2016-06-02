@@ -18,7 +18,7 @@ const FormItem = Form.Item;
 ReactDOM.render(
   <Form horizontal>
     <FormItem
-      label="失败校验："
+      label="失败校验"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       validateStatus="error"
@@ -27,7 +27,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="警告校验："
+      label="警告校验"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       validateStatus="warning">
@@ -35,7 +35,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="校验中："
+      label="校验中"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
@@ -45,7 +45,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="成功校验："
+      label="成功校验"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
@@ -54,7 +54,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="警告校验："
+      label="警告校验"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
@@ -63,7 +63,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="失败校验："
+      label="失败校验"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
@@ -73,7 +73,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="行内校验："
+      label="行内校验"
       labelCol={{ span: 5 }}
       help>
       <Col span="6">

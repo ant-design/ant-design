@@ -162,9 +162,15 @@ export default class FormItem extends React.Component {
       [`${props.prefixCls}-item-required`]: required,
     });
 
+    // remove user input colon
+    let label = props.label;
+    if (typeof props.label === 'string') {
+      label = props.label.replace(/：|:$/, '');
+    }
+
     return props.label ? (
       <label htmlFor={props.id || this.getId()} className={className} key="label">
-        {props.label}
+        {label}
       </label>
     ) : null;
   }
