@@ -370,6 +370,10 @@
 
   &-scroll {
     overflow: auto;
+    table {
+      width: auto;
+      min-width: 100%;
+    }
   }
 
   &-body-inner {
@@ -392,6 +396,15 @@
     table {
       width: auto;
       background: #fff;
+    }
+  }
+
+  &-fixed-left,
+  &-fixed-right,
+  &-scroll {
+    th,
+    td {
+      white-space: nowrap;
     }
   }
 
