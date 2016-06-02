@@ -41,7 +41,7 @@ const App = React.createClass({
             {tag.name}
           </Tag>
         )}
-        <Button size="small" type="primary" onClick={this.addTag}>添加标签</Button>
+        <Button size="small" type="dashed" onClick={this.addTag}>+ 添加标签</Button>
       </div>
     );
   },
