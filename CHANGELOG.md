@@ -22,10 +22,13 @@ timeline: true
 - 修复 Button 组件中添加 `<a>` 标签会导致按钮组效果失效的问题。 [#1882](https://github.com/ant-design/ant-design/issues/1882)
 - Slider 文档样式问题修复。 [#1924](https://github.com/ant-design/ant-design/issues/1924)
 - 修复了 v1.2.0 新增加的组件属性的 Typescript 定义。 [#1933](https://github.com/ant-design/ant-design/issues/1933)
-- 修复国际化 Form label 的冒号样式问题，采用样式实现冒号。 [#1877](https://github.com/ant-design/ant-design/issues/1877)
-- 修复 DatePicker 组件点击“此刻”失效的问题，并进行了一些代码优化。 [#1902](https://github.com/ant-design/ant-design/issues/1902)
-- rc-upload 升级至 ~1.13.0，修复了 IE10 中第二次上传同一文件不触发 `onChange` 的问题。 [058af3c](https://github.com/ant-design/ant-design/commit/b15a4e3165be5e4db995d3fe75d4d557c7f21c61)
-- rc-table 升级至 ~4.1.1，修复了 fixed 列中数据重复的问题。 [#1898](https://github.com/ant-design/ant-design/issues/1898)
+- Form
+  - 修复了一些细节对齐问题。
+  - 修复国际化 label 的冒号样式问题，采用样式实现冒号。 [#1877](https://github.com/ant-design/ant-design/issues/1877)
+- 修复 DatePicker 组件点击『此刻』失效的问题，并进行了一些代码优化。 [#1902](https://github.com/ant-design/ant-design/issues/1902)
+- 升级 rc-upload 依赖，修复了 IE10 中第二次上传同一文件不触发 `onChange` 的问题。 [058af3c](https://github.com/ant-design/ant-design/commit/b15a4e3165be5e4db995d3fe75d4d557c7f21c61)
+- 升级 rc-table 依赖，修复了 fixed 列中数据重复展示以及一些错位问题。 [#1898](https://github.com/ant-design/ant-design/issues/1898)
+- 文档使用 [bisheng](https://github.com/benjycui/bisheng) 重构。
 
 ## 1.2.1
 
