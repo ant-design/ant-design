@@ -41,6 +41,7 @@ export default class Transfer extends React.Component {
     notFoundContent: PropTypes.node,
     body: PropTypes.func,
     footer: PropTypes.func,
+    rowKey: PropTypes.func,
   };
 
   constructor(props) {
@@ -61,8 +62,15 @@ export default class Transfer extends React.Component {
     });
   }
   splitDataSource(props) {
-    const { targetKeys, dataSource } = props;
+    const { targetKeys } = props;
+    let { dataSource } = props;
 
+    if (props.rowKey) {
+      dataSource = dataSource.map(record => {
+        record.key = props.rowKey(record);
+        return record;
+      });
+    }
     let leftDataSource = [...dataSource];
     let rightDataSource = [];
 
