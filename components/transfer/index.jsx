@@ -65,7 +65,7 @@ export default class Transfer extends React.Component {
     const { targetKeys } = props;
     let { dataSource } = props;
 
-    if (props.rowKey && typeof props.rowKey === 'function') {
+    if (props.rowKey) {
       dataSource = dataSource.map(record => {
         record.key = props.rowKey(record);
         return record;
