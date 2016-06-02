@@ -35,11 +35,11 @@ ReactDOM.render(
 
 ````css
 /* Increase grid spacing of 16px  */
-.code-box-demo .row {
+.code-box-demo .ant-row {
   margin-left: -8px;
   margin-right: -8px;
 }
-.code-box-demo .row > div {
+.code-box-demo .ant-row > div {
   padding: 0 8px;
 }
 ````

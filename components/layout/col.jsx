@@ -16,19 +16,19 @@ export default function Col(props) {
     }
     sizeClassObj = {
       ...sizeClassObj,
-      [`col-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-      [`col-${size}-order-${sizeProps.order}`]: sizeProps.order,
-      [`col-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
-      [`col-${size}-push-${sizeProps.push}`]: sizeProps.push,
-      [`col-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
+      [`ant-col-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
+      [`ant-col-${size}-order-${sizeProps.order}`]: sizeProps.order,
+      [`ant-col-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
+      [`ant-col-${size}-push-${sizeProps.push}`]: sizeProps.push,
+      [`ant-col-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
     };
   });
   const classes = classNames({
-    [`col-${span}`]: span !== undefined,
-    [`col-order-${order}`]: order,
-    [`col-offset-${offset}`]: offset,
-    [`col-push-${push}`]: push,
-    [`col-pull-${pull}`]: pull,
+    [`ant-col-${span}`]: span !== undefined,
+    [`ant-col-order-${order}`]: order,
+    [`ant-col-offset-${offset}`]: offset,
+    [`ant-col-push-${push}`]: push,
+    [`ant-col-pull-${pull}`]: pull,
     [className]: !!className,
     ...sizeClassObj,
   });

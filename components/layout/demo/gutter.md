@@ -12,16 +12,16 @@ ReactDOM.render(
   <div className="gutter-example">
     <Row gutter={16}>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">.col-6</div>
+        <div className="gutter-box">.ant-col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">.col-6</div>
+        <div className="gutter-box">.ant-col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">.col-6</div>
+        <div className="gutter-box">.ant-col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">.col-6</div>
+        <div className="gutter-box">.ant-col-6</div>
       </Col>
     </Row>
   </div>
@@ -29,7 +29,7 @@ ReactDOM.render(
 ````
 
 ````css
-.gutter-example .row > div {
+.gutter-example .ant-row > div {
   background: transparent;
   border: 0;
 }

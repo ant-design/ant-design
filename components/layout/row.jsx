@@ -16,10 +16,10 @@ export default class Row extends React.Component {
   render() {
     const { type, justify, align, className, gutter, style, children, ...others } = this.props;
     const classes = classNames({
-      row: !type,
-      [`row-${type}`]: type,
-      [`row-${type}-${justify}`]: justify,
-      [`row-${type}-${align}`]: align,
+      'ant-row': !type,
+      [`ant-row-${type}`]: type,
+      [`ant-row-${type}-${justify}`]: justify,
+      [`ant-row-${type}-${align}`]: align,
       [className]: className,
     });
     const rowStyle = gutter > 0 ? {

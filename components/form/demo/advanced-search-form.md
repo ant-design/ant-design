@@ -96,7 +96,7 @@ ReactDOM.render(
 }
 
 /* 由于输入标签长度不确定，所以需要微调使之看上去居中 */
-.ant-advanced-search-form > .row {
+.ant-advanced-search-form > .ant-row {
   position: relative;
   left: -6px;
 }
