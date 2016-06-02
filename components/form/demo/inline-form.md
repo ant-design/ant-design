@@ -20,12 +20,12 @@ let Demo = React.createClass({
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <FormItem
-          label="账户：">
+          label="账户">
           <Input placeholder="请输入账户名"
             {...getFieldProps('userName')} />
         </FormItem>
         <FormItem
-          label="密码：">
+          label="密码">
           <Input type="password" placeholder="请输入密码"
             {...getFieldProps('password')} />
         </FormItem>

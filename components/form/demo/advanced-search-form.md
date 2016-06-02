@@ -16,19 +16,19 @@ ReactDOM.render(
     <Row gutter={16}>
       <Col sm={8}>
         <FormItem
-          label="搜索名称："
+          label="搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
-          label="较长搜索名称："
+          label="较长搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <DatePicker size="default" />
         </FormItem>
         <FormItem
-          label="搜索名称："
+          label="搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <Input placeholder="请输入搜索名称" size="default" />
@@ -36,19 +36,19 @@ ReactDOM.render(
       </Col>
       <Col sm={8}>
         <FormItem
-          label="搜索名称："
+          label="搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
-          label="较长搜索名称："
+          label="较长搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <DatePicker size="default" />
         </FormItem>
         <FormItem
-          label="搜索名称："
+          label="搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <Input placeholder="请输入搜索名称" size="default" />
@@ -56,19 +56,19 @@ ReactDOM.render(
       </Col>
       <Col sm={8}>
         <FormItem
-          label="搜索名称："
+          label="搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
-          label="较长搜索名称："
+          label="较长搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <DatePicker size="default" />
         </FormItem>
         <FormItem
-          label="搜索名称："
+          label="搜索名称"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}>
           <Input placeholder="请输入搜索名称" size="default" />

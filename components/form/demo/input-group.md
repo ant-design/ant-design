@@ -14,14 +14,14 @@ const Option = Select.Option;
 ReactDOM.render(
   <Form horizontal>
     <FormItem
-      label="标签输入框："
+      label="标签输入框"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}>
       <Input addonBefore="Http://" defaultValue="mysite.com" id="site1" />
     </FormItem>
 
     <FormItem
-      label="标签输入框："
+      label="标签输入框"
       labelCol={{ span: 6 }}
       validateStatus="success"
       wrapperCol={{ span: 16 }}>
@@ -29,7 +29,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="select 标签输入框："
+      label="select 标签输入框"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}>
       <InputGroup>
@@ -46,7 +46,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="输入身份证："
+      label="输入身份证"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}>
       <InputGroup>
@@ -66,7 +66,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="电话号码："
+      label="电话号码"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}>
       <InputGroup>
