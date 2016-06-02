@@ -50,25 +50,6 @@ export default function createPicker(TheCalendar) {
         'ant-calendar-month': MonthCalendar === TheCalendar,
       });
 
-      let pickerChangeHandler = {
-        onChange: this.handleChange,
-      };
-
-      let calendarHandler = {
-        onOk: this.handleChange,
-      };
-
-      if (props.showTime) {
-        pickerChangeHandler.onChange = (value) => {
-          // Click clear button
-          if (value === null) {
-            this.handleChange(value);
-          }
-        };
-      } else {
-        calendarHandler = {};
-      }
-
       const calendar = (
         <TheCalendar
           formatter={props.getFormatter()}
@@ -80,7 +61,7 @@ export default function createPicker(TheCalendar) {
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
-          {...calendarHandler} />
+        />
       );
 
       // default width for showTime
@@ -102,7 +83,7 @@ export default function createPicker(TheCalendar) {
             getCalendarContainer={props.getCalendarContainer}
             onOpen={props.toggleOpen}
             onClose={props.toggleOpen}
-            {...pickerChangeHandler}
+            onChange={this.handleChange}
           >
             {
               ({ value }) => {
