@@ -837,7 +837,7 @@ export class MenuItemGroup extends React.Component<MenuItemGroupProps, {}> {
 }
 
 interface MenuProps {
-  id?: string;
+  id?: string,
   /** 主题颜色*/
   theme?:'light' | 'dark',
   /** 菜单类型  enum: `vertical` `horizontal` `inline`*/
