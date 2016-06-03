@@ -21,7 +21,7 @@ timeline: true
   - 其他 demo 及样式优化。
 - 修复 Button 组件中添加 `<a>` 标签会导致按钮组效果失效的问题。 [#1882](https://github.com/ant-design/ant-design/issues/1882)
 - Slider 文档样式问题修复。 [#1924](https://github.com/ant-design/ant-design/issues/1924)
-- 修复了 v1.2.0 新增加的组件属性的 Typescript 定义。 [#1933](https://github.com/ant-design/ant-design/issues/1933)
+- 修复了 v1.2.0 新增加的组件属性的 TypeScript 定义。 [#1933](https://github.com/ant-design/ant-design/issues/1933)
 - Form 修复 label中冒号的国际化问题，采用样式实现冒号，不再需要手动输入冒号。 [#1877](https://github.com/ant-design/ant-design/issues/1877)
 - 修复 DatePicker 组件点击『此刻』失效的问题，并进行了一些代码优化。 [#1902](https://github.com/ant-design/ant-design/issues/1902)
 - 升级 rc-upload 依赖，修复了 IE10 中第二次上传同一文件不触发 `onChange` 的问题。 [058af3c](https://github.com/ant-design/ant-design/commit/b15a4e3165be5e4db995d3fe75d4d557c7f21c61)
