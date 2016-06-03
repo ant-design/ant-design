@@ -746,6 +746,10 @@ export class Row extends React.Component<RowProps, {}> {
 // Col
 interface ColProps {
   span?:number,
+  lg?: number,
+  md?:number,
+  sm?:number,
+  xs?:number,
   order?:number,
   offset?:string,
   push?:string,
@@ -833,6 +837,7 @@ export class MenuItemGroup extends React.Component<MenuItemGroupProps, {}> {
 }
 
 interface MenuProps {
+  id?: string;
   /** 主题颜色*/
   theme?:'light' | 'dark',
   /** 菜单类型  enum: `vertical` `horizontal` `inline`*/
