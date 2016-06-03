@@ -10,4 +10,3 @@ import { Input } from 'antd';
 
 ReactDOM.render(<Input placeholder="基本使用" />, mountNode);
 ````
-

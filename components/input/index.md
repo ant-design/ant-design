@@ -12,15 +12,13 @@ english: Input
 - 需要用户输入表单域内容时。
 - 提供组合型输入框，带搜索的输入框，还可以进行大小选择。
 
-
-
 ## API
 
 ### Input
 
 | 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-| type | 【必须】声明 input 类型，同原生 input 标签的 type 属性 | string  |   | 'text'    |
+| type | 【必须】声明 input 类型，同原生 input 标签的 type 属性。另外提供 `type="textarea"`。 | string  |   | 'text'    |
 | id | id | number 或 string |  |   |
 | value | value 值 | any |  | |
 | defaultValue | 设置初始默认值 | any |  |  |
