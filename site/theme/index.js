@@ -1,6 +1,6 @@
 const contentTmpl = './template/Content/index';
 
-export default {
+module.exports = {
   categoryOrder: {
     组件: 0,
     十大原则: 0,
