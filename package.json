@@ -126,7 +126,7 @@
     "clean": "antd-tools run clean",
     "start": "bisheng start -c ./site/bisheng.config.js",
     "site": "bisheng build -c ./site/bisheng.config.js",
-    "pre-deploy": "cp CNAME _site",
+    "pre-deploy": "mkdir -p _site && cp CNAME _site",
     "deploy": "tnpm run clean && tnpm i && tnpm run just-deploy",
     "just-deploy": "tnpm run pre-deploy && bisheng gh-pages -c ./site/bisheng.config.js",
     "lint": "npm run srclint && npm run demolint && npm run lesshint",
