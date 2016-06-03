@@ -40,7 +40,7 @@ export default class MainContent extends React.Component {
               <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
             ];
     const disabled = item.disabled;
-    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '');
+    const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ?
       <Link to={url} disabled={disabled}>
         {text}
@@ -85,11 +85,11 @@ export default class MainContent extends React.Component {
     const props = this.props;
 
     let moduleData;
-    if (/(docs\/react\/)|(components\/)|(CHANGELOG)/i.test(props.location.pathname)) {
+    if (/(docs\/react\/)|(components\/)|(changelog)/i.test(props.location.pathname)) {
       moduleData = {
         ...props.data.docs.react,
         ...props.data.components,
-        CHANGELOG: props.data.CHANGELOG,
+        changelog: props.data.CHANGELOG,
       };
     } else {
       moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
@@ -153,7 +153,9 @@ export default class MainContent extends React.Component {
 
     const locale = this.context.intl.locale;
     const moduleData = this.getModuleData();
-    const pageData = props.pageData.index || props.pageData;
+    const pageData = /changelog/i.test(props.location.pathname) ?
+            props.data.CHANGELOG :
+            (props.pageData.index || props.pageData);
     const localizedPageData = pageData[locale] || pageData;
     return (
       <div className="main-wrapper">
