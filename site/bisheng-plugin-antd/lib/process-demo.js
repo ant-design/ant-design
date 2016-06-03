@@ -64,14 +64,15 @@ module.exports = (markdownData) => {
   ]);
   markdownData.preview = preview;
 
-  const styleNode = contentChildren.find((node) => {
+  const styleNode = contentChildren.filter((node) => {
     return isStyleTag(node) ||
       (JsonML.getTagName(node) === 'pre' && JsonML.getAttributes(node).lang === 'css');
-  });
+  })[0];
+
   if (isStyleTag(styleNode)) {
     markdownData.style = JsonML.getChildren(styleNode)[0];
   } else if (styleNode) {
-    const styleTag = contentChildren.find(isStyleTag);
+    const styleTag = contentChildren.filter(isStyleTag)[0];
     markdownData.style = getCode(styleNode) + (styleTag ? JsonML.getChildren(styleTag)[0] : '');
     markdownData.highlightedStyle = JsonML.getAttributes(styleNode).highlighted;
   }
