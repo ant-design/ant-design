@@ -1,10 +1,18 @@
 ---
 order: 2
 iframe: true
-title: 路由
+title: 
+  zh-CN: 路由
+  en-US: Router
 ---
 
+## zh-CN
+
 和 `react-router@2.x` 进行结合使用。
+
+## en-US
+
+Used together with `react-router@2.x`.
 
 ````jsx
 const ReactRouter = require('react-router');

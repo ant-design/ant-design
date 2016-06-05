@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 带有图标的
+title:
+  zh-CN: 带有图标的
+  en-US: With Icon
 ---
 
+## zh-CN
+
 图标放在文字前面。
+
+## en-US
+
+Icon should in the front of text.
 
 ````jsx
 import { Breadcrumb, Icon } from 'antd';
