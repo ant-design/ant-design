@@ -9,6 +9,12 @@ timeline: true
 
 ---
 
+## 1.3.1
+
+`2016-06-06`
+
+- 修复 `Message` `Notification` 找不到的问题。 [#1968](https://github.com/ant-design/ant-design/issues/1968)
+
 ## 1.3.0
 
 `2016-06-02`

@@ -25,7 +25,7 @@ module.exports = {
     '/docs/practice/:children': contentTmpl,
     '/docs/pattern/:children': contentTmpl,
     '/docs/react/:children': contentTmpl,
-    '/CHANGELOG': contentTmpl,
+    '/changelog': contentTmpl,
     '/components/:children': contentTmpl,
     '/docs/spec/:children': contentTmpl,
     '/docs/resource/:children': contentTmpl,

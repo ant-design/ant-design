@@ -9,6 +9,13 @@ import Page3 from './Page3';
 import Page4 from './Page4';
 
 export default class Home extends React.Component {
+  componentWillMount() {
+    if (location.hash) {
+      const pathname = location.hash.replace(/^#/, '').replace('?scrollTo=', '#');
+      location.href = pathname;
+    }
+  }
+
   // To store style which is only for Home and has conflicts with others.
   getStyle() {
     return `
