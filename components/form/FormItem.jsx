@@ -33,8 +33,8 @@ export default class FormItem extends React.Component {
       return '';
     }
     const { span, offset } = colDef;
-    const col = span ? `col-${span}` : '';
-    const offsetCol = offset ? ` col-offset-${offset}` : '';
+    const col = span ? `ant-col-${span}` : '';
+    const offsetCol = offset ? ` ant-col-offset-${offset}` : '';
     return col + offsetCol;
   }
 
