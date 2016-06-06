@@ -3,6 +3,7 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
+import Icon from '../icon';
 
 export default function createPicker(TheCalendar) {
   return class CalenderWrapper extends React.Component {
@@ -21,7 +22,12 @@ export default function createPicker(TheCalendar) {
         });
       }
     }
-
+    clearSelection = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.setState({ value: null });
+      this.handleChange(null);
+    }
     handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
@@ -70,6 +76,10 @@ export default function createPicker(TheCalendar) {
         pickerStyle.width = 180;
       }
 
+      const clearIcon = (!props.disabled && this.state.value) ?
+        <Icon type="cross-circle"
+          className="ant-calendar-picker-clear"
+          onClick={this.clearSelection} /> : null;
       return (
         <span className={props.pickerClass} style={{ ...pickerStyle, ...props.style }}>
           <RcDatePicker
@@ -95,6 +105,7 @@ export default function createPicker(TheCalendar) {
                       value={value ? props.getFormatter().format(value) : ''}
                       placeholder={placeholder}
                       className={props.pickerInputClass} />
+                    {clearIcon}
                     <span className="ant-calendar-picker-icon" />
                   </span>
                 );
