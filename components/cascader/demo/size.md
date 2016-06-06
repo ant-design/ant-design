@@ -1,10 +1,9 @@
-# 大小
-
-- order: 7
+---
+order: 7
+title: 大小
+---
 
 不同大小的级联选择器。
-
----
 
 ````jsx
 import { Cascader } from 'antd';

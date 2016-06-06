@@ -1,20 +1,18 @@
-# 动态展示
-
-- order: 4
+---
+order: 4
+title: 动态展示
+---
 
 会动的进度条才是好进度条。
 
----
-
 ````jsx
-import { Progress, Button, Icon } from 'antd';
-const ProgressLine = Progress.Line;
+import { Progress, Button } from 'antd';
 const ButtonGroup = Button.Group;
 
 const MyProgress = React.createClass({
   getInitialState() {
     return {
-      percent: 0
+      percent: 0,
     };
   },
   increase() {
@@ -34,20 +32,15 @@ const MyProgress = React.createClass({
   render() {
     return (
       <div>
-        <ProgressLine percent={this.state.percent} />
+        <Progress percent={this.state.percent} />
         <ButtonGroup>
-          <Button type="ghost" onClick={this.decline}>
-            <Icon type="minus" />
-          </Button>
-          <Button type="ghost" onClick={this.increase}>
-            <Icon type="plus" />
-          </Button>
+          <Button type="ghost" onClick={this.decline} icon="minus" />
+          <Button type="ghost" onClick={this.increase} icon="plus" />
         </ButtonGroup>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<MyProgress />, mountNode);
 ````
-

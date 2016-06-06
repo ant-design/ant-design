@@ -3,7 +3,23 @@ import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 
-class AntBadge extends React.Component {
+export default class Badge extends React.Component {
+  static defaultProps = {
+    prefixCls: 'ant-badge',
+    count: null,
+    dot: false,
+    overflowCount: 99,
+  }
+
+  static propTypes = {
+    count: React.PropTypes.oneOfType([
+      React.PropTypes.string,
+      React.PropTypes.number,
+    ]),
+    dot: React.PropTypes.bool,
+    overflowCount: React.PropTypes.number,
+  }
+
   render() {
     let { count, prefixCls, overflowCount, className, style, children } = this.props;
     const dot = this.props.dot;
@@ -30,32 +46,16 @@ class AntBadge extends React.Component {
         <Animate component=""
           showProp="data-show"
           transitionName={`${prefixCls}-zoom`}
-          transitionAppear>
+          transitionAppear
+        >
           {
             hidden ? null :
               <ScrollNumber data-show={!hidden} className={scrollNumberCls}
-                count={count} style={style} />
+                count={count} style={style}
+              />
           }
         </Animate>
       </span>
     );
   }
 }
-
-AntBadge.defaultProps = {
-  prefixCls: 'ant-badge',
-  count: null,
-  dot: false,
-  overflowCount: 99,
-};
-
-AntBadge.propTypes = {
-  count: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
-  ]),
-  dot: React.PropTypes.bool,
-  overflowCount: React.PropTypes.number,
-};
-
-export default AntBadge;

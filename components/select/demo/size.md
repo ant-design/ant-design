@@ -1,10 +1,9 @@
-# 三种大小
-
-- order: 0
+---
+order: 0
+title: 三种大小
+---
 
 三种大小的选择框，当 size 分别为 `large` 和 `small` 时，输入框高度为 `32px` 和 `22px` ，默认高度为 `28px`
-
----
 
 ````jsx
 import { Select } from 'antd';
@@ -41,5 +40,9 @@ ReactDOM.render(
 ````css
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
+}
+
+#components-select-demo-search-box .code-box-demo .ant-select {
+  margin: 0;
 }
 ````

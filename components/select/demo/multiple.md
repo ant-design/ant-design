@@ -1,11 +1,9 @@
-# 多选
-
-- order: 2
-
-多选，从已有条目中选择（scroll the menu）
-
+---
+order: 2
+title: 多选
 ---
 
+多选，从已有条目中选择（scroll the menu）
 
 ````jsx
 import { Select } from 'antd';
@@ -22,8 +20,10 @@ function handleChange(value) {
 
 ReactDOM.render(
   <Select multiple
-    style={{ width: 400 }}
-    defaultValue={['a10', 'c12']} onChange={handleChange}>
+    style={{ width: '100%' }}
+    placeholder="Please select"
+    defaultValue={['a10', 'c12']} onChange={handleChange}
+  >
     {children}
   </Select>
 , mountNode);

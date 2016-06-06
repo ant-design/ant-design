@@ -1,9 +1,8 @@
-# Tabs
-
-- category: Components
-- chinese: 标签页
-- type: 导航
-
+---
+category: Components
+chinese: 标签页
+type: Navigation
+english: Tabs
 ---
 
 选项卡切换组件。
@@ -30,8 +29,10 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | onTabClick       | tab 被点击的回调                             | Function | 无            |
 | tabBarExtraContent | tab bar 上额外的元素                       | React Node | 无          |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型   | String   | 'line'      |
+| size | 大小，提供 `default` 和 `small` 两种大小  | String   | 'default'      |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | String   | 'top'      |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | Function(targetKey, action) | 无 |
+| hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | Boolean   | false    |
 
 ### Tabs.TabPane
 

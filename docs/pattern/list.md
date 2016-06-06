@@ -1,8 +1,7 @@
-# 列表
-
-- category: 3
-- order: 3
-
+---
+order: 3
+chinese: 列表
+english: List
 ---
 
 列表是非常常见的界面元素，有多种使用场景：
@@ -13,11 +12,13 @@
 - 排序与过滤
 - 重新安排、添加、删除或重新分类列表项
 
+---
+
 ## 交互
 
 ### 显示详情信息
 
-<img class="preview-img" align="right" alt="气泡显示示例" description="使用『点击』触发时，应当保证激活／禁用的对称性，即在哪里打开，就在哪里关闭；另外。也支持用户点击空白区域关闭。<hr>使用『悬停』触发时，移入时设计约 0.5 秒的延时，然后激活详情气泡；移出时，立即关闭详情气泡。" src="https://os.alipayobjects.com/rmsportal/GmpRYixxnePBPPW.png">
+<img class="preview-img" align="right" alt="气泡显示示例" description="使用『点击』触发时，应当保证激活／禁用的对称性，即在哪里打开，就在哪里关闭；另外。也支持用户点击空白区域关闭。使用『悬停』触发时，移入时设计约 0.5 秒的延时，然后激活详情气泡；移出时，立即关闭详情气泡。" src="https://os.alipayobjects.com/rmsportal/GmpRYixxnePBPPW.png">
 
 气泡显示：用户鼠标点击／悬停某个链接或内容时，在悬浮层上显示该条列表项少量的详情信息。
 
@@ -60,19 +61,19 @@
 
 <br />
 
-<img class="preview-img" align="right" alt="对等网格示例" noPadding src="https://os.alipayobjects.com/rmsportal/VDhwGyyblTSJpeV.png">
+<img class="preview-img no-padding" align="right" alt="对等网格示例" src="https://os.alipayobjects.com/rmsportal/VDhwGyyblTSJpeV.png">
 
 对等网格：以网格或者矩阵的方式排列内容元素，其中每个元素都有相仿的视觉重量。
 
 ### 显示图片
 
-<img class="preview-img" align="right" alt="走马灯示例" noPadding src="https://os.alipayobjects.com/rmsportal/hKtAKuDfyfDpPrL.png">
+<img class="preview-img no-padding" align="right" alt="走马灯示例" src="https://os.alipayobjects.com/rmsportal/hKtAKuDfyfDpPrL.png">
 
 走马灯：以一维的形式来显示图片，可用户主动触发或者系统自动播放。
 
 <br />
 
-<img class="preview-img" align="right" alt="缩略图网格示例" noPadding src="https://os.alipayobjects.com/rmsportal/LAnBHEYiqWSfQAS.png">
+<img class="preview-img no-padding" align="right" alt="缩略图网格示例" src="https://os.alipayobjects.com/rmsportal/LAnBHEYiqWSfQAS.png">
 
 缩略图网格：以二维的形式来展现图片/Icon，具有强烈的视觉效果，可以吸引用户注意。
 
@@ -98,4 +99,4 @@
 
 <br />
 
-## 案例（敬请期待）
+<h2><span class="waiting">案例（敬请期待）</span></h2>

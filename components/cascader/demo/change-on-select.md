@@ -1,10 +1,9 @@
-# 选择即改变
-
-- order: 5
+---
+order: 5
+title: 选择即改变
+---
 
 这种交互允许只选中父级选项。
-
----
 
 ````jsx
 import { Cascader } from 'antd';

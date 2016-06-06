@@ -1,8 +1,6 @@
-# Ant Design of React
-
-- category: 0
-- order: 0
-
+---
+order: 0
+english: Ant Design of React
 ---
 
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
@@ -12,6 +10,7 @@
   <span>+</span>
   <img width="160" src="https://t.alipayobjects.com/images/rmsweb/T16xRhXkxbXXXXXXXX.svg">
 </div>
+
 <style>
 .pic-plus > * {
   display: inline-block!important;
@@ -24,6 +23,7 @@
 }
 </style>
 
+---
 
 ## 特性
 
@@ -47,10 +47,10 @@ ReactDOM.render(<DatePicker />, mountNode);
 引入样式：
 
 ```jsx
-import 'antd/lib/index.css';  // or 'antd/style/index.less'
+import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)。
+按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)（此插件支持 js 和 css 同时按需加载）。
 
 
 ## 版本
@@ -67,7 +67,7 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 ## 链接
 
 - [首页](http://ant.design/)
-- [修改记录](http://ant.design/changelog)
+- [修改记录](/docs/react/changelog)
 - [开发脚手架](https://github.com/ant-design/antd-init/)
 - [开发工具文档](http://ant-tool.github.io/)
 - [React 组件](http://react-component.github.io/)
@@ -78,10 +78,13 @@ import 'antd/lib/index.css';  // or 'antd/style/index.less'
 ## 谁在使用
 
 - 蚂蚁金服
+- 阿里巴巴
 - 口碑
+- 新美大
+- 滴滴
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
 ## 如何贡献
 
-在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](http://dwz.cn/2AF9ao) 或  [提问](https://github.com/ant-design/ant-design/issues)。
+在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](http://dwz.cn/2AF9ao) 或 [提问](https://github.com/ant-design/ant-design/issues)。

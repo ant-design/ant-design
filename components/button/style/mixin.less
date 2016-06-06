@@ -1,0 +1,263 @@
+// mixins for button
+// ------------------------
+.button-size(@padding; @font-size; @border-radius) {
+  padding: @padding;
+  font-size: @font-size;
+  border-radius: @border-radius;
+}
+
+.button-variant(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+
+  &:hover,
+  &:focus {
+    .button-color(tint(@color, 20%); tint(@background, 20%); tint(@border, 20%));
+  }
+  &:active,
+  &.active {
+    .button-color(shade(@color, 5%); shade(@background, 5%); shade(@background, 5%));
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+    }
+  }
+}
+
+.button-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  // a inside Button which only work in Chrome
+  // http://stackoverflow.com/a/17253457
+  > a:only-child {
+    color: currentColor;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: transparent;
+    }
+  }
+}
+
+.button-group-base(@btnClassName) {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  > .@{btnClassName} {
+    position: relative;
+    float: left;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      z-index: 2;
+    }
+  }
+
+  // size
+  &-lg > .@{btnClassName} {
+    .button-size(@btn-padding-lg; @btn-font-size-lg; @border-radius-base);
+  }
+
+  &-sm > .@{btnClassName} {
+    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
+    > .@{iconfont-css-prefix} {
+      font-size: @font-size-base;
+    }
+  }
+}
+
+// Base styles of buttons
+// --------------------------------------------------
+.btn() {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: @btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  // outline: none;
+  white-space: nowrap;
+  line-height: @line-height-base;
+  .button-size(@btn-padding-base; @font-size-base; @border-radius-base);
+  user-select: none;
+  transition: all .3s @ease-in-out;
+  transform: translate3d(0, 0, 0);
+
+  > .@{iconfont-css-prefix} {
+    line-height: 1;
+  }
+
+  &,
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  &:not([disabled]):hover {
+    text-decoration: none;
+  }
+
+  &:not([disabled]):active {
+    outline: 0;
+    transition: none;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: @cursor-disabled;
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  &-lg {
+    .button-size(@btn-padding-lg; @btn-font-size-lg; @border-radius-base);
+  }
+
+  &-sm {
+    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
+  }
+}
+
+// primary button style
+.btn-primary() {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @primary-color);
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @btn-primary-color;
+  }
+}
+
+// default button style
+.btn-default() {
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+
+  &:hover,
+  &:focus {
+    .button-color(tint(@primary-color, 20%); white; tint(@primary-color, 20%));
+  }
+  &:active,
+  &.active {
+    .button-color(shade(@primary-color, 5%); white; shade(@primary-color, 5%));
+  }
+}
+
+// ghost button style
+.btn-ghost() {
+  .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+
+  &:hover,
+  &:focus {
+    .button-color(tint(@primary-color, 20%); @btn-ghost-bg; tint(@primary-color, 20%));
+  }
+  &:active,
+  &.active {
+    .button-color(shade(@primary-color, 5%); @btn-ghost-bg; shade(@primary-color, 5%));
+  }
+}
+
+// ghost button style
+.btn-dashed() {
+  .button-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+  border-style: dashed;
+
+  &:hover,
+  &:focus {
+    .button-color(tint(@primary-color, 20%); @btn-ghost-bg; tint(@primary-color, 20%));
+  }
+  &:active,
+  &.active {
+    .button-color(shade(@primary-color, 5%); @btn-ghost-bg; shade(@primary-color, 5%));
+  }
+}
+
+// circle button: the content only contains icon
+.btn-circle(@btnClassName: btn) {
+  .square(@btn-circle-size);
+  .button-size(0; @font-size-base + 2; 50%);
+
+  &.@{btnClassName}-lg {
+    .square(@btn-circle-size-lg);
+    .button-size(0; @btn-font-size-lg + 2; 50%);
+  }
+
+  &.@{btnClassName}-sm {
+    .square(@btn-circle-size-sm);
+    .button-size(0; @font-size-base; 50%);
+  }
+}
+
+// Horizontal button groups styl
+// --------------------------------------------------
+.btn-group(@btnClassName: btn) {
+  .button-group-base(@btnClassName);
+
+  .@{btnClassName} + .@{btnClassName},
+  .@{btnClassName} + &,
+  & + .@{btnClassName},
+  & + & {
+    margin-left: -1px;
+  }
+
+  .@{btnClassName}:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  > .@{btnClassName}:first-child {
+    margin-left: 0;
+    &:not(:last-child) {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      padding-right: 8px;
+    }
+  }
+
+  > .@{btnClassName}:last-child:not(:first-child) {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    padding-left: 8px;
+  }
+
+  & > & {
+    float: left;
+  }
+
+  & > &:not(:first-child):not(:last-child) > .@{btnClassName} {
+    border-radius: 0;
+  }
+
+  & > &:first-child:not(:last-child) {
+    > .@{btnClassName}:last-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      padding-right: 8px;
+    }
+  }
+
+  & > &:last-child:not(:first-child) > .@{btnClassName}:first-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    padding-left: 8px;
+  }
+}

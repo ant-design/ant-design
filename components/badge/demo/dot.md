@@ -1,10 +1,9 @@
-# 讨嫌的小红点
-
-- order: 3
+---
+order: 3
+title: 讨嫌的小红点
+---
 
 没有具体的数字。
-
----
 
 ````jsx
 import { Badge, Icon } from 'antd';

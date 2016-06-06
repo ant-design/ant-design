@@ -1,10 +1,9 @@
-# 垂直菜单
-
-- order: 3
+---
+order: 3
+title: 垂直菜单
+---
 
 子菜单是弹出的形式。
-
----
 
 ````jsx
 import { Menu, Icon } from 'antd';

@@ -1,8 +1,7 @@
-# 表单
-
-- category: 2
-- order: 2
-
+---
+order: 2
+chinese: 表单
+english: Form
 ---
 
 作为获取用户输入的重要交互方式，表单也承担将问题和答案进行配对的角色。
@@ -22,6 +21,8 @@
   通过不同的『校验』规则和形式进行反馈，避免用户在点击提交后才刚刚开始『校验』，让用户提前纠正错误；依据『容错格式』，允许用户以多种格式和语法输入，eg：用户在电话号码输入框中多输入了一个空格，系统存储时可以主动删掉空格，但是不需要告诉用户这是一个错误。
 
 4. 不要提出不必要的问题。
+
+---
 
 ## 内容
 
@@ -106,7 +107,7 @@
 
 ### 字数校验框
 
-<img class="preview-img" align="right" alt="字数校验框示例" src="https://os.alipayobjects.com/rmsportal/ziTMevqClLTYagX.png">
+<img class="preview-img" align="right" alt="字数校验框示例" src="https://os.alipayobjects.com/rmsportal/JxzQIRfMCtMjuaH.png">
 
 用于统计当前输入长度，以及是否超过系统阈值。
 
@@ -121,8 +122,8 @@
 
 ### 输入框宽度
 
-<img class="preview-img" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/vypllNQZsEHRszB.png" good>
-<img class="preview-img" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/XSLwnrlLbKFjiNj.png" bad>
+<img class="preview-img good" align="right" alt="正确示例" src="https://os.alipayobjects.com/rmsportal/vypllNQZsEHRszB.png">
+<img class="preview-img bad" align="right" alt="错误示例" src="https://os.alipayobjects.com/rmsportal/XSLwnrlLbKFjiNj.png">
 
 当内容可预知，可以根据内容长短进行定义其落在多少个栅格上。
 

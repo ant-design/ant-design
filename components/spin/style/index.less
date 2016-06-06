@@ -1,0 +1,136 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@spin-prefix-cls: ant-spin;
+@spin-dot-default: #999;
+@spin-dot-size: 8px;
+@spin-dot-size-sm: @spin-dot-size / 2;
+@spin-dot-size-lg: @spin-dot-size * 2;
+
+.@{spin-prefix-cls} {
+  color: @primary-color;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  transition: opacity 0.3s @ease-in-out-circ;
+  font-size: @font-size-base;
+
+  &-spinning {
+    opacity: 1;
+    position: static;
+    visibility: visible;
+  }
+
+  &-nested-loading {
+    position: relative;
+  }
+
+  &-nested-loading & {
+    position: absolute;
+    top: 50%;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -10px;
+    z-index: 4;
+    text-align: center;
+    width: 100%;
+  }
+
+  &-container {
+    transition: all 0.3s @ease-in-out-circ;
+  }
+
+  &-nested-loading > &-container {
+    opacity: 0.7;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: transparent;
+    }
+  }
+
+  // tip
+  // ------------------------------
+  &-tip {
+    color: @spin-dot-default;
+  }
+
+  // dots
+  // ------------------------------
+
+  &-dot {
+    animation: antSpinPulse 1.2s infinite @ease-in-out-circ;
+    .square(@spin-dot-size);
+    border-radius: 50%;
+    display: inline-block;
+    background-color: @primary-color;
+  }
+  &-dot-second {
+    animation-delay: .2s;
+  }
+  &-dot-third {
+    animation-delay: .4s;
+  }
+
+  &-dot + &-dot {
+    margin-left: @spin-dot-size;
+  }
+
+  // Sizes
+  // ------------------------------
+  // small
+  &-sm &-dot {
+    .square(@spin-dot-size-sm);
+    + & {
+      margin-left: @spin-dot-size-sm;
+    }
+  }
+
+  // large
+  &-lg &-dot {
+    .square(@spin-dot-size-lg);
+    + & {
+      margin-left: @spin-dot-size-lg;
+    }
+  }
+
+  &-text,
+  &&-show-text &-dot {
+    display: none;
+  }
+
+  &&-show-text &-text {
+    display: block;
+  }
+}
+
+// pulse
+@keyframes antSpinPulse {
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ */
+  .ant-spin-nested-loading > .ant-spin-container {
+    background: #fff;
+    opacity: 0.5;
+  }
+}

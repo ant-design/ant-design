@@ -1,0 +1,121 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../tree/style/mixin";
+@import "../../checkbox/style/mixin";
+
+@select-tree-prefix-cls: ant-select-tree;
+
+.antCheckboxFn(@checkbox-prefix-cls: ant-select-tree-checkbox);
+
+.@{select-tree-prefix-cls} {
+  margin: 0;
+  padding: 8px;
+  font-size: 12px;
+  li {
+    padding: 0;
+    margin: 8px 0;
+    list-style: none;
+    white-space: nowrap;
+    outline: 0;
+    &.filter-node {
+      > a {
+        font-weight: bold !important;
+      }
+    }
+    ul {
+      margin: 0;
+      padding: 0 0 0 18px;
+    }
+    a {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin: 0;
+      cursor: pointer;
+      text-decoration: none;
+      vertical-align: top;
+      color: #666;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: tint(@primary-color, 90%);
+      }
+      &.@{select-tree-prefix-cls}-node-selected {
+        background-color: tint(@primary-color, 80%);
+      }
+    }
+    span {
+      &.@{select-tree-prefix-cls}-checkbox {
+        margin: 2px 4px 0 0;
+      }
+      &.@{select-tree-prefix-cls}-switcher,
+      &.@{select-tree-prefix-cls}-iconEle {
+        margin: 0;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 0 none;
+        cursor: pointer;
+        outline: none;
+      }
+      &.@{select-tree-prefix-cls}-icon_loading {
+        &:after {
+          content: '\e6a1';
+          display: inline-block;
+          font-family: 'anticon';
+          font-weight: bold;
+          animation: loadingCircle 1s infinite linear;
+          margin-top: 8px;
+        }
+      }
+      &.@{select-tree-prefix-cls}-switcher {
+        &.@{select-tree-prefix-cls}-roots_open,
+        &.@{select-tree-prefix-cls}-center_open,
+        &.@{select-tree-prefix-cls}-bottom_open,
+        &.@{select-tree-prefix-cls}-noline_open {
+          .antTreeSwitcherIcon();
+        }
+        &.@{select-tree-prefix-cls}-roots_close,
+        &.@{select-tree-prefix-cls}-center_close,
+        &.@{select-tree-prefix-cls}-bottom_close,
+        &.@{select-tree-prefix-cls}-noline_close {
+          .antTreeSwitcherIcon();
+          .ie-rotate(3);
+          &:after {
+            transform: rotate(270deg) scale(0.5);
+          }
+        }
+      }
+    }
+  }
+  &-child-tree {
+    display: none;
+    &-open {
+      display: block;
+    }
+  }
+  &-treenode-disabled {
+    > span,
+    > a,
+    > a span {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+  &-icon__open {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+  &-icon__close {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+}
+
+.@{select-tree-prefix-cls}-dropdown .ant-select-dropdown-search + span {
+  padding: 7px 15px;
+  color: #ccc;
+  cursor: not-allowed;
+  display: block;
+}

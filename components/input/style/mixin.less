@@ -1,0 +1,195 @@
+@import "../../style/mixins/index";
+
+@import "../../style/mixins/index";
+// size mixins for input
+.input-lg() {
+  padding: @input-padding-vertical-lg @input-padding-horizontal;
+  height: @input-height-lg;
+}
+
+.input-sm() {
+  padding: @input-padding-vertical-sm @input-padding-horizontal;
+  height: @input-height-sm;
+  border-radius: @border-radius-sm;
+}
+
+// input status
+// == when focus or actived
+.active(@color: @input-hover-border-color) {
+  border-color: tint(@color, 20%);
+  outline: 0;
+  box-shadow: 0 0 0 2px fade(@color, 20%);
+}
+
+// == when hoverd
+.hover(@color: @input-hover-border-color) {
+  border-color: tint(@color, 20%);
+}
+
+.disabled() {
+  background-color: @input-disabled-bg;
+  opacity: 1;
+  cursor: @cursor-disabled;
+  color: #ccc;
+  &:hover {
+    .hover(@input-border-color);
+  }
+}
+
+// Basic style for input
+.input() {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  padding: @input-padding-vertical-base @input-padding-horizontal;
+  width: 100%;
+  height: @input-height-base;
+  cursor: text;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none;
+  border: 1px solid @input-border-color;
+  border-radius: @border-radius-base;
+  .placeholder(); // Reset placeholder
+  transition: border .2s @ease-in-out, background .2s @ease-in-out, box-shadow .2s @ease-in-out;
+
+  &:hover {
+    .hover();
+  }
+
+  &:focus {
+    .active();
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+   .disabled();
+  }
+
+  // Reset height for `textarea`s
+  textarea& {
+    max-width: 100%; // prevent textearea resize from coming out of its container
+    height: auto;
+    vertical-align: bottom;
+  }
+
+  // Size
+  &-lg {
+    .input-lg();
+  }
+
+  &-sm {
+    .input-sm();
+  }
+}
+
+// Input with icons, you can define @height if you wish to change the input size
+.input-with-icon(@height: @input-height-base) {
+  position: relative;
+
+  .@{iconfont-css-prefix} {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    .square(@height);
+    font-size: 14px;
+    line-height: @height;
+    text-align: center;
+    pointer-events: none;
+  }
+}
+
+// label input
+.input-group(@inputClass) {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  width: 100%;
+
+  // Undo padding and float of grid classes
+  &[class*="col-"] {
+    float: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  > [class*="col-"] {
+    padding-right: 8px;
+  }
+
+  &-addon,
+  &-wrap,
+  > .@{inputClass} {
+    display: table-cell;
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  &-addon,
+  &-wrap {
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  &-wrap > * {
+    display: block !important;
+  }
+
+  .@{inputClass} {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  &-addon {
+    padding: @input-padding-vertical-base @input-padding-horizontal;
+    font-size: @font-size-base;
+    font-weight: normal;
+    line-height: 1;
+    color: @input-color;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid @input-border-color;
+    border-radius: @border-radius-base;
+  }
+
+  // Reset rounded corners
+  > span > .@{inputClass}:first-child,
+  > .@{inputClass}:first-child,
+  &-addon:first-child {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  &-addon:first-child {
+    border-right: 0;
+  }
+  &-addon:last-child {
+    border-left: 0;
+  }
+
+  > .@{inputClass}:last-child,
+  &-addon:last-child {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  // Sizing options
+  &-lg .@{inputClass},
+  &-lg > &-addon {
+    .input-lg();
+  }
+
+  &-sm .@{inputClass},
+  &-sm > &-addon {
+    .input-sm();
+  }
+}

@@ -1,9 +1,8 @@
-# 业务组件
-
-- category: 1
-- order: 1
-- disabled: true
-
+---
+order: 1
+disabled: true
+chinese: 业务组件
+english: Business
 ---
 
 占位。

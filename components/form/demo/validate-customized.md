@@ -1,15 +1,14 @@
-# 自定义校验规则
-
-- order: 13
+---
+order: 13
+title: 自定义校验规则
+---
 
 密码校验实例。
 
 这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
 
----
-
 ````jsx
-import { Button, Form, Input, Row, Col, Modal } from 'antd';
+import { Button, Form, Input, Row, Col } from 'antd';
 import classNames from 'classnames';
 const createForm = Form.create;
 const FormItem = Form.Item;
@@ -25,7 +24,6 @@ let Demo = React.createClass({
       rePassBarShow: false,
       passStrength: 'L', // 密码强度
       rePassStrength: 'L',
-      visible: false,
     };
   },
 
@@ -37,7 +35,6 @@ let Demo = React.createClass({
       }
       console.log('Submit!!!');
       console.log(values);
-      this.setState({ visible: false });
     });
   },
 
@@ -64,14 +61,6 @@ let Demo = React.createClass({
         this.setState({ rePassBarShow: false });
       }
     }
-  },
-
-  showModal() {
-    this.setState({ visible: true });
-  },
-
-  hideModal() {
-    this.setState({ visible: false });
   },
 
   checkPass(rule, value, callback) {
@@ -102,12 +91,12 @@ let Demo = React.createClass({
       'ant-pwd-strength': true,
       'ant-pwd-strength-low': strength === 'L',
       'ant-pwd-strength-medium': strength === 'M',
-      'ant-pwd-strength-high': strength === 'H'
+      'ant-pwd-strength-high': strength === 'H',
     });
     const level = {
       L: '低',
       M: '中',
-      H: '高'
+      H: '高',
     };
 
     return (
@@ -127,12 +116,14 @@ let Demo = React.createClass({
   render() {
     const { getFieldProps } = this.props.form;
 
-    // 如果觉得在 JSX 中写 `getFieldProps` 会影响阅读，可以先用变量保存 `getFieldProps` 的返回值。
     const passProps = getFieldProps('pass', {
       rules: [
         { required: true, whitespace: true, message: '请填写密码' },
-        { validator: this.checkPass }
-      ]
+        { validator: this.checkPass },
+      ],
+      onChange: (e) => {
+        console.log('你的密码就是这样被盗的：', e.target.value);
+      },
     });
     const rePassProps = getFieldProps('rePass', {
       rules: [{
@@ -149,43 +140,51 @@ let Demo = React.createClass({
     };
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>修改密码</Button>
-        <Modal title="修改密码" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
-          <Form horizontal form={this.props.form}>
-            <Row>
-              <Col span="18">
-                <FormItem
-                  {...formItemLayout}
-                  label="密码：">
-                  <Input {...passProps} type="password"
-                    onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                    autoComplete="off" id="pass" />
-                </FormItem>
-              </Col>
-              <Col span="6">
-                {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
-              </Col>
-            </Row>
+        <Form horizontal form={this.props.form}>
+          <Row>
+            <Col span="18">
+              <FormItem
+                {...formItemLayout}
+                label="密码"
+              >
+                <Input {...passProps} type="password"
+                  onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                  autoComplete="off" id="pass"
+                />
+              </FormItem>
+            </Col>
+            <Col span="6">
+              {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
+            </Col>
+          </Row>
 
-            <Row>
-              <Col span="18">
-                <FormItem
-                  {...formItemLayout}
-                  label="确认密码：">
-                  <Input {...rePassProps} type="password"
-                    onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                    autoComplete="off" id="rePass" />
-                </FormItem>
+          <Row>
+            <Col span="18">
+              <FormItem
+                {...formItemLayout}
+                label="确认密码"
+              >
+                <Input {...rePassProps} type="password"
+                  onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                  autoComplete="off" id="rePass"
+                />
+              </FormItem>
+            </Col>
+            <Col span="6">
+              {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
+            </Col>
+          </Row>
+          <Row>
+            <Col span="18">
+              <Col span="18" offset="6">
+                <Button type="primary" onClick={this.handleSubmit}>提交</Button>
               </Col>
-              <Col span="6">
-                {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
-              </Col>
-            </Row>
-          </Form>
-        </Modal>
+            </Col>
+          </Row>
+        </Form>
       </div>
     );
-  }
+  },
 });
 
 Demo = createForm()(Demo);

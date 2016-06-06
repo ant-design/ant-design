@@ -1,6 +1,7 @@
-# 完全控制的上传列表
-
-- order: 2
+---
+order: 2
+title: 完全控制的上传列表
+---
 
 使用 `fileList` 对列表进行完全控制，可以实现各种自定义功能，以下演示三种情况：
 
@@ -9,8 +10,6 @@
 2) 读取远程路径并显示链接。
 
 3) 按照服务器返回信息筛选成功上传的文件。
-
----
 
 ````jsx
 import { Upload, Button, Icon } from 'antd';
@@ -22,8 +21,8 @@ const MyUpload = React.createClass({
         uid: -1,
         name: 'xxx.png',
         status: 'done',
-        url: 'http://www.baidu.com/xxx.png'
-      }]
+        url: 'http://www.baidu.com/xxx.png',
+      }],
     };
   },
   handleChange(info) {
@@ -56,7 +55,7 @@ const MyUpload = React.createClass({
     const props = {
       action: '/upload.do',
       onChange: this.handleChange,
-      multiple: true
+      multiple: true,
     };
     return (
       <Upload {...props} fileList={this.state.fileList}>
@@ -65,7 +64,7 @@ const MyUpload = React.createClass({
         </Button>
       </Upload>
     );
-  }
+  },
 });
 
 ReactDOM.render(<MyUpload />, mountNode);

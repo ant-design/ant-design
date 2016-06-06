@@ -1,7 +1,6 @@
-# GitHub
-
-- order: 3
-- category: 3
-- link: https://github.com/ant-design/ant-design
-
 ---
+order: 2
+link: //github.com/ant-design/ant-design
+english: GitHub
+---
+

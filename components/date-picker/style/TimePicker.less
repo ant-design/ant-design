@@ -1,0 +1,32 @@
+.@{calendar-prefix-cls}-time {
+  // Change display order in DOM
+  .@{calendar-prefix-cls}-input-wrap {
+    direction: rtl;
+    .@{calendar-prefix-cls}-date-input-wrap,
+    .@{calendar-prefix-cls}-time-picker-wrap {
+      direction: ltr;
+      display: inline-block;
+    }
+    .@{timepicker-prefix-cls}-panel,
+    .@{calendar-prefix-cls}-clear-btn {
+      direction: ltr;
+    }
+  }
+  .@{calendar-prefix-cls}-input,
+  .@{timepicker-prefix-cls}-input {
+    .input;
+    border-radius: @border-radius-sm;
+    height: @input-height-sm;
+    width: 96px;
+    margin-right: 6px;
+  }
+  .@{calendar-prefix-cls}-input {
+    padding-right: 21px;
+  }
+  .@{timepicker-prefix-cls}-panel {
+    min-width: 168px;
+  }
+  .@{timepicker-prefix-cls}-icon {
+    display: none;
+  }
+}

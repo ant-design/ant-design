@@ -1,0 +1,61 @@
+.toc {
+  font-size: 14px;
+  margin: 36px 0 24px;
+  background: #fbfbfb;
+  border-left: 2px solid #eee;
+}
+
+.toc > ul {
+  padding: 8px 0;
+}
+
+.toc > ul li {
+  list-style: none;
+}
+
+.toc li > ul {
+  text-indent: 8px;
+  font-size: 12px;
+  display: none;
+}
+
+.toc a {
+  padding-left: 16px;
+  border-left: 2px solid #eee;
+  margin-left: -2px;
+  display: block;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  color: #666;
+}
+
+.toc a:hover {
+  color: #2db7f5;
+}
+
+.toc a.current {
+  border-color: #2db7f5;
+  color: #2db7f5;
+}
+
+.toc-affix {
+  position: absolute;
+  top: 8px;
+  right: 20px;
+}
+
+.demos-anchor {
+  color: #aaa;
+  background: #fff;
+  font-size: 12px;
+  margin-top: 0;
+  a {
+    padding-left: 8px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 90px;
+  }
+}

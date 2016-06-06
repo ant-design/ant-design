@@ -1,10 +1,9 @@
-# 位置
-
-- order: 6
+---
+order: 6
+title: 位置
+---
 
 有四个位置，`tabPosition="left|right|top|bottom"`。
-
----
 
 ````jsx
 import { Tabs, Select } from 'antd';
@@ -26,7 +25,8 @@ const Demo = React.createClass({
         <div style={{ marginBottom: 16 }}>
           页签位置：
           <Select value={this.state.tabPosition} onChange={this.changeTabPosition}
-            dropdownMatchSelectWidth={false}>
+            dropdownMatchSelectWidth={false}
+          >
             <Option value="top">top</Option>
             <Option value="bottom">bottom</Option>
             <Option value="left">left</Option>
@@ -40,7 +40,7 @@ const Demo = React.createClass({
         </Tabs>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

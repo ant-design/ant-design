@@ -1,10 +1,9 @@
-# 可点击
-
-- order: 2
+---
+order: 2
+title: 可点击
+---
 
 用 a 标签进行包裹即可。
-
----
 
 ````jsx
 import { Badge } from 'antd';

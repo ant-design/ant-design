@@ -1,0 +1,158 @@
+// Color
+@primary-color          : #2db7f5;
+@info-color             : #2db7f5;
+@success-color          : #87d068;
+@error-color            : #f50;
+@warning-color          : #fa0;
+
+// ------ Base & Require ------
+@body-background        : #fff;
+
+@font-family            : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+@code-family            : Consolas,Menlo,Courier,monospace;
+@text-color             : #666;
+@font-size-base         : 12px;
+@line-height-base       : 1.5;
+@line-height-computed   : floor((@font-size-base * @line-height-base));
+@border-radius-base     : 6px;
+@border-radius-sm       : 4px;
+
+// ICONFONT
+@iconfont-css-prefix    : anticon;
+@icon-url               : "https://at.alicdn.com/t/font_1463992151_360388";
+
+// LINK
+@link-color             : #2db7f5;
+@link-hover-color       : tint(@link-color, 20%);
+@link-active-color      : shade(@link-color, 5%);
+@link-hover-decoration  : none;
+
+// Disabled cursor for form controls and buttons.
+@cursor-disabled        : not-allowed;
+
+// Animation
+@ease-out            : cubic-bezier(0.215, 0.61, 0.355, 1);
+@ease-in             : cubic-bezier(0.55, 0.055, 0.675, 0.19);
+@ease-in-out         : cubic-bezier(0.645, 0.045, 0.355, 1);
+@ease-out-back       : cubic-bezier(0.12, 0.4, 0.29, 1.46);
+@ease-in-back        : cubic-bezier(0.71, -0.46, 0.88, 0.6);
+@ease-in-out-back    : cubic-bezier(0.71, -0.46, 0.29, 1.46);
+@ease-out-circ       : cubic-bezier(0.08, 0.82, 0.17, 1);
+@ease-in-circ        : cubic-bezier(0.6, 0.04, 0.98, 0.34);
+@ease-in-out-circ    : cubic-bezier(0.78, 0.14, 0.15, 0.86);
+@ease-out-quint      : cubic-bezier(0.23, 1, 0.32, 1);
+@ease-in-quint       : cubic-bezier(0.755, 0.05, 0.855, 0.06);
+@ease-in-out-quint   : cubic-bezier(0.86, 0, 0.07, 1);
+
+// Border color
+@border-color-base      : #d9d9d9;        // base border outline a component
+@border-color-split     : #e9e9e9;        // split border inside a component
+
+// Shadow
+@shadow-color           : rgba(100, 100, 100, .2);
+@box-shadow-base        : @shadow-1-down;
+@shadow-1-up            : 0 -1px 6px @shadow-color;
+@shadow-1-down          : 0 1px 6px @shadow-color;
+@shadow-1-left          : -1px 0 6px @shadow-color;
+@shadow-1-right         : 1px 0 6px @shadow-color;
+@shadow-2               : 0 1px 8px @shadow-color;
+
+// Buttons
+@btn-font-weight        : 500;
+
+@btn-primary-color      : #fff;
+@btn-primary-bg         : @primary-color;
+@btn-group-border       : shade(@primary-color, 5%);
+
+@btn-default-color      : @text-color;
+@btn-default-bg         : #f7f7f7;
+@btn-default-border     : @border-color-base;
+
+@btn-ghost-color        : @text-color;
+@btn-ghost-bg           : transparent;
+@btn-ghost-border       : @border-color-base;
+
+@btn-disable-color      : #ccc;
+@btn-disable-bg         : #f7f7f7;
+@btn-disable-border     : @border-color-base;
+
+@btn-padding-base       : 4px 15px;
+
+@btn-font-size-lg       : 14px;
+@btn-padding-lg         : 4px 15px 5px 15px;
+
+@btn-padding-sm         : 1px 7px;
+
+@btn-circle-size        : 28px;
+@btn-circle-size-lg     : 32px;
+@btn-circle-size-sm     : 22px;
+
+// Media queries breakpoints
+// Extra small screen / phone
+@screen-xs              : 480px;
+@screen-xs-min          : @screen-xs;
+@screen-xs-max          : (@screen-xs-min - 1);
+
+// Small screen / tablet
+@screen-sm              : 768px;
+@screen-sm-min          : @screen-sm;
+@screen-sm-max          : (@screen-sm-min - 1);
+
+// Medium screen / desktop
+@screen-md              : 992px;
+@screen-md-min          : @screen-md;
+@screen-md-max          : (@screen-md-min - 1);
+
+// Large screen / wide desktop
+@screen-lg              : 1200px;
+@screen-lg-min          : @screen-lg;
+@screen-lg-max          : (@screen-lg-min - 1);
+
+// Layout and Grid system
+@grid-columns           : 24;
+@grid-gutter-width      : 0;
+
+// Container sizes
+@container-sm           : (720px + @grid-gutter-width);
+@container-md           : (940px + @grid-gutter-width);
+@container-lg           : (1140px + @grid-gutter-width);
+
+// z-index list
+@zindex-affix           : 10;
+@zindex-modal-mask      : 990;
+@zindex-modal           : 1000;
+@zindex-notification    : 1010;
+@zindex-message         : 1010;
+@zindex-popover         : 1030;
+@zindex-picker          : 1050;
+@zindex-dropdown        : 1050;
+@zindex-tooltip         : 1060;
+
+// Form
+// --------------------------------
+// Legend
+@legend-color                : #999;
+@legend-border-color         : @border-color-base;
+// Label
+@label-required-color        : #f50;
+@label-color                 : @text-color;
+// Input
+@input-height-base: 28px;
+@input-height-lg: 32px;
+@input-height-sm: 22px;
+
+@input-padding-horizontal    : 7px;
+@input-padding-vertical-base : 4px;
+@input-padding-vertical-sm   : 1px;
+@input-padding-vertical-lg   : 6px;
+
+@input-placeholder-color     : #ccc;
+@input-color                 : @text-color;
+@input-border-color          : @border-color-base;
+@input-bg                    : #fff;
+
+@input-hover-border-color    : @primary-color;
+@input-focus-border-color    : @primary-color;
+@input-disabled-bg           : #f7f7f7;
+
+@form-item-margin-bottom     : 24px;

@@ -1,0 +1,41 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../button/style/mixin";
+@import "./mixin";
+
+.ant-search-input-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ant-search-input {
+  &.ant-input-group .ant-input:first-child,
+  &.ant-input-group .ant-select:first-child {
+    border-radius: @border-radius-base;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+  }
+
+  .ant-search-btn {
+    .btn-default;
+    border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
+    left: -1px;
+    position: relative;
+    border-width: 0 0 0 1px;
+    z-index: 2;
+    padding-left: 8px;
+    padding-right: 8px;
+    &:hover {
+      border-color: @border-color-base;
+    }
+    form & {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+  }
+  &&-focus .ant-search-btn-noempty,
+  &:hover .ant-search-btn-noempty {
+    .btn-primary;
+  }
+}

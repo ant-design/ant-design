@@ -1,17 +1,16 @@
-# 带下拉框的按钮
-
-- order: 4
+---
+order: 4
+title: 带下拉框的按钮
+---
 
 左边是按钮，右边是额外的相关功能菜单。
-
----
 
 ````jsx
 import { Menu, Dropdown } from 'antd';
 const DropdownButton = Dropdown.Button;
 
-function handleButtonClick() {
-  console.log('click button');
+function handleButtonClick(e) {
+  console.log('click left button', e);
 }
 
 function handleMenuClick(e) {

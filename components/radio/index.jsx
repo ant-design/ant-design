@@ -1,7 +1,7 @@
-import AntRadio from './radio';
+import Radio from './radio';
 import Group from './group';
 import Button from './radioButton';
 
-AntRadio.Button = Button;
-AntRadio.Group = Group;
-export default AntRadio;
+Radio.Button = Button;
+Radio.Group = Group;
+export default Radio;

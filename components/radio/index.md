@@ -1,9 +1,8 @@
-# Radio
-
-- category: Components
-- chinese: 单选框
-- type: 表单
-
+---
+category: Components
+chinese: 单选框
+type: Form Control
+english: Radio
 ---
 
 单选框。

@@ -2,32 +2,35 @@ import React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 const prefixCls = 'ant-upload';
-import { Line } from '../progress';
+import Progress from '../progress';
 import classNames from 'classnames';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-const previewFile = function (file, callback) {
+const previewFile = (file, callback) => {
   const reader = new FileReader();
-  reader.onloadend = function () {
-    callback(reader.result);
-  };
+  reader.onloadend = () => callback(reader.result);
   reader.readAsDataURL(file);
 };
 
-export default React.createClass({
-  getDefaultProps() {
-    return {
-      listType: 'text',  // or picture
-      items: [],
-      progressAttr: {
-        strokeWidth: 3,
-        showInfo: false
-      }
-    };
-  },
-  handleClose(file) {
+export default class UploadList extends React.Component {
+  static defaultProps = {
+    listType: 'text',  // or picture
+    items: [],
+    progressAttr: {
+      strokeWidth: 3,
+      showInfo: false,
+    },
+  };
+
+  handleClose = (file) => {
     this.props.onRemove(file);
-  },
+  }
+
+  handlePreview = (file, e) => {
+    e.preventDefault();
+    return this.props.onPreview(file);
+  }
+
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
@@ -50,7 +53,8 @@ export default React.createClass({
         this.forceUpdate();
       });
     });
-  },
+  }
+
   render() {
     let list = this.props.items.map(file => {
       let progress;
@@ -64,9 +68,15 @@ export default React.createClass({
             icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
           }
         } else {
-          icon = (<a className={`${prefixCls}-list-item-thumbnail`}
-            href={file.url}
-            target="_blank"><img src={file.thumbUrl || file.url} alt={file.name} /></a>
+          icon = (
+            <a
+              className={`${prefixCls}-list-item-thumbnail`}
+              onClick={e => this.handlePreview(file, e)}
+              href={file.url}
+              target="_blank"
+            >
+              <img src={file.thumbUrl || file.url} alt={file.name} />
+            </a>
           );
         }
       }
@@ -74,7 +84,7 @@ export default React.createClass({
       if (file.status === 'uploading') {
         progress = (
           <div className={`${prefixCls}-list-item-progress`}>
-            <Line {...this.props.progressAttr} percent={file.percent} />
+            <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
           </div>
         );
       }
@@ -86,20 +96,36 @@ export default React.createClass({
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
-            {file.url
-               ? <a href={file.url} target="_blank" className={`${prefixCls}-list-item-name`}>{file.name}</a>
-               : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>}
+            {
+              file.url
+              ? (
+                <a
+                  onClick={(e) => this.handlePreview(file, e)}
+                  href={file.url} target="_blank"
+                  className={`${prefixCls}-list-item-name`}
+                >
+                  {file.name}
+                </a>
+              ) : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>
+            }
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
-                  <a href={file.url} target="_blank" style={{ pointerEvents: file.url ? '' : 'none' }}><Icon type="eye-o" /></a>
-                  <Icon type="delete" onClick={this.handleClose.bind(this, file)} />
+                  <a
+                    onClick={(e) => this.handlePreview(file, e)}
+                    href={file.url}
+                    target="_blank"
+                    style={{ pointerEvents: file.url ? '' : 'none' }}
+                  >
+                    <Icon type="eye-o" />
+                  </a>
+                  <Icon type="delete" onClick={() => this.handleClose(file)} />
                 </span>
-              ) : <Icon type="cross" onClick={this.handleClose.bind(this, file)} />
+              ) : <Icon type="cross" onClick={() => this.handleClose(file)} />
             }
           </div>
-          { progress }
+          {progress}
         </div>
       );
     });
@@ -115,4 +141,4 @@ export default React.createClass({
       </div>
     );
   }
-});
+}

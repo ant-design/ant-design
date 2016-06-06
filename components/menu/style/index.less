@@ -1,0 +1,383 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@menu-prefix-cls: ant-menu;
+
+// default theme
+.@{menu-prefix-cls} {
+  outline: none;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+  z-index: @zindex-dropdown;
+  box-shadow: @box-shadow-base;
+  color: @text-color;
+  background: #fff;
+  line-height: 46px;
+
+  &-hidden {
+    display: none;
+  }
+
+  &-item-group-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-item-group-title {
+    color: #999;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 8px 16px;
+  }
+
+  &-item,
+  &-submenu,
+  &-submenu-title {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &-submenu &-sub {
+    cursor: initial;
+  }
+
+  &-item > a {
+    display: block;
+    color: @text-color;
+    &:hover {
+      color: @text-color;
+    }
+  }
+
+  &-item-active,
+  &-submenu-active,
+  &-submenu-title:hover {
+    transform: translateZ(0);
+    background-color: tint(@primary-color, 90%);
+  }
+
+  &-horizontal &-item,
+  &-horizontal &-submenu {
+    margin-top: -1px;
+  }
+
+  &-horizontal > &-item-active,
+  &-horizontal > &-submenu &-submenu-title:hover {
+    background-color: transparent;
+    transform: translateZ(0);
+  }
+
+  &-item-selected {
+    color: @primary-color;
+    // fix chrome render bug
+    transform: translateZ(0);
+    > a,
+    > a:hover {
+      color: @primary-color;
+    }
+  }
+
+  &-inline,
+  &-vertical {
+    border-right: 1px solid @border-color-split;
+    .@{menu-prefix-cls}-item {
+      border-right: 1px solid @border-color-split;
+      margin-left: -1px;
+      left: 1px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &-vertical &-sub {
+    border-right: 0;
+    .@{menu-prefix-cls}-item {
+      border-right: 0;
+    }
+  }
+
+  &-inline {
+    .@{menu-prefix-cls}-selected,
+    .@{menu-prefix-cls}-item-selected {
+      border-right: 2px solid @primary-color;
+      transform: translateZ(0);
+    }
+  }
+
+  &-submenu-horizontal > & {
+    top: 100%;
+    left: 0;
+    position: absolute;
+    min-width: 100%;
+    margin-top: 7px;
+    z-index: @zindex-dropdown;
+  }
+
+  &-submenu-vertical {
+    z-index: 1;
+  }
+
+  &-submenu-vertical > & {
+    top: 0;
+    left: 100%;
+    position: absolute;
+    min-width: 160px;
+    margin-left: 4px;
+    z-index: @zindex-dropdown;
+  }
+
+  &-item,
+  &-submenu-title {
+    margin: 0;
+    padding: 0 20px;
+    position: relative;
+    display: block;
+    white-space: nowrap;
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.@{menu-prefix-cls}-item-disabled,
+    &.@{menu-prefix-cls}-submenu-disabled {
+      color: #999 !important;
+      cursor: not-allowed;
+      > a {
+        color: #999 !important;
+        pointer-events: none;
+      }
+    }
+
+    .anticon {
+      min-width: 14px;
+      margin-right: 8px;
+    }
+  }
+
+  & > &-item-divider {
+    height: 1px;
+    margin: 1px 0;
+    overflow: hidden;
+    padding: 0;
+    line-height: 0;
+    background-color: #e5e5e5;
+  }
+
+  &-submenu {
+    position: relative;
+
+    > .@{menu-prefix-cls} {
+      background-color: #fff;
+      border-radius: 4px;
+    }
+
+    &-vertical > .@{menu-prefix-cls}-submenu-title:after {
+      font-family: "anticon" !important;
+      font-style: normal;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      position: absolute;
+      transition: transform .3s ease;
+      content: "\e603";
+      right: 16px;
+      .ie-rotate(3);
+      transform: rotate(270deg) scale(0.75);
+    }
+
+    &-inline > .@{menu-prefix-cls}-submenu-title:after {
+      font-family: "anticon" !important;
+      font-style: normal;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      position: absolute;
+      transition: transform .3s ease;
+      content: "\e603";
+      right: 16px;
+      top: 0;
+      .iconfont-size-under-12px(8px);
+    }
+
+    &-open {
+      &.@{menu-prefix-cls}-submenu-inline > .@{menu-prefix-cls}-submenu-title:after {
+        .ie-rotate(1);
+        transform: rotate(180deg) scale(0.75);
+      }
+    }
+  }
+
+  &-horizontal {
+    border: 0;
+    border-bottom: 1px solid @border-color-split;
+    box-shadow: none;
+    z-index: 0;
+
+    > .@{menu-prefix-cls}-item,
+    > .@{menu-prefix-cls}-submenu {
+      position: relative;
+      top: 1px;
+      float: left;
+      border-bottom: 2px solid transparent;
+      z-index: 2;
+
+      &-active,
+      &-selected {
+        border-bottom: 2px solid @primary-color;
+        color: @primary-color;
+        transform: translateZ(0);
+      }
+
+      > a {
+        display: block;
+        color: @text-color;
+        &:hover {
+          color: @primary-color;
+        }
+        &:before,
+        &:after {
+          position: absolute;
+          background-color: transparent;
+          width: 20px;
+          height: 100%;
+          content: '';
+        }
+        &:before {
+          left: 0;
+        }
+      }
+    }
+
+    &:after {
+      content: "\20";
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+
+  &-vertical,
+  &-inline,
+  &-item-group-list {
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      padding: 0px 16px 0 28px;
+      font-size: 12px;
+      line-height: 42px;
+      height: 42px;
+    }
+  }
+
+  &-vertical&-sub {
+    padding: 0;
+    transform-origin: 0 0;
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu {
+      transform-origin: 0 0;
+    }
+  }
+
+  &-root&-vertical,
+  &-root&-inline {
+    box-shadow: none;
+  }
+
+  &-sub&-inline {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    & > .@{menu-prefix-cls}-item,
+    & > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
+      line-height: 42px;
+      height: 42px;
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+
+    & .@{menu-prefix-cls}-item-group-title {
+      padding-left: 32px;
+    }
+  }
+}
+
+
+// dark theme
+.@{menu-prefix-cls} {
+  &-dark,
+  &-dark &-sub {
+    color: #999;
+    background: #404040;
+  }
+
+  &-dark &-inline&-sub {
+    background: #333;
+  }
+
+  &-dark&-horizontal {
+    border-bottom-color: #404040;
+  }
+
+  &-dark&-horizontal > &-item,
+  &-dark&-horizontal > &-submenu {
+    border-color: #404040;
+    border-bottom: 0;
+    top: 0;
+  }
+
+  &-dark&-horizontal > &-item-active,
+  &-dark&-horizontal > &-item-selected,
+  &-dark&-horizontal > &-submenu:hover,
+  &-dark&-horizontal > &-submenu &-submenu-title:hover {
+    &,
+    & > a {
+      color: #fff;
+      transform: translateZ(0);
+    }
+  }
+
+  &-dark &-item > a {
+    color: #999;
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &-dark&-inline,
+  &-dark&-vertical {
+    border-right: 0;
+  }
+
+  &-dark&-inline &-item,
+  &-dark&-vertical &-item {
+    border-right: 0;
+    margin-left: 0;
+    left: 0;
+  }
+
+  &-dark&-inline &-item-selected {
+    border-right: 0;
+    background-color: @primary-color;
+    color: #fff;
+    transform: translateZ(0);
+    > a,
+    > a:hover {
+      color: #fff;
+    }
+  }
+
+  &-dark&-vertical &-item-selected {
+    > a,
+    > a:hover {
+      color: @primary-color;
+    }
+  }
+
+  &-dark &-item-active,
+  &-dark &-submenu-active,
+  &-dark &-submenu-title:hover {
+    background-color: transparent;
+    color: @primary-color;
+    transform: translateZ(0);
+  }
+}

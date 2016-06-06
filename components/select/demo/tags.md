@@ -1,11 +1,9 @@
-# 标签
-
-- order: 3
-
-tags select，随意输入的内容（scroll the menu）
-
+---
+order: 3
+title: 标签
 ---
 
+tags select，随意输入的内容（scroll the menu）
 
 ````jsx
 import { Select } from 'antd';
@@ -24,7 +22,8 @@ ReactDOM.render(
   <Select tags
     style={{ width: '100%' }}
     searchPlaceholder="标签模式"
-    onChange={handleChange}>
+    onChange={handleChange}
+  >
     {children}
   </Select>
 , mountNode);

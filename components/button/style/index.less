@@ -1,0 +1,127 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "./mixin";
+
+@btn-prefix-cls: ant-btn;
+
+// Button styles
+// -----------------------------
+.@{btn-prefix-cls} {
+  .btn;
+  .btn-default;
+
+  &-primary {
+    .btn-primary;
+
+    .@{btn-prefix-cls}-group &:not(:first-child):not(:last-child) {
+      border-right-color: @btn-group-border;
+      border-left-color: @btn-group-border;
+    }
+
+    .@{btn-prefix-cls}-group &:first-child {
+      &:not(:last-child) {
+        border-right-color: @btn-group-border;
+        &[disabled] {
+          border-right-color: @btn-default-border;
+        }
+      }
+    }
+
+    .@{btn-prefix-cls}-group &:last-child:not(:first-child),
+    .@{btn-prefix-cls}-group & + .@{btn-prefix-cls} {
+      border-left-color: @btn-group-border;
+      &[disabled] {
+        border-left-color: @btn-default-border;
+      }
+    }
+  }
+
+  &-ghost {
+    .btn-ghost;
+  }
+
+  &-dashed {
+    .btn-dashed;
+  }
+
+  &-circle,
+  &-circle-outline {
+    .btn-circle(@btn-prefix-cls);
+  }
+
+  &:before {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    right: -1px;
+    background: #fff;
+    opacity: 0.35;
+    content: '';
+    border-radius: inherit;
+    z-index: 1;
+    transition: opacity .2s;
+    pointer-events: none;
+    display: none;
+  }
+
+  &&-loading {
+    padding-left: 29px;
+    pointer-events: none;
+    position: relative;
+    .anticon {
+      margin-left: -14px;
+      transition: all .3s @ease-in-out;
+    }
+    &:before {
+      display: block;
+    }
+  }
+
+  &-sm&-loading {
+    padding-left: 24px;
+    .anticon {
+      margin-left: -17px;
+    }
+  }
+
+  &-group {
+    .btn-group(@btn-prefix-cls);
+  }
+
+  &:not(&-circle):not(&-circle-outline)&-icon-only {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  // To ensure that a space will be placed between character and `Icon`.
+  > .@{iconfont-css-prefix} + span,
+  > span + .@{iconfont-css-prefix} {
+    margin-left: 0.5em;
+  }
+
+  &-clicked:after {
+  	content: '';
+  	position: absolute;
+  	top: -1px;
+  	left: -1px;
+  	bottom: -1px;
+  	right: -1px;
+  	border-radius: inherit;
+    border: 0 solid @primary-color;
+  	opacity: 0.4;
+    animation: buttonEffect 0.32s ease forwards;
+    display: block;
+  }
+}
+
+@keyframes buttonEffect {
+	to {
+		opacity: 0;
+    top: -5px;
+  	left: -5px;
+  	bottom: -5px;
+  	right: -5px;
+    border-width: 5px;
+	}
+}

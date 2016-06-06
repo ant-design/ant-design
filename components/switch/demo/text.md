@@ -1,10 +1,9 @@
-# 文字和图标
-
-- order: 2
+---
+order: 2
+title: 文字和图标
+---
 
 带有文字和图标。
-
----
 
 ````jsx
 import { Switch, Icon } from 'antd';

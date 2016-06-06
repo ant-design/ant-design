@@ -1,11 +1,13 @@
-# 排版
-
-- category: 基础
-- order: 1
-
+---
+category: 设计基础
+order: 1
+chinese: 排版
+english: Typography
 ---
 
 良好的排版规范能大大提升用户的视觉体验。
+
+---
 
 ## 行高和段落
 

@@ -1,10 +1,9 @@
-# 异步数据加载
-
-- order: 3
+---
+order: 3
+title: 异步数据加载
+---
 
 点击展开节点，动态加载数据。
-
----
 
 ````jsx
 import { Tree } from 'antd';

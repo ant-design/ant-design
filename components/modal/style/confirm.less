@@ -1,0 +1,61 @@
+@confirm-prefix-cls: ant-confirm;
+
+.@{confirm-prefix-cls} {
+  .ant-modal-header {
+    display: none;
+  }
+
+  .ant-modal-body {
+    padding: 30px 40px;
+  }
+
+  &-body {
+    .@{confirm-prefix-cls}-title {
+      color: @text-color;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .@{confirm-prefix-cls}-content {
+      margin-left: 37px;
+      font-size: @font-size-base;
+      color: @text-color;
+      margin-top: 8px;
+    }
+
+    > .anticon {
+      font-size: 24px;
+      margin-right: 10px;
+      padding: 0 1px;
+      position: relative;
+      top: 5px;
+    }
+  }
+
+  .@{confirm-prefix-cls}-btns {
+    margin-top: 30px;
+    float: right;
+
+    button + button {
+      margin-left: 10px;
+      margin-bottom: 0;
+    }
+  }
+
+  &-error &-body > .anticon {
+    color: @error-color;
+  }
+
+  &-warning &-body > .anticon,
+  &-confirm &-body > .anticon {
+    color: @warning-color;
+  }
+
+  &-info &-body > .anticon {
+    color: @primary-color;
+  }
+
+  &-success &-body > .anticon {
+    color: @success-color;
+  }
+}

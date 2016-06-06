@@ -1,10 +1,9 @@
-# 多级菜单
-
-- order: 5
+---
+order: 5
+title: 多级菜单
+---
 
 传入的菜单里有多个层级。
-
----
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';

@@ -1,0 +1,94 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@switch-prefix-cls: ant-switch;
+@switch-duration: .3s;
+
+.@{switch-prefix-cls} {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 44px;
+  height: 22px;
+  line-height: 20px;
+  vertical-align: middle;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: all @switch-duration @ease-in-out-circ;
+  user-select: none;
+
+  &-inner {
+    color: #fff;
+    font-size: 12px;
+    position: absolute;
+    left: 24px;
+  }
+
+  &:after {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 2px;
+    top: 1px;
+    border-radius: 100%;
+    background-color: #fff;
+    content: " ";
+    cursor: pointer;
+    transition: left @switch-duration @ease-in-out-circ;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px fade(@primary-color, 20%);
+    outline: 0;
+  }
+
+  &:focus:hover {
+    box-shadow: none;
+  }
+
+  &-small {
+    height: 14px;
+    line-height: 12px;
+    width: 28px;
+    &:after {
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-small&-checked:after {
+    left: 14px;
+  }
+
+  &-checked {
+    border: 1px solid @primary-color;
+    background-color: @primary-color;
+
+    .@{switch-prefix-cls}-inner {
+      left: 6px;
+    }
+
+    &:after {
+      left: 22px;
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed;
+    background: #f7f7f7;
+    border-color: #f7f7f7;
+
+    &:after {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    &-inner {
+      color: #ccc;
+    }
+  }
+}

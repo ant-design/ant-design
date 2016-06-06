@@ -1,0 +1,130 @@
+@dialog-prefix-cls: ant-modal;
+
+.@{dialog-prefix-cls} {
+  position: relative;
+  width: auto;
+  margin: 0 auto;
+  top: 100px;
+  padding-bottom: 24px;
+
+  &-wrap {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @zindex-modal;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+  }
+
+  &-title {
+    margin: 0;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: bold;
+  }
+
+  &-content {
+    position: relative;
+    background-color: #fff;
+    border: 0;
+    border-radius: @border-radius-base;
+    background-clip: padding-box;
+  }
+
+  &-close {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 18px;
+    top: 16px;
+    z-index: 10;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    transition: color .3s ease;
+    color: #999;
+    outline: 0;
+
+    &-x {
+      display: block;
+      font-style: normal;
+      vertical-align: baseline;
+      text-align: center;
+      text-transform: none;
+      text-rendering: auto;
+      width: 14px;
+      height: 14px;
+      font-size: 14px;
+      line-height: 1;
+
+      &:before {
+        content: "\e62d";
+        display: block;
+        font-family: "anticon" !important;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      color: #444;
+      text-decoration: none;
+    }
+  }
+
+  &-header {
+    padding: 14px 16px;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+    background: #fff;
+    color: #666;
+    border-bottom: 1px solid @border-color-split;
+  }
+
+  &-body {
+    padding: 16px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  &-footer {
+    border-top: 1px solid @border-color-split;
+    padding: 10px 18px 10px 10px;
+    text-align: right;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
+    button + button {
+      margin-left: 8px;
+      margin-bottom: 0;
+    }
+  }
+
+  &.zoom-enter,
+  &.zoom-appear {
+    animation-duration: .2s;
+    transform: none; // reset scale avoid mousePosition bug
+    opacity: 0;
+  }
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #373737;
+    background-color: rgba(55, 55, 55, 0.6);
+    height: 100%;
+    z-index: @zindex-modal-mask;
+    filter: ~"alpha(opacity=50)";
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-open {
+    overflow: hidden;
+  }
+}

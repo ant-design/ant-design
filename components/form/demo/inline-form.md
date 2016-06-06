@@ -1,10 +1,9 @@
-# 平行排列
-
-- order: 1
+---
+order: 1
+title: 平行排列
+---
 
 行内排列，常用于登录界面。
-
----
 
 ````jsx
 import { Form, Input, Button, Checkbox } from 'antd';
@@ -21,25 +20,26 @@ let Demo = React.createClass({
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <FormItem
-          label="账户：">
+          label="账户"
+        >
           <Input placeholder="请输入账户名"
-            {...getFieldProps('userName')} />
+            {...getFieldProps('userName')}
+          />
         </FormItem>
         <FormItem
-          label="密码：">
+          label="密码"
+        >
           <Input type="password" placeholder="请输入密码"
-            {...getFieldProps('password')} />
+            {...getFieldProps('password')}
+          />
         </FormItem>
         <FormItem>
-          <label className="ant-checkbox-inline">
-            <Checkbox
-              {...getFieldProps('agreement')} />记住我
-          </label>
+          <Checkbox {...getFieldProps('agreement')}>记住我</Checkbox>
         </FormItem>
         <Button type="primary" htmlType="submit">登录</Button>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);

@@ -1,0 +1,78 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@rate-prefix-cls: ant-rate;
+@rate-star-color: #f5a623;
+
+.@{rate-prefix-cls} {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'anticon';
+  font-weight: normal;
+  font-style: normal;
+
+  &-disabled &-star {
+    &:before,
+    &-content:before {
+      cursor: default;
+    }
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &-star {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:before,
+    &-content:before {
+      color: #e9e9e9;
+      cursor: pointer;
+      content: "\E694";
+      transition: all 0.3s ease;
+      display: block;
+    }
+
+    &-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      &:before {
+        color: transparent;
+      }
+    }
+
+    &-half &-content:before,
+    &-full:before {
+      color: @rate-star-color;
+    }
+
+    &-half:hover &-content:before,
+    &-full:hover:before {
+      color: tint(@rate-star-color, 20%);
+    }
+  }
+
+  &-text {
+    margin-left: 8px;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: @font-size-base;
+  }
+}

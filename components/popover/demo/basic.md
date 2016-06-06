@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
-
-最简单的用法。
-
 ---
+order: 0
+title: 基本
+---
+
+最简单的用法，浮层的大小由内容区域决定。
 
 ````jsx
 import { Popover, Button } from 'antd';
@@ -17,7 +16,7 @@ const content = (
 );
 
 ReactDOM.render(
-  <Popover overlay={content} title="标题">
+  <Popover content={content} title="标题">
     <Button type="primary">弹出卡片</Button>
   </Popover>
 , mountNode);

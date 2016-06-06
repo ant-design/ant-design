@@ -3,36 +3,27 @@ import Notification from 'rc-notification';
 import Icon from '../icon';
 
 let defaultDuration = 1.5;
-let top;
+let defaultTop;
 let messageInstance;
 let key = 1;
+let prefixCls = 'ant-message';
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
-    prefixCls: 'ant-message',
+    prefixCls,
     transitionName: 'move-up',
-    style: {
-      top,
-    }  // 覆盖原来的样式
+    style: { top: defaultTop }, // 覆盖原来的样式
   });
   return messageInstance;
 }
 
 function notice(content, duration = defaultDuration, type, onClose) {
-  let iconClass = ({
-    info: 'ant-message-info',
-    success: 'ant-message-success',
-    error: 'ant-message-error',
-    warn: 'ant-message-warn',
-    loading: 'ant-message-loading'
-  })[type];
-
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
-    error: 'exclamation-circle',
-    warn: 'exclamation-circle',
-    loading: 'loading'
+    error: 'cross-circle',
+    warning: 'exclamation-circle',
+    loading: 'loading',
   })[type];
 
   let instance = getMessageInstance();
@@ -40,11 +31,13 @@ function notice(content, duration = defaultDuration, type, onClose) {
     key,
     duration,
     style: {},
-    content: <div className={`ant-message-custom-content ${iconClass}`}>
-      <Icon className={iconClass} type={iconType} />
-      <span>{content}</span>
-    </div>,
-    onClose
+    content: (
+      <div className={`${prefixCls}-custom-content ${prefixCls}-${type}`}>
+        <Icon type={iconType} />
+        <span>{content}</span>
+      </div>
+    ),
+    onClose,
   });
   return (function () {
     let target = key++;
@@ -64,15 +57,25 @@ export default {
   error(content, duration, onClose) {
     return notice(content, duration, 'error', onClose);
   },
+  // Departed usage, please use warning()
   warn(content, duration, onClose) {
-    return notice(content, duration, 'warn', onClose);
+    return notice(content, duration, 'warning', onClose);
+  },
+  warning(content, duration, onClose) {
+    return notice(content, duration, 'warning', onClose);
   },
   loading(content, duration, onClose) {
     return notice(content, duration, 'loading', onClose);
   },
   config(options) {
-    if (options.top) {
-      top = options.top;
+    if ('top' in options) {
+      defaultTop = options.top;
+    }
+    if ('duration' in options) {
+      defaultDuration = options.duration;
+    }
+    if ('prefixCls' in options) {
+      prefixCls = options.prefixCls;
     }
   },
   destroy() {

@@ -1,10 +1,9 @@
-# 禁用
-
-- order: 5
+---
+order: 5
+title: 禁用
+---
 
 选择框的不可用状态。
-
----
 
 ````jsx
 import { DatePicker } from 'antd';
