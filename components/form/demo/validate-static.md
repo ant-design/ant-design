@@ -22,7 +22,8 @@ ReactDOM.render(
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       validateStatus="error"
-      help="请输入数字和字母组合">
+      help="请输入数字和字母组合"
+    >
       <Input defaultValue="无效选择" id="error" />
     </FormItem>
 
@@ -30,7 +31,8 @@ ReactDOM.render(
       label="警告校验"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
-      validateStatus="warning">
+      validateStatus="warning"
+    >
       <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
 
@@ -40,7 +42,8 @@ ReactDOM.render(
       wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="validating"
-      help="信息审核中...">
+      help="信息审核中..."
+    >
       <Input defaultValue="我是被校验的内容" id="validating" />
     </FormItem>
 
@@ -49,7 +52,8 @@ ReactDOM.render(
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
-      validateStatus="success">
+      validateStatus="success"
+    >
       <Input defaultValue="我是正文" id="success" />
     </FormItem>
 
@@ -58,7 +62,8 @@ ReactDOM.render(
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
-      validateStatus="warning">
+      validateStatus="warning"
+    >
       <Input defaultValue="前方高能预警" id="warning" />
     </FormItem>
 
@@ -68,14 +73,16 @@ ReactDOM.render(
       wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="error"
-      help="请输入数字和字母组合">
+      help="请输入数字和字母组合"
+    >
       <Input defaultValue="无效选择" id="error" />
     </FormItem>
 
     <FormItem
       label="行内校验"
       labelCol={{ span: 5 }}
-      help>
+      help
+    >
       <Col span="6">
         <FormItem validateStatus="error" help="请选择正确日期">
           <DatePicker />

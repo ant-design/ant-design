@@ -99,12 +99,14 @@ export default class Input extends React.Component {
       case 'textarea':
         return (
           <textarea {...props} placeholder={placeholder}
-            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input" />
+            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input"
+          />
         );
       default:
         return (
           <input {...props} placeholder={placeholder}
-            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input" />
+            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input"
+          />
         );
     }
   }

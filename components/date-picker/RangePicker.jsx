@@ -126,14 +126,16 @@ export default class RangePicker extends React.Component {
                   onChange={props.handleInputChange}
                   value={start ? props.getFormatter().format(start) : ''}
                   placeholder={startPlaceholder}
-                  className="ant-calendar-range-picker-input" />
+                  className="ant-calendar-range-picker-input"
+                />
                 <span className="ant-calendar-range-picker-separator"> ~ </span>
                 <input
                   disabled={disabled}
                   onChange={props.handleInputChange}
                   value={end ? props.getFormatter().format(end) : ''}
                   placeholder={endPlaceholder}
-                  className="ant-calendar-range-picker-input" />
+                  className="ant-calendar-range-picker-input"
+                />
                 <span className="ant-calendar-picker-icon" />
               </span>
             );

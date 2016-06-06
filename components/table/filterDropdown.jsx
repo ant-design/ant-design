@@ -113,16 +113,19 @@ export default class FilterMenu extends React.Component {
           prefixCls="ant-dropdown-menu"
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
-          selectedKeys={this.state.selectedKeys}>
+          selectedKeys={this.state.selectedKeys}
+        >
           {this.renderMenus(column.filters)}
         </Menu>
         <div className="ant-table-filter-dropdown-btns">
           <a className="ant-table-filter-dropdown-link confirm"
-            onClick={this.handleConfirm}>
+            onClick={this.handleConfirm}
+          >
             {locale.filterConfirm}
           </a>
           <a className="ant-table-filter-dropdown-link clear"
-            onClick={this.handleClearFilters}>
+            onClick={this.handleClearFilters}
+          >
             {locale.filterReset}
           </a>
         </div>
@@ -137,7 +140,8 @@ export default class FilterMenu extends React.Component {
         overlay={menus}
         visible={this.state.visible}
         onVisibleChange={this.onVisibleChange}
-        closeOnSelect={false}>
+        closeOnSelect={false}
+      >
         <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
       </Dropdown>
     );

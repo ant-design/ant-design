@@ -22,7 +22,8 @@ ReactDOM.render(
   <Select tags
     style={{ width: '100%' }}
     searchPlaceholder="标签模式"
-    onChange={handleChange}>
+    onChange={handleChange}
+  >
     {children}
   </Select>
 , mountNode);

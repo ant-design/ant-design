@@ -35,7 +35,8 @@ const Demo = React.createClass({
         defaultExpandedKeys={this.state.defaultExpandedKeys}
         defaultSelectedKeys={this.state.defaultSelectedKeys}
         defaultCheckedKeys={this.state.defaultCheckedKeys}
-        onSelect={this.onSelect} onCheck={this.onCheck}>
+        onSelect={this.onSelect} onCheck={this.onCheck}
+      >
         <TreeNode title="parent 1" key="0-0">
           <TreeNode title="parent 1-0" key="0-0-0" disabled>
             <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />

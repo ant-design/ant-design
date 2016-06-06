@@ -18,7 +18,8 @@ ReactDOM.render(
   <Select defaultValue="lucy"
     style={{ width: 200 }}
     showSearch={false}
-    onChange={handleChange}>
+    onChange={handleChange}
+  >
     <OptGroup label="Manager">
       <Option value="jack">jack</Option>
       <Option value="lucy">lucy</Option>

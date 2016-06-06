@@ -78,10 +78,12 @@ export default class Demo extends React.Component {
           {introChildren}
           <span className="collapse anticon anticon-circle-o-right"
             onClick={this.handleCodeExapnd}
-            unselectable="none" />
+            unselectable="none"
+          />
         </section>
         <section className={highlightClass}
-          key="code">
+          key="code"
+        >
           <div className="highlight">
             {props.utils.toReactComponent(highlightedCode)}
           </div>
@@ -91,7 +93,8 @@ export default class Demo extends React.Component {
                 <pre>
                   <code className="css" dangerouslySetInnerHTML={{
                     __html: highlightedStyle,
-                  }} />
+                  }}
+                  />
                 </pre>
               </div> :
               null

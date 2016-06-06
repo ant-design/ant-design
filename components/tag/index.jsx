@@ -58,7 +58,8 @@ export default class Tag extends React.Component {
         showProp="data-show"
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
-        onEnd={this.animationEnd}>
+        onEnd={this.animationEnd}
+      >
         {this.state.closed ? null : (
           <div data-show={!this.state.closing} {...restProps} className={classString}>
             <span className={`${prefixCls}-text`}>{children}</span>

@@ -45,7 +45,8 @@ export default class Header extends React.Component {
         dropdownMenuStyle={{ minWidth: 103 }}
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange}
-        value={String(year)}>
+        value={String(year)}
+      >
         {options}
       </Select>
     );
@@ -69,7 +70,8 @@ export default class Header extends React.Component {
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}
         value={String(month)}
-        onChange={this.onMonthChange}>
+        onChange={this.onMonthChange}
+      >
         {options}
       </Select>
     );

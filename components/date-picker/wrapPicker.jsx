@@ -103,7 +103,7 @@ export default function wrapPicker(Picker, defaultFormat) {
           placeholder={locale.timePickerLocale.placeholder}
           locale={locale.timePickerLocale}
           transitionName="slide-up"
-          />
+        />
       ) : null;
 
       return (

@@ -80,7 +80,8 @@ export default class Cascader extends React.Component {
     const clearIcon = (allowClear && !disabled && this.state.value.length > 0) ?
       <Icon type="cross-circle"
         className={`${prefixCls}-picker-clear`}
-        onClick={this.clearSelection} /> : null;
+        onClick={this.clearSelection}
+      /> : null;
     const arrowCls = classNames({
       [`${prefixCls}-picker-arrow`]: true,
       [`${prefixCls}-picker-arrow-expand`]: this.state.popupVisible,
@@ -99,17 +100,20 @@ export default class Cascader extends React.Component {
         value={this.state.value}
         popupVisible={this.state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}
-        onChange={this.handleChange}>
+        onChange={this.handleChange}
+      >
         {children ||
           <span
             style={style}
-            className={pickerCls}>
+            className={pickerCls}
+          >
             <Input {...otherProps}
               placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
               value={null}
               disabled={disabled}
-              readOnly />
+              readOnly
+            />
             <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
             {clearIcon}
             <Icon type="down" className={arrowCls} />

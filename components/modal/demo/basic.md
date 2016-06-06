@@ -34,7 +34,8 @@ const App = React.createClass({
       <div>
         <Button type="primary" onClick={this.showModal}>显示对话框</Button>
         <Modal title="第一个 Modal" visible={this.state.visible}
-          onOk={this.handleOk} onCancel={this.handleCancel}>
+          onOk={this.handleOk} onCancel={this.handleCancel}
+        >
           <p>对话框的内容</p>
           <p>对话框的内容</p>
           <p>对话框的内容</p>

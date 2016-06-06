@@ -82,7 +82,8 @@ export default class Alert extends React.Component {
       <Animate component=""
         showProp="data-show"
         transitionName="slide-up"
-        onEnd={this.animationEnd}>
+        onEnd={this.animationEnd}
+      >
         <div data-show={this.state.closing} className={alertCls}>
           {showIcon ? <Icon className="ant-alert-icon" type={iconType} /> : null}
           <span className={`${prefixCls}-message`}>{message}</span>

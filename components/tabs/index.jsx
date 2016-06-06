@@ -77,7 +77,8 @@ export default class Tabs extends React.Component {
         className={className}
         tabBarExtraContent={tabBarExtraContent}
         onChange={this.handleChange}
-        animation={animation}>
+        animation={animation}
+      >
         {children}
       </RcTabs>
     );

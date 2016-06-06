@@ -26,7 +26,8 @@ const App = React.createClass({
     return (
       <Menu onClick={this.handleClick}
         selectedKeys={[this.state.current]}
-        mode="horizontal">
+        mode="horizontal"
+      >
         <Menu.Item key="mail">
           <Icon type="mail" />导航一
         </Menu.Item>

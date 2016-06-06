@@ -13,7 +13,8 @@ ReactDOM.render(
     selectComponentClass={Select}
     total={80}
     showTotal={total => `共 ${total} 条`}
-    pageSize={20} defaultCurrent={1} />,
+    pageSize={20} defaultCurrent={1}
+  />,
   mountNode
 );
 ````

@@ -50,7 +50,8 @@ const Demo = React.createClass({
   render() {
     return (
       <Tabs onChange={this.onChange} activeKey={this.state.activeKey}
-        type="editable-card" onEdit={this.onEdit}>
+        type="editable-card" onEdit={this.onEdit}
+      >
         {this.state.panes}
       </Tabs>
     );

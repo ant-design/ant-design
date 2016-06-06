@@ -78,21 +78,24 @@ export default class Modal extends React.Component {
       <Button key="cancel"
         type="ghost"
         size="large"
-        onClick={this.handleCancel}>
+        onClick={this.handleCancel}
+      >
         {cancelText || '取消'}
       </Button>,
       <Button key="confirm"
         type="primary"
         size="large"
         loading={props.confirmLoading}
-        onClick={this.handleOk}>
+        onClick={this.handleOk}
+      >
         {okText || '确定'}
       </Button>,
     ];
     let footer = props.footer || defaultFooter;
     return (
       <Dialog onClose={this.handleCancel} footer={footer} {...props}
-        visible={props.visible} mousePosition={mousePosition} />
+        visible={props.visible} mousePosition={mousePosition}
+      />
     );
   }
 }

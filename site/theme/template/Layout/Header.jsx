@@ -136,14 +136,16 @@ export default class Header extends React.Component {
             <Icon
               className="nav-phone-icon"
               onClick={this.handleMenuIconClick}
-              type="menu" />
+              type="menu"
+            />
             <Link to="/" id="logo">
               <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
               <span>Ant Design</span>
             </Link>
           </Col>
           <Col className={`nav ${this.state.menuVisible ? 'nav-show' : 'nav-hide'}`}
-            lg={20} md={18} sm={17} xs={0} style={menuStyle}>
+            lg={20} md={18} sm={17} xs={0} style={menuStyle}
+          >
             <div id="search-box">
               <Select combobox
                 dropdownClassName="component-select"
@@ -151,7 +153,8 @@ export default class Header extends React.Component {
                 value={undefined}
                 optionFilterProp="data-label"
                 filterOption={this.handleSelectFilter}
-                onSelect={this.handleSearch}>
+                onSelect={this.handleSearch}
+              >
                 {options}
               </Select>
             </div>

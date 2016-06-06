@@ -43,7 +43,8 @@ const Test = React.createClass({
             <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>
               提 交
             </Button>,
-          ]}>
+          ]}
+        >
           <p>对话框的内容</p>
           <p>对话框的内容</p>
           <p>对话框的内容</p>

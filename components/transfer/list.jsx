@@ -93,7 +93,8 @@ export default class TransferList extends React.Component {
     return (
       <span ref="checkbox"
         className={checkboxCls}
-        onClick={(!props.disabled) && this.handleSelectAll}>
+        onClick={(!props.disabled) && this.handleSelectAll}
+      >
         {customEle}
       </span>
     );
@@ -188,11 +189,13 @@ export default class TransferList extends React.Component {
                 onChange={this.handleFilter}
                 handleClear={this.handleClear}
                 placeholder={searchPlaceholder || '请输入搜索内容'}
-                value={filter} />
+                value={filter}
+              />
             </div> : null}
             <Animate component="ul"
               transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
-              transitionLeave={false}>
+              transitionLeave={false}
+            >
               {showItems.length > 0
                 ? showItems
                 : <div className={`${prefixCls}-body-not-found`}>{notFoundContent || '列表为空'}</div>}

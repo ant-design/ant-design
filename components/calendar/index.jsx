@@ -139,7 +139,8 @@ export default class Calendar extends React.Component {
           locale={locale.lang}
           prefixCls={prefixCls}
           onTypeChange={this.setType}
-          onValueChange={this.setValue} />
+          onValueChange={this.setValue}
+        />
         <FullCalendar
           {...props}
           Select={noop}
@@ -149,7 +150,8 @@ export default class Calendar extends React.Component {
           showHeader={false}
           value={value}
           monthCellRender={this.monthCellRender}
-          dateCellRender={this.dateCellRender} />
+          dateCellRender={this.dateCellRender}
+        />
       </div>
     );
   }

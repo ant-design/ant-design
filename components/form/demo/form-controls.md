@@ -23,7 +23,8 @@ ReactDOM.render(
       id="control-input"
       label="输入框"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 14 }}>
+      wrapperCol={{ span: 14 }}
+    >
       <Input id="control-input" placeholder="Please enter..." />
     </FormItem>
 
@@ -31,7 +32,8 @@ ReactDOM.render(
       id="control-textarea"
       label="文本域"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 14 }}>
+      wrapperCol={{ span: 14 }}
+    >
       <Input type="textarea" id="control-textarea" rows="3" />
     </FormItem>
 
@@ -39,7 +41,8 @@ ReactDOM.render(
       id="select"
       label="Select 选择器"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 14 }}>
+      wrapperCol={{ span: 14 }}
+    >
       <Select id="select" size="large" defaultValue="lucy" style={{ width: 200 }} onChange={handleSelectChange}>
         <Option value="jack">jack</Option>
         <Option value="lucy">lucy</Option>
@@ -51,7 +54,8 @@ ReactDOM.render(
     <FormItem
       label="Checkbox 多选框"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 18 }} >
+      wrapperCol={{ span: 18 }}
+    >
       <Checkbox className="ant-checkbox-vertical">选项一</Checkbox>
       <Checkbox className="ant-checkbox-vertical">选项二</Checkbox>
       <Checkbox className="ant-checkbox-vertical" disabled>选项三（不可选）</Checkbox>
@@ -60,7 +64,8 @@ ReactDOM.render(
     <FormItem
       label="Checkbox 多选框"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 18 }} >
+      wrapperCol={{ span: 18 }}
+    >
       <Checkbox className="ant-checkbox-inline">选项一</Checkbox>
       <Checkbox className="ant-checkbox-inline">选项二</Checkbox>
       <Checkbox className="ant-checkbox-inline">选项三</Checkbox>
@@ -69,7 +74,8 @@ ReactDOM.render(
     <FormItem
       label="Radio 单选框"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 18 }} >
+      wrapperCol={{ span: 18 }}
+    >
       <RadioGroup defaultValue="b">
         <Radio value="a">A</Radio>
         <Radio value="b">B</Radio>
