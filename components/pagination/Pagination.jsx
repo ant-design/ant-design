@@ -36,7 +36,8 @@ export default class Pagination extends React.Component {
         selectPrefixCls="ant-select"
         {...this.props}
         locale={locale}
-        className={className} />
+        className={className}
+      />
     );
   }
 }

@@ -47,7 +47,8 @@ const Test = React.createClass({
         <QueueAnim className="demo-content"
           key="demo"
           type={['right', 'left']}
-          ease={['easeOutQuart', 'easeInOutQuart']}>
+          ease={['easeOutQuart', 'easeInOutQuart']}
+        >
           {list}
         </QueueAnim>
       </div>

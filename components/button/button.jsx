@@ -104,7 +104,8 @@ export default class Button extends React.Component {
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
-        onClick={this.handleClick}>
+        onClick={this.handleClick}
+      >
         {iconType ? <Icon type={iconType} /> : null}{kids}
       </button>
     );

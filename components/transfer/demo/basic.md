@@ -45,7 +45,8 @@ const App = React.createClass({
         dataSource={this.state.mockData}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={item => item.title} />
+        render={item => item.title}
+      />
     );
   },
 });

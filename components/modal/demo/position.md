@@ -30,7 +30,8 @@ const App = React.createClass({
           style={{ top: 20 }}
           visible={this.state.modal1Visible}
           onOk={() => this.setModal1Visible(false)}
-          onCancel={() => this.setModal1Visible(false)}>
+          onCancel={() => this.setModal1Visible(false)}
+        >
           <p>对话框的内容</p>
           <p>对话框的内容</p>
           <p>对话框的内容</p>
@@ -41,7 +42,8 @@ const App = React.createClass({
           wrapClassName="vertical-center-modal"
           visible={this.state.modal2Visible}
           onOk={() => this.setModal2Visible(false)}
-          onCancel={() => this.setModal2Visible(false)}>
+          onCancel={() => this.setModal2Visible(false)}
+        >
           <p>对话框的内容</p>
           <p>对话框的内容</p>
           <p>对话框的内容</p>

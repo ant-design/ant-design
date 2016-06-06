@@ -12,7 +12,8 @@ export default function VideoPlayer({ video }) {
       </div>
       <div className="preview-image-title">{alt}</div>
       <div className="preview-image-description"
-        dangerouslySetInnerHTML={{ __html: description }} />
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
     </div>
   );
 }

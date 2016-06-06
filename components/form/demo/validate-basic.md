@@ -114,36 +114,43 @@ let BasicDemo = React.createClass({
           {...formItemLayout}
           label="用户名"
           hasFeedback
-          help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}>
+          help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}
+        >
           <Input {...nameProps} placeholder="实时校验，输入 JasonWood 看看" />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="邮箱"
-          hasFeedback>
+          hasFeedback
+        >
           <Input {...emailProps} type="email" placeholder="onBlur 与 onChange 相结合" />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="密码"
-          hasFeedback>
+          hasFeedback
+        >
           <Input {...passwdProps} type="password" autoComplete="off"
-            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
+            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+          />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="确认密码"
-          hasFeedback>
+          hasFeedback
+        >
           <Input {...rePasswdProps} type="password" autoComplete="off" placeholder="两次输入密码保持一致"
-            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop} />
+            onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+          />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="备注">
+          label="备注"
+        >
           <Input {...textareaProps} type="textarea" placeholder="随便写" id="textarea" name="textarea" />
         </FormItem>
 

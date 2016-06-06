@@ -37,7 +37,8 @@ function Home(props) {
         marginTop: 15,
         paddingBottom: 15,
         borderBottom: '1px dashed #ccc',
-      }}>
+      }}
+      >
         点击上面的导航切换页面，面包屑在下面：
       </div>
       <Breadcrumb {...props} />

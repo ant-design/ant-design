@@ -89,7 +89,8 @@ export default class Popconfirm extends React.Component {
         transitionName={this.props.transitionName}
         visible={this.state.visible}
         trigger={trigger}
-        overlay={overlay}>
+        overlay={overlay}
+      >
         {this.props.children}
       </Tooltip>
     );

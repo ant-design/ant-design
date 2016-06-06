@@ -18,19 +18,22 @@ ReactDOM.render(
         <FormItem
           label="搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
           label="较长搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
           label="搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
       </Col>
@@ -38,19 +41,22 @@ ReactDOM.render(
         <FormItem
           label="搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
           label="较长搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
           label="搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
       </Col>
@@ -58,19 +64,22 @@ ReactDOM.render(
         <FormItem
           label="搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
         <FormItem
           label="较长搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
           label="搜索名称"
           labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}>
+          wrapperCol={{ span: 14 }}
+        >
           <Input placeholder="请输入搜索名称" size="default" />
         </FormItem>
       </Col>

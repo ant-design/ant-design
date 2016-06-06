@@ -42,13 +42,15 @@ export default class ComponentDoc extends React.Component {
           leftChildren.push(
             <Demo {...demoData}
               key={index} utils={props.utils}
-              expand={expand} pathname={location.pathname} />
+              expand={expand} pathname={location.pathname}
+            />
           );
         } else {
           rightChildren.push(
             <Demo {...demoData}
               key={index} utils={props.utils}
-              expand={expand} pathname={location.pathname} />
+              expand={expand} pathname={location.pathname}
+            />
           );
         }
       });
@@ -89,7 +91,8 @@ export default class ComponentDoc extends React.Component {
             <h2>
               代码演示
               <Icon type="appstore" className={expandTriggerClass}
-                title="展开全部代码" onClick={this.handleExpandToggle} />
+                title="展开全部代码" onClick={this.handleExpandToggle}
+              />
             </h2>
           </section>
           <Row gutter={16}>

@@ -46,7 +46,8 @@ const App = React.createClass({
         notFoundContent="xxxxxx"
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={item => item.title} />
+        render={item => item.title}
+      />
     );
   },
 });

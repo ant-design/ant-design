@@ -89,7 +89,8 @@ const Test = React.createClass({
         dataSource={this.state.data}
         pagination={this.state.pagination}
         loading={this.state.loading}
-        onChange={this.handleTableChange} />
+        onChange={this.handleTableChange}
+      />
     );
   },
 });

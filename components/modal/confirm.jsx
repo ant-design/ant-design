@@ -122,7 +122,8 @@ export default function confirm(config) {
       footer=""
       maskTransitionName="fade"
       style={style}
-      width={width}>
+      width={width}
+    >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
     </Dialog>
   , div, function () {

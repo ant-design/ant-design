@@ -16,7 +16,8 @@ ReactDOM.render(
     <FormItem
       label="标签输入框"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 16 }}>
+      wrapperCol={{ span: 16 }}
+    >
       <Input addonBefore="Http://" defaultValue="mysite.com" id="site1" />
     </FormItem>
 
@@ -24,14 +25,16 @@ ReactDOM.render(
       label="标签输入框"
       labelCol={{ span: 6 }}
       validateStatus="success"
-      wrapperCol={{ span: 16 }}>
+      wrapperCol={{ span: 16 }}
+    >
       <Input addonBefore="Http://" addonAfter=".com" defaultValue="mysite" id="site2" />
     </FormItem>
 
     <FormItem
       label="select 标签输入框"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 16 }}>
+      wrapperCol={{ span: 16 }}
+    >
       <InputGroup>
         <Input id="site4" placeholder="www.mysite" />
         <div className="ant-input-group-wrap">
@@ -48,7 +51,8 @@ ReactDOM.render(
     <FormItem
       label="输入身份证"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 16 }}>
+      wrapperCol={{ span: 16 }}
+    >
       <InputGroup>
         <Col span="6">
           <Input id="certNo1" />
@@ -68,7 +72,8 @@ ReactDOM.render(
     <FormItem
       label="电话号码"
       labelCol={{ span: 6 }}
-      wrapperCol={{ span: 16 }}>
+      wrapperCol={{ span: 16 }}
+    >
       <InputGroup>
         <Col span="4">
           <Input id="tel1" defaultValue="086" />

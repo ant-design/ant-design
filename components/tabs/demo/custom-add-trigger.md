@@ -54,7 +54,8 @@ const Demo = React.createClass({
           <Button type="ghost" onClick={this.add}>新增</Button>
         </div>
         <Tabs hideAdd onChange={this.onChange} activeKey={this.state.activeKey}
-          type="editable-card" onEdit={this.onEdit}>
+          type="editable-card" onEdit={this.onEdit}
+        >
           {this.state.panes}
         </Tabs>
       </div>

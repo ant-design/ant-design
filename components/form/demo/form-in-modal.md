@@ -42,12 +42,14 @@ let Demo = React.createClass({
           <Form horizontal form={this.props.form}>
             <FormItem
               {...formItemLayout}
-              label="用户名">
+              label="用户名"
+            >
               <Input {...getFieldProps('username', {})} type="text" autoComplete="off" />
             </FormItem>
             <FormItem
               {...formItemLayout}
-              label="密码">
+              label="密码"
+            >
               <Input {...getFieldProps('password', {})} type="password" autoComplete="off" />
             </FormItem>
           </Form>

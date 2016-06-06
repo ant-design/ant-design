@@ -50,7 +50,8 @@ export default class TreeSelect extends React.Component {
       <RcTreeSelect {...this.props}
         treeCheckable={checkable}
         className={cls}
-        notFoundContent={notFoundContent} />
+        notFoundContent={notFoundContent}
+      />
     );
   }
 }

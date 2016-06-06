@@ -45,11 +45,13 @@ const DateRange = React.createClass({
         <DatePicker disabledDate={this.disabledStartDate}
           value={this.state.startValue}
           placeholder="开始日期"
-          onChange={this.onStartChange} />
+          onChange={this.onStartChange}
+        />
         <DatePicker disabledDate={this.disabledEndDate}
           value={this.state.endValue}
           placeholder="结束日期"
-          onChange={this.onEndChange} />
+          onChange={this.onEndChange}
+        />
       </div>
     );
   },

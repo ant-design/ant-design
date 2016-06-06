@@ -61,7 +61,8 @@ const App = React.createClass({
         }}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={this.renderItem} />
+        render={this.renderItem}
+      />
     );
   },
 });

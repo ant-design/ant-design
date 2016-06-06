@@ -110,7 +110,8 @@ export default class Footer extends React.Component {
                 size="small"
                 dropdownMatchSelectWidth={false}
                 defaultValue={antdVersion}
-                onChange={this.handleVersionChange}>
+                onChange={this.handleVersionChange}
+              >
                 {options}
               </Select>
             </div>

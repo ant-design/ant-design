@@ -44,7 +44,8 @@ export default class Select extends React.Component {
       <RcSelect {...this.props}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
-        notFoundContent={notFoundContent} />
+        notFoundContent={notFoundContent}
+      />
     );
   }
 }

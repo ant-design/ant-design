@@ -45,7 +45,8 @@ const Demo = React.createClass({
         treeData={treeData}
         placeholder="请选择"
         treeDefaultExpandAll
-        onChange={this.onChange} />
+        onChange={this.onChange}
+      />
     );
   },
 });

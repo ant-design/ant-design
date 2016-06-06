@@ -31,7 +31,8 @@ export default class Search extends React.Component {
     return (
       <div>
         <input placeholder={placeholder} className={`${prefixCls} ant-input`} value={value} ref="input"
-          onChange={this.handleChange} />
+          onChange={this.handleChange}
+        />
         {value && value.length > 0 ?
           <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
             <Icon type="cross-circle" />

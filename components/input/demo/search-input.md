@@ -46,7 +46,8 @@ const SearchInput = React.createClass({
       <div className="ant-search-input-wrapper" style={style}>
         <InputGroup className={searchCls}>
           <Input {...restProps} value={this.state.value} onChange={this.handleInputChange}
-            onFocus={this.handleFocusBlur} onBlur={this.handleFocusBlur} onPressEnter={this.handleSearch} />
+            onFocus={this.handleFocusBlur} onBlur={this.handleFocusBlur} onPressEnter={this.handleSearch}
+          />
           <div className="ant-input-group-wrap">
             <Button icon="search" className={btnCls} size={size} onClick={this.handleSearch} />
           </div>
@@ -58,6 +59,7 @@ const SearchInput = React.createClass({
 
 ReactDOM.render(
   <SearchInput placeholder="input search text"
-    onSearch={value => console.log(value)} style={{ width: 200 }} />
+    onSearch={value => console.log(value)} style={{ width: 200 }}
+  />
 , mountNode);
 ````

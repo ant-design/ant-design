@@ -88,7 +88,8 @@ const SearchInput = React.createClass({
             filterOption={false}
             onChange={this.handleChange}
             onFocus={this.handleFocusBlur}
-            onBlur={this.handleFocusBlur}>
+            onBlur={this.handleFocusBlur}
+          >
             {options}
           </Select>
           <div className="ant-input-group-wrap">
