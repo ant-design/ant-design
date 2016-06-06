@@ -134,7 +134,7 @@
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix components test site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
-    "test": "npm run lint && npm run jest && npm run dist",
+    "test": "npm run lint && npm run dist && npm run jest",
     "jest": "jest",
     "pre-publish": "node ./scripts/prepub",
     "prepublish": "antd-tools run guard",
