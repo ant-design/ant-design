@@ -49,6 +49,7 @@ const rowSelection = {
   },
 };
 
-ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+ReactDOM.render(
+  <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
 , mountNode);
 ````
