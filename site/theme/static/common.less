@@ -120,7 +120,6 @@ div.main-container {
 
 .page-wrapper {
   background: #ECECEC;
-  animation: pageEnter .45s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 .loop-yoyo-load(@index) when (@index >= 0) {
@@ -273,11 +272,5 @@ div.main-container {
   }
   100% {
     transform: translateY(0);
-  }
-}
-
-@keyframes pageEnter {
-  from {
-    opacity: 0;
   }
 }

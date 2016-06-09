@@ -9,6 +9,12 @@ timeline: true
 
 ---
 
+## 1.3.2
+
+`2016-06-06`
+
+- 修复全局模式下引用 antd，IE8 环境报错的问题。 [#1970](https://github.com/ant-design/ant-design/issues/1970)
+
 ## 1.3.1
 
 `2016-06-06`

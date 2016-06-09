@@ -81,26 +81,8 @@ export default class MainContent extends React.Component {
     return [...topLevel, ...itemGroups];
   }
 
-  getModuleData() {
-    const props = this.props;
-
-    let moduleData;
-    if (/(docs\/react\/)|(components\/)|(changelog)/i.test(props.location.pathname)) {
-      moduleData = {
-        ...props.data.docs.react,
-        ...props.data.components,
-        changelog: props.data.CHANGELOG,
-      };
-    } else {
-      moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
-    }
-
-    return moduleData;
-  }
-
   getMenuItems() {
-    const moduleData = this.getModuleData();
-
+    const moduleData = this.props.moduleData;
     const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
@@ -152,11 +134,12 @@ export default class MainContent extends React.Component {
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
     const locale = this.context.intl.locale;
-    const moduleData = this.getModuleData();
-    const pageData = /changelog/i.test(props.location.pathname) ?
-            props.data.CHANGELOG :
-            (props.pageData.index || props.pageData);
-    const localizedPageData = pageData[locale] || pageData;
+    const moduleData = this.props.moduleData;
+    const localizedPageData = moduleData.filter((page) => {
+      return page.meta.filename.toLowerCase()
+        .startsWith(props.location.pathname);
+    })[0];
+
     return (
       <div className="main-wrapper">
         <Row>
@@ -170,8 +153,8 @@ export default class MainContent extends React.Component {
           </Col>
           <Col lg={20} md={18} sm={24} xs={24} className="main-container">
             {
-              props.pageData.demo ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.pageData.demo} /> :
+              props.utils.get(props, 'pageData.demo') ?
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
                 <Article {...props} content={localizedPageData} />
             }
           </Col>

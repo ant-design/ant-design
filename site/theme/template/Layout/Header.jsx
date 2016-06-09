@@ -84,30 +84,12 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { routes, data } = this.props;
+    const { routes, components } = this.props;
     const route = routes[0].path.replace(/^\//, '');
     let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
     activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
 
-    const locale = this.context.intl.locale;
-    const componentsList = Object.keys(data.components)
-            .map((component) => {
-              const index = data.components[component].index;
-              if (index.meta) {
-                return index;
-              }
-              return index[locale];
-            })
-            .filter(item => item);
-
-    const options = Object.keys(componentsList)
-            .map((key) => {
-              const value = componentsList[key];
-              return value.localized ? value[locale] : value;
-            })
-            .filter(({ meta }) => {
-              return /^components/.test(meta.filename);
-            })
+    const options = components
             .map(({ meta }) => {
               const pathSnippet = meta.filename.split('/')[1];
               const url = `/components/${pathSnippet}`;

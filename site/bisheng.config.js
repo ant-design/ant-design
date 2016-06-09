@@ -7,6 +7,7 @@ module.exports = {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
+  lazyLoad: true,
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   plugins: [
