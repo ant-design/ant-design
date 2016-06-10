@@ -1,12 +1,24 @@
 import React, { cloneElement } from 'react';
 import BreadcrumbItem from './BreadcrumbItem';
 
+const defaultNameFormatter = (route, params) => {
+  if (!route.breadcrumbName) {
+    return null;
+  }
+  const name = route.breadcrumbName.replace(/:(.*)/g, (replacement, key) => {
+    return params[key] || replacement;
+  });
+
+  return name;
+};
+
 export default class Breadcrumb extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
     linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
     nameRender: (name) => <span>{name}</span>,
+    nameFormatter: defaultNameFormatter,
   }
 
   static propTypes = {
@@ -19,11 +31,12 @@ export default class Breadcrumb extends React.Component {
     params: React.PropTypes.object,
     linkRender: React.PropTypes.func,
     nameRender: React.PropTypes.func,
+    nameFormatter: React.PropTypes.func,
   }
 
   render() {
     let crumbs;
-    const { separator, prefixCls, routes, params, children, linkRender, nameRender } = this.props;
+    const { separator, prefixCls, routes, params, children, linkRender, nameRender, nameFormatter } = this.props;
     if (routes && routes.length > 0) {
       const paths = [];
       crumbs = routes.map((route, i) => {
@@ -36,12 +49,10 @@ export default class Breadcrumb extends React.Component {
           paths.push(path);
         }
 
-        if (!route.breadcrumbName) {
+        const name = nameFormatter(route, params);
+        if (!name) {
           return null;
         }
-        const name = route.breadcrumbName.replace(/:(.*)/g, (replacement, key) => {
-          return params[key] || replacement;
-        });
 
         let link;
         if (i === routes.length - 1) {
