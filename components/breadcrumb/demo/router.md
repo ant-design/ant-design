@@ -8,43 +8,40 @@ title: 路由
 
 ````jsx
 const ReactRouter = require('react-router');
-let { Router, Route, Link, hashHistory } = ReactRouter;
+const { Router, Route, Link, hashHistory } = ReactRouter;
 import { Breadcrumb } from 'antd';
 
-function Apps() {
-  return (
-    <ul className="app-list">
-      <li>
-        <Link to="/apps/1">应用1</Link>：<Link to="/apps/1/detail">详情</Link>
-      </li>
-      <li>
-        <Link to="/apps/2">应用2</Link>：<Link to="/apps/2/detail">详情</Link>
-      </li>
-    </ul>
-  );
-}
+const Apps = () => (
+  <ul className="app-list">
+    <li>
+      <Link to="/apps/1">应用1</Link>：<Link to="/apps/1/detail">详情</Link>
+    </li>
+    <li>
+      <Link to="/apps/2">应用2</Link>：<Link to="/apps/2/detail">详情</Link>
+    </li>
+  </ul>
+);
 
-function Home(props) {
-  return (
-    <div>
-      <div className="demo-nav">
-        <Link to="/">首页</Link>
-        <Link to="/apps">应用列表</Link>
-      </div>
-      {props.children || 'Home'}
-      <div style={{
+const Home = (props) => (
+  <div>
+    <div className="demo-nav">
+      <Link to="/">首页</Link>
+      <Link to="/apps">应用列表</Link>
+    </div>
+    {props.children || 'Home'}
+    <div
+      style={{
         marginBottom: 15,
         marginTop: 15,
         paddingBottom: 15,
         borderBottom: '1px dashed #ccc',
       }}
-      >
-        点击上面的导航切换页面，面包屑在下面：
-      </div>
-      <Breadcrumb {...props} />
+    >
+      点击上面的导航切换页面，面包屑在下面：
     </div>
-  );
-}
+    <Breadcrumb {...props} />
+  </div>
+);
 
 ReactDOM.render(
   <Router history={hashHistory}>
