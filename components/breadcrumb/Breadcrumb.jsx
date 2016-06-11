@@ -17,7 +17,7 @@ export default class Breadcrumb extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
-    linkRender: (paths, name) => <a href={`#/${paths.join('/')}`}>{name}</a>,
+    linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
     nameRender: defaultNameRender,
   }
 
@@ -50,7 +50,7 @@ export default class Breadcrumb extends React.Component {
         }
         const name = nameRender(route.breadcrumbName, route, params);
         if (name) {
-          const link = (i === lastPath) ? name : linkRender(paths, name);
+          const link = (i === lastPath) ? name : linkRender(`/${paths.join('/')}`, name, paths);
           return <BreadcrumbItem separator={separator} key={route.breadcrumbName || i}>{link}</BreadcrumbItem>;
         }
         return null;
