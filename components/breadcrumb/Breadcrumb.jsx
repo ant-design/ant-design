@@ -5,8 +5,10 @@ const defaultNameRender = (breadcrumbName, route, params) => {
   if (!breadcrumbName) {
     return null;
   }
+  const paramsKeys = Object.keys(params).join('|');
   const name = breadcrumbName.replace(
-    /:(.*)/g, (replacement, key) => params[key] || replacement
+    new RegExp(`:(${paramsKeys})`, 'g'),
+    (replacement, key) => params[key] || replacement
   );
   return <span>{name}</span>;
 };
