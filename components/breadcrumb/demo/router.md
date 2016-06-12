@@ -7,8 +7,7 @@ title: 路由
 和 `react-router@2.x` 进行结合使用。
 
 ````jsx
-const ReactRouter = require('react-router');
-const { Router, Route, Link, hashHistory } = ReactRouter;
+import { Router, Route, Link, hashHistory } from 'react-router';
 import { Breadcrumb } from 'antd';
 
 const Apps = () => (
