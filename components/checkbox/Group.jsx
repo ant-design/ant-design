@@ -1,5 +1,6 @@
 import React from 'react';
 import Checkbox from './index';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class CheckboxGroup extends React.Component {
   static defaultProps = {
@@ -29,6 +30,9 @@ export default class CheckboxGroup extends React.Component {
         value: nextProps.value || [],
       });
     }
+  }
+  shouldComponentUpdate(...args) {
+    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   getOptions() {
     const { options } = this.props;
