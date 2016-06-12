@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
+import calculateNodeHeight from './calculateNodeHeight';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -8,7 +9,22 @@ function fixControlledValue(value) {
   return value;
 }
 
-export default class Input extends React.Component {
+function onNextFrame(cb) {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame(cb);
+  }
+  return window.setTimeout(cb, 1);
+}
+
+function clearNextFrameAction(nextFrameId) {
+  if (window.cancelAnimationFrame) {
+    window.cancelAnimationFrame(nextFrameId);
+  } else {
+    window.clearTimeout(nextFrameId);
+  }
+}
+
+export default class Input extends Component {
   static defaultProps = {
     defaultValue: '',
     disabled: false,
@@ -16,24 +32,47 @@ export default class Input extends React.Component {
     type: 'text',
     onPressEnter() {},
     onKeyDown() {},
+    autosize: false,
   }
 
   static propTypes = {
-    type: React.PropTypes.string,
-    id: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
+    type: PropTypes.string,
+    id: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
     ]),
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
-    disabled: React.PropTypes.bool,
-    value: React.PropTypes.any,
-    defaultValue: React.PropTypes.any,
-    className: React.PropTypes.string,
-    addonBefore: React.PropTypes.node,
-    addonAfter: React.PropTypes.node,
-    prefixCls: React.PropTypes.string,
-    onPressEnter: React.PropTypes.func,
-    onKeyDown: React.PropTypes.func,
+    size: PropTypes.oneOf(['small', 'default', 'large']),
+    disabled: PropTypes.bool,
+    value: PropTypes.any,
+    defaultValue: PropTypes.any,
+    className: PropTypes.string,
+    addonBefore: PropTypes.node,
+    addonAfter: PropTypes.node,
+    prefixCls: PropTypes.string,
+    autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
+    onPressEnter: PropTypes.func,
+    onKeyDown: PropTypes.func,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      textareaStyles: null,
+    };
+  }
+
+  componentDidMount() {
+    this.resizeTextarea();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // Re-render with the new content then recalculate the height as required.
+    if (this.props.value !== nextProps.value) {
+      if (this.nextFrameActionId) {
+        clearNextFrameAction(this.nextFrameActionId);
+      }
+      this.nextFrameActionId = onNextFrame(this.resizeTextarea);
+    }
   }
 
   handleKeyDown = (e) => {
@@ -41,6 +80,24 @@ export default class Input extends React.Component {
       this.props.onPressEnter(e);
     }
     this.props.onKeyDown(e);
+  }
+
+  handleTextareaChange = (e) => {
+    this.resizeTextarea();
+    if (this.props.onChange) {
+      this.props.onChange(e);
+    }
+  }
+
+  resizeTextarea = () => {
+    const { type, autosize } = this.props;
+    if (type !== 'textarea' || !autosize || !this.refs.input) {
+      return;
+    }
+    const minRows = autosize ? autosize.minRows : null;
+    const maxRows = autosize ? autosize.maxRows : null;
+    const textareaStyles = calculateNodeHeight(this.refs.input, false, minRows, maxRows);
+    this.setState({ textareaStyles });
   }
 
   renderLabledInput(children) {
@@ -87,7 +144,6 @@ export default class Input extends React.Component {
       [props.className]: !!props.className,
     });
 
-    let placeholder = props.placeholder;
     if ('value' in props) {
       props.value = fixControlledValue(props.value);
       // Input elements must be either controlled or uncontrolled,
@@ -98,14 +154,25 @@ export default class Input extends React.Component {
     switch (props.type) {
       case 'textarea':
         return (
-          <textarea {...props} placeholder={placeholder}
-            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input"
+          <textarea
+            {...props}
+            style={{
+              ...props.style,
+              ...this.state.textareaStyles,
+            }}
+            className={inputClassName}
+            onKeyDown={this.handleKeyDown}
+            onChange={this.handleTextareaChange}
+            ref="input"
           />
         );
       default:
         return (
-          <input {...props} placeholder={placeholder}
-            className={inputClassName} onKeyDown={this.handleKeyDown} ref="input"
+          <input
+            {...props}
+            className={inputClassName}
+            onKeyDown={this.handleKeyDown}
+            ref="input"
           />
         );
     }

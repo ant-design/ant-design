@@ -21,12 +21,11 @@
         }
         return window.parent[module];
       }
-
-      var React = require('react');
-      var ReactDOM = require('react-dom');
       var mountNode = document.getElementById('{{ id }}');
     </script>
-    <script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
+    <script src="https://npmcdn.com/react/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/react-router/umd/ReactRouter.js"></script>
     <script>
       {{ script }}
     </script>
