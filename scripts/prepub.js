@@ -3,7 +3,6 @@
 /* eslint-disable */
 'use strict';
 
-
 // Build a entry less file to dist/antd.less
 var fs = require('fs');
 var path = require('path');

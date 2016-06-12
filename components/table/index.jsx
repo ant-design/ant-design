@@ -21,7 +21,7 @@ const defaultLocale = {
   filterTitle: '筛选',
   filterConfirm: '确定',
   filterReset: '重置',
-  emptyText: '暂无数据',
+  emptyText: <span><Icon type="frown" />暂无数据</span>,
 };
 
 const defaultPagination = {
@@ -101,9 +101,15 @@ export default class Table extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
-      this.setState(previousState => ({
-        pagination: { ...defaultPagination, ...previousState.pagination, ...nextProps.pagination },
-      }));
+      this.setState(previousState => {
+        const newPagination = {
+          ...defaultPagination,
+          ...previousState.pagination,
+          ...nextProps.pagination,
+        };
+        newPagination.current = newPagination.current || 1;
+        return { pagination: newPagination };
+      });
     }
     // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
@@ -262,9 +268,11 @@ export default class Table extends React.Component {
       }
     });
 
-    // Reset current prop
-    pagination.current = 1;
-    pagination.onChange(pagination.current);
+    if (props.pagination) {
+      // Reset current prop
+      pagination.current = 1;
+      pagination.onChange(pagination.current);
+    }
 
     const newState = {
       selectionDirty: false,
@@ -426,9 +434,12 @@ export default class Table extends React.Component {
                  this.getDefaultSelection().indexOf(rowIndex) >= 0);
     }
     return (
-      <Radio disabled={props.disabled} onClick={stopPropagation}
-        onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
-        value={rowIndex} checked={checked} />
+      <span onClick={stopPropagation}>
+        <Radio disabled={props.disabled}
+          onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
+          value={rowIndex} checked={checked}
+        />
+      </span>
     );
   }
 
@@ -446,8 +457,13 @@ export default class Table extends React.Component {
       props = this.props.rowSelection.getCheckboxProps.call(this, record);
     }
     return (
-      <Checkbox checked={checked} disabled={props.disabled} onClick={stopPropagation}
-        onChange={(e) => this.handleSelect(record, rowIndex, e)} />
+      <span onClick={stopPropagation}>
+        <Checkbox
+          checked={checked}
+          disabled={props.disabled}
+          onChange={(e) => this.handleSelect(record, rowIndex, e)}
+        />
+      </span>
     );
   }
 
@@ -496,7 +512,8 @@ export default class Table extends React.Component {
         const checkboxAll = (
           <Checkbox checked={checked}
             disabled={checkboxAllDisabled}
-            onChange={this.handleSelectAllRow} />
+            onChange={this.handleSelectAllRow}
+          />
         );
         selectionColumn = {
           key: 'selection-column',
@@ -504,6 +521,9 @@ export default class Table extends React.Component {
           render: this.renderSelectionCheckBox,
           className: 'ant-table-selection-column',
         };
+      }
+      if (columns.some(column => column.fixed === 'left' || column.fixed === true)) {
+        selectionColumn.fixed = 'left';
       }
       if (columns[0] && columns[0].key === 'selection-column') {
         columns[0] = selectionColumn;
@@ -539,7 +559,8 @@ export default class Table extends React.Component {
         filterDropdown = (
           <FilterDropdown locale={locale} column={column}
             selectedKeys={colFilters}
-            confirmFilter={this.handleFilter} />
+            confirmFilter={this.handleFilter}
+          />
         );
       }
       if (column.sorter) {
@@ -556,12 +577,14 @@ export default class Table extends React.Component {
           <div className="ant-table-column-sorter">
             <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
-              onClick={() => this.toggleSortOrder('ascend', column)}>
+              onClick={() => this.toggleSortOrder('ascend', column)}
+            >
               <Icon type="caret-up" />
             </span>
             <span className={`ant-table-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
-              onClick={() => this.toggleSortOrder('descend', column)}>
+              onClick={() => this.toggleSortOrder('descend', column)}
+            >
               <Icon type="caret-down" />
             </span>
           </div>
@@ -607,7 +630,8 @@ export default class Table extends React.Component {
         onChange={this.handlePageChange}
         total={total}
         size={size}
-        onShowSizeChange={this.handleShowSizeChange} /> : null;
+        onShowSizeChange={this.handleShowSizeChange}
+      /> : null;
   }
 
   prepareParamsArguments(state) {
@@ -711,7 +735,7 @@ export default class Table extends React.Component {
     if (!data || data.length === 0) {
       emptyText = (
         <div className="ant-table-placeholder">
-          <Icon type="frown" />{locale.emptyText}
+          {locale.emptyText}
         </div>
       );
       emptyClass = 'ant-table-empty';
@@ -724,7 +748,8 @@ export default class Table extends React.Component {
           columns={columns}
           className={classString}
           expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
-          expandIconAsCell={expandIconAsCell} />
+          expandIconAsCell={expandIconAsCell}
+        />
           {emptyText}
       </div>
     );
@@ -737,7 +762,7 @@ export default class Table extends React.Component {
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
       <div className={`${emptyClass} ${className} clearfix`} style={style}>
-        {<Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>}
+        {table}
         {this.renderPagination()}
       </div>
     );

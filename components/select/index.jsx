@@ -9,7 +9,6 @@ export default class Select extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-select',
     transitionName: 'slide-up',
-    optionLabelProp: 'children',
     choiceTransitionName: 'zoom',
     showSearch: false,
   }
@@ -38,14 +37,15 @@ export default class Select extends React.Component {
     if (combobox) {
       notFoundContent = null;
       // children 带 dom 结构时，无法填入输入框
-      optionLabelProp = 'value';
+      optionLabelProp = optionLabelProp || 'value';
     }
 
     return (
       <RcSelect {...this.props}
         className={cls}
-        optionLabelProp={optionLabelProp}
-        notFoundContent={notFoundContent} />
+        optionLabelProp={optionLabelProp || 'children'}
+        notFoundContent={notFoundContent}
+      />
     );
   }
 }

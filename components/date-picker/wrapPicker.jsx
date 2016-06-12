@@ -13,6 +13,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       popupStyle: {},
       onChange() {},
       onOk() {},
+      toggleOpen() {},
       locale: {},
       align: {
         offset: [0, -9],
@@ -69,6 +70,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       this.setState({
         open: e.open,
       });
+      this.props.toggleOpen(e);
     }
 
     render() {
@@ -101,7 +103,7 @@ export default function wrapPicker(Picker, defaultFormat) {
           placeholder={locale.timePickerLocale.placeholder}
           locale={locale.timePickerLocale}
           transitionName="slide-up"
-          />
+        />
       ) : null;
 
       return (

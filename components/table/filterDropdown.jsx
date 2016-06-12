@@ -3,6 +3,7 @@ import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
+import Radio from '../radio';
 
 export default class FilterMenu extends React.Component {
   static defaultProps = {
@@ -53,22 +54,27 @@ export default class FilterMenu extends React.Component {
   }
 
   renderMenuItem(item) {
+    const { column } = this.props;
+    const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
     return (
       <MenuItem key={item.value}>
-        <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+        {
+          multiple
+            ? <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+            : <Radio checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+        }
         <span>{item.text}</span>
       </MenuItem>
     );
   }
 
   renderMenus(items) {
-    let menuItems = items.map(item => {
+    return items.map(item => {
       if (item.children && item.children.length > 0) {
-        const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
-        const containSelected = Object.keys(keyPathOfSelectedItem).some(key => {
-          const keyPath = keyPathOfSelectedItem[key];
-          return keyPath.indexOf(item.value) >= 0;
-        });
+        const { keyPathOfSelectedItem } = this.state;
+        const containSelected = Object.keys(keyPathOfSelectedItem).some(
+          key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0
+        );
         const subMenuCls = containSelected ? 'ant-dropdown-submenu-contain-selected' : '';
         return (
           <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
@@ -78,7 +84,6 @@ export default class FilterMenu extends React.Component {
       }
       return this.renderMenuItem(item);
     });
-    return menuItems;
   }
 
   handleMenuItemClick = (info) => {
@@ -97,46 +102,46 @@ export default class FilterMenu extends React.Component {
   }
 
   render() {
-    let { column, locale } = this.props;
+    const { column, locale } = this.props;
     // default multiple selection in filter dropdown
-    let multiple = true;
-    if ('filterMultiple' in column) {
-      multiple = column.filterMultiple;
-    }
-    let menus = (
+    const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
+
+    const menus = (
       <div className="ant-table-filter-dropdown">
         <Menu multiple={multiple}
           onClick={this.handleMenuItemClick}
           prefixCls="ant-dropdown-menu"
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
-          selectedKeys={this.state.selectedKeys}>
+          selectedKeys={this.state.selectedKeys}
+        >
           {this.renderMenus(column.filters)}
         </Menu>
         <div className="ant-table-filter-dropdown-btns">
           <a className="ant-table-filter-dropdown-link confirm"
-            onClick={this.handleConfirm}>
+            onClick={this.handleConfirm}
+          >
             {locale.filterConfirm}
           </a>
           <a className="ant-table-filter-dropdown-link clear"
-            onClick={this.handleClearFilters}>
+            onClick={this.handleClearFilters}
+          >
             {locale.filterReset}
           </a>
         </div>
       </div>
     );
 
-    let dropdownSelectedClass = '';
-    if (this.props.selectedKeys.length > 0) {
-      dropdownSelectedClass = 'ant-table-filter-selected';
-    }
+    const dropdownSelectedClass = (this.props.selectedKeys.length > 0)
+      ? 'ant-table-filter-selected' : '';
 
     return (
       <Dropdown trigger={['click']}
         overlay={menus}
         visible={this.state.visible}
         onVisibleChange={this.onVisibleChange}
-        closeOnSelect={false}>
+        closeOnSelect={false}
+      >
         <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
       </Dropdown>
     );

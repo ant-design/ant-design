@@ -36,7 +36,8 @@ const Sider = React.createClass({
         onOpen={this.onToggle}
         onClose={this.onToggle}
         selectedKeys={[this.state.current]}
-        mode="inline">
+        mode="inline"
+      >
         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
           <Menu.Item key="1">选项1</Menu.Item>
           <Menu.Item key="2">选项2</Menu.Item>

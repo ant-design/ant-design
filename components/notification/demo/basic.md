@@ -3,7 +3,7 @@ order: 0
 title: 基本
 ---
 
-最简单的用法，五秒后自动关闭。
+最简单的用法，4.5 秒后自动关闭。
 
 ````jsx
 import { Button, notification } from 'antd';

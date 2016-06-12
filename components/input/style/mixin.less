@@ -40,7 +40,6 @@
 .input() {
   position: relative;
   display: inline-block;
-  vertical-align: middle;
   padding: @input-padding-vertical-base @input-padding-horizontal;
   width: 100%;
   height: @input-height-base;
@@ -107,6 +106,7 @@
   position: relative;
   display: table;
   border-collapse: separate;
+  width: 100%;
 
   // Undo padding and float of grid classes
   &[class*="col-"] {
@@ -137,7 +137,7 @@
   }
 
   &-wrap > * {
-    display: block;
+    display: block !important;
   }
 
   .@{inputClass} {

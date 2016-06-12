@@ -30,7 +30,8 @@ const Sider = React.createClass({
         <Menu
           style={{ width: 240 }}
           defaultOpenKeys={['sub1']}
-          mode={this.state.mode}>
+          mode={this.state.mode}
+        >
           <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
             <MenuItemGroup title="分组1">
               <Menu.Item key="1">选项1</Menu.Item>

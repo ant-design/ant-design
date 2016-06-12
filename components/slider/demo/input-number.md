@@ -27,7 +27,8 @@ const IntegerStep = React.createClass({
         </Col>
         <Col span={4}>
           <InputNumber min={1} max={20} style={{ marginLeft: '16px' }}
-            value={this.state.inputValue} onChange={this.onChange} />
+            value={this.state.inputValue} onChange={this.onChange}
+          />
         </Col>
       </Row>
     );
@@ -53,7 +54,8 @@ const DecimalStep = React.createClass({
         </Col>
         <Col span={4}>
           <InputNumber min={0} max={1} style={{ marginLeft: '16px' }} step={0.01}
-            value={this.state.inputValue} onChange={this.onChange} />
+            value={this.state.inputValue} onChange={this.onChange}
+          />
         </Col>
       </Row>
     );

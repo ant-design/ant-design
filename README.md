@@ -8,6 +8,10 @@
 
 An enterprise-class UI design language and React-based implementation.
 
+## :loudspeaker: Document Translation Recruitment
+
+We are now working on translate components document to English, and we need some translator and reviewer. https://github.com/ant-design/ant-design/issues/1471
+
 ## Features
 
 - An enterprise-class design language and high quality UI style.
@@ -20,7 +24,7 @@ An enterprise-class UI design language and React-based implementation.
 npm install antd
 ```
 
-## Usage example
+## Usage
 
 ### Use prebuilt bundle
 
@@ -29,7 +33,7 @@ import { DatePicker } from 'antd';
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
-Import style:
+And import style manually:
 
 ```jsx
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
@@ -37,23 +41,28 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ### Use modularized antd
 
-```jsx
-import DatePicker from 'antd/lib/date-picker';  // just for js
-```
+- Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended)
 
-We recommend use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) with config:
+   ```js
+   // .babelrc
+   {
+     "plugins": [["antd", { style: "css" }]]
+   }
+   ```
 
-```js
-['antd', {
-  style: 'css'
-}]
-```
+   Then you can import components from antd directly.
 
-```jsx
-import { DatePicker } from 'antd'; // automatically parse and require js and css modularly
-```
+   ```jsx
+   // import js and css modularly, parsed by babel-plugin-antd
+   import { DatePicker } from 'antd'; 
+   ```
+  
+- Manually import
 
-No need to import style manually.
+   ```jsx
+   import DatePicker from 'antd/lib/date-picker';  // just for js
+   ```
+
 
 ## Browser Support
 
@@ -63,9 +72,15 @@ Normal browsers and Internet Explorer 8+.
 
 ## TypeScript
 
-```js
-///<reference path='./node_modules/antd/type-definitions/antd.d.ts'/>
-...
+tsconfig.json
+
+```
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "preserve"
+  }
+}
 ```
 
 ## Links
@@ -81,7 +96,7 @@ Normal browsers and Internet Explorer 8+.
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
-
+- [CodePen boilerplate](http://codepen.io/anon/pen/wGOWGW?editors=001) for bug reports
 
 ## Contributing
 

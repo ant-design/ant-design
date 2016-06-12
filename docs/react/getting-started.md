@@ -7,6 +7,8 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ---
 
+在开始之前，推荐先学习 [React](http://facebook.github.io/react/) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)。
+
 ## 第一个例子
 
 最简单的试用方式参照以下 CodePen 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
@@ -34,44 +36,49 @@ $ npm install antd-init -g
 
 ```bash
 $ mkdir antd-demo && cd antd-demo
-$ antd-init
-$ npm install
+$ antd-init --type plain-react
 ```
 
-若安装缓慢报错，可尝试用 `cnpm` 或别的镜像源自行安装：`rm -rf node_modules && cnpm install`.
+antd-init 会自动安装 npm 依赖，若有问题则可自行安装。
+
+若安装缓慢报错，可尝试用 `cnpm` 或别的镜像源自行安装：`rm -rf node_modules && cnpm install`。
 
 ### 3. 使用组件
 
-编辑 `src/component/App.jsx`，用 React 的方式直接使用 Ant Design React 的组件。
+脚手架会生成一个 Todo 应用实例（一个很有参考价值的 React 上手示例），先不管它，我们用来测试组件。
+
+直接用下面的代码替换 `src/entries/index.js` 的内容，用 React 的方式直接使用 antd 组件。
 
 ```jsx
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { DatePicker, message } from 'antd';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      date: ''
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      date: '',
     };
-  },
-  handleChange(value) {
-    message.info('您选择的日期是: ' + value.toString());
-    this.setState({
-      date: value
-    });
-  },
-  render() {
-    return <div style={{width: 400, margin: '100px auto'}}>
-      <DatePicker onChange={this.handleChange} />
-      <div style={{marginTop: 20}}>当前日期：{this.state.date.toString()}</div>
-    </div>;
   }
-});
+  handleChange(date) {
+    message.info('您选择的日期是: ' + date.toString());
+    this.setState({ date });
+  }
+  render() {
+    return (
+      <div style={{ width: 400, margin: '100px auto' }}>
+        <DatePicker onChange={value => this.handleChange(value)} />
+        <div style={{ marginTop: 20 }}>当前日期：{this.state.date.toString()}</div>
+      </div>
+    );
+  }
+}
 
-export default App;
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
-你可以在 [这里](/components/button) 选用更多组件。
+> 你可以在左侧菜单选用更多组件。
 
 ### 4. 开发调试
 
@@ -95,7 +102,7 @@ $ npm run build
 
 Ant Design React 支持所有的现代浏览器和 IE8+。
 
-对于 IE8，需要提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
+对于 IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) 版本，并提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
 
 <div class="code-line-highlight"></div>
 

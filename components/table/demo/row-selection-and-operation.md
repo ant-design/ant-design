@@ -61,7 +61,8 @@ const App = React.createClass({
       <div>
         <div style={{ marginBottom: 16 }}>
           <Button type="primary" onClick={this.start}
-            disabled={!hasSelected} loading={loading}>操作</Button>
+            disabled={!hasSelected} loading={loading}
+          >操作</Button>
           <span style={{ marginLeft: 8 }}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
         </div>
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />

@@ -44,7 +44,8 @@ let App = React.createClass({
       <div>
         <Popconfirm title="确定要删除这个任务吗？"
           visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
-          onConfirm={this.confirm} onCancel={this.cancel}>
+          onConfirm={this.confirm} onCancel={this.cancel}
+        >
           <a href="#">删除某任务</a>
         </Popconfirm>
         <br />

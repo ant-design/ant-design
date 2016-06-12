@@ -76,7 +76,8 @@ export default class Line extends React.Component {
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
           <Circle percent={percent} strokeWidth={strokeWidth || 6}
-            strokeColor={statusColorMap[progressStatus]} trailColor={trailColor} />
+            strokeColor={statusColorMap[progressStatus]} trailColor={trailColor}
+          />
           {progressInfo}
         </div>
       );

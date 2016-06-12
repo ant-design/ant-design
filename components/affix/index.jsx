@@ -39,6 +39,10 @@ export default class Affix extends React.Component {
     offsetBottom: React.PropTypes.number,
   }
 
+  static defaultProps = {
+    onChange() {},
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +55,6 @@ export default class Affix extends React.Component {
 
     // Backwards support
     offsetTop = offsetTop || offset;
-
     const scrollTop = getScroll(window, true);
     const elemOffset = getOffset(ReactDOM.findDOMNode(this));
     const elemSize = {
@@ -76,8 +79,9 @@ export default class Affix extends React.Component {
             position: 'fixed',
             top: offsetTop,
             left: elemOffset.left,
+            width: ReactDOM.findDOMNode(this).offsetWidth,
           },
-        });
+        }, () => this.props.onChange(!!this.state.affixStyle));
       }
     } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
                offsetMode.bottom) {
@@ -88,13 +92,14 @@ export default class Affix extends React.Component {
             position: 'fixed',
             bottom: offsetBottom,
             left: elemOffset.left,
+            width: ReactDOM.findDOMNode(this).offsetWidth,
           },
-        });
+        }, () => this.props.onChange(!!this.state.affixStyle));
       }
     } else if (this.state.affixStyle) {
       this.setState({
         affixStyle: null,
-      });
+      }, () => this.props.onChange(!!this.state.affixStyle));
     }
   }
 

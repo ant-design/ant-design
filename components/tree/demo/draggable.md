@@ -101,7 +101,8 @@ const Demo = React.createClass({
     return (
       <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
         onDragEnter={this.onDragEnter}
-        onDrop={this.onDrop}>
+        onDrop={this.onDrop}
+      >
         {loop(this.state.gData)}
       </Tree>
     );

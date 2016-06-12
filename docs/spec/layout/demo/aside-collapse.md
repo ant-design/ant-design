@@ -7,7 +7,7 @@ title: 可收起展开的侧边导航
 
 ````jsx
 import { Menu, Breadcrumb, Icon } from 'antd';
-import BrowserDemo from 'site/component/BrowserDemo';
+import BrowserDemo from 'site/theme/template/BrowserDemo';
 const SubMenu = Menu.SubMenu;
 
 const AsideCollapse = React.createClass({
@@ -120,8 +120,13 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
   margin: 16px 0;
 }
 
+.ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {
+  vertical-align: baseline;
+  display: inline-block;
+}
+
 .ant-layout-aside .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
-  transition: font-size .2s;
+  transition: font-size .3s;
 }
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item {
@@ -131,7 +136,6 @@ ReactDOM.render(<BrowserDemo><AsideCollapse /></BrowserDemo>, mountNode);
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item > .anticon {
   font-size: 16px;
   display: inline-block;
-  vertical-align: middle;
 }
 
 .ant-layout-aside-collapse .ant-layout-sider > .ant-menu > .ant-menu-item .nav-text {

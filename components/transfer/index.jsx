@@ -41,6 +41,7 @@ export default class Transfer extends React.Component {
     notFoundContent: PropTypes.node,
     body: PropTypes.func,
     footer: PropTypes.func,
+    rowKey: PropTypes.func,
   };
 
   constructor(props) {
@@ -61,8 +62,15 @@ export default class Transfer extends React.Component {
     });
   }
   splitDataSource(props) {
-    const { targetKeys, dataSource } = props;
+    const { targetKeys } = props;
+    let { dataSource } = props;
 
+    if (props.rowKey) {
+      dataSource = dataSource.map(record => {
+        record.key = props.rowKey(record);
+        return record;
+      });
+    }
     let leftDataSource = [...dataSource];
     let rightDataSource = [];
 
@@ -246,14 +254,16 @@ export default class Transfer extends React.Component {
           notFoundContent={notFoundContent}
           body={body}
           footer={footer}
-          prefixCls={`${prefixCls}-list`} />
+          prefixCls={`${prefixCls}-list`}
+        />
         <Operation rightActive={rightActive}
           rightArrowText={operations[0]}
           moveToRight={this.moveToRight}
           leftActive={leftActive}
           leftArrowText={operations[1]}
           moveToLeft={this.moveToLeft}
-          className={`${prefixCls}-operation`} />
+          className={`${prefixCls}-operation`}
+        />
         <List titleText={titles[1]}
           dataSource={rightDataSource}
           filter={rightFilter}
@@ -271,7 +281,8 @@ export default class Transfer extends React.Component {
           notFoundContent={notFoundContent}
           body={body}
           footer={footer}
-          prefixCls={`${prefixCls}-list`} />
+          prefixCls={`${prefixCls}-list`}
+        />
       </div>
     );
   }

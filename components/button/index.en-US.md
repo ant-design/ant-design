@@ -6,7 +6,7 @@ title: Button
 
 To trigger an operation.
 
-## Occasion
+## When To Use
 
 A button means an operation(or a series of operations). Click a button will trigger corresponding business logic.
 

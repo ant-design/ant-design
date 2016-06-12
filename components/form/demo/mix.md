@@ -44,18 +44,21 @@ let Demo = React.createClass({
     return (
       <Form horizontal onSubmit={this.handleSubmit} >
         <FormItem
-          label="InputNumber 数字输入框："
+          label="InputNumber 数字输入框"
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 10 }}>
+          wrapperCol={{ span: 10 }}
+        >
           <InputNumber min={1} max={10} style={{ width: 100 }}
-            {...getFieldProps('inputNumber', { initialValue: 3 })} />
+            {...getFieldProps('inputNumber', { initialValue: 3 })}
+          />
           <span className="ant-form-text"> 台机器</span>
         </FormItem>
 
         <FormItem
-          label="我是标题："
+          label="我是标题"
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 10 }}>
+          wrapperCol={{ span: 10 }}
+        >
           <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
           <p className="ant-form-text">
             <a href="#">链接文字</a>
@@ -63,28 +66,32 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Switch 开关："
+          label="Switch 开关"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
-          required>
+          required
+        >
           <Switch {...getFieldProps('switch', { valuePropName: 'checked' })} />
         </FormItem>
 
         <FormItem
-          label="Slider 滑动输入条："
+          label="Slider 滑动输入条"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
-          required>
+          required
+        >
           <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} {...getFieldProps('slider')} />
         </FormItem>
 
         <FormItem
-          label="Select 选择器："
+          label="Select 选择器"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          required>
+          required
+        >
           <Select style={{ width: 200 }}
-            {...getFieldProps('select')}>
+            {...getFieldProps('select')}
+          >
             <Option value="jack">jack</Option>
             <Option value="lucy">lucy</Option>
             <Option value="disabled" disabled>disabled</Option>
@@ -93,40 +100,49 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="级联选择："
+          label="级联选择"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
-          hasFeedback>
+          hasFeedback
+        >
           <Cascader style={{ width: 200 }} options={areaData} {...getFieldProps('area')} />
         </FormItem>
 
         <FormItem
-          label="DatePicker 日期选择框："
+          label="DatePicker 日期选择框"
           labelCol={{ span: 8 }}
-          required>
+          required
+        >
           <Col span="6">
-            <DatePicker {...getFieldProps('startDate')} />
+            <FormItem>
+              <DatePicker {...getFieldProps('startDate')} />
+            </FormItem>
           </Col>
           <Col span="1">
             <p className="ant-form-split">-</p>
           </Col>
           <Col span="6">
-            <DatePicker {...getFieldProps('endDate')} />
+            <FormItem>
+              <DatePicker {...getFieldProps('endDate')} />
+            </FormItem>
           </Col>
         </FormItem>
 
+
         <FormItem
-          label="TimePicker 时间选择器："
+          label="TimePicker 时间选择器"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          required>
+          required
+        >
           <TimePicker {...getFieldProps('time')} />
         </FormItem>
 
         <FormItem
-          label="选项："
-          labelCol={{ span: 8 }}>
+          label="选项"
+          labelCol={{ span: 8 }}
+        >
           <RadioGroup {...getFieldProps('rg')}>
             <RadioButton value="a">选项一</RadioButton>
             <RadioButton value="b">选项二</RadioButton>
@@ -135,10 +151,11 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="logo图："
+          label="logo图"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          help="提示信息要长长长长长长长长长长长长长长">
+          help="提示信息要长长长长长长长长长长长长长长"
+        >
           <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}
             {...getFieldProps('upload', {
               valuePropName: 'fileList',

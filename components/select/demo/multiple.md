@@ -20,9 +20,10 @@ function handleChange(value) {
 
 ReactDOM.render(
   <Select multiple
-    style={{ width: 400 }}
+    style={{ width: '100%' }}
     placeholder="Please select"
-    defaultValue={['a10', 'c12']} onChange={handleChange}>
+    defaultValue={['a10', 'c12']} onChange={handleChange}
+  >
     {children}
   </Select>
 , mountNode);

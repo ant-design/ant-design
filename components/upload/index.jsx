@@ -246,7 +246,8 @@ export default class Upload extends React.Component {
         <UploadList listType={this.props.listType}
           items={this.state.fileList}
           onPreview={this.handlePreview}
-          onRemove={this.handleManualRemove} />
+          onRemove={this.handleManualRemove}
+        />
       );
     }
     if (type === 'drag') {
@@ -259,7 +260,8 @@ export default class Upload extends React.Component {
           <div className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
             onDrop={this.onFileDrop}
             onDragOver={this.onFileDrop}
-            onDragLeave={this.onFileDrop}>
+            onDragLeave={this.onFileDrop}
+          >
             <RcUpload {...props}>
               <div className={`${prefixCls}-drag-container`}>
                 {this.props.children}

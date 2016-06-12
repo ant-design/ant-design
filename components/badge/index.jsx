@@ -46,11 +46,13 @@ export default class Badge extends React.Component {
         <Animate component=""
           showProp="data-show"
           transitionName={`${prefixCls}-zoom`}
-          transitionAppear>
+          transitionAppear
+        >
           {
             hidden ? null :
               <ScrollNumber data-show={!hidden} className={scrollNumberCls}
-                count={count} style={style} />
+                count={count} style={style}
+              />
           }
         </Animate>
       </span>

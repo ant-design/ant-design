@@ -22,7 +22,8 @@ export default class Popover extends React.Component {
         builtinPlacements={placements}
         ref="tooltip"
         {...this.props}
-        overlay={this.getOverlay()}>
+        overlay={this.getOverlay()}
+      >
         {this.props.children}
       </Tooltip>
     );

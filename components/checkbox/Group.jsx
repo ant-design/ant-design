@@ -1,5 +1,6 @@
 import React from 'react';
 import Checkbox from './index';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class CheckboxGroup extends React.Component {
   static defaultProps = {
@@ -29,6 +30,9 @@ export default class CheckboxGroup extends React.Component {
         value: nextProps.value || [],
       });
     }
+  }
+  shouldComponentUpdate(...args) {
+    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   getOptions() {
     const { options } = this.props;
@@ -64,7 +68,8 @@ export default class CheckboxGroup extends React.Component {
             <Checkbox disabled={'disabled' in option ? option.disabled : this.props.disabled}
               checked={this.state.value.indexOf(option.value) !== -1}
               onChange={() => this.toggleOption(option)}
-              className="ant-checkbox-group-item" key={option.value}>
+              className="ant-checkbox-group-item" key={option.value}
+            >
               {option.label}
             </Checkbox>
           )

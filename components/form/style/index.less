@@ -27,11 +27,6 @@ label {
   color: @label-required-color;
 }
 
-//== Style for input-group: input with label, with button or dropdown...
-.ant-input-group {
-  .input-group(~"ant-input");
-}
-
 // Radio && Checkbox
 input[type="radio"],
 input[type="checkbox"] {
@@ -41,6 +36,7 @@ input[type="checkbox"] {
     cursor: @cursor-disabled;
   }
 }
+
 // These classes are used directly on <label>s
 .ant-radio-inline,
 .ant-radio-vertical,
@@ -69,11 +65,18 @@ input[type="checkbox"] {
   margin-bottom: @form-item-margin-bottom;
   color: #666;
 
-  &-control {
-    line-height: 32px;
+  // nested FormItem
+  & & {
+    margin-bottom: -@form-item-margin-bottom;
   }
 
-  &.@{form-prefix-cls}-item-with-help {
+  &-control {
+    line-height: 32px;
+    position: relative;
+    .clearfix;
+  }
+
+  &-with-help {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - 3;
   }
 
@@ -81,11 +84,13 @@ input[type="checkbox"] {
     color: @label-color;
     text-align: right;
     vertical-align: middle;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    padding: 7px 0;
 
-    &:lang(en) {
-      padding-right: 8px;
+    &:after {
+      content: ":";
+      margin: 0 8px 0 2px;
+      position: relative;
+      top: -0.5px;
     }
   }
 
@@ -120,12 +125,6 @@ form {
     .ant-input {
       padding-right: 24px;
     }
-  }
-
-  .ant-input,
-  .ant-input-group .ant-input,
-  .ant-input-group .ant-input-group-addon {
-    .input-lg();
   }
 
   textarea.ant-input {
@@ -200,40 +199,6 @@ form {
   }
 }
 
-.ant-search-input-wrapper {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.ant-search-input {
-  &.ant-input-group .ant-input:first-child {
-    border-radius: @border-radius-base;
-    position: absolute;
-    top: -1px;
-  }
-  .ant-search-btn {
-    .btn-default;
-    border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
-    left: -1px;
-    position: relative;
-    border-width: 0 0 0 1px;
-    z-index: 2;
-    padding-left: 8px;
-    padding-right: 8px;
-    &:hover {
-      border-color: @border-color-base;
-    }
-    form & {
-      padding-top: 6px;
-      padding-bottom: 6px;
-    }
-  }
-  &&-focus .ant-search-btn-noempty,
-  &:hover .ant-search-btn-noempty {
-    .btn-primary;
-  }
-}
-
 // Form layout
 //== Horizontal Form
 .@{form-prefix-cls}-horizontal {
@@ -242,8 +207,7 @@ form {
   }
 
   .ant-radio-inline,
-  .ant-checkbox-inline,
-  .ant-input {
+  .ant-checkbox-inline {
     vertical-align: baseline;
   }
 }
@@ -302,9 +266,10 @@ form {
     position: absolute;
     top: 0;
     right: 0;
+    visibility: visible;
     font-family: "anticon" !important;
     .square(@input-height-lg);
-    line-height: @input-height-lg;
+    line-height: @input-height-lg + 2;
     text-align: center;
     font-size: 14px;
     animation: zoomIn .3s @ease-out-back;
@@ -330,7 +295,6 @@ form {
 }
 
 .has-success {
-  .form-control-validation(@success-color; @input-hover-border-color;);
   .ant-input {
     border-color: @input-border-color;
     box-shadow: none;
@@ -430,7 +394,7 @@ form {
   }
 }
 
-.advanced-search-form {
+.ant-advanced-search-form {
   .@{form-prefix-cls}-item {
     margin-bottom: 16px;
   }

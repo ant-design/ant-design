@@ -86,7 +86,8 @@ const Demo = React.createClass({
         onExpand={this.onExpand} expandedKeys={this.state.expandedKeys}
         autoExpandParent={this.state.autoExpandParent}
         onCheck={this.onCheck} checkedKeys={this.state.checkedKeys}
-        onSelect={this.onSelect} selectedKeys={this.state.selectedKeys}>
+        onSelect={this.onSelect} selectedKeys={this.state.selectedKeys}
+      >
         {loop(gData)}
       </Tree>
     );

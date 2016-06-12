@@ -23,6 +23,7 @@
     text-align: left;
     border-radius: @border-radius-base @border-radius-base 0 0;
     overflow: hidden;
+    table-layout: fixed;
   }
 
   th {
@@ -191,9 +192,16 @@
     }
   }
 
-  &.@{table-prefix-cls}-bordered {
+  &-bordered {
     table {
       border: 1px solid @border-color-split;
+    }
+
+    &.@{table-prefix-cls}-fixed-header {
+      border: 1px solid @border-color-split;
+      table {
+        border: 0;
+      }
     }
 
     th {
@@ -259,6 +267,10 @@
       box-shadow: none;
       border-radius: @border-radius-base @border-radius-base 0 0;
 
+      &-item > label + span {
+        margin-left: 8px;
+      }
+
       &-sub {
         border-radius: @border-radius-base;
         border: 1px solid @border-color-base;
@@ -306,12 +318,16 @@
     }
   }
 
+  &-expand-icon-th {
+    width: 34px;
+  }
+
   &-row {
     &-expand-icon {
       cursor: pointer;
       display: inline-block;
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       text-align: center;
       line-height: 15px;
       border: 1px solid @border-color-split;
@@ -355,18 +371,19 @@
 
   &-scroll {
     overflow: auto;
+    table {
+      width: auto;
+      min-width: 100%;
+    }
   }
 
   &-body-inner {
     height: 100%;
   }
 
-  &-fixed-header &-body-inner {
-    overflow: scroll;
-  }
-
-  &-fixed {
-    table-layout: fixed;
+  &-fixed-header &-body-inner,
+  &-fixed-header &-header {
+    overflow-y: scroll;
   }
 
   &-fixed-left,
@@ -383,19 +400,53 @@
     }
   }
 
+  &-fixed-left,
+  &-fixed-right,
+  &-scroll {
+    th,
+    td {
+      white-space: nowrap;
+    }
+  }
+
+  &-fixed-left &-fixed,
+  &-fixed-right &-fixed {
+    border-radius: 0;
+  }
+
   &-fixed-left {
     left: 0;
     box-shadow: @shadow-1-right;
-    border-radius: @border-radius-base 0 0 0;
-    & .@{table-prefix-cls}-body-inner {
+    .@{table-prefix-cls}-header {
+      overflow-y: hidden;
+    }
+    // hide scrollbar in left fixed columns
+    .@{table-prefix-cls}-body-inner {
       margin-right: -20px;
+      padding-right: 20px;
+    }
+    .@{table-prefix-cls}-fixed-header & .@{table-prefix-cls}-body-inner {
+      padding-right: 0;
+    }
+    &,
+    table {
+      border-radius: @border-radius-base 0 0 0;
     }
   }
 
   &-fixed-right {
     right: 0;
     box-shadow: @shadow-1-left;
-    border-radius: 0 @border-radius-base 0 0;
+    &,
+    table {
+      border-radius: 0 @border-radius-base 0 0;
+    }
+    // hide expand row content in right-fixed Table
+    // https://github.com/ant-design/ant-design/issues/1898
+    .@{table-prefix-cls}-expanded-row {
+      color: transparent;
+      pointer-events: none;
+    }
   }
 
   &&-scroll-position-left &-fixed-left {

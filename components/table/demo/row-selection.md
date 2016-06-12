@@ -11,9 +11,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render(text) {
-    return <a href="#">{text}</a>;
-  },
+  render: text => <a href="#">{text}</a>,
 }, {
   title: '年龄',
   dataIndex: 'age',
@@ -51,6 +49,7 @@ const rowSelection = {
   },
 };
 
-ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />
+ReactDOM.render(
+  <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
 , mountNode);
 ````

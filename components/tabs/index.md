@@ -32,6 +32,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | size | 大小，提供 `default` 和 `small` 两种大小  | String   | 'default'      |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | String   | 'top'      |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | Function(targetKey, action) | 无 |
+| hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | Boolean   | false    |
 
 ### Tabs.TabPane
 

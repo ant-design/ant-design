@@ -76,19 +76,18 @@ const columns = [{
 | footer  | 表格底部自定义渲染函数         | Function(currentPageData)   | |
 | scroll  | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | Object   | -  |
 
-
 ### Column
 
 列描述数据对象，是 columns 中的一项。
 
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
-| title      | 列头显示文字               | String or React.Element |                   |
-| key        | React 需要的 key，建议设置 | String          |                             |
-| dataIndex  | 列数据在数据项中对应的 key | String          |                              |
-| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} |                     |
-| filters    | 表头的筛选菜单项           | Array           |                              |
-| onFilter   | 本地模式下，确定筛选的运行函数 | Function    |                              |
+| title      | 列头显示文字               | String or React.Element | - |
+| key        | React 需要的 key，建议设置 | String          | - |
+| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | String | - |
+| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
+| filters    | 表头的筛选菜单项           | Array           | - |
+| onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
 | filterMultiple | 是否多选 | Boolean    | true    |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
@@ -110,7 +109,6 @@ const columns = [{
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
-
 
 ## 注意
 

@@ -46,7 +46,8 @@ const Test = React.createClass({
           visible={this.state.visible}
           onOk={this.handleOk}
           confirmLoading={this.state.confirmLoading}
-          onCancel={this.handleCancel}>
+          onCancel={this.handleCancel}
+        >
           <p>{this.state.ModalText}</p>
         </Modal>
       </div>
