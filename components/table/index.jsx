@@ -101,9 +101,15 @@ export default class Table extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
-      this.setState(previousState => ({
-        pagination: { ...defaultPagination, ...previousState.pagination, ...nextProps.pagination },
-      }));
+      this.setState(previousState => {
+        const newPagination = {
+          ...defaultPagination,
+          ...previousState.pagination,
+          ...nextProps.pagination,
+        };
+        newPagination.current = newPagination.current || 1;
+        return { pagination: newPagination };
+      });
     }
     // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
