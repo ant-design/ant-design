@@ -1,9 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-
-function prefixClsFn(prefixCls, ...args) {
-  return args.map((s) => `${prefixCls}-${s}`).join(' ');
-}
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class FormItem extends React.Component {
   static defaultProps = {
@@ -26,6 +23,10 @@ export default class FormItem extends React.Component {
 
   static contextTypes = {
     form: React.PropTypes.object,
+  }
+
+  shouldComponentUpdate(...args) {
+    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getLayoutClass(colDef) {
@@ -70,11 +71,10 @@ export default class FormItem extends React.Component {
   }
 
   renderHelp() {
-    const props = this.props;
-    const prefixCls = props.prefixCls;
+    const prefixCls = this.props.prefixCls;
     const help = this.getHelpMsg();
     return help ? (
-      <div className={prefixClsFn(prefixCls, 'explain')} key="help">
+      <div className={`${prefixCls}-explain`} key="help">
         {help}
       </div>
     ) : null;
@@ -83,7 +83,7 @@ export default class FormItem extends React.Component {
   renderExtra() {
     const { prefixCls, extra } = this.props;
     return extra ? (
-      <span className={prefixClsFn(prefixCls, 'extra')}>{extra}</span>
+      <span className={`${prefixCls}-extra`}>{extra}</span>
     ) : null;
   }
 

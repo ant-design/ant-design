@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class Form extends React.Component {
   static defaultProps = {
@@ -20,6 +21,10 @@ export default class Form extends React.Component {
 
   static childContextTypes = {
     form: React.PropTypes.object,
+  }
+
+  shouldComponentUpdate(...args) {
+    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   getChildContext() {
