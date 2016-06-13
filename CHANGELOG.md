@@ -11,6 +11,8 @@ timeline: true
 
 ## 1.4.1
 
+`2016-06-12`
+
 - 修复一个展开 Tabs 会导致表格宽度溢出的问题。[#2013](https://github.com/ant-design/ant-design/issues/2013)
 - 修复一个某些情况下表格布局被破坏的问题。
 
