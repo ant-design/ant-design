@@ -18,7 +18,8 @@
       <div id="loading-text">A Design Language</div>
     </div>
     <script>
-      const content = document.getElementById('loading-text');
+    (function() {
+      var content = document.getElementById('loading-text');
       content.innerHTML = content.innerText.split('').map(function(letter, i) {
         var className;
         if (i > 0 && i < content.innerText.length - 1) {
@@ -29,6 +30,7 @@
         }
         return '<span class="' + className + '">' + letter + '</span>';
       }).join('');
+    })();
     </script>
     <script>
     // Enable Google Analytics
