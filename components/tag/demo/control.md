@@ -10,7 +10,7 @@ title: 动态添加和删除
 ````jsx
 import { Tag, Button } from 'antd';
 
-let index = 2;
+let index = 3;
 const App = React.createClass({
   getInitialState() {
     return {
