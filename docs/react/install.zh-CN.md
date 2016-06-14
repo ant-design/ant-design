@@ -60,6 +60,6 @@ $ npm install antd-init -g
 
 在空目录运行 `antd-init` 可以初始化一个 antd 的前端应用。
 
-最新的脚手架结构可以到这里 [查看](https://github.com/ant-design/antd-init/tree/master/boilerplate)，建议持续关注更新以便获得最新的开发工程特性。
+最新的脚手架结构可以到这里 [查看](https://github.com/ant-design/antd-init/tree/master/boilerplates)，建议持续关注更新以便获得最新的开发工程特性。
 
 > 更多开发工具 [使用方式](http://ant-tool.github.io/)。
