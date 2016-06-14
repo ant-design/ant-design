@@ -78,7 +78,7 @@
     "babel-eslint": "^6.0.2",
     "babel-jest": "^12.0.2",
     "babel-plugin-antd": "^0.4.0",
-    "bisheng": "^0.7.0",
+    "bisheng": "^0.7.1",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.1.0",
     "bisheng-plugin-toc": "0.2.0",
@@ -116,7 +116,7 @@
     "react-intl": "^2.0.1",
     "react-router": "^2.0.0",
     "react-stateless-wrapper": "^1.0.2",
-    "react-sublime-video": "^0.2.0-beta",
+    "react-sublime-video": "^0.2.0",
     "reqwest": "^2.0.5",
     "values.js": "^1.0.3",
     "webpack-babel-jest": "^1.0.4"

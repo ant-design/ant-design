@@ -15,20 +15,18 @@ function PreviewImageBox({ cover, coverMeta, imgs, style, previewVisible,
   return (
     <div className="preview-image-box"
       style={style}
-      onClick={onClick}
     >
-      <div className={`preview-image-wrapper ${coverMeta.isGood && 'good'} ${coverMeta.isBad && 'bad'}`}>
+      <div onClick={onClick} className={`preview-image-wrapper ${coverMeta.isGood && 'good'} ${coverMeta.isBad && 'bad'}`}>
         <img className={coverMeta.className} src={coverMeta.src} alt={coverMeta.alt} />
       </div>
       <div className="preview-image-title">{coverMeta.alt}</div>
       <div className="preview-image-description"
         dangerouslySetInnerHTML={{ __html: coverMeta.description }}
       />
-
       <Modal className="image-modal" width={960} visible={previewVisible} title={null} footer={null}
         onCancel={onCancel}
       >
-        <Carousel className={`${onlyOneImg ? 'image-modal-single' : ''}`} adaptiveHeight>
+        <Carousel className={`${onlyOneImg ? 'image-modal-single' : ''}`} draggable={!onlyOneImg} adaptiveHeight>
           {comparable ? cover : imgs}
         </Carousel>
         <div className="preview-image-title">{coverMeta.alt}</div>
