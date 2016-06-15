@@ -81,6 +81,7 @@ export default function createPicker(TheCalendar) {
             style={props.popupStyle}
             align={props.align}
             getCalendarContainer={props.getCalendarContainer}
+            open={props.open}
             onOpen={props.toggleOpen}
             onClose={props.toggleOpen}
             onChange={this.handleChange}
