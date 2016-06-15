@@ -92,7 +92,7 @@ export default function createPicker(TheCalendar) {
                   <span>
                     <input
                       disabled={props.disabled}
-                      onChange={props.handleInputChange}
+                      readOnly
                       value={value ? props.getFormatter().format(value) : ''}
                       placeholder={placeholder}
                       className={props.pickerInputClass}

@@ -24,9 +24,6 @@ export default function wrapPicker(Picker, defaultFormat) {
       antLocale: PropTypes.object,
     }
 
-    // remove input readonly warning
-    handleInputChange() {}
-
     getLocale() {
       const props = this.props;
       let locale = defaultLocale;
@@ -102,7 +99,6 @@ export default function wrapPicker(Picker, defaultFormat) {
           locale={locale}
           timePicker={timePicker}
           toggleOpen={this.toggleOpen}
-          handleInputChange={this.handleInputChange}
           getFormatter={this.getFormatter}
           parseDateFromValue={this.parseDateFromValue}
         />
