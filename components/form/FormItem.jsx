@@ -164,7 +164,7 @@ export default class FormItem extends React.Component {
 
     // remove user input colon
     let label = props.label;
-    if (typeof props.label === 'string') {
+    if (typeof label === 'string' && label.trim() !== '') {
       label = props.label.replace(/：|:$/, '');
     }
 
