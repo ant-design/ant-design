@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import scrollIntoView from 'dom-scroll-into-view';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
@@ -14,7 +13,9 @@ export default class MainContent extends React.Component {
   }
 
   componentDidMount() {
-    scrollIntoView(document.body, document, { alignWithTop: true });
+    if (!location.hash) {
+      document.documentElement.scrollTop = 0;
+    }
   }
 
   shouldComponentUpdate(nextProps) {
