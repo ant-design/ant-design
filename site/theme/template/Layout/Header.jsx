@@ -68,7 +68,7 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    this.context.router.push({ pathname: value });
+    //this.context.router.push({ pathname: value });
   }
 
   handleSelectFilter = (value, option) => {
@@ -135,6 +135,7 @@ export default class Header extends React.Component {
                 placeholder="搜索组件..."
                 value={undefined}
                 optionFilterProp="data-label"
+                optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
               >
