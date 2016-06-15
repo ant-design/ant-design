@@ -87,20 +87,21 @@ export default class Header extends React.Component {
     const { routes, components } = this.props;
     const route = routes[0].path.replace(/^\//, '');
     let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
-    activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
+    if (activeMenuItem === 'components' || route === 'changelog') {
+      activeMenuItem = 'docs/react';
+    }
 
     const options = components
-            .map(({ meta }) => {
-              const pathSnippet = meta.filename.split('/')[1];
-              const url = `/components/${pathSnippet}`;
-
-              return (
-                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
-                  <strong>{meta.title || meta.english}</strong>
-                  <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
-                </Option>
-              );
-            });
+      .map(({ meta }) => {
+        const pathSnippet = meta.filename.split('/')[1];
+        const url = `/components/${pathSnippet}`;
+        return (
+          <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
+            <strong>{meta.title || meta.english}</strong>
+            <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
+          </Option>
+        );
+      });
 
     const menuStyle = {
       display: this.state.menuVisible ? 'block' : '',

@@ -25,7 +25,7 @@ export default class MainContent extends React.Component {
   }
 
   getActiveMenuItem(props) {
-    return props.params.children;
+    return props.params.children || props.location.pathname;
   }
 
   fileNameToPath(filename) {
@@ -64,21 +64,18 @@ export default class MainContent extends React.Component {
   generateSubMenuItems(obj) {
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
-            .sort((a, b) => {
-              return config.typeOrder[a] - config.typeOrder[b];
-            })
-            .map((type, index) => {
-              const groupItems = obj[type].sort((a, b) => {
-                return (a.title || a.english).charCodeAt(0) -
-                  (b.title || b.english).charCodeAt(0);
-              }).map(this.generateMenuItem.bind(this, false));
-
-              return (
-                <Menu.ItemGroup title={type} key={index}>
-                  {groupItems}
-                </Menu.ItemGroup>
-              );
-            });
+      .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
+      .map((type, index) => {
+        const groupItems = obj[type].sort((a, b) => {
+          return (a.title || a.english).charCodeAt(0) -
+          (b.title || b.english).charCodeAt(0);
+        }).map(this.generateMenuItem.bind(this, false));
+        return (
+          <Menu.ItemGroup title={type} key={index}>
+            {groupItems}
+          </Menu.ItemGroup>
+        );
+      });
     return [...topLevel, ...itemGroups];
   }
 
@@ -87,19 +84,15 @@ export default class MainContent extends React.Component {
     const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
-            .sort((a, b) => {
-              return config.categoryOrder[a] - config.categoryOrder[b];
-            })
-            .map((category) => {
-              const subMenuItems = this.generateSubMenuItems(menuItems[category]);
-
-              return (
-                <SubMenu title={<h4>{category}</h4>} key={category}>
-                  {subMenuItems}
-                </SubMenu>
-              );
-            });
-
+      .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+      .map((category) => {
+        const subMenuItems = this.generateSubMenuItems(menuItems[category]);
+        return (
+          <SubMenu title={<h4>{category}</h4>} key={category}>
+            {subMenuItems}
+          </SubMenu>
+        );
+      });
     return [...topLevel, ...subMenu];
   }
 
