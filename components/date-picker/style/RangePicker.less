@@ -109,11 +109,22 @@
 
   .@{calendar-prefix-cls}-in-range-cell {
     border-radius: 0;
-    > span {
+    position: relative;
+    > div {
+      position: relative;
+      z-index: 1;
+    }
+    &:before {
+      content: '';
+      display: block;
       background: tint(@primary-color, 90%);
-      width: 100%;
       border-radius: 0;
       border: 0;
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 0;
+      right: 0;
     }
   }
 
