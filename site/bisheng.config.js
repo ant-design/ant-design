@@ -16,6 +16,10 @@ module.exports = {
     'bisheng-plugin-react?lang=__react',
     './site/bisheng-plugin-antd',
   ],
+  doraConfig: {
+    verbose: true,
+    plugins: ['dora-plugin-upload'],
+  },
   webpackConfig(config) {
     config.resolve.alias = {
       antd: process.cwd(),

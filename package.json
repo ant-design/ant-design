@@ -80,6 +80,7 @@
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.1.0",
     "bisheng-plugin-toc": "0.2.0",
+    "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
     "es6-shim": "^0.35.0",
     "eslint": "^2.2.0",
