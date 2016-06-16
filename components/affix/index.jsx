@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Dom } from 'rc-util';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import warning from 'warning';
 
@@ -105,8 +105,8 @@ export default class Affix extends React.Component {
 
   componentDidMount() {
     warning(!('offset' in this.props), '`offset` prop of Affix is deprecated, use `offsetTop` instead.');
-    this.scrollEvent = Dom.addEventListener(window, 'scroll', this.handleScroll);
-    this.resizeEvent = Dom.addEventListener(window, 'resize', this.handleScroll);
+    this.scrollEvent = addEventListener(window, 'scroll', this.handleScroll);
+    this.resizeEvent = addEventListener(window, 'resize', this.handleScroll);
   }
 
   componentWillUnmount() {

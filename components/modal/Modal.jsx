@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Dialog from 'rc-dialog';
-import { Dom } from 'rc-util';
+import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 
 function noop() {}
@@ -52,7 +52,7 @@ export default class Modal extends React.Component {
       return;
     }
     // 只有点击事件支持从鼠标位置动画展开
-    Dom.addEventListener(document.documentElement, 'click', (e) => {
+    addEventListener(document.documentElement, 'click', (e) => {
       mousePosition = {
         x: e.pageX,
         y: e.pageY,
