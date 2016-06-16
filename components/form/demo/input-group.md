@@ -11,12 +11,14 @@ const FormItem = Form.Item;
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
-const selectAfter = (<Select defaultValue=".com" style={{ width: 70 }}>
-  <Option value=".com">.com</Option>
-  <Option value=".jp">.jp</Option>
-  <Option value=".cn">.cn</Option>
-  <Option value=".org">.org</Option>
-</Select>);
+const selectAfter = (
+  <Select defaultValue=".com" style={{ width: 70 }}>
+    <Option value=".com">.com</Option>
+    <Option value=".jp">.jp</Option>
+    <Option value=".cn">.cn</Option>
+    <Option value=".org">.org</Option>
+  </Select>
+);
 
 ReactDOM.render(
   <Form horizontal>
