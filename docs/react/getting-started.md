@@ -102,7 +102,7 @@ $ npm run build
 
 Ant Design React 支持所有的现代浏览器和 IE8+。
 
-对于 IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) 版本，并提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
+对于 IE8/9 等浏览器，需要提供 [es5-shim](https://facebook.github.io/react/docs/working-with-the-browser.html#browser-support) 等 Polyfills 的支持，推荐使用 [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)。特别对于 IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) 版本。
 
 <div class="code-line-highlight"></div>
 
