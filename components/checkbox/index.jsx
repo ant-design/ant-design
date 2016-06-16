@@ -2,7 +2,7 @@ import RcCheckbox from 'rc-checkbox';
 import React from 'react';
 import CheckboxGroup from './Group';
 import classNames from 'classnames';
-import { PureRenderMixin } from 'rc-util';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class Checkbox extends React.Component {
   static Group = CheckboxGroup;
