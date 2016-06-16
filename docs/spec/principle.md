@@ -40,7 +40,7 @@ english: 引言
 - [重复 Repetition](/docs/spec/repetition)
 - [直截了当 Make it Direct](/docs/spec/direct)
 - [简化交互 Keep it Lightweight](/docs/spec/lightweight)
-- [足不出户 Stay in the Page](/docs/spec/stay)
+- [足不出户 Stay on the Page](/docs/spec/stay)
 - [提供邀请 Provide Invitation](/docs/spec/invitation)
 - [巧用过渡 Use Transition](/docs/spec/transition)
 - [即时反应 React Immediately](/docs/spec/reaction)
