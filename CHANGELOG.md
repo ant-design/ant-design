@@ -140,7 +140,7 @@ timeline: true
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
 
-- 推荐使用样式按需加载, 如果需要整体载入样式, **样式入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
+- 推荐使用样式按需加载。如果依然需要整体载入样式，**样式入口文件已变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
 
    ```diff
    - import 'antd/lib/index.css';  // import 'antd/style/index.less';
