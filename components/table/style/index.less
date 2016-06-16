@@ -393,9 +393,20 @@
     height: 100%;
   }
 
-  &-fixed-header &-body-inner,
-  &-fixed-header &-header {
+  &-fixed-header &-body {
+    position: relative;
+    background: #fff;
+  }
+
+  &-fixed-header &-body-inner {
     overflow-y: scroll;
+  }
+
+  &-fixed-header &-header {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
   }
 
   &-fixed-left,
