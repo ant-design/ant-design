@@ -7,8 +7,9 @@ describe('antd dist files', function() {
   const distFilesExisted = fs.existsSync(path.join(process.cwd(), 'dist', 'antd.js'));
   if (!distFilesExisted) {
     return;
+  } else {
+    jest.unmock('../dist/antd');
   }
-  jest.unmock('../dist/antd');
 
   // fixed jsdom miss
   if (typeof window !== 'undefined') {
