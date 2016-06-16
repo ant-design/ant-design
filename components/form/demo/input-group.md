@@ -11,6 +11,13 @@ const FormItem = Form.Item;
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
+const selectAfter = (<Select defaultValue=".com" style={{ width: 70 }}>
+  <Option value=".com">.com</Option>
+  <Option value=".jp">.jp</Option>
+  <Option value=".cn">.cn</Option>
+  <Option value=".org">.org</Option>
+</Select>);
+
 ReactDOM.render(
   <Form horizontal>
     <FormItem
@@ -35,17 +42,7 @@ ReactDOM.render(
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
     >
-      <InputGroup>
-        <Input id="site4" placeholder="www.mysite" />
-        <div className="ant-input-group-wrap">
-          <Select defaultValue=".com" style={{ width: 70 }}>
-            <Option value=".com">.com</Option>
-            <Option value=".jp">.jp</Option>
-            <Option value=".cn">.cn</Option>
-            <Option value=".org">.org</Option>
-          </Select>
-        </div>
-      </InputGroup>
+      <Input addonAfter={selectAfter} placeholder="www.mysite" id="site4" />
     </FormItem>
 
     <FormItem
