@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
 import RadioButton from './radioButton';
-import { PureRenderMixin } from 'rc-util';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 function getCheckedValue(children) {
   let value = null;

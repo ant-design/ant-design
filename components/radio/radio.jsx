@@ -1,7 +1,7 @@
 import RcRadio from 'rc-radio';
 import React from 'react';
 import classNames from 'classnames';
-import { PureRenderMixin } from 'rc-util';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 export default class Radio extends React.Component {
   static defaultProps = {
