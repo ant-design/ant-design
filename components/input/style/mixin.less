@@ -1,6 +1,6 @@
+@import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@import "../../style/mixins/index";
 // size mixins for input
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal;
@@ -166,6 +166,15 @@
       .ant-select-selection {
         background-color: inherit;
         border: 0;
+        margin: -1px;
+        border: 1px solid transparent;
+      }
+
+      &-open,
+      &-focused {
+        .ant-select-selection {
+          border-color: tint(@primary-color, 20%);
+        }
       }
     }
   }
