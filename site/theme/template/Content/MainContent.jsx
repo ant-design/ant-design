@@ -16,7 +16,7 @@ export default class MainContent extends React.Component {
     if (!location.hash) {
       document.documentElement.scrollTop = 0;
     } else {
-      location.href = location.href;
+      location.hash = location.hash;
     }
   }
 
