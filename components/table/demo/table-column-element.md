@@ -28,7 +28,7 @@ const data = [{
 
 function renderOperator(text, record) {
   return (
-  	<span>
+    <span>
       <a href="#">操作一{record.name}</a>
       <span className="ant-divider"></span>
       <a href="#">操作二</a>
@@ -42,10 +42,10 @@ function renderOperator(text, record) {
 
 ReactDOM.render(<div>
   <Table dataSource={data} size="middle">
-  	<TableColumn title="姓名" dataIndex="name" render={text => <a href="#">{text}</a>} />
-  	<TableColumn title="年龄" dataIndex="age" />
-  	<TableColumn title="住址" dataIndex="address" />
-  	<TableColumn title="操作" render={renderOperator} />
+    <TableColumn title="姓名" dataIndex="name" render={text => <a href="#">{text}</a>} />
+    <TableColumn title="年龄" dataIndex="age" />
+    <TableColumn title="住址" dataIndex="address" />
+    <TableColumn title="操作" render={renderOperator} />
   </Table>
 </div>, mountNode);
 ````
