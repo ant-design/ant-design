@@ -2,6 +2,7 @@
 category: Components
 type: Presentation
 title: Card
+cols: 1
 ---
 
 Common card container.

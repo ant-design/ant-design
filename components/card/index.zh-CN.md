@@ -3,6 +3,7 @@ category: Components
 type: Presentation
 title: Card
 subtitle: 卡片
+cols: 1
 ---
 
 通用卡片容器。
