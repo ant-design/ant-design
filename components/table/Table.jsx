@@ -8,7 +8,6 @@ import Icon from '../icon';
 import Spin from '../spin';
 import classNames from 'classnames';
 import { flatArray } from './util';
-import TableColumn from './TableColumn';
 
 function noop() {
 }
@@ -31,7 +30,7 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-class Table extends React.Component {
+export default class Table extends React.Component {
   static propTypes = {
     dataSource: React.PropTypes.array,
     prefixCls: React.PropTypes.string,
@@ -778,32 +777,3 @@ class Table extends React.Component {
     );
   }
 }
-
-class TableWithColumn extends React.Component {
-  static propTypes = {
-    children: (props, propName, componentName) => {
-      var error;
-      var prop = props[propName] || [];
-      React.Children.forEach(prop, function (child) {
-        if (child.type != TableColumn) {
-          error = new Error(
-            '`' + componentName + '` only accepts children of type `TableColumn`.'
-          );
-        }
-      });
-      return error;
-    }
-  }
-
-  render() {
-    if (this.props.columns) {
-      return <Table {...this.props} />
-    }
-    const columns = React.Children.map(this.props.children, child => child.type == TableColumn ? child.props : null);
-    console.log(columns);
-    return <Table {...this.props} columns={columns} />
-  }
-}
-
-TableWithColumn.Column = TableColumn;
-export default TableWithColumn;
