@@ -88,3 +88,5 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ## 如何贡献
 
 在任何形式的参与前，请先阅读 [贡献者文档](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md)。有任何建议或意见您可以 [Pull Request](https://github.com/ant-design/ant-design/pulls)，给我们 [报告 Bug](http://dwz.cn/2AF9ao) 或 [提问](https://github.com/ant-design/ant-design/issues)。
+
+> 强烈推荐阅读[《提问的智慧》](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way)和[《如何向开源社区提问题》](https://github.com/seajs/seajs/issues/545)，更好的问题更容易获得帮助。
