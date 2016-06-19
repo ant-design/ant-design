@@ -10,7 +10,8 @@ export default function NotFound() {
       </section>
       <style dangerouslySetInnerHTML={{
         __html: '#react-content { height: 100%; background-color: #fff }',
-      }} />
+      }}
+      />
     </div>
   );
 }
