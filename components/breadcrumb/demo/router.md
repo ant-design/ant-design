@@ -1,10 +1,18 @@
 ---
 order: 2
 iframe: true
-title: 路由
+title: 
+  zh-CN: 路由
+  en-US: React Router Integration
 ---
 
+## zh-CN
+
 和 `react-router@2.x` 进行结合使用。
+
+## en-US
+
+Used together with `react-router@2.x`.
 
 ````jsx
 import { Router, Route, Link, hashHistory } from 'react-router';
@@ -13,10 +21,10 @@ import { Breadcrumb } from 'antd';
 const Apps = () => (
   <ul className="app-list">
     <li>
-      <Link to="/apps/1">应用1</Link>：<Link to="/apps/1/detail">详情</Link>
+      <Link to="/apps/1">Application1</Link>：<Link to="/apps/1/detail">Detail</Link>
     </li>
     <li>
-      <Link to="/apps/2">应用2</Link>：<Link to="/apps/2/detail">详情</Link>
+      <Link to="/apps/2">Application2</Link>：<Link to="/apps/2/detail">Detail</Link>
     </li>
   </ul>
 );
@@ -24,8 +32,8 @@ const Apps = () => (
 const Home = (props) => (
   <div>
     <div className="demo-nav">
-      <Link to="/">首页</Link>
-      <Link to="/apps">应用列表</Link>
+      <Link to="/">Home</Link>
+      <Link to="/apps">Application List</Link>
     </div>
     {props.children || 'Home'}
     <div
@@ -36,7 +44,7 @@ const Home = (props) => (
         borderBottom: '1px dashed #ccc',
       }}
     >
-      点击上面的导航切换页面，面包屑在下面：
+      Click the navigation above to switch the page,breadcrumb is right here:
     </div>
     <Breadcrumb {...props} />
   </div>
@@ -44,10 +52,10 @@ const Home = (props) => (
 
 ReactDOM.render(
   <Router history={hashHistory}>
-    <Route name="home" breadcrumbName="首页" path="/" component={Home}>
-      <Route name="apps" breadcrumbName="应用列表" path="apps" component={Apps}>
-        <Route name="app" breadcrumbName="应用:id" path=":id">
-          <Route name="detail" breadcrumbName="详情" path="detail" />
+    <Route name="home" breadcrumbName="Home" path="/" component={Home}>
+      <Route name="apps" breadcrumbName="Application List" path="apps" component={Apps}>
+        <Route name="app" breadcrumbName="Application:id" path=":id">
+          <Route name="detail" breadcrumbName="Detail" path="detail" />
         </Route>
       </Route>
     </Route>
