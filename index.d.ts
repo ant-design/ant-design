@@ -1550,7 +1550,7 @@ interface TabsProps extends React.Props<Tabs> {
   /** 新增和删除页签的回调，在 `type="editable-card"` 时有效*/
   onEdit?:(targetKey:string, action:any) => void,
   /** 大小，提供 default 和 small 两种大小    */
-  size? string,
+  size?: string,
 
   style?:React.CSSProperties
 }
