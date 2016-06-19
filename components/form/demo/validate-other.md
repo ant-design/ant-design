@@ -151,16 +151,13 @@ let Demo = React.createClass({
         >
           <Checkbox {...getFieldProps('eat', {
             valuePropName: 'checked',
-          })}
-          >吃饭饭</Checkbox>
+          })}>吃饭饭</Checkbox>
           <Checkbox {...getFieldProps('sleep', {
             valuePropName: 'checked',
-          })}
-          >睡觉觉</Checkbox>
+          })}>睡觉觉</Checkbox>
           <Checkbox {...getFieldProps('beat', {
             valuePropName: 'checked',
-          })}
-          >打豆豆</Checkbox>
+          })}>打豆豆</Checkbox>
         </FormItem>
 
         <FormItem
