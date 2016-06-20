@@ -78,6 +78,7 @@
     "babel-jest": "^12.0.2",
     "babel-plugin-antd": "^0.4.0",
     "bisheng": "^0.7.1",
+    "bisheng-plugin-antd": "0.1.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.1.0",
     "bisheng-plugin-toc": "0.2.0",
