@@ -15,7 +15,7 @@ export default class FilterMenu extends React.Component {
     super(props);
 
     this.state = {
-      selectedKeys: this.props.selectedKeys,
+      selectedKeys: props.selectedKeys,
       keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
       visible: false,
     };
@@ -106,7 +106,7 @@ export default class FilterMenu extends React.Component {
     // default multiple selection in filter dropdown
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
 
-    const menus = (
+    const menus = column.filterDropdown ? column.filterDropdown : (
       <div className="ant-table-filter-dropdown">
         <Menu
           multiple={multiple}

@@ -563,7 +563,7 @@ export default class Table extends React.Component {
       let key = this.getColumnKey(column, i);
       let filterDropdown;
       let sortButton;
-      if (column.filters && column.filters.length > 0) {
+      if ((column.filters && column.filters.length > 0) || column.filterDropdown) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown = (
           <FilterDropdown

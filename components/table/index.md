@@ -89,6 +89,7 @@ const columns = [{
 | filters    | 表头的筛选菜单项           | Array           | - |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
 | filterMultiple | 是否多选 | Boolean    | true    |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.Element | - |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
 | width      | 列宽度 | String or Number | -  |
