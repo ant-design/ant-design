@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 修改延时
-  en-US: Modify display duration
+  en-US: Customize duration
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Customize message display duration to `10s`, while default duration is `1.5s`。
+Customize message display duration from default `1.5s` to `10s`.
 
 ````jsx
 import { message, Button } from 'antd';
