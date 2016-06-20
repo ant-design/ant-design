@@ -14,7 +14,7 @@ module.exports = {
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2',
     'bisheng-plugin-react?lang=__react',
-    './site/bisheng-plugin-antd',
+    'bisheng-plugin-antd',
   ],
   doraConfig: {
     verbose: true,
