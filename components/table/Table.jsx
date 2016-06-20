@@ -566,7 +566,9 @@ export default class Table extends React.Component {
       if (column.filters && column.filters.length > 0) {
         let colFilters = this.state.filters[key] || [];
         filterDropdown = (
-          <FilterDropdown locale={locale} column={column}
+          <FilterDropdown
+            locale={locale}
+            column={column}
             selectedKeys={colFilters}
             confirmFilter={this.handleFilter}
           />
