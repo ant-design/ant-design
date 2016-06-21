@@ -19,6 +19,5 @@ function success() {
 
 ReactDOM.render(<div>
   <Button onClick={success}>成功提示</Button>
-
 </div>, mountNode);
 ````
