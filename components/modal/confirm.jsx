@@ -131,6 +131,6 @@ export default function confirm(config) {
   });
 
   return {
-    destory: close,
+    destroy: close,
   };
 }
