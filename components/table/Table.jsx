@@ -140,7 +140,10 @@ export default class Table extends React.Component {
       this.setState({
         selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
       });
-      if (nextProps.rowSelection.getCheckboxProps !== this.props.rowSelection.getCheckboxProps) {
+      const { rowSelection } = this.props;
+      if (rowSelection && (
+        nextProps.rowSelection.getCheckboxProps !== rowSelection.getCheckboxProps
+      )) {
         this.CheckboxPropsCache = {};
       }
     }
