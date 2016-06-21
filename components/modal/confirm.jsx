@@ -129,4 +129,8 @@ export default function confirm(config) {
   , div, function () {
     d = this;
   });
+
+  return {
+    destroy: close,
+  };
 }
