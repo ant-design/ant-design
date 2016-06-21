@@ -55,13 +55,28 @@ export default class Transfer extends React.Component {
   }
   componentWillReceiveProps(nextProps) {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
-    const { leftDataSource, rightDataSource } = this.splitDataSource(nextProps);
-    this.setState({
-      leftCheckedKeys: leftCheckedKeys.filter(data => leftDataSource.filter(leftData => leftData.key === data).length),
-      rightCheckedKeys: rightCheckedKeys.filter(data => rightDataSource.filter(rightData => rightData.key === data).length),
-    });
+    if (nextProps.targetKeys !== this.props.targetKeys ||
+        nextProps.dataSource !== this.props.dataSource) {
+      // clear cached splited dataSource
+      this.splitedDataSource = null;
+
+      const { dataSource, targetKeys } = nextProps;
+      // clear key nolonger existed
+      // clear checkedKeys according to targetKeys
+      this.setState({
+        leftCheckedKeys: leftCheckedKeys
+          .filter(data => dataSource.filter(item => item.key === data).length)
+          .filter(data => targetKeys.filter(key => key === data).length === 0),
+        rightCheckedKeys: rightCheckedKeys
+          .filter(data => dataSource.filter(item => item.key === data).length)
+          .filter(data => targetKeys.filter(key => key === data).length > 0),
+      });
+    }
   }
   splitDataSource(props) {
+    if (this.splitedDataSource) {
+      return this.splitedDataSource;
+    }
     const { targetKeys } = props;
     let { dataSource } = props;
 
@@ -86,10 +101,12 @@ export default class Transfer extends React.Component {
       });
     }
 
-    return {
+    this.splitedDataSource = {
       leftDataSource,
       rightDataSource,
     };
+
+    return this.splitedDataSource;
   }
 
   moveTo = (direction) => {
@@ -194,7 +211,7 @@ export default class Transfer extends React.Component {
 
   handleSelect = (direction, selectedItem, checked) => {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
-    const holder = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
+    const holder = direction === 'left' ? [...leftCheckedKeys] : [...rightCheckedKeys];
     let index;
     holder.forEach((key, i) => {
       if (key === selectedItem.key) {

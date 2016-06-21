@@ -3,6 +3,7 @@ import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 
 function noop() {
 }
@@ -58,6 +59,10 @@ export default class TransferList extends React.Component {
         mounted: true,
       });
     }, 0);
+  }
+
+  shouldComponentUpdate(...args) {
+    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   handleSelectAll = () => {
@@ -128,7 +133,6 @@ export default class TransferList extends React.Component {
       } else {
         itemText = renderResult;
       }
-
       const filterResult = this.matchFilter(itemText, filter);
       return !!filterResult;
     }).map((item) => {
