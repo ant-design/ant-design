@@ -1,23 +1,34 @@
-import test from 'ava';
+jest.unmock('../components/button/button');
+jest.unmock('../components/icon/index');
+
 import React from 'react';
-import { shallow } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
 import Button from '../components/button/button';
 
-let buttonNode;
+describe('Button', function() {
+  let button;
+  let buttonNode;
 
-test.beforeEach(() => {
-  buttonNode = shallow(<Button>Follow</Button>);
-});
+  beforeEach(() => {
+    button = TestUtils.renderIntoDocument(
+      <Button>Follow</Button>
+    );
+    buttonNode = TestUtils.findRenderedDOMComponentWithTag(button, 'button');
+  });
 
-test('should set the type to button by default', (t) => {
-  t.is(buttonNode.type(), 'button');
-});
+  it('should set the type to button by default', () => {
+    expect(buttonNode.type).toBe('button');
+  });
 
-test('should set the default className to button', (t) => {
-  t.true(buttonNode.hasClass('ant-btn'));
-});
+  it('should set the default className to button', () => {
+    expect(buttonNode.className).toBe('ant-btn');
+  });
 
-test('should has a whitespace in two Chinese charactor', (t) => {
-  buttonNode = shallow(<Button>按钮</Button>);
-  t.is(buttonNode.text(), '按 钮');
+  it('should has a whitespace in two Chinese charactor', () => {
+    button = TestUtils.renderIntoDocument(
+      <Button>按钮</Button>
+    );
+    buttonNode = TestUtils.findRenderedDOMComponentWithTag(button, 'button');
+    expect(buttonNode.textContent).toBe('按 钮');
+  });
 });
