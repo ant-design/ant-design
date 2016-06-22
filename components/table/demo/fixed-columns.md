@@ -45,7 +45,7 @@ const data = [{
 }];
 
 function App() {
-  return <Table columns={columns} dataSource={data} scroll={{ x: true }} />;
+  return <Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />;
 }
 
 ReactDOM.render(<App />, mountNode);
