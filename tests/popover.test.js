@@ -1,21 +1,29 @@
-import test from 'ava';
+jest.unmock('../components/popover/placements');
+jest.unmock('../components/popover/index');
+jest.unmock('../components/tooltip/index');
+
 import React from 'react';
-import Popover from '../components/popover/index.tsx'
-import { mount } from 'enzyme';
+import TestUtils from 'react-addons-test-utils';
+import Popover from '../components/popover/index';
 
-test('should show overlay when trigger is clicked', (t) => {
-  const popover = mount(
-    <Popover content="console.log('hello world')" title="code" trigger="click">
-      <a href="#">show me your code</a>
-    </Popover>
-  );
+describe('Popover', function() {
+  it('should show overlay when trigger is clicked', () => {
+    const popover = TestUtils.renderIntoDocument(
+      <Popover content="console.log('hello world')" title="code" trigger="click">
+        <a href="#">show me your code</a>
+      </Popover>
+    );
 
-  t.is(popover.instance().getPopupDomNode(), undefined);
+    expect(popover.getPopupDomNode()).toBe(undefined);
 
-  popover.find('a').simulate('click');
+    TestUtils.Simulate.click(
+      TestUtils.findRenderedDOMComponentWithTag(popover, 'a')
+    );
 
-  const popup = popover.instance().getPopupDomNode();
-  t.truthy(popup);
-  t.true(popup.className.indexOf('ant-popover-placement-top') > 0);
-  t.is(popup.innerHTML, '<div class="ant-popover-content"><div class="ant-popover-arrow"></div><div class="ant-popover-inner">code</div></div>');
+    const popup = popover.getPopupDomNode();
+    expect(popup).not.toBe(undefined);
+    expect(popup.className).toContain('ant-popover-placement-top');
+    expect(popup.innerHTML).toMatch(/<div class="ant-popover-title".*?>code<\/div>/);
+    expect(popup.innerHTML).toMatch(/<div class="ant-popover-inner-content".*?>console\.log\('hello world'\)<\/div>/);
+  });
 });

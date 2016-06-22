@@ -78,14 +78,14 @@ export default class Tooltip extends React.Component {
       ? `${children.props.className} ${openClassName}` : openClassName;
     return (
       <RcTooltip
-        {...this.props}
         transitionName={transitionName}
         builtinPlacements={placements}
         overlay={title}
         visible={visible}
-        onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
         ref="tooltip"
+        {...this.props}
+        onVisibleChange={this.onVisibleChange}
       >
         {visible ? cloneElement(children, { className: childrenCls }) : children}
       </RcTooltip>

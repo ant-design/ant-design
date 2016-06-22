@@ -74,8 +74,8 @@
   },
   "devDependencies": {
     "antd-tools": "^0.9.0",
-    "ava": "^0.15.2",
     "babel-eslint": "^6.0.2",
+    "babel-jest": "^12.0.2",
     "babel-plugin-antd": "^0.4.0",
     "bisheng": "^0.7.1",
     "bisheng-plugin-antd": "0.1.0",
@@ -84,7 +84,7 @@
     "bisheng-plugin-toc": "0.2.0",
     "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
-    "enzyme": "^2.3.0",
+    "es6-shim": "^0.35.0",
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-babel": "^3.0.0",
@@ -96,6 +96,7 @@
     "history": "^2.0.1",
     "intl": "^1.2.2",
     "intl-locales-supported": "^1.0.0",
+    "jest-cli": "^12.0.2",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
@@ -115,9 +116,11 @@
     "react-github-button": "^0.1.1",
     "react-intl": "^2.0.1",
     "react-router": "^2.0.0",
+    "react-stateless-wrapper": "^1.0.2",
     "react-sublime-video": "^0.2.0",
     "reqwest": "^2.0.5",
-    "values.js": "^1.0.3"
+    "values.js": "^1.0.3",
+    "webpack-babel-jest": "^1.0.4"
   },
   "scripts": {
     "dist": "antd-tools run dist",
@@ -134,25 +137,30 @@
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix components test site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
-    "test": "npm run lint && npm run dist && npm run ava",
-    "ava": "ava tests/*.test.js",
+    "test": "npm run lint && npm run dist && npm run jest",
+    "jest": "jest",
     "pre-publish": "node ./scripts/prepub",
     "prepublish": "antd-tools run guard",
     "pub": "antd-tools run update-self && antd-tools run pub",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt"
   },
-  "ava": {
-    "babel": {
-      "presets": [
-        "es2015",
-        "stage-0",
-        "react"
-      ]
-    },
-    "require": [
-      "./tests/helpers/setup-browser-env.js",
-      "babel-register"
-    ]
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "json"
+    ],
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/*"
+    ],
+    "modulePathIgnorePatterns": [
+      "/_site/"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
+    "testDirectoryName": "tests"
   },
   "pre-commit": [
     "lint"
