@@ -24,6 +24,9 @@
   line-height: 1;
   vertical-align: middle;
   cursor: pointer;
+  label& {
+    margin-right: 8px;
+  }
   &:hover,
   &-focused {
     .@{radio-inner-prefix-cls} {
@@ -107,6 +110,7 @@
 
 span.@{radio-prefix-cls} + * {
   margin-left: 8px;
+  margin-right: 8px;
 }
 
 .@{radio-prefix-cls} {
