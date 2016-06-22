@@ -9,7 +9,7 @@ title: 基本
 import { Tooltip } from 'antd';
 
 ReactDOM.render(
-  <Tooltip title="提示文字" onVisibleChange={visible => console.log(visible)}>
+  <Tooltip title="提示文字">
     <span>鼠标移上来就会出现提示</span>
   </Tooltip>
 , mountNode);
