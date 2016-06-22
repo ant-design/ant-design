@@ -8,11 +8,11 @@ function camelCase(name) {
     });
 }
 
-const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.jsx?$/);
+const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.tsx?$/);
 
 req.keys().forEach((mod) => {
   const v = req(mod);
-  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.jsx?$/);
+  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.tsx?$/);
   if (match && match[1]) {
     if (match[1] === 'message' || match[1] === 'notification') {
       // message & notification should not be capitalized
