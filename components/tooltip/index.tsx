@@ -13,6 +13,7 @@ export default class Tooltip extends React.Component {
     transitionName: 'zoom-big',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
+    onVisibleChange() {},
   }
 
   constructor(props) {
@@ -24,6 +25,7 @@ export default class Tooltip extends React.Component {
 
   onVisibleChange = (visible) => {
     this.setState({ visible });
+    this.props.onVisibleChange(visible);
   }
 
   getPopupDomNode() {
@@ -76,6 +78,7 @@ export default class Tooltip extends React.Component {
       ? `${children.props.className} ${openClassName}` : openClassName;
     return (
       <RcTooltip
+        {...this.props}
         transitionName={transitionName}
         builtinPlacements={placements}
         overlay={title}
@@ -83,7 +86,6 @@ export default class Tooltip extends React.Component {
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
         ref="tooltip"
-        {...this.props}
       >
         {visible ? cloneElement(children, { className: childrenCls }) : children}
       </RcTooltip>

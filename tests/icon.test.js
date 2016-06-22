@@ -1,27 +1,19 @@
-jest.unmock('../components/icon/index');
-
+import test from 'ava';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import { wrap } from 'react-stateless-wrapper';
+import { shallow } from 'enzyme';
+import Icon from '../components/icon/index';
 
-import AntIcon from '../components/icon/index';
-const Icon = wrap(AntIcon);
+let iconNode;
 
-describe('Icon', function() {
-  let icon;
-  let iconNode;
+test.beforeEach(() => {
+  iconNode = shallow(
+    <Icon type="appstore" className="my-icon-classname" />
+  );
+});
 
-  beforeEach(() => {
-    icon = TestUtils.renderIntoDocument(
-      <Icon type="appstore" className="my-icon-classname" />
-    );
-    iconNode = TestUtils.findRenderedDOMComponentWithTag(icon, 'I');
-  });
-
-  it('should render to a <i class="xxx"></i>', () => {
-    expect(iconNode.tagName).toBe('I');
-    expect(iconNode.className).toContain('my-icon-classname');
-    expect(iconNode.className).toContain('anticon');
-    expect(iconNode.className).toContain('anticon-appstore');
-  });
+test('should render to a <i class="xxx"></i>', (t) => {
+  t.is(iconNode.type(), 'i');
+  t.true(iconNode.hasClass('my-icon-classname'));
+  t.true(iconNode.hasClass('anticon'));
+  t.true(iconNode.hasClass('anticon-appstore'));
 });
