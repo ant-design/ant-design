@@ -1,27 +1,14 @@
-jest.unmock('../components/layout/index');
-jest.unmock('../components/layout/col');
-jest.unmock('../components/layout/row');
-
+import test from 'ava';
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import { wrap } from 'react-stateless-wrapper';
+import { shallow } from 'enzyme';
+import { Col, Row } from '../components/layout/index';
 
-let { Col, Row } = require('../components/layout/index');
-Col = wrap(Col);
+test('should render Col', (t) => {
+  const col = shallow(<Col span={2} />);
+  t.true(col.hasClass('ant-col-2'));
+});
 
-describe('Layout', function() {
-  it('should render Col', () => {
-    const col = TestUtils.renderIntoDocument(
-      <Col span="2"></Col>
-    );
-    const colNode = TestUtils.findRenderedDOMComponentWithTag(col, 'DIV');
-    expect(colNode.className).toBe('ant-col-2');
-  });
-  it('should render Row', () => {
-    const row = TestUtils.renderIntoDocument(
-      <Row></Row>
-    );
-    const rowNode = TestUtils.findRenderedDOMComponentWithTag(row, 'DIV');
-    expect(rowNode.className).toBe('ant-row');
-  });
+test('should render Row', (t) => {
+  const row = shallow(<Row />);
+  t.true(row.hasClass('ant-row'));
 });
