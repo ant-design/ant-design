@@ -1,7 +1,7 @@
 import test from 'ava';
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Col, Row } from '../components/layout/index';
+import { Col, Row } from '../components/layout/index.tsx';
 
 test('should render Col', (t) => {
   const col = shallow(<Col span={2} />);

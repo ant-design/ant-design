@@ -1,7 +1,7 @@
 import test from 'ava';
 import React from 'react';
 import { shallow } from 'enzyme';
-import Icon from '../components/icon/index';
+import Icon from '../components/icon/index.tsx';
 
 let iconNode;
 
