@@ -55,6 +55,17 @@ export default class Layout extends React.Component {
       });
       gaListenerSetted = true;
     }
+    const loadingNode = document.getElementById('ant-site-loading');
+    if (!loadingNode) {
+      return;
+    }
+    this.timer = setTimeout(() => {
+      loadingNode.parentNode.removeChild(loadingNode);
+    }, 450);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
   }
 
   render() {
