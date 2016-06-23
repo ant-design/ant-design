@@ -14,8 +14,8 @@ We are now working on translate components document to English, and we need some
 
 ## Features
 
-- An enterprise-class design language and high quality UI style.
-- Rich library of UI components base on [React Component](http://react-component.github.io/badgeboard/).
+- An enterprise-class design language and high quality UI.
+- Graceful UI components out of the box, base on [React Component](http://react-component.github.io/badgeboard/).
 - A npm + webpack + babel + dora [workflow](http://ant-tool.github.io/index.html).
 
 ## Install
