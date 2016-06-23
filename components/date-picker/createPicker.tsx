@@ -4,6 +4,7 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import Icon from '../icon';
 
 export default function createPicker(TheCalendar) {
   // use class typescript error
@@ -23,7 +24,14 @@ export default function createPicker(TheCalendar) {
       }
     },
 
-    handleChange(value) {
+    clearSelection = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.setState({ value: null });
+      this.handleChange(null);
+    },
+
+    handleChange = (value) => {
       const props = this.props;
       if (!('value' in props)) {
         this.setState({value});
@@ -71,6 +79,11 @@ export default function createPicker(TheCalendar) {
         pickerStyle.width = 180;
       }
 
+      const clearIcon = (!props.disabled && this.state.value) ?
+        <Icon type="cross-circle"
+          className="ant-calendar-picker-clear"
+          onClick={this.clearSelection}
+        /> : null;
       return (
         <span className={props.pickerClass} style={assign({}, pickerStyle, props.style)}>
           <RcDatePicker
@@ -98,7 +111,8 @@ export default function createPicker(TheCalendar) {
                       placeholder={placeholder}
                       className={props.pickerInputClass}
                     />
-                    <span className="ant-calendar-picker-icon"/>
+                    {clearIcon}
+                    <span className="ant-calendar-picker-icon" />
                   </span>
                   );
                 }
@@ -108,6 +122,6 @@ export default function createPicker(TheCalendar) {
       );
     },
   });
-  
+
   return CalenderWrapper;
 }

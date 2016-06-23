@@ -14,7 +14,9 @@ function noop() {
 import splitObject from '../_util/splitObject';
 function stopPropagation(e) {
   e.stopPropagation();
-  e.nativeEvent.stopImmediatePropagation();
+  if (e.nativeEvent.stopImmediatePropagation) {
+    e.nativeEvent.stopImmediatePropagation();
+  }
 }
 
 const defaultLocale = {
