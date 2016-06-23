@@ -76,15 +76,17 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
 | getFieldProps | 用于和表单进行双向绑定，详见下方描述 | |
 
-#### this.props.form.getFieldProps(id, options)
+### this.props.form.getFieldProps(id, options)
 
-##### 特别注意
+#### 特别注意
 
 `getFieldProps` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
 
 `getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`（或者你设置的其它 `trigger` `validateTrigger`），**所以不应再设置同样的属性**，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
 
 > 在表单中 `defaultValue` 也不应该被设置，请使用下面的 `initialValue`。
+
+#### getFieldProps options
 
 | 参数      | 说明                                     | 类型 | 默认值 |
 |-----------|-----------------------------------------|-----|--------|
