@@ -74,6 +74,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
 - [设计规范速查手册](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
+- [社区贡献脚手架和范例](https://github.com/ant-design/ant-design/issues/129)
 
 ## 谁在使用
 

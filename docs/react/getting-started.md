@@ -30,6 +30,14 @@ $ npm install antd-init -g
 
 更多功能请参考 [脚手架工具](https://github.com/ant-design/antd-init/) 和 [开发工具文档](http://ant-tool.github.io/)。
 
+> 除了官方提供的脚手架，您也可以使用社区提供的脚手架和范例：
+>
+>   - [react-redux-antd](https://github.com/okoala/react-redux-antd)
+>   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
+>   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
+>   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
+>   - [更多](https://github.com/ant-design/ant-design/issues/129)
+
 ### 2. 创建一个项目
 
 使用命令行进行初始化。
