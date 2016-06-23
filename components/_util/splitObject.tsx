@@ -5,7 +5,7 @@ export default function splitObject(obj, parts) {
     if (parts.indexOf(k) !== -1) {
       left[k] = obj[k];
     } else {
-      right = obj[k];
+      right[k] = obj[k];
     }
   });
   return [left, right];
