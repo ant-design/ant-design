@@ -11,14 +11,17 @@
     .@{calendar-prefix-cls}-clear-btn {
       direction: ltr;
     }
+    .@{calendar-prefix-cls}-time-picker-wrap {
+      position: absolute;
+      right: 0;
+    }
   }
   .@{calendar-prefix-cls}-input,
   .@{timepicker-prefix-cls}-input {
-    .input;
-    border-radius: @border-radius-sm;
-    height: @input-height-sm;
-    width: 96px;
-    margin-right: 6px;
+    // .input;
+  }
+  .@{timepicker-prefix-cls}-input {
+    display: none;
   }
   .@{calendar-prefix-cls}-input {
     padding-right: 21px;
@@ -27,6 +30,9 @@
     min-width: 168px;
   }
   .@{timepicker-prefix-cls}-icon {
-    display: none;
+    font-family: "anticon" !important;
+    position: relative;
+    content: "\E643";
+    display: inline;
   }
 }
