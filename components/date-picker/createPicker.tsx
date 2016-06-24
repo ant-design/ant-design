@@ -24,17 +24,17 @@ export default function createPicker(TheCalendar) {
       }
     },
 
-    clearSelection = (e) => {
+    clearSelection(e) {
       e.preventDefault();
       e.stopPropagation();
       this.setState({ value: null });
       this.handleChange(null);
     },
 
-    handleChange = (value) => {
+    handleChange(value) {
       const props = this.props;
       if (!('value' in props)) {
-        this.setState({value});
+        this.setState({ value });
       }
       const timeValue = value ? new Date(value.getTime()) : null;
       props.onChange(timeValue, value ? props.getFormatter().format(value) : '');
