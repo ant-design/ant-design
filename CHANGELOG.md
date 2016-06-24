@@ -13,7 +13,7 @@ timeline: true
 
 `2016-06-24`
 
-- 回滚一个 DatePicker 时间选项改造效果。
+- 回滚一个未完成的 DatePicker 时间选项改造效果。
 
 ## 1.6.0
 
