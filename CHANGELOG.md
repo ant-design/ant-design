@@ -21,7 +21,7 @@ timeline: true
 - 修复 Tooltip、Popover、Popconfirm 设置 `onVisibleChange` 后失效的问题。[#2134](https://github.com/ant-design/ant-design/issues/2134)
 - 修复在 IE8 下 Checkbox 的勾样式变形的问题。[#2148](https://github.com/ant-design/ant-design/issues/2148)
 - 优化 Checkbox、Radio 失效状态的文字颜色。[#2114](https://github.com/ant-design/ant-design/issues/2114)
-- - 优化 Checkbox、Radio 的默认边距过于拥挤的问题。[#2137](https://github.com/ant-design/ant-design/issues/2137)
+- 优化 Checkbox、Radio 的默认边距过于拥挤的问题。[#2137](https://github.com/ant-design/ant-design/issues/2137)
 - 优化 Pagination 在暗色背景下的样式。[#2126](https://github.com/ant-design/ant-design/issues/2126)
 - 修复 Table 固定列时内容无法换行和高度对齐的问题，同时修复了一个 Chrome 下的表格内容错位问题。[#2130](https://github.com/ant-design/ant-design/issues/2130)
 - 修复一个 Table 的 `rowSelection` 设为 null 时可能导致报错的问题。[#2127](https://github.com/ant-design/ant-design/issues/2127)
