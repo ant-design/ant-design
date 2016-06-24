@@ -14,6 +14,7 @@ export default class MainContent extends React.Component {
 
   componentDidMount() {
     if (!location.hash) {
+      document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     } else {
       location.hash = location.hash;

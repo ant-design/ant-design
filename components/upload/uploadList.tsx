@@ -100,23 +100,31 @@ export default class UploadList extends React.Component {
               file.url
               ? (
                 <a
-                  onClick={(e) => this.handlePreview(file, e)}
-                  href={file.url} target="_blank"
+                  href={file.url}
+                  target="_blank"
                   className={`${prefixCls}-list-item-name`}
+                  onClick={e => this.handlePreview(file, e)}
                 >
                   {file.name}
                 </a>
-              ) : <span className={`${prefixCls}-list-item-name`}>{file.name}</span>
+              ) : (
+                <span
+                  className={`${prefixCls}-list-item-name`}
+                  onClick={e => this.handlePreview(file, e)}
+                >
+                  {file.name}
+                </span>
+              )
             }
             {
               this.props.listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
                   <a
-                    onClick={(e) => this.handlePreview(file, e)}
                     href={file.url}
                     target="_blank"
                     style={{ pointerEvents: file.url ? '' : 'none' }}
+                    onClick={e => this.handlePreview(file, e)}
                   >
                     <Icon type="eye-o" />
                   </a>
