@@ -77,6 +77,7 @@ describe('antd dist files', function() {
     expect('TreeSelect' in antd).toBeTruthy();
     expect('Upload' in antd).toBeTruthy();
     expect('Validation' in antd).toBeTruthy();
+    expect('BackTop' in antd).toBeTruthy();
   });
 
   // https://github.com/ant-design/ant-design/issues/1970
