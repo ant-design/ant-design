@@ -1,15 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
-export default class Tag extends React.Component {
+
+export interface TagProps {
+  /** 标签是否可以关闭*/
+  closable?: boolean,
+  /** 关闭时的回调*/
+  onClose?: Function,
+  /** 动画关闭后的回调*/
+  afterClose?: Function,
+  /** 标签的色彩*/
+  color?: string,
+
+  style?: React.CSSProperties
+}
+export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
-    onClose() {},
-    afterClose() {},
+    onClose() { },
+    afterClose() { },
   }
 
   constructor(props) {
@@ -47,8 +60,8 @@ export default class Tag extends React.Component {
   render() {
     const [{
       prefixCls, closable, color, className, children
-    },restProps] = splitObject(this.props,
-      ['prefixCls', 'closable', 'color','className','children']);
+    }, restProps] = splitObject(this.props,
+      ['prefixCls', 'closable', 'color', 'className', 'children']);
     const close = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames({
       [prefixCls]: true,
@@ -62,13 +75,13 @@ export default class Tag extends React.Component {
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
         onEnd={this.animationEnd}
-      >
+        >
         {this.state.closed ? null : (
           <div data-show={!this.state.closing} {...restProps} className={classString}>
             <span className={`${prefixCls}-text`}>{children}</span>
             {close}
           </div>
-        )}
+        ) }
       </Animate>
     );
   }
