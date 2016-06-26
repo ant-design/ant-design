@@ -7,3 +7,5 @@ export { default as Tag } from './Tag';
 export { default as TimePicker } from './time-picker';
 
 export { default as Timeline } from './timeline';
+
+export { default as Tooltip } from './tooltip';

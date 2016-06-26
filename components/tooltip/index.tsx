@@ -1,19 +1,30 @@
-import React, { cloneElement } from 'react';
+import * as React from 'react';
+const { cloneElement } = React;
 import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
 
 const placements = getPlacements({
   verticalArrowShift: 8,
 });
+type PopoverPlacement = 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom'
 
-export default class Tooltip extends React.Component {
+// Tooltip
+export interface TooltipProps {
+  /** 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom`*/
+  placement?: PopoverPlacement,
+  /** 提示文字*/
+  title?: string | React.ReactNode,
+
+  style?: React.CSSProperties
+}
+export default class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
     placement: 'top',
     transitionName: 'zoom-big',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    onVisibleChange() {},
+    onVisibleChange() { },
   }
 
   constructor(props) {
@@ -86,7 +97,7 @@ export default class Tooltip extends React.Component {
         ref="tooltip"
         {...this.props}
         onVisibleChange={this.onVisibleChange}
-      >
+        >
         {visible ? cloneElement(children, { className: childrenCls }) : children}
       </RcTooltip>
     );
