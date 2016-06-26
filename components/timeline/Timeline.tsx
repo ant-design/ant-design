@@ -1,8 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import TimelineItem from './TimelineItem';
 import splitObject from '../_util/splitObject';
-export default class Timeline extends React.Component {
+
+export interface TimelineProps {
+  /** 指定最后一个幽灵节点是否存在或内容*/
+  pending?: boolean | React.ReactNode,
+
+  style?: React.CSSProperties
+}
+export default class Timeline extends React.Component<TimelineProps, any> {
   static defaultProps = {
     prefixCls: 'ant-timeline',
   }
@@ -10,8 +17,8 @@ export default class Timeline extends React.Component {
   render() {
     const [{
       prefixCls, children, pending, className
-    },restProps] = splitObject(this.props,
-      ['prefixCls', 'children', 'pending','className']);
+    }, restProps] = splitObject(this.props,
+      ['prefixCls', 'children', 'pending', 'className']);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
     const classString = classNames({
       [prefixCls]: true,
