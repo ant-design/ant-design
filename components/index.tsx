@@ -1,2 +1,3 @@
-import Affix from './affix';
-export { Affix };
+export { default as Affix } from './affix';
+
+export { default as Tabs } from './Tabs';
