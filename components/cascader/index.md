@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 级联选择
-type: Form Control
+type: Form Controls
 english: Cascader
 ---
 

@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 通知提醒框
-type: Presentation
+type: Views
 noinstant: true
 english: Notification
 ---

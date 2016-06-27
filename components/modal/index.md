@@ -1,5 +1,5 @@
 ---
-type: Presentation
+type: Views
 category: Components
 chinese: 对话框
 english: Modal

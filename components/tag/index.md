@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 标签
-type: Presentation
+type: Views
 english: Tag
 ---
 

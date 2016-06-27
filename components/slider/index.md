@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 滑动输入条
-type: Form Control
+type: Form Controls
 english: Slider
 ---
 
