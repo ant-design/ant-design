@@ -161,9 +161,10 @@
   .@{checkbox-prefix-cls}-wrapper {
     cursor: pointer;
     font-size: @font-size-base;
-    margin-bottom: 8px;
-    margin-right: 8px;
     display: inline-block;
+    & + & {
+      margin-left: 8px;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper + span,
