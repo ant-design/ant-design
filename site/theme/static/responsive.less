@@ -54,14 +54,19 @@
     overflow-x: hidden;
     overflow-y: auto;
     opacity: 0;
+    transition: transform .3s, opacity .3s;
+    text-align: center;
+
+    #lang {
+      margin: 0;
+      float: none;
+      color: #666;
+    }
   }
 
   .nav.nav-show {
-    animation: moveLeft .2s ease-in forwards;
-  }
-
-  .nav.nav-hide {
-    animation: moveLeftOut .2s ease-in forwards;
+    transform: translateX(0);
+    opacity: 1;
   }
 
   ul#nav,
@@ -73,6 +78,7 @@
   ul#nav li {
     line-height: 60px;
     height: 60px;
+    padding: 0 !important;
     a {
       color: #333;
     }
@@ -139,27 +145,5 @@
   footer ul li {
     float: none;
     width: auto;
-  }
-}
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-}
-
-@keyframes moveLeftOut {
-  0% {
-    transform: translateX(0px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
   }
 }
