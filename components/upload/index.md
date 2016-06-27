@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 上传
-type: Form Control
+type: Form Controls
 english: Upload
 ---
 

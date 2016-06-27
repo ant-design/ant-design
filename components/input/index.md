@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 输入框
-type: Form Control
+type: Form Controls
 english: Input
 ---
 

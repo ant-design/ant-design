@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 下拉菜单
-type: Presentation
+type: Views
 english: Dropdown
 ---
 

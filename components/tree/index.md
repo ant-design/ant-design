@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 树形控件
-type: Presentation
+type: Views
 english: Tree
 ---
 

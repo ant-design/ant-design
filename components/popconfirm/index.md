@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 气泡确认框
-type: Presentation
+type: Views
 english: Popconfirm
 ---
 
