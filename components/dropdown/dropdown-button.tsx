@@ -24,7 +24,7 @@ export default class DropdownButton extends React.Component {
       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick']);
     const cls = classNames({
       'ant-dropdown-button': true,
-      className: !!className,
+      [className]: !!className,
     });
     return (
       <ButtonGroup {...restProps} className={cls}>
