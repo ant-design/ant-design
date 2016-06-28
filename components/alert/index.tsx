@@ -29,7 +29,7 @@ export default class Alert extends React.Component {
     this.setState({
       closing: false,
     });
-    this.props.onClose.call(this, e);
+    this.props.onClose(e);
   }
   animationEnd = () => {
     this.setState({
