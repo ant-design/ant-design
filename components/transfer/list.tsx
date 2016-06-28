@@ -54,7 +54,7 @@ export default class TransferList extends React.Component {
   }
 
   componentDidMount() {
-    this._t = setTimeout(() => {
+    this.timer = setTimeout(() => {
       this.setState({
         mounted: true,
       });
@@ -62,7 +62,7 @@ export default class TransferList extends React.Component {
   }
 
   componentWillUnmount() {
-    clearTimeout(this._t);
+    clearTimeout(this.timer);
   }
 
   shouldComponentUpdate(...args) {
