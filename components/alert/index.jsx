@@ -81,7 +81,7 @@ export default class Alert extends React.Component {
     return this.state.closed ? null : (
       <Animate component=""
         showProp="data-show"
-        transitionName="slide-up"
+        transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
         <div data-show={this.state.closing} className={alertCls}>
