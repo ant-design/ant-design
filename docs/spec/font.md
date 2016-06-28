@@ -26,29 +26,29 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
 
 ## 字体使用规范
 
-<div class="row">
-  <div class="col col-12">
-    <div class="font-type head-1">
+<div class="ant-row">
+  <div class="ant-col ant-col-12">
+    <div class="font-type">
       <div class="font-title">主标题</div>
-      <h1 class="font-text">
+      <h1>
         <span>我是标题</span>
         <span>加粗</span>
         <span>#666</span>
         <span>16px</span>
       </h1>
     </div>
-    <div class="font-type head-2">
+    <div class="font-type">
       <div class="font-title">次级标题</div>
-      <h2 class="font-text">
+      <h2>
         <span>我是标题</span>
         <span>加粗</span>
         <span>#666</span>
         <span>14px</span>
       </h2>
     </div>
-    <div class="font-type head-3">
+    <div class="font-type">
       <div class="font-title">小标题</div>
-      <h3 class="font-text">
+      <h3>
         <span>我是标题</span>
         <span>加粗</span>
         <span>#666</span>
@@ -90,28 +90,28 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
       </p>
     </div>
   </div>
-  <div class="col col-12">
-    <div class="font-type head-1">
+  <div class="ant-col ant-col-12">
+    <div class="font-type">
       <div class="font-title">Main Head</div>
-      <h1 class="font-text">
+      <h1>
         <span>I am example text</span>
         <span>bold</span>
         <span>#666</span>
         <span>16px</span>
       </h1>
     </div>
-    <div class="font-type head-2">
+    <div class="font-type">
       <div class="font-title">Sub Head</div>
-      <h2 class="font-text">
+      <h2>
         <span>I am example text</span>
         <span>bold</span>
         <span>#666</span>
         <span>14px</span>
       </h2>
     </div>
-    <div class="font-type head-3">
+    <div class="font-type">
       <div class="font-title">Small Head</div>
-      <h3 class="font-text">
+      <h3>
         <span>I am example text</span>
         <span>bold</span>
         <span>#666</span>
@@ -175,19 +175,25 @@ font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Micros
   font-size: 14px;
   width: 100px;
 }
-.font-text {
+.font-type h1,
+.font-type h2,
+.font-type h3,
+.font-type .font-text {
   width: 300px;
 }
-.font-text span {
-  margin-right: 8px;
+.font-type h1 span,
+.font-type h2 span,
+.font-type h3 span,
+.font-type .font-text span {
+  margin-right: 0.6em;
 }
-.head-1 h1 {
+.font-type h1 {
   font-size: 16px;
 }
-.head-2 h2 {
+.font-type h2 {
   font-size: 14px;
 }
-.head-3 h3 {
+.font-type h3 {
   font-size: 12px;
 }
 .disabled-text .font-text {

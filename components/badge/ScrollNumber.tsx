@@ -106,8 +106,8 @@ export default class ScrollNumber extends React.Component {
       className: `${this.props.prefixCls}-only`,
       style: {
         transition: removeTransition && 'none',
-        WebkitTransform: `translate3d(0, ${-position * height}px, 0)`,
-        transform: `translate3d(0, ${-position * height}px, 0)`,
+        WebkitTransform: `translateY(${-position * height}px)`,
+        transform: `translateY(${-position * height}px)`,
         height,
       },
       key: i,
