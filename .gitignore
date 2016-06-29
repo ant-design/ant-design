@@ -27,3 +27,5 @@ dist
 elasticsearch-*
 config/base.yaml
 typings
+components/**/*.js
+components/**/*.jsx

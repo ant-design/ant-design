@@ -9,6 +9,98 @@ timeline: true
 
 ---
 
+## 1.6.2
+
+`2016-06-27`
+
+- 修复 Table、Transfer 的样式错位问题。
+- 修复 DatePicker 的一个样式问题。[#2182](https://github.com/ant-design/ant-design/issues/2182)
+- 优化 Menu 的 hover 样式响应性能。
+
+## 1.6.1
+
+`2016-06-24`
+
+- 回滚一个未完成的 DatePicker 时间选项改造效果。
+
+## 1.6.0
+
+`2016-06-24`
+
+- 新增置顶组件 [BackTop](/components/back-top)。
+- 全新的 [Spin](/components/spin) 样式。
+- 给 `Modal.xxx` 系列方法添加了 `{ destory }` 的访问值，方便事后销毁。[#2110](https://github.com/ant-design/ant-design/issues/2110)
+- Table 的 `rowKey` 属性支持直接使用字符串。[#2058](https://github.com/ant-design/ant-design/issues/2058)
+- Table 增加 `column.filterDropdown` 属性用于自定义渲染筛选菜单的浮层。[#1736](https://github.com/ant-design/ant-design/issues/1736)
+- 修复 Tooltip、Popover、Popconfirm 设置 `onVisibleChange` 后失效的问题。[#2134](https://github.com/ant-design/ant-design/issues/2134)
+- 修复在 IE8 下 Checkbox 的勾样式变形的问题。[#2148](https://github.com/ant-design/ant-design/issues/2148)
+- 优化 Checkbox、Radio 失效状态的文字颜色。[#2114](https://github.com/ant-design/ant-design/issues/2114)
+- 优化 Checkbox、Radio 的默认边距过于拥挤的问题。[#2137](https://github.com/ant-design/ant-design/issues/2137)
+- 优化 Pagination 在暗色背景下的样式。[#2126](https://github.com/ant-design/ant-design/issues/2126)
+- 修复 Table 固定列时内容无法换行和高度对齐的问题，同时修复了一个 Chrome 下的表格内容错位问题。[#2130](https://github.com/ant-design/ant-design/issues/2130)
+- 修复一个 Table 的 `rowSelection` 设为 null 时可能导致报错的问题。[#2127](https://github.com/ant-design/ant-design/issues/2127)
+- 修复在 IE8 下点击 Table 选择框报错的问题。[#2154](https://github.com/ant-design/ant-design/issues/2154)
+- 小幅优化了 Transfer 的渲染性能。[#2112](https://github.com/ant-design/ant-design/issues/2112)
+- 将 DatePicker 的清除按钮从面板上移到外部输入框，解决用户容易误解为关闭的问题。[#1708](https://github.com/ant-design/ant-design/issues/1708)
+- Upload 的 `onPreview` 现在没有 `file.url` 时也能生效。[#2163](https://github.com/ant-design/ant-design/issues/2163)
+
+## 1.5.1
+
+`2016-06-21`
+
+- 修复一个 TypeScript 定义文件的语法错误。
+- 修复 Table 固定表头高度和滚动条样式问题。
+
+## 1.5.0
+
+`2016-06-17`
+
+- 升级 `rc-form` 到 0.17，支持 `getFieldProps('xx.yy')` 的写法，并支持单多选控件进行关联。[#](https://github.com/react-component/form/pull/21)
+- Input 的 `addonBefore` 和 `addonAfter` 支持内嵌选择框。[#1927](https://github.com/ant-design/ant-design/issues/1927)
+- 优化了两个 DatePicker 组成的时间范围选择演示的体验。
+- 优化一个多个对话框的遮罩层高度的问题。[#2009](https://github.com/ant-design/ant-design/issues/2009)
+- 优化 Table 的 `getCheckboxProps` 的调用次数。[#2086](https://github.com/ant-design/ant-design/issues/2086)
+- 修复 Table 固定列时，表头无法左右滚动的问题。[#2068](https://github.com/ant-design/ant-design/issues/2068)
+- 修复小型表格固定表头的样式。[#2023](https://github.com/ant-design/ant-design/issues/2023)
+- 修复 Tabs 的 `tabPosition` 为左右时样式错位的问题。[#2046](https://github.com/ant-design/ant-design/issues/2046)
+- 修复 RangePicker 的日期范围背景丢失的问题。
+- 修复 Switch 失效状态下文字颜色太浅的问题。[#2051](https://github.com/ant-design/ant-design/issues/2051)
+- 修复一个 Select 的 `disabled` 选项依然可以被移除的问题。[#2034](https://github.com/ant-design/ant-design/issues/2034)
+- 修复官方站点在 IE 下的报错问题。
+
+## 1.4.1
+
+`2016-06-12`
+
+- 修复一个展开 Tabs 会导致表格宽度溢出的问题。[#2013](https://github.com/ant-design/ant-design/issues/2013)
+- 修复一个某些情况下表格布局被破坏的问题。
+
+## 1.4.0
+
+`2016-06-12`
+
+此版本之后你可能会遇到 [#2030](https://github.com/ant-design/ant-design/issues/2030)，请使用 `react@15+` 或 `npm@3+`。
+
+- `Input[type="textarea"]` 支持自动调整高度。 [#](http://ant.design/components/input#components-input-demo-autosize-textarea)
+- `Breadcrumb`
+  - `nameRender` 新增 `route` 和 `params` 参数。 [#1999](https://github.com/ant-design/ant-design/issues/1999)
+  - `linkRender` 新增 `paths` 参数。
+- 再次修复 `Table` 组件 `rowSelection.onChange` 与 `onRowClick` 冲突问题。 [#1470](https://github.com/ant-design/ant-design/issues/1470)
+- 修复 `Form.Item` 中 `Input` 高度抖动问题。 [#1955](https://github.com/ant-design/ant-design/issues/1955)
+- 修复高级搜索的 `ant-advanced-search-form` 样式丢失的问题。
+
+## 1.3.2
+
+`2016-06-06`
+
+- 修复全局模式下引用 antd，IE8 环境报错的问题。 [#1970](https://github.com/ant-design/ant-design/issues/1970)
+
+## 1.3.1
+
+`2016-06-06`
+
+- 修复 `Message` `Notification` 找不到的问题。 [#1968](https://github.com/ant-design/ant-design/issues/1968)
+
 ## 1.3.0
 
 `2016-06-02`
@@ -45,6 +137,7 @@ timeline: true
   - 修复了 Table 组件的分页相关的一系列问题 [#1669](https://github.com/ant-design/ant-design/issues/1669) [#1842](https://github.com/ant-design/ant-design/issues/1842)
   - 修复了当有列固定在左边时，选择框不显示的问题 [#1829](https://github.com/ant-design/ant-design/issues/1829)
 - 修复了当 Checkbox 的 label 为数字 0 时， label 不显示的问题 [#1811](https://github.com/ant-design/ant-design/issues/1811)
+- 修复 Select combobox 模式下无法重置 `optionLabelProp` 的问题。[#1773](https://github.com/ant-design/ant-design/issues/1773)
 - 修复了 Tag 组件为 closeable 时，内部链接无法点击的问题 [#1862](https://github.com/ant-design/ant-design/issues/1862)
 - Tab 组件新增 `hideAdd` 属性，用于关闭右边的添加按钮 [#1750](https://github.com/ant-design/ant-design/issues/1750)
 - 修复了一个在某些情况下找不到 `normalize.css/normalize.css` 文件的问题。[ant-design/antd-init#52](https://github.com/ant-design/antd-init/issues/52)
@@ -108,7 +201,7 @@ timeline: true
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
 
-- 推荐使用样式按需加载, 如果需要整体载入样式, **样式入口文件变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
+- 推荐使用样式按需加载。如果依然需要整体载入样式，**样式入口文件已变为** `antd/dist/antd.css` 和 `antd/dist/antd.less`。如果你在项目中覆盖了 less 变量，less 文件的引用方式也有 [相应变更](https://github.com/ant-design/ant-design/issues/1558#issuecomment-218120000)。
 
    ```diff
    - import 'antd/lib/index.css';  // import 'antd/style/index.less';

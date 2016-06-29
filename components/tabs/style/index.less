@@ -120,14 +120,14 @@
   }
 
   &-nav-scroll {
-    width: 99999px;
     overflow: hidden;
+    white-space: nowrap;
   }
 
   &-nav {
     box-sizing: border-box;
     padding-left: 0;
-    transition: left 0.5s @ease-in-out;
+    transition: transform 0.5s @ease-in-out;
     position: relative;
     margin: 0;
     list-style: none;
@@ -153,7 +153,7 @@
     }
 
     .@{tab-prefix-cls}-tab {
-      float: left;
+      display: inline-block;
       height: 100%;
       margin-right: 24px;
       box-sizing: border-box;
@@ -172,7 +172,6 @@
 
         &:active {
           color: shade(@primary-color, 5%);
-          transform: translateZ(0);
         }
 
         .anticon {
@@ -185,7 +184,6 @@
 
     .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
       color: @primary-color;
-      transform: translateZ(0);
     }
   }
 
@@ -281,6 +279,7 @@
         float: none;
         margin-right: 0;
         margin-bottom: 16px;
+        display: block;
         &:last-child {
           margin-bottom: 0;
         }
@@ -378,7 +377,7 @@
   }
   &&-card > &-bar &-tab {
     margin: 0;
-    border: 1px solid transparent;
+    border: 1px solid @border-color-base;
     border-bottom: 0;
     border-radius: 6px 6px 0 0;
     transition: all 0.3s @ease-in-out;

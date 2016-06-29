@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 警告提示
-type: Presentation
+type: Views
 english: Alert
 ---
 

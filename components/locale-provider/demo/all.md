@@ -77,7 +77,8 @@ const Page = React.createClass({
             showSearch
             titles={['', '']}
             targetKeys={[]}
-            render={item => item.title} />
+            render={item => item.title}
+          />
         </div>
         <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
           <Calendar fullscreen={false} />

@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 单选框
-type: Form Control
+type: Form Controls
 english: Radio
 ---
 

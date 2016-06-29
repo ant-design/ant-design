@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Presentation
+type: Views
 chinese: 日历
 cols: 1
 english: Calendar

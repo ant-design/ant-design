@@ -41,8 +41,8 @@ const App = React.createClass({
   },
   renderItem(item) {
     const customLabel = (
-      <div className="custom-item" style={{ color: '#5FBC29' }}>
-        <Icon type="apple" /> {item.title} - {item.description} <Icon type="android" />
+      <div className="custom-item">
+        {item.title} - {item.description} <Icon type="android" />
       </div>
     );
 
@@ -61,7 +61,8 @@ const App = React.createClass({
         }}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
-        render={this.renderItem} />
+        render={this.renderItem}
+      />
     );
   },
 });

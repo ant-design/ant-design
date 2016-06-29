@@ -1,9 +1,18 @@
 ---
 order: 7
-title: 日期范围一
+title: 
+  zh-CN: 日期范围一
+  en-US: Date range, case 1
 ---
 
+## zh-CN
+
 可以设置 `disabledDate` 方法，来约束开始和结束日期。
+
+## en-US
+
+You can use the `disabledDate` property to limit the start and end dates.
+
 
 ````jsx
 import { DatePicker } from 'antd';
@@ -13,6 +22,7 @@ const DateRange = React.createClass({
     return {
       startValue: null,
       endValue: null,
+      endOpen: false,
     };
   },
   disabledStartDate(startValue) {
@@ -39,17 +49,36 @@ const DateRange = React.createClass({
   onEndChange(value) {
     this.onChange('endValue', value);
   },
+  handleStartToggle({ open }) {
+    if (!open) {
+      this.setState({ endOpen: true });
+    }
+  },
+  handleEndToggle({ open }) {
+    this.setState({ endOpen: open });
+  },
   render() {
     return (
       <div>
-        <DatePicker disabledDate={this.disabledStartDate}
+        <DatePicker
+          disabledDate={this.disabledStartDate}
+          showTime
+          format="yyyy-MM-dd HH:mm:ss"
           value={this.state.startValue}
           placeholder="开始日期"
-          onChange={this.onStartChange} />
-        <DatePicker disabledDate={this.disabledEndDate}
+          onChange={this.onStartChange}
+          toggleOpen={this.handleStartToggle}
+        />
+        <DatePicker
+          disabledDate={this.disabledEndDate}
+          showTime
+          format="yyyy-MM-dd HH:mm:ss"
           value={this.state.endValue}
           placeholder="结束日期"
-          onChange={this.onEndChange} />
+          onChange={this.onEndChange}
+          open={this.state.endOpen}
+          toggleOpen={this.handleEndToggle}
+        />
       </div>
     );
   },

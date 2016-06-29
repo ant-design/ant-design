@@ -33,7 +33,8 @@ const OverlayVisible = React.createClass({
     return (
       <Dropdown overlay={menu}
         onVisibleChange={this.handleVisibleChange}
-        visible={this.state.visible}>
+        visible={this.state.visible}
+      >
         <a className="ant-dropdown-link" href="#">
           鼠标移入 <Icon type="down" />
         </a>

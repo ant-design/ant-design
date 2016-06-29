@@ -11,17 +11,21 @@ import { Alert } from 'antd';
 ReactDOM.render(<div>
   <Alert message="成功提示的文案"
     description="成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍"
-    type="success" />
+    type="success"
+  />
   <Alert message="消息提示的文案"
     description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
-    type="info" />
+    type="info"
+  />
   <Alert
     message="警告提示的文案"
     description="警告提示的辅助性文字介绍警告提示的辅助性文字介绍"
-    type="warning" />
+    type="warning"
+  />
   <Alert
     message="错误提示的文案"
     description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
-    type="error" />
+    type="error"
+  />
 </div>, mountNode);
 ````

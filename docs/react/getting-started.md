@@ -30,6 +30,14 @@ $ npm install antd-init -g
 
 更多功能请参考 [脚手架工具](https://github.com/ant-design/antd-init/) 和 [开发工具文档](http://ant-tool.github.io/)。
 
+> 除了官方提供的脚手架，您也可以使用社区提供的脚手架和范例：
+>
+>   - [react-redux-antd](https://github.com/okoala/react-redux-antd)
+>   - [react-antd-admin](https://github.com/fireyy/react-antd-admin)
+>   - [react-antd-redux-router-starter](https://github.com/yuzhouisme/react-antd-redux-router-starter)
+>   - [react-redux-antd-starter](https://github.com/BetaRabbit/react-redux-antd-starter)
+>   - [更多](https://github.com/ant-design/ant-design/issues/129)
+
 ### 2. 创建一个项目
 
 使用命令行进行初始化。
@@ -102,7 +110,7 @@ $ npm run build
 
 Ant Design React 支持所有的现代浏览器和 IE8+。
 
-对于 IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) 版本，并提供 [es5-shim](http://facebook.github.io/react/docs/working-with-the-browser.html#browser-support-and-polyfills) 等 Polyfills 的支持。
+对于 IE8/9 等浏览器，需要提供 [es5-shim](https://facebook.github.io/react/docs/working-with-the-browser.html#browser-support) 等 Polyfills 的支持，推荐使用 [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)。特别对于 IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) 版本。
 
 <div class="code-line-highlight"></div>
 

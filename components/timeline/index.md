@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 时间轴
-type: Presentation
+type: Views
 english: Timeline
 ---
 

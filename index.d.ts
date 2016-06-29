@@ -1536,7 +1536,7 @@ interface TabsProps extends React.Props<Tabs> {
   /** 初始化选中面板的 key，如果没有设置 activeKey*/
   defaultActiveKey?:string,
   /** 是否隐藏加号图标，在 `type="editable-card"` 时有效 */
-  hideAdd?: boolean, 
+  hideAdd?: boolean,
   /** 切换面板的回调*/
   onChange?:(activeKey:string) => void,
   /** tab 被点击的回调 */
@@ -1549,6 +1549,8 @@ interface TabsProps extends React.Props<Tabs> {
   tabPosition?:TabsPosition,
   /** 新增和删除页签的回调，在 `type="editable-card"` 时有效*/
   onEdit?:(targetKey:string, action:any) => void,
+  /** 大小，提供 default 和 small 两种大小    */
+  size?:string,
 
   style?:React.CSSProperties
 }

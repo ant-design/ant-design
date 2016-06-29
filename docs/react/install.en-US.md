@@ -18,6 +18,9 @@ Stable version：
 $ npm install antd --save
 ```
 
+You can Subscribe to this feed for new version notification: https://github.com/ant-design/ant-design/releases.atom
+
+
 Beta version：
 
 [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)

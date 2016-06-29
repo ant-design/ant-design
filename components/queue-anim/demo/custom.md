@@ -48,7 +48,8 @@ const Test = React.createClass({
           animConfig={[
             { opacity: [1, 0], translateY: [0, 50] },
             { opacity: [1, 0], translateY: [0, -50] },
-          ]}>
+          ]}
+        >
           {list}
         </QueueAnim>
       </div>

@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 开关
-type: Form Control
+type: Form Controls
 english: Switch
 ---
 

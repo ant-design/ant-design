@@ -151,11 +151,20 @@
     .@{checkbox-inner-prefix-cls}-input {
       cursor: default;
     }
+
+    & + span {
+      color: #ccc;
+      cursor: @cursor-disabled;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {
     cursor: pointer;
     font-size: @font-size-base;
+    display: inline-block;
+    & + & {
+      margin-left: 8px;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper + span,
@@ -172,6 +181,24 @@
     font-size: @font-size-base;
     &-item {
       display: inline-block;
+    }
+  }
+
+  @ie8: \0screen;
+
+  // IE8 hack for https://github.com/ant-design/ant-design/issues/2148
+  @media @ie8 {
+    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:before,
+    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:after {
+      font-family: 'anticon';
+      content: '\E62E';
+      font-weight: bold;
+      font-size: 8px;
+      border: 0;
+      color: #fff;
+      left: 2px;
+      top: 3px;
+      position: absolute;
     }
   }
 }

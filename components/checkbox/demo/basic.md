@@ -13,6 +13,6 @@ function onChange(e) {
 }
 
 ReactDOM.render(
-  <Checkbox defaultChecked={false} onChange={onChange}>Checkbox</Checkbox>
+  <Checkbox onChange={onChange}>Checkbox</Checkbox>
 , mountNode);
 ````

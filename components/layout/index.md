@@ -11,49 +11,49 @@ english: Layout
 ## 设计理念
 
 <div class="layout-demo">
-<div class="row demo-row">
-  <div class="col-24 demo-col demo-col-1">
+<div class="ant-row demo-row">
+  <div class="ant-col-24 demo-col demo-col-1">
     100%
   </div>
 </div>
-<div class="row demo-row">
-  <div class="col-6 demo-col demo-col-2">
+<div class="ant-row demo-row">
+  <div class="ant-col-6 demo-col demo-col-2">
     25%
   </div>
-  <div class="col-6 demo-col demo-col-3">
+  <div class="ant-col-6 demo-col demo-col-3">
     25%
   </div>
-  <div class="col-6 demo-col demo-col-2">
+  <div class="ant-col-6 demo-col demo-col-2">
     25%
   </div>
-  <div class="col-6 demo-col demo-col-3">
+  <div class="ant-col-6 demo-col demo-col-3">
     25%
   </div>
 </div>
-<div class="row demo-row">
-  <div class="col-8 demo-col demo-col-4">
+<div class="ant-row demo-row">
+  <div class="ant-col-8 demo-col demo-col-4">
     33.33%
   </div>
-  <div class="col-8 demo-col demo-col-5">
+  <div class="ant-col-8 demo-col demo-col-5">
     33.33%
   </div>
-  <div class="col-8 demo-col demo-col-4">
+  <div class="ant-col-8 demo-col demo-col-4">
     33.33%
   </div>
 </div>
-<div class="row demo-row">
-  <div class="col-12 demo-col demo-col-1">
+<div class="ant-row demo-row">
+  <div class="ant-col-12 demo-col demo-col-1">
     50%
   </div>
-  <div class="col-12 demo-col demo-col-3">
+  <div class="ant-col-12 demo-col demo-col-3">
     50%
   </div>
 </div>
-<div class="row demo-row">
-  <div class="col-16 demo-col demo-col-4">
+<div class="ant-row demo-row">
+  <div class="ant-col-16 demo-col demo-col-4">
     66.66%
   </div>
-  <div class="col-8 demo-col demo-col-5">
+  <div class="ant-col-8 demo-col demo-col-5">
     33.33%
   </div>
 </div>
@@ -69,7 +69,7 @@ english: Layout
 
 * 通过`row`在水平方向建立一组`column`（简写col）
 * 你的内容应当放置于`col`内，并且，只有`col`可以作为`row`的直接元素
-* 栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽的列可以使用`.col-8`来创建
+* 栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽的列可以使用`.ant-col-8`来创建
 * 如果一个`row`中的`col`总和超过 24，那么多余的`col`会作为一个整体另起一行排列
 
 ## Flex 布局

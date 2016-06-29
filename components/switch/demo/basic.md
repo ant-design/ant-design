@@ -17,3 +17,10 @@ ReactDOM.render(
   mountNode
 );
 ````
+
+<style>
+.ant-switch {
+  margin-bottom: 8px;
+  display: block;
+}
+<style>

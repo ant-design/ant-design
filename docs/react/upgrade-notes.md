@@ -3,11 +3,11 @@ order: 4
 english: 升级指南
 ---
 
-此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [Changelog](/docs/react/changelog)。
+此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [更新日志](/changelog)。
 
 ## 0.12 => 1.0
 
-`1.0.0` 之后将不再单独提供升级指南，请参考对应版本 [Changelog](/docs/react/changelog) 中的 `不兼容改动` 进行升级。
+`1.0.0` 之后将不再单独提供升级指南，请参考对应版本 [更新日志](/changelog#1.0.0) 中的 `不兼容改动` 部分进行升级。
 
 ## 0.11 => 0.12
 
@@ -146,4 +146,4 @@ import 'antd/style/index.less';
 - Slider 的 `withDots` `isIncluded` 属性修改为 `dots` `included`。
 - iconfont 的基线更新，可能导致原有图标的位置偏移。
 
-新版本变化较大，以上升级指南可能有遗漏，全部改动可以参考 [Changelog](/docs/react/changelog)。在升级过程中遇到问题，欢迎 [报告](https://github.com/ant-design/ant-design/issues/new) 给我们。
+新版本变化较大，以上升级指南可能有遗漏，全部改动可以参考 [更新日志](/changelog)。在升级过程中遇到问题，欢迎 [报告](https://github.com/ant-design/ant-design/issues/new) 给我们。

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import scrollIntoView from 'dom-scroll-into-view';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
@@ -14,7 +13,12 @@ export default class MainContent extends React.Component {
   }
 
   componentDidMount() {
-    scrollIntoView(document.body, document, { alignWithTop: true });
+    if (!location.hash) {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    } else {
+      location.hash = location.hash;
+    }
   }
 
   shouldComponentUpdate(nextProps) {
@@ -24,7 +28,7 @@ export default class MainContent extends React.Component {
   }
 
   getActiveMenuItem(props) {
-    return props.params.children;
+    return props.params.children || props.location.pathname;
   }
 
   fileNameToPath(filename) {
@@ -63,60 +67,35 @@ export default class MainContent extends React.Component {
   generateSubMenuItems(obj) {
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(this.isNotTopLevel)
-            .sort((a, b) => {
-              return config.typeOrder[a] - config.typeOrder[b];
-            })
-            .map((type, index) => {
-              const groupItems = obj[type].sort((a, b) => {
-                return (a.title || a.english).charCodeAt(0) -
-                  (b.title || b.english).charCodeAt(0);
-              }).map(this.generateMenuItem.bind(this, false));
-
-              return (
-                <Menu.ItemGroup title={type} key={index}>
-                  {groupItems}
-                </Menu.ItemGroup>
-              );
-            });
+      .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
+      .map((type, index) => {
+        const groupItems = obj[type].sort((a, b) => {
+          return (a.title || a.english).charCodeAt(0) -
+          (b.title || b.english).charCodeAt(0);
+        }).map(this.generateMenuItem.bind(this, false));
+        return (
+          <Menu.ItemGroup title={type} key={index}>
+            {groupItems}
+          </Menu.ItemGroup>
+        );
+      });
     return [...topLevel, ...itemGroups];
   }
 
-  getModuleData() {
-    const props = this.props;
-
-    let moduleData;
-    if (/(docs\/react\/)|(components\/)|(changelog)/i.test(props.location.pathname)) {
-      moduleData = {
-        ...props.data.docs.react,
-        ...props.data.components,
-        changelog: props.data.CHANGELOG,
-      };
-    } else {
-      moduleData = props.utils.get(props.data, props.location.pathname.split('/').slice(0, 2));
-    }
-
-    return moduleData;
-  }
-
   getMenuItems() {
-    const moduleData = this.getModuleData();
-
+    const moduleData = this.props.moduleData;
     const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
-            .sort((a, b) => {
-              return config.categoryOrder[a] - config.categoryOrder[b];
-            })
-            .map((category) => {
-              const subMenuItems = this.generateSubMenuItems(menuItems[category]);
-
-              return (
-                <SubMenu title={<h4>{category}</h4>} key={category}>
-                  {subMenuItems}
-                </SubMenu>
-              );
-            });
-
+      .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+      .map((category) => {
+        const subMenuItems = this.generateSubMenuItems(menuItems[category]);
+        return (
+          <SubMenu title={<h4>{category}</h4>} key={category}>
+            {subMenuItems}
+          </SubMenu>
+        );
+      });
     return [...topLevel, ...subMenu];
   }
 
@@ -152,25 +131,27 @@ export default class MainContent extends React.Component {
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
     const locale = this.context.intl.locale;
-    const moduleData = this.getModuleData();
-    const pageData = /changelog/i.test(props.location.pathname) ?
-            props.data.CHANGELOG :
-            (props.pageData.index || props.pageData);
-    const localizedPageData = pageData[locale] || pageData;
+    const moduleData = this.props.moduleData;
+    const localizedPageData = moduleData.filter((page) => {
+      return page.meta.filename.toLowerCase()
+        .startsWith(props.location.pathname);
+    })[0];
+
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
               defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
-              selectedKeys={[activeMenuItem]}>
+              selectedKeys={[activeMenuItem]}
+            >
               {menuItems}
             </Menu>
           </Col>
           <Col lg={20} md={18} sm={24} xs={24} className="main-container">
             {
-              props.pageData.demo ?
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.pageData.demo} /> :
+              props.utils.get(props, 'pageData.demo') ?
+                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
                 <Article {...props} content={localizedPageData} />
             }
           </Col>
@@ -179,7 +160,8 @@ export default class MainContent extends React.Component {
         <Row>
           <Col lg={{ span: 20, offset: 4 }}
             md={{ span: 18, offset: 6 }}
-            sm={24} xs={24}>
+            sm={24} xs={24}
+          >
             <section className="prev-next-nav">
               {
                 !!prev ?

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Presentation
+type: Views
 cols: 1
 title: Calendar
 ---

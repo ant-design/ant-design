@@ -92,7 +92,7 @@ div.main-container {
     display: block;
     width: 64px;
     margin: 0 auto 10px;
-    animation: loadTween 2S cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+    animation: loadTween 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
   }
 }
 #react-content:empty + .ant-site-loading {
@@ -120,7 +120,6 @@ div.main-container {
 
 .page-wrapper {
   background: #ECECEC;
-  animation: pageEnter .45s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 .loop-yoyo-load(@index) when (@index >= 0) {
@@ -273,11 +272,5 @@ div.main-container {
   }
   100% {
     transform: translateY(0);
-  }
-}
-
-@keyframes pageEnter {
-  from {
-    opacity: 0;
   }
 }

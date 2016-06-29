@@ -30,7 +30,8 @@ export default class Banner extends React.Component {
               </Link>
             </div>
             <GitHubButton key="github-button" type="stargazers"
-              namespace="ant-design" repo="ant-design" />
+              namespace="ant-design" repo="ant-design"
+            />
           </QueueAnim>
           <Icon type="down" className="down" />
         </ScrollElement>

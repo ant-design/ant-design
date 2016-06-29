@@ -145,7 +145,8 @@ let Demo = React.createClass({
             <Col span="18">
               <FormItem
                 {...formItemLayout}
-                label="密码">
+                label="密码"
+              >
                 <Input {...passProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="pass"
@@ -161,7 +162,8 @@ let Demo = React.createClass({
             <Col span="18">
               <FormItem
                 {...formItemLayout}
-                label="确认密码">
+                label="确认密码"
+              >
                 <Input {...rePassProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="rePass"

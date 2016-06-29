@@ -7,6 +7,14 @@ import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
 import Page4 from './Page4';
+import Promise from 'bluebird';
+import * as utils from '../utils';
+
+export function collect(nextProps, callback) {
+  const componentsList = utils.collectDocs(nextProps.data.components);
+  Promise.all(componentsList)
+    .then((list) => callback(null, { ...nextProps, components: list }));
+}
 
 export default class Home extends React.Component {
   componentWillMount() {

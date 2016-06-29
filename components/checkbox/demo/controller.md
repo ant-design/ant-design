@@ -22,18 +22,21 @@ const App = React.createClass({
         <p style={{ marginBottom: '20px' }}>
           <Checkbox checked={this.state.checked}
             disabled={this.state.disabled}
-            onChange={this.onChange}>
+            onChange={this.onChange}
+          >
             {label}
           </Checkbox>
         </p>
         <p>
           <Button type="primary" size="small"
-            onClick={this.toggleChecked}>
+            onClick={this.toggleChecked}
+          >
             {!this.state.checked ? '选中' : '取消'}
           </Button>
           <Button style={{ marginLeft: '10px' }}
             type="primary" size="small"
-            onClick={this.toggleDisable}>
+            onClick={this.toggleDisable}
+          >
             {!this.state.disabled ? '不可用' : '可用'}
           </Button>
         </p>

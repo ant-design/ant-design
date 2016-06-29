@@ -2,7 +2,7 @@
 category: Components
 chinese: 表格
 cols: 1
-type: Presentation
+type: Views
 english: Table
 ---
 
@@ -60,7 +60,7 @@ const columns = [{
 | size          | 正常或迷你类型，`default` or `small`  | String | default |
 | dataSource    | 数据数组 | Array |            |
 | columns       | 表格列的配置描述，具体项见下表 | Array | - |
-| rowKey        | 表格行 key 的取值 | Function(record, index):string | record.key |
+| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | String or Function(record, index):string | 'key' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | Array | - |
@@ -89,6 +89,7 @@ const columns = [{
 | filters    | 表头的筛选菜单项           | Array           | - |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
 | filterMultiple | 是否多选 | Boolean    | true    |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.Element | - |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
 | width      | 列宽度 | String or Number | -  |
@@ -120,5 +121,7 @@ const columns = [{
 
 ```jsx
 // 比如你的数据主键是 uid
+return <Table rowKey="uid" />;
+// 或
 return <Table rowKey={record => record.uid} />;
 ```

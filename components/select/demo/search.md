@@ -19,7 +19,8 @@ ReactDOM.render(
     placeholder="请选择人员"
     optionFilterProp="children"
     notFoundContent="无法找到"
-    onChange={handleChange}>
+    onChange={handleChange}
+  >
     <Option value="jack">杰克</Option>
     <Option value="lucy">露西</Option>
     <Option value="tom">汤姆</Option>

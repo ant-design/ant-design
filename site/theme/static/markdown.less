@@ -23,6 +23,8 @@
 
   .subtitle {
     font-weight: normal;
+    font-size: 80%;
+    margin-left: 12px;
   }
 }
 
@@ -90,11 +92,13 @@
   color: #777;
   font-size: .8rem;
   border: 1px solid #e9e9e9;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre {
   border-radius: 6px;
   background: #f7f7f7;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 .markdown pre code {
@@ -188,14 +192,14 @@
     background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
     overflow: hidden;
   }
-  .row-flex,
-  .code-box-demo .row-flex {
+  .ant-row-flex,
+  .code-box-demo .ant-row-flex {
     background: #F5F5F5;
   }
-  .row > div,
-  .code-box-demo .row > div,
-  .row-flex > div,
-  .code-box-demo .row-flex > div {
+  .ant-row > div,
+  .code-box-demo .ant-row > div,
+  .ant-row-flex > div,
+  .code-box-demo .ant-row-flex > div {
     padding: 5px 0;
     text-align: center;
     border-radius: 6px;
@@ -204,13 +208,13 @@
     margin-bottom: 10px;
     color: #fff;
   }
-  .code-box-demo .row > div:not(.gutter-row),
-  .code-box-demo .row-flex > div:not(.gutter-row) {
+  .code-box-demo .ant-row > div:not(.gutter-row),
+  .code-box-demo .ant-row-flex > div:not(.gutter-row) {
     background: #6AC2F5;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
-  .row .demo-col,
-  .code-box-demo .row .demo-col {
+  .ant-row .demo-col,
+  .code-box-demo .ant-row .demo-col {
     text-align: center;
     padding: 40px 0;
     color: #fff;
@@ -219,25 +223,25 @@
     margin-top: 0;
     margin-bottom: 0;
   }
-  .row .demo-col-1,
-  .row .demo-col-1 {
+  .ant-row .demo-col-1,
+  .ant-row .demo-col-1 {
     background: rgba(29, 128, 211, 0.7);
   }
-  .row .demo-col-2,
-  .code-box-demo .row .demo-col-2 {
+  .ant-row .demo-col-2,
+  .code-box-demo .ant-row .demo-col-2 {
     background: rgba(29, 128, 211, 0.5);
   }
-  .row .demo-col-3,
-  .code-box-demo .row .demo-col-3{
+  .ant-row .demo-col-3,
+  .code-box-demo .ant-row .demo-col-3{
     background: rgba(255, 255, 255, 0.2);
     color: #999;
   }
-  .row .demo-col-4,
-  .code-box-demo .row .demo-col-4 {
+  .ant-row .demo-col-4,
+  .code-box-demo .ant-row .demo-col-4 {
     background: rgba(29, 128, 211, 0.6);
   }
-  .row .demo-col-5,
-  .code-box-demo .row .demo-col-5 {
+  .ant-row .demo-col-5,
+  .code-box-demo .ant-row .demo-col-5 {
     background: rgba(255, 255, 255, 0.5);
     color: #999;
   }

@@ -7,14 +7,19 @@ module.exports = {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
+  lazyLoad: true,
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2',
     'bisheng-plugin-react?lang=__react',
-    './site/bisheng-plugin-antd',
+    'bisheng-plugin-antd',
   ],
+  doraConfig: {
+    verbose: true,
+    plugins: ['dora-plugin-upload'],
+  },
   webpackConfig(config) {
     config.resolve.alias = {
       antd: process.cwd(),

@@ -34,7 +34,10 @@ ReactDOM.render(
   margin-top: -16px;
 }
 
-.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-bar,
+.card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+  border-color: transparent;
+}
+
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
   border-color: #fff;
 }

@@ -1,6 +1,6 @@
+@import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@import "../../style/mixins/index";
 // size mixins for input
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal;
@@ -40,7 +40,6 @@
 .input() {
   position: relative;
   display: inline-block;
-  vertical-align: middle;
   padding: @input-padding-vertical-base @input-padding-horizontal;
   width: 100%;
   height: @input-height-base;
@@ -159,6 +158,25 @@
     background-color: #eee;
     border: 1px solid @input-border-color;
     border-radius: @border-radius-base;
+
+    // Reset Select's style in addon
+    .ant-select {
+      margin: -(@input-padding-vertical-base + 1) (-@input-padding-horizontal);
+
+      .ant-select-selection {
+        background-color: inherit;
+        border: 0;
+        margin: -1px;
+        border: 1px solid transparent;
+      }
+
+      &-open,
+      &-focused {
+        .ant-select-selection {
+          border-color: tint(@primary-color, 20%);
+        }
+      }
+    }
   }
 
   // Reset rounded corners
@@ -167,6 +185,12 @@
   &-addon:first-child {
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
+
+    // Reset Select's style in addon
+    .ant-select .ant-select-selection {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
   }
 
   &-addon:first-child {
@@ -180,6 +204,12 @@
   &-addon:last-child {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
+
+    // Reset Select's style in addon
+    .ant-select .ant-select-selection {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
   }
 
   // Sizing options
