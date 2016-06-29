@@ -358,6 +358,14 @@
     left: 0;
   }
 
+  &-dark &-item:hover,
+  &-dark &-item-active,
+  &-dark &-submenu-active,
+  &-dark &-submenu-title:hover {
+    background-color: transparent;
+    color: @primary-color;
+  }
+
   &-dark&-inline &-item-selected {
     border-right: 0;
     background-color: @primary-color;
@@ -373,13 +381,5 @@
     > a:hover {
       color: @primary-color;
     }
-  }
-
-  &-dark &-item:hover,
-  &-dark &-item-active,
-  &-dark &-submenu-active,
-  &-dark &-submenu-title:hover {
-    background-color: transparent;
-    color: @primary-color;
   }
 }
