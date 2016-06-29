@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 折叠面板
 type: Views
-english: Collapse
+title: Collapse
+subtitle: 折叠面板
 ---
 
 可以折叠/展开的内容区域。
