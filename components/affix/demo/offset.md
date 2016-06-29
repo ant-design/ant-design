@@ -1,16 +1,24 @@
 ---
 order: 1
-title: 偏移
+title:
+  zh-CN: 偏移
+  en-US: Offset
 ---
 
+## zh-CN
+
 达到一定的偏移量才触发。
+
+## en-US
+
+Affix element according to offset value.
 
 ````jsx
 import { Affix, Button } from 'antd';
 
 ReactDOM.render(
   <Affix offsetTop={75}>
-    <Button type="primary">固定在距离顶部 75px 的位置</Button>
+    <Button type="primary">75px to affix top</Button>
   </Affix>
 , mountNode);
 ````
