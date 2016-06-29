@@ -22,7 +22,7 @@ english: Tree
 |expandedKeys | （受控）展开指定的树节点 | String[] | [] |
 |autoExpandParent | 是否自动展开父节点 | bool | true |
 |defaultCheckedKeys | 默认选中复选框的树节点 | String[] | [] |
-|checkedKeys | （受控）选中复选框的树节点（注意： 父子节点有关联，如果传入父节点key，则子节点自动选中；相应当子节点key都传入，父节点也自动选中。当设置`checkable`和`checkStrictly`，它是一个有`checked``halfChecked`属性的对象，并且父子节点的选中与否不再关联 | String[]/{checked:Array<String>,halfChecked:Array<String>} | [] |
+|checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点key，则子节点自动选中；相应当子节点key都传入，父节点也自动选中。当设置`checkable`和`checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | String[]/{checked:Array<String>,halfChecked:Array<String>} | [] |
 |checkStrictly| checkable状态下节点选择完全受控（父子节点选中状态不再关联）| bool | false |
 |defaultSelectedKeys | 默认选中的树节点 | String[] | [] |
 |selectedKeys | （受控）设置选中的树节点 | String[] | - |
