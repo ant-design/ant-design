@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Presentation
+type: Views
 english: Dropdown
 ---
 
@@ -32,7 +32,7 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
 | type        | type of the button, the same as [Button](/components/button)   | String   | 'default'           |
-| onClick | a callback function, the same as [Button](/components/button), witch will be executed when you click the button on the left       | Function   | -           |
+| onClick | a callback function, the same as [Button](/components/button), which will be executed when you click the button on the left       | Function   | -           |
 | trigger       | the trigger mode which can excute the drop-down action | ['click'] or ['hover']   | ['hover'] |
 | overlay | the dropdown menu | [Menu](/components/menu) | -           |
 | visible     | determine whether the dropdown menu is visible | Boolean | -           |

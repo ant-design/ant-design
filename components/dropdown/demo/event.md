@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 触发事件
-  en-US: Trigger event
+  en-US: Click event
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-An event will be triggered when you click menu items, in witch you can make different operations according to item's key.
+An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
