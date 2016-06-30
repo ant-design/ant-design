@@ -206,10 +206,10 @@ export default class Upload extends React.Component {
   }
 
   onChange = (info) => {
+    this.props.onChange(info);
     this.setState({
       fileList: info.fileList,
     });
-    this.props.onChange(info);
   }
 
   componentWillReceiveProps(nextProps) {
