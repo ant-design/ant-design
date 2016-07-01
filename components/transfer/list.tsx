@@ -1,10 +1,11 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
+import { TransferItem } from './index';
 function noop() {
 }
 
@@ -13,7 +14,31 @@ export function isRenderResultPlainObject(result) {
     Object.prototype.toString.call(result) === '[object Object]';
 }
 
-export default class TransferList extends React.Component {
+interface TransferListProps {
+    prefixCls?: string,
+    /** 数据源 */
+    dataSource: Array<TransferItem>,
+     /** 是否显示搜索框 */
+    showSearch?: boolean,
+     /** 搜索框的默认值 */
+    searchPlaceholder?: string,
+     /** 标题 */
+    titleText?: string,
+    style?: React.CSSProperties,
+    handleFilter?: Function,
+    handleSelect?: Function,
+    handleSelectAll?: Function
+     /** 每行渲染函数 */
+    render?: Function,
+     /** 主体渲染函数 */
+    body?: Function,
+     /** 底部渲染函数 */
+    footer?: Function,
+     /** 选中项 */
+    checkedKeys?: Array<TransferItem>;
+}
+
+export default class TransferList extends React.Component<TransferListProps, any> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
@@ -25,21 +50,6 @@ export default class TransferList extends React.Component {
     // advanced
     body: noop,
     footer: noop,
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    dataSource: PropTypes.array,
-    showSearch: PropTypes.bool,
-    searchPlaceholder: PropTypes.string,
-    titleText: PropTypes.string,
-    style: PropTypes.object,
-    handleFilter: PropTypes.func,
-    handleSelect: PropTypes.func,
-    handleSelectAll: PropTypes.func,
-    render: PropTypes.func,
-    body: PropTypes.func,
-    footer: PropTypes.func,
   };
 
   static contextTypes = {

@@ -1,20 +1,21 @@
-import React, { PropTypes } from 'react';
+import * as React from 'react';
 import Icon from '../icon';
 function noop() {
 }
 
-export default class Search extends React.Component {
+interface SearchProps {
+  prefixCls?: string,
+  placeholder?: string,
+  onChange?: (e: React.FormEvent) => void,
+  handleClear?: (e: React.MouseEvent) => void
+  value?: any;
+}
+
+export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
     placeholder: '',
     onChange: noop,
     handleClear: noop,
-  }
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    placeholder: PropTypes.string,
-    onChange: PropTypes.func,
-    handleClear: PropTypes.func,
   }
 
   handleChange = (e) => {
