@@ -73,29 +73,25 @@ export default class Affix extends React.Component {
 
     if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
       // Fixed Top
-      if (!this.state.affixStyle) {
-        this.setState({
-          affixStyle: {
-            position: 'fixed',
-            top: offsetTop,
-            left: elemOffset.left,
-            width: ReactDOM.findDOMNode(this).offsetWidth,
-          },
-        }, () => this.props.onChange(!!this.state.affixStyle));
-      }
+      this.setState({
+        affixStyle: {
+          position: 'fixed',
+          top: offsetTop,
+          left: elemOffset.left,
+          width: ReactDOM.findDOMNode(this).offsetWidth,
+        },
+      }, () => { if (!this.state.affixStyle) this.props.onChange(!!this.state.affixStyle) });
     } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
                offsetMode.bottom) {
       // Fixed Bottom
-      if (!this.state.affixStyle) {
-        this.setState({
-          affixStyle: {
-            position: 'fixed',
-            bottom: offsetBottom,
-            left: elemOffset.left,
-            width: ReactDOM.findDOMNode(this).offsetWidth,
-          },
-        }, () => this.props.onChange(!!this.state.affixStyle));
-      }
+      this.setState({
+        affixStyle: {
+          position: 'fixed',
+          bottom: offsetBottom,
+          left: elemOffset.left,
+          width: ReactDOM.findDOMNode(this).offsetWidth,
+        },
+      }, () => { if (!this.state.affixStyle) this.props.onChange(!!this.state.affixStyle) });
     } else if (this.state.affixStyle) {
       this.setState({
         affixStyle: null,
