@@ -36,7 +36,12 @@ let Demo = React.createClass({
   },
   submit(e) {
     e.preventDefault();
-    console.log(this.props.form.getFieldsValue());
+    this.props.form.validateFields((errors, values) => {
+      if (errors) {
+        console.log(errors);
+      }
+      console.log(values);
+    });
   },
   render() {
     const { getFieldProps, getFieldValue } = this.props.form;
@@ -52,7 +57,14 @@ let Demo = React.createClass({
     const formItems = getFieldValue('keys').map((k) => {
       return (
         <Form.Item {...formItemLayout} label={`好朋友${k}：`} key={k}>
-          <Input {...getFieldProps(`name${k}`)} style={{ width: '80%', marginRight: 8 }} />
+          <Input {...getFieldProps(`name${k}`, {
+            rules: [{
+              required: true,
+              whitespace: true,
+              message: '你好友的名字捏！',
+            }],
+          })} style={{ width: '80%', marginRight: 8 }}
+          />
           <Button onClick={() => this.remove(k)}>删除</Button>
         </Form.Item>
       );
