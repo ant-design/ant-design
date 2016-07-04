@@ -14,6 +14,7 @@ export default function Col(props) {
     } else if (typeof props[size] === 'object') {
       sizeProps = props[size] || {};
     }
+    delete others[size];
     sizeClassObj = {
       ...sizeClassObj,
       [`ant-col-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
