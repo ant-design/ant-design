@@ -6,8 +6,10 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  &.active .ant-mention-editor {
-    .active;
+  &.active {
+    .ant-mention-editor {
+      .active;
+    }
   }
   .ant-mention-editor {
    .input;
@@ -17,6 +19,7 @@
     overflow-y: auto;
     height: auto;
   }
+
   .DraftEditor-editorContainer .public-DraftEditor-content {
     height: auto;
     padding: 4px 7px;
