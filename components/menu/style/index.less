@@ -327,23 +327,9 @@
     top: 0;
   }
 
-  &-dark&-horizontal > &-item:hover,
-  &-dark&-horizontal > &-item-active,
-  &-dark&-horizontal > &-item-selected,
-  &-dark&-horizontal > &-submenu:hover,
-  &-dark&-horizontal > &-submenu &-submenu-title:hover {
-    &,
-    & > a {
-      color: #fff;
-      transform: translateZ(0);
-    }
-  }
-
+  &-dark &-item,
   &-dark &-item > a {
     color: #999;
-    &:hover {
-      color: #fff;
-    }
   }
 
   &-dark&-inline,
@@ -358,9 +344,21 @@
     left: 0;
   }
 
-  &-dark&-inline &-item-selected {
+  &-dark &-item:hover,
+  &-dark &-item-active,
+  &-dark &-submenu-active,
+  &-dark &-submenu:hover,
+  &-dark &-submenu-title:hover {
+    background-color: transparent;
+    color: #fff;
+    > a {
+      color: #fff;
+      transform: translateZ(0);
+    }
+  }
+
+  &-dark &-item-selected {
     border-right: 0;
-    background-color: @primary-color;
     color: #fff;
     > a,
     > a:hover {
@@ -368,18 +366,7 @@
     }
   }
 
-  &-dark&-vertical &-item-selected {
-    > a,
-    > a:hover {
-      color: @primary-color;
-    }
-  }
-
-  &-dark &-item:hover,
-  &-dark &-item-active,
-  &-dark &-submenu-active,
-  &-dark &-submenu-title:hover {
-    background-color: transparent;
-    color: @primary-color;
+  &-dark&-inline &-item-selected {
+    background-color: @primary-color;
   }
 }

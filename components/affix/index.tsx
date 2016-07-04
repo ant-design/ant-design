@@ -133,8 +133,12 @@ export default class Affix extends React.Component<AffixProps, any> {
       'ant-affix': this.state.affixStyle,
     });
 
+    const props = { ...this.props };
+    delete props.offsetTop;
+    delete props.offsetBottom;
+
     return (
-      <div {...this.props}>
+      <div {...props}>
         <div className={className} ref="fixedNode" style={this.state.affixStyle}>
           {this.props.children}
         </div>

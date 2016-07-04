@@ -41,7 +41,7 @@ export default class FilterMenu extends React.Component {
     this.setState({
       visible: false,
     });
-    this.props.confirmFilter(this.props.column, this.state.selectedKeys);
+    this.confirmFilter();
   }
 
   onVisibleChange = (visible) => {
@@ -49,6 +49,12 @@ export default class FilterMenu extends React.Component {
       visible,
     });
     if (!visible) {
+      this.confirmFilter();
+    }
+  }
+
+  confirmFilter() {
+    if (this.state.selectedKeys !== this.props.selectedKeys) {
       this.props.confirmFilter(this.props.column, this.state.selectedKeys);
     }
   }
