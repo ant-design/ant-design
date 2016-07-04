@@ -48,3 +48,6 @@ export { Timeline }
 
 import Tooltip from './tooltip';
 export { Tooltip }
+
+import Mention from './mention';
+export { Mention };
