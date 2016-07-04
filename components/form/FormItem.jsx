@@ -200,6 +200,7 @@ export default class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const style = props.style;
     const itemClassName = {
+      'ant-row': true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
       [`${props.className}`]: !!props.className,
