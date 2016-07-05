@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
+## zh-CN
+
 简单的徽章展示。
+
+## en-US
+
+Simplest Usage.
 
 ````jsx
 import { Badge } from 'antd';
