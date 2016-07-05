@@ -14,7 +14,6 @@ title: 自定义建议
 Customize suggestions
 
 ````jsx
-
 import { Mention } from 'antd';
 const Nav = Mention.Nav;
 

@@ -10,6 +10,9 @@ export interface MentionProps {
   onChange?: Function;
   notFoundContent?: any;
   loading?: Boolean;
+  style?: Object;
+  defaultValue?: string,
+  className?: string,
   multiLines?: Boolean;
 }
 
@@ -66,7 +69,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   }
 
   render() {
-    const { className, prefixCls, style, multiLines, defaultValue} = this.props; 
+    const { className, prefixCls, style, multiLines, defaultValue } = this.props; 
     let { notFoundContent } = this.props;
    
     const { suggestions, focus } = this.state;
