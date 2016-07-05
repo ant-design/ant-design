@@ -47,8 +47,6 @@ const columns = [{
 <Table dataSource={dataSource} columns={columns} />
 ```
 
-> 注：`dataSource` 在 `0.11.0` 版本后不再支持远程模式。
-
 ## API
 
 ### Table

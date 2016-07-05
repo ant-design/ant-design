@@ -43,7 +43,7 @@ for (let i = 0; i < 100; i++) {
 }
 
 function App() {
-  return <Table columns={columns} dataSource={data} scroll={{ x: 1300, y: 300 }} />;
+  return <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />;
 }
 
 ReactDOM.render(<App />, mountNode);
