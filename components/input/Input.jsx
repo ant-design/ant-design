@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
+import omit from 'object.omit';
 
 function fixControlledValue(value) {
   if (typeof value === 'undefined' || value === null) {
@@ -132,6 +133,16 @@ export default class Input extends Component {
 
   renderInput() {
     const props = { ...this.props };
+
+    // Fix https://fb.me/react-unknown-prop
+    const otherProps = omit(this.props, [
+      'prefixCls',
+      'onPressEnter',
+      'autosize',
+      'addonBefore',
+      'addonAfter',
+    ]);
+
     const prefixCls = props.prefixCls;
     if (!props.type) {
       return props.children;
@@ -148,14 +159,14 @@ export default class Input extends Component {
       props.value = fixControlledValue(props.value);
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
-      delete props.defaultValue;
+      delete otherProps.defaultValue;
     }
 
     switch (props.type) {
       case 'textarea':
         return (
           <textarea
-            {...props}
+            {...otherProps}
             style={{
               ...props.style,
               ...this.state.textareaStyles,
@@ -169,7 +180,7 @@ export default class Input extends Component {
       default:
         return (
           <input
-            {...props}
+            {...otherProps}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
             ref="input"

@@ -33,7 +33,7 @@ const SearchInput = React.createClass({
     }
   },
   render() {
-    const { style, size, ...restProps } = this.props;
+    const { style, size, placeholder } = this.props;
     const btnCls = classNames({
       'ant-search-btn': true,
       'ant-search-btn-noempty': !!this.state.value.trim(),
@@ -45,7 +45,7 @@ const SearchInput = React.createClass({
     return (
       <div className="ant-search-input-wrapper" style={style}>
         <InputGroup className={searchCls}>
-          <Input {...restProps} value={this.state.value} onChange={this.handleInputChange}
+          <Input placeholder={placeholder} value={this.state.value} onChange={this.handleInputChange}
             onFocus={this.handleFocusBlur} onBlur={this.handleFocusBlur} onPressEnter={this.handleSearch}
           />
           <div className="ant-input-group-wrap">

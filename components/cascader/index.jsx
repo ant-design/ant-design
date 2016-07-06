@@ -4,6 +4,7 @@ import Input from '../input';
 import Icon from '../icon';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
+import omit from 'object.omit';
 
 export default class Cascader extends React.Component {
   static defaultProps = {
@@ -93,7 +94,17 @@ export default class Cascader extends React.Component {
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
-    delete otherProps.onChange;
+    // and https://fb.me/react-unknown-prop
+    const inputProps = omit(otherProps, [
+      'onChange',
+      'options',
+      'popupPlacement',
+      'transitionName',
+      'displayRender',
+      'onPopupVisibleChange',
+      'changeOnSelect',
+      'expandTrigger',
+    ]);
 
     return (
       <RcCascader {...props}
@@ -107,7 +118,7 @@ export default class Cascader extends React.Component {
             style={style}
             className={pickerCls}
           >
-            <Input {...otherProps}
+            <Input {...inputProps}
               placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
               value={null}
