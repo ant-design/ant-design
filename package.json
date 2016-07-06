@@ -39,7 +39,6 @@
     "css-animation": "^1.2.5",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
-    "normalize.css": "^4.1.1",
     "rc-animate": "~2.1.0",
     "rc-calendar": "~5.6.2",
     "rc-cascader": "~0.9.9",
