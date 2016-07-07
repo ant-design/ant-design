@@ -128,17 +128,7 @@ export default class TransferList extends React.Component {
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
-    const showItems = dataSource.filter((item) => {
-      const renderResult = render(item);
-      let itemText;
-      if (isRenderResultPlainObject(renderResult)) {
-        itemText = renderResult.value;
-      } else {
-        itemText = renderResult;
-      }
-      const filterResult = this.matchFilter(itemText, filter);
-      return !!filterResult;
-    }).map((item) => {
+    const showItems = dataSource.map((item) => {
       const renderResult = render(item);
       let renderedText;
       let renderedEl;
@@ -151,13 +141,17 @@ export default class TransferList extends React.Component {
         renderedEl = renderResult;
       }
 
+      if (filter && filter.trim() && !this.matchFilter(renderedText, filter)) {
+        return null;
+      }
+
       return (
         <li onClick={() => { this.handleSelect(item); }} key={item.key} title={renderedText}>
           <Checkbox checked={checkedKeys.some(key => key === item.key)} />
           <span>{renderedEl}</span>
         </li>
       );
-    });
+    }).filter(item => !!item);
 
     let unit = '条';
     if (this.context.antLocale &&
