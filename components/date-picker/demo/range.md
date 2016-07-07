@@ -1,9 +1,19 @@
 ---
 order: 8
-title: 日期范围二
+title: 
+  zh-CN: 日期范围二
+  en-US: Date range, case 2
 ---
 
+## zh-CN
+
 使用 `RangePicker` 实现日期范围选择有更好的交互体验。
+
+## en-US
+
+By using `RangePicker` to specify a date range, you can achieve a better interactive experience.
+
+
 
 ````jsx
 import { DatePicker } from 'antd';

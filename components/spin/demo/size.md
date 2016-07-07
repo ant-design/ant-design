@@ -11,10 +11,14 @@ import { Spin } from 'antd';
 ReactDOM.render(
   <div>
     <Spin size="small" />
-    <br />
     <Spin />
-    <br />
     <Spin size="large" />
   </div>
 , mountNode);
 ````
+
+<style>
+.ant-spin {
+  margin-right: 16px;
+}
+</style>

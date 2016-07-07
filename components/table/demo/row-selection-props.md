@@ -38,11 +38,9 @@ const data = [{
 
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
-  getCheckboxProps(record) {
-    return {
-      disabled: record.name === '胡彦祖',    // 配置无法勾选的列
-    };
-  },
+  getCheckboxProps: record => ({
+    disabled: record.name === '胡彦祖',    // 配置无法勾选的列
+  }),
 };
 
 ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />

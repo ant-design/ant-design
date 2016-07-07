@@ -65,7 +65,7 @@
   }
 
   &-checked {
-    border: 1px solid @primary-color;
+    border-color: @primary-color;
     background-color: @primary-color;
 
     .@{switch-prefix-cls}-inner {
@@ -79,15 +79,15 @@
 
   &-disabled {
     cursor: not-allowed;
-    background: #f7f7f7;
-    border-color: #f7f7f7;
+    background: #f4f4f4;
+    border-color: #f4f4f4;
 
     &:after {
       background: #ccc;
       cursor: not-allowed;
     }
 
-    &-inner {
+    .@{switch-prefix-cls}-inner {
       color: #ccc;
     }
   }

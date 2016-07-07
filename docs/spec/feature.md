@@ -6,17 +6,17 @@ english: 三大特性
 与众不同的是，Ant Design 不但追求『用户』的使用体验，还追求『设计者』的使用体验，真真正正贯彻和践行『以人为本』的设计理念。
 
 <div style="margin-left:-40px;margin-right:-40px;overflow:hidden;margin-top:30px;">
-  <div class="col-8 features">
+  <div class="ant-col-8 features">
     <img src="https://os.alipayobjects.com/rmsportal/OVirOHTeAdzDBuQ.png">
     <h5>微小</h5>
     <div>致力于微小而美好的改变，力求在细节上精益求精，不仅让业务产品更加实用和可靠，而且还能让『用户』感到小惊喜。</div>
   </div>
-  <div class="col-8 features">
+  <div class="ant-col-8 features">
     <img src="https://os.alipayobjects.com/rmsportal/iJbUiLYpuPBXUhV.png">
     <h5>确定</h5>
     <div>制定通俗而科学的设计原则、运用面向对象的方法、使用一致的文档沟通机制，给予研发团队一种高确定性、低熵值的研发状态。</div>
   </div>
-  <div class="col-8 features">
+  <div class="ant-col-8 features">
     <img src="https://os.alipayobjects.com/rmsportal/uSOjjlCRjRIhtIY.png">
     <h5>幸福</h5>
     <div>不苛求简单，但是力求让『用户』和『设计者』流畅的完成目标，并带着成功和满足离开。</div>

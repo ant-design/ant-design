@@ -1,10 +1,18 @@
 ---
 order: 4
 hidden: true
-title: 日期时间选择二
+title: 
+  zh-CN: 日期时间选择二
+  en-US: To select a date, case 2
 ---
 
+## zh-CN
+
 和 <a href="/components/time-picker">时间选择框</a> 配合使用。
+
+## en-US
+
+Cooperate with `<a href="/components/time-picker">time-picker</a>`
 
 ````jsx
 import { DatePicker, TimePicker } from 'antd';

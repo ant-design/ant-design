@@ -5,7 +5,7 @@ module.exports = function (webpackConfig) {
   if (process.env.RUN_ENV === 'PRODUCTION') {
     // Fix ie8 compatibility
     webpackConfig[0].module.loaders.unshift({
-      test: /\.jsx?$/,
+      test: /\.(tsx|jsx?)$/,
       loader: 'es3ify-loader',
     });
   }

@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 表单
-type: Form Control
+type: Form Controls
 cols: 1
 english: Form
 ---
@@ -34,7 +34,7 @@ english: Form
 
 ### Form
 
-更多示例参考 [rc-form](http://react-component.github.io/form/)。
+**更多示例参考 [rc-form](http://react-component.github.io/form/)**。
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|-------|
@@ -76,15 +76,17 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | resetFields | 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
 | getFieldProps | 用于和表单进行双向绑定，详见下方描述 | |
 
-#### this.props.form.getFieldProps(id, options)
+### this.props.form.getFieldProps(id, options)
 
-##### 特别注意
+#### 特别注意
 
 `getFieldProps` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
 
 `getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`（或者你设置的其它 `trigger` `validateTrigger`），**所以不应再设置同样的属性**，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
 
 > 在表单中 `defaultValue` 也不应该被设置，请使用下面的 `initialValue`。
+
+#### getFieldProps options
 
 | 参数      | 说明                                     | 类型 | 默认值 |
 |-----------|-----------------------------------------|-----|--------|
@@ -96,6 +98,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.validateTrigger | 校验子节点值的时机 | string | 'onChange' |
 | options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) | array | |
 | options.onXXX | 由于 `getFieldProps` 会占用 `onChange` 等事件（即你所设置的 `trigger` `validateTrigger`），所以如果仍需绑定事件，请在 `options` 内设置 | function | 无 |
+| options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
 
 ### Form.Item
 
@@ -112,7 +115,6 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | bool |  | false  |
 | prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
-
 
 <style>
 .code-box-demo .ant-form-horizontal {

@@ -161,6 +161,11 @@ form {
     display: block;
   }
 
+  .ant-checkbox-vertical + .ant-checkbox-vertical,
+  .ant-radio-vertical + .ant-radio-vertical {
+    margin-left: 0;
+  }
+
   .ant-input-number {
     margin-top: -1px;
     margin-right: 8px;
@@ -228,11 +233,6 @@ form {
     }
   }
 
-  .ant-input {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
   .@{form-prefix-cls}-text {
     display: inline-block;
   }
@@ -269,7 +269,7 @@ form {
     visibility: visible;
     font-family: "anticon" !important;
     .square(@input-height-lg);
-    line-height: @input-height-lg + 2;
+    line-height: @input-height-lg;
     text-align: center;
     font-size: 14px;
     animation: zoomIn .3s @ease-out-back;

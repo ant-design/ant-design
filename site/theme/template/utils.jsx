@@ -3,14 +3,14 @@ export function collectDocs(docs) {
   const locale = (typeof localStorage !== 'undefined' && localStorage.getItem('locale') !== 'en-US') ?
         'zh-CN' : 'en-US';
   const docsList = Object.keys(docs)
-          .map((key) => docs[key])
-          .map((value) => {
-            if (typeof value !== 'function') {
-              return value[locale] || value.index[locale] || value.index;
-            }
-            return value;
-          })
-          .map((fn) => fn());
+    .map(key => docs[key])
+    .map((value) => {
+      if (typeof value !== 'function') {
+        return value[locale] || value.index[locale] || value.index;
+      }
+      return value;
+    })
+    .map(fn => fn());
   return docsList;
 }
 

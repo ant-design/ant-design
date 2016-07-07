@@ -1,8 +1,9 @@
 ---
 category: Components
-type: Presentation
+type: Views
 title: Card
 subtitle: 卡片
+cols: 1
 ---
 
 通用卡片容器。

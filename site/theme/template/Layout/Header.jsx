@@ -26,7 +26,10 @@ export default class Header extends React.Component {
       }
     }, 100);
 
-    this.onDocumentClick = () => {
+    this.onDocumentClick = (e) => {
+      if (document.querySelector('#header .nav').contains(e.target)) {
+        return;
+      }
       this.setState({
         menuVisible: false,
       });
@@ -43,6 +46,7 @@ export default class Header extends React.Component {
     window.addEventListener('scroll', this.onScroll);
 
     document.addEventListener('click', this.onDocumentClick);
+    document.addEventListener('touchstart', this.onDocumentClick);
 
     enquire.register('only screen and (min-width: 320px) and (max-width: 767px)', {
       match: () => {
@@ -57,6 +61,7 @@ export default class Header extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     document.removeEventListener('click', this.onDocumentClick);
+    document.removeEventListener('touchstart', this.onDocumentClick);
   }
 
   handleMenuIconClick = (e) => {
@@ -87,24 +92,21 @@ export default class Header extends React.Component {
     const { routes, components } = this.props;
     const route = routes[0].path.replace(/^\//, '');
     let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
-    activeMenuItem = activeMenuItem === 'components' ? 'docs/react' : activeMenuItem;
+    if (activeMenuItem === 'components' || route === 'changelog') {
+      activeMenuItem = 'docs/react';
+    }
 
     const options = components
-            .map(({ meta }) => {
-              const pathSnippet = meta.filename.split('/')[1];
-              const url = `/components/${pathSnippet}`;
-
-              return (
-                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
-                  <strong>{meta.title || meta.english}</strong>
-                  <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
-                </Option>
-              );
-            });
-
-    const menuStyle = {
-      display: this.state.menuVisible ? 'block' : '',
-    };
+      .map(({ meta }) => {
+        const pathSnippet = meta.filename.split('/')[1];
+        const url = `/components/${pathSnippet}`;
+        return (
+          <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
+            <strong>{meta.title || meta.english}</strong>
+            <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
+          </Option>
+        );
+      });
 
     const headerClassName = classNames({
       clearfix: true,
@@ -125,8 +127,8 @@ export default class Header extends React.Component {
               <span>Ant Design</span>
             </Link>
           </Col>
-          <Col className={`nav ${this.state.menuVisible ? 'nav-show' : 'nav-hide'}`}
-            lg={20} md={18} sm={17} xs={0} style={menuStyle}
+          <Col className={`nav ${this.state.menuVisible ? 'nav-show' : ''}`}
+            lg={20} md={18} sm={17} xs={0} style={{ display: 'block' }}
           >
             <div id="search-box">
               <Select combobox
@@ -134,6 +136,7 @@ export default class Header extends React.Component {
                 placeholder="搜索组件..."
                 value={undefined}
                 optionFilterProp="data-label"
+                optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
               >

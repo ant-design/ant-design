@@ -1,7 +1,7 @@
 ---
 category: Components
 chinese: 穿梭框
-type: Form Control
+type: Form Controls
 cols: 1
 english: Transfer
 ---

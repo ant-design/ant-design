@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
+## zh-CN
+
 最简单的下拉菜单。
+
+## en-US
+
+The most basic dropdown menu.
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';

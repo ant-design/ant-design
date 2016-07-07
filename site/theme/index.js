@@ -9,8 +9,8 @@ module.exports = {
   },
   typeOrder: {
     Basic: 0,
-    'Form Control': 1,
-    Presentation: 2,
+    'Form Controls': 1,
+    Views: 2,
     Navigation: 3,
     Other: 4,
   },

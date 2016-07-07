@@ -3,7 +3,6 @@ jest.unmock('../components/icon/index');
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { wrap } from 'react-stateless-wrapper';
-
 import AntIcon from '../components/icon/index';
 const Icon = wrap(AntIcon);
 

@@ -17,6 +17,8 @@ title: 安装
 $ npm install antd --save
 ```
 
+你可以订阅：https://github.com/ant-design/ant-design/releases.atom 来获得稳定版发布的通知。
+
 开发版本：
 
 [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)

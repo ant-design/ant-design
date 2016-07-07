@@ -1,9 +1,18 @@
 ---
 order: 10
-title: 国际化
+title: 
+  zh-CN: 国际化
+  en-US: Locale
 ---
 
+## zh-CN
+
 通过 `locale` 配置时区、语言等, 默认支持 `en_US`，`zh_CN`。
+
+## en-US
+
+Use locale to set the properties like time zone, language and etc. en_US, zh_CN are supported by default.
+
 
 ````jsx
 import { DatePicker } from 'antd';

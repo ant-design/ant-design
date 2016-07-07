@@ -48,12 +48,23 @@
     &:hover {
       color: @text-color;
     }
+    &:before {
+      position: absolute;
+      background-color: transparent;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      content: '';
+    }
   }
 
+  &-item:hover,
   &-item-active,
   &-submenu-active,
   &-submenu-title:hover {
-    transform: translateZ(0);
     background-color: tint(@primary-color, 90%);
   }
 
@@ -62,10 +73,10 @@
     margin-top: -1px;
   }
 
+  &-horizontal > &-item:hover,
   &-horizontal > &-item-active,
   &-horizontal > &-submenu &-submenu-title:hover {
     background-color: transparent;
-    transform: translateZ(0);
   }
 
   &-item-selected {
@@ -221,6 +232,7 @@
       border-bottom: 2px solid transparent;
       z-index: 2;
 
+      &:hover,
       &-active,
       &-selected {
         border-bottom: 2px solid @primary-color;
@@ -233,17 +245,6 @@
         color: @text-color;
         &:hover {
           color: @primary-color;
-        }
-        &:before,
-        &:after {
-          position: absolute;
-          background-color: transparent;
-          width: 20px;
-          height: 100%;
-          content: '';
-        }
-        &:before {
-          left: 0;
         }
       }
     }
@@ -325,22 +326,9 @@
     top: 0;
   }
 
-  &-dark&-horizontal > &-item-active,
-  &-dark&-horizontal > &-item-selected,
-  &-dark&-horizontal > &-submenu:hover,
-  &-dark&-horizontal > &-submenu &-submenu-title:hover {
-    &,
-    & > a {
-      color: #fff;
-      transform: translateZ(0);
-    }
-  }
-
+  &-dark &-item,
   &-dark &-item > a {
     color: #999;
-    &:hover {
-      color: #fff;
-    }
   }
 
   &-dark&-inline,
@@ -355,29 +343,29 @@
     left: 0;
   }
 
-  &-dark&-inline &-item-selected {
-    border-right: 0;
-    background-color: @primary-color;
+  &-dark &-item:hover,
+  &-dark &-item-active,
+  &-dark &-submenu-active,
+  &-dark &-submenu:hover,
+  &-dark &-submenu-title:hover {
+    background-color: transparent;
     color: #fff;
-    transform: translateZ(0);
+    > a {
+      color: #fff;
+      transform: translateZ(0);
+    }
+  }
+
+  &-dark &-item-selected {
+    border-right: 0;
+    color: #fff;
     > a,
     > a:hover {
       color: #fff;
     }
   }
 
-  &-dark&-vertical &-item-selected {
-    > a,
-    > a:hover {
-      color: @primary-color;
-    }
-  }
-
-  &-dark &-item-active,
-  &-dark &-submenu-active,
-  &-dark &-submenu-title:hover {
-    background-color: transparent;
-    color: @primary-color;
-    transform: translateZ(0);
+  &-dark&-inline &-item-selected {
+    background-color: @primary-color;
   }
 }

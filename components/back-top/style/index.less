@@ -1,0 +1,33 @@
+@import "../../style/themes/default";
+
+@backtop-prefix-cls: ant-back-top;
+
+.@{backtop-prefix-cls} {
+  z-index: @zindex-back-top;
+  position: fixed;
+  right: 100px;
+  bottom: 50px;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+
+  &-content {
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    background-color: rgba(64, 64, 64, 0.4);
+    color: #fff;
+    text-align: center;
+    transition: all .3s @ease-in-out;
+
+    &:hover {
+      background-color: rgba(64, 64, 64, 0.6);
+      transition: all .3s @ease-in-out;
+    }
+  }
+
+  &-icon {
+    font-size: 20px;
+    margin-top: 10px;
+  }
+}

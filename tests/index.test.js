@@ -7,8 +7,9 @@ describe('antd dist files', function() {
   const distFilesExisted = fs.existsSync(path.join(process.cwd(), 'dist', 'antd.js'));
   if (!distFilesExisted) {
     return;
+  } else {
+    jest.unmock('../dist/antd');
   }
-  jest.unmock('../dist/antd');
 
   // fixed jsdom miss
   if (typeof window !== 'undefined') {
@@ -76,6 +77,7 @@ describe('antd dist files', function() {
     expect('TreeSelect' in antd).toBeTruthy();
     expect('Upload' in antd).toBeTruthy();
     expect('Validation' in antd).toBeTruthy();
+    expect('BackTop' in antd).toBeTruthy();
   });
 
   // https://github.com/ant-design/ant-design/issues/1970

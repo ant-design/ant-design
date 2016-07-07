@@ -1,7 +1,8 @@
 ---
 category: Components
-type: Presentation
+type: Views
 title: Card
+cols: 1
 ---
 
 Common card container.
