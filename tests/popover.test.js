@@ -14,7 +14,7 @@ describe('Popover', function() {
       </Popover>
     );
 
-    expect(popover.getPopupDomNode()).toBe(undefined);
+    expect(popover.getPopupDomNode()).toBe(null);
 
     TestUtils.Simulate.click(
       TestUtils.findRenderedDOMComponentWithTag(popover, 'a')
