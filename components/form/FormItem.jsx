@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import { FIELD_META_PROP } from './constants';
 
 export default class FormItem extends React.Component {
   static defaultProps = {
@@ -52,7 +53,7 @@ export default class FormItem extends React.Component {
   getOnlyControl() {
     const children = React.Children.toArray(this.props.children);
     const child = children.filter((c) => {
-      return c.props && '__meta' in c.props;
+      return c.props && FIELD_META_PROP in c.props;
     })[0];
     return child !== undefined ? child : null;
   }
@@ -67,7 +68,7 @@ export default class FormItem extends React.Component {
   }
 
   getMeta() {
-    return this.getChildProp('__meta');
+    return this.getChildProp(FIELD_META_PROP);
   }
 
   renderHelp() {

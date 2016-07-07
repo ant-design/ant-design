@@ -74,6 +74,7 @@ export default class Cascader extends React.Component {
     const props = this.props;
     const { prefixCls, children, placeholder, size, disabled,
             className, style, allowClear, ...otherProps } = props;
+
     const sizeCls = classNames({
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
