@@ -9,6 +9,8 @@
     display: block;
     cursor: pointer;
     width: 100%;
+    background: rgba(255, 255, 255, 0);
+    z-index: 1;
   }
   &-picker {
     position: relative;
@@ -16,7 +18,6 @@
     cursor: pointer;
     vertical-align: middle;
     font-size: @font-size-base;
-    overflow: hidden;
 
     &-disabled {
       cursor: not-allowed;

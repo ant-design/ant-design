@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import omit from 'object.omit';
 
 export default class Form extends React.Component {
   static defaultProps = {
@@ -34,17 +35,21 @@ export default class Form extends React.Component {
   }
 
   render() {
-    const { prefixCls, className, style } = this.props;
+    const { prefixCls, className, inline, horizontal } = this.props;
     const formClassName = classNames({
-      [`${prefixCls}-horizontal`]: this.props.horizontal,
-      [`${prefixCls}-inline`]: this.props.inline,
+      [`${prefixCls}-horizontal`]: horizontal,
+      [`${prefixCls}-inline`]: inline,
       [className]: !!className,
     });
 
-    return (
-      <form {...this.props} className={formClassName} style={style}>
-        {this.props.children}
-      </form>
-    );
+    const formProps = omit(this.props, [
+      'prefixCls',
+      'className',
+      'inline',
+      'horizontal',
+      'form',
+    ]);
+
+    return <form {...formProps} className={formClassName} />;
   }
 }

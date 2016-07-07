@@ -5,6 +5,7 @@ import Icon from '../icon';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
+import omit from 'object.omit';
 
 export default class Cascader extends React.Component {
   static defaultProps = {
@@ -75,7 +76,7 @@ export default class Cascader extends React.Component {
     const [{prefixCls, children, placeholder, size, disabled,
       className, style, allowClear}, others] = splitObject(props,
       ['prefixCls', 'children','placeholder', 'size','disabled', 'className','style','allowClear']);
-    
+
     const sizeCls = classNames({
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
@@ -96,7 +97,17 @@ export default class Cascader extends React.Component {
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
-    delete others.onChange;
+    // and https://fb.me/react-unknown-prop
+    const inputProps = omit(otherProps, [
+      'onChange',
+      'options',
+      'popupPlacement',
+      'transitionName',
+      'displayRender',
+      'onPopupVisibleChange',
+      'changeOnSelect',
+      'expandTrigger',
+    ]);
 
     return (
       <RcCascader {...props}
@@ -110,7 +121,7 @@ export default class Cascader extends React.Component {
             style={style}
             className={pickerCls}
           >
-            <Input {...others}
+            <Input {...inputProps}
               placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
               value={null}
