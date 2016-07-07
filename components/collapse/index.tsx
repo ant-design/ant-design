@@ -1,5 +1,5 @@
 import RcCollapse from 'rc-collapse';
-import React from 'react';
+import * as React from 'react';
 
 export interface CollapseProps {
   activeKey?:Array<string> | string,

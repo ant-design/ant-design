@@ -1,8 +1,34 @@
-import React from 'react';
+import * as React from 'react';
 import Checkbox from './index';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
-export default class CheckboxGroup extends React.Component {
+
+export interface CheckboxOptionType {
+  label:string,
+  value:string,
+  disabled?:boolean
+}
+
+interface CheckboxGroupProps {
+  /** 默认选中的选项*/
+  defaultValue?:Array<string>,
+  /** 指定选中的选项*/
+  value?:Array<string>,
+  /** 指定可选项*/
+  options?:Array<CheckboxOptionType> | Array<string>,
+  /** 变化时回调函数*/
+  onChange?:(checkedValue:Array<string>) => void,
+
+  disabled?:boolean,
+
+  style?:React.CSSProperties
+}
+
+interface CheckboxGroupState {
+  value: any;
+}
+
+export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
     defaultValue: [],
