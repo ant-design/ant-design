@@ -3,6 +3,7 @@ import GregorianCalendar from 'gregorian-calendar';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
+import Icon from '../icon';
 
 export default class RangePicker extends React.Component {
   static defaultProps = {
@@ -31,6 +32,13 @@ export default class RangePicker extends React.Component {
         value: [start, end],
       });
     }
+  }
+
+  clearSelection = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({ value: [] });
+    this.handleChange([]);
   }
 
   handleChange = (value) => {
@@ -100,6 +108,13 @@ export default class RangePicker extends React.Component {
       />
     );
 
+    const clearIcon = (!props.disabled && state.value && (state.value[0] || state.value[1]))
+      ? <Icon
+        type="cross-circle"
+        className="ant-calendar-picker-clear"
+        onClick={this.clearSelection}
+      /> : null;
+
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
         formatter={props.getFormatter()}
@@ -136,6 +151,7 @@ export default class RangePicker extends React.Component {
                   placeholder={endPlaceholder}
                   className="ant-calendar-range-picker-input"
                 />
+                {clearIcon}
                 <span className="ant-calendar-picker-icon" />
               </span>
             );
