@@ -190,8 +190,6 @@ export default class Transfer extends React.Component {
 
   handleFilter = (direction, e) => {
     this.setState({
-      // deselect all
-      [`${direction}CheckedKeys`]: [],
       // add filter
       [`${direction}Filter`]: e.target.value,
     });
