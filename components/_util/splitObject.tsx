@@ -1,4 +1,4 @@
-export default function splitObject(obj, parts) {
+export default function splitObject(obj, parts) : Array<any>{
   let left = {};
   let right = {};
   Object.keys(obj).forEach((k)=> {

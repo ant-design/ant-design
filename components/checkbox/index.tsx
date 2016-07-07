@@ -1,10 +1,26 @@
 import RcCheckbox from 'rc-checkbox';
-import React from 'react';
+import * as React from 'react';
 import CheckboxGroup from './Group';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import splitObject from '../_util/splitObject';
-export default class Checkbox extends React.Component {
+
+interface CheckboxProps {
+  /** 指定当前是否选中*/
+  checked?:boolean,
+  /** 初始是否选中*/
+  defaultChecked?:boolean,
+  /** 变化时回调函数*/
+  onChange?:React.FormEventHandler,
+
+  style?:React.CSSProperties,
+
+  disabled?: boolean,
+
+  className?: string,
+}
+
+export default class Checkbox extends React.Component<CheckboxProps, any> {
   static Group = CheckboxGroup;
   static defaultProps = {
     prefixCls: 'ant-checkbox',
