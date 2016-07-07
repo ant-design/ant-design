@@ -43,7 +43,6 @@ const App = React.createClass({
       <Transfer
         dataSource={this.state.mockData}
         showSearch
-        notFoundContent="xxxxxx"
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
         render={item => item.title}
