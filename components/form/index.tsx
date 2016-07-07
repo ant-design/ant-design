@@ -4,6 +4,7 @@ import ValueMixin from './ValueMixin';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import assign from 'object-assign';
 import { FIELD_META_PROP } from './constants';
+
 Form.create = (o = {}) => {
   const options = assign({}, o, {
     fieldNameProp: 'id',
