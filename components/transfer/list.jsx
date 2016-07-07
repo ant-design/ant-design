@@ -110,8 +110,7 @@ export default class TransferList extends React.Component {
   }
 
   matchFilter(text, filterText) {
-    const regex = new RegExp(filterText);
-    return text.match(regex);
+    return text.indexOf(filterText) >= 0;
   }
 
   render() {

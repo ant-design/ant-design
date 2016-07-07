@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import List, { isRenderResultPlainObject } from './list';
+import List from './list';
 import Operation from './operation';
 import Search from './search';
 import classNames from 'classnames';
@@ -131,17 +131,15 @@ export default class Transfer extends React.Component {
 
   getGlobalCheckStatus(direction) {
     const { leftDataSource, rightDataSource } = this.splitDataSource(this.props);
-    const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
+    const { leftCheckedKeys, rightCheckedKeys } = this.state;
 
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
-    const filter = direction === 'left' ? leftFilter : rightFilter;
     const checkedKeys = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
-    const filteredDataSource = this.filterDataSource(dataSource, filter);
 
     let globalCheckStatus;
 
     if (checkedKeys.length > 0) {
-      if (checkedKeys.length < filteredDataSource.length) {
+      if (checkedKeys.length < dataSource.length) {
         globalCheckStatus = 'part';
       } else {
         globalCheckStatus = 'all';
@@ -152,33 +150,11 @@ export default class Transfer extends React.Component {
     return globalCheckStatus;
   }
 
-  filterDataSource(dataSource, filter) {
-    return dataSource.filter(item => {
-      const renderResult = this.props.render(item);
-      let itemText;
-      if (isRenderResultPlainObject(renderResult)) {
-        itemText = renderResult.value;
-      } else {
-        itemText = renderResult;
-      }
-
-      return this.matchFilter(itemText, filter);
-    });
-  }
-
-  matchFilter(text, filterText) {
-    const regex = new RegExp(filterText);
-    return text.match(regex);
-  }
-
   handleSelectAll = (direction) => {
     const { leftDataSource, rightDataSource } = this.splitDataSource(this.props);
-    const { leftFilter, rightFilter } = this.state;
     const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
-    const filter = direction === 'left' ? leftFilter : rightFilter;
     const checkStatus = this.getGlobalCheckStatus(direction);
-    const holder = (checkStatus === 'all') ? [] :
-      this.filterDataSource(dataSource, filter).map(item => item.key);
+    const holder = (checkStatus === 'all') ? [] : dataSource.map(item => item.key);
 
     this.setState({
       [`${direction}CheckedKeys`]: holder,
