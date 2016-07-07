@@ -74,7 +74,7 @@ export default class Cascader extends React.Component {
   render() {
     const props = this.props;
     const [{prefixCls, children, placeholder, size, disabled,
-      className, style, allowClear}, others] = splitObject(props,
+      className, style, allowClear}, otherProps] = splitObject(props,
       ['prefixCls', 'children','placeholder', 'size','disabled', 'className','style','allowClear']);
 
     const sizeCls = classNames({
