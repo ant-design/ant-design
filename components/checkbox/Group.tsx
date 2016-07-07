@@ -9,7 +9,7 @@ export interface CheckboxOptionType {
   disabled?:boolean
 }
 
-interface CheckboxGroupProps {
+export interface CheckboxGroupProps {
   /** 默认选中的选项*/
   defaultValue?:Array<string>,
   /** 指定选中的选项*/
@@ -24,7 +24,7 @@ interface CheckboxGroupProps {
   style?:React.CSSProperties
 }
 
-interface CheckboxGroupState {
+export interface CheckboxGroupState {
   value: any;
 }
 

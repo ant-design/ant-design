@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { changeConfirmLocale } from '../modal/locale';
 
 export default class LocaleProvider extends React.Component {

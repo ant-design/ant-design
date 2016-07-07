@@ -1,5 +1,5 @@
 import RcRadio from 'rc-radio';
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 

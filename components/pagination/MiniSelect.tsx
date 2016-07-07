@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Select from '../select';
 
 export default class MiniSelect extends React.Component {

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);

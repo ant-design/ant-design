@@ -1,5 +1,5 @@
 import RcSwitch from 'rc-switch';
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 
 export default class Switch extends React.Component {

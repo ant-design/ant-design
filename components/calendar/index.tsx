@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import defaultLocale from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';

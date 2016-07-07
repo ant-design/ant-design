@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import * as React from 'react';
 import RcRate from 'rc-rate';
 
 export default class Rate extends React.Component {

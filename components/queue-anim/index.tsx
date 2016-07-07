@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcQueueAnim from 'rc-queue-anim';
 import warning from 'warning';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcSteps from 'rc-steps';
 
 export default class Steps extends React.Component {

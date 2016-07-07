@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import splitObject from '../_util/splitObject';
 
-interface CheckboxProps {
+export interface CheckboxProps {
   /** 指定当前是否选中*/
   checked?:boolean,
   /** 初始是否选中*/

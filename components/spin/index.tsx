@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';

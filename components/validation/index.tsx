@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import warning from 'warning';
 
 export default class Validation extends React.Component {

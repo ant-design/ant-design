@@ -3,7 +3,7 @@ import Icon from '../icon';
 function noop() {
 }
 
-interface SearchProps {
+export interface SearchProps {
   prefixCls?: string,
   placeholder?: string,
   onChange?: (e: React.FormEvent) => void,

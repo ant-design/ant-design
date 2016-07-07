@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Progress from './progress';
 import warning from 'warning';
 

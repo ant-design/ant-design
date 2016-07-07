@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcSlider from 'rc-slider';
 import splitObject from '../_util/splitObject';
 export default class Slider extends React.Component {

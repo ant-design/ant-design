@@ -16,7 +16,7 @@ export interface TransferItem {
 }
 
 // Transfer
-interface TransferProps {
+export interface TransferProps {
   /** 数据源*/
   dataSource:Array<TransferItem>,
   /** 每行数据渲染函数*/

@@ -1,6 +1,8 @@
 import Affix from './affix';
 export { Affix };
 
+// export {default as } does not work for ie8
+
 import Collapse from './collapse';
 export { Collapse };
 

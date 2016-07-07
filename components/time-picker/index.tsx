@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import DateTimeFormat from 'gregorian-calendar-format';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import defaultLocale from './locale/zh_CN';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import Dropdown from '../dropdown';
 import Icon from '../icon';

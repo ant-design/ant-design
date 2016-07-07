@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import GregorianCalendar from 'gregorian-calendar';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';

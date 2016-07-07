@@ -14,7 +14,7 @@ export function isRenderResultPlainObject(result) {
     Object.prototype.toString.call(result) === '[object Object]';
 }
 
-interface TransferListProps {
+export interface TransferListProps {
     prefixCls?: string,
     /** 数据源 */
     dataSource: Array<TransferItem>,

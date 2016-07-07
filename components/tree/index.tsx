@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcTree from 'rc-tree';
 import animation from '../_util/openAnimation';
 
-interface TreeNodeProps {
+export interface TreeNodeProps {
   disabled?:boolean,
   disableCheckbox?:boolean,
   title?:string | React.ReactNode,
@@ -13,7 +13,7 @@ interface TreeNodeProps {
 export class TreeNode extends React.Component<TreeNodeProps, {}> {
 }
 
-interface TreeNodeEvent {
+export interface TreeNodeEvent {
   event:'check' | 'select',
   node:TreeNode,
 
@@ -24,12 +24,12 @@ interface TreeNodeEvent {
   selectedNodes?:Array<TreeNode>,
 }
 
-interface TreeNodeMouseEvent {
+export interface TreeNodeMouseEvent {
   node:TreeNode,
   event:React.MouseEventHandler,
 }
 
-interface TreeProps {
+export interface TreeProps {
   showLine?:boolean,
   className?:string,
   /** 是否支持多选*/

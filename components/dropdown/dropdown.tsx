@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import splitObject from '../_util/splitObject';
 

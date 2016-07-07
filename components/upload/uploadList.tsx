@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 const prefixCls = 'ant-upload';

@@ -14,8 +14,8 @@ export interface CascaderOptionType {
   children?:Array<CascaderOptionType>
 }
 
-type CascaderExpandTrigger = 'click' | 'hover'
-interface CascaderProps {
+export type CascaderExpandTrigger = 'click' | 'hover'
+export interface CascaderProps {
   /** 可选项数据源*/
   options:Array<CascaderOptionType>,
   /** 默认的选中项*/

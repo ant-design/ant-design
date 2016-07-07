@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Radio from './radio';
 
 export default class RadioButton extends React.Component {
