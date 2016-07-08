@@ -57,13 +57,6 @@ export default class BackTop extends React.Component {
     });
   }
 
-  animationEnd = () => {
-    const scrollTop = getScroll(window, true);
-    this.setState({
-      visible: scrollTop > this.props.visibilityHeight,
-    });
-  }
-
   componentDidMount() {
     this.scrollEvent = addEventListener(window, 'scroll', this.handleScroll);
   }
@@ -92,17 +85,16 @@ export default class BackTop extends React.Component {
     };
 
     return (
-      <Animate
-        showProp="data-show"
-        transitionName="fade"
-        onEnd={this.animationEnd}
-        transitionAppear
-      >
-        <div data-show={this.state.visible} style={style}>
-          <div {...restProps} className={classString} onClick={this.scrollToTop}>
-            {children || defaultElement}
-          </div>
-        </div>
+      <Animate component="" transitionName="fade">
+        {
+          this.state.visible ?
+            <div data-show={this.state.visible} style={style}>
+              <div {...restProps} className={classString} onClick={this.scrollToTop}>
+                {children || defaultElement}
+              </div>
+            </div>
+          : null
+        }
       </Animate>
     );
   }
