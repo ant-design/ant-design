@@ -238,7 +238,6 @@ export default class Transfer extends React.Component {
           handleClear={this.handleLeftClear}
           handleSelect={this.handleLeftSelect}
           handleSelectAll={this.handleLeftSelectAll}
-          position="left"
           render={render}
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder}
@@ -265,7 +264,6 @@ export default class Transfer extends React.Component {
           handleClear={this.handleRightClear}
           handleSelect={this.handleRightSelect}
           handleSelectAll={this.handleRightSelectAll}
-          position="right"
           render={render}
           showSearch={showSearch}
           searchPlaceholder={searchPlaceholder}
