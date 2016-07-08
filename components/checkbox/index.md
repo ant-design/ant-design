@@ -16,17 +16,17 @@ english: Checkbox
 
 ### Checkbox
 
-| 参数      | 说明                                     | 类型       |  可选值 |默认值 |
-|-----------|------------------------------------------|------------|-------|--------|
-| checked | 指定当前是否选中 | boolean  |   | false    |
-| defaultChecked | 初始是否选中 | boolean |  | false |
-| onChange | 变化时回调函数 | Function(e:Event) |  |  | |
+| 参数      | 说明             | 类型      | 默认值  |
+|----------|------------------|----------|--------|
+| checked | 指定当前是否选中 | boolean  | false |
+| defaultChecked | 初始是否选中 | boolean | false |
+| onChange | 变化时回调函数 | Function(e:Event) | - |
 
 ### Checkbox Group
 
-| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
-|-----------|------------------------------------------|------------|---------|--------|
-| defaultValue | 默认选中的选项 | array |   | [] |
-| value | 指定选中的选项| array |   | [] |
-| options  | 指定可选项 | array |   | [] |
-| onChange | 变化时回调函数 | Function(checkedValue) |  |  | |
+| 参数      | 说明             | 类型      | 默认值  |
+|----------|------------------|----------|--------|
+| defaultValue | 默认选中的选项 | array | [] |
+| value | 指定选中的选项| array | [] |
+| options  | 指定可选项 | array | [] |
+| onChange | 变化时回调函数 | Function(checkedValue) | - |
