@@ -21,8 +21,7 @@ export default class Badge extends React.Component {
   }
 
   render() {
-    let { count, prefixCls, overflowCount, className, style, children } = this.props;
-    const dot = this.props.dot;
+    let { count, prefixCls, overflowCount, className, style, children, dot, ...restProps } = this.props;
 
     count = count > overflowCount ? `${overflowCount}+` : count;
 
@@ -41,7 +40,7 @@ export default class Badge extends React.Component {
     });
 
     return (
-      <span className={badgeCls} title={count} {...this.props} style={null}>
+      <span className={badgeCls} title={count} {...restProps} style={null}>
         {children}
         <Animate component=""
           showProp="data-show"
