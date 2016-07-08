@@ -4,6 +4,7 @@ import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import omit from 'object.omit';
 
 function noop() {
 }
@@ -18,6 +19,7 @@ export default class TransferList extends React.Component {
     dataSource: [],
     titleText: '',
     showSearch: false,
+    handleClear: noop,
     handleFilter: noop,
     handleSelect: noop,
     handleSelectAll: noop,
@@ -34,6 +36,7 @@ export default class TransferList extends React.Component {
     searchPlaceholder: PropTypes.string,
     titleText: PropTypes.string,
     style: PropTypes.object,
+    handleClear: PropTypes.func,
     handleFilter: PropTypes.func,
     handleSelect: PropTypes.func,
     handleSelectAll: PropTypes.func,
@@ -115,9 +118,17 @@ export default class TransferList extends React.Component {
 
   render() {
     const { prefixCls, dataSource, titleText, filter, checkedKeys,
-            checkStatus, body, footer, showSearch, render } = this.props;
+            checkStatus, body, footer, showSearch, render, ...otherProps } = this.props;
 
-    let { searchPlaceholder, notFoundContent } = this.props;
+    let { searchPlaceholder, notFoundContent, ...restProps } = otherProps;
+
+    // fix https://fb.me/react-unknown-prop
+    const lastProps = omit(restProps, [
+      'handleClear',
+      'handleFilter',
+      'handleSelect',
+      'handleSelectAll',
+    ]);
 
     // Custom Layout
     const footerDom = footer({ ...this.props });
@@ -166,7 +177,7 @@ export default class TransferList extends React.Component {
     }
 
     return (
-      <div className={listCls} {...this.props}>
+      <div className={listCls} {...lastProps}>
         <div className={`${prefixCls}-header`}>
           {this.renderCheckbox({
             prefixCls: 'ant-transfer',
