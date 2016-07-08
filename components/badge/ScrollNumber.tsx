@@ -2,6 +2,7 @@ import React, {createElement} from 'react';
 import {findDOMNode} from 'react-dom';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import assign from 'object-assign';
+import omit from 'object.omit';
 
 function getNumberArray(num) {
   return num ?
@@ -124,11 +125,17 @@ export default class ScrollNumber extends React.Component {
   }
 
   render() {
-    const props = assign({}, this.props, {
+    // fix https://fb.me/react-unknown-prop
+    const props = assign({}, omit(this.props, [
+      'count',
+      'onAnimated',
+      'component',
+      'prefixCls',
+    ]), {
       className: `${this.props.prefixCls} ${this.props.className}`,
     });
     return createElement(
-      this.props.component,
+      component,
       props,
       this.renderNumberElement()
     );

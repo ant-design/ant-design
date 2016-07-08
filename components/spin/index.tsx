@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import warning from 'warning';
 import splitObject from '../_util/splitObject';
+import omit from 'object.omit';
+
 export default class Spin extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-spin',
@@ -78,8 +80,13 @@ export default class Spin extends React.Component {
       [className]: !!className,
     });
 
+    // fix https://fb.me/react-unknown-prop
+    const divProps = omit(restProps, [
+      'spinning',
+    ]);
+
     const spinElement = (
-      <div {...restProps} className={spinClassName}>
+      <div {...divProps} className={spinClassName}>
         <span className={`${prefixCls}-dot`} />
         <div className={`${prefixCls}-text`}>{tip || '加载中...'}</div>
       </div>
@@ -87,7 +94,7 @@ export default class Spin extends React.Component {
 
     if (this.isNestedPattern()) {
       return (
-        <div {...restProps} className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
+        <div {...divProps} className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
           {spinElement}
           <div className={`${prefixCls}-container`}>
             {this.props.children}

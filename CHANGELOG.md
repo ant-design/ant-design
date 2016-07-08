@@ -9,6 +9,25 @@ timeline: true
 
 ---
 
+## 1.6.4
+
+`2016-07-08`
+
+- 修复组件在 react@15.2.0 下报 Unknown props 警告的问题。[#2258](https://github.com/ant-design/ant-design/issues/2258)
+- `Table`
+     - 修复 filterDropDown 中内容未改变也会调用 onChange 的问题。[#2228](https://github.com/ant-design/ant-design/issues/2228)
+     - 修复设置 scroll.y 高度后导致内容无法对齐的问题。[#2227](https://github.com/ant-design/ant-design/issues/2227)
+- `Form`
+     - 修复 `FormItem` 中带空格后缀的冒号替换问题，关联issue：[#1877](https://github.com/ant-design/ant-design/issues/1877)
+     -  demo 优化。
+- `Transfer`
+     - 修复重复 render 的问题，性能优化。[#2112](https://github.com/ant-design/ant-design/issues/2112)
+     - 优化搜索逻辑，修复搜索时未对特殊字符进行处理的问题。[#2260](https://github.com/ant-design/ant-design/issues/2260)
+     - 清除按钮样式优化。
+- 修复 `Steps` 最后一步多余横线隐藏的问题。
+- 修复 `Cascader` small size 样式下沉 1px，以及 hover/click 样式残缺的问题。[#2234](https://github.com/ant-design/ant-design/issues/2234)
+- 修复 `RangePicker` 无清除按钮的问题。[#2252](https://github.com/ant-design/ant-design/issues/2252)
+
 ## 1.6.3
 
 `2016-07-04`

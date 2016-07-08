@@ -3,6 +3,7 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
+import omit from 'object.omit';
 
 function getScroll(w, top) {
   let ret = w[`page${top ? 'Y' : 'X'}Offset`];
@@ -57,13 +58,6 @@ export default class BackTop extends React.Component {
     });
   }
 
-  animationEnd = () => {
-    const scrollTop = getScroll(window, true);
-    this.setState({
-      visible: scrollTop > this.props.visibilityHeight,
-    });
-  }
-
   componentDidMount() {
     this.scrollEvent = addEventListener(window, 'scroll', this.handleScroll);
   }
@@ -75,7 +69,7 @@ export default class BackTop extends React.Component {
   }
 
   render() {
-    const { prefixCls, className, children, ...restProps } = this.props;
+    const { prefixCls, className, children, ...otherProps } = this.props;
     const classString = classNames({
       [prefixCls]: true,
       [className]: !!className,
@@ -91,18 +85,22 @@ export default class BackTop extends React.Component {
       display: this.state.visible ? 'block' : 'none',
     };
 
+    // fix https://fb.me/react-unknown-prop
+    const divProps = omit(otherProps, [
+      'visibilityHeight',
+    ]);
+
     return (
-      <Animate
-        showProp="data-show"
-        transitionName="fade"
-        onEnd={this.animationEnd}
-        transitionAppear
-      >
-        <div data-show={this.state.visible} style={style}>
-          <div {...restProps} className={classString} onClick={this.scrollToTop}>
-            {children || defaultElement}
-          </div>
-        </div>
+      <Animate component="" transitionName="fade">
+        {
+          this.state.visible ?
+            <div data-show={this.state.visible} style={style}>
+              <div {...divProps} className={classString} onClick={this.scrollToTop}>
+                {children || defaultElement}
+              </div>
+            </div>
+          : null
+        }
       </Animate>
     );
   }

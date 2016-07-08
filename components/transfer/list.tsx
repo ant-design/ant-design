@@ -6,6 +6,8 @@ import Animate from 'rc-animate';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
 import { TransferItem } from './index';
+import omit from 'object.omit';
+
 function noop() {
 }
 
@@ -48,6 +50,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     dataSource: [],
     titleText: '',
     showSearch: false,
+    handleClear: noop,
     handleFilter: noop,
     handleSelect: noop,
     handleSelectAll: noop,
@@ -125,15 +128,22 @@ export default class TransferList extends React.Component<TransferListProps, any
   }
 
   matchFilter(text, filterText) {
-    const regex = new RegExp(filterText);
-    return text.match(regex);
+    return text.indexOf(filterText) >= 0;
   }
 
   render() {
     const { prefixCls, dataSource, titleText, filter, checkedKeys,
-            checkStatus, body, footer, showSearch, render } = this.props;
+            checkStatus, body, footer, showSearch, render, ...otherProps } = this.props;
 
-    let { searchPlaceholder, notFoundContent } = this.props;
+    let { searchPlaceholder, notFoundContent, ...restProps } = otherProps;
+
+    // fix https://fb.me/react-unknown-prop
+    const lastProps = omit(restProps, [
+      'handleClear',
+      'handleFilter',
+      'handleSelect',
+      'handleSelectAll',
+    ]);
 
     // Custom Layout
     const footerDom = footer(assign({}, this.props));
@@ -144,17 +154,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
-    const showItems = dataSource.filter((item) => {
-      const renderResult = render(item);
-      let itemText;
-      if (isRenderResultPlainObject(renderResult)) {
-        itemText = renderResult.value;
-      } else {
-        itemText = renderResult;
-      }
-      const filterResult = this.matchFilter(itemText, filter);
-      return !!filterResult;
-    }).map((item) => {
+    const showItems = dataSource.map((item) => {
       const renderResult = render(item);
       let renderedText;
       let renderedEl;
@@ -167,13 +167,17 @@ export default class TransferList extends React.Component<TransferListProps, any
         renderedEl = renderResult;
       }
 
+      if (filter && filter.trim() && !this.matchFilter(renderedText, filter)) {
+        return null;
+      }
+
       return (
         <li onClick={() => { this.handleSelect(item); }} key={item.key} title={renderedText}>
           <Checkbox checked={checkedKeys.some(key => key === item.key)} />
           <span>{renderedEl}</span>
         </li>
       );
-    });
+    }).filter(item => !!item);
 
     let unit = '条';
     if (this.context.antLocale &&
@@ -188,7 +192,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     }
 
     return (
-      <div className={listCls} {...this.props}>
+      <div className={listCls} {...lastProps}>
         <div className={`${prefixCls}-header`}>
           {this.renderCheckbox({
             prefixCls: 'ant-transfer',
