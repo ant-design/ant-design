@@ -7,12 +7,15 @@ import QueueAnim from 'rc-queue-anim';
 
 export default function Page3() {
   return (
-    <ScrollOverPack scrollName="page3" className="content-wrapper page" playScale={1} replay>
-      <TweenOne key="image" className="image3 image-wrapper" animation={{ x: 0, opacity: 1, duration: 550 }}
-        style={{ transform: 'translateX(-100px)', opacity: 0 }} hideProps={{ reverse: true }}
+    <ScrollOverPack scrollName="page3" className="content-wrapper page" playScale={1} replay
+      hideProps={{ image: { reverse: true } }}
+    >
+      <TweenOne key="image" className="image3 image-wrapper"
+        animation={{ x: 0, opacity: 1, duration: 550 }}
+        style={{ transform: 'translateX(-100px)', opacity: 0 }}
       />
-      <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse style={{ top: '40%' }}
-        hideProps={{ child: null }}
+      <QueueAnim className="text-wrapper" delay={300} key="text" duration={550}
+        leaveReverse style={{ top: '40%' }}
       >
         <h2 key="h2">丰富的基础组件</h2>
         <p key="p" style={{ maxWidth: 280 }}>丰富、灵活、实用的基础组件，为业务产品提供强有力的设计支持。</p>
