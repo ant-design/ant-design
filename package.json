@@ -106,7 +106,7 @@
     "pre-commit": "1.x",
     "querystring": "^0.2.0",
     "ramda": "^0.21.0",
-    "rc-scroll-anim": "~0.2.11",
+    "rc-scroll-anim": "~0.3.0",
     "rc-tween-one": "~0.6.20",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
