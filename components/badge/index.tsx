@@ -21,7 +21,7 @@ export default class Badge extends React.Component {
   }
 
   render() {
-    let { count, prefixCls, overflowCount, className, style, children, dot, ...restProps } = this.props;
+    let { count, prefixCls, overflowCount, className, style, children, dot } = this.props;
 
     count = count > overflowCount ? `${overflowCount}+` : count;
 
@@ -40,17 +40,21 @@ export default class Badge extends React.Component {
     });
 
     return (
-      <span className={badgeCls} title={count} {...restProps} style={null}>
+      <span className={badgeCls} title={count} style={null}>
         {children}
-        <Animate component=""
+        <Animate
+          component=""
           showProp="data-show"
           transitionName={`${prefixCls}-zoom`}
           transitionAppear
         >
           {
             hidden ? null :
-              <ScrollNumber data-show={!hidden} className={scrollNumberCls}
-                count={count} style={style}
+              <ScrollNumber
+                data-show={!hidden}
+                className={scrollNumberCls}
+                count={count}
+                style={style}
               />
           }
         </Animate>
