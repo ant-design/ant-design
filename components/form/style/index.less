@@ -80,17 +80,20 @@ input[type="checkbox"] {
     margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base - 3;
   }
 
-  > label {
-    color: @label-color;
+  > div:first-child {
     text-align: right;
     vertical-align: middle;
     padding: 7px 0;
 
-    &:after {
-      content: ":";
-      margin: 0 8px 0 2px;
-      position: relative;
-      top: -0.5px;
+    label {
+      color: @label-color;
+
+      &:after {
+        content: ":";
+        margin: 0 8px 0 2px;
+        position: relative;
+        top: -0.5px;
+      }
     }
   }
 
