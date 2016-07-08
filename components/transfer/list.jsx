@@ -4,7 +4,6 @@ import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import omit from 'object.omit';
 
 function noop() {
 }
@@ -118,17 +117,9 @@ export default class TransferList extends React.Component {
 
   render() {
     const { prefixCls, dataSource, titleText, filter, checkedKeys,
-            checkStatus, body, footer, showSearch, render, ...otherProps } = this.props;
+            checkStatus, body, footer, showSearch, render, style } = this.props;
 
-    let { searchPlaceholder, notFoundContent, ...restProps } = otherProps;
-
-    // fix https://fb.me/react-unknown-prop
-    const lastProps = omit(restProps, [
-      'handleClear',
-      'handleFilter',
-      'handleSelect',
-      'handleSelectAll',
-    ]);
+    let { searchPlaceholder, notFoundContent } = this.props;
 
     // Custom Layout
     const footerDom = footer({ ...this.props });
@@ -177,7 +168,7 @@ export default class TransferList extends React.Component {
     }
 
     return (
-      <div className={listCls} {...lastProps}>
+      <div className={listCls} style={style}>
         <div className={`${prefixCls}-header`}>
           {this.renderCheckbox({
             prefixCls: 'ant-transfer',
