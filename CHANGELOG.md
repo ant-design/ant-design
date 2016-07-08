@@ -27,7 +27,6 @@ timeline: true
 - 修复 `Steps` 最后一步多余横线隐藏的问题。
 - 修复 `Cascader` small size 样式下沉 1px，以及 hover/click 样式残缺的问题。[#2234](https://github.com/ant-design/ant-design/issues/2234)
 - 修复 `RangePicker` 无清除按钮的问题。[#2252](https://github.com/ant-design/ant-design/issues/2252)
-- 升级 `rc-animate` 依赖，支持 null/undefined chhildren，支持 object 类型的 transitionName。
 
 ## 1.6.3
 
