@@ -34,6 +34,7 @@ const eslintrc = {
     'no-return-assign': 0,
     'max-len': 0,
     'consistent-return': 0,
+    'no-redeclare': 0,
   }
 };
 
