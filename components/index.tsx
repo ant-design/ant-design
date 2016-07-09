@@ -20,3 +20,6 @@ export { Tree };
 
 import Tabs from './tabs';
 export { Tabs }
+
+import Tag from './tag';
+export { Tag }

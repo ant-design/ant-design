@@ -6,12 +6,24 @@ import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 import omit from 'object.omit';
 
-export default class Tag extends React.Component {
+export interface TagProps {
+  /** 标签是否可以关闭*/
+  closable?: boolean,
+  /** 关闭时的回调*/
+  onClose?: Function,
+  /** 动画关闭后的回调*/
+  afterClose?: Function,
+  /** 标签的色彩*/
+  color?: string,
+
+  style?: React.CSSProperties
+}
+export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
-    onClose() {},
-    afterClose() {},
+    onClose() { },
+    afterClose() { },
   }
 
   constructor(props) {
@@ -52,6 +64,7 @@ export default class Tag extends React.Component {
       this.props,
       ['prefixCls', 'closable', 'color','className','children']
     );
+
     const close = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames({
       [prefixCls]: true,
@@ -70,13 +83,13 @@ export default class Tag extends React.Component {
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
         onEnd={this.animationEnd}
-      >
+        >
         {this.state.closed ? null : (
           <div data-show={!this.state.closing} {...divProps} className={classString}>
             <span className={`${prefixCls}-text`}>{children}</span>
             {close}
           </div>
-        )}
+        ) }
       </Animate>
     );
   }
