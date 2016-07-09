@@ -20,6 +20,7 @@ export default class FormItem extends React.Component {
     className: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.node,
+    colon: React.PropTypes.bool
   }
 
   static contextTypes = {
@@ -204,6 +205,7 @@ export default class FormItem extends React.Component {
       'ant-row': true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
+      [`${prefixCls}-no-colon`]: !this.props.colon,
       [`${props.className}`]: !!props.className,
     };
 
