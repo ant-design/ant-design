@@ -17,3 +17,6 @@ export { Transfer };
 
 import Tree from './tree';
 export { Tree };
+
+import Tabs from './tabs';
+export { Tabs }
