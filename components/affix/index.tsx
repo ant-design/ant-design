@@ -4,6 +4,7 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import warning from 'warning';
 import assign from 'object-assign';
+import shallowequal from 'shallowequal';
 
 function getScroll(w, top) {
   let ret = w[`page${top ? 'Y' : 'X'}Offset`];
@@ -61,6 +62,20 @@ export default class Affix extends React.Component<AffixProps, any> {
     };
   }
 
+  setAffixStyle(affixStyle) {
+    const originalAffixStyle = this.state.affixStyle;
+    if (shallowequal(affixStyle, originalAffixStyle)) {
+      return;
+    }
+    this.setState({ affixStyle }, () => {
+      const affixed = !!this.state.affixStyle;
+      if ((affixStyle && !originalAffixStyle) ||
+          (!affixStyle && originalAffixStyle)) {
+        this.props.onChange(affixed);
+      }
+    });
+  }
+
   handleScroll = () => {
     let { offsetTop, offsetBottom, offset } = this.props;
 
@@ -84,33 +99,23 @@ export default class Affix extends React.Component<AffixProps, any> {
 
     if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
       // Fixed Top
-      if (!this.state.affixStyle) {
-        this.setState({
-          affixStyle: {
-            position: 'fixed',
-            top: offsetTop,
-            left: elemOffset.left,
-            width: ReactDOM.findDOMNode(this).offsetWidth,
-          },
-        }, () => this.props.onChange(!!this.state.affixStyle));
-      }
+      this.setAffixStyle({
+        position: 'fixed',
+        top: offsetTop,
+        left: elemOffset.left,
+        width: ReactDOM.findDOMNode(this).offsetWidth,
+      });
     } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
                offsetMode.bottom) {
       // Fixed Bottom
-      if (!this.state.affixStyle) {
-        this.setState({
-          affixStyle: {
-            position: 'fixed',
-            bottom: offsetBottom,
-            left: elemOffset.left,
-            width: ReactDOM.findDOMNode(this).offsetWidth,
-          },
-        }, () => this.props.onChange(!!this.state.affixStyle));
-      }
-    } else if (this.state.affixStyle) {
-      this.setState({
-        affixStyle: null,
-      }, () => this.props.onChange(!!this.state.affixStyle));
+      this.setAffixStyle({
+        position: 'fixed',
+        bottom: offsetBottom,
+        left: elemOffset.left,
+        width: ReactDOM.findDOMNode(this).offsetWidth,
+      });
+    } else {
+      this.setAffixStyle(null);
     }
   }
 
