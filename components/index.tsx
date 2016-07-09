@@ -23,3 +23,6 @@ export { Tabs }
 
 import Tag from './tag';
 export { Tag }
+
+import TimePicker from './time-picker';
+export { TimePicker }
