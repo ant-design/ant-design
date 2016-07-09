@@ -1,6 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import Row from '../row';
+import Col from '../col';
 import { FIELD_META_PROP } from './constants';
 
 export default class FormItem extends React.Component {
@@ -28,16 +30,6 @@ export default class FormItem extends React.Component {
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
-  }
-
-  getLayoutClass(colDef) {
-    if (!colDef) {
-      return '';
-    }
-    const { span, offset } = colDef;
-    const col = span ? `ant-col-${span}` : '';
-    const offsetCol = offset ? ` ant-col-offset-${offset}` : '';
-    return col + offsetCol;
   }
 
   getHelpMsg() {
@@ -133,9 +125,9 @@ export default class FormItem extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <div className={this.getLayoutClass(wrapperCol)} key="wrapper">
+      <Col {...wrapperCol} key="wrapper">
         {children}
-      </div>
+      </Col>
     );
   }
 
@@ -159,7 +151,6 @@ export default class FormItem extends React.Component {
       props.required;
 
     const className = classNames({
-      [this.getLayoutClass(labelCol)]: true,
       [`${props.prefixCls}-item-required`]: required,
     });
 
@@ -170,9 +161,11 @@ export default class FormItem extends React.Component {
     }
 
     return props.label ? (
-      <label htmlFor={props.id || this.getId()} className={className} key="label">
-        {label}
-      </label>
+      <Col {...labelCol}>
+        <label htmlFor={props.id || this.getId()} className={className} key="label">
+          {label}
+        </label>
+      </Col>
     ) : null;
   }
 
@@ -201,16 +194,15 @@ export default class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const style = props.style;
     const itemClassName = {
-      'ant-row': true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
       [`${props.className}`]: !!props.className,
     };
 
     return (
-      <div className={classNames(itemClassName)} style={style}>
+      <Row className={classNames(itemClassName)} style={style}>
         {children}
-      </div>
+      </Row>
     );
   }
 
