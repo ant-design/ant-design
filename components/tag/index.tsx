@@ -52,7 +52,7 @@ export default class Tag extends React.Component {
       this.props,
       ['prefixCls', 'closable', 'color','className','children']
     );
-    const close = closable ? <Icon type="cross" onClick={this.close} /> : '';
+    const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${color}`]: !!color,
@@ -74,7 +74,7 @@ export default class Tag extends React.Component {
         {this.state.closed ? null : (
           <div data-show={!this.state.closing} {...divProps} className={classString}>
             <span className={`${prefixCls}-text`}>{children}</span>
-            {close}
+            {closeIcon}
           </div>
         )}
       </Animate>

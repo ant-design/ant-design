@@ -27,8 +27,10 @@ export default class UploadList extends React.Component {
   }
 
   handlePreview = (file, e) => {
-    e.preventDefault();
-    return this.props.onPreview(file);
+    if (this.props.onPreview) {
+      e.preventDefault();
+      return this.props.onPreview(file);
+    }
   }
 
   componentDidUpdate() {
