@@ -6,6 +6,7 @@ import path from 'path';
 describe('antd dist files', function() {
   const distFilesExisted = fs.existsSync(path.join(process.cwd(), 'dist', 'antd.js'));
   if (!distFilesExisted) {
+    it('empty test case placeholder', () => {});
     return;
   } else {
     jest.unmock('../dist/antd');
