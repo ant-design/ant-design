@@ -26,3 +26,7 @@ export { Tag }
 
 import TimePicker from './time-picker';
 export { TimePicker }
+
+import Timeline from './timeline';
+export { Timeline }
+
