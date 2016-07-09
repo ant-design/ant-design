@@ -30,3 +30,5 @@ export { TimePicker }
 import Timeline from './timeline';
 export { Timeline }
 
+import Tooltip from './tooltip';
+export { Tooltip }
