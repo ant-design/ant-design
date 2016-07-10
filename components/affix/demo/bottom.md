@@ -1,16 +1,24 @@
 ---
 order: 2
-title: 下方固定
+title:
+  zh-CN: 下方固定
+  en-US: Bottom
 ---
 
-固定在屏幕下方
+## zh-CN
+
+固定在屏幕下方。
+
+## en-US
+
+Affix to bottom.
 
 ````jsx
 import { Affix, Button } from 'antd';
 
 ReactDOM.render(
   <Affix offsetBottom={20}>
-    <Button type="primary">固定在距离底部 20px 的位置</Button>
+    <Button type="primary">20px to affix bottom</Button>
   </Affix>
 , mountNode);
 ````
