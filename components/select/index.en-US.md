@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form Control
+type: Form Controls
 title: Select
 ---
 

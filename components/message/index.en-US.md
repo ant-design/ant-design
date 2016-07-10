@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Presentation
+type: Views
 noinstant: true
 english: Message
 ---
