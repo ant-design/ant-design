@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本使用
+title:
+  zh-CN: 基本使用
+  en-US: Basic Usage
 ---
 
+## zh-CN
+
 基本使用。
+
+## en-US
+
+Basic Usage.
 
 ````jsx
 import { Select } from 'antd';
