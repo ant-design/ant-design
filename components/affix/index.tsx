@@ -59,11 +59,15 @@ export default class Affix extends React.Component<AffixProps, any> {
     super(props);
     this.state = {
       affixStyle: null,
+      placeholderStyle: null,
     };
   }
 
-  setAffixStyle(affixStyle) {
+  setAffixStyle(e, affixStyle) {
     const originalAffixStyle = this.state.affixStyle;
+    if (e.type === 'scroll' && originalAffixStyle && affixStyle) {
+      return;
+    }
     if (shallowequal(affixStyle, originalAffixStyle)) {
       return;
     }
@@ -76,7 +80,18 @@ export default class Affix extends React.Component<AffixProps, any> {
     });
   }
 
-  handleScroll = () => {
+  setPlaceholderStyle(e, placeholderStyle) {
+    const originalPlaceholderStyle = this.state.placeholderStyle;
+    if (e.type === 'resize') {
+      return;
+    }
+    if (shallowequal(placeholderStyle, originalPlaceholderStyle)) {
+      return;
+    }
+    this.setState({ placeholderStyle });
+  }
+
+  handleScroll = (e) => {
     let { offsetTop, offsetBottom, offset } = this.props;
 
     // Backwards support
@@ -99,23 +114,32 @@ export default class Affix extends React.Component<AffixProps, any> {
 
     if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
       // Fixed Top
-      this.setAffixStyle({
+      this.setAffixStyle(e, {
         position: 'fixed',
         top: offsetTop,
         left: elemOffset.left,
         width: ReactDOM.findDOMNode(this).offsetWidth,
       });
+      this.setPlaceholderStyle(e, {
+        width: ReactDOM.findDOMNode(this).offsetWidth,
+        height: ReactDOM.findDOMNode(this).offsetHeight,
+      });
     } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
                offsetMode.bottom) {
       // Fixed Bottom
-      this.setAffixStyle({
+      this.setAffixStyle(e, {
         position: 'fixed',
         bottom: offsetBottom,
         left: elemOffset.left,
         width: ReactDOM.findDOMNode(this).offsetWidth,
       });
+      this.setPlaceholderStyle(e, {
+        width: ReactDOM.findDOMNode(this).offsetWidth,
+        height: ReactDOM.findDOMNode(this).offsetHeight,
+      });
     } else {
-      this.setAffixStyle(null);
+      this.setAffixStyle(e, null);
+      this.setPlaceholderStyle(e, null);
     }
   }
 
@@ -144,7 +168,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     delete props.offsetBottom;
 
     return (
-      <div {...props}>
+      <div {...props} style={this.state.placeholderStyle}>
         <div className={className} ref="fixedNode" style={this.state.affixStyle}>
           {this.props.children}
         </div>

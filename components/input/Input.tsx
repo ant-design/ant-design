@@ -157,7 +157,7 @@ export default class Input extends Component {
     });
 
     if ('value' in props) {
-      props.value = fixControlledValue(props.value);
+      otherProps.value = fixControlledValue(props.value);
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
       delete otherProps.defaultValue;

@@ -162,8 +162,8 @@ export default class FormItem extends React.Component {
     }
 
     return props.label ? (
-      <Col {...labelCol}>
-        <label htmlFor={props.id || this.getId()} className={className} key="label">
+      <Col {...labelCol} key="label" className={`${props.prefixCls}-item-label`}>
+        <label htmlFor={props.id || this.getId()} className={className}>
           {label}
         </label>
       </Col>
