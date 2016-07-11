@@ -168,7 +168,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
             <Input {...inputProps}
               placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ant-input ${sizeCls}`}
-              value={null}
+              value=""
               disabled={disabled}
               readOnly
             />
