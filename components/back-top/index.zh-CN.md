@@ -1,7 +1,7 @@
 ---
 category: Components
-chinese: 置顶
 type: Other
+chinese: 置顶
 english: BackTop
 ---
 
@@ -15,6 +15,7 @@ english: BackTop
 ## API
 
 > 有默认样式，距离底部 `50px`，可覆盖。
+
 > 自定义样式宽高不大于 40px * 40px。
 
 | 参数        | 说明           | 类型               | 默认值       |
