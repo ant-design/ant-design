@@ -135,7 +135,7 @@ export default class ScrollNumber extends React.Component {
       className: `${this.props.prefixCls} ${this.props.className}`,
     });
     return createElement(
-      component,
+      this.props.component,
       props,
       this.renderNumberElement()
     );
