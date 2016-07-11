@@ -214,6 +214,12 @@
       table {
         border: 0;
       }
+      .@{table-prefix-cls}-fixed-left {
+        border-right: 1px solid @border-color-split;
+      }
+      .@{table-prefix-cls}-fixed-right {
+        border-left: 1px solid @border-color-split;
+      }
     }
 
     th {
@@ -341,7 +347,7 @@
       width: 17px;
       height: 17px;
       text-align: center;
-      line-height: 15px;
+      line-height: 14px;
       border: 1px solid @border-color-split;
       user-select: none;
       background: #fff;
@@ -422,8 +428,8 @@
     }
   }
 
-  &-fixed-left &-fixed,
-  &-fixed-right &-fixed {
+  &-fixed-header &-fixed-left &-body-outer &-fixed,
+  &-fixed-header &-fixed-right &-body-outer &-fixed {
     border-radius: 0;
   }
 
