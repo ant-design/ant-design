@@ -6,7 +6,7 @@ import warning from 'warning';
 import assign from 'object-assign';
 import shallowequal from 'shallowequal';
 
-function getScroll(w, top) {
+function getScroll(w, top?: boolean) {
   let ret = w[`page${top ? 'Y' : 'X'}Offset`];
   const method = `scroll${top ? 'Top' : 'Left'}`;
   if (typeof ret !== 'number') {
@@ -40,12 +40,20 @@ export interface AffixProps {
   /**
    * 距离窗口顶部达到指定偏移量后触发
    */
-  offsetTop?:number,
-  offsetBottom?:number,
-  style?:React.CSSProperties
+  offsetTop?: number,
+  offset?: number,
+  offsetBottom?: number,
+  style?: React.CSSProperties,
+  onChange?: (affixed?: boolean) => any,
 }
 
 export default class Affix extends React.Component<AffixProps, any> {
+  scrollEvent: any;
+  resizeEvent: any;
+  refs: {
+    fixedNode: any;
+  }
+
   static propTypes = {
     offsetTop: React.PropTypes.number,
     offsetBottom: React.PropTypes.number,
@@ -97,13 +105,18 @@ export default class Affix extends React.Component<AffixProps, any> {
     // Backwards support
     offsetTop = offsetTop || offset;
     const scrollTop = getScroll(window, true);
-    const elemOffset = getOffset(ReactDOM.findDOMNode(this));
+    const affixNode = ReactDOM.findDOMNode(this) as HTMLElement;
+    const fixedNode = ReactDOM.findDOMNode(this.refs.fixedNode) as HTMLElement;
+    const elemOffset = getOffset(affixNode);
     const elemSize = {
-      width: ReactDOM.findDOMNode(this.refs.fixedNode).offsetWidth,
-      height: ReactDOM.findDOMNode(this.refs.fixedNode).offsetHeight,
+      width: fixedNode.offsetWidth,
+      height: fixedNode.offsetHeight,
     };
 
-    const offsetMode = {};
+    const offsetMode = {
+      top: null as boolean,
+      bottom: null as boolean,
+    };
     if (typeof offsetTop !== 'number' && typeof offsetBottom !== 'number') {
       offsetMode.top = true;
       offsetTop = 0;
@@ -118,11 +131,11 @@ export default class Affix extends React.Component<AffixProps, any> {
         position: 'fixed',
         top: offsetTop,
         left: elemOffset.left,
-        width: ReactDOM.findDOMNode(this).offsetWidth,
+        width: affixNode.offsetWidth,
       });
       this.setPlaceholderStyle(e, {
-        width: ReactDOM.findDOMNode(this).offsetWidth,
-        height: ReactDOM.findDOMNode(this).offsetHeight,
+        width: affixNode.offsetWidth,
+        height: affixNode.offsetHeight,
       });
     } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
                offsetMode.bottom) {
@@ -131,11 +144,11 @@ export default class Affix extends React.Component<AffixProps, any> {
         position: 'fixed',
         bottom: offsetBottom,
         left: elemOffset.left,
-        width: ReactDOM.findDOMNode(this).offsetWidth,
+        width: affixNode.offsetWidth,
       });
       this.setPlaceholderStyle(e, {
-        width: ReactDOM.findDOMNode(this).offsetWidth,
-        height: ReactDOM.findDOMNode(this).offsetHeight,
+        width: affixNode.offsetWidth,
+        height: affixNode.offsetHeight,
       });
     } else {
       this.setAffixStyle(e, null);
