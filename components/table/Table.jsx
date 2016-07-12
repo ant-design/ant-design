@@ -634,14 +634,16 @@ export default class Table extends React.Component {
       return null;
     }
     let size = 'default';
-    if (this.state.pagination.size) {
-      size = this.state.pagination.size;
+    const { pagination } = this.state;
+    if (pagination.size) {
+      size = pagination.size;
     } else if (this.props.size === 'middle' || this.props.size === 'small') {
       size = 'small';
     }
-    let total = this.state.pagination.total || this.getLocalData().length;
+    let total = pagination.total || this.getLocalData().length;
     return (total > 0) ?
-      <Pagination {...this.state.pagination}
+      <Pagination
+        {...pagination}
         className={`${this.props.prefixCls}-pagination`}
         onChange={this.handlePageChange}
         total={total}
