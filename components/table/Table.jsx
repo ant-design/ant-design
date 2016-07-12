@@ -552,6 +552,14 @@ export default class Table extends React.Component {
     return column.key || column.dataIndex || index;
   }
 
+  getMaxCurrent(total) {
+    const { current, pageSize } = this.state.pagination;
+    if ((current - 1) * pageSize >= total) {
+      return current - 1;
+    }
+    return current;
+  }
+
   isSortColumn(column) {
     const { sortColumn } = this.state;
     if (!column || !sortColumn) {
@@ -648,6 +656,7 @@ export default class Table extends React.Component {
         onChange={this.handlePageChange}
         total={total}
         size={size}
+        current={this.getMaxCurrent(total)}
         onShowSizeChange={this.handleShowSizeChange}
       /> : null;
   }
@@ -681,8 +690,9 @@ export default class Table extends React.Component {
       current = 1;
     } else {
       pageSize = state.pagination.pageSize;
-      current = state.pagination.current;
+      current = this.getMaxCurrent(state.pagination.total || data.length);
     }
+
     // 分页
     // ---
     // 当数据量少于等于每页数量时，直接设置数据
