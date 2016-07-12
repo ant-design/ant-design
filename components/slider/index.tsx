@@ -5,12 +5,12 @@ export default class Slider extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-slider',
     tipTransitionName: 'zoom-down',
-  }
+  };
 
   render() {
     const [{isIncluded, marks, index, defaultIndex}, others] = splitObject(this.props,
       ['isIncluded', 'marks', 'index', 'defaultIndex']);
-    
+
     if (isIncluded !== undefined) {
       // 兼容 `isIncluded`
       others.included = isIncluded;

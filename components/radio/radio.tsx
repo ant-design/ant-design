@@ -6,7 +6,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 export default class Radio extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-radio',
-  }
+  };
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }

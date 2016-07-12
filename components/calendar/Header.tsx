@@ -14,7 +14,7 @@ export default class Header extends React.Component {
     yearSelectTotal: 20,
     onValueChange: noop,
     onTypeChange: noop,
-  }
+  };
 
   static propTypes = {
     value: PropTypes.object,
@@ -26,7 +26,7 @@ export default class Header extends React.Component {
     prefixCls: PropTypes.string,
     selectPrefixCls: PropTypes.string,
     type: PropTypes.string,
-  }
+  };
 
   getYearSelectElement(year) {
     const { yearSelectOffset, yearSelectTotal, locale, prefixCls, fullscreen } = this.props;

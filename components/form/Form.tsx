@@ -9,7 +9,7 @@ export default class Form extends React.Component {
     onSubmit(e) {
       e.preventDefault();
     },
-  }
+  };
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
@@ -18,11 +18,11 @@ export default class Form extends React.Component {
     form: React.PropTypes.object,
     children: React.PropTypes.any,
     onSubmit: React.PropTypes.func,
-  }
+  };
 
   static childContextTypes = {
     form: React.PropTypes.object,
-  }
+  };
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);

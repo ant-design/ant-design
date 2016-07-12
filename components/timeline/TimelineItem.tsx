@@ -4,18 +4,19 @@ import splitObject from '../_util/splitObject';
 
 // Timeline
 export interface TimeLineItemProps {
-  /** 指定圆圈颜色。*/
-  color?: string,
-  dot?: React.ReactNode,
-  style?: React.CSSProperties
+  /** 指定圆圈颜色 */
+  color?: string;
+  dot?: React.ReactNode;
+  style?: React.CSSProperties;
 }
+
 export default class TimelineItem extends React.Component<TimeLineItemProps, any> {
   static defaultProps = {
     prefixCls: 'ant-timeline',
     color: 'blue',
     last: false,
     pending: false,
-  }
+  };
 
   render() {
     const [{

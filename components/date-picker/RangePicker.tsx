@@ -8,7 +8,7 @@ import Icon from '../icon';
 export default class RangePicker extends React.Component {
   static defaultProps = {
     defaultValue: [],
-  }
+  };
 
   constructor(props) {
     super(props);

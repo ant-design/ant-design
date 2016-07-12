@@ -8,7 +8,7 @@ export default class Steps extends React.Component {
     prefixCls: 'ant-steps',
     iconPrefix: 'ant',
     current: 0,
-  }
+  };
 
   render() {
     return (

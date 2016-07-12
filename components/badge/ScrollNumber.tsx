@@ -20,7 +20,7 @@ export default class ScrollNumber extends React.Component {
     onAnimated() {
     },
     height: 18,
-  }
+  };
 
   static propTypes = {
     count: React.PropTypes.oneOfType([
@@ -30,7 +30,7 @@ export default class ScrollNumber extends React.Component {
     component: React.PropTypes.string,
     onAnimated: React.PropTypes.func,
     height: React.PropTypes.number,
-  }
+  };
 
   constructor(props) {
     super(props);

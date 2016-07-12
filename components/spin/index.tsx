@@ -10,7 +10,7 @@ export default class Spin extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -23,7 +23,7 @@ export default class Spin extends React.Component {
   static propTypes = {
     className: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'default', 'large']),
-  }
+  };
 
   isNestedPattern() {
     return !!(this.props && this.props.children);
@@ -67,7 +67,7 @@ export default class Spin extends React.Component {
   render() {
     const [{
       className, size, prefixCls, tip
-    },restProps] = splitObject(this.props,
+    }, restProps] = splitObject(this.props,
       ['className', 'size', 'prefixCls', 'tip']);
     const { spinning } = this.state;
 

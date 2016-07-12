@@ -8,12 +8,10 @@ export default class Dropdown extends React.Component {
     prefixCls: 'ant-dropdown',
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
-  }
+  };
 
   render() {
-    const [{overlay}, others] = splitObject(this.props,
-      ['overlay']);
-    
+    const [{ overlay }, others] = splitObject(this.props, ['overlay']);
     const menu = React.cloneElement(overlay, {
       openTransitionName: 'zoom-big',
     });

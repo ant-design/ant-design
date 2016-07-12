@@ -72,7 +72,7 @@ export default class Upload extends React.Component {
     showUploadList: true,
     listType: 'text', // or pictrue
     className: '',
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -83,7 +83,9 @@ export default class Upload extends React.Component {
   }
 
   onStart = (file) => {
-    if (this.recentUploadStatus === false) return;
+    if (this.recentUploadStatus === false) {
+      return;
+    }
 
     let targetItem;
     let nextFileList = this.state.fileList.concat();

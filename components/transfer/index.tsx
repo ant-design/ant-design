@@ -3,46 +3,44 @@ import List from './list';
 import Operation from './operation';
 import Search from './search';
 import classNames from 'classnames';
-import assign from 'object-assign';
 
 function noop() {
 }
 
 export interface TransferItem {
-  key:number | string,
-  title:string,
-  description?:string,
-  chosen:boolean,
+  key: number | string;
+  title: string;
+  description?: string;
+  chosen: boolean;
 }
 
 // Transfer
 export interface TransferProps {
-  /** 数据源*/
-  dataSource:Array<TransferItem>,
-  /** 每行数据渲染函数*/
-  render?:(record:TransferItem) => any,
-  /** 显示在右侧框数据的key集合*/
-  targetKeys:Array<string>,
-  /** 变化时回调函数*/
-  onChange?:(targetKeys:Array<TransferItem>, direction:string, moveKeys:any) => void,
-  /** 两个穿梭框的自定义样式*/
-  listStyle?:React.CSSProperties,
+  /** 数据源 */
+  dataSource: Array<TransferItem>;
+  /** 每行数据渲染函数 */
+  render?: (record:TransferItem) => any;
+  /** 显示在右侧框数据的key集合 */
+  targetKeys: Array<string>;
+  /** 变化时回调函数 */
+  onChange?: (targetKeys:Array<TransferItem>, direction:string, moveKeys:any) => void;
+  /** 两个穿梭框的自定义样式 */
+  listStyle?: React.CSSProperties;
   /** 自定义类*/
-  className?:string,
-  /** 标题集合,顺序从左至右*/
-  titles?:Array<string>,
-  /** 操作文案集合,顺序从上至下*/
-  operations?:Array<string>,
-  /** 是否显示搜索框*/
-  showSearch?:boolean,
-  /** 搜索框的默认值*/
-  searchPlaceholder?:string,
-  /** 当列表为空时显示的内容*/
-  notFoundContent?:React.ReactNode | string
-  /** 底部渲染函数*/
-  footer?:(props:any) => any,
-
-  style?:React.CSSProperties
+  className?: string;
+  /** 标题集合,顺序从左至右 */
+  titles?: Array<string>;
+  /** 操作文案集合,顺序从上至下 */
+  operations?: Array<string>;
+  /** 是否显示搜索框 */
+  showSearch?: boolean;
+  /** 搜索框的默认值 */
+  searchPlaceholder?: string;
+  /** 当列表为空时显示的内容 */
+  notFoundContent?: React.ReactNode | string;
+  /** 底部渲染函数 */
+  footer?: (props:any) => any;
+  style?: React.CSSProperties;
 }
 
 export default class Transfer extends React.Component<TransferProps, any> {

@@ -17,7 +17,7 @@ export default class Menu extends React.Component {
     onClose: noop,
     className: '',
     theme: 'light',  // or dark
-  }
+  };
   constructor(props) {
     super(props);
     this.state = {

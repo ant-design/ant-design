@@ -6,7 +6,7 @@ export default class Calendar extends React.Component {
   static defaultProps = {
     locale: CalendarLocale,
     prefixCls: 'ant-calendar',
-  }
+  };
 
   render() {
     return <RcCalendar {...this.props} />;

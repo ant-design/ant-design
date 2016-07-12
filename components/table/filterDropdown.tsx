@@ -9,7 +9,7 @@ export default class FilterMenu extends React.Component {
   static defaultProps = {
     handleFilter() {},
     column: null,
-  }
+  };
 
   constructor(props) {
     super(props);

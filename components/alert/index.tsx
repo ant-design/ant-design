@@ -10,7 +10,7 @@ export default class Alert extends React.Component {
     showIcon: false,
     onClose() {},
     type: 'info',
-  }
+  };
   constructor(props) {
     super(props);
     this.state = {

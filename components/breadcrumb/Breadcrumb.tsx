@@ -19,7 +19,7 @@ export default class Breadcrumb extends React.Component {
     separator: '/',
     linkRender: (href, name) => <a href={`#${href}`}>{name}</a>,
     nameRender: defaultNameRender,
-  }
+  };
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
@@ -31,7 +31,7 @@ export default class Breadcrumb extends React.Component {
     params: React.PropTypes.object,
     linkRender: React.PropTypes.func,
     nameRender: React.PropTypes.func,
-  }
+  };
 
   render() {
     let crumbs;

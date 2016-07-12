@@ -5,7 +5,7 @@ import splitObject from '../_util/splitObject';
 const prefix = 'ant-btn-group-';
 
 export default function ButtonGroup(props) {
-  const [{size, className},others] = splitObject(props, ['size', 'className']);
+  const [{ size, className }, others] = splitObject(props, ['size', 'className']);
 
   // large => lg
   // small => sm

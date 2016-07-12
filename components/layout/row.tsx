@@ -5,7 +5,7 @@ import splitObject from '../_util/splitObject';
 export default class Row extends React.Component {
   static defaultProps = {
     gutter: 0,
-  }
+  };
   static propTypes = {
     type: React.PropTypes.string,
     align: React.PropTypes.string,
@@ -13,10 +13,10 @@ export default class Row extends React.Component {
     className: React.PropTypes.string,
     children: React.PropTypes.node,
     gutter: React.PropTypes.number,
-  }
+  };
   render() {
-    const [{type, justify, align, className, gutter, style, children}, others] = splitObject(this.props,
-      ['type', 'justify','align', 'className','gutter', 'style','children']);
+    const [{ type, justify, align, className, gutter, style, children }, others] = splitObject(this.props,
+      ['type', 'justify', 'align', 'className', 'gutter', 'style', 'children']);
     const classes = classNames({
       'ant-row': !type,
       [`ant-row-${type}`]: type,
@@ -27,9 +27,11 @@ export default class Row extends React.Component {
     const rowStyle = gutter > 0 ? assign({}, {
       marginLeft: gutter / -2,
       marginRight: gutter / -2,
-    },style) : style;
+    }, style) : style;
     const cols = Children.map(children, col => {
-      if (!col) return null;
+      if (!col) {
+        return null;
+      }
 
       return cloneElement(col, {
         style: gutter > 0 ? assign({}, {
