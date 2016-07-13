@@ -17,10 +17,10 @@ export default class DropdownButton extends React.Component {
       targetOffset: [0, 0],
     },
     type: 'default',
-  }
+  };
 
   render() {
-    const [{ type, overlay, trigger, align, children, className, onClick },restProps] = splitObject(this.props, 
+    const [{ type, overlay, trigger, align, children, className, onClick }, restProps] = splitObject(this.props,
       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick']);
     const cls = classNames({
       'ant-dropdown-button': true,

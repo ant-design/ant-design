@@ -40,11 +40,11 @@ export interface AffixProps {
   /**
    * 距离窗口顶部达到指定偏移量后触发
    */
-  offsetTop?: number,
-  offset?: number,
-  offsetBottom?: number,
-  style?: React.CSSProperties,
-  onChange?: (affixed?: boolean) => any,
+  offsetTop?: number;
+  offset?: number;
+  offsetBottom?: number;
+  style?: React.CSSProperties;
+  onChange?: (affixed?: boolean) => any;
 }
 
 export default class Affix extends React.Component<AffixProps, any> {
@@ -52,16 +52,16 @@ export default class Affix extends React.Component<AffixProps, any> {
   resizeEvent: any;
   refs: {
     fixedNode: any;
-  }
+  };
 
   static propTypes = {
     offsetTop: React.PropTypes.number,
     offsetBottom: React.PropTypes.number,
-  }
+  };
 
   static defaultProps = {
     onChange() {},
-  }
+  };
 
   constructor(props) {
     super(props);

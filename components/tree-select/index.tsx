@@ -14,11 +14,11 @@ export default class TreeSelect extends React.Component {
     choiceTransitionName: 'zoom',
     showSearch: false,
     dropdownClassName: 'ant-select-tree-dropdown',
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   render() {
     const props = this.props;

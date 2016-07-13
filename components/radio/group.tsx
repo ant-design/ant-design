@@ -22,7 +22,7 @@ export default class RadioGroup extends React.Component {
     disabled: false,
     onChange() {
     },
-  }
+  };
   constructor(props) {
     super(props);
     let value;

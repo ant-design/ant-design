@@ -5,7 +5,7 @@ import classNames from 'classnames';
 export default class Switch extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-switch',
-  }
+  };
 
   render() {
     const { prefixCls, size, className } = this.props;

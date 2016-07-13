@@ -14,7 +14,7 @@ export default class Popover extends React.Component {
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     overlayStyle: {},
-  }
+  };
 
   render() {
     return (

@@ -91,7 +91,7 @@ const api = {
 };
 
 ['success', 'info', 'warning', 'error'].forEach((type) => {
-  api[type] = (args) => api.open(assign({}, args,{ icon: type }));
+  api[type] = (args) => api.open(assign({}, args, { icon: type }));
 });
 
 api.warn = api.warning;

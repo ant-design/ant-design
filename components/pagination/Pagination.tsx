@@ -9,11 +9,11 @@ export default class Pagination extends React.Component {
     locale: zhCN,
     className: '',
     prefixCls: 'ant-pagination',
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   render() {
     let className = this.props.className;

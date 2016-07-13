@@ -132,7 +132,7 @@
     "pre-deploy": "mkdir -p _site && cp CNAME _site",
     "deploy": "tnpm run clean && tnpm i && tnpm run just-deploy",
     "just-deploy": "tnpm run pre-deploy && bisheng gh-pages -c ./site/bisheng.config.js",
-    "lint": "npm run srclint && npm run demolint && npm run lesshint",
+    "lint": "npm run ts-lint && npm run demolint && npm run lesshint",
     "srclint": "RUN_ENV=SRC eslint test site scripts ./*.js --ext '.js,.jsx'",
     "ts-lint": "antd-tools run ts-lint",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",

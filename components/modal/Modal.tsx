@@ -19,7 +19,7 @@ export default class Modal extends React.Component {
     maskTransitionName: 'fade',
     confirmLoading: false,
     visible: false,
-  }
+  };
 
   static propTypes = {
     prefixCls: PropTypes.string,
@@ -34,11 +34,11 @@ export default class Modal extends React.Component {
     footer: PropTypes.node,
     title: PropTypes.node,
     closable: PropTypes.bool,
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   handleCancel = (e) => {
     this.props.onCancel(e);

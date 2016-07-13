@@ -9,7 +9,7 @@ export default class Badge extends React.Component {
     count: null,
     dot: false,
     overflowCount: 99,
-  }
+  };
 
   static propTypes = {
     count: React.PropTypes.oneOfType([
@@ -18,7 +18,7 @@ export default class Badge extends React.Component {
     ]),
     dot: React.PropTypes.bool,
     overflowCount: React.PropTypes.number,
-  }
+  };
 
   render() {
     let { count, prefixCls, overflowCount, className, style, children, dot } = this.props;

@@ -4,24 +4,22 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
 
 export interface CheckboxOptionType {
-  label:string,
-  value:string,
-  disabled?:boolean
+  label: string;
+  value: string;
+  disabled?: boolean;
 }
 
 export interface CheckboxGroupProps {
-  /** 默认选中的选项*/
-  defaultValue?:Array<string>,
-  /** 指定选中的选项*/
-  value?:Array<string>,
-  /** 指定可选项*/
-  options?:Array<CheckboxOptionType> | Array<string>,
-  /** 变化时回调函数*/
-  onChange?:(checkedValue:Array<string>) => void,
-
-  disabled?:boolean,
-
-  style?:React.CSSProperties
+  /** 默认选中的选项 */
+  defaultValue?: Array<string>;
+  /** 指定选中的选项 */
+  value?: Array<string>;
+  /** 指定可选项 */
+  options?: Array<CheckboxOptionType> | Array<string>;
+  /** 变化时回调函数 */
+  onChange?: (checkedValue: Array<string>) => void;
+  disabled?: boolean;
+  style?: React.CSSProperties;
 }
 
 export interface CheckboxGroupState {
@@ -33,13 +31,13 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     options: [],
     defaultValue: [],
     onChange() {},
-  }
+  };
   static propTypes = {
     defaultValue: React.PropTypes.array,
     value: React.PropTypes.array,
     options: React.PropTypes.array.isRequired,
     onChange: React.PropTypes.func,
-  }
+  };
   constructor(props) {
     super(props);
     let value;

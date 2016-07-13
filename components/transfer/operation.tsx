@@ -6,13 +6,13 @@ function noop() {
 }
 
 export interface TransferOperationProps {
-  className?: string,
-  leftArrowText?: string,
-  rightArrowText?: string,
-  moveToLeft?: Function,
-  moveToRight?: Function,
-  leftActive?: boolean,
-  rightActive?: boolean
+  className?: string;
+  leftArrowText?: string;
+  rightArrowText?: string;
+  moveToLeft?: Function;
+  moveToRight?: Function;
+  leftActive?: boolean;
+  rightActive?: boolean;
 }
 
 export default class TransferOperation extends React.Component<TransferOperationProps, any> {
@@ -21,7 +21,7 @@ export default class TransferOperation extends React.Component<TransferOperation
     rightArrowText: '',
     moveToLeft: noop,
     moveToRight: noop,
-  }
+  };
 
   render() {
     const {

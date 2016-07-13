@@ -17,11 +17,11 @@ export default class Popconfirm extends React.Component {
     onConfirm: noop,
     onCancel: noop,
     onVisibleChange: noop,
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -58,7 +58,7 @@ export default class Popconfirm extends React.Component {
   }
 
   render() {
-    const [{ title, placement, overlayStyle, trigger },restProps] = splitObject(this.props,
+    const [{ title, placement, overlayStyle, trigger }, restProps] = splitObject(this.props,
       ['title', 'placement', 'overlayStyle', 'trigger']);
     let { okText, cancelText } = this.props;
     if (this.context.antLocale && this.context.antLocale.Popconfirm) {

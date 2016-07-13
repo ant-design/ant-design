@@ -16,32 +16,32 @@ export function isRenderResultPlainObject(result) {
 }
 
 export interface TransferListProps {
-    prefixCls?: string,
-    /** 数据源 */
-    dataSource: Array<TransferItem>,
-    filter?: TransferItem,
-     /** 是否显示搜索框 */
-    showSearch?: boolean,
-     /** 搜索框的默认值 */
-    searchPlaceholder?: string,
-     /** 标题 */
-    titleText?: string,
-    style?: React.CSSProperties,
-    handleFilter?: Function,
-    handleSelect?: Function,
-    handleSelectAll?: Function,
-    handleClear?: Function,
-     /** 每行渲染函数 */
-    render?: Function,
-     /** 主体渲染函数 */
-    body?: Function,
-     /** 底部渲染函数 */
-    footer?: Function,
-     /** 选中项 */
-    checkedKeys?: Array<TransferItem>;
-    checkStatus?: boolean,
-    position?: string,
-    notFoundContent?: React.ReactNode | string,
+  prefixCls?: string;
+  /** 数据源 */
+  dataSource: Array<TransferItem>;
+  filter?: TransferItem;
+  /** 是否显示搜索框 */
+  showSearch?: boolean;
+  /** 搜索框的默认值 */
+  searchPlaceholder?: string;
+  /** 标题 */
+  titleText?: string;
+  style?: React.CSSProperties;
+  handleFilter?: Function;
+  handleSelect?: Function;
+  handleSelectAll?: Function;
+  handleClear?: Function;
+  /** 每行渲染函数 */
+  render?: Function;
+  /** 主体渲染函数 */
+  body?: Function;
+  /** 底部渲染函数 */
+  footer?: Function;
+  /** 选中项 */
+  checkedKeys?: Array<TransferItem>;
+  checkStatus?: boolean;
+  position?: string;
+  notFoundContent?: React.ReactNode | string;
 }
 
 export default class TransferList extends React.Component<TransferListProps, any> {

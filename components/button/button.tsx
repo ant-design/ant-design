@@ -29,7 +29,7 @@ export default class Button extends React.Component {
     prefixCls: 'ant-btn',
     onClick() {},
     loading: false,
-  }
+  };
 
   static propTypes = {
     type: React.PropTypes.string,
@@ -40,7 +40,7 @@ export default class Button extends React.Component {
     loading: React.PropTypes.bool,
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
-  }
+  };
 
   componentWillUnmount() {
     if (this.clickedTimeout) {
@@ -76,8 +76,8 @@ export default class Button extends React.Component {
 
   render() {
     const props = this.props;
-    const [{type, shape, size, className, htmlType, children, icon, loading, prefixCls}, others] = splitObject(props,
-      ['type', 'shape','size', 'className','htmlType', 'children','icon','loading','prefixCls']);
+    const [{ type, shape, size, className, htmlType, children, icon, loading, prefixCls }, others] = splitObject(props,
+      ['type', 'shape', 'size', 'className', 'htmlType', 'children', 'icon', 'loading', 'prefixCls']);
 
     // large => lg
     // small => sm

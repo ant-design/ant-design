@@ -9,7 +9,7 @@ export default class FormItem extends React.Component {
   static defaultProps = {
     hasFeedback: false,
     prefixCls: 'ant-form',
-  }
+  };
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
@@ -23,11 +23,11 @@ export default class FormItem extends React.Component {
     id: React.PropTypes.string,
     children: React.PropTypes.node,
     colon: React.PropTypes.bool
-  }
+  };
 
   static contextTypes = {
     form: React.PropTypes.object,
-  }
+  };
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);

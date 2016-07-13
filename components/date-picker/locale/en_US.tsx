@@ -7,7 +7,7 @@ const locale = assign({}, GregorianCalendarLocale);
 locale.lang = assign({
   placeholder: 'Select date',
   rangePlaceholder: ['Start date', 'End date'],
-},CalendarLocale);
+}, CalendarLocale);
 
 locale.timePickerLocale = assign({}, TimePickerLocale);
 

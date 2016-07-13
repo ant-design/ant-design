@@ -6,17 +6,18 @@ import getPlacements from '../popover/placements';
 const placements = getPlacements({
   verticalArrowShift: 8,
 });
+
 type PopoverPlacement = 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom'
 
 // Tooltip
 export interface TooltipProps {
   /** 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom`*/
-  placement?: PopoverPlacement,
-  /** 提示文字*/
-  title?: string | React.ReactNode,
-
-  style?: React.CSSProperties
+  placement?: PopoverPlacement;
+  /** 提示文字 */
+  title?: string | React.ReactNode;
+  style?: React.CSSProperties;
 }
+
 export default class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
@@ -24,8 +25,8 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     transitionName: 'zoom-big',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    onVisibleChange() { },
-  }
+    onVisibleChange() {},
+  };
 
   constructor(props) {
     super(props);

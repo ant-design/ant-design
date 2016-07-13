@@ -44,7 +44,7 @@ export default class Table extends React.Component {
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
-  }
+  };
 
   static defaultProps = {
     dataSource: [],
@@ -58,11 +58,11 @@ export default class Table extends React.Component {
     indentSize: 20,
     onChange: noop,
     locale: {},
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -730,8 +730,7 @@ export default class Table extends React.Component {
   render() {
     const [{
       style, className
-    },restProps] = splitObject(this.props,
-      ['style', 'className']);
+    }, restProps] = splitObject(this.props, ['style', 'className']);
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;

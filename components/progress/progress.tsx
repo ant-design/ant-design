@@ -17,7 +17,7 @@ export default class Line extends React.Component {
     showInfo: true,
     trailColor: '#f3f3f3',
     prefixCls: 'ant-progress',
-  }
+  };
 
   static propTypes = {
     status: PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
@@ -28,13 +28,13 @@ export default class Line extends React.Component {
     strokeWidth: PropTypes.number,
     trailColor: PropTypes.string,
     format: PropTypes.func,
-  }
+  };
 
   render() {
     const [{
       prefixCls, status, format, percent, trailColor,
       type, strokeWidth, width, className, showInfo
-    },restProps] = splitObject(this.props,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'status', 'format', 'percent', 'trailColor', 'type', 'strokeWidth', 'width',
         'className', 'showInfo']);
     const progressStatus = (parseInt(percent, 10) >= 100 && !('status' in this.props))

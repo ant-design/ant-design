@@ -35,7 +35,7 @@ export default class Input extends Component {
     onPressEnter() {},
     onKeyDown() {},
     autosize: false,
-  }
+  };
 
   static propTypes = {
     type: PropTypes.string,
@@ -54,7 +54,7 @@ export default class Input extends Component {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
-  }
+  };
 
   constructor(props) {
     super(props);

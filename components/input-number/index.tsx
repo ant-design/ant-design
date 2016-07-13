@@ -7,11 +7,11 @@ export default class InputNumber extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-input-number',
     step: 1,
-  }
+  };
 
   render() {
-    const [{className, size}, others] = splitObject(this.props,
-      ['size','className']);
+    const [{ className, size }, others] = splitObject(this.props,
+      ['size', 'className']);
     const inputNumberClass = classNames({
       [`${this.props.prefixCls}-lg`]: size === 'large',
       [`${this.props.prefixCls}-sm`]: size === 'small',

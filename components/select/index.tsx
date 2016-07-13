@@ -11,11 +11,11 @@ export default class Select extends React.Component {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
     showSearch: false,
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   render() {
     let {

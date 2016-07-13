@@ -5,9 +5,10 @@ import assign from 'object-assign';
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 import splitObject from '../_util/splitObject';
+
 export default function Col(props) {
-  const [{span, order, offset, push, pull, className, children}, others] = splitObject(props,
-    ['span', 'order','offset', 'push','pull', 'className','children']);
+  const [{ span, order, offset, push, pull, className, children }, others] = splitObject(props,
+    ['span', 'order', 'offset', 'push', 'pull', 'className', 'children']);
   let sizeClassObj = {};
   ['xs', 'sm', 'md', 'lg'].forEach(size => {
     let sizeProps = {};
@@ -16,7 +17,7 @@ export default function Col(props) {
     } else if (typeof props[size] === 'object') {
       sizeProps = props[size] || {};
     }
-    
+
     delete others[size];
 
     sizeClassObj = assign({}, sizeClassObj, {
@@ -34,7 +35,7 @@ export default function Col(props) {
     [`ant-col-push-${push}`]: push,
     [`ant-col-pull-${pull}`]: pull,
     [className]: !!className,
-  },sizeClassObj));
+  }, sizeClassObj));
 
   return <div {...others} className={classes}>{children}</div>;
 }

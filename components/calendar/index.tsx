@@ -10,7 +10,9 @@ import assign from 'object-assign';
 function noop() { return null; }
 
 function zerofixed(v) {
-  if (v < 10) return `0${v}`;
+  if (v < 10) {
+    return `0${v}`;
+  }
   return `${v}`;
 }
 
@@ -23,7 +25,7 @@ export default class Calendar extends React.Component {
     prefixCls: PREFIX_CLS,
     onPanelChange: noop,
     mode: 'month',
-  }
+  };
 
   static propTypes = {
     monthCellRender: PropTypes.func,
@@ -35,11 +37,11 @@ export default class Calendar extends React.Component {
     style: PropTypes.object,
     onPanelChange: PropTypes.func,
     value: PropTypes.instanceOf(Date),
-  }
+  };
 
   static contextTypes = {
     antLocale: PropTypes.object,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -72,7 +74,7 @@ export default class Calendar extends React.Component {
     }
     // 统一合并为完整的 Locale
     const result = assign({}, locale, props.locale);
-    result.lang = assign({}, locale.lang,props.locale.lang);
+    result.lang = assign({}, locale.lang, props.locale.lang);
     return result;
   }
 
