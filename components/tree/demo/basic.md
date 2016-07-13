@@ -31,7 +31,7 @@ const Demo = React.createClass({
   },
   render() {
     return (
-      <Tree className="myCls" showLine multiple checkable
+      <Tree className="myCls" showLine checkable
         defaultExpandedKeys={this.state.defaultExpandedKeys}
         defaultSelectedKeys={this.state.defaultSelectedKeys}
         defaultCheckedKeys={this.state.defaultCheckedKeys}

@@ -99,7 +99,9 @@ const Demo = React.createClass({
       return <TreeNode key={item.key} title={item.key} />;
     });
     return (
-      <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
+      <Tree
+        defaultExpandedKeys={this.state.expandedKeys}
+        draggable
         onDragEnter={this.onDragEnter}
         onDrop={this.onDrop}
       >
