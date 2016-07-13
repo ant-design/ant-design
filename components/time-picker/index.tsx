@@ -21,7 +21,7 @@ export interface TimePickerProps {
   /** 没有值的时候显示的内容 */
   placeholder?: string;
   /** 国际化配置 */
-  locale?: Object;
+  locale?: {};
   /** 隐藏禁止选择的选项 */
   hideDisabledOptions?: boolean;
   /** 禁止选择部分小时选项 */

@@ -27,16 +27,16 @@ export interface TransferListProps {
   /** 标题 */
   titleText?: string;
   style?: React.CSSProperties;
-  handleFilter?: Function;
-  handleSelect?: Function;
-  handleSelectAll?: Function;
-  handleClear?: Function;
+  handleFilter?: () => void;
+  handleSelect?: () => void;
+  handleSelectAll?: () => void;
+  handleClear?: () => void;
   /** 每行渲染函数 */
-  render?: Function;
+  render?: () => void;
   /** 主体渲染函数 */
-  body?: Function;
+  body?: () => void;
   /** 底部渲染函数 */
-  footer?: Function;
+  footer?: () => void;
   /** 选中项 */
   checkedKeys?: Array<TransferItem>;
   checkStatus?: boolean;
