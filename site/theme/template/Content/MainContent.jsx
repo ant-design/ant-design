@@ -17,8 +17,14 @@ export default class MainContent extends React.Component {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     } else {
-      location.hash = location.hash;
+      this.timer = setTimeout(() => {
+        document.getElementById(location.hash.replace('#', '')).scrollIntoView();
+      }, 10);
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
   }
 
   shouldComponentUpdate(nextProps) {
