@@ -8,6 +8,7 @@ export interface TimelineProps {
   pending?: boolean | React.ReactNode;
   style?: React.CSSProperties;
 }
+
 export default class Timeline extends React.Component<TimelineProps, any> {
   static defaultProps = {
     prefixCls: 'ant-timeline',
@@ -15,7 +16,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
 
   render() {
     const [{
-      prefixCls, children, pending, className
+      prefixCls, children, pending, className,
     }, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'pending', 'className']);
     const pendingNode = typeof pending === 'boolean' ? null : pending;

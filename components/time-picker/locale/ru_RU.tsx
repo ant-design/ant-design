@@ -8,4 +8,3 @@ const locale = assign({}, {
 }, TimepickerLocale);
 
 export default locale;
-

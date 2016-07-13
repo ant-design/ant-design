@@ -729,7 +729,7 @@ export default class Table extends React.Component {
 
   render() {
     const [{
-      style, className
+      style, className,
     }, restProps] = splitObject(this.props, ['style', 'className']);
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();

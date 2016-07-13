@@ -1,11 +1,7 @@
 import RcTabs from 'rc-tabs';
-// import React, { cloneElement } from 'react';
 import * as React from 'react';
-
-const {cloneElement} = React;
-
+const { cloneElement } = React;
 import classNames from 'classnames';
-
 import Icon from '../icon';
 
 type TabsType = 'line' | 'card' | 'editable-card'
@@ -36,12 +32,10 @@ export interface TabsProps {
   style?: React.CSSProperties;
 }
 
-
 // Tabs
 export interface TabPaneProps {
-  /** 选项卡头显示文字*/
+  /** 选项卡头显示文字 */
   tab: React.ReactNode | string;
-
   style?: React.CSSProperties;
 }
 

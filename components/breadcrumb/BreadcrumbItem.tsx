@@ -17,7 +17,9 @@ export default class BreadcrumbItem extends React.Component {
   };
 
   render() {
-    const [{ prefixCls, separator, children }, restProps] = splitObject(this.props, ['prefixCls', 'separator', 'children']);
+    const [{ prefixCls, separator, children }, restProps] = splitObject(
+      this.props, ['prefixCls', 'separator', 'children']
+    );
     let link;
     if ('href' in this.props) {
       link = <a className={`${prefixCls}-link`} {...restProps}>{children}</a>;

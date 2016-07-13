@@ -29,9 +29,9 @@ export interface TreeNodeMouseEvent {
 
 export interface TreeProps {
   showLine?: boolean;
-  className?:string;
+  className?: string;
   /** 是否支持多选 */
-  multiple?:boolean;
+  multiple?: boolean;
   /**是否自动展开父节点 */
   autoExpandParent?: boolean;
   /**checkable状态下节点选择完全受控（父子节点选中状态不再关联）*/
@@ -53,7 +53,7 @@ export interface TreeProps {
   /** 默认选中的树节点 */
   defaultSelectedKeys?: Array<string>;
   /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: Array<string>, {node: TreeNode, expanded: boolean}) => void | PromiseLike<any>;
+  onExpand?: (expandedKeys: Array<string>, info: { node: TreeNode, expanded: boolean }) => void | PromiseLike<any>;
   /** 点击复选框触发 */
   onCheck?: (checkedKeys: Array<string>, e: TreeNodeEvent) => void;
   /** 点击树节点触发 */
@@ -67,15 +67,15 @@ export interface TreeProps {
   /** 设置节点可拖拽（IE>8）*/
   draggable?: boolean;
   /** 开始拖拽时调用 */
-  onDragStart?: (options:TreeNodeMouseEvent) => void;
+  onDragStart?: (options: TreeNodeMouseEvent) => void;
   /** dragenter 触发时调用 */
-  onDragEnter?: (options:TreeNodeMouseEvent) => void;
+  onDragEnter?: (options: TreeNodeMouseEvent) => void;
   /** dragover 触发时调用 */
-  onDragOver?: (options:TreeNodeMouseEvent) => void;
+  onDragOver?: (options: TreeNodeMouseEvent) => void;
   /** dragleave 触发时调用 */
-  onDragLeave?: (options:TreeNodeMouseEvent) => void;
+  onDragLeave?: (options: TreeNodeMouseEvent) => void;
   /** drop 触发时调用 */
-  onDrop?: (options:TreeNodeMouseEvent) => void;
+  onDrop?: (options: TreeNodeMouseEvent) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
 }

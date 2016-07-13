@@ -4,7 +4,7 @@ import splitObject from '../_util/splitObject';
 export default props => {
   const [{
     prefixCls = 'ant-card', className, extra, bodyStyle,
-    title, loading, bordered = true
+    title, loading, bordered = true,
   }, others] = splitObject(props,
     ['prefixCls', 'className', 'children', 'extra', 'bodyStyle', 'title', 'loading', 'bordered']);
   let children = props.children;

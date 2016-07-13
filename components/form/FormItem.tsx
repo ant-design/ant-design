@@ -22,7 +22,7 @@ export default class FormItem extends React.Component {
     className: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.node,
-    colon: React.PropTypes.bool
+    colon: React.PropTypes.bool,
   };
 
   static contextTypes = {

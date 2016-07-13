@@ -26,7 +26,9 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {
-    const [{ prefixCls, style, children, className }, restProps] = splitObject(this.props, ['prefixCls', 'style', 'children', 'className']);
+    const [{ prefixCls, style, children, className }, restProps] = splitObject(
+      this.props, ['prefixCls', 'style', 'children', 'className']
+    );
     const classString = classNames({
       [className]: !!className,
       [`${prefixCls}-wrapper`]: true,

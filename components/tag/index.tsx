@@ -61,7 +61,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
   render() {
     const [{
-      prefixCls, closable, color, className, children
+      prefixCls, closable, color, className, children,
     }, otherProps] = splitObject(
       this.props,
       ['prefixCls', 'closable', 'color', 'className', 'children']

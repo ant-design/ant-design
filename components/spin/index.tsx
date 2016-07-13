@@ -12,6 +12,11 @@ export default class Spin extends React.Component {
     spinning: true,
   };
 
+  static propTypes = {
+    className: React.PropTypes.string,
+    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+  };
+
   constructor(props) {
     super(props);
     const spinning = this.getSpinning(props);
@@ -19,11 +24,6 @@ export default class Spin extends React.Component {
       spinning,
     };
   }
-
-  static propTypes = {
-    className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
-  };
 
   isNestedPattern() {
     return !!(this.props && this.props.children);
@@ -66,7 +66,7 @@ export default class Spin extends React.Component {
 
   render() {
     const [{
-      className, size, prefixCls, tip
+      className, size, prefixCls, tip,
     }, restProps] = splitObject(this.props,
       ['className', 'size', 'prefixCls', 'tip']);
     const { spinning } = this.state;

@@ -33,7 +33,7 @@ export default class Line extends React.Component {
   render() {
     const [{
       prefixCls, status, format, percent, trailColor,
-      type, strokeWidth, width, className, showInfo
+      type, strokeWidth, width, className, showInfo,
     }, restProps] = splitObject(this.props,
       ['prefixCls', 'status', 'format', 'percent', 'trailColor', 'type', 'strokeWidth', 'width',
         'className', 'showInfo']);

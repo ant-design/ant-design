@@ -20,7 +20,7 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
 
   render() {
     const [{
-      prefixCls, color, last, children, pending, className, dot
+      prefixCls, color, last, children, pending, className, dot,
     }, restProps] = splitObject(this.props,
       ['prefixCls', 'color', 'last', 'children', 'pending', 'className', 'dot']);
 

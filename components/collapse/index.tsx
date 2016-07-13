@@ -6,9 +6,9 @@ export interface CollapseProps {
   /** 初始化选中面板的key */
   defaultActiveKey?: Array<string>;
   /** accordion 为 true 的时候，一次只可以打开一个面板 */
-  accordion?:boolean;
+  accordion?: boolean;
   /** 切换面板的回调 */
-  onChange?: (key:string) => void;
+  onChange?: (key: string) => void;
   style?: React.CSSProperties;
 }
 

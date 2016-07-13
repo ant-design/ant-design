@@ -32,4 +32,3 @@ export { Timeline }
 
 import Tooltip from './tooltip';
 export { Tooltip }
-

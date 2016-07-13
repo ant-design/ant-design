@@ -19,11 +19,11 @@ export interface TransferProps {
   /** 数据源 */
   dataSource: Array<TransferItem>;
   /** 每行数据渲染函数 */
-  render?: (record:TransferItem) => any;
+  render?: (record: TransferItem) => any;
   /** 显示在右侧框数据的key集合 */
   targetKeys: Array<string>;
   /** 变化时回调函数 */
-  onChange?: (targetKeys:Array<TransferItem>, direction:string, moveKeys:any) => void;
+  onChange?: (targetKeys: Array<TransferItem>, direction: string, moveKeys: any) => void;
   /** 两个穿梭框的自定义样式 */
   listStyle?: React.CSSProperties;
   /** 自定义类*/
@@ -39,7 +39,7 @@ export interface TransferProps {
   /** 当列表为空时显示的内容 */
   notFoundContent?: React.ReactNode | string;
   /** 底部渲染函数 */
-  footer?: (props:any) => any;
+  footer?: (props: any) => any;
   style?: React.CSSProperties;
 }
 

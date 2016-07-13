@@ -33,7 +33,7 @@ export interface CarouselProps {
   /** 切换面板的回调 */
   beforeChange?: (from: number, to: number) => void;
   /** 切换面板的回调 */
-  afterChange?: (current:number) => void;
+  afterChange?: (current: number) => void;
   /** 行内样式 */
   style?: React.CSSProperties;
 }

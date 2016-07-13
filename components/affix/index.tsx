@@ -48,12 +48,6 @@ export interface AffixProps {
 }
 
 export default class Affix extends React.Component<AffixProps, any> {
-  scrollEvent: any;
-  resizeEvent: any;
-  refs: {
-    fixedNode: any;
-  };
-
   static propTypes = {
     offsetTop: React.PropTypes.number,
     offsetBottom: React.PropTypes.number,
@@ -61,6 +55,12 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   static defaultProps = {
     onChange() {},
+  };
+
+  scrollEvent: any;
+  resizeEvent: any;
+  refs: {
+    fixedNode: any;
   };
 
   constructor(props) {

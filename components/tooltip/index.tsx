@@ -7,11 +7,17 @@ const placements = getPlacements({
   verticalArrowShift: 8,
 });
 
-type PopoverPlacement = 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom'
+type PopoverPlacement =
+  'top' | 'left' | 'right' | 'bottom' | 'topLeft' |
+  'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' |
+  'leftBottom' | 'rightTop' | 'rightBottom'
 
 // Tooltip
 export interface TooltipProps {
-  /** 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom`*/
+  /**
+    气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft`
+    `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom`
+  */
   placement?: PopoverPlacement;
   /** 提示文字 */
   title?: string | React.ReactNode;
