@@ -24,7 +24,26 @@ function insertSpace(child) {
   return child;
 }
 
-export default class Button extends React.Component {
+type ButtonType = 'primary' | 'ghost' | 'dashed'
+type ButtonShape = 'circle' | 'circle-outline'
+type ButtonSize = 'small' | 'large'
+
+interface ButtonProps {
+  type?: ButtonType;
+  htmlType?: string;
+  icon?: string;
+  shape?: ButtonShape;
+  size?: ButtonSize;
+  onClick?: React.FormEventHandler;
+  loading?: boolean;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  prefixCls?: string;
+}
+
+export default class Button extends React.Component<ButtonProps, any> {
+  static Group: any;
+
   static defaultProps = {
     prefixCls: 'ant-btn',
     onClick() {},
@@ -42,6 +61,9 @@ export default class Button extends React.Component {
     icon: React.PropTypes.string,
   };
 
+  timeout: any;
+  clickedTimeout: any;
+
   componentWillUnmount() {
     if (this.clickedTimeout) {
       clearTimeout(this.clickedTimeout);
@@ -55,7 +77,7 @@ export default class Button extends React.Component {
     button.className = button.className.replace(` ${this.props.prefixCls}-clicked`, '');
   }
 
-  handleClick = (...args) => {
+  handleClick = (e) => {
     // Add click effect
     const buttonNode = findDOMNode(this);
     this.clearButton(buttonNode);
@@ -63,12 +85,12 @@ export default class Button extends React.Component {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 
-    this.props.onClick(...args);
+    this.props.onClick(e);
   }
 
   // Handle auto focus when click button in Chrome
   handleMouseUp = (e) => {
-    findDOMNode(this).blur();
+    (findDOMNode(this) as HTMLElement).blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(e);
     }

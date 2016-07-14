@@ -1,4 +1,5 @@
-import React, {createElement} from 'react';
+import * as React from 'react';
+import { createElement, Component } from 'react';
 import {findDOMNode} from 'react-dom';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import assign from 'object-assign';
@@ -12,7 +13,7 @@ function getNumberArray(num) {
       .map(i => Number(i)) : [];
 }
 
-export default class ScrollNumber extends React.Component {
+export default class ScrollNumber extends Component<any, any> {
   static defaultProps = {
     prefixCls: 'ant-scroll-number',
     count: null,
@@ -31,6 +32,8 @@ export default class ScrollNumber extends React.Component {
     onAnimated: React.PropTypes.func,
     height: React.PropTypes.number,
   };
+
+  lastCount: any;
 
   constructor(props) {
     super(props);

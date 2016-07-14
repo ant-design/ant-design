@@ -20,17 +20,21 @@ function getScroll(w, top) {
   return ret;
 }
 
-export default class BackTop extends React.Component {
+interface BackTopProps {
+  visibilityHeight?: number;
+  onClick?: (event) => void;
+  prefixCls?: string;
+  className?: string;
+}
 
-  static propTypes = {
-    visibilityHeight: React.PropTypes.number,
-  }
-
+export default class BackTop extends React.Component<BackTopProps, any> {
   static defaultProps = {
     onClick() {},
     visibilityHeight: 400,
     prefixCls: 'ant-back-top',
-  }
+  };
+
+  scrollEvent: any;
 
   constructor(props) {
     super(props);
@@ -41,7 +45,9 @@ export default class BackTop extends React.Component {
   }
 
   scrollToTop = (e) => {
-    if (e) e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     this.setScrollTop(0);
     this.props.onClick(e);
   }
@@ -69,7 +75,7 @@ export default class BackTop extends React.Component {
   }
 
   render() {
-    const { prefixCls, className, children, ...otherProps } = this.props;
+    const { prefixCls, className, children } = this.props;
     const classString = classNames({
       [prefixCls]: true,
       [className]: !!className,
@@ -86,7 +92,10 @@ export default class BackTop extends React.Component {
     };
 
     // fix https://fb.me/react-unknown-prop
-    const divProps = omit(otherProps, [
+    const divProps = omit(this.props, [
+      'prefixCls',
+      'className',
+      'children',
       'visibilityHeight',
     ]);
 

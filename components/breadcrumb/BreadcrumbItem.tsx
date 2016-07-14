@@ -1,7 +1,12 @@
 import * as React from 'react';
 import splitObject from '../_util/splitObject';
 
-export default class BreadcrumbItem extends React.Component {
+interface BreadcrumbItemProps {
+  separator?: React.ReactNode;
+  href?: string;
+}
+
+export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps, any> {
   static defaultProps = {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
