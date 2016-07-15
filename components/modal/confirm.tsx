@@ -6,6 +6,7 @@ import Button from '../button';
 import classNames from 'classnames';
 import { getConfirmLocale } from './locale';
 import assign from 'object-assign';
+
 export default function confirm(config) {
   const props = assign({}, config);
   let div = document.createElement('div');
