@@ -28,5 +28,5 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 | routes    | The routing stack information of router | Array             |         | -      |
 | params    | Routing parameter                        | Object            |         | -      |
 | separator | Custom separator                      | String or Element |         | '/'    |
-| linkRender | Custom link function，and react-router configuration | Function(href, name) |         | -    |
-| nameRender | Custom link function，and react-router configuration | Function(name) |         | -    |
+| linkRender | Custom link function，and react-router configuration | Function(href, name, paths) |         | -    |
+| nameRender | Custom link function，and react-router configuration | Function(breadcrumbName, route, params) |         | -    |

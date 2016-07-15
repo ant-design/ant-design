@@ -1,10 +1,31 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
-export default class Alert extends React.Component {
+interface AlertProps {
+  /**
+   * Type of Alert styles, options:`success`, `info`, `warning`, `error`
+   */
+  type: 'success' | 'info' | 'warning' | 'error';
+  /** Whether Alert can be closed */
+  closable?: boolean;
+  /** Close text to show */
+  closeText?: React.ReactNode;
+  /** Content of Alert */
+  message: React.ReactNode;
+  /** Additional content of Alert */
+  description?: React.ReactNode;
+  /** Callback when close Alert */
+  onClose?: (event) => void;
+  /** Whether to show icon */
+  showIcon?: boolean;
+  style?: React.CSSProperties;
+  prefixCls?: string;
+}
+
+export default class Alert extends React.Component<AlertProps, any> {
   static defaultProps = {
     prefixCls: 'ant-alert',
     showIcon: false,
@@ -20,7 +41,7 @@ export default class Alert extends React.Component {
   }
   handleClose = (e) => {
     e.preventDefault();
-    let dom = ReactDOM.findDOMNode(this);
+    let dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.height = `${dom.offsetHeight}px`;
     // Magic code
     // 重复一次后才能正确设置 height

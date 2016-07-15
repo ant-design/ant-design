@@ -3,7 +3,19 @@ import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 
-export default class Badge extends React.Component {
+interface BadgeProps {
+  /** Number to show in badge */
+  count: number | string;
+  /** Max count to show */
+  overflowCount?: number;
+  /** whether to show red dot without number */
+  dot?: boolean;
+  style?: React.CSSProperties;
+  prefixCls?: string;
+  className?: string;
+}
+
+export default class Badge extends React.Component<BadgeProps, any> {
   static defaultProps = {
     prefixCls: 'ant-badge',
     count: null,
