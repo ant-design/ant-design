@@ -28,13 +28,12 @@ english: DatePicker
 | defaultValue | 默认日期       | string or Date   | 无           |
 | format       | 展示的日期格式，配置参考 [GregorianCalendarFormat](https://github.com/yiminghe/gregorian-calendar-format) | string   | "yyyy-MM-dd" |
 | disabledDate | 不可选择的日期 | function | 无           |
-| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date, dateString) | 无           |
+| onChange     | 时间发生变化的回调 | function(date, dateString) | 无           |
 | disabled     | 禁用           | bool     | false        |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
 | locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
-| onOk         | 点击确定按钮的回调 | function(Date value) | 无 |
 | toggleOpen   | 弹出日历和关闭日历的回调 | function(status) | 无 |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |

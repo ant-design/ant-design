@@ -59,6 +59,19 @@ export default function createPicker(TheCalendar) {
         'ant-calendar-month': MonthCalendar === TheCalendar,
       });
 
+      // 需要选择时间时，点击 ok 时才触发 onChange
+      let pickerChangeHandler = {
+        onChange: this.handleChange,
+      };
+      let calendarHandler = {
+        onOk: this.handleChange,
+      };
+      if (props.showTime) {
+        pickerChangeHandler = {};
+      } else {
+        calendarHandler = {};
+      }
+
       const calendar = (
         <TheCalendar
           formatter={props.getFormatter()}
@@ -70,6 +83,8 @@ export default function createPicker(TheCalendar) {
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
+          onOk={props.onOk}
+          {...calendarHandler}
         />
       );
 
@@ -98,7 +113,7 @@ export default function createPicker(TheCalendar) {
             open={props.open}
             onOpen={props.toggleOpen}
             onClose={props.toggleOpen}
-            onChange={this.handleChange}
+            {...pickerChangeHandler}
           >
             {
               ({ value }) => {

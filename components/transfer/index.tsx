@@ -70,6 +70,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
       rightCheckedKeys: [],
     };
   }
+
   componentWillReceiveProps(nextProps) {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     if (nextProps.targetKeys !== this.props.targetKeys ||
@@ -146,40 +147,16 @@ export default class Transfer extends React.Component<TransferProps, any> {
   moveToLeft = () => this.moveTo('left')
   moveToRight = () => this.moveTo('right')
 
-  getGlobalCheckStatus(direction) {
-    const { leftDataSource, rightDataSource } = this.splitDataSource(this.props);
-    const { leftCheckedKeys, rightCheckedKeys } = this.state;
-
-    const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
-    const checkedKeys = direction === 'left' ? leftCheckedKeys : rightCheckedKeys;
-
-    let globalCheckStatus;
-
-    if (checkedKeys.length > 0) {
-      if (checkedKeys.length < dataSource.length) {
-        globalCheckStatus = 'part';
-      } else {
-        globalCheckStatus = 'all';
-      }
-    } else {
-      globalCheckStatus = 'none';
-    }
-    return globalCheckStatus;
-  }
-
-  handleSelectAll = (direction) => {
-    const { leftDataSource, rightDataSource } = this.splitDataSource(this.props);
-    const dataSource = direction === 'left' ? leftDataSource : rightDataSource;
-    const checkStatus = this.getGlobalCheckStatus(direction);
-    const holder = (checkStatus === 'all') ? [] : dataSource.map(item => item.key);
+  handleSelectAll = (direction, filteredDataSource, checkAll) => {
+    const holder = checkAll ? [] : filteredDataSource.map(item => item.key);
 
     this.setState({
       [`${direction}CheckedKeys`]: holder,
     });
   }
 
-  handleLeftSelectAll = () => this.handleSelectAll('left')
-  handleRightSelectAll = () => this.handleSelectAll('right')
+  handleLeftSelectAll = (...args) => this.handleSelectAll('left', ...args)
+  handleRightSelectAll = (...args) => this.handleSelectAll('right', ...args)
 
   handleFilter = (direction, e) => {
     this.setState({
@@ -235,9 +212,6 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const leftActive = rightCheckedKeys.length > 0;
     const rightActive = leftCheckedKeys.length > 0;
 
-    const leftCheckStatus = this.getGlobalCheckStatus('left');
-    const rightCheckStatus = this.getGlobalCheckStatus('right');
-
     const cls = classNames({
       [className]: !!className,
       [prefixCls]: true,
@@ -250,7 +224,6 @@ export default class Transfer extends React.Component<TransferProps, any> {
           filter={leftFilter}
           style={listStyle}
           checkedKeys={leftCheckedKeys}
-          checkStatus={leftCheckStatus}
           handleFilter={this.handleLeftFilter}
           handleClear={this.handleLeftClear}
           handleSelect={this.handleLeftSelect}
@@ -276,7 +249,6 @@ export default class Transfer extends React.Component<TransferProps, any> {
           filter={rightFilter}
           style={listStyle}
           checkedKeys={rightCheckedKeys}
-          checkStatus={rightCheckStatus}
           handleFilter={this.handleRightFilter}
           handleClear={this.handleRightClear}
           handleSelect={this.handleRightSelect}
