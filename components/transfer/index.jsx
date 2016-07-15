@@ -53,6 +53,7 @@ export default class Transfer extends React.Component {
       rightCheckedKeys: [],
     };
   }
+
   componentWillReceiveProps(nextProps) {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     if (nextProps.targetKeys !== this.props.targetKeys ||
