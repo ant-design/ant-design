@@ -9,6 +9,23 @@ timeline: true
 
 ---
 
+## 1.6.5
+
+`2016-07-16`
+
+- 修复 Input 的 `value prop on input should not be null` 警告并且导致在表单中无法重置的问题。[#2335](https://github.com/ant-design/ant-design/issues/2335)
+- 优化 FormItem 的布局实现，修复表单布局不支持响应式布局的问题。[#2305](https://github.com/ant-design/ant-design/issues/2305)
+- 修复带时间的 DatePicker 的 onChange 触发逻辑。[#2399](https://github.com/ant-design/ant-design/issues/2399#issuecomment-232893146)
+- 修复 Transfer 搜索后全选的问题。[#2396](https://github.com/ant-design/ant-design/issues/2396)
+- 修复 Cascader 样式会被 ant-input 样式覆盖的问题。[#2400](https://github.com/ant-design/ant-design/issues/2400)
+- 修复 Table 删除数据时导致当前页数溢出的问题。[#2301](https://github.com/ant-design/ant-design/pull/2301)
+- 修复 Table 删除数据时导致当前页数溢出的问题。[#2301](https://github.com/ant-design/ant-design/pull/2301)
+- 修复 resize 浏览器时 Affix 元素没有和原来的位置同步的问题。[#1987](https://github.com/ant-design/ant-design/issues/1987)
+- 给 Affix 元素添加占位，修复固定时页面跳动的问题。
+- 修复 Select combobox 模式会导致页面出现横向滚动条的问题。[#2353](https://github.com/ant-design/ant-design/issues/2353)
+- 修复 Upload 组件已上传文件链接点击无效的问题。[#2331](https://github.com/ant-design/ant-design/issues/2331)
+- 修复 Upload 上传过程中删除图片后的报错问题。[#2342](https://github.com/ant-design/ant-design/issues/2342)
+
 ## 1.6.4
 
 `2016-07-08`
