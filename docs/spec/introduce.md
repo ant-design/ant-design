@@ -4,7 +4,7 @@ english: Ant Design
 ---
 
 <div style="text-align:center;background:#FBFBFB;margin:40px 0;">
-  <img align="middle" width="600" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
+  <img width="600" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
 </div>
 
 在中台产品的研发过程中，会出现不同的设计规范和实现方式，但其中往往存在很多类似的页面和组件，给设计师和工程师带来很多困扰和重复建设，大大降低了产品的研发效率。我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，沉淀出一个中台设计语言 Ant Design。旨在统一中台项目的前端 UI 设计，屏蔽不必要的设计差异和实现成本，解放设计和前端的研发资源。
