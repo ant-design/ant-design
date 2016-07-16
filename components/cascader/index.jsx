@@ -105,6 +105,10 @@ export default class Cascader extends React.Component {
       'onPopupVisibleChange',
       'changeOnSelect',
       'expandTrigger',
+      'popupVisible',
+      'getPopupContainer',
+      'loadData',
+      'popupClassName',
     ]);
 
     return (
