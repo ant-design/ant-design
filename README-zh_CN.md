@@ -11,9 +11,8 @@
 ## 特性
 
 - 提炼和服务企业级中后台产品的交互语言和视觉风格。
-- [React Component](http://react-component.github.io/badgeboard/) 上精心封装的高质量 UI 库。
-- 基于 npm + webpack + babel 的工作流，支持 ES2015。
-
+- [React Component](http://react-component.github.io/badgeboard/) 基础上精心封装的高质量 UI 组件。
+- 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
 
 ## 安装
 
