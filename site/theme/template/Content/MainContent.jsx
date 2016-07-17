@@ -138,10 +138,9 @@ export default class MainContent extends React.Component {
 
     const locale = this.context.intl.locale;
     const moduleData = this.props.moduleData;
-    const localizedPageData = moduleData.filter((page) => {
-      return page.meta.filename.toLowerCase()
-        .startsWith(props.location.pathname);
-    })[0];
+    const localizedPageData = moduleData.filter(
+      page => page.meta.filename.toLowerCase().startsWith(props.location.pathname)
+    )[0];
 
     return (
       <div className="main-wrapper">

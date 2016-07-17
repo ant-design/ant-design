@@ -17,9 +17,10 @@ export function collectDocs(docs) {
 export function getMenuItems(data) {
   const menuMeta = data.map((item) => item.meta);
   const menuItems = {};
-  menuMeta.sort((a, b) => {
-    return parseInt(a.order, 10) - parseInt(b.order, 10);
-  }).forEach((meta) => {
+  menuMeta.sort(
+    (a, b) => (a.order || 0) - (b.order || 0)
+  ).forEach((meta) => {
+    console.log(meta);
     const category = meta.category || 'topLevel';
     if (!menuItems[category]) {
       menuItems[category] = {};

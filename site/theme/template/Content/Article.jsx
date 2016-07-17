@@ -45,6 +45,7 @@ export default class Article extends React.Component {
 
     const { meta, description } = content;
     const { title, subtitle, chinese, english } = meta;
+
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
         <article className="markdown">
@@ -62,7 +63,7 @@ export default class Article extends React.Component {
               )
           }
           {
-            !(content.toc && meta.toc) ? null :
+            (!content.toc || meta.toc === false) ? null :
               <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
