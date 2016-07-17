@@ -20,7 +20,6 @@ export function getMenuItems(data) {
   menuMeta.sort(
     (a, b) => (a.order || 0) - (b.order || 0)
   ).forEach((meta) => {
-    console.log(meta);
     const category = meta.category || 'topLevel';
     if (!menuItems[category]) {
       menuItems[category] = {};

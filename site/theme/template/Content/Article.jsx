@@ -63,7 +63,7 @@ export default class Article extends React.Component {
               )
           }
           {
-            (!content.toc || meta.toc === false) ? null :
+            (!content.toc || content.toc.length <= 1 || meta.toc === false) ? null :
               <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {
