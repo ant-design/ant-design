@@ -14,11 +14,14 @@ export default class Article extends React.Component {
       return;
     }
     const checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
-    utils.ping(checkImgUrl, status => {
+    this.pingTimer = utils.ping(checkImgUrl, status => {
       if (status === 'responded') {
         links.forEach(link => (link.style.display = 'block'));
       }
     });
+  }
+  componentWillUnmount() {
+    clearTimeout(this.pingTimer);
   }
   getArticle(article) {
     const { content } = this.props;

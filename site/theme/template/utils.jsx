@@ -49,5 +49,5 @@ export function ping(url, callback) {
   img.onload = () => finish('responded');
   img.onerror = () => finish('error');
   img.src = url;
-  setTimeout(() => finish('timeout'), 1500);
+  return setTimeout(() => finish('timeout'), 1500);
 }
