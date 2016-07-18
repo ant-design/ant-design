@@ -54,7 +54,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
 
   onChange(editorState, textValue) {
     if (this.props.onChange) {
-      this.props.onChange(textValue);
+      this.props.onChange(editorState, textValue);
     }
   }
   

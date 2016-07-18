@@ -15,7 +15,7 @@ Multi lines mode.
 
 import { Mention } from 'antd';
 
-function onChange(value) {
+function onChange(editorState, value) {
   console.log(value);
 }
 

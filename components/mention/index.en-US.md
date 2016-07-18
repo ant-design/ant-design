@@ -28,11 +28,12 @@ When need to mention someone or something.
 | suggestions    | suggestion content | Array<string> or Array<Mention.Nav> | [] |
 | suggestionStyle | style of suggestion container | Objet | {} |
 | onSearchChange | Callback function called when search content changes | function(value:String) | [] |
-| onChange | Callback function called when content of input changes | function(value:String) | null |
+| onChange | Callback function called when content of input changes | function(editorState: EditorState, value:String) | null |
 | notFoundContent| suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
 | defaultValue | default value | string | null |
+| value | core state of mention | EditorState | null |
 
 ### Nav props
 
