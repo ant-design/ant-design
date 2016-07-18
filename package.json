@@ -101,7 +101,7 @@
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
-    "lesshint": "^1.2.1",
+    "lesshint": "^2.0.0",
     "lodash.debounce": "^4.0.6",
     "nunjucks": "^2.4.2",
     "pre-commit": "1.x",
