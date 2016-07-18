@@ -4,15 +4,15 @@ import classnames from 'classnames';
 
 export interface MentionProps {
   prefixCls: string;
-  suggestionStyle?: Object; 
+  suggestionStyle?: Object;
   suggestions?: Array<any>;
   onSearchChange?: Function;
   onChange?: Function;
   notFoundContent?: any;
   loading?: Boolean;
   style?: Object;
-  defaultValue?: string,
-  className?: string,
+  defaultValue?: string;
+  className?: string;
   multiLines?: Boolean;
 }
 
@@ -45,7 +45,6 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   }
 
   onSearchChange(value) {
-    console.log('onSearchChange', this.props.onSearchChange);
     if (this.props.onSearchChange) {
       return this.props.onSearchChange(value);
     }
@@ -57,10 +56,10 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       this.props.onChange(editorState, textValue);
     }
   }
-  
+
   defaultSearchChange(value: String): void {
     const searchValue = value.toLowerCase();
-    const filteredSuggestions = this.props.suggestions.filter( 
+    const filteredSuggestions = this.props.suggestions.filter(
       suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1
     );
     this.setState({
@@ -69,9 +68,9 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   }
 
   render() {
-    const { className, prefixCls, style, multiLines, defaultValue } = this.props; 
+    const { className, prefixCls, style, multiLines, defaultValue } = this.props;
     let { notFoundContent } = this.props;
-   
+
     const { suggestions, focus } = this.state;
     const cls = classnames({
       [className]: !!className,
@@ -81,8 +80,8 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     if (this.props.loading) {
       notFoundContent = <i className="anticon anticon-loading"></i>;
     }
-    
-    return <RcMention 
+
+    return <RcMention
         {...this.props}
         className={cls}
         prefixCls={prefixCls}
@@ -93,7 +92,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
         onChange={this.onChange.bind(this)}
         onFocus={() => this.setState({focus: true})}
         onBlur={() => this.setState({focus: false})}
-        suggestions={suggestions}  
+        suggestions={suggestions}
         notFoundContent={notFoundContent}
       />;
   }
