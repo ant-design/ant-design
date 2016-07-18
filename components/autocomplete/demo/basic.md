@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本使用
+title: 
+  zh-CN: 基本使用
+  en-US: Basic Usage
 ---
 
+## zh-CN
+
 基本使用。通过 dataSource 设置自动完成的数据源
+
+## en-US
+
+Basic Usage, set datasource of autocomplete with `dataSource` property.
 
 ````jsx
 import { Autocomplete } from 'antd';

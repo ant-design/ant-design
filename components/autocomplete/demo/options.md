@@ -1,9 +1,18 @@
 ---
 order: 2
-title: 自定义选项
+title: 
+  zh-CN: 自定义选项
+  en-US: Customerize
 ---
 
- Datasource 的每一项是一个 `Autocomplete.Option`。通过 `Autocomplete.Option` 自定义下拉菜单。
+## zh-CN
+
+Datasource 的每一项是一个 `Autocomplete.Option`。通过 `Autocomplete.Option` 自定义下拉菜单。
+
+## en-US
+
+Each datasource is an `Autocomplete.Option`.
+ 
 
 ````jsx
 import { Autocomplete } from 'antd';
