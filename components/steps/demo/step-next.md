@@ -1,9 +1,17 @@
 ---
 order: 3
-title: 切换到下一步
+title:
+  zh-CN: 切换到下一步
+  en-US: Switch to next
 ---
 
+## zh-CN
+
 随机生成 3~6 个步骤，初始随机进行到其中一个步骤。
+
+## en-US
+
+Let's generate 3~6 steps randomly, and proceed to a random step.
 
 ````css
 #components-steps-demo-step-next > div > div {

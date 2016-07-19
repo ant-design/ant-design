@@ -9,25 +9,36 @@ title: Steps
 
 ## When to use
 
-- When the system has more than two layers in a hierarchy.
-- When you need to inform the user of where they are.
-- When the user may need to navigate back to a higher level When the application has multi-layer architecture.
+When the task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 
 ## API
 
-```html
-<Breadcrumb>
-  <Breadcrumb.Item>Home</Breadcrumb.Item>
-  <Breadcrumb.Item>Application Center</Breadcrumb.Item>
-  <Breadcrumb.Item>Application List</Breadcrumb.Item>
-  <Breadcrumb.Item>An Application</Breadcrumb.Item>
-</Breadcrumb>
+```jsx
+<Steps>
+  <Step title="first step" />
+  <Step title="second step" />
+  <Step title="third step" />
+</Steps>
 ```
 
-| Property      | Description                              | Type              |  Optional | Default |
-|-----------|-----------------------------------|-----------------|---------|--------|
-| routes    | The routing stack information of router | Array             |         | -      |
-| params    | Routing parameter                        | Object            |         | -      |
-| separator | Custom separator                      | String or Element |         | '/'    |
-| linkRender | Custom link function，and react-router configuration | Function(href, name) |         | -    |
-| nameRender | Custom link function，and react-router configuration | Function(name) |         | -    |
+### Steps
+
+The whole of the step bar.
+
+Property | Description | Type | Default
+-----|-----|-----|------
+current | to set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | Number | 0
+status | to specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | String | `process`
+size | to specify the size of the step bar, `default` and `small` are currently supported | String | `default`
+direction | to specify the direction of the step bar, `horizontal` and `vertical` are currently supported | String | horizontal
+
+### Steps.Step
+
+A single step in the step bar.
+
+Property | Description | Type | Default
+-----|-----|-----|------
+status | to specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | String | wait
+title | title of the step | React.Element | -
+description | detail of the step, optional property | React.Element | -
+icon | icon of the step, optional property | React.Element | -
