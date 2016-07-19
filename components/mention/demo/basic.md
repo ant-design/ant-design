@@ -14,9 +14,10 @@ Basic usage.
 ````jsx
 
 import { Mention } from 'antd';
+const { toString } = Mention;
 
-function onChange(editorState, value) {
-  console.log(value);
+function onChange(editorState) {
+  console.log(toString(editorState));
 }
 
 ReactDOM.render(
