@@ -201,9 +201,9 @@ export default class Upload extends React.Component {
   }
 
   handleManualRemove = (file) => {
-    /*eslint-disable */
+    /* eslint-disable */
     file.status = 'removed';
-    /*eslint-enable */
+    /* eslint-enable */
     if ('onRemove' in this.props) {
       this.props.onRemove(file);
     } else {
@@ -213,7 +213,7 @@ export default class Upload extends React.Component {
 
   onChange = (info) => {
     if (!('fileList' in this.props)) {
-      this.setState({fileList: info.fileList});
+      this.setState({ fileList: info.fileList });
     }
     this.props.onChange(info);
   }
@@ -248,10 +248,11 @@ export default class Upload extends React.Component {
     let uploadList;
     if (this.props.showUploadList) {
       uploadList = (
-        <UploadList listType={this.props.listType}
-                    items={this.state.fileList}
-                    onPreview={props.onPreview}
-                    onRemove={this.handleManualRemove}
+        <UploadList
+          listType={this.props.listType}
+          items={this.state.fileList}
+          onPreview={props.onPreview}
+          onRemove={this.handleManualRemove}
         />
       );
     }
@@ -262,10 +263,11 @@ export default class Upload extends React.Component {
         ? `${prefixCls}-drag-hover` : '';
       return (
         <span className={this.props.className}>
-          <div className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
-               onDrop={this.onFileDrop}
-               onDragOver={this.onFileDrop}
-               onDragLeave={this.onFileDrop}
+          <div
+            className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
+            onDrop={this.onFileDrop}
+            onDragOver={this.onFileDrop}
+            onDragLeave={this.onFileDrop}
           >
             <RcUpload {...props}>
               <div className={`${prefixCls}-drag-container`}>
