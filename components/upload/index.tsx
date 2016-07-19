@@ -53,13 +53,14 @@ function genPercentAdd() {
 }
 
 export function Dragger(props) {
-  return <Upload {...props} type="drag" style={{ height: props.height }} />;
+  return <Upload {...props} type="drag" style={{ height: props.height }}/>;
 }
 
 export default class Upload extends React.Component {
   static Dragger = Dragger;
 
   static defaultProps = {
+    prefixCls: 'ant-upload-btn',
     type: 'select',
     // do not set
     // name: '',
@@ -139,7 +140,8 @@ export default class Upload extends React.Component {
       if (typeof response === 'string') {
         response = JSON.parse(response);
       }
-    } catch (e) { /* do nothing */ }
+    } catch (e) { /* do nothing */
+    }
     let fileList = this.state.fileList;
     let targetItem = getFileItem(file, fileList);
     // removed
@@ -211,7 +213,7 @@ export default class Upload extends React.Component {
 
   onChange = (info) => {
     if (!('fileList' in this.props)) {
-      this.setState({ fileList: info.fileList });
+      this.setState({fileList: info.fileList});
     }
     this.props.onChange(info);
   }
@@ -247,9 +249,9 @@ export default class Upload extends React.Component {
     if (this.props.showUploadList) {
       uploadList = (
         <UploadList listType={this.props.listType}
-          items={this.state.fileList}
-          onPreview={props.onPreview}
-          onRemove={this.handleManualRemove}
+                    items={this.state.fileList}
+                    onPreview={props.onPreview}
+                    onRemove={this.handleManualRemove}
         />
       );
     }
@@ -261,9 +263,9 @@ export default class Upload extends React.Component {
       return (
         <span className={this.props.className}>
           <div className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
-            onDrop={this.onFileDrop}
-            onDragOver={this.onFileDrop}
-            onDragLeave={this.onFileDrop}
+               onDrop={this.onFileDrop}
+               onDragOver={this.onFileDrop}
+               onDragLeave={this.onFileDrop}
           >
             <RcUpload {...props}>
               <div className={`${prefixCls}-drag-container`}>
