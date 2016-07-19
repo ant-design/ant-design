@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcMention, { Nav, toString } from 'rc-editor-mention';
+import RcMention, { Nav, toString, toEditorState } from 'rc-editor-mention';
 import classnames from 'classnames';
 
 export interface MentionProps {
@@ -24,6 +24,7 @@ export interface MentionState {
 export default class Mention extends React.Component<MentionProps, MentionState> {
   static Nav = Nav;
   static toString = toString;
+  static toEditorState = toEditorState;
   static defaultProps = {
     prefixCls: 'ant-mention',
     suggestions: [],

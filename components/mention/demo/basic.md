@@ -14,7 +14,8 @@ Basic usage.
 ````jsx
 
 import { Mention } from 'antd';
-const { toString } = Mention;
+const { toString, toEditorState } = Mention;
+
 
 function onChange(editorState) {
   console.log(toString(editorState));
@@ -23,7 +24,7 @@ function onChange(editorState) {
 ReactDOM.render(
   <Mention
     onChange={onChange}
-    defaultValue="@afc163"
+    defaultValue={toEditorState('@afc163')}
     suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
   />,
   mountNode
