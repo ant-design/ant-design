@@ -390,6 +390,18 @@ form {
       border-color: @error-color;
     }
   }
+  .ant-mention-wrapper,
+  .ant-mention-wrapper.active {
+    .ant-mention-editor {
+      border-color: @error-color;
+      box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      &:not([disabled]):hover,
+      &:not([disabled]):focus {
+        border-color: @error-color;
+        box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      }
+    }
+  }
 }
 
 .is-validating {

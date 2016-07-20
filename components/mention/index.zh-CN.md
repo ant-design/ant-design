@@ -21,6 +21,15 @@ english: Mention
 
 ## API
 
+### Mention API
+
+| API     | 说明           | 类型     | 
+|----------|---------------|----------|
+| toString    | 把 EditorState 转成字符串 | Function(editorState: EditorState): String |
+| toEditorState    | 把字符串转成 EditorState | Function(string: String): EditorState |
+| getMentions    | 获取当前 editorState 中提到的人的列表 | Function(editorState: EditorState): Array<String> |
+
+
 ### Mention props
 
 | 参数     | 说明           | 类型     | 默认值       |
