@@ -9,7 +9,7 @@ const DatePicker = wrapPicker(createPicker(RcCalendar));
 const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'yyyy-MM');
 
 DatePicker.Calendar = Calendar;
-DatePicker.RangePicker = wrapPicker(RangePicker, 'yyyy-MM-dd');
+DatePicker.RangePicker = wrapPicker(RangePicker);
 DatePicker.MonthPicker = MonthPicker;
 
 export default DatePicker;

@@ -26,16 +26,40 @@
   width: 470px;
   overflow: hidden;
 
+  .@{calendar-prefix-cls}-date-panel {
+    &::after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+  }
   &-part {
     width: 50%;
+    position: relative;
   }
 
   &-left {
     float: left;
+    .@{calendar-prefix-cls} {
+      &-time-picker-inner {
+        border-right: 1px solid #e9e9e9;
+      }
+    }
   }
 
   &-right {
     float: right;
+    .@{calendar-prefix-cls} {
+      &-time-picker-inner {
+        margin-left: 21px;
+        border-left: 1px solid #e9e9e9;
+      }
+      &-time-picker-panel {
+        // padding-left: 22px;
+      }
+    }
   }
 
   &-middle {
@@ -74,7 +98,12 @@
     .input;
     border-radius: @border-radius-sm;
     height: @input-height-sm;
-    width: 96px;
+    border: 0;
+    box-shadow: none;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
   .@{timepicker-prefix-cls}-icon {
     display: none;
@@ -132,14 +161,68 @@
   &-bottom {
     text-align: right;
   }
-  .@{calendar-prefix-cls}-ok-btn {
-    position: static;
-    height: 22px;
-    margin: 8px;
+
+  .@{calendar-prefix-cls} {
+    &-header {
+      border-bottom: 0;
+    }
+    &-body {
+      border-top: 1px solid #e9e9e9;
+    }
   }
-  .@{calendar-prefix-cls}-today-btn {
-    margin: 8px 12px;
-    height: 22px;
-    line-height: 22px;
+
+  &.@{calendar-prefix-cls}-time {
+
+    .@{timepicker-prefix-cls} {
+      height: 207px;
+      top: 68px;
+      z-index: 2; // in order to cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
+      &-panel {
+        height: 241px;
+        margin-top: -34px;
+      }
+
+      &-inner {
+        padding-top: 34px;
+        height: 241px;
+        background: none;
+      }
+
+      &-combobox {
+        display: inline-block;
+        background-color: white;
+        border-top: 1px solid #e9e9e9;
+      }
+      &-select {
+        width: 71px;
+
+        ul {
+          max-height: 206px;
+        }
+      }
+    }
+    .@{calendar-prefix-cls}-footer-btn {
+      padding-right: 12px;
+      display: block;
+      &::after {
+        content: 'x';
+        height: 0;
+        font-size: 0;
+        overflow: hidden;
+        clear: both;
+      }
+    }
+    .@{calendar-prefix-cls}-ok-btn {
+      position: static;
+      height: 22px;
+    }
+    .@{calendar-prefix-cls}-footer .@{calendar-prefix-cls}-time-picker-btn {
+      margin-right: 12px;
+    }
+    .@{calendar-prefix-cls}-today-btn {
+      margin: 8px 12px;
+      height: 22px;
+      line-height: 22px;
+    }
   }
 }

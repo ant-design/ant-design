@@ -106,7 +106,7 @@
     .calendarPanelHeader(@calendar-prefix-cls);
   }
 
-  &-calendar-body {
+  &-body {
     padding: 4px 8px;
   }
 
@@ -162,6 +162,10 @@
     background: transparent;
     text-align: center;
     transition: background 0.3s ease;
+
+    &-panel {
+      position: relative;
+    }
 
     &:hover {
       background: tint(@primary-color, 90%);
@@ -286,6 +290,9 @@
     &-disabled {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
       cursor: not-allowed;
+      &:hover {
+        .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+      }
     }
   }
 }

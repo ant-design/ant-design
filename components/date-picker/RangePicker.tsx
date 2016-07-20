@@ -78,7 +78,9 @@ export default class RangePicker extends React.Component {
       onOk: this.handleChange,
     };
     if (props.timePicker) {
-      pickerChangeHandler = {};
+      pickerChangeHandler.onChange = (value) => {
+        this.handleChange(value);
+      };
     } else {
       calendarHandler = {};
     }
@@ -91,6 +93,7 @@ export default class RangePicker extends React.Component {
     const calendar = (
       <RangeCalendar
         prefixCls="ant-calendar"
+        formatter={props.getFormatter()}
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}

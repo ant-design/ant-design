@@ -1,6 +1,6 @@
 import { PropTypes } from 'react';
 import * as React from 'react';
-import TimePicker from 'rc-time-picker';
+import TimePickerPanel from 'rc-time-picker/lib/module/Panel';
 import DateTimeFormat from 'gregorian-calendar-format';
 import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
@@ -87,10 +87,10 @@ export default function wrapPicker(Picker, defaultFormat) {
         showHour: timeFormat && timeFormat.indexOf('HH') >= 0,
       };
       const timePicker = props.showTime ? (
-        <TimePicker
+        <TimePickerPanel
           {...rcTimePickerProps}
           {...props.showTime}
-          prefixCls="ant-time-picker"
+          prefixCls="ant-calendar-time-picker"
           placeholder={locale.timePickerLocale.placeholder}
           locale={locale.timePickerLocale}
           transitionName="slide-up"
