@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 单选框
+subtitle: 单选框
 type: Form Controls
-english: Radio
+title: Radio
 ---
 
 单选框。

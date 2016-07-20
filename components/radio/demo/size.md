@@ -1,11 +1,19 @@
 ---
 order: 5
-title: 大小
----
+title:
+  zh-CN: 大小
+  en-US: Size
+-----------
+
+## zh-CN
 
 大中小三种组合，可以和表单输入框进行对应配合。
 
-````jsx
+## en-US
+
+There are three kinds of combination, large medium and small. It can coordinate with input box.
+
+```jsx
 import { Radio } from 'antd';
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -36,4 +44,4 @@ ReactDOM.render(<div>
     </RadioGroup>
   </div>
 </div>, mountNode);
-````
+```
