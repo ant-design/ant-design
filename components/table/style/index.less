@@ -75,6 +75,26 @@
     border: 1px solid @border-color-split;
   }
 
+  &-title {
+    padding: 16px 8px;
+    position: relative;
+    top: 1px;
+    border-radius: @border-radius-base @border-radius-base 0 0;
+  }
+
+  &.@{table-prefix-cls}-bordered &-title {
+    border: 1px solid @border-color-split;
+  }
+
+  &-title + &-content {
+    position: relative;
+
+    table {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
   tr.@{table-prefix-cls}-row-selected {
     background: #fafafa;
   }
