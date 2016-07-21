@@ -77,4 +77,4 @@ english: 巧用过渡
 
 ## 自然运动
 
-参见 [Ant Motion 动画语言](http://motion.ant.design/#/language/)。
+参见 [Ant Motion 动画语言](http://motion.ant.design/language/time)。

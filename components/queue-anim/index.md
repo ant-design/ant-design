@@ -16,7 +16,7 @@ english: QueueAnim
 
 ## API
 
-> 此组件 `antd@1.0.0+` 后标记为废弃，您可以直接使用 `import QueueAnim from 'rc-queue-anim'` 来代替，相关文档也已移到 [ant-motioin](http://motion.ant.design/#/components/queue-anim)。
+> 此组件 `antd@1.0.0+` 后标记为废弃，您可以直接使用 `import QueueAnim from 'rc-queue-anim'` 来代替，相关文档也已移到 [ant-motioin](http://motion.ant.design/components/queue-anim)。
 
 > [ant-motioin](http://motion.ant.design/) 是一个动效设计语言，欢迎关注。
 
