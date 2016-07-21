@@ -41,7 +41,7 @@ const CustomNavMention = React.createClass({
     const suggestions = filtered.map(suggestion =>
       <Nav value={suggestion.name} data={suggestion} disabled={suggestion.disabled}>
         <span>
-          <img alt={suggestion.name} style={{ height: 16, width: 16, marginRight: 5 }} src={suggestion.icon} />
+          <img alt={suggestion.name} style={{ height: 16, width: 16, marginRight: 5, float: 'left' }} src={suggestion.icon} />
           {suggestion.name} - {suggestion.type}
         </span>
       </Nav>);

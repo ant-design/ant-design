@@ -25,7 +25,7 @@ ReactDOM.render(
   <Mention
     onChange={onChange}
     defaultValue={toEditorState('@afc163')}
-    suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
+    suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
   />,
   mountNode
 );
