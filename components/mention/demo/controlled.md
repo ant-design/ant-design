@@ -67,7 +67,7 @@ let App = React.createClass({
             {...mentionProps}
             suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
           />
-        </FormItem> 
+        </FormItem>
         <FormItem wrapperCol={{ span: 14, offset: 6 }}>
           <Button type="primary" onClick={this.handleSubmit}>确定</Button>
           &nbsp;&nbsp;&nbsp;
