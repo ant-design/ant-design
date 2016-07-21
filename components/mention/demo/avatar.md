@@ -14,7 +14,6 @@ title: 头像
 Customize suggestions
 
 ````jsx
-
 import { Mention } from 'antd';
 const Nav = Mention.Nav;
 

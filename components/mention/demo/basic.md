@@ -12,10 +12,8 @@ title: 基本使用
 Basic usage.
 
 ````jsx
-
 import { Mention } from 'antd';
 const { toString, toEditorState } = Mention;
-
 
 function onChange(editorState) {
   console.log(toString(editorState));

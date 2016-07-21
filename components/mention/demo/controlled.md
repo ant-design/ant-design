@@ -12,7 +12,6 @@ title: 受控模式
 Controlled mode, for example, work with `Form` .
 
 ````jsx
-
 import { Mention, Form, Button } from 'antd';
 const { toEditorState, getMentions } = Mention;
 const FormItem = Form.Item;

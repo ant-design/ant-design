@@ -6,29 +6,28 @@ type: Views
 english: Mention
 ---
 
-提及组件。(圈人组件)
+提及组件。
 
 ## 何时使用
 
 用于在输入中提及某人或某事。
 
-```html
-  <Mention 
-    onChange={onChange}
-    suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']} 
-  />,
+```jsx
+<Mention
+  onChange={onChange}
+  suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
+/>
 ```
 
 ## API
 
 ### Mention API
 
-| API     | 说明           | 类型     | 
+| API     | 说明           | 类型     |
 |----------|---------------|----------|
 | toString    | 把 EditorState 转成字符串 | Function(editorState: EditorState): String |
 | toEditorState    | 把字符串转成 EditorState | Function(string: String): EditorState |
 | getMentions    | 获取当前 editorState 中提到的人的列表 | Function(editorState: EditorState): Array<String> |
-
 
 ### Mention props
 
@@ -43,7 +42,6 @@ english: Mention
 | multiLines | 多行模式 | boolean | false |
 | defaultValue | 默认值 | EditorState, 可以用 Mention.toEditorState(text) 把文字转换成 EditorState | null |
 | value | 值 | EditorState | null |
-
 
 ### Nav props
 

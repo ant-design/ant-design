@@ -12,19 +12,18 @@ Mention component。
 
 When need to mention someone or something.
 
-```html
-  <Mention 
-    onChange={onChange}
-    suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']} 
-  />,
+```jsx
+<Mention
+  onChange={onChange}
+  suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
+/>
 ```
 
 ## API
 
-
 ### Mention API
 
-| API     | Description           | Type     | 
+| API     | Description           | Type     |
 |----------|---------------|----------|--------------|
 | toString    | convert EditorState to string | Function(editorState: EditorState): String |
 | toEditorState    | convert string to  EditorState | Function(string: String): EditorState |

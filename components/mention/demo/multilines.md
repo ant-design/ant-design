@@ -12,7 +12,6 @@ title: 多行
 Multi lines mode.
 
 ````jsx
-
 import { Mention } from 'antd';
 const { toString } = Mention;
 

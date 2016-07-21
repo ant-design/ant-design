@@ -11,7 +11,7 @@ title: 自定义建议
 
 ## en-US
 
-Customize suggestions
+Customize suggestions.
 
 ````jsx
 import { Mention } from 'antd';
