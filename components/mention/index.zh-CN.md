@@ -10,7 +10,9 @@ english: Mention
 
 ## 何时使用
 
-用于在输入中提及某人或某事。
+用于在输入中提及某人或某事，常用于发布、聊天或评论功能。
+
+## API
 
 ```jsx
 <Mention
@@ -18,8 +20,6 @@ english: Mention
   suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
 />
 ```
-
-## API
 
 ### Mention API
 

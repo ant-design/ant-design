@@ -12,14 +12,14 @@ Mention component。
 
 When need to mention someone or something.
 
+## API
+
 ```jsx
 <Mention
   onChange={onChange}
   suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
 />
 ```
-
-## API
 
 ### Mention API
 
