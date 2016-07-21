@@ -9,6 +9,7 @@ export default class FormItem extends React.Component {
   static defaultProps = {
     hasFeedback: false,
     prefixCls: 'ant-form',
+    colon: true,
   };
 
   static propTypes = {
@@ -197,7 +198,7 @@ export default class FormItem extends React.Component {
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
-      [`${prefixCls}-no-colon`]: !this.props.colon,
+      [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
 
