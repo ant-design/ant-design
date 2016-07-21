@@ -21,6 +21,16 @@ When need to mention someone or something.
 
 ## API
 
+
+### Mention API
+
+| API     | Description           | Type     | 
+|----------|---------------|----------|--------------|
+| toString    | convert EditorState to string | Function(editorState: EditorState): String |
+| toEditorState    | convert string to  EditorState | Function(string: String): EditorState |
+| getMentions    | get mentioned people in current editorState | Function(editorState: EditorState): Array<String> |
+
+
 ### Mention props
 
 | Property     | Description          | Type     | Default       |
