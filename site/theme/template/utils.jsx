@@ -17,9 +17,9 @@ export function collectDocs(docs) {
 export function getMenuItems(data) {
   const menuMeta = data.map((item) => item.meta);
   const menuItems = {};
-  menuMeta.sort((a, b) => {
-    return parseInt(a.order, 10) - parseInt(b.order, 10);
-  }).forEach((meta) => {
+  menuMeta.sort(
+    (a, b) => (a.order || 0) - (b.order || 0)
+  ).forEach((meta) => {
     const category = meta.category || 'topLevel';
     if (!menuItems[category]) {
       menuItems[category] = {};
@@ -49,5 +49,5 @@ export function ping(url, callback) {
   img.onload = () => finish('responded');
   img.onerror = () => finish('error');
   img.src = url;
-  setTimeout(() => finish('timeout'), 1500);
+  return setTimeout(() => finish('timeout'), 1500);
 }

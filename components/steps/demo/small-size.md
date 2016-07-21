@@ -9,19 +9,12 @@ title: 迷你版
 import { Steps } from 'antd';
 const Step = Steps.Step;
 
-const steps = [{
-  status: 'finish',
-  title: '已完成',
-}, {
-  status: 'process',
-  title: '进行中',
-}, {
-  status: 'wait',
-  title: '待运行',
-}, {
-  status: 'wait',
-  title: '待运行',
-}].map((s, i) => <Step key={i} title={s.title} description={s.description} />);
-
-ReactDOM.render(<Steps size="small" current={1}>{steps}</Steps>, mountNode);
+ReactDOM.render(
+  <Steps size="small" current={1}>
+    <Step title="已完成" />
+    <Step title="进行中" />
+    <Step title="待运行" />
+    <Step title="待运行" />
+  </Steps>
+, mountNode);
 ````

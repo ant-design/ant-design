@@ -150,6 +150,10 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'onPopupVisibleChange',
       'changeOnSelect',
       'expandTrigger',
+      'popupVisible',
+      'getPopupContainer',
+      'loadData',
+      'popupClassName',
     ]);
 
     return (
