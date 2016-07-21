@@ -9,7 +9,7 @@ title: 禁止选项
 import { TimePicker } from 'antd';
 
 function newArray(start, end) {
-  let result = [];
+  const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
@@ -17,7 +17,7 @@ function newArray(start, end) {
 }
 
 function disabledHours() {
-  let hours = newArray(0, 60);
+  const hours = newArray(0, 60);
   hours.splice(20, 4);
   return hours;
 }

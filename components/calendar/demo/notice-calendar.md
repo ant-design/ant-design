@@ -45,7 +45,7 @@ function getListData(value) {
 }
 
 function dateCellRender(value) {
-  let listData = getListData(value);
+  const listData = getListData(value);
   return (
     <ul className="events">
       {

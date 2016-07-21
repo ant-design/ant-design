@@ -9,7 +9,7 @@ title: 只显示部分选项
 import { TimePicker } from 'antd';
 
 function newArray(start, end) {
-  let result = [];
+  const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
