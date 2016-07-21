@@ -1,7 +1,7 @@
 ---
 order: 2
 iframe: true
-title: 
+title:
   zh-CN: 路由
   en-US: React Router Integration
 ---
@@ -44,7 +44,7 @@ const Home = (props) => (
         borderBottom: '1px dashed #ccc',
       }}
     >
-      Click the navigation above to switch the page,breadcrumb is right here:
+      Click the navigation above to switch:
     </div>
     <Breadcrumb {...props} />
   </div>
