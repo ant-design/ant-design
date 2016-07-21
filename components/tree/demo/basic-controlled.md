@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 受控操作示例
+title: 
+  zh-CN: 受控操作示例
+  en-US: basic controlled example
 ---
 
+## zh-CN
+
 受控操作示例
+
+## en-US
+
+basic controlled example
 
 ````jsx
 import { Tree } from 'antd';
