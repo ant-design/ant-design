@@ -262,7 +262,7 @@ timeline: true
 
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
-- 废弃 QueueAnim，可以直接 import [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [Ant Motion](http://motion.ant.design/#/components/queue-anim)，欢迎前往探索。
+- 废弃 QueueAnim，可以直接 import [rc-queue-anim](https://github.com/react-component/queue-anim) 用以代替。Ant Design 的动效方案已移至 [Ant Motion](http://motion.ant.design/components/queue-anim)，欢迎前往探索。
 - Affix 的 `offset` 属性重命名为 `offsetTop`。
 - Popover 的 `overlay` 属性重命名为 `content`。
 - Progress.Line 使用方式改为 `<Progress />` 或 `<Progress type="line" />`。

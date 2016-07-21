@@ -72,6 +72,7 @@ const columns = [{
 | bordered  | 是否展示外边框和列边框 | Boolean | false      |
 | showHeader  | 是否显示表头 | Boolean          | true      |
 | footer  | 表格底部自定义渲染函数         | Function(currentPageData)   | |
+| title  | 表格头部自定义渲染函数         | Function(currentPageData)   | |
 | scroll  | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | Object   | -  |
 
 ### Column
