@@ -40,11 +40,14 @@ const AsyncMention = React.createClass({
   },
   render() {
     const { suggestions, loading } = this.state;
-    return (<Mention
-      loading={loading}
-      suggestions={suggestions}
-      onSearchChange={this.onSearchChange}
-    />);
+    return (
+      <Mention
+        style={{ width: 500, height: 100 }}
+        loading={loading}
+        suggestions={suggestions}
+        onSearchChange={this.onSearchChange}
+      />
+    );
   },
 });
 

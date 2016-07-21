@@ -55,31 +55,30 @@ let App = React.createClass({
       initialValue: this.state.initValue,
     });
     console.log('>> render', getFieldValue('mention') === this.state.initValue);
-    return (<Form horizontal form={this.props.form}>
-      <FormItem
-        id="control-mention"
-        label="最帅的码农"
-        labelCol={{ span: 6 }}
-        wrapperCol={{ span: 14 }}
-      >
-        <Mention
-          {...mentionProps}
-          suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
-        />
-      </FormItem> 
-      <FormItem wrapperCol={{ span: 12, offset: 7 }}>
-        <Button type="primary" onClick={this.handleSubmit}>确定</Button>
-        &nbsp;&nbsp;&nbsp;
-        <Button type="ghost" onClick={this.handleReset}>重置</Button>
-      </FormItem>
-    </Form>);
+    return (
+      <Form horizontal form={this.props.form}>
+        <FormItem
+          id="control-mention"
+          label="最帅的码农"
+          labelCol={{ span: 6 }}
+          wrapperCol={{ span: 14 }}
+        >
+          <Mention
+            {...mentionProps}
+            suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+          />
+        </FormItem> 
+        <FormItem wrapperCol={{ span: 14, offset: 6 }}>
+          <Button type="primary" onClick={this.handleSubmit}>确定</Button>
+          &nbsp;&nbsp;&nbsp;
+          <Button type="ghost" onClick={this.handleReset}>重置</Button>
+        </FormItem>
+      </Form>
+    );
   },
 });
 
-
 App = Form.create()(App);
-ReactDOM.render(
-  <App />,
-  mountNode
-);
+
+ReactDOM.render(<App />, mountNode);
 ````

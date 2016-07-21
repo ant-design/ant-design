@@ -37,22 +37,22 @@ const CustomNavMention = React.createClass({
     const filtered = webFrameworks.filter(item =>
       item.name.toLowerCase().indexOf(searchValue) !== -1
     );
-
     const suggestions = filtered.map(suggestion =>
       <Nav value={suggestion.name} >
         <span>{suggestion.name} - {suggestion.type} </span>
       </Nav>);
-    this.setState({
-      suggestions,
-    });
+    this.setState({ suggestions });
   },
   render() {
     const { suggestions, loading } = this.state;
-    return (<Mention
-      loading={loading}
-      suggestions={suggestions}
-      onSearchChange={this.onSearchChange}
-    />);
+    return (
+      <Mention
+        style={{ width: 500, height: 100 }}
+        loading={loading}
+        suggestions={suggestions}
+        onSearchChange={this.onSearchChange}
+      />
+    );
   },
 });
 
