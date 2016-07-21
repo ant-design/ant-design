@@ -24,7 +24,6 @@ const eslintrc = {
   ],
   rules: {
     'func-names': 0,
-    'prefer-const': 0,
     'arrow-body-style': 0,
     'react/sort-comp': 0,
     'react/prop-types': 0,
