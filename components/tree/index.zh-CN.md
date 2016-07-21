@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 树形控件
 type: Views
-english: Tree
+title: Tree
+subtitle: 树形控件
 ---
 
 ## 何时使用

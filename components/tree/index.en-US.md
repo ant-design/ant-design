@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Views
-english: Tree
+title: Tree
 ---
 
 ## When to use

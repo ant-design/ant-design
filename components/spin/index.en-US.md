@@ -16,6 +16,6 @@ When partial of page is waiting for asynchronous data or during a rendering proc
 
 | Property      | Type           | Default      | Description         |
 |------------|----------------|-------------|--------------|
-| size       | enum           | default     | Zize of dot in spin component, avaliable in `small`, `default` and `large`. |
+| size       | enum           | default     | Size of dot in spin component, avaliable in `small`, `default` and `large`. |
 | spinning   | boolean        | true        | Use in embedded mode, to modify loading state. |
 | tip    | string        | None        | Customize decription content  |

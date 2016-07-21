@@ -2,7 +2,7 @@
 order: 4
 title: 
   zh-CN: 事件
-  en-US: event
+  en-US: Event
 ---
 
 ## zh-CN
