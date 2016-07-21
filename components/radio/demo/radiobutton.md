@@ -1,11 +1,19 @@
 ---
 order: 3
-title: 按钮样式
----
+title:
+  zh-CN: 按钮样式
+  en-US: raido style
+------------------
+
+## zh-CN
 
 按钮样式的单选组合。
 
-````jsx
+## en-US
+
+The combination of radio button style.
+
+```jsx
 import { Radio } from 'antd';
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -40,4 +48,4 @@ ReactDOM.render(<div>
     </RadioGroup>
   </div>
 </div>, mountNode);
-````
+```

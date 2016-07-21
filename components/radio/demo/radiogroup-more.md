@@ -1,11 +1,19 @@
 ---
 order: 2
-title: RadioGroup 垂直
----
+title:
+  zh-CN: RadioGroup 垂直
+  en-US: Vertical RadioGroup
+--------------------------
+
+## zh-CN
 
 垂直的 RadioGroup，配合更多输入框选项。
 
-````jsx
+## en-US
+
+Vertical RadioGroup, with more radios.
+
+```jsx
 import { Radio, Input } from 'antd';
 const RadioGroup = Radio.Group;
 
@@ -42,4 +50,4 @@ const App = React.createClass({
 });
 
 ReactDOM.render(<App />, mountNode);
-````
+```

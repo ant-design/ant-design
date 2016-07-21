@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 加载中
 type: Other
-english: Spin
+title: Spin
+subtitle: 加载中
 ---
 
 用于页面和区块的加载中状态。
