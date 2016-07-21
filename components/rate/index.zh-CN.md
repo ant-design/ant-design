@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 评分
+subtitle: 评分
 type: Form Controls
-english: Rate
+title: Rate
 ---
 
 评分组件。
