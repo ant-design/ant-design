@@ -7,7 +7,6 @@
 
 // ------ Base & Require ------
 @body-background        : #fff;
-
 @font-family            : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 @code-family            : Consolas,Menlo,Courier,monospace;
 @text-color             : #666;
@@ -48,6 +47,9 @@
 @border-color-base      : #d9d9d9;        // base border outline a component
 @border-color-split     : #e9e9e9;        // split border inside a component
 
+// Background color
+@background-color-base  : #f7f7f7;        // basic gray background
+
 // Shadow
 @shadow-color           : rgba(100, 100, 100, .2);
 @box-shadow-base        : @shadow-1-down;
@@ -65,7 +67,7 @@
 @btn-group-border       : shade(@primary-color, 5%);
 
 @btn-default-color      : @text-color;
-@btn-default-bg         : #f7f7f7;
+@btn-default-bg         : @background-color-base;
 @btn-default-border     : @border-color-base;
 
 @btn-ghost-color        : @text-color;
@@ -73,7 +75,7 @@
 @btn-ghost-border       : @border-color-base;
 
 @btn-disable-color      : #ccc;
-@btn-disable-bg         : #f7f7f7;
+@btn-disable-bg         : @background-color-base;
 @btn-disable-border     : @border-color-base;
 
 @btn-padding-base       : 4px 15px;
@@ -154,6 +156,6 @@
 
 @input-hover-border-color    : @primary-color;
 @input-focus-border-color    : @primary-color;
-@input-disabled-bg           : #f7f7f7;
+@input-disabled-bg           : @background-color-base;
 
 @form-item-margin-bottom     : 24px;

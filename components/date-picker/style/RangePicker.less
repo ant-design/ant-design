@@ -44,7 +44,7 @@
     float: left;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        border-right: 1px solid #e9e9e9;
+        border-right: 1px solid @border-color-split;
       }
     }
   }
@@ -54,10 +54,7 @@
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
         margin-left: 21px;
-        border-left: 1px solid #e9e9e9;
-      }
-      &-time-picker-panel {
-        // padding-left: 22px;
+        border-left: 1px solid @border-color-split;
       }
     }
   }
@@ -167,12 +164,11 @@
       border-bottom: 0;
     }
     &-body {
-      border-top: 1px solid #e9e9e9;
+      border-top: 1px solid @border-color-split;
     }
   }
 
   &.@{calendar-prefix-cls}-time {
-
     .@{timepicker-prefix-cls} {
       height: 207px;
       top: 68px;
@@ -191,7 +187,7 @@
       &-combobox {
         display: inline-block;
         background-color: white;
-        border-top: 1px solid #e9e9e9;
+        border-top: 1px solid @border-color-split;
       }
       &-select {
         width: 71px;
