@@ -1,10 +1,9 @@
-# 改变
-
-- order: 2
+---
+order: 2
+title: 改变
+---
 
 改变每页显示条目数。
-
----
 
 ````jsx
 import { Pagination } from 'antd';

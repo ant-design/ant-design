@@ -1,16 +1,15 @@
-# 禁止选项
-
-- order: 5
+---
+order: 5
+title: 禁止选项
+---
 
 限制选择 `20:30` 到 `23:30` 这个时间段。
-
----
 
 ````jsx
 import { TimePicker } from 'antd';
 
 function newArray(start, end) {
-  let result = [];
+  const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
@@ -18,7 +17,7 @@ function newArray(start, end) {
 }
 
 function disabledHours() {
-  let hours = newArray(0, 60);
+  const hours = newArray(0, 60);
   hours.splice(20, 4);
   return hours;
 }

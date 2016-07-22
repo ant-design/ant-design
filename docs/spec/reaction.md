@@ -1,8 +1,9 @@
-# 即时反应
-
-- category: 十大原则
-- order: 10
-- subtitle: React Immediately
+---
+category: 十大原则
+order: 10
+subtitle: React Immediately
+english: 即时反应
+---
 
 『提供邀请』的强大体现在`交互之前`给出反馈，解决易发现性问题；『巧用过渡』的有用体现在它能够在`交互期间`为用户提供视觉反馈；『即时反应』的重要性体现在`交互之后`立即给出反馈。
 
@@ -26,22 +27,20 @@
 
 <br>
 
-<img class="preview-img" align="right" alt="实时搜索示例" description="用户输入一个搜索值，系统随即显示查询结果。
-" src="https://os.alipayobjects.com/rmsportal/OyJCVmOigyXKWCf.png">
+<img class="preview-img" align="right" alt="实时搜索示例" description="用户输入一个搜索值，系统随即显示查询结果。" src="https://os.alipayobjects.com/rmsportal/OyJCVmOigyXKWCf.png">
 
 实时搜索：随着用户输入，实时显示搜索结果。『自动完成』、『实时建议』的近亲。
 
 <br>
 
-微调搜索：随着用户调整搜索条件，实时调整搜索结构。具体可见：[『模式／高级搜索』](../pattern/advanced-search)。
+微调搜索：随着用户调整搜索条件，实时调整搜索结构。具体可见：[『模式／高级搜索』](/docs/pattern/advanced-search)。
 
 <br>
 
 ---
 ## 反馈模式
 
-<img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。
-" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">
+<img class="preview-img" align="right" alt="实时预览示例" description="根据用户的输入，提供关于密码强度和有效性的实时反馈。" src="https://os.alipayobjects.com/rmsportal/jecYhRgfbHleGDJ.png">
 
 实时预览：在用户提交输入之前，让他先行了解系统将如何处理他的输入。
 
@@ -49,7 +48,7 @@
 
 <br>
 
-渐进式展现：在必要的时候提供必要的提示，而不是一股脑儿显示所有提示，导致界面混乱，增加认知负担。案例详见[『足不出户／渐进式展现』](../spec/stay#流程处理)。
+渐进式展现：在必要的时候提供必要的提示，而不是一股脑儿显示所有提示，导致界面混乱，增加认知负担。案例详见[『足不出户／渐进式展现』](/docs/spec/stay#流程处理)。
 
 <br>
 

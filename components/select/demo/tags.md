@@ -1,11 +1,17 @@
-# 标签
+---
+order: 3
+title: 
+  zh-CN: 标签
+  en-US: Tags
+---
 
-- order: 3
+## zh-CN
 
 tags select，随意输入的内容（scroll the menu）
 
----
+## en-US
 
+Select with tags, transform input to tag (scroll the menu)
 
 ````jsx
 import { Select } from 'antd';
@@ -24,7 +30,8 @@ ReactDOM.render(
   <Select tags
     style={{ width: '100%' }}
     searchPlaceholder="标签模式"
-    onChange={handleChange}>
+    onChange={handleChange}
+  >
     {children}
   </Select>
 , mountNode);

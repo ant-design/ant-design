@@ -1,8 +1,9 @@
-jest.dontMock('../components/button/button');
+jest.unmock('../components/button/button');
+jest.unmock('../components/icon/index');
 
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-const Button = require('../components/button/button');
+import Button from '../components/button/button';
 
 describe('Button', function() {
   let button;
@@ -31,4 +32,3 @@ describe('Button', function() {
     expect(buttonNode.textContent).toBe('按 钮');
   });
 });
-

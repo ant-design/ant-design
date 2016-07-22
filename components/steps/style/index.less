@@ -1,0 +1,349 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@steps-prefix-cls: ant-steps;
+@process-icon-color: @primary-color;
+@process-title-color: #666;
+@process-description-color: @process-title-color;
+@process-tail-color: @border-color-split;
+@wait-icon-color: #ccc;
+@wait-title-color: #999;
+@wait-description-color: @wait-title-color;
+@wait-tail-color: @process-tail-color;
+@finish-icon-color: @process-icon-color;
+@finish-title-color: @wait-title-color;
+@finish-description-color: @finish-title-color;
+@finish-tail-color: @process-icon-color;
+@error-icon-color: @error-color;
+@error-title-color: @error-color;
+@error-description-color: @error-color;
+@error-tail-color: @error-color;
+
+.@{steps-prefix-cls} {
+  font-size: 0;
+  width: 100%;
+  line-height: 1.5;
+  .@{steps-prefix-cls}-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    &.@{steps-prefix-cls}-status-wait {
+      .@{steps-prefix-cls}-head-inner {
+        border-color: @wait-icon-color;
+        background-color: #fff;
+        > .@{steps-prefix-cls}-icon {
+          color: @wait-icon-color;
+        }
+      }
+      .@{steps-prefix-cls}-title {
+        color: @wait-title-color;
+      }
+      .@{steps-prefix-cls}-description {
+        color: @wait-description-color;
+      }
+      .@{steps-prefix-cls}-tail > i {
+        background-color: @wait-tail-color;
+      }
+    }
+    &.@{steps-prefix-cls}-status-process {
+      .@{steps-prefix-cls}-head-inner {
+        border-color: @process-icon-color;
+        background-color: @process-icon-color;
+        > .@{steps-prefix-cls}-icon {
+          color: #fff;
+        }
+      }
+      .@{steps-prefix-cls}-title {
+        color: @process-title-color;
+      }
+      .@{steps-prefix-cls}-description {
+        color: @process-description-color;
+      }
+      .@{steps-prefix-cls}-tail > i {
+        background-color: @process-tail-color;
+      }
+    }
+    &.@{steps-prefix-cls}-status-finish {
+      .@{steps-prefix-cls}-head-inner {
+        border-color: @finish-icon-color;
+        background-color: #fff;
+        > .@{steps-prefix-cls}-icon {
+          color: @finish-icon-color;
+        }
+      }
+      .@{steps-prefix-cls}-tail > i:after {
+        width: 100%;
+        background: @finish-tail-color;
+        transition: all 0.4s ease;
+        opacity: 1;
+      }
+      .@{steps-prefix-cls}-title {
+        color: @finish-title-color;
+      }
+      .@{steps-prefix-cls}-description {
+        color: @finish-description-color;
+      }
+    }
+
+    &.@{steps-prefix-cls}-status-error {
+      .@{steps-prefix-cls}-head-inner {
+        border-color: @error-icon-color;
+        background-color: #fff;
+        > .@{steps-prefix-cls}-icon {
+          color: @error-icon-color;
+        }
+      }
+      .@{steps-prefix-cls}-title {
+        color: @error-title-color;
+      }
+      .@{steps-prefix-cls}-description {
+        color: @error-description-color;
+      }
+      .@{steps-prefix-cls}-tail > i {
+        background-color: @process-tail-color;
+      }
+    }
+
+    &.@{steps-prefix-cls}-next-error {
+      .@{steps-prefix-cls}-tail > i,
+      .@{steps-prefix-cls}-tail > i:after {
+        background-color: @error-tail-color;
+      }
+    }
+
+    &.@{steps-prefix-cls}-custom {
+      .@{steps-prefix-cls}-head-inner {
+        background: none;
+        border: 0;
+        width: auto;
+        height: auto;
+        > .@{steps-prefix-cls}-icon {
+          font-size: 20px;
+          top: 2px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &.@{steps-prefix-cls}-status-process {
+        .@{steps-prefix-cls}-head-inner > .@{steps-prefix-cls}-icon {
+          color: @process-icon-color;
+        }
+      }
+    }
+  }
+
+  .@{steps-prefix-cls}-head,
+  .@{steps-prefix-cls}-main {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .@{steps-prefix-cls}-head {
+    background: #fff;
+  }
+
+  .@{steps-prefix-cls}-head-inner {
+    display: block;
+    border: 1px solid @wait-icon-color;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 26px;
+    font-size: 14px;
+    margin-right: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    > .@{steps-prefix-cls}-icon {
+      line-height: 1;
+      top: -1.5px;
+      color: @primary-color;
+      position: relative;
+
+      &.anticon {
+        font-size: 12px;
+        &-cross,
+        &-check {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .@{steps-prefix-cls}-main {
+    margin-top: 2.5px;
+  }
+  .@{steps-prefix-cls}-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #666;
+    font-weight: bold;
+    background: #fff;
+    display: inline-block;
+    padding-right: 10px;
+    > a:first-child:last-child {
+      color: #666;
+    }
+  }
+  .@{steps-prefix-cls}-item-last {
+    .@{steps-prefix-cls}-title {
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+  .@{steps-prefix-cls}-description {
+    font-size: 12px;
+    color: #999;
+  }
+  .@{steps-prefix-cls}-tail {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 13px;
+    padding: 0 10px;
+    > i {
+      display: inline-block;
+      vertical-align: top;
+      background: @wait-tail-color;
+      height: 1px;
+      border-radius: 1px;
+      width: 100%;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 0;
+        background: @border-color-split;
+        height: 100%;
+        opacity: 0;
+      }
+    }
+  }
+
+  &.@{steps-prefix-cls}-small {
+    .@{steps-prefix-cls}-head-inner {
+      border: 1px solid @wait-icon-color;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      text-align: center;
+      border-radius: 18px;
+      font-size: 12px;
+      margin-right: 10px;
+      > .@{steps-prefix-cls}-icon.anticon {
+        .iconfont-size-under-12px(9px);
+        top: 0;
+      }
+    }
+    .@{steps-prefix-cls}-main {
+      margin-top: 0;
+    }
+    .@{steps-prefix-cls}-title {
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: #666;
+      font-weight: bold;
+    }
+    .@{steps-prefix-cls}-description {
+      font-size: 12px;
+      color: #999;
+    }
+    .@{steps-prefix-cls}-tail {
+      top: 8px;
+      padding: 0 8px;
+      > i {
+        height: 1px;
+        border-radius: 1px;
+        width: 100%;
+      }
+    }
+  }
+
+  &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item.@{steps-prefix-cls}-custom .@{steps-prefix-cls}-head-inner,
+  .@{steps-prefix-cls}-item.@{steps-prefix-cls}-custom .@{steps-prefix-cls}-head-inner {
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    border-radius: 0;
+    border: 0;
+    background: none;
+  }
+}
+
+.@{steps-prefix-cls}-vertical {
+  .@{steps-prefix-cls}-item {
+    display: block;
+  }
+
+  .@{steps-prefix-cls}-tail {
+    position: absolute;
+    left: 13px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    padding: 30px 0 4px 0;
+    > i {
+      height: 100%;
+      width: 1px;
+      &:after {
+        height: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .@{steps-prefix-cls}-status-finish {
+    .@{steps-prefix-cls}-tail > i:after {
+      height: 100%;
+    }
+  }
+
+  .@{steps-prefix-cls}-head {
+    float: left;
+    &-inner {
+      margin-right: 16px;
+    }
+  }
+
+  .@{steps-prefix-cls}-main {
+    min-height: 47px;
+    overflow: hidden;
+    display: block;
+    .@{steps-prefix-cls}-title {
+      line-height: 26px;
+    }
+    .@{steps-prefix-cls}-description {
+      padding-bottom: 12px;
+    }
+  }
+}
+
+.@{steps-prefix-cls}-vertical.@{steps-prefix-cls}-small {
+  .@{steps-prefix-cls}-tail {
+    position: absolute;
+    left: 9px;
+    top: 0;
+    padding: 22px 0 4px 0;
+    > i {
+      height: 100%;
+    }
+  }
+
+  .@{steps-prefix-cls}-title {
+    line-height: 18px;
+  }
+}
+
+.@{steps-prefix-cls}-horizontal {
+   &.@{steps-prefix-cls}-hidden {
+     visibility: hidden;
+  }
+  .@{steps-prefix-cls}-description {
+    max-width: 100px;
+  }
+  .@{steps-prefix-cls}-item:not(:first-child) .@{steps-prefix-cls}-head {
+    padding-left: 10px;
+    margin-left: -10px;
+  }
+}

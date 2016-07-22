@@ -1,16 +1,15 @@
-# 只显示部分选项
-
-- order: 6
+---
+order: 6
+title: 只显示部分选项
+---
 
 通过 `hideDisabledOptions` 将不可选的选项隐藏。
-
----
 
 ````jsx
 import { TimePicker } from 'antd';
 
 function newArray(start, end) {
-  let result = [];
+  const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }

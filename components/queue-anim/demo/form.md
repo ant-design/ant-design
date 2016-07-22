@@ -1,10 +1,9 @@
-# 表单动画进出场
-
-- order: 4
+---
+order: 4
+title: 表单动画进出场
+---
 
 表单组合的进场与出场动画。
-
----
 
 ````jsx
 import { QueueAnim, Button, Radio, Input, Form, Row, Col } from 'antd';
@@ -14,12 +13,12 @@ const RadioGroup = Radio.Group;
 const Test = React.createClass({
   getInitialState() {
     return {
-      show: true
+      show: true,
     };
   },
   onClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   },
   render() {
@@ -58,7 +57,7 @@ const Test = React.createClass({
         </QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

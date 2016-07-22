@@ -1,11 +1,17 @@
-# 多选
+---
+order: 2
+title: 
+  zh-CN: 多选
+  en-US: mutiple selection
+---
 
-- order: 2
+## zh-CN
 
 多选，从已有条目中选择（scroll the menu）
 
----
+## en-US
 
+Multiple selection, selecting from existing items (scroll the menu).
 
 ````jsx
 import { Select } from 'antd';
@@ -21,9 +27,13 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select multiple
-    style={{ width: 400 }}
-    defaultValue={['a10', 'c12']} onChange={handleChange}>
+  <Select
+    multiple
+    style={{ width: '100%' }}
+    placeholder="Please select"
+    defaultValue={['a10', 'c12']}
+    onChange={handleChange}
+  >
     {children}
   </Select>
 , mountNode);

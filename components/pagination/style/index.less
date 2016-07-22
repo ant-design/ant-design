@@ -1,0 +1,294 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@pagination-prefix-cls: ant-pagination;
+
+.@{pagination-prefix-cls} {
+  font-size: @font-size-base;
+
+  &:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  &-total-text {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 10px;
+  }
+
+  &-item {
+    cursor: pointer;
+    border-radius: @border-radius-base;
+    user-select: none;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    list-style: none;
+    float: left;
+    border: 1px solid @border-color-base;
+    background-color: #fff;
+    margin-right: 8px;
+    font-family: Arial;
+
+    a {
+      text-decoration: none;
+      color: #666;
+      transition: none;
+      margin: 0 6px;
+    }
+
+    &:hover {
+      transition: all 0.3s ease;
+      border-color: @primary-color;
+      a {
+        color: @primary-color;
+      }
+    }
+
+    &-active {
+      background-color: @primary-color;
+      border-color: @primary-color;
+
+      a,
+      &:hover a {
+        color: #fff;
+      }
+    }
+  }
+
+  &-jump-prev,
+  &-jump-next {
+    &:after {
+      content: "•••";
+      display: block;
+      letter-spacing: 2px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    &:hover {
+      &:after {
+        color: @primary-color;
+        .iconfont-size-under-12px(8px);
+        letter-spacing: -1px;
+        font-family: "anticon";
+      }
+    }
+
+  }
+
+  &-jump-prev {
+    &:hover {
+      &:after {
+        content: "\e601\e601";
+      }
+    }
+  }
+
+  &-jump-next {
+    &:hover {
+      &:after {
+        content: "\e600\e600";
+      }
+    }
+  }
+
+  &-prev,
+  &-jump-prev,
+  &-jump-next {
+    margin-right: 8px;
+  }
+  &-prev,
+  &-next,
+  &-jump-prev,
+  &-jump-next {
+    font-family: Arial;
+    cursor: pointer;
+    color: #666;
+    border-radius: @border-radius-base;
+    list-style: none;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    float: left;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  &-prev,
+  &-next {
+    border: 1px solid @border-color-base;
+    background-color: #fff;
+
+    a {
+      color: #666;
+
+      &:after {
+        .iconfont-size-under-12px(8px);
+        display: block;
+        height: 26px;
+        line-height: 26px;
+        font-family: "anticon";
+        text-align: center;
+      }
+
+    }
+
+    &:hover {
+      border-color: @primary-color;
+
+      a {
+        color: @primary-color;
+      }
+    }
+  }
+
+  &-prev {
+    a {
+      &:after {
+        margin-top: -.5px;
+        content: "\e601";
+        display: block;
+      }
+    }
+  }
+
+  &-next {
+    a {
+      &:after {
+        content: "\e600";
+        display: block;
+      }
+    }
+  }
+
+  &-disabled {
+    &:hover {
+      border-color: @border-color-base;
+      a {
+        color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+    cursor: not-allowed;
+    a {
+      color: #ccc;
+    }
+  }
+
+  &-slash {
+    margin: 0 10px 0 5px;
+  }
+
+  &-options {
+    float: left;
+    margin-left: 15px;
+    &-size-changer {
+      float: left;
+      margin-right: 10px;
+    }
+
+    &-quick-jumper {
+      float: left;
+      height: 28px;
+      line-height: 28px;
+
+      input {
+        .input;
+        margin: 0 8px;
+        width: 50px;
+      }
+    }
+  }
+
+  &-simple &-prev,
+  &-simple &-next {
+    border: 0;
+    height: 24px;
+    line-height: 24px;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  &-simple &-simple-pager {
+    float: left;
+    margin-right: 8px;
+
+    input {
+      margin: 0 8px;
+      box-sizing: border-box;
+      background-color: #fff;
+      border-radius: @border-radius-base;
+      border: 1px solid @border-color-base;
+      outline: none;
+      padding: 5px 8px;
+      width: 30px;
+      height: 24px;
+      text-align: center;
+      transition: border-color 0.3s ease;
+
+      &:hover {
+        border-color: @primary-color;
+      }
+    }
+  }
+}
+
+.@{pagination-prefix-cls} {
+  &.mini &-total-text {
+      height: 20px;
+      line-height: 20px;
+  }
+
+  &.mini &-item {
+    border: 0;
+    margin: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+
+  &.mini &-prev,
+  &.mini &-next {
+    margin: 0;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border: 0;
+
+    a {
+      &:after {
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  &.mini &-jump-prev,
+  &.mini &-jump-next {
+    height: 20px;
+    line-height: 20px;
+  }
+
+  &.mini &-options {
+    margin-left: 8px;
+    &-quick-jumper {
+      height: 20px;
+      line-height: 20px;
+
+      input {
+        .input-sm;
+        width: 44px;
+      }
+    }
+  }
+}

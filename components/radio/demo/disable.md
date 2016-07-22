@@ -1,23 +1,30 @@
-# 不可用
+---
+order: 1
+title:
+  zh-CN: 不可用
+  en-US: disabled
+---
 
-- order: 1
+## zh-CN
 
 Radio 不可用。
 
----
+## en-US
 
-````jsx
+Radio unavailable.
+
+```jsx
 import { Radio, Button } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
     return {
-      disabled: true
+      disabled: true,
     };
   },
   toggleDisabled() {
     this.setState({
-      disabled: !this.state.disabled
+      disabled: !this.state.disabled,
     });
   },
   render() {
@@ -33,8 +40,8 @@ const App = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);
-````
+```

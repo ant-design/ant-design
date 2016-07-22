@@ -1,10 +1,9 @@
-# 与 Modal 配合使用
-
-- order: 14
+---
+order: 14
+title: 与 Modal 配合使用
+---
 
 在 Modal 中使用 Form，当点击 Modal 的确定时，调用 `this.props.form.getFieldsValue` 获取表单内的值。
-
----
 
 ````jsx
 import { Button, Form, Input, Modal } from 'antd';
@@ -43,19 +42,21 @@ let Demo = React.createClass({
           <Form horizontal form={this.props.form}>
             <FormItem
               {...formItemLayout}
-              label="用户名：">
+              label="用户名"
+            >
               <Input {...getFieldProps('username', {})} type="text" autoComplete="off" />
             </FormItem>
             <FormItem
               {...formItemLayout}
-              label="密码：">
+              label="密码"
+            >
               <Input {...getFieldProps('password', {})} type="password" autoComplete="off" />
             </FormItem>
           </Form>
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 Demo = createForm()(Demo);

@@ -1,12 +1,11 @@
-# 固定表头
-
-- order: 16
+---
+order: 16
+title: 固定表头
+---
 
 方便一页内展示大量数据。
 
 需要指定 column 的 `width` 属性，否则列头和内容可能不对齐。
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -30,11 +29,11 @@ for (let i = 0; i < 100; i++) {
     key: i,
     name: `李大嘴${i}`,
     age: 32,
-    address: `西湖区湖底公园${i}号`
+    address: `西湖区湖底公园${i}号`,
   });
 }
 
 ReactDOM.render(
-  <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} useFixedHeader />
+  <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} />
 , mountNode);
 ````

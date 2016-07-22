@@ -1,10 +1,9 @@
-# 点击上传
-
-- order: 0
+---
+order: 0
+title: 点击上传
+---
 
 经典款式，用户点击按钮弹出文件选择框。
-
----
 
 ````jsx
 import { Upload, message, Button, Icon } from 'antd';
@@ -24,7 +23,7 @@ const props = {
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} 上传失败。`);
     }
-  }
+  },
 };
 
 ReactDOM.render(

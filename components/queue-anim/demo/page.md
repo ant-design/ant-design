@@ -1,10 +1,9 @@
-# 一个复杂些的例子
-
-- order: 6
+---
+order: 6
+title: 一个复杂些的例子
+---
 
 模拟一个完整的页面。
-
----
 
 ````jsx
 import { QueueAnim, Button } from 'antd';
@@ -12,19 +11,19 @@ import { QueueAnim, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      show: true
+      show: true,
     };
   },
   onClick() {
     this.setState({
-      show: !this.state.show
+      show: !this.state.show,
     });
   },
   render() {
     const page = this.state.show ? [
       <div className="demo-header" key="header">
         <div className="logo">
-          <img width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
+          <img alt="logo" width="30" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
           <span>logo</span>
         </div>
         <QueueAnim component="ul">
@@ -60,7 +59,7 @@ const Test = React.createClass({
       </QueueAnim>,
       <QueueAnim delay={1000} type="bottom" key="footerBox">
         <div className="demo-footer" key="footer"></div>
-      </QueueAnim>
+      </QueueAnim>,
     ] : null;
     return (
       <div>
@@ -70,7 +69,7 @@ const Test = React.createClass({
         <QueueAnim type={['right', 'left']}>{page}</QueueAnim>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

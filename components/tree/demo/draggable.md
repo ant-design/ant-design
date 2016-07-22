@@ -1,10 +1,17 @@
-# 拖动示例
+---
+order: 2
+title: 
+  zh-CN: 拖动示例
+  en-US: draggable
+---
 
-- order: 2
+## zh-CN
 
 将节点拖拽到其他节点内部或前后。
 
----
+## en-US
+
+Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
 ````jsx
 import { Tree } from 'antd';
@@ -30,10 +37,10 @@ const generateData = (_level, _preKey, _tns) => {
   if (_level < 0) {
     return tns;
   }
-  const __level = _level - 1;
+  const level = _level - 1;
   children.forEach((key, index) => {
     tns[index].children = [];
-    return generateData(__level, key, tns[index].children);
+    return generateData(level, key, tns[index].children);
   });
 };
 generateData(z);
@@ -100,9 +107,12 @@ const Demo = React.createClass({
       return <TreeNode key={item.key} title={item.key} />;
     });
     return (
-      <Tree defaultExpandedKeys={this.state.expandedKeys} openAnimation={{}} draggable
+      <Tree
+        defaultExpandedKeys={this.state.expandedKeys}
+        draggable
         onDragEnter={this.onDragEnter}
-        onDrop={this.onDrop}>
+        onDrop={this.onDrop}
+      >
         {loop(this.state.gData)}
       </Tree>
     );

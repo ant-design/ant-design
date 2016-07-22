@@ -1,10 +1,10 @@
-# 横向滚屏表格
-
-- order: 16
+---
+order: 20
+title: 横向滚屏表格
+hidden: true
+---
 
 对于列数很多的数据，可以进行横向的分页，通过切换符切换当前展现的列。
-
----
 
 ````jsx
 import { Table } from 'antd';
@@ -23,11 +23,10 @@ const columns = [
   {
     title: '操作',
     key: 'operation',
-    render() {
-      return <a href="#">操作</a>;
-    }
+    render: () => <a href="#">操作</a>,
   },
 ];
+
 const data = [{
   key: '1',
   name: '胡彦斌',
@@ -38,11 +37,5 @@ const data = [{
   age: 42,
 }];
 
-const App = React.createClass({
-  render() {
-    return <Table columns={columns} dataSource={data} columnsPageRange={[2, 9]} columnsPageSize={4} />;
-  }
-});
-
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} columnsPageRange={[2, 9]} columnsPageSize={4} />, mountNode);
 ````

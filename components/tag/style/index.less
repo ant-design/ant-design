@@ -1,0 +1,100 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@tag-prefix-cls: ant-tag;
+
+.@{tag-prefix-cls} {
+  display: inline-block;
+  line-height: 22px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: @border-radius-base;
+  border: 1px solid @border-color-split;
+  background: @background-color-base;
+  font-size: @font-size-base;
+  transition: all 0.3s @ease-in-out-circ;
+  vertical-align: middle;
+  opacity: 1;
+  overflow: hidden;
+  margin: 2px 4px 2px 0;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &,
+  a,
+  a:hover {
+    color: @text-color;
+  }
+
+  &-text {
+    a:first-child:last-child {
+      display: inline-block;
+      margin: 0 -8px;
+      padding: 0 8px;
+    }
+  }
+
+  .anticon-cross {
+    .iconfont-size-under-12px(10px);
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 3px;
+    color: #666;
+    transition: all 0.3s ease;
+    opacity: 0.66;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &-blue,
+  &-green,
+  &-yellow,
+  &-red {
+    border: 0;
+    &,
+    a,
+    a:hover,
+    .anticon-cross,
+    .anticon-cross:hover {
+      color: #fff;
+    }
+  }
+
+  &-blue {
+    background: @link-color;
+  }
+
+  &-green {
+    background: @success-color;
+  }
+
+  &-yellow {
+    background: @warning-color;
+  }
+
+  &-red {
+    background: @error-color;
+  }
+
+  &-close {
+    width: 0 !important;
+    padding: 0;
+    margin: 0;
+  }
+
+  &-zoom-enter,
+  &-zoom-appear {
+    animation: antFadeIn .2s @ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+
+  &-zoom-leave {
+    animation: antZoomOut .3s @ease-in-out-circ;
+    animation-fill-mode: both;
+  }
+}

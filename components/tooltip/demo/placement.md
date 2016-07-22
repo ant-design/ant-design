@@ -1,10 +1,9 @@
-# 位置
-
-- order: 1
+---
+order: 1
+title: 位置
+---
 
 位置有 12 个方向。
-
----
 
 ````jsx
 import { Tooltip } from 'antd';
@@ -47,7 +46,7 @@ ReactDOM.render(
     </div>
     <div style={{ marginLeft: 60, clear: 'both' }}>
       <Tooltip placement="bottomLeft" title={text}>
-        <a href="#">上右</a>
+        <a href="#">下左</a>
       </Tooltip>
       <Tooltip placement="bottom" title={text}>
         <a href="#">下边</a>

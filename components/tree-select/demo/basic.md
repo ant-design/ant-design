@@ -1,10 +1,9 @@
-# 基本
-
-- order: 0
+---
+order: 0
+title: 基本
+---
 
 最简单的用法。
-
----
 
 ````jsx
 import { TreeSelect } from 'antd';
@@ -28,7 +27,8 @@ const Demo = React.createClass({
         placeholder="请选择"
         allowClear
         treeDefaultExpandAll
-        onChange={this.onChange}>
+        onChange={this.onChange}
+      >
         <TreeNode value="parent 1" title="parent 1" key="0-1">
           <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
             <TreeNode value="leaf1" title="my leaf" key="random" />

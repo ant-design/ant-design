@@ -1,10 +1,9 @@
-# 确认对话框
-
-- order: 5
+---
+order: 5
+title: 确认对话框
+---
 
 使用 `confirm()` 可以快捷地弹出确认框。onCancel/onOk 返回 promise 可以延迟关闭
-
----
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -19,12 +18,13 @@ function showConfirm() {
         setTimeout(resolve, 1000);
       });
     },
-    onCancel() {}
+    onCancel() {},
   });
 }
 
 ReactDOM.render(
-<Button onClick={showConfirm}>
-  确认对话框
-</Button>, mountNode);
+  <Button onClick={showConfirm}>
+    确认对话框
+  </Button>
+, mountNode);
 ````

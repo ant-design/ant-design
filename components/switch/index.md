@@ -1,9 +1,8 @@
-# Switch
-
-- category: Components
-- chinese: 开关
-- type: 表单
-
+---
+category: Components
+chinese: 开关
+type: Form Controls
+english: Switch
 ---
 
 开关选择器。

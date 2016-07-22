@@ -23,6 +23,9 @@ nohup.out
 _site
 _data
 dist
-lib
+/lib
 elasticsearch-*
 config/base.yaml
+typings
+components/**/*.js
+components/**/*.jsx

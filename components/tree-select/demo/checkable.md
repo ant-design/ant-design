@@ -1,10 +1,9 @@
-# 多选
-
-- order: 2
+---
+order: 2
+title: 多选
+---
 
 多选和勾选框功能。
-
----
 
 ````jsx
 import { TreeSelect } from 'antd';

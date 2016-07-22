@@ -1,10 +1,9 @@
-# 不可用
-
-- order: 2
+---
+order: 2
+title: 不可用
+---
 
 点击按钮切换可用状态。
-
----
 
 ````jsx
 import { InputNumber, Button } from 'antd';
@@ -12,12 +11,12 @@ import { InputNumber, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      disabled: true
+      disabled: true,
     };
   },
   toggle() {
     this.setState({
-      disabled: !this.state.disabled
+      disabled: !this.state.disabled,
     });
   },
   render() {
@@ -29,7 +28,7 @@ const Test = React.createClass({
         </div>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

@@ -1,10 +1,17 @@
-# 多级菜单
+---
+order: 5
+title:
+  zh-CN: 多级菜单
+  en-US: Cascading menu
+---
 
-- order: 5
+## zh-CN
 
 传入的菜单里有多个层级。
 
----
+## en-US
+
+The menu has multiple levels.
 
 ````jsx
 import { Menu, Dropdown, Icon } from 'antd';
