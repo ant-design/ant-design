@@ -217,6 +217,14 @@
         transform: rotate(180deg) scale(0.75);
       }
     }
+
+    &-selected {
+      color: @primary-color;
+      > a,
+      > a:hover {
+        color: @primary-color;
+      }
+    }
   }
 
   &-horizontal {
@@ -347,6 +355,7 @@
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
+  &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
     background-color: transparent;
