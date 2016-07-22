@@ -8,7 +8,31 @@ const placements = getPlacements();
 const prefixCls = 'ant-popover';
 const noop = () => {};
 
-export default class Popconfirm extends React.Component {
+interface PopconfirmProps {
+  /**
+   * Position of popup-container, options:`top`, `left`, `right`, `bottom`
+   */
+  placement?: 'top' | 'left' | 'right' | 'bottom';
+  /** Description of Popconfirm */
+  title?: string;
+  /** Callback when confirm */
+  onConfirm?: Function;
+  /** Callback when cancel */
+  onCancel?: Function;
+  /** Callback when display/hide */
+  onVisibleChange?: (visible: boolean) => void;
+  /** Confirm button text */
+  okText?: string;
+  /** Cancel button text */
+  cancelText?: string;
+  style?: React.CSSProperties;
+  transitionName?: string;
+  trigger?: 'hover' | 'focus' | 'click';
+  /** Style of overlay */
+  overlayStyle?: React.CSSProperties;
+}
+
+export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   static defaultProps = {
     transitionName: 'zoom-big',
     placement: 'top',
