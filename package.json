@@ -49,8 +49,13 @@
     "rc-dropdown": "~1.4.8",
     "rc-editor-mention": "~0.1.10",
     "rc-form": "~0.17.1",
+<<<<<<< HEAD
     "rc-input-number": "~2.5.14",
     "rc-menu": "~4.12.4",
+=======
+    "rc-input-number": "~2.5.12",
+    "rc-menu": "~4.13.0",
+>>>>>>> 1.x-stable
     "rc-notification": "~1.3.4",
     "rc-pagination": "~1.5.3",
     "rc-progress": "~1.0.4",
@@ -66,7 +71,7 @@
     "rc-time-picker": "~1.1.6",
     "rc-tooltip": "~3.4.2",
     "rc-tree": "~1.3.6",
-    "rc-tree-select": "~1.7.8",
+    "rc-tree-select": "~1.7.9",
     "rc-upload": "~1.13.3",
     "rc-util": "~3.3.0",
     "react-addons-pure-render-mixin": "^15.0.0",

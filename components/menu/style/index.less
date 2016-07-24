@@ -219,6 +219,13 @@
     }
   }
 
+  &-vertical &-submenu-selected {
+    color: @primary-color;
+    > a {
+      color: @primary-color;
+    }
+  }
+
   &-horizontal {
     border: 0;
     border-bottom: 1px solid @border-color-split;
@@ -347,6 +354,7 @@
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
+  &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
     background-color: transparent;

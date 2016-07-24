@@ -17,10 +17,6 @@ const treeData = [{
     label: '子节点一',
     value: '0-0-0',
     key: '0-0-0',
-  }, {
-    label: '子节点二',
-    value: '0-0-1',
-    key: '0-0-1',
   }],
 }, {
   label: '节点二',
@@ -34,6 +30,10 @@ const treeData = [{
     label: '子节点四',
     value: '0-1-1',
     key: '0-1-1',
+  }, {
+    label: '子节点五',
+    value: '0-1-2',
+    key: '0-1-2',
   }],
 }];
 
