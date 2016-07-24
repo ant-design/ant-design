@@ -84,7 +84,7 @@ english: 三大特性
 
 ### 通俗而科学的设计原则
 
-详见[『十大原则』](./principle)。
+详见[『十大原则』](/docs/spec/principle)。
 
 ---
 
