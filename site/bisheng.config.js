@@ -22,6 +22,7 @@ module.exports = {
   },
   webpackConfig(config) {
     config.resolve.alias = {
+      'antd/lib': path.join(process.cwd(), 'components'),
       antd: process.cwd(),
       site: path.join(process.cwd(), 'site'),
     };
