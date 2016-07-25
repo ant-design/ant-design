@@ -1,6 +1,6 @@
 ---
 category: Components
-chinese: 置顶
+chinese: 回到顶部
 type: Other
 english: BackTop
 ---

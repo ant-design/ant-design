@@ -3,7 +3,7 @@ order: 1
 title: 自定义样式
 ---
 
-可以自定义置顶按钮的样式，限制宽高：`40px * 40px`。
+可以自定义回到顶部按钮的样式，限制宽高：`40px * 40px`。
 
 ````jsx
 import { BackTop } from 'antd';
