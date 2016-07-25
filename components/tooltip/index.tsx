@@ -20,8 +20,18 @@ export interface TooltipProps {
   */
   placement?: PopoverPlacement;
   /** 提示文字 */
-  title?: string | React.ReactNode;
+  title: React.ReactNode;
   style?: React.CSSProperties;
+  builtinPlacements?: Object;
+  /** Style of overlay */
+  overlayStyle?: React.CSSProperties;
+  prefixCls?: string;
+  /** Callback when display/hide */
+  onVisibleChange?: (visible: boolean) => void;
+  transitionName?: string;
+  visible?: boolean;
+  trigger?: 'hover' | 'focus' | 'click';
+  overlay?: React.ReactNode;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
