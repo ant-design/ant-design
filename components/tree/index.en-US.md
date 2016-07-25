@@ -47,3 +47,11 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |title | title | String/element | '---' |
 |key | it's used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: it must be unique in all of treeNodes of the tree! | String | internal calculated position of treeNode |
 |isLeaf | whether it's leaf node | bool | false |
+
+## note
+
+The number of treeNodes can be very large, but when enable `checkable`, 
+it will spend more computing time, so we cached some calculations(e.g. `this.treeNodesStates`), 
+to avoid double computing. But, this bring some restrictions, 
+**when you async load treeNodes, you should render tree like this** 
+`{this.state.treeData.length ? <Tree ...>{this.state.treeData.map(t => <TreeNode ... />)}</Tree> : 'loading tree'}`
