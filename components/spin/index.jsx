@@ -52,12 +52,13 @@ export default class Spin extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const currentSpinning = this.getSpinning(this.props);
     const spinning = this.getSpinning(nextProps);
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    if (spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 250);
+    if (currentSpinning && !spinning) {
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 500);
     } else {
       this.setState({ spinning });
     }
