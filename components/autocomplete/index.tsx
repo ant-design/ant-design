@@ -24,15 +24,15 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     optionLabelProp: 'children',
     choiceTransitionName: 'zoom',
     showSearch: false,
-  }
+  };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
-  }
+  };
 
   render() {
     let {
-      size, className, notFoundContent, prefixCls, optionLabelProp, dataSource
+      size, className, notFoundContent, prefixCls, optionLabelProp, dataSource,
     } = this.props;
 
     const cls = classNames({
@@ -49,7 +49,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
         case 'object':
           if (React.isValidElement(item)) {
             return React.cloneElement(item, {
-              key: item.key || index
+              key: item.key || index,
             });
           }
           return <Option key={item.value}>{item.text}</Option>;

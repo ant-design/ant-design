@@ -20,9 +20,9 @@ const dataSource = ['12345', '23456', '34567'];
 ```
 
 
-| 参数           | 说明                             | 类型       |  可选值 | 默认值 |
-|----------------|----------------------------------|------------|---------|--------|
-| dataSource          | 自动完成的数据源 | Array     |         |        |
+| 参数           | 说明                             | 类型        | 默认值 |
+|----------------|----------------------------------|------------|---------|
+| dataSource          | 自动完成的数据源 | Array     |         | 
 | value    | 指定当前选中的条目 | String/Array<String>/{key: String, label: React.Node}/Array<{key, label}>   |  无  |
 | defaultValue | 指定默认选中的条目 | String/Array<String>/{key: String, label: React.Node}/Array<{key, label}>   |  无  |
 | allowClear   | 支持清除, 单选模式有效 | boolean | false |
