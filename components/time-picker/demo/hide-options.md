@@ -1,9 +1,11 @@
 ---
 order: 6
-title: 只显示部分选项
+title: 
+  zh-CN: 只显示部分选项
+  en-US: Show part of options.
 ---
 
-通过 `hideDisabledOptions` 将不可选的选项隐藏。
+use `hideDisabledOptions` to hide the disabled options.
 
 ````jsx
 import { TimePicker } from 'antd';

@@ -1,9 +1,11 @@
 ---
 order: 1
-title: 受控组件
+title: 
+  zh-CN: 受控组件
+  en-US: Under control
 ---
 
-value 和 onChange 需要配合使用。
+`Value` and `onChange` should be used together, 
 
 ````jsx
 import { TimePicker } from 'antd';

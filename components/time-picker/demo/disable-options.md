@@ -1,9 +1,11 @@
 ---
 order: 5
-title: 禁止选项
+title: 
+  zh-CN: 禁止选项
+  en-US: Specify the time that cannot be selected
 ---
 
-限制选择 `20:30` 到 `23:30` 这个时间段。
+You can't select the time from `20:30` to `23:30`.
 
 ````jsx
 import { TimePicker } from 'antd';
