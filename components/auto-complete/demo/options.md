@@ -11,8 +11,8 @@ Datasource 的每一项是一个 `AutoComplete.Option`。通过 `AutoComplete.Op
 
 ## en-US
 
-Each datasource is an `AutoComplete.Option`.
- 
+Items in dataSource could be an `AutoComplete.Option`.
+
 
 ````jsx
 import { AutoComplete } from 'antd';
