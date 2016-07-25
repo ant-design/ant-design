@@ -12,7 +12,7 @@ module.exports = {
   htmlTemplate: './site/theme/static/template.html',
   plugins: [
     'bisheng-plugin-description',
-    'bisheng-plugin-toc?maxDepth=2',
+    'bisheng-plugin-toc?maxDepth=2&keepElem',
     'bisheng-plugin-react?lang=__react',
     'bisheng-plugin-antd',
   ],
