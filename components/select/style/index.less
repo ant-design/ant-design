@@ -27,11 +27,7 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:before {
     display: block;
-    font-family: "anticon" !important;
-    content: "\E631";
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    .iconfont-font("\e631");
   }
   &:hover {
     color: #999;
@@ -480,8 +476,7 @@
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
       &:after {
-        content: '\e62e';
-        font-family: 'anticon';
+        .iconfont-font("\e62e");
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;
