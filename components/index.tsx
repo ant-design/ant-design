@@ -28,6 +28,9 @@ export { Carousel };
 import Cascader from './cascader';
 export { Cascader };
 
+import Popconfirm from './popconfirm';
+export { Popconfirm };
+
 import Transfer from './transfer';
 export { Transfer };
 
