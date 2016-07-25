@@ -40,8 +40,6 @@ export interface PopconfirmContext {
 }
 
 export default class Popconfirm extends React.Component<PopconfirmProps, any> {
-  context: PopconfirmContext;
-
   static defaultProps = {
     transitionName: 'zoom-big',
     placement: 'top',
@@ -55,6 +53,8 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   static contextTypes = {
     antLocale: React.PropTypes.object,
   };
+
+  context: PopconfirmContext;
 
   constructor(props) {
     super(props);
