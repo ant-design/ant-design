@@ -6,6 +6,7 @@ import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
 import defaultLocale from './locale/zh_CN';
 import assign from 'object-assign';
+
 export default function wrapPicker(Picker, defaultFormat) {
   const PickerWrapper = React.createClass({
     getDefaultProps() {
