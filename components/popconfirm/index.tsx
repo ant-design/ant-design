@@ -9,7 +9,6 @@ const prefixCls = 'ant-popover';
 const noop = () => {};
 
 export interface PopconfirmProps {
-
   /**
    * Position of popup-container, options:`top`, `left`, `right`, `bottom`
    */
@@ -34,7 +33,15 @@ export interface PopconfirmProps {
   prefixCls?: string;
 }
 
+export interface PopconfirmContext {
+  antLocale?: {
+    Popconfirm?: any,
+  };
+}
+
 export default class Popconfirm extends React.Component<PopconfirmProps, any> {
+  context: PopconfirmContext;
+
   static defaultProps = {
     transitionName: 'zoom-big',
     placement: 'top',
