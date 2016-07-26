@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as antd from '../../../../index';
 import { addLocaleData, IntlProvider } from 'react-intl';
+import Promise from 'bluebird';
 import Header from './Header';
 import Footer from './Footer';
+import * as utils from '../utils';
 import enLocale from '../../en-US.js';
 import cnLocale from '../../zh-CN.js';
 import '../../static/style';
@@ -11,7 +12,7 @@ import '../../static/style';
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
-window.antd = antd;
+window.antd = require('antd');
 
 // Polyfill
 const areIntlLocalesSupported = require('intl-locales-supported');
@@ -41,6 +42,12 @@ const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('loc
 
 const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
+
+export function collect(nextProps, callback) {
+  const componentsList = utils.collectDocs(nextProps.data.components);
+  Promise.all(componentsList)
+    .then((list) => callback(null, { ...nextProps, components: list }));
+}
 
 let gaListenerSetted = false;
 export default class Layout extends React.Component {
