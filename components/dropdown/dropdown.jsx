@@ -10,12 +10,6 @@ export default class Dropdown extends React.Component {
   }
 
   render() {
-    const { overlay, ...otherProps } = this.props;
-    const menu = React.cloneElement(overlay, {
-      openTransitionName: 'zoom-big',
-    });
-    return (
-      <RcDropdown {...otherProps} overlay={menu} />
-    );
+    return <RcDropdown {...this.props} />;
   }
 }
