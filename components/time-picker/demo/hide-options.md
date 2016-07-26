@@ -5,6 +5,12 @@ title:
   en-US: Show part of options.
 ---
 
+## zh-CN
+
+通过 hideDisabledOptions 将不可选的选项隐藏。
+
+## en-US
+
 use `hideDisabledOptions` to hide the disabled options.
 
 ````jsx

@@ -6,12 +6,12 @@ title: TimePicker
 
 To select/input a time.
 
-When To Use
+## When to use
 --------
 
 By clicking the input box, you can select a time from a popup panel.
 
-API
+## API
 ---
 
 ```html

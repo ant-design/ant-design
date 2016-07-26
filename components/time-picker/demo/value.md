@@ -5,6 +5,12 @@ title:
   en-US: Under control
 ---
 
+## zh-CN
+
+value 和 onChange 需要配合使用。
+
+## en-US
+
 `Value` and `onChange` should be used together, 
 
 ````jsx

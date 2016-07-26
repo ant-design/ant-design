@@ -5,6 +5,12 @@ title:
   en-US: Hide the seconds options
 ---
 
+## zh-CN
+
+不展示秒，也不允许选择。
+
+## en-US
+
 The `seconds` options are hidden and cannot be selected.
 
 ````jsx
