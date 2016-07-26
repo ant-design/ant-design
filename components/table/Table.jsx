@@ -717,7 +717,7 @@ export default class Table extends React.Component {
     // 优化本地排序
     data = data.slice(0);
     for (let i = 0; i < data.length; i++) {
-      data[i].indexForSort = i;
+      data[i] = { ...data[i], indexForSort: i };
     }
     const sorterFn = this.getSorterFn();
     if (sorterFn) {
