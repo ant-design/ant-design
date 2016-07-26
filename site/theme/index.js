@@ -21,13 +21,30 @@ module.exports = {
     '0.12.x': 'http://012x.ant.design/',
   },
   routes: {
-    '/': './template/Home/index',
-    '/docs/practice/:children': contentTmpl,
-    '/docs/pattern/:children': contentTmpl,
-    '/docs/react/:children': contentTmpl,
-    '/changelog': contentTmpl,
-    '/components/:children': contentTmpl,
-    '/docs/spec/:children': contentTmpl,
-    '/docs/resource/:children': contentTmpl,
+    path: '/',
+    component: './template/Layout/index',
+    indexRoute: { component: './template/Home/index' },
+    childRoutes: [{
+      path: '/docs/practice/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/pattern/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/react/:children',
+      component: contentTmpl,
+    }, {
+      path: '/changelog',
+      component: contentTmpl,
+    }, {
+      path: '/components/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/spec/:children',
+      component: contentTmpl,
+    }, {
+      path: '/docs/resource/:children',
+      component: contentTmpl,
+    }],
   },
 };

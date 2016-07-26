@@ -89,10 +89,10 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { routes, components } = this.props;
-    const route = routes[0].path.replace(/^\//, '');
-    let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
-    if (activeMenuItem === 'components' || route === 'changelog') {
+    const { location, components } = this.props;
+    const module = location.pathname.split('/').slice(0, -1).join('/');
+    let activeMenuItem = module || 'home';
+    if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
 
@@ -144,7 +144,7 @@ export default class Header extends React.Component {
               </Select>
             </div>
             {
-              location.port ? (
+              window.location.port ? (
                 <Button id="lang" type="ghost" size="small" onClick={this.handleLangChange}>
                   <FormattedMessage id="app.header.lang" />
                 </Button>
