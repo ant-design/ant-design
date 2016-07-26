@@ -42,6 +42,7 @@ english: TreeSelect
 | treeData | treeNodes数据，如果设置则不需要手动构造TreeNode节点（value在整个树范围内唯一）| array<{value, label, children, [disabled,selectable]}> | [] |
 |treeDataSimpleMode | 使用简单格式的treeData，具体设置参考可设置的类型 (此时treeData应变为这样的数据结构: [{"id":1, "pId":0, "label":"test1"},...], `pId`是父节点的id) | bool/object{id:'id', pId:'pId', rootPId:null} | false |
 | loadData | 异步加载数据 | function(node) | - |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 
 ### TreeNode props
 > 建议使用 treeData 来代替 TreeNode，免去手工构造麻烦
