@@ -1,6 +1,9 @@
 import Affix from './affix';
 export { Affix };
 
+import AutoComplete from './auto-complete';
+export { AutoComplete };
+
 import Alert from './alert';
 export { Alert };
 

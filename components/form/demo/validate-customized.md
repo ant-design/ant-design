@@ -20,6 +20,7 @@ function noop() {
 let Demo = React.createClass({
   getInitialState() {
     return {
+      dirty: false,
       passBarShow: false, // 是否显示密码强度提示条
       rePassBarShow: false,
       passStrength: 'L', // 密码强度
@@ -67,7 +68,7 @@ let Demo = React.createClass({
     const form = this.props.form;
     this.getPassStrenth(value, 'pass');
 
-    if (form.getFieldValue('pass')) {
+    if (form.getFieldValue('pass') && this.state.dirty) {
       form.validateFields(['rePass'], { force: true });
     }
 
@@ -150,6 +151,10 @@ let Demo = React.createClass({
                 <Input {...passProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="pass"
+                  onBlur={(e) => {
+                    const value = e.target.value;
+                    this.setState({ dirty: this.state.dirty || !!value });
+                  }}
                 />
               </FormItem>
             </Col>
