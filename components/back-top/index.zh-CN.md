@@ -1,11 +1,11 @@
 ---
 category: Components
 type: Other
-chinese: 置顶
+chinese: 回到顶部
 english: BackTop
 ---
 
-使用置顶组件可以方便地回到页面顶部。
+返回页面顶部的操作按钮。
 
 ## 何时使用
 

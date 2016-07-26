@@ -6,6 +6,7 @@ import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 import config from '../../';
 const SubMenu = Menu.SubMenu;
+let firstMounted = false;
 
 export default class MainContent extends React.Component {
   static contextTypes = {
@@ -16,11 +17,12 @@ export default class MainContent extends React.Component {
     if (!location.hash) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-    } else {
+    } else if (!firstMounted) {
       this.timer = setTimeout(() => {
-        document.getElementById(location.hash.replace('#', '')).scrollIntoView();
+        document.getElementById(decodeURI(location.hash.replace('#', ''))).scrollIntoView();
       }, 10);
     }
+    firstMounted = true;
   }
 
   componentWillUnmount() {

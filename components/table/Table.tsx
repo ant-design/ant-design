@@ -58,6 +58,7 @@ export default class Table extends React.Component {
     indentSize: 20,
     onChange: noop,
     locale: {},
+    rowKey: 'key',
   };
 
   static contextTypes = {
@@ -474,10 +475,11 @@ export default class Table extends React.Component {
   }
 
   getRecordKey(record, index) {
-    if (this.props.rowKey) {
-      return this.props.rowKey(record, index);
+    const { rowKey } = this.props;
+    if (typeof rowKey === 'function') {
+      return rowKey(record, index);
     }
-    return record.key || index;
+    return record[rowKey] || index;
   }
 
   renderRowSelection() {
@@ -702,7 +704,7 @@ export default class Table extends React.Component {
     // 优化本地排序
     data = data.slice(0);
     for (let i = 0; i < data.length; i++) {
-      data[i].indexForSort = i;
+      data[i] = assign({}, data[i], { indexForSort: i });
     }
     const sorterFn = this.getSorterFn();
     if (sorterFn) {

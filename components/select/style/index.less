@@ -27,11 +27,7 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   &:before {
     display: block;
-    font-family: "anticon" !important;
-    content: "\E631";
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    .iconfont-font("\e631");
   }
   &:hover {
     color: #999;
@@ -213,11 +209,16 @@
     position: absolute;
     top: 50%;
     left: 9px;
+    right: 9px;
     color: #ccc;
     line-height: 20px;
     height: 20px;
+    max-width: 100%;
     margin-top: -10px;
     cursor: text;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &-search--inline {
@@ -356,8 +357,11 @@
       box-shadow: none;
     }
     .@{select-prefix-cls}-selection__rendered {
-      padding: 0;
+      padding: 0 24px 0 0;
       height: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
     }
   }
 }
@@ -472,8 +476,7 @@
   &&--multiple {
     .@{select-prefix-cls}-dropdown-menu-item {
       &:after {
-        content: '\e62e';
-        font-family: 'anticon';
+        .iconfont-font("\e62e");
         color: transparent;
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;

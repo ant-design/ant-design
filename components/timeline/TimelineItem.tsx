@@ -40,7 +40,10 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
     return (
       <li {...restProps} className={itemClassName}>
         <div className={`${prefixCls}-item-tail`} />
-        <div className={dotClassName} style={{ color: /blue|red|green/.test(color) ? null : color }}>
+        <div
+          className={dotClassName}
+          style={{ borderColor: /blue|red|green/.test(color) ? null : color }}
+        >
           {dot}
         </div>
         <div className={`${prefixCls}-item-content`}>
