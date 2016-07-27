@@ -25,25 +25,25 @@ module.exports = {
     component: './template/Layout/index',
     indexRoute: { component: './template/Home/index' },
     childRoutes: [{
-      path: '/docs/practice/:children',
+      path: 'docs/practice/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/pattern/:children',
+      path: 'docs/pattern/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/react/:children',
+      path: 'docs/react/:children',
       component: contentTmpl,
     }, {
-      path: '/changelog',
+      path: 'changelog',
       component: contentTmpl,
     }, {
-      path: '/components/:children',
+      path: 'components/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/spec/:children',
+      path: 'docs/spec/:children',
       component: contentTmpl,
     }, {
-      path: '/docs/resource/:children',
+      path: 'docs/resource/:children',
       component: contentTmpl,
     }],
   },
