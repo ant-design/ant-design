@@ -154,7 +154,7 @@ export default class MainContent extends React.Component {
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+              openKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
               selectedKeys={[activeMenuItem]}
             >
               {menuItems}
