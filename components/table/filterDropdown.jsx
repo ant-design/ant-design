@@ -48,13 +48,10 @@ export default class FilterMenu extends React.Component {
     this.confirmFilter();
   }
 
-  onVisibleChange = (visible, e) => {
-    // Don't close menu when select menu item
-    if (e && e.type === 'click' &&
-        e.currentTarget.className === 'ant-table-filter-dropdown') {
-      return;
-    }
-    this.setState({ visible });
+  onVisibleChange = (visible) => {
+    this.setState({
+      visible,
+    });
     if (!visible) {
       this.confirmFilter();
     }
