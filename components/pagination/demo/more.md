@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 更多
+title:
+  zh-CN: 更多
+  en-US: More
 ---
 
+## zh-CN
+
 更多分页。
+
+## en-US
+
+More pages.
 
 ````jsx
 import { Pagination } from 'antd';

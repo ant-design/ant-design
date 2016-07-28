@@ -1,9 +1,17 @@
 ---
 order: 6
-title: 简洁
+title:
+  zh-CN: 简洁
+  en-US: Simple mode
 ---
 
-简单地翻页。
+## zh-CN
+
+简单的翻页。
+
+## en-US
+
+Simple mode.
 
 ````jsx
 import { Pagination } from 'antd';
