@@ -31,6 +31,9 @@ export { Carousel };
 import Cascader from './cascader';
 export { Cascader };
 
+import LocaleProvider from './locale-provider';
+export { LocaleProvider };
+
 import Popconfirm from './popconfirm';
 export { Popconfirm };
 

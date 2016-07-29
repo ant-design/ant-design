@@ -1,7 +1,21 @@
 import * as React from 'react';
 import { changeConfirmLocale } from '../modal/locale';
 
-export default class LocaleProvider extends React.Component {
+export interface LocaleProviderProps {
+  locale: {
+    Pagination?: Object,
+    DatePicker?: Object,
+    TimePicker?: Object,
+    Calendar?: Object,
+    Table?: Object,
+    Modal?: Object,
+    Popconfirm?: Object,
+    Transfer?: Object,
+    Select?: Object,
+  };
+}
+
+export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
   static propTypes = {
     locale: React.PropTypes.object,
   };
