@@ -5,7 +5,37 @@ import warning from 'warning';
 
 const placements = getPlacements();
 
-export default class Popover extends React.Component {
+export interface PopoverProps {
+   /** trigger type, options: `hover` `focus` `click` */
+   trigger?: 'hover' | 'focus' | 'click';
+   /** Position of popup-container,
+   * options: `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight`
+   * `leftTop` `leftBottom` `rightTop` `rightBottom`
+   */
+   placement?: 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' |
+   'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+   /** title of popup-container */
+   title?: React.ReactNode;
+   /** classname of popup-container */
+   overlayClassName?: string;
+   /** Style of overlay */
+   overlayStyle?: React.CSSProperties;
+   prefixCls?: string;
+   /** to control visibility of popup-container */
+   visible?: boolean;
+   /** callback when visible change */
+   onVisibleChange?: (visible: boolean) => void;
+   /** specify wrapper of popup-container */
+   getTooltipContainer?: (triggerNode: React.ReactNode) => React.ReactNode;
+   /** content of popup-container */
+   content?: React.ReactNode;
+   /** keep overlay for compatibility */
+   overlay?: React.ReactNode;
+   style?: React.CSSProperties;
+   transitionName?: string;
+}
+
+export default class Popover extends React.Component<PopoverProps, any> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     placement: 'top',
@@ -30,7 +60,7 @@ export default class Popover extends React.Component {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return (this.refs as any).tooltip.getPopupDomNode();
   }
 
   componentDidMount() {

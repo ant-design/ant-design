@@ -34,6 +34,9 @@ export { Cascader };
 import Popconfirm from './popconfirm';
 export { Popconfirm };
 
+import Popover from './popover';
+export { Popover };
+
 import Transfer from './transfer';
 export { Transfer };
 
