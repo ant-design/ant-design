@@ -15,23 +15,12 @@ export default class Form extends React.Component {
     prefixCls: React.PropTypes.string,
     horizontal: React.PropTypes.bool,
     inline: React.PropTypes.bool,
-    form: React.PropTypes.object,
     children: React.PropTypes.any,
     onSubmit: React.PropTypes.func,
   };
 
-  static childContextTypes = {
-    form: React.PropTypes.object,
-  };
-
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
-  }
-
-  getChildContext() {
-    return {
-      form: this.props.form,
-    };
   }
 
   render() {

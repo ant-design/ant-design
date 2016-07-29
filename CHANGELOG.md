@@ -19,7 +19,6 @@ timeline: true
 - 修复 Transfer 搜索后全选的问题。[#2396](https://github.com/ant-design/ant-design/issues/2396)
 - 修复 Cascader 样式会被 ant-input 样式覆盖的问题。[#2400](https://github.com/ant-design/ant-design/issues/2400)
 - 修复 Table 删除数据时导致当前页数溢出的问题。[#2301](https://github.com/ant-design/ant-design/pull/2301)
-- 修复 Table 删除数据时导致当前页数溢出的问题。[#2301](https://github.com/ant-design/ant-design/pull/2301)
 - 修复 resize 浏览器时 Affix 元素没有和原来的位置同步的问题。[#1987](https://github.com/ant-design/ant-design/issues/1987)
 - 给 Affix 元素添加占位，修复固定时页面跳动的问题。
 - 修复 Select combobox 模式会导致页面出现横向滚动条的问题。[#2353](https://github.com/ant-design/ant-design/issues/2353)
@@ -231,7 +230,7 @@ timeline: true
 - **兼容 React@15.x**。
 - **全新单页站点**，使用 React 和 antd 进行了彻底重构，加载更快，访问更流畅。
 - **样式支持按需加载**。可参考 [antd-init](https://github.com/ant-design/antd-init) 的模版代码, 需要配合 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd#usage) 插件和 `style` 配置进行使用。[#900](https://github.com/ant-design/ant-design/issues/900)
-- **提供独立的构建文件**。[文档](/docs/react/install?scrollTo=浏览器引入)
+- **提供独立的构建文件**。[文档](/docs/react/install#浏览器引入)
 - 新增卡片组件 [Card](/components/card)。
 - 新增评分组件 [Rate](/components/rate)。
 - 新增 [LocaleProvider](/components/locale-provider) 组件，提供组件文案的国际化支持，并新增了英语和俄语的语言配置。[#1411](https://github.com/ant-design/ant-design/issues/1411)

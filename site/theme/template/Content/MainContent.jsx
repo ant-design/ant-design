@@ -14,15 +14,19 @@ export default class MainContent extends React.Component {
 
   componentDidMount() {
     this.componentDidUpdate();
-    this.timer = setTimeout(() => {
-      document.getElementById(decodeURI(location.hash.replace('#', ''))).scrollIntoView();
-    }, 10);
   }
 
   componentDidUpdate() {
     if (!location.hash) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
+    } else {
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
+        document.getElementById(decodeURI(location.hash.replace('#', ''))).scrollIntoView();
+      }, 10);
     }
   }
 
@@ -150,7 +154,7 @@ export default class MainContent extends React.Component {
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+              openKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
               selectedKeys={[activeMenuItem]}
             >
               {menuItems}

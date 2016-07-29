@@ -25,6 +25,7 @@ module.exports = {
       'antd/lib': path.join(process.cwd(), 'components'),
       antd: process.cwd(),
       site: path.join(process.cwd(), 'site'),
+      'react-router': 'react-router/umd/ReactRouter',
     };
 
     config.babel.plugins.push([

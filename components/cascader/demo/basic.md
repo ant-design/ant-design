@@ -24,7 +24,31 @@ const options = [{
     label: '杭州',
     children: [{
       value: 'xihu',
-      label: '西湖',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu1',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu2',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu3',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu4',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu5',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu6',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu7',
+      label: '西湖西湖西湖西湖西湖西湖',
+    }, {
+      value: 'xihu8',
+      label: '西湖西湖西湖西湖西湖西湖',
     }],
   }],
 }, {
@@ -35,7 +59,7 @@ const options = [{
     label: '南京',
     children: [{
       value: 'zhonghuamen',
-      label: '中华门',
+      label: '中华门中华门中华门中华门中华门',
     }],
   }],
 }];

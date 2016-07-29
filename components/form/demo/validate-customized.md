@@ -141,7 +141,7 @@ let Demo = React.createClass({
     };
     return (
       <div>
-        <Form horizontal form={this.props.form}>
+        <Form horizontal>
           <Row>
             <Col span="18">
               <FormItem
