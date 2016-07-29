@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
-import splitObject from '../_util/splitObject';
 
 export default class Dropdown extends React.Component {
   static defaultProps = {
