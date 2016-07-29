@@ -38,6 +38,7 @@ english: Form
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|-------|
+| form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置 | object | 无 |
 | horizontal | 水平排列布局 | boolean  | false    |
 | inline | 行内排列布局 | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |

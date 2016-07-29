@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import omit from 'object.omit';
+import warning from 'warning';
 
 export default class Form extends React.Component {
   static defaultProps = {
@@ -17,6 +18,12 @@ export default class Form extends React.Component {
     inline: React.PropTypes.bool,
     children: React.PropTypes.any,
     onSubmit: React.PropTypes.func,
+  }
+
+  constructor(props) {
+    super(props);
+
+    warning(!props.form, 'It is unnessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
   shouldComponentUpdate(...args) {
