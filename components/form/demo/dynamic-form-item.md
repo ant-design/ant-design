@@ -70,7 +70,7 @@ let Demo = React.createClass({
       );
     });
     return (
-      <Form horizontal>
+      <Form horizontal form={this.props.form}>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
           <Button onClick={this.add} style={{ marginRight: 8 }}>新增好朋友</Button>
