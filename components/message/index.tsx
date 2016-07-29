@@ -17,7 +17,13 @@ function getMessageInstance() {
   return messageInstance;
 }
 
-function notice(content, duration = defaultDuration, type, onClose) {
+type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+
+function notice(
+  content: React.ReactNode,
+  duration: number = defaultDuration,
+  type: NoticeType,
+  onClose: () => void) {
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -47,27 +53,38 @@ function notice(content, duration = defaultDuration, type, onClose) {
   }());
 }
 
+type ConfigContent = React.ReactNode;
+type ConfigDuration = number;
+type ConfigOnClose = () => void;
+
+interface ConfigOptions {
+  top?: number;
+  duration?: number;
+  prefixCls?: string;
+}
+
 export default {
-  info(content, duration, onClose) {
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'info', onClose);
   },
-  success(content, duration, onClose) {
+  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'success', onClose);
   },
-  error(content, duration, onClose) {
+  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'error', onClose);
   },
   // Departed usage, please use warning()
-  warn(content, duration, onClose) {
+  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'warning', onClose);
   },
-  warning(content, duration, onClose) {
+  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'warning', onClose);
   },
-  loading(content, duration, onClose) {
+  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'loading', onClose);
   },
-  config(options) {
+
+  config(options: ConfigOptions) {
     if ('top' in options) {
       defaultTop = options.top;
     }
