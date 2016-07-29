@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Wrap you app with `LocaleProvider`, and apply the corresponding language package.
+Wrap your app with `LocaleProvider`, and apply the corresponding language package.
 
 ````jsx
 import { Pagination, LocaleProvider } from 'antd';
