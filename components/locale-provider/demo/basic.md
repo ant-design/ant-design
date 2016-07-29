@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 国际化
+title:
+  zh-CN: 国际化
+  en-US: Localization
 ---
 
+## zh-CN
+
 用 `LocaleProvider` 包裹你的应用，并引用对应的语言包。
+
+## en-US
+
+Wrap you app with `LocaleProvider`, and apply the corresponding language package.
 
 ````jsx
 import { Pagination, LocaleProvider } from 'antd';
