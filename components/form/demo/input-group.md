@@ -1,9 +1,17 @@
 ---
 order: 4
-title: 输入框组合
+title: 
+  zh-CN: 输入框组合
+  en-US: Input group
 ---
 
+## zh-CN
+
 各类输入框的组合展现。
+
+## en-US
+
+Input group of different type input controls.
 
 ````jsx
 import { Form, Input, Select, Col } from 'antd';
@@ -23,7 +31,7 @@ const selectAfter = (
 ReactDOM.render(
   <Form horizontal>
     <FormItem
-      label="标签输入框"
+      label="Input control"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
     >
@@ -31,7 +39,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="标签输入框"
+      label="Input control"
       labelCol={{ span: 6 }}
       validateStatus="success"
       wrapperCol={{ span: 16 }}
@@ -40,7 +48,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="select 标签输入框"
+      label="Select input control"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
     >
@@ -48,7 +56,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="输入身份证"
+      label="Please input your identity number"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
     >
@@ -69,7 +77,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="电话号码"
+      label="Tel"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
     >

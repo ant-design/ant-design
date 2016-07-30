@@ -1,9 +1,17 @@
 ---
 order: 14
-title: 与 Modal 配合使用
+title: 
+  zh-CN: 与 Modal 配合使用
+  en-US: To use with modal
 ---
 
+## zh-CN
+
 在 Modal 中使用 Form，当点击 Modal 的确定时，调用 `this.props.form.getFieldsValue` 获取表单内的值。
+
+## en-US
+
+If you use Form in Modal, when to click the Modal, it will invoke `this.props.form.getFieldsValue` to get values of form.
 
 ````jsx
 import { Button, Form, Input, Modal } from 'antd';
@@ -38,17 +46,17 @@ let Demo = React.createClass({
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>点击有惊喜</Button>
-        <Modal title="登录" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
+        <Modal title="login" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
           <Form horizontal form={this.props.form}>
             <FormItem
               {...formItemLayout}
-              label="用户名"
+              label="User name"
             >
               <Input {...getFieldProps('username', {})} type="text" autoComplete="off" />
             </FormItem>
             <FormItem
               {...formItemLayout}
-              label="密码"
+              label="Password"
             >
               <Input {...getFieldProps('password', {})} type="password" autoComplete="off" />
             </FormItem>
