@@ -49,7 +49,7 @@ export default class Demo extends React.Component {
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
     const introChildren = props.utils
-            .toReactComponent(['div'].concat(localizeIntro));
+      .toReactComponent(['div'].concat(localizeIntro));
 
     const highlightClass = classNames({
       'highlight-wrapper': true,

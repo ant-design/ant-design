@@ -39,7 +39,7 @@ let Demo = React.createClass({
       <div>
         <Button type="primary" onClick={this.showModal}>点击有惊喜</Button>
         <Modal title="登录" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
-          <Form horizontal>
+          <Form horizontal form={this.props.form}>
             <FormItem
               {...formItemLayout}
               label="用户名"
