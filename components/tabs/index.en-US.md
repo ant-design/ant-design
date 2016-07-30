@@ -23,7 +23,7 @@ API
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| activeKey    | Current TabPane's key| String   | _            |
+| activeKey    | Current TabPane's key| String   | _             |
 | defaultActiveKey | Default actived tabPanel's key, if activeKey is not setted. | - |
 | onChange     | Callback when tab is switched | Function | - |
 | onTabClick   | Callback when tab is clicked | Function | - |
