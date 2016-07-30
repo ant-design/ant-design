@@ -9,6 +9,34 @@ timeline: true
 
 ---
 
+## 1.7.0
+
+`2016-07-30`
+
+友情提示 [Ant Design Mobile](http://mobile.ant.design) 已经发布。
+
+- Table
+  - 现可以定义页头。[demo](http://ant.design/components/table#components-table-demo-bordered)
+  - 修复当 `rowKey` 为 `String` 时的报错问题。[#2500](https://github.com/ant-design/ant-design/issues/2500)
+  - 修复 `Table` 会修改 `dataSource` 里面的值的问题。[#2501](https://github.com/ant-design/ant-design/issues/2501)
+- Form 现在不再需要显式传递 `form={this.props.form}`。
+- 优化 Breadcrumb.Item 的 hover 效果。
+- 优化 Progress 的动画效果。
+- DatePicker
+  - 优化清除按钮样式。
+  - 修复点击 `此刻` 时不触发 `onChange` 的问题。[#1902](https://github.com/ant-design/ant-design/issues/1902)
+- Menu
+  - 修复子菜单中的 Item 被选中后，父级元素无样式变化的问题。[#2414](https://github.com/ant-design/ant-design/issues/2414)
+  - 修复 Menu.Item disabled 后的样式问题。
+- TreeSelect
+  - treeNodes 可以设置是否可选。[#2401](https://github.com/ant-design/ant-design/issues/2401)
+  - 修复多选模式下进行搜索会把已选项清掉的问题。[#2393](https://github.com/ant-design/ant-design/issues/2393)
+  - 修复 TreeSelect 会修改原数据的问题。[#2459](https://github.com/ant-design/ant-design/issues/2459)
+- 修复了 Select 组件 placeholder 溢出的问题。[#2480](https://github.com/ant-design/ant-design/pull/2480)
+- 修复 Timeline.Item 无法自定义边框颜色的问题。[#2479](https://github.com/ant-design/ant-design/issues/2479)
+- 修复 Spin 显示突兀的问题。[#2398](https://github.com/ant-design/ant-design/issues/2398)
+- 修复 Cascader 选项文字过长导致的样式问题。[#2515](https://github.com/ant-design/ant-design/issues/2515)
+
 ## 1.6.5
 
 `2016-07-16`
