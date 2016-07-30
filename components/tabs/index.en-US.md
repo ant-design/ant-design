@@ -16,11 +16,14 @@ Ant Design has 3 types Tabs for different situation.
 
 - RadioButton: for secondary tabs.
 
-## API
+API
+---
+
+##Tabs
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| activeKey    | Current TabPanel's key| String   | _            |
+| activeKey    | Current TabPane's key| String   | _            |
 | defaultActiveKey | Default actived tabPanel's key, if activeKey is not setted. | - |
 | onChange     | Callback when tab is switched | Function | - |
 | onTabClick   | Callback when tab is clicked | Function | - |
@@ -29,4 +32,10 @@ Ant Design has 3 types Tabs for different situation.
 | size         | Tab bar size. Options: default, small | String | default |
 | tabPosition  | Position of tabs. Options: top, right, bottom & left | String | top |
 | onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | Function(targetKey, action) | - |
-| hideAdd      | 
+| hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | Boolean | false |
+
+## Tabs.TabPane
+| Property     | Description           | Type     | Default      |
+|--------------|-----------------------|----------|--------------|
+| key          | TabPane's key         | String   | _            |
+| tab          | Show text in TabPane's head | React.Element or String | _ |
