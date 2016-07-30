@@ -37,6 +37,7 @@ We encapsulate form field in `<Form.Item />`.
 
 | Property  | Description                              | Type       | Default |
 |-----------|------------------------------------------|------------|---------|
+| form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0 | object | No 
 | horizontal | Horizontal align | boolean  | false    |
 | inline | Inline align | boolean | false |
 | onSubmit | Defines a function will be called if form data validation is successful | Function(e:Event) |  |
