@@ -19,7 +19,7 @@ Ant Design has 3 types Tabs for different situation.
 API
 ---
 
-##Tabs
+### Tabs
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
@@ -34,7 +34,7 @@ API
 | onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | Function(targetKey, action) | - |
 | hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | Boolean | false |
 
-## Tabs.TabPane
+### Tabs.TabPane
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
 | key          | TabPane's key         | String   | _            |
