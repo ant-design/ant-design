@@ -1,9 +1,17 @@
 ---
 order: 11
-title: 表单校验
+title: 
+  zh-CN: 表单校验
+  en-US: Basic validate
 ---
 
+## zh-CN
+
 基本的表单校验例子。
+
+## en-US
+
+Basic validatation for form.
 
 ````jsx
 import { Button, Form, Input } from 'antd';
@@ -38,7 +46,7 @@ let BasicDemo = React.createClass({
     } else {
       setTimeout(() => {
         if (value === 'JasonWood') {
-          callback([new Error('抱歉，该用户名已被占用。')]);
+          callback([new Error('Sorry, the user name is already in use.')]);
         } else {
           callback();
         }
@@ -57,7 +65,7 @@ let BasicDemo = React.createClass({
   checkPass2(rule, value, callback) {
     const { getFieldValue } = this.props.form;
     if (value && value !== getFieldValue('passwd')) {
-      callback('两次输入密码不一致！');
+      callback('The two passwords you enter is inconsistent!');
     } else {
       callback();
     }
@@ -67,7 +75,7 @@ let BasicDemo = React.createClass({
     const { getFieldProps, getFieldError, isFieldValidating } = this.props.form;
     const nameProps = getFieldProps('name', {
       rules: [
-        { required: true, min: 5, message: '用户名至少为 5 个字符' },
+        { required: true, min: 5, message: 'User name for at least 5 characters' },
         { validator: this.userExists },
       ],
     });
@@ -79,14 +87,14 @@ let BasicDemo = React.createClass({
         trigger: 'onBlur',
       }, {
         rules: [
-          { type: 'email', message: '请输入正确的邮箱地址' },
+          { type: 'email', message: 'Please input the correct email' },
         ],
         trigger: ['onBlur', 'onChange'],
       }],
     });
     const passwdProps = getFieldProps('passwd', {
       rules: [
-        { required: true, whitespace: true, message: '请填写密码' },
+        { required: true, whitespace: true, message: 'Please enter your password' },
         { validator: this.checkPass },
       ],
     });
@@ -94,14 +102,14 @@ let BasicDemo = React.createClass({
       rules: [{
         required: true,
         whitespace: true,
-        message: '请再次输入密码',
+        message: 'Please confirm your password',
       }, {
         validator: this.checkPass2,
       }],
     });
     const textareaProps = getFieldProps('textarea', {
       rules: [
-        { required: true, message: '真的不打算写点什么吗？' },
+        { required: true, message: 'Really not supposed to write something?' },
       ],
     });
     const formItemLayout = {
@@ -112,24 +120,24 @@ let BasicDemo = React.createClass({
       <Form horizontal form={this.props.form}>
         <FormItem
           {...formItemLayout}
-          label="用户名"
+          label="User name"
           hasFeedback
-          help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}
+          help={isFieldValidating('name') ? 'validating...' : (getFieldError('name') || []).join(', ')}
         >
-          <Input {...nameProps} placeholder="实时校验，输入 JasonWood 看看" />
+          <Input {...nameProps} placeholder="Real-tiem validation, try to input JasonWood" />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="邮箱"
+          label="Email"
           hasFeedback
         >
-          <Input {...emailProps} type="email" placeholder="onBlur 与 onChange 相结合" />
+          <Input {...emailProps} type="email" placeholder="This control uses onBlur and onChange" />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="密码"
+          label="Password"
           hasFeedback
         >
           <Input {...passwdProps} type="password" autoComplete="off"
@@ -139,25 +147,25 @@ let BasicDemo = React.createClass({
 
         <FormItem
           {...formItemLayout}
-          label="确认密码"
+          label="Confirm password"
           hasFeedback
         >
-          <Input {...rePasswdProps} type="password" autoComplete="off" placeholder="两次输入密码保持一致"
+          <Input {...rePasswdProps} type="password" autoComplete="off" placeholder="Two passwords that you enter must be consistent"
             onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
           />
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="备注"
+          label="remark"
         >
-          <Input {...textareaProps} type="textarea" placeholder="随便写" id="textarea" name="textarea" />
+          <Input {...textareaProps} type="textarea" placeholder="Please write something" id="textarea" name="textarea" />
         </FormItem>
 
         <FormItem wrapperCol={{ span: 12, offset: 7 }}>
-          <Button type="primary" onClick={this.handleSubmit}>确定</Button>
+          <Button type="primary" onClick={this.handleSubmit}>OK</Button>
           &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>重置</Button>
+          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
         </FormItem>
       </Form>
     );

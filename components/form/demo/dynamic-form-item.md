@@ -1,9 +1,17 @@
 ---
 order: 15
-title: 动态增减表单项
+title: 
+  zh-CN: 动态增减表单项
+  en-US: Dynamic form item
 ---
 
+## zh-CN
+
 动态增加、减少表单项。
+
+## en-US
+
+Dynamically add or remove form items.
 
 ````jsx
 import { Form, Input, Button } from 'antd';
@@ -56,16 +64,16 @@ let Demo = React.createClass({
 
     const formItems = getFieldValue('keys').map((k) => {
       return (
-        <Form.Item {...formItemLayout} label={`好朋友${k}：`} key={k}>
+        <Form.Item {...formItemLayout} label={`good friend${k}：`} key={k}>
           <Input {...getFieldProps(`name${k}`, {
             rules: [{
               required: true,
               whitespace: true,
-              message: '你好友的名字捏！',
+              message: "Your good friend's name",
             }],
           })} style={{ width: '80%', marginRight: 8 }}
           />
-          <Button onClick={() => this.remove(k)}>删除</Button>
+          <Button onClick={() => this.remove(k)}>remove</Button>
         </Form.Item>
       );
     });
@@ -73,8 +81,8 @@ let Demo = React.createClass({
       <Form horizontal form={this.props.form}>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
-          <Button onClick={this.add} style={{ marginRight: 8 }}>新增好朋友</Button>
-          <Button type="primary" onClick={this.submit}>提交</Button>
+          <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>
+          <Button type="primary" onClick={this.submit}>submit</Button>
         </Form.Item>
       </Form>
     );
