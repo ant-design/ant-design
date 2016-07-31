@@ -7,7 +7,10 @@ title: 卡片式页签容器
 用于容器顶部，需要一点额外的样式覆盖。
 
 ## en-US
+<<<<<<< a77e2e62e116e2c26b6c0ad295089bc5d68ef250
 
+=======
+>>>>>>> translated card-top demo
 Let tab placed at the top of container, needs to override styles.
 
 ````jsx
