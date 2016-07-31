@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-Three columns layout is othen used to advanced searching of data table.
+Three columns layout is often used to advanced searching of data table.
 
-Because label width is not definite, you need to adjust the custom stlye case by case.
+Because the width of label is not definite, you need to adjust the custom stlye case by case.
 
 ````jsx
 import { Form, Input, Row, Col, Button, DatePicker } from 'antd';

@@ -9,13 +9,13 @@ title:
 
 展示所有支持的表单控件。
 
-`注`： 输入框：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
+**注**： 输入框：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
 
 ## en-US
 
 A list off all the controls that can be used with form.
 
-`PS`: Input control: Only if set correct type for it, then it will be set correct style 
+**Note**: Input control: Only if set correct type for it, then it will be set correct style 
 
 ````jsx
 import { Form, Input, Select, Checkbox, Radio } from 'antd';

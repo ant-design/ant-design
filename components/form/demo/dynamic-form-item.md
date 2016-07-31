@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Dynamically add or remove form items.
+Add or remove form items dynamically.
 
 ````jsx
 import { Form, Input, Button } from 'antd';
