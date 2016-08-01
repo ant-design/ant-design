@@ -1,11 +1,21 @@
 ---
 order: 10
-title: 高级搜索
+title:
+  zh-CN: 高级搜索
+  en-US: Advanced search
 ---
+
+## zh-CN
 
 三列栅格式的表单排列方式，常用于数据表格的高级搜索。
 
 有部分定制的样式代码，由于输入标签长度不确定，需要根据具体情况自行调整。
+
+## en-US
+
+Three columns layout is often used to advanced searching of data table.
+
+Because the width of label is not definite, you need to adjust the custom stlye case by case.
 
 ````jsx
 import { Form, Input, Row, Col, Button, DatePicker } from 'antd';
@@ -16,78 +26,78 @@ ReactDOM.render(
     <Row gutter={16}>
       <Col sm={8}>
         <FormItem
-          label="搜索名称"
+          label="Search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
-          <Input placeholder="请输入搜索名称" size="default" />
+          <Input placeholder="Please input the search name" size="default" />
         </FormItem>
         <FormItem
-          label="较长搜索名称"
+          label="Long search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
-          label="搜索名称"
+          label="Search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
-          <Input placeholder="请输入搜索名称" size="default" />
+          <Input placeholder="Please input the search name" size="default" />
         </FormItem>
       </Col>
       <Col sm={8}>
         <FormItem
-          label="搜索名称"
+          label="Search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
-          <Input placeholder="请输入搜索名称" size="default" />
+          <Input placeholder="Please input the search name" size="default" />
         </FormItem>
         <FormItem
-          label="较长搜索名称"
+          label="Long search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
-          label="搜索名称"
+          label="Search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
-          <Input placeholder="请输入搜索名称" size="default" />
+          <Input placeholder="Please input the search name" size="default" />
         </FormItem>
       </Col>
       <Col sm={8}>
         <FormItem
-          label="搜索名称"
+          label="Search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
-          <Input placeholder="请输入搜索名称" size="default" />
+          <Input placeholder="Please input the search name" size="default" />
         </FormItem>
         <FormItem
-          label="较长搜索名称"
+          label="Long search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
-          label="搜索名称"
+          label="Search name"
           labelCol={{ span: 10 }}
           wrapperCol={{ span: 14 }}
         >
-          <Input placeholder="请输入搜索名称" size="default" />
+          <Input placeholder="Please input the search name" size="default" />
         </FormItem>
       </Col>
     </Row>
     <Row>
       <Col span={12} offset={12} style={{ textAlign: 'right' }}>
-        <Button type="primary" htmlType="submit">搜索</Button>
-        <Button>清除条件</Button>
+        <Button type="primary" htmlType="submit">Search</Button>
+        <Button>Clear</Button>
       </Col>
     </Row>
   </Form>
@@ -95,7 +105,7 @@ ReactDOM.render(
 ````
 
 ````css
-/* 定制样式 */
+/* custom style */
 
 .ant-advanced-search-form {
   padding: 16px 8px;
@@ -104,7 +114,7 @@ ReactDOM.render(
   border-radius: 6px;
 }
 
-/* 由于输入标签长度不确定，所以需要微调使之看上去居中 */
+/* becasue the label width is not definite, you need to adjust it to center by yourself */
 .ant-advanced-search-form > .ant-row {
   position: relative;
   left: -6px;

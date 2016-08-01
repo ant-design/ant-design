@@ -1,11 +1,21 @@
 ---
 order: 13
-title: 自定义校验规则
+title: 
+  zh-CN: 自定义校验规则
+  en-US: Customized validation
 ---
+
+## zh-CN
 
 密码校验实例。
 
 这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
+
+## en-US
+
+Customized validation for Password.
+
+To use `this.props.form.validateFields` method, when validating first password you enter will trigger the seconcd password validation.
 
 ````jsx
 import { Button, Form, Input, Row, Col } from 'antd';
@@ -21,9 +31,9 @@ let Demo = React.createClass({
   getInitialState() {
     return {
       dirty: false,
-      passBarShow: false, // 是否显示密码强度提示条
+      passBarShow: false, // Whether to display a tooltip of password strength
       rePassBarShow: false,
-      passStrength: 'L', // 密码强度
+      passStrength: 'L', // Password strength
       rePassStrength: 'L',
     };
   },
@@ -42,7 +52,7 @@ let Demo = React.createClass({
   getPassStrenth(value, type) {
     if (value) {
       let strength;
-      // 密码强度的校验规则自定义，这里只是做个简单的示例
+      // Customized the password strength, here is just a simple example
       if (value.length < 6) {
         strength = 'L';
       } else if (value.length <= 9) {
@@ -80,7 +90,7 @@ let Demo = React.createClass({
     this.getPassStrenth(value, 'rePass');
 
     if (value && value !== form.getFieldValue('pass')) {
-      callback('两次输入密码不一致！');
+      callback('Two passwords you enter is inconsistent!');
     } else {
       callback();
     }
@@ -95,9 +105,9 @@ let Demo = React.createClass({
       'ant-pwd-strength-high': strength === 'H',
     });
     const level = {
-      L: '低',
-      M: '中',
-      H: '高',
+      L: 'Low',
+      M: 'Middle',
+      H: 'High',
     };
 
     return (
@@ -119,18 +129,18 @@ let Demo = React.createClass({
 
     const passProps = getFieldProps('pass', {
       rules: [
-        { required: true, whitespace: true, message: '请填写密码' },
+        { required: true, whitespace: true, message: 'Please enter your password' },
         { validator: this.checkPass },
       ],
       onChange: (e) => {
-        console.log('你的密码就是这样被盗的：', e.target.value);
+        console.log('Your password is stolen in this way', e.target.value);
       },
     });
     const rePassProps = getFieldProps('rePass', {
       rules: [{
         required: true,
         whitespace: true,
-        message: '请再次输入密码',
+        message: 'Please confirm your password',
       }, {
         validator: this.checkPass2,
       }],
@@ -146,7 +156,7 @@ let Demo = React.createClass({
             <Col span="18">
               <FormItem
                 {...formItemLayout}
-                label="密码"
+                label="Password"
               >
                 <Input {...passProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
@@ -167,7 +177,7 @@ let Demo = React.createClass({
             <Col span="18">
               <FormItem
                 {...formItemLayout}
-                label="确认密码"
+                label="Confirm password"
               >
                 <Input {...rePassProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}

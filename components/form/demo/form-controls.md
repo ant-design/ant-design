@@ -1,11 +1,21 @@
 ---
 order: 3
-title: 表单控件
+title: 
+  zh-CN: 表单控件
+  en-US: Form controls
 ---
+
+## zh-CN
 
 展示所有支持的表单控件。
 
-`注`： 输入框：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
+**注**： 输入框：只有正确设置了 type 属性的输入控件才能被赋予正确的样式。
+
+## en-US
+
+A list off all the controls that can be used with form.
+
+**Note**: Input control: Only if set correct type for it, then it will be set correct style 
 
 ````jsx
 import { Form, Input, Select, Checkbox, Radio } from 'antd';
@@ -21,7 +31,7 @@ ReactDOM.render(
   <Form horizontal>
     <FormItem
       id="control-input"
-      label="输入框"
+      label="input control"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 14 }}
     >
@@ -30,7 +40,7 @@ ReactDOM.render(
 
     <FormItem
       id="control-textarea"
-      label="文本域"
+      label="text area"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 14 }}
     >
@@ -39,7 +49,7 @@ ReactDOM.render(
 
     <FormItem
       id="select"
-      label="Select 选择器"
+      label="Select box"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 14 }}
     >
@@ -52,27 +62,27 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="Checkbox 多选框"
+      label="Checkbox"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }}
     >
-      <Checkbox className="ant-checkbox-vertical">选项一</Checkbox>
-      <Checkbox className="ant-checkbox-vertical">选项二</Checkbox>
-      <Checkbox className="ant-checkbox-vertical" disabled>选项三（不可选）</Checkbox>
+      <Checkbox className="ant-checkbox-vertical">item 1</Checkbox>
+      <Checkbox className="ant-checkbox-vertical">item 2</Checkbox>
+      <Checkbox className="ant-checkbox-vertical" disabled>item 3 (disabled)</Checkbox>
     </FormItem>
 
     <FormItem
-      label="Checkbox 多选框"
+      label="Checkbox"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }}
     >
-      <Checkbox className="ant-checkbox-inline">选项一</Checkbox>
-      <Checkbox className="ant-checkbox-inline">选项二</Checkbox>
-      <Checkbox className="ant-checkbox-inline">选项三</Checkbox>
+      <Checkbox className="ant-checkbox-inline">item 1</Checkbox>
+      <Checkbox className="ant-checkbox-inline">item 2</Checkbox>
+      <Checkbox className="ant-checkbox-inline">item 3</Checkbox>
     </FormItem>
 
     <FormItem
-      label="Radio 单选框"
+      label="Radio"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 18 }}
     >

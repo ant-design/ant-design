@@ -33,6 +33,7 @@
   "typings": "lib/index.d.ts",
   "license": "MIT",
   "dependencies": {
+    "babel-runtime": "6.x",
     "array-tree-filter": "~1.0.0",
     "classnames": "~2.2.0",
     "css-animation": "^1.2.5",
@@ -75,7 +76,7 @@
     "warning": "~3.0.0"
   },
   "devDependencies": {
-    "antd-tools": "^0.10.0",
+    "antd-tools": "^0.11.0",
     "babel-eslint": "^6.0.2",
     "babel-jest": "^13.2.2",
     "babel-plugin-antd": "^0.4.0",
