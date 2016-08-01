@@ -23,7 +23,7 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
 
-    warning(!props.form, 'It is unnessary to pass `form` to `Form` after antd@1.7.0.');
+    warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
   shouldComponentUpdate(...args) {
