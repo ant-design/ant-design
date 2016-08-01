@@ -1,8 +1,11 @@
 import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
+import { TreeSelectProps, TreeSelectContext } from './interface';
 
-export default class TreeSelect extends React.Component {
+export { TreeSelectProps };
+
+export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   static TreeNode = TreeNode;
   static SHOW_ALL = SHOW_ALL;
   static SHOW_PARENT = SHOW_PARENT;
@@ -19,6 +22,8 @@ export default class TreeSelect extends React.Component {
   static contextTypes = {
     antLocale: React.PropTypes.object,
   };
+
+  context: TreeSelectContext;
 
   render() {
     const props = this.props;
