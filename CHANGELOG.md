@@ -365,3 +365,7 @@ timeline: true
 - [antd-init](http://github.com/ant-design/antd-init) 同步发布 `1.0.0` 版本，享受最新 [ant-tool](https://github.com/ant-tool/) 工具带来的流畅开发体验。
 - [Ant Motion](http://motion.ant.design) 全新的动效设计解决方案。
 - [Ant UX](http://ux.ant.design/) 发布 1.0 版本，提供多种平台的流程素材支持。
+
+## 0.12.17
+
+去 [GitHub](https://github.com/ant-design/ant-design/releases?after=1.0.0) 查看 `0.12.x` 及之前的更新日志。
