@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 带搜索框
+title: 
+  zh-CN: 带搜索框
+  en-US: Search
 ---
 
+## zh-CN
+
 带搜索框的穿梭框。
+
+## en-US
+
+Transfer with a search box
 
 ````jsx
 import { Transfer } from 'antd';
@@ -24,8 +32,8 @@ const App = React.createClass({
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,
-        title: `内容${i + 1}`,
-        description: `内容${i + 1}的描述`,
+        title: `content${i + 1}`,
+        description: `description of content${i + 1}`,
         chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
