@@ -203,6 +203,10 @@ declare module 'rc-table' {
 }
 
 declare module 'rc-tree-select' {
+  export const TreeNode: any;
+  export const SHOW_ALL: any;
+  export const SHOW_PARENT: any;
+  export const SHOW_CHILD: any;
   export default function(): any;
 }
 
