@@ -82,6 +82,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
     // only card type tabs can be added and closed
     if (type === 'editable-card') {
+      children = Array.isArray(children) ? children : [children];
       children = children.map((child, index) => {
         return cloneElement(child, {
           tab: <div>
