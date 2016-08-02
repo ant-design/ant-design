@@ -1,6 +1,6 @@
 ---
 order: 14
-title: 
+title:
   zh-CN: 与 Modal 配合使用
   en-US: To use with modal
 ---
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-If you use Form in Modal, when you click the Modal, it will invoke `this.props.form.getFieldsValue` to get values of form.
+If you use Form in Modal, when you click the Modal, it could invoke `this.props.form.getFieldsValue` to get values of form.
 
 ````jsx
 import { Button, Form, Input, Modal } from 'antd';
