@@ -105,7 +105,7 @@ export default class Table extends React.Component {
     if (!rowSelection.getCheckboxProps) {
       return [];
     }
-    return this.getFlatCurrentPageData()
+    return this.getFlatData()
       .filter(item => this.getCheckboxPropsByItem(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   }
@@ -177,7 +177,7 @@ export default class Table extends React.Component {
     if (rowSelection && !('selectedRowKeys' in rowSelection)) {
       this.setState({ selectedRowKeys });
     }
-    const data = this.getFlatCurrentPageData();
+    const data = this.getFlatData();
     if (!rowSelection.onChange && !rowSelection[selectWay]) {
       return;
     }
@@ -707,6 +707,10 @@ export default class Table extends React.Component {
       });
     }
     return data;
+  }
+
+  getFlatData() {
+    return flatArray(this.getLocalData());
   }
 
   getFlatCurrentPageData() {
