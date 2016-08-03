@@ -73,7 +73,7 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    this.context.router.push({ pathname: value });
+    this.context.router.push({ pathname: `${value}/` });
   }
 
   handleSelectFilter = (value, option) => {
