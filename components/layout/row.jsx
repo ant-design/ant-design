@@ -28,15 +28,19 @@ export default class Row extends React.Component {
       ...style,
     } : style;
     const cols = Children.map(children, col => {
-      if (!col) return null;
-
-      return cloneElement(col, {
-        style: gutter > 0 ? {
-          paddingLeft: gutter / 2,
-          paddingRight: gutter / 2,
-          ...col.props.style,
-        } : col.props.style,
-      });
+      if (!col) {
+        return null;
+      }
+      if (col.props) {
+        return cloneElement(col, {
+          style: gutter > 0 ? {
+            paddingLeft: gutter / 2,
+            paddingRight: gutter / 2,
+            ...col.props.style,
+          } : col.props.style,
+        });
+      }
+      return col;
     });
     return <div {...others} className={classes} style={rowStyle}>{cols}</div>;
   }
