@@ -39,9 +39,9 @@
   }
   &-clear {
     opacity: 0;
+    z-index: -1;
     position: absolute;
     right: 7px;
-    z-index: 1;
     background: #fff;
     top: 50%;
     font-size: 12px;
@@ -59,6 +59,7 @@
 
   &:hover &-clear {
     opacity: 1;
+    z-index: 1;
   }
   &-icon {
     position: absolute;
