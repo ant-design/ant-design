@@ -66,7 +66,12 @@ export default class Tag extends React.Component {
         onEnd={this.animationEnd}
       >
         {this.state.closed ? null : (
-          <div data-show={!this.state.closing} {...divProps} className={classString}>
+          <div
+            data-show={!this.state.closing}
+            {...divProps}
+            className={classString}
+            style={{ backgroundColor: /blue|red|green|yellow/.test(color) ? null : color }}
+          >
             <span className={`${prefixCls}-text`}>{children}</span>
             {closeIcon}
           </div>
