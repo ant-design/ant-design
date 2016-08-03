@@ -13,6 +13,18 @@ module.exports = {
     }
     return nodePath.endsWith('/demo');
   },
+  pick: {
+    components(markdownData) {
+      const filename = markdownData.meta.filename;
+      if (!/^components/.test(filename) ||
+          /\/demo$/.test(path.dirname(filename)) ||
+          /\.en-US\.md/.test(filename)) return;
+
+      return {
+        meta: markdownData.meta,
+      };
+    },
+  },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   plugins: [
