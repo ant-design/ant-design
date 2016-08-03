@@ -78,7 +78,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 #### Special attention
 
-Can't use `getFieldProps` in functional components: https://github.com/facebook/react/pull/6534
+If you use `react@<15.3.0`, then, you can't use `getFieldProps` in functional components: https://github.com/facebook/react/pull/6534
 
 The return value of `getFieldProps` contains `id`、`value`(or any other props `valuePropName` that you specified),`ref`,`onChange`(or any other `trigger` `validateTrigger` that you specified), **shouldn't set same property again** in order to avoid conflict. If you concerntate on the details on return value, you can print them to console by `console.log`.
 
