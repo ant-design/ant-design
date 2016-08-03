@@ -9,7 +9,6 @@
     display: block;
     cursor: pointer;
     width: 100%;
-    background: rgba(255, 255, 255, 0);
     z-index: 1;
   }
   &-picker {
@@ -37,13 +36,14 @@
       overflow: hidden;
       width: 100%;
       padding: 0 12px 0 8px;
+      z-index: 1;
     }
 
     &-clear {
       opacity: 0;
       position: absolute;
       right: 8px;
-      z-index: 1;
+      z-index: 2;
       background: #fff;
       top: 50%;
       font-size: 12px;
@@ -66,6 +66,7 @@
     // arrow
     &-arrow {
       position: absolute;
+      z-index: 1;
       top: 50%;
       right: 8px;
       width: 12px;
@@ -73,7 +74,6 @@
       margin-top: -6px;
       line-height: 12px;
       color: #999;
-      background: #fff;
       .iconfont-size-under-12px(8px);
       &:before {
         transition: transform 0.2s ease;
