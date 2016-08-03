@@ -7,7 +7,12 @@ module.exports = {
     './docs',
     'CHANGELOG.md', // TODO: fix it in bisheng
   ],
-  lazyLoad: true,
+  lazyLoad(nodePath, nodeValue) {
+    if (typeof nodeValue === 'string') {
+      return true;
+    }
+    return nodePath.endsWith('/demo');
+  },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
   plugins: [
