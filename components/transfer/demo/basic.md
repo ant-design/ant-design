@@ -11,7 +11,9 @@ title:
 
 ## en-US 
 
-The most basic usage.
+Basic Usage
+
+The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and change callback functions.
 
 ````jsx
 import { Transfer } from 'antd';
