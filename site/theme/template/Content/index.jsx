@@ -26,9 +26,7 @@ export function collect(nextProps, callback) {
 
   const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
   if (demos) {
-    promises.push(Promise.all(
-      Object.keys(demos).map((key) => demos[key]())
-    ));
+    promises.push(demos());
   }
   Promise.all(promises)
     .then((list) => callback(null, {
