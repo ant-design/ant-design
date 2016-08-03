@@ -9,7 +9,7 @@ title: 禁用
 
 ## en-US
 
-disabled a tab
+Disabled a tab.
 
 ````jsx
 import { Tabs } from 'antd';

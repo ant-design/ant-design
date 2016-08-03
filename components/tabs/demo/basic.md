@@ -9,7 +9,7 @@ title: 基本
 
 ## en-US
 
-default activate first tab.
+Default activate first tab.
 
 ````jsx
 import { Tabs } from 'antd';

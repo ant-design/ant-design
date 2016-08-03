@@ -9,7 +9,7 @@ title: 迷你型
 
 ## en-US
 
-Small size can be uesed for Modal.
+Small size can be uesed in Modal.
 
 ````jsx
 import { Tabs } from 'antd';

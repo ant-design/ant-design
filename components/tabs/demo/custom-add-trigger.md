@@ -8,7 +8,7 @@ title: 自定义新增页签触发器
 
 ## en-US
 
-hiding default plus icon, binding event for customized trigger 
+Hide default plus icon, and bind event for customized trigger.
 
 
 ````jsx

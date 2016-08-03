@@ -9,7 +9,7 @@ title: 图标
 
 ## en-US
 
-The Tab with Icon 
+The Tab with Icon.
 
 
 ````jsx

@@ -9,7 +9,7 @@ title: 卡片式页签
 
 ## en-US
 
-Another type Tabs
+Another type Tabs, which doesn't support vertical mode.
 
 
 ````jsx

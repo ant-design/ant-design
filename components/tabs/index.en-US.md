@@ -16,8 +16,7 @@ Ant Design has 3 types Tabs for different situation.
 
 - RadioButton: for secondary tabs.
 
-API
----
+## API
 
 ### Tabs
 

@@ -8,6 +8,7 @@ title: 位置
 有四个位置，`tabPosition="left|right|top|bottom"`。
 
 ## en-US
+
 Tab's position: left, right, top or bottom.
 
 ````jsx

@@ -8,7 +8,7 @@ title: 卡片式页签容器
 
 ## en-US
 
-Let tab placed at the top of container, needs to override styles.
+Should be used at the top of container, needs to override styles.
 
 ````jsx
 import { Tabs } from 'antd';
