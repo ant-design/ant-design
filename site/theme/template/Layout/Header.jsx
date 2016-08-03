@@ -90,7 +90,9 @@ export default class Header extends React.Component {
 
   render() {
     const { location, components } = this.props;
-    const module = location.pathname.split('/').slice(0, -1).join('/');
+    const module = location.pathname.replace(/\/$/, '')
+            .split('/').slice(0, -1)
+            .join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
