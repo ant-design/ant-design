@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
-import Promise from 'bluebird';
 import Header from './Header';
 import Footer from './Footer';
-import * as utils from '../utils';
 import enLocale from '../../en-US.js';
 import cnLocale from '../../zh-CN.js';
 import '../../static/style';
@@ -41,12 +39,6 @@ const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('loc
 
 const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
-
-export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
-  Promise.all(componentsList)
-    .then((list) => callback(null, { ...nextProps, components: list }));
-}
 
 export default class Layout extends React.Component {
   static contextTypes = {
