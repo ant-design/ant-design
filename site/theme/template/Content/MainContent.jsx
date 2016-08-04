@@ -95,9 +95,19 @@ export default class MainContent extends React.Component {
     return [...topLevel, ...itemGroups];
   }
 
+  getModuleData() {
+    const props = this.props;
+    const pathname = props.location.pathname;
+    const moduleName = /^components/.test(pathname) ?
+            'components' : pathname.split('/').slice(0, 2).join('/');
+    return moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
+      [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+      props.picked[moduleName];
+  }
+
   getMenuItems() {
-    const moduleData = this.props.moduleData;
-    const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
+    const moduleData = this.getModuleData();
+    const menuItems = utils.getMenuItems(moduleData);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
       .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
@@ -143,18 +153,14 @@ export default class MainContent extends React.Component {
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
 
-    const locale = this.context.intl.locale;
-    const moduleData = this.props.moduleData;
-    const localizedPageData = moduleData.filter(
-      page => page.meta.filename.toLowerCase().startsWith(props.location.pathname)
-    )[0];
-
+    const moduleData = this.getModuleData();
+    const localizedPageData = props.localizedPageData;
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              openKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+              openKeys={Object.keys(utils.getMenuItems(moduleData))}
               selectedKeys={[activeMenuItem]}
             >
               {menuItems}

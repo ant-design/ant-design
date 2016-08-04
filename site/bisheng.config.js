@@ -1,5 +1,17 @@
 const path = require('path');
 
+function pickerGenerator(module) {
+  const tester = new RegExp(`^docs/${module}`);
+  return (markdownData) => {
+    const filename = markdownData.meta.filename;
+    if (tester.test(filename) && !/\.en-US\.md/.test(filename)) {
+      return {
+        meta: markdownData.meta,
+      };
+    }
+  };
+}
+
 module.exports = {
   port: 8001,
   source: [
@@ -24,6 +36,18 @@ module.exports = {
         meta: markdownData.meta,
       };
     },
+    changelog(markdownData) {
+      if (markdownData.meta.filename === 'CHANGELOG.md') {
+        return {
+          meta: markdownData.meta,
+        };
+      }
+    },
+    'docs/pattern': pickerGenerator('pattern'),
+    'docs/practice': pickerGenerator('practice'),
+    'docs/react': pickerGenerator('react'),
+    'docs/resource': pickerGenerator('resource'),
+    'docs/spec': pickerGenerator('spec'),
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',

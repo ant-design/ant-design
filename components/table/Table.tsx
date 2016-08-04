@@ -102,7 +102,7 @@ export default class Table extends React.Component {
     if (!rowSelection.getCheckboxProps) {
       return [];
     }
-    return this.getFlatCurrentPageData()
+    return this.getFlatData()
       .filter(item => this.getCheckboxPropsByItem(item).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   }
@@ -165,17 +165,28 @@ export default class Table extends React.Component {
     }
   }
 
-  setSelectedRowKeys(selectedRowKeys) {
-    if (this.props.rowSelection &&
-        !('selectedRowKeys' in this.props.rowSelection)) {
+  setSelectedRowKeys(selectedRowKeys, { selectWay, record, checked, changeRowKeys }) {
+    const { rowSelection = {} } = this.props;
+    if (rowSelection && !('selectedRowKeys' in rowSelection)) {
       this.setState({ selectedRowKeys });
     }
-    if (this.props.rowSelection && this.props.rowSelection.onChange) {
-      const data = this.getFlatCurrentPageData();
-      const selectedRows = data.filter(
-        (row, i) => selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
+    const data = this.getFlatData();
+    if (!rowSelection.onChange && !rowSelection[selectWay]) {
+      return;
+    }
+    const selectedRows = data.filter(
+      (row, i) => selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
+    );
+    if (rowSelection.onChange) {
+      rowSelection.onChange(selectedRowKeys, selectedRows);
+    }
+    if (selectWay === 'onSelect' && rowSelection.onSelect) {
+      rowSelection.onSelect(record, checked, selectedRows);
+    } else if (selectWay === 'onSelectAll' && rowSelection.onSelectAll) {
+      const changeRows = data.filter(
+        (row, i) => changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0
       );
-      this.props.rowSelection.onChange(selectedRowKeys, selectedRows);
+      rowSelection.onSelectAll(checked, selectedRows, changeRows);
     }
   }
 
@@ -337,14 +348,11 @@ export default class Table extends React.Component {
     this.setState({
       selectionDirty: true,
     });
-    this.setSelectedRowKeys(selectedRowKeys);
-    if (this.props.rowSelection.onSelect) {
-      let data = this.getFlatCurrentPageData();
-      let selectedRows = data.filter((row, i) => {
-        return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
-      });
-      this.props.rowSelection.onSelect(record, checked, selectedRows);
-    }
+    this.setSelectedRowKeys(selectedRowKeys, {
+      selectWay: 'onSelect',
+      record,
+      checked,
+    });
   }
 
   handleRadioSelect = (record, rowIndex, e) => {
@@ -356,14 +364,11 @@ export default class Table extends React.Component {
     this.setState({
       selectionDirty: true,
     });
-    this.setSelectedRowKeys(selectedRowKeys);
-    if (this.props.rowSelection.onSelect) {
-      let data = this.getFlatCurrentPageData();
-      let selectedRows = data.filter((row, i) => {
-        return selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0;
-      });
-      this.props.rowSelection.onSelect(record, checked, selectedRows);
-    }
+    this.setSelectedRowKeys(selectedRowKeys, {
+      selectWay: 'onSelect',
+      record,
+      checked,
+    });
   }
 
   handleSelectAllRow = (e) => {
@@ -395,14 +400,11 @@ export default class Table extends React.Component {
     this.setState({
       selectionDirty: true,
     });
-    this.setSelectedRowKeys(selectedRowKeys);
-    if (this.props.rowSelection.onSelectAll) {
-      const selectedRows = data.filter((row, i) =>
-        selectedRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
-      const changeRows = data.filter((row, i) =>
-        changeRowKeys.indexOf(this.getRecordKey(row, i)) >= 0);
-      this.props.rowSelection.onSelectAll(checked, selectedRows, changeRows);
-    }
+    this.setSelectedRowKeys(selectedRowKeys, {
+      selectWay: 'onSelectAll',
+      checked,
+      changeRowKeys,
+    });
   }
 
   handlePageChange = (current) => {
@@ -692,6 +694,10 @@ export default class Table extends React.Component {
       });
     }
     return data;
+  }
+
+  getFlatData() {
+    return flatArray(this.getLocalData());
   }
 
   getFlatCurrentPageData() {

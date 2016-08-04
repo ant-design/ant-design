@@ -1,39 +1,32 @@
 import React from 'react';
 import MainContent from './MainContent';
 import Promise from 'bluebird';
-import * as utils from '../utils';
+
+// locale copy from layout
+const locale = (
+  window.localStorage &&
+    localStorage.getItem('locale') !== 'en-US'
+) ? 'zh-CN' : 'en-US';
 
 export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
+  const pageData = nextProps.location.pathname === 'changelog' ?
+          nextProps.data.CHANGELOG : nextProps.pageData;
+  const pageDataPromise = typeof pageData === 'function' ?
+          pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
+  const promises = [pageDataPromise];
 
   const pathname = nextProps.location.pathname;
-  let moduleDocs;
-  if (/(docs\/react\/)|(components\/)|(changelog)/i.test(pathname)) {
-    moduleDocs = [
-      ...utils.collectDocs(nextProps.data.docs.react),
-      ...componentsList,
-      /* eslint-disable new-cap */
-      nextProps.data.CHANGELOG(),
-      /* eslint-enable new-cap */
-    ];
-  } else {
-    moduleDocs = utils.collectDocs(
-      nextProps.utils.get(nextProps.data, pathname.split('/').slice(0, 2))
-    );
-  }
-
-  const demos = nextProps.utils.get(nextProps.data, [...pathname.split('/'), 'demo']);
-
-  const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
+  const demos = nextProps.utils.get(
+    nextProps.data, [...pathname.split('/'), 'demo']
+  );
   if (demos) {
     promises.push(demos());
   }
   Promise.all(promises)
     .then((list) => callback(null, {
       ...nextProps,
-      components: list[0],
-      moduleData: list[1],
-      demos: list[2],
+      localizedPageData: list[0],
+      demos: list[1],
     }));
 }
 
