@@ -37,7 +37,8 @@ A form field is defined using `<Form.Item />`.
 | Property  | Description                              | Type       | Default Value |
 |-----------|------------------------------------------|------------|---------|
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a 
-| horizontal | Use horizontal alignment. | boolean  | false    |
+| vertical | Use vertical layout. | boolean | false |
+| horizontal | Use horizontal layout. | boolean  | false    |
 | inline | Use inline alignment. | boolean | false |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 | prefixCls | Set the CSS class name of form component (optional). | string | 'ant-form' |

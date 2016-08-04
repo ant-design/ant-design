@@ -62,7 +62,7 @@ let Demo = React.createClass({
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={<span>Sold myself to Hua palace <Tooltip title="I come for Qiu Xiang"><Icon type="question-circle-o" /></Tooltip></span>}
+          label={<span>Sold myself <Tooltip title="I come for Qiu Xiang"><Icon type="question-circle-o" /></Tooltip></span>}
         >
           <Checkbox {...getFieldProps('agreement', { initialValue: false, valuePropName: 'checked' })}>agree</Checkbox>
         </FormItem>
