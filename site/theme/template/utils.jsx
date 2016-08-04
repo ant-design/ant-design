@@ -1,21 +1,5 @@
-export function collectDocs(docs) {
-  // locale copy from layout
-  const locale = (typeof localStorage !== 'undefined' && localStorage.getItem('locale') !== 'en-US') ?
-        'zh-CN' : 'en-US';
-  const docsList = Object.keys(docs)
-    .map(key => docs[key])
-    .map((value) => {
-      if (typeof value !== 'function') {
-        return value[locale] || value.index[locale] || value.index;
-      }
-      return value;
-    })
-    .map(fn => fn());
-  return docsList;
-}
-
-export function getMenuItems(data) {
-  const menuMeta = data.map((item) => item.meta);
+export function getMenuItems(moduleData) {
+  const menuMeta = moduleData.map(item => item.meta);
   const menuItems = {};
   menuMeta.sort(
     (a, b) => (a.order || 0) - (b.order || 0)
@@ -32,7 +16,6 @@ export function getMenuItems(data) {
 
     menuItems[category][type].push(meta);
   });
-
   return menuItems;
 }
 
