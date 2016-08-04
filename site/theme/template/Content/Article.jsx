@@ -17,6 +17,8 @@ export default class Article extends React.Component {
     this.pingTimer = utils.ping(checkImgUrl, status => {
       if (status === 'responded') {
         links.forEach(link => (link.style.display = 'block'));
+      } else {
+        links.forEach(link => link.parentNode.removeChild(link));
       }
     });
   }
