@@ -28,7 +28,7 @@ english: Download
     <span class="resource-card-description">一套页面逻辑原型库，帮你梳理页面逻辑</span>
   </span>
 </a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-0.12.11.zip" class="resource-card">
+<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-1.x.zip" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/UEpOFKUQTZaUfnW.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Web Font</span>
