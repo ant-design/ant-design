@@ -14,6 +14,7 @@ export default class Form extends React.Component {
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
+    vertical: React.PropTypes.bool,
     horizontal: React.PropTypes.bool,
     inline: React.PropTypes.bool,
     children: React.PropTypes.any,
@@ -31,9 +32,10 @@ export default class Form extends React.Component {
   }
 
   render() {
-    const { prefixCls, className, inline, horizontal } = this.props;
+    const { prefixCls, className, inline, horizontal, vertical } = this.props;
     const formClassName = classNames({
       [`${prefixCls}-horizontal`]: horizontal,
+      [`${prefixCls}-vertical`]: vertical,
       [`${prefixCls}-inline`]: inline,
       [className]: !!className,
     });
@@ -43,6 +45,7 @@ export default class Form extends React.Component {
       'className',
       'inline',
       'horizontal',
+      'vertical',
       'form',
     ]);
 

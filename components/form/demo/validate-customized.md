@@ -145,19 +145,12 @@ let Demo = React.createClass({
         validator: this.checkPass2,
       }],
     });
-    const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 18 },
-    };
     return (
       <div>
-        <Form horizontal form={this.props.form}>
-          <Row>
-            <Col span="18">
-              <FormItem
-                {...formItemLayout}
-                label="Password"
-              >
+        <Form vertical style={{ maxWidth: 600 }} form={this.props.form}>
+          <Row type="flex" align="middle">
+            <Col span={12}>
+              <FormItem label="Password">
                 <Input {...passProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="pass"
@@ -168,34 +161,24 @@ let Demo = React.createClass({
                 />
               </FormItem>
             </Col>
-            <Col span="6">
+            <Col span={12}>
               {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
             </Col>
           </Row>
-
-          <Row>
-            <Col span="18">
-              <FormItem
-                {...formItemLayout}
-                label="Confirm password"
-              >
+          <Row type="flex" align="middle">
+            <Col span={12}>
+              <FormItem label="Confirm">
                 <Input {...rePassProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="rePass"
                 />
               </FormItem>
             </Col>
-            <Col span="6">
+            <Col span={12}>
               {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
             </Col>
           </Row>
-          <Row>
-            <Col span="18">
-              <Col span="18" offset="6">
-                <Button type="primary" onClick={this.handleSubmit}>提交</Button>
-              </Col>
-            </Col>
-          </Row>
+          <FormItem><Button type="primary" onClick={this.handleSubmit}>提交</Button></FormItem>
         </Form>
       </div>
     );
