@@ -26,6 +26,7 @@ english: Transfer
 | titles | 标题集合,顺序从左至右 | Array | ['源列表', '目的列表'] |
 | operations | 操作文案集合,顺序从上至下 | Array | [] |
 | showSearch | 是否显示搜索框 | Boolean | false |
+| filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。| Function(inputValue, option) | |
 | searchPlaceholder | 搜索框的默认值 | String | '请输入搜索内容' |
 | notFoundContent | 当列表为空时显示的内容 | React.node | '列表为空'  |
 | footer | 底部渲染函数 | Function(props) |  |

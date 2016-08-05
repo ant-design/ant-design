@@ -32,6 +32,7 @@ export default class TransferList extends React.Component {
     prefixCls: PropTypes.string,
     dataSource: PropTypes.array,
     showSearch: PropTypes.bool,
+    filterOption: PropTypes.func,
     searchPlaceholder: PropTypes.string,
     titleText: PropTypes.string,
     style: PropTypes.object,
@@ -116,7 +117,11 @@ export default class TransferList extends React.Component {
     );
   }
 
-  matchFilter(text, filterText) {
+  matchFilter(filterText, item, text) {
+    const filterOption = this.props.filterOption;
+    if (filterOption) {
+      return filterOption(filterText, item);
+    }
     return text.indexOf(filterText) >= 0;
   }
 
@@ -150,7 +155,7 @@ export default class TransferList extends React.Component {
         renderedEl = renderResult;
       }
 
-      if (filter && filter.trim() && !this.matchFilter(renderedText, filter)) {
+      if (filter && filter.trim() && !this.matchFilter(filter, item, renderedText)) {
         return null;
       }
 

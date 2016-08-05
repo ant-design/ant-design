@@ -37,6 +37,7 @@ export default class Transfer extends React.Component {
     titles: PropTypes.array,
     operations: PropTypes.array,
     showSearch: PropTypes.bool,
+    filterOption: PropTypes.func,
     searchPlaceholder: PropTypes.string,
     notFoundContent: PropTypes.node,
     body: PropTypes.func,
@@ -187,7 +188,7 @@ export default class Transfer extends React.Component {
     const {
       prefixCls, titles, operations, showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className,
-      render,
+      filterOption, render,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
@@ -205,6 +206,7 @@ export default class Transfer extends React.Component {
         <List titleText={titles[0]}
           dataSource={leftDataSource}
           filter={leftFilter}
+          filterOption={filterOption}
           style={listStyle}
           checkedKeys={leftCheckedKeys}
           handleFilter={this.handleLeftFilter}
@@ -230,6 +232,7 @@ export default class Transfer extends React.Component {
         <List titleText={titles[1]}
           dataSource={rightDataSource}
           filter={rightFilter}
+          filterOption={filterOption}
           style={listStyle}
           checkedKeys={rightCheckedKeys}
           handleFilter={this.handleRightFilter}
