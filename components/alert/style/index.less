@@ -4,18 +4,22 @@
 
 .@{alert-prefix-cls} {
   position: relative;
-  padding: 8px 8px 8px 16px;
+  padding: 8px 48px 8px 38px;
   border-radius: @border-radius-base;
   color: @text-color;
   font-size: 12px;
   line-height: 16px;
   margin-bottom: 10px;
 
+  &&-no-icon {
+    padding: 8px 48px 8px 16px;
+  }
+
   &-icon {
-    margin-right: 8px;
     font-size: 14px;
-    top: 1px;
-    position: relative;
+    top: 9px;
+    left: 16px;
+    position: absolute;
   }
 
   &-description {
@@ -61,8 +65,7 @@
     font-size: 12px;
     position: absolute;
     right: 16px;
-    top: 50%;
-    margin-top: -6px;
+    top: 10px;
     height: 12px;
     line-height: 12px;
     overflow: hidden;
@@ -133,6 +136,12 @@
   &-slide-up-leave {
     animation: antAlertSlideUpOut .3s @ease-in-out-circ;
     animation-fill-mode: both;
+  }
+
+  &-banner {
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 0;
   }
 }
 

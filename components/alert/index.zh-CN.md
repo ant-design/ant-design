@@ -23,3 +23,5 @@ english: Alert
 | description | 警告提示的辅助性文字介绍                            | React.Node   | 无    |
 | onClose     | 关闭时触发的回调函数                                | Function   | 无    |
 | showIcon   | 是否显示辅助图标                                 | Boolean   | false    |
+| banner   | 是否用作顶部公告                                 | Boolean   | false    |
+
