@@ -114,7 +114,7 @@ ReactDOM.render(
   border-radius: 6px;
 }
 
-/* because the label width is not fixed, you may need to adjust it */
+/* because the label width is not fixed, you may need to adjust it to center by yourself */
 .ant-advanced-search-form > .ant-row {
   position: relative;
   left: -6px;
