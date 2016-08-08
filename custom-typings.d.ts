@@ -2,6 +2,11 @@ declare module 'classnames' {
   export default function({}): string;
 }
 
+declare module 'react-addons-pure-render-mixin' {
+  var exports: any;
+  export default exports;
+}
+
 declare module 'gregorian-calendar-format' {
   export default function({}): string;
 }
