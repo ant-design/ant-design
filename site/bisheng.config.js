@@ -4,7 +4,9 @@ function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
   return (markdownData) => {
     const filename = markdownData.meta.filename;
-    if (tester.test(filename) && !/\.en-US\.md/.test(filename)) {
+    if (tester.test(filename) &&
+        !/\/demo$/.test(path.dirname(filename)) &&
+        !/\.en-US\.md/.test(filename)) {
       return {
         meta: markdownData.meta,
       };

@@ -1,17 +1,17 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 带搜索框
   en-US: Search
 ---
 
 ## zh-CN
 
-带搜索框的穿梭框。
+带搜索框的穿梭框，可以自定义搜索函数。
 
 ## en-US
 
-Transfer with a search box
+Transfer with a search box.
 
 ````jsx
 import { Transfer } from 'antd';
@@ -43,6 +43,9 @@ const App = React.createClass({
     }
     this.setState({ mockData, targetKeys });
   },
+  filterOption(inputValue, option) {
+    return option.description.indexOf(inputValue) > -1;
+  },
   handleChange(targetKeys) {
     this.setState({ targetKeys });
   },
@@ -51,6 +54,7 @@ const App = React.createClass({
       <Transfer
         dataSource={this.state.mockData}
         showSearch
+        filterOption={this.filterOption}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
         render={item => item.title}

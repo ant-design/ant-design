@@ -87,10 +87,6 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       </div>
     );
 
-    const style = {
-      display: this.state.visible ? 'block' : 'none',
-    };
-
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(this.props, [
       'prefixCls',
@@ -103,10 +99,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       <Animate component="" transitionName="fade">
         {
           this.state.visible ?
-            <div data-show={this.state.visible} style={style}>
-              <div {...divProps} className={classString} onClick={this.scrollToTop}>
-                {children || defaultElement}
-              </div>
+            <div {...divProps} className={classString} onClick={this.scrollToTop}>
+              {children || defaultElement}
             </div>
           : null
         }

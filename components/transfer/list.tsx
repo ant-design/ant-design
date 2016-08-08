@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
@@ -57,6 +58,23 @@ export default class TransferList extends React.Component<TransferListProps, any
     // advanced
     body: noop,
     footer: noop,
+  };
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    dataSource: PropTypes.array,
+    showSearch: PropTypes.bool,
+    filterOption: PropTypes.func,
+    searchPlaceholder: PropTypes.string,
+    titleText: PropTypes.string,
+    style: PropTypes.object,
+    handleClear: PropTypes.func,
+    handleFilter: PropTypes.func,
+    handleSelect: PropTypes.func,
+    handleSelectAll: PropTypes.func,
+    render: PropTypes.func,
+    body: PropTypes.func,
+    footer: PropTypes.func,
   };
 
   static contextTypes = {
@@ -131,7 +149,11 @@ export default class TransferList extends React.Component<TransferListProps, any
     );
   }
 
-  matchFilter(text, filterText) {
+  matchFilter(filterText, item, text) {
+    const filterOption = this.props.filterOption;
+    if (filterOption) {
+      return filterOption(filterText, item);
+    }
     return text.indexOf(filterText) >= 0;
   }
 
@@ -165,7 +187,7 @@ export default class TransferList extends React.Component<TransferListProps, any
         renderedEl = renderResult;
       }
 
-      if (filter && filter.trim() && !this.matchFilter(renderedText, filter)) {
+      if (filter && filter.trim() && !this.matchFilter(filter, item, renderedText)) {
         return null;
       }
 

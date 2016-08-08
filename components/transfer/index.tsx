@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import List from './list';
 import Operation from './operation';
 import Search from './search';
@@ -59,6 +60,26 @@ export default class Transfer extends React.Component<TransferProps, any> {
     showSearch: false,
     body: noop,
     footer: noop,
+  };
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    dataSource: PropTypes.array,
+    render: PropTypes.func,
+    targetKeys: PropTypes.array,
+    onChange: PropTypes.func,
+    height: PropTypes.number,
+    listStyle: PropTypes.object,
+    className: PropTypes.string,
+    titles: PropTypes.array,
+    operations: PropTypes.array,
+    showSearch: PropTypes.bool,
+    filterOption: PropTypes.func,
+    searchPlaceholder: PropTypes.string,
+    notFoundContent: PropTypes.node,
+    body: PropTypes.func,
+    footer: PropTypes.func,
+    rowKey: PropTypes.func,
   };
 
   constructor(props) {
@@ -204,7 +225,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const {
       prefixCls, titles, operations, showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className,
-      render,
+      filterOption, render,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
@@ -222,6 +243,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
         <List titleText={titles[0]}
           dataSource={leftDataSource}
           filter={leftFilter}
+          filterOption={filterOption}
           style={listStyle}
           checkedKeys={leftCheckedKeys}
           handleFilter={this.handleLeftFilter}
@@ -247,6 +269,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
         <List titleText={titles[1]}
           dataSource={rightDataSource}
           filter={rightFilter}
+          filterOption={filterOption}
           style={listStyle}
           checkedKeys={rightCheckedKeys}
           handleFilter={this.handleRightFilter}
