@@ -1,11 +1,6 @@
 {
   "globalDependencies": {
-    "classnames": "file:custom-typings/classnames.d.ts",
-    "object-assign": "file:custom-typings/object-assign.d.ts",
-    "rc-util/lib/Dom/addEventListener": "file:custom-typings/rc-util.d.ts",
     "react": "registry:dt/react#0.14.0+20160720060442",
     "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
-    "shallowequal": "file:custom-typings/shallowequal.d.ts",
-    "warning": "file:custom-typings/warning.d.ts"
   }
 }
