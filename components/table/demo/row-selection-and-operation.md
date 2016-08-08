@@ -1,7 +1,15 @@
 ---
 order: 2
-title: 选择和操作
+title:
+  en-US: Selection and action
+  zh-CN: 选择和操作
 ---
+
+## en-US
+
+Make actions and clear selection after select some rows by using `rowSelection.selectedRowKeys` to control selected rows.
+
+# zh-CN
 
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
 

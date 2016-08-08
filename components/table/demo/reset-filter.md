@@ -1,7 +1,21 @@
 ---
 order: 6
-title: 重置筛选和排序
+title:
+  en-US: Controlled filters and sorters
+  zh-CN: 重置筛选和排序
 ---
+
+## en-US
+
+Controll filters and sorters by `fileredValue` and `sortOrder`.
+
+> 1. Defining `fileredValue` or `sortOrder` means that it is in the controlled mode.
+
+> 2. Make sure `sortOrder` is assigned in only one column.
+
+> 3. You must specify `column.key`.
+
+# zh-CN
 
 使用受控属性对筛选和排序状态进行控制。
 

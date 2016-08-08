@@ -1,7 +1,15 @@
 ---
 order: 12
-title: 可展开
+title:
+  en-US: Expandable Row
+  zh-CN: 可展开
 ---
+
+## en-US
+
+Add expand area for each row.
+
+# zh-CN
 
 当表格内容较多不能一次性完全展示时。
 
