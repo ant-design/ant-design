@@ -9,6 +9,27 @@ timeline: true
 
 ---
 
+## 1.8.0
+
+`2016-08-08`
+
+- Tabs
+  - 修复可关闭Tabs组件只有一个Tab的时候报错的问题。 [#2559](https://github.com/ant-design/ant-design/issues/2559)
+- Datepicker
+  - 修复 IE8 下关闭图标。 [#2584](https://github.com/ant-design/ant-design/issues/2584)
+- Tags
+  - 支持自定义 tag 颜色。 [#2585](https://github.com/ant-design/ant-design/issues/2585)
+- TreeSelect
+  - 修复未找到内容时的样式。 [#9cee9f](https://github.com/ant-design/ant-design/commit/9cee9f103a4729572358206c81cba84e2fdc20f5)
+- Modal
+  - 适配小屏幕。  [#2597](https://github.com/ant-design/ant-design/issues/2597)
+- Layout
+  - 修复了 `Row` 组件在同一行闭合会报错的问题。[#2603](https://github.com/ant-design/ant-design/issues/2603)
+- Table
+  - selectedRows 想在将和 selectedRowKeys 一致 [#2566](https://github.com/ant-design/ant-design/issues/2603)
+- Checkbox
+  - 支持了 onClick 事件  
+
 ## 1.7.0
 
 `2016-07-30`
