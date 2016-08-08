@@ -34,11 +34,17 @@ export { Cascader };
 import LocaleProvider from './locale-provider';
 export { LocaleProvider };
 
+import message from './message';
+export { message };
+
 import Popconfirm from './popconfirm';
 export { Popconfirm };
 
 import Popover from './popover';
 export { Popover };
+
+import Radio from './radio';
+export { Radio };
 
 import Transfer from './transfer';
 export { Transfer };
