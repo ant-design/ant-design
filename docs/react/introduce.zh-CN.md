@@ -1,6 +1,6 @@
 ---
 order: 0
-english: Ant Design of React
+title: Ant Design of React
 ---
 
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
@@ -50,8 +50,12 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)（此插件支持 js 和 css 同时按需加载）。
+以下两种方法都可以达到按需加载的目的：
 
+- `import DatePicker from 'antd/lib/date-picker'`
+- 配合插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 使用 `import { DatePicker } from 'antd';`
+
+> babel-plugin-antd 支持 js 和 css 同时按需加载。
 
 ## 版本
 
