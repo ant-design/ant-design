@@ -28,7 +28,7 @@ export interface TransferListProps {
   handleSelect?: (selectedItem: any, checked: boolean) => void;
   handleSelectAll?: (dataSource: any[], checkAll: boolean) => void;
   handleClear?: () => void;
-  render?: (...any) => any;
+  render?: (item: any) => any;
   body?: (props: any) => any;
   footer?: (props: any) => void;
   checkedKeys?: any[];
