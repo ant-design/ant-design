@@ -40,6 +40,9 @@ export { Popconfirm };
 import Popover from './popover';
 export { Popover };
 
+import Progress from './progress';
+export { Progress };
+
 import Transfer from './transfer';
 export { Transfer };
 
