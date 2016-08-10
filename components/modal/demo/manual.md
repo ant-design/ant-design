@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Manual to destroy modal.
+Manually destroying a modal.
 
 ````jsx
 import { Modal, Button } from 'antd';

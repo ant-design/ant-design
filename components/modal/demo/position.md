@@ -2,7 +2,7 @@
 order: 7
 title: 
   zh-CN: 自定义位置
-  en-US: To customize position of modal
+  en-US: To customize the position of modal
 ---
 
 ## zh-CN
@@ -11,7 +11,8 @@ title:
 
 ## en-US
 
-After `1.0`,  we remove `align` of Modal, you can use `style.top` or other styles to set position of modal dialog.
+After release `1.0`,  Modal's `align` prop was removed. You can use `style.top` or other styles to
+set position of modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';

@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Various types of informaion modal dialog, only provide one button to close dialog.
+In the various types of informaion modal dialog, only one button to close dialog is provided.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -38,7 +38,7 @@ function success() {
 
 function error() {
   Modal.error({
-    title: 'This is a error message',
+    title: 'This is an error message',
     content: 'some messages...some messages...',
   });
 }

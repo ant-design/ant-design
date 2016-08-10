@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-To customize the text of buttons via set `okText` and `cancelText`.
+To customize the text of the buttons, you need to set `okText` and `cancelText` props.
 
 ````jsx
 import { Modal, Button } from 'antd';

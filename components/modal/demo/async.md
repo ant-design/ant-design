@@ -20,7 +20,7 @@ import { Modal, Button } from 'antd';
 const Test = React.createClass({
   getInitialState() {
     return {
-      ModalText: 'Content of modal dialog',
+      ModalText: 'Content of the modal dialog',
       visible: false,
     };
   },
@@ -50,7 +50,7 @@ const Test = React.createClass({
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>显示对话框</Button>
+        <Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>
         <Modal title="Title of the modal dialog"
           visible={this.state.visible}
           onOk={this.handleOk}

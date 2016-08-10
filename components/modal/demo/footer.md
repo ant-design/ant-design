@@ -11,9 +11,9 @@ title:
 
 ## en-US
 
-A more complex example, in this example, we define a customized footer button bar,
-the dialog will change to loading status after clicking submit button , when the loading is over,
-the modal dialong will be closed.
+A more complex example, as illustrated in this example, we define a customized footer button bar,
+the dialog will change to loading state after clicking submit button , when the loading is over,
+the modal dialog will be closed.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -43,7 +43,7 @@ const Test = React.createClass({
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>
-          Diaplay modal dialog
+          Open modal dialog
         </Button>
         <Modal ref="modal"
           visible={this.state.visible}

@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-To use `confirm()` to popup a confirm modal dialog.
+To use `confirm()` to popup a confirmation modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -19,7 +19,7 @@ const confirm = Modal.confirm;
 
 function showConfirm() {
   confirm({
-    title: 'Are you sure you want to delete these items',
+    title: 'Are you sure you want to delete these items ?',
     content: 'some descriptions',
     onOk() {
       console.log('OK');
