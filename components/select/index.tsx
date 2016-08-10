@@ -1,25 +1,78 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-export default class Select extends React.Component {
+type SelectValue = string | string[] | Array<{ key: string, label: React.ReactNode }>;
+
+export interface SelectProps {
+  prefixCls?: string;
+  className?: string;
+  value?: SelectValue;
+  defaultValue?: SelectValue;
+  size?: 'default' | 'large' | 'small';
+  combobox?: boolean;
+  notFoundContent?: React.ReactNode;
+  showSearch?: boolean;
+  transitionName?: string;
+  choiceTransitionName?: string;
+  multiple?: boolean;
+  allowClear?: boolean;
+  filterOption?: boolean | ((inputValue: string, option: Object) => any);
+  tags?: boolean;
+  onSelect?: (value: SelectValue, option: Object) => any;
+  onDeselect?: (value: SelectValue) => any;
+  onSearch?: (value: string) => any;
+  placeholder?: string;
+  dropdownMatchSelectWidth?: boolean;
+  optionFilterProp?: string;
+  optionLabelProp?: string;
+  disabled?: boolean;
+  defaultActiveFirstOption?: boolean;
+  labelInValue?: boolean;
+  getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode;
+}
+
+export interface SelectContext {
+  antLocale?: {
+    Select?: any,
+  };
+}
+
+export default class Select extends React.Component<SelectProps, any> {
   static Option = Option;
   static OptGroup = OptGroup;
 
   static defaultProps = {
     prefixCls: 'ant-select',
+    showSearch: false,
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
-    showSearch: false,
   };
 
-  static contextTypes = {
-    antLocale: React.PropTypes.object,
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    className: PropTypes.string,
+    size: PropTypes.oneOf(['default', 'large', 'small']),
+    combobox: PropTypes.bool,
+    notFoundContent: PropTypes.any,
+    showSearch: PropTypes.bool,
+    optionLabelProp: PropTypes.string,
+    transitionName: PropTypes.string,
+    choiceTransitionName: PropTypes.string,
   };
+
+  context: SelectContext;
 
   render() {
     let {
-      size, className, combobox, notFoundContent, prefixCls, showSearch, optionLabelProp,
+      prefixCls,
+      className,
+      size,
+      combobox,
+      notFoundContent,
+      showSearch,
+      optionLabelProp,
     } = this.props;
 
     const cls = classNames({

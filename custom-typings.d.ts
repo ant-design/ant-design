@@ -3,7 +3,7 @@ declare module 'classnames' {
 }
 
 declare module 'react-addons-pure-render-mixin' {
-  var exports: any;
+  const exports: any;
   export default exports;
 }
 
@@ -112,7 +112,10 @@ declare module 'css-animation' {
 }
 
 declare module 'rc-select' {
-  export default function(): any;
+  export const Option: any;
+  export const OptGroup: any;
+  const exports: any;
+  export default exports;
 }
 
 declare module 'react-slick' {
@@ -196,11 +199,13 @@ declare module 'rc-slider' {
 }
 
 declare module 'rc-steps' {
-  export default function(): any;
+  export const exports: any;
+  export default exports;
 }
 
 declare module 'rc-switch' {
-  export default function(): any;
+  const exports: any;
+  export default exports;
 }
 
 declare module 'rc-table' {

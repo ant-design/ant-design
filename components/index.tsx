@@ -43,6 +43,24 @@ export { Popover };
 import Progress from './progress';
 export { Progress };
 
+import Rate from './rate';
+export { Rate };
+
+import Select from './select';
+export { Select };
+
+import Slider from './slider';
+export { Slider };
+
+import Spin from './spin';
+export { Spin };
+
+import Steps from './steps';
+export { Steps };
+
+import Switch from './switch';
+export { Switch };
+
 import Transfer from './transfer';
 export { Transfer };
 
