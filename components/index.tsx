@@ -37,6 +37,18 @@ export { LocaleProvider };
 import message from './message';
 export { message };
 
+import Menu from './menu';
+export { Menu };
+
+import Modal from './modal';
+export { Modal };
+
+import notification from './notification';
+export { notification };
+
+import Pagination from './pagination';
+export { Pagination };
+
 import Popconfirm from './popconfirm';
 export { Popconfirm };
 
