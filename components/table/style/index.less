@@ -83,6 +83,7 @@
   }
 
   &.@{table-prefix-cls}-bordered &-title {
+    padding: 15px 8px;
     border: 1px solid @border-color-split;
   }
 
@@ -269,6 +270,10 @@
 
   &-empty &-body {
     height: 150px;
+
+    th {
+      border-bottom: 0;
+    }
   }
 
   &-placeholder {
@@ -285,6 +290,10 @@
     .anticon {
       margin-right: 4px;
     }
+  }
+
+  &-with-title + &-placeholder {
+    top: 100px;
   }
 
   &-pagination {

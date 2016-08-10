@@ -758,6 +758,7 @@ export default class Table extends React.Component {
     const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
       'ant-table-bordered': this.props.bordered,
+      'ant-table-with-title': !!this.props.title,
     });
 
     columns = this.renderColumnsDropdown(columns);
