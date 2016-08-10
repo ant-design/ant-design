@@ -67,7 +67,8 @@ input[type="checkbox"] {
   color: #666;
 
   // nested FormItem
-  & & {
+  & > &,
+  & :not(.@{form-prefix-cls}) > & {
     margin-bottom: -@form-item-margin-bottom;
   }
 
