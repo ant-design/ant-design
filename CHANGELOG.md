@@ -14,7 +14,7 @@ timeline: true
 `2016-08-08`
 
 - 修复可关闭 Tabs 组件只有一个 Tab 的时候报错的问题。[#2559](https://github.com/ant-design/ant-design/issues/2559)
--修复 Datepicker 在 IE8 下关闭图标。[#2584](https://github.com/ant-design/ant-design/issues/2584)
+- 修复 Datepicker 在 IE8 下关闭图标。[#2584](https://github.com/ant-design/ant-design/issues/2584)
 - Tags 支持自定义标签颜色。[#2585](https://github.com/ant-design/ant-design/issues/2585)
 - TreeSelect 修复未找到内容时的样式。[9cee9f](https://github.com/ant-design/ant-design/commit/9cee9f103a4729572358206c81cba84e2fdc20f5)
 - Modal 适配小屏幕。[#2597](https://github.com/ant-design/ant-design/issues/2597)
