@@ -9,7 +9,18 @@ const FilterDropdownMenuWrapper = ({ onClick, children }) => (
   <div className="ant-table-filter-dropdown" onClick={onClick}>{children}</div>
 );
 
-export default class FilterMenu extends React.Component {
+export interface FilterMenuProps {
+  locale: any;
+  selectedKeys: string[];
+  column: {
+    filterMultiple?: boolean,
+    filterDropdown?: React.ReactNode,
+    filters?: string[]
+  };
+  confirmFilter: (column: Object, selectedKeys: string[]) => any;
+}
+
+export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   static defaultProps = {
     handleFilter() {},
     column: null,

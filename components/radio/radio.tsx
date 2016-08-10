@@ -14,6 +14,7 @@ export interface RadioProps {
   prefixCls?: string;
   disabled?: boolean;
   className?: string;
+  onChange?: (e: any) => any;
 }
 
 export default class Radio extends React.Component<RadioProps, any> {

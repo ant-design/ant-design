@@ -151,6 +151,8 @@ declare module 'rc-progress' {
 }
 
 declare module 'rc-menu' {
+  export const SubMenu: any;
+  export const Item: any;
   export default function(): any;
 }
 
