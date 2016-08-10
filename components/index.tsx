@@ -34,6 +34,9 @@ export { Cascader };
 import LocaleProvider from './locale-provider';
 export { LocaleProvider };
 
+import message from './message';
+export { message };
+
 import Popconfirm from './popconfirm';
 export { Popconfirm };
 
@@ -42,6 +45,9 @@ export { Popover };
 
 import Progress from './progress';
 export { Progress };
+
+import Radio from './radio';
+export { Radio };
 
 import Rate from './rate';
 export { Rate };
