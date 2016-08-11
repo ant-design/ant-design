@@ -45,6 +45,7 @@ const App = React.createClass({
           <p>some contents...</p>
           <p>some contents...</p>
         </Modal>
+        <br /><br />
         <Button type="primary" onClick={() => this.setModal2Visible(true)}>Vertically centered modal dialog</Button>
         <Modal
           title="Vertically centered modal dialog"
