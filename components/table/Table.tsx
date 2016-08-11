@@ -342,7 +342,7 @@ export default class Table extends React.Component<TableProps, any> {
       this.setState(newState);
     }
 
-    this.props.onChange.apply(this.prepareParamsArguments(assign({}, this.state, newState)));
+    this.props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, newState)));
   }
 
   handleFilter = (column, nextFilters) => {
@@ -390,7 +390,7 @@ export default class Table extends React.Component<TableProps, any> {
     }
 
     this.setState(newState, () => {
-      props.onChange.apply(this.prepareParamsArguments(assign({}, this.state, {
+      props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
         selectionDirty: false,
         filters,
         pagination,
@@ -492,7 +492,7 @@ export default class Table extends React.Component<TableProps, any> {
     }
     this.setState(newState);
 
-    this.props.onChange.apply(this.prepareParamsArguments(assign({}, this.state, {
+    this.props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
       selectionDirty: false,
       pagination,
     })));
@@ -685,7 +685,7 @@ export default class Table extends React.Component<TableProps, any> {
     pagination.onShowSizeChange(current, pageSize);
     const nextPagination = assign({}, pagination, { pageSize, current });
     this.setState({ pagination: nextPagination });
-    this.props.onChange.apply(this.prepareParamsArguments(assign({}, this.state, {
+    this.props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
       pagination: nextPagination,
     })));
   }
