@@ -1,9 +1,18 @@
 ---
 order: 7
-title: 自定义位置
+title: 
+  zh-CN: 自定义位置
+  en-US: To customize the position of modal
 ---
 
+## zh-CN
+
 `1.0` 之后，Modal 的 `align` 属性被移除，您可以直接使用 `style.top` 或配合其他样式来设置对话框位置。
+
+## en-US
+
+After release `1.0`,  Modal's `align` prop was removed. You can use `style.top` or other styles to
+set position of modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -24,29 +33,29 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <Button type="primary" onClick={() => this.setModal1Visible(true)}>显示距离顶部 20px 的对话框</Button>
+        <Button type="primary" onClick={() => this.setModal1Visible(true)}>Display a modal dialog at 20px to Top</Button>
         <Modal
-          title="距离顶部 20px 的对话框"
+          title="20px to Top"
           style={{ top: 20 }}
           visible={this.state.modal1Visible}
           onOk={() => this.setModal1Visible(false)}
           onCancel={() => this.setModal1Visible(false)}
         >
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
         </Modal>
-        <Button type="primary" onClick={() => this.setModal2Visible(true)}>显示垂直居中的对话框</Button>
+        <Button type="primary" onClick={() => this.setModal2Visible(true)}>Vertically centered modal dialog</Button>
         <Modal
-          title="垂直居中的对话框"
+          title="Vertically centered modal dialog"
           wrapClassName="vertical-center-modal"
           visible={this.state.modal2Visible}
           onOk={() => this.setModal2Visible(false)}
           onCancel={() => this.setModal2Visible(false)}
         >
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
         </Modal>
       </div>
     );
@@ -57,7 +66,7 @@ ReactDOM.render(<App />, mountNode);
 ````
 
 ````css
-/* 使用 css 技巧来动态设置的对话框位置 */
+/* use css to set position of modal */
 .vertical-center-modal {
   display: flex;
   align-items: center;
