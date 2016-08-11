@@ -33,6 +33,7 @@ export default class Input extends Component {
     type: 'text',
     onPressEnter() {},
     onKeyDown() {},
+    onChange() {},
     autosize: false,
   }
 
@@ -84,10 +85,10 @@ export default class Input extends Component {
   }
 
   handleTextareaChange = (e) => {
-    this.resizeTextarea();
-    if (this.props.onChange) {
-      this.props.onChange(e);
+    if (!('value' in this.props)) {
+      this.resizeTextarea();
     }
+    this.props.onChange(e);
   }
 
   resizeTextarea = () => {
