@@ -14,7 +14,7 @@ title:
 Custom each Transfer Item, and in this way you can render a complex datasource.
 
 ````jsx
-import { Transfer, Icon } from 'antd';
+import { Transfer } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
@@ -49,9 +49,9 @@ const App = React.createClass({
   },
   renderItem(item) {
     const customLabel = (
-      <div className="custom-item">
-        {item.title} - {item.description} <Icon type="android" />
-      </div>
+      <span className="custom-item">
+        {item.title} - {item.description}
+      </span>
     );
 
     return {

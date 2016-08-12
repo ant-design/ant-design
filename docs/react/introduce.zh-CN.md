@@ -80,6 +80,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
 - [设计规范速查手册](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
 - [社区贡献脚手架和范例](https://github.com/ant-design/ant-design/issues/129)
+- [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
+- [CodePen 模板](http://codepen.io/anon/pen/wGOWGW?editors=001)
+- [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 
 ## 谁在使用
 
