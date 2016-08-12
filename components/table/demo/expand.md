@@ -7,7 +7,7 @@ title:
 
 ## en-US
 
-Add expand area for each row.
+When there's too much information to show and the table can't display all at once.
 
 # zh-CN
 

@@ -11,7 +11,7 @@ Fix some columns and scroll in other columns. You must set `scoll.x` meanwhile.
 
 > Specify the width of each column if header and cell do not align properly.
 
-> Recommend a fixed width for `scroll.x`.
+> A fixed width for `scroll.x` is recommended.
 
 # zh-CN
 

@@ -7,7 +7,7 @@ title:
 
 ## en-US
 
-Controll loading status by `loading` property.
+Controll loading states by `loading` property.
 
 # zh-CN
 

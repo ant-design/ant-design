@@ -8,7 +8,7 @@ title:
 
 ## en-US
 
-You can split long columns to switchale views.
+You can split long columns to switchable views.
 
 # zh-CN
 

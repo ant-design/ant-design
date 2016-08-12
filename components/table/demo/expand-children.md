@@ -7,9 +7,9 @@ title:
 
 ## en-US
 
-Display tree structure data in Table, control indent pixels by `indentSize`.
+Display tree structure data in Table, control the indent width by setting `indentSize`.
 
-> Note, no support for correlation selection of tree structure data table yet.
+> Note, no support for recursive selection of tree structure data table yet.
 
 ## zh-CN
 

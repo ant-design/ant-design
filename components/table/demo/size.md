@@ -7,11 +7,11 @@ title:
 
 ## en-US
 
-Compacted table size: `middle` and `small`, `small` size is used in Modal only.
+Two compacted table size: `middle` and `small`, `small` size is used in Modal only.
 
 # zh-CN
 
-紧凑型的列表, 中型列表用于需要数据紧凑展示的情况，小型列表只用于对话框内。
+两种紧凑型的列表，小型列表只用于对话框内。
 
 ````jsx
 import { Table } from 'antd';

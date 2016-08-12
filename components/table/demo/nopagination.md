@@ -7,7 +7,7 @@ title:
 
 ## en-US
 
-Set `pagination={false}`, then no data paging and pagination to show.
+Set `pagination={false}`, then no data paging and pagination will be shown.
 
 # zh-CN
 

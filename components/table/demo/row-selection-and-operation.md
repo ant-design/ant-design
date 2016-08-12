@@ -1,13 +1,13 @@
 ---
 order: 2
 title:
-  en-US: Selection and action
+  en-US: Selection and operation
   zh-CN: 选择和操作
 ---
 
 ## en-US
 
-Make actions and clear selection after select some rows by using `rowSelection.selectedRowKeys` to control selected rows.
+To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
 
 # zh-CN
 

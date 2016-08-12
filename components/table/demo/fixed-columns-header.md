@@ -11,7 +11,7 @@ Suitable for large amounts of data with long columns.
 
 > Specify the width of each column if header and cell do not align properly.
 
-> Recommend a fixed width for `scroll.x`.
+> A fixed width for `scroll.x` is recommended.
 
 # zh-CN
 

@@ -7,7 +7,7 @@ title:
 
 ## en-US
 
-Use pagination in table.
+when use pagination in table.
 
 # zh-CN
 

@@ -7,7 +7,7 @@ title:
 
 ## en-US
 
-Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` for indicate the selection way.
+Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
 
 Use `sorter` to make a column sortable. `sorter` can be a function `function(a, b) { ... }` for sorting data locally.
 

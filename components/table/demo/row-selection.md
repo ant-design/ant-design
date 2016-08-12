@@ -7,7 +7,7 @@ title:
 
 ## en-US
 
-Rows can be selectable by making fisrt column as a selection column.
+Rows can be selectable by making fisrt column as a selectable column.
 
 # zh-CN
 
