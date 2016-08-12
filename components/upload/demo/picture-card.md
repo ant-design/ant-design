@@ -11,13 +11,13 @@ import { Upload, Icon, Modal } from 'antd';
 const ImageUploadList = React.createClass({
   getInitialState() {
     return {
-      priviewVisible: false,
-      priviewImage: '',
+      previewVisible: false,
+      previewImage: '',
     };
   },
   handleCancel() {
     this.setState({
-      priviewVisible: false,
+      previewVisible: false,
     });
   },
   render() {
@@ -33,8 +33,8 @@ const ImageUploadList = React.createClass({
       }],
       onPreview: (file) => {
         this.setState({
-          priviewImage: file.url,
-          priviewVisible: true,
+          previewImage: file.url,
+          previewVisible: true,
         });
       },
     };
@@ -48,8 +48,8 @@ const ImageUploadList = React.createClass({
           <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
           <span>示例</span>
         </a>
-        <Modal visible={this.state.priviewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" src={this.state.priviewImage} />
+        <Modal visible={this.state.previewVisible} footer={null} onCancel={this.handleCancel}>
+          <img alt="example" src={this.state.previewImage} />
         </Modal>
       </div>
     );
