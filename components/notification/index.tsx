@@ -6,11 +6,26 @@ let defaultTop = 24;
 let notificationInstance;
 let defaultDuration = 4.5;
 
+export interface ArgsProps {
+  /** 通知提醒标题，必选 */
+  message: React.ReactNode;
+  /** 通知提醒内容，必选*/
+  description: React.ReactNode;
+  /** 自定义关闭按钮*/
+  btn?: React.ReactNode;
+  /** 当前通知唯一标志*/
+  key?: string;
+  /** 点击默认关闭按钮时触发的回调函数*/
+  onClose?: () => void;
+  /** 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭*/
+  duration?: number;
+}
+
 function getNotificationInstance() {
   if (notificationInstance) {
     return notificationInstance;
   }
-  notificationInstance = Notification.newInstance({
+  notificationInstance = (Notification as any).newInstance({
     prefixCls: 'ant-notification',
     style: {
       top: defaultTop,
@@ -91,9 +106,9 @@ const api = {
 };
 
 ['success', 'info', 'warning', 'error'].forEach((type) => {
-  api[type] = (args) => api.open(assign({}, args, { icon: type }));
+  api[type] = (args: ArgsProps) => api.open(assign({}, args, { icon: type }));
 });
 
-api.warn = api.warning;
+(api as any).warn = (api as any).warning;
 
 export default api;
