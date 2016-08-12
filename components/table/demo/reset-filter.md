@@ -83,7 +83,7 @@ const App = React.createClass({
         { text: '姓胡的', value: '胡' },
       ],
       filteredValue: filteredInfo.name,
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      onFilter: (value, record) => record.name.includes(value),
       sorter: (a, b) => a.name.length - b.name.length,
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
     }, {
@@ -101,7 +101,7 @@ const App = React.createClass({
         { text: '西湖', value: '西湖' },
       ],
       filteredValue: filteredInfo.address,
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
+      onFilter: (value, record) => record.address.includes(value),
       sorter: (a, b) => a.address.length - b.address.length,
       sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
     }];
