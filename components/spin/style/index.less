@@ -9,19 +9,18 @@
 
 .@{spin-prefix-cls} {
   color: @primary-color;
-  display: inline-block;
   vertical-align: middle;
   text-align: center;
   opacity: 0;
   position: absolute;
-  visibility: hidden;
   transition: transform 0.3s @ease-in-out-circ;
   font-size: @font-size-base;
+  display: none;
 
   &-spinning {
     opacity: 1;
     position: static;
-    visibility: visible;
+    display: inline-block;
   }
 
   &-nested-loading {
