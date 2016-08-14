@@ -1,7 +1,15 @@
 ---
 order: 5
-title: 分页
+title:
+  en-US: pagination
+  zh-CN: 分页
 ---
+
+## en-US
+
+when use pagination in table.
+
+# zh-CN
 
 数据项较多时显示分页。
 

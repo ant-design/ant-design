@@ -1,7 +1,15 @@
 ---
 order: 1
-title: 可选择
+title:
+  en-US: selection
+  zh-CN: 可选择
 ---
+
+## en-US
+
+Rows can be selectable by making fisrt column as a selectable column.
+
+# zh-CN
 
 第一列是联动的选择框。
 

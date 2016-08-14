@@ -1,7 +1,15 @@
 ---
 order: 8
-title: 不显示分页
+title:
+  en-US: No pagination
+  zh-CN: 不显示分页
 ---
+
+## en-US
+
+Set `pagination={false}`, then no data paging and pagination will be shown.
+
+# zh-CN
 
 传入 pagination 为 false 即可。此时表格将完整显示 dataSource 内的数据，不进行任何分页。
 

@@ -1,13 +1,25 @@
 ---
 order: 18
-title: 固定头和列
+title:
+  en-US: Fixed Columns and Header
+  zh-CN: 固定头和列
 ---
+
+## en-US
+
+Suitable for large amounts of data with long columns.
+
+> Specify the width of each column if header and cell do not align properly.
+
+> A fixed width for `scroll.x` is recommended.
+
+# zh-CN
 
 适合同时展示有大量数据和数据列。
 
-> 若未指定每列的宽度，则建议指定 scroll.x 为固定宽度。
-
 > 若列头与内容不对齐，请指定每列宽度 `width`。
+
+> 建议指定 scroll.x 为固定宽度。
 
 ````jsx
 import { Table } from 'antd';

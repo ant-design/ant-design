@@ -1,9 +1,17 @@
 ---
 order: 9
-title: 紧凑型
+title:
+  en-US: size
+  zh-CN: 紧凑型
 ---
 
-紧凑型的列表, 中型列表用于需要数据紧凑展示的情况，小型列表只用于对话框内。
+## en-US
+
+Two compacted table size: `middle` and `small`, `small` size is used in Modal only.
+
+# zh-CN
+
+两种紧凑型的列表，小型列表只用于对话框内。
 
 ````jsx
 import { Table } from 'antd';

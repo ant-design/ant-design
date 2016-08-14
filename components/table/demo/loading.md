@@ -1,7 +1,15 @@
 ---
 order: 14
-title: 加载中的表格
+title:
+  en-US: Loading
+  zh-CN: 加载中的表格
 ---
+
+## en-US
+
+Controll loading states by `loading` property.
+
+# zh-CN
 
 用属性 `loading` 控制表格加载中状态。
 

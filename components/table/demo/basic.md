@@ -1,7 +1,15 @@
 ---
 order: 0
-title: 基本用法
+title:
+  en-US: Basic Usage
+  zh-CN: 基本用法
 ---
+
+## en-US
+
+Simple table with operations.
+
+## zh-CN
 
 简单的表格，最后一列是各种操作。
 

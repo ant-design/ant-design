@@ -1,9 +1,19 @@
 ---
 order: 6
-title: 筛选和排序
+title:
+  en-US: Filter and sorter
+  zh-CN: 筛选和排序
 ---
 
-对某一列数据进行筛选，使用列的 `filter` 属性来指定需要筛选菜单的列，`onFilter` 用于筛选当前数据，`filterMultiple` 用于指定多选和单选。
+## en-US
+
+Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
+
+Use `sorter` to make a column sortable. `sorter` can be a function `function(a, b) { ... }` for sorting data locally.
+
+# zh-CN
+
+对某一列数据进行筛选，使用列的 `filters` 属性来指定需要筛选菜单的列，`onFilter` 用于筛选当前数据，`filterMultiple` 用于指定多选和单选。
 
 对某一列数据进行排序，通过指定列的 `sorter` 函数即可启动排序按钮。`sorter: function(a, b) { ... }`， a、b 为比较的两个列数据。
 
@@ -30,8 +40,8 @@ const columns = [{
       value: '王',
     }],
   }],
-  // 指定确定筛选的条件函数
-  // 这里是名字中第一个字是 value
+  // specify the condition of filtering result
+  // here is that finding the name started with `value`
   onFilter: (value, record) => record.name.indexOf(value) === 0,
   sorter: (a, b) => a.name.length - b.name.length,
 }, {
@@ -76,8 +86,7 @@ const data = [{
 }];
 
 function onChange(pagination, filters, sorter) {
-  // 点击分页、筛选、排序时触发
-  console.log('各类参数是', pagination, filters, sorter);
+  console.log('params', pagination, filters, sorter);
 }
 
 ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />, mountNode);

@@ -1,7 +1,17 @@
 ---
 order: 7
-title: 远程加载数据
+title:
+  en-US: Ajax
+  zh-CN: 远程加载数据
 ---
+
+## en-US
+
+This example shows how to fetch and present data from remote server, and how to implement filtering and sorting in server side by sending related parameters to server.
+
+**Note, this example use [Mock API](https://randomuser.me) that you can look up in Network Console.**
+
+## zh-CN
 
 这个例子通过简单的 ajax 读取方式，演示了如何从服务端读取并展现数据，具有筛选、排序等功能以及页面 loading 效果。开发者可以自行接入其他数据处理方式。
 
@@ -55,7 +65,7 @@ const Test = React.createClass({
     });
   },
   fetch(params = {}) {
-    console.log('请求参数：', params);
+    console.log('params:', params);
     this.setState({ loading: true });
     reqwest({
       url: 'http://api.randomuser.me',

@@ -1,9 +1,8 @@
 ---
 category: Components
-chinese: 表格
 cols: 1
 type: Views
-english: Table
+title: Table
 ---
 
 展示行列数据。
@@ -68,12 +67,11 @@ const columns = [{
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | Object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | Number   | 15 |
 | onRowClick    | 处理行点击事件 | Function(record, index)   | - |
-| useFixedHeader  | 是否固定表头 | Boolean | false      |
 | bordered  | 是否展示外边框和列边框 | Boolean | false      |
 | showHeader  | 是否显示表头 | Boolean          | true      |
-| footer  | 表格底部自定义渲染函数         | Function(currentPageData)   | |
-| title  | 表格头部自定义渲染函数         | Function(currentPageData)   | |
-| scroll  | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | Object   | -  |
+| footer | 表格尾部         | Function(currentPageData)   | |
+| title  | 表格标题         | Function(currentPageData)   | |
+| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | Object   | -  |
 
 ### Column
 
