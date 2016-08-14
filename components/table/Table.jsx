@@ -749,8 +749,8 @@ export default class Table extends React.Component {
   }
 
   render() {
-    const { style, className, ...restProps } = this.props;
-    const data = this.getCurrentPageData();
+    const { style, className, rowKey, ...restProps } = this.props;
+    let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     const locale = this.getLocale();
@@ -767,27 +767,37 @@ export default class Table extends React.Component {
       return newColumn;
     });
     let emptyText;
-    let emptyClass = '';
+    let emptyRowKey;
+
     if (!data || data.length === 0) {
       emptyText = (
         <div className="ant-table-placeholder">
           {locale.emptyText}
         </div>
       );
-      emptyClass = 'ant-table-empty';
+      columns.forEach((column, index) => {
+        columns[index].render = () => ({
+          children: !index ? emptyText : null,
+          props: {
+            colSpan: !index ? columns.length : 0,
+          },
+        });
+      });
+      emptyRowKey = 'key';
+      data = [{
+        [emptyRowKey]: 'empty',
+      }];
     }
 
     let table = (
-      <div>
-        <RcTable {...restProps}
-          data={data}
-          columns={columns}
-          className={classString}
-          expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
-          expandIconAsCell={expandIconAsCell}
-        />
-          {emptyText}
-      </div>
+      <RcTable {...restProps}
+        data={data}
+        columns={columns}
+        className={classString}
+        expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
+        expandIconAsCell={expandIconAsCell}
+        rowKey={emptyRowKey || rowKey}
+      />
     );
     // if there is no pagination or no data,
     // the height of spin should decrease by half of pagination
@@ -797,7 +807,7 @@ export default class Table extends React.Component {
     const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
-      <div className={`${emptyClass} ${className} clearfix`} style={style}>
+      <div className={`${className} clearfix`} style={style}>
         {table}
         {this.renderPagination()}
       </div>
