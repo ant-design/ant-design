@@ -1,7 +1,7 @@
 ---
 order: 6
 title:
-  en-US: Controlled filters and sorters
+  en-US: Reset filters and sorters
   zh-CN: 可控的筛选和排序
 ---
 
