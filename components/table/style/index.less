@@ -25,7 +25,7 @@
     overflow: hidden;
   }
 
-  th {
+  &-thead > tr > th {
     background: @table-head-background-color;
     font-weight: bold;
     transition: background .3s ease;
@@ -47,11 +47,12 @@
     }
   }
 
-  td {
+  &-tbody > tr > td {
     border-bottom: 1px solid @border-color-split;
   }
 
-  tr {
+  &-thead > tr,
+  &-tbody > tr {
     transition: all .3s ease;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
@@ -59,7 +60,7 @@
     }
   }
 
-  thead tr:hover {
+  &-thead > tr:hover {
     background: none;
   }
 
@@ -103,8 +104,8 @@
     background: #eaeaea;
   }
 
-  th,
-  td {
+  &-thead > tr > th,
+  &-tbody > tr > td {
     padding: 16px 8px;
     word-break: break-all;
   }
@@ -148,8 +149,8 @@
   }
 
   &-middle {
-    th,
-    td {
+    .@{table-prefix-cls}-thead > tr > th,
+    .@{table-prefix-cls}-tbody > tr > td {
       padding: 10px 8px;
     }
   }
@@ -158,18 +159,22 @@
     border: 1px solid @border-color-split;
     border-radius: @border-radius-base;
 
-    table {
+    .@{table-prefix-cls}-body > table {
       border: 0;
       padding: 0 8px;
     }
 
-    th {
+    &.@{table-prefix-cls}-bordered .@{table-prefix-cls}-body > table {
+      border: 0;
+    }
+
+    .@{table-prefix-cls}-thead > tr > th {
       padding: 10px 8px;
       background: #fff;
       border-bottom: 1px solid @border-color-split;
     }
 
-    td {
+    .@{table-prefix-cls}-tbody > tr > td {
       padding: 6px 8px;
     }
 
@@ -178,7 +183,7 @@
       table {
         border-bottom: 1px solid @border-color-split;
       }
-      th {
+      .@{table-prefix-cls}-thead > tr > th {
         border-bottom: 0;
       }
     }
@@ -225,7 +230,7 @@
   }
 
   &-bordered {
-    table {
+    .@{table-prefix-cls}-body > table {
       border: 1px solid @border-color-split;
     }
 
@@ -242,19 +247,19 @@
       }
     }
 
-    th {
+    .@{table-prefix-cls}-thead > tr > th {
       border-bottom: 1px solid @border-color-split;
     }
 
-    tbody tr:last-child {
-      th,
-      td {
+    .@{table-prefix-cls}-tbody tr:last-child {
+      > th,
+      > td {
         border-bottom: 0;
       }
     }
 
-    th,
-    td {
+    .@{table-prefix-cls}-thead > tr > th,
+    .@{table-prefix-cls}-tbody > tr > td {
       border-right: 1px solid @border-color-split;
       &:last-child {
         border-right: 0;
