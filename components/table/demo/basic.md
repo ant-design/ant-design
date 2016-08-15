@@ -5,13 +5,13 @@ title:
   zh-CN: 基本用法
 ---
 
-## en-US
-
-Simple table with operations.
-
 ## zh-CN
 
 简单的表格，最后一列是各种操作。
+
+## en-US
+
+Simple table with operations.
 
 ````jsx
 import { Table, Icon } from 'antd';

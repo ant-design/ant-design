@@ -5,13 +5,13 @@ title:
   zh-CN: 选择框属性
 ---
 
+## zh-CN
+
+配置选择框的默认属性。
+
 ## en-US
 
 Set props to Checkbox or Radio.
-
-# zh-CN
-
-配置选择框的默认属性。
 
 ````jsx
 import { Table } from 'antd';

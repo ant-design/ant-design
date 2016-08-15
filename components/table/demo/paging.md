@@ -5,13 +5,13 @@ title:
   zh-CN: 分页
 ---
 
+## zh-CN
+
+数据项较多时显示分页。
+
 ## en-US
 
 when use pagination in table.
-
-# zh-CN
-
-数据项较多时显示分页。
 
 ````jsx
 import { Table } from 'antd';

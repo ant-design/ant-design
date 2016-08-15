@@ -5,13 +5,13 @@ title:
   zh-CN: 加载中的表格
 ---
 
+## zh-CN
+
+用属性 `loading` 控制表格加载中状态。
+
 ## en-US
 
 Controll loading states by `loading` property.
-
-# zh-CN
-
-用属性 `loading` 控制表格加载中状态。
 
 ````jsx
 import { Table, Button } from 'antd';

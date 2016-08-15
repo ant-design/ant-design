@@ -6,13 +6,13 @@ title:
   zh-CN: 列分页
 ---
 
+## zh-CN
+
+对于列数很多的数据，可以进行横向的分页，通过切换符切换当前展现的列。
+
 ## en-US
 
 You can split long columns to switchable views.
-
-# zh-CN
-
-对于列数很多的数据，可以进行横向的分页，通过切换符切换当前展现的列。
 
 ````jsx
 import { Table } from 'antd';
