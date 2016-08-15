@@ -9,7 +9,7 @@ title:
 
 通过 `locale` 配置时区、语言等, 默认支持 en_US, zh_CN
 
-## en_US
+## en-US
 
 To set the properties like time zone, language and etc. en_US, zh_CN are supported by default.
 
