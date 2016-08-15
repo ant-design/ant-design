@@ -11,7 +11,6 @@ export default function confirm(config) {
   let div = document.createElement('div');
   document.body.appendChild(div);
 
-  let d;
   props.iconType = props.iconType || 'question-circle';
 
   let width = props.width || 416;
@@ -29,11 +28,10 @@ export default function confirm(config) {
   props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
   function close() {
-    d.setState({
-      visible: false,
-    });
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
+    const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    if (unmountResult) {
+      div.parentNode.removeChild(div);
+    }
   }
 
   function onCancel() {
@@ -126,9 +124,7 @@ export default function confirm(config) {
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
     </Dialog>
-  , div, function () {
-    d = this;
-  });
+  , div);
 
   return {
     destroy: close,
