@@ -1,6 +1,6 @@
 ---
 order: 1
-english: 快速上手
+title: 快速上手
 ---
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
@@ -11,7 +11,7 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-最简单的试用方式参照以下 CodePen 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
+最简单的使用方式参照以下 CodePen 演示，也推荐 Fork 本例来进行 `Bug Report`，注意不要在实际项目中这样使用。
 
 - [antd CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001)
 
@@ -111,19 +111,6 @@ $ npm run build
 Ant Design React 支持所有的现代浏览器和 IE8+。
 
 对于 IE8/9 等浏览器，需要提供 [es5-shim](https://facebook.github.io/react/docs/working-with-the-browser.html#browser-support) 等 Polyfills 的支持，推荐使用 [babel-polyfill](https://babeljs.io/docs/usage/polyfill/)。特别对于 IE8 需要配合使用 [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) 版本。
-
-<div class="code-line-highlight"></div>
-
-<style>
-.code-line-highlight {
-  box-shadow: 0px 248px 0px rgba(255, 162, 0, 0.1);
-  height: 88px;
-  margin-top: -88px;
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-}
-</style>
 
 ```html
 <!DOCTYPE html>

@@ -3,6 +3,7 @@ category: Components
 chinese: 图标
 type: Basic
 english: Icon
+toc: false
 ---
 
 有含义的矢量图形，每一个图标打倒一个敌人。

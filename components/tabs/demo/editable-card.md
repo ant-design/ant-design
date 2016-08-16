@@ -3,7 +3,13 @@ order: 9
 title: 新增和关闭页签
 ---
 
+## zh-CN
+
 只有卡片样式的页签支持新增和关闭选项。
+
+## en-US
+
+Only card type Tabs support adding & closeable.
 
 ````jsx
 import { Tabs } from 'antd';
@@ -13,8 +19,8 @@ const Demo = React.createClass({
   getInitialState() {
     this.newTabIndex = 0;
     const panes = [
-      { title: '选项卡', content: '选项卡一内容', key: '1' },
-      { title: '选项卡', content: '选项卡二内容', key: '2' },
+      { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
+      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
     ];
     return {
       activeKey: panes[0].key,
@@ -30,7 +36,7 @@ const Demo = React.createClass({
   add() {
     const panes = this.state.panes;
     const activeKey = `newTab${this.newTabIndex++}`;
-    panes.push({ title: '新建页签', content: '新页面', key: activeKey });
+    panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
     this.setState({ panes, activeKey });
   },
   remove(targetKey) {

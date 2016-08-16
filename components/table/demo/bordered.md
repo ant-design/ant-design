@@ -1,9 +1,17 @@
 ---
 order: 10
-title: 边框，页头和页脚
+title:
+  en-US: border, title and footer
+  zh-CN: 基本用法
 ---
 
+## zh-CN
+
 添加表格边框线，页头和页脚。
+
+## en-US
+
+Add border, title and footer for table.
 
 ````jsx
 import { Table } from 'antd';

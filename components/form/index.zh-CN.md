@@ -38,7 +38,8 @@ english: Form
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|-------|
-| form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可 | object | 无 |
+| form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置 | object | 无 |
+| vertical | 垂直排列布局 | boolean | false |
 | horizontal | 水平排列布局 | boolean  | false    |
 | inline | 行内排列布局 | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
@@ -80,7 +81,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 #### 特别注意
 
-`getFieldProps` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
+如果使用的是 `react@<15.3.0`，则 `getFieldProps` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
 
 `getFieldProps` 返回的属性包括 `id`、`value`（或你设置的其它 `valuePropName`）、`ref`、`onChange`（或者你设置的其它 `trigger` `validateTrigger`），**所以不应再设置同样的属性**，以免冲突。如果对其返回值的细节有兴趣，可以 `console.log` 出来查看。
 

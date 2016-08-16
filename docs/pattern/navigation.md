@@ -39,7 +39,7 @@ english: Navigation
 
 我们将常见的导航模式分为：侧栏导航和顶部导航，两者各有优缺点，设计者可以根据各自的业务需求进行选择。
 
-前端实现代码可以参考 [常用布局](/docs/spec/layout?scrollTo=components-spec-demo-top)。
+前端实现代码可以参考 [常用布局](/docs/spec/layout#docs-spec-layout-demo-top)。
 
 ## 侧栏导航
 

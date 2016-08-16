@@ -1,9 +1,17 @@
 ---
 order: 5
-title: 表单组合
+title: 
+  zh-CN: 表单组合
+  en-US: mix
 ---
 
+## zh-CN
+
 集中营，展示和表单相关的其他 ant-design 组件。
+
+## en-US
+
+A mix to demonstrate others ant-design component related to form.
 
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
@@ -15,13 +23,13 @@ const RadioGroup = Radio.Group;
 
 const areaData = [{
   value: 'shanghai',
-  label: '上海',
+  label: 'Shanghai',
   children: [{
     value: 'shanghaishi',
-    label: '上海市',
+    label: 'Shanghai',
     children: [{
       value: 'pudongxinqu',
-      label: '浦东新区',
+      label: 'Pudong New District',
     }],
   }],
 }];
@@ -29,7 +37,7 @@ const areaData = [{
 let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    console.log('收到表单值：', this.props.form.getFieldsValue());
+    console.log('Received the values of form', this.props.form.getFieldsValue());
   },
 
   normFile(e) {
@@ -44,29 +52,29 @@ let Demo = React.createClass({
     return (
       <Form horizontal onSubmit={this.handleSubmit} >
         <FormItem
-          label="InputNumber 数字输入框"
+          label="InputNumber Control"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
         >
           <InputNumber min={1} max={10} style={{ width: 100 }}
             {...getFieldProps('inputNumber', { initialValue: 3 })}
           />
-          <span className="ant-form-text"> 台机器</span>
+          <span className="ant-form-text"> machines</span>
         </FormItem>
 
         <FormItem
-          label="我是标题"
+          label="I'm the title"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
         >
-          <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
+          <p className="ant-form-text" id="static" name="static">O, wind, if winter comes, can spring be far behind?</p>
           <p className="ant-form-text">
-            <a href="#">链接文字</a>
+            <a href="#">link</a>
           </p>
         </FormItem>
 
         <FormItem
-          label="Switch 开关"
+          label="Switch"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required
@@ -75,7 +83,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Slider 滑动输入条"
+          label="Slider"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required
@@ -84,7 +92,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="Select 选择器"
+          label="Select"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
@@ -100,7 +108,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="级联选择"
+          label="Cascader"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
@@ -110,7 +118,7 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="DatePicker 日期选择框"
+          label="DatePicker"
           labelCol={{ span: 8 }}
           required
         >
@@ -131,7 +139,7 @@ let Demo = React.createClass({
 
 
         <FormItem
-          label="TimePicker 时间选择器"
+          label="TimePicker"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
@@ -140,21 +148,21 @@ let Demo = React.createClass({
         </FormItem>
 
         <FormItem
-          label="选项"
+          label="Options"
           labelCol={{ span: 8 }}
         >
           <RadioGroup {...getFieldProps('rg')}>
-            <RadioButton value="a">选项一</RadioButton>
-            <RadioButton value="b">选项二</RadioButton>
-            <RadioButton value="c">选项三</RadioButton>
+            <RadioButton value="a">item 1</RadioButton>
+            <RadioButton value="b">item 2</RadioButton>
+            <RadioButton value="c">item 3</RadioButton>
           </RadioGroup>
         </FormItem>
 
         <FormItem
-          label="logo图"
+          label="logo"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          help="提示信息要长长长长长长长长长长长长长长"
+          help="longgggggggggggggggggggggggggggggggggg"
         >
           <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}
             {...getFieldProps('upload', {
@@ -163,13 +171,13 @@ let Demo = React.createClass({
             })}
           >
             <Button type="ghost">
-              <Icon type="upload" /> 点击上传
+              <Icon type="upload" /> Click to upload
             </Button>
           </Upload>
         </FormItem>
 
         <FormItem wrapperCol={{ span: 16, offset: 8 }} style={{ marginTop: 24 }}>
-          <Button type="primary" htmlType="submit">确定</Button>
+          <Button type="primary" htmlType="submit">OK</Button>
         </FormItem>
       </Form>
     );

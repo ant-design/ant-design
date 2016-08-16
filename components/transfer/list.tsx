@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
@@ -17,31 +18,30 @@ export function isRenderResultPlainObject(result) {
 
 export interface TransferListProps {
   prefixCls?: string;
-  /** 数据源 */
   dataSource: Array<TransferItem>;
-  filter?: TransferItem;
-  /** 是否显示搜索框 */
+  filter?: string;
   showSearch?: boolean;
-  /** 搜索框的默认值 */
   searchPlaceholder?: string;
-  /** 标题 */
   titleText?: string;
   style?: React.CSSProperties;
-  handleFilter?: () => void;
-  handleSelect?: () => void;
-  handleSelectAll?: () => void;
+  handleFilter?: (e: any) => void;
+  handleSelect?: (selectedItem: any, checked: boolean) => void;
+  handleSelectAll?: (dataSource: any[], checkAll: boolean) => void;
   handleClear?: () => void;
-  /** 每行渲染函数 */
-  render?: () => void;
-  /** 主体渲染函数 */
-  body?: () => void;
-  /** 底部渲染函数 */
-  footer?: () => void;
-  /** 选中项 */
-  checkedKeys?: Array<TransferItem>;
+  render?: (item: any) => any;
+  body?: (props: any) => any;
+  footer?: (props: any) => void;
+  checkedKeys?: any[];
   checkStatus?: boolean;
   position?: string;
   notFoundContent?: React.ReactNode | string;
+  filterOption: (filterText: any, item: any) => boolean;
+}
+
+export interface TransferContext {
+  antLocale?: {
+    Transfer?: any,
+  };
 }
 
 export default class TransferList extends React.Component<TransferListProps, any> {
@@ -59,9 +59,29 @@ export default class TransferList extends React.Component<TransferListProps, any
     footer: noop,
   };
 
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    dataSource: PropTypes.array,
+    showSearch: PropTypes.bool,
+    filterOption: PropTypes.func,
+    searchPlaceholder: PropTypes.string,
+    titleText: PropTypes.string,
+    style: PropTypes.object,
+    handleClear: PropTypes.func,
+    handleFilter: PropTypes.func,
+    handleSelect: PropTypes.func,
+    handleSelectAll: PropTypes.func,
+    render: PropTypes.func,
+    body: PropTypes.func,
+    footer: PropTypes.func,
+  };
+
   static contextTypes = {
     antLocale: React.PropTypes.object,
   };
+
+  context: TransferContext;
+  timer: any;
 
   constructor(props) {
     super(props);
@@ -131,7 +151,11 @@ export default class TransferList extends React.Component<TransferListProps, any
     );
   }
 
-  matchFilter(text, filterText) {
+  matchFilter(filterText, item, text) {
+    const filterOption = this.props.filterOption;
+    if (filterOption) {
+      return filterOption(filterText, item);
+    }
     return text.indexOf(filterText) >= 0;
   }
 
@@ -165,7 +189,7 @@ export default class TransferList extends React.Component<TransferListProps, any
         renderedEl = renderResult;
       }
 
-      if (filter && filter.trim() && !this.matchFilter(renderedText, filter)) {
+      if (filter && filter.trim() && !this.matchFilter(filter, item, renderedText)) {
         return null;
       }
 
@@ -202,6 +226,7 @@ export default class TransferList extends React.Component<TransferListProps, any
             checkPart: checkStatus === 'part',
             checkable: <span className={'ant-transfer-checkbox-inner'}></span>,
             filteredDataSource,
+            disabled: false,
           })}
           <span className={`${prefixCls}-header-selected`}>
             <span>

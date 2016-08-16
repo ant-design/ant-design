@@ -10,7 +10,21 @@ const statusColorMap = {
   success: '#87d068',
 };
 
-export default class Line extends React.Component {
+export interface ProgressProps {
+  type?: 'line' | 'circle';
+  percent?: number;
+  format?: (percent: number) => string;
+  status?: 'success' | 'active' | 'exception';
+  showInfo?: boolean;
+  strokeWidth?: number;
+  width?: number;
+  style?: React.CSSProperties;
+}
+
+export default class Progress extends React.Component<ProgressProps, any> {
+  static Line: any;
+  static Circle: any;
+
   static defaultProps = {
     type: 'line',
     percent: 0,

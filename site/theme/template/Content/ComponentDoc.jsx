@@ -30,7 +30,7 @@ export default class ComponentDoc extends React.Component {
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
     const demos = Object.keys(props.demos).map((key) => props.demos[key])
-            .filter((demoData) => !demoData.meta.hidden);
+      .filter((demoData) => !demoData.meta.hidden);
     const expand = this.state.expandAll;
 
     const isSingleCol = meta.cols === 1;
@@ -81,7 +81,13 @@ export default class ComponentDoc extends React.Component {
             </ul>
           </Affix>
           <section className="markdown">
-            <h1>{meta.title || meta.english} {meta.subtitle || meta.chinese}</h1>
+            <h1>
+              {title || english}
+              {
+                (!subtitle && !chinese) ? null :
+                  <span className="subtitle">{subtitle || chinese}</span>
+              }
+            </h1>
             {
               props.utils.toReactComponent(
                 ['section', { className: 'markdown' }]

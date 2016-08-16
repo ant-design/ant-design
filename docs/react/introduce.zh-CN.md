@@ -1,6 +1,6 @@
 ---
 order: 0
-english: Ant Design of React
+title: Ant Design of React
 ---
 
 这里是 Ant Design 的 React 实现，开发和服务于企业级后台产品。
@@ -50,8 +50,12 @@ ReactDOM.render(<DatePicker />, mountNode);
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-按需加载可通过此写法 `import DatePicker from 'antd/lib/date-picker'` 或使用插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd)（此插件支持 js 和 css 同时按需加载）。
+以下两种方法都可以达到按需加载的目的：
 
+- `import DatePicker from 'antd/lib/date-picker'`
+- 配合插件 [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) 使用 `import { DatePicker } from 'antd';`
+
+> babel-plugin-antd 支持 js 和 css 同时按需加载。
 
 ## 版本
 
@@ -70,11 +74,15 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [更新日志](/changelog)
 - [开发脚手架](https://github.com/ant-design/antd-init/)
 - [开发工具文档](http://ant-tool.github.io/)
-- [React 组件](http://react-component.github.io/)
+- [React 基础组件](http://react-component.github.io/)
+- [移动端组件](http://mobile.ant.design)
 - [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
 - [设计规范速查手册](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
 - [社区贡献脚手架和范例](https://github.com/ant-design/ant-design/issues/129)
+- [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
+- [CodePen 模板](http://codepen.io/anon/pen/wGOWGW?editors=001)
+- [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 
 ## 谁在使用
 

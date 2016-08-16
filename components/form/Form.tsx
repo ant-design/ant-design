@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import omit from 'object.omit';
+import warning from 'warning';
 
 export default class Form extends React.Component {
   static defaultProps = {
@@ -13,31 +14,29 @@ export default class Form extends React.Component {
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
+    vertical: React.PropTypes.bool,
     horizontal: React.PropTypes.bool,
     inline: React.PropTypes.bool,
-    form: React.PropTypes.object,
     children: React.PropTypes.any,
     onSubmit: React.PropTypes.func,
   };
 
-  static childContextTypes = {
-    form: React.PropTypes.object,
-  };
+  constructor(props) {
+    super(props);
+
+    warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
+  }
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
-  getChildContext() {
-    return {
-      form: this.props.form,
-    };
-  }
-
   render() {
-    const { prefixCls, className, inline, horizontal } = this.props;
+    const { prefixCls, className, inline, horizontal, vertical } = this.props;
     const formClassName = classNames({
+      [`${prefixCls}`]: true,
       [`${prefixCls}-horizontal`]: horizontal,
+      [`${prefixCls}-vertical`]: vertical,
       [`${prefixCls}-inline`]: inline,
       [className]: !!className,
     });
@@ -47,6 +46,7 @@ export default class Form extends React.Component {
       'className',
       'inline',
       'horizontal',
+      'vertical',
       'form',
     ]);
 

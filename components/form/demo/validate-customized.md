@@ -1,11 +1,21 @@
 ---
 order: 13
-title: 自定义校验规则
+title: 
+  zh-CN: 自定义校验规则
+  en-US: Customized validation
 ---
+
+## zh-CN
 
 密码校验实例。
 
 这里使用了 `this.props.form.validateFields` 方法，在对第一次输入的密码进行校验时会触发二次密码的校验。
+
+## en-US
+
+Customized validation for Password.
+
+To use `this.props.form.validateFields` method, when validating first password you enter will trigger the seconcd password validation.
 
 ````jsx
 import { Button, Form, Input, Row, Col } from 'antd';
@@ -20,9 +30,10 @@ function noop() {
 let Demo = React.createClass({
   getInitialState() {
     return {
-      passBarShow: false, // 是否显示密码强度提示条
+      dirty: false,
+      passBarShow: false, // Whether to display a tooltip of password strength
       rePassBarShow: false,
-      passStrength: 'L', // 密码强度
+      passStrength: 'L', // Password strength
       rePassStrength: 'L',
     };
   },
@@ -41,7 +52,7 @@ let Demo = React.createClass({
   getPassStrenth(value, type) {
     if (value) {
       let strength;
-      // 密码强度的校验规则自定义，这里只是做个简单的示例
+      // Customized the password strength, here is just a simple example
       if (value.length < 6) {
         strength = 'L';
       } else if (value.length <= 9) {
@@ -67,7 +78,7 @@ let Demo = React.createClass({
     const form = this.props.form;
     this.getPassStrenth(value, 'pass');
 
-    if (form.getFieldValue('pass')) {
+    if (form.getFieldValue('pass') && this.state.dirty) {
       form.validateFields(['rePass'], { force: true });
     }
 
@@ -79,7 +90,7 @@ let Demo = React.createClass({
     this.getPassStrenth(value, 'rePass');
 
     if (value && value !== form.getFieldValue('pass')) {
-      callback('两次输入密码不一致！');
+      callback('Two passwords you enter is inconsistent!');
     } else {
       callback();
     }
@@ -94,9 +105,9 @@ let Demo = React.createClass({
       'ant-pwd-strength-high': strength === 'H',
     });
     const level = {
-      L: '低',
-      M: '中',
-      H: '高',
+      L: 'Low',
+      M: 'Middle',
+      H: 'High',
     };
 
     return (
@@ -118,69 +129,56 @@ let Demo = React.createClass({
 
     const passProps = getFieldProps('pass', {
       rules: [
-        { required: true, whitespace: true, message: '请填写密码' },
+        { required: true, whitespace: true, message: 'Please enter your password' },
         { validator: this.checkPass },
       ],
       onChange: (e) => {
-        console.log('你的密码就是这样被盗的：', e.target.value);
+        console.log('Your password is stolen in this way', e.target.value);
       },
     });
     const rePassProps = getFieldProps('rePass', {
       rules: [{
         required: true,
         whitespace: true,
-        message: '请再次输入密码',
+        message: 'Please confirm your password',
       }, {
         validator: this.checkPass2,
       }],
     });
-    const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 18 },
-    };
     return (
       <div>
-        <Form horizontal form={this.props.form}>
-          <Row>
-            <Col span="18">
-              <FormItem
-                {...formItemLayout}
-                label="密码"
-              >
+        <Form vertical style={{ maxWidth: 600 }} form={this.props.form}>
+          <Row type="flex" align="middle">
+            <Col span={12}>
+              <FormItem label="Password">
                 <Input {...passProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="pass"
+                  onBlur={(e) => {
+                    const value = e.target.value;
+                    this.setState({ dirty: this.state.dirty || !!value });
+                  }}
                 />
               </FormItem>
             </Col>
-            <Col span="6">
+            <Col span={12}>
               {this.state.passBarShow ? this.renderPassStrengthBar('pass') : null}
             </Col>
           </Row>
-
-          <Row>
-            <Col span="18">
-              <FormItem
-                {...formItemLayout}
-                label="确认密码"
-              >
+          <Row type="flex" align="middle">
+            <Col span={12}>
+              <FormItem label="Confirm">
                 <Input {...rePassProps} type="password"
                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
                   autoComplete="off" id="rePass"
                 />
               </FormItem>
             </Col>
-            <Col span="6">
+            <Col span={12}>
               {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
             </Col>
           </Row>
-          <Row>
-            <Col span="18">
-              <Col span="18" offset="6">
-                <Button type="primary" onClick={this.handleSubmit}>提交</Button>
-              </Col>
-            </Col>
-          </Row>
+          <FormItem><Button type="primary" onClick={this.handleSubmit}>提交</Button></FormItem>
         </Form>
       </div>
     );

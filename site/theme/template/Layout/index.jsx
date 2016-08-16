@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as antd from '../../../../index';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import Header from './Header';
 import Footer from './Footer';
@@ -11,12 +10,11 @@ import '../../static/style';
 // Expose to iframe
 window.react = React;
 window['react-dom'] = ReactDOM;
-window.antd = antd;
+window.antd = require('antd');
 
 // Polyfill
 const areIntlLocalesSupported = require('intl-locales-supported');
 const localesMyAppSupports = ['zh-CN', 'en-US'];
-
 if (global.Intl) {
     // Determine if the built-in `Intl` has the locale data we need.
   if (!areIntlLocalesSupported(localesMyAppSupports)) {
@@ -42,26 +40,24 @@ const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('loc
 const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
 
-let gaListenerSetted = false;
 export default class Layout extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object.isRequired,
   }
 
   componentDidMount() {
-    if (typeof ga !== 'undefined' && !gaListenerSetted) {
+    if (typeof ga !== 'undefined') {
       this.context.router.listen((loc) => {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       });
-      gaListenerSetted = true;
     }
+
     const loadingNode = document.getElementById('ant-site-loading');
-    if (!loadingNode) {
-      return;
+    if (loadingNode) {
+      this.timer = setTimeout(() => {
+        loadingNode.parentNode.removeChild(loadingNode);
+      }, 450);
     }
-    this.timer = setTimeout(() => {
-      loadingNode.parentNode.removeChild(loadingNode);
-    }, 450);
   }
 
   componentWillUnmount() {
@@ -69,12 +65,12 @@ export default class Layout extends React.Component {
   }
 
   render() {
-    const props = this.props;
+    const { children, ...restProps } = this.props;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <div className="page-wrapper">
-          <Header {...props} />
-          {props.children}
+          <Header {...restProps} />
+          {children}
           <Footer />
         </div>
       </IntlProvider>

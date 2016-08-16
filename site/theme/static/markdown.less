@@ -23,7 +23,7 @@
 
   .subtitle {
     font-weight: normal;
-    font-size: 80%;
+    font-size: 90%;
     margin-left: 12px;
   }
 }
@@ -62,6 +62,9 @@
 
 .markdown ul > li {
   list-style: circle;
+  &:empty {
+    display: none;
+  }
 }
 
 .markdown > ul li,

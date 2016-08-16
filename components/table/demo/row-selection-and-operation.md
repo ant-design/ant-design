@@ -1,9 +1,18 @@
 ---
 order: 2
-title: 选择和操作
+title:
+  en-US: Selection and operation
+  zh-CN: 选择和操作
 ---
 
+## zh-CN
+
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
+
+## en-US
+
+To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
+
 
 ````jsx
 import { Table, Button } from 'antd';

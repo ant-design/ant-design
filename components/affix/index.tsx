@@ -60,7 +60,8 @@ export default class Affix extends React.Component<AffixProps, any> {
   scrollEvent: any;
   resizeEvent: any;
   refs: {
-    fixedNode: any;
+    [key: string]: any;
+    fixedNode: HTMLElement;
   };
 
   constructor(props) {

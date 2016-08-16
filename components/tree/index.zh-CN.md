@@ -48,3 +48,7 @@ subtitle: 树形控件
 |title | 标题 | String/element | '---' |
 |key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | String | 内部计算出的节点位置 |
 |isLeaf | 设置为叶子节点 | bool | false |
+
+## 注意
+
+树节点可以有很多，但在设置`checkable`时、将会花费更多的计算时间，因此我们缓存了一些计算结果(像`this.treeNodesStates`)来复用、避免多次重复计算、以此提高性能。但这也带来了一些限制，当你异步加载树节点时，你需要这样渲染树：`{this.state.treeData.length ? <Tree ...>{this.state.treeData.map(t => <TreeNode ... />)}</Tree> : 'loading tree'}`

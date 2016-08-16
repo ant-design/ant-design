@@ -9,7 +9,6 @@
     display: block;
     cursor: pointer;
     width: 100%;
-    background: rgba(255, 255, 255, 0);
     z-index: 1;
   }
   &-picker {
@@ -27,20 +26,24 @@
 
     &-label {
       position: absolute;
-      top: 0;
-      left: 8px;
+      left: 0;
       height: 20px;
       line-height: 20px;
       top: 50%;
       margin-top: -10px;
       white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 100%;
+      padding: 0 12px 0 8px;
+      z-index: 1;
     }
 
     &-clear {
       opacity: 0;
       position: absolute;
       right: 8px;
-      z-index: 1;
+      z-index: 2;
       background: #fff;
       top: 50%;
       font-size: 12px;
@@ -63,6 +66,7 @@
     // arrow
     &-arrow {
       position: absolute;
+      z-index: 1;
       top: 50%;
       right: 8px;
       width: 12px;
@@ -70,7 +74,6 @@
       margin-top: -6px;
       line-height: 12px;
       color: #999;
-      background: #fff;
       .iconfont-size-under-12px(8px);
       &:before {
         transition: transform 0.2s ease;
@@ -137,11 +140,9 @@
     }
   }
   &-menu-item {
-    padding: 7px 16px;
+    padding: 7px 26px 7px 16px;
     cursor: pointer;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     transition: all 0.3s ease;
     &:hover {
       background: tint(@primary-color, 90%);
@@ -163,8 +164,7 @@
     &-expand {
       position: relative;
       &:after {
-        content: '\e600';
-        font-family: 'anticon';
+        .iconfont-font("\e600");
         .iconfont-size-under-12px(8px);
         color: #999;
         position: absolute;

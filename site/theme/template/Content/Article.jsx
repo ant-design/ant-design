@@ -17,6 +17,8 @@ export default class Article extends React.Component {
     this.pingTimer = utils.ping(checkImgUrl, status => {
       if (status === 'responded') {
         links.forEach(link => (link.style.display = 'block'));
+      } else {
+        links.forEach(link => link.parentNode.removeChild(link));
       }
     });
   }
@@ -31,13 +33,18 @@ export default class Article extends React.Component {
     }
     const timelineItems = [];
     let temp = [];
-    Children.forEach(article.props.children, (child, i) => {
+    let i = 1;
+    Children.forEach(article.props.children, child => {
       if (child.type === 'h2' && temp.length > 0) {
         timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
         temp = [];
+        i += 1;
       }
       temp.push(child);
     });
+    if (temp.length > 0) {
+      timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
+    }
     return cloneElement(article, {
       children: <Timeline>{timelineItems}</Timeline>,
     });

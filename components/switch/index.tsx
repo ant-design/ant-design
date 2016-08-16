@@ -1,18 +1,37 @@
-import RcSwitch from 'rc-switch';
 import * as React from 'react';
+import { PropTypes } from 'react';
+import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 
-export default class Switch extends React.Component {
+export interface SwitchProps {
+  prefixCls?: string;
+  size?: 'small' | 'default';
+  className?: string;
+  checked?: boolean;
+  defaultChecked?: boolean;
+  onChange?: (checked: boolean) => any;
+  checkedChildren?: React.ReactNode;
+  unCheckedChildren?: React.ReactNode;
+}
+
+export default class Switch extends React.Component<SwitchProps, any> {
   static defaultProps = {
     prefixCls: 'ant-switch',
+    size: 'default',
+  };
+
+  static propTypes = {
+    prefixCls: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'default']),
+    className: PropTypes.string,
   };
 
   render() {
     const { prefixCls, size, className } = this.props;
-    const cls = classNames({
+    const classes = classNames({
       [className]: !!className,
       [`${prefixCls}-small`]: size === 'small',
     });
-    return <RcSwitch className={cls} {...this.props} />;
+    return <RcSwitch {...this.props} className={classes} />;
   }
 }
