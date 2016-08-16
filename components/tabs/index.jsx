@@ -45,19 +45,19 @@ export default class Tabs extends React.Component {
       animation = null;
     }
     // only card type tabs can be added and closed
+    let childrenWithCross;
     if (type === 'editable-card') {
-      children = Array.isArray(children) ? children : [children];
-      children = children.map((child, index) => {
-        if (Array.isArray(child)) {
-          return child;
-        }
-        return cloneElement(child, {
-          tab: <div>
-            {child.props.tab}
-            <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
-          </div>,
+      childrenWithCross = [];
+      React.Children.forEach(children, (child, index) => {
+        childrenWithCross.push(cloneElement(child, {
+          tab: (
+            <div>
+              {child.props.tab}
+              <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
+            </div>
+          ),
           key: child.key || index,
-        });
+        }));
       });
       // Add new tab handler
       if (!hideAdd) {
@@ -83,7 +83,7 @@ export default class Tabs extends React.Component {
         onChange={this.handleChange}
         animation={animation}
       >
-        {children}
+        {childrenWithCross || children}
       </RcTabs>
     );
   }
