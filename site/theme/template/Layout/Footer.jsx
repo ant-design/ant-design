@@ -75,6 +75,9 @@ export default class Footer extends React.Component {
             <div>
               <a target="_blank" href="http://ant-tool.github.io">ant-tool</a> - 开发工具
             </div>
+            <div>
+              <a target="_blank" href="https://github.com/dvajs/dva">dva</a> - 应用框架
+            </div>
           </li>
           <li>
             <h2>相关站点</h2>
@@ -85,7 +88,12 @@ export default class Footer extends React.Component {
             <div><a href="http://ux.ant.design">Ant UX</a> - 页面逻辑素材</div>
           </li>
           <li>
-            <h2>联系我们</h2>
+            <h2>社区</h2>
+            <div>
+              <a target="_blank" href="http://ant.design/changelog">
+                更新记录
+              </a>
+            </div>
             <div>
               <a target="_blank" href="https://github.com/ant-design/ant-design/issues">
                 反馈和建议
