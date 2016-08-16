@@ -83,6 +83,9 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;
+  refs: {
+    upload: any;
+  };
 
   constructor(props) {
     super(props);
