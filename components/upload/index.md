@@ -34,6 +34,7 @@ english: Upload
 | onPreview  | 点击文件链接时的回调                                       | Function(file) | 无    |
 | onRemove   | 点击移除文件时的回调                                       | Function(file) | 无    |
 | supportServerRender | 服务端渲染时需要打开这个                           | Boolean | false    |
+| disabled | 是否禁用                           | Boolean | false    |
 
 ### onChange
 

@@ -72,11 +72,10 @@ export default function confirm(config) {
 
   let d;
   function close() {
-    d.setState({
-      visible: false,
-    });
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
+    const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    if (unmountResult) {
+      div.parentNode.removeChild(div);
+    }
   }
 
   let body = (
@@ -129,9 +128,7 @@ export default function confirm(config) {
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
     </Dialog>
-  , div, function () {
-    d = this;
-  });
+  , div);
 
   return {
     destroy: close,

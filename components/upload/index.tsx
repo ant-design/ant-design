@@ -78,6 +78,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     showUploadList: true,
     listType: 'text', // or pictrue
     className: '',
+    disabled: false,
   };
 
   recentUploadStatus: boolean | PromiseLike<any>;
@@ -209,9 +210,8 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   handleManualRemove = (file) => {
-    /* eslint-disable */
-    file.status = 'removed';
-    /* eslint-enable */
+    this.refs.upload.abort(file);
+    file.status = 'removed'; // eslint-disable-line
     if ('onRemove' in this.props) {
       this.props.onRemove(file);
     } else {
@@ -265,19 +265,21 @@ export default class Upload extends React.Component<UploadProps, any> {
       );
     }
     if (type === 'drag') {
-      let dragUploadingClass = this.state.fileList.some(file => file.status === 'uploading')
-        ? `${prefixCls}-drag-uploading` : '';
-      let draggingClass = this.state.dragState === 'dragover'
-        ? `${prefixCls}-drag-hover` : '';
+      const dragCls = classNames({
+        [prefixCls]: true,
+        [`${prefixCls}-drag`]: true,
+        [`${prefixCls}-drag-uploading`]: this.state.fileList.some(file => file.status === 'uploading'),
+        [`${prefixCls}-drag-hover`]: this.state.dragState === 'dragover',
+        [`${prefixCls}-disabled`]: this.props.disabled,
+      });
       return (
         <span className={this.props.className}>
-          <div
-            className={`${prefixCls} ${prefixCls}-drag ${dragUploadingClass} ${draggingClass}`}
+          <div className={dragCls}
             onDrop={this.onFileDrop}
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
           >
-            <RcUpload {...props}>
+            <RcUpload {...props} ref="upload">
               <div className={`${prefixCls}-drag-container`}>
                 {this.props.children}
               </div>
@@ -292,10 +294,11 @@ export default class Upload extends React.Component<UploadProps, any> {
       [prefixCls]: true,
       [`${prefixCls}-select`]: true,
       [`${prefixCls}-select-${this.props.listType}`]: true,
+      [`${prefixCls}-disabled`]: this.props.disabled,
     });
 
     const uploadButton = this.props.children
-      ? <div className={uploadButtonCls}><RcUpload {...props} /></div>
+      ? <div className={uploadButtonCls}><RcUpload {...props} ref="upload" /></div>
       : null;
 
     const className = this.props.className;
