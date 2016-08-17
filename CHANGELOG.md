@@ -9,23 +9,30 @@ timeline: true
 
 ---
 
+## 1.9.1
+
+`2016-08-16`
+
+- 修复 Tabs 的 `type="editable-card"` 模式，activeKey 错误的问题。[#2725](https://github.com/ant-design/ant-design/issues/2725)
+- 修复一个 Table 的样式兼容性问题。
+
 ## 1.9.0
 
 `2016-08-15`
 
-- `Transfer` 修复在火狐下 item 文案过长时只显示省略号的问题。[#2674](https://github.com/ant-design/ant-design/issues/2674)
-- `Input` 修复 autosize 模式下特定场景中不能输入中文 及 光标定位不准的问题。[#2666](https://github.com/ant-design/ant-design/issues/2666) [#2239](https://github.com/ant-design/ant-design/issues/2239)
-- `Tabs` 修复 editable-card 模式下的 children 解析问题。[#2658](https://github.com/ant-design/ant-design/issues/2658)
-- `Radio` 修复若干 less 硬编码问题。[#2424](https://github.com/ant-design/ant-design/issues/2424)
-- `Upload` rc-upload 依赖升级至 2.X，引入的变化有：
-  - 增加 disabled 属性。[#2645](https://github.com/ant-design/ant-design/issues/2645)
+- Transfer 修复在火狐下 item 文案过长时只显示省略号的问题。[#2674](https://github.com/ant-design/ant-design/issues/2674)
+- Input 修复 `autosize` 模式下特定场景中不能输入中文及光标定位不准的问题。[#2666](https://github.com/ant-design/ant-design/issues/2666) [#2239](https://github.com/ant-design/ant-design/issues/2239)
+- Tabs 修复 `type="editable-card"` 模式下的 `children` 解析问题。[#2658](https://github.com/ant-design/ant-design/issues/2658)
+- Radio 修复若干 less 硬编码问题。[#2424](https://github.com/ant-design/ant-design/issues/2424)
+- Upload 的 rc-upload 依赖升级至 2.x，引入的变化有：
+  - 增加 `disabled` 属性。[#2645](https://github.com/ant-design/ant-design/issues/2645)
   - 取消上传时会自动 abort 上传请求。[#2571](https://github.com/ant-design/ant-design/issues/2571) [#2518](https://github.com/ant-design/ant-design/issues/2518)
-- `Table`
+- Table
   - 修复 spin 在可滚动区域的定位问题。[#2652](https://github.com/ant-design/ant-design/issues/2652)
   - 修复无数据时 提示样式错位的问题。[#2663](https://github.com/ant-design/ant-design/issues/2663)
-- `Popover` 修复设定 getTooltipContainer 后会导致内嵌 DatePicker 样式失效的问题。[#2675](https://github.com/ant-design/ant-design/issues/2675)
-- `Modal` 修复重复卸载组件导致的报错。[#2688](https://github.com/ant-design/ant-design/issues/2688)
--  升级 `rc-slider` 组件依赖。
+- Popover 修复设定 `getTooltipContainer` 后会导致内嵌 DatePicker 样式失效的问题。[#2675](https://github.com/ant-design/ant-design/issues/2675)
+- Modal 修复重复卸载组件导致的报错。[#2688](https://github.com/ant-design/ant-design/issues/2688)
+-  升级 rc-slider 组件依赖。
 
 ## 1.8.0
 
