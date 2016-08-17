@@ -1,5 +1,5 @@
 import RcTabs from 'rc-tabs';
-import React, { cloneElement, Children } from 'react';
+import React, { cloneElement } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
@@ -47,7 +47,10 @@ export default class Tabs extends React.Component {
     // only card type tabs can be added and closed
     if (type === 'editable-card') {
       children = Array.isArray(children) ? children : [children];
-      children = Children.map(children, (child, index) => {
+      children = children.map((child, index) => {
+        if (Array.isArray(child)) {
+          return child;
+        }
         return cloneElement(child, {
           tab: <div>
             {child.props.tab}
