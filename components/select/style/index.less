@@ -223,14 +223,17 @@
   &-search--inline {
     float: left;
     width: 100%;
+    height: 100%;
 
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
+      height: 100%;
     }
 
     .@{select-prefix-cls}-search__field {
       border: 0;
       font-size: 100%;
+      height: 100%;
       background: transparent;
       outline: 0;
       border-radius: @border-radius-base;
@@ -361,6 +364,9 @@
       position: absolute;
       left: 0;
       right: 0;
+      > ul {
+        height: 100%;
+      }
     }
   }
 }
