@@ -18,7 +18,7 @@ import { Button, notification } from 'antd';
 
 const openNotification = function () {
   notification.open({
-    message: 'The is the title',
+    message: 'This is the title',
     description: 'This is the content of the notification.This is the content of the notification.This is the content of the notification.',
   });
 };
