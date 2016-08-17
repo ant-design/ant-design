@@ -14,7 +14,8 @@ timeline: true
 `2016-08-16`
 
 - 修复 Tabs 的 `type="editable-card"` 模式，activeKey 错误的问题。[#2725](https://github.com/ant-design/ant-design/issues/2725)
-- 修复一个 Table 的样式兼容性问题。
+- 修复一个 Table 的样式兼容性问题。[#2723](https://github.com/ant-design/ant-design/issues/2723)
+- 更新 axure 部件库。[#2714](https://github.com/ant-design/ant-design/issues/2714)
 
 ## 1.9.0
 
