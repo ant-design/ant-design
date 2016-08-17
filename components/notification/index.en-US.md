@@ -9,12 +9,12 @@ To display a notification message globally.
 
 ## When to use
 To display a notification message at the top right of the view port. Typically it can be
-used in the following case:
+used in the following cases:
 
-- A notification with complext content.
-- A notification of interaction with users, typically, it will provide next step hint
-for users.
-- A notification is pushed by application.
+- A notification with complex content.
+- A notification providing a feedback based on the user interaction. Or it may show some details
+about upcoming steps the user may have to follow.
+- A notification that is pushed by the application.
 
 ## API
 
@@ -35,11 +35,11 @@ The properties of config are as follows:
 | btn        | Custom close button                                   | React.Element      | No     |
 | key        | The unique identity of current notification                                 | String      | No     |
 | onClose    | Specify a function that will be called after clicking the default close button  | Function    | No     |
-| duration   | A notification box is closed after 4.5s by default, but when you specify `duration` to null, it will never be closed automatically | Number    | 4.5     |
+| duration   | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | Number    | 4.5     |
 
 
-`Notification` also provide a global config method, when using this method once, all notification boxes
-will be applied the defined configuration before displaying.
+`Notification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
+will take into account these globally defined options before displaying.
 
 - `notification.config(options)`
 

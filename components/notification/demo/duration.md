@@ -2,7 +2,7 @@
 order: 1
 title: 
   zh-CN: 自动关闭的延时
-  en-US: A duration to close notification box 
+  en-US: Duration after which the notification box is closed
 ---
 
 ## zh-CN
@@ -11,8 +11,9 @@ title:
 
 ## en-US
 
-To customize a duration to close notification, default value is `4.5s`, if you set the value to `0`,
-the corresponding notification box will be never closed automatically.
+`Duration` can be used to specify how long the notification stays open. After the duration time elapses,
+the notification closes automatically. If not specified, default value is 4.5 seconds. If you set the value to 0,
+the notification box will never close automatically.
 
 ````jsx
 import { Button, notification } from 'antd';
@@ -20,7 +21,7 @@ import { Button, notification } from 'antd';
 const openNotification = function () {
   const args = {
     message: 'This is the title',
-    description: 'I will be never closed automatically.I will be never closed automatically.I will be never closed automatically.',
+    description: 'I will never close automatically.I will be close automatically.I will never close automatically.',
     duration: 0,
   };
   notification.open(args);
