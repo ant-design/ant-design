@@ -116,6 +116,7 @@ export default class Header extends React.Component {
       'home-nav-white': !this.state.isFirstFrame,
     });
 
+    const searchPlaceholder = this.context.intl.locale === 'zh-CN' ? '搜索组件...' : 'Search...';
     return (
       <header id="header" className={headerClassName}>
         <Row>
@@ -136,7 +137,7 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select combobox
                 dropdownClassName="component-select"
-                placeholder="搜索组件..."
+                placeholder={searchPlaceholder}
                 value={undefined}
                 optionFilterProp="data-label"
                 optionLabelProp="data-label"

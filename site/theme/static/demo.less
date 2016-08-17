@@ -53,12 +53,22 @@
 .code-box:target .code-box-title {
   background: #fbfbfb;
   box-shadow: 0 -1.2px 0 #e9e9e9;
+
+  .edit-button {
+    display: inline;
+  }
 }
 
-.code-box .code-box-title a,
-.code-box .code-box-title a:hover {
-  color: #666;
-  font-size: 14px;
+.code-box .code-box-title {
+  a,
+  a:hover {
+    color: #666;
+    font-size: 14px;
+  }
+
+  .edit-button {
+    display: none;
+  }
 }
 
 .code-box .code-box-demo {
