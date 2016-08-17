@@ -766,18 +766,13 @@ export default class Table extends React.Component {
       newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
-    let emptyText;
-    let emptyRowKey;
 
+    // Empty Data
+    let emptyRowKey;
     if (!data || data.length === 0) {
-      emptyText = (
-        <div className="ant-table-placeholder">
-          {locale.emptyText}
-        </div>
-      );
       columns.forEach((column, index) => {
-        columns[index].render = () => ({
-          children: !index ? emptyText : null,
+        column.render = () => ({
+          children: !index ? <div className="ant-table-placeholder">{locale.emptyText}</div> : null,
           props: {
             colSpan: !index ? columns.length : 0,
           },

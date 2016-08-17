@@ -11,9 +11,7 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render(text) {
-    return <a href="#">{text}</a>;
-  },
+  render: (text) => <a href="#">{text}</a>,
 }, {
   title: '资产',
   className: 'column-money',
@@ -40,13 +38,15 @@ const data = [{
   address: '西湖区湖底公园1号',
 }];
 
-ReactDOM.render(<Table
-  columns={columns}
-  dataSource={data}
-  bordered
-  title={() => '页头'}
-  footer={() => '页脚'}
-/>, mountNode);
+ReactDOM.render(
+  <Table
+    columns={columns}
+    dataSource={data}
+    bordered
+    title={() => '页头'}
+    footer={() => '页脚'}
+  />
+, mountNode);
 ````
 
 ````css
