@@ -3,7 +3,7 @@ order: 3
 title: decimals
 ---
 
-The same with the native digit input box, the value's accuracy is determined by the number of decimal places.
+A numeric-only input box whose values can be increased or decreased using a decimal step. The number of decimals (also known as precision) is determined by the step prop.
 
 ````jsx
 import { InputNumber } from 'antd';

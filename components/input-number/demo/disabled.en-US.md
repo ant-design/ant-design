@@ -3,7 +3,7 @@ order: 2
 title: disabled
 ---
 
-Click the button to switch to the available state.
+Click the button to toggle between available and disabled states.
 
 ````jsx
 import { InputNumber, Button } from 'antd';

@@ -3,7 +3,7 @@ order: 1
 title: Three sizes
 ---
 
-There are three sizes of digit input box. When the size is `large` or `small`, the height is `32px` or `22px`, besides, `28px` is the default.
+There are three sizes available to a numeric input box. By default, the size is `28px`. The two additional sizes are `large` and `small` which means `32px` and `22px`, respectively.
 
 
 ````jsx

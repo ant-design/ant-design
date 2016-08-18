@@ -3,7 +3,7 @@ order: 0
 title: basic
 ---
 
-Digit input box.
+Numeric-only input box.
 
 ````jsx
 import { InputNumber } from 'antd';
