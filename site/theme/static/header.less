@@ -1,0 +1,111 @@
+@header-height: 80px;
+
+#header {
+  transition: opacity 0.5s;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  height: @header-height;
+  margin-bottom: 24px;
+  padding: 0 4%;
+  width: 100%;
+
+  &.home-nav-bottom {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom-color: #EBEDEE;
+    .search {
+      border-left-color: #EBEDEE;
+    }
+    a {
+      color: #666;
+    }
+  }
+}
+
+#logo {
+  float: left;
+  height: 80px;
+  line-height: 80px;
+}
+
+#logo img {
+  height: 80px;
+  line-height: 80px;
+  width: 40px;
+  margin-right: 8px;
+}
+
+#logo span {
+  float: right;
+  font-size: 16px;
+  font-family: 'Raleway', 'Hiragino Sans GB', sans-serif;
+  height: 80px;
+  line-height: 80px;
+  text-transform: uppercase;
+}
+
+#search-box {
+  border-left: 1px solid #EBEDEE;
+  float: left;
+  height: 22px;
+  line-height: 22px;
+  padding-left: 30px;
+  margin: 29px auto 0;
+}
+
+#search-box .ant-select {
+  font-size: 14px;
+  margin-top: -3px;
+  width: 230px;
+}
+
+#search-box .ant-select-selection {
+  border: 0;
+  box-shadow: none;
+}
+
+#lang {
+  float: right;
+  margin-top: 29px;
+  margin-left: 12px;
+}
+
+#nav {
+  border: 0;
+  float: right;
+  font-size: 14px;
+}
+
+#nav li {
+  height: @header-height;
+  line-height: @header-height;
+  min-width: 72px;
+  text-align: center;
+  border-bottom-width: 3px;
+
+  &.ant-menu-item-selected a {
+    color: #2db7f5;
+    font-weight: bold;
+  }
+}
+
+.component-select {
+  &.ant-select-dropdown {
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.25);
+    font-size: 14px;
+  }
+  .ant-select-dropdown-menu {
+    max-height: 200px;
+  }
+  .ant-select-dropdown-menu-item {
+    border-radius: 0 !important;
+  }
+  .ant-component-decs {
+    font-size: 12px;
+    position: absolute;
+    top: 9px;
+    color: #aaa;
+    right: 16px;
+  }
+}

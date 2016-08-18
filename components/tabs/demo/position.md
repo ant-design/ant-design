@@ -1,10 +1,15 @@
-# 位置
+---
+order: 6
+title: 位置
+---
 
-- order: 6
+## zh-CN
 
 有四个位置，`tabPosition="left|right|top|bottom"`。
 
----
+## en-US
+
+Tab's position: left, right, top or bottom.
 
 ````jsx
 import { Tabs, Select } from 'antd';
@@ -26,7 +31,8 @@ const Demo = React.createClass({
         <div style={{ marginBottom: 16 }}>
           页签位置：
           <Select value={this.state.tabPosition} onChange={this.changeTabPosition}
-            dropdownMatchSelectWidth={false}>
+            dropdownMatchSelectWidth={false}
+          >
             <Option value="top">top</Option>
             <Option value="bottom">bottom</Option>
             <Option value="left">left</Option>
@@ -34,13 +40,13 @@ const Demo = React.createClass({
           </Select>
         </div>
         <Tabs tabPosition={this.state.tabPosition}>
-          <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-          <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-          <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
+          <TabPane tab="Tab 1" key="1">Content of Tab 1</TabPane>
+          <TabPane tab="Tab 2" key="2">Content of Tab 2</TabPane>
+          <TabPane tab="Tab 3" key="3">Content of Tab 3</TabPane>
         </Tabs>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

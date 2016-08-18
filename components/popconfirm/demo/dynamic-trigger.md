@@ -1,10 +1,9 @@
-# 条件触发
-
-- order: 3
+---
+order: 3
+title: 条件触发
+---
 
 可以判断是否需要弹出。
-
----
 
 ````jsx
 import { Popconfirm, Switch, message } from 'antd';
@@ -45,7 +44,8 @@ let App = React.createClass({
       <div>
         <Popconfirm title="确定要删除这个任务吗？"
           visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
-          onConfirm={this.confirm} onCancel={this.cancel}>
+          onConfirm={this.confirm} onCancel={this.cancel}
+        >
           <a href="#">删除某任务</a>
         </Popconfirm>
         <br />
@@ -53,7 +53,7 @@ let App = React.createClass({
         点击是否直接执行：<Switch defaultChecked onChange={this.changeCondition} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

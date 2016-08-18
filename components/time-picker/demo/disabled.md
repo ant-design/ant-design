@@ -1,10 +1,18 @@
-# 禁用
+---
+order: 4
+title: 
+  zh-CN: 禁用
+  en-US: disabled
+---
 
--	order: 4
+## zh-CN
 
 禁用时间选择。
 
----
+## en-US
+
+A disabled state of the `TimePicker`.
+
 
 ````jsx
 import { TimePicker } from 'antd';

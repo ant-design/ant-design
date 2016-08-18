@@ -1,10 +1,17 @@
-# 确认对话框
+---
+order: 3
+title: 
+  zh-CN: 确认对话框
+  en-US: Confirmation modal dialog
+---
 
-- order: 3
+## zh-CN
 
 使用 `confirm()` 可以快捷地弹出确认框。
 
----
+## en-US
+
+To use `confirm()` to popup a confirmation modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -12,17 +19,18 @@ const confirm = Modal.confirm;
 
 function showConfirm() {
   confirm({
-    title: '您是否确认要删除这项内容',
-    content: '一些解释',
+    title: 'Are you sure you want to delete these items ?',
+    content: 'some descriptions',
     onOk() {
-      console.log('确定');
+      console.log('OK');
     },
-    onCancel() {}
+    onCancel() {},
   });
 }
 
 ReactDOM.render(
-<Button onClick={showConfirm}>
-  确认对话框
-</Button>, mountNode);
+  <Button onClick={showConfirm}>
+    confirmation modal dialog
+  </Button>
+, mountNode);
 ````

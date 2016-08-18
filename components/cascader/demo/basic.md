@@ -1,10 +1,17 @@
-# 基本
+---
+order: 0
+title:
+  zh-CN: 基本
+  en-US: Basic
+---
 
-- order: 0
+## zh-CN
 
 省市区级联。
 
----
+## en-US
+
+Cascade selection box for selecting province/city/district.
 
 ````jsx
 import { Cascader } from 'antd';
@@ -38,6 +45,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <Cascader options={options} onChange={onChange} />
+  <Cascader options={options} onChange={onChange} placeholder="请选择地区" />
 , mountNode);
 ````

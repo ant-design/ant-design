@@ -1,0 +1,199 @@
+@import "../../style/mixins/index";
+
+.antCheckboxFn(@checkbox-prefix-cls: ant-checkbox) {
+  @checkbox-inner-prefix-cls: ~"@{checkbox-prefix-cls}-inner";
+  // 一般状态
+  .@{checkbox-prefix-cls} {
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+    line-height: 1;
+    position: relative;
+    vertical-align: middle;
+
+    &:hover,
+    &-focused {
+      .@{checkbox-inner-prefix-cls} {
+        border-color: #bcbcbc;
+      }
+    }
+
+    &-inner {
+      &:after {
+        transform: rotate(45deg) scale(0);
+        position: absolute;
+        left: 4px;
+        top: 1px;
+        display: table;
+        width: 5px;
+        height: 8px;
+        border: 2px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        content: ' ';
+        transition: all .1s @ease-in-back;
+      }
+
+      position: relative;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-width: 1px;
+      border-style: solid;
+      border-radius: 3px;
+      border-color: @border-color-base;
+      background-color: #fff;
+      transition: border-color 0.1s @ease-in-out-back, background-color 0.1s @ease-in-out-back;
+    }
+
+    &-input {
+      position: absolute;
+      left: 0;
+      z-index: 1;
+      cursor: pointer;
+      .opacity(0);
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // 半选状态
+  .@{checkbox-prefix-cls}-indeterminate {
+    .@{checkbox-inner-prefix-cls} {
+      border-color: @primary-color;
+      background-color: @primary-color;
+      &:after {
+        content: ' ';
+        transform: scale(1);
+        position: absolute;
+        left: 2px;
+        top: 5px;
+        width: 8px;
+        height: 1px;
+      }
+    }
+    &:hover {
+      .@{checkbox-inner-prefix-cls} {
+        border-color: @primary-color;
+      }
+    }
+  }
+  // 选中状态
+  .@{checkbox-prefix-cls}-checked {
+
+    &:hover {
+      .@{checkbox-inner-prefix-cls} {
+        border-color: @primary-color;
+      }
+    }
+
+    .@{checkbox-inner-prefix-cls} {
+      border-color: @primary-color;
+      background-color: @primary-color;
+
+      &:after {
+        transform: rotate(45deg) scale(1);
+        position: absolute;
+        left: 4px;
+        top: 1px;
+        display: table;
+        width: 5px;
+        height: 8px;
+        border: 2px solid #fff;
+        border-top: 0;
+        border-left: 0;
+        content: ' ';
+        transition: all .2s @ease-out-back .1s;
+      }
+    }
+  }
+
+  .@{checkbox-prefix-cls}-disabled {
+    &.@{checkbox-prefix-cls}-checked {
+      &:hover {
+        .@{checkbox-inner-prefix-cls} {
+          border-color: @border-color-base;
+        }
+      }
+
+      .@{checkbox-inner-prefix-cls} {
+        background-color: #f3f3f3;
+        border-color: @border-color-base;
+
+        &:after {
+          animation-name: none;
+          border-color: #ccc;
+        }
+      }
+    }
+
+    &:hover {
+      .@{checkbox-inner-prefix-cls} {
+        border-color: @border-color-base;
+      }
+    }
+
+    .@{checkbox-inner-prefix-cls} {
+      border-color: @border-color-base;
+      background-color: #f3f3f3;
+      &:after {
+        animation-name: none;
+        border-color: #f3f3f3;
+      }
+    }
+
+    .@{checkbox-inner-prefix-cls}-input {
+      cursor: default;
+    }
+
+    & + span {
+      color: #ccc;
+      cursor: @cursor-disabled;
+    }
+  }
+
+  .@{checkbox-prefix-cls}-wrapper {
+    cursor: pointer;
+    font-size: @font-size-base;
+    display: inline-block;
+    & + & {
+      margin-left: 8px;
+    }
+  }
+
+  .@{checkbox-prefix-cls}-wrapper + span,
+  .@{checkbox-prefix-cls} + span {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .@{checkbox-prefix-cls}-group {
+    font-size: @font-size-base;
+    &-item {
+      display: inline-block;
+    }
+  }
+
+  @ie8: \0screen;
+
+  // IE8 hack for https://github.com/ant-design/ant-design/issues/2148
+  @media @ie8 {
+    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:before,
+    .@{checkbox-prefix-cls}-checked .@{checkbox-prefix-cls}-inner:after {
+      .iconfont-font("\e62e");
+      font-weight: bold;
+      font-size: 8px;
+      border: 0;
+      color: #fff;
+      left: 2px;
+      top: 3px;
+      position: absolute;
+    }
+  }
+}

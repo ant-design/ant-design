@@ -1,0 +1,149 @@
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
+  .code-boxes-col-2-1, .code-boxes-col-1-1 {
+    float: none;
+    width: 100%;
+    padding: 0!important;
+  }
+  #search-box {
+    display: none;
+  }
+  .preview-image-boxes {
+    margin: 0!important;
+    float: none;
+    width: 100%;
+  }
+  .preview-image-box {
+    padding-left: 0;
+    margin: 10px 0;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  #list,
+  #search-box {
+    display: none;
+  }
+
+  a#logo {
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    display: block;
+  }
+
+  .banner-entry {
+    position: relative;
+    top: 30px;
+    left: 0;
+    text-align: center;
+  }
+
+  .nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background: #fff;
+    line-height: 60px;
+    margin-right: 0;
+    width: 50%;
+    height: 100%;
+    box-shadow: 10px 0 12px rgba(0,0,0,0.1);
+    transform: translateX(-100%);
+    overflow-x: hidden;
+    overflow-y: auto;
+    opacity: 0;
+    transition: transform .3s, opacity .3s;
+    text-align: center;
+
+    #lang {
+      margin: 0;
+      float: none;
+      color: #666;
+    }
+  }
+
+  .nav.nav-show {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  ul#nav,
+  ul#nav li {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  ul#nav li {
+    line-height: 60px;
+    height: 60px;
+    padding: 0 !important;
+    a {
+      color: #333;
+    }
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .nav-phone-icon {
+    display: block;
+    width: 16px;
+    height: 50px;
+    position: absolute;
+    left: 30px;
+    top: 32px;
+    cursor: pointer;
+  }
+
+  .nav-phone-icon:before {
+    content: "";
+    display: block;
+    border-radius: 2px;
+    width: 16px;
+    height: 2px;
+    background: #777;
+    box-shadow: 0 6px 0 0 #777, 0 12px 0 0 #777;
+    position: absolute;
+  }
+
+  .main {
+    height: calc(100% - 86px);
+  }
+
+  .aside-container {
+    float: none;
+    width: auto;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e9e9e9;
+    margin-bottom: 30px;
+  }
+
+  .main-container {
+    margin-left: 0;
+    > .markdown > * {
+      width: 100%!important;
+    }
+  }
+
+  .main-wrapper {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .main-container {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  footer ul li {
+    float: none;
+    width: auto;
+  }
+}

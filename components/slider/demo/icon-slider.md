@@ -1,10 +1,17 @@
-# 带 icon 的滑块
+---
+order: 2
+title: 
+  zh-CN: 带 icon 的滑块
+  en-US: Slider with icon
+---
 
-- order: 2
+## zh-CN
 
 滑块左右可以设置图标来表达业务含义。
 
----
+## en-US
+
+You can add an icon beside the slider to make it meaningful.
 
 ````jsx
 import { Slider, Icon } from 'antd';
@@ -14,12 +21,11 @@ const IconSlider = React.createClass({
     const max = this.props.max;
     const min = this.props.min;
     const mid = ((max - min) / 2).toFixed(5);
-
     return {
       preIconClass: this.props.value >= mid ? '' : 'anticon-highlight',
       nextIconClass: this.props.value >= mid ? 'anticon-highlight' : '',
       mid,
-      sliderValue: this.props.value
+      sliderValue: this.props.value,
     };
   },
 
@@ -27,7 +33,7 @@ const IconSlider = React.createClass({
     this.setState({
       preIconClass: v >= this.state.mid ? '' : 'anticon-highlight',
       nextIconClass: v >= this.state.mid ? 'anticon-highlight' : '',
-      sliderValue: v
+      sliderValue: v,
     });
   },
 
@@ -35,15 +41,15 @@ const IconSlider = React.createClass({
     return (
       <div className="iconWrapper">
         <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
-        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
         <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
+        <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(
-<IconSlider min={0} max={20} value={0} icon={['lock', 'unlock']} />
+  <IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
 , mountNode);
 ````
 
@@ -63,10 +69,11 @@ ReactDOM.render(
   color: #ccc;
 }
 
-.iconWrapper .anticon-lock {
+.iconWrapper .anticon:first-child {
   left: 0;
 }
-.iconWrapper .anticon-unlock{
+
+.iconWrapper .anticon:last-child {
   right: 0;
 }
 

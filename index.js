@@ -1,50 +1,34 @@
+/* eslint no-console:0 */
 // this file is not used if use https://github.com/ant-design/babel-plugin-antd
 
-const antd = {
-  Affix: require('./components/affix'),
-  DatePicker: require('./components/date-picker'),
-  Tooltip: require('./components/tooltip'),
-  Carousel: require('./components/carousel'),
-  Tabs: require('./components/tabs'),
-  Modal: require('./components/modal'),
-  Dropdown: require('./components/dropdown'),
-  Progress: require('./components/progress'),
-  Popover: require('./components/popover'),
-  Select: require('./components/select'),
-  Breadcrumb: require('./components/breadcrumb'),
-  Popconfirm: require('./components/popconfirm'),
-  Pagination: require('./components/pagination'),
-  Steps: require('./components/steps'),
-  InputNumber: require('./components/input-number'),
-  Switch: require('./components/switch'),
-  Checkbox: require('./components/checkbox'),
-  Table: require('./components/table'),
-  Tag: require('./components/tag'),
-  Collapse: require('./components/collapse'),
-  message: require('./components/message'),
-  Slider: require('./components/slider'),
-  QueueAnim: require('./components/queue-anim'),
-  Radio: require('./components/radio'),
-  notification: require('./components/notification'),
-  Alert: require('./components/alert'),
-  Validation: require('./components/validation'),
-  Tree: require('./components/tree'),
-  TreeSelect: require('./components/tree-select'),
-  Upload: require('./components/upload'),
-  Badge: require('./components/badge'),
-  Menu: require('./components/menu'),
-  Timeline: require('./components/timeline'),
-  Button: require('./components/button'),
-  Icon: require('./components/icon'),
-  Row: require('./components/row'),
-  Col: require('./components/col'),
-  Spin: require('./components/spin'),
-  Form: require('./components/form'),
-  Input: require('./components/input'),
-  Calendar: require('./components/calendar'),
-  TimePicker: require('./components/time-picker'),
-  Transfer: require('./components/transfer'),
-  Cascader: require('./components/cascader'),
-};
+function camelCase(name) {
+  return name.charAt(0).toUpperCase() +
+    name.slice(1).replace(/-(\w)/g, (m, n) => {
+      return n.toUpperCase();
+    });
+}
 
-module.exports = antd;
+const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.tsx?$/);
+
+req.keys().forEach((mod) => {
+  let v = req(mod);
+  if (v && v.default) {
+    v = v.default;
+  }
+  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.tsx?$/);
+  if (match && match[1]) {
+    if (match[1] === 'message' || match[1] === 'notification') {
+      // message & notification should not be capitalized
+      exports[match[1]] = v;
+    } else {
+      exports[camelCase(match[1])] = v;
+    }
+  }
+});
+
+if (process.env.NODE_ENV !== 'production') {
+  if (typeof console !== 'undefined' && console.warn) {
+    console.warn(`You are using prebuilt antd,
+please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
+  }
+}

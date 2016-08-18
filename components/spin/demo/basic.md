@@ -1,15 +1,20 @@
-# 基本用法
+---
+order: 0
+title: 
+  zh-CN: 基本用法
+  en-US: basic Usage
+---
 
-- order: 0
+## zh-CN
 
 一个简单的 loading 状态。
 
----
+## en-US
+
+A simple loading status.
 
 ````jsx
 import { Spin } from 'antd';
 
-ReactDOM.render(
-  <Spin />
-, mountNode);
+ReactDOM.render(<Spin />, mountNode);
 ````

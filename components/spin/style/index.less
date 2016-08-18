@@ -1,0 +1,135 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@spin-prefix-cls: ant-spin;
+@spin-dot-default: #999;
+@spin-dot-size-sm: 12px;
+@spin-dot-size: 20px;
+@spin-dot-size-lg: 32px;
+
+.@{spin-prefix-cls} {
+  color: @primary-color;
+  vertical-align: middle;
+  text-align: center;
+  opacity: 0;
+  position: absolute;
+  transition: transform 0.3s @ease-in-out-circ;
+  font-size: @font-size-base;
+  display: none;
+
+  &-spinning {
+    opacity: 1;
+    position: static;
+    display: inline-block;
+  }
+
+  &-nested-loading {
+    position: relative;
+  }
+
+  &-nested-loading & {
+    position: absolute;
+    top: 50%;
+    height: 20px;
+    line-height: 20px;
+    margin-top: -10px;
+    z-index: 4;
+    text-align: center;
+    width: 100%;
+    &-dot {
+      display: inline-block;
+    }
+  }
+
+  &-container {
+    transition: all 0.3s @ease-in-out-circ;
+  }
+
+  &-nested-loading > &-container {
+    opacity: 0.7;
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background: transparent;
+    }
+  }
+
+  // tip
+  // ------------------------------
+  &-tip {
+    color: @spin-dot-default;
+  }
+
+  // dots
+  // ------------------------------
+
+  &-dot {
+    position: relative;
+    display: block;
+    .square(@spin-dot-size);
+    &:before,
+    &:after {
+      content: '';
+      border-radius: 50%;
+      background-color: @primary-color;
+      animation: antSpinBounce 2.2s infinite ease-in-out;
+      display: block;
+      position: absolute;
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    &:after {
+      animation-delay: -1.1s;
+    }
+  }
+
+  // Sizes
+  // ------------------------------
+  // small
+  &-sm &-dot {
+    .square(@spin-dot-size-sm);
+  }
+
+  // large
+  &-lg &-dot {
+    .square(@spin-dot-size-lg);
+  }
+
+  &-text,
+  &&-show-text &-dot {
+    display: none;
+  }
+
+  &&-show-text &-text {
+    display: block;
+  }
+}
+
+@keyframes antSpinBounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ */
+  .ant-spin-nested-loading > .ant-spin-container {
+    background: #fff;
+    opacity: 0.5;
+  }
+}

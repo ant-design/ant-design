@@ -1,0 +1,100 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import '../../input/style/mixin.less';
+
+.ant-mention-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+  &.active .ant-mention-editor {
+    .active;
+  }
+  .ant-mention-editor {
+   .input;
+   padding: 0;
+   display: block;
+  }
+  .ant-mention-editor-wrapper {
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .DraftEditor-editorContainer .public-DraftEditor-content {
+    height: auto;
+    padding: 4px 7px;
+  }
+
+  .ant-mention-dropdown {
+    margin-top: 1.5em;
+    max-height: 250px;
+    min-width: 120px;
+    background-color: white;
+    border: 1px solid @border-color-base;
+    box-shadow: @box-shadow-base;
+    border-radius: @border-radius-base;
+    box-sizing: border-box;
+    z-index: @zindex-dropdown;
+    left: -9999px;
+    top: -9999px;
+    position: absolute;
+    outline: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: @font-size-base;
+    &-notfound.ant-mention-dropdown-item {
+      color: #ccc;
+
+      .anticon-loading {
+        color: @primary-color;
+      }
+    }
+    &-item {
+      position: relative;
+      display: block;
+      padding: 7px 15px;
+      font-weight: normal;
+      color: #666;
+      white-space: nowrap;
+      cursor: pointer;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transition: background 0.3s ease;
+
+      &:hover,
+      &.focus,
+      &-active {
+        background-color: tint(@primary-color, 90%);
+      }
+
+      &-disabled {
+        color: #ccc;
+        cursor: not-allowed;
+
+        &:hover {
+          color: #ccc;
+          background-color: #fff;
+          cursor: not-allowed;
+        }
+      }
+
+      &-selected {
+        &,
+        &:hover {
+          background-color: @background-color-base;
+          font-weight: bold;
+          color: #666;
+        }
+      }
+
+      &-divider {
+        height: 1px;
+        margin: 1px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
+        line-height: 0;
+      }
+    }
+  }
+}

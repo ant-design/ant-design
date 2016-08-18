@@ -1,26 +1,29 @@
-# 图标
+---
+order: 2
+title: 图标
+---
 
-- order: 2
+## zh-CN
 
 有图标的标签。
 
----
+## en-US
+
+The Tab with Icon.
+
 
 ````jsx
 import { Tabs, Icon } from 'antd';
 const TabPane = Tabs.TabPane;
 
-const tabContent = [
-  <span><Icon type="apple" />选项卡一</span>,
-  <span><Icon type="android" />选项卡二</span>,
-  <span><Icon type="lock" />选项卡三</span>,
-];
-
 ReactDOM.render(
   <Tabs defaultActiveKey="2">
-    <TabPane tab={tabContent[0]} key="1">选项卡一</TabPane>
-    <TabPane tab={tabContent[1]} key="2">选项卡二</TabPane>
-    <TabPane tab={tabContent[2]} key="3">选项卡三</TabPane>
+    <TabPane tab={<span><Icon type="apple" />Tab 1</span>} key="1">
+      Tab 1
+    </TabPane>
+    <TabPane tab={<span><Icon type="android" />Tab 2</span>} key="2">
+      Tab 2
+    </TabPane>
   </Tabs>
 , mountNode);
 ````

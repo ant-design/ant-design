@@ -1,9 +1,13 @@
-# 升级指南
-
-- category: 3
-- order: 3
-
 ---
+order: 4
+english: 升级指南
+---
+
+此处着重列出升级中的不兼容变化和推荐改动。所有变动请见 [更新日志](/changelog)。
+
+## 0.12 => 1.0
+
+`1.0.0` 之后将不再单独提供升级指南，请参考对应版本 [更新日志](/changelog#1.0.0) 中的 `不兼容改动` 部分进行升级。
 
 ## 0.11 => 0.12
 
@@ -11,7 +15,7 @@
 
 ### 使用 Form 提供的校验功能代替 Validation
 
-Validation 已经被废弃，并会在以后的版本完全移除，所以建议尽快使用 Form 自带的校验功能替换 Validation。具体使用方式可以查阅文档和例子([#1](http://ant.design/components/form/#demo-validate-basic) [#2](http://ant.design/components/form/#demo-validate-other) [#3](http://ant.design/components/form/#demo-validate-customized))。
+Validation 已经被废弃，并会在以后的版本完全移除，所以建议尽快使用 Form 自带的校验功能替换 Validation。具体使用方式可以查阅文档和例子（[#1](http://ant.design/components/form/#demo-validate-basic) [#2](http://ant.design/components/form/#demo-validate-other) [#3](http://ant.design/components/form/#demo-validate-customized)）。
 
 ### Progress `format` 属性的值改为函数
 
@@ -74,6 +78,10 @@ import 'antd/style/index.less';
 由于 `DatePicker` 已改为 [受控组件](https://facebook.github.io/react/docs/forms.html#controlled-components)，所以 `DatePicker` 显示的值必然与其 `value` 一致。
 
 如果无法理解受控组件，只须在发现在选中日期后 `Datepicker` 显示的值不变的情况后，把其 `value` 属性改为 `defaultValue` 即可。
+
+### TimePicker locale 结构改变
+
+属性 `locale` 结构发生了 [变化](https://github.com/ant-design/ant-design/commit/fd1312803fd49586ded9af39d923457540c515cc#diff-fe4bfc98d91fc3dab8f391e3258622d4L1)，需要将原有的属性改为现有的[结构](https://github.com/ant-design/ant-design/issues/1270#issuecomment-201181384)。
 
 ### 其他
 
@@ -138,4 +146,4 @@ import 'antd/style/index.less';
 - Slider 的 `withDots` `isIncluded` 属性修改为 `dots` `included`。
 - iconfont 的基线更新，可能导致原有图标的位置偏移。
 
-新版本变化较大，以上升级指南可能有遗漏，全部改动可以参考 [Changelog](/changelog)。在升级过程中遇到问题，欢迎 [报告](https://github.com/ant-design/ant-design/issues/new) 给我们。
+新版本变化较大，以上升级指南可能有遗漏，全部改动可以参考 [更新日志](/changelog)。在升级过程中遇到问题，欢迎 [报告](https://github.com/ant-design/ant-design/issues/new) 给我们。

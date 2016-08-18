@@ -1,10 +1,17 @@
-# 基本
+---
+order: 0
+title: 
+  zh-CN: 基本
+  en-US: Basic
+---
 
-- order: 0
+## en-US
 
 第一个对话框。
 
----
+## zh-CN
+
+Basic modal dialog.
 
 ````jsx
 import { Modal, Button } from 'antd';
@@ -15,34 +22,35 @@ const App = React.createClass({
   },
   showModal() {
     this.setState({
-      visible: true
+      visible: true,
     });
   },
   handleOk() {
-    console.log('点击了确定');
+    console.log('Clicked OK');
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   handleCancel(e) {
     console.log(e);
     this.setState({
-      visible: false
+      visible: false,
     });
   },
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>显示对话框</Button>
-        <Modal title="第一个 Modal" visible={this.state.visible}
-          onOk={this.handleOk} onCancel={this.handleCancel}>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
-          <p>对话框的内容</p>
+        <Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>
+        <Modal title="Basic Modal" visible={this.state.visible}
+          onOk={this.handleOk} onCancel={this.handleCancel}
+        >
+          <p>some contents...</p>
+          <p>some contents...</p>
+          <p>some contents...</p>
         </Modal>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

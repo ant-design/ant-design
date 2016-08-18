@@ -1,0 +1,142 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../checkbox/style/mixin";
+@import "./mixin";
+
+@tree-prefix-cls: ant-tree;
+.antCheckboxFn(@checkbox-prefix-cls: ant-tree-checkbox);
+
+.@{tree-prefix-cls} {
+  margin: 0;
+  padding: 5px;
+  font-size: 12px;
+  li {
+    padding: 0;
+    margin: 7px 0;
+    list-style: none;
+    white-space: nowrap;
+    outline: 0;
+    a[draggable],
+    a[draggable="true"] {
+      -moz-user-select: none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      /* Required to make elements draggable in old WebKit */
+      -khtml-user-drag: element;
+      -webkit-user-drag: element;
+    }
+    &.drag-over {
+      > a[draggable] {
+        background-color: @primary-color;
+        color: white;
+        opacity: 0.8;
+      }
+    }
+    &.drag-over-gap-top {
+      > a[draggable] {
+        border-top: 2px @primary-color solid;
+      }
+    }
+    &.drag-over-gap-bottom {
+      > a[draggable] {
+        border-bottom: 2px @primary-color solid;
+      }
+    }
+    &.filter-node {
+      > a {
+        color: @error-color!important;
+        font-weight: bold!important;
+      }
+    }
+    ul {
+      margin: 0;
+      padding: 0 0 0 18px;
+    }
+    a {
+      display: inline-block;
+      padding: 1px 5px;
+      border-radius: 2px;
+      margin: 0;
+      cursor: pointer;
+      text-decoration: none;
+      vertical-align: top;
+      color: #666;
+      transition: all 0.3s ease;
+      &:hover {
+        background-color: tint(@primary-color, 90%);
+      }
+      &.@{tree-prefix-cls}-node-selected {
+        background-color: tint(@primary-color, 80%);
+      }
+    }
+    span {
+      &.@{tree-prefix-cls}-checkbox {
+        margin: 2px 4px 0 0;
+      }
+      &.@{tree-prefix-cls}-switcher,
+      &.@{tree-prefix-cls}-iconEle {
+        margin: 0;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 0 none;
+        cursor: pointer;
+        outline: none;
+      }
+      &.@{tree-prefix-cls}-icon_loading {
+        &:after {
+          display: inline-block;
+          .iconfont-font("\e6a1");
+          animation: loadingCircle 1s infinite linear;
+          color: @primary-color;
+        }
+      }
+      &.@{tree-prefix-cls}-switcher {
+        &.@{tree-prefix-cls}-switcher-noop {
+          cursor: auto;
+        }
+        &.@{tree-prefix-cls}-roots_open,
+        &.@{tree-prefix-cls}-center_open,
+        &.@{tree-prefix-cls}-bottom_open,
+        &.@{tree-prefix-cls}-noline_open {
+          .antTreeSwitcherIcon();
+        }
+        &.@{tree-prefix-cls}-roots_close,
+        &.@{tree-prefix-cls}-center_close,
+        &.@{tree-prefix-cls}-bottom_close,
+        &.@{tree-prefix-cls}-noline_close {
+          .antTreeSwitcherIcon();
+          .ie-rotate(3);
+          &:after {
+            transform: rotate(270deg) scale(0.5);
+          }
+        }
+      }
+    }
+  }
+  &-child-tree {
+    display: none;
+    &-open {
+      display: block;
+    }
+  }
+  &-treenode-disabled {
+    >span,
+    >a,
+    >a span {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+  &-icon__open {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+  &-icon__close {
+    margin-right: 2px;
+    vertical-align: top;
+  }
+}

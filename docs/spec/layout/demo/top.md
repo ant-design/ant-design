@@ -1,6 +1,7 @@
-# 顶部导航
-
-- order: 0
+---
+order: 0
+title: 顶部导航
+---
 
 一二级导航都在顶部。
 
@@ -8,10 +9,9 @@
 
 > `<BrowserDemo />` 做演示用，无须复制。
 
----
-
 ````jsx
 import { Menu, Breadcrumb } from 'antd';
+import BrowserDemo from 'site/theme/template/BrowserDemo';
 
 ReactDOM.render(
   <BrowserDemo>

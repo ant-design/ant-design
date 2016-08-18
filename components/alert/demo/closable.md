@@ -1,27 +1,36 @@
-# 可关闭的警告提示
+---
+order: 2
+title:
+  zh-CN: 可关闭的警告提示
+  en-US: Closable
+---
 
-- order: 2
+## zh-CN
 
 显示关闭按钮，点击可关闭警告提示。
 
----
+## en-US
+
+To show close button.
 
 ````jsx
 import { Alert } from 'antd';
 
 const onClose = function (e) {
-  console.log(e, '我要被关闭啦！');
+  console.log(e, 'I was closed.');
 };
 
 ReactDOM.render(<div>
-  <Alert message="警告提示的文案"
-    type="warn"
+  <Alert message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+    type="warning"
     closable
-    onClose={onClose} />
-  <Alert message="错误提示的文案"
-    description="错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍错误提示的辅助性文字介绍"
+    onClose={onClose}
+  />
+  <Alert message="Error Text"
+    description="Error Description Error Description Error Description Error Description Error Description Error Description"
     type="error"
     closable
-    onClose={onClose} />
+    onClose={onClose}
+  />
 </div>, mountNode);
 ````

@@ -1,11 +1,10 @@
-# 多文件选择
-
-- order: 5
-- hidden: 5
+---
+order: 5
+hidden: true
+title: 多文件选择
+---
 
 按住 ctrl 可选择多个文件，`ie10+` 支持。
-
----
 
 ````jsx
 import { Upload, message, Button, Icon } from 'antd';
@@ -22,7 +21,7 @@ const props = {
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} 上传失败。`);
     }
-  }
+  },
 };
 
 ReactDOM.render(

@@ -1,10 +1,17 @@
-# 禁用选项
+---
+order: 4
+title:
+  zh-CN: 禁用选项
+  en-US: Disabled option
+---
 
-- order: 4
+## zh-CN
 
 通过指定 options 里的 `disabled` 字段。
 
----
+## en-US
+
+Disable option by specifying the `disabled` property in `options`.
 
 ````jsx
 import { Cascader } from 'antd';

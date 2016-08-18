@@ -1,10 +1,18 @@
-# 选择和操作
+---
+order: 2
+title:
+  en-US: Selection and operation
+  zh-CN: 选择和操作
+---
 
-- order: 2
+## zh-CN
 
 选择后进行操作，完成后清空选择，通过 `rowSelection.selectedRowKeys` 来控制选中项。
 
----
+## en-US
+
+To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
+
 
 ````jsx
 import { Table, Button } from 'antd';
@@ -26,14 +34,14 @@ for (let i = 0; i < 46; i++) {
     key: i,
     name: `李大嘴${i}`,
     age: 32,
-    address: `西湖区湖底公园${i}号`
+    address: `西湖区湖底公园${i}号`,
   });
 }
 
 const App = React.createClass({
   getInitialState() {
     return {
-      selectedRowKeys: [],
+      selectedRowKeys: [],  // 这里配置默认勾选列
       loading: false,
     };
   },
@@ -61,14 +69,15 @@ const App = React.createClass({
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-           <Button type="primary" onClick={this.start}
-             disabled={!hasSelected} loading={loading}>操作</Button>
-           <span style={{ marginLeft: 8 }}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
+          <Button type="primary" onClick={this.start}
+            disabled={!hasSelected} loading={loading}
+          >操作</Button>
+          <span style={{ marginLeft: 8 }}>{hasSelected ? `选择了 ${selectedRowKeys.length} 个对象` : ''}</span>
         </div>
         <Table rowSelection={rowSelection} columns={columns} dataSource={data} />
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

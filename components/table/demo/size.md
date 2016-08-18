@@ -1,39 +1,46 @@
-# 紧凑型
-
-- order: 9
-
-紧凑型的列表, 中型列表用于需要数据紧凑展示的情况，小型列表只用于对话框内。
-
 ---
+order: 9
+title:
+  en-US: size
+  zh-CN: 紧凑型
+---
+
+## zh-CN
+
+两种紧凑型的列表，小型列表只用于对话框内。
+
+## en-US
+
+Two compacted table size: `middle` and `small`, `small` size is used in Modal only.
 
 ````jsx
 import { Table } from 'antd';
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 ReactDOM.render(<div>

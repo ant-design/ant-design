@@ -1,10 +1,11 @@
-# 限制用户上传的文件
-
-- order: 7
+---
+order: 7
+title: 限制用户上传的文件
+---
 
 可以通过 `beforeUpload` 在文件上传之前进行干预，如限制用户只能上传 JPG 文件。
 
----
+也支持异步检查，`beforeUpload` 的返回值可以是一个 Promise：[示例](http://react-component.github.io/upload/examples/beforeUpload.html)。
 
 ````jsx
 import { Upload, Button, Icon, message } from 'antd';
@@ -17,7 +18,7 @@ const props = {
       message.error('只能上传 JPG 文件哦！');
     }
     return isJPG;
-  }
+  },
 };
 
 ReactDOM.render(

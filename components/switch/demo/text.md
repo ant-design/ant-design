@@ -1,17 +1,23 @@
-# 文字和图标
+---
+order: 2
+title:
+  zh-CN: 文字和图标
+  en-US: Text & icon
+---
 
-- order: 2
+## zh-CN
 
 带有文字和图标。
 
----
+## en-US
+
+With text and icon.
 
 ````jsx
 import { Switch, Icon } from 'antd';
 
 ReactDOM.render(<div>
   <Switch checkedChildren="开" unCheckedChildren="关" />
-  <span> </span>
   <Switch checkedChildren={<Icon type="check" />} unCheckedChildren={<Icon type="cross" />} />
 </div>, mountNode);
 ````

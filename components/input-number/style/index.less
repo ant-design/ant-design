@@ -1,0 +1,226 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@input-number-prefix-cls: ant-input-number;
+
+.handler-disabled() {
+  opacity: 0.72;
+  color: #ccc !important;
+  cursor: not-allowed;
+}
+
+.@{input-number-prefix-cls} {
+  .input();
+  margin: 0;
+  padding: 0;
+  line-height: 28px;
+  font-size: 12px;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid @border-color-base;
+  border-radius: @border-radius-base;
+  overflow: hidden;
+  width: 80px;
+
+  &-handler {
+    text-align: center;
+    line-height: 0;
+    height: 14px;
+    overflow: hidden;
+    color: #999;
+    position: relative;
+    transition: all 0.1s linear;
+    display: block;
+    width: 100%;
+    &:hover {
+      background: #fefefe;
+    }
+    &:hover &-up-inner,
+    &:hover &-down-inner {
+      color: tint(@primary-color, 20%);
+    }
+  }
+
+  &-handler-up-inner,
+  &-handler-down-inner {
+    .iconfont-mixin();
+    line-height: 12px;
+    user-select: none;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    transition: all 0.1s linear;
+    .iconfont-size-under-12px(7px);
+    right: 4px;
+    color: #999;
+  }
+
+  &:hover {
+    .hover();
+  }
+
+  &-focused {
+    .active();
+  }
+
+  &-disabled {
+    .disabled();
+  }
+
+  &-input-wrap {
+    overflow: hidden;
+    height: 28px;
+  }
+
+  &-input {
+    width: 100%;
+    text-align: left;
+    outline: 0;
+    -moz-appearance: textfield;
+    line-height: 28px;
+    height: 28px;
+    transition: all 0.3s linear;
+    color: #666;
+    border: 0;
+    border-radius: @border-radius-base;
+    padding: 0 7px;
+
+    &[disabled] {
+      .disabled();
+    }
+  }
+
+  &-lg {
+    padding: 0;
+    .@{input-number-prefix-cls}-handler-wrap {
+      height: 32px;
+    }
+    .@{input-number-prefix-cls}-input-wrap {
+      height: 32px;
+    }
+    .@{input-number-prefix-cls}-handler {
+      height: 16px;
+    }
+
+    input {
+      height: 32px;
+      line-height: 32px;
+    }
+
+    .@{input-number-prefix-cls}-handler-up-inner {
+      top: 2px;
+    }
+    .@{input-number-prefix-cls}-handler-down-inner {
+      bottom: 2px;
+    }
+    .@{input-number-prefix-cls}-handler-up:hover {
+      height: 18px;
+    }
+  }
+
+  &-sm {
+    padding: 0;
+    .@{input-number-prefix-cls}-handler-wrap {
+      height: 22px;
+    }
+    .@{input-number-prefix-cls}-input-wrap {
+      height: 22px;
+    }
+    .@{input-number-prefix-cls}-handler {
+      height: 11px;
+    }
+
+    input {
+      height: 22px;
+      line-height: 22px;
+      margin-top: -1px;
+      vertical-align: top;
+    }
+    .@{input-number-prefix-cls}-handler-up-inner {
+      top: -1px;
+    }
+    .@{input-number-prefix-cls}-handler-down-inner {
+      bottom: -1px;
+    }
+    .@{input-number-prefix-cls}-handler-up:hover {
+      height: 13px;
+    }
+    .@{input-number-prefix-cls}-handler-down:hover .@{input-number-prefix-cls}-handler-down-inner {
+      bottom: 4px;
+    }
+  }
+
+  &-handler-wrap {
+    border-left: 1px solid @border-color-base;
+    width: 22px;
+    height: 28px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.24s linear 0.1s;
+  }
+
+  &:hover &-handler-wrap {
+    opacity: 1;
+  }
+
+  &-handler-up {
+    cursor: pointer;
+    &-inner {
+      top: 1px;
+      &:before {
+        text-align: center;
+        content: "\e602";
+      }
+    }
+    &:hover {
+      height: 16px;
+    }
+    &:hover &-inner {
+      margin-top: 2px;
+    }
+  }
+
+  &-handler-down {
+    border-top: 1px solid @border-color-base;
+    top: -1px;
+    cursor: pointer;
+    &-inner {
+      &:before {
+        text-align: center;
+        content: "\e603";
+      }
+    }
+    &:hover {
+      height: 16px;
+      margin-top: -2px;
+    }
+  }
+
+  &-handler-down-disabled,
+  &-handler-up-disabled,
+  &-disabled {
+    .@{input-number-prefix-cls}-handler-down-inner,
+    .@{input-number-prefix-cls}-handler-up-inner {
+      .handler-disabled();
+    }
+  }
+
+  &-disabled {
+    .@{input-number-prefix-cls}-input {
+      opacity: 0.72;
+      cursor: not-allowed;
+      background-color: #f3f3f3;
+    }
+    .@{input-number-prefix-cls}-handler-wrap {
+      display: none;
+    }
+    .@{input-number-prefix-cls}-handler {
+      .handler-disabled();
+    }
+  }
+}

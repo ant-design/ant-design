@@ -1,10 +1,17 @@
-# 默认值
+---
+order: 0
+title:
+  zh-CN: 默认值
+  en-US: Default value
+---
 
-- order: 0
+## zh-CN
 
 默认值通过数组的方式指定。
 
----
+## en-US
+
+Specifies default value by an array.
 
 ````jsx
 import { Cascader } from 'antd';

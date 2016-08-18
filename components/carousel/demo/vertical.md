@@ -1,10 +1,17 @@
-# 垂直
+---
+order: 1
+title:
+  zh-CN: 垂直
+  en-US: Vertical
+---
 
-- order: 1
+## zh-CN
 
 垂直显示。
 
----
+## en-US
+
+Vertical pagination.
 
 ````jsx
 import { Carousel } from 'antd';

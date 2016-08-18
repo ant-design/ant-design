@@ -1,10 +1,17 @@
-# 和外部组件通信
+---
+order: 2
+title:
+    zh-CN: 受控的 Checkbox
+    en-US: Controlled Checkbox
+---
 
-- order: 2
+## zh-CN
 
 联动 checkbox。
 
----
+## en-US
+
+Communicated with other components.
 
 ````jsx
 import { Checkbox, Button } from 'antd';
@@ -13,33 +20,35 @@ const App = React.createClass({
   getInitialState() {
     return {
       checked: true,
-      disabled: false
+      disabled: false,
     };
   },
   render() {
-    const label = `${this.state.checked ? '选中' : '取消'}-${this.state.disabled ? '不可用' : '可用'}`;
+    const label = `${this.state.checked ? 'Checked' : 'Unchecked'}-${this.state.disabled ? 'Disabled' : 'Enabled'}`;
     return (
       <div>
         <p style={{ marginBottom: '20px' }}>
-          <label>
-            <Checkbox checked={this.state.checked}
-              disabled={this.state.disabled}
-              onChange={this.onChange} />
-              {label}
-            </label>
-          </p>
-          <p>
-            <Button type="primary" size="small"
-              onClick={this.toggleChecked}>
-              {!this.state.checked ? '选中' : '取消'}
-            </Button>
-            <Button style={{ marginLeft: '10px' }}
-              type="primary" size="small"
-              onClick={this.toggleDisable}>
-              {!this.state.disabled ? '不可用' : '可用'}
-            </Button>
-          </p>
-        </div>
+          <Checkbox checked={this.state.checked}
+            disabled={this.state.disabled}
+            onChange={this.onChange}
+          >
+            {label}
+          </Checkbox>
+        </p>
+        <p>
+          <Button type="primary" size="small"
+            onClick={this.toggleChecked}
+          >
+            {!this.state.checked ? 'Check' : 'Uncheck'}
+          </Button>
+          <Button style={{ marginLeft: '10px' }}
+            type="primary" size="small"
+            onClick={this.toggleDisable}
+          >
+            {!this.state.disabled ? 'Disable' : 'Enable'}
+          </Button>
+        </p>
+      </div>
     );
   },
   toggleChecked() {
@@ -53,7 +62,7 @@ const App = React.createClass({
     this.setState({
       checked: e.target.checked,
     });
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

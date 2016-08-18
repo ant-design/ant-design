@@ -1,10 +1,17 @@
-# 各种大小
+---
+order: 1
+title: 
+  zh-CN: 各种大小
+  en-US: Size
+---
 
-- order: 1
+## zh-CN
 
 小的用于文本加载，默认用于卡片容器级加载，大的用于**页面级**加载。
 
----
+## en-US
+
+A small `Spin` use in loading text, default `Spin` use in loading card-level block, and large `Spin` use in loading **page**.
 
 ````jsx
 import { Spin } from 'antd';
@@ -12,10 +19,14 @@ import { Spin } from 'antd';
 ReactDOM.render(
   <div>
     <Spin size="small" />
-    <br />
     <Spin />
-    <br />
     <Spin size="large" />
   </div>
 , mountNode);
 ````
+
+<style>
+.ant-spin {
+  margin-right: 16px;
+}
+</style>

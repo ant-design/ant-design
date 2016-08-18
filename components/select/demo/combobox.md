@@ -1,10 +1,21 @@
-# 智能提示
+---
+order: 4
+title: 
+  zh-CN: 智能提示
+  en-US: Automatic completion
+---
 
-- order: 4
+## zh-CN
 
 输入框自动完成功能，下面是一个账号注册表单的例子。
 
----
+推荐使用 [AutoComplete](/components/auto-complete) 组件。
+
+## en-US
+
+Automatic completion of select input. 
+
+Using the [AutoComplete](/components/auto-complete) component is strongly recommended instead as it is more flexible and capable.
 
 
 ````jsx
@@ -14,7 +25,7 @@ const Option = Select.Option;
 const Test = React.createClass({
   getInitialState() {
     return {
-      options: []
+      options: [],
     };
   },
   handleChange(value) {
@@ -36,11 +47,12 @@ const Test = React.createClass({
         style={{ width: 200 }}
         onChange={this.handleChange}
         filterOption={false}
-        placeholder="请输入账户名">
+        placeholder="请输入账户名"
+      >
         {this.state.options}
       </Select>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Test />, mountNode);

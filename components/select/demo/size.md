@@ -1,10 +1,17 @@
-# 三种大小
+---
+order: 0
+title: 
+  zh-CN: 三种大小
+  en-US: Three sizes
+---
 
-- order: 0
+## zh-CN
 
 三种大小的选择框，当 size 分别为 `large` 和 `small` 时，输入框高度为 `32px` 和 `22px` ，默认高度为 `28px`
 
----
+## en-US
+
+The height of the inpub field for the select defaults to 28px. If size is set to large, the height will be 32px, and if set to small, 22px.
 
 ````jsx
 import { Select } from 'antd';
@@ -41,5 +48,9 @@ ReactDOM.render(
 ````css
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
+}
+
+#components-select-demo-search-box .code-box-demo .ant-select {
+  margin: 0;
 }
 ````

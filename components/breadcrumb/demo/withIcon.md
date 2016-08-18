@@ -1,10 +1,17 @@
-# 带有图标的
+---
+order: 1
+title:
+  zh-CN: 带有图标的
+  en-US: With an Icon
+---
 
-- order: 1
+## zh-CN
 
 图标放在文字前面。
 
----
+## en-US
+
+The icon should be placed in front of the text.
 
 ````jsx
 import { Breadcrumb, Icon } from 'antd';
@@ -16,12 +23,11 @@ ReactDOM.render(
     </Breadcrumb.Item>
     <Breadcrumb.Item href="">
       <Icon type="user" />
-      应用列表
+      <span>Application List</span>
     </Breadcrumb.Item>
     <Breadcrumb.Item>
-      应用
+      Application
     </Breadcrumb.Item>
   </Breadcrumb>
 , mountNode);
 ````
-

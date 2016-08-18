@@ -1,39 +1,47 @@
-# 多选
+---
+order: 2
+title:
+  zh-CN: 多选
+  en-US: Multiple
+---
 
-- order: 2
+## zh-CN
 
 多选和勾选框功能。
 
----
+## en-US
+
+Multiple and checkable.
 
 ````jsx
 import { TreeSelect } from 'antd';
+const SHOW_PARENT = TreeSelect.SHOW_PARENT;
 
 const treeData = [{
-  label: '节点一',
+  label: 'Node1',
   value: '0-0',
   key: '0-0',
   children: [{
-    label: '子节点一',
+    label: 'Child Node1',
     value: '0-0-0',
     key: '0-0-0',
-  }, {
-    label: '子节点二',
-    value: '0-0-1',
-    key: '0-0-1',
   }],
 }, {
-  label: '节点二',
+  label: 'Node2',
   value: '0-1',
   key: '0-1',
   children: [{
-    label: '子节点三',
+    label: 'Child Node3',
     value: '0-1-0',
     key: '0-1-0',
   }, {
-    label: '子节点四',
+    label: 'Child Node4',
     value: '0-1-1',
     key: '0-1-1',
+  }, {
+    label: 'Child Node5',
+    value: '0-1-2',
+    key: '0-1-2',
   }],
 }];
 
@@ -54,7 +62,8 @@ const Demo = React.createClass({
       onChange: this.onChange,
       multiple: true,
       treeCheckable: true,
-      searchPlaceholder: '请选择',
+      showCheckedStrategy: SHOW_PARENT,
+      searchPlaceholder: 'Please select',
       style: {
         width: 300,
       },

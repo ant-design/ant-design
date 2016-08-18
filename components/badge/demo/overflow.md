@@ -1,10 +1,17 @@
-# 封顶数字
+---
+order: 6
+title:
+  zh-CN: 封顶数字
+  en-US: Customized overflow count
+---
 
-- order: 6
+## zh-CN
 
 超过 `overflowCount` 的会显示为 `${overflowCount}+`。
 
----
+## en-US
+
+`${overflowCount}+` is displayed when count is larger than `overflowCount`.
 
 ````jsx
 import { Badge } from 'antd';

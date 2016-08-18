@@ -1,10 +1,17 @@
-# 选择框属性
+---
+order: 3
+title:
+  en-US: Checkbox props
+  zh-CN: 选择框属性
+---
 
-- order: 3
+## zh-CN
 
 配置选择框的默认属性。
 
----
+## en-US
+
+Set props to Checkbox or Radio.
 
 ````jsx
 import { Table } from 'antd';
@@ -12,50 +19,36 @@ import { Table } from 'antd';
 const columns = [{
   title: '姓名',
   dataIndex: 'name',
-  render(text) {
-    return <a href="#">{text}</a>;
-  }
+  render: text => <a href="#">{text}</a>,
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 // 通过 rowSelection 对象表明需要行选择
 const rowSelection = {
-  getCheckboxProps(record) {
-    return {
-      defaultChecked: record.name === '李大嘴', // 配置默认勾选的列
-      disabled: record.name === '胡彦祖'    // 配置无法勾选的列
-    };
-  },
-  onChange(selectedRowKeys) {
-    console.log(`selectedRowKeys changed: ${selectedRowKeys}`);
-  },
-  onSelect(record, selected, selectedRows) {
-    console.log(record, selected, selectedRows);
-  },
-  onSelectAll(selected, selectedRows) {
-    console.log(selected, selectedRows);
-  },
+  getCheckboxProps: record => ({
+    disabled: record.name === '胡彦祖',    // 配置无法勾选的列
+  }),
 };
 
 ReactDOM.render(<Table rowSelection={rowSelection} columns={columns} dataSource={data} />

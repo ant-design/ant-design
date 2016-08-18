@@ -13,7 +13,7 @@ The following guidelines are about *How to avoid Homework Questions*.
 
 ### 1. Read the documentation.
 
-It sad but true that someone just glance(not read) [Ant Design's documentation](http://ant.design/). Please read the documentation closely. What's more, you can modify and run our demo with [CodePen](http://codepen.io/anon/pen/pgdXYp?editors=001). It's helpful to understand our documentation.
+It sad but true that someone just glance(not read) [Ant Design's documentation](http://ant.design/). Please read the documentation closely. What's more, you can modify and run our demo with [CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001). It's helpful to understand our documentation.
 
 Tips: choose the corresponding documentation with versions selector which in the bottom-right corner.
 
@@ -36,7 +36,7 @@ It is a good habit which will save maintainers' time. Thank you!
 
 ## Providing a demo while reporting a bug
 
-It would be helpful to provide a demo which can re-produce the bug 100%. Please fork this [CodePen](http://codepen.io/anon/pen/pgdXYp?editors=001) and re-produce the bug you met. Then, create an issue. The most important thing is: double check before claiming that you have found a bug.
+It would be helpful to provide a demo which can re-produce the bug 100%. Please fork this [CodePen](http://codepen.io/anon/pen/wGOWGW?editors=001) and re-produce the bug you met. Then, create an issue. The most important thing is: double check before claiming that you have found a bug.
 
 
 ## Tips about Feature Request

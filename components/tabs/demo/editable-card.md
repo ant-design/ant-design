@@ -1,10 +1,15 @@
-# 新增和关闭页签
+---
+order: 9
+title: 新增和关闭页签
+---
 
-- order: 9
+## zh-CN
 
 只有卡片样式的页签支持新增和关闭选项。
 
----
+## en-US
+
+Only card type Tabs support adding & closeable.
 
 ````jsx
 import { Tabs } from 'antd';
@@ -14,8 +19,8 @@ const Demo = React.createClass({
   getInitialState() {
     this.newTabIndex = 0;
     const panes = [
-      <TabPane tab="选项卡" key="1">选项卡一内容</TabPane>,
-      <TabPane tab="选项卡" key="2">选项卡二内容</TabPane>,
+      { title: 'Tab 1', content: 'Content of Tab 1', key: '1' },
+      { title: 'Tab 2', content: 'Content of Tab 2', key: '2' },
     ];
     return {
       activeKey: panes[0].key,
@@ -31,7 +36,7 @@ const Demo = React.createClass({
   add() {
     const panes = this.state.panes;
     const activeKey = `newTab${this.newTabIndex++}`;
-    panes.push(<TabPane tab="新建页签" key={activeKey}>新页面</TabPane>);
+    panes.push({ title: 'New Tab', content: 'Content of new Tab', key: activeKey });
     this.setState({ panes, activeKey });
   },
   remove(targetKey) {
@@ -50,12 +55,16 @@ const Demo = React.createClass({
   },
   render() {
     return (
-      <Tabs onChange={this.onChange} activeKey={this.state.activeKey}
-        type="editable-card" onEdit={this.onEdit}>
-        {this.state.panes}
+      <Tabs
+        onChange={this.onChange}
+        activeKey={this.state.activeKey}
+        type="editable-card"
+        onEdit={this.onEdit}
+      >
+        {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
       </Tabs>
     );
-  }
+  },
 });
 
 ReactDOM.render(<Demo />, mountNode);

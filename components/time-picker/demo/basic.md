@@ -1,19 +1,23 @@
-# 基本
+---
+order: 0
+title: 
+  zh-CN: 基本
+  en-US: Basic
+---
 
--	order: 0
+## zh-CN
 
 最简单的用法。
 
----
+## en-US  
+
+The most basic usage. 
 
 ````jsx
 import { TimePicker } from 'antd';
 
-function onChange(time) {
-  console.log(time);
-  if (time) {
-    console.log(time.toLocaleTimeString('zh-CN', { hour12: false })); // Get time string
-  }
+function onChange(time, timeString) {
+  console.log(time, timeString);
 }
 
 ReactDOM.render(

@@ -1,10 +1,17 @@
-# 基本
+---
+order: 0
+title:
+  zh-CN: 基本
+  en-US: Basic
+---
 
-- order: 0
+## zh-CN
 
 最简单的用法。
 
----
+## en-US
+
+Basic usage.
 
 ````jsx
 import { Carousel } from 'antd';

@@ -1,10 +1,9 @@
-# 主题
-
-- order: 4
+---
+order: 4
+title: 主题
+---
 
 内建了两套主题 `light|dark`，默认 `light`。
-
----
 
 ````jsx
 import { Menu, Icon, Switch } from 'antd';
@@ -13,18 +12,18 @@ const SubMenu = Menu.SubMenu;
 const Sider = React.createClass({
   getInitialState() {
     return {
-      theme: 'light'
+      theme: 'light',
     };
   },
   changeTheme(value) {
     this.setState({
-      theme: value ? 'dark' : 'light'
+      theme: value ? 'dark' : 'light',
     });
   },
   handleClick(e) {
     console.log('click ', e);
     this.setState({
-      current: e.key
+      current: e.key,
     });
   },
   render() {
@@ -38,7 +37,8 @@ const Sider = React.createClass({
           style={{ width: 240 }}
           defaultOpenKeys={['sub1']}
           selectedKeys={[this.state.current]}
-          mode="inline">
+          mode="inline"
+        >
           <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
             <Menu.Item key="1">选项1</Menu.Item>
             <Menu.Item key="2">选项2</Menu.Item>
@@ -62,8 +62,7 @@ const Sider = React.createClass({
         </Menu>
       </div>
     );
-  }
+  },
 });
 ReactDOM.render(<Sider />, mountNode);
 ````
-

@@ -1,40 +1,59 @@
-# 信息提示
+---
+order: 5
+title: 
+  zh-CN: 信息提示
+  en-US: Infomation modal dialog
+---
 
-- order: 5
+## zh-CN
 
 各种类型的信息提示，只提供一个按钮用于关闭。
 
----
+## en-US
+
+In the various types of informaion modal dialog, only one button to close dialog is provided.
 
 ````jsx
 import { Modal, Button } from 'antd';
 
 function info() {
   Modal.info({
-    title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息',
-    onOk() {}
+    title: 'This is a notification message',
+    content: (
+      <div>
+        <p>some messages...some messages...</p>
+        <p>some messages...some messages...</p>
+      </div>
+    ),
+    onOk() {},
   });
 }
 
 function success() {
   Modal.success({
-    title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息'
+    title: 'This is a success message',
+    content: 'some messages...some messages...',
   });
 }
 
 function error() {
   Modal.error({
-    title: '这是一条通知信息',
-    content: '一些附加信息一些附加信息一些附加信息'
+    title: 'This is an error message',
+    content: 'some messages...some messages...',
+  });
+}
+
+function warning() {
+  Modal.warning({
+    title: 'This is a warning messge',
+    content: 'some messages...some messages...',
   });
 }
 
 ReactDOM.render(<div>
-  <Button onClick={info}>信息提示</Button>
-  <Button onClick={success}>成功提示</Button>
-  <Button onClick={error}>失败提示</Button>
+  <Button onClick={info}>Info</Button>
+  <Button onClick={success}>Success</Button>
+  <Button onClick={error}>Error</Button>
+  <Button onClick={warning}>Warning</Button>
 </div>, mountNode);
 ````
-

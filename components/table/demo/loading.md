@@ -1,50 +1,57 @@
-# 加载中的表格
+---
+order: 14
+title:
+  en-US: Loading
+  zh-CN: 加载中的表格
+---
 
-- order: 14
+## zh-CN
 
 用属性 `loading` 控制表格加载中状态。
 
----
+## en-US
+
+Controll loading states by `loading` property.
 
 ````jsx
 import { Table, Button } from 'antd';
 
 const columns = [{
   title: '姓名',
-  dataIndex: 'name'
+  dataIndex: 'name',
 }, {
   title: '年龄',
-  dataIndex: 'age'
+  dataIndex: 'age',
 }, {
   title: '住址',
-  dataIndex: 'address'
+  dataIndex: 'address',
 }];
 const data = [{
   key: '1',
   name: '胡彦斌',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '2',
   name: '胡彦祖',
   age: 42,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }, {
   key: '3',
   name: '李大嘴',
   age: 32,
-  address: '西湖区湖底公园1号'
+  address: '西湖区湖底公园1号',
 }];
 
 const App = React.createClass({
   getInitialState() {
     return {
-      loading: false
+      loading: false,
     };
   },
   toggleLoading() {
     this.setState({
-      loading: !this.state.loading
+      loading: !this.state.loading,
     });
   },
   render() {
@@ -54,7 +61,7 @@ const App = React.createClass({
         <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
       </div>
     );
-  }
+  },
 });
 
 ReactDOM.render(<App />, mountNode);

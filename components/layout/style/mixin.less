@@ -1,0 +1,88 @@
+@import "../../style/mixins/index";
+
+// mixins for grid system
+// ------------------------
+.make-row(@gutter: @grid-gutter-width) {
+  position: relative;
+  margin-left: (@gutter / -2);
+  margin-right: (@gutter / -2);
+  height: auto;
+  .clearfix;
+}
+
+.make-grid-columns() {
+  .col(@index) {
+    @item: ~".ant-col-@{index}, .ant-col-xs-@{index}, .ant-col-sm-@{index}, .ant-col-md-@{index}, .ant-col-lg-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) {
+    @item: ~".ant-col-@{index}, .ant-col-xs-@{index}, .ant-col-sm-@{index}, .ant-col-md-@{index}, .ant-col-lg-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) {
+    @{list} {
+      position: relative;
+      // Prevent columns from collapsing when empty
+      min-height: 1px;
+      padding-left:  (@grid-gutter-width / 2);
+      padding-right: (@grid-gutter-width / 2);
+    }
+  }
+  .col(1);
+}
+
+.float-grid-columns(@class) {
+  .col(@index) { // initial
+    @item: ~".ant-col@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+  .col(@index, @list) when (@index =< @grid-columns) { // general
+    @item: ~".ant-col@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+  .col(@index, @list) when (@index > @grid-columns) { // terminal
+    @{list} {
+      float: left;
+      flex: 0 0 auto;
+    }
+  }
+  .col(1); // kickstart it
+}
+
+// lesshint false
+.loop-grid-columns(@index, @class) when (@index > 0) {
+  .ant-col@{class}-@{index} {
+    display: block;
+    width: percentage((@index / @grid-columns));
+  }
+  .ant-col@{class}-push-@{index} {
+    left: percentage((@index / @grid-columns));
+  }
+  .ant-col@{class}-pull-@{index} {
+    right: percentage((@index / @grid-columns));
+  }
+  .ant-col@{class}-offset-@{index} {
+    margin-left: percentage((@index / @grid-columns));
+  }
+  .ant-col@{class}-order-@{index} {
+    order: @index;
+  }
+  .loop-grid-columns((@index - 1), @class);
+}
+
+.loop-grid-columns(@index, @class) when (@index = 0) {
+  .ant-col@{class}-@{index} {
+    display: none;
+  }
+  .ant-col-push-@{index} {
+    left: auto;
+  }
+  .ant-col-pull-@{index} {
+    right: auto;
+  }
+}
+
+.make-grid(@class: ~'') {
+  .float-grid-columns(@class);
+  .loop-grid-columns(@grid-columns, @class);
+}

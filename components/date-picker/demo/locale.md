@@ -1,31 +1,28 @@
-# 国际化
-
-- order: 10
-
-通过 `locale` 配置时区、语言等, 默认支持 en_US, zh_CN
-
 ---
+order: 10
+title: 
+  zh-CN: 国际化
+  en-US: Locale
+---
+
+## zh-CN
+
+通过 `locale` 配置时区、语言等, 默认支持 `en_US`，`zh_CN`。
+
+## en-US
+
+Use locale to set the properties like time zone, language and etc. en_US, zh_CN are supported by default.
+
 
 ````jsx
 import { DatePicker } from 'antd';
 import enUS from 'antd/lib/date-picker/locale/en_US';
-import assign from 'object-assign';
 
-const App = React.createClass({
-  getInitialState() {
-    return {
-      locale: assign({}, enUS, {
-        timezoneOffset: 0 * 60,
-        firstDayOfWeek: 0,
-        minimalDaysInFirstWeek: 1,
-      })
-    };
-  },
-  render() {
-    return <DatePicker locale={this.state.locale} />;
-  }
-});
+const customLocale = {
+  timezoneOffset: 0 * 60,
+  firstDayOfWeek: 0,
+  minimalDaysInFirstWeek: 1,
+};
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<DatePicker locale={{ ...enUS, ...customLocale }} />, mountNode);
 ````
-

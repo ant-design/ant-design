@@ -1,57 +1,33 @@
-# 图标按钮
-
-- order: 6
-
-`Button` 内可以嵌套图标，图标可以放在文字前、后，也可以单独存在。
-
+---
+order: 1
+title:
+  zh-CN: 图标按钮
+  en-US: Icon
 ---
 
+## zh-CN
+
+当需要在 `Button` 内嵌入 `Icon` 时，可以设置 `icon` 属性，或者直接在 `Button` 内使用 `Icon` 组件。
+
+如果想控制 `Icon` 具体的位置，只能直接使用 `Icon` 组件，而非 `icon` 属性。
+
+## en-US
+
+`Button` components can contain an `Icon`. This is done by setting the `icon` property or placing an `Icon` component within the `Button`
+
+If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
+
 ````jsx
-import { Button, Icon } from 'antd';
+import { Button } from 'antd';
 
-ReactDOM.render(<div>
-  <Button type="primary" shape="circle" size="large">
-    <Icon type="search" />
-  </Button>
-  <Button type="primary" size="large">
-    <Icon type="search" />
-  大按钮
-  </Button>
-
-  <Button type="primary" shape="circle">
-    <Icon type="search" />
-  </Button>
-  <Button type="primary">
-    <Icon type="search" />
-  中按钮
-  </Button>
-
-  <Button type="primary" shape="circle" size="small">
-    <Icon type="search" />
-  </Button>
-  <Button type="primary" size="small">
-    <Icon type="search" />
-  小按钮
-  </Button>
-
-  <br />
-
-  <Button type="ghost" shape="circle-outline" size="large">
-    <Icon type="search" />
-  </Button>
-  <Button type="ghost" shape="circle-outline">
-    <Icon type="search" />
-  </Button>
-  <Button type="ghost" shape="circle-outline" size="small">
-    <Icon type="search" />
-  </Button>
-</div>,
-mountNode);
+ReactDOM.render(
+  <div>
+    <Button type="primary" shape="circle" icon="search" />
+    <Button type="primary" icon="search">搜索</Button>
+    <br />
+    <Button type="ghost" shape="circle-outline" icon="search" />
+    <Button type="ghost" icon="search">Search</Button>
+  </div>,
+  mountNode
+);
 ````
-
-<style>
-#components-button-demo-icon .ant-btn {
-  margin-right: 8px;
-  margin-bottom: 12px;
-}
-</style>

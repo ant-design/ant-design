@@ -1,21 +1,28 @@
-# 附加内容
+---
+order: 4
+title: 附加内容
+---
 
-- order: 4
+## zh-CN
 
 可以在页签右边添加附加操作。
 
----
+## en-US
+
+You can add extra actions to the right of Tabs.
+
 
 ````jsx
 import { Tabs, Button } from 'antd';
 const TabPane = Tabs.TabPane;
 
-const operations = <Button>额外操作</Button>;
+const operations = <Button>Extra Action</Button>;
 
 ReactDOM.render(
-<Tabs tabBarExtraContent={operations}>
-  <TabPane tab="选项卡一" key="1">选项卡一内容</TabPane>
-  <TabPane tab="选项卡二" key="2">选项卡二内容</TabPane>
-  <TabPane tab="选项卡三" key="3">选项卡三内容</TabPane>
-</Tabs>, mountNode);
+  <Tabs tabBarExtraContent={operations}>
+    <TabPane tab="Tab 1" key="1">Content of tab 1</TabPane>
+    <TabPane tab="Tab 2" key="2">Content of tab 2</TabPane>
+    <TabPane tab="Tab 3" key="3">Content of tab 3</TabPane>
+  </Tabs>
+, mountNode);
 ````

@@ -1,0 +1,151 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../checkbox/style/mixin";
+
+@transfer-prefix-cls: ant-transfer;
+.antCheckboxFn(@checkbox-prefix-cls: ant-transfer-checkbox);
+
+.@{transfer-prefix-cls} {
+  position: relative;
+  line-height: @line-height-base;
+
+  &-list {
+    font-size: 12px;
+    border: 1px solid @border-color-base;
+    display: inline-block;
+    border-radius: @border-radius-base;
+    vertical-align: middle;
+    position: relative;
+    width: 160px;
+    height: 200px;
+    padding-top: 33px;
+
+    &-with-footer {
+      padding-bottom: 33px;
+    }
+
+    &-search {
+      &-action {
+        color: #ccc;
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        font-size: 14px;
+        .anticon {
+          transition: all .3s;
+          font-size: 12px;
+          color: #ccc;
+          &:hover {
+            color: #999;
+          }
+        }
+      }
+    }
+
+    &-header {
+      padding: 7px 16px;
+      border-radius: @border-radius-base @border-radius-base 0 0;
+      background: #fff;
+      color: #666;
+      border-bottom: 1px solid @border-color-split;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      &-title {
+        float: right;
+      }
+    }
+
+    &-body {
+      font-size: 12px;
+      position: relative;
+      height: 100%;
+
+      &-search-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 28px;
+        padding: 4px;
+        width: 100%;
+      }
+
+      &-not-found {
+        padding-top: 24px;
+        color: #ccc;
+        text-align: center;
+        height: 100%;
+      }
+
+      ul {
+        height: 100%;
+        overflow: auto;
+        li {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          padding: 7px 16px;
+          transition: all 0.3s ease;
+          &:hover {
+            cursor: pointer;
+            background-color: tint(@primary-color, 90%);
+          }
+        }
+      }
+    }
+
+    ul li&-highlight-enter {
+      animation: transferHighlightIn 1s ease;
+      transition: none;
+    }
+
+    &-body-with-search {
+      padding-top: 34px;
+    }
+
+    &-footer {
+      border-top: 1px solid @border-color-split;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  &-operation {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 8px;
+    vertical-align: middle;
+
+    .ant-btn {
+      float: left;
+      clear: both;
+
+      &:first-child {
+        margin-bottom: 4px;
+      }
+
+      .anticon {
+        .iconfont-size-under-12px(8px);
+      }
+    }
+  }
+}
+
+@keyframes transferHighlightIn {
+  0% {
+    background: tint(@primary-color, 80%);
+  }
+  100% {
+    background: transparent;
+  }
+}

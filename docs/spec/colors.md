@@ -1,80 +1,22 @@
-# 色彩
-
-- category: 基础
-- order: 2
-
+---
+category: 设计基础
+order: 2
+chinese: 色彩
+english: Colors
 ---
 
 ## 有意义的色彩
 
-色彩在界面设计中的使用应同时具备品牌识别性以及界面设计功能性。众所周知色彩是相当感性的东西，设计中对色彩的运用首要应考虑到品牌层面的表达，另外很重要的一点是色彩的运用应达到信息传递，动作指引，交互反馈，或是强化和凸现某一个元素的目的。任何颜色的选取和使用应该是有意义的。众所周知色彩是相当感性的东西，设计中对色彩的运用首要应考虑到品牌层面的表达，另外很重要的一点是色彩的运用应达到信息传递，动作指引，交互反馈，或是强化和凸现某一个元素的目的。任何颜色的选取和使用应该是有意义的。
+色彩在界面设计中的使用应同时具备品牌识别性以及界面设计功能性。色彩是相当感性的东西，设计中对色彩的运用首要应考虑到品牌层面的表达，另外很重要的一点是色彩的运用应达到信息传递，动作指引，交互反馈，或是强化和凸现某一个元素的目的。任何颜色的选取和使用应该是有意义的。
 
-## ANTD Color
+## Ant Design Colors
 
 Ant Design 的色板由 9 种基本色彩组成，每种基本色又衍生出九宫格色板，在此基础上还可以通过黑白叠加的方式实现色彩明暗的效果。
 
-<div id="extend-palettes"></div>
-
-## 色彩和交互
-
-设计元素本身由于交互行为会引发一系列细微的视觉变化，而元素本身的颜色变化有时也能很好的实现这一目的。在进行这类设计的同时，建议采取在颜色上添加黑色或者白色并按照 `n+5%` 的规律递增的方式来实现。以下图为例，当鼠标 hover 某个特定元素，就视为浮起，对应颜色就相应增加白色叠加，相反点击的行为可以理解为按下去，在颜色上就相应的增加黑色的叠加。
-
-<img src="https://t.alipayobjects.com/images/T1ZHxhXdNmXXXXXXXX.png" width="100%">
-
-<img src="https://t.alipayobjects.com/images/T1fZJhXahgXXXXXXXX.png" width="100%">
-
-## 色彩识别
-
-合适的色彩对比为信息传达加分，同时也应放考虑到有颜色识别障碍人群的需求。我们将每种主色衍生出来的颜色进行了打标，在考虑对比颜色的选择时建议两种颜色对应标签数值的差要大于等于 5。
-
-<img src="https://t.alipayobjects.com/images/rmsweb/T1hLphXgXcXXXXXXXX.png" width="100%">
-
-<img src="https://t.alipayobjects.com/images/rmsweb/T1v2phXj8bXXXXXXXX.png" width="100%">
-
-<style>
-.color-palette {
-  margin: 45px 0;
-  overflow: hidden;
-  width: 80%;
-  height: 165px;
-}
-.main-color {
-  width: 165px;
-  height: 165px;
-  float: left;
-}
-.main-color div {
-  width: 50px;
-  height: 50px;
-  border-radius: 4px;
-  float: left;
-  margin: 0 5px 5px 0;
-}
-
-.color-palette .color-msg {
-  margin-left: 180px;
-}
-
-.color-msg .color-msg-title {
-  margin: 0;
-  font-weight: 600;
-  color: #5C6B77;
-  line-height: 1.8;
-  font-size: 21px;
-}
-
-.color-msg .color-msg-description {
-  color: #777;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-top: 16px;
-}
-</style>
-
-`````jsx
-let Palette = React.createClass({
+`````__react
+const Palette = React.createClass({
   render() {
-    let color = this.props.color;
+    const color = this.props.color;
     return <div className="color-palette">
       <div className="main-color">
         {color.colors.map(function(color) {
@@ -88,9 +30,9 @@ let Palette = React.createClass({
     </div>;
   }
 });
-let ExtendPalettes = React.createClass({
+const ExtendPalettes = React.createClass({
   render() {
-    let colors = [
+    const colors = [
       {
         'title': 'Primary Color',
         'description': '尽管同一种颜色传达的含义会因人而异，受到文化和地域的影响。但颜色还是可以提取出一些共通的特性，例如暖色系的红、橙、黄通常用于象征活力，激情，积极；而冷色系的绿、蓝、紫通常给人感觉是安全、稳定、专业。',
@@ -128,11 +70,11 @@ let ExtendPalettes = React.createClass({
         ]
       },
       {
-        'title': 'Blue #00A0E8',
+        'title': 'Blue #00A0E9',
         'description': '这里的蓝色沿用的是蚂蚁金服的品牌色，深蓝色的运用可以传递出可靠和稳定的情绪，而浅蓝色系则更为友好和清新，同时还代表了科技感与想象力。在很多专业类、管理类的后台系统设计中蓝色系常常会被选择作为设计的主色来使用。',
         'colors': [
           "#CCE4F6", "#95CCF5", "#6AC2F5",
-          "#1D80D3", "#00A0E8", "#2DB7F5",
+          "#1D80D3", "#00A0E9", "#2DB7F5",
           "#1F5AA3", "#0B366A", "#08172F"
         ]
       },
@@ -189,26 +131,38 @@ let ExtendPalettes = React.createClass({
     </div>;
   }
 });
-ReactDOM.render(<ExtendPalettes />, document.getElementById('extend-palettes'));
+ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 `````
+
+## 色彩和交互
+
+设计元素本身由于交互行为会引发一系列细微的视觉变化，而元素本身的颜色变化有时也能很好的实现这一目的。在进行这类设计的同时，建议采取在颜色上添加黑色或者白色并按照 `n+5%` 的规律递增的方式来实现。以下图为例，当鼠标 hover 某个特定元素，就视为浮起，对应颜色就相应增加白色叠加，相反点击的行为可以理解为按下去，在颜色上就相应的增加黑色的叠加。
+
+<img src="https://t.alipayobjects.com/images/T1ZHxhXdNmXXXXXXXX.png" width="100%">
+
+<img src="https://t.alipayobjects.com/images/T1fZJhXahgXXXXXXXX.png" width="100%">
+
+## 色彩识别
+
+合适的色彩对比为信息传达加分，同时也应放考虑到有颜色识别障碍人群的需求。我们将每种主色衍生出来的颜色进行了打标，在考虑对比颜色的选择时建议两种颜色对应标签数值的差要大于等于 5。
+
+<img src="https://t.alipayobjects.com/images/rmsweb/T1hLphXgXcXXXXXXXX.png" width="100%">
+
+<img src="https://t.alipayobjects.com/images/rmsweb/T1v2phXj8bXXXXXXXX.png" width="100%">
 
 ## 色彩换算工具
 
 > 正数为变淡 `tint` ，负数为加深 `shade`。
 
-<div id="color-tint-shade-tool"></div>
-
-Ant Design 专用色彩换算工具，用于解析类似 `#2db7f5 tint 80%` 的色彩标注。
-
-less 或 scss 语言可以直接使用 `tint(#2db7f5, 80%)` 和  `shade(#2db7f5, 80%)` 的语法。
-
-
-`````jsx
-let Button = antd.Button;
-let InputNumber = antd.InputNumber;
-let Slider = antd.Slider;
-let Tooltip = antd.Tooltip;
-let TintShadeTool = React.createClass({
+`````__react
+const Values = require('values.js');
+const CopyToClipboard = require('react-copy-to-clipboard');
+const antd = require('antd');
+const Button = antd.Button;
+const InputNumber = antd.InputNumber;
+const Slider = antd.Slider;
+const Tooltip = antd.Tooltip;
+const TintShadeTool = React.createClass({
   getInitialState() {
     return {
       result: '#2db7f5',
@@ -238,9 +192,9 @@ let TintShadeTool = React.createClass({
       });
       return;
     }
-    let tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
-    let c = new Values(this.state.color);
-    let resultColor = c[tintOrShade](Math.abs(this.state.value));
+    const tintOrShade = this.state.value > 0 ? 'tint' : 'shade';
+    const c = new Values(this.state.color);
+    const resultColor = c[tintOrShade](Math.abs(this.state.value));
     this.setState({
       result: '#' + resultColor.hex,
       darkBackground: resultColor.getBrightness() < 50
@@ -254,7 +208,7 @@ let TintShadeTool = React.createClass({
     });
   },
   render() {
-    var marks = {
+    const marks = {
       '-100': '加黑',
       '0': '原色',
       '100': '加白'
@@ -278,39 +232,9 @@ let TintShadeTool = React.createClass({
   }
 });
 
-ReactDOM.render(<TintShadeTool />, document.getElementById('color-tint-shade-tool'));
+ReactDOM.render(<TintShadeTool key="tintShadeTool" />, mountNode);
 `````
 
-<style>
-.color-block {
-  position: relative;
-  width: 60px;
-  border-radius: 6px;
-  height: 28px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 8px;
-  cursor: pointer;
-}
-.color-block:after {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  content: "Copied!";
-  font-size: 12px;
-  line-height: 28px;
-  text-align: center;
-  color: #444;
-  transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  opacity: 0;
-}
-.color-block.copied:after {
-  opacity: 1;
-  top: 0;
-}
-.color-block.dark:after {
-  color: #fff;
-}
-</style>
+Ant Design 专用色彩换算工具，用于解析类似 `#2db7f5 tint 80%` 的色彩标注。
+
+less 或 scss 语言可以直接使用 `tint(#2db7f5, 80%)` 和  `shade(#2db7f5, 80%)` 的语法。

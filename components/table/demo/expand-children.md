@@ -1,10 +1,21 @@
-# 树形数据展示
+---
+order: 15
+title:
+  en-US: Tree data
+  zh-CN: 树形数据展示
+---
 
-- order: 16
+## zh-CN
 
 表格支持树形数据的展示，可以通过设置 `indentSize` 以控制每一层的缩进宽度。
 
----
+> 注：暂不支持父子数据递归关联选择。
+
+## en-US
+
+Display tree structure data in Table, control the indent width by setting `indentSize`.
+
+> Note, no support for recursive selection of tree structure data table yet.
 
 ````jsx
 import { Table } from 'antd';
@@ -77,8 +88,21 @@ const data = [{
   address: '我是b',
 }];
 
+// 通过 rowSelection 对象表明需要行选择
+const rowSelection = {
+  onChange(selectedRowKeys, selectedRows) {
+    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
+  },
+  onSelect(record, selected, selectedRows) {
+    console.log(record, selected, selectedRows);
+  },
+  onSelectAll(selected, selectedRows, changeRows) {
+    console.log(selected, selectedRows, changeRows);
+  },
+};
+
 ReactDOM.render(
-  <Table columns={columns} dataSource={data} indentSize={20} />,
+  <Table columns={columns} rowSelection={rowSelection} dataSource={data} />,
   mountNode
 );
 ````

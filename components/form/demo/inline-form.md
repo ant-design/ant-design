@@ -1,10 +1,17 @@
-# 平行排列
+---
+order: 1
+title: 
+  zh-CN: 平行排列
+  en-US: Inline form
+---
 
-- order: 1
+## zh-CN
 
 行内排列，常用于登录界面。
 
----
+## en-US
+
+Inline form is often used for login. 
 
 ````jsx
 import { Form, Input, Button, Checkbox } from 'antd';
@@ -13,7 +20,7 @@ const FormItem = Form.Item;
 let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    console.log('收到表单值：', this.props.form.getFieldsValue());
+    console.log('Received values of form:', this.props.form.getFieldsValue());
   },
 
   render() {
@@ -21,25 +28,26 @@ let Demo = React.createClass({
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <FormItem
-          label="账户：">
-          <Input placeholder="请输入账户名"
-            {...getFieldProps('userName')} />
+          label="Account"
+        >
+          <Input placeholder="Please input the account"
+            {...getFieldProps('userName')}
+          />
         </FormItem>
         <FormItem
-          label="密码：">
-          <Input type="password" placeholder="请输入密码"
-            {...getFieldProps('password')} />
+          label="Password"
+        >
+          <Input type="password" placeholder="Please input the password"
+            {...getFieldProps('password')}
+          />
         </FormItem>
         <FormItem>
-          <label className="ant-checkbox-inline">
-            <Checkbox
-              {...getFieldProps('agreement')} />记住我
-          </label>
+          <Checkbox {...getFieldProps('agreement')}>Remember me</Checkbox>
         </FormItem>
-        <Button type="primary" htmlType="submit">登录</Button>
+        <Button type="primary" htmlType="submit">Submit</Button>
       </Form>
     );
-  }
+  },
 });
 
 Demo = Form.create()(Demo);

@@ -1,10 +1,17 @@
-# 基本
+---
+order: 0
+title:
+  zh-CN: 基本
+  en-US: Basic
+---
 
-- order: 0
+## zh-CN
 
 基础分页。
 
----
+## en-US
+
+Basic pagination.
 
 ````jsx
 import { Pagination } from 'antd';

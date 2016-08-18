@@ -1,16 +1,29 @@
-# 校验提示
+---
+order: 6
+title: 
+  zh-CN: 校验提示
+  en-US: Validation message
+---
 
-- order: 6
+## zh-CN
 
 我们为表单控件定义了三种校验状态，为 `<FormItem>` 定义 `validateStatus` 属性即可。
 
-validateStatus: ['success', 'warning', 'error', 'validating']。
+validateStatus: 'success', 'warning', 'error', 'validating'。
 
 另外为输入框添加反馈图标，设置 `<FormItem>` 的 `hasFeedback` 属性值为 `true` 即可。
 
 **注意**: 反馈图标只对 `<Input />` 有效。
 
----
+## en-US
+
+We provide three kinds of validation status for form. You can use it just define `validateStatus` property on `<FormItem>`.
+
+validateStatus: 'success', 'warning', 'error', 'validating'。
+
+To set `hasFeedback` property to `true` enable to display feed icon of input control.
+
+**PS**: Feed icon is just available for `<Input />`.
 
 ````jsx
 import { Form, Input, DatePicker, Col } from 'antd';
@@ -19,66 +32,73 @@ const FormItem = Form.Item;
 ReactDOM.render(
   <Form horizontal>
     <FormItem
-      label="失败校验："
+      label="Fail"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       validateStatus="error"
-      help="请输入数字和字母组合">
-      <Input defaultValue="无效选择" id="error" />
+      help="Please enter a combination of numbers and alphabets"
+    >
+      <Input defaultValue="unavailable choice" id="error" />
     </FormItem>
 
     <FormItem
-      label="警告校验："
+      label="Warning"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
-      validateStatus="warning">
-      <Input defaultValue="前方高能预警" id="warning" />
+      validateStatus="warning"
+    >
+      <Input defaultValue="Warning" id="warning" />
     </FormItem>
 
     <FormItem
-      label="校验中："
+      label="Validating"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="validating"
-      help="信息审核中...">
-      <Input defaultValue="我是被校验的内容" id="validating" />
+      help="The information is being validated..."
+    >
+      <Input defaultValue="I'm the content is being validated" id="validating" />
     </FormItem>
 
     <FormItem
-      label="成功校验："
+      label="Success"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
-      validateStatus="success">
-      <Input defaultValue="我是正文" id="success" />
+      validateStatus="success"
+    >
+      <Input defaultValue="I'm the content" id="success" />
     </FormItem>
 
     <FormItem
-      label="警告校验："
+      label="Warning"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
-      validateStatus="warning">
-      <Input defaultValue="前方高能预警" id="warning" />
+      validateStatus="warning"
+    >
+      <Input defaultValue="Warning" id="warning" />
     </FormItem>
 
     <FormItem
-      label="失败校验："
+      label="Fail"
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="error"
-      help="请输入数字和字母组合">
-      <Input defaultValue="无效选择" id="error" />
+      help="Please enter a combination of numbers and alphabets"
+    >
+      <Input defaultValue="unavailable choice" id="error" />
     </FormItem>
 
     <FormItem
-      label="Datepicker："
+      label="inline"
       labelCol={{ span: 5 }}
-      help>
+      help
+    >
       <Col span="6">
-        <FormItem validateStatus="error" help="请选择正确日期">
+        <FormItem validateStatus="error" help="Please select the correct date">
           <DatePicker />
         </FormItem>
       </Col>
@@ -89,25 +109,6 @@ ReactDOM.render(
         <FormItem>
           <DatePicker />
         </FormItem>
-      </Col>
-    </FormItem>
-
-    <FormItem
-      label="Datepicker："
-      labelCol={{ span: 5 }}
-      validateStatus="error"
-      help>
-      <Col span="6">
-        <DatePicker />
-      </Col>
-      <Col span="1">
-        <p className="ant-form-split">-</p>
-      </Col>
-      <Col span="6">
-        <DatePicker />
-      </Col>
-      <Col span="19" offset="5">
-        <p className="ant-form-explain">请选择正确日期</p>
       </Col>
     </FormItem>
   </Form>

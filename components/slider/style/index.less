@@ -1,0 +1,185 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+
+@slider-prefix-cls: ant-slider;
+// slider color
+@slider-disabled-color: #ccc;
+// tooltip
+@slider-tooltip-color: #fff;
+@slider-tooltip-bg: tint(#666, 4%);
+@slider-tooltip-arrow-width: 4px;
+@slider-tooltip-distance: @slider-tooltip-arrow-width + 4;
+@slider-tooltip-arrow-color: @slider-tooltip-bg;
+
+.@{slider-prefix-cls} {
+  position: relative;
+  margin: 10px 8px;
+  height: 12px;
+  border-radius: 5px;
+  background-color: #e9e9e9;
+  cursor: pointer;
+  border-top: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+  transition: background-color 0.3s ease;
+
+  &-track {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    border-radius: @border-radius-base;
+    background-color: tint(@primary-color, 60%);
+    z-index: 1;
+    transition: background-color 0.3s ease;
+  }
+
+  &:hover {
+    background-color: #e1e1e1;
+    .@{slider-prefix-cls}-handle {
+      border-color: tint(@primary-color, 20%);
+    }
+  }
+
+  &:hover &-track {
+    background-color: tint(@primary-color, 40%);
+  }
+
+  &-handle {
+    position: absolute;
+    margin-left: -7px;
+    margin-top: -5px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: solid 2px tint(@primary-color, 50%);
+    background-color: #fff;
+    z-index: 2;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: tint(@primary-color, 20%);
+    }
+
+    &:active {
+      box-shadow: 0 0 0 2px fadeout(@primary-color, 80%);
+    }
+  }
+
+  &-mark {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+    z-index: 3;
+  }
+
+  &-mark-text {
+    position: absolute;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+
+    &-active {
+      color: #666;
+    }
+  }
+
+  &-step {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: transparent;
+    z-index: 1;
+  }
+
+  &-dot {
+    position: absolute;
+    top: -2px;
+    margin-left: -4px;
+    width: 8px;
+    height: 8px;
+    border: 2px solid #e9e9e9;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    vertical-align: middle;
+    &:first-child {
+      margin-left: -4px;
+    }
+    &:last-child {
+      margin-left: -4px;
+    }
+    &-active {
+      border-color: tint(@primary-color, 50%);
+    }
+  }
+
+  &-disabled {
+    background-color: #e9e9e9 !important;
+
+    .@{slider-prefix-cls}-track {
+      background-color: @slider-disabled-color !important;
+    }
+
+    .@{slider-prefix-cls}-handle,
+    .@{slider-prefix-cls}-dot {
+      border-color: @slider-disabled-color!important;
+      background-color: #fff;
+      cursor: not-allowed;
+    }
+
+    .@{slider-prefix-cls}-mark-text,
+    .@{slider-prefix-cls}-dot {
+      cursor: not-allowed!important;
+    }
+  }
+
+  // slider tooltip style
+  &-tooltip {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    z-index: 4;
+    visibility: visible;
+
+    &-hidden {
+      display: none;
+    }
+
+    &-placement-points-bc-tc {
+      padding: @slider-tooltip-arrow-width 0 @slider-tooltip-distance 0;
+    }
+
+    &-inner {
+      padding: 6px;
+      min-width: 24px;
+      height: 24px;
+      font-size: @font-size-base;
+      line-height: 1;
+      color: @slider-tooltip-color;
+      text-align: center;
+      text-decoration: none;
+      background-color: @slider-tooltip-bg;
+      border-radius: @border-radius-base;
+    }
+
+    &-arrow {
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+    }
+
+    &-placement-points-bc-tc &-arrow {
+      bottom: @slider-tooltip-distance - @slider-tooltip-arrow-width;
+      left: 50%;
+      margin-left: -@slider-tooltip-arrow-width;
+      border-width: @slider-tooltip-arrow-width @slider-tooltip-arrow-width 0;
+      border-top-color: @slider-tooltip-arrow-color;
+    }
+  }
+}

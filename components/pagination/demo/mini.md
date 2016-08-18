@@ -1,10 +1,17 @@
-# 迷你
+---
+order: 4
+title:
+  zh-CN: 迷你
+  en-US: Mini size
+---
 
-- order: 4
+## zh-CN
 
 迷你版本。
 
----
+## en-US
+
+Mini size pagination.
 
 ````jsx
 import { Pagination } from 'antd';
