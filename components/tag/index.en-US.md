@@ -16,7 +16,7 @@ Tag for categorizing or markuping.
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| closable     |
-| onClose
-| afterClose
-| color
+| closable     | Tag can be closed.    | boolean  | false        |
+| onClose      | Callback when tag was closed| function(event)| - |
+| afterClose   | 
+| color        | Tag's color: `blue` `green` `yellow` `red` | string | - |
