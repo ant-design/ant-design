@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本
+title: 
+  zh-CN:基本
+  en-US:Basic
 ---
 
+## zh-CN
+
 最简单的用法，浮层的大小由内容区域决定。
+
+## en-US
+
+The most basic way. The size of the floating layer depends on the region of contents.
 
 ````jsx
 import { Popover, Button } from 'antd';

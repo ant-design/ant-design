@@ -1,9 +1,17 @@
 ---
 order: 3
-title: 从浮层内关闭
+title: 
+  zh-CN:从浮层内关闭
+  en-US:close in the floating layer
 ---
 
+## zh-CN
+
 使用 `visible` 属性控制浮层显示。
+
+## en-US
+
+use `visible` attribute to control the display of the floating layer.
 
 ````jsx
 import { Popover, Button } from 'antd';
