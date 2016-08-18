@@ -5,32 +5,42 @@ import classNames from 'classnames';
 import warning from 'warning';
 import shallowequal from 'shallowequal';
 
-function getScroll(w, top) {
-  let ret = w[`page${top ? 'Y' : 'X'}Offset`];
-  const method = `scroll${top ? 'Top' : 'Left'}`;
-  if (typeof ret !== 'number') {
-    const d = w.document;
-    // ie6,7,8 standard mode
-    ret = d.documentElement[method];
-    if (typeof ret !== 'number') {
-      // quirks mode
-      ret = d.body[method];
-    }
+function getScroll(target, top) {
+  const prop = top ? 'pageYOffset' : 'pageXOffset';
+  const method = top ? 'scrollTop' : 'scrollLeft';
+  const isWindow = target === window;
+
+  let ret = isWindow ? target[prop] : target[method];
+  // ie6,7,8 standard mode
+  if (isWindow && typeof ret !== 'number') {
+    ret = window.document.documentElement[method];
   }
+
   return ret;
 }
 
-function getOffset(element) {
-  const rect = element.getBoundingClientRect();
-  const body = document.body;
-  const clientTop = element.clientTop || body.clientTop || 0;
-  const clientLeft = element.clientLeft || body.clientLeft || 0;
-  const scrollTop = getScroll(window, true);
-  const scrollLeft = getScroll(window);
+function getTargetRect(target) {
+  return target !== window ?
+    target.getBoundingClientRect() :
+    { top: 0, left: 0, bottom: 0 };
+}
+
+function getOffset(element, target) {
+  const elemRect = element.getBoundingClientRect();
+  const targetRect = getTargetRect(target);
+
+  const scrollTop = getScroll(target, true);
+  const scrollLeft = getScroll(target, false);
+
+  const docElem = window.document.body;
+  const clientTop = docElem.clientTop || 0;
+  const clientLeft = docElem.clientLeft || 0;
 
   return {
-    top: rect.top + scrollTop - clientTop,
-    left: rect.left + scrollLeft - clientLeft,
+    top: elemRect.top - targetRect.top +
+      scrollTop - clientTop,
+    left: elemRect.left - targetRect.left +
+      scrollLeft - clientLeft,
   };
 }
 
@@ -38,9 +48,13 @@ export default class Affix extends React.Component {
   static propTypes = {
     offsetTop: React.PropTypes.number,
     offsetBottom: React.PropTypes.number,
+    target: React.PropTypes.func,
   }
 
   static defaultProps = {
+    target() {
+      return window;
+    },
     onChange() {},
   }
 
@@ -53,8 +67,10 @@ export default class Affix extends React.Component {
   }
 
   setAffixStyle(e, affixStyle) {
+    const { onChange, target } = this.props;
     const originalAffixStyle = this.state.affixStyle;
-    if (e.type === 'scroll' && originalAffixStyle && affixStyle) {
+    const isWindow = target() === window;
+    if (e.type === 'scroll' && originalAffixStyle && affixStyle && isWindow) {
       return;
     }
     if (shallowequal(affixStyle, originalAffixStyle)) {
@@ -64,7 +80,7 @@ export default class Affix extends React.Component {
       const affixed = !!this.state.affixStyle;
       if ((affixStyle && !originalAffixStyle) ||
           (!affixStyle && originalAffixStyle)) {
-        this.props.onChange(affixed);
+        onChange(affixed);
       }
     });
   }
@@ -80,19 +96,21 @@ export default class Affix extends React.Component {
     this.setState({ placeholderStyle });
   }
 
-  handleScroll = (e) => {
-    let { offsetTop, offsetBottom, offset } = this.props;
+  updatePosition = (e) => {
+    let { offsetTop, offsetBottom, offset, target } = this.props;
+    const targetNode = target();
 
     // Backwards support
     offsetTop = offsetTop || offset;
-    const scrollTop = getScroll(window, true);
-    const elemOffset = getOffset(ReactDOM.findDOMNode(this));
+    const scrollTop = getScroll(targetNode, true);
+    const elemOffset = getOffset(ReactDOM.findDOMNode(this), targetNode);
     const elemSize = {
-      width: ReactDOM.findDOMNode(this.refs.fixedNode).offsetWidth,
-      height: ReactDOM.findDOMNode(this.refs.fixedNode).offsetHeight,
+      width: this.refs.fixedNode.offsetWidth,
+      height: this.refs.fixedNode.offsetHeight,
     };
 
     const offsetMode = {};
+    // Default to `offsetTop=0`.
     if (typeof offsetTop !== 'number' && typeof offsetBottom !== 'number') {
       offsetMode.top = true;
       offsetTop = 0;
@@ -101,25 +119,30 @@ export default class Affix extends React.Component {
       offsetMode.bottom = typeof offsetBottom === 'number';
     }
 
+    const targetRect = getTargetRect(targetNode);
+    const targetInnerHeight = targetNode.innerHeight || targetNode.clientHeight;
     if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
       // Fixed Top
       this.setAffixStyle(e, {
         position: 'fixed',
-        top: offsetTop,
-        left: elemOffset.left,
+        top: targetRect.top + offsetTop,
+        left: targetRect.left + elemOffset.left,
         width: ReactDOM.findDOMNode(this).offsetWidth,
       });
       this.setPlaceholderStyle(e, {
         width: ReactDOM.findDOMNode(this).offsetWidth,
         height: ReactDOM.findDOMNode(this).offsetHeight,
       });
-    } else if (scrollTop < elemOffset.top + elemSize.height + offsetBottom - window.innerHeight &&
-               offsetMode.bottom) {
+    } else if (
+      scrollTop < elemOffset.top + elemSize.height + offsetBottom - targetInnerHeight &&
+        offsetMode.bottom
+    ) {
       // Fixed Bottom
+      const targetBottomOffet = targetNode === window ? 0 : (window.innerHeight - targetRect.bottom);
       this.setAffixStyle(e, {
         position: 'fixed',
-        bottom: offsetBottom,
-        left: elemOffset.left,
+        bottom: targetBottomOffet + offsetBottom,
+        left: targetRect.left + elemOffset.left,
         width: ReactDOM.findDOMNode(this).offsetWidth,
       });
       this.setPlaceholderStyle(e, {
@@ -134,17 +157,37 @@ export default class Affix extends React.Component {
 
   componentDidMount() {
     warning(!('offset' in this.props), '`offset` prop of Affix is deprecated, use `offsetTop` instead.');
-    this.scrollEvent = addEventListener(window, 'scroll', this.handleScroll);
-    this.resizeEvent = addEventListener(window, 'resize', this.handleScroll);
+
+    const target = this.props.target;
+    this.setTargetEventListeners(target);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.target !== nextProps.target) {
+      this.clearScrollEventListeners();
+      this.setTargetEventListeners(nextProps.target);
+
+      // Mock Event object.
+      this.updatePosition({});
+    }
   }
 
   componentWillUnmount() {
-    if (this.scrollEvent) {
-      this.scrollEvent.remove();
-    }
-    if (this.resizeEvent) {
-      this.resizeEvent.remove();
-    }
+    this.clearScrollEventListeners();
+  }
+
+  setTargetEventListeners(getTarget) {
+    const target = getTarget();
+    this.scrollEvent = addEventListener(target, 'scroll', this.updatePosition);
+    this.resizeEvent = addEventListener(target, 'resize', this.updatePosition);
+  }
+
+  clearScrollEventListeners() {
+    ['scrollEvent', 'resizeEvent'].forEach((name) => {
+      if (this[name]) {
+        this[name].remove();
+      }
+    });
   }
 
   render() {
@@ -155,6 +198,7 @@ export default class Affix extends React.Component {
     const props = { ...this.props };
     delete props.offsetTop;
     delete props.offsetBottom;
+    delete props.target;
 
     return (
       <div {...props} style={this.state.placeholderStyle}>
