@@ -27,7 +27,28 @@ function clearNextFrameAction(nextFrameId) {
   }
 }
 
-export default class Input extends Component {
+interface AutoSizeType {
+  minRows?: number;
+  maxRows?: number;
+};
+
+export interface InputProps {
+  prefixCls?: string;
+  type: string;
+  id?: number | string;
+  value?: any;
+  defaultValue?: any;
+  size?: 'large' | 'default' | 'small';
+  disabled?: boolean;
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
+  onPressEnter?: (e) => any;
+  onKeyDown?: (e) => any;
+  onChange?: (e) => any;
+  autosize?: boolean | AutoSizeType;
+}
+
+export default class Input extends Component<InputProps, any> {
   static defaultProps = {
     defaultValue: '',
     disabled: false,
@@ -57,6 +78,8 @@ export default class Input extends Component {
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
   };
+
+  nextFrameActionId: number;
 
   constructor(props) {
     super(props);
