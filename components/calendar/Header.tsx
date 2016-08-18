@@ -7,7 +7,18 @@ const Option = Select.Option;
 
 function noop() {}
 
-export default class Header extends React.Component {
+export interface HeaderProps {
+  prefixCls?: string;
+  locale?: any;
+  fullscreen?: boolean;
+  yearSelectOffset?: number;
+  yearSelectTotal?: number;
+  type?: string;
+  onValueChange?: (value) => void;
+  onTypeChange?: (type: string) => void;
+}
+
+export default class Header extends React.Component<HeaderProps, any> {
   static defaultProps = {
     prefixCls: `${PREFIX_CLS}-header`,
     yearSelectOffset: 10,
