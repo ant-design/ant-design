@@ -2,7 +2,7 @@
 order: 8
 title: 
   zh-CN: 图片卡片样式
-  en-US: pictures with card tyle
+  en-US: Pictures with card tyle
 ---
 
 ## zh-CN

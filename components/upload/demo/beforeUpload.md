@@ -2,7 +2,7 @@
 order: 7
 title:
   zh-CN: 限制用户上传的文件
-  en-US: filter uploads files
+  en-US: Filter uploads files
 ---
 
 ## zh-CN

@@ -2,7 +2,7 @@
 order: 1
 title: 
   zh-CN: 传入已上传的文件
-  en-US: set files that have been uploaded
+  en-US: Set files that have been uploaded
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-edit uploaded files
+Edit uploaded files
 
 
 ````jsx

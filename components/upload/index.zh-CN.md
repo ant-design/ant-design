@@ -2,7 +2,7 @@
 category: Components
 chinese: 上传
 type: Form Controls
-english: Upload8/2/2016 11:05:18 AM 
+english: Upload
 ---
 
 文件选择上传和拖拽上传控件。
@@ -19,7 +19,7 @@ english: Upload8/2/2016 11:05:18 AM
 
 | 参数       | 说明                                                         | 类型        | 默认值|
 |------------|--------------------------------------------------------------| ----------- |-------|
- name       | 可选参数, 上传的文件                                         | String      | file  |
+ | name       | 可选参数, 上传的文件                                         | String      | file  |
 | defaultFileList | 可选参数，默认已经上传的文件列表                           | Array[Object] | 无  |
 | fileList   | 可选参数，已经上传的文件列表                                   | Array[Object] | 无 |
 | action     | 必选参数, 上传的地址                                         | String      | 无    |

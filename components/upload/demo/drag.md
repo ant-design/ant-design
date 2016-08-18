@@ -2,7 +2,7 @@
 order: 3
 title: 
   zh-CN: 拖拽上传
-  en-US: upload files by dragging and dropping
+  en-US: Upload files by dragging and dropping
 ---
 
 ## zh-CN

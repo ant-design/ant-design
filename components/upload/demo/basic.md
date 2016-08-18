@@ -2,7 +2,7 @@
 order: 0
 title: 
   zh-CN: 点击上传
-  en-US: upload by clicking
+  en-US: Upload by clicking
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-classic mode. File selection dialog pops up when upload button is clicked 
+Classic mode. File selection dialog pops up when upload button is clicked 
 
 ````jsx
 import { Upload, message, Button, Icon } from 'antd';
