@@ -3,7 +3,7 @@ order: 2
 title: 所有组件
 ---
 
-此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。
+此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。涉及时间的组件请注意时区设置 [DatePicker](/components/date-picker/#components-date-picker-demo-locale)。
 
 ````jsx
 import { LocaleProvider, Pagination, DatePicker, TimePicker, Calendar,
@@ -23,6 +23,12 @@ const columns = [{
   title: 'Age',
   dataIndex: 'age',
 }];
+
+const customLocale = {
+  timezoneOffset: 8 * 60,
+  firstDayOfWeek: 1,
+  minimalDaysInFirstWeek: 1,
+};
 
 const Page = React.createClass({
   getInitialState() {
@@ -104,6 +110,10 @@ const App = React.createClass({
     this.setState({ locale: e.target.value });
   },
   render() {
+    const locale = { ...this.state.locale };
+    if (locale.DatePicker) {
+      locale.DatePicker = { ...locale.DatePicker, ...customLocale };
+    }
     return (
       <div>
         <div className="change-locale">
@@ -113,7 +123,7 @@ const App = React.createClass({
             <Radio.Button key="cn">中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
+        <LocaleProvider locale={locale}><Page /></LocaleProvider>
       </div>
     );
   },
