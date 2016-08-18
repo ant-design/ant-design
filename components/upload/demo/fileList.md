@@ -2,7 +2,7 @@
 order: 2
 title: 
   zh-CN: 完全控制的上传列表
-  en-US: complete control over file list
+  en-US: Complete control over file list
 ---
 
 ## zh-CN
