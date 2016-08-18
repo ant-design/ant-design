@@ -1,8 +1,17 @@
-import React, { Children, cloneElement } from 'react';
+import * as React from 'react';
+import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-export default class Row extends React.Component {
+
+export interface RowProps {
+  gutter?: number;
+  type?: 'flex';
+  align?: 'top' | 'middle' | 'bottom';
+  justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+}
+
+export default class Row extends React.Component<RowProps, any> {
   static defaultProps = {
     gutter: 0,
   };
