@@ -9,7 +9,7 @@ title:
 
 一个复杂的应用示例。
 
-## en_US
+## en-US
 
 A complex application.
 

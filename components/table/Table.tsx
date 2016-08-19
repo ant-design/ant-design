@@ -9,9 +9,11 @@ import Spin from '../spin';
 import classNames from 'classnames';
 import { flatArray } from './util';
 import assign from 'object-assign';
+import splitObject from '../_util/splitObject';
+
 function noop() {
 }
-import splitObject from '../_util/splitObject';
+
 function stopPropagation(e) {
   e.stopPropagation();
   if (e.nativeEvent.stopImmediatePropagation) {
@@ -800,9 +802,9 @@ export default class Table extends React.Component<TableProps, any> {
 
   render() {
     const [{
-      style, className,
-    }, restProps] = splitObject(this.props, ['style', 'className']);
-    const data = this.getCurrentPageData();
+      style, className, rowKey,
+    }, restProps] = splitObject(this.props, ['style', 'className', 'rowKey']);
+    let data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     const locale = this.getLocale();
@@ -818,28 +820,33 @@ export default class Table extends React.Component<TableProps, any> {
       newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
-    let emptyText;
-    let emptyClass = '';
+
+    // Empty Data
+    let emptyRowKey;
     if (!data || data.length === 0) {
-      emptyText = (
-        <div className="ant-table-placeholder">
-          {locale.emptyText}
-        </div>
-      );
-      emptyClass = 'ant-table-empty';
+      columns.forEach((column, index) => {
+        column.render = () => ({
+          children: !index ? <div className="ant-table-placeholder">{locale.emptyText}</div> : null,
+          props: {
+            colSpan: !index ? columns.length : 0,
+          },
+        });
+      });
+      emptyRowKey = 'key';
+      data = [{
+        [emptyRowKey]: 'empty',
+      }];
     }
 
     let table = (
-      <div>
-        <RcTable {...restProps}
-          data={data}
-          columns={columns}
-          className={classString}
-          expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
-          expandIconAsCell={expandIconAsCell}
-        />
-          {emptyText}
-      </div>
+      <RcTable {...restProps}
+        data={data}
+        columns={columns}
+        className={classString}
+        expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
+        expandIconAsCell={expandIconAsCell}
+        rowKey={emptyRowKey || rowKey}
+      />
     );
     // if there is no pagination or no data,
     // the height of spin should decrease by half of pagination
@@ -849,7 +856,7 @@ export default class Table extends React.Component<TableProps, any> {
     const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
-      <div className={`${emptyClass} ${className} clearfix`} style={style}>
+      <div className={`${className} clearfix`} style={style}>
         {table}
         {this.renderPagination()}
       </div>

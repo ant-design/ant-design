@@ -43,6 +43,7 @@ export interface UploadProps {
   onRemove?: (file: File) => void;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
+  disabled?: boolean;
 }
 
 export interface UploadListProps {

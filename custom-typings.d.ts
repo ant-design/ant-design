@@ -157,6 +157,7 @@ declare module 'rc-menu' {
 }
 
 declare module 'rc-tabs' {
+  export const TabPane: any;
   export default function(): any;
 }
 

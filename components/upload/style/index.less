@@ -8,7 +8,7 @@
 .@{upload-prefix-cls} {
   font-size: @font-size-base;
 
-  .ant-upload-btn {
+  &-btn {
     display: block;
     width: 100%;
     outline: none;
@@ -52,11 +52,15 @@
     height: 100%;
     position: relative;
 
-    &.@{upload-prefix-cls}-drag-hover {
+    &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
       border: 2px dashed tint(@primary-color, 20%);
     }
 
-    .ant-upload-btn {
+    &.@{upload-prefix-cls}-disabled {
+      cursor: not-allowed;
+    }
+
+    .@{upload-prefix-cls}-btn {
       display: table;
       height: 100%;
     }
@@ -66,7 +70,7 @@
       vertical-align: middle;
     }
 
-    &:hover {
+    &:not(.@{upload-prefix-cls}-disabled):hover {
       border-color: tint(@primary-color, 20%);
     }
 
