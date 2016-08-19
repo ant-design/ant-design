@@ -6,12 +6,32 @@ const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 import splitObject from '../_util/splitObject';
 
-export default function Col(props) {
+interface ColSize {
+  span?: number;
+  order?: number;
+  offset?: number;
+  push?: number;
+  pull?: number;
+}
+
+export interface ColProps {
+  span?: number;
+  order?: number;
+  offset?: number;
+  push?: number;
+  pull?: number;
+  xs?: ColSize;
+  sm?: ColSize;
+  md?: ColSize;
+  lg?: ColSize;
+}
+
+export default function Col(props: ColProps) {
   const [{ span, order, offset, push, pull, className, children }, others] = splitObject(props,
     ['span', 'order', 'offset', 'push', 'pull', 'className', 'children']);
   let sizeClassObj = {};
   ['xs', 'sm', 'md', 'lg'].forEach(size => {
-    let sizeProps = {};
+    let sizeProps: ColSize = {};
     if (typeof props[size] === 'number') {
       sizeProps.span = props[size];
     } else if (typeof props[size] === 'object') {

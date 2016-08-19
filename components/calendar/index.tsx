@@ -16,7 +16,27 @@ function zerofixed(v) {
   return `${v}`;
 }
 
-export default class Calendar extends React.Component {
+interface CalendarContext {
+  antLocale?: {
+    Calendar?: any
+  };
+}
+
+export interface CalendarProps {
+  prefixCls?: string;
+  className?: string;
+  value?: Date;
+  defaultValue?: Date;
+  mode?: 'month' | 'year';
+  fullscreen?: boolean;
+  dateCellRender?: (date) => React.ReactNode;
+  monthCellRender?: (month) => React.ReactNode;
+  locale?: any;
+  style?: React.CSSProperties;
+  onPanelChange?: (date: Date, mode: string) => void;
+}
+
+export default class Calendar extends React.Component<CalendarProps, any> {
   static defaultProps = {
     monthCellRender: noop,
     dateCellRender: noop,
@@ -42,6 +62,8 @@ export default class Calendar extends React.Component {
   static contextTypes = {
     antLocale: PropTypes.object,
   };
+
+  context: CalendarContext;
 
   constructor(props) {
     super(props);

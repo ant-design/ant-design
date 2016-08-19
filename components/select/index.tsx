@@ -31,6 +31,9 @@ export interface SelectProps {
   defaultActiveFirstOption?: boolean;
   labelInValue?: boolean;
   getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode;
+  style?: React.CSSProperties;
+  dropdownMenuStyle?: React.CSSProperties;
+  onChange?: (value) => void;
 }
 
 export interface SelectContext {
