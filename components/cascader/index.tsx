@@ -162,8 +162,12 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   clearSelection = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    this.setValue([]);
-    this.setState({ popupVisible: false });
+    if (!this.state.inputValue) {
+      this.setValue([]);
+      this.setState({ popupVisible: false });
+    } else {
+      this.setState({ inputValue: '' });
+    }
   }
 
   flattenTree(options, changeOnSelect, ancestor = []) {
@@ -208,7 +212,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'ant-input-lg': size === 'large',
       'ant-input-sm': size === 'small',
     });
-    const clearIcon = (allowClear && !disabled && value.length > 0) ?
+    const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ?
       <Icon type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
