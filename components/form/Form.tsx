@@ -5,13 +5,13 @@ import omit from 'object.omit';
 import warning from 'warning';
 import FormItem from './FormItem';
 
-interface FormCreateOption {
+export interface FormCreateOption {
   onFieldsChange?: (props: any, fields: Array<any>) => void;
   /**  把 props 转为对应的值，可用于把 Redux store 中的值读出 */
   mapPropsToFields?: (props: any) => void;
 }
 
-interface FormProps {
+export interface FormProps {
   prefixCls?: string;
   /** 水平排列布局*/
   horizontal?: boolean;
@@ -28,7 +28,7 @@ interface FormProps {
 }
 
 // function  create
-type CreateFormOptions = {
+export type CreateFormOptions = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值*/
   getFieldsValue(): (fieldNames?: Array<string>) => any;
   /** 获取一个输入控件的值*/
@@ -68,14 +68,14 @@ type CreateFormOptions = {
   }) => Array<any>;
 }
 
-interface FormComponentProps {
+export interface FormComponentProps {
   form: CreateFormOptions;
 }
 
 export class FormComponent extends React.Component<FormComponentProps, {}> {
 }
 
-interface ComponentDecorator {
+export interface ComponentDecorator {
   <T extends (typeof FormComponent)>(component: T): T;
 }
 
