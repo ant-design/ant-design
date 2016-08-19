@@ -5,32 +5,22 @@ import Row from '../row';
 import Col from '../col';
 import { FIELD_META_PROP } from './constants';
 
-interface FormItemLabelColOption {
+export interface FormItemLabelColOption {
   span: number;
   offset: number;
 }
 
-interface FormItemProps {
+export interface FormItemProps {
   prefixCls?: string;
-  /**  label 标签的文本*/
-  label?: string;
-  /** label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}`*/
+  label?: React.ReactNode;
   labelCol?: FormItemLabelColOption;
-  /** 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol*/
   wrapperCol?: FormItemLabelColOption;
-  /** 提示信息，如不设置，则会根据校验规则自动生成 */
-  help?: string;
-  /** 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。*/
+  help?: React.ReactNode;
   extra?: string;
-  /** 是否必填，如不设置，则会根据校验规则自动生成 */
   validateStatus?: 'success' | 'warning' | 'error' | 'validating';
-  /** 配合 validateStatus 属性使用，是否展示校验状态图标 */
   hasFeedback?: boolean;
-
   className?: string;
-
   required?: boolean;
-
   style?: React.CSSProperties;
 }
 
