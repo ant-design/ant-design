@@ -5,7 +5,26 @@ import Row from '../row';
 import Col from '../col';
 import { FIELD_META_PROP } from './constants';
 
-export default class FormItem extends React.Component {
+export interface FormItemLabelColOption {
+  span: number;
+  offset: number;
+}
+
+export interface FormItemProps {
+  prefixCls?: string;
+  label?: React.ReactNode;
+  labelCol?: FormItemLabelColOption;
+  wrapperCol?: FormItemLabelColOption;
+  help?: React.ReactNode;
+  extra?: string;
+  validateStatus?: 'success' | 'warning' | 'error' | 'validating';
+  hasFeedback?: boolean;
+  className?: string;
+  required?: boolean;
+  style?: React.CSSProperties;
+}
+
+export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
     prefixCls: 'ant-form',
