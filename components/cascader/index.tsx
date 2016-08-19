@@ -43,7 +43,8 @@ export interface CascaderProps {
   /** 是否支持清除*/
   allowClear?: boolean;
   showSearch?: boolean;
-  filterOption?: (inputValue: string, option: Object) => boolean;
+  filterOption?: (inputValue: string, path: CascaderOptionType[]) => boolean;
+  renderFilteredOption?: (inputValue: string, path: CascaderOptionType[]) => React.ReactNode;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
@@ -53,6 +54,14 @@ export interface CascaderProps {
 }
 
 const NOT_FOUND = [{ label: 'Not Found', value: 'ANT_CASCADER_NOT_FOUND', disabled: true }];
+
+function highlightKeyword(str: string, keyword: string) {
+  return str.split(keyword)
+    .map((node, index) => index === 0 ? node : [
+      <span className="ant-cascader-menu-item-keyword">{keyword}</span>,
+      node,
+    ]);
+}
 
 export default class Cascader extends React.Component<CascaderProps, any> {
   static defaultProps = {
@@ -66,8 +75,14 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     disabled: false,
     allowClear: true,
     showSearch: false,
-    filterOption(inputValue, option) {
-      return option.label.indexOf(inputValue) > -1;
+    filterOption(inputValue, path) {
+      return path.some(option => option.label.indexOf(inputValue) > -1);
+    },
+    renderFilteredOption(inputValue, path) {
+      return path.map(({ label }, index) => {
+        const node = label.indexOf(inputValue) > -1 ? highlightKeyword(label, inputValue) : label;
+        return index === 0 ? node : [' / ', node];
+      });
     },
     onPopupVisibleChange() {},
   };
@@ -166,16 +181,14 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   generateFilteredOptions() {
-    const { filterOption } = this.props;
-    const filtered = this.state.flattenOptions.filter((path) => {
-      const lastItem = path[path.length - 1];
-      return filterOption(this.state.inputValue, lastItem);
-    });
+    const { filterOption, renderFilteredOption } = this.props;
+    const { flattenOptions, inputValue } = this.state;
+    const filtered = flattenOptions.filter((path) => filterOption(this.state.inputValue, path));
 
     if (filtered.length > 0) {
       return filtered.map((path) => {
         return {
-          label: path.map(o => o.label).join(' / '),
+          label: renderFilteredOption(inputValue, path),
           value: path.map(o => o.value),
         };
       });
@@ -226,6 +239,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'loadData',
       'popupClassName',
       'filterOption',
+      'renderFilteredOption',
     ]);
 
     let options = props.options;
