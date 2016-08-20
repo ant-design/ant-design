@@ -133,7 +133,7 @@
     "site": "bisheng build -c ./site/bisheng.config.js",
     "pre-deploy": "mkdir -p _site && cp CNAME _site",
     "deploy": "npm run clean && npm run pre-deploy && bisheng gh-pages -c ./site/bisheng.config.js",
-    "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint",
+    "lint": "npm run tslint && tsc && npm run srclint && npm run demolint && npm run lesshint",
     "srclint": "RUN_ENV=SRC eslint test site scripts ./*.js --ext '.js,.jsx,.tsx'",
     "tslint": "antd-tools run ts-lint",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
