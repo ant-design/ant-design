@@ -13,9 +13,7 @@ When a numeric value needs to be provided.
 
 ## API
 
-Property, e.g.
-
-| member        | description           | type               | default       |
+| property    | description           | type               | default       |
 |-------------|----------------|--------------------|--------------|
 | min     | min value   | Number | -Infinity        |
 | max     | max vale       | Number      | Infinity           |
