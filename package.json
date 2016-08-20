@@ -1,8 +1,8 @@
 {
   "name": "antd",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "title": "Ant Design",
-  "description": "一个 UI 设计语言",
+  "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
   "keywords": [
     "ant",
