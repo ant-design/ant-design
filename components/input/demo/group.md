@@ -1,9 +1,17 @@
 ---
 order: 3
-title: 输入框组合
+title: 
+    zn-CN: 输入框组合
+    en-US: Input Group
 ---
 
+## zh-CN
+
 输入框的组合展现。
+
+## en-US
+
+Input.Group example
 
 ````jsx
 import { Input, Col } from 'antd';
