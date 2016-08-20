@@ -6,19 +6,19 @@ english: Icon
 toc: false
 ---
 
-Meaningful vector graphics, each one can defeat an enemy.
+Meaningful vector graphics.
 
-## The specification of naming icons
+## Icons naming convention
 
 We provide semantic name for every icon, and naming rules are as follows: 
 
-- Scanning line icon has the similar name with its solid one，but it's distinguished by `-o`, for example, `question-circle`(solid) and `question-circle-o`(scanning line);
+- Scanning line icon has the similar name with its solid one，but it's distinguished by `-o`, for example, `question-circle`(a full circle) and `question-circle-o`(an empty circle);
 
 - Naming sequence：`[icon's name]-[shape, optional]-[Scanning line or not]-[direction, optional]`.
 
 ## How to use
 
-Use tag `<Icon />` to define an icon component, and appoint its type, for example:
+Use tag <Icon /> to create an icon and set its type in the type prop, for example:
 
 ```html
 <Icon type="link" />
@@ -30,9 +30,9 @@ Finally, it will be rendered as follow:
 <i class="anticon anticon-${type}"></i>
 ```
 
-## Local deployment
+## Local deployment of icons font
 
-When icon component uses [iconfont.cn](http://iconfont.cn), by default, the public network can access it. Suppose you need a local deployment, you can refer to [example](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)。
+By default, icon components uses [iconfont.cn](http://iconfont.cn), publicly available repository of a huge set of icons. In case you need to use a locally deployed version of the icon font, you can refer to [this example](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)。
 
 ## List of icons
 
