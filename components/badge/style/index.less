@@ -47,6 +47,38 @@
     box-shadow: 0 0 0 1px #fff;
   }
 
+  &-status {
+    width: 6px;
+    height: 6px;
+
+    &-success {
+      background-color: @success-color;
+    }
+    &-processing {
+      background-color: @primary-color;
+      animation: antStatusProcessing 1.2s infinite ease-in-out;
+    }
+    &-default {
+      background-color: @normal-color;
+    }
+    &-error {
+      background-color: @error-color;
+    }
+    &-warning {
+      background-color: @warning-color;
+    }
+
+    &-with-text {
+      top: 5px;
+    }
+
+    &-text {
+      color: @text-color;
+      font-size: @font-size-base;
+      margin-left: 8px; // 8 - (6 / 2) === 5
+    }
+  }
+
   &-zoom-appear,
   &-zoom-enter {
     animation: antZoomBadgeIn .3s @ease-out-back;
@@ -63,6 +95,16 @@
     display: block;
     position: relative;
     transform: translateX(0);
+  }
+}
+
+@keyframes antStatusProcessing {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 
