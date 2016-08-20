@@ -13,7 +13,7 @@ interface BadgeProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  status?: 'success' | 'processing' | 'default' | 'failed' | 'exception';
+  status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   text?: string;
 }
 
@@ -37,19 +37,20 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
   render() {
     let { count, prefixCls, overflowCount, className, style, children, dot, status, text } = this.props;
+    const isDot = dot || status;
 
     count = count > overflowCount ? `${overflowCount}+` : count;
 
     // dot mode don't need count
-    if (dot) {
+    if (isDot) {
       count = '';
     }
 
     // null undefined "" "0" 0
-    const hidden = (!count || count === '0') && !dot;
+    const hidden = (!count || count === '0') && !isDot;
     const scrollNumberCls = classNames({
-      [`${prefixCls}-dot`]: dot,
-      [`${prefixCls}-count`]: !dot,
+      [`${prefixCls}-dot`]: isDot,
+      [`${prefixCls}-count`]: !isDot,
       [`${prefixCls}-status`]: status,
       [`${prefixCls}-status-${status}`]: status,
       [`${prefixCls}-status-with-text`]: text,

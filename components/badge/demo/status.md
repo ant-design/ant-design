@@ -19,17 +19,17 @@ import { Badge } from 'antd';
 ReactDOM.render(
   <div>
     <label>Status: &nbsp;</label>
-    <Badge dot status="success" />
-    <Badge dot status="failed" />
-    <Badge dot status="default" />
-    <Badge dot status="processing" />
-    <Badge dot status="exception" />
+    <Badge status="success" />
+    <Badge status="error" />
+    <Badge status="default" />
+    <Badge status="processing" />
+    <Badge status="warning" />
     <br />
-    <Badge dot status="success" text="Success" /><br />
-    <Badge dot status="failed" text="Failed" /><br />
-    <Badge dot status="default" text="Default" /><br />
-    <Badge dot status="processing" text="Processing" /><br />
-    <Badge dot status="exception" text="Exception" />
+    <Badge status="success" text="Success" /><br />
+    <Badge status="error" text="Error" /><br />
+    <Badge status="default" text="Default" /><br />
+    <Badge status="processing" text="Processing" /><br />
+    <Badge status="warning" text="Warning" />
   </div>,
   mountNode
 );
