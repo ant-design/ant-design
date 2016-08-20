@@ -10,15 +10,8 @@ english: Download
 <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/AntD_Library_V2.01.rplib" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/cnmjGfbBWUZPFiO.png">
   <span class="resource-card-content">
-    <span class="resource-card-title">Axure Components v2.0.1</span>
+    <span class="resource-card-title">Ant Design Library v2.0.1</span>
     <span class="resource-card-description">一套强大的 Ant Design 的 Axure 部件库</span>
-  </span>
-</a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/AntD_Box_v1.3.rp" class="resource-card">
-  <img src="https://os.alipayobjects.com/rmsportal/UuYRXxndGMKdaiE.png">
-  <span class="resource-card-content">
-    <span class="resource-card-title">Axure Box v1.3</span>
-    <span class="resource-card-description">强大的 Ant Design 组件拼装方式</span>
   </span>
 </a>
 <a target="_blank" href="http://ux.ant.design" class="resource-card">
