@@ -1,6 +1,6 @@
 ---
 category: Components
-chinese: 布局
+chinese: 栅格
 type: Basic
 cols: 1
 english: Layout
