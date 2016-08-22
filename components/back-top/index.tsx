@@ -26,16 +26,10 @@ function getScroll(target, top) {
 interface BackTopProps {
   visibilityHeight?: number;
   onClick?: (event) => void;
+  target?: () => HTMLElement | Window;
   prefixCls?: string;
   className?: string;
 }
-
-export default class BackTop extends React.Component {
-
-  static propTypes = {
-    visibilityHeight: React.PropTypes.number,
-    target: React.PropTypes.func,
-  }
 
 export default class BackTop extends React.Component<BackTopProps, any> {
   static defaultProps = {
@@ -71,7 +65,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       document.body.scrollTop = value;
       document.documentElement.scrollTop = value;
     } else {
-      targetNode.scrollTop = value;
+      (targetNode as HTMLElement).scrollTop = value;
     }
   }
 

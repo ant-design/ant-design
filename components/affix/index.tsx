@@ -20,7 +20,7 @@ function getScroll(target, top) {
   return ret;
 }
 
-function getTargetRect(target) {
+function getTargetRect(target): any {
   return target !== window ?
     target.getBoundingClientRect() :
     { top: 0, left: 0, bottom: 0 };
@@ -55,6 +55,7 @@ export interface AffixProps {
   offsetBottom?: number;
   style?: React.CSSProperties;
   onChange?: (affixed?: boolean) => any;
+  target?: () => Window | HTMLElement;
 }
 
 export default class Affix extends React.Component<AffixProps, any> {
@@ -123,7 +124,8 @@ export default class Affix extends React.Component<AffixProps, any> {
     // Backwards support
     offsetTop = offsetTop || offset;
     const scrollTop = getScroll(targetNode, true);
-    const elemOffset = getOffset(ReactDOM.findDOMNode(this), targetNode);
+    const affixNode = ReactDOM.findDOMNode(this) as HTMLElement;
+    const elemOffset = getOffset(affixNode, targetNode);
     const elemSize = {
       width: this.refs.fixedNode.offsetWidth,
       height: this.refs.fixedNode.offsetHeight,
@@ -150,7 +152,7 @@ export default class Affix extends React.Component<AffixProps, any> {
         position: 'fixed',
         top: targetRect.top + offsetTop,
         left: targetRect.left + elemOffset.left,
-        width: ReactDOM.findDOMNode(this).offsetWidth,
+        width: affixNode.offsetWidth,
       });
       this.setPlaceholderStyle(e, {
         width: affixNode.offsetWidth,
@@ -166,7 +168,7 @@ export default class Affix extends React.Component<AffixProps, any> {
         position: 'fixed',
         bottom: targetBottomOffet + offsetBottom,
         left: targetRect.left + elemOffset.left,
-        width: ReactDOM.findDOMNode(this).offsetWidth,
+        width: affixNode.offsetWidth,
       });
       this.setPlaceholderStyle(e, {
         width: affixNode.offsetWidth,
