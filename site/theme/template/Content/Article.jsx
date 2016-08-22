@@ -2,6 +2,7 @@ import React, { Children, cloneElement } from 'react';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline } from 'antd';
+import EditButton from './EditButton';
 import * as utils from '../utils';
 
 export default class Article extends React.Component {
@@ -54,7 +55,7 @@ export default class Article extends React.Component {
     const content = props.content;
 
     const { meta, description } = content;
-    const { title, subtitle, chinese, english } = meta;
+    const { title, subtitle, chinese, english, filename } = meta;
 
     return (
       <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
@@ -65,6 +66,7 @@ export default class Article extends React.Component {
               (!subtitle && !chinese) ? null :
                 <span className="subtitle">{subtitle || chinese}</span>
             }
+            <EditButton title="在 Github 上编辑此页！" filename={filename} />
           </h1>
           {
             !description ? null :

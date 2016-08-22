@@ -9,11 +9,22 @@ timeline: true
 
 ---
 
+## 1.10.0
+
+`2016-08-20`
+
+- Affix 和 BackTop 新增 `target` 属性，支持指定滚动容器。[#2718](https://github.com/ant-design/ant-design/issues/2718)
+- 文档页面加上编辑按钮，方便社区贡献。[#2325](https://github.com/ant-design/ant-design/issues/2325)
+- 升级 rc-cascader 依赖，修复一个 `loadData` 属性和表单结合使用的问题。[#2767](https://github.com/ant-design/ant-design/issues/2767)
+- 修复 `editable-card` 类型的 Tabs 没有关闭图标的问题。[#2747](https://github.com/ant-design/ant-design/issues/2747)
+- Menu 修正默认 `z-index`。[#2762](https://github.com/ant-design/ant-design/issues/2762)
+- 修正 Select 组件在 IE 下的一些样式问题。[#2741](https://github.com/ant-design/ant-design/issues/2741)
+
 ## 1.9.1
 
 `2016-08-16`
 
-- 修复 Tabs 的 `type="editable-card"` 模式，activeKey 错误的问题。[#2725](https://github.com/ant-design/ant-design/issues/2725)
+- 修复 `editable-card` 类型的 Tabs 设置 `activeKey` 无效的问题。[#2725](https://github.com/ant-design/ant-design/issues/2725)
 - 修复一个 Table 的样式兼容性问题。[#2723](https://github.com/ant-design/ant-design/issues/2723)
 - 更新 axure 部件库。[#2714](https://github.com/ant-design/ant-design/issues/2714)
 

@@ -5,18 +5,21 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'object.omit';
 
-function getScroll(w, top) {
-  let ret = w[`page${top ? 'Y' : 'X'}Offset`];
-  const method = `scroll${top ? 'Top' : 'Left'}`;
-  if (typeof ret !== 'number') {
-    const d = w.document;
-    // ie6,7,8 standard mode
-    ret = d.documentElement[method];
-    if (typeof ret !== 'number') {
-      // quirks mode
-      ret = d.body[method];
-    }
+function getScroll(target, top) {
+  if (typeof window === 'undefined') {
+    return 0;
   }
+
+  const prop = top ? 'pageYOffset' : 'pageXOffset';
+  const method = top ? 'scrollTop' : 'scrollLeft';
+  const isWindow = target === window;
+
+  let ret = isWindow ? target[prop] : target[method];
+  // ie6,7,8 standard mode
+  if (isWindow && typeof ret !== 'number') {
+    ret = window.document.documentElement[method];
+  }
+
   return ret;
 }
 
@@ -27,10 +30,20 @@ interface BackTopProps {
   className?: string;
 }
 
+export default class BackTop extends React.Component {
+
+  static propTypes = {
+    visibilityHeight: React.PropTypes.number,
+    target: React.PropTypes.func,
+  }
+
 export default class BackTop extends React.Component<BackTopProps, any> {
   static defaultProps = {
     onClick() {},
     visibilityHeight: 400,
+    target() {
+      return window;
+    },
     prefixCls: 'ant-back-top',
   };
 
@@ -38,9 +51,9 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
   constructor(props) {
     super(props);
-    const scrollTop = getScroll(window, true);
+    const scrollTop = getScroll(props.target(), true);
     this.state = {
-      visible: scrollTop > this.props.visibilityHeight,
+      visible: scrollTop > props.visibilityHeight,
     };
   }
 
@@ -53,19 +66,25 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   setScrollTop(value) {
-    document.body.scrollTop = value;
-    document.documentElement.scrollTop = value;
+    const targetNode = this.props.target();
+    if (targetNode === window) {
+      document.body.scrollTop = value;
+      document.documentElement.scrollTop = value;
+    } else {
+      targetNode.scrollTop = value;
+    }
   }
 
   handleScroll = () => {
-    const scrollTop = getScroll(window, true);
+    const { visibilityHeight, target } = this.props;
+    const scrollTop = getScroll(target(), true);
     this.setState({
-      visible: scrollTop > this.props.visibilityHeight,
+      visible: scrollTop > visibilityHeight,
     });
   }
 
   componentDidMount() {
-    this.scrollEvent = addEventListener(window, 'scroll', this.handleScroll);
+    this.scrollEvent = addEventListener(this.props.target(), 'scroll', this.handleScroll);
   }
 
   componentWillUnmount() {

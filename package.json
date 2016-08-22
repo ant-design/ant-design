@@ -1,8 +1,8 @@
 {
   "name": "antd",
-  "version": "1.9.1",
+  "version": "1.10.0",
   "title": "Ant Design",
-  "description": "一个 UI 设计语言",
+  "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
   "keywords": [
     "ant",
@@ -43,7 +43,7 @@
     "object.omit": "^2.0.0",
     "rc-animate": "~2.3.0",
     "rc-calendar": "~6.0.2",
-    "rc-cascader": "~0.9.11",
+    "rc-cascader": "~0.10.1",
     "rc-checkbox": "~1.4.0",
     "rc-collapse": "~1.6.4",
     "rc-dialog": "~6.2.1",
