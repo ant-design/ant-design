@@ -1,7 +1,7 @@
 ---
 order: 4
 title:
-    zn-CN: 搜索框
+    zh-CN: 搜索框
     en-US: Search box
 ---
 

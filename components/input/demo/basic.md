@@ -1,7 +1,7 @@
 ---
 order: 0
 title:
-    zn-CN: 基本使用
+    zh-CN: 基本使用
     en-US: Basic usage
 ---
 

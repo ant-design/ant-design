@@ -1,7 +1,7 @@
 ---
 order: 3
 title: 
-    zn-CN: 输入框组合
+    zh-CN: 输入框组合
     en-US: Input Group
 ---
 
