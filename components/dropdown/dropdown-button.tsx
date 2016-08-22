@@ -5,7 +5,18 @@ import Dropdown from './dropdown';
 const ButtonGroup = Button.Group;
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
-export default class DropdownButton extends React.Component {
+
+export interface DropdownButtonProps {
+  type?: 'primary' | 'ghost' | 'dash';
+  onClick?: React.FormEventHandler;
+  trigger?: 'click' | 'hover';
+  overlay: React.ReactNode;
+  visible?: boolean;
+  onVisibleChange?: (visible: boolean) => void;
+  style?: React.CSSProperties;
+}
+
+export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
     align: {
       points: ['tr', 'br'],

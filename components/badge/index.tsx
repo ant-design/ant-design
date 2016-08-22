@@ -13,6 +13,8 @@ interface BadgeProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
+  text?: string;
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {
@@ -21,6 +23,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     count: null,
     dot: false,
     overflowCount: 99,
+    // status: 'default',
   };
 
   static propTypes = {
@@ -33,18 +36,25 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   render() {
-    let { count, prefixCls, overflowCount, className, style, children, dot } = this.props;
+    let { count, prefixCls, overflowCount, className, style, children, dot, status, text } = this.props;
+    const isDot = dot || status;
 
     count = count > overflowCount ? `${overflowCount}+` : count;
 
     // dot mode don't need count
-    if (dot) {
+    if (isDot) {
       count = '';
     }
 
     // null undefined "" "0" 0
-    const hidden = (!count || count === '0') && !dot;
-    const scrollNumberCls = prefixCls + (dot ? '-dot' : '-count');
+    const hidden = (!count || count === '0') && !isDot;
+    const scrollNumberCls = classNames({
+      [`${prefixCls}-dot`]: isDot,
+      [`${prefixCls}-count`]: !isDot,
+      [`${prefixCls}-status`]: status,
+      [`${prefixCls}-status-${status}`]: status,
+      [`${prefixCls}-status-with-text`]: text,
+    });
     const badgeCls = classNames({
       [className]: !!className,
       [prefixCls]: true,
@@ -70,6 +80,10 @@ export default class Badge extends React.Component<BadgeProps, any> {
               />
           }
         </Animate>
+        {
+          hidden || !text ? null :
+            <span className={`${prefixCls}-status-text`}>{text}</span>
+        }
       </span>
     );
   }

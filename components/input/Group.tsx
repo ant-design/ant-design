@@ -1,7 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-export default function Group(props) {
+export interface GroupProps {
+  size?: 'large' | 'small' | 'default';
+  className?: string;
+  children?: any;
+  style?: React.CSSProperties;
+}
+
+export default function Group(props: GroupProps) {
   const className = classNames({
     'ant-input-group': true,
     'ant-input-group-lg': props.size === 'large',
