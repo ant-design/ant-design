@@ -103,7 +103,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     const spinElement = (
       <div {...divProps} className={spinClassName}>
         <span className={`${prefixCls}-dot`} />
-        <div className={`${prefixCls}-text`}>{tip || '加载中...'}</div>
+        <div className={`${prefixCls}-text`}>{tip}</div>
       </div>
     );
 
