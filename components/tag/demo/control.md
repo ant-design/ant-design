@@ -1,6 +1,8 @@
 ---
 order: 2
-title: 动态添加和删除
+title: 
+  zh-CN: 动态添加和删除
+  en-US: Dynamically add and remove
 ---
 
 ## zh-CN

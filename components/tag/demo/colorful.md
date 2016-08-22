@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 各种类型
+title: 
+  zh-CN: 各种类型
+  en-US: Colorful tags
 ---
 
 ## zh-CN
