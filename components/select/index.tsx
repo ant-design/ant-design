@@ -42,6 +42,8 @@ export interface SelectContext {
   };
 }
 
+export { Option, OptGroup }
+
 export default class Select extends React.Component<SelectProps, any> {
   static Option = Option;
   static OptGroup = OptGroup;

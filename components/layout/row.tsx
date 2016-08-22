@@ -5,10 +5,12 @@ import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
 
 export interface RowProps {
+  className?: string;
   gutter?: number;
   type?: 'flex';
   align?: 'top' | 'middle' | 'bottom';
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
+  style?: React.CSSProperties;
 }
 
 export default class Row extends React.Component<RowProps, any> {
@@ -37,7 +39,7 @@ export default class Row extends React.Component<RowProps, any> {
       marginLeft: gutter / -2,
       marginRight: gutter / -2,
     }, style) : style;
-    const cols = Children.map(children, col => {
+    const cols = Children.map(children, (col) => {
       if (!col) {
         return null;
       }

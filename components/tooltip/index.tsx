@@ -32,6 +32,7 @@ export interface TooltipProps {
   visible?: boolean;
   trigger?: 'hover' | 'focus' | 'click';
   overlay?: React.ReactNode;
+  openClassName?: string;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {

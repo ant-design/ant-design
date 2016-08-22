@@ -60,10 +60,10 @@ export default function createPicker(TheCalendar) {
       });
 
       // 需要选择时间时，点击 ok 时才触发 onChange
-      let pickerChangeHandler = {
+      let pickerChangeHandler: Object = {
         onChange: this.handleChange,
       };
-      let calendarHandler = {
+      let calendarHandler: Object = {
         onOk: this.handleChange,
         // fix https://github.com/ant-design/ant-design/issues/1902
         onSelect: (value, cause) => {
@@ -95,7 +95,7 @@ export default function createPicker(TheCalendar) {
       );
 
       // default width for showTime
-      const pickerStyle = {};
+      const pickerStyle = { width: undefined };
       if (props.showTime) {
         pickerStyle.width = 180;
       }

@@ -35,6 +35,7 @@ interface ButtonProps {
   shape?: ButtonShape;
   size?: ButtonSize;
   onClick?: React.FormEventHandler;
+  onMouseUp?: React.FormEventHandler;
   loading?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;
