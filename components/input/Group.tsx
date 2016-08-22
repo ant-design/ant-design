@@ -2,13 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 export interface GroupProps {
-  size?: 'large' | 'small' | 'default';
   className?: string;
+  size?: 'large' | 'small' | 'default';
   children?: any;
   style?: React.CSSProperties;
 }
 
-export default function Group(props: GroupProps) {
+const Group: React.StatelessComponent<GroupProps> = (props) => {
   const className = classNames({
     'ant-input-group': true,
     'ant-input-group-lg': props.size === 'large',
@@ -20,8 +20,10 @@ export default function Group(props: GroupProps) {
       {props.children}
     </span>
   );
-}
+};
 
 Group.propTypes = {
   children: React.PropTypes.any,
 };
+
+export default Group;

@@ -3,6 +3,7 @@ import * as React from 'react';
 export interface IconProps {
   type: string;
   className?: string;
+  title?: string;
   onClick?: (e) => void;
 }
 

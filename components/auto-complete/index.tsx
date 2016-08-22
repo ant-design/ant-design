@@ -3,7 +3,7 @@ import Select, { Option, OptGroup } from '../select';
 import classNames from 'classnames';
 
 export interface AutoCompleteProps {
-  size?: string;
+  size?: 'large' | 'small' | 'default';
   className?: string;
   notFoundContent?: Element;
   dataSource: Array<any>;

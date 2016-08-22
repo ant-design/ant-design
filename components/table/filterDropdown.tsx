@@ -5,7 +5,11 @@ import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 
-const FilterDropdownMenuWrapper = ({ onClick, children }) => (
+export interface FilterDropdownMenuWrapperProps {
+  onClick?: Function;
+  children?: any;
+}
+const FilterDropdownMenuWrapper: React.StatelessComponent<FilterDropdownMenuWrapperProps> = ({ onClick, children }) => (
   <div className="ant-table-filter-dropdown" onClick={onClick}>{children}</div>
 );
 

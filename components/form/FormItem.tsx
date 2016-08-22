@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Row from '../row';
 import Col from '../col';
+import { WrappedFormUtils } from './Form';
 import { FIELD_META_PROP } from './constants';
 
 export interface FormItemLabelColOption {
@@ -12,7 +13,8 @@ export interface FormItemLabelColOption {
 
 export interface FormItemProps {
   prefixCls?: string;
-  label?: React.ReactNode;
+  id?: string;
+  label?: string;
   labelCol?: FormItemLabelColOption;
   wrapperCol?: FormItemLabelColOption;
   help?: React.ReactNode;
@@ -22,6 +24,11 @@ export interface FormItemProps {
   className?: string;
   required?: boolean;
   style?: React.CSSProperties;
+  colon?: boolean;
+}
+
+export interface FormItemContext {
+  form: WrappedFormUtils;
 }
 
 export default class FormItem extends React.Component<FormItemProps, any> {
@@ -33,7 +40,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
-    label: React.PropTypes.node,
+    label: React.PropTypes.string,
     labelCol: React.PropTypes.object,
     help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
     validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
@@ -48,6 +55,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   static contextTypes = {
     form: React.PropTypes.object,
   };
+
+  context: FormItemContext;
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);

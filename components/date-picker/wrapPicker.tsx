@@ -46,7 +46,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
     getFormatter() {
       const format = this.props.format;
-      const formatter = new DateTimeFormat(format, this.getLocale().lang.format);
+      const formatter = new DateTimeFormat(format as string, this.getLocale().lang.format);
       return formatter;
     },
 

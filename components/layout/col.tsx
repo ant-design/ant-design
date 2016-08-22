@@ -1,10 +1,11 @@
-import { PropTypes } from 'react';
 import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import splitObject from '../_util/splitObject';
+
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
-import splitObject from '../_util/splitObject';
 
 interface ColSize {
   span?: number;
@@ -15,6 +16,7 @@ interface ColSize {
 }
 
 export interface ColProps {
+  className?: string;
   span?: number;
   order?: number;
   offset?: number;
@@ -26,7 +28,7 @@ export interface ColProps {
   lg?: ColSize;
 }
 
-export default function Col(props: ColProps) {
+const Col: React.StatelessComponent<ColProps> = (props) => {
   const [{ span, order, offset, push, pull, className, children }, others] = splitObject(props,
     ['span', 'order', 'offset', 'push', 'pull', 'className', 'children']);
   let sizeClassObj = {};
@@ -58,7 +60,7 @@ export default function Col(props: ColProps) {
   }, sizeClassObj));
 
   return <div {...others} className={classes}>{children}</div>;
-}
+};
 
 Col.propTypes = {
   span: stringOrNumber,
@@ -73,3 +75,5 @@ Col.propTypes = {
   md: objectOrNumber,
   lg: objectOrNumber,
 };
+
+export default Col;

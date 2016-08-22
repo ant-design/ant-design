@@ -7,7 +7,12 @@ import classNames from 'classnames';
 import { getConfirmLocale } from './locale';
 import assign from 'object-assign';
 
-class ActionButton extends React.Component {
+export interface ActionButtonProps {
+  type: 'primary' | 'ghost' | 'dashed';
+  actionFn: Function;
+  closeModal: Function;
+}
+class ActionButton extends React.Component<ActionButtonProps, any> {
   constructor(props) {
     super(props);
     this.state = {
