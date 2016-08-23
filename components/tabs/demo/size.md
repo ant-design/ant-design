@@ -2,7 +2,7 @@
 order: 5
 title: 
   zh-CN: 迷你型
-  en-US: Mini tab.
+  en-US: Mini tab
 ---
 
 ## zh-CN

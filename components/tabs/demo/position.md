@@ -2,7 +2,7 @@
 order: 6
 title: 
   zh-CN: 位置
-  en-US: Position.
+  en-US: Position
 ---
 
 ## zh-CN

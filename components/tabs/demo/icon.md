@@ -2,7 +2,7 @@
 order: 2
 title: 
   zh-CN: 图标
-  en-US: Icon.
+  en-US: Icon
 ---
 
 ## zh-CN

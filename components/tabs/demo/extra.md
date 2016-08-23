@@ -2,7 +2,7 @@
 order: 4
 title: 
   zh-CN: 附加内容
-  en-US: Extra content.
+  en-US: Extra content
 ---
 
 ## zh-CN

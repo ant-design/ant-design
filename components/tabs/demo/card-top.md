@@ -2,7 +2,7 @@
 order: 10
 title: 
   zh-CN: 卡片式页签容器
-  en-US: Container of card type Tab.
+  en-US: Container of card type Tab
 ---
 
 ## zh-CN

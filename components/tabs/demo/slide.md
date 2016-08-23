@@ -2,7 +2,7 @@
 order: 3
 title: 
   zh-CN: 滑动
-  en-US: Slide.
+  en-US: Slide
 ---
 
 ## zh-CN
