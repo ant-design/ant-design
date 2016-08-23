@@ -311,11 +311,11 @@ export default class Table extends React.Component<TableProps, any> {
       return;
     }
     return (a, b) => {
-      let result = sortColumn.sorter(a, b);
+      const result = sortColumn.sorter(a, b);
       if (result !== 0) {
         return (sortOrder === 'descend') ? -result : result;
       }
-      return a.indexForSort - b.indexForSort;
+      return 0;
     };
   }
 
@@ -774,9 +774,6 @@ export default class Table extends React.Component<TableProps, any> {
     let data = this.props.dataSource || [];
     // 优化本地排序
     data = data.slice(0);
-    for (let i = 0; i < data.length; i++) {
-      data[i] = assign({}, data[i], { indexForSort: i });
-    }
     const sorterFn = this.getSorterFn();
     if (sorterFn) {
       data = data.sort(sorterFn);
