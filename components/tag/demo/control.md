@@ -1,11 +1,21 @@
 ---
 order: 2
-title: 动态添加和删除
+title: 
+  zh-CN: 动态添加和删除
+  en-US: Dynamically add and remove
 ---
+
+## zh-CN
 
 用数组生成一组标签，可以动态添加和删除。
 
-> 使用 `afterClose` 删除时有动画效果。
+使用 `afterClose` 删除时有动画效果。
+
+## en-US
+
+Generating a set of tag by array, you can dynamically add and remove.
+
+Using 'afterClose' property, There are animated when a tag was removed.
 
 ````jsx
 import { Tag, Button } from 'antd';
@@ -15,9 +25,9 @@ const App = React.createClass({
   getInitialState() {
     return {
       tags: [
-        { key: 1, name: '不可移除' },
-        { key: 2, name: '标签二' },
-        { key: 3, name: '标签三' },
+        { key: 1, name: 'Unremovable' },
+        { key: 2, name: 'Tag 2' },
+        { key: 3, name: 'Tag 3' },
       ],
     };
   },
@@ -29,7 +39,7 @@ const App = React.createClass({
   addTag() {
     const tags = [...this.state.tags];
     index += 1;
-    tags.push({ key: index, name: `新标签${index}` });
+    tags.push({ key: index, name: `New tag ${index}` });
     this.setState({ tags });
   },
   render() {
@@ -41,7 +51,7 @@ const App = React.createClass({
             {tag.name}
           </Tag>
         )}
-        <Button size="small" type="dashed" onClick={this.addTag}>+ 添加标签</Button>
+        <Button size="small" type="dashed" onClick={this.addTag}>+ New tag</Button>
       </div>
     );
   },
