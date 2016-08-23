@@ -1,8 +1,8 @@
 ---
 category: Components
 type: Form Controls
-chinese: 级联选择
-english: Cascader
+title: Cascader
+subtitle: 级联选择
 ---
 
 级联选择框。
@@ -22,18 +22,24 @@ english: Cascader
 
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
-| options | 可选项数据源 | object | - |
-| defaultValue | 默认的选中项 | array  |[] |
-| value | 指定选中项 | array  | - |
+| options | 可选项数据源 | Object | - |
+| defaultValue | 默认的选中项 | Array  |[] |
+| value | 指定选中项 | Array  | - |
 | onChange | 选择完成后的回调 | `function(value, selectedOptions)` | - |
 | displayRender | 选择后展示的渲染函数 | `function(label, selectedOptions)` | `label => label.join(' / ')` |
-| style | 自定义样式 | string | - |
-| className | 自定义类名 | string | - |
-| popupClassName | 自定义浮层类名 | string | - |
-| popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |
-| placeholder | 输入框占位文本 | string | '请选择' |
-| size | 输入框大小，可选 `large` `default` `small` | string | `default` |
-| disabled | 禁用 | boolean | false |
-| allowClear | 是否支持清除 | boolean | true |
-| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |
-| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |
+| style | 自定义样式 | String | - |
+| className | 自定义类名 | String | - |
+| popupClassName | 自定义浮层类名 | String | - |
+| popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |
+| placeholder | 输入框占位文本 | String | '请选择' |
+| size | 输入框大小，可选 `large` `default` `small` | String | `default` |
+| disabled | 禁用 | Boolean | false |
+| allowClear | 是否支持清除 | Boolean | true |
+| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | String | 'click' |
+| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | Boolean | false |
+| showSearch | 在选择框中显示搜索框 | Boolean | false |
+| notFoundContent | 当下拉列表为空时显示的内容 | String | 'Not Found' |
+| filterOption | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |
+| renderFilteredOption | 用于渲染 filter 后的选项 | `function(inputValue, path): React.ReactNode` | |
+| sortFilteredOption | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
+| searchResultListWidth | 用于设置搜索结果列表的宽度，默认与输入框同宽 | number | |
