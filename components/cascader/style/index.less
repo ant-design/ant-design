@@ -23,6 +23,10 @@
 
     &-disabled {
       cursor: not-allowed;
+
+      .@{cascader-prefix-cls}-input {
+        cursor: not-allowed;
+      }
     }
 
     &-label {
@@ -173,7 +177,7 @@
     }
 
     & &-keyword {
-      color: #ff5500;
+      color: @error-color;
     }
   }
 }

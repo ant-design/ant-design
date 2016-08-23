@@ -136,7 +136,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   handleInputClick = (e) => {
-    const { inputFocused, popupVisible} = this.state;
+    const { inputFocused, popupVisible } = this.state;
     // Prevent `Trigger` behaviour.
     if (inputFocused || popupVisible) {
       e.stopPropagation();
