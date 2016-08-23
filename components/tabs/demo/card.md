@@ -2,7 +2,7 @@
 order: 8
 title: 
   zh-CN: 卡片式页签
-  en-US: Card type Tab.
+  en-US: Card type tab.
 ---
 
 ## zh-CN
