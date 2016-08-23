@@ -10,7 +10,7 @@ export default class Article extends React.Component {
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    const links = Array.apply(null, document.querySelectorAll('.outside-link.internal'));
+    const links = [...document.querySelectorAll('.outside-link.internal')];
     if (links.length === 0) {
       return;
     }

@@ -63,7 +63,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     offsetTop: React.PropTypes.number,
     offsetBottom: React.PropTypes.number,
     target: React.PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     target() {

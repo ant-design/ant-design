@@ -15,7 +15,7 @@ english: Badge
 
 ```jsx
 <Badge count={5}>
-  <a href="#" className="head-example"></a>
+  <a href="#" className="head-example" />
 </Badge>
 ```
 

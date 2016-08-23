@@ -27,38 +27,38 @@ const Test = React.createClass({
           <span>logo</span>
         </div>
         <QueueAnim component="ul">
-          <li key="0"></li>
-          <li key="1"></li>
-          <li key="2"></li>
-          <li key="3"></li>
-          <li key="4"></li>
+          <li key="0" />
+          <li key="1" />
+          <li key="2" />
+          <li key="3" />
+          <li key="4" />
         </QueueAnim>
       </div>,
       <QueueAnim className="demo-content" key="content" delay={300}>
         <div className="demo-title" key="title">我是标题</div>
         <div className="demo-kp" key="b">
           <QueueAnim component="ul">
-            <li key="0"></li>
-            <li key="1"></li>
-            <li key="2"></li>
+            <li key="0" />
+            <li key="1" />
+            <li key="2" />
           </QueueAnim>
         </div>
         <div className="demo-title" key="title2">我是标题</div>
         <div className="demo-listBox">
           <QueueAnim className="demo-list" delay={500}>
-            <div className="title" key="title3"></div>
+            <div className="title" key="title3" />
             <QueueAnim component="ul" type="bottom" key="li">
-              <li key="0"></li>
-              <li key="1"></li>
-              <li key="2"></li>
-              <li key="3"></li>
-              <li key="4"></li>
+              <li key="0" />
+              <li key="1" />
+              <li key="2" />
+              <li key="3" />
+              <li key="4" />
             </QueueAnim>
           </QueueAnim>
         </div>
       </QueueAnim>,
       <QueueAnim delay={1000} type="bottom" key="footerBox">
-        <div className="demo-footer" key="footer"></div>
+        <div className="demo-footer" key="footer" />
       </QueueAnim>,
     ] : null;
     return (

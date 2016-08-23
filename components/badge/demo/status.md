@@ -18,7 +18,7 @@ import { Badge } from 'antd';
 
 ReactDOM.render(
   <div>
-    <label>Status: &nbsp;</label>
+    <div>Status: &nbsp;</div>
     <Badge status="success" />
     <Badge status="error" />
     <Badge status="default" />

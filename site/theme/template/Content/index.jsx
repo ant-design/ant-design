@@ -1,6 +1,6 @@
 import React from 'react';
-import MainContent from './MainContent';
 import Promise from 'bluebird';
+import MainContent from './MainContent';
 
 // locale copy from layout
 const locale = (

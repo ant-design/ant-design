@@ -5,6 +5,7 @@ import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button } from 'antd';
+
 const Option = Select.Option;
 
 export default class Header extends React.Component {

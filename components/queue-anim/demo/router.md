@@ -7,9 +7,9 @@ title: Router 默认进出场
 router 组合的进场与出场动画。
 
 ````jsx
+import { QueueAnim, Menu } from 'antd';
 const ReactRouter = require('react-router');
 let { Router, Route, Link, hashHistory } = ReactRouter;
-import { QueueAnim, Menu } from 'antd';
 
 function App(props) {
   const key = props.location.pathname;
@@ -40,23 +40,23 @@ function Home() {
       <QueueAnim className="demo-content">
         <div className="demo-kp" key="a">
           <QueueAnim component="ul">
-            <li key="0"></li>
-            <li key="1"></li>
-            <li key="2"></li>
+            <li key="0" />
+            <li key="1" />
+            <li key="2" />
           </QueueAnim>
         </div>
         <div className="demo-kp" key="b">
           <QueueAnim component="ul">
-            <li key="0"></li>
-            <li key="1"></li>
-            <li key="2"></li>
+            <li key="0" />
+            <li key="1" />
+            <li key="2" />
           </QueueAnim>
         </div>
         <div className="demo-kp" key="c">
           <QueueAnim component="ul">
-            <li key="0"></li>
-            <li key="1"></li>
-            <li key="2"></li>
+            <li key="0" />
+            <li key="1" />
+            <li key="2" />
           </QueueAnim>
         </div>
       </QueueAnim>
@@ -70,18 +70,18 @@ function Page1() {
       <QueueAnim className="demo-content">
         <div className="demo-kp" key="b">
           <QueueAnim component="ul">
-            <li key="0"></li>
-            <li key="1"></li>
-            <li key="2"></li>
+            <li key="0" />
+            <li key="1" />
+            <li key="2" />
           </QueueAnim>
         </div>
         <div className="demo-listBox">
           <QueueAnim className="demo-list" delay={200}>
-            <div className="title" key="title3"></div>
+            <div className="title" key="title3" />
             <QueueAnim component="ul" animConfig={{ opacity: [1, 0], translateY: [0, 30], scale: [1, 0.9] }} key="ul">
-              <li key="0"></li>
-              <li key="1"></li>
-              <li key="2"></li>
+              <li key="0" />
+              <li key="1" />
+              <li key="2" />
             </QueueAnim>
           </QueueAnim>
         </div>
@@ -96,14 +96,14 @@ function Page2() {
       <div className="demo-content">
         <div className="demo-listBox">
           <QueueAnim className="demo-list">
-            <div className="title" key="title3"></div>
+            <div className="title" key="title3" />
             <QueueAnim component="ul" animConfig={{ opacity: [1, 0], translateY: [0, 30], scale: [1, 0.9] }} key="li">
-              <li key="0"></li>
-              <li key="1"></li>
-              <li key="2"></li>
-              <li key="3"></li>
-              <li key="4"></li>
-              <li key="5"></li>
+              <li key="0" />
+              <li key="1" />
+              <li key="2" />
+              <li key="3" />
+              <li key="4" />
+              <li key="5" />
             </QueueAnim>
           </QueueAnim>
         </div>

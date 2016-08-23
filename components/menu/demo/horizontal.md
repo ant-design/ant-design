@@ -45,7 +45,7 @@ const App = React.createClass({
           </MenuItemGroup>
         </SubMenu>
         <Menu.Item key="alipay">
-          <a href="http://www.alipay.com/" target="_blank">导航四 - 链接</a>
+          <a href="http://www.alipay.com/" target="_blank" rel="noopener noreferrer">导航四 - 链接</a>
         </Menu.Item>
       </Menu>
     );

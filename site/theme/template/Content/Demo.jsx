@@ -65,7 +65,7 @@ export default class Demo extends React.Component {
               preview(React, ReactDOM)
           }
           {
-            !!style ?
+            style ?
               <style dangerouslySetInnerHTML={{ __html: style }} /> :
               null
           }

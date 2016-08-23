@@ -13,9 +13,9 @@ const Test = React.createClass({
     return {
       show: true,
       items: [
-        <li key="0"></li>,
-        <li key="1"></li>,
-        <li key="2"></li>,
+        <li key="0" />,
+        <li key="1" />,
+        <li key="2" />,
       ],
     };
   },
@@ -26,7 +26,7 @@ const Test = React.createClass({
   },
   onAdd() {
     const items = this.state.items;
-    items.push(<li key={Date.now()}></li>);
+    items.push(<li key={Date.now()} />);
     this.setState({
       show: true,
       items,
@@ -51,7 +51,7 @@ const Test = React.createClass({
         <div className="demo-content">
           <div className="demo-listBox" key="b">
             <div className="demo-list">
-              <div className="title"></div>
+              <div className="title" />
               <QueueAnim component="ul" type={['right', 'left']}>
                 {this.state.show ? this.state.items : null}
               </QueueAnim>

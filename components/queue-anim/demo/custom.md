@@ -23,18 +23,18 @@ const Test = React.createClass({
     const list = this.state.show ? [
       <div className="demo-kp" key="a">
         <ul>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li />
+          <li />
+          <li />
         </ul>
       </div>,
       <div className="demo-listBox" key="b">
         <div className="demo-list">
-          <div className="title"></div>
+          <div className="title" />
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li />
+            <li />
+            <li />
           </ul>
         </div>
       </div>,

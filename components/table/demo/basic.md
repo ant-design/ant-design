@@ -35,9 +35,9 @@ const columns = [{
   render: (text, record) => (
     <span>
       <a href="#">操作一{record.name}</a>
-      <span className="ant-divider"></span>
+      <span className="ant-divider" />
       <a href="#">操作二</a>
-      <span className="ant-divider"></span>
+      <span className="ant-divider" />
       <a href="#" className="ant-dropdown-link">
         更多 <Icon type="down" />
       </a>

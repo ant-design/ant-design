@@ -14,7 +14,7 @@ Badge normally appears in proximity to notification or head picture with eye-cat
 
 ```jsx
 <Badge count={5}>
-  <a href="#" className="head-example"></a>
+  <a href="#" className="head-example" />
 </Badge>
 ```
 

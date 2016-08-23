@@ -1,6 +1,6 @@
 ---
 order: 12
-title: 
+title:
   zh-CN: 校验其他组件
   en-US: Others components related to validation
 ---
@@ -37,7 +37,7 @@ let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((errors, values) => {
-      if (!!errors) {
+      if (errors) {
         console.log('Errors in form!!!');
         return;
       }

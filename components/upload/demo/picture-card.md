@@ -44,7 +44,7 @@ const ImageUploadList = React.createClass({
           <Icon type="plus" />
           <div className="ant-upload-text">上传照片</div>
         </Upload>
-        <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" className="upload-example">
+        <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" rel="noopener noreferrer" className="upload-example">
           <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
           <span>示例</span>
         </a>
