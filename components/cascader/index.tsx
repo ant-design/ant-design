@@ -43,8 +43,11 @@ export interface CascaderProps {
   /** 是否支持清除*/
   allowClear?: boolean;
   showSearch?: boolean;
+  notFoundContent?: React.ReactNode;
   filterOption?: (inputValue: string, path: CascaderOptionType[]) => boolean;
   renderFilteredOption?: (inputValue: string, path: CascaderOptionType[]) => React.ReactNode;
+  sortFilteredOption?: (a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string) => number;
+  searchResultListWidth?: number;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
@@ -52,8 +55,6 @@ export interface CascaderProps {
   /** 浮层可见变化时回调 */
   onPopupVisibleChange?: (popupVisible: boolean) => void;
 }
-
-const NOT_FOUND = [{ label: 'Not Found', value: 'ANT_CASCADER_NOT_FOUND', disabled: true }];
 
 function highlightKeyword(str: string, keyword: string) {
   return str.split(keyword)
@@ -75,6 +76,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     disabled: false,
     allowClear: true,
     showSearch: false,
+    notFoundContent: 'Not Found',
     filterOption(inputValue, path) {
       return path.some(option => option.label.indexOf(inputValue) > -1);
     },
@@ -83,6 +85,13 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         const node = label.indexOf(inputValue) > -1 ? highlightKeyword(label, inputValue) : label;
         return index === 0 ? node : [' / ', node];
       });
+    },
+    sortFilteredOption(a, b, inputValue) {
+      function callback(elem) {
+        return elem.label.indexOf(inputValue) > -1;
+      }
+
+      return a.findIndex(callback) - b.findIndex(callback);
     },
     onPopupVisibleChange() {},
   };
@@ -127,9 +136,9 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   handleInputClick = (e) => {
-    const inputFocused = this.state.inputFocused;
+    const { inputFocused, popupVisible} = this.state;
     // Prevent `Trigger` behaviour.
-    if (inputFocused) {
+    if (inputFocused || popupVisible) {
       e.stopPropagation();
       e.nativeEvent.stopImmediatePropagation();
     }
@@ -185,9 +194,10 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   generateFilteredOptions() {
-    const { filterOption, renderFilteredOption } = this.props;
+    const { filterOption, renderFilteredOption, sortFilteredOption, notFoundContent } = this.props;
     const { flattenOptions, inputValue } = this.state;
-    const filtered = flattenOptions.filter((path) => filterOption(this.state.inputValue, path));
+    const filtered = flattenOptions.filter((path) => filterOption(this.state.inputValue, path))
+      .sort((a, b) => sortFilteredOption(a, b, inputValue));
 
     if (filtered.length > 0) {
       return filtered.map((path) => {
@@ -197,15 +207,16 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         };
       });
     }
-    return NOT_FOUND;
+    return [{ label: notFoundContent, value: 'ANT_CASCADER_NOT_FOUND', disabled: true }];
   }
 
   render() {
     const props = this.props;
     const state = this.state;
     const [{ prefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch }, otherProps] = splitObject(props,
-      ['prefixCls', 'children', 'placeholder', 'size', 'disabled', 'className', 'style', 'allowClear', 'showSearch']);
+      className, style, allowClear, showSearch, searchResultListWidth }, otherProps] = splitObject(props,
+      ['prefixCls', 'children', 'placeholder', 'size', 'disabled', 'className',
+       'style', 'allowClear', 'showSearch', 'searchResultListWidth']);
     const value = state.value;
 
     const sizeCls = classNames({
@@ -244,6 +255,9 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'popupClassName',
       'filterOption',
       'renderFilteredOption',
+      'sortFilteredOption',
+      'notFoundContent',
+      'searchResultListWidth',
     ]);
 
     let options = props.options;
@@ -257,6 +271,17 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       this.cachedOptions = options;
     }
 
+    const dropdownMenuColumnStyle = {
+      width: state.inputValue && searchResultListWidth,
+      height: undefined,
+    };
+    const isNotFound = (options || []).length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND';
+    if (isNotFound) {
+      dropdownMenuColumnStyle.height = 32; // Height of one row.
+    }
+    if (!searchResultListWidth && state.inputValue && this.refs.input) {
+      dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
+    }
     return (
       <RcCascader {...props}
         options={options}
@@ -264,6 +289,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         popupVisible={state.popupVisible}
         onPopupVisibleChange={this.handlePopupVisibleChange}
         onChange={this.handleChange}
+        dropdownMenuColumnStyle={dropdownMenuColumnStyle}
       >
         {children ||
           <span
@@ -271,6 +297,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
             className={pickerCls}
           >
             <Input {...inputProps}
+              ref="input"
               placeholder={value && value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ${sizeCls}`}
               value={state.inputValue}

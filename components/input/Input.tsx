@@ -48,6 +48,8 @@ export interface InputProps {
   onPressEnter?: React.FormEventHandler;
   onKeyDown?: React.FormEventHandler;
   onChange?: React.FormEventHandler;
+  onClick?: React.FormEventHandler;
+  onBlur?: React.FormEventHandler;
   autosize?: boolean | AutoSizeType;
 }
 
