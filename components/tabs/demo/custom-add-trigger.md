@@ -2,7 +2,7 @@
 order: 11
 title: 
   zh-CN: 自定义新增页签触发器
-  en-US: Customize trigger of new tab.
+  en-US: Customized trigger of new tab.
 ---
 ## zh-CN
 
