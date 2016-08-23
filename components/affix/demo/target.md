@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-Set a `target` for 'Affix', which is listener to scroll event of target element (default is `window`). 
+Set a `target` for 'Affix', which is listen to scroll event of target element (default is `window`). 
 
 ````jsx
 import { Affix, Button } from 'antd';
