@@ -1,6 +1,8 @@
 ---
 order: 5
-title: 迷你型
+title: 
+  zh-CN: 迷你型
+  en-US: Mini tab
 ---
 
 ## zh-CN

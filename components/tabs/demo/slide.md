@@ -1,6 +1,8 @@
 ---
 order: 3
-title: 滑动
+title: 
+  zh-CN: 滑动
+  en-US: Slide
 ---
 
 ## zh-CN
