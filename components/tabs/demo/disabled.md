@@ -1,7 +1,6 @@
 ---
 order: 1
-title: 禁用
-title: 
+title:
   zh-CN: 禁用
   en-US: Disabled
 ---
