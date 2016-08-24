@@ -1,4 +1,5 @@
 import * as React from 'react';
+import assign from 'object-assign';
 import RcCalendar from 'rc-calendar';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import createPicker from './createPicker';
@@ -38,9 +39,11 @@ export interface RangePickerProps extends PickerProps {
   onChange?: (dates: [Date, Date], dateStrings: [String, String]) => void;
   showTime?: TimePickerProps;
 }
-DatePicker.RangePicker = wrapPicker(RangePicker) as React.ClassicComponentClass<RangePickerProps>;
 
-DatePicker.Calendar = Calendar;
-DatePicker.MonthPicker = MonthPicker;
+assign(DatePicker, {
+  RangePicker: wrapPicker(RangePicker) as React.ClassicComponentClass<RangePickerProps>,
+  Calendar,
+  MonthPicker,
+});
 
 export default DatePicker;
