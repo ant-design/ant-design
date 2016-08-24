@@ -6,6 +6,11 @@ import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
 
+export interface PickerProps {
+  parseDateFromValue?: Function;
+  value?: string | Date;
+}
+
 export default function createPicker(TheCalendar) {
   // use class typescript error
   const CalenderWrapper = React.createClass({
@@ -16,7 +21,7 @@ export default function createPicker(TheCalendar) {
       };
     },
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.parseDateFromValue(nextProps.value),
