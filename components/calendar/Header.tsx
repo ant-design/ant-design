@@ -16,6 +16,7 @@ export interface HeaderProps {
   type?: string;
   onValueChange?: (value) => void;
   onTypeChange?: (type: string) => void;
+  value: any;
 }
 
 export default class Header extends React.Component<HeaderProps, any> {

@@ -76,7 +76,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let childrenWithCross;
     if (type === 'editable-card') {
       childrenWithCross = [];
-      React.Children.forEach(children, (child, index) => {
+      React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
         childrenWithCross.push(cloneElement(child, {
           tab: (
             <div>

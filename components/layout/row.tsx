@@ -39,7 +39,7 @@ export default class Row extends React.Component<RowProps, any> {
       marginLeft: gutter / -2,
       marginRight: gutter / -2,
     }, style) : style;
-    const cols = Children.map(children, (col) => {
+    const cols = Children.map(children, (col: React.ReactElement<any>) => {
       if (!col) {
         return null;
       }

@@ -40,7 +40,7 @@ export default class Tag extends React.Component<TagProps, any> {
     if (e.defaultPrevented) {
       return;
     }
-    const dom = ReactDOM.findDOMNode(this);
+    const dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.width = `${dom.getBoundingClientRect().width}px`;
     // It's Magic Code, don't know why
     dom.style.width = `${dom.getBoundingClientRect().width}px`;

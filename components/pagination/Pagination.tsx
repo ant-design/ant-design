@@ -57,7 +57,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
 
   render() {
     let className = this.props.className;
-    let selectComponentClass = Select;
+    let selectComponentClass = Select as React.ReactNode;
 
     let locale;
     if (this.context.antLocale && this.context.antLocale.Pagination) {

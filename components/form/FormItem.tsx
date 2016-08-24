@@ -74,14 +74,14 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   getOnlyControl() {
     const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c) => {
+    const child = children.filter((c: React.ReactElement<any>) => {
       return c.props && FIELD_META_PROP in c.props;
     })[0];
     return child !== undefined ? child : null;
   }
 
   getChildProp(prop) {
-    const child = this.getOnlyControl();
+    const child = this.getOnlyControl() as React.ReactElement<any>;
     return child && child.props && child.props[prop];
   }
 
@@ -201,7 +201,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child) => {
+    const children = React.Children.map(props.children, (child: React.ReactElement<any>) => {
       if (child && typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }

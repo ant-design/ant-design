@@ -145,7 +145,8 @@ export default class Affix extends React.Component<AffixProps, any> {
     }
 
     const targetRect = getTargetRect(targetNode);
-    const targetInnerHeight = targetNode.innerHeight || targetNode.clientHeight;
+    const targetInnerHeight =
+      (targetNode as Window).innerHeight || (targetNode as HTMLElement).clientHeight;
     if (scrollTop > elemOffset.top - offsetTop && offsetMode.top) {
       // Fixed Top
       this.setAffixStyle(e, {

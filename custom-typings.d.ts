@@ -8,11 +8,11 @@ declare module 'react-addons-pure-render-mixin' {
 }
 
 declare module 'gregorian-calendar-format' {
-  export default function(format: string, localeFormat: Object): string;
+  export default function(format: string, localeFormat: Object): void;
 }
 
 declare module 'gregorian-calendar' {
-  export default function({}): string;
+  export default function({}): void;
 }
 
 declare module 'gregorian-calendar/lib/locale/en_US' {
@@ -171,6 +171,7 @@ declare module 'rc-tabs' {
 }
 
 declare module 'rc-tree' {
+  export const TreeNode: any;
   export default function(): any;
 }
 
@@ -251,5 +252,5 @@ declare module 'rc-collapse' {
 }
 
 declare module 'rc-form/lib/createDOMForm' {
-  export default function(): any;
+  export default function(Object): any;
 }

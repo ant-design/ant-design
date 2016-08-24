@@ -84,6 +84,10 @@ export default class Input extends Component<InputProps, any> {
   };
 
   nextFrameActionId: number;
+  refs: {
+    [key: string]: any;
+    input: any;
+  };
 
   constructor(props) {
     super(props);
