@@ -58,8 +58,8 @@ export interface CascaderProps {
 
 function highlightKeyword(str: string, keyword: string) {
   return str.split(keyword)
-    .map((node, index) => index === 0 ? node : [
-      <span className="ant-cascader-menu-item-keyword">{keyword}</span>,
+    .map((node: string, index: number) => index === 0 ? node : [
+      <span className="ant-cascader-menu-item-keyword" key="seperator">{keyword}</span>,
       node,
     ]);
 }
