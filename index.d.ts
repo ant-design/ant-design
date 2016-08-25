@@ -1006,9 +1006,12 @@ export const notification:{
   warn:NotificationFunc
   close:(key:string) => void
   destroy:() => void
+  open:NotificationFunc
   config:(options:{
     /** 消息距离顶部的位置*/
     top:number
+    /** 默认自动关闭延时，单位秒 */
+    duration:number
   }) => void
 
 }
