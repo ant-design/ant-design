@@ -96,6 +96,7 @@ interface TableContext {
 export default class Table extends React.Component<TableProps, any> {
   static propTypes = {
     dataSource: React.PropTypes.array,
+    columns: React.PropTypes.array.isRequired,
     prefixCls: React.PropTypes.string,
     useFixedHeader: React.PropTypes.bool,
     rowSelection: React.PropTypes.object,
