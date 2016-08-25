@@ -97,6 +97,12 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   };
 
   cachedOptions: CascaderOptionType[];
+  refs: {
+    [key: string]: any;
+    input: {
+      refs: { input: HTMLElement }
+    };
+  };
 
   constructor(props) {
     super(props);
