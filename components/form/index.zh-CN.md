@@ -103,7 +103,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### Form.Item
 
-> 一个 Form.Item 建议只放一个 child，有多个 child 时，`help` `required` `validateStatus` 无法自动生成。
+> * 一个 Form.Item 建议只放一个 child，有多个 child 时，`help` `required` `validateStatus` 无法自动生成。
+> * 只有当表单域为 Form.Item 的子元素时，才会自动生成 `help` `required` `validateStatus`，其它情况请自行设置。
 
 | 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
 |-----------|------------------------------------------|-----------|-------|--------|

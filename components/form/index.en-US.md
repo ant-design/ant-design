@@ -101,7 +101,8 @@ The return value of `getFieldProps` contains `id`、`value`(or any other props `
 
 ### Form.Item
 
-> If Form.Item has multiple children, `help`, `required`, and `validateStatus` can't be generated automatically.
+> * If Form.Item has multiple children, `help`, `required`, and `validateStatus` can't be generated automatically.
+> * Form controls must be child of Form.Item, otherwise, you need to set `help`, `required` and `validateStatus` by yourself.
 
 | Property      | Description                                     | Type       |  Optional | Default Value |
 |-----------|------------------------------------------|-----------|-------|--------|
