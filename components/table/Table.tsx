@@ -777,7 +777,10 @@ export default class Table extends React.Component<TableProps, any> {
     data = data.slice(0);
     const sorterFn = this.getSorterFn();
     if (sorterFn) {
-      data = data.sort(sorterFn);
+      data = data.sort(sorterFn).map(item => (item.children ? {
+        ...item,
+        children: item.children.sort(sorterFn),
+      } : item));
     }
     // 筛选
     if (state.filters) {
