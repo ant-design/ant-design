@@ -5,7 +5,7 @@ title: 联动
 
 省市联动是典型的例子。
 
-推荐使用 [Cascader](/components/cascader) 组件。
+推荐使用 [Cascader](/components/cascader/) 组件。
 
 ````jsx
 import { Select } from 'antd';
