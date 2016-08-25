@@ -1006,9 +1006,12 @@ export const notification:{
   warn:NotificationFunc
   close:(key:string) => void
   destroy:() => void
+  open:NotificationFunc
   config:(options:{
     /** 消息距离顶部的位置*/
     top:number
+    /** 默认自动关闭延时，单位秒 */
+    duration:number
   }) => void
 
 }
@@ -1481,10 +1484,14 @@ interface TableProps {
   columns:Columns,
   /** 表格行 key 的取值*/
   rowKey?:(record:any, index:number) => string,
+  /** 表格行的类名 */
+  rowClassName?:(record:any, index) => string,
   /** 额外的展开行*/
   expandedRowRender?:Function,
   /** 默认展开的行*/
   defaultExpandedRowKeys?:Array<string>,
+  /** 展开的行，控制属性 */
+  expandedRowKeys?:Array<string>,
   /** 分页、排序、筛选变化时触发*/
   onChange?:(pagination:Object, filters:any, sorter:any) => void,
   /** 页面是否加载中*/
@@ -1503,8 +1510,13 @@ interface TableProps {
   showHeader?:boolean,
   /** 表格底部自定义渲染函数*/
   footer?:(currentPageData:Object) => void,
-
-  style?:React.CSSProperties
+  /** 表格头部自定义渲染函数  */
+  title?:(currentPageData:Object) => void,
+  /** 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：{{ x: true, y: 300 }} */
+  scroll?:Object,
+  /** 表格body的样式 */
+  bodyStyle?:React.CSSProperties,
+  style?:React.CSSProperties,
 }
 /**
  * #Table
