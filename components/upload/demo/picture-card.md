@@ -1,9 +1,17 @@
 ---
 order: 8
-title: 图片卡片样式
+title: 
+  zh-CN: 图片卡片样式
+  en-US: Pictures with card tyle
 ---
 
+## zh-CN
+
 上传文件为图片，可展示本地缩略图。
+
+## en-US
+
+If uploade file is picture, a thumbnail can be shown.
 
 ````jsx
 import { Upload, Icon, Modal } from 'antd';
@@ -42,11 +50,11 @@ const ImageUploadList = React.createClass({
       <div className="clearfix">
         <Upload {...props}>
           <Icon type="plus" />
-          <div className="ant-upload-text">上传照片</div>
+          <div className="ant-upload-text">upload pictures</div>
         </Upload>
         <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" rel="noopener noreferrer" className="upload-example">
           <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
-          <span>示例</span>
+          <span>sample</span>
         </a>
         <Modal visible={this.state.previewVisible} footer={null} onCancel={this.handleCancel}>
           <img alt="example" src={this.state.previewImage} />
@@ -60,7 +68,7 @@ ReactDOM.render(<ImageUploadList />, mountNode);
 ````
 
 ````css
-/* 配合样式可以做出上传按钮和示例效果 */
+/* you can make up upload button and sample style by using stylesheets */
 .ant-upload-select-picture-card i {
   font-size: 28px;
   color: #999;
