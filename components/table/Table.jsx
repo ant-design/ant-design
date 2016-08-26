@@ -719,12 +719,16 @@ export default class Table extends React.Component {
 
   getLocalData() {
     const state = this.state;
-    let data = this.props.dataSource || [];
+    const { dataSource, childrenColumnName } = this.props;
+    let data = dataSource || [];
     // 优化本地排序
     data = data.slice(0);
     const sorterFn = this.getSorterFn();
     if (sorterFn) {
-      data = data.sort(sorterFn);
+      data = data.sort(sorterFn).map(dataItem => (dataItem[childrenColumnName] ? {
+        ...dataItem,
+        [childrenColumnName]: dataItem[childrenColumnName].sort(sorterFn),
+      } : dataItem));
     }
     // 筛选
     if (state.filters) {
