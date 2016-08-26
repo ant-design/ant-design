@@ -1,19 +1,29 @@
 ---
 order: 13
-title: 表格行/列合并
+title:
+  en-US: colSpan and rowSpan
+  zh-CN: 表格行/列合并
 ---
+
+## zh-CN
 
 表头只支持列合并，使用 column 里的 colSpan 进行设置。
 
 表格支持行/列合并，使用 render 里的单元格属性 colSpan 或者 rowSpan 设值为 0 时，设置的表格不会渲染。
 
+## en-US
+
+Table column title supports `colSpan` that set in `column`.
+
+Table cell supports `colSpan` and `rowSpan` that set in render return object. When each of them is set to `0`, the cell will not be rendered.
+
 ````jsx
 import { Table } from 'antd';
 
-// 事例表中第四行合并了五列，除了第一列设置 colSpan = 5 外
-// 其他列的第四行 colSpan = 0 (被合并掉，不会渲染)
+// In the fifth row, other columns are merged into first column
+// by setting it's colSpan to be 0
 const renderContent = function (value, row, index) {
-  let obj = {
+  const obj = {
     children: value,
     props: {},
   };
@@ -46,20 +56,17 @@ const columns = [{
   colSpan: 2,
   dataIndex: 'tel',
   render(value, row, index) {
-    let obj = {
+    const obj = {
       children: value,
       props: {},
     };
-    // 第三列的第三行行合并
     if (index === 2) {
       obj.props.rowSpan = 2;
     }
-
-    // 第三列的第四行被合并没了，设置 rowSpan = 0 直接不用渲染
+    // These two are merged into above cell
     if (index === 3) {
       obj.props.rowSpan = 0;
     }
-
     if (index === 4) {
       obj.props.colSpan = 0;
     }

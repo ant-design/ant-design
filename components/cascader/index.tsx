@@ -150,6 +150,10 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'onPopupVisibleChange',
       'changeOnSelect',
       'expandTrigger',
+      'popupVisible',
+      'getPopupContainer',
+      'loadData',
+      'popupClassName',
     ]);
 
     return (
@@ -166,7 +170,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
           >
             <Input {...inputProps}
               placeholder={this.state.value && this.state.value.length > 0 ? null : placeholder}
-              className={`${prefixCls}-input ant-input ${sizeCls}`}
+              className={`${prefixCls}-input ${sizeCls}`}
               value=""
               disabled={disabled}
               readOnly

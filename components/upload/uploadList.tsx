@@ -4,6 +4,7 @@ import Icon from '../icon';
 const prefixCls = 'ant-upload';
 import Progress from '../progress';
 import classNames from 'classnames';
+import { UploadListProps } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file, callback) => {
@@ -12,7 +13,7 @@ const previewFile = (file, callback) => {
   reader.readAsDataURL(file);
 };
 
-export default class UploadList extends React.Component {
+export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text',  // or picture
     items: [],
@@ -40,7 +41,7 @@ export default class UploadList extends React.Component {
     this.props.items.forEach(file => {
       if (typeof document === 'undefined' ||
           typeof window === 'undefined' ||
-          !window.FileReader || !window.File ||
+          !(window as any).FileReader || !(window as any).File ||
           !(file.originFileObj instanceof File) ||
           file.thumbUrl !== undefined) {
         return;
@@ -75,7 +76,7 @@ export default class UploadList extends React.Component {
               className={`${prefixCls}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
               href={file.url}
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
             >
               <img src={file.thumbUrl || file.url} alt={file.name} />
             </a>
@@ -103,7 +104,7 @@ export default class UploadList extends React.Component {
               ? (
                 <a
                   href={file.url}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   className={`${prefixCls}-list-item-name`}
                   onClick={e => this.handlePreview(file, e)}
                 >
@@ -124,7 +125,7 @@ export default class UploadList extends React.Component {
                 <span>
                   <a
                     href={file.url}
-                    target="_blank"
+                    target="_blank" rel="noopener noreferrer"
                     style={{ pointerEvents: file.url ? '' : 'none' }}
                     onClick={e => this.handlePreview(file, e)}
                   >
@@ -145,7 +146,7 @@ export default class UploadList extends React.Component {
     });
     return (
       <div className={listClassNames}>
-        <Animate transitionName={`${prefixCls}-margin-top`}>
+        <Animate transitionName={`${prefixCls}-margin-top`} component="div">
           {list}
         </Animate>
       </div>

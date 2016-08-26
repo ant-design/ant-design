@@ -15,7 +15,7 @@ english: Badge
 
 ```jsx
 <Badge count={5}>
-  <a href="#" className="head-example"></a>
+  <a href="#" className="head-example" />
 </Badge>
 ```
 
@@ -28,4 +28,6 @@ english: Badge
 |----------------|----------------------------------|------------|---------|--------|
 | count          | 展示的数字，大于 overflowCount 时显示为 `${overflowCount}+`，为 0 时隐藏 | Number     |         |        |
 | overflowCount  | 展示封顶的数字值                 | Number     |         | 99     |
-| dot            | 不展示数字，只有一个小红点       | boolean    |         | false  |
+| dot            | 不展示数字，只有一个小红点       | Boolean    |         | false  |
+| status         | 设置 Badge 为状态点            | Enum      | 'success'、'processing'、'default'、'error'、'warning' | '' |
+| text           | 在设置了 `status` 的前提下有效，设置状态点的文本  | String | | '' |

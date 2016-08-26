@@ -89,6 +89,12 @@
     }
   }
 
+  &-horizontal,
+  &-inline,
+  &-vertical {
+    z-index: auto;
+  }
+
   &-inline,
   &-vertical {
     border-right: 1px solid @border-color-split;
@@ -151,6 +157,7 @@
     &.@{menu-prefix-cls}-submenu-disabled {
       color: #999 !important;
       cursor: not-allowed;
+      background: none;
       > a {
         color: #999 !important;
         pointer-events: none;
@@ -215,6 +222,13 @@
         .ie-rotate(1);
         transform: rotate(180deg) scale(0.75);
       }
+    }
+  }
+
+  &-vertical &-submenu-selected {
+    color: @primary-color;
+    > a {
+      color: @primary-color;
     }
   }
 
@@ -346,6 +360,7 @@
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
+  &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
     background-color: transparent;

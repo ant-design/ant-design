@@ -47,6 +47,7 @@ input[type="checkbox"] {
     cursor: @cursor-disabled;
   }
 }
+
 // These classes are used on elements with <label> descendants
 .ant-radio,
 .ant-checkbox {
@@ -66,7 +67,8 @@ input[type="checkbox"] {
   color: #666;
 
   // nested FormItem
-  & & {
+  & > &,
+  & :not(.@{form-prefix-cls}) > & {
     margin-bottom: -@form-item-margin-bottom;
   }
 
@@ -84,6 +86,7 @@ input[type="checkbox"] {
     text-align: right;
     vertical-align: middle;
     padding: 7px 0;
+    display: inline-block;
 
     label {
       color: @label-color;
@@ -101,7 +104,7 @@ input[type="checkbox"] {
     margin: 4px 0;
   }
 
-  &.@{form-prefix-cls}-no-colon > label:after {
+  &-no-colon &-label label:after {
     content: " ";
   }
 }
@@ -224,6 +227,18 @@ form {
   }
 }
 
+// Form layout
+//== Vertical Form
+.@{form-prefix-cls}-vertical {
+  .@{form-prefix-cls}-item-label {
+    padding: 0 0 8px;
+
+    label:after {
+      content: '';
+    }
+  }
+}
+
 //== Inline Form
 .@{form-prefix-cls}-inline {
   .@{form-prefix-cls}-item {
@@ -274,12 +289,12 @@ form {
     top: 0;
     right: 0;
     visibility: visible;
-    font-family: "anticon" !important;
     .square(@input-height-lg);
     line-height: @input-height-lg;
     text-align: center;
     font-size: 14px;
     animation: zoomIn .3s @ease-out-back;
+    .iconfont-font("");
   }
 }
 
@@ -388,6 +403,18 @@ form {
     box-shadow: 0 0 0 2px fade(@error-color, 20%);
     &:not([disabled]):hover {
       border-color: @error-color;
+    }
+  }
+  .ant-mention-wrapper,
+  .ant-mention-wrapper.active {
+    .ant-mention-editor {
+      border-color: @error-color;
+      box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      &:not([disabled]):hover,
+      &:not([disabled]):focus {
+        border-color: @error-color;
+        box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      }
     }
   }
 }

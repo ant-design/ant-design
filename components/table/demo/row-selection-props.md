@@ -1,9 +1,17 @@
 ---
 order: 3
-title: 选择框属性
+title:
+  en-US: Checkbox props
+  zh-CN: 选择框属性
 ---
 
+## zh-CN
+
 配置选择框的默认属性。
+
+## en-US
+
+Set props to Checkbox or Radio.
 
 ````jsx
 import { Table } from 'antd';

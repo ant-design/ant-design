@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
+## zh-CN
+
 最简单的用法。
+
+## en-US
+
+The most basic usage.
 
 ````jsx
 import { TreeSelect } from 'antd';
@@ -24,7 +32,7 @@ const Demo = React.createClass({
       <TreeSelect style={{ width: 300 }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        placeholder="请选择"
+        placeholder="Please select"
         allowClear
         treeDefaultExpandAll
         onChange={this.onChange}

@@ -1,20 +1,11 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
-import Layout from '../Layout';
 import Link from './Link';
 import Banner from './Banner';
 import Page1 from './Page1';
 import Page2 from './Page2';
 import Page3 from './Page3';
 import Page4 from './Page4';
-import Promise from 'bluebird';
-import * as utils from '../utils';
-
-export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
-  Promise.all(componentsList)
-    .then((list) => callback(null, { ...nextProps, components: list }));
-}
 
 export default class Home extends React.Component {
   // To store style which is only for Home and has conflicts with others.
@@ -96,17 +87,15 @@ export default class Home extends React.Component {
   render() {
     return (
       <DocumentTitle title="Ant Design - 一个 UI 设计语言">
-        <Layout {...this.props}>
-          <div className="main-wrapper">
-            <Link />
-            <Banner />
-            <Page1 />
-            <Page2 />
-            <Page3 />
-            <Page4 />
-            <style dangerouslySetInnerHTML={{ __html: this.getStyle() }} />
-          </div>
-        </Layout>
+        <div className="main-wrapper">
+          <Link />
+          <Banner />
+          <Page1 />
+          <Page2 />
+          <Page3 />
+          <Page4 />
+          <style dangerouslySetInnerHTML={{ __html: this.getStyle() }} />
+        </div>
       </DocumentTitle>
     );
   }

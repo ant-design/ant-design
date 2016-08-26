@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
@@ -26,7 +27,32 @@ function clearNextFrameAction(nextFrameId) {
   }
 }
 
-export default class Input extends Component {
+interface AutoSizeType {
+  minRows?: number;
+  maxRows?: number;
+};
+
+export interface InputProps {
+  prefixCls?: string;
+  className?: string;
+  type: string;
+  id?: number | string;
+  value?: any;
+  defaultValue?: any;
+  placeholder?: string;
+  size?: 'large' | 'default' | 'small';
+  disabled?: boolean;
+  readOnly?: boolean;
+  addonBefore?: React.ReactNode;
+  addonAfter?: React.ReactNode;
+  onPressEnter?: React.FormEventHandler;
+  onKeyDown?: React.FormEventHandler;
+  onChange?: React.FormEventHandler;
+  autosize?: boolean | AutoSizeType;
+}
+
+export default class Input extends Component<InputProps, any> {
+  static Group: any;
   static defaultProps = {
     defaultValue: '',
     disabled: false,
@@ -34,6 +60,7 @@ export default class Input extends Component {
     type: 'text',
     onPressEnter() {},
     onKeyDown() {},
+    onChange() {},
     autosize: false,
   };
 
@@ -54,6 +81,12 @@ export default class Input extends Component {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+  };
+
+  nextFrameActionId: number;
+  refs: {
+    [key: string]: any;
+    input: any;
   };
 
   constructor(props) {
@@ -85,10 +118,10 @@ export default class Input extends Component {
   }
 
   handleTextareaChange = (e) => {
-    this.resizeTextarea();
-    if (this.props.onChange) {
-      this.props.onChange(e);
+    if (!('value' in this.props)) {
+      this.resizeTextarea();
     }
+    this.props.onChange(e);
   }
 
   resizeTextarea = () => {
@@ -96,8 +129,8 @@ export default class Input extends Component {
     if (type !== 'textarea' || !autosize || !this.refs.input) {
       return;
     }
-    const minRows = autosize ? autosize.minRows : null;
-    const maxRows = autosize ? autosize.maxRows : null;
+    const minRows = autosize ? (autosize as AutoSizeType).minRows : null;
+    const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
     const textareaStyles = calculateNodeHeight(this.refs.input, false, minRows, maxRows);
     this.setState({ textareaStyles });
   }

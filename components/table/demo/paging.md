@@ -1,9 +1,17 @@
 ---
 order: 5
-title: 分页
+title:
+  en-US: pagination
+  zh-CN: 分页
 ---
 
+## zh-CN
+
 数据项较多时显示分页。
+
+## en-US
+
+when use pagination in table.
 
 ````jsx
 import { Table } from 'antd';

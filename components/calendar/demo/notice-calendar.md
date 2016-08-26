@@ -9,7 +9,7 @@ title:
 
 一个复杂的应用示例。
 
-## en_US
+## en-US
 
 A complex application.
 
@@ -45,7 +45,7 @@ function getListData(value) {
 }
 
 function dateCellRender(value) {
-  let listData = getListData(value);
+  const listData = getListData(value);
   return (
     <ul className="events">
       {

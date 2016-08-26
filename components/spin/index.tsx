@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
@@ -6,16 +7,29 @@ import warning from 'warning';
 import splitObject from '../_util/splitObject';
 import omit from 'object.omit';
 
-export default class Spin extends React.Component {
+export interface SpinProps {
+  prefixCls?: string;
+  className?: string;
+  spinning?: boolean;
+  size?: 'small' | 'default' | 'large';
+  tip?: string;
+}
+
+export default class Spin extends React.Component<SpinProps, any> {
   static defaultProps = {
     prefixCls: 'ant-spin',
     spinning: true,
+    size: 'default',
   };
 
   static propTypes = {
-    className: React.PropTypes.string,
-    size: React.PropTypes.oneOf(['small', 'default', 'large']),
+    prefixCls: PropTypes.string,
+    className: PropTypes.string,
+    spinning: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'default', 'large']),
   };
+
+  debounceTimeout: number;
 
   constructor(props) {
     super(props);
@@ -53,12 +67,13 @@ export default class Spin extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const currentSpinning = this.getSpinning(this.props);
     const spinning = this.getSpinning(nextProps);
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
-    if (spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 250);
+    if (currentSpinning && !spinning) {
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 500);
     } else {
       this.setState({ spinning });
     }
@@ -88,7 +103,7 @@ export default class Spin extends React.Component {
     const spinElement = (
       <div {...divProps} className={spinClassName}>
         <span className={`${prefixCls}-dot`} />
-        <div className={`${prefixCls}-text`}>{tip || '加载中...'}</div>
+        {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
 

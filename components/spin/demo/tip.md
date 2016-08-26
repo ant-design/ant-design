@@ -1,9 +1,17 @@
 ---
 order: 4
-title: 自定义描述文案
+title: 
+  zh-CN: 自定义描述文案
+  en-US: Customize description
 ---
 
+## zh-CN
+
 自定义描述文案，指定的 tip 文案会直接代替 `...`。
+
+## en-US
+
+Customize description content, specified tip content will replace the dots in `Spin`.
 
 ````jsx
 import { Spin, Alert } from 'antd';

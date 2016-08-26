@@ -15,7 +15,7 @@
 
 .markdown h1 {
   color: #404040;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 40px;
   margin-bottom: 24px;
   margin-top: 8px;
@@ -23,7 +23,7 @@
 
   .subtitle {
     font-weight: normal;
-    font-size: 80%;
+    font-size: 90%;
     margin-left: 12px;
   }
 }
@@ -34,6 +34,7 @@
 .markdown h5,
 .markdown h6 {
   color: #404040;
+  font-family: lato,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Arial,sans-serif;
   margin: 1.6em 0 0.6em 0;
   font-weight: 500;
   clear: both;
@@ -61,6 +62,9 @@
 
 .markdown ul > li {
   list-style: circle;
+  &:empty {
+    display: none;
+  }
 }
 
 .markdown > ul li,
@@ -163,6 +167,26 @@
 .markdown .waiting {
   color: #ccc;
   cursor: not-allowed;
+}
+
+.markdown a.edit-button {
+  line-height: 12px;
+  display: inline-block;
+  margin-left: 10px;
+  height: 12px;
+
+  i {
+    color: #999;
+
+    &:hover {
+      color: #2db7f5;
+    }
+  }
+
+  .anticon {
+    display: block;
+    font-size: 14px;
+  }
 }
 
 .markdown h1:hover .anchor,

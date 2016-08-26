@@ -5,11 +5,11 @@ title: Card
 cols: 1
 ---
 
-Common card container.
+Simple rectangular container
 
 ## When to use
 
-The most basic card container. You can use it to contain text, lists, pictures and paragraphs.
+A card can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
 
 ## API
 
@@ -20,6 +20,6 @@ The most basic card container. You can use it to contain text, lists, pictures a
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
 | title    | Card title | React.Element   |  -  |
-| extra    | Corner content of card | React.Element   | - |
-| bordered | Whether a border is set | Boolean   |  true  |
-| bodyStyle | Custom style for content area | Object   |  -  |
+| extra    | Content to render in the top-right corner of the card | React.Element   | - |
+| bordered | Toggles rendering of the border around the card | Boolean   |  true  |
+| bodyStyle | Inline style to apply to the card content | Object   |  -  |

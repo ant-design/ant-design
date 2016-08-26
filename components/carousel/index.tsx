@@ -2,8 +2,9 @@
 // https://github.com/WickyNilliams/enquire.js/issues/82
 import assign from 'object-assign';
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill() {
+  const matchMediaPolyfill = function matchMediaPolyfill(mediaQuery: string): MediaQueryList {
     return {
+      media: mediaQuery,
       matches: false,
       addListener() {
       },
@@ -23,7 +24,7 @@ export interface CarouselProps {
   /** 动画效果函数，可取 scrollx, fade */
   effect?: CarouselEffect;
   /** 是否显示面板指示点 */
-  dots?: SlickCarouselboolean;
+  dots?: boolean;
   /** 垂直显示 */
   vertical?: boolean;
   /** 是否自动切换 */

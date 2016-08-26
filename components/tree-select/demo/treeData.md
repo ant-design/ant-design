@@ -1,28 +1,37 @@
 ---
 order: 1
-title: 从数据直接生成
+title:
+  zh-CN: 从数据直接生成
+  en-US: Generate form tree data
 ---
 
+## zh-CN
+
 使用 `treeData` 把 JSON 数据直接生成树结构。
+
+## en-US
+
+The tree structure can be populated using `treeData` property. This is a quick and easy way to provide the tree content.
+
 
 ````jsx
 import { TreeSelect } from 'antd';
 
 const treeData = [{
-  label: '节点一',
+  label: 'Node1',
   value: '0-0',
   key: '0-0',
   children: [{
-    label: '子节点一',
+    label: 'Child Node1',
     value: '0-0-1',
     key: '0-0-1',
   }, {
-    label: '子节点二',
+    label: 'Child Node2',
     value: '0-0-2',
     key: '0-0-2',
   }],
 }, {
-  label: '节点二',
+  label: 'Node2',
   value: '0-1',
   key: '0-1',
 }];
@@ -43,7 +52,7 @@ const Demo = React.createClass({
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         treeData={treeData}
-        placeholder="请选择"
+        placeholder="Please select"
         treeDefaultExpandAll
         onChange={this.onChange}
       />

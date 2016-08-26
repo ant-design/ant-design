@@ -5,7 +5,26 @@ import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 
-export default class FilterMenu extends React.Component {
+export interface FilterDropdownMenuWrapperProps {
+  onClick?: Function;
+  children?: any;
+}
+const FilterDropdownMenuWrapper: React.StatelessComponent<FilterDropdownMenuWrapperProps> = ({ onClick, children }) => (
+  <div className="ant-table-filter-dropdown" onClick={onClick}>{children}</div>
+);
+
+export interface FilterMenuProps {
+  locale: any;
+  selectedKeys: string[];
+  column: {
+    filterMultiple?: boolean,
+    filterDropdown?: React.ReactNode,
+    filters?: string[]
+  };
+  confirmFilter: (column: Object, selectedKeys: string[]) => any;
+}
+
+export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   static defaultProps = {
     handleFilter() {},
     column: null,
@@ -113,7 +132,7 @@ export default class FilterMenu extends React.Component {
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
 
     const menus = column.filterDropdown ? column.filterDropdown : (
-      <div className="ant-table-filter-dropdown">
+      <FilterDropdownMenuWrapper>
         <Menu
           multiple={multiple}
           onClick={this.handleMenuItemClick}
@@ -138,7 +157,7 @@ export default class FilterMenu extends React.Component {
             {locale.filterReset}
           </a>
         </div>
-      </div>
+      </FilterDropdownMenuWrapper>
     );
 
     const dropdownSelectedClass = (this.props.selectedKeys.length > 0)
@@ -150,7 +169,6 @@ export default class FilterMenu extends React.Component {
         overlay={menus}
         visible={this.state.visible}
         onVisibleChange={this.onVisibleChange}
-        closeOnSelect={false}
       >
         <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
       </Dropdown>

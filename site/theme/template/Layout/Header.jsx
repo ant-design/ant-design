@@ -5,6 +5,7 @@ import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button } from 'antd';
+
 const Option = Select.Option;
 
 export default class Header extends React.Component {
@@ -73,7 +74,7 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    this.context.router.push({ pathname: value });
+    this.context.router.push({ pathname: `${value}/` });
   }
 
   handleSelectFilter = (value, option) => {
@@ -89,10 +90,13 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { routes, components } = this.props;
-    const route = routes[0].path.replace(/^\//, '');
-    let activeMenuItem = route.slice(0, route.indexOf(':') - 1) || 'home';
-    if (activeMenuItem === 'components' || route === 'changelog') {
+    const { location, picked } = this.props;
+    const components = picked.components;
+    const module = location.pathname.replace(/\/$/, '')
+            .split('/').slice(0, -1)
+            .join('/');
+    let activeMenuItem = module || 'home';
+    if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
 
@@ -113,6 +117,7 @@ export default class Header extends React.Component {
       'home-nav-white': !this.state.isFirstFrame,
     });
 
+    const searchPlaceholder = this.context.intl.locale === 'zh-CN' ? '搜索组件...' : 'Search...';
     return (
       <header id="header" className={headerClassName}>
         <Row>
@@ -133,7 +138,7 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select combobox
                 dropdownClassName="component-select"
-                placeholder="搜索组件..."
+                placeholder={searchPlaceholder}
                 value={undefined}
                 optionFilterProp="data-label"
                 optionLabelProp="data-label"
@@ -144,7 +149,7 @@ export default class Header extends React.Component {
               </Select>
             </div>
             {
-              location.port ? (
+              window.location.port ? (
                 <Button id="lang" type="ghost" size="small" onClick={this.handleLangChange}>
                   <FormattedMessage id="app.header.lang" />
                 </Button>

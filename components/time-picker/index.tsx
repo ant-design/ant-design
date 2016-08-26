@@ -8,6 +8,7 @@ import assign from 'object-assign';
 
 // TimePicker
 export interface TimePickerProps {
+  size: 'large' | 'default' | 'small';
   /** 默认时间 */
   value?: string | Date;
   /** 初始默认时间 */
@@ -15,7 +16,7 @@ export interface TimePickerProps {
   /** 展示的时间格式 : "HH:mm:ss"、"HH:mm"、"mm:ss" */
   format?: string;
   /** 时间发生变化的回调 */
-  onChange?: (Date: Date) => void;
+  onChange?: (date: Date, dateString: string) => void;
   /** 禁用全部操作 */
   disabled?: boolean;
   /** 没有值的时候显示的内容 */
@@ -33,6 +34,13 @@ export interface TimePickerProps {
 
   style?: React.CSSProperties;
 }
+
+export interface TimePickerContext {
+  antLocale?: {
+    TimePicker?: any,
+  };
+}
+
 export default class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
     format: 'HH:mm:ss',
@@ -56,8 +64,10 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     antLocale: React.PropTypes.object,
   };
 
+  context: TimePickerContext;
+
   getFormatter() {
-    return new DateTimeFormat(this.props.format, this.getLocale().format);
+    return new DateTimeFormat(this.props.format as string, this.getLocale().format);
   }
 
   /**
@@ -95,7 +105,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
   handleChange = (value) => {
     this.props.onChange(
       value ? new Date(value.getTime()) : null,
-      value ? this.getFormatter().format(value) : '',
+      value ? this.getFormatter().format(value) : ''
     );
   }
 

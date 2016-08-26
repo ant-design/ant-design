@@ -1,9 +1,17 @@
 ---
 order: 5
-title: Flex 对齐
+title:
+  zh-CN: Flex 对齐
+  en-US: Flex Alignment
 ---
 
+## zh-CN
+
 Flex 子元素垂直对齐。
+
+## en-US
+
+Flex child elements vertically aligned.
 
 ````jsx
 import { Row, Col } from 'antd';
@@ -12,7 +20,7 @@ const DemoBox = props => <p className={`height-${props.value}`}>{props.children}
 
 ReactDOM.render(
   <div>
-    <p>顶部对齐</p>
+    <p>Align Top</p>
     <Row type="flex" justify="center" align="top">
       <Col span={4}><DemoBox value={100}>.ant-col-4</DemoBox></Col>
       <Col span={4}><DemoBox value={50}>.ant-col-4</DemoBox></Col>
@@ -20,7 +28,7 @@ ReactDOM.render(
       <Col span={4}><DemoBox value={80}>.ant-col-4</DemoBox></Col>
     </Row>
 
-    <p>居中对齐</p>
+    <p>Align Center</p>
     <Row type="flex" justify="space-around" align="middle">
       <Col span={4}><DemoBox value={100}>.ant-col-4</DemoBox></Col>
       <Col span={4}><DemoBox value={50}>.ant-col-4</DemoBox></Col>
@@ -28,7 +36,7 @@ ReactDOM.render(
       <Col span={4}><DemoBox value={80}>.ant-col-4</DemoBox></Col>
     </Row>
 
-    <p>底部对齐</p>
+    <p>Align Bottom</p>
     <Row type="flex" justify="space-between" align="bottom">
       <Col span={4}><DemoBox value={100}>.ant-col-4</DemoBox></Col>
       <Col span={4}><DemoBox value={50}>.ant-col-4</DemoBox></Col>

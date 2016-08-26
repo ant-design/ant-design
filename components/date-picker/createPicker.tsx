@@ -6,6 +6,11 @@ import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
 
+export interface PickerProps {
+  parseDateFromValue?: Function;
+  value?: string | Date;
+}
+
 export default function createPicker(TheCalendar) {
   // use class typescript error
   const CalenderWrapper = React.createClass({
@@ -16,7 +21,7 @@ export default function createPicker(TheCalendar) {
       };
     },
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.parseDateFromValue(nextProps.value),
@@ -59,6 +64,25 @@ export default function createPicker(TheCalendar) {
         'ant-calendar-month': MonthCalendar === TheCalendar,
       });
 
+      // 需要选择时间时，点击 ok 时才触发 onChange
+      let pickerChangeHandler: Object = {
+        onChange: this.handleChange,
+      };
+      let calendarHandler: Object = {
+        onOk: this.handleChange,
+        // fix https://github.com/ant-design/ant-design/issues/1902
+        onSelect: (value, cause) => {
+          if (cause && cause.source === 'todayButton') {
+            this.handleChange(value);
+          }
+        },
+      };
+      if (props.showTime) {
+        pickerChangeHandler = {};
+      } else {
+        calendarHandler = {};
+      }
+
       const calendar = (
         <TheCalendar
           formatter={props.getFormatter()}
@@ -70,11 +94,13 @@ export default function createPicker(TheCalendar) {
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
+          onOk={props.onOk}
+          {...calendarHandler}
         />
       );
 
       // default width for showTime
-      const pickerStyle = {};
+      const pickerStyle = { width: undefined };
       if (props.showTime) {
         pickerStyle.width = 180;
       }
@@ -98,7 +124,7 @@ export default function createPicker(TheCalendar) {
             open={props.open}
             onOpen={props.toggleOpen}
             onClose={props.toggleOpen}
-            onChange={this.handleChange}
+            {...pickerChangeHandler}
           >
             {
               ({ value }) => {

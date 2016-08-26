@@ -1,8 +1,17 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
-import splitObject from '../_util/splitObject';
 
-export default class Dropdown extends React.Component {
+export interface DropDownProps {
+  trigger?: Array<'click' | 'hover'>;
+  overlay: React.ReactNode;
+  style?: React.CSSProperties;
+  onVisibleChange?: (visible: boolean) => void;
+  visible?: boolean;
+  align?: Object;
+}
+
+export default class Dropdown extends React.Component<DropDownProps, any> {
+  static Button: React.ReactNode;
   static defaultProps = {
     transitionName: 'slide-up',
     prefixCls: 'ant-dropdown',
@@ -11,12 +20,6 @@ export default class Dropdown extends React.Component {
   };
 
   render() {
-    const [{ overlay }, others] = splitObject(this.props, ['overlay']);
-    const menu = React.cloneElement(overlay, {
-      openTransitionName: 'zoom-big',
-    });
-    return (
-      <RcDropdown {...others} overlay={menu} />
-    );
+    return <RcDropdown {...this.props} />;
   }
 }

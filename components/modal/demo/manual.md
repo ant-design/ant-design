@@ -1,23 +1,31 @@
 ---
 order: 7
-title: 手动移除
+title: 
+  zh-CN: 手动移除
+  en-US: Manual to destroy
 ---
 
+## zh-CN
+
 手动关闭modal。
+
+## en-US
+
+Manually destroying a modal.
 
 ````jsx
 import { Modal, Button } from 'antd';
 
 function success() {
   const modal = Modal.success({
-    title: '这是一条通知信息',
-    content: '一秒后自动移除',
+    title: 'This is a notification message',
+    content: 'This modal will be destroyed after 1 second',
   });
   setTimeout(() => modal.destroy(), 1000);
 }
 
 
 ReactDOM.render(<div>
-  <Button onClick={success}>成功提示</Button>
+  <Button onClick={success}>Success</Button>
 </div>, mountNode);
 ````

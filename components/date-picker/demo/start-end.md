@@ -29,7 +29,7 @@ const DateRange = React.createClass({
     if (!startValue || !this.state.endValue) {
       return false;
     }
-    return startValue.getTime() >= this.state.endValue.getTime();
+    return startValue.getTime() > this.state.endValue.getTime();
   },
   disabledEndDate(endValue) {
     if (!endValue || !this.state.startValue) {
@@ -38,7 +38,6 @@ const DateRange = React.createClass({
     return endValue.getTime() <= this.state.startValue.getTime();
   },
   onChange(field, value) {
-    console.log(field, 'change', value);
     this.setState({
       [field]: value,
     });

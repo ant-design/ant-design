@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import Dialog from './Modal';
 import Icon from '../icon';
 import Button from '../button';
@@ -7,13 +7,59 @@ import classNames from 'classnames';
 import { getConfirmLocale } from './locale';
 import assign from 'object-assign';
 
+export interface ActionButtonProps {
+  type: 'primary' | 'ghost' | 'dashed';
+  actionFn: Function;
+  closeModal: Function;
+}
+class ActionButton extends React.Component<ActionButtonProps, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: false,
+    };
+  }
+
+  onClick = () => {
+    const { actionFn, closeModal } = this.props;
+    if (actionFn) {
+      let ret;
+      if (actionFn.length) {
+        ret = actionFn(closeModal);
+      } else {
+        ret = actionFn();
+        if (!ret) {
+          closeModal();
+        }
+      }
+      if (ret && ret.then) {
+        this.setState({ loading: true });
+        ret.then((...args) => {
+          // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
+          // this.setState({ loading: false });
+          closeModal(...args);
+        });
+      }
+    } else {
+      closeModal();
+    }
+  }
+
+  render() {
+    const { type, children } = this.props;
+    const loading = this.state.loading;
+    return (
+      <Button type={type} size="large" onClick={this.onClick} loading={loading}>
+        {children}
+      </Button>
+    );
+  }
+}
+
 export default function confirm(config) {
-  const props = assign({}, config);
+  const props = assign({ iconType: 'question-circle' }, config);
   let div = document.createElement('div');
   document.body.appendChild(div);
-
-  let d;
-  props.iconType = props.iconType || 'question-circle';
 
   let width = props.width || 416;
   let style = props.style || {};
@@ -30,50 +76,9 @@ export default function confirm(config) {
   props.cancelText = props.cancelText || runtimeLocale.cancelText;
 
   function close() {
-    d.setState({
-      visible: false,
-    });
-    ReactDOM.unmountComponentAtNode(div);
-    div.parentNode.removeChild(div);
-  }
-
-  function onCancel() {
-    let cancelFn = props.onCancel;
-    if (cancelFn) {
-      let ret;
-      if (cancelFn.length) {
-        ret = cancelFn(close);
-      } else {
-        ret = cancelFn();
-        if (!ret) {
-          close();
-        }
-      }
-      if (ret && ret.then) {
-        ret.then(close);
-      }
-    } else {
-      close();
-    }
-  }
-
-  function onOk() {
-    let okFn = props.onOk;
-    if (okFn) {
-      let ret;
-      if (okFn.length) {
-        ret = okFn(close);
-      } else {
-        ret = okFn();
-        if (!ret) {
-          close();
-        }
-      }
-      if (ret && ret.then) {
-        ret.then(close);
-      }
-    } else {
-      close();
+    const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    if (unmountResult) {
+      div.parentNode.removeChild(div);
     }
   }
 
@@ -89,20 +94,20 @@ export default function confirm(config) {
   if (props.okCancel) {
     footer = (
       <div className="ant-confirm-btns">
-        <Button type="ghost" size="large" onClick={onCancel}>
+        <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
-        </Button>
-        <Button type="primary" size="large" onClick={onOk}>
+        </ActionButton>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
           {props.okText}
-        </Button>
+        </ActionButton>
       </div>
     );
   } else {
     footer = (
       <div className="ant-confirm-btns">
-        <Button type="primary" size="large" onClick={onOk}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
           {props.okText}
-        </Button>
+        </ActionButton>
       </div>
     );
   }
@@ -127,9 +132,7 @@ export default function confirm(config) {
     >
       <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
     </Dialog>
-  , div, function () {
-    d = this;
-  });
+  , div);
 
   return {
     destroy: close,

@@ -8,6 +8,10 @@
 
   a {
     color: @text-color;
+    transition: color .3s;
+    &:hover {
+      color: tint(@primary-color, 20%);
+    }
   }
 
   & > span:last-child {
@@ -24,7 +28,9 @@
     color: @border-color-base;
   }
 
-  .anticon + span {
-    margin-left: 4px;
+  &-link {
+    > .anticon + span {
+      margin-left: 4px;
+    }
   }
 }

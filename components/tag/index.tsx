@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
@@ -40,7 +40,7 @@ export default class Tag extends React.Component<TagProps, any> {
     if (e.defaultPrevented) {
       return;
     }
-    const dom = ReactDOM.findDOMNode(this);
+    const dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.width = `${dom.getBoundingClientRect().width}px`;
     // It's Magic Code, don't know why
     dom.style.width = `${dom.getBoundingClientRect().width}px`;
@@ -86,7 +86,12 @@ export default class Tag extends React.Component<TagProps, any> {
         onEnd={this.animationEnd}
         >
         {this.state.closed ? null : (
-          <div data-show={!this.state.closing} {...divProps} className={classString}>
+          <div
+            data-show={!this.state.closing}
+            {...divProps}
+            className={classString}
+            style={{ backgroundColor: /blue|red|green|yellow/.test(color) ? null : color }}
+          >
             <span className={`${prefixCls}-text`}>{children}</span>
             {closeIcon}
           </div>

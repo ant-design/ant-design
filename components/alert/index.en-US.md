@@ -22,3 +22,4 @@ Alert component for feedback.
 | description | Additional content of Alert | React.Node | - |
 | onClose    | Callback when close Alert | Function | - |
 | showIcon   | Whether to show icon | Boolean | false |
+| banner   | Whether to show as banner | Boolean | false |

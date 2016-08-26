@@ -38,7 +38,7 @@
     position: absolute;
     top: 0;
     color: #999;
-    font-family: Arial,"Hiragino Sans GB","Microsoft Yahei","Microsoft Sans Serif",sans-serif;
+    font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", sans-serif;
     padding: 0 5px;
     font-size: 16px;
     display: inline-block;
@@ -106,7 +106,7 @@
     .calendarPanelHeader(@calendar-prefix-cls);
   }
 
-  &-calendar-body {
+  &-body {
     padding: 4px 8px;
   }
 
@@ -162,6 +162,10 @@
     background: transparent;
     text-align: center;
     transition: background 0.3s ease;
+
+    &-panel {
+      position: relative;
+    }
 
     &:hover {
       background: tint(@primary-color, 90%);
@@ -260,8 +264,7 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:after {
-    content: "\e631";
-    font-family: "anticon";
+    .iconfont-font("\e631");
     font-size: 12px;
     color: #ccc;
     display: inline-block;
@@ -286,6 +289,9 @@
     &-disabled {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
       cursor: not-allowed;
+      &:hover {
+        .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+      }
     }
   }
 }

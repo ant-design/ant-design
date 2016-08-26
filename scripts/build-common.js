@@ -7,8 +7,8 @@ const utils = require('./utils');
 
 module.exports = function buildCommon(dirs, outputFile) {
   const mds = utils.findMDFile(dirs, true)
-          .filter((file) => !/\/demo$/i.test(path.dirname(file)))
-          .filter((file) => !/install_en\.md$/gi.test(file)); // TODO
+    .filter((file) => !/\/demo$/i.test(path.dirname(file)))
+    .filter((file) => !/install_en\.md$/gi.test(file)); // TODO
 
   const addedMd = [];
   let content = 'module.exports = {';

@@ -5,7 +5,7 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-export default class RangePicker extends React.Component {
+export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
     defaultValue: [],
   };
@@ -70,20 +70,16 @@ export default class RangePicker extends React.Component {
       'ant-calendar-time': showTime,
     });
 
+    // 需要选择时间时，点击 ok 时才触发 onChange
     let pickerChangeHandler = {
       onChange: this.handleChange,
     };
-
-    let calendarHandler = {
+    let calendarHandler: Object = {
       onOk: this.handleChange,
     };
-
     if (props.timePicker) {
       pickerChangeHandler.onChange = (value) => {
-        // Click clear button
-        if (value === null || value.length === 0) {
-          this.handleChange(value);
-        }
+        this.handleChange(value);
       };
     } else {
       calendarHandler = {};
@@ -97,6 +93,7 @@ export default class RangePicker extends React.Component {
     const calendar = (
       <RangeCalendar
         prefixCls="ant-calendar"
+        formatter={props.getFormatter()}
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}

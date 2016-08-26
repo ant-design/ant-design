@@ -5,7 +5,13 @@ const autoAdjustOverflow = {
 
 const targetOffset = [0, 0];
 
-export default function getPlacements(config = {}) {
+export interface GetPlacementsProps {
+   arrowWidth?: number;
+   horizontalArrowShift?: number;
+   verticalArrowShift?: number;
+}
+
+export default function getPlacements(config: GetPlacementsProps = {}) {
   const { arrowWidth = 5, horizontalArrowShift = 16, verticalArrowShift = 12 } = config;
   return {
     left: {

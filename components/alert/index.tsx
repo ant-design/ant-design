@@ -8,7 +8,7 @@ interface AlertProps {
   /**
    * Type of Alert styles, options:`success`, `info`, `warning`, `error`
    */
-  type: 'success' | 'info' | 'warning' | 'error';
+  type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
   closable?: boolean;
   /** Close text to show */
@@ -23,6 +23,7 @@ interface AlertProps {
   showIcon?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  banner?: boolean;
 }
 
 export default class Alert extends React.Component<AlertProps, any> {
@@ -60,8 +61,13 @@ export default class Alert extends React.Component<AlertProps, any> {
   }
   render() {
     let {
-      closable, description, type, prefixCls, message, closeText, showIcon,
+      closable, description, type, prefixCls, message, closeText, showIcon, banner,
     } = this.props;
+
+    // banner模式默认有 Icon
+    showIcon = showIcon || banner;
+    // banner模式默认为警告
+    type = banner ? 'warning' : type;
 
     let iconType = '';
     switch (type) {
@@ -92,6 +98,7 @@ export default class Alert extends React.Component<AlertProps, any> {
       [`${prefixCls}-close`]: !this.state.closing,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !showIcon,
+      [`${prefixCls}-banner`]: !!banner,
     });
 
     // closeable when closeText is assigned

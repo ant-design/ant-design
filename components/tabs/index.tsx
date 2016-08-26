@@ -1,6 +1,6 @@
-import RcTabs from 'rc-tabs';
+import RcTabs, { TabPane } from 'rc-tabs';
 import * as React from 'react';
-const { cloneElement } = React;
+import { cloneElement } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
@@ -8,28 +8,20 @@ type TabsType = 'line' | 'card' | 'editable-card'
 type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export interface TabsProps {
-  /** 当前激活 tab 面板的 key    */
   activeKey?: string;
-  /** 初始化选中面板的 key，如果没有设置 activeKey*/
   defaultActiveKey?: string;
-  /** 是否隐藏加号图标，在 `type="editable-card"` 时有效 */
   hideAdd?: boolean;
-  /** 切换面板的回调*/
   onChange?: (activeKey: string) => void;
-  /** tab 被点击的回调 */
   onTabClick?: Function;
-  /** tab bar 上额外的元素  */
   tabBarExtraContent?: React.ReactNode;
-  /** 页签的基本样式，可选 `line`、`card` `editable-card` 类型*/
   type?: TabsType;
-  /** 页签位置，可选值有 `top` `right` `bottom` `left`*/
   tabPosition?: TabsPosition;
-  /** 新增和删除页签的回调，在 `type="editable-card"` 时有效*/
   onEdit?: (targetKey: string, action: any) => void;
-  /** 大小，提供 default 和 small 两种大小    */
   size?: 'default' | 'small';
-
   style?: React.CSSProperties;
+  prefixCls?: string;
+  className?: string;
+  animation?: string;
 }
 
 // Tabs
@@ -40,7 +32,7 @@ export interface TabPaneProps {
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
-  static TabPane: TabPaneProps = RcTabs.TabPane;
+  static TabPane: TabPaneProps = TabPane;
 
   static defaultProps = {
     prefixCls: 'ant-tabs',
@@ -81,15 +73,19 @@ export default class Tabs extends React.Component<TabsProps, any> {
       animation = null;
     }
     // only card type tabs can be added and closed
+    let childrenWithCross;
     if (type === 'editable-card') {
-      children = children.map((child, index) => {
-        return cloneElement(child, {
-          tab: <div>
-            {child.props.tab}
-            <Icon type="cross" onClick={(e) => this.removeTab(child.key, e) } />
-          </div>,
+      childrenWithCross = [];
+      React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
+        childrenWithCross.push(cloneElement(child, {
+          tab: (
+            <div>
+              {child.props.tab}
+              <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
+            </div>
+          ),
           key: child.key || index,
-        });
+        }));
       });
       // Add new tab handler
       if (!hideAdd) {
@@ -114,8 +110,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
         tabBarExtraContent={tabBarExtraContent}
         onChange={this.handleChange}
         animation={animation}
-        >
-        {children}
+      >
+        {childrenWithCross || children}
       </RcTabs>
     );
   }
