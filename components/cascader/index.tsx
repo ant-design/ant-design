@@ -15,6 +15,14 @@ export interface CascaderOptionType {
 }
 
 export type CascaderExpandTrigger = 'click' | 'hover'
+
+export interface ShowSearchType {
+  filter?: (inputValue: string, path: CascaderOptionType[]) => boolean;
+  render?: (inputValue: string, path: CascaderOptionType[]) => React.ReactNode;
+  sort?: (a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string) => number;
+  matchInputWidth?: boolean;
+}
+
 export interface CascaderProps {
   /** 可选项数据源 */
   options: Array<CascaderOptionType>;
@@ -42,12 +50,8 @@ export interface CascaderProps {
   disabled?: boolean;
   /** 是否支持清除*/
   allowClear?: boolean;
-  showSearch?: boolean;
+  showSearch?: boolean | ShowSearchType;
   notFoundContent?: React.ReactNode;
-  filterOption?: (inputValue: string, path: CascaderOptionType[]) => boolean;
-  renderFilteredOption?: (inputValue: string, path: CascaderOptionType[]) => React.ReactNode;
-  sortFilteredOption?: (a: CascaderOptionType[], b: CascaderOptionType[], inputValue: string) => number;
-  searchResultListWidth?: number;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
@@ -64,6 +68,25 @@ function highlightKeyword(str: string, keyword: string) {
     ]);
 }
 
+function defaultFilterOption(inputValue, path) {
+  return path.some(option => option.label.indexOf(inputValue) > -1);
+}
+
+function defaultRenderFilteredOption(inputValue, path) {
+  return path.map(({ label }, index) => {
+    const node = label.indexOf(inputValue) > -1 ? highlightKeyword(label, inputValue) : label;
+    return index === 0 ? node : [' / ', node];
+  });
+}
+
+function defaultSortFilteredOption(a, b, inputValue) {
+  function callback(elem) {
+    return elem.label.indexOf(inputValue) > -1;
+  }
+
+  return a.findIndex(callback) - b.findIndex(callback);
+}
+
 export default class Cascader extends React.Component<CascaderProps, any> {
   static defaultProps = {
     prefixCls: 'ant-cascader',
@@ -77,22 +100,6 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     allowClear: true,
     showSearch: false,
     notFoundContent: 'Not Found',
-    filterOption(inputValue, path) {
-      return path.some(option => option.label.indexOf(inputValue) > -1);
-    },
-    renderFilteredOption(inputValue, path) {
-      return path.map(({ label }, index) => {
-        const node = label.indexOf(inputValue) > -1 ? highlightKeyword(label, inputValue) : label;
-        return index === 0 ? node : [' / ', node];
-      });
-    },
-    sortFilteredOption(a, b, inputValue) {
-      function callback(elem) {
-        return elem.label.indexOf(inputValue) > -1;
-      }
-
-      return a.findIndex(callback) - b.findIndex(callback);
-    },
     onPopupVisibleChange() {},
   };
 
@@ -131,7 +138,10 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   handlePopupVisibleChange = (popupVisible) => {
-    this.setState({ popupVisible });
+    this.setState({
+      popupVisible,
+      inputFocused: popupVisible,
+     });
     this.props.onPopupVisibleChange(popupVisible);
   }
 
@@ -147,9 +157,6 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     if (inputFocused || popupVisible) {
       e.stopPropagation();
       e.nativeEvent.stopImmediatePropagation();
-    }
-    if (!inputFocused) {
-      this.setState({inputFocused: true});
     }
   }
 
@@ -200,15 +207,20 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   generateFilteredOptions() {
-    const { filterOption, renderFilteredOption, sortFilteredOption, notFoundContent } = this.props;
+    const { showSearch, notFoundContent } = this.props;
+    const {
+      filter = defaultFilterOption,
+      render = defaultRenderFilteredOption,
+      sort = defaultSortFilteredOption,
+    } = showSearch as ShowSearchType;
     const { flattenOptions, inputValue } = this.state;
-    const filtered = flattenOptions.filter((path) => filterOption(this.state.inputValue, path))
-      .sort((a, b) => sortFilteredOption(a, b, inputValue));
+    const filtered = flattenOptions.filter((path) => filter(this.state.inputValue, path))
+      .sort((a, b) => sort(a, b, inputValue));
 
     if (filtered.length > 0) {
       return filtered.map((path) => {
         return {
-          label: renderFilteredOption(inputValue, path),
+          label: render(inputValue, path),
           value: path.map(o => o.value),
         };
       });
@@ -220,9 +232,9 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     const props = this.props;
     const state = this.state;
     const [{ prefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch, searchResultListWidth }, otherProps] = splitObject(props,
+      className, style, allowClear, showSearch }, otherProps] = splitObject(props,
       ['prefixCls', 'children', 'placeholder', 'size', 'disabled', 'className',
-       'style', 'allowClear', 'showSearch', 'searchResultListWidth']);
+       'style', 'allowClear', 'showSearch']);
     const value = state.value;
 
     const sizeCls = classNames({
@@ -263,7 +275,6 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       'renderFilteredOption',
       'sortFilteredOption',
       'notFoundContent',
-      'searchResultListWidth',
     ]);
 
     let options = props.options;
@@ -278,14 +289,16 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     }
 
     const dropdownMenuColumnStyle = {
-      width: state.inputValue && searchResultListWidth,
+      width: undefined,
       height: undefined,
     };
     const isNotFound = (options || []).length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND';
     if (isNotFound) {
-      dropdownMenuColumnStyle.height = 32; // Height of one row.
+      dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
     }
-    if (!searchResultListWidth && state.inputValue && this.refs.input) {
+    // The default value of `matchInputWidth` is `true`
+    const resultListMatchInputWidth = showSearch.matchInputWidth === false ? false : true;
+    if (resultListMatchInputWidth && state.inputValue && this.refs.input) {
       dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
     }
     return (

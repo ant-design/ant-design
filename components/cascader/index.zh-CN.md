@@ -39,6 +39,11 @@ subtitle: 级联选择
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | Boolean | false |
 | showSearch | 在选择框中显示搜索框 | Boolean | false |
 | notFoundContent | 当下拉列表为空时显示的内容 | String | 'Not Found' |
+
+`showSearch` 为对象时，其中的字段：
+
+| 参数 | 说明 | 类型 | 默认值 |
+|------|------|------|--------|
 | filterOption | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |
 | renderFilteredOption | 用于渲染 filter 后的选项 | `function(inputValue, path): React.ReactNode` | |
 | sortFilteredOption | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
