@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { FormattedMessage } from 'react-intl';
 import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import GitHubButton from 'react-github-button';
 import 'react-github-button/assets/style.css';
@@ -22,11 +23,12 @@ export default class Banner extends React.Component {
         <ScrollElement scrollName="banner" className="page">
           <QueueAnim className="banner-text-wrapper" type={this.typeFunc} delay={300}>
             <h2 key="h2">ANT <p>DESIGN</p></h2>
-            <p key="content">一个 UI 设计语言</p>
+            <p key="content"><FormattedMessage id="app.home.slogan" /></p>
             <span className="line" key="line" />
             <div key="button" className="start-button clearfix">
               <Link to="/docs/spec/introduce">
-                <Icon type="smile-circle" /> 开始探索
+                <Icon type="smile-circle" />
+                <FormattedMessage id="app.home.start" />
               </Link>
             </div>
             <GitHubButton key="github-button" type="stargazers"
