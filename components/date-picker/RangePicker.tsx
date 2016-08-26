@@ -5,7 +5,7 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-export default class RangePicker extends React.Component {
+export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
     defaultValue: [],
   };
@@ -74,7 +74,7 @@ export default class RangePicker extends React.Component {
     let pickerChangeHandler = {
       onChange: this.handleChange,
     };
-    let calendarHandler = {
+    let calendarHandler: Object = {
       onOk: this.handleChange,
     };
     if (props.timePicker) {

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { Row, Col, Icon, Affix } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
+import EditButton from './EditButton';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
@@ -71,7 +72,7 @@ export default class ComponentDoc extends React.Component {
       );
     });
 
-    const { title, subtitle, chinese, english } = meta;
+    const { title, subtitle, chinese, english, filename } = meta;
     return (
       <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
         <article>
@@ -87,6 +88,7 @@ export default class ComponentDoc extends React.Component {
                 (!subtitle && !chinese) ? null :
                   <span className="subtitle">{subtitle || chinese}</span>
               }
+              <EditButton title="在 Github 上编辑此页！" filename={filename} />
             </h1>
             {
               props.utils.toReactComponent(

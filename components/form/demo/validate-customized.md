@@ -1,6 +1,6 @@
 ---
 order: 13
-title: 
+title:
   zh-CN: 自定义校验规则
   en-US: Customized validation
 ---
@@ -40,7 +40,7 @@ let Demo = React.createClass({
 
   handleSubmit() {
     this.props.form.validateFields((errors, values) => {
-      if (!!errors) {
+      if (errors) {
         console.log('Errors in form!!!');
         return;
       }
@@ -60,17 +60,14 @@ let Demo = React.createClass({
       } else {
         strength = 'H';
       }
-      if (type === 'pass') {
-        this.setState({ passBarShow: true, passStrength: strength });
-      } else {
-        this.setState({ rePassBarShow: true, rePassStrength: strength });
-      }
+      this.setState({
+        [`${type}BarShow`]: true,
+        [`${type}Strength`]: strength,
+      });
     } else {
-      if (type === 'pass') {
-        this.setState({ passBarShow: false });
-      } else {
-        this.setState({ rePassBarShow: false });
-      }
+      this.setState({
+        [`${type}BarShow`]: false,
+      });
     }
   },
 
@@ -113,9 +110,9 @@ let Demo = React.createClass({
     return (
       <div>
         <ul className={classSet}>
-          <li className="ant-pwd-strength-item ant-pwd-strength-item-1"></li>
-          <li className="ant-pwd-strength-item ant-pwd-strength-item-2"></li>
-          <li className="ant-pwd-strength-item ant-pwd-strength-item-3"></li>
+          <li className="ant-pwd-strength-item ant-pwd-strength-item-1" />
+          <li className="ant-pwd-strength-item ant-pwd-strength-item-2" />
+          <li className="ant-pwd-strength-item ant-pwd-strength-item-3" />
           <span className="ant-form-text">
             {level[strength]}
           </span>

@@ -7,6 +7,7 @@ export interface TimeLineItemProps {
   /** 指定圆圈颜色 */
   color?: string;
   dot?: React.ReactNode;
+  pending?: boolean;
   style?: React.CSSProperties;
 }
 

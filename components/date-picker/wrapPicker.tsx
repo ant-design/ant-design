@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import defaultLocale from './locale/zh_CN';
 import assign from 'object-assign';
 
-export default function wrapPicker(Picker, defaultFormat) {
+export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
     getDefaultProps() {
       return {
@@ -46,7 +46,7 @@ export default function wrapPicker(Picker, defaultFormat) {
 
     getFormatter() {
       const format = this.props.format;
-      const formatter = new DateTimeFormat(format, this.getLocale().lang.format);
+      const formatter = new DateTimeFormat(format as string, this.getLocale().lang.format);
       return formatter;
     },
 

@@ -3,7 +3,19 @@ import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
 import splitObject from '../_util/splitObject';
 
-export default class InputNumber extends React.Component {
+export interface InputNumberProps {
+  prefixCls?: string;
+  min?: number;
+  max?: number;
+  value?: number;
+  step?: number | string;
+  defaultValue?: number;
+  onChange?: (value: number) => void;
+  disabled?: boolean;
+  size?: 'large' | 'small' | 'default';
+}
+
+export default class InputNumber extends React.Component<InputNumberProps, any> {
   static defaultProps = {
     prefixCls: 'ant-input-number',
     step: 1,

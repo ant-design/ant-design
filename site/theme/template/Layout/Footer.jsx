@@ -2,6 +2,7 @@ import React from 'react';
 import { Select, Modal } from 'antd';
 import { version as antdVersion } from 'antd/package.json';
 import { docVersions } from '../../';
+
 const Option = Select.Option;
 
 function isLocalStorageNameSupported() {
@@ -41,8 +42,8 @@ export default class Footer extends React.Component {
         <div>
           <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
           <p>
-            您好，<a target="_blank" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
-            如果您还需要使用旧版，请查阅 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
+            您好，<a target="_blank" rel="noopener noreferrer" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
+            如果您还需要使用旧版，请查阅 <a target="_blank" rel="noopener noreferrer" href="http://012x.ant.design">012x.ant.design</a>
             ，也可通过页面右下角的文档版本选择框进行切换。
           </p>
         </div>
@@ -70,10 +71,13 @@ export default class Footer extends React.Component {
               <a target="_blank " href="https://github.com/ant-design/ant-design">仓库</a>
             </div>
             <div>
-              <a target="_blank" href="https://github.com/ant-design/antd-init">antd-init</a> - 脚手架
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/antd-init">antd-init</a> - 脚手架
             </div>
             <div>
-              <a target="_blank" href="http://ant-tool.github.io">ant-tool</a> - 开发工具
+              <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> - 开发工具
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - 应用框架
             </div>
           </li>
           <li>
@@ -85,19 +89,24 @@ export default class Footer extends React.Component {
             <div><a href="http://ux.ant.design">Ant UX</a> - 页面逻辑素材</div>
           </li>
           <li>
-            <h2>联系我们</h2>
+            <h2>社区</h2>
             <div>
-              <a target="_blank" href="https://github.com/ant-design/ant-design/issues">
+              <a target="_blank" rel="noopener noreferrer" href="http://ant.design/changelog">
+                更新记录
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
                 反馈和建议
               </a>
             </div>
             <div>
-              <a target="_blank" href="https://gitter.im/ant-design/ant-design">
+              <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
                 讨论
               </a>
             </div>
             <div>
-              <a target="_blank" href="https://github.com/ant-design/ant-design/issues/new">
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues/new">
                 报告 Bug
               </a>
             </div>

@@ -1,7 +1,8 @@
 import * as React from 'react';
-const { cloneElement } = React;
+import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
+import classNames from 'classnames';
 
 const placements = getPlacements({
   verticalArrowShift: 8,
@@ -32,6 +33,7 @@ export interface TooltipProps {
   visible?: boolean;
   trigger?: 'hover' | 'focus' | 'click';
   overlay?: React.ReactNode;
+  openClassName?: string;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
@@ -42,6 +44,11 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     onVisibleChange() {},
+  };
+
+  refs: {
+    [key: string]: any;
+    tooltip: any;
   };
 
   constructor(props) {
@@ -101,9 +108,13 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     if ('visible' in this.props) {
       visible = this.props.visible;
     }
-    const openClassName = this.props.openClassName || `${prefixCls}-open`;
-    const childrenCls = (children && children.props && children.props.className)
-      ? `${children.props.className} ${openClassName}` : openClassName;
+
+    const childrenProps = children ? (children as React.ReactElement<any>).props : {};
+    const childrenCls = classNames({
+      [childrenProps.className]: !!childrenProps.className,
+      [this.props.openClassName || `${prefixCls}-open`]: true,
+    });
+
     return (
       <RcTooltip
         transitionName={transitionName}
@@ -115,7 +126,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         {...this.props}
         onVisibleChange={this.onVisibleChange}
         >
-        {visible ? cloneElement(children, { className: childrenCls }) : children}
+        {visible ? cloneElement((children as React.ReactElement<any>), { className: childrenCls }) : children}
       </RcTooltip>
     );
   }

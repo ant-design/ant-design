@@ -1,6 +1,8 @@
 ---
 order: 8
-title: 卡片式页签
+title: 
+  zh-CN: 卡片式页签
+  en-US: Card type tab
 ---
 
 ## zh-CN

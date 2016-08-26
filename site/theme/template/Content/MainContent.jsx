@@ -5,6 +5,7 @@ import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 import config from '../../';
+
 const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
@@ -62,7 +63,7 @@ export default class MainContent extends React.Component {
       <Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
       </Link> :
-      <a href={item.link} target="_blank" disabled={disabled}>
+      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
         {text}
       </a>;
 
@@ -182,12 +183,12 @@ export default class MainContent extends React.Component {
           >
             <section className="prev-next-nav">
               {
-                !!prev ?
+                prev ?
                   React.cloneElement(prev.props.children, { className: 'prev-page' }) :
                   null
               }
               {
-                !!next ?
+                next ?
                   React.cloneElement(next.props.children, { className: 'next-page' }) :
                   null
               }

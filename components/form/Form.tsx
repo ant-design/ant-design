@@ -1,10 +1,83 @@
 import * as React from 'react';
+import { PropTypes } from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import omit from 'object.omit';
 import warning from 'warning';
+import assign from 'object-assign';
+import FormItem from './FormItem';
+import createDOMForm from 'rc-form/lib/createDOMForm';
+import { FIELD_META_PROP } from './constants';
 
-export default class Form extends React.Component {
+export interface FormCreateOption {
+  onFieldsChange?: (props: any, fields: Array<any>) => void;
+  mapPropsToFields?: (props: any) => void;
+}
+
+export interface FormProps {
+  horizontal?: boolean;
+  inline?: boolean;
+  vertical?: boolean;
+  form?: Object;
+  onSubmit?: React.FormEventHandler;
+  style?: React.CSSProperties;
+  className?: string;
+  prefixCls?: string;
+}
+
+// function create
+export type WrappedFormUtils = {
+  /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值 */
+  getFieldsValue(fieldNames?: Array<string>): Object;
+  /** 获取一个输入控件的值*/
+  getFieldValue(fieldName: string): any;
+  /** 设置一组输入控件的值*/
+  setFieldsValue(obj: Object): void;
+  /** 设置一组输入控件的值*/
+  setFields(obj: Object): void;
+  /** 校验并获取一组输入域的值与 Error */
+  validateFields(fieldNames?: Array<string>, options?: Object, callback?: (erros: any, values: any) => void): any;
+  /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
+  validateFieldsAndScroll(
+    fieldNames?: Array<string>,
+    options?: Object,
+    callback?: (erros: any, values: any) => void
+  ): void;
+  /** 获取某个输入控件的 Error */
+  getFieldError(name: string): Object[];
+  /** 判断一个输入控件是否在校验状态*/
+  isFieldValidating(name: string): boolean;
+  /** 重置一组输入控件的值与状态，如不传入参数，则重置所有组件 */
+  resetFields(names?: Array<string>): void;
+
+  getFieldProps(id: string, options: {
+    /** 子节点的值的属性，如 Checkbox 的是 'checked' */
+    valuePropName?: string;
+    /** 子节点的初始值，类型、可选值均由子节点决定 */
+    initialValue?: any;
+    /** 收集子节点的值的时机 */
+    trigger?: string;
+    /** 校验子节点值的时机 */
+    validateTrigger?: string;
+    /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
+    rules?: Array<any>;
+    /** 必填输入控件唯一标志 */
+    id?: string;
+  }): Array<any>;
+}
+
+export interface FormComponentProps {
+  form: WrappedFormUtils;
+}
+
+class FormComponent extends React.Component<FormComponentProps, {}> {
+}
+
+export interface ComponentDecorator {
+  <T extends (typeof FormComponent)>(component: T): T;
+}
+
+export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
     onSubmit(e) {
@@ -19,6 +92,33 @@ export default class Form extends React.Component {
     inline: React.PropTypes.bool,
     children: React.PropTypes.any,
     onSubmit: React.PropTypes.func,
+  };
+
+  static Item = FormItem;
+
+  static create = (options?: FormCreateOption): ComponentDecorator => {
+    const formWrapper = createDOMForm(assign({}, options, {
+      fieldNameProp: 'id',
+      fieldMetaProp: FIELD_META_PROP,
+    }));
+
+    /* eslint-disable react/prefer-es6-class */
+    return (Component) => formWrapper(React.createClass({
+      propTypes: {
+        form: PropTypes.object.isRequired,
+      },
+      childContextTypes: {
+        form: PropTypes.object.isRequired,
+      },
+      getChildContext() {
+        return {
+          form: this.props.form,
+        };
+      },
+      render() {
+        return <Component {...this.props} />;
+      },
+    }));
   };
 
   constructor(props) {

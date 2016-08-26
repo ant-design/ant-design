@@ -6,6 +6,11 @@ import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
 
+export interface PickerProps {
+  parseDateFromValue?: Function;
+  value?: string | Date;
+}
+
 export default function createPicker(TheCalendar) {
   // use class typescript error
   const CalenderWrapper = React.createClass({
@@ -16,7 +21,7 @@ export default function createPicker(TheCalendar) {
       };
     },
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.parseDateFromValue(nextProps.value),
@@ -60,10 +65,10 @@ export default function createPicker(TheCalendar) {
       });
 
       // 需要选择时间时，点击 ok 时才触发 onChange
-      let pickerChangeHandler = {
+      let pickerChangeHandler: Object = {
         onChange: this.handleChange,
       };
-      let calendarHandler = {
+      let calendarHandler: Object = {
         onOk: this.handleChange,
         // fix https://github.com/ant-design/ant-design/issues/1902
         onSelect: (value, cause) => {
@@ -95,7 +100,7 @@ export default function createPicker(TheCalendar) {
       );
 
       // default width for showTime
-      const pickerStyle = {};
+      const pickerStyle = { width: undefined };
       if (props.showTime) {
         pickerStyle.width = 180;
       }

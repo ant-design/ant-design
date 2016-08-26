@@ -1,6 +1,8 @@
 ---
 order: 9
-title: 新增和关闭页签
+title:
+  zh-CN: 新增和关闭页签
+  en-US: Add & close tab
 ---
 
 ## zh-CN

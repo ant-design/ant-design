@@ -1,8 +1,8 @@
 import * as React from 'react';
-import RcTree from 'rc-tree';
+import RcTree, { TreeNode } from 'rc-tree';
 import animation from '../_util/openAnimation';
 
-export interface TreeNodeProps {
+export interface AntTreeNodeProps {
   disabled?: boolean;
   disableCheckbox?: boolean;
   title?: string | React.ReactNode;
@@ -10,20 +10,23 @@ export interface TreeNodeProps {
   isLeaf?: boolean;
 }
 
-export class TreeNode extends React.Component<TreeNodeProps, {}> {
+export class AntTreeNode extends React.Component<AntTreeNodeProps, {}> {
+  render() {
+    return <AntTreeNode {...this.props} />;
+  }
 }
 
-export interface TreeNodeEvent {
+export interface AntTreeNodeEvent {
   event: 'check' | 'select';
-  node: TreeNode;
+  node: AntTreeNode;
   checked?: boolean;
-  checkedNodes?: Array<TreeNode>;
+  checkedNodes?: Array<AntTreeNode>;
   selected?: boolean;
-  selectedNodes?: Array<TreeNode>;
+  selectedNodes?: Array<AntTreeNode>;
 }
 
-export interface TreeNodeMouseEvent {
-  node: TreeNode;
+export interface AntTreeNodeMouseEvent {
+  node: AntTreeNode;
   event: React.MouseEventHandler;
 }
 
@@ -32,9 +35,9 @@ export interface TreeProps {
   className?: string;
   /** 是否支持多选 */
   multiple?: boolean;
-  /**是否自动展开父节点 */
+  /** 是否自动展开父节点 */
   autoExpandParent?: boolean;
-  /**checkable状态下节点选择完全受控（父子节点选中状态不再关联）*/
+  /** checkable状态下节点选择完全受控（父子节点选中状态不再关联）*/
   checkStrictly?: boolean;
   /** 是否支持选中 */
   checkable?: boolean;
@@ -53,35 +56,35 @@ export interface TreeProps {
   /** 默认选中的树节点 */
   defaultSelectedKeys?: Array<string>;
   /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: Array<string>, info: { node: TreeNode, expanded: boolean }) => void | PromiseLike<any>;
+  onExpand?: (expandedKeys: Array<string>, info: { node: AntTreeNode, expanded: boolean }) => void | PromiseLike<any>;
   /** 点击复选框触发 */
-  onCheck?: (checkedKeys: Array<string>, e: TreeNodeEvent) => void;
+  onCheck?: (checkedKeys: Array<string>, e: AntTreeNodeEvent) => void;
   /** 点击树节点触发 */
-  onSelect?: (selectedKeys: Array<string>, e: TreeNodeEvent) => void;
-  /** filter some treeNodes as you need. it should return true */
-  filterTreeNode?: (node: TreeNode) => boolean;
+  onSelect?: (selectedKeys: Array<string>, e: AntTreeNodeEvent) => void;
+  /** filter some AntTreeNodes as you need. it should return true */
+  filterAntTreeNode?: (node: AntTreeNode) => boolean;
   /** 异步加载数据 */
-  loadData?: (node: TreeNode) => PromiseLike<any>;
+  loadData?: (node: AntTreeNode) => PromiseLike<any>;
   /** 响应右键点击 */
-  onRightClick?: (options: TreeNodeMouseEvent) => void;
+  onRightClick?: (options: AntTreeNodeMouseEvent) => void;
   /** 设置节点可拖拽（IE>8）*/
   draggable?: boolean;
   /** 开始拖拽时调用 */
-  onDragStart?: (options: TreeNodeMouseEvent) => void;
+  onDragStart?: (options: AntTreeNodeMouseEvent) => void;
   /** dragenter 触发时调用 */
-  onDragEnter?: (options: TreeNodeMouseEvent) => void;
+  onDragEnter?: (options: AntTreeNodeMouseEvent) => void;
   /** dragover 触发时调用 */
-  onDragOver?: (options: TreeNodeMouseEvent) => void;
+  onDragOver?: (options: AntTreeNodeMouseEvent) => void;
   /** dragleave 触发时调用 */
-  onDragLeave?: (options: TreeNodeMouseEvent) => void;
+  onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   /** drop 触发时调用 */
-  onDrop?: (options: TreeNodeMouseEvent) => void;
+  onDrop?: (options: AntTreeNodeMouseEvent) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode = RcTree.TreeNode;
+  static TreeNode = TreeNode;
 
   static defaultProps = {
     prefixCls: 'ant-tree',

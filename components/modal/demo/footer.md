@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 自定义页脚
   en-US: Customized footer
 ---
@@ -45,9 +45,11 @@ const Test = React.createClass({
         <Button type="primary" onClick={this.showModal}>
           Open modal dialog
         </Button>
-        <Modal ref="modal"
+        <Modal
           visible={this.state.visible}
-          title="Title" onOk={this.handleOk} onCancel={this.handleCancel}
+          title="Title"
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
           footer={[
             <Button key="back" type="ghost" size="large" onClick={this.handleCancel}>Return</Button>,
             <Button key="submit" type="primary" size="large" loading={this.state.loading} onClick={this.handleOk}>

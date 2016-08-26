@@ -1,6 +1,6 @@
 ---
 order: 11
-title: 
+title:
   zh-CN: 表单校验
   en-US: Basic validate
 ---
@@ -31,7 +31,7 @@ let BasicDemo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
-      if (!!errors) {
+      if (errors) {
         console.log('Errors in form!!!');
         return;
       }

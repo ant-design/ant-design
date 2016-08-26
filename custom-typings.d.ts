@@ -8,11 +8,11 @@ declare module 'react-addons-pure-render-mixin' {
 }
 
 declare module 'gregorian-calendar-format' {
-  export default function({}): string;
+  export default function(format: string, localeFormat: Object): void;
 }
 
 declare module 'gregorian-calendar' {
-  export default function({}): string;
+  export default function({}): void;
 }
 
 declare module 'gregorian-calendar/lib/locale/en_US' {
@@ -127,7 +127,7 @@ declare module 'rc-cascader' {
 }
 
 declare module 'array-tree-filter' {
-  export default function(): any;
+  export default function(tree: any, filter: any): any;
 }
 
 declare module 'rc-checkbox' {
@@ -143,16 +143,25 @@ declare module 'rc-dropdown' {
 }
 
 declare module 'rc-editor-mention' {
-  export default function(): any;
+  export const Nav: any;
+  export const toString: any;
+  export const toEditorState: any;
+  export const getMentions: any;
+  const exports: any;
+  export default exports;
 }
 
 declare module 'rc-progress' {
-  export default function(): any;
+  export const Circle: any;
+  const exports: any;
+  export default exports;
 }
 
 declare module 'rc-menu' {
   export const SubMenu: any;
   export const Item: any;
+  export const Divider: any;
+  export const ItemGroup: any;
   export default function(): any;
 }
 
@@ -162,6 +171,7 @@ declare module 'rc-tabs' {
 }
 
 declare module 'rc-tree' {
+  export const TreeNode: any;
   export default function(): any;
 }
 
@@ -178,11 +188,19 @@ declare module 'rc-input-number' {
 }
 
 declare module 'rc-pagination' {
-  export default function(): any;
+  const exports: any;
+  export default exports;
+}
+
+declare module 'rc-pagination/lib/locale/zh_CN' {
+  const exports: any;
+  export default exports;
 }
 
 declare module 'rc-notification' {
-  export default function(): any;
+  export function newInstance(config: Object): any;
+  const exports: any;
+  export default exports;
 }
 
 declare module 'rc-dialog' {
@@ -228,9 +246,11 @@ declare module 'rc-upload' {
 }
 
 declare module 'rc-collapse' {
-  export default function(): any;
+  export const Panel: any;
+  const exports: any;
+  export default exports;
 }
 
 declare module 'rc-form/lib/createDOMForm' {
-  export default function(): any;
+  export default function(Object): any;
 }

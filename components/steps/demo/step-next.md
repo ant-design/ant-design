@@ -16,7 +16,7 @@ Let's generate 3~6 steps randomly, and proceed to a random step.
 ````jsx
 import { Steps, Button } from 'antd';
 const Step = Steps.Step;
-const array = Array.apply(null, Array(Math.floor(Math.random() * 3) + 3));
+const array = [...Array(Math.floor(Math.random() * 3) + 3)];
 const steps = array.map((item, i) => ({
   title: `步骤${i + 1}`,
 }));

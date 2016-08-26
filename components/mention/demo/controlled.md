@@ -29,7 +29,7 @@ let App = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
-      if (!!errors) {
+      if (errors) {
         console.log('Errors in form!!!');
         return;
       }

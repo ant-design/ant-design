@@ -118,15 +118,31 @@
     position: relative;
     text-align: center;
   }
-}
 
-.image-modal-single.slick-slider {
-  padding-bottom: 0;
-}
+  .ant-carousel {
+    .slick-slider {
+      padding-bottom: 24px;
+      img {
+        display: inline;
+        max-width: 100%;
+      }
+    }
+    .slick-dots {
+      text-align: left;
+      bottom: -10px;
+      li {
+        margin: 0;
+      }
+    }
+  }
 
-.ant-carousel .slick-slider img {
-  display: inline;
-  max-width: 100%;
+  .image-modal-single.slick-slider {
+    padding-bottom: 0;
+  }
+
+  .image-modal-single .slick-dots {
+    display: none!important;
+  }
 }
 
 .transition-video-player {
