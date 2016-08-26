@@ -59,6 +59,7 @@ export default class Table extends React.Component {
     onChange: noop,
     locale: {},
     rowKey: 'key',
+    childrenColumnName: 'children',
   }
 
   static contextTypes = {
@@ -717,18 +718,23 @@ export default class Table extends React.Component {
     return flatArray(this.getCurrentPageData());
   }
 
+  recursiveSort(data, sorterFn) {
+    const { childrenColumnName } = this.props;
+    return data.sort(sorterFn).map(item => (item[childrenColumnName] ? {
+      ...item,
+      [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
+    } : item));
+  }
+
   getLocalData() {
     const state = this.state;
-    const { dataSource, childrenColumnName } = this.props;
+    const { dataSource } = this.props;
     let data = dataSource || [];
     // 优化本地排序
     data = data.slice(0);
     const sorterFn = this.getSorterFn();
     if (sorterFn) {
-      data = data.sort(sorterFn).map(dataItem => (dataItem[childrenColumnName] ? {
-        ...dataItem,
-        [childrenColumnName]: dataItem[childrenColumnName].sort(sorterFn),
-      } : dataItem));
+      data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
     if (state.filters) {
