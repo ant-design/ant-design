@@ -1,8 +1,8 @@
 ---
 order: 4
-title: 
-  zh-CN:主题
-  en-US:Theme
+title:
+  zh-CN: 主题
+  en-US: Menu Themes
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Build in two themes `light|dark`, default `light`.
+There are two built-in themes: 'light' and 'dark'. The default value is 'light'.
 
 ````jsx
 import { Menu, Icon, Switch } from 'antd';

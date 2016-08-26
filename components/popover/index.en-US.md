@@ -5,19 +5,19 @@ type: Views
 english: Popover
 ---
 
-The bubble float card popped by clicking or hovering.   
+The floating card popped by clicking or hovering.
 
 ## When to use
 
-For more information or operations, put all into the popover card to show according to the behavior.
+A simple and pop-up menu to provide more information and operations of an action.
 
-The difference with `Tooltip` is the popover card can provide operations and much more complicated information such as link and button.
+Comparing with `Tooltip`, besides information `Popover` card can also provide action elements like links and buttons.
 
 ## API
 
 | Param     | Description   | Type     | Default value       |
 |-----------|------------------------------------------|---------------|--------|
-| trigger   | trigger for behavior, optional `hover/focus/click`       | string        | hover  |
+| trigger | triggering mode: can be hover, focus, or click. | string | hover |
 | placement | position of the card，optional `top/left/right/bottom` `topLeft/topRight/bottomLeft/bottomRight` `leftTop/leftBottom/rightTop/rightBottom` | string        | top    |
 | title     | title of the card                                 | React.Element | none     |
 | content   | content of the card                            | React.Element | none     |

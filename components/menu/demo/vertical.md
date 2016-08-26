@@ -1,8 +1,8 @@
 ---
 order: 3
-title: 
-  zh-CN:垂直菜单
-  en-US:Vertical menu
+title:
+  zh-CN: 垂直菜单
+  en-US: Vertical menu
 ---
 
 ## zh-CN:
@@ -11,7 +11,7 @@ title:
 
 ## en-US:
 
-Submenu takes the form of pop-up.
+Submenus open as pop-ups.
 
 ````jsx
 import { Menu, Icon } from 'antd';

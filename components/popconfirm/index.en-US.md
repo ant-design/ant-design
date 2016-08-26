@@ -5,11 +5,11 @@ type: Views
 english: Popconfirm
 ---
 
-The bubble confirmation box popped by clicking.
+A simple and compact confirmation dialog of an action.
 
 ## When to use
 
-For the further confirmation, pop a float tip box to ask.  
+A simple and compact dialog used for asking an user confirmation.
 
 The difference with `confirm` is more lightweight than the static popped full-screen confirm modal.
 

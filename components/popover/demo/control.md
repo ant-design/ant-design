@@ -1,8 +1,8 @@
 ---
 order: 3
-title: 
-  zh-CN:从浮层内关闭
-  en-US:close in the floating layer
+title:
+  zh-CN: 从浮层内关闭
+  en-US: Controlling the close of the dialog
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-use `visible` attribute to control the display of the floating layer.
+Use `visible` prop to control the display of the card.
 
 ````jsx
 import { Popover, Button } from 'antd';

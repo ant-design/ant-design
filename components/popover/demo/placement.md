@@ -1,8 +1,8 @@
 ---
 order: 1
-title: 
-  zh-CN:位置
-  en-US:Placement
+title:
+  zh-CN: 位置
+  en-US: Placement
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-The placement has twelve direction. 
+There are 12 `placement` options available.
 
 ````jsx
 import { Popover, Button } from 'antd';

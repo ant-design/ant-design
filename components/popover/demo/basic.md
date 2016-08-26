@@ -1,8 +1,8 @@
 ---
 order: 0
-title: 
-  zh-CN:基本
-  en-US:Basic
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-The most basic way. The size of the floating layer depends on the region of contents.
+The most basic example. The size of the floating layer depends on the contents region.
 
 ````jsx
 import { Popover, Button } from 'antd';

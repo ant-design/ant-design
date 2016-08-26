@@ -1,8 +1,8 @@
 ---
 order: 2
-title: 
-  zh-CN:国际化
-  en-US:Internationalization
+title:
+  zh-CN: 国际化
+  en-US: Internationalization
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Set `okText` `cancelText` to the costom button text.
+Set `okText` and `cancelText` props to customise the buttons' labels.
 
 ````jsx
 import { Popconfirm } from 'antd';

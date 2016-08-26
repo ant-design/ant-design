@@ -10,7 +10,7 @@ Menu list of Navigation.
 
 ## When to use
 
-Navigation menu is important for a website, which makes users jumping from one page to another. Mostly it includes top navigation and side navigation. Top navigation provides all the category and functions of the website. Side navigation provides the Multi-level structure of the website.
+Navigation menu is important for a website, it helps users jump from one site section to another quickly. Mostly, it includes top navigation and side navigation. Top navigation provides all the category and functions of the website. Side navigation provides the Multi-level structure of the website.
 
 More layout and samples: [layout](/docs/spec/layout).
 
@@ -30,7 +30,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | Param    | Description   | Type     | Default value       |
 |----------|---------------|----------|--------------|
 | theme    | color of the theme | String: `light` `dark` | `light` |
-| mode | type of the menu, support vertical, horizontal and inline mode | String: `vertical` `horizontal` `inline` | `vertical` |
+| mode | type of the menu; vertical, horizontal, and inline modes are supported | String: vertical horizontal inline | vertical |
 | selectedKeys | array with the keys of currently selected menu items | Array |      |
 | defaultSelectedKeys | array with the keys of default selected menu items | Array |      |
 | openKeys | array with the keys of currently opened sub menus | Array |  |

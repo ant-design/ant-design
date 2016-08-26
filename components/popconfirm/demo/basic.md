@@ -1,8 +1,8 @@
 ---
 order: 0
-title: 
-  zh-CN:基本
-  en-US:Basic
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-The basic way.
+The basic example.
 
 ````jsx
 import { Popconfirm, message } from 'antd';

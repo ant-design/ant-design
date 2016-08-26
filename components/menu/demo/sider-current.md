@@ -1,8 +1,8 @@
 ---
 order: 2
-title: 
-  zh−CN:只展开当前父级菜单
-  en-US:only to open the current parant menu
+title:
+  zh−CN: 只展开当前父级菜单
+  en-US: only to open the current parant menu
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Click the menu, get all the others closed to make the menu simple.
+Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
 
 ````jsx
 import { Menu, Icon } from 'antd';
