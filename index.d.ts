@@ -560,37 +560,41 @@ export class FormComponent extends React.Component<FormComponentProps, {}> {
 // function  create
 type CreateFormOptions = {
   /** 获取一组输入控件的值，如不传入参数，则获取全部组件的值*/
-  getFieldsValue():(fieldNames?:Array<string>) => any
+  getFieldsValue:(fieldNames?:Array<string>) => any
   /** 获取一个输入控件的值*/
-  getFieldValue():(fieldName:string) => any
+  getFieldValue:(fieldName:string) => any
   /** 设置一组输入控件的值*/
-  setFieldsValue():(obj:Object) => void
+  setFieldsValue:(obj:Object) => void
   /** 设置一组输入控件的值*/
-  setFields():(obj:Object) => void
+  setFields:(obj:Object) => void
   /** 校验并获取一组输入域的值与 Error*/
-  validateFields():(fieldNames?:Array<string>, options?:Object, callback?:(erros:any, values:any) => void) => any
+  validateFields:(fieldNames?:Array<string>, options?:Object, callback?:(erros:any, values:any) => void) => any
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll():(fieldNames?:Array<string>, options?:Object, callback?:(erros:any, values:any) => void) => any
+  validateFieldsAndScroll:(fieldNames?:Array<string>, options?:Object, callback?:(erros:any, values:any) => void) => any
   /** 获取某个输入控件的 Error */
-  getFieldError():(name:string) => Object
+  getFieldError:(name:string) => Object
   /** 判断一个输入控件是否在校验状态*/
-  isFieldValidating():(name:string) => Object
+  isFieldValidating:(name:string) => Object
   /**重置一组输入控件的值与状态，如不传入参数，则重置所有组件*/
-  resetFields():(names?:Array<string>) => void
+  resetFields:(names?:Array<string>) => void
 
-  getFieldsValue():(id:string, options:{
+  getFieldProps:(id:string, options:{
     /** 子节点的值的属性，如 Checkbox 的是 'checked'*/
     valuePropName?:string,
     /** 子节点的初始值，类型、可选值均由子节点决定*/
     initialValue?:any,
     /** 收集子节点的值的时机*/
     trigger?:string,
+    /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
+    getValueFromEvent: (...args:any[]) => any,
     /** 校验子节点值的时机*/
     validateTrigger?:string,
     /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
     rules?:Array<any>,
     /** 必填输入控件唯一标志*/
-    id?:string
+    id?:string,
+    /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
+    exclusive: boolean
   }) => Array<any>
 }
 
@@ -603,7 +607,7 @@ interface FormProps {
   horizontal?:boolean,
   /** 行内排列布局*/
   inline?:boolean,
-  /** 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可*/
+  /** 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置*/
   form?:Object,
   /** 数据验证成功后回调事件*/
   onSubmit?:React.FormEventHandler,
