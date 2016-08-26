@@ -1,9 +1,8 @@
 ---
 category: Components
-chinese: 导航菜单
 cols: 1
 type: Navigation
-english: Menu
+title: Menu
 ---
 
 Menu list of Navigation.

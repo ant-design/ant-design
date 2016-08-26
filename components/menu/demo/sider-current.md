@@ -1,8 +1,8 @@
 ---
 order: 2
 title:
-  zh−CN: 只展开当前父级菜单
-  en-US: only to open the current parant menu
+    zh-CN: 只展开当前父级菜单
+    en-US: Only to open the current parant menu
 ---
 
 ## zh-CN

@@ -1,6 +1,5 @@
 ---
 category: Components
-chinese: 气泡卡片
 type: Views
 english: Popover
 ---
@@ -9,7 +8,7 @@ The floating card popped by clicking or hovering.
 
 ## When to use
 
-A simple and pop-up menu to provide more information and operations of an action.
+A simple popup menu to provide extra information or operations.
 
 Comparing with `Tooltip`, besides information `Popover` card can also provide action elements like links and buttons.
 

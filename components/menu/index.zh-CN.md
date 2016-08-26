@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 导航菜单
 cols: 1
 type: Navigation
-english: Menu
+title: Menu
+subtitle: 导航菜单
 ---
 
 为页面和功能提供导航的菜单列表。

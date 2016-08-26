@@ -1,8 +1,7 @@
 ---
 category: Components
-chinese: 气泡确认框
 type: Views
-english: Popconfirm
+title: Popconfirm
 ---
 
 A simple and compact confirmation dialog of an action.
