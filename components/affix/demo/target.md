@@ -1,9 +1,9 @@
 ---
 order: 4
-title: 参考对象
+title: 滚动容器
 title:
-  zh-CN: 参考对象
-  en-US: Reference target.
+  zh-CN: 滚动容器
+  en-US: Container to scroll.
 ---
 
 ## zh-CN
