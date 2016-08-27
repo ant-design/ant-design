@@ -44,7 +44,7 @@ subtitle: 级联选择
 
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
-| filterOption | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |
-| renderFilteredOption | 用于渲染 filter 后的选项 | `function(inputValue, path): React.ReactNode` | |
-| sortFilteredOption | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
-| searchResultListWidth | 用于设置搜索结果列表的宽度，默认与输入框同宽 | number | |
+| filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |
+| render | 用于渲染 filter 后的选项 | `function(inputValue, path): React.ReactNode` | |
+| sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
+| matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | |

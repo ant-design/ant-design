@@ -43,8 +43,8 @@ Fields in `showSearch`:
 
 | Property | Description | Type | Default |
 |----------|-------------|------|---------|
-| filterOption | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded. | `function(inputValue, path): boolean` | |
-| renderFilteredOption | Used to render filtered options. | `function(inputValue, path): React.ReactNode` | |
-| sortFilteredOption | Used to sort filtered options. | `function(a, b, inputValue)` | |
-| searchResultListWidth | To set the width of search result list, the default value is equal to input's | number | |
+| filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded. | `function(inputValue, path): boolean` | |
+| render | Used to render filtered options. | `function(inputValue, path): React.ReactNode` | |
+| sort | Used to sort filtered options. | `function(a, b, inputValue)` | |
+| matchInputWidth | Whether the width of result list equals to input's | boolean | |
 
