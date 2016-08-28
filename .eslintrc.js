@@ -36,6 +36,7 @@ const eslintrc = {
     'max-len': 0,
     'consistent-return': 0,
     'no-redeclare': 0,
+    'react/require-extension': 0,
   }
 };
 
