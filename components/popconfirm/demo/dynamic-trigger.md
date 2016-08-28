@@ -8,7 +8,7 @@ title: 条件触发
 ````jsx
 import { Popconfirm, Switch, message } from 'antd';
 
-let App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       visible: false,

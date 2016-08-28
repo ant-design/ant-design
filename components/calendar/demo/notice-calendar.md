@@ -67,7 +67,7 @@ function getMonthData(value) {
 }
 
 function monthCellRender(value) {
-  let num = getMonthData(value);
+  const num = getMonthData(value);
   return num ? <div className="notes-month">
     <section>{num}</section>
     <span>待办事项数</span>

@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 标签
   en-US: Tags
 ---
@@ -17,7 +17,7 @@ Select with tags, transform input to tag (scroll the menu)
 import { Select } from 'antd';
 const Option = Select.Option;
 
-let children = [];
+const children = [];
 for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }

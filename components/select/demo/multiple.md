@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 多选
   en-US: mutiple selection
 ---
@@ -17,7 +17,7 @@ Multiple selection, selecting from existing items (scroll the menu).
 import { Select } from 'antd';
 const Option = Select.Option;
 
-let children = [];
+const children = [];
 for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
