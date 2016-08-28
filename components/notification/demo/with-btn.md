@@ -1,8 +1,8 @@
 ---
-order: 4
-title: 
-  zh-CN: 自定义
-  en-US: Custom clase button and handler
+order: 3
+title:
+  zh-CN: 自定义按钮
+  en-US: Custom close button
 ---
 
 ## zh-CN
@@ -28,12 +28,12 @@ const openNotification = function () {
   };
   const btn = (
     <Button type="primary" size="small" onClick={btnClick}>
-      To speicify a function that will be called after clicking the Close button
+      Confirm
     </Button>
   );
   notification.open({
-    message: 'This is the title',
-    description: 'A function will be be called after the notification is closed(automatically after the "duration" time of manually).',
+    message: 'Notification Title',
+    description: 'A function will be be called after the notification is closed (automatically after the "duration" time of manually).',
     btn,
     key,
     onClose: close,

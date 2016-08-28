@@ -2,7 +2,7 @@
 category: Components
 type: Views
 noinstant: true
-english: Notification
+english: -tification
 ---
 
 To display a notification message globally.
@@ -30,15 +30,16 @@ The properties of config are as follows:
 
 | Property   | Description                                     | Type         | Default |
 |----------- |---------------------------------------------    | ----------- |--------|
-| message    | The title of notification box (required)        | React.Element or String      | No     |
-| description | The content of notification box (required)     | React.Element or String      | No     |
-| btn        | Custom close button                                   | React.Element      | No     |
-| key        | The unique identifer of current notification                                 | String      | No     |
-| onClose    | Specify a function that will be called after clicking the default close button  | Function    | No     |
+| message    | The title of notification box (required)        | React.Node      | -     |
+| description | The content of notification box (required)     | React.Node      | -     |
+| btn        | Customized close button                         | React.Node      | -     |
+| icon       | Customized icon                                 | React.Node      | _     |
+| key        | The unique identifer of current notification                                 | String      | -     |
+| onClose    | Specify a function that will be called after clicking the default close button  | Function    | -     |
 | duration   | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | Number    | 4.5     |
 
 
-`Notification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
+`-tification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
 will take into account these globally defined options before displaying.
 
 - `notification.config(options)`

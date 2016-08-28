@@ -1,8 +1,8 @@
 ---
 order: 2
-title: 
-  zh-CN: 带有Icon的通知提醒框
-  en-US: A notification box with a icon
+title:
+  zh-CN: 带有图标的通知提醒框
+  en-US: Notification with icon
 ---
 
 ## zh-CN
@@ -16,14 +16,12 @@ A notification box with a icon at the left side.
 ````jsx
 import { Button, notification } from 'antd';
 
-const openNotificationWithIcon = function (type) {
-  return function () {
-    notification[type]({
-      message: 'This is the title',
-      description: 'This is the content of the notification.This is the content of the notification.This is the content of the notification.',
-    });
-  };
-};
+const openNotificationWithIcon = (type) => () => (
+  notification[type]({
+    message: 'Notification Title',
+    description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+  })
+);
 
 ReactDOM.render(
   <div>

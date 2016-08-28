@@ -7,18 +7,13 @@ let notificationInstance;
 let defaultDuration = 45;
 
 export interface ArgsProps {
-  /** 通知提醒标题，必选 */
   message: React.ReactNode;
-  /** 通知提醒内容，必选*/
   description: React.ReactNode;
-  /** 自定义关闭按钮*/
   btn?: React.ReactNode;
-  /** 当前通知唯一标志*/
   key?: string;
-  /** 点击默认关闭按钮时触发的回调函数*/
   onClose?: () => void;
-  /** 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭*/
   duration?: number;
+  icon?: React.ReactNode;
 }
 
 function getNotificationInstance() {
@@ -46,7 +41,7 @@ function notice(args) {
   }
 
   let iconType = '';
-  switch (args.icon) {
+  switch (args.type) {
     case 'success':
       iconType = 'check-circle-o';
       break;
@@ -63,10 +58,21 @@ function notice(args) {
       iconType = 'info-circle';
   }
 
+  let iconNode;
+  if (args.icon) {
+    iconNode = (
+      <span className={`${prefixCls}-icon`}>
+        {args.icon}
+      </span>
+    );
+  } else if (args.type) {
+    iconNode = <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />;
+  }
+
   getNotificationInstance().notice({
     content: (
-      <div className={`${prefixCls}-content ${args.icon ? `${prefixCls}-with-icon` : ''}`}>
-        {args.icon ? <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.icon}`} type={iconType} /> : null}
+      <div className={`${prefixCls}-content ${iconNode ? `${prefixCls}-with-icon` : ''}`}>
+        {iconNode}
         <div className={`${prefixCls}-message`}>{args.message}</div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
         {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
@@ -106,7 +112,7 @@ const api = {
 };
 
 ['success', 'info', 'warning', 'error'].forEach((type) => {
-  api[type] = (args: ArgsProps) => api.open(assign({}, args, { icon: type }));
+  api[type] = (args: ArgsProps) => api.open(assign({}, args, { type }));
 });
 
 (api as any).warn = (api as any).warning;
