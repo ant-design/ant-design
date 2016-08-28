@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 内嵌菜单
+title:
+  zh-CN: 内嵌菜单
+  en-US: Vertical menu with inline children
 ---
 
+## zh-CN
+
 垂直菜单，子菜单内嵌在菜单区域。
+
+## en-US
+
+Vertical menu with inline submenus.
 
 ````jsx
 import { Menu, Icon } from 'antd';
