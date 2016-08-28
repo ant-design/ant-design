@@ -7,7 +7,7 @@
   padding: 8px 48px 8px 38px;
   border-radius: @border-radius-base;
   color: @text-color;
-  font-size: 12px;
+  font-size: @font-size-base;
   line-height: 16px;
   margin-bottom: 10px;
 
@@ -23,8 +23,7 @@
   }
 
   &-description {
-    font-size: 12px;
-    color: @legend-color;
+    font-size: @font-size-base;
     line-height: 21px;
     display: none;
   }
@@ -62,7 +61,7 @@
   }
 
   &-close-icon {
-    font-size: 12px;
+    font-size: @font-size-base;
     position: absolute;
     right: 16px;
     top: 10px;
@@ -75,7 +74,7 @@
       color: @legend-color;
       transition: color .3s ease;
       &:hover {
-        color: #444;
+        color: #404040;
       }
     }
   }
@@ -86,7 +85,7 @@
   }
 
   &-with-description {
-    padding: 16px 16px 16px 69px;
+    padding: 16px 16px 16px 60px;
     position: relative;
     border-radius: @border-radius-base;
     margin-bottom: 10px;
@@ -100,24 +99,24 @@
 
   &-with-description &-icon {
     position: absolute;
-    top: 50%;
-    left: 24px;
-    margin-top: -15px;
-    font-size: 29px;
+    top: 16px;
+    left: 20px;
+    font-size: 24px;
   }
 
   &-with-description &-close-icon {
     position: absolute;
-    top: 17px;
+    top: 16px;
     right: 16px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: @font-size-base;
   }
 
   &-with-description &-message {
     font-size: 14px;
-    color: @text-color;
+    color: @heading-color;
     display: block;
+    margin-bottom: 4px;
   }
 
   &-with-description &-description {

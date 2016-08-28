@@ -25,34 +25,39 @@
 
     &-message {
       font-size: 14px;
-      color: @text-color;
+      color: @heading-color;
       margin-bottom: 4px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      line-height: 20px;
     }
 
     &-description {
       font-size: @font-size-base;
-      color: @legend-color;
     }
 
-    &-with-icon  &-message {
+    &-closable &-message,
+    &-closable &-description {
+      padding-right: 24px;
+    }
+
+    &-with-icon &-message {
       font-size: 14px;
-      color: @text-color;
-      margin-left: 51px;
+      margin-left: 48px;
       margin-bottom: 4px;
     }
 
-    &-with-icon  &-description {
-      margin-left: 51px;
+    &-with-icon &-description {
+      margin-left: 48px;
       font-size: @font-size-base;
-      color: @legend-color;
     }
 
     &-icon {
       position: absolute;
       left: 16px;
-      top: 50%;
-      margin-top: -17px;
-      font-size: 34px;
+      top: 17px;
+      font-size: 32px;
 
       &-success {
         color: @success-color;
@@ -69,7 +74,7 @@
     }
 
     &-close-x:after {
-      font-size: 12px;
+      font-size: @font-size-base;
       content: "\e62d";
       font-family: "anticon";
       cursor: pointer;
@@ -79,8 +84,11 @@
       position: absolute;
       right: 16px;
       top: 10px;
-      color: #999;
+      color: @legend-color;
       outline: none;
+      &:hover {
+        color: #404040;
+      }
     }
 
     &-btn {

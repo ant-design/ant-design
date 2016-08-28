@@ -4,7 +4,7 @@ import Icon from '../icon';
 import assign from 'object-assign';
 let defaultTop = 24;
 let notificationInstance;
-let defaultDuration = 4.5;
+let defaultDuration = 45;
 
 export interface ArgsProps {
   /** 通知提醒标题，必选 */
