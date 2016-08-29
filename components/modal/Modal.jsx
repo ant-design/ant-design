@@ -66,35 +66,40 @@ export default class Modal extends React.Component {
   }
 
   render() {
-    let props = this.props;
+    let { okText, cancelText, confirmLoading, footer, visible } = this.props;
 
-    let { okText, cancelText } = props;
     if (this.context.antLocale && this.context.antLocale.Modal) {
       okText = okText || this.context.antLocale.Modal.okText;
       cancelText = cancelText || this.context.antLocale.Modal.cancelText;
     }
 
-    let defaultFooter = [
-      <Button key="cancel"
+    const defaultFooter = [
+      <Button
+        key="cancel"
         type="ghost"
         size="large"
         onClick={this.handleCancel}
       >
         {cancelText || '取消'}
       </Button>,
-      <Button key="confirm"
+      <Button
+        key="confirm"
         type="primary"
         size="large"
-        loading={props.confirmLoading}
+        loading={confirmLoading}
         onClick={this.handleOk}
       >
         {okText || '确定'}
       </Button>,
     ];
-    let footer = props.footer || defaultFooter;
+
     return (
-      <Dialog onClose={this.handleCancel} footer={footer} {...props}
-        visible={props.visible} mousePosition={mousePosition}
+      <Dialog
+        onClose={this.handleCancel}
+        footer={footer || defaultFooter}
+        {...this.props}
+        visible={visible}
+        mousePosition={mousePosition}
       />
     );
   }
