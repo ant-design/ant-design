@@ -68,6 +68,7 @@
     padding: 16px 8px;
     background: @table-head-background-color;
     position: relative;
+    z-index: 2;
     top: -1px;
     border-radius: 0 0 @border-radius-base @border-radius-base;
   }
@@ -245,10 +246,17 @@
       .@{table-prefix-cls}-fixed-right {
         border-left: 1px solid @border-color-split;
       }
+      .@{table-prefix-cls}-placeholder {
+        border-bottom: 0;
+      }
     }
 
     .@{table-prefix-cls}-thead > tr > th {
       border-bottom: 1px solid @border-color-split;
+    }
+
+    &.@{table-prefix-cls}-empty .@{table-prefix-cls}-thead > tr > th {
+      border-bottom: 0;
     }
 
     .@{table-prefix-cls}-tbody tr:last-child {
@@ -268,9 +276,12 @@
   }
 
   &-placeholder {
-    height: 65px;
-    line-height: 65px;
+    padding: 16px 8px;
+    background: #fff;
+    border-bottom: 1px solid @border-color-split;;
     text-align: center;
+    position: relative;
+    z-index: 2;
     font-size: 12px;
     color: #999;
     .anticon {
