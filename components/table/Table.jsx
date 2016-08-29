@@ -27,7 +27,6 @@ const defaultLocale = {
 };
 
 const defaultPagination = {
-  pageSize: 10,
   onChange: noop,
   onShowSizeChange: noop,
 };
@@ -82,6 +81,7 @@ export default class Table extends React.Component {
           ...defaultPagination,
           ...pagination,
           current: pagination.defaultCurrent || pagination.current || 1,
+          pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
         } : {},
     };
 
