@@ -37,7 +37,7 @@ let Demo = React.createClass({
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
 
     const formItemLayout = {
       labelCol: { span: 4 },
@@ -52,13 +52,17 @@ let Demo = React.createClass({
               {...formItemLayout}
               label="User name"
             >
-              <Input {...getFieldProps('username', {})} type="text" autoComplete="off" />
+              {getFieldDecorator('username')(
+                <Input type="text" autoComplete="off" />
+              )}
             </FormItem>
             <FormItem
               {...formItemLayout}
               label="Password"
             >
-              <Input {...getFieldProps('password', {})} type="password" autoComplete="off" />
+              {getFieldDecorator('password')(
+                <Input type="password" autoComplete="off" />
+              )}
             </FormItem>
           </Form>
         </Modal>

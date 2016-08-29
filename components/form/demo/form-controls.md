@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 表单控件
   en-US: Form controls
 ---
@@ -15,7 +15,7 @@ title:
 
 A list off all the controls that can be used with form.
 
-**Note**: Input control: Only if set correct type for it, then it will be set correct style 
+**Note**: Input control: Only if set correct type for it, then it will be set correct style.
 
 ````jsx
 import { Form, Input, Select, Checkbox, Radio } from 'antd';

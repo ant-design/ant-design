@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 典型表单
   en-US: Horizontal form
 ---
@@ -25,7 +25,7 @@ let Demo = React.createClass({
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -42,29 +42,37 @@ let Demo = React.createClass({
           {...formItemLayout}
           label="Password"
         >
-          <Input type="password" {...getFieldProps('pass', { initialValue: '' })} placeholder="Please input the password" />
+          {getFieldDecorator('pass', { initialValue: '' })(
+            <Input type="password" placeholder="Please input the password" />
+          )}
         </FormItem>
         <FormItem
           {...formItemLayout}
           label="Gender"
         >
-          <RadioGroup {...getFieldProps('gender', { initialValue: 'female' })}>
-            <Radio value="male">male</Radio>
-            <Radio value="female">female</Radio>
-          </RadioGroup>
+          {getFieldDecorator('gender', { initialValue: 'female' })(
+            <RadioGroup>
+              <Radio value="male">male</Radio>
+              <Radio value="female">female</Radio>
+            </RadioGroup>
+          )}
         </FormItem>
         <FormItem
           {...formItemLayout}
           label="remarks"
           help="Please input something"
         >
-          <Input type="textarea" placeholder="Please input something" {...getFieldProps('remark', { initialValue: '' })} />
+          {getFieldDecorator('remark', { initialValue: '' })(
+            <Input type="textarea" placeholder="Please input something" />
+          )}
         </FormItem>
         <FormItem
           {...formItemLayout}
           label={<span>Sold myself <Tooltip title="I come for Qiu Xiang"><Icon type="question-circle-o" /></Tooltip></span>}
         >
-          <Checkbox {...getFieldProps('agreement', { initialValue: false, valuePropName: 'checked' })}>agree</Checkbox>
+          {getFieldDecorator('agreement', { initialValue: false, valuePropName: 'checked' })(
+            <Checkbox>agree</Checkbox>
+          )}
         </FormItem>
         <FormItem wrapperCol={{ span: 16, offset: 6 }} style={{ marginTop: 24 }}>
           <Button type="primary" htmlType="submit">OK</Button>

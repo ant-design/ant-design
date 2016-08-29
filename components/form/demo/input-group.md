@@ -1,6 +1,6 @@
 ---
 order: 4
-title: 
+title:
   zh-CN: 输入框组合
   en-US: Input group
 ---

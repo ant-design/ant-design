@@ -116,6 +116,15 @@ export default class Form extends React.Component<FormProps, any> {
         };
       },
       render() {
+        const getFieldProps = this.props.form.getFieldProps;
+        function deprecatedGetFieldProps(name, option) {
+          warning(
+            false,
+            '`getFieldProps` is deprecated and will be removed in future, please use `getFieldDecorator` instead'
+          );
+          return getFieldProps(name, option);
+        }
+        this.props.form.getFieldProps = deprecatedGetFieldProps;
         return <Component {...this.props} />;
       },
     }));
