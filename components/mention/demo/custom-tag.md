@@ -29,7 +29,6 @@ const CustomNavMention = React.createClass({
   getInitialState() {
     return {
       suggestions: [],
-      loading: false,
     };
   },
   onSearchChange(value) {
@@ -44,11 +43,10 @@ const CustomNavMention = React.createClass({
     this.setState({ suggestions });
   },
   render() {
-    const { suggestions, loading } = this.state;
+    const { suggestions } = this.state;
     return (
       <Mention
         style={{ width: 500, height: 100 }}
-        loading={loading}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
       />
