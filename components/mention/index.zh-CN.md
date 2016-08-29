@@ -34,7 +34,7 @@ english: Mention
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
 | suggestions    | 建议内容 | Array<string> or Array<Mention.Nav> | [] |
-| suggestionStyle | 弹出下拉框样式 | Objet | {} |
+| suggestionStyle | 弹出下拉框样式 | Object | {} |
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:String) | [] |
 | onChange | 输入框内容变化时回调 | function(editorState: EditorState) | null |
 | notFoundContent| 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
