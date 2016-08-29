@@ -34,8 +34,9 @@
     transition: all 0.1s linear;
     display: block;
     width: 100%;
-    &:hover {
-      background: #fefefe;
+    font-weight: bold;
+    &:active {
+      background: #f4f4f4;
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
@@ -155,8 +156,8 @@
   &-handler-wrap {
     border-left: 1px solid @border-color-base;
     width: 22px;
-    height: 28px;
-    background: #fff;
+    height: 100%;
+    background: transparent;
     position: absolute;
     top: 0;
     right: 0;

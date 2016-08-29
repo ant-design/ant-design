@@ -29,7 +29,6 @@ const defaultLocale = {
 };
 
 const defaultPagination = {
-  pageSize: 10,
   onChange: noop,
   onShowSizeChange: noop,
 };
@@ -85,6 +84,7 @@ export interface TableProps {
   footer?: (currentPageData: Object[]) => React.ReactNode;
   title?: (currentPageData: Object[]) => React.ReactNode;
   scroll?: { x?: boolean | number, y?: boolean | number};
+  childrenColumnName?: 'string';
 }
 
 interface TableContext {
@@ -121,6 +121,7 @@ export default class Table extends React.Component<TableProps, any> {
     onChange: noop,
     locale: {},
     rowKey: 'key',
+    childrenColumnName: 'children',
   };
 
   static contextTypes = {
@@ -143,6 +144,7 @@ export default class Table extends React.Component<TableProps, any> {
       pagination: this.hasPagination() ?
         assign({},  defaultPagination, pagination, {
           current: pagination.defaultCurrent || pagination.current || 1,
+          pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
         }) : {},
     });
 
@@ -770,14 +772,25 @@ export default class Table extends React.Component<TableProps, any> {
     return flatArray(this.getCurrentPageData());
   }
 
+  recursiveSort(data, sorterFn) {
+    const { childrenColumnName } = this.props;
+    return data.sort(sorterFn).map(item => (item[childrenColumnName] ? assign(
+      {},
+      item, {
+        [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
+      },
+    ) : item));
+  }
+
   getLocalData() {
     const state = this.state;
-    let data = this.props.dataSource || [];
+    const { dataSource } = this.props;
+    let data = dataSource || [];
     // 优化本地排序
     data = data.slice(0);
     const sorterFn = this.getSorterFn();
     if (sorterFn) {
-      data = data.sort(sorterFn);
+      data = this.recursiveSort(data, sorterFn);
     }
     // 筛选
     if (state.filters) {
