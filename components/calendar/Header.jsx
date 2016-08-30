@@ -25,6 +25,7 @@ export default class Header extends React.Component {
     prefixCls: PropTypes.string,
     selectPrefixCls: PropTypes.string,
     type: PropTypes.string,
+    fullscreen: PropTypes.boolean,
   }
 
   getYearSelectElement(year) {
@@ -39,10 +40,8 @@ export default class Header extends React.Component {
     }
     return (
       <Select
-        style={{ width: 75 }}
         size={fullscreen ? null : 'small'}
         dropdownMatchSelectWidth={false}
-        dropdownMenuStyle={{ minWidth: 103 }}
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange}
         value={String(year)}
@@ -64,8 +63,6 @@ export default class Header extends React.Component {
 
     return (
       <Select
-        style={{ minWidth: 70 }}
-        dropdownMenuStyle={{ minWidth: 125 }}
         size={fullscreen ? null : 'small'}
         dropdownMatchSelectWidth={false}
         className={`${prefixCls}-month-select`}
@@ -94,11 +91,12 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { type, value, prefixCls, locale } = this.props;
+    const { type, value, prefixCls, locale, fullscreen } = this.props;
     const yearSelect = this.getYearSelectElement(value.getYear());
     const monthSelect = type === 'date' ? this.getMonthSelectElement(value.getMonth()) : null;
+    const size = fullscreen ? 'default' : 'small';
     const typeSwitch = (
-      <Group onChange={this.onTypeChange} value={type}>
+      <Group onChange={this.onTypeChange} value={type} size={size}>
         <Button value="date">{locale.month}</Button>
         <Button value="month">{locale.year}</Button>
       </Group>
