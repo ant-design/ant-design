@@ -17,11 +17,11 @@ This component can be rendered by using `dateCellRender` and `monthCellRender` w
 import { Calendar } from 'antd';
 
 function dateCellRender(value) {
-  return <div>自定义日数据 {value.getDayOfMonth()}</div>;
+  return <div>自定义日数据 {value.date()}</div>;
 }
 
 function monthCellRender(value) {
-  return <div>自定义月数据 {value.getMonth()}</div>;
+  return <div>自定义月数据 {value.month()}</div>;
 }
 
 ReactDOM.render(

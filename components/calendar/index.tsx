@@ -1,6 +1,6 @@
+import React from 'react';
 import { PropTypes } from 'react';
-import * as React from 'react';
-import GregorianCalendar from 'gregorian-calendar';
+import moment from 'moment';
 import defaultLocale from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
@@ -74,9 +74,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
   }
 
   parseDateFromValue(value) {
-    const date = new GregorianCalendar(this.getLocale());
-    date.setTime(+value);
-    return date;
+    return moment(value);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -102,11 +100,11 @@ export default class Calendar extends React.Component<CalendarProps, any> {
 
   monthCellRender = (value, locale) => {
     const prefixCls = this.props.prefixCls;
-    const month = value.getMonth();
+    const month = value.month();
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>
-          {locale.format.shortMonths[month]}
+          {moment.monthsShort(month)}
         </div>
         <div className={`${prefixCls}-content`}>
           {this.props.monthCellRender(value)}
@@ -120,7 +118,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     return (
       <div className={`${prefixCls}-date`}>
         <div className={`${prefixCls}-value`}>
-          {zerofixed(value.getDayOfMonth())}
+          {zerofixed(value.date())}
         </div>
         <div className={`${prefixCls}-content`}>
           {this.props.dateCellRender(value)}

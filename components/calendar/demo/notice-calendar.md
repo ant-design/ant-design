@@ -18,7 +18,7 @@ import { Calendar } from 'antd';
 
 function getListData(value) {
   let listData;
-  switch (value.getDayOfMonth()) {
+  switch (value.date()) {
     case 8:
       listData = [
         { type: 'warning', content: '这里是警告事项.' },
