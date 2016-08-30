@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
+import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
-import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
@@ -41,7 +41,7 @@ export default function createPicker(TheCalendar) {
       if (!('value' in props)) {
         this.setState({ value });
       }
-      const timeValue = value ? new Date(value.getTime()) : null;
+      const timeValue = value ? value.toDate() : null;
       props.onChange(timeValue, value ? props.getFormatter().format(value) : '');
     },
 
@@ -51,8 +51,7 @@ export default function createPicker(TheCalendar) {
       // 以下两行代码
       // 给没有初始值的日期选择框提供本地化信息
       // 否则会以周日开始排
-      let defaultCalendarValue = new GregorianCalendar(locale);
-      defaultCalendarValue.setTime(Date.now());
+      let defaultCalendarValue = moment();
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;

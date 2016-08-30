@@ -1,5 +1,5 @@
-import * as React from 'react';
-import GregorianCalendar from 'gregorian-calendar';
+import React from 'react';
+import moment from 'moment';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -46,8 +46,8 @@ export default class RangePicker extends React.Component<any, any> {
     if (!('value' in props)) {
       this.setState({ value });
     }
-    const startDate = value[0] ? new Date(value[0].getTime()) : null;
-    const endDate = value[1] ? new Date(value[1].getTime()) : null;
+    const startDate = value[0] ? value[0].toDate() : null;
+    const endDate = value[1] ? value[1].toDate() : null;
     const startDateString = value[0] ? props.getFormatter().format(value[0]) : '';
     const endDateString = value[1] ? props.getFormatter().format(value[1]) : '';
     props.onChange([startDate, endDate], [startDateString, endDateString]);
@@ -59,8 +59,7 @@ export default class RangePicker extends React.Component<any, any> {
     // 以下两行代码
     // 给没有初始值的日期选择框提供本地化信息
     // 否则会以周日开始排
-    let defaultCalendarValue = new GregorianCalendar(locale);
-    defaultCalendarValue.setTime(Date.now());
+    let defaultCalendarValue = moment();
 
     const { disabledDate, showTime, getCalendarContainer,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;

@@ -35,7 +35,7 @@ declare module 'rc-calendar/lib/MonthCalendar' {
   export default function(): any;
 }
 
-declare module 'rc-time-picker/lib/module/Panel' {
+declare module 'rc-time-picker/lib/Panel' {
   export default function(): any;
 }
 

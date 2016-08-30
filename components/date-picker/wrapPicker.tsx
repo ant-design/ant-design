@@ -1,8 +1,7 @@
+import React from 'react';
 import { PropTypes } from 'react';
-import * as React from 'react';
-import TimePickerPanel from 'rc-time-picker/lib/module/Panel';
-import DateTimeFormat from 'gregorian-calendar-format';
-import GregorianCalendar from 'gregorian-calendar';
+import moment from 'moment';
+import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import defaultLocale from './locale/zh_CN';
 import assign from 'object-assign';
@@ -11,7 +10,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
     getDefaultProps() {
       return {
-        format: defaultFormat || 'yyyy-MM-dd',
+        format: defaultFormat || 'YYYY-MM-DD',
         transitionName: 'slide-up',
         popupStyle: {},
         onChange() {
@@ -46,18 +45,19 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
     getFormatter() {
       const format = this.props.format;
-      const formatter = new DateTimeFormat(format as string, this.getLocale().lang.format);
-      return formatter;
+      return {
+        format(value) {
+          return moment(value).format(format);
+        },
+      };
     },
 
     parseDateFromValue(value) {
       if (value) {
         if (typeof value === 'string') {
-          return this.getFormatter().parse(value, {locale: this.getLocale()});
+          return moment(value, this.props.format);
         } else if (value instanceof Date) {
-          let date = new GregorianCalendar(this.getLocale());
-          date.setTime(+value);
-          return date;
+          return moment(value);
         }
       }
       return value;
@@ -83,7 +83,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
       const timeFormat = props.showTime && props.showTime.format;
       const rcTimePickerProps = {
-        formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss', locale.timePickerLocale.format),
+        format: timeFormat || 'HH:mm:ss',
         showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
         showHour: timeFormat && timeFormat.indexOf('HH') >= 0,
       };

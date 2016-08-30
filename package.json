@@ -42,7 +42,7 @@
     "object-assign": "~4.1.0",
     "object.omit": "^2.0.0",
     "rc-animate": "~2.3.0",
-    "rc-calendar": "~6.0.2",
+    "rc-calendar": "^7.0.3",
     "rc-cascader": "~0.10.1",
     "rc-checkbox": "~1.4.0",
     "rc-collapse": "~1.6.4",

@@ -23,7 +23,7 @@ english: DatePicker
 |--------------|----------------|----------|--------------|
 | value        | 日期           | string or Date   | 无           |
 | defaultValue | 默认日期       | string or Date   | 无           |
-| format       | 展示的日期格式，配置参考 [GregorianCalendarFormat](https://github.com/yiminghe/gregorian-calendar-format) | string   | "yyyy-MM-dd" |
+| format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onChange     | 时间发生变化的回调 | function(date, dateString) | 无           |
 | disabled     | 禁用           | bool     | false        |
@@ -42,7 +42,7 @@ english: DatePicker
 |--------------|----------------|----------|--------------|
 | value        | 日期           | string or Date   | 无           |
 | defaultValue | 默认日期       | string or Date   | 无           |
-| format       | 展示的日期格式，配置参考 [GregorianCalendarFormat](https://github.com/yiminghe/gregorian-calendar-format) | string   | "yyyy-MM" |
+| format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(Date value) | 无           |
 | disabled     | 禁用           | bool     | false        |
@@ -58,7 +58,7 @@ english: DatePicker
 |--------------|----------------|----------|--------------|
 | value        | 日期          | [string/Date, string/Date]   | 无           |
 | defaultValue | 默认日期       | [string/Date, string/Date]   | 无           |
-| format       | 展示的日期格式  | string    | "yyyy-MM-dd HH:mm:ss" |
+| format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date[], dateString[]) | 无           |
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
