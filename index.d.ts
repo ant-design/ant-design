@@ -91,7 +91,7 @@ type ButtonSize = 'small' | 'large'
 // Button
 interface ButtonProps {
   /** 设置按钮类型，可选值为 `primary` `ghost` 或者不设 */
-    type?:ButtonType,
+  type?:ButtonType,
   /** 设置 `button` 原生的 `type` 值，可选值请参考 HTML标准*/
   htmlType?:string,
 
@@ -552,7 +552,7 @@ export class FormItem extends React.Component<FormItemProps, {}> {
 }
 
 interface FormComponentProps {
-  form:CreateFormOptions
+  form?:CreateFormOptions
 }
 export class FormComponent extends React.Component<FormComponentProps, {}> {
 }
