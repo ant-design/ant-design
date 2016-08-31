@@ -1,3 +1,5 @@
+import { placements } from 'rc-tooltip/lib/placements';
+
 const autoAdjustOverflow = {
   adjustX: 1,
   adjustY: 1,
@@ -6,12 +8,16 @@ const autoAdjustOverflow = {
 const targetOffset = [0, 0];
 
 export interface GetPlacementsProps {
-   arrowWidth?: number;
-   horizontalArrowShift?: number;
-   verticalArrowShift?: number;
+  arrowWidth?: number;
+  horizontalArrowShift?: number;
+  verticalArrowShift?: number;
+  arrowPointAtCenter?: boolean;
 }
 
 export default function getPlacements(config: GetPlacementsProps = {}) {
+  if (!config.arrowPointAtCenter) {
+    return placements;
+  }
   const { arrowWidth = 5, horizontalArrowShift = 16, verticalArrowShift = 12 } = config;
   return {
     left: {

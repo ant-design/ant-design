@@ -4,6 +4,7 @@ import Radio from './radio';
 import RadioButton from './radioButton';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
+
 function getCheckedValue(children) {
   let value = null;
   let matched = false;

@@ -778,7 +778,7 @@ export default class Table extends React.Component<TableProps, any> {
       {},
       item, {
         [childrenColumnName]: this.recursiveSort(item[childrenColumnName], sorterFn),
-      },
+      }
     ) : item));
   }
 
@@ -813,9 +813,9 @@ export default class Table extends React.Component<TableProps, any> {
 
   render() {
     const [{
-      style, className, rowKey,
-    }, restProps] = splitObject(this.props, ['style', 'className', 'rowKey']);
-    let data = this.getCurrentPageData();
+      style, className,
+    }, restProps] = splitObject(this.props, ['style', 'className']);
+    const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     const locale = this.getLocale();
@@ -823,6 +823,7 @@ export default class Table extends React.Component<TableProps, any> {
     const classString = classNames({
       [`ant-table-${this.props.size}`]: true,
       'ant-table-bordered': this.props.bordered,
+      'ant-table-empty': !data.length,
     });
 
     columns = this.renderColumnsDropdown(columns);
@@ -832,23 +833,6 @@ export default class Table extends React.Component<TableProps, any> {
       return newColumn;
     });
 
-    // Empty Data
-    let emptyRowKey;
-    if (!data || data.length === 0) {
-      columns.forEach((column, index) => {
-        column.render = () => ({
-          children: !index ? <div className="ant-table-placeholder">{locale.emptyText}</div> : null,
-          props: {
-            colSpan: !index ? columns.length : 0,
-          },
-        });
-      });
-      emptyRowKey = 'key';
-      data = [{
-        [emptyRowKey]: 'empty',
-      }];
-    }
-
     let table = (
       <RcTable {...restProps}
         data={data}
@@ -856,7 +840,7 @@ export default class Table extends React.Component<TableProps, any> {
         className={classString}
         expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
         expandIconAsCell={expandIconAsCell}
-        rowKey={emptyRowKey || rowKey}
+        emptyText={() => locale.emptyText}
       />
     );
     // if there is no pagination or no data,

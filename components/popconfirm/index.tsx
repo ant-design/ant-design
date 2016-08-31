@@ -4,8 +4,7 @@ import Icon from '../icon';
 import Button from '../button';
 import getPlacements from '../popover/placements';
 import splitObject from '../_util/splitObject';
-const placements = getPlacements();
-const prefixCls = 'ant-popover';
+
 const noop = () => {};
 
 export interface PopconfirmProps {
@@ -41,10 +40,10 @@ export interface PopconfirmContext {
 
 export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   static defaultProps = {
+    prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
-    overlayStyle: {},
     onConfirm: noop,
     onCancel: noop,
     onVisibleChange: noop,
@@ -91,8 +90,10 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   render() {
-    const [{ title, placement, overlayStyle, trigger }, restProps] = splitObject(this.props,
-      ['title', 'placement', 'overlayStyle', 'trigger']);
+    const [{ prefixCls, title, placement, arrowPointAtCenter }, restProps] = splitObject(
+      this.props,
+      ['prefixCls', 'title', 'placement', 'arrowPointAtCenter']
+    );
     let { okText, cancelText } = this.props;
     if (this.context.antLocale && this.context.antLocale.Popconfirm) {
       okText = okText || this.context.antLocale.Popconfirm.okText;
@@ -114,19 +115,15 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     );
 
     return (
-      <Tooltip {...restProps}
-        placement={placement}
-        builtinPlacements={placements}
-        overlayStyle={overlayStyle}
+      <Tooltip
+        {...restProps}
+        builtinPlacements={getPlacements({ arrowPointAtCenter })}
         prefixCls={prefixCls}
+        placement={placement}
         onVisibleChange={this.onVisibleChange}
-        transitionName={this.props.transitionName}
         visible={this.state.visible}
-        trigger={trigger}
         overlay={overlay}
-      >
-        {this.props.children}
-      </Tooltip>
+      />
     );
   }
 }

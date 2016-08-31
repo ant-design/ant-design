@@ -179,6 +179,10 @@ declare module 'rc-tooltip' {
   export default function(): any;
 }
 
+declare module 'rc-tooltip/lib/placements' {
+  export const placements: any;
+}
+
 declare module 'rc-calendar' {
   export default function(): any;
 }
