@@ -15,18 +15,19 @@ english: TimePicker
 ## API
 ---
 
-```html
-<TimePicker defaultValue="13:30:56" />
+```jsx
+import moment from 'moment';
+<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />
 ```
 
 > 注意：`0.11+` 后 `Timepicker` 改名为 `TimePicker`。
 
 | 参数                 | 说明 | 类型 | 默认值 |
 |---------------------|-----|-----|-------|
-| defaultValue        | 初始默认时间 | string or Date | 无 |
-| value               | 默认时间 | string or Date | 无 |
+| defaultValue        | 默认时间 | [moment](http://momentjs.com/) | 无 |
+| value               | 当前时间 | [moment](http://momentjs.com/) | 无 |
 | placeholder         | 没有值的时候显示的内容 | string | "请选择时间" |
-| onChange            | 时间发生变化的回调     | function(date, dateString) | 无 |
+| onChange            | 时间发生变化的回调     | function(time: moment): void | 无 |
 | format              | 展示的时间格式 | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |
 | disabled            | 禁用全部操作 | bool | false |
 | disabledHours       | 禁止选择部分小时选项 | function() | 无 |

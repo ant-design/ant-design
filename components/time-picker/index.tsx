@@ -10,13 +10,13 @@ export interface TimePickerProps {
   className?: string;
   size?: 'large' | 'default' | 'small';
   /** 默认时间 */
-  value?: string | Date;
+  value?: moment.Moment;
   /** 初始默认时间 */
-  defaultValue?: string | Date;
+  defaultValue?: moment.Moment;
   /** 展示的时间格式 : "HH:mm:ss"、"HH:mm"、"mm:ss" */
   format?: string;
   /** 时间发生变化的回调 */
-  onChange?: (time: Date, timeString: string) => void;
+  onChange?: (time: moment.Moment) => void;
   /** 禁用全部操作 */
   disabled?: boolean;
   /** 没有值的时候显示的内容 */
@@ -67,39 +67,21 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     super(props);
 
     this.state = {
-      value: this.parseTimeFromValue(props.value) || this.parseTimeFromValue(props.defaultValue),
+      value: props.value || props.defaultValue,
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      this.setState({ value: this.parseTimeFromValue(nextProps.value) });
+      this.setState({ value: nextProps.value });
     }
-  }
-
-  /**
-   * 获得输入框的默认值
-   */
-  parseTimeFromValue(value) {
-    if (value) {
-      if (typeof value === 'string') {
-        return moment(value, this.props.format);
-      } else if (value instanceof Date) {
-        return moment(value);
-      }
-    }
-    return value;
   }
 
   handleChange = (value: moment.Moment) => {
-    const { onChange, format } = this.props;
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    onChange(
-      value ? value.toDate() : null,
-      value ? value.format(format) : ''
-    );
+    this.props.onChange(value);
   }
 
   getLocale() {

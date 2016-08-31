@@ -14,18 +14,19 @@ By clicking the input box, you can select a time from a popup panel.
 ## API
 ---
 
-```html
-<TimePicker defaultValue="13:30:56" />
+```jsx
+import moment from 'moment';
+<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />
 ```
 
-> Warning: `TimePicker` is renamed to `TimePicker` after 0.11.
+> Note: `TimePicker` is renamed to `TimePicker` after 0.11.
 
 | Property                 | Description | Type | Default |
 |---------------------|-----|-----|-------|
-| defaultValue        | to set default time | string or Date | - |
-| value               | to set time | string or Date | - |
+| defaultValue        | to set default time | [moment](http://momentjs.com/) | - |
+| value               | to set time | [moment](http://momentjs.com/) | - |
 | placeholder         | display when there's no value | string | "Select a time" |
-| onChange            | a callback function, can be executed when the selected time is changing    | function(date, dateString) | - |
+| onChange            | a callback function, can be executed when the selected time is changing    | function(time: moment): void | - |
 | format              | to set the time format | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |
 | disabled            | determine whether the TimePicker is disabled | bool | false |
 | disabledHours       | to specify the hours that cannot be selected | function() | - |

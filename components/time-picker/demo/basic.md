@@ -16,8 +16,8 @@ The most basic usage.
 ````jsx
 import { TimePicker } from 'antd';
 
-function onChange(time, timeString) {
-  console.log(time, timeString);
+function onChange(time) {
+  console.log(time);
 }
 
 ReactDOM.render(
