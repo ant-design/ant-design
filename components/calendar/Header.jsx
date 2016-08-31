@@ -25,7 +25,7 @@ export default class Header extends React.Component {
     prefixCls: PropTypes.string,
     selectPrefixCls: PropTypes.string,
     type: PropTypes.string,
-    fullscreen: PropTypes.boolean,
+    fullscreen: PropTypes.bool,
   }
 
   getYearSelectElement(year) {
