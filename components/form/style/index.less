@@ -340,7 +340,7 @@ form {
   .ant-select {
     &-selection {
       border-color: @warning-color;
-      box-shadow: 0 0 0 2px fade(@warning-color, 20%);
+      .active(@warning-color);
     }
     &-arrow {
       color: @warning-color;
@@ -360,7 +360,7 @@ form {
   //input-number
   .ant-input-number {
     border-color: @warning-color;
-    box-shadow: 0 0 0 2px fade(@warning-color, 20%);
+    .active(@warning-color);
     &:not([disabled]):hover {
       border-color: @warning-color;
     }
@@ -379,7 +379,7 @@ form {
   .ant-select {
     &-selection {
       border-color: @error-color;
-      box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      .active(@error-color);
     }
 
     &-arrow {
@@ -400,7 +400,7 @@ form {
   //input-number
   .ant-input-number {
     border-color: @error-color;
-    box-shadow: 0 0 0 2px fade(@error-color, 20%);
+    .active(@error-color);
     &:not([disabled]):hover {
       border-color: @error-color;
     }
@@ -409,11 +409,11 @@ form {
   .ant-mention-wrapper.active {
     .ant-mention-editor {
       border-color: @error-color;
-      box-shadow: 0 0 0 2px fade(@error-color, 20%);
+      .active(@error-color);
       &:not([disabled]):hover,
       &:not([disabled]):focus {
         border-color: @error-color;
-        box-shadow: 0 0 0 2px fade(@error-color, 20%);
+        .active(@error-color);
       }
     }
   }

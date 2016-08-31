@@ -1,3 +1,5 @@
+@import "../../input/style/mixin";
+
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
   .ant-form-explain,
   .ant-form-split {
@@ -6,7 +8,7 @@
   // 输入框的不同校验状态
   .ant-input {
     border-color: @border-color;
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+    .active(@border-color);
 
     &:not([disabled]):hover {
       border-color: @border-color;
@@ -14,7 +16,7 @@
   }
 
   .ant-calendar-picker-open .ant-calendar-picker-input {
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+    .active(@border-color);
   }
 
   .ant-input-group-addon {

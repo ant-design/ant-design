@@ -15,10 +15,10 @@
 
 // input status
 // == when focus or actived
-.active(@color: @input-hover-border-color) {
+.active(@color: @outline-color) {
   border-color: tint(@color, 20%);
   outline: 0;
-  box-shadow: 0 0 0 2px fade(@color, 20%);
+  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
 }
 
 // == when hoverd
