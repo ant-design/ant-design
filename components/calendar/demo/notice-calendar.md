@@ -61,7 +61,7 @@ function dateCellRender(value) {
 }
 
 function getMonthData(value) {
-  if (value.getMonth() === 8) {
+  if (value.month() === 8) {
     return 1394;
   }
 }

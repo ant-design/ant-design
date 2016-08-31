@@ -31,6 +31,15 @@ export default class RangePicker extends React.Component<any, any> {
       this.setState({
         value: [start, end],
       });
+    } else if (this.props.locale !== nextProps.locale) {
+      const value = this.state.value;
+      const momentLocale = nextProps.locale.momentLocale;
+      this.setState({
+        value: [
+          value[0] && value[0].locale(momentLocale),
+          value[1] && value[1].locale(momentLocale),
+        ],
+      });
     }
   }
 
@@ -59,7 +68,7 @@ export default class RangePicker extends React.Component<any, any> {
     // 以下两行代码
     // 给没有初始值的日期选择框提供本地化信息
     // 否则会以周日开始排
-    let defaultCalendarValue = moment();
+    let defaultCalendarValue = moment().locale(locale.momentLocale);
 
     const { disabledDate, showTime, getCalendarContainer,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;

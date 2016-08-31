@@ -5,7 +5,10 @@
 import CalendarLocale from 'rc-calendar/lib/locale/ru_RU';
 import TimePickerLocale from '../../time-picker/locale/ru_RU';
 import assign from 'object-assign';
+import 'moment/locale/ru';
+
 const locale = {
+  momentLocale: 'ru',
   lang: assign({
     placeholder: 'Выберите дату',
     rangePlaceholder: ['Начальная дата', 'Конечная дата'],

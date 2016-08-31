@@ -7,6 +7,9 @@ import assign from 'object-assign';
 import Icon from '../icon';
 
 export interface PickerProps {
+  locale?: {
+    momentLocale: string,
+  };
   parseDateFromValue?: Function;
   value?: string | Date;
 }
@@ -25,6 +28,11 @@ export default function createPicker(TheCalendar) {
       if ('value' in nextProps) {
         this.setState({
           value: nextProps.parseDateFromValue(nextProps.value),
+        });
+      } else if (this.props.locale !== nextProps.locale) {
+        const value = this.state.value;
+        this.setState({
+          value: value && value.locale(nextProps.locale.momentLocale),
         });
       }
     },
@@ -51,8 +59,7 @@ export default function createPicker(TheCalendar) {
       // 以下两行代码
       // 给没有初始值的日期选择框提供本地化信息
       // 否则会以周日开始排
-      let defaultCalendarValue = moment();
-
+      let defaultCalendarValue = moment().locale(locale.momentLocale);
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
 

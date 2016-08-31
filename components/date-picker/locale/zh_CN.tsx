@@ -1,8 +1,10 @@
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import TimePickerLocale from '../../time-picker/locale/zh_CN';
 import assign from 'object-assign';
+import 'moment/locale/zh-cn';
 // 统一合并为完整的 Locale
 const locale = {
+  momentLocale: 'zh-cn',
   lang: assign({
     placeholder: '请选择日期',
     rangePlaceholder: ['开始日期', '结束日期'],

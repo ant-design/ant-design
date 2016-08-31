@@ -1,8 +1,8 @@
 import React from 'react';
 import { PropTypes } from 'react';
 import moment from 'moment';
-import defaultLocale from './locale/zh_CN';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
+import defaultLocale from './locale/zh_CN';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import assign from 'object-assign';
@@ -65,30 +65,33 @@ export default class Calendar extends React.Component<CalendarProps, any> {
 
   context: CalendarContext;
 
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = {
-      value: this.parseDateFromValue(props.value || new Date()),
+      value: this.parseDateFromValue(props.value || new Date(), this.getLocale(context)),
       mode: props.mode,
     };
   }
 
-  parseDateFromValue(value) {
-    return moment(value);
+  parseDateFromValue(value, locale) {
+    return moment(value).locale(locale.momentLocale);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps, nextContext) {
     if ('value' in nextProps) {
       this.setState({
-        value: this.parseDateFromValue(nextProps.value),
+        value: this.parseDateFromValue(nextProps.value, this.getLocale(nextContext)),
+      });
+    } else if (this.context !== nextContext) {
+      this.setState({
+        value: this.parseDateFromValue(this.state.value, this.getLocale(nextContext)),
       });
     }
   }
 
-  getLocale = () => {
+  getLocale = (context) => {
     const props = this.props;
     let locale = defaultLocale;
-    const context = this.context;
     if (context && context.antLocale && context.antLocale.Calendar) {
       locale = context.antLocale.Calendar;
     }
@@ -98,13 +101,12 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     return result;
   }
 
-  monthCellRender = (value, locale) => {
+  monthCellRender = (value) => {
     const prefixCls = this.props.prefixCls;
-    const month = value.month();
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>
-          {moment.monthsShort(month)}
+          {value.localeData().monthsShort(value)}
         </div>
         <div className={`${prefixCls}-content`}>
           {this.props.monthCellRender(value)}
@@ -147,7 +149,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     const { value, mode } = this.state;
     const { prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
-    const locale = this.getLocale();
+    const locale = this.getLocale(this.context);
 
     let cls = className || '';
     if (fullscreen) {

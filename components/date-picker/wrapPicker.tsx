@@ -32,8 +32,8 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
     getLocale() {
       const props = this.props;
-      let locale = defaultLocale;
       const context = this.context;
+      let locale = defaultLocale;
       if (context.antLocale && context.antLocale.DatePicker) {
         locale = context.antLocale.DatePicker;
       }
@@ -44,20 +44,22 @@ export default function wrapPicker(Picker, defaultFormat?) {
     },
 
     getFormatter() {
+      const locale = this.getLocale();
       const format = this.props.format;
       return {
         format(value) {
-          return moment(value).format(format);
+          return moment(value).locale(locale.momentLocale).format(format);
         },
       };
     },
 
     parseDateFromValue(value) {
       if (value) {
+        const locale = this.getLocale();
         if (typeof value === 'string') {
-          return moment(value, this.props.format);
+          return moment(value, this.props.format).locale(locale.momentLocale);
         } else if (value instanceof Date) {
-          return moment(value);
+          return moment(value).locale(locale.momentLocale);
         }
       }
       return value;
@@ -93,7 +95,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
           {...props.showTime}
           prefixCls="ant-calendar-time-picker"
           placeholder={locale.timePickerLocale.placeholder}
-          locale={locale.timePickerLocale}
           transitionName="slide-up"
         />
       ) : null;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'react';
-import moment from 'moment';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
@@ -65,9 +64,19 @@ export default class Header extends React.Component<HeaderProps, any> {
     );
   }
 
-  getMonthSelectElement(month) {
+  getMonthsLocale(value) {
+    const current = value.clone();
+    const localeData = value.localeData();
+    const months = [];
+    for (let i = 0; i < 12; i++) {
+      current.month(i);
+      months.push(localeData.monthsShort(current));
+    }
+    return months;
+  }
+
+  getMonthSelectElement(month, months) {
     const props = this.props;
-    const months = moment.months();
     const { prefixCls, fullscreen } = props;
     const options = [];
 
@@ -107,7 +116,8 @@ export default class Header extends React.Component<HeaderProps, any> {
   render() {
     const { type, value, prefixCls, locale, fullscreen } = this.props;
     const yearSelect = this.getYearSelectElement(value.year());
-    const monthSelect = type === 'date' ? this.getMonthSelectElement(value.month()) : null;
+    const monthSelect = type === 'date' ?
+      this.getMonthSelectElement(value.month(), this.getMonthsLocale(value)) : null;
     const size = (fullscreen ? 'default' : 'small') as any;
     const typeSwitch = (
       <Group onChange={this.onTypeChange} value={type} size={size}>
