@@ -26,3 +26,4 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 | onVisibleChange | callback of the visible attribute changed    | function      | none     |
 | getTooltipContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative. [Sample](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 | openClassName | class name of the trigger, using for highlighting the trigger while triggered | string | ant-popover-open |
+| arrowPointAtCenter | whether arrow pointed at the center of target, supported after `antd@1.11+` | Boolean | `false` |

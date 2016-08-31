@@ -24,3 +24,4 @@ The difference with `confirm` is more lightweight than the static popped full-sc
 | okText    | text of the confirmation button                              | String        | Confirm   |
 | cancelText| text of the cancel button                              | String        | Cancel   |
 | openClassName | class name of the trigger, using for highlighting the trigger while triggered | string | ant-popover-open |
+| arrowPointAtCenter | whether arrow pointed at the center of target, supported after `antd@1.11+` | Boolean | `false` |
