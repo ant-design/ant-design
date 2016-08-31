@@ -3,8 +3,6 @@ import Tooltip from '../tooltip';
 import getPlacements from './placements';
 import warning from 'warning';
 
-const placements = getPlacements();
-
 export default class Popover extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-popover',
@@ -13,19 +11,18 @@ export default class Popover extends React.Component {
     trigger: 'hover',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    overlayStyle: {},
+    arrowPointAtCenter: false,
   }
 
   render() {
+    const { arrowPointAtCenter } = this.props;
     return (
-      <Tooltip transitionName={this.props.transitionName}
-        builtinPlacements={placements}
+      <Tooltip
+        builtinPlacements={getPlacements({ arrowPointAtCenter })}
         ref="tooltip"
         {...this.props}
         overlay={this.getOverlay()}
-      >
-        {this.props.children}
-      </Tooltip>
+      />
     );
   }
 

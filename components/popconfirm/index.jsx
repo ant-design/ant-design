@@ -4,16 +4,14 @@ import Icon from '../icon';
 import Button from '../button';
 import getPlacements from '../popover/placements';
 
-const placements = getPlacements();
-const prefixCls = 'ant-popover';
 const noop = () => {};
 
 export default class Popconfirm extends React.Component {
   static defaultProps = {
+    prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
-    overlayStyle: {},
     onConfirm: noop,
     onCancel: noop,
     onVisibleChange: noop,
@@ -58,7 +56,7 @@ export default class Popconfirm extends React.Component {
   }
 
   render() {
-    const { title, placement, overlayStyle, trigger, ...restProps } = this.props;
+    const { prefixCls, title, placement, arrowPointAtCenter, ...restProps } = this.props;
     let { okText, cancelText } = this.props;
     if (this.context.antLocale && this.context.antLocale.Popconfirm) {
       okText = okText || this.context.antLocale.Popconfirm.okText;
@@ -80,19 +78,15 @@ export default class Popconfirm extends React.Component {
     );
 
     return (
-      <Tooltip {...restProps}
-        placement={placement}
-        builtinPlacements={placements}
-        overlayStyle={overlayStyle}
+      <Tooltip
+        {...restProps}
+        builtinPlacements={getPlacements({ arrowPointAtCenter })}
         prefixCls={prefixCls}
+        placement={placement}
         onVisibleChange={this.onVisibleChange}
-        transitionName={this.props.transitionName}
         visible={this.state.visible}
-        trigger={trigger}
         overlay={overlay}
-      >
-        {this.props.children}
-      </Tooltip>
+      />
     );
   }
 }

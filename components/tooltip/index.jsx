@@ -2,10 +2,6 @@ import React, { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
 
-const placements = getPlacements({
-  verticalArrowShift: 8,
-});
-
 export default class Tooltip extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
@@ -14,6 +10,7 @@ export default class Tooltip extends React.Component {
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     onVisibleChange() {},
+    arrowPointAtCenter: false,
   }
 
   constructor(props) {
@@ -32,8 +29,17 @@ export default class Tooltip extends React.Component {
     return this.refs.tooltip.getPopupDomNode();
   }
 
+  getPlacements() {
+    const { builtinPlacements, arrowPointAtCenter } = this.props;
+    return builtinPlacements || getPlacements({
+      arrowPointAtCenter,
+      verticalArrowShift: 8,
+    });
+  }
+
   // 动态设置动画点
   onPopupAlign = (domNode, align) => {
+    const placements = this.getPlacements();
     // 当前返回的位置
     const placement = Object.keys(placements).filter(
       key => (
@@ -64,7 +70,7 @@ export default class Tooltip extends React.Component {
   }
 
   render() {
-    const { prefixCls, title, overlay, children, transitionName } = this.props;
+    const { prefixCls, title, overlay, children } = this.props;
     // Hide tooltip when there is no title
     let visible = this.state.visible;
     if (!title && !overlay) {
@@ -76,10 +82,10 @@ export default class Tooltip extends React.Component {
     const openClassName = this.props.openClassName || `${prefixCls}-open`;
     const childrenCls = (children && children.props && children.props.className)
       ? `${children.props.className} ${openClassName}` : openClassName;
+
     return (
       <RcTooltip
-        transitionName={transitionName}
-        builtinPlacements={placements}
+        builtinPlacements={this.getPlacements()}
         overlay={title}
         visible={visible}
         onPopupAlign={this.onPopupAlign}

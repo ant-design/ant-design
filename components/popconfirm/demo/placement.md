@@ -3,7 +3,7 @@ order: 1
 title: 位置
 ---
 
-位置有十二个方向。
+位置有十二个方向。如需箭头指向目标元素中心，可以设置 `arrowPointAtCenter`。
 
 ````jsx
 import { Popconfirm, message, Button } from 'antd';
