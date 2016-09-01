@@ -35,8 +35,7 @@ subtitle: 导航菜单
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 | Array |      |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | Array |  |
 | defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 |  |      |
-| onOpen | SubMenu 展开回调 | Function({ key, item, keyPath }) |  |
-| onClose | SubMenu 收起回调 | Function({ key, item, keyPath }) |  |
+| onOpenChange | SubMenu 展开/关闭的回调 | Function(openKeys: string[]) | noop |
 | onSelect | 被选中时调 | Function({ item, key, selectedKeys }) | 无   |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | Function({ item, key, selectedKeys }) | - |
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key, keyPath} | function | - |

@@ -5,15 +5,6 @@ import animation from '../_util/openAnimation';
 function noop() {
 }
 
-interface OpenCloseParam {
-  openKeys: Array<string>;
-  key: string;
-  item: any;
-  trigger: string;
-  open: boolean;
-  keyPath: Array<string>;
-}
-
 interface SelectParam {
   key: string;
   keyPath: Array<string>;
@@ -43,8 +34,7 @@ export interface MenuProps {
   openKeys?: Array<string>;
   /** 初始展开的菜单项 key 数组*/
   defaultOpenKeys?: Array<string>;
-  onOpen?: (param: OpenCloseParam) => void;
-  onClose?: (param: OpenCloseParam) => void;
+  onOpenChange?: (openKeys: string[]) => void;
   /**
    * 被选中时调用
    *
@@ -71,8 +61,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   static defaultProps = {
     prefixCls: 'ant-menu',
     onClick: noop,
-    onOpen: noop,
-    onClose: noop,
+    onOpenChange: noop,
     className: '',
     theme: 'light',  // or dark
   };
@@ -96,15 +85,9 @@ export default class Menu extends React.Component<MenuProps, any> {
     this.setOpenKeys([]);
     this.props.onClick(e);
   }
-  handleOpenKeys = (e) => {
-    const { openKeys } = e;
+  handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
-    this.props.onOpen(e);
-  }
-  handleCloseKeys = (e) => {
-    const { openKeys } = e;
-    this.setOpenKeys(openKeys);
-    this.props.onClose(e);
+    this.props.onOpenChange(openKeys);
   }
   setOpenKeys(openKeys) {
     if (!('openKeys' in this.props)) {
@@ -144,8 +127,7 @@ export default class Menu extends React.Component<MenuProps, any> {
       props = {
         openKeys: this.state.openKeys,
         onClick: this.handleClick,
-        onOpen: this.handleOpenKeys,
-        onClose: this.handleCloseKeys,
+        onOpenChange: this.handleOpenChange,
         openTransitionName: openAnimation,
         className,
       };

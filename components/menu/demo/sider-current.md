@@ -9,9 +9,13 @@ title:
 
 点击菜单，收起其他展开的所有菜单，保持菜单聚焦简洁。
 
+> 该用法要求 antd@2.0+
+
 ## en-US
 
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
+
+> This demo is for antd@2.0+.
 
 ````jsx
 import { Menu, Icon } from 'antd';
@@ -26,25 +30,30 @@ const Sider = React.createClass({
   },
   handleClick(e) {
     console.log('click ', e);
-    this.setState({
-      current: e.key,
-      openKeys: e.keyPath.slice(1),
-    });
+    this.setState({ current: e.key });
   },
-  onToggle(info) {
-    this.setState({
-      openKeys: info.open ? info.keyPath : info.keyPath.slice(1),
-    });
+  onOpenChange(openKeys) {
+    const latestOpenKey = openKeys.find((key) => !(this.state.openKeys.indexOf(key) > -1));
+    this.setState({ openKeys: this.getKeyPath(latestOpenKey) });
+  },
+  getKeyPath(key) {
+    const map = {
+      sub1: ['sub1'],
+      sub2: ['sub2'],
+      sub3: ['sub2', 'sub3'],
+      sub4: ['sub4'],
+    };
+    return map[key] || [];
   },
   render() {
     return (
-      <Menu onClick={this.handleClick}
-        style={{ width: 240 }}
-        openKeys={this.state.openKeys}
-        onOpen={this.onToggle}
-        onClose={this.onToggle}
-        selectedKeys={[this.state.current]}
+      <Menu
         mode="inline"
+        openKeys={this.state.openKeys}
+        selectedKeys={[this.state.current]}
+        style={{ width: 240 }}
+        onOpenChange={this.onOpenChange}
+        onClick={this.handleClick}
       >
         <SubMenu key="sub1" title={<span><Icon type="mail" /><span>导航一</span></span>}>
           <Menu.Item key="1">选项1</Menu.Item>
