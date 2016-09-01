@@ -14,7 +14,7 @@ export interface FormItemLabelColOption {
 export interface FormItemProps {
   prefixCls?: string;
   id?: string;
-  label?: string;
+  label?: string | React.ReactNode;
   labelCol?: FormItemLabelColOption;
   wrapperCol?: FormItemLabelColOption;
   help?: React.ReactNode;
@@ -40,7 +40,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
-    label: React.PropTypes.string,
+    label: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.node]),
     labelCol: React.PropTypes.object,
     help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
     validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
@@ -187,7 +187,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     // remove user input colon
     let label = props.label;
     if (typeof label === 'string' && label.trim() !== '') {
-      label = props.label.replace(/[：|:]\s*$/, '');
+      label = (props.label as string).replace(/[：|:]\s*$/, '');
     }
 
     return props.label ? (

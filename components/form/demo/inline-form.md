@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 平行排列
   en-US: Inline form
 ---
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Inline form is often used for login. 
+Inline form is often used for login.
 
 ````jsx
 import { Form, Input, Button, Checkbox } from 'antd';
@@ -24,25 +24,27 @@ let Demo = React.createClass({
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
     return (
       <Form inline onSubmit={this.handleSubmit}>
         <FormItem
           label="Account"
         >
-          <Input placeholder="Please input the account"
-            {...getFieldProps('userName')}
-          />
+          {getFieldDecorator('userName')(
+            <Input placeholder="Please input the account" />
+          )}
         </FormItem>
         <FormItem
           label="Password"
         >
-          <Input type="password" placeholder="Please input the password"
-            {...getFieldProps('password')}
-          />
+          {getFieldDecorator('password')(
+            <Input type="password" placeholder="Please input the password" />
+          )}
         </FormItem>
         <FormItem>
-          <Checkbox {...getFieldProps('agreement')}>Remember me</Checkbox>
+          {getFieldDecorator('agreement')(
+            <Checkbox>Remember me</Checkbox>
+          )}
         </FormItem>
         <Button type="primary" htmlType="submit">Submit</Button>
       </Form>
