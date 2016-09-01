@@ -64,7 +64,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [版本发布手册](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [社区贡献脚手架和范例](https://github.com/ant-design/ant-design/issues/129)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen 模板](http://codepen.io/anon/pen/wGOWGW?editors=001)
+- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001)
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 
 
