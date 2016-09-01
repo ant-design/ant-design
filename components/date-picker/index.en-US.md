@@ -27,7 +27,7 @@ import moment from 'moment';
 | defaultValue | to set default date        | [moment](http://momentjs.com/)   | -           |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM-DD" |
 | disabledDate | to specify the date that cannot be selected | function | -           |
-| onChange     | a callback function, can be executed when the selected time is changing | function(date: moment) | -           |
+| onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
 | disabled     | determine whether the DatePicker is disabled           | Boolean     | false        |
 | style        | to customize the style of the input box     | Object     | {}   |
 | popupStyle   | to customize the style of the popup calendar   | Object     | {}   |
@@ -47,7 +47,7 @@ import moment from 'moment';
 | defaultValue | to set default date       | [moment](http://momentjs.com/)   | -           |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM" |
 | disabledDate | to specify the date that cannot be selected | function | -           |
-| onChange     | a callback function, can be executed when the selected time is changing | function(date: moment) | -           |
+| onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
 | disabled     | determine whether the MonthPicker is disabled           | Boolean     | false        |
 | style        | to customize the style of the input box     | Object     | {}   |
 | popupStyle   | to customize the style of the popup calendar   | Object     | {}   |
@@ -62,7 +62,7 @@ import moment from 'moment';
 | value        | to set date          | [moment, moment]   | -           |
 | defaultValue | to set default date       | [moment, moment]   | -           |
 | format       | to set the date format  | String    | "YYYY-MM-DD HH:mm:ss" |
-| onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment]) | -           |
+| onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
 The following properties are the same with `DatePicker`: `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer`

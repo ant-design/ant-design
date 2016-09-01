@@ -41,7 +41,7 @@ export default function createPicker(TheCalendar) {
       if (!('value' in props)) {
         this.setState({ value });
       }
-      props.onChange(value);
+      props.onChange(value, (value && value.format(props.format)) || '');
     },
 
     render() {

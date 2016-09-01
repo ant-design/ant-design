@@ -19,8 +19,8 @@ import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 
-function onChange(value) {
-  console.log(value);
+function onChange(date, dateString) {
+  console.log(date, dateString);
 }
 
 ReactDOM.render(<DatePicker onChange={onChange} />, mountNode);

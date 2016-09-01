@@ -26,7 +26,7 @@ import moment from 'moment';
 | defaultValue        | to set default time | [moment](http://momentjs.com/) | - |
 | value               | to set time | [moment](http://momentjs.com/) | - |
 | placeholder         | display when there's no value | string | "Select a time" |
-| onChange            | a callback function, can be executed when the selected time is changing    | function(time: moment): void | - |
+| onChange            | a callback function, can be executed when the selected time is changing    | function(time: moment, timeString: string): void | - |
 | format              | to set the time format | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |
 | disabled            | determine whether the TimePicker is disabled | bool | false |
 | disabledHours       | to specify the hours that cannot be selected | function() | - |

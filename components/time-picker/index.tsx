@@ -16,7 +16,7 @@ export interface TimePickerProps {
   /** 展示的时间格式 : "HH:mm:ss"、"HH:mm"、"mm:ss" */
   format?: string;
   /** 时间发生变化的回调 */
-  onChange?: (time: moment.Moment) => void;
+  onChange?: (time: moment.Moment, timeString: string) => void;
   /** 禁用全部操作 */
   disabled?: boolean;
   /** 没有值的时候显示的内容 */
@@ -81,7 +81,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value);
+    this.props.onChange(value, (value && value.format(this.props.format)) || '');
   }
 
   getLocale() {

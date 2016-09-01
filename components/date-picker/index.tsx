@@ -22,7 +22,7 @@ interface PickerProps {
 interface SinglePickerProps {
   value?: moment.Moment;
   defaultValue?: moment.Moment;
-  onChange?: (date: moment.Moment) => void;
+  onChange?: (date: moment.Moment, dateString: string) => void;
 }
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
@@ -37,7 +37,7 @@ const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM') as React.
 export interface RangePickerProps extends PickerProps {
   value?: [moment.Moment, moment.Moment];
   defaultValue?: [moment.Moment, moment.Moment];
-  onChange?: (dates: [moment.Moment, moment.Moment]) => void;
+  onChange?: (dates: [moment.Moment, moment.Moment], dateStrings: [string, string]) => void;
   showTime?: TimePickerProps;
 }
 

@@ -26,7 +26,7 @@ import moment from 'moment';
 | defaultValue | 默认日期       | [moment](http://momentjs.com/)   | 无           |
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | disabledDate | 不可选择的日期 | function | 无           |
-| onChange     | 时间发生变化的回调 | function(date: moment) | 无           |
+| onChange     | 时间发生变化的回调 | function(date: moment, dateString: string) | 无           |
 | disabled     | 禁用           | bool     | false        |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
@@ -45,7 +45,7 @@ import moment from 'moment';
 | defaultValue | 默认日期       | moment   | 无           |
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
 | disabledDate | 不可选择的日期 | function | 无           |
-| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment) | 无           |
+| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | 无           |
 | disabled     | 禁用           | bool     | false        |
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
@@ -60,7 +60,7 @@ import moment from 'moment';
 | value        | 日期          | [moment, moment]   | 无           |
 | defaultValue | 默认日期       | [moment, moment]   | 无           |
 | format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
-| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment]) | 无           |
+| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
 `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer` 属性与 DatePicker 的一致。

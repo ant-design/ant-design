@@ -40,7 +40,10 @@ export default class RangePicker extends React.Component<any, any> {
     if (!('value' in props)) {
       this.setState({ value });
     }
-    props.onChange(value);
+    props.onChange(value, [
+      (value[0] && value[0].format(props.format)) || '',
+      (value[1] && value[1].format(props.format)) || '',
+    ]);
   }
 
   render() {

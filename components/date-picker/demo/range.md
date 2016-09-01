@@ -23,8 +23,9 @@ import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 const RangePicker = DatePicker.RangePicker;
 
-function onChange(value) {
-  console.log('From: ', value[0], ', to: ', value[1]);
+function onChange(dates, dateStrings) {
+  console.log('From: ', dates[0], ', to: ', dates[1]);
+  console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
 ReactDOM.render(<div>
   <RangePicker style={{ width: 184 }} onChange={onChange} />
