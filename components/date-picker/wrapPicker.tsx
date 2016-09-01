@@ -1,6 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'react';
-import moment from 'moment';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import defaultLocale from './locale/zh_CN';
@@ -41,28 +40,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
       const result = assign({}, locale, props.locale);
       result.lang = assign({}, locale.lang, props.locale.lang);
       return result;
-    },
-
-    getFormatter() {
-      const locale = this.getLocale();
-      const format = this.props.format;
-      return {
-        format(value) {
-          return moment(value).locale(locale.momentLocale).format(format);
-        },
-      };
-    },
-
-    parseDateFromValue(value) {
-      if (value) {
-        const locale = this.getLocale();
-        if (typeof value === 'string') {
-          return moment(value, this.props.format).locale(locale.momentLocale);
-        } else if (value instanceof Date) {
-          return moment(value).locale(locale.momentLocale);
-        }
-      }
-      return value;
     },
 
     toggleOpen ({open}) {
@@ -107,8 +84,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
           locale={locale}
           timePicker={timePicker}
           toggleOpen={this.toggleOpen}
-          getFormatter={this.getFormatter}
-          parseDateFromValue={this.parseDateFromValue}
         />
       );
     },

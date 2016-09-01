@@ -19,6 +19,9 @@ As in the example above: you can't select a date later than today.
 
 ````jsx
 import { DatePicker } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 const disabledDate = function (current) {
   // can not select days after today

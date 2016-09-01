@@ -12,33 +12,18 @@ export default class RangePicker extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    const { value, defaultValue, parseDateFromValue } = this.props;
+    const { value, defaultValue } = this.props;
     const start = (value && value[0]) || defaultValue[0];
     const end = (value && value[1]) || defaultValue[1];
     this.state = {
-      value: [
-        parseDateFromValue(start),
-        parseDateFromValue(end),
-      ],
+      value: [start, end],
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      const value = nextProps.value || [];
-      const start = nextProps.parseDateFromValue(value[0]);
-      const end = nextProps.parseDateFromValue(value[1]);
       this.setState({
-        value: [start, end],
-      });
-    } else if (this.props.locale !== nextProps.locale) {
-      const value = this.state.value;
-      const momentLocale = nextProps.locale.momentLocale;
-      this.setState({
-        value: [
-          value[0] && value[0].locale(momentLocale),
-          value[1] && value[1].locale(momentLocale),
-        ],
+        value: nextProps.value || [],
       });
     }
   }
@@ -55,11 +40,7 @@ export default class RangePicker extends React.Component<any, any> {
     if (!('value' in props)) {
       this.setState({ value });
     }
-    const startDate = value[0] ? value[0].toDate() : null;
-    const endDate = value[1] ? value[1].toDate() : null;
-    const startDateString = value[0] ? props.getFormatter().format(value[0]) : '';
-    const endDateString = value[1] ? props.getFormatter().format(value[1]) : '';
-    props.onChange([startDate, endDate], [startDateString, endDateString]);
+    props.onChange(value);
   }
 
   render() {
@@ -68,7 +49,7 @@ export default class RangePicker extends React.Component<any, any> {
     // 以下两行代码
     // 给没有初始值的日期选择框提供本地化信息
     // 否则会以周日开始排
-    let defaultCalendarValue = moment().locale(locale.momentLocale);
+    let defaultCalendarValue = moment();
 
     const { disabledDate, showTime, getCalendarContainer,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;
@@ -100,8 +81,8 @@ export default class RangePicker extends React.Component<any, any> {
 
     const calendar = (
       <RangeCalendar
+        {...calendarHandler}
         prefixCls="ant-calendar"
-        formatter={props.getFormatter()}
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
@@ -109,7 +90,6 @@ export default class RangePicker extends React.Component<any, any> {
         locale={locale.lang}
         onOk={onOk}
         defaultValue={[defaultCalendarValue, defaultCalendarValue]}
-        {...calendarHandler}
       />
     );
 
@@ -122,7 +102,7 @@ export default class RangePicker extends React.Component<any, any> {
 
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
-        formatter={props.getFormatter()}
+        {...pickerChangeHandler}
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}
@@ -133,7 +113,6 @@ export default class RangePicker extends React.Component<any, any> {
         getCalendarContainer={getCalendarContainer}
         onOpen={props.toggleOpen}
         onClose={props.toggleOpen}
-        {...pickerChangeHandler}
       >
         {
           ({ value }) => {
@@ -144,7 +123,7 @@ export default class RangePicker extends React.Component<any, any> {
                 <input
                   disabled={disabled}
                   readOnly
-                  value={start ? props.getFormatter().format(start) : ''}
+                  value={(start && start.format(props.format)) || ''}
                   placeholder={startPlaceholder}
                   className="ant-calendar-range-picker-input"
                 />
@@ -152,7 +131,7 @@ export default class RangePicker extends React.Component<any, any> {
                 <input
                   disabled={disabled}
                   readOnly
-                  value={end ? props.getFormatter().format(end) : ''}
+                  value={(end && end.format(props.format)) || ''}
                   placeholder={endPlaceholder}
                   className="ant-calendar-range-picker-input"
                 />

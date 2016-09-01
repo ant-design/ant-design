@@ -1,6 +1,6 @@
 ---
 order: 9
-title: 
+title:
   zh-CN: 月选择器
   en-US: MonthPicker
 ---
@@ -15,8 +15,12 @@ You can get a month selector by using `MonthPicker`.
 
 ````jsx
 import { DatePicker } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+
 const MonthPicker = DatePicker.MonthPicker;
 ReactDOM.render(
-  <MonthPicker defaultValue="2015-12" />
+  <MonthPicker defaultValue={moment('2015-12', 'YYYY-MM')} />
 , mountNode);
 ````

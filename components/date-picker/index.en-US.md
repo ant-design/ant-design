@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Form Controls
-english: DatePicker
+title: DatePicker
 ---
 
 To select/input a date.
@@ -14,17 +14,20 @@ By clicking the input box, you can select a date from a popup calendar.
 
 ### DatePicker
 
-```html
-<DatePicker defaultValue="2015-01-01" />
+```jsx
+import moment from 'moment';
+<DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
+
+> Note: `Datepicker` is renamed to `DatePicker` after `0.11`.
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
-| value        | to set date           | String/Date   | -           |
-| defaultValue | to set default date        | String/Date   | -           |
+| value        | to set date           | [moment](http://momentjs.com/)   | -           |
+| defaultValue | to set default date        | [moment](http://momentjs.com/)   | -           |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM-DD" |
 | disabledDate | to specify the date that cannot be selected | function | -           |
-| onChange     | a callback function, can be executed when the selected time is changing | function(date, dateString) | -           |
+| onChange     | a callback function, can be executed when the selected time is changing | function(date: moment) | -           |
 | disabled     | determine whether the DatePicker is disabled           | Boolean     | false        |
 | style        | to customize the style of the input box     | Object     | {}   |
 | popupStyle   | to customize the style of the popup calendar   | Object     | {}   |
@@ -40,11 +43,11 @@ By clicking the input box, you can select a date from a popup calendar.
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
-| value        | to set date          | String/Date   | -           |
-| defaultValue | to set default date       | String/Date   | -           |
+| value        | to set date          | [moment](http://momentjs.com/)   | -           |
+| defaultValue | to set default date       | [moment](http://momentjs.com/)   | -           |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM" |
 | disabledDate | to specify the date that cannot be selected | function | -           |
-| onChange     | a callback function, can be executed when the selected time is changing | function(Date value) | -           |
+| onChange     | a callback function, can be executed when the selected time is changing | function(date: moment) | -           |
 | disabled     | determine whether the MonthPicker is disabled           | Boolean     | false        |
 | style        | to customize the style of the input box     | Object     | {}   |
 | popupStyle   | to customize the style of the popup calendar   | Object     | {}   |
@@ -56,10 +59,10 @@ By clicking the input box, you can select a date from a popup calendar.
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
-| value        | to set date          | [String/Date, String/Date]   | -           |
-| defaultValue | to set default date       | [String/Date, String/Date]   | -           |
+| value        | to set date          | [moment, moment]   | -           |
+| defaultValue | to set default date       | [moment, moment]   | -           |
 | format       | to set the date format  | String    | "YYYY-MM-DD HH:mm:ss" |
-| onChange     | a callback function, can be executed when the selected time is changing | function(date[], dateString[]) | -           |
+| onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment]) | -           |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
 The following properties are the same with `DatePicker`: `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer`
