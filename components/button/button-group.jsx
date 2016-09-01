@@ -23,5 +23,5 @@ export default function ButtonGroup(props) {
 }
 
 ButtonGroup.propTypes = {
-  size: React.PropTypes.oneOf(['large', 'small']),
+  size: React.PropTypes.oneOf(['large', 'default', 'small']),
 };
