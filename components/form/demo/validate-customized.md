@@ -122,40 +122,31 @@ let Demo = React.createClass({
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
-
-    const passProps = getFieldProps('pass', {
-      rules: [
-        { required: true, whitespace: true, message: 'Please enter your password' },
-        { validator: this.checkPass },
-      ],
-      onChange: (e) => {
-        console.log('Your password is stolen in this way', e.target.value);
-      },
-    });
-    const rePassProps = getFieldProps('rePass', {
-      rules: [{
-        required: true,
-        whitespace: true,
-        message: 'Please confirm your password',
-      }, {
-        validator: this.checkPass2,
-      }],
-    });
+    const { getFieldDecorator } = this.props.form;
     return (
       <div>
         <Form vertical style={{ maxWidth: 600 }} form={this.props.form}>
           <Row type="flex" align="middle">
             <Col span={12}>
               <FormItem label="Password">
-                <Input {...passProps} type="password"
-                  onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                  autoComplete="off" id="pass"
-                  onBlur={(e) => {
-                    const value = e.target.value;
-                    this.setState({ dirty: this.state.dirty || !!value });
-                  }}
-                />
+                {getFieldDecorator('pass', {
+                  rules: [
+                    { required: true, whitespace: true, message: 'Please enter your password' },
+                    { validator: this.checkPass },
+                  ],
+                })(
+                  <Input type="password"
+                    onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                    autoComplete="off" id="pass"
+                    onChange={(e) => {
+                      console.log('Your password is stolen in this way', e.target.value);
+                    }}
+                    onBlur={(e) => {
+                      const value = e.target.value;
+                      this.setState({ dirty: this.state.dirty || !!value });
+                    }}
+                  />
+                )}
               </FormItem>
             </Col>
             <Col span={12}>
@@ -165,10 +156,20 @@ let Demo = React.createClass({
           <Row type="flex" align="middle">
             <Col span={12}>
               <FormItem label="Confirm">
-                <Input {...rePassProps} type="password"
-                  onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
-                  autoComplete="off" id="rePass"
-                />
+               {getFieldDecorator('rePass', {
+                 rules: [{
+                   required: true,
+                   whitespace: true,
+                   message: 'Please confirm your password',
+                 }, {
+                   validator: this.checkPass2,
+                 }],
+               })(
+                 <Input type="password"
+                   onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
+                   autoComplete="off" id="rePass"
+                 />
+               )}
               </FormItem>
             </Col>
             <Col span={12}>

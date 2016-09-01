@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 
+title:
   zh-CN: 表单组合
   en-US: mix
 ---
@@ -48,7 +48,7 @@ let Demo = React.createClass({
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
     return (
       <Form horizontal onSubmit={this.handleSubmit} >
         <FormItem
@@ -56,9 +56,9 @@ let Demo = React.createClass({
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
         >
-          <InputNumber min={1} max={10} style={{ width: 100 }}
-            {...getFieldProps('inputNumber', { initialValue: 3 })}
-          />
+          {getFieldDecorator('inputNumber', { initialValue: 3 })(
+            <InputNumber min={1} max={10} style={{ width: 100 }} />
+          )}
           <span className="ant-form-text"> machines</span>
         </FormItem>
 
@@ -79,7 +79,9 @@ let Demo = React.createClass({
           wrapperCol={{ span: 10 }}
           required
         >
-          <Switch {...getFieldProps('switch', { valuePropName: 'checked' })} />
+          {getFieldDecorator('switch', { valuePropName: 'checked' })(
+            <Switch />
+          )}
         </FormItem>
 
         <FormItem
@@ -88,7 +90,9 @@ let Demo = React.createClass({
           wrapperCol={{ span: 10 }}
           required
         >
-          <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} {...getFieldProps('slider')} />
+          {getFieldDecorator('slider')(
+            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+          )}
         </FormItem>
 
         <FormItem
@@ -97,14 +101,14 @@ let Demo = React.createClass({
           wrapperCol={{ span: 16 }}
           required
         >
-          <Select style={{ width: 200 }}
-            {...getFieldProps('select')}
-          >
-            <Option value="jack">jack</Option>
-            <Option value="lucy">lucy</Option>
-            <Option value="disabled" disabled>disabled</Option>
-            <Option value="yiminghe">yiminghe</Option>
-          </Select>
+          {getFieldDecorator('select')(
+            <Select style={{ width: 200 }}>
+              <Option value="jack">jack</Option>
+              <Option value="lucy">lucy</Option>
+              <Option value="disabled" disabled>disabled</Option>
+              <Option value="yiminghe">yiminghe</Option>
+            </Select>
+          )}
         </FormItem>
 
         <FormItem
@@ -114,7 +118,9 @@ let Demo = React.createClass({
           required
           hasFeedback
         >
-          <Cascader style={{ width: 200 }} options={areaData} {...getFieldProps('area')} />
+          {getFieldDecorator('area')(
+            <Cascader style={{ width: 200 }} options={areaData} />
+          )}
         </FormItem>
 
         <FormItem
@@ -124,7 +130,9 @@ let Demo = React.createClass({
         >
           <Col span="6">
             <FormItem>
-              <DatePicker {...getFieldProps('startDate')} />
+              {getFieldDecorator('startDate')(
+                <DatePicker />
+              )}
             </FormItem>
           </Col>
           <Col span="1">
@@ -132,7 +140,9 @@ let Demo = React.createClass({
           </Col>
           <Col span="6">
             <FormItem>
-              <DatePicker {...getFieldProps('endDate')} />
+              {getFieldDecorator('endDate')(
+                <DatePicker />
+              )}
             </FormItem>
           </Col>
         </FormItem>
@@ -144,18 +154,22 @@ let Demo = React.createClass({
           wrapperCol={{ span: 16 }}
           required
         >
-          <TimePicker {...getFieldProps('time')} />
+          {getFieldDecorator('time')(
+            <TimePicker />
+          )}
         </FormItem>
 
         <FormItem
           label="Options"
           labelCol={{ span: 8 }}
         >
-          <RadioGroup {...getFieldProps('rg')}>
-            <RadioButton value="a">item 1</RadioButton>
-            <RadioButton value="b">item 2</RadioButton>
-            <RadioButton value="c">item 3</RadioButton>
-          </RadioGroup>
+          {getFieldDecorator('rg')(
+            <RadioGroup>
+              <RadioButton value="a">item 1</RadioButton>
+              <RadioButton value="b">item 2</RadioButton>
+              <RadioButton value="c">item 3</RadioButton>
+            </RadioGroup>
+          )}
         </FormItem>
 
         <FormItem
@@ -164,16 +178,16 @@ let Demo = React.createClass({
           wrapperCol={{ span: 16 }}
           help="longgggggggggggggggggggggggggggggggggg"
         >
-          <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}
-            {...getFieldProps('upload', {
-              valuePropName: 'fileList',
-              normalize: this.normFile,
-            })}
-          >
-            <Button type="ghost">
-              <Icon type="upload" /> Click to upload
-            </Button>
-          </Upload>
+          {getFieldDecorator('upload', {
+            valuePropName: 'fileList',
+            normalize: this.normFile,
+          })(
+            <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
+              <Button type="ghost">
+                <Icon type="upload" /> Click to upload
+              </Button>
+            </Upload>
+          )}
         </FormItem>
 
         <FormItem wrapperCol={{ span: 16, offset: 8 }} style={{ marginTop: 24 }}>

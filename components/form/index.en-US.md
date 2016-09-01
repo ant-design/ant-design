@@ -73,19 +73,15 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | getFieldError | Get the error of a field. | Function(name) |
 | isFieldValidating | Check if the specified field is being validated. | Function(name) |
 | resetFields | Reset the specified fields' value and status. If you don't specify a parameter, all the fields will be reset. | Function([names: string[]]) |
-| getFieldProps | Two-way binding for form, please read below for details. | |
+| getFieldDecorator | Two-way binding for form, please read below for details. | |
 
-### this.props.form.getFieldProps(id, options)
+### this.props.form.getFieldDecorator(id, options)
 
 #### Special attention
 
-If you use `react@<15.3.0`, then, you can't use `getFieldProps` in functional components: https://github.com/facebook/react/pull/6534
+If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: https://github.com/facebook/react/pull/6534
 
-The return value of `getFieldProps` contains `id`、`value`(or any other props `valuePropName` that you specified),`ref`,`onChange`(or any other `trigger` `validateTrigger` that you specified), **shouldn't set same property again** in order to avoid conflict. If you concerntate on the details on return value, you can print them to console by `console.log`.
-
-> Don't use `defaultValue` in form, please use `initialValue` instead of it.
-
-#### getFieldProps options
+#### getFieldDecorator's parameters
 
 | Property      | Description                                     | Type | Default Value |
 |-----------|-----------------------------------------|-----|--------|
@@ -96,7 +92,6 @@ The return value of `getFieldProps` contains `id`、`value`(or any other props `
 | options.getValueFromEvent | To convert parameters of onChange to the value of control, for example, set value of DatePicker: `(date, dateString) => dateString` | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | When to validate the value of children node. | string | 'onChange' |
 | options.rules | Includes validation rules. Please refer to [async-validator](https://github.com/yiminghe/async-validator) for details. | array | n/a |
-| options.onXXX | Because `getFieldProps` will replace events like `onChange`, `trigger`, `validateTrigger`, if you still want to bind these events, you may set them in `options` | function | n/a |
 | options.exclusive | Whether it is exclusive with other controls, particularly for Radio. | boolean | false |
 
 ### Form.Item

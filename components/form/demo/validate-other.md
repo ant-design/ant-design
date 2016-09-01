@@ -56,7 +56,7 @@ let Demo = React.createClass({
 
   checkPrime(rule, value, callback) {
     if (value !== 11) {
-      callback(new Error('The prime number between 8 to 12 is obiviously 11!'));
+      callback(new Error('The prime number between 8 to 12 is 11!'));
     } else {
       callback();
     }
@@ -71,45 +71,7 @@ let Demo = React.createClass({
         label: 'Hang Zhou',
       }],
     }];
-    const { getFieldProps } = this.props.form;
-    const selectProps = getFieldProps('select', {
-      rules: [
-        { required: true, message: 'Please select your country' },
-      ],
-    });
-    const multiSelectProps = getFieldProps('multiSelect', {
-      rules: [
-        { required: true, message: 'Please select your favourite colors', type: 'array' },
-      ],
-    });
-    const radioProps = getFieldProps('radio', {
-      rules: [
-        { required: true, message: 'Please select your gender' },
-      ],
-    });
-    const birthdayProps = getFieldProps('birthday', {
-      rules: [
-        {
-          required: true,
-          type: 'date',
-          message: 'When is your birthday?',
-        }, {
-          validator: this.checkBirthday,
-        },
-      ],
-    });
-    const timeProps = getFieldProps('time', {
-      getValueFromEvent: (value, timeString) => timeString,
-      rules: [
-        { required: true, message: 'Please select the time' },
-      ],
-    });
-    const primeNumberProps = getFieldProps('primeNumber', {
-      rules: [{ validator: this.checkPrime }],
-    });
-    const addressProps = getFieldProps('address', {
-      rules: [{ required: true, type: 'array' }],
-    });
+    const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 7 },
       wrapperCol: { span: 12 },
@@ -120,80 +82,131 @@ let Demo = React.createClass({
           {...formItemLayout}
           label="Country"
         >
-          <Select {...selectProps} placeholder="Please select a country" style={{ width: '100%' }}>
-            <Option value="china">China</Option>
-            <Option value="use">U.S.A</Option>
-            <Option value="japan">Japan</Option>
-            <Option value="korean">Korea</Option>
-            <Option value="Thailand">Thai</Option>
-          </Select>
+          {getFieldDecorator('select', {
+            rules: [
+              { required: true, message: 'Please select your country' },
+            ],
+          })(
+            <Select placeholder="Please select a country" style={{ width: '100%' }}>
+              <Option value="china">China</Option>
+              <Option value="use">U.S.A</Option>
+              <Option value="japan">Japan</Option>
+              <Option value="korean">Korea</Option>
+              <Option value="Thailand">Thai</Option>
+            </Select>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="Favourite colors"
         >
-          <Select {...multiSelectProps} multiple placeholder="Please select favourite colors" style={{ width: '100%' }}>
-            <Option value="red">Red</Option>
-            <Option value="orange">Orange</Option>
-            <Option value="yellow">Yellow</Option>
-            <Option value="green">Green</Option>
-            <Option value="blue">Blue</Option>
-          </Select>
+          {getFieldDecorator('multiSelect', {
+            rules: [
+              { required: true, message: 'Please select your favourite colors', type: 'array' },
+            ],
+          })(
+            <Select multiple placeholder="Please select favourite colors" style={{ width: '100%' }}>
+              <Option value="red">Red</Option>
+              <Option value="orange">Orange</Option>
+              <Option value="yellow">Yellow</Option>
+              <Option value="green">Green</Option>
+              <Option value="blue">Blue</Option>
+            </Select>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="Gender"
         >
-          <RadioGroup {...radioProps}>
-            <Radio value="male">male</Radio>
-            <Radio value="female">female</Radio>
-          </RadioGroup>
-          <span><Icon type="info-circle-o" /> Temporarily does not support ohter gender</span>
+          {getFieldDecorator('radio', {
+            rules: [
+              { required: true, message: 'Please select your gender' },
+            ],
+          })(
+            <RadioGroup>
+              <Radio value="male">male</Radio>
+              <Radio value="female">female</Radio>
+            </RadioGroup>
+          )}
+          <span><Icon type="info-circle-o" /> Temporarily no ohter gender</span>
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="Hobby"
         >
-          <Checkbox {...getFieldProps('eat', {
+          {getFieldDecorator('eat', {
             valuePropName: 'checked',
-          })}>eat</Checkbox>
-          <Checkbox {...getFieldProps('sleep', {
+          })(
+            <Checkbox>eat</Checkbox>
+          )}
+          {getFieldDecorator('sleep', {
             valuePropName: 'checked',
-          })}>sleeping</Checkbox>
-          <Checkbox {...getFieldProps('beat', {
+          })(
+            <Checkbox>sleeping</Checkbox>
+          )}
+          {getFieldDecorator('beat', {
             valuePropName: 'checked',
-          })}>dozen doug</Checkbox>
+          })(
+            <Checkbox>dozen doug</Checkbox>
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="Birthday"
         >
-          <DatePicker {...birthdayProps} />
+          {getFieldDecorator('birthday', {
+            rules: [
+              {
+                required: true,
+                type: 'date',
+                message: 'When is your birthday?',
+              }, {
+                validator: this.checkBirthday,
+              },
+            ],
+          })(
+            <DatePicker />
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="Select the time"
         >
-          <TimePicker {...timeProps} />
+          {getFieldDecorator('time', {
+            getValueFromEvent: (value, timeString) => timeString,
+            rules: [
+              { required: true, message: 'Please select the time' },
+            ],
+          })(
+            <TimePicker />
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="A prime number between 8 to 12"
+          label="Prime num between 8, 12"
         >
-          <InputNumber {...primeNumberProps} min={8} max={12} />
+          {getFieldDecorator('primeNumber', {
+            rules: [{ validator: this.checkPrime }],
+          })(
+            <InputNumber min={8} max={12} />
+          )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
           label="Please select address"
         >
-          <Cascader {...addressProps} options={address} />
+          {getFieldDecorator('address', {
+            rules: [{ required: true, type: 'array' }],
+          })(
+            <Cascader options={address} />
+          )}
         </FormItem>
 
         <FormItem
