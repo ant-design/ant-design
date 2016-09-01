@@ -6,6 +6,7 @@
 .@{cascader-prefix-cls} {
   font-size: @font-size-base;
   &-input.ant-input {
+    background-color: transparent;
     display: block;
     cursor: pointer;
     width: 100%;
@@ -22,6 +23,10 @@
 
     &-disabled {
       cursor: not-allowed;
+
+      .@{cascader-prefix-cls}-input {
+        cursor: not-allowed;
+      }
     }
 
     &-label {
@@ -36,7 +41,6 @@
       overflow: hidden;
       width: 100%;
       padding: 0 12px 0 8px;
-      z-index: 1;
     }
 
     &-clear {
@@ -170,6 +174,10 @@
         position: absolute;
         right: 15px;
       }
+    }
+
+    & &-keyword {
+      color: @error-color;
     }
   }
 }
