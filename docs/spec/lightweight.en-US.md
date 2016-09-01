@@ -39,7 +39,7 @@ Instead of making Contextual Tools always visible, we can show them on demand. O
 
 <img class="preview-img" align="right" alt="example of Toggle-Reveal Tools" description="The table reveals an input box from the text only when the edit mode is turned on for the area." src="https://os.alipayobjects.com/rmsportal/uGWcpAFgWdynxBy.png">
 
-Toggle a tool mode for an area or page when the actions are not the main flow. The tools to accomplish this are revealed on the activation of the toogle.
+Toggle a tool mode for an area or page when the actions are not the main flow. The tools to accomplish this are revealed on the activation of the toggle.
 
 
 <br>
@@ -67,12 +67,12 @@ Some relative knowledge of [Providing an Invitation](/docs/spec/invitation) can 
 
 <img class="preview-img" align="right" alt="example of hypertext hot spot" description="When hovering on the cell in which the hypertext is positioned, the mouse turns from a cursor to a hand symbol. Click it and jump to another page." src="https://os.alipayobjects.com/rmsportal/bCrBxGPJiDvkyOH.png">
 
-The clickable area of hypertext is affected by the length of the stirng in a cell. The while cell can be set to a hot spot in order to be triggered easier.
+The clickable area of hypertext is affected by the length of the string in a cell. The while cell can be set to a hot spot in order to be triggered easier.
 
 <br>
 
 <img class="preview-img" align="right" alt="example of button hot spot" description="Move the mouse near the button and activate the hover state." src="https://os.alipayobjects.com/rmsportal/dSehXwUuXDFDhJO.png">
 
-Increase the clickable hot spot to strenthen the responsiveness rather than increase the size of the button.
+Increase the clickable hot spot to strengthen the responsiveness rather than increase the size of the button.
 
 >Note that it is especially suited for Mobile.

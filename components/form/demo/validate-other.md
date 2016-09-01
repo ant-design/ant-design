@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Provide validation for fllowing input filed: `Select` `Radio` `DatePicker` `InputNumber` `Cascader`. To use `validateFieldsAndScroll` with form validation, it will scroll the form to the failed input field which is not in visible area.
+Provide validation for following input filed: `Select` `Radio` `DatePicker` `InputNumber` `Cascader`. To use `validateFieldsAndScroll` with form validation, it will scroll the form to the failed input field which is not in visible area.
 
 ````jsx
 import { Select, Radio, Checkbox, Button, DatePicker, TimePicker, InputNumber, Form, Cascader, Icon } from 'antd';
@@ -130,7 +130,7 @@ let Demo = React.createClass({
               <Radio value="female">female</Radio>
             </RadioGroup>
           )}
-          <span><Icon type="info-circle-o" /> Temporarily no ohter gender</span>
+          <span><Icon type="info-circle-o" /> Temporarily no other gender</span>
         </FormItem>
 
         <FormItem

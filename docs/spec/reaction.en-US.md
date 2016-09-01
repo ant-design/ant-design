@@ -8,7 +8,7 @@ Invitations are powerful because they directly address discoverability and provi
 
 While we can’t literally extend Newton’s law to the world of user interfaces, we certainly can apply this principle to the way we should interact with users. When users click on a button, they expect the button to depress. When they type in a field, they expect to see characters show up in the text box. When they make a mistake, they want the application to tell them where they goofed.
 
-While there is a possibility of too much feedback (or, more accurately, too much of the wrong feedback—a concept we will discuss in the upcoming chapters), a system with little or no feedback feels sluggish and thickheaded. 
+While there is a possibility of too much feedback (or, more accurately, too much of the wrong feedback—a concept we will discuss in the upcoming chapters), a system with little or no feedback feels sluggish and thickheaded.
 
 > ** Newton’s Third Law of Motion **: For every action, there is an equal and opposite reaction, from Wikipedia.
 
@@ -21,7 +21,7 @@ While there is a possibility of too much feedback (or, more accurately, too much
 
 <img class="preview-img" align="right" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncetain." src="https://os.alipayobjects.com/rmsportal/hUfCsXwnOsVlskl.png">
 
-Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed. 
+Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed.
 Depending on the categories of search results, it can be divided into two types, Certain Category and Uncertain Category.
 
 <br>
@@ -60,7 +60,7 @@ Progressive Disclosure: When users are faced with a series of steps, it is often
 <img class="preview-img" align="right" alt="example of Loading Page" src="https://os.alipayobjects.com/rmsportal/qPWjexSmFfCiLVJ.png">
 
 
-Progress Indicator: Progress Indicators keep a conversation going with the user when the rest of the interface is currently unavailable. Common Progress Indicators, such as Loading Button, Loading Table, Loading List and Loading Page, can be displayed repectively according to the frequency and importance of operaction.
+Progress Indicator: Progress Indicators keep a conversation going with the user when the rest of the interface is currently unavailable. Common Progress Indicators, such as Loading Button, Loading Table, Loading List and Loading Page, can be displayed respectively according to the frequency and importance of operation.
 
 <br>
 

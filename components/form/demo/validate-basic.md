@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic validatation for form.
+Basic validation for form.
 
 ````jsx
 import { Button, Form, Input } from 'antd';

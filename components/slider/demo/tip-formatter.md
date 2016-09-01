@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 
+title:
   zh-CN: 自定义提示
   en-US: Customerize tooltip
 ---
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Use `tipFormatter` to formart content of `Toolip`. If `tipFormatter` is null, hide it. 
+Use `tipFormatter` to format content of `Toolip`. If `tipFormatter` is null, hide it.
 
 ````jsx
 import { Slider } from 'antd';

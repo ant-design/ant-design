@@ -9,7 +9,7 @@ Radio.
 ## When to use
 
 - Used to select a single state in multiple options.
-- The different between Select, Radio is visbile to user, it can facilitate users in the comparison of choice. So, when you want to use Radio, option should not be too much.
+- The different between Select, Radio is visible to user, it can facilitate users in the comparison of choice. So, when you want to use Radio, option should not be too much.
 
 
 ## API

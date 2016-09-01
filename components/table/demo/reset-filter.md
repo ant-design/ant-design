@@ -17,7 +17,7 @@ title:
 
 ## en-US
 
-Controll filters and sorters by `fileredValue` and `sortOrder`.
+Control filters and sorters by `fileredValue` and `sortOrder`.
 
 > 1. Defining `fileredValue` or `sortOrder` means that it is in the controlled mode.
 

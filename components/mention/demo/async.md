@@ -9,7 +9,7 @@ title: 异步加载
 
 ## en-US
 
-asnyc
+async
 
 ````jsx
 import { Mention } from 'antd';

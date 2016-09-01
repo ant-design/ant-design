@@ -16,7 +16,7 @@ If there are too many operations to display, you can wrap them in a `Dropdown`. 
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
-| trigger        | the trigger mode which can excute the drop-down action  | ['click'] or ['hover']   | ['hover']           |
+| trigger        | the trigger mode which can execute the drop-down action  | ['click'] or ['hover']   | ['hover']           |
 | overlay | the dropdown menu       | [Menu](/components/menu)   | -           |
 | getPopupContainer       | to set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](http://codepen.io/anon/pen/xVBOVQ?editors=001)   | Function(triggerNode)   | () => document.body |
 | visible | determine whether the dropdown menu is visible | Boolean | -           |
