@@ -15,7 +15,7 @@ title:
 
 Customized validation for Password.
 
-To use `this.props.form.validateFields` method, when validating first password you enter will trigger the seconcd password validation.
+To use `this.props.form.validateFields` method, when validating first password you enter will trigger the second password validation.
 
 ````jsx
 import { Button, Form, Input, Row, Col } from 'antd';

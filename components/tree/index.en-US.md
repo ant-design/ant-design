@@ -6,7 +6,7 @@ title: Tree
 
 ## When to use
 
-Directory, organization, biological classification, country, and etc. Almost things of the world are tree structrue. The `Tree` component is a way of representing the hierachical relationship of these things，and you also can expand, collapse, select the treeNodes of it.
+Directory, organization, biological classification, country, and etc. Almost things of the world are tree structure. The `Tree` component is a way of representing the hierarchical relationship of these things，and you also can expand, collapse, select the treeNodes of it.
 
 ## API
 
@@ -18,7 +18,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |checkable | Whether support checkable treeNode | bool   | false    |
 |defaultExpandAll | Whether default to expand all treeNodes | bool | false |
 |defaultExpandedKeys | Specify keys of default expanded treeNodes | String[] | [] |
-|expandedKeys |(controlled) Sepcifies keys of expanded treeNodes | String[] | [] |
+|expandedKeys |(controlled) Specifies keys of expanded treeNodes | String[] | [] |
 |autoExpandParent | Whether to automatically expand a parent treeNode | bool | true |
 |defaultCheckedKeys | Specifies keys of default checked treeNodes | String[] | [] |
 |checkedKeys |(controlled) Specifies keys of checked treeNodes（PS： When specifies a key of treeNode which is a parent treeNode, all children treeNodes of its will be checked; And vice versa, when specifies a key of treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, it'a object has `checked` and `halfChecked` property, and no matter child treeNode or parent treeNode is checked, they won't impact on eachother. | String[]/{checked:Array<String>,halfChecked:Array<String>} | [] |
@@ -50,8 +50,8 @@ Directory, organization, biological classification, country, and etc. Almost thi
 
 ## note
 
-The number of treeNodes can be very large, but when enable `checkable`, 
-it will spend more computing time, so we cached some calculations(e.g. `this.treeNodesStates`), 
-to avoid double computing. But, this bring some restrictions, 
-**when you async load treeNodes, you should render tree like this** 
+The number of treeNodes can be very large, but when enable `checkable`,
+it will spend more computing time, so we cached some calculations(e.g. `this.treeNodesStates`),
+to avoid double computing. But, this bring some restrictions,
+**when you async load treeNodes, you should render tree like this**
 `{this.state.treeData.length ? <Tree ...>{this.state.treeData.map(t => <TreeNode ... />)}</Tree> : 'loading tree'}`

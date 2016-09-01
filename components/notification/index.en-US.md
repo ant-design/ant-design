@@ -34,7 +34,7 @@ The properties of config are as follows:
 | description | The content of notification box (required)     | React.Node      | -     |
 | btn        | Customized close button                         | React.Node      | -     |
 | icon       | Customized icon                                 | React.Node      | _     |
-| key        | The unique identifer of current notification                                 | String      | -     |
+| key        | The unique identifier of current notification                                 | String      | -     |
 | onClose    | Specify a function that will be called after clicking the default close button  | Function    | -     |
 | duration   | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | Number    | 4.5     |
 

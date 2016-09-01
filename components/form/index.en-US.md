@@ -13,11 +13,11 @@ There are many types of form items including checkbox, radio, input, select, and
 You can align the controls of a `form` using one of the following attributes：
 
 - `horizontal`：to horizontally align the `label`s and controls of the fields.
-- `inline`：to render the labels and controls of the fields in one line (by setting the display property of form controls to `inline-block`). 
+- `inline`：to render the labels and controls of the fields in one line (by setting the display property of form controls to `inline-block`).
 
 ## Form fields
 
-A form consists of one or more form fields whose type includes input, textarea, checkbox, radio, select, tag, and more. 
+A form consists of one or more form fields whose type includes input, textarea, checkbox, radio, select, tag, and more.
 A form field is defined using `<Form.Item />`.
 
 ```jsx
@@ -36,7 +36,7 @@ A form field is defined using `<Form.Item />`.
 
 | Property  | Description                              | Type       | Default Value |
 |-----------|------------------------------------------|------------|---------|
-| form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a 
+| form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a
 | vertical | Use vertical layout. | boolean | false |
 | horizontal | Use horizontal layout. | boolean  | false    |
 | inline | Use inline alignment. | boolean | false |
@@ -86,7 +86,7 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 | Property      | Description                                     | Type | Default Value |
 |-----------|-----------------------------------------|-----|--------|
 | options.id | The unique identifier is required. | string | |
-| options.valuePropName | Props of children node, for exmaple, the prop of Switch is 'checked'. | string | 'value' |
+| options.valuePropName | Props of children node, for example, the prop of Switch is 'checked'. | string | 'value' |
 | options.initialValue | You can specify initial value, type, optional value of children node. | | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
 | options.getValueFromEvent | To convert parameters of onChange to the value of control, for example, set value of DatePicker: `(date, dateString) => dateString` | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |

@@ -1,7 +1,7 @@
 ---
 order: 5
 hidden: true
-title: 
+title:
   zh-CN: 多文件选择
   en-US: Multifile Selection
 ---
@@ -25,7 +25,7 @@ const props = {
       console.log(info.file, info.fileList);
     }
     if (info.file.status === 'done') {
-      message.success(`${info.file.name} upload sucessfully。`);
+      message.success(`${info.file.name} upload successfully。`);
     } else if (info.file.status === 'error') {
       message.error(`${info.file.name} upload unsuccessfully。`);
     }

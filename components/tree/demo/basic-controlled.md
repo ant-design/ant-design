@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 受控操作示例
   en-US: basic controlled example
 ---
@@ -57,7 +57,7 @@ const Demo = React.createClass({
   onExpand(expandedKeys) {
     console.log('onExpand', arguments);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
-    // or, you can remove all expanded chilren keys.
+    // or, you can remove all expanded children keys.
     this.setState({
       expandedKeys,
       autoExpandParent: false,

@@ -9,9 +9,9 @@ Modal dialogs.
 ## When to use
 
 When requiring users to interact with application, but without jumping to a new page to interrupt
-the user's workflow, you can use `Modal` to create a new floating layer over the currtent page for user 
+the user's workflow, you can use `Modal` to create a new floating layer over the current page for user
 getting feedback or information purposes.
-Additionaly, if you need show a simple confirmation dialog, you can use `ant.Modal.confirm()`, 
+Additionally, if you need show a simple confirmation dialog, you can use `ant.Modal.confirm()`,
 and so on.
 
 
@@ -46,7 +46,7 @@ There are five ways to display the information based on the content's nature:
 - `Modal.confirm`
 
 The item listd above are all functions, expecting a settings object as parameter.
-The propeties of the object are follows:
+The properties of the object are follows:
 
 | Property   | Description    | Type             | Default       |
 |------------|----------------|------------------|---------------|
