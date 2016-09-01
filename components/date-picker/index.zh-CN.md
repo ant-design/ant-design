@@ -19,9 +19,6 @@ english: DatePicker
 <DatePicker defaultValue="2015-01-01" />
 ```
 
-> 注意：`0.11+` 后 `Datepicker` 改名为 `DatePicker`。
-
-
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
 | value        | 日期           | string or Date   | 无           |

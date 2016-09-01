@@ -18,9 +18,6 @@ By clicking the input box, you can select a date from a popup calendar.
 <DatePicker defaultValue="2015-01-01" />
 ```
 
-> Warning: `Datepicker` is renamed to `DatePicker` after `0.11`.
-
-
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
 | value        | to set date           | String/Date   | -           |
