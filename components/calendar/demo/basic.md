@@ -1,6 +1,6 @@
 ---
 order: 0
-title:	
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -16,6 +16,9 @@ A basic calendar component with Year/Month switch.
 
 ````jsx
 import { Calendar } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 function onPanelChange(value, mode) {
   console.log(value, mode);

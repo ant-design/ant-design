@@ -16,6 +16,8 @@ To set the properties like time zone, language and etc. en_US, zh_CN are support
 ````jsx
 import { Calendar } from 'antd';
 import enUS from 'antd/lib/calendar/locale/en_US';
+import moment from 'moment';
+moment.locale('en');
 
 function onPanelChange(value, mode) {
   console.log(value, mode);

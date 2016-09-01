@@ -15,6 +15,9 @@ Nested inside a container element for rendering in limited space.
 
 ````jsx
 import { Calendar } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 function onPanelChange(value, mode) {
   console.log(value, mode);

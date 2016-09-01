@@ -25,15 +25,15 @@ interface CalendarContext {
 export interface CalendarProps {
   prefixCls?: string;
   className?: string;
-  value?: Date;
-  defaultValue?: Date;
+  value?: moment.Moment;
+  defaultValue?: moment.Moment;
   mode?: 'month' | 'year';
   fullscreen?: boolean;
-  dateCellRender?: (date) => React.ReactNode;
-  monthCellRender?: (month) => React.ReactNode;
+  dateCellRender?: (date: moment.Moment) => React.ReactNode;
+  monthCellRender?: (date: moment.Moment) => React.ReactNode;
   locale?: any;
   style?: React.CSSProperties;
-  onPanelChange?: (date: Date, mode: string) => void;
+  onPanelChange?: (date: moment.Moment, mode: string) => void;
 }
 
 export default class Calendar extends React.Component<CalendarProps, any> {
@@ -56,7 +56,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     className: PropTypes.string,
     style: PropTypes.object,
     onPanelChange: PropTypes.func,
-    value: PropTypes.instanceOf(Date),
+    value: PropTypes.object,
   };
 
   static contextTypes = {
@@ -65,32 +65,25 @@ export default class Calendar extends React.Component<CalendarProps, any> {
 
   context: CalendarContext;
 
-  constructor(props, context) {
+  constructor(props) {
     super(props);
     this.state = {
-      value: this.parseDateFromValue(props.value || new Date(), this.getLocale(context)),
+      value: props.value || moment(),
       mode: props.mode,
     };
   }
 
-  parseDateFromValue(value, locale) {
-    return moment(value).locale(locale.momentLocale);
-  }
-
-  componentWillReceiveProps(nextProps, nextContext) {
+  componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: this.parseDateFromValue(nextProps.value, this.getLocale(nextContext)),
-      });
-    } else if (this.context !== nextContext) {
-      this.setState({
-        value: this.parseDateFromValue(this.state.value, this.getLocale(nextContext)),
+        value: nextProps.value,
       });
     }
   }
 
-  getLocale = (context) => {
+  getLocale = () => {
     const props = this.props;
+    const context = this.context;
     let locale = defaultLocale;
     if (context && context.antLocale && context.antLocale.Calendar) {
       locale = context.antLocale.Calendar;
@@ -149,7 +142,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     const { value, mode } = this.state;
     const { prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
-    const locale = this.getLocale(this.context);
+    const locale = this.getLocale();
 
     let cls = className || '';
     if (fullscreen) {

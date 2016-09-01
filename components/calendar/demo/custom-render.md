@@ -1,6 +1,6 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 自定义渲染
   en-US: Custom Render
 ---
@@ -15,6 +15,9 @@ This component can be rendered by using `dateCellRender` and `monthCellRender` w
 
 ````jsx
 import { Calendar } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 function dateCellRender(value) {
   return <div>自定义日数据 {value.date()}</div>;
@@ -25,7 +28,7 @@ function monthCellRender(value) {
 }
 
 ReactDOM.render(
-  <Calendar defaultValue={new Date('2010-10-10')}
+  <Calendar
     dateCellRender={dateCellRender} monthCellRender={monthCellRender}
   />
 , mountNode);

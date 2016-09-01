@@ -15,6 +15,9 @@ A complex application.
 
 ````jsx
 import { Calendar } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 
 function getListData(value) {
   let listData;
