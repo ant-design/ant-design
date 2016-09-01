@@ -5,8 +5,12 @@
   }
   // 输入框的不同校验状态
   .ant-input {
-    border-color: @border-color;
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+    &,
+    &:hover,
+    &:focus {
+      border-color: @border-color;
+      box-shadow: 0 0 0 2px fade(@border-color, 20%);
+    }
 
     &:not([disabled]):hover {
       border-color: @border-color;
