@@ -69,7 +69,7 @@
     "rc-upload": "~2.0.3",
     "rc-util": "~3.3.0",
     "react-addons-pure-render-mixin": "^15.0.0",
-    "react-slick": "~0.12.0",
+    "react-slick": "~0.13.3",
     "shallowequal": "^0.2.2",
     "warning": "~3.0.0"
   },
