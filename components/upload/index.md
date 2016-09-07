@@ -60,8 +60,7 @@ english: Upload
       response: '{"status": "success"}',  // 服务端响应内容
    }
    ```
-
-   如果上传控件是 multiple 时，此参数将为一个对象数组 `[file, ...]`。
+   > `antd@1.9.0` 之前，multiple 模式下，此参数为一个对象数组 `[file, ...]`，`antd@1.9.0` 开始无论是否多选，均为一个对象。
 
 2. `fileList` 当前的文件列表。
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
