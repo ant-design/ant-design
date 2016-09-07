@@ -231,8 +231,13 @@
   }
 
   &-bordered {
-    .@{table-prefix-cls}-body > table {
-      border: 1px solid @border-color-split;
+    .@{table-prefix-cls}-body {
+      margin-right: -1px;
+
+      > table {
+        border: 1px solid @border-color-split;
+        border-right: 0;
+      }
     }
 
     &.@{table-prefix-cls}-fixed-header {
@@ -269,9 +274,6 @@
     .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
       border-right: 1px solid @border-color-split;
-      &:last-child {
-        border-right: 0;
-      }
     }
   }
 
