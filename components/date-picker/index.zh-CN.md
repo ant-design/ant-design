@@ -24,6 +24,7 @@ import moment from 'moment';
 |--------------|----------------|----------|--------------|
 | value        | 日期           | [moment](http://momentjs.com/)   | 无           |
 | defaultValue | 默认日期       | [moment](http://momentjs.com/)   | 无           |
+| defaultPickerValue | 设置弹出框默认日期 | moment | 无 |
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onChange     | 时间发生变化的回调 | function(date: moment, dateString: string) | 无           |
@@ -43,6 +44,7 @@ import moment from 'moment';
 |--------------|----------------|----------|--------------|
 | value        | 日期           | moment   | 无           |
 | defaultValue | 默认日期       | moment   | 无           |
+| defaultPickerValue | 设置弹出框默认日期 | moment | 无 |
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
 | disabledDate | 不可选择的日期 | function | 无           |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | 无           |
@@ -59,6 +61,7 @@ import moment from 'moment';
 |--------------|----------------|----------|--------------|
 | value        | 日期          | [moment, moment]   | 无           |
 | defaultValue | 默认日期       | [moment, moment]   | 无           |
+| defaultPickerValue | 设置弹出框默认日期 | [moment, moment] | 无 |
 | format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |

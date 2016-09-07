@@ -20,11 +20,15 @@ import enUS from 'antd/lib/date-picker/locale/en_US';
 import moment from 'moment';
 moment.locale('en');
 
-const customLocale = {
-  timezoneOffset: 8 * 60,
-  firstDayOfWeek: 0,
-  minimalDaysInFirstWeek: 1,
-};
+const log = console.log.bind(console);
 
-ReactDOM.render(<DatePicker locale={{ ...enUS, ...customLocale }} />, mountNode);
+ReactDOM.render(
+  <DatePicker
+    defaultPickerValue={moment().utcOffset(0)}
+    locale={enUS}
+    showTime
+    onChange={log}
+  />,
+  mountNode
+);
 ````

@@ -47,10 +47,7 @@ export default function createPicker(TheCalendar) {
     render() {
       const props = this.props;
       const locale = props.locale;
-      // 以下两行代码
-      // 给没有初始值的日期选择框提供本地化信息
-      // 否则会以周日开始排
-      const defaultCalendarValue = moment();
+
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
 
@@ -86,7 +83,7 @@ export default function createPicker(TheCalendar) {
           disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={props.timePicker}
-          defaultValue={defaultCalendarValue}
+          defaultValue={props.defaultPickerValue || moment()}
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
