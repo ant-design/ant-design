@@ -280,7 +280,7 @@ export default class Table extends React.Component<TableProps, any> {
   }
 
   getFilteredValueColumns(columns?) {
-    return (columns || this.props.columns || []).filter(column => 'filteredValue' in column);
+    return (columns || this.props.columns || []).filter(column => column.filteredValue);
   }
 
   getFiltersFromColumns(columns?) {
@@ -373,7 +373,7 @@ export default class Table extends React.Component<TableProps, any> {
     const newState = {
       selectionDirty: false,
       pagination,
-      filters: null,
+      filters: {},
     };
     const filtersToSetState = assign({}, filters);
     // Remove filters which is controlled
