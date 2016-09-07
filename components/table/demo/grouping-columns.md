@@ -21,6 +21,7 @@ const columns = [
     title: '姓名',
     dataIndex: 'name',
     key: 'name',
+    width: 97,
     filters: [{
       text: '姓李的',
       value: '李',
@@ -37,6 +38,7 @@ const columns = [
         title: '年龄',
         dataIndex: 'age',
         key: 'age',
+        width: 56,
         sorter: (a, b) => a.age - b.age,
       },
       {
@@ -46,6 +48,7 @@ const columns = [
             title: '街道',
             dataIndex: 'street',
             key: 'street',
+            width: 185,
           },
           {
             title: '小区',
@@ -54,11 +57,13 @@ const columns = [
                 title: '单元',
                 dataIndex: 'building',
                 key: 'building',
+                width: 43,
               },
               {
                 title: '门牌',
                 dataIndex: 'number',
                 key: 'number',
+                width: 80,
               },
             ],
           },
@@ -73,11 +78,13 @@ const columns = [
         title: '地址',
         dataIndex: 'companyAddress',
         key: 'companyAddress',
+        width: 185,
       },
       {
         title: '名称',
         dataIndex: 'companyName',
         key: 'companyName',
+        width: 164,
       },
     ],
   },
@@ -85,6 +92,7 @@ const columns = [
     title: '性别',
     dataIndex: 'gender',
     key: 'gender',
+    width: 54,
   },
 ];
 
@@ -100,34 +108,28 @@ const rowSelection = {
   },
 };
 
-const data = [{
-  key: '1',
-  name: '胡彦斌',
-  age: 32,
-  street: '拱墅区和睦街道',
-  building: 1,
-  number: 2033,
-  companyAddress: '西湖区湖底公园',
-  companyName: '湖底有限公司',
-  gender: '男',
-}, {
-  key: '2',
-  name: '胡彦祖',
-  age: 42,
-  street: '拱墅区和睦街道',
-  building: 3,
-  number: 2035,
-  companyAddress: '西湖区湖底公园',
-  companyName: '湖底有限公司',
-  gender: '男',
-}];
+const data = [];
+for (let i = 0; i < 100; i++) {
+  data.push({
+    key: i,
+    name: '胡彦祖',
+    age: 42,
+    street: '拱墅区和睦街道',
+    building: 3,
+    number: 2035,
+    companyAddress: '西湖区湖底公园',
+    companyName: '湖底有限公司',
+    gender: '男',
+  });
+}
 
 ReactDOM.render(
   <Table
     columns={columns}
     rowSelection={rowSelection}
     dataSource={data}
-    bordered size="middle"
+    bordered
+    scroll={{ y: 280 }}
   />,
   mountNode
 );
