@@ -26,6 +26,7 @@ english: Calendar
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
 | value        | 展示日期       | [moment](http://momentjs.com/)     | 当前日期     |
+| defaultValue | 默认展示的日期  | [moment](http://momentjs.com/)     | 默认日期     |
 | mode         | 初始模式，`month/year` | string | month  |
 | fullscreen   | 是否全屏显示   | boolean     | true         |
 | dateCellRender     | 自定义渲染日期单元格| function(date: moment): ReactNode   | 无 |

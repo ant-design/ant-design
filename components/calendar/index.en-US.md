@@ -24,6 +24,7 @@ When data is in the form of date, such as schedule, timetable, prices calendar, 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
 | value        | set date | [moment](http://momentjs.com/) | current date     |
+| defaultValue | set default date | [moment](http://momentjs.com/) | default date     |
 | mode         | can be set to month or year | string | month  |
 | fullscreen   | to set whether full-screen display   | boolean     | true         |
 | dateCellRender     | to set the way of renderer the date cell | function(date: moment): ReactNode | - |

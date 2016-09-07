@@ -68,7 +68,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || moment(),
+      value: props.value || props.defaultValue || moment(),
       mode: props.mode,
     };
   }

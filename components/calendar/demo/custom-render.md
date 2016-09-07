@@ -28,7 +28,7 @@ function monthCellRender(value) {
 }
 
 ReactDOM.render(
-  <Calendar
+  <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')}
     dateCellRender={dateCellRender} monthCellRender={monthCellRender}
   />
 , mountNode);
