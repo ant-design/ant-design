@@ -7,7 +7,7 @@ import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
 import classNames from 'classnames';
-import { flatArray } from './util';
+import { flatArray, treeMap } from './util';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
 
@@ -631,7 +631,7 @@ export default class Table extends React.Component<TableProps, any> {
   renderColumnsDropdown(columns) {
     const { sortOrder } = this.state;
     const locale = this.getLocale();
-    return columns.map((originColumn, i) => {
+    return treeMap(columns, (originColumn, i) => {
       let column = assign({}, originColumn);
       let key = this.getColumnKey(column, i);
       let filterDropdown;
