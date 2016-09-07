@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
-import warning from 'warning';
 import assign from 'object-assign';
 import shallowequal from 'shallowequal';
 
@@ -182,8 +181,6 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   componentDidMount() {
-    warning(!('offset' in this.props), '`offset` prop of Affix is deprecated, use `offsetTop` instead.');
-
     const target = this.props.target;
     this.setTargetEventListeners(target);
   }

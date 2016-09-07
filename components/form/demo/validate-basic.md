@@ -78,7 +78,7 @@ let BasicDemo = React.createClass({
       wrapperCol: { span: 12 },
     };
     return (
-      <Form horizontal form={this.props.form}>
+      <Form horizontal>
         <FormItem
           {...formItemLayout}
           label="User name"

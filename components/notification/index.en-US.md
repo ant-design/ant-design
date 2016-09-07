@@ -2,7 +2,7 @@
 category: Components
 type: Views
 noinstant: true
-english: -tification
+title: Notification
 ---
 
 To display a notification message globally.

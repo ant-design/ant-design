@@ -125,7 +125,7 @@ let Demo = React.createClass({
     const { getFieldDecorator } = this.props.form;
     return (
       <div>
-        <Form vertical style={{ maxWidth: 600 }} form={this.props.form}>
+        <Form vertical style={{ maxWidth: 600 }}>
           <Row type="flex" align="middle">
             <Col span={12}>
               <FormItem label="Password">

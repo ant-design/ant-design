@@ -47,7 +47,7 @@ let Demo = React.createClass({
       <div>
         <Button type="primary" onClick={this.showModal}>点击有惊喜</Button>
         <Modal title="login" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
-          <Form horizontal form={this.props.form}>
+          <Form horizontal>
             <FormItem
               {...formItemLayout}
               label="User name"
