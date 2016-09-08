@@ -10,6 +10,11 @@
     <!--[if lte IE 10]>
     <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
+    <script>
+      if (!window.Intl) {
+        document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
+      }
+    </script>
   </head>
   <body>
     <div id="react-content"></div>
@@ -44,12 +49,6 @@
       ga('send', 'pageview');
       /* eslint-enable */
     }
-    </script>
-    <script>
-      if (!window.Intl) {
-        document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/Intl.js">' + '<' + '/script>');
-        document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/locale-data/jsonp/en.js">' + '<' + '/script>');
-      }
     </script>
     <script src="{{ root }}common.js"></script>
     <script src="{{ root }}index.js"></script>

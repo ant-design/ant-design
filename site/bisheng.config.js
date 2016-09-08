@@ -72,6 +72,14 @@ module.exports = {
     };
 
     config.babel.plugins.push([
+      require.resolve('babel-plugin-transform-runtime'),
+      {
+        polyfill: false,
+        regenerator: true,
+      },
+    ]);
+
+    config.babel.plugins.push([
       require.resolve('babel-plugin-antd'),
       {
         style: true,
