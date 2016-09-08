@@ -9,6 +9,8 @@
   "duplicateProperty": false,
   "importPath": false,
   "finalNewline": false,
+  "newlineAfterBlock": false,
+  "maxCharPerLine": false,
   "excludedFiles": [
     "components/layout/style/mixin.less",
     "components/style/core/base.less",
