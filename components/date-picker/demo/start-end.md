@@ -1,6 +1,6 @@
 ---
 order: 7
-title: 
+title:
   zh-CN: 日期范围一
   en-US: Date range, case 1
 ---
@@ -62,8 +62,6 @@ const DateRange = React.createClass({
       <div>
         <DatePicker
           disabledDate={this.disabledStartDate}
-          showTime
-          format="yyyy-MM-dd HH:mm:ss"
           value={this.state.startValue}
           placeholder="开始日期"
           onChange={this.onStartChange}
@@ -71,8 +69,6 @@ const DateRange = React.createClass({
         />
         <DatePicker
           disabledDate={this.disabledEndDate}
-          showTime
-          format="yyyy-MM-dd HH:mm:ss"
           value={this.state.endValue}
           placeholder="结束日期"
           onChange={this.onEndChange}
