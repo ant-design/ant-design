@@ -21,7 +21,8 @@ const columns = [
     title: '姓名',
     dataIndex: 'name',
     key: 'name',
-    width: 97,
+    width: 100,
+    fixed: 'left',
     filters: [{
       text: '姓李的',
       value: '李',
@@ -38,7 +39,7 @@ const columns = [
         title: '年龄',
         dataIndex: 'age',
         key: 'age',
-        width: 56,
+        width: 100,
         sorter: (a, b) => a.age - b.age,
       },
       {
@@ -48,7 +49,7 @@ const columns = [
             title: '街道',
             dataIndex: 'street',
             key: 'street',
-            width: 185,
+            width: 200,
           },
           {
             title: '小区',
@@ -57,13 +58,13 @@ const columns = [
                 title: '单元',
                 dataIndex: 'building',
                 key: 'building',
-                width: 43,
+                width: 50,
               },
               {
                 title: '门牌',
                 dataIndex: 'number',
                 key: 'number',
-                width: 80,
+                width: 100,
               },
             ],
           },
@@ -78,13 +79,13 @@ const columns = [
         title: '地址',
         dataIndex: 'companyAddress',
         key: 'companyAddress',
-        width: 185,
+        width: 200,
       },
       {
         title: '名称',
         dataIndex: 'companyName',
         key: 'companyName',
-        width: 164,
+        width: 200,
       },
     ],
   },
@@ -92,28 +93,17 @@ const columns = [
     title: '性别',
     dataIndex: 'gender',
     key: 'gender',
-    width: 54,
+    width: 60,
+    fixed: 'right',
   },
 ];
-
-const rowSelection = {
-  onChange(selectedRowKeys, selectedRows) {
-    console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
-  },
-  onSelect(record, selected, selectedRows) {
-    console.log(record, selected, selectedRows);
-  },
-  onSelectAll(selected, selectedRows, changeRows) {
-    console.log(selected, selectedRows, changeRows);
-  },
-};
 
 const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
     name: '胡彦祖',
-    age: 42,
+    age: Math.ceil(Math.random() * 100),
     street: '拱墅区和睦街道',
     building: 3,
     number: 2035,
@@ -126,10 +116,9 @@ for (let i = 0; i < 100; i++) {
 ReactDOM.render(
   <Table
     columns={columns}
-    rowSelection={rowSelection}
     dataSource={data}
-    bordered
-    scroll={{ y: 280 }}
+    bordered size="middle"
+    scroll={{ x: 1010, y: 240 }}
   />,
   mountNode
 );
