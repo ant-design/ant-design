@@ -1,5 +1,6 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
@@ -97,7 +98,7 @@ export default class ComponentDoc extends React.Component {
               )
             }
             <h2>
-              代码演示
+              <FormattedMessage id="app.component.examples" />
               <Icon type="appstore" className={expandTriggerClass}
                 title="展开全部代码" onClick={this.handleExpandToggle}
               />

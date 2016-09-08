@@ -11,6 +11,7 @@ module.exports = {
     'app.header.menu.spec': 'Specification',
     'app.header.menu.resource': 'Resource',
     'app.header.lang': '中文',
+    'app.component.examples': 'Examples',
     'app.home.slogan': 'One Design Language for UI',
     'app.home.start': 'Getting Started',
     'app.home.best-practice': 'Best Practice',

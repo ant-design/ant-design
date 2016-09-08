@@ -11,6 +11,7 @@ module.exports = {
     'app.header.menu.spec': '语言',
     'app.header.menu.resource': '资源',
     'app.header.lang': 'EN',
+    'app.component.examples': '代码演示',
     'app.home.slogan': '一个 UI 设计语言',
     'app.home.start': '开始探索',
     'app.home.best-practice': '最佳实践',

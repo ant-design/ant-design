@@ -1,8 +1,7 @@
 ---
 category: Components
-chinese: 数字输入框
 type: Form Controls
-english: InputNumber
+title: InputNumber
 ---
 
 Enter a number within certain range with the mouse or keyboard.
