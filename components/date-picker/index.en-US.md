@@ -31,7 +31,8 @@ By clicking the input box, you can select a date from a popup calendar.
 | size         | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | String   | -  |
 | locale       | localization configuration | Object   | [default](https://github.com/ant-design/ant-design/issues/424)  |
 | onOk         | a callback function, can be executed when OK-button is clicked | function(Date value) | - |
-| toggleOpen   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
+| open | open state of picker | bool | - |
+| toggleOpen   | a callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 

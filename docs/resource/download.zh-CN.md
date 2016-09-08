@@ -7,7 +7,7 @@ english: Download
 这里提供 Ant Design 相关设计资源和设计工具的下载，更多设计资源正在整理和完善中。
 
 <div class="resource-cards">
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/AntD_Library_V2.01.rplib" class="resource-card">
+<a target="_blank" href="http://library.ant.design" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/cnmjGfbBWUZPFiO.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Ant Design Library v2.0.1</span>

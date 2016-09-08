@@ -7,8 +7,12 @@
   }
   // 输入框的不同校验状态
   .ant-input {
-    border-color: @border-color;
-    .active(@border-color);
+    &,
+    &:hover,
+    &:focus {
+      border-color: @border-color;
+      .active(@border-color);
+    }
 
     &:not([disabled]):hover {
       border-color: @border-color;

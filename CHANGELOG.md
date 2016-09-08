@@ -9,6 +9,21 @@ timeline: true
 
 ---
 
+## 1.11.0
+
+`2016-09-01`
+
+- `Tooltip` `Popover` `Popconfirm` 修正默认对齐方式为边缘对齐，增加 arrowPointAtCenter 属性用于箭头指向中心的行为。[commit 977e2e3](https://github.com/ant-design/ant-design/commit/977e2e32fc40968846c8201ed72bdc3818375d2f)
+- `Table`
+  - 移除数据中添加的 `indexForSort`。[#2501](https://github.com/ant-design/ant-design/issues/2501)
+  - 修复 `pagination` 属性中 `defaultPageSize` 不生效的问题。[#2874](https://github.com/ant-design/ant-design/issues/2874)
+  - 修复数据为空时固定列出现重复提示的问题。[#2812](https://github.com/ant-design/ant-design/issues/2812)
+  - 给树形子数据增加排序功能。[#2839](https://github.com/ant-design/ant-design/issues/2839)
+- `InputNumber` 样式问题修复。[#2876](https://github.com/ant-design/ant-design/issues/2876)
+- 修复手动导入 less 文件时 input error 样式被 focus 样式覆盖的问题。[#2916](https://github.com/ant-design/ant-design/issues/2916)
+- index.d.ts 中补充了一些缺失的声明，修复 `Form` 中 typescript 语法检查报错的问题。[#2885](https://github.com/ant-design/ant-design/issues/2885)
+- 升级 react-slick 依赖到 `0.13`。
+
 ## 1.10.0
 
 `2016-08-20`
