@@ -15,7 +15,13 @@ By clicking the input box, you can select a date from a popup calendar.
 ### DatePicker
 
 ```jsx
-import moment from 'moment';
+import moment from 'moment-timezone';
+
+// It's recommended to set locale and timezone in entry file globaly.
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+moment.tz.setDefault('Aisa/Shanghai');
+
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
 
@@ -25,7 +31,6 @@ import moment from 'moment';
 |--------------|----------------|----------|--------------|
 | value        | to set date           | [moment](http://momentjs.com/)   | -           |
 | defaultValue | to set default date        | [moment](http://momentjs.com/)   | -           |
-| defaultPickerValue | to set the default value of picker | moment | - |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM-DD" |
 | disabledDate | to specify the date that cannot be selected | function | -           |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
@@ -46,7 +51,6 @@ import moment from 'moment';
 |--------------|----------------|----------|--------------|
 | value        | to set date          | [moment](http://momentjs.com/)   | -           |
 | defaultValue | to set default date       | [moment](http://momentjs.com/)   | -           |
-| defaultPickerValue | to set the default value of picker | moment | - |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM" |
 | disabledDate | to specify the date that cannot be selected | function | -           |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
@@ -63,7 +67,6 @@ import moment from 'moment';
 |--------------|----------------|----------|--------------|
 | value        | to set date          | [moment, moment]   | -           |
 | defaultValue | to set default date       | [moment, moment]   | -           |
-| defaultPickerValue | to set the default value of picker | [moment, moment] | - |
 | format       | to set the date format  | String    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
