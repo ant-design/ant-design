@@ -18,6 +18,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       align: {
         offset: [0, -9],
       },
+      inline: false,
     }
 
     static contextTypes = {
@@ -64,6 +65,7 @@ export default function wrapPicker(Picker, defaultFormat) {
       const props = this.props;
       const pickerClass = classNames({
         'ant-calendar-picker': true,
+        'ant-calendar-picker-inline': props.inline,
       });
       const pickerInputClass = classNames({
         'ant-calendar-range-picker': true,
