@@ -1,8 +1,7 @@
 ---
 category: Components
-chinese: 图标
 type: Basic
-english: Icon
+title: Icon
 toc: false
 ---
 

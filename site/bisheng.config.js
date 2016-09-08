@@ -5,8 +5,7 @@ function pickerGenerator(module) {
   return (markdownData) => {
     const filename = markdownData.meta.filename;
     if (tester.test(filename) &&
-        !/\/demo$/.test(path.dirname(filename)) &&
-        !/\.en-US\.md/.test(filename)) {
+        !/\/demo$/.test(path.dirname(filename))) {
       return {
         meta: markdownData.meta,
       };
@@ -31,8 +30,7 @@ module.exports = {
     components(markdownData) {
       const filename = markdownData.meta.filename;
       if (!/^components/.test(filename) ||
-          /\/demo$/.test(path.dirname(filename)) ||
-          /\.en-US\.md/.test(filename)) return;
+          /\/demo$/.test(path.dirname(filename))) return;
 
       return {
         meta: markdownData.meta,

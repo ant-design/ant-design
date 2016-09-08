@@ -101,9 +101,12 @@ export default class MainContent extends React.Component {
     const pathname = props.location.pathname;
     const moduleName = /^components/.test(pathname) ?
             'components' : pathname.split('/').slice(0, 2).join('/');
-    return moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
-      [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
-      props.picked[moduleName];
+    const moduleData = moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
+            [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+            props.picked[moduleName];
+    const locale = this.context.intl.locale;
+    const excludedSuffix = locale === 'zh-CN' ? 'en-US.md' : 'zh-CN.md';
+    return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
   }
 
   getMenuItems() {

@@ -3,6 +3,7 @@ category: Components
 cols: 1
 type: Views
 title: Table
+subtitle: 表格
 ---
 
 展示行列数据。

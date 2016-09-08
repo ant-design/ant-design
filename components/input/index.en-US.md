@@ -1,8 +1,7 @@
 ---
 category: Components
-chinese: 输入框
 type: Form Controls
-english: Input
+title: Input
 ---
 
 A basic widget for getting the user input is a text field.

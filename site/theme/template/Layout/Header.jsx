@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router';
+import { FormattedMessage } from 'react-intl';
 import enquire from 'enquire.js';
 import debounce from 'lodash.debounce';
 import classNames from 'classnames';
@@ -100,24 +100,28 @@ export default class Header extends React.Component {
       activeMenuItem = 'docs/react';
     }
 
+    const locale = this.context.intl.locale;
+    const excludedSuffix = locale === 'zh-CN' ? 'en-US.md' : 'zh-CN.md';
     const options = components
-      .map(({ meta }) => {
-        const pathSnippet = meta.filename.split('/')[1];
-        const url = `/components/${pathSnippet}`;
-        return (
-          <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
-            <strong>{meta.title || meta.english}</strong>
-            <span className="ant-component-decs">{meta.subtitle || meta.chinese}</span>
-          </Option>
-        );
-      });
+            .filter(({ meta }) => !meta.filename.endsWith(excludedSuffix))
+            .map(({ meta }) => {
+              const pathSnippet = meta.filename.split('/')[1];
+              const url = `/components/${pathSnippet}`;
+              const subtitle = meta.subtitle || meta.chinese;
+              return (
+                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
+                  <strong>{meta.title || meta.english}</strong>
+                  {subtitle && <span className="ant-component-decs">{subtitle}</span>}
+                </Option>
+              );
+            });
 
     const headerClassName = classNames({
       clearfix: true,
       'home-nav-white': !this.state.isFirstFrame,
     });
 
-    const searchPlaceholder = this.context.intl.locale === 'zh-CN' ? '搜索组件...' : 'Search...';
+    const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search...';
     return (
       <header id="header" className={headerClassName}>
         <Row>
