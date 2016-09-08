@@ -12,9 +12,8 @@ window.react = React;
 window['react-dom'] = ReactDOM;
 window.antd = require('antd');
 
-const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('locale') !== 'en-US');
-  // (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
-  // (navigator.language === 'zh-CN');
+const isZhCN = (typeof localStorage !== 'undefined' && localStorage.getItem('locale') === 'zh-CN') ||
+        (navigator.language === 'zh-CN');
 
 const appLocale = isZhCN ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
