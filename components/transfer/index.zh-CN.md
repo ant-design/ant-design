@@ -23,6 +23,7 @@ english: Transfer
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 React element | Function(record)  |     |
 | targetKeys | 显示在右侧框数据的key集合 | Array  | [] |
 | onChange | 选项在两栏之间转移时的回调函数 | Function(targetKeys, direction, moveKeys) |  |
+| onSelectChange | 选中项发生改变时的回调函数 | Function(sourceSelectedKeys, targetSelectedKeys) | |
 | listStyle | 两个穿梭框的自定义样式 | Object |  |
 | className | 自定义类 | String |  |
 | titles | 标题集合,顺序从左至右 | Array | ['源列表', '目的列表'] |

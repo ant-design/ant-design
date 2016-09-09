@@ -47,12 +47,17 @@ const App = React.createClass({
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
   },
+  handleSelectChange(sourceSelectedKeys, targetSelectedKeys) {
+    console.log('sourceSelectedKeys: ', sourceSelectedKeys);
+    console.log('targetSelectedKeys: ', targetSelectedKeys);
+  },
   render() {
     return (
       <Transfer
         dataSource={this.state.mockData}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
+        onSelectChange={this.handleSelectChange}
         render={item => item.title}
       />
     );
