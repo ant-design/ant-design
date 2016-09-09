@@ -17,10 +17,6 @@ By using `RangePicker` to specify a date range, you can achieve a better interac
 
 ````jsx
 import { DatePicker } from 'antd';
-import moment from 'moment';
-import 'moment/locale/zh-cn';
-
-moment.locale('zh-cn');
 const RangePicker = DatePicker.RangePicker;
 
 function onChange(dates, dateStrings) {
