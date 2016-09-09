@@ -1,14 +1,13 @@
-import * as React from 'react';
+import React from 'react';
+import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
-import GregorianCalendar from 'gregorian-calendar';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
 
 export interface PickerProps {
-  parseDateFromValue?: Function;
-  value?: string | Date;
+  value?: moment.Moment;
 }
 
 export default function createPicker(TheCalendar) {
@@ -16,15 +15,16 @@ export default function createPicker(TheCalendar) {
   const CalenderWrapper = React.createClass({
 
     getInitialState() {
+      const props = this.props;
       return {
-        value: this.props.parseDateFromValue(this.props.value || this.props.defaultValue),
+        value: props.value || props.defaultValue,
       };
     },
 
     componentWillReceiveProps(nextProps: PickerProps) {
       if ('value' in nextProps) {
         this.setState({
-          value: nextProps.parseDateFromValue(nextProps.value),
+          value: nextProps.value,
         });
       }
     },
@@ -41,18 +41,12 @@ export default function createPicker(TheCalendar) {
       if (!('value' in props)) {
         this.setState({ value });
       }
-      const timeValue = value ? new Date(value.getTime()) : null;
-      props.onChange(timeValue, value ? props.getFormatter().format(value) : '');
+      props.onChange(value, (value && value.format(props.format)) || '');
     },
 
     render() {
       const props = this.props;
       const locale = props.locale;
-      // 以下两行代码
-      // 给没有初始值的日期选择框提供本地化信息
-      // 否则会以周日开始排
-      let defaultCalendarValue = new GregorianCalendar(locale);
-      defaultCalendarValue.setTime(Date.now());
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -85,12 +79,11 @@ export default function createPicker(TheCalendar) {
 
       const calendar = (
         <TheCalendar
-          formatter={props.getFormatter()}
           disabledDate={props.disabledDate}
           disabledTime={disabledTime}
           locale={locale.lang}
           timePicker={props.timePicker}
-          defaultValue={defaultCalendarValue}
+          defaultValue={props.defaultPickerValue || moment()}
           dateInputPlaceholder={placeholder}
           prefixCls="ant-calendar"
           className={calendarClassName}
@@ -113,6 +106,7 @@ export default function createPicker(TheCalendar) {
       return (
         <span className={props.pickerClass} style={assign({}, pickerStyle, props.style)}>
           <RcDatePicker
+            {...pickerChangeHandler}
             transitionName={props.transitionName}
             disabled={props.disabled}
             calendar={calendar}
@@ -124,25 +118,24 @@ export default function createPicker(TheCalendar) {
             open={props.open}
             onOpen={props.toggleOpen}
             onClose={props.toggleOpen}
-            {...pickerChangeHandler}
           >
             {
               ({ value }) => {
                 return (
-                <span>
+                  <span>
                     <input
                       disabled={props.disabled}
                       readOnly
-                      value={value ? props.getFormatter().format(value) : ''}
+                      value={(value && value.format(props.format)) || ''}
                       placeholder={placeholder}
                       className={props.pickerInputClass}
                     />
                     {clearIcon}
                     <span className="ant-calendar-picker-icon" />
                   </span>
-                  );
-                }
+                );
               }
+            }
           </RcDatePicker>
         </span>
       );

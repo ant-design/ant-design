@@ -1,8 +1,6 @@
+import React from 'react';
 import { PropTypes } from 'react';
-import * as React from 'react';
-import TimePickerPanel from 'rc-time-picker/lib/module/Panel';
-import DateTimeFormat from 'gregorian-calendar-format';
-import GregorianCalendar from 'gregorian-calendar';
+import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import defaultLocale from './locale/zh_CN';
 import assign from 'object-assign';
@@ -11,7 +9,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
     getDefaultProps() {
       return {
-        format: defaultFormat || 'yyyy-MM-dd',
+        format: defaultFormat || 'YYYY-MM-DD',
         transitionName: 'slide-up',
         popupStyle: {},
         onChange() {
@@ -33,8 +31,8 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
     getLocale() {
       const props = this.props;
-      let locale = defaultLocale;
       const context = this.context;
+      let locale = defaultLocale;
       if (context.antLocale && context.antLocale.DatePicker) {
         locale = context.antLocale.DatePicker;
       }
@@ -42,25 +40,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
       const result = assign({}, locale, props.locale);
       result.lang = assign({}, locale.lang, props.locale.lang);
       return result;
-    },
-
-    getFormatter() {
-      const format = this.props.format;
-      const formatter = new DateTimeFormat(format as string, this.getLocale().lang.format);
-      return formatter;
-    },
-
-    parseDateFromValue(value) {
-      if (value) {
-        if (typeof value === 'string') {
-          return this.getFormatter().parse(value, {locale: this.getLocale()});
-        } else if (value instanceof Date) {
-          let date = new GregorianCalendar(this.getLocale());
-          date.setTime(+value);
-          return date;
-        }
-      }
-      return value;
     },
 
     toggleOpen ({open}) {
@@ -83,7 +62,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
       const timeFormat = props.showTime && props.showTime.format;
       const rcTimePickerProps = {
-        formatter: new DateTimeFormat(timeFormat || 'HH:mm:ss', locale.timePickerLocale.format),
+        format: timeFormat || 'HH:mm:ss',
         showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
         showHour: timeFormat && timeFormat.indexOf('HH') >= 0,
       };
@@ -93,7 +72,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
           {...props.showTime}
           prefixCls="ant-calendar-time-picker"
           placeholder={locale.timePickerLocale.placeholder}
-          locale={locale.timePickerLocale}
           transitionName="slide-up"
         />
       ) : null;
@@ -106,8 +84,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
           locale={locale}
           timePicker={timePicker}
           toggleOpen={this.toggleOpen}
-          getFormatter={this.getFormatter}
-          parseDateFromValue={this.parseDateFromValue}
         />
       );
     },

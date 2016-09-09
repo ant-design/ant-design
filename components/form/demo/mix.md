@@ -2,7 +2,7 @@
 order: 5
 title:
   zh-CN: 表单组合
-  en-US: mix
+  en-US: Mix
 ---
 
 ## zh-CN
@@ -16,6 +16,9 @@ A mix to demonstrate others ant-design component related to form.
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
          Cascader, Slider, Button, Col, Upload, Icon } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;

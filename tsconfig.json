@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "target": "es6"
   },

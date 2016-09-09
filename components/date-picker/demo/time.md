@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to `TimePicker`, witch is a built-in function.
+This property provide an additional time selection. When `showTime` is an Object, its properties will be passed on to `TimePicker`, which is a built-in function.
 
 ````jsx
 import { DatePicker } from 'antd';
@@ -21,6 +21,6 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <DatePicker showTime format="yyyy-MM-dd HH:mm:ss" placeholder="请选择时间" onChange={onChange} />
+  <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" placeholder="请选择时间" onChange={onChange} />
 , mountNode);
 ````

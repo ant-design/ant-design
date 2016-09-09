@@ -1,8 +1,8 @@
+import React from 'react';
 import { PropTypes } from 'react';
-import * as React from 'react';
-import GregorianCalendar from 'gregorian-calendar';
-import defaultLocale from './locale/zh_CN';
+import moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
+import defaultLocale from './locale/zh_CN';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
 import assign from 'object-assign';
@@ -25,15 +25,15 @@ interface CalendarContext {
 export interface CalendarProps {
   prefixCls?: string;
   className?: string;
-  value?: Date;
-  defaultValue?: Date;
+  value?: moment.Moment;
+  defaultValue?: moment.Moment;
   mode?: 'month' | 'year';
   fullscreen?: boolean;
-  dateCellRender?: (date) => React.ReactNode;
-  monthCellRender?: (month) => React.ReactNode;
+  dateCellRender?: (date: moment.Moment) => React.ReactNode;
+  monthCellRender?: (date: moment.Moment) => React.ReactNode;
   locale?: any;
   style?: React.CSSProperties;
-  onPanelChange?: (date: Date, mode: string) => void;
+  onPanelChange?: (date: moment.Moment, mode: string) => void;
 }
 
 export default class Calendar extends React.Component<CalendarProps, any> {
@@ -56,7 +56,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     className: PropTypes.string,
     style: PropTypes.object,
     onPanelChange: PropTypes.func,
-    value: PropTypes.instanceOf(Date),
+    value: PropTypes.object,
   };
 
   static contextTypes = {
@@ -68,29 +68,23 @@ export default class Calendar extends React.Component<CalendarProps, any> {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.parseDateFromValue(props.value || new Date()),
+      value: props.value || props.defaultValue || moment(),
       mode: props.mode,
     };
-  }
-
-  parseDateFromValue(value) {
-    const date = new GregorianCalendar(this.getLocale());
-    date.setTime(+value);
-    return date;
   }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
       this.setState({
-        value: this.parseDateFromValue(nextProps.value),
+        value: nextProps.value,
       });
     }
   }
 
   getLocale = () => {
     const props = this.props;
-    let locale = defaultLocale;
     const context = this.context;
+    let locale = defaultLocale;
     if (context && context.antLocale && context.antLocale.Calendar) {
       locale = context.antLocale.Calendar;
     }
@@ -100,13 +94,12 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     return result;
   }
 
-  monthCellRender = (value, locale) => {
+  monthCellRender = (value) => {
     const prefixCls = this.props.prefixCls;
-    const month = value.getMonth();
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>
-          {locale.format.shortMonths[month]}
+          {value.localeData().monthsShort(value)}
         </div>
         <div className={`${prefixCls}-content`}>
           {this.props.monthCellRender(value)}
@@ -120,7 +113,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     return (
       <div className={`${prefixCls}-date`}>
         <div className={`${prefixCls}-value`}>
-          {zerofixed(value.getDayOfMonth())}
+          {zerofixed(value.date())}
         </div>
         <div className={`${prefixCls}-content`}>
           {this.props.dateCellRender(value)}

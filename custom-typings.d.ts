@@ -7,26 +7,6 @@ declare module 'react-addons-pure-render-mixin' {
   export default exports;
 }
 
-declare module 'gregorian-calendar-format' {
-  export default function(format: string, localeFormat: Object): void;
-}
-
-declare module 'gregorian-calendar' {
-  export default function({}): void;
-}
-
-declare module 'gregorian-calendar/lib/locale/en_US' {
-  export default {};
-}
-
-declare module 'gregorian-calendar/lib/locale/zh_CN' {
-  export default {};
-}
-
-declare module 'gregorian-calendar/lib/locale/ru_RU' {
-  export default {};
-}
-
 declare module 'rc-calendar/lib/locale/en_US' {
   export default {};
 }
@@ -55,7 +35,7 @@ declare module 'rc-calendar/lib/MonthCalendar' {
   export default function(): any;
 }
 
-declare module 'rc-time-picker/lib/module/Panel' {
+declare module 'rc-time-picker/lib/Panel' {
   export default function(): any;
 }
 

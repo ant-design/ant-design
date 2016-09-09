@@ -1,6 +1,6 @@
 ---
 order: 8
-title: 
+title:
   zh-CN: 日期范围二
   en-US: Date range, case 2
 ---
@@ -19,13 +19,13 @@ By using `RangePicker` to specify a date range, you can achieve a better interac
 import { DatePicker } from 'antd';
 const RangePicker = DatePicker.RangePicker;
 
-function onChange(value, dateString) {
-  console.log('From: ', value[0], ', to: ', value[1]);
-  console.log('From: ', dateString[0], ', to: ', dateString[1]);
+function onChange(dates, dateStrings) {
+  console.log('From: ', dates[0], ', to: ', dates[1]);
+  console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
 ReactDOM.render(<div>
   <RangePicker style={{ width: 184 }} onChange={onChange} />
   <br />
-  <RangePicker showTime format="yyyy/MM/dd HH:mm:ss" onChange={onChange} />
+  <RangePicker showTime format="YYYY/MM/DD HH:mm:ss" onChange={onChange} />
 </div>, mountNode);
 ````

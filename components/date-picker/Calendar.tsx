@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import CalendarLocale from 'rc-calendar/lib/locale/zh_CN';
 import RcCalendar from 'rc-calendar';
 

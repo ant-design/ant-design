@@ -18,7 +18,7 @@ import { Calendar } from 'antd';
 
 function getListData(value) {
   let listData;
-  switch (value.getDayOfMonth()) {
+  switch (value.date()) {
     case 8:
       listData = [
         { type: 'warning', content: '这里是警告事项.' },
@@ -61,7 +61,7 @@ function dateCellRender(value) {
 }
 
 function getMonthData(value) {
-  if (value.getMonth() === 8) {
+  if (value.month() === 8) {
     return 1394;
   }
 }

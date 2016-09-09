@@ -1,5 +1,5 @@
-import * as React from 'react';
-import GregorianCalendar from 'gregorian-calendar';
+import React from 'react';
+import moment from 'moment';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
@@ -12,24 +12,18 @@ export default class RangePicker extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
-    const { value, defaultValue, parseDateFromValue } = this.props;
+    const { value, defaultValue } = this.props;
     const start = (value && value[0]) || defaultValue[0];
     const end = (value && value[1]) || defaultValue[1];
     this.state = {
-      value: [
-        parseDateFromValue(start),
-        parseDateFromValue(end),
-      ],
+      value: [start, end],
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      const value = nextProps.value || [];
-      const start = nextProps.parseDateFromValue(value[0]);
-      const end = nextProps.parseDateFromValue(value[1]);
       this.setState({
-        value: [start, end],
+        value: nextProps.value || [],
       });
     }
   }
@@ -46,21 +40,15 @@ export default class RangePicker extends React.Component<any, any> {
     if (!('value' in props)) {
       this.setState({ value });
     }
-    const startDate = value[0] ? new Date(value[0].getTime()) : null;
-    const endDate = value[1] ? new Date(value[1].getTime()) : null;
-    const startDateString = value[0] ? props.getFormatter().format(value[0]) : '';
-    const endDateString = value[1] ? props.getFormatter().format(value[1]) : '';
-    props.onChange([startDate, endDate], [startDateString, endDateString]);
+    props.onChange(value, [
+      (value[0] && value[0].format(props.format)) || '',
+      (value[1] && value[1].format(props.format)) || '',
+    ]);
   }
 
   render() {
     const props = this.props;
     const locale = props.locale;
-    // 以下两行代码
-    // 给没有初始值的日期选择框提供本地化信息
-    // 否则会以周日开始排
-    let defaultCalendarValue = new GregorianCalendar(locale);
-    defaultCalendarValue.setTime(Date.now());
 
     const { disabledDate, showTime, getCalendarContainer,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;
@@ -92,16 +80,15 @@ export default class RangePicker extends React.Component<any, any> {
 
     const calendar = (
       <RangeCalendar
+        {...calendarHandler}
         prefixCls="ant-calendar"
-        formatter={props.getFormatter()}
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
-        defaultValue={[defaultCalendarValue, defaultCalendarValue]}
-        {...calendarHandler}
+        defaultValue={props.defaultPickerValue || [moment(), moment()]}
       />
     );
 
@@ -114,7 +101,7 @@ export default class RangePicker extends React.Component<any, any> {
 
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
-        formatter={props.getFormatter()}
+        {...pickerChangeHandler}
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}
@@ -125,7 +112,6 @@ export default class RangePicker extends React.Component<any, any> {
         getCalendarContainer={getCalendarContainer}
         onOpen={props.toggleOpen}
         onClose={props.toggleOpen}
-        {...pickerChangeHandler}
       >
         {
           ({ value }) => {
@@ -136,7 +122,7 @@ export default class RangePicker extends React.Component<any, any> {
                 <input
                   disabled={disabled}
                   readOnly
-                  value={start ? props.getFormatter().format(start) : ''}
+                  value={(start && start.format(props.format)) || ''}
                   placeholder={startPlaceholder}
                   className="ant-calendar-range-picker-input"
                 />
@@ -144,7 +130,7 @@ export default class RangePicker extends React.Component<any, any> {
                 <input
                   disabled={disabled}
                   readOnly
-                  value={end ? props.getFormatter().format(end) : ''}
+                  value={(end && end.format(props.format)) || ''}
                   placeholder={endPlaceholder}
                   className="ant-calendar-range-picker-input"
                 />
