@@ -141,7 +141,6 @@
     "eslint-fix": "eslint --fix components test site scripts ./*.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
     "test": "npm run lint && npm run dist",
     "jest": "jest",
-    "postinstall": "typings install",
     "pre-publish": "node ./scripts/prepub",
     "prepublish": "antd-tools run guard",
     "pub": "antd-tools run update-self && antd-tools run pub",
