@@ -33,23 +33,23 @@ $ npm install antd@beta --save
 
 ## Import in Browser
 
-We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package, in order to import all the components of antd directly. Also, you can use [npmcdn](https://npmcdn.com/).
+We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package, in order to import all the components of antd directly. Also, you can use [unpkg](https://unpkg.com/).
 
 > It's not recommended to use the already built files, as you cannot get bugfixes from the dependencies of antd.
 
 #### stable
 
-- https://npmcdn.com/antd/dist/antd.js
-- https://npmcdn.com/antd/dist/antd.css
-- https://npmcdn.com/antd/dist/antd.min.js
-- https://npmcdn.com/antd/dist/antd.min.css
+- https://unpkg.com/antd/dist/antd.js
+- https://unpkg.com/antd/dist/antd.css
+- https://unpkg.com/antd/dist/antd.min.js
+- https://unpkg.com/antd/dist/antd.min.css
 
 #### beta
 
-- https://npmcdn.com/antd@beta/dist/antd.js
-- https://npmcdn.com/antd@beta/dist/antd.css
-- https://npmcdn.com/antd@beta/dist/antd.min.js
-- https://npmcdn.com/antd@beta/dist/antd.min.css
+- https://unpkg.com/antd@beta/dist/antd.js
+- https://unpkg.com/antd@beta/dist/antd.css
+- https://unpkg.com/antd@beta/dist/antd.min.js
+- https://unpkg.com/antd@beta/dist/antd.min.css
 
 > Here is an [example](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) about how to build your own antd.js if you are using antd@<1.0.0.
 
