@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { cloneElement } from 'react';
+import warning from 'warning';
 import BreadcrumbItem from './BreadcrumbItem';
 
 export interface BreadcrumbProps {
@@ -49,6 +50,15 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     linkRender: React.PropTypes.func,
     nameRender: React.PropTypes.func,
   };
+
+  constructor(props) {
+    super();
+
+    warning(
+      !('linkRender' in props || 'nameRender' in props),
+      '`linkRender` and `nameRender` is removed, please use `itemRender` instead.'
+    );
+  }
 
   render() {
     let crumbs;

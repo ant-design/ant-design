@@ -81,7 +81,7 @@ let Demo = React.createClass({
       );
     });
     return (
-      <Form horizontal form={this.props.form}>
+      <Form horizontal>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
           <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>

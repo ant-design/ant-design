@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 通知提醒框
 type: Views
 noinstant: true
-english: Notification
+title: Notification
+subtitle: 通知提醒框
 ---
 
 全局展示通知提醒信息。

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Tooltip from '../tooltip';
 import getPlacements from './placements';
-import warning from 'warning';
 
 const placements = getPlacements();
 
@@ -29,8 +28,6 @@ export interface PopoverProps {
    getTooltipContainer?: (triggerNode: React.ReactNode) => React.ReactNode;
    /** content of popup-container */
    content?: React.ReactNode;
-   /** keep overlay for compatibility */
-   overlay?: React.ReactNode;
    style?: React.CSSProperties;
    transitionName?: string;
 }
@@ -63,22 +60,14 @@ export default class Popover extends React.Component<PopoverProps, any> {
     return (this.refs as any).tooltip.getPopupDomNode();
   }
 
-  componentDidMount() {
-    if ('overlay' in this.props) {
-      warning(false, '`overlay` prop of Popover is deprecated, use `content` instead.');
-    }
-  }
-
   getOverlay() {
-    // use content replace overlay
-    // keep overlay for compatibility
-    const { title, prefixCls, overlay, content } = this.props;
+    const { title, prefixCls, content } = this.props;
 
     return (
       <div>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
         <div className={`${prefixCls}-inner-content`}>
-          {content || overlay}
+          {content}
         </div>
       </div>
     );

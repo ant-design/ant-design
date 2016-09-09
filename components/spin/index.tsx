@@ -3,7 +3,6 @@ import { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
-import warning from 'warning';
 import splitObject from '../_util/splitObject';
 import omit from 'object.omit';
 
@@ -33,7 +32,7 @@ export default class Spin extends React.Component<SpinProps, any> {
 
   constructor(props) {
     super(props);
-    const spinning = this.getSpinning(props);
+    const spinning = props.spinning;
     this.state = {
       spinning,
     };
@@ -44,7 +43,6 @@ export default class Spin extends React.Component<SpinProps, any> {
   }
 
   componentDidMount() {
-    warning(!('spining' in this.props), '`spining` property of Popover is a spell mistake, use `spinning` instead.');
     if (!isCssAnimationSupported()) {
       // Show text in IE8/9
       findDOMNode(this).className += ` ${this.props.prefixCls}-show-text`;
@@ -57,18 +55,9 @@ export default class Spin extends React.Component<SpinProps, any> {
     }
   }
 
-  getSpinning(props) {
-    // Backwards support
-    if ('spining' in props) {
-      warning(false, '`spining` property of Spin is a spell mistake, use `spinning` instead.');
-      return props.spining;
-    }
-    return props.spinning;
-  }
-
   componentWillReceiveProps(nextProps) {
-    const currentSpinning = this.getSpinning(this.props);
-    const spinning = this.getSpinning(nextProps);
+    const currentSpinning = this.props.spinning;
+    const spinning = nextProps.spinning;
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
