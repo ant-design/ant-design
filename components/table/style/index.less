@@ -269,6 +269,9 @@
     .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
       border-right: 1px solid @border-color-split;
+    }
+    .@{table-prefix-cls}-thead > tr:first-child > th,
+    .@{table-prefix-cls}-tbody > tr > td {
       &:last-child {
         border-right: 0;
       }

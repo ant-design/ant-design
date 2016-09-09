@@ -14,3 +14,13 @@ export function flatArray(data = [], childrenName = 'children') {
   loop(data);
   return result;
 }
+
+export function treeMap(tree: Object[], mapper: Function, childrenName = 'children') {
+  return tree.map((node, index) => {
+    const extra = {};
+    if (node[childrenName]) {
+      extra[childrenName] = treeMap(node[childrenName], mapper, childrenName);
+    }
+    return assign({}, mapper(node, index), extra);
+  });
+}
