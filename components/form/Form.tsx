@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import omit from 'object.omit';
+import omit from 'omit.js';
 import warning from 'warning';
 import assign from 'object-assign';
 import FormItem from './FormItem';

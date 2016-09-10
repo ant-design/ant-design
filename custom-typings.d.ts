@@ -67,8 +67,8 @@ declare module "object-assign" {
   export default function(target: any, ...sources: any[]): any;
 }
 
-declare module "object.omit" {
-  export default function(target: any, ...sources: any[]): any;
+declare module "omit.js" {
+  export default function(obj: Object, fields: string[]): any;
 }
 
 declare module 'rc-animate' {

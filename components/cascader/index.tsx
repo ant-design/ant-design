@@ -5,7 +5,7 @@ import Icon from '../icon';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
-import omit from 'object.omit';
+import omit from 'omit.js';
 
 export interface CascaderOptionType {
   value: string;

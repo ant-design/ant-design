@@ -3,7 +3,7 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
-import omit from 'object.omit';
+import omit from 'omit.js';
 
 function getScroll(target, top) {
   if (typeof window === 'undefined') {
