@@ -37,7 +37,7 @@ const App = React.createClass({
             onChange={this.onCheckAllChange}
             checked={this.state.checkAll}
           >
-						全选
+						Check all
           </Checkbox>
         </div>
         <br />
