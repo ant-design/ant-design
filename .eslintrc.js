@@ -1,5 +1,3 @@
-'use strict';
-
 const eslintrc = {
   extends: ['eslint-config-airbnb'],
   env: {
@@ -28,7 +26,7 @@ const eslintrc = {
     'react/sort-comp': 0,
     'react/prop-types': 0,
     'react/jsx-first-prop-new-line': 0,
-    "react/jsx-filename-extension": [1, { extensions: ['.js', '.jsx', '.md'] }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.md'] }],
     'import/no-unresolved': 0,
     'import/no-extraneous-dependencies': 0,
     'no-param-reassign': 0,
@@ -37,7 +35,7 @@ const eslintrc = {
     'consistent-return': 0,
     'no-redeclare': 0,
     'react/require-extension': 0,
-  }
+  },
 };
 
 if (process.env.RUN_ENV === 'DEMO') {
