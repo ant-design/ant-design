@@ -6,7 +6,7 @@ title: Spin
 
 A Spin is used for displaying loading state of a page or a block.
 
-## When to use
+## When To Use
 
 When partial of page is waiting for asynchronous data or during a rendering process, an appropriate loading animation can effectively alleviate users' inquietude.
 

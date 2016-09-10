@@ -6,7 +6,7 @@ english: Upload
 
 Upload file by selecting or dragging
 
-## When to use
+## When To Use
 
 Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool.
 

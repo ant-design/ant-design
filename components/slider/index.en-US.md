@@ -6,7 +6,7 @@ title: Slider
 
 A Slider component for displaying current value and intervals in range.
 
-## When to use
+## When To Use
 
 To input a value in a range.
 

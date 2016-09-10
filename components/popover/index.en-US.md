@@ -6,7 +6,7 @@ english: Popover
 
 The floating card popped by clicking or hovering.
 
-## When to use
+## When To Use
 
 A simple popup menu to provide extra information or operations.
 

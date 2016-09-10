@@ -6,7 +6,7 @@ title: Pagination
 
 A long list can be divided into several pages by `Pagination`, and only one page will be loaded at a time.
 
-## When to use
+## When To Use
 
 - When it will take a long time to load/render all items.
 - If you want to browse the data by switching in the pages.

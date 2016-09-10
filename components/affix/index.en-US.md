@@ -6,7 +6,7 @@ english: Affix
 
 Make an element sticky to viewport.
 
-## When to use
+## When To Use
 
 When user browses a long web page, some content need to sticky to viewport. It is common for menus and actions.
 

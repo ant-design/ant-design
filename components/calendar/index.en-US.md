@@ -5,9 +5,9 @@ cols: 1
 title: Calendar
 ---
 
-When to use container for displaying data in calendar form.
+When To Use container for displaying data in calendar form.
 
-## When to use
+## When To Use
 
 When data is in the form of date, such as schedule, timetable, prices calendar, Lunar calendar. This component also supports Year/Month switch.
 

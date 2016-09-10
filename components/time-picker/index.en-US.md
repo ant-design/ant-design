@@ -6,7 +6,7 @@ title: TimePicker
 
 To select/input a time.
 
-## When to use
+## When To Use
 --------
 
 By clicking the input box, you can select a time from a popup panel.

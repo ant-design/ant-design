@@ -6,7 +6,7 @@ english: Tag
 
 Tag for categorizing or markuping.
 
-## When to use
+## When To Use
 
 - It can be used to tag by dimension or property.
 

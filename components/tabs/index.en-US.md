@@ -6,7 +6,7 @@ english: Tabs
 
 Tabs make it easy to switch between different views.
 
-### When to use
+### When To Use
 
 Ant Design has 3 types Tabs for different situation.
 

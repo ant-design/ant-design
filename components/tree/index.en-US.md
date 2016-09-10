@@ -4,7 +4,7 @@ type: Views
 title: Tree
 ---
 
-## When to use
+## When To Use
 
 Directory, organization, biological classification, country, and etc. Almost things of the world are tree structure. The `Tree` component is a way of representing the hierarchical relationship of these things，and you also can expand, collapse, select the treeNodes of it.
 

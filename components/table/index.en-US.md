@@ -7,12 +7,12 @@ title: Table
 
 A table displays rows data.
 
-## When to use
+## When To Use
 
 - To display a collections of structured data.
 - To sort, search, paging, filter data.
 
-## How to use
+## How To Use
 
 Sepecify `dataSource` of Table to be an array data.
 

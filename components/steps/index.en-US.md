@@ -7,7 +7,7 @@ title: Steps
 
 `Steps` is a navigation bar that guides users through the steps of a task. 
 
-## When to use
+## When To Use
 
 When the task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
 

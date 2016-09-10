@@ -6,7 +6,7 @@ title: InputNumber
 
 Enter a number within certain range with the mouse or keyboard.
 
-## When to use
+## When To Use
 
 When a numeric value needs to be provided.
 

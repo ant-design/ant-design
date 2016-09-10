@@ -6,7 +6,7 @@ title: Select
 
 A Selector similar to Select2.
 
-## When to use
+## When To Use
 
 A dropdown menu for choosing, an elegant alternative to the native select component.
 

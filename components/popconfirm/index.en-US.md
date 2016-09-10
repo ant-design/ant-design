@@ -6,7 +6,7 @@ title: Popconfirm
 
 A simple and compact confirmation dialog of an action.
 
-## When to use
+## When To Use
 
 A simple and compact dialog used for asking an user confirmation.
 

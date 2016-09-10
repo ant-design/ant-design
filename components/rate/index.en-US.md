@@ -6,7 +6,7 @@ title: Rate
 
 Rate component.
 
-## When to use
+## When To Use
 
 - Show evalutate.
 - A quick rating operation on something.

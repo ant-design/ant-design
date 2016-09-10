@@ -9,13 +9,13 @@ Meaningful vector graphics.
 
 ## Icons naming convention
 
-We provide semantic name for every icon, and naming rules are as follows: 
+We provide semantic name for every icon, and naming rules are as follows:
 
 - Scanning line icon has the similar name with its solid one，but it's distinguished by `-o`, for example, `question-circle`(a full circle) and `question-circle-o`(an empty circle);
 
 - Naming sequence：`[icon's name]-[shape, optional]-[Scanning line or not]-[direction, optional]`.
 
-## How to use
+## How To Use
 
 Use tag <Icon /> to create an icon and set its type in the type prop, for example:
 
