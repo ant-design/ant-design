@@ -109,7 +109,7 @@ export default class Header extends React.Component {
               const url = `/components/${pathSnippet}`;
               const subtitle = meta.subtitle || meta.chinese;
               return (
-                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${meta.subtitle || meta.chinese}`}>
+                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${subtitle || ''}`}>
                   <strong>{meta.title || meta.english}</strong>
                   {subtitle && <span className="ant-component-decs">{subtitle}</span>}
                 </Option>
