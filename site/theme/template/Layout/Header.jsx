@@ -173,7 +173,7 @@ export default class Header extends React.Component {
               </Menu.Item>
               <Menu.Item key="docs/react">
                 <Link to="/docs/react/introduce">
-                  <FormattedMessage id="app.header.menu.react" />
+                  <FormattedMessage id="app.header.menu.components" />
                 </Link>
               </Menu.Item>
               <Menu.Item key="docs/spec">
