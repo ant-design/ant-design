@@ -3,7 +3,7 @@ order: 0
 title: Ant Design of React
 ---
 
-antd is a set of React components which follow the Ant Design specification. It is designed to help developing RIA such as dashboards or other enterprise-like complex UI needs.
+We supply a react implementation `antd` following Ant Design specification, which designed to help developing RIA such as dashboards or other enterprise-like complex UI needs.
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
@@ -27,7 +27,7 @@ antd is a set of React components which follow the Ant Design specification. It 
 
 ## Features
 
-- Using Ant Design, a design language for creating user friendly and beautiful websites.
+- Following Ant Design, a design language for creating user friendly and beautiful websites.
 - It is a set of high quality UI components and based on [React Component](http://react-component.github.io/badgeboard/).
 - Provides a work flow which is based on npm, webpack, and babel, supporting ES2015 and TypeScript.
 
