@@ -18,24 +18,24 @@ import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hangzhou',
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
   }],
 }];
 
 const CitySwitcher = React.createClass({
   getInitialState() {
     return {
-      text: '未选择',
+      text: 'Unselect',
     };
   },
   onChange(value, selectedOptions) {
@@ -49,7 +49,7 @@ const CitySwitcher = React.createClass({
         {this.state.text}
         &nbsp;
         <Cascader options={options} onChange={this.onChange}>
-          <a href="#">切换城市</a>
+          <a href="#">Change city</a>
         </Cascader>
       </span>
     );
