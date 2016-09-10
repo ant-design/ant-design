@@ -3,10 +3,10 @@ import Promise from 'bluebird';
 import MainContent from './MainContent';
 
 // locale copy from layout
-const locale = (
-  window.localStorage &&
-    localStorage.getItem('locale') !== 'en-US'
-) ? 'zh-CN' : 'en-US';
+const language = (typeof localStorage === 'undefined' || !localStorage.getItem('locale')) ?
+        navigator.language : localStorage.getItem('locale');
+const isZhCN = language === 'zh-CN';
+const locale = isZhCN ? 'zh-CN' : 'en-US';
 
 export function collect(nextProps, callback) {
   const pageData = nextProps.location.pathname === 'changelog' ?
