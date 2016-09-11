@@ -22,10 +22,10 @@ Using the [Cascader](/components/cascader) component is strongly recommended ins
 import { Select } from 'antd';
 const Option = Select.Option;
 
-const provinceData = ['浙江', '江苏'];
+const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
-  浙江: ['杭州', '宁波', '温州'],
-  江苏: ['南京', '苏州', '镇江'],
+  Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
+  Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
 };
 
 const App = React.createClass({
