@@ -51,7 +51,7 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 - https://unpkg.com/antd@beta/dist/antd.min.js
 - https://unpkg.com/antd@beta/dist/antd.min.css
 
-> Here is an [example](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) about how to build your own antd.js if you are using antd@<1.0.0.
+> Here is an [example](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) of how to build your own antd.js if you are using antd@<1.0.0.
 
 ## Development tool
 
@@ -63,6 +63,6 @@ $ npm install antd-init -g
 
 Inside an empty folder run `antd-init` to init.
 
-You can explore the latest structure of scaffold [there]((https://github.com/ant-design/antd-init/tree/master/boilerplates)), it is a good habit to watch this repo to get the latest features.
+You can explore the latest structure of scaffold [here](https://github.com/ant-design/antd-init/tree/master/boilerplates), it is a good habit to watch this repo to get the latest features.
 
 > [More development tools](http://ant-tool.github.io/)。
