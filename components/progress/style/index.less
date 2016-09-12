@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@progress-prefix-cls: ant-progress;
+@progress-prefix-cls: ~"@{ant-prefix}-progress";
 
 .@{progress-prefix-cls} {
   display: inline-block;
@@ -62,7 +62,7 @@
       bottom: 0;
       background: #fff;
       border-radius: 10px;
-      animation: ant-progress-active 2s @ease-out-quint infinite;
+      animation: ~"@{ant-prefix}-progress-active" 2s @ease-out-quint infinite;
     }
   }
 
@@ -119,7 +119,7 @@
   }
 }
 
-@keyframes ant-progress-active {
+@keyframes ~"@{ant-prefix}-progress-active" {
   0% {
     opacity: .3;
     width: 0;

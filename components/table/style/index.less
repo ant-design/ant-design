@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@table-prefix-cls: ant-table;
+@table-prefix-cls: ~"@{ant-prefix}-table";
 @table-head-background-color: @background-color-base;
 
 .@{table-prefix-cls} {
@@ -305,7 +305,7 @@
     border: 1px solid @border-color-base;
     box-shadow: @box-shadow-base;
 
-    .ant-dropdown-menu {
+    .@{ant-prefix}-dropdown-menu {
       border: 0;
       box-shadow: none;
       border-radius: @border-radius-base @border-radius-base 0 0;
@@ -320,8 +320,8 @@
         box-shadow: @box-shadow-base;
       }
 
-      .ant-dropdown-submenu-contain-selected {
-        .ant-dropdown-menu-submenu-title:after {
+      .@{ant-prefix}-dropdown-submenu-contain-selected {
+        .@{ant-prefix}-dropdown-menu-submenu-title:after {
           color: @primary-color;
           font-weight: bold;
           text-shadow: 0 0 2px tint(@primary-color, 80%);
@@ -329,12 +329,12 @@
       }
     }
 
-    .ant-dropdown-menu-item {
+    .@{ant-prefix}-dropdown-menu-item {
       overflow: hidden;
     }
 
-    > .ant-dropdown-menu > .ant-dropdown-menu-item:last-child,
-    > .ant-dropdown-menu > .ant-dropdown-menu-submenu:last-child .ant-dropdown-menu-submenu-title {
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-submenu:last-child .@{ant-prefix}-dropdown-menu-submenu-title {
       border-radius: 0;
     }
 

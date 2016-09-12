@@ -1,8 +1,8 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@upload-prefix-cls: ant-upload;
-@upload-item: ant-upload-list-item;
+@upload-prefix-cls: ~"@{ant-prefix}-upload";
+@upload-item: ~"@{ant-prefix}-upload-list-item";
 @upload-pictrue-card-size: 96px;
 
 .@{upload-prefix-cls} {
@@ -158,7 +158,7 @@
       margin-top: -2px;
       margin-bottom: 1px;
       font-size: 12px;
-      .ant-progress-line-inner {
+      .@{ant-prefix}-progress-line-inner {
         vertical-align: middle;
       }
     }

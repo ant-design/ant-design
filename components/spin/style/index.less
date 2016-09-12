@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@spin-prefix-cls: ant-spin;
+@spin-prefix-cls: ~"@{ant-prefix}-spin";
 @spin-dot-default: #999;
 @spin-dot-size-sm: 12px;
 @spin-dot-size: 20px;
@@ -123,7 +123,7 @@
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   /* IE10+ */
-  .ant-spin-nested-loading > .ant-spin-container {
+  .@{ant-prefix}-spin-nested-loading > .@{ant-prefix}-spin-container {
     background: #fff;
     opacity: 0.5;
   }

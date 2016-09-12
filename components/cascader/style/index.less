@@ -1,11 +1,11 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@cascader-prefix-cls: ant-cascader;
+@cascader-prefix-cls: ~"@{ant-prefix}-cascader";
 
 .@{cascader-prefix-cls} {
   font-size: @font-size-base;
-  &-input.ant-input {
+  &-input.@{ant-prefix}-input {
     background-color: transparent;
     display: block;
     cursor: pointer;
