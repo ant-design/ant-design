@@ -44,6 +44,7 @@ export interface UploadProps {
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
+  prefixCls?: string;
 }
 
 export interface UploadListProps {
@@ -52,4 +53,5 @@ export interface UploadListProps {
   onRemove?: (file: File) => void;
   items?: Array<File>;
   progressAttr?: Object;
+  prefixCls?: string;
 }

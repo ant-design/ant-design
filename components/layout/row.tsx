@@ -11,11 +11,13 @@ export interface RowProps {
   align?: 'top' | 'middle' | 'bottom';
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
   style?: React.CSSProperties;
+  prefixCls?: string;
 }
 
 export default class Row extends React.Component<RowProps, any> {
   static defaultProps = {
     gutter: 0,
+    prefixCls: 'ant-row',
   };
   static propTypes = {
     type: React.PropTypes.string,
@@ -24,15 +26,16 @@ export default class Row extends React.Component<RowProps, any> {
     className: React.PropTypes.string,
     children: React.PropTypes.node,
     gutter: React.PropTypes.number,
+    prefixCls: React.PropTypes.string,
   };
   render() {
-    const [{ type, justify, align, className, gutter, style, children }, others] = splitObject(this.props,
-      ['type', 'justify', 'align', 'className', 'gutter', 'style', 'children']);
+    const [{ type, justify, align, className, gutter, style, children, prefixCls }, others] = splitObject(this.props,
+      ['type', 'justify', 'align', 'className', 'gutter', 'style', 'children', 'prefixCls']);
     const classes = classNames({
-      'ant-row': !type,
-      [`ant-row-${type}`]: type,
-      [`ant-row-${type}-${justify}`]: justify,
-      [`ant-row-${type}-${align}`]: align,
+      [prefixCls]: !type,
+      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${type}-${justify}`]: justify,
+      [`${prefixCls}-${type}-${align}`]: align,
       [className]: className,
     });
     const rowStyle = gutter > 0 ? assign({}, {

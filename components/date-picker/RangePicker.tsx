@@ -8,6 +8,7 @@ import Icon from '../icon';
 export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
     defaultValue: [],
+    prefixCls: 'ant-calendar',
   };
 
   constructor(props) {
@@ -50,12 +51,12 @@ export default class RangePicker extends React.Component<any, any> {
     const props = this.props;
     const locale = props.locale;
 
-    const { disabledDate, showTime, getCalendarContainer,
+    const { disabledDate, showTime, getCalendarContainer, prefixCls,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;
     const state = this.state;
 
     const calendarClassName = classNames({
-      'ant-calendar-time': showTime,
+      [`${prefixCls}-time`]: showTime,
     });
 
     // 需要选择时间时，点击 ok 时才触发 onChange
@@ -81,7 +82,7 @@ export default class RangePicker extends React.Component<any, any> {
     const calendar = (
       <RangeCalendar
         {...calendarHandler}
-        prefixCls="ant-calendar"
+        prefixCls={prefixCls}
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
@@ -95,7 +96,7 @@ export default class RangePicker extends React.Component<any, any> {
     const clearIcon = (!props.disabled && state.value && (state.value[0] || state.value[1]))
       ? <Icon
         type="cross-circle"
-        className="ant-calendar-picker-clear"
+        className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       /> : null;
 
@@ -106,7 +107,7 @@ export default class RangePicker extends React.Component<any, any> {
         disabled={disabled}
         calendar={calendar}
         value={state.value}
-        prefixCls="ant-calendar-picker-container"
+        prefixCls={`${prefixCls}-picker-container`}
         style={popupStyle}
         align={align}
         getCalendarContainer={getCalendarContainer}
@@ -124,18 +125,18 @@ export default class RangePicker extends React.Component<any, any> {
                   readOnly
                   value={(start && start.format(props.format)) || ''}
                   placeholder={startPlaceholder}
-                  className="ant-calendar-range-picker-input"
+                  className={`${prefixCls}-range-picker-input`}
                 />
-                <span className="ant-calendar-range-picker-separator"> ~ </span>
+                <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
                 <input
                   disabled={disabled}
                   readOnly
                   value={(end && end.format(props.format)) || ''}
                   placeholder={endPlaceholder}
-                  className="ant-calendar-range-picker-input"
+                  className={`${prefixCls}-range-picker-input`}
                 />
                 {clearIcon}
-                <span className="ant-calendar-picker-icon" />
+                <span className={`${prefixCls}-picker-icon`} />
               </span>
             );
           }

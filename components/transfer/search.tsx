@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Icon from '../icon';
+import Input from '../input';
+
 function noop() {
 }
 
@@ -31,7 +33,7 @@ export default class Search extends React.Component<SearchProps, any> {
     const { placeholder, value, prefixCls } = this.props;
     return (
       <div>
-        <input placeholder={placeholder} className={`${prefixCls} ant-input`} value={value} ref="input"
+        <Input placeholder={placeholder} className={prefixCls} value={value} ref="input"
           onChange={this.handleChange}
         />
         {value && value.length > 0 ?

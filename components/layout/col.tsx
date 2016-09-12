@@ -26,11 +26,12 @@ export interface ColProps {
   sm?: ColSize;
   md?: ColSize;
   lg?: ColSize;
+  prefixCls?: string;
 }
 
 const Col: React.StatelessComponent<ColProps> = (props) => {
-  const [{ span, order, offset, push, pull, className, children }, others] = splitObject(props,
-    ['span', 'order', 'offset', 'push', 'pull', 'className', 'children']);
+  const [{ span, order, offset, push, pull, className, children, prefixCls = 'ant-col' }, others] = splitObject(props,
+    ['span', 'order', 'offset', 'push', 'pull', 'className', 'children', 'prefixCls']);
   let sizeClassObj = {};
   ['xs', 'sm', 'md', 'lg'].forEach(size => {
     let sizeProps: ColSize = {};
@@ -43,19 +44,19 @@ const Col: React.StatelessComponent<ColProps> = (props) => {
     delete others[size];
 
     sizeClassObj = assign({}, sizeClassObj, {
-      [`ant-col-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-      [`ant-col-${size}-order-${sizeProps.order}`]: sizeProps.order,
-      [`ant-col-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
-      [`ant-col-${size}-push-${sizeProps.push}`]: sizeProps.push,
-      [`ant-col-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
+      [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
+      [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order,
+      [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
+      [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push,
+      [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
     });
   });
   const classes = classNames(assign({}, {
-    [`ant-col-${span}`]: span !== undefined,
-    [`ant-col-order-${order}`]: order,
-    [`ant-col-offset-${offset}`]: offset,
-    [`ant-col-push-${push}`]: push,
-    [`ant-col-pull-${pull}`]: pull,
+    [`${prefixCls}-${span}`]: span !== undefined,
+    [`${prefixCls}-order-${order}`]: order,
+    [`${prefixCls}-offset-${offset}`]: offset,
+    [`${prefixCls}-push-${push}`]: push,
+    [`${prefixCls}-pull-${pull}`]: pull,
     [className]: !!className,
   }, sizeClassObj));
 

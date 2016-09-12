@@ -22,6 +22,8 @@ export default function wrapPicker(Picker, defaultFormat?) {
         align: {
           offset: [0, -9],
         },
+        prefixCls: 'ant-calendar',
+        inputPrefixCls: 'ant-input',
       };
     },
 
@@ -48,14 +50,15 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
     render() {
       const props = this.props;
+      const { prefixCls, inputPrefixCls } = props;
       const pickerClass = classNames({
-        'ant-calendar-picker': true,
+        [`${prefixCls}-picker`]: true,
       });
       const pickerInputClass = classNames({
-        'ant-calendar-range-picker': true,
-        'ant-input': true,
-        'ant-input-lg': props.size === 'large',
-        'ant-input-sm': props.size === 'small',
+        [`${prefixCls}-range-picker`]: true,
+        [inputPrefixCls]: true,
+        [`${inputPrefixCls}-lg`]: props.size === 'large',
+        [`${inputPrefixCls}-sm`]: props.size === 'small',
       });
 
       const locale = this.getLocale();
@@ -70,7 +73,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         <TimePickerPanel
           {...rcTimePickerProps}
           {...props.showTime}
-          prefixCls="ant-calendar-time-picker"
+          prefixCls={`${prefixCls}-time-picker`}
           placeholder={locale.timePickerLocale.placeholder}
           transitionName="slide-up"
         />

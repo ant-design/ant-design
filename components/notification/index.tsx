@@ -16,12 +16,12 @@ export interface ArgsProps {
   icon?: React.ReactNode;
 }
 
-function getNotificationInstance() {
+function getNotificationInstance(prefixCls) {
   if (notificationInstance) {
     return notificationInstance;
   }
   notificationInstance = (Notification as any).newInstance({
-    prefixCls: 'ant-notification',
+    prefixCls: prefixCls,
     style: {
       top: defaultTop,
       right: 0,
@@ -31,7 +31,8 @@ function getNotificationInstance() {
 }
 
 function notice(args) {
-  const prefixCls = args.prefixCls || 'ant-notification-notice';
+  const outerPrefixCls = args.prefixCls || 'ant-notification';
+  const prefixCls = `${outerPrefixCls}-notice`;
 
   let duration;
   if (args.duration === undefined) {
@@ -69,7 +70,7 @@ function notice(args) {
     iconNode = <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />;
   }
 
-  getNotificationInstance().notice({
+  getNotificationInstance(outerPrefixCls).notice({
     content: (
       <div className={`${prefixCls}-content ${iconNode ? `${prefixCls}-with-icon` : ''}`}>
         {iconNode}

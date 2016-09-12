@@ -37,12 +37,14 @@ export interface CarouselProps {
   afterChange?: (current: number) => void;
   /** 行内样式 */
   style?: React.CSSProperties;
+  prefixCls?: string;
 }
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
     dots: true,
     arrows: false,
+    prefixCls: 'ant-carousel',
   };
 
   render() {
@@ -53,9 +55,9 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       props.draggable = false;
     }
 
-    let className = 'ant-carousel';
+    let className = props.prefixCls;
     if (props.vertical) {
-      className = `${className} ant-carousel-vertical`;
+      className = `${className} ${className}-vertical`;
     }
 
     return (

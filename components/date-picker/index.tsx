@@ -17,6 +17,8 @@ export interface PickerProps {
   locale?: any;
   size?: 'large' | 'small' | 'default';
   getCalendarContainer?: (trigger) => React.ReactNode;
+  prefixCls?: string;
+  inputPrefixCls?: string;
 }
 
 export interface SinglePickerProps {
