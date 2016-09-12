@@ -31,16 +31,16 @@ After referring to the summary and reasoning of design principles from The Non-D
 </a>
 </div>
 
-#### Ant Design 十大设计原则
+#### Ant Design Principles
 
-- [亲密性 Proximity](/docs/spec/proximity)
-- [对齐 Alignment](/docs/spec/alignment)
-- [对比 Contrast](/docs/spec/contrast)
-- [重复 Repetition](/docs/spec/repetition)
-- [直截了当 Make it Direct](/docs/spec/direct)
-- [简化交互 Keep it Lightweight](/docs/spec/lightweight)
-- [足不出户 Stay on the Page](/docs/spec/stay)
-- [提供邀请 Provide Invitation](/docs/spec/invitation)
-- [巧用过渡 Use Transition](/docs/spec/transition)
-- [即时反应 React Immediately](/docs/spec/reaction)
+- [Proximity](/docs/spec/proximity)
+- [Alignment](/docs/spec/alignment)
+- [Contrast](/docs/spec/contrast)
+- [Repetition](/docs/spec/repetition)
+- [Make it Direct](/docs/spec/direct)
+- [Keep it Lightweight](/docs/spec/lightweight)
+- [Stay on the Page](/docs/spec/stay)
+- [Provide Invitation](/docs/spec/invitation)
+- [Use Transition](/docs/spec/transition)
+- [React Immediately](/docs/spec/reaction)
 
