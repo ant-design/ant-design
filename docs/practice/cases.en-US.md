@@ -3,11 +3,11 @@ order: 0
 title: Cases
 ---
 
-Ant Design is an implementation of UI Design Language。
+Ant Design is a design language for enterprise-like complex UIs.
 
-Starting in April 2015, Ant Design product rapidly expanded, covering multiple business lines and more than 40 systems.
-Based in Taiwan, used by both professional and non-professional designers,
-Ant Design has a low learning curve, it helps you getting started fast and achieve rapid results.
+Starting in April 2015, more and more products of Ant Financial follow Ant Design specification, covering multiple business lines and more than 40 systems.
+Designed for enterprise-like complex UIs, used by both professional and non-professional designers,
+Ant Design has a low learning curve that helps you getting started fast and achieve rapid results.
  
 With a strong focus on proof-based design and user experience, 
 Ant Design provides a complete front-end development solution that can greatly enhance the design and development efficiency.
