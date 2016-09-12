@@ -12,6 +12,7 @@ import { Upload, Button, Icon, message } from 'antd';
 
 const props = {
   action: '/upload.do',
+  multiple: true,
   beforeUpload(file) {
     const isJPG = file.type === 'image/jpeg';
     if (!isJPG) {
