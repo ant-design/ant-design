@@ -1,6 +1,8 @@
-import RcTabs, { TabPane } from 'rc-tabs';
-import * as React from 'react';
+import React from 'react';
 import { cloneElement } from 'react';
+import RcTabs, { TabPane } from 'rc-tabs';
+import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import Icon from '../icon';
 
@@ -60,8 +62,17 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   render() {
-    let { prefixCls, size, tabPosition, animation, type,
-      children, tabBarExtraContent, hideAdd } = this.props;
+    let {
+      prefixCls,
+      size,
+      type,
+      tabPosition,
+      animation,
+      children,
+      tabBarExtraContent,
+      hideAdd,
+      onTabClick,
+    } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
       [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
@@ -107,9 +118,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
     return (
       <RcTabs {...this.props}
         className={className}
-        tabBarExtraContent={tabBarExtraContent}
+        tabBarPosition={tabPosition}
+        renderTabBar={() => (
+          <ScrollableInkTabBar
+            extraContent={tabBarExtraContent}
+            onTabClick={onTabClick}
+          />
+        )}
+        renderTabContent={() => <TabContent />}
         onChange={this.handleChange}
-        animation={animation}
       >
         {childrenWithCross || children}
       </RcTabs>
