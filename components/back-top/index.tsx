@@ -5,6 +5,34 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
+const reqAnimFrame = (() => {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame;
+  }
+  const a = ['moz', 'ms', 'webkit'];
+  const raf = a.filter(key => `${key}RequestAnimationFrame` in window);
+  return raf[0] ? window[`${raf[0]}RequestAnimationFrame`] :
+    ((callback) => window.setTimeout(callback, 1000 / 60));
+})();
+
+const currentScrollTop = () => {
+  const supportPageOffset = window.pageXOffset !== undefined;
+  const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
+  const isCSS1ScrollTop = isCSS1Compat ?
+    document.documentElement.scrollTop : document.body.scrollTop;
+  return supportPageOffset ? window.pageYOffset : isCSS1ScrollTop;
+};
+
+const easeInOutCubic = (t, b, c, d) => {
+  const cc = c - b;
+  t /= d / 2;
+  if (t < 1) {
+    return cc / 2 * t * t * t + b;
+  } else {
+    return cc / 2 * ((t -= 2) * t * t + 2) + b;
+  }
+};
+
 function getScroll(target, top) {
   if (typeof window === 'undefined') {
     return 0;
@@ -52,10 +80,17 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   scrollToTop = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    this.setScrollTop(0);
+    const scrollTop = currentScrollTop();
+    let startTime;
+    const frameFunc = (timestamp) => {
+      startTime = startTime ? startTime : timestamp;
+      const time = timestamp - startTime;
+      this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450));
+      if (time < 450) {
+        reqAnimFrame(frameFunc);
+      }
+    };
+    reqAnimFrame(frameFunc);
     this.props.onClick(e);
   }
 
