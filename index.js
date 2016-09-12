@@ -1,25 +1,34 @@
 /* eslint no-console:0 */
+// this file is not used if use https://github.com/ant-design/babel-plugin-antd
 
 function camelCase(name) {
   return name.charAt(0).toUpperCase() +
-    name.slice(1).replace(/-(\w)/g, (m, n) => n.toUpperCase());
+    name.slice(1).replace(/-(\w)/g, (m, n) => {
+      return n.toUpperCase();
+    });
 }
 
-var req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.tsx?$/);
+const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)?index\.tsx?$/);
 
 req.keys().forEach((mod) => {
-  var v = req(mod);
+  let v = req(mod);
   if (v && v.default) {
     v = v.default;
   }
-  var match = mod.match(/^\.\/([^_][\w-]+)\/index\.tsx?$/);
+  const match = mod.match(/^\.\/([^_][\w-]+)\/index\.tsx?$/);
   if (match && match[1]) {
-    exports[camelCase(match[1])] = v;
+    if (match[1] === 'message' || match[1] === 'notification') {
+      // message & notification should not be capitalized
+      exports[match[1]] = v;
+    } else {
+      exports[camelCase(match[1])] = v;
+    }
   }
 });
 
-
-if (typeof console !== 'undefined' && console.warn) {
-  console.warn('you are using prebuild antd,\
-please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.');
+if (process.env.NODE_ENV !== 'production') {
+  if (typeof console !== 'undefined' && console.warn) {
+    console.warn(`You are using prebuilt antd,
+please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
+  }
 }
