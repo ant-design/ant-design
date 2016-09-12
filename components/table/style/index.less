@@ -31,7 +31,7 @@
     transition: background .3s ease;
     text-align: left;
 
-    .anticon-filter {
+    .@{iconfont-css-prefix}-filter {
       margin-left: 4px;
       .iconfont-size-under-12px(10px);
       cursor: pointer;
@@ -42,7 +42,7 @@
       }
     }
 
-    .@{table-prefix-cls}-filter-selected.anticon-filter {
+    .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
   }
@@ -208,18 +208,18 @@
       display: block;
       width: 12px;
       cursor: pointer;
-      &:hover .anticon {
+      &:hover .@{iconfont-css-prefix} {
         color: #666;
       }
       &.on {
-        .anticon-caret-up,
-        .anticon-caret-down {
+        .@{iconfont-css-prefix}-caret-up,
+        .@{iconfont-css-prefix}-caret-down {
           color: @primary-color;
         }
       }
     }
-    .anticon-caret-up,
-    .anticon-caret-down {
+    .@{iconfont-css-prefix}-caret-up,
+    .@{iconfont-css-prefix}-caret-down {
       .iconfont-size-under-12px(6px);
       line-height: 6px;
       height: 6px;
@@ -287,7 +287,7 @@
     z-index: 2;
     font-size: 12px;
     color: #999;
-    .anticon {
+    .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
   }
