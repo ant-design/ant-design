@@ -16,11 +16,7 @@ const reqAnimFrame = (() => {
 })();
 
 const currentScrollTop = () => {
-  const supportPageOffset = window.pageXOffset !== undefined;
-  const isCSS1Compat = ((document.compatMode || '') === 'CSS1Compat');
-  const isCSS1ScrollTop = isCSS1Compat ?
-    document.documentElement.scrollTop : document.body.scrollTop;
-  return supportPageOffset ? window.pageYOffset : isCSS1ScrollTop;
+  return  window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
 };
 
 const easeInOutCubic = (t, b, c, d) => {
