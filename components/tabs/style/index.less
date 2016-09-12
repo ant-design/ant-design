@@ -242,14 +242,6 @@
     > .@{tab-prefix-cls}-content {
       overflow: hidden;
       width: auto;
-
-      &-animated {
-        transform: none!important;
-      }
-
-      > .@{tab-prefix-cls}-tabpane-inactive {
-        display: none;
-      }
     }
   }
 
@@ -384,6 +376,19 @@
       &:hover {
         color: #404040;
       }
+    }
+  }
+}
+
+.no-flex,
+.@{tab-prefix-cls}-vertical {
+  .@{tab-prefix-cls}-content {
+    &-animated {
+      transform: none!important;
+    }
+
+    > .@{tab-prefix-cls}-tabpane-inactive {
+      display: none;
     }
   }
 }
