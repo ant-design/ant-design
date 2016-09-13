@@ -18,10 +18,10 @@ import { Tooltip, Button } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Tooltip placement="topLeft" title="Propmt Text">
+    <Tooltip placement="topLeft" title="Prompt Text">
       <Button>Tooltip default pointing alignment</Button>
     </Tooltip>
-    <Tooltip placement="topLeft" title="Propmt Text" arrowPointAtCenter>
+    <Tooltip placement="topLeft" title="Prompt Text" arrowPointAtCenter>
       <Button>Tooltip central alignment</Button>
     </Tooltip>
   </div>
