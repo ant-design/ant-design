@@ -70,7 +70,7 @@ export interface FormComponentProps {
   form: WrappedFormUtils;
 }
 
-class FormComponent extends React.Component<FormComponentProps, {}> {
+export class FormComponent extends React.Component<FormComponentProps, {}> {
 }
 
 export interface ComponentDecorator {

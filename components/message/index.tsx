@@ -57,7 +57,7 @@ type ConfigContent = React.ReactNode;
 type ConfigDuration = number;
 type ConfigOnClose = () => void;
 
-interface ConfigOptions {
+export interface ConfigOptions {
   top?: number;
   duration?: number;
   prefixCls?: string;

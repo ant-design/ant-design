@@ -3,7 +3,7 @@ import { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-type SelectValue = string | string[] | Array<{ key: string, label: React.ReactNode }>;
+export type SelectValue = string | string[] | Array<{ key: string, label: React.ReactNode }>;
 
 export interface SelectProps {
   prefixCls?: string;

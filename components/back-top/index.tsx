@@ -23,7 +23,7 @@ function getScroll(target, top) {
   return ret;
 }
 
-interface BackTopProps {
+export interface BackTopProps {
   visibilityHeight?: number;
   onClick?: (event) => void;
   target?: () => HTMLElement | Window;

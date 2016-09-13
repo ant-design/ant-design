@@ -4,9 +4,9 @@ import splitObject from '../_util/splitObject';
 
 const prefix = 'ant-btn-group-';
 
-type ButtonSize = 'small' | 'large'
+export type ButtonSize = 'small' | 'large'
 
-interface ButtonGroupProps {
+export interface ButtonGroupProps {
   size?: ButtonSize;
   style?: React.CSSProperties;
   className?: string;

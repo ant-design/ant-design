@@ -27,7 +27,7 @@ function clearNextFrameAction(nextFrameId) {
   }
 }
 
-interface AutoSizeType {
+export interface AutoSizeType {
   minRows?: number;
   maxRows?: number;
 };

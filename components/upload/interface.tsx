@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed'
+export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed'
 
 export interface HttpRequestHeader {
   [key: string]: string;
@@ -18,7 +18,7 @@ export interface File {
   originFileObj?: File;
 }
 
-interface UploadChangeParam {
+export interface UploadChangeParam {
   file: File;
   fileList: Array<File>;
   event?: { percent: number };

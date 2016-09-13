@@ -3,7 +3,7 @@ import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 
-interface BadgeProps {
+export interface BadgeProps {
   /** Number to show in badge */
   count: number | string;
   /** Max count to show */

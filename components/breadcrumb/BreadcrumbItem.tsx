@@ -1,7 +1,7 @@
 import * as React from 'react';
 import splitObject from '../_util/splitObject';
 
-interface BreadcrumbItemProps {
+export interface BreadcrumbItemProps {
   separator?: React.ReactNode;
   href?: string;
 }
