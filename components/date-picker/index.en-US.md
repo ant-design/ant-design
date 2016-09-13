@@ -25,8 +25,6 @@ moment.tz.setDefault('Aisa/Shanghai');
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
 
-> Note: `Datepicker` is renamed to `DatePicker` after `0.11`.
-
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
 | value        | to set date           | [moment](http://momentjs.com/)   | -           |
