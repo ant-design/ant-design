@@ -77,9 +77,9 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
   scrollToTop = (e) => {
     const scrollTop = currentScrollTop();
-    let startTime;
-    const frameFunc = (timestamp) => {
-      startTime = startTime ? startTime : timestamp;
+    const startTime = Date.now();
+    const frameFunc = () => {
+      const timestamp = Date.now();
       const time = timestamp - startTime;
       this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450));
       if (time < 450) {
