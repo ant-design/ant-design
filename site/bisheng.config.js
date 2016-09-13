@@ -1,4 +1,5 @@
 const path = require('path');
+const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
@@ -68,6 +69,7 @@ module.exports = {
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
+    config.plugins.push(new CSSSplitWebpackPlugin({ imports: true }));
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),
