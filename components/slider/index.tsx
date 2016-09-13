@@ -2,14 +2,14 @@ import * as React from 'react';
 import { PropTypes } from 'react';
 import RcSlider from 'rc-slider';
 
-interface SliderMarks {
+export interface SliderMarks {
   [key: number]: React.ReactNode | {
     style: React.CSSProperties,
     label: React.ReactNode,
   };
 }
 
-type SliderValue = number | [number, number];
+export type SliderValue = number | [number, number];
 
 export interface SliderProps {
   range?: boolean;

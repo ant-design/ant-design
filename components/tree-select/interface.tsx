@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface TreeData {
+export interface TreeData {
   key: string;
   value: string;
   label: React.ReactNode;

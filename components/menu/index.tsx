@@ -5,7 +5,7 @@ import animation from '../_util/openAnimation';
 function noop() {
 }
 
-interface SelectParam {
+export interface SelectParam {
   key: string;
   keyPath: Array<string>;
   item: any;
@@ -13,7 +13,7 @@ interface SelectParam {
   selectedKeys: Array<string>;
 }
 
-interface ClickParam {
+export interface ClickParam {
   key: string;
   keyPath: Array<string>;
   item: any;

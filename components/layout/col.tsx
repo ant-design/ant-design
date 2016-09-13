@@ -7,7 +7,7 @@ import splitObject from '../_util/splitObject';
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
-interface ColSize {
+export interface ColSize {
   span?: number;
   order?: number;
   offset?: number;

@@ -3,7 +3,31 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
-import omit from 'object.omit';
+import omit from 'omit.js';
+
+const reqAnimFrame = (() => {
+  if (window.requestAnimationFrame) {
+    return window.requestAnimationFrame;
+  }
+  const a = ['moz', 'ms', 'webkit'];
+  const raf = a.filter(key => `${key}RequestAnimationFrame` in window);
+  return raf[0] ? window[`${raf[0]}RequestAnimationFrame`] :
+    ((callback) => window.setTimeout(callback, 1000 / 60));
+})();
+
+const currentScrollTop = () => {
+  return  window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+};
+
+const easeInOutCubic = (t, b, c, d) => {
+  const cc = c - b;
+  t /= d / 2;
+  if (t < 1) {
+    return cc / 2 * t * t * t + b;
+  } else {
+    return cc / 2 * ((t -= 2) * t * t + 2) + b;
+  }
+};
 
 function getScroll(target, top) {
   if (typeof window === 'undefined') {
@@ -23,7 +47,7 @@ function getScroll(target, top) {
   return ret;
 }
 
-interface BackTopProps {
+export interface BackTopProps {
   visibilityHeight?: number;
   onClick?: (event) => void;
   target?: () => HTMLElement | Window;
@@ -52,10 +76,17 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   scrollToTop = (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    this.setScrollTop(0);
+    const scrollTop = currentScrollTop();
+    const startTime = Date.now();
+    const frameFunc = () => {
+      const timestamp = Date.now();
+      const time = timestamp - startTime;
+      this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450));
+      if (time < 450) {
+        reqAnimFrame(frameFunc);
+      }
+    };
+    reqAnimFrame(frameFunc);
     this.props.onClick(e);
   }
 

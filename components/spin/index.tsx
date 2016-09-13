@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import splitObject from '../_util/splitObject';
-import omit from 'object.omit';
+import omit from 'omit.js';
 
 export interface SpinProps {
   prefixCls?: string;

@@ -120,7 +120,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       return 'validating';
     } else if (!!getFieldError(field)) {
       return 'error';
-    } else if (getFieldValue(field) !== undefined) {
+    } else if (getFieldValue(field) !== undefined && getFieldValue(field) !== null) {
       return 'success';
     }
     return '';

@@ -4,8 +4,8 @@ import { cloneElement } from 'react';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-type TabsType = 'line' | 'card' | 'editable-card'
-type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
+export type TabsType = 'line' | 'card' | 'editable-card'
+export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
 export interface TabsProps {
   activeKey?: string;

@@ -33,7 +33,7 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-interface TableRowSelection {
+export interface TableRowSelection {
   type?: 'checkbox' | 'radio';
   selectedRowKeys?: string[];
   onChange?: (selectedRowKeys: string[], selectedRows: Object[]) => any;
@@ -42,7 +42,7 @@ interface TableRowSelection {
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
 }
 
-interface TableColumnConfig {
+export interface TableColumnConfig {
   title?: React.ReactNode;
   key?: string;
   dataIndex?: string;
@@ -87,7 +87,7 @@ export interface TableProps {
   childrenColumnName?: 'string';
 }
 
-interface TableContext {
+export interface TableContext {
   antLocale?: {
     Table?: any,
   };

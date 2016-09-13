@@ -24,11 +24,11 @@ function insertSpace(child) {
   return child;
 }
 
-type ButtonType = 'primary' | 'ghost' | 'dashed'
-type ButtonShape = 'circle' | 'circle-outline'
-type ButtonSize = 'small' | 'large'
+export type ButtonType = 'primary' | 'ghost' | 'dashed'
+export type ButtonShape = 'circle' | 'circle-outline'
+export type ButtonSize = 'small' | 'large'
 
-interface ButtonProps {
+export interface ButtonProps {
   type?: ButtonType;
   htmlType?: string;
   icon?: string;

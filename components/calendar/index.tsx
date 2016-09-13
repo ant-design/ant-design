@@ -16,7 +16,7 @@ function zerofixed(v) {
   return `${v}`;
 }
 
-interface CalendarContext {
+export interface CalendarContext {
   antLocale?: {
     Calendar?: any
   };

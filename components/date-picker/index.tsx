@@ -9,7 +9,7 @@ import RangePicker from './RangePicker';
 import Calendar from './Calendar';
 import { TimePickerProps } from '../time-picker';
 
-interface PickerProps {
+export interface PickerProps {
   format?: string;
   disabled?: boolean;
   style?: React.CSSProperties;
@@ -19,7 +19,7 @@ interface PickerProps {
   getCalendarContainer?: (trigger) => React.ReactNode;
 }
 
-interface SinglePickerProps {
+export interface SinglePickerProps {
   value?: moment.Moment;
   defaultValue?: moment.Moment;
   defaultPickerValue?: moment.Moment;

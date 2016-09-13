@@ -4,7 +4,7 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
-interface AlertProps {
+export interface AlertProps {
   /**
    * Type of Alert styles, options:`success`, `info`, `warning`, `error`
    */

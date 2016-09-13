@@ -4,7 +4,7 @@ import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';
 import classNames from 'classnames';
 
-type PopoverPlacement =
+export type PopoverPlacement =
   'top' | 'left' | 'right' | 'bottom' | 'topLeft' |
   'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' |
   'leftBottom' | 'rightTop' | 'rightBottom'
