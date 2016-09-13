@@ -341,8 +341,9 @@ form {
     color: @warning-color;
   }
 
-  //input-number
-  .ant-input-number {
+  //input-number, timepicker
+  .ant-input-number,
+  .ant-time-picker-input {
     border-color: @warning-color;
     box-shadow: 0 0 0 2px fade(@warning-color, 20%);
     &:not([disabled]):hover {
@@ -377,12 +378,13 @@ form {
   }
 
   //timepicker
-  .ant-time-picker-picker-icon:after {
+  .ant-time-picker-icon:after {
     color: @error-color;
   }
 
-  //input-number
-  .ant-input-number {
+  //input-number, timepicker
+  .ant-input-number,
+  .ant-time-picker-input {
     border-color: @error-color;
     box-shadow: 0 0 0 2px fade(@error-color, 20%);
     &:not([disabled]):hover {
