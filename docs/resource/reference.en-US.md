@@ -3,7 +3,7 @@ order: 1
 title: Reference
 ---
 
-Below Books has inspired us, saved our time and help us to overcame difficulty when we design component and patterns. If you want to know more about design things, we recommend that you read these awesome books.
+Below Books has inspired us, saved our time and helped us to overome difficulty when we design component and patterns. If you want to know more about design things, we recommend that you read these awesome books.
 
 <div class="resource-cards">
 <a target="_blank" href="http://as.wiley.com/WileyCDA/WileyTitle/productCd-1118766571.html" class="resource-card">
