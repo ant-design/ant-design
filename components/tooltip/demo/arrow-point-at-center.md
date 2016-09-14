@@ -1,20 +1,28 @@
 ---
 order: 2
-title: 箭头指向
+title:
+  zh-CN: 箭头指向
+  en-US: Arrow pointing at the center
 ---
 
+## zh-CN
+
 设置了 `arrowPointAtCenter` 后，箭头将指向目标元素的中心。
+
+## en-US
+
+By specifying `arrowPointAtCenter` prop, the arrow will point to the center of the target element.
 
 ````jsx
 import { Tooltip, Button } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Tooltip placement="topLeft" title="提示文字 提示文字">
-      <Button>默认对齐元素边缘</Button>
+    <Tooltip placement="topLeft" title="Prompt Text">
+      <Button>Tooltip default pointing alignment</Button>
     </Tooltip>
-    <Tooltip placement="topLeft" title="提示文字 提示文字" arrowPointAtCenter>
-      <Button>箭头指向目标元素的中心</Button>
+    <Tooltip placement="topLeft" title="Prompt Text" arrowPointAtCenter>
+      <Button>Tooltip central alignment</Button>
     </Tooltip>
   </div>
 , mountNode);
