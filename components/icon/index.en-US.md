@@ -105,7 +105,7 @@ ul.anticons-list li.copied:after {
   top: -10px;
 }
 .anticon {
-  font-size: 22px;
+  font-size: 24px;
   margin: 12px 0 16px;
   transition: all .3s;
 }
