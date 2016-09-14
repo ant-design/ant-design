@@ -41,25 +41,19 @@ By default, icon components uses [iconfont.cn](http://iconfont.cn), publicly ava
 
 ```__react
 import IconSet from 'site/theme/template/IconSet';
-const icons1 = ['step-backward', 'step-forward', 'fast-backward', 'fast-forward', 'shrink', 'arrows-alt', 'down', 'up', 'left', 'right', 'caret-up', 'caret-down', 'caret-left', 'caret-right', 'caret-circle-right', 'caret-circle-left', 'caret-circle-o-right', 'caret-circle-o-left', 'up-circle', 'down-circle', 'left-circle', 'right-circle', 'up-circle-o', 'down-circle-o', 'right-circle-o', 'left-circle-o', 'double-right', 'double-left', 'verticle-left', 'verticle-right', 'forward', 'backward', 'rollback', 'enter', 'retweet', 'swap', 'swap-left', 'swap-right', 'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right', 'play-circle', 'play-circle-o', 'caret-circle-o-up', 'caret-circle-o-down', 'caret-circle-up', 'caret-circle-down', 'up-square', 'down-square', 'left-square', 'right-square', 'up-square-o', 'down-square-o', 'left-square-o', 'right-square-o'];
-
-ReactDOM.render(<IconSet className="icons" icons={icons1} key="icons1" />, mountNode);
+ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
 ```
 
 ### Suggested Icons
 
 ```__react
-const icons2 = ['question', 'question-circle-o', 'question-circle', 'plus', 'plus-circle-o', 'plus-circle', 'pause', 'pause-circle-o', 'pause-circle', 'minus', 'minus-circle-o', 'minus-circle', 'plus-square', 'plus-square-o', 'minus-square', 'minus-square-o', 'info', 'info-circle-o', 'info-circle', 'exclamation', 'exclamation-circle-o', 'exclamation-circle', 'close', 'close-circle-o', 'close-circle', 'close-square', 'close-square-o', 'check', 'check-circle-o', 'check-circle', 'check-square', 'check-square-o', 'clock-circle-o', 'clock-circle'];
-
-ReactDOM.render(<IconSet className="icons" icons={icons2} key="icons2" />, mountNode);
+ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
 ### Other Icons
 
 ```__react
-const icons3 = ['lock', 'unlock', 'android', 'apple', 'apple-o', 'area-chart', 'bar-chart', 'dot-chart', 'bars', 'book', 'calendar', 'cloud', 'cloud-download', 'code', 'code-square', 'code-square-o', 'copy', 'credit-card', 'delete', 'desktop', 'download', 'edit', 'ellipsis', 'file', 'file-text', 'file-unknown', 'file-pdf','file-excel', 'file-jpg', 'file-ppt', 'folder', 'folder-open', 'github', 'hdd', 'frown', 'frown-o', 'meh','meh-o', 'smile', 'smile-o', 'inbox', 'laptop', 'appstore-o', 'appstore', 'line-chart', 'link', 'logout', 'mail', 'menu-fold', 'menu-unfold', 'mobile', 'notification', 'paper-clip', 'picture', 'pie-chart', 'poweroff', 'reload', 'search', 'setting', 'share-alt', 'shopping-cart', 'tablet', 'tag', 'tags', 'tags-o', 'tag-o', 'to-top', 'upload', 'user', 'video-camera', 'windows', 'windows-o', 'ie', 'chrome', 'home', 'loading', 'cloud-upload-o', 'cloud-download-o', 'cloud-upload', 'cloud-o', 'star-o', 'star', 'heart-o', 'heart', 'environment', 'environment-o', 'eye', 'eye-o', 'camera', 'camera-o', 'aliwangwang', 'aliwangwang-o', 'save', 'team', 'solution', 'phone', 'filter', 'exception', 'export', 'customer-service', 'qrcode', 'scan', 'like', 'dislike', 'message', 'pay-circle', 'pay-circle-o', 'calculator', 'pushpin', 'pushpin-o'];
-
-ReactDOM.render(<IconSet className="icons" icons={icons3} key="icons3" />, mountNode);
+ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
 
 <style>
