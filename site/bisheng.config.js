@@ -69,7 +69,7 @@ module.exports = {
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
-    config.plugins.push(new CSSSplitWebpackPlugin({ imports: true }));
+    config.plugins.push(new CSSSplitWebpackPlugin({}));
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),
