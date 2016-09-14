@@ -9,6 +9,17 @@ timeline: true
 
 ---
 
+## 1.12.0
+
+`2016-09-14`
+
+- 修复 Menu 设置成 `theme=dark` 后，链接点击无效的问题。[#2929](https://github.com/ant-design/ant-design/issues/2929)
+- 修复迷你型 Table 表头与内容不对齐的问题。[#2933](https://github.com/ant-design/ant-design/issues/2933)
+- 修复 Cascader hover 样式。[#3015](https://github.com/ant-design/ant-design/issues/3015)
+- 修复 Upload 上传多个文件时，`onChange` 调用不正确的问题。[#3001](https://github.com/ant-design/ant-design/issues/3001)
+- 修复 TimePicker 报错样式的问题。[#2973](https://github.com/ant-design/ant-design/issues/2973)
+- 修复 Calendar 控件的年度选择下拉内容截断的问题。[#2927](https://github.com/ant-design/ant-design/issues/2927)
+
 ## 1.11.0
 
 `2016-09-01`
