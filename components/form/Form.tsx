@@ -12,6 +12,7 @@ import { FIELD_META_PROP } from './constants';
 export interface FormCreateOption {
   onFieldsChange?: (props: any, fields: Array<any>) => void;
   mapPropsToFields?: (props: any) => void;
+  withRef?: boolean;
 }
 
 export interface FormProps {
@@ -125,7 +126,12 @@ export default class Form extends React.Component<FormProps, any> {
           return getFieldProps(name, option);
         }
         this.props.form.getFieldProps = deprecatedGetFieldProps;
-        return <Component {...this.props} />;
+
+        const withRef: any = {};
+        if (options && options.withRef) {
+          withRef.ref = 'formWrappedComponent';
+        }
+        return <Component {...this.props} {...withRef} />;
       },
     }));
   };

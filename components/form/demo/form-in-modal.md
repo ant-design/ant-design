@@ -2,7 +2,7 @@
 order: 14
 title:
   zh-CN: 与 Modal 配合使用
-  en-US: To use with modal
+  en-US: With Modal
 ---
 
 ## zh-CN
