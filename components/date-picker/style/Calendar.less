@@ -49,20 +49,36 @@
   .@{calendar-prefix-cls}-prev-decade-btn,
   .@{calendar-prefix-cls}-prev-year-btn {
     left: 7px;
+
+    &:after {
+      content: '«';
+    }
   }
 
   .@{calendar-prefix-cls}-next-century-btn,
   .@{calendar-prefix-cls}-next-decade-btn,
   .@{calendar-prefix-cls}-next-year-btn {
     right: 7px;
+
+    &:after {
+      content: '»';
+    }
   }
 
   .@{calendar-prefix-cls}-prev-month-btn {
     left: 29px;
+
+    &:after {
+      content: '‹';
+    }
   }
 
   .@{calendar-prefix-cls}-next-month-btn {
     right: 29px;
+
+    &:after {
+      content: '›';
+    }
   }
 }
 
