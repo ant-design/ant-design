@@ -14,8 +14,7 @@ title:
 A button is on the left, and a related functional menu is on the right.
 
 ````jsx
-import { Menu, Dropdown } from 'antd';
-const DropdownButton = Dropdown.Button;
+import { Menu, Dropdown, Button, Icon } from 'antd';
 
 function handleButtonClick(e) {
   console.log('click left button', e);
@@ -34,8 +33,15 @@ const menu = (
 );
 
 ReactDOM.render(
-  <DropdownButton onClick={handleButtonClick} overlay={menu} type="primary">
-    某功能按钮
-  </DropdownButton>
+  <div>
+    <Dropdown.Button onClick={handleButtonClick} overlay={menu} type="ghost">
+      某功能按钮
+    </Dropdown.Button>
+    <Dropdown overlay={menu}>
+      <Button type="ghost" style={{ marginLeft: 8 }}>
+        按钮 <Icon type="down" />
+      </Button>
+    </Dropdown>
+  </div>
 , mountNode);
 ````

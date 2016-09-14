@@ -27,7 +27,7 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 > Warning: You must set a unique `key` for `Menu.Item`.
 
 
-### DropdownButton
+### Dropdown.Button
 
 | Property         | Description           | Type     | Default       |
 |--------------|----------------|----------|--------------|
@@ -37,5 +37,3 @@ You can get the menu list by `antd.Menu`, and set a callback function `onSelect`
 | overlay | the dropdown menu | [Menu](/components/menu) | -           |
 | visible     | determine whether the dropdown menu is visible | Boolean | -           |
 | onVisibleChange     | a callback function takes an argument: `visible`, can be executed when the visible state is changing | Function     | -        |
-
-

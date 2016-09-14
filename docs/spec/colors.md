@@ -157,6 +157,7 @@ ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 `````__react
 const Values = require('values.js');
 const CopyToClipboard = require('react-copy-to-clipboard');
+const classNames = require('classnames');
 const antd = require('antd');
 const Button = antd.Button;
 const InputNumber = antd.InputNumber;
@@ -213,11 +214,20 @@ const TintShadeTool = React.createClass({
       '0': '原色',
       '100': '加白'
     };
+    const className = classNames({
+      'color-block': true,
+      copied: this.state.justCopied,
+      dark: this.state.darkBackground,
+    });
     return <div style={{margin: '40px 0'}}>
       <div>
         <Tooltip title="点击色块复制色值">
-          <CopyToClipboard onCopy={this.copySuccess} text={this.state.result}>
-            <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '') + (this.state.darkBackground ? ' dark' : '')}></div>
+          <CopyToClipboard
+            className={className}
+            onCopy={this.copySuccess}
+            text={this.state.result}
+          >
+            <div style={{backgroundColor: this.state.result}} />
           </CopyToClipboard>
         </Tooltip>
         <span style={{width: 188, display: 'inline-block', fontFamily: 'Consolas'}}>{this.state.result}</span>

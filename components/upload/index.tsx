@@ -96,10 +96,6 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   onStart = (file) => {
-    if (this.recentUploadStatus === false) {
-      return;
-    }
-
     let targetItem;
     let nextFileList = this.state.fileList.concat();
     if (file.length > 0) {
@@ -197,11 +193,6 @@ export default class Upload extends React.Component<UploadProps, any> {
     this.handleRemove(targetItem);
   }
 
-  beforeUpload = (file) => {
-    this.recentUploadStatus = this.props.beforeUpload(file);
-    return this.recentUploadStatus;
-  }
-
   handleRemove(file) {
     let fileList = this.removeFile(file);
     if (fileList) {
@@ -255,7 +246,7 @@ export default class Upload extends React.Component<UploadProps, any> {
       onError: this.onError,
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
-      beforeUpload: this.beforeUpload,
+      beforeUpload: this.props.beforeUpload,
     });
     let uploadList;
     if (this.props.showUploadList) {

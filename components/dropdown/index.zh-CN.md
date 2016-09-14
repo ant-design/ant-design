@@ -27,7 +27,7 @@ english: Dropdown
 
 > 注意： Menu.Item 必须设置唯一的 key 属性。
 
-### DropdownButton
+### Dropdown.Button
 
 | 参数        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|

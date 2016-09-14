@@ -357,8 +357,9 @@ form {
     color: @warning-color;
   }
 
-  //input-number
-  .@{ant-prefix}-input-number {
+  //input-number, timepicker
+  .@{ant-prefix}-input-number,
+  .@{ant-prefix}-time-picker-input {
     border-color: @warning-color;
     .active(@warning-color);
     &:not([disabled]):hover {
@@ -393,12 +394,13 @@ form {
   }
 
   //timepicker
-  .@{ant-prefix}-time-picker-picker-icon:after {
+  .@{ant-prefix}-picker-icon:after {
     color: @error-color;
   }
 
-  //input-number
-  .@{ant-prefix}-input-number {
+  //input-number, timepicker
+  .@{ant-prefix}-input-number,
+  .@{ant-prefix}-time-picker-input {
     border-color: @error-color;
     .active(@error-color);
     &:not([disabled]):hover {
