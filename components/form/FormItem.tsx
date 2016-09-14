@@ -8,7 +8,7 @@ import { FIELD_META_PROP } from './constants';
 
 export interface FormItemLabelColOption {
   span: number;
-  offset: number;
+  offset?: number;
 }
 
 export interface FormItemProps {
