@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
@@ -193,11 +193,22 @@ export default class TransferList extends React.Component<TransferListProps, any
         return null;
       }
 
-      filteredDataSource.push(item);
+      if (!item.disabled) {
+        filteredDataSource.push(item);
+      }
 
+      const className = classNames({
+        [`${prefixCls}-content-item`]: true,
+        [`${prefixCls}-content-item-disabled`]: item.disabled,
+      });
       return (
-        <li onClick={() => this.handleSelect(item)} key={item.key} title={renderedText}>
-          <Checkbox checked={checkedKeys.some(key => key === item.key)} />
+        <li
+          key={item.key}
+          className={className}
+          title={renderedText}
+          onClick={item.disabled ? null : () => this.handleSelect(item)}
+        >
+          <Checkbox checked={checkedKeys.some(key => key === item.key)} disabled={item.disabled} />
           <span>{renderedEl}</span>
         </li>
       );
@@ -248,8 +259,10 @@ export default class TransferList extends React.Component<TransferListProps, any
                 value={filter}
               />
             </div> : null}
-            <Animate component="ul"
-              transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
+            <Animate
+              component="ul"
+              className={`${prefixCls}-content`}
+              transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
               transitionLeave={false}
             >
               {showItems.length > 0

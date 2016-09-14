@@ -13,6 +13,7 @@ export interface TransferItem {
   title: string;
   description?: string;
   chosen: boolean;
+  disabled?: boolean;
 }
 
 // Transfer
