@@ -850,6 +850,7 @@ export default class Table extends React.Component<TableProps, any> {
 
     let table = (
       <RcTable {...restProps}
+        prefixCls={prefixCls}
         data={data}
         columns={columns}
         className={classString}

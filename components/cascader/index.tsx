@@ -234,15 +234,15 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   render() {
     const props = this.props;
     const state = this.state;
-    const [{ prefixCls, children, placeholder, size, disabled,
+    const [{ prefixCls, inputPrefixCls, children, placeholder, size, disabled,
       className, style, allowClear, showSearch }, otherProps] = splitObject(props,
-      ['prefixCls', 'children', 'placeholder', 'size', 'disabled', 'className',
-       'style', 'allowClear', 'showSearch']);
+      ['prefixCls', 'inputPrefixCls', 'children', 'placeholder', 'size', 'disabled',
+        'className', 'style', 'allowClear', 'showSearch']);
     const value = state.value;
 
     const sizeCls = classNames({
-      [`${props.inputPrefixCls}-lg`]: size === 'large',
-      [`${props.inputPrefixCls}-sm`]: size === 'small',
+      [`${inputPrefixCls}-lg`]: size === 'large',
+      [`${inputPrefixCls}-sm`]: size === 'small',
     });
     const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ?
       <Icon type="cross-circle"

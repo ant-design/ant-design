@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import shallowequal from 'shallowequal';
+import omit from 'omit.js';
 
 function getScroll(target, top) {
   const prop = top ? 'pageYOffset' : 'pageXOffset';
@@ -220,10 +220,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       [this.props.prefixCls]: this.state.affixStyle,
     });
 
-    const props = assign({}, this.props);
-    delete props.offsetTop;
-    delete props.offsetBottom;
-    delete props.target;
+    const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
 
     return (
       <div {...props} style={this.state.placeholderStyle}>
