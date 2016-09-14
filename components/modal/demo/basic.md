@@ -1,15 +1,15 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
 
-## en-US
+## zh-CN
 
 第一个对话框。
 
-## zh-CN
+## en-US
 
 Basic modal dialog.
 
