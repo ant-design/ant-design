@@ -17,30 +17,30 @@ Decent icon make information more clear and more friendly.
 import { Alert } from 'antd';
 
 ReactDOM.render(<div>
-  <Alert message="Copywriting Success Tips" type="success" showIcon />
-  <Alert message="Copywriting Informational Notes" type="info" showIcon />
-  <Alert message="Copywriting Warning" type="warning" showIcon />
-  <Alert message="Copywriting Error" type="error" showIcon />
+  <Alert message="Success Tips" type="success" showIcon />
+  <Alert message="Informational Notes" type="info" showIcon />
+  <Alert message="Warning" type="warning" showIcon />
+  <Alert message="Error" type="error" showIcon />
   <Alert
-    message="Copywriting success tips"
+    message="success tips"
     description="Detailed description and advices about successful copywriting."
     type="success"
     showIcon
   />
   <Alert
-    message="Copywriting Informational Notes"
+    message="Informational Notes"
     description="Additional description and informations about copywriting."
     type="info"
     showIcon
   />
   <Alert
-    message="Copywriting Warning"
+    message="Warning"
     description="This is a warning notice about copywriting."
     type="warning"
     showIcon
   />
   <Alert
-    message="Copywriting Error"
+    message="Error"
     description="This is an error message about copywriting."
     type="error"
     showIcon
