@@ -10,6 +10,7 @@ import classNames from 'classnames';
 import { flatArray, treeMap } from './util';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
+import warning from 'warning';
 
 function noop() {
 }
@@ -133,6 +134,13 @@ export default class Table extends React.Component<TableProps, any> {
 
   constructor(props) {
     super(props);
+
+    warning(
+      !('columnsPageRange' in props || 'columnsPageSize' in props),
+      '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
+      '[fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns) ' +
+      'instead.'
+    );
 
     const pagination = props.pagination || {};
 
