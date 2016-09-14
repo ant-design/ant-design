@@ -146,7 +146,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     });
     return (
       <div className={listClassNames}>
-        <Animate transitionName={`${prefixCls}-margin-top`} component="div">
+        <Animate transitionName={`${prefixCls}-margin-top`} component="">
           {list}
         </Animate>
       </div>
