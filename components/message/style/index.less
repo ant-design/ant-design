@@ -1,6 +1,6 @@
 @import "../../style/themes/default";
 
-@message-prefix-cls: ant-message;
+@message-prefix-cls: ~"@{ant-prefix}-message";
 
 .@{message-prefix-cls} {
   font-size: 12px;
@@ -28,24 +28,24 @@
     display: block;
   }
 
-  &-success .anticon {
+  &-success .@{iconfont-css-prefix} {
     color: @success-color;
   }
 
-  &-error .anticon {
+  &-error .@{iconfont-css-prefix} {
     color: @error-color;
   }
 
-  &-warning .anticon {
+  &-warning .@{iconfont-css-prefix} {
     color: @warning-color;
   }
 
-  &-info .anticon,
-  &-loading .anticon {
+  &-info .@{iconfont-css-prefix},
+  &-loading .@{iconfont-css-prefix} {
     color: @primary-color;
   }
 
-  .anticon {
+  .@{iconfont-css-prefix} {
     margin-right: 8px;
     font-size: 14px;
     top: 1px;

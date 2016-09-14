@@ -2,8 +2,8 @@
 @import "../../style/mixins/index";
 @import "../../checkbox/style/mixin";
 
-@transfer-prefix-cls: ant-transfer;
-.antCheckboxFn(@checkbox-prefix-cls: ant-transfer-checkbox);
+@transfer-prefix-cls: ~"@{ant-prefix}-transfer";
+.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-transfer-checkbox");
 
 .@{transfer-prefix-cls} {
   position: relative;
@@ -35,7 +35,7 @@
         line-height: 32px;
         text-align: center;
         font-size: 14px;
-        .anticon {
+        .@{iconfont-css-prefix} {
           transition: all .3s;
           font-size: 12px;
           color: #ccc;
@@ -126,7 +126,7 @@
     margin: 0 8px;
     vertical-align: middle;
 
-    .ant-btn {
+    .@{ant-prefix}-btn {
       float: left;
       clear: both;
 
@@ -134,7 +134,7 @@
         margin-bottom: 4px;
       }
 
-      .anticon {
+      .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(8px);
       }
     }

@@ -216,15 +216,16 @@ export default class TransferList extends React.Component<TransferListProps, any
     }
 
     const checkStatus = this.getCheckStatus(filteredDataSource);
+    const outerPrefixCls = prefixCls.replace('-list', '');
 
     return (
       <div className={listCls} style={style}>
         <div className={`${prefixCls}-header`}>
           {this.renderCheckbox({
-            prefixCls: 'ant-transfer',
+            prefixCls: outerPrefixCls,
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
-            checkable: <span className={'ant-transfer-checkbox-inner'}></span>,
+            checkable: <span className={`${outerPrefixCls}-checkbox-inner`}></span>,
             filteredDataSource,
             disabled: false,
           })}

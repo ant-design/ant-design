@@ -58,6 +58,7 @@ class ActionButton extends React.Component<ActionButtonProps, any> {
 
 export default function confirm(config) {
   const props = assign({ iconType: 'question-circle' }, config);
+  const prefixCls = props.prefixCls || 'ant-confirm';
   let div = document.createElement('div');
   document.body.appendChild(div);
 
@@ -83,17 +84,17 @@ export default function confirm(config) {
   }
 
   let body = (
-    <div className="ant-confirm-body">
+    <div className={`${prefixCls}-body`}>
       <Icon type={props.iconType} />
-      <span className="ant-confirm-title">{props.title}</span>
-      <div className="ant-confirm-content">{props.content}</div>
+      <span className={`${prefixCls}-title`}>{props.title}</span>
+      <div className={`${prefixCls}-content`}>{props.content}</div>
     </div>
   );
 
   let footer = null;
   if (props.okCancel) {
     footer = (
-      <div className="ant-confirm-btns">
+      <div className={`${prefixCls}-btns`}>
         <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
@@ -104,7 +105,7 @@ export default function confirm(config) {
     );
   } else {
     footer = (
-      <div className="ant-confirm-btns">
+      <div className={`${prefixCls}-btns`}>
         <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
           {props.okText}
         </ActionButton>
@@ -113,8 +114,8 @@ export default function confirm(config) {
   }
 
   const classString = classNames({
-    'ant-confirm': true,
-    [`ant-confirm-${props.type}`]: true,
+    [prefixCls]: true,
+    [`${prefixCls}-${props.type}`]: true,
     [props.className]: !!props.className,
   });
 

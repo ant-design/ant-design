@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../_util/openAnimation';
+import warning from 'warning';
 
 function noop() {
 }
@@ -68,6 +69,12 @@ export default class Menu extends React.Component<MenuProps, any> {
   switchModeFromInline: boolean;
   constructor(props) {
     super(props);
+
+    warning(
+      !('onOpen' in props || 'onClose' in props),
+      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead.'
+    );
+
     this.state = {
       openKeys: [],
     };

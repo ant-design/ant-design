@@ -3,9 +3,9 @@
 @import "../../tree/style/mixin";
 @import "../../checkbox/style/mixin";
 
-@select-tree-prefix-cls: ant-select-tree;
+@select-tree-prefix-cls: ~"@{ant-prefix}-select-tree";
 
-.antCheckboxFn(@checkbox-prefix-cls: ant-select-tree-checkbox);
+.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-select-tree-checkbox");
 
 .@{select-tree-prefix-cls} {
   margin: 0;
@@ -115,14 +115,14 @@
   }
 }
 
-.@{select-tree-prefix-cls}-dropdown .ant-select-dropdown-search + span {
+.@{select-tree-prefix-cls}-dropdown .@{ant-prefix}-select-dropdown-search + span {
   padding: 7px 15px;
   color: #ccc;
   cursor: not-allowed;
   display: block;
 }
 
-.ant-select-not-found {
+.@{ant-prefix}-select-not-found {
   cursor: not-allowed;
   color: #ccc;
   padding: 7px 15px;

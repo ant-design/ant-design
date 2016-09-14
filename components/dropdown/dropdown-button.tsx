@@ -14,6 +14,7 @@ export interface DropdownButtonProps {
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   style?: React.CSSProperties;
+  prefixCls?: string;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
@@ -28,13 +29,15 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       targetOffset: [0, 0],
     },
     type: 'default',
+    prefixCls: 'ant-dropdown-button',
   };
 
   render() {
-    const [{ type, overlay, trigger, align, children, className, onClick }, restProps] = splitObject(this.props,
-      ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick']);
+    const [{ type, overlay, trigger, align, children, className, onClick, prefixCls }, restProps] =
+     splitObject(this.props,
+       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick', 'prefixCls']);
     const cls = classNames({
-      'ant-dropdown-button': true,
+      [prefixCls]: true,
       [className]: !!className,
     });
     return (

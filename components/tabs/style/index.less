@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@tab-prefix-cls: ant-tabs;
+@tab-prefix-cls: ~"@{ant-prefix}-tabs";
 
 .@{tab-prefix-cls} {
   box-sizing: border-box;
@@ -174,7 +174,7 @@
           color: shade(@primary-color, 5%);
         }
 
-        .anticon {
+        .@{iconfont-css-prefix} {
           width: 14px;
           height: 14px;
           margin-right: 8px;
@@ -401,7 +401,7 @@
   &&-card > &-bar &-nav-wrap {
     margin-bottom: 0;
   }
-  &&-card > &-bar &-tab-inner .anticon-cross {
+  &&-card > &-bar &-tab-inner .@{iconfont-css-prefix}-cross {
     margin-right: 0;
     color: #999;
     transition: all 0.3s @ease-in-out;
@@ -422,8 +422,8 @@
     padding-right: 8px;
   }
 
-  &&-card > &-bar &-tab-active .anticon-cross,
-  &&-card > &-bar &-tab:hover .anticon-cross {
+  &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-cross,
+  &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-cross {
     width: 16px;
     transform: translateZ(0);
   }

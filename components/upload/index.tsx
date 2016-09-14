@@ -3,7 +3,6 @@ import RcUpload from 'rc-upload';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';
 import classNames from 'classnames';
-const prefixCls = 'ant-upload';
 import assign from 'object-assign';
 import { UploadProps } from './interface';
 
@@ -65,7 +64,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   static Dragger = Dragger;
 
   static defaultProps = {
-    prefixCls: 'ant-upload-btn',
+    prefixCls: 'ant-upload',
     type: 'select',
     // do not set
     // name: '',
@@ -249,6 +248,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   render() {
+    const { prefixCls } = this.props;
     let type = this.props.type || 'select';
     let props = assign({}, this.props, {
       onStart: this.onStart,

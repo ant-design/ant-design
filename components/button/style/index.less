@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 @import "./mixin";
 
-@btn-prefix-cls: ant-btn;
+@btn-prefix-cls: ~"@{ant-prefix}-btn";
 
 // Button styles
 // -----------------------------
@@ -69,7 +69,7 @@
     padding-left: 29px;
     pointer-events: none;
     position: relative;
-    .anticon {
+    .@{iconfont-css-prefix} {
       margin-left: -14px;
       transition: all .3s @ease-in-out;
     }
@@ -80,7 +80,7 @@
 
   &-sm&-loading {
     padding-left: 24px;
-    .anticon {
+    .@{iconfont-css-prefix} {
       margin-left: -17px;
     }
   }

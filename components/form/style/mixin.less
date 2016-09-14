@@ -1,12 +1,12 @@
 @import "../../input/style/mixin";
 
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
-  .ant-form-explain,
-  .ant-form-split {
+  .@{ant-prefix}-form-explain,
+  .@{ant-prefix}-form-split {
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .ant-input {
+  .@{ant-prefix}-input {
     &,
     &:hover,
     &:focus {
@@ -19,11 +19,11 @@
     }
   }
 
-  .ant-calendar-picker-open .ant-calendar-picker-input {
+  .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
     .active(@border-color);
   }
 
-  .ant-input-group-addon {
+  .@{ant-prefix}-input-group-addon {
     color: @text-color;
     border-color: @border-color;
     background-color: @background-color;

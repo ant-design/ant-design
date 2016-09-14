@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@table-prefix-cls: ant-table;
+@table-prefix-cls: ~"@{ant-prefix}-table";
 @table-head-background-color: @background-color-base;
 
 .@{table-prefix-cls} {
@@ -31,7 +31,7 @@
     transition: background .3s ease;
     text-align: left;
 
-    .anticon-filter {
+    .@{iconfont-css-prefix}-filter {
       margin-left: 4px;
       .iconfont-size-under-12px(10px);
       cursor: pointer;
@@ -42,7 +42,7 @@
       }
     }
 
-    .@{table-prefix-cls}-filter-selected.anticon-filter {
+    .@{table-prefix-cls}-filter-selected.@{iconfont-css-prefix}-filter {
       color: @primary-color;
     }
   }
@@ -208,18 +208,18 @@
       display: block;
       width: 12px;
       cursor: pointer;
-      &:hover .anticon {
+      &:hover .@{iconfont-css-prefix} {
         color: #666;
       }
       &.on {
-        .anticon-caret-up,
-        .anticon-caret-down {
+        .@{iconfont-css-prefix}-caret-up,
+        .@{iconfont-css-prefix}-caret-down {
           color: @primary-color;
         }
       }
     }
-    .anticon-caret-up,
-    .anticon-caret-down {
+    .@{iconfont-css-prefix}-caret-up,
+    .@{iconfont-css-prefix}-caret-down {
       .iconfont-size-under-12px(6px);
       line-height: 6px;
       height: 6px;
@@ -287,7 +287,7 @@
     z-index: 2;
     font-size: 12px;
     color: #999;
-    .anticon {
+    .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
   }
@@ -305,7 +305,7 @@
     border: 1px solid @border-color-base;
     box-shadow: @box-shadow-base;
 
-    .ant-dropdown-menu {
+    .@{ant-prefix}-dropdown-menu {
       border: 0;
       box-shadow: none;
       border-radius: @border-radius-base @border-radius-base 0 0;
@@ -320,8 +320,8 @@
         box-shadow: @box-shadow-base;
       }
 
-      .ant-dropdown-submenu-contain-selected {
-        .ant-dropdown-menu-submenu-title:after {
+      .@{ant-prefix}-dropdown-submenu-contain-selected {
+        .@{ant-prefix}-dropdown-menu-submenu-title:after {
           color: @primary-color;
           font-weight: bold;
           text-shadow: 0 0 2px tint(@primary-color, 80%);
@@ -329,12 +329,12 @@
       }
     }
 
-    .ant-dropdown-menu-item {
+    .@{ant-prefix}-dropdown-menu-item {
       overflow: hidden;
     }
 
-    > .ant-dropdown-menu > .ant-dropdown-menu-item:last-child,
-    > .ant-dropdown-menu > .ant-dropdown-menu-submenu:last-child .ant-dropdown-menu-submenu-title {
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
+    > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-submenu:last-child .@{ant-prefix}-dropdown-menu-submenu-title {
       border-radius: 0;
     }
 
