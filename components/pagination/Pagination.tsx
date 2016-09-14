@@ -34,6 +34,8 @@ export interface PaginationProps {
   style?: React.CSSProperties;
   className?: string;
   locale?: Object;
+  prefixCls?: string;
+  selectPrefixCls?: string;
 }
 
 export interface PaginationContext {
@@ -47,6 +49,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
     locale: zhCN,
     className: '',
     prefixCls: 'ant-pagination',
+    selectPrefixCls: 'ant-select',
   };
 
   static contextTypes = {
@@ -73,7 +76,7 @@ export default class Pagination extends React.Component<PaginationProps, any> {
 
     return (
       <RcPagination selectComponentClass={selectComponentClass}
-        selectPrefixCls="ant-select"
+        selectPrefixCls={this.props.selectPrefixCls}
         {...this.props}
         locale={locale}
         className={className}

@@ -1,6 +1,6 @@
 @import "../../style/themes/default";
 
-@alert-prefix-cls: ant-alert;
+@alert-prefix-cls: ~"@{ant-prefix}-alert";
 
 .@{alert-prefix-cls} {
   position: relative;
@@ -70,7 +70,7 @@
     overflow: hidden;
     cursor: pointer;
 
-    .anticon-cross {
+    .@{iconfont-css-prefix}-cross {
       color: @legend-color;
       transition: color .3s ease;
       &:hover {

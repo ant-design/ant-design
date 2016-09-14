@@ -160,10 +160,10 @@
     border-radius: @border-radius-base;
 
     // Reset Select's style in addon
-    .ant-select {
+    .@{ant-prefix}-select {
       margin: -(@input-padding-vertical-base + 1) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
 
-      .ant-select-selection {
+      .@{ant-prefix}-select-selection {
         background-color: inherit;
         border: 0;
         margin: -1px;
@@ -172,7 +172,7 @@
 
       &-open,
       &-focused {
-        .ant-select-selection {
+        .@{ant-prefix}-select-selection {
           border-color: tint(@primary-color, 20%);
         }
       }
@@ -187,7 +187,7 @@
     border-top-right-radius: 0;
 
     // Reset Select's style in addon
-    .ant-select .ant-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
     }
@@ -206,7 +206,7 @@
     border-top-left-radius: 0;
 
     // Reset Select's style in addon
-    .ant-select .ant-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
     }

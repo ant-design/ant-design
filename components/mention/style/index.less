@@ -2,20 +2,20 @@
 @import "../../style/mixins/index";
 @import '../../input/style/mixin.less';
 
-.ant-mention-wrapper {
+.@{ant-prefix}-mention-wrapper {
   position: relative;
   display: inline-block;
   width: 100%;
   vertical-align: middle;
-  &.active .ant-mention-editor {
+  &.active .@{ant-prefix}-mention-editor {
     .active;
   }
-  .ant-mention-editor {
+  .@{ant-prefix}-mention-editor {
    .input;
    padding: 0;
    display: block;
   }
-  .ant-mention-editor-wrapper {
+  .@{ant-prefix}-mention-editor-wrapper {
     overflow-y: auto;
     height: auto;
   }
@@ -25,7 +25,7 @@
     padding: 4px 7px;
   }
 
-  .ant-mention-dropdown {
+  .@{ant-prefix}-mention-dropdown {
     margin-top: 1.5em;
     max-height: 250px;
     min-width: 120px;
@@ -42,10 +42,10 @@
     overflow-x: hidden;
     overflow-y: auto;
     font-size: @font-size-base;
-    &-notfound.ant-mention-dropdown-item {
+    &-notfound.@{ant-prefix}-mention-dropdown-item {
       color: #ccc;
 
-      .anticon-loading {
+      .@{iconfont-css-prefix}-loading {
         color: @primary-color;
       }
     }

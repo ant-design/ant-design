@@ -55,6 +55,7 @@ export interface AffixProps {
   style?: React.CSSProperties;
   onChange?: (affixed?: boolean) => any;
   target?: () => Window | HTMLElement;
+  prefixCls?: string;
 }
 
 export default class Affix extends React.Component<AffixProps, any> {
@@ -69,6 +70,7 @@ export default class Affix extends React.Component<AffixProps, any> {
       return window;
     },
     onChange() {},
+    prefixCls: 'ant-affix',
   };
 
   scrollEvent: any;
@@ -215,7 +217,7 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   render() {
     const className = classNames({
-      'ant-affix': this.state.affixStyle,
+      [this.props.prefixCls]: this.state.affixStyle,
     });
 
     const props = assign({}, this.props);

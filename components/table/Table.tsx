@@ -63,6 +63,7 @@ export interface TableColumnConfig {
 
 export interface TableProps {
   prefixCls?: string;
+  dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection;
   pagination?: any; // 等 Pagination 的 interface，以便直接引用
   size?: 'default' | 'small';
@@ -107,11 +108,13 @@ export default class Table extends React.Component<TableProps, any> {
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
+    dropdownPrefixCls: React.PropTypes.string,
   };
 
   static defaultProps = {
     dataSource: [],
     prefixCls: 'ant-table',
+    dropdownPrefixCls: 'ant-dropdown',
     useFixedHeader: false,
     rowSelection: null,
     className: '',
@@ -561,6 +564,7 @@ export default class Table extends React.Component<TableProps, any> {
   }
 
   renderRowSelection() {
+    const prefixCls = this.props.prefixCls;
     const columns = this.props.columns.concat();
     if (this.props.rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item) => {
@@ -587,7 +591,7 @@ export default class Table extends React.Component<TableProps, any> {
         selectionColumn = {
           key: 'selection-column',
           render: this.renderSelectionRadio,
-          className: 'ant-table-selection-column',
+          className: `${prefixCls}-selection-column`,
         };
       } else {
         const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
@@ -601,7 +605,7 @@ export default class Table extends React.Component<TableProps, any> {
           key: 'selection-column',
           title: checkboxAll,
           render: this.renderSelectionCheckBox,
-          className: 'ant-table-selection-column',
+          className: `${prefixCls}-selection-column`,
         };
       }
       if (columns.some(column => column.fixed === 'left' || column.fixed === true)) {
@@ -637,6 +641,7 @@ export default class Table extends React.Component<TableProps, any> {
   }
 
   renderColumnsDropdown(columns) {
+    const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
     const locale = this.getLocale();
     return treeMap(columns, (originColumn, i) => {
@@ -652,6 +657,8 @@ export default class Table extends React.Component<TableProps, any> {
             column={column}
             selectedKeys={colFilters}
             confirmFilter={this.handleFilter}
+            prefixCls={`${prefixCls}-filter`}
+            dropdownPrefixCls={dropdownPrefixCls}
           />
         );
       }
@@ -660,20 +667,20 @@ export default class Table extends React.Component<TableProps, any> {
         if (isSortColumn) {
           column.className = column.className || '';
           if (sortOrder) {
-            column.className += ' ant-table-column-sort';
+            column.className += ` ${prefixCls}-column-sort`;
           }
         }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className="ant-table-column-sorter">
-            <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
+          <div className={`${prefixCls}-column-sorter`}>
+            <span className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
               onClick={() => this.toggleSortOrder('ascend', column)}
             >
               <Icon type="caret-up" />
             </span>
-            <span className={`ant-table-column-sorter-down ${isDescend ? 'on' : 'off'}`}
+            <span className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
               onClick={() => this.toggleSortOrder('descend', column)}
             >
@@ -821,17 +828,17 @@ export default class Table extends React.Component<TableProps, any> {
 
   render() {
     const [{
-      style, className,
-    }, restProps] = splitObject(this.props, ['style', 'className']);
+      style, className, prefixCls,
+    }, restProps] = splitObject(this.props, ['style', 'className', 'prefixCls']);
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     const locale = this.getLocale();
 
     const classString = classNames({
-      [`ant-table-${this.props.size}`]: true,
-      'ant-table-bordered': this.props.bordered,
-      'ant-table-empty': !data.length,
+      [`${prefixCls}-${this.props.size}`]: true,
+      [`${prefixCls}-bordered`]: this.props.bordered,
+      [`${prefixCls}-empty`]: !data.length,
     });
 
     columns = this.renderColumnsDropdown(columns);
@@ -854,9 +861,9 @@ export default class Table extends React.Component<TableProps, any> {
     // if there is no pagination or no data,
     // the height of spin should decrease by half of pagination
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
-            ? 'ant-table-with-pagination'
-            : 'ant-table-without-pagination';
-    const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
+            ? `${prefixCls}-with-pagination`
+            : `${prefixCls}-without-pagination`;
+    const spinClassName = this.props.loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : '';
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
       <div className={`${className} clearfix`} style={style}>

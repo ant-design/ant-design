@@ -8,11 +8,17 @@ import Icon from '../icon';
 
 export interface PickerProps {
   value?: moment.Moment;
+  prefixCls: string;
 }
 
 export default function createPicker(TheCalendar) {
   // use class typescript error
   const CalenderWrapper = React.createClass({
+    getDefaultProps() {
+      return {
+        prefixCls: 'ant-calendar',
+      };
+    },
 
     getInitialState() {
       const props = this.props;
@@ -46,6 +52,7 @@ export default function createPicker(TheCalendar) {
 
     render() {
       const props = this.props;
+      const prefixCls = props.prefixCls;
       const locale = props.locale;
 
       const placeholder = ('placeholder' in props)
@@ -54,8 +61,8 @@ export default function createPicker(TheCalendar) {
       const disabledTime = props.showTime ? props.disabledTime : null;
 
       const calendarClassName = classNames({
-        'ant-calendar-time': props.showTime,
-        'ant-calendar-month': MonthCalendar === TheCalendar,
+        [`${prefixCls}-time`]: props.showTime,
+        [`${prefixCls}-month`]: MonthCalendar === TheCalendar,
       });
 
       // 需要选择时间时，点击 ok 时才触发 onChange
@@ -85,7 +92,7 @@ export default function createPicker(TheCalendar) {
           timePicker={props.timePicker}
           defaultValue={props.defaultPickerValue || moment()}
           dateInputPlaceholder={placeholder}
-          prefixCls="ant-calendar"
+          prefixCls={prefixCls}
           className={calendarClassName}
           onOk={props.onOk}
           {...calendarHandler}
@@ -100,7 +107,7 @@ export default function createPicker(TheCalendar) {
 
       const clearIcon = (!props.disabled && this.state.value) ?
         <Icon type="cross-circle"
-          className="ant-calendar-picker-clear"
+          className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
         /> : null;
       return (
@@ -111,7 +118,7 @@ export default function createPicker(TheCalendar) {
             disabled={props.disabled}
             calendar={calendar}
             value={this.state.value}
-            prefixCls="ant-calendar-picker-container"
+            prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
             align={props.align}
             getCalendarContainer={props.getCalendarContainer}
@@ -131,7 +138,7 @@ export default function createPicker(TheCalendar) {
                       className={props.pickerInputClass}
                     />
                     {clearIcon}
-                    <span className="ant-calendar-picker-icon" />
+                    <span className={`${prefixCls}-picker-icon`} />
                   </span>
                 );
               }

@@ -1,8 +1,8 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@upload-prefix-cls: ant-upload;
-@upload-item: ant-upload-list-item;
+@upload-prefix-cls: ~"@{ant-prefix}-upload";
+@upload-item: ~"@{ant-prefix}-upload-list-item";
 @upload-pictrue-card-size: 96px;
 
 .@{upload-prefix-cls} {
@@ -75,7 +75,7 @@
     }
 
     p.@{upload-prefix-cls}-drag-icon {
-      .anticon {
+      .@{iconfont-css-prefix} {
         font-size: 80px;
         margin-top: -5px;
         color: tint(@primary-color, 20%);
@@ -90,7 +90,7 @@
       font-size: 12px;
       color: #999;
     }
-    .anticon-plus {
+    .@{iconfont-css-prefix}-plus {
       font-size: 30px;
       transition: all 0.3s ease;
       color: #ccc;
@@ -98,7 +98,7 @@
         color: #999;
       }
     }
-    &:hover .anticon-plus {
+    &:hover .@{iconfont-css-prefix}-plus {
       color: #999;
     }
   }
@@ -117,12 +117,12 @@
       padding: 0 4px;
       transition: background-color 0.3s ease;
 
-      .anticon-paper-clip {
+      .@{iconfont-css-prefix}-paper-clip {
         margin-right: 4px;
         font-size: 12px;
         color: #999;
       }
-      .anticon-cross {
+      .@{iconfont-css-prefix}-cross {
         .iconfont-size-under-12px(10px);
         transition: all 0.3s ease;
         opacity: 0;
@@ -140,16 +140,16 @@
       background-color: tint(@primary-color, 90%);
     }
 
-    &:hover .anticon-cross {
+    &:hover .@{iconfont-css-prefix}-cross {
       opacity: 1;
     }
 
     &-error,
-    &-error .anticon-paper-clip {
+    &-error .@{iconfont-css-prefix}-paper-clip {
       color: @error-color;
     }
 
-    &-error .anticon-cross {
+    &-error .@{iconfont-css-prefix}-cross {
       opacity: 1;
     }
 
@@ -158,7 +158,7 @@
       margin-top: -2px;
       margin-bottom: 1px;
       font-size: 12px;
-      .ant-progress-line-inner {
+      .@{ant-prefix}-progress-line-inner {
         vertical-align: middle;
       }
     }
@@ -203,7 +203,7 @@
       display: block;
     }
 
-    .@{upload-item}-thumbnail.anticon:before {
+    .@{upload-item}-thumbnail.@{iconfont-css-prefix}:before {
       line-height: 48px;
       font-size: 24px;
       color: #999;
@@ -232,7 +232,7 @@
       margin-top: 0;
     }
 
-    .anticon-cross {
+    .@{iconfont-css-prefix}-cross {
       position: absolute;
       right: 8px;
       top: 8px;
@@ -265,8 +265,8 @@
         height: 100%;
       }
 
-      .anticon-eye-o,
-      .anticon-delete {
+      .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-delete {
         position: absolute;
         left: 50%;
         top: 50%;
@@ -286,7 +286,7 @@
         }
       }
 
-      .anticon-delete {
+      .@{iconfont-css-prefix}-delete {
         left: 50%;
         margin-left: 6px;
       }
@@ -296,8 +296,8 @@
           opacity: .8;
         }
 
-        .anticon-eye-o,
-        .anticon-delete {
+        .@{iconfont-css-prefix}-eye-o,
+        .@{iconfont-css-prefix}-delete {
           opacity: 1;
         }
       }
@@ -323,8 +323,8 @@
       .@{upload-item}-info {
         height: auto;
         &:before,
-        .anticon-eye-o,
-        .anticon-delete {
+        .@{iconfont-css-prefix}-eye-o,
+        .@{iconfont-css-prefix}-delete {
           display: none;
         }
       }
