@@ -31,7 +31,7 @@ const Demo = React.createClass({
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          页签位置：
+          Tab position：
           <Select value={this.state.tabPosition} onChange={this.changeTabPosition}
             dropdownMatchSelectWidth={false}
           >
