@@ -25,15 +25,15 @@ const Card = React.createClass({
   },
   render() {
     const container = (
-      <Alert message="消息提示的文案"
-        description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"
+      <Alert message="Alert message title"
+        description="Further details about the context of this alert."
         type="info"
       />
     );
     return (
       <div>
         <Spin spinning={this.state.loading}>{container}</Spin>
-        切换加载状态：<Switch checked={this.state.loading} onChange={this.toggle} />
+        Loading state：<Switch checked={this.state.loading} onChange={this.toggle} />
       </div>
     );
   },
