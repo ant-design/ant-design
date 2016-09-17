@@ -19,7 +19,6 @@ class ActionButton extends React.Component<ActionButtonProps, any> {
       loading: false,
     };
   }
-
   onClick = () => {
     const { actionFn, closeModal } = this.props;
     if (actionFn) {
@@ -61,6 +60,7 @@ export default function confirm(config) {
   const prefixCls = props.prefixCls || 'ant-confirm';
   let div = document.createElement('div');
   document.body.appendChild(div);
+  document.addEventListerner('keypress', hotkeyHandler);
 
   let width = props.width || 416;
   let style = props.style || {};
@@ -78,9 +78,20 @@ export default function confirm(config) {
 
   function close() {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    document.removeEventListener('keypress', hotkeyHandler);
     if (unmountResult) {
       div.parentNode.removeChild(div);
     }
+  }
+
+  function hotkeyHandler(e) {
+    if (e.keyCode === 13) {
+      props.onOk();
+    }
+    if (e.keyCode === 27) {
+      props.onCancel();
+    }
+    close();
   }
 
   let body = (
