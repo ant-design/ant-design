@@ -13,6 +13,7 @@ export interface InputNumberProps {
   onChange?: (value: number) => void;
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
+  placeholder?: string;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {

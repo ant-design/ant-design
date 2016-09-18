@@ -3,7 +3,7 @@ import RcTable from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
-import Pagination from '../pagination';
+import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
 import classNames from 'classnames';
@@ -65,7 +65,7 @@ export interface TableProps {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection;
-  pagination?: any; // 等 Pagination 的 interface，以便直接引用
+  pagination?: PaginationProps;
   size?: 'default' | 'small';
   dataSource?: Object[];
   columns?: TableColumnConfig[];
@@ -75,7 +75,7 @@ export interface TableProps {
   defaultExpandedRowKeys?: string[];
   expandedRowKeys?: string[];
   expandIconAsCell?: boolean;
-  onChange?: (pagination: any, filters: string[], sorter: Object) => any;
+  onChange?: (pagination: PaginationProps, filters: string[], sorter: Object) => any;
   loading?: boolean;
   locale?: Object;
   indentSize?: number;

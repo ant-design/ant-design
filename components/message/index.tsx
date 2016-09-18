@@ -53,7 +53,7 @@ function notice(
   }());
 }
 
-type ConfigContent = React.ReactNode;
+type ConfigContent = React.ReactNode | string;
 type ConfigDuration = number;
 type ConfigOnClose = () => void;
 
