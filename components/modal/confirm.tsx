@@ -11,7 +11,7 @@ export interface ActionButtonProps {
   type: 'primary' | 'ghost' | 'dashed';
   actionFn: Function;
   closeModal: Function;
-  hotkey: Number;
+  focus?: Boolean;
 }
 class ActionButton extends React.Component<ActionButtonProps, any> {
   constructor(props) {
@@ -20,16 +20,11 @@ class ActionButton extends React.Component<ActionButtonProps, any> {
       loading: false,
     };
   }
-  hotkeyHandler = e => {
-    if (e.keyCode === this.props.hotkey) {
-      this.onClick();
-    }
-  }
   componentDidMount () {
-    document.addEventListener('keypress', this.hotkeyHandler);
-  }
-  componentWillUnmount () {
-    document.removeEventListener('keypress', this.hotkeyHandler);
+    if (this.props.focus) {
+      const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
+      setTimeout(() => $this.focus());
+    }
   }
   onClick = () => {
     const { actionFn, closeModal } = this.props;
@@ -106,10 +101,10 @@ export default function confirm(config) {
   if (props.okCancel) {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close} hotkey={27}>
+        <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} hotkey={13}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} focus={true}>
           {props.okText}
         </ActionButton>
       </div>
@@ -117,7 +112,7 @@ export default function confirm(config) {
   } else {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} hotkey={13}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} focus={true}>
           {props.okText}
         </ActionButton>
       </div>
@@ -133,12 +128,14 @@ export default function confirm(config) {
   ReactDOM.render(
     <Dialog
       className={classString}
+      closable={true}
+      onClose={close}
       visible
-      closable={false}
       title=""
       transitionName="zoom"
       footer=""
       maskTransitionName="fade"
+      maskClosable={false}
       style={style}
       width={width}
     >

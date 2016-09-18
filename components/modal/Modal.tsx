@@ -22,6 +22,8 @@ export interface ModalProps {
   onOk?: () => void;
   /** 点击遮罩层或右上角叉或取消按钮的回调*/
   onCancel?: (e: React.MouseEvent) => void;
+  /** 关闭对话框时的回调*/
+  onClose?: Function;
   /** 宽度*/
   width?: string | number;
   /** 底部内容*/
