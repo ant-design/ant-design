@@ -11,9 +11,10 @@ export interface ActionButtonProps {
   type: 'primary' | 'ghost' | 'dashed';
   actionFn: Function;
   closeModal: Function;
-  focus?: Boolean;
+  autoFocus?: Boolean;
 }
 class ActionButton extends React.Component<ActionButtonProps, any> {
+  timeoutId: number;
   constructor(props) {
     super(props);
     this.state = {
@@ -21,10 +22,13 @@ class ActionButton extends React.Component<ActionButtonProps, any> {
     };
   }
   componentDidMount () {
-    if (this.props.focus) {
+    if (this.props.autoFocus) {
       const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
-      setTimeout(() => $this.focus());
+      this.timeoutId = setTimeout(() => $this.focus());
     }
+  }
+  componentWillUnmount () {
+    clearTimeout(this.timeoutId);
   }
   onClick = () => {
     const { actionFn, closeModal } = this.props;
@@ -104,7 +108,7 @@ export default function confirm(config) {
         <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} focus={true}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -112,7 +116,7 @@ export default function confirm(config) {
   } else {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} focus={true}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -128,7 +132,6 @@ export default function confirm(config) {
   ReactDOM.render(
     <Dialog
       className={classString}
-      closable={true}
       onClose={close}
       visible
       title=""
