@@ -19,7 +19,7 @@ export { Breadcrumb };
 import Button from './button';
 export { Button };
 
-import Calendar from './Calendar';
+import Calendar from './calendar';
 export { Calendar };
 
 import Card from './card';
@@ -34,10 +34,10 @@ export { Carousel };
 import Cascader from './cascader';
 export { Cascader };
 
-import Checkbox from './Checkbox';
+import Checkbox from './checkbox';
 export { Checkbox };
 
-import Col from './Col';
+import Col from './col';
 export { Col };
 
 import DatePicker from './date-picker';
