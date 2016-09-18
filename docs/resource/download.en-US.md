@@ -17,7 +17,7 @@ Please find below some of the design resources and tools about Ant Design that w
   <img src="https://os.alipayobjects.com/rmsportal/yfTqrQuSKcqBDLY.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Ant UX</span>
-    <span class="resource-card-description">A series prototype library that helps you creating a nice user experience, covering the page structure and user flow within the page.</span>
+    <span class="resource-card-description">A series prototypes that help creating application structure and user flow.</span>
   </span>
 </a>
 <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-1.x.zip" class="resource-card">
