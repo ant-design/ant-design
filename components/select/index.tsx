@@ -3,7 +3,8 @@ import { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
-export type SelectValue = string | string[] | Array<{ key: string, label: React.ReactNode }>;
+export type SelectValue = string | any[] | { key: string, label: React.ReactNode } |
+ Array<{ key: string, label: React.ReactNode }>;
 
 export interface SelectProps {
   prefixCls?: string;
@@ -12,7 +13,7 @@ export interface SelectProps {
   defaultValue?: SelectValue;
   size?: 'default' | 'large' | 'small';
   combobox?: boolean;
-  notFoundContent?: React.ReactNode;
+  notFoundContent?: React.ReactNode | string;
   showSearch?: boolean;
   transitionName?: string;
   choiceTransitionName?: string;
@@ -30,7 +31,7 @@ export interface SelectProps {
   disabled?: boolean;
   defaultActiveFirstOption?: boolean;
   labelInValue?: boolean;
-  getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode;
+  getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode | HTMLElement;
   style?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   onChange?: (value) => void;

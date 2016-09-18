@@ -40,6 +40,7 @@ export interface ButtonProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  className?: string;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
