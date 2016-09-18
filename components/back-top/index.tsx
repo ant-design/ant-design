@@ -53,6 +53,7 @@ export interface BackTopProps {
   target?: () => HTMLElement | Window;
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export default class BackTop extends React.Component<BackTopProps, any> {

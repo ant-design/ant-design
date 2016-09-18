@@ -48,7 +48,7 @@ export interface TreeProps {
   /** （受控）展开指定的树节点 */
   expandedKeys?: Array<string>;
   /** （受控）选中复选框的树节点 */
-  checkedKeys?: Array<string>;
+  checkedKeys?: Array<string> | { checked: Array<string>, halfChecked: Array<string> };
   /** 默认选中复选框的树节点 */
   defaultCheckedKeys?: Array<string>;
   /** （受控）设置选中的树节点 */
@@ -81,6 +81,7 @@ export interface TreeProps {
   onDrop?: (options: AntTreeNodeMouseEvent) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
+  filterTreeNode?: (node: AntTreeNode) => boolean;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {

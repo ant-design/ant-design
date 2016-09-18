@@ -11,7 +11,8 @@ export interface MentionProps {
   notFoundContent?: any;
   loading?: Boolean;
   style?: Object;
-  defaultValue?: string;
+  defaultValue?: any;
+  value?: any;
   className?: string;
   multiLines?: Boolean;
 }
