@@ -59,7 +59,7 @@ const Test = React.createClass({
             </Button>
           </ButtonGroup>
           <Button type="ghost" onClick={this.onClick} style={{ marginLeft: 8 }}>
-            Red badge toggle
+            Switch state
           </Button>
         </div>
       </div>
