@@ -20,7 +20,7 @@ Please find below some of the design resources and tools about Ant Design that w
     <span class="resource-card-description">A series prototypes that help creating application structure and user flow.</span>
   </span>
 </a>
-<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-1.x.zip" class="resource-card">
+<a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/iconfont-2.x.zip" class="resource-card">
   <img src="https://os.alipayobjects.com/rmsportal/UEpOFKUQTZaUfnW.png">
   <span class="resource-card-content">
     <span class="resource-card-title">Web Font</span>
