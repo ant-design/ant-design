@@ -21,7 +21,7 @@ ReactDOM.render(<div>
     <Icon type="notification" />
   </Badge>
   <Badge dot>
-    <a href="#">一个链接</a>
+    <a href="#">A Link</a>
   </Badge>
 </div>, mountNode);
 ````

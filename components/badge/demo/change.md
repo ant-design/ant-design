@@ -59,7 +59,7 @@ const Test = React.createClass({
             </Button>
           </ButtonGroup>
           <Button type="ghost" onClick={this.onClick} style={{ marginLeft: 8 }}>
-            切换红点显隐
+            Red badge toggle
           </Button>
         </div>
       </div>
