@@ -11,6 +11,7 @@ export interface ActionButtonProps {
   type: 'primary' | 'ghost' | 'dashed';
   actionFn: Function;
   closeModal: Function;
+  hotkey: Number;
 }
 class ActionButton extends React.Component<ActionButtonProps, any> {
   constructor(props) {
@@ -18,6 +19,17 @@ class ActionButton extends React.Component<ActionButtonProps, any> {
     this.state = {
       loading: false,
     };
+  }
+  hotkeyHandler = e => {
+    if (e.keyCode === this.props.hotkey) {
+      this.onClick();
+    }
+  }
+  componentDidMount () {
+    document.addEventListener('keypress', this.hotkeyHandler);
+  }
+  componentWillUnmount () {
+    document.removeEventListener('keypress', this.hotkeyHandler);
   }
   onClick = () => {
     const { actionFn, closeModal } = this.props;
@@ -60,7 +72,6 @@ export default function confirm(config) {
   const prefixCls = props.prefixCls || 'ant-confirm';
   let div = document.createElement('div');
   document.body.appendChild(div);
-  document.addEventListerner('keypress', hotkeyHandler);
 
   let width = props.width || 416;
   let style = props.style || {};
@@ -78,20 +89,9 @@ export default function confirm(config) {
 
   function close() {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    document.removeEventListener('keypress', hotkeyHandler);
     if (unmountResult) {
       div.parentNode.removeChild(div);
     }
-  }
-
-  function hotkeyHandler(e) {
-    if (e.keyCode === 13) {
-      props.onOk();
-    }
-    if (e.keyCode === 27) {
-      props.onCancel();
-    }
-    close();
   }
 
   let body = (
@@ -106,10 +106,10 @@ export default function confirm(config) {
   if (props.okCancel) {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
+        <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close} hotkey={27}>
           {props.cancelText}
         </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} hotkey={13}>
           {props.okText}
         </ActionButton>
       </div>
@@ -117,7 +117,7 @@ export default function confirm(config) {
   } else {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} hotkey={13}>
           {props.okText}
         </ActionButton>
       </div>
