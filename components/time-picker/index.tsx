@@ -31,6 +31,7 @@ export interface TimePickerProps {
   disabledSeconds?: Function;
 
   style?: React.CSSProperties;
+  getPopupContainer?: (trigger: any) => any;
 }
 
 export interface TimePickerContext {

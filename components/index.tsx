@@ -19,6 +19,9 @@ export { Breadcrumb };
 import Button from './button';
 export { Button };
 
+import Calendar from './Calendar';
+export { Calendar };
+
 import Card from './card';
 export { Card };
 
@@ -30,6 +33,30 @@ export { Carousel };
 
 import Cascader from './cascader';
 export { Cascader };
+
+import Checkbox from './Checkbox';
+export { Checkbox };
+
+import Col from './Col';
+export { Col };
+
+import DatePicker from './date-picker';
+export { DatePicker };
+
+import Dropdown from './dropdown';
+export { Dropdown };
+
+import Form from './form';
+export { Form };
+
+import icon from './icon';
+export { icon };
+
+import Input from './input';
+export { Input };
+
+import InputNumber from './input-number';
+export { InputNumber };
 
 import LocaleProvider from './locale-provider';
 export { LocaleProvider };
@@ -64,6 +91,9 @@ export { Radio };
 import Rate from './rate';
 export { Rate };
 
+import Row from './row';
+export { Row };
+
 import Select from './select';
 export { Select };
 
@@ -79,11 +109,17 @@ export { Steps };
 import Switch from './switch';
 export { Switch };
 
+import Table from './table';
+export { Table };
+
 import Transfer from './transfer';
 export { Transfer };
 
 import Tree from './tree';
 export { Tree };
+
+import TreeSelect from './tree-select';
+export { TreeSelect };
 
 import Tabs from './tabs';
 export { Tabs }
@@ -102,3 +138,6 @@ export { Tooltip }
 
 import Mention from './mention';
 export { Mention };
+
+import Uplaod from './upload';
+export { Uplaod };
