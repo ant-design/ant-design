@@ -30,6 +30,8 @@ export interface SinglePickerProps {
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
   showTime?: TimePickerProps;
+  open?: boolean;
+  toggleOpen?: (e: {open: boolean}) => void;
 }
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
 
