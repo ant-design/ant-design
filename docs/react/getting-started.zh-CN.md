@@ -44,7 +44,7 @@ $ npm install antd-init -g
 
 ```bash
 $ mkdir antd-demo && cd antd-demo
-$ antd-init --type plain-react
+$ antd-init
 ```
 
 antd-init 会自动安装 npm 依赖，若有问题则可自行安装。
@@ -55,7 +55,7 @@ antd-init 会自动安装 npm 依赖，若有问题则可自行安装。
 
 脚手架会生成一个 Todo 应用实例（一个很有参考价值的 React 上手示例），先不管它，我们用来测试组件。
 
-直接用下面的代码替换 `src/entries/index.js` 的内容，用 React 的方式直接使用 antd 组件。
+直接用下面的代码替换 `index.js` 的内容，用 React 的方式直接使用 antd 组件。
 
 ```jsx
 import React from 'react';
@@ -90,7 +90,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. 开发调试
 
-一键启动调试，访问 http://127.0.0.1:8989 查看效果。
+一键启动调试，访问 http://127.0.0.1:8000 查看效果。
 
 ```bash
 $ npm start
