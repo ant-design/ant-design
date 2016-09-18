@@ -89,7 +89,7 @@ export default class ComponentDoc extends React.Component {
                 (!subtitle && !chinese) ? null :
                   <span className="subtitle">{subtitle || chinese}</span>
               }
-              <EditButton title="在 Github 上编辑此页！" filename={filename} />
+              <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
             </h1>
             {
               props.utils.toReactComponent(

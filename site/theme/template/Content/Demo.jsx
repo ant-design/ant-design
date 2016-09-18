@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import EditButton from './EditButton';
 
@@ -75,7 +76,7 @@ export default class Demo extends React.Component {
             <a href={`#${meta.id}`}>
               {localizedTitle}
             </a>
-            <EditButton title="在 Github 上编辑此示例！" filename={meta.filename} />
+            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
           </div>
           {introChildren}
           <span className="collapse anticon anticon-circle-o-right"
