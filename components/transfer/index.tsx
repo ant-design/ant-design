@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import List from './list';
 import Operation from './operation';
@@ -19,8 +19,9 @@ export interface TransferItem {
 export interface TransferProps {
   dataSource: Array<TransferItem>;
   render?: (record: TransferItem) => any;
-  targetKeys: Array<string>;
+  targetKeys: string[];
   onChange?: (targetKeys: Array<TransferItem>, direction: string, moveKeys: any) => void;
+  onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   listStyle?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
@@ -46,6 +47,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     render: noop,
     targetKeys: [],
     onChange: noop,
+    onSelectChange: noop,
     titles: ['源列表', '目的列表'],
     operations: [],
     showSearch: false,
@@ -142,7 +144,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   }
 
   moveTo = (direction) => {
-    const { targetKeys } = this.props;
+    const { targetKeys, onChange } = this.props;
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const moveKeys = direction === 'right' ? leftCheckedKeys : rightCheckedKeys;
     // move items to target box
@@ -151,22 +153,34 @@ export default class Transfer extends React.Component<TransferProps, any> {
       : targetKeys.filter(targetKey => !moveKeys.some(checkedKey => targetKey === checkedKey));
 
     // empty checked keys
+    const oppositeDirection = direction === 'right' ? 'left' : 'right';
     this.setState({
-      [direction === 'right' ? 'leftCheckedKeys' : 'rightCheckedKeys']: [],
+      [`${oppositeDirection}CheckedKeys`]: [],
     });
+    this.handleSelectChange(oppositeDirection, []);
 
-    this.props.onChange(newTargetKeys, direction, moveKeys);
+    onChange(newTargetKeys, direction, moveKeys);
   }
 
   moveToLeft = () => this.moveTo('left')
   moveToRight = () => this.moveTo('right')
 
+  handleSelectChange(direction: string, holder: string[]) {
+    const { leftCheckedKeys, rightCheckedKeys } = this.state;
+    const onSelectChange = this.props.onSelectChange;
+    if (direction === 'left') {
+      onSelectChange(holder, rightCheckedKeys);
+    } else {
+      onSelectChange(leftCheckedKeys, holder);
+    }
+  }
+
   handleSelectAll = (direction, filteredDataSource, checkAll) => {
     const holder = checkAll ? [] : filteredDataSource.map(item => item.key);
-
     this.setState({
       [`${direction}CheckedKeys`]: holder,
     });
+    this.handleSelectChange(direction, holder);
   }
 
   handleLeftSelectAll = (filteredDataSource, checkAll) => (
@@ -213,6 +227,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     this.setState({
       [`${direction}CheckedKeys`]: holder,
     });
+    this.handleSelectChange(direction, holder);
   }
 
   handleLeftSelect = (selectedItem, checked) => this.handleSelect('left', selectedItem, checked);

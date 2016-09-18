@@ -14,7 +14,6 @@ title:
 If uploade file is picture, a thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
 
 
-
 ````jsx
 import { Upload, Button, Icon } from 'antd';
 

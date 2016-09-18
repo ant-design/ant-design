@@ -7,17 +7,13 @@ import Icon from '../icon';
 
 export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
-    defaultValue: [],
     prefixCls: 'ant-calendar',
   };
 
   constructor(props) {
     super(props);
-    const { value, defaultValue } = this.props;
-    const start = (value && value[0]) || defaultValue[0];
-    const end = (value && value[1]) || defaultValue[1];
     this.state = {
-      value: [start, end],
+      value: props.value || props.defaultValue || [],
     };
   }
 

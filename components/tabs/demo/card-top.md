@@ -36,10 +36,13 @@ ReactDOM.render(
 }
 
 .card-container > .ant-tabs-card > .ant-tabs-content {
-  background: #fff;
-  padding: 16px;
   height: 120px;
   margin-top: -16px;
+}
+
+.card-container > .ant-tabs-card > .ant-tabs-content > .ant-tabs-tabpane {
+  background: #fff;
+  padding: 16px;
 }
 
 .card-container > .ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {

@@ -4,7 +4,7 @@ import Icon from '../icon';
 import assign from 'object-assign';
 let defaultTop = 24;
 let notificationInstance;
-let defaultDuration = 45;
+let defaultDuration = 4.5;
 
 export interface ArgsProps {
   message: React.ReactNode;

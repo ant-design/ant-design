@@ -33,7 +33,7 @@
 
     .@{iconfont-css-prefix}-filter {
       margin-left: 4px;
-      .iconfont-size-under-12px(10px);
+      font-size: 12px;
       cursor: pointer;
       color: #aaa;
       transition: all 0.3s ease;
@@ -199,13 +199,13 @@
     margin-left: 4px;
     display: inline-block;
     width: 12px;
-    height: 15px;
+    height: 14px;
     vertical-align: middle;
     text-align: center;
     &-up,
     &-down {
       line-height: 4px;
-      height: 6px;
+      height: 5px;
       display: block;
       width: 12px;
       cursor: pointer;
@@ -221,7 +221,7 @@
     }
     .@{iconfont-css-prefix}-caret-up,
     .@{iconfont-css-prefix}-caret-down {
-      .iconfont-size-under-12px(6px);
+      .iconfont-size-under-12px(7px);
       line-height: 6px;
       height: 6px;
       color: #aaa;
@@ -500,57 +500,5 @@
 
   &&-scroll-position-right &-fixed-right {
     box-shadow: none;
-  }
-
-  &-column-hidden {
-    display: none;
-  }
-
-  &-thead > tr > th&-column-has-prev {
-    position: relative;
-  }
-
-  &-thead > tr > th&-column-has-prev,
-  &-tbody > tr > td&-column-has-prev {
-    padding-left: 24px;
-  }
-
-  &-prev-columns-page,
-  &-next-columns-page {
-    cursor: pointer;
-    color: #666;
-    z-index: 1;
-    &:hover {
-      color: @primary-color;
-    }
-    &-disabled {
-      cursor: not-allowed;
-      color: #bbb;
-      &:hover {
-        color: #bbb;
-      }
-    }
-  }
-
-  &-prev-columns-page {
-    position: absolute;
-    left: 8px;
-    &:before {
-      content: '\e601';
-      .iconfont-size-under-12px(9px);
-      font-weight: bold;
-      font-family: anticon;
-    }
-  }
-
-  &-next-columns-page {
-    float: right;
-    margin-left: 8px;
-    &:before {
-      content: '\e600';
-      .iconfont-size-under-12px(9px);
-      font-weight: bold;
-      font-family: anticon;
-    }
   }
 }

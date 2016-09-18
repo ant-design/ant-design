@@ -1,6 +1,8 @@
-import RcTabs, { TabPane } from 'rc-tabs';
-import * as React from 'react';
+import React from 'react';
 import { cloneElement } from 'react';
+import RcTabs, { TabPane } from 'rc-tabs';
+import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import Icon from '../icon';
 
@@ -60,8 +62,17 @@ export default class Tabs extends React.Component<TabsProps, any> {
   }
 
   render() {
-    let { prefixCls, size, tabPosition, animation, type,
-      children, tabBarExtraContent, hideAdd } = this.props;
+    let {
+      prefixCls,
+      size,
+      type,
+      tabPosition,
+      animation,
+      children,
+      tabBarExtraContent,
+      hideAdd,
+      onTabClick,
+    } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
       [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
@@ -73,15 +84,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
       animation = null;
     }
     // only card type tabs can be added and closed
-    let childrenWithCross;
+    let childrenWithClose;
     if (type === 'editable-card') {
-      childrenWithCross = [];
+      childrenWithClose = [];
       React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
-        childrenWithCross.push(cloneElement(child, {
+        childrenWithClose.push(cloneElement(child, {
           tab: (
             <div>
               {child.props.tab}
-              <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
+              <Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />
             </div>
           ),
           key: child.key || index,
@@ -107,11 +118,17 @@ export default class Tabs extends React.Component<TabsProps, any> {
     return (
       <RcTabs {...this.props}
         className={className}
-        tabBarExtraContent={tabBarExtraContent}
+        tabBarPosition={tabPosition}
+        renderTabBar={() => (
+          <ScrollableInkTabBar
+            extraContent={tabBarExtraContent}
+            onTabClick={onTabClick}
+          />
+        )}
+        renderTabContent={() => <TabContent />}
         onChange={this.handleChange}
-        animation={animation}
       >
-        {childrenWithCross || children}
+        {childrenWithClose || children}
       </RcTabs>
     );
   }
