@@ -84,15 +84,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
       animation = null;
     }
     // only card type tabs can be added and closed
-    let childrenWithCross;
+    let childrenWithClose;
     if (type === 'editable-card') {
-      childrenWithCross = [];
+      childrenWithClose = [];
       React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
-        childrenWithCross.push(cloneElement(child, {
+        childrenWithClose.push(cloneElement(child, {
           tab: (
             <div>
               {child.props.tab}
-              <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
+              <Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />
             </div>
           ),
           key: child.key || index,
@@ -128,7 +128,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         renderTabContent={() => <TabContent />}
         onChange={this.handleChange}
       >
-        {childrenWithCross || children}
+        {childrenWithClose || children}
       </RcTabs>
     );
   }
