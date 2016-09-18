@@ -29,7 +29,6 @@ export interface CheckboxGroupState {
 export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    defaultValue: [],
     onChange() {},
     prefixCls: 'ant-checkbox-group',
   };
@@ -41,13 +40,9 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   };
   constructor(props) {
     super(props);
-    let value;
-    if ('value' in props) {
-      value = props.value || [];
-    } else if ('defaultValue' in props) {
-      value = props.defaultValue || [];
-    }
-    this.state = { value };
+    this.state = {
+      value: props.value || props.defaultValue || [],
+     };
   }
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
