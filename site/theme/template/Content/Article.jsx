@@ -1,4 +1,5 @@
 import React, { Children, cloneElement } from 'react';
+import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline } from 'antd';
@@ -66,7 +67,7 @@ export default class Article extends React.Component {
               (!subtitle && !chinese) ? null :
                 <span className="subtitle">{subtitle || chinese}</span>
             }
-            <EditButton title="在 Github 上编辑此页！" filename={filename} />
+            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
           </h1>
           {
             !description ? null :

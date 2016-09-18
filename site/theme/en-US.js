@@ -11,6 +11,8 @@ module.exports = {
     'app.header.menu.spec': 'Specification',
     'app.header.menu.resource': 'Resource',
     'app.header.lang': '中文',
+    'app.content.edit-page': 'Edit this page on Github!',
+    'app.content.edit-demo': 'Edit this demo on Github!',
     'app.component.examples': 'Examples',
     'app.home.slogan': 'One Design Language for UI',
     'app.home.start': 'Getting Started',
