@@ -1,6 +1,6 @@
 ---
 order: 8
-title: 
+title:
   zh-CN: 图片卡片样式
   en-US: Pictures with card tyle
 ---
@@ -50,7 +50,7 @@ const ImageUploadList = React.createClass({
       <div className="clearfix">
         <Upload {...props}>
           <Icon type="plus" />
-          <div className="ant-upload-text">upload pictures</div>
+          <div className="ant-upload-text">Upload</div>
         </Upload>
         <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" rel="noopener noreferrer" className="upload-example">
           <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
