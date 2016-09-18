@@ -150,6 +150,14 @@ declare module 'rc-tabs' {
   export default function(): any;
 }
 
+declare module 'rc-tabs/lib/ScrollableInkTabBar' {
+  export default function(): any;
+}
+
+declare module 'rc-tabs/lib/TabContent' {
+  export default function(): any;
+}
+
 declare module 'rc-tree' {
   export const TreeNode: any;
   export default function(): any;

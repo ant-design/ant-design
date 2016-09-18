@@ -146,10 +146,7 @@
     .@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
-
-      .@{tab-prefix-cls}-tab-inner {
-        color: #ccc;
-      }
+      color: #ccc;
     }
 
     .@{tab-prefix-cls}-tab {
@@ -159,30 +156,26 @@
       box-sizing: border-box;
       position: relative;
 
-      &-inner {
-        padding: 8px 20px;
-        transition: color 0.3s @ease-in-out;
-        display: block;
-        cursor: pointer;
-        text-decoration: none;
+      padding: 8px 20px;
+      transition: color 0.3s @ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
 
-        &:hover {
-          color: tint(@primary-color, 20%);
-        }
+      &:hover {
+        color: tint(@primary-color, 20%);
+      }
 
-        &:active {
-          color: shade(@primary-color, 5%);
-        }
-
-        .@{iconfont-css-prefix} {
-          width: 14px;
-          height: 14px;
-          margin-right: 8px;
-        }
+      &:active {
+        color: shade(@primary-color, 5%);
+      }
+      .@{iconfont-css-prefix} {
+        width: 14px;
+        height: 14px;
+        margin-right: 8px;
       }
     }
 
-    .@{tab-prefix-cls}-tab-active .@{tab-prefix-cls}-tab-inner {
+    .@{tab-prefix-cls}-tab-active {
       color: @primary-color;
     }
   }
@@ -193,82 +186,21 @@
 
   &-mini &-tab {
     margin-right: 0;
-    .@{tab-prefix-cls}-tab-inner {
-      padding: 8px 16px;
+    padding: 8px 16px;
+  }
+
+  &:not(&-vertical) {
+    .@{tab-prefix-cls}-content-animated {
+      display: flex;
+      flex-direction: row;
+      will-change: transform;
+      transition: transform 0.3s @ease-in-out;
     }
-  }
 
-  &-tabpane-hidden {
-    display: none;
-  }
-
-  &-content {
-    position: relative;
-    width: 100%;
-  }
-
-  &-slide-horizontal-backward-enter {
-    .motion-common();
-    animation-play-state: paused;
-    animation-timing-function: @ease-in-out-quint;
-    opacity: 0;
-    animation-duration: 0.4s;
-  }
-
-  &-slide-horizontal-backward-enter&-slide-horizontal-backward-enter-active {
-    animation-name: antMoveLeftIn;
-    transform: translateZ(0);
-    animation-play-state: running;
-  }
-
-  &-slide-horizontal-backward-leave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    .motion-common();
-    animation-play-state: paused;
-    animation-timing-function: @ease-in-out-quint;
-    animation-duration: 0.4s;
-  }
-
-  &-slide-horizontal-backward-leave&-slide-horizontal-backward-leave-active {
-    animation-name: antMoveRightOut;
-    transform: translateZ(0);
-    animation-play-state: running;
-  }
-
-  &-slide-horizontal-forward-enter {
-    .motion-common();
-    animation-play-state: paused;
-    animation-timing-function: @ease-in-out-quint;
-    opacity: 0;
-    animation-duration: 0.4s;
-  }
-
-  &-slide-horizontal-forward-enter&-slide-horizontal-forward-enter-active {
-    animation-name: antMoveRightIn;
-    animation-play-state: running;
-    transform: translateZ(0);
-  }
-
-  &-slide-horizontal-forward-leave {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    .motion-common();
-    animation-duration: 0.4s;
-    animation-play-state: paused;
-    animation-timing-function: @ease-in-out-quint;
-  }
-
-  &-slide-horizontal-forward-leave&-slide-horizontal-forward-leave-active {
-    transform: translateZ(0);
-    animation-name: antMoveLeftOut;
-    animation-play-state: running;
+    .@{tab-prefix-cls}-tabpane {
+      flex-shrink: 0;
+      width: 100%;
+    }
   }
 
   &-vertical {
@@ -280,11 +212,10 @@
         margin-right: 0;
         margin-bottom: 16px;
         display: block;
+        padding: 8px 24px;
+
         &:last-child {
           margin-bottom: 0;
-        }
-        .@{tab-prefix-cls}-tab-inner {
-          padding: 8px 24px;
         }
       }
 
@@ -321,9 +252,7 @@
       margin-right: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-tab {
-        .@{tab-prefix-cls}-tab-inner {
-          text-align: right;
-        }
+        text-align: right;
       }
       .@{tab-prefix-cls}-nav-container {
         margin-right: -1px;
@@ -384,7 +313,7 @@
     background: #f9f9f9;
     margin-right: 2px;
   }
-  &&-card > &-bar &-tab-inner {
+  &&-card > &-bar &-tab {
     padding: 7px 16px 6px;
     transition: all 0.3s @ease-in-out;
   }
@@ -394,14 +323,14 @@
     border-color: @border-color-base;
     color: @primary-color;
   }
-  &&-card > &-bar &-tab-active &-tab-inner {
+  &&-card > &-bar &-tab-active {
     padding-bottom: 7px;
     transform: translateZ(0);
   }
   &&-card > &-bar &-nav-wrap {
     margin-bottom: 0;
   }
-  &&-card > &-bar &-tab-inner .@{iconfont-css-prefix}-cross {
+  &&-card > &-bar &-tab .@{iconfont-css-prefix}-close {
     margin-right: 0;
     color: #999;
     transition: all 0.3s @ease-in-out;
@@ -417,13 +346,13 @@
     }
   }
 
-  &&-editable-card > &-bar &-tab:not(&-tab-active):hover &-tab-inner {
+  &&-editable-card > &-bar &-tab:not(&-tab-active):hover {
     padding-left: 8px;
     padding-right: 8px;
   }
 
-  &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-cross,
-  &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-cross {
+  &&-card > &-bar &-tab-active .@{iconfont-css-prefix}-close,
+  &&-card > &-bar &-tab:hover .@{iconfont-css-prefix}-close {
     width: 16px;
     transform: translateZ(0);
   }
@@ -447,6 +376,19 @@
       &:hover {
         color: #404040;
       }
+    }
+  }
+}
+
+.no-flex,
+.@{tab-prefix-cls}-vertical {
+  .@{tab-prefix-cls}-content {
+    &-animated {
+      transform: none!important;
+    }
+
+    > .@{tab-prefix-cls}-tabpane-inactive {
+      display: none;
     }
   }
 }
