@@ -2,7 +2,7 @@ import * as React from 'react';
 import Select, { Option, OptGroup } from '../select';
 import classNames from 'classnames';
 
-interface SelectedValue {
+export interface SelectedValue {
   key: string;
   label: React.ReactNode;
 }
