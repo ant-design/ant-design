@@ -87,6 +87,7 @@ export interface TableProps {
   title?: (currentPageData: Object[]) => React.ReactNode;
   scroll?: { x?: boolean | number, y?: boolean | number};
   childrenColumnName?: 'string';
+  bodyStyle?: React.CSSProperties;
 }
 
 export interface TableContext {
