@@ -14,7 +14,7 @@ export interface ActionButtonProps {
   autoFocus?: Boolean;
 }
 class ActionButton extends React.Component<ActionButtonProps, any> {
-  timeoutId?: number;
+  timeoutId: number;
   constructor(props) {
     super(props);
     this.state = {
