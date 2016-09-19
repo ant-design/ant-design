@@ -13,7 +13,7 @@
 .@{input-number-prefix-cls} {
   .input();
   margin: 0;
-  padding: 0 22px 0 0;
+  padding: 0;
   line-height: 28px;
   font-size: 12px;
   height: 28px;
@@ -157,11 +157,12 @@
     border-left: 1px solid @border-color-base;
     width: 22px;
     height: 100%;
-    background: transparent;
+    background: #fff;
     position: absolute;
-    top: 0;
+    top: -1px;
     right: 0;
     opacity: 0;
+    border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
   }
 
