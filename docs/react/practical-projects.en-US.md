@@ -80,7 +80,7 @@ const Products = (props) => {
   );
 };
 
-exports default Products;
+export default Products;
 ```
 
 Add routing infomation to router, edit `router.js`:

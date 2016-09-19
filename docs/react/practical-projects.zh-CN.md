@@ -80,7 +80,7 @@ const Products = (props) => {
   );
 };
 
-exports default Products;
+export default Products;
 ```
 
 添加路由信息到路由表，编辑 `router.js` :
