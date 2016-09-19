@@ -5,14 +5,15 @@ import assign from 'object-assign';
 
 export interface ModalFuncProps {
   visible?: boolean;
-  title?: React.ReactNode;
-  content?: React.ReactNode;
+  title?: React.ReactNode | string;
+  content?: React.ReactNode | string;
   onOk?: (func: Function) => any;
   onCancel?: (func: Function) => any;
   width?: string | number;
   iconClassName?: string;
   okText?: string;
   cancelText?: string;
+  iconType?: string;
 }
 Modal.info = function (props: ModalFuncProps) {
   const config = assign({}, {

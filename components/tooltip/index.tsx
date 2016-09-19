@@ -31,6 +31,7 @@ export interface TooltipProps {
   overlay?: React.ReactNode;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
+  getTooltipContainer: (triggerNode: React.ReactNode) => HTMLElement;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {

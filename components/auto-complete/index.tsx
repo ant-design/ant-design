@@ -2,6 +2,11 @@ import * as React from 'react';
 import Select, { Option, OptGroup } from '../select';
 import classNames from 'classnames';
 
+export interface SelectedValue {
+  key: string;
+  label: React.ReactNode;
+}
+
 export interface AutoCompleteProps {
   size?: 'large' | 'small' | 'default';
   className?: string;
@@ -12,6 +17,11 @@ export interface AutoCompleteProps {
   optionLabelProp?: string;
   choiceTransitionName?: string;
   showSearch?: boolean;
+  defaultValue?: string | Array<any> | SelectedValue | Array<SelectedValue>;
+  value?: string | Array<any> | SelectedValue | Array<SelectedValue>;
+  allowClear?: boolean;
+  onChange?: (value) => void;
+  disabled?: boolean;
 }
 
 export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
