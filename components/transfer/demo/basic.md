@@ -35,6 +35,7 @@ const App = React.createClass({
         title: `content${i + 1}`,
         description: `description of content${i + 1}`,
         chosen: Math.random() * 2 > 1,
+        disabled: Math.random() * 3 < 1,
       };
       if (data.chosen) {
         targetKeys.push(data.key);

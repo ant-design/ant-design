@@ -24,7 +24,7 @@ const Complete = React.createClass({
   },
   handleChange(value) {
     this.setState({
-      dataSource: [
+      dataSource: !value ? [] : [
         value,
         value + value,
         value + value + value,

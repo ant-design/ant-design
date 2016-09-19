@@ -22,11 +22,12 @@ export interface ColProps {
   offset?: number;
   push?: number;
   pull?: number;
-  xs?: ColSize;
-  sm?: ColSize;
-  md?: ColSize;
-  lg?: ColSize;
+  xs?: number | ColSize;
+  sm?: number | ColSize;
+  md?: number | ColSize;
+  lg?: number | ColSize;
   prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 const Col: React.StatelessComponent<ColProps> = (props) => {

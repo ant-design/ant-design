@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 拖拽上传
   en-US: Upload files by dragging and dropping
 ---

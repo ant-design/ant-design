@@ -37,7 +37,10 @@ export type WrappedFormUtils = {
   /** 设置一组输入控件的值*/
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
-  validateFields(fieldNames?: Array<string>, options?: Object, callback?: (erros: any, values: any) => void): any;
+  validateFields(fieldNames: Array<string>, options: Object, callback: (erros: any, values: any) => void): any;
+  validateFields(fieldNames: Array<string>, callback: (erros: any, values: any) => void): any;
+  validateFields(options: Object, callback: (erros: any, values: any) => void): any;
+  validateFields(callback: (erros: any, values: any) => void): any;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
   validateFieldsAndScroll(
     fieldNames?: Array<string>,
@@ -65,12 +68,12 @@ export type WrappedFormUtils = {
     /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
     rules?: Array<any>;
     /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
-    exclusive: boolean;
+    exclusive?: boolean;
   }): Array<any>;
 }
 
 export interface FormComponentProps {
-  form: WrappedFormUtils;
+  form?: WrappedFormUtils;
 }
 
 export class FormComponent extends React.Component<FormComponentProps, {}> {

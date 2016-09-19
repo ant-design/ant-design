@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Button from '../button';
 import Icon from '../icon';
 import Dropdown from './dropdown';
@@ -12,6 +12,7 @@ export interface DropdownButtonProps {
   trigger?: 'click' | 'hover';
   overlay: React.ReactNode;
   visible?: boolean;
+  disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
@@ -33,18 +34,18 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   };
 
   render() {
-    const [{ type, overlay, trigger, align, children, className, onClick, prefixCls }, restProps] =
+    const [{ type, overlay, trigger, align, children, className, onClick, prefixCls, disabled }, restProps] =
      splitObject(this.props,
-       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick', 'prefixCls']);
+       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick', 'prefixCls', 'disabled']);
     const cls = classNames({
       [prefixCls]: true,
       [className]: !!className,
     });
     return (
       <ButtonGroup {...restProps} className={cls}>
-        <Button type={type} onClick={onClick}>{children}</Button>
+        <Button type={type} onClick={onClick} disabled={disabled}>{children}</Button>
         <Dropdown align={align} overlay={overlay} trigger={trigger}>
-          <Button type={type}>
+          <Button type={type} disabled={disabled}>
             <Icon type="down" />
           </Button>
         </Dropdown>

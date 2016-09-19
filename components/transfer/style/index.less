@@ -83,31 +83,37 @@
         text-align: center;
         height: 100%;
       }
-
-      ul {
-        height: 100%;
-        overflow: auto;
-        li {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          padding: 7px 16px;
-          transition: all 0.3s ease;
-          &:hover {
-            cursor: pointer;
-            background-color: tint(@primary-color, 90%);
-          }
-        }
-      }
-    }
-
-    ul li&-highlight-enter {
-      animation: transferHighlightIn 1s ease;
-      transition: none;
     }
 
     &-body-with-search {
       padding-top: 34px;
+    }
+
+    &-content {
+      height: 100%;
+      overflow: auto;
+      &-item {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 7px 16px;
+        transition: all 0.3s ease;
+      }
+
+      &-item:not(&-item-disabled):hover {
+        cursor: pointer;
+        background-color: tint(@primary-color, 90%);
+      }
+
+      &-item-disabled {
+        cursor: not-allowed;
+        color: @btn-disable-color;
+      }
+
+      &-item-highlight-enter {
+        animation: transferHighlightIn 1s ease;
+        transition: none;
+      }
     }
 
     &-footer {

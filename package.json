@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "2.0.0-beta.6",
+  "version": "2.0.0-beta.10",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React-based implementation",
   "homepage": "http://ant.design/",
@@ -42,7 +42,7 @@
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
     "rc-animate": "~2.3.0",
-    "rc-calendar": "~7.0.3",
+    "rc-calendar": "~7.1.0",
     "rc-cascader": "~0.10.1",
     "rc-checkbox": "~1.4.0",
     "rc-collapse": "~1.6.4",

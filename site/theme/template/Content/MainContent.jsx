@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
@@ -10,11 +10,30 @@ const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { openKeys: [] };
   }
 
   componentDidMount() {
+    this.componentWillReceiveProps(this.props);
     this.componentDidUpdate();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const prevModule = this.currentModule;
+    this.currentModule = location.pathname.split('/')[2] || 'components';
+    if (this.currentModule === 'react') {
+      this.currentModule = 'components';
+    }
+    if (prevModule !== this.currentModule) {
+      const moduleData = this.getModuleData(nextProps);
+      const shouldOpenKeys = Object.keys(utils.getMenuItems(moduleData));
+      this.setState({ openKeys: shouldOpenKeys });
+    }
   }
 
   componentDidUpdate() {
@@ -35,10 +54,8 @@ export default class MainContent extends React.Component {
     clearTimeout(this.timer);
   }
 
-  shouldComponentUpdate(nextProps) {
-    const pathname = this.props.location.pathname;
-    return pathname !== nextProps.location.pathname ||
-      /^\/components\//i.test(pathname);
+  handleMenuOpenChange = (openKeys) => {
+    this.setState({ openKeys });
   }
 
   getActiveMenuItem(props) {
@@ -96,8 +113,7 @@ export default class MainContent extends React.Component {
     return [...topLevel, ...itemGroups];
   }
 
-  getModuleData() {
-    const props = this.props;
+  getModuleData(props) {
     const pathname = props.location.pathname;
     const moduleName = /^components/.test(pathname) ?
             'components' : pathname.split('/').slice(0, 2).join('/');
@@ -110,7 +126,7 @@ export default class MainContent extends React.Component {
   }
 
   getMenuItems() {
-    const moduleData = this.getModuleData();
+    const moduleData = this.getModuleData(this.props);
     const menuItems = utils.getMenuItems(moduleData);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
@@ -156,16 +172,15 @@ export default class MainContent extends React.Component {
     const activeMenuItem = this.getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
-
-    const moduleData = this.getModuleData();
     const localizedPageData = props.localizedPageData;
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              openKeys={Object.keys(utils.getMenuItems(moduleData))}
+              openKeys={this.state.openKeys}
               selectedKeys={[activeMenuItem]}
+              onOpenChange={this.handleMenuOpenChange}
             >
               {menuItems}
             </Menu>

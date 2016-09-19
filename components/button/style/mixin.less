@@ -68,11 +68,11 @@
 
   // size
   &-lg > .@{btnClassName} {
-    .button-size(@btn-padding-lg; @btn-font-size-lg; @border-radius-base);
+    .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
   }
 
   &-sm > .@{btnClassName} {
-    .button-size(@btn-padding-sm; @font-size-base; @border-radius-sm);
+    .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -94,7 +94,7 @@
   // outline: none;
   white-space: nowrap;
   line-height: @line-height-base;
-  .button-size(@btn-padding-base; @font-size-base; @border-radius-base);
+  .button-size(@btn-padding-base; @font-size-base; @btn-border-radius-base);
   user-select: none;
   transition: all .3s @ease-in-out;
   transform: translate3d(0, 0, 0);
