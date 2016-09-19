@@ -37,6 +37,13 @@ ReactDOM.render(
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} type="ghost">
       某功能按钮
     </Dropdown.Button>
+    <Dropdown.Button
+      onClick={handleButtonClick} overlay={menu}
+      type="ghost" disabled
+      style={{ marginLeft: 8 }}
+    >
+      某功能按钮
+    </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button type="ghost" style={{ marginLeft: 8 }}>
         按钮 <Icon type="down" />
