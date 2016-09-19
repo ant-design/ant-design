@@ -132,7 +132,7 @@ export default function confirm(config) {
   ReactDOM.render(
     <Dialog
       className={classString}
-      onClose={close}
+      onCancel={close}
       visible
       title=""
       transitionName="zoom"
