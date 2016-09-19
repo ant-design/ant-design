@@ -17,14 +17,6 @@ export default class Demo extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.expand === undefined) return;
-
-    this.setState({
-      codeExpand: nextProps.expand,
-    });
-  }
-
   handleCodeExapnd = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
@@ -39,9 +31,10 @@ export default class Demo extends React.Component {
       highlightedCode,
       style,
       highlightedStyle,
+      expand,
     } = props;
 
-    const codeExpand = this.state.codeExpand;
+    const codeExpand = this.state.codeExpand || expand;
     const codeBoxClass = classNames({
       'code-box': true,
       expand: codeExpand,
