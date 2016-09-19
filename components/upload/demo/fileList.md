@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 完全控制的上传列表
   en-US: Complete control over file list
 ---
@@ -19,9 +19,11 @@ title:
 
 You can gain full control over filelist by configuring `fileList`. You can accomplish all kinds of customed functions. The following shows three circumstances:
 
-1. limit the number of uploaded files
-2. read from response and show file link
-3. filter successfully uploaded files according to response from server
+1) limit the number of uploaded files.
+
+2) read from response and show file link.
+
+3) filter successfully uploaded files according to response from server.
 
 ````jsx
 import { Upload, Button, Icon } from 'antd';
