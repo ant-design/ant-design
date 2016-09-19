@@ -49,8 +49,8 @@ export { Dropdown };
 import Form from './form';
 export { Form };
 
-import icon from './icon';
-export { icon };
+import Icon from './icon';
+export { Icon };
 
 import Input from './input';
 export { Input };
