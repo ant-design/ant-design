@@ -29,7 +29,9 @@ export interface SinglePickerProps {
 }
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
-  showTime?: TimePickerProps;
+  showTime?: TimePickerProps | boolean;
+  open?: boolean;
+  toggleOpen?: (e: {open: boolean}) => void;
 }
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
 
@@ -42,7 +44,7 @@ export interface RangePickerProps extends PickerProps {
   defaultValue?: [moment.Moment, moment.Moment];
   defaultPickerValue?: [moment.Moment, moment.Moment];
   onChange?: (dates: [moment.Moment, moment.Moment], dateStrings: [string, string]) => void;
-  showTime?: TimePickerProps;
+  showTime?: TimePickerProps | boolean;
 }
 
 assign(DatePicker, {

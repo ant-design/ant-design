@@ -32,8 +32,9 @@ export interface TransferProps {
   notFoundContent?: React.ReactNode | string;
   footer?: (props: any) => any;
   style?: React.CSSProperties;
-  filterOption: (filterText: any, item: any) => boolean;
+  filterOption: (inputValue: any, item: any) => boolean;
   body?: (props: any) => any;
+  rowKey?: (record: any) => string;
 }
 
 export default class Transfer extends React.Component<TransferProps, any> {
