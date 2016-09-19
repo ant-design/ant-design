@@ -45,7 +45,7 @@ A new project can be created using CLI tools.
 
 ```bash
 $ mkdir antd-demo && cd antd-demo
-$ antd-init --type plain-react
+$ antd-init
 ```
 
 `antd-init` will run `npm install` after a project is created. If it fails, you can run `npm install` by yourself.
@@ -55,7 +55,7 @@ $ antd-init --type plain-react
 By default, besides the scaffolding needed to start the development, a fully working Todo application is created.
 You may study this example later. For now, just follow this guide in order to get some experience working with the result of `antd-init`.
 
-Replace the content of `src/entries/index.js` with the following code.
+Replace the content of `index.js` with the following code.
 As you can see, there is no difference between antd's components and usual React components.
 
 ```jsx
@@ -91,7 +91,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 4. Development & Debugging
 
-Run your project and visit http://127.0.0.1:8989
+Run your project and visit http://127.0.0.1:8000
 
 ```bash
 $ npm start
