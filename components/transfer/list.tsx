@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
@@ -18,7 +18,7 @@ export function isRenderResultPlainObject(result) {
 
 export interface TransferListProps {
   prefixCls?: string;
-  dataSource: Array<TransferItem>;
+  dataSource: TransferItem[];
   filter?: string;
   showSearch?: boolean;
   searchPlaceholder?: string;
@@ -176,43 +176,52 @@ export default class TransferList extends React.Component<TransferListProps, any
 
     const filteredDataSource = [];
 
-    const showItems = dataSource.map(item => {
+    const showItems = dataSource.map((item) => {
       const renderResult = render(item);
-      let renderedText;
-      let renderedEl;
 
       if (isRenderResultPlainObject(renderResult)) {
-        renderedText = renderResult.value;
-        renderedEl = renderResult.label;
-      } else {
-        renderedText = renderResult;
-        renderedEl = renderResult;
+        return {
+          item: item,
+          renderedText: renderResult.value,
+          renderedEl: renderResult.label,
+        };
+      }
+      return {
+        item: item,
+        renderedText: renderResult,
+        renderedEl: renderResult,
+      };
+    }).filter(({ item, renderedText }) => {
+      return !(filter && filter.trim() && !this.matchFilter(filter, item, renderedText));
+    }).map(({ item, renderedText, renderedEl }) => {
+      if (!item.disabled) {
+        filteredDataSource.push(item);
       }
 
-      if (filter && filter.trim() && !this.matchFilter(filter, item, renderedText)) {
-        return null;
-      }
-
-      filteredDataSource.push(item);
-
+      const className = classNames({
+        [`${prefixCls}-content-item`]: true,
+        [`${prefixCls}-content-item-disabled`]: item.disabled,
+      });
       return (
-        <li onClick={() => this.handleSelect(item)} key={item.key} title={renderedText}>
-          <Checkbox checked={checkedKeys.some(key => key === item.key)} />
+        <li
+          key={item.key}
+          className={className}
+          title={renderedText}
+          onClick={item.disabled ? null : () => this.handleSelect(item)}
+        >
+          <Checkbox checked={checkedKeys.some(key => key === item.key)} disabled={item.disabled} />
           <span>{renderedEl}</span>
         </li>
       );
-    }).filter(item => !!item);
+    });
 
     let unit = '条';
-    if (this.context.antLocale &&
-        this.context.antLocale.Transfer) {
-      unit = dataSource.length > 1
-        ? this.context.antLocale.Transfer.itemsUnit
-        : this.context.antLocale.Transfer.itemUnit;
-      searchPlaceholder = searchPlaceholder
-        || this.context.antLocale.Transfer.searchPlaceholder;
-      notFoundContent = notFoundContent
-        || this.context.antLocale.Transfer.notFoundContent;
+    const antLocale = this.context.antLocale;
+    if (antLocale && antLocale.Transfer) {
+      const transferLocale = antLocale.Transfer;
+      unit = dataSource.length > 1 ? transferLocale.itemsUnit : transferLocale.itemUnit;
+      searchPlaceholder = searchPlaceholder || transferLocale.searchPlaceholder;
+      notFoundContent = notFoundContent || transferLocale.notFoundContent;
     }
 
     const checkStatus = this.getCheckStatus(filteredDataSource);
@@ -248,8 +257,10 @@ export default class TransferList extends React.Component<TransferListProps, any
                 value={filter}
               />
             </div> : null}
-            <Animate component="ul"
-              transitionName={this.state.mounted ? `${prefixCls}-highlight` : ''}
+            <Animate
+              component="ul"
+              className={`${prefixCls}-content`}
+              transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
               transitionLeave={false}
             >
               {showItems.length > 0

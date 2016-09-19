@@ -12,24 +12,24 @@ export interface TransferItem {
   key: number | string;
   title: string;
   description?: string;
-  chosen: boolean;
+  disabled?: boolean;
 }
 
 // Transfer
 export interface TransferProps {
-  dataSource: Array<TransferItem>;
-  render?: (record: TransferItem) => any;
+  dataSource: TransferItem[];
   targetKeys: string[];
-  onChange?: (targetKeys: Array<TransferItem>, direction: string, moveKeys: any) => void;
+  render?: (record: TransferItem) => any;
+  onChange?: (targetKeys: TransferItem[], direction: string, moveKeys: any) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   listStyle?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
-  titles?: Array<string>;
-  operations?: Array<string>;
+  titles?: string[];
+  operations?: string[];
   showSearch?: boolean;
   searchPlaceholder?: string;
-  notFoundContent?: React.ReactNode | string;
+  notFoundContent?: React.ReactNode;
   footer?: (props: any) => any;
   style?: React.CSSProperties;
   filterOption: (inputValue: any, item: any) => boolean;
@@ -112,29 +112,16 @@ export default class Transfer extends React.Component<TransferProps, any> {
     if (this.splitedDataSource) {
       return this.splitedDataSource;
     }
-    const { targetKeys } = props;
-    let { dataSource } = props;
 
+    const { dataSource, targetKeys } = props;
     if (props.rowKey) {
-      dataSource = dataSource.map(record => {
+      dataSource.forEach(record => {
         record.key = props.rowKey(record);
-        return record;
       });
     }
-    let leftDataSource = [...dataSource];
-    let rightDataSource = [];
 
-    if (targetKeys.length > 0) {
-      targetKeys.forEach((targetKey) => {
-        rightDataSource.push(leftDataSource.filter((data, index) => {
-          if (data.key === targetKey) {
-            leftDataSource.splice(index, 1);
-            return true;
-          }
-          return false;
-        })[0]);
-      });
-    }
+    const leftDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) === -1);
+    const rightDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) >= 0);
 
     this.splitedDataSource = {
       leftDataSource,
@@ -151,7 +138,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     // move items to target box
     const newTargetKeys = direction === 'right'
       ? moveKeys.concat(targetKeys)
-      : targetKeys.filter(targetKey => !moveKeys.some(checkedKey => targetKey === checkedKey));
+      : targetKeys.filter(targetKey => moveKeys.indexOf(targetKey) === -1);
 
     // empty checked keys
     const oppositeDirection = direction === 'right' ? 'left' : 'right';
