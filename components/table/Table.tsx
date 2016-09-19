@@ -576,8 +576,10 @@ export default class Table extends React.Component<TableProps, any> {
         return true;
       });
       let checked;
+      let indeterminate;
       if (!data.length) {
         checked = false;
+        indeterminate = false;
       } else {
         checked = this.state.selectionDirty
           ? data.every((item, i) =>
@@ -586,6 +588,20 @@ export default class Table extends React.Component<TableProps, any> {
             data.every((item, i) =>
               this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) ||
             data.every(item => this.getCheckboxPropsByItem(item).defaultChecked)
+          );
+        indeterminate = this.state.selectionDirty
+          ? (
+            data.some((item, i) =>
+              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) &&
+            !data.every((item, i) =>
+              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
+            )
+          : ((data.some((item, i) =>
+              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) &&
+            !data.every((item, i) =>
+              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)) ||
+            (data.some(item => this.getCheckboxPropsByItem(item).defaultChecked) &&
+            !data.every(item => this.getCheckboxPropsByItem(item).defaultChecked))
           );
       }
       let selectionColumn;
@@ -599,6 +615,7 @@ export default class Table extends React.Component<TableProps, any> {
         const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
         const checkboxAll = (
           <Checkbox checked={checked}
+            indeterminate={indeterminate}
             disabled={checkboxAllDisabled}
             onChange={this.handleSelectAllRow}
           />
