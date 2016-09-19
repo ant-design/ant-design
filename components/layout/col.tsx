@@ -27,6 +27,7 @@ export interface ColProps {
   md?: number | ColSize;
   lg?: number | ColSize;
   prefixCls?: string;
+  style?: React.CSSProperties;
 }
 
 const Col: React.StatelessComponent<ColProps> = (props) => {

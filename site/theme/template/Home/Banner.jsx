@@ -25,7 +25,7 @@ export default class Banner extends React.Component {
             <h2 key="h2">ANT <p>DESIGN</p></h2>
             <p key="content"><FormattedMessage id="app.home.slogan" /></p>
             <span className="line" key="line" />
-            <div key="button" className="start-button">
+            <div key="button" className="start-button clearfix">
               <Link to="/docs/spec/introduce">
                 <Icon type="smile-circle" />
                 <FormattedMessage id="app.home.start" />
