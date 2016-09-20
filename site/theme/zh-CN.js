@@ -35,6 +35,7 @@ module.exports = {
     'app.footer.data-vis': '数据可视化',
     'app.footer.data-vis-spec': '数据可视化规范',
     'app.footer.motion': '设计动效',
+    'app.footer.antd-library': 'Ant Design 的 Axure 部件库',
     'app.footer.material': '页面逻辑素材',
     'app.footer.community': '社区',
     'app.footer.change-log': '更新记录',

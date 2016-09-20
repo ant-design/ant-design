@@ -98,6 +98,9 @@ export default class Footer extends React.Component {
             <div><a href="http://motion.ant.design">Ant Motion</a> -
               <FormattedMessage id="app.footer.motion" />
             </div>
+            <div><a href="http://library.ant.design/">AntD Library</a> -
+              <FormattedMessage id="app.footer.antd-library" />
+            </div>
             <div><a href="http://ux.ant.design">Ant UX</a> -
               <FormattedMessage id="app.footer.material" />
             </div>
