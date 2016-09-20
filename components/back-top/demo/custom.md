@@ -33,7 +33,7 @@ ReactDOM.render(
     <BackTop style={{ bottom: 100 }}>
       <div style={style}>UP</div>
     </BackTop>
-    Scroll down to see the bottom right gray button.
+    Scroll down to see the bottom right blue button.
   </div>
 , mountNode);
 ````
