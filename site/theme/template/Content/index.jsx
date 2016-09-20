@@ -11,6 +11,11 @@ const locale = isZhCN ? 'zh-CN' : 'en-US';
 export function collect(nextProps, callback) {
   const pageData = nextProps.location.pathname === 'changelog' ?
           nextProps.data.CHANGELOG : nextProps.pageData;
+  if (!pageData) {
+    callback(404, nextProps);
+    return;
+  }
+
   const pageDataPromise = typeof pageData === 'function' ?
           pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
   const promises = [pageDataPromise];
