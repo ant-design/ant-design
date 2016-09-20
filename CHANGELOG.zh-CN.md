@@ -9,6 +9,81 @@ timeline: true
 
 ---
 
+## 2.0.0
+
+`2016-09-x`
+
+很高兴的通知各位，经过四个月时间的紧密开发，`antd@2.0.0` 终于发布了。这个版本我们重构了底层代码，持续完善现有组件功能和优化细节，其中很多都来自社区的贡献，无法一一感谢，欢迎各位持续关注和鞭策。在升级过程中遇到任何问题，请及时反馈给我们。
+
+### 主要变化
+
+* 开发语言改为 TypeScript，提供 **官方支持的 `.d.ts` 文件**，感谢 [#1846](https://github.com/ant-design/ant-design/issues/1846) 中所有参与到这次重构的人以及后期 @infeng 对其的完善。
+* **新增英文文档**， 以后将同时提供中英双语文档，感谢 [#1471](https://github.com/ant-design/ant-design/issues/1471) 里所有参与到翻译、review 中的人。
+* 时间类组件 DatePicker、TimePicker、Calendar 等的底层 **使用 [moment](http://momentjs.com/) 替换 [gregorian-calendar](github.com/yiminghe/gregorian-calendar)**。
+* 全新设计的 [图标](http://ant.design/components/icon/)。
+* 新增提及组件 [Mention](http://ant.design/components/mention/)。
+* 新增自动完成组件 [AutoComplete](http://ant.design/components/auto-complete/)。
+* Form 新增 `getFieldDecorator` 作为 `getFieldProps` 的替代，对于不正确的使用方式 `getFieldDecorator` 会给出提示，可以降低踩坑的概率。
+* Table 支持 [表头分组](http://ant.design/components/table/#components-table-demo-grouping-columns)。@yesmeck
+* 完全移除 `antd@1.x` 中已经废弃的 QueueAnim、Validation、Form.ValueMixin、Progress.Line、Progress.Circle、Popover[overlay] 及 Slider[marks] 对数组的支持。
+
+### 不兼容改动
+
+此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
+
+#### 无兼容提示的改动
+
+* 时间类组件的 `value` 和 `defaultValue` 不再支持 `String/Date` 类型，请使用 [moment](http://momentjs.com/)。
+  ```diff
+  - <TimePicker defaultValue="12:08:23" />
+  + <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
+
+  - <DatePicker defaultValue="2015/01/01" />
+  + <DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} />
+
+  - <Calendar defaultValue={new Date('2010-10-10')} />
+  + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
+  ```
+* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。
+* 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
+
+#### 有兼容提示的改动
+
+这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
+
+* Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
+* Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。
+* Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
+* Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`。
+
+### Bug 修复
+
+* 修复 Dropdown.Button `disabled` 属性无效的问题。[#3070](https://github.com/ant-design/ant-design/issues/3070)
+* 修复 Form.create `withRef` 选项失效的问题。[#2843](https://github.com/ant-design/ant-design/issues/2843)
+* 修复 Menu inline 模式下子菜单展开的问题。[#2701](https://github.com/ant-design/ant-design/issues/2701)
+* 修复 Modal.confirm 之类的弹窗在异步调用时按钮仍可点击的问题。[#2684](https://github.com/ant-design/ant-design/issues/2684)
+* 修复 Tree.Node 无子节点时仍然显示箭头的问题。[#2616](https://github.com/ant-design/ant-design/issues/2616)
+* 修复 Tree.Node 箭头隐藏后鼠标 hover 上去光标仍会发生变化的问题。[#2748](https://github.com/ant-design/ant-design/issues/2748)
+
+### 其他改进
+
+* Alert 新增 [`banner` 模式](http://ant.design/components/alert/#components-alert-demo-banner)。
+* BackTop 增加回到顶部的动画效果。
+* Badge 新增 [状态点模式](http://ant.design/components/badge/#components-badge-demo-status)。
+* Cascader 新增 [搜索功能](http://ant.design/components/cascader/#components-cascader-demo-search)。
+* Checkbox 新增 [indeterminate 状态](http://ant.design/components/checkbox/#components-checkbox-demo-check-all)。
+* Form 新增 [垂直布局](http://ant.design/components/form/#components-form-demo-validate-customized)。
+* InputNumber 现在支持长按。[#](http://ant.design/components/input-number/#components-input-number-demo-basic)
+* notification 支持 [自定义 icon](http://ant.design/components/notification/#components-notification-demo-custom-icon)。
+* Spin 现在允许 [自定义文案与动画共存](http://ant.design/components/spin/#components-spin-demo-tip)。@jerrybendy
+* Transfer 现在可以监听用户选择了哪些选项。[#](http://ant.design/components/transfer/#components-transfer-demo-basic)
+* Transfer 现在可以定义哪些选项是 [不可选择的](http://ant.design/components/transfer/#components-transfer-demo-basic)。
+* 优化 Alert 和 notification 的样式。
+* 优化 Modal.confirm 之类的弹窗的键盘交互。@Dafrok
+* 优化 [DatePicker 的时间选择](http://ant.design/components/date-picker/#components-date-picker-demo-time) 交互。
+* 优化 [Spin 状态切换](http://ant.design/components/spin/#components-spin-demo-nested ) 时的效果。
+* 更新 [font-family](https://github.com/ant-design/ant-design/commit/2f308b0f995cfcb2a3c8feb1e35ffd3f0bf93cfc)。
+
 ## 1.11.2
 
 `2016-09-26`
