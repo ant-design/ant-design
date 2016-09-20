@@ -15,6 +15,7 @@ Thumbs.db
 *.swp
 *.swo
 *.log
+*.json.gzip
 node_modules/
 .buildpath
 .settings

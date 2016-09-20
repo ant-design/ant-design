@@ -11,15 +11,25 @@ export interface ActionButtonProps {
   type: 'primary' | 'ghost' | 'dashed';
   actionFn: Function;
   closeModal: Function;
+  autoFocus?: Boolean;
 }
 class ActionButton extends React.Component<ActionButtonProps, any> {
+  timeoutId: number;
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
     };
   }
-
+  componentDidMount () {
+    if (this.props.autoFocus) {
+      const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
+      this.timeoutId = setTimeout(() => $this.focus());
+    }
+  }
+  componentWillUnmount () {
+    clearTimeout(this.timeoutId);
+  }
   onClick = () => {
     const { actionFn, closeModal } = this.props;
     if (actionFn) {
@@ -98,7 +108,7 @@ export default function confirm(config) {
         <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -106,7 +116,7 @@ export default function confirm(config) {
   } else {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="primary" actionFn={props.onOk} closeModal={close}>
+        <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>
           {props.okText}
         </ActionButton>
       </div>
@@ -122,12 +132,13 @@ export default function confirm(config) {
   ReactDOM.render(
     <Dialog
       className={classString}
+      onCancel={close}
       visible
-      closable={false}
       title=""
       transitionName="zoom"
       footer=""
       maskTransitionName="fade"
+      maskClosable={false}
       style={style}
       width={width}
     >
