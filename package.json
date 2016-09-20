@@ -79,7 +79,7 @@
     "antd-tools": "^0.11.0",
     "babel-eslint": "^6.0.2",
     "babel-jest": "^13.2.2",
-    "babel-plugin-antd": "^0.4.0",
+    "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
     "bisheng": "^0.12.0",
     "bisheng-plugin-antd": "~0.2.0",

@@ -49,17 +49,18 @@ Open http://localhost:8989 in your browser, you will see dva welcome page.
 
 ## Integrate antd
 
-Install `antd` and `babel-plugin-antd` with npm. `babel-plugin-antd` is used to automatically import scripts and stylesheets from antd. See [repo](https://github.com/ant-design/babel-plugin-antd) 。
+Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd. See [repo](https://github.com/ant-design/babel-plugin-import) 。
 
 ```bash
-$ npm install antd babel-plugin-antd --save
+$ npm install antd babel-plugin-import --save
 ```
 
-Edit `webpack.config.js` to integrate `babel-plugin-antd`.
+Edit `webpack.config.js` to integrate `babel-plugin-import`.
 
 ```diff
 + webpackConfig.babel.plugins.push(['antd', {
-+   style: 'css'
++   libraryName: 'antd',
++   style: 'css',
 + }]);
 ```
 

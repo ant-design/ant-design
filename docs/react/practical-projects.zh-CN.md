@@ -49,17 +49,18 @@ webpack: bundle build is now finished.
 
 ## 使用 antd
 
-通过 npm 安装 `antd` 和 `babel-plugin-antd` 。`babel-plugin-antd` 是用来自动引入 antd 的脚本和样式的，详见 [repo](https://github.com/ant-design/babel-plugin-antd) 。
+通过 npm 安装 `antd` 和 `babel-plugin-import` 。`babel-plugin-import` 是用来自动引入 antd 的脚本和样式的，详见 [repo](https://github.com/ant-design/babel-plugin-import) 。
 
 ```bash
-$ npm install antd babel-plugin-antd --save
+$ npm install antd babel-plugin-import --save
 ```
 
-编辑 `webpack.config.js`，使 `babel-plugin-antd` 插件生效。
+编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效。
 
 ```diff
 + webpackConfig.babel.plugins.push(['antd', {
-+   style: 'css'
++   libraryName: 'antd',
++   style: 'css',
 + }]);
 ```
 
