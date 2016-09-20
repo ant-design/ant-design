@@ -29,15 +29,34 @@
 
   &-nested-loading & {
     position: absolute;
-    top: 50%;
-    height: 20px;
-    line-height: 20px;
-    margin-top: -10px;
-    z-index: 4;
-    text-align: center;
+    height: 100%;
     width: 100%;
+    z-index: 4;
     &-dot {
-      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -@spin-dot-size / 2;
+    }
+
+    &-sm .@{spin-prefix-cls}-dot {
+      margin: -@spin-dot-size-sm / 2;
+    }
+    &-lg .@{spin-prefix-cls}-dot {
+      margin: -@spin-dot-size-lg / 2;
+    }
+
+    &-text {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding-top: @spin-dot-size / 2;
+    }
+    &-sm &-text {
+      padding-top: @spin-dot-size-sm / 2;
+    }
+    &-lg &-text {
+      padding-top: @spin-dot-size-lg / 2;
     }
   }
 
