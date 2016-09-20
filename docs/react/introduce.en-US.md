@@ -53,9 +53,9 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 You can use:
 
 - `import DatePicker from 'antd/lib/date-picker';`
-- `import { DatePicker } from 'antd';` when [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) is also used.
+- `import { DatePicker } from 'antd';` when [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is also used.
 
-> babel-plugin-antd supports importing components and styles on demand.
+> babel-plugin-import supports importing components and styles on demand.
 
 ## Version
 

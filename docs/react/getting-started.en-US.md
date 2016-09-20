@@ -157,13 +157,13 @@ If we import a component like this `import { Button } from 'antd';`, then all th
 import Button from 'antd/lib/button';
 ```
 
-If you use `babel`, we recommend to use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd). This plugin will convert the following code to the above form:
+If you use `babel`, we recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import). This plugin will convert the following code to the above form:
 
 ```jsx
 import { Button } from 'antd';
 ```
 
-And this plugin can also load styles on demand. See the [usage](https://github.com/ant-design/babel-plugin-antd#usage) for further details.
+And this plugin can also load styles on demand. See the [usage](https://github.com/ant-design/babel-plugin-import#usage) for further details.
 
 ## Customization
 

@@ -80,11 +80,11 @@ module.exports = {
     ]);
 
     config.babel.plugins.push([
-      require.resolve('babel-plugin-antd'),
+      require.resolve('babel-plugin-import'),
       {
         style: true,
         libraryName: 'antd',
-        libDir: 'components',
+        libraryDirectory: 'components',
       },
     ]);
 
