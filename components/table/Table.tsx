@@ -565,6 +565,19 @@ export default class Table extends React.Component<TableProps, any> {
     return record[rowKey as string] || index;
   }
 
+  checkSelection(data, type, byDefaultChecked) {
+    // type should be 'every' | 'some'
+    if (type === 'every' || type === 'some') {
+      return (
+        byDefaultChecked
+        ? data[type](item => this.getCheckboxPropsByItem(item).defaultChecked)
+        : data[type]((item, i) =>
+              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
+      );
+    }
+    return false;
+  }
+
   renderRowSelection() {
     const prefixCls = this.props.prefixCls;
     const columns = this.props.columns.concat();
@@ -582,26 +595,20 @@ export default class Table extends React.Component<TableProps, any> {
         indeterminate = false;
       } else {
         checked = this.state.selectionDirty
-          ? data.every((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
+          ? this.checkSelection(data, 'every', false)
           : (
-            data.every((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) ||
-            data.every(item => this.getCheckboxPropsByItem(item).defaultChecked)
+            this.checkSelection(data, 'every', false) ||
+            this.checkSelection(data, 'every', true)
           );
         indeterminate = this.state.selectionDirty
           ? (
-            data.some((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) &&
-            !data.every((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
+            this.checkSelection(data, 'some', false) &&
+            !this.checkSelection(data, 'every', false)
             )
-          : ((data.some((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0) &&
-            !data.every((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)) ||
-            (data.some(item => this.getCheckboxPropsByItem(item).defaultChecked) &&
-            !data.every(item => this.getCheckboxPropsByItem(item).defaultChecked))
+          : ((this.checkSelection(data, 'some', false) &&
+            !this.checkSelection(data, 'every', false)) ||
+            (this.checkSelection(data, 'some', true) &&
+            !this.checkSelection(data, 'every', true))
           );
       }
       let selectionColumn;
