@@ -17,6 +17,10 @@ export default class Demo extends React.Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand);
+  }
+
   handleCodeExapnd = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
   }
