@@ -30,7 +30,8 @@ const data = [
 ];
 
 ReactDOM.render(
-  <Table columns={columns}
+  <Table
+    columns={columns}
     expandedRowRender={record => <p>{record.description}</p>}
     dataSource={data}
     className="table"

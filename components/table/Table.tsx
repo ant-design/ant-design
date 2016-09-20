@@ -75,6 +75,7 @@ export interface TableProps {
   defaultExpandedRowKeys?: string[];
   expandedRowKeys?: string[];
   expandIconAsCell?: boolean;
+  expandIconColumnIndex?: number;
   onChange?: (pagination: PaginationProps | boolean, filters: string[], sorter: Object) => any;
   loading?: boolean;
   locale?: Object;
@@ -849,13 +850,19 @@ export default class Table extends React.Component<TableProps, any> {
       return newColumn;
     });
 
+    let expandIconColumnIndex = (columns[0] && columns[0].key === 'selection-column') ? 1 : 0;
+    if ('expandIconColumnIndex' in restProps) {
+      expandIconColumnIndex = restProps.expandIconColumnIndex;
+    }
+
     let table = (
-      <RcTable {...restProps}
+      <RcTable
+        {...restProps}
         prefixCls={prefixCls}
         data={data}
         columns={columns}
         className={classString}
-        expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
+        expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
         emptyText={() => locale.emptyText}
       />
