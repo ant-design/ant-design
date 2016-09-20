@@ -69,7 +69,7 @@ export type WrappedFormUtils = {
     rules?: Array<any>;
     /** 是否和其他控件互斥，特别用于 Radio 单选控件 */
     exclusive?: boolean;
-  }): Array<any>;
+  }): (node: React.ReactNode) => React.ReactNode;
 }
 
 export interface FormComponentProps {
