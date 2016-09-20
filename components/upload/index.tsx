@@ -274,7 +274,7 @@ export default class Upload extends React.Component<UploadProps, any> {
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
           >
-            <RcUpload {...props} ref="upload">
+            <RcUpload {...props} ref="upload" className={`${prefixCls}-btn`}>
               <div className={`${prefixCls}-drag-container`}>
                 {this.props.children}
               </div>
