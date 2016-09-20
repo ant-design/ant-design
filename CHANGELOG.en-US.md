@@ -27,8 +27,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 There are some breaking changes in `antd@2.0.0`, and you need to modify your code to work with it.
 
-#### 无兼容提示的改动
-
 * 时间类组件的 `value` 和 `defaultValue` 不再支持 `String/Date` 类型，请使用 [moment](http://momentjs.com/)。
   ```diff
   - <TimePicker defaultValue="12:08:23" />
@@ -42,8 +40,22 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   ```
 * 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。
 * 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
-
-#### 有兼容提示的改动
+* `babel-plugin-antd` 重命名为 `babel-plugin-import`，请更新 `package.json`：
+  ```diff
+  {
+    "devDependencies": {
+  -   "babel-plugin-antd": "^0.x.x",
+  +   "babel-plugin-import": "^1.0.0",
+    }
+  }
+  ```
+  同时更新 `.babelrc` 或你在其它地方对其的配置：
+  ```diff
+  {
+  -  "plugins": [["antd", { style: "css" }]]
+  +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
+  }
+  ```
 
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
@@ -79,6 +91,13 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
 * Improve the user experience of [selecting time in DatePicker](http://ant.design/components/date-picker/#components-date-picker-demo-time).
 * Improve the status changed animation of [Spin](http://ant.design/components/spin/#components-spin-demo-nested ).
 * Update [font-family](https://github.com/ant-design/ant-design/commit/2f308b0f995cfcb2a3c8feb1e35ffd3f0bf93cfc).
+
+### Workflow
+
+* 新增配套网站 [AntD Library](http://library.ant.design/)，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。
+* `babel-plugin-antd` 更名为 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
+* [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用]((http://ant.design/docs/react/practical-projects))。
+* 脚手架工具推荐使用 [`dva-cli`](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
 
 ## 1.0.0
 

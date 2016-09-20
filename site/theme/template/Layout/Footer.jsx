@@ -74,14 +74,14 @@ export default class Footer extends React.Component {
               </a>
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/antd-init">antd-init</a> -
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
               <FormattedMessage id="app.footer.scaffold" />
             </div>
             <div>
               <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> - <FormattedMessage id="app.footer.dev-tools" />
-            </div>
-            <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
             </div>
           </li>
           <li>
