@@ -76,7 +76,7 @@
     "warning": "~3.0.0"
   },
   "devDependencies": {
-    "antd-tools": "^0.11.0",
+    "antd-tools": "^0.12.0",
     "babel-eslint": "^6.0.2",
     "babel-jest": "^13.2.2",
     "babel-plugin-import": "^1.0.0",
