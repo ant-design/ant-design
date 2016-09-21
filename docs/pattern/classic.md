@@ -1,7 +1,9 @@
 ---
 order: 0
 disabled: true
-title: 典型页面
+title:
+  zh-CN: 典型页面
+  en-US: Classic
 ---
 
 敬请期待。

@@ -1,6 +1,8 @@
 ---
 order: 3
-title: 列表
+title:
+  zh-CN: 列表
+  en-US: List
 ---
 
 列表是非常常见的界面元素，有多种使用场景：
