@@ -10,6 +10,7 @@ export interface CardProps {
   style?: React.CSSProperties;
   loading?: boolean;
   children?: any;
+  id?: string;
 }
 
 export default (props: CardProps) => {
