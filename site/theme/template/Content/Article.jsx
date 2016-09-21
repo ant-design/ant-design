@@ -1,4 +1,4 @@
-import React, { Children, cloneElement } from 'react';
+import React, { PropTypes, Children, cloneElement } from 'react';
 import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
@@ -7,6 +7,10 @@ import EditButton from './EditButton';
 import * as utils from '../utils';
 
 export default class Article extends React.Component {
+  static contextTypes = {
+    intl: PropTypes.object.isRequired,
+  }
+
   componentDidMount() {
     this.componentDidUpdate();
   }
@@ -56,16 +60,16 @@ export default class Article extends React.Component {
     const content = props.content;
 
     const { meta, description } = content;
-    const { title, subtitle, chinese, english, filename } = meta;
-
+    const { title, subtitle, filename } = meta;
+    const locale = this.context.intl.locale;
     return (
-      <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
+      <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         <article className="markdown">
           <h1>
-            {title || english}
+            {title[locale] || title}
             {
-              (!subtitle && !chinese) ? null :
-                <span className="subtitle">{subtitle || chinese}</span>
+              !subtitle || locale === 'en-US' ? null :
+                <span className="subtitle">{subtitle}</span>
             }
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
           </h1>

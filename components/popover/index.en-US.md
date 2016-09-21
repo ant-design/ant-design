@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Views
-english: Popover
+title: Popover
 ---
 
 The floating card popped by clicking or hovering.

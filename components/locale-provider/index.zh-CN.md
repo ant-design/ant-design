@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 国际化
+subtitle: 国际化
 cols: 1
 type: Other
-english: LocaleProvider
+title: LocaleProvider
 ---
 
 为组件内建文案提供统一的国际化支持。

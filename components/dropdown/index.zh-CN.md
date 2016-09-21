@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 下拉菜单
+subtitle: 下拉菜单
 type: Views
-english: Dropdown
+title: Dropdown
 ---
 
 向下弹出的列表。

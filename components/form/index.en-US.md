@@ -2,7 +2,7 @@
 category: Components
 type: Form Controls
 cols: 1
-english: Form
+title: Form
 ---
 
 Forms are used to collect, validate, and submit the user input. They contain one or more form items.

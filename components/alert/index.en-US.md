@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Views
-english: Alert
+title: Alert
 ---
 
 Alert component for feedback.

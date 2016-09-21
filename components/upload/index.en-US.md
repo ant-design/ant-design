@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Form Controls
-english: Upload
+title: Upload
 ---
 
 Upload file by selecting or dragging.

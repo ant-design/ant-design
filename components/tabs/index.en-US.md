@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Navigation
-english: Tabs
+title: Tabs
 ---
 
 Tabs make it easy to switch between different views.

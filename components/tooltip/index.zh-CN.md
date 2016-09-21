@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 文字提示
+subtitle: 文字提示
 type: Views
-english: Tooltip
+title: Tooltip
 ---
 
 简单的文字提示气泡框。

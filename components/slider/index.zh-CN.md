@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 滑动输入条
+subtitle: 滑动输入条
 type: Form Controls
-english: Slider
+title: Slider
 ---
 
 滑动型输入器，展示当前值和可选范围。

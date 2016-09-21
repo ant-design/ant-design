@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 输入框
+subtitle: 输入框
 type: Form Controls
-english: Input
+title: Input
 ---
 
 通过鼠标或键盘输入内容，是最基础的表单域的包装。

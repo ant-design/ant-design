@@ -226,7 +226,7 @@ export default connect(({ products }) => ({
 
 刷新浏览器，应该能看到以下效果：
 
-<p align="center">
+<p style="text-align: center">
   <img src="https://zos.alipayobjects.com/rmsportal/GQJeDDeUCSTRMMg.gif" />
 </p>
 

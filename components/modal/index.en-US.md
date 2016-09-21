@@ -1,7 +1,7 @@
 ---
 type: Views
 category: Components
-english: Modal
+title: Modal
 ---
 
 Modal dialogs.

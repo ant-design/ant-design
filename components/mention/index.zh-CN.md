@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 提及
+subtitle: 提及
 cols: 1
 type: Views
-english: Mention
+title: Mention
 ---
 
 提及组件。

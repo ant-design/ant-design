@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 标签
+subtitle: 标签
 type: Views
-english: Tag
+title: Tag
 ---
 
 进行标记和分类的小标签。

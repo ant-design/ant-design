@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -19,7 +19,7 @@ import { BackTop } from 'antd';
 ReactDOM.render(
   <div>
     <BackTop />
-    Scroll down to see the bottom right blue button.
+    Scroll down to see the bottom right gray button.
   </div>
 , mountNode);
 ````

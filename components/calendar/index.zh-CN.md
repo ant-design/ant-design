@@ -1,9 +1,9 @@
 ---
 category: Components
 type: Views
-chinese: 日历
+subtitle: 日历
 cols: 1
-english: Calendar
+title: Calendar
 ---
 
 按照日历形式展示数据的容器。

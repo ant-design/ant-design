@@ -1,8 +1,8 @@
 ---
 type: Views
 category: Components
-chinese: 对话框
-english: Modal
+subtitle: 对话框
+title: Modal
 ---
 
 模态对话框。

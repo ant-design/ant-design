@@ -1,8 +1,7 @@
 ---
 category: 十大原则
 order: 8
-subtitle: Provide Invitation
-english: 提供邀请
+title: 提供邀请
 ---
 
 很多富交互模式（eg：『拖放』、『行内编辑』、『上下文工具』）都有一个共同问题，就是缺少易发现性。所以『提供邀请』是成功完成人机交互的关键所在。

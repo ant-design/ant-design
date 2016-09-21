@@ -4,7 +4,7 @@ title: Ant Design
 ---
 
 <div style="text-align:center;background:#FBFBFB;margin:40px 0;">
-  <img align="middle" width="600" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
+  <img style="width: 600px" src="https://os.alipayobjects.com/rmsportal/mgesTPFxodmIwpi.png">
 </div>
 
 In the development process of middleware products, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development. After massive project practice and summaries, Ant Design, a design language for middleware, is refined by Experience Technology Department of Ant Financial, which aims to uniform the user interface specs for middleware projects, reduce the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.

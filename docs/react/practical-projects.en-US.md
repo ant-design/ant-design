@@ -226,7 +226,7 @@ Finally, we need some initial data to make the application run together. Edit `i
 
 Refresh your browser, you should see the following result:
 
-<p align="center">
+<p style="text-align: center">
   <img src="https://zos.alipayobjects.com/rmsportal/GQJeDDeUCSTRMMg.gif" />
 </p>
 

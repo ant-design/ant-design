@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 气泡卡片
+subtitle: 气泡卡片
 type: Views
-english: Popover
+title: Popover
 ---
 
 点击/鼠标移入元素，弹出气泡式的卡片浮层。

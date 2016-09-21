@@ -1,7 +1,9 @@
 ---
 category: 设计基础
 order: 0
-english: 字体
+title:
+  zh-CN: 字体
+  en-US: Font
 ---
 
 跨平台的字体设定，力求在各个操作系统下都有最佳展示效果。

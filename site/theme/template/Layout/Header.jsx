@@ -107,10 +107,10 @@ export default class Header extends React.Component {
             .map(({ meta }) => {
               const pathSnippet = meta.filename.split('/')[1];
               const url = `/components/${pathSnippet}`;
-              const subtitle = meta.subtitle || meta.chinese;
+              const subtitle = meta.subtitle;
               return (
-                <Option value={url} key={url} data-label={`${(meta.title || meta.english).toLowerCase()} ${subtitle || ''}`}>
-                  <strong>{meta.title || meta.english}</strong>
+                <Option value={url} key={url} data-label={`${meta.title.toLowerCase()} ${subtitle || ''}`}>
+                  <strong>{meta.title}</strong>
                   {subtitle && <span className="ant-component-decs">{subtitle}</span>}
                 </Option>
               );

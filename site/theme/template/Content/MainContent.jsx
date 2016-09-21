@@ -68,11 +68,12 @@ export default class MainContent extends React.Component {
   }
 
   generateMenuItem(isTop, item) {
+    const locale = this.context.intl.locale;
     const key = this.fileNameToPath(item.filename);
     const text = isTop ?
-            item.title || item.chinese || item.english : [
-              <span key="english">{item.title || item.english}</span>,
-              <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
+            item.title[locale] || item.title : [
+              <span key="english">{item.title}</span>,
+              <span className="chinese" key="chinese">{item.subtitle}</span>,
             ];
     const disabled = item.disabled;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
@@ -101,8 +102,8 @@ export default class MainContent extends React.Component {
       .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
       .map((type, index) => {
         const groupItems = obj[type].sort((a, b) => {
-          return (a.title || a.english).charCodeAt(0) -
-          (b.title || b.english).charCodeAt(0);
+          return a.title.charCodeAt(0) -
+          b.title.charCodeAt(0);
         }).map(this.generateMenuItem.bind(this, false));
         return (
           <Menu.ItemGroup title={type} key={index}>

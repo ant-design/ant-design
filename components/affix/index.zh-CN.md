@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 固钉
+subtitle: 固钉
 type: Other
-english: Affix
+title: Affix
 ---
 
 将页面元素钉在可视范围。

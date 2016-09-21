@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 穿梭框
+subtitle: 穿梭框
 type: Form Controls
 cols: 1
-english: Transfer
+title: Transfer
 ---
 
 双栏穿梭选择框。选择一个或以上的选项后，点击对应的方向键，可以把选中的选项移动到另一栏。

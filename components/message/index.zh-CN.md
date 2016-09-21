@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 全局提示
+subtitle: 全局提示
 type: Views
 noinstant: true
-english: Message
+title: Message
 ---
 
 全局展示操作反馈信息。

@@ -1,8 +1,8 @@
 ---
 category: Components
 type: Other
-chinese: 回到顶部
-english: BackTop
+subtitle: 回到顶部
+title: BackTop
 ---
 
 返回页面顶部的操作按钮。

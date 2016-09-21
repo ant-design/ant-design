@@ -1,8 +1,7 @@
 ---
 category: 十大原则
 order: 4
-subtitle: Repetition
-english: 重复
+title: 重复
 ---
 
 相同的元素在整个界面中不断重复，不仅可以有效降低用户的学习成本，也可以帮助用户识别出这些元素之间的关联性。

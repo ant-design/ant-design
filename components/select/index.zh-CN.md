@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 选择器
+subtitle: 选择器
 type: Form Controls
-english: Select
+title: Select
 ---
 
 类似 Select2 的选择器。

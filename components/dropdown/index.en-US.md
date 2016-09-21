@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Views
-english: Dropdown
+title: Dropdown
 ---
 
 A dropdown list.

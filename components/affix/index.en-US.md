@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Other
-english: Affix
+title: Affix
 ---
 
 Make an element sticky to viewport.

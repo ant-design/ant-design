@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 徽标数
+subtitle: 徽标数
 type: Views
-english: Badge
+title: Badge
 ---
 
 图标右上角的圆形徽标数字。

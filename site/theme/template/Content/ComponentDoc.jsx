@@ -73,9 +73,9 @@ export default class ComponentDoc extends React.Component {
       );
     });
 
-    const { title, subtitle, chinese, english, filename } = meta;
+    const { title, subtitle, filename } = meta;
     return (
-      <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
+      <DocumentTitle title={`${subtitle || ''} ${title} - Ant Design`}>
         <article>
           <Affix className="toc-affix" offsetTop={16}>
             <ul className="toc demos-anchor">
@@ -84,10 +84,10 @@ export default class ComponentDoc extends React.Component {
           </Affix>
           <section className="markdown">
             <h1>
-              {title || english}
+              {title[locale] || title}
               {
-                (!subtitle && !chinese) ? null :
-                  <span className="subtitle">{subtitle || chinese}</span>
+                !subtitle ? null :
+                  <span className="subtitle">{subtitle}</span>
               }
               <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
             </h1>

@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 多选框
+subtitle: 多选框
 type: Form Controls
-english: Checkbox
+title: Checkbox
 ---
 
 多选框。

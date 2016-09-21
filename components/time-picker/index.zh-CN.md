@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 时间选择框
+subtitle: 时间选择框
 type: Form Controls
-english: TimePicker
+title: TimePicker
 ---
 
 输入或选择时间的控件。

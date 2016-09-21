@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 标签页
+subtitle: 标签页
 type: Navigation
-english: Tabs
+title: Tabs
 ---
 
 选项卡切换组件。

@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 步骤条
+subtitle: 步骤条
 type: Navigation
 cols: 1
-english: Steps
+title: Steps
 ---
 
 引导用户按照流程完成任务的导航条。

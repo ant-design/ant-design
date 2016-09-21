@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 上传
+subtitle: 上传
 type: Form Controls
-english: Upload
+title: Upload
 ---
 
 文件选择上传和拖拽上传控件。

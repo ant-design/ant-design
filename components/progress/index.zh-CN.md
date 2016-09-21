@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 进度条
+subtitle: 进度条
 type: Views
-english: Progress
+title: Progress
 ---
 
 展示操作的当前进度。

@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 自动完成
+subtitle: 自动完成
 type: Form Controls
 cols: 1
-english: AutoComplete
+title: AutoComplete
 ---
 
 输入框自动完成功能。

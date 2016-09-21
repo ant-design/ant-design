@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 时间轴
+subtitle: 时间轴
 type: Views
-english: Timeline
+title: Timeline
 ---
 
 垂直展示的时间流信息。

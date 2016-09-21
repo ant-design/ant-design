@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Views
-english: Tag
+title: Tag
 ---
 
 Tag for categorizing or markuping.

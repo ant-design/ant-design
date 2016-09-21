@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 数字输入框
+subtitle: 数字输入框
 type: Form Controls
-english: InputNumber
+title: InputNumber
 ---
 
 通过鼠标或键盘，输入范围内的数值。

@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 气泡确认框
+subtitle: 气泡确认框
 type: Views
-english: Popconfirm
+title: Popconfirm
 ---
 
 点击元素，弹出气泡式的确认框。

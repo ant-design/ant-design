@@ -1,9 +1,9 @@
 ---
 category: Components
-chinese: 栅格
+subtitle: 栅格
 type: Basic
 cols: 1
-english: Layout
+title: Layout
 ---
 
 24 栅格系统。

@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Views
-english: Badge
+title: Badge
 ---
 
 Small numerical value or status descriptors for UI elements.

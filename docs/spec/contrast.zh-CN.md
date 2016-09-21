@@ -1,8 +1,7 @@
 ---
 category: 十大原则
 order: 3
-subtitle: Contrast
-english: 对比
+title: 对比
 ---
 
 对比是增加视觉效果最有效方法之一，同时也能在不同元素之间建立一种有组织的层次结构，让用户快速识别关键信息。

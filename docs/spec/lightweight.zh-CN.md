@@ -1,8 +1,7 @@
 ---
 category: 十大原则
 order: 6
-subtitle: Keep it Lightweight
-english: 简化交互
+title: 简化交互
 ---
 
 根据费茨法则（Fitts's Law）所描述的，如果用户鼠标移动距离越少、对象相对目标越大，那么用户越容易操作。通过运用上下文工具（即：放在内容中的操作工具），使内容和操作融合，从而简化交互。

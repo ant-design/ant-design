@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 树选择
+subtitle: 树选择
 type: Form Controls
-english: TreeSelect
+title: TreeSelect
 ---
 
 树型选择控件。

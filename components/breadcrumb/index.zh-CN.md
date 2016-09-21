@@ -1,8 +1,8 @@
 ---
 category: Components
-chinese: 面包屑
+subtitle: 面包屑
 type: Navigation
-english: Breadcrumb
+title: Breadcrumb
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
