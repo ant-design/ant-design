@@ -2,6 +2,7 @@ import React from 'react';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
+import splitObject from '../_util/splitObject';
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -36,7 +37,12 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   render() {
-    let { count, prefixCls, overflowCount, className, style, children, dot, status, text } = this.props;
+    let [{
+      count, prefixCls, overflowCount, className, style, children, dot, status, text,
+    }, restProps] = splitObject(
+      this.props,
+      ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'status', 'text']
+    );
     const isDot = dot || status;
 
     count = count > overflowCount ? `${overflowCount}+` : count;
@@ -62,7 +68,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     });
 
     return (
-      <span className={badgeCls} title={count} style={null}>
+      <span className={badgeCls} title={count} style={null} {...restProps}>
         {children}
         <Animate
           component=""
