@@ -74,7 +74,7 @@ let Demo = React.createClass({
               message: "Your good friend's name",
             }],
           })(
-            <Input style={{ width: '80%', marginRight: 8 }} />
+            <Input style={{ width: '60%', marginRight: 8 }} />
           )}
           <Button onClick={() => this.remove(k)}>remove</Button>
         </Form.Item>
