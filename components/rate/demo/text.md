@@ -31,7 +31,7 @@ const Rater = React.createClass({
     return (
       <span>
         <Rate onChange={this.handleChange} value={value} />
-        {value && <span className="ant-rate-text">{value} 星</span>}
+        {value && <span className="ant-rate-text">{value} stars</span>}
       </span>
     );
   },
