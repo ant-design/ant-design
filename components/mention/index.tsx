@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
 import classnames from 'classnames';
 

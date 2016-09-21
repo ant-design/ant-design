@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';

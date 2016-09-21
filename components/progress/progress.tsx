@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';

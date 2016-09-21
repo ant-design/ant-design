@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcUpload from 'rc-upload';
 import UploadList from './uploadList';
 import getFileItem from './getFileItem';

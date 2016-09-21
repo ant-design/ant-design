@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../_util/openAnimation';
 import warning from 'warning';

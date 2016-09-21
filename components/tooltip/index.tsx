@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
 import getPlacements from '../popover/placements';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 import { TreeSelectProps, TreeSelectContext } from './interface';

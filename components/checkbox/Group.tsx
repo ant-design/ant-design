@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Checkbox from './index';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 

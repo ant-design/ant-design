@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Modal from './Modal';
 import confirm from './confirm';
 import assign from 'object-assign';

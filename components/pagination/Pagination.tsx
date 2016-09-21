@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcPagination from 'rc-pagination';
 import Select from '../select';
 import MiniSelect from './MiniSelect';

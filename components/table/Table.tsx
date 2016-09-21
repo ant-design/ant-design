@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcTable from 'rc-table';
 import Checkbox from '../checkbox';
 import Radio from '../radio';

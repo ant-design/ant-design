@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import RcDropdown from 'rc-dropdown';
 
 export interface DropDownProps {

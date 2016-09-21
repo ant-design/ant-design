@@ -1,5 +1,5 @@
 import RcCheckbox from 'rc-checkbox';
-import * as React from 'react';
+import React from 'react';
 import CheckboxGroup from './Group';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';

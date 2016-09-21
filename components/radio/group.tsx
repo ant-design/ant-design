@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
 import RadioButton from './radioButton';
