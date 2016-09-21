@@ -64,9 +64,16 @@ timeline: true
 这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
 
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
-* Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。
+* Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
-* Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`。
+* Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`：
+  ```diff
+  + getFieldDecorator('userName', { ... })(
+      <Input placeholder="请输入账户名"
+  -     {...getFieldProps('userName', { ... })}
+      />
+  + )
+  ```
 
 ### Bug 修复
 
@@ -100,7 +107,7 @@ timeline: true
 
 * 新增配套网站 [AntD Library](http://library.ant.design/)，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。
 * `babel-plugin-antd` 更名为 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
-* [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用]((http://ant.design/docs/react/practical-projects))。
+* [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
 * 脚手架工具推荐使用 [`dva-cli`](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
 
 ## 1.11.2

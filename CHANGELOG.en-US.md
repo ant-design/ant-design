@@ -27,7 +27,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 There are some breaking changes in `antd@2.0.0`, and you need to modify your code to work with it.
 
-* 时间类组件的 `value` 和 `defaultValue` 不再支持 `String/Date` 类型，请使用 [moment](http://momentjs.com/)。
+* `value` and `defaultValue` of all the time-related components will not support type `String/Date`, please use [moment](http://momentjs.com/):
   ```diff
   - <TimePicker defaultValue="12:08:23" />
   + <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
@@ -38,9 +38,9 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。
-* 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
-* `babel-plugin-antd` 重命名为 `babel-plugin-import`，请更新 `package.json`：
+* Parameters that are type `Date/GregorianCalendar` of `onChange` and `onPanelChange` and other callback function had been change to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update you code.
+* The `format` of time-related components is the same as [moment's format](http://momentjs.com/docs/) now.
+* `babel-plugin-antd` is renamed to `babel-plugin-import`, please update `package.json`:
   ```diff
   {
     "devDependencies": {
@@ -49,7 +49,7 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
     }
   }
   ```
-  同时更新 `.babelrc` 或你在其它地方对其的配置：
+  And update your babel config in `.babelrc` or other place:
   ```diff
   {
   -  "plugins": [["antd", { style: "css" }]]
@@ -57,12 +57,19 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   }
   ```
 
-这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
+The following changes will throw warnings in console, and you can follow the tips to update your code.
 
-* Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
-* Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。
-* Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
-* Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`。
+* `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
+* `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. Their are totally different, please consult [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
+* Paging columns of Table is removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
+* `getFieldProps` of Form is deprecated, please use `getFieldDecorator`:
+  ```diff
+  + getFieldDecorator('userName', { ... })(
+      <Input placeholder="请输入账户名"
+  -     {...getFieldProps('userName', { ... })}
+      />
+  + )
+  ```
 
 ### Bug fixes
 
@@ -94,10 +101,10 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
 
 ### Workflow
 
-* 新增配套网站 [AntD Library](http://library.ant.design/)，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。
-* `babel-plugin-antd` 更名为 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
-* [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用]((http://ant.design/docs/react/practical-projects))。
-* 脚手架工具推荐使用 [`dva-cli`](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
+* [AntD Library](http://library.ant.design/) a collection of Axure files which includes components and patterns that follow Ant Design Specification.
+* Rename `babel-plugin-antd` to [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import), and this means that `babel-plugin-import` becomes an common load-on-demand solution and not just for `antd`.
+* [`dva@1.0.0`](https://github.com/dvajs/dva) is published and it is officially recommended framework [in real world](http://ant.design/docs/react/practical-projects).
+* The officially recommended scaffold is [`dva-cli`](https://github.com/dvajs/dva-cli) now, the old `antd-init` is just for studying and demo.
 
 ## 1.0.0
 
