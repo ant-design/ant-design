@@ -106,13 +106,6 @@
     display: none;
   }
 
-  .@{calendar-prefix-cls}-calendar-body,
-  .@{calendar-prefix-cls}-decade-panel-body,
-  .@{calendar-prefix-cls}-year-panel-body,
-  .@{calendar-prefix-cls}-month-panel-body {
-    border-bottom: 1px solid @border-color-split;
-  }
-
   &.@{calendar-prefix-cls}-week-number {
     width: 574px;
 
@@ -159,7 +152,9 @@
     text-align: right;
   }
 
-  .@{calendar-prefix-cls} {
+  .@{calendar-prefix-cls},
+  .@{calendar-prefix-cls}-month-panel,
+  .@{calendar-prefix-cls}-year-panel {
     &-header {
       border-bottom: 0;
     }
