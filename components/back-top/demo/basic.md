@@ -19,7 +19,7 @@ import { BackTop } from 'antd';
 ReactDOM.render(
   <div>
     <BackTop />
-    向下滚动后，见右下角灰色按钮
+    Scroll down to see the bottom right blue button.
   </div>
 , mountNode);
 ````
