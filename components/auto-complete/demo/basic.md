@@ -33,11 +33,13 @@ const Complete = React.createClass({
   },
   render() {
     const { dataSource } = this.state;
-    return (<AutoComplete
-      dataSource={dataSource}
-      style={{ width: 200 }}
-      onChange={this.handleChange}
-    />);
+    return (
+      <AutoComplete
+        dataSource={dataSource}
+        style={{ width: 200 }}
+        onChange={this.handleChange}
+      />
+    );
   },
 });
 

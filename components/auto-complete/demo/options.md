@@ -22,28 +22,30 @@ const Option = AutoComplete.Option;
 const Complete = React.createClass({
   getInitialState() {
     return {
-      dataSource: [],
+      result: [],
     };
   },
   handleChange(value) {
-    let dataSource;
+    let result;
     if (!value || value.indexOf('@') >= 0) {
-      dataSource = [];
+      result = [];
     } else {
-      dataSource = ['gmail.com', '163.com', 'qq.com'].map((domain) => {
-        const email = `${value}@${domain}`;
-        return <Option key={email}>{email}</Option>;
-      });
+      result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
     }
-    this.setState({ dataSource });
+    this.setState({ result });
   },
   render() {
-    const { dataSource } = this.state;
-    return (<AutoComplete
-      style={{ width: 200 }}
-      dataSource={dataSource}
-      onChange={this.handleChange}
-    />);
+    const { result } = this.state;
+    const dataSource = result.map((email) => {
+      return <Option key={email}>{email}</Option>;
+    });
+    return (
+      <AutoComplete
+        style={{ width: 200 }}
+        dataSource={dataSource}
+        onChange={this.handleChange}
+      />
+    );
   },
 });
 
