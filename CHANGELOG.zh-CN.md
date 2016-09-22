@@ -15,7 +15,7 @@ timeline: true
 
 很高兴的通知各位，经过四个月时间的紧密开发，`antd@2.0.0` 终于发布了。这个版本我们重构了底层代码，持续完善现有组件功能和优化细节，其中很多都来自社区的贡献，无法一一感谢，欢迎各位持续关注和鞭策。在升级过程中遇到任何问题，请及时反馈给我们。
 
-### 主要变化
+### 2.x 主要变化
 
 * 开发语言改为 TypeScript，提供 **官方支持的 `.d.ts` 文件**，感谢 [#1846](https://github.com/ant-design/ant-design/issues/1846) 中所有参与到这次重构的人以及后期 @infeng 对其的完善。
 * **新增英文文档**， 以后将同时提供中英双语文档，感谢 [#1471](https://github.com/ant-design/ant-design/issues/1471) 里所有参与到翻译、review 中的人。
@@ -27,7 +27,7 @@ timeline: true
 * Table 支持 [表头分组](http://ant.design/components/table/#components-table-demo-grouping-columns)。@yesmeck
 * 完全移除 `antd@1.x` 中已经废弃的 QueueAnim、Validation、Form.ValueMixin、Progress.Line、Progress.Circle、Popover[overlay] 及 Slider[marks] 对数组的支持。
 
-### 不兼容改动
+### 2.x 不兼容改动
 
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
 
@@ -52,23 +52,6 @@ timeline: true
   }
   ```
 * 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
-* `babel-plugin-antd` 重命名为 `babel-plugin-import`，请更新 `package.json`：
-  ```diff
-  {
-    "devDependencies": {
-  -   "babel-plugin-antd": "^0.x.x",
-  +   "babel-plugin-import": "^1.0.0",
-    }
-  }
-  ```
-  同时更新 `.babelrc` 或你在其它地方对其的配置：
-  ```diff
-  {
-  -  "plugins": [["antd", { style: "css" }]]
-  +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
-  }
-  ```
-
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
@@ -84,7 +67,7 @@ timeline: true
   + )
   ```
 
-### Bug 修复
+### 2.x Bug 修复
 
 * 修复 Dropdown.Button `disabled` 属性无效的问题。[#3070](https://github.com/ant-design/ant-design/issues/3070)
 * 修复 Form.create `withRef` 选项失效的问题。[#2843](https://github.com/ant-design/ant-design/issues/2843)
@@ -93,7 +76,7 @@ timeline: true
 * 修复 Tree.Node 无子节点时仍然显示箭头的问题。[#2616](https://github.com/ant-design/ant-design/issues/2616)
 * 修复 Tree.Node 箭头隐藏后鼠标 hover 上去光标仍会发生变化的问题。[#2748](https://github.com/ant-design/ant-design/issues/2748)
 
-### 其他改进
+### 2.x 其他改进
 
 * Alert 新增 [`banner` 模式](http://ant.design/components/alert/#components-alert-demo-banner)。
 * BackTop 增加回到顶部的动画效果。
@@ -112,10 +95,26 @@ timeline: true
 * 优化 [Spin 状态切换](http://ant.design/components/spin/#components-spin-demo-nested ) 时的效果。
 * 更新 [font-family](https://github.com/ant-design/ant-design/commit/2f308b0f995cfcb2a3c8feb1e35ffd3f0bf93cfc)。
 
-### 相关工具发布
+### 2.x 相关工具发布
 
 * 新增配套网站 [AntD Library](http://library.ant.design/)，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。
 * `babel-plugin-antd` 更名为 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
+  请更新 `package.json`：
+  ```diff
+  {
+    "devDependencies": {
+  -   "babel-plugin-antd": "^0.x.x",
+  +   "babel-plugin-import": "^1.0.0",
+    }
+  }
+  ```
+  同时更新 `.babelrc` 或你在其它地方对其的配置：
+  ```diff
+  {
+  -  "plugins": [["antd", { style: "css" }]]
+  +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
+  }
+  ```
 * [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
 * 脚手架工具推荐使用 [`dva-cli`](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
 

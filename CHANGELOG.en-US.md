@@ -11,7 +11,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 很高兴的通知各位，经过四个月时间的紧密开发，`antd@2.0.0` 终于发布了。这个版本我们重构了底层代码，持续完善现有组件功能和优化细节，其中很多都来自社区的贡献，无法一一感谢，欢迎各位持续关注和鞭策。在升级过程中遇到任何问题，请及时反馈给我们。
 
-### Major changes
+### 2.x Major changes
 
 * Refactor components with TypeScript, and provide **`.d.ts` files which are supported officially**. Thank all the developers in [#1846](https://github.com/ant-design/ant-design/issues/1846) and @infeng.
 * **Translate the documentation into English**, and we are going to provide both of Chinese and English documentation in the future. Thank all the translators and reviewers in [#1471](https://github.com/ant-design/ant-design/issues/1471).
@@ -23,7 +23,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Table supports [grouping columns](http://ant.design/components/table/#components-table-demo-grouping-columns). @yesmeck
 * Removed components and features which are deprecated in `antd@1.x`, such as QueueAnim, Validation, Form.ValueMixin, Progress.Line, Progress.Circle, Popover[overlay] and Slider[marks] will not support array any more.
 
-### Breaking changes
+### 2.x Breaking changes
 
 There are some breaking changes in `antd@2.0.0`, and you need to modify your code to work with it.
 
@@ -48,23 +48,6 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   }
   ```
 * The `format` of time-related components is the same as [moment's format](http://momentjs.com/docs/) now.
-* `babel-plugin-antd` is renamed to `babel-plugin-import`, please update `package.json`:
-  ```diff
-  {
-    "devDependencies": {
-  -   "babel-plugin-antd": "^0.x.x",
-  +   "babel-plugin-import": "^1.0.0",
-    }
-  }
-  ```
-  And update your babel config in `.babelrc` or other place:
-  ```diff
-  {
-  -  "plugins": [["antd", { style: "css" }]]
-  +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
-  }
-  ```
-
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. Their are totally different, please consult [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
 * Paging columns of Table is removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
@@ -80,7 +63,7 @@ The following change will throw some warnings in console and it still can work, 
   + )
   ```
 
-### Bug fixes
+### 2.x Bug fixes
 
 * Dropdown.Button[disabled] should work. [#3070](https://github.com/ant-design/ant-design/issues/3070)
 * `option.withRef` of Form.create should work. [#2843](https://github.com/ant-design/ant-design/issues/2843)
@@ -89,7 +72,7 @@ The following change will throw some warnings in console and it still can work, 
 * Tree.Node should not show arrow if it has no child nodes. [#2616](https://github.com/ant-design/ant-design/issues/2616)
 * Fix cursor style of arrows that are hidden of Tree.Node. [#2748](https://github.com/ant-design/ant-design/issues/2748)
 
-### Other improvements
+### 2.x Other improvements
 
 * Alert supports [`banner` mode](http://ant.design/components/alert/#components-alert-demo-banner).
 * BackTop will scroll to top with animation.
@@ -108,10 +91,26 @@ The following change will throw some warnings in console and it still can work, 
 * Improve the status changed animation of [Spin](http://ant.design/components/spin/#components-spin-demo-nested ).
 * Update [font-family](https://github.com/ant-design/ant-design/commit/2f308b0f995cfcb2a3c8feb1e35ffd3f0bf93cfc).
 
-### Workflow
+### 2.x Workflow
 
 * [AntD Library](http://library.ant.design/) a collection of Axure files which includes components and patterns that follow Ant Design Specification.
 * Rename `babel-plugin-antd` to [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import), and this means that `babel-plugin-import` becomes an common load-on-demand solution and not just for `antd`.
+  Please update `package.json`:
+  ```diff
+  {
+    "devDependencies": {
+  -   "babel-plugin-antd": "^0.x.x",
+  +   "babel-plugin-import": "^1.0.0",
+    }
+  }
+  ```
+  And update your babel config in `.babelrc` or other place:
+  ```diff
+  {
+  -  "plugins": [["antd", { style: "css" }]]
+  +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
+  }
+  ```
 * [`dva@1.0.0`](https://github.com/dvajs/dva) is published and it is officially recommended framework [in real world](http://ant.design/docs/react/practical-projects).
 * The officially recommended scaffold is [`dva-cli`](https://github.com/dvajs/dva-cli) now, the old `antd-init` is just for studying and demo.
 
