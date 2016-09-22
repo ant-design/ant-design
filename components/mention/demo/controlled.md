@@ -1,6 +1,8 @@
 ---
 order: 3
-title: 受控模式
+title: 
+  zh-CN: 受控模式
+  en-US: Controlled Mode
 ---
 
 ## zh-CN
