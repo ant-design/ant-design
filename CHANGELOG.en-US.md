@@ -13,8 +13,8 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ### 2.x Major changes
 
-* Refactor components with TypeScript, and provide **`.d.ts` files which are supported officially**. Thank all the developers in [#1846](https://github.com/ant-design/ant-design/issues/1846) and @infeng.
-* **Translate the documentation into English**, and we are going to provide both of Chinese and English documentation in the future. Thank all the translators and reviewers in [#1471](https://github.com/ant-design/ant-design/issues/1471).
+* Refactor components with TypeScript, and provide **`.d.ts` files which are officially supported**. Thanks to all the developers that contributed to [#1846](https://github.com/ant-design/ant-design/issues/1846) and @infeng.
+* **Translate the documentation into English**, and we are going to provide both of Chinese and English versions of the documentation in the future. Thanks to all the translators and reviewers that contributed to [#1471](https://github.com/ant-design/ant-design/issues/1471).
 * DatePicker, TimePicker, Calendar and other components that are designed to select time **are refactored to replace [gregorian-calendar](github.com/yiminghe/gregorian-calendar) with [moment](http://momentjs.com/)**.
 * All the [icons](http://ant.design/components/icon/) are re-designed.
 * New component [Mention](http://ant.design/components/mention/).
@@ -38,7 +38,7 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* Parameters that are type `Date/GregorianCalendar` of `onChange` and `onPanelChange` and other callback function had been change to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update you code. Because the reutrn value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, related issue [#3082](https://github.com/ant-design/ant-design/issues/3082):
+* Parameters of type `Date/GregorianCalendar` of functions such as `onChange` and `onPanelChange`, plus other callback functions had been changed to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update your code accordingly. Because the return value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, see related issue [#3082](https://github.com/ant-design/ant-design/issues/3082) for details:
   ```js
   handleSubmit() {
     const values = this.props.form.getFieldsValue();
@@ -49,10 +49,10 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   ```
 * The `format` of time-related components is the same as [moment's format](http://momentjs.com/docs/) now.
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
-* `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. Their are totally different, please consult [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
-* Paging columns of Table is removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
+* `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. As being totally different, please check [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
+* Paging columns of Table were removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
 
-The following change will throw some warnings in console and it still can work, but we recommend to update your code.
+The following change will throw some warnings in the console and it will still work, but we recommend to update your code.
 
 * `getFieldProps` of Form is deprecated, please use `getFieldDecorator`:
   ```diff
