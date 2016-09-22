@@ -53,9 +53,20 @@ let Demo = React.createClass({
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form horizontal onSubmit={this.handleSubmit} >
+      <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
-          label="InputNumber Control"
+          label="I'm the title"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+        >
+          <p className="ant-form-text" id="static" name="static">O, wind, if winter comes, can spring be far behind?</p>
+          <p className="ant-form-text">
+            <a href="#">link</a>
+          </p>
+        </FormItem>
+
+        <FormItem
+          label="InputNumber"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
         >
@@ -63,17 +74,6 @@ let Demo = React.createClass({
             <InputNumber min={1} max={10} style={{ width: 100 }} />
           )}
           <span className="ant-form-text"> machines</span>
-        </FormItem>
-
-        <FormItem
-          label="I'm the title"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 10 }}
-        >
-          <p className="ant-form-text" id="static" name="static">O, wind, if winter comes, can spring be far behind?</p>
-          <p className="ant-form-text">
-            <a href="#">link</a>
-          </p>
         </FormItem>
 
         <FormItem

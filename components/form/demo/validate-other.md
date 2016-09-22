@@ -130,7 +130,7 @@ let Demo = React.createClass({
               <Radio value="female">female</Radio>
             </RadioGroup>
           )}
-          <span><Icon type="info-circle-o" /> Temporarily no other gender</span>
+          <span><Icon type="info-circle-o" /> No other gender</span>
         </FormItem>
 
         <FormItem

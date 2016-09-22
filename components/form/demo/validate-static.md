@@ -36,7 +36,7 @@ ReactDOM.render(
       labelCol={{ span: 5 }}
       wrapperCol={{ span: 12 }}
       validateStatus="error"
-      help="Please enter a combination of numbers and alphabets"
+      help="Should be combination of numbers & alphabets"
     >
       <Input defaultValue="unavailable choice" id="error" />
     </FormItem>
@@ -87,7 +87,7 @@ ReactDOM.render(
       wrapperCol={{ span: 12 }}
       hasFeedback
       validateStatus="error"
-      help="Please enter a combination of numbers and alphabets"
+      help="Should be combination of numbers & alphabets"
     >
       <Input defaultValue="unavailable choice" id="error" />
     </FormItem>

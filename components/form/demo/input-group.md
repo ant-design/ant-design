@@ -56,7 +56,7 @@ ReactDOM.render(
     </FormItem>
 
     <FormItem
-      label="Please input your identity number"
+      label="Identity number"
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 16 }}
     >

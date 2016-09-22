@@ -18,7 +18,7 @@ import { Progress } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Progress type="circle" percent={75} format={percent => `${percent / 10.0} In Progress`} />
+    <Progress type="circle" percent={75} format={percent => `${percent}% Discount`} />
     <Progress type="circle" percent={100} format={() => 'Complete'} />
   </div>
 , mountNode);
