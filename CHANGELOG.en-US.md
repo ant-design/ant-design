@@ -19,7 +19,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * All the [icons](http://ant.design/components/icon/) are re-designed.
 * New component [Mention](http://ant.design/components/mention/).
 * New component [AutoComplete](http://ant.design/components/auto-complete/).
-* The `getFieldProps` of Form is replaced with `getFieldDecorator` which will warn developers if they make mistakes.
+* The `getFieldProps` of Form is replaced with `getFieldDecorator` which will warn developers if they make mistakes. Related discussion [#1533](https://github.com/ant-design/ant-design/issues/1533).
 * Table supports [grouping columns](http://ant.design/components/table/#components-table-demo-grouping-columns). @yesmeck
 * Removed components and features which are deprecated in `antd@1.x`, such as QueueAnim, Validation, Form.ValueMixin, Progress.Line, Progress.Circle, Popover[overlay] and Slider[marks] will not support array any more.
 
@@ -38,7 +38,15 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* Parameters that are type `Date/GregorianCalendar` of `onChange` and `onPanelChange` and other callback function had been change to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update you code.
+* Parameters that are type `Date/GregorianCalendar` of `onChange` and `onPanelChange` and other callback function had been change to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update you code. Because the reutrn value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, related issue [#3082](https://github.com/ant-design/ant-design/issues/3082):
+  ```js
+  handleSubmit() {
+    const values = this.props.form.getFieldsValue();
+    values.date = values.date.format('YYYY-MM-DD HH:mm:ss'); // or other format
+    const data = JSON.stringify(values);
+    // send data to server
+  }
+  ```
 * The `format` of time-related components is the same as [moment's format](http://momentjs.com/docs/) now.
 * `babel-plugin-antd` is renamed to `babel-plugin-import`, please update `package.json`:
   ```diff
@@ -57,11 +65,12 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   }
   ```
 
-The following changes will throw warnings in console, and you can follow the tips to update your code.
-
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. Their are totally different, please consult [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
 * Paging columns of Table is removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
+
+The following change will throw some warnings in console and it still can work, but we recommend to update your code.
+
 * `getFieldProps` of Form is deprecated, please use `getFieldDecorator`:
   ```diff
   + getFieldDecorator('userName', { ... })(

@@ -23,7 +23,7 @@ timeline: true
 * 全新设计的 [图标](http://ant.design/components/icon/)。
 * 新增提及组件 [Mention](http://ant.design/components/mention/)。
 * 新增自动完成组件 [AutoComplete](http://ant.design/components/auto-complete/)。
-* Form 新增 `getFieldDecorator` 作为 `getFieldProps` 的替代，对于不正确的使用方式 `getFieldDecorator` 会给出提示，可以降低踩坑的概率。
+* Form 新增 `getFieldDecorator` 作为 `getFieldProps` 的替代，对于不正确的使用方式 `getFieldDecorator` 会给出提示，可以降低踩坑的概率。相关讨论见 [#1533](https://github.com/ant-design/ant-design/issues/1533)。
 * Table 支持 [表头分组](http://ant.design/components/table/#components-table-demo-grouping-columns)。@yesmeck
 * 完全移除 `antd@1.x` 中已经废弃的 QueueAnim、Validation、Form.ValueMixin、Progress.Line、Progress.Circle、Popover[overlay] 及 Slider[marks] 对数组的支持。
 
@@ -42,7 +42,15 @@ timeline: true
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。
+* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。由于 `JSON.stringy(date: moment)` 返回的值会丢失时区设置，所以要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
+  ```js
+  handleSubmit() {
+    const values = this.props.form.getFieldsValue();
+    values.date = values.date.format('YYYY-MM-DD HH:mm:ss'); // 或其它格式
+    const data = JSON.stringify(values);
+    // 发送 data 到服务器
+  }
+  ```
 * 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
 * `babel-plugin-antd` 重命名为 `babel-plugin-import`，请更新 `package.json`：
   ```diff
@@ -61,11 +69,12 @@ timeline: true
   }
   ```
 
-这里的改动在升级后控制台会出现警告提示，请按提示进行修改。
-
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
+
+以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。
+
 * Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`：
   ```diff
   + getFieldDecorator('userName', { ... })(
