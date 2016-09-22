@@ -7,12 +7,11 @@ title:
 
 ## zh-CN
 
-Datasource 的每一项是一个 `AutoComplete.Option`。通过 `AutoComplete.Option` 自定义下拉菜单。
+也可以直接传 `AutoComplete.Option` 作为 `AutoComplete` 的 `children`，而非使用 `dataSource`。
 
 ## en-US
 
-Items in dataSource could be an `AutoComplete.Option`.
-
+You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `dataSource`。
 
 ````jsx
 import { AutoComplete } from 'antd';
@@ -36,15 +35,16 @@ const Complete = React.createClass({
   },
   render() {
     const { result } = this.state;
-    const dataSource = result.map((email) => {
+    const children = result.map((email) => {
       return <Option key={email}>{email}</Option>;
     });
     return (
       <AutoComplete
         style={{ width: 200 }}
-        dataSource={dataSource}
         onChange={this.handleChange}
-      />
+      >
+        {children}
+      </AutoComplete>
     );
   },
 });
