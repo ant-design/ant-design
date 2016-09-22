@@ -1,6 +1,8 @@
 ---
 order: 1
-title: 异步加载
+title: 
+  zh-CN: 异步加载
+  en-US: Asynchronous loading
 ---
 
 ## zh-CN
