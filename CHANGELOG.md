@@ -1,6 +1,10 @@
 ---
 order: 3
-title: 更新日志
+title: 
+title:
+  zh-CN: 更新日志
+  en-US: Changelog
+
 toc: false
 timeline: true
 ---
