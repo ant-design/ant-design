@@ -8,12 +8,11 @@ import Radio from '../radio';
 export interface FilterDropdownMenuWrapperProps {
   onClick?: Function;
   children?: any;
-  prefixCls?: string;
+  className?: string;
 }
 const FilterDropdownMenuWrapper: React.StatelessComponent<FilterDropdownMenuWrapperProps> =
-  ({ onClick, children, prefixCls }) => (
-  <div className={`${prefixCls}-filter-dropdown`} onClick={onClick}>{children}</div>
-);
+  ({ onClick, children, className }) =>
+    <div className={className} onClick={onClick}>{children}</div>;
 
 export interface FilterMenuProps {
   locale: any;
@@ -134,9 +133,8 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     const { column, locale, prefixCls, dropdownPrefixCls } = this.props;
     // default multiple selection in filter dropdown
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-
     const menus = column.filterDropdown ? column.filterDropdown : (
-      <FilterDropdownMenuWrapper prefixCls="">
+      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         <Menu
           multiple={multiple}
           onClick={this.handleMenuItemClick}
