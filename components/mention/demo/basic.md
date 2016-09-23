@@ -1,6 +1,8 @@
 ---
 order: 0
-title: 基本使用
+title: 
+  zh-CN: 基本使用
+  en-US: Basis use
 ---
 
 ## zh-CN
