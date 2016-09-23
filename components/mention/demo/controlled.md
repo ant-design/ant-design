@@ -1,8 +1,8 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 受控模式
-  en-US: Controlled Mode
+  en-US: Controlled
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Controlled mode, for example, work with `Form` .
+Controlled mode, for example, to work with `Form` .
 
 ````jsx
 import { Mention, Form, Button } from 'antd';

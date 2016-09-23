@@ -49,7 +49,7 @@ export default class Header extends React.Component {
     document.addEventListener('click', this.onDocumentClick);
     document.addEventListener('touchstart', this.onDocumentClick);
 
-    enquire.register('only screen and (min-width: 320px) and (max-width: 767px)', {
+    enquire.register('only screen and (min-width: 320px) and (max-width: 940px)', {
       match: () => {
         this.setState({ menuMode: 'inline' });
       },

@@ -46,6 +46,10 @@ export default class Home extends React.Component {
       .home-nav-white #nav a {
         color: #666;
       }
+      .home-nav-white #lang {
+        color: #666;
+        border-color: #666;
+      }
       .nav-phone-icon:before {
         background: #eee;
         box-shadow: 0 7px 0 0 #eee, 0 14px 0 0 #eee;

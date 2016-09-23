@@ -1,6 +1,8 @@
 ---
 order: 4
-title: 多行
+title:
+  zh-CN: 多行
+  en-US: Multi-lines Mode
 ---
 
 ## zh-CN
