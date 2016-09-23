@@ -1,6 +1,8 @@
 ---
 order: 2
-title: 自定义建议
+title: 
+  zh-CN: 自定义建议
+  en-US: Customize Suggestion
 ---
 
 ## zh-CN
