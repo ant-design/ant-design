@@ -41,19 +41,19 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ### Use modularized antd
 
-- Use [babel-plugin-antd](https://github.com/ant-design/babel-plugin-antd) (Recommended)
+- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
    ```js
    // .babelrc
    {
-     "plugins": [["antd", { style: "css" }]]
+     "plugins": [["import", { libraryName: "antd", style: "css" }]]
    }
    ```
 
    Then you can import components from antd directly.
 
    ```jsx
-   // import js and css modularly, parsed by babel-plugin-antd
+   // import js and css modularly, parsed by babel-plugin-import
    import { DatePicker } from 'antd';
    ```
 
@@ -91,12 +91,15 @@ tsconfig.json
 - [Scaffold tool](https://github.com/ant-design/antd-init/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
+- [Mobile UI](http://mobile.ant.design)
 - [React style guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
 - [React component design guide](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [Boilerplates](https://github.com/ant-design/ant-design/issues/129)
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen boilerplate](http://codepen.io/anon/pen/wGOWGW?editors=001) for bug reports
+- [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
+- [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 
 ## Contributing
 

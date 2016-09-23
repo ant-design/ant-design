@@ -1,16 +1,20 @@
+// Prefix
+@ant-prefix             : ant;
+
 // Color
 @primary-color          : #2db7f5;
 @info-color             : #2db7f5;
 @success-color          : #87d068;
 @error-color            : #f50;
 @warning-color          : #fa0;
+@normal-color           : #d9d9d9;
 
 // ------ Base & Require ------
 @body-background        : #fff;
-
-@font-family            : "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+@font-family            : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
 @code-family            : Consolas,Menlo,Courier,monospace;
 @text-color             : #666;
+@heading-color          : #404040;
 @font-size-base         : 12px;
 @line-height-base       : 1.5;
 @line-height-computed   : floor((@font-size-base * @line-height-base));
@@ -19,7 +23,7 @@
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_1463992151_360388";
+@icon-url               : "https://at.alicdn.com/t/font_1473840929_824008";
 
 // LINK
 @link-color             : #2db7f5;
@@ -48,6 +52,14 @@
 @border-color-base      : #d9d9d9;        // base border outline a component
 @border-color-split     : #e9e9e9;        // split border inside a component
 
+// Outline
+@outline-blur-size      : 0;
+@outline-width          : 2px;
+@outline-color          : @primary-color;
+
+// Background color
+@background-color-base  : #f7f7f7;        // basic gray background
+
 // Shadow
 @shadow-color           : rgba(100, 100, 100, .2);
 @box-shadow-base        : @shadow-1-down;
@@ -59,13 +71,15 @@
 
 // Buttons
 @btn-font-weight        : 500;
+@btn-border-radius-base : @border-radius-base;
+@btn-border-radius-sm   : @border-radius-sm;
 
 @btn-primary-color      : #fff;
 @btn-primary-bg         : @primary-color;
 @btn-group-border       : shade(@primary-color, 5%);
 
 @btn-default-color      : @text-color;
-@btn-default-bg         : #f7f7f7;
+@btn-default-bg         : @background-color-base;
 @btn-default-border     : @border-color-base;
 
 @btn-ghost-color        : @text-color;
@@ -73,7 +87,7 @@
 @btn-ghost-border       : @border-color-base;
 
 @btn-disable-color      : #ccc;
-@btn-disable-bg         : #f7f7f7;
+@btn-disable-bg         : @background-color-base;
 @btn-disable-border     : @border-color-base;
 
 @btn-padding-base       : 4px 15px;
@@ -153,7 +167,6 @@
 @input-bg                    : #fff;
 
 @input-hover-border-color    : @primary-color;
-@input-focus-border-color    : @primary-color;
-@input-disabled-bg           : #f7f7f7;
+@input-disabled-bg           : @background-color-base;
 
 @form-item-margin-bottom     : 24px;

@@ -1,9 +1,18 @@
 ---
 order: 1
-title: 自定义样式
+title:
+  zh-CN: 自定义样式
+  en-US: Custom style
 ---
 
-可以自定义置顶按钮的样式，限制宽高：`40px * 40px`。
+## zh-CN
+
+可以自定义回到顶部按钮的样式，限制宽高：`40px * 40px`。
+
+## en-US
+
+You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
+
 
 ````jsx
 import { BackTop } from 'antd';
@@ -24,7 +33,7 @@ ReactDOM.render(
     <BackTop style={{ bottom: 100 }}>
       <div style={style}>UP</div>
     </BackTop>
-    向下滚动后，见右下角蓝色按钮
+    Scroll down to see the bottom right blue button.
   </div>
 , mountNode);
 ````

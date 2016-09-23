@@ -1,9 +1,17 @@
 ---
 order: 5
-title: 分组
+title: 
+  zh-CN: 分组
+  en-US: Option Group
 ---
 
+## zh-CN
+
 用 `OptGroup` 进行选项分组。
+
+## en-US
+
+Using `OptGroup` to group the options.
 
 ````jsx
 import { Select } from 'antd';

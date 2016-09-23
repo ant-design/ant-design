@@ -1,12 +1,12 @@
 ---
 category: Components
 type: Views
-english: Alert
+title: Alert
 ---
 
 Alert component for feedback.
 
-## When to use
+## When To Use
 
 - When you need to show alert messages for users.
 - When you need a persist static container, and closable by user actions.
@@ -22,3 +22,4 @@ Alert component for feedback.
 | description | Additional content of Alert | React.Node | - |
 | onClose    | Callback when close Alert | Function | - |
 | showIcon   | Whether to show icon | Boolean | false |
+| banner   | Whether to show as banner | Boolean | false |

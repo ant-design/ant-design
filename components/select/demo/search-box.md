@@ -1,9 +1,18 @@
 ---
 order: 9
-title: 搜索框
+title: 
+  zh-CN: 搜索框
+  en-US: Search Box
 ---
 
+## zh-CN
+
 带有搜索按钮的自动补全输入框。
+
+## en-US
+
+Autocomplete select with search field.
+
 
 ````jsx
 import { Input, Select, Button, Icon } from 'antd';

@@ -1,9 +1,17 @@
 ---
 order: 3
-title: 异步数据加载
+title: 
+  zh-CN: 异步数据加载
+  en-US: load data asynchronously
 ---
 
+## zh-CN
+
 点击展开节点，动态加载数据。
+
+## en-US
+
+To load data asynchronously when click to expand a treeNode.
 
 ````jsx
 import { Tree } from 'antd';
@@ -80,7 +88,7 @@ const Demo = React.createClass({
         getNewTreeData(treeData, treeNode.props.eventKey, generateTreeNodes(treeNode), 2);
         this.setState({ treeData });
         resolve();
-      }, 500);
+      }, 1000);
     });
   },
   render() {

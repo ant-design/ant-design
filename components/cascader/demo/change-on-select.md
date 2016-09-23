@@ -1,33 +1,41 @@
 ---
 order: 5
-title: 选择即改变
+title:
+  zh-CN: 选择即改变
+  en-US: Change on select
 ---
 
+## zh-CN
+
 这种交互允许只选中父级选项。
+
+## en-US
+
+Allow only select parent options.
 
 ````jsx
 import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hanzhou',
     children: [{
       value: 'xihu',
-      label: '西湖',
+      label: 'West Lake',
     }],
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
     children: [{
       value: 'zhonghuamen',
-      label: '中华门',
+      label: 'Zhong Hua Men',
     }],
   }],
 }];

@@ -1,23 +1,29 @@
+@import "../../input/style/mixin";
+
 .form-control-validation(@text-color: @input-color; @border-color: @input-border-color; @background-color: @input-bg) {
-  .ant-form-explain,
-  .ant-form-split {
+  .@{ant-prefix}-form-explain,
+  .@{ant-prefix}-form-split {
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .ant-input {
-    border-color: @border-color;
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+  .@{ant-prefix}-input {
+    &,
+    &:hover,
+    &:focus {
+      border-color: @border-color;
+      .active(@border-color);
+    }
 
     &:not([disabled]):hover {
       border-color: @border-color;
     }
   }
 
-  .ant-calendar-picker-open .ant-calendar-picker-input {
-    box-shadow: 0 0 0 2px fade(@border-color, 20%);
+  .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
+    .active(@border-color);
   }
 
-  .ant-input-group-addon {
+  .@{ant-prefix}-input-group-addon {
     color: @text-color;
     border-color: @border-color;
     background-color: @background-color;
@@ -86,7 +92,7 @@
   input[type="radio"]:focus,
   input[type="checkbox"]:focus {
     outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
+    outline: 5px auto -webkit-focus-ring-color; // lesshint spaceAroundOperator: false
     outline-offset: -2px;
   }
 

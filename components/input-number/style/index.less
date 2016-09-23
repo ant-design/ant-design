@@ -2,7 +2,7 @@
 @import "../../style/mixins/index";
 @import "../../input/style/mixin";
 
-@input-number-prefix-cls: ant-input-number;
+@input-number-prefix-cls: ~"@{ant-prefix}-input-number";
 
 .handler-disabled() {
   opacity: 0.72;
@@ -34,8 +34,9 @@
     transition: all 0.1s linear;
     display: block;
     width: 100%;
-    &:hover {
-      background: #fefefe;
+    font-weight: bold;
+    &:active {
+      background: #f4f4f4;
     }
     &:hover &-up-inner,
     &:hover &-down-inner {
@@ -155,12 +156,13 @@
   &-handler-wrap {
     border-left: 1px solid @border-color-base;
     width: 22px;
-    height: 28px;
+    height: 100%;
     background: #fff;
     position: absolute;
-    top: 0;
+    top: -1px;
     right: 0;
     opacity: 0;
+    border-radius: 0 @border-radius-base @border-radius-base 0;
     transition: opacity 0.24s linear 0.1s;
   }
 
@@ -174,7 +176,7 @@
       top: 1px;
       &:before {
         text-align: center;
-        content: "\e602";
+        content: "\e61e";
       }
     }
     &:hover {
@@ -192,7 +194,7 @@
     &-inner {
       &:before {
         text-align: center;
-        content: "\e603";
+        content: "\e61d";
       }
     }
     &:hover {

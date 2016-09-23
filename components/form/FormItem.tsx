@@ -1,16 +1,46 @@
 import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import Row from '../row';
+import Col from '../col';
+import { WrappedFormUtils } from './Form';
+import { FIELD_META_PROP } from './constants';
 
-export default class FormItem extends React.Component {
+export interface FormItemLabelColOption {
+  span: number;
+  offset?: number;
+}
+
+export interface FormItemProps {
+  prefixCls?: string;
+  id?: string;
+  label?: string | React.ReactNode;
+  labelCol?: FormItemLabelColOption;
+  wrapperCol?: FormItemLabelColOption;
+  help?: React.ReactNode;
+  extra?: string;
+  validateStatus?: 'success' | 'warning' | 'error' | 'validating';
+  hasFeedback?: boolean;
+  className?: string;
+  required?: boolean;
+  style?: React.CSSProperties;
+  colon?: boolean;
+}
+
+export interface FormItemContext {
+  form: WrappedFormUtils;
+}
+
+export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
     prefixCls: 'ant-form',
-  }
+    colon: true,
+  };
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
-    label: React.PropTypes.node,
+    label: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.node]),
     labelCol: React.PropTypes.object,
     help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
     validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
@@ -19,24 +49,17 @@ export default class FormItem extends React.Component {
     className: React.PropTypes.string,
     id: React.PropTypes.string,
     children: React.PropTypes.node,
-  }
+    colon: React.PropTypes.bool,
+  };
 
   static contextTypes = {
     form: React.PropTypes.object,
-  }
+  };
+
+  context: FormItemContext;
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
-  }
-
-  getLayoutClass(colDef) {
-    if (!colDef) {
-      return '';
-    }
-    const { span, offset } = colDef;
-    const col = span ? `ant-col-${span}` : '';
-    const offsetCol = offset ? ` ant-col-offset-${offset}` : '';
-    return col + offsetCol;
   }
 
   getHelpMsg() {
@@ -51,14 +74,14 @@ export default class FormItem extends React.Component {
 
   getOnlyControl() {
     const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c) => {
-      return c.props && '__meta' in c.props;
+    const child = children.filter((c: React.ReactElement<any>) => {
+      return c.props && FIELD_META_PROP in c.props;
     })[0];
     return child !== undefined ? child : null;
   }
 
   getChildProp(prop) {
-    const child = this.getOnlyControl();
+    const child = this.getOnlyControl() as React.ReactElement<any>;
     return child && child.props && child.props[prop];
   }
 
@@ -67,7 +90,7 @@ export default class FormItem extends React.Component {
   }
 
   getMeta() {
-    return this.getChildProp('__meta');
+    return this.getChildProp(FIELD_META_PROP);
   }
 
   renderHelp() {
@@ -97,7 +120,7 @@ export default class FormItem extends React.Component {
       return 'validating';
     } else if (!!getFieldError(field)) {
       return 'error';
-    } else if (getFieldValue(field) !== undefined) {
+    } else if (getFieldValue(field) !== undefined && getFieldValue(field) !== null) {
       return 'success';
     }
     return '';
@@ -132,9 +155,9 @@ export default class FormItem extends React.Component {
   renderWrapper(children) {
     const wrapperCol = this.props.wrapperCol;
     return (
-      <div className={this.getLayoutClass(wrapperCol)} key="wrapper">
+      <Col {...wrapperCol} key="wrapper">
         {children}
-      </div>
+      </Col>
     );
   }
 
@@ -158,26 +181,27 @@ export default class FormItem extends React.Component {
       props.required;
 
     const className = classNames({
-      [this.getLayoutClass(labelCol)]: true,
       [`${props.prefixCls}-item-required`]: required,
     });
 
     // remove user input colon
     let label = props.label;
     if (typeof label === 'string' && label.trim() !== '') {
-      label = props.label.replace(/[：|:]\s*$/, '');
+      label = (props.label as string).replace(/[：|:]\s*$/, '');
     }
 
     return props.label ? (
-      <label htmlFor={props.id || this.getId()} className={className} key="label">
-        {label}
-      </label>
+      <Col {...labelCol} key="label" className={`${props.prefixCls}-item-label`}>
+        <label htmlFor={props.id || this.getId()} className={className}>
+          {label}
+        </label>
+      </Col>
     ) : null;
   }
 
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child) => {
+    const children = React.Children.map(props.children, (child: React.ReactElement<any>) => {
       if (child && typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }
@@ -200,16 +224,16 @@ export default class FormItem extends React.Component {
     const prefixCls = props.prefixCls;
     const style = props.style;
     const itemClassName = {
-      'ant-row': true,
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
+      [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
 
     return (
-      <div className={classNames(itemClassName)} style={style}>
+      <Row className={classNames(itemClassName)} style={style}>
         {children}
-      </div>
+      </Row>
     );
   }
 

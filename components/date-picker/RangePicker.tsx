@@ -1,36 +1,35 @@
 import React from 'react';
-import GregorianCalendar from 'gregorian-calendar';
+import moment from 'moment';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
+import Icon from '../icon';
 
-export default class RangePicker extends React.Component {
+export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
-    defaultValue: [],
-  }
+    prefixCls: 'ant-calendar',
+  };
 
   constructor(props) {
     super(props);
-    const { value, defaultValue, parseDateFromValue } = this.props;
-    const start = (value && value[0]) || defaultValue[0];
-    const end = (value && value[1]) || defaultValue[1];
     this.state = {
-      value: [
-        parseDateFromValue(start),
-        parseDateFromValue(end),
-      ],
+      value: props.value || props.defaultValue || [],
     };
   }
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      const value = nextProps.value || [];
-      const start = nextProps.parseDateFromValue(value[0]);
-      const end = nextProps.parseDateFromValue(value[1]);
       this.setState({
-        value: [start, end],
+        value: nextProps.value || [],
       });
     }
+  }
+
+  clearSelection = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.setState({ value: [] });
+    this.handleChange([]);
   }
 
   handleChange = (value) => {
@@ -38,44 +37,34 @@ export default class RangePicker extends React.Component {
     if (!('value' in props)) {
       this.setState({ value });
     }
-    const startDate = value[0] ? new Date(value[0].getTime()) : null;
-    const endDate = value[1] ? new Date(value[1].getTime()) : null;
-    const startDateString = value[0] ? props.getFormatter().format(value[0]) : '';
-    const endDateString = value[1] ? props.getFormatter().format(value[1]) : '';
-    props.onChange([startDate, endDate], [startDateString, endDateString]);
+    props.onChange(value, [
+      (value[0] && value[0].format(props.format)) || '',
+      (value[1] && value[1].format(props.format)) || '',
+    ]);
   }
 
   render() {
     const props = this.props;
     const locale = props.locale;
-    // 以下两行代码
-    // 给没有初始值的日期选择框提供本地化信息
-    // 否则会以周日开始排
-    let defaultCalendarValue = new GregorianCalendar(locale);
-    defaultCalendarValue.setTime(Date.now());
 
-    const { disabledDate, showTime, getCalendarContainer,
+    const { disabledDate, showTime, getCalendarContainer, prefixCls,
       transitionName, disabled, popupStyle, align, style, onOk } = this.props;
     const state = this.state;
 
     const calendarClassName = classNames({
-      'ant-calendar-time': showTime,
+      [`${prefixCls}-time`]: showTime,
     });
 
+    // 需要选择时间时，点击 ok 时才触发 onChange
     let pickerChangeHandler = {
       onChange: this.handleChange,
     };
-
-    let calendarHandler = {
+    let calendarHandler: Object = {
       onOk: this.handleChange,
     };
-
     if (props.timePicker) {
       pickerChangeHandler.onChange = (value) => {
-        // Click clear button
-        if (value === null || value.length === 0) {
-          this.handleChange(value);
-        }
+        this.handleChange(value);
       };
     } else {
       calendarHandler = {};
@@ -88,32 +77,38 @@ export default class RangePicker extends React.Component {
 
     const calendar = (
       <RangeCalendar
-        prefixCls="ant-calendar"
+        {...calendarHandler}
+        prefixCls={prefixCls}
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
-        defaultValue={[defaultCalendarValue, defaultCalendarValue]}
-        {...calendarHandler}
+        defaultValue={props.defaultPickerValue || [moment(), moment()]}
       />
     );
 
+    const clearIcon = (!props.disabled && state.value && (state.value[0] || state.value[1]))
+      ? <Icon
+        type="cross-circle"
+        className={`${prefixCls}-picker-clear`}
+        onClick={this.clearSelection}
+      /> : null;
+
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
-        formatter={props.getFormatter()}
+        {...pickerChangeHandler}
         transitionName={transitionName}
         disabled={disabled}
         calendar={calendar}
         value={state.value}
-        prefixCls="ant-calendar-picker-container"
+        prefixCls={`${prefixCls}-picker-container`}
         style={popupStyle}
         align={align}
         getCalendarContainer={getCalendarContainer}
         onOpen={props.toggleOpen}
         onClose={props.toggleOpen}
-        {...pickerChangeHandler}
       >
         {
           ({ value }) => {
@@ -124,19 +119,20 @@ export default class RangePicker extends React.Component {
                 <input
                   disabled={disabled}
                   readOnly
-                  value={start ? props.getFormatter().format(start) : ''}
+                  value={(start && start.format(props.format)) || ''}
                   placeholder={startPlaceholder}
-                  className="ant-calendar-range-picker-input"
+                  className={`${prefixCls}-range-picker-input`}
                 />
-                <span className="ant-calendar-range-picker-separator"> ~ </span>
+                <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
                 <input
                   disabled={disabled}
                   readOnly
-                  value={end ? props.getFormatter().format(end) : ''}
+                  value={(end && end.format(props.format)) || ''}
                   placeholder={endPlaceholder}
-                  className="ant-calendar-range-picker-input"
+                  className={`${prefixCls}-range-picker-input`}
                 />
-                <span className="ant-calendar-picker-icon" />
+                {clearIcon}
+                <span className={`${prefixCls}-picker-icon`} />
               </span>
             );
           }

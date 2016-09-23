@@ -5,11 +5,33 @@ import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 
-export default class FilterMenu extends React.Component {
+export interface FilterDropdownMenuWrapperProps {
+  onClick?: Function;
+  children?: any;
+  className?: string;
+}
+const FilterDropdownMenuWrapper: React.StatelessComponent<FilterDropdownMenuWrapperProps> =
+  ({ onClick, children, className }) =>
+    <div className={className} onClick={onClick}>{children}</div>;
+
+export interface FilterMenuProps {
+  locale: any;
+  selectedKeys: string[];
+  column: {
+    filterMultiple?: boolean,
+    filterDropdown?: React.ReactNode,
+    filters?: string[]
+  };
+  confirmFilter: (column: Object, selectedKeys: string[]) => any;
+  prefixCls: string;
+  dropdownPrefixCls: string;
+}
+
+export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   static defaultProps = {
     handleFilter() {},
     column: null,
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -81,7 +103,7 @@ export default class FilterMenu extends React.Component {
         const containSelected = Object.keys(keyPathOfSelectedItem).some(
           key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0
         );
-        const subMenuCls = containSelected ? 'ant-dropdown-submenu-contain-selected' : '';
+        const subMenuCls = containSelected ? `${this.props.dropdownPrefixCls}-submenu-contain-selected` : '';
         return (
           <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
             {item.children.map(child => this.renderMenuItem(child))}
@@ -108,41 +130,40 @@ export default class FilterMenu extends React.Component {
   }
 
   render() {
-    const { column, locale } = this.props;
+    const { column, locale, prefixCls, dropdownPrefixCls } = this.props;
     // default multiple selection in filter dropdown
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-
     const menus = column.filterDropdown ? column.filterDropdown : (
-      <div className="ant-table-filter-dropdown">
+      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         <Menu
           multiple={multiple}
           onClick={this.handleMenuItemClick}
-          prefixCls="ant-dropdown-menu"
+          prefixCls={`${dropdownPrefixCls}-menu`}
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
           selectedKeys={this.state.selectedKeys}
         >
           {this.renderMenus(column.filters)}
         </Menu>
-        <div className="ant-table-filter-dropdown-btns">
+        <div className={`${prefixCls}-dropdown-btns`}>
           <a
-            className="ant-table-filter-dropdown-link confirm"
+            className={`${prefixCls}-dropdown-link confirm`}
             onClick={this.handleConfirm}
           >
             {locale.filterConfirm}
           </a>
           <a
-            className="ant-table-filter-dropdown-link clear"
+            className={`${prefixCls}-dropdown-link clear`}
             onClick={this.handleClearFilters}
           >
             {locale.filterReset}
           </a>
         </div>
-      </div>
+      </FilterDropdownMenuWrapper>
     );
 
     const dropdownSelectedClass = (this.props.selectedKeys.length > 0)
-      ? 'ant-table-filter-selected' : '';
+      ? `${prefixCls}-selected` : '';
 
     return (
       <Dropdown
@@ -150,7 +171,6 @@ export default class FilterMenu extends React.Component {
         overlay={menus}
         visible={this.state.visible}
         onVisibleChange={this.onVisibleChange}
-        closeOnSelect={false}
       >
         <Icon title={locale.filterTitle} type="filter" className={dropdownSelectedClass} />
       </Dropdown>

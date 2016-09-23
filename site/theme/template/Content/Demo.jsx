@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
+import EditButton from './EditButton';
 
 export default class Demo extends React.Component {
   static contextTypes = {
@@ -15,12 +17,8 @@ export default class Demo extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.expand === undefined) return;
-
-    this.setState({
-      codeExpand: nextProps.expand,
-    });
+  shouldComponentUpdate(nextProps, nextState) {
+    return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand);
   }
 
   handleCodeExapnd = () => {
@@ -37,9 +35,10 @@ export default class Demo extends React.Component {
       highlightedCode,
       style,
       highlightedStyle,
+      expand,
     } = props;
 
-    const codeExpand = this.state.codeExpand;
+    const codeExpand = this.state.codeExpand || expand;
     const codeBoxClass = classNames({
       'code-box': true,
       expand: codeExpand,
@@ -49,7 +48,7 @@ export default class Demo extends React.Component {
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
     const introChildren = props.utils
-            .toReactComponent(['div'].concat(localizeIntro));
+      .toReactComponent(['div'].concat(localizeIntro));
 
     const highlightClass = classNames({
       'highlight-wrapper': true,
@@ -64,7 +63,7 @@ export default class Demo extends React.Component {
               preview(React, ReactDOM)
           }
           {
-            !!style ?
+            style ?
               <style dangerouslySetInnerHTML={{ __html: style }} /> :
               null
           }
@@ -74,6 +73,7 @@ export default class Demo extends React.Component {
             <a href={`#${meta.id}`}>
               {localizedTitle}
             </a>
+            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
           </div>
           {introChildren}
           <span className="collapse anticon anticon-circle-o-right"

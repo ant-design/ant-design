@@ -1,5 +1,5 @@
 /* eslint no-console:0 */
-// this file is not used if use https://github.com/ant-design/babel-plugin-antd
+// this file is not used if use https://github.com/ant-design/babel-plugin-import
 
 function camelCase(name) {
   return name.charAt(0).toUpperCase() +
@@ -29,6 +29,6 @@ req.keys().forEach((mod) => {
 if (process.env.NODE_ENV !== 'production') {
   if (typeof console !== 'undefined' && console.warn) {
     console.warn(`You are using prebuilt antd,
-please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
+please use https://github.com/ant-design/babel-plugin-import to reduce app bundle size.`);
   }
 }

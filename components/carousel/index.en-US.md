@@ -6,7 +6,7 @@ title: Carousel
 
 A carousel component. Scales with its container.
 
-## When to use
+## When To Use
 
 - When there is a group of content on the same level.
 - When there is insufficient content space, it can be used to save space in the form of a resolving door.

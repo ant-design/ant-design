@@ -24,12 +24,33 @@ function insertSpace(child) {
   return child;
 }
 
-export default class Button extends React.Component {
+export type ButtonType = 'primary' | 'ghost' | 'dashed'
+export type ButtonShape = 'circle' | 'circle-outline'
+export type ButtonSize = 'small' | 'large'
+
+export interface ButtonProps {
+  type?: ButtonType;
+  htmlType?: string;
+  icon?: string;
+  shape?: ButtonShape;
+  size?: ButtonSize;
+  onClick?: React.FormEventHandler;
+  onMouseUp?: React.FormEventHandler;
+  loading?: boolean;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  prefixCls?: string;
+  className?: string;
+}
+
+export default class Button extends React.Component<ButtonProps, any> {
+  static Group: any;
+
   static defaultProps = {
     prefixCls: 'ant-btn',
     onClick() {},
     loading: false,
-  }
+  };
 
   static propTypes = {
     type: React.PropTypes.string,
@@ -40,7 +61,10 @@ export default class Button extends React.Component {
     loading: React.PropTypes.bool,
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
-  }
+  };
+
+  timeout: any;
+  clickedTimeout: any;
 
   componentWillUnmount() {
     if (this.clickedTimeout) {
@@ -55,7 +79,7 @@ export default class Button extends React.Component {
     button.className = button.className.replace(` ${this.props.prefixCls}-clicked`, '');
   }
 
-  handleClick = (...args) => {
+  handleClick = (e) => {
     // Add click effect
     const buttonNode = findDOMNode(this);
     this.clearButton(buttonNode);
@@ -63,12 +87,12 @@ export default class Button extends React.Component {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 
-    this.props.onClick(...args);
+    this.props.onClick(e);
   }
 
   // Handle auto focus when click button in Chrome
   handleMouseUp = (e) => {
-    findDOMNode(this).blur();
+    (findDOMNode(this) as HTMLElement).blur();
     if (this.props.onMouseUp) {
       this.props.onMouseUp(e);
     }
@@ -76,8 +100,8 @@ export default class Button extends React.Component {
 
   render() {
     const props = this.props;
-    const [{type, shape, size, className, htmlType, children, icon, loading, prefixCls}, others] = splitObject(props,
-      ['type', 'shape','size', 'className','htmlType', 'children','icon','loading','prefixCls']);
+    const [{ type, shape, size, className, htmlType, children, icon, loading, prefixCls }, others] = splitObject(props,
+      ['type', 'shape', 'size', 'className', 'htmlType', 'children', 'icon', 'loading', 'prefixCls']);
 
     // large => lg
     // small => sm

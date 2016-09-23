@@ -1,21 +1,24 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Icon from '../icon';
+import Input from '../input';
+
 function noop() {
 }
 
-export default class Search extends React.Component {
+export interface SearchProps {
+  prefixCls?: string;
+  placeholder?: string;
+  onChange?: (e: React.FormEvent) => void;
+  handleClear?: (e: React.MouseEvent) => void;
+  value?: any;
+}
+
+export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
     placeholder: '',
     onChange: noop,
     handleClear: noop,
-  }
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    placeholder: PropTypes.string,
-    onChange: PropTypes.func,
-    handleClear: PropTypes.func,
-  }
+  };
 
   handleChange = (e) => {
     this.props.onChange(e);
@@ -30,7 +33,7 @@ export default class Search extends React.Component {
     const { placeholder, value, prefixCls } = this.props;
     return (
       <div>
-        <input placeholder={placeholder} className={`${prefixCls} ant-input`} value={value} ref="input"
+        <Input placeholder={placeholder} className={prefixCls} value={value} ref="input"
           onChange={this.handleChange}
         />
         {value && value.length > 0 ?

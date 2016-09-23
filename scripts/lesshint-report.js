@@ -1,5 +1,5 @@
 /* eslint-disable */
-var originReport = require('lesshint/lib/reporters/stylish').report;
+var originReport = require('lesshint/lib/reporters/default').report;
 
 module.exports = {
   report: function (errors) {

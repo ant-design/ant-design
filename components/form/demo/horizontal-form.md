@@ -1,9 +1,17 @@
 ---
 order: 2
-title: 典型表单
+title:
+  zh-CN: 典型表单
+  en-US: Horizontal form
 ---
 
+## zh-CN
+
 示例展示了如何通过使用 `Form.create` 来获取和更新表单提交的数值。
+
+## en-US
+
+How to use `Form.create` to get and update values of form.
 
 ````jsx
 import { Form, Input, Button, Checkbox, Radio, Tooltip, Icon } from 'antd';
@@ -13,11 +21,11 @@ const RadioGroup = Radio.Group;
 let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    console.log('收到表单值：', this.props.form.getFieldsValue());
+    console.log('Received values of form:', this.props.form.getFieldsValue());
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -26,40 +34,48 @@ let Demo = React.createClass({
       <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label="用户名"
+          label="User name"
         >
-          <p className="ant-form-text" id="userName" name="userName">大眼萌 minion</p>
+          <p className="ant-form-text" id="userName" name="userName">Big eye minion</p>
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="密码"
+          label="Password"
         >
-          <Input type="password" {...getFieldProps('pass')} placeholder="请输入密码" />
+          {getFieldDecorator('pass', { initialValue: '' })(
+            <Input type="password" placeholder="Please input the password" />
+          )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="您的性别"
+          label="Gender"
         >
-          <RadioGroup {...getFieldProps('gender', { initialValue: 'female' })}>
-            <Radio value="male">男的</Radio>
-            <Radio value="female">女的</Radio>
-          </RadioGroup>
+          {getFieldDecorator('gender', { initialValue: 'female' })(
+            <RadioGroup>
+              <Radio value="male">male</Radio>
+              <Radio value="female">female</Radio>
+            </RadioGroup>
+          )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label="备注"
-          help="随便写点什么"
+          label="remarks"
+          help="Please input something"
         >
-          <Input type="textarea" placeholder="随便写" {...getFieldProps('remark')} />
+          {getFieldDecorator('remark', { initialValue: '' })(
+            <Input type="textarea" placeholder="Please input something" />
+          )}
         </FormItem>
         <FormItem
           {...formItemLayout}
-          label={<span>卖身华府 <Tooltip title="我为秋香"><Icon type="question-circle-o" /></Tooltip></span>}
+          label={<span>Sold myself <Tooltip title="I come for Qiu Xiang"><Icon type="question-circle-o" /></Tooltip></span>}
         >
-          <Checkbox {...getFieldProps('agreement')}>同意</Checkbox>
+          {getFieldDecorator('agreement', { initialValue: false, valuePropName: 'checked' })(
+            <Checkbox>agree</Checkbox>
+          )}
         </FormItem>
         <FormItem wrapperCol={{ span: 16, offset: 6 }} style={{ marginTop: 24 }}>
-          <Button type="primary" htmlType="submit">确定</Button>
+          <Button type="primary" htmlType="submit">OK</Button>
         </FormItem>
       </Form>
     );

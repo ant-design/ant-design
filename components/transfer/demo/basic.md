@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 基本用法
+title:
+  zh-CN: 基本用法
+  en-US: Basic
 ---
 
-最基本的用法。
+## zh-CN
+
+最基本的用法，展示了 `dataSource`、`targetKeys`、每行的渲染函数 `render` 以及回调函数 `onChange` 的用法。
+
+## en-US
+
+The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and change callback functions.
 
 ````jsx
 import { Transfer } from 'antd';
@@ -24,9 +32,10 @@ const App = React.createClass({
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i,
-        title: `内容${i + 1}`,
-        description: `内容${i + 1}的描述`,
+        title: `content${i + 1}`,
+        description: `description of content${i + 1}`,
         chosen: Math.random() * 2 > 1,
+        disabled: Math.random() * 3 < 1,
       };
       if (data.chosen) {
         targetKeys.push(data.key);
@@ -39,12 +48,17 @@ const App = React.createClass({
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
   },
+  handleSelectChange(sourceSelectedKeys, targetSelectedKeys) {
+    console.log('sourceSelectedKeys: ', sourceSelectedKeys);
+    console.log('targetSelectedKeys: ', targetSelectedKeys);
+  },
   render() {
     return (
       <Transfer
         dataSource={this.state.mockData}
         targetKeys={this.state.targetKeys}
         onChange={this.handleChange}
+        onSelectChange={this.handleSelectChange}
         render={item => item.title}
       />
     );

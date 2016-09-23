@@ -1,13 +1,24 @@
 ---
 order: 5
-title: 表单组合
+title:
+  zh-CN: 表单组合
+  en-US: Mix
 ---
 
+## zh-CN
+
 集中营，展示和表单相关的其他 ant-design 组件。
+
+## en-US
+
+A mix to demonstrate others ant-design component related to form.
 
 ````jsx
 import { Form, Select, InputNumber, DatePicker, TimePicker, Switch, Radio,
          Cascader, Slider, Button, Col, Upload, Icon } from 'antd';
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
 const FormItem = Form.Item;
 const Option = Select.Option;
 const RadioButton = Radio.Button;
@@ -15,13 +26,13 @@ const RadioGroup = Radio.Group;
 
 const areaData = [{
   value: 'shanghai',
-  label: '上海',
+  label: 'Shanghai',
   children: [{
     value: 'shanghaishi',
-    label: '上海市',
+    label: 'Shanghai',
     children: [{
       value: 'pudongxinqu',
-      label: '浦东新区',
+      label: 'Pudong New District',
     }],
   }],
 }];
@@ -29,7 +40,7 @@ const areaData = [{
 let Demo = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    console.log('收到表单值：', this.props.form.getFieldsValue());
+    console.log('Received the values of form', this.props.form.getFieldsValue());
   },
 
   normFile(e) {
@@ -40,83 +51,91 @@ let Demo = React.createClass({
   },
 
   render() {
-    const { getFieldProps } = this.props.form;
+    const { getFieldDecorator } = this.props.form;
     return (
-      <Form horizontal onSubmit={this.handleSubmit} >
+      <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
-          label="InputNumber 数字输入框"
+          label="I'm the title"
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 10 }}
+          wrapperCol={{ span: 16 }}
         >
-          <InputNumber min={1} max={10} style={{ width: 100 }}
-            {...getFieldProps('inputNumber', { initialValue: 3 })}
-          />
-          <span className="ant-form-text"> 台机器</span>
-        </FormItem>
-
-        <FormItem
-          label="我是标题"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 10 }}
-        >
-          <p className="ant-form-text" id="static" name="static">唧唧复唧唧木兰当户织呀</p>
+          <p className="ant-form-text" id="static" name="static">O, wind, if winter comes, can spring be far behind?</p>
           <p className="ant-form-text">
-            <a href="#">链接文字</a>
+            <a href="#">link</a>
           </p>
         </FormItem>
 
         <FormItem
-          label="Switch 开关"
+          label="InputNumber"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 10 }}
+        >
+          {getFieldDecorator('inputNumber', { initialValue: 3 })(
+            <InputNumber min={1} max={10} style={{ width: 100 }} />
+          )}
+          <span className="ant-form-text"> machines</span>
+        </FormItem>
+
+        <FormItem
+          label="Switch"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required
         >
-          <Switch {...getFieldProps('switch', { valuePropName: 'checked' })} />
+          {getFieldDecorator('switch', { valuePropName: 'checked' })(
+            <Switch />
+          )}
         </FormItem>
 
         <FormItem
-          label="Slider 滑动输入条"
+          label="Slider"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 10 }}
           required
         >
-          <Slider marks={['A', 'B', 'C', 'D', 'E', 'F', 'G']} {...getFieldProps('slider')} />
+          {getFieldDecorator('slider')(
+            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+          )}
         </FormItem>
 
         <FormItem
-          label="Select 选择器"
+          label="Select"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
         >
-          <Select style={{ width: 200 }}
-            {...getFieldProps('select')}
-          >
-            <Option value="jack">jack</Option>
-            <Option value="lucy">lucy</Option>
-            <Option value="disabled" disabled>disabled</Option>
-            <Option value="yiminghe">yiminghe</Option>
-          </Select>
+          {getFieldDecorator('select')(
+            <Select style={{ width: 200 }}>
+              <Option value="jack">jack</Option>
+              <Option value="lucy">lucy</Option>
+              <Option value="disabled" disabled>disabled</Option>
+              <Option value="yiminghe">yiminghe</Option>
+            </Select>
+          )}
         </FormItem>
 
         <FormItem
-          label="级联选择"
+          label="Cascader"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
           hasFeedback
         >
-          <Cascader style={{ width: 200 }} options={areaData} {...getFieldProps('area')} />
+          {getFieldDecorator('area')(
+            <Cascader style={{ width: 200 }} options={areaData} />
+          )}
         </FormItem>
 
         <FormItem
-          label="DatePicker 日期选择框"
+          label="DatePicker"
           labelCol={{ span: 8 }}
           required
         >
           <Col span="6">
             <FormItem>
-              <DatePicker {...getFieldProps('startDate')} />
+              {getFieldDecorator('startDate')(
+                <DatePicker />
+              )}
             </FormItem>
           </Col>
           <Col span="1">
@@ -124,52 +143,58 @@ let Demo = React.createClass({
           </Col>
           <Col span="6">
             <FormItem>
-              <DatePicker {...getFieldProps('endDate')} />
+              {getFieldDecorator('endDate')(
+                <DatePicker />
+              )}
             </FormItem>
           </Col>
         </FormItem>
 
 
         <FormItem
-          label="TimePicker 时间选择器"
+          label="TimePicker"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           required
         >
-          <TimePicker {...getFieldProps('time')} />
+          {getFieldDecorator('time')(
+            <TimePicker />
+          )}
         </FormItem>
 
         <FormItem
-          label="选项"
+          label="Options"
           labelCol={{ span: 8 }}
         >
-          <RadioGroup {...getFieldProps('rg')}>
-            <RadioButton value="a">选项一</RadioButton>
-            <RadioButton value="b">选项二</RadioButton>
-            <RadioButton value="c">选项三</RadioButton>
-          </RadioGroup>
+          {getFieldDecorator('rg')(
+            <RadioGroup>
+              <RadioButton value="a">item 1</RadioButton>
+              <RadioButton value="b">item 2</RadioButton>
+              <RadioButton value="c">item 3</RadioButton>
+            </RadioGroup>
+          )}
         </FormItem>
 
         <FormItem
-          label="logo图"
+          label="logo"
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          help="提示信息要长长长长长长长长长长长长长长"
+          help="longgggggggggggggggggggggggggggggggggg"
         >
-          <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}
-            {...getFieldProps('upload', {
-              valuePropName: 'fileList',
-              normalize: this.normFile,
-            })}
-          >
-            <Button type="ghost">
-              <Icon type="upload" /> 点击上传
-            </Button>
-          </Upload>
+          {getFieldDecorator('upload', {
+            valuePropName: 'fileList',
+            normalize: this.normFile,
+          })(
+            <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
+              <Button type="ghost">
+                <Icon type="upload" /> Click to upload
+              </Button>
+            </Upload>
+          )}
         </FormItem>
 
         <FormItem wrapperCol={{ span: 16, offset: 8 }} style={{ marginTop: 24 }}>
-          <Button type="primary" htmlType="submit">确定</Button>
+          <Button type="primary" htmlType="submit">OK</Button>
         </FormItem>
       </Form>
     );

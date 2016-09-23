@@ -1,8 +1,9 @@
 ---
 category: 设计基础
 order: 1
-chinese: 排版
-english: Typography
+title:
+  zh-CN: 排版
+  en-US: Typography
 ---
 
 良好的排版规范能大大提升用户的视觉体验。
@@ -48,7 +49,7 @@ english: Typography
 
 ## 标点和空格
 
-<img align="right" src="https://t.alipayobjects.com/images/T1KrXhXlxnXXXXXXXX.png" width="200">
+<img style="float: right; width: 200px;" src="https://t.alipayobjects.com/images/T1KrXhXlxnXXXXXXXX.png" />
 
 1. 使用全角中文标点。
 2. 遇到完整的英文整句、特殊名词，其内容使用半角标点。
@@ -83,14 +84,14 @@ english: Typography
 
 ### 数字/小数点对齐
 
-<img align="right" src="https://t.alipayobjects.com/images/T1YbthXhRkXXXXXXXX.png" width="400">
+<img style="float: right; width: 400px;" src="https://t.alipayobjects.com/images/T1YbthXhRkXXXXXXXX.png" />
 
 <p style="height:220px;width:380px;">数字通常采用右对齐或小数点对齐，这样便于对个十百千位上的数字进行对比。</p>
 
 
 ### 冒号对齐
 
-<img align="right" src="https://t.alipayobjects.com/images/T1hcJhXnlXXXXXXXXX.png" width="400">
+<img style="float: right; width: 400px;" src="https://t.alipayobjects.com/images/T1hcJhXnlXXXXXXXXX.png" />
 
 <p style="height:220px;width:380px;">以冒号对齐的方式在表单中尤其常见。主要是为了区分标题和内容区块，除了美观简洁外，让用户能迅速看清标题减少出错概率。</p>
 
@@ -98,7 +99,7 @@ english: Typography
 
 语言通常是越简单越明确，而提示性文字更需要简明扼要，让用户一目了然，减少操作失误。提示性句子长度视业务而定，建议一般不超过 16–18 个字。
 
-<img align="right" style="margin:30px 100px" src="https://t.alipayobjects.com/images/T17cthXgpbXXXXXXXX.png" width="300">
+<img style="float: right; width: 300px; margin:30px 100px;" src="https://t.alipayobjects.com/images/T17cthXgpbXXXXXXXX.png" />
 
 保持简明准确的方法：
 

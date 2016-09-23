@@ -1,24 +1,35 @@
-import React, { Children, cloneElement } from 'react';
+import React, { PropTypes, Children, cloneElement } from 'react';
+import { FormattedMessage } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline } from 'antd';
+import EditButton from './EditButton';
 import * as utils from '../utils';
 
 export default class Article extends React.Component {
+  static contextTypes = {
+    intl: PropTypes.object.isRequired,
+  }
+
   componentDidMount() {
     this.componentDidUpdate();
   }
   componentDidUpdate() {
-    const links = Array.apply(null, document.querySelectorAll('.outside-link.internal'));
+    const links = [...document.querySelectorAll('.outside-link.internal')];
     if (links.length === 0) {
       return;
     }
     const checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
-    utils.ping(checkImgUrl, status => {
+    this.pingTimer = utils.ping(checkImgUrl, status => {
       if (status === 'responded') {
         links.forEach(link => (link.style.display = 'block'));
+      } else {
+        links.forEach(link => link.parentNode.removeChild(link));
       }
     });
+  }
+  componentWillUnmount() {
+    clearTimeout(this.pingTimer);
   }
   getArticle(article) {
     const { content } = this.props;
@@ -28,13 +39,18 @@ export default class Article extends React.Component {
     }
     const timelineItems = [];
     let temp = [];
-    Children.forEach(article.props.children, (child, i) => {
+    let i = 1;
+    Children.forEach(article.props.children, child => {
       if (child.type === 'h2' && temp.length > 0) {
         timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
         temp = [];
+        i += 1;
       }
       temp.push(child);
     });
+    if (temp.length > 0) {
+      timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
+    }
     return cloneElement(article, {
       children: <Timeline>{timelineItems}</Timeline>,
     });
@@ -44,16 +60,18 @@ export default class Article extends React.Component {
     const content = props.content;
 
     const { meta, description } = content;
-    const { title, subtitle, chinese, english } = meta;
+    const { title, subtitle, filename } = meta;
+    const locale = this.context.intl.locale;
     return (
-      <DocumentTitle title={`${title || chinese || english} - Ant Design`}>
+      <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
         <article className="markdown">
           <h1>
-            {title || english}
+            {title[locale] || title}
             {
-              (!subtitle && !chinese) ? null :
-                <span className="subtitle">{subtitle || chinese}</span>
+              !subtitle || locale === 'en-US' ? null :
+                <span className="subtitle">{subtitle}</span>
             }
+            <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
           </h1>
           {
             !description ? null :
@@ -62,7 +80,7 @@ export default class Article extends React.Component {
               )
           }
           {
-            !(content.toc && meta.toc) ? null :
+            (!content.toc || content.toc.length <= 1 || meta.toc === false) ? null :
               <section className="toc">{props.utils.toReactComponent(content.toc)}</section>
           }
           {

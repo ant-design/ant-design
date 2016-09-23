@@ -1,11 +1,19 @@
 ---
 order: 1
-title: RadioGroup 组合
----
+title:
+  zh-CN: RadioGroup 组合
+  en-US: RadioGroup group
+-----------------------
+
+## zh-CN
 
 一组互斥的 Radio 配合使用。
 
-````jsx
+## en-US
+
+A set of mutually exclusive Radio with the use of
+
+```jsx
 import { Radio } from 'antd';
 const RadioGroup = Radio.Group;
 
@@ -34,4 +42,4 @@ const App = React.createClass({
 });
 
 ReactDOM.render(<App />, mountNode);
-````
+```

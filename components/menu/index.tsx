@@ -1,11 +1,60 @@
 import React from 'react';
 import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../_util/openAnimation';
+import warning from 'warning';
 
 function noop() {
 }
 
-export default class Menu extends React.Component {
+export interface SelectParam {
+  key: string;
+  keyPath: Array<string>;
+  item: any;
+  domEvent: any;
+  selectedKeys: Array<string>;
+}
+
+export interface ClickParam {
+  key: string;
+  keyPath: Array<string>;
+  item: any;
+  domEvent: any;
+}
+
+export interface MenuProps {
+  id?: string;
+  /** 主题颜色*/
+  theme?: 'light' | 'dark';
+  /** 菜单类型  enum: `vertical` `horizontal` `inline`*/
+  mode?: 'vertical' | 'horizontal' | 'inline';
+  /** 当前选中的菜单项 key 数组*/
+  selectedKeys?: Array<string>;
+  /** 初始选中的菜单项 key 数组*/
+  defaultSelectedKeys?: Array<string>;
+  /** 当前展开的菜单项 key 数组*/
+  openKeys?: Array<string>;
+  /** 初始展开的菜单项 key 数组*/
+  defaultOpenKeys?: Array<string>;
+  onOpenChange?: (openKeys: string[]) => void;
+  /**
+   * 被选中时调用
+   *
+   * @type {(item: any, key: string, selectedKeys: Array<string>) => void}
+   */
+  onSelect?: (param: SelectParam) => void;
+  /** 取消选中时调用*/
+  onDeselect?: (param: SelectParam) => void;
+  /** 点击 menuitem 调用此函数*/
+  onClick?: (param: ClickParam) => void;
+  /** 根节点样式*/
+  style?: React.CSSProperties;
+  openAnimation?: string | Object;
+  openTransitionName?: string | Object;
+  className?: string;
+  prefixCls?: string;
+}
+
+export default class Menu extends React.Component<MenuProps, any> {
   static Divider = Divider;
   static Item = Item;
   static SubMenu = SubMenu;
@@ -13,13 +62,19 @@ export default class Menu extends React.Component {
   static defaultProps = {
     prefixCls: 'ant-menu',
     onClick: noop,
-    onOpen: noop,
-    onClose: noop,
+    onOpenChange: noop,
     className: '',
     theme: 'light',  // or dark
-  }
+  };
+  switchModeFromInline: boolean;
   constructor(props) {
     super(props);
+
+    warning(
+      !('onOpen' in props || 'onClose' in props),
+      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead.'
+    );
+
     this.state = {
       openKeys: [],
     };
@@ -37,15 +92,9 @@ export default class Menu extends React.Component {
     this.setOpenKeys([]);
     this.props.onClick(e);
   }
-  handleOpenKeys = (e) => {
-    const { openKeys } = e;
+  handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
-    this.props.onOpen(e);
-  }
-  handleCloseKeys = (e) => {
-    const { openKeys } = e;
-    this.setOpenKeys(openKeys);
-    this.props.onClose(e);
+    this.props.onOpenChange(openKeys);
   }
   setOpenKeys(openKeys) {
     if (!('openKeys' in this.props)) {
@@ -85,8 +134,7 @@ export default class Menu extends React.Component {
       props = {
         openKeys: this.state.openKeys,
         onClick: this.handleClick,
-        onOpen: this.handleOpenKeys,
-        onClose: this.handleCloseKeys,
+        onOpenChange: this.handleOpenChange,
         openTransitionName: openAnimation,
         className,
       };

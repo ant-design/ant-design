@@ -1,5 +1,3 @@
-'use strict';
-
 const eslintrc = {
   extends: ['eslint-config-airbnb'],
   env: {
@@ -24,17 +22,20 @@ const eslintrc = {
   ],
   rules: {
     'func-names': 0,
-    'prefer-const': 0,
     'arrow-body-style': 0,
     'react/sort-comp': 0,
     'react/prop-types': 0,
     'react/jsx-first-prop-new-line': 0,
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.md'] }],
     'import/no-unresolved': 0,
+    'import/no-extraneous-dependencies': 0,
     'no-param-reassign': 0,
     'no-return-assign': 0,
     'max-len': 0,
     'consistent-return': 0,
-  }
+    'no-redeclare': 0,
+    'react/require-extension': 0,
+  },
 };
 
 if (process.env.RUN_ENV === 'DEMO') {
@@ -50,6 +51,8 @@ if (process.env.RUN_ENV === 'DEMO') {
     'prefer-rest-params': 0,
     'react/no-multi-comp': 0,
     'react/prefer-es6-class': 0,
+    'jsx-a11y/href-no-hash': 0,
+    'import/newline-after-import': 0,
   });
 }
 

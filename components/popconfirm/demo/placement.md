@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 位置
+title:
+  zh-CN: 位置
+  en-US: Placement
 ---
 
-位置有十二个方向。
+## zh-CN
+
+位置有十二个方向。如需箭头指向目标元素中心，可以设置 `arrowPointAtCenter`。
+
+## en-US
+
+There are 12 `placement` options available. Use `arrowPointAtCenter` if you want arrow point at the center of target.
 
 ````jsx
 import { Popconfirm, message, Button } from 'antd';

@@ -22,7 +22,7 @@ import { DatePicker } from 'antd';
 
 const disabledDate = function (current) {
   // can not select days after today
-  return current && current.getTime() > Date.now();
+  return current && current.valueOf() > Date.now();
 };
 
 ReactDOM.render(

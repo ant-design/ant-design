@@ -1,34 +1,42 @@
 ---
 order: 4
-title: 禁用选项
+title:
+  zh-CN: 禁用选项
+  en-US: Disabled option
 ---
 
+## zh-CN
+
 通过指定 options 里的 `disabled` 字段。
+
+## en-US
+
+Disable option by specifying the `disabled` property in `options`.
 
 ````jsx
 import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hangzhou',
     children: [{
       value: 'xihu',
-      label: '西湖',
+      label: 'West Lake',
     }],
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   disabled: true,
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
     children: [{
       value: 'zhonghuamen',
-      label: '中华门',
+      label: 'Zhong Hua Men',
     }],
   }],
 }];

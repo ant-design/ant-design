@@ -16,8 +16,8 @@ The most basic usage.
 ````jsx
 import { DatePicker } from 'antd';
 
-function onChange(value, dateString) {
-  console.log(value, dateString);
+function onChange(date, dateString) {
+  console.log(date, dateString);
 }
 
 ReactDOM.render(<DatePicker onChange={onChange} />, mountNode);

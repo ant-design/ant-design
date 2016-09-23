@@ -1,34 +1,42 @@
 ---
 order: 8
-title: 自定义已选项
+title:
+  zh-CN: 自定义已选项
+  en-US: Custom render
 ---
 
+## zh-CN
+
 例如给最后一项加上邮编链接。
+
+## en-US
+
+For instance, add an external link after the selected value.
 
 ````jsx
 import { Cascader } from 'antd';
 
 const options = [{
   value: 'zhejiang',
-  label: '浙江',
+  label: 'Zhejiang',
   children: [{
     value: 'hangzhou',
-    label: '杭州',
+    label: 'Hangzhou',
     children: [{
       value: 'xihu',
-      label: '西湖',
+      label: 'West Lake',
       code: 752100,
     }],
   }],
 }, {
   value: 'jiangsu',
-  label: '江苏',
+  label: 'Jiangsu',
   children: [{
     value: 'nanjing',
-    label: '南京',
+    label: 'Nanjing',
     children: [{
       value: 'zhonghuamen',
-      label: '中华门',
+      label: 'Zhong Hua Men',
       code: 453400,
     }],
   }],
@@ -36,7 +44,7 @@ const options = [{
 
 function handleAreaClick(e, label, option) {
   e.stopPropagation();
-  console.log('点击了', label, option);
+  console.log('clicked', label, option);
 }
 
 const displayRender = (labels, selectedOptions) => labels.map((label, i) => {

@@ -1,11 +1,40 @@
 import React from 'react';
 import Tooltip from '../tooltip';
 import getPlacements from './placements';
-import warning from 'warning';
 
 const placements = getPlacements();
 
-export default class Popover extends React.Component {
+export interface PopoverProps {
+   /** trigger type, options: `hover` `focus` `click` */
+   trigger?: 'hover' | 'focus' | 'click';
+   /** Position of popup-container,
+   * options: `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight`
+   * `leftTop` `leftBottom` `rightTop` `rightBottom`
+   */
+   placement?: 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' |
+   'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+   /** title of popup-container */
+   title?: React.ReactNode | string;
+   /** classname of popup-container */
+   overlayClassName?: string;
+   /** Style of overlay */
+   overlayStyle?: React.CSSProperties;
+   prefixCls?: string;
+   /** to control visibility of popup-container */
+   visible?: boolean;
+   /** callback when visible change */
+   onVisibleChange?: (visible: boolean) => void;
+   /** specify wrapper of popup-container */
+   getTooltipContainer?: (triggerNode: React.ReactNode) => HTMLElement;
+   /** content of popup-container */
+   content?: React.ReactNode | string;
+   style?: React.CSSProperties;
+   transitionName?: string;
+   openClassName?: string;
+   arrowPointAtCenter?: boolean;
+}
+
+export default class Popover extends React.Component<PopoverProps, any> {
   static defaultProps = {
     prefixCls: 'ant-popover',
     placement: 'top',
@@ -14,7 +43,7 @@ export default class Popover extends React.Component {
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
     overlayStyle: {},
-  }
+  };
 
   render() {
     return (
@@ -30,25 +59,17 @@ export default class Popover extends React.Component {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
-  }
-
-  componentDidMount() {
-    if ('overlay' in this.props) {
-      warning(false, '`overlay` prop of Popover is deprecated, use `content` instead.');
-    }
+    return (this.refs as any).tooltip.getPopupDomNode();
   }
 
   getOverlay() {
-    // use content replace overlay
-    // keep overlay for compatibility
-    const { title, prefixCls, overlay, content } = this.props;
+    const { title, prefixCls, content } = this.props;
 
     return (
       <div>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
         <div className={`${prefixCls}-inner-content`}>
-          {content || overlay}
+          {content}
         </div>
       </div>
     );

@@ -6,12 +6,27 @@ let defaultTop = 24;
 let notificationInstance;
 let defaultDuration = 4.5;
 
-function getNotificationInstance() {
+export interface ArgsProps {
+  message: React.ReactNode | string;
+  description: React.ReactNode | string;
+  btn?: React.ReactNode;
+  key?: string;
+  onClose?: () => void;
+  duration?: number;
+  icon?: React.ReactNode;
+}
+
+export interface ConfigProps {
+  top?: number;
+  duration?: number;
+}
+
+function getNotificationInstance(prefixCls) {
   if (notificationInstance) {
     return notificationInstance;
   }
-  notificationInstance = Notification.newInstance({
-    prefixCls: 'ant-notification',
+  notificationInstance = (Notification as any).newInstance({
+    prefixCls: prefixCls,
     style: {
       top: defaultTop,
       right: 0,
@@ -21,7 +36,8 @@ function getNotificationInstance() {
 }
 
 function notice(args) {
-  const prefixCls = args.prefixCls || 'ant-notification-notice';
+  const outerPrefixCls = args.prefixCls || 'ant-notification';
+  const prefixCls = `${outerPrefixCls}-notice`;
 
   let duration;
   if (args.duration === undefined) {
@@ -31,7 +47,7 @@ function notice(args) {
   }
 
   let iconType = '';
-  switch (args.icon) {
+  switch (args.type) {
     case 'success':
       iconType = 'check-circle-o';
       break;
@@ -48,10 +64,21 @@ function notice(args) {
       iconType = 'info-circle';
   }
 
-  getNotificationInstance().notice({
+  let iconNode;
+  if (args.icon) {
+    iconNode = (
+      <span className={`${prefixCls}-icon`}>
+        {args.icon}
+      </span>
+    );
+  } else if (args.type) {
+    iconNode = <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />;
+  }
+
+  getNotificationInstance(outerPrefixCls).notice({
     content: (
-      <div className={`${prefixCls}-content ${args.icon ? `${prefixCls}-with-icon` : ''}`}>
-        {args.icon ? <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.icon}`} type={iconType} /> : null}
+      <div className={`${prefixCls}-content ${iconNode ? `${prefixCls}-with-icon` : ''}`}>
+        {iconNode}
         <div className={`${prefixCls}-message`}>{args.message}</div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
         {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
@@ -74,7 +101,7 @@ const api = {
       notificationInstance.removeNotice(key);
     }
   },
-  config(options) {
+  config(options: ConfigProps) {
     if ('top' in options) {
       defaultTop = options.top;
     }
@@ -91,9 +118,9 @@ const api = {
 };
 
 ['success', 'info', 'warning', 'error'].forEach((type) => {
-  api[type] = (args) => api.open(assign({}, args,{ icon: type }));
+  api[type] = (args: ArgsProps) => api.open(assign({}, args, { type }));
 });
 
-api.warn = api.warning;
+(api as any).warn = (api as any).warning;
 
 export default api;

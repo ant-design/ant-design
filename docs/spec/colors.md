@@ -1,8 +1,9 @@
 ---
 category: 设计基础
 order: 2
-chinese: 色彩
-english: Colors
+title:
+  zh-CN: 色彩
+  en-US: Colors
 ---
 
 ## 有意义的色彩
@@ -70,11 +71,11 @@ const ExtendPalettes = React.createClass({
         ]
       },
       {
-        'title': 'Blue #00A0E8',
+        'title': 'Blue #00A0E9',
         'description': '这里的蓝色沿用的是蚂蚁金服的品牌色，深蓝色的运用可以传递出可靠和稳定的情绪，而浅蓝色系则更为友好和清新，同时还代表了科技感与想象力。在很多专业类、管理类的后台系统设计中蓝色系常常会被选择作为设计的主色来使用。',
         'colors': [
           "#CCE4F6", "#95CCF5", "#6AC2F5",
-          "#1D80D3", "#00A0E8", "#2DB7F5",
+          "#1D80D3", "#00A0E9", "#2DB7F5",
           "#1F5AA3", "#0B366A", "#08172F"
         ]
       },
@@ -157,6 +158,7 @@ ReactDOM.render(<ExtendPalettes key="palettes" />, mountNode);
 `````__react
 const Values = require('values.js');
 const CopyToClipboard = require('react-copy-to-clipboard');
+const classNames = require('classnames');
 const antd = require('antd');
 const Button = antd.Button;
 const InputNumber = antd.InputNumber;
@@ -213,11 +215,20 @@ const TintShadeTool = React.createClass({
       '0': '原色',
       '100': '加白'
     };
+    const className = classNames({
+      'color-block': true,
+      copied: this.state.justCopied,
+      dark: this.state.darkBackground,
+    });
     return <div style={{margin: '40px 0'}}>
       <div>
         <Tooltip title="点击色块复制色值">
-          <CopyToClipboard onCopy={this.copySuccess} text={this.state.result}>
-            <div style={{backgroundColor: this.state.result}} className={'color-block ' + (this.state.justCopied ? 'copied' : '') + (this.state.darkBackground ? ' dark' : '')}></div>
+          <CopyToClipboard
+            className={className}
+            onCopy={this.copySuccess}
+            text={this.state.result}
+          >
+            <div style={{backgroundColor: this.state.result}} />
           </CopyToClipboard>
         </Tooltip>
         <span style={{width: 188, display: 'inline-block', fontFamily: 'Consolas'}}>{this.state.result}</span>

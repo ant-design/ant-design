@@ -1,7 +1,9 @@
-import React, {createElement} from 'react';
+import React from 'react';
+import { createElement, Component } from 'react';
 import {findDOMNode} from 'react-dom';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import assign from 'object-assign';
+import omit from 'omit.js';
 
 function getNumberArray(num) {
   return num ?
@@ -11,7 +13,7 @@ function getNumberArray(num) {
       .map(i => Number(i)) : [];
 }
 
-export default class ScrollNumber extends React.Component {
+export default class ScrollNumber extends Component<any, any> {
   static defaultProps = {
     prefixCls: 'ant-scroll-number',
     count: null,
@@ -19,7 +21,7 @@ export default class ScrollNumber extends React.Component {
     onAnimated() {
     },
     height: 18,
-  }
+  };
 
   static propTypes = {
     count: React.PropTypes.oneOfType([
@@ -29,7 +31,9 @@ export default class ScrollNumber extends React.Component {
     component: React.PropTypes.string,
     onAnimated: React.PropTypes.func,
     height: React.PropTypes.number,
-  }
+  };
+
+  lastCount: any;
 
   constructor(props) {
     super(props);
@@ -124,7 +128,13 @@ export default class ScrollNumber extends React.Component {
   }
 
   render() {
-    const props = assign({}, this.props, {
+    // fix https://fb.me/react-unknown-prop
+    const props = assign({}, omit(this.props, [
+      'count',
+      'onAnimated',
+      'component',
+      'prefixCls',
+    ]), {
       className: `${this.props.prefixCls} ${this.props.className}`,
     });
     return createElement(

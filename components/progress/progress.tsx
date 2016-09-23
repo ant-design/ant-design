@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import { PropTypes } from 'react';
+import React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
@@ -9,14 +10,28 @@ const statusColorMap = {
   success: '#87d068',
 };
 
-export default class Line extends React.Component {
+export interface ProgressProps {
+  type?: 'line' | 'circle';
+  percent?: number;
+  format?: (percent: number) => string;
+  status?: 'success' | 'active' | 'exception';
+  showInfo?: boolean;
+  strokeWidth?: number;
+  width?: number;
+  style?: React.CSSProperties;
+}
+
+export default class Progress extends React.Component<ProgressProps, any> {
+  static Line: any;
+  static Circle: any;
+
   static defaultProps = {
     type: 'line',
     percent: 0,
     showInfo: true,
     trailColor: '#f3f3f3',
     prefixCls: 'ant-progress',
-  }
+  };
 
   static propTypes = {
     status: PropTypes.oneOf(['normal', 'exception', 'active', 'success']),
@@ -27,13 +42,13 @@ export default class Line extends React.Component {
     strokeWidth: PropTypes.number,
     trailColor: PropTypes.string,
     format: PropTypes.func,
-  }
+  };
 
   render() {
     const [{
       prefixCls, status, format, percent, trailColor,
-      type, strokeWidth, width, className, showInfo
-    },restProps] = splitObject(this.props,
+      type, strokeWidth, width, className, showInfo,
+    }, restProps] = splitObject(this.props,
       ['prefixCls', 'status', 'format', 'percent', 'trailColor', 'type', 'strokeWidth', 'width',
         'className', 'showInfo']);
     const progressStatus = (parseInt(percent, 10) >= 100 && !('status' in this.props))

@@ -1,9 +1,9 @@
 import React from 'react';
 import Animate from 'rc-animate';
 import Icon from '../icon';
-const prefixCls = 'ant-upload';
 import Progress from '../progress';
 import classNames from 'classnames';
+import { UploadListProps } from './interface';
 
 // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
 const previewFile = (file, callback) => {
@@ -12,7 +12,7 @@ const previewFile = (file, callback) => {
   reader.readAsDataURL(file);
 };
 
-export default class UploadList extends React.Component {
+export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text',  // or picture
     items: [],
@@ -20,6 +20,7 @@ export default class UploadList extends React.Component {
       strokeWidth: 3,
       showInfo: false,
     },
+    prefixCls: 'ant-upload',
   };
 
   handleClose = (file) => {
@@ -27,8 +28,10 @@ export default class UploadList extends React.Component {
   }
 
   handlePreview = (file, e) => {
-    e.preventDefault();
-    return this.props.onPreview(file);
+    if (this.props.onPreview) {
+      e.preventDefault();
+      return this.props.onPreview(file);
+    }
   }
 
   componentDidUpdate() {
@@ -38,7 +41,7 @@ export default class UploadList extends React.Component {
     this.props.items.forEach(file => {
       if (typeof document === 'undefined' ||
           typeof window === 'undefined' ||
-          !window.FileReader || !window.File ||
+          !(window as any).FileReader || !(window as any).File ||
           !(file.originFileObj instanceof File) ||
           file.thumbUrl !== undefined) {
         return;
@@ -56,13 +59,14 @@ export default class UploadList extends React.Component {
   }
 
   render() {
-    let list = this.props.items.map(file => {
+    const { prefixCls, items, listType } = this.props;
+    const list = items.map(file => {
       let progress;
       let icon = <Icon type="paper-clip" />;
 
-      if (this.props.listType === 'picture' || this.props.listType === 'picture-card') {
+      if (listType === 'picture' || listType === 'picture-card') {
         if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
-          if (this.props.listType === 'picture-card') {
+          if (listType === 'picture-card') {
             icon = <div className={`${prefixCls}-list-item-uploading-text`}>文件上传中</div>;
           } else {
             icon = <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" />;
@@ -73,7 +77,7 @@ export default class UploadList extends React.Component {
               className={`${prefixCls}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
               href={file.url}
-              target="_blank"
+              target="_blank" rel="noopener noreferrer"
             >
               <img src={file.thumbUrl || file.url} alt={file.name} />
             </a>
@@ -101,7 +105,7 @@ export default class UploadList extends React.Component {
               ? (
                 <a
                   href={file.url}
-                  target="_blank"
+                  target="_blank" rel="noopener noreferrer"
                   className={`${prefixCls}-list-item-name`}
                   onClick={e => this.handlePreview(file, e)}
                 >
@@ -117,12 +121,12 @@ export default class UploadList extends React.Component {
               )
             }
             {
-              this.props.listType === 'picture-card' && file.status !== 'uploading'
+              listType === 'picture-card' && file.status !== 'uploading'
               ? (
                 <span>
                   <a
                     href={file.url}
-                    target="_blank"
+                    target="_blank" rel="noopener noreferrer"
                     style={{ pointerEvents: file.url ? '' : 'none' }}
                     onClick={e => this.handlePreview(file, e)}
                   >
@@ -139,14 +143,16 @@ export default class UploadList extends React.Component {
     });
     const listClassNames = classNames({
       [`${prefixCls}-list`]: true,
-      [`${prefixCls}-list-${this.props.listType}`]: true,
+      [`${prefixCls}-list-${listType}`]: true,
     });
     return (
-      <div className={listClassNames}>
-        <Animate transitionName={`${prefixCls}-margin-top`}>
-          {list}
-        </Animate>
-      </div>
+      <Animate
+        transitionName={`${prefixCls}-margin-top`}
+        component="div"
+        className={listClassNames}
+      >
+        {list}
+      </Animate>
     );
   }
 }

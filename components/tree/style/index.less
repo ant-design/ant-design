@@ -3,8 +3,8 @@
 @import "../../checkbox/style/mixin";
 @import "./mixin";
 
-@tree-prefix-cls: ant-tree;
-.antCheckboxFn(@checkbox-prefix-cls: ant-tree-checkbox);
+@tree-prefix-cls: ~"@{ant-prefix}-tree";
+.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-tree-checkbox");
 
 .@{tree-prefix-cls} {
   margin: 0;
@@ -88,15 +88,16 @@
       }
       &.@{tree-prefix-cls}-icon_loading {
         &:after {
-          content: '\e6a1';
           display: inline-block;
-          font-family: 'anticon';
-          font-weight: bold;
+          .iconfont-font("\e6a1");
           animation: loadingCircle 1s infinite linear;
-          margin-top: 8px;
+          color: @primary-color;
         }
       }
       &.@{tree-prefix-cls}-switcher {
+        &.@{tree-prefix-cls}-switcher-noop {
+          cursor: auto;
+        }
         &.@{tree-prefix-cls}-roots_open,
         &.@{tree-prefix-cls}-center_open,
         &.@{tree-prefix-cls}-bottom_open,

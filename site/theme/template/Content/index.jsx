@@ -1,49 +1,40 @@
 import React from 'react';
-import Layout from '../Layout';
-import MainContent from './MainContent';
 import Promise from 'bluebird';
-import * as utils from '../utils';
+import MainContent from './MainContent';
+
+// locale copy from layout
+const language = (typeof localStorage === 'undefined' || !localStorage.getItem('locale')) ?
+        navigator.language : localStorage.getItem('locale');
+const isZhCN = language === 'zh-CN';
+const locale = isZhCN ? 'zh-CN' : 'en-US';
 
 export function collect(nextProps, callback) {
-  const componentsList = utils.collectDocs(nextProps.data.components);
-
-  const pathname = nextProps.location.pathname;
-  let moduleDocs;
-  if (/(docs\/react\/)|(components\/)|(changelog)/i.test(pathname)) {
-    moduleDocs = [
-      ...utils.collectDocs(nextProps.data.docs.react),
-      ...componentsList,
-      /* eslint-disable new-cap */
-      nextProps.data.CHANGELOG(),
-      /* eslint-enable new-cap */
-    ];
-  } else {
-    moduleDocs = utils.collectDocs(
-      nextProps.utils.get(nextProps.data, pathname.split('/').slice(0, 2))
-    );
+  const pageData = nextProps.location.pathname === 'changelog' ?
+          nextProps.data.CHANGELOG : nextProps.pageData;
+  if (!pageData) {
+    callback(404, nextProps);
+    return;
   }
 
-  const demos = nextProps.utils.get(nextProps.data, [...pathname.split('/'), 'demo']);
+  const pageDataPromise = typeof pageData === 'function' ?
+          pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
+  const promises = [pageDataPromise];
 
-  const promises = [Promise.all(componentsList), Promise.all(moduleDocs)];
+  const pathname = nextProps.location.pathname;
+  const demos = nextProps.utils.get(
+    nextProps.data, [...pathname.split('/'), 'demo']
+  );
   if (demos) {
-    promises.push(Promise.all(
-      Object.keys(demos).map((key) => demos[key]())
-    ));
+    promises.push(demos());
   }
   Promise.all(promises)
     .then((list) => callback(null, {
       ...nextProps,
-      components: list[0],
-      moduleData: list[1],
-      demos: list[2],
+      localizedPageData: list[0],
+      demos: list[1],
     }));
 }
 
 export default (props) => {
-  return (
-    <Layout {...props}>
-      <MainContent {...props} />
-    </Layout>
-  );
+  return <MainContent {...props} />;
 };

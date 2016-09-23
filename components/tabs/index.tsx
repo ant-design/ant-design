@@ -1,19 +1,49 @@
-import RcTabs from 'rc-tabs';
-import React, { cloneElement } from 'react';
+import React from 'react';
+import { cloneElement } from 'react';
+import RcTabs, { TabPane } from 'rc-tabs';
+import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import Icon from '../icon';
 
-export default class Tabs extends React.Component {
-  static TabPane = RcTabs.TabPane;
+export type TabsType = 'line' | 'card' | 'editable-card'
+export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
+
+export interface TabsProps {
+  activeKey?: string;
+  defaultActiveKey?: string;
+  hideAdd?: boolean;
+  onChange?: (activeKey: string) => void;
+  onTabClick?: Function;
+  tabBarExtraContent?: React.ReactNode;
+  type?: TabsType;
+  tabPosition?: TabsPosition;
+  onEdit?: (targetKey: string, action: any) => void;
+  size?: 'default' | 'small';
+  style?: React.CSSProperties;
+  prefixCls?: string;
+  className?: string;
+  animation?: string;
+}
+
+// Tabs
+export interface TabPaneProps {
+  /** 选项卡头显示文字 */
+  tab: React.ReactNode | string;
+  style?: React.CSSProperties;
+}
+
+export default class Tabs extends React.Component<TabsProps, any> {
+  static TabPane: TabPaneProps = TabPane;
 
   static defaultProps = {
     prefixCls: 'ant-tabs',
     animation: 'slide-horizontal',
     type: 'line', // or 'card' 'editable-card'
-    onChange() {},
-    onEdit() {},
+    onChange() { },
+    onEdit() { },
     hideAdd: false,
-  }
+  };
 
   createNewTab = (targetKey) => {
     this.props.onEdit(targetKey, 'add');
@@ -32,8 +62,17 @@ export default class Tabs extends React.Component {
   }
 
   render() {
-    let { prefixCls, size, tabPosition, animation, type,
-          children, tabBarExtraContent, hideAdd } = this.props;
+    let {
+      prefixCls,
+      size,
+      type,
+      tabPosition,
+      animation,
+      children,
+      tabBarExtraContent,
+      hideAdd,
+      onTabClick,
+    } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
       [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
@@ -45,15 +84,19 @@ export default class Tabs extends React.Component {
       animation = null;
     }
     // only card type tabs can be added and closed
+    let childrenWithClose;
     if (type === 'editable-card') {
-      children = children.map((child, index) => {
-        return cloneElement(child, {
-          tab: <div>
-            {child.props.tab}
-            <Icon type="cross" onClick={(e) => this.removeTab(child.key, e)} />
-          </div>,
+      childrenWithClose = [];
+      React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
+        childrenWithClose.push(cloneElement(child, {
+          tab: (
+            <div>
+              {child.props.tab}
+              <Icon type="close" onClick={(e) => this.removeTab(child.key, e)} />
+            </div>
+          ),
           key: child.key || index,
-        });
+        }));
       });
       // Add new tab handler
       if (!hideAdd) {
@@ -75,11 +118,17 @@ export default class Tabs extends React.Component {
     return (
       <RcTabs {...this.props}
         className={className}
-        tabBarExtraContent={tabBarExtraContent}
+        tabBarPosition={tabPosition}
+        renderTabBar={() => (
+          <ScrollableInkTabBar
+            extraContent={tabBarExtraContent}
+            onTabClick={onTabClick}
+          />
+        )}
+        renderTabContent={() => <TabContent />}
         onChange={this.handleChange}
-        animation={animation}
       >
-        {children}
+        {childrenWithClose || children}
       </RcTabs>
     );
   }

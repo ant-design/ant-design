@@ -44,21 +44,29 @@
   box-shadow: 0 0 4px rgba(45, 183, 245, 0.5);
 }
 
-.code-box:hover .code-box-meta,
-.code-box:target .code-box-meta {
-  background: #fbfbfb;
-}
+.code-box {
+  .code-box-title a,
+  .code-box-title a:hover {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+  }
 
-.code-box:hover .code-box-title,
-.code-box:target .code-box-title {
-  background: #fbfbfb;
-  box-shadow: 0 -1.2px 0 #e9e9e9;
-}
+  a.edit-button {
+    position: absolute;
+    right: -16px;
+    top: 7px;
+    font-size: 12px;
+    transform: scale(0.9);
+    background: #fff;
+    padding-right: 6px;
+    opacity: 0;
+    transition: opacity .3s;
+  }
 
-.code-box .code-box-title a,
-.code-box .code-box-title a:hover {
-  color: #666;
-  font-size: 14px;
+  &:hover a.edit-button {
+    opacity: 1;
+  }
 }
 
 .code-box .code-box-demo {
@@ -73,7 +81,7 @@
 
 .code-box-meta.markdown {
   position: relative;
-  padding: 16px;
+  padding: 17px 16px 15px 20px;
   border-radius: 0 0 6px 6px;
   transition: background-color 0.4s ease;
   width: 100%;
@@ -97,26 +105,13 @@ section.code-box-meta p {
 .code-box-title {
   position: absolute;
   top: -14px;
-  padding: 1px 1.1em;
+  padding: 1px 8px;
+  margin-left: -8px;
   color: #777;
   border-radius: 6px;
+  border-top-left-radius: 0;
   background: #fff;
-  transition: all 0.4s ease;
-}
-
-.code-box-title:before {
-  font-family: anticon;
-  content: "\e658";
-  font-size: 16px;
-  vertical-align: middle;
-  line-height: 22px;
-  position: relative;
-  margin-right: 8px;
-  top: -2px;
-  color: #ccc;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  display: inline-block;
+  transition: background-color 0.4s ease;
 }
 
 .code-box-meta > p {
@@ -135,7 +130,7 @@ section.code-box-meta p {
 .code-box .collapse {
   position: absolute;
   right: 16px;
-  bottom: 16px;
+  bottom: 17px;
   cursor: pointer;
   width: 18px;
   height: 18px;
@@ -143,9 +138,8 @@ section.code-box-meta p {
   line-height: 18px;
   opacity: 0.5;
   text-align: center;
-  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
-  transition: all 0.3s ease;
+  transition: all 0.3s;
   color: #999;
   background: #fff;
   user-select: none;
@@ -153,7 +147,6 @@ section.code-box-meta p {
 }
 
 .code-box.expand .collapse {
-  -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
 

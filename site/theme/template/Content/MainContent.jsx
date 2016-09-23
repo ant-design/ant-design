@@ -1,30 +1,61 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 import config from '../../';
+
 const SubMenu = Menu.SubMenu;
 
 export default class MainContent extends React.Component {
   static contextTypes = {
-    intl: React.PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = { openKeys: [] };
   }
 
   componentDidMount() {
+    this.componentWillReceiveProps(this.props);
+    this.componentDidUpdate();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const prevModule = this.currentModule;
+    this.currentModule = location.pathname.split('/')[2] || 'components';
+    if (this.currentModule === 'react') {
+      this.currentModule = 'components';
+    }
+    if (prevModule !== this.currentModule) {
+      const moduleData = this.getModuleData(nextProps);
+      const shouldOpenKeys = Object.keys(utils.getMenuItems(moduleData));
+      this.setState({ openKeys: shouldOpenKeys });
+    }
+  }
+
+  componentDidUpdate() {
     if (!location.hash) {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     } else {
-      location.hash = location.hash;
+      if (this.timer) {
+        clearTimeout(this.timer);
+      }
+      this.timer = setTimeout(() => {
+        document.getElementById(decodeURI(location.hash.replace('#', ''))).scrollIntoView();
+      }, 10);
     }
   }
 
-  shouldComponentUpdate(nextProps) {
-    const pathname = this.props.location.pathname;
-    return pathname !== nextProps.location.pathname ||
-      /^\/components\//i.test(pathname);
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
+  handleMenuOpenChange = (openKeys) => {
+    this.setState({ openKeys });
   }
 
   getActiveMenuItem(props) {
@@ -37,19 +68,20 @@ export default class MainContent extends React.Component {
   }
 
   generateMenuItem(isTop, item) {
+    const locale = this.context.intl.locale;
     const key = this.fileNameToPath(item.filename);
     const text = isTop ?
-            item.title || item.chinese || item.english : [
-              <span key="english">{item.title || item.english}</span>,
-              <span className="chinese" key="chinese">{item.subtitle || item.chinese}</span>,
+            item.title[locale] || item.title : [
+              <span key="english">{item.title}</span>,
+              <span className="chinese" key="chinese">{item.subtitle}</span>,
             ];
     const disabled = item.disabled;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ?
-      <Link to={url} disabled={disabled}>
+      <Link to={/^components/.test(url) ? `${url}/` : url} disabled={disabled}>
         {text}
       </Link> :
-      <a href={item.link} target="_blank" disabled={disabled}>
+      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
         {text}
       </a>;
 
@@ -70,8 +102,8 @@ export default class MainContent extends React.Component {
       .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
       .map((type, index) => {
         const groupItems = obj[type].sort((a, b) => {
-          return (a.title || a.english).charCodeAt(0) -
-          (b.title || b.english).charCodeAt(0);
+          return a.title.charCodeAt(0) -
+          b.title.charCodeAt(0);
         }).map(this.generateMenuItem.bind(this, false));
         return (
           <Menu.ItemGroup title={type} key={index}>
@@ -82,9 +114,21 @@ export default class MainContent extends React.Component {
     return [...topLevel, ...itemGroups];
   }
 
+  getModuleData(props) {
+    const pathname = props.location.pathname;
+    const moduleName = /^components/.test(pathname) ?
+            'components' : pathname.split('/').slice(0, 2).join('/');
+    const moduleData = moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
+            [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
+            props.picked[moduleName];
+    const locale = this.context.intl.locale;
+    const excludedSuffix = locale === 'zh-CN' ? 'en-US.md' : 'zh-CN.md';
+    return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
+  }
+
   getMenuItems() {
-    const moduleData = this.props.moduleData;
-    const menuItems = utils.getMenuItems(moduleData, this.context.intl.locale);
+    const moduleData = this.getModuleData(this.props);
+    const menuItems = utils.getMenuItems(moduleData);
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(this.isNotTopLevel)
       .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
@@ -129,21 +173,15 @@ export default class MainContent extends React.Component {
     const activeMenuItem = this.getActiveMenuItem(props);
     const menuItems = this.getMenuItems();
     const { prev, next } = this.getFooterNav(menuItems, activeMenuItem);
-
-    const locale = this.context.intl.locale;
-    const moduleData = this.props.moduleData;
-    const localizedPageData = moduleData.filter((page) => {
-      return page.meta.filename.toLowerCase()
-        .startsWith(props.location.pathname);
-    })[0];
-
+    const localizedPageData = props.localizedPageData;
     return (
       <div className="main-wrapper">
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
-              defaultOpenKeys={Object.keys(utils.getMenuItems(moduleData, locale))}
+              openKeys={this.state.openKeys}
               selectedKeys={[activeMenuItem]}
+              onOpenChange={this.handleMenuOpenChange}
             >
               {menuItems}
             </Menu>
@@ -164,12 +202,12 @@ export default class MainContent extends React.Component {
           >
             <section className="prev-next-nav">
               {
-                !!prev ?
+                prev ?
                   React.cloneElement(prev.props.children, { className: 'prev-page' }) :
                   null
               }
               {
-                !!next ?
+                next ?
                   React.cloneElement(next.props.children, { className: 'next-page' }) :
                   null
               }
