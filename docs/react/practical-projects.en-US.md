@@ -58,7 +58,7 @@ $ npm install antd babel-plugin-import --save
 Edit `webpack.config.js` to integrate `babel-plugin-import`.
 
 ```diff
-+ webpackConfig.babel.plugins.push(['antd', {
++ webpackConfig.babel.plugins.push(['import', {
 +   libraryName: 'antd',
 +   style: 'css',
 + }]);

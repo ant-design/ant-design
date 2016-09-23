@@ -58,7 +58,7 @@ $ npm install antd babel-plugin-import --save
 编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效。
 
 ```diff
-+ webpackConfig.babel.plugins.push(['antd', {
++ webpackConfig.babel.plugins.push(['import', {
 +   libraryName: 'antd',
 +   style: 'css',
 + }]);
