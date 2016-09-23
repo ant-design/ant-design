@@ -15,6 +15,7 @@ module.exports = {
     'app.content.edit-demo': 'Edit this demo on Github!',
     'app.component.examples': 'Examples',
     'app.home.slogan': 'One Design Language for UI',
+    'app.home.introduce': 'Introduce',
     'app.home.start': 'Getting Started',
     'app.home.best-practice': 'Best Practice',
     'app.home.experience': 'Designed by experienced team, and showcase dozens of inspiring projects.',
