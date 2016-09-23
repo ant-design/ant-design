@@ -78,10 +78,12 @@ export default class Footer extends React.Component {
               <FormattedMessage id="app.footer.scaffold" />
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> - <FormattedMessage id="app.footer.dev-tools" />
+              <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> -
+              <FormattedMessage id="app.footer.dev-tools" />
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> -
+              <FormattedMessage id="app.footer.dva" />
             </div>
           </li>
           <li>
@@ -95,7 +97,7 @@ export default class Footer extends React.Component {
             <div><a href="https://antv.alipay.com/">AntV</a> -
               <FormattedMessage id="app.footer.data-vis-spec" />
             </div>
-            <div><a href="http://motion.ant.design">Ant Motion</a> -
+            <div><a href="http://motion.ant.design">AntMotion</a> -
               <FormattedMessage id="app.footer.motion" />
             </div>
             <div><a href="http://ux.ant.design">Ant UX</a> -
