@@ -16,55 +16,55 @@ There are 12 `placement` options available. Use `arrowPointAtCenter` if you want
 ````jsx
 import { Popconfirm, message, Button } from 'antd';
 
-const text = '确定要删除这个任务吗？';
+const text = 'Are you sure to delete this task?';
 
 function confirm() {
-  message.info('点击了确定');
+  message.info('Clicked confirm button');
 }
 
 ReactDOM.render(<div>
   <div style={{ marginLeft: 60 }}>
     <Popconfirm placement="topLeft" title={text} onConfirm={confirm}>
-      <Button>上左</Button>
+      <Button>TL</Button>
     </Popconfirm>
     <Popconfirm placement="top" title={text} onConfirm={confirm}>
-      <Button>上边</Button>
+      <Button>Top</Button>
     </Popconfirm>
     <Popconfirm placement="topRight" title={text} onConfirm={confirm}>
-      <Button>上右</Button>
+      <Button>TR</Button>
     </Popconfirm>
   </div>
   <div style={{ width: 60, float: 'left' }}>
     <Popconfirm placement="leftTop" title={text} onConfirm={confirm}>
-      <Button>左上</Button>
+      <Button>LT</Button>
     </Popconfirm>
     <Popconfirm placement="left" title={text} onConfirm={confirm}>
-      <Button>左边</Button>
+      <Button>Left</Button>
     </Popconfirm>
     <Popconfirm placement="leftBottom" title={text} onConfirm={confirm}>
-      <Button>左下</Button>
+      <Button>LB</Button>
     </Popconfirm>
   </div>
   <div style={{ width: 60, marginLeft: 252 }}>
     <Popconfirm placement="rightTop" title={text} onConfirm={confirm}>
-      <Button>右上</Button>
+      <Button>RT</Button>
     </Popconfirm>
     <Popconfirm placement="right" title={text} onConfirm={confirm}>
-      <Button>右边</Button>
+      <Button>Right</Button>
     </Popconfirm>
     <Popconfirm placement="rightBottom" title={text} onConfirm={confirm}>
-      <Button>右下</Button>
+      <Button>RB</Button>
     </Popconfirm>
   </div>
   <div style={{ marginLeft: 60, clear: 'both' }}>
     <Popconfirm placement="bottomLeft" title={text} onConfirm={confirm}>
-      <Button>下左</Button>
+      <Button>BL</Button>
     </Popconfirm>
     <Popconfirm placement="bottom" title={text} onConfirm={confirm}>
-      <Button>下边</Button>
+      <Button>Bottom</Button>
     </Popconfirm>
     <Popconfirm placement="bottomRight" title={text} onConfirm={confirm}>
-      <Button>下右</Button>
+      <Button>BR</Button>
     </Popconfirm>
   </div>
 </div>, mountNode);
