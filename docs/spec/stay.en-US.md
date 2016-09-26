@@ -66,9 +66,9 @@ Tabs: Provides additional panels of information accessible by tab controls.
 
 In the process of interaction design, Overlays allow you to bring additional interactions or content in a layer above the cur- rent page. Inlays allow you to do this within the page itself. However, another powerful approach to keeping users engaged on the current page is to create a virtual page. That is to say, we create the illusion of a larger virtual page. 
 
-Virtual Scrolling and Pagination, more on [Patterns／Lists／Show Long Lists](../pattern/list#显示长列表)
+Virtual Scrolling and Pagination, more on [Patterns／Lists／Show Long Lists](/docs/pattern/list#显示长列表)
 
-Carousel, more on [Patterns／Lists／Show Images](../pattern/list#显示图片)
+Carousel, more on [Patterns／Lists／Show Images](/docs/pattern/list#显示图片)
 
 <br>
 
