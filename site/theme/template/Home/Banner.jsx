@@ -29,7 +29,7 @@ export default class Banner extends React.Component {
               <Link to="/docs/spec/introduce">
                 <FormattedMessage id="app.home.introduce" />
               </Link>
-              <Link to="/docs/spec/react">
+              <Link to="/docs/react/introduce">
                 <FormattedMessage id="app.home.start" />
               </Link>
             </div>
