@@ -121,7 +121,13 @@ export default class Transfer extends React.Component<TransferProps, any> {
     }
 
     const leftDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) === -1);
-    const rightDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) >= 0);
+    const rightDataSource = [];
+    targetKeys.forEach((targetKey) => {
+      const targetItem = dataSource.filter(record => record.key === targetKey)[0];
+      if (targetItem) {
+        rightDataSource.push(targetItem);
+      }
+    });
 
     this.splitedDataSource = {
       leftDataSource,
