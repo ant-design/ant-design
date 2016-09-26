@@ -26,6 +26,6 @@ req.keys().forEach((mod) => {
 if (process.env.NODE_ENV !== 'production') {
   if (typeof console !== 'undefined' && console.warn) {
     console.warn(`You are using prebuilt antd,
-please use https://github.com/ant-design/babel-plugin-antd to reduce app bundle size.`);
+please use https://www.npmjs.com/package/babel-plugin-antd to reduce app bundle size.`);
   }
 }
