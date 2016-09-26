@@ -42,4 +42,4 @@ english: Steps
 | status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | `wait` |
 | title | 标题 | React.Element | -     |
 | description | 步骤的详情描述，可选 | React.Element | -  |
-| icon | 步骤图标，可选 | React.Element | - |
+| icon | 步骤图标的类型，可选 | string | - |
