@@ -1,6 +1,8 @@
 ---
 template: component
-category: 设计基础
+category:
+  zh-CN: 设计基础
+  en-US: Design Fundamental
 order: 4
 cols: 1
 title:

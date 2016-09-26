@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 9
 title: Use Transition
 ---

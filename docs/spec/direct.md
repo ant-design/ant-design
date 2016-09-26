@@ -1,5 +1,7 @@
 ---
-category: 十大原则
+category:
+  zh-CN: 十大原则
+  en-US: Principles
 order: 5
 title:
   zh-CN: 直截了当

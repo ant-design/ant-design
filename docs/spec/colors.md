@@ -1,5 +1,7 @@
 ---
-category: 设计基础
+category:
+  zh-CN: 设计基础
+  en-US: Design Fundamental
 order: 2
 title:
   zh-CN: 色彩
