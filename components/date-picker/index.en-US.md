@@ -41,7 +41,7 @@ moment.tz.setDefault('Asia/Shanghai')
 | locale       | localization configuration | Object   | [default](https://github.com/ant-design/ant-design/issues/424)  |
 | onOk         | a callback function, can be executed when OK-button is clicked | function(Date value) | - |
 | open | open state of picker | bool | - |
-| toggleOpen   | a callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |
+| onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](http://ant.design/components/time-picker/#api) |
 
