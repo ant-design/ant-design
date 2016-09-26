@@ -80,11 +80,16 @@ export default function wrapPicker(Picker, defaultFormat?) {
         showSecond: timeFormat.indexOf('ss') >= 0,
         showHour: timeFormat.indexOf('HH') >= 0,
       };
+      const timePickerCls = classNames({
+        [`${prefixCls}-time-picker-1-column`]: !(rcTimePickerProps.showSecond || rcTimePickerProps.showHour),
+        [`${prefixCls}-time-picker-2-columns`]: rcTimePickerProps.showSecond !== rcTimePickerProps.showHour,
+      });
       const timePicker = props.showTime ? (
         <TimePickerPanel
           {...rcTimePickerProps}
           {...props.showTime}
           prefixCls={`${prefixCls}-time-picker`}
+          className={timePickerCls}
           placeholder={locale.timePickerLocale.placeholder}
           transitionName="slide-up"
         />
