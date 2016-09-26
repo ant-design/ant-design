@@ -1,3 +1,14 @@
+.nav-phone-icon {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 32px;
+  z-index: 1;
+  width: 16px;
+  height: 50px;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 1200px) {
   #search-box {
     display: none;
@@ -42,34 +53,23 @@
     text-align: center;
   }
 
-  .nav {
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    background: #fff;
-    line-height: 60px;
-    margin-right: 0;
-    width: 50%;
-    height: 100%;
-    box-shadow: 10px 0 12px rgba(0,0,0,0.1);
-    transform: translateX(-100%);
-    overflow-x: hidden;
-    overflow-y: auto;
-    opacity: 0;
-    transition: transform .3s, opacity .3s;
-    text-align: center;
-
-    #lang {
-      margin: 0;
-      float: none;
-      color: #666;
-    }
+  #nav, #lang {
+    float: none;
+  }
+  button#lang {
+    display: block;
+    margin: 29px auto 16px;
+    color: #666;
+    border-color: #666;
   }
 
-  .nav.nav-show {
-    transform: translateX(0);
-    opacity: 1;
+  .nav {
+    .ant-popover-inner-content {
+      padding: 0;
+    }
+    .ant-menu-item-selected {
+      border-right: 1px solid #e9e9e9;
+    }
   }
 
   ul#nav,
@@ -93,12 +93,6 @@
 
   .nav-phone-icon {
     display: block;
-    width: 16px;
-    height: 50px;
-    position: absolute;
-    left: 30px;
-    top: 32px;
-    cursor: pointer;
   }
 
   .nav-phone-icon:before {

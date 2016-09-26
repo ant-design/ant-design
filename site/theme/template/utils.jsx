@@ -1,10 +1,10 @@
-export function getMenuItems(moduleData) {
+export function getMenuItems(moduleData, locale) {
   const menuMeta = moduleData.map(item => item.meta);
   const menuItems = {};
   menuMeta.sort(
     (a, b) => (a.order || 0) - (b.order || 0)
   ).forEach((meta) => {
-    const category = meta.category || 'topLevel';
+    const category = (meta.category && meta.category[locale]) || meta.category || 'topLevel';
     if (!menuItems[category]) {
       menuItems[category] = {};
     }

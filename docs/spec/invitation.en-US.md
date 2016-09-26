@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 8
 title: Provide an Invitation
 ---

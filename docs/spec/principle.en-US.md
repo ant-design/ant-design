@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 0
 title: Introduction
 ---

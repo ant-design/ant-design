@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 4
 title: Repetition
 ---

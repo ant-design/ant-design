@@ -1,5 +1,5 @@
 ---
-category: 十大原则
+category: Principles
 order: 6
 title: Stay on the Page
 ---
