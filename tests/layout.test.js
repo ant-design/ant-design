@@ -1,7 +1,3 @@
-jest.unmock('../components/layout/index');
-jest.unmock('../components/layout/col');
-jest.unmock('../components/layout/row');
-
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import { wrap } from 'react-stateless-wrapper';

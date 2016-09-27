@@ -1,7 +1,3 @@
-jest.unmock('../components/popover/placements');
-jest.unmock('../components/popover/index');
-jest.unmock('../components/tooltip/index');
-
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import Popover from '../components/popover/index';
