@@ -99,7 +99,7 @@
     "eslint-plugin-react": "^6.1.2",
     "eslint-tinker": "^0.4.0",
     "history": "^3.0.0",
-    "jest-cli": "^13.2.3",
+    "jest-cli": "^15.1.1",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
     "jsonp": "^0.2.0",
@@ -123,9 +123,9 @@
     "react-stateless-wrapper": "^1.0.2",
     "react-sublime-video": "^0.2.0",
     "reqwest": "^2.0.5",
+    "typescript-babel-jest": "^0.1.5",
     "typings": "^1.3.2",
-    "values.js": "^1.0.3",
-    "webpack-babel-jest": "^1.0.4"
+    "values.js": "^1.0.3"
   },
   "scripts": {
     "dist": "antd-tools run dist",
@@ -141,8 +141,8 @@
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
-    "test": "npm run lint && npm run dist",
-    "jest": "jest",
+    "test": "npm run lint && npm run dist && npm run jest",
+    "jest": "jest --no-cache",
     "pre-publish": "node ./scripts/prepub",
     "prepublish": "antd-tools run guard",
     "pub": "antd-tools run update-self && antd-tools run pub",
@@ -150,12 +150,11 @@
   },
   "jest": {
     "moduleFileExtensions": [
+      "ts",
+      "tsx",
       "js",
       "jsx",
       "json"
-    ],
-    "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/*"
     ],
     "modulePathIgnorePatterns": [
       "/_site/"
@@ -163,8 +162,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "scriptPreprocessor": "<rootDir>/node_modules/webpack-babel-jest",
-    "testDirectoryName": "tests"
+    "scriptPreprocessor": "node_modules/typescript-babel-jest",
+    "testRegex": "(/tests/.*|\\.(test|spec))\\.(js)$"
   },
   "pre-commit": [
     "lint"
