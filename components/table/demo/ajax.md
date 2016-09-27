@@ -75,7 +75,7 @@ const Test = React.createClass({
         ...params,
       },
       type: 'json',
-    }).then(data => {
+    }).then((data) => {
       const pagination = this.state.pagination;
       // Read total count from server
       // pagination.total = data.totalCount;

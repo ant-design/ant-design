@@ -29,7 +29,7 @@ const Apps = () => (
   </ul>
 );
 
-const Home = (props) => (
+const Home = props => (
   <div>
     <div className="demo-nav">
       <Link to="/">Home</Link>

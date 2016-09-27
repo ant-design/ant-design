@@ -28,7 +28,7 @@ export function collect(nextProps, callback) {
     promises.push(demos());
   }
   Promise.all(promises)
-    .then((list) => callback(null, {
+    .then(list => callback(null, {
       ...nextProps,
       localizedPageData: list[0],
       demos: list[1],

@@ -33,7 +33,7 @@ const Sider = React.createClass({
     this.setState({ current: e.key });
   },
   onOpenChange(openKeys) {
-    const latestOpenKey = openKeys.find((key) => !(this.state.openKeys.indexOf(key) > -1));
+    const latestOpenKey = openKeys.find(key => !(this.state.openKeys.indexOf(key) > -1));
     this.setState({ openKeys: this.getKeyPath(latestOpenKey) });
   },
   getKeyPath(key) {

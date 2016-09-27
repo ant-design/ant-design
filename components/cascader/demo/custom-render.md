@@ -52,7 +52,7 @@ const displayRender = (labels, selectedOptions) => labels.map((label, i) => {
   if (i === labels.length - 1) {
     return (
       <span key={option.value}>
-        {label} (<a onClick={(e) => handleAreaClick(e, label, option)}>{option.code}</a>)
+        {label} (<a onClick={e => handleAreaClick(e, label, option)}>{option.code}</a>)
       </span>
     );
   }

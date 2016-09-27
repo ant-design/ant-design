@@ -64,7 +64,7 @@ const SearchInput = React.createClass({
   },
   handleChange(value) {
     this.setState({ value });
-    fetch(value, (data) => this.setState({ data }));
+    fetch(value, data => this.setState({ data }));
   },
   handleSubmit() {
     console.log('输入框内容是: ', this.state.value);

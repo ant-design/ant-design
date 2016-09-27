@@ -20,7 +20,7 @@ export default class Article extends React.Component {
       return;
     }
     const checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
-    this.pingTimer = utils.ping(checkImgUrl, status => {
+    this.pingTimer = utils.ping(checkImgUrl, (status) => {
       if (status === 'responded') {
         links.forEach(link => (link.style.display = 'block'));
       } else {
@@ -40,7 +40,7 @@ export default class Article extends React.Component {
     const timelineItems = [];
     let temp = [];
     let i = 1;
-    Children.forEach(article.props.children, child => {
+    Children.forEach(article.props.children, (child) => {
       if (child.type === 'h2' && temp.length > 0) {
         timelineItems.push(<Timeline.Item key={i}>{temp}</Timeline.Item>);
         temp = [];

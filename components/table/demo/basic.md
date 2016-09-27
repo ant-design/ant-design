@@ -20,7 +20,7 @@ const columns = [{
   title: '姓名',
   dataIndex: 'name',
   key: 'name',
-  render: (text) => <a href="#">{text}</a>,
+  render: text => <a href="#">{text}</a>,
 }, {
   title: '年龄',
   dataIndex: 'age',

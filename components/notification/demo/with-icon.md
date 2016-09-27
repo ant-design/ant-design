@@ -16,7 +16,7 @@ A notification box with a icon at the left side.
 ````jsx
 import { Button, notification } from 'antd';
 
-const openNotificationWithIcon = (type) => () => (
+const openNotificationWithIcon = type => () => (
   notification[type]({
     message: 'Notification Title',
     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
