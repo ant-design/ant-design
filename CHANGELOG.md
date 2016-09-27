@@ -9,6 +9,13 @@ timeline: true
 
 ---
 
+## 1.11.2
+
+`2016-09-26`
+
+- 修复 Popover 内嵌 Badge 后失效的问题。[#3109](https://github.com/ant-design/ant-design/issues/3109)
+- 修复 Modal 内嵌的 Button 在某些情况下与 Modal 的滚动不同步的问题。[#3031](https://github.com/ant-design/ant-design/issues/3031)
+
 ## 1.11.1
 
 `2016-09-14`
