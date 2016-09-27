@@ -12,7 +12,6 @@ export interface RowProps {
   justify?: 'start' | 'end' | 'center' | 'space-around' | 'space-between';
   style?: React.CSSProperties;
   prefixCls?: string;
-  id?: string;
 }
 
 export default class Row extends React.Component<RowProps, any> {
