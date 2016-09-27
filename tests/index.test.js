@@ -29,7 +29,6 @@ describe('antd dist files', function() {
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
   it('should has modules in antd', () => {
-    console.log(antd, 'Affix' in antd)
     expect('Affix' in antd).toBeTruthy();
     expect('Alert' in antd).toBeTruthy();
     expect('AutoComplete' in antd).toBeTruthy();
