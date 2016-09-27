@@ -66,7 +66,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## Browser Support
 
-Normal browsers and Internet Explorer 8+.
+Normal browsers and Internet Explorer 9+.
 
 > [IE8 issues](https://github.com/xcatliu/react-ie8)
 

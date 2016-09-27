@@ -64,7 +64,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## 浏览器支持
 
-现代浏览器和 IE8 及以上。
+现代浏览器和 IE9 及以上。
 
 > [IE8 issues](https://github.com/xcatliu/react-ie8)
 

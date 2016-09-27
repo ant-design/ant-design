@@ -64,7 +64,7 @@ You can use:
 
 ## Compatibility
 
-Modern browsers and IE8+.
+Modern browsers and IE9+.
 
 > [IE8 issues](https://github.com/xcatliu/react-ie8)
 
