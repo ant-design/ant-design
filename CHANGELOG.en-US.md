@@ -64,6 +64,13 @@ The following change will throw some warnings in the console and it will still w
       />
   + )
   ```
+* `toggleOpen` of DatePicker is deprecated, please use `onOpenChange`:
+  ```diff
+  - handleToggleOpen({ open }) {
+  + handleOpenChange(open) {
+    ...
+  }
+  ```
 
 ### 2.x Bug fixes
 
@@ -71,6 +78,8 @@ The following change will throw some warnings in the console and it will still w
 * `option.withRef` of Form.create should work. [#2843](https://github.com/ant-design/ant-design/issues/2843)
 * Fix slow response of expanding sub menu in Menu[inline] mode. [#2701](https://github.com/ant-design/ant-design/issues/2701)
 * The button of Modal.confirm(and so on) should not be clickable while it is closed asynchronously. [#2684](https://github.com/ant-design/ant-design/issues/2684)
+* `format` of DatePicker[showTime] should work. [#3123](https://github.com/ant-design/ant-design/issues/3123)
+* Fix Table[dataSource] treat key whose value is `0` as inexisting. [#3166](https://github.com/ant-design/ant-design/pull/3166) @noonnightstorm
 * Tree.Node should not show arrow if it has no child nodes. [#2616](https://github.com/ant-design/ant-design/issues/2616)
 * Fix cursor style of arrows that are hidden of Tree.Node. [#2748](https://github.com/ant-design/ant-design/issues/2748)
 
