@@ -562,7 +562,11 @@ export default class Table extends React.Component<TableProps, any> {
     if (typeof rowKey === 'function') {
       return rowKey(record, index);
     }
-    return record[rowKey as string] || index;
+    let recordKey = record[rowKey as string] !== undefined ? record[rowKey as string] : index;
+    warning(recordKey !== undefined,
+      'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key.'
+    );
+    return recordKey;
   }
 
   checkSelection(data, type, byDefaultChecked) {
