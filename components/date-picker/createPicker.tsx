@@ -72,11 +72,7 @@ export default function createPicker(TheCalendar) {
       let calendarHandler: Object = {
         onOk: this.handleChange,
         // fix https://github.com/ant-design/ant-design/issues/1902
-        onSelect: (value, cause) => {
-          if (cause && cause.source === 'todayButton') {
-            this.handleChange(value);
-          }
-        },
+        onSelect: value => this.handleChange(value),
       };
       if (props.showTime) {
         pickerChangeHandler = {};
@@ -113,18 +109,12 @@ export default function createPicker(TheCalendar) {
       return (
         <span className={props.pickerClass} style={assign({}, pickerStyle, props.style)}>
           <RcDatePicker
+            {...props}
             {...pickerChangeHandler}
-            transitionName={props.transitionName}
-            disabled={props.disabled}
             calendar={calendar}
             value={this.state.value}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
-            align={props.align}
-            getCalendarContainer={props.getCalendarContainer}
-            open={props.open}
-            onOpen={props.toggleOpen}
-            onClose={props.toggleOpen}
           >
             {
               ({ value }) => {

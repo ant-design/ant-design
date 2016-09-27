@@ -48,12 +48,12 @@ const DateRange = React.createClass({
   onEndChange(value) {
     this.onChange('endValue', value);
   },
-  handleStartToggle({ open }) {
+  handleStartOpenChange(open) {
     if (!open) {
       this.setState({ endOpen: true });
     }
   },
-  handleEndToggle({ open }) {
+  handleEndOpenChange(open) {
     this.setState({ endOpen: open });
   },
   render() {
@@ -66,7 +66,7 @@ const DateRange = React.createClass({
           value={this.state.startValue}
           placeholder="开始日期"
           onChange={this.onStartChange}
-          toggleOpen={this.handleStartToggle}
+          onOpenChange={this.handleStartOpenChange}
         />
         <DatePicker
           disabledDate={this.disabledEndDate}
@@ -76,7 +76,7 @@ const DateRange = React.createClass({
           placeholder="结束日期"
           onChange={this.onEndChange}
           open={this.state.endOpen}
-          toggleOpen={this.handleEndToggle}
+          onOpenChange={this.handleEndOpenChange}
         />
       </div>
     );

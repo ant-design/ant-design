@@ -4,6 +4,7 @@ import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import defaultLocale from './locale/zh_CN';
 import assign from 'object-assign';
+import warning from 'warning';
 
 export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
@@ -16,7 +17,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         },
         onOk() {
         },
-        toggleOpen() {
+        onOpenChange() {
         },
         locale: {},
         align: {
@@ -44,8 +45,18 @@ export default function wrapPicker(Picker, defaultFormat?) {
       return result;
     },
 
-    toggleOpen ({open}) {
-      this.props.toggleOpen({open});
+    handleOpenChange(open) {
+      const { onOpenChange, toggleOpen } = this.props;
+      onOpenChange(open);
+
+      if (toggleOpen) {
+        warning(
+          false,
+          '`toggleOpen` is deprecated and will be removed in the future, ' +
+          'please use `onOpenChange` instead'
+        );
+        toggleOpen({open});
+      }
     },
 
     render() {
@@ -63,17 +74,22 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
       const locale = this.getLocale();
 
-      const timeFormat = props.showTime && props.showTime.format;
+      const timeFormat = (props.showTime && props.showTime.format) || 'HH:mm:ss';
       const rcTimePickerProps = {
-        format: timeFormat || 'HH:mm:ss',
-        showSecond: timeFormat && timeFormat.indexOf('ss') >= 0,
-        showHour: timeFormat && timeFormat.indexOf('HH') >= 0,
+        format: timeFormat,
+        showSecond: timeFormat.indexOf('ss') >= 0,
+        showHour: timeFormat.indexOf('HH') >= 0,
       };
+      const timePickerCls = classNames({
+        [`${prefixCls}-time-picker-1-column`]: !(rcTimePickerProps.showSecond || rcTimePickerProps.showHour),
+        [`${prefixCls}-time-picker-2-columns`]: rcTimePickerProps.showSecond !== rcTimePickerProps.showHour,
+      });
       const timePicker = props.showTime ? (
         <TimePickerPanel
           {...rcTimePickerProps}
           {...props.showTime}
           prefixCls={`${prefixCls}-time-picker`}
+          className={timePickerCls}
           placeholder={locale.timePickerLocale.placeholder}
           transitionName="slide-up"
         />
@@ -86,7 +102,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
           pickerInputClass={pickerInputClass}
           locale={locale}
           timePicker={timePicker}
-          toggleOpen={this.toggleOpen}
+          onOpenChange={this.handleOpenChange}
         />
       );
     },
