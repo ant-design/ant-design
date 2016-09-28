@@ -29,12 +29,12 @@ export interface TabsProps {
 // Tabs
 export interface TabPaneProps {
   /** 选项卡头显示文字 */
-  tab: React.ReactNode | string;
+  tab?: React.ReactNode | string;
   style?: React.CSSProperties;
 }
 
 export default class Tabs extends React.Component<TabsProps, any> {
-  static TabPane: TabPaneProps = TabPane;
+  static TabPane = TabPane as React.ClassicComponentClass<TabPaneProps>;
 
   static defaultProps = {
     prefixCls: 'ant-tabs',
