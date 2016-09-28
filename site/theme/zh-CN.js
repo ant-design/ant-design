@@ -44,5 +44,10 @@ module.exports = {
     'app.footer.bug-report': '报告 Bug,',
     'app.footer.version': '文档版本：',
     'app.footer.author': '蚂蚁金服体验技术部出品',
+    'app.publish.title': 'antd@2.0.0 发布！',
+    'app.publish.greeting': '你好，',
+    'app.publish.intro': ' 已正式发布，欢迎升级。',
+    'app.publish.old-version-guide': '如果您还需要使用旧版，请查阅 ',
+    'app.publish.old-version-tips': '，也可通过页面右下角的文档版本选择框进行切换。',
   },
 };

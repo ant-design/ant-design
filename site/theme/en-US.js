@@ -44,5 +44,10 @@ module.exports = {
     'app.footer.bug-report': 'Bug Report',
     'app.footer.version': 'Version: ',
     'app.footer.author': 'Created by Ant UED',
+    'app.publish.title': 'antd@2.0.0 is released!',
+    'app.publish.greeting': 'Hello, ',
+    'app.publish.intro': ' is released, and please upgrade. ',
+    'app.publish.old-version-guide': 'If you want to read old version documentation, please visit ',
+    'app.publish.old-version-tips': ', or change the version of documentation with the bottom-right selector.',
   },
 };
