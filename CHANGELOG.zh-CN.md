@@ -107,8 +107,10 @@ timeline: true
 ### 2.x 相关工具发布
 
 * 新增配套网站 [AntD Library](http://library.ant.design/)，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。
-* `babel-plugin-antd` 更名为 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
+* `babel-plugin-antd` 更名为 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
+
   请更新 `package.json`：
+
   ```diff
   {
     "devDependencies": {
@@ -117,15 +119,18 @@ timeline: true
     }
   }
   ```
+
   同时更新 `.babelrc` 或你在其它地方对其的配置：
+
   ```diff
   {
   -  "plugins": [["antd", { style: "css" }]]
   +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
   }
   ```
-* [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
-* 脚手架工具推荐使用 [`dva-cli`](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
+
+* [dva@1.0.0](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
+* 脚手架工具推荐使用 [dva-cli](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
 
 ## 1.11.2
 

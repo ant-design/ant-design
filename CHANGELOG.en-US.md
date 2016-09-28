@@ -110,7 +110,9 @@ The following change will throw some warnings in the console and it will still w
 
 * [AntD Library](http://library.ant.design/) a collection of Axure files which includes components and patterns that follow Ant Design Specification.
 * Rename `babel-plugin-antd` to [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import), and this means that `babel-plugin-import` becomes an common load-on-demand solution and not just for `antd`.
+
   Please update `package.json`:
+
   ```diff
   {
     "devDependencies": {
@@ -119,15 +121,18 @@ The following change will throw some warnings in the console and it will still w
     }
   }
   ```
+
   And update your babel config in `.babelrc` or other place:
+
   ```diff
   {
   -  "plugins": [["antd", { style: "css" }]]
   +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
   }
   ```
-* [`dva@1.0.0`](https://github.com/dvajs/dva) is published and it is officially recommended framework [in real world](http://ant.design/docs/react/practical-projects).
-* The officially recommended scaffold is [`dva-cli`](https://github.com/dvajs/dva-cli) now, the old `antd-init` is just for studying and demo.
+
+* [dva@1.0.0](https://github.com/dvajs/dva) is published and it is officially recommended framework [in real world](http://ant.design/docs/react/practical-projects).
+* The officially recommended scaffold is [dva-cli](https://github.com/dvajs/dva-cli) now, the old `antd-init` is just for studying and demo.
 
 ## 1.0.0
 
