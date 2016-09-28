@@ -19,7 +19,8 @@ module.exports = {
   source: [
     './components',
     './docs',
-    'CHANGELOG.md', // TODO: fix it in bisheng
+    'CHANGELOG.zh-CN.md', // TODO: fix it in bisheng
+    'CHANGELOG.en-US.md',
   ],
   lazyLoad(nodePath, nodeValue) {
     if (typeof nodeValue === 'string') {
@@ -38,7 +39,7 @@ module.exports = {
       };
     },
     changelog(markdownData) {
-      if (markdownData.meta.filename === 'CHANGELOG.md') {
+      if (/CHANGELOG/.test(markdownData.meta.filename)) {
         return {
           meta: markdownData.meta,
         };

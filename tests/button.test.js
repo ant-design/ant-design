@@ -1,6 +1,3 @@
-jest.unmock('../components/button/button');
-jest.unmock('../components/icon/index');
-
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import Button from '../components/button/button';

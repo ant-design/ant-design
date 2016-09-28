@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { Select, Modal } from 'antd';
 import { version as antdVersion } from 'antd/package.json';
 import { docVersions } from '../../';
@@ -18,28 +18,9 @@ function isLocalStorageNameSupported() {
   }
 }
 
-function infoNewVersion() {
-  Modal.info({
-    title: 'antd 新版发布！',
-    content: (
-      <div>
-        <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
-        <p>
-          您好，<a target="_blank" rel="noopener noreferrer" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
-          如果您还需要使用旧版，请查阅 <a target="_blank" rel="noopener noreferrer" href="http://012x.ant.design">012x.ant.design</a>
-          ，也可通过页面右下角的文档版本选择框进行切换。
-        </p>
-      </div>
-    ),
-    onOk: () => localStorage.setItem('infoNewVersionSent', 'true'),
-    className: 'new-version-info-modal',
-    width: 470,
-  });
-}
-
 docVersions[antdVersion] = antdVersion;
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
   componentDidMount() {
     // for some iOS
     // http://stackoverflow.com/a/14555361
@@ -49,10 +30,34 @@ export default class Footer extends React.Component {
     // 大版本发布后全局弹窗提示
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
-    if (localStorage.getItem('infoNewVersionSent') !== 'true' &&
-        new Date().getTime() < new Date('2016/05/22').getTime()) {
-      infoNewVersion();
+    if (localStorage.getItem('antd@2.0.0-notification-sent') !== 'true' &&
+        Date.now() < new Date('2016/10/14').getTime()) {
+      this.infoNewVersion();
     }
+  }
+
+  infoNewVersion() {
+    const messages = this.props.intl.messages;
+    Modal.info({
+      title: messages['app.publish.title'],
+      content: (
+        <div>
+          <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
+          <p>
+            {messages['app.publish.greeting']}
+            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@2.0.0</a>
+            {messages['app.publish.intro']}
+            {messages['app.publish.old-version-guide']}
+            <a target="_blank" rel="noopener noreferrer" href="http://1x.ant.design">1x.ant.design</a>
+            {messages['app.publish.old-version-tips']}
+          </p>
+        </div>
+      ),
+      okText: 'OK',
+      onOk: () => localStorage.setItem('antd@2.0.0-notification-sent', 'true'),
+      className: 'new-version-info-modal',
+      width: 470,
+    });
   }
 
   handleVersionChange = (url) => {
@@ -74,14 +79,14 @@ export default class Footer extends React.Component {
               </a>
             </div>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/antd-init">antd-init</a> -
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
               <FormattedMessage id="app.footer.scaffold" />
             </div>
             <div>
               <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> - <FormattedMessage id="app.footer.dev-tools" />
-            </div>
-            <div>
-              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
             </div>
           </li>
           <li>
@@ -97,6 +102,9 @@ export default class Footer extends React.Component {
             </div>
             <div><a href="http://motion.ant.design">Ant Motion</a> -
               <FormattedMessage id="app.footer.motion" />
+            </div>
+            <div><a href="http://library.ant.design/">AntD Library</a> -
+              <FormattedMessage id="app.footer.antd-library" />
             </div>
             <div><a href="http://ux.ant.design">Ant UX</a> -
               <FormattedMessage id="app.footer.material" />
@@ -145,3 +153,5 @@ export default class Footer extends React.Component {
     );
   }
 }
+
+export default injectIntl(Footer);

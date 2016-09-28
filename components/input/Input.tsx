@@ -52,6 +52,7 @@ export interface InputProps {
   onBlur?: React.FormEventHandler;
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
+  style?: React.CSSProperties;
 }
 
 export default class Input extends Component<InputProps, any> {

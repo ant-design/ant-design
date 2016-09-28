@@ -45,10 +45,7 @@ export default class RangePicker extends React.Component<any, any> {
 
   render() {
     const props = this.props;
-    const locale = props.locale;
-
-    const { disabledDate, showTime, getCalendarContainer, prefixCls,
-      transitionName, disabled, popupStyle, align, style, onOk } = this.props;
+    const { disabledDate, showTime, prefixCls, popupStyle, style, onOk, locale } = props;
     const state = this.state;
 
     const calendarClassName = classNames({
@@ -63,9 +60,7 @@ export default class RangePicker extends React.Component<any, any> {
       onOk: this.handleChange,
     };
     if (props.timePicker) {
-      pickerChangeHandler.onChange = (value) => {
-        this.handleChange(value);
-      };
+      pickerChangeHandler.onChange = value => this.handleChange(value);
     } else {
       calendarHandler = {};
     }
@@ -98,26 +93,21 @@ export default class RangePicker extends React.Component<any, any> {
 
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
+        {...props}
         {...pickerChangeHandler}
-        transitionName={transitionName}
-        disabled={disabled}
         calendar={calendar}
         value={state.value}
         prefixCls={`${prefixCls}-picker-container`}
         style={popupStyle}
-        align={align}
-        getCalendarContainer={getCalendarContainer}
-        onOpen={props.toggleOpen}
-        onClose={props.toggleOpen}
       >
         {
           ({ value }) => {
             const start = value[0];
             const end = value[1];
             return (
-              <span className={props.pickerInputClass} disabled={disabled}>
+              <span className={props.pickerInputClass} disabled={props.disabled}>
                 <input
-                  disabled={disabled}
+                  disabled={props.disabled}
                   readOnly
                   value={(start && start.format(props.format)) || ''}
                   placeholder={startPlaceholder}
@@ -125,7 +115,7 @@ export default class RangePicker extends React.Component<any, any> {
                 />
                 <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
                 <input
-                  disabled={disabled}
+                  disabled={props.disabled}
                   readOnly
                   value={(end && end.format(props.format)) || ''}
                   placeholder={endPlaceholder}
