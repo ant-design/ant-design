@@ -52,7 +52,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ## 链接
 
 - [首页](http://ant.design/)
-- [React 实现](http://ant.design/#/docs/react/introduce)
+- [React 实现](http://ant.design/docs/react/introduce)
 - [修改记录](CHANGELOG.md)
 - [开发脚手架](https://github.com/ant-design/antd-init/)
 - [开发工具文档](http://ant-tool.github.io/)
@@ -66,7 +66,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001)
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-
 
 ## 如何贡献
 
