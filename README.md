@@ -83,7 +83,7 @@ tsconfig.json
 
 - [Home page](http://ant.design/)
 - [UI library](http://ant.design/docs/react/introduce)
-- [ChangeLog](CHANGELOG.md)
+- [ChangeLog](CHANGELOG.en-US.md)
 - [Scaffold tool](https://github.com/ant-design/antd-init/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
