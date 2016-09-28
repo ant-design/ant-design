@@ -1,143 +1,95 @@
-import Affix from './affix';
-export { Affix };
+export { default as Affix } from './affix';
 
-import AutoComplete from './auto-complete';
-export { AutoComplete };
+export { default as AutoComplete } from './auto-complete';
 
-import Alert from './alert';
-export { Alert };
+export { default as Alert } from './alert';
 
-import BackTop from './back-top';
-export { BackTop };
+export { default as BackTop } from './back-top';
 
-import Badge from './badge';
-export { Badge };
+export { default as Badge } from './badge';
 
-import Breadcrumb from './breadcrumb';
-export { Breadcrumb };
+export { default as Breadcrumb } from './breadcrumb';
 
-import Button from './button';
-export { Button };
+export { default as Button } from './button';
 
-import Calendar from './calendar';
-export { Calendar };
+export { default as Calendar } from './calendar';
 
-import Card from './card';
-export { Card };
+export { default as Card } from './card';
 
-import Collapse from './collapse';
-export { Collapse };
+export { default as Collapse } from './collapse';
 
-import Carousel from './carousel';
-export { Carousel };
+export { default as Carousel } from './carousel';
 
-import Cascader from './cascader';
-export { Cascader };
+export { default as Cascader } from './cascader';
 
-import Checkbox from './checkbox';
-export { Checkbox };
+export { default as Checkbox } from './checkbox';
 
-import Col from './col';
-export { Col };
+export { default as Col } from './col';
 
-import DatePicker from './date-picker';
-export { DatePicker };
+export { default as DatePicker } from './date-picker';
 
-import Dropdown from './dropdown';
-export { Dropdown };
+export { default as Dropdown } from './dropdown';
 
-import Form from './form';
-export { Form };
+export { default as Form } from './form';
 
-import Icon from './icon';
-export { Icon };
+export { default as Icon } from './icon';
 
-import Input from './input';
-export { Input };
+export { default as Input } from './input';
 
-import InputNumber from './input-number';
-export { InputNumber };
+export { default as InputNumber } from './input-number';
 
-import LocaleProvider from './locale-provider';
-export { LocaleProvider };
+export { default as LocaleProvider } from './locale-provider';
 
-import message from './message';
-export { message };
+export { default as message } from './message';
 
-import Menu from './menu';
-export { Menu };
+export { default as Menu } from './menu';
 
-import Modal from './modal';
-export { Modal };
+export { default as Modal } from './modal';
 
-import notification from './notification';
-export { notification };
+export { default as notification } from './notification';
 
-import Pagination from './pagination';
-export { Pagination };
+export { default as Pagination } from './pagination';
 
-import Popconfirm from './popconfirm';
-export { Popconfirm };
+export { default as Popconfirm } from './popconfirm';
 
-import Popover from './popover';
-export { Popover };
+export { default as Popover } from './popover';
 
-import Progress from './progress';
-export { Progress };
+export { default as Progress } from './progress';
 
-import Radio from './radio';
-export { Radio };
+export { default as Radio } from './radio';
 
-import Rate from './rate';
-export { Rate };
+export { default as Rate } from './rate';
 
-import Row from './row';
-export { Row };
+export { default as Row } from './row';
 
-import Select from './select';
-export { Select };
+export { default as Select } from './select';
 
-import Slider from './slider';
-export { Slider };
+export { default as Slider } from './slider';
 
-import Spin from './spin';
-export { Spin };
+export { default as Spin } from './spin';
 
-import Steps from './steps';
-export { Steps };
+export { default as Steps } from './steps';
 
-import Switch from './switch';
-export { Switch };
+export { default as Switch } from './switch';
 
-import Table from './table';
-export { Table };
+export { default as Table } from './table';
 
-import Transfer from './transfer';
-export { Transfer };
+export { default as Transfer } from './transfer';
 
-import Tree from './tree';
-export { Tree };
+export { default as Tree } from './tree';
 
-import TreeSelect from './tree-select';
-export { TreeSelect };
+export { default as TreeSelect } from './tree-select';
 
-import Tabs from './tabs';
-export { Tabs }
+export { default as Tabs } from './tabs';
 
-import Tag from './tag';
-export { Tag }
+export { default as Tag } from './tag';
 
-import TimePicker from './time-picker';
-export { TimePicker }
+export { default as TimePicker } from './time-picker';
 
-import Timeline from './timeline';
-export { Timeline }
+export { default as Timeline } from './timeline';
 
-import Tooltip from './tooltip';
-export { Tooltip }
+export { default as Tooltip } from './tooltip';
 
-import Mention from './mention';
-export { Mention };
+export { default as Mention } from './mention';
 
-import Uplaod from './upload';
-export { Uplaod };
+export { default as Uplaod } from './upload';
