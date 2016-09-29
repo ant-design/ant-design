@@ -16,11 +16,11 @@ There are 12 `placement` options available.
 ````jsx
 import { Popover, Button } from 'antd';
 
-const text = <span>标题</span>;
+const text = <span>Title</span>;
 const content = (
   <div>
-    <p>内容</p>
-    <p>内容</p>
+    <p>Content</p>
+    <p>Content</p>
   </div>
 );
 
@@ -28,46 +28,46 @@ ReactDOM.render(
   <div>
     <div style={{ marginLeft: 60 }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
-        <Button>上左</Button>
+        <Button>TL</Button>
       </Popover>
       <Popover placement="top" title={text} content={content} trigger="click">
-        <Button>上边</Button>
+        <Button>Top</Button>
       </Popover>
       <Popover placement="topRight" title={text} content={content} trigger="click">
-        <Button>上右</Button>
+        <Button>TR</Button>
       </Popover>
     </div>
     <div style={{ width: 60, float: 'left' }}>
       <Popover placement="leftTop" title={text} content={content} trigger="click">
-        <Button>左上</Button>
+        <Button>LT</Button>
       </Popover>
       <Popover placement="left" title={text} content={content} trigger="click">
-        <Button>左边</Button>
+        <Button>Left</Button>
       </Popover>
       <Popover placement="leftBottom" title={text} content={content} trigger="click">
-        <Button>左下</Button>
+        <Button>LB</Button>
       </Popover>
     </div>
     <div style={{ width: 60, marginLeft: 270 }}>
       <Popover placement="rightTop" title={text} content={content} trigger="click">
-        <Button>右上</Button>
+        <Button>RT</Button>
       </Popover>
       <Popover placement="right" title={text} content={content} trigger="click">
-        <Button>右边</Button>
+        <Button>Right</Button>
       </Popover>
       <Popover placement="rightBottom" title={text} content={content} trigger="click">
-        <Button>右下</Button>
+        <Button>RB</Button>
       </Popover>
     </div>
     <div style={{ marginLeft: 60, clear: 'both' }}>
       <Popover placement="bottomLeft" title={text} content={content} trigger="click">
-        <Button>下左</Button>
+        <Button>BL</Button>
       </Popover>
       <Popover placement="bottom" title={text} content={content} trigger="click">
-        <Button>下边</Button>
+        <Button>Bottom</Button>
       </Popover>
       <Popover placement="bottomRight" title={text} content={content} trigger="click">
-        <Button>下右</Button>
+        <Button>BR</Button>
       </Popover>
     </div>
   </div>
