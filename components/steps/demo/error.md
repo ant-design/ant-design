@@ -19,10 +19,9 @@ const Step = Steps.Step;
 
 ReactDOM.render(
   <Steps current={1} status="error">
-    <Step title="已完成" description="这里是多信息的描述" />
-    <Step title="进行中" description="这里是多信息的描述" />
-    <Step title="待运行" description="这里是多信息的描述" />
-    <Step title="待运行" description="这里是多信息的描述" />
+    <Step title="finished" description="This is description" />
+    <Step title="In Process" description="This is description" />
+    <Step title="Waiting" description="This is description" />
   </Steps>
 , mountNode);
 ````
