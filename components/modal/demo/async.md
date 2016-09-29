@@ -53,6 +53,8 @@ const Test = React.createClass({
         <Button type="primary" onClick={this.showModal}>Open a modal dialog</Button>
         <Modal title="Title of the modal dialog"
           visible={this.state.visible}
+          okText="Ok"
+          cancelText="Cancel"
           onOk={this.handleOk}
           confirmLoading={this.state.confirmLoading}
           onCancel={this.handleCancel}

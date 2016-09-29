@@ -21,6 +21,8 @@ function showConfirm() {
   confirm({
     title: 'Are you sure you want to delete these items ?',
     content: 'some descriptions',
+    okText: 'OK',
+    cancelText:'Cancel',
     onOk() {
       console.log('OK');
     },

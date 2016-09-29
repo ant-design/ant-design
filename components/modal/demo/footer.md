@@ -48,6 +48,8 @@ const Test = React.createClass({
         <Modal
           visible={this.state.visible}
           title="Title"
+          okText="OK"
+          cancelText="Cancel"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[

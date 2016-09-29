@@ -38,6 +38,8 @@ const App = React.createClass({
           title="20px to Top"
           style={{ top: 20 }}
           visible={this.state.modal1Visible}
+          okText="Ok"
+          cancelText="Cancel"
           onOk={() => this.setModal1Visible(false)}
           onCancel={() => this.setModal1Visible(false)}
         >
@@ -51,6 +53,8 @@ const App = React.createClass({
           title="Vertically centered modal dialog"
           wrapClassName="vertical-center-modal"
           visible={this.state.modal2Visible}
+          okText="Ok"
+          cancelText="Cancel"
           onOk={() => this.setModal2Visible(false)}
           onCancel={() => this.setModal2Visible(false)}
         >

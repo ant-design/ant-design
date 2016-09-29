@@ -20,6 +20,7 @@ function success() {
   const modal = Modal.success({
     title: 'This is a notification message',
     content: 'This modal will be destroyed after 1 second',
+    okText: 'OK',
   });
   setTimeout(() => modal.destroy(), 1000);
 }

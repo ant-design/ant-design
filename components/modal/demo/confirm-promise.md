@@ -22,6 +22,8 @@ function showConfirm() {
   confirm({
     title: 'Are you sure you want to delete this item ?',
     content: 'When clicked the OK button, this dialog will be closed after 1 second',
+    okText: 'OK',
+    cancelText:'Cancel',
     onOk() {
       return new Promise((resolve, reject) => {
         setTimeout(Math.random() > 0.5 ? resolve : reject, 1000);
