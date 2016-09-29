@@ -4,20 +4,7 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import omit from 'omit.js';
-
-function getScroll(target, top) {
-  const prop = top ? 'pageYOffset' : 'pageXOffset';
-  const method = top ? 'scrollTop' : 'scrollLeft';
-  const isWindow = target === window;
-
-  let ret = isWindow ? target[prop] : target[method];
-  // ie6,7,8 standard mode
-  if (isWindow && typeof ret !== 'number') {
-    ret = window.document.documentElement[method];
-  }
-
-  return ret;
-}
+import getScroll from '../_util/getScroll';
 
 function getTargetRect(target): any {
   return target !== window ?

@@ -18,7 +18,7 @@ import { Steps, Button } from 'antd';
 const Step = Steps.Step;
 const array = [...Array(Math.floor(Math.random() * 3) + 3)];
 const steps = array.map((item, i) => ({
-  title: `步骤${i + 1}`,
+  title: `Step ${i + 1}`,
 }));
 
 const App = React.createClass({
@@ -38,12 +38,12 @@ const App = React.createClass({
     const { current } = this.state;
     return (
       <div>
-        <div style={{ marginBottom: 24 }}>当前正在执行第 {current + 1} 步</div>
+        <div style={{ marginBottom: 24 }}>Curent Step {current + 1}</div>
         <Steps current={current}>
           {steps.map((s, i) => <Step key={i} title={s.title} description={s.description} />)}
         </Steps>
         <div style={{ marginTop: 24 }}>
-          <Button onClick={this.next}>下一步</Button>
+          <Button onClick={this.next}>Next Step</Button>
         </div>
       </div>
     );

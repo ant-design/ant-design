@@ -4,6 +4,7 @@ import Icon from '../icon';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import getScroll from '../_util/getScroll';
 
 const reqAnimFrame = (() => {
   if (window.requestAnimationFrame) {
@@ -28,24 +29,6 @@ const easeInOutCubic = (t, b, c, d) => {
     return cc / 2 * ((t -= 2) * t * t + 2) + b;
   }
 };
-
-function getScroll(target, top) {
-  if (typeof window === 'undefined') {
-    return 0;
-  }
-
-  const prop = top ? 'pageYOffset' : 'pageXOffset';
-  const method = top ? 'scrollTop' : 'scrollLeft';
-  const isWindow = target === window;
-
-  let ret = isWindow ? target[prop] : target[method];
-  // ie6,7,8 standard mode
-  if (isWindow && typeof ret !== 'number') {
-    ret = window.document.documentElement[method];
-  }
-
-  return ret;
-}
 
 export interface BackTopProps {
   visibilityHeight?: number;

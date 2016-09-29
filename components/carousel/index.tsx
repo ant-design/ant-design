@@ -62,7 +62,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
     return (
       <div className={className}>
-        <SlickCarousel {...props} />
+        <SlickCarousel ref="slick" {...props} />
       </div>
     );
   }
