@@ -38,6 +38,7 @@ const eslintrc = {
     'react/jsx-indent': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/anchor-has-content': 0,
+    'react/no-danger': 0,
   },
 };
 

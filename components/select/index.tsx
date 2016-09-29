@@ -37,17 +37,26 @@ export interface SelectProps {
   onChange?: (value) => void;
 }
 
+export interface OptionProps {
+  disabled?: boolean;
+  value?: any;
+}
+
+export interface OptGroupProps {
+  label?: string | React.ReactElement<any>;
+}
+
 export interface SelectContext {
   antLocale?: {
     Select?: any,
   };
 }
 
-export { Option, OptGroup }
+export { Option, OptGroup };
 
 export default class Select extends React.Component<SelectProps, any> {
-  static Option = Option;
-  static OptGroup = OptGroup;
+  static Option = Option as React.ClassicComponentClass<OptionProps>;
+  static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static defaultProps = {
     prefixCls: 'ant-select',

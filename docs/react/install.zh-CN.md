@@ -11,7 +11,7 @@ title: 安装
 
 稳定版：
 
-[![npm package](http://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 ```bash
 $ npm install antd --save

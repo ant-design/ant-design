@@ -40,6 +40,7 @@ title: Mention
 | notFoundContent| 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
 | loading | 加载中 | boolean | false |
 | multiLines | 多行模式 | boolean | false |
+| prefix | 触发弹出下拉框的字符 | string | '@' |
 | defaultValue | 默认值 | EditorState, 可以用 Mention.toEditorState(text) 把文字转换成 EditorState | null |
 | value | 值 | EditorState | null |
 

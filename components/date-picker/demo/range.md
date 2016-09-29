@@ -24,7 +24,7 @@ function onChange(dates, dateStrings) {
   console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
 ReactDOM.render(<div>
-  <RangePicker style={{ width: 184 }} onChange={onChange} />
+  <RangePicker style={{ width: 200 }} onChange={onChange} />
   <br />
   <RangePicker showTime format="YYYY/MM/DD HH:mm:ss" onChange={onChange} />
 </div>, mountNode);

@@ -48,7 +48,7 @@ export interface TableColumnConfig {
   key?: string;
   dataIndex?: string;
   render?: (text: any, record: Object, index: number) => React.ReactNode;
-  filters?: string[];
+  filters?: { text: string; value: string }[];
   onFilter?: (value: any, record: Object) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode;

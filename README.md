@@ -12,7 +12,8 @@ An enterprise-class UI design language and React-based implementation.
 
 - An enterprise-class design language and high quality UI.
 - Graceful UI components out of the box, base on [React Component](http://react-component.github.io/badgeboard/).
-- A npm + webpack + babel + dora [workflow](http://ant-tool.github.io/index.html).
+- Writen in TypeScript with complete define types.
+- A npm + webpack + babel + dora + [dva](https://github.com/dvajs/dva) development framework.
 
 ## Install
 
@@ -82,8 +83,8 @@ tsconfig.json
 ## Links
 
 - [Home page](http://ant.design/)
-- [React UI page](http://ant.design/#/docs/react/introduce)
-- [ChangeLog](CHANGELOG.md)
+- [UI library](http://ant.design/docs/react/introduce)
+- [ChangeLog](CHANGELOG.en-US.md)
 - [Scaffold tool](https://github.com/ant-design/antd-init/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)

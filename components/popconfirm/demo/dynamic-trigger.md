@@ -20,7 +20,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       visible: false,
-      condition: true,   // 是否满足条件，不满足则弹出确认框
+      condition: true,   // Whether meet the condition, if not show popconfirm.
     };
   },
   changeCondition(value) {
@@ -28,37 +28,39 @@ const App = React.createClass({
   },
   confirm() {
     this.setState({ visible: false });
-    message.success('进行下一步操作. next step.');
+    message.success('Next step.');
   },
   cancel() {
     this.setState({ visible: false });
-    message.error('点击了取消');
+    message.error('Click on cancel.');
   },
   handleVisibleChange(visible) {
     if (!visible) {
       this.setState({ visible });
       return;
     }
-    // 打开前进行判断
+    // Determining condition before show the popconfirm.
     console.log(this.state.condition);
     if (this.state.condition) {
-      this.confirm();  // 直接执行下一步
+      this.confirm();  // next step
     } else {
-      this.setState({ visible });  // 进行确认
+      this.setState({ visible });  // show the popconfirm
     }
   },
   render() {
     return (
       <div>
-        <Popconfirm title="确定要删除这个任务吗？"
+        <Popconfirm title="Are you sure delete this task?"
           visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
           onConfirm={this.confirm} onCancel={this.cancel}
+          okText="Yes"
+          cancelText="No"
         >
-          <a href="#">删除某任务</a>
+          <a href="#">Delete a task</a>
         </Popconfirm>
         <br />
         <br />
-        点击是否直接执行：<Switch defaultChecked onChange={this.changeCondition} />
+        Whether directly execute：<Switch defaultChecked onChange={this.changeCondition} />
       </div>
     );
   },

@@ -18,7 +18,7 @@ timeline: true
 ### 2.x 主要变化
 
 * 开发语言改为 TypeScript，提供 **官方支持的 `.d.ts` 文件**，感谢 [#1846](https://github.com/ant-design/ant-design/issues/1846) 中所有参与到这次重构的人以及后期 @infeng 对其的完善。
-* **新增英文文档**， 以后将同时提供中英双语文档，感谢 [#1471](https://github.com/ant-design/ant-design/issues/1471) 里所有参与到翻译、review 中的人。
+* **新增英文文档**， 以后将同时提供中英双语文档，感谢 [#1471](https://github.com/ant-design/ant-design/issues/1471) 里所有参与到翻译和审阅工作中的人。
 * 时间类组件 DatePicker、TimePicker、Calendar 等的底层 **使用 [moment](http://momentjs.com/) 替换 [gregorian-calendar](github.com/yiminghe/gregorian-calendar)**。
 * 全新设计的 [图标](http://ant.design/components/icon/)。
 * 新增提及组件 [Mention](http://ant.design/components/mention/)。
@@ -59,14 +59,16 @@ timeline: true
 以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。
 
 * Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`：
+
   ```diff
-  + getFieldDecorator('userName', { ... })(
-      <Input placeholder="请输入账户名"
-  -     {...getFieldProps('userName', { ... })}
-      />
-  + )
+  -  <Input placeholder="text" {...getFieldProps('userName', { ... })} />
+  +  {getFieldDecorator('userName', { ... })(
+  +    <Input placeholder="text" />
+  +  )}
   ```
+
 * DatePicker 废弃 `toggleOpen`，请使用 `onOpenChange`：
+
   ```diff
   - handleToggleOpen({ open }) {
   + handleOpenChange(open) {
@@ -107,8 +109,10 @@ timeline: true
 ### 2.x 相关工具发布
 
 * 新增配套网站 [AntD Library](http://library.ant.design/)，提供遵循 Ant Design 设计规范的组件、模式等的 Axure 资源。
-* `babel-plugin-antd` 更名为 [`babel-plugin-import`](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
+* `babel-plugin-antd` 更名为 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import)，标志着该插件将作为一个通用的按需加载方案存在，而不再是 `antd` 专有。
+
   请更新 `package.json`：
+
   ```diff
   {
     "devDependencies": {
@@ -117,15 +121,18 @@ timeline: true
     }
   }
   ```
+
   同时更新 `.babelrc` 或你在其它地方对其的配置：
+
   ```diff
   {
   -  "plugins": [["antd", { style: "css" }]]
   +  "plugins": [["import", { libraryName: "antd", style: "css" }]]
   }
   ```
-* [`dva@1.0.0`](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
-* 脚手架工具推荐使用 [`dva-cli`](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
+
+* [dva@1.0.0](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
+* 脚手架工具推荐使用 [dva-cli](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
 
 ## 1.11.2
 

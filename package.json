@@ -131,7 +131,7 @@
     "dist": "antd-tools run dist",
     "compile": "antd-tools run compile",
     "clean": "antd-tools run clean",
-    "start": "bisheng start -c ./site/bisheng.config.js",
+    "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
     "site": "bisheng build -c ./site/bisheng.config.js",
     "deploy": "npm run clean && bisheng gh-pages -c ./site/bisheng.config.js",
     "lint": "npm run tslint && tsc && npm run srclint && npm run demolint && npm run lesshint",

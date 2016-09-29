@@ -17,10 +17,10 @@ This property provide an additional time selection. When `showTime` is an Object
 import { DatePicker } from 'antd';
 
 function onChange(value) {
-  console.log('选择了时间：', value);
+  console.log('Selected Time: ', value);
 }
 
 ReactDOM.render(
-  <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" placeholder="请选择时间" onChange={onChange} />
+  <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" placeholder="Select Time" onChange={onChange} />
 , mountNode);
 ````
