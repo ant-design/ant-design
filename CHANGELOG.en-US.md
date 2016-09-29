@@ -61,14 +61,16 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
 The following change will throw some warnings in the console and it will still work, but we recommend to update your code.
 
 * `getFieldProps` of Form is deprecated, please use `getFieldDecorator`:
+
   ```diff
-  + getFieldDecorator('userName', { ... })(
-      <Input placeholder="请输入账户名"
-  -     {...getFieldProps('userName', { ... })}
-      />
-  + )
+  -  <Input placeholder="text" {...getFieldProps('userName', { ... })} />
+  +  {getFieldDecorator('userName', { ... })(
+  +    <Input placeholder="text" />
+  +  )}
   ```
+
 * `toggleOpen` of DatePicker is deprecated, please use `onOpenChange`:
+
   ```diff
   - handleToggleOpen({ open }) {
   + handleOpenChange(open) {

@@ -59,14 +59,16 @@ timeline: true
 以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。
 
 * Form 废弃 `getFieldProps`，请使用 `getFieldDecorator`：
+
   ```diff
-  + getFieldDecorator('userName', { ... })(
-      <Input placeholder="请输入账户名"
-  -     {...getFieldProps('userName', { ... })}
-      />
-  + )
+  -  <Input placeholder="text" {...getFieldProps('userName', { ... })} />
+  +  {getFieldDecorator('userName', { ... })(
+  +    <Input placeholder="text" />
+  +  )}
   ```
+
 * DatePicker 废弃 `toggleOpen`，请使用 `onOpenChange`：
+
   ```diff
   - handleToggleOpen({ open }) {
   + handleOpenChange(open) {
