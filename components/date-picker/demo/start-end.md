@@ -64,7 +64,7 @@ const DateRange = React.createClass({
           showTime
           format="YYYY-MM-DD HH:mm:ss"
           value={this.state.startValue}
-          placeholder="开始日期"
+          placeholder="Start"
           onChange={this.onStartChange}
           onOpenChange={this.handleStartOpenChange}
         />
@@ -73,7 +73,7 @@ const DateRange = React.createClass({
           showTime
           format="YYYY-MM-DD HH:mm:ss"
           value={this.state.endValue}
-          placeholder="结束日期"
+          placeholder="End"
           onChange={this.onEndChange}
           open={this.state.endOpen}
           onOpenChange={this.handleEndOpenChange}
