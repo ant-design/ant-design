@@ -18,21 +18,21 @@ import { Popover, Button } from 'antd';
 
 const content = (
   <div>
-    <p>内容</p>
-    <p>内容</p>
+    <p>Content</p>
+    <p>Content</p>
   </div>
 );
 
 ReactDOM.render(
   <div>
-    <Popover content={content} title="标题" trigger="hover">
-      <Button>移入</Button>
+    <Popover content={content} title="Title" trigger="hover">
+      <Button>Hover me</Button>
     </Popover>
-    <Popover content={content} title="标题" trigger="focus">
-      <Button>聚焦</Button>
+    <Popover content={content} title="Title" trigger="focus">
+      <Button>Focus me</Button>
     </Popover>
-    <Popover content={content} title="标题" trigger="click">
-      <Button>点击</Button>
+    <Popover content={content} title="Title" trigger="click">
+      <Button>Click me</Button>
     </Popover>
   </div>
 , mountNode);
