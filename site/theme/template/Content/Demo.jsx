@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
+import { Icon } from 'antd';
 import EditButton from './EditButton';
 
 export default class Demo extends React.Component {
@@ -76,10 +77,7 @@ export default class Demo extends React.Component {
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />
           </div>
           {introChildren}
-          <span className="collapse anticon anticon-circle-o-right"
-            onClick={this.handleCodeExapnd}
-            unselectable="none"
-          />
+          <Icon type="down-circle-o" title="Show Code" className="collapse" onClick={this.handleCodeExapnd} />
         </section>
         <section className={highlightClass}
           key="code"
