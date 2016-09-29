@@ -33,9 +33,9 @@ const OverlayVisible = React.createClass({
   render() {
     const menu = (
       <Menu onClick={this.handleMenuClick}>
-        <Menu.Item key="1">点我不会关闭菜单</Menu.Item>
-        <Menu.Item key="2">点我还是不会关闭菜单</Menu.Item>
-        <Menu.Item key="3">点我才会关闭菜单</Menu.Item>
+        <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
+        <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
+        <Menu.Item key="3">Clicking me will close the menu</Menu.Item>
       </Menu>
     );
     return (
@@ -44,7 +44,7 @@ const OverlayVisible = React.createClass({
         visible={this.state.visible}
       >
         <a className="ant-dropdown-link" href="#">
-          鼠标移入 <Icon type="down" />
+          Hover me <Icon type="down" />
         </a>
       </Dropdown>
     );
