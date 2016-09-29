@@ -143,7 +143,7 @@ export default class Table extends React.Component<TableProps, any> {
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
-      '[fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns) ' +
+      '[fixed columns](/components/table/#components-table-demo-fixed-columns) ' +
       'instead.'
     );
 

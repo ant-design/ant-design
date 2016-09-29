@@ -9,13 +9,13 @@ title:
 
 通过 `locale` 语言, 默认支持 `en_US`，`zh_CN`。
 
-moment 会自动使用当前时区，如果需要使用别的时区，则需要自行设置，设置方法请参考 [下面的文档](http://ant.design/components/date-picker/#DatePicker)。
+moment 会自动使用当前时区，如果需要使用别的时区，则需要自行设置，设置方法请参考 [下面的文档](/components/date-picker/#DatePicker)。
 
 ## en-US
 
 Use locale to set the language. `en_US`, `zh_CN` are supported by default.
 
-moment will use your time zone automatically. If you want to set other time zone, please set it by yourself. [More](http://ant.design/components/date-picker/#DatePicker)
+moment will use your time zone automatically. If you want to set other time zone, please set it by yourself. [More](/components/date-picker/#DatePicker)
 
 
 ````jsx
