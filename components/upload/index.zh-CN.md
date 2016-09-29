@@ -17,9 +17,11 @@ title: Upload
 
 ## API
 
+> 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki)。
+
 | 参数       | 说明                                                         | 类型        | 默认值|
 |------------|--------------------------------------------------------------| ----------- |-------|
- | name       | 可选参数, 上传的文件                                         | String      | file  |
+| name       | 可选参数, 上传的文件                                         | String      | file  |
 | defaultFileList | 可选参数，默认已经上传的文件列表                           | Array[Object] | 无  |
 | fileList   | 可选参数，已经上传的文件列表                                   | Array[Object] | 无 |
 | action     | 必选参数, 上传的地址                                         | String      | 无    |
