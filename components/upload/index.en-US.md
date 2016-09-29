@@ -16,6 +16,8 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 ## API
 
+> You can consult [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki) about how to implement server side upload interface.
+
 | Property       | Description                                    | Type        | Default|
 |------------|----------------------------------------------------| ----------- |--------|
 | name       | Optional. The name of uploading file               | String      | file  |
