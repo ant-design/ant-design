@@ -53,7 +53,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 - [首页](http://ant.design/)
 - [React 实现](http://ant.design/docs/react/introduce)
-- [修改记录](CHANGELOG.md)
+- [修改记录](CHANGELOG.zh-CN.md)
 - [开发脚手架](https://github.com/ant-design/antd-init/)
 - [开发工具文档](http://ant-tool.github.io/)
 - [React 基础组件](http://react-component.github.io/)
