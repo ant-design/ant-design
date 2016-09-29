@@ -19,11 +19,11 @@ const SubMenu = Menu.SubMenu;
 
 const menu = (
   <Menu>
-    <Menu.Item>第一个菜单项</Menu.Item>
-    <Menu.Item>第二个菜单项</Menu.Item>
-    <SubMenu title="子菜单">
-      <Menu.Item>第三个菜单项</Menu.Item>
-      <Menu.Item>第四个菜单项</Menu.Item>
+    <Menu.Item>1st menu item</Menu.Item>
+    <Menu.Item>2nd menu item</Menu.Item>
+    <SubMenu title="sub menu">
+      <Menu.Item>3d menu item</Menu.Item>
+      <Menu.Item>4th menu item</Menu.Item>
     </SubMenu>
   </Menu>
 );
@@ -31,7 +31,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" href="#">
-      多级菜单 <Icon type="down" />
+      Cascading menu <Icon type="down" />
     </a>
   </Dropdown>
 , mountNode);
