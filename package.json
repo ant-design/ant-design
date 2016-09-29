@@ -39,6 +39,7 @@
     "css-animation": "^1.2.5",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
+    "moment": "^2.15.1",
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
     "rc-animate": "~2.3.0",
