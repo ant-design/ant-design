@@ -19,20 +19,20 @@ import { Menu, Dropdown, Icon } from 'antd';
 const menu = (
   <Menu>
     <Menu.Item key="0">
-      <a href="http://www.alipay.com/">第一个菜单项</a>
+      <a href="http://www.alipay.com/">1st menu item</a>
     </Menu.Item>
     <Menu.Item key="1">
-      <a href="http://www.taobao.com/">第二个菜单项</a>
+      <a href="http://www.taobao.com/">2nd menu item</a>
     </Menu.Item>
     <Menu.Divider />
-    <Menu.Item key="3">第三个菜单项</Menu.Item>
+    <Menu.Item key="3">3d menu item</Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(<div>
   <Dropdown overlay={menu} trigger={['click']}>
     <a className="ant-dropdown-link" href="#">
-      点击触发 <Icon type="down" />
+      Click me <Icon type="down" />
     </a>
   </Dropdown>
 </div>, mountNode);
