@@ -12,7 +12,8 @@ An enterprise-class UI design language and React-based implementation.
 
 - An enterprise-class design language and high quality UI.
 - Graceful UI components out of the box, base on [React Component](http://react-component.github.io/badgeboard/).
-- A npm + webpack + babel + dora [workflow](http://ant-tool.github.io/index.html).
+- Writen in TypeScript with complete define types.
+- A npm + webpack + babel + dora + [dva](https://github.com/dvajs/dva) development framework.
 
 ## Install
 
