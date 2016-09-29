@@ -13,20 +13,20 @@ After referring to the summary and reasoning of design principles from The Non-D
 ---
 
 <div class="resource-cards">
-<a target="_blank" href="http://book.douban.com/subject/3323633/" class="resource-card">
-  <img src="https://os.alipayobjects.com/rmsportal/SNdJVyZaZwdwJmr.png">
+<a target="_blank" href="http://www.peachpit.com/store/non-designers-design-book-9780133966152" class="resource-card">
+  <img src="http://www.peachpit.com/ShowCover.aspx?isbn=9780133966152&type=f">
   <span class="resource-card-content">
-    <span class="resource-card-title">写给大家看的设计书</span>
-    <span class="resource-card-description">作者: Robin Williams</span>
-    <span class="resource-card-description">出版社: 人民邮电出版社</span>
+    <span class="resource-card-title">Non-Designer's Design Book</span>
+    <span class="resource-card-description">Author: Robin Williams</span>
+    <span class="resource-card-description">Publisher: Peachpit Press</span>
   </span>
 </a>
-<a target="_blank" href="http://book.douban.com/subject/3821157/" class="resource-card">
-  <img src="https://os.alipayobjects.com/rmsportal/CoojVXLtoWrUSmI.png">
+<a target="_blank" href="http://shop.oreilly.com/product/9780596516253.do" class="resource-card">
+  <img src="http://akamaicovers.oreilly.com/images/9780596516253/cat.gif">
   <span class="resource-card-content">
-    <span class="resource-card-title">Web 界面设计</span>
-    <span class="resource-card-description">作者: Bill Scott / Theresa Neil</span>
-    <span class="resource-card-description">出版社: 电子工业出版社</span>
+    <span class="resource-card-title">Designing Web Interfaces</span>
+    <span class="resource-card-description">Author: Bill Scott, Theresa Neil</span>
+    <span class="resource-card-description">Publisher: O'Reilly Media</span>
   </span>
 </a>
 </div>
