@@ -17,15 +17,15 @@ The basic example.
 import { Popconfirm, message } from 'antd';
 
 function confirm() {
-  message.success('Clicked confirm button');
+  message.success('Click on Yes');
 }
 
 function cancel() {
-  message.error('Clicked cancel button');
+  message.error('Click on No');
 }
 
 ReactDOM.render(
-  <Popconfirm title="Are you sure to delete this task?" onConfirm={confirm} onCancel={cancel} okText="Ok" cancelText="Cancel">
+  <Popconfirm title="Are you sure delete this task?" onConfirm={confirm} onCancel={cancel} okText="Yes" cancelText="No">
     <a href="#">Delete</a>
   </Popconfirm>
 , mountNode);

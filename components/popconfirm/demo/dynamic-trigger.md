@@ -28,23 +28,23 @@ const App = React.createClass({
   },
   confirm() {
     this.setState({ visible: false });
-    message.success('next step.');
+    message.success('Next step.');
   },
   cancel() {
     this.setState({ visible: false });
-    message.error('You click on cancel.');
+    message.error('Click on cancel.');
   },
   handleVisibleChange(visible) {
     if (!visible) {
       this.setState({ visible });
       return;
     }
-    // Determining condition before show popconfirm.
+    // Determining condition before show the popconfirm.
     console.log(this.state.condition);
     if (this.state.condition) {
       this.confirm();  // next step
     } else {
-      this.setState({ visible });  // show popconfirm
+      this.setState({ visible });  // show the popconfirm
     }
   },
   render() {
