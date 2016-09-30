@@ -176,7 +176,7 @@ let Demo = React.createClass({
               {this.state.rePassBarShow ? this.renderPassStrengthBar('rePass') : null}
             </Col>
           </Row>
-          <FormItem><Button type="primary" onClick={this.handleSubmit}>提交</Button></FormItem>
+          <FormItem><Button type="primary" onClick={this.handleSubmit}>Submit</Button></FormItem>
         </Form>
       </div>
     );

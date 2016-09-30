@@ -48,3 +48,8 @@ Fields in `showSearch`:
 | sort | Used to sort filtered options. | `function(a, b, inputValue)` | |
 | matchInputWidth | Whether the width of result list equals to input's | boolean | |
 
+<style>
+.ant-cascader-picker {
+  width: 220px;
+}
+</style>

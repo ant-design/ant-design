@@ -48,3 +48,9 @@ subtitle: 级联选择
 | render | 用于渲染 filter 后的选项 | `function(inputValue, path): React.ReactNode` | |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
 | matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | |
+
+<style>
+.ant-cascader-picker {
+  width: 220px;
+}
+</style>

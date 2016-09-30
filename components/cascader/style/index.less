@@ -11,8 +11,6 @@
     cursor: pointer;
     width: 100%;
     z-index: 1;
-    background: transparent;
-    color: transparent;
   }
   &-picker {
     position: relative;
@@ -22,6 +20,10 @@
     font-size: @font-size-base;
     background-color: #fff;
     border-radius: @border-radius-base;
+
+    &-with-value &-label {
+      color: transparent;
+    }
 
     &-disabled {
       cursor: not-allowed;
