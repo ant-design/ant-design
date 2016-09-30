@@ -70,6 +70,7 @@ export default class Tag extends React.Component<TagProps, any> {
     const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${color}`]: !!color,
+      [`${prefixCls}-has-color`]: !!color,
       [`${prefixCls}-close`]: this.state.closing,
       [className]: !!className,
     });

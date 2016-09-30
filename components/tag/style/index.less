@@ -5,7 +5,7 @@
 
 .@{tag-prefix-cls} {
   display: inline-block;
-  line-height: 22px;
+  line-height: 20px;
   height: 22px;
   padding: 0 8px;
   border-radius: @border-radius-base;
@@ -51,11 +51,14 @@
     }
   }
 
+  &-has-color {
+    border-color: transparent;
+  }
+
   &-blue,
   &-green,
   &-yellow,
   &-red {
-    border: 0;
     &,
     a,
     a:hover,
