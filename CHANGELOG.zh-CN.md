@@ -9,6 +9,20 @@ timeline: true
 
 ---
 
+## 2.0.1
+
+`2016-09-30`
+
+- 修复无法调用 react-slick 方法的问题。[#3164](https://github.com/ant-design/ant-design/issues/3164)
+- 修复 Steps.Step[icon] 不支持 React.ReactNode 的问题。[#3159](https://github.com/ant-design/ant-design/issues/3159)
+- 修复 Affix 不支持服务端渲染的问题。[#3216](https://github.com/ant-design/ant-design/issues/3216)
+- 修复 Mention 不支持 `onSelect` `placeholder` 的问题。[#3236](https://github.com/ant-design/ant-design/issues/3236) [#3226](https://github.com/ant-design/ant-design/issues/3226)
+- 修复 Transfer 与 `getFieldDecorator` 一起使用时的报错问题。
+- 修复 LocaleProvider 对时间组件无效的问题。
+- 修复 Cascader 搜索模式搜索文字显示不了的问题。
+- 修复 Spin 动画与文案整体不垂直居中的问题。
+- 修复 RangePicker Modal Tag Progress 等组件样式问题。
+
 ## 2.0.0
 
 `2016-09-28`
