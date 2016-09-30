@@ -45,9 +45,16 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## TypeScript
 
-```js
-///<reference path='./node_modules/antd/type-definitions/antd.d.ts'/>
-...
+tsconfig.json
+
+```
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
+  }
+}
 ```
 
 ## 链接
