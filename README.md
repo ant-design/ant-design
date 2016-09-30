@@ -75,7 +75,8 @@ tsconfig.json
 {
   "compilerOptions": {
     "moduleResolution": "node",
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
   }
 }
 ```
