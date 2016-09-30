@@ -16,6 +16,7 @@ export interface MentionProps {
   className?: string;
   multiLines?: Boolean;
   prefix?: string;
+  placeholder?: string;
 }
 
 export interface MentionState {
