@@ -49,7 +49,6 @@ ReactDOM.render(
     options={options}
     onChange={onChange}
     placeholder="Please select"
-    style={{ width: 230 }}
     showSearch
   />,
   mountNode
