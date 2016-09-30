@@ -19,9 +19,9 @@ const Step = Steps.Step;
 
 ReactDOM.render(
   <Steps current={1} status="error">
-    <Step title="finished" description="This is description" />
-    <Step title="In Process" description="This is description" />
-    <Step title="Waiting" description="This is description" />
+    <Step title="Finished" description="This is a description" />
+    <Step title="In Process" description="This is a description" />
+    <Step title="Waiting" description="This is a description" />
   </Steps>
 , mountNode);
 ````

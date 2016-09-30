@@ -37,10 +37,12 @@ title: Mention
 | suggestionStyle | 弹出下拉框样式 | Object | {} |
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:String) | [] |
 | onChange | 输入框内容变化时回调 | function(editorState: EditorState) | null |
+| onSelect | 下拉框选择建议时回调 | function(suggestion: String) | null |
 | notFoundContent| 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
 | loading | 加载中 | boolean | false |
 | multiLines | 多行模式 | boolean | false |
 | prefix | 触发弹出下拉框的字符 | string | '@' |
+| placeHolder | 输入框默认文字 | string | null |
 | defaultValue | 默认值 | EditorState, 可以用 Mention.toEditorState(text) 把文字转换成 EditorState | null |
 | value | 值 | EditorState | null |
 
