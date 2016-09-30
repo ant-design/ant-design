@@ -21,12 +21,17 @@ function onChange(editorState) {
   console.log(toString(editorState));
 }
 
+function onSelect(suggestion) {
+  console.log('onSelect', suggestion);
+}
+
 ReactDOM.render(
   <Mention
     style={{ width: 500, height: 100 }}
     onChange={onChange}
     defaultValue={toEditorState('@afc163')}
     suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+    onSelect={onSelect}
   />
 , mountNode);
 ````

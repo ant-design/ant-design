@@ -27,6 +27,9 @@ const webFrameworks = [
   { name: 'Django', type: 'Python' },
 ];
 
+function onSelect(suggestion) {
+  console.log('onSelect', suggestion);
+}
 const CustomNavMention = React.createClass({
   getInitialState() {
     return {
@@ -52,6 +55,7 @@ const CustomNavMention = React.createClass({
         style={{ width: 500, height: 100 }}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
+        onSelect={onSelect}
       />
     );
   },
