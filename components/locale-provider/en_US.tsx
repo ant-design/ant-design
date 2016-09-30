@@ -1,3 +1,12 @@
+/* tslint:disable */
+import THIS_IS_A_HACK_TO_FIX_LOCALE from '../date-picker/locale/zh_CN';
+(THIS_IS_A_HACK_TO_FIX_LOCALE);
+/* tslint:enable */
+
+// To set the default locale of moment to en globally.
+import moment from 'moment';
+moment.locale('en');
+
 import Pagination from 'rc-pagination/lib/locale/en_US';
 import DatePicker from '../date-picker/locale/en_US';
 import TimePicker from '../time-picker/locale/en_US';
