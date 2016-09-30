@@ -213,6 +213,7 @@
   .code-box-demo .demo-row {
     background-image: linear-gradient(90deg, #F5F5F5 4.16666667%, transparent 4.16666667%, transparent 8.33333333%, #F5F5F5 8.33333333%, #F5F5F5 12.5%,  transparent 12.5%, transparent 16.66666667%, #F5F5F5 16.66666667%, #F5F5F5 20.83333333%, transparent 20.83333333%, transparent 25%, #F5F5F5 25%, #F5F5F5 29.16666667%, transparent 29.16666667%, transparent 33.33333333%, #F5F5F5 33.33333333%, #F5F5F5 37.5%, transparent 37.5%, transparent 41.66666667%, #F5F5F5 41.66666667%, #F5F5F5 45.83333333%, transparent 45.83333333%, transparent 50%, #F5F5F5 50%, #F5F5F5 54.16666667%, transparent 54.16666667%, transparent 58.33333333%, #F5F5F5 58.33333333%, #F5F5F5 62.5%, transparent 62.5%, transparent 66.66666667%, #F5F5F5 66.66666667%, #F5F5F5 70.83333333%,  transparent 70.83333333%, transparent 75%, #F5F5F5 75%, #F5F5F5 79.16666667%, transparent 79.16666667%, transparent 83.33333333%, #F5F5F5 83.33333333%, #F5F5F5 87.5%, transparent 87.5%, transparent 91.66666667%, #F5F5F5 91.66666667%, #F5F5F5 95.83333333%, transparent 95.83333333%);
     overflow: hidden;
+    margin-bottom: 8px;
   }
   .ant-row-flex,
   .code-box-demo .ant-row-flex {
@@ -224,21 +225,24 @@
   .code-box-demo .ant-row-flex > div {
     padding: 5px 0;
     text-align: center;
-    border-radius: 6px;
+    border-radius: 0;
     min-height: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     color: #fff;
   }
   .code-box-demo .ant-row > div:not(.gutter-row),
   .code-box-demo .ant-row-flex > div:not(.gutter-row) {
-    background: #6AC2F5;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #00A0E9;
+    padding: 16px 0;
+    &:nth-child(2n+1) {
+      background: fade(#00A0E9, 70%);
+    }
   }
   .ant-row .demo-col,
   .code-box-demo .ant-row .demo-col {
     text-align: center;
-    padding: 40px 0;
+    padding: 30px 0;
     color: #fff;
     font-size: 18px;
     border: none;
@@ -247,11 +251,11 @@
   }
   .ant-row .demo-col-1,
   .ant-row .demo-col-1 {
-    background: rgba(29, 128, 211, 0.7);
+    background: fade(#00A0E9, 70%);
   }
   .ant-row .demo-col-2,
   .code-box-demo .ant-row .demo-col-2 {
-    background: rgba(29, 128, 211, 0.5);
+    background: fade(#00A0E9, 50%);
   }
   .ant-row .demo-col-3,
   .code-box-demo .ant-row .demo-col-3{
@@ -260,7 +264,7 @@
   }
   .ant-row .demo-col-4,
   .code-box-demo .ant-row .demo-col-4 {
-    background: rgba(29, 128, 211, 0.6);
+    background: fade(#00A0E9, 60%);
   }
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {
@@ -269,15 +273,19 @@
   }
   .code-box-demo .height-100 {
     height: 100px;
+    line-height: 100px;
   }
   .code-box-demo .height-50 {
     height: 50px;
+    line-height: 50px;
   }
   .code-box-demo .height-120 {
     height: 120px;
+    line-height: 120px;
   }
   .code-box-demo .height-80 {
     height: 80px;
+    line-height: 80px;
   }
 }
 

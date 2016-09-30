@@ -1,6 +1,6 @@
 ---
 order: 8
-title: 
+title:
   zh-CN: 其他属性的响应式
   en-US: More responsive
 ---
@@ -21,9 +21,9 @@ import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <Row>
-    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }} />
-    <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }} />
-    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }} />
+    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
+    <Col xs={{ span: 11, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
+    <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>Col</Col>
   </Row>
 , mountNode);
 ````
