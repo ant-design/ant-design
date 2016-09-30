@@ -52,7 +52,7 @@ export default class Layout extends React.Component {
         <LocaleProvider locale={enUS}>
           <div className="page-wrapper">
             <Header {...restProps} />
-            {children}
+              {children}
             <Footer />
           </div>
         </LocaleProvider>
