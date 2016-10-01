@@ -34,7 +34,7 @@ for (let i = 0; i < 46; i++) {
     key: i,
     name: `Edward King {i}`,
     age: 32,
-    address: `Lndon, Park Lane no. ${i}`,
+    address: `London, Park Lane no. ${i}`,
   });
 }
 
