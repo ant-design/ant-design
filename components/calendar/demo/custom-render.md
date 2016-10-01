@@ -18,11 +18,11 @@ import { Calendar } from 'antd';
 import moment from 'moment';
 
 function dateCellRender(value) {
-  return <div>自定义日数据 {value.date()}</div>;
+  return <div>Custom date data {value.date()}</div>;
 }
 
 function monthCellRender(value) {
-  return <div>自定义月数据 {value.month()}</div>;
+  return <div>Custom monthly data {value.month()}</div>;
 }
 
 ReactDOM.render(
