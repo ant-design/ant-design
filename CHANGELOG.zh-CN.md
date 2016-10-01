@@ -11,7 +11,7 @@ timeline: true
 
 ## 2.0.1
 
-`2016-09-30`
+`2016-10-01`
 
 - 修复无法调用 react-slick 方法的问题。[#3164](https://github.com/ant-design/ant-design/issues/3164)
 - 修复 Steps.Step[icon] 不支持 React.ReactNode 的问题。[#3159](https://github.com/ant-design/ant-design/issues/3159)

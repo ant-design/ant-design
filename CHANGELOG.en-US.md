@@ -11,7 +11,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ## 2.0.1
 
-`2016-09-30`
+`2016-10-01`
 
 - Fix developers cannot call methods of react-slick. [#3164](https://github.com/ant-design/ant-design/issues/3164)
 - Fix Steps.Step[icon] should support React.ReactNode. [#3159](https://github.com/ant-design/ant-design/issues/3159)
