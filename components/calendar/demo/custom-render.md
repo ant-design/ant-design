@@ -18,11 +18,11 @@ import { Calendar } from 'antd';
 import moment from 'moment';
 
 function dateCellRender(value) {
-  return <div>Custom date data {value.date()}</div>;
+  return <div>Custom date {value.date()}</div>;
 }
 
 function monthCellRender(value) {
-  return <div>Custom monthly data {value.month()}</div>;
+  return <div>Custom monthly {value.month()}</div>;
 }
 
 ReactDOM.render(

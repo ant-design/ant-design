@@ -48,9 +48,9 @@ const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
-    name: `Edrward King ${i}`,
+    name: `Edrward ${i}`,
     age: 32,
-    address: `London, Park Lane no. ${i}`,
+    address: `London Park no. ${i}`,
   });
 }
 
