@@ -44,7 +44,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     onClick() {},
     visibilityHeight: 400,
     target() {
-      return window;
+      return typeof window !== 'undefined' ?
+        window : null;
     },
     prefixCls: 'ant-back-top',
   };

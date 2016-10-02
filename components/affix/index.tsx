@@ -57,7 +57,8 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   static defaultProps = {
     target() {
-      return window;
+      return typeof window !== 'undefined' ?
+        window : null;
     },
     onChange() {},
     prefixCls: 'ant-affix',
