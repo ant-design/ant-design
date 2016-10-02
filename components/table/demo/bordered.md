@@ -17,33 +17,33 @@ Add border, title and footer for table.
 import { Table } from 'antd';
 
 const columns = [{
-  title: '姓名',
+  title: 'Name',
   dataIndex: 'name',
   render: text => <a href="#">{text}</a>,
 }, {
-  title: '资产',
+  title: 'Cash Assets',
   className: 'column-money',
   dataIndex: 'money',
 }, {
-  title: '住址',
+  title: 'Address',
   dataIndex: 'address',
 }];
 
 const data = [{
   key: '1',
-  name: '胡彦斌',
+  name: 'John Brown',
   money: '￥300,000.00',
-  address: '西湖区湖底公园1号',
+  address: 'New York No. 1 Lake Park',
 }, {
   key: '2',
-  name: '胡彦祖',
+  name: 'Jim Green',
   money: '￥1,256,000.00',
-  address: '西湖区湖底公园1号',
+  address: 'London No. 1 Lake Park',
 }, {
   key: '3',
-  name: '李大嘴',
+  name: 'Joe Black',
   money: '￥120,000.00',
-  address: '西湖区湖底公园1号',
+  address: 'Sidney No. 1 Lake Park',
 }];
 
 ReactDOM.render(
@@ -51,8 +51,8 @@ ReactDOM.render(
     columns={columns}
     dataSource={data}
     bordered
-    title={() => '页头'}
-    footer={() => '页脚'}
+    title={() => 'Header'}
+    footer={() => 'Footer'}
   />
 , mountNode);
 ````
