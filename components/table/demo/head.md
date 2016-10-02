@@ -21,23 +21,23 @@ Use `sorter` to make a column sortable. `sorter` can be a function `function(a, 
 import { Table } from 'antd';
 
 const columns = [{
-  title: '姓名',
+  title: 'Name',
   dataIndex: 'name',
   filters: [{
-    text: '姓李的',
-    value: '李',
+    text: 'Joe',
+    value: 'Joe',
   }, {
-    text: '姓胡的',
-    value: '胡',
+    text: 'Jim',
+    value: 'Jim',
   }, {
-    text: '子菜单',
-    value: '子菜单',
+    text: 'Submenu',
+    value: 'Submenu',
     children: [{
-      text: '姓陈的',
-      value: '陈',
+      text: 'Green',
+      value: 'Green',
     }, {
-      text: '姓王的',
-      value: '王',
+      text: 'Black',
+      value: 'Black',
     }],
   }],
   // specify the condition of filtering result
@@ -45,18 +45,18 @@ const columns = [{
   onFilter: (value, record) => record.name.indexOf(value) === 0,
   sorter: (a, b) => a.name.length - b.name.length,
 }, {
-  title: '年龄',
+  title: 'Age',
   dataIndex: 'age',
   sorter: (a, b) => a.age - b.age,
 }, {
-  title: '地址',
+  title: 'Address',
   dataIndex: 'address',
   filters: [{
-    text: '南湖',
-    value: '南湖',
+    text: 'London',
+    value: 'London',
   }, {
-    text: '西湖',
-    value: '西湖',
+    text: 'New York',
+    value: 'New York',
   }],
   filterMultiple: false,
   onFilter: (value, record) => record.address.indexOf(value) === 0,
@@ -65,24 +65,24 @@ const columns = [{
 
 const data = [{
   key: '1',
-  name: '胡斌',
+  name: 'John Brown',
   age: 32,
-  address: '南湖区湖底公园1号',
+  address: 'New York No. 1 Lake Park',
 }, {
   key: '2',
-  name: '胡彦祖',
+  name: 'Jim Green',
   age: 42,
-  address: '西湖区湖底公园12号',
+  address: 'London No. 1 Lake Park',
 }, {
   key: '3',
-  name: '李大嘴',
+  name: 'Joe Black',
   age: 32,
-  address: '南湖区湖底公园123号',
+  address: 'Sidney No. 1 Lake Park',
 }, {
   key: '4',
-  name: '李秀莲大嘴哥',
+  name: 'Jim Red',
   age: 32,
-  address: '西湖区湖底公园123号',
+  address: 'London No. 2 Lake Park',
 }];
 
 function onChange(pagination, filters, sorter) {
