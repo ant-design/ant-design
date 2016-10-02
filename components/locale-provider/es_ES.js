@@ -19,7 +19,7 @@ module.exports = {
   },
   Transfer: {
     notFoundContent: 'No Encontrado',
-    searchPlaceholder: 'Buscar Aqui',
+    searchPlaceholder: 'Buscar Aquí',
     itemUnit: 'item',
     itemsUnit: 'items',
   },
