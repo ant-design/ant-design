@@ -18,50 +18,50 @@ import { Table } from 'antd';
 
 const columns = [
   {
-    title: '姓名',
+    title: 'Name',
     dataIndex: 'name',
     key: 'name',
     width: 100,
     fixed: 'left',
     filters: [{
-      text: '姓李的',
-      value: '李',
+      text: 'Joe',
+      value: 'Joe',
     }, {
-      text: '姓胡的',
-      value: '胡',
+      text: 'John',
+      value: 'John',
     }],
     onFilter: (value, record) => record.name.indexOf(value) === 0,
   },
   {
-    title: '其它',
+    title: 'Other',
     children: [
       {
-        title: '年龄',
+        title: 'Age',
         dataIndex: 'age',
         key: 'age',
         width: 100,
         sorter: (a, b) => a.age - b.age,
       },
       {
-        title: '住址',
+        title: 'Address',
         children: [
           {
-            title: '街道',
+            title: 'Street',
             dataIndex: 'street',
             key: 'street',
             width: 200,
           },
           {
-            title: '小区',
+            title: 'Block',
             children: [
               {
-                title: '单元',
+                title: 'Building',
                 dataIndex: 'building',
                 key: 'building',
                 width: 50,
               },
               {
-                title: '门牌',
+                title: 'Door No.',
                 dataIndex: 'number',
                 key: 'number',
                 width: 100,
@@ -73,16 +73,16 @@ const columns = [
     ],
   },
   {
-    title: '公司',
+    title: 'Company',
     children: [
       {
-        title: '地址',
+        title: 'Company Address',
         dataIndex: 'companyAddress',
         key: 'companyAddress',
         width: 200,
       },
       {
-        title: '名称',
+        title: 'Company Name',
         dataIndex: 'companyName',
         key: 'companyName',
         width: 200,
@@ -90,7 +90,7 @@ const columns = [
     ],
   },
   {
-    title: '性别',
+    title: 'Gender',
     dataIndex: 'gender',
     key: 'gender',
     width: 60,
@@ -102,14 +102,14 @@ const data = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
-    name: '胡彦祖',
+    name: 'John Brown',
     age: Math.ceil(Math.random() * 100),
-    street: '拱墅区和睦街道',
-    building: 3,
+    street: 'Lake Park',
+    building: 'C',
     number: 2035,
-    companyAddress: '西湖区湖底公园',
-    companyName: '湖底有限公司',
-    gender: '男',
+    companyAddress: 'Lake Street 42',
+    companyName: 'SoftLake Co',
+    gender: 'M',
   });
 }
 
