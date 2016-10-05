@@ -32,12 +32,12 @@ export default {
     cancelText: 'Отмена',
   },
   Transfer: {
-    notFoundContent: 'Not Found',
-    searchPlaceholder: 'Search here',
+    notFoundContent: 'Ничего не найдено',
+    searchPlaceholder: 'Введите название для поиска',
     itemUnit: 'item',
     itemsUnit: 'items',
   },
   Select: {
-    notFoundContent: 'Not Found',
+    notFoundContent: 'Ничего не найдено',
   },
 };
