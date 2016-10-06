@@ -1,9 +1,9 @@
 import React from 'react';
 import { PropTypes } from 'react';
+import classNames from 'classnames';
 import List from './list';
 import Operation from './operation';
 import Search from './search';
-import classNames from 'classnames';
 
 function noop() {
 }
@@ -46,7 +46,6 @@ export default class Transfer extends React.Component<TransferProps, any> {
     prefixCls: 'ant-transfer',
     dataSource: [],
     render: noop,
-    targetKeys: [],
     onChange: noop,
     onSelectChange: noop,
     titles: ['源列表', '目的列表'],
@@ -95,15 +94,16 @@ export default class Transfer extends React.Component<TransferProps, any> {
       // clear cached splited dataSource
       this.splitedDataSource = null;
 
-      const { dataSource, targetKeys } = nextProps;
+      const { dataSource, targetKeys = [] } = nextProps;
+      function existInDateSourcekey(key) {
+        return dataSource.filter(item => item.key === key).length;
+      }
       // clear key nolonger existed
       // clear checkedKeys according to targetKeys
       this.setState({
-        leftCheckedKeys: leftCheckedKeys
-          .filter(data => dataSource.filter(item => item.key === data).length)
+        leftCheckedKeys: leftCheckedKeys.filter(existInDateSourcekey)
           .filter(data => targetKeys.filter(key => key === data).length === 0),
-        rightCheckedKeys: rightCheckedKeys
-          .filter(data => dataSource.filter(item => item.key === data).length)
+        rightCheckedKeys: rightCheckedKeys.filter(existInDateSourcekey)
           .filter(data => targetKeys.filter(key => key === data).length > 0),
       });
     }
@@ -113,7 +113,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
       return this.splitedDataSource;
     }
 
-    const { dataSource, targetKeys } = props;
+    const { dataSource, targetKeys = [] } = props;
     if (props.rowKey) {
       dataSource.forEach(record => {
         record.key = props.rowKey(record);
@@ -138,7 +138,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   }
 
   moveTo = (direction) => {
-    const { targetKeys, onChange } = this.props;
+    const { targetKeys = [], onChange } = this.props;
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const moveKeys = direction === 'right' ? leftCheckedKeys : rightCheckedKeys;
     // move items to target box

@@ -9,6 +9,20 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.0.1
+
+`2016-10-01`
+
+- Fix developers cannot call methods of react-slick. [#3164](https://github.com/ant-design/ant-design/issues/3164)
+- Fix Steps.Step[icon] should support React.ReactNode. [#3159](https://github.com/ant-design/ant-design/issues/3159)
+- Fix server-side render for Affix. [#3216](https://github.com/ant-design/ant-design/issues/3216)
+- Fix Mention should supoort `onSelect` `placeholder`. [#3236](https://github.com/ant-design/ant-design/issues/3236) [#3226](https://github.com/ant-design/ant-design/issues/3226)
+- Fix Transfer cannot work with `getFieldDecorator`.
+- Fix LocaleProvider doesn't work for time-related components.
+- Fix Cascader doesn't show search text in search mode.
+- Fix the animation & text Spin should be placed in vertical middle.
+- Fix styles of RangePicker Modal Tag Progress.
+
 ## 2.0.0
 
 `2016-09-28`

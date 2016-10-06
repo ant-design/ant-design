@@ -43,7 +43,7 @@ let App = React.createClass({
     const { getFieldValue } = this.props.form;
     const mentions = getMentions(getFieldValue('mention'));
     if (mentions.length < 2) {
-      callback(new Error('最帅的码农不止一个！!'));
+      callback(new Error('More than one must be selected!'));
     } else {
       callback();
     }
@@ -55,7 +55,7 @@ let App = React.createClass({
       <Form horizontal>
         <FormItem
           id="control-mention"
-          label="最帅的码农"
+          label="Top programmers"
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
         >
@@ -71,9 +71,9 @@ let App = React.createClass({
           )}
         </FormItem>
         <FormItem wrapperCol={{ span: 14, offset: 6 }}>
-          <Button type="primary" onClick={this.handleSubmit}>确定</Button>
+          <Button type="primary" onClick={this.handleSubmit}>Submit</Button>
           &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>重置</Button>
+          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
         </FormItem>
       </Form>
     );

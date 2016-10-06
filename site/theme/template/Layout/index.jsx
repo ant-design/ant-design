@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
+import { LocaleProvider } from 'antd';
+import enUS from 'antd/lib/locale-provider/en_US';
 import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
@@ -47,11 +49,13 @@ export default class Layout extends React.Component {
     const { children, ...restProps } = this.props;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <div className="page-wrapper">
-          <Header {...restProps} />
-          {children}
-          <Footer />
-        </div>
+        <LocaleProvider locale={enUS}>
+          <div className="page-wrapper">
+            <Header {...restProps} />
+              {children}
+            <Footer />
+          </div>
+        </LocaleProvider>
       </IntlProvider>
     );
   }

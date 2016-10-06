@@ -17,30 +17,30 @@ Controll loading states by `loading` property.
 import { Table, Button } from 'antd';
 
 const columns = [{
-  title: '姓名',
+  title: 'Name',
   dataIndex: 'name',
 }, {
-  title: '年龄',
+  title: 'Age',
   dataIndex: 'age',
 }, {
-  title: '住址',
+  title: 'Address',
   dataIndex: 'address',
 }];
 const data = [{
   key: '1',
-  name: '胡彦斌',
+  name: 'John Brown',
   age: 32,
-  address: '西湖区湖底公园1号',
+  address: 'New York No. 1 Lake Park',
 }, {
   key: '2',
-  name: '胡彦祖',
+  name: 'Jim Green',
   age: 42,
-  address: '西湖区湖底公园1号',
+  address: 'London No. 1 Lake Park',
 }, {
   key: '3',
-  name: '李大嘴',
+  name: 'Joe Black',
   age: 32,
-  address: '西湖区湖底公园1号',
+  address: 'Sidney No. 1 Lake Park',
 }];
 
 const App = React.createClass({
@@ -58,7 +58,7 @@ const App = React.createClass({
     return (
       <div>
         <Table columns={columns} dataSource={data} loading={this.state.loading} />
-        <Button type="primary" onClick={this.toggleLoading}>切换 loading 状态</Button>
+        <Button type="primary" onClick={this.toggleLoading}>Switch loading state</Button>
       </div>
     );
   },
