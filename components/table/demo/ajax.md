@@ -68,7 +68,7 @@ const Test = React.createClass({
     console.log('params:', params);
     this.setState({ loading: true });
     reqwest({
-      url: 'http://api.randomuser.me',
+      url: 'https://randomuser.me/api',
       method: 'get',
       data: {
         results: 10,

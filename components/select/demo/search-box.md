@@ -1,6 +1,6 @@
 ---
 order: 9
-title: 
+title:
   zh-CN: 搜索框
   en-US: Search Box
 ---
@@ -36,7 +36,7 @@ function fetch(value, callback) {
       code: 'utf-8',
       q: value,
     });
-    jsonp(`http://suggest.taobao.com/sug?${str}`, (err, d) => {
+    jsonp(`https://suggest.taobao.com/sug?${str}`, (err, d) => {
       if (currentValue === value) {
         const result = d.result;
         const data = [];
