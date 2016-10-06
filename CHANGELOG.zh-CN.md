@@ -51,7 +51,7 @@ timeline: true
     // 发送 data 到服务器
   }
   ```
-* 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
+* 时间类组件的 `format` 属性也发生了变化，从 [gregorian-calendar-format 的格式](https://github.com/yiminghe/gregorian-calendar-format#api) 变化为与 [moment 的格式](http://momentjs.com/docs/#/parsing/string-format/)，例如原来的 `yyyy-MM-dd` 将变为 `YYYY-MM-DD`。
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。

@@ -53,7 +53,7 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
     // send data to server
   }
   ```
-* The `format` of time-related components is the same as [moment's format](http://momentjs.com/docs/) now.
+* The `format` of time-related components is changed from [gregorian-calendar-format](https://github.com/yiminghe/gregorian-calendar-format#api) to [moment  format](http://momentjs.com/docs/#/parsing/string-format/) now, for instance the format `yyyy-MM-dd` should change to `YYYY-MM-DD`.
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. As being totally different, please check [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
 * Paging columns of Table were removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
