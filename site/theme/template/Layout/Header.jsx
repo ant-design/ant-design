@@ -100,7 +100,7 @@ export default class Header extends React.Component {
 
     const menuMode = this.state.menuMode;
     const menu = [
-      <Button id="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
+      <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
@@ -109,14 +109,9 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="docs/practice">
-          <Link to="/docs/practice/cases">
-            <FormattedMessage id="app.header.menu.practice" />
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="docs/pattern">
-          <Link to="/docs/pattern/navigation">
-            <FormattedMessage id="app.header.menu.pattern" />
+        <Menu.Item key="docs/spec">
+          <Link to="/docs/spec/introduce">
+            <FormattedMessage id="app.header.menu.spec" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/react">
@@ -124,9 +119,14 @@ export default class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.Item key="docs/spec">
-          <Link to="/docs/spec/introduce">
-            <FormattedMessage id="app.header.menu.spec" />
+        <Menu.Item key="docs/pattern">
+          <Link to="/docs/pattern/navigation">
+            <FormattedMessage id="app.header.menu.pattern" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="docs/practice">
+          <Link to="/docs/practice/cases">
+            <FormattedMessage id="app.header.menu.practice" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/resource">
@@ -137,7 +137,7 @@ export default class Header extends React.Component {
       </Menu>,
     ];
 
-    const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search...';
+    const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
         <Popover

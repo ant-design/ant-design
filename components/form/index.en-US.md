@@ -5,8 +5,7 @@ cols: 1
 title: Form
 ---
 
-Forms are used to collect, validate, and submit the user input. They contain one or more form items.
-There are many types of form items including checkbox, radio, input, select, and more.
+Form is used to collect, validate, and submit the user input, usually contains various form items including checkbox, radio, input, select, and etc.
 
 ## Form
 

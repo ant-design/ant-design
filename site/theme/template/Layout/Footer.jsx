@@ -91,22 +91,34 @@ class Footer extends React.Component {
           </li>
           <li>
             <h2><FormattedMessage id="app.footer.links" /></h2>
-            <div><a href="http://mobile.ant.design">Ant Design Mobile</a> -
+            <div>
+              <a href="http://mobile.ant.design">Ant Design Mobile</a>
+              <span> - </span>
               <FormattedMessage id="app.footer.mobile" />
             </div>
-            <div><a href="https://g2.alipay.com/">G2</a> -
+            <div>
+              <a href="https://g2.alipay.com/">G2</a>
+              <span> - </span>
               <FormattedMessage id="app.footer.data-vis" />
             </div>
-            <div><a href="https://antv.alipay.com/">AntV</a> -
+            <div>
+              <a href="https://antv.alipay.com/">AntV</a>
+              <span> - </span>
               <FormattedMessage id="app.footer.data-vis-spec" />
             </div>
-            <div><a href="http://motion.ant.design">Ant Motion</a> -
+            <div>
+              <a href="http://motion.ant.design">Ant Motion</a>
+              <span> - </span>
               <FormattedMessage id="app.footer.motion" />
             </div>
-            <div><a href="http://library.ant.design/">AntD Library</a> -
+            <div>
+              <a href="http://library.ant.design/">AntD Library</a>
+              <span> - </span>
               <FormattedMessage id="app.footer.antd-library" />
             </div>
-            <div><a href="http://ux.ant.design">Ant UX</a> -
+            <div>
+              <a href="http://ux.ant.design">Ant UX</a>
+              <span> - </span>
               <FormattedMessage id="app.footer.material" />
             </div>
           </li>
