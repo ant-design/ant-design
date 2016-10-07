@@ -181,3 +181,20 @@
 @tooltip-distance: @tooltip-arrow-width - 1 + 4;
 //** Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+
+// Popover
+// ---
+//** Popover body background color
+@popover-bg: #fff;
+//** Popover maximum width
+@popover-min-width: 177px;
+//** Popover border color
+@popover-border-color: @border-color-base;
+//** Popover arrow width
+@popover-arrow-width: 4px;
+//** Popover arrow color
+@popover-arrow-color: @popover-bg;
+//** Popover outer arrow width
+@popover-arrow-outer-width: (@popover-arrow-width + 1);
+//** Popover outer arrow color
+@popover-arrow-outer-color: fadein(@popover-border-color, 5%);
