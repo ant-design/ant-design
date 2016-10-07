@@ -86,11 +86,11 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## 谁在使用
 
-- 蚂蚁金服
-- 阿里巴巴
-- 口碑
-- 新美大
-- 滴滴
+- [蚂蚁金服](http://www.antgroup.com/)
+- [阿里巴巴](http://www.alibaba.com/)
+- [口碑](http://www.koubei.com/)
+- [美团](http://www.meituan.com)
+- [滴滴](http://www.xiaojukeji.com/)
 
 > 如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 

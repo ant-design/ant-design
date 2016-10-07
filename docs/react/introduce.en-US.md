@@ -81,13 +81,13 @@ Modern browsers and IE9+.
 - [Design Handbook](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
 - [Scaffold and Demo Supported by Community](https://github.com/ant-design/ant-design/issues/129)
 
-## Who is using antd
+## Who are using antd
 
-- Ant Financial
-- Alibaba
-- Koubei
-- China Internet Plus
-- Didi
+- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
+- [Alibaba](http://www.alibaba.com/)
+- [Koubei](http://www.koubei.com/)
+- [Meituan](http://www.meituan.com)
+- [Didi](http://www.xiaojukeji.com/)
 
 > If your company or product uses Ant Design, you are welcome to comment in [this issue]((https://github.com/ant-design/ant-design/issues/477)). Thank you!
 

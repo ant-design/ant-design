@@ -12,13 +12,14 @@ In the development process of middleware products, many different design specs a
 Ant Design, created specially for middleware design, is committed to improving the experience of users and product designers. User interface designers and user experience designers, collectively, are considered as product designers, and the boundaries of product managers, interaction designers, visual designers, front-end developers and develop engineers are blurred. Taking advantage of unitary specifications, Ant Design makes design and prototype more simple and accessible for all project members, which comprehensively  promotes experience and development efficiency of middleware products.
 
 ---
-## Our Service Recipients
 
-- Ant Financial
-- Alibaba
-- Koubei
-- China Internet Plus
-- Didi
+## Who are using Ant Design
+
+- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
+- [Alibaba](http://www.alibaba.com/)
+- [Koubei](http://www.koubei.com/)
+- [Meituan](http://www.meituan.com)
+- [Didi](http://www.xiaojukeji.com/)
 
 > If your company or products use Ant Design, welcome to click [here](https://github.com/ant-design/ant-design/issues/477) to leave a message.
 
