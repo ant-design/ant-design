@@ -20,7 +20,7 @@ ReactDOM.render(
   <Pagination
     selectComponentClass={Select}
     total={80}
-    showTotal={total => `Total ${total}`}
+    showTotal={total => `Total ${total} items`}
     pageSize={20} defaultCurrent={1}
   />,
   mountNode
