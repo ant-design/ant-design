@@ -1,21 +1,21 @@
-.motion-common() {
-  animation-duration: .2s;
+.motion-common(@duration: .2s) {
+  animation-duration: @duration;
   animation-fill-mode: both;
 }
 
-.motion-common-leave() {
-  animation-duration: .2s;
+.motion-common-leave(@duration: .2s) {
+  animation-duration: @duration;
   animation-fill-mode: both;
 }
 
-.make-motion(@className, @keyframeName) {
+.make-motion(@className, @keyframeName, @duration: .2s) {
   .@{className}-enter,
   .@{className}-appear {
-    .motion-common();
+    .motion-common(@duration);
     animation-play-state: paused;
   }
   .@{className}-leave {
-    .motion-common-leave();
+    .motion-common-leave(@duration);
     animation-play-state: paused;
   }
   .@{className}-enter.@{className}-enter-active,
