@@ -25,5 +25,5 @@ const dataSource = ['12345', '23456', '34567'];
 | value    | selected option | String/Array<String>/{key: String, label: React.Node}/Array<{key, label}>   |  -  |
 | defaultValue | Initial selected option. | string/Array<String>   |  -  |
 | allowClear   | Show clear button, effective in multiple mode only. | boolean | false |
-| onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, label) | - |
+| onChange | Called when select an option or input value change, or value of input is changed | function(value, label) | - |
 | disabled | Whether disabled select | boolean | false |
