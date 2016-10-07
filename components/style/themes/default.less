@@ -144,29 +144,40 @@
 @zindex-tooltip         : 1060;
 
 // Form
-// --------------------------------
-// Legend
+// ---
 @legend-color                : #999;
 @legend-border-color         : @border-color-base;
-// Label
 @label-required-color        : #f50;
 @label-color                 : @text-color;
-// Input
-@input-height-base: 28px;
-@input-height-lg: 32px;
-@input-height-sm: 22px;
+@form-item-margin-bottom     : 24px;
 
+// Input
+// ---
+@input-height-base           : 28px;
+@input-height-lg             : 32px;
+@input-height-sm             : 22px;
 @input-padding-horizontal    : 7px;
 @input-padding-vertical-base : 4px;
 @input-padding-vertical-sm   : 1px;
 @input-padding-vertical-lg   : 6px;
-
 @input-placeholder-color     : #ccc;
 @input-color                 : @text-color;
 @input-border-color          : @border-color-base;
 @input-bg                    : #fff;
-
 @input-hover-border-color    : @primary-color;
 @input-disabled-bg           : @background-color-base;
 
-@form-item-margin-bottom     : 24px;
+// Tooltip
+// ---
+//* Tooltip max width
+@tooltip-max-width: 250px;
+//** Tooltip text color
+@tooltip-color: #fff;
+//** Tooltip background color
+@tooltip-bg: rgba(64, 64, 64, .85);
+//** Tooltip arrow width
+@tooltip-arrow-width: 5px;
+//** Tooltip distance with trigger
+@tooltip-distance: @tooltip-arrow-width - 1 + 4;
+//** Tooltip arrow color
+@tooltip-arrow-color: @tooltip-bg;
