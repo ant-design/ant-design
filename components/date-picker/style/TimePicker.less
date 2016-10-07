@@ -2,7 +2,7 @@
   position: absolute;
   width: 100%;
   top: 34px;
-  background-color: white;
+  background-color: #fff;
   height: 206px;
 
   &-panel {
@@ -39,58 +39,8 @@
     }
   }
 
-  &-input {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    width: 100%;
-    cursor: auto;
-    line-height: 1.5;
-    outline: 0;
-
-    &-wrap {
-      display: none;
-      box-sizing: border-box;
-      position: relative;
-      padding: 6px;
-      border-bottom: 1px solid @border-color-split;
-    }
-
-    &-invalid {
-      border-color: red;
-    }
-  }
-
-  &-clear-btn {
-    position: absolute;
-    right: 5px;
-    cursor: pointer;
-    overflow: hidden;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    line-height: 20px;
-    top: 5px;
-    margin: 0;
-  }
-
-  &-clear-btn:after {
-    content: "\e62e";
-    font-family: "anticon";
-    font-size: 12px;
-    color: #ccc;
-    display: inline-block;
-    line-height: 1;
-    width: 20px;
-    transition: color 0.3s ease;
-  }
-
-  &-clear-btn:hover:after {
-    color: #999;
-  }
-
-  &-narrow &-input-wrap {
-    max-width: 111px;
+  &-input-wrap {
+    display: none;
   }
 
   &-select {
@@ -162,115 +112,43 @@
       }
     }
   }
-
-  &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
-  &.slide-up-enter.slide-up-enter-active&-placement-topRight,
-  &.slide-up-appear.slide-up-appear-active&-placement-topLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-topRight {
-    animation-name: antSlideDownIn;
-  }
-
-  &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
-  &.slide-up-enter.slide-up-enter-active&-placement-bottomRight,
-  &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft,
-  &.slide-up-appear.slide-up-appear-active&-placement-bottomRight {
-    animation-name: antSlideUpIn;
-  }
-
-  &.slide-up-leave.slide-up-leave-active&-placement-topLeft,
-  &.slide-up-leave.slide-up-leave-active&-placement-topRight {
-    animation-name: antSlideDownOut;
-  }
-
-  &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft,
-  &.slide-up-leave.slide-up-leave-active&-placement-bottomRight {
-    animation-name: antSlideUpOut;
-  }
 }
 
-.@{timepicker-prefix-cls} {
-  display: inline-block;
-  outline: none;
-  font-size: @font-size-base;
-
-  &-input {
-    .input;
-    width: 100px;
+.@{calendar-prefix-cls}-time {
+  .@{calendar-prefix-cls}-day-select {
+    padding: 0 2px;
+    font-weight: bold;
+    display: inline-block;
+    color: #666;
+    line-height: 34px;
   }
 
-  &-large &-input {
-    .input-lg;
-  }
+  .@{calendar-prefix-cls}-footer {
+    border-top: 1px solid @border-color-split;
+    padding: 10px 0;
+    text-align: right;
+    position: relative;
+    height: auto;
+    line-height: auto;
 
-  &-small &-input {
-    .input-sm;
-  }
-
-  &-open {
-    opacity: 0;
-  }
-
-  &-icon {
-    position: absolute;
-    user-select: none;
-    transition: all .3s @ease-in-out;
-    width: 12px;
-    height: 12px;
-    line-height: 12px;
-    right: 8px;
-    color: #999;
-    top: 50%;
-    margin-top: -6px;
-    &:after {
-      content: "\e643";
-      font-family: "anticon";
-      font-size: 12px;
-      color: #999;
-      display: inline-block;
-      line-height: 1;
-      vertical-align: bottom;
-    }
-  }
-}
-
-
-.@{calendar-prefix-cls} {
-  &-time {
-    .@{calendar-prefix-cls}-day-select {
-      padding: 0 2px;
-      font-weight: bold;
-      display: inline-block;
-      color: #666;
-      line-height: 34px;
-    }
-
-    .@{calendar-prefix-cls}-footer {
-      border-top: 1px solid @border-color-split;
-      padding: 10px 0;
+    &-btn {
+      line-height: 1.5;
       text-align: right;
-      position: relative;
-      height: auto;
-      line-height: auto;
+    }
 
-      &-btn {
-        line-height: 1.5;
-        text-align: right;
-      }
+    .@{calendar-prefix-cls}-today-btn {
+      float: left;
+      margin: 0;
+      padding-left: 12px;
+    }
 
-      .@{calendar-prefix-cls}-today-btn {
-        float: left;
-        margin: 0;
-        padding-left: 12px;
-      }
+    .@{calendar-prefix-cls}-time-picker-btn {
+      display: inline-block;
+      text-align: center;
+      margin-right: 60px;
 
-      .@{calendar-prefix-cls}-time-picker-btn {
-        display: inline-block;
-        text-align: center;
-        margin-right: 60px;
-
-        &-disabled {
-          color: #ccc;
-        }
+      &-disabled {
+        color: #ccc;
       }
     }
   }

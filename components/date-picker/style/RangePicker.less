@@ -91,7 +91,7 @@
     border-radius: @border-radius-sm;
   }
   .@{calendar-prefix-cls}-input,
-  .@{timepicker-prefix-cls}-input {
+  .@{calendar-timepicker-prefix-cls}-input {
     .input;
     border-radius: @border-radius-sm;
     height: @input-height-sm;
@@ -102,7 +102,7 @@
       box-shadow: none;
     }
   }
-  .@{timepicker-prefix-cls}-icon {
+  .@{calendar-timepicker-prefix-cls}-icon {
     display: none;
   }
 
@@ -164,7 +164,7 @@
   }
 
   &.@{calendar-prefix-cls}-time {
-    .@{timepicker-prefix-cls} {
+    .@{calendar-timepicker-prefix-cls} {
       height: 207px;
       top: 68px;
       z-index: 2; // cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
