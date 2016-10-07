@@ -41,7 +41,7 @@ module.exports = {
     'app.footer.change-log': '更新记录',
     'app.footer.feedback': '反馈和建议',
     'app.footer.discuss': '讨论',
-    'app.footer.bug-report': '报告 Bug,',
+    'app.footer.bug-report': '报告 Bug',
     'app.footer.version': '文档版本：',
     'app.footer.author': '蚂蚁金服体验技术部出品',
     'app.publish.title': 'antd@2.0.0 发布！',

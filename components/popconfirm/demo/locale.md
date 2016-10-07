@@ -2,16 +2,16 @@
 order: 2
 title:
   zh-CN: 国际化
-  en-US: Internationalization
+  en-US: Locale text
 ---
 
 ## zh-CN
 
-设置 `okText` `cancelText` 以自定义按钮文字。
+使用 `okText` 和 `cancelText` 自定义按钮文字。
 
 ## en-US
 
-Set `okText` and `cancelText` props to customise the buttons' labels.
+Set `okText` and `cancelText` props to customise the button's labels.
 
 ````jsx
 import { Popconfirm } from 'antd';
