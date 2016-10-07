@@ -1,4 +1,4 @@
-.zoom-motion(@className, @keyframeName, @duration: .2s) {
+.zoom-motion(@className, @keyframeName, @duration: @animation-duration-base) {
   .make-motion(@className, @keyframeName, @duration);
   .@{className}-enter,
   .@{className}-appear {
@@ -10,12 +10,12 @@
   }
 }
 
-// For Modal
+// For Modal, Select choosen item
 .zoom-motion(zoom, antZoom);
-// For Popover、Popconfirm、Dropdown
+// For Popover, Popconfirm, Dropdown
 .zoom-motion(zoom-big, antZoomBig);
 // For Tooltip
-.zoom-motion(zoom-big-fast, antZoomBig, .1s);
+.zoom-motion(zoom-big-fast, antZoomBig, @animation-duration-fast);
 
 .zoom-motion(zoom-up, antZoomUp);
 .zoom-motion(zoom-down, antZoomDown);

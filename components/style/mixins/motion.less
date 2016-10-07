@@ -1,14 +1,16 @@
-.motion-common(@duration: .2s) {
+@import '../themes/default';
+
+.motion-common(@duration: @animation-duration-base) {
   animation-duration: @duration;
   animation-fill-mode: both;
 }
 
-.motion-common-leave(@duration: .2s) {
+.motion-common-leave(@duration: @animation-duration-base) {
   animation-duration: @duration;
   animation-fill-mode: both;
 }
 
-.make-motion(@className, @keyframeName, @duration: .2s) {
+.make-motion(@className, @keyframeName, @duration: @animation-duration-base) {
   .@{className}-enter,
   .@{className}-appear {
     .motion-common(@duration);
