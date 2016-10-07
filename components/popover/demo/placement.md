@@ -24,9 +24,11 @@ const content = (
   </div>
 );
 
+const buttonWidth = 70;
+
 ReactDOM.render(
-  <div>
-    <div style={{ marginLeft: 60 }}>
+  <div className="demo">
+    <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
         <Button>TL</Button>
       </Popover>
@@ -37,7 +39,7 @@ ReactDOM.render(
         <Button>TR</Button>
       </Popover>
     </div>
-    <div style={{ width: 60, float: 'left' }}>
+    <div style={{ width: buttonWidth, float: 'left' }}>
       <Popover placement="leftTop" title={text} content={content} trigger="click">
         <Button>LT</Button>
       </Popover>
@@ -48,7 +50,7 @@ ReactDOM.render(
         <Button>LB</Button>
       </Popover>
     </div>
-    <div style={{ width: 60, marginLeft: 270 }}>
+    <div style={{ width: buttonWidth, marginLeft: buttonWidth*4 + 24 }}>
       <Popover placement="rightTop" title={text} content={content} trigger="click">
         <Button>RT</Button>
       </Popover>
@@ -59,7 +61,7 @@ ReactDOM.render(
         <Button>RB</Button>
       </Popover>
     </div>
-    <div style={{ marginLeft: 60, clear: 'both' }}>
+    <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
       <Popover placement="bottomLeft" title={text} content={content} trigger="click">
         <Button>BL</Button>
       </Popover>
@@ -76,7 +78,10 @@ ReactDOM.render(
 
 <style>
 .code-box-demo .ant-btn {
-  margin-right: 1em;
-  margin-bottom: 1em;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+#components-popover-demo-placement .ant-btn {
+  width: 70px;
 }
 </style>

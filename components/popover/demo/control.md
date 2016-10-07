@@ -31,14 +31,13 @@ const App = React.createClass({
     this.setState({ visible });
   },
   render() {
-    const content = (
-      <div>
-        <a onClick={this.hide}>Close</a>
-      </div>
-    );
     return (
-      <Popover content={content} title="Title" trigger="click"
-        visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
+      <Popover
+        content={<a onClick={this.hide}>Close</a>}
+        title="Title"
+        trigger="click"
+        visible={this.state.visible}
+        onVisibleChange={this.handleVisibleChange}
       >
         <Button type="primary">Cilck me</Button>
       </Popover>

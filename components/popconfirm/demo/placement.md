@@ -22,8 +22,8 @@ function confirm() {
   message.info('Click on Yes.');
 }
 
-ReactDOM.render(<div>
-  <div style={{ marginLeft: 60 }}>
+ReactDOM.render(<div className="demo">
+  <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
     <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
       <Button>TL</Button>
     </Popconfirm>
@@ -34,7 +34,7 @@ ReactDOM.render(<div>
       <Button>TR</Button>
     </Popconfirm>
   </div>
-  <div style={{ width: 60, float: 'left' }}>
+  <div style={{ width: 70, float: 'left' }}>
     <Popconfirm placement="leftTop" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
       <Button>LT</Button>
     </Popconfirm>
@@ -45,7 +45,7 @@ ReactDOM.render(<div>
       <Button>LB</Button>
     </Popconfirm>
   </div>
-  <div style={{ width: 60, marginLeft: 252 }}>
+  <div style={{ width: 70, marginLeft: 304 }}>
     <Popconfirm placement="rightTop" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
       <Button>RT</Button>
     </Popconfirm>
@@ -56,7 +56,7 @@ ReactDOM.render(<div>
       <Button>RB</Button>
     </Popconfirm>
   </div>
-  <div style={{ marginLeft: 60, clear: 'both' }}>
+  <div style={{ marginLeft: 70, clear: 'both', whiteSpace: 'nowrap' }}>
     <Popconfirm placement="bottomLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
       <Button>BL</Button>
     </Popconfirm>
@@ -72,10 +72,13 @@ ReactDOM.render(<div>
 
 <style>
 .code-box-demo .ant-popover-wrap > a {
-  margin-right: 1em;
+  margin-right: 8px;
 }
 .code-box-demo .ant-btn {
-  margin-right: 1em;
-  margin-bottom: 1em;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+#components-popconfirm-demo-placement .ant-btn {
+  width: 70px;
 }
 </style>
