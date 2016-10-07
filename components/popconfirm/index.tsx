@@ -2,7 +2,6 @@ import React from 'react';
 import Tooltip from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
-import getPlacements from '../popover/placements';
 import splitObject from '../_util/splitObject';
 
 const noop = () => {};
@@ -93,9 +92,9 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   render() {
-    const [{ prefixCls, title, placement, arrowPointAtCenter }, restProps] = splitObject(
+    const [{ prefixCls, title, placement }, restProps] = splitObject(
       this.props,
-      ['prefixCls', 'title', 'placement', 'arrowPointAtCenter']
+      ['prefixCls', 'title', 'placement']
     );
     let { okText, cancelText } = this.props;
     if (this.context.antLocale && this.context.antLocale.Popconfirm) {
@@ -120,7 +119,6 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     return (
       <Tooltip
         {...restProps}
-        builtinPlacements={getPlacements({ arrowPointAtCenter })}
         prefixCls={prefixCls}
         placement={placement}
         onVisibleChange={this.onVisibleChange}

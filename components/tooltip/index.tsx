@@ -1,7 +1,7 @@
 import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
-import getPlacements from '../popover/placements';
+import getPlacements from './placements';
 import classNames from 'classnames';
 
 export type PopoverPlacement =

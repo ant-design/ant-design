@@ -1,8 +1,5 @@
 import React from 'react';
 import Tooltip from '../tooltip';
-import getPlacements from './placements';
-
-const placements = getPlacements();
 
 export interface PopoverProps {
    /** trigger type, options: `hover` `focus` `click` */
@@ -47,14 +44,11 @@ export default class Popover extends React.Component<PopoverProps, any> {
 
   render() {
     return (
-      <Tooltip transitionName={this.props.transitionName}
-        builtinPlacements={placements}
+      <Tooltip
         ref="tooltip"
         {...this.props}
         overlay={this.getOverlay()}
-      >
-        {this.props.children}
-      </Tooltip>
+      />
     );
   }
 
