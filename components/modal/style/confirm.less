@@ -1,3 +1,5 @@
+@import "../../style/mixins/index";
+
 @confirm-prefix-cls: ~"@{ant-prefix}-confirm";
 
 .@{confirm-prefix-cls} {
@@ -11,6 +13,10 @@
 
   .@{ant-prefix}-modal-body {
     padding: 30px 40px;
+  }
+
+  &-body-wrapper {
+    .clearfix();
   }
 
   &-body {
@@ -31,8 +37,6 @@
       font-size: 24px;
       margin-right: 16px;
       padding: 0 1px;
-      position: relative;
-      top: 1px;
       float: left;
     }
   }
