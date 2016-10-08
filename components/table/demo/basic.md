@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Simple table with operations.
+Simple table with actions.
 
 ````jsx
 import { Table, Icon } from 'antd';
@@ -30,16 +30,16 @@ const columns = [{
   dataIndex: 'address',
   key: 'address',
 }, {
-  title: 'Operation',
-  key: 'operation',
+  title: 'Action',
+  key: 'action',
   render: (text, record) => (
     <span>
-      <a href="#">Operation 一 {record.name}</a>
+      <a href="#">Action 一 {record.name}</a>
       <span className="ant-divider" />
-      <a href="#">Next operation</a>
+      <a href="#">Delete</a>
       <span className="ant-divider" />
       <a href="#" className="ant-dropdown-link">
-        More <Icon type="down" />
+        More actions<Icon type="down" />
       </a>
     </span>
   ),
