@@ -79,6 +79,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     className: '',
     disabled: false,
     onRemove() {},
+    onPreview() {},
   };
 
   recentUploadStatus: boolean | PromiseLike<any>;
