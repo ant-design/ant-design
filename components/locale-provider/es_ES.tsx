@@ -1,7 +1,11 @@
-module.exports = {
-  Pagination: require('rc-pagination/lib/locale/en_US'),
-  DatePicker: require('../date-picker/locale/en_US'),
-  TimePicker: require('../time-picker/locale/en_US'),
+import Pagination from 'rc-pagination/lib/locale/en_US';
+import DatePicker from '../date-picker/locale/en_US';
+import TimePicker from '../time-picker/locale/en_US';
+
+export default {
+  Pagination,
+  DatePicker,
+  TimePicker,
   Table: {
     filterTitle: 'Filtrar Menu',
     filterConfirm: 'OK',

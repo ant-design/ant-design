@@ -27,6 +27,7 @@ export default {
     cancelText: 'Cancel',
   },
   Transfer: {
+    titles: ['Source', 'Target'],
     notFoundContent: 'Not Found',
     searchPlaceholder: 'Search here',
     itemUnit: 'item',

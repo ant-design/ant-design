@@ -38,7 +38,7 @@ export interface TransferListProps {
   filterOption: (filterText: any, item: any) => boolean;
 }
 
-export interface TransferContext {
+export interface TransferListContext {
   antLocale?: {
     Transfer?: any,
   };
@@ -80,8 +80,8 @@ export default class TransferList extends React.Component<TransferListProps, any
     antLocale: React.PropTypes.object,
   };
 
-  context: TransferContext;
-  timer: any;
+  context: TransferListContext;
+  timer: number;
 
   constructor(props) {
     super(props);
