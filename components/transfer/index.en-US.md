@@ -28,7 +28,7 @@ To transfer the elements between two columns in an intuitive and efficient way.
 | titles | A set of titles that are sorted from left to right. | Array | ['Source list', 'Target list'] |
 | operations | A set of operations that are sorted from top to bottom. | Array | [] |
 | showSearch | If included, a search box is shown on each column. | Boolean | false |
-| searchPlaceholder | The hint text of the search box. | String | 'Please input the content' |
+| searchPlaceholder | The hint text of the search box. | String | 'Search ...' |
 | notFoundContent | Text to display when a column is empty. | React.node | 'The list is empty'  |
 | footer | A function used for rendering the footer. | Function(props) |  |
 
