@@ -25,10 +25,10 @@ To transfer the elements between two columns in an intuitive and efficient way.
 | onSelectChange | A callback function which is executed when selected items are changed. | Function(sourceSelectedKeys, targetSelectedKeys) | |
 | listStyle | A custom CSS style used for rendering the transfer columns. | Object |  |
 | className | A custom CSS class. | String |  |
-| titles | A set of titles that are sorted from left to right. | Array | ['源列表', '目的列表'] |
-| operations | A set of operations that are sorted form top to bottom. | Array | [] |
+| titles | A set of titles that are sorted from left to right. | Array | ['Source list', 'Target list'] |
+| operations | A set of operations that are sorted from top to bottom. | Array | [] |
 | showSearch | If included, a search box is shown on each column. | Boolean | false |
-| searchPlaceholder | The hint text of the search box. | String | 'Please input the content' |
+| searchPlaceholder | The hint text of the search box. | String | 'Search here' |
 | notFoundContent | Text to display when a column is empty. | React.node | 'The list is empty'  |
 | footer | A function used for rendering the footer. | Function(props) |  |
 
