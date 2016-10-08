@@ -78,6 +78,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     listType: 'text', // or pictrue
     className: '',
     disabled: false,
+    onRemove() {},
   };
 
   recentUploadStatus: boolean | PromiseLike<any>;
@@ -194,6 +195,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   handleRemove(file) {
+    this.props.onRemove(file);
     let fileList = this.removeFile(file);
     if (fileList) {
       this.onChange({
@@ -206,11 +208,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   handleManualRemove = (file) => {
     this.refs.upload.abort(file);
     file.status = 'removed'; // eslint-disable-line
-    if ('onRemove' in this.props) {
-      this.props.onRemove(file);
-    } else {
-      this.handleRemove(file);
-    }
+    this.handleRemove(file);
   }
 
   onChange = (info) => {
