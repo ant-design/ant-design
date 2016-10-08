@@ -17,7 +17,7 @@ Mini size pagination.
 import { Pagination } from 'antd';
 
 function showTotal(total) {
-  return `共 ${total} 条`;
+  return `Total ${total} items`;
 }
 
 ReactDOM.render(<div>
