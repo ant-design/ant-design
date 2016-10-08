@@ -37,6 +37,13 @@ export interface TransferProps {
   rowKey?: (record: any) => string;
 }
 
+export interface TransferContext {
+  antLocale?: {
+    Transfer?: any,
+  };
+}
+
+const defaultTitles = ['源列表', '目的列表'];
 export default class Transfer extends React.Component<TransferProps, any> {
   static List = List;
   static Operation = Operation;
@@ -48,7 +55,6 @@ export default class Transfer extends React.Component<TransferProps, any> {
     render: noop,
     onChange: noop,
     onSelectChange: noop,
-    titles: ['源列表', '目的列表'],
     operations: [],
     showSearch: false,
     body: noop,
@@ -75,6 +81,11 @@ export default class Transfer extends React.Component<TransferProps, any> {
     rowKey: PropTypes.func,
   };
 
+  static contextTypes = {
+    antLocale: PropTypes.object,
+  };
+
+  context: TransferContext;
   splitedDataSource: any;
 
   constructor(props) {
@@ -227,9 +238,22 @@ export default class Transfer extends React.Component<TransferProps, any> {
   handleLeftSelect = (selectedItem, checked) => this.handleSelect('left', selectedItem, checked);
   handleRightSelect = (selectedItem, checked) => this.handleSelect('right', selectedItem, checked);
 
+  getTitles(): string[] {
+    if (this.props.titles) {
+      return this.props.titles;
+    }
+    if (this.context &&
+      this.context.antLocale &&
+      this.context.antLocale.Transfer
+    ) {
+      return this.context.antLocale.Transfer.titles || [];
+    }
+    return defaultTitles;
+  }
+
   render() {
     const {
-      prefixCls, titles, operations, showSearch, notFoundContent,
+      prefixCls, operations, showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className,
       filterOption, render,
     } = this.props;
@@ -244,6 +268,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
       [prefixCls]: true,
     });
 
+    const titles = this.getTitles();
     return (
       <div className={cls}>
         <List titleText={titles[0]}
