@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Simple table with operations.
+Simple table with actions.
 
 ````jsx
 import { Table, Icon } from 'antd';
