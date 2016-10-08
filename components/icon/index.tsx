@@ -1,13 +1,22 @@
 import * as React from 'react';
+import classNames from 'classnames';
+import omit from 'omit.js';
 
 export interface IconProps {
   type: string;
   className?: string;
   title?: string;
   onClick?: (e) => void;
+  spin?: boolean;
 }
 
 export default (props: IconProps) => {
-  const { type, className = '' } = props;
-  return <i {...props} className={`${className} anticon anticon-${type}`.trim()} />;
+  const { type, className = '', spin } = props;
+  const classString = classNames({
+    anticon: true,
+    'anticon-spin': !!spin || type === 'loading',
+    [`anticon-${type}`]: true,
+    [className]: true,
+  });
+  return <i {...omit(props, ['type', 'spin'])} className={classString} />;
 };

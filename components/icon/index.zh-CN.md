@@ -6,7 +6,7 @@ title: Icon
 toc: false
 ---
 
-有含义的矢量图形，每一个图标打倒一个敌人。
+语义化的矢量图形。
 
 ## 图标的命名规范
 
@@ -56,6 +56,13 @@ ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```__react
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
+
+## Props
+
+| 参数      | 说明             | 类型      | 默认值  |
+|----------|------------------|----------|--------|
+| type | 图标类型 | String | - |
+| spin | 是否有旋转动画 | Boolean | false |
 
 <style>
 .markdown .icons {
