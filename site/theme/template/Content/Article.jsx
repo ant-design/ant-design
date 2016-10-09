@@ -10,7 +10,6 @@ export default class Article extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,
   }
-
   componentDidMount() {
     this.componentDidUpdate();
   }
@@ -19,6 +18,7 @@ export default class Article extends React.Component {
     if (links.length === 0) {
       return;
     }
+    // eslint-disable-next-line
     const checkImgUrl = 'https://g-assets.daily.taob' + 'ao.net/seajs/seajs/2.2.0/sea.js';
     this.pingTimer = utils.ping(checkImgUrl, (status) => {
       if (status !== 'timeout') {
