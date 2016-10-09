@@ -19,9 +19,9 @@ export default class Article extends React.Component {
     if (links.length === 0) {
       return;
     }
-    const checkImgUrl = 'http://alipay-rmsdeploy-dev-image.oss-cn-hangzhou-zmf.aliyuncs.com/rmsportal/JdVaTbZzPxEldUi.png';
+    const checkImgUrl = 'https://g-assets.daily.taob' + 'ao.net/seajs/seajs/2.2.0/sea.js';
     this.pingTimer = utils.ping(checkImgUrl, (status) => {
-      if (status === 'responded') {
+      if (status !== 'timeout') {
         links.forEach(link => (link.style.display = 'block'));
       } else {
         links.forEach(link => link.parentNode.removeChild(link));
