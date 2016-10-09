@@ -22,19 +22,20 @@ Ant Design has 3 types Tabs for different situation.
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| activeKey    | Current TabPane's key| String   | _             |
+| activeKey    | Current TabPane's key| string   | _             |
 | defaultActiveKey | Default actived tabPanel's key, if activeKey is not setted. | - |
 | onChange     | Callback when tab is switched | Function | - |
 | onTabClick   | Callback when tab is clicked | Function | - |
-| tabBarExtraContent | Extra element in tab bar | React Node | - |
-| type         | Basic style of tabs. Options: line, card & editable-card | String | line |
-| size         | Tab bar size. Options: default, small | String | default |
-| tabPosition  | Position of tabs. Options: top, right, bottom & left | String | top |
-| onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | Function(targetKey, action) | - |
-| hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | Boolean | false |
+| tabBarExtraContent | Extra element in tab bar | React.ReactNode | - |
+| type         | Basic style of tabs. Options: line, card & editable-card | string | line |
+| size         | Tab bar size. Options: default, small | string | default |
+| tabPosition  | Position of tabs. Options: top, right, bottom & left | string | top |
+| onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | (targetKey, action): void | - |
+| hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | boolean | false |
+| animated | Whether to change tabs with animation, this property only works with `tabPosition=top|bottom` | boolean | true |
 
 ### Tabs.TabPane
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| key          | TabPane's key         | String   | _            |
-| tab          | Show text in TabPane's head | React.Element or String | _ |
+| key          | TabPane's key         | string   | _            |
+| tab          | Show text in TabPane's head | React.ReactNode | _ |

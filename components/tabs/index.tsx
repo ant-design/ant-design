@@ -23,7 +23,7 @@ export interface TabsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  animation?: string;
+  animated?: boolean;
 }
 
 // Tabs
@@ -38,11 +38,11 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-tabs',
-    animation: 'slide-horizontal',
     type: 'line', // or 'card' 'editable-card'
     onChange() { },
     onEdit() { },
     hideAdd: false,
+    animated: true,
   };
 
   createNewTab = (targetKey) => {
@@ -67,11 +67,11 @@ export default class Tabs extends React.Component<TabsProps, any> {
       size,
       type,
       tabPosition,
-      animation,
       children,
       tabBarExtraContent,
       hideAdd,
       onTabClick,
+      animated,
     } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
@@ -79,10 +79,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,
+      [`${prefixCls}-no-animation`]: !animated,
     });
-    if (tabPosition === 'left' || tabPosition === 'right' || type.indexOf('card') >= 0) {
-      animation = null;
-    }
     // only card type tabs can be added and closed
     let childrenWithClose;
     if (type === 'editable-card') {
@@ -125,7 +123,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
             onTabClick={onTabClick}
           />
         )}
-        renderTabContent={() => <TabContent />}
+        renderTabContent={() => <TabContent animated={animated} />}
         onChange={this.handleChange}
       >
         {childrenWithClose || children}
