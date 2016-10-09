@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
+import assign from 'object-assign';
 
 export type SelectValue = string | any[] | { key: string, label: React.ReactNode } |
  Array<{ key: string, label: React.ReactNode }>;
@@ -33,6 +34,7 @@ export interface SelectProps {
   labelInValue?: boolean;
   getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode | HTMLElement;
   style?: React.CSSProperties;
+  dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   onChange?: (value) => void;
 }
@@ -80,26 +82,28 @@ export default class Select extends React.Component<SelectProps, any> {
   context: SelectContext;
 
   render() {
-    let {
+    const {
       prefixCls,
       className,
       size,
       combobox,
-      notFoundContent,
       showSearch,
-      optionLabelProp,
+      dropdownStyle,
     } = this.props;
+
+    let { notFoundContent = 'Not Found', optionLabelProp } = this.props;
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
       [`${prefixCls}-show-search`]: showSearch,
+      [className]: !!className,
     });
 
     const { antLocale } = this.context;
     if (antLocale && antLocale.Select) {
-      notFoundContent = notFoundContent || antLocale.Select.notFoundContent;
+      notFoundContent = ('notFoundContent' in this.props)
+        ? notFoundContent : antLocale.Select.notFoundContent;
     }
 
     if (combobox) {
@@ -109,10 +113,14 @@ export default class Select extends React.Component<SelectProps, any> {
     }
 
     return (
-      <RcSelect {...this.props}
+      <RcSelect
+        {...this.props}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContent}
+        dropdownStyle={assign({}, dropdownStyle, {
+          display: (!notFoundContent && !combobox) ? 'none' : '',
+        })}
       />
     );
   }
