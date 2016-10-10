@@ -14,6 +14,8 @@ export interface InputNumberProps {
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   placeholder?: string;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
