@@ -58,6 +58,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
    ```jsx
    import DatePicker from 'antd/lib/date-picker';  // just for js
+   import 'antd/lib/date-picker/style/css';  // with style
    ```
 
 
