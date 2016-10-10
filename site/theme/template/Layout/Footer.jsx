@@ -61,7 +61,7 @@ class Footer extends React.Component {
   }
 
   handleVersionChange = (url) => {
-    window.location.href = url;
+    window.location.href = window.location.href.replace(window.location.origin, url);
   }
 
   render() {
