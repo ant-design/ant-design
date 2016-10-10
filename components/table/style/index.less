@@ -120,7 +120,6 @@
   &-header {
     background: @table-head-background-color;
     overflow: hidden;
-    border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &-header table {
@@ -232,21 +231,28 @@
   }
 
   &-bordered {
-    .@{table-prefix-cls}-body > table {
+    .@{table-prefix-cls}-header > table,
+    .@{table-prefix-cls}-body > table,
+    .@{table-prefix-cls}-fixed-left table,
+    .@{table-prefix-cls}-fixed-right table {
       border: 1px solid @border-color-split;
     }
 
     &.@{table-prefix-cls}-fixed-header {
-      border: 1px solid @border-color-split;
-      table {
-        border: 0;
+      .@{table-prefix-cls}-header > table {
+        border-bottom: 0;
       }
-      .@{table-prefix-cls}-fixed-left {
-        border-right: 1px solid @border-color-split;
+
+      .@{table-prefix-cls}-body > table {
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
-      .@{table-prefix-cls}-fixed-right {
-        border-left: 1px solid @border-color-split;
+
+      .@{table-prefix-cls}-body-inner > table {
+        border-top: 0;
       }
+
       .@{table-prefix-cls}-placeholder {
         border-bottom: 0;
       }
