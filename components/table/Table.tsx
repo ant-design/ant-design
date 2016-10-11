@@ -89,6 +89,7 @@ export interface TableProps {
   scroll?: { x?: boolean | number, y?: boolean | number};
   childrenColumnName?: 'string';
   bodyStyle?: React.CSSProperties;
+  className?: string;
 }
 
 export interface TableContext {
