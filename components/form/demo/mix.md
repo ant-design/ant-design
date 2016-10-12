@@ -106,10 +106,10 @@ let Demo = React.createClass({
         >
           {getFieldDecorator('select')(
             <Select style={{ width: 200 }}>
-              <Option value="jack">jack</Option>
-              <Option value="lucy">lucy</Option>
+              <Option value="Jack">jack</Option>
+              <Option value="Lucy">lucy</Option>
               <Option value="disabled" disabled>disabled</Option>
-              <Option value="yiminghe">yiminghe</Option>
+              <Option value="Yiminghe">yiminghe</Option>
             </Select>
           )}
         </FormItem>
