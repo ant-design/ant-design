@@ -24,7 +24,7 @@ ReactDOM.render(
 ````
 
 ````css
-.ant-badge {
+.ant-badge:not(.ant-badge-status) {
   margin-right: 16px;
 }
 .head-example {

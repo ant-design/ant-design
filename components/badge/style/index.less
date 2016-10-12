@@ -48,9 +48,15 @@
   }
 
   &-status {
-    width: 6px;
-    height: 6px;
+    line-height: inherit;
+    vertical-align: baseline;
 
+    &-dot {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      border-radius: 50%;
+    }
     &-success {
       background-color: @success-color;
     }
@@ -67,15 +73,10 @@
     &-warning {
       background-color: @warning-color;
     }
-
-    &-with-text {
-      top: 5px;
-    }
-
     &-text {
       color: @text-color;
       font-size: @font-size-base;
-      margin-left: 8px; // 8 - (6 / 2) === 5
+      margin-left: 8px;
     }
   }
 

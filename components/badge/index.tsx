@@ -24,7 +24,6 @@ export default class Badge extends React.Component<BadgeProps, any> {
     count: null,
     dot: false,
     overflowCount: 99,
-    // status: 'default',
   };
 
   static propTypes = {
@@ -57,15 +56,27 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
-      [`${prefixCls}-status`]: status,
-      [`${prefixCls}-status-${status}`]: status,
-      [`${prefixCls}-status-with-text`]: text,
     });
     const badgeCls = classNames({
       [className]: !!className,
       [prefixCls]: true,
+      [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
+
+    // <Badge status="success" />
+    if (!children && status) {
+      const statusCls = classNames({
+        [`${prefixCls}-status-dot`]: !!status,
+        [`${prefixCls}-status-${status}`]: true,
+      });
+      return (
+        <span className={badgeCls}>
+          <span className={statusCls} />
+          <span className={`${prefixCls}-status-text`}>{text}</span>
+        </span>
+      );
+    }
 
     return (
       <span className={badgeCls} title={count} style={null} {...restProps}>
