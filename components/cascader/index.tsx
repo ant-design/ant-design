@@ -327,6 +327,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
               value={state.inputValue}
               disabled={disabled}
               readOnly={!showSearch}
+              autoComplete="off"
               onClick={showSearch ? this.handleInputClick : null}
               onBlur={showSearch ? this.handleInputBlur : null}
               onChange={showSearch ? this.handleInputChange : null}
