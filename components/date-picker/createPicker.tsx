@@ -95,6 +95,7 @@ export default function createPicker(TheCalendar) {
           prefixCls={prefixCls}
           className={calendarClassName}
           onOk={props.onOk}
+          format={props.format}
           {...calendarHandler}
         />
       );
