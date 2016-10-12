@@ -45,7 +45,7 @@ let BasicDemo = React.createClass({
       callback();
     } else {
       setTimeout(() => {
-        if (value === 'JasonWood') {
+        if (value === 'Jason Wood') {
           callback([new Error('Sorry, the user name is already in use.')]);
         } else {
           callback();
@@ -65,7 +65,7 @@ let BasicDemo = React.createClass({
   checkPass2(rule, value, callback) {
     const { getFieldValue } = this.props.form;
     if (value && value !== getFieldValue('passwd')) {
-      callback('The two passwords you enter is inconsistent!');
+      callback('The two passwords you enter are inconsistent!');
     } else {
       callback();
     }
@@ -91,7 +91,7 @@ let BasicDemo = React.createClass({
               { validator: this.userExists },
             ],
           })(
-            <Input placeholder="Real-tiem validation, try to input JasonWood" />
+            <Input placeholder="Realtime validation, try to input Jason Wood" />
           )}
         </FormItem>
 
@@ -148,7 +148,7 @@ let BasicDemo = React.createClass({
               validator: this.checkPass2,
             }],
           })(
-            <Input type="password" autoComplete="off" placeholder="Two passwords that you enter must be consistent"
+            <Input type="password" autoComplete="off" placeholder="Both passwords that you enter must be consistent."
               onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
             />
           )}
