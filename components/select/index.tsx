@@ -2,7 +2,6 @@ import React from 'react';
 import { PropTypes } from 'react';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
-import assign from 'object-assign';
 
 export type SelectValue = string | any[] | { key: string, label: React.ReactNode } |
  Array<{ key: string, label: React.ReactNode }>;
@@ -88,7 +87,6 @@ export default class Select extends React.Component<SelectProps, any> {
       size,
       combobox,
       showSearch,
-      dropdownStyle,
     } = this.props;
 
     let { notFoundContent = 'Not Found', optionLabelProp } = this.props;
@@ -118,9 +116,6 @@ export default class Select extends React.Component<SelectProps, any> {
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={notFoundContent}
-        dropdownStyle={assign({}, dropdownStyle, {
-          display: (!notFoundContent && !combobox) ? 'none' : '',
-        })}
       />
     );
   }
