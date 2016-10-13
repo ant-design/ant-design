@@ -10,14 +10,14 @@ const reqAnimFrame = (() => {
   if (window.requestAnimationFrame) {
     return window.requestAnimationFrame;
   }
-  const a = ['moz', 'ms', 'webkit'];
-  const raf = a.filter(key => `${key}RequestAnimationFrame` in window);
-  return raf[0] ? window[`${raf[0]}RequestAnimationFrame`] :
-    ((callback) => window.setTimeout(callback, 1000 / 60));
+  const prefix = ['moz', 'ms', 'webkit'].filter(key => `${key}RequestAnimationFrame` in window)[0];
+  return prefix
+    ? window[`${prefix}RequestAnimationFrame`]
+    : callback => setTimeout(callback, 1000 / 60);
 })();
 
 const currentScrollTop = () => {
-  return  window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+  return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
 };
 
 const easeInOutCubic = (t, b, c, d) => {
