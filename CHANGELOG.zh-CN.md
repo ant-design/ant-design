@@ -73,6 +73,7 @@ timeline: true
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
+* Popover 移除 `overlay` ，请使用 `content`。
 
 以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。
 
