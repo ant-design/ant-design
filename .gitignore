@@ -29,3 +29,4 @@ elasticsearch-*
 config/base.yaml
 components/**/*.js
 components/**/*.jsx
+/.vscode/
