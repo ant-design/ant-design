@@ -56,7 +56,12 @@ timeline: true
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。由于 `JSON.stringy(date: moment)` 返回的值会丢失时区设置，所以要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
+* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。GregorianCalendar 的 API 与 moment API 的对应关系，不完全列举：
+  ```jsx
+  time.getTime() => time.valueOf()
+  ```
+
+  由于 `JSON.stringy(date: moment)` 返回的值会丢失时区设置，所以要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
   ```js
   handleSubmit() {
     const values = this.props.form.getFieldsValue();
@@ -65,6 +70,8 @@ timeline: true
     // 发送 data 到服务器
   }
   ```
+
+* 时间类组件与表单校验一起使用时，`type='date'` 改为 `type='object'`。
 * 时间类组件的 `format` 属性也发生了变化，从 [gregorian-calendar-format 的格式](https://github.com/yiminghe/gregorian-calendar-format#api) 变化为与 [moment 的格式](http://momentjs.com/docs/#/parsing/string-format/)，例如原来的 `yyyy-MM-dd` 将变为 `YYYY-MM-DD`。
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。

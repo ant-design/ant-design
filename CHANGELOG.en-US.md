@@ -58,7 +58,12 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* Parameters of type `Date/GregorianCalendar` of functions such as `onChange` and `onPanelChange`, plus other callback functions had been changed to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update your code accordingly. Because the return value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, see related issue [#3082](https://github.com/ant-design/ant-design/issues/3082) for details:
+* Parameters of type `Date/GregorianCalendar` of functions such as `onChange` and `onPanelChange`, plus other callback functions had been changed to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update your code accordingly. And the difference between GregorianCalendar's and moment's APIs(not a completed list):
+  ```jsx
+  time.getTime() => time.valueOf();
+  ```
+
+  Because the return value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, see related issue [#3082](https://github.com/ant-design/ant-design/issues/3082) for details:
   ```js
   handleSubmit() {
     const values = this.props.form.getFieldsValue();
@@ -67,6 +72,7 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
     // send data to server
   }
   ```
+* For the value of time-related components becomes an instance of `moment`, you should replace `type='date'` with `type='object'` in form validation.
 * The `format` of time-related components is changed from [gregorian-calendar-format](https://github.com/yiminghe/gregorian-calendar-format#api) to [moment  format](http://momentjs.com/docs/#/parsing/string-format/) now, for instance the format `yyyy-MM-dd` should change to `YYYY-MM-DD`.
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. As being totally different, please check [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
