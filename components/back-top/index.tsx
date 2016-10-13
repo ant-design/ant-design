@@ -5,16 +5,9 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import getScroll from '../_util/getScroll';
+import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
-const reqAnimFrame = (() => {
-  if (window.requestAnimationFrame) {
-    return window.requestAnimationFrame;
-  }
-  const prefix = ['moz', 'ms', 'webkit'].filter(key => `${key}RequestAnimationFrame` in window)[0];
-  return prefix
-    ? window[`${prefix}RequestAnimationFrame`]
-    : callback => setTimeout(callback, 1000 / 60);
-})();
+const reqAnimFrame = getRequestAnimationFrame();
 
 const currentScrollTop = () => {
   return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
