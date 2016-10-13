@@ -1,4 +1,7 @@
 export default function getRequestAnimationFrame() {
+  if (typeof window === 'undefined') {
+    return () => {};
+  }
   if (window.requestAnimationFrame) {
     return window.requestAnimationFrame;
   }
