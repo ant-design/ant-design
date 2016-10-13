@@ -5,19 +5,12 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import getScroll from '../_util/getScroll';
+import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 
-const reqAnimFrame = (() => {
-  if (window.requestAnimationFrame) {
-    return window.requestAnimationFrame;
-  }
-  const a = ['moz', 'ms', 'webkit'];
-  const raf = a.filter(key => `${key}RequestAnimationFrame` in window);
-  return raf[0] ? window[`${raf[0]}RequestAnimationFrame`] :
-    ((callback) => window.setTimeout(callback, 1000 / 60));
-})();
+const reqAnimFrame = getRequestAnimationFrame();
 
 const currentScrollTop = () => {
-  return  window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+  return window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
 };
 
 const easeInOutCubic = (t, b, c, d) => {
