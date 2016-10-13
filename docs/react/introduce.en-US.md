@@ -37,25 +37,45 @@ We supply a react implementation `antd` following Ant Design specification, whic
 $ npm install antd
 ```
 
-## Example
+## Usage
+
+### Use prebuilt bundle
 
 ```jsx
 import { DatePicker } from 'antd';
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
-Import style:
+And import style manually:
 
 ```jsx
 import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ```
 
-You can use:
+### Use modularized antd
 
-- `import DatePicker from 'antd/lib/date-picker';`
-- `import { DatePicker } from 'antd';` when [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is also used.
+- Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
-> babel-plugin-import supports importing components and styles on demand.
+   ```js
+   // .babelrc
+   {
+     "plugins": [["import", { libraryName: "antd", style: "css" }]]
+   }
+   ```
+
+   Then you can import components from antd directly.
+
+   ```jsx
+   // import js and css modularly, parsed by babel-plugin-import
+   import { DatePicker } from 'antd';
+   ```
+
+- Manually import
+
+   ```jsx
+   import DatePicker from 'antd/lib/date-picker';  // just for js
+   import 'antd/lib/date-picker/style/css';  // with style
+   ```
 
 ## Version
 
