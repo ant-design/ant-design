@@ -55,7 +55,6 @@
     min-width: @popover-min-width;
     background-color: @popover-bg;
     background-clip: padding-box;
-    border: 1px solid @popover-border-color;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
   }
@@ -124,7 +123,7 @@
   &-placement-topRight &-arrow {
     border-bottom-width: 0;
     border-top-color: @popover-arrow-outer-color;
-    bottom: 0;
+    bottom: -1px;
     &:after {
       content: " ";
       bottom: 1px;
@@ -147,7 +146,7 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: 0;
+    left: -1px;
     border-left-width: 0;
     border-right-color: @popover-arrow-outer-color;
     &:after {
@@ -174,7 +173,7 @@
   &-placement-bottomRight &-arrow {
     border-top-width: 0;
     border-bottom-color: @popover-arrow-outer-color;
-    top: 0;
+    top: -1px;
     &:after {
       content: " ";
       top: 1px;
@@ -197,7 +196,7 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: 0;
+    right: -1px;
     border-right-width: 0;
     border-left-color: @popover-arrow-outer-color;
     &:after {
