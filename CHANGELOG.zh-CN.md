@@ -86,6 +86,8 @@ timeline: true
   +  )}
   ```
 
+  相关讨论可以看 [#1533](https://github.com/ant-design/ant-design/issues/1533)。
+
 * DatePicker 废弃 `toggleOpen`，请使用 `onOpenChange`：
 
   ```diff

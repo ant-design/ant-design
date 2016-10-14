@@ -87,6 +87,8 @@ The following change will throw some warnings in the console and it will still w
   +  )}
   ```
 
+  Look up to [#1533](https://github.com/ant-design/ant-design/issues/1533) for related discussion.
+
 * `toggleOpen` of DatePicker is deprecated, please use `onOpenChange`:
 
   ```diff
