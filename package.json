@@ -69,7 +69,7 @@
     "rc-tooltip": "~3.4.2",
     "rc-tree": "~1.3.6",
     "rc-tree-select": "~1.8.0",
-    "rc-upload": "~2.1.0",
+    "rc-upload": "~2.2.0",
     "rc-util": "^4.0.0",
     "react-addons-pure-render-mixin": "^15.0.0",
     "react-slick": "~0.14.2",
