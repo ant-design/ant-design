@@ -97,7 +97,7 @@ const api: {
   error?(args: ArgsProps): void;
   info?(args: ArgsProps): void;
   warn?(args: ArgsProps): void;
-  warning?(args: ArgsProps) : void;
+  warning?(args: ArgsProps): void;
 
   open(args: ArgsProps): void;
   close(key: string): void;

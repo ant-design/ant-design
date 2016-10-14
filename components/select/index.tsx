@@ -53,8 +53,8 @@ export interface SelectContext {
   };
 }
 
-//=> It is needless to export the declaration of below two inner components.
-//export { Option, OptGroup };
+// => It is needless to export the declaration of below two inner components.
+// export { Option, OptGroup };
 
 export default class Select extends React.Component<SelectProps, any> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
