@@ -74,6 +74,7 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. As being totally different, please check [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
 * Paging columns of Table were removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
+* `Popover[overlay]` is removed, please use `Popover[content]` instead.
 
 The following change will throw some warnings in the console and it will still work, but we recommend to update your code.
 

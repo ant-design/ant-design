@@ -31,8 +31,7 @@ label {
 input[type="radio"],
 input[type="checkbox"] {
   &[disabled],
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
     cursor: @cursor-disabled;
   }
 }
@@ -42,8 +41,7 @@ input[type="checkbox"] {
 .@{ant-prefix}-radio-vertical,
 .@{ant-prefix}-checkbox-inline,
 .@{ant-prefix}-checkbox-vertical {
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
     cursor: @cursor-disabled;
   }
 }
@@ -51,8 +49,7 @@ input[type="checkbox"] {
 // These classes are used on elements with <label> descendants
 .@{ant-prefix}-radio,
 .@{ant-prefix}-checkbox {
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
     label {
       cursor: @cursor-disabled;
     }

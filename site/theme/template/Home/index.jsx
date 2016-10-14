@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import Link from './Link';
 import Banner from './Banner';
@@ -86,9 +87,9 @@ function getStyle() {
   `;
 }
 
-export default function Home() {
+function Home(props) {
   return (
-    <DocumentTitle title="Ant Design - 一个 UI 设计语言">
+    <DocumentTitle title={`Ant Design - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
       <div className="main-wrapper">
         <Link />
         <Banner />
@@ -101,3 +102,5 @@ export default function Home() {
     </DocumentTitle>
   );
 }
+
+export default injectIntl(Home);
