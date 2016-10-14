@@ -8,15 +8,16 @@ A Selector similar to Select2.
 
 ## When To Use
 
-A dropdown menu for choosing, an elegant alternative to the native select component.
+- A dropdown menu for choosing, an elegant alternative to the native select component.
+- [Radio](/components/radio/) is a better solution when options amount is too little (less than or equal 3).
+
+## API
 
 ```html
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
 ```
-
-## API
 
 ### Select props
 
