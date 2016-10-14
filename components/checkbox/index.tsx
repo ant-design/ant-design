@@ -2,8 +2,8 @@ import RcCheckbox from 'rc-checkbox';
 import React from 'react';
 import CheckboxGroup from './Group';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import splitObject from '../_util/splitObject';
+import shallowCompare from '../_util/shallowCompare';
 
 export interface CheckboxProps {
   /** 指定当前是否选中 */
@@ -25,8 +25,8 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     prefixCls: 'ant-checkbox',
     indeterminate: false,
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
   render() {
     const [{ prefixCls, style, children, className, indeterminate }, restProps] = splitObject(

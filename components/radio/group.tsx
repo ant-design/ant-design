@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
 import RadioButton from './radioButton';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
+import shallowCompare from '../_util/shallowCompare';
 
 function getCheckedValue(children) {
   let value = null;
@@ -67,8 +67,8 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       }
     }
   }
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
   onRadioChange = (ev) => {
     if (!('value' in this.props)) {

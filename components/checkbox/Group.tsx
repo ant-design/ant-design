@@ -1,6 +1,6 @@
 import React from 'react';
 import Checkbox from './index';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import shallowCompare from '../_util/shallowCompare';
 
 export interface CheckboxOptionType {
   label: string;
@@ -51,8 +51,8 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
       });
     }
   }
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
   getOptions() {
     const { options } = this.props;

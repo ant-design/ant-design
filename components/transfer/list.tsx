@@ -4,9 +4,9 @@ import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import assign from 'object-assign';
 import { TransferItem } from './index';
+import shallowCompare from '../_util/shallowCompare';
 
 function noop() {
 }
@@ -102,8 +102,8 @@ export default class TransferList extends React.Component<TransferListProps, any
     clearTimeout(this.timer);
   }
 
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
 
   getCheckStatus(filteredDataSource) {
