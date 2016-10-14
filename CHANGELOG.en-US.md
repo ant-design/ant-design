@@ -21,6 +21,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 - Improve style of Modal.
 - Improve animation of Tooltip.
 - Improve style of Transfer's buttons.
+- Fix some less variables.
 - Fix errors while render Affix and BackTop on server. [#3283](https://github.com/ant-design/ant-design/issues/3283) [#3343](https://github.com/ant-design/ant-design/issues/3343)
 - Fix conflicts between Cascader search mode and browser's autocomplete behaviour. [#3350](https://github.com/ant-design/ant-design/issues/3350)
 - Fix bug that `h3` cannot be the value of Card[title]. [#3388](https://github.com/ant-design/ant-design/issues/3388)
@@ -30,7 +31,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   - Fix style conflicts with TimePicker. [#3312](https://github.com/ant-design/ant-design/issues/3312) [#3307](https://github.com/ant-design/ant-design/issues/3307)
 - Fix overflow issue for Form.Item label.
 - Fix infinite loop while inc/dec InputNubmer with keyboard. [#3239](https://github.com/ant-design/ant-design/issues/3239)
-- Fix bug that Popconfirm[arrowPointAtCenter] doesn't work.
+- Fix bug Popover and Popconfirm `arrowPointAtCenter` doesn't work.
 - Select
   - Fix bug that styles of Select are imported twice.
   - Fix bug `notFoundContent` cannot be set as `''`. [#3345](https://github.com/ant-design/ant-design/issues/3345)

@@ -21,8 +21,9 @@ timeline: true
 - 优化 Modal 样式细节。
 - 优化 Tooltip 动画。
 - 优化 Transfer 按钮的样式。
+- 整理和修复了部分 less 变量。
 - 修复 Affix 与 BackTop 的服务端渲染问题。[#3283](https://github.com/ant-design/ant-design/issues/3283) [#3343](https://github.com/ant-design/ant-design/issues/3343)
-- 修复 Card[title] 内无法使用 `h3` 之类的标签的问题。[#3388](https://github.com/ant-design/ant-design/issues/3388) 
+- 修复 Card[title] 内无法使用 `h3` 之类的标签的问题。[#3388](https://github.com/ant-design/ant-design/issues/3388)
 - 修复 Cascader 搜索模式与浏览器自动完成有冲突的问题。[#3350](https://github.com/ant-design/ant-design/issues/3350)
 - DatePicker
   - 修复设置 `showTime` 后，`onChange` 重复触发的问题。[#3376](https://github.com/ant-design/ant-design/issues/3376)
@@ -30,7 +31,7 @@ timeline: true
   - 修复与 TimePicker 样式冲突问题。[#3312](https://github.com/ant-design/ant-design/issues/3312) [#3307](https://github.com/ant-design/ant-design/issues/3307)
 - 修复 Form.Item 标签文案过长溢出的问题。
 - 修复 InputNubmer 键盘事件死循环问题。[#3239](https://github.com/ant-design/ant-design/issues/3239)
-- 修复 Popconfirm[arrowPointAtCenter] 无效的问题。
+- 修复 Popover 和 Popconfirm 的 `arrowPointAtCenter` 无效的问题。
 - Select
   - 修复样式重复引入的问题。
   - 修复 `notFoundContent` 无法置空的问题。[#3345](https://github.com/ant-design/ant-design/issues/3345)
