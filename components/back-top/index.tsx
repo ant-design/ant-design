@@ -47,9 +47,8 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
   constructor(props) {
     super(props);
-    const scrollTop = getScroll(props.target(), true);
     this.state = {
-      visible: scrollTop > props.visibilityHeight,
+      visible: false,
     };
   }
 
@@ -87,6 +86,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   }
 
   componentDidMount() {
+    this.handleScroll();
     this.scrollEvent = addEventListener(this.props.target(), 'scroll', this.handleScroll);
   }
 
