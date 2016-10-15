@@ -39,7 +39,7 @@ const treeData = [{
 const Demo = React.createClass({
   getInitialState() {
     return {
-      value: '',
+      value: undefined,
     };
   },
   onChange(value) {
