@@ -112,7 +112,7 @@ Entry files will be built and generated in `dist` directory, then we can deploy 
 
 Ant Design React supports all the modern browsers and IE9+.
 
-But we need to provide [es5-shim](https://facebook.github.io/react/docs/working-with-the-browser.html#browser-support) and other polyfills for IE8/9, and [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) is a better choice. What's more, use [react@0.14.x](https://facebook.github.io/react/blog/2016/01/12/discontinuing-ie8-support.html) to support IE8.
+You need to provide [es5-shim](https://github.com/es-shims/es5-shim) 和 [es6-shim](https://github.com/paulmillr/es6-shim) and other polyfills for IE browsers. If you are using babel, we strongly recommend to use [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) and [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/).
 
 ```html
 <!DOCTYPE html>
@@ -123,7 +123,7 @@ But we need to provide [es5-shim](https://facebook.github.io/react/docs/working-
     <link rel="stylesheet" href="/index.css">
     <!-- Polyfills -->
     <!--[if lt IE 10]>
-    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
+    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,es5-shim/4.5.7/es5-shim.min.js,es5-shim/4.5.7/es5-sham.min.js,es6-shim/0.35.1/es6-sham.min.js,es6-shim/0.35.1/es6-shim.min.js,html5shiv/3.7.2/html5shiv.min.js,media-match/2.0.2/media.match.min.js"></script>
     <![endif]-->
   </head>
   <body>
@@ -135,9 +135,11 @@ But we need to provide [es5-shim](https://facebook.github.io/react/docs/working-
 </html>
 ```
 
-You may encounter problems like [#28](https://github.com/ant-tool/atool-build/issues/28) and [#858](https://github.com/ant-design/ant-design/issues/858), since `babel@6.x` doesn't support IE8.
+#### IE8 note
 
-[antd-init](http://github.com/ant-design/antd-init) had solved those problems and you can refer to this [webpack config](https://github.com/ant-design/antd-init/blob/f5fb9479ca973fade51fd6754e50f8b3fafbb1df/boilerplate/webpack.config.js#L4-L8).
+> We don't support IE8 after `antd@2.0`.
+
+You may encounter problems like [#28](https://github.com/ant-tool/atool-build/issues/28) and [#858](https://github.com/ant-design/ant-design/issues/858), since `babel@6.x` doesn't support IE8. You can refer to this [webpack config](https://github.com/ant-design/antd-init/blob/f5fb9479ca973fade51fd6754e50f8b3fafbb1df/boilerplate/webpack.config.js#L4-L8).
 
 > More about how to use React in IE8: https://github.com/xcatliu/react-ie8
 
