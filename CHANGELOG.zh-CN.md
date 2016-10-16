@@ -14,7 +14,7 @@ timeline: true
 `2016-10-16`
 
 - Icon 现在支持旋转动画。
-- Tabs 现在可以禁用切换动画。
+- Tabs 现在可以禁用切换动画。[#3324](https://github.com/ant-design/ant-design/issues/3324)
 - 新增西班牙语的 localization 支持。@Danjavia
 - 更新俄语的 localization 文案。@plandem
 - 新增 AutoComplete[onSelect] 回调。
@@ -37,12 +37,12 @@ timeline: true
 - 修复 Popover 箭头样式问题。
 - 修复 Popover 和 Popconfirm 的 `arrowPointAtCenter` 无效的问题。
 - Select
-  - 修复样式重复引入的问题。
+  - 修复样式重复引入的问题。[#3376](https://github.com/ant-design/ant-design/issues/3376)
   - 修复 `notFoundContent` 无法置空的问题。[#3345](https://github.com/ant-design/ant-design/issues/3345)
   - 修复 Table 内使用 Select[showSearch] 后宽度会跳动的问题。[#3413](https://github.com/ant-design/ant-design/issues/3413)
 - 修复 Table 边框线与页头页脚冲突的问题。[#3301](https://github.com/ant-design/ant-design/issues/3301)
 - 修复 TabPane 高度不随内容变化的问题。[#3377](https://github.com/ant-design/ant-design/issues/3377)
-- 修复 Transfer[titles] 不受 LocaleProvider 控制的问题。
+- 修复 Transfer[titles] 不受 LocaleProvider 控制的问题。[#3264](https://github.com/ant-design/ant-design/pull/3264)
 - Upload
   - 修复用户自定义 `onRemove` 事件会覆盖默认行为的问题。[#3317](https://github.com/ant-design/ant-design/issues/3317)
   - 修复图片卡片样式问题。[#3316](https://github.com/ant-design/ant-design/issues/3316)
