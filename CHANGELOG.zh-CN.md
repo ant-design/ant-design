@@ -11,7 +11,7 @@ timeline: true
 
 ## 2.1.0
 
-`2016-10-14`
+`2016-10-16`
 
 - Icon 现在支持旋转动画。
 - Tabs 现在可以禁用切换动画。
@@ -21,7 +21,9 @@ timeline: true
 - 优化 Modal 样式细节。
 - 优化 Tooltip 动画。
 - 优化 Transfer 按钮的样式。
+- 优化 Tree 的样式细节。
 - 整理和修复了部分 less 变量。
+- 修复服务端渲染时全量引入 antd 报错的问题。
 - 修复 Affix 与 BackTop 的服务端渲染问题。[#3283](https://github.com/ant-design/ant-design/issues/3283) [#3343](https://github.com/ant-design/ant-design/issues/3343)
 - 修复 Card[title] 内无法使用 `h3` 之类的标签的问题。[#3388](https://github.com/ant-design/ant-design/issues/3388)
 - 修复 Cascader 搜索模式与浏览器自动完成有冲突的问题。[#3350](https://github.com/ant-design/ant-design/issues/3350)
@@ -30,13 +32,16 @@ timeline: true
   - 修复浮层与 Trigger 日期格式不一致的问题。[#3405](https://github.com/ant-design/ant-design/issues/3405) [#3298](https://github.com/ant-design/ant-design/issues/3298)
   - 修复与 TimePicker 样式冲突问题。[#3312](https://github.com/ant-design/ant-design/issues/3312) [#3307](https://github.com/ant-design/ant-design/issues/3307)
 - 修复 Form.Item 标签文案过长溢出的问题。
+- 修复 Icon 在 Safari 下会出现边框的问题。
 - 修复 InputNubmer 键盘事件死循环问题。[#3239](https://github.com/ant-design/ant-design/issues/3239)
+- 修复 Popover 箭头样式问题。
 - 修复 Popover 和 Popconfirm 的 `arrowPointAtCenter` 无效的问题。
 - Select
   - 修复样式重复引入的问题。
   - 修复 `notFoundContent` 无法置空的问题。[#3345](https://github.com/ant-design/ant-design/issues/3345)
   - 修复 Table 内使用 Select[showSearch] 后宽度会跳动的问题。[#3413](https://github.com/ant-design/ant-design/issues/3413)
 - 修复 Table 边框线与页头页脚冲突的问题。[#3301](https://github.com/ant-design/ant-design/issues/3301)
+- 修复 TabPane 高度不随内容变化的问题。[#3377](https://github.com/ant-design/ant-design/issues/3377)
 - 修复 Transfer[titles] 不受 LocaleProvider 控制的问题。
 - Upload
   - 修复用户自定义 `onRemove` 事件会覆盖默认行为的问题。[#3317](https://github.com/ant-design/ant-design/issues/3317)
