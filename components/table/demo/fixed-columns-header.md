@@ -11,7 +11,7 @@ title:
 
 > 若列头与内容不对齐，请指定每列宽度 `width`。
 
-> 建议指定 scroll.x 为固定宽度。
+> 建议指定 `scroll.x` 为固定宽度。注意，非固定列宽度之和不要超过 `scroll.x`。
 
 ## en-US
 
@@ -19,7 +19,7 @@ Suitable for large amounts of data with long columns.
 
 > Specify the width of each column if header and cell do not align properly.
 
-> A fixed width for `scroll.x` is recommended.
+> A fixed width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
 
 ````jsx
 import { Table } from 'antd';
