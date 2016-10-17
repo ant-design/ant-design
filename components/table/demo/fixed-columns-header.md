@@ -34,7 +34,7 @@ const columns = [
   { title: 'Column 5', dataIndex: 'address', key: '5', width: 150 },
   { title: 'Column 6', dataIndex: 'address', key: '6', width: 150 },
   { title: 'Column 7', dataIndex: 'address', key: '7', width: 150 },
-  { title: 'Column 8', dataIndex: 'address', key: '8', width: 150 },
+  { title: 'Column 8', dataIndex: 'address', key: '8' },
   {
     title: 'Action',
     key: 'operation',
