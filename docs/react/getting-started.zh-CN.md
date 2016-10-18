@@ -165,9 +165,9 @@ import { Button } from 'antd';
 
 插件会帮你转换成上面的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-import#usage) 属性可以做到模块样式的按需自动加载。
 
-## 配置案例
+## 配置主题和字体
 
-- [改变主色系](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [改变主题](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
 - [使用本地字体](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
 
 ## 小甜点

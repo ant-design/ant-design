@@ -76,6 +76,13 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 ### this.props.form.getFieldDecorator(id, options)
 
+After wrapped by `getFieldDecorator`, `value` `onChange` props will be added to form controls，the flow of form data will be handled by Form which will cause:
+
+
+1. You don't need to use `onChange` and should not add `value` `onChange` to controls. (There are warnings after `antd@2.0`)
+2. You can not set default value via `defaultValue` prop, you should use `initialValue` in `getFieldDecorator` instead.
+3. You don't need to call `setState` manully, please use `this.props.form.setFiledValue` to change value programmatically.
+
 #### Special attention
 
 If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: https://github.com/facebook/react/pull/6534

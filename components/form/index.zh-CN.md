@@ -78,6 +78,12 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### this.props.form.getFieldDecorator(id, options)
 
+经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value` `onChange` 等属性，数据同步将被 Form 接管，这会导致以下结果：
+
+1. 你不再需要用 `onChange` 来做同步，也不应该给控件单独添加 `value` `onChange` 等属性。（2.0 后会在控制台进行警告）
+2. 你不能用控件的 `defaultValue` 属性来设置默认值，请用 `getFieldDecorator` 里的 `initialValue`。
+3. 你不需要用 `setState`，可以使用 `this.props.form.setFiledValue` 来动态改变表单值。
+
 #### 特别注意
 
 如果使用的是 `react@<15.3.0`，则 `getFieldDecorator` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
