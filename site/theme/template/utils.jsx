@@ -19,6 +19,21 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
+export function isZhCN() {
+  if (location.search.indexOf('locale=zh-CN') > -1) {
+    return true;
+  }
+  if (location.search.indexOf('locale=en-US') > -1) {
+    return false;
+  }
+
+  const language = (
+    typeof localStorage === 'undefined' ||
+      !localStorage.getItem('locale')
+  ) ? navigator.language : localStorage.getItem('locale');
+  return language === 'zh-CN';
+}
+
 export function ping(url, callback) {
   const img = new Image();
   let done;

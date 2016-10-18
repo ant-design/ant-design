@@ -18,7 +18,7 @@ function onScrollEvent(e) {
   }
 }
 
-export default function Page1() {
+export default function Page1({ location }) {
   return (
     <ScrollOverPack scrollName="page1" className="content-wrapper page"
       playScale={1} replay scrollEvent={onScrollEvent}
@@ -32,7 +32,7 @@ export default function Page1() {
         <h2 key="h2"><FormattedMessage id="app.home.best-practice" /></h2>
         <p key="p" style={{ maxWidth: 310 }}><FormattedMessage id="app.home.experience" /></p>
         <div key="button">
-          <Link to="/docs/practice/cases">
+          <Link to={{ query: location.query, pathname: '/docs/practice/cases' }}>
             <Button type="primary" size="large">
               <FormattedMessage id="app.home.learn-more" />
               <Icon type="right" />

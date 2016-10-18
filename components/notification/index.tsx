@@ -92,8 +92,19 @@ function notice(args) {
   });
 }
 
-const api = {
-  open(args) {
+const api: {
+  success?(args: ArgsProps): void;
+  error?(args: ArgsProps): void;
+  info?(args: ArgsProps): void;
+  warn?(args: ArgsProps): void;
+  warning?(args: ArgsProps): void;
+
+  open(args: ArgsProps): void;
+  close(key: string): void;
+  config(options: ConfigProps): void;
+  destroy(): void;
+} = {
+  open(args: ArgsProps) {
     notice(args);
   },
   close(key) {

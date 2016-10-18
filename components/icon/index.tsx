@@ -6,7 +6,7 @@ export interface IconProps {
   type: string;
   className?: string;
   title?: string;
-  onClick?: (e) => void;
+  onClick?: React.MouseEventHandler;
   spin?: boolean;
 }
 

@@ -75,7 +75,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     } = this.props;
     let className = classNames({
       [this.props.className]: !!this.props.className,
-      [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
+      [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,

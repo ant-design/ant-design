@@ -750,7 +750,7 @@ export default class Table extends React.Component<TableProps, any> {
     const { pagination } = this.state;
     if (pagination.size) {
       size = pagination.size;
-    } else if (this.props.size === 'middle' || this.props.size === 'small') {
+    } else if (this.props.size as string === 'middle' || this.props.size === 'small') {
       size = 'small';
     }
     let total = pagination.total || this.getLocalData().length;

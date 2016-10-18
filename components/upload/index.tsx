@@ -247,6 +247,7 @@ export default class Upload extends React.Component<UploadProps, any> {
       onProgress: this.onProgress,
       onSuccess: this.onSuccess,
     });
+    delete rcUploadProps.className;
 
     const uploadList = showUploadList ? (
       <UploadList

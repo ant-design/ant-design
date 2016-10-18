@@ -6,7 +6,7 @@ import Checkbox from '../checkbox';
 import Radio from '../radio';
 
 export interface FilterDropdownMenuWrapperProps {
-  onClick?: Function;
+  onClick?: React.MouseEventHandler;
   children?: any;
   className?: string;
 }

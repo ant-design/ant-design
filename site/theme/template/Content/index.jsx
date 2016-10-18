@@ -1,13 +1,9 @@
 import React from 'react';
 import Promise from 'bluebird';
 import MainContent from './MainContent';
+import * as utils from '../utils';
 
-// locale copy from layout
-const language = (typeof localStorage === 'undefined' || !localStorage.getItem('locale')) ?
-        navigator.language : localStorage.getItem('locale');
-const isZhCN = language === 'zh-CN';
-const locale = isZhCN ? 'zh-CN' : 'en-US';
-
+const locale = utils.isZhCN() ? 'zh-CN' : 'en-US';
 export function collect(nextProps, callback) {
   const pageData = nextProps.location.pathname === 'changelog' ?
           nextProps.data.CHANGELOG : nextProps.pageData;
