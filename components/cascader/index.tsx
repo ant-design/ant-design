@@ -117,7 +117,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   constructor(props) {
     super(props);
     this.state = {
-      value: props.value || props.defautValue || [],
+      value: props.value || props.defaultValue || [],
       inputValue: '',
       inputFocused: false,
       popupVisible: false,
