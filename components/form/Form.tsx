@@ -42,11 +42,9 @@ export type WrappedFormUtils = {
   validateFields(options: Object, callback: (erros: any, values: any) => void): any;
   validateFields(callback: (erros: any, values: any) => void): any;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(
-    fieldNames?: Array<string>,
-    options?: Object,
-    callback?: (erros: any, values: any) => void
-  ): void;
+  validateFieldsAndScroll(fieldNames?: Array<string>,
+                          options?: Object,
+                          callback?: (erros: any, values: any) => void): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
   /** 判断一个输入控件是否在校验状态*/
@@ -82,6 +80,8 @@ export class FormComponent extends React.Component<FormComponentProps, {}> {
 export interface ComponentDecorator {
   <T extends (typeof FormComponent)>(component: T): T;
 }
+
+let warnedGetFieldProps = false;
 
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
@@ -121,16 +121,25 @@ export default class Form extends React.Component<FormProps, any> {
           form: this.props.form,
         };
       },
-      render() {
-        const getFieldProps = this.props.form.getFieldProps;
-        function deprecatedGetFieldProps(name, option) {
+      componentWillMount() {
+        if (!warnedGetFieldProps) {
+          this.getFieldProps = this.props.form.getFieldProps;
+        }
+      },
+      deprecatedGetFieldProps(name, option) {
+        if (!warnedGetFieldProps) {
+          warnedGetFieldProps = true;
           warning(
             false,
-            '`getFieldProps` is deprecated and will be removed in future, please use `getFieldDecorator` instead'
+            '`getFieldProps` is not recommended, please use `getFieldDecorator` instead'
           );
-          return getFieldProps(name, option);
         }
-        this.props.form.getFieldProps = deprecatedGetFieldProps;
+        return this.getFieldProps(name, option);
+      },
+      render() {
+        if (!warnedGetFieldProps) {
+          this.props.form.getFieldProps = this.deprecatedGetFieldProps;
+        }
 
         const withRef: any = {};
         if (options && options.withRef) {
