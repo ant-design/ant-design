@@ -37,7 +37,7 @@ const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponen
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
 }
-const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM') as React.ClassicComponentClass<MonthPickerProps>;
+const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
 
 export interface RangePickerProps extends PickerProps {
   value?: [moment.Moment, moment.Moment];
@@ -48,9 +48,14 @@ export interface RangePickerProps extends PickerProps {
 }
 
 assign(DatePicker, {
-  RangePicker: wrapPicker(RangePicker) as React.ClassicComponentClass<RangePickerProps>,
+  RangePicker: wrapPicker(RangePicker),
   Calendar,
   MonthPicker,
 });
 
-export default DatePicker;
+export interface DatePickerDecorator extends React.ClassicComponentClass<DatePickerProps> {
+  RangePicker: React.ClassicComponentClass<RangePickerProps>;
+  MonthPicker: React.ClassicComponentClass<MonthPickerProps>;
+}
+
+export default DatePicker as DatePickerDecorator;
