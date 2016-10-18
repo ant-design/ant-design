@@ -7,6 +7,7 @@ import Header from './Header';
 import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
+import * as utils from '../utils';
 import '../../static/style';
 
 // Expose to iframe
@@ -14,11 +15,7 @@ window.react = React;
 window['react-dom'] = ReactDOM;
 window.antd = require('antd');
 
-const language = (typeof localStorage === 'undefined' || !localStorage.getItem('locale')) ?
-        navigator.language : localStorage.getItem('locale');
-const isZhCN = language === 'zh-CN';
-
-const appLocale = isZhCN ? cnLocale : enLocale;
+const appLocale = utils.isZhCN() ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
 
 export default class Layout extends React.Component {

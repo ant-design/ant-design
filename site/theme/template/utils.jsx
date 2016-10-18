@@ -19,6 +19,14 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
+export function isZhCN() {
+  const language = (
+    typeof localStorage === 'undefined' ||
+      !localStorage.getItem('locale')
+  ) ? navigator.language : localStorage.getItem('locale');
+  return language === 'zh-CN';
+}
+
 export function ping(url, callback) {
   const img = new Image();
   let done;
