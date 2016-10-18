@@ -55,7 +55,7 @@ function notice(
 
 type ConfigContent = React.ReactNode | string;
 type ConfigDuration = number;
-type ConfigOnClose = () => void;
+export type ConfigOnClose = () => void;
 
 export interface ConfigOptions {
   top?: number;
@@ -64,7 +64,7 @@ export interface ConfigOptions {
 }
 
 export default {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: () => ConfigOnClose) {
     return notice(content, duration, 'info', onClose);
   },
   success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {

@@ -35,7 +35,7 @@ export interface SelectProps {
   style?: React.CSSProperties;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
-  onChange?: (value) => void;
+  onChange?: (value: SelectValue) => void;
 }
 
 export interface OptionProps {
@@ -53,7 +53,8 @@ export interface SelectContext {
   };
 }
 
-export { Option, OptGroup };
+// => It is needless to export the declaration of below two inner components.
+// export { Option, OptGroup };
 
 export default class Select extends React.Component<SelectProps, any> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;

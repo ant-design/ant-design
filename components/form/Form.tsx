@@ -62,7 +62,7 @@ export type WrappedFormUtils = {
     /** 收集子节点的值的时机 */
     trigger?: string;
     /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
-    getValueFromEvent?: (...args) => any;
+    getValueFromEvent?: (...args: any[]) => any;
     /** 校验子节点值的时机 */
     validateTrigger?: string;
     /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */

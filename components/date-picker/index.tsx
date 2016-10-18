@@ -16,7 +16,7 @@ export interface PickerProps {
   popupStyle?: React.CSSProperties;
   locale?: any;
   size?: 'large' | 'small' | 'default';
-  getCalendarContainer?: (trigger) => React.ReactNode;
+  getCalendarContainer?: (trigger: any) => React.ReactNode;
   prefixCls?: string;
   inputPrefixCls?: string;
 }
