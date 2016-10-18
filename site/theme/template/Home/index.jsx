@@ -92,11 +92,11 @@ function Home(props) {
     <DocumentTitle title={`Ant Design - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
       <div className="main-wrapper">
         <Link />
-        <Banner />
-        <Page1 />
-        <Page2 />
-        <Page3 />
-        <Page4 />
+        <Banner {...props} />
+        <Page1 {...props} />
+        <Page2 {...props} />
+        <Page3 {...props} />
+        <Page4 {...props} />
         <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
       </div>
     </DocumentTitle>

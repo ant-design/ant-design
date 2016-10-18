@@ -62,7 +62,7 @@ export default class Header extends React.Component {
     if (typeof localStorage !== 'undefined') {
       const locale = this.context.intl.locale === 'zh-CN' ? 'en-US' : 'zh-CN';
       localStorage.setItem('locale', locale);
-      location.reload();
+      location.search = `?locale=${locale}`;
     }
   }
 
@@ -99,38 +99,39 @@ export default class Header extends React.Component {
     });
 
     const menuMode = this.state.menuMode;
+    const query = location.query;
     const menu = [
       <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to="/">
+          <Link to={{ query, pathname: '/' }}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/spec">
-          <Link to="/docs/spec/introduce">
+          <Link to={{ query, pathname: '/docs/spec/introduce' }}>
             <FormattedMessage id="app.header.menu.spec" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/react">
-          <Link to="/docs/react/introduce">
+          <Link to={{ query, pathname: '/docs/react/introduce' }}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/pattern">
-          <Link to="/docs/pattern/navigation">
+          <Link to={{ query, pathname: '/docs/pattern/navigation' }}>
             <FormattedMessage id="app.header.menu.pattern" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/practice">
-          <Link to="/docs/practice/cases">
+          <Link to={{ query, pathname: '/docs/practice/cases' }}>
             <FormattedMessage id="app.header.menu.practice" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/resource">
-          <Link to="/docs/resource/download">
+          <Link to={{ query, pathname: '/docs/resource/download' }}>
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
         </Menu.Item>
@@ -153,7 +154,7 @@ export default class Header extends React.Component {
         </Popover>
         <Row>
           <Col lg={4} md={6} sm={7} xs={24}>
-            <Link to="/" id="logo">
+            <Link to={{ query, pathname: '/' }} id="logo">
               <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
               <span>Ant Design</span>
             </Link>

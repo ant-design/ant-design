@@ -20,6 +20,13 @@ export function getMenuItems(moduleData, locale) {
 }
 
 export function isZhCN() {
+  if (location.search.indexOf('locale=zh-CN') > -1) {
+    return true;
+  }
+  if (location.search.indexOf('locale=en-US') > -1) {
+    return false;
+  }
+
   const language = (
     typeof localStorage === 'undefined' ||
       !localStorage.getItem('locale')
