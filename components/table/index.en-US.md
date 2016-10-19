@@ -50,7 +50,7 @@ const columns = [{
 
 ### Table
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            | Default      |
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | Object  | null  |
 | pagination    | pagination [config](/components/pagination), hide it via setting to `false` | Object |  |
@@ -62,6 +62,9 @@ const columns = [{
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
 | expandedRowKeys | current expanded rows keys | Array | - |
+| defaultExpandAllRows | Expand All Rows initially | Boolean | false |
+| onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
+| onExpand      | function to call when click expand icon | Function(expanded, record) | |
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
 | loading       | loading status of table | Boolean | false |
 | locale        | i18n text include filter, sort, empty text...etc | Object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
@@ -77,7 +80,7 @@ const columns = [{
 
 One of Property `columns` for descriping column.
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | title      | title of this column        | String or React.Element | - |
 | key        | key of this column | String          | - |
@@ -99,7 +102,7 @@ One of Property `columns` for descriping column.
 
 Properties for selection.
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | type | `checkbox` or `radio` | String | `checkbox`  |
 | selectedRowKeys | controlled selected row keys | Array | []  |

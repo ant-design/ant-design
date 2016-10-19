@@ -82,7 +82,7 @@
     "babel-jest": "^13.2.2",
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
-    "bisheng": "^0.12.0",
+    "bisheng": "^0.13.0",
     "bisheng-plugin-antd": "~0.2.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.2.0",
