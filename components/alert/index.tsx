@@ -18,7 +18,7 @@ export interface AlertProps {
   /** Additional content of Alert */
   description?: React.ReactNode;
   /** Callback when close Alert */
-  onClose?: React.MouseEventHandler;
+  onClose?: React.MouseEventHandler<any>;
   /** Whether to show icon */
   showIcon?: boolean;
   style?: React.CSSProperties;

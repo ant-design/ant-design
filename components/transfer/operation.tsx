@@ -9,8 +9,8 @@ export interface TransferOperationProps {
   className?: string;
   leftArrowText?: string;
   rightArrowText?: string;
-  moveToLeft?: React.FormEventHandler;
-  moveToRight?: React.FormEventHandler;
+  moveToLeft?: React.FormEventHandler<any>;
+  moveToRight?: React.FormEventHandler<any>;
   leftActive?: boolean;
   rightActive?: boolean;
 }

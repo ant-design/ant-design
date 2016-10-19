@@ -27,7 +27,7 @@ export interface AntTreeNodeEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEventHandler;
+  event: React.MouseEventHandler<any>;
 }
 
 export interface TreeProps {

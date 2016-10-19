@@ -25,7 +25,7 @@ const easeInOutCubic = (t, b, c, d) => {
 
 export interface BackTopProps {
   visibilityHeight?: number;
-  onClick?: React.MouseEventHandler;
+  onClick?: React.MouseEventHandler<any>;
   target?: () => HTMLElement | Window;
   prefixCls?: string;
   className?: string;

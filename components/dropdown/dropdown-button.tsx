@@ -8,7 +8,7 @@ import splitObject from '../_util/splitObject';
 
 export interface DropdownButtonProps {
   type?: 'primary' | 'ghost' | 'dash';
-  onClick?: React.FormEventHandler;
+  onClick?: React.FormEventHandler<any>;
   trigger?: 'click' | 'hover';
   overlay: React.ReactNode;
   visible?: boolean;

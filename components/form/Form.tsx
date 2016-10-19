@@ -20,7 +20,7 @@ export interface FormProps {
   inline?: boolean;
   vertical?: boolean;
   form?: WrappedFormUtils;
-  onSubmit?: React.FormEventHandler;
+  onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;

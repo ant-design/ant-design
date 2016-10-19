@@ -8,8 +8,8 @@ function noop() {
 export interface SearchProps {
   prefixCls?: string;
   placeholder?: string;
-  onChange?: (e: React.FormEvent) => void;
-  handleClear?: (e: React.MouseEvent) => void;
+  onChange?: (e: React.FormEvent<any>) => void;
+  handleClear?: (e: React.MouseEvent<any>) => void;
   value?: any;
 }
 

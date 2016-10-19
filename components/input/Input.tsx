@@ -45,11 +45,11 @@ export interface InputProps {
   readOnly?: boolean;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
-  onPressEnter?: React.FormEventHandler;
-  onKeyDown?: React.FormEventHandler;
-  onChange?: React.FormEventHandler;
-  onClick?: React.FormEventHandler;
-  onBlur?: React.FormEventHandler;
+  onPressEnter?: React.FormEventHandler<any>;
+  onKeyDown?: React.FormEventHandler<any>;
+  onChange?: React.FormEventHandler<any>;
+  onClick?: React.FormEventHandler<any>;
+  onBlur?: React.FormEventHandler<any>;
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;

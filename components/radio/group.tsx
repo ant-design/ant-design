@@ -19,7 +19,7 @@ function getCheckedValue(children) {
 
 export interface RadioGroupProps {
   /** 选项变化时的回调函数*/
-  onChange?: React.FormEventHandler;
+  onChange?: React.FormEventHandler<any>;
   /** 用于设置当前选中的值*/
   value?: string | number;
   /** 默认选中的值*/

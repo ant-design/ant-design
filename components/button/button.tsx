@@ -34,8 +34,8 @@ export interface ButtonProps {
   icon?: string;
   shape?: ButtonShape;
   size?: ButtonSize;
-  onClick?: React.FormEventHandler;
-  onMouseUp?: React.FormEventHandler;
+  onClick?: React.FormEventHandler<any>;
+  onMouseUp?: React.FormEventHandler<any>;
   loading?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;

@@ -13,7 +13,7 @@ export interface CheckboxProps {
   /** indeterminate 状态，只负责样式控制 */
   indeterminate?: boolean;
   /** 变化时回调函数 */
-  onChange?: React.FormEventHandler;
+  onChange?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
   disabled?: boolean;
   className?: string;
