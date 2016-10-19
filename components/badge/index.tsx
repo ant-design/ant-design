@@ -2,6 +2,7 @@ import React from 'react';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
+import warning from 'warning';
 import splitObject from '../_util/splitObject';
 
 export interface BadgeProps {
@@ -64,6 +65,10 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
 
+    warning(
+      !(children && status),
+      '`Badge[children]` and `Badge[status]` cannot be used at the same time.'
+    );
     // <Badge status="success" />
     if (!children && status) {
       const statusCls = classNames({
