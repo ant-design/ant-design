@@ -62,6 +62,9 @@ const columns = [{
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
 | expandedRowKeys | current expanded rows keys | Array | - |
+| defaultExpandAllRows | Expand All Rows initially | Boolean | false |
+| onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
+| onExpand      | function to call when click expand icon | Function(expanded, record) | |
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
 | loading       | loading status of table | Boolean | false |
 | locale        | i18n text include filter, sort, empty text...etc | Object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
