@@ -38,7 +38,6 @@
   box-sizing: border-box;
   display: inline-block;
   position: relative;
-  vertical-align: middle;
   color: #666;
   font-size: @font-size-base;
 
@@ -96,6 +95,15 @@
     &:hover &__clear {
       opacity: 1;
     }
+
+    &-selected-value {
+      position: absolute;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+      padding-right: 16px;
+    }
   }
 
   &-disabled {
@@ -136,19 +144,17 @@
     .@{select-prefix-cls}-selection__rendered {
       height: 26px;
       display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      padding-left: 8px;
-      padding-right: 24px;
+      margin-left: 8px;
+      margin-right: 8px;
+      position: relative;
       line-height: 26px;
+      // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
+      &:after {
+        content: '.';
+        visibility: hidden;
+        pointer-events: none;
+      }
     }
-  }
-
-  &-open&-show-search &-selection--single &-selection-selected-value {
-    position: absolute;
-    left: 8px;
-    top: 0;
   }
 
   &-lg {
@@ -208,7 +214,7 @@
   &-search__field__placeholder { // for TreeSelect compatibility
     position: absolute;
     top: 50%;
-    left: 9px;
+    left: 0;
     right: 9px;
     color: #ccc;
     line-height: 20px;
@@ -222,7 +228,6 @@
 
   &-search--inline {
     position: absolute;
-    width: 100%;
     height: 100%;
 
     .@{select-prefix-cls}-selection--multiple & {
@@ -239,6 +244,7 @@
       border: 0;
       font-size: 100%;
       height: 100%;
+      width: 100%;
       background: transparent;
       outline: 0;
       border-radius: @border-radius-base;
@@ -263,6 +269,7 @@
 
     .@{select-prefix-cls}-search--inline {
       width: auto;
+      padding: 0;
       .@{select-prefix-cls}-search__field {
         width: 0.75em;
       }
@@ -348,6 +355,7 @@
     }
     .@{select-prefix-cls}-search--inline {
       height: 100%;
+      width: 100%;
       float: none;
     }
     .@{select-prefix-cls}-search__field__wrap {
@@ -355,7 +363,6 @@
       height: 100%;
     }
     .@{select-prefix-cls}-search__field {
-      padding: 0 10px;
       width: 100%;
       height: 100%;
       position: relative;
@@ -364,7 +371,7 @@
       box-shadow: none;
     }
     .@{select-prefix-cls}-selection__rendered {
-      padding: 0 24px 0 0;
+      padding: 0;
       height: 100%;
       position: absolute;
       left: 0;
