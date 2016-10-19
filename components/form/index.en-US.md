@@ -81,7 +81,7 @@ After wrapped by `getFieldDecorator`, `value` `onChange` props will be added to 
 
 1. You don't need to use `onChange` and should not add `value` `onChange` to controls. (There are warnings after `antd@2.0`)
 2. You can not set default value via `defaultValue` prop, you should use `initialValue` in `getFieldDecorator` instead.
-3. You don't need to call `setState` manully, please use `this.props.form.setFiledValue` to change value programmatically.
+3. You don't need to call `setState` manully, please use `this.props.form.setFieldsValue` to change value programmatically.
 
 #### Special attention
 
