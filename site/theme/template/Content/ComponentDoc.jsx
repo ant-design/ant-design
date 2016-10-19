@@ -31,14 +31,15 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = props;
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
-    const demos = Object.keys(props.demos).map(key => props.demos[key])
-      .filter(demoData => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key]);
     const expand = this.state.expandAll;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    demos.sort((a, b) => a.meta.order - b.meta.order)
+    const showedDemo = demos.some(demo => demo.meta.only) ?
+            demos.filter(demo => demo.meta.only) : demos.filter(demo => !demo.meta.hidden);
+    showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         if (index % 2 === 0 || isSingleCol) {
           leftChildren.push(
