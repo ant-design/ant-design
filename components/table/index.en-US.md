@@ -50,7 +50,7 @@ const columns = [{
 
 ### Table
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            | Default      |
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | Object  | null  |
 | pagination    | pagination [config](/components/pagination), hide it via setting to `false` | Object |  |
@@ -77,7 +77,7 @@ const columns = [{
 
 One of Property `columns` for descriping column.
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | title      | title of this column        | String or React.Element | - |
 | key        | key of this column | String          | - |
@@ -99,7 +99,7 @@ One of Property `columns` for descriping column.
 
 Properties for selection.
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | type | `checkbox` or `radio` | String | `checkbox`  |
 | selectedRowKeys | controlled selected row keys | Array | []  |
