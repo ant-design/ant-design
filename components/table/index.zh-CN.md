@@ -63,6 +63,9 @@ const columns = [{
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | Array | - |
 | expandedRowKeys | 展开的行，控制属性 | Array | - |
+| defaultExpandAllRows | 初始时，是否展开所有行 | Boolean | false |
+| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
+| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | loading       | 页面是否加载中 | Boolean | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | Object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
