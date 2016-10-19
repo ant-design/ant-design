@@ -140,31 +140,30 @@
     height: 28px;
     position: relative;
     cursor: pointer;
+  }
 
-    .@{select-prefix-cls}-selection__rendered {
-      height: 26px;
-      display: block;
-      margin-left: 8px;
-      margin-right: 8px;
-      position: relative;
-      line-height: 26px;
-      // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
-      &:after {
-        content: '.';
-        visibility: hidden;
-        pointer-events: none;
-      }
+  &-selection__rendered {
+    height: 26px;
+    display: block;
+    margin-left: 8px;
+    margin-right: 8px;
+    position: relative;
+    line-height: 26px;
+    // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
+    &:after {
+      content: '.';
+      visibility: hidden;
+      pointer-events: none;
     }
   }
 
   &-lg {
     .@{select-prefix-cls}-selection--single {
       height: 32px;
-      .@{select-prefix-cls}-selection__rendered {
-        line-height: 30px;
-      }
     }
-
+    .@{select-prefix-cls}-selection__rendered {
+      line-height: 30px;
+    }
     .@{select-prefix-cls}-selection--multiple {
       min-height: 32px;
       .@{select-prefix-cls}-selection__rendered {
@@ -182,9 +181,9 @@
     }
     .@{select-prefix-cls}-selection--single {
       height: 22px;
-      .@{select-prefix-cls}-selection__rendered {
-        line-height: 20px;
-      }
+    }
+    .@{select-prefix-cls}-selection__rendered {
+      line-height: 20px;
     }
     .@{select-prefix-cls}-selection--multiple {
       min-height: 22px;
@@ -266,6 +265,8 @@
   &-selection--multiple {
     min-height: 28px;
     cursor: text;
+    padding-bottom: 3px;
+    .clearfix;
 
     .@{select-prefix-cls}-search--inline {
       width: auto;
@@ -276,15 +277,14 @@
     }
 
     .@{select-prefix-cls}-selection__rendered {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-left: 6px;
-      padding-bottom: 4px;
+      margin-left: 5px;
+      margin-bottom: -3px;
+      height: auto;
     }
 
     > ul > li,
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
-      margin-top: 4px;
+      margin-top: 3px;
       height: 20px;
       line-height: 20px;
     }
