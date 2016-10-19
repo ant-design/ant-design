@@ -137,20 +137,8 @@ let Demo = React.createClass({
           {...formItemLayout}
           label="Hobby"
         >
-          {getFieldDecorator('eat', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>eat</Checkbox>
-          )}
-          {getFieldDecorator('sleep', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>sleeping</Checkbox>
-          )}
-          {getFieldDecorator('beat', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>dozen doug</Checkbox>
+          {getFieldDecorator('hobby')(
+            <Checkbox.Group options={['eat', 'sleeping', 'dozen doug']} />
           )}
         </FormItem>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import warning from 'warning';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Row from '../row';
 import Col from '../col';
@@ -58,6 +59,14 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   context: FormItemContext;
 
+  componentDidMount() {
+    warning(
+      !(this.getControls(this.props.children, true).length > 1),
+      '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
+      'while there are more than one `getFieldDecorator` in it.'
+    );
+  }
+
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
@@ -72,11 +81,32 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return props.help;
   }
 
+  getControls(children, recursively) {
+    let controls = [];
+    const childrenArray = React.Children.toArray(children);
+    for (let i = 0; i < childrenArray.length; i++) {
+      if (!recursively && controls.length > 0) {
+        break;
+      }
+
+      const child = childrenArray[i] as React.ReactElement<any>;
+      if (child.type as any === FormItem) {
+        continue;
+      }
+      if (!child.props) {
+        continue;
+      }
+      if (FIELD_META_PROP in child.props) {
+        controls.push(child);
+      } else if (child.props.children) {
+        controls = controls.concat(this.getControls(child.props.children, recursively));
+      }
+    }
+    return controls;
+  }
+
   getOnlyControl() {
-    const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c: React.ReactElement<any>) => {
-      return c.props && FIELD_META_PROP in c.props;
-    })[0];
+    const child = this.getControls(this.props.children, false)[0];
     return child !== undefined ? child : null;
   }
 
