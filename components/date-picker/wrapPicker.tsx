@@ -60,7 +60,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
       });
 
       const locale = getLocale(
-        this.props, this.context, 'DatePicker',
+        props, this.context, 'DatePicker',
         () => require('./locale/zh_CN')
       );
 

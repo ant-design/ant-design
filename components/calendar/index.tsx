@@ -130,7 +130,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     const { prefixCls, style, className, fullscreen } = props;
     const type = (mode === 'year') ? 'month' : 'date';
     const locale = getLocale(
-      this.props, this.context, 'Calendar',
+      props, this.context, 'Calendar',
       () => require('./locale/zh_CN')
     );
 
