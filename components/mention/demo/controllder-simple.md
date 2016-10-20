@@ -14,10 +14,10 @@ title:
 Controlled mode.
 
 ````jsx
-import { Mention, Button } from 'antd';
-const { toEditorState, getMentions, toString } = Mention;
+import { Mention } from 'antd';
+const { toEditorState } = Mention;
 
-let App = React.createClass({
+const App = React.createClass({
   getInitialState() {
     return {
       value: toEditorState('@afc163'),
@@ -29,11 +29,11 @@ let App = React.createClass({
     });
   },
   render() {
-    return <Mention
+    return (<Mention
       suggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
       value={this.state.value}
       onChange={this.handleChange}
-    />;
+    />);
   },
 });
 
