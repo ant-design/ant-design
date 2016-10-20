@@ -38,7 +38,7 @@ export default class ComponentDoc extends React.Component {
     const leftChildren = [];
     const rightChildren = [];
     const showedDemo = demos.some(demo => demo.meta.only) ?
-            demos.filter(demo => demo.meta.only) : demos.filter(demo => !demo.meta.hidden);
+            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         if (index % 2 === 0 || isSingleCol) {
@@ -62,7 +62,7 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
-    const jumper = demos.map((demo) => {
+    const jumper = showedDemo.map((demo) => {
       const title = demo.meta.title;
       const localizeTitle = title[locale] || title;
       return (
