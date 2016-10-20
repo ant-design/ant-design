@@ -108,7 +108,7 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
     // send data to server
   }
   ```
-* For the value of time-related components becomes an instance of `moment`, you should replace `type='date'` with `type='object'` in form validation.
+* For the value of time-related components becomes an instance of `moment`, you should replace `type: 'date'` with `type: 'object'` in form validation.
 * The `format` of time-related components is changed from [gregorian-calendar-format](https://github.com/yiminghe/gregorian-calendar-format#api) to [moment  format](http://momentjs.com/docs/#/parsing/string-format/) now, for instance the format `yyyy-MM-dd` should change to `YYYY-MM-DD`.
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. As being totally different, please check [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
