@@ -124,7 +124,7 @@ If you have any idea to improve antd, just create a [Pull Request](https://githu
 You can ask questions while you meet problem through the following ways.
 And we encourage experienced users to help those who are not familiar with `antd`.
 
-We recommend to tag your questions with `antdesign` on Stack Overflow.
+We recommend to tag your questions with `antd` on Stack Overflow.
 
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antdesign)(Recommended)
+1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)(Recommended)
 2. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)

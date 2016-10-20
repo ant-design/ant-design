@@ -104,8 +104,8 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
 
-通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antdesign` 标签。
+通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
 
-1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antdesign)（推荐）
-2. [Segment Fault](https://segmentfault.com/t/antdesign)
+1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（推荐）
+2. [Segment Fault](https://segmentfault.com/t/antd)
 3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
