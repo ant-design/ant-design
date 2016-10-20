@@ -120,7 +120,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     }
   }
 
-  autoUpdateProgress(percent, file) {
+  autoUpdateProgress(_percent, file) {
     const getPercent = genPercentAdd();
     let curPercent = 0;
     this.progressTimer = setInterval(() => {

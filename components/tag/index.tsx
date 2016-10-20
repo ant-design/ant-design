@@ -49,7 +49,7 @@ export default class Tag extends React.Component<TagProps, any> {
     });
   }
 
-  animationEnd = (key, existed) => {
+  animationEnd = (_key, existed) => {
     if (!existed && !this.state.closed) {
       this.setState({
         closed: true,

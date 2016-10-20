@@ -12,7 +12,7 @@ export interface BreadcrumbProps {
   style?: React.CSSProperties;
 };
 
-function getBreadcrumbName(route, params, routes) {
+function getBreadcrumbName(route, params) {
   if (!route.breadcrumbName) {
     return null;
   }
@@ -32,7 +32,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     separator: '/',
     itemRender: (route, params, routes, paths) => {
       const isLastItem = routes.indexOf(route) === routes.length - 1;
-      const name = getBreadcrumbName(route, params, routes);
+      const name = getBreadcrumbName(route, params);
       return isLastItem
         ? <span>{name}</span>
         : <a href={`#/${paths.join('/')}`}>{name}</a>;
@@ -65,7 +65,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     const { separator, prefixCls, routes, params, children, itemRender } = this.props;
     if (routes && routes.length > 0) {
       const paths = [];
-      crumbs = routes.map((route, i) => {
+      crumbs = routes.map((route) => {
         route.path = route.path || '';
         let path = route.path.replace(/^\//, '');
         Object.keys(params).forEach(key => {

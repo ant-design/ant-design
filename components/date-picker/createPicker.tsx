@@ -72,7 +72,7 @@ export default function createPicker(TheCalendar) {
       let calendarHandler: Object = {
         onOk: this.handleChange,
         // fix https://github.com/ant-design/ant-design/issues/1902
-        onSelect: (value, cause) => {
+        onSelect: (value) => {
           if (!('value' in this.props)) {
             this.setState({ value });
           }

@@ -56,7 +56,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       [`${prefixCls}-show-search`]: true,
     });
 
-    const options = children || (dataSource ? dataSource.map((item, index) => {
+    const options = children || (dataSource ? dataSource.map((item) => {
       switch (typeof item) {
         case 'string':
           return <Option key={item}>{item}</Option>;
