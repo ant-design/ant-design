@@ -29,6 +29,5 @@ ReactDOM.render(
 <style>
 .ant-switch {
   margin-bottom: 8px;
-  display: block;
 }
 <style>
