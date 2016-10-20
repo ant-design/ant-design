@@ -156,6 +156,22 @@ let BasicDemo = React.createClass({
 
         <FormItem
           {...formItemLayout}
+          label="ID Card"
+        >
+          <Input.Group className="ant-search-input">
+            {getFieldDecorator('id-number', {
+              rules: [{ required: true, message: 'ID number is required' }],
+            })(
+              <Input />
+            )}
+            <div className="ant-input-group-wrap">
+              <Button icon="scan" className="ant-search-btn" />
+            </div>
+          </Input.Group>
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
           label="remark"
         >
           {getFieldDecorator('textarea', {
