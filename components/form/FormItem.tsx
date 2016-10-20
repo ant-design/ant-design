@@ -1,10 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Row from '../row';
 import Col from '../col';
 import { WrappedFormUtils } from './Form';
 import { FIELD_META_PROP } from './constants';
+import shallowCompare from '../_util/shallowCompare';
 
 export interface FormItemLabelColOption {
   span: number;
@@ -58,8 +58,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   context: FormItemContext;
 
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
 
   getHelpMsg() {

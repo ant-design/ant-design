@@ -1,7 +1,7 @@
 import RcRadio from 'rc-radio';
 import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import shallowCompare from '../_util/shallowCompare';
 
 export interface RadioProps {
   /** 指定当前是否选中*/
@@ -24,8 +24,8 @@ export default class Radio extends React.Component<RadioProps, any> {
   static defaultProps = {
     prefixCls: 'ant-radio',
   };
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
   render() {
     const { prefixCls, children, checked, disabled, className, style } = this.props;

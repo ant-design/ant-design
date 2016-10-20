@@ -1,13 +1,13 @@
 import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
 import omit from 'omit.js';
 import warning from 'warning';
 import assign from 'object-assign';
 import FormItem from './FormItem';
 import createDOMForm from 'rc-form/lib/createDOMForm';
 import { FIELD_META_PROP } from './constants';
+import shallowCompare from '../_util/shallowCompare';
 
 export interface FormCreateOption {
   onFieldsChange?: (props: any, fields: Array<any>) => void;
@@ -157,8 +157,8 @@ export default class Form extends React.Component<FormProps, any> {
     warning(!props.form, 'It is unnecessary to pass `form` to `Form` after antd@1.7.0.');
   }
 
-  shouldComponentUpdate(...args) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  shouldComponentUpdate(nextProps, nextState) {
+    return shallowCompare(this, nextProps, nextState);
   }
 
   render() {
