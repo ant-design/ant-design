@@ -10,9 +10,7 @@ title:
 使用受控属性对筛选和排序状态进行控制。
 
 > 1. columns 中定义了 fileredValue 和 sortOrder 属性即视为受控模式。
-
 > 2. 只支持同时对一列进行排序，请保证只有一列的 sortOrder 属性是生效的。
-
 > 3. 务必指定 `column.key`。
 
 ## en-US
@@ -20,9 +18,7 @@ title:
 Control filters and sorters by `fileredValue` and `sortOrder`.
 
 > 1. Defining `fileredValue` or `sortOrder` means that it is in the controlled mode.
-
 > 2. Make sure `sortOrder` is assigned for only one column.
-
 > 3. `column.key` is required.
 
 ````jsx
