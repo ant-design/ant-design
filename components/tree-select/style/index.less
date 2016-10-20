@@ -3,6 +3,7 @@
 @import "../../tree/style/mixin";
 @import "../../checkbox/style/mixin";
 
+@select-prefix-cls: ~"@{ant-prefix}-select";
 @select-tree-prefix-cls: ~"@{ant-prefix}-select-tree";
 
 .antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-select-tree-checkbox");
@@ -115,16 +116,29 @@
   }
 }
 
-.@{select-tree-prefix-cls}-dropdown .@{ant-prefix}-select-dropdown-search + span {
-  padding: 7px 16px;
-  color: #ccc;
-  cursor: not-allowed;
-  display: block;
-}
-
-.@{ant-prefix}-select-not-found {
-  cursor: not-allowed;
-  color: #ccc;
-  padding: 7px 16px;
-  display: block;
+.@{select-prefix-cls}-tree-dropdown {
+  .@{select-prefix-cls}-dropdown-search {
+    display: block;
+    padding: 4px;
+    .@{select-prefix-cls}-search__field__wrap {
+      width: 100%;
+    }
+    .@{select-prefix-cls}-search__field {
+      padding: 4px 7px;
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid @border-color-base;
+      border-radius: 4px;
+      outline: none;
+    }
+    &.@{select-prefix-cls}-search--hide {
+      display: none;
+    }
+  }
+  .@{select-prefix-cls}-not-found {
+    cursor: not-allowed;
+    color: #ccc;
+    padding: 7px 16px;
+    display: block;
+  }
 }

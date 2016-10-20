@@ -30,6 +30,7 @@ const Demo = React.createClass({
   render() {
     return (
       <TreeSelect
+        showSearch
         style={{ width: 300 }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
