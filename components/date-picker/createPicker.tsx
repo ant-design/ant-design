@@ -4,6 +4,7 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import assign from 'object-assign';
+import omit from 'omit.js';
 import Icon from '../icon';
 
 export interface PickerProps {
@@ -51,7 +52,7 @@ export default function createPicker(TheCalendar) {
     },
 
     render() {
-      const props = this.props;
+      const props = omit(this.props, ['onChange']);
       const prefixCls = props.prefixCls;
       const locale = props.locale;
 
@@ -72,9 +73,9 @@ export default function createPicker(TheCalendar) {
       let calendarHandler: Object = {
         onOk: this.handleChange,
         // fix https://github.com/ant-design/ant-design/issues/1902
-        onSelect: (value) => {
-          if (!('value' in this.props)) {
-            this.setState({ value });
+        onSelect: (value, cause) => {
+          if (cause && cause.source === 'todayButton') {
+            this.handleChange(value);
           }
         },
       };
