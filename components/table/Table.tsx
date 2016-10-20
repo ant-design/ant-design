@@ -517,7 +517,7 @@ export default class Table extends React.Component<TableProps, any> {
     })));
   }
 
-  renderSelectionRadio = (_value, record, index) => {
+  renderSelectionRadio = (_, record, index) => {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     const props = this.getCheckboxPropsByItem(record);
     let checked;
@@ -537,7 +537,7 @@ export default class Table extends React.Component<TableProps, any> {
     );
   }
 
-  renderSelectionCheckBox = (_value, record, index) => {
+  renderSelectionCheckBox = (_, record, index) => {
     let rowIndex = this.getRecordKey(record, index); // 从 1 开始
     let checked;
     if (this.state.selectionDirty) {
@@ -803,7 +803,7 @@ export default class Table extends React.Component<TableProps, any> {
     // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
     if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
-      data = data.filter((_item, i) => {
+      data = data.filter((_, i) => {
         return i >= (current - 1) * pageSize && i < current * pageSize;
       });
     }
