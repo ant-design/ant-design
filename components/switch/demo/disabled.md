@@ -31,6 +31,7 @@ const Test = React.createClass({
     return (
       <div>
         <Switch disabled={this.state.disabled} />
+        <br />
         <Button type="primary" onClick={this.toggle}>Toggle disabled</Button>
       </div>
     );
