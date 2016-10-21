@@ -423,6 +423,20 @@
       width: auto;
       min-width: 100%;
     }
+
+    // hide scrollbar in table header for IE
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 18px;
+      background: @background-color-base;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      pointer-events: none;
+    }
   }
 
   &-body-inner {
