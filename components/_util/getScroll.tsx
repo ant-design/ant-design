@@ -1,4 +1,4 @@
-export default function getScroll(target, top) {
+export default function getScroll(target, top): number {
   if (typeof window === 'undefined') {
     return 0;
   }
