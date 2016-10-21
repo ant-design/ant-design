@@ -25,6 +25,7 @@ export default function createPicker(TheCalendar) {
       const props = this.props;
       return {
         value: props.value || props.defaultValue,
+        tempValue: undefined,
       };
     },
 
@@ -51,6 +52,24 @@ export default function createPicker(TheCalendar) {
       props.onChange(value, (value && value.format(props.format)) || '');
     },
 
+    handleTempChange(tempValue) {
+      if (!('value' in this.props)) {
+        this.setState({ tempValue });
+      }
+    },
+
+    // Clear temp value when hide picker panel
+    handleOpenChange(open) {
+      if (!open) {
+        this.setState({
+          tempValue: undefined,
+        });
+      }
+      if (this.props.onOpenChange) {
+        this.props.onOpenChange(open);
+      }
+    },
+
     render() {
       const props = omit(this.props, ['onChange']);
       const prefixCls = props.prefixCls;
@@ -67,22 +86,24 @@ export default function createPicker(TheCalendar) {
       });
 
       // 需要选择时间时，点击 ok 时才触发 onChange
-      let pickerChangeHandler: Object = {
-        onChange: this.handleChange,
-      };
-      let calendarHandler: Object = {
-        onOk: this.handleChange,
-        // fix https://github.com/ant-design/ant-design/issues/1902
-        onSelect: (value, cause) => {
-          if (cause && cause.source === 'todayButton') {
-            this.handleChange(value);
-          }
-        },
-      };
+      let pickerChangeHandler: Object = {};
+      let calendarHandler: Object = {};
       if (props.showTime) {
-        pickerChangeHandler = {};
+        calendarHandler = {
+          onOk: this.handleChange,
+          // fix https://github.com/ant-design/ant-design/issues/1902
+          onSelect: (value, cause) => {
+            if (cause && cause.source === 'todayButton') {
+              this.handleChange(value);
+            } else {
+              this.handleTempChange(value);
+            }
+          },
+        };
       } else {
-        calendarHandler = {};
+        pickerChangeHandler = {
+          onChange: this.handleChange,
+        };
       }
 
       const calendar = (
@@ -117,8 +138,9 @@ export default function createPicker(TheCalendar) {
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
+            onOpenChange={this.handleOpenChange}
             calendar={calendar}
-            value={this.state.value}
+            value={this.state.tempValue || this.state.value}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
