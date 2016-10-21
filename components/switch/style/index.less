@@ -16,7 +16,7 @@
   border: 1px solid #ccc;
   background-color: #ccc;
   cursor: pointer;
-  transition: all @switch-duration @ease-in-out-circ;
+  transition: all @switch-duration;
   user-select: none;
 
   &-inner {
@@ -38,7 +38,7 @@
     background-color: #fff;
     content: " ";
     cursor: pointer;
-    transition: all @switch-duration @ease-in-out-circ, width @switch-duration @ease-in-out-circ;
+    transition: all @switch-duration, width @switch-duration;
   }
 
   &:active:after {
