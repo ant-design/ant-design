@@ -8,6 +8,7 @@ export interface IconProps {
   title?: string;
   onClick?: React.MouseEventHandler<any>;
   spin?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default (props: IconProps) => {
