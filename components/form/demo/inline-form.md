@@ -14,7 +14,7 @@ title:
 Inline form is often used for login.
 
 ````jsx
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 let Demo = React.createClass({
@@ -27,18 +27,14 @@ let Demo = React.createClass({
     const { getFieldDecorator } = this.props.form;
     return (
       <Form inline onSubmit={this.handleSubmit}>
-        <FormItem
-          label="Account"
-        >
+        <FormItem>
           {getFieldDecorator('userName')(
-            <Input placeholder="Please input the account" />
+            <Input addonBefore={<Icon type="user" />} placeholder="Please input the account" />
           )}
         </FormItem>
-        <FormItem
-          label="Password"
-        >
+        <FormItem>
           {getFieldDecorator('password')(
-            <Input type="password" placeholder="Please input the password" />
+            <Input addonBefore={<Icon type="lock" />} type="password" placeholder="Please input the password" />
           )}
         </FormItem>
         <FormItem>

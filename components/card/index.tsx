@@ -11,6 +11,7 @@ export interface CardProps {
   loading?: boolean;
   children?: any;
   id?: string;
+  className?: string;
 }
 
 export default (props: CardProps) => {

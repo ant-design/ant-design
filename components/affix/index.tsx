@@ -6,13 +6,13 @@ import shallowequal from 'shallowequal';
 import omit from 'omit.js';
 import getScroll from '../_util/getScroll';
 
-function getTargetRect(target): any {
+function getTargetRect(target): ClientRect {
   return target !== window ?
     target.getBoundingClientRect() :
     { top: 0, left: 0, bottom: 0 };
 }
 
-function getOffset(element, target) {
+function getOffset(element: HTMLElement, target) {
   const elemRect = element.getBoundingClientRect();
   const targetRect = getTargetRect(target);
 
@@ -31,6 +31,13 @@ function getOffset(element, target) {
   };
 }
 
+function noop() {}
+
+function getDefaultTarget() {
+  return typeof window !== 'undefined' ?
+    window : null;
+};
+
 // Affix
 export interface AffixProps {
   /**
@@ -42,7 +49,7 @@ export interface AffixProps {
   offsetBottom?: number;
   style?: React.CSSProperties;
   /** 固定状态改变时触发的回调函数 */
-  onChange?: (affixed?: boolean) => any;
+  onChange?: (affixed?: boolean) => void;
   /** 设置 Affix 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 */
   target?: () => Window | HTMLElement;
   prefixCls?: string;
@@ -55,19 +62,9 @@ export default class Affix extends React.Component<AffixProps, any> {
     target: React.PropTypes.func,
   };
 
-  static defaultProps = {
-    target() {
-      return typeof window !== 'undefined' ?
-        window : null;
-    },
-    onChange() {},
-    prefixCls: 'ant-affix',
-  };
-
   scrollEvent: any;
   resizeEvent: any;
   refs: {
-    [key: string]: any;
     fixedNode: HTMLElement;
   };
 
@@ -80,7 +77,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   setAffixStyle(e, affixStyle) {
-    const { onChange, target } = this.props;
+    const { onChange = noop, target = getDefaultTarget } = this.props;
     const originalAffixStyle = this.state.affixStyle;
     const isWindow = target() === window;
     if (e.type === 'scroll' && originalAffixStyle && affixStyle && isWindow) {
@@ -110,7 +107,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   updatePosition = (e) => {
-    let { offsetTop, offsetBottom, offset, target } = this.props;
+    let { offsetTop, offsetBottom, offset, target = getDefaultTarget } = this.props;
     const targetNode = target();
 
     // Backwards support
@@ -124,8 +121,8 @@ export default class Affix extends React.Component<AffixProps, any> {
     };
 
     const offsetMode = {
-      top: null as boolean,
-      bottom: null as boolean,
+      top: false,
+      bottom: false,
     };
     // Default to `offsetTop=0`.
     if (typeof offsetTop !== 'number' && typeof offsetBottom !== 'number') {
@@ -174,7 +171,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   }
 
   componentDidMount() {
-    const target = this.props.target;
+    const target = this.props.target || getDefaultTarget;
     this.setTargetEventListeners(target);
   }
 
@@ -208,7 +205,7 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   render() {
     const className = classNames({
-      [this.props.prefixCls]: this.state.affixStyle,
+      [this.props.prefixCls || 'ant-affix']: this.state.affixStyle,
     });
 
     const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
