@@ -4,6 +4,8 @@ import Animate from 'rc-animate';
 import Icon from '../icon';
 import classNames from 'classnames';
 
+function noop() {}
+
 export interface AlertProps {
   /**
    * Type of Alert styles, options:`success`, `info`, `warning`, `error`
@@ -28,9 +30,6 @@ export interface AlertProps {
 
 export default class Alert extends React.Component<AlertProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-alert',
-    showIcon: false,
-    onClose() {},
     type: 'info',
   };
   constructor(props) {
@@ -51,7 +50,7 @@ export default class Alert extends React.Component<AlertProps, any> {
     this.setState({
       closing: false,
     });
-    this.props.onClose(e);
+    (this.props.onClose || noop)(e);
   }
   animationEnd = () => {
     this.setState({
@@ -61,7 +60,7 @@ export default class Alert extends React.Component<AlertProps, any> {
   }
   render() {
     let {
-      closable, description, type, prefixCls, message, closeText, showIcon, banner,
+      closable, description, type, prefixCls = 'ant-alert', message, closeText, showIcon, banner,
     } = this.props;
 
     // banner模式默认有 Icon

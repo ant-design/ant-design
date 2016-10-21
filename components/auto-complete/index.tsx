@@ -46,7 +46,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
 
   render() {
     let {
-      size, className, notFoundContent, prefixCls, optionLabelProp, dataSource, children,
+      size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource, children,
     } = this.props;
 
     const cls = classNames({
