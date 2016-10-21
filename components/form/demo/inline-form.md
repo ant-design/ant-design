@@ -41,8 +41,8 @@ let Demo = React.createClass({
           {getFieldDecorator('agreement')(
             <Checkbox>Remember me</Checkbox>
           )}
-          <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
+        <Button type="primary" htmlType="submit">Submit</Button>
       </Form>
     );
   },
