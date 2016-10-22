@@ -49,7 +49,7 @@ webpack: bundle build is now finished.
 
 ## 使用 antd
 
-通过 npm 安装 `antd` 和 `babel-plugin-import` 。`babel-plugin-import` 是用来自动引入 antd 的脚本和样式的，详见 [repo](https://github.com/ant-design/babel-plugin-import) 。
+通过 npm 安装 `antd` 和 `babel-plugin-import` 。`babel-plugin-import` 是用来按需加载 antd 的脚本和样式的，详见 [repo](https://github.com/ant-design/babel-plugin-import) 。
 
 ```bash
 $ npm install antd babel-plugin-import --save
@@ -176,7 +176,7 @@ export default {
 
 ## connect 起来
 
-到这里，我们已经单独完成了 model 和 component，那么他们如何串联起来呢? 
+到这里，我们已经单独完成了 model 和 component，那么他们如何串联起来呢?
 
 dva 提供了 connect 方法。如果你熟悉 redux，这个 connect 就是 react-redux 的 connect 。
 
