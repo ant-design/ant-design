@@ -24,19 +24,20 @@ function getBreadcrumbName(route, params) {
   return name;
 }
 
+function defaultItemRender(route, params, routes, paths) {
+  const isLastItem = routes.indexOf(route) === routes.length - 1;
+  const name = getBreadcrumbName(route, params);
+  return isLastItem
+    ? <span>{name}</span>
+    : <a href={`#/${paths.join('/')}`}>{name}</a>;
+}
+
 export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   static Item: any;
 
   static defaultProps = {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
-    itemRender: (route, params, routes, paths) => {
-      const isLastItem = routes.indexOf(route) === routes.length - 1;
-      const name = getBreadcrumbName(route, params);
-      return isLastItem
-        ? <span>{name}</span>
-        : <a href={`#/${paths.join('/')}`}>{name}</a>;
-    },
   };
 
   static propTypes = {
@@ -62,12 +63,12 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
   render() {
     let crumbs;
-    const { separator, prefixCls, routes, params, children, itemRender } = this.props;
+    const { separator, prefixCls, routes, params = {}, children, itemRender = defaultItemRender } = this.props;
     if (routes && routes.length > 0) {
-      const paths = [];
+      const paths: string[] = [];
       crumbs = routes.map((route) => {
         route.path = route.path || '';
-        let path = route.path.replace(/^\//, '');
+        let path: string = route.path.replace(/^\//, '');
         Object.keys(params).forEach(key => {
           path = path.replace(`:${key}`, params[key]);
         });
@@ -83,7 +84,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         }
         return null;
       });
-    } else {
+    } else if (children) {
       crumbs = React.Children.map(children, (element: any, index) => {
         return cloneElement(element, {
           separator,

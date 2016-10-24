@@ -10,14 +10,15 @@ export interface GroupProps {
 }
 
 const Group: React.StatelessComponent<GroupProps> = (props) => {
-  const className = classNames({
-    [props.prefixCls]: true,
+  const { prefixCls = 'ant-input-group', className = '' } = props;
+  const cls = classNames({
+    [prefixCls]: true,
     [`${props.prefixCls}-lg`]: props.size === 'large',
     [`${props.prefixCls}-sm`]: props.size === 'small',
-    [props.className]: !!props.className,
+    [className]: !!className,
   });
   return (
-    <span className={className} style={props.style}>
+    <span className={cls} style={props.style}>
       {props.children}
     </span>
   );
@@ -25,10 +26,6 @@ const Group: React.StatelessComponent<GroupProps> = (props) => {
 
 Group.propTypes = {
   children: React.PropTypes.any,
-};
-
-Group.defaultProps = {
-  prefixCls: 'ant-input-group',
 };
 
 export default Group;

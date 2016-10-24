@@ -13,6 +13,7 @@ export interface LocaleProviderProps {
     Transfer?: Object,
     Select?: Object,
   };
+  children: any;
 }
 
 export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {

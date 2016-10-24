@@ -113,10 +113,10 @@ const api: {
     }
   },
   config(options: ConfigProps) {
-    if ('top' in options) {
+    if (options.top !== undefined) {
       defaultTop = options.top;
     }
-    if ('duration' in options) {
+    if (options.duration !== undefined) {
       defaultDuration = options.duration;
     }
   },

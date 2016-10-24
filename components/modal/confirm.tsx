@@ -101,7 +101,7 @@ export default function confirm(config) {
     </div>
   );
 
-  let footer = null;
+  let footer: React.ReactElement<any> | null = null;
   if (props.okCancel) {
     footer = (
       <div className={`${prefixCls}-btns`}>

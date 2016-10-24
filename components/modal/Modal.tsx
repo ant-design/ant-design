@@ -4,8 +4,6 @@ import Dialog from 'rc-dialog';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Button from '../button';
 
-function noop() {}
-
 let mousePosition;
 let mousePositionEventBinded;
 
@@ -55,8 +53,6 @@ export default class Modal extends React.Component<ModalProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-modal',
-    onOk: noop,
-    onCancel: noop,
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',
@@ -86,11 +82,17 @@ export default class Modal extends React.Component<ModalProps, any> {
   context: ModalContext;
 
   handleCancel = (e) => {
-    this.props.onCancel(e);
+    const onCancel = this.props.onCancel;
+    if (onCancel) {
+      onCancel(e);
+    }
   }
 
   handleOk = () => {
-    this.props.onOk();
+    const onOk = this.props.onOk;
+    if (onOk) {
+      onOk();
+    }
   }
 
   componentDidMount() {

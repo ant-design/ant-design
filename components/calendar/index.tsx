@@ -38,12 +38,9 @@ export interface CalendarProps {
 
 export default class Calendar extends React.Component<CalendarProps, any> {
   static defaultProps = {
-    monthCellRender: noop,
-    dateCellRender: noop,
     locale: {},
     fullscreen: true,
     prefixCls: PREFIX_CLS,
-    onPanelChange: noop,
     mode: 'month',
   };
 
@@ -82,28 +79,28 @@ export default class Calendar extends React.Component<CalendarProps, any> {
   }
 
   monthCellRender = (value) => {
-    const prefixCls = this.props.prefixCls;
+    const { prefixCls, monthCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-month`}>
         <div className={`${prefixCls}-value`}>
           {value.localeData().monthsShort(value)}
         </div>
         <div className={`${prefixCls}-content`}>
-          {this.props.monthCellRender(value)}
+          {monthCellRender(value)}
         </div>
       </div>
     );
   }
 
   dateCellRender = (value) => {
-    const prefixCls = this.props.prefixCls;
+    const { prefixCls, dateCellRender = noop as Function } = this.props;
     return (
       <div className={`${prefixCls}-date`}>
         <div className={`${prefixCls}-value`}>
           {zerofixed(value.date())}
         </div>
         <div className={`${prefixCls}-content`}>
-          {this.props.dateCellRender(value)}
+          {dateCellRender(value)}
         </div>
       </div>
     );
@@ -113,14 +110,20 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     if (!('value' in this.props) && this.state.value !== value) {
       this.setState({ value });
     }
-    this.props.onPanelChange(value, this.state.mode);
+    const onPanelChange = this.props.onPanelChange;
+    if (onPanelChange) {
+      onPanelChange(value, this.state.mode);
+    }
   }
 
   setType = (type) => {
     const mode = (type === 'date') ? 'month' : 'year';
     if (this.state.mode !== mode) {
       this.setState({ mode });
-      this.props.onPanelChange(this.state.value, mode);
+      const onPanelChange = this.props.onPanelChange;
+      if (onPanelChange) {
+        onPanelChange(this.state.value, mode);
+      }
     }
   }
 

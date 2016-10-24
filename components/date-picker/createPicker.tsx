@@ -123,7 +123,7 @@ export default function createPicker(TheCalendar) {
       );
 
       // default width for showTime
-      const pickerStyle = { width: undefined };
+      const pickerStyle: { width?: number } = {};
       if (props.showTime) {
         pickerStyle.width = 180;
       }

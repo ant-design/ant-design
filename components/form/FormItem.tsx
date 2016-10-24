@@ -15,7 +15,7 @@ export interface FormItemLabelColOption {
 export interface FormItemProps {
   prefixCls?: string;
   id?: string;
-  label?: string | React.ReactNode;
+  label?: React.ReactNode;
   labelCol?: FormItemLabelColOption;
   wrapperCol?: FormItemLabelColOption;
   help?: React.ReactNode;
@@ -26,6 +26,7 @@ export interface FormItemProps {
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
+  children: any;
 }
 
 export interface FormItemContext {
@@ -86,7 +87,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   getControls(children, recursively) {
-    let controls = [];
+    let controls: React.ReactElement<any>[] = [];
     const childrenArray = React.Children.toArray(children);
     for (let i = 0; i < childrenArray.length; i++) {
       if (!recursively && controls.length > 0) {
@@ -220,7 +221,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
     // remove user input colon
     let label = props.label;
-    if (typeof label === 'string' && label.trim() !== '') {
+    if (typeof label === 'string' && (label as string).trim() !== '') {
       label = (props.label as string).replace(/[：|:]\s*$/, '');
     }
 

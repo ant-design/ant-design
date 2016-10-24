@@ -1,4 +1,5 @@
 import React from 'react';
+import assign from 'object-assign';
 import Tooltip from '../tooltip';
 
 export interface PopoverProps {
@@ -11,7 +12,7 @@ export interface PopoverProps {
    placement?: 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' |
    'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
    /** title of popup-container */
-   title?: React.ReactNode | string;
+   title?: React.ReactNode;
    /** classname of popup-container */
    overlayClassName?: string;
    /** Style of overlay */
@@ -43,10 +44,12 @@ export default class Popover extends React.Component<PopoverProps, any> {
   };
 
   render() {
+    const props = assign({}, this.props);
+    delete props.title;
     return (
       <Tooltip
         ref="tooltip"
-        {...this.props}
+        {...props}
         overlay={this.getOverlay()}
       />
     );

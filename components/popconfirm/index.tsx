@@ -4,8 +4,6 @@ import Icon from '../icon';
 import Button from '../button';
 import splitObject from '../_util/splitObject';
 
-const noop = () => {};
-
 export interface PopconfirmProps {
   /**
    * Position of popup-container, options:`top`, `left`, `right`, `bottom`
@@ -46,9 +44,6 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
-    onConfirm: noop,
-    onCancel: noop,
-    onVisibleChange: noop,
   };
 
   static contextTypes = {
@@ -72,12 +67,20 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
 
   confirm = () => {
     this.setVisible(false);
-    this.props.onConfirm.call(this);
+
+    const onConfirm = this.props.onConfirm;
+    if (onConfirm) {
+      onConfirm.call(this);
+    }
   }
 
   cancel = () => {
     this.setVisible(false);
-    this.props.onCancel.call(this);
+
+    const onCancel = this.props.onCancel;
+    if (onCancel) {
+      onCancel.call(this);
+    }
   }
 
   onVisibleChange = (visible) => {
@@ -88,7 +91,11 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     if (!('visible' in this.props)) {
       this.setState({ visible });
     }
-    this.props.onVisibleChange(visible);
+
+    const onVisibleChange = this.props.onVisibleChange;
+    if (onVisibleChange) {
+      onVisibleChange(visible);
+    }
   }
 
   render() {

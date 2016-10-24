@@ -89,6 +89,8 @@ function defaultSortFilteredOption(a, b, inputValue) {
   return a.findIndex(callback) - b.findIndex(callback);
 }
 
+const defaultDisplayRender = label => label.join(' / ');
+
 export default class Cascader extends React.Component<CascaderProps, any> {
   static defaultProps = {
     prefixCls: 'ant-cascader',
@@ -96,14 +98,11 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     placeholder: 'Please select',
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
-    onChange() {},
     options: [],
-    displayRender: label => label.join(' / '),
     disabled: false,
     allowClear: true,
     showSearch: false,
     notFoundContent: 'Not Found',
-    onPopupVisibleChange() {},
   };
 
   cachedOptions: CascaderOptionType[];
@@ -146,7 +145,11 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       inputFocused: popupVisible,
       inputValue: popupVisible ? this.state.inputValue : '',
      });
-    this.props.onPopupVisibleChange(popupVisible);
+
+    const onPopupVisibleChange = this.props.onPopupVisibleChange;
+    if (onPopupVisibleChange) {
+      onPopupVisibleChange(popupVisible);
+    }
   }
 
   handleInputBlur = () => {
@@ -173,11 +176,14 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value, selectedOptions);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(value, selectedOptions);
+    }
   }
 
   getLabel() {
-    const { options, displayRender } = this.props;
+    const { options, displayRender = defaultDisplayRender as Function } = this.props;
     const value = this.state.value;
     const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
     const selectedOptions = arrayTreeFilter(options, (o, level) => o.value === unwrappedValue[level]);
@@ -197,7 +203,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   flattenTree(options, changeOnSelect, ancestor = []) {
-    let flattenOptions = [];
+    let flattenOptions: any = [];
     options.forEach((option) => {
       const path = ancestor.concat(option);
       if (changeOnSelect || !option.children) {
@@ -293,10 +299,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       this.cachedOptions = options;
     }
 
-    const dropdownMenuColumnStyle = {
-      width: undefined,
-      height: undefined,
-    };
+    const dropdownMenuColumnStyle: { width?: number, height?: string } = {};
     const isNotFound = (options || []).length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND';
     if (isNotFound) {
       dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
@@ -330,9 +333,9 @@ export default class Cascader extends React.Component<CascaderProps, any> {
               disabled={disabled}
               readOnly={!showSearch}
               autoComplete="off"
-              onClick={showSearch ? this.handleInputClick : null}
-              onBlur={showSearch ? this.handleInputBlur : null}
-              onChange={showSearch ? this.handleInputChange : null}
+              onClick={showSearch ? this.handleInputClick : undefined}
+              onBlur={showSearch ? this.handleInputBlur : undefined}
+              onChange={showSearch ? this.handleInputChange : undefined}
             />
             <span className={`${prefixCls}-picker-label`}>
               {this.getLabel()}

@@ -23,7 +23,7 @@ function notice(
   content: React.ReactNode,
   duration: number = defaultDuration,
   type: NoticeType,
-  onClose: () => void) {
+  onClose?: () => void) {
   let iconType = ({
     info: 'info-circle',
     success: 'check-circle',
@@ -64,7 +64,7 @@ export interface ConfigOptions {
 }
 
 export default {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: () => ConfigOnClose) {
+  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'info', onClose);
   },
   success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
@@ -85,13 +85,13 @@ export default {
   },
 
   config(options: ConfigOptions) {
-    if ('top' in options) {
+    if (options.top !== undefined) {
       defaultTop = options.top;
     }
-    if ('duration' in options) {
+    if (options.duration !== undefined) {
       defaultDuration = options.duration;
     }
-    if ('prefixCls' in options) {
+    if (options.prefixCls !== undefined) {
       prefixCls = options.prefixCls;
     }
   },
