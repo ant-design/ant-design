@@ -96,7 +96,7 @@ export default class ScrollNumber extends Component<any, any> {
     const childrenToReturn = [];
     for (let i = 0; i < 30; i++) {
       const currentClassName = (position === i) ? 'current' : null;
-      childrenToReturn.push(<p key={i} className={currentClassName}>{i % 10}</p>);
+      childrenToReturn.push(<p key={i.toString()} className={currentClassName}>{i % 10}</p>);
     }
     return childrenToReturn;
   }
