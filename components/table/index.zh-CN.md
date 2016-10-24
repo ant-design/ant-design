@@ -54,7 +54,7 @@ const columns = [{
 | 参数           | 说明                     | 类型             | 默认值   |
 |---------------|--------------------------|-----------------|---------|
 | rowSelection  | 列表项是否可选择，[配置项](#rowSelection) | Object  | null  |
-| pagination    | 分页器，配置项参考 [pagination](/components/pagination)，设为 false 时不显示分页 | Object |  |
+| pagination    | 分页器，配置项参考 [pagination](/components/pagination/)，设为 false 时不显示分页 | Object |  |
 | size          | 正常或迷你类型，`default` or `small`  | String | default |
 | dataSource    | 数据数组 | Array |            |
 | columns       | 表格列的配置描述，具体项见下表 | Array | - |
