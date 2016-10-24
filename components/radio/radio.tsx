@@ -28,7 +28,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {
-    const { prefixCls, children, checked, disabled, className, style } = this.props;
+    const { prefixCls, children, checked, disabled, className = '', style } = this.props;
     const wrapperClassString = classNames({
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: checked,

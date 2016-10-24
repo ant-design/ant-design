@@ -2,9 +2,6 @@ import React from 'react';
 import Icon from '../icon';
 import Input from '../input';
 
-function noop() {
-}
-
 export interface SearchProps {
   prefixCls?: string;
   placeholder?: string;
@@ -16,17 +13,22 @@ export interface SearchProps {
 export default class Search extends React.Component<SearchProps, any> {
   static defaultProps = {
     placeholder: '',
-    onChange: noop,
-    handleClear: noop,
   };
 
   handleChange = (e) => {
-    this.props.onChange(e);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   handleClear = (e) => {
     e.preventDefault();
-    this.props.handleClear(e);
+
+    const handleClear = this.props.handleClear;
+    if (handleClear) {
+      handleClear(e);
+    }
   }
 
   render() {

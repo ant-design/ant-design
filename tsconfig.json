@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",

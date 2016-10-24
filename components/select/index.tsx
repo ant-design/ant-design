@@ -13,7 +13,7 @@ export interface SelectProps {
   defaultValue?: SelectValue;
   size?: 'default' | 'large' | 'small';
   combobox?: boolean;
-  notFoundContent?: React.ReactNode | string;
+  notFoundContent?: React.ReactNode | null;
   showSearch?: boolean;
   transitionName?: string;
   choiceTransitionName?: string;
@@ -84,7 +84,7 @@ export default class Select extends React.Component<SelectProps, any> {
   render() {
     const {
       prefixCls,
-      className,
+      className = '',
       size,
       combobox,
       showSearch,

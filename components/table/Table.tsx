@@ -68,7 +68,7 @@ export interface TableProps {
   pagination?: PaginationProps | boolean;
   size?: 'default' | 'small';
   dataSource?: Object[];
-  columns?: TableColumnConfig[];
+  columns: TableColumnConfig[];
   rowKey?: string | ((record: Object, index: number) => string);
   rowClassName?: (record: Object, index: number) => string;
   expandedRowRender?: any;
@@ -87,7 +87,7 @@ export interface TableProps {
   footer?: (currentPageData: Object[]) => React.ReactNode;
   title?: (currentPageData: Object[]) => React.ReactNode;
   scroll?: { x?: boolean | number, y?: boolean | number};
-  childrenColumnName?: 'string';
+  childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
 }
@@ -117,7 +117,6 @@ export default class Table extends React.Component<TableProps, any> {
   static defaultProps = {
     dataSource: [],
     prefixCls: 'ant-table',
-    dropdownPrefixCls: 'ant-dropdown',
     useFixedHeader: false,
     rowSelection: null,
     className: '',
@@ -125,10 +124,8 @@ export default class Table extends React.Component<TableProps, any> {
     loading: false,
     bordered: false,
     indentSize: 20,
-    onChange: noop,
     locale: {},
     rowKey: 'key',
-    childrenColumnName: 'children',
   };
 
   static contextTypes = {
@@ -361,7 +358,10 @@ export default class Table extends React.Component<TableProps, any> {
       this.setState(newState);
     }
 
-    this.props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, newState)));
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, newState)));
+    }
   }
 
   handleFilter = (column, nextFilters) => {
@@ -409,11 +409,14 @@ export default class Table extends React.Component<TableProps, any> {
     }
 
     this.setState(newState, () => {
-      props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
-        selectionDirty: false,
-        filters,
-        pagination,
-      })));
+      const onChange = this.props.onChange;
+      if (onChange) {
+        onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
+          selectionDirty: false,
+          filters,
+          pagination,
+        })));
+      }
     });
   }
 
@@ -463,7 +466,7 @@ export default class Table extends React.Component<TableProps, any> {
       .map((item, i) => this.getRecordKey(item, i));
 
     // 记录变化的列
-    const changeRowKeys = [];
+    const changeRowKeys: string[] = [];
     if (checked) {
       changableRowKeys.forEach(key => {
         if (selectedRowKeys.indexOf(key) < 0) {
@@ -511,10 +514,13 @@ export default class Table extends React.Component<TableProps, any> {
     }
     this.setState(newState);
 
-    this.props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
-      selectionDirty: false,
-      pagination,
-    })));
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
+        selectionDirty: false,
+        pagination,
+      })));
+    }
   }
 
   renderSelectionRadio = (_, record, index) => {
@@ -558,7 +564,7 @@ export default class Table extends React.Component<TableProps, any> {
     );
   }
 
-  getRecordKey(record, index?) {
+  getRecordKey(record, index?): string {
     const rowKey = this.props.rowKey;
     if (typeof rowKey === 'function') {
       return rowKey(record, index);
@@ -584,11 +590,11 @@ export default class Table extends React.Component<TableProps, any> {
   }
 
   renderRowSelection() {
-    const prefixCls = this.props.prefixCls;
+    const { prefixCls, rowSelection } = this.props;
     const columns = this.props.columns.concat();
-    if (this.props.rowSelection) {
+    if (rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item) => {
-        if (this.props.rowSelection.getCheckboxProps) {
+        if (rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item).disabled;
         }
         return true;
@@ -617,7 +623,7 @@ export default class Table extends React.Component<TableProps, any> {
           );
       }
       let selectionColumn;
-      if (this.props.rowSelection.type === 'radio') {
+      if (rowSelection.type === 'radio') {
         selectionColumn = {
           key: 'selection-column',
           render: this.renderSelectionRadio,
@@ -689,7 +695,7 @@ export default class Table extends React.Component<TableProps, any> {
             selectedKeys={colFilters}
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
-            dropdownPrefixCls={dropdownPrefixCls}
+            dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
           />
         );
       }
@@ -736,9 +742,13 @@ export default class Table extends React.Component<TableProps, any> {
     pagination.onShowSizeChange(current, pageSize);
     const nextPagination = assign({}, pagination, { pageSize, current });
     this.setState({ pagination: nextPagination });
-    this.props.onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
-      pagination: nextPagination,
-    })));
+
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
+        pagination: nextPagination,
+      })));
+    }
   }
 
   renderPagination() {
@@ -819,7 +829,7 @@ export default class Table extends React.Component<TableProps, any> {
   }
 
   recursiveSort(data, sorterFn) {
-    const { childrenColumnName } = this.props;
+    const { childrenColumnName = 'children' } = this.props;
     return data.sort(sorterFn).map(item => (item[childrenColumnName] ? assign(
       {},
       item, {
@@ -849,8 +859,9 @@ export default class Table extends React.Component<TableProps, any> {
         if (values.length === 0) {
           return;
         }
-        data = col.onFilter ? data.filter(record => {
-          return values.some(v => col.onFilter(v, record));
+        const onFilter = col.onFilter;
+        data = onFilter ? data.filter(record => {
+          return values.some(v => onFilter(v, record));
         }) : data;
       });
     }

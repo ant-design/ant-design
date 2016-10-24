@@ -6,16 +6,13 @@ import classNames from 'classnames';
 import assign from 'object-assign';
 import { UploadProps } from './interface';
 
-function noop() {
-}
-
 function T() {
   return true;
 }
 
 // Fix IE file.status problem
 // via coping a new Object
-function fileToObject(file) {
+function fileToObject(file): any {
   return {
     lastModified: file.lastModified,
     lastModifiedDate: file.lastModifiedDate,
@@ -64,20 +61,16 @@ export default class Upload extends React.Component<UploadProps, any> {
   static Dragger = Dragger;
 
   static defaultProps = {
-    prefixCls: 'ant-upload',
     type: 'select',
     multiple: false,
     action: '',
     data: {},
     accept: '',
-    onChange: noop,
     beforeUpload: T,
     showUploadList: true,
     listType: 'text', // or pictrue
     className: '',
     disabled: false,
-    onRemove() {},
-    onPreview() {},
   };
 
   recentUploadStatus: boolean | PromiseLike<any>;
@@ -194,7 +187,10 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   handleRemove(file) {
-    this.props.onRemove(file);
+    const onRemove = this.props.onRemove;
+    if (onRemove) {
+      onRemove(file);
+    }
     let fileList = this.removeFile(file);
     if (fileList) {
       this.onChange({
@@ -214,7 +210,11 @@ export default class Upload extends React.Component<UploadProps, any> {
     if (!('fileList' in this.props)) {
       this.setState({ fileList: info.fileList });
     }
-    this.props.onChange(info);
+
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(info);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -237,7 +237,7 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   render() {
     const {
-      prefixCls, showUploadList, listType, onPreview,
+      prefixCls = 'ant-upload', showUploadList, listType, onPreview,
       type, disabled, children, className,
     } = this.props;
 

@@ -17,21 +17,21 @@ export function isRenderResultPlainObject(result) {
 }
 
 export interface TransferListProps {
-  prefixCls?: string;
+  prefixCls: string;
   dataSource: TransferItem[];
   filter?: string;
   showSearch?: boolean;
   searchPlaceholder?: string;
   titleText?: string;
   style?: React.CSSProperties;
-  handleFilter?: (e: any) => void;
-  handleSelect?: (selectedItem: any, checked: boolean) => void;
-  handleSelectAll?: (dataSource: any[], checkAll: boolean) => void;
-  handleClear?: () => void;
+  handleFilter: (e: any) => void;
+  handleSelect: (selectedItem: any, checked: boolean) => void;
+  handleSelectAll: (dataSource: any[], checkAll: boolean) => void;
+  handleClear: () => void;
   render?: (item: any) => any;
   body?: (props: any) => any;
   footer?: (props: any) => void;
-  checkedKeys?: any[];
+  checkedKeys: string[];
   checkStatus?: boolean;
   position?: string;
   notFoundContent?: React.ReactNode | string;
@@ -49,14 +49,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     dataSource: [],
     titleText: '',
     showSearch: false,
-    handleClear: noop,
-    handleFilter: noop,
-    handleSelect: noop,
-    handleSelectAll: noop,
     render: noop,
-    // advanced
-    body: noop,
-    footer: noop,
   };
 
   static propTypes = {
@@ -161,7 +154,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   render() {
     const { prefixCls, dataSource, titleText, filter, checkedKeys,
-            body, footer, showSearch, render, style } = this.props;
+            body = noop, footer = noop, showSearch, render = noop, style } = this.props;
 
     let { searchPlaceholder, notFoundContent } = this.props;
 
@@ -174,7 +167,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 
-    const filteredDataSource = [];
+    const filteredDataSource: TransferItem[] = [];
 
     const showItems = dataSource.map((item) => {
       const renderResult = render(item);
@@ -207,7 +200,7 @@ export default class TransferList extends React.Component<TransferListProps, any
           key={item.key}
           className={className}
           title={renderedText}
-          onClick={item.disabled ? null : () => this.handleSelect(item)}
+          onClick={item.disabled ? undefined : () => this.handleSelect(item)}
         >
           <Checkbox checked={checkedKeys.some(key => key === item.key)} disabled={item.disabled} />
           <span>{renderedEl}</span>

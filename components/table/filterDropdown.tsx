@@ -4,15 +4,7 @@ import Dropdown from '../dropdown';
 import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
-
-export interface FilterDropdownMenuWrapperProps {
-  onClick?: React.MouseEventHandler<any>;
-  children?: any;
-  className?: string;
-}
-const FilterDropdownMenuWrapper: React.StatelessComponent<FilterDropdownMenuWrapperProps> =
-  ({ onClick, children, className }) =>
-    <div className={className} onClick={onClick}>{children}</div>;
+import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
 
 export interface FilterMenuProps {
   locale: any;

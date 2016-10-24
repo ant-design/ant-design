@@ -41,7 +41,6 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    onVisibleChange() {},
     arrowPointAtCenter: false,
   };
 
@@ -59,7 +58,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   onVisibleChange = (visible) => {
     this.setState({ visible });
-    this.props.onVisibleChange(visible);
+    const onVisibleChange = this.props.onVisibleChange;
+    if (onVisibleChange) {
+      onVisibleChange(visible);
+    }
   }
 
   getPopupDomNode() {

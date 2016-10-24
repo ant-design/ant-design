@@ -9,7 +9,7 @@ function noop() {
 }
 
 export interface TransferItem {
-  key: number | string;
+  key: string;
   title: string;
   description?: string;
   disabled?: boolean;
@@ -50,15 +50,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
   static Search = Search;
 
   static defaultProps = {
-    prefixCls: 'ant-transfer',
     dataSource: [],
     render: noop,
-    onChange: noop,
-    onSelectChange: noop,
-    operations: [],
     showSearch: false,
-    body: noop,
-    footer: noop,
   };
 
   static propTypes = {
@@ -119,20 +113,20 @@ export default class Transfer extends React.Component<TransferProps, any> {
       });
     }
   }
-  splitDataSource(props) {
+  splitDataSource(props: TransferProps) {
     if (this.splitedDataSource) {
       return this.splitedDataSource;
     }
 
-    const { dataSource, targetKeys = [] } = props;
-    if (props.rowKey) {
+    const { rowKey, dataSource, targetKeys = [] } = props;
+    if (rowKey) {
       dataSource.forEach(record => {
-        record.key = props.rowKey(record);
+        record.key = rowKey(record);
       });
     }
 
     const leftDataSource = dataSource.filter(({ key }) => targetKeys.indexOf(key) === -1);
-    const rightDataSource = [];
+    const rightDataSource: TransferItem[] = [];
     targetKeys.forEach((targetKey) => {
       const targetItem = dataSource.filter(record => record.key === targetKey)[0];
       if (targetItem) {
@@ -164,7 +158,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
     });
     this.handleSelectChange(oppositeDirection, []);
 
-    onChange(newTargetKeys, direction, moveKeys);
+    if (onChange) {
+      onChange(newTargetKeys, direction, moveKeys);
+    }
   }
 
   moveToLeft = () => this.moveTo('left')
@@ -173,6 +169,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
   handleSelectChange(direction: string, holder: string[]) {
     const { leftCheckedKeys, rightCheckedKeys } = this.state;
     const onSelectChange = this.props.onSelectChange;
+    if (!onSelectChange) {
+      return;
+    }
+
     if (direction === 'left') {
       onSelectChange(holder, rightCheckedKeys);
     } else {
@@ -253,8 +253,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
   render() {
     const {
-      prefixCls, operations, showSearch, notFoundContent,
-      searchPlaceholder, body, footer, listStyle, className,
+      prefixCls = 'ant-transfer', operations = [], showSearch, notFoundContent,
+      searchPlaceholder, body, footer, listStyle, className = '',
       filterOption, render,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;

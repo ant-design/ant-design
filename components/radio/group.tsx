@@ -33,10 +33,7 @@ export interface RadioGroupProps {
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-radio-group',
     disabled: false,
-    onChange() {
-    },
   };
   constructor(props) {
     super(props);
@@ -76,11 +73,15 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         value: ev.target.value,
       });
     }
-    this.props.onChange(ev);
+
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(ev);
+    }
   }
   render() {
     const props = this.props;
-    const children = React.Children.map(props.children, (radio: any) => {
+    const children = React.Children.map((props.children || {}), (radio: any) => {
       if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
         const keyProps = {};
         if (!('key' in radio) && typeof radio.props.value === 'string') {
@@ -94,9 +95,10 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       }
       return radio;
     });
+    const prefixCls = props.prefixCls || 'ant-radio-group';
     const classString = classNames({
-      [props.prefixCls]: true,
-      [`${props.prefixCls}-${props.size}`]: props.size,
+      [prefixCls]: true,
+      [`${prefixCls}-${props.size}`]: props.size,
     });
     return <div className={classString} style={props.style}>{children}</div>;
   }

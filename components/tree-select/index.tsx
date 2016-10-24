@@ -28,7 +28,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   render() {
     const props = this.props;
     let {
-      size, className, notFoundContent, prefixCls,
+      size, className = '', notFoundContent, prefixCls,
     } = this.props;
 
     const cls = classNames({

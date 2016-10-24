@@ -15,7 +15,7 @@ export interface TabsProps {
   hideAdd?: boolean;
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
-  tabBarExtraContent?: React.ReactNode;
+  tabBarExtraContent?: React.ReactNode | null;
   type?: TabsType;
   tabPosition?: TabsPosition;
   onEdit?: (targetKey: string, action: any) => void;
@@ -24,6 +24,7 @@ export interface TabsProps {
   prefixCls?: string;
   className?: string;
   animated?: boolean;
+  children: any;
 }
 
 // Tabs
@@ -38,15 +39,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-tabs',
-    type: 'line', // or 'card' 'editable-card'
-    onChange() { },
-    onEdit() { },
     hideAdd: false,
     animated: true,
   };
 
   createNewTab = (targetKey) => {
-    this.props.onEdit(targetKey, 'add');
+    const onEdit = this.props.onEdit;
+    if (onEdit) {
+      onEdit(targetKey, 'add');
+    }
   }
 
   removeTab = (targetKey, e) => {
@@ -54,18 +55,26 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (!targetKey) {
       return;
     }
-    this.props.onEdit(targetKey, 'remove');
+
+    const onEdit = this.props.onEdit;
+    if (onEdit) {
+      onEdit(targetKey, 'remove');
+    }
   }
 
   handleChange = (activeKey) => {
-    this.props.onChange(activeKey);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(activeKey);
+    }
   }
 
   render() {
     let {
       prefixCls,
+      className = '',
       size,
-      type,
+      type = 'line',
       tabPosition,
       children,
       tabBarExtraContent,
@@ -73,8 +82,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
       onTabClick,
       animated,
     } = this.props;
-    let className = classNames({
-      [this.props.className]: !!this.props.className,
+    let cls = classNames({
+      [className]: !!className,
       [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
@@ -115,7 +124,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     return (
       <RcTabs {...this.props}
-        className={className}
+        className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={() => (
           <ScrollableInkTabBar

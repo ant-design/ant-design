@@ -42,10 +42,7 @@ export interface TimePickerContext {
 
 export default class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    format: 'HH:mm:ss',
     prefixCls: 'ant-time-picker',
-    onChange() {
-    },
     align: {
       offset: [0, -2],
     },
@@ -82,7 +79,10 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value, (value && value.format(this.props.format)) || '');
+    const { onChange, format = 'HH:mm:ss' } = this.props;
+    if (onChange) {
+      onChange(value, (value && value.format(format)) || '');
+    }
   }
 
   getLocale() {
