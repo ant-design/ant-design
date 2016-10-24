@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
@@ -50,23 +49,6 @@ export default class TransferList extends React.Component<TransferListProps, any
     titleText: '',
     showSearch: false,
     render: noop,
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    dataSource: PropTypes.array,
-    showSearch: PropTypes.bool,
-    filterOption: PropTypes.func,
-    searchPlaceholder: PropTypes.string,
-    titleText: PropTypes.string,
-    style: PropTypes.object,
-    handleClear: PropTypes.func,
-    handleFilter: PropTypes.func,
-    handleSelect: PropTypes.func,
-    handleSelectAll: PropTypes.func,
-    render: PropTypes.func,
-    body: PropTypes.func,
-    footer: PropTypes.func,
   };
 
   static contextTypes = {

@@ -13,24 +13,23 @@ function getNumberArray(num) {
       .map(i => Number(i)) : [];
 }
 
-export default class ScrollNumber extends Component<any, any> {
+export interface ScrollNumberProps {
+  prefixCls?: string;
+  className?: string;
+  count?: string | number;
+  component?: string;
+  onAnimated?: Function;
+  height?: number;
+  style: React.CSSProperties;
+}
+
+export default class ScrollNumber extends Component<ScrollNumberProps, any> {
   static defaultProps = {
     prefixCls: 'ant-scroll-number',
     count: null,
-    component: 'sup',
     onAnimated() {
     },
     height: 18,
-  };
-
-  static propTypes = {
-    count: React.PropTypes.oneOfType([
-      React.PropTypes.string,
-      React.PropTypes.number,
-    ]),
-    component: React.PropTypes.string,
-    onAnimated: React.PropTypes.func,
-    height: React.PropTypes.number,
   };
 
   lastCount: any;
@@ -85,7 +84,10 @@ export default class ScrollNumber extends Component<any, any> {
             animateStarted: false,
             count: nextProps.count,
           }, () => {
-            this.props.onAnimated();
+            const onAnimated = this.props.onAnimated;
+            if (onAnimated) {
+              onAnimated();
+            }
           });
         }, 5);
       });
@@ -138,7 +140,7 @@ export default class ScrollNumber extends Component<any, any> {
       className: `${this.props.prefixCls} ${this.props.className}`,
     });
     return createElement(
-      this.props.component,
+      this.props.component || 'sup',
       props,
       this.renderNumberElement()
     );

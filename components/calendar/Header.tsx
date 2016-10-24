@@ -1,5 +1,4 @@
 import React from 'react';
-import { PropTypes } from 'react';
 import moment from 'moment';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
@@ -23,19 +22,6 @@ export default class Header extends React.Component<HeaderProps, any> {
     prefixCls: `${PREFIX_CLS}-header`,
     yearSelectOffset: 10,
     yearSelectTotal: 20,
-  };
-
-  static propTypes = {
-    value: PropTypes.object,
-    locale: PropTypes.object,
-    yearSelectOffset: PropTypes.number,
-    yearSelectTotal: PropTypes.number,
-    onValueChange: PropTypes.func,
-    onTypeChange: PropTypes.func,
-    prefixCls: PropTypes.string,
-    selectPrefixCls: PropTypes.string,
-    type: PropTypes.string,
-    fullscreen: PropTypes.bool,
   };
 
   getYearSelectElement(year) {
