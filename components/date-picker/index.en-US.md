@@ -70,6 +70,8 @@ moment.tz.setDefault('Asia/Shanghai')
 | format       | to set the date format  | String    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
+| disabledDate | to specify the date that cannot be selected | function(date: moment, dateString: string) | - |
+| disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: 'start'|'end') | - |
 
 The following properties are the same with `DatePicker`: `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer`
 

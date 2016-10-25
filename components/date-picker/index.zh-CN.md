@@ -70,7 +70,8 @@ moment.tz.setDefault('Asia/Shanghai')
 | format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](/components/time-picker/#api) |
-
+| disabledDate | 不可选择的日期 | function | 无 |
+| disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: 'start'|'end') | 无 |
 `disabled` `style` `popupStyle` `size` `locale` `showTime` `onOk` `getCalendarContainer` 属性与 DatePicker 的一致。
 
 <style>
