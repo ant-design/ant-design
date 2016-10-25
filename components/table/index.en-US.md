@@ -14,7 +14,7 @@ A table displays rows data.
 
 ## How To Use
 
-Sepecify `dataSource` of Table to be an array data.
+Specify `dataSource` of Table whose value is an array of data.
 
 ```jsx
 const dataSource = [{
@@ -62,7 +62,7 @@ const columns = [{
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
 | expandedRowKeys | current expanded rows keys | Array | - |
-| defaultExpandAllRows | Expand All Rows initially | Boolean | false |
+| defaultExpandAllRows | expand all rows initially | Boolean | false |
 | onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
 | onExpand      | function to call when click expand icon | Function(expanded, record) | |
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
@@ -91,7 +91,7 @@ One of Property `columns` for descriping column.
 | filterMultiple | whether to select multiple filtered item | Boolean    | true    |
 | filterDropdown | customized filter overlay | React.Element | - |
 | sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function or Boolean | - |
-| colSpan    | colSpan for column title | Number |         |
+| colSpan    | span of this column's title | Number |         |
 | width      | width of this column | String or Number | -  |
 | className  | className of this column            | String          |  -      |
 | fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean or String | false |
