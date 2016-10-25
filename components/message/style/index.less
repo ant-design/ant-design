@@ -27,6 +27,22 @@
     display: block;
   }
 
+  &-unstack {
+    & .@{message-prefix-cls}-notice {
+      width: 100%;
+      display: block;
+      position: relative;
+      margin: 0 auto 10px;
+      height: 34px;
+      text-align: center;
+    }
+
+    & .@{message-prefix-cls}-notice-content {
+      width: auto;
+      display: inline-block;
+    }
+  }
+
   &-success .@{iconfont-css-prefix} {
     color: @success-color;
   }
