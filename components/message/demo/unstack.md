@@ -2,7 +2,8 @@
 order: 4
 title:
   zh-CN: 不堆叠
-  en-US: unstack
+  en-US: Unstack
+debug: true
 ---
 
 ## zh-CN
@@ -17,12 +18,15 @@ List the messages without stack.
 import { message, Button } from 'antd';
 
 const success = function () {
-  message.config({
-    stack: false,
-  });
+  message.config({ stack: false });
   message.success('This is a unstack message');
+
+  // Should not affect other demos
+  message.config({ stack: true });
 };
 
-ReactDOM.render(<Button onClick={success}>unstack messages</Button>
-, mountNode);
+ReactDOM.render(
+  <Button onClick={success}>unstack messages</Button>,
+  mountNode
+);
 ````

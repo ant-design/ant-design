@@ -2,38 +2,44 @@ import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 
-let defaultDuration = 1.5;
-let defaultTop;
-let messageInstance;
-let key = 1;
+const messageInstances = {};
 let prefixCls = 'ant-message';
+let defaultTop;
 let defaultStack = true;
 
+let key = 1;
+let defaultDuration = 1.5;
+
 function getMessageInstance() {
-  messageInstance = messageInstance || Notification.newInstance({
-    prefixCls: `${!defaultStack ? `${prefixCls}-unstack ` : ''}${prefixCls}`,
-    transitionName: 'move-up',
-    style: { top: defaultTop }, // 覆盖原来的样式
-  });
-  return messageInstance;
+  const cachedKey = `${prefixCls}-${defaultTop}-${defaultStack}`;
+  if (!messageInstances[cachedKey]) {
+    messageInstances[cachedKey] = Notification.newInstance({
+      prefixCls,
+      className: defaultStack ? '' : `${prefixCls}-unstack`,
+      transitionName: 'move-up',
+      style: { top: defaultTop }, // 覆盖原来的样式
+    });
+  }
+  return messageInstances[cachedKey];
 }
 
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
+const iconTypeMap = {
+  info: 'info-circle',
+  success: 'check-circle',
+  error: 'cross-circle',
+  warning: 'exclamation-circle',
+  loading: 'loading',
+};
 function notice(
   content: React.ReactNode,
   duration: number = defaultDuration,
   type: NoticeType,
-  onClose?: () => void) {
-  let iconType = ({
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'cross-circle',
-    warning: 'exclamation-circle',
-    loading: 'loading',
-  })[type];
-
-  let instance = getMessageInstance();
+  onClose?: () => void
+) {
+  const iconType = iconTypeMap[type];
+  const instance = getMessageInstance();
   instance.notice({
     key,
     duration,
@@ -101,9 +107,11 @@ export default {
     }
   },
   destroy() {
-    if (messageInstance) {
-      messageInstance.destroy();
-      messageInstance = null;
+    for (const cachedKey in messageInstances) {
+      if (messageInstances.hasOwnProperty(cachedKey)) {
+        messageInstances[cachedKey].destroy();
+        delete messageInstances[cachedKey];
+      }
     }
   },
 };
