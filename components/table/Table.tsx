@@ -34,22 +34,22 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
-export interface TableRowSelection {
+export interface TableRowSelection<T> {
   type?: 'checkbox' | 'radio';
   selectedRowKeys?: string[];
   onChange?: (selectedRowKeys: string[], selectedRows: Object[]) => any;
-  getCheckboxProps?: (record: Object) => Object;
-  onSelect?: (record: Object, selected: boolean, selectedRows: Object[]) => any;
+  getCheckboxProps?: (record: T) => Object;
+  onSelect?: (record: T, selected: boolean, selectedRows: Object[]) => any;
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
 }
 
-export interface TableColumnConfig {
+export interface TableColumnConfig<T> {
   title?: React.ReactNode;
   key?: string;
   dataIndex?: string;
-  render?: (text: any, record: Object, index: number) => React.ReactNode;
+  render?: (text: any, record: T, index: number) => React.ReactNode;
   filters?: { text: string; value: string }[];
-  onFilter?: (value: any, record: Object) => boolean;
+  onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
   filterDropdown?: React.ReactNode;
   sorter?: boolean | ((a: any, b: any) => number);
@@ -61,16 +61,16 @@ export interface TableColumnConfig {
   sortOrder?: boolean | ('ascend' | 'descend');
 }
 
-export interface TableProps {
+export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
-  rowSelection?: TableRowSelection;
+  rowSelection?: TableRowSelection<T>;
   pagination?: PaginationProps | boolean;
   size?: 'default' | 'small';
-  dataSource?: Object[];
-  columns: TableColumnConfig[];
-  rowKey?: string | ((record: Object, index: number) => string);
-  rowClassName?: (record: Object, index: number) => string;
+  dataSource?: T[];
+  columns: TableColumnConfig<T>[];
+  rowKey?: string | ((record: T, index: number) => string);
+  rowClassName?: (record: T, index: number) => string;
   expandedRowRender?: any;
   defaultExpandedRowKeys?: string[];
   expandedRowKeys?: string[];
@@ -80,7 +80,7 @@ export interface TableProps {
   loading?: boolean;
   locale?: Object;
   indentSize?: number;
-  onRowClick?: (record: Object, index: number) => any;
+  onRowClick?: (record: T, index: number) => any;
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
@@ -98,7 +98,7 @@ export interface TableContext {
   };
 }
 
-export default class Table extends React.Component<TableProps, any> {
+export default class Table<T> extends React.Component<TableProps<T>, any> {
   static propTypes = {
     dataSource: React.PropTypes.array,
     columns: React.PropTypes.array.isRequired,
