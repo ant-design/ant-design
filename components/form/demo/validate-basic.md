@@ -162,7 +162,7 @@ let BasicDemo = React.createClass({
             {getFieldDecorator('id-number', {
               rules: [{ required: true, message: 'ID number is required' }],
             })(
-              <Input />
+              <Input size="large" />
             )}
             <div className="ant-input-group-wrap">
               <Button icon="scan" className="ant-search-btn" />
