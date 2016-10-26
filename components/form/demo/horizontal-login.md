@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 0
 title:
   zh-CN: 水平登陆栏
   en-US: Horizontal Login Form
@@ -14,7 +14,7 @@ title:
 Horizontal login form is often used in navigation bar.
 
 ````jsx
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 
 const HorizontalLoginForm = Form.create()(React.createClass({
@@ -26,7 +26,7 @@ const HorizontalLoginForm = Form.create()(React.createClass({
         return;
       }
 
-      console.log('Received values of form:', values);
+      console.log('Received values of form: ', values);
     });
   },
   render() {
@@ -48,14 +48,8 @@ const HorizontalLoginForm = Form.create()(React.createClass({
           )}
         </FormItem>
         <FormItem>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
-            <Checkbox>Remember me</Checkbox>
-          )}
+          <Button type="primary" htmlType="submit">Log in</Button>
         </FormItem>
-        <Button type="primary" htmlType="submit">Log in</Button>
       </Form>
     );
   },
