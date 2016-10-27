@@ -2,7 +2,7 @@ import RcCheckbox from 'rc-checkbox';
 import React from 'react';
 import CheckboxGroup from './Group';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import splitObject from '../_util/splitObject';
 
 export interface CheckboxProps {

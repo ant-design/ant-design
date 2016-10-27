@@ -1,7 +1,7 @@
 import RcRadio from 'rc-radio';
 import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface RadioProps {
   /** 指定当前是否选中*/

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../row';
 import Col from '../col';
 import { WrappedFormUtils } from './Form';

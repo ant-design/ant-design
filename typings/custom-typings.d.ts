@@ -2,11 +2,6 @@ declare module 'classnames' {
   export default function({}): string;
 }
 
-declare module 'react-addons-pure-render-mixin' {
-  const exports: any;
-  export default exports;
-}
-
 declare module 'rc-calendar/lib/locale/en_US' {
   export default {};
 }
@@ -77,6 +72,14 @@ declare module 'rc-animate' {
 
 declare module 'rc-util/lib/Dom/addEventListener' {
   export default function(domNode: any, event: string, handler: Function): any;
+}
+
+declare module 'rc-util/lib/PureRenderMixin' {
+  interface PureRenderMixin {
+    shouldComponentUpdate(instance: any, nextProps: any, nextState: any): boolean;
+  }
+  const exports: PureRenderMixin
+  export default exports;
 }
 
 declare module 'shallowequal' {
