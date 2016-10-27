@@ -97,6 +97,7 @@ const RegistrationForm = Form.create()(React.createClass({
         <FormItem
           {...formItemLayout}
           label="E-mail"
+          hasFeedback
         >
           {getFieldDecorator('email', {
             rules: [{
@@ -111,6 +112,7 @@ const RegistrationForm = Form.create()(React.createClass({
         <FormItem
           {...formItemLayout}
           label="Password"
+          hasFeedback
         >
           {getFieldDecorator('password', {
             rules: [{
@@ -125,6 +127,7 @@ const RegistrationForm = Form.create()(React.createClass({
         <FormItem
           {...formItemLayout}
           label="Confirm Password"
+          hasFeedback
         >
           {getFieldDecorator('confirm', {
             rules: [{
@@ -146,6 +149,7 @@ const RegistrationForm = Form.create()(React.createClass({
               </Tooltip>
             </span>
           )}
+          hasFeedback
         >
           {getFieldDecorator('nickname', {
             rules: [{ required: true, message: 'Please input your nickname!' }],

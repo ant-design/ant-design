@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 3
 title:
   zh-CN: 高级搜索
   en-US: Advanced search
@@ -22,87 +22,84 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 import { Form, Input, Row, Col, Button, DatePicker } from 'antd';
 const FormItem = Form.Item;
 
+const formItemLayout = {
+  labelCol: { span: 10 },
+  wrapperCol: { span: 14 },
+};
+
 ReactDOM.render(
   <Form horizontal className="ant-advanced-search-form">
     <Row gutter={16}>
       <Col sm={8}>
         <FormItem
+          {...formItemLayout}
           label="Search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <Input placeholder="Please input the search name" size="default" />
         </FormItem>
         <FormItem
+          {...formItemLayout}
           label="Long search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
+          {...formItemLayout}
           label="Search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <Input placeholder="Please input the search name" size="default" />
         </FormItem>
       </Col>
       <Col sm={8}>
         <FormItem
+          {...formItemLayout}
           label="Search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <Input placeholder="Please input the search name" size="default" />
         </FormItem>
         <FormItem
+          {...formItemLayout}
           label="Long search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
+          {...formItemLayout}
           label="Search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <Input placeholder="Please input the search name" size="default" />
         </FormItem>
       </Col>
       <Col sm={8}>
         <FormItem
+          {...formItemLayout}
           label="Search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <Input placeholder="Please input the search name" size="default" />
         </FormItem>
         <FormItem
+          {...formItemLayout}
           label="Long search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <DatePicker size="default" />
         </FormItem>
         <FormItem
+          {...formItemLayout}
           label="Search name"
-          labelCol={{ span: 10 }}
-          wrapperCol={{ span: 14 }}
         >
           <Input placeholder="Please input the search name" size="default" />
         </FormItem>
       </Col>
     </Row>
     <Row>
-      <Col span={12} offset={12} style={{ textAlign: 'right' }}>
+      <Col span={24} style={{ textAlign: 'right' }}>
         <Button type="primary" htmlType="submit">Search</Button>
         <Button>Clear</Button>
       </Col>
     </Row>
-  </Form>
-, mountNode);
+  </Form>,
+  mountNode
+);
 ````
 
 ````css
@@ -128,7 +125,7 @@ ReactDOM.render(
 ````
 
 <style>
-#components-form-demo-advanced-search-form .ant-form-horizontal {
+#components-form-demo-advanced-search .ant-form-horizontal {
   max-width: none;
 }
 </style>
