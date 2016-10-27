@@ -19,108 +19,105 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 
 ````jsx
-import { Form, Input, Row, Col, Button, DatePicker } from 'antd';
+import { Form, Row, Col, Input, Button, Icon } from 'antd';
 const FormItem = Form.Item;
 
-const formItemLayout = {
-  labelCol: { span: 10 },
-  wrapperCol: { span: 14 },
-};
+const usualShowedChildren = 2 * 3; // row * col
+const AdvancedSearchForm = Form.create()(React.createClass({
+  getInitialState() {
+    return {
+      expand: false,
+    };
+  },
+  handleSearch(e) {
+    e.preventDefault();
 
-ReactDOM.render(
-  <Form horizontal className="ant-advanced-search-form">
-    <Row gutter={16}>
-      <Col sm={8}>
-        <FormItem
-          {...formItemLayout}
-          label="Search name"
-        >
-          <Input placeholder="Please input the search name" size="default" />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Long search name"
-        >
-          <DatePicker size="default" />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Search name"
-        >
-          <Input placeholder="Please input the search name" size="default" />
-        </FormItem>
-      </Col>
-      <Col sm={8}>
-        <FormItem
-          {...formItemLayout}
-          label="Search name"
-        >
-          <Input placeholder="Please input the search name" size="default" />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Long search name"
-        >
-          <DatePicker size="default" />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Search name"
-        >
-          <Input placeholder="Please input the search name" size="default" />
-        </FormItem>
-      </Col>
-      <Col sm={8}>
-        <FormItem
-          {...formItemLayout}
-          label="Search name"
-        >
-          <Input placeholder="Please input the search name" size="default" />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Long search name"
-        >
-          <DatePicker size="default" />
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Search name"
-        >
-          <Input placeholder="Please input the search name" size="default" />
-        </FormItem>
-      </Col>
-    </Row>
-    <Row>
-      <Col span={24} style={{ textAlign: 'right' }}>
-        <Button type="primary" htmlType="submit">Search</Button>
-        <Button>Clear</Button>
-      </Col>
-    </Row>
-  </Form>,
-  mountNode
-);
+    this.props.form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
+
+      console.log('Received values of form: ', values);
+    });
+  },
+  handleReset() {
+    this.props.form.resetFields();
+  },
+  toggle(expand) {
+    this.setState({ expand });
+  },
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    const formItemLayout = {
+      labelCol: { span: 5 },
+      wrapperCol: { span: 19 },
+    };
+
+    // To generate mock Form.Item
+    const children = [];
+    for (let i = 0; i < 10; i++) {
+      children.push(
+        <Col span={8} key={i}>
+          <FormItem
+            {...formItemLayout}
+            label={`Field ${i}`}
+          >
+            {getFieldDecorator(`field-${i}`)(
+              <Input placeholder="placeholder" />
+            )}
+          </FormItem>
+        </Col>
+      );
+    }
+
+    const expand = this.state.expand;
+    const showedChildren = expand ? children.length : usualShowedChildren;
+    return (
+      <Form
+        horizontal
+        className="ant-advanced-search-form"
+        onSubmit={this.handleSearch}
+      >
+        <Row gutter={40}>
+          {children.slice(0, showedChildren)}
+        </Row>
+        <Row>
+          <Col span={24} style={{ textAlign: 'right' }}>
+            <Button type="primary" htmlType="submit">Search</Button>
+            <Button onClick={this.handleReset}>Clear</Button>
+            {
+              expand ? (
+                <a className="ant-dropdown-link" onClick={() => this.toggle(false)}>
+                  Collapse <Icon type="up" />
+                </a>
+              ) : (
+                <a className="ant-dropdown-link" onClick={() => this.toggle(true)}>
+                  Expand <Icon type="down" />
+                </a>
+              )
+            }
+          </Col>
+        </Row>
+      </Form>
+    );
+  },
+}));
+
+ReactDOM.render(<AdvancedSearchForm />, mountNode);
 ````
 
 ````css
-/* custom style */
-
-.ant-advanced-search-form {
-  padding: 16px 8px;
+#components-form-demo-advanced-search .ant-advanced-search-form {
+  padding: 24px;
   background: #f8f8f8;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
 }
-
-/* because the label length is variable, you may need to adjust the left edge to have the form centered */
-
-.ant-advanced-search-form > .ant-row {
-  position: relative;
-  left: -6px;
-}
-
-.ant-advanced-search-form .ant-btn + .ant-btn {
+#components-form-demo-advanced-search .ant-advanced-search-form .ant-btn + .ant-btn {
   margin-left: 8px;
+}
+#components-form-demo-advanced-search .ant-advanced-search-form .ant-dropdown-link {
+  margin-left: 16px;
 }
 ````
 
