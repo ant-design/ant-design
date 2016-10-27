@@ -38,7 +38,6 @@ title: Message
 message.config({
   top: 100,
   duration: 2,
-  stack: false,
 });
 ```
 
@@ -46,4 +45,3 @@ message.config({
 |------------|--------------------|--------------------------|-------------|
 | top        | 消息距离顶部的位置 | Number                      | 24px        |
 | duration   | 默认自动关闭延时，单位秒 | Number                 | 1.5         |
-| stack      | 是否将消息重叠显示 | Boolean                 | true        |

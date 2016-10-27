@@ -37,7 +37,6 @@ Methods for global configuration and destruction are also provided:
 message.config({
   top: 100,
   duration: 2,
-  stack: false,
 });
 ```
 
@@ -45,4 +44,3 @@ message.config({
 |------------|------------------------------------|--------------------------|-------------|
 | top        | distance to top                    | Number                   | 24px        |
 | duration   | time before auto-dismiss,in seconds | Number                   | 1.5         |
-| stack    | list messages with stack  | Boolean                   | true         |

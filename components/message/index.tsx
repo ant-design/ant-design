@@ -7,11 +7,10 @@ let defaultTop;
 let messageInstance;
 let key = 1;
 let prefixCls = 'ant-message';
-let defaultStack = true;
 
 function getMessageInstance() {
   messageInstance = messageInstance || Notification.newInstance({
-    prefixCls: `${!defaultStack ? `${prefixCls}-unstack ` : ''}${prefixCls}`,
+    prefixCls,
     transitionName: 'move-up',
     style: { top: defaultTop }, // 覆盖原来的样式
   });
@@ -62,7 +61,6 @@ export interface ConfigOptions {
   top?: number;
   duration?: number;
   prefixCls?: string;
-  stack?: boolean;
 }
 
 export default {
@@ -95,9 +93,6 @@ export default {
     }
     if (options.prefixCls !== undefined) {
       prefixCls = options.prefixCls;
-    }
-    if (options.stack !== undefined) {
-      defaultStack = options.stack;
     }
   },
   destroy() {
