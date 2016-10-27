@@ -44,6 +44,8 @@ title: Select
 | showSearch | 在选择框中显示搜索框 | boolean | false |
 | disabled | 是否禁用 | boolean | false |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true
+| dropdownStyle | 下拉菜单的 style 属性 | object | - |
+| dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，决定 Select 的 value 类型。 | boolean | false |
 
