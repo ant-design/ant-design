@@ -205,7 +205,7 @@ const RegistrationForm = Form.create()(React.createClass({
                   <Checkbox>I had read the <a>agreement</a></Checkbox>
                 )}
               </p>
-              <Button type="primary" htmlType="submit">Register</Button>
+              <Button type="primary" htmlType="submit" size="large">Register</Button>
             </Col>
           </Row>
         </FormItem>
