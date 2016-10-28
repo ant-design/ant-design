@@ -147,15 +147,18 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const field = this.getId();
-    if (!field) {
+    const fieldId = this.getId();
+    if (!fieldId) {
       return '';
     }
-    if (isFieldValidating(field)) {
+    if (isFieldValidating(fieldId)) {
       return 'validating';
-    } else if (!!getFieldError(field)) {
+    }
+    if (!!getFieldError(fieldId)) {
       return 'error';
-    } else if (getFieldValue(field) !== undefined && getFieldValue(field) !== null) {
+    }
+    const fieldValue = getFieldValue(fieldId);
+    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
       return 'success';
     }
     return '';
