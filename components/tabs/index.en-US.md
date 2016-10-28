@@ -28,7 +28,7 @@ Ant Design has 3 types Tabs for different situation.
 | onTabClick   | Callback when tab is clicked | Function | - |
 | tabBarExtraContent | Extra element in tab bar | React.ReactNode | - |
 | type         | Basic style of tabs. Options: line, card & editable-card | string | line |
-| size         | Tab bar size. Options: default, small | string | default |
+| size         | Tab bar size. Options: default, small. Only works while `type="line"`. | string | default |
 | tabPosition  | Position of tabs. Options: top, right, bottom & left | string | top |
 | onEdit       | Callback when tab is added or removed, which is executing when set type as editable-card | (targetKey, action): void | - |
 | hideAdd      | Hide plus icon or not, which is effective when set type as editable-card | boolean | false |
