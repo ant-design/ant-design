@@ -1,6 +1,6 @@
 import React from 'react';
 import Checkbox from './index';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface CheckboxOptionType {
   label: string;

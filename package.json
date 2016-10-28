@@ -70,8 +70,7 @@
     "rc-tree": "~1.3.6",
     "rc-tree-select": "~1.8.0",
     "rc-upload": "~2.2.0",
-    "rc-util": "^4.0.0",
-    "react-addons-pure-render-mixin": "^15.0.0",
+    "rc-util": "^4.0.1",
     "react-slick": "~0.14.2",
     "shallowequal": "^0.2.2",
     "warning": "~3.0.0"

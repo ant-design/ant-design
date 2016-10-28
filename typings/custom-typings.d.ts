@@ -1,7 +1,5 @@
 declare module 'classnames';
 
-declare module 'react-addons-pure-render-mixin';
-
 declare module 'rc-calendar*';
 
 declare module 'rc-time-picker*';
