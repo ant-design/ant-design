@@ -13,8 +13,8 @@ const Group: React.StatelessComponent<GroupProps> = (props) => {
   const { prefixCls = 'ant-input-group', className = '' } = props;
   const cls = classNames({
     [prefixCls]: true,
-    [`${props.prefixCls}-lg`]: props.size === 'large',
-    [`${props.prefixCls}-sm`]: props.size === 'small',
+    [`${prefixCls}-lg`]: props.size === 'large',
+    [`${prefixCls}-sm`]: props.size === 'small',
     [className]: !!className,
   });
   return (
