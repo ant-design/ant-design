@@ -9,6 +9,8 @@ please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundl
 
 export { default as Affix } from './affix';
 
+export { default as Anchor } from './anchor';
+
 export { default as AutoComplete } from './auto-complete';
 
 export { default as Alert } from './alert';
