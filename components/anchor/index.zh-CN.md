@@ -1,6 +1,7 @@
 ---
 category: Components
 subtitle: 锚点
+cols: 1
 type: Other
 title: Anchor
 ---

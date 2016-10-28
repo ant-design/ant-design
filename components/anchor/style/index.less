@@ -1,5 +1,14 @@
 @import "../../style/themes/default";
 
-.@{ant-prefix}-anchor {
-  color: red;
+.@{ant-prefix}{
+  &-anchor {
+    background-color: white;
+    padding: 6px;
+    &-link {
+      &:hover, &-active {
+        color: @primary-color;
+      }
+    }
+  }
 }
+

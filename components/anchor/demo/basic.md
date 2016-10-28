@@ -21,7 +21,8 @@ const { AnchorLink }  = Anchor;
 
 ReactDOM.render(
   <Anchor>
-    <AnchorLink href="#components-anchor-demo-basic">锚点1</AnchorLink>
+    <AnchorLink href="#components-anchor-demo-basic">基本</AnchorLink>
+    <AnchorLink href="#components-anchor-demo-independ">独立使用</AnchorLink>
   </Anchor>
 , mountNode);
 ```

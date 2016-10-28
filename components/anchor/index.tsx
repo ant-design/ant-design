@@ -34,7 +34,7 @@ function getOffsetTop(element): number {
   if ( rect.width || rect.height ) {
     const doc = element.ownerDocument;
     const docElem = doc.documentElement;
-    return  rect.top + window.pageYOffset - docElem.clientTop;
+    return  rect.top - docElem.clientTop;
   }
 
   return rect.top;
@@ -43,11 +43,15 @@ function getOffsetTop(element): number {
 export interface AnchorProps {
   target: () => HTMLElement | Window;
   children: React.ReactNode;
+  prefixCls?: string;
 } 
 
 
 export default class Anchor extends React.Component<AnchorProps, any> {
   static AnchorLink = AnchorLink;
+  static defaultProps = {
+    prefixCls: 'ant-anchor'
+  };
 
   private scrollEvent: any;
   private sections: Array<string> = [];
@@ -66,19 +70,17 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     this.sections.forEach(section => {
       const target = document.querySelector(section);
       if (target) {
-        const top = target.offsetTop;
+        const top = getOffsetTop(target);
         const bottom = top + target.clientHeight;
-        if ((scrollTop >= top) && (scrollTop <= bottom)) {
+        if ((top <= 5) && (bottom >= -5)) {
           activeAnchor = section;
         }
       }
     });
 
-    if (activeAnchor) {
-      this.setState({
-        activeAnchor,
-      });
-    }
+    this.setState({
+      activeAnchor,
+    });
   }
 
   componentDidMount() {
@@ -114,14 +116,19 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       if (this.sections.indexOf(href) === -1) {
         this.sections.push(href);
       }
-      return React.cloneElement(child, { onClick: this.scrollTo, active: this.state.activeAnchor === href });
+      return React.cloneElement(child, {
+        onClick: this.scrollTo,
+        active: this.state.activeAnchor === href,
+        prefixCls: this.props.prefixCls,
+      });
     }
     return child;
   }
 
   render() {
+    const { prefixCls } = this.props;
     return <Affix>
-      <div>{React.Children.map(this.props.children, this.renderAnchorLink)}</div>
+      <div className={prefixCls}>{React.Children.map(this.props.children, this.renderAnchorLink)}</div>
     </Affix>;
   }
 }
