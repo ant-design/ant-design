@@ -54,10 +54,12 @@
     border: solid 2px tint(@primary-color, 50%);
     background-color: #fff;
     z-index: 2;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:hover {
       border-color: tint(@primary-color, 20%);
+      transform: scale(1.2);
+      transform-origin: center center;
     }
 
     &:active {
