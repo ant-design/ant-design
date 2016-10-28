@@ -3,7 +3,7 @@ import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
 import { TransferItem } from './index';
 
