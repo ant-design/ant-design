@@ -10,15 +10,16 @@ import Calendar from './Calendar';
 import { TimePickerProps } from '../time-picker';
 
 export interface PickerProps {
+  prefixCls?: string;
+  inputPrefixCls?: string;
   format?: string;
   disabled?: boolean;
+  allowClear?: boolean;
   style?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
   locale?: any;
   size?: 'large' | 'small' | 'default';
   getCalendarContainer?: (trigger: any) => React.ReactNode;
-  prefixCls?: string;
-  inputPrefixCls?: string;
 }
 
 export interface SinglePickerProps {

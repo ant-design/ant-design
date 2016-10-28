@@ -14,10 +14,11 @@ export interface PickerProps {
 
 export default function createPicker(TheCalendar) {
   // use class typescript error
-  const CalenderWrapper = React.createClass({
+  const CalenderWrapper = React.createClass<any, any>({
     getDefaultProps() {
       return {
         prefixCls: 'ant-calendar',
+        allowClear: true,
       };
     },
 
@@ -128,7 +129,7 @@ export default function createPicker(TheCalendar) {
         pickerStyle.width = 180;
       }
 
-      const clearIcon = (!props.disabled && this.state.value) ?
+      const clearIcon = (!props.disabled && props.allowClear && this.state.value) ?
         <Icon type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
