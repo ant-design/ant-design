@@ -1,6 +1,14 @@
 <!-- Issue Template -->
 
-<!-- 请按照下列格式报告问题，务必提供复现步骤，否则恕难解决，感谢您的支持。-->
+<!--
+antd 的用法咨询，建议通过以下渠道，官方 issues 目前没有足够精力提供此类咨询服务：
+
+1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)
+2. [Segment Fault](https://segmentfault.com/t/antd)（中文）
+3. [Gitter](https://gitter.im/ant-design/ant-design)
+
+如果是报告 bug，请按照下列格式书写，并务必提供复现步骤，否则恕难解决，感谢您的支持。
+-->
 
 #### 发生问题的环境是：
 
