@@ -4,6 +4,7 @@ import CheckboxGroup from './Group';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import splitObject from '../_util/splitObject';
+import getTriggerHandlers from '../_util/getTriggerHandlers';
 
 export interface CheckboxProps {
   /** 指定当前是否选中 */
@@ -40,7 +41,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       [`${prefixCls}-indeterminate`]: indeterminate,
     });
     return (
-      <label className={classString} style={style}>
+      <label className={classString} style={style} {...getTriggerHandlers(this.props)}>
         <RcCheckbox
           {...restProps}
           prefixCls={prefixCls}

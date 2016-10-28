@@ -4,6 +4,7 @@ import Radio from './radio';
 import RadioButton from './radioButton';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
+import getTriggerHandlers from '../_util/getTriggerHandlers';
 
 function getCheckedValue(children) {
   let value = null;
@@ -100,6 +101,10 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       [prefixCls]: true,
       [`${prefixCls}-${props.size}`]: props.size,
     });
-    return <div className={classString} style={props.style}>{children}</div>;
+    return (
+      <div className={classString} style={props.style} {...getTriggerHandlers(props)}>
+        {children}
+      </div>
+    );
   }
 }
