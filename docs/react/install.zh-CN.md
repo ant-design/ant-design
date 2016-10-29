@@ -27,10 +27,9 @@ $ npm install antd --save
 $ npm install antd@beta --save
 ```
 
-> **历史版本**：https://github.com/ant-design/ant-design/releases
-
-
 ## 浏览器引入
+
+[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
 
 我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [UNPKG](https://unpkg.com/) 进行下载。
 
