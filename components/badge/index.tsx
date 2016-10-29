@@ -84,7 +84,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     return (
-      <span {...restProps} className={badgeCls} title={count}>
+      <span {...restProps} className={badgeCls} title={this.props.count}>
         {children}
         <Animate
           component=""
