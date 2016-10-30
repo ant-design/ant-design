@@ -44,7 +44,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'status', 'text']
     );
     const isDot = dot || status;
-
+    const realCount = count;
     count = count > overflowCount ? `${overflowCount}+` : count;
 
     // dot mode don't need count
@@ -84,7 +84,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     return (
-      <span {...restProps} className={badgeCls} title={this.props.count}>
+      <span {...restProps} className={badgeCls} title={realCount}>
         {children}
         <Animate
           component=""
