@@ -101,8 +101,9 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 
 ### Form.Item
 
-> * If Form.Item has multiple children, `help`, `required`, and `validateStatus` can't be generated automatically.
-> * Form controls must be child of Form.Item, otherwise, you need to set `help`, `required` and `validateStatus` by yourself.
+Note:
+* If Form.Item has multiple children that had been decorated by `getFieldDecorator`, `help` and `required` and `validateStatus` can't be generated automatically.
+* Before `2.2.0`, form controls must be child of Form.Item, otherwise, you need to set `help`, `required` and `validateStatus` by yourself.
 
 | Property      | Description                                     | Type       |  Optional | Default Value |
 |-----------|------------------------------------------|-----------|-------|--------|

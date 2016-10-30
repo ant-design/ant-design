@@ -61,8 +61,8 @@ ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 
 | 参数      | 说明             | 类型      | 默认值  |
 |----------|------------------|----------|--------|
-| type | 图标类型 | String | - |
-| spin | 是否有旋转动画 | Boolean | false |
+| type | 图标类型 | string | - |
+| spin | 是否有旋转动画 | boolean | false |
 
 <style>
 .markdown .icons {

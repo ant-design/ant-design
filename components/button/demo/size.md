@@ -20,9 +20,12 @@ If a large or small button is desired, set the `size` property to either `large`
 ````jsx
 import { Button } from 'antd';
 
-ReactDOM.render(<div>
-  <Button type="primary" size="large">Large</Button>
-  <Button type="primary">Default</Button>
-  <Button type="primary" size="small">Small</Button>
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Button type="primary" size="large">Large</Button>
+    <Button type="primary">Default</Button>
+    <Button type="primary" size="small">Small</Button>
+  </div>,
+  mountNode
+);
 ````
