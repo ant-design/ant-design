@@ -42,7 +42,6 @@ title: Form
 | horizontal | 水平排列布局 | boolean  | false    |
 | inline | 行内排列布局 | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
-| prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string | 'ant-form' |
 
 ### Form.create(options)
 
@@ -116,7 +115,6 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | bool |  | false  |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | bool |  | false  |
-| prefixCls | 样式类名，默认为 ant-form，通常您不需要设置 | string |  |  'ant-form' |
 
 <style>
 .code-box-demo .ant-form-horizontal {
