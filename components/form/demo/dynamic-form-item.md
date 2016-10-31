@@ -1,8 +1,8 @@
 ---
-order: 10
+order: 5
 title:
   zh-CN: 动态增减表单项
-  en-US: Dynamic form item
+  en-US: Dynamic Form Item
 ---
 
 ## zh-CN
@@ -26,34 +26,36 @@ let Demo = React.createClass({
   remove(k) {
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.filter((key) => {
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.filter((key) => {
       return key !== k;
     });
     // can use data-binding to set
     form.setFieldsValue({
-      keys,
+      keys: nextKeys,
     });
   },
   add() {
     uuid++;
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.concat(uuid);
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.concat(uuid);
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
-      keys,
+      keys: nextKeys,
     });
   },
-  submit(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields((errors, values) => {
-      if (errors) {
-        console.log(errors);
+
+    this.props.form.validateFields((err, values) => {
+      if (err) {
+        return;
       }
-      console.log(values);
+
+      console.log('Received values of form: ', values);
     });
   },
   render() {
@@ -81,11 +83,11 @@ let Demo = React.createClass({
       );
     });
     return (
-      <Form horizontal>
+      <Form horizontal onSubmit={this.handleSubmit}>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
           <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>
-          <Button type="primary" onClick={this.submit}>submit</Button>
+          <Button type="primary" htmlType="submit">submit</Button>
         </Form.Item>
       </Form>
     );
@@ -93,6 +95,5 @@ let Demo = React.createClass({
 });
 
 Demo = Form.create()(Demo);
-
 ReactDOM.render(<Demo />, mountNode);
 ````

@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   zh-CN: 校验其他组件
   en-US: Others components related to validation

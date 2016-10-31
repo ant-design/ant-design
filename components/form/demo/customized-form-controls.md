@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   zh-CN: 自定义表单控件
   en-US: Customized Form Controls
