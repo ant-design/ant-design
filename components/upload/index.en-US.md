@@ -30,6 +30,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | multiple   | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true  | Boolean     | false |
 | accept     | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | String      | -   |
 | beforeUpload | Hook function which takes an argument: the uploaded file, will be executed before uploading.  Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported by old IE**。 | Function    | -    |
+| customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |
 | onChange   | A callback function, can be executed when uploading state is changing. See [onChange](#onChange)                | Function    | -   |
 | listType   | Built-in stylesheets, support for two types: `text` or `picture`     | String      | 'text'|
 | onPreview  | A callback function, will be executed when file link is clicked.  | Function(file) | -  |
@@ -69,6 +70,10 @@ When uploading state change, it returns:
 ## show download links
 
 please set property `url` of property `fileList` to control content of link
+
+## customRequest
+
+* https://github.com/react-component/upload#customrequest
 
 ## IE note
 
