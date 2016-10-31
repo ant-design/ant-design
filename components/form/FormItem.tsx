@@ -26,7 +26,6 @@ export interface FormItemProps {
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
-  children: any;
 }
 
 export interface FormItemContext {
@@ -239,7 +238,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child: React.ReactElement<any>) => {
+    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
       if (child && typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }

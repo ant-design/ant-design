@@ -24,7 +24,6 @@ export interface TabsProps {
   prefixCls?: string;
   className?: string;
   animated?: boolean;
-  children: any;
 }
 
 // Tabs
@@ -94,7 +93,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let childrenWithClose;
     if (type === 'editable-card') {
       childrenWithClose = [];
-      React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
+      React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
         childrenWithClose.push(cloneElement(child, {
           tab: (
             <div>
