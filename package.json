@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/ant-design/ant-design/issues"
   },
-  "main": "dist/antd",
+  "main": "lib/index.js",
   "files": [
     "dist",
     "lib"
