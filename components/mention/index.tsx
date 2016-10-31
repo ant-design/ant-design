@@ -17,6 +17,7 @@ export interface MentionProps {
   multiLines?: Boolean;
   prefix?: string;
   placeholder?: string;
+  getSuggestionContainer?: Function;
 }
 
 export interface MentionState {

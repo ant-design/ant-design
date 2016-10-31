@@ -22,7 +22,7 @@ const Nav = Mention.Nav;
 const webFrameworks = [
   { name: 'React', type: 'JavaScript', icon: 'https://zos.alipayobjects.com/rmsportal/LFIeMPzdLcLnEUe.svg' },
   { name: 'Angular', type: 'JavaScript', icon: 'https://zos.alipayobjects.com/rmsportal/PJTbxSvzYWjDZnJ.png' },
-  { name: 'Laravel', type: 'PHP', icon: 'http://laravel-china.org/assets/img/laravel-logo.png' },
+  { name: 'Dva', type: 'Javascript', icon: 'https://zos.alipayobjects.com/rmsportal/EYPwSeEJKxDtVxI.png' },
   { name: 'Flask', type: 'Python', icon: 'https://zos.alipayobjects.com/rmsportal/xaypBUijfnpAlXE.png' },
 ];
 
@@ -53,7 +53,7 @@ const CustomNavMention = React.createClass({
     const { suggestions } = this.state;
     return (
       <Mention
-        style={{ width: 500, height: 100 }}
+        style={{ width: '100%', height: 100 }}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
       />

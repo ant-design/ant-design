@@ -1,7 +1,6 @@
 ---
 category: Components
 subtitle: 提及
-cols: 1
 type: Views
 title: Mention
 ---
@@ -45,6 +44,7 @@ title: Mention
 | placeHolder | 输入框默认文字 | string | null |
 | defaultValue | 默认值 | EditorState, 可以用 Mention.toEditorState(text) 把文字转换成 EditorState | null |
 | value | 值 | EditorState | null |
+| getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位| Function() | () => document.body |
 
 ### Nav props
 

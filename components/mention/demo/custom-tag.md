@@ -52,7 +52,7 @@ const CustomNavMention = React.createClass({
     return (
       <Mention
         placeholder="@someone"
-        style={{ width: 500, height: 100 }}
+        style={{ width: '100%', height: 100 }}
         suggestions={suggestions}
         onSearchChange={this.onSearchChange}
         onSelect={onSelect}
