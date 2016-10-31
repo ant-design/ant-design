@@ -1,5 +1,5 @@
 ---
-order: 15
+order: 10
 title:
   zh-CN: 动态增减表单项
   en-US: Dynamic form item
