@@ -18,7 +18,7 @@ title: AutoComplete
 const dataSource = ['12345', '23456', '34567'];
 <AutoComplete dataSource={dataSource} />
 ```
-
+因为 `AutoComplete` 是基于 `Select` 封装的，所以除了以下 API 外，`AutoComplete` 跟 `Select` 拥有一样的 API。
 
 | 参数           | 说明                             | 类型        | 默认值 |
 |----------------|----------------------------------|------------|---------|
