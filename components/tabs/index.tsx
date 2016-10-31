@@ -24,7 +24,7 @@ export interface TabsProps {
   prefixCls?: string;
   className?: string;
   animated?: boolean;
-  children: any;
+  children?: any;
 }
 
 // Tabs

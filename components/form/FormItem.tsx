@@ -26,7 +26,7 @@ export interface FormItemProps {
   required?: boolean;
   style?: React.CSSProperties;
   colon?: boolean;
-  children: any;
+  children?: any;
 }
 
 export interface FormItemContext {
