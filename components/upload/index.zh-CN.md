@@ -31,6 +31,7 @@ title: Upload
 | multiple   | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | Boolean     | false |
 | accept     | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | String      | 无    |
 | beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 或者 Promise 则停止上传。**注意：该方法不支持老 IE**。 | Function    | 无    |
+| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |
 | onChange   | 上传文件改变时的状态，详见 onChange                | Function    | 无    |
 | listType   | 上传列表的内建样式，支持两种基本样式 `text` or `picture`     | String      | 'text'|
 | onPreview  | 点击文件链接时的回调                                       | Function(file) | 无    |
@@ -70,6 +71,10 @@ title: Upload
 ## 显示下载链接
 
 请使用 fileList 属性设置数组项的 url 属性进行展示控制。
+
+## customRequest
+
+* https://github.com/react-component/upload#customrequest
 
 ## IE note
 
