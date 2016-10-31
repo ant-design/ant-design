@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon from '../icon';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
+import warning from 'warning';
+import Icon from '../icon';
+import splitObject from '../_util/splitObject';
 
 export interface TagProps {
   /** 标签是否可以关闭 */
@@ -13,8 +14,6 @@ export interface TagProps {
   onClose?: Function;
   /** 动画关闭后的回调 */
   afterClose?: Function;
-  /** 标签的色彩 */
-  color?: string;
   style?: React.CSSProperties;
 }
 
@@ -26,6 +25,7 @@ export default class Tag extends React.Component<TagProps, any> {
 
   constructor(props) {
     super(props);
+    warning(!('color' in props), '`Tag[color]` is deprecated, please override color by CSS instead.');
 
     this.state = {
       closing: false,

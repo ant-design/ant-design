@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Rows can be selectable by making fisrt column as a selectable column.
+Rows can be selectable by making first column as a selectable column.
 
 ````jsx
 import { Table } from 'antd';

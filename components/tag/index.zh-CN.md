@@ -19,4 +19,3 @@ title: Tag
 | closable       | 标签是否可以关闭               | boolean    | false  |
 | onClose        | 关闭时的回调                   | function(event) | - |
 | afterClose     | 关闭动画完成后的回调             | function(event) | - |
-| color          | 标签的色彩：`blue` `green` `yellow` `red` | string | - |
