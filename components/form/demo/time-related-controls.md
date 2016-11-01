@@ -23,24 +23,40 @@ const TimeRelatedForm = Form.create()(React.createClass({
   handleSubmit(e) {
     e.preventDefault();
 
-    const fieldsValue = this.props.form.getFieldsValue();
+    this.props.form.validateFields((err, fieldsValue) => {
+      if (err) {
+        return;
+      }
 
-    // Should format date value before submit.
-    const rangeValue = fieldsValue['range-picker'];
-    const values = {
-      ...fieldsValue,
-      'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
-      'month-picker': fieldsValue['month-picker'].format('YYYY-MM'),
-      'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
-      'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
-    };
-    console.log('Received values of form: ', values);
+      // Should format date value before submit.
+      const rangeValue = fieldsValue['range-picker'];
+      const rangeTimeValue = fieldsValue['range-time-picker'];
+      const values = {
+        ...fieldsValue,
+        'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
+        'date-time-picker': fieldsValue['date-time-picker'].format('YYYY-MM-DD HH:mm:ss'),
+        'month-picker': fieldsValue['month-picker'].format('YYYY-MM'),
+        'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
+        'range-time-picker': [
+          rangeTimeValue[0].format('YYYY-MM-DD HH:mm:ss'),
+          rangeTimeValue[1].format('YYYY-MM-DD HH:mm:ss'),
+        ],
+        'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
+      };
+      console.log('Received values of form: ', values);
+    });
   },
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
-      labelCol: { span: 6 },
-      wrapperCol: { span: 14 },
+      labelCol: { span: 8 },
+      wrapperCol: { span: 16 },
+    };
+    const config = {
+      rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+    };
+    const rangeConfig = {
+      rules: [{ type: 'array', required: true, message: 'Please select time!' }],
     };
     return (
       <Form horizontal onSubmit={this.handleSubmit}>
@@ -48,15 +64,23 @@ const TimeRelatedForm = Form.create()(React.createClass({
           {...formItemLayout}
           label="DatePicker"
         >
-          {getFieldDecorator('date-picker')(
+          {getFieldDecorator('date-picker', config)(
             <DatePicker />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="DatePicker[showTime]"
+        >
+        {getFieldDecorator('date-time-picker', config)(
+            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
           label="MonthPicker"
         >
-          {getFieldDecorator('month-picker')(
+        {getFieldDecorator('month-picker', config)(
             <MonthPicker />
           )}
         </FormItem>
@@ -64,15 +88,23 @@ const TimeRelatedForm = Form.create()(React.createClass({
           {...formItemLayout}
           label="RangePicker"
         >
-          {getFieldDecorator('range-picker')(
+        {getFieldDecorator('range-picker', rangeConfig)(
             <RangePicker />
+          )}
+        </FormItem>
+        <FormItem
+          {...formItemLayout}
+          label="RangePicker[showTime]"
+        >
+        {getFieldDecorator('range-time-picker', rangeConfig)(
+            <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
           )}
         </FormItem>
         <FormItem
           {...formItemLayout}
           label="TimePicker"
         >
-          {getFieldDecorator('time-picker')(
+        {getFieldDecorator('time-picker', config)(
             <TimePicker />
           )}
         </FormItem>
