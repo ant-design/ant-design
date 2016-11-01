@@ -89,7 +89,7 @@
 }
 
 .markdown code {
-  margin: 0 3px;
+  margin: 0 1px;
   background: #f7f7f7;
   padding: .2em .4em;
   border-radius: 3px;
@@ -205,6 +205,20 @@
 .markdown.api-container table {
   font-family: Consolas, Menlo, Courier, monospace;
   font-size: 13px;
+  td:first-child {
+    background: #fcfcfc;
+    font-weight: 500;
+    width: 20%;
+  }
+  td:nth-child(3) {
+    width: 20%;
+    word-break: break-all;
+    font-size: 12px;
+  }
+  td:last-child {
+    width: 15%;
+    font-size: 12px;
+  }
 }
 
 .layout-demo,
