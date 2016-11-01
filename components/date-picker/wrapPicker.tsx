@@ -2,7 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
-import warning from 'warning';
+import warning from '../_util/warning';
 import getLocale from '../_util/getLocale';
 declare const require: Function;
 
