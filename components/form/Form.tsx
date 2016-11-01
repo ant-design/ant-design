@@ -81,8 +81,6 @@ export interface ComponentDecorator {
   <T extends (typeof FormComponent)>(component: T): T;
 }
 
-let warnedGetFieldProps = false;
-
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
@@ -123,24 +121,17 @@ export default class Form extends React.Component<FormProps, any> {
         };
       },
       componentWillMount() {
-        if (!warnedGetFieldProps) {
-          this.getFieldProps = this.props.form.getFieldProps;
-        }
+        this.getFieldProps = this.deprecatedGetFieldProps;
       },
       deprecatedGetFieldProps(name, option) {
-        if (!warnedGetFieldProps) {
-          warnedGetFieldProps = true;
-          warning(
-            false,
-            '`getFieldProps` is not recommended, please use `getFieldDecorator` instead'
-          );
-        }
+        warning(
+          false,
+          '`getFieldProps` is not recommended, please use `getFieldDecorator` instead'
+        );
         return this.getFieldProps(name, option);
       },
       render() {
-        if (!warnedGetFieldProps) {
-          this.props.form.getFieldProps = this.deprecatedGetFieldProps;
-        }
+        this.props.form.getFieldProps = this.deprecatedGetFieldProps;
 
         const withRef: any = {};
         if (options && options.withRef) {

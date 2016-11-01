@@ -1,7 +1,7 @@
 import React from 'react';
 import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../_util/openAnimation';
-import warning from 'warning';
+import warning from '../_util/warning';
 
 export interface SelectParam {
   key: string;

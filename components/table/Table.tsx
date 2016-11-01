@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { flatArray, treeMap } from './util';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
-import warning from 'warning';
+import warning from '../_util/warning';
 
 function noop() {
 }

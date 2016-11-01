@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import warning from 'warning';
 import Icon from '../icon';
+import warning from '../_util/warning';
 import splitObject from '../_util/splitObject';
 
 export interface TagProps {
