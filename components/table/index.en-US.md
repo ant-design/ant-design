@@ -53,7 +53,7 @@ const columns = [{
 | Property      | Description              | Type            | Default      |
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | Object  | null  |
-| pagination    | pagination [config](/components/pagination), hide it via setting to `false` | Object |  |
+| pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | Object |  |
 | size          | size of table: `default` or `small`  | String | `default` |
 | dataSource    | data record array to be rendered | Array |            |
 | columns       | columns of table | Array | - |
