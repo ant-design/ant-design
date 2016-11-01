@@ -38,7 +38,7 @@ ReactDOM.render(
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input defaultValue="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error" />
     </FormItem>
 
     <FormItem
@@ -47,7 +47,7 @@ ReactDOM.render(
       wrapperCol={{ span: 12 }}
       validateStatus="warning"
     >
-      <Input defaultValue="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning" />
     </FormItem>
 
     <FormItem
@@ -58,7 +58,7 @@ ReactDOM.render(
       validateStatus="validating"
       help="The information is being validated..."
     >
-      <Input defaultValue="I'm the content is being validated" id="validating" />
+      <Input placeholder="I'm the content is being validated" id="validating" />
     </FormItem>
 
     <FormItem
@@ -68,7 +68,7 @@ ReactDOM.render(
       hasFeedback
       validateStatus="success"
     >
-      <Input defaultValue="I'm the content" id="success" />
+      <Input placeholder="I'm the content" id="success" />
     </FormItem>
 
     <FormItem
@@ -78,7 +78,7 @@ ReactDOM.render(
       hasFeedback
       validateStatus="warning"
     >
-      <Input defaultValue="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning" />
     </FormItem>
 
     <FormItem
@@ -89,7 +89,7 @@ ReactDOM.render(
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input defaultValue="unavailable choice" id="error" />
+      <Input placeholder="unavailable choice" id="error" />
     </FormItem>
 
     <FormItem
