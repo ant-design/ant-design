@@ -31,7 +31,7 @@ export default function createPicker(TheCalendar) {
     },
 
     componentWillReceiveProps(nextProps: PickerProps) {
-      if ('value' in nextProps) {
+      if (nextProps.value !== undefined) {
         this.setState({
           value: nextProps.value,
         });
@@ -47,14 +47,14 @@ export default function createPicker(TheCalendar) {
 
     handleChange(value) {
       const props = this.props;
-      if (!('value' in props)) {
+      if (props.value === undefined) {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
     },
 
     handleTempChange(tempValue) {
-      if (!('value' in this.props)) {
+      if (this.props.value === undefined) {
         this.setState({ tempValue });
       }
     },
