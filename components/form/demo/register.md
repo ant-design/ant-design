@@ -85,6 +85,12 @@ const RegistrationForm = Form.create()(React.createClass({
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
     };
+    const tailFormItemLayout = {
+      wrapperCol: {
+        span: 14,
+        offset: 6,
+      },
+    };
     const prefixSelector = getFieldDecorator('prefix', {
       initialValue: '86',
     })(
@@ -195,14 +201,14 @@ const RegistrationForm = Form.create()(React.createClass({
             </Col>
           </Row>
         </FormItem>
-        <FormItem wrapperCol={{ span: 14, offset: 6 }}>
-          <p>
-            {getFieldDecorator('agreement', {
-              valuePropName: 'checked',
-            })(
-              <Checkbox>I had read the <a>agreement</a></Checkbox>
-            )}
-          </p>
+        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
+          {getFieldDecorator('agreement', {
+            valuePropName: 'checked',
+          })(
+            <Checkbox>I had read the <a>agreement</a></Checkbox>
+          )}
+        </FormItem>
+        <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" size="large">Register</Button>
         </FormItem>
       </Form>
