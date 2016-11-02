@@ -16,16 +16,11 @@ subtitle: 日期选择框
 注意：DatePicker、MonthPicker、RangePicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 
 ```jsx
-import moment from 'moment-timezone/moment-timezone';
+import moment from 'moment';
 
-// 推荐在入口文件全局设置 locale 与时区
+// 推荐在入口文件全局设置 locale
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
-
-// 按需设置时区
-// 从 https://github.com/moment/moment-timezone/blob/develop/data/packed/latest.json 复制
-moment.tz.add('Asia/Shanghai|CST CDT|-80 -90|01010101010101010|-1c1I0 LX0 16p0 1jz0 1Myp0 Rb0 1o10 11z0 1o10 11z0 1qN0 11z0 1o10 11z0 1o10 11z0|23e6');
-moment.tz.setDefault('Asia/Shanghai')
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
 ```
