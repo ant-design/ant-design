@@ -9,6 +9,12 @@ timeline: true
 
 ---
 
+## 2.2.1
+
+`2016-11-02`
+
+* 修复 Form 中 DatePicker[showTime]（受控）无法使用的问题。[#3665](https://github.com/ant-design/ant-design/issues/3665)
+
 ## 2.2.0
 
 `2016-10-28`

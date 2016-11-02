@@ -9,6 +9,12 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.2.1
+
+`2016-11-02`
+
+* Fix controlled DatePicker[showTime] not working bug. [#3665](https://github.com/ant-design/ant-design/issues/3665)
+
 ## 2.2.0
 
 `2016-10-28`
