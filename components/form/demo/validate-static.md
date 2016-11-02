@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 title:
   zh-CN: 校验提示
   en-US: Validation message

@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   zh-CN: 表单组合
   en-US: Mix
