@@ -27,12 +27,9 @@ let Demo = React.createClass({
     const { form } = this.props;
     // can use data-binding to get
     const keys = form.getFieldValue('keys');
-    const nextKeys = keys.filter((key) => {
-      return key !== k;
-    });
     // can use data-binding to set
     form.setFieldsValue({
-      keys: nextKeys,
+      keys: keys.filter(key => key !== k),
     });
   },
   add() {
@@ -49,13 +46,10 @@ let Demo = React.createClass({
   },
   handleSubmit(e) {
     e.preventDefault();
-
     this.props.form.validateFields((err, values) => {
-      if (err) {
-        return;
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-
-      console.log('Received values of form: ', values);
     });
   },
   render() {
@@ -78,7 +72,7 @@ let Demo = React.createClass({
           })(
             <Input style={{ width: '60%', marginRight: 8 }} />
           )}
-          <Button onClick={() => this.remove(k)}>remove</Button>
+          <Button onClick={() => this.remove(k)}>Remove</Button>
         </Form.Item>
       );
     });
@@ -86,8 +80,8 @@ let Demo = React.createClass({
       <Form horizontal onSubmit={this.handleSubmit}>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
-          <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>
-          <Button type="primary" htmlType="submit">submit</Button>
+          <Button onClick={this.add} style={{ marginRight: 8 }}>Add good friend</Button>
+          <Button type="primary" htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>
     );

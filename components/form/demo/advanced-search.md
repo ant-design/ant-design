@@ -22,7 +22,6 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 import { Form, Row, Col, Input, Button, Icon } from 'antd';
 const FormItem = Form.Item;
 
-const usualShowedChildren = 2 * 3; // row * col
 const AdvancedSearchForm = Form.create()(React.createClass({
   getInitialState() {
     return {
@@ -31,20 +30,16 @@ const AdvancedSearchForm = Form.create()(React.createClass({
   },
   handleSearch(e) {
     e.preventDefault();
-
     this.props.form.validateFields((err, values) => {
-      if (err) {
-        return;
-      }
-
       console.log('Received values of form: ', values);
     });
   },
   handleReset() {
     this.props.form.resetFields();
   },
-  toggle(expand) {
-    this.setState({ expand });
+  toggle() {
+    const { expand } = this.state;
+    this.setState({ expand: !expand });
   },
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -58,10 +53,7 @@ const AdvancedSearchForm = Form.create()(React.createClass({
     for (let i = 0; i < 10; i++) {
       children.push(
         <Col span={8} key={i}>
-          <FormItem
-            {...formItemLayout}
-            label={`Field ${i}`}
-          >
+          <FormItem {...formItemLayout} label={`Field ${i}`}>
             {getFieldDecorator(`field-${i}`)(
               <Input placeholder="placeholder" />
             )}
@@ -71,7 +63,7 @@ const AdvancedSearchForm = Form.create()(React.createClass({
     }
 
     const expand = this.state.expand;
-    const showedChildren = expand ? children.length : usualShowedChildren;
+    const shownCount = expand ? children.length : 6;
     return (
       <Form
         horizontal
@@ -79,23 +71,17 @@ const AdvancedSearchForm = Form.create()(React.createClass({
         onSubmit={this.handleSearch}
       >
         <Row gutter={40}>
-          {children.slice(0, showedChildren)}
+          {children.slice(0, shownCount)}
         </Row>
         <Row>
           <Col span={24} style={{ textAlign: 'right' }}>
             <Button type="primary" htmlType="submit">Search</Button>
-            <Button onClick={this.handleReset}>Clear</Button>
-            {
-              expand ? (
-                <a className="ant-dropdown-link" onClick={() => this.toggle(false)}>
-                  Collapse <Icon type="up" />
-                </a>
-              ) : (
-                <a className="ant-dropdown-link" onClick={() => this.toggle(true)}>
-                  Expand <Icon type="down" />
-                </a>
-              )
-            }
+            <Button style={{ marginLeft: 8 }} onClick={this.handleReset}>
+              Clear
+            </Button>
+            <a style={{ marginLeft: 8, fontSize: 12 }} onClick={this.toggle}>
+              Collapse <Icon type={expand ? 'up' : 'down'} />
+            </a>
           </Col>
         </Row>
       </Form>
@@ -109,15 +95,9 @@ ReactDOM.render(<AdvancedSearchForm />, mountNode);
 ````css
 #components-form-demo-advanced-search .ant-advanced-search-form {
   padding: 24px;
-  background: #f8f8f8;
+  background: #fbfbfb;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
-}
-#components-form-demo-advanced-search .ant-advanced-search-form .ant-btn + .ant-btn {
-  margin-left: 8px;
-}
-#components-form-demo-advanced-search .ant-advanced-search-form .ant-dropdown-link {
-  margin-left: 16px;
 }
 ````
 

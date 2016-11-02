@@ -20,13 +20,10 @@ const FormItem = Form.Item;
 const NormalLoginForm = Form.create()(React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-
     this.props.form.validateFields((err, values) => {
-      if (err) {
-        return;
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-
-      console.log('Received values of form: ', values);
     });
   },
   render() {

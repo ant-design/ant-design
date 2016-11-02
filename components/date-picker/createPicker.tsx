@@ -3,7 +3,6 @@ import moment from 'moment';
 import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
-import assign from 'object-assign';
 import omit from 'omit.js';
 import Icon from '../icon';
 
@@ -122,19 +121,13 @@ export default function createPicker(TheCalendar) {
         />
       );
 
-      // default width for showTime
-      const pickerStyle: { width?: number } = {};
-      if (props.showTime) {
-        pickerStyle.width = 180;
-      }
-
       const clearIcon = (!props.disabled && props.allowClear && this.state.value) ?
         <Icon type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
         /> : null;
       return (
-        <span className={props.pickerClass} style={assign({}, pickerStyle, props.style)}>
+        <span className={props.pickerClass} style={props.style}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}

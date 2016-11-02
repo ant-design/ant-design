@@ -50,13 +50,10 @@ const RegistrationForm = Form.create()(React.createClass({
   },
   handleSubmit(e) {
     e.preventDefault();
-
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (err) {
-        return;
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-
-      console.log('Received values of form: ', values);
     });
   },
   handlePasswordBlur(e) {
@@ -76,7 +73,6 @@ const RegistrationForm = Form.create()(React.createClass({
     if (value && this.state.passwordDirty) {
       form.validateFields(['confirm'], { force: true });
     }
-
     callback();
   },
   render() {
