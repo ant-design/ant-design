@@ -240,7 +240,7 @@ export default class TransferList extends React.Component<TransferListProps, any
             >
               {showItems.length > 0
                 ? showItems
-                : <div className={`${prefixCls}-body-not-found`}>{notFoundContent || '列表为空'}</div>}
+                : <div key="not-found" className={`${prefixCls}-body-not-found`}>{notFoundContent || '列表为空'}</div>}
             </Animate>
           </div>}
         {footerDom ? <div className={`${prefixCls}-footer`}>
