@@ -34,6 +34,7 @@ export default function createPicker(TheCalendar) {
       if (nextProps.value !== undefined) {
         this.setState({
           value: nextProps.value,
+          tempValue: nextProps.value,
         });
       }
     },
@@ -54,9 +55,7 @@ export default function createPicker(TheCalendar) {
     },
 
     handleTempChange(tempValue) {
-      if (this.props.value === undefined) {
-        this.setState({ tempValue });
-      }
+      this.setState({ tempValue });
     },
 
     // Clear temp value when hide picker panel
