@@ -14,10 +14,7 @@ getting feedback or information purposes.
 Additionally, if you need show a simple confirmation dialog, you can use `ant.Modal.confirm()`,
 and so on.
 
-
-
 ## API
-
 
 | Property       | Description           | Type             | Default       |
 |------------|----------------|------------------|--------------|
