@@ -195,19 +195,15 @@ const RegistrationForm = Form.create()(React.createClass({
             </Col>
           </Row>
         </FormItem>
-        <FormItem>
-          <Row>
-            <Col span={14} offset={6}>
-              <p>
-                {getFieldDecorator('agreement', {
-                  valuePropName: 'checked',
-                })(
-                  <Checkbox>I had read the <a>agreement</a></Checkbox>
-                )}
-              </p>
-              <Button type="primary" htmlType="submit" size="large">Register</Button>
-            </Col>
-          </Row>
+        <FormItem wrapperCol={{ span: 14, offset: 6 }}>
+          <p>
+            {getFieldDecorator('agreement', {
+              valuePropName: 'checked',
+            })(
+              <Checkbox>I had read the <a>agreement</a></Checkbox>
+            )}
+          </p>
+          <Button type="primary" htmlType="submit" size="large">Register</Button>
         </FormItem>
       </Form>
     );

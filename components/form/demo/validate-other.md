@@ -2,56 +2,33 @@
 order: 11
 title:
   zh-CN: 校验其他组件
-  en-US: Others components related to validation
+  en-US: Other Form Controls
 ---
 
 ## zh-CN
 
-提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
+以上演示没有出现的表单控件对应的校验演示。
 
 ## en-US
 
-Provide validation for following input filed: `Select` `Radio` `DatePicker` `InputNumber` `Cascader`. To use `validateFieldsAndScroll` with form validation, it will scroll the form to the failed input field which is not in visible area.
+Demostration for validataion configuration for form controls which are not show in the above demos.
 
 ````jsx
-import { Select, Radio, Checkbox, Button, DatePicker, TimePicker, InputNumber, Form, Cascader, Icon } from 'antd';
+import { Select, Button, InputNumber, Form } from 'antd';
 const Option = Select.Option;
-const RadioGroup = Radio.Group;
-const createForm = Form.create;
 const FormItem = Form.Item;
 
-let Demo = React.createClass({
-  componentDidMount() {
-    this.props.form.setFieldsValue({
-      eat: true,
-      sleep: true,
-      beat: true,
-    });
-  },
-
-  handleReset(e) {
-    e.preventDefault();
-    this.props.form.resetFields();
-  },
-
+const Demo = Form.create()(React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((errors, values) => {
-      if (errors) {
-        console.log('Errors in form!!!');
+
+    this.props.form.validateFields((err, values) => {
+      if (err) {
         return;
       }
-      console.log('Submit!!!');
-      console.log(values);
-    });
-  },
 
-  checkBirthday(rule, value, callback) {
-    if (value && value.valueOf() >= Date.now()) {
-      callback(new Error("You can't be born in the future!"));
-    } else {
-      callback();
-    }
+      console.log('Received values of form: ', values);
+    });
   },
 
   checkPrime(rule, value, callback) {
@@ -63,21 +40,13 @@ let Demo = React.createClass({
   },
 
   render() {
-    const address = [{
-      value: 'zhejiang',
-      label: 'Zhe Jiang',
-      children: [{
-        value: 'hangzhou',
-        label: 'Hang Zhou',
-      }],
-    }];
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 7 },
       wrapperCol: { span: 12 },
     };
     return (
-      <Form horizontal>
+      <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
           label="Country"
@@ -118,68 +87,6 @@ let Demo = React.createClass({
 
         <FormItem
           {...formItemLayout}
-          label="Gender"
-        >
-          {getFieldDecorator('radio', {
-            rules: [
-              { required: true, message: 'Please select your gender' },
-            ],
-          })(
-            <RadioGroup>
-              <Radio value="male">male</Radio>
-              <Radio value="female">female</Radio>
-            </RadioGroup>
-          )}
-          <span><Icon type="info-circle-o" /> No other gender</span>
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="Hobby"
-        >
-          {getFieldDecorator('hobby')(
-            <Checkbox.Group options={['eat', 'sleeping', 'dozen doug']} />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="Birthday"
-        >
-          {getFieldDecorator('birthday', {
-            rules: [
-              {
-                required: true,
-                type: 'object',
-                message: 'When is your birthday?',
-              }, {
-                validator: this.checkBirthday,
-              },
-            ],
-          })(
-            <DatePicker />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="Select the time"
-        >
-          {getFieldDecorator('time', {
-            rules: [
-              {
-                required: true,
-                type: 'object',
-                message: 'Please select the time',
-              },
-            ],
-          })(
-            <TimePicker />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
           label="Prime num between 8, 12"
         >
           {getFieldDecorator('primeNumber', {
@@ -189,29 +96,13 @@ let Demo = React.createClass({
           )}
         </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="Please select address"
-        >
-          {getFieldDecorator('address', {
-            rules: [{ required: true, type: 'array' }],
-          })(
-            <Cascader options={address} />
-          )}
-        </FormItem>
-
-        <FormItem
-          wrapperCol={{ span: 12, offset: 7 }}
-        >
-          <Button type="primary" onClick={this.handleSubmit}>OK</Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
+        <FormItem wrapperCol={{ span: 12, offset: 7 }}>
+          <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
       </Form>
     );
   },
-});
+}));
 
-Demo = createForm()(Demo);
 ReactDOM.render(<Demo />, mountNode);
 ````

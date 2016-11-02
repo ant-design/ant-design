@@ -14,7 +14,7 @@ title:
 After `antd@2.0`, the `value` of time-related components had been changed to `moment`. So, we need to pre-process those values.
 
 ````jsx
-import { Form, DatePicker, TimePicker, Row, Col, Button } from 'antd';
+import { Form, DatePicker, TimePicker, Button } from 'antd';
 const FormItem = Form.Item;
 const MonthPicker = DatePicker.MonthPicker;
 const RangePicker = DatePicker.RangePicker;
@@ -108,12 +108,8 @@ const TimeRelatedForm = Form.create()(React.createClass({
             <TimePicker />
           )}
         </FormItem>
-        <FormItem>
-          <Row>
-            <Col span={14} offset={6}>
-              <Button type="primary" htmlType="submit" size="large">Submit</Button>
-            </Col>
-          </Row>
+        <FormItem wrapperCol={{ span: 16, offset: 8 }}>
+          <Button type="primary" htmlType="submit" size="large">Submit</Button>
         </FormItem>
       </Form>
     );

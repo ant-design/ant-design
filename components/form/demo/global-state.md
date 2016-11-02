@@ -18,8 +18,8 @@ import { Form, Input } from 'antd';
 const FormItem = Form.Item;
 
 const CustomizedForm = Form.create({
-  onFieldsChange(props, fields) {
-    props.onChange(fields);
+  onFieldsChange(props, changedFields) {
+    props.onChange(changedFields);
   },
   mapPropsToFields(props) {
     return {
@@ -52,8 +52,10 @@ const Demo = React.createClass({
       },
     };
   },
-  handleFormChange(fields) {
-    this.setState({ fields });
+  handleFormChange(changedFields) {
+    this.setState({
+      fields: { ...this.state.fields, ...changedFields },
+    });
   },
   render() {
     const fields = this.state.fields;
