@@ -35,76 +35,77 @@
     height: auto;
     padding: 4px 7px;
   }
+}
 
-  .@{ant-prefix}-mention-dropdown {
-    margin-top: 1.5em;
-    max-height: 250px;
-    min-width: 120px;
-    background-color: white;
-    box-shadow: @box-shadow-base;
-    border-radius: @border-radius-base;
-    box-sizing: border-box;
-    z-index: @zindex-dropdown;
-    left: -9999px;
-    top: -9999px;
-    position: absolute;
-    outline: none;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-size: @font-size-base;
-    &-notfound.@{ant-prefix}-mention-dropdown-item {
+.@{ant-prefix}-mention-dropdown {
+  margin-top: 1.5em;
+  max-height: 250px;
+  min-width: 120px;
+  background-color: white;
+  box-shadow: @box-shadow-base;
+  border-radius: @border-radius-base;
+  box-sizing: border-box;
+  z-index: @zindex-dropdown;
+  left: -9999px;
+  top: -9999px;
+  position: absolute;
+  outline: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-size: @font-size-base;
+  &-notfound.@{ant-prefix}-mention-dropdown-item {
+    color: #ccc;
+
+    .@{iconfont-css-prefix}-loading {
+      color: @primary-color;
+    }
+  }
+  &-item {
+    position: relative;
+    display: block;
+    padding: 7px 16px;
+    font-weight: normal;
+    color: #666;
+    white-space: nowrap;
+    cursor: pointer;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: background 0.3s ease;
+
+    &:hover,
+    &.focus,
+    &-active {
+      background-color: tint(@primary-color, 90%);
+    }
+
+    &-disabled {
       color: #ccc;
+      cursor: not-allowed;
 
-      .@{iconfont-css-prefix}-loading {
-        color: @primary-color;
+      &:hover {
+        color: #ccc;
+        background-color: #fff;
+        cursor: not-allowed;
       }
     }
-    &-item {
-      position: relative;
-      display: block;
-      padding: 7px 16px;
-      font-weight: normal;
-      color: #666;
-      white-space: nowrap;
-      cursor: pointer;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+
+    &-selected {
+      &,
+      &:hover {
+        background-color: @background-color-base;
+        font-weight: bold;
+        color: #666;
+      }
+    }
+
+    &-divider {
+      height: 1px;
+      margin: 1px 0;
       overflow: hidden;
-      transition: background 0.3s ease;
-
-      &:hover,
-      &.focus,
-      &-active {
-        background-color: tint(@primary-color, 90%);
-      }
-
-      &-disabled {
-        color: #ccc;
-        cursor: not-allowed;
-
-        &:hover {
-          color: #ccc;
-          background-color: #fff;
-          cursor: not-allowed;
-        }
-      }
-
-      &-selected {
-        &,
-        &:hover {
-          background-color: @background-color-base;
-          font-weight: bold;
-          color: #666;
-        }
-      }
-
-      &-divider {
-        height: 1px;
-        margin: 1px 0;
-        overflow: hidden;
-        background-color: #e5e5e5;
-        line-height: 0;
-      }
+      background-color: #e5e5e5;
+      line-height: 0;
     }
   }
 }
+
