@@ -60,13 +60,18 @@ export default function createPicker(TheCalendar) {
 
     // Clear temp value when hide picker panel
     handleOpenChange(open) {
+      const { showTime, onOpenChange } = this.props;
+      const { tempValue } = this.state;
       if (!open) {
+        if (showTime && tempValue) {
+          this.handleChange(tempValue);
+        }
         this.setState({
           tempValue: undefined,
         });
       }
-      if (this.props.onOpenChange) {
-        this.props.onOpenChange(open);
+      if (onOpenChange) {
+        onOpenChange(open);
       }
     },
 
@@ -90,14 +95,9 @@ export default function createPicker(TheCalendar) {
       let calendarHandler: Object = {};
       if (props.showTime) {
         calendarHandler = {
-          onOk: this.handleChange,
           // fix https://github.com/ant-design/ant-design/issues/1902
-          onSelect: (value, cause) => {
-            if (cause && cause.source === 'todayButton') {
-              this.handleChange(value);
-            } else {
-              this.handleTempChange(value);
-            }
+          onSelect: (value) => {
+            this.handleTempChange(value);
           },
         };
       } else {
