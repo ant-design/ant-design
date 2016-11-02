@@ -131,8 +131,13 @@ export default class UploadList extends React.Component<UploadListProps, any> {
                 <span>
                   <a
                     href={file.url}
+<<<<<<< 5c711a275eb60008703187f73a42878b751ffdb3
                     target="_blank" rel="noopener noreferrer"
                     style={{ pointerEvents: file.url ? '' : 'none' }}
+=======
+                    target="_blank"
+                    style={{ pointerEvents: file.url || file.thumbUrl ? '' : 'none' }}
+>>>>>>> 修复上传组件卡片样式时,新增加上传图片不能预览的问题
                     onClick={e => this.handlePreview(file, e)}
                   >
                     <Icon type="eye-o" />
