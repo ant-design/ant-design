@@ -55,7 +55,7 @@ let App = React.createClass({
       <Form horizontal>
         <FormItem
           id="control-mention"
-          label="Top programmers"
+          label="Top coders"
           labelCol={{ span: 6 }}
           wrapperCol={{ span: 14 }}
         >
