@@ -1,9 +1,17 @@
 ---
 order: 1
-title: 带输入框的滑块
+title: 
+  zh-CN: 带输入框的滑块
+  en-US: Slider with input field
 ---
 
+## zh-CN
+
 和 [数字输入框](/components/input-number/) 组件保持同步。
+
+## en-US
+
+Synchronize with [InptNumber](/components/input-number/) component.
 
 ````jsx
 import { Slider, InputNumber, Row, Col } from 'antd';

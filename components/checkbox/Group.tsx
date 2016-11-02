@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 import Checkbox from './index';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface CheckboxOptionType {
   label: string;
@@ -19,6 +19,7 @@ export interface CheckboxGroupProps {
   onChange?: (checkedValue: Array<string>) => void;
   disabled?: boolean;
   style?: React.CSSProperties;
+  prefixCls?: string;
 }
 
 export interface CheckboxGroupState {
@@ -28,8 +29,7 @@ export interface CheckboxGroupState {
 export default class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
-    defaultValue: [],
-    onChange() {},
+    prefixCls: 'ant-checkbox-group',
   };
   static propTypes = {
     defaultValue: React.PropTypes.array,
@@ -39,13 +39,9 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   };
   constructor(props) {
     super(props);
-    let value;
-    if ('value' in props) {
-      value = props.value || [];
-    } else if ('defaultValue' in props) {
-      value = props.defaultValue || [];
-    }
-    this.state = { value };
+    this.state = {
+      value: props.value || props.defaultValue || [],
+     };
   }
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
@@ -59,12 +55,13 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   }
   getOptions() {
     const { options } = this.props;
-    return options.map(option => {
+    // https://github.com/Microsoft/TypeScript/issues/7960
+    return (options as Array<any>).map(option => {
       if (typeof option === 'string') {
         return {
           label: option,
           value: option,
-        };
+        } as CheckboxOptionType;
       }
       return option;
     });
@@ -80,18 +77,22 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(value);
+    }
   }
   render() {
+    const { prefixCls } = this.props;
     const options = this.getOptions();
     return (
-      <div className="ant-checkbox-group">
+      <div className={prefixCls}>
         {
           options.map(option =>
             <Checkbox disabled={'disabled' in option ? option.disabled : this.props.disabled}
               checked={this.state.value.indexOf(option.value) !== -1}
               onChange={() => this.toggleOption(option)}
-              className="ant-checkbox-group-item" key={option.value}
+              className={`${prefixCls}-item`} key={option.value}
             >
               {option.label}
             </Checkbox>

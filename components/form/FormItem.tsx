@@ -1,19 +1,47 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Row from '../row';
 import Col from '../col';
+import { WrappedFormUtils } from './Form';
 import { FIELD_META_PROP } from './constants';
+import warning from '../_util/warning';
 
-export default class FormItem extends React.Component {
+export interface FormItemLabelColOption {
+  span: number;
+  offset?: number;
+}
+
+export interface FormItemProps {
+  prefixCls?: string;
+  id?: string;
+  label?: React.ReactNode;
+  labelCol?: FormItemLabelColOption;
+  wrapperCol?: FormItemLabelColOption;
+  help?: React.ReactNode;
+  extra?: string;
+  validateStatus?: 'success' | 'warning' | 'error' | 'validating';
+  hasFeedback?: boolean;
+  className?: string;
+  required?: boolean;
+  style?: React.CSSProperties;
+  colon?: boolean;
+}
+
+export interface FormItemContext {
+  form: WrappedFormUtils;
+}
+
+export default class FormItem extends React.Component<FormItemProps, any> {
   static defaultProps = {
     hasFeedback: false,
     prefixCls: 'ant-form',
+    colon: true,
   };
 
   static propTypes = {
     prefixCls: React.PropTypes.string,
-    label: React.PropTypes.node,
+    label: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.node]),
     labelCol: React.PropTypes.object,
     help: React.PropTypes.oneOfType([React.PropTypes.node, React.PropTypes.bool]),
     validateStatus: React.PropTypes.oneOf(['', 'success', 'warning', 'error', 'validating']),
@@ -29,6 +57,16 @@ export default class FormItem extends React.Component {
     form: React.PropTypes.object,
   };
 
+  context: FormItemContext;
+
+  componentDidMount() {
+    warning(
+      this.getControls(this.props.children, true).length <= 1,
+      '`Form.Item` cannot generate `validateStatus` and `help` automatically, ' +
+      'while there are more than one `getFieldDecorator` in it.'
+    );
+  }
+
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
@@ -43,16 +81,37 @@ export default class FormItem extends React.Component {
     return props.help;
   }
 
+  getControls(children, recursively: boolean) {
+    let controls: React.ReactElement<any>[] = [];
+    const childrenArray = React.Children.toArray(children);
+    for (let i = 0; i < childrenArray.length; i++) {
+      if (!recursively && controls.length > 0) {
+        break;
+      }
+
+      const child = childrenArray[i] as React.ReactElement<any>;
+      if (child.type as any === FormItem) {
+        continue;
+      }
+      if (!child.props) {
+        continue;
+      }
+      if (FIELD_META_PROP in child.props) {
+        controls.push(child);
+      } else if (child.props.children) {
+        controls = controls.concat(this.getControls(child.props.children, recursively));
+      }
+    }
+    return controls;
+  }
+
   getOnlyControl() {
-    const children = React.Children.toArray(this.props.children);
-    const child = children.filter((c) => {
-      return c.props && FIELD_META_PROP in c.props;
-    })[0];
+    const child = this.getControls(this.props.children, false)[0];
     return child !== undefined ? child : null;
   }
 
   getChildProp(prop) {
-    const child = this.getOnlyControl();
+    const child = this.getOnlyControl() as React.ReactElement<any>;
     return child && child.props && child.props[prop];
   }
 
@@ -83,15 +142,18 @@ export default class FormItem extends React.Component {
 
   getValidateStatus() {
     const { isFieldValidating, getFieldError, getFieldValue } = this.context.form;
-    const field = this.getId();
-    if (!field) {
+    const fieldId = this.getId();
+    if (!fieldId) {
       return '';
     }
-    if (isFieldValidating(field)) {
+    if (isFieldValidating(fieldId)) {
       return 'validating';
-    } else if (!!getFieldError(field)) {
+    }
+    if (!!getFieldError(fieldId)) {
       return 'error';
-    } else if (getFieldValue(field) !== undefined) {
+    }
+    const fieldValue = getFieldValue(fieldId);
+    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
       return 'success';
     }
     return '';
@@ -157,8 +219,8 @@ export default class FormItem extends React.Component {
 
     // remove user input colon
     let label = props.label;
-    if (typeof label === 'string' && label.trim() !== '') {
-      label = props.label.replace(/[：|:]\s*$/, '');
+    if (typeof label === 'string' && (label as string).trim() !== '') {
+      label = (props.label as string).replace(/[：|:]\s*$/, '');
     }
 
     return props.label ? (
@@ -172,7 +234,7 @@ export default class FormItem extends React.Component {
 
   renderChildren() {
     const props = this.props;
-    const children = React.Children.map(props.children, (child) => {
+    const children = React.Children.map(props.children as React.ReactNode, (child: React.ReactElement<any>) => {
       if (child && typeof child.type === 'function' && !child.props.size) {
         return React.cloneElement(child, { size: 'large' });
       }
@@ -197,7 +259,7 @@ export default class FormItem extends React.Component {
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: !!this.getHelpMsg(),
-      [`${prefixCls}-no-colon`]: !this.props.colon,
+      [`${prefixCls}-item-no-colon`]: !props.colon,
       [`${props.className}`]: !!props.className,
     };
 

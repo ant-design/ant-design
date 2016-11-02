@@ -14,23 +14,23 @@ title:
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
 ````jsx
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown, Icon, message } from 'antd';
 const onClick = function ({ key }) {
-  console.log(`点击了菜单${key}`);
+  message.info(`Click on item ${key}`);
 };
 
 const menu = (
   <Menu onClick={onClick}>
-    <Menu.Item key="1">第一个菜单项</Menu.Item>
-    <Menu.Item key="2">第二个菜单项</Menu.Item>
-    <Menu.Item key="3">第三个菜单项</Menu.Item>
+    <Menu.Item key="1">1st menu item</Menu.Item>
+    <Menu.Item key="2">2nd memu item</Menu.Item>
+    <Menu.Item key="3">3d menu item</Menu.Item>
   </Menu>
 );
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" href="#">
-      鼠标移入，点击菜单 <Icon type="down" />
+      Hover me, Click menu item <Icon type="down" />
     </a>
   </Dropdown>
 , mountNode);

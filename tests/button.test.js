@@ -1,6 +1,3 @@
-jest.unmock('../components/button/button');
-jest.unmock('../components/icon/index');
-
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
 import Button from '../components/button/button';
@@ -24,7 +21,7 @@ describe('Button', function() {
     expect(buttonNode.className).toBe('ant-btn');
   });
 
-  it('should has a whitespace in two Chinese charactor', () => {
+  it('should has a whitespace in two Chinese characters', () => {
     button = TestUtils.renderIntoDocument(
       <Button>按钮</Button>
     );

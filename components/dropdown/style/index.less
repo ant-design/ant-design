@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@dropdown-prefix-cls: ant-dropdown;
+@dropdown-prefix-cls: ~"@{ant-prefix}-dropdown";
 
 .@{dropdown-prefix-cls} {
   position: absolute;
@@ -16,17 +16,17 @@
   &-wrap {
     position: relative;
 
-    .ant-btn > .@{iconfont-css-prefix}-down {
-      .iconfont-size-under-12px(10px);
+    .@{ant-prefix}-btn > .@{iconfont-css-prefix}-down {
+      .iconfont-size-under-12px(9px);
     }
 
-    .anticon-down:before {
+    .@{iconfont-css-prefix}-down:before {
       transition: transform 0.2s ease;
     }
   }
 
   &-wrap-open {
-    .anticon-down:before {
+    .@{iconfont-css-prefix}-down:before {
       transform: rotate(180deg);
     }
   }
@@ -47,11 +47,10 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    border: 1px solid @border-color-base;
 
     &-item,
     &-submenu-title {
-      padding: 7px 15px;
+      padding: 7px 16px;
       margin: 0;
       clear: both;
       font-size: 12px;
@@ -64,8 +63,8 @@
       > a {
         color: #666;
         display: block;
-        padding: 7px 15px;
-        margin: -7px -15px;
+        padding: 7px 16px;
+        margin: -7px -16px;
       }
 
       &:hover {
@@ -107,10 +106,10 @@
     &-submenu-title:after {
       font-family: "anticon" !important;
       position: absolute;
-      content: "\e600";
-      right: 15px;
+      content: "\e61f";
+      right: 16px;
       color: #999;
-      .iconfont-size-under-12px(8px);
+      .iconfont-size-under-12px(9px);
     }
 
     &-submenu-vertical {
@@ -156,17 +155,20 @@
 
 .@{dropdown-prefix-cls}-link {
   font-size: 12px;
-  .anticon-down {
-    .iconfont-size-under-12px(8px);
-    font-weight: bold;
+  .@{iconfont-css-prefix}-down {
+    .iconfont-size-under-12px(9px);
   }
 }
 
 .@{dropdown-prefix-cls}-button {
-  &.ant-btn-group > .ant-btn:last-child:not(:first-child) {
+  &.@{ant-prefix}-btn-group > .@{ant-prefix}-btn:last-child:not(:first-child) {
     padding-right: 7px;
   }
-  .anticon-down {
-    .iconfont-size-under-12px(10px);
+  .@{iconfont-css-prefix}-down {
+    .iconfont-size-under-12px(9px);
   }
+}
+
+.ant-btn .anticon-down {
+  .iconfont-size-under-12px(9px);
 }

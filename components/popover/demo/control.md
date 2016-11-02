@@ -1,9 +1,17 @@
 ---
 order: 3
-title: 从浮层内关闭
+title:
+  zh-CN: 从浮层内关闭
+  en-US: Controlling the close of the dialog
 ---
 
+## zh-CN
+
 使用 `visible` 属性控制浮层显示。
+
+## en-US
+
+Use `visible` prop to control the display of the card.
 
 ````jsx
 import { Popover, Button } from 'antd';
@@ -23,16 +31,15 @@ const App = React.createClass({
     this.setState({ visible });
   },
   render() {
-    const content = (
-      <div>
-        <a onClick={this.hide}>关闭卡片</a>
-      </div>
-    );
     return (
-      <Popover content={content} title="标题" trigger="click"
-        visible={this.state.visible} onVisibleChange={this.handleVisibleChange}
+      <Popover
+        content={<a onClick={this.hide}>Close</a>}
+        title="Title"
+        trigger="click"
+        visible={this.state.visible}
+        onVisibleChange={this.handleVisibleChange}
       >
-        <Button type="primary">点击弹出卡片</Button>
+        <Button type="primary">Cilck me</Button>
       </Popover>
     );
   },

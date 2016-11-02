@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 
-@badge-prefix-cls: ant-badge;
-@number-prefix-cls: ant-scroll-number;
+@badge-prefix-cls: ~"@{ant-prefix}-badge";
+@number-prefix-cls: ~"@{ant-prefix}-scroll-number";
 
 .@{badge-prefix-cls} {
   position: relative;
@@ -47,6 +47,39 @@
     box-shadow: 0 0 0 1px #fff;
   }
 
+  &-status {
+    line-height: inherit;
+    vertical-align: baseline;
+
+    &-dot {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      border-radius: 50%;
+    }
+    &-success {
+      background-color: @success-color;
+    }
+    &-processing {
+      background-color: @primary-color;
+      animation: antStatusProcessing 1.2s infinite ease-in-out;
+    }
+    &-default {
+      background-color: @normal-color;
+    }
+    &-error {
+      background-color: @error-color;
+    }
+    &-warning {
+      background-color: @warning-color;
+    }
+    &-text {
+      color: @text-color;
+      font-size: @font-size-base;
+      margin-left: 8px;
+    }
+  }
+
   &-zoom-appear,
   &-zoom-enter {
     animation: antZoomBadgeIn .3s @ease-out-back;
@@ -62,7 +95,17 @@
     top: auto;
     display: block;
     position: relative;
-    transform: translateX(0);
+    transform: none!important;
+  }
+}
+
+@keyframes antStatusProcessing {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 

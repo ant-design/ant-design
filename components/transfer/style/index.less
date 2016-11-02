@@ -2,11 +2,12 @@
 @import "../../style/mixins/index";
 @import "../../checkbox/style/mixin";
 
-@transfer-prefix-cls: ant-transfer;
-.antCheckboxFn(@checkbox-prefix-cls: ant-transfer-checkbox);
+@transfer-prefix-cls: ~"@{ant-prefix}-transfer";
+.antCheckboxFn(@checkbox-prefix-cls: ~"@{ant-prefix}-transfer-checkbox");
 
 .@{transfer-prefix-cls} {
   position: relative;
+  line-height: @line-height-base;
 
   &-list {
     font-size: 12px;
@@ -15,7 +16,7 @@
     border-radius: @border-radius-base;
     vertical-align: middle;
     position: relative;
-    width: 160px;
+    width: 180px;
     height: 200px;
     padding-top: 33px;
 
@@ -34,7 +35,7 @@
         line-height: 32px;
         text-align: center;
         font-size: 14px;
-        .anticon {
+        .@{iconfont-css-prefix} {
           transition: all .3s;
           font-size: 12px;
           color: #ccc;
@@ -64,7 +65,6 @@
 
     &-body {
       font-size: 12px;
-      line-height: 1.5;
       position: relative;
       height: 100%;
 
@@ -83,31 +83,37 @@
         text-align: center;
         height: 100%;
       }
-
-      ul {
-        height: 100%;
-        overflow: auto;
-        li {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          padding: 7px 16px;
-          transition: all 0.3s ease;
-          &:hover {
-            cursor: pointer;
-            background-color: tint(@primary-color, 90%);
-          }
-        }
-      }
-    }
-
-    ul li&-highlight-enter {
-      animation: transferHighlightIn 1s ease;
-      transition: none;
     }
 
     &-body-with-search {
       padding-top: 34px;
+    }
+
+    &-content {
+      height: 100%;
+      overflow: auto;
+      &-item {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 7px 16px;
+        transition: all 0.3s ease;
+      }
+
+      &-item:not(&-item-disabled):hover {
+        cursor: pointer;
+        background-color: tint(@primary-color, 90%);
+      }
+
+      &-item-disabled {
+        cursor: not-allowed;
+        color: @btn-disable-color;
+      }
+
+      &-item-highlight-enter {
+        animation: transferHighlightIn 1s ease;
+        transition: none;
+      }
     }
 
     &-footer {
@@ -126,16 +132,15 @@
     margin: 0 8px;
     vertical-align: middle;
 
-    .ant-btn {
-      float: left;
-      clear: both;
+    .@{ant-prefix}-btn {
+      display: block;
 
       &:first-child {
         margin-bottom: 4px;
       }
 
-      .anticon {
-        .iconfont-size-under-12px(8px);
+      .@{iconfont-css-prefix} {
+        .iconfont-size-under-12px(10px);
       }
     }
   }

@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@steps-prefix-cls: ant-steps;
+@steps-prefix-cls: ~"@{ant-prefix}-steps";
 @process-icon-color: @primary-color;
 @process-title-color: #666;
 @process-description-color: @process-title-color;
@@ -161,7 +161,7 @@
       color: @primary-color;
       position: relative;
 
-      &.anticon {
+      &.@{iconfont-css-prefix} {
         font-size: 12px;
         &-cross,
         &-check {
@@ -231,7 +231,7 @@
       border-radius: 18px;
       font-size: 12px;
       margin-right: 10px;
-      > .@{steps-prefix-cls}-icon.anticon {
+      > .@{steps-prefix-cls}-icon.@{iconfont-css-prefix} {
         .iconfont-size-under-12px(9px);
         top: 0;
       }

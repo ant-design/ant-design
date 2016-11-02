@@ -1,7 +1,9 @@
 import React from 'react';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import { Select, Modal } from 'antd';
 import { version as antdVersion } from 'antd/package.json';
 import { docVersions } from '../../';
+
 const Option = Select.Option;
 
 function isLocalStorageNameSupported() {
@@ -18,7 +20,7 @@ function isLocalStorageNameSupported() {
 
 docVersions[antdVersion] = antdVersion;
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
   componentDidMount() {
     // for some iOS
     // http://stackoverflow.com/a/14555361
@@ -28,33 +30,38 @@ export default class Footer extends React.Component {
     // 大版本发布后全局弹窗提示
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
-    if (localStorage.getItem('infoNewVersionSent') !== 'true' &&
-        new Date().getTime() < new Date('2016/05/22').getTime()) {
+    if (localStorage.getItem('antd@2.0.0-notification-sent') !== 'true' &&
+        Date.now() < new Date('2016/10/14').getTime()) {
       this.infoNewVersion();
     }
   }
 
   infoNewVersion() {
+    const messages = this.props.intl.messages;
     Modal.info({
-      title: 'antd 新版发布！',
+      title: messages['app.publish.title'],
       content: (
         <div>
           <img src="https://os.alipayobjects.com/rmsportal/nyqBompsynAQCpJ.svg" alt="Ant Design" />
           <p>
-            您好，<a target="_blank" href="/#/changelog">antd@1.0</a> 已正式发布，欢迎升级。
-            如果您还需要使用旧版，请查阅 <a target="_blank" href="http://012x.ant.design">012x.ant.design</a>
-            ，也可通过页面右下角的文档版本选择框进行切换。
+            {messages['app.publish.greeting']}
+            <a target="_blank" rel="noopener noreferrer" href="/changelog">antd@2.0.0</a>
+            {messages['app.publish.intro']}
+            {messages['app.publish.old-version-guide']}
+            <a target="_blank" rel="noopener noreferrer" href="http://1x.ant.design">1x.ant.design</a>
+            {messages['app.publish.old-version-tips']}
           </p>
         </div>
       ),
-      onOk: () => localStorage.setItem('infoNewVersionSent', 'true'),
+      okText: 'OK',
+      onOk: () => localStorage.setItem('antd@2.0.0-notification-sent', 'true'),
       className: 'new-version-info-modal',
       width: 470,
     });
   }
 
   handleVersionChange = (url) => {
-    window.location.href = url;
+    window.location.href = window.location.href.replace(window.location.origin, url);
   }
 
   render() {
@@ -67,45 +74,82 @@ export default class Footer extends React.Component {
           <li>
             <h2>GitHub</h2>
             <div>
-              <a target="_blank " href="https://github.com/ant-design/ant-design">仓库</a>
-            </div>
-            <div>
-              <a target="_blank" href="https://github.com/ant-design/antd-init">antd-init</a> - 脚手架
-            </div>
-            <div>
-              <a target="_blank" href="http://ant-tool.github.io">ant-tool</a> - 开发工具
-            </div>
-          </li>
-          <li>
-            <h2>相关站点</h2>
-            <div><a href="https://g2.alipay.com/">G2</a> - 数据可视化</div>
-            <div><a href="https://antv.alipay.com/">AntV</a> - 数据可视化规范</div>
-            <div><a href="http://motion.ant.design">Ant Motion</a> - 设计动效</div>
-            <div><a href="http://ux.ant.design">Ant UX</a> - 页面逻辑素材</div>
-          </li>
-          <li>
-            <h2>联系我们</h2>
-            <div>
-              <a target="_blank" href="https://github.com/ant-design/ant-design/issues">
-                反馈和建议
+              <a target="_blank " href="https://github.com/ant-design/ant-design">
+                <FormattedMessage id="app.footer.repo" />
               </a>
             </div>
             <div>
-              <a target="_blank" href="https://gitter.im/ant-design/ant-design">
-                讨论
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva">dva</a> - <FormattedMessage id="app.footer.dva" />
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/dvajs/dva-cli">dva-cli</a> -
+              <FormattedMessage id="app.footer.scaffold" />
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="http://ant-tool.github.io">ant-tool</a> - <FormattedMessage id="app.footer.dev-tools" />
+            </div>
+          </li>
+          <li>
+            <h2><FormattedMessage id="app.footer.links" /></h2>
+            <div>
+              <a href="http://mobile.ant.design">Ant Design Mobile</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.mobile" />
+            </div>
+            <div>
+              <a href="https://g2.alipay.com/">G2</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.data-vis" />
+            </div>
+            <div>
+              <a href="https://antv.alipay.com/">AntV</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.data-vis-spec" />
+            </div>
+            <div>
+              <a href="http://motion.ant.design">Ant Motion</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.motion" />
+            </div>
+            <div>
+              <a href="http://library.ant.design/">AntD Library</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.antd-library" />
+            </div>
+            <div>
+              <a href="http://ux.ant.design">Ant UX</a>
+              <span> - </span>
+              <FormattedMessage id="app.footer.material" />
+            </div>
+          </li>
+          <li>
+            <h2><FormattedMessage id="app.footer.community" /></h2>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="/changelog">
+                <FormattedMessage id="app.footer.change-log" />
               </a>
             </div>
             <div>
-              <a target="_blank" href="https://github.com/ant-design/ant-design/issues/new">
-                报告 Bug
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues">
+                <FormattedMessage id="app.footer.feedback" />
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://gitter.im/ant-design/ant-design">
+                <FormattedMessage id="app.footer.discuss" />
+              </a>
+            </div>
+            <div>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ant-design/ant-design/issues/new">
+                <FormattedMessage id="app.footer.bug-report" />
               </a>
             </div>
           </li>
           <li>
-            <div>©2016 蚂蚁金服体验技术部出品</div>
+            <div>©2016 <FormattedMessage id="app.footer.author" /></div>
             <div>Powered by <a href="https://github.com/benjycui/bisheng">BiSheng</a></div>
             <div style={{ marginTop: 10 }}>
-              文档版本：
+              <FormattedMessage id="app.footer.version" />
               <Select
                 size="small"
                 dropdownMatchSelectWidth={false}
@@ -121,3 +165,5 @@ export default class Footer extends React.Component {
     );
   }
 }
+
+export default injectIntl(Footer);

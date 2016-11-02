@@ -1,15 +1,23 @@
 ---
 order: 4
-title: 迷你
+title:
+  zh-CN: 迷你
+  en-US: Mini size
 ---
 
+## zh-CN
+
 迷你版本。
+
+## en-US
+
+Mini size pagination.
 
 ````jsx
 import { Pagination } from 'antd';
 
 function showTotal(total) {
-  return `共 ${total} 条`;
+  return `Total ${total} items`;
 }
 
 ReactDOM.render(<div>

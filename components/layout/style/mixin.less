@@ -12,11 +12,11 @@
 
 .make-grid-columns() {
   .col(@index) {
-    @item: ~".ant-col-@{index}, .ant-col-xs-@{index}, .ant-col-sm-@{index}, .ant-col-md-@{index}, .ant-col-lg-@{index}";
+    @item: ~".@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}";
     .col((@index + 1), @item);
   }
   .col(@index, @list) when (@index =< @grid-columns) {
-    @item: ~".ant-col-@{index}, .ant-col-xs-@{index}, .ant-col-sm-@{index}, .ant-col-md-@{index}, .ant-col-lg-@{index}";
+    @item: ~".@{ant-prefix}-col-@{index}, .@{ant-prefix}-col-xs-@{index}, .@{ant-prefix}-col-sm-@{index}, .@{ant-prefix}-col-md-@{index}, .@{ant-prefix}-col-lg-@{index}";
     .col((@index + 1), ~"@{list}, @{item}");
   }
   .col(@index, @list) when (@index > @grid-columns) {
@@ -33,11 +33,11 @@
 
 .float-grid-columns(@class) {
   .col(@index) { // initial
-    @item: ~".ant-col@{class}-@{index}";
+    @item: ~".@{ant-prefix}-col@{class}-@{index}";
     .col((@index + 1), @item);
   }
   .col(@index, @list) when (@index =< @grid-columns) { // general
-    @item: ~".ant-col@{class}-@{index}";
+    @item: ~".@{ant-prefix}-col@{class}-@{index}";
     .col((@index + 1), ~"@{list}, @{item}");
   }
   .col(@index, @list) when (@index > @grid-columns) { // terminal
@@ -51,33 +51,33 @@
 
 // lesshint false
 .loop-grid-columns(@index, @class) when (@index > 0) {
-  .ant-col@{class}-@{index} {
+  .@{ant-prefix}-col@{class}-@{index} {
     display: block;
     width: percentage((@index / @grid-columns));
   }
-  .ant-col@{class}-push-@{index} {
+  .@{ant-prefix}-col@{class}-push-@{index} {
     left: percentage((@index / @grid-columns));
   }
-  .ant-col@{class}-pull-@{index} {
+  .@{ant-prefix}-col@{class}-pull-@{index} {
     right: percentage((@index / @grid-columns));
   }
-  .ant-col@{class}-offset-@{index} {
+  .@{ant-prefix}-col@{class}-offset-@{index} {
     margin-left: percentage((@index / @grid-columns));
   }
-  .ant-col@{class}-order-@{index} {
+  .@{ant-prefix}-col@{class}-order-@{index} {
     order: @index;
   }
   .loop-grid-columns((@index - 1), @class);
 }
 
 .loop-grid-columns(@index, @class) when (@index = 0) {
-  .ant-col@{class}-@{index} {
+  .@{ant-prefix}-col@{class}-@{index} {
     display: none;
   }
-  .ant-col-push-@{index} {
+  .@{ant-prefix}-col-push-@{index} {
     left: auto;
   }
-  .ant-col-pull-@{index} {
+  .@{ant-prefix}-col-pull-@{index} {
     right: auto;
   }
 }

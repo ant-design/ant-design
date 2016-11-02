@@ -12,7 +12,7 @@ if(fs.existsSync(path.join(__dirname,'../dist'))) {
   var componentsPath = path.join(process.cwd(), 'components');
   var componentsLessContent = '';
 
-// Build components in one file: lib/style/components.less
+  // Build components in one file: lib/style/components.less
   fs.readdir(componentsPath, function (err, files) {
     files.forEach(function (file) {
       if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {

@@ -2,7 +2,7 @@
 category: Components
 type: Views
 noinstant: true
-english: Message
+title: Message
 ---
 
 Display global messages as feedbacks to user operations.

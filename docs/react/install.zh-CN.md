@@ -11,7 +11,7 @@ title: 安装
 
 稳定版：
 
-[![npm package](http://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 
 ```bash
 $ npm install antd --save
@@ -27,28 +27,27 @@ $ npm install antd --save
 $ npm install antd@beta --save
 ```
 
-> **历史版本**：https://github.com/ant-design/ant-design/releases
-
-
 ## 浏览器引入
 
-我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [npmcdn](https://npmcdn.com/) 进行下载。
+[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+
+我们在 npm 发布包内的 `antd/dist` 目录下提供了 `antd.js` `antd.css` 以及 `antd.min.js` `antd.min.css` 用于一次性引入所有的 antd 组件，也可以通过 [UNPKG](https://unpkg.com/) 进行下载。
 
 > 不推荐使用构建文件，因为难以获得底层依赖模块的 bug 快速修复支持。
 
 #### stable
 
-- https://npmcdn.com/antd/dist/antd.js
-- https://npmcdn.com/antd/dist/antd.css
-- https://npmcdn.com/antd/dist/antd.min.js
-- https://npmcdn.com/antd/dist/antd.min.css
+- https://unpkg.com/antd/dist/antd.js
+- https://unpkg.com/antd/dist/antd.css
+- https://unpkg.com/antd/dist/antd.min.js
+- https://unpkg.com/antd/dist/antd.min.css
 
 #### beta
 
-- https://npmcdn.com/antd@beta/dist/antd.js
-- https://npmcdn.com/antd@beta/dist/antd.css
-- https://npmcdn.com/antd@beta/dist/antd.min.js
-- https://npmcdn.com/antd@beta/dist/antd.min.css
+- https://unpkg.com/antd@beta/dist/antd.js
+- https://unpkg.com/antd@beta/dist/antd.css
+- https://unpkg.com/antd@beta/dist/antd.min.js
+- https://unpkg.com/antd@beta/dist/antd.min.css
 
 > 对于 1.0 之前的版本，这里有一个 [自行构建的例子](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) 以供参考。
 

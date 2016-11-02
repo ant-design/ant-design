@@ -1,10 +1,10 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@radio-prefix-cls: ant-radio;
+@radio-prefix-cls: ~"@{ant-prefix}-radio";
 @radio-group-prefix-cls: ~"@{radio-prefix-cls}-group";
 @radio-inner-prefix-cls: ~"@{radio-prefix-cls}-inner";
-@radio-duration: .2s;
+@radio-duration: .3s;
 
 .@{radio-group-prefix-cls} {
   display: inline-block;
@@ -19,6 +19,7 @@
   position: relative;
   white-space: nowrap;
   margin-right: 8px;
+  cursor: pointer;
 }
 
 .@{radio-prefix-cls} {
@@ -29,10 +30,11 @@
   line-height: 1;
   vertical-align: middle;
   cursor: pointer;
+  .@{radio-prefix-cls}-wrapper:hover &,
   &:hover,
   &-focused {
     .@{radio-inner-prefix-cls} {
-      border-color: #bcbcbc;
+      border-color: #bbb;
     }
   }
   &-inner {
@@ -64,7 +66,7 @@
     border-radius: 14px;
     border-color: @border-color-base;
     background-color: #fff;
-    transition: all @radio-duration @ease-in-out-circ;
+    transition: all @radio-duration;
   }
 
   &-input {
@@ -92,39 +94,30 @@
 }
 
 .@{radio-prefix-cls}-disabled {
-  &:hover {
-    .@{radio-inner-prefix-cls} {
-      border-color: @border-color-base;
-    }
-  }
   .@{radio-inner-prefix-cls} {
-    border-color: @border-color-base;
+    border-color: @border-color-base!important;
     background-color: #f3f3f3;
     &:after {
       background-color: #cccccc;
     }
   }
 
-  .@{radio-inner-prefix-cls}-input {
-    cursor: default;
-  }
-
-  .@{radio-prefix-cls}-disabled + span {
+  & + span {
     color: #ccc;
     cursor: @cursor-disabled;
   }
 }
 
 span.@{radio-prefix-cls} + * {
-  margin-left: 8px;
-  margin-right: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .@{radio-prefix-cls}-button-wrapper {
   margin: 0;
   height: 28px;
   line-height: 26px;
-  color: #666;
+  color: @btn-default-color;
   display: inline-block;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -134,7 +127,7 @@ span.@{radio-prefix-cls} + * {
   padding: 0 16px;
 
   a {
-    color: #666;
+    color: @btn-default-color;
   }
 
   > .@{radio-prefix-cls}-button {
@@ -181,7 +174,8 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-prefix-cls}-inner,
-  input {
+  input[type="checkbox"],
+  input[type="radio"] {
     .opacity(0);
     width: 0;
     height: 0;
@@ -213,14 +207,14 @@ span.@{radio-prefix-cls} + * {
 
   &-disabled {
     border-color: @border-color-base;
-    background-color: #f7f7f7;
+    background-color: @background-color-base;
     cursor: not-allowed;
     color: #ccc;
 
     &:first-child,
     &:hover {
       border-color: @border-color-base;
-      background-color: #f7f7f7;
+      background-color: @background-color-base;
       color: #ccc;
     }
     &:first-child {

@@ -1,53 +1,65 @@
 ---
-order: 15
-title: 动态增减表单项
+order: 5
+title:
+  zh-CN: 动态增减表单项
+  en-US: Dynamic Form Item
 ---
 
+## zh-CN
+
 动态增加、减少表单项。
+
+## en-US
+
+Add or remove form items dynamically.
 
 ````jsx
 import { Form, Input, Button } from 'antd';
 
 let uuid = 0;
 let Demo = React.createClass({
+  componentWillMount() {
+    this.props.form.setFieldsValue({
+      keys: [0],
+    });
+  },
   remove(k) {
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.filter((key) => {
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.filter((key) => {
       return key !== k;
     });
     // can use data-binding to set
     form.setFieldsValue({
-      keys,
+      keys: nextKeys,
     });
   },
   add() {
     uuid++;
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.concat(uuid);
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.concat(uuid);
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
-      keys,
+      keys: nextKeys,
     });
   },
-  submit(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields((errors, values) => {
-      if (errors) {
-        console.log(errors);
+
+    this.props.form.validateFields((err, values) => {
+      if (err) {
+        return;
       }
-      console.log(values);
+
+      console.log('Received values of form: ', values);
     });
   },
   render() {
-    const { getFieldProps, getFieldValue } = this.props.form;
-    getFieldProps('keys', {
-      initialValue: [0],
-    });
+    const { getFieldDecorator, getFieldValue } = this.props.form;
 
     const formItemLayout = {
       labelCol: { span: 6 },
@@ -56,25 +68,26 @@ let Demo = React.createClass({
 
     const formItems = getFieldValue('keys').map((k) => {
       return (
-        <Form.Item {...formItemLayout} label={`好朋友${k}：`} key={k}>
-          <Input {...getFieldProps(`name${k}`, {
+        <Form.Item {...formItemLayout} label={`good friend${k}：`} key={k}>
+          {getFieldDecorator(`name${k}`, {
             rules: [{
               required: true,
               whitespace: true,
-              message: '你好友的名字捏！',
+              message: "Your good friend's name",
             }],
-          })} style={{ width: '80%', marginRight: 8 }}
-          />
-          <Button onClick={() => this.remove(k)}>删除</Button>
+          })(
+            <Input style={{ width: '60%', marginRight: 8 }} />
+          )}
+          <Button onClick={() => this.remove(k)}>remove</Button>
         </Form.Item>
       );
     });
     return (
-      <Form horizontal form={this.props.form}>
+      <Form horizontal onSubmit={this.handleSubmit}>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
-          <Button onClick={this.add} style={{ marginRight: 8 }}>新增好朋友</Button>
-          <Button type="primary" onClick={this.submit}>提交</Button>
+          <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>
+          <Button type="primary" htmlType="submit">submit</Button>
         </Form.Item>
       </Form>
     );
@@ -82,6 +95,5 @@ let Demo = React.createClass({
 });
 
 Demo = Form.create()(Demo);
-
 ReactDOM.render(<Demo />, mountNode);
 ````

@@ -1,13 +1,14 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
 import RadioButton from './radioButton';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
+
 function getCheckedValue(children) {
   let value = null;
   let matched = false;
-  React.Children.forEach(children, (radio) => {
+  React.Children.forEach(children, (radio: any) => {
     if (radio && radio.props && radio.props.checked) {
       value = radio.props.value;
       matched = true;
@@ -16,12 +17,23 @@ function getCheckedValue(children) {
   return matched ? { value } : undefined;
 }
 
-export default class RadioGroup extends React.Component {
+export interface RadioGroupProps {
+  /** 选项变化时的回调函数*/
+  onChange?: React.FormEventHandler<any>;
+  /** 用于设置当前选中的值*/
+  value?: string | number;
+  /** 默认选中的值*/
+  defaultValue?: string | number;
+  /**  大小，只对按钮样式生效*/
+  size?: 'large' | 'default' | 'small';
+  style?: React.CSSProperties;
+  prefixCls?: string;
+  disabled?: boolean;
+}
+
+export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-radio-group',
     disabled: false,
-    onChange() {
-    },
   };
   constructor(props) {
     super(props);
@@ -61,15 +73,19 @@ export default class RadioGroup extends React.Component {
         value: ev.target.value,
       });
     }
-    this.props.onChange(ev);
+
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(ev);
+    }
   }
   render() {
     const props = this.props;
-    const children = React.Children.map(props.children, (radio) => {
+    const children = React.Children.map((props.children || {}), (radio: any) => {
       if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
         const keyProps = {};
         if (!('key' in radio) && typeof radio.props.value === 'string') {
-          keyProps.key = radio.props.value;
+          (keyProps as any).key = radio.props.value;
         }
         return React.cloneElement(radio, assign({}, keyProps, radio.props, {
           onChange: this.onRadioChange,
@@ -79,9 +95,10 @@ export default class RadioGroup extends React.Component {
       }
       return radio;
     });
+    const prefixCls = props.prefixCls || 'ant-radio-group';
     const classString = classNames({
-      [props.prefixCls]: true,
-      [`${props.prefixCls}-${props.size}`]: props.size,
+      [prefixCls]: true,
+      [`${prefixCls}-${props.size}`]: props.size,
     });
     return <div className={classString} style={props.style}>{children}</div>;
   }

@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@menu-prefix-cls: ant-menu;
+@menu-prefix-cls: ~"@{ant-prefix}-menu";
 
 // default theme
 .@{menu-prefix-cls} {
@@ -89,6 +89,12 @@
     }
   }
 
+  &-horizontal,
+  &-inline,
+  &-vertical {
+    z-index: auto;
+  }
+
   &-inline,
   &-vertical {
     border-right: 1px solid @border-color-split;
@@ -151,13 +157,14 @@
     &.@{menu-prefix-cls}-submenu-disabled {
       color: #999 !important;
       cursor: not-allowed;
+      background: none;
       > a {
         color: #999 !important;
         pointer-events: none;
       }
     }
 
-    .anticon {
+    .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
     }
@@ -189,7 +196,7 @@
       text-rendering: auto;
       position: absolute;
       transition: transform .3s ease;
-      content: "\e603";
+      content: "\e61d";
       right: 16px;
       .ie-rotate(3);
       transform: rotate(270deg) scale(0.75);
@@ -204,7 +211,7 @@
       text-rendering: auto;
       position: absolute;
       transition: transform .3s ease;
-      content: "\e603";
+      content: "\e61d";
       right: 16px;
       top: 0;
       .iconfont-size-under-12px(8px);
@@ -215,6 +222,13 @@
         .ie-rotate(1);
         transform: rotate(180deg) scale(0.75);
       }
+    }
+  }
+
+  &-vertical &-submenu-selected {
+    color: @primary-color;
+    > a {
+      color: @primary-color;
     }
   }
 
@@ -230,14 +244,12 @@
       top: 1px;
       float: left;
       border-bottom: 2px solid transparent;
-      z-index: 2;
 
       &:hover,
       &-active,
       &-selected {
         border-bottom: 2px solid @primary-color;
         color: @primary-color;
-        transform: translateZ(0);
       }
 
       > a {
@@ -346,13 +358,13 @@
   &-dark &-item:hover,
   &-dark &-item-active,
   &-dark &-submenu-active,
+  &-dark &-submenu-selected,
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
     background-color: transparent;
     color: #fff;
     > a {
       color: #fff;
-      transform: translateZ(0);
     }
   }
 

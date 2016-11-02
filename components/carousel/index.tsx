@@ -2,8 +2,9 @@
 // https://github.com/WickyNilliams/enquire.js/issues/82
 import assign from 'object-assign';
 if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = function matchMediaPolyfill() {
+  const matchMediaPolyfill = function matchMediaPolyfill(mediaQuery: string): MediaQueryList {
     return {
+      media: mediaQuery,
       matches: false,
       addListener() {
       },
@@ -15,7 +16,7 @@ if (typeof window !== 'undefined') {
 }
 
 import SlickCarousel from 'react-slick';
-import * as React from 'react';
+import React from 'react';
 
 export type CarouselEffect = 'scrollx' | 'fade'
 // Carousel
@@ -23,7 +24,7 @@ export interface CarouselProps {
   /** 动画效果函数，可取 scrollx, fade */
   effect?: CarouselEffect;
   /** 是否显示面板指示点 */
-  dots?: SlickCarouselboolean;
+  dots?: boolean;
   /** 垂直显示 */
   vertical?: boolean;
   /** 是否自动切换 */
@@ -36,12 +37,14 @@ export interface CarouselProps {
   afterChange?: (current: number) => void;
   /** 行内样式 */
   style?: React.CSSProperties;
+  prefixCls?: string;
 }
 
 export default class Carousel extends React.Component<CarouselProps, any> {
   static defaultProps = {
     dots: true,
     arrows: false,
+    prefixCls: 'ant-carousel',
   };
 
   render() {
@@ -52,14 +55,14 @@ export default class Carousel extends React.Component<CarouselProps, any> {
       props.draggable = false;
     }
 
-    let className = 'ant-carousel';
+    let className = props.prefixCls;
     if (props.vertical) {
-      className = `${className} ant-carousel-vertical`;
+      className = `${className} ${className}-vertical`;
     }
 
     return (
       <div className={className}>
-        <SlickCarousel {...props} />
+        <SlickCarousel ref="slick" {...props} />
       </div>
     );
   }

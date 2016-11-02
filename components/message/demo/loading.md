@@ -16,8 +16,8 @@ Display a global loading indicator, which is dismissed by itself asynchronously.
 ````jsx
 import { message, Button } from 'antd';
 
-const success = function () {
-  let hide = message.loading('Action in progress..', 0);
+const success = () => {
+  const hide = message.loading('Action in progress..', 0);
   // Dismiss manually and asynchronously
   setTimeout(hide, 2500);
 };

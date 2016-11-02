@@ -18,13 +18,13 @@ import { Badge } from 'antd';
 
 ReactDOM.render(
   <Badge count={5}>
-    <a href="#" className="head-example"></a>
+    <a href="#" className="head-example" />
   </Badge>
 , mountNode);
 ````
 
 ````css
-.ant-badge {
+.ant-badge:not(.ant-badge-status) {
   margin-right: 16px;
 }
 .head-example {

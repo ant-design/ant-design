@@ -1,10 +1,12 @@
 ---
 order: 5
-hidden: true
-title: 多文件选择
+debug: true
+title:
+  zh-CN: 多文件选择
+  en-US: Multifile Selection
 ---
 
-按住 ctrl 可选择多个文件，`ie10+` 支持。
+For debugging.
 
 ````jsx
 import { Upload, message, Button, Icon } from 'antd';
@@ -17,9 +19,9 @@ const props = {
       console.log(info.file, info.fileList);
     }
     if (info.file.status === 'done') {
-      message.success(`${info.file.name} 上传成功。`);
+      message.success(`${info.file.name} upload successfully。`);
     } else if (info.file.status === 'error') {
-      message.error(`${info.file.name} 上传失败。`);
+      message.error(`${info.file.name} upload unsuccessfully。`);
     }
   },
 };
@@ -27,7 +29,7 @@ const props = {
 ReactDOM.render(
   <Upload {...props}>
     <Button type="ghost">
-      <Icon type="upload" /> 点击上传
+      <Icon type="upload" /> upload
     </Button>
   </Upload>
 , mountNode);

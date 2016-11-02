@@ -5,9 +5,9 @@ export default function BrowserDemo(props) {
     <article className="window-frame focus">
       <header className="top-bar">
         <div className="controls">
-          <div className="control close"></div>
-          <div className="control minify"></div>
-          <div className="control expand"></div>
+          <div className="control close" />
+          <div className="control minify" />
+          <div className="control expand" />
         </div>
         <input className="address-bar" defaultValue="http://www.example.com" />
       </header>

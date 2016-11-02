@@ -1,27 +1,56 @@
-import * as React from 'react';
+import React from 'react';
 import Tooltip from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
-import getPlacements from '../popover/placements';
 import splitObject from '../_util/splitObject';
-const placements = getPlacements();
-const prefixCls = 'ant-popover';
-const noop = () => {};
 
-export default class Popconfirm extends React.Component {
+export interface PopconfirmProps {
+  /**
+   * Position of popup-container, options:`top`, `left`, `right`, `bottom`
+   */
+  placement?: 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
+   'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+  /** Description of Popconfirm */
+  title: React.ReactNode | string;
+  /** Callback when confirm */
+  onConfirm?: () => void;
+  /** Callback when cancel */
+  onCancel?: () => void;
+  /** Callback when display/hide */
+  onVisibleChange?: (visible: boolean) => void;
+  /** Confirm button text */
+  okText?: React.ReactNode;
+  /** Cancel button text */
+  cancelText?: React.ReactNode;
+  style?: React.CSSProperties;
+  transitionName?: string;
+  trigger?: 'hover' | 'focus' | 'click';
+  /** Style of overlay */
+  overlayStyle?: React.CSSProperties;
+  prefixCls?: string;
+  openClassName?: string;
+  arrowPointAtCenter?: boolean;
+}
+
+export interface PopconfirmContext {
+  antLocale?: {
+    Popconfirm?: any,
+  };
+}
+
+export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   static defaultProps = {
+    prefixCls: 'ant-popover',
     transitionName: 'zoom-big',
     placement: 'top',
     trigger: 'click',
-    overlayStyle: {},
-    onConfirm: noop,
-    onCancel: noop,
-    onVisibleChange: noop,
   };
 
   static contextTypes = {
     antLocale: React.PropTypes.object,
   };
+
+  context: PopconfirmContext;
 
   constructor(props) {
     super(props);
@@ -38,12 +67,20 @@ export default class Popconfirm extends React.Component {
 
   confirm = () => {
     this.setVisible(false);
-    this.props.onConfirm.call(this);
+
+    const onConfirm = this.props.onConfirm;
+    if (onConfirm) {
+      onConfirm.call(this);
+    }
   }
 
   cancel = () => {
     this.setVisible(false);
-    this.props.onCancel.call(this);
+
+    const onCancel = this.props.onCancel;
+    if (onCancel) {
+      onCancel.call(this);
+    }
   }
 
   onVisibleChange = (visible) => {
@@ -54,12 +91,18 @@ export default class Popconfirm extends React.Component {
     if (!('visible' in this.props)) {
       this.setState({ visible });
     }
-    this.props.onVisibleChange(visible);
+
+    const onVisibleChange = this.props.onVisibleChange;
+    if (onVisibleChange) {
+      onVisibleChange(visible);
+    }
   }
 
   render() {
-    const [{ title, placement, overlayStyle, trigger }, restProps] = splitObject(this.props,
-      ['title', 'placement', 'overlayStyle', 'trigger']);
+    const [{ prefixCls, title, placement }, restProps] = splitObject(
+      this.props,
+      ['prefixCls', 'title', 'placement']
+    );
     let { okText, cancelText } = this.props;
     if (this.context.antLocale && this.context.antLocale.Popconfirm) {
       okText = okText || this.context.antLocale.Popconfirm.okText;
@@ -81,19 +124,14 @@ export default class Popconfirm extends React.Component {
     );
 
     return (
-      <Tooltip {...restProps}
-        placement={placement}
-        builtinPlacements={placements}
-        overlayStyle={overlayStyle}
+      <Tooltip
+        {...restProps}
         prefixCls={prefixCls}
+        placement={placement}
         onVisibleChange={this.onVisibleChange}
-        transitionName={this.props.transitionName}
         visible={this.state.visible}
-        trigger={trigger}
         overlay={overlay}
-      >
-        {this.props.children}
-      </Tooltip>
+      />
     );
   }
 }

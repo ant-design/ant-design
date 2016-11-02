@@ -1,9 +1,11 @@
 import React from 'react';
 import DocumentTitle from 'react-document-title';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
+import EditButton from './EditButton';
 
 export default class ComponentDoc extends React.Component {
   static contextTypes = {
@@ -29,26 +31,27 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = props;
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
-    const demos = Object.keys(props.demos).map((key) => props.demos[key])
-            .filter((demoData) => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key]);
     const expand = this.state.expandAll;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    demos.sort((a, b) => a.meta.order - b.meta.order)
+    const showedDemo = demos.some(demo => demo.meta.only) ?
+            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+    showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         if (index % 2 === 0 || isSingleCol) {
           leftChildren.push(
             <Demo {...demoData}
-              key={index} utils={props.utils}
+              key={meta.filename + index} utils={props.utils}
               expand={expand} pathname={location.pathname}
             />
           );
         } else {
           rightChildren.push(
             <Demo {...demoData}
-              key={index} utils={props.utils}
+              key={meta.filename + index} utils={props.utils}
               expand={expand} pathname={location.pathname}
             />
           );
@@ -59,11 +62,11 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
-    const jumper = demos.map((demo) => {
+    const jumper = showedDemo.map((demo) => {
       const title = demo.meta.title;
       const localizeTitle = title[locale] || title;
       return (
-        <li key={demo.meta.id}>
+        <li key={demo.meta.id} title={localizeTitle}>
           <a href={`#${demo.meta.id}`}>
             {localizeTitle}
           </a>
@@ -71,9 +74,9 @@ export default class ComponentDoc extends React.Component {
       );
     });
 
-    const { title, subtitle, chinese, english } = meta;
+    const { title, subtitle, filename } = meta;
     return (
-      <DocumentTitle title={`${subtitle || chinese || ''} ${title || english} - Ant Design`}>
+      <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article>
           <Affix className="toc-affix" offsetTop={16}>
             <ul className="toc demos-anchor">
@@ -81,7 +84,14 @@ export default class ComponentDoc extends React.Component {
             </ul>
           </Affix>
           <section className="markdown">
-            <h1>{meta.title || meta.english} {meta.subtitle || meta.chinese}</h1>
+            <h1>
+              {title[locale] || title}
+              {
+                !subtitle ? null :
+                  <span className="subtitle">{subtitle}</span>
+              }
+              <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
+            </h1>
             {
               props.utils.toReactComponent(
                 ['section', { className: 'markdown' }]
@@ -89,7 +99,7 @@ export default class ComponentDoc extends React.Component {
               )
             }
             <h2>
-              代码演示
+              <FormattedMessage id="app.component.examples" />
               <Icon type="appstore" className={expandTriggerClass}
                 title="展开全部代码" onClick={this.handleExpandToggle}
               />

@@ -8,8 +8,6 @@ describe('antd dist files', function() {
   if (!distFilesExisted) {
     it('empty test case placeholder', () => {});
     return;
-  } else {
-    jest.unmock('../dist/antd');
   }
 
   // fixed jsdom miss
@@ -33,6 +31,8 @@ describe('antd dist files', function() {
   it('should has modules in antd', () => {
     expect('Affix' in antd).toBeTruthy();
     expect('Alert' in antd).toBeTruthy();
+    expect('AutoComplete' in antd).toBeTruthy();
+    expect('BackTop' in antd).toBeTruthy();
     expect('Badge' in antd).toBeTruthy();
     expect('Breadcrumb' in antd).toBeTruthy();
     expect('Button' in antd).toBeTruthy();
@@ -53,12 +53,12 @@ describe('antd dist files', function() {
     expect('Menu' in antd).toBeTruthy();
     expect('message' in antd).toBeTruthy();
     expect('Modal' in antd).toBeTruthy();
+    expect('Mention' in antd).toBeTruthy();
     expect('notification' in antd).toBeTruthy();
     expect('Pagination' in antd).toBeTruthy();
     expect('Popconfirm' in antd).toBeTruthy();
     expect('Popover' in antd).toBeTruthy();
     expect('Progress' in antd).toBeTruthy();
-    expect('QueueAnim' in antd).toBeTruthy();
     expect('Radio' in antd).toBeTruthy();
     expect('Rate' in antd).toBeTruthy();
     expect('Row' in antd).toBeTruthy();
@@ -77,8 +77,6 @@ describe('antd dist files', function() {
     expect('Tree' in antd).toBeTruthy();
     expect('TreeSelect' in antd).toBeTruthy();
     expect('Upload' in antd).toBeTruthy();
-    expect('Validation' in antd).toBeTruthy();
-    expect('BackTop' in antd).toBeTruthy();
   });
 
   // https://github.com/ant-design/ant-design/issues/1970

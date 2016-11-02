@@ -27,19 +27,19 @@ ReactDOM.render(
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>
-      <Option value="yiminghe">yiminghe</Option>
+      <Option value="yiminghe">Yiminghe</Option>
     </Select>
     <Select defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>
-      <Option value="yiminghe">yiminghe</Option>
+      <Option value="yiminghe">Yiminghe</Option>
     </Select>
     <Select size="small" defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>Disabled</Option>
-      <Option value="yiminghe">yiminghe</Option>
+      <Option value="yiminghe">Yiminghe</Option>
     </Select>
   </div>
 , mountNode);

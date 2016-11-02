@@ -2,6 +2,10 @@
  * Created by Andrey Gayvoronsky on 13/04/16.
  */
 
+import moment from 'moment';
+import 'moment/locale/ru';
+moment.locale('ru');
+
 import Pagination from 'rc-pagination/lib/locale/ru_RU';
 import DatePicker from '../date-picker/locale/ru_RU';
 import TimePicker from '../time-picker/locale/ru_RU';
@@ -28,12 +32,12 @@ export default {
     cancelText: 'Отмена',
   },
   Transfer: {
-    notFoundContent: 'Not Found',
-    searchPlaceholder: 'Search here',
+    notFoundContent: 'Ничего не найдено',
+    searchPlaceholder: 'Введите название для поиска',
     itemUnit: 'item',
     itemsUnit: 'items',
   },
   Select: {
-    notFoundContent: 'Not Found',
+    notFoundContent: 'Ничего не найдено',
   },
 };

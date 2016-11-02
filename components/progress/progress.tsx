@@ -1,5 +1,5 @@
 import { PropTypes } from 'react';
-import * as React from 'react';
+import React from 'react';
 import Icon from '../icon';
 import { Circle } from 'rc-progress';
 import classNames from 'classnames';
@@ -10,7 +10,21 @@ const statusColorMap = {
   success: '#87d068',
 };
 
-export default class Line extends React.Component {
+export interface ProgressProps {
+  type?: 'line' | 'circle';
+  percent?: number;
+  format?: (percent: number) => string;
+  status?: 'success' | 'active' | 'exception';
+  showInfo?: boolean;
+  strokeWidth?: number;
+  width?: number;
+  style?: React.CSSProperties;
+}
+
+export default class Progress extends React.Component<ProgressProps, any> {
+  static Line: any;
+  static Circle: any;
+
   static defaultProps = {
     type: 'line',
     percent: 0,
@@ -78,9 +92,10 @@ export default class Line extends React.Component {
         height: circleSize,
         fontSize: circleSize * 0.16 + 6,
       };
+      const circleWidth = strokeWidth || 6;
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
-          <Circle percent={percent} strokeWidth={strokeWidth || 6}
+          <Circle percent={percent} strokeWidth={circleWidth} trailWidth={circleWidth}
             strokeColor={statusColorMap[progressStatus]} trailColor={trailColor}
           />
           {progressInfo}

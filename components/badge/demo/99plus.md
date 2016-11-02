@@ -18,10 +18,10 @@ import { Badge } from 'antd';
 
 ReactDOM.render(<div>
   <Badge count={99}>
-    <a href="#" className="head-example"></a>
+    <a href="#" className="head-example" />
   </Badge>
   <Badge count={200}>
-    <a href="#" className="head-example"></a>
+    <a href="#" className="head-example" />
   </Badge>
 </div>, mountNode);
 ````

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 import Icon from '../icon';
@@ -24,21 +24,23 @@ function insertSpace(child) {
   return child;
 }
 
-type ButtonType = 'primary' | 'ghost' | 'dashed'
-type ButtonShape = 'circle' | 'circle-outline'
-type ButtonSize = 'small' | 'large'
+export type ButtonType = 'primary' | 'ghost' | 'dashed'
+export type ButtonShape = 'circle' | 'circle-outline'
+export type ButtonSize = 'small' | 'large'
 
-interface ButtonProps {
+export interface ButtonProps {
   type?: ButtonType;
   htmlType?: string;
   icon?: string;
   shape?: ButtonShape;
   size?: ButtonSize;
-  onClick?: React.FormEventHandler;
+  onClick?: React.FormEventHandler<any>;
+  onMouseUp?: React.FormEventHandler<any>;
   loading?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  className?: string;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
@@ -46,7 +48,6 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-btn',
-    onClick() {},
     loading: false,
   };
 
@@ -85,7 +86,10 @@ export default class Button extends React.Component<ButtonProps, any> {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 
-    this.props.onClick(e);
+    const onClick = this.props.onClick;
+    if (onClick) {
+      onClick(e);
+    }
   }
 
   // Handle auto focus when click button in Chrome

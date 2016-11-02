@@ -44,10 +44,10 @@ const Test = React.createClass({
     return (
       <div>
         <Badge count={this.state.count}>
-          <a href="#" className="head-example"></a>
+          <a href="#" className="head-example" />
         </Badge>
         <Badge dot={this.state.show}>
-          <a href="#" className="head-example"></a>
+          <a href="#" className="head-example" />
         </Badge>
         <div style={{ marginTop: 10 }}>
           <ButtonGroup>
@@ -59,7 +59,7 @@ const Test = React.createClass({
             </Button>
           </ButtonGroup>
           <Button type="ghost" onClick={this.onClick} style={{ marginLeft: 8 }}>
-            切换红点显隐
+            Switch state
           </Button>
         </div>
       </div>

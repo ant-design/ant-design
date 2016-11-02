@@ -1,12 +1,20 @@
 ---
 order: 3
-title: 自定义渲染行数据
+title:
+  zh-CN: 自定义渲染行数据
+  en-US: Custom datasource
 ---
+
+## zh-CN
 
 自定义渲染每一个 Transfer Item，可用于渲染复杂数据。
 
+## en-US
+
+Custom each Transfer Item, and in this way you can render a complex datasource.
+
 ````jsx
-import { Transfer, Icon } from 'antd';
+import { Transfer } from 'antd';
 
 const App = React.createClass({
   getInitialState() {
@@ -23,9 +31,9 @@ const App = React.createClass({
     const mockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
-        key: i,
-        title: `内容${i + 1}`,
-        description: `内容${i + 1}的描述`,
+        key: i.toString(),
+        title: `content${i + 1}`,
+        description: `description of content${i + 1}`,
         chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
@@ -41,9 +49,9 @@ const App = React.createClass({
   },
   renderItem(item) {
     const customLabel = (
-      <div className="custom-item">
-        {item.title} - {item.description} <Icon type="android" />
-      </div>
+      <span className="custom-item">
+        {item.title} - {item.description}
+      </span>
     );
 
     return {

@@ -1,20 +1,31 @@
-import * as React from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
-export default function Group(props) {
-  const className = classNames({
-    'ant-input-group': true,
-    'ant-input-group-lg': props.size === 'large',
-    'ant-input-group-sm': props.size === 'small',
-    [props.className]: !!props.className,
+export interface GroupProps {
+  className?: string;
+  size?: 'large' | 'small' | 'default';
+  children?: any;
+  style?: React.CSSProperties;
+  prefixCls?: string;
+}
+
+const Group: React.StatelessComponent<GroupProps> = (props) => {
+  const { prefixCls = 'ant-input-group', className = '' } = props;
+  const cls = classNames({
+    [prefixCls]: true,
+    [`${prefixCls}-lg`]: props.size === 'large',
+    [`${prefixCls}-sm`]: props.size === 'small',
+    [className]: !!className,
   });
   return (
-    <span className={className} style={props.style}>
+    <span className={cls} style={props.style}>
       {props.children}
     </span>
   );
-}
+};
 
 Group.propTypes = {
   children: React.PropTypes.any,
 };
+
+export default Group;

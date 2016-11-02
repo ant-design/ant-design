@@ -1,39 +1,49 @@
 ---
 order: 6
-title: 重置筛选和排序
+title:
+  en-US: Reset filters and sorters
+  zh-CN: 可控的筛选和排序
 ---
+
+## zh-CN
 
 使用受控属性对筛选和排序状态进行控制。
 
 > 1. columns 中定义了 fileredValue 和 sortOrder 属性即视为受控模式。
-
 > 2. 只支持同时对一列进行排序，请保证只有一列的 sortOrder 属性是生效的。
-
 > 3. 务必指定 `column.key`。
+
+## en-US
+
+Control filters and sorters by `fileredValue` and `sortOrder`.
+
+> 1. Defining `fileredValue` or `sortOrder` means that it is in the controlled mode.
+> 2. Make sure `sortOrder` is assigned for only one column.
+> 3. `column.key` is required.
 
 ````jsx
 import { Table } from 'antd';
 
 const data = [{
   key: '1',
-  name: '胡斌',
+  name: 'John Brown',
   age: 32,
-  address: '南湖区湖底公园1号',
+  address: 'New York No. 1 Lake Park',
 }, {
   key: '2',
-  name: '胡彦祖',
+  name: 'Jim Green',
   age: 42,
-  address: '西湖区湖底公园12号',
+  address: 'London No. 1 Lake Park',
 }, {
   key: '3',
-  name: '李大嘴',
+  name: 'Joe Black',
   age: 32,
-  address: '南湖区湖底公园123号',
+  address: 'Sidney No. 1 Lake Park',
 }, {
   key: '4',
-  name: '李秀莲大嘴哥',
+  name: 'Jim Red',
   age: 32,
-  address: '西湖区湖底公园123号',
+  address: 'London No. 2 Lake Park',
 }];
 
 const App = React.createClass({
@@ -44,7 +54,7 @@ const App = React.createClass({
     };
   },
   handleChange(pagination, filters, sorter) {
-    console.log('各类参数是', pagination, filters, sorter);
+    console.log('Various parameters', pagination, filters, sorter);
     this.setState({
       filteredInfo: filters,
       sortedInfo: sorter,
@@ -75,42 +85,42 @@ const App = React.createClass({
     sortedInfo = sortedInfo || {};
     filteredInfo = filteredInfo || {};
     const columns = [{
-      title: '姓名',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
       filters: [
-        { text: '姓李的', value: '李' },
-        { text: '姓胡的', value: '胡' },
+        { text: 'Joe', value: 'Joe' },
+        { text: 'Jim', value: 'Jim' },
       ],
       filteredValue: filteredInfo.name,
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      onFilter: (value, record) => record.name.includes(value),
       sorter: (a, b) => a.name.length - b.name.length,
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
     }, {
-      title: '年龄',
+      title: 'Age',
       dataIndex: 'age',
       key: 'age',
       sorter: (a, b) => a.age - b.age,
       sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
     }, {
-      title: '地址',
+      title: 'Address',
       dataIndex: 'address',
       key: 'address',
       filters: [
-        { text: '南湖', value: '南湖' },
-        { text: '西湖', value: '西湖' },
+        { text: 'London', value: 'London' },
+        { text: 'New York', value: 'New York' },
       ],
       filteredValue: filteredInfo.address,
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
+      onFilter: (value, record) => record.address.includes(value),
       sorter: (a, b) => a.address.length - b.address.length,
       sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
     }];
     return (
       <div>
         <div className="table-operations">
-          <a href="#" onClick={this.setAgeSort}>年龄降序排序</a>
-          <a href="#" onClick={this.clearFilters}>清除筛选</a>
-          <a href="#" onClick={this.clearAll}>清除筛选和排序</a>
+          <a href="#" onClick={this.setAgeSort}>Age descending order</a>
+          <a href="#" onClick={this.clearFilters}>Clear filters</a>
+          <a href="#" onClick={this.clearAll}>Clear filters and sorting</a>
         </div>
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>

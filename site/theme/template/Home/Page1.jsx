@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { FormattedMessage } from 'react-intl';
 import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Icon, Button } from 'antd';
@@ -17,7 +18,7 @@ function onScrollEvent(e) {
   }
 }
 
-export default function Page1() {
+export default function Page1({ location }) {
   return (
     <ScrollOverPack scrollName="page1" className="content-wrapper page"
       playScale={1} replay scrollEvent={onScrollEvent}
@@ -28,12 +29,12 @@ export default function Page1() {
         style={{ transform: 'translateX(-100px)', opacity: 0 }}
       />
       <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse>
-        <h2 key="h2">最佳实践</h2>
-        <p key="p" style={{ maxWidth: 310 }}>近一年的中后台设计实践，积累了大量的优秀案例。</p>
+        <h2 key="h2"><FormattedMessage id="app.home.best-practice" /></h2>
+        <p key="p" style={{ maxWidth: 310 }}><FormattedMessage id="app.home.experience" /></p>
         <div key="button">
-          <Link to="/docs/practice/cases">
+          <Link to={{ query: location.query, pathname: '/docs/practice/cases' }}>
             <Button type="primary" size="large">
-              了解更多
+              <FormattedMessage id="app.home.learn-more" />
               <Icon type="right" />
             </Button>
           </Link>

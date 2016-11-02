@@ -1,9 +1,17 @@
 ---
 order: 2
-title: 带 icon 的滑块
+title:
+  zh-CN: 带 icon 的滑块
+  en-US: Slider with icon
 ---
 
+## zh-CN
+
 滑块左右可以设置图标来表达业务含义。
+
+## en-US
+
+You can add an icon beside the slider to make it meaningful.
 
 ````jsx
 import { Slider, Icon } from 'antd';
@@ -41,7 +49,7 @@ const IconSlider = React.createClass({
 });
 
 ReactDOM.render(
-  <IconSlider min={0} max={20} value={0} icon={['frown', 'smile']} />
+  <IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-o']} />
 , mountNode);
 ````
 

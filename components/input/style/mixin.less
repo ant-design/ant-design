@@ -15,10 +15,10 @@
 
 // input status
 // == when focus or actived
-.active(@color: @input-hover-border-color) {
+.active(@color: @outline-color) {
   border-color: tint(@color, 20%);
   outline: 0;
-  box-shadow: 0 0 0 2px fade(@color, 20%);
+  box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
 }
 
 // == when hoverd
@@ -62,9 +62,8 @@
     .active();
   }
 
-  &[disabled],
-  fieldset[disabled] & {
-   .disabled();
+  &[disabled] {
+    .disabled();
   }
 
   // Reset height for `textarea`s
@@ -131,7 +130,7 @@
 
   &-addon,
   &-wrap {
-    width: 1%;
+    width: 1px; // To make addon/wrap as small as possible
     white-space: nowrap;
     vertical-align: middle;
   }
@@ -160,10 +159,10 @@
     border-radius: @border-radius-base;
 
     // Reset Select's style in addon
-    .ant-select {
-      margin: -(@input-padding-vertical-base + 1) (-@input-padding-horizontal);
+    .@{ant-prefix}-select {
+      margin: -(@input-padding-vertical-base + 1) (-@input-padding-horizontal);  // lesshint spaceAroundOperator: false
 
-      .ant-select-selection {
+      .@{ant-prefix}-select-selection {
         background-color: inherit;
         border: 0;
         margin: -1px;
@@ -172,7 +171,7 @@
 
       &-open,
       &-focused {
-        .ant-select-selection {
+        .@{ant-prefix}-select-selection {
           border-color: tint(@primary-color, 20%);
         }
       }
@@ -187,7 +186,7 @@
     border-top-right-radius: 0;
 
     // Reset Select's style in addon
-    .ant-select .ant-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
     }
@@ -206,7 +205,7 @@
     border-top-left-radius: 0;
 
     // Reset Select's style in addon
-    .ant-select .ant-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
     }

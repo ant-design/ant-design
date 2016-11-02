@@ -1,9 +1,17 @@
 ---
 order: 0
-title: 简单
+title:
+  zh-CN: 基本
+  en-US: Basic
 ---
 
+## zh-CN
+
 最简单的用法。
+
+## en-US
+
+The most basic usage.
 
 ````jsx
 import { Switch } from 'antd';
@@ -21,6 +29,5 @@ ReactDOM.render(
 <style>
 .ant-switch {
   margin-bottom: 8px;
-  display: block;
 }
 <style>

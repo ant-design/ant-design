@@ -1,16 +1,16 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@tag-prefix-cls: ant-tag;
+@tag-prefix-cls: ~"@{ant-prefix}-tag";
 
 .@{tag-prefix-cls} {
   display: inline-block;
-  line-height: 22px;
+  line-height: 20px;
   height: 22px;
   padding: 0 8px;
   border-radius: @border-radius-base;
   border: 1px solid @border-color-split;
-  background: #f7f7f7;
+  background: @background-color-base;
   font-size: @font-size-base;
   transition: all 0.3s @ease-in-out-circ;
   vertical-align: middle;
@@ -37,7 +37,7 @@
     }
   }
 
-  .anticon-cross {
+  .@{iconfont-css-prefix}-cross {
     .iconfont-size-under-12px(10px);
     cursor: pointer;
     font-weight: bold;
@@ -51,16 +51,19 @@
     }
   }
 
+  &-has-color {
+    border-color: transparent;
+  }
+
   &-blue,
   &-green,
   &-yellow,
   &-red {
-    border: 0;
     &,
     a,
     a:hover,
-    .anticon-cross,
-    .anticon-cross:hover {
+    .@{iconfont-css-prefix}-cross,
+    .@{iconfont-css-prefix}-cross:hover {
       color: #fff;
     }
   }

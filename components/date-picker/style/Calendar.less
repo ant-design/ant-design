@@ -38,7 +38,7 @@
     position: absolute;
     top: 0;
     color: #999;
-    font-family: Arial,"Hiragino Sans GB","Microsoft Yahei","Microsoft Sans Serif",sans-serif;
+    font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", sans-serif;
     padding: 0 5px;
     font-size: 16px;
     display: inline-block;
@@ -49,20 +49,36 @@
   .@{calendar-prefix-cls}-prev-decade-btn,
   .@{calendar-prefix-cls}-prev-year-btn {
     left: 7px;
+
+    &:after {
+      content: '«';
+    }
   }
 
   .@{calendar-prefix-cls}-next-century-btn,
   .@{calendar-prefix-cls}-next-decade-btn,
   .@{calendar-prefix-cls}-next-year-btn {
     right: 7px;
+
+    &:after {
+      content: '»';
+    }
   }
 
   .@{calendar-prefix-cls}-prev-month-btn {
     left: 29px;
+
+    &:after {
+      content: '‹';
+    }
   }
 
   .@{calendar-prefix-cls}-next-month-btn {
     right: 29px;
+
+    &:after {
+      content: '›';
+    }
   }
 }
 
@@ -70,7 +86,7 @@
   position: relative;
   outline: none;
   width: 231px;
-  border: 1px solid @border-color-base;
+  border: 1px solid #fff;
   list-style: none;
   font-size: @font-size-base;
   text-align: left;
@@ -106,7 +122,7 @@
     .calendarPanelHeader(@calendar-prefix-cls);
   }
 
-  &-calendar-body {
+  &-body {
     padding: 4px 8px;
   }
 
@@ -163,6 +179,10 @@
     text-align: center;
     transition: background 0.3s ease;
 
+    &-panel {
+      position: relative;
+    }
+
     &:hover {
       background: tint(@primary-color, 90%);
       cursor: pointer;
@@ -218,7 +238,7 @@
   }
 
   &-footer {
-    padding: 0 15px;
+    padding: 0 16px;
     height: 38px;
     line-height: 38px;
     border-top: 1px solid @border-color-split;
@@ -260,8 +280,7 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:after {
-    content: "\e631";
-    font-family: "anticon";
+    .iconfont-font("\e62e");
     font-size: 12px;
     color: #ccc;
     display: inline-block;
@@ -286,6 +305,9 @@
     &-disabled {
       .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
       cursor: not-allowed;
+      &:hover {
+        .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+      }
     }
   }
 }
