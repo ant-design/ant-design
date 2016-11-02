@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 面板嵌套
   en-US: Nested panel
 ---

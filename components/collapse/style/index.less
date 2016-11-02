@@ -82,4 +82,22 @@
       .collapse-open();
     }
   }
+
+  &-borderless {
+    background-color: #fff;
+    border: 0;
+  }
+
+  &-borderless > &-item {
+    border: 0;
+  }
+
+  &-borderless > &-item > &-header {
+    border-bottom: 1px solid @border-color-base;
+    transition: all .3s;
+    border-radius: @border-color-base @border-color-base 0 0;
+    &:hover {
+      background-color: #fcfcfc;
+    }
+  }
 }
