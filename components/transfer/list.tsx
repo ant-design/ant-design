@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
+import Lazyload from 'react-lazy-load';
 import { TransferItem } from './index';
 
 function noop() {
@@ -35,6 +36,7 @@ export interface TransferListProps {
   position?: string;
   notFoundContent?: React.ReactNode | string;
   filterOption: (filterText: any, item: any) => boolean;
+  lazy?: {};
 }
 
 export interface TransferListContext {
@@ -135,7 +137,7 @@ export default class TransferList extends React.Component<TransferListProps, any
   }
 
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys,
+    const { prefixCls, dataSource, titleText, filter, checkedKeys, lazy,
             body = noop, footer = noop, showSearch, render = noop, style } = this.props;
 
     let { searchPlaceholder, notFoundContent } = this.props;
@@ -177,16 +179,22 @@ export default class TransferList extends React.Component<TransferListProps, any
         [`${prefixCls}-content-item`]: true,
         [`${prefixCls}-content-item-disabled`]: item.disabled,
       });
+      const lazyProps = assign({
+        height: 32,
+        offset: 320,
+      }, lazy);
       return (
-        <li
-          key={item.key}
-          className={className}
-          title={renderedText}
-          onClick={item.disabled ? undefined : () => this.handleSelect(item)}
-        >
-          <Checkbox checked={checkedKeys.some(key => key === item.key)} disabled={item.disabled} />
-          <span>{renderedEl}</span>
-        </li>
+        <Lazyload key={item.key} {...lazyProps}>
+          <li
+            key={item.key}
+            className={className}
+            title={renderedText}
+            onClick={item.disabled ? undefined : () => this.handleSelect(item)}
+          >
+            <Checkbox checked={checkedKeys.some(key => key === item.key)} disabled={item.disabled} />
+            <span>{renderedEl}</span>
+          </li>
+        </Lazyload>
       );
     });
 

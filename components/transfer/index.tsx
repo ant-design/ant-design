@@ -35,6 +35,7 @@ export interface TransferProps {
   filterOption: (inputValue: any, item: any) => boolean;
   body?: (props: any) => any;
   rowKey?: (record: any) => string;
+  lazy?: {};
 }
 
 export interface TransferContext {
@@ -73,6 +74,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     body: PropTypes.func,
     footer: PropTypes.func,
     rowKey: PropTypes.func,
+    lazy: PropTypes.object,
   };
 
   static contextTypes = {
@@ -255,7 +257,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const {
       prefixCls = 'ant-transfer', operations = [], showSearch, notFoundContent,
       searchPlaceholder, body, footer, listStyle, className = '',
-      filterOption, render,
+      filterOption, render, lazy,
     } = this.props;
     const { leftFilter, rightFilter, leftCheckedKeys, rightCheckedKeys } = this.state;
 
@@ -271,7 +273,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
     const titles = this.getTitles();
     return (
       <div className={cls}>
-        <List titleText={titles[0]}
+        <List
+          titleText={titles[0]}
           dataSource={leftDataSource}
           filter={leftFilter}
           filterOption={filterOption}
@@ -288,8 +291,10 @@ export default class Transfer extends React.Component<TransferProps, any> {
           body={body}
           footer={footer}
           prefixCls={`${prefixCls}-list`}
+          lazy={lazy}
         />
-        <Operation rightActive={rightActive}
+        <Operation
+          rightActive={rightActive}
           rightArrowText={operations[0]}
           moveToRight={this.moveToRight}
           leftActive={leftActive}
@@ -297,7 +302,8 @@ export default class Transfer extends React.Component<TransferProps, any> {
           moveToLeft={this.moveToLeft}
           className={`${prefixCls}-operation`}
         />
-        <List titleText={titles[1]}
+        <List
+          titleText={titles[1]}
           dataSource={rightDataSource}
           filter={rightFilter}
           filterOption={filterOption}
@@ -314,6 +320,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
           body={body}
           footer={footer}
           prefixCls={`${prefixCls}-list`}
+          lazy={lazy}
         />
       </div>
     );
