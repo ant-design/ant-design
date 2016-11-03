@@ -14,7 +14,7 @@ title:
 The simplest usage.
 
 ````jsx
-import { Anchor } from 'antd';
+import { Affix, Button } from 'antd';
 
 ReactDOM.render(
   <div>

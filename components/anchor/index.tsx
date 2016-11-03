@@ -1,90 +1,57 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import className from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import getScroll from '../_util/getScroll';
 import AnchorLink from './AnchorLink';
 import Affix from '../affix';
-import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
-
-const reqAnimFrame = getRequestAnimationFrame();
-
-const easeInOutCubic = (t, b, c, d) => {
-  t /= d/2;
-	if (t < 1) return c/2*t*t*t + b;
-	t -= 2;
-	return c/2*(t*t*t + 2) + b;
-};
-
-function getDefaultTarget() {
-  return typeof window !== 'undefined' ?
-    window : null;
-}
-
-function getOffsetTop(element): number {
-  if (!element) {
-    return 0;
-  }
-
-  if (!element.getClientRects().length) {
-    return 0;
-  }
-
-  const rect = element.getBoundingClientRect();
-
-  if ( rect.width || rect.height ) {
-    const doc = element.ownerDocument;
-    const docElem = doc.documentElement;
-    return  rect.top - docElem.clientTop;
-  }
-
-  return rect.top;
-}
+import AnchorHelper, { getDefaultTarget } from './anchorHelper';
 
 export interface AnchorProps {
   target: () => HTMLElement | Window;
   children: React.ReactNode;
   prefixCls?: string;
-} 
-
+  offsetTop?: number;
+  bounds?: number;
+}
 
 export default class Anchor extends React.Component<AnchorProps, any> {
   static AnchorLink = AnchorLink;
+
   static defaultProps = {
-    prefixCls: 'ant-anchor'
+    prefixCls: 'ant-anchor',
+  };
+
+  static childContextTypes = {
+    anchorHelper: React.PropTypes.any,
+  };
+
+  refs: {
+    ink?: any;
   };
 
   private scrollEvent: any;
-  private sections: Array<string> = [];
+  private anchorHelper: AnchorHelper;
 
   constructor(props) {
     super(props);
     this.state = {
       activeAnchor: null,
     };
+    this.anchorHelper = new AnchorHelper();
   }
   handleScroll = () => {
-    const { target = getDefaultTarget } = this.props;
-    const scrollTop = getScroll(target(), true);
-    let activeAnchor;
-
-    this.sections.forEach(section => {
-      const target = document.querySelector(section);
-      if (target) {
-        const top = getOffsetTop(target);
-        const bottom = top + target.clientHeight;
-        if ((top <= 5) && (bottom >= -5)) {
-          activeAnchor = section;
-        }
-      }
-    });
-
     this.setState({
-      activeAnchor,
+      activeAnchor: this.anchorHelper.getCurrentAnchor(this.props.bounds),
     });
   }
 
+  getChildContext() {
+    return {
+      anchorHelper: this.anchorHelper,
+    };
+  }
   componentDidMount() {
     this.handleScroll();
+    this.updateInk();
     this.scrollEvent = addEventListener((this.props.target || getDefaultTarget)(), 'scroll', this.handleScroll);
   }
 
@@ -94,42 +61,47 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     }
   }
 
-  scrollTo = (href) => {
-    const { target = getDefaultTarget } = this.props;
-    const scrollTop = getScroll(target(), true);
-    const offsetTop = getOffsetTop(document.querySelector(href));
-    const startTime = Date.now();
-    const frameFunc = () => {
-      const timestamp = Date.now();
-      const time = timestamp - startTime;
-      document.body.scrollTop = easeInOutCubic(time, scrollTop, offsetTop, 450);
-      if (time < 450) {
-        reqAnimFrame(frameFunc);
-      }
-    };
-    reqAnimFrame(frameFunc);
+  componentDidUpdate() {
+    this.updateInk();
+  }
+
+  updateInk = () => {
+    const activeAnchor = this.anchorHelper.getCurrentActiveAnchor();
+    if (activeAnchor) {
+      this.refs.ink.style.top = `${activeAnchor.offsetTop + activeAnchor.clientHeight / 2 - 4.5}px`;
+    }
   }
 
   renderAnchorLink = (child) => {
     const { href } = child.props;
     if (href) {
-      if (this.sections.indexOf(href) === -1) {
-        this.sections.push(href);
-      }
+      this.anchorHelper.addLink(href);
       return React.cloneElement(child, {
-        onClick: this.scrollTo,
-        active: this.state.activeAnchor === href,
+        onClick: this.anchorHelper.scrollTo,
         prefixCls: this.props.prefixCls,
+        bounds: this.props.bounds,
       });
     }
     return child;
   }
 
   render() {
-    const { prefixCls } = this.props;
-    return <Affix>
-      <div className={prefixCls}>{React.Children.map(this.props.children, this.renderAnchorLink)}</div>
+    const { prefixCls, offsetTop } = this.props;
+    const { activeAnchor } = this.state;
+    const inkClass = className({
+      [`${prefixCls}-ink-ball`]: true,
+      visible: !!activeAnchor,
+    });
+
+    return <Affix offsetTop={offsetTop}>
+      <div className={`${prefixCls}-wrapper`}>
+        <div className={prefixCls}>
+          <div className={`${prefixCls}-ink`} >
+            <span className={inkClass} ref="ink"/>
+          </div>
+          {React.Children.map(this.props.children, this.renderAnchorLink)}
+        </div>
+      </div>
     </Affix>;
   }
 }
-

@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 独立使用 AnchorLink
   en-US: Independent AnchorLink
@@ -14,11 +14,10 @@ title:
 Independent AnchorLink
 
 ```jsx
-
-const { Anchor } = antd;
-const { AnchorLink }  = Anchor;
+import { Anchor } from 'antd';
+const { AnchorLink } = Anchor;
 
 ReactDOM.render(
-    <AnchorLink href="#components-anchor-demo-basic">锚点1</AnchorLink>
+    <AnchorLink href="#components-anchor-demo-basic" title="基本" />
 , mountNode);
 ```

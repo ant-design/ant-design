@@ -5,26 +5,26 @@ cols: 1
 title: Anchor
 ---
 
-Make an element sticky to viewport.
+A hyperlink to a location on same page.
 
 ## When To Use
 
-When user browses a long web page, some content need to sticky to viewport. It is common for menus and actions.
-
-Please note that Affix should not cover other content in page, especially when the size of viewport is small.
+For displaying anchor hyperlink on page, and jump between then.
 
 ## API
+
+### Anchor Props
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
 | offsetTop    | Pixels to offset from top when calculating position of scroll | Number | 0 |
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | Number | - |
-| onChange     | Callback when affix state is changed | Function(affixed) | - |
+| bounds     | Bounding distance of anchor area | Number | 5(px) |
 
-**Note:** Children of `Affix` can not be `position: absolute`, but you can set `Affix` as `position: absolute`:
+### AnchorLink Props
 
-```jsx
-<Affix style={{ position: 'absolute', top: y, left: x}}>
-  ...
-</Affix>
-```
+| Property        | Description           | Type               | Default       |
+|-------------|----------------|--------------------|--------------|
+| href    | target of hyperlink  | String |         |
+| title | content of  hyperlink | String |         |
+
