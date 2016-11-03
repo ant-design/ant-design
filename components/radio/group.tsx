@@ -18,6 +18,8 @@ function getCheckedValue(children) {
 }
 
 export interface RadioGroupProps {
+  prefixCls?: string;
+  className?: string;
   /** 选项变化时的回调函数*/
   onChange?: React.FormEventHandler<any>;
   /** 用于设置当前选中的值*/
@@ -27,7 +29,6 @@ export interface RadioGroupProps {
   /**  大小，只对按钮样式生效*/
   size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
-  prefixCls?: string;
   disabled?: boolean;
 }
 
@@ -95,10 +96,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       }
       return radio;
     });
-    const prefixCls = props.prefixCls || 'ant-radio-group';
+
+    const { prefixCls = 'ant-radio-group', className = '' } = props;
     const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${props.size}`]: props.size,
+      [className]: className,
     });
     return <div className={classString} style={props.style}>{children}</div>;
   }
