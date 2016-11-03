@@ -134,6 +134,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   context: TableContext;
   CheckboxPropsCache: Object;
+  cachedColumns?: any[];
 
   constructor(props) {
     super(props);
@@ -240,6 +241,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       if (this.isFiltersChanged(newFilters)) {
         this.setState({ filters: newFilters });
       }
+    }
+
+    if (nextProps.columns !== this.props.columns) {
+      delete this.cachedColumns;
     }
   }
 
@@ -868,12 +873,26 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     return data;
   }
 
+  getColumns() {
+    if ('cachedColumns' in this) {
+      return this.cachedColumns;
+    }
+    let columns = this.renderRowSelection();
+    columns = this.renderColumnsDropdown(columns);
+    columns = columns.map((column, i) => {
+      const newColumn = assign({}, column);
+      newColumn.key = this.getColumnKey(newColumn, i);
+      return newColumn;
+    });
+    this.cachedColumns = columns;
+    return this.cachedColumns;
+  }
+
   render() {
     const [{
       style, className, prefixCls,
     }, restProps] = splitObject(this.props, ['style', 'className', 'prefixCls']);
     const data = this.getCurrentPageData();
-    let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     const locale = this.getLocale();
 
@@ -883,13 +902,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       [`${prefixCls}-empty`]: !data.length,
     });
 
-    columns = this.renderColumnsDropdown(columns);
-    columns = columns.map((column, i) => {
-      const newColumn = assign({}, column);
-      newColumn.key = this.getColumnKey(newColumn, i);
-      return newColumn;
-    });
-
+    const columns: any = this.getColumns();
     let expandIconColumnIndex = (columns[0] && columns[0].key === 'selection-column') ? 1 : 0;
     if ('expandIconColumnIndex' in restProps) {
       expandIconColumnIndex = restProps.expandIconColumnIndex;
