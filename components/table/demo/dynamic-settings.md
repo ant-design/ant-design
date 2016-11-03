@@ -14,9 +14,7 @@ title:
 Select different settings to see the result.
 
 ````jsx
-import { Table, Icon, Select, Form } from 'antd';
-
-const Option = Select.Option;
+import { Table, Icon, Switch, Radio, Form } from 'antd';
 const FormItem = Form.Item;
 
 const columns = [{
@@ -74,90 +72,67 @@ const footer = () => 'Here is footer';
 
 class Demo extends React.Component {
   state = {
-    size: 'default',
-    pagination: true,
-    expandedRowRender,
-    loading: false,
     bordered: true,
-    header: true,
+    loading: false,
+    pagination: true,
+    size: 'default',
+    expandedRowRender,
     title,
     footer,
   }
 
   handleToggle = (prop) => {
-    return (value) => {
-      this.setState({ [prop]: value === 'show' });
+    return (enable) => {
+      this.setState({ [prop]: enable });
     };
   }
 
-  handleSizeChange = (value) => {
-    this.setState({ size: value });
+  handleSizeChange = (e) => {
+    this.setState({ size: e.target.value });
   }
 
-  handleExpandChange = (value) => {
-    this.setState({ expandedRowRender: value === 'enabled' ? expandedRowRender : false });
+  handleExpandChange = (enable) => {
+    this.setState({ expandedRowRender: enable ? expandedRowRender : false });
   }
 
-  handleTitleChange = (value) => {
-    this.setState({ title: value === 'show' ? title : undefined });
+  handleTitleChange = (enable) => {
+    this.setState({ title: enable ? title : undefined });
   }
 
-  handleFooterChange = (value) => {
-    this.setState({ footer: value === 'show' ? footer : undefined });
+  handleFooterChange = (enable) => {
+    this.setState({ footer: enable ? footer : undefined });
   }
 
   render() {
+    const state = this.state;
     return (
       <div>
         <div className="components-table-demo-control-bar">
           <Form inline>
-            <FormItem>
-              <Select defaultValue="show" onChange={this.handleToggle('pagination')}>
-                <Option value="show">Show Pagination</Option>
-                <Option value="hide">Hide Pagination</Option>
-              </Select>
+            <FormItem label="Bordered">
+              <Switch checked={state.bordered} onChange={this.handleToggle('bordered')} />
             </FormItem>
-            <FormItem>
-              <Select defaultValue="default" onChange={this.handleSizeChange}>
-                <Option value="default">Default Size</Option>
-                <Option value="small">Small Size</Option>
-              </Select>
+            <FormItem label="loading">
+              <Switch checked={state.loading} onChange={this.handleToggle('loading')} />
             </FormItem>
-            <FormItem>
-              <Select defaultValue="show" onChange={this.handleToggle('bordered')}>
-                <Option value="show">Show Border</Option>
-                <Option value="hide">Hide Border</Option>
-              </Select>
+            <FormItem label="Pagination">
+              <Switch checked={state.pagination} onChange={this.handleToggle('pagination')} />
             </FormItem>
-            <FormItem>
-              <Select defaultValue="show" onChange={this.handleToggle('showHeader')}>
-                <Option value="show">Show Header</Option>
-                <Option value="hide">Hide Header</Option>
-              </Select>
+            <FormItem label="Title">
+              <Switch defaultChecked onChange={this.handleTitleChange} />
             </FormItem>
-            <FormItem>
-              <Select defaultValue="show" onChange={this.handleTitleChange}>
-                <Option value="show">Show Title</Option>
-                <Option value="hide">Hide Title</Option>
-              </Select>
+            <FormItem label="Footer">
+              <Switch defaultChecked onChange={this.handleFooterChange} />
             </FormItem>
-            <FormItem>
-              <Select defaultValue="show" onChange={this.handleFooterChange}>
-                <Option value="show">Show Footer</Option>
-                <Option value="hide">Hide Footer</Option>
-              </Select>
+            <FormItem label="Expandable">
+              <Switch defaultChecked onChange={this.handleExpandChange} />
             </FormItem>
-            <FormItem>
-              <Select defaultValue="enabled" onChange={this.handleExpandChange}>
-                <Option value="enabled">Enable Expand Row</Option>
-                <Option value="disabled">Disable Expand Row</Option>
-              </Select>
-            </FormItem>
-            <FormItem>
-              <Select defaultValue="hide" onChange={this.handleToggle('loading')}>
-                <Option value="show">Show Loading</Option>
-                <Option value="hide">Hide Loading</Option>
-              </Select>
+            <FormItem label="Size">
+              <Radio.Group value={state.size} onChange={this.handleSizeChange}>
+                <Radio.Button value="default">Default</Radio.Button>
+                <Radio.Button value="middle">Middle</Radio.Button>
+                <Radio.Button value="small">Small</Radio.Button>
+              </Radio.Group>
             </FormItem>
           </Form>
         </div>
@@ -173,5 +148,9 @@ ReactDOM.render(<Demo />, mountNode);
 <style>
 .components-table-demo-control-bar {
   margin-bottom: 10px;
+}
+.components-table-demo-control-bar .ant-form-item {
+  margin-right: 16px;
+  margin-bottom: 8px;
 }
 </style>
