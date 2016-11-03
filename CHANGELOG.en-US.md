@@ -33,7 +33,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * New icons `bulb` `select` `like-o` `dislike-o`.
   * Adjust existing icons `loading` `like` `dislike`.
 * Improve the TypeScript definition of Card & DatePicker & Icon & Table. [@infeng](https://github.com/infeng) [3468](https://github.com/ant-design/ant-design/pull/3468) [#3603](https://github.com/ant-design/ant-design/pull/3603) [#3531](https://github.com/ant-design/ant-design/pull/3531)
-
 * Fix Cascader `defaultValue` should work. [#3470](https://github.com/ant-design/ant-design/issues/3470)
 * Fix the alignment of Button & Input & DatePicker & Select. [#3481](https://github.com/ant-design/ant-design/issues/3481)
 * DatePicker
