@@ -4,10 +4,12 @@ import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 export const reqAnimFrame = getRequestAnimationFrame();
 
 export const easeInOutCubic = (t, b, c, d) => {
-  t /= d/2;
-	if (t < 1) return c/2*t*t*t + b;
-	t -= 2;
-	return c/2*(t*t*t + 2) + b;
+    const cc = c - b;
+    t /= d / 2;
+    if (t < 1) {
+        return cc / 2 * t * t * t + b;
+    }
+    return cc / 2 * ((t -= 2) * t * t + 2) + b;
 };
 
 export function getDefaultTarget() {
@@ -35,7 +37,7 @@ export function getOffsetTop(element): number {
   return rect.top;
 }
 
-export function scrollTo(href, target = getDefaultTarget){
+export function scrollTo(href, target = getDefaultTarget) {
     const scrollTop = getScroll(target(), true);
     const offsetTop = getOffsetTop(document.querySelector(href));
     const startTime = Date.now();
@@ -68,7 +70,7 @@ class AnchorHelper {
 
   getCurrentActiveAnchor(): HTMLElement | null {
     return this.currentAnchor;
-  } 
+  }
 
   setActiveAnchor(component) {
     this.currentAnchor = component;
@@ -89,10 +91,9 @@ class AnchorHelper {
     return activeAnchor;
   }
 
-  scrollTo(href, target = getDefaultTarget){
+  scrollTo(href, target = getDefaultTarget) {
     scrollTo(href, target);
   }
 }
 
-// const anchorHelper = new AnchorHelper();
 export default AnchorHelper;
