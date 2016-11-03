@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Try copy `Lucy,Jack` to the input. Only available in tags and multiple mode.
+Try to copy `Lucy,Jack` to the input. Only available in tags and multiple mode.
 
 ````jsx
 import { Select } from 'antd';
