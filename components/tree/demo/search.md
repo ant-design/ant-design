@@ -91,7 +91,7 @@ class Demo extends React.Component{
         let {keywords,checkedKeys}=this.state
         const treeData = this.changeToTree(data,keywords)
         return (
-            <div className='container'>
+            <div>
                 <Input
                     placeholder="关键字搜索"
                     onChange={this.changeKeywords}
