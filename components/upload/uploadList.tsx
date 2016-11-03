@@ -132,7 +132,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
                   <a
                     href={file.url}
                     target="_blank" rel="noopener noreferrer"
-                    style={{ pointerEvents: file.url ? '' : 'none' }}
+                    style={{ pointerEvents: file.url || file.thumbUrl ? '' : 'none' }}
                     onClick={e => this.handlePreview(file, e)}
                   >
                     <Icon type="eye-o" />
