@@ -98,7 +98,6 @@ class Demo extends React.Component{
                     value={keywords}/>
                 <Tree
                     checkable
-                    selectedKeys={[]}
                     checkedKeys={checkedKeys}
                     onCheck={this.onCheck}>
                     {treeData}
