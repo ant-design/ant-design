@@ -107,15 +107,15 @@
     .square(@spin-dot-size);
     transform: rotate(45deg);
     animation: antRotate 3.2s infinite linear;
-    & i {
+    i {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background-color: @primary-color;
-      transform: scale(0.5);
+      transform: scale(0.6);
       display: block;
       position: absolute;
-      opacity: 0.2;
+      opacity: 0.3;
       animation: antSpinMove .8s infinite linear alternate;
       transform-origin: 0 0;
       &:nth-child(1) {
@@ -145,7 +145,7 @@
   // small
   &-sm &-dot {
     .square(@spin-dot-size-sm);
-    & i {
+    i {
       width: 6px;
       height: 6px;
     }
@@ -154,7 +154,7 @@
   // large
   &-lg &-dot {
     .square(@spin-dot-size-lg);
-    & i {
+    i {
       width: 12px;
       height: 12px;
     }
