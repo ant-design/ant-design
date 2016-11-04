@@ -39,6 +39,7 @@ title: Transfer
 按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource`里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。
+
 ```jsx
 // 比如你的数据主键是 uid
 return <Transfer rowKey={record => record.uid} />;

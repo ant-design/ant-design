@@ -181,7 +181,9 @@ export default class TransferList extends React.Component<TransferListProps, any
       });
       const lazyProps = assign({
         height: 32,
-        offset: 320,
+        offset: 500,
+        throttle: 0,
+        debounce: false,
       }, lazy);
       return (
         <Lazyload key={item.key} {...lazyProps}>
