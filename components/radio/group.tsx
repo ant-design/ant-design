@@ -82,7 +82,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   }
   render() {
     const props = this.props;
-    const children = React.Children.map((props.children || {}), (radio: any) => {
+    const children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
       if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
         const keyProps = {};
         if (!('key' in radio) && typeof radio.props.value === 'string') {
