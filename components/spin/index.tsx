@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
+import Animate from 'rc-animate';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
 import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
@@ -67,7 +68,6 @@ export default class Spin extends React.Component<SpinProps, any> {
       this.setState({ spinning });
     }
   }
-
   render() {
     const [{
       className, size, prefixCls, tip,
@@ -90,20 +90,33 @@ export default class Spin extends React.Component<SpinProps, any> {
     ]);
 
     const spinElement = (
-      <div {...divProps} className={spinClassName}>
-        <span className={`${prefixCls}-dot`} />
+      <div {...divProps} className={spinClassName} >
+        <span className={`${prefixCls}-dot`}>
+          <i />
+          <i />
+          <i />
+          <i />
+        </span>
         {tip ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
       </div>
     );
-
     if (this.isNestedPattern()) {
+      const containerClassName = classNames({
+        [`${prefixCls}-container`]: true,
+        [`${prefixCls}-filter`]: spinning,
+      });
       return (
-        <div {...divProps} className={spinning ? (`${prefixCls}-nested-loading`) : ''}>
-          {spinElement}
-          <div className={`${prefixCls}-container`}>
+        <Animate
+          {...divProps}
+          component="div"
+          className={`${prefixCls}-nested-loading`}
+          transitionName="fade"
+        >
+          {spinning && <div key="loading">{spinElement}</div>}
+          <div className={containerClassName} key="container">
             {this.props.children}
           </div>
-        </div>
+        </Animate>
       );
     }
     return spinElement;
