@@ -16,47 +16,47 @@ The most basic usage of `Transfer` involves providing the source data and target
 ````jsx
 import { Transfer } from 'antd';
 
+const mockData = [];
+for (let i = 0; i < 20; i++) {
+  mockData.push({
+    key: i.toString(),
+    title: `content${i + 1}`,
+    description: `description of content${i + 1}`,
+    disabled: Math.random() * 3 < 1,
+  });
+}
+
+const targetKeys = mockData
+        .filter(() => Math.random() * 2 > 1)
+        .map(item => item.key);
+
 const App = React.createClass({
   getInitialState() {
     return {
-      mockData: [],
-      targetKeys: [],
+      targetKeys,
+      selectedKeys: [],
     };
   },
-  componentDidMount() {
-    this.getMock();
-  },
-  getMock() {
-    const targetKeys = [];
-    const mockData = [];
-    for (let i = 0; i < 20; i++) {
-      const data = {
-        key: i.toString(),
-        title: `content${i + 1}`,
-        description: `description of content${i + 1}`,
-        chosen: Math.random() * 2 > 1,
-        disabled: Math.random() * 3 < 1,
-      };
-      if (data.chosen) {
-        targetKeys.push(data.key);
-      }
-      mockData.push(data);
-    }
-    this.setState({ mockData, targetKeys });
-  },
-  handleChange(targetKeys, direction, moveKeys) {
-    console.log(targetKeys, direction, moveKeys);
-    this.setState({ targetKeys });
+  handleChange(nextTargetKeys, direction, moveKeys) {
+    this.setState({ targetKeys: nextTargetKeys });
+
+    console.log('targetKeys: ', targetKeys);
+    console.log('direction: ', direction);
+    console.log('moveKeys: ', moveKeys);
   },
   handleSelectChange(sourceSelectedKeys, targetSelectedKeys) {
+    this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
+
     console.log('sourceSelectedKeys: ', sourceSelectedKeys);
     console.log('targetSelectedKeys: ', targetSelectedKeys);
   },
   render() {
+    const state = this.state;
     return (
       <Transfer
-        dataSource={this.state.mockData}
-        targetKeys={this.state.targetKeys}
+        dataSource={mockData}
+        targetKeys={state.targetKeys}
+        selectedKeys={state.selectedKeys}
         onChange={this.handleChange}
         onSelectChange={this.handleSelectChange}
         render={item => item.title}
