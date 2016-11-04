@@ -3,9 +3,9 @@
 
 @spin-prefix-cls: ~"@{ant-prefix}-spin";
 @spin-dot-default: #999;
-@spin-dot-size-sm: 12px;
+@spin-dot-size-sm: 14px;
 @spin-dot-size: 20px;
-@spin-dot-size-lg: 32px;
+@spin-dot-size-lg: 30px;
 
 .@{spin-prefix-cls} {
   color: @primary-color;
@@ -71,17 +71,16 @@
       padding-top: (@spin-dot-size-lg - @font-size-base) / 2;
     }
   }
-
   &-container {
-    transition: all 0.3s @ease-in-out-circ;
+    transition: all 0.3s @ease-in-out;
+    position: relative;
   }
 
-  &-nested-loading > &-container {
+  &-filter {
     opacity: 0.7;
     -webkit-filter: blur(1px);
     filter: blur(1px);
     filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
-    position: relative;
     &:after {
       content: '';
       position: absolute;
@@ -106,22 +105,38 @@
     position: relative;
     display: block;
     .square(@spin-dot-size);
-    &:before,
-    &:after {
-      content: '';
+    transform: rotate(45deg);
+    animation: antRotate 3.2s infinite linear;
+    i {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background-color: @primary-color;
-      animation: antSpinBounce 2.2s infinite ease-in-out;
+      transform: scale(0.6);
       display: block;
       position: absolute;
-      opacity: 0.5;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-    &:after {
-      animation-delay: -1.1s;
+      opacity: 0.3;
+      animation: antSpinMove .8s infinite linear alternate;
+      transform-origin: 0 0;
+      &:nth-child(1) {
+        left: 0;
+        top: 0;
+      }
+      &:nth-child(2) {
+        right: 0;
+        top: 0;
+        animation-delay: 0.4s;
+      }
+      &:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        animation-delay: 0.8s;
+      }
+      &:nth-child(4) {
+        left: 0;
+        bottom: 0;
+        animation-delay: 1.2s;
+      }
     }
   }
 
@@ -130,25 +145,23 @@
   // small
   &-sm &-dot {
     .square(@spin-dot-size-sm);
+    i {
+      width: 6px;
+      height: 6px;
+    }
   }
 
   // large
   &-lg &-dot {
     .square(@spin-dot-size-lg);
+    i {
+      width: 12px;
+      height: 12px;
+    }
   }
 
   &&-show-text &-text {
     display: block;
-  }
-}
-
-@keyframes antSpinBounce {
-  0%,
-  100% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1);
   }
 }
 
@@ -157,5 +170,18 @@
   .@{ant-prefix}-spin-nested-loading > .@{ant-prefix}-spin-container {
     background: #fff;
     opacity: 0.5;
+  }
+}
+
+@keyframes antSpinMove {
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes antRotate {
+  to {
+    transform: rotate(405deg);
   }
 }
