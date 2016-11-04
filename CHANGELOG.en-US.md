@@ -9,6 +9,44 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.3.0
+
+`2016-11-04`
+
+* Upgrade normalize.css to 5.0.
+* Point main file to `lib/index.js` in package.json. [#3397](https://github.com/ant-design/ant-design/pull/3397)
+* A brand new `Spin` design.
+* Add `addon` for `TimePicker` to allow render some addon to its bottom.
+* Add `onDragEnd` for `Tree`.
+* Improve `Tabs` switch animation.
+* Improve `Radio` and `Checkbox` style when it's disabled and mouse hovered. [#3590](https://github.com/ant-design/ant-design/issues/3590)
+* Opitimize `Transfer` performance.[#2860](https://github.com/ant-design/ant-design/issues/2860)
+* Fix nested `Popover` style issue. [#3448](https://github.com/ant-design/ant-design/issues/3448)
+* Fix issue resulting in server side render `Transfer` failed. [#3686](https://github.com/ant-design/ant-design/issues/3686)
+* Fix issue resulting in preview image not display when `Upload` in `picture-card` mode. [#3706](https://github.com/ant-design/ant-design/pull/3706) [@denzw](https://github.com/denzw)
+* DatePicker
+  * `onChange` will be triggered when `DatePicker` in `showTime` mode on blur now.
+  * Add `monthCellContentRender` and `cellContentRender` for `MonthPicker`.
+  * `Rangepicker` can input time manually now.[#3718](https://github.com/ant-design/ant-design/issues/3718)
+  * Add czech locale/translations.
+* Badge
+  * Improve number over 99 displaying when mouse hovering. [#3645](https://github.com/ant-design/ant-design/issues/3645)
+  * Fix moving animation when using `Badge` alone. [#3709](https://github.com/ant-design/ant-design/issues/3709)
+* Mention
+  * Fix issue resulting in `Mention` will be covered by `Table`. [#3588](https://github.com/ant-design/ant-design/issues/3588)
+  * Add `getSuggestionContainer` to allow specify container. [#3658](https://github.com/ant-design/ant-design/pull/3658)
+* Tag
+  * Deprecate `color`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * Add `type`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * Add `checkable`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
+* Radio.Group
+  * Add `className`。
+  * `null` or `undefined` `children` will be ignored.
+* Select
+  * Add `tokenSeparators` to supoort automatic tokenization。[#2071](https://github.com/ant-design/ant-design/issues/2071)
+  * Add `onFocus` callback. [#3587](https://github.com/ant-design/ant-design/issues/3587)
+  * Fix issue resulting in Select can't display correct selected item text in `combobox` mode. [#3401](https://github.com/ant-design/ant-design/issues/3401)
+
 ## 2.2.1
 
 `2016-11-02`

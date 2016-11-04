@@ -9,6 +9,44 @@ timeline: true
 
 ---
 
+## 2.3.0
+
+`2016-11-04`
+
+* 升级 normalize.css 到 5.0。
+* package.json 的 main 换成了 `lib/index.js`。[#3397](https://github.com/ant-design/ant-design/pull/3397)
+* 全新的 `Spin` 设计。
+* `TimePicker` 新增了 `addon` 以支持自定义的附加内容。
+* `Tree` 新增了 `onDragEnd`。
+* 优化 `Tabs` 切换时的动画效果。
+* 优化 `Radio` 和 `Checkbox` 在禁用和鼠标停留时的样式。[#3590](https://github.com/ant-design/ant-design/issues/3590)
+* 优化 `Transfer` 的性能。[#2860](https://github.com/ant-design/ant-design/issues/2860)
+* 修复 `Popover` 嵌套时的样式问题。[#3448](https://github.com/ant-design/ant-design/issues/3448)
+* 修复 `Transfer` 服务端渲染报错的问题。[#3686](https://github.com/ant-design/ant-design/issues/3686)
+* 修复 `Upload` `picture-card` 模式下新上传的图片不显示预览的问题。[#3706](https://github.com/ant-design/ant-design/pull/3706) [@denzw](https://github.com/denzw)
+* DatePicker
+  * 在 `showTime` 模式下现在失去焦点也会触发 `onChange`。
+  * `MonthPicker` 增加了 `monthCellContentRender` 和 `cellContentRender`。
+  * `RangePicker` 现在可以手动输入时间了。[#3718](https://github.com/ant-design/ant-design/issues/3718)
+  * 新增了捷克语的翻译。
+* Badge
+  * 优化鼠标停留时超过 99 的数字显示。[#3645](https://github.com/ant-design/ant-design/issues/3645)
+  * 修复单独使用时会有移动动画的问题。[#3709](https://github.com/ant-design/ant-design/issues/3709)
+* Mention
+  * 修复会被 `Table` 遮住的问题。[#3588](https://github.com/ant-design/ant-design/issues/3588)
+  * 新增 `getSuggestionContainer` 来指定容器。[#3658](https://github.com/ant-design/ant-design/pull/3658)
+* Tag
+  * 废弃 `color` 属性。[#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * 新增 `type`。[#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * 新增 `checkable`。[#3560](https://github.com/ant-design/ant-design/issues/3560)
+* Radio.Group
+  * 新增 `className`。
+  * `children` 为 `null` 或 `undefined` 时现在会被忽略。
+* Select
+  * 新增 `tokenSeparators` 支持粘贴时自动分词。[#2071](https://github.com/ant-design/ant-design/issues/2071)
+  * 新增 `onFocus` 回调。[#3587](https://github.com/ant-design/ant-design/issues/3587)
+  * 修复 `combobox` 模式下选中项不能正确显示的问题。[#3401](https://github.com/ant-design/ant-design/issues/3401)
+
 ## 2.2.1
 
 `2016-11-02`
