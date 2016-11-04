@@ -14,8 +14,8 @@ Directory, organization, biological classification, country, and etc. Almost thi
 
 | Property       | Description                                      | Type       | Default |
 |----------------|--------------------------------------------------|------------|---------|
-|multiple | Whether allow to multiple select treeNode | bool | false |
-|checkable | Whether support checkable treeNode | bool   | false    |
+|multiple | Whether allow to select multiple treeNodes | bool | false |
+|checkable | Whether support add Checkbox before treeNode | bool | false |
 |defaultExpandAll | Whether default to expand all treeNodes | bool | false |
 |defaultExpandedKeys | Specify keys of default expanded treeNodes | String[] | [] |
 |expandedKeys |(controlled) Specifies keys of expanded treeNodes | String[] | [] |
