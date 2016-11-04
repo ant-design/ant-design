@@ -3,9 +3,9 @@
 
 @spin-prefix-cls: ~"@{ant-prefix}-spin";
 @spin-dot-default: #999;
-@spin-dot-size-sm: 12px;
+@spin-dot-size-sm: 14px;
 @spin-dot-size: 20px;
-@spin-dot-size-lg: 32px;
+@spin-dot-size-lg: 30px;
 
 .@{spin-prefix-cls} {
   color: @primary-color;
@@ -105,35 +105,36 @@
     position: relative;
     display: block;
     .square(@spin-dot-size);
+    transform: rotate(45deg);
     animation: antRotate 3.2s infinite linear;
     & i {
       width: 8px;
       height: 8px;
       border-radius: 50%;
       background-color: @primary-color;
-      transform: scale(0.5) translate(-50%, -50%);
+      transform: scale(0.5);
       display: block;
       position: absolute;
       opacity: 0.2;
       animation: antSpinMove .8s infinite linear alternate;
       transform-origin: 0 0;
       &:nth-child(1) {
-        left: 10px;
-        top: 3px;
+        left: 0;
+        top: 0;
       }
       &:nth-child(2) {
-        left: 17px;
-        top: 10px;
+        right: 0;
+        top: 0;
         animation-delay: 0.4s;
       }
       &:nth-child(3) {
-        left: 10px;
-        top: 17px;
+        right: 0;
+        bottom: 0;
         animation-delay: 0.8s;
       }
       &:nth-child(4) {
-        left: 3px;
-        top: 10px;
+        left: 0;
+        bottom: 0;
         animation-delay: 1.2s;
       }
     }
@@ -147,22 +148,6 @@
     & i {
       width: 6px;
       height: 6px;
-      &:nth-child(1) {
-        left: 6px;
-        top: 1px;
-      }
-      &:nth-child(2) {
-        left: 11px;
-        top: 6px;
-      }
-      &:nth-child(3) {
-        left: 6px;
-        top: 11px;
-      }
-      &:nth-child(4) {
-        left: 1px;
-        top: 6px;
-      }
     }
   }
 
@@ -172,22 +157,6 @@
     & i {
       width: 12px;
       height: 12px;
-      &:nth-child(1) {
-        left: 16px;
-        top: 6px;
-      }
-      &:nth-child(2) {
-        left: 26px;
-        top: 16px;
-      }
-      &:nth-child(3) {
-        left: 16px;
-        top: 26px;
-      }
-      &:nth-child(4) {
-        left: 6px;
-        top: 16px;
-      }
     }
   }
 
@@ -206,13 +175,13 @@
 
 @keyframes antSpinMove {
   to {
-    transform: scale(1) translate(-50%, -50%);
+    transform: scale(1);
     opacity: 1;
   }
 }
 
 @keyframes antRotate {
   to {
-    transform: rotate(360deg);
+    transform: rotate(405deg);
   }
 }
