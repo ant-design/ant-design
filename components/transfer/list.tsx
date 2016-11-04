@@ -1,19 +1,13 @@
 import React from 'react';
-import Checkbox from '../checkbox';
 import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
-import Lazyload from 'react-lazy-load';
 import { TransferItem } from './index';
+import Item from './item';
 
 function noop() {
-}
-
-export function isRenderResultPlainObject(result) {
-  return result && !React.isValidElement(result) &&
-    Object.prototype.toString.call(result) === '[object Object]';
 }
 
 export interface TransferListProps {
@@ -128,16 +122,8 @@ export default class TransferList extends React.Component<TransferListProps, any
     );
   }
 
-  matchFilter(filterText, item, text) {
-    const filterOption = this.props.filterOption;
-    if (filterOption) {
-      return filterOption(filterText, item);
-    }
-    return text.indexOf(filterText) >= 0;
-  }
-
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys, lazy,
+    const { prefixCls, dataSource, titleText, filter, checkedKeys, lazy, filterOption,
             body = noop, footer = noop, showSearch, render = noop, style } = this.props;
 
     let { searchPlaceholder, notFoundContent } = this.props;
@@ -154,49 +140,22 @@ export default class TransferList extends React.Component<TransferListProps, any
     const filteredDataSource: TransferItem[] = [];
 
     const showItems = dataSource.map((item) => {
-      const renderResult = render(item);
-
-      if (isRenderResultPlainObject(renderResult)) {
-        return {
-          item: item,
-          renderedText: renderResult.value,
-          renderedEl: renderResult.label,
-        };
-      }
-      return {
-        item: item,
-        renderedText: renderResult,
-        renderedEl: renderResult,
-      };
-    }).filter(({ item, renderedText }) => {
-      return !(filter && filter.trim() && !this.matchFilter(filter, item, renderedText));
-    }).map(({ item, renderedText, renderedEl }) => {
       if (!item.disabled) {
         filteredDataSource.push(item);
       }
-
-      const className = classNames({
-        [`${prefixCls}-content-item`]: true,
-        [`${prefixCls}-content-item-disabled`]: item.disabled,
-      });
-      const lazyProps = assign({
-        height: 32,
-        offset: 500,
-        throttle: 0,
-        debounce: false,
-      }, lazy);
+      const checked = checkedKeys.indexOf(item.key) >= 0;
       return (
-        <Lazyload key={item.key} {...lazyProps}>
-          <li
-            key={item.key}
-            className={className}
-            title={renderedText}
-            onClick={item.disabled ? undefined : () => this.handleSelect(item)}
-          >
-            <Checkbox checked={checkedKeys.some(key => key === item.key)} disabled={item.disabled} />
-            <span>{renderedEl}</span>
-          </li>
-        </Lazyload>
+        <Item
+          key={item.key}
+          item={item}
+          lazy={lazy}
+          render={render}
+          filter={filter}
+          filterOption={filterOption}
+          checked={checked}
+          prefixCls={prefixCls}
+          onClick={this.handleSelect}
+        />
       );
     });
 
