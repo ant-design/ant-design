@@ -1,8 +1,8 @@
 ---
 order: 3
-title: 
-  zh-CN: 布局排序
-  en-US: Layout sort
+title:
+  zh-CN: 栅格排序
+  en-US: Grid sort
 ---
 
 ## zh-CN

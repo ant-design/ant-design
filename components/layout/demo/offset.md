@@ -1,8 +1,8 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 左右偏移
-  en-US: Offset
+  en-US: Column offset
 ---
 
 ## zh-CN
@@ -14,9 +14,6 @@ title:
 ## en-US
 
 `Offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
-
-Column offset.
-
 
 ````jsx
 import { Row, Col } from 'antd';

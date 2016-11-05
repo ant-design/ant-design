@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 基础布局
-  en-US: Basic Layout
+  zh-CN: 基础栅格
+  en-US: Basic Grid
 ---
 
 ## zh-CN
@@ -15,7 +15,7 @@ title:
 
 From the stack to the horizontal arrangement.
 
-You can create a basic grid system by using a single set of `Row` and` Col` grid assembly, ,all of the columns (Col) must be placed in `Row`.
+You can create a basic grid system by using a single set of `Row` and` Col` grid assembly, all of the columns (Col) must be placed in `Row`.
 
 ````jsx
 import { Row, Col } from 'antd';
