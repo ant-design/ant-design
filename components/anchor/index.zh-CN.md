@@ -28,8 +28,3 @@ title: Anchor
 | href    | 锚点链接   | String |         |
 | title | 文字内容   | String |         |
 
-```jsx
-<Anchor>
-    <AnchorLink href="#components-anchor-demo-basic" title="基本" />
-  </Anchor>
-```
