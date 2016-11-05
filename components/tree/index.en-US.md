@@ -36,6 +36,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |onDragEnter | Defines a function will be called when the onDragEnter event occurs | function({event,node,expandedKeys}) | - |
 |onDragOver  | Defines a function will be called when the onDragOver event occurs | function({event,node}) | - |
 |onDragLeave | Defines a function will be called when the onDragLeave event occurs | function({event,node}) | - |
+|onDragEnd | Defines a function will be called when the onDragEnd event occurs | function({event,node}) | - |
 |onDrop | Defines a function will be called when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |
 
 ### TreeNode props
