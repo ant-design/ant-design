@@ -11,10 +11,8 @@ Tabs make it easy to switch between different views.
 Ant Design has 3 types Tabs for different situation.
 
 - Card Tabs: for managing too many closeable views.
-
 - Normal Tabs: for functional aspects of a page.
-
-- RadioButton: for secondary tabs.
+- [RadioButton](/components/radio/#components-radio-demo-radiobutton): for secondary tabs.
 
 ## API
 
