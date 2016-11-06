@@ -141,19 +141,20 @@ export default class Header extends React.Component {
     const searchPlaceholder = locale === 'zh-CN' ? '搜索组件...' : 'Search Components...';
     return (
       <header id="header" className={headerClassName}>
-        <Popover
-          overlayClassName="nav"
+        {menuMode === 'inline' ? <Popover
+          overlayClassName="popover-menu"
           placement="bottomRight"
-          content={menuMode === 'inline' ? menu : null}
+          content={menu}
           trigger="click"
+          arrowPointAtCenter
         >
           <Icon
             className="nav-phone-icon"
             type="menu"
           />
-        </Popover>
+        </Popover> : null}
         <Row>
-          <Col lg={4} md={6} sm={7} xs={24}>
+          <Col lg={4} md={6} sm={24} xs={24}>
             <Link to={{ query, pathname: '/' }} id="logo">
               <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
               <span>Ant Design</span>

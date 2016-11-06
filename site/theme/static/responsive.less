@@ -5,7 +5,7 @@
   top: 32px;
   z-index: 1;
   width: 16px;
-  height: 50px;
+  height: 22px;
   cursor: pointer;
 }
 
@@ -53,9 +53,6 @@
     text-align: center;
   }
 
-  #nav, .lang {
-    float: none;
-  }
   button.lang {
     display: block;
     margin: 29px auto 16px;
@@ -63,12 +60,17 @@
     border-color: #666;
   }
 
-  .nav {
-    .ant-popover-inner-content {
-      padding: 0;
+  .popover-menu {
+    width: 300px;
+    button.lang {
+      margin: 16px auto;
+      float: none;
     }
-    .ant-menu-item-selected {
-      border-right: 1px solid #e9e9e9;
+    .ant-popover-inner {
+      overflow: hidden;
+      &-content {
+        padding: 0;
+      }
     }
   }
 
@@ -82,6 +84,7 @@
     line-height: 60px;
     height: 60px;
     padding: 0 !important;
+    border: 0;
     a {
       color: #333;
     }
