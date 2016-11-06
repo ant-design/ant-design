@@ -131,7 +131,7 @@ const ProductList = ({ onDelete, products }) => {
   );
 };
 
-ProductList.proptypes = {
+ProductList.propTypes = {
   onDelete: PropTypes.func.isRequired,
   products: PropTypes.array.isRequired,
 };
