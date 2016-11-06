@@ -18,6 +18,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * A brand new `Spin` design.
 * Add `addon` for `TimePicker` to allow render some addon to its bottom.
 * Add `onDragEnd` for `Tree`.
+* Add `bordered` for `Collapse`.
 * Improve `Tabs` switch animation.
 * Improve `Radio` and `Checkbox` style when it's disabled and mouse hovered. [#3590](https://github.com/ant-design/ant-design/issues/3590)
 * Opitimize `Transfer` performance.[#2860](https://github.com/ant-design/ant-design/issues/2860)

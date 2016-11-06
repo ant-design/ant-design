@@ -18,6 +18,7 @@ timeline: true
 * 全新的 `Spin` 设计。
 * `TimePicker` 新增了 `addon` 以支持自定义的附加内容。
 * `Tree` 新增了 `onDragEnd`。
+* `Collapse` 新增了 `bordered`。
 * 优化 `Tabs` 切换时的动画效果。
 * 优化 `Radio` 和 `Checkbox` 在禁用和鼠标停留时的样式。[#3590](https://github.com/ant-design/ant-design/issues/3590)
 * 优化 `Transfer` 的性能。[#2860](https://github.com/ant-design/ant-design/issues/2860)
