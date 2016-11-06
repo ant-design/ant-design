@@ -35,5 +35,6 @@ import moment from 'moment';
 | disabledSeconds     | 禁止选择部分秒选项 | function(selectedHour, selectedMinute) | 无 |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |
 | getPopupContainer   | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
+| addon | 选择框底部显示自定义的内容 | function | 无 |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

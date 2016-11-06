@@ -37,7 +37,9 @@ subtitle: 树形控件
 |onDragEnter | dragenter 触发时调用 | function({event,node,expandedKeys}) | - |
 |onDragOver | dragover 触发时调用 | function({event,node}) | - |
 |onDragLeave | dragleave 触发时调用 | function({event,node}) | - |
+|onDragEnd | dragend 触发时调用 | function({event,node}) | - |
 |onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
+
 
 ### TreeNode props
 
