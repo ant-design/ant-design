@@ -16,7 +16,6 @@ title: Transfer
 
 ## API
 
-
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外。 | Array | [] |
@@ -33,13 +32,14 @@ title: Transfer
 | searchPlaceholder | 搜索框的默认值 | String | '请输入搜索内容' |
 | notFoundContent | 当列表为空时显示的内容 | React.node | '列表为空'  |
 | footer | 底部渲染函数 | Function(props) |  |
-
+| lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数 | Object | `{ height: 32, offset: 32 }` |
 
 ## 注意
 
 按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Transfer 中，`dataSource`里的数据值需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。
+
 ```jsx
 // 比如你的数据主键是 uid
 return <Transfer rowKey={record => record.uid} />;

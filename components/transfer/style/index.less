@@ -47,7 +47,7 @@
     }
 
     &-header {
-      padding: 7px 16px;
+      padding: 7px 15px;
       border-radius: @border-radius-base @border-radius-base 0 0;
       background: #fff;
       color: #666;
@@ -59,7 +59,8 @@
       width: 100%;
 
       &-title {
-        float: right;
+        position: absolute;
+        right: 15px;
       }
     }
 
@@ -96,7 +97,8 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        padding: 7px 16px;
+        padding: 7px 15px;
+        min-height: 32px;
         transition: all 0.3s ease;
       }
 
