@@ -2,6 +2,7 @@
 category: Components
 type: Views
 title: Collapse
+cols: 1
 ---
 
 A content area which can be collapsed and expanded.
@@ -27,4 +28,3 @@ A content area which can be collapsed and expanded.
 |----------|----------------|----------|--------------|
 | key    | corresponds to the `activeKey` | String   |  -  |
 | header    | title of the panel | React.Element or String   | - |
-
