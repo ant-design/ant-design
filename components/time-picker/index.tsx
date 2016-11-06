@@ -29,9 +29,9 @@ export interface TimePickerProps {
   disabledMinutes?: Function;
   /** 禁止选择部分秒选项 */
   disabledSeconds?: Function;
-
   style?: React.CSSProperties;
   getPopupContainer?: (trigger: any) => any;
+  addon?: Function;
 }
 
 export interface TimePickerContext {
@@ -109,6 +109,11 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         showHour={props.format.indexOf('HH') > -1}
         showSecond={props.format.indexOf('ss') > -1}
         onChange={this.handleChange}
+        addon={(panel) => (
+          props.addon ? <div className={`${props.prefixCls}-panel-addon`}>
+            {props.addon(panel)}
+          </div> : null
+        )}
       />
     );
   }

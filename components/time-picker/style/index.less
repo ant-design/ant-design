@@ -81,7 +81,6 @@
     float: left;
     font-size: 12px;
     border-left: 1px solid @border-color-split;
-    margin-left: -1px;
     box-sizing: border-box;
     width: 56px;
     overflow: hidden;
@@ -145,6 +144,15 @@
         cursor: @cursor-disabled;
       }
     }
+  }
+
+  &-combobox {
+    .clearfix;
+  }
+
+  &-addon {
+    padding: 8px;
+    border-top: 1px solid @border-color-split;
   }
 
   &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
