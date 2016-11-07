@@ -82,7 +82,7 @@ const ExtendPalettes = React.createClass({
         ]
       },
       {
-        'title': 'Magenta #E9259',
+        'title': 'Magenta #E9259E',
         'description': '玫红色是较为正面的色彩，含有鼓励、友好、活力的意义。但考虑到洋红色的特性，建议作为辅助色来使用。',
         'colors': [
           "#F8C5ED", "#F5A6D3", "#F387C0",
