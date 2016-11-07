@@ -10,8 +10,7 @@ import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
-import SelectionRadio from './SelectionRadio';
-import SelectionCheckbox from './SelectionCheckbox';
+import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
 
 function noop() {
@@ -534,38 +533,28 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
   }
 
-  renderSelectionRadio = (_, record, index) => {
-    let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-    const props = this.getCheckboxPropsByItem(record);
+  renderSelectionBox = (type) => {
+    return (_, record, index) => {
+      let rowIndex = this.getRecordKey(record, index); // 从 1 开始
+      const props = this.getCheckboxPropsByItem(record);
+      const handleChange = (e) => {
+        type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
+                           this.handleSelect(record, rowIndex, e);
+      };
 
-    return (
-      <span onClick={stopPropagation}>
-        <SelectionRadio
-          store={this.store}
-          rowIndex={rowIndex}
-          disabled={props.disabled}
-          onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
-          defaultSelection={this.getDefaultSelection()}
-        />
-      </span>
-    );
-  }
-
-  renderSelectionCheckBox = (_, record, index) => {
-    let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-    const props = this.getCheckboxPropsByItem(record);
-
-    return (
-      <span onClick={stopPropagation}>
-        <SelectionCheckbox
-          store={this.store}
-          rowIndex={rowIndex}
-          disabled={props.disabled}
-          onChange={(e) => this.handleSelect(record, rowIndex, e)}
-          defaultSelection={this.getDefaultSelection()}
-        />
-      </span>
-    );
+      return (
+        <span onClick={stopPropagation}>
+          <SelectionBox
+            type={type}
+            store={this.store}
+            rowIndex={rowIndex}
+            disabled={props.disabled}
+            onChange={handleChange}
+            defaultSelection={this.getDefaultSelection()}
+          />
+        </span>
+      );
+    };
   }
 
   getRecordKey = (record, index?): string => {
@@ -590,16 +579,14 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         }
         return true;
       });
-      let selectionColumn;
-      if (rowSelection.type === 'radio') {
-        selectionColumn = {
-          key: 'selection-column',
-          render: this.renderSelectionRadio,
-          className: `${prefixCls}-selection-column`,
-        };
-      } else {
+      const selectionColumn: TableColumnConfig<any> = {
+        key: 'selection-column',
+        render: this.renderSelectionBox(rowSelection.type),
+        className: `${prefixCls}-selection-column`,
+      };
+      if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
-        const checkboxAll = (
+        selectionColumn.title  = (
           <SelectionCheckboxAll
             store={this.store}
             data={data}
@@ -609,12 +596,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
             onChange={this.handleSelectAllRow}
           />
         );
-        selectionColumn = {
-          key: 'selection-column',
-          title: checkboxAll,
-          render: this.renderSelectionCheckBox,
-          className: `${prefixCls}-selection-column`,
-        };
       }
       if (columns.some(column => column.fixed === 'left' || column.fixed === true)) {
         selectionColumn.fixed = 'left';
