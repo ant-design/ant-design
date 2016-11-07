@@ -15,6 +15,7 @@ export default class RangePicker extends React.Component<any, any> {
     super(props);
     this.state = {
       value: props.value || props.defaultValue || [],
+      open: props.open,
     };
   }
 
@@ -22,6 +23,11 @@ export default class RangePicker extends React.Component<any, any> {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value || [],
+      });
+    }
+    if ('open' in nextProps) {
+      this.setState({
+        open: nextProps.open,
       });
     }
   }
@@ -42,6 +48,40 @@ export default class RangePicker extends React.Component<any, any> {
       (value[0] && value[0].format(props.format)) || '',
       (value[1] && value[1].format(props.format)) || '',
     ]);
+  }
+
+  handleOpenChange = (open) => {
+    this.setState({ open });
+
+    const onOpenChange = this.props.onOpenChange;
+    if (onOpenChange) {
+      onOpenChange(open);
+    }
+  }
+
+  setValue(value) {
+    this.setState({ value });
+    if (!this.props.showTime) {
+      this.setState({ open: false });
+    }
+  }
+
+  renderFooter = () => {
+    const { prefixCls, ranges, locale } = this.props;
+    if (!ranges) {
+      return null;
+    }
+
+    const operations = Object.keys(ranges).map((range) => {
+      const value = ranges[range];
+      return <a key={range} onClick={() => this.setValue(value)}>{range}</a>;
+    });
+    return (
+      <div className={`${prefixCls}-range-quick-selector`}>
+        <label>{locale.lang.quickSelection}</label>
+        {operations}
+      </div>
+    );
   }
 
   render() {
@@ -80,6 +120,7 @@ export default class RangePicker extends React.Component<any, any> {
         format={format}
         prefixCls={prefixCls}
         className={calendarClassName}
+        renderFooter={this.renderFooter}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
         disabledTime={disabledTime}
@@ -103,6 +144,8 @@ export default class RangePicker extends React.Component<any, any> {
         {...pickerChangeHandler}
         calendar={calendar}
         value={state.value}
+        open={state.open}
+        onOpenChange={this.handleOpenChange}
         prefixCls={`${prefixCls}-picker-container`}
         style={popupStyle}
       >

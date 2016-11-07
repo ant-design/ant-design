@@ -20,6 +20,8 @@ export interface PickerProps {
   locale?: any;
   size?: 'large' | 'small' | 'default';
   getCalendarContainer?: (trigger: any) => React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (status: boolean) => void;
 }
 
 export interface SinglePickerProps {
@@ -52,6 +54,9 @@ export interface RangePickerProps extends PickerProps {
   defaultPickerValue?: [moment.Moment, moment.Moment];
   onChange?: (dates: [moment.Moment, moment.Moment], dateStrings: [string, string]) => void;
   showTime?: TimePickerProps | boolean;
+  ranges?: {
+    [range: string]: moment.Moment[],
+  };
 }
 
 assign(DatePicker, {

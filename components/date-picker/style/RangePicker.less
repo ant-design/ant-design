@@ -148,6 +148,28 @@
 
   &-bottom {
     text-align: right;
+
+    .@{calendar-prefix-cls}-footer-btn {
+      padding-right: 16px;
+    }
+  }
+
+  div&-quick-selector {
+    display: block;
+    text-align: left;
+    border-bottom: 1px solid @border-color-split;
+    padding: 8.5px 10px;
+
+    > label {
+      &:after {
+        content: ":";
+        margin: 0 8px 0 2px;
+      }
+    }
+
+    > a {
+      margin-right: 16px;
+    }
   }
 
   .@{calendar-prefix-cls},

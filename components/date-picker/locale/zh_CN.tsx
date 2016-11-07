@@ -12,6 +12,7 @@ const locale = {
   lang: assign({
     placeholder: '请选择日期',
     rangePlaceholder: ['开始日期', '结束日期'],
+    quickSelection: '快捷选择',
   }, CalendarLocale),
   timePickerLocale: assign({}, TimePickerLocale),
 };
