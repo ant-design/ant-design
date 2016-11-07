@@ -9,6 +9,12 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.3.1
+
+`2016-11-07`
+
+* Add missing `dist/antd.css` back.
+
 ## 2.3.0
 
 `2016-11-04`

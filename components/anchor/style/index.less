@@ -1,0 +1,59 @@
+@import "../../style/themes/default";
+
+.@{ant-prefix} {
+  &-anchor {
+    position: relative;
+    &-wrapper {
+      padding: 6px;
+      background-color: white;
+    }
+  }
+  &-anchor-ink {
+    position: absolute;
+    width: 9px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    &:before {
+      content: ' ';
+      position: relative;
+      width: 2px;
+      height: 100%;
+      display: block;
+      background-color: #ccc;
+      margin: 0 auto;
+    }
+    &-ball {
+      display: none;
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 9px;
+      border: 3px solid @primary-color;
+      background-color: white;
+      transition: top .3s ease-in-out;
+
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+  &-anchor-link {
+    padding-left: 16px;
+
+    &-title {
+      display: inline-block;
+      position: relative;
+    }
+
+    &-active > &-title,
+    &-title:hover {
+      cursor: pointer;
+      color: @primary-color;
+    }
+
+    & > & {
+      font-size: 12px;
+    }
+  }
+}

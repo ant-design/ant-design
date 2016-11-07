@@ -70,7 +70,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | validateFieldsAndScroll | This function is similar to `validateFields`, but after validation, if the target field is not in visible area of form, form will be automatically scrolled to the target field area. | same as `validateFields` |
 | getFieldError | Get the error of a field. | Function(name) |
 | isFieldValidating | Check if the specified field is being validated. | Function(name) |
-| resetFields | Reset the specified fields' value and status. If you don't specify a parameter, all the fields will be reset. | Function([names: string[]]) |
+| resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function([names: string[]]) |
 | getFieldDecorator | Two-way binding for form, please read below for details. | |
 
 ### this.props.form.getFieldDecorator(id, options)
