@@ -1,6 +1,4 @@
 /* eslint no-console:0 */
-// this file is not used if use https://github.com/ant-design/babel-plugin-import
-
 function camelCase(name) {
   return name.charAt(0).toUpperCase() +
     name.slice(1).replace(/-(\w)/g, (m, n) => {
@@ -8,9 +6,8 @@ function camelCase(name) {
     });
 }
 
+// Just import style for https://github.com/ant-design/ant-design/issues/3745
 const req = require.context('./components', true, /^\.\/[^_][\w-]+\/(style\/)index\.tsx?$/);
-
-console.log(req.keys());
 
 req.keys().forEach((mod) => {
   let v = req(mod);
