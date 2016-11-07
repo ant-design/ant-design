@@ -85,7 +85,7 @@
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
     "bisheng": "^0.14.0",
-    "bisheng-plugin-antd": "~0.3.0",
+    "bisheng-plugin-antd": "~0.6.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.2.0",
     "bisheng-plugin-toc": "^0.3.0",
