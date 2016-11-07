@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 警告提示
-type: Views
+type: Feedback
 title: Alert
 ---
 

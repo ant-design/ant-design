@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 上传
-type: Form Controls
+type: Data Entry
 title: Upload
 ---
 

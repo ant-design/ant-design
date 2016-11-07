@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Basic
+type: General
 title: Button
 subtitle: 按钮
 ---

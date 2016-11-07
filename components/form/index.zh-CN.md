@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 表单
-type: Form Controls
+type: Data Entry
 cols: 1
 title: Form
 ---

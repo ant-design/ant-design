@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 选择器
-type: Form Controls
+type: Data Entry
 title: Select
 ---
 

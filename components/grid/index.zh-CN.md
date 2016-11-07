@@ -1,16 +1,16 @@
 ---
 category: Components
 subtitle: 栅格
-type: Basic
+type: Layout
 cols: 1
-title: Layout
+title: Grid
 ---
 
 24 栅格系统。
 
 ## 设计理念
 
-<div class="layout-demo">
+<div class="grid-demo">
 <div class="ant-row demo-row">
   <div class="ant-col-24 demo-col demo-col-1">
     100%

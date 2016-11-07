@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 树选择
-type: Form Controls
+type: Data Entry
 title: TreeSelect
 ---
 

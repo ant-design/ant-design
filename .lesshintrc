@@ -12,7 +12,7 @@
   "newlineAfterBlock": false,
   "maxCharPerLine": false,
   "excludedFiles": [
-    "components/layout/style/mixin.less",
+    "components/grid/style/mixin.less",
     "components/style/core/base.less",
     "components/style/core/iconfont.less",
     "components/style/core/normalize.less",

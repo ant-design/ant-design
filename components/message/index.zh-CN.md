@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 全局提示
-type: Views
+type: Feedback
 noinstant: true
 title: Message
 ---

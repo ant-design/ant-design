@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Views
+type: Feedback
 noinstant: true
 title: Notification
 subtitle: 通知提醒框

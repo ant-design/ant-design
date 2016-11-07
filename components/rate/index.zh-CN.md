@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 评分
-type: Form Controls
+type: Data Entry
 title: Rate
 ---
 
