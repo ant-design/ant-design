@@ -63,7 +63,7 @@ export default class Spin extends React.Component<SpinProps, any> {
       clearTimeout(this.debounceTimeout);
     }
     if (currentSpinning && !spinning) {
-      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 500);
+      this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 300);
     } else {
       this.setState({ spinning });
     }
@@ -103,7 +103,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     if (this.isNestedPattern()) {
       const containerClassName = classNames({
         [`${prefixCls}-container`]: true,
-        [`${prefixCls}-filter`]: spinning,
+        [`${prefixCls}-blur`]: spinning,
       });
       return (
         <Animate
