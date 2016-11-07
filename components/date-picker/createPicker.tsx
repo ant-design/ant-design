@@ -95,8 +95,11 @@ export default function createPicker(TheCalendar) {
       if (props.showTime) {
         calendarHandler = {
           // fix https://github.com/ant-design/ant-design/issues/1902
-          onSelect: (value) => {
+          onSelect: (value, cause) => {
             this.handleTempChange(value);
+            if (cause && cause.source === 'todayButton') {
+              this.handleChange(value);
+            }
           },
         };
       } else {
