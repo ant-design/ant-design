@@ -21,7 +21,7 @@ For displaying anchor hyperlink on page, and jump between then.
 | offsetBottom | Pixels to offset from bottom when calculating position of scroll | Number | - |
 | bounds     | Bounding distance of anchor area | Number | 5(px) |
 
-### AnchorLink Props
+### Link Props
 
 | Property        | Description           | Type               | Default       |
 |-------------|----------------|--------------------|--------------|

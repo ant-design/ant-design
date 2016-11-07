@@ -21,7 +21,8 @@ title: Anchor
 | offsetTop    | 距离窗口顶部达到指定偏移量后触发   | Number |         |
 | offsetBottom | 距离窗口底部达到指定偏移量后触发   | Number |         |
 | bounds | 锚点区域边界 | Number | 5(px) |
-### AnchorLink Props
+
+### Link Props
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|

@@ -40,11 +40,12 @@ export function getOffsetTop(element): number {
 export function scrollTo(href, target = getDefaultTarget) {
     const scrollTop = getScroll(target(), true);
     const offsetTop = getOffsetTop(document.querySelector(href));
+    const targetScrollTop = scrollTop + offsetTop;
     const startTime = Date.now();
     const frameFunc = () => {
       const timestamp = Date.now();
       const time = timestamp - startTime;
-      document.body.scrollTop = easeInOutCubic(time, scrollTop, offsetTop, 450);
+      document.body.scrollTop = easeInOutCubic(time, scrollTop, targetScrollTop, 450);
       if (time < 450) {
         reqAnimFrame(frameFunc);
       }

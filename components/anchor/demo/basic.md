@@ -15,12 +15,12 @@ The simplest usage.
 
 ```jsx
 import { Anchor } from 'antd';
-const { AnchorLink } = Anchor;
+const { Link } = Anchor;
 
 ReactDOM.render(
   <Anchor>
-    <AnchorLink href="#components-anchor-demo-basic" title="基本" />
-    <AnchorLink href="#components-anchor-demo-independ" title="独立使用" />
+    <Link href="#components-anchor-demo-basic" title="Basic" />
+    <Link href="#components-anchor-demo-independ" title="Independent AnchorLink" />
   </Anchor>
 , mountNode);
 ```

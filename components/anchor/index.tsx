@@ -14,7 +14,7 @@ export interface AnchorProps {
 }
 
 export default class Anchor extends React.Component<AnchorProps, any> {
-  static AnchorLink = AnchorLink;
+  static Link = AnchorLink;
 
   static defaultProps = {
     prefixCls: 'ant-anchor',

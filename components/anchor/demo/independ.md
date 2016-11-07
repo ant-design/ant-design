@@ -15,9 +15,9 @@ Independent AnchorLink
 
 ```jsx
 import { Anchor } from 'antd';
-const { AnchorLink } = Anchor;
+const { Link } = Anchor;
 
 ReactDOM.render(
-    <AnchorLink href="#components-anchor-demo-basic" title="基本" />
+    <Link href="#components-anchor-demo-basic" title="Basic" />
 , mountNode);
 ```
