@@ -7,7 +7,7 @@
 @process-description-color: @process-title-color;
 @process-tail-color: @border-color-split;
 @wait-icon-color: #ccc;
-@wait-title-color: #999;
+@wait-title-color: @text-color-secondary;
 @wait-description-color: @wait-title-color;
 @wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
@@ -191,7 +191,7 @@
   }
   .@{steps-prefix-cls}-description {
     font-size: 12px;
-    color: #999;
+    color: @text-color-secondary;
   }
   .@{steps-prefix-cls}-tail {
     position: absolute;
@@ -245,7 +245,7 @@
     }
     .@{steps-prefix-cls}-description {
       font-size: 12px;
-      color: #999;
+      color: @text-color-secondary;
     }
     .@{steps-prefix-cls}-tail {
       top: 8px;

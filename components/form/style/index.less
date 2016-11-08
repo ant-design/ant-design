@@ -32,7 +32,7 @@ input[type="radio"],
 input[type="checkbox"] {
   &[disabled],
   &.disabled {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
   }
 }
 
@@ -42,7 +42,7 @@ input[type="checkbox"] {
 .@{ant-prefix}-checkbox-inline,
 .@{ant-prefix}-checkbox-vertical {
   &.disabled {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
   }
 }
 
@@ -51,7 +51,7 @@ input[type="checkbox"] {
 .@{ant-prefix}-checkbox {
   &.disabled {
     label {
-      cursor: @cursor-disabled;
+      cursor: not-allowed;
     }
   }
 }
@@ -116,7 +116,7 @@ input[type="checkbox"] {
 
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
-  color: #999;
+  color: @text-color-secondary;
 }
 
 .@{form-prefix-cls}-text {
@@ -426,7 +426,7 @@ form {
     display: inline-block;
     animation: loadingCircle 1s infinite linear;
     content: "\e6ae";
-    color: #999;
+    color: @text-color-secondary;
   }
 }
 

@@ -25,7 +25,7 @@
   }
 
   &-item-group-title {
-    color: #999;
+    color: @text-color-secondary;
     font-size: 12px;
     line-height: 1.5;
     padding: 8px 16px;
@@ -155,11 +155,11 @@
     // Disabled state sets text to gray and nukes hover/tab effects
     &.@{menu-prefix-cls}-item-disabled,
     &.@{menu-prefix-cls}-submenu-disabled {
-      color: #999 !important;
+      color: @text-color-secondary !important;
       cursor: not-allowed;
       background: none;
       > a {
-        color: #999 !important;
+        color: @text-color-secondary !important;
         pointer-events: none;
       }
     }
@@ -319,7 +319,7 @@
 .@{menu-prefix-cls} {
   &-dark,
   &-dark &-sub {
-    color: #999;
+    color: @text-color-secondary;
     background: #404040;
   }
 
@@ -340,7 +340,7 @@
 
   &-dark &-item,
   &-dark &-item > a {
-    color: #999;
+    color: @text-color-secondary;
   }
 
   &-dark&-inline,

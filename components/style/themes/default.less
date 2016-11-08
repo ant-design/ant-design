@@ -15,6 +15,7 @@
 @code-family            : Consolas,Menlo,Courier,monospace;
 @text-color             : #666;
 @heading-color          : #404040;
+@text-color-secondary   : #999;
 @font-size-base         : 12px;
 @line-height-base       : 1.5;
 @line-height-computed   : floor((@font-size-base * @line-height-base));
@@ -30,9 +31,6 @@
 @link-hover-color       : tint(@link-color, 20%);
 @link-active-color      : shade(@link-color, 5%);
 @link-hover-decoration  : none;
-
-// Disabled cursor for form controls and buttons.
-@cursor-disabled        : not-allowed;
 
 // Animation
 @ease-out            : cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -91,10 +89,8 @@
 @btn-disable-border     : @border-color-base;
 
 @btn-padding-base       : 4px 15px;
-
 @btn-font-size-lg       : 14px;
 @btn-padding-lg         : 4px 15px 5px 15px;
-
 @btn-padding-sm         : 1px 7px;
 
 @btn-circle-size        : 28px;
@@ -126,11 +122,6 @@
 @grid-columns           : 24;
 @grid-gutter-width      : 0;
 
-// Container sizes
-@container-sm           : (720px + @grid-gutter-width);
-@container-md           : (940px + @grid-gutter-width);
-@container-lg           : (1140px + @grid-gutter-width);
-
 // z-index list
 @zindex-affix           : 11;
 @zindex-back-top        : 10;
@@ -150,8 +141,6 @@
 
 // Form
 // ---
-@legend-color                : #999;
-@legend-border-color         : @border-color-base;
 @label-required-color        : #f50;
 @label-color                 : @text-color;
 @form-item-margin-bottom     : 24px;
