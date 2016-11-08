@@ -1,5 +1,5 @@
 import moment from 'moment';
-moment.locale('en');
+moment.locale('zh_cn');
 
 import Pagination from 'rc-pagination/lib/locale/zh_CN';
 import DatePicker from '../date-picker/locale/zh_CN';
@@ -12,28 +12,28 @@ export default {
   TimePicker,
   Calendar,
   Table: {
-    filterTitle: 'Filter Menu',
-    filterConfirm: 'OK',
-    filterReset: 'Reset',
-    emptyText: 'No Data',
+    filterTitle: '筛选',
+    filterConfirm: '确定',
+    filterReset: '重置',
+    emptyText: <span><Icon type="frown-o" />暂无数据</span>,
   },
   Modal: {
-    okText: 'OK',
-    cancelText: 'Cancel',
-    justOkText: 'OK',
+    okText: '确定',
+    cancelText: '取消',
+    justOkText: '知道了',
   },
   Popconfirm: {
-    okText: 'OK',
-    cancelText: 'Cancel',
+    okText: '确定',
+    cancelText: '取消',
   },
   Transfer: {
-    titles: ['Source', 'Target'],
-    notFoundContent: 'Not Found',
-    searchPlaceholder: 'Search here',
-    itemUnit: 'item',
-    itemsUnit: 'items',
+    titles: ['源列表', '目的列表'],
+    notFoundContent: '列表为空',
+    searchPlaceholder: '请输入搜索内容',
+    itemUnit: '条',
+    itemsUnit: '条',
   },
   Select: {
-    notFoundContent: 'Not Found',
+    notFoundContent: '未找到',
   },
 };
