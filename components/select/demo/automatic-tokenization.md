@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-试下复制`露西,杰克`到输入框里。只在 tags 和 multiple 模式下可用。
+试下复制 `露西,杰克` 到输入框里。只在 tags 和 multiple 模式下可用。
 
 ## en-US
 
@@ -27,7 +27,8 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select tags
+  <Select
+    tags
     style={{ width: '100%' }}
     onChange={handleChange}
     tokenSeparators={[',']}
