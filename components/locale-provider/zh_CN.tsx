@@ -15,7 +15,7 @@ export default {
     filterTitle: '筛选',
     filterConfirm: '确定',
     filterReset: '重置',
-    emptyText: <span><Icon type="frown-o" />暂无数据</span>,
+    emptyText: '暂无数据',
   },
   Modal: {
     okText: '确定',
