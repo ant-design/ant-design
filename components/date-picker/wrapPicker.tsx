@@ -61,7 +61,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
 
       const locale = getLocale(
         props, this.context, 'DatePicker',
-        () => require('./locale/zh_CN')
+        () => require('./locale/en_US')
       );
 
       const timeFormat = (props.showTime && props.showTime.format) || 'HH:mm:ss';
