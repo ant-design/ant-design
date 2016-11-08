@@ -34,7 +34,7 @@
   &:hover,
   &-focused {
     .@{radio-inner-prefix-cls} {
-      border-color: #bbb;
+      border-color: @primary-color;
     }
   }
   &-inner {
@@ -84,7 +84,7 @@
 // 选中状态
 .@{radio-prefix-cls}-checked {
   .@{radio-inner-prefix-cls} {
-    border-color: @border-color-base;
+    border-color: @primary-color;
     &:after {
       transform: scale(1);
       opacity: 1;

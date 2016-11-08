@@ -16,7 +16,7 @@
     &:hover,
     &-focused {
       .@{checkbox-inner-prefix-cls} {
-        border-color: #bbb;
+        border-color: @primary-color;
       }
     }
 
@@ -92,14 +92,7 @@
   .@{checkbox-prefix-cls}-checked,
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
-      border-color: @primary-color;
       background-color: @primary-color;
-    }
-    .@{checkbox-prefix-cls}-wrapper:hover &,
-    &:hover {
-      .@{checkbox-inner-prefix-cls} {
-        border-color: @primary-color;
-      }
     }
   }
 
