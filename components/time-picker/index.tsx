@@ -3,7 +3,7 @@ import moment from 'moment';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import defaultLocale from './locale/zh_CN';
+import defaultLocale from './locale/en_US';
 
 // TimePicker
 export interface TimePickerProps {
