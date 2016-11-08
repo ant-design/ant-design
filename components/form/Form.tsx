@@ -1,12 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
+import createDOMForm from 'rc-form/lib/createDOMForm';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import omit from 'omit.js';
-import warning from 'warning';
 import assign from 'object-assign';
+import warning from '../_util/warning';
 import FormItem from './FormItem';
-import createDOMForm from 'rc-form/lib/createDOMForm';
 import { FIELD_META_PROP } from './constants';
 
 export interface FormCreateOption {
@@ -121,14 +121,14 @@ export default class Form extends React.Component<FormProps, any> {
         };
       },
       componentWillMount() {
-        this.getFieldProps = this.deprecatedGetFieldProps;
+        this.__getFieldProps = this.props.form.getFieldProps;
       },
       deprecatedGetFieldProps(name, option) {
         warning(
           false,
           '`getFieldProps` is not recommended, please use `getFieldDecorator` instead'
         );
-        return this.getFieldProps(name, option);
+        return this.__getFieldProps(name, option);
       },
       render() {
         this.props.form.getFieldProps = this.deprecatedGetFieldProps;
