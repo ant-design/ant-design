@@ -159,7 +159,7 @@ export default class TransferList extends React.Component<TransferListProps, any
       );
     });
 
-    let unit = 'Item';
+    let unit = 'item';
     const antLocale = this.context.antLocale;
     if (antLocale && antLocale.Transfer) {
       const transferLocale = antLocale.Transfer;
