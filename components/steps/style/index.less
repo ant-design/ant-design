@@ -3,7 +3,7 @@
 
 @steps-prefix-cls: ~"@{ant-prefix}-steps";
 @process-icon-color: @primary-color;
-@process-title-color: #666;
+@process-title-color: @text-color;
 @process-description-color: @process-title-color;
 @process-tail-color: @border-color-split;
 @wait-icon-color: #ccc;
@@ -174,13 +174,13 @@
   .@{steps-prefix-cls}-title {
     font-size: 14px;
     margin-bottom: 4px;
-    color: #666;
+    color: @text-color;
     font-weight: bold;
     background: #fff;
     display: inline-block;
     padding-right: 10px;
     > a:first-child:last-child {
-      color: #666;
+      color: @text-color;
     }
   }
   .@{steps-prefix-cls}-item-last {
@@ -240,7 +240,7 @@
     .@{steps-prefix-cls}-title {
       font-size: 12px;
       margin-bottom: 4px;
-      color: #666;
+      color: @text-color;
       font-weight: bold;
     }
     .@{steps-prefix-cls}-description {
