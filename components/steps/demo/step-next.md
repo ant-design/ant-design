@@ -48,11 +48,7 @@ class App extends React.Component {
     return (
       <div>
         <Steps current={current}>
-          {
-            steps.map((item) => {
-              return <Step key={item.title} title={item.title} />;
-            })
-          }
+          {steps.map(item => <Step key={item.title} title={item.title} />)}
         </Steps>
         <div className="steps-content">{steps[this.state.current].content}</div>
         <div className="steps-action">
@@ -70,7 +66,7 @@ class App extends React.Component {
             this.state.current > 0
             &&
             <Button style={{ marginLeft: 8 }} type="ghost" onClick={() => this.prev()}>
-              Prev
+              Previous
             </Button>
           }
         </div>
@@ -92,8 +88,8 @@ ReactDOM.render(<App />, mountNode);
   text-align: center;
   padding-top: 80px;
 }
+
 .steps-action {
   margin-top: 40px;
 }
-
 ````
