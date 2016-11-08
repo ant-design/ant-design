@@ -23,10 +23,10 @@ function stopPropagation(e) {
 }
 
 const defaultLocale = {
-  filterTitle: '筛选',
-  filterConfirm: '确定',
-  filterReset: '重置',
-  emptyText: <span><Icon type="frown-o" />暂无数据</span>,
+  filterTitle: 'Filter Menu',
+  filterConfirm: 'OK',
+  filterReset: 'Reset',
+  emptyText: <span><Icon type="frown-o" />No Data</span>,
 };
 
 const defaultPagination = {
