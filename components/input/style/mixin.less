@@ -157,6 +157,7 @@
     background-color: #eee;
     border: 1px solid @input-border-color;
     border-radius: @border-radius-base;
+    position: relative;
 
     // Reset Select's style in addon
     .@{ant-prefix}-select {
@@ -175,6 +176,17 @@
           border-color: tint(@primary-color, 20%);
         }
       }
+    }
+
+    // Expand addon icon click area
+    // https://github.com/ant-design/ant-design/issues/3714
+    > i:only-child:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
     }
   }
 
