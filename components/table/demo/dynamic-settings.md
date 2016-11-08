@@ -79,6 +79,7 @@ class Demo extends React.Component {
     expandedRowRender,
     title,
     footer,
+    rowSelection: {},
   }
 
   handleToggle = (prop) => {
@@ -101,6 +102,10 @@ class Demo extends React.Component {
 
   handleFooterChange = (enable) => {
     this.setState({ footer: enable ? footer : undefined });
+  }
+
+  handleRowSelectionChange = (enable) => {
+    this.setState({ rowSelection: enable ? {} : undefined });
   }
 
   render() {
@@ -126,6 +131,9 @@ class Demo extends React.Component {
             </FormItem>
             <FormItem label="Expandable">
               <Switch defaultChecked onChange={this.handleExpandChange} />
+            </FormItem>
+            <FormItem defaultChecked label="Checkbox">
+              <Switch onChange={this.handleRowSelectionChange} />
             </FormItem>
             <FormItem label="Size">
               <Radio.Group value={state.size} onChange={this.handleSizeChange}>
