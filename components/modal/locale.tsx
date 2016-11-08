@@ -1,9 +1,9 @@
 import assign from 'object-assign';
 
 const defaultLocale = {
-  okText: '确定',
-  cancelText: '取消',
-  justOkText: '知道了',
+  okText: 'OK',
+  cancelText: 'Cancel',
+  justOkText: 'OK',
 };
 
 let runtimeLocale = assign({}, defaultLocale);
