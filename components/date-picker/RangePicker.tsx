@@ -86,14 +86,16 @@ export default class RangePicker extends React.Component<any, any> {
 
   render() {
     const props = this.props;
-    const { disabledDate, disabledTime, showTime,
-      prefixCls, popupStyle, style, onOk, locale,
-      format,
+    const {
+      disabledDate, disabledTime, showTime,
+      ranges, prefixCls, popupStyle,
+      style, onOk, locale, format,
     } = props;
     const state = this.state;
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,
+      [`${prefixCls}-range-with-ranges`]: ranges,
     });
 
     // 需要选择时间时，点击 ok 时才触发 onChange
