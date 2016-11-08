@@ -1,6 +1,6 @@
 ---
 order: 10
-title: 
+title:
   zh-CN: 获得选项的文本
   en-US: Get value of selected item
 ---
@@ -26,11 +26,9 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <div>
-    <Select labelInValue defaultValue={{ key: 'lucy' }} style={{ width: 120 }} onChange={handleChange}>
-      <Option value="jack">Jack (100)</Option>
-      <Option value="lucy">Lucy (101)</Option>
-    </Select>
-  </div>
+  <Select labelInValue defaultValue={{ key: 'lucy' }} style={{ width: 120 }} onChange={handleChange}>
+    <Option value="jack">Jack (100)</Option>
+    <Option value="lucy">Lucy (101)</Option>
+  </Select>
 , mountNode);
 ````

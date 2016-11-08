@@ -2,6 +2,7 @@ import React from 'react';
 import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
+import warning from '../_util/warning';
 import splitObject from '../_util/splitObject';
 
 export interface BadgeProps {
@@ -24,7 +25,6 @@ export default class Badge extends React.Component<BadgeProps, any> {
     count: null,
     dot: false,
     overflowCount: 99,
-    // status: 'default',
   };
 
   static propTypes = {
@@ -44,7 +44,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'status', 'text']
     );
     const isDot = dot || status;
-
+    const realCount = count;
     count = count > overflowCount ? `${overflowCount}+` : count;
 
     // dot mode don't need count
@@ -57,23 +57,39 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
-      [`${prefixCls}-status`]: status,
-      [`${prefixCls}-status-${status}`]: status,
-      [`${prefixCls}-status-with-text`]: text,
     });
     const badgeCls = classNames({
       [className]: !!className,
       [prefixCls]: true,
+      [`${prefixCls}-status`]: !!status,
       [`${prefixCls}-not-a-wrapper`]: !children,
     });
 
+    warning(
+      !(children && status),
+      '`Badge[children]` and `Badge[status]` cannot be used at the same time.'
+    );
+    // <Badge status="success" />
+    if (!children && status) {
+      const statusCls = classNames({
+        [`${prefixCls}-status-dot`]: !!status,
+        [`${prefixCls}-status-${status}`]: true,
+      });
+      return (
+        <span className={badgeCls}>
+          <span className={statusCls} />
+          <span className={`${prefixCls}-status-text`}>{text}</span>
+        </span>
+      );
+    }
+
     return (
-      <span className={badgeCls} title={count} style={null} {...restProps}>
+      <span {...restProps} className={badgeCls} title={realCount}>
         {children}
         <Animate
           component=""
           showProp="data-show"
-          transitionName={`${prefixCls}-zoom`}
+          transitionName={children ? `${prefixCls}-zoom` : ''}
           transitionAppear
         >
           {

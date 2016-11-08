@@ -44,7 +44,7 @@
     right: 7px;
     background: #fff;
     top: 50%;
-    font-size: 12px;
+    font-size: @font-size-base;
     color: #ccc;
     width: 14px;
     height: 14px;
@@ -53,7 +53,7 @@
     cursor: pointer;
     transition: color 0.3s ease, opacity 0.15s ease;
     &:hover {
-      color: #999;
+      color: @text-color-secondary;
     }
   }
 
@@ -69,14 +69,14 @@
     height: 12px;
     line-height: 12px;
     right: 8px;
-    color: #999;
+    color: @text-color-secondary;
     top: 50%;
     margin-top: -6px;
     &:after {
       content: "\e6bb";
       font-family: "anticon";
-      font-size: 12px;
-      color: #999;
+      font-size: @font-size-base;
+      color: @text-color-secondary;
       display: inline-block;
       line-height: 1;
       vertical-align: bottom;

@@ -17,7 +17,7 @@
   z-index: 1;
   background: #fff;
   top: 50%;
-  font-size: 12px;
+  font-size: @font-size-base;
   color: #ccc;
   width: 12px;
   height: 12px;
@@ -30,7 +30,7 @@
     .iconfont-font("\e62e");
   }
   &:hover {
-    color: #999;
+    color: @text-color-secondary;
   }
 }
 
@@ -38,8 +38,7 @@
   box-sizing: border-box;
   display: inline-block;
   position: relative;
-  vertical-align: middle;
-  color: #666;
+  color: @text-color;
   font-size: @font-size-base;
 
   > ul > li > a {
@@ -96,6 +95,15 @@
     &:hover &__clear {
       opacity: 1;
     }
+
+    &-selected-value {
+      float: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+      padding-right: 16px;
+    }
   }
 
   &-disabled {
@@ -132,33 +140,31 @@
     height: 28px;
     position: relative;
     cursor: pointer;
-
-    .@{select-prefix-cls}-selection__rendered {
-      height: 26px;
-      display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      padding-left: 8px;
-      padding-right: 24px;
-      line-height: 26px;
-    }
   }
 
-  &-open&-show-search &-selection--single &-selection-selected-value {
-    position: absolute;
-    left: 8px;
-    top: 0;
+  &-selection__rendered {
+    display: block;
+    margin-left: 8px;
+    margin-right: 8px;
+    position: relative;
+    line-height: 26px;
+    // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
+    &:after {
+      content: '.';
+      visibility: hidden;
+      pointer-events: none;
+      display: inline-block;
+      width: 0;
+    }
   }
 
   &-lg {
     .@{select-prefix-cls}-selection--single {
       height: 32px;
-      .@{select-prefix-cls}-selection__rendered {
-        line-height: 30px;
-      }
     }
-
+    .@{select-prefix-cls}-selection__rendered {
+      line-height: 30px;
+    }
     .@{select-prefix-cls}-selection--multiple {
       min-height: 32px;
       .@{select-prefix-cls}-selection__rendered {
@@ -176,9 +182,9 @@
     }
     .@{select-prefix-cls}-selection--single {
       height: 22px;
-      .@{select-prefix-cls}-selection__rendered {
-        line-height: 20px;
-      }
+    }
+    .@{select-prefix-cls}-selection__rendered {
+      line-height: 20px;
     }
     .@{select-prefix-cls}-selection--multiple {
       min-height: 22px;
@@ -208,7 +214,7 @@
   &-search__field__placeholder { // for TreeSelect compatibility
     position: absolute;
     top: 50%;
-    left: 9px;
+    left: 0;
     right: 9px;
     color: #ccc;
     line-height: 20px;
@@ -221,9 +227,13 @@
   }
 
   &-search--inline {
-    float: left;
-    width: 100%;
+    position: absolute;
     height: 100%;
+
+    .@{select-prefix-cls}-selection--multiple & {
+      float: left;
+      position: static;
+    }
 
     .@{select-prefix-cls}-search__field__wrap {
       width: 100%;
@@ -234,6 +244,7 @@
       border: 0;
       font-size: 100%;
       height: 100%;
+      width: 100%;
       background: transparent;
       outline: 0;
       border-radius: @border-radius-base;
@@ -242,7 +253,7 @@
     .@{select-prefix-cls}-search__field__mirror {
       position: absolute;
       top: 0;
-      left: 9999px;
+      left: -9999px;
       white-space: pre;
       pointer-events: none;
     }
@@ -255,24 +266,26 @@
   &-selection--multiple {
     min-height: 28px;
     cursor: text;
+    padding-bottom: 3px;
+    .clearfix;
 
     .@{select-prefix-cls}-search--inline {
       width: auto;
+      padding: 0;
       .@{select-prefix-cls}-search__field {
         width: 0.75em;
       }
     }
 
     .@{select-prefix-cls}-selection__rendered {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-left: 6px;
-      padding-bottom: 4px;
+      margin-left: 5px;
+      margin-bottom: -3px;
+      height: auto;
     }
 
     > ul > li,
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
-      margin-top: 4px;
+      margin-top: 3px;
       height: 20px;
       line-height: 20px;
     }
@@ -282,7 +295,7 @@
       border-radius: 4px;
       cursor: default;
       float: left;
-      padding: 0 15px;
+      padding: 0 16px;
       margin-right: 4px;
       max-width: 99%;
       position: relative;
@@ -305,7 +318,7 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
-      color: #999;
+      color: @text-color-secondary;
       line-height: inherit;
       cursor: pointer;
       display: inline-block;
@@ -343,6 +356,7 @@
     }
     .@{select-prefix-cls}-search--inline {
       height: 100%;
+      width: 100%;
       float: none;
     }
     .@{select-prefix-cls}-search__field__wrap {
@@ -350,7 +364,6 @@
       height: 100%;
     }
     .@{select-prefix-cls}-search__field {
-      padding: 0 10px;
       width: 100%;
       height: 100%;
       position: relative;
@@ -359,7 +372,7 @@
       box-shadow: none;
     }
     .@{select-prefix-cls}-selection__rendered {
-      padding: 0 24px 0 0;
+      padding: 0;
       height: 100%;
       position: absolute;
       left: 0;
@@ -395,7 +408,6 @@
   }
 
   background-color: white;
-  border: 1px solid @border-color-base;
   box-shadow: @box-shadow-base;
   border-radius: @border-radius-base;
   box-sizing: border-box;
@@ -425,17 +437,17 @@
     }
 
     &-item-group-title {
-      color: #999;
+      color: @text-color-secondary;
       line-height: 1.5;
-      padding: 8px 15px;
+      padding: 8px 16px;
     }
 
     &-item {
       position: relative;
       display: block;
-      padding: 7px 15px;
+      padding: 7px 16px;
       font-weight: normal;
-      color: #666;
+      color: @text-color;
       white-space: nowrap;
       cursor: pointer;
       white-space: nowrap;
@@ -463,7 +475,7 @@
         &:hover {
           background-color: @background-color-base;
           font-weight: bold;
-          color: #666;
+          color: @text-color;
         }
       }
 
@@ -485,7 +497,9 @@
         .iconfont-size-under-12px(10px);
         transition: all 0.2s ease;
         position: absolute;
-        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 16px;
         font-weight: bold;
         text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
       }
@@ -510,25 +524,6 @@
   &-open {
     .@{select-prefix-cls}-dropdown {
       display: block;
-    }
-  }
-
-  .@{select-prefix-cls}-dropdown-search {
-    display: block;
-    padding: 4px;
-    .@{select-prefix-cls}-search__field__wrap {
-      width: 100%;
-    }
-    .@{select-prefix-cls}-search__field {
-      padding: 4px 7px;
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid @border-color-base;
-      border-radius: 4px;
-      outline: none;
-    }
-    &.@{select-prefix-cls}-search--hide {
-      display: none;
     }
   }
 }

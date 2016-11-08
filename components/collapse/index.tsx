@@ -1,27 +1,27 @@
-import RcCollapse from 'rc-collapse';
 import React from 'react';
+import RcCollapse from 'rc-collapse';
+import classNames from 'classnames';
 
 export interface CollapseProps {
   activeKey?: Array<string> | string;
-  /** 初始化选中面板的key */
   defaultActiveKey?: Array<string>;
-  /** accordion 为 true 的时候，一次只可以打开一个面板 */
+  /** 手风琴效果 */
   accordion?: boolean;
-  /** 切换面板的回调 */
   onChange?: (key: string) => void;
   style?: React.CSSProperties;
+  className?: string;
+  bordered?: boolean;
+  prefixCls?: string;
 }
 
 export interface CollapsePanelProps {
-  /** 对应 activeKey */
   key: string;
-  /** 面板头内容 */
   header: React.ReactNode;
   style?: React.CSSProperties;
+  className?: string;
 }
 
 export class CollapsePanel extends React.Component<CollapsePanelProps, {}> {
-
 }
 
 export default class Collapse extends React.Component<CollapseProps, any> {
@@ -29,9 +29,15 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-collapse',
+    bordered: true,
   };
 
   render() {
-    return <RcCollapse {...this.props} />;
+    const { prefixCls, className = '', bordered } = this.props;
+    const collapseClassName = classNames({
+      [`${prefixCls}-borderless`]: !bordered,
+      [className]: !!className,
+    });
+    return <RcCollapse {...this.props} className={collapseClassName} />;
   }
 }

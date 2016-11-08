@@ -15,7 +15,7 @@ export interface TabsProps {
   hideAdd?: boolean;
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
-  tabBarExtraContent?: React.ReactNode;
+  tabBarExtraContent?: React.ReactNode | null;
   type?: TabsType;
   tabPosition?: TabsPosition;
   onEdit?: (targetKey: string, action: any) => void;
@@ -23,7 +23,7 @@ export interface TabsProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  animation?: string;
+  animated?: boolean;
 }
 
 // Tabs
@@ -38,15 +38,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-tabs',
-    animation: 'slide-horizontal',
-    type: 'line', // or 'card' 'editable-card'
-    onChange() { },
-    onEdit() { },
     hideAdd: false,
+    animated: true,
   };
 
   createNewTab = (targetKey) => {
-    this.props.onEdit(targetKey, 'add');
+    const onEdit = this.props.onEdit;
+    if (onEdit) {
+      onEdit(targetKey, 'add');
+    }
   }
 
   removeTab = (targetKey, e) => {
@@ -54,40 +54,46 @@ export default class Tabs extends React.Component<TabsProps, any> {
     if (!targetKey) {
       return;
     }
-    this.props.onEdit(targetKey, 'remove');
+
+    const onEdit = this.props.onEdit;
+    if (onEdit) {
+      onEdit(targetKey, 'remove');
+    }
   }
 
   handleChange = (activeKey) => {
-    this.props.onChange(activeKey);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(activeKey);
+    }
   }
 
   render() {
     let {
       prefixCls,
+      className = '',
       size,
-      type,
+      type = 'line',
       tabPosition,
-      animation,
       children,
       tabBarExtraContent,
       hideAdd,
       onTabClick,
+      animated,
     } = this.props;
-    let className = classNames({
-      [this.props.className]: !!this.props.className,
-      [`${prefixCls}-mini`]: size === 'small' || size === 'mini',
+    let cls = classNames({
+      [className]: !!className,
+      [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
       [`${prefixCls}-${type}`]: true,
+      [`${prefixCls}-no-animation`]: !animated,
     });
-    if (tabPosition === 'left' || tabPosition === 'right' || type.indexOf('card') >= 0) {
-      animation = null;
-    }
     // only card type tabs can be added and closed
     let childrenWithClose;
     if (type === 'editable-card') {
       childrenWithClose = [];
-      React.Children.forEach(children, (child: React.ReactElement<any>, index) => {
+      React.Children.forEach(children as React.ReactNode, (child: React.ReactElement<any>, index) => {
         childrenWithClose.push(cloneElement(child, {
           tab: (
             <div>
@@ -117,7 +123,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
 
     return (
       <RcTabs {...this.props}
-        className={className}
+        className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={() => (
           <ScrollableInkTabBar
@@ -125,7 +131,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
             onTabClick={onTabClick}
           />
         )}
-        renderTabContent={() => <TabContent />}
+        renderTabContent={() => <TabContent animated={animated} />}
         onChange={this.handleChange}
       >
         {childrenWithClose || children}

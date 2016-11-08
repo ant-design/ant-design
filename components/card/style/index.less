@@ -12,12 +12,11 @@
 
   &:hover {
     box-shadow: @box-shadow-base;
-    border-color: #eee;
+    border-color: transparent;
   }
 
   &-bordered {
-    border: 1px solid @border-color-base;
-    border-color: @border-color-split;
+    border: 1px solid @border-color-split;
   }
 
   &-head {
@@ -27,7 +26,7 @@
     padding: 0 24px;
 
     &-title {
-      font-size: 14px;
+      font-size: @font-size-lg;
       display: inline-block;
       text-overflow: ellipsis;
       width: 100%;

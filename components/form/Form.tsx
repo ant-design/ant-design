@@ -1,12 +1,12 @@
 import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import omit from 'omit.js';
-import warning from 'warning';
-import assign from 'object-assign';
-import FormItem from './FormItem';
 import createDOMForm from 'rc-form/lib/createDOMForm';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import omit from 'omit.js';
+import assign from 'object-assign';
+import warning from '../_util/warning';
+import FormItem from './FormItem';
 import { FIELD_META_PROP } from './constants';
 
 export interface FormCreateOption {
@@ -20,7 +20,7 @@ export interface FormProps {
   inline?: boolean;
   vertical?: boolean;
   form?: WrappedFormUtils;
-  onSubmit?: React.FormEventHandler;
+  onSubmit?: React.FormEventHandler<any>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
@@ -42,11 +42,9 @@ export type WrappedFormUtils = {
   validateFields(options: Object, callback: (erros: any, values: any) => void): any;
   validateFields(callback: (erros: any, values: any) => void): any;
   /** 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 */
-  validateFieldsAndScroll(
-    fieldNames?: Array<string>,
-    options?: Object,
-    callback?: (erros: any, values: any) => void
-  ): void;
+  validateFieldsAndScroll(fieldNames?: Array<string>,
+                          options?: Object,
+                          callback?: (erros: any, values: any) => void): void;
   /** 获取某个输入控件的 Error */
   getFieldError(name: string): Object[];
   /** 判断一个输入控件是否在校验状态*/
@@ -62,7 +60,7 @@ export type WrappedFormUtils = {
     /** 收集子节点的值的时机 */
     trigger?: string;
     /** 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：(date, dateString) => dateString */
-    getValueFromEvent?: (...args) => any;
+    getValueFromEvent?: (...args: any[]) => any;
     /** 校验子节点值的时机 */
     validateTrigger?: string;
     /** 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator) */
@@ -103,8 +101,9 @@ export default class Form extends React.Component<FormProps, any> {
   static Item = FormItem;
 
   static create = (options?: FormCreateOption): ComponentDecorator => {
-    const formWrapper = createDOMForm(assign({}, options, {
+    const formWrapper = createDOMForm(assign({
       fieldNameProp: 'id',
+    }, options, {
       fieldMetaProp: FIELD_META_PROP,
     }));
 
@@ -121,16 +120,18 @@ export default class Form extends React.Component<FormProps, any> {
           form: this.props.form,
         };
       },
+      componentWillMount() {
+        this.__getFieldProps = this.props.form.getFieldProps;
+      },
+      deprecatedGetFieldProps(name, option) {
+        warning(
+          false,
+          '`getFieldProps` is not recommended, please use `getFieldDecorator` instead'
+        );
+        return this.__getFieldProps(name, option);
+      },
       render() {
-        const getFieldProps = this.props.form.getFieldProps;
-        function deprecatedGetFieldProps(name, option) {
-          warning(
-            false,
-            '`getFieldProps` is deprecated and will be removed in future, please use `getFieldDecorator` instead'
-          );
-          return getFieldProps(name, option);
-        }
-        this.props.form.getFieldProps = deprecatedGetFieldProps;
+        this.props.form.getFieldProps = this.deprecatedGetFieldProps;
 
         const withRef: any = {};
         if (options && options.withRef) {
@@ -152,7 +153,7 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   render() {
-    const { prefixCls, className, inline, horizontal, vertical } = this.props;
+    const { prefixCls, className = '', inline, horizontal, vertical } = this.props;
     const formClassName = classNames({
       [`${prefixCls}`]: true,
       [`${prefixCls}-horizontal`]: horizontal,

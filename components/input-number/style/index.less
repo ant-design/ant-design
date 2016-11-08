@@ -15,7 +15,7 @@
   margin: 0;
   padding: 0;
   line-height: 28px;
-  font-size: 12px;
+  font-size: @font-size-base;
   height: 28px;
   display: inline-block;
   vertical-align: middle;
@@ -29,7 +29,7 @@
     line-height: 0;
     height: 14px;
     overflow: hidden;
-    color: #999;
+    color: @text-color-secondary;
     position: relative;
     transition: all 0.1s linear;
     display: block;
@@ -55,7 +55,7 @@
     transition: all 0.1s linear;
     .iconfont-size-under-12px(7px);
     right: 4px;
-    color: #999;
+    color: @text-color-secondary;
   }
 
   &:hover {
@@ -83,7 +83,7 @@
     line-height: 28px;
     height: 28px;
     transition: all 0.3s linear;
-    color: #666;
+    color: @text-color;
     border: 0;
     border-radius: @border-radius-base;
     padding: 0 7px;

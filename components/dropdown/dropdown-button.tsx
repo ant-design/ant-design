@@ -8,7 +8,7 @@ import splitObject from '../_util/splitObject';
 
 export interface DropdownButtonProps {
   type?: 'primary' | 'ghost' | 'dash';
-  onClick?: React.FormEventHandler;
+  onClick?: React.FormEventHandler<any>;
   trigger?: 'click' | 'hover';
   overlay: React.ReactNode;
   visible?: boolean;
@@ -44,7 +44,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
     return (
       <ButtonGroup {...restProps} className={cls}>
         <Button type={type} onClick={onClick} disabled={disabled}>{children}</Button>
-        <Dropdown align={align} overlay={overlay} trigger={trigger}>
+        <Dropdown align={align} overlay={overlay} trigger={disabled ? [] : trigger}>
           <Button type={type} disabled={disabled}>
             <Icon type="down" />
           </Button>

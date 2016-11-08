@@ -1,77 +1,106 @@
 ---
-order: 14
+order: 4
 title:
-  zh-CN: 与 Modal 配合使用
-  en-US: With Modal
+  zh-CN: 弹出层中的新建表单
+  en-US: Form in Modal to Create
 ---
 
 ## zh-CN
 
-在 Modal 中使用 Form，当点击 Modal 的确定时，调用 `this.props.form.getFieldsValue` 获取表单内的值。
+当用户访问一个展示了某个列表的页面，想新建一项但又不想跳转页面时，可以用 Modal 弹出一个表单，用户填写必要信息后创建新的项。
 
 ## en-US
 
-If you use Form in Modal, when you click the Modal, it could invoke `this.props.form.getFieldsValue` to get values of form.
+When user visit a page with a list of items, and want to create a new item. The page can popup a form in Modal, then let user fills in the form to create an item.
 
 ````jsx
-import { Button, Form, Input, Modal } from 'antd';
-const createForm = Form.create;
+import { Button, Modal, Form, Input, Radio } from 'antd';
 const FormItem = Form.Item;
 
-let Demo = React.createClass({
+const CollectionCreateForm = Form.create()(
+  (props) => {
+    const { visible, onCancel, onCreate, form } = props;
+    const { getFieldDecorator } = form;
+    return (
+      <Modal
+        visible={visible}
+        title="Create a new collection"
+        okText="Create"
+        onCancel={onCancel}
+        onOk={onCreate}
+      >
+        <Form vertical>
+          <FormItem label="Title">
+            {getFieldDecorator('title', {
+              rules: [{ required: true, message: 'Please input the title of collection!' }],
+            })(
+              <Input />
+            )}
+          </FormItem>
+          <FormItem label="Description">
+            {getFieldDecorator('description')(<Input type="textarea" />)}
+          </FormItem>
+          <FormItem className="collection-create-form_last-form-item">
+            {getFieldDecorator('modifier', {
+              initialValue: 'public',
+            })(
+              <Radio.Group>
+                <Radio value="public">Public</Radio>
+                <Radio value="private">Private</Radio>
+              </Radio.Group>
+            )}
+          </FormItem>
+        </Form>
+      </Modal>
+    );
+  }
+);
+
+const CollectionsPage = React.createClass({
   getInitialState() {
     return { visible: false };
   },
-
-  handleSubmit() {
-    console.log(this.props.form.getFieldsValue());
-    this.hideModal();
-  },
-
   showModal() {
     this.setState({ visible: true });
   },
-
-  hideModal() {
+  handleCancel() {
     this.setState({ visible: false });
   },
+  handleCreate() {
+    const form = this.form;
+    form.validateFields((err, values) => {
+      if (err) {
+        return;
+      }
 
+      console.log('Received values of form: ', values);
+      form.resetFields();
+      this.setState({ visible: false });
+    });
+  },
+  saveFormRef(form) {
+    this.form = form;
+  },
   render() {
-    const { getFieldDecorator } = this.props.form;
-
-    const formItemLayout = {
-      labelCol: { span: 4 },
-      wrapperCol: { span: 20 },
-    };
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>Surprise</Button>
-        <Modal title="login" visible={this.state.visible} onOk={this.handleSubmit} onCancel={this.hideModal}>
-          <Form horizontal>
-            <FormItem
-              {...formItemLayout}
-              label="User name"
-            >
-              {getFieldDecorator('username')(
-                <Input type="text" autoComplete="off" />
-              )}
-            </FormItem>
-            <FormItem
-              {...formItemLayout}
-              label="Password"
-            >
-              {getFieldDecorator('password')(
-                <Input type="password" autoComplete="off" />
-              )}
-            </FormItem>
-          </Form>
-        </Modal>
+        <Button type="primary" onClick={this.showModal}>New Collection</Button>
+        <CollectionCreateForm
+          ref={this.saveFormRef}
+          visible={this.state.visible}
+          onCancel={this.handleCancel}
+          onCreate={this.handleCreate}
+        />
       </div>
     );
   },
 });
 
-Demo = createForm()(Demo);
+ReactDOM.render(<CollectionsPage />, mountNode);
+````
 
-ReactDOM.render(<Demo />, mountNode);
+````css
+.collection-create-form_last-form-item {
+  margin-bottom: 0;
+}
 ````

@@ -25,7 +25,7 @@
       height: 38px;
       line-height: 38px;
       padding-left: 32px;
-      color: #666;
+      color: @text-color;
       cursor: pointer;
       position: relative;
 
@@ -33,7 +33,7 @@
         .collapse-close();
         .iconfont-mixin();
         position: absolute;
-        color: #666;
+        color: @text-color;
         display: inline-block;
         margin-right: 8px;
         line-height: 40px;
@@ -80,6 +80,24 @@
   & > &-item > &-header[aria-expanded="true"] {
     .arrow {
       .collapse-open();
+    }
+  }
+
+  &-borderless {
+    background-color: #fff;
+    border: 0;
+  }
+
+  &-borderless > &-item {
+    border: 0;
+  }
+
+  &-borderless > &-item > &-header {
+    border-bottom: 1px solid @border-color-base;
+    transition: all .3s;
+    border-radius: @border-color-base @border-color-base 0 0;
+    &:hover {
+      background-color: #fcfcfc;
     }
   }
 }

@@ -101,7 +101,7 @@ export default function confirm(config) {
     </div>
   );
 
-  let footer = null;
+  let footer: React.ReactElement<any> | null = null;
   if (props.okCancel) {
     footer = (
       <div className={`${prefixCls}-btns`}>
@@ -142,7 +142,9 @@ export default function confirm(config) {
       style={style}
       width={width}
     >
-      <div style={{ zoom: 1, overflow: 'hidden' }}>{body} {footer}</div>
+      <div className={`${prefixCls}-body-wrapper`}>
+        {body} {footer}
+      </div>
     </Dialog>
   , div);
 

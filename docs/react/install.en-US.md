@@ -7,7 +7,6 @@ title: Installation
 
 **We recommend using npm to install**，it not only makes development easier，but you can also take advantage of the whole ecosystem.
 
-
 If using npm to install, you could use `import` or `require`.
 
 Stable version：
@@ -18,8 +17,7 @@ Stable version：
 $ npm install antd --save
 ```
 
-You can Subscribe to this feed for new version notification: https://github.com/ant-design/ant-design/releases.atom
-
+You can subscribe to this feed for new version notification: https://github.com/ant-design/ant-design/releases.atom
 
 Beta version：
 
@@ -29,9 +27,9 @@ Beta version：
 $ npm install antd@beta --save
 ```
 
-> **Past releases**：https://github.com/ant-design/ant-design/releases
-
 ## Import in Browser
+
+[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
 
 We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package, in order to import all the components of antd directly. Also, you can use [unpkg](https://unpkg.com/).
 

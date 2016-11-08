@@ -1,5 +1,6 @@
 import React from 'react';
-import Select, { Option, OptGroup } from '../select';
+import Select, { OptionProps, OptGroupProps } from '../select';
+import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
 export interface SelectedValue {
@@ -23,13 +24,13 @@ export interface AutoCompleteProps {
   defaultValue?: string | Array<any> | SelectedValue | Array<SelectedValue>;
   value?: string | Array<any> | SelectedValue | Array<SelectedValue>;
   allowClear?: boolean;
-  onChange?: (value) => void;
+  onChange?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>) => void;
   disabled?: boolean;
 }
 
 export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
-  static Option = Option;
-  static OptGroup = OptGroup;
+  static Option = Option as React.ClassicComponentClass<OptionProps>;
+  static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static defaultProps = {
     prefixCls: 'ant-select',
@@ -45,7 +46,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
 
   render() {
     let {
-      size, className, notFoundContent, prefixCls, optionLabelProp, dataSource, children,
+      size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource, children,
     } = this.props;
 
     const cls = classNames({
@@ -55,7 +56,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       [`${prefixCls}-show-search`]: true,
     });
 
-    const options = children || (dataSource ? dataSource.map((item, index) => {
+    const options = children || (dataSource ? dataSource.map((item) => {
       switch (typeof item) {
         case 'string':
           return <Option key={item}>{item}</Option>;

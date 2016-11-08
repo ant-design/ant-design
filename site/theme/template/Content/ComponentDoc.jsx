@@ -31,14 +31,15 @@ export default class ComponentDoc extends React.Component {
     const { doc, location } = props;
     const { content, meta } = doc;
     const locale = this.context.intl.locale;
-    const demos = Object.keys(props.demos).map(key => props.demos[key])
-      .filter(demoData => !demoData.meta.hidden);
+    const demos = Object.keys(props.demos).map(key => props.demos[key]);
     const expand = this.state.expandAll;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    demos.sort((a, b) => a.meta.order - b.meta.order)
+    const showedDemo = demos.some(demo => demo.meta.only) ?
+            demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
+    showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
         if (index % 2 === 0 || isSingleCol) {
           leftChildren.push(
@@ -61,7 +62,7 @@ export default class ComponentDoc extends React.Component {
       'code-box-expand-trigger-active': expand,
     });
 
-    const jumper = demos.map((demo) => {
+    const jumper = showedDemo.map((demo) => {
       const title = demo.meta.title;
       const localizeTitle = title[locale] || title;
       return (
@@ -75,7 +76,7 @@ export default class ComponentDoc extends React.Component {
 
     const { title, subtitle, filename } = meta;
     return (
-      <DocumentTitle title={`${subtitle || ''} ${title} - Ant Design`}>
+      <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
         <article>
           <Affix className="toc-affix" offsetTop={16}>
             <ul className="toc demos-anchor">

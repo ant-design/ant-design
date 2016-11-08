@@ -14,8 +14,8 @@ Directory, organization, biological classification, country, and etc. Almost thi
 
 | Property       | Description                                      | Type       | Default |
 |----------------|--------------------------------------------------|------------|---------|
-|multiple | Whether allow to multiple select treeNode | bool | false |
-|checkable | Whether support checkable treeNode | bool   | false    |
+|multiple | Whether allow to select multiple treeNodes | bool | false |
+|checkable | Whether support add Checkbox before treeNode | bool | false |
 |defaultExpandAll | Whether default to expand all treeNodes | bool | false |
 |defaultExpandedKeys | Specify keys of default expanded treeNodes | String[] | [] |
 |expandedKeys |(controlled) Specifies keys of expanded treeNodes | String[] | [] |
@@ -36,6 +36,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |onDragEnter | Defines a function will be called when the onDragEnter event occurs | function({event,node,expandedKeys}) | - |
 |onDragOver  | Defines a function will be called when the onDragOver event occurs | function({event,node}) | - |
 |onDragLeave | Defines a function will be called when the onDragLeave event occurs | function({event,node}) | - |
+|onDragEnd | Defines a function will be called when the onDragEnd event occurs | function({event,node}) | - |
 |onDrop | Defines a function will be called when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |
 
 ### TreeNode props

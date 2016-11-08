@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 2
 title:
   zh-CN: 滚动容器
   en-US: Container to scroll.
@@ -11,20 +11,20 @@ title:
 
 ## en-US
 
-Set a `target` for 'Affix', which is listen to scroll event of target element (default is `window`). 
+Set a `target` for 'Affix', which is listen to scroll event of target element (default is `window`).
 
 ````jsx
 import { Affix, Button } from 'antd';
 
 const Demo = () => {
   return (
-    <div style={{ height: 100, overflow: 'hidden' }}>
-      <div style={{ height: '100%', overflowY: 'scroll' }} id="affix-target">
-        <div style={{ height: 300, backgroundImage: 'url(https://zos.alipayobjects.com/rmsportal/RmjwQiJorKyobvI.jpg)' }}>
+    <div className="view-port">
+      <div id="scrollable-container">
+        <div className="background">
           <br />
           <br />
           <br />
-          <Affix target={() => document.getElementById('affix-target')} offsetTop={20}>
+          <Affix target={() => document.getElementById('scrollable-container')} offsetTop={20}>
             <Button type="primary">Fixed at the top of container</Button>
           </Affix>
         </div>
@@ -35,3 +35,18 @@ const Demo = () => {
 
 ReactDOM.render(<Demo />, mountNode);
 ````
+
+<style>
+#components-affix-demo-target .view-port {
+  height: 100px;
+  overflow: hidden;
+}
+#components-affix-demo-target #scrollable-container {
+  height: 100%;
+  overflow-y: scroll;
+}
+#components-affix-demo-target .background {
+  height: 300px;
+  background-image: url('https://zos.alipayobjects.com/rmsportal/RmjwQiJorKyobvI.jpg');
+}
+</style>

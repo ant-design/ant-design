@@ -4,7 +4,13 @@
   </a>
 </p>
 
-# Ant Design [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd) [![Dependency Status](https://david-dm.org/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design) [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# Ant Design
+[![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design)
+[![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+[![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd)
+[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+[![Dependency Status](https://david-dm.org/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design)
+[![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 一套企业级的 UI 设计语言和 React 实现。
 
@@ -13,7 +19,7 @@
 - 提炼和服务企业级中后台产品的交互语言和视觉风格。
 - [React Component](http://react-component.github.io/badgeboard/) 基础上精心封装的高质量 UI 组件。
 - 使用 TypeScript 构建，提供完整的类型定义文件。
-- 基于 npm + webpack + babel + dora + [dva](https://github.com/dvajs/dva) 的企业级业务开发框架。
+- 基于 npm + webpack + babel + [dora](https://github.com/dora-js/dora) + [dva](https://github.com/dvajs/dva) 的企业级业务开发框架。
 
 ## 安装
 
@@ -45,9 +51,16 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## TypeScript
 
-```js
-///<reference path='./node_modules/antd/type-definitions/antd.d.ts'/>
-...
+tsconfig.json
+
+```
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "allowSyntheticDefaultImports": true
+  }
+}
 ```
 
 ## 链接

@@ -29,9 +29,9 @@ export interface TimePickerProps {
   disabledMinutes?: Function;
   /** 禁止选择部分秒选项 */
   disabledSeconds?: Function;
-
   style?: React.CSSProperties;
   getPopupContainer?: (trigger: any) => any;
+  addon?: Function;
 }
 
 export interface TimePickerContext {
@@ -42,10 +42,7 @@ export interface TimePickerContext {
 
 export default class TimePicker extends React.Component<TimePickerProps, any> {
   static defaultProps = {
-    format: 'HH:mm:ss',
     prefixCls: 'ant-time-picker',
-    onChange() {
-    },
     align: {
       offset: [0, -2],
     },
@@ -82,7 +79,10 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    this.props.onChange(value, (value && value.format(this.props.format)) || '');
+    const { onChange, format = 'HH:mm:ss' } = this.props;
+    if (onChange) {
+      onChange(value, (value && value.format(format)) || '');
+    }
   }
 
   getLocale() {
@@ -92,7 +92,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
   }
 
   render() {
-    const props = assign({}, this.props);
+    const props = assign({ format: 'HH:mm:ss' }, this.props);
     delete props.defaultValue;
 
     const className = classNames({
@@ -109,6 +109,11 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         showHour={props.format.indexOf('HH') > -1}
         showSecond={props.format.indexOf('ss') > -1}
         onChange={this.handleChange}
+        addon={(panel) => (
+          props.addon ? <div className={`${props.prefixCls}-panel-addon`}>
+            {props.addon(panel)}
+          </div> : null
+        )}
       />
     );
   }

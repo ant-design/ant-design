@@ -9,6 +9,151 @@ timeline: true
 
 ---
 
+## 2.3.1
+
+`2016-11-07`
+
+* 修正上个版本缺少 `dist/antd.css` 的问题。
+
+## 2.3.0
+
+`2016-11-04`
+
+* 升级 normalize.css 到 5.0。
+* package.json 的 main 换成了 `lib/index.js`。[#3397](https://github.com/ant-design/ant-design/pull/3397)
+* 全新的 `Spin` 设计。
+* `TimePicker` 新增了 `addon` 以支持自定义的附加内容。
+* `Tree` 新增了 `onDragEnd`。
+* `Collapse` 新增了 `bordered`。
+* 优化 `Tabs` 切换时的动画效果。
+* 优化 `Radio` 和 `Checkbox` 在禁用和鼠标停留时的样式。[#3590](https://github.com/ant-design/ant-design/issues/3590)
+* 优化 `Transfer` 的性能。[#2860](https://github.com/ant-design/ant-design/issues/2860)
+* 修复 `Popover` 嵌套时的样式问题。[#3448](https://github.com/ant-design/ant-design/issues/3448)
+* 修复 `Transfer` 服务端渲染报错的问题。[#3686](https://github.com/ant-design/ant-design/issues/3686)
+* 修复 `Upload` `picture-card` 模式下新上传的图片不显示预览的问题。[#3706](https://github.com/ant-design/ant-design/pull/3706) [@denzw](https://github.com/denzw)
+* DatePicker
+  * 在 `showTime` 模式下现在失去焦点也会触发 `onChange`。
+  * `MonthPicker` 增加了 `monthCellContentRender` 和 `cellContentRender`。
+  * `RangePicker` 现在可以手动输入时间了。[#3718](https://github.com/ant-design/ant-design/issues/3718)
+  * 新增了捷克语的翻译。
+* Badge
+  * 优化鼠标停留时超过 99 的数字显示。[#3645](https://github.com/ant-design/ant-design/issues/3645)
+  * 修复单独使用时会有移动动画的问题。[#3709](https://github.com/ant-design/ant-design/issues/3709)
+* Mention
+  * 修复会被 `Table` 遮住的问题。[#3588](https://github.com/ant-design/ant-design/issues/3588)
+  * 新增 `getSuggestionContainer` 来指定容器。[#3658](https://github.com/ant-design/ant-design/pull/3658)
+* Tag
+  * 废弃 `color` 属性。[#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * 新增 `type`。[#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * 新增 `checkable`。[#3560](https://github.com/ant-design/ant-design/issues/3560)
+* Radio.Group
+  * 新增 `className`。
+  * `children` 为 `null` 或 `undefined` 时现在会被忽略。
+* Select
+  * 新增 `tokenSeparators` 支持粘贴时自动分词。[#2071](https://github.com/ant-design/ant-design/issues/2071)
+  * 新增 `onFocus` 回调。[#3587](https://github.com/ant-design/ant-design/issues/3587)
+  * 修复 `combobox` 模式下选中项不能正确显示的问题。[#3401](https://github.com/ant-design/ant-design/issues/3401)
+
+## 2.2.1
+
+`2016-11-02`
+
+* 修复 Form 中 DatePicker[showTime]（受控）无法使用的问题。[#3665](https://github.com/ant-design/ant-design/issues/3665)
+
+## 2.2.0
+
+`2016-10-28`
+
+* 支持 TypeScript@2.0。[@AlbertZheng](https://github.com/AlbertZheng) [#3358](https://github.com/ant-design/ant-design/issues/3358)
+* 不再强依赖于 React 特定版本。[#3627](https://github.com/ant-design/ant-design/pull/3627)
+* Alert 支持 `className` `style` 属性。
+* DatePicker MonthPicker RangePicker 现在允许设置是否显示清除按钮。[#3618](https://github.com/ant-design/ant-design/issues/3618)
+* Form.Item 现在可以感知深层嵌套的表单域，以自动为其生成错误信息和状态。[#3212](https://github.com/ant-design/ant-design/issues/3212)
+* RangePicker 现在可以设置不可选的时间。[#](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date)
+* Switch
+  * 宽度现在会随着 `checkedChildren/unCheckedChildren` 自动调整。[#3380](https://github.com/ant-design/ant-design/issues/3380)
+  * 优化切换动画。
+* Upload 现在可以 [自定义上传方式](https://github.com/react-component/upload#customrequest)。[@edgji](https://github.com/edgji)
+* Icon
+  * 新增 `bulb` `select` `like-o` `dislike-o`。
+  * 调整 `loading` `like` `dislike`。
+* 优化 Card DatePicker Icon Table 的 TypeScript 定义。[@infeng](https://github.com/infeng) [3468](https://github.com/ant-design/ant-design/pull/3468) [#3603](https://github.com/ant-design/ant-design/pull/3603) [#3531](https://github.com/ant-design/ant-design/pull/3531)
+* 修复 Cascader `defaultValue` 失效的问题。[#3470](https://github.com/ant-design/ant-design/issues/3470)
+* 修复在一行内同时使用 Button Input DatePicker Select 时对齐的问题。[#3481](https://github.com/ant-design/ant-design/issues/3481)
+* DatePicker
+  * 修复设置 `DatePicker[showTime]` 后 `onChange` 事件触发时机问题。[#3523](https://github.com/ant-design/ant-design/issues/3523)
+* 修复 Dropdown.Button disabled 后仍然响应操作的问题。[#3535](https://github.com/ant-design/ant-design/issues/3535)
+* Menu
+  * 修复服务端渲染问题，感谢 [@xpcode](https://github.com/xpcode) 定位问题。[#2061](https://github.com/ant-design/ant-design/issues/2061) [#2406](https://github.com/ant-design/ant-design/issues/2406) [#3293](https://github.com/ant-design/ant-design/issues/3293)
+  * 修复 children 不能为 `null` 的问题。[#3599](https://github.com/ant-design/ant-design/issues/3599)
+* 修复 message 加载状态无动画的问题。[#3536](https://github.com/ant-design/ant-design/issues/3536)
+* Form
+  * 修复 `Form[inline]` 与 `Input[addonBefore|addonAfter]` 一起使用时的样式问题。[#3524](https://github.com/ant-design/ant-design/issues/3524)
+  * 修复 Form.Item 内 Radio.Button 样式问题。
+  * 修复 Form.Item 内搜索按钮的样式问题。[#3630](https://github.com/ant-design/ant-design/issues/3630)
+  * 修复用户无输入时 Form.Item 识别为校验成功的问题。[#3613](https://github.com/ant-design/ant-design/issues/3613)
+* 当 `Popover[title]` 没有设置时，不再限制 Popover 的最小宽度。
+* Table
+  * 修复固定表头在没有数据情况下的样式问题。[#3567](https://github.com/ant-design/ant-design/issues/3567)
+  * 修复无数据时会覆盖 SubMenu 的问题。[#3521](https://github.com/ant-design/ant-design/issues/3521)
+* Tabs
+  * 修复卡片叶签头部高度与设计稿不一致的问题。
+  * 修复 TabPane 的高度会被同级 TabPane 撑高的问题。[#3304](https://github.com/ant-design/ant-design/issues/3304)
+* 修复 `TreeSelect[showSearch]` 样式问题。[#3520](https://github.com/ant-design/ant-design/issues/3520)
+
+## 2.1.0
+
+`2016-10-16`
+
+- Icon 现在支持旋转动画。
+- Tabs 现在可以禁用切换动画。[#3324](https://github.com/ant-design/ant-design/issues/3324)
+- 新增西班牙语的 localization 支持。@Danjavia
+- 更新俄语的 localization 文案。@plandem
+- 新增 AutoComplete[onSelect] 回调。
+- 优化 Modal 样式细节。
+- 优化 Tooltip 动画。
+- 优化 Transfer 按钮的样式。
+- 优化 Tree 的样式细节。
+- 整理和修复了部分 less 变量。
+- 修复服务端渲染时全量引入 antd 报错的问题。
+- 修复 Affix 与 BackTop 的服务端渲染问题。[#3283](https://github.com/ant-design/ant-design/issues/3283) [#3343](https://github.com/ant-design/ant-design/issues/3343)
+- 修复 Card[title] 内无法使用 `h3` 之类的标签的问题。[#3388](https://github.com/ant-design/ant-design/issues/3388)
+- 修复 Cascader 搜索模式与浏览器自动完成有冲突的问题。[#3350](https://github.com/ant-design/ant-design/issues/3350)
+- DatePicker
+  - 修复设置 `showTime` 后，`onChange` 重复触发的问题。[#3376](https://github.com/ant-design/ant-design/issues/3376)
+  - 修复浮层与 Trigger 日期格式不一致的问题。[#3405](https://github.com/ant-design/ant-design/issues/3405) [#3298](https://github.com/ant-design/ant-design/issues/3298)
+  - 修复与 TimePicker 样式冲突问题。[#3312](https://github.com/ant-design/ant-design/issues/3312) [#3307](https://github.com/ant-design/ant-design/issues/3307)
+- 修复 Form.Item 标签文案过长溢出的问题。
+- 修复 Icon 在 Safari 下会出现边框的问题。
+- 修复 InputNubmer 键盘事件死循环问题。[#3239](https://github.com/ant-design/ant-design/issues/3239)
+- 修复 Popover 箭头样式问题。
+- 修复 Popover 和 Popconfirm 的 `arrowPointAtCenter` 无效的问题。
+- Select
+  - 修复样式重复引入的问题。[#3376](https://github.com/ant-design/ant-design/issues/3376)
+  - 修复 `notFoundContent` 无法置空的问题。[#3345](https://github.com/ant-design/ant-design/issues/3345)
+  - 修复 Table 内使用 Select[showSearch] 后宽度会跳动的问题。[#3413](https://github.com/ant-design/ant-design/issues/3413)
+- 修复 Table 边框线与页头页脚冲突的问题。[#3301](https://github.com/ant-design/ant-design/issues/3301)
+- 修复 TabPane 高度不随内容变化的问题。[#3377](https://github.com/ant-design/ant-design/issues/3377)
+- 修复 Transfer[titles] 不受 LocaleProvider 控制的问题。[#3264](https://github.com/ant-design/ant-design/pull/3264)
+- Upload
+  - 修复用户自定义 `onRemove` 事件会覆盖默认行为的问题。[#3317](https://github.com/ant-design/ant-design/issues/3317)
+  - 修复图片卡片样式问题。[#3316](https://github.com/ant-design/ant-design/issues/3316)
+- 修复项目构建时 moment locales 找不到的问题。[#3204](https://github.com/ant-design/ant-design/issues/3204) [#3411](https://github.com/ant-design/ant-design/issues/3411)
+
+## 2.0.1
+
+`2016-10-01`
+
+- 修复无法调用 react-slick 方法的问题。[#3164](https://github.com/ant-design/ant-design/issues/3164)
+- 修复 Steps.Step[icon] 不支持 React.ReactNode 的问题。[#3159](https://github.com/ant-design/ant-design/issues/3159)
+- 修复 Affix 不支持服务端渲染的问题。[#3216](https://github.com/ant-design/ant-design/issues/3216)
+- 修复 Mention 不支持 `onSelect` `placeholder` 的问题。[#3236](https://github.com/ant-design/ant-design/issues/3236) [#3226](https://github.com/ant-design/ant-design/issues/3226)
+- 修复 Transfer 与 `getFieldDecorator` 一起使用时的报错问题。
+- 修复 LocaleProvider 对时间组件无效的问题。
+- 修复 Cascader 搜索模式搜索文字显示不了的问题。
+- 修复 Spin 动画与文案整体不垂直居中的问题。
+- 修复 RangePicker Modal Tag Progress 等组件样式问题。
+
 ## 2.0.0
 
 `2016-09-28`
@@ -42,7 +187,9 @@ timeline: true
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。由于 `JSON.stringy(date: moment)` 返回的值会丢失时区设置，所以要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
+* 时间类组件的 `onChange` 和 `onPanelChange` 及其他回调函数中为 `Date/GregorianCalendar` 类型的参数，均修改为 moment 类型，两者 API 有所不同，但功能基本一致，请对照 [moment 的 API 文档](http://momentjs.com/docs/) 和 [gregorian-calendar 的文档](https://github.com/yiminghe/gregorian-calendar) 进行修改。你也可以参考这个 [commit](https://github.com/ant-design/ant-design/commit/5a4ebe535f0353089b30ac331bc4fb7877963371) 来进行修改。
+
+  由于 `JSON.stringy(date: moment)` 返回的值会丢失时区设置，所以要先使用 `.format` 把日期转成字符串，相关 issue 见 [#3082](https://github.com/ant-design/ant-design/issues/3082)：
   ```js
   handleSubmit() {
     const values = this.props.form.getFieldsValue();
@@ -51,10 +198,13 @@ timeline: true
     // 发送 data 到服务器
   }
   ```
-* 时间类组件的 `format` 属性配置也调整为与 [moment](http://momentjs.com/docs/) 的一致。
+
+* 时间类组件与表单校验一起使用时，`type: 'date'` 改为 `type: 'object'`。
+* 时间类组件的 `format` 属性也发生了变化，从 [gregorian-calendar-format 的格式](https://github.com/yiminghe/gregorian-calendar-format#api) 变化为与 [moment 的格式](http://momentjs.com/docs/#/parsing/string-format/)，例如原来的 `yyyy-MM-dd` 将变为 `YYYY-MM-DD`。
 * Breadcrumb 移除 `linkRender` 和 `nameRender`，请使用 `itemRender`。
 * Menu 移除 `onClose` `onOpen`，请使用 `onOpenChange`。API 差异较大，请先研究 [demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current)。
 * Table 移除列分页功能，请使用 [固定列](http://ant.design/components/table/#components-table-demo-fixed-columns)。
+* Popover 移除 `overlay` ，请使用 `content`。
 
 以下变化升级后旧代码仍然能正常运行，但是控制台会出现警告提示，建议按提示进行修改。
 
@@ -66,6 +216,8 @@ timeline: true
   +    <Input placeholder="text" />
   +  )}
   ```
+
+  相关讨论可以看 [#1533](https://github.com/ant-design/ant-design/issues/1533)。
 
 * DatePicker 废弃 `toggleOpen`，请使用 `onOpenChange`：
 

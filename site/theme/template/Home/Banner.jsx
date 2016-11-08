@@ -16,7 +16,8 @@ function typeFunc(a) {
   return 'left';
 }
 
-export default function Banner() {
+export default function Banner({ location }) {
+  const query = location.query;
   return (
     <section id="banner">
       <ScrollElement scrollName="banner" className="page">
@@ -25,10 +26,10 @@ export default function Banner() {
           <p key="content"><FormattedMessage id="app.home.slogan" /></p>
           <span className="line" key="line" />
           <div key="button1" className="start-button clearfix">
-            <Link to="/docs/spec/introduce">
+            <Link to={{ query, pathname: '/docs/spec/introduce' }}>
               <FormattedMessage id="app.home.introduce" />
             </Link>
-            <Link to="/docs/react/introduce">
+            <Link to={{ query, pathname: '/docs/react/introduce' }}>
               <FormattedMessage id="app.home.start" />
             </Link>
           </div>

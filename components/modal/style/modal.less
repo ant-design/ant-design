@@ -21,7 +21,7 @@
 
   &-title {
     margin: 0;
-    font-size: 14px;
+    font-size: @font-size-lg;
     line-height: 21px;
     font-weight: bold;
   }
@@ -32,6 +32,7 @@
     border: 0;
     border-radius: @border-radius-base;
     background-clip: padding-box;
+    box-shadow: @shadow-2;
   }
 
   &-close {
@@ -46,7 +47,7 @@
     line-height: 1;
     text-decoration: none;
     transition: color .3s ease;
-    color: #999;
+    color: @text-color-secondary;
     outline: 0;
 
     &-x {
@@ -58,7 +59,7 @@
       text-rendering: auto;
       width: 14px;
       height: 14px;
-      font-size: 14px;
+      font-size: @font-size-lg;
       line-height: 1;
 
       &:before {
@@ -79,13 +80,13 @@
     padding: 14px 16px;
     border-radius: @border-radius-base @border-radius-base 0 0;
     background: #fff;
-    color: #666;
+    color: @text-color;
     border-bottom: 1px solid @border-color-split;
   }
 
   &-body {
     padding: 16px;
-    font-size: 12px;
+    font-size: @font-size-base;
     line-height: 1.5;
   }
 
@@ -102,7 +103,7 @@
 
   &.zoom-enter,
   &.zoom-appear {
-    animation-duration: .3s;
+    animation-duration: @animation-duration-slow;
     transform: none; // reset scale avoid mousePosition bug
     opacity: 0;
   }

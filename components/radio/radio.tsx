@@ -1,7 +1,7 @@
 import RcRadio from 'rc-radio';
 import React from 'react';
 import classNames from 'classnames';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
 export interface RadioProps {
   /** 指定当前是否选中*/
@@ -28,7 +28,7 @@ export default class Radio extends React.Component<RadioProps, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {
-    const { prefixCls, children, checked, disabled, className, style } = this.props;
+    const { prefixCls, children, checked, disabled, className = '', style } = this.props;
     const wrapperClassString = classNames({
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: checked,

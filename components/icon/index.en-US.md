@@ -56,6 +56,13 @@ ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
 
+## Props
+
+| Property | Description      | Type   | Default |
+|----------|------------------|------- |---------|
+| type | Type of ant design icons | string | - |
+| spin | Rotate icon with animation | boolean | false |
+
 <style>
 .markdown .icons {
   width: 100%;

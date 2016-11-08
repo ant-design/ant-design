@@ -6,7 +6,7 @@
 @slider-disabled-color: #ccc;
 // tooltip
 @slider-tooltip-color: #fff;
-@slider-tooltip-bg: tint(#666, 4%);
+@slider-tooltip-bg: tint(@text-color, 4%);
 @slider-tooltip-arrow-width: 4px;
 @slider-tooltip-distance: @slider-tooltip-arrow-width + 4;
 @slider-tooltip-arrow-color: @slider-tooltip-bg;
@@ -54,10 +54,12 @@
     border: solid 2px tint(@primary-color, 50%);
     background-color: #fff;
     z-index: 2;
-    transition: border-color 0.3s ease;
+    transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:hover {
       border-color: tint(@primary-color, 20%);
+      transform: scale(1.2);
+      transform-origin: center center;
     }
 
     &:active {
@@ -70,7 +72,7 @@
     top: 10px;
     left: 0;
     width: 100%;
-    font-size: 12px;
+    font-size: @font-size-base;
     z-index: 3;
   }
 
@@ -80,10 +82,10 @@
     vertical-align: middle;
     text-align: center;
     cursor: pointer;
-    color: #999;
+    color: @text-color-secondary;
 
     &-active {
-      color: #666;
+      color: @text-color;
     }
   }
 

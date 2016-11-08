@@ -8,6 +8,7 @@ import Icon from '../icon';
 export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
+    allowClear: true,
   };
 
   constructor(props) {
@@ -45,7 +46,7 @@ export default class RangePicker extends React.Component<any, any> {
 
   render() {
     const props = this.props;
-    const { disabledDate, showTime, prefixCls, popupStyle, style, onOk, locale } = props;
+    const { disabledDate, disabledTime, showTime, prefixCls, popupStyle, style, onOk, locale } = props;
     const state = this.state;
 
     const calendarClassName = classNames({
@@ -77,6 +78,7 @@ export default class RangePicker extends React.Component<any, any> {
         className={calendarClassName}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
+        disabledTime={disabledTime}
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
@@ -84,7 +86,7 @@ export default class RangePicker extends React.Component<any, any> {
       />
     );
 
-    const clearIcon = (!props.disabled && state.value && (state.value[0] || state.value[1]))
+    const clearIcon = (!props.disabled && props.allowClear && state.value && (state.value[0] || state.value[1]))
       ? <Icon
         type="cross-circle"
         className={`${prefixCls}-picker-clear`}

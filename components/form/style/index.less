@@ -31,9 +31,8 @@ label {
 input[type="radio"],
 input[type="checkbox"] {
   &[disabled],
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 
@@ -42,19 +41,17 @@ input[type="checkbox"] {
 .@{ant-prefix}-radio-vertical,
 .@{ant-prefix}-checkbox-inline,
 .@{ant-prefix}-checkbox-vertical {
-  &.disabled,
-  fieldset[disabled] & {
-    cursor: @cursor-disabled;
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 
 // These classes are used on elements with <label> descendants
 .@{ant-prefix}-radio,
 .@{ant-prefix}-checkbox {
-  &.disabled,
-  fieldset[disabled] & {
+  &.disabled {
     label {
-      cursor: @cursor-disabled;
+      cursor: not-allowed;
     }
   }
 }
@@ -64,7 +61,8 @@ input[type="checkbox"] {
 .@{form-prefix-cls}-item {
   font-size: @font-size-base;
   margin-bottom: @form-item-margin-bottom;
-  color: #666;
+  color: @text-color;
+  vertical-align: top;
 
   // nested FormItem
   & > &,
@@ -87,6 +85,9 @@ input[type="checkbox"] {
     vertical-align: middle;
     padding: 7px 0;
     display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     label {
       color: @label-color;
@@ -115,7 +116,7 @@ input[type="checkbox"] {
 
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
-  color: #999;
+  color: @text-color-secondary;
 }
 
 .@{form-prefix-cls}-text {
@@ -291,7 +292,7 @@ form {
     .square(@input-height-lg);
     line-height: @input-height-lg;
     text-align: center;
-    font-size: 14px;
+    font-size: @font-size-lg;
     animation: zoomIn .3s @ease-out-back;
     .iconfont-font("");
   }
@@ -425,7 +426,7 @@ form {
     display: inline-block;
     animation: loadingCircle 1s infinite linear;
     content: "\e6ae";
-    color: #999;
+    color: @text-color-secondary;
   }
 }
 

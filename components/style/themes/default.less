@@ -15,24 +15,22 @@
 @code-family            : Consolas,Menlo,Courier,monospace;
 @text-color             : #666;
 @heading-color          : #404040;
+@text-color-secondary   : #999;
 @font-size-base         : 12px;
+@font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
-@line-height-computed   : floor((@font-size-base * @line-height-base));
 @border-radius-base     : 6px;
 @border-radius-sm       : 4px;
 
 // ICONFONT
 @iconfont-css-prefix    : anticon;
-@icon-url               : "https://at.alicdn.com/t/font_1473840929_824008";
+@icon-url               : "https://at.alicdn.com/t/font_uzv8nkw1nabgldi";
 
 // LINK
 @link-color             : #2db7f5;
 @link-hover-color       : tint(@link-color, 20%);
 @link-active-color      : shade(@link-color, 5%);
 @link-hover-decoration  : none;
-
-// Disabled cursor for form controls and buttons.
-@cursor-disabled        : not-allowed;
 
 // Animation
 @ease-out            : cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -61,13 +59,13 @@
 @background-color-base  : #f7f7f7;        // basic gray background
 
 // Shadow
-@shadow-color           : rgba(100, 100, 100, .2);
+@shadow-color           : rgba(0, 0, 0, .2);
 @box-shadow-base        : @shadow-1-down;
 @shadow-1-up            : 0 -1px 6px @shadow-color;
 @shadow-1-down          : 0 1px 6px @shadow-color;
 @shadow-1-left          : -1px 0 6px @shadow-color;
 @shadow-1-right         : 1px 0 6px @shadow-color;
-@shadow-2               : 0 1px 8px @shadow-color;
+@shadow-2               : 0 2px 8px @shadow-color;
 
 // Buttons
 @btn-font-weight        : 500;
@@ -91,10 +89,8 @@
 @btn-disable-border     : @border-color-base;
 
 @btn-padding-base       : 4px 15px;
-
-@btn-font-size-lg       : 14px;
+@btn-font-size-lg       : @font-size-lg;
 @btn-padding-lg         : 4px 15px 5px 15px;
-
 @btn-padding-sm         : 1px 7px;
 
 @btn-circle-size        : 28px;
@@ -126,13 +122,8 @@
 @grid-columns           : 24;
 @grid-gutter-width      : 0;
 
-// Container sizes
-@container-sm           : (720px + @grid-gutter-width);
-@container-md           : (940px + @grid-gutter-width);
-@container-lg           : (1140px + @grid-gutter-width);
-
 // z-index list
-@zindex-affix           : 10;
+@zindex-affix           : 11;
 @zindex-back-top        : 10;
 @zindex-modal-mask      : 1000;
 @zindex-modal           : 1000;
@@ -143,30 +134,59 @@
 @zindex-dropdown        : 1050;
 @zindex-tooltip         : 1060;
 
+// Animation
+@animation-duration-slow: .3s; // Modal
+@animation-duration-base: .2s;
+@animation-duration-fast: .1s; // Tooltip
+
 // Form
-// --------------------------------
-// Legend
-@legend-color                : #999;
-@legend-border-color         : @border-color-base;
-// Label
+// ---
 @label-required-color        : #f50;
 @label-color                 : @text-color;
-// Input
-@input-height-base: 28px;
-@input-height-lg: 32px;
-@input-height-sm: 22px;
+@form-item-margin-bottom     : 24px;
 
+// Input
+// ---
+@input-height-base           : 28px;
+@input-height-lg             : 32px;
+@input-height-sm             : 22px;
 @input-padding-horizontal    : 7px;
 @input-padding-vertical-base : 4px;
 @input-padding-vertical-sm   : 1px;
 @input-padding-vertical-lg   : 6px;
-
 @input-placeholder-color     : #ccc;
 @input-color                 : @text-color;
 @input-border-color          : @border-color-base;
 @input-bg                    : #fff;
-
 @input-hover-border-color    : @primary-color;
 @input-disabled-bg           : @background-color-base;
 
-@form-item-margin-bottom     : 24px;
+// Tooltip
+// ---
+//* Tooltip max width
+@tooltip-max-width: 250px;
+//** Tooltip text color
+@tooltip-color: #fff;
+//** Tooltip background color
+@tooltip-bg: rgba(64, 64, 64, .85);
+//** Tooltip arrow width
+@tooltip-arrow-width: 5px;
+//** Tooltip distance with trigger
+@tooltip-distance: @tooltip-arrow-width - 1 + 4;
+//** Tooltip arrow color
+@tooltip-arrow-color: @tooltip-bg;
+
+// Popover
+// ---
+//** Popover body background color
+@popover-bg: #fff;
+//** Popover maximum width
+@popover-min-width: 177px;
+//** Popover arrow width
+@popover-arrow-width: 4px;
+//** Popover arrow color
+@popover-arrow-color: @popover-bg;
+//** Popover outer arrow width
+@popover-arrow-outer-width: (@popover-arrow-width + 1);
+//** Popover outer arrow color
+@popover-arrow-outer-color: fadeout(@border-color-base, 30%);

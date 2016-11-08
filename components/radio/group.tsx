@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Radio from './radio';
 import RadioButton from './radioButton';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
+import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
 
 function getCheckedValue(children) {
@@ -18,8 +18,10 @@ function getCheckedValue(children) {
 }
 
 export interface RadioGroupProps {
+  prefixCls?: string;
+  className?: string;
   /** 选项变化时的回调函数*/
-  onChange?: React.FormEventHandler;
+  onChange?: React.FormEventHandler<any>;
   /** 用于设置当前选中的值*/
   value?: string | number;
   /** 默认选中的值*/
@@ -27,16 +29,12 @@ export interface RadioGroupProps {
   /**  大小，只对按钮样式生效*/
   size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
-  prefixCls?: string;
   disabled?: boolean;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
   static defaultProps = {
-    prefixCls: 'ant-radio-group',
     disabled: false,
-    onChange() {
-    },
   };
   constructor(props) {
     super(props);
@@ -76,11 +74,15 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
         value: ev.target.value,
       });
     }
-    this.props.onChange(ev);
+
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(ev);
+    }
   }
   render() {
     const props = this.props;
-    const children = React.Children.map(props.children, (radio: any) => {
+    const children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
       if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
         const keyProps = {};
         if (!('key' in radio) && typeof radio.props.value === 'string') {
@@ -94,9 +96,12 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       }
       return radio;
     });
+
+    const { prefixCls = 'ant-radio-group', className = '' } = props;
     const classString = classNames({
-      [props.prefixCls]: true,
-      [`${props.prefixCls}-${props.size}`]: props.size,
+      [prefixCls]: true,
+      [`${prefixCls}-${props.size}`]: props.size,
+      [className]: className,
     });
     return <div className={classString} style={props.style}>{children}</div>;
   }

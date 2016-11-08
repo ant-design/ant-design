@@ -45,11 +45,11 @@ export interface InputProps {
   readOnly?: boolean;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
-  onPressEnter?: React.FormEventHandler;
-  onKeyDown?: React.FormEventHandler;
-  onChange?: React.FormEventHandler;
-  onClick?: React.FormEventHandler;
-  onBlur?: React.FormEventHandler;
+  onPressEnter?: React.FormEventHandler<any>;
+  onKeyDown?: React.FormEventHandler<any>;
+  onChange?: React.FormEventHandler<any>;
+  onClick?: React.FormEventHandler<any>;
+  onBlur?: React.FormEventHandler<any>;
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;
@@ -61,9 +61,6 @@ export default class Input extends Component<InputProps, any> {
     disabled: false,
     prefixCls: 'ant-input',
     type: 'text',
-    onPressEnter() {},
-    onKeyDown() {},
-    onChange() {},
     autosize: false,
   };
 
@@ -114,17 +111,23 @@ export default class Input extends Component<InputProps, any> {
   }
 
   handleKeyDown = (e) => {
-    if (e.keyCode === 13) {
-      this.props.onPressEnter(e);
+    const { onPressEnter, onKeyDown } = this.props;
+    if (e.keyCode === 13 && onPressEnter) {
+      onPressEnter(e);
     }
-    this.props.onKeyDown(e);
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
   }
 
   handleTextareaChange = (e) => {
     if (!('value' in this.props)) {
       this.resizeTextarea();
     }
-    this.props.onChange(e);
+    const onChange = this.props.onChange;
+    if (onChange) {
+      onChange(e);
+    }
   }
 
   resizeTextarea = () => {

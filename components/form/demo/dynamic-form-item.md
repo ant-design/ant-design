@@ -1,8 +1,8 @@
 ---
-order: 15
+order: 5
 title:
   zh-CN: 动态增减表单项
-  en-US: Dynamic form item
+  en-US: Dynamic Form Item
 ---
 
 ## zh-CN
@@ -26,34 +26,30 @@ let Demo = React.createClass({
   remove(k) {
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.filter((key) => {
-      return key !== k;
-    });
+    const keys = form.getFieldValue('keys');
     // can use data-binding to set
     form.setFieldsValue({
-      keys,
+      keys: keys.filter(key => key !== k),
     });
   },
   add() {
     uuid++;
     const { form } = this.props;
     // can use data-binding to get
-    let keys = form.getFieldValue('keys');
-    keys = keys.concat(uuid);
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.concat(uuid);
     // can use data-binding to set
     // important! notify form to detect changes
     form.setFieldsValue({
-      keys,
+      keys: nextKeys,
     });
   },
-  submit(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFields((errors, values) => {
-      if (errors) {
-        console.log(errors);
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-      console.log(values);
     });
   },
   render() {
@@ -76,16 +72,16 @@ let Demo = React.createClass({
           })(
             <Input style={{ width: '60%', marginRight: 8 }} />
           )}
-          <Button onClick={() => this.remove(k)}>remove</Button>
+          <Button onClick={() => this.remove(k)}>Remove</Button>
         </Form.Item>
       );
     });
     return (
-      <Form horizontal>
+      <Form horizontal onSubmit={this.handleSubmit}>
         {formItems}
         <Form.Item wrapperCol={{ span: 18, offset: 6 }}>
-          <Button onClick={this.add} style={{ marginRight: 8 }}>add good friend</Button>
-          <Button type="primary" onClick={this.submit}>submit</Button>
+          <Button onClick={this.add} style={{ marginRight: 8 }}>Add good friend</Button>
+          <Button type="primary" htmlType="submit">Submit</Button>
         </Form.Item>
       </Form>
     );
@@ -93,6 +89,5 @@ let Demo = React.createClass({
 });
 
 Demo = Form.create()(Demo);
-
 ReactDOM.render(<Demo />, mountNode);
 ````

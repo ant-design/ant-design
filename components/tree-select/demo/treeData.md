@@ -39,7 +39,7 @@ const treeData = [{
 const Demo = React.createClass({
   getInitialState() {
     return {
-      value: '',
+      value: undefined,
     };
   },
   onChange(value) {
@@ -48,7 +48,8 @@ const Demo = React.createClass({
   },
   render() {
     return (
-      <TreeSelect style={{ width: 300 }}
+      <TreeSelect
+        style={{ width: 300 }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         treeData={treeData}

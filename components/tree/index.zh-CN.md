@@ -15,8 +15,8 @@ subtitle: 树形控件
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-|multiple | 是否支持多选 | bool | false |
-|checkable | 是否支持选中 | bool   | false    |
+|multiple | 支持点选多个节点（节点本身） | bool | false |
+|checkable | 节点前添加 Checkbox 复选框 | bool | false |
 |defaultExpandAll | 默认展开所有树节点 | bool | false |
 |defaultExpandedKeys | 默认展开指定的树节点 | String[] | [] |
 |expandedKeys | （受控）展开指定的树节点 | String[] | [] |
@@ -37,7 +37,9 @@ subtitle: 树形控件
 |onDragEnter | dragenter 触发时调用 | function({event,node,expandedKeys}) | - |
 |onDragOver | dragover 触发时调用 | function({event,node}) | - |
 |onDragLeave | dragleave 触发时调用 | function({event,node}) | - |
+|onDragEnd | dragend 触发时调用 | function({event,node}) | - |
 |onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |
+
 
 ### TreeNode props
 

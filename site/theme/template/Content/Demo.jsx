@@ -38,6 +38,9 @@ export default class Demo extends React.Component {
       highlightedStyle,
       expand,
     } = props;
+    if (!this.liveDemo) {
+      this.liveDemo = meta.iframe ? <iframe src={src} /> : preview(React, ReactDOM);
+    }
 
     const codeExpand = this.state.codeExpand || expand;
     const codeBoxClass = classNames({
@@ -58,11 +61,7 @@ export default class Demo extends React.Component {
     return (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
-          {
-            meta.iframe ?
-              <iframe src={src} /> :
-              preview(React, ReactDOM)
-          }
+          {this.liveDemo}
           {
             style ?
               <style dangerouslySetInnerHTML={{ __html: style }} /> :
@@ -89,9 +88,7 @@ export default class Demo extends React.Component {
             highlightedStyle ?
               <div key="style" className="highlight">
                 <pre>
-                  <code className="css" dangerouslySetInnerHTML={{
-                    __html: highlightedStyle,
-                  }} />
+                  <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
                 </pre>
               </div> :
               null

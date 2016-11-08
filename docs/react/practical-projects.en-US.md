@@ -49,7 +49,7 @@ Open http://localhost:8989 in your browser, you will see dva welcome page.
 
 ## Integrate antd
 
-Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd. See [repo](https://github.com/ant-design/babel-plugin-import) 。
+Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used to automatically import scripts and stylesheets from antd in demand. See [repo](https://github.com/ant-design/babel-plugin-import) 。
 
 ```bash
 $ npm install antd babel-plugin-import --save
@@ -176,7 +176,7 @@ Then don't forget to require it in `index.js`:
 
 ## Connect
 
-So far, wee have completed a seperate model and component. Then how to connect these together? 
+So far, wee have completed a seperate model and component. Then how to connect these together?
 
 dva provides a `connect` method. If you are familar with redux, this `connect` is from react-router.
 

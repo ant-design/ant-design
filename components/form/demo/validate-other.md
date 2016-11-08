@@ -1,115 +1,80 @@
 ---
-order: 12
+order: 11
 title:
   zh-CN: 校验其他组件
-  en-US: Others components related to validation
+  en-US: Other Form Controls
 ---
 
 ## zh-CN
 
-提供以下组件表单域的校验：`Select` `Radio` `DatePicker` `InputNumber` `Cascader`。在 submit 时使用 `validateFieldsAndScroll`，进行校验，可以自动把不在可见范围内的校验不通过的菜单域滚动进可见范围。
+以上演示没有出现的表单控件对应的校验演示。
 
 ## en-US
 
-Provide validation for following input filed: `Select` `Radio` `DatePicker` `InputNumber` `Cascader`. To use `validateFieldsAndScroll` with form validation, it will scroll the form to the failed input field which is not in visible area.
+Demostration for validataion configuration for form controls which are not show in the above demos.
 
 ````jsx
-import { Select, Radio, Checkbox, Button, DatePicker, TimePicker, InputNumber, Form, Cascader, Icon } from 'antd';
-const Option = Select.Option;
-const RadioGroup = Radio.Group;
-const createForm = Form.create;
+import {
+  Form, Select, InputNumber, Switch, Radio,
+  Slider, Button, Upload, Icon,
+} from 'antd';
 const FormItem = Form.Item;
+const Option = Select.Option;
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
-let Demo = React.createClass({
-  componentDidMount() {
-    this.props.form.setFieldsValue({
-      eat: true,
-      sleep: true,
-      beat: true,
-    });
-  },
-
-  handleReset(e) {
-    e.preventDefault();
-    this.props.form.resetFields();
-  },
-
+const Demo = Form.create()(React.createClass({
   handleSubmit(e) {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((errors, values) => {
-      if (errors) {
-        console.log('Errors in form!!!');
-        return;
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
       }
-      console.log('Submit!!!');
-      console.log(values);
     });
   },
 
-  checkBirthday(rule, value, callback) {
-    if (value && value.valueOf() >= Date.now()) {
-      callback(new Error("You can't be born in the future!"));
-    } else {
-      callback();
+  normFile(e) {
+    if (Array.isArray(e)) {
+      return e;
     }
-  },
-
-  checkPrime(rule, value, callback) {
-    if (value !== 11) {
-      callback(new Error('The prime number between 8 to 12 is 11!'));
-    } else {
-      callback();
-    }
+    return e && e.fileList;
   },
 
   render() {
-    const address = [{
-      value: 'zhejiang',
-      label: 'Zhe Jiang',
-      children: [{
-        value: 'hangzhou',
-        label: 'Hang Zhou',
-      }],
-    }];
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
-      labelCol: { span: 7 },
-      wrapperCol: { span: 12 },
+      labelCol: { span: 6 },
+      wrapperCol: { span: 14 },
     };
     return (
-      <Form horizontal>
+      <Form horizontal onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
-          label="Country"
+          label="Select"
         >
           {getFieldDecorator('select', {
             rules: [
-              { required: true, message: 'Please select your country' },
+              { required: true, message: 'Please select your country!' },
             ],
           })(
-            <Select placeholder="Please select a country" style={{ width: '100%' }}>
+            <Select placeholder="Please select a country">
               <Option value="china">China</Option>
               <Option value="use">U.S.A</Option>
-              <Option value="japan">Japan</Option>
-              <Option value="korean">Korea</Option>
-              <Option value="Thailand">Thai</Option>
             </Select>
           )}
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Favourite colors"
+          label="Select[multiple]"
         >
-          {getFieldDecorator('multiSelect', {
+          {getFieldDecorator('select-multiple', {
             rules: [
-              { required: true, message: 'Please select your favourite colors', type: 'array' },
+              { required: true, message: 'Please select your favourite colors!', type: 'array' },
             ],
           })(
-            <Select multiple placeholder="Please select favourite colors" style={{ width: '100%' }}>
+            <Select multiple placeholder="Please select favourite colors">
               <Option value="red">Red</Option>
-              <Option value="orange">Orange</Option>
-              <Option value="yellow">Yellow</Option>
               <Option value="green">Green</Option>
               <Option value="blue">Blue</Option>
             </Select>
@@ -118,112 +83,69 @@ let Demo = React.createClass({
 
         <FormItem
           {...formItemLayout}
-          label="Gender"
+          label="InputNumber"
         >
-          {getFieldDecorator('radio', {
-            rules: [
-              { required: true, message: 'Please select your gender' },
-            ],
-          })(
+          {getFieldDecorator('input-number', { initialValue: 3 })(
+            <InputNumber min={1} max={10} />
+          )}
+          <span className="ant-form-text"> machines</span>
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Switch"
+        >
+          {getFieldDecorator('switch', { valuePropName: 'checked' })(
+            <Switch />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Slider"
+        >
+          {getFieldDecorator('slider')(
+            <Slider marks={{ 0: 'A', 20: 'B', 40: 'C', 60: 'D', 80: 'E', 100: 'F' }} />
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Radio.Group"
+        >
+          {getFieldDecorator('radio-group')(
             <RadioGroup>
-              <Radio value="male">male</Radio>
-              <Radio value="female">female</Radio>
+              <RadioButton value="a">item 1</RadioButton>
+              <RadioButton value="b">item 2</RadioButton>
+              <RadioButton value="c">item 3</RadioButton>
             </RadioGroup>
           )}
-          <span><Icon type="info-circle-o" /> No other gender</span>
         </FormItem>
 
         <FormItem
           {...formItemLayout}
-          label="Hobby"
+          label="Upload"
+          help="longgggggggggggggggggggggggggggggggggg"
         >
-          {getFieldDecorator('eat', {
-            valuePropName: 'checked',
+          {getFieldDecorator('upload', {
+            valuePropName: 'fileList',
+            normalize: this.normFile,
           })(
-            <Checkbox>eat</Checkbox>
-          )}
-          {getFieldDecorator('sleep', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>sleeping</Checkbox>
-          )}
-          {getFieldDecorator('beat', {
-            valuePropName: 'checked',
-          })(
-            <Checkbox>dozen doug</Checkbox>
+            <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
+              <Button type="ghost">
+                <Icon type="upload" /> Click to upload
+              </Button>
+            </Upload>
           )}
         </FormItem>
 
-        <FormItem
-          {...formItemLayout}
-          label="Birthday"
-        >
-          {getFieldDecorator('birthday', {
-            rules: [
-              {
-                required: true,
-                type: 'object',
-                message: 'When is your birthday?',
-              }, {
-                validator: this.checkBirthday,
-              },
-            ],
-          })(
-            <DatePicker />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="Select the time"
-        >
-          {getFieldDecorator('time', {
-            rules: [
-              {
-                required: true,
-                type: 'object',
-                message: 'Please select the time',
-              },
-            ],
-          })(
-            <TimePicker />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="Prime num between 8, 12"
-        >
-          {getFieldDecorator('primeNumber', {
-            rules: [{ validator: this.checkPrime }],
-          })(
-            <InputNumber min={8} max={12} />
-          )}
-        </FormItem>
-
-        <FormItem
-          {...formItemLayout}
-          label="Please select address"
-        >
-          {getFieldDecorator('address', {
-            rules: [{ required: true, type: 'array' }],
-          })(
-            <Cascader options={address} />
-          )}
-        </FormItem>
-
-        <FormItem
-          wrapperCol={{ span: 12, offset: 7 }}
-        >
-          <Button type="primary" onClick={this.handleSubmit}>OK</Button>
-          &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
+        <FormItem wrapperCol={{ span: 12, offset: 7 }}>
+          <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
       </Form>
     );
   },
-});
+}));
 
-Demo = createForm()(Demo);
 ReactDOM.render(<Demo />, mountNode);
 ````

@@ -53,7 +53,7 @@ const App = React.createClass({
           </MenuItemGroup>
         </SubMenu>
         <Menu.Item key="alipay">
-          <a href="http://www.alipay.com/" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
         </Menu.Item>
       </Menu>
     );

@@ -9,7 +9,7 @@
   top: -9999px;
   z-index: @zindex-dropdown;
   display: block;
-  font-size: 12px;
+  font-size: @font-size-base;
   font-weight: normal;
   line-height: 1.5;
 
@@ -47,25 +47,24 @@
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     background-clip: padding-box;
-    border: 1px solid @border-color-base;
 
     &-item,
     &-submenu-title {
-      padding: 7px 15px;
+      padding: 7px 16px;
       margin: 0;
       clear: both;
-      font-size: 12px;
+      font-size: @font-size-base;
       font-weight: normal;
-      color: #666;
+      color: @text-color;
       white-space: nowrap;
       cursor: pointer;
       transition: background 0.3s ease;
 
       > a {
-        color: #666;
+        color: @text-color;
         display: block;
-        padding: 7px 15px;
-        margin: -7px -15px;
+        padding: 7px 16px;
+        margin: -7px -16px;
       }
 
       &:hover {
@@ -108,8 +107,8 @@
       font-family: "anticon" !important;
       position: absolute;
       content: "\e61f";
-      right: 15px;
-      color: #999;
+      right: 16px;
+      color: @text-color-secondary;
       .iconfont-size-under-12px(9px);
     }
 
@@ -155,7 +154,7 @@
 }
 
 .@{dropdown-prefix-cls}-link {
-  font-size: 12px;
+  font-size: @font-size-base;
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(9px);
   }

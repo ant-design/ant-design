@@ -14,7 +14,7 @@ A table displays rows data.
 
 ## How To Use
 
-Sepecify `dataSource` of Table to be an array data.
+Specify `dataSource` of Table whose value is an array of data.
 
 ```jsx
 const dataSource = [{
@@ -50,10 +50,10 @@ const columns = [{
 
 ### Table
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            | Default      |
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | Object  | null  |
-| pagination    | pagination [config](/components/pagination), hide it via setting to `false` | Object |  |
+| pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | Object |  |
 | size          | size of table: `default` or `small`  | String | `default` |
 | dataSource    | data record array to be rendered | Array |            |
 | columns       | columns of table | Array | - |
@@ -62,6 +62,9 @@ const columns = [{
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
 | expandedRowKeys | current expanded rows keys | Array | - |
+| defaultExpandAllRows | expand all rows initially | Boolean | false |
+| onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
+| onExpand      | function to call when click expand icon | Function(expanded, record) | |
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
 | loading       | loading status of table | Boolean | false |
 | locale        | i18n text include filter, sort, empty text...etc | Object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
@@ -77,7 +80,7 @@ const columns = [{
 
 One of Property `columns` for descriping column.
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | title      | title of this column        | String or React.Element | - |
 | key        | key of this column | String          | - |
@@ -88,7 +91,7 @@ One of Property `columns` for descriping column.
 | filterMultiple | whether to select multiple filtered item | Boolean    | true    |
 | filterDropdown | customized filter overlay | React.Element | - |
 | sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function or Boolean | - |
-| colSpan    | colSpan for column title | Number |         |
+| colSpan    | span of this column's title | Number |         |
 | width      | width of this column | String or Number | -  |
 | className  | className of this column            | String          |  -      |
 | fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean or String | false |
@@ -99,7 +102,7 @@ One of Property `columns` for descriping column.
 
 Properties for selection.
 
-| Property      | Type                     | Default         | Description  |
+| Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | type | `checkbox` or `radio` | String | `checkbox`  |
 | selectedRowKeys | controlled selected row keys | Array | []  |

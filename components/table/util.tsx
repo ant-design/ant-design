@@ -1,6 +1,6 @@
 import assign from 'object-assign';
-export function flatArray(data = [], childrenName = 'children') {
-  const result = [];
+export function flatArray(data: Object[] = [], childrenName = 'children') {
+  const result: Object[] = [];
   const loop = (array) => {
     array.forEach(item => {
       const newItem = assign({}, item);

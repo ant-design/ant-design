@@ -8,15 +8,16 @@ A Selector similar to Select2.
 
 ## When To Use
 
-A dropdown menu for choosing, an elegant alternative to the native select component.
+- A dropdown menu for choosing, an elegant alternative to the native select component.
+- [Radio](/components/radio/) is a better solution when options amount is too little (less than 5).
+
+## API
 
 ```html
 <Select>
   <Option value="lucy">lucy</Option>
 </Select>
 ```
-
-## API
 
 ### Select props
 
@@ -32,6 +33,8 @@ A dropdown menu for choosing, an elegant alternative to the native select compon
 | onDeselect | Called when a option is deselected. param is option's value. only called for multiple or tags, effective in multiple or tags mode only. |  function(value) | -   |
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, label) | - |
 | onSearch | Callback function that is fired when input changed. | function(value: String) |  |
+| onBlur | Called when blur | function | - |
+| onFocus | Called when focus | function | - |
 | placeholder | Placeholder of select | string | - |
 | notFoundContent | Specify content to show when no result matches..| string | 'Not Found' |
 | dropdownMatchSelectWidth | Whether dropdown's with is same with select. | boolean | true |
@@ -41,7 +44,12 @@ A dropdown menu for choosing, an elegant alternative to the native select compon
 | size    | Size of Select input. `large` `small`  | String      |      default      |
 | showSearch | Whether show search input in single mode.| boolean | false |
 | disabled | Whether disabled select | boolean | false |
-| getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
+| dropdownStyle | style of dropdown menu | object | - |
+| dropdownClassName | className of dropdown menu | string | - |
+| getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | function(triggerNode) | () => document.body |
+| labelInValue | whether to embed label in value | boolean | false |
+| tokenSeparators | Separator used to tokenize on tag/multiple mode | string[]? |  |
+
 
 ### Option props
 

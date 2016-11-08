@@ -16,8 +16,9 @@ This property provide an additional time selection. When `showTime` is an Object
 ````jsx
 import { DatePicker } from 'antd';
 
-function onChange(value) {
+function onChange(value, dateString) {
   console.log('Selected Time: ', value);
+  console.log('Formatted Selected Time: ', dateString);
 }
 
 ReactDOM.render(

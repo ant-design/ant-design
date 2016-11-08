@@ -93,7 +93,6 @@ const Page = React.createClass({
           <Transfer
             dataSource={[]}
             showSearch
-            titles={['', '']}
             targetKeys={[]}
             render={item => item.title}
           />

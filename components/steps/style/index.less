@@ -3,11 +3,11 @@
 
 @steps-prefix-cls: ~"@{ant-prefix}-steps";
 @process-icon-color: @primary-color;
-@process-title-color: #666;
+@process-title-color: @text-color;
 @process-description-color: @process-title-color;
 @process-tail-color: @border-color-split;
 @wait-icon-color: #ccc;
-@wait-title-color: #999;
+@wait-title-color: @text-color-secondary;
 @wait-description-color: @wait-title-color;
 @wait-tail-color: @process-tail-color;
 @finish-icon-color: @process-icon-color;
@@ -148,21 +148,19 @@
     border: 1px solid @wait-icon-color;
     width: 26px;
     height: 26px;
-    line-height: 26px;
+    line-height: 23px;
     text-align: center;
     border-radius: 26px;
-    font-size: 14px;
+    font-size: @font-size-lg;
     margin-right: 8px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
 
     > .@{steps-prefix-cls}-icon {
       line-height: 1;
-      top: -1.5px;
       color: @primary-color;
       position: relative;
-
       &.@{iconfont-css-prefix} {
-        font-size: 12px;
+        font-size: @font-size-base;
         &-cross,
         &-check {
           font-weight: bold;
@@ -174,15 +172,15 @@
     margin-top: 2.5px;
   }
   .@{steps-prefix-cls}-title {
-    font-size: 14px;
+    font-size: @font-size-lg;
     margin-bottom: 4px;
-    color: #666;
+    color: @text-color;
     font-weight: bold;
     background: #fff;
     display: inline-block;
     padding-right: 10px;
     > a:first-child:last-child {
-      color: #666;
+      color: @text-color;
     }
   }
   .@{steps-prefix-cls}-item-last {
@@ -192,8 +190,8 @@
     }
   }
   .@{steps-prefix-cls}-description {
-    font-size: 12px;
-    color: #999;
+    font-size: @font-size-base;
+    color: @text-color-secondary;
   }
   .@{steps-prefix-cls}-tail {
     position: absolute;
@@ -226,10 +224,10 @@
       border: 1px solid @wait-icon-color;
       width: 18px;
       height: 18px;
-      line-height: 18px;
+      line-height: 15px;
       text-align: center;
       border-radius: 18px;
-      font-size: 12px;
+      font-size: @font-size-base;
       margin-right: 10px;
       > .@{steps-prefix-cls}-icon.@{iconfont-css-prefix} {
         .iconfont-size-under-12px(9px);
@@ -240,14 +238,14 @@
       margin-top: 0;
     }
     .@{steps-prefix-cls}-title {
-      font-size: 12px;
+      font-size: @font-size-base;
       margin-bottom: 4px;
-      color: #666;
+      color: @text-color;
       font-weight: bold;
     }
     .@{steps-prefix-cls}-description {
-      font-size: 12px;
-      color: #999;
+      font-size: @font-size-base;
+      color: @text-color-secondary;
     }
     .@{steps-prefix-cls}-tail {
       top: 8px;

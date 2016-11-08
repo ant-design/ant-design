@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon from '../icon';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
+import Icon from '../icon';
+import warning from '../_util/warning';
+import splitObject from '../_util/splitObject';
 
 export interface TagProps {
   /** 标签是否可以关闭 */
@@ -13,8 +14,6 @@ export interface TagProps {
   onClose?: Function;
   /** 动画关闭后的回调 */
   afterClose?: Function;
-  /** 标签的色彩 */
-  color?: string;
   style?: React.CSSProperties;
 }
 
@@ -22,12 +21,11 @@ export default class Tag extends React.Component<TagProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
-    onClose() { },
-    afterClose() { },
   };
 
   constructor(props) {
     super(props);
+    warning(!('color' in props), '`Tag[color]` is deprecated, please override color by CSS instead.');
 
     this.state = {
       closing: false,
@@ -36,7 +34,10 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   close = (e) => {
-    this.props.onClose(e);
+    const onClose = this.props.onClose;
+    if (onClose) {
+      onClose(e);
+    }
     if (e.defaultPrevented) {
       return;
     }
@@ -49,13 +50,17 @@ export default class Tag extends React.Component<TagProps, any> {
     });
   }
 
-  animationEnd = (key, existed) => {
+  animationEnd = (_, existed) => {
     if (!existed && !this.state.closed) {
       this.setState({
         closed: true,
         closing: false,
       });
-      this.props.afterClose();
+
+      const afterClose = this.props.afterClose;
+      if (afterClose) {
+        afterClose();
+      }
     }
   }
 
@@ -70,6 +75,7 @@ export default class Tag extends React.Component<TagProps, any> {
     const classString = classNames({
       [prefixCls]: true,
       [`${prefixCls}-${color}`]: !!color,
+      [`${prefixCls}-has-color`]: !!color,
       [`${prefixCls}-close`]: this.state.closing,
       [className]: !!className,
     });

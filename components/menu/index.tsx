@@ -1,10 +1,7 @@
 import React from 'react';
 import RcMenu, { Item, Divider, SubMenu, ItemGroup } from 'rc-menu';
 import animation from '../_util/openAnimation';
-import warning from 'warning';
-
-function noop() {
-}
+import warning from '../_util/warning';
 
 export interface SelectParam {
   key: string;
@@ -61,8 +58,6 @@ export default class Menu extends React.Component<MenuProps, any> {
   static ItemGroup = ItemGroup;
   static defaultProps = {
     prefixCls: 'ant-menu',
-    onClick: noop,
-    onOpenChange: noop,
     className: '',
     theme: 'light',  // or dark
   };
@@ -90,11 +85,19 @@ export default class Menu extends React.Component<MenuProps, any> {
   }
   handleClick = (e) => {
     this.setOpenKeys([]);
-    this.props.onClick(e);
+
+    const onClick = this.props.onClick;
+    if (onClick) {
+      onClick(e);
+    }
   }
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
-    this.props.onOpenChange(openKeys);
+
+    const onOpenChange = this.props.onOpenChange;
+    if (onOpenChange) {
+      onOpenChange(openKeys);
+    }
   }
   setOpenKeys(openKeys) {
     if (!('openKeys' in this.props)) {

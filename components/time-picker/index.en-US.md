@@ -34,5 +34,6 @@ import moment from 'moment';
 | disabledSeconds     | to specify the seconds that cannot be selected | function(selectedHour, selectedMinute) | - |
 | hideDisabledOptions | hide the options that can not be selected | boolean | false |
 | getPopupContainer   | to set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |
+| addon | called from timepicker panel to render some addon to its bottom | function | 无 |
 
 <style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>

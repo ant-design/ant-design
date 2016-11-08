@@ -22,7 +22,7 @@
     line-height: 18px;
     text-align: center;
     padding: 0 6px;
-    font-size: 12px;
+    font-size: @font-size-base;
     white-space: nowrap;
     transform-origin: -10% center;
     z-index: 10;
@@ -48,9 +48,15 @@
   }
 
   &-status {
-    width: 6px;
-    height: 6px;
+    line-height: inherit;
+    vertical-align: baseline;
 
+    &-dot {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      border-radius: 50%;
+    }
     &-success {
       background-color: @success-color;
     }
@@ -67,15 +73,10 @@
     &-warning {
       background-color: @warning-color;
     }
-
-    &-with-text {
-      top: 5px;
-    }
-
     &-text {
       color: @text-color;
       font-size: @font-size-base;
-      margin-left: 8px; // 8 - (6 / 2) === 5
+      margin-left: 8px;
     }
   }
 
@@ -94,7 +95,7 @@
     top: auto;
     display: block;
     position: relative;
-    transform: translateX(0);
+    transform: none!important;
   }
 }
 

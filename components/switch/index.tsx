@@ -12,6 +12,7 @@ export interface SwitchProps {
   onChange?: (checked: boolean) => any;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
+  disabled?: boolean;
 }
 
 export default class Switch extends React.Component<SwitchProps, any> {
@@ -27,7 +28,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
   };
 
   render() {
-    const { prefixCls, size, className } = this.props;
+    const { prefixCls, size, className = '' } = this.props;
     const classes = classNames({
       [className]: !!className,
       [`${prefixCls}-small`]: size === 'small',

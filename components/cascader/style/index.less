@@ -11,8 +11,6 @@
     cursor: pointer;
     width: 100%;
     z-index: 1;
-    background: transparent;
-    color: transparent;
   }
   &-picker {
     position: relative;
@@ -22,6 +20,10 @@
     font-size: @font-size-base;
     background-color: #fff;
     border-radius: @border-radius-base;
+
+    &-with-value &-label {
+      color: transparent;
+    }
 
     &-disabled {
       cursor: not-allowed;
@@ -52,7 +54,7 @@
       z-index: 2;
       background: #fff;
       top: 50%;
-      font-size: 12px;
+      font-size: @font-size-base;
       color: #ccc;
       width: 12px;
       height: 12px;
@@ -61,7 +63,7 @@
       cursor: pointer;
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
-        color: #999;
+        color: @text-color-secondary;
       }
     }
 
@@ -79,7 +81,7 @@
       height: 12px;
       margin-top: -6px;
       line-height: 12px;
-      color: #999;
+      color: @text-color-secondary;
       .iconfont-size-under-12px(9px);
       &:before {
         transition: transform 0.2s ease;
@@ -93,11 +95,10 @@
     }
   }
   &-menus {
-    font-size: 12px;
+    font-size: @font-size-base;
     background: #fff;
     position: absolute;
     z-index: @zindex-dropdown;
-    border: 1px solid @border-color-base;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     white-space: nowrap;
@@ -172,7 +173,7 @@
       &:after {
         .iconfont-font("\e61f");
         .iconfont-size-under-12px(8px);
-        color: #999;
+        color: @text-color-secondary;
         position: absolute;
         right: 15px;
       }

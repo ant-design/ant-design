@@ -33,12 +33,12 @@
 
     .@{iconfont-css-prefix}-filter {
       margin-left: 4px;
-      font-size: 12px;
+      font-size: @font-size-base;
       cursor: pointer;
       color: #aaa;
       transition: all 0.3s ease;
       &:hover {
-        color: #666;
+        color: @text-color;
       }
     }
 
@@ -120,7 +120,6 @@
   &-header {
     background: @table-head-background-color;
     overflow: hidden;
-    border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &-header table {
@@ -210,7 +209,7 @@
       width: 12px;
       cursor: pointer;
       &:hover .@{iconfont-css-prefix} {
-        color: #666;
+        color: @text-color;
       }
       &.on {
         .@{iconfont-css-prefix}-caret-up,
@@ -232,21 +231,28 @@
   }
 
   &-bordered {
-    .@{table-prefix-cls}-body > table {
+    .@{table-prefix-cls}-header > table,
+    .@{table-prefix-cls}-body > table,
+    .@{table-prefix-cls}-fixed-left table,
+    .@{table-prefix-cls}-fixed-right table {
       border: 1px solid @border-color-split;
     }
 
     &.@{table-prefix-cls}-fixed-header {
-      border: 1px solid @border-color-split;
-      table {
-        border: 0;
+      .@{table-prefix-cls}-header > table {
+        border-bottom: 0;
       }
-      .@{table-prefix-cls}-fixed-left {
-        border-right: 1px solid @border-color-split;
+
+      .@{table-prefix-cls}-body > table {
+        border-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
-      .@{table-prefix-cls}-fixed-right {
-        border-left: 1px solid @border-color-split;
+
+      .@{table-prefix-cls}-body-inner > table {
+        border-top: 0;
       }
+
       .@{table-prefix-cls}-placeholder {
         border-bottom: 0;
       }
@@ -286,8 +292,8 @@
     text-align: center;
     position: relative;
     z-index: 2;
-    font-size: 12px;
-    color: #999;
+    font-size: @font-size-base;
+    color: @text-color-secondary;
     .@{iconfont-css-prefix} {
       margin-right: 4px;
     }
@@ -303,7 +309,6 @@
     margin-left: -8px;
     background: #fff;
     border-radius: @border-radius-base;
-    border: 1px solid @border-color-base;
     box-shadow: @box-shadow-base;
 
     .@{ant-prefix}-dropdown-menu {
@@ -317,7 +322,6 @@
 
       &-sub {
         border-radius: @border-radius-base;
-        border: 1px solid @border-color-base;
         box-shadow: @box-shadow-base;
       }
 
@@ -341,7 +345,7 @@
 
     &-btns {
       overflow: hidden;
-      padding: 7px 15px;
+      padding: 7px 16px;
       border-top: 1px solid @border-color-split;
     }
 
@@ -436,6 +440,12 @@
 
   &-fixed-header &-scroll &-header {
     overflow: scroll;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
+  }
+
+  /* fix firefox scrollbar bug */
+  &-fixed-header&-empty &-scroll &-body {
     padding-bottom: 20px;
     margin-bottom: -20px;
   }

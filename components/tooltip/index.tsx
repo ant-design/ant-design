@@ -1,7 +1,7 @@
 import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
-import getPlacements from '../popover/placements';
+import getPlacements from './placements';
 import classNames from 'classnames';
 
 export type PopoverPlacement =
@@ -38,10 +38,9 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     prefixCls: 'ant-tooltip',
     placement: 'top',
-    transitionName: 'zoom-big',
+    transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
-    onVisibleChange() {},
     arrowPointAtCenter: false,
   };
 
@@ -59,7 +58,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   onVisibleChange = (visible) => {
     this.setState({ visible });
-    this.props.onVisibleChange(visible);
+    const onVisibleChange = this.props.onVisibleChange;
+    if (onVisibleChange) {
+      onVisibleChange(visible);
+    }
   }
 
   getPopupDomNode() {

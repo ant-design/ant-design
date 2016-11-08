@@ -4,7 +4,9 @@
 
 .@{full-calendar-prefix-cls} {
   font-size: @font-size-base;
-  line-height: 1.5;
+  line-height: @line-height-base;
+  outline: none;
+  border-top: 1px solid @border-color-base;
 
   &-month-select {
     margin-left: 5px;
@@ -30,8 +32,6 @@
     }
   }
 
-  outline: none;
-  border-top: 1px solid @legend-border-color;
   &-date-panel {
     position: relative;
     outline: none;
@@ -201,7 +201,7 @@
   }
 
   &-fullscreen &-today &-value {
-    color: #666;
+    color: @text-color;
   }
 
 

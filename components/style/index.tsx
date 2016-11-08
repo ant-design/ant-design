@@ -6,7 +6,7 @@ function isFlexSupported(style) {
     'MozFlex' in style;
 }
 
-if (typeof window !== undefined && window.document && window.document.documentElement) {
+if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
   const { documentElement } = window.document;
   const NO_FLEX = 'no-flex';
 

@@ -1,6 +1,6 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 高级用法
   en-US: Advanced
 ---
@@ -9,7 +9,7 @@ title:
 
 穿梭框高级用法，可配置操作文案，可定制宽高，可对底部进行自定义渲染。
 
-## en-US 
+## en-US
 
 Advanced Usage of Transfer.
 
@@ -33,7 +33,7 @@ const App = React.createClass({
     const mockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
-        key: i,
+        key: i.toString(),
         title: `content${i + 1}`,
         description: `description of content${i + 1}`,
         chosen: Math.random() * 2 > 1,

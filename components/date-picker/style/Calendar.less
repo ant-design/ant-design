@@ -16,7 +16,7 @@
     padding: 0 2px;
     font-weight: bold;
     display: inline-block;
-    color: #666;
+    color: @text-color;
     line-height: 34px;
   }
 
@@ -37,7 +37,7 @@
   .@{calendar-prefix-cls}-next-year-btn {
     position: absolute;
     top: 0;
-    color: #999;
+    color: @text-color-secondary;
     font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", sans-serif;
     padding: 0 5px;
     font-size: 16px;
@@ -86,7 +86,7 @@
   position: relative;
   outline: none;
   width: 231px;
-  border: 1px solid @border-color-base;
+  border: 1px solid #fff;
   list-style: none;
   font-size: @font-size-base;
   text-align: left;
@@ -168,7 +168,7 @@
   &-date {
     display: block;
     margin: 0 auto;
-    color: #666;
+    color: @text-color;
     border-radius: @border-radius-sm;
     width: 20px;
     height: 20px;
@@ -238,7 +238,7 @@
   }
 
   &-footer {
-    padding: 0 15px;
+    padding: 0 16px;
     height: 38px;
     line-height: 38px;
     border-top: 1px solid @border-color-split;
@@ -281,7 +281,7 @@
 
   .@{calendar-prefix-cls}-clear-btn:after {
     .iconfont-font("\e62e");
-    font-size: 12px;
+    font-size: @font-size-base;
     color: #ccc;
     display: inline-block;
     line-height: 1;
@@ -291,7 +291,7 @@
   }
 
   .@{calendar-prefix-cls}-clear-btn:hover:after {
-    color: #999;
+    color: @text-color-secondary;
   }
 
   .@{calendar-prefix-cls}-ok-btn {

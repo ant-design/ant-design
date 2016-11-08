@@ -9,6 +9,151 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.3.1
+
+`2016-11-07`
+
+* Add missing `dist/antd.css` back.
+
+## 2.3.0
+
+`2016-11-04`
+
+* Upgrade normalize.css to 5.0.
+* Point main file to `lib/index.js` in package.json. [#3397](https://github.com/ant-design/ant-design/pull/3397)
+* A brand new `Spin` design.
+* Add `addon` for `TimePicker` to allow render some addon to its bottom.
+* Add `onDragEnd` for `Tree`.
+* Add `bordered` for `Collapse`.
+* Improve `Tabs` switch animation.
+* Improve `Radio` and `Checkbox` style when it's disabled and mouse hovered. [#3590](https://github.com/ant-design/ant-design/issues/3590)
+* Opitimize `Transfer` performance.[#2860](https://github.com/ant-design/ant-design/issues/2860)
+* Fix nested `Popover` style issue. [#3448](https://github.com/ant-design/ant-design/issues/3448)
+* Fix issue resulting in server side render `Transfer` failed. [#3686](https://github.com/ant-design/ant-design/issues/3686)
+* Fix issue resulting in preview image not display when `Upload` in `picture-card` mode. [#3706](https://github.com/ant-design/ant-design/pull/3706) [@denzw](https://github.com/denzw)
+* DatePicker
+  * `onChange` will be triggered when `DatePicker` in `showTime` mode on blur now.
+  * Add `monthCellContentRender` and `cellContentRender` for `MonthPicker`.
+  * `Rangepicker` can input time manually now.[#3718](https://github.com/ant-design/ant-design/issues/3718)
+  * Add czech locale/translations.
+* Badge
+  * Improve number over 99 displaying when mouse hovering. [#3645](https://github.com/ant-design/ant-design/issues/3645)
+  * Fix moving animation when using `Badge` alone. [#3709](https://github.com/ant-design/ant-design/issues/3709)
+* Mention
+  * Fix issue resulting in `Mention` will be covered by `Table`. [#3588](https://github.com/ant-design/ant-design/issues/3588)
+  * Add `getSuggestionContainer` to allow specify container. [#3658](https://github.com/ant-design/ant-design/pull/3658)
+* Tag
+  * Deprecate `color`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * Add `type`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
+  * Add `checkable`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
+* Radio.Group
+  * Add `className`。
+  * `null` or `undefined` `children` will be ignored.
+* Select
+  * Add `tokenSeparators` to supoort automatic tokenization。[#2071](https://github.com/ant-design/ant-design/issues/2071)
+  * Add `onFocus` callback. [#3587](https://github.com/ant-design/ant-design/issues/3587)
+  * Fix issue resulting in Select can't display correct selected item text in `combobox` mode. [#3401](https://github.com/ant-design/ant-design/issues/3401)
+
+## 2.2.1
+
+`2016-11-02`
+
+* Fix controlled DatePicker[showTime] not working bug. [#3665](https://github.com/ant-design/ant-design/issues/3665)
+
+## 2.2.0
+
+`2016-10-28`
+
+* Supports TypeScript@2.0. [@AlbertZheng](https://github.com/AlbertZheng) [#3358](https://github.com/ant-design/ant-design/issues/3358)
+* Not rely on specific version of React now. [#3627](https://github.com/ant-design/ant-design/pull/3627)
+* Alert supports `className` `style`.
+* DatePicker & MonthPicker & RangePicker allow developers to set whether to show the clear button. [#3618](https://github.com/ant-design/ant-design/issues/3618)
+* Form.Item can generate `validateStatus` & `help` for nested form control automatically. [#3212](https://github.com/ant-design/ant-design/issues/3212)
+* RangePicker can set some hours or minutes or seconds to be not selectable. [#](https://ant.design/components/date-picker/#components-date-picker-demo-disabled-date)
+* Switch
+  * The width of Switch will resize automatically, according to `checkedChildren/unCheckedChildren`. [#3380](https://github.com/ant-design/ant-design/issues/3380)
+  * Improve the switch animation.
+* Upload can [customized request](https://github.com/react-component/upload#customrequest) now. [@edgji](https://github.com/edgji)
+* Icon
+  * New icons `bulb` `select` `like-o` `dislike-o`.
+  * Adjust existing icons `loading` `like` `dislike`.
+* Improve the TypeScript definition of Card & DatePicker & Icon & Table. [@infeng](https://github.com/infeng) [3468](https://github.com/ant-design/ant-design/pull/3468) [#3603](https://github.com/ant-design/ant-design/pull/3603) [#3531](https://github.com/ant-design/ant-design/pull/3531)
+* Fix Cascader `defaultValue` should work. [#3470](https://github.com/ant-design/ant-design/issues/3470)
+* Fix the alignment of Button & Input & DatePicker & Select. [#3481](https://github.com/ant-design/ant-design/issues/3481)
+* DatePicker
+  * Fix wrong timing of triggering `onChange` while `DatePicker[showTime]` is set. [#3523](https://github.com/ant-design/ant-design/issues/3523)
+* Fix `Dropdown.Button[disabled]` doesn't works for behaviour. [#3535](https://github.com/ant-design/ant-design/issues/3535)
+* Menu
+  * Fix errors in SSR, thanks to  [@xpcode](https://github.com/xpcode) to find the solution. [#2061](https://github.com/ant-design/ant-design/issues/2061) [#2406](https://github.com/ant-design/ant-design/issues/2406) [#3293](https://github.com/ant-design/ant-design/issues/3293)
+  * Fix children don't support `null`. [#3599](https://github.com/ant-design/ant-design/issues/3599)
+* Fix loading status animation for message.[#3536](https://github.com/ant-design/ant-design/issues/3536)
+* Form
+  * Fix style issue while using `Form[inline]` and `Input[addonBefore|addonAfter]` together. [#3524](https://github.com/ant-design/ant-design/issues/3524)
+  * Fix style issue for Radio.Button in Form.Item.
+  * Fix style issue for search button in Form.Item. [#3630](https://github.com/ant-design/ant-design/issues/3630)
+  * Fix Form.Item should not treat no user input as validate success. [#3613](https://github.com/ant-design/ant-design/issues/3613)
+* Should not limit the min width of Popover while `Popover[title]` is not set.
+* Table
+  * Fix style of fixed header of Table while `dataSource` is empty.[#3567](https://github.com/ant-design/ant-design/issues/3567)
+  * Fix Table will overlap SubMenu while `dataSource` is empty. [#3521](https://github.com/ant-design/ant-design/issues/3521)
+* Tabs
+  * Height of header of `Tabs[type="card|editable-card"]` should follow design.
+  * Fix height of TabPane should follow height of its content. [#3304](https://github.com/ant-design/ant-design/issues/3304)
+* Fix style of `TreeSelect[showSearch]`. [#3520](https://github.com/ant-design/ant-design/issues/3520)
+
+## 2.1.0
+
+`2016-10-16`
+
+- Supports spinning Icon.
+- Tabs's switch animation could be disabled now. [#3324](https://github.com/ant-design/ant-design/issues/3324)
+- Add Spanish localization for LocaleProvider. @Danjavia
+- Update Russian localization for LocaleProvider. @plandem
+- Add `onSelect` event for AutoComplete.
+- Improve style of Modal.
+- Improve animation of Tooltip.
+- Improve style of Transfer's buttons.
+- Improve style of Tree.
+- Fix some less variables.
+- Fix errors while import the whole antd in SSR.
+- Fix errors while render Affix and BackTop on server. [#3283](https://github.com/ant-design/ant-design/issues/3283) [#3343](https://github.com/ant-design/ant-design/issues/3343)
+- Fix conflicts between Cascader search mode and browser's autocomplete behaviour. [#3350](https://github.com/ant-design/ant-design/issues/3350)
+- Fix bug that `h3` cannot be the value of Card[title]. [#3388](https://github.com/ant-design/ant-design/issues/3388)
+- DatePicker
+  - Fix bug that `onChange` will be trigger twice when `showTime` is set. [#3376](https://github.com/ant-design/ant-design/issues/3376)
+  - Fix differences between overlay's and trigger's date format. [#3405](https://github.com/ant-design/ant-design/issues/3405) [#3298](https://github.com/ant-design/ant-design/issues/3298)
+  - Fix style conflicts with TimePicker. [#3312](https://github.com/ant-design/ant-design/issues/3312) [#3307](https://github.com/ant-design/ant-design/issues/3307)
+- Fix overflow issue for Form.Item label.
+- Fix that Icon should not show border in Safari.
+- Fix infinite loop while inc/dec InputNubmer with keyboard. [#3239](https://github.com/ant-design/ant-design/issues/3239)
+- Fix the style of the arrow of Popover.
+- Fix bug Popover and Popconfirm `arrowPointAtCenter` doesn't work.
+- Select
+  - Fix bug that styles of Select are imported twice. [#3332](https://github.com/ant-design/ant-design/issues/3332)
+  - Fix bug `notFoundContent` cannot be set as `''`. [#3345](https://github.com/ant-design/ant-design/issues/3345)
+  - Fix the unstable width of table cell with Select[showSearch]. [#3413](https://github.com/ant-design/ant-design/issues/3413)
+- Fix style conflicts while use `border` & `title` & `footer` of Table at the same time. [#3301](https://github.com/ant-design/ant-design/issues/3301)
+- Fix that the height of TabPane doesn't follow height of content. [#3377](https://github.com/ant-design/ant-design/issues/3377)
+- Fix bug Transfer[titles] is not under the control of LocaleProvider. [#3264](https://github.com/ant-design/ant-design/pull/3264)
+- Upload
+  - Fix bug users' `onRemove` will override default behaviour. [#3317](https://github.com/ant-design/ant-design/issues/3317)
+  - Fix style for `listType='picture-card'`.[#3316](https://github.com/ant-design/ant-design/issues/3316)
+- Fix bug that moment locales is not found while built. [#3204](https://github.com/ant-design/ant-design/issues/3204) [#3411](https://github.com/ant-design/ant-design/issues/3411)
+
+## 2.0.1
+
+`2016-10-01`
+
+- Fix developers cannot call methods of react-slick. [#3164](https://github.com/ant-design/ant-design/issues/3164)
+- Fix Steps.Step[icon] should support React.ReactNode. [#3159](https://github.com/ant-design/ant-design/issues/3159)
+- Fix server-side render for Affix. [#3216](https://github.com/ant-design/ant-design/issues/3216)
+- Fix Mention should supoort `onSelect` `placeholder`. [#3236](https://github.com/ant-design/ant-design/issues/3236) [#3226](https://github.com/ant-design/ant-design/issues/3226)
+- Fix Transfer cannot work with `getFieldDecorator`.
+- Fix LocaleProvider doesn't work for time-related components.
+- Fix Cascader doesn't show search text in search mode.
+- Fix the animation & text Spin should be placed in vertical middle.
+- Fix styles of RangePicker Modal Tag Progress.
+
 ## 2.0.0
 
 `2016-09-28`
@@ -44,7 +189,9 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
   - <Calendar defaultValue={new Date('2010-10-10')} />
   + <Calendar defaultValue={moment('2010-10-10', 'YYYY-MM-DD')} />
   ```
-* Parameters of type `Date/GregorianCalendar` of functions such as `onChange` and `onPanelChange`, plus other callback functions had been changed to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update your code accordingly. Because the return value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, see related issue [#3082](https://github.com/ant-design/ant-design/issues/3082) for details:
+* Parameters of type `Date/GregorianCalendar` of functions such as `onChange` and `onPanelChange`, plus other callback functions had been changed to type moment. Please consult [APIs of gregorian-calendar](https://github.com/yiminghe/gregorian-calendar) and [APIs of moment](http://momentjs.com/docs/), and update your code accordingly. And you can consult this [commit](https://github.com/ant-design/ant-design/commit/5a4ebe535f0353089b30ac331bc4fb7877963371) to see how to upate.
+
+  Because the return value of `JSON.stringy(date: moment)` will lost time zone, we should use `.format` to convert date to string first, see related issue [#3082](https://github.com/ant-design/ant-design/issues/3082) for details:
   ```js
   handleSubmit() {
     const values = this.props.form.getFieldsValue();
@@ -53,10 +200,12 @@ There are some breaking changes in `antd@2.0.0`, and you need to modify your cod
     // send data to server
   }
   ```
-* The `format` of time-related components is the same as [moment's format](http://momentjs.com/docs/) now.
+* For the value of time-related components becomes an instance of `moment`, you should replace `type: 'date'` with `type: 'object'` in form validation.
+* The `format` of time-related components is changed from [gregorian-calendar-format](https://github.com/yiminghe/gregorian-calendar-format#api) to [moment  format](http://momentjs.com/docs/#/parsing/string-format/) now, for instance the format `yyyy-MM-dd` should change to `YYYY-MM-DD`.
 * `linkRender` and `nameRender` of Breadcrumb are removed, please use `itemRender`.
 * `onClose` and `onOpen` of Menu are removed, please use `onOpenChange`. As being totally different, please check [this demo](http://beta.ant.design/components/menu/#components-menu-demo-sider-current) first.
 * Paging columns of Table were removed, please use [fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns).
+* `Popover[overlay]` is removed, please use `Popover[content]` instead.
 
 The following change will throw some warnings in the console and it will still work, but we recommend to update your code.
 
@@ -68,6 +217,8 @@ The following change will throw some warnings in the console and it will still w
   +    <Input placeholder="text" />
   +  )}
   ```
+
+  Look up to [#1533](https://github.com/ant-design/ant-design/issues/1533) for related discussion.
 
 * `toggleOpen` of DatePicker is deprecated, please use `onOpenChange`:
 

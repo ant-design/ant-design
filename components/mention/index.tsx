@@ -16,6 +16,8 @@ export interface MentionProps {
   className?: string;
   multiLines?: Boolean;
   prefix?: string;
+  placeholder?: string;
+  getSuggestionContainer?: Function;
 }
 
 export interface MentionState {
@@ -30,7 +32,6 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   static getMentions = getMentions;
   static defaultProps = {
     prefixCls: 'ant-mention',
-    suggestions: [],
     notFoundContent: '无匹配结果，轻敲空格完成输入',
     loading: false,
     multiLines: false,
@@ -64,7 +65,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
 
   defaultSearchChange(value: String): void {
     const searchValue = value.toLowerCase();
-    const filteredSuggestions = this.props.suggestions.filter(
+    const filteredSuggestions = (this.props.suggestions || []).filter(
       suggestion => suggestion.toLowerCase().indexOf(searchValue) !== -1
     );
     this.setState({
@@ -73,7 +74,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   }
 
   render() {
-    const { className, prefixCls, style, multiLines, defaultValue } = this.props;
+    const { className = '', prefixCls, style, multiLines, defaultValue } = this.props;
     let { notFoundContent } = this.props;
 
     const { suggestions, focus } = this.state;

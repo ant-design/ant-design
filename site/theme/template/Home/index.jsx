@@ -1,4 +1,5 @@
 import React from 'react';
+import { injectIntl } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import Link from './Link';
 import Banner from './Banner';
@@ -44,7 +45,7 @@ function getStyle() {
     .home-nav-white #nav a {
       color: #666;
     }
-    .home-nav-white #lang {
+    .home-nav-white .lang:not(:hover) {
       color: #666;
       border-color: #666;
     }
@@ -56,7 +57,7 @@ function getStyle() {
       background: #777;
       box-shadow: 0 7px 0 0 #777, 0 14px 0 0 #777;
     }
-    #lang,
+    .lang,
     #nav a {
       color: #eee;
       transition: color 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
@@ -86,18 +87,20 @@ function getStyle() {
   `;
 }
 
-export default function Home() {
+function Home(props) {
   return (
-    <DocumentTitle title="Ant Design - 一个 UI 设计语言">
+    <DocumentTitle title={`Ant Design - ${props.intl.formatMessage({ id: 'app.home.slogan' })}`}>
       <div className="main-wrapper">
         <Link />
-        <Banner />
-        <Page1 />
-        <Page2 />
-        <Page3 />
-        <Page4 />
+        <Banner {...props} />
+        <Page1 {...props} />
+        <Page2 {...props} />
+        <Page3 {...props} />
+        <Page4 {...props} />
         <style dangerouslySetInnerHTML={{ __html: getStyle() }} />
       </div>
     </DocumentTitle>
   );
 }
+
+export default injectIntl(Home);

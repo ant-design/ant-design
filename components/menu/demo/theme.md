@@ -37,7 +37,7 @@ const Sider = React.createClass({
   render() {
     return (
       <div>
-        <Switch onChange={this.changeTheme} checkedChildren="dark" unCheckedChildren="light" />
+        <Switch onChange={this.changeTheme} checkedChildren="Dark" unCheckedChildren="Light" />
         <br />
         <br />
         <Menu theme={this.state.theme}

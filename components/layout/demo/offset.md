@@ -1,8 +1,8 @@
 ---
 order: 2
-title: 
+title:
   zh-CN: 左右偏移
-  en-US: Offset
+  en-US: Column offset
 ---
 
 ## zh-CN
@@ -15,24 +15,21 @@ title:
 
 `Offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
 
-Column offset.
-
-
 ````jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>
     <Row>
-      <Col span={8}>.ant-col-8</Col>
-      <Col span={8} offset={8}>.ant-col-8</Col>
+      <Col span={8}>col-8</Col>
+      <Col span={8} offset={8}>col-8</Col>
     </Row>
     <Row>
-      <Col span={6} offset={6}>.ant-col-6 .ant-col-offset-6</Col>
-      <Col span={6} offset={6}>.ant-col-6 .ant-col-offset-6</Col>
+      <Col span={6} offset={6}>col-6 col-offset-6</Col>
+      <Col span={6} offset={6}>col-6 col-offset-6</Col>
     </Row>
     <Row>
-      <Col span={12} offset={6}>.ant-col-12 .ant-col-offset-6</Col>
+      <Col span={12} offset={6}>col-12 col-offset-6</Col>
     </Row>
   </div>,
   mountNode

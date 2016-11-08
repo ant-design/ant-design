@@ -34,8 +34,8 @@ export interface ButtonProps {
   icon?: string;
   shape?: ButtonShape;
   size?: ButtonSize;
-  onClick?: React.FormEventHandler;
-  onMouseUp?: React.FormEventHandler;
+  onClick?: React.FormEventHandler<any>;
+  onMouseUp?: React.FormEventHandler<any>;
   loading?: boolean;
   disabled?: boolean;
   style?: React.CSSProperties;
@@ -48,7 +48,6 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-btn',
-    onClick() {},
     loading: false,
   };
 
@@ -87,7 +86,10 @@ export default class Button extends React.Component<ButtonProps, any> {
     clearTimeout(this.timeout);
     this.timeout = setTimeout(() => this.clearButton(buttonNode), 500);
 
-    this.props.onClick(e);
+    const onClick = this.props.onClick;
+    if (onClick) {
+      onClick(e);
+    }
   }
 
   // Handle auto focus when click button in Chrome

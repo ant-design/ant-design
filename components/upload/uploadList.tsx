@@ -15,7 +15,6 @@ const previewFile = (file, callback) => {
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
     listType: 'text',  // or picture
-    items: [],
     progressAttr: {
       strokeWidth: 3,
       showInfo: false,
@@ -24,21 +23,27 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   handleClose = (file) => {
-    this.props.onRemove(file);
+    const onRemove = this.props.onRemove;
+    if (onRemove) {
+      onRemove(file);
+    }
   }
 
   handlePreview = (file, e) => {
-    if (this.props.onPreview) {
-      e.preventDefault();
-      return this.props.onPreview(file);
+    e.preventDefault();
+    const onPreview = this.props.onPreview;
+    if (!onPreview) {
+      return;
     }
+
+    return onPreview(file);
   }
 
   componentDidUpdate() {
     if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
       return;
     }
-    this.props.items.forEach(file => {
+    (this.props.items || []).forEach(file => {
       if (typeof document === 'undefined' ||
           typeof window === 'undefined' ||
           !(window as any).FileReader || !(window as any).File ||
@@ -59,7 +64,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   render() {
-    const { prefixCls, items, listType } = this.props;
+    const { prefixCls, items = [], listType } = this.props;
     const list = items.map(file => {
       let progress;
       let icon = <Icon type="paper-clip" />;
@@ -127,7 +132,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
                   <a
                     href={file.url}
                     target="_blank" rel="noopener noreferrer"
-                    style={{ pointerEvents: file.url ? '' : 'none' }}
+                    style={{ pointerEvents: file.url || file.thumbUrl ? '' : 'none' }}
                     onClick={e => this.handlePreview(file, e)}
                   >
                     <Icon type="eye-o" />
