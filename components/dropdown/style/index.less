@@ -9,7 +9,7 @@
   top: -9999px;
   z-index: @zindex-dropdown;
   display: block;
-  font-size: 12px;
+  font-size: @font-size-base;
   font-weight: normal;
   line-height: 1.5;
 
@@ -53,7 +53,7 @@
       padding: 7px 16px;
       margin: 0;
       clear: both;
-      font-size: 12px;
+      font-size: @font-size-base;
       font-weight: normal;
       color: @text-color;
       white-space: nowrap;
@@ -154,7 +154,7 @@
 }
 
 .@{dropdown-prefix-cls}-link {
-  font-size: 12px;
+  font-size: @font-size-base;
   .@{iconfont-css-prefix}-down {
     .iconfont-size-under-12px(9px);
   }
