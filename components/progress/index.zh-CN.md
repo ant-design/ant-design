@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 进度条
-type: Views
+type: Feedback
 title: Progress
 ---
 

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Views
+type: Feedback
 title: Progress
 ---
 

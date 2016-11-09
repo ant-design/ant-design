@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 输入框
-type: Form Controls
+type: Data Entry
 title: Input
 ---
 

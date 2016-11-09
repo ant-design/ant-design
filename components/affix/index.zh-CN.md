@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 固钉
-type: Other
+type: Navigation
 title: Affix
 ---
 

@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 时间选择框
-type: Form Controls
+type: Data Entry
 title: TimePicker
 ---
 

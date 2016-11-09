@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 穿梭框
-type: Form Controls
+type: Data Entry
 cols: 1
 title: Transfer
 ---

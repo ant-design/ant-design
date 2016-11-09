@@ -8,11 +8,13 @@ module.exports = {
     'Design Fundamental': 1,
   },
   typeOrder: {
-    Basic: 0,
-    'Form Controls': 1,
-    Views: 2,
-    Navigation: 3,
-    Other: 4,
+    General: 0,
+    Layout: 1,
+    Navigation: 2,
+    'Data Entry': 3,
+    'Data Display': 4,
+    Feedback: 5,
+    Localization: 6,
   },
   docVersions: {
     '0.9.x': 'http://09x.ant.design',

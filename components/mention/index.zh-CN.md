@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 提及
-type: Views
+type: Data Entry
 title: Mention
 ---
 

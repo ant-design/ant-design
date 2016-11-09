@@ -1,15 +1,15 @@
 ---
 category: Components
-type: Basic
+type: Layout
 cols: 1
-title: Layout
+title: Grid
 ---
 
 24 Grids System。
 
 ## Design concept
 
-<div class="layout-demo">
+<div class="grid-demo">
 <div class="ant-row demo-row">
   <div class="ant-col-24 demo-col demo-col-1">
     100%

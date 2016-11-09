@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 时间轴
-type: Views
+type: Data Display
 title: Timeline
 ---
 

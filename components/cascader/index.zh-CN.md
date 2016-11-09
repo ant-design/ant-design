@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form Controls
+type: Data Entry
 title: Cascader
 subtitle: 级联选择
 ---

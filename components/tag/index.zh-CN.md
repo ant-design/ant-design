@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 标签
-type: Views
+type: Data Display
 title: Tag
 ---
 

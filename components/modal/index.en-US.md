@@ -1,5 +1,5 @@
 ---
-type: Views
+type: Feedback
 category: Components
 title: Modal
 ---
