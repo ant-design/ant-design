@@ -27,3 +27,9 @@ ReactDOM.render(
   </Anchor>
 , mountNode);
 ```
+
+<style>
+.code-box-demo .ant-affix {
+  z-index: 11;
+}
+</style>
