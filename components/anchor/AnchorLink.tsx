@@ -40,6 +40,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
       anchorHelper: this.context.anchorHelper,
     };
   }
+
   renderAnchorLink = (child) => {
     const { href } = child.props;
     if (href) {
@@ -51,6 +52,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     }
     return child;
   }
+
   render() {
     const { prefixCls, href, children, onClick, title, bounds } = this.props;
     const { anchorHelper } = this.context;
@@ -60,13 +62,17 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
       [`${prefixCls}-link-active`]: active,
     });
     const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
-    return <div className={cls}>
-      <span
-        ref={(component) => component && active && anchorHelper ? anchorHelper.setActiveAnchor(component) : null}
-        className={`${prefixCls}-link-title`}
-        onClick={() => onClick ? onClick(href) : scrollToFn(href)}
-      >{title}</span>
-      {React.Children.map(children, this.renderAnchorLink)}
-    </div>;
+    return (
+      <div className={cls}>
+        <span
+          ref={(component) => component && active && anchorHelper ? anchorHelper.setActiveAnchor(component) : null}
+          className={`${prefixCls}-link-title`}
+          onClick={() => onClick ? onClick(href) : scrollToFn(href)}
+        >
+        {title}
+        </span>
+        {React.Children.map(children, this.renderAnchorLink)}
+      </div>
+    );
   }
 }

@@ -38,6 +38,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     };
     this.anchorHelper = new AnchorHelper();
   }
+
   handleScroll = () => {
     this.setState({
       activeAnchor: this.anchorHelper.getCurrentAnchor(this.props.bounds),
@@ -49,6 +50,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       anchorHelper: this.anchorHelper,
     };
   }
+
   componentDidMount() {
     this.handleScroll();
     this.updateInk();
@@ -93,15 +95,17 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       visible: !!activeAnchor,
     });
 
-    return <Affix offsetTop={offsetTop}>
-      <div className={`${prefixCls}-wrapper`}>
-        <div className={prefixCls}>
-          <div className={`${prefixCls}-ink`} >
-            <span className={inkClass} ref="ink"/>
+    return (
+      <Affix offsetTop={offsetTop}>
+        <div className={`${prefixCls}-wrapper`}>
+          <div className={prefixCls}>
+            <div className={`${prefixCls}-ink`} >
+              <span className={inkClass} ref="ink" />
+            </div>
+            {React.Children.map(this.props.children, this.renderAnchorLink)}
           </div>
-          {React.Children.map(this.props.children, this.renderAnchorLink)}
         </div>
-      </div>
-    </Affix>;
+      </Affix>
+    );
   }
 }

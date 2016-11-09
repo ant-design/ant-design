@@ -4,12 +4,12 @@ import getRequestAnimationFrame from '../_util/getRequestAnimationFrame';
 export const reqAnimFrame = getRequestAnimationFrame();
 
 export const easeInOutCubic = (t, b, c, d) => {
-    const cc = c - b;
-    t /= d / 2;
-    if (t < 1) {
-        return cc / 2 * t * t * t + b;
-    }
-    return cc / 2 * ((t -= 2) * t * t + 2) + b;
+  const cc = c - b;
+  t /= d / 2;
+  if (t < 1) {
+    return cc / 2 * t * t * t + b;
+  }
+  return cc / 2 * ((t -= 2) * t * t + 2) + b;
 };
 
 export function getDefaultTarget() {
@@ -38,21 +38,21 @@ export function getOffsetTop(element): number {
 }
 
 export function scrollTo(href, target = getDefaultTarget) {
-    const scrollTop = getScroll(target(), true);
-    const offsetTop = getOffsetTop(document.querySelector(href));
-    const targetScrollTop = scrollTop + offsetTop;
-    const startTime = Date.now();
-    const frameFunc = () => {
-      const timestamp = Date.now();
-      const time = timestamp - startTime;
-      document.body.scrollTop = easeInOutCubic(time, scrollTop, targetScrollTop, 450);
-      if (time < 450) {
-        reqAnimFrame(frameFunc);
-      }
-    };
-    reqAnimFrame(frameFunc);
-    history.pushState(null, undefined, href);
-  }
+  const scrollTop = getScroll(target(), true);
+  const offsetTop = getOffsetTop(document.querySelector(href));
+  const targetScrollTop = scrollTop + offsetTop;
+  const startTime = Date.now();
+  const frameFunc = () => {
+    const timestamp = Date.now();
+    const time = timestamp - startTime;
+    document.body.scrollTop = easeInOutCubic(time, scrollTop, targetScrollTop, 450);
+    if (time < 450) {
+      reqAnimFrame(frameFunc);
+    }
+  };
+  reqAnimFrame(frameFunc);
+  history.pushState(null, undefined, href);
+}
 
 class AnchorHelper {
   private links: Array<string>;

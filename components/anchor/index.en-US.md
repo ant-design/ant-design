@@ -9,7 +9,7 @@ A hyperlink to a location on same page.
 
 ## When To Use
 
-For displaying anchor hyperlink on page, and jump between then.
+For displaying anchor hyperlink on page, and jump between them.
 
 ## API
 
@@ -27,4 +27,3 @@ For displaying anchor hyperlink on page, and jump between then.
 |-------------|----------------|--------------------|--------------|
 | href    | target of hyperlink  | String |         |
 | title | content of  hyperlink | String |         |
-

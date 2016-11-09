@@ -1,24 +1,24 @@
 ---
-order: 0
+order: 2
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 固定
+  en-US: Fixed Anchor
 ---
 
 ## zh-CN
 
-最简单的用法。
+不会随页面滚动变化。
 
 ## en-US
 
-The simplest usage.
+Do not change state when page is scrolling.
 
 ```jsx
 import { Anchor } from 'antd';
 const { Link } = Anchor;
 
 ReactDOM.render(
-  <Anchor>
+  <Anchor affix={false}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-independ" title="Independ demo" />
     <Link href="#API" title="API" />
