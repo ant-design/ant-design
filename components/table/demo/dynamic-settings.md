@@ -21,11 +21,13 @@ const columns = [{
   title: 'Name',
   dataIndex: 'name',
   key: 'name',
+  width: 150,
   render: text => <a href="#">{text}</a>,
 }, {
   title: 'Age',
   dataIndex: 'age',
   key: 'age',
+  width: 100,
 }, {
   title: 'Address',
   dataIndex: 'address',
@@ -33,6 +35,7 @@ const columns = [{
 }, {
   title: 'Action',
   key: 'action',
+  width: 400,
   render: (text, record) => (
     <span>
       <a href="#">Action 一 {record.name}</a>
@@ -46,29 +49,21 @@ const columns = [{
   ),
 }];
 
-const data = [{
-  key: '1',
-  name: 'John Brown',
-  age: 32,
-  address: 'New York No. 1 Lake Park',
-  description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.',
-}, {
-  key: '2',
-  name: 'Jim Green',
-  age: 42,
-  address: 'London No. 1 Lake Park',
-  description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.',
-}, {
-  key: '3',
-  name: 'Joe Black',
-  age: 32,
-  address: 'Sidney No. 1 Lake Park',
-  description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.',
-}];
+const data = [];
+for (let i = 1; i <= 10; i++) {
+  data.push({
+    key: i,
+    name: 'John Brown',
+    age: `${i}2`,
+    address: `New York No. ${i} Lake Park`,
+    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+  });
+}
 
 const expandedRowRender = record => <p>{record.description}</p>;
 const title = () => 'Here is title';
 const footer = () => 'Here is footer';
+const scroll = { y: 240 };
 
 class Demo extends React.Component {
   state = {
@@ -79,6 +74,8 @@ class Demo extends React.Component {
     expandedRowRender,
     title,
     footer,
+    rowSelection: {},
+    scroll,
   }
 
   handleToggle = (prop) => {
@@ -101,6 +98,14 @@ class Demo extends React.Component {
 
   handleFooterChange = (enable) => {
     this.setState({ footer: enable ? footer : undefined });
+  }
+
+  handleRowSelectionChange = (enable) => {
+    this.setState({ rowSelection: enable ? {} : undefined });
+  }
+
+  handleScollChange = (enable) => {
+    this.setState({ scroll: enable ? scroll : undefined });
   }
 
   render() {
@@ -126,6 +131,12 @@ class Demo extends React.Component {
             </FormItem>
             <FormItem label="Expandable">
               <Switch defaultChecked onChange={this.handleExpandChange} />
+            </FormItem>
+            <FormItem defaultChecked label="Checkbox">
+              <Switch onChange={this.handleRowSelectionChange} />
+            </FormItem>
+            <FormItem label="Fixed Header">
+              <Switch defaultChecked onChange={this.handleScollChange} />
             </FormItem>
             <FormItem label="Size">
               <Radio.Group value={state.size} onChange={this.handleSizeChange}>
