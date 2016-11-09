@@ -45,7 +45,7 @@ export interface TransferContext {
   };
 }
 
-const defaultTitles = ['源列表', '目的列表'];
+const defaultTitles = ['', ''];
 export default class Transfer extends React.Component<TransferProps, any> {
   // For high-level customized Transfer @dqaria
   static List = List;

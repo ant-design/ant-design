@@ -24,8 +24,8 @@ To transfer the elements between two columns in an intuitive and efficient way.
 | onChange | A callback function that is executed when the transfer between columns is complete. | (targetKeys, direction, moveKeys): void |  |
 | onSelectChange | A callback function which is executed when selected items are changed. | (sourceSelectedKeys, targetSelectedKeys): void | |
 | listStyle | A custom CSS style used for rendering the transfer columns. | Object |  |
-| className | A custom CSS class. | String |  |
-| titles | A set of titles that are sorted from left to right. | Array | ['Source, 'Target] |
+| className | A custom CSS class. | String | ['', ''] |
+| titles | A set of titles that are sorted from left to right. | Array | - |
 | operations | A set of operations that are sorted from top to bottom. | Array | [] |
 | showSearch | If included, a search box is shown on each column. | Boolean | false |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | |

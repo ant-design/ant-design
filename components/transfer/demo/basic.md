@@ -55,6 +55,7 @@ const App = React.createClass({
     return (
       <Transfer
         dataSource={mockData}
+        titles={['Source', 'Target']}
         targetKeys={state.targetKeys}
         selectedKeys={state.selectedKeys}
         onChange={this.handleChange}
