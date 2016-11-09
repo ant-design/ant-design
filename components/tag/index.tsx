@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import assign from 'object-assign';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import splitObject from '../_util/splitObject';
@@ -66,10 +67,10 @@ export default class Tag extends React.Component<TagProps, any> {
 
   render() {
     const [{
-      prefixCls, closable, color, className, children,
+      prefixCls, closable, color, className, children, style,
     }, otherProps] = splitObject(
       this.props,
-      ['prefixCls', 'closable', 'color', 'className', 'children']
+      ['prefixCls', 'closable', 'color', 'className', 'children', 'style']
     );
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames({
@@ -85,18 +86,21 @@ export default class Tag extends React.Component<TagProps, any> {
       'afterClose',
     ]);
     return (
-      <Animate component=""
+      <Animate
+        component=""
         showProp="data-show"
         transitionName={`${prefixCls}-zoom`}
         transitionAppear
         onEnd={this.animationEnd}
-        >
+      >
         {this.state.closed ? null : (
           <div
             data-show={!this.state.closing}
             {...divProps}
             className={classString}
-            style={{ backgroundColor: /blue|red|green|yellow/.test(color) ? null : color }}
+            style={assign({
+              backgroundColor: /blue|red|green|yellow/.test(color) ? null : color,
+            }, style)}
           >
             <span className={`${prefixCls}-text`}>{children}</span>
             {closeIcon}
