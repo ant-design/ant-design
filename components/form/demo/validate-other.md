@@ -125,7 +125,7 @@ const Demo = Form.create()(React.createClass({
         <FormItem
           {...formItemLayout}
           label="Upload"
-          help="longgggggggggggggggggggggggggggggggggg"
+          extra="longgggggggggggggggggggggggggggggggggg"
         >
           {getFieldDecorator('upload', {
             valuePropName: 'fileList',
@@ -139,7 +139,7 @@ const Demo = Form.create()(React.createClass({
           )}
         </FormItem>
 
-        <FormItem wrapperCol={{ span: 12, offset: 7 }}>
+        <FormItem wrapperCol={{ span: 12, offset: 6 }}>
           <Button type="primary" htmlType="submit">Submit</Button>
         </FormItem>
       </Form>
