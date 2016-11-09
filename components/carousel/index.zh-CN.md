@@ -30,13 +30,10 @@ subtitle: 走马灯
 <style>
 .ant-carousel .slick-slide {
   text-align: center;
-  height: 100px;
-  line-height: 100px;
-  background: #71B5DE;
+  height: 160px;
+  line-height: 130px;
+  background: #506b9e;
   color: #fff;
   overflow: hidden;
-}
-#components-carousel-demo-vertical .ant-carousel {
-  margin-right: 35px;
 }
 </style>
