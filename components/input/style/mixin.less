@@ -168,12 +168,13 @@
         border: 0;
         margin: -1px;
         border: 1px solid transparent;
+        box-shadow: none;
       }
 
       &-open,
       &-focused {
         .@{ant-prefix}-select-selection {
-          border-color: tint(@primary-color, 20%);
+          color: @primary-color;
         }
       }
     }

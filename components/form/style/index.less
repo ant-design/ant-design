@@ -380,6 +380,9 @@ form {
   .@{ant-prefix}-select {
     &-selection {
       border-color: @error-color;
+    }
+
+    &-focused &-selection {
       .active(@error-color);
     }
 
@@ -402,7 +405,9 @@ form {
   .@{ant-prefix}-input-number,
   .@{ant-prefix}-time-picker-input {
     border-color: @error-color;
-    .active(@error-color);
+    &:focus {
+      .active(@error-color);
+    }
     &:not([disabled]):hover {
       border-color: @error-color;
     }

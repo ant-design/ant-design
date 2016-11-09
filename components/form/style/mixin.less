@@ -8,9 +8,11 @@
   // 输入框的不同校验状态
   .@{ant-prefix}-input {
     &,
-    &:hover,
-    &:focus {
+    &:hover {
       border-color: @border-color;
+    }
+
+    &:focus {
       .active(@border-color);
     }
 
