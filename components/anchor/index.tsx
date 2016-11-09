@@ -86,13 +86,14 @@ export default class Anchor extends React.Component<AnchorProps, any> {
         onClick: this.anchorHelper.scrollTo,
         prefixCls: this.props.prefixCls,
         bounds: this.props.bounds,
+        affix: this.props.affix,
       });
     }
     return child;
   }
 
   render() {
-    const { prefixCls, offsetTop, style, className = '', affix} = this.props;
+    const { prefixCls, offsetTop, style, className = '', affix } = this.props;
     const { activeAnchor } = this.state;
     const inkClass = classNames({
       [`${prefixCls}-ink-ball`]: true,
@@ -106,20 +107,24 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
     const anchorClass = classNames({
       [`${prefixCls}`]: true,
-      affix,
+      'fixed': !affix,
     });
 
-    const anchorContent = (<div className={wrapperClass} style={style}>
-      <div className={anchorClass}>
-        <div className={`${prefixCls}-ink`} >
-          <span className={inkClass} ref="ink" />
+    const anchorContent = (
+      <div className={wrapperClass} style={style}>
+        <div className={anchorClass}>
+          <div className={`${prefixCls}-ink`} >
+            <span className={inkClass} ref="ink" />
+          </div>
+          {React.Children.map(this.props.children, this.renderAnchorLink)}
         </div>
-        {React.Children.map(this.props.children, this.renderAnchorLink)}
       </div>
-    </div>);
+    );
 
-    return affix === false ? anchorContent : <Affix offsetTop={offsetTop}>
-      {anchorContent}
-    </Affix>;
+    return affix === false ? anchorContent : (
+      <Affix offsetTop={offsetTop}>
+        {anchorContent}
+      </Affix>
+    );
   }
 }

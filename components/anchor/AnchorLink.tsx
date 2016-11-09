@@ -11,6 +11,7 @@ export interface AnchorLinkProps {
   title?: Element;
   bounds: number;
   target?: () => HTMLElement | Window;
+  affix?: boolean;
 }
 
 export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
@@ -67,9 +68,9 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   }
 
   render() {
-    const { prefixCls, href, children, title, bounds } = this.props;
+    const { prefixCls, href, children, title, bounds, affix } = this.props;
     const { anchorHelper } = this.context;
-    const active = anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
+    const active = affix && anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
     const cls = classNames({
       [`${prefixCls}-link`]: true,
       [`${prefixCls}-link-active`]: active,

@@ -9,12 +9,6 @@
     }
 
     &-ink {
-      display: none;
-      padding-left: 0;
-    }
-
-    &.affix &-ink {
-      display: block;
       position: absolute;
       width: 9px;
       height: 100%;
@@ -30,7 +24,6 @@
         margin: 0 auto;
       }
       &-ball {
-        display: none;
         position: absolute;
         width: 9px;
         height: 9px;
@@ -45,12 +38,15 @@
         }
       }
     }
+
+    &.fixed &-ink &-ink-ball {
+      display: none;
+    }
   }
 
   &-anchor-link {
-    padding-left: 16px;
+    padding: 4px 0 4px 16px;
     line-height: 1;
-    margin: 12px 0;
 
     &-title {
       display: block;

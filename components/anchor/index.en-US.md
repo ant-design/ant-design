@@ -5,11 +5,11 @@ cols: 1
 title: Anchor
 ---
 
-A hyperlink to a location on same page.
+Hyperlinks to scroll on one page.
 
 ## When To Use
 
-For displaying anchor hyperlink on page, and jump between them.
+For displaying anchor hyperlinks on page, and jump between them.
 
 ## API
 
@@ -26,4 +26,4 @@ For displaying anchor hyperlink on page, and jump between them.
 | Property        | Description           | Type               | Default       |
 |-------------|----------------|--------------------|--------------|
 | href    | target of hyperlink  | String |         |
-| title | content of  hyperlink | String |         |
+| title | content of  hyperlink | React.Node |         |
