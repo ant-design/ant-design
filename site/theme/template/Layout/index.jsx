@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { cloneElement } from 'react';
 import ReactDOM from 'react-dom';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import { LocaleProvider } from 'antd';
@@ -23,6 +23,13 @@ export default class Layout extends React.Component {
     router: React.PropTypes.object.isRequired,
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isFirstScreen: true,
+    };
+  }
+
   componentDidMount() {
     if (typeof ga !== 'undefined') {
       this.context.router.listen((loc) => {
@@ -42,14 +49,20 @@ export default class Layout extends React.Component {
     clearTimeout(this.timer);
   }
 
+  onEnterChange = (mode) => {
+    this.setState({
+      isFirstScreen: mode === 'enter',
+    });
+  }
+
   render() {
     const { children, ...restProps } = this.props;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={enUS}>
           <div className="page-wrapper">
-            <Header {...restProps} />
-              {children}
+            <Header {...restProps} isFirstScreen={this.state.isFirstScreen} />
+            {cloneElement(children, { onEnterChange: this.onEnterChange })}
             <Footer />
           </div>
         </LocaleProvider>

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import enquire from 'enquire.js';
-import debounce from 'lodash.debounce';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
 
@@ -17,25 +16,12 @@ export default class Header extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onScroll = debounce(() => {
-      const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-      if (scrollTop >= clientHeight) {
-        this.setState({ isFirstFrame: false });
-      } else {
-        this.setState({ isFirstFrame: true });
-      }
-    }, 100);
-
     this.state = {
       menuMode: 'horizontal',
-      isFirstFrame: true,
     };
   }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-
     enquire.register('only screen and (min-width: 320px) and (max-width: 940px)', {
       match: () => {
         this.setState({ menuMode: 'inline' });
@@ -44,10 +30,6 @@ export default class Header extends React.Component {
         this.setState({ menuMode: 'horizontal' });
       },
     });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
   }
 
   handleSearch = (value) => {
@@ -67,11 +49,9 @@ export default class Header extends React.Component {
   }
 
   render() {
-    const { location, picked } = this.props;
+    const { location, picked, isFirstScreen } = this.props;
     const components = picked.components;
-    const module = location.pathname.replace(/\/$/, '')
-            .split('/').slice(0, -1)
-            .join('/');
+    const module = location.pathname.replace(/\/$/, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
@@ -80,22 +60,22 @@ export default class Header extends React.Component {
     const locale = this.context.intl.locale;
     const excludedSuffix = locale === 'zh-CN' ? 'en-US.md' : 'zh-CN.md';
     const options = components
-            .filter(({ meta }) => !meta.filename.endsWith(excludedSuffix))
-            .map(({ meta }) => {
-              const pathSnippet = meta.filename.split('/')[1];
-              const url = `/components/${pathSnippet}`;
-              const subtitle = meta.subtitle;
-              return (
-                <Option value={url} key={url} data-label={`${meta.title.toLowerCase()} ${subtitle || ''}`}>
-                  <strong>{meta.title}</strong>
-                  {subtitle && <span className="ant-component-decs">{subtitle}</span>}
-                </Option>
-              );
-            });
+      .filter(({ meta }) => !meta.filename.endsWith(excludedSuffix))
+      .map(({ meta }) => {
+        const pathSnippet = meta.filename.split('/')[1];
+        const url = `/components/${pathSnippet}`;
+        const subtitle = meta.subtitle;
+        return (
+          <Option value={url} key={url} data-label={`${meta.title.toLowerCase()} ${subtitle || ''}`}>
+          <strong>{meta.title}</strong>
+          {subtitle && <span className="ant-component-decs">{subtitle}</span>}
+          </Option>
+        );
+      });
 
     const headerClassName = classNames({
       clearfix: true,
-      'home-nav-white': !this.state.isFirstFrame,
+      'home-nav-white': !isFirstScreen,
     });
 
     const menuMode = this.state.menuMode;
