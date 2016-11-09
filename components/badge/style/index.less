@@ -16,7 +16,7 @@
     height: 20px;
     border-radius: 10px;
     min-width: 20px;
-    background: @error-color;
+    background: @highlight-color;
     border: 1px solid transparent;
     color: #fff;
     line-height: 18px;
@@ -42,7 +42,7 @@
     height: 8px;
     width: 8px;
     border-radius: 100%;
-    background: @error-color;
+    background: @highlight-color;
     z-index: 10;
     box-shadow: 0 0 0 1px #fff;
   }
@@ -106,15 +106,6 @@
   }
   50% {
     opacity: 0;
-  }
-}
-
-a & {
-  &-count:hover {
-    background: tint(@error-color, 20%);
-  }
-  &-count:active {
-    background: shade(@error-color, 5%);
   }
 }
 
