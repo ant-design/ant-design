@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 多选框
-type: Form Controls
+type: Data Entry
 title: Checkbox
 ---
 

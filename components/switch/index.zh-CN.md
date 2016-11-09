@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 开关
-type: Form Controls
+type: Data Entry
 title: Switch
 ---
 

@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Views
+type: Data Display
 title: Card
 subtitle: 卡片
 cols: 1

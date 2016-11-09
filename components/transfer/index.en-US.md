@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Form Controls
+type: Data Entry
 cols: 1
 title: Transfer
 ---

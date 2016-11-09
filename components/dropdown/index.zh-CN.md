@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 下拉菜单
-type: Views
+type: Navigation
 title: Dropdown
 ---
 

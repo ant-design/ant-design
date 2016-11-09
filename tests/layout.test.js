@@ -1,8 +1,8 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-let { Col, Row } = require('../components/layout/index');
+let { Col, Row } = require('../components/grid/index');
 
-describe('Layout', function() {
+describe('Grid', function() {
   it('should render Col', () => {
     const col = TestUtils.renderIntoDocument(
       <Col span="2"></Col>

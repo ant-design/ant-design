@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 自动完成
-type: Form Controls
+type: Data Entry
 cols: 1
 title: AutoComplete
 ---

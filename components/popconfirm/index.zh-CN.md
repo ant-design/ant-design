@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 气泡确认框
-type: Views
+type: Feedback
 title: Popconfirm
 ---
 

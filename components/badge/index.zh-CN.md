@@ -1,7 +1,7 @@
 ---
 category: Components
 subtitle: 徽标数
-type: Views
+type: Data Display
 title: Badge
 ---
 
