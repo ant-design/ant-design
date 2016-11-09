@@ -53,9 +53,10 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     return child;
   }
 
-  scrollTo(e) {
+  scrollTo = (e) => {
     const { onClick, href } = this.props;
     const { anchorHelper } = this.context;
+    e.preventDefault();
     if (onClick) {
       onClick(href);
     } else {

@@ -39,13 +39,17 @@ export function getOffsetTop(element): number {
 
 export function scrollTo(href, target = getDefaultTarget) {
   const scrollTop = getScroll(target(), true);
-  const offsetTop = getOffsetTop(document.querySelector(href));
+  const targetElement = document.querySelector(href);
+  if (!targetElement) {
+    return;
+  }
+  const offsetTop = getOffsetTop(targetElement);
   const targetScrollTop = scrollTop + offsetTop;
   const startTime = Date.now();
   const frameFunc = () => {
     const timestamp = Date.now();
     const time = timestamp - startTime;
-    document.body.scrollTop = easeInOutCubic(time, scrollTop, targetScrollTop, 450);
+    window.scrollTo(window.pageXOffset, easeInOutCubic(time, scrollTop, targetScrollTop, 450));
     if (time < 450) {
       reqAnimFrame(frameFunc);
     }
@@ -57,10 +61,12 @@ export function scrollTo(href, target = getDefaultTarget) {
 class AnchorHelper {
   private links: Array<string>;
   private currentAnchor: HTMLElement | null;
+  private _activeAnchor: string;
 
   constructor() {
     this.links = [];
     this.currentAnchor = null;
+    this._activeAnchor = '';
   }
 
   addLink(link) {
@@ -89,7 +95,8 @@ class AnchorHelper {
         }
       }
     });
-    return activeAnchor;
+    this._activeAnchor = activeAnchor || this._activeAnchor;
+    return this._activeAnchor;
   }
 
   scrollTo(href, target = getDefaultTarget) {

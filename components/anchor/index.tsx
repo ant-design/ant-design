@@ -13,6 +13,7 @@ export interface AnchorProps {
   bounds?: number;
   className?: string;
   style?: React.CSSProperties;
+  affix?: boolean;
 }
 
 export default class Anchor extends React.Component<AnchorProps, any> {
@@ -20,6 +21,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
   static defaultProps = {
     prefixCls: 'ant-anchor',
+    affix: true,
   };
 
   static childContextTypes = {
@@ -90,7 +92,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   render() {
-    const { prefixCls, offsetTop, style, className = '' } = this.props;
+    const { prefixCls, offsetTop, style, className = '', affix} = this.props;
     const { activeAnchor } = this.state;
     const inkClass = classNames({
       [`${prefixCls}-ink-ball`]: true,
@@ -102,17 +104,22 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       [className]: !!className,
     });
 
-    return (
-      <Affix offsetTop={offsetTop}>
-        <div className={wrapperClass} style={style}>
-          <div className={prefixCls}>
-            <div className={`${prefixCls}-ink`} >
-              <span className={inkClass} ref="ink" />
-            </div>
-            {React.Children.map(this.props.children, this.renderAnchorLink)}
-          </div>
+    const anchorClass = classNames({
+      [`${prefixCls}`]: true,
+      affix,
+    });
+
+    const anchorContent = (<div className={wrapperClass} style={style}>
+      <div className={anchorClass}>
+        <div className={`${prefixCls}-ink`} >
+          <span className={inkClass} ref="ink" />
         </div>
-      </Affix>
-    );
+        {React.Children.map(this.props.children, this.renderAnchorLink)}
+      </div>
+    </div>);
+
+    return affix === false ? anchorContent : <Affix offsetTop={offsetTop}>
+      {anchorContent}
+    </Affix>;
   }
 }
