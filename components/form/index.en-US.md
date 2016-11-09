@@ -75,11 +75,10 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 ### this.props.form.getFieldDecorator(id, options)
 
-After wrapped by `getFieldDecorator`, `value` `onChange` props will be added to form controls，the flow of form data will be handled by Form which will cause:
+After wrapped by `getFieldDecorator`, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls，the flow of form data will be handled by Form which will cause:
 
-
-1. You don't need to use `onChange` and should not add `value` `onChange` to controls. (There are warnings after `antd@2.0`)
-2. You can not set default value via `defaultValue` prop, you should use `initialValue` in `getFieldDecorator` instead.
+1. You don't need to use `onChange` to collect data, but you still can listen to `onChange`(and so on) events.
+2. You can not set value of form control via `value` `defaultValue` prop, and you should set default value with `initialValue` in `getFieldDecorator` instead.
 3. You don't need to call `setState` manully, please use `this.props.form.setFieldsValue` to change value programmatically.
 
 #### Special attention

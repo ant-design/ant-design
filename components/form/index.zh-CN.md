@@ -77,10 +77,10 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 ### this.props.form.getFieldDecorator(id, options)
 
-经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value` `onChange` 等属性，数据同步将被 Form 接管，这会导致以下结果：
+经过 `getFieldDecorator` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
 
-1. 你不再需要用 `onChange` 来做同步，也不应该给控件单独添加 `value` `onChange` 等属性。（2.0 后会在控制台进行警告）
-2. 你不能用控件的 `defaultValue` 属性来设置默认值，请用 `getFieldDecorator` 里的 `initialValue`。
+1. 你不再需要用 `onChange` 来做同步，但还是可以继续监听 `onChange` 等事件。
+2. 你不能用控件的 `value` `defaultValue` 等属性来设置表单域的值，默认值可以用 `getFieldDecorator` 里的 `initialValue`。
 3. 你不需要用 `setState`，可以使用 `this.props.form.setFieldsValue` 来动态改变表单值。
 
 #### 特别注意
