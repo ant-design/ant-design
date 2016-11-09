@@ -53,24 +53,36 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     return child;
   }
 
+  scrollTo(e) {
+    const { onClick, href } = this.props;
+    const { anchorHelper } = this.context;
+    if (onClick) {
+      onClick(href);
+    } else {
+      e.stopPreventDefault();
+      const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
+      scrollToFn(href);
+    }
+  }
+
   render() {
-    const { prefixCls, href, children, onClick, title, bounds } = this.props;
+    const { prefixCls, href, children, title, bounds } = this.props;
     const { anchorHelper } = this.context;
     const active = anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
     const cls = classnames({
       [`${prefixCls}-link`]: true,
       [`${prefixCls}-link-active`]: active,
     });
-    const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
     return (
       <div className={cls}>
-        <span
+        <a
           ref={(component) => component && active && anchorHelper ? anchorHelper.setActiveAnchor(component) : null}
           className={`${prefixCls}-link-title`}
-          onClick={() => onClick ? onClick(href) : scrollToFn(href)}
+          onClick={this.scrollTo}
+          href={href}
         >
-        {title}
-        </span>
+          {title}
+        </a>
         {React.Children.map(children, this.renderAnchorLink)}
       </div>
     );

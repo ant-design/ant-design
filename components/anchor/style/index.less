@@ -32,7 +32,8 @@
       border: 3px solid @primary-color;
       background-color: white;
       transition: top .3s ease-in-out;
-
+      left: 50%;
+      transform: translateX(-50%);
       &.visible {
         display: inline-block;
       }
@@ -42,13 +43,13 @@
     padding-left: 16px;
 
     &-title {
-      display: inline-block;
+      display: block;
       position: relative;
+      transition: all .3s;
+      color: @text-color;
     }
 
-    &-active > &-title,
-    &-title:hover {
-      cursor: pointer;
+    &-active > &-title {
       color: @primary-color;
     }
 

@@ -11,6 +11,8 @@ export interface AnchorProps {
   prefixCls?: string;
   offsetTop?: number;
   bounds?: number;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export default class Anchor extends React.Component<AnchorProps, any> {
