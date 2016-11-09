@@ -1,5 +1,5 @@
 import React from 'react';
-import className from 'classnames';
+import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import AnchorLink from './AnchorLink';
 import Affix from '../affix';
@@ -90,16 +90,21 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   render() {
-    const { prefixCls, offsetTop } = this.props;
+    const { prefixCls, offsetTop, style, className = '' } = this.props;
     const { activeAnchor } = this.state;
-    const inkClass = className({
+    const inkClass = classNames({
       [`${prefixCls}-ink-ball`]: true,
       visible: !!activeAnchor,
     });
 
+    const wrapperClass = classNames({
+      [`${prefixCls}-wrapper`]: true,
+      [className]: !!className,
+    });
+
     return (
       <Affix offsetTop={offsetTop}>
-        <div className={`${prefixCls}-wrapper`}>
+        <div className={wrapperClass} style={style}>
           <div className={prefixCls}>
             <div className={`${prefixCls}-ink`} >
               <span className={inkClass} ref="ink" />

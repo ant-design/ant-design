@@ -1,5 +1,5 @@
 import React from 'react';
-import classnames from 'classnames';
+import classNames from 'classnames';
 import AnchorHelper, { scrollTo } from './anchorHelper';
 
 export interface AnchorLinkProps {
@@ -69,7 +69,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     const { prefixCls, href, children, title, bounds } = this.props;
     const { anchorHelper } = this.context;
     const active = anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
-    const cls = classnames({
+    const cls = classNames({
       [`${prefixCls}-link`]: true,
       [`${prefixCls}-link-active`]: active,
     });
