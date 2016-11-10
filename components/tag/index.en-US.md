@@ -14,9 +14,18 @@ Tag for categorizing or markuping.
 
 ## API
 
+### Tag
+
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
 | color        | The background color of Tag | string | - |
 | closable     | Tag can be closed.    | boolean  | false        |
 | onClose      | Callback when tag was closed | (e) => void| - |
 | afterClose   | Callback when closed animation is complete | () => void | - |
+
+### Tag.CheckableTag
+
+| Property     | Description           | Type     | Default      |
+|--------------|-----------------------|----------|--------------|
+| checked      | To set the checked status for Tag | boolean | false |
+| onChange     | A callback which will be called while Tag is clicked | (checked) => void | - |

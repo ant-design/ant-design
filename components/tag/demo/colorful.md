@@ -1,7 +1,7 @@
 ---
 order: 1
 title:
-  zh-ch: 多彩标签
+  zh-CN: 多彩标签
   en-US: Colorful
 ---
 

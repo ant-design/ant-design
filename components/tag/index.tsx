@@ -7,6 +7,7 @@ import assign from 'object-assign';
 import Icon from '../icon';
 import warning from '../_util/warning';
 import splitObject from '../_util/splitObject';
+import CheckableTag from './CheckableTag';
 
 export interface TagProps {
   color?: string;
@@ -20,6 +21,7 @@ export interface TagProps {
 }
 
 export default class Tag extends React.Component<TagProps, any> {
+  static CheckableTag = CheckableTag;
   static defaultProps = {
     prefixCls: 'ant-tag',
     closable: false,
