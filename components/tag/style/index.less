@@ -16,7 +16,7 @@
   vertical-align: middle;
   opacity: 1;
   overflow: hidden;
-  margin: 2px 4px 2px 0;
+  margin: 4px 8px 4px 0;
   cursor: pointer;
 
   &:hover {
@@ -53,12 +53,6 @@
 
   &-has-color {
     border-color: transparent;
-  }
-
-  &-blue,
-  &-green,
-  &-yellow,
-  &-red {
     &,
     a,
     a:hover,
@@ -82,6 +76,24 @@
 
   &-red {
     background: @error-color;
+  }
+
+  &-checkable {
+    background-color: transparent;
+    border-color: transparent;
+
+    &:hover,
+    &:active,
+    &-checked {
+      color: #fff;
+    }
+    &:hover {
+      background-color: tint(@primary-color, 20%);
+    }
+    &:active,
+    &-checked {
+      background-color: shade(@primary-color, 5%);
+    }
   }
 
   &-close {
