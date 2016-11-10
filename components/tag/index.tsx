@@ -9,6 +9,7 @@ import warning from '../_util/warning';
 import splitObject from '../_util/splitObject';
 
 export interface TagProps {
+  color?: string;
   /** 标签是否可以关闭 */
   closable?: boolean;
   /** 关闭时的回调 */
@@ -24,9 +25,13 @@ export default class Tag extends React.Component<TagProps, any> {
     closable: false,
   };
 
-  constructor(props) {
+  constructor(props: TagProps) {
     super(props);
-    warning(!('color' in props), '`Tag[color]` is deprecated, please override color by CSS instead.');
+    warning(
+      !/blue|red|green|yellow/.test(props.color || ''),
+      '`Tag[color=red|green|blue|yellow]` is deprecated, ' +
+        'please set color by `#abc` or `rgb(a, b, c)` instead.'
+    );
 
     this.state = {
       closing: false,

@@ -1,21 +1,18 @@
 ---
-order: 1
-title: 
+order: 3
+title:
   zh-CN: 动态添加和删除
-  en-US: Dynamically add and remove
+  en-US: Add & Remove Dynamically
 ---
 
 ## zh-CN
 
-用数组生成一组标签，可以动态添加和删除。
-
-使用 `afterClose` 删除时有动画效果。
+用数组生成一组标签，可以动态添加和删除，通过监听删除动画结束的事件 `afterClose` 实现。
 
 ## en-US
 
-Generating a set of tag by array, you can dynamically add and remove.
-
-Using 'afterClose' property, There are animated when a tag was removed.
+Generating a set of Tags by array, you can add and remove dynamically.
+It's based on `afterClose` event, which will be triggered while the close animation end.
 
 ````jsx
 import { Tag, Button } from 'antd';
