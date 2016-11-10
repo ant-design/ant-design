@@ -82,6 +82,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
           className={`${prefixCls}-link-title`}
           onClick={this.scrollTo}
           href={href}
+          title={typeof title === 'string' ? title : ''}
         >
           {title}
         </a>
