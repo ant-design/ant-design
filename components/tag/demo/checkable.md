@@ -17,7 +17,7 @@ Tag.CheckableTag works like Checkbox, and it is an absolute controlled component
 import { Tag } from 'antd';
 const CheckableTag = Tag.CheckableTag;
 
-class ControlledCheckableTag extends React.Component {
+class UncontrolledCheckableTag extends React.Component {
   state = { checked: false };
   handleChange = (checked) => {
     this.setState({ checked });
@@ -32,7 +32,7 @@ ReactDOM.render(
   <div>
     <CheckableTag>Unchecked</CheckableTag>
     <CheckableTag checked>Checked</CheckableTag>
-    <ControlledCheckableTag>Controlled</ControlledCheckableTag>
+    <UncontrolledCheckableTag>Uncontrolled</UncontrolledCheckableTag>
   </div>,
   mountNode
 );
