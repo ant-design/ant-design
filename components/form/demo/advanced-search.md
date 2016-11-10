@@ -22,25 +22,27 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 import { Form, Row, Col, Input, Button, Icon } from 'antd';
 const FormItem = Form.Item;
 
-const AdvancedSearchForm = Form.create()(React.createClass({
-  getInitialState() {
-    return {
-      expand: false,
-    };
-  },
-  handleSearch(e) {
+class AdvancedSearchForm extends React.Component {
+  state = {
+    expand: false,
+  };
+
+  handleSearch = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       console.log('Received values of form: ', values);
     });
-  },
-  handleReset() {
+  }
+
+  handleReset = () => {
     this.props.form.resetFields();
-  },
-  toggle() {
+  }
+
+  toggle = () => {
     const { expand } = this.state;
     this.setState({ expand: !expand });
-  },
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
@@ -86,10 +88,17 @@ const AdvancedSearchForm = Form.create()(React.createClass({
         </Row>
       </Form>
     );
-  },
-}));
+  }
+}
 
-ReactDOM.render(<AdvancedSearchForm />, mountNode);
+const WrappedAdvancedSearchForm = Form.create()(AdvancedSearchForm);
+ReactDOM.render(
+  <div>
+    <WrappedAdvancedSearchForm />
+    <div className="search-result-list">Search Result List</div>
+  </div>,
+  mountNode
+);
 ````
 
 ````css
@@ -104,5 +113,14 @@ ReactDOM.render(<AdvancedSearchForm />, mountNode);
 <style>
 #components-form-demo-advanced-search .ant-form-horizontal {
   max-width: none;
+}
+#components-form-demo-advanced-search .search-result-list {
+  margin-top: 16px;
+  border: 1px dashed #e9e9e9;
+  border-radius: 6px;
+  background-color: #fafafa;
+  min-height: 200px;
+  text-align: center;
+  padding-top: 80px;
 }
 </style>
