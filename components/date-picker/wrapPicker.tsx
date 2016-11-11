@@ -6,6 +6,20 @@ import warning from '../_util/warning';
 import getLocale from '../_util/getLocale';
 declare const require: Function;
 
+function getColumns({ showHour, showMinute, showSecond }) {
+  let column = 0;
+  if (showHour) {
+    column += 1;
+  }
+  if (showMinute) {
+    column += 1;
+  }
+  if (showSecond) {
+    column += 1;
+  }
+  return column;
+}
+
 export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
     getDefaultProps() {
@@ -68,11 +82,13 @@ export default function wrapPicker(Picker, defaultFormat?) {
       const rcTimePickerProps = {
         format: timeFormat,
         showSecond: timeFormat.indexOf('ss') >= 0,
+        showMinute: timeFormat.indexOf('mm') >= 0,
         showHour: timeFormat.indexOf('HH') >= 0,
       };
+      const columns = getColumns(rcTimePickerProps);
       const timePickerCls = classNames({
-        [`${prefixCls}-time-picker-1-column`]: !(rcTimePickerProps.showSecond || rcTimePickerProps.showHour),
-        [`${prefixCls}-time-picker-2-columns`]: rcTimePickerProps.showSecond !== rcTimePickerProps.showHour,
+        [`${prefixCls}-time-picker-1-column`]: columns === 1,
+        [`${prefixCls}-time-picker-2-columns`]: columns === 2,
       });
       const timePicker = props.showTime ? (
         <TimePickerPanel
