@@ -107,6 +107,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         value={this.state.value}
         placeholder={props.placeholder || this.getLocale().placeholder}
         showHour={props.format.indexOf('HH') > -1}
+        showMinute={props.format.indexOf('mm') > -1}
         showSecond={props.format.indexOf('ss') > -1}
         onChange={this.handleChange}
         addon={(panel) => (

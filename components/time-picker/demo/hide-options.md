@@ -1,6 +1,6 @@
 ---
 order: 6
-title: 
+title:
   zh-CN: 只显示部分选项
   en-US: Show part of options.
 ---

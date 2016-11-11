@@ -1,6 +1,6 @@
 ---
 order: 3
-title: 
+title:
   zh-CN: 不展示秒
   en-US: Hide the seconds options
 ---
@@ -18,6 +18,7 @@ import { TimePicker } from 'antd';
 import moment from 'moment';
 
 const format = 'HH:mm';
+
 ReactDOM.render(
   <TimePicker defaultValue={moment('12:08', format)} format={format} />
 , mountNode);

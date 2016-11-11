@@ -1,6 +1,6 @@
 ---
 order: 4
-title: 
+title:
   zh-CN: 禁用
   en-US: disabled
 ---

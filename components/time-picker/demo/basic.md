@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -9,9 +9,9 @@ title:
 
 最简单的用法。
 
-## en-US  
+## en-US
 
-The most basic usage. 
+The most basic usage.
 
 ````jsx
 import { TimePicker } from 'antd';
