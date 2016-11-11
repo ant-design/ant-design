@@ -53,7 +53,7 @@
     float: right;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        margin-left: 21px;
+        margin-left: 3%;
         border-left: 1px solid @border-color-split;
       }
     }
@@ -164,6 +164,7 @@
   &.@{calendar-prefix-cls}-time {
     .@{calendar-timepicker-prefix-cls} {
       height: 207px;
+      width: 97%;
       top: 68px;
       z-index: 2; // cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
       &-panel {
@@ -183,8 +184,6 @@
         border-top: 1px solid @border-color-split;
       }
       &-select {
-        width: 71px;
-
         ul {
           max-height: 206px;
         }
@@ -207,5 +206,11 @@
       height: 22px;
       line-height: 22px;
     }
+  }
+}
+
+.@{calendar-prefix-cls}-range.@{calendar-prefix-cls}-show-time-picker {
+  .@{calendar-prefix-cls}-body {
+    border-top-color: transparent;
   }
 }
