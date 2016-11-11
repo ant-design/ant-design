@@ -142,10 +142,10 @@ export default class Header extends React.Component {
           </Col>
           <Col lg={20} md={18} sm={17} xs={0} style={{ display: 'block' }}>
             <div id="search-box">
-              <Select combobox
+              <Select
+                combobox
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
-                value={undefined}
                 optionFilterProp="data-label"
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
