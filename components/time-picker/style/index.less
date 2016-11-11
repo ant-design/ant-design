@@ -85,6 +85,7 @@
     width: 56px;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
+    max-height: 144px;
 
     &:hover {
       overflow-y: auto;
@@ -99,13 +100,16 @@
       border-right: 0;
     }
 
+    &:only-child {
+      width: 100%;
+    }
+
     ul {
       list-style: none;
       box-sizing: border-box;
       margin: 0;
-      padding: 0;
+      padding: 0 0 120px 0;
       width: 100%;
-      max-height: 144px;
     }
 
     li {
@@ -120,12 +124,6 @@
       cursor: pointer;
       user-select: none;
       transition: background 0.3s ease;
-    }
-
-    li:last-child:after {
-      content: '';
-      height: 120px;
-      display: block;
     }
 
     li:hover {
