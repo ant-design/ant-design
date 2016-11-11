@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6
 title:
   zh-CN: 附加内容
   en-US: Addon
@@ -23,6 +23,7 @@ ReactDOM.render(
         Ok
       </Button>
     )}
-  />
-, mountNode);
+  />,
+ mountNode
+);
 ````

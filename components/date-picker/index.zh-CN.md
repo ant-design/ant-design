@@ -54,6 +54,7 @@ moment.locale('zh-cn');
 | open | 控制弹层是否展开 | bool | - |
 | onOpenChange   | 弹出日历和关闭日历的回调 | function(status) | 无 |
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](/components/time-picker/#api) |
+| disabledTime | 不可选择的时间 | function(date) | 无 |
 
 ### MonthPicker
 

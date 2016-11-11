@@ -53,6 +53,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | open | open state of picker | bool | - |
 | onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
+| disabledTime | to specify the time that cannot be selected | function(date) | - |
 
 ### MonthPicker
 
