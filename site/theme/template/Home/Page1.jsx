@@ -20,15 +20,15 @@ function onScrollEvent(e) {
 
 export default function Page1({ location }) {
   return (
-    <ScrollOverPack scrollName="page1" className="content-wrapper page"
+    <ScrollOverPack id="page1" className="content-wrapper page"
       playScale={1} replay scrollEvent={onScrollEvent}
       hideProps={{ image: { reverse: true } }}
     >
       <TweenOne key="image" className="image1 image-wrapper"
-        animation={{ x: 0, opacity: 1, duration: 550 }}
+        animation={{ x: 0, opacity: 1, ease: 'easeOutQuad' }}
         style={{ transform: 'translateX(-100px)', opacity: 0 }}
       />
-      <QueueAnim className="text-wrapper" delay={300} key="text" duration={550} leaveReverse>
+      <QueueAnim className="text-wrapper" key="text" leaveReverse>
         <h2 key="h2"><FormattedMessage id="app.home.best-practice" /></h2>
         <p key="p" style={{ maxWidth: 310 }}><FormattedMessage id="app.home.experience" /></p>
         <div key="button">

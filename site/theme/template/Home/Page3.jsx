@@ -8,14 +8,14 @@ import QueueAnim from 'rc-queue-anim';
 
 export default function Page3({ location }) {
   return (
-    <ScrollOverPack scrollName="page3" className="content-wrapper page" playScale={1} replay
+    <ScrollOverPack id="page3" className="content-wrapper page" playScale={1} replay
       hideProps={{ image: { reverse: true } }}
     >
       <TweenOne key="image" className="image3 image-wrapper"
-        animation={{ x: 0, opacity: 1, duration: 550 }}
+        animation={{ x: 0, opacity: 1, ease: 'easeOutQuad' }}
         style={{ transform: 'translateX(-100px)', opacity: 0 }}
       />
-      <QueueAnim className="text-wrapper" delay={300} key="text" duration={550}
+      <QueueAnim className="text-wrapper" key="text"
         leaveReverse style={{ top: '40%' }}
       >
         <h2 key="h2"><FormattedMessage id="app.home.reusable-components" /></h2>
