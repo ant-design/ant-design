@@ -1,28 +1,23 @@
 ---
 order: 6
 title:
-  zh-CN: 指定不可选择日期
-  en-US: Specify the date that cannot be selected
+  zh-CN: 不可选择日期和时间
+  en-US: Disabled Date & Time
 ---
 
 ## zh-CN
 
-设置 `disabledDate` 方法，来确定不可选时段。
-设置 `disabledTime` 方法，来确定 showTime 的 RangePicker 的不可选时间段。
-
-如上例：不可选择今天之后的日期。
+可用 `disabledDate` 和 `disabledTime` 分别禁止选择部分日期和时间，其中 `disabledTime` 需要和 `showTime` 一起使用。
 
 ## en-US
 
-Specify unselectable period by `disabledDate`.
-
-As in the example above: you can't select a date later than today.
+Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
 
 ````jsx
 import { DatePicker } from 'antd';
 const RangePicker = DatePicker.RangePicker;
 
-function newArray(start, end) {
+function range(start, end) {
   const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
@@ -31,20 +26,33 @@ function newArray(start, end) {
 }
 
 
-const disabledDate = function (current) {
+function disabledDate(current) {
   // can not select days after today
   return current && current.valueOf() > Date.now();
-};
+}
 
-function disabledTime(time, type) {
-  console.log('disabledTime', time, type);
+function disabledDateTime() {
+  return {
+    disabledHours() {
+      return range(0, 60).splice(4, 20);
+    },
+    disabledMinutes() {
+      return range(30, 60);
+    },
+    disabledSeconds() {
+      return [55, 56];
+    },
+  };
+}
+
+function disabledRangeTime(_, type) {
   if (type === 'start') {
     return {
       disabledHours() {
-        return newArray(0, 60).splice(4, 20);
+        return range(0, 60).splice(4, 20);
       },
       disabledMinutes() {
-        return newArray(30, 60);
+        return range(30, 60);
       },
       disabledSeconds() {
         return [55, 56];
@@ -53,10 +61,10 @@ function disabledTime(time, type) {
   }
   return {
     disabledHours() {
-      return newArray(0, 60).splice(20, 4);
+      return range(0, 60).splice(20, 4);
     },
     disabledMinutes() {
-      return newArray(0, 31);
+      return range(0, 31);
     },
     disabledSeconds() {
       return [55, 56];
@@ -64,10 +72,12 @@ function disabledTime(time, type) {
   };
 }
 
-ReactDOM.render(<div>
-    <DatePicker disabledDate={disabledDate} />
+ReactDOM.render(
+  <div>
+    <DatePicker disabledDate={disabledDate} disabledTime={disabledDateTime} showTime />
     <br />
-    <RangePicker showTime disabledDate={disabledDate} disabledTime={disabledTime} />
-  </div>
-, mountNode);
+    <RangePicker disabledDate={disabledDate} disabledTime={disabledRangeTime} showTime />
+  </div>,
+  mountNode
+);
 ````

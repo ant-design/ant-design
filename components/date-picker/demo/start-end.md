@@ -1,69 +1,81 @@
 ---
-order: 7
+order: 6
 title:
-  zh-CN: 日期范围一
-  en-US: Date range, case 1
+  zh-CN: 自定义日期范围选择
+  en-US: Customized Range Picker
 ---
 
 ## zh-CN
 
-可以设置 `disabledDate` 方法，来约束开始和结束日期。
+当 `RangePicker` 无法满足业务需求时，可以使用两个 `DatePicker` 实现类似的功能。
+> * 通过设置 `disabledDate` 方法，来约束开始和结束日期。
+> * 通过 `open` `onOpenChange` 来优化交互。
 
 ## en-US
 
-You can use the `disabledDate` property to limit the start and end dates.
-
+When `RangePicker` is not satisfied your requirements, try to implement similar functionality with two `DatePicker`.
+> * Use the `disabledDate` property to limit the start and end dates.
+> * Imporve user experience with `open` `onOpenChange`.
 
 ````jsx
 import { DatePicker } from 'antd';
 
-const DateRange = React.createClass({
-  getInitialState() {
-    return {
-      startValue: null,
-      endValue: null,
-      endOpen: false,
-    };
-  },
-  disabledStartDate(startValue) {
-    if (!startValue || !this.state.endValue) {
+class DateRange extends React.Component {
+  state = {
+    startValue: null,
+    endValue: null,
+    endOpen: false,
+  };
+
+  disabledStartDate = (startValue) => {
+    const endValue = this.state.endValue;
+    if (!startValue || !endValue) {
       return false;
     }
-    return startValue.valueOf() > this.state.endValue.valueOf();
-  },
-  disabledEndDate(endValue) {
-    if (!endValue || !this.state.startValue) {
+    return startValue.valueOf() > endValue.valueOf();
+  }
+
+  disabledEndDate = (endValue) => {
+    const startValue = this.state.startValue;
+    if (!endValue || !startValue) {
       return false;
     }
-    return endValue.valueOf() <= this.state.startValue.valueOf();
-  },
-  onChange(field, value) {
+    return endValue.valueOf() <= startValue.valueOf();
+  }
+
+  onChange = (field, value) => {
     this.setState({
       [field]: value,
     });
-  },
-  onStartChange(value) {
+  }
+
+  onStartChange = (value) => {
     this.onChange('startValue', value);
-  },
-  onEndChange(value) {
+  }
+
+  onEndChange = (value) => {
     this.onChange('endValue', value);
-  },
-  handleStartOpenChange(open) {
+  }
+
+  handleStartOpenChange = (open) => {
     if (!open) {
       this.setState({ endOpen: true });
     }
-  },
-  handleEndOpenChange(open) {
+  }
+
+  handleEndOpenChange = (open) => {
     this.setState({ endOpen: open });
-  },
+  }
+
   render() {
+    const { startValue, endValue, endOpen } = this.state;
     return (
       <div>
         <DatePicker
           disabledDate={this.disabledStartDate}
           showTime
           format="YYYY-MM-DD HH:mm:ss"
-          value={this.state.startValue}
+          value={startValue}
           placeholder="Start"
           onChange={this.onStartChange}
           onOpenChange={this.handleStartOpenChange}
@@ -72,18 +84,16 @@ const DateRange = React.createClass({
           disabledDate={this.disabledEndDate}
           showTime
           format="YYYY-MM-DD HH:mm:ss"
-          value={this.state.endValue}
+          value={endValue}
           placeholder="End"
           onChange={this.onEndChange}
-          open={this.state.endOpen}
+          open={endOpen}
           onOpenChange={this.handleEndOpenChange}
         />
       </div>
     );
-  },
-});
+  }
+}
 
-ReactDOM.render(
-  <DateRange />
-, mountNode);
+ReactDOM.render(<DateRange />, mountNode);
 ````

@@ -5,7 +5,10 @@ title: DatePicker
 subtitle: 日期选择框
 ---
 
-输入或选择日期的控件。
+输入或选择日期的控件，包括以下三种形式。
+* DatePicker
+* MonthPicker
+* RangePicker
 
 ## 何时使用
 
@@ -13,7 +16,7 @@ subtitle: 日期选择框
 
 ## API
 
-注意：DatePicker、MonthPicker、RangePicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
+**注意：**DatePicker、MonthPicker、RangePicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 
 ```jsx
 import moment from 'moment';
