@@ -40,11 +40,28 @@ function disabledMinutes(h) {
 
 ReactDOM.render(
   <div>
-    <em>Just Disabled: </em>
-    <TimePicker disabledHours={disabledHours} disabledMinutes={disabledMinutes} /><br />
-    <em>Hide Directly: </em>
-    <TimePicker disabledHours={disabledHours} disabledMinutes={disabledMinutes} hideDisabledOptions />
+    <TimePicker
+      disabledHours={disabledHours}
+      disabledMinutes={disabledMinutes}
+      placeholder="Just Disabled"
+    />
+    <TimePicker
+      disabledHours={disabledHours}
+      disabledMinutes={disabledMinutes}
+      hideDisabledOptions
+      placeholder="Hide Directly"
+    />
   </div>,
   mountNode
 );
 ````
+
+<style>
+#components-time-picker-demo-disable-options .ant-time-picker {
+  width: 120px;
+}
+#components-time-picker-demo-disable-options .ant-time-picker .ant-time-picker-input {
+  width: 120px;
+  margin-right: 8px;
+}
+</style>
