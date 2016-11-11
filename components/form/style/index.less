@@ -361,7 +361,10 @@ form {
   .@{ant-prefix}-input-number,
   .@{ant-prefix}-time-picker-input {
     border-color: @warning-color;
-    .active(@warning-color);
+    &-focused,
+    &:focus {
+      .active(@warning-color);
+    }
     &:not([disabled]):hover {
       border-color: @warning-color;
     }
@@ -405,6 +408,7 @@ form {
   .@{ant-prefix}-input-number,
   .@{ant-prefix}-time-picker-input {
     border-color: @error-color;
+    &-focused,
     &:focus {
       .active(@error-color);
     }
@@ -412,16 +416,16 @@ form {
       border-color: @error-color;
     }
   }
-  .@{ant-prefix}-mention-wrapper,
-  .@{ant-prefix}-mention-wrapper.active {
+  .@{ant-prefix}-mention-wrapper {
     .@{ant-prefix}-mention-editor {
-      border-color: @error-color;
-      .active(@error-color);
-      &:not([disabled]):hover,
-      &:not([disabled]):focus {
+      &,
+      &:not([disabled]):hover {
         border-color: @error-color;
-        .active(@error-color);
       }
+    }
+    &.active .@{ant-prefix}-mention-editor,
+    .@{ant-prefix}-mention-editor:not([disabled]):focus {
+      .active(@error-color);
     }
   }
 }
