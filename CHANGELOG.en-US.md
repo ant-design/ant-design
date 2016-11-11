@@ -11,6 +11,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ## 2.4.0
 
+* Adjust components structure.
 * New [Anchor](https://ant.design/components/anchor) Component.
 * Fix less variables `@font-size-base` and `@text-color`, add `@font-size-lg` `@text-color-secondary`.
 * Add new props `selectedKeys` for `Transfer` component [#3729]. (https://github.com/ant-design/ant-design/issues/3729)

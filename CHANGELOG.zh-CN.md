@@ -11,6 +11,7 @@ timeline: true
 
 ## 2.4.0
 
+* 调整了组件的导航结构。
 * 新增 [Anchor](https://ant.design/components/anchor) 锚点组件。
 * 整理了样式变量，修复 `@font-size-base` 和 `@text-color` 在部分组件无效的问题，新增 `@font-size-lg` `@text-color-secondary`，并移除了部分无用的变量。
 * `Transfer` 组件新增了受控属性 `selectedKeys`。[#3729](https://github.com/ant-design/ant-design/issues/3729)
