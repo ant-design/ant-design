@@ -2,7 +2,7 @@
 order: 2
 title:
   zh-CN: 三种大小
-  en-US: Three sizes
+  en-US: Three Sizes
 ---
 
 ## zh-CN
@@ -22,6 +22,7 @@ ReactDOM.render(
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" />
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````
