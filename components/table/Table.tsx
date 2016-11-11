@@ -1,7 +1,5 @@
 import React from 'react';
 import RcTable from 'rc-table';
-import Checkbox from '../checkbox';
-import Radio from '../radio';
 import FilterDropdown from './filterDropdown';
 import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
@@ -11,6 +9,9 @@ import { flatArray, treeMap } from './util';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
 import warning from '../_util/warning';
+import createStore, { Store } from './createStore';
+import SelectionBox from './SelectionBox';
+import SelectionCheckboxAll from './SelectionCheckboxAll';
 
 function noop() {
 }
@@ -134,6 +135,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   context: TableContext;
   CheckboxPropsCache: Object;
+  store: Store;
 
   constructor(props) {
     super(props);
@@ -149,9 +151,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     this.state = assign({}, this.getSortStateFromColumns(), {
       // 减少状态
-      selectedRowKeys: (props.rowSelection || {}).selectedRowKeys || [],
       filters: this.getFiltersFromColumns(),
-      selectionDirty: false,
       pagination: this.hasPagination() ?
         assign({},  defaultPagination, pagination, {
           current: pagination.defaultCurrent || pagination.current || 1,
@@ -160,9 +160,14 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
 
     this.CheckboxPropsCache = {};
+
+    this.store = createStore({
+      selectedRowKeys: (props.rowSelection || {}).selectedRowKeys || [],
+      selectionDirty: false,
+    });
   }
 
-  getCheckboxPropsByItem(item) {
+  getCheckboxPropsByItem = (item) => {
     const { rowSelection = {} } = this.props;
     if (!rowSelection.getCheckboxProps) {
       return {};
@@ -204,14 +209,14 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
-      this.setState({
+      this.store.setState({
         selectionDirty: false,
       });
       this.CheckboxPropsCache = {};
     }
     if (nextProps.rowSelection &&
         'selectedRowKeys' in nextProps.rowSelection) {
-      this.setState({
+      this.store.setState({
         selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
       });
       const { rowSelection } = this.props;
@@ -246,7 +251,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   setSelectedRowKeys(selectedRowKeys, { selectWay, record, checked, changeRowKeys }: any) {
     const { rowSelection = {} } = this.props;
     if (rowSelection && !('selectedRowKeys' in rowSelection)) {
-      this.setState({ selectedRowKeys });
+      this.store.setState({ selectedRowKeys });
     }
     const data = this.getFlatData();
     if (!rowSelection.onChange && !rowSelection[selectWay]) {
@@ -385,7 +390,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
 
     const newState = {
-      selectionDirty: false,
       pagination,
       filters: {},
     };
@@ -409,6 +413,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
 
     this.setState(newState, () => {
+      this.store.setState({
+        selectionDirty: false,
+      });
       const onChange = this.props.onChange;
       if (onChange) {
         onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
@@ -422,15 +429,15 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   handleSelect = (record, rowIndex, e) => {
     const checked = e.target.checked;
-    const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
-    let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
+    const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
+    let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     let key = this.getRecordKey(record, rowIndex);
     if (checked) {
       selectedRowKeys.push(this.getRecordKey(record, rowIndex));
     } else {
       selectedRowKeys = selectedRowKeys.filter((i) => key !== i);
     }
-    this.setState({
+    this.store.setState({
       selectionDirty: true,
     });
     this.setSelectedRowKeys(selectedRowKeys, {
@@ -442,11 +449,11 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   handleRadioSelect = (record, rowIndex, e) => {
     const checked = e.target.checked;
-    const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
-    let selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
+    const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
+    let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     let key = this.getRecordKey(record, rowIndex);
     selectedRowKeys = [key];
-    this.setState({
+    this.store.setState({
       selectionDirty: true,
     });
     this.setSelectedRowKeys(selectedRowKeys, {
@@ -459,8 +466,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   handleSelectAllRow = (e) => {
     const checked = e.target.checked;
     const data = this.getFlatCurrentPageData();
-    const defaultSelection = this.state.selectionDirty ? [] : this.getDefaultSelection();
-    const selectedRowKeys = this.state.selectedRowKeys.concat(defaultSelection);
+    const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
+    const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changableRowKeys = data
       .filter(item => !this.getCheckboxPropsByItem(item).disabled)
       .map((item, i) => this.getRecordKey(item, i));
@@ -482,7 +489,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         }
       });
     }
-    this.setState({
+    this.store.setState({
       selectionDirty: true,
     });
     this.setSelectedRowKeys(selectedRowKeys, {
@@ -503,7 +510,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     pagination.onChange(pagination.current);
 
     const newState = {
-      selectionDirty: false,
       pagination,
     };
     // Controlled current prop will not respond user interaction
@@ -514,6 +520,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
     this.setState(newState);
 
+    this.store.setState({
+      selectionDirty: false,
+    });
+
     const onChange = this.props.onChange;
     if (onChange) {
       onChange.apply(null, this.prepareParamsArguments(assign({}, this.state, {
@@ -523,48 +533,31 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
   }
 
-  renderSelectionRadio = (_, record, index) => {
-    let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-    const props = this.getCheckboxPropsByItem(record);
-    let checked;
-    if (this.state.selectionDirty) {
-      checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
-    } else {
-      checked = (this.state.selectedRowKeys.indexOf(rowIndex) >= 0 ||
-                 this.getDefaultSelection().indexOf(rowIndex) >= 0);
-    }
-    return (
-      <span onClick={stopPropagation}>
-        <Radio disabled={props.disabled}
-          onChange={(e) => this.handleRadioSelect(record, rowIndex, e)}
-          value={rowIndex} checked={checked}
-        />
-      </span>
-    );
+  renderSelectionBox = (type) => {
+    return (_, record, index) => {
+      let rowIndex = this.getRecordKey(record, index); // 从 1 开始
+      const props = this.getCheckboxPropsByItem(record);
+      const handleChange = (e) => {
+        type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
+                           this.handleSelect(record, rowIndex, e);
+      };
+
+      return (
+        <span onClick={stopPropagation}>
+          <SelectionBox
+            type={type}
+            store={this.store}
+            rowIndex={rowIndex}
+            disabled={props.disabled}
+            onChange={handleChange}
+            defaultSelection={this.getDefaultSelection()}
+          />
+        </span>
+      );
+    };
   }
 
-  renderSelectionCheckBox = (_, record, index) => {
-    let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-    let checked;
-    if (this.state.selectionDirty) {
-      checked = this.state.selectedRowKeys.indexOf(rowIndex) >= 0;
-    } else {
-      checked = (this.state.selectedRowKeys.indexOf(rowIndex) >= 0 ||
-                 this.getDefaultSelection().indexOf(rowIndex) >= 0);
-    }
-    const props = this.getCheckboxPropsByItem(record);
-    return (
-      <span onClick={stopPropagation}>
-        <Checkbox
-          checked={checked}
-          disabled={props.disabled}
-          onChange={(e) => this.handleSelect(record, rowIndex, e)}
-        />
-      </span>
-    );
-  }
-
-  getRecordKey(record, index?): string {
+  getRecordKey = (record, index?): string => {
     const rowKey = this.props.rowKey;
     if (typeof rowKey === 'function') {
       return rowKey(record, index);
@@ -574,19 +567,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key.'
     );
     return recordKey;
-  }
-
-  checkSelection(data, type, byDefaultChecked) {
-    // type should be 'every' | 'some'
-    if (type === 'every' || type === 'some') {
-      return (
-        byDefaultChecked
-        ? data[type](item => this.getCheckboxPropsByItem(item).defaultChecked)
-        : data[type]((item, i) =>
-              this.state.selectedRowKeys.indexOf(this.getRecordKey(item, i)) >= 0)
-      );
-    }
-    return false;
   }
 
   renderRowSelection() {
@@ -599,51 +579,23 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         }
         return true;
       });
-      let checked;
-      let indeterminate;
-      if (!data.length) {
-        checked = false;
-        indeterminate = false;
-      } else {
-        checked = this.state.selectionDirty
-          ? this.checkSelection(data, 'every', false)
-          : (
-            this.checkSelection(data, 'every', false) ||
-            this.checkSelection(data, 'every', true)
-          );
-        indeterminate = this.state.selectionDirty
-          ? (
-            this.checkSelection(data, 'some', false) &&
-            !this.checkSelection(data, 'every', false)
-            )
-          : ((this.checkSelection(data, 'some', false) &&
-            !this.checkSelection(data, 'every', false)) ||
-            (this.checkSelection(data, 'some', true) &&
-            !this.checkSelection(data, 'every', true))
-          );
-      }
-      let selectionColumn;
-      if (rowSelection.type === 'radio') {
-        selectionColumn = {
-          key: 'selection-column',
-          render: this.renderSelectionRadio,
-          className: `${prefixCls}-selection-column`,
-        };
-      } else {
+      const selectionColumn: TableColumnConfig<any> = {
+        key: 'selection-column',
+        render: this.renderSelectionBox(rowSelection.type),
+        className: `${prefixCls}-selection-column`,
+      };
+      if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
-        const checkboxAll = (
-          <Checkbox checked={checked}
-            indeterminate={indeterminate}
+        selectionColumn.title  = (
+          <SelectionCheckboxAll
+            store={this.store}
+            data={data}
+            getCheckboxPropsByItem={this.getCheckboxPropsByItem}
+            getRecordKey={this.getRecordKey}
             disabled={checkboxAllDisabled}
             onChange={this.handleSelectAllRow}
           />
         );
-        selectionColumn = {
-          key: 'selection-column',
-          title: checkboxAll,
-          render: this.renderSelectionCheckBox,
-          className: `${prefixCls}-selection-column`,
-        };
       }
       if (columns.some(column => column.fixed === 'left' || column.fixed === true)) {
         selectionColumn.fixed = 'left';
