@@ -11,17 +11,22 @@ timeline: true
 
 ## 2.4.0
 
-* 新增 [Anchor](https://ant.design/components/anchor) 组件.
-* 为 `Transfer` 组件新增了受控属性 `selectedKeys`. [#3729](https://github.com/ant-design/ant-design/issues/3729)
-* 为 `Tag` 新增选中状态.
-* 修复 `DatePicker` 的 `今天` 按钮. [#3748](https://github.com/ant-design/ant-design/issues/3748)
-* 修复 `Steps` 竖直方向的样式. [#3760](https://github.com/ant-design/ant-design/issues/3760)
-* 修复 `Carousel` 的默认样式.
+* 新增 [Anchor](https://ant.design/components/anchor) 锚点组件。
+* 整理了样式变量，修复 `@font-size-base` 和 `@text-color` 在部分组件无效的问题，新增 `@font-size-lg` `@text-color-secondary`，并移除了部分无用的变量。
+* `Transfer` 组件新增了受控属性 `selectedKeys`。[#3729](https://github.com/ant-design/ant-design/issues/3729)
+* `Tag` 新增选中状态。
+* 修复 `Dropdown.Button` 不支持 `visible` 和 `onVisibleChange` 的问题。[#3779](https://github.com/ant-design/ant-design/issues/3779)
+* 修复 `DatePicker[showTime]`` 的 `此刻` 按钮。[#3748](https://github.com/ant-design/ant-design/issues/3748)
+* 修复 `Steps` 竖直方向的样式。[#3760](https://github.com/ant-design/ant-design/issues/3760)
+* 修复 `Spin` 组件在 IE10+ 的样式问题。[#3755](https://github.com/ant-design/ant-design/issues/3755)
 * 修复 `Mention` 组件的 focus 逻辑. [#3801](https://github.com/ant-design/ant-design/issues/3801)
-* 修复 `Progress` 组件的动画 bug. [#3784](https://github.com/ant-design/ant-design/issues/3784)
-* 修复 `Select` 的焦点bug. [#3778](https://github.com/ant-design/ant-design/issues/3778)
-* 优化 `TimePicker` 的样式. [#3793](https://github.com/ant-design/ant-design/issues/3793)
-* 优化 `Checkbox` 和 `Radio` 的样式. [#3590](https://github.com/ant-design/ant-design/issues/3590)
+* 修复 `Progress` 组件的动画问题。[#3784](https://github.com/ant-design/ant-design/issues/3784)
+* 修复 `Select` 搜索时的丢失焦点问题。[#3778](https://github.com/ant-design/ant-design/issues/3778)
+* 修复 `TimePicker` 不支持 `format="HH"` 等格式的问题。[#3793](https://github.com/ant-design/ant-design/issues/3793)
+* 优化了 `Table` 选择的性能。[#3757](https://github.com/ant-design/ant-design/pull/3757)
+* 优化 `Carousel` 的默认样式。
+* 优化 `Checkbox` 和 `Radio` 的样式。[#3590](https://github.com/ant-design/ant-design/issues/3590)
+* 修复 `DatePicker`、`Form`、`Table` 等组件的样式细节。
 
 ## 2.3.2
 

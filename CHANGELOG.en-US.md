@@ -12,17 +12,22 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 ## 2.4.0
 
 * New [Anchor](https://ant.design/components/anchor) Component.
-* Add new props  `selectedKeys` for `Transfer` component [#3729]. (https://github.com/ant-design/ant-design/issues/3729)
+* Fix less variables `@font-size-base` and `@text-color`, add `@font-size-lg` `@text-color-secondary`.
+* Add new props `selectedKeys` for `Transfer` component [#3729]. (https://github.com/ant-design/ant-design/issues/3729)
 * Add `Tag` selected status.
-* Fix `Today` button of `DatePicker`. [#3748](https://github.com/ant-design/ant-design/issues/3748)
+* Fix `Dropdown.Button` not support `visible` and `onVisibleChange`. [#3779](https://github.com/ant-design/ant-design/issues/3779)
+* Fix `Now` button of `DatePicker[showTime]`. [#3748](https://github.com/ant-design/ant-design/issues/3748)
 * Fix style of `Steps` in vertical mode. [#3760](https://github.com/ant-design/ant-design/issues/3760)
+* Fix style compatibility of `Spin` in IE10+.[#3755](https://github.com/ant-design/ant-design/issues/3755)
 * Fix default style of `Carousel` component.
 * Fix focus logic of `Mention` component. [#3801](https://github.com/ant-design/ant-design/issues/3801)
 * Fix animate bug of `Progress` component. [#3784](https://github.com/ant-design/ant-design/issues/3784)
 * Fix focus bug of `Select` component. [#3778](https://github.com/ant-design/ant-design/issues/3778)
-* Improve style of `TimePicker`. [#3793](https://github.com/ant-design/ant-design/issues/3793)
+* Fix `TimePicker` not support `format="HH"` bug. [#3793](https://github.com/ant-design/ant-design/issues/3793)
+* Improve perfermance of `Table` selection. [#3757](https://github.com/ant-design/ant-design/pull/3757)
+* Improve Carousel default UI style.
 * Improve style of `Checkbox` and `Radio`. [#3590](https://github.com/ant-design/ant-design/issues/3590)
-
+* Fix style of DatePickek, Form, Table.
 
 ## 2.3.2
 
