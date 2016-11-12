@@ -89,6 +89,7 @@
     "bisheng-plugin-react": "^0.2.0",
     "bisheng-plugin-toc": "^0.3.0",
     "css-split-webpack-plugin": "^0.2.1",
+    "dekko": "^0.2.0",
     "dora-plugin-upload": "^0.3.1",
     "enquire.js": "^2.1.1",
     "enzyme": "^2.6.0",
@@ -111,9 +112,9 @@
     "moment-timezone": "^0.5.5",
     "pre-commit": "1.x",
     "querystring": "^0.2.0",
+    "rc-queue-anim": "~0.12.4",
     "rc-scroll-anim": "~0.5.0",
     "rc-tween-one": "~0.11.0",
-    "rc-queue-anim": "~0.12.4",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-copy-to-clipboard": "^4.0.1",
@@ -129,23 +130,27 @@
     "values.js": "^1.0.3"
   },
   "scripts": {
-    "dist": "antd-tools run dist",
-    "compile": "antd-tools run compile",
-    "clean": "antd-tools run clean",
-    "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
-    "site": "bisheng build -c ./site/bisheng.config.js",
-    "deploy": "npm run clean && bisheng gh-pages -c ./site/bisheng.config.js",
-    "lint": "npm run tslint && npm run srclint && npm run demolint && npm run lesshint",
-    "srclint": "RUN_ENV=SRC eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
+    "test": "npm run lint && npm run dist && npm run jest",
+    "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
+    "eslint": "eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
-    "test": "npm run lint && npm run dist && npm run jest",
+
     "jest": "jest --no-cache",
-    "pre-publish": "node ./scripts/prepub",
-    "prepublish": "antd-tools run guard",
+
+    "clean": "antd-tools run clean",
+    "dist": "antd-tools run dist && node ./tests/dekko/dist.test.js",
+    "compile": "antd-tools run compile && node ./tests/dekko/lib.test.js",
+
+    "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
+    "site": "bisheng build -c ./site/bisheng.config.js",
+    "deploy": "npm run clean && bisheng gh-pages -c ./site/bisheng.config.js",
+
     "pub": "antd-tools run update-self && antd-tools run pub",
+    "prepublish": "antd-tools run guard",
+    "pre-publish": "node ./scripts/prepub",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt"
   },
   "jest": {
@@ -160,6 +165,7 @@
       "/_site/"
     ],
     "testPathIgnorePatterns": [
+      "dekko",
       "/node_modules/"
     ],
     "transform": {
