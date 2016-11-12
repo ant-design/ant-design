@@ -39,7 +39,7 @@
     "css-animation": "^1.2.5",
     "gregorian-calendar": "~4.1.0",
     "gregorian-calendar-format": "~4.1.0",
-    "moment": "^2.15.1",
+    "moment": "~2.15.1",
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
     "rc-animate": "~2.3.0",
@@ -78,7 +78,7 @@
   "devDependencies": {
     "@types/react": "~0.14.41",
     "@types/react-dom": "~0.14.18",
-    "antd-tools": "^0.13.0",
+    "antd-tools": "~0.14.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
     "babel-plugin-import": "^1.0.0",
