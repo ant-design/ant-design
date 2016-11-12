@@ -43,16 +43,21 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       [className]: !!className,
     });
 
+    const dropdownProps = {
+       align,
+       overlay,
+       trigger: disabled ? [] : trigger,
+       onVisibleChange,
+    };
+
+    if ('visible' in this.props) {
+      (dropdownProps as any).visible = visible;
+    }
+
     return (
       <ButtonGroup {...restProps} className={cls}>
         <Button type={type} onClick={onClick} disabled={disabled}>{children}</Button>
-        <Dropdown
-          align={align}
-          overlay={overlay}
-          trigger={disabled ? [] : trigger}
-          visible={visible}
-          onVisibleChange={onVisibleChange}
-        >
+        <Dropdown {...dropdownProps}>
           <Button type={type} disabled={disabled}>
             <Icon type="down" />
           </Button>

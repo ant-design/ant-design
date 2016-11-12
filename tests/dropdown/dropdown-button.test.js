@@ -26,4 +26,11 @@ describe('DropdownButton', () => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
   });
+
+  it('don\'t pass visible to Dropdown if it\'s not exits', () => {
+    const wrapper = shallow(<Dropdown.Button />);
+    const dropdownProps = wrapper.find(Dropdown).props();
+
+    expect('visible' in dropdownProps).toBe(false);
+  });
 });
