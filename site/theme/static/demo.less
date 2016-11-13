@@ -24,7 +24,7 @@
 
 .code-box {
   border: 1px solid #E9E9E9;
-  border-radius: 6px;
+  border-radius: @border-radius-base;
   display: inline-block;
   width: 100%;
   position: relative;
@@ -105,7 +105,7 @@ section.code-box-meta p {
   padding: 1px 8px;
   margin-left: -8px;
   color: #777;
-  border-radius: 6px;
+  border-radius: @border-radius-base;
   border-top-left-radius: 0;
   background: #fff;
   transition: background-color 0.4s ease;
@@ -143,7 +143,7 @@ section.code-box-meta p {
 }
 
 .code-box.expand .collapse {
-  color: shade(#2db7f5, 20%);
+  color: shade(@primary-color, 20%);
   transform: rotate(-180deg);
 }
 
