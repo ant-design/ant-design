@@ -9,6 +9,12 @@ timeline: true
 
 ---
 
+## 2.4.2
+
+`2016-11-13`
+
+* 修复 `Dropdown.Button` 不弹出的问题。[#3815](https://github.com/ant-design/ant-design/issues/3815)
+
 ## 2.4.1
 
 `2016-11-11`

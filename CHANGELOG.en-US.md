@@ -9,6 +9,12 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.4.2
+
+`2016-11-13`
+
+* Fix `Dropdown.Button` cannot popup menu.[#3815](https://github.com/ant-design/ant-design/issues/3815)
+
 ## 2.4.1
 
 `2016-11-11`
