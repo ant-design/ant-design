@@ -162,7 +162,9 @@
     "testPathIgnorePatterns": [
       "/node_modules/"
     ],
-    "scriptPreprocessor": "node_modules/typescript-babel-jest",
+    "transform": {
+      ".*": "node_modules/typescript-babel-jest"
+    },
     "testRegex": "(/tests/.*|\\.(test|spec))\\.(js)$"
   },
   "pre-commit": [
