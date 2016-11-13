@@ -108,7 +108,7 @@ ReactDOM.render(
 }
 
 .event-normal {
-  color: #2db7f5;
+  color: #108ee9;
 }
 
 .event-error {
