@@ -4,13 +4,11 @@
   &-anchor {
     position: relative;
     &-wrapper {
-      padding: 6px;
       background-color: white;
     }
 
     &-ink {
       position: absolute;
-      width: 9px;
       height: 100%;
       left: 0;
       top: 0;
@@ -46,8 +44,13 @@
   }
 
   &-anchor-link {
-    padding: 4px 0 4px 16px;
+    padding: 8px 0 8px 18px;
     line-height: 1;
+
+    & & {
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
 
     &-title {
       display: block;
@@ -57,6 +60,11 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      margin-bottom: 8px;
+    }
+
+    &-title:only-child {
+      margin-bottom: 0;
     }
 
     &-active > &-title {
