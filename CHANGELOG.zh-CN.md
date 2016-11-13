@@ -9,7 +9,15 @@ timeline: true
 
 ---
 
+## 2.4.1
+
+`2016-11-11`
+
+* 修复 `2.4.0` 组件 index 文件丢失的问题。
+
 ## 2.4.0
+
+`2016-11-11`
 
 * 调整了组件的导航结构。
 * 新增 [Anchor](https://ant.design/components/anchor) 锚点组件。

@@ -9,7 +9,15 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.4.1
+
+`2016-11-11`
+
+* Fix `2.4.0` missing index files.
+
 ## 2.4.0
+
+`2016-11-11`
 
 * Adjust components structure.
 * New [Anchor](https://ant.design/components/anchor) Component.
