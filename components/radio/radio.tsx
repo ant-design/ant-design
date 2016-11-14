@@ -2,6 +2,7 @@ import RcRadio from 'rc-radio';
 import React from 'react';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
+import getTriggerHandlers from '../_util/getTriggerHandlers';
 
 export interface RadioProps {
   /** 指定当前是否选中*/
@@ -41,7 +42,7 @@ export default class Radio extends React.Component<RadioProps, any> {
       [`${prefixCls}-disabled`]: disabled,
     });
     return (
-      <label className={wrapperClassString} style={style}>
+      <label className={wrapperClassString} style={style} {...getTriggerHandlers(this.props)}>
         <RcRadio {...this.props} className={classString} style={null} children={null} />
         {children ? <span>{children}</span> : null}
       </label>
