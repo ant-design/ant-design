@@ -261,5 +261,5 @@ You can:
 
 - Visit [dva offical website](https://github.com/dvajs/dva).
 - View all the [API](https://github.com/dvajs/dva#api).
-- View [toturial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step.
+- View [tutorial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step.
 - View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews).
