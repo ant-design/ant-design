@@ -60,20 +60,19 @@ export default function createPicker(TheCalendar) {
 
     // Clear temp value and trigger onChange when hide DatePicker[showTime] panel
     handleOpenChange(open) {
-      const { showTime, onOpenChange } = this.props;
+      const { showTime, onOpenChange, onChange, format } = this.props;
       if (!open) {
         // tricky code to avoid triggering onChange multiple times
         // when click `Now` button
         let tempValue;
         this.setState(prevState => {
           tempValue = prevState.tempValue;
-          return {
-            tempValue: undefined,
-          };
-        }, () => {
+          const nextState = { tempValue: undefined } as any;
           if (showTime && tempValue) {
-            this.handleChange(tempValue);
+            nextState.value = tempValue;
+            onChange(tempValue, (tempValue && tempValue.format(format)) || '');
           }
+          return nextState;
         });
       }
       if (onOpenChange) {
