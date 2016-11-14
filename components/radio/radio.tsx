@@ -15,6 +15,8 @@ export interface RadioProps {
   disabled?: boolean;
   className?: string;
   onChange?: (e: any) => any;
+  onMouseEnter?: React.FormEventHandler<any>;
+  onMouseLeave?: React.FormEventHandler<any>;
 }
 
 export default class Radio extends React.Component<RadioProps, any> {
@@ -40,8 +42,14 @@ export default class Radio extends React.Component<RadioProps, any> {
       [`${prefixCls}-checked`]: checked,
       [`${prefixCls}-disabled`]: disabled,
     });
+
     return (
-      <label className={wrapperClassString} style={style}>
+      <label
+        className={wrapperClassString}
+        style={style}
+        onMouseEnter={this.props.onMouseEnter}
+        onMouseLeave={this.props.onMouseLeave}
+      >
         <RcRadio {...this.props} className={classString} style={null} children={null} />
         {children ? <span>{children}</span> : null}
       </label>

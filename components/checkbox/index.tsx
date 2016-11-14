@@ -29,8 +29,10 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   render() {
-    const [{ prefixCls, style, children, className, indeterminate }, restProps] = splitObject(
-      this.props, ['prefixCls', 'style', 'children', 'className', 'indeterminate']
+    const [{ prefixCls, style, children, className, indeterminate, onMouseEnter,
+      onMouseLeave }, restProps] = splitObject(
+      this.props, ['prefixCls', 'style', 'children', 'className', 'indeterminate',
+      'onMouseEnter', 'onMouseLeave']
     );
     const classString = classNames({
       [className]: !!className,
@@ -40,7 +42,12 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       [`${prefixCls}-indeterminate`]: indeterminate,
     });
     return (
-      <label className={classString} style={style}>
+      <label
+        className={classString}
+        style={style}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      >
         <RcCheckbox
           {...restProps}
           prefixCls={prefixCls}
