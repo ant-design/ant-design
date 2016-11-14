@@ -90,12 +90,14 @@ One of Property `columns` for descriping column.
 | onFilter   | callback that is called when when click confirm filter button | Function | - |
 | filterMultiple | whether to select multiple filtered item | Boolean    | true    |
 | filterDropdown | customized filter overlay | React.Element | - |
+| filterDropdownVisible | whether filterDropdown is visible | Boolean | - |
+| onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
+| filteredValue | controlled filtered value | Array | - |
 | sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function or Boolean | - |
 | colSpan    | span of this column's title | Number |         |
 | width      | width of this column | String or Number | -  |
 | className  | className of this column            | String          |  -      |
 | fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean or String | false |
-| filteredValue | controlled filtered value | Array | - |
 | sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | Boolean or String | - |
 
 ### rowSelection
