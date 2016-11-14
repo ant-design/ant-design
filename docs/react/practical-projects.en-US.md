@@ -75,11 +75,9 @@ Create a route component `routes/Products.js`:
 ```javascript
 import React from 'react';
 
-const Products = (props) => {
-  return (
-    <h2>List of Products</h2>
-  );
-};
+const Products = (props) => (
+  <h2>List of Products</h2>
+);
 
 export default Products;
 ```
@@ -107,22 +105,19 @@ import React, { PropTypes } from 'react';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
+  const columns = [{
+    title: 'Name',
+    dataIndex: 'name',
+  }, {
+    title: 'Actions',
+    render: (text, record) => {
+      return (
+        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+          <Button>Delete</Button>
+        </Popconfirm>
+      );
     },
-    {
-      title: 'Actions',
-      render(text, record) {
-        return (
-          <Popconfirm title="Delete?" onConfirm={onDelete.bind(this, record.id)}>
-            <Button>删除</Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
+  }];
   return (
     <Table
       dataSource={products}
@@ -187,26 +182,24 @@ import React from 'react';
 import { connect } from 'dva';
 import ProductList from '../components/ProductList';
 
-const Products = (props) => {
-
+const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
-    props.dispatch({
+    dispatch({
       type: 'products/delete',
       payload: id,
     });
   }
-
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={props.products} />
+      <ProductList onDelete={handleDelete} products={products} />
     </div>
   );
 };
 
 // export default Products;
 export default connect(({ products }) => ({
-  products
+  products,
 }))(Products);
 ```
 
@@ -266,7 +259,7 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-- Visit [dva offical website](https://github.com/dvajs/dva)
-- View all the [API](https://github.com/dvajs/dva#api)
-- View [toturial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step
-- View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews)
+- Visit [dva offical website](https://github.com/dvajs/dva).
+- View all the [API](https://github.com/dvajs/dva#api).
+- View [toturial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step.
+- View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews).

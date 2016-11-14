@@ -75,11 +75,9 @@ $ npm install antd babel-plugin-import --save
 ```javascript
 import React from 'react';
 
-const Products = (props) => {
-  return (
-    <h2>List of Products</h2>
-  );
-};
+const Products = (props) => (
+  <h2>List of Products</h2>
+);
 
 export default Products;
 ```
@@ -107,22 +105,19 @@ import React, { PropTypes } from 'react';
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
+  const columns = [{
+    title: 'Name',
+    dataIndex: 'name',
+  }, {
+    title: 'Actions',
+    render: (text, record) => {
+      return (
+        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+          <Button>Delete</Button>
+        </Popconfirm>
+      );
     },
-    {
-      title: 'Actions',
-      render(text, record) {
-        return (
-          <Popconfirm title="Delete?" onConfirm={onDelete.bind(this, record.id)}>
-            <Button>删除</Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
+  }];
   return (
     <Table
       dataSource={products}
@@ -187,26 +182,24 @@ import React from 'react';
 import { connect } from 'dva';
 import ProductList from '../components/ProductList';
 
-const Products = (props) => {
-
+const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
-    props.dispatch({
+    dispatch({
       type: 'products/delete',
       payload: id,
     });
   }
-
   return (
     <div>
       <h2>List of Products</h2>
-      <ProductList onDelete={handleDelete} products={props.products} />
+      <ProductList onDelete={handleDelete} products={products} />
     </div>
   );
 };
 
 // export default Products;
 export default connect(({ products }) => ({
-  products
+  products,
 }))(Products);
 ```
 
@@ -266,7 +259,7 @@ Child
 
 你可以：
 
-- 访问 [dva 官网](https://github.com/dvajs/dva)
-- 查看所有 [API](https://github.com/dvajs/dva#api)
-- [教程](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md)，一步步完成一个中型应用
-- 看看 [dva 版 hackernews](https://github.com/dvajs/dva-hackernews) 是[如何实现](https://github.com/sorrycc/blog/issues/9)的
+- 访问 [dva 官网](https://github.com/dvajs/dva)。
+- 查看所有 [API](https://github.com/dvajs/dva#api)。
+- [教程](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md)，一步步完成一个中型应用。
+- 看看 [dva 版 hackernews](https://github.com/dvajs/dva-hackernews) 是 [如何实现](https://github.com/sorrycc/blog/issues/9) 的。
