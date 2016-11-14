@@ -57,7 +57,8 @@ ReactDOM.render(
   <div>
     <DatePicker format="YYYY-MM-DD HH:mm:ss" disabledDate={disabledDate} disabledTime={disabledDateTime} showTime />
     <br />
-    <RangePicker format="YYYY-MM-DD HH:mm:ss" disabledDate={disabledDate} disabledTime={disabledRangeTime} showTime />
-  </div>
-, mountNode);
+    <RangePicker disabledDate={disabledDate} disabledTime={disabledRangeTime} showTime={{ hideDisabledOptions: true }} />
+  </div>,
+  mountNode
+);
 ````
