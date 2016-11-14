@@ -35,11 +35,13 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
   toggleOpen?: (e: {open: boolean}) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   onOpenChange?: (status: boolean) => void;
+  placeholder?: string;
 }
 const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<DatePickerProps>;
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
   disabledDate?: (current: moment.Moment) => boolean;
+  placeholder?: string;
 }
 const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
 
