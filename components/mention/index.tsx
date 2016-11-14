@@ -1,7 +1,7 @@
 import React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
 import classNames from 'classnames';
-import Icon from '../Icon';
+import Icon from '../icon';
 
 export interface MentionProps {
   prefixCls: string;
