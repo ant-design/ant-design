@@ -91,10 +91,13 @@
 
   &-title + &-content {
     position: relative;
-
-    table {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    .@{table-prefix-cls}-bordered & {
+      &,
+      table {
+        border-radius: 0;
+      }
     }
   }
 
