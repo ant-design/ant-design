@@ -7,7 +7,7 @@
   display: inline-block;
   width: 100%;
   vertical-align: middle;
-  &.active .@{ant-prefix}-mention-editor {
+  &-active .@{ant-prefix}-mention-editor {
     .active;
   }
   .@{ant-prefix}-mention-editor {
@@ -58,6 +58,8 @@
 
     .@{iconfont-css-prefix}-loading {
       color: @primary-color;
+      text-align: center;
+      display: block;
     }
   }
   &-item {
@@ -103,9 +105,8 @@
       height: 1px;
       margin: 1px 0;
       overflow: hidden;
-      background-color: #e5e5e5;
+      background-color: @border-color-split;
       line-height: 0;
     }
   }
 }
-

@@ -1,6 +1,7 @@
 import React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
 import classNames from 'classnames';
+import Icon from '../Icon';
 
 export interface MentionProps {
   prefixCls: string;
@@ -50,14 +51,14 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     });
   }
 
-  onSearchChange(value) {
+  onSearchChange = (value) => {
     if (this.props.onSearchChange) {
       return this.props.onSearchChange(value);
     }
     return this.defaultSearchChange(value);
   }
 
-  onChange(editorState) {
+  onChange = (editorState) => {
     if (this.props.onChange) {
       this.props.onChange(editorState);
     }
@@ -74,32 +75,28 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   }
 
   render() {
-    const { className = '', prefixCls, style, multiLines, defaultValue } = this.props;
-    let { notFoundContent } = this.props;
-
+    const { className = '', prefixCls, loading } = this.props;
     const { suggestions, focus } = this.state;
     const cls = classNames({
       [className]: !!className,
-      ['active']: focus,
+      [`${prefixCls}-active`]: focus,
     });
 
-    if (this.props.loading) {
-      notFoundContent = <i className="anticon anticon-loading"></i>;
-    }
+    const notFoundContent = loading
+      ? <Icon type="loading" />
+      : this.props.notFoundContent;
 
-    return <RcMention
+    return (
+      <RcMention
         {...this.props}
         className={cls}
-        prefixCls={prefixCls}
-        style={style}
-        defaultValue={defaultValue}
-        multiLines={multiLines}
-        onSearchChange={this.onSearchChange.bind(this)}
-        onChange={this.onChange.bind(this)}
-        onFocus={() => this.setState({focus: true})}
-        onBlur={() => this.setState({focus: false})}
+        onSearchChange={this.onSearchChange}
+        onChange={this.onChange}
+        onFocus={() => this.setState({ focus: true })}
+        onBlur={() => this.setState({ focus: false })}
         suggestions={suggestions}
         notFoundContent={notFoundContent}
-      />;
+      />
+    );
   }
 }
