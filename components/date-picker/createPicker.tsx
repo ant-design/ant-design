@@ -18,6 +18,7 @@ export default function createPicker(TheCalendar) {
       return {
         prefixCls: 'ant-calendar',
         allowClear: true,
+        showToday: true,
       };
     },
 
@@ -113,6 +114,7 @@ export default function createPicker(TheCalendar) {
 
       const calendar = (
         <TheCalendar
+          {...calendarHandler}
           disabledDate={props.disabledDate}
           disabledTime={disabledTime}
           locale={locale.lang}
@@ -123,7 +125,7 @@ export default function createPicker(TheCalendar) {
           className={calendarClassName}
           onOk={props.onOk}
           format={props.format}
-          {...calendarHandler}
+          showToday={props.showToday}
         />
       );
 
