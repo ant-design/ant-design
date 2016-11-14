@@ -66,20 +66,21 @@ tsconfig.json
 ## 链接
 
 - [首页](http://ant.design/)
-- [React 实现](http://ant.design/docs/react/introduce)
-- [修改记录](CHANGELOG.zh-CN.md)
-- [开发脚手架](https://github.com/ant-design/antd-init/)
+- [组件文档](http://ant.design/docs/react/introduce)
+- [更新日志](CHANGELOG.en-US.md)
+- [开发脚手架](https://github.com/dva/dva-cli)
 - [开发工具文档](http://ant-tool.github.io/)
 - [React 基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
-- [React 代码规范](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-code-style.md)
-- [组件设计原则](https://github.com/react-component/react-component.github.io/blob/master/docs/zh-cn/component-design.md)
-- [网站和组件开发说明](https://github.com/ant-design/ant-design/wiki/%E7%BD%91%E7%AB%99%E5%92%8C%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E8%AF%B4%E6%98%8E)
-- [版本发布手册](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [动效](https://motion.ant.design)
+- [设计规范速查手册](https://os.alipayobjects.com/rmsportal/HTXUgPGkyyxEivE.png)
+- [开发者说明](https://github.com/ant-design/ant-design/wiki/Development)
+- [版本发布规则](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [社区贡献脚手架和范例](https://github.com/ant-design/ant-design/issues/129)
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
-- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001)
+- [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
+- [定制主题](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
 
 ## 如何贡献
 
