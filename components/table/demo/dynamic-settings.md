@@ -27,7 +27,7 @@ const columns = [{
   title: 'Age',
   dataIndex: 'age',
   key: 'age',
-  width: 100,
+  width: 70,
 }, {
   title: 'Address',
   dataIndex: 'address',
@@ -35,7 +35,7 @@ const columns = [{
 }, {
   title: 'Action',
   key: 'action',
-  width: 400,
+  width: 360,
   render: (text, record) => (
     <span>
       <a href="#">Action 一 {record.name}</a>
@@ -67,7 +67,7 @@ const scroll = { y: 240 };
 
 class Demo extends React.Component {
   state = {
-    bordered: true,
+    bordered: false,
     loading: false,
     pagination: true,
     size: 'default',
@@ -139,7 +139,7 @@ class Demo extends React.Component {
               <Switch defaultChecked onChange={this.handleScollChange} />
             </FormItem>
             <FormItem label="Size">
-              <Radio.Group value={state.size} onChange={this.handleSizeChange}>
+              <Radio.Group size="default" value={state.size} onChange={this.handleSizeChange}>
                 <Radio.Button value="default">Default</Radio.Button>
                 <Radio.Button value="middle">Middle</Radio.Button>
                 <Radio.Button value="small">Small</Radio.Button>
