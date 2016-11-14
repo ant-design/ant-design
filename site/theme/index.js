@@ -15,6 +15,7 @@ module.exports = {
     'Data Display': 4,
     Feedback: 5,
     Localization: 6,
+    Other: 7,
   },
   docVersions: {
     '0.9.x': 'http://09x.ant.design',
