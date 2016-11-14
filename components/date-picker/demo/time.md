@@ -25,14 +25,18 @@ function onChange(value, dateString) {
 ReactDOM.render(
   <div>
     <DatePicker
-      showTime={{ format: 'HH:mm' }} format="YYYY-MM-DD HH:mm"
-      placeholder="Select Time" onChange={onChange}
-    /><br />
-    <RangePicker
-      showTime={{ format: 'HH:mm' }} format="YYYY-MM-DD HH:mm"
-      placeholder={['Start Time', 'End Time']} onChange={onChange}
+      showTime
+      format="YYYY-MM-DD HH:mm:ss"
+      placeholder="Select Time"
+      onChange={onChange}
     />
-  </div>,
-  mountNode
-);
+    <br />
+    <RangePicker
+      showTime
+      format="YYYY-MM-DD HH:mm:ss"
+      placeholder={['Start Time', 'End Time']}
+      onChange={onChange}
+    />
+  </div>
+, mountNode);
 ````

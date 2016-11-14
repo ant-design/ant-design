@@ -39,7 +39,6 @@ ReactDOM.render(
     locale={enUS}
     showTime
     onChange={log}
-  />,
-  mountNode
-);
+  />
+, mountNode);
 ````

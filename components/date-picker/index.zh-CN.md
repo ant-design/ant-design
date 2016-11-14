@@ -5,16 +5,19 @@ title: DatePicker
 subtitle: 日期选择框
 ---
 
-输入或选择日期的控件，包括以下三种形式。
-* DatePicker
-* MonthPicker
-* RangePicker
+输入或选择日期的控件。
 
 ## 何时使用
 
 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
 
 ## API
+
+日期类组件包括以下三种形式。
+
+* DatePicker
+* MonthPicker
+* RangePicker
 
 **注意：**DatePicker、MonthPicker、RangePicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
 

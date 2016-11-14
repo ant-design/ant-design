@@ -4,16 +4,19 @@ type: Data Entry
 title: DatePicker
 ---
 
-To select or input a date. There are three kinds of picker:
-* DatePicker
-* MonthPicker
-* RangePicker
+To select or input a date.
 
 ## When To Use
 
 By clicking the input box, you can select a date from a popup calendar.
 
 ## API
+
+There are three kinds of picker:
+
+* DatePicker
+* MonthPicker
+* RangePicker
 
 **Note:** Part of locale of DatePicker, MonthPicker, RangePicker is read from value. So, please set the locale of moment correctly.
 
