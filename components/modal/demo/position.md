@@ -1,6 +1,6 @@
 ---
 order: 7
-title: 
+title:
   zh-CN: 自定义位置
   en-US: To customize the position of modal
 ---
@@ -69,6 +69,28 @@ ReactDOM.render(<App />, mountNode);
 ````css
 /* use css to set position of modal */
 .vertical-center-modal {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.vertical-center-modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  width: 0;
+}
+
+.vertical-center-modal .ant-modal {
+  display: inline-block;
+  vertical-align: middle;
+  top: 0;
+  text-align: left;
+}
+
+/*
+// Use flex which not working in IE
+.vertical-center-modal {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,4 +99,5 @@ ReactDOM.render(<App />, mountNode);
 .vertical-center-modal .ant-modal {
   top: 0;
 }
+*/
 ````
