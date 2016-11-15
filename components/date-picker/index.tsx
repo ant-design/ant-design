@@ -60,7 +60,7 @@ export interface RangePickerProps extends PickerProps {
 }
 
 assign(DatePicker, {
-  RangePicker: wrapPicker(RangePicker, 'YYYY-MM-DD hh:mm:ss'),
+  RangePicker: wrapPicker(RangePicker),
   Calendar,
   MonthPicker,
 });

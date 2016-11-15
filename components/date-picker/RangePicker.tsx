@@ -9,6 +9,7 @@ export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
     allowClear: true,
+    showToday: false,
   };
 
   constructor(props) {
@@ -60,7 +61,7 @@ export default class RangePicker extends React.Component<any, any> {
   }
 
   setValue(value) {
-    this.setState({ value });
+    this.handleChange(value);
     if (!this.props.showTime) {
       this.setState({ open: false });
     }
@@ -87,7 +88,7 @@ export default class RangePicker extends React.Component<any, any> {
   render() {
     const props = this.props;
     const {
-      disabledDate, disabledTime, showTime,
+      disabledDate, disabledTime, showTime, showToday,
       ranges, prefixCls, popupStyle,
       style, onOk, locale, format,
     } = props;
@@ -130,6 +131,7 @@ export default class RangePicker extends React.Component<any, any> {
         locale={locale.lang}
         onOk={onOk}
         defaultValue={props.defaultPickerValue || [moment(), moment()]}
+        showToday={showToday}
       />
     );
 

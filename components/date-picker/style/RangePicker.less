@@ -44,7 +44,7 @@
     float: left;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        border-right: 1px solid @border-color-split;
+        border-right: 2px solid @border-color-split;
       }
     }
   }
@@ -53,8 +53,7 @@
     float: right;
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
-        margin-left: 3%;
-        border-left: 1px solid @border-color-split;
+        border-left: 2px solid @border-color-split;
       }
     }
   }
@@ -158,9 +157,10 @@
     display: block;
     text-align: left;
     border-bottom: 1px solid @border-color-split;
-    padding: 8.5px 10px;
+    padding: 10.5px 10px;
 
     > label {
+      color: @text-color-secondary;
       &:after {
         content: ":";
         margin: 0 8px 0 2px;
@@ -186,7 +186,7 @@
   &.@{calendar-prefix-cls}-time {
     .@{calendar-timepicker-prefix-cls} {
       height: 207px;
-      width: 97%;
+      width: 100%;
       top: 68px;
       z-index: 2; // cover .ant-calendar-range .ant-calendar-in-range-cell > div (z-index: 1)
       &-panel {
@@ -196,23 +196,25 @@
 
       &-inner {
         padding-top: 34px;
-        height: 241px;
+        height: 100%;
         background: none;
       }
 
       &-combobox {
         display: inline-block;
+        height: 100%;
         background-color: white;
         border-top: 1px solid @border-color-split;
       }
       &-select {
+        height: 100%;
         ul {
-          max-height: 206px;
+          max-height: 100%;
         }
       }
     }
     .@{calendar-prefix-cls}-footer-btn {
-      padding-right: 12px;
+      padding: 9px 12px 9px 0;
       display: block;
       .clearfix;
     }
@@ -231,15 +233,9 @@
   }
 
   &-with-ranges.@{calendar-prefix-cls}-time .@{calendar-timepicker-prefix-cls} {
-    height: 243px;
+    height: 247px;
     &-panel {
-      height: 277px;
-    }
-    &-inner {
-      height: 277px;
-    }
-    &-select ul {
-      max-height: 242px;
+      height: 281px;
     }
   }
 }
