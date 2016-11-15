@@ -66,3 +66,7 @@ subtitle: 导航菜单
 |----------|----------------|----------|--------------|
 | title    | 分组标题       | String or React.Element |    |
 | children | 分组的菜单项    | MenuItem[] |  |
+
+### Menu.Divider
+
+菜单项分割线，只用在弹出菜单内。

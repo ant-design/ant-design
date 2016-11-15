@@ -65,3 +65,7 @@ More layout and samples: [layout](/docs/spec/layout).
 |----------|----------------|----------|--------------|
 | title    | title of the group       | String or React.Element |    |
 | children | sub menu items    | MenuItem[] |  |
+
+### Menu.Divider
+
+divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.
