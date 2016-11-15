@@ -24,8 +24,4 @@ const Group: React.StatelessComponent<GroupProps> = (props) => {
   );
 };
 
-Group.propTypes = {
-  children: React.PropTypes.any,
-};
-
 export default Group;
