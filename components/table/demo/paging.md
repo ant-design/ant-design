@@ -19,9 +19,7 @@ import { Table } from 'antd';
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
-  render(text) {
-    return <a href="#">{text}</a>;
-  },
+  render: text => <a href="#">{text}</a>,
 }, {
   title: 'Age',
   dataIndex: 'age',
@@ -43,14 +41,15 @@ for (let i = 0; i < 46; i++) {
 const pagination = {
   total: data.length,
   showSizeChanger: true,
-  onShowSizeChange(current, pageSize) {
+  onShowSizeChange: (current, pageSize) => {
     console.log('Current: ', current, '; PageSize: ', pageSize);
   },
-  onChange(current) {
+  onChange: (current) => {
     console.log('Current: ', current);
   },
 };
 
-ReactDOM.render(<Table columns={columns} dataSource={data} pagination={pagination} />
+ReactDOM.render(
+  <Table columns={columns} dataSource={data} pagination={pagination} />
 , mountNode);
 ````

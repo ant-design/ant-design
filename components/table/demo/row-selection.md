@@ -46,13 +46,13 @@ const data = [{
 
 // rowSelection object indicates the need for row selection
 const rowSelection = {
-  onChange(selectedRowKeys, selectedRows) {
+  onChange: (selectedRowKeys, selectedRows) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
-  onSelect(record, selected, selectedRows) {
+  onSelect: (record, selected, selectedRows) => {
     console.log(record, selected, selectedRows);
   },
-  onSelectAll(selected, selectedRows, changeRows) {
+  onSelectAll: (selected, selectedRows, changeRows) => {
     console.log(selected, selectedRows, changeRows);
   },
 };

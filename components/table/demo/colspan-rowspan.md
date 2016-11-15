@@ -22,7 +22,7 @@ import { Table } from 'antd';
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const renderContent = function (value, row, index) {
+const renderContent = (value, row, index) => {
   const obj = {
     children: value,
     props: {},
@@ -36,7 +36,7 @@ const renderContent = function (value, row, index) {
 const columns = [{
   title: 'Name',
   dataIndex: 'name',
-  render(text, row, index) {
+  render: (text, row, index) => {
     if (index < 4) {
       return <a href="#">{text}</a>;
     }
@@ -55,7 +55,7 @@ const columns = [{
   title: 'Home phone',
   colSpan: 2,
   dataIndex: 'tel',
-  render(value, row, index) {
+  render: (value, row, index) => {
     const obj = {
       children: value,
       props: {},

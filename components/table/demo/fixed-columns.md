@@ -56,9 +56,5 @@ const data = [{
   address: 'London Park',
 }];
 
-function App() {
-  return <Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />;
-}
-
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />, mountNode);
 ````

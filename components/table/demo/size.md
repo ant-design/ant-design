@@ -43,12 +43,14 @@ const data = [{
   address: 'Sidney No. 1 Lake Park',
 }];
 
-ReactDOM.render(<div>
-  <h4>No. Form (Middle size table)</h4>
-  <Table columns={columns} dataSource={data} size="middle" />
-  <h4>Small size table</h4>
-  <Table columns={columns} dataSource={data} size="small" />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <h4>No. Form (Middle size table)</h4>
+    <Table columns={columns} dataSource={data} size="middle" />
+    <h4>Small size table</h4>
+    <Table columns={columns} dataSource={data} size="small" />
+  </div>
+, mountNode);
 ````
 
 <style>#components-table-demo-size h4 { margin-bottom: 16px; }</style>
