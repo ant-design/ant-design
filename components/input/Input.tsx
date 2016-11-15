@@ -85,16 +85,12 @@ export default class Input extends Component<InputProps, any> {
 
   nextFrameActionId: number;
   refs: {
-    [key: string]: any;
     input: any;
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      textareaStyles: null,
-    };
-  }
+  state = {
+    textareaStyles: null,
+  };
 
   componentDidMount() {
     this.resizeTextarea();
@@ -173,7 +169,6 @@ export default class Input extends Component<InputProps, any> {
 
   renderInput() {
     const props = assign({}, this.props);
-
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',

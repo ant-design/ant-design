@@ -111,13 +111,13 @@ class SearchTree extends React.Component {
       const index = item.key.search(searchValue);
       const beforeStr = item.key.substr(0, index);
       const afterStr = item.key.substr(index + searchValue.length);
-      const title = index > -1 ?
-            <span>
-              {beforeStr}
-              <span className="ant-tree-searchable-filter">{searchValue}</span>
-              {afterStr}
-            </span>
-            : <span>{item.key}</span>;
+      const title = index > -1 ? (
+        <span>
+          {beforeStr}
+          <span className="ant-tree-searchable-filter">{searchValue}</span>
+          {afterStr}
+        </span>
+      ) : <span>{item.key}</span>;
       if (item.children) {
         return (
           <TreeNode key={item.key} title={title}>
