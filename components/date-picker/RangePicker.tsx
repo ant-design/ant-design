@@ -46,7 +46,10 @@ export default class RangePicker extends React.Component<any, any> {
 
   render() {
     const props = this.props;
-    const { disabledDate, disabledTime, showTime, prefixCls, popupStyle, style, onOk, locale } = props;
+    const { disabledDate, disabledTime, showTime,
+      prefixCls, popupStyle, style, onOk, locale,
+      format,
+    } = props;
     const state = this.state;
 
     const calendarClassName = classNames({
@@ -74,6 +77,7 @@ export default class RangePicker extends React.Component<any, any> {
     const calendar = (
       <RangeCalendar
         {...calendarHandler}
+        format={format}
         prefixCls={prefixCls}
         className={calendarClassName}
         timePicker={props.timePicker}
