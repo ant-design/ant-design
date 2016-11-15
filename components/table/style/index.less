@@ -68,10 +68,17 @@
   &-footer {
     padding: 16px 8px;
     background: @table-head-background-color;
-    position: relative;
-    z-index: 2;
-    top: -1px;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+    position: relative;
+    &:before {
+      content: '';
+      height: 1px;
+      background: @table-head-background-color;
+      position: absolute;
+      top: -1px;
+      width: 100%;
+      left: 0;
+    }
   }
 
   &.@{table-prefix-cls}-bordered &-footer {
@@ -157,6 +164,11 @@
     .@{table-prefix-cls}-tbody > tr > td {
       padding: 10px 8px;
     }
+
+    .@{table-prefix-cls}-title,
+    .@{table-prefix-cls}-footer {
+      padding: 10px 8px;
+    }
   }
 
   &-small {
@@ -170,13 +182,23 @@
     }
 
     .@{table-prefix-cls}-thead > tr > th {
-      padding: 10px 8px;
       background: #fff;
       border-bottom: 1px solid @border-color-split;
     }
 
     .@{table-prefix-cls}-tbody > tr > td {
       padding: 6px 8px;
+    }
+
+    .@{table-prefix-cls}-title,
+    .@{table-prefix-cls}-footer,
+    .@{table-prefix-cls}-thead > tr > th {
+      padding: 10px 8px;
+    }
+
+    .@{table-prefix-cls}-title {
+      border-bottom: 1px solid @border-color-split;
+      top: 0;
     }
 
     .@{table-prefix-cls}-header {
@@ -191,11 +213,6 @@
 
     .@{table-prefix-cls}-row:last-child td {
       border-bottom: 0;
-    }
-
-    .@{table-prefix-cls}-title,
-    .@{table-prefix-cls}-footer {
-      top: 0;
     }
   }
 
@@ -279,11 +296,14 @@
     }
 
     &.@{table-prefix-cls}-small {
+      border-right: 0;
+
       .@{table-prefix-cls}-header > table,
       .@{table-prefix-cls}-body > table,
       .@{table-prefix-cls}-fixed-left table,
       .@{table-prefix-cls}-fixed-right table {
         border: 0;
+        padding: 0;
       }
 
       .@{table-prefix-cls}-title {

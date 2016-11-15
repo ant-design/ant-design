@@ -45,7 +45,7 @@ const data = [{
 
 ReactDOM.render(
   <div>
-    <h4>No. Form (Middle size table)</h4>
+    <h4>Middle size table</h4>
     <Table columns={columns} dataSource={data} size="middle" />
     <h4>Small size table</h4>
     <Table columns={columns} dataSource={data} size="small" />

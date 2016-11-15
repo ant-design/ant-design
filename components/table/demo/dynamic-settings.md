@@ -75,7 +75,7 @@ class Demo extends React.Component {
     title,
     footer,
     rowSelection: {},
-    scroll,
+    scroll: undefined,
   }
 
   handleToggle = (prop) => {
@@ -124,19 +124,19 @@ class Demo extends React.Component {
               <Switch checked={state.pagination} onChange={this.handleToggle('pagination')} />
             </FormItem>
             <FormItem label="Title">
-              <Switch defaultChecked onChange={this.handleTitleChange} />
+              <Switch checked={!!state.title} onChange={this.handleTitleChange} />
             </FormItem>
             <FormItem label="Footer">
-              <Switch defaultChecked onChange={this.handleFooterChange} />
+              <Switch checked={!!state.footer} onChange={this.handleFooterChange} />
             </FormItem>
             <FormItem label="Expandable">
-              <Switch defaultChecked onChange={this.handleExpandChange} />
+              <Switch checked={!!state.expandedRowRender} onChange={this.handleExpandChange} />
             </FormItem>
-            <FormItem defaultChecked label="Checkbox">
-              <Switch onChange={this.handleRowSelectionChange} />
+            <FormItem label="Checkbox">
+              <Switch checked={!!state.rowSelection} onChange={this.handleRowSelectionChange} />
             </FormItem>
             <FormItem label="Fixed Header">
-              <Switch defaultChecked onChange={this.handleScollChange} />
+              <Switch checked={!!state.scroll} onChange={this.handleScollChange} />
             </FormItem>
             <FormItem label="Size">
               <Radio.Group size="default" value={state.size} onChange={this.handleSizeChange}>
