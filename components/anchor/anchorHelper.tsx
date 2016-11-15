@@ -55,7 +55,7 @@ export function scrollTo(href, target = getDefaultTarget) {
     }
   };
   reqAnimFrame(frameFunc);
-  history.pushState(null, undefined, href);
+  history.pushState(null, '', href);
 }
 
 class AnchorHelper {

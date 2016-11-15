@@ -233,12 +233,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
   handleSelect = (direction, selectedItem, checked) => {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const holder = direction === 'left' ? [...sourceSelectedKeys] : [...targetSelectedKeys];
-    let index;
-    holder.forEach((key, i) => {
-      if (key === selectedItem.key) {
-        index = i;
-      }
-    });
+    const index = holder.indexOf(selectedItem.key);
     if (index > -1) {
       holder.splice(index, 1);
     }
