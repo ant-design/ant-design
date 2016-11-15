@@ -4,7 +4,7 @@ import AnchorHelper, { scrollTo } from './anchorHelper';
 
 export interface AnchorLinkProps {
   href: string;
-  onClick: (href: string) => void;
+  onClick: (href: string, component: Element) => void;
   active?: boolean;
   prefixCls?: string;
   children?: any;
@@ -28,11 +28,11 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     prefixCls: 'ant-anchor',
   };
 
-  private _component: Element;
-
   context: {
     anchorHelper: AnchorHelper;
   };
+
+  private _component: Element;
 
   constructor(props, context) {
     super(props, context);
@@ -42,7 +42,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     return {
       anchorHelper: this.context.anchorHelper,
     };
-  } 
+  }
 
   setActiveAnchor() {
     const { bounds, href, affix } = this.props;

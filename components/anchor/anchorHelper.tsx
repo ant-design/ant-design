@@ -37,7 +37,7 @@ export function getOffsetTop(element): number {
   return rect.top;
 }
 
-export function scrollTo(href, target = getDefaultTarget, callback) {
+export function scrollTo(href, target = getDefaultTarget, callback = () => {}) {
   const scrollTop = getScroll(target(), true);
   const targetElement = document.getElementById(href.substring(1));
   if (!targetElement) {
@@ -57,7 +57,7 @@ export function scrollTo(href, target = getDefaultTarget, callback) {
     }
   };
   reqAnimFrame(frameFunc);
-  history.pushState(null, undefined, href);
+  history.pushState(null, '', href);
 }
 
 class AnchorHelper {

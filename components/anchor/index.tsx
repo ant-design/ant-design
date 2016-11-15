@@ -91,7 +91,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       this._avoidInk = false;
     });
   }
-  
+
   renderAnchorLink = (child) => {
     const { href } = child.props;
     if (href) {
