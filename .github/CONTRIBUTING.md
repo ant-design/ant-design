@@ -19,7 +19,7 @@ Tips: choose the corresponding documentation with versions selector which in the
 
 ### 2. Make sure that your question is about Ant Design, not React
 
-Someone may think all of the questions that he/she meets in developing are about Ant Design, but it's not true. So, please read [React's documentaion](http://facebook.github.io/react/docs/getting-started.html) or just Google(not Baidu, seriously) your questions with keywork *React* first. If you are sure that your question is about Ant Design, go ahead.
+Someone may think all of the questions that he/she meets in developing are about Ant Design, but it's not true. So, please read [React's documentation](http://facebook.github.io/react/docs/getting-started.html) or just Google (not Baidu, seriously) your questions with keyword *React* first. If you are sure that your question is about Ant Design, go ahead.
 
 ### 3. Read the FAQ and search the issues list of Ant Design
 
@@ -50,7 +50,7 @@ If you believe that Ant Design should provide some features, but it does not. Yo
 
 It's welcomed to pull request. And there are some tips about that:
 
-1. It is a good habit to create a feature request issue to disscuss whether the feature is necessary before you implement it. However, it's unnecessary to create an issue to claim that you found a typo or improved the readability of documentaion, just create a pull request.
+1. It is a good habit to create a feature request issue to discuss whether the feature is necessary before you implement it. However, it's unnecessary to create an issue to claim that you found a typo or improved the readability of documentation, just create a pull request.
 1. Run `npm run lint` and fix those errors before committing in order to keep consistent code style.
 1. Rebase before creating a PR to keep commit history clear.
 1. Add some descriptions and refer relative issues for you PR.
