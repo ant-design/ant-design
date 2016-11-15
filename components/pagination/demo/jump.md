@@ -17,6 +17,6 @@ Jump to a page directly.
 import { Pagination } from 'antd';
 
 ReactDOM.render(
-  <Pagination showQuickJumper defaultCurrent={2} total={500} />,
- mountNode);
+  <Pagination showQuickJumper defaultCurrent={2} total={500} />
+, mountNode);
 ````

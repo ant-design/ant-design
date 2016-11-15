@@ -21,8 +21,8 @@ ReactDOM.render(
     selectComponentClass={Select}
     total={80}
     showTotal={total => `Total ${total} items`}
-    pageSize={20} defaultCurrent={1}
-  />,
-  mountNode
-);
+    pageSize={20}
+    defaultCurrent={1}
+  />
+, mountNode);
 ````
