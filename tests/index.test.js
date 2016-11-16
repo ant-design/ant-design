@@ -31,6 +31,7 @@ describe('antd dist files', function() {
   it('should has modules in antd', () => {
     expect('Affix' in antd).toBeTruthy();
     expect('Alert' in antd).toBeTruthy();
+    expect('Anchor' in antd).toBeTruthy();
     expect('AutoComplete' in antd).toBeTruthy();
     expect('BackTop' in antd).toBeTruthy();
     expect('Badge' in antd).toBeTruthy();
