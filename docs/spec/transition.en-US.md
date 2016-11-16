@@ -23,7 +23,7 @@ Slide In and Slide Out: Create an illusion of virtual space.
 
 <video class="transition-video-player" alt="example of Carousel" src="https://os.alipayobjects.com/rmsportal/GIutPgZMTyfFfrH.mp4" />
 
-Carousel: Carousels are great for extending vir- tual space.
+Carousel: Carousels are great for extending virtual space.
 
 <br>
 
