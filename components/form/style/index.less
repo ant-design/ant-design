@@ -341,20 +341,18 @@ form {
   .@{ant-prefix}-select {
     &-selection {
       border-color: @warning-color;
+    }
+    &-open .@{ant-prefix}-select-selection,
+    &-focused .@{ant-prefix}-select-selection {
       .active(@warning-color);
     }
-    &-arrow {
-      color: @warning-color;
-    }
   }
 
-  //datepicker
-  .@{ant-prefix}-calendar-picker-icon:after {
-    color: @warning-color;
-  }
-
-  //timepicker
-  .@{ant-prefix}-time-picker-icon:after {
+  // arrow and icon
+  .@{ant-prefix}-calendar-picker-icon:after,
+  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-select-arrow,
+  .@{ant-prefix}-cascader-picker-arrow {
     color: @warning-color;
   }
 
@@ -385,23 +383,17 @@ form {
     &-selection {
       border-color: @error-color;
     }
-
-    &-focused &-selection {
+    &-open .@{ant-prefix}-select-selection,
+    &-focused .@{ant-prefix}-select-selection {
       .active(@error-color);
     }
-
-    &-arrow {
-      color: @error-color;
-    }
   }
 
-  //datepicker
-  .@{ant-prefix}-calendar-picker-icon:after {
-    color: @error-color;
-  }
-
-  //timepicker
-  .@{ant-prefix}-picker-icon:after {
+  // arrow and icon
+  .@{ant-prefix}-calendar-picker-icon:after,
+  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-select-arrow,
+  .@{ant-prefix}-cascader-picker-arrow {
     color: @error-color;
   }
 
