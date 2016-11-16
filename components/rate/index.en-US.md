@@ -8,7 +8,7 @@ Rate component.
 
 ## When To Use
 
-- Show evalutate.
+- Show evaluation.
 - A quick rating operation on something.
 
 ## API

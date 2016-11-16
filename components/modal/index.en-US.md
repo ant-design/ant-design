@@ -42,7 +42,7 @@ There are five ways to display the information based on the content's nature:
 - `Modal.warning`
 - `Modal.confirm`
 
-The item listd above are all functions, expecting a settings object as parameter.
+The items listed above are all functions, expecting a settings object as parameter.
 The properties of the object are follows:
 
 | Property   | Description    | Type             | Default       |

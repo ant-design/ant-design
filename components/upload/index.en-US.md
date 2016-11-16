@@ -69,7 +69,7 @@ When uploading state change, it returns:
 
 ## show download links
 
-please set property `url` of property `fileList` to control content of link
+Please set property `url` of property `fileList` to control content of link
 
 ## customRequest
 
