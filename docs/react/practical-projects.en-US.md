@@ -36,7 +36,7 @@ $ cd dva-quickstart
 $ npm start
 ```
 
-After a few seconds, you will see thw following output:
+After a few seconds, you will see the following output:
 
 ```bash
           proxy: load rule from proxy.config.js
@@ -82,7 +82,7 @@ const Products = (props) => (
 export default Products;
 ```
 
-Add routing infomation to router, edit `router.js`:
+Add routing information to router, edit `router.js`:
 
 ```diff
 + import Products from './routes/Products';
@@ -171,9 +171,9 @@ Then don't forget to require it in `index.js`:
 
 ## Connect
 
-So far, wee have completed a seperate model and component. Then how to connect these together?
+So far, we have completed a separate model and component. Then how to connect these together?
 
-dva provides a `connect` method. If you are familar with redux, this `connect` is from react-router.
+dva provides a `connect` method. If you are familiar with redux, this `connect` is from react-router.
 
 Edit `routes/Products.js` and replace with following:
 
@@ -259,7 +259,7 @@ We have completed a simple application, but you may still have lots of questions
 
 You can:
 
-- Visit [dva offical website](https://github.com/dvajs/dva).
+- Visit [dva official website](https://github.com/dvajs/dva).
 - View all the [API](https://github.com/dvajs/dva#api).
 - View [tutorial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step.
 - View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews).
