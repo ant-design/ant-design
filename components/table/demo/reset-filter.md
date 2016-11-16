@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 7
 title:
   en-US: Reset filters and sorters
   zh-CN: 可控的筛选和排序

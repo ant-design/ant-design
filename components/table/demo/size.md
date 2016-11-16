@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   en-US: size
   zh-CN: 紧凑型

@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   en-US: Selection and operation
   zh-CN: 选择和操作

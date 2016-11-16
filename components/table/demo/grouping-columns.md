@@ -1,5 +1,5 @@
 ---
-order: 20
+order: 21
 title:
   en-US: Grouping table head
   zh-CN: 表头分组

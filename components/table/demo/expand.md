@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 13
 title:
   en-US: Expandable Row
   zh-CN: 可展开

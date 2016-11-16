@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   en-US: pagination
   zh-CN: 分页
