@@ -32,4 +32,4 @@ title: Pagination
 | showQuickJumper  | 是否可以快速跳转至某页             | Boolean         | false                    |
 | size             | 当为「small」时，是小尺寸分页      | String        | ""                       |
 | simple           | 当添加该属性时，显示为简单分页     | Object        | -                       |
-| showTotal        | 用于显示总共有多少条数据          | Function      | -                      |
+| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) | -              |
