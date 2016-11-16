@@ -78,7 +78,7 @@ const columns = [{
 
 ### Column
 
-One of Property `columns` for descriping column.
+One of Property `columns` for describing column.
 
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|

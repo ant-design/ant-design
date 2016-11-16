@@ -64,7 +64,7 @@ We name the divided area as 'box'.We suggest that four boxes horizontal arrangem
 
 ## Outline
 
-In the grid system, we define the frame outside the information area based on row and colum,to ensure that every area can steady arrangement.
+In the grid system, we define the frame outside the information area based on row and column, to ensure that every area can steady arrangement.
 
 Following is a brief look at how it works:
 
@@ -101,6 +101,6 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 |------------|-----------------|--------------------|-------------|
 | span     | raster occupying the number of cells,0 corresponds to `display: none`  | number | none        |
 | order     | raster order, under `flex` effective layout mode   | number | 0        |
-| offset     | the number of cells to the left of the grid spacing, no cell in grid spaceing  | number | 0        |
+| offset     | the number of cells to the left of the grid spacing, no cell in grid spacing  | number | 0        |
 | push     | the number of cells that raster move to the right | number | 0        |
 | pull     | the number of cells that raster move to the left   | number | 0        |

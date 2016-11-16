@@ -30,7 +30,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |onSelect | The callback will be invoked when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
 |filterTreeNode | Defines a function to filter treeNodes（highlight），when return true, corresponding treeNode will be highlight | function(node) | - |
 |loadData | load data asynchronously | function(node)| - |
-|onRightClick | The call back will be invoked when the user right clicks a treeNoe | function({event,node}) | - |
+|onRightClick | The call back will be invoked when the user right clicks a treeNode | function({event,node}) | - |
 |draggable | Specifies whether this Tree is draggable（IE>8） | bool | false |
 |onDragStart | Defines a function will be called when the onDragStart event occurs | function({event,node}) | - |
 |onDragEnter | Defines a function will be called when the onDragEnter event occurs | function({event,node,expandedKeys}) | - |
