@@ -9,6 +9,12 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.4.3
+
+`2016-11-17`
+
+* Fix errors in `Anchor` about querySelector, and make some experience Optimization .[#3832](https://github.com/ant-design/ant-design/issues/3832) [#3844](https://github.com/ant-design/ant-design/issues/3844)
+
 ## 2.4.2
 
 `2016-11-13`
