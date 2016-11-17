@@ -37,9 +37,9 @@ export function getOffsetTop(element): number {
   return rect.top;
 }
 
-export function scrollTo(href, target = getDefaultTarget) {
+export function scrollTo(href, target = getDefaultTarget, callback = () => {}) {
   const scrollTop = getScroll(target(), true);
-  const targetElement = document.querySelector(href);
+  const targetElement = document.getElementById(href.substring(1));
   if (!targetElement) {
     return;
   }
@@ -52,10 +52,12 @@ export function scrollTo(href, target = getDefaultTarget) {
     window.scrollTo(window.pageXOffset, easeInOutCubic(time, scrollTop, targetScrollTop, 450));
     if (time < 450) {
       reqAnimFrame(frameFunc);
+    } else {
+      callback();
     }
   };
   reqAnimFrame(frameFunc);
-  history.pushState(null, undefined, href);
+  history.pushState(null, '', href);
 }
 
 class AnchorHelper {
@@ -86,7 +88,7 @@ class AnchorHelper {
   getCurrentAnchor(bounds = 5) {
     let activeAnchor = '';
     this.links.forEach(section => {
-      const target = document.querySelector(section);
+      const target = document.getElementById(section.substring(1));
       if (target) {
         const top = getOffsetTop(target);
         const bottom = top + target.clientHeight;
@@ -99,8 +101,8 @@ class AnchorHelper {
     return this._activeAnchor;
   }
 
-  scrollTo(href, target = getDefaultTarget) {
-    scrollTo(href, target);
+  scrollTo(href, target = getDefaultTarget, callback = () => {}) {
+    scrollTo(href, target, callback);
   }
 }
 
