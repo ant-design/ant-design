@@ -12,7 +12,9 @@ export interface FilterMenuProps {
   column: {
     filterMultiple?: boolean,
     filterDropdown?: React.ReactNode,
-    filters?: string[]
+    filters?: string[],
+    filterDropdownVisible?: boolean,
+    onFilterDropdownVisibleChange?: (visible: boolean) => any,
   };
   confirmFilter: (column: Object, selectedKeys: string[]) => any;
   prefixCls: string;
@@ -22,7 +24,7 @@ export interface FilterMenuProps {
 export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   static defaultProps = {
     handleFilter() {},
-    column: null,
+    column: {},
   };
 
   constructor(props) {
@@ -36,13 +38,33 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      selectedKeys: nextProps.selectedKeys,
-    });
+    const { column } = nextProps;
+    let newState;
+    if ('selectedKeys' in nextProps) {
+      newState = newState || {};
+      newState.selectedKeys = nextProps.selectedKeys;
+    }
+    if ('filterDropdownVisible' in column) {
+      newState = newState || {};
+      newState.visible = column.filterDropdownVisible;
+    }
+    if (newState) {
+      this.setState(newState);
+    }
   }
 
   setSelectedKeys = ({ selectedKeys }) => {
     this.setState({ selectedKeys });
+  }
+
+  setVisible(visible) {
+    const { column } = this.props;
+    if (!('filterDropdownVisible' in column)) {
+      this.setState({ visible });
+    }
+    if (column.onFilterDropdownVisibleChange) {
+      column.onFilterDropdownVisibleChange(visible);
+    }
   }
 
   handleClearFilters = () => {
@@ -52,16 +74,12 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   }
 
   handleConfirm = () => {
-    this.setState({
-      visible: false,
-    });
+    this.setVisible(false);
     this.confirmFilter();
   }
 
   onVisibleChange = (visible) => {
-    this.setState({
-      visible,
-    });
+    this.setVisible(visible);
     if (!visible) {
       this.confirmFilter();
     }
