@@ -30,6 +30,8 @@ export interface RadioGroupProps {
   size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
   disabled?: boolean;
+  onMouseEnter?: React.FormEventHandler<any>;
+  onMouseLeave?: React.FormEventHandler<any>;
 }
 
 export default class RadioGroup extends React.Component<RadioGroupProps, any> {
@@ -99,6 +101,15 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
       [`${prefixCls}-${props.size}`]: props.size,
       [className]: className,
     });
-    return <div className={classString} style={props.style}>{children}</div>;
+    return (
+      <div
+        className={classString}
+        style={props.style}
+        onMouseEnter={props.onMouseEnter}
+        onMouseLeave={props.onMouseLeave}
+      >
+        {children}
+      </div>
+    );
   }
 }
