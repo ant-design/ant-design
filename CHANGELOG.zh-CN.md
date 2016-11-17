@@ -9,6 +9,12 @@ timeline: true
 
 ---
 
+## 2.4.3
+
+`2016-11-17`
+
+* 修复 `Anchor` 内部 querySelector 报错，并做了一些体验优化 。[#3832](https://github.com/ant-design/ant-design/issues/3832) [#3844](https://github.com/ant-design/ant-design/issues/3844)
+
 ## 2.4.2
 
 `2016-11-13`
