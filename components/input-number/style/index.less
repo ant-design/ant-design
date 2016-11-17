@@ -14,20 +14,17 @@
   .input();
   margin: 0;
   padding: 0;
-  line-height: 28px;
   font-size: @font-size-base;
   height: 28px;
   display: inline-block;
-  vertical-align: middle;
   border: 1px solid @border-color-base;
   border-radius: @border-radius-base;
-  overflow: hidden;
   width: 80px;
 
   &-handler {
     text-align: center;
     line-height: 0;
-    height: 14px;
+    height: 50%;
     overflow: hidden;
     color: @text-color-secondary;
     position: relative;
@@ -70,18 +67,13 @@
     .disabled();
   }
 
-  &-input-wrap {
-    overflow: hidden;
-    height: 28px;
-  }
-
   &-input {
     width: 100%;
     text-align: left;
     outline: 0;
     -moz-appearance: textfield;
-    line-height: 28px;
-    height: 28px;
+    line-height: 26px;
+    height: 26px;
     transition: all 0.3s linear;
     color: @text-color;
     border: 0;
@@ -95,19 +87,13 @@
 
   &-lg {
     padding: 0;
-    .@{input-number-prefix-cls}-handler-wrap {
-      height: 32px;
-    }
-    .@{input-number-prefix-cls}-input-wrap {
-      height: 32px;
-    }
     .@{input-number-prefix-cls}-handler {
       height: 16px;
     }
 
     input {
-      height: 32px;
-      line-height: 32px;
+      height: 30px;
+      line-height: 30px;
     }
 
     .@{input-number-prefix-cls}-handler-up-inner {
@@ -123,22 +109,15 @@
 
   &-sm {
     padding: 0;
-    .@{input-number-prefix-cls}-handler-wrap {
-      height: 22px;
-    }
-    .@{input-number-prefix-cls}-input-wrap {
-      height: 22px;
-    }
     .@{input-number-prefix-cls}-handler {
       height: 11px;
     }
 
     input {
-      height: 22px;
-      line-height: 22px;
-      margin-top: -1px;
-      vertical-align: top;
+      height: 20px;
+      line-height: 20px;
     }
+
     .@{input-number-prefix-cls}-handler-up-inner {
       top: -1px;
     }
@@ -159,7 +138,7 @@
     height: 100%;
     background: #fff;
     position: absolute;
-    top: -1px;
+    top: 0;
     right: 0;
     opacity: 0;
     border-radius: 0 @border-radius-base @border-radius-base 0;
