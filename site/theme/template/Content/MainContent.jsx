@@ -84,12 +84,12 @@ export default class MainContent extends React.Component {
     const disabled = item.disabled;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ?
-      <Link to={{ query: this.props.location.query, pathname: /^components/.test(url) ? `${url}/` : url }} disabled={disabled}>
+      (<Link to={{ query: this.props.location.query, pathname: /^components/.test(url) ? `${url}/` : url }} disabled={disabled}>
         {text}
-      </Link> :
-      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
+      </Link>) :
+      (<a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
         {text}
-      </a>;
+      </a>);
 
     return (
       <Menu.Item key={key.toLowerCase()} disabled={disabled}>
