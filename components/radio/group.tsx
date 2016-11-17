@@ -84,11 +84,7 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     const props = this.props;
     const children = !props.children ? [] : React.Children.map(props.children, (radio: any) => {
       if (radio && (radio.type === Radio || radio.type === RadioButton) && radio.props) {
-        const keyProps = {};
-        if (!('key' in radio) && typeof radio.props.value === 'string') {
-          (keyProps as any).key = radio.props.value;
-        }
-        return React.cloneElement(radio, assign({}, keyProps, radio.props, {
+        return React.cloneElement(radio, assign({}, radio.props, {
           onChange: this.onRadioChange,
           checked: this.state.value === radio.props.value,
           disabled: radio.props.disabled || this.props.disabled,
