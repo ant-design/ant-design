@@ -44,10 +44,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     arrowPointAtCenter: false,
   };
 
-  refs: {
-    [key: string]: any;
-    tooltip: any;
-  };
+  tooltipRef: any;
 
   constructor(props) {
     super(props);
@@ -65,7 +62,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltipRef.getPopupDomNode();
   }
 
   getPlacements() {
@@ -108,6 +105,10 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   }
 
+  saveTooltip = (node) => {
+    this.tooltipRef = node;
+  }
+
   render() {
     const { prefixCls, title, overlay, children } = this.props;
     // Hide tooltip when there is no title
@@ -130,7 +131,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         overlay={title}
         visible={visible}
         onPopupAlign={this.onPopupAlign}
-        ref="tooltip"
+        ref={this.saveTooltip}
         {...this.props}
         builtinPlacements={this.getPlacements()}
         onVisibleChange={this.onVisibleChange}

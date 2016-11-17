@@ -84,9 +84,7 @@ export default class Input extends Component<InputProps, any> {
   };
 
   nextFrameActionId: number;
-  refs: {
-    input: any;
-  };
+  inputRef: HTMLElement;
 
   state = {
     textareaStyles: null,
@@ -128,12 +126,12 @@ export default class Input extends Component<InputProps, any> {
 
   resizeTextarea = () => {
     const { type, autosize } = this.props;
-    if (type !== 'textarea' || !autosize || !this.refs.input) {
+    if (type !== 'textarea' || !autosize || !this.inputRef) {
       return;
     }
     const minRows = autosize ? (autosize as AutoSizeType).minRows : null;
     const maxRows = autosize ? (autosize as AutoSizeType).maxRows : null;
-    const textareaStyles = calculateNodeHeight(this.refs.input, false, minRows, maxRows);
+    const textareaStyles = calculateNodeHeight(this.inputRef, false, minRows, maxRows);
     this.setState({ textareaStyles });
   }
 
@@ -165,6 +163,10 @@ export default class Input extends Component<InputProps, any> {
         {addonAfter}
       </span>
     );
+  }
+
+  saveInput = (node) => {
+    this.inputRef = node;
   }
 
   renderInput() {
@@ -206,7 +208,7 @@ export default class Input extends Component<InputProps, any> {
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
             onChange={this.handleTextareaChange}
-            ref="input"
+            ref={this.saveInput}
           />
         );
       default:
@@ -215,7 +217,7 @@ export default class Input extends Component<InputProps, any> {
             {...otherProps}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
-            ref="input"
+            ref={this.saveInput}
           />
         );
     }

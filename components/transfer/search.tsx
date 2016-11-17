@@ -15,6 +15,8 @@ export default class Search extends React.Component<SearchProps, any> {
     placeholder: '',
   };
 
+  inputRef: HTMLElement;
+
   handleChange = (e) => {
     const onChange = this.props.onChange;
     if (onChange) {
@@ -31,19 +33,31 @@ export default class Search extends React.Component<SearchProps, any> {
     }
   }
 
+  saveInput = (node) => {
+    this.inputRef = node;
+  }
+
   render() {
     const { placeholder, value, prefixCls } = this.props;
+
+    const icon = value && value.length > 0 ? (
+      <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
+        <Icon type="cross-circle" />
+      </a>
+    ) : (
+      <span className={`${prefixCls}-action`}><Icon type="search" /></span>
+    );
+
     return (
       <div>
-        <Input placeholder={placeholder} className={prefixCls} value={value} ref="input"
+        <Input
+          placeholder={placeholder}
+          className={prefixCls}
+          value={value}
+          ref={this.saveInput}
           onChange={this.handleChange}
         />
-        {value && value.length > 0 ?
-          <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
-            <Icon type="cross-circle" />
-          </a>
-          : <span className={`${prefixCls}-action`}><Icon type="search" /></span>
-        }
+        {icon}
       </div>
     );
   }

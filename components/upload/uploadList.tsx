@@ -23,10 +23,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   handleClose = (file) => {
-    const onRemove = this.props.onRemove;
-    if (onRemove) {
-      onRemove(file);
-    }
+    return () => {
+      const onRemove = this.props.onRemove;
+      if (onRemove) {
+        onRemove(file);
+      }
+    };
   }
 
   handlePreview = (file, e) => {
@@ -82,7 +84,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               className={`${prefixCls}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
               href={file.url}
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={file.thumbUrl || file.url} alt={file.name} />
             </a>
@@ -101,46 +104,49 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-item`]: true,
         [`${prefixCls}-list-item-${file.status}`]: true,
       });
+
+      const fileItem = file.url ? (
+        <a
+          href={file.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${prefixCls}-list-item-name`}
+          onClick={e => this.handlePreview(file, e)}
+        >
+          {file.name}
+        </a>
+      ) : (
+        <span
+          className={`${prefixCls}-list-item-name`}
+          onClick={e => this.handlePreview(file, e)}
+        >
+          {file.name}
+        </span>
+      );
+
+      const actions =  (listType === 'picture-card' && file.status !== 'uploading') ? (
+        <span>
+          <a
+            href={file.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ pointerEvents: file.url || file.thumbUrl ? '' : 'none' }}
+            onClick={e => this.handlePreview(file, e)}
+          >
+            <Icon type="eye-o" />
+          </a>
+          <Icon type="delete" onClick={this.handleClose(file)} />
+        </span>
+      ) : (
+        <Icon type="cross" onClick={this.handleClose(file)} />
+      );
+
       return (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
-            {
-              file.url
-              ? (
-                <a
-                  href={file.url}
-                  target="_blank" rel="noopener noreferrer"
-                  className={`${prefixCls}-list-item-name`}
-                  onClick={e => this.handlePreview(file, e)}
-                >
-                  {file.name}
-                </a>
-              ) : (
-                <span
-                  className={`${prefixCls}-list-item-name`}
-                  onClick={e => this.handlePreview(file, e)}
-                >
-                  {file.name}
-                </span>
-              )
-            }
-            {
-              listType === 'picture-card' && file.status !== 'uploading'
-              ? (
-                <span>
-                  <a
-                    href={file.url}
-                    target="_blank" rel="noopener noreferrer"
-                    style={{ pointerEvents: file.url || file.thumbUrl ? '' : 'none' }}
-                    onClick={e => this.handlePreview(file, e)}
-                  >
-                    <Icon type="eye-o" />
-                  </a>
-                  <Icon type="delete" onClick={() => this.handleClose(file)} />
-                </span>
-              ) : <Icon type="cross" onClick={() => this.handleClose(file)} />
-            }
+            {fileItem}
+            {actions}
           </div>
           {progress}
         </div>

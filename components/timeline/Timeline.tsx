@@ -7,6 +7,7 @@ export interface TimelineProps {
   /** 指定最后一个幽灵节点是否存在或内容 */
   pending?: boolean | React.ReactNode;
   style?: React.CSSProperties;
+  children: React.ReactNode;
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
@@ -26,18 +27,18 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       [`${prefixCls}-pending`]: !!pending,
       [className]: className,
     });
+    const items = React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
+      React.cloneElement(ele, {
+        last: idx === (children as any[]).length - 1,
+      })
+    );
+    const pendingItem = !!pending ? (
+      <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
+    ) : null;
     return (
       <ul {...restProps} className={classString}>
-        {
-          React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
-            React.cloneElement(ele, {
-              last: idx === children.length - 1,
-            })
-          )
-        }
-        {(!!pending)
-          ? <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
-          : null}
+        {items}
+        {pendingItem}
       </ul>
     );
   }
