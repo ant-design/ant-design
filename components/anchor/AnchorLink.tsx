@@ -4,7 +4,7 @@ import AnchorHelper, { scrollTo } from './anchorHelper';
 
 export interface AnchorLinkProps {
   href: string;
-  onClick: (href: string) => void;
+  onClick: (href: string, component: Element) => void;
   active?: boolean;
   prefixCls?: string;
   children?: any;
@@ -32,6 +32,8 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     anchorHelper: AnchorHelper;
   };
 
+  private _component: Element;
+
   constructor(props, context) {
     super(props, context);
   }
@@ -42,16 +44,38 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     };
   }
 
+  setActiveAnchor() {
+    const { bounds, href, affix } = this.props;
+    const { anchorHelper } = this.context;
+    const active = affix && anchorHelper && anchorHelper.getCurrentAnchor(bounds) === href;
+    if (active && anchorHelper) {
+      anchorHelper.setActiveAnchor(this._component);
+    }
+  }
+
+  componentDidMount() {
+    this.setActiveAnchor();
+  }
+
+  componentDidUpdate() {
+    this.setActiveAnchor();
+  }
+
   renderAnchorLink = (child) => {
     const { href } = child.props;
     if (href) {
       this.context.anchorHelper.addLink(href);
       return React.cloneElement(child, {
-        onClick: this.context.anchorHelper.scrollTo,
+        onClick: this.props.onClick,
         prefixCls: this.props.prefixCls,
+        affix: this.props.affix,
       });
     }
     return child;
+  }
+
+  refsTo = (component) => {
+    this._component = component;
   }
 
   scrollTo = (e) => {
@@ -59,7 +83,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     const { anchorHelper } = this.context;
     e.preventDefault();
     if (onClick) {
-      onClick(href);
+      onClick(href, this._component);
     } else {
       e.stopPreventDefault();
       const scrollToFn = anchorHelper ? anchorHelper.scrollTo : scrollTo;
@@ -78,7 +102,7 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     return (
       <div className={cls}>
         <a
-          ref={(component) => component && active && anchorHelper ? anchorHelper.setActiveAnchor(component) : null}
+          ref={this.refsTo}
           className={`${prefixCls}-link-title`}
           onClick={this.scrollTo}
           href={href}
