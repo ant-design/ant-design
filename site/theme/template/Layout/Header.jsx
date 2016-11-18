@@ -17,6 +17,7 @@ export default class Header extends React.Component {
   };
 
   componentDidMount() {
+    /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 320px) and (max-width: 940px)', {
         match: () => {
@@ -26,6 +27,7 @@ export default class Header extends React.Component {
           this.setState({ menuMode: 'horizontal' });
         },
       });
+    /* eslint-enable global-require */
   }
 
   handleSearch = (value) => {

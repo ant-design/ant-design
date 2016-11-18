@@ -5,7 +5,7 @@ import * as utils from '../utils';
 
 const locale = utils.isZhCN() ? 'zh-CN' : 'en-US';
 export function collect(nextProps, callback) {
-  const pageData = nextProps.location.pathname === 'changelog' ?
+  const pageData = nextProps.location.pathname.endsWith('changelog') ?
           nextProps.data.CHANGELOG : nextProps.pageData;
   if (!pageData) {
     callback(404, nextProps);

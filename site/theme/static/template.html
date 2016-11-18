@@ -25,24 +25,29 @@
 </head>
 <body>
   <div id="react-content">
+    {{ content | safe }}
+  </div>
+  {% if not content %}
     <div class="ant-site-loading" id="ant-site-loading">
       <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
       <div id="loading-text">One Design Language</div>
     </div>
-  </div>
+  {% endif %}
   <script>
   (function () {
     var content = document.getElementById('loading-text');
-    content.innerHTML = content.innerHTML.split('').map(function (letter, i) {
-      var className;
-      if (i > 0 && i < content.innerText.length - 1) {
-        className = 'yoyo-x-' + (i % 6);
-      }
-      if (letter.trim() === '') {
-        className += ' blank';
-      }
-      return '<span class="' + className + '">' + letter + '</span>';
-    }).join('');
+    if (content) {
+      content.innerHTML = content.innerHTML.split('').map(function (letter, i) {
+        var className;
+        if (i > 0 && i < content.innerText.length - 1) {
+          className = 'yoyo-x-' + (i % 6);
+        }
+        if (letter.trim() === '') {
+          className += ' blank';
+        }
+        return '<span class="' + className + '">' + letter + '</span>';
+      }).join('');
+    }
   })();
 
   // Enable Google Analytics

@@ -10,12 +10,14 @@ import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
 
 if (typeof window !== 'undefined') {
+  /* eslint-disable global-require */
   require('../../static/style');
 
   // Expose to iframe
   window.react = React;
   window['react-dom'] = ReactDOM;
   window.antd = require('antd');
+  /* eslint-enable global-require */
 }
 
 const appLocale = utils.isZhCN() ? cnLocale : enLocale;
