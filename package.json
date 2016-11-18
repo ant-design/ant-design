@@ -161,7 +161,7 @@
     "babel-site": "babel ./site/theme/template --out-dir ./site/theme/template",
     "clean-site": "rm site/theme/template/**/*.js site/theme/template/*.js",
     "site": "npm run babel-site && bisheng build --ssr -c ./site/bisheng.config.js && npm run clean-site",
-    "deploy": "npm run clean && bisheng gh-pages -c ./site/bisheng.config.js",
+    "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
 
     "pub": "antd-tools run update-self && antd-tools run pub",
     "prepublish": "antd-tools run guard",
