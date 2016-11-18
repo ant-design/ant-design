@@ -136,7 +136,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       </div>
     );
 
-    return affix === false ? anchorContent : (
+    return !affix ? anchorContent : (
       <Affix offsetTop={offsetTop}>
         {anchorContent}
       </Affix>

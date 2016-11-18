@@ -19,10 +19,6 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
     anchorHelper: React.PropTypes.any,
   };
 
-  static childContextTypes = {
-    anchorHelper: React.PropTypes.any,
-  };
-
   static defaultProps = {
     href: '#',
     prefixCls: 'ant-anchor',
@@ -33,12 +29,6 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   };
 
   private _component: Element;
-
-  getChildContext() {
-    return {
-      anchorHelper: this.context.anchorHelper,
-    };
-  }
 
   setActiveAnchor() {
     const { bounds, href, affix } = this.props;
@@ -75,9 +65,9 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
   }
 
   scrollTo = (e) => {
+    e.preventDefault();
     const { onClick, href } = this.props;
     const { anchorHelper } = this.context;
-    e.preventDefault();
     if (onClick) {
       onClick(href, this._component);
     } else {
