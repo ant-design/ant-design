@@ -23,7 +23,7 @@
 }
 
 .code-box {
-  border: 1px solid #E9E9E9;
+  border: 1px solid @border-color-split;
   border-radius: @border-radius-base;
   display: inline-block;
   width: 100%;
@@ -33,7 +33,7 @@
 }
 
 .code-box:hover {
-  box-shadow: 0 2px 7px rgba(0,0,0,.2);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, .2);
   border-color: transparent;
   position: relative;
   z-index: 10;
@@ -41,8 +41,8 @@
 }
 
 .code-box:target {
-  border: 1px solid rgba(45, 183, 245, 0.7);
-  box-shadow: 0 0 4px rgba(45, 183, 245, 0.5);
+  border: 1px solid fade(@primary-color, 70%);
+  box-shadow: 0 0 4px fade(@primary-color, 50%);
 }
 
 .code-box {
@@ -71,7 +71,7 @@
 }
 
 .code-box .code-box-demo {
-  border-bottom: 1px solid #E9E9E9;
+  border-bottom: 1px solid @border-color-split;
   padding: 42px 20px 50px;
 }
 
@@ -121,7 +121,7 @@ section.code-box-meta p {
 
 .code-box.expand .code-box-meta {
   border-radius: 0;
-  border-bottom: 1px dashed #e9e9e9;
+  border-bottom: 1px dashed @border-color-split;
 }
 
 .code-box .collapse {
@@ -167,7 +167,7 @@ section.code-box-meta p {
     background: #fff;
   }
   &:not(:first-child) {
-     border-top: 1px dashed #e9e9e9;
+     border-top: 1px dashed @border-color-split;
   }
 }
 
