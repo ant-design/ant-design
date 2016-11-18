@@ -143,7 +143,7 @@
     ]
   },
   "scripts": {
-    "test": "npm run lint && npm run dist && npm run jest",
+    "test": "npm run lint && npm run dist && npm run jest && npm run site",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
     "eslint": "eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
