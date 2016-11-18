@@ -9,7 +9,7 @@ import config from '../../';
 const SubMenu = Menu.SubMenu;
 
 function getActiveMenuItem(props) {
-  return props.params.children || props.location.pathname;
+  return props.params.children || props.location.pathname.replace(/^\//, '');
 }
 
 function fileNameToPath(filename) {
