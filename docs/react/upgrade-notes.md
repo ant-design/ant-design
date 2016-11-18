@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 6
 title:
   zh-CN: 升级指南
   en-US: Upgrade Notes

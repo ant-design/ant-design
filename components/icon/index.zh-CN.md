@@ -124,7 +124,7 @@ ul.anticons-list li:hover .anticon {
   display: block;
   text-align: center;
   transform: scale(0.83);
-  font-family: Consolas;
+  font-family: "Lucida Console", Consolas;
   white-space: nowrap;
 }
 </style>
