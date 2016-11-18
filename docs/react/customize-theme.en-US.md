@@ -5,6 +5,8 @@ title: Customize theme
 
 Ant Design allow to customize some basic design tokens for meeting the needs of UI diversity from bussiness and brand, including primary color, border radius, border and etc.
 
+![](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
+
 ## Less variables
 
 We are using [Less](http://lesscss.org/) as development language of style. A series of less variables are defined for each design tokens which can be customized as your needs.
