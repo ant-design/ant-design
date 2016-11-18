@@ -34,10 +34,6 @@ export default class AnchorLink extends React.Component<AnchorLinkProps, any> {
 
   private _component: Element;
 
-  constructor(props, context) {
-    super(props, context);
-  }
-
   getChildContext() {
     return {
       anchorHelper: this.context.anchorHelper,

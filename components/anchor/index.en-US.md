@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Other
-cols: 1
+cols: 2
 title: Anchor
 ---
 
