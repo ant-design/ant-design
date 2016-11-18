@@ -33,6 +33,7 @@
   "typings": "lib/index.d.ts",
   "license": "MIT",
   "dependencies": {
+    "antd-demo-jest": "^1.0.3",
     "array-tree-filter": "~1.0.0",
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
@@ -78,6 +79,7 @@
   "devDependencies": {
     "@types/react": "~0.14.41",
     "@types/react-dom": "~0.14.18",
+    "antd-demo-jest": "^1.0.2",
     "antd-tools": "0.14.2",
     "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
@@ -107,6 +109,7 @@
     "eslint-plugin-markdown": "*",
     "eslint-plugin-react": "^6.1.2",
     "eslint-tinker": "^0.4.0",
+    "glob": "^7.1.1",
     "history": "^4.4.0",
     "jest": "^17.0.1",
     "jest-cli": "^17.0.0",
@@ -174,7 +177,8 @@
       "tsx",
       "js",
       "jsx",
-      "json"
+      "json",
+      "md"
     ],
     "modulePathIgnorePatterns": [
       "/_site/"
@@ -184,7 +188,9 @@
       "/node_modules/"
     ],
     "transform": {
-      ".*": "node_modules/typescript-babel-jest"
+      "\\.tsx?$": "node_modules/typescript-babel-jest",
+      "tests/.*\\.js$": "node_modules/babel-jest",
+      "\\.md$": "node_modules/antd-demo-jest"
     },
     "testRegex": "(/tests/.*|\\.(test|spec))\\.(js)$"
   },
