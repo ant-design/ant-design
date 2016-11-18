@@ -39,16 +39,17 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
 
   componentWillReceiveProps(nextProps) {
     const { column } = nextProps;
-    let newState;
+    let newState: {
+      selectedKeys?: string[];
+      visible?: boolean;
+    } = {};
     if ('selectedKeys' in nextProps) {
-      newState = newState || {};
       newState.selectedKeys = nextProps.selectedKeys;
     }
     if ('filterDropdownVisible' in column) {
-      newState = newState || {};
       newState.visible = column.filterDropdownVisible;
     }
-    if (newState) {
+    if (Object.keys(newState).length > 0) {
       this.setState(newState);
     }
   }
