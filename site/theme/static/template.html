@@ -24,12 +24,13 @@
   </script>
 </head>
 <body>
-<div id="react-content"></div>
-<div class="ant-site-loading" id="ant-site-loading">
-  <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
-  <div id="loading-text">One Design Language</div>
-</div>
-<script>
+  <div id="react-content">
+    <div class="ant-site-loading" id="ant-site-loading">
+      <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
+      <div id="loading-text">One Design Language</div>
+    </div>
+  </div>
+  <script>
   (function () {
     var content = document.getElementById('loading-text');
     content.innerHTML = content.innerHTML.split('').map(function (letter, i) {
@@ -62,8 +63,8 @@
     ga('send', 'pageview');
     /* eslint-enable */
   }
-</script>
-<script src="{{ root }}common.js"></script>
-<script src="{{ root }}index.js"></script>
+  </script>
+  <script src="{{ root }}common.js"></script>
+  <script src="{{ root }}index.js"></script>
 </body>
 </html>

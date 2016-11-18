@@ -30,3 +30,4 @@ config/base.yaml
 components/**/*.js
 components/**/*.jsx
 /.vscode/
+site/theme/template/**/*.js

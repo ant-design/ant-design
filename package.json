@@ -79,6 +79,10 @@
     "@types/react": "~0.14.41",
     "@types/react-dom": "~0.14.18",
     "antd-tools": "0.14.2",
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
     "babel-plugin-import": "^1.0.0",
@@ -131,14 +135,21 @@
     "typescript-babel-jest": "^0.1.5",
     "values.js": "^1.0.3"
   },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
   "scripts": {
     "test": "npm run lint && npm run dist && npm run jest",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
-    "eslint": "eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
+    "eslint": "npm run clean-site && eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
-    "eslint-fix": "eslint --fix test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
+    "eslint-fix": "npm run clean-site && eslint --fix test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
 
     "jest": "jest --no-cache",
 
@@ -147,7 +158,9 @@
     "compile": "antd-tools run compile && node ./tests/dekko/lib.test.js",
 
     "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
-    "site": "bisheng build -c ./site/bisheng.config.js",
+    "babel-site": "babel ./site/theme/template --out-dir ./site/theme/template",
+    "clean-site": "rm site/theme/template/**/*.js",
+    "site": "npm run babel-site && bisheng build --ssr -c ./site/bisheng.config.js",
     "deploy": "npm run clean && bisheng gh-pages -c ./site/bisheng.config.js",
 
     "pub": "antd-tools run update-self && antd-tools run pub",

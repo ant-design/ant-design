@@ -20,6 +20,10 @@ export function getMenuItems(moduleData, locale) {
 }
 
 export function isZhCN() {
+  if (typeof location === 'undefined') {
+    // Use English in SSR.
+    return false;
+  }
   if (location.search.indexOf('locale=zh-CN') > -1) {
     return true;
   }

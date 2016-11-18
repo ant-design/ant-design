@@ -8,12 +8,15 @@ import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import '../../static/style';
 
-// Expose to iframe
-window.react = React;
-window['react-dom'] = ReactDOM;
-window.antd = require('antd');
+if (typeof window !== 'undefined') {
+  require('../../static/style');
+
+  // Expose to iframe
+  window.react = React;
+  window['react-dom'] = ReactDOM;
+  window.antd = require('antd');
+}
 
 const appLocale = utils.isZhCN() ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
@@ -23,12 +26,9 @@ export default class Layout extends React.Component {
     router: React.PropTypes.object.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFirstScreen: true,
-    };
-  }
+  state = {
+    isFirstScreen: true,
+  };
 
   componentDidMount() {
     if (typeof ga !== 'undefined') {
