@@ -27,8 +27,8 @@ const webFrameworks = [
   { name: 'Django', type: 'Python' },
 ];
 
-function onSelect(suggestion) {
-  console.log('onSelect', suggestion);
+function onSelect(suggestion, data) {
+  console.log('onSelect', suggestion, data);
 }
 const CustomNavMention = React.createClass({
   getInitialState() {
@@ -42,7 +42,7 @@ const CustomNavMention = React.createClass({
       item.name.toLowerCase().indexOf(searchValue) !== -1
     );
     const suggestions = filtered.map(suggestion =>
-      <Nav value={suggestion.name} >
+      <Nav value={suggestion.name} data={suggestion}>
         <span>{suggestion.name} - {suggestion.type} </span>
       </Nav>);
     this.setState({ suggestions });

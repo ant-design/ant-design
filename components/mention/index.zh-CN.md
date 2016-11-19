@@ -36,7 +36,7 @@ title: Mention
 | suggestionStyle | 弹出下拉框样式 | Object | {} |
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:String) | [] |
 | onChange | 输入框内容变化时回调 | function(editorState: EditorState) | null |
-| onSelect | 下拉框选择建议时回调 | function(suggestion: String) | null |
+| onSelect | 下拉框选择建议时回调 | function(suggestion: String, data?: any) | null |
 | notFoundContent| 未找到时的内容 | string | '无匹配结果，轻敲空格完成输入' |
 | loading | 加载中 | boolean | false |
 | multiLines | 多行模式 | boolean | false |

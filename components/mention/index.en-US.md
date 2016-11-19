@@ -36,7 +36,7 @@ When need to mention someone or something.
 | suggestionStyle | style of suggestion container | Object | {} |
 | onSearchChange | Callback function called when search content changes | function(value:String) | [] |
 | onChange | Callback function called when content of input changes | function(editorState: EditorState) | null |
-| onSelect | Callback function called when select from suggestions | function(suggestion: String) | null |
+| onSelect | Callback function called when select from suggestions | function(suggestion: String, data?: any) | null |
 | notFoundContent| suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |
