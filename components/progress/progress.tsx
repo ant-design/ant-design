@@ -5,7 +5,7 @@ import { Circle } from 'rc-progress';
 import classNames from 'classnames';
 import splitObject from '../_util/splitObject';
 const statusColorMap = {
-  normal: '#2db7f5',
+  normal: '#108ee9',
   exception: '#ff5500',
   success: '#87d068',
 };

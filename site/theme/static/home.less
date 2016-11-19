@@ -10,7 +10,7 @@
   width: 6px;
   height: 6px;
   background: #00AAEE;
-  border-radius: 6px;
+  border-radius: @border-radius-base;
   float: left;
   margin: 4px auto;
   opacity: 0.5;
@@ -70,9 +70,9 @@
     display: inline-block;
     height: 40px;
     padding: 0 16px;
-    border-radius: 6px;
-    border: 1px solid #2db7f5;
-    color: #2db7f5;
+    border-radius: @border-radius-base;
+    border: 1px solid @primary-color;
+    color: @primary-color;
     font-size: 15px;
     background: transparent;
     transition: box-shadow .45s ease-out;
@@ -81,7 +81,7 @@
     margin-left: 8px;
   }
   > a:hover {
-    box-shadow: 0 0 10px #2db7f5;
+    box-shadow: 0 0 10px @primary-color;
   }
 }
 
