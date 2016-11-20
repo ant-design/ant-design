@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Button from '../components/button/button';
+import Button from '../../components/button';
 
 describe('Button', function() {
   it('renders correctly', () => {

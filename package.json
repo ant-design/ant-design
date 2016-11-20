@@ -192,7 +192,7 @@
       "tests/.*\\.js$": "node_modules/babel-jest",
       "\\.md$": "node_modules/antd-demo-jest"
     },
-    "testRegex": "(/tests/.*|\\.(test|spec))\\.(js)$"
+    "testRegex": "/tests/.*\\.test\\.js$"
   },
   "pre-commit": [
     "lint"
