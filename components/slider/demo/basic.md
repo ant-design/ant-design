@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 基本
   en-US: Basic
 ---
@@ -23,12 +23,3 @@ ReactDOM.render(<div>
 </div>
 , mountNode);
 ````
-
-<style>
-.code-box-demo .ant-slider {
-  margin-bottom: 50px;
-}
-.code-box-demo .ant-slider:last-child {
-  margin-bottom: 10px;
-}
-</style>
