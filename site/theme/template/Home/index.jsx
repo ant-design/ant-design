@@ -10,9 +10,8 @@ import Page4 from './Page4';
 // To store style which is only for Home and has conflicts with others.
 function getStyle() {
   return `
-    #react-content,
-    #react-content > div {
-      height: 100%;
+    html, body{
+      height: auto;
     }
     .main-wrapper {
       background: transparent;
@@ -20,8 +19,6 @@ function getStyle() {
       margin: 0;
       border-radius: 0;
       padding: 0;
-      overflow: unset;
-      display: inline;
       min-height: 600px;
     }
     #header {
@@ -65,11 +62,6 @@ function getStyle() {
     #search-box {
       border-left-color: rgba(235, 237, 238, .5);
       transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    }
-    section {
-      height: 100%;
-      width: 100%;
-      background: #fff;
     }
     #footer {
       background: #000;
