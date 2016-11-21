@@ -19,44 +19,70 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 
 ````jsx
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Select, Button } from 'antd';
 const FormItem = Form.Item;
+const Option = Select.Option;
 
-const CustomizedInputNumber = React.createClass({
+const PriceInput = React.createClass({
   getInitialState() {
+    const value = this.props.value || {};
     return {
-      value: this.props.value || 0,
+      number: value.number || 0,
+      currency: value.currency || 'rmb',
     };
   },
   componentWillReceiveProps(nextProps) {
     // Should be a controlled component.
     if ('value' in nextProps) {
       const value = nextProps.value;
-      this.setState({ value });
+      this.setState(value);
     }
   },
-  handleChange(e) {
-    const number = parseFloat(e.target.value || 0);
+  handleNumberChange(e) {
+    const number = parseInt(e.target.value || 0, 10);
     if (isNaN(number)) {
       return;
     }
     if (!('value' in this.props)) {
-      this.setState({ value: number });
+      this.setState({ number });
     }
+    this.triggerChange({ number });
+  },
+  handleCurrencyChange(currency) {
+    if (!('value' in this.props)) {
+      this.setState({ currency });
+    }
+    this.triggerChange({ currency });
+  },
+  triggerChange(changedValue) {
     // Should provide an event to pass value to Form.
     const onChange = this.props.onChange;
     if (onChange) {
-      onChange(number);
+      onChange(Object.assign({}, this.state, changedValue));
     }
   },
   render() {
+    const { size } = this.props;
+    const state = this.state;
     return (
-      <Input
-        type="text"
-        size={this.props.size}
-        value={this.state.value}
-        onChange={this.handleChange}
-      />
+      <span>
+        <Input
+          type="text"
+          size={size}
+          value={state.number}
+          onChange={this.handleNumberChange}
+          style={{ width: '65%', marginRight: '3%' }}
+        />
+        <Select
+          value={state.currency}
+          size={size}
+          style={{ width: '32%' }}
+          onChange={this.handleCurrencyChange}
+        >
+          <Option value="rmb">RMB</Option>
+          <Option value="dollar">Dollar</Option>
+        </Select>
+      </span>
     );
   },
 });
@@ -70,14 +96,22 @@ const Demo = Form.create()(React.createClass({
       }
     });
   },
+  checkPrice(rule, value, callback) {
+    if (value.number > 0) {
+      callback();
+      return;
+    }
+    callback('Price must greater than zero!');
+  },
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form inline onSubmit={this.handleSubmit}>
-        <FormItem label="Number Only">
-          {getFieldDecorator('number', {
-            rules: [{ type: 'number' }],
-          })(<CustomizedInputNumber />)}
+        <FormItem label="Price">
+          {getFieldDecorator('price', {
+            initialValue: { number: 0, currency: 'rmb' },
+            rules: [{ validator: this.checkPrice }],
+          })(<PriceInput />)}
         </FormItem>
         <FormItem>
           <Button type="primary" htmlType="submit">Submit</Button>

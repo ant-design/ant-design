@@ -183,6 +183,7 @@ const RegistrationForm = Form.create()(React.createClass({
         <FormItem
           {...formItemLayout}
           label="Captcha"
+          extra="We must make sure that your are a human."
         >
           <Row gutter={8}>
             <Col span={12}>
