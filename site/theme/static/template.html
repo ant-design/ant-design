@@ -24,15 +24,13 @@
   </script>
 </head>
 <body>
-  <div id="react-content">
+  <div id="react-content" style="display:none">
     {{ content | safe }}
   </div>
-  {% if not content %}
-    <div class="ant-site-loading" id="ant-site-loading">
-      <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
-      <div id="loading-text">One Design Language</div>
-    </div>
-  {% endif %}
+  <div class="ant-site-loading" id="ant-site-loading">
+    <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
+    <div id="loading-text">One Design Language</div>
+  </div>
   <script>
   (function () {
     var content = document.getElementById('loading-text');
