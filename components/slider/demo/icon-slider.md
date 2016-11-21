@@ -39,7 +39,7 @@ const IconSlider = React.createClass({
 
   render() {
     return (
-      <div className="iconWrapper">
+      <div className="icon-wrapper">
         <Icon className={this.state.preIconClass} type={this.props.icon[0]} />
         <Slider {...this.props} onChange={this.handleChange} value={this.state.sliderValue} />
         <Icon className={this.state.nextIconClass} type={this.props.icon[1]} />
@@ -48,18 +48,16 @@ const IconSlider = React.createClass({
   },
 });
 
-ReactDOM.render(
-  <IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-o']} />
-, mountNode);
+ReactDOM.render(<IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-o']} />, mountNode);
 ````
 
 ````css
-.iconWrapper {
+.icon-wrapper {
   position: relative;
   padding: 0px 30px;
 }
 
-.iconWrapper .anticon {
+.icon-wrapper .anticon {
   position: absolute;
   top: -3px;
   width: 16px;
@@ -69,11 +67,11 @@ ReactDOM.render(
   color: #ccc;
 }
 
-.iconWrapper .anticon:first-child {
+.icon-wrapper .anticon:first-child {
   left: 0;
 }
 
-.iconWrapper .anticon:last-child {
+.icon-wrapper .anticon:last-child {
   right: 0;
 }
 

@@ -1,8 +1,8 @@
 ---
 order: 1
-title: 
+title:
   zh-CN: 带输入框的滑块
-  en-US: Slider with input field
+  en-US: Slider with InputNumber
 ---
 
 ## zh-CN
@@ -34,7 +34,7 @@ const IntegerStep = React.createClass({
           <Slider min={1} max={20} onChange={this.onChange} value={this.state.inputValue} />
         </Col>
         <Col span={4}>
-          <InputNumber min={1} max={20} style={{ marginLeft: '16px' }}
+          <InputNumber min={1} max={20} style={{ marginLeft: 16 }}
             value={this.state.inputValue} onChange={this.onChange}
           />
         </Col>
@@ -61,7 +61,7 @@ const DecimalStep = React.createClass({
           <Slider min={0} max={1} onChange={this.onChange} value={this.state.inputValue} step={0.01} />
         </Col>
         <Col span={4}>
-          <InputNumber min={0} max={1} style={{ marginLeft: '16px' }} step={0.01}
+          <InputNumber min={0} max={1} style={{ marginLeft: 16 }} step={0.01}
             value={this.state.inputValue} onChange={this.onChange}
           />
         </Col>
@@ -70,8 +70,11 @@ const DecimalStep = React.createClass({
   },
 });
 
-ReactDOM.render(<div>
-  <IntegerStep />
-  <DecimalStep />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <IntegerStep />
+    <DecimalStep />
+  </div>,
+  mountNode
+);
 ````

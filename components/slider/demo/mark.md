@@ -1,7 +1,7 @@
 ---
 order: 3
-title: 
-  zh-CN: 分段式滑块
+title:
+  zh-CN: 带标签的滑块
   en-US: Graduated slider
 ---
 
@@ -33,15 +33,16 @@ const marks = {
 
 ReactDOM.render(
   <div>
-    <p>`included=true`</p>
+    <p><code>included=true</code></p>
     <Slider marks={marks} defaultValue={37} />
     <Slider range marks={marks} defaultValue={[26, 37]} />
-    <p>`included=false`</p>
+    <p><code>included=false</code></p>
     <Slider marks={marks} included={false} defaultValue={37} />
-    <p>`marks && step`</p>
+    <p><code>marks && step</code></p>
     <Slider marks={marks} step={10} defaultValue={37} />
-    <p>`step=null`</p>
+    <p><code>step=null</code></p>
     <Slider marks={marks} step={null} defaultValue={37} />
-  </div>
-, mountNode);
+  </div>,
+  mountNode
+);
 ````

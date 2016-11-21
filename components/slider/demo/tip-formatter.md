@@ -20,8 +20,11 @@ function formatter(value) {
   return `${value}%`;
 }
 
-ReactDOM.render(<div>
-  <Slider tipFormatter={formatter} />
-  <Slider tipFormatter={null} />
-</div>, mountNode);
+ReactDOM.render(
+  <div>
+    <Slider tipFormatter={formatter} />
+    <Slider tipFormatter={null} />
+  </div>,
+  mountNode
+);
 ````
