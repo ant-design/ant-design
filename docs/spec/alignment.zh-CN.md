@@ -21,7 +21,7 @@ title: 对齐
 
 ## 表单类对齐
 
-<img class="preview-img no-padding" align="right" alt="冒号对齐示例" src="https://os.alipayobjects.com/rmsportal/DmEbaUsrpJkRyUh.png">
+<img class="preview-img" align="right" alt="冒号对齐示例" src="https://os.alipayobjects.com/rmsportal/DmEbaUsrpJkRyUh.png">
 
 冒号对齐（右对齐）能让内容锁定在一定范围内，让用户眼球顺着冒号的视觉流，就能找到所有填写项，从而提高填写效率。
 
