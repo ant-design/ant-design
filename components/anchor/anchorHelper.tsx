@@ -87,6 +87,10 @@ class AnchorHelper {
 
   getCurrentAnchor(bounds = 5) {
     let activeAnchor = '';
+    if (typeof document === 'undefined') {
+      return activeAnchor;
+    }
+
     this.links.forEach(section => {
       const target = document.getElementById(section.substring(1));
       if (target) {

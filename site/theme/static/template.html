@@ -24,24 +24,28 @@
   </script>
 </head>
 <body>
-<div id="react-content"></div>
-<div class="ant-site-loading" id="ant-site-loading">
-  <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
-  <div id="loading-text">One Design Language</div>
-</div>
-<script>
+  <div id="react-content" hidden>
+    {{ content | safe }}
+  </div>
+  <div class="ant-site-loading" id="ant-site-loading">
+    <img src='https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg'/>
+    <div id="loading-text">One Design Language</div>
+  </div>
+  <script>
   (function () {
     var content = document.getElementById('loading-text');
-    content.innerHTML = content.innerHTML.split('').map(function (letter, i) {
-      var className;
-      if (i > 0 && i < content.innerText.length - 1) {
-        className = 'yoyo-x-' + (i % 6);
-      }
-      if (letter.trim() === '') {
-        className += ' blank';
-      }
-      return '<span class="' + className + '">' + letter + '</span>';
-    }).join('');
+    if (content) {
+      content.innerHTML = content.innerHTML.split('').map(function (letter, i) {
+        var className;
+        if (i > 0 && i < content.innerText.length - 1) {
+          className = 'yoyo-x-' + (i % 6);
+        }
+        if (letter.trim() === '') {
+          className += ' blank';
+        }
+        return '<span class="' + className + '">' + letter + '</span>';
+      }).join('');
+    }
   })();
 
   // Enable Google Analytics
@@ -62,8 +66,8 @@
     ga('send', 'pageview');
     /* eslint-enable */
   }
-</script>
-<script src="{{ root }}common.js"></script>
-<script src="{{ root }}index.js"></script>
+  </script>
+  <script src="{{ root }}common.js"></script>
+  <script src="{{ root }}index.js"></script>
 </body>
 </html>

@@ -6,8 +6,8 @@ import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Icon, Button } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 
-const clientHeight = document.documentElement.clientHeight;
 function onScrollEvent(e) {
+  const clientHeight = document.documentElement.clientHeight;
   const header = document.getElementById('header');
   if (e.pageY >= clientHeight) {
     if (header.className.indexOf('home-nav-bottom') < 0) {

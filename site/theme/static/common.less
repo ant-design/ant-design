@@ -101,8 +101,11 @@ div.main-container {
     animation: loadTween 2s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
   }
 }
-#react-content:empty + .ant-site-loading {
-  opacity: 1;
+#react-content[hidden] {
+  display: none;
+  + .ant-site-loading {
+    opacity: 1;
+  }
 }
 
 #loading-text {

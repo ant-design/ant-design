@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
-import enquire from 'enquire.js';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
 
@@ -9,27 +8,26 @@ const Option = Select.Option;
 
 export default class Header extends React.Component {
   static contextTypes = {
-    router: React.PropTypes.object.isRequired,
-    intl: React.PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired,
+    intl: PropTypes.object.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      menuMode: 'horizontal',
-    };
-  }
+  state = {
+    menuMode: 'horizontal',
+  };
 
   componentDidMount() {
-    enquire.register('only screen and (min-width: 320px) and (max-width: 940px)', {
-      match: () => {
-        this.setState({ menuMode: 'inline' });
-      },
-      unmatch: () => {
-        this.setState({ menuMode: 'horizontal' });
-      },
-    });
+    /* eslint-disable global-require */
+    require('enquire.js')
+      .register('only screen and (min-width: 320px) and (max-width: 940px)', {
+        match: () => {
+          this.setState({ menuMode: 'inline' });
+        },
+        unmatch: () => {
+          this.setState({ menuMode: 'horizontal' });
+        },
+      });
+    /* eslint-enable global-require */
   }
 
   handleSearch = (value) => {
@@ -51,7 +49,7 @@ export default class Header extends React.Component {
   render() {
     const { location, picked, isFirstScreen } = this.props;
     const components = picked.components;
-    const module = location.pathname.replace(/\/$/, '').split('/').slice(0, -1).join('/');
+    const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
     let activeMenuItem = module || 'home';
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
@@ -67,8 +65,8 @@ export default class Header extends React.Component {
         const subtitle = meta.subtitle;
         return (
           <Option value={url} key={url} data-label={`${meta.title.toLowerCase()} ${subtitle || ''}`}>
-          <strong>{meta.title}</strong>
-          {subtitle && <span className="ant-component-decs">{subtitle}</span>}
+            <strong>{meta.title}</strong>
+            {subtitle && <span className="ant-component-decs">{subtitle}</span>}
           </Option>
         );
       });

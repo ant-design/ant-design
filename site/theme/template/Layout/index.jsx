@@ -8,12 +8,17 @@ import Footer from './Footer';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import '../../static/style';
 
-// Expose to iframe
-window.react = React;
-window['react-dom'] = ReactDOM;
-window.antd = require('antd');
+if (typeof window !== 'undefined') {
+  /* eslint-disable global-require */
+  require('../../static/style');
+
+  // Expose to iframe
+  window.react = React;
+  window['react-dom'] = ReactDOM;
+  window.antd = require('antd');
+  /* eslint-enable global-require */
+}
 
 const appLocale = utils.isZhCN() ? cnLocale : enLocale;
 addLocaleData(appLocale.data);
@@ -23,12 +28,9 @@ export default class Layout extends React.Component {
     router: React.PropTypes.object.isRequired,
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFirstScreen: true,
-    };
-  }
+  state = {
+    isFirstScreen: true,
+  };
 
   componentDidMount() {
     if (typeof ga !== 'undefined') {
@@ -43,6 +45,7 @@ export default class Layout extends React.Component {
         loadingNode.parentNode.removeChild(loadingNode);
       }, 450);
     }
+    document.getElementById('react-content').removeAttribute('hidden');
   }
 
   componentWillUnmount() {

@@ -9,7 +9,7 @@ import config from '../../';
 const SubMenu = Menu.SubMenu;
 
 function getActiveMenuItem(props) {
-  return props.params.children || props.location.pathname;
+  return props.params.children || props.location.pathname.replace(/^\//, '');
 }
 
 function fileNameToPath(filename) {
@@ -120,8 +120,8 @@ export default class MainContent extends React.Component {
 
   getModuleData(props) {
     const pathname = props.location.pathname;
-    const moduleName = /^components/.test(pathname) ?
-            'components' : pathname.split('/').slice(0, 2).join('/');
+    const moduleName = /^\/?components/.test(pathname) ?
+            'components' : pathname.split('/').filter(item => item).slice(0, 2).join('/');
     const moduleData = moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
             [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
             props.picked[moduleName];

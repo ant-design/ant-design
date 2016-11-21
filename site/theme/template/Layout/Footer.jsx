@@ -30,8 +30,10 @@ class Footer extends React.Component {
     // 大版本发布后全局弹窗提示
     //   1. 点击『知道了』之后不再提示
     //   2. 超过截止日期后不再提示
-    if (localStorage.getItem('antd@2.0.0-notification-sent') !== 'true' &&
-        Date.now() < new Date('2016/10/14').getTime()) {
+    if (
+      localStorage.getItem('antd@2.0.0-notification-sent') !== 'true' &&
+        Date.now() < new Date('2016/10/14').getTime()
+    ) {
       this.infoNewVersion();
     }
   }
@@ -65,9 +67,8 @@ class Footer extends React.Component {
   }
 
   render() {
-    const options = Object.keys(docVersions).map(version => (
-      <Option value={docVersions[version]} key={version}>{version}</Option>
-    ));
+    const options = Object.keys(docVersions)
+            .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     return (
       <footer id="footer">
         <ul>
