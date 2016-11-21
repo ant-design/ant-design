@@ -81,13 +81,13 @@
     "antd-demo-jest": "^1.0.5",
     "antd-tools": "0.14.2",
     "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "bisheng": "^0.17.0",
     "bisheng-plugin-antd": "~0.6.0",
     "bisheng-plugin-description": "^0.1.1",
@@ -136,7 +136,8 @@
     "react-sublime-video": "^0.2.0",
     "reqwest": "^2.0.5",
     "typescript-babel-jest": "^0.1.5",
-    "values.js": "^1.0.3"
+    "values.js": "^1.0.3",
+    "xhr2": "^0.1.3"
   },
   "babel": {
     "presets": [
@@ -146,7 +147,7 @@
     ]
   },
   "scripts": {
-    "test": "npm run lint && npm run dist && npm run jest -- --coverage && npm run site",
+    "test": "npm run lint && npm run dist && npm run jest -- --coverage && npm run jest:node && npm run site",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
     "eslint": "eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
@@ -155,6 +156,7 @@
     "eslint-fix": "eslint --fix test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
 
     "jest": "jest",
+    "jest:node": "jest --config .jest.node.json",
 
     "clean": "antd-tools run clean",
     "dist": "antd-tools run dist && node ./tests/dekko/dist.test.js",
@@ -185,7 +187,8 @@
     ],
     "testPathIgnorePatterns": [
       "dekko",
-      "/node_modules/"
+      "/node_modules/",
+      "node"
     ],
     "transform": {
       "\\.tsx?$": "node_modules/typescript-babel-jest",
