@@ -19,6 +19,6 @@ title: Rate
 | count    | star 总数 | Number | 5 |
 | value | 当前数，受控值 | Number | - |
 | defaultValue | 默认值 | Number | 0 |
-| onChange(value: Number) | 回调   | Function | - |
+| onChange | 回调 | Function(value: Number) | - |
 | allowHalf | 是否允许半选   | Boolean | false |
 | disabled | 只读，无法进行交互 | Boolean | false |
