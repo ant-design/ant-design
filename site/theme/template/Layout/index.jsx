@@ -45,7 +45,7 @@ export default class Layout extends React.Component {
         loadingNode.parentNode.removeChild(loadingNode);
       }, 450);
     }
-    document.getElementById('react-content').style.display = 'block';
+    document.getElementById('react-content').removeAttribute('hidden');
   }
 
   componentWillUnmount() {
