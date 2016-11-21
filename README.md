@@ -78,7 +78,7 @@ Normal browsers and Internet Explorer 9+.
 
 tsconfig.json
 
-```
+```js
 {
   "compilerOptions": {
     "moduleResolution": "node",

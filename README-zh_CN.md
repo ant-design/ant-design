@@ -53,7 +53,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 tsconfig.json
 
-```
+```js
 {
   "compilerOptions": {
     "moduleResolution": "node",
