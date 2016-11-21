@@ -106,16 +106,16 @@ CustomizedForm = Form.create({})(CustomizedForm);
 * 一个 Form.Item 建议只放一个被 getFieldDecorator 装饰过的 child，当有多个被装饰过的 child 时，`help` `required` `validateStatus` 无法自动生成。
 * `2.2.0` 之前，只有当表单域为 Form.Item 的子元素时，才会自动生成 `help` `required` `validateStatus`，嵌套情况需要自行设置。
 
-| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
-|-----------|------------------------------------------|-----------|-------|--------|
-| label | label 标签的文本 | string  |   |     |
-| labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object |  |  |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object |  |  |
-| help | 提示信息，如不设置，则会根据校验规则自动生成 | string |  |   |
-| extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string |  |   |
-| required | 是否必填，如不设置，则会根据校验规则自动生成 | bool |  | false  |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成 | string | 'success' 'warning' 'error' 'validating'  |   |
-| hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | bool |  | false  |
+| 参数      | 说明                                     | 类型       | 默认值 |
+|-----------|-----------------------------------------|-----------|--------|
+| label | label 标签的文本 | string  |  |
+| labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object | |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object | |
+| help | 提示信息，如不设置，则会根据校验规则自动生成 | string | |
+| extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string | |
+| required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |
+| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
+| hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false  |
 
 <style>
 .code-box-demo .ant-form-horizontal {
