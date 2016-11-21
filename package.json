@@ -195,7 +195,13 @@
       "tests/.*\\.js$": "node_modules/babel-jest",
       "\\.md$": "node_modules/antd-demo-jest"
     },
-    "testRegex": "/tests/.*\\.test\\.js$"
+    "testRegex": "/tests/.*\\.test\\.js$",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "components/.*/demo",
+      "/dist/",
+      "/tests/"
+    ]
   },
   "pre-commit": [
     "lint"
