@@ -10,7 +10,6 @@ const locale = {
   lang: assign({
     placeholder: 'Выберите дату',
     rangePlaceholder: ['Начальная дата', 'Конечная дата'],
-    quickSelection: 'Quick selection',
   }, CalendarLocale),
   timePickerLocale: assign({}, TimePickerLocale),
 };

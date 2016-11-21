@@ -68,7 +68,7 @@ export default class RangePicker extends React.Component<any, any> {
   }
 
   renderFooter = () => {
-    const { prefixCls, ranges, locale } = this.props;
+    const { prefixCls, ranges } = this.props;
     if (!ranges) {
       return null;
     }
@@ -79,7 +79,6 @@ export default class RangePicker extends React.Component<any, any> {
     });
     return (
       <div className={`${prefixCls}-range-quick-selector`}>
-        <label>{locale.lang.quickSelection}</label>
         {operations}
       </div>
     );
