@@ -148,6 +148,7 @@ export default class Header extends React.Component {
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
+                getPopupContainer={trigger => trigger.parentNode}
               >
                 {options}
               </Select>
