@@ -4,7 +4,7 @@ import scrollScreen from 'rc-scroll-anim/lib/ScrollScreen';
 
 export default class Link extends React.Component {
   componentDidMount() {
-    scrollScreen.init({ docHeight: 4746 });
+    scrollScreen.init();
   }
 
   render() {

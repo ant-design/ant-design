@@ -18,7 +18,7 @@ function typeFunc(a) {
 export default function Banner({ location, onEnterChange }) {
   const query = location.query;
   return (
-    <section id="banner" className="page">
+    <section className="page banner-wrapper">
       <ScrollElement id="banner" onChange={({ mode }) => onEnterChange(mode)}>
         <QueueAnim className="banner-text-wrapper" type={typeFunc} delay={300} key="banner">
           <h2 key="h2">ANT <p>DESIGN</p></h2>
