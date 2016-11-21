@@ -28,9 +28,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
     anchorHelper: React.PropTypes.any,
   };
 
-  refs: {
-    ink?: any;
-  };
+  inkRef: HTMLElement;
 
   private scrollEvent: any;
   private anchorHelper: AnchorHelper;
@@ -78,16 +76,16 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   updateInk = () => {
     const activeAnchor = this.anchorHelper.getCurrentActiveAnchor();
     if (activeAnchor) {
-      this.refs.ink.style.top = `${activeAnchor.offsetTop + activeAnchor.clientHeight / 2 - 4.5}px`;
+      this.inkRef.style.top = `${activeAnchor.offsetTop + activeAnchor.clientHeight / 2 - 4.5}px`;
     }
   }
 
   clickAnchorLink = (href, component) => {
-    this.refs.ink.style.transition = 'top 0.01s ease-in-out';
+    this.inkRef.style.transition = 'top 0.01s ease-in-out';
     this._avoidInk = true;
-    this.refs.ink.style.top = `${component.offsetTop + component.clientHeight / 2 - 4.5}px`;
+    this.inkRef.style.top = `${component.offsetTop + component.clientHeight / 2 - 4.5}px`;
     this.anchorHelper.scrollTo(href, getDefaultTarget, () => {
-      this.refs.ink.style.transition = 'top 0.3s ease-in-out';
+      this.inkRef.style.transition = 'top 0.3s ease-in-out';
       this._avoidInk = false;
     });
   }
@@ -104,6 +102,10 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       });
     }
     return child;
+  }
+
+  saveInk = (node) => {
+    this.inkRef = node;
   }
 
   render() {
@@ -129,7 +131,7 @@ export default class Anchor extends React.Component<AnchorProps, any> {
       <div className={wrapperClass} style={style}>
         <div className={anchorClass}>
           <div className={`${prefixCls}-ink`} >
-            <span className={inkClass} ref="ink" />
+            <span className={inkClass} ref={this.saveInk} />
           </div>
           {React.Children.map(this.props.children, this.renderAnchorLink)}
         </div>

@@ -43,12 +43,18 @@ export default class Popover extends React.Component<PopoverProps, any> {
     overlayStyle: {},
   };
 
+  tooltipRef: Tooltip;
+
+  saveTooltip = (node) => {
+    this.tooltipRef = node;
+  }
+
   render() {
     const props = assign({}, this.props);
     delete props.title;
     return (
       <Tooltip
-        ref="tooltip"
+        ref={this.saveTooltip}
         {...props}
         overlay={this.getOverlay()}
       />
@@ -56,7 +62,7 @@ export default class Popover extends React.Component<PopoverProps, any> {
   }
 
   getPopupDomNode() {
-    return (this.refs as any).tooltip.getPopupDomNode();
+    return this.tooltipRef.getPopupDomNode();
   }
 
   getOverlay() {

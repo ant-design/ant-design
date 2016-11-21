@@ -53,6 +53,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   context: TransferListContext;
   timer: number;
+  checkboxRef: HTMLElement;
 
   constructor(props) {
     super(props);
@@ -101,6 +102,10 @@ export default class TransferList extends React.Component<TransferListProps, any
     this.props.handleClear();
   }
 
+  saveCheckbox = (node) => {
+    this.checkboxRef = node;
+  }
+
   renderCheckbox({ prefixCls, filteredDataSource, checked, checkPart, disabled, checkable }) {
     const checkAll = (!checkPart) && checked;
 
@@ -113,7 +118,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
     return (
       <span
-        ref="checkbox"
+        ref={this.saveCheckbox}
         className={checkboxCls}
         onClick={() => this.props.handleSelectAll(filteredDataSource, checkAll)}
       >
@@ -122,22 +127,22 @@ export default class TransferList extends React.Component<TransferListProps, any
     );
   }
 
-  render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys, lazy, filterOption,
-            body = noop, footer = noop, showSearch, render = noop, style } = this.props;
-
+  renderBody(filteredDataSource) {
+    const { prefixCls, dataSource, filter, checkedKeys, lazy, filterOption,
+      body = noop, render = noop, showSearch } = this.props;
     let { searchPlaceholder, notFoundContent } = this.props;
-
-    // Custom Layout
-    const footerDom = footer(assign({}, this.props));
+    const { antLocale } = this.context;
     const bodyDom = body(assign({}, this.props));
 
-    const listCls = classNames({
-      [prefixCls]: true,
-      [`${prefixCls}-with-footer`]: !!footerDom,
-    });
+    if (bodyDom) {
+      return bodyDom;
+    }
 
-    const filteredDataSource: TransferItem[] = [];
+    if (antLocale && antLocale.Transfer) {
+      const transferLocale = antLocale.Transfer;
+      searchPlaceholder = searchPlaceholder || transferLocale.searchPlaceholder;
+      notFoundContent = notFoundContent || transferLocale.notFoundContent;
+    }
 
     const showItems = dataSource.map((item) => {
       if (!item.disabled) {
@@ -159,29 +164,78 @@ export default class TransferList extends React.Component<TransferListProps, any
       );
     });
 
+    const searchInput = showSearch ? (
+      <div className={`${prefixCls}-body-search-wrapper`}>
+        <Search
+          prefixCls={`${prefixCls}-search`}
+          onChange={this.handleFilter}
+          handleClear={this.handleClear}
+          placeholder={searchPlaceholder || 'Search'}
+          value={filter}
+        />
+      </div>
+    ) : null;
+
+    const items = showItems.length > 0 ? showItems : (
+      <div key="not-found" className={`${prefixCls}-body-not-found`}>{notFoundContent || 'Not Found'}</div>
+    );
+
+    return (
+      <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+        {searchInput}
+        <Animate
+          component="ul"
+          className={`${prefixCls}-content`}
+          transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
+          transitionLeave={false}
+        >
+          {items}
+        </Animate>
+      </div>
+    );
+  }
+
+  render() {
+    const { prefixCls, dataSource, titleText, checkedKeys, footer = noop, style } = this.props;
+
+    // Custom Layout
+    const footerDom = footer(assign({}, this.props));
+
+    const listCls = classNames({
+      [prefixCls]: true,
+      [`${prefixCls}-with-footer`]: !!footerDom,
+    });
+
+    const filteredDataSource: TransferItem[] = [];
+
     let unit = '';
     const antLocale = this.context.antLocale;
     if (antLocale && antLocale.Transfer) {
       const transferLocale = antLocale.Transfer;
       unit = dataSource.length > 1 ? transferLocale.itemsUnit : transferLocale.itemUnit;
-      searchPlaceholder = searchPlaceholder || transferLocale.searchPlaceholder;
-      notFoundContent = notFoundContent || transferLocale.notFoundContent;
     }
 
     const checkStatus = this.getCheckStatus(filteredDataSource);
     const outerPrefixCls = prefixCls.replace('-list', '');
+    const checkbox = this.renderCheckbox({
+      prefixCls: outerPrefixCls,
+      checked: checkStatus === 'all',
+      checkPart: checkStatus === 'part',
+      checkable: <span className={`${outerPrefixCls}-checkbox-inner`} />,
+      filteredDataSource,
+      disabled: false,
+    });
+
+    const footerNode = footerDom ? (
+      <div className={`${prefixCls}-footer`}>
+        {footerDom}
+      </div>
+    ) : null;
 
     return (
       <div className={listCls} style={style}>
         <div className={`${prefixCls}-header`}>
-          {this.renderCheckbox({
-            prefixCls: outerPrefixCls,
-            checked: checkStatus === 'all',
-            checkPart: checkStatus === 'part',
-            checkable: <span className={`${outerPrefixCls}-checkbox-inner`}></span>,
-            filteredDataSource,
-            disabled: false,
-          })}
+          {checkbox}
           <span className={`${prefixCls}-header-selected`}>
             <span>
               {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} {unit}
@@ -191,30 +245,8 @@ export default class TransferList extends React.Component<TransferListProps, any
             </span>
           </span>
         </div>
-        {bodyDom ||
-          <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
-            {showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-              <Search prefixCls={`${prefixCls}-search`}
-                onChange={this.handleFilter}
-                handleClear={this.handleClear}
-                placeholder={searchPlaceholder || 'Search'}
-                value={filter}
-              />
-            </div> : null}
-            <Animate
-              component="ul"
-              className={`${prefixCls}-content`}
-              transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-              transitionLeave={false}
-            >
-              {showItems.length > 0
-                ? showItems
-                : <div key="not-found" className={`${prefixCls}-body-not-found`}>{notFoundContent || 'Not Found'}</div>}
-            </Animate>
-          </div>}
-        {footerDom ? <div className={`${prefixCls}-footer`}>
-          {footerDom}
-        </div> : null}
+        {this.renderBody(filteredDataSource)}
+        {footerNode}
       </div>
     );
   }

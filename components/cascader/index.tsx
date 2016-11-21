@@ -106,11 +106,11 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   };
 
   cachedOptions: CascaderOptionType[];
-  refs: {
-    [key: string]: any;
-    input: {
-      refs: { input: HTMLElement }
-    };
+
+  inputRef: {
+    refs: {
+      input: HTMLHtmlElement;
+    }
   };
 
   constructor(props) {
@@ -238,6 +238,10 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     return [{ label: notFoundContent, value: 'ANT_CASCADER_NOT_FOUND', disabled: true }];
   }
 
+  saveInput = (node) => {
+    this.inputRef = node;
+  }
+
   render() {
     const props = this.props;
     const state = this.state;
@@ -252,7 +256,8 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       [`${inputPrefixCls}-sm`]: size === 'small',
     });
     const clearIcon = (allowClear && !disabled && value.length > 0) || state.inputValue ?
-      <Icon type="cross-circle"
+      <Icon
+        type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       /> : null;
@@ -306,9 +311,36 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     }
     // The default value of `matchInputWidth` is `true`
     const resultListMatchInputWidth = showSearch.matchInputWidth === false ? false : true;
-    if (resultListMatchInputWidth && state.inputValue && this.refs.input) {
-      dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
+    if (resultListMatchInputWidth && state.inputValue && this.inputRef) {
+      dropdownMenuColumnStyle.width = this.inputRef.refs.input.offsetWidth;
     }
+
+    const customInput = children ? (
+      <span
+        style={style}
+        className={pickerCls}
+      >
+        <Input
+          {...inputProps}
+          ref={this.saveInput}
+          placeholder={value && value.length > 0 ? null : placeholder}
+          className={`${prefixCls}-input ${sizeCls}`}
+          value={state.inputValue}
+          disabled={disabled}
+          readOnly={!showSearch}
+          autoComplete="off"
+          onClick={showSearch ? this.handleInputClick : undefined}
+          onBlur={showSearch ? this.handleInputBlur : undefined}
+          onChange={showSearch ? this.handleInputChange : undefined}
+        />
+        <span className={`${prefixCls}-picker-label`}>
+          {this.getLabel()}
+        </span>
+        {clearIcon}
+        <Icon type="down" className={arrowCls} />
+      </span>
+    ) : null;
+
     return (
       <RcCascader
         {...props}
@@ -319,31 +351,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
       >
-        {children ||
-          <span
-            style={style}
-            className={pickerCls}
-          >
-            <Input
-              {...inputProps}
-              ref="input"
-              placeholder={value && value.length > 0 ? null : placeholder}
-              className={`${prefixCls}-input ${sizeCls}`}
-              value={state.inputValue}
-              disabled={disabled}
-              readOnly={!showSearch}
-              autoComplete="off"
-              onClick={showSearch ? this.handleInputClick : undefined}
-              onBlur={showSearch ? this.handleInputBlur : undefined}
-              onChange={showSearch ? this.handleInputChange : undefined}
-            />
-            <span className={`${prefixCls}-picker-label`}>
-              {this.getLabel()}
-            </span>
-            {clearIcon}
-            <Icon type="down" className={arrowCls} />
-          </span>
-        }
+        {customInput}
       </RcCascader>
     );
   }

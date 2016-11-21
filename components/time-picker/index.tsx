@@ -7,6 +7,7 @@ import defaultLocale from './locale/zh_CN';
 
 // TimePicker
 export interface TimePickerProps {
+  prefixCls?: string;
   className?: string;
   size?: 'large' | 'default' | 'small';
   /** 默认时间 */
@@ -91,6 +92,18 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     return timePickerLocale;
   }
 
+  renderAddon = (panel) => {
+    const { prefixCls, addon } = this.props;
+
+    if (addon) {
+      return (
+        <div className={`${prefixCls}-panel-addon`}>
+          {addon(panel)}
+        </div>
+      );
+    }
+  }
+
   render() {
     const props = assign({ format: 'HH:mm:ss' }, this.props);
     delete props.defaultValue;
@@ -110,11 +123,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         showMinute={props.format.indexOf('mm') > -1}
         showSecond={props.format.indexOf('ss') > -1}
         onChange={this.handleChange}
-        addon={(panel) => (
-          props.addon ? <div className={`${props.prefixCls}-panel-addon`}>
-            {props.addon(panel)}
-          </div> : null
-        )}
+        addon={this.renderAddon}
       />
     );
   }

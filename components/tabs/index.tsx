@@ -68,6 +68,44 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   }
 
+  renderTabContent = () => {
+    const { animated } = this.props;
+    return <TabContent animated={animated} />;
+  }
+
+  renderTabBar = () => {
+    let {
+      prefixCls,
+      onTabClick,
+      type = 'line',
+      tabBarExtraContent,
+      hideAdd,
+    } = this.props;
+
+    // Add new tab handler
+    if (type === 'editable-card' && !hideAdd) {
+      tabBarExtraContent = (
+        <span>
+          <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
+          {tabBarExtraContent}
+        </span>
+      );
+    }
+
+    tabBarExtraContent = tabBarExtraContent ? (
+      <div className={`${prefixCls}-extra-content`}>
+        {tabBarExtraContent}
+      </div>
+    ) : null;
+
+    return (
+      <ScrollableInkTabBar
+        extraContent={tabBarExtraContent}
+        onTabClick={onTabClick}
+      />
+    );
+  }
+
   render() {
     let {
       prefixCls,
@@ -76,9 +114,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
       type = 'line',
       tabPosition,
       children,
-      tabBarExtraContent,
-      hideAdd,
-      onTabClick,
       animated,
     } = this.props;
     let cls = classNames({
@@ -104,34 +139,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
           key: child.key || index,
         }));
       });
-      // Add new tab handler
-      if (!hideAdd) {
-        tabBarExtraContent = (
-          <span>
-            <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
-            {tabBarExtraContent}
-          </span>
-        );
-      }
     }
 
-    tabBarExtraContent = tabBarExtraContent ? (
-      <div className={`${prefixCls}-extra-content`}>
-        {tabBarExtraContent}
-      </div>
-    ) : null;
-
     return (
-      <RcTabs {...this.props}
+      <RcTabs
+        {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => (
-          <ScrollableInkTabBar
-            extraContent={tabBarExtraContent}
-            onTabClick={onTabClick}
-          />
-        )}
-        renderTabContent={() => <TabContent animated={animated} />}
+        renderTabBar={this.renderTabBar}
+        renderTabContent={this.renderTabContent}
         onChange={this.handleChange}
       >
         {childrenWithClose || children}
