@@ -9,12 +9,14 @@ export default class RangePicker extends React.Component<any, any> {
   static defaultProps = {
     prefixCls: 'ant-calendar',
     allowClear: true,
+    showToday: false,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       value: props.value || props.defaultValue || [],
+      open: props.open,
     };
   }
 
@@ -22,6 +24,11 @@ export default class RangePicker extends React.Component<any, any> {
     if ('value' in nextProps) {
       this.setState({
         value: nextProps.value || [],
+      });
+    }
+    if ('open' in nextProps) {
+      this.setState({
+        open: nextProps.open,
       });
     }
   }
@@ -44,16 +51,52 @@ export default class RangePicker extends React.Component<any, any> {
     ]);
   }
 
+  handleOpenChange = (open) => {
+    this.setState({ open });
+
+    const onOpenChange = this.props.onOpenChange;
+    if (onOpenChange) {
+      onOpenChange(open);
+    }
+  }
+
+  setValue(value) {
+    this.handleChange(value);
+    if (!this.props.showTime) {
+      this.setState({ open: false });
+    }
+  }
+
+  renderFooter = () => {
+    const { prefixCls, ranges, locale } = this.props;
+    if (!ranges) {
+      return null;
+    }
+
+    const operations = Object.keys(ranges).map((range) => {
+      const value = ranges[range];
+      return <a key={range} onClick={() => this.setValue(value)}>{range}</a>;
+    });
+    return (
+      <div className={`${prefixCls}-range-quick-selector`}>
+        <label>{locale.lang.quickSelection}</label>
+        {operations}
+      </div>
+    );
+  }
+
   render() {
     const props = this.props;
-    const { disabledDate, disabledTime, showTime,
-      prefixCls, popupStyle, style, onOk, locale,
-      format,
+    const {
+      disabledDate, disabledTime, showTime, showToday,
+      ranges, prefixCls, popupStyle,
+      style, onOk, locale, format,
     } = props;
     const state = this.state;
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,
+      [`${prefixCls}-range-with-ranges`]: ranges,
     });
 
     // 需要选择时间时，点击 ok 时才触发 onChange
@@ -80,6 +123,7 @@ export default class RangePicker extends React.Component<any, any> {
         format={format}
         prefixCls={prefixCls}
         className={calendarClassName}
+        renderFooter={this.renderFooter}
         timePicker={props.timePicker}
         disabledDate={disabledDate}
         disabledTime={disabledTime}
@@ -87,6 +131,7 @@ export default class RangePicker extends React.Component<any, any> {
         locale={locale.lang}
         onOk={onOk}
         defaultValue={props.defaultPickerValue || [moment(), moment()]}
+        showToday={showToday}
       />
     );
 
@@ -103,6 +148,8 @@ export default class RangePicker extends React.Component<any, any> {
         {...pickerChangeHandler}
         calendar={calendar}
         value={state.value}
+        open={state.open}
+        onOpenChange={this.handleOpenChange}
         prefixCls={`${prefixCls}-picker-container`}
         style={popupStyle}
       >

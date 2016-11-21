@@ -44,6 +44,8 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | locale       | localization configuration | Object   | [default](https://github.com/ant-design/ant-design/issues/424)  |
 | disabledDate | to specify the date that cannot be selected | function | -           |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
+| open | open state of picker | bool | - |
+| onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 
 ### DatePicker
 
@@ -53,8 +55,6 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | defaultValue | to set default date        | [moment](http://momentjs.com/)   | -           |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM-DD" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
-| open | open state of picker | bool | - |
-| onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
 | showToday    | whether to show "Today" button | Boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
@@ -80,6 +80,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
+| ranges       | preseted ranges for quick selection | Object { [range: string]: [moment, moment] } | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {
