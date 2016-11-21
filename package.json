@@ -93,6 +93,7 @@
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.3.0",
     "bisheng-plugin-toc": "^0.3.0",
+    "coveralls": "^2.11.15",
     "css-split-webpack-plugin": "^0.2.1",
     "dekko": "^0.2.0",
     "dora-plugin-upload": "^0.3.1",
@@ -145,7 +146,7 @@
     ]
   },
   "scripts": {
-    "test": "npm run lint && npm run dist && npm run jest && npm run site",
+    "test": "npm run lint && npm run dist && npm run jest -- --coverage && npm run site",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
     "eslint": "eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
