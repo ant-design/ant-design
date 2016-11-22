@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 title:
   en-US: border, title and footer
   zh-CN: 带边框

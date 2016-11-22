@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title:
   en-US: No pagination
   zh-CN: 不显示分页

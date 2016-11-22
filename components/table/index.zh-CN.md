@@ -79,7 +79,7 @@ const columns = [{
 
 ### Column
 
-列描述数据对象，是 columns 中的一项。
+列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
@@ -100,6 +100,12 @@ const columns = [{
 | className  | 列的 className             | String          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean or String | false |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean or String | - |
+
+### ColumnGroup
+
+| 参数       | 说明                       | 类型            |  默认值  |
+|-----------|----------------------------|-----------------|---------|
+| title      | 列头显示文字               | String or React.Element | - |
 
 ### rowSelection
 

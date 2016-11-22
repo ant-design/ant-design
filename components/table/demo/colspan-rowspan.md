@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 14
 title:
   en-US: colSpan and rowSpan
   zh-CN: 表格行/列合并

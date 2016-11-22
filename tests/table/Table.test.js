@@ -2,6 +2,10 @@ import React from 'react';
 import createStore from '../../components/table/createStore';
 import Table from '../../components/table';
 import TestUtils from 'react-addons-test-utils';
+import { render } from 'enzyme';
+import { renderToJson } from 'enzyme-to-json';
+
+const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
   describe('row selection', () => {
@@ -86,6 +90,46 @@ describe('Table', () => {
 
       expect(checkboxes[1].disabled).toBe(false);
       expect(checkboxes[2].disabled).toBe(true);
+    });
+  });
+
+  describe('JSX style API', () => {
+    it('renders correctly', () => {
+      const data = [{
+        key: '1',
+        firstName: 'John',
+        lastName: 'Brown',
+        age: 32,
+      }, {
+        key: '2',
+        firstName: 'Jim',
+        lastName: 'Green',
+        age: 42,
+      }];
+
+      const wrapper = render(
+        <Table dataSource={data} pagination={false}>
+          <ColumnGroup title="Name">
+            <Column
+              title="First Name"
+              dataIndex="firstName"
+              key="firstName"
+            />
+            <Column
+              title="Last Name"
+              dataIndex="lastName"
+              key="lastName"
+            />
+          </ColumnGroup>
+          <Column
+            title="Age"
+            dataIndex="age"
+            key="age"
+          />
+        </Table>
+      );
+
+      expect(renderToJson(wrapper)).toMatchSnapshot();
     });
   });
 })

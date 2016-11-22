@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   en-US: Checkbox props
   zh-CN: 选择框属性

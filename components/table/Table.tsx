@@ -5,13 +5,15 @@ import Pagination, { PaginationProps } from '../pagination';
 import Icon from '../icon';
 import Spin from '../spin';
 import classNames from 'classnames';
-import { flatArray, treeMap } from './util';
+import { flatArray, treeMap, normalizeColumns } from './util';
 import assign from 'object-assign';
 import splitObject from '../_util/splitObject';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
+import Column, { ColumnProps } from './Column';
+import ColumnGroup from './ColumnGroup';
 
 function noop() {
 }
@@ -44,24 +46,6 @@ export interface TableRowSelection<T> {
   onSelectAll?: (selected: boolean, selectedRows: Object[], changeRows: Object[]) => any;
 }
 
-export interface TableColumnConfig<T> {
-  title?: React.ReactNode;
-  key?: string;
-  dataIndex?: string;
-  render?: (text: any, record: T, index: number) => React.ReactNode;
-  filters?: { text: string; value: string }[];
-  onFilter?: (value: any, record: T) => boolean;
-  filterMultiple?: boolean;
-  filterDropdown?: React.ReactNode;
-  sorter?: boolean | ((a: any, b: any) => number);
-  colSpan?: number;
-  width?: string | number;
-  className?: string;
-  fixed?: boolean | ('left' | 'right');
-  filteredValue?: any[];
-  sortOrder?: boolean | ('ascend' | 'descend');
-}
-
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -69,7 +53,7 @@ export interface TableProps<T> {
   pagination?: PaginationProps | boolean;
   size?: 'default' | 'small';
   dataSource?: T[];
-  columns: TableColumnConfig<T>[];
+  columns?: ColumnProps<T>[];
   rowKey?: string | ((record: T, index: number) => string);
   rowClassName?: (record: T, index: number) => string;
   expandedRowRender?: any;
@@ -100,9 +84,12 @@ export interface TableContext {
 }
 
 export default class Table<T> extends React.Component<TableProps<T>, any> {
+  static Column = Column;
+  static ColumnGroup = ColumnGroup;
+
   static propTypes = {
     dataSource: React.PropTypes.array,
-    columns: React.PropTypes.array.isRequired,
+    columns: React.PropTypes.array,
     prefixCls: React.PropTypes.string,
     useFixedHeader: React.PropTypes.bool,
     rowSelection: React.PropTypes.object,
@@ -136,6 +123,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   context: TableContext;
   CheckboxPropsCache: Object;
   store: Store;
+  columns: ColumnProps<T>[];
 
   constructor(props) {
     super(props);
@@ -148,6 +136,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     );
 
     const pagination = props.pagination || {};
+
+    this.columns = props.columns || normalizeColumns(props.children);
 
     this.state = assign({}, this.getSortStateFromColumns(), {
       // 减少状态
@@ -225,6 +215,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       )) {
         this.CheckboxPropsCache = {};
       }
+
+      this.columns = nextProps.columns || normalizeColumns(nextProps.children);
     }
 
     if (this.getSortOrderColumns(nextProps.columns).length > 0) {
@@ -292,11 +284,11 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getSortOrderColumns(columns?) {
-    return (columns || this.props.columns || []).filter(column => 'sortOrder' in column);
+    return (columns || this.columns || []).filter(column => 'sortOrder' in column);
   }
 
   getFilteredValueColumns(columns?) {
-    return (columns || this.props.columns || []).filter(column => column.filteredValue);
+    return (columns || this.columns || []).filter(column => column.filteredValue);
   }
 
   getFiltersFromColumns(columns?) {
@@ -376,7 +368,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       [this.getColumnKey(column)]: nextFilters,
     });
     // Remove filters not in current columns
-    const currentColumnKeys = props.columns.map(c => this.getColumnKey(c));
+    const currentColumnKeys = this.columns.map(c => this.getColumnKey(c));
     Object.keys(filters).forEach((columnKey) => {
       if (currentColumnKeys.indexOf(columnKey) < 0) {
         delete filters[columnKey];
@@ -571,7 +563,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   renderRowSelection() {
     const { prefixCls, rowSelection } = this.props;
-    const columns = this.props.columns.concat();
+    const columns = this.columns.concat();
     if (rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item) => {
         if (rowSelection.getCheckboxProps) {
@@ -579,7 +571,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         }
         return true;
       });
-      const selectionColumn: TableColumnConfig<any> = {
+      const selectionColumn: ColumnProps<any> = {
         key: 'selection-column',
         render: this.renderSelectionBox(rowSelection.type),
         className: `${prefixCls}-selection-column`,
@@ -743,7 +735,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   findColumn(myKey) {
-    return this.props.columns.filter(c => this.getColumnKey(c) === myKey)[0];
+    return this.columns.filter(c => this.getColumnKey(c) === myKey)[0];
   }
 
   getCurrentPageData() {
