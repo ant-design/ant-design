@@ -1,0 +1,406 @@
+exports[`test renders ./components/button/demo/basic.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Primary
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-ghost"
+    type="button">
+    <span>
+      Ghost
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed"
+    type="button">
+    <span>
+      Dashed
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/button/demo/button-group.md correctly 1`] = `
+<div>
+  <h4>
+    Basic
+  </h4>
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn"
+      type="button">
+      <span>
+        Cancel
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn"
+      disabled=""
+      type="button">
+      <span>
+        L
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      disabled=""
+      type="button">
+      <span>
+        M
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      disabled=""
+      type="button">
+      <span>
+        R
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <span>
+        L
+      </span>
+    </button>
+    <button
+      class="ant-btn"
+      type="button">
+      <span>
+        M
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        M
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dashed"
+      type="button">
+      <span>
+        R
+      </span>
+    </button>
+  </div>
+  <h4>
+    With Icon
+  </h4>
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <i
+        class="anticon anticon-left " />
+      <span>
+        Go back
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <span>
+        Go forward
+      </span>
+      <i
+        class="anticon anticon-right " />
+    </button>
+  </div>
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      type="button">
+      <i
+        class="anticon anticon-cloud " />
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      type="button">
+      <i
+        class="anticon anticon-cloud-download " />
+    </button>
+  </div>
+  <h4>
+    Size
+  </h4>
+  <div
+    class="ant-btn-group ant-btn-group-lg">
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Large
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Large
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Default
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-btn-group ant-btn-group-sm">
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Small
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Small
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/button/demo/disabled.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Primary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    disabled=""
+    type="button">
+    <span>
+      Primary(disabled)
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    disabled=""
+    type="button">
+    <span>
+      Default(disabled)
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-ghost"
+    type="button">
+    <span>
+      Ghost
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-ghost"
+    disabled=""
+    type="button">
+    <span>
+      Ghost(disabled)
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-dashed"
+    type="button">
+    <span>
+      Dashed
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed"
+    disabled=""
+    type="button">
+    <span>
+      Dashed(disabled)
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/button/demo/icon.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
+    type="button">
+    <i
+      class="anticon anticon-search " />
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <i
+      class="anticon anticon-search " />
+    <span>
+      Search
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-ghost ant-btn-circle-outline ant-btn-icon-only"
+    type="button">
+    <i
+      class="anticon anticon-search " />
+  </button>
+  <button
+    class="ant-btn ant-btn-ghost"
+    type="button">
+    <i
+      class="anticon anticon-search " />
+    <span>
+      Search
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/button/demo/loading.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-loading"
+    type="button">
+    <i
+      class="anticon anticon-spin anticon-loading " />
+    <span>
+      Loading
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
+    type="button">
+    <i
+      class="anticon anticon-spin anticon-loading " />
+    <span>
+      Loading
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Click me!
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <i
+      class="anticon anticon-poweroff " />
+    <span>
+      Click me!
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/button/demo/multiple.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      primary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-ghost"
+    type="button">
+    <span>
+      secondary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-ghost"
+    type="button">
+    <span>
+      more 
+    </span>
+    <i
+      class="anticon anticon-down " />
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/button/demo/size.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-lg"
+    type="button">
+    <span>
+      Large
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-sm"
+    type="button">
+    <span>
+      Small
+    </span>
+  </button>
+</div>
+`;

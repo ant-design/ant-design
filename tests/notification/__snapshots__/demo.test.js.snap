@@ -1,0 +1,74 @@
+exports[`test renders ./components/notification/demo/basic.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button">
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`test renders ./components/notification/demo/custom-icon.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button">
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`test renders ./components/notification/demo/duration.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button">
+  <span>
+    Open the notification box
+  </span>
+</button>
+`;
+
+exports[`test renders ./components/notification/demo/with-btn.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Open the notification box
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/notification/demo/with-icon.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Warning
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Error
+    </span>
+  </button>
+</div>
+`;

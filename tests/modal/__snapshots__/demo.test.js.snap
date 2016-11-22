@@ -1,0 +1,143 @@
+exports[`test renders ./components/modal/demo/async.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Open a modal dialog
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/modal/demo/basic.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Open a modal dialog
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/modal/demo/confirm.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button">
+  <span>
+    confirmation modal dialog
+  </span>
+</button>
+`;
+
+exports[`test renders ./components/modal/demo/confirm-promise.md correctly 1`] = `
+<button
+  class="ant-btn"
+  type="button">
+  <span>
+    Confirmation modal dialog
+  </span>
+</button>
+`;
+
+exports[`test renders ./components/modal/demo/footer.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Open modal dialog
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/modal/demo/info.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Error
+    </span>
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Warning
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/modal/demo/locale.md correctly 1`] = `
+<div>
+  <div>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <span>
+        Show Modal
+      </span>
+    </button>
+  </div>
+  <br />
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      confirm
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/modal/demo/manual.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button">
+    <span>
+      Success
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/modal/demo/position.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Display a modal dialog at 20px to Top
+    </span>
+  </button>
+  <br />
+  <br />
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <span>
+      Vertically centered modal dialog
+    </span>
+  </button>
+</div>
+`;

@@ -1,0 +1,111 @@
+exports[`test renders ./components/dropdown/demo/basic.md correctly 1`] = `
+<a
+  class="ant-dropdown-link"
+  href="#">
+  Hover me 
+  <i
+    class="anticon anticon-down " />
+</a>
+`;
+
+exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
+<div>
+  <div
+    class="ant-btn-group ant-dropdown-button">
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Dropdown
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <i
+        class="anticon anticon-down " />
+    </button>
+  </div>
+  <div
+    class="ant-btn-group ant-dropdown-button"
+    style="margin-left:8px;">
+    <button
+      class="ant-btn ant-btn-ghost"
+      disabled=""
+      type="button">
+      <span>
+        Dropdown
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      disabled=""
+      type="button">
+      <i
+        class="anticon anticon-down " />
+    </button>
+  </div>
+  <button
+    class="ant-btn ant-btn-ghost"
+    style="margin-left:8px;"
+    type="button">
+    <span>
+      Button 
+    </span>
+    <i
+      class="anticon anticon-down " />
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/dropdown/demo/event.md correctly 1`] = `
+<a
+  class="ant-dropdown-link"
+  href="#">
+  Hover me, Click menu item 
+  <i
+    class="anticon anticon-down " />
+</a>
+`;
+
+exports[`test renders ./components/dropdown/demo/item.md correctly 1`] = `
+<a
+  class="ant-dropdown-link"
+  href="#">
+  Hover me 
+  <i
+    class="anticon anticon-down " />
+</a>
+`;
+
+exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
+<a
+  class="ant-dropdown-link"
+  href="#">
+  Hover me 
+  <i
+    class="anticon anticon-down " />
+</a>
+`;
+
+exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
+<a
+  class="ant-dropdown-link"
+  href="#">
+  Cascading menu 
+  <i
+    class="anticon anticon-down " />
+</a>
+`;
+
+exports[`test renders ./components/dropdown/demo/trigger.md correctly 1`] = `
+<div>
+  <a
+    class="ant-dropdown-link"
+    href="#">
+    Click me 
+    <i
+      class="anticon anticon-down " />
+  </a>
+</div>
+`;

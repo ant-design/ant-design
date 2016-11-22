@@ -1,0 +1,318 @@
+exports[`test renders ./components/upload/demo/basic.md correctly 1`] = `
+<span
+  class="">
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text" />
+  <div
+    class="ant-upload-list ant-upload-list-text" />
+</span>
+`;
+
+exports[`test renders ./components/upload/demo/beforeUpload.md correctly 1`] = `
+<span
+  class="">
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text" />
+  <div
+    class="ant-upload-list ant-upload-list-text" />
+</span>
+`;
+
+exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
+<span
+  class="">
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text" />
+  <div
+    class="ant-upload-list ant-upload-list-text">
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done">
+      <div
+        class="ant-upload-list-item-info">
+        <i
+          class="anticon anticon-paper-clip " />
+        <a
+          class="ant-upload-list-item-name"
+          href="http://www.baidu.com/xxx.png"
+          rel="noopener noreferrer"
+          target="_blank">
+          xxx.png
+        </a>
+        <i
+          class="anticon anticon-cross "
+          title="Remove file" />
+      </div>
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done">
+      <div
+        class="ant-upload-list-item-info">
+        <i
+          class="anticon anticon-paper-clip " />
+        <a
+          class="ant-upload-list-item-name"
+          href="http://www.baidu.com/yyy.png"
+          rel="noopener noreferrer"
+          target="_blank">
+          yyy.png
+        </a>
+        <i
+          class="anticon anticon-cross "
+          title="Remove file" />
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`test renders ./components/upload/demo/drag.md correctly 1`] = `
+<div>
+  <div
+    style="width:246px;height:140px;">
+    <span
+      class="">
+      <div
+        class="ant-upload ant-upload-drag" />
+    </span>
+  </div>
+  <div
+    style="margin-top:16px;height:180px;">
+    <span
+      class="">
+      <div
+        class="ant-upload ant-upload-drag" />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
+<span
+  class="">
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text" />
+  <div
+    class="ant-upload-list ant-upload-list-text">
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done">
+      <div
+        class="ant-upload-list-item-info">
+        <i
+          class="anticon anticon-paper-clip " />
+        <a
+          class="ant-upload-list-item-name"
+          href="http://www.baidu.com/xxx.png"
+          rel="noopener noreferrer"
+          target="_blank">
+          xxx.png
+        </a>
+        <i
+          class="anticon anticon-cross "
+          title="Remove file" />
+      </div>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`test renders ./components/upload/demo/inplace.md correctly 1`] = `
+<span
+  class="avatar-uploader">
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text" />
+</span>
+`;
+
+exports[`test renders ./components/upload/demo/multiple.md correctly 1`] = `
+<span
+  class="">
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-text" />
+  <div
+    class="ant-upload-list ant-upload-list-text" />
+</span>
+`;
+
+exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
+<div
+  class="clearfix">
+  <span
+    class="">
+    <div
+      class="ant-upload-list ant-upload-list-picture-card">
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done">
+        <div
+          class="ant-upload-list-item-info">
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            <img
+              alt="xxx.png"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            xxx.png
+          </a>
+          <span>
+            <a
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              style="pointer-events:;"
+              target="_blank">
+              <i
+                class="anticon anticon-eye-o " />
+            </a>
+            <i
+              class="anticon anticon-delete "
+              title="Remove file" />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture-card" />
+  </span>
+  <a
+    class="upload-example"
+    href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    rel="noopener noreferrer"
+    target="_blank">
+    <img
+      alt="example"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+    <span>
+      sample
+    </span>
+  </a>
+</div>
+`;
+
+exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = `
+<div>
+  <span
+    class="">
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture" />
+    <div
+      class="ant-upload-list ant-upload-list-picture">
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done">
+        <div
+          class="ant-upload-list-item-info">
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            <img
+              alt="xxx.png"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            xxx.png
+          </a>
+          <i
+            class="anticon anticon-cross "
+            title="Remove file" />
+        </div>
+      </div>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done">
+        <div
+          class="ant-upload-list-item-info">
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            <img
+              alt="yyy.png"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            yyy.png
+          </a>
+          <i
+            class="anticon anticon-cross "
+            title="Remove file" />
+        </div>
+      </div>
+    </div>
+  </span>
+  <br />
+  <br />
+  <span
+    class="upload-list-inline">
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-picture" />
+    <div
+      class="ant-upload-list ant-upload-list-picture">
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done">
+        <div
+          class="ant-upload-list-item-info">
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            <img
+              alt="xxx.png"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            xxx.png
+          </a>
+          <i
+            class="anticon anticon-cross "
+            title="Remove file" />
+        </div>
+      </div>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done">
+        <div
+          class="ant-upload-list-item-info">
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            <img
+              alt="yyy.png"
+              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank">
+            yyy.png
+          </a>
+          <i
+            class="anticon anticon-cross "
+            title="Remove file" />
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+`;

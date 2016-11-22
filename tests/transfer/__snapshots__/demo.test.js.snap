@@ -1,0 +1,580 @@
+exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
+<div
+  class="ant-transfer">
+  <div
+    class="ant-transfer-list ant-transfer-list-with-footer"
+    style="width:250px;height:300px;">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body ant-transfer-list-body-with-search">
+      <div
+        class="ant-transfer-list-body-search-wrapper">
+        <div>
+          <span
+            class="ant-input-wrapper">
+            <input
+              class="ant-input ant-transfer-list-search"
+              placeholder="Search"
+              type="text"
+              value="" />
+          </span>
+          <span
+            class="ant-transfer-list-search-action">
+            <i
+              class="anticon anticon-search " />
+          </span>
+        </div>
+      </div>
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+    <div
+      class="ant-transfer-list-footer">
+      <button
+        class="ant-btn ant-btn-ghost ant-btn-sm"
+        style="float:right;margin:5px;"
+        type="button">
+        <span>
+          reload
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-transfer-operation">
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-left " />
+        to left
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        to right
+        <i
+          class="anticon anticon-right " />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list ant-transfer-list-with-footer"
+    style="width:250px;height:300px;">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body ant-transfer-list-body-with-search">
+      <div
+        class="ant-transfer-list-body-search-wrapper">
+        <div>
+          <span
+            class="ant-input-wrapper">
+            <input
+              class="ant-input ant-transfer-list-search"
+              placeholder="Search"
+              type="text"
+              value="" />
+          </span>
+          <span
+            class="ant-transfer-list-search-action">
+            <i
+              class="anticon anticon-search " />
+          </span>
+        </div>
+      </div>
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+    <div
+      class="ant-transfer-list-footer">
+      <button
+        class="ant-btn ant-btn-ghost ant-btn-sm"
+        style="float:right;margin:5px;"
+        type="button">
+        <span>
+          reload
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
+<div
+  class="ant-transfer">
+  <div
+    class="ant-transfer-list">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          14 
+        </span>
+        <span
+          class="ant-transfer-list-header-title">
+          Source
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body">
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-transfer-operation">
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-left " />
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-right " />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          6 
+        </span>
+        <span
+          class="ant-transfer-list-header-title">
+          Target
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body">
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+        <div
+          class="LazyLoad"
+          style="height:32px;" />
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = `
+<div
+  class="ant-transfer">
+  <div
+    class="ant-transfer-list"
+    style="width:300px;height:300px;">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body">
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-transfer-operation">
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-left " />
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-right " />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list"
+    style="width:300px;height:300px;">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body">
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
+<div
+  class="ant-transfer">
+  <div
+    class="ant-transfer-list">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body">
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-transfer-operation">
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-left " />
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-right " />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body">
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
+<div
+  class="ant-transfer">
+  <div
+    class="ant-transfer-list">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body ant-transfer-list-body-with-search">
+      <div
+        class="ant-transfer-list-body-search-wrapper">
+        <div>
+          <span
+            class="ant-input-wrapper">
+            <input
+              class="ant-input ant-transfer-list-search"
+              placeholder="Search"
+              type="text"
+              value="" />
+          </span>
+          <span
+            class="ant-transfer-list-search-action">
+            <i
+              class="anticon anticon-search " />
+          </span>
+        </div>
+      </div>
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-transfer-operation">
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-left " />
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      disabled=""
+      type="button">
+      <span>
+        <i
+          class="anticon anticon-right " />
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-transfer-list">
+    <div
+      class="ant-transfer-list-header">
+      <span
+        class="ant-transfer-checkbox">
+        <span
+          class="ant-transfer-checkbox-inner" />
+      </span>
+      <span
+        class="ant-transfer-list-header-selected">
+        <span>
+          0 
+        </span>
+        <span
+          class="ant-transfer-list-header-title" />
+      </span>
+    </div>
+    <div
+      class="ant-transfer-list-body ant-transfer-list-body-with-search">
+      <div
+        class="ant-transfer-list-body-search-wrapper">
+        <div>
+          <span
+            class="ant-input-wrapper">
+            <input
+              class="ant-input ant-transfer-list-search"
+              placeholder="Search"
+              type="text"
+              value="" />
+          </span>
+          <span
+            class="ant-transfer-list-search-action">
+            <i
+              class="anticon anticon-search " />
+          </span>
+        </div>
+      </div>
+      <ul
+        class="ant-transfer-list-content">
+        <div
+          class="ant-transfer-list-body-not-found">
+          Not Found
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,154 @@
+exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Tag 1
+    </span>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Tag 2
+    </span>
+    <i
+      class="anticon anticon-cross " />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Tag 3
+    </span>
+    <i
+      class="anticon anticon-cross " />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      <a
+        href="https://github.com/ant-design/ant-design/issues/1862">
+        Link
+      </a>
+    </span>
+    <i
+      class="anticon anticon-cross " />
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/tag/demo/checkable.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag ant-tag-checkable">
+    Unchecked
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked">
+    Checked
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable">
+    Uncontrolled
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/tag/demo/colorful.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag ant-tag-#f50 ant-tag-has-color"
+    data-show="true"
+    style="background-color:#f50;">
+    <span
+      class="ant-tag-text">
+      #f50
+    </span>
+  </div>
+  <div
+    class="ant-tag ant-tag-#87d068 ant-tag-has-color"
+    data-show="true"
+    style="background-color:#87d068;">
+    <span
+      class="ant-tag-text">
+      #87d068
+    </span>
+  </div>
+  <div
+    class="ant-tag ant-tag-#108ee9 ant-tag-has-color"
+    data-show="true"
+    style="background-color:#108ee9;">
+    <span
+      class="ant-tag-text">
+      #108ee9
+    </span>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
+<div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Unremovable
+    </span>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Tag 2
+    </span>
+    <i
+      class="anticon anticon-cross " />
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Tag 3
+    </span>
+    <i
+      class="anticon anticon-cross " />
+  </div>
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-sm"
+    type="button">
+    <span>
+      + New tag
+    </span>
+  </button>
+</div>
+`;
+
+exports[`test renders ./components/tag/demo/hot-tags.md correctly 1`] = `
+<div>
+  <strong>
+    Hots: 
+  </strong>
+  <div
+    class="ant-tag ant-tag-checkable">
+    Movie
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable">
+    Books
+  </div>
+  <div
+    class="ant-tag ant-tag-checkable">
+    Music
+  </div>
+</div>
+`;

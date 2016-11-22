@@ -1,0 +1,122 @@
+exports[`test renders ./components/anchor/demo/basic.md correctly 1`] = `
+<div>
+  <div
+    class="">
+    <div
+      class="ant-anchor-wrapper">
+      <div
+        class="ant-anchor">
+        <div
+          class="ant-anchor-ink">
+          <span
+            class="ant-anchor-ink-ball animated" />
+        </div>
+        <div
+          class="ant-anchor-link">
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-basic"
+            title="Basic demo">
+            Basic demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link">
+          <a
+            class="ant-anchor-link-title"
+            href="#components-anchor-demo-fixed"
+            title="Fixed demo">
+            Fixed demo
+          </a>
+        </div>
+        <div
+          class="ant-anchor-link">
+          <a
+            class="ant-anchor-link-title"
+            href="#API"
+            title="API">
+            API
+          </a>
+          <div
+            class="ant-anchor-link">
+            <a
+              class="ant-anchor-link-title"
+              href="#Anchor-Props"
+              title="Anchor Props">
+              Anchor Props
+            </a>
+          </div>
+          <div
+            class="ant-anchor-link">
+            <a
+              class="ant-anchor-link-title"
+              href="#Link-Props"
+              title="Link Props">
+              Link Props
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/anchor/demo/fixed.md correctly 1`] = `
+<div
+  class="ant-anchor-wrapper">
+  <div
+    class="ant-anchor fixed">
+    <div
+      class="ant-anchor-ink">
+      <span
+        class="ant-anchor-ink-ball animated" />
+    </div>
+    <div
+      class="ant-anchor-link">
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-basic"
+        title="Basic demo">
+        Basic demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link">
+      <a
+        class="ant-anchor-link-title"
+        href="#components-anchor-demo-fixed"
+        title="Fixed demo">
+        Fixed demo
+      </a>
+    </div>
+    <div
+      class="ant-anchor-link">
+      <a
+        class="ant-anchor-link-title"
+        href="#API"
+        title="API">
+        API
+      </a>
+      <div
+        class="ant-anchor-link">
+        <a
+          class="ant-anchor-link-title"
+          href="#Anchor-Props"
+          title="Anchor Props">
+          Anchor Props
+        </a>
+      </div>
+      <div
+        class="ant-anchor-link">
+        <a
+          class="ant-anchor-link-title"
+          href="#Link-Props"
+          title="Link Props">
+          Link Props
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;

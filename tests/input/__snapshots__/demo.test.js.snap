@@ -1,0 +1,232 @@
+exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:16px;">
+    <span
+      class="ant-input-wrapper ant-input-group">
+      <span
+        class="ant-input-group-addon">
+        Http://
+      </span>
+      <input
+        class="ant-input"
+        type="text"
+        value="mysite" />
+      <span
+        class="ant-input-group-addon">
+        .com
+      </span>
+    </span>
+  </div>
+  <div
+    style="margin-bottom:16px;">
+    <span
+      class="ant-input-wrapper ant-input-group">
+      <span
+        class="ant-input-group-addon">
+        <div
+          class="ant-select ant-select-enabled"
+          style="width:80px;">
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0">
+            <div
+              class="ant-select-selection__rendered">
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title="Http://">
+                Http://
+              </div>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable">
+              <b />
+            </span>
+          </div>
+        </div>
+      </span>
+      <input
+        class="ant-input"
+        type="text"
+        value="mysite" />
+      <span
+        class="ant-input-group-addon">
+        <div
+          class="ant-select ant-select-enabled"
+          style="width:70px;">
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0">
+            <div
+              class="ant-select-selection__rendered">
+              <div
+                class="ant-select-selection-selected-value"
+                style="display:block;opacity:1;"
+                title=".com">
+                .com
+              </div>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable">
+              <b />
+            </span>
+          </div>
+        </div>
+      </span>
+    </span>
+  </div>
+  <div
+    style="margin-bottom:16px;">
+    <span
+      class="ant-input-wrapper ant-input-group">
+      <input
+        class="ant-input"
+        type="text"
+        value="mysite" />
+      <span
+        class="ant-input-group-addon">
+        <i
+          class="anticon anticon-setting " />
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`test renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
+<div>
+  <span
+    class="ant-input-wrapper">
+    <textarea
+      class="ant-input"
+      placeholder="Autosize height based on content lines"
+      type="textarea" />
+  </span>
+  <div
+    style="margin:24px 0;" />
+  <span
+    class="ant-input-wrapper">
+    <textarea
+      class="ant-input"
+      placeholder="Autosize height with minimum and maximum number of lines"
+      type="textarea" />
+  </span>
+</div>
+`;
+
+exports[`test renders ./components/input/demo/basic.md correctly 1`] = `
+<span
+  class="ant-input-wrapper">
+  <input
+    class="ant-input"
+    placeholder="Basic usage"
+    type="text" />
+</span>
+`;
+
+exports[`test renders ./components/input/demo/group.md correctly 1`] = `
+<div>
+  <span
+    class="ant-input-group ant-input-group-lg">
+    <div
+      class="ant-col-4">
+      <span
+        class="ant-input-wrapper">
+        <input
+          class="ant-input"
+          type="text"
+          value="0571" />
+      </span>
+    </div>
+    <div
+      class="ant-col-8">
+      <span
+        class="ant-input-wrapper">
+        <input
+          class="ant-input"
+          type="text"
+          value="26888888" />
+      </span>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
+<div
+  class="ant-search-input-wrapper"
+  style="width:200px;">
+  <span
+    class="ant-input-group ant-search-input">
+    <span
+      class="ant-input-wrapper">
+      <input
+        class="ant-input"
+        placeholder="input search text"
+        type="text"
+        value="" />
+    </span>
+    <div
+      class="ant-input-group-wrap">
+      <button
+        class="ant-btn ant-btn-icon-only ant-search-btn"
+        type="button">
+        <i
+          class="anticon anticon-search " />
+      </button>
+    </div>
+  </span>
+</div>
+`;
+
+exports[`test renders ./components/input/demo/size.md correctly 1`] = `
+<div
+  class="example-input">
+  <span
+    class="ant-input-wrapper">
+    <input
+      class="ant-input ant-input-lg"
+      placeholder="large size"
+      type="text" />
+  </span>
+  <span
+    class="ant-input-wrapper">
+    <input
+      class="ant-input"
+      placeholder="default size"
+      type="text" />
+  </span>
+  <span
+    class="ant-input-wrapper">
+    <input
+      class="ant-input ant-input-sm"
+      placeholder="small size"
+      type="text" />
+  </span>
+</div>
+`;
+
+exports[`test renders ./components/input/demo/textarea.md correctly 1`] = `
+<span
+  class="ant-input-wrapper">
+  <textarea
+    class="ant-input"
+    rows="4"
+    type="textarea" />
+</span>
+`;
