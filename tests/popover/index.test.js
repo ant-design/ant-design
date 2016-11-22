@@ -1,6 +1,6 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-import Popover from '../components/popover/index';
+import Popover from '../../components/popover/index';
 
 describe('Popover', function() {
   it('should show overlay when trigger is clicked', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
-let { Col, Row } = require('../components/grid/index');
+let { Col, Row } = require('../../components/grid/index');
 
 describe('Grid', function() {
   it('should render Col', () => {

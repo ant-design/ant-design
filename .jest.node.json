@@ -1,0 +1,15 @@
+{
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "md"
+  ],
+  "transform": {
+    "\\.tsx?$": "node_modules/typescript-babel-jest",
+    "tests/.*\\.js$": "node_modules/babel-jest",
+    "\\.md$": "node_modules/antd-demo-jest"
+  },
+  "testRegex": "/tests/node/.*\\.test\\.js$",
+  "testEnvironment": "node"
+}

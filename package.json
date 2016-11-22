@@ -78,20 +78,22 @@
   "devDependencies": {
     "@types/react": "~0.14.41",
     "@types/react-dom": "~0.14.18",
+    "antd-demo-jest": "^1.0.5",
     "antd-tools": "0.14.2",
     "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
     "babel-plugin-import": "^1.0.0",
     "babel-plugin-transform-runtime": "~6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
     "bisheng": "^0.17.0",
     "bisheng-plugin-antd": "~0.6.0",
     "bisheng-plugin-description": "^0.1.1",
     "bisheng-plugin-react": "^0.3.0",
     "bisheng-plugin-toc": "^0.3.0",
+    "coveralls": "^2.11.15",
     "css-split-webpack-plugin": "^0.2.1",
     "dekko": "^0.2.0",
     "dora-plugin-upload": "^0.3.1",
@@ -107,6 +109,7 @@
     "eslint-plugin-markdown": "*",
     "eslint-plugin-react": "^6.1.2",
     "eslint-tinker": "^0.4.0",
+    "glob": "^7.1.1",
     "history": "^4.4.0",
     "jest": "^17.0.1",
     "jest-cli": "^17.0.0",
@@ -133,7 +136,8 @@
     "react-sublime-video": "^0.2.0",
     "reqwest": "^2.0.5",
     "typescript-babel-jest": "^0.1.5",
-    "values.js": "^1.0.3"
+    "values.js": "^1.0.3",
+    "xhr2": "^0.1.3"
   },
   "babel": {
     "presets": [
@@ -143,7 +147,7 @@
     ]
   },
   "scripts": {
-    "test": "npm run lint && npm run dist && npm run jest && npm run site",
+    "test": "npm run lint && npm run dist && npm run jest -- --coverage -w 2 && npm run jest:node -- -w 2 && npm run site",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
     "eslint": "eslint test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
@@ -151,7 +155,8 @@
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix test site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
 
-    "jest": "jest --no-cache",
+    "jest": "jest",
+    "jest:node": "jest --config .jest.node.json",
 
     "clean": "antd-tools run clean",
     "dist": "antd-tools run dist && node ./tests/dekko/dist.test.js",
@@ -174,19 +179,29 @@
       "tsx",
       "js",
       "jsx",
-      "json"
+      "json",
+      "md"
     ],
     "modulePathIgnorePatterns": [
       "/_site/"
     ],
     "testPathIgnorePatterns": [
       "dekko",
-      "/node_modules/"
+      "/node_modules/",
+      "node"
     ],
     "transform": {
-      ".*": "node_modules/typescript-babel-jest"
+      "\\.tsx?$": "node_modules/typescript-babel-jest",
+      "tests/.*\\.js$": "node_modules/babel-jest",
+      "\\.md$": "node_modules/antd-demo-jest"
     },
-    "testRegex": "(/tests/.*|\\.(test|spec))\\.(js)$"
+    "testRegex": "/tests/.*\\.test\\.js$",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "components/.*/demo",
+      "/dist/",
+      "/tests/"
+    ]
   },
   "pre-commit": [
     "lint"

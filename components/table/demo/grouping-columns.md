@@ -86,7 +86,7 @@ for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
     name: 'John Brown',
-    age: Math.ceil(Math.random() * 100),
+    age: i + 1,
     street: 'Lake Park',
     building: 'C',
     number: 2035,
