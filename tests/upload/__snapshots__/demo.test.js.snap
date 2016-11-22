@@ -164,7 +164,6 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
             <a
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
-              style="pointer-events:;"
               target="_blank">
               <i
                 class="anticon anticon-eye-o " />
