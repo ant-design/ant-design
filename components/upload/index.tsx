@@ -71,6 +71,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     listType: 'text', // or pictrue
     className: '',
     disabled: false,
+    supportServerRender: true,
   };
 
   recentUploadStatus: boolean | PromiseLike<any>;
