@@ -31,10 +31,10 @@ Specify the `theme` field in 'package.json', which could be a object or file pat
 },
 ```
 
-or:
+or [a js file](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js)：
 
 ```js
-"theme": "./theme.js",  // https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js
+"theme": "./theme.js",
 ```
 
 This way is working only when using [atool-build](https://github.com/ant-tool/atool-build)(built in [antd-init](https://github.com/ant-design/antd-init) and [dva-cli](https://github.com/dvajs/dva-cli)). If you choose other boilerplates, you can write webpack config about [less-loader modifyVars](https://github.com/webpack/less-loader#less-options) like [atool-build ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138) does.

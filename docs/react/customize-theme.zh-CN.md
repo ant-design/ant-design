@@ -20,7 +20,7 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 我们使用 [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) 的方式来覆盖变量。
 在具体工程实践中，有 `package.theme` 和 `less` 两种方案，选择一种即可。
 
-可以在本地运行[例子](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme) 查看定制效果。
+可以在本地运行 [例子](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme) 查看定制效果。
 
 ### 1) package.theme（推荐）
 
@@ -32,10 +32,10 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 },
 ```
 
-或者：
+或者 [一个 js 文件](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js)：
 
 ```js
-"theme": "./theme.js",  // https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js
+"theme": "./theme.js",
 ```
 
 定义 `package.theme` 时， 需要配合 [atool-build](https://github.com/ant-tool/atool-build) 使用（[antd-init](https://github.com/ant-design/antd-init) 和 [dva-cli](https://github.com/dvajs/dva-cli) 内建支持）。如果你使用的是其他脚手架，可以参考 [atool-build 中 less-loader 的 webpack 相关配置 ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138)，利用 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 配置来覆盖原来的样式变量。
