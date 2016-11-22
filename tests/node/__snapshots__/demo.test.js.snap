@@ -581,7 +581,7 @@ exports[`test renders ./components/back-top/demo/basic.md correctly 1`] = `
   Scroll down to see the bottom-right
   <strong
     style="color:rgba(64, 64, 64, 0.6);">
-     gray 
+     gray
   </strong>
   button.
 </div>
@@ -592,7 +592,7 @@ exports[`test renders ./components/back-top/demo/custom.md correctly 1`] = `
   Scroll down to see the bottom-right
   <strong
     style="color:#57c5f7;">
-     blue 
+     blue
   </strong>
   button.
 </div>
@@ -2402,7 +2402,7 @@ exports[`test renders ./components/button/demo/multiple.md correctly 1`] = `
     class="ant-btn ant-btn-ghost"
     type="button">
     <span>
-      more 
+      more
     </span>
     <i
       class="anticon anticon-down " />
@@ -7274,10 +7274,10 @@ exports[`test renders ./components/cascader/demo/custom-render.md correctly 1`] 
   <span
     class="ant-cascader-picker-label">
     <span>
-      Zhejiang / 
+      Zhejiang /
     </span>
     <span>
-      Hangzhou / 
+      Hangzhou /
     </span>
     <span>
       West Lake (
@@ -7811,11 +7811,11 @@ exports[`test renders ./components/collapse/demo/basic.md correctly 1`] = `
       <div
         class="ant-collapse-content-box">
         <p>
-          
+
             A dog is a type of domesticated animal.
             Known for its loyalty and faithfulness,
             it can be found as a welcome guest in many households across the world.
-          
+
         </p>
       </div>
     </div>
@@ -7864,11 +7864,11 @@ exports[`test renders ./components/collapse/demo/borderless.md correctly 1`] = `
       <div
         class="ant-collapse-content-box">
         <p>
-          
+
             A dog is a type of domesticated animal.
             Known for its loyalty and faithfulness,
             it can be found as a welcome guest in many households across the world.
-          
+
         </p>
       </div>
     </div>
@@ -7976,7 +7976,7 @@ exports[`test renders ./components/date-picker/demo/basic.md correctly 1`] = `
         value="" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8033,7 +8033,7 @@ exports[`test renders ./components/date-picker/demo/disabled.md correctly 1`] = 
         value="2015-06-06" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8074,7 +8074,7 @@ exports[`test renders ./components/date-picker/demo/disabled-date.md correctly 1
         value="" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8131,7 +8131,7 @@ exports[`test renders ./components/date-picker/demo/format.md correctly 1`] = `
         value="2015/01/01" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8177,7 +8177,7 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
         value="" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8200,7 +8200,7 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
         value="" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8301,7 +8301,7 @@ exports[`test renders ./components/date-picker/demo/size.md correctly 1`] = `
         value="" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8370,7 +8370,7 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
         value="" />
       <span
         class="ant-calendar-range-picker-separator">
-         ~ 
+         ~
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -8388,7 +8388,7 @@ exports[`test renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
   class="ant-dropdown-link"
   href="#">
-  Hover me 
+  Hover me
   <i
     class="anticon anticon-down " />
 </a>
@@ -8436,7 +8436,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
     style="margin-left:8px;"
     type="button">
     <span>
-      Button 
+      Button
     </span>
     <i
       class="anticon anticon-down " />
@@ -8448,7 +8448,7 @@ exports[`test renders ./components/dropdown/demo/event.md correctly 1`] = `
 <a
   class="ant-dropdown-link"
   href="#">
-  Hover me, Click menu item 
+  Hover me, Click menu item
   <i
     class="anticon anticon-down " />
 </a>
@@ -8458,7 +8458,7 @@ exports[`test renders ./components/dropdown/demo/item.md correctly 1`] = `
 <a
   class="ant-dropdown-link"
   href="#">
-  Hover me 
+  Hover me
   <i
     class="anticon anticon-down " />
 </a>
@@ -8468,7 +8468,7 @@ exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`
 <a
   class="ant-dropdown-link"
   href="#">
-  Hover me 
+  Hover me
   <i
     class="anticon anticon-down " />
 </a>
@@ -8478,7 +8478,7 @@ exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
   class="ant-dropdown-link"
   href="#">
-  Cascading menu 
+  Cascading menu
   <i
     class="anticon anticon-down " />
 </a>
@@ -8489,7 +8489,7 @@ exports[`test renders ./components/dropdown/demo/trigger.md correctly 1`] = `
   <a
     class="ant-dropdown-link"
     href="#">
-    Click me 
+    Click me
     <i
       class="anticon anticon-down " />
   </a>
@@ -8712,7 +8712,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
         </button>
         <a
           style="margin-left:8px;font-size:12px;">
-          Collapse 
+          Collapse
           <i
             class="anticon anticon-down " />
         </a>
@@ -9065,7 +9065,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
             Log in
           </span>
         </button>
-        Or 
+        Or
         <a>
           register now!
         </a>
@@ -9348,7 +9348,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
               type="checkbox" />
           </span>
           <span>
-            I had read the 
+            I had read the
             <a>
               agreement
             </a>
@@ -9491,7 +9491,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
               value="" />
             <span
               class="ant-calendar-range-picker-separator">
-               ~ 
+               ~
             </span>
             <input
               class="ant-calendar-range-picker-input"
@@ -9530,7 +9530,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
               value="" />
             <span
               class="ant-calendar-range-picker-separator">
-               ~ 
+               ~
             </span>
             <input
               class="ant-calendar-range-picker-input"
@@ -11115,7 +11115,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
     class="change-locale">
     <span
       style="margin-right:16px;">
-      Change locale of components: 
+      Change locale of components:
     </span>
     <div
       class="ant-radio-group">
@@ -11305,7 +11305,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
             value="" />
           <span
             class="ant-calendar-range-picker-separator">
-             ~ 
+             ~
           </span>
           <input
             class="ant-calendar-range-picker-input"
@@ -15965,7 +15965,7 @@ exports[`test renders ./components/select/demo/tags.md correctly 1`] = `
 
 exports[`test renders ./components/slider/demo/basic.md correctly 1`] = `
 <div>
-  Disabled: 
+  Disabled:
   <span
     class="ant-switch"
     tabindex="0">
@@ -23769,7 +23769,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                         <span>
                           <a
                             href="#">
-                            Action 一 
+                            Action 一
                           </a>
                           <span
                             class="ant-divider" />
@@ -23815,7 +23815,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                         <span>
                           <a
                             href="#">
-                            Action 一 
+                            Action 一
                           </a>
                           <span
                             class="ant-divider" />
@@ -23861,7 +23861,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                         <span>
                           <a
                             href="#">
-                            Action 一 
+                            Action 一
                           </a>
                           <span
                             class="ant-divider" />
@@ -26743,7 +26743,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
 exports[`test renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
   <strong>
-    Hots: 
+    Hots:
   </strong>
   <div
     class="ant-tag ant-tag-checkable">
@@ -27225,7 +27225,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27307,7 +27307,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27371,7 +27371,7 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          14 
+          14
         </span>
         <span
           class="ant-transfer-list-header-title">
@@ -27461,7 +27461,7 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          6 
+          6
         </span>
         <span
           class="ant-transfer-list-header-title">
@@ -27513,7 +27513,7 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27564,7 +27564,7 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27599,7 +27599,7 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27649,7 +27649,7 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27684,7 +27684,7 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -27752,7 +27752,7 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected">
         <span>
-          0 
+          0
         </span>
         <span
           class="ant-transfer-list-header-title" />
@@ -28648,7 +28648,6 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
             <a
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
-              style="pointer-events:;"
               target="_blank">
               <i
                 class="anticon anticon-eye-o " />
