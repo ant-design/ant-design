@@ -37,11 +37,10 @@ const ImageUploadList = React.createClass({
         name: 'xxx.png',
         status: 'done',
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       }],
       onPreview: (file) => {
         this.setState({
-          previewImage: file.url,
+          previewImage: file.url || file.thumbUrl,
           previewVisible: true,
         });
       },
