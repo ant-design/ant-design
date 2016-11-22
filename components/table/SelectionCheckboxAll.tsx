@@ -18,13 +18,17 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     super(props);
 
     this.state = {
-      checked: this.getCheckState(),
-      indeterminate: this.getIndeterminateState(),
+      checked: this.getCheckState(props),
+      indeterminate: this.getIndeterminateState(props),
     };
   }
 
   componentDidMount() {
     this.subscribe();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setCheckState(nextProps);
   }
 
   componentWillUnmount() {
@@ -36,14 +40,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
   subscribe() {
     const { store } = this.props;
     this.unsubscribe = store.subscribe(() => {
-      const checked = this.getCheckState();
-      const indeterminate = this.getIndeterminateState();
-      if (checked !== this.state.checked) {
-        this.setState({ checked });
-      }
-      if (indeterminate !== this.state.indeterminate) {
-        this.setState({ indeterminate });
-      }
+      this.setCheckState(this.props);
     });
   }
 
@@ -61,8 +58,19 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return false;
   }
 
-  getCheckState() {
-    const { store, data } = this.props;
+  setCheckState(props) {
+    const checked = this.getCheckState(props);
+    const indeterminate = this.getIndeterminateState(props);
+    if (checked !== this.state.checked) {
+      this.setState({ checked });
+    }
+    if (indeterminate !== this.state.indeterminate) {
+      this.setState({ indeterminate });
+    }
+  }
+
+  getCheckState(props) {
+    const { store, data } = props;
     let checked;
     if (!data.length) {
       checked = false;
@@ -78,8 +86,8 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     return checked;
   }
 
-  getIndeterminateState() {
-    const { store, data } = this.props;
+  getIndeterminateState(props) {
+    const { store, data } = props;
     let indeterminate;
     if (!data.length) {
       indeterminate = false;
