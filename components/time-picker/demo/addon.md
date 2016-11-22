@@ -23,7 +23,6 @@ ReactDOM.render(
         Ok
       </Button>
     )}
-  />,
- mountNode
-);
+  />
+, mountNode);
 ````

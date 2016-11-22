@@ -51,9 +51,8 @@ ReactDOM.render(
       hideDisabledOptions
       placeholder="Hide Directly"
     />
-  </div>,
-  mountNode
-);
+  </div>
+, mountNode);
 ````
 
 <style>

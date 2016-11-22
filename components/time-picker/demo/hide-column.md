@@ -1,8 +1,8 @@
 ---
 order: 4
 title:
-  zh-CN: 隐藏某列
-  en-US: Hide Column
+  zh-CN: 选择时分
+  en-US: Hour and minute
 ---
 
 ## zh-CN
@@ -20,7 +20,6 @@ import moment from 'moment';
 const format = 'HH:mm';
 
 ReactDOM.render(
-  <TimePicker defaultValue={moment('12:08', format)} format={format} />,
-  mountNode
-);
+  <TimePicker defaultValue={moment('12:08', format)} format={format} />
+, mountNode);
 ````
