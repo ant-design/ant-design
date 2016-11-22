@@ -36,8 +36,8 @@ const ImageUploadList = React.createClass({
         uid: -1,
         name: 'xxx.png',
         status: 'done',
-        url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-        thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       }],
       onPreview: (file) => {
         this.setState({
@@ -52,12 +52,17 @@ const ImageUploadList = React.createClass({
           <Icon type="plus" />
           <div className="ant-upload-text">Upload</div>
         </Upload>
-        <a href="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" target="_blank" rel="noopener noreferrer" className="upload-example">
-          <img alt="example" src="https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png" />
+        <a
+          href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="upload-example"
+        >
+          <img alt="example" src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
           <span>sample</span>
         </a>
         <Modal visible={this.state.previewVisible} footer={null} onCancel={this.handleCancel}>
-          <img alt="example" src={this.state.previewImage} />
+          <img alt="example" style={{ width: '100%' }} src={this.state.previewImage} />
         </Modal>
       </div>
     );

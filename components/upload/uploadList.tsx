@@ -30,12 +30,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   handlePreview = (file, e) => {
-    e.preventDefault();
-    const onPreview = this.props.onPreview;
+    const { onPreview } = this.props;
     if (!onPreview) {
       return;
     }
-
+    e.preventDefault();
     return onPreview(file);
   }
 
@@ -81,7 +80,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             <a
               className={`${prefixCls}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
-              href={file.url}
+              href={file.thumbUrl || file.url}
               target="_blank" rel="noopener noreferrer"
             >
               <img src={file.thumbUrl || file.url} alt={file.name} />
@@ -137,9 +136,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
                   >
                     <Icon type="eye-o" />
                   </a>
-                  <Icon type="delete" onClick={() => this.handleClose(file)} />
+                  <Icon type="delete" title="Remove file" onClick={() => this.handleClose(file)} />
                 </span>
-              ) : <Icon type="cross" onClick={() => this.handleClose(file)} />
+              ) : <Icon type="cross" title="Remove file" onClick={() => this.handleClose(file)} />
             }
           </div>
           {progress}

@@ -24,7 +24,7 @@ const Demo = React.createClass({
     if (info.file.status === 'done') {
       this.setState({
         // Get this url from response in real world.
-        imageUrl: 'https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg',
+        imageUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       });
     }
   },
@@ -52,21 +52,22 @@ ReactDOM.render(<Demo />, mountNode);
 ```
 
 ```css
-#components-upload-demo-inplace .avatar-uploader,
-#components-upload-demo-inplace .avatar-uploader-trigger,
-#components-upload-demo-inplace .avatar {
+.avatar-uploader,
+.avatar-uploader-trigger,
+.avatar {
   width: 150px;
   height: 150px;
 }
-#components-upload-demo-inplace .avatar-uploader {
+.avatar-uploader {
   display: block;
-  border: 1px solid #d9d9d9;
+  border: 1px dashed #d9d9d9;
   border-radius: 6px;
   cursor: pointer;
 }
-#components-upload-demo-inplace .avatar-uploader-trigger {
+.avatar-uploader-trigger {
   display: table-cell;
   vertical-align: middle;
   font-size: 28px;
+  color: #999;
 }
 ```

@@ -24,14 +24,14 @@ const props = {
     uid: -1,
     name: 'xxx.png',
     status: 'done',
-    url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-    thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
+    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   }, {
     uid: -2,
     name: 'yyy.png',
     status: 'done',
-    url: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
-    thumbUrl: 'https://os.alipayobjects.com/rmsportal/NDbkJhpzmLxtPhB.png',
+    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   }],
 };
 
