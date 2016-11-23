@@ -126,7 +126,7 @@ class Footer extends React.Component {
           <li>
             <h2><FormattedMessage id="app.footer.community" /></h2>
             <div>
-              <a target="_blank" rel="noopener noreferrer" href="/changelog">
+              <a rel="noopener noreferrer" href="/changelog">
                 <FormattedMessage id="app.footer.change-log" />
               </a>
             </div>
