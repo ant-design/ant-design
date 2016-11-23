@@ -41,7 +41,7 @@ class NumericInput extends React.Component {
     }
   }
 
-  // 如果小数点在末尾 或 只有'-'
+  // '.' at the end or only '-' in the input box.
   onBlur = () => {
     const { value } = this.props;
     if (value.charAt(value.length - 1) === '.' || value === '-') {
@@ -55,25 +55,27 @@ class NumericInput extends React.Component {
   render() {
     const { value } = this.props;
     const title = (value ?
-      <span className="numeric-input-title">
+      (<span className="numeric-input-title">
         {value !== '-' ? formatNumber(value) : '-'}
-      </span> : '');
-    return (<div>
-      <Tooltip
-        trigger={['focus']}
-        title={title}
-        placement="topLeft"
-        overlayClassName="numeric-input"
-      >
-        <Input
-          {...this.props}
-          onChange={this.onChange}
-          onBlur={this.onBlur}
-          placeholder="input a number"
-          maxLength="25"
-        />
-      </Tooltip>
-    </div>);
+      </span>) : '');
+    return (
+      <div>
+        <Tooltip
+          trigger={['focus']}
+          title={title}
+          placement="topLeft"
+          overlayClassName="numeric-input"
+        >
+          <Input
+            {...this.props}
+            onChange={this.onChange}
+            onBlur={this.onBlur}
+            placeholder="input a number"
+            maxLength="25"
+          />
+        </Tooltip>
+      </div>
+    );
   }
 }
 
@@ -87,9 +89,11 @@ class NumericInputDemo extends React.Component {
   }
   render() {
     const { value } = this.state;
-    return (<div className="numeric-input-demo">
-      <NumericInput value={value} onChange={this.onChange} />
-    </div>);
+    return (
+      <div className="numeric-input-demo">
+        <NumericInput value={value} onChange={this.onChange} />
+      </div>
+    );
   }
 }
 
@@ -97,17 +101,18 @@ ReactDOM.render(<NumericInputDemo />, mountNode);
 ````
 
 ````css
-/* 防止无内容时箭头溢出及抖动 */
+/* to prevent the arrow overflow the popup container, 
+or the height is not enough when content is empty */
 .numeric-input .ant-tooltip-inner {
-	min-width: 32px;
-	min-height: 37px;
+  min-width: 32px;
+  min-height: 37px;
 }
 
 .numeric-input .numeric-input-title {
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .numeric-input-demo {
-	width: 120px;
+  width: 120px;
 }
 ````

@@ -3,20 +3,20 @@
 @import "../../button/style/mixin";
 @import "./mixin";
 
-.@{ant-prefix}-search-input-wrapper {
+.@{ant-prefix}-input-search-wrapper {
   display: inline-block;
   vertical-align: middle;
   position: relative;
   min-width: 24px;
   height: @input-height-base;
 
-  .@{ant-prefix}-search-input {
+  .@{ant-prefix}-input-search {
     opacity: 0;
     width: 0;
     transition: all .3s ease;
   }
 
-  .@{ant-prefix}-search-input-icon {
+  .@{ant-prefix}-input-search-icon {
     position: absolute;
     line-height: @input-height-base;
     left: 0;
@@ -30,13 +30,13 @@
   }
 }
 
-.@{ant-prefix}-search-input-wrapper-focus {
-  .@{ant-prefix}-search-input {
+.@{ant-prefix}-input-search-wrapper-focus {
+  .@{ant-prefix}-input-search {
     opacity: 1;
     width: 100%;
   }
 
-  .@{ant-prefix}-search-input-icon {
+  .@{ant-prefix}-input-search-icon {
     left: 100%;
     margin-left: -22px;
     font-size: 14px;
