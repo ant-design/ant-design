@@ -124,8 +124,8 @@
     cursor: pointer;
     font-size: @font-size-base;
     display: inline-block;
-    & + & {
-      margin-left: 8px;
+    &:not(:last-child) {
+      margin-right: 8px;
     }
   }
 
