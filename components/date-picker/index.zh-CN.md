@@ -47,6 +47,7 @@ moment.locale('zh-cn');
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | open | 控制弹层是否展开 | bool | - |
 | onOpenChange   | 弹出日历和关闭日历的回调 | function(status) | 无 |
+| placeholder  | 输入框提示文字 | string or array (RangePicker) | - |
 
 ### DatePicker
 
@@ -59,7 +60,6 @@ moment.locale('zh-cn');
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](/components/time-picker/#api) |
 | showToday    | 是否展示“今天”按钮 | Boolean | true |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
-| placeholder  | 输入框提示文字 | string | - |
 
 ### MonthPicker
 
@@ -71,7 +71,6 @@ moment.locale('zh-cn');
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | 无           |
 | monthCellContentRender | 自定义的月份渲染方法 | function | 无 |
 | cellContentRender | 自定义的月份渲染方法，内容会被附加在月份后面 | function | 无 |
-| placeholder  | 输入框提示文字 | string | - |
 
 ### RangePicker
 
@@ -84,8 +83,6 @@ moment.locale('zh-cn');
 | showTime     | 增加时间选择功能  | Object or Boolean | [TimePicker Options](/components/time-picker/#api) |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'|'end'`) | 无 |
 | ranges       | 预设事件范围快捷选择 | Object { [range: string]: [moment, moment] } | 无 |
-| startPlaceholder  | 输入框提示文字 | string | - |
-| endPlaceholder  | 输入框提示文字 | string | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {

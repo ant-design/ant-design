@@ -111,10 +111,10 @@ export default class RangePicker extends React.Component<any, any> {
       calendarHandler = {};
     }
 
-    const startPlaceholder = ('startPlaceholder' in this.props)
-      ? props.startPlaceholder : locale.lang.rangePlaceholder[0];
-    const endPlaceholder = ('endPlaceholder' in props)
-      ? props.endPlaceholder : locale.lang.rangePlaceholder[1];
+    const startPlaceholder = ('placeholder' in props)
+      ? props.placeholder[0] : locale.lang.rangePlaceholder[0];
+    const endPlaceholder = ('placeholder' in props)
+      ? props.placeholder[1] : locale.lang.rangePlaceholder[1];
 
     const calendar = (
       <RangeCalendar
