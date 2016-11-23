@@ -77,10 +77,7 @@ export default class Upload extends React.Component<UploadProps, any> {
 
   recentUploadStatus: boolean | PromiseLike<any>;
   progressTimer: any;
-  refs: {
-    [key: string]: any;
-    upload: any;
-  };
+  uploadRef: any;
 
   constructor(props) {
     super(props);
@@ -203,7 +200,7 @@ export default class Upload extends React.Component<UploadProps, any> {
   }
 
   handleManualRemove = (file) => {
-    this.refs.upload.abort(file);
+    this.uploadRef.abort(file);
     file.status = 'removed'; // eslint-disable-line
     this.handleRemove(file);
   }
@@ -276,7 +273,7 @@ export default class Upload extends React.Component<UploadProps, any> {
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
           >
-            <RcUpload {...rcUploadProps} ref="upload" className={`${prefixCls}-btn`}>
+            <RcUpload {...rcUploadProps} ref={(node) => this.uploadRef = node} className={`${prefixCls}-btn`}>
               <div className={`${prefixCls}-drag-container`}>
                 {children}
               </div>
@@ -296,7 +293,7 @@ export default class Upload extends React.Component<UploadProps, any> {
 
     const uploadButton = children
       ? <div className={uploadButtonCls}>
-          <RcUpload {...rcUploadProps} ref="upload" />
+          <RcUpload {...rcUploadProps} ref={(node) => this.uploadRef = node} />
         </div>
       : null;
 
