@@ -426,7 +426,7 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-calendar-range-picker ant-input">
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="开始日期"
+        placeholder="Start Time"
         readonly=""
         value="" />
       <span
@@ -435,7 +435,7 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
       </span>
       <input
         class="ant-calendar-range-picker-input"
-        placeholder="结束日期"
+        placeholder="End Time"
         readonly=""
         value="" />
       <span

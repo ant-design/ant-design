@@ -328,12 +328,13 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
             class="ant-input ant-input-lg"
             data-__meta="[object Object]"
             id="names-0"
+            placeholder="passenger name"
             style="width:60%;margin-right:8px;"
             type="text"
             value="" />
         </span>
         <i
-          class="anticon anticon-minus-circle-o delete-button"
+          class="anticon anticon-minus-circle-o dynamic-delete-button"
           disabled="" />
       </div>
     </div>
