@@ -1,3 +1,3 @@
 import demoTest from '../shared/demoTest';
 
-demoTest('locale-provider');
+demoTest('locale-provider', { skip: [ 'all.md' ] });

@@ -1,3 +1,3 @@
 import demoTest from '../shared/demoTest';
 
-demoTest('calendar');
+demoTest('calendar', { skip: true });

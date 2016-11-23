@@ -1,3 +1,3 @@
 import demoTest from '../shared/demoTest';
 
-demoTest('date-picker');
+demoTest('date-picker', { skip: ['locale.md'] });
