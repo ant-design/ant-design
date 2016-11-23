@@ -106,12 +106,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   };
 
   cachedOptions: CascaderOptionType[];
-  refs: {
-    [key: string]: any;
-    input: {
-      refs: { input: HTMLElement }
-    };
-  };
+  inputRef: Input;
 
   constructor(props) {
     super(props);
@@ -306,8 +301,8 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     }
     // The default value of `matchInputWidth` is `true`
     const resultListMatchInputWidth = showSearch.matchInputWidth === false ? false : true;
-    if (resultListMatchInputWidth && state.inputValue && this.refs.input) {
-      dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
+    if (resultListMatchInputWidth && state.inputValue && this.inputRef) {
+      dropdownMenuColumnStyle.width = this.inputRef.inputRef.offsetWidth;
     }
     return (
       <RcCascader
@@ -326,7 +321,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
           >
             <Input
               {...inputProps}
-              ref="input"
+              ref={(node) => this.inputRef = node}
               placeholder={value && value.length > 0 ? null : placeholder}
               className={`${prefixCls}-input ${sizeCls}`}
               value={state.inputValue}

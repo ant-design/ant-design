@@ -47,6 +47,8 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     prefixCls: 'ant-carousel',
   };
 
+  slickRef: any;
+
   render() {
     let props = assign({}, this.props);
 
@@ -62,7 +64,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
     return (
       <div className={className}>
-        <SlickCarousel ref="slick" {...props} />
+        <SlickCarousel ref={(node) => this.slickRef = node} {...props} />
       </div>
     );
   }

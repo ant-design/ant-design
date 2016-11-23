@@ -44,10 +44,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     arrowPointAtCenter: false,
   };
 
-  refs: {
-    [key: string]: any;
-    tooltip: any;
-  };
+  tooltipRef: any;
 
   constructor(props) {
     super(props);
@@ -65,7 +62,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   getPopupDomNode() {
-    return this.refs.tooltip.getPopupDomNode();
+    return this.tooltipRef.getPopupDomNode();
   }
 
   getPlacements() {
@@ -130,7 +127,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         overlay={title}
         visible={visible}
         onPopupAlign={this.onPopupAlign}
-        ref="tooltip"
+        ref={(node) => this.tooltipRef = node}
         {...this.props}
         builtinPlacements={this.getPlacements()}
         onVisibleChange={this.onVisibleChange}

@@ -53,6 +53,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
   context: TransferListContext;
   timer: number;
+  checkboxRef: HTMLElement;
 
   constructor(props) {
     super(props);
@@ -113,7 +114,7 @@ export default class TransferList extends React.Component<TransferListProps, any
 
     return (
       <span
-        ref="checkbox"
+        ref={(node) => this.checkboxRef = node}
         className={checkboxCls}
         onClick={() => this.props.handleSelectAll(filteredDataSource, checkAll)}
       >
