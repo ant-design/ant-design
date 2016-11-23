@@ -115,6 +115,7 @@
     "jsonp": "^0.2.0",
     "lesshint": "^2.0.0",
     "lodash.debounce": "^4.0.6",
+    "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
     "pre-commit": "1.x",
     "querystring": "^0.2.0",
