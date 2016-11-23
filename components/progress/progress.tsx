@@ -79,7 +79,7 @@ export default class Progress extends React.Component<ProgressProps, any> {
         <div>
           <div className={`${prefixCls}-outer`}>
             <div className={`${prefixCls}-inner`}>
-              <div className={`${prefixCls}-bg`} style={percentStyle}></div>
+              <div className={`${prefixCls}-bg`} style={percentStyle} />
             </div>
           </div>
           {progressInfo}
