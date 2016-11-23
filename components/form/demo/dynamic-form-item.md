@@ -80,10 +80,10 @@ class DynamicFieldSet extends React.Component {
               message: "Please input passenger's name or delete this field.",
             }],
           })(
-            <Input style={{ width: '60%', marginRight: 8 }} />
+            <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
           )}
           <Icon
-            className="delete-button"
+            className="dynamic-delete-button"
             type="minus-circle-o"
             disabled={keys.length === 1}
             onClick={() => this.remove(k)}
@@ -109,14 +109,19 @@ ReactDOM.render(<WrappedDynamicFieldSet />, mountNode);
 ````
 
 ````css
-#components-form-demo-dynamic-form-item .delete-button {
+.dynamic-delete-button {
   cursor: pointer;
   position: relative;
   top: 4px;
   font-size: 24px;
   color: #999;
+  transition: all .3s;
 }
-#components-form-demo-dynamic-form-item .delete-button[disabled] {
+.dynamic-delete-button:hover {
+  color: #777;
+}
+.dynamic-delete-button[disabled] {
   cursor: not-allowed;
+  opacity: 0.5;
 }
 ````
