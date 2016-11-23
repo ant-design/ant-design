@@ -1,7 +1,7 @@
 import assign from 'object-assign';
 
 export interface Store {
-  setState: (Object) => void;
+  setState: (partial: Object) => void;
   getState: () => any;
   subscribe: (listener: () => void) => () => void;
 }
