@@ -10,20 +10,6 @@ describe('antd dist files', function() {
     return;
   }
 
-  // fixed jsdom miss
-  if (typeof window !== 'undefined') {
-    const matchMediaPolyfill = function matchMediaPolyfill() {
-      return {
-        matches: false,
-        addListener() {
-        },
-        removeListener() {
-        },
-      };
-    };
-    window.matchMedia = window.matchMedia || matchMediaPolyfill;
-  }
-
   const antd = require('../dist/antd');
 
   // https://github.com/ant-design/ant-design/issues/1638
