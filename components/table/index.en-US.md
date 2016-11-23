@@ -99,6 +99,7 @@ One of Property `columns` for descriping column, Column has the same API.
 | className  | className of this column            | String          |  -      |
 | fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean or String | false |
 | sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | Boolean or String | - |
+| onCellClick | callback when click cell | Function(record, event) | - |
 
 ### ColumnGroup
 

@@ -100,6 +100,7 @@ const columns = [{
 | className  | 列的 className             | String          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean or String | false |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean or String | - |
+| onCellClick | 单元格点击回调 | Function(record, event) | - |
 
 ### ColumnGroup
 
