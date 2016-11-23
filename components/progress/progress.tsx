@@ -95,8 +95,12 @@ export default class Progress extends React.Component<ProgressProps, any> {
       const circleWidth = strokeWidth || 6;
       progress = (
         <div className={`${prefixCls}-inner`} style={circleStyle}>
-          <Circle percent={percent} strokeWidth={circleWidth} trailWidth={circleWidth}
-            strokeColor={statusColorMap[progressStatus]} trailColor={trailColor}
+          <Circle
+            percent={percent}
+            strokeWidth={circleWidth}
+            trailWidth={circleWidth}
+            strokeColor={statusColorMap[progressStatus]}
+            trailColor={trailColor}
           />
           {progressInfo}
         </div>

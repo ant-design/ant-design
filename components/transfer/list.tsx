@@ -194,7 +194,8 @@ export default class TransferList extends React.Component<TransferListProps, any
         {bodyDom ||
           <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
             {showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-              <Search prefixCls={`${prefixCls}-search`}
+              <Search
+                prefixCls={`${prefixCls}-search`}
                 onChange={this.handleFilter}
                 handleClear={this.handleClear}
                 placeholder={searchPlaceholder || 'Search'}

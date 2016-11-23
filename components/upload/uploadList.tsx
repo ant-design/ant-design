@@ -81,7 +81,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               className={`${prefixCls}-list-item-thumbnail`}
               onClick={e => this.handlePreview(file, e)}
               href={file.url || file.thumbUrl}
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <img src={file.url || file.thumbUrl} alt={file.name} />
             </a>
@@ -109,7 +110,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               ? (
                 <a
                   href={file.url}
-                  target="_blank" rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`${prefixCls}-list-item-name`}
                   onClick={e => this.handlePreview(file, e)}
                 >

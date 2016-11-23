@@ -122,7 +122,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
     ) : null;
 
     return (
-      <RcTabs {...this.props}
+      <RcTabs
+        {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
         renderTabBar={() => (
