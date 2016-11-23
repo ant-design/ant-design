@@ -134,7 +134,8 @@
     "react-sublime-video": "^0.2.0",
     "reqwest": "^2.0.5",
     "typescript-babel-jest": "^0.1.5",
-    "values.js": "^1.0.3"
+    "values.js": "^1.0.3",
+    "xhr2": "^0.1.3"
   },
   "babel": {
     "presets": [
