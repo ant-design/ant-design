@@ -13,15 +13,13 @@ Ant Design, created specially for middleware design, is committed to improving t
 
 ---
 
-## Who are using Ant Design
+## Guideline and Resouce
 
-- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
-- [Alibaba](http://www.alibaba.com/)
-- [Koubei](http://www.koubei.com/)
-- [Meituan](http://www.meituan.com)
-- [Didi](http://www.xiaojukeji.com/)
+We supply a series of design principles, practical patterns and high qulitiy design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
 
-> If your company or products use Ant Design, welcome to click [here](https://github.com/ant-design/ant-design/issues/477) to leave a message.
+- [Principle](/docs/pattern/principle)
+- [Pattern](/docs/pattern/navigation)
+- [Resource Download](/docs/resource/download)
 
 ## Front-end Implementation
 
@@ -34,6 +32,16 @@ Ant Design, created specially for middleware design, is committed to improving t
 - <div class="outside-link internal"><a href="http://atui.alibaba.net" target="_blank">ATUI (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 
+## Who are using Ant Design
+
+- [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
+- [Alibaba](http://www.alibaba.com/)
+- [Koubei](http://www.koubei.com/)
+- [Meituan](http://www.meituan.com)
+- [Didi](http://www.xiaojukeji.com/)
+
+> If your company or products use Ant Design, welcome to click [here](https://github.com/ant-design/ant-design/issues/477) to leave a message.
+
 ## How to Contribute
 
-Welcome to contribute to Ant Design on Github. If you have any suggestions for improvement, questions,or concerns, do not hesitate to create [Pull Request](https://github.com/ant-design/ant-design/pulls) or advice us [here](https://github.com/ant-design/ant-design/issues).
+Welcome to contribute to Ant Design on Github. If you have any suggestions for improvement, questions,or concerns, do not hesitate to advice us [here](https://github.com/ant-design/ant-design/issues).
