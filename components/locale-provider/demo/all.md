@@ -36,12 +36,6 @@ const columns = [{
   dataIndex: 'age',
 }];
 
-const customLocale = {
-  timezoneOffset: 8 * 60,
-  firstDayOfWeek: 1,
-  minimalDaysInFirstWeek: 1,
-};
-
 const Page = React.createClass({
   getInitialState() {
     return {
@@ -127,10 +121,6 @@ const App = React.createClass({
     }
   },
   render() {
-    const locale = { ...this.state.locale };
-    if (locale.DatePicker) {
-      locale.DatePicker = { ...locale.DatePicker, ...customLocale };
-    }
     return (
       <div>
         <div className="change-locale">
@@ -140,7 +130,7 @@ const App = React.createClass({
             <Radio.Button key="cn">中文</Radio.Button>
           </Radio.Group>
         </div>
-        <LocaleProvider locale={locale}><Page /></LocaleProvider>
+        <LocaleProvider locale={this.state.locale}><Page /></LocaleProvider>
       </div>
     );
   },
