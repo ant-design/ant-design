@@ -35,7 +35,11 @@ export default class Search extends React.Component<SearchProps, any> {
     const { placeholder, value, prefixCls } = this.props;
     return (
       <div>
-        <Input placeholder={placeholder} className={prefixCls} value={value} ref="input"
+        <Input
+          placeholder={placeholder}
+          className={prefixCls}
+          value={value}
+          ref="input"
           onChange={this.handleChange}
         />
         {value && value.length > 0 ?

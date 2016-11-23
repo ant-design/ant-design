@@ -127,7 +127,8 @@ export default class Button extends React.Component<ButtonProps, any> {
     const kids = React.Children.map(children, insertSpace);
 
     return (
-      <button {...others}
+      <button
+        {...others}
         type={htmlType || 'button'}
         className={classes}
         onMouseUp={this.handleMouseUp}
