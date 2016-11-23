@@ -37,6 +37,21 @@ const SIZING_STYLE = [
 let computedStyleCache = {};
 let hiddenTextarea;
 
+function computedStyle(node) {
+  return window.getComputedStyle ? getComputedStyle(node) : node.currentStyle;
+}
+
+function getStylePropertyValue(style, prop) {
+  let value;
+  if (style) {
+    value = window.getComputedStyle ?
+      style.getPropertyValue(prop)
+      :
+      style[prop.replace(/-(\w)/gi, (word, letter) => letter.toUpperCase())];
+  }
+  return value;
+}
+
 function calculateNodeStyling(node, useCache = false) {
   const nodeRef = (
     node.getAttribute('id') ||
@@ -48,26 +63,26 @@ function calculateNodeStyling(node, useCache = false) {
     return computedStyleCache[nodeRef];
   }
 
-  const style = window.getComputedStyle(node);
+  const style = computedStyle(node);
 
   const boxSizing = (
-    style.getPropertyValue('box-sizing') ||
-    style.getPropertyValue('-moz-box-sizing') ||
-    style.getPropertyValue('-webkit-box-sizing')
+    getStylePropertyValue(style, 'box-sizing') ||
+    getStylePropertyValue(style, '-moz-box-sizing') ||
+    getStylePropertyValue(style, '-webkit-box-sizing')
   );
 
   const paddingSize = (
-    parseFloat(style.getPropertyValue('padding-bottom')) +
-    parseFloat(style.getPropertyValue('padding-top'))
+    parseFloat(getStylePropertyValue(style, 'padding-bottom')) +
+    parseFloat(getStylePropertyValue(style, 'padding-top'))
   );
 
   const borderSize = (
-    parseFloat(style.getPropertyValue('border-bottom-width')) +
-    parseFloat(style.getPropertyValue('border-top-width'))
+    parseFloat(getStylePropertyValue(style, 'border-bottom-width')) +
+    parseFloat(getStylePropertyValue(style, 'border-top-width'))
   );
 
   const sizingStyle = SIZING_STYLE
-    .map(name => `${name}:${style.getPropertyValue(name)}`)
+    .map(name => `${name}:${getStylePropertyValue(style, name)}`)
     .join(';');
 
   const nodeInfo = {
