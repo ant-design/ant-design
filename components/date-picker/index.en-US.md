@@ -58,6 +58,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
 | showToday    | whether to show "Today" button | Boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
+| placeholder  | placeholder of date input | string | - |
 
 ### MonthPicker
 
@@ -69,6 +70,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
 | monthCellContentRender | Custom month cell render method | function | 无 |
 | cellContentRender | Custom month cell content render method,the content will be appended to the cell. | function | 无 |
+| placeholder  | placeholder of date input | string | - |
 
 ### RangePicker
 
@@ -81,6 +83,8 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
 | ranges       | preseted ranges for quick selection | Object { [range: string]: [moment, moment] } | - |
+| startPlaceholder  | placeholder of start input | string | - |
+| endPlaceholder  | placeholder of end input | string | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {
