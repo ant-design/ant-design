@@ -1427,7 +1427,8 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
         <span
           class="">
           <div
-            class="ant-upload ant-upload-select ant-upload-select-picture" />
+            class="ant-upload ant-upload-select ant-upload-select-picture"
+            style="display:;" />
           <div
             class="ant-upload-list ant-upload-list-picture" />
         </span>
