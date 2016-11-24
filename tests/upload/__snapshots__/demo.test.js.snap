@@ -2,7 +2,8 @@ exports[`test renders ./components/upload/demo/basic.md correctly 1`] = `
 <span
   class="">
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text" />
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:;" />
   <div
     class="ant-upload-list ant-upload-list-text" />
 </span>
@@ -12,7 +13,8 @@ exports[`test renders ./components/upload/demo/beforeUpload.md correctly 1`] = `
 <span
   class="">
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text" />
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:;" />
   <div
     class="ant-upload-list ant-upload-list-text" />
 </span>
@@ -22,7 +24,8 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
 <span
   class="">
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text" />
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:;" />
   <div
     class="ant-upload-list ant-upload-list-text">
     <div
@@ -90,7 +93,8 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
 <span
   class="">
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text" />
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:;" />
   <div
     class="ant-upload-list ant-upload-list-text">
     <div
@@ -119,7 +123,8 @@ exports[`test renders ./components/upload/demo/inplace.md correctly 1`] = `
 <span
   class="avatar-uploader">
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text" />
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:;" />
 </span>
 `;
 
@@ -127,7 +132,8 @@ exports[`test renders ./components/upload/demo/multiple.md correctly 1`] = `
 <span
   class="">
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text" />
+    class="ant-upload ant-upload-select ant-upload-select-text"
+    style="display:;" />
   <div
     class="ant-upload-list ant-upload-list-text" />
 </span>
@@ -176,7 +182,8 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-upload ant-upload-select ant-upload-select-picture-card" />
+      class="ant-upload ant-upload-select ant-upload-select-picture-card"
+      style="display:;" />
   </span>
   <a
     class="upload-example"
@@ -198,7 +205,8 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
   <span
     class="">
     <div
-      class="ant-upload ant-upload-select ant-upload-select-picture" />
+      class="ant-upload ant-upload-select ant-upload-select-picture"
+      style="display:;" />
     <div
       class="ant-upload-list ant-upload-list-picture">
       <div
@@ -258,7 +266,8 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
   <span
     class="upload-list-inline">
     <div
-      class="ant-upload ant-upload-select ant-upload-select-picture" />
+      class="ant-upload ant-upload-select ant-upload-select-picture"
+      style="display:;" />
     <div
       class="ant-upload-list ant-upload-list-picture">
       <div
