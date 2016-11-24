@@ -280,9 +280,11 @@ export default class Upload extends React.Component {
       [`${prefixCls}-disabled`]: this.props.disabled,
     });
 
-    const uploadButton = this.props.children
-      ? <div className={uploadButtonCls}><RcUpload {...props} ref="upload" /></div>
-      : null;
+    const uploadButton = (
+      <div className={uploadButtonCls} style={{ display: this.props.children ? '' : 'none'}}>
+        <RcUpload {...props} ref="upload" />
+      </div>
+    );
 
     if (this.props.listType === 'picture-card') {
       return (
