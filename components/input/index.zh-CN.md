@@ -35,10 +35,9 @@ title: Input
 
 | 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
 |-----------|------------------------------------------|------------|-------|--------|
-| defaultValue | 初始默认值 | any |  |  |
-| value | value 值 | any |  |  |
-| onChange | 值改变的回调 | function(e) |  |  |
-| onSearch | 点击搜索或按下回车键时的回调 | function |  |  |
+| onSearch | 点击搜索或按下回车键时的回调 | function(value) |  |  |
+
+其余属性和 Input 一致。
 
 #### Input.Group
 
