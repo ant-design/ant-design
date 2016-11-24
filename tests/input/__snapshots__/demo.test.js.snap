@@ -175,8 +175,7 @@ exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
     <input
       class="ant-input ant-input-search"
       placeholder="input search text"
-      type="text"
-      value="" />
+      type="text" />
   </span>
   <i
     class="anticon anticon-search ant-input-search-icon" />
