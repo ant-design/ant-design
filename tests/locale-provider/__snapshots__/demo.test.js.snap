@@ -277,12 +277,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
               </div>
             </div>
             <ul
-              class="ant-transfer-list-content">
-              <div
-                class="ant-transfer-list-body-not-found">
-                Not Found
-              </div>
-            </ul>
+              class="ant-transfer-list-content" />
+            <div
+              class="ant-transfer-list-body-not-found">
+              Not Found
+            </div>
           </div>
         </div>
         <div
@@ -345,12 +344,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
               </div>
             </div>
             <ul
-              class="ant-transfer-list-content">
-              <div
-                class="ant-transfer-list-body-not-found">
-                Not Found
-              </div>
-            </ul>
+              class="ant-transfer-list-content" />
+            <div
+              class="ant-transfer-list-body-not-found">
+              Not Found
+            </div>
           </div>
         </div>
       </div>

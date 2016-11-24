@@ -41,12 +41,11 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
     <div
       class="ant-transfer-list-footer">
@@ -123,12 +122,11 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
     <div
       class="ant-transfer-list-footer">
@@ -215,6 +213,10 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
           class="LazyLoad"
           style="height:32px;" />
       </ul>
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
   <div
@@ -281,6 +283,10 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
           class="LazyLoad"
           style="height:32px;" />
       </ul>
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
 </div>
@@ -311,12 +317,11 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
     <div
       class="ant-transfer-list-body">
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
   <div
@@ -362,12 +367,11 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
     <div
       class="ant-transfer-list-body">
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
 </div>
@@ -397,12 +401,11 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
     <div
       class="ant-transfer-list-body">
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
   <div
@@ -447,12 +450,11 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
     <div
       class="ant-transfer-list-body">
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
 </div>
@@ -500,12 +502,11 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
   <div
@@ -568,12 +569,11 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-transfer-list-content">
-        <div
-          class="ant-transfer-list-body-not-found">
-          Not Found
-        </div>
-      </ul>
+        class="ant-transfer-list-content" />
+      <div
+        class="ant-transfer-list-body-not-found">
+        Not Found
+      </div>
     </div>
   </div>
 </div>
