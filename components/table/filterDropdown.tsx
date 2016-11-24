@@ -95,13 +95,15 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   renderMenuItem(item) {
     const { column } = this.props;
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
+    const input = multiple ? (
+      <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+    ) : (
+      <Radio checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
+    );
+
     return (
       <MenuItem key={item.value}>
-        {
-          multiple
-            ? <Checkbox checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-            : <Radio checked={this.state.selectedKeys.indexOf(item.value.toString()) >= 0} />
-        }
+        {input}
         <span>{item.text}</span>
       </MenuItem>
     );

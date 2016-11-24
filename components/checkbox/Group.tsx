@@ -84,22 +84,21 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   }
   render() {
     const { prefixCls } = this.props;
-    const options = this.getOptions();
+    const options = this.getOptions().map(option =>
+      <Checkbox
+        disabled={'disabled' in option ? option.disabled : this.props.disabled}
+        checked={this.state.value.indexOf(option.value) !== -1}
+        onChange={() => this.toggleOption(option)}
+        className={`${prefixCls}-item`}
+        key={option.value}
+      >
+        {option.label}
+      </Checkbox>
+    );
+
     return (
       <div className={prefixCls}>
-        {
-          options.map(option =>
-            <Checkbox
-              disabled={'disabled' in option ? option.disabled : this.props.disabled}
-              checked={this.state.value.indexOf(option.value) !== -1}
-              onChange={() => this.toggleOption(option)}
-              className={`${prefixCls}-item`}
-              key={option.value}
-            >
-              {option.label}
-            </Checkbox>
-          )
-        }
+        {options}
       </div>
     );
   }

@@ -141,6 +141,32 @@ export default class RangePicker extends React.Component<any, any> {
         onClick={this.clearSelection}
       /> : null;
 
+    const input = ({ value }) => {
+      const start = value[0];
+      const end = value[1];
+      return (
+        <span className={props.pickerInputClass} disabled={props.disabled}>
+          <input
+            disabled={props.disabled}
+            readOnly
+            value={(start && start.format(props.format)) || ''}
+            placeholder={startPlaceholder}
+            className={`${prefixCls}-range-picker-input`}
+          />
+          <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
+          <input
+            disabled={props.disabled}
+            readOnly
+            value={(end && end.format(props.format)) || ''}
+            placeholder={endPlaceholder}
+            className={`${prefixCls}-range-picker-input`}
+          />
+          {clearIcon}
+          <span className={`${prefixCls}-picker-icon`} />
+        </span>
+      );
+    };
+
     return (<span className={props.pickerClass} style={style}>
       <RcDatePicker
         {...props}
@@ -152,33 +178,7 @@ export default class RangePicker extends React.Component<any, any> {
         prefixCls={`${prefixCls}-picker-container`}
         style={popupStyle}
       >
-        {
-          ({ value }) => {
-            const start = value[0];
-            const end = value[1];
-            return (
-              <span className={props.pickerInputClass} disabled={props.disabled}>
-                <input
-                  disabled={props.disabled}
-                  readOnly
-                  value={(start && start.format(props.format)) || ''}
-                  placeholder={startPlaceholder}
-                  className={`${prefixCls}-range-picker-input`}
-                />
-                <span className={`${prefixCls}-range-picker-separator`}> ~ </span>
-                <input
-                  disabled={props.disabled}
-                  readOnly
-                  value={(end && end.format(props.format)) || ''}
-                  placeholder={endPlaceholder}
-                  className={`${prefixCls}-range-picker-input`}
-                />
-                {clearIcon}
-                <span className={`${prefixCls}-picker-icon`} />
-              </span>
-            );
-          }
-        }
+        {input}
       </RcDatePicker>
     </span>);
   }

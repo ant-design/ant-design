@@ -83,6 +83,19 @@ export default class Badge extends React.Component<BadgeProps, any> {
       );
     }
 
+    const scrollNumber = hidden ? null : (
+      <ScrollNumber
+        data-show={!hidden}
+        className={scrollNumberCls}
+        count={count}
+        style={style}
+      />
+    );
+
+    const statusText = (hidden || !text) ? null : (
+      <span className={`${prefixCls}-status-text`}>{text}</span>
+    );
+
     return (
       <span {...restProps} className={badgeCls} title={realCount}>
         {children}
@@ -92,20 +105,9 @@ export default class Badge extends React.Component<BadgeProps, any> {
           transitionName={children ? `${prefixCls}-zoom` : ''}
           transitionAppear
         >
-          {
-            hidden ? null :
-              <ScrollNumber
-                data-show={!hidden}
-                className={scrollNumberCls}
-                count={count}
-                style={style}
-              />
-          }
+          {scrollNumber}
         </Animate>
-        {
-          hidden || !text ? null :
-            <span className={`${prefixCls}-status-text`}>{text}</span>
-        }
+        {statusText}
       </span>
     );
   }

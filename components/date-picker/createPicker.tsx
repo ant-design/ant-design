@@ -134,6 +134,21 @@ export default function createPicker(TheCalendar) {
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
         /> : null;
+
+      const input = ({ value }) => (
+        <span>
+          <input
+            disabled={props.disabled}
+            readOnly
+            value={(value && value.format(props.format)) || ''}
+            placeholder={placeholder}
+            className={props.pickerInputClass}
+          />
+          {clearIcon}
+          <span className={`${prefixCls}-picker-icon`} />
+        </span>
+      );
+
       return (
         <span className={props.pickerClass} style={props.style}>
           <RcDatePicker
@@ -145,23 +160,7 @@ export default function createPicker(TheCalendar) {
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
-            {
-              ({ value }) => {
-                return (
-                  <span>
-                    <input
-                      disabled={props.disabled}
-                      readOnly
-                      value={(value && value.format(props.format)) || ''}
-                      placeholder={placeholder}
-                      className={props.pickerInputClass}
-                    />
-                    {clearIcon}
-                    <span className={`${prefixCls}-picker-icon`} />
-                  </span>
-                );
-              }
-            }
+            {input}
           </RcDatePicker>
         </span>
       );
