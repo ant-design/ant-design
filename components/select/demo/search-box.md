@@ -69,10 +69,11 @@ const SearchInput = React.createClass({
   handleSubmit() {
     console.log('输入框内容是: ', this.state.value);
   },
-  handleFocusBlur(e) {
-    this.setState({
-      focus: e.target === document.activeElement,
-    });
+  handleFocus() {
+    this.setState({ focus: true });
+  },
+  handleBlur() {
+    this.setState({ focus: false });
   },
   render() {
     const btnCls = classNames({
@@ -96,8 +97,8 @@ const SearchInput = React.createClass({
             showArrow={false}
             filterOption={false}
             onChange={this.handleChange}
-            onFocus={this.handleFocusBlur}
-            onBlur={this.handleFocusBlur}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
           >
             {options}
           </Select>
