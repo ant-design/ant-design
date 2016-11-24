@@ -57,6 +57,7 @@ export interface InputProps {
 
 export default class Input extends Component<InputProps, any> {
   static Group: any;
+  static Search: any;
   static defaultProps = {
     disabled: false,
     prefixCls: 'ant-input',

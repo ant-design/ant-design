@@ -3,44 +3,42 @@
 @import "../../button/style/mixin";
 @import "./mixin";
 
-.@{ant-prefix}-search-input-wrapper {
+.@{ant-prefix}-input-search-wrapper {
   display: inline-block;
   vertical-align: middle;
+  position: relative;
+  min-width: 24px;
+  height: @input-height-base;
+
+  .@{ant-prefix}-input-search {
+    opacity: 0;
+    width: 0;
+    transition: all .3s ease;
+  }
+
+  .@{ant-prefix}-input-search-icon {
+    position: absolute;
+    line-height: @input-height-base;
+    left: 0;
+    cursor: pointer;
+    font-size: 24px;
+    transition: all .3s ease;
+
+    &:hover {
+      color: @input-hover-border-color;
+    }
+  }
 }
 
-.@{ant-prefix}-search-input {
-  &.@{ant-prefix}-input-group .@{ant-prefix}-input:first-child,
-  &.@{ant-prefix}-input-group .@{ant-prefix}-select:first-child {
-    border-radius: @border-radius-base;
-    position: absolute;
-    top: -1px;
+.@{ant-prefix}-input-search-wrapper-focus {
+  .@{ant-prefix}-input-search {
+    opacity: 1;
     width: 100%;
   }
 
-  &.@{ant-prefix}-input-group .@{ant-prefix}-input:first-child {
-    padding-right: 36px;
-  }
-
-  .@{ant-prefix}-search-btn {
-    .btn-default;
-    border-radius: 0 @border-radius-base - 1 @border-radius-base - 1 0;
-    left: -1px;
-    position: relative;
-    border-width: 0 0 0 1px;
-    z-index: 2;
-    padding-left: 8px;
-    padding-right: 8px;
-    &:hover {
-      border-color: @border-color-base;
-    }
-  }
-  &&-focus .@{ant-prefix}-search-btn-noempty,
-  &:hover .@{ant-prefix}-search-btn-noempty {
-    .btn-primary;
-  }
-  .@{ant-prefix}-select-combobox {
-    .@{ant-prefix}-select-selection__rendered {
-      margin-right: 29px;
-    }
+  .@{ant-prefix}-input-search-icon {
+    left: 100%;
+    margin-left: -22px;
+    font-size: 14px;
   }
 }

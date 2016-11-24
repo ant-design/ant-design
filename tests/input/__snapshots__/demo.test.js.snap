@@ -169,28 +169,17 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
 
 exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
 <div
-  class="ant-search-input-wrapper"
-  style="width:200px;">
+  class="ant-input-search-wrapper">
   <span
-    class="ant-input-group ant-search-input">
-    <span
-      class="ant-input-wrapper">
-      <input
-        class="ant-input"
-        placeholder="input search text"
-        type="text"
-        value="" />
-    </span>
-    <div
-      class="ant-input-group-wrap">
-      <button
-        class="ant-btn ant-btn-icon-only ant-search-btn"
-        type="button">
-        <i
-          class="anticon anticon-search " />
-      </button>
-    </div>
+    class="ant-input-wrapper">
+    <input
+      class="ant-input ant-input-search"
+      placeholder="input search text"
+      type="text"
+      value="" />
   </span>
+  <i
+    class="anticon anticon-search ant-input-search-icon" />
 </div>
 `;
 
@@ -229,4 +218,21 @@ exports[`test renders ./components/input/demo/textarea.md correctly 1`] = `
     rows="4"
     type="textarea" />
 </span>
+`;
+
+exports[`test renders ./components/input/demo/tooltip.md correctly 1`] = `
+<div
+  class="numeric-input-demo">
+  <div>
+    <span
+      class="ant-input-wrapper">
+      <input
+        class="ant-input"
+        maxlength="25"
+        placeholder="input a number"
+        type="text"
+        value="" />
+    </span>
+  </div>
+</div>
 `;

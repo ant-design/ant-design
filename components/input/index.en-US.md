@@ -32,6 +32,15 @@ Keyboard and mouse can be used for providing or changing data.
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined  
 then `value`, `defaultValue`, and `id` props are automatically set.
 
+#### Input.Search
+
+| Property  | Description                          | Type       |  Available Values  | Default |
+|-----------|------------------------------------------|------------|-------|--------|
+| defaultValue | The initial value. | any |  |  |
+| value | The content value. | any |  |  |
+| onChange | The callback function that is triggered when you change the value. | function(e) |  |  |
+| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function |  |  |
+
 #### Input.Group
 
 | Property  | Description                      | Type   | Available Values            | Default   |

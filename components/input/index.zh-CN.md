@@ -31,6 +31,15 @@ title: Input
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
+#### Input.Search
+
+| 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
+|-----------|------------------------------------------|------------|-------|--------|
+| defaultValue | 初始默认值 | any |  |  |
+| value | value 值 | any |  |  |
+| onChange | 值改变的回调 | function(e) |  |  |
+| onSearch | 点击搜索或按下回车键时的回调 | function |  |  |
+
 #### Input.Group
 
 | 参数      | 说明                                     | 类型       |  可选值 | 默认值 |
