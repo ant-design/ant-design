@@ -44,7 +44,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
 
     let checkable = props.treeCheckable;
     if (checkable) {
-      checkable = <span className={`${prefixCls}-tree-checkbox-inner`}></span>;
+      checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
     return (

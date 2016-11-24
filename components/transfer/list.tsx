@@ -178,7 +178,7 @@ export default class TransferList extends React.Component<TransferListProps, any
             prefixCls: outerPrefixCls,
             checked: checkStatus === 'all',
             checkPart: checkStatus === 'part',
-            checkable: <span className={`${outerPrefixCls}-checkbox-inner`}></span>,
+            checkable: <span className={`${outerPrefixCls}-checkbox-inner`} />,
             filteredDataSource,
             disabled: false,
           })}
