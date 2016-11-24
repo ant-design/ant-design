@@ -208,10 +208,11 @@ export default class TransferList extends React.Component<TransferListProps, any
               transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
               transitionLeave={false}
             >
-              {showItems.length > 0
-                ? showItems
-                : <div key="not-found" className={`${prefixCls}-body-not-found`}>{notFoundContent || 'Not Found'}</div>}
+              {showItems}
             </Animate>
+            <div className={`${prefixCls}-body-not-found`}>
+              {notFoundContent || 'Not Found'}
+            </div>
           </div>}
         {footerDom ? <div className={`${prefixCls}-footer`}>
           {footerDom}
