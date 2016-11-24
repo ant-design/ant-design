@@ -15,9 +15,9 @@ Example of creating a search box by grouping a standard input with a search butt
 
 ````jsx
 import { Input } from 'antd';
-const InputSearch = Input.Search;
+const Search = Input.Search;
 
 ReactDOM.render(
-  <InputSearch placeholder="input search text" onSearch={value => console.log(value)} />
+  <Search placeholder="input search text" onSearch={value => console.log(value)} />
 , mountNode);
 ````

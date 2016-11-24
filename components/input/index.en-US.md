@@ -29,17 +29,16 @@ Keyboard and mouse can be used for providing or changing data.
 | onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |   |
 | autosize | Height autosize feature, available when type="textarea". | bool or object | `true` or `{ minRows: 2, maxRows: 6 }` | false |
 
-> When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined  
+> When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined
 then `value`, `defaultValue`, and `id` props are automatically set.
 
 #### Input.Search
 
 | Property  | Description                          | Type       |  Available Values  | Default |
 |-----------|------------------------------------------|------------|-------|--------|
-| defaultValue | The initial value. | any |  |  |
-| value | The content value. | any |  |  |
-| onChange | The callback function that is triggered when you change the value. | function(e) |  |  |
-| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function |  |  |
+| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value) |  |  |
+
+Support all props of `Input`.
 
 #### Input.Group
 

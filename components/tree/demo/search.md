@@ -17,6 +17,7 @@ Searchable Tree.
 import { Tree, Input } from 'antd';
 
 const TreeNode = Tree.TreeNode;
+const Search = Input.Search;
 
 const x = 3;
 const y = 2;
@@ -129,7 +130,7 @@ class SearchTree extends React.Component {
     });
     return (
       <div>
-        <Input
+        <Search
           style={{ width: 200 }}
           placeholder="Search"
           onChange={this.onChange}

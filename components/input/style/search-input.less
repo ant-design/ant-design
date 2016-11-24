@@ -5,40 +5,27 @@
 
 .@{ant-prefix}-input-search-wrapper {
   display: inline-block;
-  vertical-align: middle;
   position: relative;
-  min-width: 24px;
-  height: @input-height-base;
 
   .@{ant-prefix}-input-search {
-    opacity: 0;
-    width: 0;
     transition: all .3s ease;
-  }
-
-  .@{ant-prefix}-input-search-icon {
-    position: absolute;
-    line-height: @input-height-base;
-    left: 0;
-    cursor: pointer;
-    font-size: 24px;
-    transition: all .3s ease;
-
-    &:hover {
-      color: @input-hover-border-color;
+    &-icon {
+      position: absolute;
+      right: 8px;
+      cursor: pointer;
+      transition: all .3s ease;
+      font-size: 14px;
+      height: 20px;
+      line-height: 20px;
+      top: 50%;
+      margin-top: -10px;
+      &:hover {
+        color: @input-hover-border-color;
+      }
     }
   }
-}
 
-.@{ant-prefix}-input-search-wrapper-focus {
-  .@{ant-prefix}-input-search {
-    opacity: 1;
-    width: 100%;
-  }
-
-  .@{ant-prefix}-input-search-icon {
-    left: 100%;
-    margin-left: -22px;
-    font-size: 14px;
+  &:hover .@{ant-prefix}-input-search {
+    border: 1px solid @input-hover-border-color;
   }
 }
