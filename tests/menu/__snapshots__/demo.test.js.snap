@@ -26,7 +26,7 @@ exports[`test renders ./components/menu/demo/horizontal.md correctly 1`] = `
     <div
       aria-expanded="false"
       aria-haspopup="true"
-      aria-owns="item_1479794689969_2$Menu"
+      aria-owns="item_2$Menu"
       class="ant-menu-submenu-title">
       <span>
         <i
