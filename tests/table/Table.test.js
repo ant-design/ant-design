@@ -2,7 +2,7 @@ import React from 'react';
 import createStore from '../../components/table/createStore';
 import Table from '../../components/table';
 import TestUtils from 'react-addons-test-utils';
-import { render, mount } from 'enzyme';
+import { render, mount, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 
 const { Column, ColumnGroup } = Table;
@@ -174,5 +174,22 @@ describe('Table', () => {
 
       expect(renderToJson(wrapper)).toMatchSnapshot();
     });
+  });
+
+  it('updates columns when receiving props', () => {
+    const columns = [{
+      title: 'Name',
+      key: 'name',
+      dataIndex: 'name'
+    }];
+    const wrapper = shallow(<Table columns={columns} />);
+    const newColumns = [{
+      title: 'Title',
+      key: 'title',
+      dataIndex: 'title'
+    }];
+    wrapper.setProps({ columns: newColumns });
+
+    expect(wrapper.instance().columns).toBe(newColumns);
   });
 })

@@ -215,8 +215,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       )) {
         this.CheckboxPropsCache = {};
       }
-
-      this.columns = nextProps.columns || normalizeColumns(nextProps.children);
     }
 
     if (this.getSortOrderColumns(nextProps.columns).length > 0) {
@@ -238,6 +236,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         this.setState({ filters: newFilters });
       }
     }
+
+    this.columns = nextProps.columns || normalizeColumns(nextProps.children);
   }
 
   setSelectedRowKeys(selectedRowKeys, { selectWay, record, checked, changeRowKeys }: any) {
