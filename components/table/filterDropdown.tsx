@@ -146,7 +146,11 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
     const { column, locale, prefixCls, dropdownPrefixCls } = this.props;
     // default multiple selection in filter dropdown
     const multiple = ('filterMultiple' in column) ? column.filterMultiple : true;
-    const menus = column.filterDropdown ? column.filterDropdown : (
+    const menus = column.filterDropdown ? (
+      <FilterDropdownMenuWrapper>
+        {column.filterDropdown}
+      </FilterDropdownMenuWrapper>
+    ) : (
       <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         <Menu
           multiple={multiple}
