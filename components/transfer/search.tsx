@@ -33,6 +33,14 @@ export default class Search extends React.Component<SearchProps, any> {
 
   render() {
     const { placeholder, value, prefixCls } = this.props;
+    const icon = (value && value.length > 0) ? (
+      <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
+        <Icon type="cross-circle" />
+      </a>
+    ) : (
+      <span className={`${prefixCls}-action`}><Icon type="search" /></span>
+    );
+
     return (
       <div>
         <Input
@@ -42,12 +50,7 @@ export default class Search extends React.Component<SearchProps, any> {
           ref="input"
           onChange={this.handleChange}
         />
-        {value && value.length > 0 ?
-          <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
-            <Icon type="cross-circle" />
-          </a>
-          : <span className={`${prefixCls}-action`}><Icon type="search" /></span>
-        }
+        {icon}
       </div>
     );
   }

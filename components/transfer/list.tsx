@@ -171,6 +171,37 @@ export default class TransferList extends React.Component<TransferListProps, any
     const checkStatus = this.getCheckStatus(filteredDataSource);
     const outerPrefixCls = prefixCls.replace('-list', '');
 
+    const listBody = bodyDom || (
+      <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
+        {showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
+          <Search
+            prefixCls={`${prefixCls}-search`}
+            onChange={this.handleFilter}
+            handleClear={this.handleClear}
+            placeholder={searchPlaceholder || 'Search'}
+            value={filter}
+          />
+        </div> : null}
+        <Animate
+          component="ul"
+          className={`${prefixCls}-content`}
+          transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
+          transitionLeave={false}
+        >
+          {showItems}
+        </Animate>
+        <div className={`${prefixCls}-body-not-found`}>
+          {notFoundContent || 'Not Found'}
+        </div>
+      </div>
+    );
+
+    const listFooter = footerDom ? (
+      <div className={`${prefixCls}-footer`}>
+        {footerDom}
+      </div>
+    ) : null;
+
     return (
       <div className={listCls} style={style}>
         <div className={`${prefixCls}-header`}>
@@ -191,32 +222,8 @@ export default class TransferList extends React.Component<TransferListProps, any
             </span>
           </span>
         </div>
-        {bodyDom ||
-          <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
-            {showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-              <Search
-                prefixCls={`${prefixCls}-search`}
-                onChange={this.handleFilter}
-                handleClear={this.handleClear}
-                placeholder={searchPlaceholder || 'Search'}
-                value={filter}
-              />
-            </div> : null}
-            <Animate
-              component="ul"
-              className={`${prefixCls}-content`}
-              transitionName={this.state.mounted ? `${prefixCls}-content-item-highlight` : ''}
-              transitionLeave={false}
-            >
-              {showItems}
-            </Animate>
-            <div className={`${prefixCls}-body-not-found`}>
-              {notFoundContent || 'Not Found'}
-            </div>
-          </div>}
-        {footerDom ? <div className={`${prefixCls}-footer`}>
-          {footerDom}
-        </div> : null}
+        {listBody}
+        {listFooter}
       </div>
     );
   }

@@ -121,17 +121,19 @@ export default class Tabs extends React.Component<TabsProps, any> {
       </div>
     ) : null;
 
+    const renderTabBar = () => (
+      <ScrollableInkTabBar
+        extraContent={tabBarExtraContent}
+        onTabClick={onTabClick}
+      />
+    );
+
     return (
       <RcTabs
         {...this.props}
         className={cls}
         tabBarPosition={tabPosition}
-        renderTabBar={() => (
-          <ScrollableInkTabBar
-            extraContent={tabBarExtraContent}
-            onTabClick={onTabClick}
-          />
-        )}
+        renderTabBar={renderTabBar}
         renderTabContent={() => <TabContent animated={animated} />}
         onChange={this.handleChange}
       >

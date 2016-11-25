@@ -118,15 +118,15 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       'visibilityHeight',
     ]);
 
+    const backTopBtn = this.state.visible ? (
+      <div {...divProps} className={classString} onClick={this.scrollToTop}>
+        {children || defaultElement}
+      </div>
+    ) : null;
+
     return (
       <Animate component="" transitionName="fade">
-        {
-          this.state.visible ?
-            <div {...divProps} className={classString} onClick={this.scrollToTop}>
-              {children || defaultElement}
-            </div>
-          : null
-        }
+        {backTopBtn}
       </Animate>
     );
   }

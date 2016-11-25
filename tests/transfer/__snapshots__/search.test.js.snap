@@ -1,0 +1,75 @@
+exports[`Search shows cross icon when user inputting 1`] = `
+<Search
+  placeholder=""
+  value={true}>
+  <div>
+    <Input
+      autosize={false}
+      disabled={false}
+      onChange={[Function]}
+      placeholder=""
+      prefixCls="ant-input"
+      type="text"
+      value={true}>
+      <span
+        className="ant-input-wrapper">
+        <input
+          className="ant-input"
+          disabled={false}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          type="text"
+          value={true} />
+      </span>
+    </Input>
+    <span
+      className="undefined-action">
+      <Component
+        type="search">
+        <i
+          className="anticon anticon-search " />
+      </Component>
+    </span>
+  </div>
+</Search>
+`;
+
+exports[`Search shows cross icon when user inputting 2`] = `
+<Search
+  placeholder=""
+  value="a">
+  <div>
+    <Input
+      autosize={false}
+      disabled={false}
+      onChange={[Function]}
+      placeholder=""
+      prefixCls="ant-input"
+      type="text"
+      value="a">
+      <span
+        className="ant-input-wrapper">
+        <input
+          className="ant-input"
+          disabled={false}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          type="text"
+          value="a" />
+      </span>
+    </Input>
+    <a
+      className="undefined-action"
+      href="#"
+      onClick={[Function]}>
+      <Component
+        type="cross-circle">
+        <i
+          className="anticon anticon-cross-circle " />
+      </Component>
+    </a>
+  </div>
+</Search>
+`;

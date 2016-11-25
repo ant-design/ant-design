@@ -108,6 +108,12 @@ export default class Alert extends React.Component<AlertProps, any> {
       closable = true;
     }
 
+    const closeIcon = closable ? (
+      <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
+        {closeText || <Icon type="cross" />}
+      </a>
+    ) : null;
+
     return this.state.closed ? null : (
       <Animate
         component=""
@@ -119,9 +125,7 @@ export default class Alert extends React.Component<AlertProps, any> {
           {showIcon ? <Icon className={`${prefixCls}-icon`} type={iconType} /> : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>
-          {closable ? <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-            {closeText || <Icon type="cross" />}
-          </a> : null}
+          {closeIcon}
         </div>
       </Animate>
     );

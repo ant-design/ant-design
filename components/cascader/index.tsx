@@ -310,6 +310,33 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     if (resultListMatchInputWidth && state.inputValue && this.refs.input) {
       dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
     }
+
+    const input = children || (
+      <span
+        style={style}
+        className={pickerCls}
+      >
+        <Input
+          {...inputProps}
+          ref="input"
+          placeholder={value && value.length > 0 ? null : placeholder}
+          className={`${prefixCls}-input ${sizeCls}`}
+          value={state.inputValue}
+          disabled={disabled}
+          readOnly={!showSearch}
+          autoComplete="off"
+          onClick={showSearch ? this.handleInputClick : undefined}
+          onBlur={showSearch ? this.handleInputBlur : undefined}
+          onChange={showSearch ? this.handleInputChange : undefined}
+        />
+        <span className={`${prefixCls}-picker-label`}>
+          {this.getLabel()}
+        </span>
+        {clearIcon}
+        <Icon type="down" className={arrowCls} />
+      </span>
+    );
+
     return (
       <RcCascader
         {...props}
@@ -320,31 +347,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         onChange={this.handleChange}
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
       >
-        {children ||
-          <span
-            style={style}
-            className={pickerCls}
-          >
-            <Input
-              {...inputProps}
-              ref="input"
-              placeholder={value && value.length > 0 ? null : placeholder}
-              className={`${prefixCls}-input ${sizeCls}`}
-              value={state.inputValue}
-              disabled={disabled}
-              readOnly={!showSearch}
-              autoComplete="off"
-              onClick={showSearch ? this.handleInputClick : undefined}
-              onBlur={showSearch ? this.handleInputBlur : undefined}
-              onChange={showSearch ? this.handleInputChange : undefined}
-            />
-            <span className={`${prefixCls}-picker-label`}>
-              {this.getLabel()}
-            </span>
-            {clearIcon}
-            <Icon type="down" className={arrowCls} />
-          </span>
-        }
+        {input}
       </RcCascader>
     );
   }

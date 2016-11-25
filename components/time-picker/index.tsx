@@ -100,6 +100,14 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
 
+    const addon = (panel) => (
+      props.addon ? (
+        <div className={`${props.prefixCls}-panel-addon`}>
+          {props.addon(panel)}
+        </div>
+      ) : null
+    );
+
     return (
       <RcTimePicker
         {...props}
@@ -110,11 +118,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         showMinute={props.format.indexOf('mm') > -1}
         showSecond={props.format.indexOf('ss') > -1}
         onChange={this.handleChange}
-        addon={(panel) => (
-          props.addon ? <div className={`${props.prefixCls}-panel-addon`}>
-            {props.addon(panel)}
-          </div> : null
-        )}
+        addon={addon}
       />
     );
   }

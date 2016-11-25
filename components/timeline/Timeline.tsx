@@ -26,18 +26,18 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       [`${prefixCls}-pending`]: !!pending,
       [className]: className,
     });
+    const items = React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
+      React.cloneElement(ele, {
+        last: idx === children.length - 1,
+      })
+    );
+    const pendingItem = (!!pending) ? (
+      <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
+    ) : null;
     return (
       <ul {...restProps} className={classString}>
-        {
-          React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
-            React.cloneElement(ele, {
-              last: idx === children.length - 1,
-            })
-          )
-        }
-        {(!!pending)
-          ? <TimelineItem pending={!!pending}>{pendingNode}</TimelineItem>
-          : null}
+        {items}
+        {pendingItem}
       </ul>
     );
   }

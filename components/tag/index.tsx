@@ -92,6 +92,20 @@ export default class Tag extends React.Component<TagProps, any> {
       'onClose',
       'afterClose',
     ]);
+    const tagStyle = assign({
+      backgroundColor: /blue|red|green|yellow/.test(color) ? null : color,
+    }, style);
+    const tag = this.state.closed ? null : (
+      <div
+        data-show={!this.state.closing}
+        {...divProps}
+        className={classString}
+        style={tagStyle}
+      >
+        <span className={`${prefixCls}-text`}>{children}</span>
+        {closeIcon}
+      </div>
+    );
     return (
       <Animate
         component=""
@@ -100,19 +114,7 @@ export default class Tag extends React.Component<TagProps, any> {
         transitionAppear
         onEnd={this.animationEnd}
       >
-        {this.state.closed ? null : (
-          <div
-            data-show={!this.state.closing}
-            {...divProps}
-            className={classString}
-            style={assign({
-              backgroundColor: /blue|red|green|yellow/.test(color) ? null : color,
-            }, style)}
-          >
-            <span className={`${prefixCls}-text`}>{children}</span>
-            {closeIcon}
-          </div>
-        ) }
+        {tag}
       </Animate>
     );
   }

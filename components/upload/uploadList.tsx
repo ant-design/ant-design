@@ -101,51 +101,51 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-item`]: true,
         [`${prefixCls}-list-item-${file.status}`]: true,
       });
+      const preview = file.url ? (
+        <a
+          href={file.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${prefixCls}-list-item-name`}
+          onClick={e => this.handlePreview(file, e)}
+        >
+          {file.name}
+        </a>
+      ) : (
+        <span
+          className={`${prefixCls}-list-item-name`}
+          onClick={e => this.handlePreview(file, e)}
+        >
+          {file.name}
+        </span>
+      );
+      const style = (file.url || file.thumbUrl) ? undefined : {
+        pointerEvents: 'none',
+        opacity: 0.5,
+      };
+      const actions = (listType === 'picture-card' && file.status !== 'uploading') ? (
+        <span>
+          <a
+            href={file.url || file.thumbUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={style}
+            onClick={e => this.handlePreview(file, e)}
+          >
+            <Icon type="eye-o" />
+          </a>
+          <Icon type="delete" title="Remove file" onClick={() => this.handleClose(file)} />
+        </span>
+      ) : (
+        <Icon type="cross" title="Remove file" onClick={() => this.handleClose(file)} />
+      );
+
       return (
         <div className={infoUploadingClass} key={file.uid}>
           <div className={`${prefixCls}-list-item-info`}>
             {icon}
-            {
-              file.url
-              ? (
-                <a
-                  href={file.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`${prefixCls}-list-item-name`}
-                  onClick={e => this.handlePreview(file, e)}
-                >
-                  {file.name}
-                </a>
-              ) : (
-                <span
-                  className={`${prefixCls}-list-item-name`}
-                  onClick={e => this.handlePreview(file, e)}
-                >
-                  {file.name}
-                </span>
-              )
-            }
-            {
-              listType === 'picture-card' && file.status !== 'uploading'
-              ? (
-                <span>
-                  <a
-                    href={file.url || file.thumbUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={(file.url || file.thumbUrl) ? undefined : {
-                      pointerEvents: 'none',
-                      opacity: 0.5,
-                    }}
-                    onClick={e => this.handlePreview(file, e)}
-                  >
-                    <Icon type="eye-o" />
-                  </a>
-                  <Icon type="delete" title="Remove file" onClick={() => this.handleClose(file)} />
-                </span>
-              ) : <Icon type="cross" title="Remove file" onClick={() => this.handleClose(file)} />
-            }
+            {preview}
+            {actions}
           </div>
           {progress}
         </div>
