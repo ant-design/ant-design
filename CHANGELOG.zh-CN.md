@@ -5,7 +5,7 @@ toc: false
 timeline: true
 ---
 
-如果需要查看 `1.11.2` 及之前的更新日志，请移步 [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0)。
+如果需要查看 `2.0.0` 之前的更新日志，请移步 [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0)。
 
 ---
 
@@ -24,19 +24,16 @@ timeline: true
   * 修复 DatePicker 设置 `showTime` 后 “此刻” 按钮失效的问题。[#3748](https://github.com/ant-design/ant-design/issues/3748)
   * 修复 `RangePicker[format]` 失效的问题。[#3808](https://github.com/ant-design/ant-design/issues/3808)
 * 新增并优化部分 Icon。[#3977](https://github.com/ant-design/ant-design/pull/3977)
-* 新增 Input.Search 控件。[demo](TODO)
+* 新增 Input.Search 控件。[demo](https://ant.design/components/input/#components-input-demo-search-input)
 * Mention onSelect 事件现在可以获取完整的数据。[#3867](https://github.com/ant-design/ant-design/issues/3867)
-* Pagination 现在支持展示当前页的索引范围。[demo](TODO)
+* Pagination 现在支持展示当前页的索引范围。[demo](https://ant.design/components/pagination/#components-pagination-demo-total)
 * Table
-  * 自定义筛选的显示隐藏现在可以通过代码控制。[#3003](https://github.com/ant-design/ant-design/issues/3003)
-  * 支持 JSX 风格的方式设置 columns。[demo](TODO)
+  * 自定义筛选的显示隐藏现在可以通过代码控制。[demo](https://ant.design/components/table/#components-table-demo-custom-filter-panel)
+  * 支持 JSX 风格的方式设置 columns。[demo](https://ant.design/components/table/#components-table-demo-jsx)
   * 现在可以监听单元格的点击事件。[#3774](https://github.com/ant-design/ant-design/issues/3774)
   * 修复无边框 Table 头部的圆角样式问题。
   * 修复 title 和 footer 高度不随 `Table[size]` 变化的问题。[commit](https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23)
   * 修复选中状态出错的问题。[#3900](https://github.com/ant-design/ant-design/issues/3900)
-* Anchor
-  * 修复特殊 id 会导致报错的问题。[#3844](https://github.com/ant-design/ant-design/issues/3844)
-  * 修复初始化定位不准确的问题。[#3832](https://github.com/ant-design/ant-design/issues/3832)
 * Upload
   * 修复 children 不能为 `null` 的问题，并发布 `1.11.4`。
   * 修复预览逻辑的问题。[commit](https://github.com/ant-design/ant-design/commit/e552880c32aaa3f5b0fb09a5e1fb7454c24d5378)
