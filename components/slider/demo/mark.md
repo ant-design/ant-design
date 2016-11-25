@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 5
 title:
   zh-CN: 带标签的滑块
   en-US: Graduated slider
