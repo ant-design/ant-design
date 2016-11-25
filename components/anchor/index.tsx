@@ -83,11 +83,9 @@ export default class Anchor extends React.Component<AnchorProps, any> {
   }
 
   clickAnchorLink = (href, component) => {
-    this.refs.ink.style.transition = 'top 0.01s ease-in-out';
     this._avoidInk = true;
     this.refs.ink.style.top = `${component.offsetTop + component.clientHeight / 2 - 4.5}px`;
     this.anchorHelper.scrollTo(href, getDefaultTarget, () => {
-      this.refs.ink.style.transition = 'top 0.3s ease-in-out';
       this._avoidInk = false;
     });
   }
