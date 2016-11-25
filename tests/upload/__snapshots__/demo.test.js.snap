@@ -1,15 +1,13 @@
-exports[`test renders ./components/upload/demo/basic.md correctly 1`] = `
+exports[`test renders ./components/upload/demo/avatar.md correctly 1`] = `
 <span
-  class="">
+  class="avatar-uploader">
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
     style="display:;" />
-  <div
-    class="ant-upload-list ant-upload-list-text" />
 </span>
 `;
 
-exports[`test renders ./components/upload/demo/beforeUpload.md correctly 1`] = `
+exports[`test renders ./components/upload/demo/basic.md correctly 1`] = `
 <span
   class="">
   <div
@@ -69,23 +67,13 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
 `;
 
 exports[`test renders ./components/upload/demo/drag.md correctly 1`] = `
-<div>
-  <div
-    style="width:246px;height:140px;">
-    <span
-      class="">
-      <div
-        class="ant-upload ant-upload-drag" />
-    </span>
-  </div>
-  <div
-    style="margin-top:16px;height:180px;">
-    <span
-      class="">
-      <div
-        class="ant-upload ant-upload-drag" />
-    </span>
-  </div>
+<div
+  style="margin-top:16px;height:180px;">
+  <span
+    class="">
+    <div
+      class="ant-upload ant-upload-drag" />
+  </span>
 </div>
 `;
 
@@ -116,26 +104,6 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
       </div>
     </div>
   </div>
-</span>
-`;
-
-exports[`test renders ./components/upload/demo/inplace.md correctly 1`] = `
-<span
-  class="avatar-uploader">
-  <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:;" />
-</span>
-`;
-
-exports[`test renders ./components/upload/demo/multiple.md correctly 1`] = `
-<span
-  class="">
-  <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
-    style="display:;" />
-  <div
-    class="ant-upload-list ant-upload-list-text" />
 </span>
 `;
 
@@ -185,18 +153,6 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
       class="ant-upload ant-upload-select ant-upload-select-picture-card"
       style="display:;" />
   </span>
-  <a
-    class="upload-example"
-    href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    rel="noopener noreferrer"
-    target="_blank">
-    <img
-      alt="example"
-      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-    <span>
-      sample
-    </span>
-  </a>
 </div>
 `;
 
