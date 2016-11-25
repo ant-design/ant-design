@@ -9,6 +9,49 @@ timeline: true
 
 ---
 
+## 2.5.0
+
+`2016-11-25`
+
+* 默认主题风格修改为支付宝钱包风格，及大量样式优化。
+* 支持服务端渲染。（Mention 会因为 [draft-js](https://github.com/facebook/draft-js/issues/385) 的问题有 warning）
+* 引入 [Jest Snapshot](https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing) 测试组件结构及服务端渲染问题。
+* 官网及文档优化，并新增自定义主题的 [文档](https://ant.design/docs/react/customize-theme)。
+* LocaleProvider 新增巴西语支持。[#4004](https://github.com/ant-design/ant-design/pull/4004) [@nathantn](https://github.com/nathantn)
+* DatePicker
+  * DatePicker 现在可以决定是否展示 “今天” 按钮。[commit](https://github.com/ant-design/ant-design/commit/bbef274aae169d142e3e7e3ea0af922d48e6dd64)
+  * RangePicker 现在可以自定义快捷选择。[demo](https://ant.design/components/date-picker/#components-date-picker-demo-presetted-ranges)
+  * 修复 DatePicker 设置 `showTime` 后 “此刻” 按钮失效的问题。[#3748](https://github.com/ant-design/ant-design/issues/3748)
+  * 修复 `RangePicker[format]` 失效的问题。[#3808](https://github.com/ant-design/ant-design/issues/3808)
+* 新增并优化部分 Icon。[#3977](https://github.com/ant-design/ant-design/pull/3977)
+* 新增 Input.Search 控件。[demo](TODO)
+* Mention onSelect 事件现在可以获取完整的数据。[#3867](https://github.com/ant-design/ant-design/issues/3867)
+* Pagination 现在支持展示当前页的索引范围。[demo](TODO)
+* Table
+  * 自定义筛选的显示隐藏现在可以通过代码控制。[#3003](https://github.com/ant-design/ant-design/issues/3003)
+  * 支持 JSX 风格的方式设置 columns。[demo](TODO)
+  * 现在可以监听单元格的点击事件。[#3774](https://github.com/ant-design/ant-design/issues/3774)
+  * 修复无边框 Table 头部的圆角样式问题。
+  * 修复 title 和 footer 高度不随 `Table[size]` 变化的问题。[commit](https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23)
+  * 修复选中状态出错的问题。[#3900](https://github.com/ant-design/ant-design/issues/3900)
+* Anchor
+  * 修复特殊 id 会导致报错的问题。[#3844](https://github.com/ant-design/ant-design/issues/3844)
+  * 修复初始化定位不准确的问题。[#3832](https://github.com/ant-design/ant-design/issues/3832)
+* Upload
+  * 修复 children 不能为 `null` 的问题，并发布 `1.11.4`。
+  * 修复预览逻辑的问题。[commit](https://github.com/ant-design/ant-design/commit/e552880c32aaa3f5b0fb09a5e1fb7454c24d5378)
+* 修复 Badge 会覆盖其他组件的问题。[#3898](https://github.com/ant-design/ant-design/issues/3898)
+* 修复多行 Checkbox 样式不对齐的问题。[#3971](https://github.com/ant-design/ant-design/issues/3971) [@flashback313](https://github.com/flashback313)
+* 修复 InputNumber 与其它表单控件不对齐的问题。[#3866(comment)](https://github.com/ant-design/ant-design/issues/3866#issuecomment-261148256)
+* 修复 `Menu.Divider` 样式问题。[#3813](https://github.com/ant-design/ant-design/issues/3813)
+* 修复 Popover 直接内嵌 Checkbox 和 Radio 无效的问题。[#3455](https://github.com/ant-design/ant-design/issues/3455)
+* 修复 Select combobox 高度异常问题。[#3855](https://github.com/ant-design/ant-design/issues/3855)
+* 修复 Switch actived 后的样式问题。[#3838](https://github.com/ant-design/ant-design/issues/3838)
+* 修复 Transfer 搜索无结果时不展示 “Not Found” 提示的问题。[#3996](https://github.com/ant-design/ant-design/issues/3996)
+* 修复 TreeSelect 占位符的样式问题。[#3841](https://github.com/ant-design/ant-design/issues/3841)
+* 修复 TypeScript 编译报错的问题。[#3969](https://github.com/ant-design/ant-design/pull/3969) [@AlbertZheng](https://github.com/AlbertZheng)
+* 修复表单反馈图标影响用户操作的问题。[#3891](https://github.com/ant-design/ant-design/issues/3891)
+
 ## 2.4.3
 
 `2016-11-17`
