@@ -16,7 +16,9 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Change the default theme to Alipay style and improve lots of style details.
 * Supports server-side rendering. (`Mention` will throw warning for [draft-js](https://github.com/facebook/draft-js/issues/385)' issue)
 * Introduce [Jest Snapshot](https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing) to test the structure of components and SSR issues.
-* Improve official website and documentation, and add [document](https://ant.design/docs/react/customize-theme) for customizing theme.
+* Improve official website and documentation.
+* Add [document](https://ant.design/docs/react/customize-theme) for customizing theme.
+* Add [Sketch template files](https://ant.design/docs/resource/download).
 * `LocaleProvider` supports Brazilian. [#4004](https://github.com/ant-design/ant-design/pull/4004) [@nathantn](https://github.com/nathantn)
 * DatePicker
   * DatePicker can determine whether to show "Today" button. [commit](https://github.com/ant-design/ant-design/commit/bbef274aae169d142e3e7e3ea0af922d48e6dd64)
@@ -35,7 +37,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * Fix that height of title and footer don't follow `Table[size]`. [commit](https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23)
   * Fix issue with selected status. [#3900](https://github.com/ant-design/ant-design/issues/3900)
 * Upload
-  * Fix that children could not be `null`, and published `1.11.4`.
+  * Fix that children could not be `null`.
   * Fix logic of preview. [commit](https://github.com/ant-design/ant-design/commit/e552880c32aaa3f5b0fb09a5e1fb7454c24d5378)
 * Fix `z-index` of Badge. [#3898](https://github.com/ant-design/ant-design/issues/3898)
 * Fix alignment of multi-line Checkbox. [#3971](https://github.com/ant-design/ant-design/issues/3971) [@flashback313](https://github.com/flashback313)

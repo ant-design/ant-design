@@ -16,7 +16,9 @@ timeline: true
 * 默认主题风格修改为支付宝钱包风格，及大量样式优化。
 * 支持服务端渲染。（Mention 会因为 [draft-js](https://github.com/facebook/draft-js/issues/385) 的问题有 warning）
 * 引入 [Jest Snapshot](https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing) 测试组件结构及服务端渲染问题。
-* 官网及文档优化，并新增自定义主题的 [文档](https://ant.design/docs/react/customize-theme)。
+* 官网及文档优化。
+* 新增自定义主题的 [文档](https://ant.design/docs/react/customize-theme)。
+* 新增 [Sketch 资源文件](https://ant.design/docs/resource/download)。
 * LocaleProvider 新增巴西语支持。[#4004](https://github.com/ant-design/ant-design/pull/4004) [@nathantn](https://github.com/nathantn)
 * DatePicker
   * DatePicker 现在可以决定是否展示 “今天” 按钮。[commit](https://github.com/ant-design/ant-design/commit/bbef274aae169d142e3e7e3ea0af922d48e6dd64)
@@ -35,7 +37,7 @@ timeline: true
   * 修复 title 和 footer 高度不随 `Table[size]` 变化的问题。[commit](https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23)
   * 修复选中状态出错的问题。[#3900](https://github.com/ant-design/ant-design/issues/3900)
 * Upload
-  * 修复 children 不能为 `null` 的问题，并发布 `1.11.4`。
+  * 修复 children 不能为 `null` 的问题。
   * 修复预览逻辑的问题。[commit](https://github.com/ant-design/ant-design/commit/e552880c32aaa3f5b0fb09a5e1fb7454c24d5378)
 * 修复 Badge 会覆盖其他组件的问题。[#3898](https://github.com/ant-design/ant-design/issues/3898)
 * 修复多行 Checkbox 样式不对齐的问题。[#3971](https://github.com/ant-design/ant-design/issues/3971) [@flashback313](https://github.com/flashback313)
