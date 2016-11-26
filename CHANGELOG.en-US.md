@@ -9,6 +9,48 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.5.0
+
+`2016-11-25`
+
+* Change the default theme to Alipay style and improve lots of style details.
+* Supports server-side rendering. (`Mention` will throw warning for [draft-js](https://github.com/facebook/draft-js/issues/385)' issue)
+* Introduce [Jest Snapshot](https://facebook.github.io/jest/docs/tutorial-react.html#snapshot-testing) to test the structure of components and SSR issues.
+* Improve official website and documentation.
+* Add [document](https://ant.design/docs/react/customize-theme) for customizing theme.
+* Add [Sketch template files](https://ant.design/docs/resource/download).
+* `LocaleProvider` supports Brazilian. [#4004](https://github.com/ant-design/ant-design/pull/4004) [@nathantn](https://github.com/nathantn)
+* DatePicker
+  * DatePicker can determine whether to show "Today" button. [commit](https://github.com/ant-design/ant-design/commit/bbef274aae169d142e3e7e3ea0af922d48e6dd64)
+  * RangePicker can set presetted ranges. [demo](https://ant.design/components/date-picker/#components-date-picker-demo-presetted-ranges)
+  * Fix "Now" button doesn't work while `DatePicker[showTime]` is set. [#3748](https://github.com/ant-design/ant-design/issues/3748)
+  * Fix `RangePicker[format]` should work. [#3808](https://github.com/ant-design/ant-design/issues/3808)
+* Add and update some icons. [#3977](https://github.com/ant-design/ant-design/pull/3977)
+* New component `Input.Search`. [demo](https://ant.design/components/input/#components-input-demo-search-input)
+* Mention onSelect event will get complete record. [#3867](https://github.com/ant-design/ant-design/issues/3867)
+* Pagination can get current range. [demo](https://ant.design/components/pagination/#components-pagination-demo-total)
+* Table
+  * We can control the visible of customized `filterDropdown`. [demo](https://ant.design/components/table/#components-table-demo-custom-filter-panel)
+  * Supports JSX-style columns. [demo](https://ant.design/components/table/#components-table-demo-jsx)
+  * Can listen the click event of table cell. [#3774](https://github.com/ant-design/ant-design/issues/3774)
+  * Fix border radius of head of border-less table.
+  * Fix that height of title and footer don't follow `Table[size]`. [commit](https://github.com/ant-design/ant-design/commit/9e6439b06cd099ab384a4a2f026f0def6e12bf23)
+  * Fix issue with selected status. [#3900](https://github.com/ant-design/ant-design/issues/3900)
+* Upload
+  * Fix that children could not be `null`.
+  * Fix logic of preview. [commit](https://github.com/ant-design/ant-design/commit/e552880c32aaa3f5b0fb09a5e1fb7454c24d5378)
+* Fix `z-index` of Badge. [#3898](https://github.com/ant-design/ant-design/issues/3898)
+* Fix alignment of multi-line Checkbox. [#3971](https://github.com/ant-design/ant-design/issues/3971) [@flashback313](https://github.com/flashback313)
+* Fix alignment of InputNumber while using with other form controls. [#3866(comment)](https://github.com/ant-design/ant-design/issues/3866#issuecomment-261148256)
+* Fix style of `Menu.Divider`. [#3813](https://github.com/ant-design/ant-design/issues/3813)
+* Fix that Popover should support Checkbox and Radio as children. [#3455](https://github.com/ant-design/ant-design/issues/3455)
+* Fix height of `Select[combobox]`. [#3855](https://github.com/ant-design/ant-design/issues/3855)
+* Fix style of actived Switch. [#3838](https://github.com/ant-design/ant-design/issues/3838)
+* Fix that Transfer doesn't show "Not Found" while there is no search result. [#3996](https://github.com/ant-design/ant-design/issues/3996)
+* Fix style of placeholder of TreeSelect. [#3841](https://github.com/ant-design/ant-design/issues/3841)
+* Fix compile errors in TypeScript. [#3969](https://github.com/ant-design/ant-design/pull/3969) [@AlbertZheng](https://github.com/AlbertZheng)
+* Fix that feedback icon should not affect users' operation. [#3891](https://github.com/ant-design/ant-design/issues/3891)
+
 ## 2.4.3
 
 `2016-11-17`
@@ -335,6 +377,6 @@ The following change will throw some warnings in the console and it will still w
 * [dva@1.0.0](https://github.com/dvajs/dva) is published and it is officially recommended framework [in real world](http://ant.design/docs/react/practical-projects).
 * The officially recommended scaffold is [dva-cli](https://github.com/dvajs/dva-cli) now, the old `antd-init` is just for studying and demo.
 
-## 1.0.0
+## 1.11.2
 
 Visit [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0) to read change logs from `0.x` to `1.x`。
