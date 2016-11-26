@@ -111,7 +111,7 @@ tsconfig.json
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [Customize Theme](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [Customize Theme](http://ant.design/docs/react/customize-theme)
 
 ## Contributing
 

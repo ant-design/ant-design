@@ -83,7 +83,7 @@ tsconfig.json
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [定制主题](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [定制主题](http://ant.design/docs/react/customize-theme)
 
 ## 如何贡献
 

@@ -170,7 +170,7 @@ import { Button } from 'antd';
 
 ## 配置主题和字体
 
-- [改变主题](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [改变主题](/docs/react/customize-theme)
 - [使用本地字体](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
 
 ## 小甜点

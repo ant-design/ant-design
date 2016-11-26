@@ -172,7 +172,7 @@ And this plugin can also load styles on demand. See the [usage](https://github.c
 
 ## Customization
 
-- [Customize Theme](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [Customize Theme](/docs/react/customize-theme)
 - [Local Iconfont](https://github.com/ant-design/antd-init/tree/master/examples/local-iconfont)
 
 ## Tips
