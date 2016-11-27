@@ -5,40 +5,45 @@ cols: 1
 title: Layout
 ---
 
-`Steps` is a navigation bar that guides users through the steps of a task. 
+When you are handling the overall layout of a page, this component might be helpfull.
 
-## When To Use
-
-When the task is complicated or has a certain sequence in the series of subtasks, we can decompose it into several steps to make things easier.
+> Base on `flex layout`, please pay attension to the compatibility.
 
 ## API
 
 ```jsx
-<Steps>
-  <Step title="first step" />
-  <Step title="second step" />
-  <Step title="third step" />
-</Steps>
+<Layout>
+  <Header>header</Header>
+  <Layout>
+  	<Sider>left sidebar</Sider>
+  	<Content>main content</Content>
+  	<Sider right>right sidebar</Sider>
+  </Layout>
+  <Footer>footer</Footer>
+</Layout>
 ```
 
-### Steps
+### Layout
 
-The whole of the step bar.
-
-Property | Description | Type | Default
------|-----|-----|------
-current | to set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | Number | 0
-status | to specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | String | `process`
-size | to specify the size of the step bar, `default` and `small` are currently supported | String | `default`
-direction | to specify the direction of the step bar, `horizontal` and `vertical` are currently supported | String | horizontal
-
-### Steps.Step
-
-A single step in the step bar.
+The wrapper.
 
 Property | Description | Type | Default
 -----|-----|-----|------
-status | to specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | String | wait
-title | title of the step | React.ReactNode | -
-description | detail of the step, optional property | React.ReactNode | -
-icon | icon of the step, optional property | string or React.ReactNode | -
+style | to custom the styles | Object | -
+
+> API of `Layout.Header` `Layout.Footer` `Layout.Content` is the same with `Layout`.
+
+### Layout.Sider
+
+The sidebar.
+
+Property | Description | Type | Default
+-----|-----|-----|------
+style | to custom the styles | Object | -
+right | right sidebar or not | Boolean | false
+flexible | whether can be flexible | Boolean | false
+collapsed | default status | Boolean | false
+onSwitch | the callback function, can be executed when you switch the sidebar, available only `flexible: true` | (collapsed) => {}  | -
+trigger | customized trigger, available only `flexible: true` | React.ReactNode | -
+width | width of the sidebar | string("n%" or "npx") | 20%
+collapsedWidth | width of the collapsed sidebar, available only `flexible: true` | string("n%" or "npx") | 6%

@@ -6,40 +6,45 @@ cols: 1
 title: Layout
 ---
 
-引导用户按照流程完成任务的导航条。
+可协助进行页面级整体布局。
 
-## 何时使用
-
-当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
+> 注意：采用 flex 布局实现，请注意浏览器兼容性问题。
 
 ## API
 
 ```jsx
-<Steps>
-  <Step title="第一步" />
-  <Step title="第二步" />
-  <Step title="第三步" />
-</Steps>
+<Layout>
+  <Header>header</Header>
+  <Layout>
+  	<Sider>left sidebar</Sider>
+  	<Content>main content</Content>
+  	<Sider right>right sidebar</Sider>
+  </Layout>
+  <Footer>footer</Footer>
+</Layout>
 ```
 
-### Steps
+### Layout
 
-整体步骤条。
+布局容器。
 
 | 参数      | 说明                                      | 类型         | 默认值 |
 |----------|------------------------------------------|-------------|-------|
-| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | Number | 0 |
-| status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | String | process |
-| size | 指定大小，目前支持普通（`default`）和迷你（`small`）| String | default |
-| direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | String | horizontal  |
+| style | 指定样式 | Object | - |
 
-### Steps.Step
+> `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
 
-步骤条内的每一个步骤。
+### Layout.Sider
+
+侧边栏。
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |----------|-----------------------------------------|------------|-------|
-| status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | String | wait |
-| title | 标题 | React.ReactNode | -     |
-| description | 步骤的详情描述，可选 | React.ReactNode | -  |
-| icon | 步骤图标的类型，可选 | string or React.ReactNode | - |
+| style | 指定样式 | Object | - |
+| right | 指定为右侧边栏 | Boolean | false    |
+| flexible | 是否可收起 | Boolean | false  |
+| collapsed | 是否默认收起 | Boolean | false |
+| onSwitch | 展开-收起时的回调函数，仅当 `flexible:true` 时生效 | (collapsed) => {} | - |
+| trigger | 自定义 trigger，仅当 `flexible:true` 时生效 | React.Node | `<Icon type="left" />` 或 `<Icon type="right" />` |
+| width | 宽度 | string（"n%" 或 "npx"） | 20% |
+| collapsedWidth | 收缩宽度，仅当 `flexible:true` 时生效 | string（"n%" 或 "npx"） | 6% |
