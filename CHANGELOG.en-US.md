@@ -377,6 +377,6 @@ The following change will throw some warnings in the console and it will still w
 * [dva@1.0.0](https://github.com/dvajs/dva) is published and it is officially recommended framework [in real world](http://ant.design/docs/react/practical-projects).
 * The officially recommended scaffold is [dva-cli](https://github.com/dvajs/dva-cli) now, the old `antd-init` is just for studying and demo.
 
-## 1.11.2
+## 1.11.4
 
 Visit [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0) to read change logs from `0.x` to `1.x`。

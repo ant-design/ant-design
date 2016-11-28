@@ -375,6 +375,6 @@ timeline: true
 * [dva@1.0.0](https://github.com/dvajs/dva) 也已经发布，并推荐 [在实战项目中使用](http://ant.design/docs/react/practical-projects)。
 * 脚手架工具推荐使用 [dva-cli](https://github.com/dvajs/dva-cli)，原来的 `antd-init` 以后仅会用于学习以及 demo。
 
-## 1.11.2
+## 1.11.4
 
-去 [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0) 查看 `1.11.2` 及之前的更新日志。
+去 [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0) 查看 `0.x` 到 `1.x` 的 Change Log。
