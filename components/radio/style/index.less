@@ -65,7 +65,7 @@
     border-style: solid;
     border-radius: 14px;
     border-color: @border-color-base;
-    background-color: #fff;
+    background-color: @body-background;
     transition: all @radio-duration;
   }
 
@@ -123,7 +123,7 @@ span.@{radio-prefix-cls} + * {
   cursor: pointer;
   border: 1px solid @border-color-base;
   border-left: 0;
-  background: #fff;
+  background: @body-background;
   padding: 0 16px;
 
   a {
@@ -182,7 +182,7 @@ span.@{radio-prefix-cls} + * {
   }
 
   &-checked {
-    background: #fff;
+    background: @body-background;
     border-color: @primary-color;
     color: @primary-color;
     box-shadow: -1px 0 0 0 @primary-color;
