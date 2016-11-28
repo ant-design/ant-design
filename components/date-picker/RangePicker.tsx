@@ -14,8 +14,18 @@ export default class RangePicker extends React.Component<any, any> {
 
   constructor(props) {
     super(props);
+    const value = props.value || props.defaultValue || [];
+    if (
+      value[0] && !(value[0] instanceof moment) ||
+      value[1] && !(value[1] instanceof moment)
+    ) {
+      throw new Error(
+        'The value/defaultValue of RangePicker must be a moment object array after `antd@2.0`, ' +
+        'see: http://u.ant.design/SQEdMma'
+      );
+    }
     this.state = {
-      value: props.value || props.defaultValue || [],
+      value,
       open: props.open,
     };
   }

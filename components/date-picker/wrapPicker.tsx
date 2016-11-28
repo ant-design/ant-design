@@ -22,6 +22,10 @@ function getColumns({ showHour, showMinute, showSecond }) {
 
 export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
+    contextTypes: {
+      antLocale: PropTypes.object,
+    },
+
     getDefaultProps() {
       return {
         format: defaultFormat || 'YYYY-MM-DD',
@@ -40,10 +44,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
         prefixCls: 'ant-calendar',
         inputPrefixCls: 'ant-input',
       };
-    },
-
-    contextTypes: {
-      antLocale: PropTypes.object,
     },
 
     handleOpenChange(open) {
