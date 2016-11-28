@@ -127,7 +127,7 @@ export default class Form extends React.Component<FormProps, any> {
         warning(
           false,
           '`getFieldProps` is not recommended, please use `getFieldDecorator` instead, ' +
-          'see: http://u.ant.design/1kKtZY/'
+          'see: http://u.ant.design/get-field-decorator'
         );
         return this.__getFieldProps(name, option);
       },

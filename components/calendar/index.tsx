@@ -68,7 +68,7 @@ export default class Calendar extends React.Component<CalendarProps, any> {
     if (!(value instanceof moment)) {
       throw new Error(
         'The value/defaultValue of Calendar must be a moment object after `antd@2.0`, ' +
-        'see: http://u.ant.design/jI6pSlR'
+        'see: http://u.ant.design/calendar-value'
       );
     }
     this.state = {

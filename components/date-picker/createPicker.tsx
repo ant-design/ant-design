@@ -28,7 +28,7 @@ export default function createPicker(TheCalendar) {
       if (value && !(value instanceof moment)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
-          'a moment object after `antd@2.0`, see: http://u.ant.design/SQEdMma'
+          'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value'
         );
       }
       return {
