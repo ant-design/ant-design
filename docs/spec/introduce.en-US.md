@@ -17,7 +17,7 @@ Ant Design, created specially for middleware design, is committed to improving t
 
 We supply a series of design principles, practical patterns and high qulitiy design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
 
-- [Principle](/docs/pattern/principle)
+- [Principle](/docs/spec/principle)
 - [Pattern](/docs/pattern/navigation)
 - [Resource Download](/docs/resource/download)
 

@@ -17,7 +17,7 @@ Ant Design 是一个致力于提升『用户』和『设计者』使用体验的
 
 我们提供完善的设计原则、最佳实践和设计资源文件（Sketch 和 Axure），来帮助业务快速设计出高质量的产品原型。
 
-- [设计原则](/docs/pattern/principle)
+- [设计原则](/docs/spec/principle)
 - [设计模式](/docs/pattern/navigation)
 - [设计资源](/docs/resource/download)
 
