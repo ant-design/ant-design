@@ -77,7 +77,7 @@
     "@types/react": "~0.14.41",
     "@types/react-dom": "~0.14.18",
     "antd-demo-jest": "^1.0.5",
-    "antd-tools": "0.14.2",
+    "antd-tools": "~0.14.6",
     "babel-cli": "^6.18.0",
     "babel-eslint": "^7.1.0",
     "babel-jest": "^17.0.0",
