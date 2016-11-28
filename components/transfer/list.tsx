@@ -170,18 +170,21 @@ export default class TransferList extends React.Component<TransferListProps, any
 
     const checkStatus = this.getCheckStatus(filteredDataSource);
     const outerPrefixCls = prefixCls.replace('-list', '');
+    const search = showSearch ? (
+      <div className={`${prefixCls}-body-search-wrapper`}>
+        <Search
+          prefixCls={`${prefixCls}-search`}
+          onChange={this.handleFilter}
+          handleClear={this.handleClear}
+          placeholder={searchPlaceholder || 'Search'}
+          value={filter}
+        />
+      </div>
+    ) : null;
 
     const listBody = bodyDom || (
       <div className={showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`}>
-        {showSearch ? <div className={`${prefixCls}-body-search-wrapper`}>
-          <Search
-            prefixCls={`${prefixCls}-search`}
-            onChange={this.handleFilter}
-            handleClear={this.handleClear}
-            placeholder={searchPlaceholder || 'Search'}
-            value={filter}
-          />
-        </div> : null}
+        {search}
         <Animate
           component="ul"
           className={`${prefixCls}-content`}
@@ -202,17 +205,19 @@ export default class TransferList extends React.Component<TransferListProps, any
       </div>
     ) : null;
 
+    const renderedCheckbox = this.renderCheckbox({
+      prefixCls: outerPrefixCls,
+      checked: checkStatus === 'all',
+      checkPart: checkStatus === 'part',
+      checkable: <span className={`${outerPrefixCls}-checkbox-inner`} />,
+      filteredDataSource,
+      disabled: false,
+    });
+
     return (
       <div className={listCls} style={style}>
         <div className={`${prefixCls}-header`}>
-          {this.renderCheckbox({
-            prefixCls: outerPrefixCls,
-            checked: checkStatus === 'all',
-            checkPart: checkStatus === 'part',
-            checkable: <span className={`${outerPrefixCls}-checkbox-inner`} />,
-            filteredDataSource,
-            disabled: false,
-          })}
+          {renderedCheckbox}
           <span className={`${prefixCls}-header-selected`}>
             <span>
               {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} {unit}
