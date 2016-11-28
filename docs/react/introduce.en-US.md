@@ -114,7 +114,7 @@ Modern browsers and IE9+.
 - [Meituan](http://www.meituan.com)
 - [Didi](http://www.xiaojukeji.com/)
 
-> If your company or product uses Ant Design, you are welcome to comment in [this issue]((https://github.com/ant-design/ant-design/issues/477)). Thank you!
+> If your company or product uses Ant Design, you are welcome to comment in [this issue](https://github.com/ant-design/ant-design/issues/477). Thank you!
 
 ## Contributing
 
