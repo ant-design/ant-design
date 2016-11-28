@@ -134,6 +134,45 @@ describe('Table', () => {
       pagers.at(0).simulate('click');
       expect(checkboxAll.node.state).toEqual({ checked: true, indeterminate: false });
     });
+
+    // https://github.com/ant-design/ant-design/issues/4020
+    it('handles defaultChecked', () => {
+      const columns = [{
+        title: 'Name',
+        dataIndex: 'name',
+      }];
+
+      const data = [{
+        key: 0,
+        name: 'Jack',
+      }, {
+        key: 1,
+        name: 'Lucy',
+      }];
+
+      const rowSelection = {
+        getCheckboxProps: record => ({
+          defaultChecked: record.key === 0
+        }),
+      }
+
+      const wrapper = mount(
+        <Table
+          columns={columns}
+          dataSource={data}
+          rowSelection={rowSelection}
+        />
+      );
+      const checkboxs = wrapper.find('input');
+
+      expect(checkboxs.at(1).props().checked).toBe(true);
+      expect(checkboxs.at(2).props().checked).toBe(false);
+
+      checkboxs.at(2).simulate('change', { target: { checked: true } });
+
+      expect(checkboxs.at(1).props().checked).toBe(true);
+      expect(checkboxs.at(2).props().checked).toBe(true);
+    });
   });
 
   describe('JSX style API', () => {

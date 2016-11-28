@@ -37,9 +37,7 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, any
     const { store } = this.props;
     this.unsubscribe = store.subscribe(() => {
       const checked = this.getCheckState(this.props);
-      if (checked !== this.state.checked) {
-        this.setState({ checked });
-      }
+      this.setState({ checked });
     });
   }
 
