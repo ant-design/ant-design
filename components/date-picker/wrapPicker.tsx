@@ -54,7 +54,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         warning(
           false,
           '`toggleOpen` is deprecated and will be removed in the future, ' +
-          'please use `onOpenChange` instead'
+          'please use `onOpenChange` instead, see: http://u.ant.design/aAIpclA'
         );
         toggleOpen({open});
       }

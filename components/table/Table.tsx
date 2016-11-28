@@ -131,8 +131,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
       '`columnsPageRange` and `columnsPageSize` are removed, please use ' +
-      '[fixed columns](http://ant.design/components/table/#components-table-demo-fixed-columns) ' +
-      'instead.'
+      'fixed columns instead, see: http://u.ant.design/sPWcgxe.'
     );
 
     const pagination = props.pagination || {};

@@ -56,7 +56,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     const props = this.props;
     warning(
       !('linkRender' in props || 'nameRender' in props),
-      '`linkRender` and `nameRender` are removed, please use `itemRender` instead.'
+      '`linkRender` and `nameRender` are removed, please use `itemRender` instead, ' +
+      'see: http://u.ant.design/TqQBDmm.'
     );
   }
 
