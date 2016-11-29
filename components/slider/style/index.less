@@ -56,7 +56,7 @@
     cursor: pointer;
     border-radius: 50%;
     border: solid 2px tint(@primary-color, 50%);
-    background-color: #fff;
+    background-color: @body-background;
     z-index: 2;
     transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
@@ -108,7 +108,7 @@
     width: 8px;
     height: 8px;
     border: 2px solid #e9e9e9;
-    background-color: #fff;
+    background-color: @body-background;
     cursor: pointer;
     border-radius: 50%;
     vertical-align: middle;
@@ -133,7 +133,7 @@
     .@{slider-prefix-cls}-handle,
     .@{slider-prefix-cls}-dot {
       border-color: @slider-disabled-color!important;
-      background-color: #fff;
+      background-color: @body-background;
       cursor: not-allowed;
     }
 
