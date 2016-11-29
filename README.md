@@ -75,11 +75,12 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    ```
 
 
-## Browser Support
+## Environment Support
 
-Normal browsers and Internet Explorer 9+.
-
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
+* Browser: Modern browsers and Internet Explorer 9+.
+  > [IE8 issues](https://github.com/xcatliu/react-ie8)
+* Server-side Rendering
+* [Electron](http://electron.atom.io/)
 
 ## TypeScript
 
