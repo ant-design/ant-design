@@ -13,12 +13,12 @@ Ant Design, created specially for middleware design, is committed to improving t
 
 ---
 
-## Guideline and Resouce
+## Guidelines and Resources
 
-We supply a series of design principles, practical patterns and high qulitiy design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
 
-- [Principle](/docs/spec/principle)
-- [Pattern](/docs/pattern/navigation)
+- [Principles](/docs/spec/principle)
+- [Patterns](/docs/pattern/navigation)
 - [Resource Download](/docs/resource/download)
 
 ## Front-end Implementation
@@ -32,7 +32,7 @@ We supply a series of design principles, practical patterns and high qulitiy des
 - <div class="outside-link internal"><a href="http://atui.alibaba.net" target="_blank">ATUI (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 
-## Who are using Ant Design
+## Who's using Ant Design
 
 - [Ant Financial](http://www.antgroup.com/index.htm?locale=en_US)
 - [Alibaba](http://www.alibaba.com/)
