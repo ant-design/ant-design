@@ -120,7 +120,7 @@ exports[`test renders ./components/button/demo/button-group.md correctly 1`] = `
       class="ant-btn ant-btn-primary"
       type="button">
       <i
-        class="anticon anticon-left " />
+        class="anticon anticon-left" />
       <span>
         Go back
       </span>
@@ -132,7 +132,7 @@ exports[`test renders ./components/button/demo/button-group.md correctly 1`] = `
         Go forward
       </span>
       <i
-        class="anticon anticon-right " />
+        class="anticon anticon-right" />
     </button>
   </div>
   <div
@@ -141,13 +141,13 @@ exports[`test renders ./components/button/demo/button-group.md correctly 1`] = `
       class="ant-btn ant-btn-primary ant-btn-icon-only"
       type="button">
       <i
-        class="anticon anticon-cloud " />
+        class="anticon anticon-cloud" />
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-icon-only"
       type="button">
       <i
-        class="anticon anticon-cloud-download " />
+        class="anticon anticon-cloud-download" />
     </button>
   </div>
   <h4>
@@ -281,13 +281,13 @@ exports[`test renders ./components/button/demo/icon.md correctly 1`] = `
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
     type="button">
     <i
-      class="anticon anticon-search " />
+      class="anticon anticon-search" />
   </button>
   <button
     class="ant-btn ant-btn-primary"
     type="button">
     <i
-      class="anticon anticon-search " />
+      class="anticon anticon-search" />
     <span>
       Search
     </span>
@@ -297,13 +297,13 @@ exports[`test renders ./components/button/demo/icon.md correctly 1`] = `
     class="ant-btn ant-btn-ghost ant-btn-circle-outline ant-btn-icon-only"
     type="button">
     <i
-      class="anticon anticon-search " />
+      class="anticon anticon-search" />
   </button>
   <button
     class="ant-btn ant-btn-ghost"
     type="button">
     <i
-      class="anticon anticon-search " />
+      class="anticon anticon-search" />
     <span>
       Search
     </span>
@@ -317,7 +317,7 @@ exports[`test renders ./components/button/demo/loading.md correctly 1`] = `
     class="ant-btn ant-btn-primary ant-btn-loading"
     type="button">
     <i
-      class="anticon anticon-spin anticon-loading " />
+      class="anticon anticon-spin anticon-loading" />
     <span>
       Loading
     </span>
@@ -326,7 +326,7 @@ exports[`test renders ./components/button/demo/loading.md correctly 1`] = `
     class="ant-btn ant-btn-primary ant-btn-sm ant-btn-loading"
     type="button">
     <i
-      class="anticon anticon-spin anticon-loading " />
+      class="anticon anticon-spin anticon-loading" />
     <span>
       Loading
     </span>
@@ -343,7 +343,7 @@ exports[`test renders ./components/button/demo/loading.md correctly 1`] = `
     class="ant-btn ant-btn-primary"
     type="button">
     <i
-      class="anticon anticon-poweroff " />
+      class="anticon anticon-poweroff" />
     <span>
       Click me!
     </span>
@@ -374,7 +374,7 @@ exports[`test renders ./components/button/demo/multiple.md correctly 1`] = `
       more 
     </span>
     <i
-      class="anticon anticon-down " />
+      class="anticon anticon-down" />
   </button>
 </div>
 `;

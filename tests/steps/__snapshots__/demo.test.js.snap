@@ -183,7 +183,7 @@ exports[`test renders ./components/steps/demo/icon.md correctly 1`] = `
           <span
             class="ant-steps-icon">
             <i
-              class="anticon anticon-smile-o " />
+              class="anticon anticon-smile-o" />
           </span>
         </div>
       </div>

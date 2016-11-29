@@ -16,7 +16,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
       Tag 2
     </span>
     <i
-      class="anticon anticon-cross " />
+      class="anticon anticon-cross" />
   </div>
   <div
     class="ant-tag"
@@ -26,7 +26,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
       Tag 3
     </span>
     <i
-      class="anticon anticon-cross " />
+      class="anticon anticon-cross" />
   </div>
   <div
     class="ant-tag"
@@ -39,7 +39,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
       </a>
     </span>
     <i
-      class="anticon anticon-cross " />
+      class="anticon anticon-cross" />
   </div>
   <div
     class="ant-tag"
@@ -49,7 +49,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
       Prevent Default
     </span>
     <i
-      class="anticon anticon-cross " />
+      class="anticon anticon-cross" />
   </div>
 </div>
 `;
@@ -121,7 +121,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
       Tag 2
     </span>
     <i
-      class="anticon anticon-cross " />
+      class="anticon anticon-cross" />
   </div>
   <div
     class="ant-tag"
@@ -131,7 +131,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
       Tag 3
     </span>
     <i
-      class="anticon anticon-cross " />
+      class="anticon anticon-cross" />
   </div>
   <button
     class="ant-btn ant-btn-dashed ant-btn-sm"

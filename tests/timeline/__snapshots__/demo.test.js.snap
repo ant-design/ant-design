@@ -146,7 +146,7 @@ exports[`test renders ./components/timeline/demo/custom.md correctly 1`] = `
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red">
       <i
-        class="anticon anticon-clock-circle-o "
+        class="anticon anticon-clock-circle-o"
         style="font-size:16px;" />
     </div>
     <div

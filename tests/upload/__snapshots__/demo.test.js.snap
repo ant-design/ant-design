@@ -31,7 +31,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
       <div
         class="ant-upload-list-item-info">
         <i
-          class="anticon anticon-paper-clip " />
+          class="anticon anticon-paper-clip" />
         <a
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/xxx.png"
@@ -40,7 +40,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
           xxx.png
         </a>
         <i
-          class="anticon anticon-cross "
+          class="anticon anticon-cross"
           title="Remove file" />
       </div>
     </div>
@@ -49,7 +49,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
       <div
         class="ant-upload-list-item-info">
         <i
-          class="anticon anticon-paper-clip " />
+          class="anticon anticon-paper-clip" />
         <a
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/yyy.png"
@@ -58,7 +58,7 @@ exports[`test renders ./components/upload/demo/defaultFileList.md correctly 1`] 
           yyy.png
         </a>
         <i
-          class="anticon anticon-cross "
+          class="anticon anticon-cross"
           title="Remove file" />
       </div>
     </div>
@@ -90,7 +90,7 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
       <div
         class="ant-upload-list-item-info">
         <i
-          class="anticon anticon-paper-clip " />
+          class="anticon anticon-paper-clip" />
         <a
           class="ant-upload-list-item-name"
           href="http://www.baidu.com/xxx.png"
@@ -99,7 +99,7 @@ exports[`test renders ./components/upload/demo/fileList.md correctly 1`] = `
           xxx.png
         </a>
         <i
-          class="anticon anticon-cross "
+          class="anticon anticon-cross"
           title="Remove file" />
       </div>
     </div>
@@ -140,10 +140,10 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
               rel="noopener noreferrer"
               target="_blank">
               <i
-                class="anticon anticon-eye-o " />
+                class="anticon anticon-eye-o" />
             </a>
             <i
-              class="anticon anticon-delete "
+              class="anticon anticon-delete"
               title="Remove file" />
           </span>
         </div>
@@ -186,7 +186,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             xxx.png
           </a>
           <i
-            class="anticon anticon-cross "
+            class="anticon anticon-cross"
             title="Remove file" />
         </div>
       </div>
@@ -211,7 +211,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             yyy.png
           </a>
           <i
-            class="anticon anticon-cross "
+            class="anticon anticon-cross"
             title="Remove file" />
         </div>
       </div>
@@ -247,7 +247,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             xxx.png
           </a>
           <i
-            class="anticon anticon-cross "
+            class="anticon anticon-cross"
             title="Remove file" />
         </div>
       </div>
@@ -272,7 +272,7 @@ exports[`test renders ./components/upload/demo/picture-style.md correctly 1`] = 
             yyy.png
           </a>
           <i
-            class="anticon anticon-cross "
+            class="anticon anticon-cross"
             title="Remove file" />
         </div>
       </div>

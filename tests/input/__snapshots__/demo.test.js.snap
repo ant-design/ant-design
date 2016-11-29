@@ -101,7 +101,7 @@ exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
       <span
         class="ant-input-group-addon">
         <i
-          class="anticon anticon-setting " />
+          class="anticon anticon-setting" />
       </span>
     </span>
   </div>

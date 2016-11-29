@@ -63,7 +63,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-cross " />
+          class="anticon anticon-cross" />
       </span>
     </div>
   </div>
@@ -97,7 +97,7 @@ exports[`test renders ./components/progress/demo/circle.md correctly 1`] = `
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-check " />
+          class="anticon anticon-check" />
       </span>
     </div>
   </div>
@@ -145,13 +145,13 @@ exports[`test renders ./components/progress/demo/circle-dynamic.md correctly 1`]
       class="ant-btn ant-btn-ghost ant-btn-icon-only"
       type="button">
       <i
-        class="anticon anticon-minus " />
+        class="anticon anticon-minus" />
     </button>
     <button
       class="ant-btn ant-btn-ghost ant-btn-icon-only"
       type="button">
       <i
-        class="anticon anticon-plus " />
+        class="anticon anticon-plus" />
     </button>
   </div>
 </div>
@@ -222,7 +222,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-cross " />
+          class="anticon anticon-cross" />
       </span>
     </div>
   </div>
@@ -256,7 +256,7 @@ exports[`test renders ./components/progress/demo/circle-mini.md correctly 1`] = 
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-check " />
+          class="anticon anticon-check" />
       </span>
     </div>
   </div>
@@ -289,13 +289,13 @@ exports[`test renders ./components/progress/demo/dynamic.md correctly 1`] = `
       class="ant-btn ant-btn-ghost ant-btn-icon-only"
       type="button">
       <i
-        class="anticon anticon-minus " />
+        class="anticon anticon-minus" />
     </button>
     <button
       class="ant-btn ant-btn-ghost ant-btn-icon-only"
       type="button">
       <i
-        class="anticon anticon-plus " />
+        class="anticon anticon-plus" />
     </button>
   </div>
 </div>
@@ -425,7 +425,7 @@ exports[`test renders ./components/progress/demo/line.md correctly 1`] = `
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-cross-circle " />
+          class="anticon anticon-cross-circle" />
       </span>
     </div>
   </div>
@@ -444,7 +444,7 @@ exports[`test renders ./components/progress/demo/line.md correctly 1`] = `
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-check-circle " />
+          class="anticon anticon-check-circle" />
       </span>
     </div>
   </div>
@@ -519,7 +519,7 @@ exports[`test renders ./components/progress/demo/line-mini.md correctly 1`] = `
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-cross-circle " />
+          class="anticon anticon-cross-circle" />
       </span>
     </div>
   </div>
@@ -538,7 +538,7 @@ exports[`test renders ./components/progress/demo/line-mini.md correctly 1`] = `
       <span
         class="ant-progress-text">
         <i
-          class="anticon anticon-check-circle " />
+          class="anticon anticon-check-circle" />
       </span>
     </div>
   </div>

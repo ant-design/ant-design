@@ -229,7 +229,7 @@ exports[`test renders ./components/tabs/demo/custom-add-trigger.md correctly 1`]
                 <div>
                   Tab 1
                   <i
-                    class="anticon anticon-close " />
+                    class="anticon anticon-close" />
                 </div>
               </div>
               <div
@@ -240,7 +240,7 @@ exports[`test renders ./components/tabs/demo/custom-add-trigger.md correctly 1`]
                 <div>
                   Tab 2
                   <i
-                    class="anticon anticon-close " />
+                    class="anticon anticon-close" />
                 </div>
               </div>
             </div>
@@ -365,7 +365,7 @@ exports[`test renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               <div>
                 Tab 1
                 <i
-                  class="anticon anticon-close " />
+                  class="anticon anticon-close" />
               </div>
             </div>
             <div
@@ -376,7 +376,7 @@ exports[`test renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               <div>
                 Tab 2
                 <i
-                  class="anticon anticon-close " />
+                  class="anticon anticon-close" />
               </div>
             </div>
           </div>
@@ -502,7 +502,7 @@ exports[`test renders ./components/tabs/demo/icon.md correctly 1`] = `
               role="tab">
               <span>
                 <i
-                  class="anticon anticon-apple " />
+                  class="anticon anticon-apple" />
                 Tab 1
               </span>
             </div>
@@ -513,7 +513,7 @@ exports[`test renders ./components/tabs/demo/icon.md correctly 1`] = `
               role="tab">
               <span>
                 <i
-                  class="anticon anticon-android " />
+                  class="anticon anticon-android" />
                 Tab 2
               </span>
             </div>

@@ -216,7 +216,7 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
           style="margin-left:8px;font-size:12px;">
           Collapse 
           <i
-            class="anticon anticon-down " />
+            class="anticon anticon-down" />
         </a>
       </div>
     </div>
@@ -350,7 +350,7 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
           style="width:60%;"
           type="button">
           <i
-            class="anticon anticon-plus " />
+            class="anticon anticon-plus" />
           <span>
              Add
           </span>
@@ -429,7 +429,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
           <span
             class="ant-input-group-addon">
             <i
-              class="anticon anticon-user " />
+              class="anticon anticon-user" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -453,7 +453,7 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
           <span
             class="ant-input-group-addon">
             <i
-              class="anticon anticon-lock " />
+              class="anticon anticon-lock" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -499,7 +499,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
           <span
             class="ant-input-group-addon">
             <i
-              class="anticon anticon-user " />
+              class="anticon anticon-user" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -523,7 +523,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
           <span
             class="ant-input-group-addon">
             <i
-              class="anticon anticon-lock " />
+              class="anticon anticon-lock" />
           </span>
           <input
             class="ant-input ant-input-lg"
@@ -669,7 +669,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
         <span>
           Nickname 
           <i
-            class="anticon anticon-question-circle-o " />
+            class="anticon anticon-question-circle-o" />
         </span>
       </label>
     </div>

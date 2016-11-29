@@ -4,7 +4,7 @@ exports[`test renders ./components/dropdown/demo/basic.md correctly 1`] = `
   href="#">
   Hover me 
   <i
-    class="anticon anticon-down " />
+    class="anticon anticon-down" />
 </a>
 `;
 
@@ -23,7 +23,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
       class="ant-btn ant-btn-ghost"
       type="button">
       <i
-        class="anticon anticon-down " />
+        class="anticon anticon-down" />
     </button>
   </div>
   <div
@@ -42,7 +42,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
       disabled=""
       type="button">
       <i
-        class="anticon anticon-down " />
+        class="anticon anticon-down" />
     </button>
   </div>
   <button
@@ -53,7 +53,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
       Button 
     </span>
     <i
-      class="anticon anticon-down " />
+      class="anticon anticon-down" />
   </button>
 </div>
 `;
@@ -64,7 +64,7 @@ exports[`test renders ./components/dropdown/demo/event.md correctly 1`] = `
   href="#">
   Hover me, Click menu item 
   <i
-    class="anticon anticon-down " />
+    class="anticon anticon-down" />
 </a>
 `;
 
@@ -74,7 +74,7 @@ exports[`test renders ./components/dropdown/demo/item.md correctly 1`] = `
   href="#">
   Hover me 
   <i
-    class="anticon anticon-down " />
+    class="anticon anticon-down" />
 </a>
 `;
 
@@ -84,7 +84,7 @@ exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`
   href="#">
   Hover me 
   <i
-    class="anticon anticon-down " />
+    class="anticon anticon-down" />
 </a>
 `;
 
@@ -94,7 +94,7 @@ exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   href="#">
   Cascading menu 
   <i
-    class="anticon anticon-down " />
+    class="anticon anticon-down" />
 </a>
 `;
 
@@ -105,7 +105,7 @@ exports[`test renders ./components/dropdown/demo/trigger.md correctly 1`] = `
     href="#">
     Click me 
     <i
-      class="anticon anticon-down " />
+      class="anticon anticon-down" />
   </a>
 </div>
 `;
