@@ -9,8 +9,8 @@ A table displays rows data.
 
 ## When To Use
 
-- To display a collections of structured data.
-- To sort, search, paging, filter data.
+- To display a collection of structured data.
+- To sort, search, paginate, filter data.
 
 ## How To Use
 
