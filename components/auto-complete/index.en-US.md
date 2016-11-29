@@ -9,7 +9,7 @@ Autocomplete function of input field.
 
 ## When To Use
 
-When need to use autocomplete function.
+When there is a need for autocomplete functionality.
 
 ## API
 
@@ -17,7 +17,7 @@ When need to use autocomplete function.
 const dataSource = ['12345', '23456', '34567'];
 <AutoComplete dataSource={dataSource} />
 ```
-Since `AutoComplete` is based on `Select`, so besides following API, `AutoComplete` has same API as `Select`.
+Since `AutoComplete` is based on `Select`, so besides the following API, `AutoComplete` has the same API as `Select`.
 
 | Property           | Description                             |  Type | Default |
 |----------------|----------------------------------|------------|--------|

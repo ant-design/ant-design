@@ -10,14 +10,14 @@ A carousel component. Scales with its container.
 
 - When there is a group of content on the same level.
 - When there is insufficient content space, it can be used to save space in the form of a resolving door.
-- Commonly used in a carousel for a group of pictures/cards.
+- Commonly used for a group of pictures/cards.
 
 ## API
 
 | Property             | Description                                         | Type     | Default                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
 | effect           | Animation effect, either `scrollx` or `fade`   | String | scrollx |
-| dots | Should we show the dots at the bottom of the gallery                | Boolean    | true |
+| dots | Whether to show the dots at the bottom of the gallery                | Boolean    | true |
 | vertical | Whether to use a vertical display                               | Boolean   | false |
 | autoplay | Whether to scroll automatically                                 | Boolean   | false |
 | easing | Transition name                                                   | String   | linear |

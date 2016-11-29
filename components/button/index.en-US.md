@@ -8,7 +8,7 @@ To trigger an operation.
 
 ## When To Use
 
-A button means an operation(or a series of operations). Click a button will trigger corresponding business logic.
+A button means an operation (or a series of operations). Clicking a button will trigger corresponding business logic.
 
 ## API
 

@@ -8,9 +8,8 @@ A simple text popup tip.
 
 ## When To Use
 
-- The tip shows while mouse enter, and hides while mouse leave, the ToolTip doesn't support complex text and operation.
-
-- It can provide a explain of `button/text/opration`, that can cover the usage of the default system `title`.
+- The tip shows while mouse enter, and hides while mouse leave. The ToolTip doesn't support complex text and operation.
+- It can provide an explanation of `button/text/operation` that can cover the usage of the default system `title`.
 
 ## API
 

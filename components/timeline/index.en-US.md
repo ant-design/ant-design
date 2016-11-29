@@ -8,8 +8,8 @@ Vertical display timeline.
 
 ## When To Use
 
-- When a series of information need to be lined from top to bottom by time.
-- When need a timeline to make a visual connection.
+- When a series of information need to be ordered from top to bottom by time.
+- When you need a timeline to make a visual connection.
 
 ## API
 

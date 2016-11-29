@@ -5,7 +5,7 @@ cols: 1
 title: Calendar
 ---
 
-When To Use container for displaying data in calendar form.
+Container for displaying data in calendar form.
 
 ## When To Use
 
