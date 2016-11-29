@@ -37,7 +37,7 @@
     "babel-runtime": "6.x",
     "classnames": "~2.2.0",
     "css-animation": "^1.2.5",
-    "moment": "~2.15.1",
+    "moment": "~2.17.0",
     "object-assign": "~4.1.0",
     "omit.js": "^0.1.0",
     "rc-animate": "~2.3.0",
