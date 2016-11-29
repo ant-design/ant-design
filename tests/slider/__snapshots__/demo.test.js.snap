@@ -1,12 +1,5 @@
 exports[`test renders ./components/slider/demo/basic.md correctly 1`] = `
 <div>
-  Disabled: 
-  <span
-    class="ant-switch"
-    tabindex="0">
-    <span
-      class="ant-switch-inner" />
-  </span>
   <div
     class="ant-slider">
     <div
@@ -40,6 +33,13 @@ exports[`test renders ./components/slider/demo/basic.md correctly 1`] = `
     <div
       class="ant-slider-mark" />
   </div>
+  Disabled: 
+  <span
+    class="ant-switch-small ant-switch"
+    tabindex="0">
+    <span
+      class="ant-switch-inner" />
+  </span>
 </div>
 `;
 
@@ -223,11 +223,9 @@ exports[`test renders ./components/slider/demo/input-number.md correctly 1`] = `
 
 exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
 <div>
-  <p>
-    <code>
-      included=true
-    </code>
-  </p>
+  <h4>
+    included=true
+  </h4>
   <div
     class="ant-slider ant-slider-with-marks">
     <div
@@ -272,7 +270,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:red;">
+        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50;">
         <strong>
           100°C
         </strong>
@@ -326,18 +324,16 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:red;">
+        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50;">
         <strong>
           100°C
         </strong>
       </span>
     </div>
   </div>
-  <p>
-    <code>
-      included=false
-    </code>
-  </p>
+  <h4>
+    included=false
+  </h4>
   <div
     class="ant-slider ant-slider-with-marks">
     <div
@@ -382,18 +378,16 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:red;">
+        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50;">
         <strong>
           100°C
         </strong>
       </span>
     </div>
   </div>
-  <p>
-    <code>
-      marks && step
-    </code>
-  </p>
+  <h4>
+    marks & step
+  </h4>
   <div
     class="ant-slider ant-slider-with-marks">
     <div
@@ -438,18 +432,16 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:red;">
+        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50;">
         <strong>
           100°C
         </strong>
       </span>
     </div>
   </div>
-  <p>
-    <code>
-      step=null
-    </code>
-  </p>
+  <h4>
+    step=null
+  </h4>
   <div
     class="ant-slider ant-slider-with-marks">
     <div
@@ -494,7 +486,7 @@ exports[`test renders ./components/slider/demo/mark.md correctly 1`] = `
       </span>
       <span
         class="ant-slider-mark-text"
-        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:red;">
+        style="width:30.000000000000004%;margin-left:-15.000000000000002%;left:100%;color:#f50;">
         <strong>
           100°C
         </strong>
