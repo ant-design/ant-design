@@ -95,8 +95,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
     const props = assign({ format: 'HH:mm:ss' }, this.props);
     delete props.defaultValue;
 
-    const className = classNames({
-      [props.className]: !!props.className,
+    const className = classNames(props.className, {
       [`${props.prefixCls}-${props.size}`]: !!props.size,
     });
 

@@ -115,11 +115,9 @@ export default class Anchor extends React.Component<AnchorProps, any> {
 
     const wrapperClass = classNames({
       [`${prefixCls}-wrapper`]: true,
-      [className]: !!className,
-    });
+    }, className);
 
-    const anchorClass = classNames({
-      [`${prefixCls}`]: true,
+    const anchorClass = classNames(prefixCls, {
       'fixed': !affix,
     });
 

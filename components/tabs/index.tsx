@@ -81,8 +81,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       onTabClick,
       animated,
     } = this.props;
-    let cls = classNames({
-      [className]: !!className,
+    let cls = classNames(className, {
       [`${prefixCls}-mini`]: size === 'small' || size as string === 'mini',
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,

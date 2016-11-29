@@ -21,11 +21,9 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     }, restProps] = splitObject(this.props,
       ['prefixCls', 'children', 'pending', 'className']);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const classString = classNames({
-      [prefixCls]: true,
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-pending`]: !!pending,
-      [className]: className,
-    });
+    }, className);
     const items = React.Children.map(children, (ele: React.ReactElement<any>, idx) =>
       React.cloneElement(ele, {
         last: idx === children.length - 1,

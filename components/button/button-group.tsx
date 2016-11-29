@@ -22,11 +22,9 @@ export default function ButtonGroup(props: ButtonGroupProps) {
     small: 'sm',
   })[size] || '';
 
-  const classes = classNames({
-    [prefixCls]: true,
+  const classes = classNames(prefixCls, {
     [`${prefixCls}-${sizeCls}`]: sizeCls,
-    [className]: className,
-  });
+  }, className);
 
   return <div {...others} className={classes} />;
 }

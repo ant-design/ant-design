@@ -80,13 +80,11 @@ export default class Tag extends React.Component<TagProps, any> {
       ['prefixCls', 'closable', 'color', 'className', 'children', 'style']
     );
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
-    const classString = classNames({
-      [prefixCls]: true,
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: !!color,
       [`${prefixCls}-has-color`]: !!color,
       [`${prefixCls}-close`]: this.state.closing,
-      [className]: !!className,
-    });
+    }, className);
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(otherProps, [
       'onClose',

@@ -34,8 +34,7 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
       this.props, ['prefixCls', 'style', 'children', 'className', 'indeterminate',
       'onMouseEnter', 'onMouseLeave']
     );
-    const classString = classNames({
-      [className]: !!className,
+    const classString = classNames(className, {
       [`${prefixCls}-wrapper`]: true,
     });
     const checkboxClass = classNames({

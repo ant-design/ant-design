@@ -120,8 +120,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     }
 
     const childrenProps = children ? (children as React.ReactElement<any>).props : {};
-    const childrenCls = classNames({
-      [childrenProps.className]: !!childrenProps.className,
+    const childrenCls = classNames(childrenProps.className, {
       [this.props.openClassName || `${prefixCls}-open`]: true,
     });
 

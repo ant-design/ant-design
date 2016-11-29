@@ -11,12 +11,10 @@ export interface GroupProps {
 
 const Group: React.StatelessComponent<GroupProps> = (props) => {
   const { prefixCls = 'ant-input-group', className = '' } = props;
-  const cls = classNames({
-    [prefixCls]: true,
+  const cls = classNames(prefixCls, {
     [`${prefixCls}-lg`]: props.size === 'large',
     [`${prefixCls}-sm`]: props.size === 'small',
-    [className]: !!className,
-  });
+  }, className);
   return (
     <span className={cls} style={props.style}>
       {props.children}

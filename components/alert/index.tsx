@@ -93,15 +93,13 @@ export default class Alert extends React.Component<AlertProps, any> {
       iconType += '-o';
     }
 
-    let alertCls = classNames({
-      [prefixCls]: true,
+    let alertCls = classNames(prefixCls, {
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-close`]: !this.state.closing,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !showIcon,
       [`${prefixCls}-banner`]: !!banner,
-      [className]: !!className,
-    });
+    }, className);
 
     // closeable when closeText is assigned
     if (closeText) {

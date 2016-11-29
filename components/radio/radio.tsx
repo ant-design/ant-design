@@ -35,10 +35,8 @@ export default class Radio extends React.Component<RadioProps, any> {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: checked,
       [`${prefixCls}-wrapper-disabled`]: disabled,
-      [className]: !!className,
-    });
-    const classString = classNames({
-      [`${prefixCls}`]: true,
+    }, className);
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-checked`]: checked,
       [`${prefixCls}-disabled`]: disabled,
     });

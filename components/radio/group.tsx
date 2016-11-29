@@ -96,11 +96,9 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     });
 
     const { prefixCls = 'ant-radio-group', className = '' } = props;
-    const classString = classNames({
-      [prefixCls]: true,
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-${props.size}`]: props.size,
-      [className]: className,
-    });
+    }, className);
     return (
       <div
         className={classString}

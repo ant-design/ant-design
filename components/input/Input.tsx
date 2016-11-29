@@ -184,8 +184,7 @@ export default class Input extends Component<InputProps, any> {
       return props.children;
     }
 
-    const inputClassName = classNames({
-      [prefixCls]: true,
+    const inputClassName = classNames(prefixCls, {
       [`${prefixCls}-sm`]: props.size === 'small',
       [`${prefixCls}-lg`]: props.size === 'large',
       [props.className]: !!props.className,
