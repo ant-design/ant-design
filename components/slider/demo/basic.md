@@ -20,18 +20,16 @@ class Demo extends React.Component {
   state = {
     disabled: false,
   };
-
   handleDisabledChange = (disabled) => {
     this.setState({ disabled });
   }
-
   render() {
     const { disabled } = this.state;
     return (
       <div>
-        Disabled: <Switch checked={disabled} onChange={this.handleDisabledChange} />
         <Slider defaultValue={30} disabled={disabled} />
         <Slider range defaultValue={[20, 50]} disabled={disabled} />
+        Disabled: <Switch size="small" checked={disabled} onChange={this.handleDisabledChange} />
       </div>
     );
   }
@@ -39,3 +37,9 @@ class Demo extends React.Component {
 
 ReactDOM.render(<Demo />, mountNode);
 ````
+
+<style>
+.code-box-demo .ant-slider {
+  margin-bottom: 16px;
+}
+</style>

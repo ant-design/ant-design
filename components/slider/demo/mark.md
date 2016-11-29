@@ -25,7 +25,7 @@ const marks = {
   37: '37°C',
   100: {
     style: {
-      color: 'red',
+      color: '#f50',
     },
     label: <strong>100°C</strong>,
   },
@@ -33,16 +33,27 @@ const marks = {
 
 ReactDOM.render(
   <div>
-    <p><code>included=true</code></p>
+    <h4>included=true</h4>
     <Slider marks={marks} defaultValue={37} />
     <Slider range marks={marks} defaultValue={[26, 37]} />
-    <p><code>included=false</code></p>
+
+    <h4>included=false</h4>
     <Slider marks={marks} included={false} defaultValue={37} />
-    <p><code>marks && step</code></p>
+
+    <h4>marks & step</h4>
     <Slider marks={marks} step={10} defaultValue={37} />
-    <p><code>step=null</code></p>
+
+    <h4>step=null</h4>
     <Slider marks={marks} step={null} defaultValue={37} />
-  </div>,
-  mountNode
-);
+  </div>
+, mountNode);
 ````
+
+<style>
+#components-slider-demo-mark h4 {
+  margin: 0 0 16px;
+}
+#components-slider-demo-mark .ant-slider-with-marks {
+  margin-bottom: 44px;
+}
+</style>
