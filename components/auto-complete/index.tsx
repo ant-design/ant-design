@@ -52,8 +52,9 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
+      [className]: !!className,
       [`${prefixCls}-show-search`]: true,
-    }, className);
+    });
 
     const options = children || (dataSource ? dataSource.map((item) => {
       switch (typeof item) {
