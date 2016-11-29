@@ -97,37 +97,28 @@ class AnchorHelper {
       return activeAnchor;
     }
 
-    const linksPositions = this.links
+    const linksPositions = (this.links
     .map(section => {
       const target = document.getElementById(section.substring(1));
-      if (target) {
+      if (target && getOffsetTop(target) < bounds) {
         const top = getOffsetTop(target);
-        return {
-          section,
-          top,
-          bottom: top + target.clientHeight,
-        };
+        if (top <= bounds) {
+          return {
+            section,
+            top,
+            bottom: top + target.clientHeight,
+          };
+        }
       }
       return null;
     })
-    .filter(section => section !== null) as Array<Section>;
+    .filter(section => section !== null) as Array<Section>);
 
-    let activeSection = linksPositions.find(({ top, bottom }) => top <= bounds && bottom >= -bounds);
-
-    // 当快速滚动时，如果滚到了最上方的锚点区域再上方，或滚动到了最下方的锚点区域下方，可能会导致 _activeAnchor 更新失败。
-    if (!activeSection && linksPositions.length) {
-      const maxSection = linksPositions.reduce((prev, curr) => curr.bottom > prev.bottom ? curr : prev);
-      const minSection = linksPositions.reduce((prev, curr) => curr.top < prev.top ? curr : prev);
-      if (maxSection.bottom <= -bounds) {
-        activeSection = maxSection;
-      } else if (minSection.top >= bounds) {
-        activeSection = minSection;
-      }
+    if (linksPositions.length) {
+      const maxSection = linksPositions.reduce((prev, curr) => curr.top > prev.top ? curr : prev);
+      return maxSection.section;
     }
-
-    activeAnchor = activeSection ? activeSection.section : '';
-    this._activeAnchor = activeAnchor || this._activeAnchor;
-    return this._activeAnchor;
+    return '';
   }
 
   scrollTo(href, target = getDefaultTarget, callback = () => {}) {
