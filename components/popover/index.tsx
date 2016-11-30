@@ -1,16 +1,12 @@
 import React from 'react';
 import assign from 'object-assign';
 import Tooltip from '../tooltip';
+import { TooltipPlacement } from '../tooltip';
 
 export interface PopoverProps {
    /** trigger type, options: `hover` `focus` `click` */
    trigger?: 'hover' | 'focus' | 'click';
-   /** Position of popup-container,
-   * options: `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight`
-   * `leftTop` `leftBottom` `rightTop` `rightBottom`
-   */
-   placement?: 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' |
-   'bottomLeft' | 'bottomRight' | 'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+   placement?: TooltipPlacement;
    /** title of popup-container */
    title?: React.ReactNode;
    /** classname of popup-container */
@@ -43,18 +39,6 @@ export default class Popover extends React.Component<PopoverProps, any> {
     overlayStyle: {},
   };
 
-  render() {
-    const props = assign({}, this.props);
-    delete props.title;
-    return (
-      <Tooltip
-        ref="tooltip"
-        {...props}
-        overlay={this.getOverlay()}
-      />
-    );
-  }
-
   getPopupDomNode() {
     return (this.refs as any).tooltip.getPopupDomNode();
   }
@@ -69,6 +53,18 @@ export default class Popover extends React.Component<PopoverProps, any> {
           {content}
         </div>
       </div>
+    );
+  }
+
+  render() {
+    const props = assign({}, this.props);
+    delete props.title;
+    return (
+      <Tooltip
+        {...props}
+        ref="tooltip"
+        overlay={this.getOverlay()}
+      />
     );
   }
 }
