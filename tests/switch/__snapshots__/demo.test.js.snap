@@ -70,7 +70,7 @@ exports[`test renders ./components/switch/demo/text.md correctly 1`] = `
     <span
       class="ant-switch-inner">
       <i
-        class="anticon anticon-cross " />
+        class="anticon anticon-cross" />
     </span>
   </span>
 </div>

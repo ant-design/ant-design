@@ -132,8 +132,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     const footerDom = footer(assign({}, this.props));
     const bodyDom = body(assign({}, this.props));
 
-    const listCls = classNames({
-      [prefixCls]: true,
+    const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 

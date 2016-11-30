@@ -38,8 +38,7 @@ export default class Search extends React.Component<SearchProps, any> {
     delete others.onSearch;
     const wrapperCls = classNames({
       [`${prefixCls}-wrapper`]: true,
-      [className]: !!className,
-    });
+    }, className);
     return (
       <div className={wrapperCls} style={style}>
         <Input

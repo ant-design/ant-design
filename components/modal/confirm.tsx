@@ -123,11 +123,9 @@ export default function confirm(config) {
     );
   }
 
-  const classString = classNames({
-    [prefixCls]: true,
+  const classString = classNames(prefixCls, {
     [`${prefixCls}-${props.type}`]: true,
-    [props.className]: !!props.className,
-  });
+  }, props.className);
 
   ReactDOM.render(
     <Dialog

@@ -75,14 +75,12 @@ export default class Spin extends React.Component<SpinProps, any> {
       ['className', 'size', 'prefixCls', 'tip']);
     const { spinning } = this.state;
 
-    const spinClassName = classNames({
-      [prefixCls]: true,
+    const spinClassName = classNames(prefixCls, {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
       [`${prefixCls}-show-text`]: !!this.props.tip,
-      [className]: !!className,
-    });
+    }, className);
 
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(restProps, [

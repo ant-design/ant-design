@@ -409,7 +409,7 @@ exports[`test renders ./components/select/demo/search-box.md correctly 1`] = `
         class="ant-btn ant-search-btn"
         type="button">
         <i
-          class="anticon anticon-search " />
+          class="anticon anticon-search" />
       </button>
     </div>
   </span>

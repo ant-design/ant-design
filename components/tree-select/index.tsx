@@ -34,8 +34,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
-    });
+    }, className);
 
     const { antLocale } = this.context;
     if (antLocale && antLocale.Select) {

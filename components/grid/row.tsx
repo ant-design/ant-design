@@ -36,8 +36,7 @@ export default class Row extends React.Component<RowProps, any> {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${type}-${justify}`]: justify,
       [`${prefixCls}-${type}-${align}`]: align,
-      [className]: className,
-    });
+    }, className);
     const rowStyle = gutter > 0 ? assign({}, {
       marginLeft: gutter / -2,
       marginRight: gutter / -2,

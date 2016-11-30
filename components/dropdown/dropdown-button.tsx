@@ -38,10 +38,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       disabled, visible, onVisibleChange }, restProps] = splitObject(this.props,
        ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick',
          'prefixCls', 'disabled', 'visible', 'onVisibleChange']);
-    const cls = classNames({
-      [prefixCls]: true,
-      [className]: !!className,
-    });
+    const cls = classNames(prefixCls, className);
 
     const dropdownProps = {
        align,

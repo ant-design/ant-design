@@ -154,13 +154,11 @@ export default class Form extends React.Component<FormProps, any> {
 
   render() {
     const { prefixCls, className = '', inline, horizontal, vertical } = this.props;
-    const formClassName = classNames({
-      [`${prefixCls}`]: true,
+    const formClassName = classNames(prefixCls, {
       [`${prefixCls}-horizontal`]: horizontal,
       [`${prefixCls}-vertical`]: vertical,
       [`${prefixCls}-inline`]: inline,
-      [className]: !!className,
-    });
+    }, className);
 
     const formProps = omit(this.props, [
       'prefixCls',

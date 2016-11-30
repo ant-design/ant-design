@@ -29,8 +29,7 @@ export default class Switch extends React.Component<SwitchProps, any> {
 
   render() {
     const { prefixCls, size, className = '' } = this.props;
-    const classes = classNames({
-      [className]: !!className,
+    const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
     });
     return <RcSwitch {...this.props} className={classes} />;

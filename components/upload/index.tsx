@@ -261,8 +261,7 @@ export default class Upload extends React.Component<UploadProps, any> {
     ) : null;
 
     if (type === 'drag') {
-      const dragCls = classNames({
-        [prefixCls]: true,
+      const dragCls = classNames(prefixCls, {
         [`${prefixCls}-drag`]: true,
         [`${prefixCls}-drag-uploading`]: this.state.fileList.some(file => file.status === 'uploading'),
         [`${prefixCls}-drag-hover`]: this.state.dragState === 'dragover',
@@ -287,8 +286,7 @@ export default class Upload extends React.Component<UploadProps, any> {
       );
     }
 
-    const uploadButtonCls = classNames({
-      [prefixCls]: true,
+    const uploadButtonCls = classNames(prefixCls, {
       [`${prefixCls}-select`]: true,
       [`${prefixCls}-select-${listType}`]: true,
       [`${prefixCls}-disabled`]: disabled,

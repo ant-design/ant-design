@@ -36,13 +36,13 @@ exports[`test renders ./components/table/demo/ajax.md correctly 1`] = `
                               class="ant-table-column-sorter-up off"
                               title="↑">
                               <i
-                                class="anticon anticon-caret-up " />
+                                class="anticon anticon-caret-up" />
                             </span>
                             <span
                               class="ant-table-column-sorter-down off"
                               title="↓">
                               <i
-                                class="anticon anticon-caret-down " />
+                                class="anticon anticon-caret-down" />
                             </span>
                           </div>
                         </span>
@@ -52,7 +52,7 @@ exports[`test renders ./components/table/demo/ajax.md correctly 1`] = `
                         <span>
                           Gender
                           <i
-                            class="anticon anticon-filter "
+                            class="anticon anticon-filter"
                             title="筛选" />
                         </span>
                       </th>
@@ -73,7 +73,7 @@ exports[`test renders ./components/table/demo/ajax.md correctly 1`] = `
               class="ant-table-placeholder">
               <span>
                 <i
-                  class="anticon anticon-frown-o " />
+                  class="anticon anticon-frown-o" />
                 暂无数据
               </span>
             </div>
@@ -180,7 +180,7 @@ exports[`test renders ./components/table/demo/basic.md correctly 1`] = `
                             href="#">
                             More actions
                             <i
-                              class="anticon anticon-down " />
+                              class="anticon anticon-down" />
                           </a>
                         </span>
                       </td>
@@ -225,7 +225,7 @@ exports[`test renders ./components/table/demo/basic.md correctly 1`] = `
                             href="#">
                             More actions
                             <i
-                              class="anticon anticon-down " />
+                              class="anticon anticon-down" />
                           </a>
                         </span>
                       </td>
@@ -270,7 +270,7 @@ exports[`test renders ./components/table/demo/basic.md correctly 1`] = `
                             href="#">
                             More actions
                             <i
-                              class="anticon anticon-down " />
+                              class="anticon anticon-down" />
                           </a>
                         </span>
                       </td>
@@ -708,7 +708,7 @@ exports[`test renders ./components/table/demo/custom-filter-panel.md correctly 1
                         <span>
                           Name
                           <i
-                            class="anticon anticon-filter "
+                            class="anticon anticon-filter"
                             title="筛选" />
                         </span>
                       </th>
@@ -1226,7 +1226,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1289,7 +1289,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1352,7 +1352,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1415,7 +1415,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1478,7 +1478,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1541,7 +1541,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1604,7 +1604,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1667,7 +1667,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1730,7 +1730,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -1793,7 +1793,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                               href="#">
                               More actions
                               <i
-                                class="anticon anticon-down " />
+                                class="anticon anticon-down" />
                             </a>
                           </span>
                         </td>
@@ -5225,7 +5225,7 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
                         <span>
                           Name
                           <i
-                            class="anticon anticon-filter "
+                            class="anticon anticon-filter"
                             title="筛选" />
                         </span>
                       </th>
@@ -5387,7 +5387,7 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
                         <span>
                           Name
                           <i
-                            class="anticon anticon-filter "
+                            class="anticon anticon-filter"
                             title="筛选" />
                         </span>
                       </th>
@@ -5425,13 +5425,13 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
                               class="ant-table-column-sorter-up off"
                               title="↑">
                               <i
-                                class="anticon anticon-caret-up " />
+                                class="anticon anticon-caret-up" />
                             </span>
                             <span
                               class="ant-table-column-sorter-down off"
                               title="↓">
                               <i
-                                class="anticon anticon-caret-down " />
+                                class="anticon anticon-caret-down" />
                             </span>
                           </div>
                         </span>
@@ -6120,17 +6120,17 @@ exports[`test renders ./components/table/demo/head.md correctly 1`] = `
                               class="ant-table-column-sorter-up off"
                               title="↑">
                               <i
-                                class="anticon anticon-caret-up " />
+                                class="anticon anticon-caret-up" />
                             </span>
                             <span
                               class="ant-table-column-sorter-down off"
                               title="↓">
                               <i
-                                class="anticon anticon-caret-down " />
+                                class="anticon anticon-caret-down" />
                             </span>
                           </div>
                           <i
-                            class="anticon anticon-filter "
+                            class="anticon anticon-filter"
                             title="筛选" />
                         </span>
                       </th>
@@ -6144,13 +6144,13 @@ exports[`test renders ./components/table/demo/head.md correctly 1`] = `
                               class="ant-table-column-sorter-up off"
                               title="↑">
                               <i
-                                class="anticon anticon-caret-up " />
+                                class="anticon anticon-caret-up" />
                             </span>
                             <span
                               class="ant-table-column-sorter-down off"
                               title="↓">
                               <i
-                                class="anticon anticon-caret-down " />
+                                class="anticon anticon-caret-down" />
                             </span>
                           </div>
                         </span>
@@ -6165,17 +6165,17 @@ exports[`test renders ./components/table/demo/head.md correctly 1`] = `
                               class="ant-table-column-sorter-up off"
                               title="↑">
                               <i
-                                class="anticon anticon-caret-up " />
+                                class="anticon anticon-caret-up" />
                             </span>
                             <span
                               class="ant-table-column-sorter-down off"
                               title="↓">
                               <i
-                                class="anticon anticon-caret-down " />
+                                class="anticon anticon-caret-down" />
                             </span>
                           </div>
                           <i
-                            class="anticon anticon-filter "
+                            class="anticon anticon-filter"
                             title="筛选" />
                         </span>
                       </th>
@@ -6403,7 +6403,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                             href="#">
                             More actions
                             <i
-                              class="anticon anticon-down " />
+                              class="anticon anticon-down" />
                           </a>
                         </span>
                       </td>
@@ -6449,7 +6449,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                             href="#">
                             More actions
                             <i
-                              class="anticon anticon-down " />
+                              class="anticon anticon-down" />
                           </a>
                         </span>
                       </td>
@@ -6495,7 +6495,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                             href="#">
                             More actions
                             <i
-                              class="anticon anticon-down " />
+                              class="anticon anticon-down" />
                           </a>
                         </span>
                       </td>
@@ -7048,17 +7048,17 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 class="ant-table-column-sorter-up off"
                                 title="↑">
                                 <i
-                                  class="anticon anticon-caret-up " />
+                                  class="anticon anticon-caret-up" />
                               </span>
                               <span
                                 class="ant-table-column-sorter-down off"
                                 title="↓">
                                 <i
-                                  class="anticon anticon-caret-down " />
+                                  class="anticon anticon-caret-down" />
                               </span>
                             </div>
                             <i
-                              class="anticon anticon-filter "
+                              class="anticon anticon-filter"
                               title="筛选" />
                           </span>
                         </th>
@@ -7072,13 +7072,13 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 class="ant-table-column-sorter-up off"
                                 title="↑">
                                 <i
-                                  class="anticon anticon-caret-up " />
+                                  class="anticon anticon-caret-up" />
                               </span>
                               <span
                                 class="ant-table-column-sorter-down off"
                                 title="↓">
                                 <i
-                                  class="anticon anticon-caret-down " />
+                                  class="anticon anticon-caret-down" />
                               </span>
                             </div>
                           </span>
@@ -7093,17 +7093,17 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 class="ant-table-column-sorter-up off"
                                 title="↑">
                                 <i
-                                  class="anticon anticon-caret-up " />
+                                  class="anticon anticon-caret-up" />
                               </span>
                               <span
                                 class="ant-table-column-sorter-down off"
                                 title="↓">
                                 <i
-                                  class="anticon anticon-caret-down " />
+                                  class="anticon anticon-caret-down" />
                               </span>
                             </div>
                             <i
-                              class="anticon anticon-filter "
+                              class="anticon anticon-filter"
                               title="筛选" />
                           </span>
                         </th>

@@ -36,7 +36,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-search-action">
             <i
-              class="anticon anticon-search " />
+              class="anticon anticon-search" />
           </span>
         </div>
       </div>
@@ -67,7 +67,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-left " />
+          class="anticon anticon-left" />
         to left
       </span>
     </button>
@@ -78,7 +78,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span>
         to right
         <i
-          class="anticon anticon-right " />
+          class="anticon anticon-right" />
       </span>
     </button>
   </div>
@@ -117,7 +117,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-search-action">
             <i
-              class="anticon anticon-search " />
+              class="anticon anticon-search" />
           </span>
         </div>
       </div>
@@ -227,7 +227,7 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-left " />
+          class="anticon anticon-left" />
       </span>
     </button>
     <button
@@ -236,7 +236,7 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-right " />
+          class="anticon anticon-right" />
       </span>
     </button>
   </div>
@@ -332,7 +332,7 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
       type="button">
       <span>
         <i
-          class="anticon anticon-left " />
+          class="anticon anticon-left" />
       </span>
     </button>
     <button
@@ -341,7 +341,7 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
       type="button">
       <span>
         <i
-          class="anticon anticon-right " />
+          class="anticon anticon-right" />
       </span>
     </button>
   </div>
@@ -416,7 +416,7 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-left " />
+          class="anticon anticon-left" />
       </span>
     </button>
     <button
@@ -425,7 +425,7 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-right " />
+          class="anticon anticon-right" />
       </span>
     </button>
   </div>
@@ -497,7 +497,7 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
           <span
             class="ant-transfer-list-search-action">
             <i
-              class="anticon anticon-search " />
+              class="anticon anticon-search" />
           </span>
         </div>
       </div>
@@ -517,7 +517,7 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-left " />
+          class="anticon anticon-left" />
       </span>
     </button>
     <button
@@ -526,7 +526,7 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
       type="button">
       <span>
         <i
-          class="anticon anticon-right " />
+          class="anticon anticon-right" />
       </span>
     </button>
   </div>
@@ -564,7 +564,7 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
           <span
             class="ant-transfer-list-search-action">
             <i
-              class="anticon anticon-search " />
+              class="anticon anticon-search" />
           </span>
         </div>
       </div>

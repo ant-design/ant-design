@@ -30,8 +30,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     const inputNumberClass = classNames({
       [`${this.props.prefixCls}-lg`]: size === 'large',
       [`${this.props.prefixCls}-sm`]: size === 'small',
-      [className]: !!className,
-    });
+    }, className);
 
     return <RcInputNumber className={inputNumberClass} {...others} />;
   }

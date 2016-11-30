@@ -21,9 +21,7 @@ export default (props: CardProps) => {
   }, others] = splitObject(props,
     ['prefixCls', 'className', 'children', 'extra', 'bodyStyle', 'title', 'loading', 'bordered']);
   let children = props.children;
-  const classString = classNames({
-    [prefixCls]: true,
-    [className]: !!className,
+  const classString = classNames(prefixCls, className, {
     [`${prefixCls}-loading`]: loading,
     [`${prefixCls}-bordered`]: bordered,
   });

@@ -28,7 +28,7 @@ exports[`Search shows cross icon when user inputting 1`] = `
       <Component
         type="search">
         <i
-          className="anticon anticon-search " />
+          className="anticon anticon-search" />
       </Component>
     </span>
   </div>
@@ -67,7 +67,7 @@ exports[`Search shows cross icon when user inputting 2`] = `
       <Component
         type="cross-circle">
         <i
-          className="anticon anticon-cross-circle " />
+          className="anticon anticon-cross-circle" />
       </Component>
     </a>
   </div>

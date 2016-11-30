@@ -96,8 +96,7 @@ export default class Select extends React.Component<SelectProps, any> {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-show-search`]: showSearch,
-      [className]: !!className,
-    });
+    }, className);
 
     const { antLocale } = this.context;
     if (antLocale && antLocale.Select) {

@@ -20,12 +20,10 @@ export default class CheckableTag extends React.Component<CheckableTagProps, any
     const [{ prefixCls = 'ant-tag', className = '', checked }, restProps ] = splitObject(
         this.props, ['prefixCls', 'className', 'checked']
       );
-    const cls = classNames({
-      [`${prefixCls}`]: true,
+    const cls = classNames(prefixCls, {
       [`${prefixCls}-checkable`]: true,
       [`${prefixCls}-checkable-checked`]: checked,
-      [className]: className,
-    });
+    }, className);
 
     delete restProps.onChange;
     return <div {...restProps} className={cls} onClick={this.handleClick} />;

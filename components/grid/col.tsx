@@ -68,14 +68,13 @@ export default class Col extends React.Component<ColProps, any> {
         [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
       });
     });
-    const classes = classNames(assign({}, {
+    const classes = classNames({
       [`${prefixCls}-${span}`]: span !== undefined,
       [`${prefixCls}-order-${order}`]: order,
       [`${prefixCls}-offset-${offset}`]: offset,
       [`${prefixCls}-push-${push}`]: push,
       [`${prefixCls}-pull-${pull}`]: pull,
-      [className]: !!className,
-    }, sizeClassObj));
+    }, className, sizeClassObj);
 
     return <div {...others} className={classes}>{children}</div>;
   }

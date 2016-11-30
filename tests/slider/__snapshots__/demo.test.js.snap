@@ -102,7 +102,7 @@ exports[`test renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       class="ant-slider-mark" />
   </div>
   <i
-    class="anticon anticon-smile-o " />
+    class="anticon anticon-smile-o" />
 </div>
 `;
 

@@ -107,13 +107,11 @@ export default class Progress extends React.Component<ProgressProps, any> {
       );
     }
 
-    const classString = classNames({
-      [`${prefixCls}`]: true,
+    const classString = classNames(prefixCls, {
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-status-${progressStatus}`]: true,
       [`${prefixCls}-show-info`]: showInfo,
-      [className]: !!className,
-    });
+    }, className);
 
     return (
       <div {...restProps} className={classString}>

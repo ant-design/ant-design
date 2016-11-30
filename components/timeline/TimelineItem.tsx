@@ -29,8 +29,7 @@ export default class TimelineItem extends React.Component<TimeLineItemProps, any
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-last`]: last,
       [`${prefixCls}-item-pending`]: pending,
-      [className]: className,
-    });
+    }, className);
 
     const dotClassName = classNames({
       [`${prefixCls}-item-head`]: true,

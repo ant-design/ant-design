@@ -272,7 +272,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 <span
                   class="ant-transfer-list-search-action">
                   <i
-                    class="anticon anticon-search " />
+                    class="anticon anticon-search" />
                 </span>
               </div>
             </div>
@@ -292,7 +292,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button">
             <span>
               <i
-                class="anticon anticon-left " />
+                class="anticon anticon-left" />
             </span>
           </button>
           <button
@@ -301,7 +301,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
             type="button">
             <span>
               <i
-                class="anticon anticon-right " />
+                class="anticon anticon-right" />
             </span>
           </button>
         </div>
@@ -339,7 +339,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
                 <span
                   class="ant-transfer-list-search-action">
                   <i
-                    class="anticon anticon-search " />
+                    class="anticon anticon-search" />
                 </span>
               </div>
             </div>
@@ -1168,7 +1168,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
                               <span>
                                 Name
                                 <i
-                                  class="anticon anticon-filter "
+                                  class="anticon anticon-filter"
                                   title="Filter Menu" />
                               </span>
                             </th>

@@ -571,13 +571,13 @@ exports[`test renders ./components/badge/demo/change.md correctly 1`] = `
         class="ant-btn ant-btn-ghost"
         type="button">
         <i
-          class="anticon anticon-minus " />
+          class="anticon anticon-minus" />
       </button>
       <button
         class="ant-btn ant-btn-ghost"
         type="button">
         <i
-          class="anticon anticon-plus " />
+          class="anticon anticon-plus" />
       </button>
     </div>
     <button
@@ -597,7 +597,7 @@ exports[`test renders ./components/badge/demo/dot.md correctly 1`] = `
   <span
     class="ant-badge">
     <i
-      class="anticon anticon-notification " />
+      class="anticon anticon-notification" />
     <sup
       class="ant-scroll-number ant-badge-dot"
       data-show="true"
