@@ -1,33 +1,16 @@
 import React from 'react';
 import Tooltip from '../tooltip';
-import { TooltipPlacement } from '../tooltip';
+import { AbstractTooltipProps } from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 import splitObject from '../_util/splitObject';
 
-export interface PopconfirmProps {
-  placement?: TooltipPlacement;
-  /** Description of Popconfirm */
-  title: React.ReactNode | string;
-  /** Callback when confirm */
+export interface PopconfirmProps extends AbstractTooltipProps {
+  title: React.ReactNode;
   onConfirm?: () => void;
-  /** Callback when cancel */
   onCancel?: () => void;
-  visible?: boolean;
-  /** Callback when display/hide */
-  onVisibleChange?: (visible: boolean) => void;
-  /** Confirm button text */
   okText?: React.ReactNode;
-  /** Cancel button text */
   cancelText?: React.ReactNode;
-  style?: React.CSSProperties;
-  transitionName?: string;
-  trigger?: 'hover' | 'focus' | 'click';
-  /** Style of overlay */
-  overlayStyle?: React.CSSProperties;
-  prefixCls?: string;
-  openClassName?: string;
-  arrowPointAtCenter?: boolean;
 }
 
 export interface PopconfirmContext {
@@ -58,7 +41,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
       this.setState({ visible: nextProps.visible });
     }

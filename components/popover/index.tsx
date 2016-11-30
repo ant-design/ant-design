@@ -1,31 +1,11 @@
 import React from 'react';
 import assign from 'object-assign';
 import Tooltip from '../tooltip';
-import { TooltipPlacement } from '../tooltip';
+import { AbstractTooltipProps } from '../tooltip';
 
-export interface PopoverProps {
-   /** trigger type, options: `hover` `focus` `click` */
-   trigger?: 'hover' | 'focus' | 'click';
-   placement?: TooltipPlacement;
-   /** title of popup-container */
+export interface PopoverProps extends AbstractTooltipProps {
    title?: React.ReactNode;
-   /** classname of popup-container */
-   overlayClassName?: string;
-   /** Style of overlay */
-   overlayStyle?: React.CSSProperties;
-   prefixCls?: string;
-   /** to control visibility of popup-container */
-   visible?: boolean;
-   /** callback when visible change */
-   onVisibleChange?: (visible: boolean) => void;
-   /** specify wrapper of popup-container */
-   getTooltipContainer?: (triggerNode: React.ReactNode) => HTMLElement;
-   /** content of popup-container */
    content?: React.ReactNode | string;
-   style?: React.CSSProperties;
-   transitionName?: string;
-   openClassName?: string;
-   arrowPointAtCenter?: boolean;
 }
 
 export default class Popover extends React.Component<PopoverProps, any> {
@@ -39,8 +19,12 @@ export default class Popover extends React.Component<PopoverProps, any> {
     overlayStyle: {},
   };
 
+  refs: {
+    tooltip: Tooltip,
+  };
+
   getPopupDomNode() {
-    return (this.refs as any).tooltip.getPopupDomNode();
+    return this.refs.tooltip.getPopupDomNode();
   }
 
   getOverlay() {

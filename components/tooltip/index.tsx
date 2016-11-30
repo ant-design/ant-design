@@ -9,24 +9,26 @@ export type TooltipPlacement =
   'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
   'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
 
-export interface TooltipProps {
-  placement?: TooltipPlacement;
-  /** 提示文字 */
-  title: React.ReactNode;
-  style?: React.CSSProperties;
-  builtinPlacements?: Object;
-  /** Style of overlay */
-  overlayStyle?: React.CSSProperties;
+export interface AbstractTooltipProps {
   prefixCls?: string;
-  /** Callback when display/hide */
+  overlayClassName?: string;
+  style?: React.CSSProperties;
+  overlayStyle?: React.CSSProperties;
+  placement?: TooltipPlacement;
+  builtinPlacements?: Object;
+  visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   transitionName?: string;
-  visible?: boolean;
   trigger?: 'hover' | 'focus' | 'click';
-  overlay?: React.ReactNode;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   getTooltipContainer?: (triggerNode: React.ReactNode) => HTMLElement;
+  children: React.ReactElement<any>;
+}
+
+export interface TooltipProps extends AbstractTooltipProps {
+  title: React.ReactNode;
+  overlay?: React.ReactNode;
 }
 
 export default class Tooltip extends React.Component<TooltipProps, any> {
@@ -43,13 +45,27 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     tooltip: any;
   };
 
-  state = {
-    visible: false,
-  };
+  constructor(props: TooltipProps) {
+    super(props);
+
+    this.state = {
+      visible: props.visible,
+    };
+  }
+
+  componentWillReceiveProps(nextProps: TooltipProps) {
+    if ('visible' in nextProps) {
+      this.setState({ visible: nextProps.visible });
+    }
+  }
 
   onVisibleChange = (visible) => {
-    this.setState({ visible });
-    const onVisibleChange = this.props.onVisibleChange;
+    const props = this.props;
+    if (!('visible' in props)) {
+      this.setState({ visible });
+    }
+
+    const onVisibleChange = props.onVisibleChange;
     if (onVisibleChange) {
       onVisibleChange(visible);
     }
@@ -100,19 +116,17 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   render() {
-    const { prefixCls, title, overlay, children } = this.props;
+    const { props, state } = this;
+    const { prefixCls, title, overlay, openClassName, children } = props;
+    let visible = state.visible;
     // Hide tooltip when there is no title
-    let visible = this.state.visible;
-    if (!title && !overlay) {
+    if (!('visible' in props) && !title && !overlay) {
       visible = false;
     }
-    if ('visible' in this.props) {
-      visible = this.props.visible as any;
-    }
 
-    const childrenProps = children ? (children as React.ReactElement<any>).props : {};
+    const childrenProps = children.props;
     const childrenCls = classNames(childrenProps.className, {
-      [this.props.openClassName || `${prefixCls}-open`]: true,
+      [openClassName || `${prefixCls}-open`]: true,
     });
 
     return (
@@ -125,7 +139,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
       >
-        {visible ? cloneElement((children as React.ReactElement<any>), { className: childrenCls }) : children}
+        {visible ? cloneElement(children, { className: childrenCls }) : children}
       </RcTooltip>
     );
   }
