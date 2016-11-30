@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-You can drag files to a specific area, to upload. Meanwhile you can also upload by selecting.
+You can drag files to a specific area, to upload. Alternatively, you can also upload by selecting.
 
-We can upload serveral files at one in modern browser by setting `multiple`.
+We can upload serveral files at once in modern browsers by giving the input the `multiple` attribute.
 
 ````jsx
 import { Upload, Icon, message } from 'antd';
