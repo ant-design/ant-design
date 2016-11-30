@@ -1,21 +1,16 @@
 import React from 'react';
 import { cloneElement } from 'react';
 import RcTooltip from 'rc-tooltip';
-import getPlacements from './placements';
 import classNames from 'classnames';
+import getPlacements from './placements';
 
-export type PopoverPlacement =
-  'top' | 'left' | 'right' | 'bottom' | 'topLeft' |
-  'topRight' | 'bottomLeft' | 'bottomRight' | 'leftTop' |
-  'leftBottom' | 'rightTop' | 'rightBottom'
+export type TooltipPlacement =
+  'top' | 'left' | 'right' | 'bottom' |
+  'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
+  'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
 
-// Tooltip
 export interface TooltipProps {
-  /**
-    气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft`
-    `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom`
-  */
-  placement?: PopoverPlacement;
+  placement?: TooltipPlacement;
   /** 提示文字 */
   title: React.ReactNode;
   style?: React.CSSProperties;
@@ -45,16 +40,12 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   };
 
   refs: {
-    [key: string]: any;
     tooltip: any;
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
+  state = {
+    visible: false,
+  };
 
   onVisibleChange = (visible) => {
     this.setState({ visible });
@@ -116,7 +107,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       visible = false;
     }
     if ('visible' in this.props) {
-      visible = this.props.visible;
+      visible = this.props.visible as any;
     }
 
     const childrenProps = children ? (children as React.ReactElement<any>).props : {};
@@ -126,13 +117,13 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
     return (
       <RcTooltip
-        overlay={title}
-        visible={visible}
-        onPopupAlign={this.onPopupAlign}
-        ref="tooltip"
         {...this.props}
+        ref="tooltip"
         builtinPlacements={this.getPlacements()}
+        overlay={overlay || title}
+        visible={visible}
         onVisibleChange={this.onVisibleChange}
+        onPopupAlign={this.onPopupAlign}
       >
         {visible ? cloneElement((children as React.ReactElement<any>), { className: childrenCls }) : children}
       </RcTooltip>

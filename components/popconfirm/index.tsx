@@ -1,21 +1,19 @@
 import React from 'react';
 import Tooltip from '../tooltip';
+import { TooltipPlacement } from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
 import splitObject from '../_util/splitObject';
 
 export interface PopconfirmProps {
-  /**
-   * Position of popup-container, options:`top`, `left`, `right`, `bottom`
-   */
-  placement?: 'top' | 'left' | 'right' | 'bottom' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' |
-   'leftTop' | 'leftBottom' | 'rightTop' | 'rightBottom';
+  placement?: TooltipPlacement;
   /** Description of Popconfirm */
   title: React.ReactNode | string;
   /** Callback when confirm */
   onConfirm?: () => void;
   /** Callback when cancel */
   onCancel?: () => void;
+  visible?: boolean;
   /** Callback when display/hide */
   onVisibleChange?: (visible: boolean) => void;
   /** Confirm button text */
@@ -52,10 +50,11 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
 
   context: PopconfirmContext;
 
-  constructor(props) {
+  constructor(props: PopconfirmProps) {
     super(props);
+
     this.state = {
-      visible: false,
+      visible: props.visible,
     };
   }
 
@@ -88,26 +87,29 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
   }
 
   setVisible(visible) {
-    if (!('visible' in this.props)) {
+    const props = this.props;
+    if (!('visible' in props)) {
       this.setState({ visible });
     }
 
-    const onVisibleChange = this.props.onVisibleChange;
+    const onVisibleChange = props.onVisibleChange;
     if (onVisibleChange) {
       onVisibleChange(visible);
     }
   }
 
   render() {
-    const [{ prefixCls, title, placement }, restProps] = splitObject(
-      this.props,
-      ['prefixCls', 'title', 'placement']
-    );
-    let { okText, cancelText } = this.props;
-    if (this.context.antLocale && this.context.antLocale.Popconfirm) {
-      okText = okText || this.context.antLocale.Popconfirm.okText;
-      cancelText = cancelText || this.context.antLocale.Popconfirm.cancelText;
+    const { props, context } = this;
+    const [{ prefixCls, title, placement }, restProps] =
+      splitObject(props, ['prefixCls', 'title', 'placement']);
+
+    let { okText, cancelText } = props;
+    const popconfirmLocale = context.antLocale && context.antLocale.Popconfirm;
+    if (popconfirmLocale) {
+      okText = okText || popconfirmLocale.okText;
+      cancelText = cancelText || popconfirmLocale.cancelText;
     }
+
     const overlay = (
       <div>
         <div className={`${prefixCls}-inner-content`}>
