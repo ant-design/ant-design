@@ -34,4 +34,7 @@ onClick | `click` 事件的 handler | function | -
   margin-right: 8px;
   margin-bottom: 12px;
 }
+[id^="components-button-demo-"] .ant-btn-group > .ant-btn {
+  margin-right: 0;
+}
 </style>
