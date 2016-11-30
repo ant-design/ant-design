@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import assign from 'object-assign';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';

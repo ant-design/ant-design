@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import animation from '../_util/openAnimation';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { cloneElement } from 'react';
 import RcTabs, { TabPane } from 'rc-tabs';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';

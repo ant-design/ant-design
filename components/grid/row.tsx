@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';

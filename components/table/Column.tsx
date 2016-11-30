@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcTable from 'rc-table';
 
 export interface ColumnProps<T> {

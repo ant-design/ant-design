@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Select, { OptionProps, OptGroupProps } from '../select';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';

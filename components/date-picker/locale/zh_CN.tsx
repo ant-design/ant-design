@@ -3,7 +3,7 @@ import TimePickerLocale from '../../time-picker/locale/zh_CN';
 import assign from 'object-assign';
 
 // To set the default locale of moment to zh-cn globally.
-import moment from 'moment';
+import * as moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 

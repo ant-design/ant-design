@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import { PropTypes } from 'react';
-import moment from 'moment';
+import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { PREFIX_CLS } from './Constants';
 import Header from './Header';
