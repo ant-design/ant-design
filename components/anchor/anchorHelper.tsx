@@ -37,6 +37,12 @@ export function getOffsetTop(element): number {
   return rect.top;
 }
 
+export type Section = {
+  top: number;
+  bottom: number;
+  section: any;
+};
+
 export function scrollTo(href, target = getDefaultTarget, callback = () => {}) {
   const scrollTop = getScroll(target(), true);
   const targetElement = document.getElementById(href.substring(1));
@@ -91,18 +97,28 @@ class AnchorHelper {
       return activeAnchor;
     }
 
-    this.links.forEach(section => {
+    const linksPositions = (this.links
+    .map(section => {
       const target = document.getElementById(section.substring(1));
-      if (target) {
+      if (target && getOffsetTop(target) < bounds) {
         const top = getOffsetTop(target);
-        const bottom = top + target.clientHeight;
-        if ((top <= bounds) && (bottom >= -bounds)) {
-          activeAnchor = section;
+        if (top <= bounds) {
+          return {
+            section,
+            top,
+            bottom: top + target.clientHeight,
+          };
         }
       }
-    });
-    this._activeAnchor = activeAnchor || this._activeAnchor;
-    return this._activeAnchor;
+      return null;
+    })
+    .filter(section => section !== null) as Array<Section>);
+
+    if (linksPositions.length) {
+      const maxSection = linksPositions.reduce((prev, curr) => curr.top > prev.top ? curr : prev);
+      return maxSection.section;
+    }
+    return '';
   }
 
   scrollTo(href, target = getDefaultTarget, callback = () => {}) {
