@@ -826,10 +826,10 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
             </button>
           </div>
         </div>
-        <span
+        <div
           class="ant-form-extra">
           We must make sure that your are a human.
-        </span>
+        </div>
       </div>
     </div>
   </div>
@@ -1432,10 +1432,10 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
           <div
             class="ant-upload-list ant-upload-list-picture" />
         </span>
-        <span
+        <div
           class="ant-form-extra">
           longgggggggggggggggggggggggggggggggggg
-        </span>
+        </div>
       </div>
     </div>
   </div>

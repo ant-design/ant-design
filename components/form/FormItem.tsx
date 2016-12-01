@@ -136,7 +136,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderExtra() {
     const { prefixCls, extra } = this.props;
     return extra ? (
-      <span className={`${prefixCls}-extra`}>{extra}</span>
+      <div className={`${prefixCls}-extra`}>{extra}</div>
     ) : null;
   }
 
