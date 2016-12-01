@@ -59,8 +59,4 @@ ReactDOM.render(
 #components-time-picker-demo-disable-options .ant-time-picker {
   width: 120px;
 }
-#components-time-picker-demo-disable-options .ant-time-picker .ant-time-picker-input {
-  width: 120px;
-  margin-right: 8px;
-}
 </style>
