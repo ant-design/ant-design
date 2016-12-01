@@ -31,9 +31,8 @@ class Basic extends React.Component<BasicProps, any> {
   render() {
     const [{ prefixCls, className }, others] = splitObject(this.props,
       ['prefixCls', 'className']);
-    const divCls = classNames({
+    const divCls = classNames(className, {
       [prefixCls]: true,
-      [className]: className,
     });
     return (
       <div className={divCls} {...others} />

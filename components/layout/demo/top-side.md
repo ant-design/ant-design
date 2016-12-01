@@ -15,11 +15,8 @@ Be used in the page which has both the top navigation and the sidebar  .
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const SubMenu = Menu.SubMenu;
-const Header = Layout.Header;
-const Content = Layout.Content;
-const Sider = Layout.Sider;
-const Footer = Layout.Footer;
+const { SubMenu } = Menu;
+const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(
   <Layout className="ant-layout-demo-topside">

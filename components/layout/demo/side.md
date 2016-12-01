@@ -15,10 +15,7 @@ Be used in the two-columns layout.
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
-const Header = Layout.Header;
-const Content = Layout.Content;
-const Sider = Layout.Sider;
-const Footer = Layout.Footer;
+const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(
   <Layout className="ant-layout-demo-side">

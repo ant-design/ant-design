@@ -52,11 +52,10 @@ export default class Sider extends React.Component<SiderProps, any> {
     }, others] = splitObject(this.props,
       ['prefixCls', 'className', 'right', 'flexible', 'trigger', 'style', 'width', 'collapsedWidth']);
     const divProps = omit(others, ['collapsed', 'onSwitch']);
-    const siderCls = classNames({
+    const siderCls = classNames(className, {
       [prefixCls]: true,
       [`${prefixCls}-right`]: !!right,
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
-      [className]: className,
     });
     const divStyle = assign({}, style, {
       flex: `0 0 ${this.state.collapsed ? collapsedWidth : width}`,

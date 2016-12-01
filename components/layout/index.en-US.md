@@ -7,7 +7,7 @@ title: Layout
 
 When you are handling the overall layout of a page, this component might be helpfull.
 
-> Base on `flex layout`, please pay attension to the compatibility.
+> Base on `flex layout`, please pay attention to the compatibility.
 
 ## API
 

@@ -15,9 +15,7 @@ The most basic "header-content-footer" layout.
 
 ````jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
-const Header = Layout.Header;
-const Content = Layout.Content;
-const Footer = Layout.Footer;
+const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
   <Layout className="ant-layout-demo-top">
