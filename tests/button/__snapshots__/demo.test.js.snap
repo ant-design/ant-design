@@ -292,15 +292,45 @@ exports[`test renders ./components/button/demo/icon.md correctly 1`] = `
       Search
     </span>
   </button>
+  <button
+    class="ant-btn ant-btn-circle ant-btn-icon-only"
+    type="button">
+    <i
+      class="anticon anticon-search" />
+  </button>
+  <button
+    class="ant-btn"
+    type="button">
+    <i
+      class="anticon anticon-search" />
+    <span>
+      Search
+    </span>
+  </button>
   <br />
   <button
-    class="ant-btn ant-btn-ghost ant-btn-circle-outline ant-btn-icon-only"
+    class="ant-btn ant-btn-ghost ant-btn-circle ant-btn-icon-only"
     type="button">
     <i
       class="anticon anticon-search" />
   </button>
   <button
     class="ant-btn ant-btn-ghost"
+    type="button">
+    <i
+      class="anticon anticon-search" />
+    <span>
+      Search
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-circle ant-btn-icon-only"
+    type="button">
+    <i
+      class="anticon anticon-search" />
+  </button>
+  <button
+    class="ant-btn ant-btn-dashed"
     type="button">
     <i
       class="anticon anticon-search" />
