@@ -34,6 +34,8 @@ then `value`, `defaultValue`, and `id` props are automatically set.
 
 #### Input.Search
 
+`Added in 2.5.0`
+
 | Property  | Description                          | Type       |  Available Values  | Default |
 |-----------|------------------------------------------|------------|-------|--------|
 | onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value) |  |  |
