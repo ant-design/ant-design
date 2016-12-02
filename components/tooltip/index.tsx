@@ -124,8 +124,9 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       visible = false;
     }
 
-    const childrenProps = children.props;
-    const childrenCls = classNames(childrenProps.className, {
+    const child = React.isValidElement(children) ? children : <span>{children}</span>;
+    const childProps = child.props;
+    const childCls = classNames(childProps.className, {
       [openClassName || `${prefixCls}-open`]: true,
     });
 
@@ -139,7 +140,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
       >
-        {visible ? cloneElement(children, { className: childrenCls }) : children}
+        {visible ? cloneElement(child, { className: childCls }) : child}
       </RcTooltip>
     );
   }
