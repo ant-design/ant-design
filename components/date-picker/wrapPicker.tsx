@@ -22,6 +22,10 @@ function getColumns({ showHour, showMinute, showSecond }) {
 
 export default function wrapPicker(Picker, defaultFormat?) {
   const PickerWrapper = React.createClass({
+    contextTypes: {
+      antLocale: PropTypes.object,
+    },
+
     getDefaultProps() {
       return {
         format: defaultFormat || 'YYYY-MM-DD',
@@ -42,10 +46,6 @@ export default function wrapPicker(Picker, defaultFormat?) {
       };
     },
 
-    contextTypes: {
-      antLocale: PropTypes.object,
-    },
-
     handleOpenChange(open) {
       const { onOpenChange, toggleOpen } = this.props;
       onOpenChange(open);
@@ -54,7 +54,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         warning(
           false,
           '`toggleOpen` is deprecated and will be removed in the future, ' +
-          'please use `onOpenChange` instead'
+          'please use `onOpenChange` instead, see: http://u.ant.design/date-picker-on-open-change'
         );
         toggleOpen({open});
       }

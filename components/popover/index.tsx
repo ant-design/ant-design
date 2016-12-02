@@ -2,6 +2,7 @@ import React from 'react';
 import assign from 'object-assign';
 import Tooltip from '../tooltip';
 import { AbstractTooltipProps } from '../tooltip';
+import warning from '../_util/warning';
 
 export interface PopoverProps extends AbstractTooltipProps {
    title?: React.ReactNode;
@@ -29,7 +30,11 @@ export default class Popover extends React.Component<PopoverProps, any> {
 
   getOverlay() {
     const { title, prefixCls, content } = this.props;
-
+    warning(
+      !('overlay' in this.props),
+      'Popover[overlay] is removed, please use Popover[content] instead, ' +
+      'see: http://u.ant.design/popover-content'
+    );
     return (
       <div>
         {title && <div className={`${prefixCls}-title`}>{title}</div>}
