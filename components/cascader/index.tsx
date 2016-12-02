@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import RcCascader from 'rc-cascader';
 import Input from '../input';
 import Icon from '../icon';

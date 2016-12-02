@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import List from './list';

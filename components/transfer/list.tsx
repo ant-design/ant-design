@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import assign from 'object-assign';
 import Tooltip from '../tooltip';
 import { AbstractTooltipProps } from '../tooltip';

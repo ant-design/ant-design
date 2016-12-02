@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import { Store } from './createStore';

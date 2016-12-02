@@ -16,7 +16,7 @@ To set the language. en_US, zh_CN are supported by default.
 ````jsx
 import { Calendar } from 'antd';
 import enUS from 'antd/lib/calendar/locale/en_US';
-import moment from 'moment';
+import * as moment from 'moment';
 // It's recommended to set moment locale globally, otherwise, you need to set it by `value` or `defaultValue`
 // moment.locale('en');
 

@@ -15,7 +15,7 @@ This component can be rendered by using `dateCellRender` and `monthCellRender` w
 
 ````jsx
 import { Calendar } from 'antd';
-import moment from 'moment';
+import * as moment from 'moment';
 
 function dateCellRender(value) {
   return <div>Custom date {value.date()}</div>;

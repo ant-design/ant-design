@@ -16,7 +16,7 @@ if (typeof window !== 'undefined') {
 }
 
 import SlickCarousel from 'react-slick';
-import React from 'react';
+import * as React from 'react';
 
 export type CarouselEffect = 'scrollx' | 'fade'
 // Carousel

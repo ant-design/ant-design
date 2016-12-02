@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { cloneElement } from 'react';
 import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';

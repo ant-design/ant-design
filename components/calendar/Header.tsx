@@ -1,5 +1,5 @@
-import React from 'react';
-import moment from 'moment';
+import * as React from 'react';
+import * as moment from 'moment';
 import { PREFIX_CLS } from './Constants';
 import Select from '../select';
 import { Group, Button } from '../radio';
