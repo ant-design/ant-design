@@ -1,11 +1,11 @@
 ---
 category: Components
-type: Localization
+type: Other
 cols: 1
 title: LocaleProvider
 ---
 
-`LocaleProvider` provides a uniform localization support for built-in text of components. 
+`LocaleProvider` provides a uniform localization support for built-in text of components.
 
 ## Usage
 
