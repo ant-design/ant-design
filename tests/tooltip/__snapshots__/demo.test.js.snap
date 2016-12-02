@@ -19,7 +19,7 @@ exports[`test renders ./components/tooltip/demo/arrow-point-at-center.md correct
 
 exports[`test renders ./components/tooltip/demo/basic.md correctly 1`] = `
 <span>
-  Text will show when mouse enter.
+  Tooltip will show when mouse enter.
 </span>
 `;
 

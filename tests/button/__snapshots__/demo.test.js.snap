@@ -150,60 +150,6 @@ exports[`test renders ./components/button/demo/button-group.md correctly 1`] = `
         class="anticon anticon-cloud-download" />
     </button>
   </div>
-  <h4>
-    Size
-  </h4>
-  <div
-    class="ant-btn-group ant-btn-group-lg">
-    <button
-      class="ant-btn ant-btn-ghost"
-      type="button">
-      <span>
-        Large
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-ghost"
-      type="button">
-      <span>
-        Large
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-btn-group">
-    <button
-      class="ant-btn ant-btn-ghost"
-      type="button">
-      <span>
-        Default
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-ghost"
-      type="button">
-      <span>
-        Default
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-btn-group ant-btn-group-sm">
-    <button
-      class="ant-btn ant-btn-ghost"
-      type="button">
-      <span>
-        Small
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-ghost"
-      type="button">
-      <span>
-        Small
-      </span>
-    </button>
-  </div>
 </div>
 `;
 
@@ -411,26 +357,97 @@ exports[`test renders ./components/button/demo/multiple.md correctly 1`] = `
 
 exports[`test renders ./components/button/demo/size.md correctly 1`] = `
 <div>
+  <div
+    class="ant-radio-group">
+    <label
+      class="ant-radio-button-wrapper">
+      <span
+        class="ant-radio-button">
+        <span
+          class="ant-radio-button-inner" />
+        <input
+          class="ant-radio-button-input"
+          type="radio" />
+      </span>
+      <span>
+        Large
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
+      <span
+        class="ant-radio-button ant-radio-button-checked ant-radio-button ant-radio-button-checked ant-radio-button-checked-1">
+        <span
+          class="ant-radio-button-inner" />
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio" />
+      </span>
+      <span>
+        Default
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper">
+      <span
+        class="ant-radio-button">
+        <span
+          class="ant-radio-button-inner" />
+        <input
+          class="ant-radio-button-input"
+          type="radio" />
+      </span>
+      <span>
+        Small
+      </span>
+    </label>
+  </div>
+  <br />
+  <br />
   <button
-    class="ant-btn ant-btn-primary ant-btn-lg"
+    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
     type="button">
+    <i
+      class="anticon anticon-download" />
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button">
+    <i
+      class="anticon anticon-download" />
     <span>
-      Large
+      Download
     </span>
   </button>
   <button
     class="ant-btn ant-btn-primary"
     type="button">
     <span>
-      Default
+      Normal
     </span>
   </button>
-  <button
-    class="ant-btn ant-btn-primary ant-btn-sm"
-    type="button">
-    <span>
-      Small
-    </span>
-  </button>
+  <br />
+  <div
+    class="ant-btn-group">
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <i
+        class="anticon anticon-left" />
+      <span>
+        Backward
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button">
+      <span>
+        Forward
+      </span>
+      <i
+        class="anticon anticon-right" />
+    </button>
+  </div>
 </div>
 `;
