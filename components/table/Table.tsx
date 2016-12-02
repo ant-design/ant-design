@@ -367,7 +367,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       [this.getColumnKey(column)]: nextFilters,
     });
     // Remove filters not in current columns
-    const currentColumnKeys = this.columns.map(c => this.getColumnKey(c));
+    const currentColumnKeys: string[] = [];
+    treeMap(this.columns, c => {
+      if (!c.children) {
+        currentColumnKeys.push(this.getColumnKey(c));
+      }
+    });
     Object.keys(filters).forEach((columnKey) => {
       if (currentColumnKeys.indexOf(columnKey) < 0) {
         delete filters[columnKey];
@@ -736,7 +741,13 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   findColumn(myKey) {
-    return this.columns.filter(c => this.getColumnKey(c) === myKey)[0];
+    let column;
+    treeMap(this.columns, c => {
+      if (this.getColumnKey(c) === myKey) {
+        column = c;
+      }
+    });
+    return column;
   }
 
   getCurrentPageData() {
