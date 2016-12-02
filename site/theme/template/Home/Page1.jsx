@@ -21,7 +21,7 @@ function onScrollEvent(e) {
 export default function Page1({ location }) {
   return (
     <ScrollOverPack id="page1" className="content-wrapper page"
-      playScale={1} replay scrollEvent={onScrollEvent}
+      replay scrollEvent={onScrollEvent}
       hideProps={{ image: { reverse: true } }}
     >
       <TweenOne key="image" className="image1 image-wrapper"

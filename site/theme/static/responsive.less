@@ -38,6 +38,10 @@
     display: none;
   }
 
+  #header {
+    position: absolute!important;
+  }
+
   a#logo {
     width: 150px;
     margin-left: auto;
@@ -51,6 +55,51 @@
     top: 30px;
     left: 0;
     text-align: center;
+  }
+
+  .image-wrapper {
+    display: none;
+  }
+
+  .banner-wrapper {
+    background-position: 40%;
+  }
+
+  .content-wrapper .text-wrapper {
+    float: none;
+    text-align: center;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    > p {
+      max-width: 100% !important;
+      padding: 0 40px;
+    }
+  }
+
+  .content-wrapper.page {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .banner-text-wrapper {
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    .start-button {
+      text-align: center;
+      > a {
+        margin: 0 4px;
+      }
+    }
+    .github-btn {
+      text-align: center;
+      float: none;
+      display: inline-block;
+    }
+    .line {
+      display: none;
+    }
   }
 
   button.lang {

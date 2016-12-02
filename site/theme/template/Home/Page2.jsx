@@ -9,7 +9,7 @@ import QueueAnim from 'rc-queue-anim';
 export default function Page2({ location }) {
   return (
     <ScrollOverPack id="page2"
-      className="content-wrapper page" playScale={1} replay
+      className="content-wrapper page" replay
       hideProps={{ image: { reverse: true } }}
     >
       <QueueAnim className="text-wrapper left-text" key="text"

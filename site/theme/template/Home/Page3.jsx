@@ -8,7 +8,7 @@ import QueueAnim from 'rc-queue-anim';
 
 export default function Page3({ location }) {
   return (
-    <ScrollOverPack id="page3" className="content-wrapper page" playScale={1} replay
+    <ScrollOverPack id="page3" className="content-wrapper page" replay
       hideProps={{ image: { reverse: true } }}
     >
       <TweenOne key="image" className="image3 image-wrapper"
