@@ -101,7 +101,7 @@ tsconfig.json
 - [Home page](http://ant.design/)
 - [UI library](http://ant.design/docs/react/introduce)
 - [Change Log](CHANGELOG.en-US.md)
-- [Scaffold tool](https://github.com/ant-design/antd-init/)
+- [Scaffold tool](https://github.com/dvajs/dva-cli/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)

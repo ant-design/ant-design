@@ -71,7 +71,7 @@ tsconfig.json
 - [首页](http://ant.design/)
 - [组件文档](http://ant.design/docs/react/introduce)
 - [更新日志](CHANGELOG.en-US.md)
-- [开发脚手架](https://github.com/dva/dva-cli)
+- [开发脚手架](https://github.com/dvajs/dva-cli)
 - [开发工具文档](http://ant-tool.github.io/)
 - [React 基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
