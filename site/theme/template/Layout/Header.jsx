@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Icon, Button, Popover } from 'antd';
+import * as utils from '../utils';
 
 const Option = Select.Option;
 
@@ -31,7 +32,8 @@ export default class Header extends React.Component {
   }
 
   handleSearch = (value) => {
-    this.context.router.push({ pathname: `${value}/` });
+    const { intl, router } = this.context;
+    router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
   }
 
   handleSelectFilter = (value, option) => {
@@ -39,11 +41,8 @@ export default class Header extends React.Component {
   }
 
   handleLangChange = () => {
-    if (typeof localStorage !== 'undefined') {
-      const locale = this.context.intl.locale === 'zh-CN' ? 'en-US' : 'zh-CN';
-      localStorage.setItem('locale', locale);
-      location.search = `?locale=${locale}`;
-    }
+    const pathname = this.props.location.pathname;
+    location.pathname = utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname));
   }
 
   render() {
@@ -56,7 +55,8 @@ export default class Header extends React.Component {
     }
 
     const locale = this.context.intl.locale;
-    const excludedSuffix = locale === 'zh-CN' ? 'en-US.md' : 'zh-CN.md';
+    const isZhCN = locale === 'zh-CN';
+    const excludedSuffix = isZhCN ? 'en-US.md' : 'zh-CN.md';
     const options = components
       .filter(({ meta }) => !meta.filename.endsWith(excludedSuffix))
       .map(({ meta }) => {
@@ -77,39 +77,38 @@ export default class Header extends React.Component {
     });
 
     const menuMode = this.state.menuMode;
-    const query = location.query;
     const menu = [
       <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to={{ query, pathname: '/' }}>
+          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/spec">
-          <Link to={{ query, pathname: '/docs/spec/introduce' }}>
+          <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.spec" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/react">
-          <Link to={{ query, pathname: '/docs/react/introduce' }}>
+          <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/pattern">
-          <Link to={{ query, pathname: '/docs/pattern/navigation' }}>
+          <Link to={utils.getLocalizedPathname('/docs/pattern/navigation', isZhCN)}>
             <FormattedMessage id="app.header.menu.pattern" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/practice">
-          <Link to={{ query, pathname: '/docs/practice/cases' }}>
+          <Link to={utils.getLocalizedPathname('/docs/practice/cases', isZhCN)}>
             <FormattedMessage id="app.header.menu.practice" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/resource">
-          <Link to={{ query, pathname: '/docs/resource/download' }}>
+          <Link to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
         </Menu.Item>
@@ -133,7 +132,7 @@ export default class Header extends React.Component {
         </Popover> : null}
         <Row>
           <Col lg={4} md={6} sm={24} xs={24}>
-            <Link to={{ query, pathname: '/' }} id="logo">
+            <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
               <img alt="logo" src="https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg" />
               <span>Ant Design</span>
             </Link>

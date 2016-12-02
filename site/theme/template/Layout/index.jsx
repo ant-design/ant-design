@@ -20,17 +20,21 @@ if (typeof window !== 'undefined') {
   /* eslint-enable global-require */
 }
 
-const appLocale = utils.isZhCN() ? cnLocale : enLocale;
-addLocaleData(appLocale.data);
-
 export default class Layout extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object.isRequired,
   }
 
-  state = {
-    isFirstScreen: true,
-  };
+  constructor(props) {
+    super(props);
+    const pathname = props.location.pathname;
+    const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
+    addLocaleData(appLocale.data);
+    this.state = {
+      isFirstScreen: true,
+      appLocale,
+    };
+  }
 
   componentDidMount() {
     if (typeof ga !== 'undefined') {
@@ -60,11 +64,12 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, ...restProps } = this.props;
+    const { appLocale, isFirstScreen } = this.state;
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
         <LocaleProvider locale={enUS}>
           <div className="page-wrapper">
-            <Header {...restProps} isFirstScreen={this.state.isFirstScreen} />
+            <Header {...restProps} isFirstScreen={isFirstScreen} />
             {cloneElement(children, { onEnterChange: this.onEnterChange })}
             <Footer />
           </div>

@@ -59,6 +59,18 @@ module.exports = {
     'bisheng-plugin-react?lang=__react',
     'bisheng-plugin-antd',
   ],
+  filePathMapper(filePath) {
+    if (filePath === '/index.html') {
+      return ['/index.html', '/index-cn.html'];
+    }
+    if (filePath.endsWith('/index.html')) {
+      return [filePath, filePath.replace(/\/index\.html$/, '-cn/index.html')];
+    }
+    if (filePath !== '/404.html') {
+      return [filePath, filePath.replace(/\.html$/, '-cn.html')];
+    }
+    return filePath;
+  },
   doraConfig: {
     verbose: true,
     plugins: ['dora-plugin-upload'],

@@ -19,23 +19,19 @@ export function getMenuItems(moduleData, locale) {
   return menuItems;
 }
 
-export function isZhCN() {
-  if (typeof location === 'undefined') {
-    // Use English in SSR.
-    return false;
-  }
-  if (location.search.indexOf('locale=zh-CN') > -1) {
-    return true;
-  }
-  if (location.search.indexOf('locale=en-US') > -1) {
-    return false;
-  }
+export function isZhCN(pathname) {
+  return /-cn\/?$/.test(pathname);
+}
 
-  const language = (
-    typeof localStorage === 'undefined' ||
-      !localStorage.getItem('locale')
-  ) ? navigator.language : localStorage.getItem('locale');
-  return language === 'zh-CN';
+export function getLocalizedPathname(pathname, zhCN) {
+  if (!zhCN) { // to enUS
+    return pathname.replace('-cn', '');
+  } else if (pathname === '/') {
+    return '/index-cn';
+  } else if (pathname.endsWith('/')) {
+    return pathname.replace(/\/$/, '-cn/');
+  }
+  return `${pathname}-cn`;
 }
 
 export function ping(url, callback) {

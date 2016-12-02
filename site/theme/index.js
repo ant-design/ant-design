@@ -1,3 +1,4 @@
+const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
 
 module.exports = {
@@ -27,8 +28,12 @@ module.exports = {
   routes: {
     path: '/',
     component: './template/Layout/index',
-    indexRoute: { component: './template/Home/index' },
+    indexRoute: { component: homeTmpl },
     childRoutes: [{
+      path: 'index-cn',
+      component: homeTmpl,
+      dataPath: '/',
+    }, {
       path: 'docs/practice/:children',
       component: contentTmpl,
     }, {
@@ -40,6 +45,11 @@ module.exports = {
     }, {
       path: 'changelog',
       component: contentTmpl,
+      dataPath: 'CHANGELOG',
+    }, {
+      path: 'changelog-cn',
+      component: contentTmpl,
+      dataPath: 'CHANGELOG',
     }, {
       path: 'components/:children/',
       component: contentTmpl,

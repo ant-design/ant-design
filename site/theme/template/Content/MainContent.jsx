@@ -9,7 +9,9 @@ import config from '../../';
 const SubMenu = Menu.SubMenu;
 
 function getActiveMenuItem(props) {
-  return props.params.children || props.location.pathname.replace(/^\//, '');
+  const children = props.params.children;
+  return (children && children.replace('-cn', '')) ||
+    props.location.pathname.replace(/(^\/|-cn$)/g, '');
 }
 
 function fileNameToPath(filename) {
@@ -84,7 +86,10 @@ export default class MainContent extends React.Component {
     const disabled = item.disabled;
     const url = item.filename.replace(/(\/index)?((\.zh-CN)|(\.en-US))?\.md$/i, '').toLowerCase();
     const child = !item.link ? (
-      <Link to={{ query: this.props.location.query, pathname: /^components/.test(url) ? `${url}/` : url }} disabled={disabled}>
+      <Link
+        to={utils.getLocalizedPathname(/^components/.test(url) ? `${url}/` : url, locale === 'zh-CN')}
+        disabled={disabled}
+      >
         {text}
       </Link>
     ) : (
@@ -122,7 +127,8 @@ export default class MainContent extends React.Component {
     const pathname = props.location.pathname;
     const moduleName = /^\/?components/.test(pathname) ?
             'components' : pathname.split('/').filter(item => item).slice(0, 2).join('/');
-    const moduleData = moduleName === 'components' || moduleName === 'changelog' || moduleName === 'docs/react' ?
+    const moduleData = moduleName === 'components' || moduleName === 'docs/react' ||
+            moduleName === 'changelog' || moduleName === 'changelog-cn' ?
             [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog] :
             props.picked[moduleName];
     const locale = this.context.intl.locale;
@@ -194,7 +200,7 @@ export default class MainContent extends React.Component {
           </Col>
           <Col lg={20} md={18} sm={24} xs={24} className="main-container">
             {
-              props.utils.get(props, 'pageData.demo') ?
+              props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
                 <Article {...props} content={localizedPageData} />
             }

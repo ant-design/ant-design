@@ -3,10 +3,14 @@ import Promise from 'bluebird';
 import MainContent from './MainContent';
 import * as utils from '../utils';
 
-const locale = utils.isZhCN() ? 'zh-CN' : 'en-US';
 export function collect(nextProps, callback) {
-  const pageData = nextProps.location.pathname.endsWith('changelog') ?
-          nextProps.data.CHANGELOG : nextProps.pageData;
+  const pathname = nextProps.location.pathname;
+  const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
+  const pageDataPath = pathname.replace('-cn', '').split('/');
+  let pageData = nextProps.pageData;
+  if (!pageData && locale === 'zh-CN') {
+    pageData = nextProps.utils.get(nextProps.data, pageDataPath);
+  }
   if (!pageData) {
     callback(404, nextProps);
     return;
@@ -16,10 +20,7 @@ export function collect(nextProps, callback) {
           pageData() : (pageData[locale] || pageData.index[locale] || pageData.index)();
   const promises = [pageDataPromise];
 
-  const pathname = nextProps.location.pathname;
-  const demos = nextProps.utils.get(
-    nextProps.data, [...pathname.split('/'), 'demo']
-  );
+  const demos = nextProps.utils.get(nextProps.data, [...pageDataPath, 'demo']);
   if (demos) {
     promises.push(demos());
   }
