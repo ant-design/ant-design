@@ -11,6 +11,12 @@ exports[`test renders ./components/auto-complete/demo/basic.md correctly 1`] = `
     role="combobox">
     <div
       class="ant-select-selection__rendered">
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable">
+        input here
+      </div>
       <ul>
         <li
           class="ant-select-search ant-select-search--inline">
@@ -48,6 +54,12 @@ exports[`test renders ./components/auto-complete/demo/options.md correctly 1`] =
     role="combobox">
     <div
       class="ant-select-selection__rendered">
+      <div
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable">
+        input here
+      </div>
       <ul>
         <li
           class="ant-select-search ant-select-search--inline">

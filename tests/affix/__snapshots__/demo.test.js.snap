@@ -45,25 +45,19 @@ exports[`test renders ./components/affix/demo/on-change.md correctly 1`] = `
 
 exports[`test renders ./components/affix/demo/target.md correctly 1`] = `
 <div
-  class="view-port">
+  class="scrollable-container">
   <div
-    id="scrollable-container">
-    <div
-      class="background">
-      <br />
-      <br />
-      <br />
-      <div>
-        <div
-          class="">
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button">
-            <span>
-              Fixed at the top of container
-            </span>
-          </button>
-        </div>
+    class="background">
+    <div>
+      <div
+        class="">
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button">
+          <span>
+            Fixed at the top of container
+          </span>
+        </button>
       </div>
     </div>
   </div>
