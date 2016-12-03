@@ -28,7 +28,6 @@ ReactDOM.render(
     placeholder="Select a person"
     optionFilterProp="children"
     onChange={handleChange}
-    notFoundContent=""
   >
     <Option value="jack">Jack</Option>
     <Option value="lucy">Lucy</Option>
