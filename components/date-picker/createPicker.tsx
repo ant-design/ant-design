@@ -25,7 +25,7 @@ export default function createPicker(TheCalendar) {
     getInitialState() {
       const props = this.props;
       const value = props.value || props.defaultValue;
-      if (value && !(value instanceof moment)) {
+      if (value && !moment.isMoment(value)) {
         throw new Error(
           'The value/defaultValue of DatePicker or MonthPicker must be ' +
           'a moment object after `antd@2.0`, see: http://u.ant.design/date-picker-value'
