@@ -38,7 +38,7 @@ export default function createPicker(TheCalendar) {
     },
 
     componentWillReceiveProps(nextProps: PickerProps) {
-      if (nextProps.value !== undefined) {
+      if ('value' in nextProps) {
         this.setState({
           value: nextProps.value,
           tempValue: nextProps.value,
@@ -55,7 +55,7 @@ export default function createPicker(TheCalendar) {
 
     handleChange(value) {
       const props = this.props;
-      if (props.value === undefined) {
+      if (!('value' in props)) {
         this.setState({ value });
       }
       props.onChange(value, (value && value.format(props.format)) || '');
