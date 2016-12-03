@@ -284,6 +284,8 @@ If you meet any problem while you try to upgrade from `antd@1.0.0`, feel free to
 
 ### 2.x Breaking changes
 
+> We suggest you upgrade to lastest version of `2.x`.
+
 There are some breaking changes in `antd@2.0.0`, and you need to modify your code to work with it.
 
 * `value` and `defaultValue` of all the time-related components will not support type `String/Date`, please use [moment](http://momentjs.com/):

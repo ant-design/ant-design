@@ -281,6 +281,8 @@ timeline: true
 
 ### 2.x 不兼容改动
 
+> 建议从 `1.x` 升级时，直接升级到 `2.x` 的最新版本。
+
 此版本有部分不兼容的改动，升级时确保修改相应的使用代码。
 
 * 时间类组件的 `value` 和 `defaultValue` 不再支持 `String/Date` 类型，请使用 [moment](http://momentjs.com/)。
