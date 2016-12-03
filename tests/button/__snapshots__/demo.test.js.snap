@@ -344,7 +344,7 @@ exports[`test renders ./components/button/demo/multiple.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-ghost"
+    class="ant-btn ant-btn-ghost ant-dropdown-trigger"
     type="button">
     <span>
       more 

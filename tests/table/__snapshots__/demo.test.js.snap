@@ -52,7 +52,7 @@ exports[`test renders ./components/table/demo/ajax.md correctly 1`] = `
                         <span>
                           Gender
                           <i
-                            class="anticon anticon-filter"
+                            class="anticon anticon-filter ant-dropdown-trigger"
                             title="筛选" />
                         </span>
                       </th>
@@ -708,7 +708,7 @@ exports[`test renders ./components/table/demo/custom-filter-panel.md correctly 1
                         <span>
                           Name
                           <i
-                            class="anticon anticon-filter"
+                            class="anticon anticon-filter ant-dropdown-trigger"
                             title="筛选" />
                         </span>
                       </th>
@@ -5225,7 +5225,7 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
                         <span>
                           Name
                           <i
-                            class="anticon anticon-filter"
+                            class="anticon anticon-filter ant-dropdown-trigger"
                             title="筛选" />
                         </span>
                       </th>
@@ -5387,7 +5387,7 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
                         <span>
                           Name
                           <i
-                            class="anticon anticon-filter"
+                            class="anticon anticon-filter ant-dropdown-trigger"
                             title="筛选" />
                         </span>
                       </th>
@@ -6130,7 +6130,7 @@ exports[`test renders ./components/table/demo/head.md correctly 1`] = `
                             </span>
                           </div>
                           <i
-                            class="anticon anticon-filter"
+                            class="anticon anticon-filter ant-dropdown-trigger"
                             title="筛选" />
                         </span>
                       </th>
@@ -6175,7 +6175,7 @@ exports[`test renders ./components/table/demo/head.md correctly 1`] = `
                             </span>
                           </div>
                           <i
-                            class="anticon anticon-filter"
+                            class="anticon anticon-filter ant-dropdown-trigger"
                             title="筛选" />
                         </span>
                       </th>
@@ -7058,7 +7058,7 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
                               </span>
                             </div>
                             <i
-                              class="anticon anticon-filter"
+                              class="anticon anticon-filter ant-dropdown-trigger"
                               title="筛选" />
                           </span>
                         </th>
@@ -7103,7 +7103,7 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
                               </span>
                             </div>
                             <i
-                              class="anticon anticon-filter"
+                              class="anticon anticon-filter ant-dropdown-trigger"
                               title="筛选" />
                           </span>
                         </th>

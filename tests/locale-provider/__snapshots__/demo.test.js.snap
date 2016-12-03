@@ -1168,7 +1168,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
                               <span>
                                 Name
                                 <i
-                                  class="anticon anticon-filter"
+                                  class="anticon anticon-filter ant-dropdown-trigger"
                                   title="Filter Menu" />
                               </span>
                             </th>

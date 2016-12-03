@@ -1,6 +1,6 @@
 exports[`test renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
-  class="ant-dropdown-link"
+  class="ant-dropdown-link ant-dropdown-trigger"
   href="#">
   Hover me 
   <i
@@ -20,7 +20,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn ant-btn-ghost ant-dropdown-trigger"
       type="button">
       <i
         class="anticon anticon-down" />
@@ -38,7 +38,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn ant-btn-ghost ant-dropdown-trigger"
       disabled=""
       type="button">
       <i
@@ -46,7 +46,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
     </button>
   </div>
   <button
-    class="ant-btn ant-btn-ghost"
+    class="ant-btn ant-btn-ghost ant-dropdown-trigger"
     style="margin-left:8px;"
     type="button">
     <span>
@@ -60,7 +60,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
 
 exports[`test renders ./components/dropdown/demo/event.md correctly 1`] = `
 <a
-  class="ant-dropdown-link"
+  class="ant-dropdown-link ant-dropdown-trigger"
   href="#">
   Hover me, Click menu item 
   <i
@@ -70,7 +70,7 @@ exports[`test renders ./components/dropdown/demo/event.md correctly 1`] = `
 
 exports[`test renders ./components/dropdown/demo/item.md correctly 1`] = `
 <a
-  class="ant-dropdown-link"
+  class="ant-dropdown-link ant-dropdown-trigger"
   href="#">
   Hover me 
   <i
@@ -80,7 +80,7 @@ exports[`test renders ./components/dropdown/demo/item.md correctly 1`] = `
 
 exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 <a
-  class="ant-dropdown-link"
+  class="ant-dropdown-link ant-dropdown-trigger"
   href="#">
   Hover me 
   <i
@@ -90,7 +90,7 @@ exports[`test renders ./components/dropdown/demo/overlay-visible.md correctly 1`
 
 exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
-  class="ant-dropdown-link"
+  class="ant-dropdown-link ant-dropdown-trigger"
   href="#">
   Cascading menu 
   <i
@@ -101,7 +101,7 @@ exports[`test renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 exports[`test renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 <div>
   <a
-    class="ant-dropdown-link"
+    class="ant-dropdown-link ant-dropdown-trigger"
     href="#">
     Click me 
     <i
