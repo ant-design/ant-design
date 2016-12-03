@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title:
   en-US: Ajax
   zh-CN: 远程加载数据

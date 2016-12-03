@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 title:
   en-US: Customized filter panel
   zh-CN: 自定义筛选菜单
