@@ -6,12 +6,6 @@
   border-radius: @border-radius;
 }
 
-.button-nested-icon(@icon-size) {
-  > .@{iconfont-css-prefix} {
-    font-size: @icon-size;
-  }
-}
-
 .button-disabled() {
   &.disabled,
   &[disabled] {
@@ -94,12 +88,10 @@
   // size
   &-lg > .@{btnClassName} {
     .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
-    .button-nested-icon(@btn-font-size-lg + 2);
   }
 
   &-sm > .@{btnClassName} {
     .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
-    .button-nested-icon(@font-size-base);
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
@@ -120,7 +112,6 @@
   white-space: nowrap;
   line-height: @line-height-base;
   .button-size(@btn-padding-base; @font-size-base; @btn-border-radius-base);
-  .button-nested-icon(@font-size-base + 2);
   user-select: none;
   transition: all .3s @ease-in-out;
   position: relative;
@@ -154,12 +145,10 @@
 
   &-lg {
     .button-size(@btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
-    .button-nested-icon(@btn-font-size-lg + 2);
   }
 
   &-sm {
     .button-size(@btn-padding-sm; @font-size-base; @btn-border-radius-sm);
-    .button-nested-icon(@font-size-base);
   }
 }
 
