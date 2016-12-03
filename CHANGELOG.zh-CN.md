@@ -9,6 +9,24 @@ timeline: true
 
 ---
 
+## 2.5.1
+
+`2016-12-03`
+
+* 提升网站首页在移动端访问的体验。
+* 补充从 `1.x` 升级到 `2.x` 时的组件改动警告提示。[#4028](https://github.com/ant-design/ant-design/pull/4028)
+* 现在 ToolTip、Popover、Popconfirm 支持直接包裹文本节点和多个节点。[#3924](https://github.com/ant-design/ant-design/issues/3924)
+* Anchor
+  * 修复快速滚动时的定位问题。[#4053](https://github.com/ant-design/ant-design/issues/4053)
+  * 修复 target 指定父元素 ref 时无效的问题。[#4037](https://github.com/ant-design/ant-design/issues/4037)
+* Table
+  * 修复设置 defaultChecked 时的一个选中问题。[#4020](https://github.com/ant-design/ant-design/issues/4020)
+  * 修复分组表头中筛选功能无法使用的问题。[#4099](https://github.com/ant-design/ant-design/issues/4099)
+* 修复在 `Input[type="textarea"]` 上使用 Popover 定位错误问题。[#4092](https://github.com/ant-design/ant-design/issues/4092)
+* 修复 Popconfirm 的 `visible` 属性失效的问题。[#4068](https://github.com/ant-design/ant-design/issues/4068)
+* 修复 TimePicker 无法设置 `style.width` 的问题。
+* 修复 Form、Button、Slider、Table 等组件的一些样式细节。
+
 ## 2.5.0
 
 `2016-11-25`
