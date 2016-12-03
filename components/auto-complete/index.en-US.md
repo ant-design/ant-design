@@ -28,3 +28,4 @@ Since `AutoComplete` is based on `Select`, so besides the following API, `AutoCo
 | onChange | Called when select an option or input value change, or value of input is changed | function(value, label) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | -   |
 | disabled | Whether disabled select | boolean | false |
+| placeholder | placeholder of input | string | - |

@@ -43,6 +43,7 @@ const Complete = React.createClass({
         style={{ width: 200 }}
         onSelect={onSelect}
         onChange={this.handleChange}
+        placeholder="input here"
       />
     );
   },

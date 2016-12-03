@@ -42,6 +42,7 @@ const Complete = React.createClass({
       <AutoComplete
         style={{ width: 200 }}
         onChange={this.handleChange}
+        placeholder="input here"
       >
         {children}
       </AutoComplete>
