@@ -44,7 +44,6 @@ exports[`test renders ./components/input-number/demo/digit.md correctly 1`] = `
     </span>
     <span
       class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-      disabled=""
       unselectable="unselectable">
       <span
         class="ant-input-number-handler-down-inner"
@@ -57,8 +56,8 @@ exports[`test renders ./components/input-number/demo/digit.md correctly 1`] = `
       autocomplete="off"
       class="ant-input-number-input"
       max="10"
-      min="1"
-      value="0" />
+      min="0"
+      value="" />
   </div>
 </div>
 `;
@@ -71,7 +70,6 @@ exports[`test renders ./components/input-number/demo/disabled.md correctly 1`] =
       class="ant-input-number-handler-wrap">
       <span
         class="ant-input-number-handler ant-input-number-handler-up "
-        disabled=""
         unselectable="unselectable">
         <span
           class="ant-input-number-handler-up-inner"
@@ -79,7 +77,6 @@ exports[`test renders ./components/input-number/demo/disabled.md correctly 1`] =
       </span>
       <span
         class="ant-input-number-handler ant-input-number-handler-down "
-        disabled=""
         unselectable="unselectable">
         <span
           class="ant-input-number-handler-down-inner"

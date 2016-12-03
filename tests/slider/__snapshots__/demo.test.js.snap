@@ -144,7 +144,6 @@ exports[`test renders ./components/slider/demo/input-number.md correctly 1`] = `
           </span>
           <span
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-            disabled=""
             unselectable="unselectable">
             <span
               class="ant-input-number-handler-down-inner"
@@ -199,7 +198,6 @@ exports[`test renders ./components/slider/demo/input-number.md correctly 1`] = `
           </span>
           <span
             class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
-            disabled=""
             unselectable="unselectable">
             <span
               class="ant-input-number-handler-down-inner"
@@ -213,7 +211,7 @@ exports[`test renders ./components/slider/demo/input-number.md correctly 1`] = `
             class="ant-input-number-input"
             max="1"
             min="0"
-            value="0" />
+            value="0.00" />
         </div>
       </div>
     </div>
