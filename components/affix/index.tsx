@@ -64,6 +64,7 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   scrollEvent: any;
   resizeEvent: any;
+  timeout: any;
   refs: {
     fixedNode: HTMLElement;
   };
@@ -172,7 +173,10 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   componentDidMount() {
     const target = this.props.target || getDefaultTarget;
-    this.setTargetEventListeners(target);
+    // Wait for parent component ref has its value
+    this.timeout = setTimeout(() => {
+      this.setTargetEventListeners(target);
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -187,10 +191,14 @@ export default class Affix extends React.Component<AffixProps, any> {
 
   componentWillUnmount() {
     this.clearScrollEventListeners();
+    clearTimeout(this.timeout);
   }
 
   setTargetEventListeners(getTarget) {
     const target = getTarget();
+    if (!target) {
+      return;
+    }
     this.scrollEvent = addEventListener(target, 'scroll', this.updatePosition);
     this.resizeEvent = addEventListener(target, 'resize', this.updatePosition);
   }
