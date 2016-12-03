@@ -807,7 +807,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     // 筛选
     if (state.filters) {
       Object.keys(state.filters).forEach((columnKey) => {
-        let col = this.findColumn(columnKey);
+        let col = this.findColumn(columnKey) as any;
         if (!col) {
           return;
         }
