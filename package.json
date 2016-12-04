@@ -100,7 +100,7 @@
     "enzyme-to-json": "^1.3.0",
     "eslint": "^3.0.1",
     "eslint-config-airbnb": "latest",
-    "eslint-plugin-babel": "^3.0.0",
+    "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.1.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-markdown": "*",
