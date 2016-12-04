@@ -37,7 +37,7 @@ Specify the `theme` property in `package.json` file, whose value can be either a
 
 This approach is working only when using [atool-build](https://github.com/ant-tool/atool-build)(built in [antd-init](https://github.com/ant-design/antd-init) and [dva-cli](https://github.com/dvajs/dva-cli)). If you choose other boilerplates, you can write webpack config about [less-loader modifyVars](https://github.com/webpack/less-loader#less-options) like [atool-build ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138) does.
 
-Note: Importing less style is necessary. Please specify `style` option of `babel-plugin-import` to be `true` or `less` if you are using it.
+Note: Importing less style is necessary. Please specify `style` option of `babel-plugin-import` to be `true`.
 
 ### 2) Overriding Less variables (alternative way)
 
