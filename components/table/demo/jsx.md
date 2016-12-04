@@ -72,7 +72,7 @@ ReactDOM.render(
           <a href="#">Delete</a>
           <span className="ant-divider" />
           <a href="#" className="ant-dropdown-link">
-            More actions<Icon type="down" />
+            More actions <Icon type="down" />
           </a>
         </span>
       )}
