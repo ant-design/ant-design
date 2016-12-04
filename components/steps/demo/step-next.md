@@ -90,6 +90,6 @@ ReactDOM.render(<App />, mountNode);
 }
 
 .steps-action {
-  margin-top: 40px;
+  margin-top: 24px;
 }
 ````
