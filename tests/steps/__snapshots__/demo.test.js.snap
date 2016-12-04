@@ -108,7 +108,10 @@ exports[`test renders ./components/steps/demo/icon.md correctly 1`] = `
         <div
           class="ant-steps-head-inner">
           <span
-            class="ant-steps-icon anticon anticon-user" />
+            class="ant-steps-icon">
+            <i
+              class="anticon anticon-user" />
+          </span>
         </div>
       </div>
       <div
@@ -134,7 +137,10 @@ exports[`test renders ./components/steps/demo/icon.md correctly 1`] = `
         <div
           class="ant-steps-head-inner">
           <span
-            class="ant-steps-icon anticon anticon-solution" />
+            class="ant-steps-icon">
+            <i
+              class="anticon anticon-solution" />
+          </span>
         </div>
       </div>
       <div
@@ -160,7 +166,10 @@ exports[`test renders ./components/steps/demo/icon.md correctly 1`] = `
         <div
           class="ant-steps-head-inner">
           <span
-            class="ant-steps-icon anticon anticon-credit-card" />
+            class="ant-steps-icon">
+            <i
+              class="anticon anticon-credit-card" />
+          </span>
         </div>
       </div>
       <div

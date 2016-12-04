@@ -63,10 +63,17 @@ exports[`test renders ./components/breadcrumb/demo/router.md correctly 1`] = `
       Application List
     </a>
   </div>
-  Home
+  Home Page
   <div
-    style="margin-bottom:15px;margin-top:15px;padding-bottom:15px;border-bottom:1px dashed #ccc;">
-    Click the navigation above to switch:
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+    style="margin:16px 0;">
+    <span
+      class="ant-alert-message">
+      Click the navigation above to switch:
+    </span>
+    <span
+      class="ant-alert-description" />
   </div>
   <div
     class="ant-breadcrumb">
