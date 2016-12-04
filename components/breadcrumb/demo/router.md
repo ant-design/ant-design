@@ -8,15 +8,15 @@ title:
 
 ## zh-CN
 
-和 `react-router@2.x` 进行结合使用。
+和 `react-router@2+` 进行结合使用。
 
 ## en-US
 
-Used together with `react-router@2.x`.
+Used together with `react-router@2+`.
 
 ````jsx
 import { Router, Route, Link, hashHistory } from 'react-router';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Alert } from 'antd';
 
 const Apps = () => (
   <ul className="app-list">
@@ -29,24 +29,15 @@ const Apps = () => (
   </ul>
 );
 
-const Home = props => (
+const Home = ({ routes, params, children }) => (
   <div>
     <div className="demo-nav">
       <Link to="/">Home</Link>
       <Link to="/apps">Application List</Link>
     </div>
-    {props.children || 'Home'}
-    <div
-      style={{
-        marginBottom: 15,
-        marginTop: 15,
-        paddingBottom: 15,
-        borderBottom: '1px dashed #ccc',
-      }}
-    >
-      Click the navigation above to switch:
-    </div>
-    <Breadcrumb {...props} />
+    {children || 'Home Page'}
+    <Alert style={{ margin: '16px 0' }} message="Click the navigation above to switch:" />
+    <Breadcrumb routes={routes} params={params} />
   </div>
 );
 
