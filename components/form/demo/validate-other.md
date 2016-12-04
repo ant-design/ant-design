@@ -115,6 +115,19 @@ const Demo = Form.create()(React.createClass({
         >
           {getFieldDecorator('radio-group')(
             <RadioGroup>
+              <Radio value="a">item 1</Radio>
+              <Radio value="b">item 2</Radio>
+              <Radio value="c">item 3</Radio>
+            </RadioGroup>
+          )}
+        </FormItem>
+
+        <FormItem
+          {...formItemLayout}
+          label="Radio.Button"
+        >
+          {getFieldDecorator('radio-button')(
+            <RadioGroup>
               <RadioButton value="a">item 1</RadioButton>
               <RadioButton value="b">item 2</RadioButton>
               <RadioButton value="c">item 3</RadioButton>
