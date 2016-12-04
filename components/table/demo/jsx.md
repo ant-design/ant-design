@@ -39,7 +39,7 @@ const data = [{
 }];
 
 ReactDOM.render(
-  <Table dataSource={data}>
+  <Table dataSource={data} bordered>
     <ColumnGroup title="Name">
       <Column
         title="First Name"
