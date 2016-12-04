@@ -28,11 +28,11 @@
       &-action {
         color: #ccc;
         position: absolute;
-        top: 2px;
-        right: 2px;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
+        top: 4px;
+        right: 4px;
+        bottom: 4px;
+        width: 28px;
+        line-height: 26px;
         text-align: center;
         font-size: @font-size-lg;
         .@{iconfont-css-prefix} {
@@ -42,6 +42,9 @@
           &:hover {
             color: @text-color-secondary;
           }
+        }
+        span& {
+          pointer-events: none;
         }
       }
     }
@@ -73,7 +76,6 @@
         position: absolute;
         top: 0;
         left: 0;
-        height: 28px;
         padding: 4px;
         width: 100%;
       }
