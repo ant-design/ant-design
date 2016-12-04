@@ -110,33 +110,24 @@ exports[`test renders ./components/input/demo/addon.md correctly 1`] = `
 
 exports[`test renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
 <div>
-  <span
-    class="ant-input-wrapper">
-    <textarea
-      class="ant-input"
-      placeholder="Autosize height based on content lines"
-      type="textarea" />
-  </span>
+  <textarea
+    class="ant-input"
+    placeholder="Autosize height based on content lines"
+    type="textarea" />
   <div
     style="margin:24px 0;" />
-  <span
-    class="ant-input-wrapper">
-    <textarea
-      class="ant-input"
-      placeholder="Autosize height with minimum and maximum number of lines"
-      type="textarea" />
-  </span>
+  <textarea
+    class="ant-input"
+    placeholder="Autosize height with minimum and maximum number of lines"
+    type="textarea" />
 </div>
 `;
 
 exports[`test renders ./components/input/demo/basic.md correctly 1`] = `
-<span
-  class="ant-input-wrapper">
-  <input
-    class="ant-input"
-    placeholder="Basic usage"
-    type="text" />
-</span>
+<input
+  class="ant-input"
+  placeholder="Basic usage"
+  type="text" />
 `;
 
 exports[`test renders ./components/input/demo/group.md correctly 1`] = `
@@ -145,23 +136,17 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-lg">
     <div
       class="ant-col-4">
-      <span
-        class="ant-input-wrapper">
-        <input
-          class="ant-input"
-          type="text"
-          value="0571" />
-      </span>
+      <input
+        class="ant-input"
+        type="text"
+        value="0571" />
     </div>
     <div
       class="ant-col-8">
-      <span
-        class="ant-input-wrapper">
-        <input
-          class="ant-input"
-          type="text"
-          value="26888888" />
-      </span>
+      <input
+        class="ant-input"
+        type="text"
+        value="26888888" />
     </div>
   </span>
 </div>
@@ -170,13 +155,10 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
 exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
 <div
   class="ant-input-search-wrapper">
-  <span
-    class="ant-input-wrapper">
-    <input
-      class="ant-input ant-input-search"
-      placeholder="input search text"
-      type="text" />
-  </span>
+  <input
+    class="ant-input ant-input-search"
+    placeholder="input search text"
+    type="text" />
   <i
     class="anticon anticon-search ant-input-search-icon" />
 </div>
@@ -185,53 +167,38 @@ exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
 exports[`test renders ./components/input/demo/size.md correctly 1`] = `
 <div
   class="example-input">
-  <span
-    class="ant-input-wrapper">
-    <input
-      class="ant-input ant-input-lg"
-      placeholder="large size"
-      type="text" />
-  </span>
-  <span
-    class="ant-input-wrapper">
-    <input
-      class="ant-input"
-      placeholder="default size"
-      type="text" />
-  </span>
-  <span
-    class="ant-input-wrapper">
-    <input
-      class="ant-input ant-input-sm"
-      placeholder="small size"
-      type="text" />
-  </span>
+  <input
+    class="ant-input ant-input-lg"
+    placeholder="large size"
+    type="text" />
+  <input
+    class="ant-input"
+    placeholder="default size"
+    type="text" />
+  <input
+    class="ant-input ant-input-sm"
+    placeholder="small size"
+    type="text" />
 </div>
 `;
 
 exports[`test renders ./components/input/demo/textarea.md correctly 1`] = `
-<span
-  class="ant-input-wrapper">
-  <textarea
-    class="ant-input"
-    rows="4"
-    type="textarea" />
-</span>
+<textarea
+  class="ant-input"
+  rows="4"
+  type="textarea" />
 `;
 
 exports[`test renders ./components/input/demo/tooltip.md correctly 1`] = `
 <div
   class="numeric-input-demo">
   <div>
-    <span
-      class="ant-input-wrapper">
-      <input
-        class="ant-input"
-        maxlength="25"
-        placeholder="input a number"
-        type="text"
-        value="" />
-    </span>
+    <input
+      class="ant-input"
+      maxlength="25"
+      placeholder="input a number"
+      type="text"
+      value="" />
   </div>
 </div>
 `;

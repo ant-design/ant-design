@@ -528,13 +528,10 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
   <div
     class="ant-input-search-wrapper"
     style="width:200px;">
-    <span
-      class="ant-input-wrapper">
-      <input
-        class="ant-input ant-input-search"
-        placeholder="Search"
-        type="text" />
-    </span>
+    <input
+      class="ant-input ant-input-search"
+      placeholder="Search"
+      type="text" />
     <i
       class="anticon anticon-search ant-input-search-icon" />
   </div>

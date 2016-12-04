@@ -11,17 +11,14 @@ exports[`Search shows cross icon when user inputting 1`] = `
       prefixCls="ant-input"
       type="text"
       value={true}>
-      <span
-        className="ant-input-wrapper">
-        <input
-          className="ant-input"
-          disabled={false}
-          onChange={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          type="text"
-          value={true} />
-      </span>
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value={true} />
     </Input>
     <span
       className="undefined-action">
@@ -48,17 +45,14 @@ exports[`Search shows cross icon when user inputting 2`] = `
       prefixCls="ant-input"
       type="text"
       value="a">
-      <span
-        className="ant-input-wrapper">
-        <input
-          className="ant-input"
-          disabled={false}
-          onChange={[Function]}
-          onKeyDown={[Function]}
-          placeholder=""
-          type="text"
-          value="a" />
-      </span>
+      <input
+        className="ant-input"
+        disabled={false}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        placeholder=""
+        type="text"
+        value="a" />
     </Input>
     <a
       className="undefined-action"

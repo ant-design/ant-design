@@ -22,16 +22,13 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             class="ant-col-19">
             <div
               class="ant-form-item-control ">
-              <span
-                class="ant-input-wrapper">
-                <input
-                  class="ant-input ant-input-lg"
-                  data-__meta="[object Object]"
-                  id="field-0"
-                  placeholder="placeholder"
-                  type="text"
-                  value="" />
-              </span>
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-0"
+                placeholder="placeholder"
+                type="text"
+                value="" />
             </div>
           </div>
         </div>
@@ -53,16 +50,13 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             class="ant-col-19">
             <div
               class="ant-form-item-control ">
-              <span
-                class="ant-input-wrapper">
-                <input
-                  class="ant-input ant-input-lg"
-                  data-__meta="[object Object]"
-                  id="field-1"
-                  placeholder="placeholder"
-                  type="text"
-                  value="" />
-              </span>
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-1"
+                placeholder="placeholder"
+                type="text"
+                value="" />
             </div>
           </div>
         </div>
@@ -84,16 +78,13 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             class="ant-col-19">
             <div
               class="ant-form-item-control ">
-              <span
-                class="ant-input-wrapper">
-                <input
-                  class="ant-input ant-input-lg"
-                  data-__meta="[object Object]"
-                  id="field-2"
-                  placeholder="placeholder"
-                  type="text"
-                  value="" />
-              </span>
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-2"
+                placeholder="placeholder"
+                type="text"
+                value="" />
             </div>
           </div>
         </div>
@@ -115,16 +106,13 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             class="ant-col-19">
             <div
               class="ant-form-item-control ">
-              <span
-                class="ant-input-wrapper">
-                <input
-                  class="ant-input ant-input-lg"
-                  data-__meta="[object Object]"
-                  id="field-3"
-                  placeholder="placeholder"
-                  type="text"
-                  value="" />
-              </span>
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-3"
+                placeholder="placeholder"
+                type="text"
+                value="" />
             </div>
           </div>
         </div>
@@ -146,16 +134,13 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             class="ant-col-19">
             <div
               class="ant-form-item-control ">
-              <span
-                class="ant-input-wrapper">
-                <input
-                  class="ant-input ant-input-lg"
-                  data-__meta="[object Object]"
-                  id="field-4"
-                  placeholder="placeholder"
-                  type="text"
-                  value="" />
-              </span>
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-4"
+                placeholder="placeholder"
+                type="text"
+                value="" />
             </div>
           </div>
         </div>
@@ -177,16 +162,13 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
             class="ant-col-19">
             <div
               class="ant-form-item-control ">
-              <span
-                class="ant-input-wrapper">
-                <input
-                  class="ant-input ant-input-lg"
-                  data-__meta="[object Object]"
-                  id="field-5"
-                  placeholder="placeholder"
-                  type="text"
-                  value="" />
-              </span>
+              <input
+                class="ant-input ant-input-lg"
+                data-__meta="[object Object]"
+                id="field-5"
+                placeholder="placeholder"
+                type="text"
+                value="" />
             </div>
           </div>
         </div>
@@ -246,14 +228,11 @@ exports[`test renders ./components/form/demo/customized-form-controls.md correct
       <div
         class="ant-form-item-control has-success">
         <span>
-          <span
-            class="ant-input-wrapper">
-            <input
-              class="ant-input ant-input-lg"
-              style="width:65%;margin-right:3%;"
-              type="text"
-              value="0" />
-          </span>
+          <input
+            class="ant-input ant-input-lg"
+            style="width:65%;margin-right:3%;"
+            type="text"
+            value="0" />
           <div
             class="ant-select-lg ant-select ant-select-enabled"
             style="width:32%;">
@@ -322,17 +301,14 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
       class="ant-col-20">
       <div
         class="ant-form-item-control ">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="names-0"
-            placeholder="passenger name"
-            style="width:60%;margin-right:8px;"
-            type="text"
-            value="" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="names-0"
+          placeholder="passenger name"
+          style="width:60%;margin-right:8px;"
+          type="text"
+          value="" />
         <i
           class="anticon anticon-minus-circle-o dynamic-delete-button"
           disabled="" />
@@ -391,15 +367,12 @@ exports[`test renders ./components/form/demo/global-state.md correctly 1`] = `
         class="">
         <div
           class="ant-form-item-control has-success">
-          <span
-            class="ant-input-wrapper">
-            <input
-              class="ant-input ant-input-lg"
-              data-__meta="[object Object]"
-              id="username"
-              type="text"
-              value="BENJYCUI" />
-          </span>
+          <input
+            class="ant-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="username"
+            type="text"
+            value="BENJYCUI" />
         </div>
       </div>
     </div>
@@ -595,15 +568,12 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       class="ant-col-14">
       <div
         class="ant-form-item-control ">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="email"
-            type="text"
-            value="" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="email"
+          type="text"
+          value="" />
       </div>
     </div>
   </div>
@@ -621,15 +591,12 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       class="ant-col-14">
       <div
         class="ant-form-item-control ">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="password"
-            type="password"
-            value="" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="password"
+          type="password"
+          value="" />
       </div>
     </div>
   </div>
@@ -647,15 +614,12 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       class="ant-col-14">
       <div
         class="ant-form-item-control ">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="confirm"
-            type="password"
-            value="" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="confirm"
+          type="password"
+          value="" />
       </div>
     </div>
   </div>
@@ -677,15 +641,12 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
       class="ant-col-14">
       <div
         class="ant-form-item-control ">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            data-__meta="[object Object]"
-            id="nickname"
-            type="text"
-            value="" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="nickname"
+          type="text"
+          value="" />
       </div>
     </div>
   </div>
@@ -705,17 +666,14 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
         class="ant-form-item-control has-success">
         <span
           class="ant-cascader-picker">
-          <span
-            class="ant-input-wrapper">
-            <input
-              autocomplete="off"
-              class="ant-input ant-cascader-input ant-input-lg"
-              data-__meta="[object Object]"
-              id="residence"
-              readonly=""
-              type="text"
-              value="" />
-          </span>
+          <input
+            autocomplete="off"
+            class="ant-input ant-cascader-input ant-input-lg"
+            data-__meta="[object Object]"
+            id="residence"
+            readonly=""
+            type="text"
+            value="" />
           <span
             class="ant-cascader-picker-label">
             Zhejiang / Hangzhou / West Lake
@@ -804,15 +762,12 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
           <div
             class="ant-col-12"
             style="padding-left:4px;padding-right:4px;">
-            <span
-              class="ant-input-wrapper">
-              <input
-                class="ant-input ant-input-lg"
-                data-__meta="[object Object]"
-                id="captcha"
-                type="text"
-                value="" />
-            </span>
+            <input
+              class="ant-input ant-input-lg"
+              data-__meta="[object Object]"
+              id="captcha"
+              type="text"
+              value="" />
           </div>
           <div
             class="ant-col-12"
@@ -1365,6 +1320,68 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
         <div
           class="ant-radio-group ant-radio-group-large">
           <label
+            class="ant-radio-wrapper">
+            <span
+              class="ant-radio">
+              <span
+                class="ant-radio-inner" />
+              <input
+                class="ant-radio-input"
+                type="radio" />
+            </span>
+            <span>
+              item 1
+            </span>
+          </label>
+          <label
+            class="ant-radio-wrapper">
+            <span
+              class="ant-radio">
+              <span
+                class="ant-radio-inner" />
+              <input
+                class="ant-radio-input"
+                type="radio" />
+            </span>
+            <span>
+              item 2
+            </span>
+          </label>
+          <label
+            class="ant-radio-wrapper">
+            <span
+              class="ant-radio">
+              <span
+                class="ant-radio-inner" />
+              <input
+                class="ant-radio-input"
+                type="radio" />
+            </span>
+            <span>
+              item 3
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item">
+    <div
+      class="ant-col-6 ant-form-item-label">
+      <label
+        class=""
+        for="radio-button">
+        Radio.Button
+      </label>
+    </div>
+    <div
+      class="ant-col-14">
+      <div
+        class="ant-form-item-control ">
+        <div
+          class="ant-radio-group ant-radio-group-large">
+          <label
             class="ant-radio-button-wrapper">
             <span
               class="ant-radio-button">
@@ -1474,14 +1491,11 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       class="ant-col-12">
       <div
         class="ant-form-item-control has-error">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            id="error"
-            placeholder="unavailable choice"
-            type="text" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          id="error"
+          placeholder="unavailable choice"
+          type="text" />
         <div
           class="ant-form-explain">
           Should be combination of numbers & alphabets
@@ -1502,14 +1516,11 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       class="ant-col-12">
       <div
         class="ant-form-item-control has-warning">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            id="warning"
-            placeholder="Warning"
-            type="text" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          id="warning"
+          placeholder="Warning"
+          type="text" />
       </div>
     </div>
   </div>
@@ -1526,14 +1537,11 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       class="ant-col-12">
       <div
         class="ant-form-item-control has-feedback is-validating">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            id="validating"
-            placeholder="I\'m the content is being validated"
-            type="text" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          id="validating"
+          placeholder="I\'m the content is being validated"
+          type="text" />
         <div
           class="ant-form-explain">
           The information is being validated...
@@ -1554,14 +1562,11 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       class="ant-col-12">
       <div
         class="ant-form-item-control has-feedback has-success">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            id="success"
-            placeholder="I\'m the content"
-            type="text" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          id="success"
+          placeholder="I\'m the content"
+          type="text" />
       </div>
     </div>
   </div>
@@ -1578,14 +1583,11 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       class="ant-col-12">
       <div
         class="ant-form-item-control has-feedback has-warning">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            id="warning"
-            placeholder="Warning"
-            type="text" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          id="warning"
+          placeholder="Warning"
+          type="text" />
       </div>
     </div>
   </div>
@@ -1602,14 +1604,11 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
       class="ant-col-12">
       <div
         class="ant-form-item-control has-feedback has-error">
-        <span
-          class="ant-input-wrapper">
-          <input
-            class="ant-input ant-input-lg"
-            id="error"
-            placeholder="unavailable choice"
-            type="text" />
-        </span>
+        <input
+          class="ant-input ant-input-lg"
+          id="error"
+          placeholder="unavailable choice"
+          type="text" />
         <div
           class="ant-form-explain">
           Should be combination of numbers & alphabets

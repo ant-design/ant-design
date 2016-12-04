@@ -261,14 +261,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <div
               class="ant-transfer-list-body-search-wrapper">
               <div>
-                <span
-                  class="ant-input-wrapper">
-                  <input
-                    class="ant-input ant-transfer-list-search"
-                    placeholder="Search here"
-                    type="text"
-                    value="" />
-                </span>
+                <input
+                  class="ant-input ant-transfer-list-search"
+                  placeholder="Search here"
+                  type="text"
+                  value="" />
                 <span
                   class="ant-transfer-list-search-action">
                   <i
@@ -328,14 +325,11 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
             <div
               class="ant-transfer-list-body-search-wrapper">
               <div>
-                <span
-                  class="ant-input-wrapper">
-                  <input
-                    class="ant-input ant-transfer-list-search"
-                    placeholder="Search here"
-                    type="text"
-                    value="" />
-                </span>
+                <input
+                  class="ant-input ant-transfer-list-search"
+                  placeholder="Search here"
+                  type="text"
+                  value="" />
                 <span
                   class="ant-transfer-list-search-action">
                   <i
