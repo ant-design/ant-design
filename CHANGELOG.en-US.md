@@ -9,6 +9,25 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.5.1
+
+`2016-12-03`
+
+* Improve website experience on mobile devices.
+* Add some migrate warnings for `1.x` to `2.x`.
+* ToolTip, Popover, Popconfirm support to wrap text node and multiple node directly now. [#3924](https://github.com/ant-design/ant-design/issues/3924)
+* Anchor
+  * Fix current position bug when scroll fastly. [#4053](https://github.com/ant-design/ant-design/issues/4053)
+  * Fix a bug of parent component ref node is undefined. [#4037](https://github.com/ant-design/ant-design/issues/4037)
+* Table
+  * Fix a selection problem when setting defaultChecked in rowSelection. [#4020](https://github.com/ant-design/ant-design/issues/4020)
+  * Fix grouping column title cannot work with filters. [#4099](https://github.com/ant-design/ant-design/issues/4099)
+* Fix a misplace bug when using Popover over `Input[type="textarea"]`. [#4092](https://github.com/ant-design/ant-design/issues/4092)
+* Fix Popconfirm `visible` is not-working problem. [#4068](https://github.com/ant-design/ant-design/issues/4068)
+* Fix TimePicker can not override width by `style.width`.
+* Unify Steps icon size. [#3817](https://github.com/ant-design/ant-design/issues/3817)
+* Fix style details of Form, Button, Slider, Table.
+
 ## 2.5.0
 
 `2016-11-25`
@@ -265,6 +284,8 @@ If you meet any problem while you try to upgrade from `antd@1.0.0`, feel free to
 * Removed components and features which are deprecated in `antd@1.x`, such as QueueAnim, Validation, Form.ValueMixin, Progress.Line, Progress.Circle, Popover[overlay] and Slider[marks] will not support array any more.
 
 ### 2.x Breaking changes
+
+> We suggest you upgrade to lastest version of `2.x`.
 
 There are some breaking changes in `antd@2.0.0`, and you need to modify your code to work with it.
 
