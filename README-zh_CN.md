@@ -66,6 +66,9 @@ tsconfig.json
 }
 ```
 
+> 注意：设置 `allowSyntheticDefaultImports` 避免 `error TS1192: Module 'react' has no default export` 的错误。
+
+
 ## 链接
 
 - [首页](http://ant.design/)

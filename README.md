@@ -74,7 +74,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    import 'antd/lib/date-picker/style/css';  // with style
    ```
 
-
 ## Environment Support
 
 * Browser: Modern browsers and Internet Explorer 9+.
@@ -95,6 +94,8 @@ tsconfig.json
   }
 }
 ```
+
+> Note: set `allowSyntheticDefaultImports` to prevent `error TS1192: Module 'react' has no default export`.
 
 ## Links
 
