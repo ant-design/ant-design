@@ -140,6 +140,12 @@ export default class Input extends Component<InputProps, any> {
 
   renderLabledInput(children) {
     const props = this.props;
+
+    // Not wrap when there is not addons
+    if (props.type === 'textarea' || (!props.addonBefore && !props.addonAfter)) {
+      return children;
+    }
+
     const wrapperClassName = `${props.prefixCls}-group`;
     const addonClassName = `${wrapperClassName}-addon`;
     const addonBefore = props.addonBefore ? (
