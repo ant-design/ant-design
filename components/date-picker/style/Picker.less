@@ -32,14 +32,20 @@
   display: inline-block;
   outline: none;
   font-size: @font-size-base;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
 
-  > input {
+  &-input {
     outline: none;
   }
+
+  &:hover &-input {
+    border-color: @primary-color;
+  }
+
   &-clear {
     opacity: 0;
-    z-index: -1;
+    pointer-events: none;
+    z-index: 1;
     position: absolute;
     right: 7px;
     background: #fff;
@@ -51,7 +57,7 @@
     margin-top: -7px;
     line-height: 14px;
     cursor: pointer;
-    transition: color 0.3s ease, opacity 0.15s ease;
+    transition: color 0.3s, opacity 0.3s;
     &:hover {
       color: @text-color-secondary;
     }
@@ -59,12 +65,13 @@
 
   &:hover &-clear {
     opacity: 1;
-    z-index: 1;
+    pointer-events: auto;
   }
+
   &-icon {
     position: absolute;
     user-select: none;
-    transition: all .3s @ease-in-out;
+    transition: all .3s;
     width: 12px;
     height: 12px;
     line-height: 12px;

@@ -67,7 +67,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         [`${prefixCls}-picker`]: true,
       });
       const pickerInputClass = classNames({
-        [`${prefixCls}-range-picker`]: true,
+        [`${prefixCls}-picker-input`]: true,
         [inputPrefixCls]: true,
         [`${inputPrefixCls}-lg`]: props.size === 'large',
         [`${inputPrefixCls}-sm`]: props.size === 'small',
