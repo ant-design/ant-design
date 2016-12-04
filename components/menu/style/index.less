@@ -72,7 +72,7 @@
   &-item-active,
   &-submenu-active,
   &-submenu-title:hover {
-    background-color: tint(@primary-color, 90%);
+    color: @primary-color;
   }
 
   &-horizontal &-item,
@@ -94,6 +94,10 @@
     > a:hover {
       color: @primary-color;
     }
+  }
+
+  &:not(&-horizontal) &-item-selected {
+    background-color: tint(@primary-color, 90%);
   }
 
   &-horizontal,
@@ -124,7 +128,7 @@
   &-inline {
     .@{menu-prefix-cls}-selected,
     .@{menu-prefix-cls}-item-selected {
-      border-right: 2px solid @primary-color;
+      border-right: 3px solid @primary-color;
       transform: translateZ(0);
     }
   }

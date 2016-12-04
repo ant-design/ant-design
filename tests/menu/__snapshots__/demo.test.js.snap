@@ -353,23 +353,24 @@ exports[`test renders ./components/menu/demo/switch-mode.md correctly 1`] = `
 exports[`test renders ./components/menu/demo/theme.md correctly 1`] = `
 <div>
   <span
-    class="ant-switch"
+    checked=""
+    class="ant-switch ant-switch-checked"
     tabindex="0">
     <span
       class="ant-switch-inner">
-      Light
+      Dark
     </span>
   </span>
   <br />
   <br />
   <ul
     aria-activedescendant=""
-    class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
+    class="ant-menu ant-menu-inline  ant-menu-dark ant-menu-root"
     role="menu"
     style="width:240px;"
     tabindex="0">
     <li
-      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">
+      class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu">
       <div
         aria-expanded="true"
         aria-haspopup="true"
@@ -390,8 +391,8 @@ exports[`test renders ./components/menu/demo/theme.md correctly 1`] = `
         id="sub1$Menu"
         role="menu">
         <li
-          aria-selected="false"
-          class="ant-menu-item"
+          aria-selected="true"
+          class="ant-menu-item-selected ant-menu-item"
           role="menuitem"
           style="padding-left:48px;">
           Option 1

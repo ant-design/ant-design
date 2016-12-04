@@ -20,7 +20,8 @@ const SubMenu = Menu.SubMenu;
 const Sider = React.createClass({
   getInitialState() {
     return {
-      theme: 'light',
+      theme: 'dark',
+      current: '1',
     };
   },
   changeTheme(value) {
@@ -37,10 +38,16 @@ const Sider = React.createClass({
   render() {
     return (
       <div>
-        <Switch onChange={this.changeTheme} checkedChildren="Dark" unCheckedChildren="Light" />
+        <Switch
+          checked={this.state.theme === 'dark'}
+          onChange={this.changeTheme}
+          checkedChildren="Dark"
+          unCheckedChildren="Light"
+        />
         <br />
         <br />
-        <Menu theme={this.state.theme}
+        <Menu
+          theme={this.state.theme}
           onClick={this.handleClick}
           style={{ width: 240 }}
           defaultOpenKeys={['sub1']}
