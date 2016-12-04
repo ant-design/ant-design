@@ -178,7 +178,7 @@ exports[`test renders ./components/table/demo/basic.md correctly 1`] = `
                           <a
                             class="ant-dropdown-link"
                             href="#">
-                            More actions
+                            More actions 
                             <i
                               class="anticon anticon-down" />
                           </a>
@@ -223,7 +223,7 @@ exports[`test renders ./components/table/demo/basic.md correctly 1`] = `
                           <a
                             class="ant-dropdown-link"
                             href="#">
-                            More actions
+                            More actions 
                             <i
                               class="anticon anticon-down" />
                           </a>
@@ -268,7 +268,7 @@ exports[`test renders ./components/table/demo/basic.md correctly 1`] = `
                           <a
                             class="ant-dropdown-link"
                             href="#">
-                            More actions
+                            More actions 
                             <i
                               class="anticon anticon-down" />
                           </a>
@@ -1224,7 +1224,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1287,7 +1287,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1350,7 +1350,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1413,7 +1413,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1476,7 +1476,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1539,7 +1539,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1602,7 +1602,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1665,7 +1665,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1728,7 +1728,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -1791,7 +1791,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
                             <a
                               class="ant-dropdown-link"
                               href="#">
-                              More actions
+                              More actions 
                               <i
                                 class="anticon anticon-down" />
                             </a>
@@ -6296,7 +6296,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
     <div
       class="ant-spin-container">
       <div
-        class="ant-table ant-table-large ant-table-scroll-position-left">
+        class="ant-table ant-table-large ant-table-bordered ant-table-scroll-position-left">
         <div
           class="ant-table-content">
           <div
@@ -6401,7 +6401,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                           <a
                             class="ant-dropdown-link"
                             href="#">
-                            More actions
+                            More actions 
                             <i
                               class="anticon anticon-down" />
                           </a>
@@ -6447,7 +6447,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                           <a
                             class="ant-dropdown-link"
                             href="#">
-                            More actions
+                            More actions 
                             <i
                               class="anticon anticon-down" />
                           </a>
@@ -6493,7 +6493,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
                           <a
                             class="ant-dropdown-link"
                             href="#">
-                            More actions
+                            More actions 
                             <i
                               class="anticon anticon-down" />
                           </a>
