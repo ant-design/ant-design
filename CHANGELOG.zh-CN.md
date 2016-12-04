@@ -25,6 +25,7 @@ timeline: true
 * 修复在 `Input[type="textarea"]` 上使用 Popover 定位错误问题。[#4092](https://github.com/ant-design/ant-design/issues/4092)
 * 修复 Popconfirm 的 `visible` 属性失效的问题。[#4068](https://github.com/ant-design/ant-design/issues/4068)
 * 修复 TimePicker 无法设置 `style.width` 的问题。
+* 修复 Steps 自定义图标和默认图标大小不一致的问题。[#3817](https://github.com/ant-design/ant-design/issues/3817)
 * 修复 Form、Button、Slider、Table 等组件的一些样式细节。
 
 ## 2.5.0

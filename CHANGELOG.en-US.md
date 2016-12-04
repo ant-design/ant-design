@@ -25,6 +25,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Fix a misplace bug when using Popover over `Input[type="textarea"]`. [#4092](https://github.com/ant-design/ant-design/issues/4092)
 * Fix Popconfirm `visible` is not-working problem. [#4068](https://github.com/ant-design/ant-design/issues/4068)
 * Fix TimePicker can not override width by `style.width`.
+* Unify Steps icon size. [#3817](https://github.com/ant-design/ant-design/issues/3817)
 * Fix style details of Form, Button, Slider, Table.
 
 ## 2.5.0
