@@ -1,6 +1,6 @@
 ---
 category: Components
-type: Navigation
+type: Other
 cols: 2
 title: Anchor
 ---
