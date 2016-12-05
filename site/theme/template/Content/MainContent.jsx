@@ -81,7 +81,7 @@ export default class MainContent extends React.Component {
   getSideBarOpenKeys(nextProps) {
     const pathname = nextProps.location.pathname;
     const prevModule = this.currentModule;
-    this.currentModule = pathname.split('/')[2] || 'components';
+    this.currentModule = pathname.replace(/^\//).split('/')[1] || 'components';
     if (this.currentModule === 'react') {
       this.currentModule = 'components';
     }
