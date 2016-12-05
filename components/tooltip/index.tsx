@@ -23,7 +23,7 @@ export interface AbstractTooltipProps {
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   getTooltipContainer?: (triggerNode: React.ReactNode) => HTMLElement;
-  children: React.ReactElement<any>;
+  children?: React.ReactElement<any>;
 }
 
 export interface TooltipProps extends AbstractTooltipProps {
