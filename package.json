@@ -197,11 +197,8 @@
       "\\.md$": "node_modules/antd-demo-jest"
     },
     "testRegex": "/tests/.*\\.test\\.js$",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "components/.*/demo",
-      "/dist/",
-      "/tests/"
+    "collectCoverageFrom": [
+      "components/**/*.{ts,tsx}"
     ]
   },
   "pre-commit": [
