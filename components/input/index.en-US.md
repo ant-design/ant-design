@@ -16,18 +16,18 @@ Keyboard and mouse can be used for providing or changing data.
 
 ### Input
 
-| Property       | Description           | Type     | Available Values | Default       |
-|----------------|-----------------------|----------|------------------|---------------|
-| type | The type of input. For a multi-line input, the 'textarea' value can be used. | string | 'text' or 'textarea' | 'text'    |
-| id | The identifier. | number or string |   |   |
-| value | The content value. | any |   |   |
-| defaultValue | The initial value. | any |   |   |
-| size | The size of the input box. The implicit value is 'default'. Note: in the context of a form, the 'large' size is used. | string | {'large','default','small'} | 'default' |
-| disabled | Tell if the input is disabled. | bool |   | false |
-| addonBefore | The label text displayed before (on the left side of) the input field. | node |   |   |
-| addonAfter | The label text displayed after (on the right side of) the input field. | node |   |   |
-| onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |   |
-| autosize | Height autosize feature, available when type="textarea". | bool or object | `true` or `{ minRows: 2, maxRows: 6 }` | false |
+| Property       | Description           | Type     | Default       |
+|----------------|-----------------------|----------|---------------|
+| type | The type of input, `text` or `textarea` | string  | `text`    |
+| id | The ID for input | string |   |
+| value | The input content value | string |   |
+| defaultValue | The initial input content | string |   |
+| size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |
+| disabled | Tell if the input is disabled. | boolean | false |
+| addonBefore | The label text displayed before (on the left side of) the input field. | React.Node |   |
+| addonAfter | The label text displayed after (on the right side of) the input field. | React.Node  |   |
+| onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |
+| autosize | Height autosize feature, available when type="textarea", can be set to `true|false` or a object `{ minRows: 2, maxRows: 6 }` | boolean or object | false |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined
 then `value`, `defaultValue`, and `id` props are automatically set.
@@ -36,20 +36,20 @@ then `value`, `defaultValue`, and `id` props are automatically set.
 
 `Added in 2.5.0`
 
-| Property  | Description                          | Type       |  Available Values  | Default |
-|-----------|------------------------------------------|------------|-------|--------|
-| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value) |  |  |
+| Property  | Description                          | Type       | Default |
+|-----------|--------------------------------------|------------|---------|
+| onSearch | The callback function that is triggered when you click on the search-icon or press Enter key. | function(value) |  |
 
 Support all props of `Input`.
 
 #### Input.Group
 
-| Property  | Description                      | Type   | Available Values            | Default   |
-|-----------|----------------------------------|--------|-----------------------------|-----------|
-|  size | The size of `Input.Group` specifies the size of the included `Input` fields. | string | {'large','default','small'} | 'default' |
+| Property  | Description                      | Type   | Default   |
+|-----------|----------------------------------|--------|-----------|
+|  size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` |
 
 ```html
-<Input.Group className={string}>
+<Input.Group>
   <Input />
   <Input />
 </Input.Group>
