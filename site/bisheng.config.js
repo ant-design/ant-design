@@ -66,7 +66,7 @@ module.exports = {
     if (filePath.endsWith('/index.html')) {
       return [filePath, filePath.replace(/\/index\.html$/, '-cn/index.html')];
     }
-    if (filePath !== '/404.html') {
+    if (filePath !== '/404.html' && filePath !== '/index-cn.html') {
       return [filePath, filePath.replace(/\.html$/, '-cn.html')];
     }
     return filePath;
