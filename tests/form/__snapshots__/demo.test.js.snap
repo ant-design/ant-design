@@ -855,7 +855,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
           class="ant-calendar-picker">
           <span>
             <input
-              class="ant-calendar-range-picker ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
               readonly=""
               value="" />
@@ -884,7 +884,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
           class="ant-calendar-picker">
           <span>
             <input
-              class="ant-calendar-range-picker ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
               readonly=""
               value="" />
@@ -913,7 +913,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
           class="ant-calendar-picker">
           <span>
             <input
-              class="ant-calendar-range-picker ant-input ant-input-lg"
+              class="ant-calendar-picker-input ant-input ant-input-lg"
               placeholder="请选择日期"
               readonly=""
               value="" />
@@ -941,7 +941,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
         <span
           class="ant-calendar-picker">
           <span
-            class="ant-calendar-range-picker ant-input ant-input-lg">
+            class="ant-calendar-picker-input ant-input ant-input-lg">
             <input
               class="ant-calendar-range-picker-input"
               placeholder="开始日期"
@@ -980,7 +980,7 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
         <span
           class="ant-calendar-picker">
           <span
-            class="ant-calendar-range-picker ant-input ant-input-lg">
+            class="ant-calendar-picker-input ant-input ant-input-lg">
             <input
               class="ant-calendar-range-picker-input"
               placeholder="开始日期"
@@ -1641,7 +1641,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
                   class="ant-calendar-picker">
                   <span>
                     <input
-                      class="ant-calendar-range-picker ant-input ant-input-lg"
+                      class="ant-calendar-picker-input ant-input ant-input-lg"
                       placeholder="请选择日期"
                       readonly=""
                       value="" />
@@ -1676,7 +1676,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
                   class="ant-calendar-picker">
                   <span>
                     <input
-                      class="ant-calendar-range-picker ant-input ant-input-lg"
+                      class="ant-calendar-picker-input ant-input ant-input-lg"
                       placeholder="请选择日期"
                       readonly=""
                       value="" />
