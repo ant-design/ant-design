@@ -48,6 +48,8 @@ If you believe that Ant Design should provide some features, but it does not. Yo
 
 ## Tips about Pull Request
 
+**Working on your first Pull Request?** You can learn how from this *free* series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
+
 It's welcomed to pull request. And there are some tips about that:
 
 1. It is a good habit to create a feature request issue to discuss whether the feature is necessary before you implement it. However, it's unnecessary to create an issue to claim that you found a typo or improved the readability of documentation, just create a pull request.
