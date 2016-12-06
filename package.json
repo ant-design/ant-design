@@ -191,7 +191,8 @@
     },
     "testRegex": "/tests/.*\\.test\\.js$",
     "collectCoverageFrom": [
-      "components/**/*.{ts,tsx}"
+      "components/**/*.{ts,tsx}",
+      "!components/*/style/index.tsx"
     ]
   },
   "pre-commit": [
