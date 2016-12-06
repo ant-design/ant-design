@@ -42,7 +42,7 @@ moment.locale('zh-cn');
 | style        | 自定义输入框样式     | object     | {}   |
 | popupStyle   | 格外的弹出日历样式   | object     | {}   |
 | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
-| locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/issues/424)  |
+| locale       | 国际化配置 | object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | disabledDate | 不可选择的日期 | function | 无           |
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | open | 控制弹层是否展开 | bool | - |
