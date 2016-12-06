@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 十大原则
-  en-US: Principles
+category: 十大原则
 order: 5
-title:
-  zh-CN: 直截了当
-  en-US: Make it Direct
+title: 直截了当
 ---
 
 正如 Alan Cooper 所言：『需要在哪里输出，就要允许在哪里输入』。这就是直接操作的原理。eg：不要为了编辑内容而打开另一个页面，应该直接在上下文中实现编辑。
