@@ -3,7 +3,7 @@ order: 0
 title: Ant Design of React
 ---
 
-We supply a react implementation `antd` following Ant Design specification, which designed to help developing RIA such as dashboards or other enterprise-like complex UI needs.
+We supply a react implementation `antd` following Ant Design specification, which is designed to help in developing RIA such as dashboards or other enterprise-like complex UI needs.
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
