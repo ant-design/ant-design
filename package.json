@@ -137,13 +137,6 @@
     "values.js": "^1.0.3",
     "xhr2": "^0.1.3"
   },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react",
-      "stage-0"
-    ]
-  },
   "scripts": {
     "test": "npm run lint && npm run dist && npm run jest -- --coverage -w 2 && npm run jest:node -- -w 2",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
