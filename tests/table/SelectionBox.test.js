@@ -1,7 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
 import createStore from '../../components/table/createStore';
 import SelectionBox from '../../components/table/SelectionBox';
-import TestUtils from 'react-addons-test-utils';
 
 describe('SelectionBox', () => {
   it('unchecked by selectedRowKeys ', () => {
@@ -10,7 +10,7 @@ describe('SelectionBox', () => {
       selectionDirty: false,
     });
 
-    const instance = TestUtils.renderIntoDocument(
+    const wrapper = mount(
       <SelectionBox
         store={store}
         rowIndex="1"
@@ -20,7 +20,7 @@ describe('SelectionBox', () => {
       />
     );
 
-    expect(instance.state).toEqual({ checked: false });
+    expect(wrapper.state()).toEqual({ checked: false });
   });
 
   it('checked by selectedRowKeys ', () => {
@@ -29,7 +29,7 @@ describe('SelectionBox', () => {
       selectionDirty: false,
     });
 
-    const instance = TestUtils.renderIntoDocument(
+    const wrapper = mount(
       <SelectionBox
         store={store}
         rowIndex="1"
@@ -39,7 +39,7 @@ describe('SelectionBox', () => {
       />
     );
 
-    expect(instance.state).toEqual({ checked: true });
+    expect(wrapper.state()).toEqual({ checked: true });
   });
 
   it('checked by defaultSelection', () => {
@@ -48,7 +48,7 @@ describe('SelectionBox', () => {
       selectionDirty: false,
     });
 
-    const instance = TestUtils.renderIntoDocument(
+    const wrapper = mount(
       <SelectionBox
         store={store}
         rowIndex="1"
@@ -58,7 +58,7 @@ describe('SelectionBox', () => {
       />
     );
 
-    expect(instance.state).toEqual({ checked: true });
+    expect(wrapper.state()).toEqual({ checked: true });
   });
 
   it('checked when store change', () => {
@@ -67,7 +67,7 @@ describe('SelectionBox', () => {
       selectionDirty: false,
     });
 
-    const instance = TestUtils.renderIntoDocument(
+    const wrapper = mount(
       <SelectionBox
         store={store}
         rowIndex="1"
@@ -82,6 +82,6 @@ describe('SelectionBox', () => {
       selectionDirty: true,
     });
 
-    expect(instance.state).toEqual({ checked: true });
+    expect(wrapper.state()).toEqual({ checked: true });
   });
 })

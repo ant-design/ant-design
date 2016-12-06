@@ -1,0 +1,254 @@
+exports[`Table.filter renders custom content correctly 1`] = `
+<div>
+  <div
+    class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden">
+    <div>
+      <div
+        class="custom-filter-dropdown">
+        custom filter
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders filter correctly 1`] = `
+<div
+  class=" clearfix">
+  <div
+    class="ant-spin-nested-loading">
+    <div
+      class="ant-spin-container">
+      <div
+        class="ant-table ant-table-large ant-table-scroll-position-left">
+        <div
+          class="ant-table-content">
+          <div
+            class="">
+            <span>
+              <div
+                class="ant-table-body">
+                <table
+                  class="">
+                  <colgroup>
+                    <col />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead">
+                    <tr>
+                      <th
+                        class="">
+                        <span>
+                          Name
+                          <i
+                            class="anticon anticon-filter ant-dropdown-trigger"
+                            title="筛选" />
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody">
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Jack
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Lucy
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Tom
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row  ant-table-row-level-0">
+                      <td
+                        class="">
+                        <span
+                          class="ant-table-row-indent indent-level-0"
+                          style="padding-left:0px;" />
+                        Jerry
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders menu correctly 1`] = `
+<div>
+  <div
+    class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden">
+    <div
+      class="ant-table-filter-dropdown">
+      <ul
+        aria-activedescendant=""
+        class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-root"
+        role="menu"
+        tabindex="0">
+        <li
+          aria-selected="false"
+          class="ant-dropdown-menu-item"
+          role="menuitem">
+          <label
+            class="ant-checkbox-wrapper">
+            <span
+              class="ant-checkbox">
+              <span
+                class="ant-checkbox-inner" />
+              <input
+                class="ant-checkbox-input"
+                type="checkbox" />
+            </span>
+          </label>
+          <span>
+            Boy
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-dropdown-menu-item"
+          role="menuitem">
+          <label
+            class="ant-checkbox-wrapper">
+            <span
+              class="ant-checkbox">
+              <span
+                class="ant-checkbox-inner" />
+              <input
+                class="ant-checkbox-input"
+                type="checkbox" />
+            </span>
+          </label>
+          <span>
+            Girl
+          </span>
+        </li>
+        <li
+          class="ant-dropdown-menu-submenu-vertical ant-dropdown-menu-submenu">
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-owns="title$Menu"
+            class="ant-dropdown-menu-submenu-title">
+            Title
+          </div>
+        </li>
+      </ul>
+      <div
+        class="ant-table-filter-dropdown-btns">
+        <a
+          class="ant-table-filter-dropdown-link confirm">
+          确定
+        </a>
+        <a
+          class="ant-table-filter-dropdown-link clear">
+          重置
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders radio filter correctly 1`] = `
+<div>
+  <div
+    class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden">
+    <div
+      class="ant-table-filter-dropdown">
+      <ul
+        aria-activedescendant=""
+        class="ant-dropdown-menu ant-dropdown-menu-vertical  ant-dropdown-menu-root"
+        role="menu"
+        tabindex="0">
+        <li
+          aria-selected="false"
+          class="ant-dropdown-menu-item"
+          role="menuitem">
+          <label
+            class="ant-radio-wrapper">
+            <span
+              class="ant-radio">
+              <span
+                class="ant-radio-inner" />
+              <input
+                class="ant-radio-input"
+                type="radio" />
+            </span>
+          </label>
+          <span>
+            Boy
+          </span>
+        </li>
+        <li
+          aria-selected="false"
+          class="ant-dropdown-menu-item"
+          role="menuitem">
+          <label
+            class="ant-radio-wrapper">
+            <span
+              class="ant-radio">
+              <span
+                class="ant-radio-inner" />
+              <input
+                class="ant-radio-input"
+                type="radio" />
+            </span>
+          </label>
+          <span>
+            Girl
+          </span>
+        </li>
+        <li
+          class="ant-dropdown-menu-submenu-vertical ant-dropdown-menu-submenu">
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-owns="title$Menu"
+            class="ant-dropdown-menu-submenu-title">
+            Title
+          </div>
+        </li>
+      </ul>
+      <div
+        class="ant-table-filter-dropdown-btns">
+        <a
+          class="ant-table-filter-dropdown-link confirm">
+          确定
+        </a>
+        <a
+          class="ant-table-filter-dropdown-link clear">
+          重置
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
