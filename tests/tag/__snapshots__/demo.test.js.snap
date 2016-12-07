@@ -137,7 +137,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
     class="ant-btn ant-btn-dashed ant-btn-sm"
     type="button">
     <span>
-      + New tag
+      + New
     </span>
   </button>
 </div>

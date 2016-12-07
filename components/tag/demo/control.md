@@ -15,41 +15,67 @@ Generating a set of Tags by array, you can add and remove dynamically.
 It's based on `afterClose` event, which will be triggered while the close animation end.
 
 ````jsx
-import { Tag, Button } from 'antd';
+import { Tag, Input, Button } from 'antd';
 
-let index = 3;
 class EditableTagGroup extends React.Component {
   state = {
-    tags: [
-      { key: 1, name: 'Unremovable' },
-      { key: 2, name: 'Tag 2' },
-      { key: 3, name: 'Tag 3' },
-    ],
+    tags: ['Unremovable', 'Tag 2', 'Tag 3'],
+    inputVisible: false,
+    inputValue: '',
   };
 
-  handleClose = (key) => {
-    const tags = [...this.state.tags].filter(tag => (tag.key !== key) && tag);
+  handleClose = (removedTag) => {
+    const tags = this.state.tags.filter(tag => tag !== removedTag);
     console.log(tags);
     this.setState({ tags });
   }
 
-  addTag = () => {
-    index += 1;
-    const tags = [...this.state.tags, { key: index, name: `New tag ${index}` }];
-    console.log(tags);
-    this.setState({ tags });
+  showInput = () => {
+    this.setState({ inputVisible: true }, () => this.input.focus());
   }
+
+  handleInputChange = (e) => {
+    this.setState({ inputValue: e.target.value });
+  }
+
+  handleInputConfirm = () => {
+    const state = this.state;
+    const inputValue = state.inputValue;
+    let tags = state.tags;
+    if (inputValue && tags.indexOf(inputValue) === -1) {
+      tags = [...tags, inputValue];
+    }
+    console.log(tags);
+    this.setState({
+      tags,
+      inputVisible: false,
+      inputValue: '',
+    });
+  }
+
+  saveInputRef = input => this.input = input
 
   render() {
-    const { tags } = this.state;
+    const { tags, inputVisible, inputValue } = this.state;
     return (
       <div>
-        {tags.map(tag =>
-          <Tag key={tag.key} closable={tag.key !== 1} afterClose={() => this.handleClose(tag.key)}>
-            {tag.name}
+        {tags.map((tag, index) =>
+          <Tag key={tag} closable={index !== 0} afterClose={() => this.handleClose(tag)}>
+            {tag}
           </Tag>
         )}
-        <Button size="small" type="dashed" onClick={this.addTag}>+ New tag</Button>
+        {inputVisible && (
+          <Input
+            ref={this.saveInputRef}
+            type="text" size="small"
+            style={{ width: 65 }}
+            value={inputValue}
+            onChange={this.handleInputChange}
+            onBlur={this.handleInputConfirm}
+            onPressEnter={this.handleInputConfirm}
+          />
+        )}
+        {!inputVisible && <Button size="small" type="dashed" onClick={this.showInput}>+ New</Button>}
       </div>
     );
   }

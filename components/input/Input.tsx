@@ -138,6 +138,10 @@ export default class Input extends Component<InputProps, any> {
     this.setState({ textareaStyles });
   }
 
+  focus() {
+    this.refs.input.focus();
+  }
+
   renderLabledInput(children) {
     const props = this.props;
 
