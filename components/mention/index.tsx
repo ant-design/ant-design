@@ -75,20 +75,20 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       suggestions: filteredSuggestions,
     });
   }
-  onFocus = () => {
+  onFocus = (ev) => {
     this.setState({
       focus: true,
     });
     if (this.props.onFocus) {
-      this.props.onFocus();
+      this.props.onFocus(ev);
     }
   }
-  onBlur = () => {
+  onBlur = (ev) => {
     this.setState({
       focus: false,
     });
     if (this.props.onBlur) {
-      this.props.onBlur();
+      this.props.onBlur(ev);
     }
   }
   render() {
