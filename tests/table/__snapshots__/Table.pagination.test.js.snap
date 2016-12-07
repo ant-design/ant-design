@@ -1,4 +1,4 @@
-exports[`Table renders JSX correctly 1`] = `
+exports[`Table.pagination renders pagination correctly 1`] = `
 <div
   class=" clearfix">
   <div
@@ -18,38 +18,14 @@ exports[`Table renders JSX correctly 1`] = `
                   class="">
                   <colgroup>
                     <col />
-                    <col />
-                    <col />
                   </colgroup>
                   <thead
                     class="ant-table-thead">
                     <tr>
                       <th
-                        class=""
-                        colspan="2">
+                        class="">
                         <span>
                           Name
-                        </span>
-                      </th>
-                      <th
-                        class=""
-                        rowspan="2">
-                        <span>
-                          Age
-                        </span>
-                      </th>
-                    </tr>
-                    <tr>
-                      <th
-                        class="">
-                        <span>
-                          First Name
-                        </span>
-                      </th>
-                      <th
-                        class="">
-                        <span>
-                          Last Name
                         </span>
                       </th>
                     </tr>
@@ -63,15 +39,7 @@ exports[`Table renders JSX correctly 1`] = `
                         <span
                           class="ant-table-row-indent indent-level-0"
                           style="padding-left:0px;" />
-                        John
-                      </td>
-                      <td
-                        class="">
-                        Brown
-                      </td>
-                      <td
-                        class="">
-                        32
+                        Jack
                       </td>
                     </tr>
                     <tr
@@ -81,15 +49,7 @@ exports[`Table renders JSX correctly 1`] = `
                         <span
                           class="ant-table-row-indent indent-level-0"
                           style="padding-left:0px;" />
-                        Jim
-                      </td>
-                      <td
-                        class="">
-                        Green
-                      </td>
-                      <td
-                        class="">
-                        42
+                        Lucy
                       </td>
                     </tr>
                   </tbody>
@@ -101,5 +61,33 @@ exports[`Table renders JSX correctly 1`] = `
       </div>
     </div>
   </div>
+  <ul
+    class="ant-pagination ant-table-pagination"
+    unselectable="unselectable">
+    <li
+      class="ant-pagination-disabled ant-pagination-prev"
+      title="上一页">
+      <a />
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+      title="1">
+      <a>
+        1
+      </a>
+    </li>
+    <li
+      class="ant-pagination-item ant-pagination-item-2"
+      title="2">
+      <a>
+        2
+      </a>
+    </li>
+    <li
+      class=" ant-pagination-next"
+      title="下一页">
+      <a />
+    </li>
+  </ul>
 </div>
 `;
