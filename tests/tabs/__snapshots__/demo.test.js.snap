@@ -43,7 +43,7 @@ exports[`test renders ./components/tabs/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+    style="margin-left:0%;">
     <div
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -107,7 +107,7 @@ exports[`test renders ./components/tabs/demo/card.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+    style="margin-left:0%;">
     <div
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -173,7 +173,7 @@ exports[`test renders ./components/tabs/demo/card-top.md correctly 1`] = `
     </div>
     <div
       class="ant-tabs-content ant-tabs-content-animated"
-      style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+      style="margin-left:0%;">
       <div
         aria-hidden="false"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -250,7 +250,7 @@ exports[`test renders ./components/tabs/demo/custom-add-trigger.md correctly 1`]
     </div>
     <div
       class="ant-tabs-content ant-tabs-content-animated"
-      style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+      style="margin-left:0%;">
       <div
         aria-hidden="false"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -311,7 +311,7 @@ exports[`test renders ./components/tabs/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+    style="margin-left:0%;">
     <div
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -386,7 +386,7 @@ exports[`test renders ./components/tabs/demo/editable-card.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+    style="margin-left:0%;">
     <div
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -459,7 +459,7 @@ exports[`test renders ./components/tabs/demo/extra.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+    style="margin-left:0%;">
     <div
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -524,7 +524,7 @@ exports[`test renders ./components/tabs/demo/icon.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(-100%) translateZ(0);-webkit-transform:translateX(-100%) translateZ(0);-moz-transform:translateX(-100%) translateZ(0);">
+    style="margin-left:-100%;">
     <div
       aria-hidden="true"
       class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
@@ -616,7 +616,7 @@ exports[`test renders ./components/tabs/demo/position.md correctly 1`] = `
     </div>
     <div
       class="ant-tabs-content ant-tabs-content-animated"
-      style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+      style="margin-left:0%;">
       <div
         aria-hidden="false"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -681,7 +681,7 @@ exports[`test renders ./components/tabs/demo/size.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(-100%) translateZ(0);-webkit-transform:translateX(-100%) translateZ(0);-moz-transform:translateX(-100%) translateZ(0);">
+    style="margin-left:-100%;">
     <div
       aria-hidden="true"
       class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
@@ -787,7 +787,7 @@ exports[`test renders ./components/tabs/demo/slide.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs-content ant-tabs-content-animated"
-    style="transform:translateX(0%) translateZ(0);-webkit-transform:translateX(0%) translateZ(0);-moz-transform:translateX(0%) translateZ(0);">
+    style="margin-left:0%;">
     <div
       aria-hidden="false"
       class="ant-tabs-tabpane ant-tabs-tabpane-active"
