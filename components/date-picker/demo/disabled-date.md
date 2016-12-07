@@ -32,7 +32,7 @@ function disabledDate(current) {
 
 function disabledDateTime() {
   return {
-    disabledHours: () => range(0, 60).splice(4, 20),
+    disabledHours: () => range(0, 24).splice(4, 20),
     disabledMinutes: () => range(30, 60),
     disabledSeconds: () => [55, 56],
   };
