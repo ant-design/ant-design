@@ -49,6 +49,8 @@ export { default as Input } from './input';
 
 export { default as InputNumber } from './input-number';
 
+export { default as Layout } from './layout';
+
 export { default as LocaleProvider } from './locale-provider';
 
 export { default as message } from './message';

@@ -35,6 +35,7 @@ describe('antd dist files', () => {
     expect('Icon' in antd).toBeTruthy();
     expect('Input' in antd).toBeTruthy();
     expect('InputNumber' in antd).toBeTruthy();
+    expect('Layout' in antd).toBeTruthy();
     expect('LocaleProvider' in antd).toBeTruthy();
     expect('Menu' in antd).toBeTruthy();
     expect('message' in antd).toBeTruthy();
