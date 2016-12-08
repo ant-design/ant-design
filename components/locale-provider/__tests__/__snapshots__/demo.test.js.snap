@@ -242,11 +242,17 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
           class="ant-transfer-list">
           <div
             class="ant-transfer-list-header">
-            <span
-              class="ant-transfer-checkbox">
+            <label
+              class="ant-checkbox-wrapper">
               <span
-                class="ant-transfer-checkbox-inner" />
-            </span>
+                class="ant-checkbox">
+                <span
+                  class="ant-checkbox-inner" />
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox" />
+              </span>
+            </label>
             <span
               class="ant-transfer-list-header-selected">
               <span>
@@ -306,11 +312,17 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
           class="ant-transfer-list">
           <div
             class="ant-transfer-list-header">
-            <span
-              class="ant-transfer-checkbox">
+            <label
+              class="ant-checkbox-wrapper">
               <span
-                class="ant-transfer-checkbox-inner" />
-            </span>
+                class="ant-checkbox">
+                <span
+                  class="ant-checkbox-inner" />
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox" />
+              </span>
+            </label>
             <span
               class="ant-transfer-list-header-selected">
               <span>

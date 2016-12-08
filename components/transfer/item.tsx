@@ -43,24 +43,29 @@ export default class Item extends React.Component<any, any> {
       [`${prefixCls}-content-item-disabled`]: item.disabled,
     });
 
-    const lazyProps = assign({
-      height: 32,
-      offset: 500,
-      throttle: 0,
-      debounce: false,
-    }, lazy);
-
-    return (
-      <Lazyload {...lazyProps}>
-        <li
-          className={className}
-          title={renderedText}
-          onClick={item.disabled ? undefined : () => onClick(item)}
-        >
-          <Checkbox checked={checked} disabled={item.disabled} />
-          <span>{renderedEl}</span>
-        </li>
-      </Lazyload>
+    const listItem = (
+      <li
+        className={className}
+        title={renderedText}
+        onClick={item.disabled ? undefined : () => onClick(item)}
+      >
+        <Checkbox checked={checked} disabled={item.disabled} />
+        <span>{renderedEl}</span>
+      </li>
     );
+    let children: JSX.Element | null = null;
+    if (lazy) {
+      const lazyProps = assign({
+        height: 32,
+        offset: 500,
+        throttle: 0,
+        debounce: false,
+      }, lazy);
+      children = <Lazyload {...lazyProps}>{listItem}</Lazyload>;
+    } else {
+      children = listItem;
+    }
+
+    return children;
   }
 }
