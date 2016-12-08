@@ -1,7 +1,5 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
-import { renderToJson } from 'enzyme-to-json';
-import createStore from '../../components/table/createStore';
+import { mount } from 'enzyme';
 import Table from '../../components/table';
 
 describe('Table.rowSelection', () => {
@@ -25,7 +23,7 @@ describe('Table.rowSelection', () => {
         rowSelection={{}}
         {...props}
       />
-    )
+    );
   }
 
   it('select by checkbox', () => {
@@ -33,19 +31,19 @@ describe('Table.rowSelection', () => {
     const checkboxes = wrapper.find('input');
     const checkboxAll = checkboxes.first();
 
-    checkboxAll.simulate('change', { target: {  checked: true } });
+    checkboxAll.simulate('change', { target: { checked: true } });
     expect(wrapper.instance().store.getState()).toEqual({
       selectedRowKeys: [0, 1, 2, 3],
       selectionDirty: true,
     });
 
-    checkboxes.at(1).simulate('change', { target: {  checked: false } });
+    checkboxes.at(1).simulate('change', { target: { checked: false } });
     expect(wrapper.instance().store.getState()).toEqual({
       selectedRowKeys: [1, 2, 3],
       selectionDirty: true,
     });
 
-    checkboxes.at(1).simulate('change', { target: {  checked: true } });
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
     expect(wrapper.instance().store.getState()).toEqual({
       selectedRowKeys: [1, 2, 3, 0],
       selectionDirty: true,
@@ -105,9 +103,9 @@ describe('Table.rowSelection', () => {
   it('handles defaultChecked', () => {
     const rowSelection = {
       getCheckboxProps: record => ({
-        defaultChecked: record.key === 0
+        defaultChecked: record.key === 0,
       }),
-    }
+    };
 
     const wrapper = mount(createTable({ rowSelection }));
 
@@ -145,7 +143,7 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    wrapper.find('input').last().simulate('change', { target: { checked: true }});
+    wrapper.find('input').last().simulate('change', { target: { checked: true } });
 
     expect(handleChange).toBeCalledWith([3], [{ key: 3, name: 'Jerry' }]);
     expect(handleSelect).toBeCalledWith(
@@ -162,7 +160,7 @@ describe('Table.rowSelection', () => {
     };
     const wrapper = mount(createTable({ rowSelection }));
 
-    wrapper.find('input').first().simulate('change', { target: { checked: true }});
+    wrapper.find('input').first().simulate('change', { target: { checked: true } });
     expect(handleSelectAll).toBeCalledWith(true, data, data);
   });
 });

@@ -1,16 +1,15 @@
 // Test dist files
-import React from 'react';
 import fs from 'fs';
 import path from 'path';
 
-describe('antd dist files', function() {
+describe('antd dist files', () => {
   const distFilesExisted = fs.existsSync(path.join(process.cwd(), 'dist', 'antd.js'));
   if (!distFilesExisted) {
     it('empty test case placeholder', () => {});
     return;
   }
 
-  const antd = require('../dist/antd');
+  const antd = require('../dist/antd'); // eslint-disable-line global-require
 
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
@@ -74,5 +73,5 @@ describe('antd dist files', function() {
       antdJsContent.toString()
        .indexOf('function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }')
     ).toBe(-1);
-  })
+  });
 });

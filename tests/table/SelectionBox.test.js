@@ -84,4 +84,4 @@ describe('SelectionBox', () => {
 
     expect(wrapper.state()).toEqual({ checked: true });
   });
-})
+});

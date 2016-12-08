@@ -11,10 +11,14 @@ describe('Table.filter', () => {
     filters: [
       { text: 'Boy', value: 'boy' },
       { text: 'Girl', value: 'girl' },
-      { text: 'Title', value: 'title', children: [
-        { text: 'Designer', value: 'designer' },
-        { text: 'Coder', value: 'coder' },
-      ] },
+      {
+        text: 'Title',
+        value: 'title',
+        children: [
+          { text: 'Designer', value: 'designer' },
+          { text: 'Coder', value: 'coder' },
+        ],
+      },
     ],
     onFilter: filterFn,
   };
@@ -29,12 +33,12 @@ describe('Table.filter', () => {
   function createTable(props) {
     return (
       <Table
-        columns={[ column ]}
+        columns={[column]}
         dataSource={data}
         pagination={false}
         {...props}
       />
-    )
+    );
   }
 
   it('renders filter correctly', () => {
@@ -53,7 +57,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        filterMultiple: false
+        filterMultiple: false,
       }],
     }));
     const dropdownWrapper = render(wrapper.find('Trigger').node.getComponent());
@@ -69,7 +73,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        filterDropdown: filter
+        filterDropdown: filter,
       }],
     }));
 
@@ -81,7 +85,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        filterDropdownVisible: true
+        filterDropdownVisible: true,
       }],
     }));
     const dropdown = wrapper.find('Dropdown').first();
@@ -89,8 +93,8 @@ describe('Table.filter', () => {
     expect(dropdown.props().visible).toBe(true);
     wrapper.setProps({ columns: [{
       ...column,
-      filterDropdownVisible: false
-    }]});
+      filterDropdownVisible: false,
+    }] });
     expect(dropdown.props().visible).toBe(false);
   });
 
@@ -99,7 +103,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        onFilterDropdownVisibleChange: handleChange
+        onFilterDropdownVisibleChange: handleChange,
       }],
     }));
 
@@ -120,7 +124,7 @@ describe('Table.filter', () => {
     wrapper.setProps({ columns: [{
       ...column,
       filteredValue: [],
-    }]});
+    }] });
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 

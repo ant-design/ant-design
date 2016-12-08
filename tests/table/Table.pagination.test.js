@@ -26,10 +26,10 @@ describe('Table.pagination', () => {
         pagination={pagination}
         {...props}
       />
-    )
+    );
   }
 
-  function renderedNames (wrapper) {
+  function renderedNames(wrapper) {
     return wrapper.find('TableRow').map(row => row.props().record.name);
   }
 
@@ -59,7 +59,7 @@ describe('Table.pagination', () => {
     const noop = () => {};
     const wrapper = mount(createTable({
       pagination: { ...pagination, onChange: noop, onShowSizeChange: noop },
-      onChange: handleChange
+      onChange: handleChange,
     }));
 
     wrapper.find('Pager').last().simulate('click');
@@ -69,7 +69,7 @@ describe('Table.pagination', () => {
         current: 2,
         onChange: noop,
         onShowSizeChange: noop,
-        pageSize: 2
+        pageSize: 2,
       },
       {},
       {}

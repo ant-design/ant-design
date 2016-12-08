@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import { renderToJson, mountToJson } from 'enzyme-to-json';
+import { renderToJson } from 'enzyme-to-json';
 import Table from '../../components/table';
 
 describe('Table.sorter', () => {
@@ -22,15 +22,15 @@ describe('Table.sorter', () => {
   function createTable(props) {
     return (
       <Table
-        columns={[ column ]}
+        columns={[column]}
         dataSource={data}
         pagination={false}
         {...props}
       />
-    )
+    );
   }
 
-  function renderedNames (wrapper) {
+  function renderedNames(wrapper) {
     return wrapper.find('TableRow').map(row => row.props().record.name);
   }
 
@@ -51,7 +51,7 @@ describe('Table.sorter', () => {
 
   xit('can be controlled by sortOrder', () => {
     const wrapper = mount(createTable({
-      columns: [ { ...column, sortOrder: 'ascend' } ],
+      columns: [{ ...column, sortOrder: 'ascend' }],
     }));
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
   });

@@ -22,7 +22,7 @@ describe('DropdownButton', () => {
     const wrapper = shallow(<Dropdown.Button {...props} />);
     const dropdownProps = wrapper.find(Dropdown).props();
 
-    Object.keys(props).forEach(key => {
+    Object.keys(props).forEach((key) => {
       expect(dropdownProps[key]).toBe(props[key]);
     });
   });

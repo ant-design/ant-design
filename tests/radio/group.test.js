@@ -13,7 +13,7 @@ describe('Radio', () => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >
-        <Radio/>
+        <Radio />
       </RadioGroup>
     );
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import createStore from '../../components/table/createStore';
 import Table from '../../components/table';
 
 const { Column, ColumnGroup } = Table;
@@ -49,13 +48,13 @@ describe('Table', () => {
     const columns = [{
       title: 'Name',
       key: 'name',
-      dataIndex: 'name'
+      dataIndex: 'name',
     }];
     const wrapper = shallow(<Table columns={columns} />);
     const newColumns = [{
       title: 'Title',
       key: 'title',
-      dataIndex: 'title'
+      dataIndex: 'title',
     }];
     wrapper.setProps({ columns: newColumns });
 
