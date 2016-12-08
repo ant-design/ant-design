@@ -49,7 +49,7 @@ describe('Table.sorter', () => {
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
   });
 
-  xit('can be controlled by sortOrder', () => {
+  it('can be controlled by sortOrder', () => {
     const wrapper = mount(createTable({
       columns: [{ ...column, sortOrder: 'ascend' }],
     }));
