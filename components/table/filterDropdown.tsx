@@ -30,10 +30,13 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
   constructor(props) {
     super(props);
 
+    const visible = ('filterDropdownVisible' in props.column) ?
+      props.column.filterDropdownVisible : false;
+
     this.state = {
       selectedKeys: props.selectedKeys,
       keyPathOfSelectedItem: {},    // 记录所有有选中子菜单的祖先菜单
-      visible: false,
+      visible,
     };
   }
 
