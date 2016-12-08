@@ -92,7 +92,7 @@ Modern browsers and IE9+.
 
 - [Home page](http://ant.design/)
 - [UI library](http://ant.design/docs/react/introduce)
-- [Change Log](CHANGELOG.en-US.md)
+- [Change Log](https://ant.design/changelog)
 - [Scaffold tool](https://github.com/dvajs/dva-cli/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
