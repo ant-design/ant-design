@@ -81,7 +81,7 @@ describe('Table.filter', () => {
     expect(renderToJson(dropdownWrapper)).toMatchSnapshot();
   });
 
-  xit('can be controlled by filterDropdownVisible', () => {
+  it('can be controlled by filterDropdownVisible', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
