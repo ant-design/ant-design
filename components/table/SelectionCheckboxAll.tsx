@@ -5,8 +5,8 @@ import { Store } from './createStore';
 export interface SelectionCheckboxAllProps {
   store: Store;
   disabled: boolean;
-  getCheckboxPropsByItem: (item) => any;
-  getRecordKey: (record, index?) => string;
+  getCheckboxPropsByItem: (item, index) => any;
+  getRecordKey: (record, index) => string;
   data: any[];
   onChange: (e) => void;
 }
@@ -50,7 +50,7 @@ export default class SelectionCheckboxAll extends React.Component<SelectionCheck
     if (type === 'every' || type === 'some') {
       return (
         byDefaultChecked
-        ? data[type](item => getCheckboxPropsByItem(item).defaultChecked)
+        ? data[type]((item, i) => getCheckboxPropsByItem(item, i).defaultChecked)
         : data[type]((item, i) =>
               store.getState().selectedRowKeys.indexOf(getRecordKey(item, i)) >= 0)
       );
