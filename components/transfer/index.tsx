@@ -76,7 +76,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
     body: PropTypes.func,
     footer: PropTypes.func,
     rowKey: PropTypes.func,
-    lazy: PropTypes.object,
+    lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
   static contextTypes = {
