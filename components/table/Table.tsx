@@ -555,10 +555,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
   getRecordKey = (record, index): string => {
     const rowKey = this.props.rowKey;
-    if (typeof rowKey === 'function') {
-      return rowKey(record, index);
-    }
-    let recordKey = record[rowKey as string] !== undefined ? record[rowKey as string] : index;
+    const recordKey = (typeof rowKey === 'function') ?
+      rowKey(record, index) :  record[rowKey as string];
     warning(recordKey !== undefined,
       'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key.'
     );
