@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 import { mountToJson } from 'enzyme-to-json';
 import Search from '../../components/transfer/search';
 
 describe('Search', () => {
-  it('shows cross icon when user inputting', () => {
-    const wrapper = mount(<Search value />);
+  it('should show cross icon when input value exists', () => {
+    const wrapper = mount(<Search value={''} />);
 
     expect(mountToJson(wrapper)).toMatchSnapshot();
 

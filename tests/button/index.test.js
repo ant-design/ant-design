@@ -3,7 +3,7 @@ import { render } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
 import Button from '../../components/button';
 
-describe('Button', function() {
+describe('Button', () => {
   it('renders correctly', () => {
     const wrapper = render(
       <Button>Follow</Button>

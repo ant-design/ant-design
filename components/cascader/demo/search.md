@@ -40,8 +40,8 @@ const options = [{
   }],
 }];
 
-function onChange(value) {
-  console.log(value);
+function onChange(value, selectedOptions) {
+  console.log(value, selectedOptions);
 }
 
 ReactDOM.render(

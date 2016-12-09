@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import List from './list';
+import { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
 
@@ -15,27 +16,26 @@ export interface TransferItem {
   disabled?: boolean;
 }
 
-// Transfer
 export interface TransferProps {
+  prefixCls?: string;
+  className?: string;
   dataSource: TransferItem[];
   targetKeys: string[];
   selectedKeys?: string[];
   render?: (record: TransferItem) => React.ReactNode;
   onChange?: (targetKeys: string[], direction: string, moveKeys: any) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
+  style?: React.CSSProperties;
   listStyle?: React.CSSProperties;
-  prefixCls?: string;
-  className?: string;
   titles?: string[];
   operations?: string[];
   showSearch?: boolean;
+  filterOption: (inputValue: any, item: any) => boolean;
   searchPlaceholder?: string;
   notFoundContent?: React.ReactNode;
-  footer?: (props: any) => React.ReactNode;
-  style?: React.CSSProperties;
-  filterOption: (inputValue: any, item: any) => boolean;
-  body?: (props: any) => any;
-  rowKey?: (record: any) => string;
+  footer?: (props: TransferListProps) => React.ReactNode;
+  body?: (props: TransferListProps) => React.ReactNode;
+  rowKey?: (record: TransferItem) => string;
   lazy?: {};
 }
 
@@ -107,7 +107,7 @@ export default class Transfer extends React.Component<TransferProps, any> {
 
       const { dataSource, targetKeys = [] } = nextProps;
       function existInDateSourcekey(key) {
-        return dataSource.filter(item => item.key === key).length;
+        return dataSource.some(item => item.key === key);
       }
       // clear key nolonger existed
       // clear checkedKeys according to targetKeys
@@ -253,14 +253,15 @@ export default class Transfer extends React.Component<TransferProps, any> {
   handleRightSelect = (selectedItem, checked) => this.handleSelect('right', selectedItem, checked);
 
   getTitles(): string[] {
-    if (this.props.titles) {
-      return this.props.titles;
+    const { props, context } = this;
+    if (props.titles) {
+      return props.titles;
     }
-    if (this.context &&
-      this.context.antLocale &&
-      this.context.antLocale.Transfer
-    ) {
-      return this.context.antLocale.Transfer.titles || [];
+    const transferLocale = context &&
+      context.antLocale &&
+      context.antLocale.Transfer;
+    if (transferLocale) {
+      return transferLocale.titles || [];
     }
     return defaultTitles;
   }

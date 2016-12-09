@@ -13,7 +13,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
         class="ant-tree-checkbox-inner" />
     </span>
     <a
-      class="ant-tree-node-content-wrapper"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="parent 1">
       <span
         class="ant-tree-title">
@@ -33,7 +33,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-checkbox-inner" />
         </span>
         <a
-          class="ant-tree-node-content-wrapper"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
           title="parent 1-0">
           <span
             class="ant-tree-title">
@@ -53,7 +53,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="leaf">
               <span
                 class="ant-tree-title">
@@ -71,7 +71,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="leaf">
               <span
                 class="ant-tree-title">
@@ -91,7 +91,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
             class="ant-tree-checkbox-inner" />
         </span>
         <a
-          class="ant-tree-node-content-wrapper"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
           title="parent 1-1">
           <span
             class="ant-tree-title">
@@ -111,7 +111,7 @@ exports[`test renders ./components/tree/demo/basic.md correctly 1`] = `
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="">
               <span
                 class="ant-tree-title">
@@ -144,7 +144,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
         class="ant-tree-checkbox-inner" />
     </span>
     <a
-      class="ant-tree-node-content-wrapper"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
       title="0-0">
       <span
         class="ant-tree-title">
@@ -164,7 +164,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
             class="ant-tree-checkbox-inner" />
         </span>
         <a
-          class="ant-tree-node-content-wrapper"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
           title="0-0-0">
           <span
             class="ant-tree-title">
@@ -184,7 +184,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-0">
               <span
                 class="ant-tree-title">
@@ -202,7 +202,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-1">
               <span
                 class="ant-tree-title">
@@ -220,7 +220,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-0-2">
               <span
                 class="ant-tree-title">
@@ -240,7 +240,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
             class="ant-tree-checkbox-inner" />
         </span>
         <a
-          class="ant-tree-node-content-wrapper"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
           title="0-0-1">
           <span
             class="ant-tree-title">
@@ -260,7 +260,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-1-0">
               <span
                 class="ant-tree-title">
@@ -278,7 +278,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-1-1">
               <span
                 class="ant-tree-title">
@@ -296,7 +296,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
                 class="ant-tree-checkbox-inner" />
             </span>
             <a
-              class="ant-tree-node-content-wrapper"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
               title="0-0-1-2">
               <span
                 class="ant-tree-title">
@@ -316,7 +316,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
             class="ant-tree-checkbox-inner" />
         </span>
         <a
-          class="ant-tree-node-content-wrapper"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
           title="0-0-2">
           <span
             class="ant-tree-title">
@@ -336,7 +336,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
         class="ant-tree-checkbox-inner" />
     </span>
     <a
-      class="ant-tree-node-content-wrapper"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="0-1">
       <span
         class="ant-tree-title">
@@ -354,7 +354,7 @@ exports[`test renders ./components/tree/demo/basic-controlled.md correctly 1`] =
         class="ant-tree-checkbox-inner" />
     </span>
     <a
-      class="ant-tree-node-content-wrapper"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
       title="0-2">
       <span
         class="ant-tree-title">
@@ -376,7 +376,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-noline_open" />
     <a
       aria-grabbed="true"
-      class="ant-tree-node-content-wrapper draggable"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
       draggable="true"
       title="0-0">
       <span
@@ -393,7 +393,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-noline_open" />
         <a
           aria-grabbed="true"
-          class="ant-tree-node-content-wrapper draggable"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open draggable"
           draggable="true"
           title="0-0-0">
           <span
@@ -410,7 +410,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
             <a
               aria-grabbed="true"
-              class="ant-tree-node-content-wrapper draggable"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
               draggable="true"
               title="0-0-0-0">
               <span
@@ -425,7 +425,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
             <a
               aria-grabbed="true"
-              class="ant-tree-node-content-wrapper draggable"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
               draggable="true"
               title="0-0-0-1">
               <span
@@ -440,7 +440,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
               class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
             <a
               aria-grabbed="true"
-              class="ant-tree-node-content-wrapper draggable"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
               draggable="true"
               title="0-0-0-2">
               <span
@@ -457,7 +457,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-noline_close" />
         <a
           aria-grabbed="true"
-          class="ant-tree-node-content-wrapper draggable"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
           draggable="true"
           title="0-0-1">
           <span
@@ -472,7 +472,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
           class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
         <a
           aria-grabbed="true"
-          class="ant-tree-node-content-wrapper draggable"
+          class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
           draggable="true"
           title="0-0-2">
           <span
@@ -489,7 +489,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-noline_close" />
     <a
       aria-grabbed="true"
-      class="ant-tree-node-content-wrapper draggable"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close draggable"
       draggable="true"
       title="0-1">
       <span
@@ -504,7 +504,7 @@ exports[`test renders ./components/tree/demo/draggable.md correctly 1`] = `
       class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
     <a
       aria-grabbed="true"
-      class="ant-tree-node-content-wrapper draggable"
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal draggable"
       draggable="true"
       title="0-2">
       <span
@@ -544,7 +544,7 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
       <span
         class="ant-tree-switcher ant-tree-noline_close" />
       <a
-        class="ant-tree-node-content-wrapper"
+        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
         title="">
         <span
           class="ant-tree-title">
@@ -561,7 +561,7 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
       <span
         class="ant-tree-switcher ant-tree-noline_close" />
       <a
-        class="ant-tree-node-content-wrapper"
+        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
         title="">
         <span
           class="ant-tree-title">
@@ -578,7 +578,7 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
       <span
         class="ant-tree-switcher ant-tree-switcher-noop ant-tree-noline_docu" />
       <a
-        class="ant-tree-node-content-wrapper"
+        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
         title="">
         <span
           class="ant-tree-title">

@@ -1,11 +1,11 @@
 import React from 'react';
 import RcCascader from 'rc-cascader';
-import Input from '../input';
-import Icon from '../icon';
 import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
+import Input from '../input';
+import Icon from '../icon';
+import splitObject from '../_util/splitObject';
 
 export interface CascaderOptionType {
   value: string;
@@ -134,9 +134,14 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   handleChange = (value, selectedOptions) => {
-    const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
     this.setState({ inputValue: '' });
-    this.setValue(unwrappedValue, selectedOptions);
+    if (selectedOptions[0].__IS_FILTERED_OPTION) {
+      const unwrappedValue = value[0];
+      const unwrappedSelectedOptions = selectedOptions[0].path;
+      this.setValue(unwrappedValue, unwrappedSelectedOptions);
+      return;
+    }
+    this.setValue(value, selectedOptions);
   }
 
   handlePopupVisibleChange = (popupVisible) => {
@@ -230,6 +235,8 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     if (filtered.length > 0) {
       return filtered.map((path) => {
         return {
+          __IS_FILTERED_OPTION: true,
+          path,
           label: render(inputValue, path, prefixCls),
           value: path.map(o => o.value),
         };
@@ -239,8 +246,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
   }
 
   render() {
-    const props = this.props;
-    const state = this.state;
+    const { props, state } = this;
     const [{ prefixCls, inputPrefixCls, children, placeholder, size, disabled,
       className, style, allowClear, showSearch }, otherProps] = splitObject(props,
       ['prefixCls', 'inputPrefixCls', 'children', 'placeholder', 'size', 'disabled',

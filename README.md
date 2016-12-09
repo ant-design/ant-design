@@ -24,7 +24,7 @@ An enterprise-class UI design language and React-based implementation.
 - Written in TypeScript with complete define types.
 - A npm + webpack + babel + [dora](https://github.com/dora-js/dora) + [dva](https://github.com/dvajs/dva) development framework.
 
-## Let's build a better antd together
+## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 `antd` is an open source project, any reasonable improvement is welcomed. If you are interested in contributing to `antd`, you can watch this repository and join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which had been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22).
 
