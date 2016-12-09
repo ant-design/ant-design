@@ -1,79 +1,79 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="An enterprise-class UI design language and React-based implementation">
-  <meta name="description" content="A set of high-quality React components">
-  <meta name="description" content="One of best React UI library for enterprise background">
-  <title>Ant Design - One Design Language</title>
-  <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.cnpmjs.org/css?family=Lato:400,700|Raleway"/>
-  <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
-  <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
-  <!--[if lte IE 10]>
-  <script
-    src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
-  <![endif]-->
-  <script>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An enterprise-class UI design language and React-based implementation">
+    <meta name="description" content="A set of high-quality React components">
+    <meta name="description" content="One of best React UI library for enterprise background">
+    <title>Ant Design - One Design Language</title>
+    <link rel="icon" href="https://t.alipayobjects.com/images/T1QUBfXo4fXXXXXXXX.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.cnpmjs.org/css?family=Lato:400,700|Raleway"/>
+    <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
+    <!--[if lte IE 10]>
+      <script
+        src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
+    <![endif]-->
+    <script>
     if (!window.Intl) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js">' + '<' + '/script>');
     }
     if (!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
     }
-  </script>
-</head>
-<body>
-  <div id="react-content">
-    {{ content | safe }}
-  </div>
-  <script>
-  function isZhCN(pathname) {
-    return /-cn\/?$/.test(pathname);
-  }
-  function getLocalizedPathname(path, zhCN) {
-    var pathname = path.startsWith('/') ? path : '/' + path;
-    if (!zhCN) { // to enUS
-      return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
-    } else if (pathname === '/') {
-      return '/index-cn';
-    } else if (pathname.endsWith('/')) {
-      return pathname.replace(/\/$/, '-cn/');
+    </script>
+  </head>
+  <body>
+    <div id="react-content">
+      {{ content | safe }}
+    </div>
+    <script>
+    function isZhCN(pathname) {
+      return /-cn\/?$/.test(pathname);
     }
-    return pathname + '-cn';
-  }
-  var queryString = location.search;
-  if (queryString) {
-    var pathname = location.pathname;
-    var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
-    if (isZhCNConfig !== isZhCN(pathname)) {
-      location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
+    function getLocalizedPathname(path, zhCN) {
+      var pathname = path.startsWith('/') ? path : '/' + path;
+      if (!zhCN) { // to enUS
+        return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+      } else if (pathname === '/') {
+        return '/index-cn';
+      } else if (pathname.endsWith('/')) {
+        return pathname.replace(/\/$/, '-cn/');
+      }
+      return pathname + '-cn';
     }
-  }
-  </script>
-  <script>
-  // Enable Google Analytics
-  if (!location.port) {
-    /* eslint-disable */
-    (function (i, s, o, g, r, a, m) {
-      i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function () {
-          (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-      a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-      a.async = 1;
-      a.src = g;
-      m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-    ga('create', 'UA-72788897-1', 'auto');
-    ga('send', 'pageview');
-    /* eslint-enable */
-  }
-  </script>
-  <script src="{{ root }}common.js"></script>
-  <script src="{{ root }}index.js"></script>
-</body>
+    var queryString = location.search;
+    if (queryString) {
+      var pathname = location.pathname;
+      var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+      if (isZhCNConfig !== isZhCN(pathname)) {
+        location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
+      }
+    }
+    </script>
+    <script>
+    // Enable Google Analytics
+    if (!location.port) {
+      /* eslint-disable */
+      (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-72788897-1', 'auto');
+      ga('send', 'pageview');
+      /* eslint-enable */
+    }
+    </script>
+    <script src="{{ root }}common.js"></script>
+    <script src="{{ root }}index.js"></script>
+  </body>
 </html>
