@@ -9,6 +9,21 @@ timeline: true
 
 ---
 
+## 2.5.2
+
+`2016-12-10`
+
+* 优化 Menu 已选择项的样式。
+* 修复 Mention 不能响应 `onFocus` 和 `onBlur` 的问题。[#4163](https://github.com/ant-design/ant-design/issues/4163)
+* 修复 `disabled` 和 `checked` 的 Radio 之间会多一条阴影的问题。[#4114](https://github.com/ant-design/ant-design/pull/4114) @jdz321
+* 修复 RangePicker、TimePicker、Calendar 设置 Moment 的 `defaultValue` 和 `value` 时也会报错的问题。[#4147](https://github.com/ant-design/ant-design/issues/4147)
+* 修复 Affix 在开启动画的 Tabs 里使用时会消失的问题。[#3943](https://github.com/ant-design/ant-design/issues/3943)
+* 修复 Cascader 手动选择和搜索选择时 `onChange` 接收到的 `selectedOptions` 不同的问题。[#4096](https://github.com/ant-design/ant-design/issues/4096)
+* 修复 Tabs 页增加到一定数量时会产生偏移的问题。[#3637](https://github.com/ant-design/ant-design/issues/3637)
+* Table
+  * 居中对齐表头分组的父表头。
+  * 修正设置 filterDropdownVisible 时不生效的问题。[#4162](https://github.com/ant-design/ant-design/issues/4162)
+
 ## 2.5.1
 
 `2016-12-03`

@@ -9,6 +9,21 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.5.2
+
+`2016-12-10`
+
+* Improve selected item style of Menu.
+* Fix issue resulting in Mention not responses `onFocus` and `onBlur`. [#4163](https://github.com/ant-design/ant-design/issues/4163)
+* Fix issue resulting in there is a redundant shadow between `disabled` and `checked` Radio. [#4114](https://github.com/ant-design/ant-design/pull/4114) @jdz321
+* Fix error when setting Momment `defaultValue` or `value` on RangePicker, TimePicker, Calendar. [#4147](https://github.com/ant-design/ant-design/issues/4147)
+* Fix issue resulting in Affix disappears when it's uesed in animated Tabs. [#3943](https://github.com/ant-design/ant-design/issues/3943)
+* Fix issue resulting in Cascader passes different `selectedOptions` to `onChange` when manually selecting and selecting by search. [#4096](https://github.com/ant-design/ant-design/issues/4096)
+* Fix issue resulting in Tabs get offset, when too many tabs are opening. [#3637](https://github.com/ant-design/ant-design/issues/3637)
+* Table
+  * Align text of grouped parent header to center.
+  * Fix issue resulting in `filterDropdownVisible` can't be set correctly. [#4162](https://github.com/ant-design/ant-design/issues/4162)
+
 ## 2.5.1
 
 `2016-12-03`
