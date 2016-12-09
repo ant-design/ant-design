@@ -43,13 +43,12 @@ export default class Layout extends React.Component {
       });
     }
 
-    const loadingNode = document.getElementById('ant-site-loading');
-    if (loadingNode) {
+    const nprogressHiddenStyle = document.getElementById('nprogress-style');
+    if (nprogressHiddenStyle) {
       this.timer = setTimeout(() => {
-        loadingNode.parentNode.removeChild(loadingNode);
-      }, 450);
+        nprogressHiddenStyle.parentNode.removeChild(nprogressHiddenStyle);
+      }, 0);
     }
-    document.getElementById('react-content').removeAttribute('hidden');
   }
 
   componentWillUnmount() {
