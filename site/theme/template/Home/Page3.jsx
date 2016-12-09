@@ -5,6 +5,7 @@ import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Icon, Button } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import * as utils from '../utils';
 
 export default function Page3({ location }) {
   return (
@@ -21,7 +22,7 @@ export default function Page3({ location }) {
         <h2 key="h2"><FormattedMessage id="app.home.reusable-components" /></h2>
         <p key="p" style={{ maxWidth: 280 }}><FormattedMessage id="app.home.components-intro" /></p>
         <div key="button">
-          <Link to={{ query: location.query, pathname: '/docs/react/introduce' }}>
+          <Link to={utils.getLocalizedPathname('/docs/react/introduce', utils.isZhCN(location.pathname))}>
             <Button type="primary" size="large">
               <FormattedMessage id="app.home.learn-more" />
               <Icon type="right" />
