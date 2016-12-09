@@ -19,6 +19,8 @@ export interface MentionProps {
   prefix?: string;
   placeholder?: string;
   getSuggestionContainer?: Function;
+  onFocus?: Function;
+  onBlur?: Function;
 }
 
 export interface MentionState {
@@ -73,7 +75,22 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       suggestions: filteredSuggestions,
     });
   }
-
+  onFocus = (ev) => {
+    this.setState({
+      focus: true,
+    });
+    if (this.props.onFocus) {
+      this.props.onFocus(ev);
+    }
+  }
+  onBlur = (ev) => {
+    this.setState({
+      focus: false,
+    });
+    if (this.props.onBlur) {
+      this.props.onBlur(ev);
+    }
+  }
   render() {
     const { className = '', prefixCls, loading } = this.props;
     const { suggestions, focus } = this.state;
@@ -91,8 +108,8 @@ export default class Mention extends React.Component<MentionProps, MentionState>
         className={cls}
         onSearchChange={this.onSearchChange}
         onChange={this.onChange}
-        onFocus={() => this.setState({ focus: true })}
-        onBlur={() => this.setState({ focus: false })}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
         suggestions={suggestions}
         notFoundContent={notFoundContent}
       />
