@@ -881,7 +881,8 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-calendar-picker">
+          class="ant-calendar-picker"
+          style="min-width:154px;">
           <span>
             <input
               class="ant-calendar-picker-input ant-input ant-input-lg"
@@ -978,7 +979,8 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
       <div
         class="ant-form-item-control ">
         <span
-          class="ant-calendar-picker">
+          class="ant-calendar-picker"
+          style="min-width:300px;">
           <span
             class="ant-calendar-picker-input ant-input ant-input-lg">
             <input

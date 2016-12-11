@@ -112,7 +112,8 @@ exports[`test renders ./components/date-picker/demo/disabled.md correctly 1`] = 
 exports[`test renders ./components/date-picker/demo/disabled-date.md correctly 1`] = `
 <div>
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:154px;">
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
@@ -125,7 +126,8 @@ exports[`test renders ./components/date-picker/demo/disabled-date.md correctly 1
   </span>
   <br />
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:300px;">
     <span
       class="ant-calendar-picker-input ant-input">
       <input
@@ -210,7 +212,8 @@ exports[`test renders ./components/date-picker/demo/format.md correctly 1`] = `
 
 exports[`test renders ./components/date-picker/demo/locale.md correctly 1`] = `
 <span
-  class="ant-calendar-picker">
+  class="ant-calendar-picker"
+  style="min-width:154px;">
   <span>
     <input
       class="ant-calendar-picker-input ant-input"
@@ -251,7 +254,8 @@ exports[`test renders ./components/date-picker/demo/presetted-ranges.md correctl
   </span>
   <br />
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:300px;">
     <span
       class="ant-calendar-picker-input ant-input">
       <input
@@ -379,7 +383,8 @@ exports[`test renders ./components/date-picker/demo/size.md correctly 1`] = `
 exports[`test renders ./components/date-picker/demo/start-end.md correctly 1`] = `
 <div>
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:154px;">
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
@@ -391,7 +396,8 @@ exports[`test renders ./components/date-picker/demo/start-end.md correctly 1`] =
     </span>
   </span>
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:154px;">
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
@@ -408,7 +414,8 @@ exports[`test renders ./components/date-picker/demo/start-end.md correctly 1`] =
 exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
 <div>
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:154px;">
     <span>
       <input
         class="ant-calendar-picker-input ant-input"
@@ -421,7 +428,8 @@ exports[`test renders ./components/date-picker/demo/time.md correctly 1`] = `
   </span>
   <br />
   <span
-    class="ant-calendar-picker">
+    class="ant-calendar-picker"
+    style="min-width:300px;">
     <span
       class="ant-calendar-picker-input ant-input">
       <input
