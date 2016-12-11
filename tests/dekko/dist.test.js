@@ -1,5 +1,3 @@
-
-
 const $ = require('dekko');
 
 $('dist')
@@ -9,4 +7,5 @@ $('dist')
   .hasFile('antd.js')
   .hasFile('antd.min.js');
 
+// eslint-disable-next-line
 console.log('`dist` directory is valid.');

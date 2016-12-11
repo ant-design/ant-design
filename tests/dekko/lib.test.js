@@ -1,5 +1,3 @@
-
-
 const $ = require('dekko');
 
 $('lib')
@@ -25,4 +23,5 @@ $('lib/*/style')
   .hasFile('css.js')
   .hasFile('index.js');
 
+// eslint-disable-next-line
 console.log('`lib` directory is valid.');
