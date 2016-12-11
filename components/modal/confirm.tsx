@@ -21,13 +21,13 @@ class ActionButton extends React.Component<ActionButtonProps, any> {
       loading: false,
     };
   }
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.autoFocus) {
       const $this = ReactDOM.findDOMNode(this) as HTMLInputElement;
       this.timeoutId = setTimeout(() => $this.focus());
     }
   }
-  componentWillUnmount () {
+  componentWillUnmount() {
     clearTimeout(this.timeoutId);
   }
   onClick = () => {
