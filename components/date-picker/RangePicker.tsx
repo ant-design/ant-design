@@ -3,6 +3,7 @@ import moment from 'moment';
 import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
+import assign from 'object-assign';
 import Icon from '../icon';
 
 export default class RangePicker extends React.Component<any, any> {
@@ -144,6 +145,12 @@ export default class RangePicker extends React.Component<any, any> {
       />
     );
 
+    // default width for showTime
+    const pickerStyle = {} as any;
+    if (props.showTime) {
+      pickerStyle.minWidth = 300;
+    }
+
     const clearIcon = (!props.disabled && props.allowClear && state.value && (state.value[0] || state.value[1]))
       ? <Icon
         type="cross-circle"
@@ -177,19 +184,21 @@ export default class RangePicker extends React.Component<any, any> {
       );
     };
 
-    return (<span className={props.pickerClass} style={style}>
-      <RcDatePicker
-        {...props}
-        {...pickerChangeHandler}
-        calendar={calendar}
-        value={state.value}
-        open={state.open}
-        onOpenChange={this.handleOpenChange}
-        prefixCls={`${prefixCls}-picker-container`}
-        style={popupStyle}
-      >
-        {input}
-      </RcDatePicker>
-    </span>);
+    return (
+      <span className={props.pickerClass} style={assign({}, style, pickerStyle)}>
+        <RcDatePicker
+          {...props}
+          {...pickerChangeHandler}
+          calendar={calendar}
+          value={state.value}
+          open={state.open}
+          onOpenChange={this.handleOpenChange}
+          prefixCls={`${prefixCls}-picker-container`}
+          style={popupStyle}
+        >
+          {input}
+        </RcDatePicker>
+      </span>
+    );
   }
 }

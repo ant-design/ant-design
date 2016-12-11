@@ -4,6 +4,7 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import assign from 'object-assign';
 import Icon from '../icon';
 
 export interface PickerProps {
@@ -135,6 +136,12 @@ export default function createPicker(TheCalendar) {
         />
       );
 
+      // default width for showTime
+      const pickerStyle = {} as any;
+      if (props.showTime) {
+        pickerStyle.minWidth = 154;
+      }
+
       const clearIcon = (!props.disabled && props.allowClear && this.state.value) ?
         <Icon
           type="cross-circle"
@@ -157,7 +164,7 @@ export default function createPicker(TheCalendar) {
       );
 
       return (
-        <span className={props.pickerClass} style={props.style}>
+        <span className={props.pickerClass} style={assign({}, props.style, pickerStyle)}>
           <RcDatePicker
             {...props}
             {...pickerChangeHandler}
