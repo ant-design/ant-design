@@ -34,7 +34,7 @@ We supply a react implementation `antd` following Ant Design specification, whic
 ## Installation
 
 ```bash
-$ npm install antd
+$ npm install antd --save
 ```
 
 ## Usage
