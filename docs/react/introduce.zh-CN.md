@@ -34,7 +34,7 @@ title: Ant Design of React
 ## 安装
 
 ```bash
-$ npm install antd
+$ npm install antd --save
 ```
 
 ## 示例
