@@ -13,6 +13,9 @@ function getStyle() {
     html, body{
       height: auto;
     }
+    .page-wrapper {
+      background: #fff;
+    }
     .main-wrapper {
       background: transparent;
       width: auto;
