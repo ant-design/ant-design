@@ -91,8 +91,8 @@ Modern browsers and IE9+.
 ## Useful Links
 
 - [Home page](http://ant.design/)
-- [UI library](http://ant.design/docs/react/introduce)
-- [Change Log](https://ant.design/changelog)
+- [UI library](/docs/react/introduce)
+- [Change Log](/changelog)
 - [Scaffold tool](https://github.com/dvajs/dva-cli/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
@@ -104,7 +104,7 @@ Modern browsers and IE9+.
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [Customize Theme](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [Customize Theme](/docs/react/customize-theme)
 
 ## Who are using antd
 

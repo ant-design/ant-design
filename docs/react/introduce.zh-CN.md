@@ -71,8 +71,8 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 ## 链接
 
 - [首页](http://ant.design/)
-- [组件文档](http://ant.design/docs/react/introduce)
-- [更新日志](CHANGELOG.en-US.md)
+- [组件文档](/docs/react/introduce)
+- [更新日志](/changelog)
 - [开发脚手架](https://github.com/dvajs/dva-cli/)
 - [开发工具文档](http://ant-tool.github.io/)
 - [React 基础组件](http://react-component.github.io/)
@@ -85,7 +85,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [定制主题](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [定制主题](/docs/react/customize-theme)
 
 ## 谁在使用
 
