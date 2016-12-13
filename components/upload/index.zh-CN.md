@@ -38,6 +38,7 @@ title: Upload
 | onRemove   | 点击移除文件时的回调                                       | Function(file) | 无    |
 | supportServerRender | 服务端渲染时需要打开这个                           | Boolean | false    |
 | disabled | 是否禁用                           | Boolean | false    |
+| withCredentials | 上传请求时是否携带 cookie | Boolean | false |
 
 ### onChange
 

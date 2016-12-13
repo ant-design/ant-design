@@ -36,6 +36,8 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onPreview  | A callback function, will be executed when file link is clicked.  | Function(file) | -  |
 | onRemove   | A callback function, will be executed when removing file button is clicked                                       | Function(file) | -   |
 | supportServerRender | Need to be turned on while the server side is rendering.| Boolean | false    |
+| disabled | disable upload button | Boolean | false    |
+| withCredentials | ajax upload with cookie sent | Boolean | false |
 
 ### onChange
 
