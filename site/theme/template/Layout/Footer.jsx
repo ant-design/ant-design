@@ -2,6 +2,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Select, Modal } from 'antd';
 import { version as antdVersion } from 'antd/package.json';
+import * as utils from '../utils';
 import { docVersions } from '../../';
 
 const Option = Select.Option;
@@ -63,7 +64,10 @@ class Footer extends React.Component {
   }
 
   handleVersionChange = (url) => {
-    window.location.href = window.location.href.replace(window.location.origin, url);
+    const currentUrl = window.location.href;
+    const currentPathname = window.location.pathname;
+    window.location.href = currentUrl.replace(window.location.origin, url)
+      .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
   }
 
   render() {
