@@ -210,6 +210,95 @@ exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = 
 </div>
 `;
 
+exports[`test renders ./components/form/demo/coordinated.md correctly 1`] = `
+<form
+  class="ant-form">
+  <div
+    class="ant-row ant-form-item">
+    <div
+      class="ant-col-4 ant-form-item-label">
+      <label
+        class="ant-form-item-required"
+        for="note">
+        Note
+      </label>
+    </div>
+    <div
+      class="ant-col-8">
+      <div
+        class="ant-form-item-control ">
+        <input
+          class="ant-input ant-input-lg"
+          data-__meta="[object Object]"
+          id="note"
+          type="text"
+          value="" />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item">
+    <div
+      class="ant-col-4 ant-form-item-label">
+      <label
+        class="ant-form-item-required"
+        for="gender">
+        Gender
+      </label>
+    </div>
+    <div
+      class="ant-col-8">
+      <div
+        class="ant-form-item-control ">
+        <div
+          class="ant-select-lg ant-select ant-select-enabled">
+          <div
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-select-selection
+                      ant-select-selection--single"
+            role="combobox"
+            tabindex="0">
+            <div
+              class="ant-select-selection__rendered">
+              <div
+                class="ant-select-selection__placeholder"
+                style="display:block;user-select:none;-webkit-user-select:none;"
+                unselectable="unselectable">
+                Select a option and change input text above
+              </div>
+            </div>
+            <span
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none;"
+              unselectable="unselectable">
+              <b />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item">
+    <div
+      class="ant-col-8 ant-col-offset-4">
+      <div
+        class="ant-form-item-control ">
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit">
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`test renders ./components/form/demo/customized-form-controls.md correctly 1`] = `
 <form
   class="ant-form ant-form-inline">
