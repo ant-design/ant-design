@@ -31,7 +31,7 @@ export interface CascaderProps {
   /** 指定选中项 */
   value?: Array<CascaderOptionType>;
   /** 选择完成后的回调 */
-  onChange?: (value: string, selectedOptions?: Array<CascaderOptionType>) => void;
+  onChange?: (value: string[], selectedOptions?: Array<CascaderOptionType>) => void;
   /** 选择后展示的渲染函数 */
   displayRender?: (label: Array<string>, selectedOptions?: Array<CascaderOptionType>) => React.ReactNode;
   /** 自定义样式 */
