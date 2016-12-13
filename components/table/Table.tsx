@@ -156,12 +156,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  getCheckboxPropsByItem = (item) => {
+  getCheckboxPropsByItem = (item, index) => {
     const { rowSelection = {} } = this.props;
     if (!rowSelection.getCheckboxProps) {
       return {};
     }
-    const key = this.getRecordKey(item);
+    const key = this.getRecordKey(item, index);
     // Cache checkboxProps
     if (!this.CheckboxPropsCache[key]) {
       this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item);
@@ -175,7 +175,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       return [];
     }
     return this.getFlatData()
-      .filter(item => this.getCheckboxPropsByItem(item).defaultChecked)
+      .filter((item, rowIndex) => this.getCheckboxPropsByItem(item, rowIndex).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   }
 
@@ -465,7 +465,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changableRowKeys = data
-      .filter(item => !this.getCheckboxPropsByItem(item).disabled)
+      .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
 
     // 记录变化的列
@@ -532,7 +532,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   renderSelectionBox = (type) => {
     return (_, record, index) => {
       let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-      const props = this.getCheckboxPropsByItem(record);
+      const props = this.getCheckboxPropsByItem(record, index);
       const handleChange = (e) => {
         type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
                            this.handleSelect(record, rowIndex, e);
@@ -553,7 +553,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     };
   }
 
-  getRecordKey = (record, index?): string => {
+  getRecordKey = (record, index): string => {
     const rowKey = this.props.rowKey;
     if (typeof rowKey === 'function') {
       return rowKey(record, index);
@@ -569,9 +569,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const { prefixCls, rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
-      const data = this.getFlatCurrentPageData().filter((item) => {
+      const data = this.getFlatCurrentPageData().filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
-          return !this.getCheckboxPropsByItem(item).disabled;
+          return !this.getCheckboxPropsByItem(item, index).disabled;
         }
         return true;
       });
@@ -581,7 +581,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         className: `${prefixCls}-selection-column`,
       };
       if (rowSelection.type !== 'radio') {
-        const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
+        const checkboxAllDisabled = data.every((item, index) => this.getCheckboxPropsByItem(item, index).disabled);
         selectionColumn.title  = (
           <SelectionCheckboxAll
             store={this.store}
