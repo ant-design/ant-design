@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Table from '../table';
+import Table from '..';
 
 describe('Table.filter', () => {
   const filterFn = (value, record) => record.name === 'Lucy';

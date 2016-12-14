@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Table from '../table';
+import Table from '..';
 
 describe('Table.sorter', () => {
   const sorterFn = (a, b) => a.name[0].charCodeAt() - b.name[0].charCodeAt();

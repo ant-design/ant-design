@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, shallow } from 'enzyme';
 import { renderToJson } from 'enzyme-to-json';
-import Table from '../table';
+import Table from '..';
 
 const { Column, ColumnGroup } = Table;
 

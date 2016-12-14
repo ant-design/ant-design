@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Table from '../table';
+import Table from '..';
 
 describe('Table.rowSelection', () => {
   const columns = [{
