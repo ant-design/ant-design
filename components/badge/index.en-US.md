@@ -23,10 +23,11 @@ Badge normally appears in proximity to notification or head picture with eye-cat
 <Badge count={5} />
 ```
 
-| Property       | Description             | Type       | Default |
-|----------------|-------------------------|------------|---------|
-| count          | Number to show in badge | Number     |         |
-| overflowCount  | Max count to show       | Number     | 99      |
-| dot            | Whether to show red dot without number | Boolean | false  |
-| status         | Set Badge as a status dot | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | '' |
-| text           | If `status` is set, `text` is to set the text of status dot | String | '' |
+| Property      | Description                                                 | Type                                                          | Default |
+|:--------------|:------------------------------------------------------------|:--------------------------------------------------------------|:--------|
+| count         | Number to show in badge                                     | Number                                                        |         |
+| overflowCount | Max count to show                                           | Number                                                        | 99      |
+| dot           | Whether to show red dot without number                      | Boolean                                                       | false   |
+| showZero      | Whether to show the badge when count is 0                   | Boolean                                                       | false   |
+| status        | Set Badge as a status dot                                   | Enum{ 'success', 'processing, 'default', 'error', 'warning' } | ''      |
+| text          | If `status` is set, `text` is to set the text of status dot | String                                                        | ''      |
