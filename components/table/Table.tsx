@@ -198,24 +198,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
-      this.store.setState({
-        selectionDirty: false,
-      });
       this.CheckboxPropsCache = {};
     }
-    if (nextProps.rowSelection &&
-        'selectedRowKeys' in nextProps.rowSelection) {
-      this.store.setState({
-        selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
-      });
-      const { rowSelection } = this.props;
-      if (rowSelection && (
-        nextProps.rowSelection.getCheckboxProps !== rowSelection.getCheckboxProps
-      )) {
-        this.CheckboxPropsCache = {};
-      }
-    }
-
+    this.updateSelectionState(this.props, nextProps);
     if (this.getSortOrderColumns(nextProps.columns).length > 0) {
       const sortState = this.getSortStateFromColumns(nextProps.columns);
       if (sortState.sortColumn !== this.state.sortColumn ||
@@ -262,6 +247,37 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       );
       rowSelection.onSelectAll(checked, selectedRows, changeRows);
     }
+  }
+
+  // called on new props receive
+  updateSelectionState(props, nextProps) {
+    const nextState: any = {
+      selectionDirty: false,
+    };
+    if (nextProps.rowSelection && 'selectedRowKeys' in nextProps.rowSelection) {
+      // controlled
+      // read from props
+      nextState.selectedRowKeys = nextProps.rowSelection.selectedRowKeys || [];
+      // clear cache
+      const { rowSelection } = props;
+      if (rowSelection && (
+        nextProps.rowSelection.getCheckboxProps !== rowSelection.getCheckboxProps
+      )) {
+        this.CheckboxPropsCache = {};
+      }
+    } else if ('dataSource' in nextProps && nextProps.dataSouce !== props.dataSource) {
+      // remove keys that no longer exist in dataSource
+      const { selectedRowKeys } = this.store.getState();
+      nextState.selectedRowKeys = [];
+      nextProps.dataSource.forEach((row, index) => {
+        const key = this.getRecordKey(row, index);
+        if (selectedRowKeys.indexOf(key) >= 0) {
+          nextState.selectedRowKeys.push(key);
+        }
+      });
+    }
+
+    this.store.setState(nextState);
   }
 
   hasPagination() {
