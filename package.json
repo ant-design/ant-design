@@ -117,7 +117,7 @@
     "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
     "moment-timezone": "^0.5.5",
-    "pre-commit": "~1.1.3",
+    "pre-commit": "^1.2.2",
     "querystring": "^0.2.0",
     "rc-queue-anim": "~0.12.4",
     "rc-scroll-anim": "~0.5.0",
@@ -186,10 +186,10 @@
     ],
     "transform": {
       "\\.tsx?$": "node_modules/typescript-babel-jest",
-      "tests/.*\\.js$": "node_modules/babel-jest",
+      "\\.js$": "node_modules/babel-jest",
       "\\.md$": "node_modules/antd-demo-jest"
     },
-    "testRegex": "/tests/.*\\.test\\.js$",
+    "testRegex": ".*\\.test\\.js$",
     "collectCoverageFrom": [
       "components/**/*.{ts,tsx}",
       "!components/*/style/index.tsx"

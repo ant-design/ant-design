@@ -10,9 +10,9 @@
   ],
   "transform": {
     "\\.tsx?$": "node_modules/typescript-babel-jest",
-    "tests/.*\\.js$": "node_modules/babel-jest",
+    "\\.js$": "node_modules/babel-jest",
     "\\.md$": "node_modules/antd-demo-jest"
   },
-  "testRegex": "/tests/.*demo\\.test\\.js$",
+  "testRegex": "demo\\.test\\.js$",
   "testEnvironment": "node"
 }

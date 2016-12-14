@@ -31,3 +31,4 @@ components/**/*.js
 components/**/*.jsx
 /.vscode/
 /coverage
+!components/**/__tests__/*
