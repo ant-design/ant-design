@@ -78,6 +78,9 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     }
 
     const onChange = this.props.onChange;
+    if (ev.target.value === this.props.value) {
+      return;
+    }
     if (onChange) {
       onChange(ev);
     }
