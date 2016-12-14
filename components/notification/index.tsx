@@ -77,7 +77,7 @@ function notice(args) {
 
   getNotificationInstance(outerPrefixCls).notice({
     content: (
-      <div className={`${prefixCls}-content ${iconNode ? `${prefixCls}-with-icon` : ''}`}>
+      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
         {iconNode}
         <div className={`${prefixCls}-message`}>{args.message}</div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
