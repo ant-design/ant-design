@@ -29,15 +29,13 @@ exports[`test renders ./components/notification/demo/duration.md correctly 1`] =
 `;
 
 exports[`test renders ./components/notification/demo/with-btn.md correctly 1`] = `
-<div>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button">
-    <span>
-      Open the notification box
-    </span>
-  </button>
-</div>
+<button
+  class="ant-btn ant-btn-primary"
+  type="button">
+  <span>
+    Open the notification box
+  </span>
+</button>
 `;
 
 exports[`test renders ./components/notification/demo/with-icon.md correctly 1`] = `
