@@ -12,6 +12,8 @@ export interface BadgeProps {
   overflowCount?: number;
   /** whether to show red dot without number */
   dot?: boolean;
+  /** whether to show zero count '0' */
+  showZero?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -24,6 +26,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     prefixCls: 'ant-badge',
     count: null,
     dot: false,
+    showZero: false,
     overflowCount: 99,
   };
 
@@ -33,6 +36,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       React.PropTypes.number,
     ]),
     dot: React.PropTypes.bool,
+    showZero: React.PropTypes.bool,  
     overflowCount: React.PropTypes.number,
   };
 
@@ -53,7 +57,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     // null undefined "" "0" 0
-    const hidden = (!count || count === '0') && !isDot;
+    const hidden = (!count || (count === '0' && !showZero)) && !isDot;
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
