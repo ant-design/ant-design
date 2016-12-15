@@ -7,13 +7,13 @@
 # Ant Design
 
 [![](https://img.shields.io/travis/ant-design/ant-design.svg?style=flat-square)](https://travis-ci.org/ant-design/ant-design)
-[![Coverage Status](https://coveralls.io/repos/github/ant-design/ant-design/badge.svg?branch=master)](https://coveralls.io/github/ant-design/ant-design?branch=master)
+[![Coveralls](https://img.shields.io/coveralls/ant-design/ant-design.svg?style=flat-square)](https://coveralls.io/github/ant-design/ant-design)
 [![Dependency Status](https://img.shields.io/david/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design)
 
 [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
 [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](https://npmjs.org/package/antd)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ant-design/ant-design.svg)](http://isitmaintained.com/project/ant-design/ant-design "Average time to resolve an issue")
-[![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/ant-design/ant-design](https://img.shields.io/gitter/room/ant-design/ant-design.svg?style=flat-square)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 An enterprise-class UI design language and React-based implementation.
 
