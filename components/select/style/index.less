@@ -137,7 +137,7 @@
   }
 
   &-selection--single {
-    height: 28px;
+    height: @input-height-base;
     position: relative;
     cursor: pointer;
   }
@@ -160,13 +160,13 @@
 
   &-lg {
     .@{select-prefix-cls}-selection--single {
-      height: 32px;
+      height: @input-height-lg;
     }
     .@{select-prefix-cls}-selection__rendered {
       line-height: 30px;
     }
     .@{select-prefix-cls}-selection--multiple {
-      min-height: 32px;
+      min-height: @input-height-lg;
       .@{select-prefix-cls}-selection__rendered {
         li {
           height: 24px;
@@ -181,13 +181,13 @@
       border-radius: @border-radius-sm;
     }
     .@{select-prefix-cls}-selection--single {
-      height: 22px;
+      height: @input-height-sm;
     }
     .@{select-prefix-cls}-selection__rendered {
       line-height: 20px;
     }
     .@{select-prefix-cls}-selection--multiple {
-      min-height: 22px;
+      min-height: @input-height-sm;
       .@{select-prefix-cls}-selection__rendered {
         li {
           height: 14px;
@@ -268,7 +268,7 @@
   }
 
   &-selection--multiple {
-    min-height: 28px;
+    min-height: @input-height-base;
     cursor: text;
     padding-bottom: 3px;
     .clearfix;
