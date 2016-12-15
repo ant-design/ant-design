@@ -28,6 +28,6 @@ radio group，wrap a group of `Radio`。
 | Property           | Description                             | Type              | optional | Default |
 |----------------|----------------------------------|-------------------|--------|--------|
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | none     | none     |
-| value | Used for setting the currently selected value. | String            | none     | none     |
-| defaultValue   | Default selected value                     | String            | none     | none     |
+| value | Used for setting the currently selected value. | any            | none     | none     |
+| defaultValue   | Default selected value                     | any            | none     | none     |
 | size           | Size, only on radio style           | String            | `large` `default` `small` | `default` |

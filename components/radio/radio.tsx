@@ -9,7 +9,7 @@ export interface RadioProps {
   /** 初始是否选中*/
   defaultChecked?: boolean;
   /** 根据 value 进行比较，判断是否选中  */
-  value?: string | number;
+  value?: any;
   style?: React.CSSProperties;
   prefixCls?: string;
   disabled?: boolean;
