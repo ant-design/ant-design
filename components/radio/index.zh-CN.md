@@ -20,7 +20,7 @@ title: Radio
 |----------------|------------------------------------------|------------|---------|--------|
 | checked        | 指定当前是否选中                         | Boolean    |         | false  |
 | defaultChecked | 初始是否选中                             | Boolean    |         | false  |
-| value          | 根据 value 进行比较，判断是否选中        | String     |         | 无     |
+| value          | 根据 value 进行比较，判断是否选中        | any     |         | 无     |
 
 ### RadioGroup
 
