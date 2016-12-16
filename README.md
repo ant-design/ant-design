@@ -118,3 +118,10 @@ tsconfig.json
 ## Contributing
 
 We welcome all contributions, please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as a [GitHub issue](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instruction](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
+
+## Release Schedule
+
+* Weekly release: patch version at the end of every week.
+* Monthly release: minor version at the end of every month.
+* Emergence release: emergence patch anytime if necessary.
+* Major version release is not included in this schedule.

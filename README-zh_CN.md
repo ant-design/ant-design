@@ -91,3 +91,10 @@ tsconfig.json
 ## 如何贡献
 
 我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request](https://github.com/ant-design/ant-design/pulls)，或者给我们 [提问](https://github.com/ant-design/ant-design/issues)。
+
+## 发布周期
+
+* 每周末会发布一个完全兼容的 patch 版本。
+* 每月发布一个带有新特性的 minor 版本。
+* 任何时候都可以发布紧急补丁。
+* 大版本号不在此发布周期内。
