@@ -19,7 +19,7 @@ Radio.
 |----------------|------------------------------------------|------------|---------|--------|
 | checked | Specifies whether the radio is selected. | Boolean | false |
 | defaultChecked | Specifies the initial state: whether or not the radio is selected. | Boolean | false |
-| value          | According to value for comparison, to determine whether the selected        | String     |         | none     |
+| value          | According to value for comparison, to determine whether the selected        | any     |         | none     |
 
 ### RadioGroup
 
