@@ -413,4 +413,4 @@ timeline: true
 
 ## 1.11.4
 
-去 [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0) 查看 `0.x` 到 `1.x` 的 Change Log。
+去 [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md) 查看 `0.x` 到 `1.x` 的 Change Log。

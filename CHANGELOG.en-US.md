@@ -415,4 +415,4 @@ The following change will throw some warnings in the console and it will still w
 
 ## 1.11.4
 
-Visit [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0) to read change logs from `0.x` to `1.x`。
+Visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md) to read change logs from `0.x` to `1.x`。
