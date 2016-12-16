@@ -1,0 +1,84 @@
+exports[`List should render correctly 1`] = `
+<div
+  class="ant-transfer-list">
+  <div
+    class="ant-transfer-list-header">
+    <label
+      class="ant-checkbox-wrapper">
+      <span
+        class="ant-checkbox-indeterminate ant-checkbox">
+        <span
+          class="ant-checkbox-inner" />
+        <input
+          class="ant-checkbox-input"
+          type="checkbox" />
+      </span>
+    </label>
+    <span
+      class="ant-transfer-list-header-selected">
+      <span>
+        1/3 
+      </span>
+      <span
+        class="ant-transfer-list-header-title" />
+    </span>
+  </div>
+  <div
+    class="ant-transfer-list-body">
+    <ul
+      class="ant-transfer-list-content">
+      <li
+        class="ant-transfer-list-content-item">
+        <label
+          class="ant-checkbox-wrapper">
+          <span
+            class="ant-checkbox ant-checkbox-checked ant-checkbox-checked-1">
+            <span
+              class="ant-checkbox-inner" />
+            <input
+              checked=""
+              class="ant-checkbox-input"
+              type="checkbox" />
+          </span>
+        </label>
+        <span />
+      </li>
+      <li
+        class="ant-transfer-list-content-item">
+        <label
+          class="ant-checkbox-wrapper">
+          <span
+            class="ant-checkbox">
+            <span
+              class="ant-checkbox-inner" />
+            <input
+              class="ant-checkbox-input"
+              type="checkbox" />
+          </span>
+        </label>
+        <span />
+      </li>
+      <li
+        class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled">
+        <label
+          class="ant-checkbox-wrapper">
+          <span
+            class="ant-checkbox ant-checkbox-disabled">
+            <span
+              class="ant-checkbox-inner" />
+            <input
+              class="ant-checkbox-input"
+              disabled=""
+              type="checkbox" />
+          </span>
+        </label>
+        <span />
+      </li>
+    </ul>
+    <div
+      class="ant-transfer-list-body-not-found">
+      Not Found
+    </div>
+  </div>
+</div>
+`;

@@ -6,11 +6,17 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
     style="width:250px;height:300px;">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -84,11 +90,17 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
     style="width:250px;height:300px;">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -144,11 +156,17 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
     class="ant-transfer-list">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -238,11 +256,17 @@ exports[`test renders ./components/transfer/demo/basic.md correctly 1`] = `
     class="ant-transfer-list">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -294,11 +318,17 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
     style="width:300px;height:300px;">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -344,11 +374,17 @@ exports[`test renders ./components/transfer/demo/custom-item.md correctly 1`] = 
     style="width:300px;height:300px;">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -378,11 +414,17 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
     class="ant-transfer-list">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -427,11 +469,17 @@ exports[`test renders ./components/transfer/demo/large-data.md correctly 1`] = `
     class="ant-transfer-list">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -461,11 +509,17 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
     class="ant-transfer-list">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
@@ -525,11 +579,17 @@ exports[`test renders ./components/transfer/demo/search.md correctly 1`] = `
     class="ant-transfer-list">
     <div
       class="ant-transfer-list-header">
-      <span
-        class="ant-transfer-checkbox">
+      <label
+        class="ant-checkbox-wrapper">
         <span
-          class="ant-transfer-checkbox-inner" />
-      </span>
+          class="ant-checkbox">
+          <span
+            class="ant-checkbox-inner" />
+          <input
+            class="ant-checkbox-input"
+            type="checkbox" />
+        </span>
+      </label>
       <span
         class="ant-transfer-list-header-selected">
         <span>
