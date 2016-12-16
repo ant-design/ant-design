@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Checkbox from './index';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 
@@ -20,6 +21,7 @@ export interface CheckboxGroupProps {
   disabled?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
+  className?: string;
 }
 
 export interface CheckboxGroupState {
@@ -83,7 +85,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
     }
   }
   render() {
-    const { prefixCls } = this.props;
+    const { prefixCls, className } = this.props;
     const options = this.getOptions().map(option =>
       <Checkbox
         disabled={'disabled' in option ? option.disabled : this.props.disabled}
@@ -96,8 +98,9 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
       </Checkbox>
     );
 
+    const classString = classNames(prefixCls, className);
     return (
-      <div className={prefixCls}>
+      <div className={classString}>
         {options}
       </div>
     );
