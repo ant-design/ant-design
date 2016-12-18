@@ -53,6 +53,7 @@ export interface InputProps {
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;
+  suffix?: React.ReactNode;
 }
 
 export default class Input extends Component<InputProps, any> {
@@ -82,6 +83,7 @@ export default class Input extends Component<InputProps, any> {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+    suffix: PropTypes.node,
   };
 
   nextFrameActionId: number;
@@ -187,6 +189,7 @@ export default class Input extends Component<InputProps, any> {
       'autosize',
       'addonBefore',
       'addonAfter',
+      'suffix',
     ]);
 
     const prefixCls = props.prefixCls;
@@ -219,7 +222,8 @@ export default class Input extends Component<InputProps, any> {
           />
         );
       default:
-        return (
+        const withSuffix = props.suffix && !props.textarea;
+        const input = (
           <input
             {...otherProps}
             className={inputClassName}
@@ -227,6 +231,15 @@ export default class Input extends Component<InputProps, any> {
             ref="input"
           />
         );
+
+        return withSuffix ? (
+          <span className={`${prefixCls}-suffix-wrapper`}>
+            {input}
+            <span className={`${prefixCls}-suffix`}>
+              {props.suffix}
+            </span>
+          </span>
+        ) : input;
     }
   }
 

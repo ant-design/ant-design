@@ -207,6 +207,17 @@
     }
   }
 
+  > .@{inputClass}-suffix-wrapper {
+    &:not(:first-child) .@{inputClass} {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &:last-child .@{inputClass} {
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+  }
+
   &-addon:first-child {
     border-right: 0;
   }
@@ -235,5 +246,36 @@
   &-sm .@{inputClass},
   &-sm > &-addon {
     .input-sm();
+  }
+
+  .@{inputClass}-suffix-wrapper {
+    display: table-cell;
+    width: 100%;
+    float: left;
+  }
+}
+
+.input-suffix-wrapper(@inputClass) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  .@{inputClass}-suffix {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal;
+    height: @input-height-base;
+    line-height: @input-height-base;
+    z-index: 2;
+  }
+
+  .@{inputClass}-lg + .@{inputClass}-suffix {
+    height: @input-height-lg;
+    line-height: @input-height-lg;
+  }
+
+  .@{inputClass}-sm + .@{inputClass}-suffix {
+    height: @input-height-sm;
+    line-height: @input-height-sm;
   }
 }
