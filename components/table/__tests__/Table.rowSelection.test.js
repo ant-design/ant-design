@@ -163,4 +163,24 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').first().simulate('change', { target: { checked: true } });
     expect(handleSelectAll).toBeCalledWith(true, data, data);
   });
+
+  // https://github.com/ant-design/ant-design/issues/4245
+  it('handles disabled checkbox correctly when dataSource changes', () => {
+    const data = [
+      { key: 0, name: 'Jack', disabled: false },
+      { key: 1, name: 'Lucy', disabled: false },
+    ];
+    const rowSelection = {
+      getCheckboxProps: (record) => ({ disabled: record.disabled }),
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    const newData = [
+      { key: 0, name: 'Jack', disabled: true },
+      { key: 1, name: 'Lucy', disabled: true },
+    ];
+    wrapper.setProps({ dataSource: newData });
+    wrapper.find('input').forEach(checkbox => {
+      expect(checkbox.props().disabled).toBe(true);
+    });
+  });
 });

@@ -195,14 +195,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         return { pagination: newPagination };
       });
     }
-    // dataSource 的变化会清空选中项
-    if ('dataSource' in nextProps &&
-        nextProps.dataSource !== this.props.dataSource) {
-      this.store.setState({
-        selectionDirty: false,
-      });
-      this.CheckboxPropsCache = {};
-    }
     if (nextProps.rowSelection &&
         'selectedRowKeys' in nextProps.rowSelection) {
       this.store.setState({
@@ -214,6 +206,14 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       )) {
         this.CheckboxPropsCache = {};
       }
+    }
+    // dataSource 的变化会清空选中项
+    if ('dataSource' in nextProps &&
+        nextProps.dataSource !== this.props.dataSource) {
+      this.store.setState({
+        selectionDirty: false,
+      });
+      this.CheckboxPropsCache = {};
     }
 
     if (this.getSortOrderColumns(nextProps.columns).length > 0) {
