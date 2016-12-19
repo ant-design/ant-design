@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import Input from './Input';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
 
 export interface SearchProps {
   className?: string;
@@ -32,9 +31,7 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.refs.input.focus();
   }
   render() {
-    const [{ className, prefixCls, style }, others] = splitObject(
-      this.props, ['className', 'prefixCls', 'style']
-    );
+    const { className, prefixCls, style, ...others } = this.props;
     delete others.onSearch;
     const wrapperCls = classNames({
       [`${prefixCls}-wrapper`]: true,

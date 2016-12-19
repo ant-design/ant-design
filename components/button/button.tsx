@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { findDOMNode } from 'react-dom';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
+
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str) {
@@ -102,8 +102,7 @@ export default class Button extends React.Component<ButtonProps, any> {
 
   render() {
     const props = this.props;
-    const [{ type, shape, size, className, htmlType, children, icon, loading, prefixCls }, others] = splitObject(props,
-      ['type', 'shape', 'size', 'className', 'htmlType', 'children', 'icon', 'loading', 'prefixCls']);
+    const { type, shape, size = '', className, htmlType, children, icon, loading, prefixCls, ...others } = props;
 
     // large => lg
     // small => sm

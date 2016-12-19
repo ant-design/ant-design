@@ -7,7 +7,6 @@ import Spin from '../spin';
 import classNames from 'classnames';
 import { flatArray, treeMap, normalizeColumns } from './util';
 import assign from 'object-assign';
-import splitObject from '../_util/splitObject';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
@@ -75,6 +74,7 @@ export interface TableProps<T> {
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface TableContext {
@@ -823,9 +823,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   render() {
-    const [{
-      style, className, prefixCls,
-    }, restProps] = splitObject(this.props, ['style', 'className', 'prefixCls']);
+    const { style, className, prefixCls, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
@@ -846,7 +844,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     let expandIconColumnIndex = (columns[0] && columns[0].key === 'selection-column') ? 1 : 0;
     if ('expandIconColumnIndex' in restProps) {
-      expandIconColumnIndex = restProps.expandIconColumnIndex;
+      expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
 
     let table = (

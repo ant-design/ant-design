@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import Input from '../input';
 import Icon from '../icon';
-import splitObject from '../_util/splitObject';
 
 export interface CascaderOptionType {
   value: string;
@@ -101,7 +100,6 @@ export default class Cascader extends React.Component<CascaderProps, any> {
     options: [],
     disabled: false,
     allowClear: true,
-    showSearch: false,
     notFoundContent: 'Not Found',
   };
 
@@ -247,10 +245,10 @@ export default class Cascader extends React.Component<CascaderProps, any> {
 
   render() {
     const { props, state } = this;
-    const [{ prefixCls, inputPrefixCls, children, placeholder, size, disabled,
-      className, style, allowClear, showSearch }, otherProps] = splitObject(props,
-      ['prefixCls', 'inputPrefixCls', 'children', 'placeholder', 'size', 'disabled',
-        'className', 'style', 'allowClear', 'showSearch']);
+    const {
+      prefixCls, inputPrefixCls, children, placeholder, size, disabled,
+      className, style, allowClear, showSearch = false, ...otherProps,
+    } = props;
     const value = state.value;
 
     const sizeCls = classNames({
@@ -311,7 +309,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
       dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
     }
     // The default value of `matchInputWidth` is `true`
-    const resultListMatchInputWidth = showSearch.matchInputWidth === false ? false : true;
+    const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth === false ? false : true;
     if (resultListMatchInputWidth && state.inputValue && this.refs.input) {
       dropdownMenuColumnStyle.width = this.refs.input.refs.input.offsetWidth;
     }
@@ -324,7 +322,7 @@ export default class Cascader extends React.Component<CascaderProps, any> {
         <Input
           {...inputProps}
           ref="input"
-          placeholder={value && value.length > 0 ? null : placeholder}
+          placeholder={value && value.length > 0 ? undefined : placeholder}
           className={`${prefixCls}-input ${sizeCls}`}
           value={state.inputValue}
           disabled={disabled}

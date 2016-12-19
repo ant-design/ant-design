@@ -20,7 +20,7 @@ export interface ScrollNumberProps {
   component?: string;
   onAnimated?: Function;
   height?: number;
-  style: React.CSSProperties;
+  style?: React.CSSProperties;
 }
 
 export default class ScrollNumber extends Component<ScrollNumberProps, any> {

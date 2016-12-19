@@ -4,19 +4,20 @@ import Icon from '../icon';
 import Dropdown from './dropdown';
 const ButtonGroup = Button.Group;
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
 export interface DropdownButtonProps {
-  type?: 'primary' | 'ghost' | 'dash';
-  onClick?: React.FormEventHandler<any>;
-  trigger?: 'click' | 'hover';
+  prefixCls?: string;
+  className?: string;
+  type?: 'primary' | 'ghost' | 'dashed';
+  onClick?: React.MouseEventHandler<any>;
+  trigger?: ('click' | 'hover')[];
+  align?: any;
   overlay: React.ReactNode;
   visible?: boolean;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   style?: React.CSSProperties;
-  prefixCls?: string;
-  children: any;
+  children?: any;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
@@ -35,10 +36,10 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
   };
 
   render() {
-    const [{ type, overlay, trigger, align, children, className, onClick, prefixCls,
-      disabled, visible, onVisibleChange }, restProps] = splitObject(this.props,
-       ['type', 'overlay', 'trigger', 'align', 'children', 'className', 'onClick',
-         'prefixCls', 'disabled', 'visible', 'onVisibleChange']);
+    const {
+      type, overlay, trigger, align, children, className, onClick, prefixCls,
+      disabled, visible, onVisibleChange, ...restProps,
+    } = this.props;
     const cls = classNames(prefixCls, className);
 
     const dropdownProps = {

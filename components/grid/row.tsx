@@ -2,7 +2,6 @@ import React from 'react';
 import { Children, cloneElement } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import splitObject from '../_util/splitObject';
 
 export interface RowProps {
   className?: string;
@@ -17,7 +16,6 @@ export interface RowProps {
 export default class Row extends React.Component<RowProps, any> {
   static defaultProps = {
     gutter: 0,
-    prefixCls: 'ant-row',
   };
   static propTypes = {
     type: React.PropTypes.string,
@@ -29,8 +27,7 @@ export default class Row extends React.Component<RowProps, any> {
     prefixCls: React.PropTypes.string,
   };
   render() {
-    const [{ type, justify, align, className, gutter, style, children, prefixCls }, others] = splitObject(this.props,
-      ['type', 'justify', 'align', 'className', 'gutter', 'style', 'children', 'prefixCls']);
+    const { type, justify, align, className, gutter, style, children, prefixCls = 'ant-row', ...others } = this.props;
     const classes = classNames({
       [prefixCls]: !type,
       [`${prefixCls}-${type}`]: type,

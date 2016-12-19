@@ -27,7 +27,7 @@ export interface AbstractTooltipProps {
 }
 
 export interface TooltipProps extends AbstractTooltipProps {
-  title: React.ReactNode;
+  title?: React.ReactNode;
   overlay?: React.ReactNode;
 }
 

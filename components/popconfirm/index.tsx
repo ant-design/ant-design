@@ -3,7 +3,6 @@ import Tooltip from '../tooltip';
 import { AbstractTooltipProps } from '../tooltip';
 import Icon from '../icon';
 import Button from '../button';
-import splitObject from '../_util/splitObject';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
@@ -83,8 +82,7 @@ export default class Popconfirm extends React.Component<PopconfirmProps, any> {
 
   render() {
     const { props, context } = this;
-    const [{ prefixCls, title, placement }, restProps] =
-      splitObject(props, ['prefixCls', 'title', 'placement']);
+    const { prefixCls, title, placement, ...restProps } = props;
 
     let { okText, cancelText } = props;
     const popconfirmLocale = context.antLocale && context.antLocale.Popconfirm;

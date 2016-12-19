@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
 export interface CardProps {
+  prefixCls?: string;
   title?: React.ReactNode;
   extra?: React.ReactNode;
   bordered?: boolean;
@@ -15,11 +15,10 @@ export interface CardProps {
 }
 
 export default (props: CardProps) => {
-  const [{
+  const {
     prefixCls = 'ant-card', className, extra, bodyStyle,
-    title, loading, bordered = true,
-  }, others] = splitObject(props,
-    ['prefixCls', 'className', 'children', 'extra', 'bodyStyle', 'title', 'loading', 'bordered']);
+    title, loading, bordered = true, ...others,
+  } = props;
   let children = props.children;
   const classString = classNames(prefixCls, className, {
     [`${prefixCls}-loading`]: loading,

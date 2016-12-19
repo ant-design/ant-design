@@ -2,7 +2,6 @@ import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import splitObject from '../_util/splitObject';
 
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
@@ -47,8 +46,7 @@ export default class Col extends React.Component<ColProps, any> {
 
   render() {
     const props = this.props;
-    const [{ span, order, offset, push, pull, className, children, prefixCls = 'ant-col' }, others] = splitObject(props,
-      ['span', 'order', 'offset', 'push', 'pull', 'className', 'children', 'prefixCls']);
+    const { span, order, offset, push, pull, className, children, prefixCls = 'ant-col', ...others } = props;
     let sizeClassObj = {};
     ['xs', 'sm', 'md', 'lg'].forEach(size => {
       let sizeProps: ColSize = {};

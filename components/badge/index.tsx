@@ -3,7 +3,6 @@ import Animate from 'rc-animate';
 import ScrollNumber from './ScrollNumber';
 import classNames from 'classnames';
 import warning from '../_util/warning';
-import splitObject from '../_util/splitObject';
 
 export interface BadgeProps {
   /** Number to show in badge */
@@ -37,23 +36,16 @@ export default class Badge extends React.Component<BadgeProps, any> {
   };
 
   render() {
-    let [{
-      count, prefixCls, overflowCount, className, style, children, dot, status, text,
-    }, restProps] = splitObject(
-      this.props,
-      ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'status', 'text']
-    );
+    const { count, prefixCls, overflowCount, className, style, children, dot, status, text, ...restProps } = this.props;
     const isDot = dot || status;
-    const realCount = count;
-    count = count > overflowCount ? `${overflowCount}+` : count;
-
+    let displayCount = count > overflowCount ? `${overflowCount}+` : count;
     // dot mode don't need count
     if (isDot) {
-      count = '';
+      displayCount = '';
     }
 
     // null undefined "" "0" 0
-    const hidden = (!count || count === '0') && !isDot;
+    const hidden = (!displayCount || displayCount === '0') && !isDot;
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
@@ -85,7 +77,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       <ScrollNumber
         data-show={!hidden}
         className={scrollNumberCls}
-        count={count}
+        count={displayCount}
         style={style}
       />
     );
@@ -95,7 +87,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     );
 
     return (
-      <span {...restProps} className={badgeCls} title={realCount}>
+      <span {...restProps} className={badgeCls} title={count as string}>
         {children}
         <Animate
           component=""

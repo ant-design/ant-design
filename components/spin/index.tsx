@@ -4,7 +4,6 @@ import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import isCssAnimationSupported from '../_util/isCssAnimationSupported';
-import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
 
 export interface SpinProps {
@@ -69,17 +68,14 @@ export default class Spin extends React.Component<SpinProps, any> {
     }
   }
   render() {
-    const [{
-      className, size, prefixCls, tip,
-    }, restProps] = splitObject(this.props,
-      ['className', 'size', 'prefixCls', 'tip']);
+    const { className, size, prefixCls, tip, ...restProps } = this.props;
     const { spinning } = this.state;
 
     const spinClassName = classNames(prefixCls, {
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
-      [`${prefixCls}-show-text`]: !!this.props.tip,
+      [`${prefixCls}-show-text`]: !!tip,
     }, className);
 
     // fix https://fb.me/react-unknown-prop
