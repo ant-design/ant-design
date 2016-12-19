@@ -3,38 +3,39 @@ order: 4
 title: Use with create-react-app
 ---
 
-[create-react-app](https://github.com/facebookincubator/create-react-app) 是业界最优秀的 React 应用开发工具之一，本文会尝试在 create-react-app 创建的工程中使用 antd 组件，并自定义 webpack 的配置以满足各类工程化需求。
+[create-react-app](https://github.com/facebookincubator/create-react-app) is one of best React application development tool, we are going to use `antd` within it and modify the webpack config for some customized needs.
 
 ---
 
-## 安装和初始化
+## Install and Initialization
 
-我们需要在命令行中安装 create-react-app 工具。
+We need to install `create-react-app` first.
 
 ```bash
 $ npm install -g create-react-app
 ```
 
-然后新建一个项目。
+Create a new project named `antd-demo`.
 
 ```bash
 $ USE_YARN=no create-react-app antd-demo
 ```
 
-工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
+The tool will create and initialize environment and dependencies automaticly,
+please try config your proxy setting or use other npm registry if any network errors happen during it.
 
-然后我们进入项目并启动。
+Then we go inside `antd-demo` and start it.
 
 ```bash
 $ cd antd-demo
 $ npm start
 ```
 
-此时浏览器会访问 http://localhost:3000/ ，看到 `Welcome to React` 的界面就算成功了。
+Open browser at http://localhost:3000/ , everything is going fine when you see `Welcome to React`.
 
-## 引入 antd
+## Import antd
 
-这是 create-react-app 生成的默认目录结构。
+It is the default directory structure below.
 
 ```
 ├── README.md
@@ -52,13 +53,13 @@ $ npm start
 └── yarn.lock
 ```
 
-现在从 npm 安装并引入 antd。
+Now we install `antd` from npm.
 
 ```bash
 $ npm install antd --save
 ```
 
-修改 `src/App.js`，引入 antd 的按钮组件。
+Modify `src/App.js`, import Button component from `antd`.
 
 ```jsx
 import React, { Component } from 'react';
@@ -78,7 +79,7 @@ class App extends Component {
 export default App;
 ```
 
-修改 `src/App.css`，在文件顶部引入 `antd/dist/antd.css`。
+Add `antd/dist/antd.css` at the top of `src/App.css`.
 
 ```css
 @import '~antd/dist/antd.css';
@@ -90,25 +91,27 @@ export default App;
 ...
 ```
 
-好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)。
+Ok, you now see a blue primary button displaying in page now, next you can choose any components of `antd` to develop your application. Visit other workflow of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-## 高级配置
 
-我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的代码（对前端性能是个隐患）。
+## Advanced Guides
 
-> 你会在控制台看到如下警告。
+We are successd to run antd components now, but in the real world, there are still lots of problems about antd-demo.
+For instance, we actully import all components in the project which will be a serious network perfermance issue.
+
+> You will see a warning in your browser console.
 
 ![](https://zos.alipayobjects.com/rmsportal/dBLScZPjiUwunfyQVISX.png)
 
-我们需要对 create-react-app 的默认配置进行自定义。可以使用 `eject` 命令将所有内建的配置暴露出来。
+So it is necessary to customize the default webpack config. We can achieve that by using `eject` script command.
 
 ```bash
 $ npm run eject
 ```
 
-### 按需加载
+### Import on demand
 
-现在可以安装 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 并修改 `src/webconfig.dev.js` 文件。
+After eject all config files to antd-demo, we allowed to install [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) and modify `src/webconfig.dev.js` now.
 
 ```bash
 $ npm install babel-plugin-import --save-dev
@@ -132,13 +135,13 @@ $ npm install babel-plugin-import --save-dev
 },
 ```
 
-然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，现在 babel-plugin-import 会按需加载样式。
+Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles.
 
-最后重启 `npm start` 访问页面，此时上面的警告信息应该没了，antd 组件的 js 和 css 代码都会按需加载。
+Then reboot `npm start` and visit demo page, you should find that the above warning message would be gone which prove the `import on demand` config is effective now.
 
-### 自定义主题
+### Customize Theme
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能，因此首先我们需要引入 [less-loader](https://github.com/webpack/less-loader) 来加载 less 样式，同时修改 `src/webconfig.dev.js` 文件。
+According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader), so we add it.
 
 ```bash
 $ npm install less less-loader --save-dev
@@ -182,13 +185,10 @@ loaders: [
 ]
 ```
 
-这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，
-变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
-
-修改后重启 `npm start`，如果看到一个绿色的按钮就说明配置成功了。
+We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options). If you see a green button after reboot `npm start`, then everything is working now.
 
 ---
 
-以上是在 create-react-app 中使用 antd 的相关实践，你也可以借鉴此文的做法在自己的 webpack 工作流中使用 antd，更多 webpack 配置可参考 [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。
+Finally, we use antd with create-react-app successfully, you can learn these practice for your own webpack workflow too, and find more webpack config in the [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js).
 
-本例源码可见：https://github.com/ant-design/create-react-app-antd
+Source code about this article：https://github.com/ant-design/create-react-app-antd
