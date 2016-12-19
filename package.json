@@ -112,7 +112,7 @@
     "jest-cli": "^17.0.0",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
-    "jsonp": "^0.2.0",
+    "fetch-jsonp": "^1.0.3",
     "lesshint": "^2.0.0",
     "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
