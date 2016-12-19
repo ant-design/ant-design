@@ -12,6 +12,8 @@ export interface BadgeProps {
   overflowCount?: number;
   /** whether to show red dot without number */
   dot?: boolean;
+  /** whether to show zero */
+  showZero?: boolean;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -24,6 +26,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     prefixCls: 'ant-badge',
     count: null,
     dot: false,
+    showZero: false,
     overflowCount: 99,
   };
 
@@ -33,15 +36,16 @@ export default class Badge extends React.Component<BadgeProps, any> {
       React.PropTypes.number,
     ]),
     dot: React.PropTypes.bool,
+    showZero: React.PropTypes.bool,
     overflowCount: React.PropTypes.number,
   };
 
   render() {
     let [{
-      count, prefixCls, overflowCount, className, style, children, dot, status, text,
+      count, prefixCls, overflowCount, className, style, children, dot, showZero, status, text,
     }, restProps] = splitObject(
       this.props,
-      ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'status', 'text']
+      ['count', 'prefixCls', 'overflowCount', 'className', 'style', 'children', 'dot', 'showZero', 'status', 'text']
     );
     const isDot = dot || status;
     const realCount = count;
@@ -53,7 +57,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     // null undefined "" "0" 0
-    const hidden = (!count || count === '0') && !isDot;
+    const hidden = (!count || count === '0') && !isDot && !(showZero && (count === 0 || count === '0'));
     const scrollNumberCls = classNames({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
