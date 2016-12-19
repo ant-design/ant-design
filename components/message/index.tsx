@@ -83,10 +83,10 @@ export default {
   loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) {
     return notice(content, duration, 'loading', onClose);
   },
-
   config(options: ConfigOptions) {
     if (options.top !== undefined) {
       defaultTop = options.top;
+      messageInstance = null; // delete messageInstance for new defaultTop
     }
     if (options.duration !== undefined) {
       defaultDuration = options.duration;

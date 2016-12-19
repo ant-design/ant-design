@@ -115,6 +115,7 @@ const api: {
   config(options: ConfigProps) {
     if (options.top !== undefined) {
       defaultTop = options.top;
+      notificationInstance = null; // delete notificationInstance for new defaultTop
     }
     if (options.duration !== undefined) {
       defaultDuration = options.duration;
