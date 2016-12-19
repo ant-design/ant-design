@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-when use pagination in table.
+When using pagination in table, and you can use pagination={false} to turn off pagination.
 
 ````jsx
 import { Table } from 'antd';
