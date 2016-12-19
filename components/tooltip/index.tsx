@@ -117,7 +117,8 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   render() {
     const { props, state } = this;
-    const { prefixCls, title, overlay, openClassName, children } = props;
+    const { prefixCls, title, overlay, openClassName } = props;
+    const children = props.children as React.ReactElement<any>;
     let visible = state.visible;
     // Hide tooltip when there is no title
     if (!('visible' in props) && !title && !overlay) {
