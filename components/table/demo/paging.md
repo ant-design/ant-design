@@ -1,17 +1,17 @@
 ---
 order: 6
 title:
-  en-US: pagination
+  en-US: Pagination
   zh-CN: 分页
 ---
 
 ## zh-CN
 
-数据项较多时显示分页。
+表格中的分页器可以通过一个配置对象来配置，当 `pagination={false}` 时，会隐藏分页器。
 
 ## en-US
 
-When using pagination in table, and you can use pagination={false} to turn off pagination.
+The pagination in table could be configured with an object, and you can use `pagination={false}` to turn off pagination.
 
 ````jsx
 import { Table } from 'antd';
