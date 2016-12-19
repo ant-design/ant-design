@@ -171,13 +171,13 @@ loaders: [
     query: {
       plugins: [
 -       ['import', [{ libraryName: "antd", style: 'css' }]],
-+       ['import', [{ libraryName: "antd", style: true }]],  // 加载 less 文件
++       ['import', [{ libraryName: "antd", style: true }]],  // import less
       ],
    },
 
 ...
 
-+ // 解析 less 文件，并加入变量覆盖配置
++ // Parse less files and modify variables
 + {
 +   test: /\.less$/,
 +   loader: 'style!css!postcss!less?{modifyVars:{"@primary-color":"#1DA57A"}}'
