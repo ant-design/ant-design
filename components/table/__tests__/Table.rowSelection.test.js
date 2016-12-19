@@ -163,4 +163,13 @@ describe('Table.rowSelection', () => {
     wrapper.find('input').first().simulate('change', { target: { checked: true } });
     expect(handleSelectAll).toBeCalledWith(true, data, data);
   });
+
+  it('updates selectedRowKeys when datsSource change', () => {
+    const wrapper = mount(createTable());
+    wrapper.find('input').first().simulate('change', { target: { checked: true } });
+    const newData = data.slice(1);
+    wrapper.setProps({ dataSource: newData });
+
+    expect(wrapper.instance().store.getState().selectedRowKeys).toEqual([1, 2, 3]);
+  });
 });
