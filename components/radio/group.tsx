@@ -71,14 +71,16 @@ export default class RadioGroup extends React.Component<RadioGroupProps, any> {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
   onRadioChange = (ev) => {
+    const lastValue = this.state.value;
+    const { value } = ev.target;
     if (!('value' in this.props)) {
       this.setState({
-        value: ev.target.value,
+        value,
       });
     }
 
     const onChange = this.props.onChange;
-    if (onChange) {
+    if (onChange && value !== lastValue) {
       onChange(ev);
     }
   }
