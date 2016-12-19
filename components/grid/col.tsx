@@ -60,10 +60,10 @@ export default class Col extends React.Component<ColProps, any> {
 
       sizeClassObj = assign({}, sizeClassObj, {
         [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order,
-        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
-        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push,
-        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
+        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
+        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset || sizeProps.offset === 0,
+        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
+        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
       });
     });
     const classes = classNames({
