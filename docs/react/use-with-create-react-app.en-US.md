@@ -31,7 +31,7 @@ $ cd antd-demo
 $ npm start
 ```
 
-Open browser at http://localhost:3000/ , everything is going fine when you see `Welcome to React`.
+Open browser at http://localhost:3000/, it renders a header saying "Welcome to React" on the page.
 
 ## Import antd
 
@@ -185,7 +185,7 @@ loaders: [
 ]
 ```
 
-We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options). If you see a green button after reboot `npm start`, then everything is working now.
+We use `modifyVars` option of [less-loader](https://github.com/webpack/less-loader#less-options) here, you can see a green button rendered on the page after reboot start server.
 
 ---
 
