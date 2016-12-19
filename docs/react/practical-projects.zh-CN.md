@@ -11,12 +11,14 @@ title: 项目实战
 
 ---
 
-## 安装 dva
+## 安装 dva-cli
 
-通过 npm 安装 dva 。
+通过 npm 安装 dva-cli 并确保版本是 `0.7.0` 或以上。
 
 ```bash
 $ npm install dva-cli -g
+$ dva -v
+0.7.0
 ```
 
 ## 创建新应用
@@ -39,10 +41,14 @@ $ npm start
 几秒钟后，你会看到以下输出：
 
 ```bash
-          proxy: load rule from proxy.config.js
-          proxy: listened on 8989
-📦  411/411 build modules
-webpack: bundle build is now finished.
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:8000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
 ```
 
 在浏览器里打开 http://localhost:8989 ，你会看到 dva 的欢迎界面。
@@ -55,16 +61,17 @@ webpack: bundle build is now finished.
 $ npm install antd babel-plugin-import --save
 ```
 
-编辑 `webpack.config.js`，使 `babel-plugin-import` 插件生效。
+编辑 `.roadhogrc`，使 `babel-plugin-import` 插件生效。
 
 ```diff
-+ webpackConfig.babel.plugins.push(['import', {
-+   libraryName: 'antd',
-+   style: 'css',
-+ }]);
+  "extraBabelPlugins": [
+-    "transform-runtime"
++    "transform-runtime",
++    ["import", { "libraryName": "antd", "style": "css" }]
+  ],
 ```
 
-> 注：这里不需要手动重启开发服务器，保存 `webpack.config.js` 后会自动重启。
+> 注：dva-cli 基于 roadhog 实现 build 和 server，更多 `.roadhogrc` 的配置详见 [roadhog#配置](https://github.com/sorrycc/roadhog#配置)
 
 ## 定义路由
 
@@ -234,13 +241,16 @@ $ npm run build
 几秒后，输出应该如下：
 
 ```bash
-Child
-    Time: 14008ms
-         Asset       Size  Chunks             Chunk Names
-    index.html  255 bytes          [emitted]
-     common.js    1.18 kB       0  [emitted]  common
-      index.js     504 kB    1, 0  [emitted]  index
-     index.css     127 kB    1, 0  [emitted]  index
+> @ build /private/tmp/myapp
+> roadhog build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  82.98 KB  dist/index.js
+  270 B     dist/index.css
 ```
 
 `build` 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。然后你可以在 `dist/` 目录下找到这些文件。

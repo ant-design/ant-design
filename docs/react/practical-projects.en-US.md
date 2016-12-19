@@ -11,12 +11,14 @@ Include the following:
 
 ---
 
-## Install dva
+## Install dva-cli
 
-Install dva with npm.
+Install dva-cli with npm, and make sure the version is larger then `0.7.0`.
 
 ```bash
 $ npm install dva-cli -g
+$ dva -v
+0.7.0
 ```
 
 ## Create New App
@@ -39,10 +41,14 @@ $ npm start
 After a few seconds, you will see the following output:
 
 ```bash
-          proxy: load rule from proxy.config.js
-          proxy: listened on 8989
-📦  411/411 build modules
-webpack: bundle build is now finished.
+Compiled successfully!
+
+The app is running at:
+
+  http://localhost:8000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
 ```
 
 Open http://localhost:8989 in your browser, you will see dva welcome page.
@@ -55,16 +61,17 @@ Install `antd` and `babel-plugin-import` with npm. `babel-plugin-import` is used
 $ npm install antd babel-plugin-import --save
 ```
 
-Edit `webpack.config.js` to integrate `babel-plugin-import`.
+Edit `.roadhogrc` to integrate `babel-plugin-import`.
 
 ```diff
-+ webpackConfig.babel.plugins.push(['import', {
-+   libraryName: 'antd',
-+   style: 'css',
-+ }]);
+  "extraBabelPlugins": [
+-    "transform-runtime"
++    "transform-runtime",
++    ["import", { "libraryName": "antd", "style": "css" }]
+  ],
 ```
 
-> Notice: No need to manually restart the server, it will restart automatically after you save the `webpack.config.js`.
+> Notice: dva-cli's build and server is bases on roadhog, view [roadhog#Configuration](https://github.com/sorrycc/roadhog/blob/master/README_en-us.md#configuration) for more `.roadhogrc` Configuration.
 
 ## Define Router
 
@@ -234,13 +241,16 @@ $ npm run build
 After a few seconds, the output should be as follows:
 
 ```bash
-Child
-    Time: 14008ms
-         Asset       Size  Chunks             Chunk Names
-    index.html  255 bytes          [emitted]
-     common.js    1.18 kB       0  [emitted]  common
-      index.js     504 kB    1, 0  [emitted]  index
-     index.css     127 kB    1, 0  [emitted]  index
+> @ build /private/tmp/myapp
+> roadhog build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  82.98 KB  dist/index.js
+  270 B     dist/index.css
 ```
 
 The `build` command packages up all of the assets that make up your application —— JavaScript, templates, CSS, web fonts, images, and more. Then you can find these files in the `dist /` directory.
