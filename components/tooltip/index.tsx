@@ -22,7 +22,7 @@ export interface AbstractTooltipProps {
   trigger?: 'hover' | 'focus' | 'click';
   openClassName?: string;
   arrowPointAtCenter?: boolean;
-  getTooltipContainer?: (triggerNode: React.ReactNode) => HTMLElement;
+  getTooltipContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactElement<any>;
 }
 
