@@ -74,7 +74,7 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    const { prefixCls, closable, color = '', className, children, style, ...otherProps } = this.props;
+    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: !!color,
@@ -87,7 +87,7 @@ export default class Tag extends React.Component<TagProps, any> {
       'afterClose',
     ]);
     const tagStyle = assign({
-      backgroundColor: /blue|red|green|yellow/.test(color) ? null : color,
+      backgroundColor: color && /blue|red|green|yellow/.test(color) ? null : color,
     }, style);
     const tag = this.state.closed ? null : (
       <div
