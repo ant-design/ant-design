@@ -22,7 +22,6 @@ module.exports = {
     'CHANGELOG.zh-CN.md', // TODO: fix it in bisheng
     'CHANGELOG.en-US.md',
   ],
-  root: 'https://cdn.rawgit.com/ant-design/ant-design/gh-pages/',
   lazyLoad(nodePath, nodeValue) {
     if (typeof nodeValue === 'string') {
       return true;
