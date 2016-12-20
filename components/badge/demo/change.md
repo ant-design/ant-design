@@ -14,7 +14,7 @@ title:
 The count will be animated as it changes.
 
 ````jsx
-import { Badge, Button, Icon } from 'antd';
+import { Badge, Button, Icon, Switch } from 'antd';
 const ButtonGroup = Button.Group;
 
 const Test = React.createClass({
@@ -35,21 +35,16 @@ const Test = React.createClass({
     }
     this.setState({ count });
   },
-  onClick() {
-    this.setState({
-      show: !this.state.show,
-    });
+  onChange(show) {
+    this.setState({ show });
   },
   render() {
     return (
       <div>
-        <Badge count={this.state.count}>
-          <a href="#" className="head-example" />
-        </Badge>
-        <Badge dot={this.state.show}>
-          <a href="#" className="head-example" />
-        </Badge>
-        <div style={{ marginTop: 10 }}>
+        <div>
+          <Badge count={this.state.count}>
+            <a href="#" className="head-example" />
+          </Badge>
           <ButtonGroup>
             <Button type="ghost" onClick={this.decline}>
               <Icon type="minus" />
@@ -58,9 +53,12 @@ const Test = React.createClass({
               <Icon type="plus" />
             </Button>
           </ButtonGroup>
-          <Button type="ghost" onClick={this.onClick} style={{ marginLeft: 8 }}>
-            Switch state
-          </Button>
+        </div>
+        <div style={{ marginTop: 10 }}>
+          <Badge dot={this.state.show}>
+            <a href="#" className="head-example" />
+          </Badge>
+          <Switch onChange={this.onChange} />
         </div>
       </div>
     );

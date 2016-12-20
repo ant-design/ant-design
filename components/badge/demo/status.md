@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 6
 title:
   zh-CN: 状态点
   en-US: Status

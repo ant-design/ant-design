@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 1
 title:
   zh-CN: 独立使用
   en-US: Standalone
