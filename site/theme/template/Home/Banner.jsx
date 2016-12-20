@@ -5,6 +5,7 @@ import ScrollElement from 'rc-scroll-anim/lib/ScrollElement';
 import GitHubButton from 'react-github-button';
 import { Icon } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import * as utils from '../utils';
 
 function typeFunc(a) {
   if (a.key === 'line') {
@@ -16,7 +17,7 @@ function typeFunc(a) {
 }
 
 export default function Banner({ location, onEnterChange }) {
-  const query = location.query;
+  const isZhCN = utils.isZhCN(location.pathname);
   return (
     <section className="page banner-wrapper">
       <ScrollElement id="banner" onChange={({ mode }) => onEnterChange(mode)}>
@@ -25,10 +26,10 @@ export default function Banner({ location, onEnterChange }) {
           <p key="content"><FormattedMessage id="app.home.slogan" /></p>
           <span className="line" key="line" />
           <div key="button1" className="start-button clearfix">
-            <Link to={{ query, pathname: '/docs/spec/introduce' }}>
+            <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
               <FormattedMessage id="app.home.introduce" />
             </Link>
-            <Link to={{ query, pathname: '/docs/react/introduce' }}>
+            <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
               <FormattedMessage id="app.home.start" />
             </Link>
           </div>

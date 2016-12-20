@@ -45,6 +45,8 @@ When need to mention someone or something.
 | value | core state of mention | EditorState | null |
 | placeHolder | placeholder of input | string | null |
 | getSuggestionContainer | rendered to the root of the menu. Default rendered to the body dom. If gets any problem of the menu while scrolling. Try to make the root the dom scrolled, and make it position relative.  | Function() | () => document.body |
+| onFocus | Callback function called when mention component get focus |  function() | null |
+| onBlur | Callback function called when mention component blur | function() | nul |
 
 ### Nav props
 

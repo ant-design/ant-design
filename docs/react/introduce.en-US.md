@@ -3,7 +3,7 @@ order: 0
 title: Ant Design of React
 ---
 
-We supply a react implementation `antd` following Ant Design specification, which is designed to help in developing RIA such as dashboards or other enterprise-like complex UI needs.
+Following Ant Design specification, We develop a React UI library called `antd`, containing a set of high quality components and demos, to help building rich interactive desktop applicafions.
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
@@ -27,14 +27,14 @@ We supply a react implementation `antd` following Ant Design specification, whic
 
 ## Features
 
-- Following Ant Design, a design language for creating user friendly and beautiful websites.
+- Following Ant Design desktop specification.
 - It is a set of high quality UI components and based on [React Component](http://react-component.github.io/badgeboard/).
 - Provides a work flow which is based on npm, webpack, and babel, supporting ES2015 and TypeScript.
 
 ## Installation
 
 ```bash
-$ npm install antd
+$ npm install antd --save
 ```
 
 ## Usage
@@ -91,8 +91,8 @@ Modern browsers and IE9+.
 ## Useful Links
 
 - [Home page](http://ant.design/)
-- [UI library](http://ant.design/docs/react/introduce)
-- [Change Log](https://ant.design/changelog)
+- [UI library](/docs/react/introduce)
+- [Change Log](/changelog)
 - [Scaffold tool](https://github.com/dvajs/dva-cli/)
 - [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
@@ -104,7 +104,7 @@ Modern browsers and IE9+.
 - [FAQ](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen boilerplate](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [Customize Theme](https://github.com/ant-design/antd-init/tree/master/examples/customize-antd-theme)
+- [Customize Theme](/docs/react/customize-theme)
 
 ## Who are using antd
 

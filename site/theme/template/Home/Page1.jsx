@@ -5,6 +5,7 @@ import TweenOne from 'rc-tween-one';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Icon, Button } from 'antd';
 import QueueAnim from 'rc-queue-anim';
+import * as utils from '../utils';
 
 function onScrollEvent(e) {
   const clientHeight = document.documentElement.clientHeight;
@@ -32,7 +33,7 @@ export default function Page1({ location }) {
         <h2 key="h2"><FormattedMessage id="app.home.best-practice" /></h2>
         <p key="p" style={{ maxWidth: 310 }}><FormattedMessage id="app.home.experience" /></p>
         <div key="button">
-          <Link to={{ query: location.query, pathname: '/docs/practice/cases' }}>
+          <Link to={utils.getLocalizedPathname('/docs/practice/cases', utils.isZhCN(location.pathname))}>
             <Button type="primary" size="large">
               <FormattedMessage id="app.home.learn-more" />
               <Icon type="right" />

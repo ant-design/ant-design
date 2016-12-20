@@ -77,15 +77,17 @@ const getParentKey = (key, tree) => {
 
 
 class SearchTree extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      expandedKeys: [],
-      searchValue: '',
-    };
+  state = {
+    expandedKeys: [],
+    searchValue: '',
+    autoExpandParent: true,
   }
+
   onExpand = (expandedKeys) => {
-    this.setState({ expandedKeys });
+    this.setState({
+      expandedKeys,
+      autoExpandParent: false,
+    });
   }
   onChange = (e) => {
     const value = e.target.value;
@@ -104,10 +106,11 @@ class SearchTree extends React.Component {
     this.setState({
       expandedKeys: uniqueExpandedKeys,
       searchValue: value,
+      autoExpandParent: true,
     });
   }
   render() {
-    const { searchValue, expandedKeys } = this.state;
+    const { searchValue, expandedKeys, autoExpandParent } = this.state;
     const loop = data => data.map((item) => {
       const index = item.key.search(searchValue);
       const beforeStr = item.key.substr(0, index);
@@ -138,6 +141,7 @@ class SearchTree extends React.Component {
         <Tree
           onExpand={this.onExpand}
           expandedKeys={expandedKeys}
+          autoExpandParent={autoExpandParent}
         >
           {loop(gData)}
         </Tree>

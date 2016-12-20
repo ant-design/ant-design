@@ -6,10 +6,11 @@ import omit from 'omit.js';
 import assign from 'object-assign';
 import Icon from '../icon';
 import warning from '../_util/warning';
-import splitObject from '../_util/splitObject';
 import CheckableTag from './CheckableTag';
 
 export interface TagProps {
+  prefixCls?: string;
+  className?: string;
   color?: string;
   /** 标签是否可以关闭 */
   closable?: boolean;
@@ -73,12 +74,7 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    const [{
-      prefixCls, closable, color, className, children, style,
-    }, otherProps] = splitObject(
-      this.props,
-      ['prefixCls', 'closable', 'color', 'className', 'children', 'style']
-    );
+    const { prefixCls, closable, color = '', className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: !!color,

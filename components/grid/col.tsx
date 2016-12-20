@@ -2,7 +2,6 @@ import React from 'react';
 import { PropTypes } from 'react';
 import classNames from 'classnames';
 import assign from 'object-assign';
-import splitObject from '../_util/splitObject';
 
 const stringOrNumber = PropTypes.oneOfType([PropTypes.string, PropTypes.number]);
 const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
@@ -47,8 +46,7 @@ export default class Col extends React.Component<ColProps, any> {
 
   render() {
     const props = this.props;
-    const [{ span, order, offset, push, pull, className, children, prefixCls = 'ant-col' }, others] = splitObject(props,
-      ['span', 'order', 'offset', 'push', 'pull', 'className', 'children', 'prefixCls']);
+    const { span, order, offset, push, pull, className, children, prefixCls = 'ant-col', ...others } = props;
     let sizeClassObj = {};
     ['xs', 'sm', 'md', 'lg'].forEach(size => {
       let sizeProps: ColSize = {};
@@ -62,10 +60,10 @@ export default class Col extends React.Component<ColProps, any> {
 
       sizeClassObj = assign({}, sizeClassObj, {
         [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order,
-        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset,
-        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push,
-        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull,
+        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
+        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]: sizeProps.offset || sizeProps.offset === 0,
+        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
+        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
       });
     });
     const classes = classNames({

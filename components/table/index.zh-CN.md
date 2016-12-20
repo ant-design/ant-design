@@ -58,7 +58,7 @@ const columns = [{
 | size          | 正常或迷你类型，`default` or `small`  | String | default |
 | dataSource    | 数据数组 | Array |            |
 | columns       | 表格列的配置描述，具体项见下表 | Array | - |
-| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | String or Function(record, index):string | 'key' |
+| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | String or Function(record):string | 'key' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | Array | - |

@@ -77,7 +77,7 @@ function notice(args) {
 
   getNotificationInstance(outerPrefixCls).notice({
     content: (
-      <div className={`${prefixCls}-content ${iconNode ? `${prefixCls}-with-icon` : ''}`}>
+      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
         {iconNode}
         <div className={`${prefixCls}-message`}>{args.message}</div>
         <div className={`${prefixCls}-description`}>{args.description}</div>
@@ -115,6 +115,7 @@ const api: {
   config(options: ConfigProps) {
     if (options.top !== undefined) {
       defaultTop = options.top;
+      notificationInstance = null; // delete notificationInstance for new defaultTop
     }
     if (options.duration !== undefined) {
       defaultDuration = options.duration;

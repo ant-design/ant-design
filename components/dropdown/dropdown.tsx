@@ -3,10 +3,10 @@ import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
 
 export interface DropDownProps {
-  trigger?: Array<'click' | 'hover'>;
+  trigger?: ('click' | 'hover')[];
   overlay: React.ReactNode;
   style?: React.CSSProperties;
-  onVisibleChange?: (e: {visible: boolean}) => void;
+  onVisibleChange?: (visible?: boolean) => void;
   visible?: boolean;
   align?: Object;
   getPopupContainer?: () => HTMLElement;

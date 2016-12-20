@@ -45,6 +45,8 @@ title: Mention
 | defaultValue | 默认值 | EditorState, 可以用 Mention.toEditorState(text) 把文字转换成 EditorState | null |
 | value | 值 | EditorState | null |
 | getSuggestionContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位| Function() | () => document.body |
+| onFocus | 获得焦点时回调 |  function() | null |
+| onBlur | 失去焦点时回调 | function() | nul |
 
 ### Nav props
 

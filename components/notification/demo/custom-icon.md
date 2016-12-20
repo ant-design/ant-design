@@ -16,7 +16,7 @@ The icon can be customized to any react node.
 ````jsx
 import { Button, notification, Icon } from 'antd';
 
-const openNotification = function () {
+const openNotification = () => {
   notification.open({
     message: 'Notification Title',
     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',

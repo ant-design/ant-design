@@ -27,11 +27,11 @@ onClick | set the handler to handle `click` event | function | -
 `<Button>Hello world!</Button>` will be rendered into `<button>Hello world!</button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
 
 <style>
-[id^="components-button-demo-"] .ant-btn {
+[id^=components-button-demo-] .ant-btn {
   margin-right: 8px;
   margin-bottom: 12px;
 }
-[id^="components-button-demo-"] .ant-btn-group > .ant-btn {
+[id^=components-button-demo-] .ant-btn-group > .ant-btn {
   margin-right: 0;
 }
 </style>

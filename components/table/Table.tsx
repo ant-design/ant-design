@@ -7,7 +7,6 @@ import Spin from '../spin';
 import classNames from 'classnames';
 import { flatArray, treeMap, normalizeColumns } from './util';
 import assign from 'object-assign';
-import splitObject from '../_util/splitObject';
 import warning from '../_util/warning';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
@@ -75,6 +74,7 @@ export interface TableProps<T> {
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export interface TableContext {
@@ -156,12 +156,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     });
   }
 
-  getCheckboxPropsByItem = (item) => {
+  getCheckboxPropsByItem = (item, index) => {
     const { rowSelection = {} } = this.props;
     if (!rowSelection.getCheckboxProps) {
       return {};
     }
-    const key = this.getRecordKey(item);
+    const key = this.getRecordKey(item, index);
     // Cache checkboxProps
     if (!this.CheckboxPropsCache[key]) {
       this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item);
@@ -175,7 +175,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       return [];
     }
     return this.getFlatData()
-      .filter(item => this.getCheckboxPropsByItem(item).defaultChecked)
+      .filter((item, rowIndex) => this.getCheckboxPropsByItem(item, rowIndex).defaultChecked)
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   }
 
@@ -195,14 +195,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         return { pagination: newPagination };
       });
     }
-    // dataSource 的变化会清空选中项
-    if ('dataSource' in nextProps &&
-        nextProps.dataSource !== this.props.dataSource) {
-      this.store.setState({
-        selectionDirty: false,
-      });
-      this.CheckboxPropsCache = {};
-    }
     if (nextProps.rowSelection &&
         'selectedRowKeys' in nextProps.rowSelection) {
       this.store.setState({
@@ -214,6 +206,14 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       )) {
         this.CheckboxPropsCache = {};
       }
+    }
+    // dataSource 的变化会清空选中项
+    if ('dataSource' in nextProps &&
+        nextProps.dataSource !== this.props.dataSource) {
+      this.store.setState({
+        selectionDirty: false,
+      });
+      this.CheckboxPropsCache = {};
     }
 
     if (this.getSortOrderColumns(nextProps.columns).length > 0) {
@@ -465,7 +465,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
     const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
     const changableRowKeys = data
-      .filter(item => !this.getCheckboxPropsByItem(item).disabled)
+      .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
 
     // 记录变化的列
@@ -532,7 +532,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   renderSelectionBox = (type) => {
     return (_, record, index) => {
       let rowIndex = this.getRecordKey(record, index); // 从 1 开始
-      const props = this.getCheckboxPropsByItem(record);
+      const props = this.getCheckboxPropsByItem(record, index);
       const handleChange = (e) => {
         type === 'radio' ? this.handleRadioSelect(record, rowIndex, e) :
                            this.handleSelect(record, rowIndex, e);
@@ -553,12 +553,10 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     };
   }
 
-  getRecordKey = (record, index?): string => {
+  getRecordKey = (record, index): string => {
     const rowKey = this.props.rowKey;
-    if (typeof rowKey === 'function') {
-      return rowKey(record, index);
-    }
-    let recordKey = record[rowKey as string] !== undefined ? record[rowKey as string] : index;
+    const recordKey = (typeof rowKey === 'function') ?
+      rowKey(record, index) :  record[rowKey as string];
     warning(recordKey !== undefined,
       'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key.'
     );
@@ -569,9 +567,9 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     const { prefixCls, rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
-      const data = this.getFlatCurrentPageData().filter((item) => {
+      const data = this.getFlatCurrentPageData().filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
-          return !this.getCheckboxPropsByItem(item).disabled;
+          return !this.getCheckboxPropsByItem(item, index).disabled;
         }
         return true;
       });
@@ -581,7 +579,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         className: `${prefixCls}-selection-column`,
       };
       if (rowSelection.type !== 'radio') {
-        const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
+        const checkboxAllDisabled = data.every((item, index) => this.getCheckboxPropsByItem(item, index).disabled);
         selectionColumn.title  = (
           <SelectionCheckboxAll
             store={this.store}
@@ -825,9 +823,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   render() {
-    const [{
-      style, className, prefixCls,
-    }, restProps] = splitObject(this.props, ['style', 'className', 'prefixCls']);
+    const { style, className, prefixCls, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
@@ -848,7 +844,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
 
     let expandIconColumnIndex = (columns[0] && columns[0].key === 'selection-column') ? 1 : 0;
     if ('expandIconColumnIndex' in restProps) {
-      expandIconColumnIndex = restProps.expandIconColumnIndex;
+      expandIconColumnIndex = restProps.expandIconColumnIndex as number;
     }
 
     let table = (

@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -17,15 +16,13 @@ export default class CheckableTag extends React.Component<CheckableTagProps, any
     }
   }
   render() {
-    const [{ prefixCls = 'ant-tag', className = '', checked }, restProps ] = splitObject(
-        this.props, ['prefixCls', 'className', 'checked']
-      );
+    const { prefixCls = 'ant-tag', className, checked, ...restProps } = this.props;
     const cls = classNames(prefixCls, {
       [`${prefixCls}-checkable`]: true,
       [`${prefixCls}-checkable-checked`]: checked,
     }, className);
 
-    delete restProps.onChange;
-    return <div {...restProps} className={cls} onClick={this.handleClick} />;
+    delete restProps.onChange; // TypeScript cannot check delete now.
+    return <div {...restProps as any} className={cls} onClick={this.handleClick} />;
   }
 }

@@ -1,11 +1,12 @@
 import React from 'react';
-import Search from './search';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import assign from 'object-assign';
 import { TransferItem } from './index';
+import Search from './search';
 import Item from './item';
+import Checkbox from '../checkbox';
 
 function noop() {
 }
@@ -30,7 +31,7 @@ export interface TransferListProps {
   position?: string;
   notFoundContent?: React.ReactNode | string;
   filterOption: (filterText: any, item: any) => boolean;
-  lazy?: {};
+  lazy?: boolean | {};
 }
 
 export interface TransferListContext {
@@ -45,6 +46,7 @@ export default class TransferList extends React.Component<TransferListProps, any
     titleText: '',
     showSearch: false,
     render: noop,
+    lazy: {},
   };
 
   static contextTypes = {
@@ -101,27 +103,6 @@ export default class TransferList extends React.Component<TransferListProps, any
     this.props.handleClear();
   }
 
-  renderCheckbox({ prefixCls, filteredDataSource, checked, checkPart, disabled, checkable }) {
-    const checkAll = (!checkPart) && checked;
-
-    const checkboxCls = classNames({
-      [`${prefixCls}-checkbox`]: true,
-      [`${prefixCls}-checkbox-indeterminate`]: checkPart,
-      [`${prefixCls}-checkbox-checked`]: checkAll,
-      [`${prefixCls}-checkbox-disabled`]: disabled,
-    });
-
-    return (
-      <span
-        ref="checkbox"
-        className={checkboxCls}
-        onClick={() => this.props.handleSelectAll(filteredDataSource, checkAll)}
-      >
-        {(typeof checkable !== 'boolean') ? checkable : null}
-      </span>
-    );
-  }
-
   render() {
     const { prefixCls, dataSource, titleText, filter, checkedKeys, lazy, filterOption,
             body = noop, footer = noop, showSearch, render = noop, style } = this.props;
@@ -167,8 +148,6 @@ export default class TransferList extends React.Component<TransferListProps, any
       notFoundContent = notFoundContent || transferLocale.notFoundContent;
     }
 
-    const checkStatus = this.getCheckStatus(filteredDataSource);
-    const outerPrefixCls = prefixCls.replace('-list', '');
     const search = showSearch ? (
       <div className={`${prefixCls}-body-search-wrapper`}>
         <Search
@@ -204,19 +183,21 @@ export default class TransferList extends React.Component<TransferListProps, any
       </div>
     ) : null;
 
-    const renderedCheckbox = this.renderCheckbox({
-      prefixCls: outerPrefixCls,
-      checked: checkStatus === 'all',
-      checkPart: checkStatus === 'part',
-      checkable: <span className={`${outerPrefixCls}-checkbox-inner`} />,
-      filteredDataSource,
-      disabled: false,
-    });
+    const checkStatus = this.getCheckStatus(filteredDataSource);
+    const checkedAll = checkStatus === 'all';
+    const checkAllCheckbox = (
+      <Checkbox
+        ref="checkbox"
+        checked={checkedAll}
+        indeterminate={checkStatus === 'part'}
+        onChange={() => this.props.handleSelectAll(filteredDataSource, checkedAll)}
+      />
+    );
 
     return (
       <div className={listCls} style={style}>
         <div className={`${prefixCls}-header`}>
-          {renderedCheckbox}
+          {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
             <span>
               {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} {unit}

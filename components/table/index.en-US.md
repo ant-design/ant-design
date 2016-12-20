@@ -57,7 +57,7 @@ const columns = [{
 | size          | size of table: `default` or `small`  | String | `default` |
 | dataSource    | data record array to be rendered | Array |            |
 | columns       | columns of table | Array | - |
-| rowKey        | get row's key, could be a string or function | String or Function(record, index):string | 'key' |
+| rowKey        | get row's key, could be a string or function | String or Function(record):string | 'key' |
 | rowClassName  | get row's className | Function(record, index):string | - |
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
