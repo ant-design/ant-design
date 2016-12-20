@@ -50,6 +50,7 @@ export default function createPicker(TheCalendar) {
     clearSelection(e) {
       e.preventDefault();
       e.stopPropagation();
+      this.setState({ value: null });
       this.handleChange(null);
     },
 
