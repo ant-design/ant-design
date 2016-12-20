@@ -28,11 +28,24 @@ export default (props: CardProps) => {
   if (loading) {
     children = (
       <div>
-        <p>████████████████████████</p>
-        <p>██████　███████████████████</p>
-        <p>██████████████　██████████</p>
-        <p>█████　██████　█████████████</p>
-        <p>███████████　██████████　███</p>
+        <p className={`${prefixCls}-loading-block`} style={{ width: '94%' }} />
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '28%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '62%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '22%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '66%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '56%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '39%' }} />
+        </p>
+        <p>
+          <span className={`${prefixCls}-loading-block`} style={{ width: '21%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '15%' }} />
+          <span className={`${prefixCls}-loading-block`} style={{ width: '40%' }} />
+        </p>
       </div>
     );
   }
