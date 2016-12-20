@@ -49,6 +49,8 @@ Support all props of `Input`.
 | Property  | Description                      | Type   | Default   |
 |-----------|----------------------------------|--------|-----------|
 |  size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` |
+|  compact | whether use compact style | boolean | false |
+
 
 ```html
 <Input.Group>

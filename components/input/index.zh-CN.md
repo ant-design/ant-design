@@ -48,6 +48,8 @@ title: Input
 | 参数      | 说明                                     | 类型         | 默认值 |
 |-----------|-----------------------------------------|-------------|-------|
 |  size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |
+|  compact | 是否用紧凑模式 | boolean | false |
+
 
 ```html
 <Input.Group>

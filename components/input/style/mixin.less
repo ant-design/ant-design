@@ -256,6 +256,37 @@
     width: 100%;
     float: left;
   }
+
+  &&-compact {
+
+    & > [class*="col-"] {
+      padding-right: 0;
+
+      & > * {
+        width: 100%;
+      }
+    }
+
+    // Reset Select's style
+    .@{inputClass},
+    .@{ant-prefix}-select-selection {
+      border-radius: 0;
+      border-right-width: 0;
+    }
+
+    & > div:first-child .@{inputClass},
+    & > div:first-child .@{ant-prefix}-select-selection {
+      border-top-left-radius: @border-radius-base!important;
+      border-bottom-left-radius: @border-radius-base!important;
+    }
+
+    & > div:last-child .@{inputClass},
+    & > div:last-child .@{ant-prefix}-select-selection {
+      border-top-right-radius: @border-radius-base!important;
+      border-bottom-right-radius: @border-radius-base!important;
+      border-right-width: 1px;
+    }
+  }
 }
 
 .input-preSuffix-wrapper(@inputClass) {
@@ -299,3 +330,4 @@
     padding-right: @input-padding-horizontal + @input-presuffix-width;
   }
 }
+
