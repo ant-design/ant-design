@@ -190,26 +190,26 @@
   }
 
   &:not(&-vertical) {
-    .@{tab-prefix-cls}-content {
+    > .@{tab-prefix-cls}-content {
       width: 100%;
+
+      > .@{tab-prefix-cls}-tabpane {
+        flex-shrink: 0;
+        width: 100%;
+        transition: opacity 0.3s;
+        opacity: 1;
+      }
+
+      > .@{tab-prefix-cls}-tabpane-inactive {
+        opacity: 0;
+        height: 0;
+      }
     }
-    .@{tab-prefix-cls}-content-animated {
+    > .@{tab-prefix-cls}-content-animated {
       display: flex;
       flex-direction: row;
       will-change: margin-left;
       transition: margin-left 0.3s @ease-in-out;
-    }
-
-    .@{tab-prefix-cls}-tabpane {
-      flex-shrink: 0;
-      width: 100%;
-      transition: opacity 0.3s;
-      opacity: 1;
-    }
-
-    .@{tab-prefix-cls}-tabpane-inactive {
-      opacity: 0;
-      height: 0;
     }
   }
 
@@ -394,8 +394,8 @@
 .no-flex,
 .@{tab-prefix-cls}-no-animation,
 .@{tab-prefix-cls}-vertical {
-  .@{tab-prefix-cls}-content {
-    &-animated {
+  > .@{tab-prefix-cls}-content {
+    > &-animated {
       transform: none!important;
     }
 
