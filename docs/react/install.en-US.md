@@ -53,14 +53,14 @@ We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dis
 
 ## Development tool
 
-We provide React components [Scaffold tool](https://github.com/ant-design/antd-init).
+We provide React components [Scaffold tool](https://github.com/dvajs/dva-cli).
 
 ```bash
-$ npm install antd-init -g
+$ npm install dva-cli -g
 ```
 
-Inside an empty folder run `antd-init` to init.
+Run `dva new myapp` to init a React application.
 
-You can explore the latest structure of scaffold [here](https://github.com/ant-design/antd-init/tree/master/boilerplates), it is a good habit to watch this repo to get the latest features.
+You can explore the latest structure of scaffold [here](https://github.com/dvajs/dva-cli/tree/master/boilerplates), it is a good habit to watch this repo to get the latest features.
 
-> [More development tools](http://ant-tool.github.io/)。
+> [More development tool features](https://github.com/sorrycc/roadhog)。
