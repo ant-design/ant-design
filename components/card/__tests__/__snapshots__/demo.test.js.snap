@@ -134,20 +134,43 @@ exports[`test renders ./components/card/demo/loading.md correctly 1`] = `
   <div
     class="ant-card-body">
     <div>
+      <p
+        class="ant-card-loading-block"
+        style="width:94%;" />
       <p>
-        ████████████████████████
+        <span
+          class="ant-card-loading-block"
+          style="width:28%;" />
+        <span
+          class="ant-card-loading-block"
+          style="width:62%;" />
       </p>
       <p>
-        ██████　███████████████████
+        <span
+          class="ant-card-loading-block"
+          style="width:22%;" />
+        <span
+          class="ant-card-loading-block"
+          style="width:66%;" />
       </p>
       <p>
-        ██████████████　██████████
+        <span
+          class="ant-card-loading-block"
+          style="width:56%;" />
+        <span
+          class="ant-card-loading-block"
+          style="width:39%;" />
       </p>
       <p>
-        █████　██████　█████████████
-      </p>
-      <p>
-        ███████████　██████████　███
+        <span
+          class="ant-card-loading-block"
+          style="width:21%;" />
+        <span
+          class="ant-card-loading-block"
+          style="width:15%;" />
+        <span
+          class="ant-card-loading-block"
+          style="width:40%;" />
       </p>
     </div>
   </div>
