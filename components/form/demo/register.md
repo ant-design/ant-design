@@ -60,7 +60,7 @@ const RegistrationForm = Form.create()(React.createClass({
     const value = e.target.value;
     this.setState({ passwordDirty: this.state.passwordDirty || !!value });
   },
-  checkPassowrd(rule, value, callback) {
+  checkPassword(rule, value, callback) {
     const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
       callback('Two passwords that you enter is inconsistent!');
@@ -135,7 +135,7 @@ const RegistrationForm = Form.create()(React.createClass({
             rules: [{
               required: true, message: 'Please confirm your password!',
             }, {
-              validator: this.checkPassowrd,
+              validator: this.checkPassword,
             }],
           })(
             <Input type="password" />

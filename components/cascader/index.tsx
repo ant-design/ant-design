@@ -59,6 +59,7 @@ export interface CascaderProps {
   onPopupVisibleChange?: (popupVisible: boolean) => void;
   prefixCls?: string;
   inputPrefixCls?: string;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
 }
 
 function highlightKeyword(str: string, keyword: string, prefixCls: string) {
