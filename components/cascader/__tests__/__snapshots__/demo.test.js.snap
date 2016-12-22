@@ -129,6 +129,23 @@ exports[`test renders ./components/cascader/demo/hover.md correctly 1`] = `
 </span>
 `;
 
+exports[`test renders ./components/cascader/demo/lazy.md correctly 1`] = `
+<span
+  class="ant-cascader-picker">
+  <input
+    autocomplete="off"
+    class="ant-input ant-cascader-input "
+    placeholder="Please select"
+    readonly=""
+    type="text"
+    value="" />
+  <span
+    class="ant-cascader-picker-label" />
+  <i
+    class="anticon anticon-down ant-cascader-picker-arrow" />
+</span>
+`;
+
 exports[`test renders ./components/cascader/demo/search.md correctly 1`] = `
 <span
   class="ant-cascader-picker">

@@ -39,6 +39,7 @@ subtitle: 级联选择
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | Boolean | false |
 | showSearch | 在选择框中显示搜索框 | Boolean | false |
 | notFoundContent | 当下拉列表为空时显示的内容 | String | 'Not Found' |
+| loadData  | 用于动态加载选项，无法与 `showSearch` 一起使用 | `(selectedOptions) => void`  | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 
 `showSearch` 为对象时，其中的字段：

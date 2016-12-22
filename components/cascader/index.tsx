@@ -24,15 +24,15 @@ export interface ShowSearchType {
 
 export interface CascaderProps {
   /** 可选项数据源 */
-  options: Array<CascaderOptionType>;
+  options: CascaderOptionType[];
   /** 默认的选中项 */
-  defaultValue?: Array<CascaderOptionType>;
+  defaultValue?: CascaderOptionType[];
   /** 指定选中项 */
-  value?: Array<CascaderOptionType>;
+  value?: CascaderOptionType[];
   /** 选择完成后的回调 */
-  onChange?: (value: string[], selectedOptions?: Array<CascaderOptionType>) => void;
+  onChange?: (value: string[], selectedOptions?: CascaderOptionType[]) => void;
   /** 选择后展示的渲染函数 */
-  displayRender?: (label: Array<string>, selectedOptions?: Array<CascaderOptionType>) => React.ReactNode;
+  displayRender?: (label: string[], selectedOptions?: CascaderOptionType[]) => React.ReactNode;
   /** 自定义样式 */
   style?: React.CSSProperties;
   /** 自定义类名 */
@@ -51,6 +51,7 @@ export interface CascaderProps {
   allowClear?: boolean;
   showSearch?: boolean | ShowSearchType;
   notFoundContent?: React.ReactNode;
+  loadData?: (selectedOptions?: CascaderOptionType[]) => void;
   /** 次级菜单的展开方式，可选 'click' 和 'hover' */
   expandTrigger?: CascaderExpandTrigger;
   /** 当此项为 true 时，点选每级菜单选项值都会发生变化 */
