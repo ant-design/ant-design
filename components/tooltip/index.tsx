@@ -22,7 +22,9 @@ export interface AbstractTooltipProps {
   trigger?: 'hover' | 'focus' | 'click';
   openClassName?: string;
   arrowPointAtCenter?: boolean;
+  // getTooltipContainer had been rename to getPopupDomNode
   getTooltipContainer?: (triggerNode: Element) => HTMLElement;
+  getPopupContainer?: (triggerNode: Element) => HTMLElement;
   children?: React.ReactElement<any>;
 }
 
@@ -117,7 +119,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
 
   render() {
     const { props, state } = this;
-    const { prefixCls, title, overlay, openClassName } = props;
+    const { prefixCls, title, overlay, openClassName, getPopupContainer, getTooltipContainer } = props;
     const children = props.children as React.ReactElement<any>;
     let visible = state.visible;
     // Hide tooltip when there is no title
@@ -134,6 +136,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     return (
       <RcTooltip
         {...this.props}
+        getTooltipContainer={getPopupContainer || getTooltipContainer}
         ref="tooltip"
         builtinPlacements={this.getPlacements()}
         overlay={overlay || title}
