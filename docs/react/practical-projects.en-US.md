@@ -1,6 +1,6 @@
 ---
 order: 3
-title: Practical Projects
+title: Real world Example with dva
 ---
 
 [dva](https://github.com/dvajs/dva) is a React and redux based, lightweight and elm-style framework, which supports side effects, hot module replacement, dynamic on demand, react-native, SSR. And it has been widely used in production environment.
