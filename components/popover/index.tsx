@@ -6,7 +6,7 @@ import warning from '../_util/warning';
 
 export interface PopoverProps extends AbstractTooltipProps {
    title?: React.ReactNode;
-   content?: React.ReactNode | string;
+   content?: React.ReactNode;
 }
 
 export default class Popover extends React.Component<PopoverProps, any> {
