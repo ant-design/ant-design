@@ -24,8 +24,8 @@ Cascade selection box.
 | options | data options of cascade | object | - |
 | defaultValue | initial selected value | array  |[] |
 | value | selected value | array  | - |
-| onChange | callback when finishing cascader select | `function(value, selectedOptions)` | - |
-| displayRender | render function of displaying selected options | `function(label, selectedOptions)` | `label => label.join(' / ')` |
+| onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
+| displayRender | render function of displaying selected options | `(label, selectedOptions) => React.ReactNode` | `label => label.join(' / ')` |
 | style | additional style | string | - |
 | className | additional css class | string | - |
 | popupClassName | additional className of popup overlay | string | - |
