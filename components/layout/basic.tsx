@@ -1,14 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 
-interface AdapterProps {
-  props: Object;
+export interface BasicProps {
+  style?: React.CSSProperties;
+  prefixCls?: string;
+  className?: string;
 }
 
 function generator(props) {
   return (Basic) : any => {
-    return class Adapter extends React.Component<AdapterProps, any> {
+    return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
       static Footer: any;
       static Content: any;
@@ -21,19 +22,10 @@ function generator(props) {
   };
 }
 
-export interface BasicProps {
-  style?: React.CSSProperties;
-  prefixCls?: string;
-  className?: string;
-}
-
 class Basic extends React.Component<BasicProps, any> {
   render() {
-    const [{ prefixCls, className }, others] = splitObject(this.props,
-      ['prefixCls', 'className']);
-    const divCls = classNames(className, {
-      [prefixCls]: true,
-    });
+    const { prefixCls, className, ...others } = this.props;
+    const divCls = classNames(className, prefixCls);
     return (
       <div className={divCls} {...others} />
     );

@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title:
   zh-CN: 自定义触发器
   en-US: Custom trigger
@@ -7,15 +7,15 @@ title:
 
 ## zh-CN
 
-要使用自定义触发器，可以设置 `hideTrigger` 来隐藏默认设定。
+要使用自定义触发器，可以设置 `trigger={null}` 来隐藏默认设定。
 
 ## en-US
 
-If you want to use a customized trigger, you can hide the default one by setting `hideTrigger`.
+If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
 ````jsx
 import { Layout, Menu, Icon } from 'antd';
-const { Header, Sider } = Layout;
+const { Header, Sider, Content } = Layout;
 
 class SiderDemo extends React.Component {
   state = {
@@ -30,12 +30,11 @@ class SiderDemo extends React.Component {
     return (
       <Layout className="ant-layout-demo-custom">
         <Sider
-          hideTrigger
-          className="ant-layout-demo-custom-sider"
+          trigger={null}
           collapsible
           collapsed={this.state.collapsed}
         >
-          <div className="ant-layout-demo-custom-logo" />
+          <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
               <Icon type="user" />
@@ -53,14 +52,15 @@ class SiderDemo extends React.Component {
         </Sider>
         <Layout>
           <Header>
-            <div className="ant-layout-demo-custom-nav">
-              {
-                this.state.collapsed ?
-                <Icon className="ant-layout-demo-custom-trigger" type="menu-unfold" onClick={this.toggle} />
-                : <Icon className="ant-layout-demo-custom-trigger" type="menu-fold" onClick={this.toggle} />
-              }
+            <div className="nav">
+            <Icon
+              className="trigger"
+              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.toggle}
+            />
             </div>
           </Header>
+          <Content className="content">content</Content>
         </Layout>
       </Layout>
     );
@@ -71,16 +71,13 @@ ReactDOM.render(<SiderDemo />, mountNode);
 ````
 
 ````css
-.ant-layout-demo-custom {
-  background: #ececec;
-}
-
-.ant-layout-demo-custom .ant-layout-demo-custom-nav {
+.ant-layout-demo-custom .nav {
   background: #fff;
   height: 100%;
+  margin: 0 -50px;
 }
 
-.ant-layout-demo-custom .ant-layout-demo-custom-trigger {
+.ant-layout-demo-custom .trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 16px;
@@ -88,15 +85,11 @@ ReactDOM.render(<SiderDemo />, mountNode);
   transition: color .3s ease;
 }
 
-.ant-layout-demo-custom .ant-layout-demo-custom-trigger:hover {
+.ant-layout-demo-custom .trigger:hover {
   color: #108ee9;
 }
 
-.ant-layout-demo-custom .ant-layout-demo-custom-sider {
-	background: #404040;
-}
-
-.ant-layout-demo-custom .ant-layout-demo-custom-logo {
+.ant-layout-demo-custom .logo {
   width: 32px;
   height: 32px;
   background: #333;
@@ -111,5 +104,9 @@ ReactDOM.render(<SiderDemo />, mountNode);
 
 .ant-layout-demo-custom .ant-layout-sider-collapsed .nav-text {
 	display: none;
+}
+
+.ant-layout-demo-custom .content {
+  margin: 24px 16px;
 }
 ````

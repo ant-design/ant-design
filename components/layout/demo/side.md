@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 侧边布局
   en-US: Sider
@@ -29,12 +29,11 @@ class SiderDemo extends React.Component {
     return (
       <Layout className="ant-layout-demo-side">
         <Sider
-          className="ant-layout-demo-side-sider"
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
-          <div className="ant-layout-demo-side-logo" />
+          <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
               <Icon type="user" />
@@ -64,18 +63,19 @@ class SiderDemo extends React.Component {
         </Sider>
         <Layout>
           <Header>
-            <div className="ant-layout-demo-side-nav" />
+            <div className="nav" />
           </Header>
-          <Content className="ant-layout-demo-side-main">
-            <div className="ant-layout-demo-side-breadcrumb">
+          <Content className="main">
+            <div className="breadcrumb">
               <Breadcrumb>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>List</Breadcrumb.Item>
                 <Breadcrumb.Item>App</Breadcrumb.Item>
               </Breadcrumb>
             </div>
+            <div>content</div>
           </Content>
-          <Footer className="ant-layout-demo-side-footer">
+          <Footer className="footer">
             Ant Design ©2016 Created by Ant UED
           </Footer>
         </Layout>
@@ -88,20 +88,13 @@ ReactDOM.render(<SiderDemo />, mountNode);
 ````
 
 ````css
-.ant-layout-demo-side {
-  background: #ececec;
-}
-
-.ant-layout-demo-side .ant-layout-demo-side-nav {
+.ant-layout-demo-side .nav {
   background: #fff;
   height: 100%;
+  margin: 0 -50px;
 }
 
-.ant-layout-demo-side .ant-layout-demo-side-sider {
-	background: #404040;
-}
-
-.ant-layout-demo-side .ant-layout-demo-side-logo {
+.ant-layout-demo-side .logo {
   width: 32px;
   height: 32px;
   background: #333;
@@ -109,12 +102,13 @@ ReactDOM.render(<SiderDemo />, mountNode);
   margin: 16px;
 }
 
-.ant-layout-demo-side .ant-layout-demo-side-main {
+.ant-layout-demo-side .main {
   margin: 0 16px 24px 16px;
 }
 
-.ant-layout-demo-side .ant-layout-demo-side-breadcrumb {
+.ant-layout-demo-side .breadcrumb {
   padding: 7px 0 7px 24px;
+  margin: 0 -24px;
   background: #ececec;
 }
 
@@ -127,7 +121,8 @@ ReactDOM.render(<SiderDemo />, mountNode);
 	display: none;
 }
 
-.ant-layout-demo-side .ant-layout-demo-side-footer {
+.ant-layout-demo-side .footer {
   background: #fff;
+  text-align: center;
 }
 ````

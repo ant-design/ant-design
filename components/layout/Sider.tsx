@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import splitObject from '../_util/splitObject';
 import omit from 'omit.js';
 import assign from 'object-assign';
 import Icon from '../icon';
@@ -14,7 +13,7 @@ export interface SiderProps {
   collapsed?: boolean;
   defaultCollapsed?: boolean;
   onCollapse?: (collapsed: boolean) => void;
-  hideTrigger?: boolean;
+  trigger?: React.ReactNode;
   width?: number;
   collapsedWidth?: number;
 }
@@ -70,13 +69,10 @@ export default class Sider extends React.Component<SiderProps, any> {
   }
 
   render() {
-    const [{
-      prefixCls, className, position, collapsible, hideTrigger, style, width, collapsedWidth,
-    }, others] = splitObject(this.props,
-      ['prefixCls', 'className', 'position', 'collapsible', 'hideTrigger', 'style', 'width', 'collapsedWidth']);
+    const { prefixCls, className, position, collapsible, trigger, style, width, collapsedWidth,
+      ...others } = this.props;
     const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse']);
-    const siderCls = classNames(className, {
-      [prefixCls]: true,
+    const siderCls = classNames(className, prefixCls, {
       [`${prefixCls}-right`]: position === 'right',
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
     });
@@ -92,14 +88,16 @@ export default class Sider extends React.Component<SiderProps, any> {
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[`${position}-${status}`];
     const triggerDom = (
-      <div className={`${prefixCls}-trigger`} onClick={this.toggle}>
-        {defaultTrigger}
-      </div>
+      trigger !== null ?
+      (<div className={`${prefixCls}-trigger`} onClick={this.toggle}>
+        {trigger || defaultTrigger}
+      </div>)
+      : null
     );
     return (
       <div className={siderCls} {...divProps} style={divStyle}>
         {this.props.children}
-        {collapsible && !hideTrigger && triggerDom}
+        {collapsible && triggerDom}
       </div>
     );
   }

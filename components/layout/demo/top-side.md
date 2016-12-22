@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 顶部-侧边布局
   en-US: Header-Sider
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Be used in the page which has both the top navigation and the sidebar  .
+Be used in the page which has both the top navigation and the sidebar.
 
 ````jsx
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
@@ -20,18 +20,21 @@ const { Header, Content, Footer, Sider } = Layout;
 
 ReactDOM.render(
   <Layout className="ant-layout-demo-topside">
-    <Header className="ant-layout-demo-topside-header">
-      <div className="ant-layout-demo-topside-nav">
-        <div className="ant-layout-demo-topside-logo" />
-        <Menu theme="dark" mode="horizontal"
-          defaultSelectedKeys={['2']} style={{ lineHeight: '64px' }}
+    <Header className="header">
+      <div>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          defaultSelectedKeys={['2']}
+          style={{ lineHeight: '64px' }}
         >
           <Menu.Item key="1">nav 1</Menu.Item>
           <Menu.Item key="2">nav 2</Menu.Item>
           <Menu.Item key="3">nav 3</Menu.Item>
         </Menu>
       </div>
-      <div className="ant-layout-demo-topside-breadcrumb">
+      <div className="breadcrumb">
         <Breadcrumb>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>
@@ -39,9 +42,13 @@ ReactDOM.render(
         </Breadcrumb>
       </div>
     </Header>
-    <Layout className="ant-layout-demo-topside-main">
-      <Sider width="200px">
-        <Menu mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
+    <Layout className="main">
+      <Sider className="sider" width="200px">
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+        >
           <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
             <Menu.Item key="1">option1</Menu.Item>
             <Menu.Item key="2">option2</Menu.Item>
@@ -62,9 +69,9 @@ ReactDOM.render(
           </SubMenu>
         </Menu>
       </Sider>
-      <Content className="ant-layout-demo-topside-content">content</Content>
+      <Content>content</Content>
     </Layout>
-    <Footer>
+    <Footer className="footer">
       Ant Design ©2016 Created by Ant UED
     </Footer>
   </Layout>
@@ -72,27 +79,18 @@ ReactDOM.render(
 ````
 
 ````css
-.ant-layout-demo-topside {
-  background: #ececec;
-}
-
-.ant-layout-demo-topside .ant-layout-demo-topside-header {
+.ant-layout-demo-topside .header {
   height: auto;
 }
 
-.ant-layout-demo-topside .ant-layout-demo-topside-nav {
-  background: #404040;
-  height: 64px;
-  padding: 0 50px;
-}
-
-.ant-layout-demo-topside .ant-layout-demo-topside-breadcrumb {
-  margin: 7px 0 7px 74px;
-  height: 1.2em;
+.ant-layout-demo-topside .breadcrumb {
+  margin: 0 -50px;
+  padding: 7px 0 7px 74px;
+  background: #ececec;
   line-height: 1.2em;
 }
 
-.ant-layout-demo-topside .ant-layout-demo-topside-logo {
+.ant-layout-demo-topside .logo {
   width: 120px;
   height: 31px;
   background: #333;
@@ -101,13 +99,17 @@ ReactDOM.render(
   float: left;
 }
 
-.ant-layout-demo-topside .ant-layout-demo-topside-main {
+.ant-layout-demo-topside .main {
   margin: 0 50px;
   padding: 24px 0;
   background: #fff;
 }
 
-.ant-layout-demo-topside .ant-layout-demo-topside-content {
-	padding-left: 24px;
+.ant-layout-demo-topside .sider {
+  background: #fff;
+}
+
+.ant-layout-demo-topside .footer {
+  text-align: center;
 }
 ````

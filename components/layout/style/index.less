@@ -6,34 +6,43 @@
 .@{layout-prefix-cls} {
   display: flex;
   flex-wrap: wrap;
-  flex: 1;
+  flex: auto;
   overflow: auto;
+  background: @layout-body-background;
 }
 
 .@{layout-prefix-cls}-header,
 .@{layout-prefix-cls}-footer {
   flex: 1 0 100%;
-  height: 64px;
-  line-height: 64px;
+}
+
+.@{layout-prefix-cls}-header {
+  background: @layout-header-background;
+  padding: @layout-header-padding;
+  height: @layout-header-height;
+  line-height: @layout-header-height;
 }
 
 .@{layout-prefix-cls}-footer {
-  text-align: center;
-  font-size: 12px;
-  color: #999;
+  font-size: @font-size-base;
+  color: @text-color;
+  padding: 24px 2%;
 }
 
 .@{layout-prefix-cls}-content {
   height: 100%;
   flex: auto;
-  background: #fff;
+  background: @body-background;
+  margin: @layout-content-margin;
+  padding: @layout-content-padding;
 }
 
 .@{layout-prefix-cls}-sider {
   flex: 0 0 200px;
   transition: all .3s ease;
   position: relative;
-  padding-bottom: 48px;
+  padding-bottom: @layout-trigger-height;
+  background: @layout-sider-background;
 }
 
 .@{layout-prefix-cls}-sider-right {
@@ -50,8 +59,8 @@
   width: 100%;
   bottom: 0;
   cursor: pointer;
-  height: 48px;
-  line-height: 48px;
-  background: #656565;
+  height: @layout-trigger-height;
+  line-height: @layout-trigger-height;
+  background: tint(@heading-color, 20%);
   color: #fff;
 }
