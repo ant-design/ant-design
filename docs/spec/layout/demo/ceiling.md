@@ -13,9 +13,9 @@ import BrowserDemo from 'site/theme/template/BrowserDemo';
 
 ReactDOM.render(
   <BrowserDemo>
-    <div className="ant-layout-ceiling-demo">
-      <div className="ant-layout-ceiling">
-        <div className="ant-layout-wrapper">
+    <div className="layout-ceiling-demo">
+      <div className="layout-ceiling">
+        <div className="layout-wrapper">
           <ul className="right">
             <li>xxx@example.com</li>
             <li>|</li>
@@ -25,9 +25,9 @@ ReactDOM.render(
           </ul>
         </div>
       </div>
-      <div className="ant-layout-header">
-        <div className="ant-layout-wrapper">
-          <div className="ant-layout-logo"></div>
+      <div className="layout-header">
+        <div className="layout-wrapper">
+          <div className="layout-logo"></div>
         </div>
       </div>
     </div>
@@ -36,11 +36,11 @@ ReactDOM.render(
 ````
 
 ````css
-.ant-layout-ceiling-demo {
+.layout-ceiling-demo {
   height: 100%;
 }
 
-.ant-layout-ceiling {
+.layout-ceiling {
   font-size: 12px;
   height: 30px;
   line-height: 30px;
@@ -48,31 +48,31 @@ ReactDOM.render(
   color: #ddd;
 }
 
-.ant-layout-ceiling .right {
+.layout-ceiling .right {
   float: right;
 }
 
-.ant-layout-ceiling ul li {
+.layout-ceiling ul li {
   display: inline-block;
   margin: 0 4px;
 }
 
-.ant-layout-ceiling-demo .ant-layout-wrapper {
+.layout-ceiling-demo .layout-wrapper {
   padding: 0 50px;
 }
 
-.ant-layout-ceiling-demo .ant-layout-header {
+.layout-ceiling-demo .layout-header {
   background: #fff;
   height: 64px;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #e9e9e9;
 }
 
-.ant-layout-ceiling-demo .ant-layout-logo {
+.layout-ceiling-demo .layout-logo {
   width: 120px;
   height: 32px;
   background: #eee;
-  border-radius: 6px;
-  margin: 16px 28px 16px 0;
+  border-radius: 4px;
+  margin: 16px 24px 16px 0;
   float: left;
 }
 ````

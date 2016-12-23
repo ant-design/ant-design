@@ -14,9 +14,9 @@ const SubMenu = Menu.SubMenu;
 
 ReactDOM.render(
   <BrowserDemo>
-    <div className="ant-layout-aside">
-      <aside className="ant-layout-sider">
-        <div className="ant-layout-logo"></div>
+    <div className="layout-aside">
+      <aside className="layout-sider">
+        <div className="layout-logo"></div>
         <Menu mode="inline" theme="dark"
           defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
           <SubMenu key="sub1" title={<span><Icon type="user" />导航一</span>}>
@@ -39,23 +39,21 @@ ReactDOM.render(
           </SubMenu>
         </Menu>
       </aside>
-      <div className="ant-layout-main">
-        <div className="ant-layout-header"></div>
-        <div className="ant-layout-breadcrumb">
+      <div className="layout-main">
+        <div className="layout-header"></div>
+        <div className="layout-container">
           <Breadcrumb>
             <Breadcrumb.Item>首页</Breadcrumb.Item>
             <Breadcrumb.Item>应用列表</Breadcrumb.Item>
             <Breadcrumb.Item>某应用</Breadcrumb.Item>
           </Breadcrumb>
-        </div>
-        <div className="ant-layout-container">
-          <div className="ant-layout-content">
+          <div className="layout-content">
             <div style={{ height: 590 }}>
               内容区域
             </div>
           </div>
         </div>
-        <div className="ant-layout-footer">
+        <div className="layout-footer">
         Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
         </div>
       </div>
@@ -65,20 +63,19 @@ ReactDOM.render(
 ````
 
 ````css
-.ant-layout-aside {
+.layout-aside {
   position: relative;
   min-height: 100%;
 }
 
-.ant-layout-aside .ant-layout-logo {
-  width: 150px;
+.layout-aside .layout-logo {
   height: 32px;
   background: #333;
-  border-radius: 6px;
-  margin: 16px 24px 16px 28px;
+  border-radius: 4px;
+  margin: 16px 24px;
 }
 
-.ant-layout-aside .ant-layout-sider {
+.layout-aside .layout-sider {
   width: 224px;
   background: #404040;
   position: absolute;
@@ -87,34 +84,32 @@ ReactDOM.render(
   height: 100%;
 }
 
-.ant-layout-aside .ant-layout-sider > .ant-menu {
+.layout-aside .layout-sider > .menu {
   margin-bottom: 20px;
 }
 
-.ant-layout-aside .ant-layout-header {
+.layout-aside .layout-header {
   background: #fff;
   height: 64px;
   border-bottom: 1px solid #e9e9e9;
 }
 
-.ant-layout-aside .ant-layout-breadcrumb {
-  margin: 7px 0 -17px 24px;
-}
-
-.ant-layout-aside .ant-layout-main {
+.layout-aside .layout-main {
   margin-left: 224px;
 }
 
-.ant-layout-aside .ant-layout-container {
-  margin: 24px 16px;
+.layout-aside .layout-container {
+  margin: 12px 16px 24px;
 }
 
-.ant-layout-aside .ant-layout-content {
+.layout-aside .layout-content {
   background: #fff;
   padding: 24px;
+  margin-top: 12px;
+  border-radius: 4px;
 }
 
-.ant-layout-aside .ant-layout-footer {
+.layout-aside .layout-footer {
   height: 64px;
   line-height: 64px;
   text-align: center;
