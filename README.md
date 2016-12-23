@@ -17,6 +17,8 @@
 
 An enterprise-class UI design language and React-based implementation.
 
+[中文 README](README-zh_CN.md)
+
 ## Features
 
 - An enterprise-class design language and high quality UI.

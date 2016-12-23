@@ -17,6 +17,8 @@
 
 一套企业级的 UI 设计语言和 React 实现。
 
+[README in English](README.md)
+
 ## 特性
 
 - 提炼和服务企业级中后台产品的交互语言和视觉风格。
