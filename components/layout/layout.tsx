@@ -34,7 +34,6 @@ class Basic extends React.Component<BasicProps, any> {
 
 const Layout = generator({
   prefixCls: 'ant-layout',
-  layout: true,
 })(Basic);
 
 const Header = generator({

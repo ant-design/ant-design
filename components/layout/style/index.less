@@ -9,58 +9,57 @@
   flex: auto;
   overflow: auto;
   background: @layout-body-background;
-}
 
-.@{layout-prefix-cls}-header,
-.@{layout-prefix-cls}-footer {
-  flex: 1 0 100%;
-}
+  &-header,
+  &-footer {
+    flex: 1 0 100%;
+  }
 
-.@{layout-prefix-cls}-header {
-  background: @layout-header-background;
-  padding: @layout-header-padding;
-  height: @layout-header-height;
-  line-height: @layout-header-height;
-}
+  &-header {
+    background: @layout-header-background;
+    padding: @layout-header-padding;
+    height: @layout-header-height;
+    line-height: @layout-header-height;
+  }
 
-.@{layout-prefix-cls}-footer {
-  font-size: @font-size-base;
-  color: @text-color;
-  padding: 24px 2%;
-}
+  &-footer {
+    padding: @layout-footer-padding;
+    color: @text-color;
+    font-size: @font-size-base;
+  }
 
-.@{layout-prefix-cls}-content {
-  height: 100%;
-  flex: auto;
-  background: @body-background;
-  margin: @layout-content-margin;
-  padding: @layout-content-padding;
-}
+  &-content {
+    flex: auto;
+  }
 
-.@{layout-prefix-cls}-sider {
-  flex: 0 0 200px;
-  transition: all .3s ease;
-  position: relative;
-  padding-bottom: @layout-trigger-height;
-  background: @layout-sider-background;
-}
+  &-sider {
+    flex: 0 0 200px;
+    transition: all .3s ease;
+    position: relative;
+    background: @layout-sider-background;
 
-.@{layout-prefix-cls}-sider-right {
-  order: 1;
-}
+    &-has-trigger {
+      padding-bottom: @layout-trigger-height;
+    }
 
-.@{layout-prefix-cls}-sider-collapsed {
-  flex: 0 0 64px;
-}
+    &-right {
+      order: 1;
+    }
 
-.@{layout-prefix-cls}-sider-trigger {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  bottom: 0;
-  cursor: pointer;
-  height: @layout-trigger-height;
-  line-height: @layout-trigger-height;
-  background: tint(@heading-color, 20%);
-  color: #fff;
+    &-collapsed {
+      flex: 0 0 64px;
+    }
+
+    &-trigger {
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      bottom: 0;
+      cursor: pointer;
+      height: @layout-trigger-height;
+      line-height: @layout-trigger-height;
+      background: tint(@heading-color, 20%);
+      color: #fff;
+    }
+  }
 }

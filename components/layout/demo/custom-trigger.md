@@ -28,7 +28,7 @@ class SiderDemo extends React.Component {
   }
   render() {
     return (
-      <Layout className="ant-layout-demo-custom">
+      <Layout>
         <Sider
           trigger={null}
           collapsible
@@ -51,16 +51,16 @@ class SiderDemo extends React.Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header>
-            <div className="nav">
+          <Header style={{ background: '#fff', padding: 0 }}>
             <Icon
               className="trigger"
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggle}
             />
-            </div>
           </Header>
-          <Content className="content">content</Content>
+          <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280 }}>
+            Content
+          </Content>
         </Layout>
       </Layout>
     );
@@ -71,42 +71,30 @@ ReactDOM.render(<SiderDemo />, mountNode);
 ````
 
 ````css
-.ant-layout-demo-custom .nav {
-  background: #fff;
-  height: 100%;
-  margin: 0 -50px;
-}
-
-.ant-layout-demo-custom .trigger {
+#components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 16px;
   cursor: pointer;
-  transition: color .3s ease;
+  transition: color .3s;
 }
 
-.ant-layout-demo-custom .trigger:hover {
+#components-layout-demo-custom-trigger .trigger:hover {
   color: #108ee9;
 }
 
-.ant-layout-demo-custom .logo {
-  width: 32px;
+#components-layout-demo-custom-trigger .logo {
   height: 32px;
   background: #333;
   border-radius: 6px;
   margin: 16px;
 }
 
-.ant-layout-demo-custom .ant-layout-sider-collapsed .anticon {
+#components-layout-demo-custom-trigger .ant-layout-sider-collapsed .anticon {
 	font-size: 16px;
-	transition: all .3s ease;
 }
 
-.ant-layout-demo-custom .ant-layout-sider-collapsed .nav-text {
+#components-layout-demo-custom-trigger .ant-layout-sider-collapsed .nav-text {
 	display: none;
-}
-
-.ant-layout-demo-custom .content {
-  margin: 24px 16px;
 }
 ````

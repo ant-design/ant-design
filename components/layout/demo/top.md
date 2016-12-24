@@ -18,7 +18,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 const { Header, Content, Footer } = Layout;
 
 ReactDOM.render(
-  <Layout className="ant-layout-demo-top">
+  <Layout className="layout">
     <Header>
       <div className="logo" />
       <Menu
@@ -32,17 +32,15 @@ ReactDOM.render(
         <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
     </Header>
-    <Content>
-      <div className="breadcrumb">
-        <Breadcrumb>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
-      </div>
-      <div className="content">content</div>
+    <Content style={{ padding: '0 50px' }}>
+      <Breadcrumb style={{ margin: '12px 0' }}>
+        <Breadcrumb.Item>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>List</Breadcrumb.Item>
+        <Breadcrumb.Item>App</Breadcrumb.Item>
+      </Breadcrumb>
+      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content</div>
     </Content>
-    <Footer className="footer">
+    <Footer style={{ textAlign: 'center' }}>
       Ant Design ©2016 Created by Ant UED
     </Footer>
   </Layout>
@@ -50,26 +48,12 @@ ReactDOM.render(
 ````
 
 ````css
-.ant-layout-demo-top .breadcrumb {
-  padding: 7px 0 7px 24px;
-  margin: 0 -24px;
-  background: #ececec;
-}
-
-.ant-layout-demo-top .logo {
+#components-layout-demo-top .logo {
   width: 120px;
   height: 31px;
   background: #333;
   border-radius: 6px;
-  margin: 16px 28px 16px 0;
+  margin: 16px 24px 16px 0;
   float: left;
-}
-
-.ant-layout-demo-top .content {
-  min-height: 280px;
-}
-
-.ant-layout-demo-top .footer {
-  text-align: center;
 }
 ````

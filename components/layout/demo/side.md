@@ -21,13 +21,13 @@ class SiderDemo extends React.Component {
   state = {
     collapsed: false,
   };
-  onCollapse = (collapsedStatus) => {
-    console.log(collapsedStatus);
-    this.setState({ collapsed: collapsedStatus });
+  onCollapse = (collapsed) => {
+    console.log(collapsed);
+    this.setState({ collapsed });
   }
   render() {
     return (
-      <Layout className="ant-layout-demo-side">
+      <Layout>
         <Sider
           collapsible
           collapsed={this.state.collapsed}
@@ -62,20 +62,18 @@ class SiderDemo extends React.Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header>
-            <div className="nav" />
-          </Header>
-          <Content className="main">
-            <div className="breadcrumb">
-              <Breadcrumb>
-                <Breadcrumb.Item>Home</Breadcrumb.Item>
-                <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
-              </Breadcrumb>
+          <Header style={{ background: '#fff', padding: 0 }} />
+          <Content style={{ margin: '0 16px' }}>
+            <Breadcrumb style={{ margin: '12px 0' }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+              content
             </div>
-            <div>content</div>
           </Content>
-          <Footer className="footer">
+          <Footer style={{ textAlign: 'center' }}>
             Ant Design ©2016 Created by Ant UED
           </Footer>
         </Layout>
@@ -88,41 +86,18 @@ ReactDOM.render(<SiderDemo />, mountNode);
 ````
 
 ````css
-.ant-layout-demo-side .nav {
-  background: #fff;
-  height: 100%;
-  margin: 0 -50px;
-}
-
-.ant-layout-demo-side .logo {
-  width: 32px;
+#components-layout-demo-side .logo {
   height: 32px;
   background: #333;
   border-radius: 6px;
   margin: 16px;
 }
 
-.ant-layout-demo-side .main {
-  margin: 0 16px 24px 16px;
-}
-
-.ant-layout-demo-side .breadcrumb {
-  padding: 7px 0 7px 24px;
-  margin: 0 -24px;
-  background: #ececec;
-}
-
-.ant-layout-demo-side .ant-layout-sider-collapsed .anticon {
+#components-layout-demo-side .ant-layout-sider-collapsed .anticon {
 	font-size: 16px;
-	transition: all .3s ease;
 }
 
-.ant-layout-demo-side .ant-layout-sider-collapsed .nav-text {
+#components-layout-demo-side .ant-layout-sider-collapsed .nav-text {
 	display: none;
-}
-
-.ant-layout-demo-side .footer {
-  background: #fff;
-  text-align: center;
 }
 ````
