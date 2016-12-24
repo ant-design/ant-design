@@ -2,8 +2,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
 <div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Tag 1
@@ -11,8 +10,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Tag 2
@@ -22,8 +20,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Tag 3
@@ -33,8 +30,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       <a
@@ -47,8 +43,7 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Prevent Default
@@ -112,8 +107,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
 <div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Unremovable
@@ -121,8 +115,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Tag 2
@@ -132,8 +125,7 @@ exports[`test renders ./components/tag/demo/control.md correctly 1`] = `
   </div>
   <div
     class="ant-tag"
-    data-show="true"
-    style="background-color:;">
+    data-show="true">
     <span
       class="ant-tag-text">
       Tag 3
