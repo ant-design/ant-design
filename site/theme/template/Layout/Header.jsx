@@ -20,7 +20,7 @@ export default class Header extends React.Component {
   componentDidMount() {
     /* eslint-disable global-require */
     require('enquire.js')
-      .register('only screen and (min-width: 320px) and (max-width: 940px)', {
+      .register('only screen and (min-width: 320px) and (max-width: 1024px)', {
         match: () => {
           this.setState({ menuMode: 'inline' });
         },
@@ -137,7 +137,7 @@ export default class Header extends React.Component {
               <span>Ant Design</span>
             </Link>
           </Col>
-          <Col lg={20} md={18} sm={17} xs={0} style={{ display: 'block' }}>
+          <Col lg={20} md={18} sm={0} xs={0}>
             <div id="search-box">
               <Select
                 combobox
