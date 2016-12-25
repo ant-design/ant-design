@@ -108,7 +108,7 @@ $ npm run eject
 
 ### 按需加载
 
-现在可以安装 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 并修改 `src/webconfig.dev.js` 文件。
+现在可以安装 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 并修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
 $ npm install babel-plugin-import --save-dev
@@ -138,7 +138,7 @@ $ npm install babel-plugin-import --save-dev
 
 ### 自定义主题
 
-按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能，因此首先我们需要引入 [less-loader](https://github.com/webpack/less-loader) 来加载 less 样式，同时修改 `src/webconfig.dev.js` 文件。
+按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能，因此首先我们需要引入 [less-loader](https://github.com/webpack/less-loader) 来加载 less 样式，同时修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
 $ npm install less less-loader --save-dev
