@@ -458,7 +458,7 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
           class="ant-slider-rail" />
         <div
           class="ant-slider-track ant-slider-track-1"
-          style="visibility:visible;left:0%;width:33.33333333333333%;" />
+          style="visibility:visible;left:0%;width:40%;" />
         <div
           class="ant-slider-step">
           <span
@@ -466,62 +466,54 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
             style="left:0%;" />
           <span
             class="ant-slider-dot ant-slider-dot-active"
-            style="left:16.666666666666664%;" />
+            style="left:20%;" />
           <span
             class="ant-slider-dot ant-slider-dot-active"
-            style="left:33.33333333333333%;" />
+            style="left:40%;" />
           <span
             class="ant-slider-dot"
-            style="left:50%;" />
+            style="left:60%;" />
           <span
             class="ant-slider-dot"
-            style="left:66.66666666666666%;" />
-          <span
-            class="ant-slider-dot"
-            style="left:83.33333333333334%;" />
+            style="left:80%;" />
           <span
             class="ant-slider-dot"
             style="left:100%;" />
         </div>
         <div
           class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
-          style="left:33.33333333333333%;" />
+          style="left:40%;" />
         <div
           class="ant-slider-mark">
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:0%;">
+            style="width:18%;margin-left:-9%;left:0%;">
             2
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:16.666666666666664%;">
+            style="width:18%;margin-left:-9%;left:20%;">
             3
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:33.33333333333333%;">
+            style="width:18%;margin-left:-9%;left:40%;">
             4
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:50%;">
+            style="width:18%;margin-left:-9%;left:60%;">
             6
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:66.66666666666666%;">
+            style="width:18%;margin-left:-9%;left:80%;">
             8
           </span>
           <span
             class="ant-slider-mark-text"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:83.33333333333334%;">
+            style="width:18%;margin-left:-9%;left:100%;">
             12
-          </span>
-          <span
-            class="ant-slider-mark-text"
-            style="width:15.000000000000002%;margin-left:-7.500000000000001%;left:100%;">
-            24
           </span>
         </div>
       </div>
@@ -559,6 +551,14 @@ exports[`test renders ./components/grid/demo/playground.md correctly 1`] = `
       </div>
     </div>
   </div>
+  <pre>
+    <Row gutter={16}>
+      <Col span={6} />
+      <Col span={6} />
+      <Col span={6} />
+      <Col span={6} />
+    </Row>
+  </pre>
 </div>
 `;
 
