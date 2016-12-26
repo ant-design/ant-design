@@ -111,7 +111,7 @@ $ npm run eject
 
 ### Import on demand
 
-After eject all config files to antd-demo, we allowed to install [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) and modify `src/webconfig.dev.js` now.
+After eject all config files to antd-demo, we allowed to install [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) and modify `config/webpack.config.dev.js` now.
 
 ```bash
 $ npm install babel-plugin-import --save-dev
