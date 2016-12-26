@@ -101,8 +101,7 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   render() {
-    const props = this.props;
-    const { type, shape, size = '', className, htmlType, children, icon, loading, prefixCls, ...others } = props;
+    const { type, shape, size = '', className, htmlType, children, icon, loading, prefixCls, ...others } = this.props;
 
     // large => lg
     // small => sm
@@ -120,7 +119,7 @@ export default class Button extends React.Component<ButtonProps, any> {
     }, className);
 
     const iconType = loading ? 'loading' : icon;
-
+    const iconNode = iconType ? <Icon type={iconType} /> : null;
     const kids = React.Children.map(children, insertSpace);
 
     return (
@@ -131,7 +130,7 @@ export default class Button extends React.Component<ButtonProps, any> {
         onMouseUp={this.handleMouseUp}
         onClick={this.handleClick}
       >
-        {iconType ? <Icon type={iconType} /> : null}{kids}
+        {iconNode}{kids}
       </button>
     );
   }
