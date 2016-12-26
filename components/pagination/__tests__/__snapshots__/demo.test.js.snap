@@ -88,7 +88,7 @@ exports[`test renders ./components/pagination/demo/changer.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-5"
+    class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
     title="5">
     <a>
       5
@@ -234,7 +234,7 @@ exports[`test renders ./components/pagination/demo/jump.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-5"
+    class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
     title="5">
     <a>
       5
@@ -505,7 +505,7 @@ exports[`test renders ./components/pagination/demo/more.md correctly 1`] = `
     </a>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-5"
+    class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
     title="5">
     <a>
       5

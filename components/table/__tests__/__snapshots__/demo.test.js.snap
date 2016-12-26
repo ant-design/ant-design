@@ -4163,7 +4163,7 @@ exports[`test renders ./components/table/demo/fixed-columns-header.md correctly 
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-5"
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
       title="5">
       <a>
         5
@@ -6057,7 +6057,7 @@ exports[`test renders ./components/table/demo/grouping-columns.md correctly 1`] 
       </a>
     </li>
     <li
-      class="ant-pagination-item ant-pagination-item-5"
+      class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
       title="5">
       <a>
         5
