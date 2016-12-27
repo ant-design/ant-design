@@ -1,5 +1,5 @@
 ---
-order: 22
+order: 24
 title:
   en-US: Dynamic Settings
   zh-CN: 动态控制表格属性
@@ -62,6 +62,7 @@ for (let i = 1; i <= 10; i++) {
 
 const expandedRowRender = record => <p>{record.description}</p>;
 const title = () => 'Here is title';
+const showHeader = true;
 const footer = () => 'Here is footer';
 const scroll = { y: 240 };
 
@@ -73,6 +74,7 @@ class Demo extends React.Component {
     size: 'default',
     expandedRowRender,
     title,
+    showHeader,
     footer,
     rowSelection: {},
     scroll: undefined,
@@ -94,6 +96,10 @@ class Demo extends React.Component {
 
   handleTitleChange = (enable) => {
     this.setState({ title: enable ? title : undefined });
+  }
+
+  handleHeaderChange = (enable) => {
+    this.setState({ showHeader: enable ? showHeader : false });
   }
 
   handleFooterChange = (enable) => {
@@ -125,6 +131,9 @@ class Demo extends React.Component {
             </FormItem>
             <FormItem label="Title">
               <Switch checked={!!state.title} onChange={this.handleTitleChange} />
+            </FormItem>
+            <FormItem label="Column Header">
+              <Switch checked={!!state.showHeader} onChange={this.handleHeaderChange} />
             </FormItem>
             <FormItem label="Footer">
               <Switch checked={!!state.footer} onChange={this.handleFooterChange} />
