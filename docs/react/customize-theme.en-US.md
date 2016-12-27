@@ -15,7 +15,7 @@ We are using [Less](http://lesscss.org/) as the development language of style. A
 
 Please report an issue if the existing list of variables is not enough for you.
 
-## How to use it
+## How to do it
 
 We recommend [modifyVars](http://lesscss.org/usage/#using-less-in-the-browser-modify-variables) to override the default values of the variables. There are two ways to achieve it in practice.
 
@@ -37,7 +37,10 @@ Specify the `theme` property in `package.json` file, whose value can be either a
 
 This approach is working only when using [atool-build](https://github.com/ant-tool/atool-build)(built in [antd-init](https://github.com/ant-design/antd-init) and [dva-cli](https://github.com/dvajs/dva-cli)). If you choose other boilerplates, you can write webpack config about [less-loader modifyVars](https://github.com/webpack/less-loader#less-options) like [atool-build ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138) does.
 
-Note: Importing less style is necessary. Please specify `style` option of `babel-plugin-import` to be `true`.
+Note:
+
+- Importing style from less files is necessary. Please specify `style` option of `babel-plugin-import` to be `true`.
+- If you want to override `@icon-url`, the quotes must be contained in value like `"@icon-url": "'your-icon-font-path'"` ([A fix sample](https://github.com/visvadw/dvajs-user-dashboard/pull/2)).
 
 ### 2) Overriding Less variables (alternative way)
 

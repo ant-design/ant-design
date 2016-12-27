@@ -40,7 +40,10 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 
 定义 `package.theme` 时， 需要配合 [atool-build](https://github.com/ant-tool/atool-build) 使用（[antd-init](https://github.com/ant-design/antd-init) 和 [dva-cli](https://github.com/dvajs/dva-cli) 内建支持）。如果你使用的是其他脚手架，可以参考 [atool-build 中 less-loader 的 webpack 相关配置 ](https://github.com/ant-tool/atool-build/blob/a4b3e3eec4ffc09b0e2352d7f9d279c4c28fdb99/src/getWebpackCommonConfig.js#L131-L138)，利用 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 配置来覆盖原来的样式变量。
 
-注意，样式必须加载 less 格式。如果您使用了 `babel-plugin-import`，请将 style 属性配置为 `true`。
+注意：
+
+- 样式必须加载 less 格式。如果您使用了 `babel-plugin-import`，请将 style 属性配置为 `true`。
+- 如果要覆盖 `@icon-url` 变量，内容需要包括引号 `"@icon-url": "'your-icon-font-path'"`（[修正示例](https://github.com/visvadw/dvajs-user-dashboard/pull/2)）。
 
 ### 2) less
 
