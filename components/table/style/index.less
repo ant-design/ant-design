@@ -111,6 +111,12 @@
     }
   }
 
+  // https://github.com/ant-design/ant-design/issues/4373
+  &-without-column-header &-title + &-content,
+  &-without-column-header table {
+    border-radius: 0;
+  }
+
   &-tbody > tr.@{table-prefix-cls}-row-selected {
     background: #fafafa;
   }

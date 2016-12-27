@@ -823,7 +823,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   render() {
-    const { style, className, prefixCls, ...restProps } = this.props;
+    const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
@@ -833,6 +833,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       [`${prefixCls}-${this.props.size}`]: true,
       [`${prefixCls}-bordered`]: this.props.bordered,
       [`${prefixCls}-empty`]: !data.length,
+      [`${prefixCls}-without-column-header`]: !showHeader,
     });
 
     columns = this.renderColumnsDropdown(columns);
@@ -853,6 +854,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         prefixCls={prefixCls}
         data={data}
         columns={columns}
+        showHeader={showHeader}
         className={classString}
         expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
