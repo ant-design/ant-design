@@ -111,7 +111,7 @@ $ npm run eject
 
 ### Import on demand
 
-After eject all config files to antd-demo, we allowed to install [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) and modify `config/webpack.config.dev.js` now.
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started-cn#按需加载)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
 
 ```bash
 $ npm install babel-plugin-import --save-dev
@@ -134,6 +134,8 @@ $ npm install babel-plugin-import --save-dev
   }
 },
 ```
+
+> Note: because there is no `.babelrc` file after config eject, so we have to put the babel option into `webpack.config.js` or `babel` field of `package.json`.
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles.
 

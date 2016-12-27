@@ -108,7 +108,7 @@ $ npm run eject
 
 ### 按需加载
 
-现在可以安装 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 并修改 `config/webpack.config.dev.js` 文件。
+[babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started-cn#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
 $ npm install babel-plugin-import --save-dev
@@ -131,6 +131,8 @@ $ npm install babel-plugin-import --save-dev
   }
 },
 ```
+
+> 注意，由于 create-react-app eject 之后的配置中没有 `.babelrc` 文件，所以需要把配置放到 `webpack.config.js` 或 `package.json` 的 `babel` 属性中。
 
 然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，现在 babel-plugin-import 会按需加载样式。
 
@@ -191,4 +193,4 @@ loaders: [
 
 以上是在 create-react-app 中使用 antd 的相关实践，你也可以借鉴此文的做法在自己的 webpack 工作流中使用 antd，更多 webpack 配置可参考 [atool-build](https://github.com/ant-tool/atool-build/blob/master/src/getWebpackCommonConfig.js)。
 
-本例源码可见：https://github.com/ant-design/create-react-app-antd
+本例所有源码可见：https://github.com/ant-design/create-react-app-antd
