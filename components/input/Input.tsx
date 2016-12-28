@@ -53,6 +53,7 @@ export interface InputProps {
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;
+  prefix?: React.ReactNode;
   suffix?: React.ReactNode;
 }
 
@@ -83,6 +84,7 @@ export default class Input extends Component<InputProps, any> {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+    prefix: PropTypes.node,
     suffix: PropTypes.node,
   };
 
@@ -144,7 +146,7 @@ export default class Input extends Component<InputProps, any> {
     this.refs.input.focus();
   }
 
-  renderLabledInput(children) {
+  renderLabeledInput(children) {
     const props = this.props;
 
     // Not wrap when there is not addons
@@ -180,6 +182,34 @@ export default class Input extends Component<InputProps, any> {
     );
   }
 
+  renderLabeledIcon(children) {
+    const { props } = this;
+
+    if (props.type === 'textarea' || (!props.prefix && !props.suffix)) {
+      return children;
+    }
+
+    const prefix = props.prefix ? (
+      <span className={`${props.prefixCls}-prefix`}>
+        {props.prefix}
+      </span>
+    ) : null;
+
+    const suffix = props.suffix ? (
+      <span className={`${props.prefixCls}-suffix`}>
+        {props.suffix}
+      </span>
+    ) : null;
+
+    return (
+      <span className={`${props.prefixCls}-preSuffix-wrapper`}>
+        {prefix}
+        {children}
+        {suffix}
+      </span>
+    );
+  }
+
   renderInput() {
     const props = assign({}, this.props);
     // Fix https://fb.me/react-unknown-prop
@@ -189,6 +219,7 @@ export default class Input extends Component<InputProps, any> {
       'autosize',
       'addonBefore',
       'addonAfter',
+      'prefix',
       'suffix',
     ]);
 
@@ -222,8 +253,7 @@ export default class Input extends Component<InputProps, any> {
           />
         );
       default:
-        const withSuffix = props.suffix && !props.textarea;
-        const input = (
+        return this.renderLabeledIcon(
           <input
             {...otherProps}
             className={inputClassName}
@@ -231,19 +261,10 @@ export default class Input extends Component<InputProps, any> {
             ref="input"
           />
         );
-
-        return withSuffix ? (
-          <span className={`${prefixCls}-suffix-wrapper`}>
-            {input}
-            <span className={`${prefixCls}-suffix`}>
-              {props.suffix}
-            </span>
-          </span>
-        ) : input;
     }
   }
 
   render() {
-    return this.renderLabledInput(this.renderInput());
+    return this.renderLabeledInput(this.renderInput());
   }
 }
