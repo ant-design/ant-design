@@ -269,7 +269,10 @@ File sizes after gzip:
 
 你可以：
 
-- 访问 [dva 官网](https://github.com/dvajs/dva)。
-- 查看所有 [API](https://github.com/dvajs/dva#api)。
-- [教程](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md)，一步步完成一个中型应用。
-- 看看 [dva 版 hackernews](https://github.com/dvajs/dva-hackernews) 是 [如何实现](https://github.com/sorrycc/blog/issues/9) 的。
+- 访问 [dva 官网](https://github.com/dvajs/dva)
+- 理解 dva 的 [8 个概念](https://github.com/dvajs/dva/blob/master/docs/Concepts_zh-CN.md) ，以及他们是如何串起来的
+- 掌握 dva 的[所有 API](https://github.com/dvajs/dva/blob/master/docs/API_zh-CN.md)
+- 查看 [dva 知识地图](https://github.com/dvajs/dva-knowledgemap) ，包含 ES6, React, dva 等所有基础知识
+- 查看 [更多 FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)，看看别人通常会遇到什么问题
+- 如果你基于 dva-cli 创建项目，最好了解他的 [配置方式](https://github.com/sorrycc/roadhog#配置)
+

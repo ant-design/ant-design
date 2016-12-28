@@ -270,6 +270,8 @@ We have completed a simple application, but you may still have lots of questions
 You can:
 
 - Visit [dva official website](https://github.com/dvajs/dva).
-- View all the [API](https://github.com/dvajs/dva#api).
-- View [tutorial](https://github.com/dvajs/dva-docs/blob/master/v1/zh-cn/tutorial/01-%E6%A6%82%E8%A6%81.md), complete a medium application step by step.
-- View examples, such as [dva version of hackernews](https://github.com/dvajs/dva-hackernews).
+- Familiar with the [8 Conpects](https://github.com/dvajs/dva/blob/master/docs/Concepts.md), and know how they are connected together
+- Know all [dva APIs](https://github.com/dvajs/dva/blob/master/docs/API.md)
+- Checkout [dva knowledgemap](https://github.com/dvajs/dva-knowledgemap), including all the basic knowledge with ES6, React, dva
+- Checkout [more FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)
+- If your project is created with [dva-cli](https://github.com/dvajs/dva-cli) , checkout how to [Configure it](https://github.com/sorrycc/roadhog#配置)
