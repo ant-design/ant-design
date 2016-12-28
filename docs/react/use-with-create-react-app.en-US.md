@@ -1,6 +1,6 @@
 ---
 order: 4
-title: Use with create-react-app
+title: Use in create-react-app
 ---
 
 [create-react-app](https://github.com/facebookincubator/create-react-app) is one of best React application development tool, we are going to use `antd` within it and modify the webpack config for some customized needs.
