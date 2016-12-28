@@ -97,8 +97,7 @@ export default App;
 我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的代码（对前端性能是个隐患）。
 
 > 你会在控制台看到如下警告。
-
-![](https://zos.alipayobjects.com/rmsportal/dBLScZPjiUwunfyQVISX.png)
+> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
 
 我们需要对 create-react-app 的默认配置进行自定义。可以使用 `eject` 命令将所有内建的配置暴露出来。
 

@@ -100,8 +100,7 @@ We are successd to run antd components now, but in the real world, there are sti
 For instance, we actully import all components in the project which will be a serious network perfermance issue.
 
 > You will see a warning in your browser console.
-
-![](https://zos.alipayobjects.com/rmsportal/dBLScZPjiUwunfyQVISX.png)
+> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
 
 So it is necessary to customize the default webpack config. We can achieve that by using `eject` script command.
 
