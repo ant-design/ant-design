@@ -58,7 +58,7 @@ class EditableCell extends React.Component {
         </div>
         :
         <div className="editable-row-text">
-          {value || ' '}
+          {value.toString() || ' '}
         </div>
       }
     </div>);
