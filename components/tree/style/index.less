@@ -11,8 +11,8 @@
   padding: 5px;
   font-size: @font-size-base;
   li {
-    padding: 0;
-    margin: 7px 0;
+    padding: 3.5px 0;
+    margin: 0;
     list-style: none;
     white-space: nowrap;
     outline: 0;
@@ -112,6 +112,14 @@
           }
         }
       }
+    }
+  }
+  > li {
+    &:first-child {
+      padding-top: 7px;
+    }
+    &:last-child {
+      padding-bottom: 7px;
     }
   }
   &-child-tree {
