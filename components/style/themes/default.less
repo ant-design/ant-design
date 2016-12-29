@@ -5,11 +5,11 @@
 
 // Color
 @primary-color          : @blue-6;
-@success-color          : #87d068;
-@error-color            : #f50;
-@highlight-color        : #f50;
-@warning-color          : #fa0;
-@normal-color           : #d9d9d9;
+@success-color          : @green-6;
+@error-color            : @red-6;
+@highlight-color        : @red-6;
+@warning-color          : @yellow-6;
+@normal-color           : @gray-3;
 
 @primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
 @primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
@@ -61,8 +61,8 @@
 @ease-in-out-quint   : cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base      : #d9d9d9;        // base border outline a component
-@border-color-split     : #e9e9e9;        // split border inside a component
+@border-color-base      : @gray-5;        // base border outline a component
+@border-color-split     : @gray-4;        // split border inside a component
 
 // Outline
 @outline-blur-size      : 0;
