@@ -560,7 +560,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     warning(recordKey !== undefined,
       'Each record in table should have a unique `key` prop, or set `rowKey` to an unique primary key.'
     );
-    return recordKey;
+    return recordKey === undefined ? index : recordKey;
   }
 
   renderRowSelection() {
