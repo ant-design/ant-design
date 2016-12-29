@@ -1,4 +1,4 @@
-@import './color/color';
+@import "../color/colors";
 
 // Prefix
 @ant-prefix             : ant;
@@ -10,6 +10,17 @@
 @highlight-color        : #f50;
 @warning-color          : #fa0;
 @normal-color           : #d9d9d9;
+
+@primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
+@primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
+@primary-3: color(~`colorPalette("@{primary-color}", 3)`);
+@primary-4: color(~`colorPalette("@{primary-color}", 4)`);
+@primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // replace tint(@primary-color, 20%)
+@primary-6: @primary-color;                                 // don't use, use @primary-color
+@primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
+@primary-8: color(~`colorPalette("@{primary-color}", 8)`);
+@primary-9: color(~`colorPalette("@{primary-color}", 9)`);
+@primary-10: color(~`colorPalette("@{primary-color}", 10)`);
 
 // ------ Base & Require ------
 @body-background        : #fff;
@@ -30,9 +41,9 @@
 @icon-url               : "https://at.alicdn.com/t/font_r5u29ls31bgldi";
 
 // LINK
-@link-color             : @blue-6;
-@link-hover-color       : @blue-5;
-@link-active-color      : @blue-7;
+@link-color             : @primary-color;
+@link-hover-color       : @primary-5;
+@link-active-color      : @primary-7;
 @link-hover-decoration  : none;
 
 // Animation
@@ -77,7 +88,7 @@
 
 @btn-primary-color      : #fff;
 @btn-primary-bg         : @primary-color;
-@btn-group-border       : shade(@primary-color, 5%);
+@btn-group-border       : @primary-7;
 
 @btn-default-color      : @text-color;
 @btn-default-bg         : @background-color-base;
