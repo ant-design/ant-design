@@ -379,34 +379,6 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
   <div
     class="ant-row ant-form-item">
     <div
-      class="ant-col-4 ant-form-item-label">
-      <label
-        class=""
-        for="names-0">
-        Passengers
-      </label>
-    </div>
-    <div
-      class="ant-col-20">
-      <div
-        class="ant-form-item-control ">
-        <input
-          class="ant-input ant-input-lg"
-          data-__meta="[object Object]"
-          id="names-0"
-          placeholder="passenger name"
-          style="width:60%;margin-right:8px;"
-          type="text"
-          value="" />
-        <i
-          class="anticon anticon-minus-circle-o dynamic-delete-button"
-          disabled="" />
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item">
-    <div
       class="ant-col-20 ant-col-offset-4">
       <div
         class="ant-form-item-control ">
@@ -417,7 +389,23 @@ exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] 
           <i
             class="anticon anticon-plus" />
           <span>
-             Add
+             Add field
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item">
+    <div
+      class="ant-col-20 ant-col-offset-4">
+      <div
+        class="ant-form-item-control ">
+        <button
+          class="ant-btn ant-btn-primary ant-btn-lg"
+          type="submit">
+          <span>
+            Submit
           </span>
         </button>
       </div>
