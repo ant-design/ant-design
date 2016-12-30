@@ -66,7 +66,7 @@ export default function createPicker(TheCalendar) {
 
       // allow temp value to be modified from onSelect callback
       const modValue = onSelect && onSelect(tempValue) || tempValue;
-      
+
       this.setState({ tempValue: modValue });
     },
 
