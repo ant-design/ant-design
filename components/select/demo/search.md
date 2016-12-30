@@ -28,6 +28,7 @@ ReactDOM.render(
     placeholder="Select a person"
     optionFilterProp="children"
     onChange={handleChange}
+    filterOption={(input, option) => option.props.value.toLowerCase().indexOf(input.toLowerCase()) >= 0}
   >
     <Option value="jack">Jack</Option>
     <Option value="lucy">Lucy</Option>
