@@ -68,9 +68,8 @@ moment.locale('zh-cn');
 | value        | 日期           | [moment](http://momentjs.com/)   | 无           |
 | defaultValue | 默认日期       | [moment](http://momentjs.com/)   | 无           |
 | format       | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
-| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | 无           |
-| monthCellContentRender | 自定义的月份渲染方法 | function | 无 |
-| cellContentRender | 自定义的月份渲染方法，内容会被附加在月份后面 | function | 无 |
+| onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | -           |
+| monthCellContentRender | 自定义的月份内容渲染方法 | function(date, locale): React.Node | - |
 
 ### RangePicker
 

@@ -132,6 +132,7 @@ export default function createPicker(TheCalendar) {
           onOk={props.onOk}
           format={props.format}
           showToday={props.showToday}
+          monthCellContentRender={props.monthCellContentRender}
         />
       );
 

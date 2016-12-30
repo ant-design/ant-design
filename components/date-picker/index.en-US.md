@@ -68,8 +68,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | defaultValue | to set default date       | [moment](http://momentjs.com/)   | -           |
 | format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
-| monthCellContentRender | Custom month cell render method | function | 无 |
-| cellContentRender | Custom month cell content render method,the content will be appended to the cell. | function | 无 |
+| monthCellContentRender | Custom month cell content render method | function(date, locale): React.Node | - |
 
 ### RangePicker
 
