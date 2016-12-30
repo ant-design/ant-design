@@ -55,6 +55,9 @@ export default class Spin extends React.Component<SpinProps, any> {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -67,7 +70,9 @@ export default class Spin extends React.Component<SpinProps, any> {
     }
     if (currentSpinning && !spinning) {
       this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 300);
-      clearTimeout(this.delayTimeout);
+      if (this.delayTimeout) {
+        clearTimeout(this.delayTimeout);
+      }
     } else {
       if (spinning && delay && !isNaN(Number(delay))) {
         this.delayTimeout = setTimeout(() => this.setState({ spinning }), delay);
