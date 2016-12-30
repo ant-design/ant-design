@@ -21,15 +21,14 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
-
   &:hover,
   &:focus {
-    .button-color(@color; tint(@background, 20%); tint(@background, 20%));
+    .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
   }
 
   &:active,
   &.active {
-    .button-color(@color; shade(@background, 5%); shade(@background, 5%));
+    .button-color(@color; ~`colorPalette("@{background}", 7)`; ~`colorPalette("@{background}", 7)`);
   }
 
   .button-disabled();
