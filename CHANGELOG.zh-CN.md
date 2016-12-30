@@ -12,14 +12,15 @@ timeline: true
 ## 2.5.3
 
 `2016-12-24` 🎄🎄🎄
-* 支持 TypeScript@2.1
+
+* 支持 TypeScript@2.1。[#4208](https://github.com/ant-design/ant-design/issues/4208)
 * 修正了 Tabs 嵌套时的样式问题。 [#4317](https://github.com/ant-design/ant-design/issues/4317)
-* 修正了 Radio 在当前项选中时，再次点击仍会触发 onChange 的问题。 [4242](https://github.com/ant-design/ant-design/issues/4242)
-* 修正了 Form 多列栅格式的表单排列方式布局异常。 [4271](https://github.com/ant-design/ant-design/issues/4271)
-* 修正了 Menu 竖直方向的当前选择项的背景问题。[4253](https://github.com/ant-design/ant-design/issues/4253)
-* 优化了 Dropdown 的 onVisibleChange 回调的参数。[4236](https://github.com/ant-design/ant-design/issues/4236) [@bang88](https://github.com/bang88)
-* 优化了 Cascader 的 onChange 回调的第一个参数。[4231](https://github.com/ant-design/ant-design/issues/4231) [@bang88](https://github.com/bang88)
-* 优化了 Datepicker[showTime] 的默认宽度 [b912f](https://github.com/ant-design/ant-design/commit/b912f1cea6f470c16b8dd90554883460161cef47)
+* 修正了 Radio 在当前项选中时，再次点击仍会触发 onChange 的问题。 [#4242](https://github.com/ant-design/ant-design/issues/4242) [@ystarlongzi](https://github.com/ystarlongzi)
+* 修正了 Form 多列栅格式的表单排列方式布局异常。 [#4271](https://github.com/ant-design/ant-design/issues/4271)
+* 修正了 Menu 竖直方向的当前选择项的背景问题。[#4253](https://github.com/ant-design/ant-design/issues/4253)
+* 优化了 Dropdown 的 `onVisibleChange` 回调参数 Type 类型。[#4236](https://github.com/ant-design/ant-design/issues/4236)
+* 优化了 Cascader 的 `onChange` 回调参数的 Type 类型。[#4231](https://github.com/ant-design/ant-design/issues/4231)
+* 优化了 Datepicker[showTime] 的默认宽度 [b912f1c](https://github.com/ant-design/ant-design/commit/b912f1cea6f470c16b8dd90554883460161cef47)
 
 ## 2.5.2
 

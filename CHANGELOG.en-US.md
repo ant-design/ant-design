@@ -12,14 +12,15 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 ## 2.5.3
 
 `2016-12-24` 🎄🎄🎄
-* Supports TypeScript@2.1
+
+* Supports TypeScript@2.1. [#4208](https://github.com/ant-design/ant-design/issues/4208)
 * Fix style issue resulting in nested Tabs. [#4317](https://github.com/ant-design/ant-design/issues/4317)
-* Fix `onChange` callback issue resulting in Radio. [4242](https://github.com/ant-design/ant-design/issues/4242)
-* Fix a FormItem mis-aligin bug。 [4271](https://github.com/ant-design/ant-design/issues/4271)
-* Fix background issue resulting in selected element of veritcal Menu.[4253](https://github.com/ant-design/ant-design/issues/4253)
-* Improve arguments of `onVisibleChange` callback of  Dropdown.[4236](https://github.com/ant-design/ant-design/issues/4236) [@bang88](https://github.com/bang88)
-* Improve first argument of `onChange` callback of Cascader.[4231](https://github.com/ant-design/ant-design/issues/4231) [@bang88](https://github.com/bang88)
-* Improve default width of Datepicker[showTime]. [b912f](https://github.com/ant-design/ant-design/commit/b912f1cea6f470c16b8dd90554883460161cef47)
+* Fix `onChange` callback issue resulting in Radio. [#4242](https://github.com/ant-design/ant-design/issues/4242) [@ystarlongzi](https://github.com/ystarlongzi)
+* Fix a FormItem mis-aligin bug。 [#4271](https://github.com/ant-design/ant-design/issues/4271)
+* Fix background issue resulting in selected element of veritcal Menu.[#4253](https://github.com/ant-design/ant-design/issues/4253)
+* Improve arguments type of `onVisibleChange` callback of  Dropdown.[#4236](https://github.com/ant-design/ant-design/issues/4236) [@bang88](https://github.com/bang88)
+* Improve first argument type of `onChange` callback of Cascader.[#4231](https://github.com/ant-design/ant-design/issues/4231) [@bang88](https://github.com/bang88)
+* Improve default width of Datepicker[showTime]. [b912f1c](https://github.com/ant-design/ant-design/commit/b912f1cea6f470c16b8dd90554883460161cef47)
 
 ## 2.5.2
 
