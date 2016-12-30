@@ -27,7 +27,7 @@ const Palette = React.createClass({
       colors.push(
         <div
           key={i}
-          className={`palatte-${name}-${i}`}
+          className={`main-color-item palatte-${name}-${i}`}
           style={{
             color: i > 5 ? '#fff' : 'unset',
             fontWeight: i === 6 ? 'bold' : 'normal',
