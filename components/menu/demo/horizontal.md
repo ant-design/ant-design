@@ -1,6 +1,6 @@
 ---
 order: 0
-title: 
+title:
   zh-CN: 顶部导航
   en-US: Top Navigation
 ---
@@ -32,7 +32,9 @@ const App = React.createClass({
   },
   render() {
     return (
-      <Menu onClick={this.handleClick}
+      <Menu
+        theme="dark"
+        onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
