@@ -70,7 +70,7 @@
       content: "•••";
       display: block;
       letter-spacing: 2px;
-      color: #ccc;
+      color: @disabled-color;
       text-align: center;
     }
 
@@ -175,13 +175,13 @@
     &:hover {
       border-color: @border-color-base;
       a {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
       }
     }
     cursor: not-allowed;
     a {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 

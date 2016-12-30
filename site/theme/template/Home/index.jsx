@@ -43,11 +43,11 @@ function getStyle() {
       border-left-color: #EBEDEE;
     }
     .home-nav-white #nav a {
-      color: #666;
+      color: @text-color;
     }
     .home-nav-white .lang:not(:hover) {
-      color: #666;
-      border-color: #666;
+      color: @text-color;
+      border-color: @text-color;
     }
     .nav-phone-icon:before {
       background: #eee;

@@ -14,7 +14,7 @@
   vertical-align: middle;
   border-radius: 20px;
   border: 1px solid #ccc;
-  background-color: #ccc;
+  background-color: @disabled-color;
   cursor: pointer;
   transition: all @switch-duration;
   user-select: none;
@@ -122,7 +122,7 @@
     }
 
     .@{switch-prefix-cls}-inner {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 }

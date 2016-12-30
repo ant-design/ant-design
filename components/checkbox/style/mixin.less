@@ -101,7 +101,7 @@
     &.@{checkbox-prefix-cls}-checked {
       .@{checkbox-inner-prefix-cls}:after {
         animation-name: none;
-        border-color: #ccc;
+        border-color: @disabled-color;
       }
     }
 
@@ -115,7 +115,7 @@
     }
 
     & + span {
-      color: #ccc;
+      color: @disabled-color;
       cursor: not-allowed;
     }
   }

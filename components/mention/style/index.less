@@ -54,7 +54,7 @@
   overflow-y: auto;
   font-size: @font-size-base;
   &-notfound.@{ant-prefix}-mention-dropdown-item {
-    color: #ccc;
+    color: @disabled-color;
 
     .@{iconfont-css-prefix}-loading {
       color: @primary-color;
@@ -82,11 +82,11 @@
     }
 
     &-disabled {
-      color: #ccc;
+      color: @disabled-color;
       cursor: not-allowed;
 
       &:hover {
-        color: #ccc;
+        color: @disabled-color;
         background-color: @component-background;
         cursor: not-allowed;
       }

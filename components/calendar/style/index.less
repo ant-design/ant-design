@@ -137,7 +137,7 @@
 
   &-last-month-cell &-value,
   &-next-month-btn-day &-value {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-month-panel-table {
@@ -179,7 +179,7 @@
     color: @text-color;
     height: 116px;
     padding: 4px 8px;
-    border-top: 2px solid #eee;
+    border-top: 2px solid @border-color-split;
     transition: background 0.3s ease;
 
     &:hover {
@@ -216,7 +216,7 @@
   }
   &-fullscreen &-last-month-cell &-date,
   &-fullscreen &-next-month-btn-day &-date {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-fullscreen &-content {

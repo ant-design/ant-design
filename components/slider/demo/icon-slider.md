@@ -64,7 +64,7 @@ ReactDOM.render(<IconSlider min={0} max={20} value={0} icon={['frown-o', 'smile-
   height: 16px;
   line-height: 1;
   font-size: 16px;
-  color: #ccc;
+  color: @disabled-color;
 }
 
 .icon-wrapper .anticon:first-child {
