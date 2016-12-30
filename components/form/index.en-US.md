@@ -86,11 +86,11 @@ After wrapped by `getFieldDecorator`, `value`(or other property defined by `valu
 
 If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless component: https://github.com/facebook/react/pull/6534
 
-#### getFieldDecorator's parameters
+#### getFieldDecorator(id, options) parameters
 
 | Property  | Description                             | Type | Default Value |
 |-----------|-----------------------------------------|------|---------------|
-| options.id | The unique identifier is required. | string | |
+| id | The unique identifier is required. support [nested fields format](https://github.com/react-component/form/pull/48). | string | |
 | options.valuePropName | Props of children node, for example, the prop of Switch is 'checked'. | string | 'value' |
 | options.initialValue | You can specify initial value, type, optional value of children node. | | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
