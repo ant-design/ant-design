@@ -194,7 +194,7 @@ export default class MainContent extends React.Component {
     return (
       <div className="main-wrapper">
         <Row>
-          <Col lg={5} md={6} sm={24} xs={24}>
+          <Col lg={4} md={6} sm={24} xs={24}>
             <Menu className="aside-container" mode="inline"
               openKeys={this.state.openKeys}
               selectedKeys={[activeMenuItem]}
@@ -203,7 +203,7 @@ export default class MainContent extends React.Component {
               {menuItems}
             </Menu>
           </Col>
-          <Col lg={19} md={18} sm={24} xs={24} className="main-container">
+          <Col lg={20} md={18} sm={24} xs={24} className="main-container">
             {
               props.demos ?
                 <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} /> :
@@ -213,7 +213,8 @@ export default class MainContent extends React.Component {
         </Row>
 
         <Row>
-          <Col lg={{ span: 19, offset: 5 }}
+          <Col
+            lg={{ span: 20, offset: 4 }}
             md={{ span: 18, offset: 6 }}
             sm={24} xs={24}
           >
