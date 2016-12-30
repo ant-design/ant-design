@@ -170,7 +170,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Fix issue resulting in preview image not display when `Upload` in `picture-card` mode. [#3706](https://github.com/ant-design/ant-design/pull/3706) [@denzw](https://github.com/denzw)
 * DatePicker
   * `onChange` will be triggered when `DatePicker` in `showTime` mode on blur now.
-  * Add `monthCellContentRender` and `cellContentRender` for `MonthPicker`.
+  * Add `monthCellContentRender` for `MonthPicker`.
   * `Rangepicker` can input time manually now.[#3718](https://github.com/ant-design/ant-design/issues/3718)
   * Add czech locale/translations.
 * Badge

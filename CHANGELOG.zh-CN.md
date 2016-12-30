@@ -169,7 +169,7 @@ timeline: true
 * 修复 `Upload` `picture-card` 模式下新上传的图片不显示预览的问题。[#3706](https://github.com/ant-design/ant-design/pull/3706) [@denzw](https://github.com/denzw)
 * DatePicker
   * 在 `showTime` 模式下现在失去焦点也会触发 `onChange`。
-  * `MonthPicker` 增加了 `monthCellContentRender` 和 `cellContentRender`。
+  * `MonthPicker` 增加了 `monthCellContentRender`。
   * `RangePicker` 现在可以手动输入时间了。[#3718](https://github.com/ant-design/ant-design/issues/3718)
   * 新增了捷克语的翻译。
 * Badge
