@@ -33,7 +33,6 @@ const App = React.createClass({
   render() {
     return (
       <Menu
-        theme="dark"
         onClick={this.handleClick}
         selectedKeys={[this.state.current]}
         mode="horizontal"
