@@ -2,6 +2,7 @@ import React from 'react';
 import { cloneElement } from 'react';
 import warning from '../_util/warning';
 import BreadcrumbItem from './BreadcrumbItem';
+import classNames from 'classnames';
 
 export interface BreadcrumbProps {
   prefixCls?: string;
@@ -10,6 +11,7 @@ export interface BreadcrumbProps {
   separator?: string | React.ReactNode;
   itemRender?: (route: any, params: any, routes: Array<any>, paths: Array<string>) => React.ReactNode;
   style?: React.CSSProperties;
+  className?: string;
 };
 
 function getBreadcrumbName(route, params) {
@@ -63,7 +65,10 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
   render() {
     let crumbs;
-    const { separator, prefixCls, routes, params = {}, children, itemRender = defaultItemRender } = this.props;
+    const {
+      separator, prefixCls, style, className, routes, params = {},
+      children, itemRender = defaultItemRender,
+    } = this.props;
     if (routes && routes.length > 0) {
       const paths: string[] = [];
       crumbs = routes.map((route) => {
@@ -93,7 +98,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       });
     }
     return (
-      <div className={prefixCls}>
+      <div className={classNames(className, prefixCls)} style={style}>
         {crumbs}
       </div>
     );
