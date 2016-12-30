@@ -38,7 +38,7 @@ ReactDOM.render(
     <Header>Header</Header>
     <Layout>
       <Content>Content</Content>
-      <Sider position="right">Sider</Sider>
+      <Sider>Sider</Sider>
     </Layout>
     <Footer>Footer</Footer>
   </Layout>
