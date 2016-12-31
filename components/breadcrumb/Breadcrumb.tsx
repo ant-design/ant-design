@@ -91,10 +91,23 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       });
     } else if (children) {
       crumbs = React.Children.map(children, (element: any, index) => {
-        return cloneElement(element, {
-          separator,
-          key: index,
-        });
+        const hasBreadcrumbItem = element.type.name === 'BreadcrumbItem';
+        if (!hasBreadcrumbItem) {
+          warning(
+            hasBreadcrumbItem,
+            ' `BreadcrumbItem` is required as the wrapper of chilren element. '
+          );
+          return (
+            <BreadcrumbItem separator={separator} key={index}>
+              {element}
+            </BreadcrumbItem>
+          );
+        } else {
+          return cloneElement(element, {
+            separator,
+            key: index,
+          });
+        }
       });
     }
     return (
