@@ -36,18 +36,21 @@ export default class Search extends React.Component<SearchProps, any> {
     const wrapperCls = classNames({
       [`${prefixCls}-wrapper`]: true,
     }, className);
+    const searchSuffix = (
+      <Icon
+        className={`${prefixCls}-icon`}
+        onClick={this.onSearch}
+        type="search"
+      />
+    );
     return (
       <div className={wrapperCls} style={style}>
         <Input
           className={prefixCls}
           onPressEnter={this.onSearch}
           ref={node => this.input = node}
+          suffix={searchSuffix}
           {...others}
-        />
-        <Icon
-          className={`${prefixCls}-icon`}
-          onClick={this.onSearch}
-          type="search"
         />
       </div>
     );

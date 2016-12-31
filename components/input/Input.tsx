@@ -49,10 +49,13 @@ export interface InputProps {
   onKeyDown?: React.FormEventHandler<any>;
   onChange?: React.FormEventHandler<any>;
   onClick?: React.FormEventHandler<any>;
+  onFocus?: React.FormEventHandler<any>;
   onBlur?: React.FormEventHandler<any>;
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
   style?: React.CSSProperties;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
 }
 
 export default class Input extends Component<InputProps, any> {
@@ -82,6 +85,10 @@ export default class Input extends Component<InputProps, any> {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    prefix: PropTypes.node,
+    suffix: PropTypes.node,
   };
 
   nextFrameActionId: number;
@@ -91,6 +98,7 @@ export default class Input extends Component<InputProps, any> {
 
   state = {
     textareaStyles: null,
+    isFocus: false,
   };
 
   componentDidMount() {
@@ -104,6 +112,35 @@ export default class Input extends Component<InputProps, any> {
         clearNextFrameAction(this.nextFrameActionId);
       }
       this.nextFrameActionId = onNextFrame(this.resizeTextarea);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { props, state, refs } = this;
+    const preHasPresuffix = prevProps.prefix || prevProps.suffix;
+    const curHasPresuffix = props.prefix || props.suffix;
+    if (state.isFocus && (preHasPresuffix !== curHasPresuffix)) {
+      refs.input.focus();
+    }
+  }
+
+  handleFocus = (e) => {
+    const { onFocus } = this.props;
+    this.setState({
+      isFocus: true,
+    });
+    if (onFocus) {
+      onFocus(e);
+    }
+  }
+
+  handleBlur = (e) => {
+    const { onBlur } = this.props;
+    this.setState({
+      isFocus: false,
+    });
+    if (onBlur) {
+      onBlur(e);
     }
   }
 
@@ -142,7 +179,7 @@ export default class Input extends Component<InputProps, any> {
     this.refs.input.focus();
   }
 
-  renderLabledInput(children) {
+  renderLabeledInput(children) {
     const props = this.props;
 
     // Not wrap when there is not addons
@@ -178,6 +215,34 @@ export default class Input extends Component<InputProps, any> {
     );
   }
 
+  renderLabeledIcon(children) {
+    const { props } = this;
+
+    if (props.type === 'textarea' || (!props.prefix && !props.suffix)) {
+      return children;
+    }
+
+    const prefix = props.prefix ? (
+      <span className={`${props.prefixCls}-prefix`}>
+        {props.prefix}
+      </span>
+    ) : null;
+
+    const suffix = props.suffix ? (
+      <span className={`${props.prefixCls}-suffix`}>
+        {props.suffix}
+      </span>
+    ) : null;
+
+    return (
+      <span className={`${props.prefixCls}-preSuffix-wrapper`}>
+        {prefix}
+        {children}
+        {suffix}
+      </span>
+    );
+  }
+
   renderInput() {
     const props = assign({}, this.props);
     // Fix https://fb.me/react-unknown-prop
@@ -187,6 +252,8 @@ export default class Input extends Component<InputProps, any> {
       'autosize',
       'addonBefore',
       'addonAfter',
+      'prefix',
+      'suffix',
     ]);
 
     const prefixCls = props.prefixCls;
@@ -219,11 +286,13 @@ export default class Input extends Component<InputProps, any> {
           />
         );
       default:
-        return (
+        return this.renderLabeledIcon(
           <input
             {...otherProps}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
             ref="input"
           />
         );
@@ -231,6 +300,6 @@ export default class Input extends Component<InputProps, any> {
   }
 
   render() {
-    return this.renderLabledInput(this.renderInput());
+    return this.renderLabeledInput(this.renderInput());
   }
 }

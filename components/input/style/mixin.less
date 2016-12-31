@@ -1,6 +1,8 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
+@input-presuffix-width: 16;
+
 // size mixins for input
 .input-lg() {
   padding: @input-padding-vertical-lg @input-padding-horizontal;
@@ -207,6 +209,18 @@
     }
   }
 
+  > .@{inputClass}-preSuffix-wrapper {
+    &:not(:first-child) .@{inputClass} {
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    &:not(:last-child) .@{inputClass} {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
   &-addon:first-child {
     border-right: 0;
   }
@@ -235,5 +249,53 @@
   &-sm .@{inputClass},
   &-sm > &-addon {
     .input-sm();
+  }
+
+  .@{inputClass}-preSuffix-wrapper {
+    display: table-cell;
+    width: 100%;
+    float: left;
+  }
+}
+
+.input-preSuffix-wrapper(@inputClass) {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  .@{inputClass} {
+    z-index: 1;
+  }
+
+  .@{inputClass}-prefix,
+  .@{inputClass}-suffix {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  .@{inputClass}-prefix {
+    left: @input-padding-horizontal;
+  }
+
+  .@{inputClass}-suffix {
+    right: @input-padding-horizontal;
+  }
+
+  .@{inputClass}:not(:first-child) {
+    padding-left: @input-padding-horizontal + @input-presuffix-width;
+  }
+
+  .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal + @input-presuffix-width;
   }
 }
