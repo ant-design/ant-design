@@ -87,11 +87,11 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 如果使用的是 `react@<15.3.0`，则 `getFieldDecorator` 调用不能位于纯函数组件中: https://github.com/facebook/react/pull/6534
 
-#### getFieldDecorator 参数
+#### getFieldDecorator(id, options) 参数
 
 | 参数      | 说明                                     | 类型 | 默认值 |
 |-----------|-----------------------------------------|-----|--------|
-| id | 必填输入控件唯一标志 | string | |
+| id | 必填输入控件唯一标志。支持嵌套式的[写法](https://github.com/react-component/form/pull/48)。 | string | |
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |

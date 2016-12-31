@@ -53,6 +53,15 @@ class DynamicFieldSet extends React.Component {
     });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  }
+
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
     const formItemLayout = {
@@ -62,7 +71,7 @@ class DynamicFieldSet extends React.Component {
     const formItemLayoutWithOutLabel = {
       wrapperCol: { span: 20, offset: 4 },
     };
-
+    getFieldDecorator('keys', { initialValue: [] });
     const keys = getFieldValue('keys');
     const formItems = keys.map((k, index) => {
       return (
@@ -92,12 +101,15 @@ class DynamicFieldSet extends React.Component {
       );
     });
     return (
-      <Form horizontal>
+      <Form onSubmit={this.handleSubmit} horizontal>
         {formItems}
         <FormItem {...formItemLayoutWithOutLabel}>
           <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
-            <Icon type="plus" /> Add
+            <Icon type="plus" /> Add field
           </Button>
+        </FormItem>
+        <FormItem {...formItemLayoutWithOutLabel}>
+          <Button type="primary" htmlType="submit" size="large">Submit</Button>
         </FormItem>
       </Form>
     );
