@@ -32,3 +32,4 @@ components/**/*.jsx
 /.vscode/
 /coverage
 !components/**/__tests__/*
+yarn.lock
