@@ -152,15 +152,61 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
 </div>
 `;
 
+exports[`test renders ./components/input/demo/presuffix.md correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom:16px;">
+    <span
+      class="ant-input-preSuffix-wrapper">
+      <span
+        class="ant-input-prefix">
+        <i
+          class="anticon anticon-user" />
+      </span>
+      <input
+        class="ant-input"
+        placeholder="Enter your userName"
+        type="text"
+        value="" />
+    </span>
+  </div>
+  <div
+    style="margin-bottom:16px;">
+    <span
+      class="ant-input-wrapper ant-input-group">
+      <span
+        class="ant-input-group-addon">
+        Http://
+      </span>
+      <input
+        class="ant-input"
+        placeholder="Input your domain"
+        type="text"
+        value="" />
+      <span
+        class="ant-input-group-addon">
+        .com
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`test renders ./components/input/demo/search-input.md correctly 1`] = `
 <div
   class="ant-input-search-wrapper">
-  <input
-    class="ant-input ant-input-search"
-    placeholder="input search text"
-    type="text" />
-  <i
-    class="anticon anticon-search ant-input-search-icon" />
+  <span
+    class="ant-input-preSuffix-wrapper">
+    <input
+      class="ant-input ant-input-search"
+      placeholder="input search text"
+      type="text" />
+    <span
+      class="ant-input-suffix">
+      <i
+        class="anticon anticon-search ant-input-search-icon" />
+    </span>
+  </span>
 </div>
 `;
 
