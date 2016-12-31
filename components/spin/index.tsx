@@ -12,6 +12,7 @@ export interface SpinProps {
   spinning?: boolean;
   size?: 'small' | 'default' | 'large';
   tip?: string;
+  delay?: number;
 }
 
 export default class Spin extends React.Component<SpinProps, any> {
@@ -29,6 +30,7 @@ export default class Spin extends React.Component<SpinProps, any> {
   };
 
   debounceTimeout: number;
+  delayTimeout: number;
 
   constructor(props) {
     super(props);
@@ -53,18 +55,30 @@ export default class Spin extends React.Component<SpinProps, any> {
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
+    if (this.delayTimeout) {
+      clearTimeout(this.delayTimeout);
+    }
   }
 
   componentWillReceiveProps(nextProps) {
     const currentSpinning = this.props.spinning;
     const spinning = nextProps.spinning;
+    const { delay } = this.props;
+
     if (this.debounceTimeout) {
       clearTimeout(this.debounceTimeout);
     }
     if (currentSpinning && !spinning) {
       this.debounceTimeout = setTimeout(() => this.setState({ spinning }), 300);
+      if (this.delayTimeout) {
+        clearTimeout(this.delayTimeout);
+      }
     } else {
-      this.setState({ spinning });
+      if (spinning && delay && !isNaN(Number(delay))) {
+        this.delayTimeout = setTimeout(() => this.setState({ spinning }), delay);
+      } else {
+        this.setState({ spinning });
+      }
     }
   }
   render() {
@@ -81,6 +95,7 @@ export default class Spin extends React.Component<SpinProps, any> {
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(restProps, [
       'spinning',
+      'delay',
     ]);
 
     const spinElement = (

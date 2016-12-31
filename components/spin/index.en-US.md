@@ -19,3 +19,4 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 | size       | enum           | default     | Size of dot in spin component, available in `small`, `default` and `large`. |
 | spinning   | boolean        | true        | Use in embedded mode, to modify loading state. |
 | tip    | string        | None        | Customize description content  |
+| delay | number (milliseconds) | None | Specifies a delay for loading state |
