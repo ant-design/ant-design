@@ -49,6 +49,7 @@ export interface InputProps {
   onKeyDown?: React.FormEventHandler<any>;
   onChange?: React.FormEventHandler<any>;
   onClick?: React.FormEventHandler<any>;
+  onFocus?: React.FormEventHandler<any>;
   onBlur?: React.FormEventHandler<any>;
   autosize?: boolean | AutoSizeType;
   autoComplete?: 'on' | 'off';
@@ -84,6 +85,8 @@ export default class Input extends Component<InputProps, any> {
     autosize: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     onPressEnter: PropTypes.func,
     onKeyDown: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
     prefix: PropTypes.node,
     suffix: PropTypes.node,
   };
@@ -95,6 +98,7 @@ export default class Input extends Component<InputProps, any> {
 
   state = {
     textareaStyles: null,
+    isFocus: false,
   };
 
   componentDidMount() {
@@ -108,6 +112,35 @@ export default class Input extends Component<InputProps, any> {
         clearNextFrameAction(this.nextFrameActionId);
       }
       this.nextFrameActionId = onNextFrame(this.resizeTextarea);
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { props, state, refs } = this;
+    const preHasPresuffix = prevProps.prefix || prevProps.suffix;
+    const curHasPresuffix = props.prefix || props.suffix;
+    if (state.isFocus && (preHasPresuffix !== curHasPresuffix)) {
+      refs.input.focus();
+    }
+  }
+
+  handleFocus = (e) => {
+    const { onFocus } = this.props;
+    this.setState({
+      isFocus: true,
+    });
+    if (onFocus) {
+      onFocus(e);
+    }
+  }
+
+  handleBlur = (e) => {
+    const { onBlur } = this.props;
+    this.setState({
+      isFocus: false,
+    });
+    if (onBlur) {
+      onBlur(e);
     }
   }
 
@@ -258,6 +291,8 @@ export default class Input extends Component<InputProps, any> {
             {...otherProps}
             className={inputClassName}
             onKeyDown={this.handleKeyDown}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
             ref="input"
           />
         );

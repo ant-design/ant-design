@@ -26,6 +26,8 @@ Keyboard and mouse can be used for providing or changing data.
 | disabled | Tell if the input is disabled. | boolean | false |
 | addonBefore | The label text displayed before (on the left side of) the input field. | React.Node |   |
 | addonAfter | The label text displayed after (on the right side of) the input field. | React.Node  |   |
+| prefix | The Input with prefix icon. | React.Node | |
+| suffix | The Input with suffix icon. | React.Node | |
 | onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |
 | autosize | Height autosize feature, available when type="textarea", can be set to `true|false` or a object `{ minRows: 2, maxRows: 6 }` | boolean or object | false |
 
