@@ -51,6 +51,7 @@ const Demo = Form.create()(React.createClass({
         <FormItem
           {...formItemLayout}
           label="Select"
+          hasFeedback
         >
           {getFieldDecorator('select', {
             rules: [

@@ -137,9 +137,24 @@ form {
       padding-right: 24px;
     }
 
-  	// Fix overlapping between feedback icon and <Select>'s arrow.
-    .ant-select .ant-select-arrow {
-      right: 28px;
+    // Fix overlapping between feedback icon and <Select>'s arrow.
+    // https://github.com/ant-design/ant-design/issues/4431
+    .@{ant-prefix}-select {
+      &-arrow,
+      &-selection__clear {
+        right: 28px;
+      }
+      &-selection-selected-value {
+        padding-right: 42px;
+      }
+    }
+    .@{ant-prefix}-cascader-picker {
+      &-arrow {
+        padding-right: 36px;
+      }
+      &-clear {
+        right: 28px;
+      }
     }
   }
 
