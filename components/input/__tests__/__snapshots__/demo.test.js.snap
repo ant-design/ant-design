@@ -149,6 +149,201 @@ exports[`test renders ./components/input/demo/group.md correctly 1`] = `
         value="26888888" />
     </div>
   </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact">
+    <input
+      class="ant-input"
+      style="width:20%;"
+      type="text"
+      value="0571" />
+    <input
+      class="ant-input"
+      style="width:30%;"
+      type="text"
+      value="26888888" />
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact">
+    <div
+      class="ant-select ant-select-enabled">
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0">
+        <div
+          class="ant-select-selection__rendered">
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Zhejiang">
+            Zhejiang
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable">
+          <b />
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input"
+      style="width:50%;"
+      type="text"
+      value="Xihu District, Hangzhou" />
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact">
+    <div
+      class="ant-select ant-select-enabled">
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0">
+        <div
+          class="ant-select-selection__rendered">
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Option1">
+            Option1
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable">
+          <b />
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input"
+      style="width:50%;"
+      type="text"
+      value="input content" />
+    <div
+      class="ant-input-number">
+      <div
+        class="ant-input-number-handler-wrap">
+        <span
+          class="ant-input-number-handler ant-input-number-handler-up "
+          unselectable="unselectable">
+          <span
+            class="ant-input-number-handler-up-inner"
+            unselectable="unselectable" />
+        </span>
+        <span
+          class="ant-input-number-handler ant-input-number-handler-down "
+          unselectable="unselectable">
+          <span
+            class="ant-input-number-handler-down-inner"
+            unselectable="unselectable" />
+        </span>
+      </div>
+      <div
+        class="ant-input-number-input-wrap">
+        <input
+          autocomplete="off"
+          class="ant-input-number-input"
+          max="Infinity"
+          min="-Infinity"
+          value="" />
+      </div>
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact">
+    <input
+      class="ant-input"
+      style="width:50%;"
+      type="text"
+      value="input content" />
+    <span
+      class="ant-calendar-picker">
+      <span>
+        <input
+          class="ant-calendar-picker-input ant-input"
+          placeholder="请选择日期"
+          readonly=""
+          value="" />
+        <span
+          class="ant-calendar-picker-icon" />
+      </span>
+    </span>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact">
+    <div
+      class="ant-select ant-select-enabled">
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0">
+        <div
+          class="ant-select-selection__rendered">
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Option1-1">
+            Option1-1
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable">
+          <b />
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-select ant-select-enabled">
+      <div
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-select-selection
+                  ant-select-selection--single"
+        role="combobox"
+        tabindex="0">
+        <div
+          class="ant-select-selection__rendered">
+          <div
+            class="ant-select-selection-selected-value"
+            style="display:block;opacity:1;"
+            title="Option2-2">
+            Option2-2
+          </div>
+        </div>
+        <span
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none;"
+          unselectable="unselectable">
+          <b />
+        </span>
+      </div>
+    </div>
+  </span>
+  <br />
 </div>
 `;
 

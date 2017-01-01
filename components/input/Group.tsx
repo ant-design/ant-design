@@ -7,6 +7,7 @@ export interface GroupProps {
   children?: any;
   style?: React.CSSProperties;
   prefixCls?: string;
+  compact?: boolean;
 }
 
 const Group: React.StatelessComponent<GroupProps> = (props) => {
@@ -14,6 +15,7 @@ const Group: React.StatelessComponent<GroupProps> = (props) => {
   const cls = classNames(prefixCls, {
     [`${prefixCls}-lg`]: props.size === 'large',
     [`${prefixCls}-sm`]: props.size === 'small',
+    [`${prefixCls}-compact`]: props.compact,
   }, className);
   return (
     <span className={cls} style={props.style}>

@@ -256,6 +256,41 @@
     width: 100%;
     float: left;
   }
+
+  &&-compact {
+    & > * {
+      border-radius: 0;
+      border-right-width: 0;
+    }
+
+    // Undo float for .ant-input-group .ant-input
+    .@{inputClass} {
+      float: none;
+      z-index: auto;
+    }
+
+    // reset border for Select, datePicker
+    & > .@{ant-prefix}-select > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-calendar-picker .@{ant-prefix}-input {
+      border-radius: 0;
+      border-right-width: 0;
+    }
+
+    & > *:first-child,
+    & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input {
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+    }
+
+    & > *:last-child,
+    & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input {
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
+      border-right-width: 1px;
+    }
+  }
 }
 
 .input-preSuffix-wrapper(@inputClass) {
@@ -299,3 +334,4 @@
     padding-right: @input-padding-horizontal + @input-presuffix-width;
   }
 }
+
