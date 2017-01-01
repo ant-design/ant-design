@@ -9,6 +9,32 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.6.0
+
+`2017-1-2`
+
+- Brand new color system. [pull/4426](https://github.com/ant-design/ant-design/pull/4426)
+  - Brand new color palattes.
+  - Brand new color algorithm replacing the tint/shade system.
+  - Change default font color.
+- Add Grid playground demo. [commit/ee17ab](https://github.com/ant-design/ant-design/commit/ee17abfa9d0362c6f9baab4a9a09e57574583246)
+- Add Layout component. [#3534](https://github.com/ant-design/ant-design/issues/3534)
+- Input
+  - Support prefix and suffix. [#4226](https://github.com/ant-design/ant-design/issues/4226) [@ystarlongzi](https://github.com/ystarlongzi)
+  - InputGroup support compact display mode. [pull/4309](https://github.com/ant-design/ant-design/pull/4309)
+- Spin support delayed display. [#4306](https://github.com/ant-design/ant-design/issues/4306)
+- Fix the dislocation problem of Pagination in low resolution. [#4349](https://github.com/ant-design/ant-design/issues/4349)
+- Fix wrapping display of Dropdown.Button. [pull/4355](https://github.com/ant-design/ant-design/pull/4355) [@Morhaus](https://github.com/Morhaus)
+- Fix wrong background color of Cascader in disabled status. [#4434](https://github.com/ant-design/ant-design/issues/4434)
+- Fix MonthPicker[monthCellContentRender] doesn't work, and some documentation errors. [#4394](https://github.com/ant-design/ant-design/issues/4394)
+- Fix the extra border of ButtonGroup. [#4382](https://github.com/ant-design/ant-design/pull/4382) [@ystarlongzi](https://github.com/ystarlongzi)
+- Fix wrong background color of the Submenu(horizontal mode). [#4414](https://github.com/ant-design/ant-design/issues/4414)
+- Fix overlapping graphics with Select/Cascader in Form.Item with hasFeedback. [#4431](https://github.com/ant-design/ant-design/issues/4431) [@JesperWe](https://github.com/JesperWe)
+- Reset border-radius of the first row in Table without header. [#4373](https://github.com/ant-design/ant-design/issues/4373)
+- Improve the drag performance of Tree. [#4371](https://github.com/ant-design/ant-design/issues/4371)
+- Improve official website and documentation, fix some bugs.
+- Update rc-form to support nested style of getFieldDecorator[id].
+
 ## 2.5.3
 
 `2016-12-24` 🎄🎄🎄
