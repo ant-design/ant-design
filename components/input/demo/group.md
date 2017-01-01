@@ -9,12 +9,16 @@ title:
 
 输入框的组合展现。
 
+注意：使用 `compact` 模式时，不需要通过 `Col` 来控制宽度。
+
 ## en-US
 
 Input.Group example
 
+Note: You don't need `Col` to control the width in the `compact` mode.
+
 ````jsx
-import { Input, Col, Select } from 'antd';
+import { Input, Col, Select, InputNumber, DatePicker } from 'antd';
 const InputGroup = Input.Group;
 const Option = Select.Option;
 
@@ -30,45 +34,41 @@ ReactDOM.render(
     </InputGroup>
     <br />
     <InputGroup compact>
-      <Col span="4">
-        <Input defaultValue="0571" />
-      </Col>
-      <Col span="8">
-        <Input defaultValue="26888888" />
-      </Col>
+      <Input style={{ width: '20%' }} defaultValue="0571" />
+      <Input style={{ width: '30%' }} defaultValue="26888888" />
     </InputGroup>
     <br />
     <InputGroup compact>
-      <Col span="6">
-        <Select defaultValue="Zhejiang">
-          <Option value="Zhejiang">Zhejiang</Option>
-          <Option value="Jiangsu">Jiangsu</Option>
-        </Select>
-      </Col>
-      <Col span="12">
-        <Input defaultValue="Xihu District, Hangzhou" />
-      </Col>
+      <Select defaultValue="Zhejiang">
+        <Option value="Zhejiang">Zhejiang</Option>
+        <Option value="Jiangsu">Jiangsu</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="Xihu District, Hangzhou" />
     </InputGroup>
     <br />
     <InputGroup compact>
-      <Col span="6">
-        <Select defaultValue="Option1-1">
-          <Option value="Option1-1">Option1-1</Option>
-          <Option value="Option1-2">Option1-2</Option>
-        </Select>
-      </Col>
-      <Col span="6">
-        <Select defaultValue="Option2-2">
-          <Option value="Option2-1">Option2-1</Option>
-          <Option value="Option2-2">Option2-2</Option>
-        </Select>
-      </Col>
-      <Col span="6">
-        <Select defaultValue="Option3-1">
-          <Option value="Option3-1">Option3-1</Option>
-          <Option value="Option3-2">Option3-2</Option>
-        </Select>
-      </Col>
+      <Select defaultValue="Option1">
+        <Option value="Option1">Option1</Option>
+        <Option value="Option2">Option2</Option>
+      </Select>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <InputNumber />
+    </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Input style={{ width: '50%' }} defaultValue="input content" />
+      <DatePicker />
+    </InputGroup>
+    <br />
+    <InputGroup compact>
+      <Select defaultValue="Option1-1">
+        <Option value="Option1-1">Option1-1</Option>
+        <Option value="Option1-2">Option1-2</Option>
+      </Select>
+      <Select defaultValue="Option2-2">
+        <Option value="Option2-1">Option2-1</Option>
+        <Option value="Option2-2">Option2-2</Option>
+      </Select>
     </InputGroup>
     <br />
   </div>
