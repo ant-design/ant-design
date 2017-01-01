@@ -60,7 +60,7 @@
     position: relative;
 
     &.@{upload-prefix-cls}-drag-hover:not(.@{upload-prefix-cls}-disabled) {
-      border: 2px dashed tint(@primary-color, 20%);
+      border: 2px dashed@primary-5;
     }
 
     &.@{upload-prefix-cls}-disabled {
@@ -78,14 +78,14 @@
     }
 
     &:not(.@{upload-prefix-cls}-disabled):hover {
-      border-color: tint(@primary-color, 20%);
+      border-color: @primary-5;
     }
 
     p.@{upload-prefix-cls}-drag-icon {
       .@{iconfont-css-prefix} {
         font-size: 80px;
         margin-top: -5px;
-        color: tint(@primary-color, 20%);
+        color: @primary-5;
       }
       height: 60px;
       margin-bottom: 24px;
@@ -100,7 +100,7 @@
     .@{iconfont-css-prefix}-plus {
       font-size: 30px;
       transition: all 0.3s ease;
-      color: #ccc;
+      color: @disabled-color;
       &:hover {
         color: @text-color-secondary;
       }
@@ -144,7 +144,7 @@
     }
 
     &:hover &-info {
-      background-color: tint(@primary-color, 90%);
+      background-color: @primary-1;
     }
 
     &:hover .@{iconfont-css-prefix}-cross {

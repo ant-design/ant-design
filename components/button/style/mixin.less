@@ -21,15 +21,14 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
-
   &:hover,
   &:focus {
-    .button-color(@color; tint(@background, 20%); tint(@background, 20%));
+    .button-color(@color; ~`colorPalette("@{background}", 5)`; ~`colorPalette("@{background}", 5)`);
   }
 
   &:active,
   &.active {
-    .button-color(@color; shade(@background, 5%); shade(@background, 5%));
+    .button-color(@color; ~`colorPalette("@{background}", 7)`; ~`colorPalette("@{background}", 7)`);
   }
 
   .button-disabled();
@@ -40,12 +39,12 @@
 
   &:hover,
   &:focus {
-    .button-color(tint(@primary-color, 20%); @background; tint(@primary-color, 20%));
+    .button-color(@primary-5; @background; @primary-5);
   }
 
   &:active,
   &.active {
-    .button-color(shade(@primary-color, 5%); @background; shade(@primary-color, 5%));
+    .button-color(@primary-7; @background; @primary-7);
   }
 
   .button-disabled();

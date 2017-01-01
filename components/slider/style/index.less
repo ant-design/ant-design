@@ -3,7 +3,7 @@
 
 @slider-prefix-cls: ~"@{ant-prefix}-slider";
 // slider color
-@slider-disabled-color: #ccc;
+@slider-disabled-color: @disabled-color;
 // tooltip
 @slider-tooltip-color: #fff;
 @slider-tooltip-bg: tint(@text-color, 4%);
@@ -39,7 +39,7 @@
   &:hover {
     background-color: #e1e1e1;
     .@{slider-prefix-cls}-handle {
-      border-color: tint(@primary-color, 20%);
+      border-color: @primary-5;
     }
   }
 
@@ -61,7 +61,7 @@
     transition: border-color 0.3s ease, transform .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
     &:hover {
-      border-color: tint(@primary-color, 20%);
+      border-color: @primary-5;
       transform: scale(1.2);
       transform-origin: center center;
     }

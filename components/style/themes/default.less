@@ -1,22 +1,36 @@
+@import "../color/colors";
+
 // Prefix
 @ant-prefix             : ant;
 
 // Color
-@primary-color          : #108ee9;
-@success-color          : #87d068;
-@error-color            : #f50;
-@highlight-color        : #f50;
-@warning-color          : #fa0;
+@primary-color          : @blue-6;
+@success-color          : @green-6;
+@error-color            : @red-6;
+@highlight-color        : @red-6;
+@warning-color          : @yellow-6;
 @normal-color           : #d9d9d9;
+
+@primary-1: color(~`colorPalette("@{primary-color}", 1)`);  // replace tint(@primary-color, 90%)
+@primary-2: color(~`colorPalette("@{primary-color}", 2)`);  // replace tint(@primary-color, 80%)
+@primary-3: color(~`colorPalette("@{primary-color}", 3)`);
+@primary-4: color(~`colorPalette("@{primary-color}", 4)`);
+@primary-5: color(~`colorPalette("@{primary-color}", 5)`);  // replace tint(@primary-color, 20%)
+@primary-6: @primary-color;                                 // don't use, use @primary-color
+@primary-7: color(~`colorPalette("@{primary-color}", 7)`);  // replace shade(@primary-color, 5%)
+@primary-8: color(~`colorPalette("@{primary-color}", 8)`);
+@primary-9: color(~`colorPalette("@{primary-color}", 9)`);
+@primary-10: color(~`colorPalette("@{primary-color}", 10)`);
 
 // ------ Base & Require ------
 @body-background        : #fff;
 @component-background   : #fff;
 @font-family            : -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
 @code-family            : Consolas, Menlo, Courier, monospace;
-@text-color             : #666;
-@heading-color          : #404040;
-@text-color-secondary   : #999;
+@text-color             : fade(#000, 65%);
+@heading-color          : fade(#000, 75%);
+@text-color-secondary   : fade(#000, 43%);
+@disabled-color         : fade(#000, 25%);
 @font-size-base         : 12px;
 @font-size-lg           : @font-size-base + 2px;
 @line-height-base       : 1.5;
@@ -28,9 +42,9 @@
 @icon-url               : "https://at.alicdn.com/t/font_r5u29ls31bgldi";
 
 // LINK
-@link-color             : #108ee9;
-@link-hover-color       : tint(@link-color, 20%);
-@link-active-color      : shade(@link-color, 5%);
+@link-color             : @primary-color;
+@link-hover-color       : @primary-5;
+@link-active-color      : @primary-7;
 @link-hover-decoration  : none;
 
 // Animation
@@ -75,7 +89,7 @@
 
 @btn-primary-color      : #fff;
 @btn-primary-bg         : @primary-color;
-@btn-group-border       : shade(@primary-color, 5%);
+@btn-group-border       : @primary-7;
 
 @btn-default-color      : @text-color;
 @btn-default-bg         : @background-color-base;
@@ -85,7 +99,7 @@
 @btn-ghost-bg           : transparent;
 @btn-ghost-border       : @border-color-base;
 
-@btn-disable-color      : #ccc;
+@btn-disable-color      : @disabled-color;
 @btn-disable-bg         : @background-color-base;
 @btn-disable-border     : @border-color-base;
 

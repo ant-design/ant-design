@@ -1,40 +1,59 @@
 .color-palette {
   margin: 45px 0;
-  overflow: hidden;
-  height: 165px;
 }
 
 .main-color {
-  width: 165px;
-  height: 165px;
-  float: left;
+  overflow: hidden;
 }
 
-.main-color div {
-  width: 50px;
-  height: 50px;
+.main-color .main-color-item {
+  width: 80px;
+  height: 60px;
   border-radius: 4px;
   float: left;
   margin: 0 5px 5px 0;
+  transition: all .2s;
+  position: relative;
+  text-align: center;
+  padding-top: 20px;
+  font-family: Consolas;
+  font-size: 12px;
+  &:after {
+    font-size: 12px;
+    position: absolute;
+    bottom: -4px;
+    transform: scale(0.85);
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: all .2s ease .1s;
+  }
 }
 
-.color-palette .color-msg {
-  margin-left: 180px;
-}
-
-.color-msg .color-msg-title {
-  margin: 0;
-  font-weight: 600;
+.color-title {
+  margin: 0 0 16px 0;
+  font-weight: 500;
   color: #5C6B77;
-  line-height: 1.8;
-  font-size: 21px;
+  font-size: 22px;
+  text-transform: capitalize;
 }
 
-.color-msg .color-msg-description {
-  color: #777;
-  font-size: 14px;
-  line-height: 1.8;
-  margin-top: 16px;
+.color-description {
+  font-size: 16px;
+  margin-left: 12px;
+  font-weight: normal;
+  color: #888;
+}
+
+.main-color:hover {
+  .main-color-item {
+    padding-top: 4px;
+    &:after {
+      opacity: 0.7;
+      bottom: 3px;
+    }
+  }
 }
 
 .color-block {
@@ -68,3 +87,23 @@
 .color-block.dark:after {
   color: #fff;
 }
+
+.make-palatte(@color, @index: 1) when (@index <= 10) {
+  .palatte-@{color}-@{index} {
+    @background: "@{color}-@{index}";
+    background: @@background;
+    &:after {
+      content: "@{@{background}}";
+    }
+  }
+  .make-palatte(@color, (@index + 1));    // next iteration
+}
+
+.make-palatte(blue);
+.make-palatte(purple);
+.make-palatte(cyan);
+.make-palatte(green);
+.make-palatte(pink);
+.make-palatte(red);
+.make-palatte(orange);
+.make-palatte(yellow);

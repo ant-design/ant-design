@@ -98,7 +98,7 @@
     line-height: 22px;
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
     }
   }
@@ -137,7 +137,7 @@
 
   &-last-month-cell &-value,
   &-next-month-btn-day &-value {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-month-panel-table {
@@ -179,11 +179,11 @@
     color: @text-color;
     height: 116px;
     padding: 4px 8px;
-    border-top: 2px solid #eee;
+    border-top: 2px solid @border-color-split;
     transition: background 0.3s ease;
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
     }
   }
@@ -208,7 +208,7 @@
   &-fullscreen &-month-panel-current-cell &-month,
   &-fullscreen &-today &-date {
     border-top-color: @primary-color;
-    background-color: tint(@primary-color, 90%);
+    background-color: @primary-1;
     color: @primary-color;
   }
   &-fullscreen &-month-panel-current-cell &-value {
@@ -216,7 +216,7 @@
   }
   &-fullscreen &-last-month-cell &-date,
   &-fullscreen &-next-month-btn-day &-date {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-fullscreen &-content {

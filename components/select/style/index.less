@@ -18,7 +18,7 @@
   background: @component-background;
   top: 50%;
   font-size: @font-size-base;
-  color: #ccc;
+  color: @disabled-color;
   width: 12px;
   height: 12px;
   margin-top: -6px;
@@ -107,7 +107,7 @@
   }
 
   &-disabled {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-disabled &-selection {
@@ -198,10 +198,10 @@
   }
 
   &-disabled &-selection__choice__remove {
-    color: #ccc;
+    color: @disabled-color;
     cursor: default;
     &:hover {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -450,15 +450,15 @@
 
       &:hover,
       &-active {
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
 
       &-disabled {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
 
         &:hover {
-          color: #ccc;
+          color: @disabled-color;
           background-color: @component-background;
           cursor: not-allowed;
         }

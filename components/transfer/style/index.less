@@ -25,7 +25,7 @@
 
     &-search {
       &-action {
-        color: #ccc;
+        color: @disabled-color;
         position: absolute;
         top: 4px;
         right: 4px;
@@ -37,7 +37,7 @@
         .@{iconfont-css-prefix} {
           transition: all .3s;
           font-size: @font-size-base;
-          color: #ccc;
+          color: @disabled-color;
           &:hover {
             color: @text-color-secondary;
           }
@@ -98,7 +98,7 @@
 
       &-item:not(&-item-disabled):hover {
         cursor: pointer;
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
 
       &-item-disabled {
@@ -114,7 +114,7 @@
 
     &-body-not-found {
       padding-top: 0;
-      color: #ccc;
+      color: @disabled-color;
       text-align: center;
       display: none;
       position: absolute;
@@ -159,7 +159,7 @@
 
 @keyframes transferHighlightIn {
   0% {
-    background: tint(@primary-color, 80%);
+    background: @primary-2;
   }
   100% {
     background: transparent;

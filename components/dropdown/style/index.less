@@ -68,16 +68,16 @@
       }
 
       &:hover {
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
 
       &-disabled {
-        color: #ccc;
+        color: @disabled-color;
         cursor: not-allowed;
         pointer-events: none;
 
         &:hover {
-          color: #ccc;
+          color: @disabled-color;
           background-color: @component-background;
           cursor: not-allowed;
         }

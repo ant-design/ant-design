@@ -16,6 +16,7 @@
     "components/style/core/base.less",
     "components/style/core/iconfont.less",
     "components/style/core/normalize.less",
-    "components/style/mixins/compatibility.less"
+    "components/style/mixins/compatibility.less",
+    "components/style/color/*"
   ]
 }

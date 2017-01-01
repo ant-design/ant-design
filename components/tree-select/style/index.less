@@ -38,10 +38,10 @@
       color: @text-color;
       transition: all 0.3s ease;
       &:hover {
-        background-color: tint(@primary-color, 90%);
+        background-color: @primary-1;
       }
       &.@{select-tree-prefix-cls}-node-selected {
-        background-color: tint(@primary-color, 80%);
+        background-color: @primary-2;
       }
     }
     span {
@@ -102,7 +102,7 @@
     > span,
     > a,
     > a span {
-      color: #ccc;
+      color: @disabled-color;
       cursor: not-allowed;
     }
   }
@@ -137,7 +137,7 @@
   }
   .@{select-prefix-cls}-not-found {
     cursor: not-allowed;
-    color: #ccc;
+    color: @disabled-color;
     padding: 7px 16px;
     display: block;
   }

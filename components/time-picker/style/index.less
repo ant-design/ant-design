@@ -61,7 +61,7 @@
 
   &-clear-btn:after {
     font-size: @font-size-base;
-    color: #ccc;
+    color: @disabled-color;
     display: inline-block;
     line-height: 1;
     width: 20px;
@@ -127,7 +127,7 @@
     }
 
     li:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
     }
 
     li&-option-selected {

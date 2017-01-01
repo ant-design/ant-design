@@ -92,7 +92,7 @@
     cursor: not-allowed;
     &,
     &:hover {
-      color: #ccc;
+      color: @disabled-color;
     }
   }
 
@@ -146,7 +146,7 @@
     .@{tab-prefix-cls}-tab-disabled {
       pointer-events: none;
       cursor: default;
-      color: #ccc;
+      color: @disabled-color;
     }
 
     .@{tab-prefix-cls}-tab {
@@ -162,11 +162,11 @@
       text-decoration: none;
 
       &:hover {
-        color: tint(@primary-color, 20%);
+        color: @primary-5;
       }
 
       &:active {
-        color: shade(@primary-color, 5%);
+        color: @primary-7;
       }
       .@{iconfont-css-prefix} {
         width: 14px;

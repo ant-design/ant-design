@@ -18,21 +18,21 @@
 // input status
 // == when focus or actived
 .active(@color: @outline-color) {
-  border-color: tint(@color, 20%);
+  border-color: ~`colorPalette("@{color}", 5)`;
   outline: 0;
   box-shadow: 0 0 @outline-blur-size @outline-width fade(@color, 20%);
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: tint(@color, 20%);
+  border-color: ~`colorPalette("@{color}", 5)`;
 }
 
 .disabled() {
   background-color: @input-disabled-bg;
   opacity: 1;
   cursor: not-allowed;
-  color: #ccc;
+  color: @disabled-color;
   &:hover {
     .hover(@input-border-color);
   }

@@ -184,13 +184,13 @@
     }
 
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
       cursor: pointer;
     }
 
     &:active {
       color: #fff;
-      background: tint(@primary-color, 20%);
+      background: @primary-5;
     }
   }
 
@@ -202,7 +202,7 @@
 
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: #ccc;
+    color: @disabled-color;
   }
 
   &-selected-day &-date {
@@ -258,7 +258,7 @@
     text-align: center;
     margin: 0 0 0 8px;
     &-disabled {
-      color: #ccc;
+      color: @disabled-color;
       cursor: not-allowed;
     }
   }
@@ -280,7 +280,7 @@
   .@{calendar-prefix-cls}-clear-btn:after {
     .iconfont-font("\e62e");
     font-size: @font-size-base;
-    color: #ccc;
+    color: @disabled-color;
     display: inline-block;
     line-height: 1;
     width: 20px;

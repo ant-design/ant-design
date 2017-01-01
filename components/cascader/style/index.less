@@ -55,7 +55,7 @@
       background: #fff;
       top: 50%;
       font-size: @font-size-base;
-      color: #ccc;
+      color: @disabled-color;
       width: 12px;
       height: 12px;
       margin-top: -6px;
@@ -152,11 +152,11 @@
     white-space: nowrap;
     transition: all 0.3s ease;
     &:hover {
-      background: tint(@primary-color, 90%);
+      background: @primary-1;
     }
     &-disabled {
       cursor: not-allowed;
-      color: #ccc;
+      color: @disabled-color;
       &:hover {
         background: transparent;
       }
