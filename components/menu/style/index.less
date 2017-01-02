@@ -333,28 +333,28 @@
 .@{menu-prefix-cls} {
   &-dark,
   &-dark &-sub {
-    color: @text-color-secondary;
-    background: #404040;
+    color: @text-color-secondary-dark;
+    background: @menu-dark-bg;
   }
 
   &-dark &-inline&-sub {
-    background: #333;
+    background: @menu-dark-submenu-bg;
   }
 
   &-dark&-horizontal {
-    border-bottom-color: #404040;
+    border-bottom-color: @menu-dark-bg;
   }
 
   &-dark&-horizontal > &-item,
   &-dark&-horizontal > &-submenu {
-    border-color: #404040;
+    border-color: @menu-dark-bg;
     border-bottom: 0;
     top: 0;
   }
 
   &-dark &-item,
   &-dark &-item > a {
-    color: @text-color-secondary;
+    color: @text-color-secondary-dark;
   }
 
   &-dark&-inline,
@@ -376,18 +376,18 @@
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
     background-color: transparent;
-    color: #fff;
+    color: @text-color-dark;
     > a {
-      color: #fff;
+      color: @text-color-dark;
     }
   }
 
   &-dark &-item-selected {
     border-right: 0;
-    color: #fff;
+    color: @text-color-dark;
     > a,
     > a:hover {
-      color: #fff;
+      color: @text-color-dark;
     }
   }
 
