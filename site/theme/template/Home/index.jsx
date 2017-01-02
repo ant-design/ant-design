@@ -35,8 +35,12 @@ function getStyle() {
     #header .ant-menu {
       background: transparent;
     }
+    #header .ant-select-search__field,
+    #header .ant-select-selection__placeholder {
+      color: rgba(255,255,255,0.57);
+    }
     #header.home-nav-white {
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.91);
       border-bottom-color: #EBEDEE;
     }
     .home-nav-white #search-box {
