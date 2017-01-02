@@ -36,6 +36,7 @@ export interface SelectProps {
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   onChange?: (value: SelectValue) => void;
+  tokenSeparators?: string[];
 }
 
 export interface OptionProps {
