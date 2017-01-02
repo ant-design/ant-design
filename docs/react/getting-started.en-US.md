@@ -116,6 +116,8 @@ Ant Design React supports all the modern browsers and IE9+.
 
 You need to provide [es5-shim](https://github.com/es-shims/es5-shim) and [es6-shim](https://github.com/paulmillr/es6-shim) and other polyfills for IE browsers. If you are using babel, we strongly recommend to use [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) and [babel-plugin-transform-runtime](https://babeljs.io/docs/plugins/transform-runtime/).
 
+> If you run into problem about [startsWith ](https://github.com/ant-design/ant-design/issues/3400#issuecomment-253181445), you should import  [es6-shim](https://github.com/paulmillr/es6-shim) or [babel-polyfill](https://babeljs.io/docs/usage/polyfill/) as workaround.
+
 ```html
 <!DOCTYPE html>
 <html>
