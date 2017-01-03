@@ -10,11 +10,13 @@ describe('antd dist files', () => {
   }
 
   const antd = require('../dist/antd'); // eslint-disable-line global-require
+  const antdInComponents = require('../components/'); // eslint-disable-line global-require
 
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
   it('exports modules correctly', () => {
     expect(Object.keys(antd)).toMatchSnapshot();
+    expect(Object.keys(antdInComponents)).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/1970
