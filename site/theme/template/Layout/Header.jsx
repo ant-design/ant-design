@@ -14,6 +14,8 @@ export default class Header extends React.Component {
   }
 
   state = {
+    inputValue: '',
+    menuVisible: false,
     menuMode: 'horizontal',
   };
 
@@ -33,7 +35,30 @@ export default class Header extends React.Component {
 
   handleSearch = (value) => {
     const { intl, router } = this.context;
-    router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
+
+    this.setState({
+      inputValue: '',
+    }, () => {
+      router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
+    });
+  }
+
+  handleInputChange = (value) => {
+    this.setState({
+      inputValue: value,
+    });
+  }
+
+  handleShowMenu = () => {
+    this.setState({
+      menuVisible: true,
+    });
+  }
+
+  handleHideMenu = () => {
+    this.setState({
+      menuVisible: false,
+    });
   }
 
   handleSelectFilter = (value, option) => {
@@ -46,6 +71,7 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const { inputValue, menuMode, menuVisible } = this.state;
     const { location, picked, isFirstScreen } = this.props;
     const components = picked.components;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
@@ -76,39 +102,38 @@ export default class Header extends React.Component {
       'home-nav-white': !isFirstScreen,
     });
 
-    const menuMode = this.state.menuMode;
     const menu = [
       <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
       </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/spec">
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.spec" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/react">
-          <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/pattern">
-          <Link to={utils.getLocalizedPathname('/docs/pattern/navigation', isZhCN)}>
+          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/pattern/navigation', isZhCN)}>
             <FormattedMessage id="app.header.menu.pattern" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/practice">
-          <Link to={utils.getLocalizedPathname('/docs/practice/cases', isZhCN)}>
+          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/practice/cases', isZhCN)}>
             <FormattedMessage id="app.header.menu.practice" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/resource">
-          <Link to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
+          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
         </Menu.Item>
@@ -123,11 +148,13 @@ export default class Header extends React.Component {
           placement="bottomRight"
           content={menu}
           trigger="click"
+          visible={menuVisible}
           arrowPointAtCenter
         >
           <Icon
             className="nav-phone-icon"
             type="menu"
+            onClick={this.handleShowMenu}
           />
         </Popover> : null}
         <Row>
@@ -141,12 +168,15 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select
                 combobox
+                value={inputValue}
+                dropdownStyle={{ display: inputValue ? 'block' : 'none' }}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
                 optionFilterProp="data-label"
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
+                onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
                 {options}
