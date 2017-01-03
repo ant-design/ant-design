@@ -58,6 +58,7 @@ A Selector similar to Select2.
 | disabled    | Disable this option | Boolean   |  false  |
 | key   | if react request you to set this property, you can set it to value of option, and then ignore value property. |  String |  |
 | value   | default to filter with this property | String | - |
+| title | `title` of Select after select this Option | String | - |
 
 ### OptGroup props
 
