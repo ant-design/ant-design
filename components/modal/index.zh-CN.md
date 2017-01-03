@@ -30,6 +30,7 @@ title: Modal
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | Object   | - |
 | wrapClassName | 对话框外层容器的类名 | String   | - |
+| afterClose | Modal 完全关闭后的回调 | function | 无 |
 
 ### Modal.xxx()
 
