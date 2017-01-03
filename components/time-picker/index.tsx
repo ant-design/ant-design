@@ -118,7 +118,7 @@ export default class TimePicker extends React.Component<TimePickerProps, any> {
         {...props}
         className={className}
         value={this.state.value}
-        placeholder={props.placeholder || this.getLocale().placeholder}
+        placeholder={props.placeholder === undefined ? this.getLocale().placeholder : props.placeholder}
         showHour={props.format.indexOf('HH') > -1}
         showMinute={props.format.indexOf('mm') > -1}
         showSecond={props.format.indexOf('ss') > -1}
