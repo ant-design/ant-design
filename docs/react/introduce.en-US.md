@@ -3,7 +3,7 @@ order: 0
 title: Ant Design of React
 ---
 
-Following Ant Design specification, We develop a React UI library called `antd`, containing a set of high quality components and demos, to help building rich interactive desktop applicafions.
+Following Ant Design specification, We develop a React UI library `antd` that contains a set of high quality components and demos for building rich interactive desktop applications.
 
 <div class="pic-plus">
   <img width="150" src="https://t.alipayobjects.com/images/rmsweb/T11aVgXc4eXXXXXXXX.svg">
