@@ -19,14 +19,38 @@ Ant Design 的色板由 8 种基本色彩组成，通过一套[精心设计的�
 > 我们结合了色彩加白、加黑、加深，贝塞尔曲线，以及针对冷暖色的不同旋转角度，调教出一套色彩算法。使用者只需指定主色，便可导出一条完整的渐变色板。
 
 `````__react
+const rgbToHex = (rgbString) => {
+  const hexChars = '0123456789ABCDEF';
+  const rgb = rgbString.match(/\d+/g);
+  let r = parseInt(rgb[0]).toString(16);
+  let g = parseInt(rgb[1]).toString(16);
+  let b = parseInt(rgb[2]).toString(16);
+  r = r.length === 1 ? `0${r}` : r;
+  g = g.length === 1 ? `0${g}` : g;
+  b =  b.length === 1 ? `0${ b}` : b;
+  return '#' + r + g + b;
+};
 const Palette = React.createClass({
+  getInitialState() {
+    return { hexColors: null };
+  },
+  componentDidMount() {
+    const hexColors = {};
+    Object.keys(this.colorNodes).forEach(key => {
+      hexColors[key] = rgbToHex(getComputedStyle(this.colorNodes[key])['background-color'])
+    });
+    this.setState({ hexColors });
+  },
   render() {
+    this.colorNodes = this.colorNodes || {};
     const { name, description, color } = this.props.color;
+    const { hexColors } = this.state;
     const colors = [];
     for (let i = 1; i <= 10; i++) {
       colors.push(
         <div
           key={i}
+          ref={node => { this.colorNodes[`${name}-${i}`] = node; } }
           className={`main-color-item palatte-${name}-${i}`}
           style={{
             color: i > 5 ? '#fff' : 'unset',
@@ -34,6 +58,7 @@ const Palette = React.createClass({
           }}
         >
           {name}-{i}
+          {hexColors ? <span className="main-color-value">{hexColors[`${name}-${i}`]}</span> : null}
         </div>
       );
     }
