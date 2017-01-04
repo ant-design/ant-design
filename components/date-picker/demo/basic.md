@@ -25,10 +25,7 @@ ReactDOM.render(
   <div>
     <DatePicker onChange={onChange} />
     <br />
-    <MonthPicker
-      onChange={onChange}
-      monthCellContentRender={date => <Badge dot={date.month() === 5}>{date.month() + 1}</Badge>}
-    />
+    <MonthPicker onChange={onChange} />
     <br />
     <RangePicker onChange={onChange} />
   </div>
