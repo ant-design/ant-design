@@ -27,7 +27,7 @@ Specify the `theme` property in `package.json` file, whose value can be either a
 - example of directly specifying the custom values as an object:
 ```js
 "theme": {
-  "@primary-color": "#1DA57A",
+  "primary-color": "#1DA57A",
 },
 ```
 - example of specifying a [file path](https://github.com/ant-design/antd-init/blob/master/examples/customize-antd-theme/theme.js) to a JS file:
