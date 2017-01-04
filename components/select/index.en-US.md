@@ -44,6 +44,7 @@ A Selector similar to Select2.
 | size    | Size of Select input. `large` `small`  | String      |      default      |
 | showSearch | Whether show search input in single mode.| boolean | false |
 | disabled | Whether disabled select | boolean | false |
+| defaultActiveFirstOption | Whether active first option by default | boolean | true |
 | dropdownStyle | style of dropdown menu | object | - |
 | dropdownClassName | className of dropdown menu | string | - |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | function(triggerNode) | () => document.body |
