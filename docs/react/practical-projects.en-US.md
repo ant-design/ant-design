@@ -270,7 +270,7 @@ We have completed a simple application, but you may still have lots of questions
 You can:
 
 - Visit [dva official website](https://github.com/dvajs/dva).
-- Familiar with the [8 Conpects](https://github.com/dvajs/dva/blob/master/docs/Concepts.md), and know how they are connected together
+- Be familiar with the [8 Conpects](https://github.com/dvajs/dva/blob/master/docs/Concepts.md), and understand how they are connected together
 - Know all [dva APIs](https://github.com/dvajs/dva/blob/master/docs/API.md)
 - Checkout [dva knowledgemap](https://github.com/dvajs/dva-knowledgemap), including all the basic knowledge with ES6, React, dva
 - Checkout [more FAQ](https://github.com/dvajs/dva/issues?q=is%3Aissue+is%3Aclosed+label%3Afaq)

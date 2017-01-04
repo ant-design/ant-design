@@ -14,7 +14,7 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ````jsx
-import { DatePicker } from 'antd';
+import { DatePicker, Badge } from 'antd';
 const { MonthPicker, RangePicker } = DatePicker;
 
 function onChange(date, dateString) {
@@ -25,7 +25,10 @@ ReactDOM.render(
   <div>
     <DatePicker onChange={onChange} />
     <br />
-    <MonthPicker onChange={onChange} monthCellContentRender={() => <span>111</span>} />
+    <MonthPicker
+      onChange={onChange}
+      monthCellContentRender={date => <Badge dot={date.month() === 5}>{date.month() + 1}</Badge>}
+    />
     <br />
     <RangePicker onChange={onChange} />
   </div>
