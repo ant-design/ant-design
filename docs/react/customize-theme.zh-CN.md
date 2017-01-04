@@ -28,7 +28,7 @@ antd 的样式使用了 [Less](http://lesscss.org/) 作为开发语言，并定�
 
 ```js
 "theme": {
-  "@primary-color": "#1DA57A",
+  "primary-color": "#1DA57A",
 },
 ```
 
