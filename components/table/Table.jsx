@@ -503,7 +503,7 @@ export default class Table extends React.Component {
     const columns = this.props.columns.concat();
     if (rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item) => {
-        if (this.props.rowSelection.getCheckboxProps) {
+        if (rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item).disabled;
         }
         return true;
@@ -526,7 +526,7 @@ export default class Table extends React.Component {
         render: this.renderSelectionRadio,
         className: `${prefixCls}-selection-column`,
       };
-      if (this.props.rowSelection.type !== 'radio') {
+      if (rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
         selectionColumn.render = this.renderSelectionCheckBox;
         selectionColumn.title = (
