@@ -14,7 +14,7 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ````jsx
-import { DatePicker, Badge } from 'antd';
+import { DatePicker } from 'antd';
 const { MonthPicker, RangePicker } = DatePicker;
 
 function onChange(date, dateString) {
