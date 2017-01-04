@@ -20,13 +20,13 @@ export default class Header extends React.Component {
   };
 
   componentDidMount() {
+    this.context.router.listen(this.handleHideMenu);
+
     /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 320px) and (max-width: 1024px)', {
         match: () => {
-          this.setState({ menuMode: 'inline' }, () => {
-            this.context.router.listen(this.handleHideMenu);
-          });
+          this.setState({ menuMode: 'inline' });
         },
         unmatch: () => {
           this.setState({ menuMode: 'horizontal' });
