@@ -24,7 +24,9 @@ export default class Header extends React.Component {
     require('enquire.js')
       .register('only screen and (min-width: 320px) and (max-width: 1024px)', {
         match: () => {
-          this.setState({ menuMode: 'inline' });
+          this.setState({ menuMode: 'inline' }, () => {
+            this.context.router.listen(this.handleHideMenu);
+          });
         },
         unmatch: () => {
           this.setState({ menuMode: 'horizontal' });
@@ -108,32 +110,32 @@ export default class Header extends React.Component {
       </Button>,
       <Menu mode={menuMode} selectedKeys={[activeMenuItem]} id="nav" key="nav">
         <Menu.Item key="home">
-          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
             <FormattedMessage id="app.header.menu.home" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/spec">
-          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.spec" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/react">
-          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/pattern">
-          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/pattern/navigation', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/pattern/navigation', isZhCN)}>
             <FormattedMessage id="app.header.menu.pattern" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/practice">
-          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/practice/cases', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/practice/cases', isZhCN)}>
             <FormattedMessage id="app.header.menu.practice" />
           </Link>
         </Menu.Item>
         <Menu.Item key="docs/resource">
-          <Link onClick={this.handleHideMenu} to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
+          <Link to={utils.getLocalizedPathname('/docs/resource/download', isZhCN)}>
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
         </Menu.Item>
