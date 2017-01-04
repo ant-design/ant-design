@@ -281,7 +281,7 @@ export default class Upload extends React.Component {
     });
 
     const uploadButton = (
-      <div className={uploadButtonCls} style={{ display: this.props.children ? '' : 'none'}}>
+      <div className={uploadButtonCls} style={{ display: this.props.children ? '' : 'none' }}>
         <RcUpload {...props} ref="upload" />
       </div>
     );

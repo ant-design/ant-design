@@ -43,6 +43,7 @@ export default class Table extends React.Component {
     bordered: React.PropTypes.bool,
     onChange: React.PropTypes.func,
     locale: React.PropTypes.object,
+    dropdownPrefixCls: React.PropTypes.string,
   }
 
   static defaultProps = {
@@ -77,12 +78,12 @@ export default class Table extends React.Component {
       selectionDirty: false,
       ...this.getSortStateFromColumns(),
       pagination: this.hasPagination() ?
-        {
-          ...defaultPagination,
-          ...pagination,
-          current: pagination.defaultCurrent || pagination.current || 1,
-          pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
-        } : {},
+      {
+        ...defaultPagination,
+        ...pagination,
+        current: pagination.defaultCurrent || pagination.current || 1,
+        pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
+      } : {},
     };
 
     this.CheckboxPropsCache = {};
@@ -498,8 +499,9 @@ export default class Table extends React.Component {
   }
 
   renderRowSelection() {
+    const { prefixCls, rowSelection } = this.props;
     const columns = this.props.columns.concat();
-    if (this.props.rowSelection) {
+    if (rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item) => {
         if (this.props.rowSelection.getCheckboxProps) {
           return !this.getCheckboxPropsByItem(item).disabled;
@@ -519,27 +521,20 @@ export default class Table extends React.Component {
             data.every(item => this.getCheckboxPropsByItem(item).defaultChecked)
           );
       }
-      let selectionColumn;
-      if (this.props.rowSelection.type === 'radio') {
-        selectionColumn = {
-          key: 'selection-column',
-          render: this.renderSelectionRadio,
-          className: 'ant-table-selection-column',
-        };
-      } else {
+      let selectionColumn = {
+        key: 'selection-column',
+        render: this.renderSelectionRadio,
+        className: `${prefixCls}-selection-column`,
+      };
+      if (this.props.rowSelection.type !== 'radio') {
         const checkboxAllDisabled = data.every(item => this.getCheckboxPropsByItem(item).disabled);
-        const checkboxAll = (
+        selectionColumn.render = this.renderSelectionCheckBox;
+        selectionColumn.title = (
           <Checkbox checked={checked}
             disabled={checkboxAllDisabled}
             onChange={this.handleSelectAllRow}
           />
         );
-        selectionColumn = {
-          key: 'selection-column',
-          title: checkboxAll,
-          render: this.renderSelectionCheckBox,
-          className: 'ant-table-selection-column',
-        };
       }
       if (columns.some(column => column.fixed === 'left' || column.fixed === true)) {
         selectionColumn.fixed = 'left';
@@ -574,6 +569,7 @@ export default class Table extends React.Component {
   }
 
   renderColumnsDropdown(columns) {
+    const { prefixCls, dropdownPrefixCls } = this.props;
     const { sortOrder } = this.state;
     const locale = this.getLocale();
     return columns.map((originColumn, i) => {
@@ -589,6 +585,8 @@ export default class Table extends React.Component {
             column={column}
             selectedKeys={colFilters}
             confirmFilter={this.handleFilter}
+            prefixCls={`${prefixCls}-filter`}
+            dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
           />
         );
       }
@@ -597,20 +595,20 @@ export default class Table extends React.Component {
         if (isSortColumn) {
           column.className = column.className || '';
           if (sortOrder) {
-            column.className += ' ant-table-column-sort';
+            column.className += ` ${prefixCls}-column-sort`;
           }
         }
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
         sortButton = (
-          <div className="ant-table-column-sorter">
-            <span className={`ant-table-column-sorter-up ${isAscend ? 'on' : 'off'}`}
+          <div className={`${prefixCls}-column-sorter`}>
+            <span className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
               title="↑"
               onClick={() => this.toggleSortOrder('ascend', column)}
             >
               <Icon type="caret-up" />
             </span>
-            <span className={`ant-table-column-sorter-down ${isDescend ? 'on' : 'off'}`}
+            <span className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
               title="↓"
               onClick={() => this.toggleSortOrder('descend', column)}
             >
@@ -756,16 +754,17 @@ export default class Table extends React.Component {
   }
 
   render() {
-    const { style, className, ...restProps } = this.props;
+    const { style, className, prefixCls, showHeader, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     let columns = this.renderRowSelection();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
     const locale = this.getLocale();
 
     const classString = classNames({
-      [`ant-table-${this.props.size}`]: true,
-      'ant-table-bordered': this.props.bordered,
-      'ant-table-empty': !data.length,
+      [`${prefixCls}-${this.props.size}`]: true,
+      '${prefixCls}-bordered': this.props.bordered,
+      '${prefixCls}-empty': !data.length,
+      [`${prefixCls}-without-column-header`]: !showHeader,
     });
 
     columns = this.renderColumnsDropdown(columns);
@@ -775,12 +774,20 @@ export default class Table extends React.Component {
       return newColumn;
     });
 
+    let expandIconColumnIndex = (columns[0] && columns[0].key === 'selection-column') ? 1 : 0;
+    if ('expandIconColumnIndex' in restProps) {
+      expandIconColumnIndex = restProps.expandIconColumnIndex;
+    }
+
     let table = (
-      <RcTable {...restProps}
+      <RcTable
+        {...restProps}
+        prefixCls={prefixCls}
         data={data}
         columns={columns}
+        showHeader={showHeader}
         className={classString}
-        expandIconColumnIndex={(columns[0] && columns[0].key === 'selection-column') ? 1 : 0}
+        expandIconColumnIndex={expandIconColumnIndex}
         expandIconAsCell={expandIconAsCell}
         emptyText={() => locale.emptyText}
       />
@@ -788,9 +795,9 @@ export default class Table extends React.Component {
     // if there is no pagination or no data,
     // the height of spin should decrease by half of pagination
     const paginationPatchClass = (this.hasPagination() && data && data.length !== 0)
-            ? 'ant-table-with-pagination'
-            : 'ant-table-without-pagination';
-    const spinClassName = this.props.loading ? `${paginationPatchClass} ant-table-spin-holder` : '';
+            ? `${prefixCls}-with-pagination`
+            : `${prefixCls}-without-pagination`;
+    const spinClassName = this.props.loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : '';
     table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
       <div className={`${className} clearfix`} style={style}>
