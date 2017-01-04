@@ -1,3 +1,4 @@
+.tinyColorMixin() {
 @functions: ~`(function() {
 // TinyColor v1.4.1
 // https://github.com/bgrins/TinyColor
@@ -1180,3 +1181,8 @@ function validateWCAG2Parms(parms) {
 this.tinycolor = tinycolor;
 
 })()`;
+}
+// It is hacky way to make this function will be compiled preferentially by less
+// resolve error: `ReferenceError: colorPalette is not defined`
+// https://github.com/ant-design/ant-motion/issues/44
+.tinyColorMixin();
