@@ -59,35 +59,35 @@ exports[`Table.pagination renders pagination correctly 1`] = `
           </div>
         </div>
       </div>
+      <ul
+        class="ant-pagination ant-table-pagination"
+        unselectable="unselectable">
+        <li
+          class="ant-pagination-disabled ant-pagination-prev"
+          title="上一页">
+          <a />
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          title="1">
+          <a>
+            1
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-2"
+          title="2">
+          <a>
+            2
+          </a>
+        </li>
+        <li
+          class=" ant-pagination-next"
+          title="下一页">
+          <a />
+        </li>
+      </ul>
     </div>
   </div>
-  <ul
-    class="ant-pagination ant-table-pagination"
-    unselectable="unselectable">
-    <li
-      class="ant-pagination-disabled ant-pagination-prev"
-      title="上一页">
-      <a />
-    </li>
-    <li
-      class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-      title="1">
-      <a>
-        1
-      </a>
-    </li>
-    <li
-      class="ant-pagination-item ant-pagination-item-2"
-      title="2">
-      <a>
-        2
-      </a>
-    </li>
-    <li
-      class=" ant-pagination-next"
-      title="下一页">
-      <a />
-    </li>
-  </ul>
 </div>
 `;
