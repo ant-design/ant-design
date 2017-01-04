@@ -6,19 +6,21 @@
   overflow: hidden;
 }
 
-.main-color .main-color-item {
-  width: 80px;
-  height: 60px;
-  border-radius: 4px;
-  float: left;
-  margin: 0 5px 5px 0;
-  transition: all .2s;
-  position: relative;
-  text-align: center;
-  padding-top: 20px;
-  font-family: Consolas;
-  font-size: 12px;
-  &:after {
+.main-color {
+  &-item {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    float: left;
+    margin: 0 5px 5px 0;
+    transition: all .2s;
+    position: relative;
+    text-align: center;
+    padding-top: 20px;
+    font-family: Consolas;
+    font-size: 12px;
+  }
+  &-item &-value {
     font-size: 12px;
     position: absolute;
     bottom: -4px;
@@ -49,10 +51,10 @@
 .main-color:hover {
   .main-color-item {
     padding-top: 4px;
-    &:after {
-      opacity: 0.7;
-      bottom: 3px;
-    }
+  }
+  .main-color-value {
+    opacity: 0.7;
+    bottom: 3px;
   }
 }
 
@@ -92,9 +94,6 @@
   .palatte-@{color}-@{index} {
     @background: "@{color}-@{index}";
     background: @@background;
-    &:after {
-      content: "@{@{background}}";
-    }
   }
   .make-palatte(@color, (@index + 1));    // next iteration
 }
