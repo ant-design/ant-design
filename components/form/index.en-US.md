@@ -11,7 +11,7 @@ Form is used to collect, validate, and submit the user input, usually contains v
 
 You can align the controls of a `form` using one of the following attributes：
 
-- `horizontal`：to horizontally align the `label`s and controls of the fields.
+- `horizontal`：to horizontally align the `label`s and controls of the fields. (Default)
 - `vertical`：to vertically align the `label`s and controls of the fields.
 - `inline`：to render form fields in one line.
 
@@ -38,7 +38,6 @@ A form field is defined using `<Form.Item />`.
 |-----------|------------------------------------------|------------|---------|
 | form | Decorated by `Form.create()` will be automatically set `this.props.form` property, so just pass to form, you don't need to set it by yourself after 1.7.0. | object | n/a
 | vertical | Use vertical layout. | boolean | false |
-| horizontal | Use horizontal layout. | boolean  | false    |
 | inline | Use inline alignment. | boolean | false |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
 
@@ -118,7 +117,7 @@ Note:
 | hasFeedback | Used with `validateStatus`, this option specifies the validation status icon. Recommended to be used only with `Input`. | boolean | false |
 
 <style>
-.code-box-demo .ant-form-horizontal {
+.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 540px;
 }
 </style>

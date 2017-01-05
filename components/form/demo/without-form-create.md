@@ -54,7 +54,7 @@ class RawForm extends React.Component {
     const number = this.state.number;
     const tips = 'A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.';
     return (
-      <Form horizontal>
+      <Form>
         <FormItem
           {...formItemLayout}
           label="Prime between 8 & 12"

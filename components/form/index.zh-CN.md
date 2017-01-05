@@ -12,7 +12,7 @@ title: Form
 
 我们为 `form` 提供了以下两种排列方式：
 
-- 水平排列：标签和表单控件水平排列；
+- 水平排列：标签和表单控件水平排列；（默认）
 - 水质排列：标签和表单控件上下垂直排列；
 - 行内排列：表单项水平行内排列。
 
@@ -40,7 +40,6 @@ title: Form
 |-----------|------------------------------------------|------------|-------|
 | form | 经 `Form.create()` 包装过的组件会自带 `this.props.form` 属性，直接传给 Form 即可。1.7.0 之后无需设置 | object | 无 |
 | vertical | 垂直排列布局 | boolean | false |
-| horizontal | 水平排列布局 | boolean  | false    |
 | inline | 行内排列布局 | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
 
@@ -119,7 +118,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false  |
 
 <style>
-.code-box-demo .ant-form-horizontal {
+.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 540px;
 }
 </style>

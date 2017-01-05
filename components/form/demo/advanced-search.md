@@ -68,7 +68,6 @@ class AdvancedSearchForm extends React.Component {
     const shownCount = expand ? children.length : 6;
     return (
       <Form
-        horizontal
         className="ant-advanced-search-form"
         onSubmit={this.handleSearch}
       >
@@ -111,7 +110,7 @@ ReactDOM.render(
 ````
 
 <style>
-#components-form-demo-advanced-search .ant-form-horizontal {
+#components-form-demo-advanced-search .ant-form {
   max-width: none;
 }
 #components-form-demo-advanced-search .search-result-list {

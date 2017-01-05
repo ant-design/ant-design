@@ -30,7 +30,7 @@ import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;
 
 ReactDOM.render(
-  <Form horizontal>
+  <Form>
     <FormItem
       label="Fail"
       labelCol={{ span: 5 }}
