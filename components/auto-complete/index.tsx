@@ -1,5 +1,7 @@
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import Select, { OptionProps, OptGroupProps } from '../select';
+import Input from '../input';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
@@ -28,6 +30,22 @@ export interface AutoCompleteProps {
   disabled?: boolean;
 }
 
+class InputElement extends React.Component<any, any> {
+  private ele: Element;
+  focus = () => {
+    (findDOMNode(this.ele) as HTMLInputElement).focus();
+  }
+  blur = () => {
+    (findDOMNode(this.ele) as HTMLInputElement).blur();
+  }
+  render() {
+    return React.cloneElement(this.props.children, {
+      ...this.props,
+      ref: ele => this.ele = ele,
+    }, null);
+  }
+}
+
 export default class AutoComplete extends React.Component<AutoCompleteProps, any> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
@@ -44,9 +62,13 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
     antLocale: React.PropTypes.object,
   };
 
+  getInputElement = () => {
+    const element = this.props.children || <Input/>;
+    return <InputElement className="ant-input">{element}</InputElement>;
+  }
   render() {
     let {
-      size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource, children,
+      size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource,
     } = this.props;
 
     const cls = classNames({
@@ -54,9 +76,13 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       [`${prefixCls}-sm`]: size === 'small',
       [className]: !!className,
       [`${prefixCls}-show-search`]: true,
+      [`${prefixCls}-auto-complete`]: true,
     });
 
-    const options = children || (dataSource ? dataSource.map((item) => {
+    const options = dataSource ? dataSource.map((item) => {
+      if (React.isValidElement(item)) {
+        return item;
+      }
       switch (typeof item) {
         case 'string':
           return <Option key={item}>{item}</Option>;
@@ -69,7 +95,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
         default:
           throw new Error('AutoComplete[dataSource] only supports type `string[] | Object[]`.');
       }
-    }) : []);
+    }) : [];
 
     return (
       <Select
@@ -77,6 +103,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
         className={cls}
         optionLabelProp={optionLabelProp}
         combobox
+        getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
       >
         {options}

@@ -1,12 +1,11 @@
-import CalendarLocale from 'rc-calendar/lib/locale/en_US';
-import TimePickerLocale from '../../time-picker/locale/en_US';
+import CalendarLocale from 'rc-calendar/lib/locale/sv_SE';
+import TimePickerLocale from '../../time-picker/locale/sv_SE';
 import assign from 'object-assign';
 
-// 统一合并为完整的 Locale
 const locale = {
   lang: assign({
-    placeholder: 'Select date',
-    rangePlaceholder: ['Start date', 'End date'],
+    placeholder: 'Välj datum',
+    rangePlaceholder: ['Startdatum', 'Slutdatum'],
   }, CalendarLocale),
   timePickerLocale: assign({}, TimePickerLocale),
 };

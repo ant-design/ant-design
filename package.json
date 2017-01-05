@@ -56,7 +56,7 @@
     "rc-progress": "~2.0.1",
     "rc-radio": "~2.0.0",
     "rc-rate": "~1.1.2",
-    "rc-select": "~6.6.1",
+    "rc-select": "^6.7.1",
     "rc-slider": "~5.4.0",
     "rc-steps": "~2.2.0",
     "rc-switch": "~1.4.2",
@@ -145,20 +145,16 @@
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
     "eslint-fix": "eslint --fix tests site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
-
     "jest": "jest",
     "jest:node": "jest --config .jest.node.json",
-
     "clean": "antd-tools run clean",
     "dist": "antd-tools run dist && node ./tests/dekko/dist.test.js",
     "compile": "antd-tools run compile && node ./tests/dekko/lib.test.js",
-
     "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
     "babel-site": "babel ./site/theme/template --out-dir ./site/theme/template",
     "clean-site": "rm site/theme/template/**/*.js site/theme/template/*.js",
     "site": "npm run babel-site && bisheng build --ssr -c ./site/bisheng.config.js && npm run clean-site",
     "deploy": "npm run clean && npm run site && bisheng gh-pages --push-only",
-
     "pub": "antd-tools run update-self && antd-tools run pub",
     "prepublish": "antd-tools run guard",
     "pre-publish": "node ./scripts/prepub",
