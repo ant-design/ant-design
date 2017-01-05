@@ -35,9 +35,17 @@ function getStyle() {
     #header .ant-menu {
       background: transparent;
     }
-    #header .ant-select-search__field,
+    #header .ant-select-search__field {
+      color: #eee;
+    }
     #header .ant-select-selection__placeholder {
       color: rgba(255,255,255,0.57);
+    }
+    #header.home-nav-white .ant-select-search__field {
+      color: rgba(0, 0, 0, 0.65);
+    }
+    #header.home-nav-white .ant-select-selection__placeholder {
+      color: rgb(204, 204, 204);
     }
     #header.home-nav-white {
       background: rgba(255, 255, 255, 0.91);
@@ -47,11 +55,11 @@ function getStyle() {
       border-left-color: #EBEDEE;
     }
     .home-nav-white #nav a {
-      color: @text-color;
+      color: rgba(0, 0, 0, 0.65);
     }
     .home-nav-white .lang:not(:hover) {
-      color: @text-color;
-      border-color: @text-color;
+      color: rgba(0, 0, 0, 0.65);
+      border-color: rgba(0, 0, 0, 0.65);
     }
     .nav-phone-icon:before {
       background: #eee;
