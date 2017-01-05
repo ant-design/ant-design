@@ -21,6 +21,7 @@ function showConfirm() {
   confirm({
     title: 'Want to delete these items?',
     content: 'some descriptions',
+    maskClosable: true,
     onOk() {
       console.log('OK');
     },
