@@ -9,6 +9,18 @@ timeline: true
 
 ---
 
+## 1.11.4
+
+`2016-11-24`
+
+* 修复 Upload 的 children 不能为 `null` 的问题。
+
+## 1.11.3
+
+`2016-11-23`
+
+* 修复 `Input[type=textarea]` 在 IE8 下面的兼容性问题。[#3946](https://github.com/ant-design/ant-design/issues/3946) [@codering](https://github.com/codering)
+
 ## 1.11.2
 
 `2016-09-26`
