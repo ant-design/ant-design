@@ -47,7 +47,13 @@ const Demo = Form.create()(React.createClass({
       wrapperCol: { span: 14 },
     };
     return (
-      <Form horizontal onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
+        <FormItem
+          {...formItemLayout}
+          label="Nation"
+        >
+          <span className="ant-form-text">China</span>
+        </FormItem>
         <FormItem
           {...formItemLayout}
           label="Select"
