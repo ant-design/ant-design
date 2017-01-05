@@ -1,8 +1,8 @@
 ---
 order: 7
 title:
-    zh-CN: 数值输入框
-    en-US: Numeric Input
+    zh-CN: 输入时格式化展示
+    en-US: Format Tooltip Input
 ---
 
 ## zh-CN
@@ -101,7 +101,7 @@ ReactDOM.render(<NumericInputDemo />, mountNode);
 ````
 
 ````css
-/* to prevent the arrow overflow the popup container, 
+/* to prevent the arrow overflow the popup container,
 or the height is not enough when content is empty */
 .numeric-input .ant-tooltip-inner {
   min-width: 32px;
