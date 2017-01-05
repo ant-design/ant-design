@@ -22,6 +22,8 @@
   border-bottom: 4px solid #fff;
   transition: background-color 0.3s ease;
 
+  .vertical();
+
   &-with-marks {
     margin-bottom: 28px;
   }
@@ -141,6 +143,49 @@
     .@{slider-prefix-cls}-mark-text,
     .@{slider-prefix-cls}-dot {
       cursor: not-allowed!important;
+    }
+  }
+}
+
+.vertical() {
+  &-vertical {
+    width: 12px;
+    height: 100%;
+    margin: 6px 10px;
+    border: 4px solid #fff;
+    border-top: 0 none;
+    border-bottom: 0 none;
+
+    .@{slider-prefix-cls}-track {
+      width: 4px;
+    }
+
+    .@{slider-prefix-cls}-handle {
+      margin-left: -5px;
+      margin-bottom: -7px;
+    }
+
+    .@{slider-prefix-cls}-mark {
+      top: 0;
+      left: 8px;
+      width: 18px;
+      height: 100%;
+    }
+
+    .@{slider-prefix-cls}-mark-text {
+      left: 4px;
+      white-space: nowrap;
+    }
+
+    .@{slider-prefix-cls}-step {
+      width: 4px;
+      height: 100%;
+    }
+
+    .@{slider-prefix-cls}-dot {
+      top: auto;
+      left: 2px;
+      margin-bottom: -4px;
     }
   }
 }
