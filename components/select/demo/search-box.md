@@ -7,18 +7,16 @@ title:
 
 ## zh-CN
 
-带有搜索按钮的自动补全输入框。
+自动补全和远程数据结合。
 
 ## en-US
 
-Autocomplete select with search field.
-
+Autocomplete with remote ajax data.
 
 ````jsx
-import { Input, Select, Button, Icon } from 'antd';
+import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import querystring from 'querystring';
-import classNames from 'classnames';
 const Option = Select.Option;
 
 let timeout;
@@ -61,56 +59,28 @@ const SearchInput = React.createClass({
     return {
       data: [],
       value: '',
-      focus: false,
     };
   },
   handleChange(value) {
     this.setState({ value });
     fetch(value, data => this.setState({ data }));
   },
-  handleSubmit() {
-    console.log('输入框内容是: ', this.state.value);
-  },
-  handleFocus() {
-    this.setState({ focus: true });
-  },
-  handleBlur() {
-    this.setState({ focus: false });
-  },
   render() {
-    const btnCls = classNames({
-      'ant-search-btn': true,
-      'ant-search-btn-noempty': !!this.state.value.trim(),
-    });
-    const searchCls = classNames({
-      'ant-search-input': true,
-      'ant-search-input-focus': this.state.focus,
-    });
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
     return (
-      <div className="ant-search-input-wrapper" style={this.props.style}>
-        <Input.Group className={searchCls}>
-          <Select
-            combobox
-            value={this.state.value}
-            placeholder={this.props.placeholder}
-            notFoundContent=""
-            defaultActiveFirstOption={false}
-            showArrow={false}
-            filterOption={false}
-            onChange={this.handleChange}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-          >
-            {options}
-          </Select>
-          <div className="ant-input-group-wrap">
-            <Button className={btnCls} onClick={this.handleSubmit}>
-              <Icon type="search" />
-            </Button>
-          </div>
-        </Input.Group>
-      </div>
+      <Select
+        combobox
+        value={this.state.value}
+        placeholder={this.props.placeholder}
+        notFoundContent=""
+        style={this.props.style}
+        defaultActiveFirstOption={false}
+        showArrow={false}
+        filterOption={false}
+        onChange={this.handleChange}
+      >
+        {options}
+      </Select>
     );
   },
 });
