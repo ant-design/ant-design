@@ -31,11 +31,8 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.refs.input.focus();
   }
   render() {
-    const { className, prefixCls, style, ...others } = this.props;
+    const { className, prefixCls, ...others } = this.props;
     delete others.onSearch;
-    const wrapperCls = classNames({
-      [`${prefixCls}-wrapper`]: true,
-    }, className);
     const searchSuffix = (
       <Icon
         className={`${prefixCls}-icon`}
@@ -44,15 +41,13 @@ export default class Search extends React.Component<SearchProps, any> {
       />
     );
     return (
-      <div className={wrapperCls} style={style}>
-        <Input
-          className={prefixCls}
-          onPressEnter={this.onSearch}
-          ref={node => this.input = node}
-          suffix={searchSuffix}
-          {...others}
-        />
-      </div>
+      <Input
+        className={classNames(prefixCls, className)}
+        onPressEnter={this.onSearch}
+        ref={node => this.input = node}
+        suffix={searchSuffix}
+        {...others}
+      />
     );
   }
 }
