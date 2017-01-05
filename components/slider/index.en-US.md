@@ -24,6 +24,7 @@ To input a value in a range.
 | defaultValue   | The default value of slider. When `range` is `false`, use `Number`, otherwise, use `[Number, Number]`   | Number or [Number, Number] | 0 or [0, 0]
 | included       | Make effect when `marks` not null，`true` means containment and `false` means coordinative | Boolean			 | true
 | disabled       | If true, the slider will not be interactable. | Boolean 			| false
+| vertical       | If true, the slider will be vertical. | Boolean | false
 | onChange       | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP
 | onAfterChange  | Fire when  `onmouseup` is fired. | Function(value) | NOOP
 | tipFormatter   | Slider will pass its value to `tipFormatter`, and display its value in Tooltip, and hide Tooltip when return value is null. | Function or null | IDENTITY

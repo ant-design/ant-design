@@ -22,6 +22,7 @@ export interface SliderProps {
   defaultValue?: SliderValue;
   included?: boolean;
   disabled?: boolean;
+  vertical?: boolean;
   onChange?: (value: SliderValue) => void;
   onAfterChange?: (value: SliderValue) => void;
   tipFormatter?: void | ((value: number) => React.ReactNode);
