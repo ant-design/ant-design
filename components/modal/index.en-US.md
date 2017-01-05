@@ -31,6 +31,7 @@ and so on.
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | true       |
 | style | Style of floating layer, typically used at least for adjusting the position. | Object   | - |
 | wrapClassName | The class name of the container of the modal dialog | String   | - |
+| afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 
 ### Modal.xxx()
 
