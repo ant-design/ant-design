@@ -1,7 +1,7 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
 
-@input-presuffix-width: 16;
+@input-presuffix-width: 17;
 
 // size mixins for input
 .input-lg() {
@@ -82,23 +82,6 @@
 
   &-sm {
     .input-sm();
-  }
-}
-
-// Input with icons, you can define @height if you wish to change the input size
-.input-with-icon(@height: @input-height-base) {
-  position: relative;
-
-  .@{iconfont-css-prefix} {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 2;
-    .square(@height);
-    font-size: @font-size-lg;
-    line-height: @height;
-    text-align: center;
-    pointer-events: none;
   }
 }
 
@@ -302,20 +285,17 @@
     z-index: 1;
   }
 
+  &:hover .@{inputClass} {
+    .hover();
+  }
+
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 2;
-
-    &:after {
-      content: '';
-      display: inline-block;
-      width: 0;
-      height: 100%;
-      vertical-align: middle;
-    }
+    line-height: 1.2;
   }
 
   .@{inputClass}-prefix {
@@ -334,4 +314,3 @@
     padding-right: @input-padding-horizontal + @input-presuffix-width;
   }
 }
-
