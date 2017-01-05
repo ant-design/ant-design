@@ -528,3 +528,105 @@ exports[`test renders ./components/slider/demo/tip-formatter.md correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`test renders ./components/slider/demo/vertical.md correctly 1`] = `
+<div
+  style="height:300px;">
+  <div
+    style="float:left;height:300px;margin-left:70px;">
+    <div
+      class="ant-slider ant-slider-vertical">
+      <div
+        class="ant-slider-rail" />
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="visibility:visible;bottom:0%;height:30%;" />
+      <div
+        class="ant-slider-step" />
+      <div
+        class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+        style="bottom:30%;" />
+      <div
+        class="ant-slider-mark" />
+    </div>
+  </div>
+  <div
+    style="float:left;height:300px;margin-left:70px;">
+    <div
+      class="ant-slider ant-slider-vertical">
+      <div
+        class="ant-slider-rail" />
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="visibility:visible;bottom:20%;height:30%;" />
+      <div
+        class="ant-slider-step" />
+      <div
+        class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+        style="bottom:20%;" />
+      <div
+        class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+        style="bottom:50%;" />
+      <div
+        class="ant-slider-mark" />
+    </div>
+  </div>
+  <div
+    style="float:left;height:300px;margin-left:70px;">
+    <div
+      class="ant-slider ant-slider-with-marks ant-slider-vertical">
+      <div
+        class="ant-slider-rail" />
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="visibility:visible;bottom:26%;height:11%;" />
+      <div
+        class="ant-slider-step">
+        <span
+          class="ant-slider-dot"
+          style="bottom:0%;" />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="bottom:26%;" />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="bottom:37%;" />
+        <span
+          class="ant-slider-dot"
+          style="bottom:100%;" />
+      </div>
+      <div
+        class="ant-slider-handle ant-slider-handle-1 ant-slider-handle-lower"
+        style="bottom:26%;" />
+      <div
+        class="ant-slider-handle ant-slider-handle-2 ant-slider-handle-upper"
+        style="bottom:37%;" />
+      <div
+        class="ant-slider-mark">
+        <span
+          class="ant-slider-mark-text"
+          style="margin-bottom:-50%;bottom:0%;">
+          0°C
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="margin-bottom:-50%;bottom:26%;">
+          26°C
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="margin-bottom:-50%;bottom:37%;">
+          37°C
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="margin-bottom:-50%;bottom:100%;color:#f50;">
+          <strong>
+            100°C
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
