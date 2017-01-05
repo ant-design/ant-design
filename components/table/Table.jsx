@@ -798,11 +798,12 @@ export default class Table extends React.Component {
             ? `${prefixCls}-with-pagination`
             : `${prefixCls}-without-pagination`;
     const spinClassName = this.props.loading ? `${paginationPatchClass} ${prefixCls}-spin-holder` : '';
-    table = <Spin className={spinClassName} spinning={this.props.loading}>{table}</Spin>;
     return (
       <div className={`${className} clearfix`} style={style}>
-        {table}
-        {this.renderPagination()}
+        <Spin className={spinClassName} spinning={this.props.loading}>
+          {table}
+          {this.renderPagination()}
+        </Spin>
       </div>
     );
   }
