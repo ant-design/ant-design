@@ -366,53 +366,38 @@ exports[`test renders ./components/select/demo/search.md correctly 1`] = `
 
 exports[`test renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
-  class="ant-search-input-wrapper"
+  class="ant-select ant-select-combobox ant-select-enabled"
   style="width:200px;">
-  <span
-    class="ant-input-group ant-search-input">
+  <div
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="ant-select-selection
+              ant-select-selection--single"
+    role="combobox">
     <div
-      class="ant-select ant-select-combobox ant-select-enabled">
+      class="ant-select-selection__rendered">
       <div
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-                  ant-select-selection--single"
-        role="combobox">
-        <div
-          class="ant-select-selection__rendered">
-          <div
-            class="ant-select-selection__placeholder"
-            style="display:block;user-select:none;-webkit-user-select:none;"
-            unselectable="unselectable">
-            input search text
-          </div>
-          <ul>
-            <li
-              class="ant-select-search ant-select-search--inline">
-              <div
-                class="ant-select-search__field__wrap">
-                <input
-                  class="ant-select-search__field"
-                  value="" />
-                <span
-                  class="ant-select-search__field__mirror" />
-              </div>
-            </li>
-          </ul>
-        </div>
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none;"
+        unselectable="unselectable">
+        input search text
       </div>
+      <ul>
+        <li
+          class="ant-select-search ant-select-search--inline">
+          <div
+            class="ant-select-search__field__wrap">
+            <input
+              class="ant-select-search__field"
+              value="" />
+            <span
+              class="ant-select-search__field__mirror" />
+          </div>
+        </li>
+      </ul>
     </div>
-    <div
-      class="ant-input-group-wrap">
-      <button
-        class="ant-btn ant-search-btn"
-        type="button">
-        <i
-          class="anticon anticon-search" />
-      </button>
-    </div>
-  </span>
+  </div>
 </div>
 `;
 

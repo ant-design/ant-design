@@ -1,7 +1,7 @@
 exports[`test renders ./components/form/demo/advanced-search.md correctly 1`] = `
 <div>
   <form
-    class="ant-form ant-form-horizontal ant-advanced-search-form">
+    class="ant-form ant-advanced-search-form">
     <div
       class="ant-row"
       style="margin-left:-20px;margin-right:-20px;">
@@ -375,7 +375,7 @@ exports[`test renders ./components/form/demo/customized-form-controls.md correct
 
 exports[`test renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal">
+  class="ant-form">
   <div
     class="ant-row ant-form-item">
     <div
@@ -535,6 +535,132 @@ exports[`test renders ./components/form/demo/horizontal-login.md correctly 1`] =
 </form>
 `;
 
+exports[`test renders ./components/form/demo/layout.md correctly 1`] = `
+<div>
+  <form
+    class="ant-form ant-form-horizontal">
+    <div
+      class="ant-row ant-form-item">
+      <div
+        class="ant-col-4 ant-form-item-label">
+        <label
+          class="">
+          Form Layout
+        </label>
+      </div>
+      <div
+        class="ant-col-14">
+        <div
+          class="ant-form-item-control ">
+          <div
+            class="ant-radio-group ant-radio-group-large">
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked">
+              <span
+                class="ant-radio-button ant-radio-button-checked ant-radio-button ant-radio-button-checked ant-radio-button-checked-1">
+                <span
+                  class="ant-radio-button-inner" />
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio" />
+              </span>
+              <span>
+                Horizontal
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper">
+              <span
+                class="ant-radio-button">
+                <span
+                  class="ant-radio-button-inner" />
+                <input
+                  class="ant-radio-button-input"
+                  type="radio" />
+              </span>
+              <span>
+                Vertical
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper">
+              <span
+                class="ant-radio-button">
+                <span
+                  class="ant-radio-button-inner" />
+                <input
+                  class="ant-radio-button-input"
+                  type="radio" />
+              </span>
+              <span>
+                Inline
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item">
+      <div
+        class="ant-col-4 ant-form-item-label">
+        <label
+          class="">
+          Field A
+        </label>
+      </div>
+      <div
+        class="ant-col-14">
+        <div
+          class="ant-form-item-control ">
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="input placeholder"
+            type="text" />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item">
+      <div
+        class="ant-col-4 ant-form-item-label">
+        <label
+          class="">
+          Field B
+        </label>
+      </div>
+      <div
+        class="ant-col-14">
+        <div
+          class="ant-form-item-control ">
+          <input
+            class="ant-input ant-input-lg"
+            placeholder="input placeholder"
+            type="text" />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item">
+      <div
+        class="ant-col-14 ant-col-offset-4">
+        <div
+          class="ant-form-item-control ">
+          <button
+            class="ant-btn ant-btn-primary ant-btn-lg"
+            type="button">
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
 exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
 <form
   class="ant-form login-form">
@@ -630,7 +756,7 @@ exports[`test renders ./components/form/demo/normal-login.md correctly 1`] = `
 
 exports[`test renders ./components/form/demo/register.md correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal">
+  class="ant-form">
   <div
     class="ant-row ant-form-item">
     <div
@@ -913,7 +1039,7 @@ exports[`test renders ./components/form/demo/register.md correctly 1`] = `
 
 exports[`test renders ./components/form/demo/time-related-controls.md correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal">
+  class="ant-form">
   <div
     class="ant-row ant-form-item">
     <div
@@ -1130,7 +1256,27 @@ exports[`test renders ./components/form/demo/time-related-controls.md correctly 
 
 exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal">
+  class="ant-form">
+  <div
+    class="ant-row ant-form-item">
+    <div
+      class="ant-col-6 ant-form-item-label">
+      <label
+        class="">
+        Nation
+      </label>
+    </div>
+    <div
+      class="ant-col-14">
+      <div
+        class="ant-form-item-control ">
+        <span
+          class="ant-form-text">
+          China
+        </span>
+      </div>
+    </div>
+  </div>
   <div
     class="ant-row ant-form-item">
     <div
@@ -1556,7 +1702,7 @@ exports[`test renders ./components/form/demo/validate-other.md correctly 1`] = `
 
 exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal">
+  class="ant-form">
   <div
     class="ant-row ant-form-item ant-form-item-with-help">
     <div
@@ -1777,7 +1923,7 @@ exports[`test renders ./components/form/demo/validate-static.md correctly 1`] = 
 
 exports[`test renders ./components/form/demo/without-form-create.md correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal">
+  class="ant-form">
   <div
     class="ant-row ant-form-item ant-form-item-with-help">
     <div
