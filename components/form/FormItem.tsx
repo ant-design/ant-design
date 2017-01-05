@@ -195,6 +195,10 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   isRequired() {
+    const { required } = this.props;
+    if (required !== undefined) {
+      return required;
+    }
     if (this.context.form) {
       const meta = this.getMeta() || {};
       const validate = (meta.validate || []);
@@ -209,9 +213,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderLabel() {
     const props = this.props;
     const labelCol = props.labelCol;
-    const required = props.required === undefined ?
-      this.isRequired() :
-      props.required;
+    const required = this.isRequired();
 
     const className = classNames({
       [`${props.prefixCls}-item-required`]: required,
