@@ -37,6 +37,7 @@ export interface InputProps {
   className?: string;
   type?: string;
   id?: number | string;
+  name?: string;
   value?: any;
   defaultValue?: any;
   placeholder?: string;
