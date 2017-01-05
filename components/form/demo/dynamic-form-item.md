@@ -101,7 +101,7 @@ class DynamicFieldSet extends React.Component {
       );
     });
     return (
-      <Form onSubmit={this.handleSubmit} horizontal>
+      <Form onSubmit={this.handleSubmit}>
         {formItems}
         <FormItem {...formItemLayoutWithOutLabel}>
           <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>

@@ -236,19 +236,6 @@ form {
 }
 
 // Form layout
-//== Horizontal Form
-.@{form-prefix-cls}-horizontal {
-  .@{form-prefix-cls}-item {
-    .make-row;
-  }
-
-  .@{ant-prefix}-radio-inline,
-  .@{ant-prefix}-checkbox-inline {
-    vertical-align: baseline;
-  }
-}
-
-// Form layout
 //== Vertical Form
 .@{form-prefix-cls}-vertical {
   .@{form-prefix-cls}-item-label {
@@ -290,16 +277,6 @@ form {
   // Fix https://github.comdesigndesign/issues/1040
   .@{form-prefix-cls}-explain {
     position: absolute;
-  }
-}
-
-.@{form-prefix-cls}-horizontal,
-.@{form-prefix-cls}-inline {
-  label {
-    > input[type="radio"],
-    > input[type="checkbox"] {
-      margin-right: 4px;
-    }
   }
 }
 

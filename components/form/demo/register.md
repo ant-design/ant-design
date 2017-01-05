@@ -95,7 +95,7 @@ const RegistrationForm = Form.create()(React.createClass({
       </Select>
     );
     return (
-      <Form horizontal onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
           label="E-mail"

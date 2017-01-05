@@ -59,7 +59,7 @@ const TimeRelatedForm = Form.create()(React.createClass({
       rules: [{ type: 'array', required: true, message: 'Please select time!' }],
     };
     return (
-      <Form horizontal onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
           label="DatePicker"
