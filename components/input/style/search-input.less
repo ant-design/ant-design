@@ -3,23 +3,12 @@
 @import "../../button/style/mixin";
 @import "./mixin";
 
-.@{ant-prefix}-input-search-wrapper {
-  position: relative;
-
-  .@{ant-prefix}-input-search {
-    transition: all .3s ease;
-    &-icon {
-      cursor: pointer;
-      transition: all .3s ease;
-      font-size: 14px;
-      &:hover {
-        color: @input-hover-border-color;
-      }
-    }
-  }
-
-  &:hover .@{ant-prefix}-input-search:not([disabled]) {
-    border: 1px solid @input-hover-border-color;
+.@{ant-prefix}-input-search-icon {
+  cursor: pointer;
+  transition: all .3s;
+  font-size: 14px;
+  &:hover {
+    color: @input-hover-border-color;
   }
 }
 
