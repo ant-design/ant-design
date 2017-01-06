@@ -49,10 +49,15 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |key | it's used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: it must be unique in all of treeNodes of the tree! | String | internal calculated position of treeNode |
 |isLeaf | whether it's leaf node | bool | false |
 
-## note
+## Note
 
 The number of treeNodes can be very large, but when enable `checkable`,
-it will spend more computing time, so we cached some calculations(e.g. `this.treeNodesStates`),
+it will spend more computing time, so we cache some calculations (e.g. `this.treeNodesStates`),
 to avoid double computing. But, this bring some restrictions,
-**when you async load treeNodes, you should render tree like this**
-`{this.state.treeData.length ? <Tree ...>{this.state.treeData.map(t => <TreeNode ... />)}</Tree> : 'loading tree'}`
+**when you load treeNodes asynchronously, you should render tree like this**。
+
+```jsx
+{this.state.treeData.length
+  ? <Tree>{this.state.treeData.map(data => <TreeNode />)}</Tree>
+  : 'loading tree'}
+```
