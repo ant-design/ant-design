@@ -1,6 +1,6 @@
 {
   "setupFiles": [
-    "tests/setup.js"
+    "./tests/setup.js"
   ],
   "moduleFileExtensions": [
     "ts",
@@ -9,9 +9,9 @@
     "md"
   ],
   "transform": {
-    "\\.tsx?$": "node_modules/typescript-babel-jest",
-    "\\.js$": "node_modules/babel-jest",
-    "\\.md$": "node_modules/antd-demo-jest"
+    "\\.tsx?$": "./node_modules/typescript-babel-jest",
+    "\\.js$": "./node_modules/babel-jest",
+    "\\.md$": "./node_modules/antd-demo-jest"
   },
   "testRegex": "demo\\.test\\.js$",
   "testEnvironment": "node"
