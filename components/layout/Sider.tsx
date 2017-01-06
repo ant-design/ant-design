@@ -25,6 +25,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     width: 200,
     collapsedWidth: 64,
     style: {},
+    name: 'Sider',
   };
 
   constructor(props) {
@@ -70,7 +71,7 @@ export default class Sider extends React.Component<SiderProps, any> {
       prefixCls, className, collapsible, trigger, style, width, collapsedWidth,
       ...others,
     } = this.props;
-    const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse']);
+    const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse', 'name']);
     const siderCls = classNames(className, prefixCls, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: !!trigger,
