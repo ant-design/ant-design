@@ -163,18 +163,6 @@
     display: block;
     white-space: nowrap;
 
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.@{menu-prefix-cls}-item-disabled,
-    &.@{menu-prefix-cls}-submenu-disabled {
-      color: @text-color-secondary !important;
-      cursor: not-allowed;
-      background: none;
-      > a {
-        color: @text-color-secondary !important;
-        pointer-events: none;
-      }
-    }
-
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 8px;
@@ -326,6 +314,19 @@
       padding-left: 32px;
     }
   }
+
+  // Disabled state sets text to gray and nukes hover/tab effects
+  &-item-disabled,
+  &-submenu-disabled {
+    color: @disabled-color !important;
+    cursor: not-allowed;
+    background: none;
+    border-color: transparent !important;;
+    > a {
+      color: @disabled-color !important;
+      pointer-events: none;
+    }
+  }
 }
 
 
@@ -353,6 +354,7 @@
   }
 
   &-dark &-item,
+  &-dark &-item-group-title,
   &-dark &-item > a {
     color: @text-color-secondary-dark;
   }
@@ -376,18 +378,18 @@
   &-dark &-submenu:hover,
   &-dark &-submenu-title:hover {
     background-color: transparent;
-    color: @text-color-dark;
+    color: #fff;
     > a {
-      color: @text-color-dark;
+      color: #fff;
     }
   }
 
   &-dark &-item-selected {
     border-right: 0;
-    color: @text-color-dark;
+    color: #fff;
     > a,
     > a:hover {
-      color: @text-color-dark;
+      color: #fff;
     }
   }
 
@@ -397,5 +399,15 @@
 
   &-dark&-inline &-item-selected {
     background-color: @primary-color;
+  }
+
+  // Disabled state sets text to dark gray and nukes hover/tab effects
+  &-dark &-item-disabled,
+  &-dark &-submenu-disabled {
+    &,
+    > a {
+      opacity: 0.8;
+      color: @disabled-color-dark !important;
+    }
   }
 }
