@@ -42,7 +42,11 @@ export default class Header extends React.Component {
 
   handleLangChange = () => {
     const pathname = this.props.location.pathname;
-    location.href = location.href.replace(location.pathname, utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)));
+    if (pathname === '/') {
+      location.pathname = utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname));
+    } else {
+      location.href = location.href.replace(location.pathname, utils.getLocalizedPathname(pathname, !utils.isZhCN(pathname)));
+    }
   }
 
   render() {
