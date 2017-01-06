@@ -5,8 +5,12 @@ import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import assign from 'object-assign';
 import Icon from '../icon';
+import { getLocaleCode } from '../_util/getLocale';
 
 export default class RangePicker extends React.Component<any, any> {
+  static contextTypes = {
+      antLocale: React.PropTypes.object,
+  };
   static defaultProps = {
     prefixCls: 'ant-calendar',
     allowClear: true,
@@ -96,13 +100,23 @@ export default class RangePicker extends React.Component<any, any> {
   }
 
   render() {
-    const props = this.props;
+    const { state, props, context } = this;
+    const { value, open } = state;
+    const localeCode = getLocaleCode(context);
+    if (value && localeCode) {
+      if (value[0]) {
+        value[0].locale(localeCode);
+      }
+      if (value[1]) {
+        value[1].locale(localeCode);
+      }
+    }
+
     const {
       disabledDate, disabledTime, showTime, showToday,
       ranges, prefixCls, popupStyle,
       style, onOk, locale, format,
     } = props;
-    const state = this.state;
 
     const calendarClassName = classNames({
       [`${prefixCls}-time`]: showTime,
@@ -117,7 +131,7 @@ export default class RangePicker extends React.Component<any, any> {
       onOk: this.handleChange,
     };
     if (props.timePicker) {
-      pickerChangeHandler.onChange = value => this.handleChange(value);
+      pickerChangeHandler.onChange = changedValue => this.handleChange(changedValue);
     } else {
       calendarHandler = {};
     }
@@ -151,16 +165,16 @@ export default class RangePicker extends React.Component<any, any> {
       pickerStyle.minWidth = 300;
     }
 
-    const clearIcon = (!props.disabled && props.allowClear && state.value && (state.value[0] || state.value[1]))
+    const clearIcon = (!props.disabled && props.allowClear && value && (value[0] || value[1]))
       ? <Icon
         type="cross-circle"
         className={`${prefixCls}-picker-clear`}
         onClick={this.clearSelection}
       /> : null;
 
-    const input = ({ value }) => {
-      const start = value[0];
-      const end = value[1];
+    const input = ({ value: inputValue }) => {
+      const start = inputValue[0];
+      const end = inputValue[1];
       return (
         <span className={props.pickerInputClass} disabled={props.disabled}>
           <input
@@ -190,8 +204,8 @@ export default class RangePicker extends React.Component<any, any> {
           {...props}
           {...pickerChangeHandler}
           calendar={calendar}
-          value={state.value}
-          open={state.open}
+          value={value}
+          open={open}
           onOpenChange={this.handleOpenChange}
           prefixCls={`${prefixCls}-picker-container`}
           style={popupStyle}

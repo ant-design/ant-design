@@ -7,6 +7,7 @@ import TimePicker from '../time-picker/locale/en_US';
 import Calendar from '../calendar/locale/en_US';
 
 export default {
+  locale: 'en',
   Pagination,
   DatePicker,
   TimePicker,

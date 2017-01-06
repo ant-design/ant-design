@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import assign from 'object-assign';
 import Icon from '../icon';
+import { getLocaleCode } from '../_util/getLocale';
 
 export interface PickerProps {
   value?: moment.Moment;
@@ -15,6 +16,9 @@ export interface PickerProps {
 export default function createPicker(TheCalendar) {
   // use class typescript error
   const CalenderWrapper = React.createClass<any, any>({
+    contextTypes: {
+      antLocale: React.PropTypes.object,
+    },
     getDefaultProps() {
       return {
         prefixCls: 'ant-calendar',
@@ -88,9 +92,9 @@ export default function createPicker(TheCalendar) {
     },
 
     render() {
+      const { value, tempValue } = this.state;
       const props = omit(this.props, ['onChange']);
-      const prefixCls = props.prefixCls;
-      const locale = props.locale;
+      const { prefixCls, locale } = props;
 
       const placeholder = ('placeholder' in props)
         ? props.placeholder : locale.lang.placeholder;
@@ -108,8 +112,8 @@ export default function createPicker(TheCalendar) {
       if (props.showTime) {
         calendarHandler = {
           // fix https://github.com/ant-design/ant-design/issues/1902
-          onSelect: (value) => {
-            this.handleTempChange(value);
+          onSelect: (selectedValue) => {
+            this.handleTempChange(selectedValue);
           },
         };
       } else {
@@ -142,19 +146,19 @@ export default function createPicker(TheCalendar) {
         pickerStyle.minWidth = 154;
       }
 
-      const clearIcon = (!props.disabled && props.allowClear && this.state.value) ?
+      const clearIcon = (!props.disabled && props.allowClear && value) ?
         <Icon
           type="cross-circle"
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
         /> : null;
 
-      const input = ({ value }) => (
+      const input = ({ value: inputValue }) => (
         <span>
           <input
             disabled={props.disabled}
             readOnly
-            value={(value && value.format(props.format)) || ''}
+            value={(inputValue && inputValue.format(props.format)) || ''}
             placeholder={placeholder}
             className={props.pickerInputClass}
           />
@@ -163,6 +167,11 @@ export default function createPicker(TheCalendar) {
         </span>
       );
 
+      const pickerValue = tempValue || value;
+      const localeCode = getLocaleCode(this.context);
+      if (pickerValue && localeCode) {
+        pickerValue.locale(localeCode);
+      }
       return (
         <span className={props.pickerClass} style={assign({}, props.style, pickerStyle)}>
           <RcDatePicker
@@ -170,7 +179,7 @@ export default function createPicker(TheCalendar) {
             {...pickerChangeHandler}
             onOpenChange={this.handleOpenChange}
             calendar={calendar}
-            value={this.state.tempValue || this.state.value}
+            value={pickerValue}
             prefixCls={`${prefixCls}-picker-container`}
             style={props.popupStyle}
           >
