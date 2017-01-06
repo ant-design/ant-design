@@ -40,6 +40,7 @@ A form field is defined using `<Form.Item />`.
 | vertical | Use vertical layout. | boolean | false |
 | inline | Use inline alignment. | boolean | false |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |
+| hideRequiredMark | Hide required mark of all form items | Boolean | false |
 
 ### Form.create(options)
 

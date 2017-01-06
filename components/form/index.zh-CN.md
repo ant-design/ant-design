@@ -42,6 +42,7 @@ title: Form
 | vertical | 垂直排列布局 | boolean | false |
 | inline | 行内排列布局 | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
+| hideRequiredMark | 隐藏所有表单项的必选标记 | Boolean | false |
 
 ### Form.create(options)
 
