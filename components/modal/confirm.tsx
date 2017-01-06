@@ -17,7 +17,7 @@ export default function confirm(config) {
   let style = props.style || {};
 
   // 默认为 false，保持旧版默认行为
-  let maskClosable = ('maskClosable' in props) && props.maskClosable || false;
+  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
   // 默认为 true，保持向下兼容
   if (!('okCancel' in props)) {
