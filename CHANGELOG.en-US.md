@@ -9,6 +9,18 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.6.1
+
+`2017-1-6`
+
+* Fix style problem for Menu dark theme. [#4440](https://github.com/ant-design/ant-design/issues/4440)
+* Fix TypeScript interface definition for `Select[tokenSeparators]` `Modal[afterClose]` `Input[name]` and so on. [#4441](https://github.com/ant-design/ant-design/pull/4441) [@eddhannay](https://github.com/eddhannay)
+* Fix that `TimePicker[placeholder]` cannot be set to empty string. [#4446](https://github.com/ant-design/ant-design/pull/4446) [@jialeicui](https://github.com/jialeicui)
+* Fix style problem in DatePicker year panel. [#4415](https://github.com/ant-design/ant-design/issues/4415)
+* Fix that Table loading doesn't mask Pagination. [#4461](https://github.com/ant-design/ant-design/issues/4461)
+* Fix align style for `Input[prefix|suffix]`. [commit](https://github.com/ant-design/ant-design/commit/c4ac4d1eca53ae2f6f4a1e15210b43745f283534)
+* Fix align style for Cascader. [commit](https://github.com/ant-design/ant-design/commit/1fbebd4ecfff432e1b2261c9dfee4b9f471e7b1f)
+
 ## 2.6.0
 
 `2017-1-2`
