@@ -14,11 +14,11 @@ timeline: true
 `2017-1-2`
 
 - 采用全新的色彩系统。[pull/4426](https://github.com/ant-design/ant-design/pull/4426)
-  - 全新的调色板系统
-  - 使用新的算法函数代替 shade，tint
-  - 调整默认文字颜色
-- 增加 Grid 栅格配置器示例。[commit/ee17ab](https://github.com/ant-design/ant-design/commit/ee17abfa9d0362c6f9baab4a9a09e57574583246)
+  - 使用新的算法函数代替 shade，tint。
+  - 利用算法生成的新版色板。
+  - 调整默认文字颜色。
 - 增加 Layout 布局组件。[#3534](https://github.com/ant-design/ant-design/issues/3534)
+- 增加 Grid 栅格配置器示例。[commit/ee17ab](https://github.com/ant-design/ant-design/commit/ee17abfa9d0362c6f9baab4a9a09e57574583246)
 - Input
   - 增加 prefix 和 suffix 属性，支持前后缀配置。[#4226](https://github.com/ant-design/ant-design/issues/4226) [@ystarlongzi](https://github.com/ystarlongzi)
   - InputGroup 增加 compact 属性，支持紧凑型展示。[pull/4309](https://github.com/ant-design/ant-design/pull/4309)
