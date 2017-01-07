@@ -16,6 +16,9 @@ export default function confirm(config) {
   let width = props.width || 416;
   let style = props.style || {};
 
+  // 默认为 false，保持旧版默认行为
+  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
+
   // 默认为 true，保持向下兼容
   if (!('okCancel' in props)) {
     props.okCancel = true;
@@ -77,7 +80,7 @@ export default function confirm(config) {
       transitionName="zoom"
       footer=""
       maskTransitionName="fade"
-      maskClosable={false}
+      maskClosable={maskClosable}
       style={style}
       width={width}
     >

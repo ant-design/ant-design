@@ -54,6 +54,7 @@ title: Modal
 | iconType   | 图标 Icon 类型    | String | question-circle |
 | okText     | 确认按钮文字    | String           | 确定       |
 | cancelText | 取消按钮文字    | String           | 取消       |
+| maskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    |
 
 <style>
 .code-box-demo .ant-btn {
