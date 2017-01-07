@@ -25,7 +25,8 @@ const Card = React.createClass({
   },
   render() {
     const container = (
-      <Alert message="Alert message title"
+      <Alert
+        message="Alert message title"
         description="Further details about the context of this alert."
         type="info"
       />
