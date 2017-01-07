@@ -5,7 +5,7 @@
 @spin-dot-default: @text-color-secondary;
 @spin-dot-size-sm: 14px;
 @spin-dot-size: 20px;
-@spin-dot-size-lg: 30px;
+@spin-dot-size-lg: 32px;
 
 .@{spin-prefix-cls} {
   color: @primary-color;
@@ -47,28 +47,28 @@
     }
 
     &-show-text .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size / 2 - @font-size-base / 2;
+      margin-top: -@spin-dot-size / 2 - 10;
     }
 
     &-show-text.@{spin-prefix-cls}-sm .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-sm / 2 - @font-size-base / 2;
+      margin-top: -@spin-dot-size-sm / 2 - 10;
     }
 
     &-show-text.@{spin-prefix-cls}-lg .@{spin-prefix-cls}-dot {
-      margin: -@spin-dot-size-lg / 2 - @font-size-base / 2;
+      margin-top: -@spin-dot-size-lg / 2 - 10;
     }
 
     &-text {
       position: absolute;
       top: 50%;
       width: 100%;
-      padding-top: (@spin-dot-size - @font-size-base) / 2;
+      padding-top: (@spin-dot-size - @font-size-base) / 2 + 2;
     }
     &-sm .@{spin-prefix-cls}-text {
-      padding-top: (@spin-dot-size-sm - @font-size-base) / 2;
+      padding-top: (@spin-dot-size-sm - @font-size-base) / 2 + 2;
     }
     &-lg .@{spin-prefix-cls}-text {
-      padding-top: (@spin-dot-size-lg - @font-size-base) / 2;
+      padding-top: (@spin-dot-size-lg - @font-size-base) / 2 + 2;
     }
   }
   &-container {
@@ -106,18 +106,18 @@
     display: block;
     .square(@spin-dot-size);
     transform: rotate(45deg);
-    animation: antRotate 3.2s infinite linear;
+    animation: antRotate 2s infinite linear;
     i {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
+      width: 9px;
+      height: 9px;
+      border-radius: 100%;
       background-color: @primary-color;
       transform: scale(0.6);
       display: block;
       position: absolute;
       opacity: 0.3;
-      animation: antSpinMove .8s infinite linear alternate;
-      transform-origin: 0 0;
+      animation: antSpinMove 1s infinite linear alternate;
+      transform-origin: 50% 50%;
       &:nth-child(1) {
         left: 0;
         top: 0;
@@ -155,8 +155,8 @@
   &-lg &-dot {
     .square(@spin-dot-size-lg);
     i {
-      width: 12px;
-      height: 12px;
+      width: 14px;
+      height: 14px;
     }
   }
 
@@ -175,7 +175,7 @@
 
 @keyframes antSpinMove {
   to {
-    transform: scale(1);
+    transform: scale(0.9);
     opacity: 1;
   }
 }
