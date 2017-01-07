@@ -37,7 +37,7 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
-    if (typeof ga !== 'undefined') {
+    if (typeof window.ga !== 'undefined') {
       this.context.router.listen((loc) => {
         window.ga('send', 'pageview', loc.pathname + loc.search);
       });
