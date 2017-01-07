@@ -28,7 +28,7 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-`antd` is an open source project, any reasonable improvement is welcomed. If you are interested in contributing to `antd`, you can watch this repository and join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which had been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22).
+`antd` is an open source project, improvements are welcomed. If you are interested in contributing to `antd`, you can watch this repository, join in [discussion](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3ADiscussion), or try to implement some [features which have been accepted](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22PR+welcome%22).
 
 ## Install
 
@@ -69,7 +69,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    import { DatePicker } from 'antd';
    ```
 
-- Manually import
+- Manual import
 
    ```jsx
    import DatePicker from 'antd/lib/date-picker';  // just for js
@@ -119,7 +119,7 @@ tsconfig.json
 
 ## Contributing
 
-We welcome all contributions, please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as a [GitHub issue](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instruction](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
+We welcome all contributions, please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
 
 ## Release Schedule
 
