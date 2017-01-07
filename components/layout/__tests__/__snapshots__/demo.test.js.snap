@@ -22,7 +22,7 @@ exports[`test renders ./components/layout/demo/basic.md correctly 1`] = `
       Header
     </div>
     <div
-      class="ant-layout">
+      class="ant-layout ant-layout-has-sider">
       <div
         class="ant-layout-sider"
         style="flex:0 0 200px;">
@@ -45,7 +45,7 @@ exports[`test renders ./components/layout/demo/basic.md correctly 1`] = `
       Header
     </div>
     <div
-      class="ant-layout">
+      class="ant-layout ant-layout-has-sider">
       <div
         class="ant-layout-content">
         Content
@@ -62,7 +62,7 @@ exports[`test renders ./components/layout/demo/basic.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-layout">
+    class="ant-layout ant-layout-has-sider">
     <div
       class="ant-layout-sider"
       style="flex:0 0 200px;">
@@ -89,7 +89,7 @@ exports[`test renders ./components/layout/demo/basic.md correctly 1`] = `
 
 exports[`test renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 <div
-  class="ant-layout">
+  class="ant-layout ant-layout-has-sider">
   <div
     class="ant-layout-sider"
     style="flex:0 0 200px;">
@@ -157,7 +157,7 @@ exports[`test renders ./components/layout/demo/custom-trigger.md correctly 1`] =
 
 exports[`test renders ./components/layout/demo/side.md correctly 1`] = `
 <div
-  class="ant-layout">
+  class="ant-layout ant-layout-has-sider">
   <div
     class="ant-layout-sider"
     style="flex:0 0 200px;">
@@ -457,7 +457,7 @@ exports[`test renders ./components/layout/demo/top-side.md correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-layout"
+      class="ant-layout ant-layout-has-sider"
       style="padding:24px 0;background:#fff;">
       <div
         class="ant-layout-sider"

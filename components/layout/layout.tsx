@@ -35,7 +35,7 @@ class Basic extends React.Component<BasicProps, any> {
       });
     }
     const divCls = classNames(className, prefixCls, {
-      [`${prefixCls}-hasSider`]: hasSider,
+      [`${prefixCls}-has-sider`]: hasSider,
     });
     return (
       <div className={divCls} {...others}>{children}</div>
