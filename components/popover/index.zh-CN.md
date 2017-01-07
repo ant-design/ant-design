@@ -20,4 +20,4 @@ title: Popover
 | title     | 卡片标题                                 | React.Element | 无     |
 | content   | 卡片内容                            | React.Element | 无     |
 
-更多属性请参考 [Tooltip](https://ant.design/components/tooltip/#API)。
+更多属性请参考 [Tooltip](/components/tooltip-cn/#API)。

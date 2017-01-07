@@ -23,4 +23,4 @@ title: Popconfirm
 | okText    | 确认按钮文字                              | String        | 确定   |
 | cancelText| 取消按钮文字                              | String        | 取消   |
 
-更多属性请参考 [Tooltip](https://ant.design/components/tooltip/#API)。
+更多属性请参考 [Tooltip](/components/tooltip-cn/#API)。
