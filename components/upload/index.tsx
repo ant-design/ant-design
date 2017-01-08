@@ -252,12 +252,15 @@ export default class Upload extends React.Component<UploadProps, any> {
     });
     delete rcUploadProps.className;
 
+    const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
     const uploadList = showUploadList ? (
       <UploadList
         listType={listType}
         items={this.state.fileList}
         onPreview={onPreview}
         onRemove={this.handleManualRemove}
+        showRemoveIcon={showRemoveIcon}
+        showPreviewIcon={showPreviewIcon}
       />
     ) : null;
 

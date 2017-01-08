@@ -24,6 +24,11 @@ export interface UploadChangeParam {
   event?: { percent: number };
 }
 
+export interface ShowUploadListInterface {
+  showRemoveIcon?: boolean;
+  showPreviewIcon?: boolean;
+}
+
 export interface UploadProps {
   type?: 'drag' | 'select';
   name?: string;
@@ -32,7 +37,7 @@ export interface UploadProps {
   action: string;
   data?: Object | ((file: File) => any);
   headers?: HttpRequestHeader;
-  showUploadList?: boolean;
+  showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
   beforeUpload?: (file: File) => boolean | PromiseLike<any>;
@@ -54,4 +59,6 @@ export interface UploadListProps {
   items?: Array<File>;
   progressAttr?: Object;
   prefixCls?: string;
+  showRemoveIcon?: boolean;
+  showPreviewIcon?: boolean;
 }
