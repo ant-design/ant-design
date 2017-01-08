@@ -106,13 +106,12 @@
     "eslint-plugin-markdown": "1.0.0-beta.3",
     "eslint-plugin-react": "^6.1.2",
     "eslint-tinker": "^0.4.0",
+    "fetch-jsonp": "^1.0.3",
     "glob": "^7.1.1",
     "history": "^4.4.0",
-    "jest": "^17.0.1",
-    "jest-cli": "^17.0.0",
+    "jest": "^18.1.0",
     "jsonml-to-react-component": "~0.2.0",
     "jsonml.js": "^0.1.0",
-    "fetch-jsonp": "^1.0.3",
     "lesshint": "^2.0.0",
     "lodash.debounce": "^4.0.6",
     "mockdate": "^2.0.1",
@@ -138,20 +137,18 @@
     "xhr2": "^0.1.3"
   },
   "scripts": {
-    "test": "npm run lint && npm run dist && npm run jest -- --coverage -w 2 && npm run jest:node -- -w 2",
+    "test": "jest",
+    "test-all": "./scripts/test-all.sh",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
-    "eslint": "eslint tests site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js'",
+    "eslint": "eslint tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx' --ignore-pattern '!.eslintrc.js'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
-    "eslint-fix": "eslint --fix tests site scripts ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx,.tsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
-
-    "jest": "jest",
-    "jest:node": "jest --config .jest.node.json",
+    "eslint-fix": "eslint --fix tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
 
     "clean": "antd-tools run clean",
-    "dist": "antd-tools run dist && node ./tests/dekko/dist.test.js",
-    "compile": "antd-tools run compile && node ./tests/dekko/lib.test.js",
+    "dist": "antd-tools run dist",
+    "compile": "antd-tools run compile",
 
     "start": "bisheng start -c ./site/bisheng.config.js --no-livereload",
     "babel-site": "babel ./site/theme/template --out-dir ./site/theme/template",
@@ -161,12 +158,12 @@
 
     "pub": "antd-tools run update-self && antd-tools run pub",
     "prepublish": "antd-tools run guard",
-    "pre-publish": "node ./scripts/prepub",
+    "pre-publish": "npm run test-all && node ./scripts/prepub",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt"
   },
   "jest": {
     "setupFiles": [
-      "tests/setup.js"
+      "./tests/setup.js"
     ],
     "moduleFileExtensions": [
       "ts",
@@ -185,9 +182,9 @@
       "node"
     ],
     "transform": {
-      "\\.tsx?$": "node_modules/typescript-babel-jest",
-      "\\.js$": "node_modules/babel-jest",
-      "\\.md$": "node_modules/antd-demo-jest"
+      "\\.tsx?$": "./node_modules/typescript-babel-jest",
+      "\\.js$": "./node_modules/babel-jest",
+      "\\.md$": "./node_modules/antd-demo-jest"
     },
     "testRegex": ".*\\.test\\.js$",
     "collectCoverageFrom": [

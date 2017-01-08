@@ -41,7 +41,7 @@ describe('Radio', () => {
 
     const wrapper = mount(
       createRadioGroup({
-        onChange
+        onChange,
       })
     );
     const radios = wrapper.find('input');
@@ -62,7 +62,7 @@ describe('Radio', () => {
 
     const wrapper = mount(
       createRadioGroup({
-        onChange
+        onChange,
       })
     );
     const radios = wrapper.find('input');

@@ -166,12 +166,8 @@ describe('Table.rowSelection', () => {
 
   // https://github.com/ant-design/ant-design/issues/4245
   it('handles disabled checkbox correctly when dataSource changes', () => {
-    const data = [
-      { key: 0, name: 'Jack', disabled: false },
-      { key: 1, name: 'Lucy', disabled: false },
-    ];
     const rowSelection = {
-      getCheckboxProps: (record) => ({ disabled: record.disabled }),
+      getCheckboxProps: record => ({ disabled: record.disabled }),
     };
     const wrapper = mount(createTable({ rowSelection }));
     const newData = [
@@ -179,7 +175,7 @@ describe('Table.rowSelection', () => {
       { key: 1, name: 'Lucy', disabled: true },
     ];
     wrapper.setProps({ dataSource: newData });
-    wrapper.find('input').forEach(checkbox => {
+    wrapper.find('input').forEach((checkbox) => {
       expect(checkbox.props().disabled).toBe(true);
     });
   });

@@ -1,4 +1,4 @@
-exports[`antd dist files exports modules correctly 1`] = `
+exports[`antd exports modules correctly 1`] = `
 Array [
   "Affix",
   "Anchor",
