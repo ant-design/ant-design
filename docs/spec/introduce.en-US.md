@@ -29,7 +29,7 @@ We supply a series of design principles, practical patterns and high quality des
 - <div class="outside-link"><a href="https://github.com/iview/iview/" target="_blank">iView (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/FE-Driver/vue-beauty" target="_blank">vue-beauty</a></div>
 - <div class="outside-link internal"><a href="http://naza.alibaba.net" target="_blank">Ant Design of Angular 2.0</a></div>
-- <div class="outside-link internal"><a href="http://atui.alibaba.net" target="_blank">ATUI (vue)</a></div>
+- <div class="outside-link"><a href="http://aliqin.github.io/" target="_blank">ATUI (vue)</a></div>
 - <div class="outside-link"><a href="https://github.com/idcos/antd-ember" target="_blank">antd-ember</a></div>
 
 ## Who's using Ant Design
