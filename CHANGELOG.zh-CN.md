@@ -27,7 +27,7 @@ timeline: true
 
 - 采用全新的色彩系统。[pull/4426](https://github.com/ant-design/ant-design/pull/4426)
   - 使用新的算法函数代替 shade，tint。
-  - 利用算法生成的新版色板。
+  - 利用算法生成的新版色板。[色板演示](http://ant.design/docs/spec/colors)
   - 调整默认文字颜色。
 - 增加 Layout 布局组件。[#3534](https://github.com/ant-design/ant-design/issues/3534)
 - 增加 Grid 栅格配置器示例。[commit/ee17ab](https://github.com/ant-design/ant-design/commit/ee17abfa9d0362c6f9baab4a9a09e57574583246)
