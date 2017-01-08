@@ -40,7 +40,7 @@ export interface UploadProps {
   listType?: 'text' | 'picture' | 'picture-card';
   className?: string;
   onPreview?: (file: File) => void;
-  onRemove?: (file: File) => void;
+  onRemove?: (file: File) => void | boolean;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -50,7 +50,7 @@ export interface UploadProps {
 export interface UploadListProps {
   listType?: 'text' | 'picture' | 'picture-card';
   onPreview?: (file: File) => void;
-  onRemove?: (file: File) => void;
+  onRemove?: (file: File) => void | boolean;
   items?: Array<File>;
   progressAttr?: Object;
   prefixCls?: string;

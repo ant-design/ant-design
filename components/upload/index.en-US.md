@@ -33,8 +33,8 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |
 | onChange   | A callback function, can be executed when uploading state is changing. See [onChange](#onChange)                | Function    | -   |
 | listType   | Built-in stylesheets, support for two types: `text` or `picture`     | String      | 'text'|
-| onPreview  | A callback function, will be executed when file link is clicked.  | Function(file) | -  |
-| onRemove   | A callback function, will be executed when removing file button is clicked                                       | Function(file) | -   |
+| onPreview  | A callback function, will be executed when file link or preview icon is clicked.  | Function(file) | -  |
+| onRemove   | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` | Function(file): boolean | -   |
 | supportServerRender | Need to be turned on while the server side is rendering.| Boolean | false    |
 | disabled | disable upload button | Boolean | false    |
 | withCredentials | ajax upload with cookie sent | Boolean | false |
