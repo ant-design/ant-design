@@ -539,7 +539,7 @@ exports[`test renders ./components/pagination/demo/simple.md correctly 1`] = `
     title="上一页">
     <a />
   </li>
-  <div
+  <li
     class="ant-pagination-simple-pager"
     title="2/5">
     <input
@@ -550,7 +550,7 @@ exports[`test renders ./components/pagination/demo/simple.md correctly 1`] = `
       ／
     </span>
     5
-  </div>
+  </li>
   <li
     class=" ant-pagination-next"
     title="下一页">
