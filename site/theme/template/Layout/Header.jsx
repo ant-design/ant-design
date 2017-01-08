@@ -14,10 +14,14 @@ export default class Header extends React.Component {
   }
 
   state = {
+    inputValue: '',
+    menuVisible: false,
     menuMode: 'horizontal',
   };
 
   componentDidMount() {
+    this.context.router.listen(this.handleHideMenu);
+
     /* eslint-disable global-require */
     require('enquire.js')
       .register('only screen and (min-width: 320px) and (max-width: 1024px)', {
@@ -33,7 +37,30 @@ export default class Header extends React.Component {
 
   handleSearch = (value) => {
     const { intl, router } = this.context;
-    router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
+
+    this.setState({
+      inputValue: '',
+    }, () => {
+      router.push({ pathname: utils.getLocalizedPathname(`${value}/`, intl.locale === 'zh-CN') });
+    });
+  }
+
+  handleInputChange = (value) => {
+    this.setState({
+      inputValue: value,
+    });
+  }
+
+  handleShowMenu = () => {
+    this.setState({
+      menuVisible: true,
+    });
+  }
+
+  handleHideMenu = () => {
+    this.setState({
+      menuVisible: false,
+    });
   }
 
   handleSelectFilter = (value, option) => {
@@ -50,6 +77,7 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const { inputValue, menuMode, menuVisible } = this.state;
     const { location, picked, isFirstScreen } = this.props;
     const components = picked.components;
     const module = location.pathname.replace(/(^\/|\/$)/g, '').split('/').slice(0, -1).join('/');
@@ -80,7 +108,6 @@ export default class Header extends React.Component {
       'home-nav-white': !isFirstScreen,
     });
 
-    const menuMode = this.state.menuMode;
     const menu = [
       <Button className="lang" type="ghost" size="small" onClick={this.handleLangChange} key="lang">
         <FormattedMessage id="app.header.lang" />
@@ -127,11 +154,13 @@ export default class Header extends React.Component {
           placement="bottomRight"
           content={menu}
           trigger="click"
+          visible={menuVisible}
           arrowPointAtCenter
         >
           <Icon
             className="nav-phone-icon"
             type="menu"
+            onClick={this.handleShowMenu}
           />
         </Popover> : null}
         <Row>
@@ -145,12 +174,15 @@ export default class Header extends React.Component {
             <div id="search-box">
               <Select
                 combobox
+                value={inputValue}
+                dropdownStyle={{ display: inputValue ? 'block' : 'none' }}
                 dropdownClassName="component-select"
                 placeholder={searchPlaceholder}
                 optionFilterProp="data-label"
                 optionLabelProp="data-label"
                 filterOption={this.handleSelectFilter}
                 onSelect={this.handleSearch}
+                onSearch={this.handleInputChange}
                 getPopupContainer={trigger => trigger.parentNode}
               >
                 {options}
