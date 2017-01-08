@@ -5,14 +5,18 @@
 
 .@{layout-prefix-cls} {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   flex: auto;
   overflow: auto;
   background: @layout-body-background;
 
+  &&-has-sider {
+    flex-direction: row;
+  }
+
   &-header,
   &-footer {
-    flex: 1 0 100%;
+    flex: 0 0 auto;
   }
 
   &-header {
