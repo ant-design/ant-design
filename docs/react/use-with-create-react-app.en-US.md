@@ -9,16 +9,16 @@ title: Use in create-react-app
 
 ## Install and Initialization
 
-We need to install `create-react-app` first.
+We need to install `create-react-app` first, you may need install [yarn](https://github.com/yarnpkg/yarn/) too.
 
 ```bash
-$ npm install -g create-react-app
+$ npm install -g create-react-app yarn
 ```
 
 Create a new project named `antd-demo`.
 
 ```bash
-$ USE_YARN=no create-react-app antd-demo
+$ create-react-app antd-demo
 ```
 
 The tool will create and initialize environment and dependencies automaticly,
@@ -28,7 +28,7 @@ Then we go inside `antd-demo` and start it.
 
 ```bash
 $ cd antd-demo
-$ npm start
+$ yarn start
 ```
 
 Open browser at http://localhost:3000/, it renders a header saying "Welcome to React" on the page.
@@ -53,10 +53,10 @@ It is the default directory structure below.
 └── yarn.lock
 ```
 
-Now we install `antd` from npm.
+Now we install `antd` from yarn or npm.
 
 ```bash
-$ npm install antd --save
+$ yarn add antd --save
 ```
 
 Modify `src/App.js`, import Button component from `antd`.
@@ -105,7 +105,7 @@ For instance, we actully import all components in the project which will be a se
 So it is necessary to customize the default webpack config. We can achieve that by using `eject` script command.
 
 ```bash
-$ npm run eject
+$ yarn run eject
 ```
 
 ### Import on demand
@@ -113,7 +113,7 @@ $ npm run eject
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([principle](/docs/react/getting-started-cn#按需加载)). After eject all config files to antd-demo, we allowed to install it and modify `config/webpack.config.dev.js` now.
 
 ```bash
-$ npm install babel-plugin-import --save-dev
+$ yarn add babel-plugin-import --save-dev
 ```
 
 ```diff
@@ -138,14 +138,14 @@ $ npm install babel-plugin-import --save-dev
 
 Remove the `@import '~antd/dist/antd.css';` statement added before because `babel-plugin-import` will import styles.
 
-Then reboot `npm start` and visit demo page, you should find that the above warning message would be gone which prove the `import on demand` config is effective now.
+Then reboot `yarn start` and visit demo page, you should find that the above warning message would be gone which prove the `import on demand` config is effective now.
 
 ### Customize Theme
 
 According to [Customize Theme documentation](/docs/react/customize-theme), we need `less` variables modify ability of [less-loader](https://github.com/webpack/less-loader), so we add it.
 
 ```bash
-$ npm install less less-loader --save-dev
+$ yarn add less less-loader --save-dev
 ```
 
 ```diff
