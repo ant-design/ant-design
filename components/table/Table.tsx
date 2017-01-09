@@ -191,7 +191,14 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     if (('pagination' in nextProps) && nextProps.pagination !== false) {
       this.setState(previousState => {
         const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
-        newPagination.current = newPagination.current || 1;
+        let newCurrent = newPagination.current || 1;
+
+        // 如果因为删除导致总数小于当前页数，页数减1
+        if ((newCurrent - 1) * newPagination.pageSize >= newPagination.total) {
+          newCurrent --;
+        }
+
+        newPagination.current = newCurrent;
         return { pagination: newPagination };
       });
     }
