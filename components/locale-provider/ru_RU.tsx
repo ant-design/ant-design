@@ -12,6 +12,7 @@ import TimePicker from '../time-picker/locale/ru_RU';
 import Calendar from '../calendar/locale/ru_RU';
 
 export default {
+  locale: 'ru',
   Pagination,
   DatePicker,
   TimePicker,

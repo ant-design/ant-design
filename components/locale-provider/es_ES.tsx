@@ -3,6 +3,7 @@ import DatePicker from '../date-picker/locale/en_US';
 import TimePicker from '../time-picker/locale/en_US';
 
 export default {
+  locale: 'en',
   Pagination,
   DatePicker,
   TimePicker,

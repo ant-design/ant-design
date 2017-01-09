@@ -8,6 +8,7 @@ import TimePicker from '../time-picker/locale/pt_BR';
 import Calendar from '../calendar/locale/pt_BR';
 
 export default {
+  locale: 'pt-br',
   Pagination,
   DatePicker,
   TimePicker,
