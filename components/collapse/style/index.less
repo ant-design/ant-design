@@ -14,13 +14,10 @@
   background-color: @background-color-base;
   border-radius: 3px;
   border: 1px solid @border-color-base;
+  border-bottom: 0;
 
   & > &-item {
-    border-top: 1px solid @border-color-base;
-    &:first-child {
-      border-top: 0;
-    }
-
+    border-bottom: 1px solid @border-color-base;
     > .@{collapse-prefix-cls}-header {
       height: 38px;
       line-height: 38px;
@@ -88,16 +85,19 @@
     border: 0;
   }
 
-  &-borderless > &-item {
+  &-borderless > &-item-active {
     border: 0;
   }
 
+  &-borderless > &-item > &-content {
+    background-color: transparent;
+    border-top: 1px solid @border-color-base;
+  }
+
   &-borderless > &-item > &-header {
-    border-bottom: 1px solid @border-color-base;
     transition: all .3s;
-    border-radius: @border-color-base @border-color-base 0 0;
     &:hover {
-      background-color: #fcfcfc;
+      background-color: @background-color-base;
     }
   }
 }
