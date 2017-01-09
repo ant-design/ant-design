@@ -172,6 +172,7 @@ export default class Form extends React.Component<FormProps, any> {
       'horizontal',
       'vertical',
       'form',
+      'hideRequiredMark',
     ]);
 
     return <form {...formProps} className={formClassName} />;
