@@ -54,6 +54,7 @@ ReactDOM.render(<App />, mountNode);
   cursor: pointer;
   color: #ccc;
   transition: color 0.3s;
+  font-size: 12px;
 }
 .anticon-close-circle:hover {
   color: #999;
