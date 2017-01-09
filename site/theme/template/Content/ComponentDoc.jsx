@@ -44,14 +44,14 @@ export default class ComponentDoc extends React.Component {
         if (index % 2 === 0 || isSingleCol) {
           leftChildren.push(
             <Demo {...demoData}
-              key={meta.filename + index} utils={props.utils}
+              key={meta.filename} utils={props.utils}
               expand={expand} pathname={location.pathname}
             />
           );
         } else {
           rightChildren.push(
             <Demo {...demoData}
-              key={meta.filename + index} utils={props.utils}
+              key={meta.filename} utils={props.utils}
               expand={expand} pathname={location.pathname}
             />
           );

@@ -30,3 +30,7 @@ config/base.yaml
 /.vscode/
 /coverage
 yarn.lock
+components/**/*.js
+components/**/*.jsx
+!components/**/__tests__/*.js
+!components/**/__tests__/*.js.snap
