@@ -127,13 +127,13 @@ export default class MainContent extends React.Component {
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(isNotTopLevel)
       .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
-      .map((type, index) => {
+      .map((type) => {
         const groupItems = obj[type].sort((a, b) => {
           return a.title.charCodeAt(0) -
           b.title.charCodeAt(0);
         }).map(this.generateMenuItem.bind(this, false));
         return (
-          <Menu.ItemGroup title={type} key={index}>
+          <Menu.ItemGroup title={type} key={type}>
             {groupItems}
           </Menu.ItemGroup>
         );

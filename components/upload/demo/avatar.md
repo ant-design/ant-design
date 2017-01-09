@@ -61,7 +61,7 @@ class Avatar extends React.Component {
       >
         {
           imageUrl ?
-            <img src={imageUrl} role="presentation" className="avatar" /> :
+            <img src={imageUrl} alt="" className="avatar" /> :
             <Icon type="plus" className="avatar-uploader-trigger" />
         }
       </Upload>

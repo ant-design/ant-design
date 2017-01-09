@@ -22,7 +22,7 @@ export default class IconSet extends React.Component {
     });
     return (
       <ul className={listClassName}>
-        {this.icons[catigory].map((type, i) => <CopyableIcon key={i} type={type} />)}
+        {this.icons[catigory].map(type => <CopyableIcon key={type} type={type} />)}
       </ul>
     );
   }

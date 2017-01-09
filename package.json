@@ -102,7 +102,7 @@
     "eslint-config-airbnb": "latest",
     "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.1.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-markdown": "1.0.0-beta.3",
     "eslint-plugin-react": "^6.1.2",
     "eslint-tinker": "^0.4.0",
