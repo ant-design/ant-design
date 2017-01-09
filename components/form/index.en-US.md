@@ -57,6 +57,7 @@ The following `options` are available:
 |-----------|------------------------------------------|------------|
 | onFieldsChange | Specify a function that will be called when the value a `Form.Item` gets changed. Usage example: saving the field's value to Redux store. | Function(props, fields) |
 | mapPropsToFields | Convert props to corresponding field value. Usage example: reading the values from Redux store. | Function(props): Object{ fieldName: Object{ value } } |
+| onValuesChange | A handler while value of any field is changed | (props, values) => void |
 
 If the form has been decorated by `Form.create` then it has `this.props.form` property. `this.props.form` provides some APIs as follows:
 
@@ -70,7 +71,10 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 | validateFields | Validate the specified fields and get theirs values and errors. | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) |
 | validateFieldsAndScroll | This function is similar to `validateFields`, but after validation, if the target field is not in visible area of form, form will be automatically scrolled to the target field area. | same as `validateFields` |
 | getFieldError | Get the error of a field. | Function(name) |
+| getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function([names: string[]]) |
 | isFieldValidating | Check if the specified field is being validated. | Function(name) |
+| isFieldTouched | Check whether a field is touched by `getFieldDecorator`'s `options.trigger` event | (name: string) => boolean |
+| isFieldsTouched | Check whether any of fields is touched by `getFieldDecorator`'s `options.trigger` event | (names?: string[]) => boolean |
 | resetFields | Reset the specified fields' value(to `initialValue`) and status. If you don't specify a parameter, all the fields will be reset. | Function([names: string[]]) |
 | getFieldDecorator | Two-way binding for form, please read below for details. | |
 
