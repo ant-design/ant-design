@@ -95,7 +95,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
-| options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值，例如 DatePicker 可设为：`(date, dateString) => dateString` | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
+| options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
 | options.validateTrigger | 校验子节点值的时机 | string | 'onChange' |
 | options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator#rules) | array | |
 | options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
