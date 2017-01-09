@@ -160,13 +160,18 @@ There are some [scaffolds](https://github.com/ant-design/ant-design/issues/129) 
 
 ## Import on Demand
 
-If we import a component like this `import { Button } from 'antd';`, then all the components of antd will be imported. But, we can import component on demand:
+If you see a log like below screenshot, you might import all components by writing `import { Button } from 'antd';`, this will affect your app's network perfermance.
+
+> ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png
+
+But, we can import component on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
+import Button from 'antd/lib/button/style/css'; // import style
 ```
 
-If you use `babel`, we recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import). This plugin will convert the following code to the above form:
+We strongly recommend to use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
 
 ```jsx
 import { Button } from 'antd';
