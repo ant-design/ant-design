@@ -75,4 +75,23 @@ describe('Table.pagination', () => {
       {}
     );
   });
+
+  it('should display pagination as prop pagination changed', () => {
+    const wrapper = mount(createTable());
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+    wrapper.setProps({ pagination: false });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+    wrapper.find('.ant-pagination-item-2').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
+    wrapper.setProps({ pagination: false });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
+    wrapper.setProps({ pagination: true });
+    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(1); // pageSize will be 10
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Luck', 'Tom', 'Jerry']);
+  });
 });
