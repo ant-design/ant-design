@@ -92,6 +92,6 @@ describe('Table.pagination', () => {
     wrapper.setProps({ pagination: true });
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(1); // pageSize will be 10
-    expect(renderedNames(wrapper)).toEqual(['Jack', 'Luck', 'Tom', 'Jerry']);
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
 });
