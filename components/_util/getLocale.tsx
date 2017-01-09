@@ -12,7 +12,7 @@ export function getComponentLocale(props, context, componentName, getDefaultLoca
 export function getLocaleCode(context) {
   const localeCode = context.antLocale && context.antLocale.locale;
   // Had use LocaleProvide but didn't set locale
-  if ('antLocale' in context && !localeCode) {
+  if (context.antLocale && context.antLocale.exist && !localeCode) {
     return 'zh-cn';
   }
   return localeCode;

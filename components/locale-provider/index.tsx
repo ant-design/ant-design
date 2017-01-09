@@ -27,7 +27,10 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
 
   getChildContext() {
     return {
-      antLocale: this.props.locale,
+      antLocale: {
+        ...this.props.locale,
+        exist: true,
+      },
     };
   }
 
