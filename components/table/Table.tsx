@@ -207,7 +207,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         this.CheckboxPropsCache = {};
       }
     }
-    // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
       this.store.setState({
