@@ -3809,28 +3809,28 @@ exports[`test renders ./components/calendar/demo/notice-calendar.md correctly 1`
                         class="event-error">
                         ●
                       </span>
-                      This is error event.
+                      This is error event 1.
                     </li>
                     <li>
                       <span
                         class="event-error">
                         ●
                       </span>
-                      This is error event.
+                      This is error event 2.
                     </li>
                     <li>
                       <span
                         class="event-error">
                         ●
                       </span>
-                      This is error event.
+                      This is error event 3.
                     </li>
                     <li>
                       <span
                         class="event-error">
                         ●
                       </span>
-                      This is error event.
+                      This is error event 4.
                     </li>
                   </ul>
                 </div>
