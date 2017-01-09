@@ -30,7 +30,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     let {
       size, className = '', notFoundContent, prefixCls, dropdownStyle,
     } = this.props;
-    
+
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
