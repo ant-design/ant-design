@@ -34,10 +34,10 @@ function getListData(value) {
       listData = [
         { type: 'warning', content: 'This is warning event' },
         { type: 'normal', content: 'This is very long usual event。。....' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
-        { type: 'error', content: 'This is error event.' },
+        { type: 'error', content: 'This is error event 1.' },
+        { type: 'error', content: 'This is error event 2.' },
+        { type: 'error', content: 'This is error event 3.' },
+        { type: 'error', content: 'This is error event 4.' },
       ]; break;
     default:
   }
@@ -50,7 +50,7 @@ function dateCellRender(value) {
     <ul className="events">
       {
         listData.map(item =>
-          <li key={item.type}>
+          <li key={item.content}>
             <span className={`event-${item.type}`}>●</span>
             {item.content}
           </li>
