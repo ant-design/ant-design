@@ -1,4 +1,4 @@
-import CalendarLocale from 'rc-calendar/lib/locale/en_US';
+import CalendarLocale from 'rc-calendar/lib/locale/fr_BE';
 import TimePickerLocale from '../../time-picker/locale/fr_BE';
 import assign from 'object-assign';
 
