@@ -2352,8 +2352,7 @@ exports[`test renders ./components/table/demo/expand-children.md correctly 1`] =
                       style="width:40%;min-width:40%;" />
                     <col
                       style="width:30%;min-width:30%;" />
-                    <col
-                      style="width:30%;min-width:30%;" />
+                    <col />
                   </colgroup>
                   <thead
                     class="ant-table-thead">
@@ -6319,7 +6318,7 @@ exports[`test renders ./components/table/demo/jsx.md correctly 1`] = `
     <div
       class="ant-spin-container">
       <div
-        class="ant-table ant-table-large ant-table-bordered ant-table-without-column-header ant-table-scroll-position-left">
+        class="ant-table ant-table-large ant-table-without-column-header ant-table-scroll-position-left">
         <div
           class="ant-table-content">
           <div
