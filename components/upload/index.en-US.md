@@ -27,14 +27,15 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | data       | Uploading params or function which can return uploading params. | Object or function(file) | - |
 | headers    | Set request headers, valid above IE10.   | Object      | -    |
 | showUploadList | Whether to show uploadList.          | Boolean     | true  |
+| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | multiple   | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true  | Boolean     | false |
 | accept     | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | String      | -   |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported by old IE**。 | (file, fileList) => `boolean | Promise`    | -    |
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |
 | onChange   | A callback function, can be executed when uploading state is changing. See [onChange](#onChange)                | Function    | -   |
 | listType   | Built-in stylesheets, support for two types: `text` or `picture`     | String      | 'text'|
-| onPreview  | A callback function, will be executed when file link is clicked.  | Function(file) | -  |
-| onRemove   | A callback function, will be executed when removing file button is clicked                                       | Function(file) | -   |
+| onPreview  | A callback function, will be executed when file link or preview icon is clicked.  | Function(file) | -  |
+| onRemove   | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` | Function(file): boolean | -   |
 | supportServerRender | Need to be turned on while the server side is rendering.| Boolean | false    |
 | disabled | disable upload button | Boolean | false    |
 | withCredentials | ajax upload with cookie sent | Boolean | false |

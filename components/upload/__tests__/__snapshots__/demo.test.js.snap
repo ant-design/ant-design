@@ -134,11 +134,13 @@ exports[`test renders ./components/upload/demo/picture-card.md correctly 1`] = `
             target="_blank">
             xxx.png
           </a>
-          <span>
+          <span
+            class="ant-upload-list-item-actions">
             <a
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
-              target="_blank">
+              target="_blank"
+              title="Preview file">
               <i
                 class="anticon anticon-eye-o" />
             </a>
