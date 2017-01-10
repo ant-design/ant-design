@@ -278,6 +278,8 @@
 
 .input-preSuffix-wrapper(@inputClass) {
   position: relative;
+  display: inline-block;
+  width: 100%;
 
   .@{inputClass} {
     z-index: 1;
@@ -290,7 +292,7 @@
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
-    top: 51%;  // little adjust for misplace
+    top: 50%;
     transform: translateY(-50%);
     z-index: 2;
     line-height: 1.2;

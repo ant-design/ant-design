@@ -1,5 +1,5 @@
 import React from 'react';
-import { Component, PropTypes } from 'react';
+import { Component, PropTypes, cloneElement } from 'react';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
 import assign from 'object-assign';
@@ -236,9 +236,9 @@ export default class Input extends Component<InputProps, any> {
     ) : null;
 
     return (
-      <span className={`${props.prefixCls}-preSuffix-wrapper`}>
+      <span className={`${props.prefixCls}-preSuffix-wrapper`} style={props.style}>
         {prefix}
-        {children}
+        {cloneElement(children, { style: null })}
         {suffix}
       </span>
     );
