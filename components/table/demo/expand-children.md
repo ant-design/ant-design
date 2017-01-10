@@ -34,7 +34,6 @@ const columns = [{
   title: 'Address',
   dataIndex: 'address',
   key: 'address',
-  width: '30%',
 }];
 
 const data = [{
