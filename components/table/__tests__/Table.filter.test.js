@@ -128,6 +128,22 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('can be controlled by filteredValue null', () => {
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        filteredValue: ['girl'],
+      }],
+    }));
+
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    wrapper.setProps({ columns: [{
+      ...column,
+      filteredValue: null,
+    }] });
+    expect(wrapper.find('tbody tr').length).toBe(4);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));

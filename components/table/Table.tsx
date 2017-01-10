@@ -294,7 +294,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getFilteredValueColumns(columns?) {
-    return (columns || this.columns || []).filter(column => column.filteredValue);
+    return (columns || this.columns || []).filter(column => typeof column.filteredValue !== 'undefined');
   }
 
   getFiltersFromColumns(columns?) {

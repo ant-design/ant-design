@@ -6908,18 +6908,27 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
 <div>
   <div
     class="table-operations">
-    <a
-      href="#">
-      Age descending order
-    </a>
-    <a
-      href="#">
-      Clear filters
-    </a>
-    <a
-      href="#">
-      Clear filters and sorting
-    </a>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Sort age
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Clear filters
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-ghost"
+      type="button">
+      <span>
+        Clear filters and sorters
+      </span>
+    </button>
   </div>
   <div
     class=" clearfix">
