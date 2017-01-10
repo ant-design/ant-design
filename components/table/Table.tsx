@@ -134,18 +134,12 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       'fixed columns instead, see: http://u.ant.design/fixed-columns.'
     );
 
-    const pagination = props.pagination || {};
-
     this.columns = props.columns || normalizeColumns(props.children);
 
     this.state = assign({}, this.getSortStateFromColumns(), {
       // 减少状态
       filters: this.getFiltersFromColumns(),
-      pagination: this.hasPagination() ?
-        assign({},  defaultPagination, pagination, {
-          current: pagination.defaultCurrent || pagination.current || 1,
-          pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
-        }) : {},
+      pagination: this.getDefaultPagination(props),
     });
 
     this.CheckboxPropsCache = {};
@@ -179,6 +173,15 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       .map((record, rowIndex) => this.getRecordKey(record, rowIndex));
   }
 
+  getDefaultPagination(props) {
+    const pagination = props.pagination || {};
+    return this.hasPagination(props) ?
+      assign({},  defaultPagination, pagination, {
+        current: pagination.defaultCurrent || pagination.current || 1,
+        pageSize: pagination.defaultPageSize || pagination.pageSize || 10,
+      }) : {};
+  }
+
   getLocale() {
     let locale = {};
     if (this.context.antLocale && this.context.antLocale.Table) {
@@ -188,11 +191,16 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (('pagination' in nextProps) && nextProps.pagination !== false) {
+    if ('pagination' in nextProps) {
       this.setState(previousState => {
         const newPagination = assign({}, defaultPagination, previousState.pagination, nextProps.pagination);
         newPagination.current = newPagination.current || 1;
-        return { pagination: newPagination };
+        newPagination.pageSize = newPagination.pageSize || 10;
+        return { pagination: nextProps.pagination !== false ? newPagination : {} };
+      });
+    } else {
+      this.setState({
+        pagination: this.getDefaultPagination(nextProps),
       });
     }
     if (nextProps.rowSelection &&
@@ -207,7 +215,6 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
         this.CheckboxPropsCache = {};
       }
     }
-    // dataSource 的变化会清空选中项
     if ('dataSource' in nextProps &&
         nextProps.dataSource !== this.props.dataSource) {
       this.store.setState({
@@ -264,8 +271,8 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
   }
 
-  hasPagination() {
-    return this.props.pagination !== false;
+  hasPagination(props?: any) {
+    return (props || this.props).pagination !== false;
   }
 
   isFiltersChanged(filters) {
@@ -402,7 +409,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     }
 
     // Controlled current prop will not respond user interaction
-    if (props.pagination && 'current' in (props.pagination as Object)) {
+    if (typeof props.pagination === 'object' && 'current' in (props.pagination as Object)) {
       newState.pagination = assign({}, pagination, {
         current: this.state.pagination.current,
       });
@@ -509,7 +516,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
       pagination,
     };
     // Controlled current prop will not respond user interaction
-    if (props.pagination && 'current' in (props.pagination as Object)) {
+    if (typeof props.pagination === 'object' && 'current' in (props.pagination as Object)) {
       newState.pagination = assign({}, pagination, {
         current: this.state.pagination.current,
       });

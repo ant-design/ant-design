@@ -34,6 +34,9 @@ Keyboard and mouse can be used for providing or changing data.
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` and `options` props defined
 then `value`, `defaultValue`, and `id` props are automatically set.
 
+The rest props fo Input is exactly same as original [input](https://facebook.github.io/react/docs/events.html#supported-events).
+
+
 #### Input.Search
 
 `Added in 2.5.0`

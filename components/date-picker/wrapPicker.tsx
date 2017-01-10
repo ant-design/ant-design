@@ -3,7 +3,7 @@ import { PropTypes } from 'react';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import warning from '../_util/warning';
-import getLocale from '../_util/getLocale';
+import { getComponentLocale } from '../_util/getLocale';
 declare const require: Function;
 
 function getColumns({ showHour, showMinute, showSecond }) {
@@ -73,7 +73,7 @@ export default function wrapPicker(Picker, defaultFormat?) {
         [`${inputPrefixCls}-sm`]: props.size === 'small',
       });
 
-      const locale = getLocale(
+      const locale = getComponentLocale(
         props, this.context, 'DatePicker',
         () => require('./locale/zh_CN')
       );

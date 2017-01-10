@@ -98,8 +98,8 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 | options.valuePropName | Props of children node, for example, the prop of Switch is 'checked'. | string | 'value' |
 | options.initialValue | You can specify initial value, type, optional value of children node. | | n/a |
 | options.trigger | When to collect the value of children node | string | 'onChange' |
-| options.getValueFromEvent | To convert parameters of onChange to the value of control, for example, set value of DatePicker: `(date, dateString) => dateString` | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
-| options.validateTrigger | When to validate the value of children node. | string | 'onChange' |
+| options.getValueFromEvent | To convert parameters of onChange to the value of control | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
+| options.validateTrigger | When to validate the value of children node. | string \| string[] | 'onChange' |
 | options.rules | Includes validation rules. Please refer to [async-validator](https://github.com/yiminghe/async-validator#rules) for details. | array | n/a |
 | options.exclusive | Whether it is exclusive with other controls, particularly for Radio. | boolean | false |
 

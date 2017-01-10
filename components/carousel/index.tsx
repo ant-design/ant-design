@@ -45,6 +45,7 @@ export default class Carousel extends React.Component<CarouselProps, any> {
     dots: true,
     arrows: false,
     prefixCls: 'ant-carousel',
+    draggable: false,
   };
 
   render() {
@@ -52,7 +53,6 @@ export default class Carousel extends React.Component<CarouselProps, any> {
 
     if (props.effect === 'fade') {
       props.fade = true;
-      props.draggable = false;
     }
 
     let className = props.prefixCls;

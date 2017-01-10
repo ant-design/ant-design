@@ -9,16 +9,16 @@ title: 在 create-react-app 中使用
 
 ## 安装和初始化
 
-我们需要在命令行中安装 create-react-app 工具。
+我们需要在命令行中安装 create-react-app 工具，你可能还需要安装 [yarn](https://github.com/yarnpkg/yarn/)。
 
 ```bash
-$ npm install -g create-react-app
+$ npm install -g create-react-app yarn
 ```
 
 然后新建一个项目。
 
 ```bash
-$ USE_YARN=no create-react-app antd-demo
+$ create-react-app antd-demo
 ```
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
@@ -27,7 +27,7 @@ $ USE_YARN=no create-react-app antd-demo
 
 ```bash
 $ cd antd-demo
-$ npm start
+$ yarn start
 ```
 
 此时浏览器会访问 http://localhost:3000/ ，看到 `Welcome to React` 的界面就算成功了。
@@ -52,10 +52,10 @@ $ npm start
 └── yarn.lock
 ```
 
-现在从 npm 安装并引入 antd。
+现在从 yarn 或 npm 安装并引入 antd。
 
 ```bash
-$ npm install antd --save
+$ yarn add antd --save
 ```
 
 修改 `src/App.js`，引入 antd 的按钮组件。
@@ -102,7 +102,7 @@ export default App;
 我们需要对 create-react-app 的默认配置进行自定义。可以使用 `eject` 命令将所有内建的配置暴露出来。
 
 ```bash
-$ npm run eject
+$ yarn run eject
 ```
 
 ### 按需加载
@@ -110,7 +110,7 @@ $ npm run eject
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started-cn#按需加载)），现在我们尝试安装它并修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
-$ npm install babel-plugin-import --save-dev
+$ yarn add babel-plugin-import --save-dev
 ```
 
 ```diff
@@ -135,14 +135,14 @@ $ npm install babel-plugin-import --save-dev
 
 然后移除前面在 `src/App.css` 里全量添加的 `@import '~antd/dist/antd.css';` 样式代码，现在 babel-plugin-import 会按需加载样式。
 
-最后重启 `npm start` 访问页面，此时上面的警告信息应该没了，antd 组件的 js 和 css 代码都会按需加载。
+最后重启 `yarn start` 访问页面，此时上面的警告信息应该没了，antd 组件的 js 和 css 代码都会按需加载。
 
 ### 自定义主题
 
 按照 [配置主题](/docs/react/customize-theme) 的要求，自定义主题需要用到 less 变量覆盖功能，因此首先我们需要引入 [less-loader](https://github.com/webpack/less-loader) 来加载 less 样式，同时修改 `config/webpack.config.dev.js` 文件。
 
 ```bash
-$ npm install less less-loader --save-dev
+$ yarn add less less-loader --save-dev
 ```
 
 ```diff
@@ -186,7 +186,7 @@ loaders: [
 这里利用了 [less-loader](https://github.com/webpack/less-loader#less-options) 的 `modifyVars` 来进行主题配置，
 变量和其他配置方式可以参考 [配置主题](/docs/react/customize-theme) 文档。
 
-修改后重启 `npm start`，如果看到一个绿色的按钮就说明配置成功了。
+修改后重启 `yarn start`，如果看到一个绿色的按钮就说明配置成功了。
 
 ---
 
