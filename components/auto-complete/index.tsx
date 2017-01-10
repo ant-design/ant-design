@@ -39,8 +39,8 @@ export interface AutoCompleteProps {
   onChange?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>) => void;
   disabled?: boolean;
   children: ValidInputElement |
-    React.ClassicComponentClass<OptionProps> |
-    Array<React.ClassicComponentClass<OptionProps>>;
+    React.ReactElement<OptionProps> |
+    Array<React.ReactElement<OptionProps>>;
 }
 
 class InputElement extends React.Component<any, any> {
