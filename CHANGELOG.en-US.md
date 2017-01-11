@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 9
 title: Change Log
 toc: false
 timeline: true
