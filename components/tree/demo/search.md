@@ -75,14 +75,12 @@ const getParentKey = (key, tree) => {
   return parentKey;
 };
 
-
 class SearchTree extends React.Component {
   state = {
     expandedKeys: [],
     searchValue: '',
     autoExpandParent: true,
   }
-
   onExpand = (expandedKeys) => {
     this.setState({
       expandedKeys,
