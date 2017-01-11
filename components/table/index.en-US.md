@@ -120,6 +120,40 @@ Properties for selection.
 | onSelect | callback that is called when select/deselect one row | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | callback that is called when select/deselect all | Function(selected, selectedRows, changeRows) |   -   |
 
+## Using in TypeScript
+
+```jsx
+import { Table } from 'antd';
+import { TableColumnConfig } from 'antd/lib/table/Table';
+
+interface IUser {
+  key: number,
+  name: string;
+}
+
+const columns: TableColumnConfig<IUser>[] = [{
+  key: 'name',
+  title: 'Name',
+  dataIndex: 'name',
+}];
+
+const data: IUser[] = [{
+  key: 0,
+  name: 'Jack',
+}];
+
+class UserTable extends Table<IUser> {}
+
+<UserTable columns={columns} dataSource={data} />
+
+// Use JSX style API
+class NameColumn extends Table.Column<IUser> {}
+
+<UserTable dataSource={data}>
+  <NameColumn key="name" title="Name" dataIndex="name" />
+</UserTable>
+```
+
 ## Note
 
 According to [React documentation](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children), every child in array should be assigned a unique key. The value inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value defaultly for `dataSource`.
