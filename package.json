@@ -141,10 +141,10 @@
     "test-all": "./scripts/test-all.sh",
     "lint": "npm run tslint && npm run eslint && npm run demolint && npm run lesshint",
     "tslint": "antd-tools run ts-lint && npm run compile && rm -rf lib",
-    "eslint": "eslint tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx' --ignore-pattern '!.eslintrc.js'",
+    "eslint": "eslint tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx'",
     "demolint": "RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lesshint": "lesshint components -r scripts/lesshint-report.js",
-    "eslint-fix": "eslint --fix tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx' --ignore-pattern '!.eslintrc.js' && eslint-tinker ./components/*/demo/*.md",
+    "eslint-fix": "eslint --fix tests site scripts components ./.eslintrc.js ./webpack.config.js --ext '.js,.jsx' && eslint-tinker ./components/*/demo/*.md",
 
     "clean": "antd-tools run clean",
     "dist": "antd-tools run dist",
