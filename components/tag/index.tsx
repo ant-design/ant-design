@@ -18,6 +18,7 @@ export interface TagProps {
   onClose?: Function;
   /** 动画关闭后的回调 */
   afterClose?: Function;
+  presetColor: string;
   style?: React.CSSProperties;
 }
 
@@ -74,12 +75,13 @@ export default class Tag extends React.Component<TagProps, any> {
   }
 
   render() {
-    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
+    const { prefixCls, closable, presetColor, color, className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
     const classString = classNames(prefixCls, {
       [`${prefixCls}-${color}`]: !!color,
       [`${prefixCls}-has-color`]: !!color,
       [`${prefixCls}-close`]: this.state.closing,
+      [`${prefixCls}-preset-color-${presetColor}`]: !!presetColor,
     }, className);
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(otherProps, [
