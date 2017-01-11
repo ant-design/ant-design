@@ -89,20 +89,14 @@ class SearchTree extends React.Component {
   }
   onChange = (e) => {
     const value = e.target.value;
-    const expandedKeys = [];
-    dataList.forEach((item) => {
+    const expandedKeys = dataList.map((item) => {
       if (item.key.indexOf(value) > -1) {
-        expandedKeys.push(getParentKey(item.key, gData));
+        return getParentKey(item.key, gData);
       }
-    });
-    const uniqueExpandedKeys = [];
-    expandedKeys.forEach((item) => {
-      if (item && uniqueExpandedKeys.indexOf(item) === -1) {
-        uniqueExpandedKeys.push(item);
-      }
-    });
+      return null;
+    }).filter((item, i, self) => item && self.indexOf(item) === i);
     this.setState({
-      expandedKeys: uniqueExpandedKeys,
+      expandedKeys,
       searchValue: value,
       autoExpandParent: true,
     });
@@ -116,7 +110,7 @@ class SearchTree extends React.Component {
       const title = index > -1 ? (
         <span>
           {beforeStr}
-          <span className="ant-tree-searchable-filter">{searchValue}</span>
+          <span style={{ color: '#f50' }}>{searchValue}</span>
           {afterStr}
         </span>
       ) : <span>{item.key}</span>;
@@ -131,11 +125,7 @@ class SearchTree extends React.Component {
     });
     return (
       <div>
-        <Search
-          style={{ width: 200 }}
-          placeholder="Search"
-          onChange={this.onChange}
-        />
+        <Search style={{ width: 300 }} placeholder="Search" onChange={this.onChange} />
         <Tree
           onExpand={this.onExpand}
           expandedKeys={expandedKeys}
@@ -149,11 +139,4 @@ class SearchTree extends React.Component {
 }
 
 ReactDOM.render(<SearchTree />, mountNode);
-````
-
-````css
-.ant-tree-searchable-filter {
-  color: #f50;
-  transition: all .3s ease;
-}
 ````
