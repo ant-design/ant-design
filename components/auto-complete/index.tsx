@@ -1,5 +1,5 @@
 import React from 'react';
-import Select, { OptionProps, OptGroupProps } from '../select';
+import Select, { SelectProps, OptionProps, OptGroupProps } from '../select';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
@@ -11,7 +11,7 @@ export interface SelectedValue {
 export interface DataSourceItemObject { value: string; text: string; };
 export type DataSourceItemType = string | DataSourceItemObject;
 
-export interface AutoCompleteProps {
+export interface AutoCompleteProps extends SelectProps {
   size?: 'large' | 'small' | 'default';
   className?: string;
   notFoundContent?: Element;
