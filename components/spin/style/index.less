@@ -77,7 +77,8 @@
     opacity: 0.7;
     -webkit-filter: blur(1px);
     filter: blur(1px);
-    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; /* IE6~IE9 */
+    /* IE6~IE9 */
+    filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; // lesshint duplicateProperty: false
     &:after {
       content: '';
       position: absolute;
