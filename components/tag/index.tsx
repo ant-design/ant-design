@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import assign from 'object-assign';
 import Icon from '../icon';
-import warning from '../_util/warning';
 import CheckableTag from './CheckableTag';
 
 export interface TagProps {
@@ -18,7 +17,6 @@ export interface TagProps {
   onClose?: Function;
   /** 动画关闭后的回调 */
   afterClose?: Function;
-  presetColor: string;
   style?: React.CSSProperties;
 }
 
@@ -31,11 +29,6 @@ export default class Tag extends React.Component<TagProps, any> {
 
   constructor(props: TagProps) {
     super(props);
-    warning(
-      !/blue|red|green|yellow/.test(props.color || ''),
-      '`Tag[color=red|green|blue|yellow]` is deprecated, ' +
-        'please set color by `#abc` or `rgb(a, b, c)` instead.'
-    );
 
     this.state = {
       closing: false,
@@ -74,14 +67,24 @@ export default class Tag extends React.Component<TagProps, any> {
     }
   }
 
+  isPresetColor(color) {
+    if (!color) {
+      return false;
+    }
+    if (/-inverse/.test(color)) {
+      return true;
+    }
+    return /pink|red|yellow|orange|cyan|green|blue|purple/.test(color);
+  }
+
   render() {
-    const { prefixCls, closable, presetColor, color, className, children, style, ...otherProps } = this.props;
+    const { prefixCls, closable, color, className, children, style, ...otherProps } = this.props;
     const closeIcon = closable ? <Icon type="cross" onClick={this.close} /> : '';
+    const isPresetColor = this.isPresetColor(color);
     const classString = classNames(prefixCls, {
-      [`${prefixCls}-${color}`]: !!color,
-      [`${prefixCls}-has-color`]: !!color,
+      [`${prefixCls}-${color}`]: isPresetColor,
+      [`${prefixCls}-has-color`]: (color && !isPresetColor),
       [`${prefixCls}-close`]: this.state.closing,
-      [`${prefixCls}-preset-color-${presetColor}`]: !!presetColor,
     }, className);
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(otherProps, [
@@ -89,7 +92,7 @@ export default class Tag extends React.Component<TagProps, any> {
       'afterClose',
     ]);
     const tagStyle = assign({
-      backgroundColor: color && /blue|red|green|yellow/.test(color) ? null : color,
+      backgroundColor: (color && !isPresetColor) ? color : null,
     }, style);
     const tag = this.state.closed ? null : (
       <div

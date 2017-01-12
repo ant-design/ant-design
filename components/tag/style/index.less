@@ -61,24 +61,6 @@
     }
   }
 
-  // Those four classes are deperated, please use presetColor
-  // keep it for compatibility
-  &-blue {
-    background: @link-color;
-  }
-
-  &-green {
-    background: @success-color;
-  }
-
-  &-yellow {
-    background: @warning-color;
-  }
-
-  &-red {
-    background: @error-color;
-  }
-
   &-checkable {
     background-color: transparent;
     border-color: transparent;
@@ -123,12 +105,12 @@
     @color: extract(@colors, @i);
     @lightColor: "@{color}-2";
     @darkColor: "@{color}-6";
-    &-preset-color-@{color} {
+    &-@{color} {
       color: @@darkColor;
       background: @@lightColor;
       border-color: @@lightColor;
     }
-    &-preset-color-@{color}-inverse {
+    &-@{color}-inverse {
       background: @@darkColor;
       border-color: @@darkColor;
       color: #fff;
