@@ -2155,7 +2155,7 @@ exports[`test renders ./components/table/demo/edit-row.md correctly 1`] = `
 
 exports[`test renders ./components/table/demo/expand.md correctly 1`] = `
 <div
-  class="table clearfix">
+  class=" clearfix">
   <div
     class="ant-spin-nested-loading">
     <div
