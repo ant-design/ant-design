@@ -762,8 +762,8 @@ export default class Table extends React.Component {
 
     const classString = classNames({
       [`${prefixCls}-${this.props.size}`]: true,
-      '${prefixCls}-bordered': this.props.bordered,
-      '${prefixCls}-empty': !data.length,
+      [`${prefixCls}-bordered`]: this.props.bordered,
+      [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,
     });
 
