@@ -6,33 +6,36 @@ import classNames from 'classnames';
 export type SelectValue = string | any[] | { key: string, label: React.ReactNode } |
  Array<{ key: string, label: React.ReactNode }>;
 
-export interface SelectProps {
-  prefixCls?: string;
+export interface AbstractSelectProps {
+  size?: 'default' | 'large' | 'small';
   className?: string;
+  notFoundContent?: React.ReactNode | null;
+  prefixCls?: string;
+  transitionName?: string;
+  optionLabelProp?: string;
+  choiceTransitionName?: string;
+  showSearch?: boolean;
+  allowClear?: boolean;
+  disabled?: boolean;
+  style?: React.CSSProperties;
+  placeholder?: string;
+}
+
+export interface SelectProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
-  size?: 'default' | 'large' | 'small';
   combobox?: boolean;
-  notFoundContent?: React.ReactNode | null;
-  showSearch?: boolean;
-  transitionName?: string;
-  choiceTransitionName?: string;
   multiple?: boolean;
-  allowClear?: boolean;
   filterOption?: boolean | ((inputValue: string, option: Object) => any);
   tags?: boolean;
   onSelect?: (value: SelectValue, option: Object) => any;
   onDeselect?: (value: SelectValue) => any;
   onSearch?: (value: string) => any;
-  placeholder?: string;
   dropdownMatchSelectWidth?: boolean;
   optionFilterProp?: string;
-  optionLabelProp?: string;
-  disabled?: boolean;
   defaultActiveFirstOption?: boolean;
   labelInValue?: boolean;
   getPopupContainer?: (triggerNode: React.ReactNode) => React.ReactNode | HTMLElement;
-  style?: React.CSSProperties;
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   onChange?: (value: SelectValue) => void;
