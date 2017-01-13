@@ -2,7 +2,7 @@
 // this file is not used if use https://github.com/ant-design/babel-plugin-import
 if (process.env.NODE_ENV !== 'production') {
   if (typeof console !== 'undefined' && console.warn) {
-    console.warn(`You are using prebuilt antd,
+    console.warn(`You are using a whole package of antd,
 please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.`);
   }
 }

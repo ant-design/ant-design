@@ -19,12 +19,6 @@ const FormItem = Form.Item;
 
 let uuid = 0;
 class DynamicFieldSet extends React.Component {
-  componentWillMount() {
-    this.props.form.setFieldsValue({
-      keys: [0],
-    });
-  }
-
   remove = (k) => {
     const { form } = this.props;
     // can use data-binding to get
