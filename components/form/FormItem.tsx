@@ -30,6 +30,7 @@ export interface FormItemProps {
 
 export interface FormItemContext {
   form: WrappedFormUtils;
+  vertical: boolean;
 }
 
 export default class FormItem extends React.Component<FormItemProps, any> {
@@ -55,6 +56,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   static contextTypes = {
     form: React.PropTypes.object,
+    vertical: React.PropTypes.bool,
   };
 
   context: FormItemContext;
@@ -212,6 +214,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
 
   renderLabel() {
     const props = this.props;
+    const context = this.context;
     const labelCol = props.labelCol;
     const required = this.isRequired();
 
@@ -219,9 +222,11 @@ export default class FormItem extends React.Component<FormItemProps, any> {
       [`${props.prefixCls}-item-required`]: required,
     });
 
-    // remove user input colon
     let label = props.label;
-    if (typeof label === 'string' && (label as string).trim() !== '') {
+    // Keep label is original where there should have no colon
+    const haveColon = props.colon && !context.vertical;
+    // Remove duplicated user input colon
+    if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
       label = (props.label as string).replace(/[：|:]\s*$/, '');
     }
 

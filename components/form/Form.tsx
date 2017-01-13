@@ -98,6 +98,10 @@ export default class Form extends React.Component<FormProps, any> {
     onSubmit: React.PropTypes.func,
   };
 
+  static childContextTypes = {
+    vertical: PropTypes.bool,
+  };
+
   static Item = FormItem;
 
   static create = (options?: FormCreateOption): ComponentDecorator => {
@@ -151,6 +155,12 @@ export default class Form extends React.Component<FormProps, any> {
 
   shouldComponentUpdate(...args) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  }
+
+  getChildContext() {
+    return {
+      vertical: this.props.vertical,
+    };
   }
 
   render() {
