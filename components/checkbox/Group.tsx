@@ -58,7 +58,7 @@ export default class CheckboxGroup extends React.Component<CheckboxGroupProps, C
   getOptions() {
     const { options } = this.props;
     // https://github.com/Microsoft/TypeScript/issues/7960
-    return (options as Array<any>).map(option => {
+    return (options as Array<CheckboxOptionType>).map(option => {
       if (typeof option === 'string') {
         return {
           label: option,

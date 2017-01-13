@@ -30,3 +30,5 @@ const dataSource = ['12345', '23456', '34567'];
 | onSelect | 被选中时调用，参数为选中项的 value 值	| function(value, option)	| 无 |
 | disabled | 是否禁用 | boolean | false |
 | placeholder | 输入框提示 | string | - |
+| children (自动完成的数据源) | 自动完成的数据源 | React.ReactElement<OptionProps> / Array<React.ReactElement<OptionProps>> | - |
+| children (自定义输入框) | 自定义输入框 |  HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |

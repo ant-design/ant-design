@@ -37,6 +37,7 @@ export interface SelectProps {
   dropdownMenuStyle?: React.CSSProperties;
   onChange?: (value: SelectValue) => void;
   tokenSeparators?: string[];
+  getInputElement?: () => React.ReactElement<any>;
 }
 
 export interface OptionProps {

@@ -29,3 +29,5 @@ Since `AutoComplete` is based on `Select`, so besides the following API, `AutoCo
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | -   |
 | disabled | Whether disabled select | boolean | false |
 | placeholder | placeholder of input | string | - |
+| children (for dataSource) | Data source for autocomplet | React.ReactElement<OptionProps> /  Array<React.ReactElement<OptionProps>> | - |
+| children (for customize input element) | customize input element | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |
