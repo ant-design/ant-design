@@ -13,7 +13,7 @@ describe('Tooltip', () => {
         mouseLeaveDelay={0}
         onVisibleChange={onVisibleChange}
       >
-        <div>Hello, world!</div>
+        <div>Hello world!</div>
       </Tooltip>
     );
 
