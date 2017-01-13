@@ -136,7 +136,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        filteredValue: ['girl'],
+        filteredValue: ['Lucy'],
       }],
     }));
 
