@@ -4,7 +4,7 @@ import { renderToJson } from 'enzyme-to-json';
 import Table from '..';
 
 describe('Table.filter', () => {
-  const filterFn = (value, record) => record.name === 'Lucy';
+  const filterFn = (value, record) => record.name.indexOf(value) !== -1;
   const column = {
     title: 'Name',
     dataIndex: 'name',
@@ -39,6 +39,10 @@ describe('Table.filter', () => {
         {...props}
       />
     );
+  }
+
+  function renderedNames(wrapper) {
+    return wrapper.find('TableRow').map(row => row.props().record.name);
   }
 
   it('renders filter correctly', () => {
@@ -116,7 +120,7 @@ describe('Table.filter', () => {
     const wrapper = mount(createTable({
       columns: [{
         ...column,
-        filteredValue: ['girl'],
+        filteredValue: ['Lucy'],
       }],
     }));
 
@@ -153,5 +157,41 @@ describe('Table.filter', () => {
     dropdownWrapper.find('.confirm').simulate('click');
 
     expect(handleChange).toBeCalledWith({}, { name: ['boy'] }, {});
+  });
+
+  it('three levels menu', () => {
+    const filters = [
+      { text: 'Upper', value: 'Upper' },
+      { text: 'Lower', value: 'Lower' },
+      {
+        text: 'Level2',
+        value: 'Level2',
+        children: [
+          { text: 'Large', value: 'Large' },
+          { text: 'Small', value: 'Small' },
+          {
+            text: 'Level3',
+            value: 'Level3',
+            children: [
+              { text: 'Black', value: 'Black' },
+              { text: 'White', value: 'White' },
+              { text: 'Jack', value: 'Jack' },
+            ],
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(createTable({
+      columns: [{
+        ...column,
+        filters,
+      }],
+    }));
+    const dropdownWrapper = mount(wrapper.find('Trigger').node.getComponent());
+    dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
+    dropdownWrapper.find('.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
+    dropdownWrapper.find('MenuItem').last().simulate('click');
+    dropdownWrapper.find('.confirm').simulate('click');
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 });
