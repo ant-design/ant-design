@@ -24,6 +24,7 @@ export interface FormProps {
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
+  hideRequiredMark?: false;
 }
 
 // function create
@@ -84,6 +85,7 @@ export interface ComponentDecorator {
 export default class Form extends React.Component<FormProps, any> {
   static defaultProps = {
     prefixCls: 'ant-form',
+    hideRequiredMark: false,
     onSubmit(e) {
       e.preventDefault();
     },
@@ -96,6 +98,7 @@ export default class Form extends React.Component<FormProps, any> {
     inline: React.PropTypes.bool,
     children: React.PropTypes.any,
     onSubmit: React.PropTypes.func,
+    hideRequiredMark: React.PropTypes.bool,
   };
 
   static Item = FormItem;
@@ -154,11 +157,12 @@ export default class Form extends React.Component<FormProps, any> {
   }
 
   render() {
-    const { prefixCls, className = '', inline, horizontal, vertical } = this.props;
+    const { prefixCls, hideRequiredMark, className = '', inline, horizontal, vertical } = this.props;
     const formClassName = classNames(prefixCls, {
       [`${prefixCls}-horizontal`]: horizontal,
       [`${prefixCls}-vertical`]: vertical,
       [`${prefixCls}-inline`]: inline,
+      [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
     }, className);
 
     const formProps = omit(this.props, [
@@ -168,6 +172,7 @@ export default class Form extends React.Component<FormProps, any> {
       'horizontal',
       'vertical',
       'form',
+      'hideRequiredMark',
     ]);
 
     return <form {...formProps} className={formClassName} />;

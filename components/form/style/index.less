@@ -26,6 +26,9 @@ label {
   line-height: 1;
   font-size: @font-size-base;
   color: @label-required-color;
+  .@{form-prefix-cls}-hide-required-mark & {
+    display: none;
+  }
 }
 
 // Radio && Checkbox
