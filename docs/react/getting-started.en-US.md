@@ -164,7 +164,7 @@ If you see a log like below screenshot, you might import all components by writi
 
 > ![](https://zos.alipayobjects.com/rmsportal/vgcHJRVZFmPjAawwVoXK.png)
 
-But, we can import component on demand:
+But, we can import individual components on demand:
 
 ```jsx
 import Button from 'antd/lib/button';
@@ -177,7 +177,7 @@ We strongly recommend to use [babel-plugin-import](https://github.com/ant-design
 import { Button } from 'antd';
 ```
 
-And this plugin can also load styles on demand. See the [usage](https://github.com/ant-design/babel-plugin-import#usage) for further details.
+And this plugin can load styles too, read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
 
 ## Customization
 
