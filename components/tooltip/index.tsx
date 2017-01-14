@@ -51,7 +51,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     super(props);
 
     this.state = {
-      visible: props.visible,
+      visible: !!props.visible,
     };
   }
 
@@ -62,14 +62,19 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   onVisibleChange = (visible) => {
-    const props = this.props;
-    if (!('visible' in props)) {
-      this.setState({ visible });
-    }
+    const { props, state } = this;
+    const { title, overlay, onVisibleChange } = props;
 
-    const onVisibleChange = props.onVisibleChange;
-    if (onVisibleChange) {
-      onVisibleChange(visible);
+    if (!('visible' in props)) {
+      if (!title && !overlay) {
+        visible = false;
+      }
+
+      this.setState({ visible });
+
+      if (onVisibleChange && (visible !== state.visible)) {
+        onVisibleChange(visible);
+      }
     }
   }
 
