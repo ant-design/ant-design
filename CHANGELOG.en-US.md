@@ -13,7 +13,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 `2017-01-14`
 
-* Added a Third-Party Library Page for recommending other greet react components. [Link](/docs/react/recommendation)。
+* Added a Third-Party Library Page for recommending other greet react components. [Link](/docs/react/recommendation)
 * Fixed misplaced Sider of Layout. [#4459](https://github.com/ant-design/ant-design/issues/4459)
 * Fixed Input.Search wrong block layout and misplaced icon. [#4540](https://github.com/ant-design/ant-design/issues/4540)
 * Added a customize Collapse panel demo. [Link](/components/collapse/#components-collapse-demo-custom)
@@ -76,7 +76,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Supports TypeScript@2.1. [#4208](https://github.com/ant-design/ant-design/issues/4208)
 * Fix style issue resulting in nested Tabs. [#4317](https://github.com/ant-design/ant-design/issues/4317)
 * Fix `onChange` callback issue resulting in Radio. [#4242](https://github.com/ant-design/ant-design/issues/4242) [@ystarlongzi](https://github.com/ystarlongzi)
-* Fix a FormItem mis-aligin bug。 [#4271](https://github.com/ant-design/ant-design/issues/4271)
+* Fix a FormItem mis-aligin bug. [#4271](https://github.com/ant-design/ant-design/issues/4271)
 * Fix background issue resulting in selected element of veritcal Menu.[#4253](https://github.com/ant-design/ant-design/issues/4253)
 * Improve arguments type of `onVisibleChange` callback of  Dropdown.[#4236](https://github.com/ant-design/ant-design/issues/4236) [@bang88](https://github.com/bang88)
 * Improve first argument type of `onChange` callback of Cascader.[#4231](https://github.com/ant-design/ant-design/issues/4231) [@bang88](https://github.com/bang88)
@@ -244,10 +244,10 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * Add `type`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
   * Add `checkable`. [#3560](https://github.com/ant-design/ant-design/issues/3560)
 * Radio.Group
-  * Add `className`。
+  * Add `className`.
   * `null` or `undefined` `children` will be ignored.
 * Select
-  * Add `tokenSeparators` to support automatic tokenization。[#2071](https://github.com/ant-design/ant-design/issues/2071)
+  * Add `tokenSeparators` to support automatic tokenization. [#2071](https://github.com/ant-design/ant-design/issues/2071)
   * Add `onFocus` callback. [#3587](https://github.com/ant-design/ant-design/issues/3587)
   * Fix issue resulting in Select can't display correct selected item text in `combobox` mode. [#3401](https://github.com/ant-design/ant-design/issues/3401)
 
@@ -488,4 +488,4 @@ The following change will throw some warnings in the console and it will still w
 
 ## 1.11.4
 
-Visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md) to read change logs from `0.x` to `1.x`。
+Visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md) to read change logs from `0.x` to `1.x`.
