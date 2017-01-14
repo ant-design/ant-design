@@ -62,19 +62,12 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   }
 
   onVisibleChange = (visible) => {
-    const { props, state } = this;
-    const { title, overlay, onVisibleChange } = props;
-
-    if (!('visible' in props)) {
-      if (!title && !overlay) {
-        visible = false;
-      }
-
-      this.setState({ visible });
-
-      if (onVisibleChange && (visible !== state.visible)) {
-        onVisibleChange(visible);
-      }
+    const { onVisibleChange } = this.props;
+    if (!('visible' in this.props)) {
+      this.setState({ visible: this.isNoTitle() ? false : visible });
+    }
+    if (onVisibleChange && !this.isNoTitle()) {
+      onVisibleChange(visible);
     }
   }
 
@@ -88,6 +81,11 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
       arrowPointAtCenter,
       verticalArrowShift: 8,
     });
+  }
+
+  isNoTitle() {
+    const { title, overlay } = this.props;
+    return !title && !overlay;  // overlay for old version compatibility
   }
 
   // 动态设置动画点
@@ -128,7 +126,7 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
     const children = props.children as React.ReactElement<any>;
     let visible = state.visible;
     // Hide tooltip when there is no title
-    if (!('visible' in props) && !title && !overlay) {
+    if (!('visible' in props) && this.isNoTitle()) {
       visible = false;
     }
 

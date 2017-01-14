@@ -27,27 +27,26 @@ describe('Tooltip', () => {
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
 
-
     // update `title` value.
     wrapper.setProps({ title: 'Have a nice day!' });
     wrapper.simulate('mouseenter');
-    expect(onVisibleChange).toBeCalledWith(true); // mock.calls.length++
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(wrapper.ref('tooltip').prop('visible')).toBe(true);
 
     wrapper.simulate('mouseleave');
-    expect(onVisibleChange).toBeCalledWith(false); // mock.calls.length++
+    expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
-
 
     // add `visible` props.
     wrapper.setProps({ visible: false });
     wrapper.simulate('mouseenter');
-    expect(onVisibleChange.mock.calls.length).toBe(2);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
+    const lastCount = onVisibleChange.mock.calls.length;
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
 
+    // always trigger onVisibleChange
     wrapper.simulate('mouseleave');
-    expect(onVisibleChange.mock.calls.length).toBe(2);
+    expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
     expect(wrapper.ref('tooltip').prop('visible')).toBe(false);
   });
 });
-
