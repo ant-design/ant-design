@@ -9,6 +9,12 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 
 ---
 
+## 2.6.3
+
+`2017-01-15`
+
+* Fixed issue introduced in `2.6.2` that Popconfirm is not working. [#4606](https://github.com/ant-design/ant-design/issues/4606)
+
 ## 2.6.2
 
 `2017-01-14`

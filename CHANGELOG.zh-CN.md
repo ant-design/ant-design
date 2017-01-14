@@ -9,6 +9,12 @@ timeline: true
 
 ---
 
+## 2.6.3
+
+`2017-01-15`
+
+* 修复 `2.6.2` 中 Popconfirm 不可用的问题。[#4606](https://github.com/ant-design/ant-design/issues/4606)
+
 ## 2.6.2
 
 `2017-01-14`
