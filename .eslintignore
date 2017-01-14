@@ -1,6 +1,6 @@
 components/**/*.js
 components/**/*.jsx
 !.eslintrc.js
-!components/**/__tests__/*
-!components/**/demo/*
-!components/**/style/*
+!components/*/__tests__/*
+!components/*/demo/*
+!components/*/style/*
