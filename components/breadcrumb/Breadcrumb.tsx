@@ -93,7 +93,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       crumbs = React.Children.map(children, (element: any, index) => {
         warning(
           element.type === BreadcrumbItem,
-          ' `BreadcrumbItem` is required as the wrapper of chilren element. '
+          ' `BreadcrumbItem` is required as the wrapper of children element. '
         );
         return cloneElement(element, {
           separator,
