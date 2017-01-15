@@ -51,7 +51,7 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
 
-在浏览器里打开 http://localhost:8989 ，你会看到 dva 的欢迎界面。
+在浏览器里打开 http://localhost:8000 ，你会看到 dva 的欢迎界面。
 
 ## 使用 antd
 
@@ -97,7 +97,7 @@ export default Products;
 + <Route path="/products" component={Products} />
 ```
 
-然后在浏览器里打开 http://localhost:8989/#/products ，你应该能看到前面定义的 `<h2>` 标签。
+然后在浏览器里打开 http://localhost:8000/#/products ，你应该能看到前面定义的 `<h2>` 标签。
 
 ## 编写 UI Component
 

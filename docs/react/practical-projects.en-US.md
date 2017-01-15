@@ -51,7 +51,7 @@ Note that the development build is not optimized.
 To create a production build, use npm run build.
 ```
 
-Open http://localhost:8989 in your browser, you will see dva welcome page.
+Open http://localhost:8000 in your browser, you will see dva welcome page.
 
 ## Integrate antd
 
@@ -97,7 +97,7 @@ Add routing information to router, edit `router.js`:
 + <Route path="/products" component={Products} />
 ```
 
-Then open http://localhost:8989/#/products in your browser, you should be able to see the `<h2>` tag defined before.
+Then open http://localhost:8000/#/products in your browser, you should be able to see the `<h2>` tag defined before.
 
 ## Write UI Components
 
