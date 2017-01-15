@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Form from '..';
 
-describe('Checkbox', () => {
+describe('Form', () => {
   it('should remove duplicated user input colon', () => {
     const wrapper = mount(
       <Form>
