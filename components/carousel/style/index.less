@@ -137,34 +137,33 @@
   // Dots
   .slick-dots {
     position: absolute;
-    bottom: 6px;
+    bottom: 12px;
     list-style: none;
     display: block;
     text-align: center;
     padding: 0;
     width: 100%;
+    height: @carousel-dot-height;
     li {
       position: relative;
       display: inline-block;
-      height: 20px;
-      width: 20px;
-      line-height: 20px;
+      vertical-align: top;
       text-align: center;
       margin: 0 2px;
       padding: 0;
       button {
         border: 0;
         cursor: pointer;
-        background: #000;
+        background: #fff;
         opacity: 0.3;
-        display: inline-block;
-        width: 7px;
-        height: 7px;
-        border-radius: 7px;
+        display: block;;
+        width: @carousel-dot-width;
+        height: @carousel-dot-height;
+        border-radius: 1px;
         outline: none;
         font-size: 0;
         color: transparent;
-        transition: all .3s;
+        transition: all .5s;
         &:hover,
         &:focus {
           opacity: 0.75;
@@ -173,7 +172,7 @@
       &.slick-active button {
         background: #fff;
         opacity: 1;
-        box-shadow: 0 0 3px rgba(0, 0, 0, .25);
+        width: @carousel-dot-active-width;
         &:hover,
         &:focus {
           opacity: 1;
@@ -185,10 +184,23 @@
 
 .@{ant-prefix}-carousel-vertical {
   .slick-dots {
-    width: 20px;
+    width: @carousel-dot-height;
     bottom: auto;
-    right: 8px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
+    height: auto;
+    li {
+      margin: 0 2px;
+      vertical-align: baseline;
+      button {
+        width: @carousel-dot-height;
+        height: @carousel-dot-width;
+      }
+      &.slick-active button {
+        width: @carousel-dot-height;
+        height: @carousel-dot-active-width;
+      }
+    }
   }
 }
