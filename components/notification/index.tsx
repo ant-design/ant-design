@@ -7,8 +7,8 @@ let notificationInstance;
 let defaultDuration = 4.5;
 
 export interface ArgsProps {
-  message: React.ReactNode | string;
-  description: React.ReactNode | string;
+  message: React.ReactNode;
+  description: React.ReactNode;
   btn?: React.ReactNode;
   key?: string;
   onClose?: () => void;

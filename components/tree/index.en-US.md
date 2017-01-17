@@ -45,7 +45,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |-----------|------------------------------------------|---------|---------|
 |disabled | whether disabled the treeNode | bool | false |
 |disableCheckbox | whether disable the checkbox of treeNode | bool | false |
-|title | title | String/element | '---' |
+|title | title | string\|ReactNode | '---' |
 |key | it's used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: it must be unique in all of treeNodes of the tree! | String | internal calculated position of treeNode |
 |isLeaf | whether it's leaf node | bool | false |
 

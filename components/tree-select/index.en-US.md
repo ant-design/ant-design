@@ -18,7 +18,7 @@ Any data whose entries are defined in a hierarchical manner is fit to use this c
 
 Property | Description | Type | Default
 -----|-----|-----|------
-value | To set the current selected treeNode(s). | __Default:__ String/Array<String>. __With `labelInValue` set:__ { value: String, label: React.Node }/Array<{ value, label }>. __With `treeCheckStrictly` set(`halfChecked` is set to `false`):__ { value: String, label: React.Node, halfChecked }/Array<{ value, label, halfChecked }>. | -
+value | To set the current selected treeNode(s). | __Default:__ String/Array<String>. __With `labelInValue` set:__ { value: String, label: ReactNode }/Array<{ value, label }>. __With `treeCheckStrictly` set(`halfChecked` is set to `false`):__ { value: String, label: ReactNode, halfChecked }/Array<{ value, label, halfChecked }>. | -
 labelInValue | Determine whether to put `label` into `value`, the type of `value` as specified in the above | Boolean | false
 defaultValue | To set the initial selected treeNode(s).  | String/Array<String> | -
 multiple | Support multiple or not, will be `true` when enable `treeCheckable`. | Boolean | false
@@ -54,6 +54,6 @@ Property | Description | Type | Default
 disabled | Disabled or not | Boolean | false
 key | Required property, should be unique in the tree  | String | -
 value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | String | -
-title | Content showed on the treeNodes | String/element | '---'
+title | Content showed on the treeNodes | string\|ReactNode | '---'
 isLeaf | Leaf node or not   | Boolean | false
 

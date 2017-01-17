@@ -29,4 +29,4 @@ cols: 1
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
 | key  | 对应 activeKey   | String                  | 无     |
-| header | 面板头内容 | React.Element or String | 无     |
+| header | 面板头内容 | string\|ReactNode | 无     |

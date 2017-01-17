@@ -24,10 +24,10 @@ Keyboard and mouse can be used for providing or changing data.
 | defaultValue | The initial input content | string |   |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |
 | disabled | Tell if the input is disabled. | boolean | false |
-| addonBefore | The label text displayed before (on the left side of) the input field. | React.Node |   |
-| addonAfter | The label text displayed after (on the right side of) the input field. | React.Node  |   |
-| prefix | The Input with prefix icon. | React.Node | |
-| suffix | The Input with suffix icon. | React.Node | |
+| addonBefore | The label text displayed before (on the left side of) the input field. | string\|ReactNode |   |
+| addonAfter | The label text displayed after (on the right side of) the input field. | string\|ReactNode  |   |
+| prefix | The Input with prefix icon. | string\|ReactNode | |
+| suffix | The Input with suffix icon. | string\|ReactNode | |
 | onPressEnter | The callback function that is triggered when pressing Enter key. | function(e) |   |
 | autosize | Height autosize feature, available when type="textarea", can be set to `true|false` or a object `{ minRows: 2, maxRows: 6 }` | boolean or object | false |
 

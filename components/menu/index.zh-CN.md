@@ -57,7 +57,7 @@ subtitle: 导航菜单
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | Boolean   |  false  |
 | key | 唯一标志 |  String |  |
-| title    | 子菜单项值 | String or React.Element   |    |
+| title    | 子菜单项值 | string\|ReactNode |    |
 | children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |
 | onTitleClick | 点击子菜单标题 | Function({ eventKey, domEvent }) |  |
 
@@ -65,7 +65,7 @@ subtitle: 导航菜单
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| title    | 分组标题       | String or React.Element |    |
+| title    | 分组标题       | string\|ReactNode |    |
 | children | 分组的菜单项    | MenuItem[] |  |
 
 ### Menu.Divider

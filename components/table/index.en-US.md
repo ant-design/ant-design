@@ -82,14 +82,14 @@ One of Property `columns` for descriping column, Column has the same API.
 
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
-| title      | title of this column        | String or React.Element | - |
+| title      | title of this column        | string\|ReactNode | - |
 | key        | key of this column | String          | - |
 | dataIndex  | display field of the data record, could be set like `a.b.c` | String | - |
 | render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or a object for [colSpan/rowSpan config](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | filter menu config        | Array       | - |
 | onFilter   | callback that is called when when click confirm filter button | Function | - |
 | filterMultiple | whether to select multiple filtered item | Boolean    | true    |
-| filterDropdown | customized filter overlay | React.Element | - |
+| filterDropdown | customized filter overlay | ReactNode | - |
 | filterDropdownVisible | whether filterDropdown is visible | Boolean | - |
 | onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
 | filteredValue | controlled filtered value | Array | - |
@@ -105,7 +105,7 @@ One of Property `columns` for descriping column, Column has the same API.
 
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
-| title      | title of the column group   | String or React.Element | - |
+| title      | title of the column group   | string\|ReactNode | - |
 
 ### rowSelection
 

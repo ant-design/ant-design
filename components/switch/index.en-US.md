@@ -21,6 +21,6 @@ Property | Description | Type | Default |
 checked | determine whether the `Switch` is checked  | Boolean | false |
 defaultChecked | to set the initial state | Boolean | false |
 onChange | a callback function, can be executed when the checked state is changing | Function(checked:Boolean) | |
-checkedChildren | content to be shown when the state is checked | React Node  | |
-unCheckedChildren | content to be shown when the state is unchecked | React Node  | |
+checkedChildren | content to be shown when the state is checked | string\|ReactNode  | |
+unCheckedChildren | content to be shown when the state is unchecked | string\|ReactNode  | |
 size | the size of the `Switch`, options: `default` `small` | String | default |

@@ -17,7 +17,7 @@ title: TreeSelect
 
 | 参数       | 说明                                      | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| value    | 指定当前选中的条目 | 通常: String/Array<String>. 设置 labelInValue: {value: String, label: React.Node}/Array<{value, label}>. 设置 treeCheckStrictly(halfChecked 默认为 false): {value: String, label: React.Node, halfChecked}/Array<{value, label, halfChecked}>. |  -  |
+| value    | 指定当前选中的条目 | 通常: String/Array<String>. 设置 labelInValue: {value: String, label: ReactNode}/Array<{value, label}>. 设置 treeCheckStrictly(halfChecked 默认为 false): {value: String, label: ReactNode, halfChecked}/Array<{value, label, halfChecked}>. |  -  |
 | labelInValue | 是否把 label 嵌入到 value 里，设置后参考以上 value 类型写法  | Boolean | false |
 | defaultValue | 指定默认选中的条目 | String/Array<String>   |  -  |
 | multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | Boolean | false |
@@ -53,5 +53,5 @@ title: TreeSelect
 | disabled    | 是否禁用 | Boolean   |  false  |
 | key   | 此项必须设置（其值在整个树范围内唯一） |  String | - |
 | value   | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | String | - |
-| title | 树节点显示的内容 | String/element | '---' |
+| title | 树节点显示的内容 | string\|ReactNode | '---' |
 | isLeaf | 是否是叶子节点 | Boolean | false |

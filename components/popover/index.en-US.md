@@ -16,7 +16,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 | Param     | Description   | Type     | Default value       |
 |-----------|------------------------------------------|---------------|--------|
-| title     | title of the card                                 | React.Element | none     |
-| content   | content of the card                            | React.Element | none     |
+| title     | title of the card                                 | string\|ReactNode | none     |
+| content   | content of the card                            | string\|ReactNode | none     |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.

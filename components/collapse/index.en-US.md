@@ -27,4 +27,4 @@ A content area which can be collapsed and expanded.
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
 | key    | corresponds to the `activeKey` | String   |  -  |
-| header    | title of the panel | React.Element or String   | - |
+| header    | title of the panel | string\|ReactNode   | - |

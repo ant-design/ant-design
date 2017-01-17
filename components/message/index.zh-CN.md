@@ -26,7 +26,7 @@ title: Message
 
 | 参数       | 说明           | 类型                       | 默认值       |
 |------------|----------------|--------------------------|--------------|
-| content    | 提示内容       | React.Element or String    | -           |
+| content    | 提示内容       | string\|ReactNode | -           |
 | duration   | 自动关闭的延时，单位秒 | number               | 1.5          |
 
 还提供了全局配置和全局销毁方法：

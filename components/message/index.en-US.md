@@ -25,7 +25,7 @@ This components provides 4 static methods, with arguments as following:
 
 | Argument   | Description                        | Type                     | Default      |
 |------------|------------------------------------|--------------------------|--------------|
-| content    | content of the message             | React.Element or String  | -            |
+| content    | content of the message             | string\|ReactNode | -            |
 | duration   | time before auto-dismiss,in seconds | number                   | 1.5          |
 
 Methods for global configuration and destruction are also provided:

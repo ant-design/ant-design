@@ -19,8 +19,8 @@ title: Breadcrumb
 |-----------|-----------------------------------|-----------------|---------|--------|
 | routes    | router 的路由栈信息               | Array             |         | -      |
 | params    | 路由的参数                        | Object            |         | -      |
-| separator | 分隔符自定义                      | String or Element |         | '/'    |
-| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => React.ReactNode | | - |
+| separator | 分隔符自定义                      | string|ReactNode |         | '/'    |
+| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | | - |
 
 > 2.0 之后，`linkRender` 和 `nameRender` 被移除，请使用 `itemRender` 来代替。
 

@@ -26,7 +26,7 @@ subtitle: 级联选择
 | defaultValue | 默认的选中项 | Array  |[] |
 | value | 指定选中项 | Array  | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |
-| displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => React.ReactNode` | `label => label.join(' / ')` |
+| displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | style | 自定义样式 | String | - |
 | className | 自定义类名 | String | - |
 | popupClassName | 自定义浮层类名 | String | - |
@@ -47,7 +47,7 @@ subtitle: 级联选择
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
 | filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |
-| render | 用于渲染 filter 后的选项 | `function(inputValue, path): React.ReactNode` | |
+| render | 用于渲染 filter 后的选项 | `function(inputValue, path): ReactNode` | |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
 | matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | |
 

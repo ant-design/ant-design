@@ -30,8 +30,8 @@ One or more elements can be selected from either column, one click on the proper
 | showSearch | If included, a search box is shown on each column. | Boolean | false |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | |
 | searchPlaceholder | The hint text of the search box. | String | 'Search here' |
-| notFoundContent | Text to display when a column is empty. | React.ReactNode | 'The list is empty'  |
-| footer | A function used for rendering the footer. | (props): React.ReactNode |  |
+| notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty'  |
+| footer | A function used for rendering the footer. | (props): ReactNode |  |
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items | Object | `{ height: 32, offset: 32 }` |
 
 ## Warning

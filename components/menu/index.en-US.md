@@ -56,7 +56,7 @@ More layout and samples: [layout](/docs/spec/layout).
 |----------|----------------|----------|--------------|
 | disabled    | disabled or not | Boolean   |  false  |
 | key   | unique id of the menu item |  String |  |
-| title    | title of the sub menu | String or React.Element   |    |
+| title    | title of the sub menu | string\|ReactNode   |    |
 | children | sub menus or sub menu items | (MenuItem or SubMenu)[] |  |
 | onTitleClick | callback of the clicked sub menu title | Function({ eventKey, domEvent }) |  |
 
@@ -64,7 +64,7 @@ More layout and samples: [layout](/docs/spec/layout).
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
-| title    | title of the group       | String or React.Element |    |
+| title    | title of the group       | string\|ReactNode |    |
 | children | sub menu items    | MenuItem[] |  |
 
 ### Menu.Divider

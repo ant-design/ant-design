@@ -46,7 +46,7 @@ subtitle: 树形控件
 |-----------|------------------------------------------|------------|--------|
 |disabled | 禁掉响应 | bool | false |
 |disableCheckbox | 禁掉 checkbox | bool | false |
-|title | 标题 | String/element | '---' |
+|title | 标题 | string\|ReactNode | '---' |
 |key | 被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！ | String | 内部计算出的节点位置 |
 |isLeaf | 设置为叶子节点 | bool | false |
 

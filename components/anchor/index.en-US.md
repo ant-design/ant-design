@@ -26,4 +26,4 @@ For displaying anchor hyperlinks on page and jumping between them.
 | Property        | Description           | Type               | Default       |
 |-------------|----------------|--------------------|--------------|
 | href    | target of hyperlink  | String |         |
-| title | content of  hyperlink | React.Node |         |
+| title | content of  hyperlink | string\|ReactNode |         |

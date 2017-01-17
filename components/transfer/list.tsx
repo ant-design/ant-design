@@ -29,7 +29,7 @@ export interface TransferListProps {
   checkedKeys: string[];
   checkStatus?: boolean;
   position?: string;
-  notFoundContent?: React.ReactNode | string;
+  notFoundContent?: React.ReactNode;
   filterOption: (filterText: any, item: any) => boolean;
   lazy?: boolean | {};
 }

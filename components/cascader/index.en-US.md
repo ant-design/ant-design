@@ -25,7 +25,7 @@ Cascade selection box.
 | defaultValue | initial selected value | array  |[] |
 | value | selected value | array  | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
-| displayRender | render function of displaying selected options | `(label, selectedOptions) => React.ReactNode` | `label => label.join(' / ')` |
+| displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | style | additional style | string | - |
 | className | additional css class | string | - |
 | popupClassName | additional className of popup overlay | string | - |
@@ -46,7 +46,7 @@ Fields in `showSearch`:
 | Property | Description | Type | Default |
 |----------|-------------|------|---------|
 | filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded. | `function(inputValue, path): boolean` | |
-| render | Used to render filtered options. | `function(inputValue, path): React.ReactNode` | |
+| render | Used to render filtered options. | `function(inputValue, path): ReactNode` | |
 | sort | Used to sort filtered options. | `function(a, b, inputValue)` | |
 | matchInputWidth | Whether the width of result list equals to input's | boolean | |
 
