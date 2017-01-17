@@ -1,6 +1,7 @@
 exports[`test renders ./components/cascader/demo/basic.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -17,7 +18,8 @@ exports[`test renders ./components/cascader/demo/basic.md correctly 1`] = `
 
 exports[`test renders ./components/cascader/demo/change-on-select.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -35,7 +37,8 @@ exports[`test renders ./components/cascader/demo/change-on-select.md correctly 1
 exports[`test renders ./components/cascader/demo/custom-render.md correctly 1`] = `
 <span
   class="ant-cascader-picker"
-  style="width:270px;">
+  style="width:270px;"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -69,7 +72,8 @@ exports[`test renders ./components/cascader/demo/custom-trigger.md correctly 1`]
 <span>
   Unselect 
   <a
-    href="#">
+    href="#"
+    tabindex="0">
     Change city
   </a>
 </span>
@@ -77,7 +81,8 @@ exports[`test renders ./components/cascader/demo/custom-trigger.md correctly 1`]
 
 exports[`test renders ./components/cascader/demo/default-value.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -97,7 +102,8 @@ exports[`test renders ./components/cascader/demo/default-value.md correctly 1`] 
 
 exports[`test renders ./components/cascader/demo/disabled-option.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -114,7 +120,8 @@ exports[`test renders ./components/cascader/demo/disabled-option.md correctly 1`
 
 exports[`test renders ./components/cascader/demo/hover.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -131,7 +138,8 @@ exports[`test renders ./components/cascader/demo/hover.md correctly 1`] = `
 
 exports[`test renders ./components/cascader/demo/lazy.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -148,7 +156,8 @@ exports[`test renders ./components/cascader/demo/lazy.md correctly 1`] = `
 
 exports[`test renders ./components/cascader/demo/search.md correctly 1`] = `
 <span
-  class="ant-cascader-picker">
+  class="ant-cascader-picker"
+  tabindex="0">
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
@@ -165,7 +174,8 @@ exports[`test renders ./components/cascader/demo/search.md correctly 1`] = `
 exports[`test renders ./components/cascader/demo/size.md correctly 1`] = `
 <div>
   <span
-    class="ant-cascader-picker">
+    class="ant-cascader-picker"
+    tabindex="0">
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input ant-input-lg"
@@ -181,7 +191,8 @@ exports[`test renders ./components/cascader/demo/size.md correctly 1`] = `
   <br />
   <br />
   <span
-    class="ant-cascader-picker">
+    class="ant-cascader-picker"
+    tabindex="0">
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input "
@@ -197,7 +208,8 @@ exports[`test renders ./components/cascader/demo/size.md correctly 1`] = `
   <br />
   <br />
   <span
-    class="ant-cascader-picker">
+    class="ant-cascader-picker"
+    tabindex="0">
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input ant-input-sm"
