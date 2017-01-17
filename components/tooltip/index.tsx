@@ -64,6 +64,9 @@ export default class Tooltip extends React.Component<TooltipProps, any> {
   onVisibleChange = (visible) => {
     const props = this.props;
     if (!('visible' in props)) {
+      if (!props.title && !props.overlay) {
+        visible = false;
+      }
       this.setState({ visible });
     }
 
