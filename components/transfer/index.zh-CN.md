@@ -26,7 +26,7 @@ title: Transfer
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |
 | onSelectChange | 选中项发生改变时的回调函数 | (sourceSelectedKeys, targetSelectedKeys): void | |
 | listStyle | 两个穿梭框的自定义样式 | Object |  |
-| className | 自定义类 | String |  |
+| className | 自定义类 | string |  |
 | titles | 标题集合,顺序从左至右 | Array | ['', ''] |
 | operations | 操作文案集合,顺序从上至下 | Array | [] |
 | showSearch | 是否显示搜索框 | Boolean | false |

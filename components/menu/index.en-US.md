@@ -28,8 +28,8 @@ More layout and samples: [layout](/docs/spec/layout).
 
 | Param    | Description   | Type     | Default value       |
 |----------|---------------|----------|--------------|
-| theme    | color of the theme | String: `light` `dark` | `light` |
-| mode | type of the menu; vertical, horizontal, and inline modes are supported | String: vertical horizontal inline | vertical |
+| theme    | color of the theme | string: `light` `dark` | `light` |
+| mode | type of the menu; vertical, horizontal, and inline modes are supported | string: vertical horizontal inline | vertical |
 | selectedKeys | array with the keys of currently selected menu items | Array |      |
 | defaultSelectedKeys | array with the keys of default selected menu items | Array |      |
 | openKeys | array with the keys of currently opened sub menus | Array |  |
@@ -48,14 +48,14 @@ More layout and samples: [layout](/docs/spec/layout).
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
 | disabled    | disabled or not | Boolean   |  false  |
-| key   | unique id of the menu item |  String |  |
+| key   | unique id of the menu item |  string |  |
 
 ### Menu.SubMenu props
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
 | disabled    | disabled or not | Boolean   |  false  |
-| key   | unique id of the menu item |  String |  |
+| key   | unique id of the menu item |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
 | children | sub menus or sub menu items | (MenuItem or SubMenu)[] |  |
 | onTitleClick | callback of the clicked sub menu title | Function({ eventKey, domEvent }) |  |

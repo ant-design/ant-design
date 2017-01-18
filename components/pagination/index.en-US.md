@@ -29,6 +29,6 @@ showSizeChanger | determine whether `pageSize` can be changed | Boolean | false
 pageSizeOptions | specify the sizeChanger selections | Array | ['10', '20', '30', '40']
 onShowSizeChange | a callback function, can be executed when `pageSize` is changing | Function(current, size) | noop
 showQuickJumper | determine whether you can jump to a page directly | Boolean | false
-size | specify the size of `Pagination`, can be set to `small` | String | ""
+size | specify the size of `Pagination`, can be set to `small` | string | ""
 simple | whether to use simple mode | Object | -
 showTotal | to display the total number and range | Function(total, range) | -

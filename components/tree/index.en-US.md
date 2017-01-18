@@ -17,14 +17,14 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |multiple | Whether allow to select multiple treeNodes | bool | false |
 |checkable | Whether support add Checkbox before treeNode | bool | false |
 |defaultExpandAll | Whether default to expand all treeNodes | bool | false |
-|defaultExpandedKeys | Specify keys of default expanded treeNodes | String[] | [] |
-|expandedKeys |(controlled) Specifies keys of expanded treeNodes | String[] | [] |
+|defaultExpandedKeys | Specify keys of default expanded treeNodes | string[] | [] |
+|expandedKeys |(controlled) Specifies keys of expanded treeNodes | string[] | [] |
 |autoExpandParent | Whether to automatically expand a parent treeNode | bool | true |
-|defaultCheckedKeys | Specifies keys of default checked treeNodes | String[] | [] |
-|checkedKeys |(controlled) Specifies keys of checked treeNodes（PS： When specifies a key of treeNode which is a parent treeNode, all children treeNodes of its will be checked; And vice versa, when specifies a key of treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, it'a object has `checked` and `halfChecked` property, and no matter child treeNode or parent treeNode is checked, they won't impact on eachother. | String[]/{checked:Array<String>,halfChecked:Array<String>} | [] |
+|defaultCheckedKeys | Specifies keys of default checked treeNodes | string[] | [] |
+|checkedKeys |(controlled) Specifies keys of checked treeNodes（PS： When specifies a key of treeNode which is a parent treeNode, all children treeNodes of its will be checked; And vice versa, when specifies a key of treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, it'a object has `checked` and `halfChecked` property, and no matter child treeNode or parent treeNode is checked, they won't impact on eachother. | string[]/{checked:string[],halfChecked:string[]} | [] |
 |checkStrictly| Check treeNode precisely, parent treeNode and children treeNodes are not associated | bool | false |
-|defaultSelectedKeys | Specifies keys of default selected treeNodes | String[] | [] |
-|selectedKeys |(controlled) Specifies keys of selected treeNode | String[] | - |
+|defaultSelectedKeys | Specifies keys of default selected treeNodes | string[] | [] |
+|selectedKeys |(controlled) Specifies keys of selected treeNode | string[] | - |
 |onExpand | Defines a function will be called when expand or collapse a treeNode | function(expandedKeys, {expanded: bool, node}) | - |
 |onCheck | Defines a function will be called when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - |
 |onSelect | The callback will be invoked when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |
@@ -46,7 +46,7 @@ Directory, organization, biological classification, country, and etc. Almost thi
 |disabled | whether disabled the treeNode | bool | false |
 |disableCheckbox | whether disable the checkbox of treeNode | bool | false |
 |title | title | string\|ReactNode | '---' |
-|key | it's used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: it must be unique in all of treeNodes of the tree! | String | internal calculated position of treeNode |
+|key | it's used with (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys. P.S.: it must be unique in all of treeNodes of the tree! | string | internal calculated position of treeNode |
 |isLeaf | whether it's leaf node | bool | false |
 
 ## Note

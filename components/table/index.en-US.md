@@ -54,10 +54,10 @@ const columns = [{
 |---------------|--------------------------|-----------------|--------------|
 | rowSelection  | row selection [config](#rowSelection)  | Object  | null  |
 | pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | Object |  |
-| size          | size of table: `default` or `small`  | String | `default` |
+| size          | size of table: `default` or `small`  | string | `default` |
 | dataSource    | data record array to be rendered | Array |            |
 | columns       | columns of table | Array | - |
-| rowKey        | get row's key, could be a string or function | String or Function(record):string | 'key' |
+| rowKey        | get row's key, could be a string or function | string\|Function(record):string | 'key' |
 | rowClassName  | get row's className | Function(record, index):string | - |
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
@@ -83,8 +83,8 @@ One of Property `columns` for descriping column, Column has the same API.
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
 | title      | title of this column        | string\|ReactNode | - |
-| key        | key of this column | String          | - |
-| dataIndex  | display field of the data record, could be set like `a.b.c` | String | - |
+| key        | key of this column | string          | - |
+| dataIndex  | display field of the data record, could be set like `a.b.c` | string | - |
 | render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or a object for [colSpan/rowSpan config](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | filter menu config        | Array       | - |
 | onFilter   | callback that is called when when click confirm filter button | Function | - |
@@ -95,10 +95,10 @@ One of Property `columns` for descriping column, Column has the same API.
 | filteredValue | controlled filtered value | Array | - |
 | sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function or Boolean | - |
 | colSpan    | span of this column's title | Number |         |
-| width      | width of this column | String or Number | -  |
-| className  | className of this column            | String          |  -      |
-| fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean or String | false |
-| sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | Boolean or String | - |
+| width      | width of this column | string\|Number | -  |
+| className  | className of this column            | string          |  -      |
+| fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean\|string | false |
+| sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | Boolean\|string | - |
 | onCellClick | callback when click cell | Function(record, event) | - |
 
 ### ColumnGroup
@@ -113,7 +113,7 @@ Properties for selection.
 
 | Property      | Description              | Type            |  Default     |
 |---------------|--------------------------|-----------------|--------------|
-| type | `checkbox` or `radio` | String | `checkbox`  |
+| type | `checkbox` or `radio` | string | `checkbox`  |
 | selectedRowKeys | controlled selected row keys | Array | []  |
 | onChange | callback that is called when selected rows change | Function(selectedRowKeys, selectedRows) | -   |
 | getCheckboxProps | get Checkbox or Radio props | Function(record) |  -   |

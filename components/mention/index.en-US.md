@@ -23,9 +23,9 @@ When need to mention someone or something.
 
 | API     | Description           | Type     |
 |----------|---------------|----------|--------------|
-| toString    | convert EditorState to string | Function(editorState: EditorState): String |
-| toEditorState    | convert string to  EditorState | Function(string: String): EditorState |
-| getMentions    | get mentioned people in current editorState | Function(editorState: EditorState): Array<String> |
+| toString    | convert EditorState to string | Function(editorState: EditorState): string |
+| toEditorState    | convert string to  EditorState | Function(value: string): EditorState |
+| getMentions    | get mentioned people in current editorState | Function(editorState: EditorState): string[] |
 
 
 ### Mention props
@@ -34,9 +34,9 @@ When need to mention someone or something.
 |----------|---------------|----------|--------------|
 | suggestions    | suggestion content | Array<string> or Array<Mention.Nav> | [] |
 | suggestionStyle | style of suggestion container | Object | {} |
-| onSearchChange | Callback function called when search content changes | function(value:String) | [] |
+| onSearchChange | Callback function called when search content changes | function(value:string) | [] |
 | onChange | Callback function called when content of input changes | function(editorState: EditorState) | null |
-| onSelect | Callback function called when select from suggestions | function(suggestion: String, data?: any) | null |
+| onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
 | notFoundContent| suggestion when suggestions empty | string | '无匹配结果，轻敲空格完成输入' |
 | loading | loading mode | boolean | false |
 | multiLines | multilines mode | boolean | false |

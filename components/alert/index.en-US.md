@@ -15,7 +15,7 @@ Alert component for feedback.
 
 | Property   | Description                                               | Type       | Default |
 |----------- |---------------------------------------------------------  | ---------- |-------|
-| type       | Type of Alert styles, options:`success`, `info`, `warning`, `error` | String | `info` |
+| type       | Type of Alert styles, options:`success`, `info`, `warning`, `error` | string | `info` |
 | closable   | Whether Alert can be closed | Boolean | - |
 | closeText  | Close text to show | string\|ReactNode | - |
 | message    | Content of Alert | string\|ReactNode | - |

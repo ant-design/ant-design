@@ -37,7 +37,7 @@ Cascade selection box.
 | expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |
 | changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
 | showSearch | Whether show search input in single mode. | Boolean or Object | false |
-| notFoundContent | Specify content to show when no result matches. | String | 'Not Found' |
+| notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |
 | loadData  | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void`  | - |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 

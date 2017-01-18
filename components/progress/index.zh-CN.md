@@ -19,10 +19,10 @@ title: Progress
 
 | 属性      | 说明           | 类型     | 默认值         |
 |----------|---------------|----------|---------------|
-| type     | 类型，可选 `line` `circle` | String   | line      |
+| type     | 类型，可选 `line` `circle` | string   | line      |
 | percent  | 百分比 | Number | 0 |
 | format   | 内容的模板函数 | function(percent)   | `percent => percent + '%'` |
-| status   | 状态，可选：`success` `exception` `active` | String   | - |
+| status   | 状态，可选：`success` `exception` `active` | string   | - |
 | showInfo | 是否显示进度数值或状态图标 | Boolean | true  |
 | strokeWidth `(type=line)` | 进度条线的宽度，单位 px | Number | 10 |
 | strokeWidth `(type=circle)` | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | Number | 6 |

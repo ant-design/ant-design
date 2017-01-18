@@ -31,7 +31,7 @@ title: Dropdown
 
 | 参数        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|
-| type        | 按钮类型，和 [Button](/components/button/) 一致 | String | 'default' |
+| type        | 按钮类型，和 [Button](/components/button/) 一致 | string | 'default' |
 | onClick     | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function   | - |
 | trigger     | 触发下拉的行为   | ['click'] or ['hover'] | ['hover']        |
 | overlay     | 菜单         | [Menu](/components/menu/) | -     |

@@ -55,10 +55,10 @@ const columns = [{
 |---------------|--------------------------|-----------------|---------|
 | rowSelection  | 列表项是否可选择，[配置项](#rowSelection) | Object  | null  |
 | pagination    | 分页器，配置项参考 [pagination](/components/pagination/)，设为 false 时不展示和进行分页 | Object |  |
-| size          | 正常或迷你类型，`default` or `small`  | String | default |
+| size          | 正常或迷你类型，`default` or `small`  | string | default |
 | dataSource    | 数据数组 | Array |            |
 | columns       | 表格列的配置描述，具体项见下表 | Array | - |
-| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | String or Function(record):string | 'key' |
+| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | Array | - |
@@ -84,8 +84,8 @@ const columns = [{
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string\|ReactNode | - |
-| key        | React 需要的 key，建议设置 | String          | - |
-| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | String | - |
+| key        | React 需要的 key，建议设置 | string          | - |
+| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
 | render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | 表头的筛选菜单项           | Array           | - |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
@@ -96,10 +96,10 @@ const columns = [{
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | Array | - |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
-| width      | 列宽度 | String or Number | -  |
-| className  | 列的 className             | String          |  -      |
-| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean or String | false |
-| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean or String | - |
+| width      | 列宽度 | string\|Number | -  |
+| className  | 列的 className             | string          |  -      |
+| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean\|string | false |
+| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean\|string | - |
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 
 ### ColumnGroup
@@ -114,7 +114,7 @@ const columns = [{
 
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|---------|
-| type | 多选/单选，`checkbox` or `radio` | String | `checkbox`  |
+| type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | Array | []  |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |

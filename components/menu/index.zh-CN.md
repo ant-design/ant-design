@@ -29,8 +29,8 @@ subtitle: 导航菜单
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
-| theme    | 主题颜色 | String: `light` `dark` | `light` |
-| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | String: `vertical` `horizontal` `inline` | `vertical` |
+| theme    | 主题颜色 | string: `light` `dark` | `light` |
+| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | string: `vertical` `horizontal` `inline` | `vertical` |
 | selectedKeys | 当前选中的菜单项 key 数组 | Array |      |
 | defaultSelectedKeys | 初始选中的菜单项 key 数组 | Array |      |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | Array |  |
@@ -49,14 +49,14 @@ subtitle: 导航菜单
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | Boolean   |  false  |
-| key   | item 的唯一标志 |  String |  |
+| key   | item 的唯一标志 |  string |  |
 
 ### Menu.SubMenu props
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
 | disabled    | 是否禁用 | Boolean   |  false  |
-| key | 唯一标志 |  String |  |
+| key | 唯一标志 |  string |  |
 | title    | 子菜单项值 | string\|ReactNode |    |
 | children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |
 | onTitleClick | 点击子菜单标题 | Function({ eventKey, domEvent }) |  |

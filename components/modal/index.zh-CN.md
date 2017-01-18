@@ -23,13 +23,13 @@ title: Modal
 | closable   | 是否显示右上角的关闭按钮 | Boolean    | true        |
 | onOk       | 点击确定回调       | function     | 无           |
 | onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无         |
-| width      | 宽度           | String or Number | 520           |
+| width      | 宽度           | string\|Number | 520           |
 | footer     | 底部内容       | string\|ReactNode | 确定取消按钮 |
-| okText     | 确认按钮文字    | String           | 确定       |
-| cancelText | 取消按钮文字    | String           | 取消       |
+| okText     | 确认按钮文字    | string           | 确定       |
+| cancelText | 取消按钮文字    | string           | 取消       |
 | maskClosable | 点击蒙层是否允许关闭 | Boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | Object   | - |
-| wrapClassName | 对话框外层容器的类名 | String   | - |
+| wrapClassName | 对话框外层容器的类名 | string   | - |
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 
 ### Modal.xxx()
@@ -50,10 +50,10 @@ title: Modal
 | content    | 内容           | string\|ReactNode | 无           |
 | onOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           |
 | onCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           |
-| width      | 宽度           | String or Number | 416           |
-| iconType   | 图标 Icon 类型    | String | question-circle |
-| okText     | 确认按钮文字    | String           | 确定       |
-| cancelText | 取消按钮文字    | String           | 取消       |
+| width      | 宽度           | string\|Number | 416           |
+| iconType   | 图标 Icon 类型    | string | question-circle |
+| okText     | 确认按钮文字    | string           | 确定       |
+| cancelText | 取消按钮文字    | string           | 取消       |
 
 <style>
 .code-box-demo .ant-btn {

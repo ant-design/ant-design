@@ -19,7 +19,7 @@ The difference with `confirm` is more lightweight than the static popped full-sc
 | title     | title of the confirmation box                             | string\|ReactNode | none     |
 | onConfirm | callback of confirmation                           | function      | none     |
 | onCancel  | callback of cancel                           | function      | none     |
-| okText    | text of the confirmation button                              | String        | Confirm   |
-| cancelText| text of the cancel button                              | String        | Cancel   |
+| okText    | text of the confirmation button                              | string        | Confirm   |
+| cancelText| text of the cancel button                              | string        | Cancel   |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
