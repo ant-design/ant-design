@@ -65,7 +65,7 @@ ReactDOM.render(
           </div>
         </div>
         <div className="layout-footer">
-        Ant Design all rights reserved © 2015 Created by Ant UED
+          Ant Design all rights reserved © 2015 Created by Ant UED
         </div>
       </div>
     </div>
