@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title:
   zh-CN: 国际化
   en-US: locale

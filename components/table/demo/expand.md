@@ -34,7 +34,6 @@ ReactDOM.render(
     columns={columns}
     expandedRowRender={record => <p>{record.description}</p>}
     dataSource={data}
-    className="table"
   />
 , mountNode);
 ````

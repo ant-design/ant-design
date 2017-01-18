@@ -152,7 +152,6 @@
 
       .@{ant-prefix}-select-selection {
         background-color: inherit;
-        border: 0;
         margin: -1px;
         border: 1px solid transparent;
         box-shadow: none;
@@ -278,6 +277,8 @@
 
 .input-preSuffix-wrapper(@inputClass) {
   position: relative;
+  display: inline-block;
+  width: 100%;
 
   .@{inputClass} {
     z-index: 1;
@@ -290,7 +291,7 @@
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
-    top: 51%;  // little adjust for misplace
+    top: 50%;
     transform: translateY(-50%);
     z-index: 2;
     line-height: 1.2;

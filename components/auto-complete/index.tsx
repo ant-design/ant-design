@@ -1,5 +1,5 @@
 import React from 'react';
-import Select, { OptionProps, OptGroupProps } from '../select';
+import Select, { AbstractSelectProps, OptionProps, OptGroupProps } from '../select';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 
@@ -11,21 +11,12 @@ export interface SelectedValue {
 export interface DataSourceItemObject { value: string; text: string; };
 export type DataSourceItemType = string | DataSourceItemObject;
 
-export interface AutoCompleteProps {
-  size?: 'large' | 'small' | 'default';
-  className?: string;
-  notFoundContent?: Element;
+export interface AutoCompleteProps extends AbstractSelectProps {
   dataSource: DataSourceItemType[];
-  prefixCls?: string;
-  transitionName?: string;
-  optionLabelProp?: string;
-  choiceTransitionName?: string;
-  showSearch?: boolean;
   defaultValue?: string | Array<any> | SelectedValue | Array<SelectedValue>;
   value?: string | Array<any> | SelectedValue | Array<SelectedValue>;
-  allowClear?: boolean;
   onChange?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>) => void;
-  disabled?: boolean;
+  onSelect?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>, option: Object) => any;
 }
 
 export default class AutoComplete extends React.Component<AutoCompleteProps, any> {

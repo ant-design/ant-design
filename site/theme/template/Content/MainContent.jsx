@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';

@@ -22,8 +22,19 @@ export default class Demo extends React.Component {
     return (this.state.codeExpand || this.props.expand) !== (nextState.codeExpand || nextProps.expand);
   }
 
+  componentDidMount() {
+    const { meta, location } = this.props;
+    if (meta.id === location.hash.slice(1)) {
+      this.anchor.click();
+    }
+  }
+
   handleCodeExapnd = () => {
     this.setState({ codeExpand: !this.state.codeExpand });
+  }
+
+  saveAnchor = (anchor) => {
+    this.anchor = anchor;
   }
 
   render() {
@@ -70,7 +81,7 @@ export default class Demo extends React.Component {
         </section>
         <section className="code-box-meta markdown">
           <div className="code-box-title">
-            <a href={`#${meta.id}`}>
+            <a href={`#${meta.id}`} ref={this.saveAnchor}>
               {localizedTitle}
             </a>
             <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={meta.filename} />

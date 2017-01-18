@@ -122,7 +122,7 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
         const subMenuCls = containSelected ? `${this.props.dropdownPrefixCls}-submenu-contain-selected` : '';
         return (
           <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
-            {item.children.map(child => this.renderMenuItem(child))}
+            {this.renderMenus(item.children)}
           </SubMenu>
         );
       }

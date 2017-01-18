@@ -33,6 +33,15 @@ and so on.
 | wrapClassName | The class name of the container of the modal dialog | String   | - |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 
+#### Destroy on close
+
+> The state of Modal will be preserved at it's component lifecircle.
+> If you wish to open it with brand new state everytime, you need to reset state manually. Or simply [give a new random key](https://github.com/ant-design/ant-design/issues/4165) to Modal when visible is changed to `true`, React will treat it as a new component.
+
+> ```
+> <Modal key={this.state.newRandomKey} visible={this.state.visible} />
+> ```
+
 ### Modal.xxx()
 
 There are five ways to display the information based on the content's nature:

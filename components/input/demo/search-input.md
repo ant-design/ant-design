@@ -18,6 +18,10 @@ import { Input } from 'antd';
 const Search = Input.Search;
 
 ReactDOM.render(
-  <Search placeholder="input search text" onSearch={value => console.log(value)} />
+  <Search
+    placeholder="input search text"
+    style={{ width: 200 }}
+    onSearch={value => console.log(value)}
+  />
 , mountNode);
 ````

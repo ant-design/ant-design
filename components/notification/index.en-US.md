@@ -39,7 +39,7 @@ The properties of config are as follows:
 | duration   | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | Number    | 4.5     |
 
 
-`-tification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
+`notification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
 will take into account these globally defined options before displaying.
 
 - `notification.config(options)`

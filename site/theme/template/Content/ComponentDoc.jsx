@@ -41,20 +41,19 @@ export default class ComponentDoc extends React.Component {
             demos.filter(demo => demo.meta.only) : demos.filter(demo => demo.preview);
     showedDemo.sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
+        const demoElem = (
+          <Demo
+            {...demoData}
+            key={demoData.meta.filename}
+            utils={props.utils}
+            expand={expand}
+            location={location}
+          />
+        );
         if (index % 2 === 0 || isSingleCol) {
-          leftChildren.push(
-            <Demo {...demoData}
-              key={demoData.meta.filename} utils={props.utils}
-              expand={expand} pathname={location.pathname}
-            />
-          );
+          leftChildren.push(demoElem);
         } else {
-          rightChildren.push(
-            <Demo {...demoData}
-              key={demoData.meta.filename} utils={props.utils}
-              expand={expand} pathname={location.pathname}
-            />
-          );
+          rightChildren.push(demoElem);
         }
       });
     const expandTriggerClass = classNames({

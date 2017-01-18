@@ -526,11 +526,11 @@ exports[`test renders ./components/tree/demo/dynamic.md correctly 1`] = `
 exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
 <div>
   <span
-    class="ant-input-preSuffix-wrapper">
+    class="ant-input-preSuffix-wrapper"
+    style="width:300px;">
     <input
       class="ant-input ant-input-search"
       placeholder="Search"
-      style="width:200px;"
       type="text" />
     <span
       class="ant-input-suffix">
@@ -553,7 +553,7 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
           class="ant-tree-title">
           <span>
             <span
-              class="ant-tree-searchable-filter" />
+              style="color:#f50;" />
             0-0
           </span>
         </span>
@@ -570,7 +570,7 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
           class="ant-tree-title">
           <span>
             <span
-              class="ant-tree-searchable-filter" />
+              style="color:#f50;" />
             0-1
           </span>
         </span>
@@ -587,7 +587,7 @@ exports[`test renders ./components/tree/demo/search.md correctly 1`] = `
           class="ant-tree-title">
           <span>
             <span
-              class="ant-tree-searchable-filter" />
+              style="color:#f50;" />
             0-2
           </span>
         </span>
