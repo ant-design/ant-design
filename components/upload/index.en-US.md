@@ -21,8 +21,8 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | Property       | Description                                    | Type        | Default|
 |------------|----------------------------------------------------| ----------- |--------|
 | name       | The name of uploading file               | string      | 'file' |
-| defaultFileList | Default list of files that have been uploaded.                   | Array[Object] | -  |
-| fileList   | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | Array[Object] | - |
+| defaultFileList | Default list of files that have been uploaded.                   | object[] | -  |
+| fileList   | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | object[] | - |
 | action     | Required. Uploading URL                            | string      | -    |
 | data       | Uploading params or function which can return uploading params. | Object or function(file) | - |
 | headers    | Set request headers, valid above IE10.   | Object      | -    |

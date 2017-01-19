@@ -32,7 +32,7 @@ When need to mention someone or something.
 
 | Property     | Description          | Type     | Default       |
 |----------|---------------|----------|--------------|
-| suggestions    | suggestion content | Array<string> or Array<Mention.Nav> | [] |
+| suggestions    | suggestion content | Array<string\|Mention.Nav> | [] |
 | suggestionStyle | style of suggestion container | Object | {} |
 | onSearchChange | Callback function called when search content changes | function(value:string) | [] |
 | onChange | Callback function called when content of input changes | function(editorState: EditorState) | null |

@@ -19,7 +19,7 @@ title: Transfer
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
-| dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外。 | Array | [] |
+| dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外。 | [TransferItem](https://git.io/vMM64)[] | [] |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement | Function(record)  |     |
 | targetKeys | 显示在右侧框数据的key集合 | string[]  | [] |
 | selectedKeys | 设置哪些项应该被选中 | string[] | [] |
@@ -27,8 +27,8 @@ title: Transfer
 | onSelectChange | 选中项发生改变时的回调函数 | (sourceSelectedKeys, targetSelectedKeys): void | |
 | listStyle | 两个穿梭框的自定义样式 | Object |  |
 | className | 自定义类 | string |  |
-| titles | 标题集合,顺序从左至右 | Array | ['', ''] |
-| operations | 操作文案集合,顺序从上至下 | Array | [] |
+| titles | 标题集合,顺序从左至右 | string[] | ['', ''] |
+| operations | 操作文案集合,顺序从上至下 | string[] | [] |
 | showSearch | 是否显示搜索框 | boolean | false |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。| (inputValue, option): boolean | |
 | searchPlaceholder | 搜索框的默认值 | string | '请输入搜索内容' |

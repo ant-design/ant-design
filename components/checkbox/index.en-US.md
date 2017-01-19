@@ -25,7 +25,7 @@ Checkbox.
 
 | Property      | Description             | Type      | Default  |
 |----------|------------------|----------|--------|
-| defaultValue | Default selected value | Array | [] |
-| value | Used for setting the currently selected value. | Array | [] |
-| options  | Specifies options | Array | [] |
+| defaultValue | Default selected value | string[] | [] |
+| value | Used for setting the currently selected value. | string[] | [] |
+| options  | Specifies options | string[] | [] |
 | onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |

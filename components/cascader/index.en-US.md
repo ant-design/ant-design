@@ -22,8 +22,8 @@ Cascade selection box.
 | Property | Description | Type | Default |
 |------|------|------|--------|
 | options | data options of cascade | object | - |
-| defaultValue | initial selected value | array  |[] |
-| value | selected value | array  | - |
+| defaultValue | initial selected value | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |
+| value | selected value | [CascaderOptionType](https://git.io/vMMoK)[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
 | displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | style | additional style | string | - |

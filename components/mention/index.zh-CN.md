@@ -32,7 +32,7 @@ title: Mention
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
-| suggestions    | 建议内容 | Array<string> or Array<Mention.Nav> | [] |
+| suggestions    | 建议内容 | Array<string\|Mention.Nav> | [] |
 | suggestionStyle | 弹出下拉框样式 | Object | {} |
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:string) | [] |
 | onChange | 输入框内容变化时回调 | function(editorState: EditorState) | null |

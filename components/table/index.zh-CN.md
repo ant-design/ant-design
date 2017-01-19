@@ -56,13 +56,13 @@ const columns = [{
 | rowSelection  | 列表项是否可选择，[配置项](#rowSelection) | Object  | null  |
 | pagination    | 分页器，配置项参考 [pagination](/components/pagination/)，设为 false 时不展示和进行分页 | Object |  |
 | size          | 正常或迷你类型，`default` or `small`  | string | default |
-| dataSource    | 数据数组 | Array |            |
-| columns       | 表格列的配置描述，具体项见下表 | Array | - |
+| dataSource    | 数据数组 | any[] |            |
+| columns       | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)[] | - |
 | rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
-| defaultExpandedRowKeys | 默认展开的行 | Array | - |
-| expandedRowKeys | 展开的行，控制属性 | Array | - |
+| defaultExpandedRowKeys | 默认展开的行 | string[] | - |
+| expandedRowKeys | 展开的行，控制属性 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
@@ -87,13 +87,13 @@ const columns = [{
 | key        | React 需要的 key，建议设置 | string          | - |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
 | render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
-| filters    | 表头的筛选菜单项           | Array           | - |
+| filters    | 表头的筛选菜单项           | object[]           | - |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
 | filterMultiple | 是否多选 | boolean    | true    |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
-| filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | Array | - |
+| filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string[] | - |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function\|boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | width      | 列宽度 | string\|number | -  |
@@ -115,7 +115,7 @@ const columns = [{
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|---------|
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |
-| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | Array | []  |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
 | getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |

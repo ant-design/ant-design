@@ -18,7 +18,7 @@ A content area which can be collapsed and expanded.
 
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
-| activeKey    | key of the active panel | Array\|string   | No default value. In `accordion` mode, it's the key of the first panel.  |
+| activeKey    | key of the active panel | string[]\|string   | No default value. In `accordion` mode, it's the key of the first panel.  |
 | defaultActiveKey    | key of the initialized active panel | string   | - |
 | onChange | a callback function, which can be executed when you switch the panels | Function   |  -  |
 
