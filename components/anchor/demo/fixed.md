@@ -13,7 +13,7 @@ title:
 
 Do not change state when page is scrolling.
 
-```jsx
+```__react
 import { Anchor } from 'antd';
 const { Link } = Anchor;
 

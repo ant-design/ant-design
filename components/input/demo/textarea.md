@@ -13,7 +13,7 @@ title:
 
 For multi-line user input cases, an input whose `type` prop has the value of `"textarea"` can be used.
 
-````jsx
+````__react
 import { Input } from 'antd';
 
 ReactDOM.render(<Input type="textarea" rows={4} />, mountNode);

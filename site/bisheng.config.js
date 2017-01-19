@@ -1,5 +1,4 @@
 const path = require('path');
-const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 
 function pickerGenerator(module) {
   const tester = new RegExp(`^docs/${module}`);
@@ -56,8 +55,8 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-react?lang=__react',
     'bisheng-plugin-antd',
+    'bisheng-plugin-react?lang=__react',
   ],
   filePathMapper(filePath) {
     if (filePath === '/index.html') {
@@ -82,7 +81,6 @@ module.exports = {
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
-    config.plugins.push(new CSSSplitWebpackPlugin({ preserve: true }));
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),

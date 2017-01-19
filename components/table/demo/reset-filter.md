@@ -21,7 +21,7 @@ Control filters and sorters by `filteredValue` and `sortOrder`.
 > 2. Make sure `sortOrder` is assigned for only one column.
 > 3. `column.key` is required.
 
-````jsx
+````__react
 import { Table, Button } from 'antd';
 
 const data = [{

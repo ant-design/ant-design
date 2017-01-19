@@ -13,7 +13,7 @@ title:
 
 Search and select options directly.
 
-````jsx
+````__react
 import { Cascader } from 'antd';
 
 const options = [{

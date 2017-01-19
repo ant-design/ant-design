@@ -13,7 +13,7 @@ title:
 
 Vertical pagination.
 
-````jsx
+````__react
 import { Carousel } from 'antd';
 
 ReactDOM.render(

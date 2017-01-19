@@ -13,7 +13,7 @@ title:
 
 Basic pagination.
 
-````jsx
+````__react
 import { Pagination } from 'antd';
 
 ReactDOM.render(<Pagination defaultCurrent={1} total={50} />, mountNode);

@@ -9,7 +9,7 @@ title: 顶部导航
 
 > `<BrowserDemo />` 做演示用，无须复制。
 
-````jsx
+````__react
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 

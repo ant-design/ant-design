@@ -7,7 +7,7 @@ title: 吊顶规范
 
 吊顶背景深色，高度 `30px`，和浅色调的主导航配合使用。
 
-````jsx
+````__react
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 

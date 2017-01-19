@@ -13,7 +13,7 @@ title:
 
 Basic Usage.
 
-````jsx
+````__react
 import { Select } from 'antd';
 const Option = Select.Option;
 

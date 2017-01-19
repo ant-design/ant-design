@@ -14,7 +14,7 @@ title:
 Customizing default width and margin.
 
 
-````jsx
+````__react
 import { Card } from 'antd';
 
 ReactDOM.render(

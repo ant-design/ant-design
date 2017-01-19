@@ -13,7 +13,7 @@ title:
 
 The most basic usage.
 
-````jsx
+````__react
 import { BackTop } from 'antd';
 
 ReactDOM.render(

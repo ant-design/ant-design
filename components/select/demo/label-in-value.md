@@ -17,7 +17,7 @@ As a default behavior, the onChange callback can only get the value of the selec
 
 The label of the selected item will be packed as an object for passing to the onChange callback.
 
-````jsx
+````__react
 import { Select } from 'antd';
 const Option = Select.Option;
 

@@ -13,7 +13,7 @@ title:
 
 Allow only select parent options.
 
-````jsx
+````__react
 import { Cascader } from 'antd';
 
 const options = [{

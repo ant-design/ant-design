@@ -13,7 +13,7 @@ title:
 
 Basic Usage, set datasource of autocomplete with `dataSource` property.
 
-````jsx
+````__react
 import { AutoComplete } from 'antd';
 
 function onSelect(value) {

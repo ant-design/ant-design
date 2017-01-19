@@ -25,7 +25,7 @@ To set `hasFeedback` property to `true` enable to display feed icon of input con
 
 **PS**: Feed icon is just available for `<Input />`.
 
-````jsx
+````__react
 import { Form, Input, DatePicker, Col } from 'antd';
 const FormItem = Form.Item;
 

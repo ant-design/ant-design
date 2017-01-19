@@ -13,7 +13,7 @@ title:
 
 Normal login form which can contain more elements.
 
-````jsx
+````__react
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 

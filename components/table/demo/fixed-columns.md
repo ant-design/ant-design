@@ -21,7 +21,7 @@ Fix some columns and scroll in other columns. You must set `scoll.x` meanwhile.
 
 > A fixed width for `scroll.x` is recommended.
 
-````jsx
+````__react
 import { Table } from 'antd';
 
 const columns = [

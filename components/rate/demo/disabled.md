@@ -13,7 +13,7 @@ title:
 
 Read only, can't use mouse to interact.
 
-````jsx
+````__react
 import { Rate } from 'antd';
 
 ReactDOM.render(<Rate disabled defaultValue={2} />, mountNode);

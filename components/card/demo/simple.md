@@ -13,7 +13,7 @@ title:
 
 A simple card only containing a content area.
 
-````jsx
+````__react
 import { Card } from 'antd';
 
 ReactDOM.render(

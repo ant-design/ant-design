@@ -14,7 +14,7 @@ title:
 The Tab with Icon.
 
 
-````jsx
+````__react
 import { Tabs, Icon } from 'antd';
 const TabPane = Tabs.TabPane;
 

@@ -13,7 +13,7 @@ title:
 
 Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
 
-````jsx
+````__react
 import { DatePicker } from 'antd';
 const RangePicker = DatePicker.RangePicker;
 

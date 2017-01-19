@@ -13,7 +13,7 @@ title:
 
 `${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
 
-````jsx
+````__react
 import { Badge } from 'antd';
 
 ReactDOM.render(<div>

@@ -14,7 +14,7 @@ title:
 The tree structure can be populated using `treeData` property. This is a quick and easy way to provide the tree content.
 
 
-````jsx
+````__react
 import { TreeSelect } from 'antd';
 
 const treeData = [{

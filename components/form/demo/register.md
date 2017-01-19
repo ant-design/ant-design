@@ -13,7 +13,7 @@ title:
 
 Fill in this form to create a new account for you.
 
-````jsx
+````__react
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;

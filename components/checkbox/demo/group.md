@@ -13,7 +13,7 @@ title:
 
 Generate a group of checkboxes from an array.
 
-````jsx
+````__react
 import { Checkbox } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 

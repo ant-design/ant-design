@@ -13,7 +13,7 @@ title:
 
 Simple mode.
 
-````jsx
+````__react
 import { Pagination } from 'antd';
 
 ReactDOM.render(

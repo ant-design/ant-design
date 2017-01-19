@@ -17,7 +17,7 @@ title:
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
-````jsx
+````__react
 import { Button } from 'antd';
 
 ReactDOM.render(

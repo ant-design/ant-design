@@ -13,7 +13,7 @@ title:
 
 Show the dynamic switching mode (between 'inline' and 'vertical').
 
-````jsx
+````__react
 import { Menu, Icon, Switch } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;

@@ -17,7 +17,7 @@ Load options lazily with `loadData`.
 
 > Note: `loadData` cannot work with `showSearch`.
 
-````jsx
+````__react
 import { Cascader } from 'antd';
 
 const options = [{

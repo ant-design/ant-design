@@ -13,7 +13,7 @@ title:
 
 Change `pageSize`.
 
-````jsx
+````__react
 import { Pagination } from 'antd';
 
 function onShowSizeChange(current, pageSize) {

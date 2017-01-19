@@ -13,7 +13,7 @@ title:
 
 Default activate first tab.
 
-````jsx
+````__react
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

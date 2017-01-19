@@ -17,7 +17,7 @@ Display large amounts of data in scrollable view.
 
 > Specify the width of each column if header and cell do not align properly.
 
-````jsx
+````__react
 import { Table } from 'antd';
 
 const columns = [{

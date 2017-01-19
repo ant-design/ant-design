@@ -47,12 +47,14 @@ ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
 ### Suggested Icons
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
 ### Other Icons
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
 

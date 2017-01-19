@@ -13,7 +13,7 @@ title:
 
 Click `TimePicker`, and then we could select or input a time in panel.
 
-````jsx
+````__react
 import { TimePicker } from 'antd';
 
 function onChange(time, timeString) {

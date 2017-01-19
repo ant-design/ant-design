@@ -13,7 +13,7 @@ title:
 
 For instance, add an external link after the selected value.
 
-````jsx
+````__react
 import { Cascader } from 'antd';
 
 const options = [{

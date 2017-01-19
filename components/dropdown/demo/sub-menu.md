@@ -13,7 +13,7 @@ title:
 
 The menu has multiple levels.
 
-````jsx
+````__react
 import { Menu, Dropdown, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 
