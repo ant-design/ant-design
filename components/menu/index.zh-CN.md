@@ -48,14 +48,14 @@ subtitle: 导航菜单
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | Boolean   |  false  |
+| disabled    | 是否禁用 | boolean   |  false  |
 | key   | item 的唯一标志 |  string |  |
 
 ### Menu.SubMenu props
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | Boolean   |  false  |
+| disabled    | 是否禁用 | boolean   |  false  |
 | key | 唯一标志 |  string |  |
 | title    | 子菜单项值 | string\|ReactNode |    |
 | children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |

@@ -18,17 +18,17 @@ and so on.
 
 | Property       | Description           | Type             | Default       |
 |------------|----------------|------------------|--------------|
-| visible    | Determine whether a modal dialog is visible or not | Boolean | no |
-| confirmLoading | Determine whether to apply loading visual effect for OK button or not  | Boolean    | no           |
+| visible    | Determine whether a modal dialog is visible or not | boolean | no |
+| confirmLoading | Determine whether to apply loading visual effect for OK button or not  | boolean    | no           |
 | title      | The modal dialog's title          | string\|ReactNode | no           |
-| closable   | Determine whether a close (x) button is visible on top right of the modal dialog or not | Boolean    | true        |
+| closable   | Determine whether a close (x) button is visible on top right of the modal dialog or not | boolean    | true        |
 | onOk       | Specify a function that will be called when a user clicked OK button | function | no |
 | onCancel   | Specify a function that will be called when a user clicked mask, close button on top right or cancel button | function(e)  | no         |
 | width      | Width of a modal dialog           | string\|number | 520           |
 | footer     | Footer content       | string\|ReactNode | OK and cancel button |
 | okText     | Text of the OK button    | string           | OK       |
 | cancelText | Text of the Cancel button    | string           | Cancel       |
-| maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | true       |
+| maskClosable | Determine whether to close the modal dialog when clicked mask of it. | boolean   | true       |
 | style | Style of floating layer, typically used at least for adjusting the position. | Object   | - |
 | wrapClassName | The class name of the container of the modal dialog | string   | - |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |

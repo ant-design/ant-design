@@ -56,7 +56,7 @@ A Selector similar to Select2.
 
 | Property     | Description         | Type    | Default       |
 |----------|----------------|----------|--------------|
-| disabled    | Disable this option | Boolean   |  false  |
+| disabled    | Disable this option | boolean   |  false  |
 | value | default to filter with this property | string | - |
 | key   | Same usage as `value`. If React request you to set this property, you can set it to value of option, and then omit value property. | string |  |
 | title | `title` of Select after select this Option | string | - |

@@ -21,5 +21,5 @@ A card can be used to display content related to a single subject. The content c
 |----------|----------------|----------|--------------|
 | title    | Card title | string\|ReactNode   |  -  |
 | extra    | Content to render in the top-right corner of the card | string\|ReactNode   | - |
-| bordered | Toggles rendering of the border around the card | Boolean   |  true  |
+| bordered | Toggles rendering of the border around the card | boolean   |  true  |
 | bodyStyle | Inline style to apply to the card content | Object   |  -  |

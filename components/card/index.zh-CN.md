@@ -22,5 +22,5 @@ cols: 1
 |----------|----------------|----------|--------------|
 | title    | 卡片标题 | string\|ReactNode   |  -  |
 | extra    | 卡片右上角的操作区域 | string\|ReactNode   | - |
-| bordered | 是否有边框 | Boolean   |  true  |
+| bordered | 是否有边框 | boolean   |  true  |
 | bodyStyle | 内容区域自定义样式 | Object   |  -  |

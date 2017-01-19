@@ -19,5 +19,5 @@ Rate component.
 | value | current value | number | - |
 | defaultValue | default value | number | 0 |
 | onChange | callback | Function(value: number) | - |
-| allowHalf | whether to allow semi selection   | Boolean | false |
-| disabled | read only, unable to interact | Boolean | false |
+| allowHalf | whether to allow semi selection   | boolean | false |
+| disabled | read only, unable to interact | boolean | false |

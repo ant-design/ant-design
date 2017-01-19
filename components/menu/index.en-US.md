@@ -47,14 +47,14 @@ More layout and samples: [layout](/docs/spec/layout).
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
-| disabled    | disabled or not | Boolean   |  false  |
+| disabled    | disabled or not | boolean   |  false  |
 | key   | unique id of the menu item |  string |  |
 
 ### Menu.SubMenu props
 
 | Param    | Description    | Type     | Default value       |
 |----------|----------------|----------|--------------|
-| disabled    | disabled or not | Boolean   |  false  |
+| disabled    | disabled or not | boolean   |  false  |
 | key   | unique id of the menu item |  string |  |
 | title    | title of the sub menu | string\|ReactNode   |    |
 | children | sub menus or sub menu items | (MenuItem or SubMenu)[] |  |

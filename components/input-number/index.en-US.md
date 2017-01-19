@@ -20,5 +20,5 @@ When a numeric value needs to be provided.
 | step     | The number to which the current value is increased or decreased. It can be an integer or decimal.  | number\|string      |  1      |
 | defaultValue     | initial value       | number      |            |
 | onChange     | The callback triggered when the value is changed.     | Function      |            |
-| disabled     | disable the input       | Boolean      |      false      |
+| disabled     | disable the input       | boolean      |      false      |
 | size    | width of input box  | string      |      none      |

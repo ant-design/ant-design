@@ -27,7 +27,7 @@ One or more elements can be selected from either column, one click on the proper
 | className | A custom CSS class. | string | ['', ''] |
 | titles | A set of titles that are sorted from left to right. | Array | - |
 | operations | A set of operations that are sorted from top to bottom. | Array | [] |
-| showSearch | If included, a search box is shown on each column. | Boolean | false |
+| showSearch | If included, a search box is shown on each column. | boolean | false |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | |
 | searchPlaceholder | The hint text of the search box. | string | 'Search here' |
 | notFoundContent | Text to display when a column is empty. | string\|ReactNode | 'The list is empty'  |

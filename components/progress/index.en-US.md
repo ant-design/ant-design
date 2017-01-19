@@ -21,7 +21,7 @@ type | to set the type, options: `line` `circle` | string | line
 percent | to set the completion percentage | number | 0
 format | template function of the content | function(percent) | `percent => percent + '%'`
 status | to set the status of the progress, options: `success` `exception` `active` | string | -
-showInfo | determine whether to display the progress value and the status icon | Boolean | true
+showInfo | determine whether to display the progress value and the status icon | boolean | true
 strokeWidth `(type=line)` | to set the width of the progress bar, unit: `px` | number | 10
 strokeWidth `(type=circle)` | to set the width of the circular progress bar, unit: percentage of the canvas width | number | 6
 width `(type=circle)` | to set the canvas width of the circular progress bar, unit: `px` | number | 132

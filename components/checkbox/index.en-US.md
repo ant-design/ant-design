@@ -17,8 +17,8 @@ Checkbox.
 
 | Property      | Description             | Type      | Default  |
 |----------|------------------|----------|--------|
-| checked | Specifies whether the checkbox is selected. | Boolean | false |
-| defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | Boolean | false |
+| checked | Specifies whether the checkbox is selected. | boolean | false |
+| defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | boolean | false |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | - |
 
 ### Checkbox Group

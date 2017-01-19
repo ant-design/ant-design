@@ -48,9 +48,9 @@ The sidebar.
 
 Property | Description | Type | Default
 -----|-----|-----|------
-collapsible | whether can be collapsed | Boolean | false
-defaultCollapsed | to set the initial status | Boolean | false  |
-collapsed | to set the current status | Boolean | -
+collapsible | whether can be collapsed | boolean | false
+defaultCollapsed | to set the initial status | boolean | false  |
+collapsed | to set the current status | boolean | -
 onCollapse | the callback function, can be executed when you switch the sidebar, available only `collapsible: true` | (collapsed) => {}  | -
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200

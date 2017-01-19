@@ -63,16 +63,16 @@ const columns = [{
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | Array | - |
 | expandedRowKeys | 展开的行，控制属性 | Array | - |
-| defaultExpandAllRows | 初始时，是否展开所有行 | Boolean | false |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
-| loading       | 页面是否加载中 | Boolean | false |
+| loading       | 页面是否加载中 | boolean | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | Object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | onRowClick    | 处理行点击事件 | Function(record, index)   | - |
-| bordered  | 是否展示外边框和列边框 | Boolean | false      |
-| showHeader  | 是否显示表头 | Boolean          | true      |
+| bordered  | 是否展示外边框和列边框 | boolean | false      |
+| showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |
 | title  | 表格标题         | Function(currentPageData)   | |
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | Object   | -  |
@@ -89,17 +89,17 @@ const columns = [{
 | render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格[行/列合并](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | 表头的筛选菜单项           | Array           | - |
 | onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
-| filterMultiple | 是否多选 | Boolean    | true    |
+| filterMultiple | 是否多选 | boolean    | true    |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode | - |
-| filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | Boolean | - |
+| filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | Array | - |
-| sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean | - |
+| sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function\|boolean | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | width      | 列宽度 | string\|number | -  |
 | className  | 列的 className             | string          |  -      |
-| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean\|string | false |
-| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean\|string | - |
+| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
+| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 
 ### ColumnGroup

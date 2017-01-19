@@ -20,5 +20,5 @@ title: Rate
 | value | 当前数，受控值 | number | - |
 | defaultValue | 默认值 | number | 0 |
 | onChange | 回调 | Function(value: number) | - |
-| allowHalf | 是否允许半选   | Boolean | false |
-| disabled | 只读，无法进行交互 | Boolean | false |
+| allowHalf | 是否允许半选   | boolean | false |
+| disabled | 只读，无法进行交互 | boolean | false |

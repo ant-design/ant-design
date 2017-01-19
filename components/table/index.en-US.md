@@ -62,16 +62,16 @@ const columns = [{
 | expandedRowRender  | expanded container render for each row | Function | - |
 | defaultExpandedRowKeys | initial expanded row keys | Array | - |
 | expandedRowKeys | current expanded rows keys | Array | - |
-| defaultExpandAllRows | expand all rows initially | Boolean | false |
+| defaultExpandAllRows | expand all rows initially | boolean | false |
 | onExpandedRowsChange | function to call when the expanded rows change | Function(expandedRows) | |
 | onExpand      | function to call when click expand icon | Function(expanded, record) | |
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
-| loading       | loading status of table | Boolean | false |
+| loading       | loading status of table | boolean | false |
 | locale        | i18n text include filter, sort, empty text...etc | Object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | index pixel size of tree data | number   | 15 |
 | onRowClick    | callback that is called when click a row | Function(record, index)   | - |
-| bordered  | whether to show table border completely | Boolean | false      |
-| showHeader  | whether to show table header | Boolean          | true      |
+| bordered  | whether to show table border completely | boolean | false      |
+| showHeader  | whether to show table header | boolean          | true      |
 | footer | table footer renderer      | Function(currentPageData)   | |
 | title  | table title renderer       | Function(currentPageData)   | |
 | scroll | whether table can be scroll in x/y direction, `x` or `y` can be a number that indicated the width and height of table body | Object   | -  |
@@ -88,17 +88,17 @@ One of Property `columns` for descriping column, Column has the same API.
 | render     | renderer of table cell, has three params: text, record and index of this row. The render value should be a ReactNode, or a object for [colSpan/rowSpan config](#demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | filters    | filter menu config        | Array       | - |
 | onFilter   | callback that is called when when click confirm filter button | Function | - |
-| filterMultiple | whether to select multiple filtered item | Boolean    | true    |
+| filterMultiple | whether to select multiple filtered item | boolean    | true    |
 | filterDropdown | customized filter overlay | ReactNode | - |
-| filterDropdownVisible | whether filterDropdown is visible | Boolean | - |
+| filterDropdownVisible | whether filterDropdown is visible | boolean | - |
 | onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
 | filteredValue | controlled filtered value | Array | - |
-| sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function or Boolean | - |
+| sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function\|boolean | - |
 | colSpan    | span of this column's title | number |         |
 | width      | width of this column | string\|number | -  |
 | className  | className of this column            | string          |  -      |
-| fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean\|string | false |
-| sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | Boolean\|string | - |
+| fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | false |
+| sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | boolean\|string | - |
 | onCellClick | callback when click cell | Function(record, event) | - |
 
 ### ColumnGroup

@@ -23,5 +23,5 @@ title: InputNumber
 | step     | 每次改变步数，可以为小数  | number\|string      |  1      |
 | defaultValue     | 初始值       | number      |            |
 | onChange     | 变化回调       | Function      |            |
-| disabled     | 禁用       | Boolean      |      false      |
+| disabled     | 禁用       | boolean      |      false      |
 | size    | 输入框大小  | string      |      无      |

@@ -18,8 +18,8 @@ title: Radio
 
 | 参数           | 说明                                     | 类型       |  可选值 | 默认值 |
 |----------------|------------------------------------------|------------|---------|--------|
-| checked        | 指定当前是否选中                         | Boolean    |         | false  |
-| defaultChecked | 初始是否选中                             | Boolean    |         | false  |
+| checked        | 指定当前是否选中                         | boolean    |         | false  |
+| defaultChecked | 初始是否选中                             | boolean    |         | false  |
 | value          | 根据 value 进行比较，判断是否选中        | any     |         | 无     |
 
 ### RadioGroup

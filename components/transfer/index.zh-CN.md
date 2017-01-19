@@ -29,7 +29,7 @@ title: Transfer
 | className | 自定义类 | string |  |
 | titles | 标题集合,顺序从左至右 | Array | ['', ''] |
 | operations | 操作文案集合,顺序从上至下 | Array | [] |
-| showSearch | 是否显示搜索框 | Boolean | false |
+| showSearch | 是否显示搜索框 | boolean | false |
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。| (inputValue, option): boolean | |
 | searchPlaceholder | 搜索框的默认值 | string | '请输入搜索内容' |
 | notFoundContent | 当列表为空时显示的内容 | string\|ReactNode | '列表为空'  |
