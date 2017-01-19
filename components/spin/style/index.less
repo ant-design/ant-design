@@ -79,6 +79,9 @@
     filter: blur(1px);
     /* IE6~IE9 */
     filter: ~"progid\:DXImageTransform\.Microsoft\.Blur(PixelRadius\=1, MakeShadow\=false)"; // lesshint duplicateProperty: false
+    // workround for strange bug in safari, having no clue that why this works
+    // https://github.com/ant-design/ant-design/issues/4622
+    -webkit-transform: translateZ(0);
     &:after {
       content: '';
       position: absolute;
