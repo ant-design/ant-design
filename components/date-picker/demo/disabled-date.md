@@ -55,9 +55,19 @@ function disabledRangeTime(_, type) {
 
 ReactDOM.render(
   <div>
-    <DatePicker format="YYYY-MM-DD HH:mm:ss" disabledDate={disabledDate} disabledTime={disabledDateTime} showTime />
+    <DatePicker
+      format="YYYY-MM-DD HH:mm:ss"
+      disabledDate={disabledDate}
+      disabledTime={disabledDateTime}
+      showTime
+    />
     <br />
-    <RangePicker disabledDate={disabledDate} disabledTime={disabledRangeTime} showTime={{ hideDisabledOptions: true }} />
+    <RangePicker
+      disabledDate={disabledDate}
+      disabledTime={disabledRangeTime}
+      showTime={{ hideDisabledOptions: true }}
+      format="YYYY-MM-DD HH:mm:ss"
+    />
   </div>,
   mountNode
 );
