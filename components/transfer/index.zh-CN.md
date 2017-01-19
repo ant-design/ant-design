@@ -35,6 +35,7 @@ title: Transfer
 | notFoundContent | 当列表为空时显示的内容 | React.ReactNode | '列表为空'  |
 | footer | 底部渲染函数 | (props): React.ReactNode |  |
 | lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数 | Object | `{ height: 32, offset: 32 }` |
+| onSearchChange | 搜索框内容时改变时的回调函数 | (direction: 'left' | 'right', event: Event): void | - |
 
 ## 注意
 

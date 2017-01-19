@@ -36,6 +36,7 @@ export interface TransferProps {
   footer?: (props: TransferListProps) => React.ReactNode;
   body?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
+  onSearchChange?: (direction: 'left' | 'right', e: Event) => void;
   lazy?: {};
 }
 
@@ -216,6 +217,9 @@ export default class Transfer extends React.Component<TransferProps, any> {
       // add filter
       [`${direction}Filter`]: e.target.value,
     });
+    if (this.props.onSearchChange) {
+      this.props.onSearchChange(direction, e);
+    }
   }
 
   handleLeftFilter = (e) => this.handleFilter('left', e)

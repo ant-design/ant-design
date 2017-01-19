@@ -33,6 +33,8 @@ One or more elements can be selected from either column, one click on the proper
 | notFoundContent | Text to display when a column is empty. | React.ReactNode | 'The list is empty'  |
 | footer | A function used for rendering the footer. | (props): React.ReactNode |  |
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items | Object | `{ height: 32, offset: 32 }` |
+| onSearchChange | A callback function which is executed when search field are changed | (direction: 'left' | 'right', event: Event): void | - |
+
 
 ## Warning
 
