@@ -33,7 +33,7 @@ title: Mention
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
 | suggestions    | 建议内容 | Array<string\|Mention.Nav> | [] |
-| suggestionStyle | 弹出下拉框样式 | Object | {} |
+| suggestionStyle | 弹出下拉框样式 | object | {} |
 | onSearchChange | 输入框中 @ 变化时回调 | function(value:string) | [] |
 | onChange | 输入框内容变化时回调 | function(editorState: EditorState) | null |
 | onSelect | 下拉框选择建议时回调 | function(suggestion: string, data?: any) | null |
@@ -53,4 +53,4 @@ title: Mention
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
 | value    | 建议值，选择建议时，用此值插入到输入框中 | string | "" |
-| children | 建议内容 | Object | {} |
+| children | 建议内容 | object | {} |

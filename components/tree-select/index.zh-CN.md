@@ -27,7 +27,7 @@ title: TreeSelect
 | onSearch | 文本框值变化时回调 | function(value: string) | - |
 | placeholder | 选择框默认文字 | string | - |
 | searchPlaceholder | 搜索框默认文字 | string | - |
-| dropdownStyle | 下拉菜单的样式 | Object | - |
+| dropdownStyle | 下拉菜单的样式 | object | - |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
 | size    | 选择框大小，可选 `large` `small`  | string      |      default      |
 | showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |
@@ -40,7 +40,7 @@ title: TreeSelect
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | 'value' |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | 'title' |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（value 在整个树范围内唯一）| array<{value, label, children, [disabled, selectable]}> | [] |
-|treeDataSimpleMode | 使用简单格式的 treeData，具体设置参考可设置的类型 (此时 treeData 应变为这样的数据结构: [{id:1, pId:0, value:'1', label:"test1",...},...], `pId` 是父节点的 id) | boolean\|Object{id: 'id', pId: 'pId', rootPId: null} | false |
+|treeDataSimpleMode | 使用简单格式的 treeData，具体设置参考可设置的类型 (此时 treeData 应变为这样的数据结构: [{id:1, pId:0, value:'1', label:"test1",...},...], `pId` 是父节点的 id) | false\|Array<{ id: string, pId: string, rootPId: null }> | false |
 | loadData | 异步加载数据 | function(node) | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 

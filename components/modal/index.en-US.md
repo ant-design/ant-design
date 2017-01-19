@@ -29,7 +29,7 @@ and so on.
 | okText     | Text of the OK button    | string           | OK       |
 | cancelText | Text of the Cancel button    | string           | Cancel       |
 | maskClosable | Determine whether to close the modal dialog when clicked mask of it. | boolean   | true       |
-| style | Style of floating layer, typically used at least for adjusting the position. | Object   | - |
+| style | Style of floating layer, typically used at least for adjusting the position. | object   | - |
 | wrapClassName | The class name of the container of the modal dialog | string   | - |
 | afterClose | Specify a function that will be called when modal is closed completely. | function | - |
 

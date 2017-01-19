@@ -39,7 +39,7 @@ subtitle: 导航菜单
 | onSelect | 被选中时调 | Function({ item, key, selectedKeys }) | 无   |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | Function({ item, key, selectedKeys }) | - |
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key, keyPath} | function | - |
-| style | 根节点样式 | Object | |
+| style | 根节点样式 | object | |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)

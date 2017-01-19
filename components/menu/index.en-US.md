@@ -38,7 +38,7 @@ More layout and samples: [layout](/docs/spec/layout).
 | onSelect | callback of the selected item | Function({ item, key, selectedKeys }) | none   |
 | onDeselect | callback of the deselected item, only supported for multiple mode | Function({ item, key, selectedKeys }) | - |
 | onClick | callback of the clicked menu item, params: {item, key, keyPath} | function | - |
-| style | style of the root node | Object | |
+| style | style of the root node | object | |
 | inlineIndent | indent px of inline menu item on each level | number | 24 |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)

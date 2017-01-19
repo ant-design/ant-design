@@ -18,7 +18,7 @@ title: Breadcrumb
 | 参数      | 说明                              | 类型              |  可选值 | 默认值 |
 |-----------|-----------------------------------|-----------------|---------|--------|
 | routes    | router 的路由栈信息               | object[]             |         | -      |
-| params    | 路由的参数                        | Object            |         | -      |
+| params    | 路由的参数                        | object            |         | -      |
 | separator | 分隔符自定义                      | string\|ReactNode |         | '/'    |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | | - |
 

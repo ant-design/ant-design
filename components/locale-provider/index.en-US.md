@@ -32,4 +32,4 @@ This component aims for localization of the built-in text, if you want to suppor
 
 Property | Description | Type | Default
 -----|-----|-----|------
-locale | language package setting, you can find the packages in this path: `antd/lib/locale-provider/` | Object | -
+locale | language package setting, you can find the packages in this path: `antd/lib/locale-provider/` | object | -

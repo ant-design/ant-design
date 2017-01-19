@@ -37,7 +37,7 @@ The wrapper.
 
 Property | Description | Type | Default
 -----|-----|-----|------
-style | to custom the styles | Object | -
+style | to custom the styles | object | -
 className | container className | string | -
 
 > API of `Layout.Header` `Layout.Footer` `Layout.Content` is the same with `Layout`.
@@ -55,5 +55,5 @@ onCollapse | the callback function, can be executed when you switch the sidebar,
 trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode| - |
 width | width of the sidebar | number\|string | 200
 collapsedWidth | width of the collapsed sidebar, available only `collapsible: true` | number | 64
-style | to custom the styles | Object | -
+style | to custom the styles | object | -
 className | container className | string | -

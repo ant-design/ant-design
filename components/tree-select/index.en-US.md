@@ -28,7 +28,7 @@ allowClear | Whether allow clear  | boolean | false
 onSearch | A callback function, can be executed when the search input changes. | function(value: string) | -
 placeholder | Placeholder of the select input | string | -
 searchPlaceholder | Placeholder of the search input  | string | -
-dropdownStyle | To set the style of the dropdown menu  | Object | -
+dropdownStyle | To set the style of the dropdown menu  | object | -
 dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width  | boolean | -
 size | To set the size of the select input, options: `large` `small`  | string | default
 showSearch | Whether to display a search input in the dropdown menu(valid only in the single mode) | boolean | false
@@ -41,7 +41,7 @@ filterTreeNode | Whether to filter treeNodes by input value. The value of `treeN
 treeNodeFilterProp | Will be used for filtering if `filterTreeNode` returns true | string | 'value'
 treeNodeLabelProp | Will render as content of select  | string | 'title'
 treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array<{ value, label, children, [disabled, selectable] }> | []
-treeDataSimpleMode | Enable simple mode of treeData.(treeData should like this: [{id:1, pId:0, value:'1', label:"test1",...},...], pId is parent node's id)  | boolean\|Object{ id: 'id', pId: 'pId', rootPId: null } | false
+treeDataSimpleMode | Enable simple mode of treeData.(treeData should like this: [{id:1, pId:0, value:'1', label:"test1",...},...], pId is parent node's id)  | false\|Array<{ id: string, pId: string, rootPId: null }> | false
 loadData | Load data asynchronously.  | function(node) | -
 getPopupContainer | To set the container of the dropdown menu. The default is to create a `div` element in `body`, you can reset it to the scrolling area and make a relative reposition. [example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body
 

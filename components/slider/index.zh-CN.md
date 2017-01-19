@@ -19,7 +19,7 @@ title: Slider
 | min            | 最小值 | number			| 0
 | max            | 最大值 | number			| 100
 | step           | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 `null`，此时 Slider 的可选值仅有 marks 标出来的部分。 | number\|null	| 1
-| marks          | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 [min, max] 内，每个标签可以单独设置样式 | Object{} | Object{number: String or React.Component} or Object{number: { style, label}}
+| marks          | 刻度标记，key 的类型必须为 `number` 且取值在闭区间 [min, max] 内，每个标签可以单独设置样式 | object | { number: string\|ReactNode } or { number: { style: object, label: string\|ReactNode } }
 | dots           | 是否只能拖拽到刻度上 | boolean | false
 | value          | 设置当前取值。当 `range` 为 `false` 时，使用 `number`，否则用 `[number, number]`   | number\|number[] |
 | defaultValue   | 设置初始取值。当 `range` 为 `false` 时，使用 `number`，否则用 `[number, number]`   | number\|number[] | 0 or [0, 0]

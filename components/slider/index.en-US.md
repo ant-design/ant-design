@@ -18,7 +18,7 @@ To input a value in a range.
 | min            | The minimum value the slider can slide to. | number			| 0
 | max            | The maximum value the slider can slide to | number			| 100
 | step           | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When  `marks` no null, `step` can be `null`. | number\|null	| 1
-| marks          | Tick mark of Slider, type of key must be `number`, and must in closed interval [min, max] ，each mark can declare its own style. | Object{} | Object{number: String or React.Component} or Object{number: { style, label}}
+| marks          | Tick mark of Slider, type of key must be `number`, and must in closed interval [min, max] ，each mark can declare its own style. | object | { number: string\|ReactNode } or { number: { style: object, label: string\|ReactNode } }
 | dots           | Whether the thumb can drag over tick only. | boolean | false
 | value          | The value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]`   | number\|number[] |
 | defaultValue   | The default value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]`   | number\|number[] | 0 or [0, 0]

@@ -31,5 +31,5 @@ title: Calendar
 | fullscreen   | 是否全屏显示   | boolean     | true         |
 | dateCellRender     | 自定义渲染日期单元格| function(date: moment): ReactNode   | 无 |
 | monthCellRender    | 自定义渲染月单元格  | function(date: moment): ReactNode   | 无 |
-| locale       | 国际化配置     | Object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
+| locale       | 国际化配置     | object   | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | onPanelChange| 日期面板变化回调 | function(date: moment, mode: string) | 无 |

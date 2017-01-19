@@ -52,8 +52,8 @@ const columns = [{
 
 | Property      | Description              | Type            | Default      |
 |---------------|--------------------------|-----------------|--------------|
-| rowSelection  | row selection [config](#rowSelection)  | Object  | null  |
-| pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | Object |  |
+| rowSelection  | row selection [config](#rowSelection)  | object  | null  |
+| pagination    | pagination [config](/components/pagination/), hide it via setting to `false` | object |  |
 | size          | size of table: `default` or `small`  | string | `default` |
 | dataSource    | data record array to be rendered | any[] |            |
 | columns       | columns of table | [ColumnProps](https://git.io/vMMXC)[] | - |
@@ -67,14 +67,14 @@ const columns = [{
 | onExpand      | function to call when click expand icon | Function(expanded, record) | |
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
 | loading       | loading status of table | boolean | false |
-| locale        | i18n text include filter, sort, empty text...etc | Object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
+| locale        | i18n text include filter, sort, empty text...etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
 | indentSize    | index pixel size of tree data | number   | 15 |
 | onRowClick    | callback that is called when click a row | Function(record, index)   | - |
 | bordered  | whether to show table border completely | boolean | false      |
 | showHeader  | whether to show table header | boolean          | true      |
 | footer | table footer renderer      | Function(currentPageData)   | |
 | title  | table title renderer       | Function(currentPageData)   | |
-| scroll | whether table can be scroll in x/y direction, `x` or `y` can be a number that indicated the width and height of table body | Object   | -  |
+| scroll | whether table can be scroll in x/y direction, `x` or `y` can be a number that indicated the width and height of table body | object   | -  |
 
 ### Column
 

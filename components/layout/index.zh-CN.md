@@ -38,7 +38,7 @@ title: Layout
 
 | 参数      | 说明                                      | 类型         | 默认值 |
 |----------|------------------------------------------|-------------|-------|
-| style | 指定样式 | Object | - |
+| style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 
 > `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
@@ -56,5 +56,5 @@ title: Layout
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
 | width | 宽度 | number\|string | 200 |
 | collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | number | 64 |
-| style | 指定样式 | Object | - |
+| style | 指定样式 | object | - |
 | className | 容器 className | string | - |

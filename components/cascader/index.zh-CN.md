@@ -22,7 +22,7 @@ subtitle: 级联选择
 
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
-| options | 可选项数据源 | Object | - |
+| options | 可选项数据源 | object | - |
 | defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |
 | value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |

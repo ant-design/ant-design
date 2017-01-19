@@ -33,7 +33,7 @@ When need to mention someone or something.
 | Property     | Description          | Type     | Default       |
 |----------|---------------|----------|--------------|
 | suggestions    | suggestion content | Array<string\|Mention.Nav> | [] |
-| suggestionStyle | style of suggestion container | Object | {} |
+| suggestionStyle | style of suggestion container | object | {} |
 | onSearchChange | Callback function called when search content changes | function(value:string) | [] |
 | onChange | Callback function called when content of input changes | function(editorState: EditorState) | null |
 | onSelect | Callback function called when select from suggestions | function(suggestion: string, data?: any) | null |
@@ -53,4 +53,4 @@ When need to mention someone or something.
 | Property     | Description           | Type     | Default       |
 |----------|---------------|----------|--------------|
 | value    | value of suggestion，the value will insert into input filed while selected | string | "" |
-| children | suggestion content | Object | {} |
+| children | suggestion content | object | {} |
