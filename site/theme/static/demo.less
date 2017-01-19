@@ -32,17 +32,9 @@
   transition: all 0.2s ease;
 }
 
-.code-box:hover {
-  box-shadow: 0 2px 7px rgba(0, 0, 0, .2);
-  border-color: transparent;
-  position: relative;
-  z-index: 10;
-  background: #fff;
-}
-
 .code-box:target {
   border: 1px solid fade(@primary-color, 70%);
-  box-shadow: 0 0 4px fade(@primary-color, 50%);
+  z-index: 10;
 }
 
 .code-box {
