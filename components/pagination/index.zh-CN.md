@@ -20,11 +20,11 @@ title: Pagination
 
 | 参数             | 说明                               | 类型          | 默认值                   |
 |------------------|------------------------------------|---------------|--------------------------|
-| current          | 当前页数                           | Number        | -                   |
-| defaultCurrent   | 默认的当前页数                     | Number        | 1                        |
-| total            | 数据总数                           | Number        | 0                        |
-| defaultPageSize  | 默认的每页条数                      | Number        | 10                       |
-| pageSize         | 每页条数                           | Number        | -                         |
+| current          | 当前页数                           | number        | -                   |
+| defaultCurrent   | 默认的当前页数                     | number        | 1                        |
+| total            | 数据总数                           | number        | 0                        |
+| defaultPageSize  | 默认的每页条数                      | number        | 10                       |
+| pageSize         | 每页条数                           | number        | -                         |
 | onChange         | 页码改变的回调，参数是改变后的页码 | Function(page)      | noop                     |
 | showSizeChanger  | 是否可以改变 pageSize              | Boolean        | false                    |
 | pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |

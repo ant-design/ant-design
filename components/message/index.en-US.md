@@ -42,5 +42,5 @@ message.config({
 
 | Argument   | Description                        | Type                     | Default     |
 |------------|------------------------------------|--------------------------|-------------|
-| top        | distance to top                    | Number                   | 24px        |
-| duration   | time before auto-dismiss,in seconds | Number                   | 1.5         |
+| top        | distance to top                    | number                   | 24px        |
+| duration   | time before auto-dismiss,in seconds | number                   | 1.5         |

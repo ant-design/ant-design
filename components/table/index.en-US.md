@@ -68,7 +68,7 @@ const columns = [{
 | onChange      | callback that is called when pagination, filters, sorter is changed | Function(pagination, filters, sorter) |  |
 | loading       | loading status of table | Boolean | false |
 | locale        | i18n text include filter, sort, empty text...etc | Object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
-| indentSize    | index pixel size of tree data | Number   | 15 |
+| indentSize    | index pixel size of tree data | number   | 15 |
 | onRowClick    | callback that is called when click a row | Function(record, index)   | - |
 | bordered  | whether to show table border completely | Boolean | false      |
 | showHeader  | whether to show table header | Boolean          | true      |
@@ -94,8 +94,8 @@ One of Property `columns` for descriping column, Column has the same API.
 | onFilterDropdownVisibleChange | called when filterDropdownVisible is changed | function(visible) {} | - |
 | filteredValue | controlled filtered value | Array | - |
 | sorter     | sort function for local sort. If you need sort buttons only, set it `true` | Function or Boolean | - |
-| colSpan    | span of this column's title | Number |         |
-| width      | width of this column | string\|Number | -  |
+| colSpan    | span of this column's title | number |         |
+| width      | width of this column | string\|number | -  |
 | className  | className of this column            | string          |  -      |
 | fixed      | set column to be fixed: `true`(same as left) `'left'` `'right'` | Boolean\|string | false |
 | sortOrder | controlled sorted value: `'ascend'` `'descend'` `false` | Boolean\|string | - |

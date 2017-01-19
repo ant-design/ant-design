@@ -54,7 +54,7 @@ title: Layout
 | collapsed | 当前收起状态 | Boolean | - |
 | onCollapse | 展开-收起时的回调函数，仅当 `collapsible:true` 时生效 | (collapsed) => {} | - |
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
-| width | 宽度 | Number\|string | 200 |
-| collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | Number | 64 |
+| width | 宽度 | number\|string | 200 |
+| collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | number | 64 |
 | style | 指定样式 | Object | - |
 | className | 容器 className | string | - |

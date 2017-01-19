@@ -69,7 +69,7 @@ const columns = [{
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | loading       | 页面是否加载中 | Boolean | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | Object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |
-| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | Number   | 15 |
+| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | onRowClick    | 处理行点击事件 | Function(record, index)   | - |
 | bordered  | 是否展示外边框和列边框 | Boolean | false      |
 | showHeader  | 是否显示表头 | Boolean          | true      |
@@ -95,8 +95,8 @@ const columns = [{
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | Array | - |
 | sorter     | 排序函数，本地排序使用一个函数，需要服务端排序可设为 true | Function or Boolean | - |
-| colSpan    | 表头列合并,设置为 0 时，不渲染 | Number      |         |
-| width      | 列宽度 | string\|Number | -  |
+| colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
+| width      | 列宽度 | string\|number | -  |
 | className  | 列的 className             | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | Boolean\|string | false |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | Boolean\|string | - |

@@ -15,13 +15,13 @@ To input a value in a range.
 | Property     | Description           | Type     | Default       |
 |------------|----------------|-------------|--------------|
 | range          | dual thumb mode | Boolean          | false
-| min            | The minimum value the slider can slide to. | Number			| 0
-| max            | The maximum value the slider can slide to | Number			| 100
-| step           | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When  `marks` no null, `step` can be `null`. | Number or null	| 1
-| marks          | Tick mark of Slider, type of key must be `Number`, and must in closed interval [min, max] ，each mark can declare its own style. | Object{} | Object{Number: String or React.Component} or Object{Number: { style, label}}
+| min            | The minimum value the slider can slide to. | number			| 0
+| max            | The maximum value the slider can slide to | number			| 100
+| step           | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When  `marks` no null, `step` can be `null`. | number\|null	| 1
+| marks          | Tick mark of Slider, type of key must be `number`, and must in closed interval [min, max] ，each mark can declare its own style. | Object{} | Object{number: String or React.Component} or Object{number: { style, label}}
 | dots           | Whether the thumb can drag over tick only. | Boolean | false
-| value          | The value of slider. When `range` is `false`, use `Number`, otherwise, use `[Number, Number]`   | Number or [Number, Number] |
-| defaultValue   | The default value of slider. When `range` is `false`, use `Number`, otherwise, use `[Number, Number]`   | Number or [Number, Number] | 0 or [0, 0]
+| value          | The value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]`   | number\|number[] |
+| defaultValue   | The default value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]`   | number\|number[] | 0 or [0, 0]
 | included       | Make effect when `marks` not null，`true` means containment and `false` means coordinative | Boolean			 | true
 | disabled       | If true, the slider will not be interactable. | Boolean 			| false
 | onChange       | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP

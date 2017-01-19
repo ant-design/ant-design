@@ -28,7 +28,7 @@ title: Steps
 
 | 参数      | 说明                                      | 类型         | 默认值 |
 |----------|------------------------------------------|-------------|-------|
-| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | Number | 0 |
+| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | process |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`）| string | default |
 | direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | horizontal  |
