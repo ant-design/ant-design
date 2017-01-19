@@ -46,7 +46,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
 | open | open state of picker | boolean | - |
 | onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
-| placeholder  | placeholder of date input | string or array (RangePicker) | - |
+| placeholder  | placeholder of date input | string\|RangePicker[] | - |
 
 ### DatePicker
 

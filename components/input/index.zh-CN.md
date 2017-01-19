@@ -29,7 +29,7 @@ title: Input
 | prefix | 带有前缀图标的 input | string\|ReactNode | |
 | suffix | 带有后缀图标的 input | string\|ReactNode | |
 | onPressEnter | 按下回车的回调 | function(e) | |
-| autosize | 自适应内容高度，只对 `type="textarea"` 有效，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean or object | false |
+| autosize | 自适应内容高度，只对 `type="textarea"` 有效，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean\|object | false |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 

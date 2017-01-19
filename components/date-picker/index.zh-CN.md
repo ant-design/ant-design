@@ -47,7 +47,7 @@ moment.locale('zh-cn');
 | getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | open | 控制弹层是否展开 | boolean | - |
 | onOpenChange   | 弹出日历和关闭日历的回调 | function(status) | 无 |
-| placeholder  | 输入框提示文字 | string or array (RangePicker) | - |
+| placeholder  | 输入框提示文字 | string\|RangePicker[] | - |
 
 ### DatePicker
 

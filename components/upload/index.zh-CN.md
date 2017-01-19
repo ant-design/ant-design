@@ -25,7 +25,7 @@ title: Upload
 | defaultFileList | 默认已经上传的文件列表                           | object[] | 无  |
 | fileList   | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object[] | 无 |
 | action     | 必选参数, 上传的地址                                         | string      | 无    |
-| data       | 上传所需参数或返回上传参数的方法                   | Object or function(file) | 无    |
+| data       | 上传所需参数或返回上传参数的方法                   | object\|function(file) | 无    |
 | headers    | 设置上传的请求头部，IE10 以上有效                    | object      | 无    |
 | showUploadList | 是否展示 uploadList, 默认开启                  | boolean     | true  |
 | multiple   | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | boolean     | false |

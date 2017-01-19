@@ -26,4 +26,4 @@ To input a value in a range.
 | disabled       | If true, the slider will not be interactable. | boolean 			| false
 | onChange       | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP
 | onAfterChange  | Fire when  `onmouseup` is fired. | Function(value) | NOOP
-| tipFormatter   | Slider will pass its value to `tipFormatter`, and display its value in Tooltip, and hide Tooltip when return value is null. | Function or null | IDENTITY
+| tipFormatter   | Slider will pass its value to `tipFormatter`, and display its value in Tooltip, and hide Tooltip when return value is null. | Function\|null | IDENTITY

@@ -24,7 +24,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | defaultFileList | Default list of files that have been uploaded.                   | object[] | -  |
 | fileList   | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | object[] | - |
 | action     | Required. Uploading URL                            | string      | -    |
-| data       | Uploading params or function which can return uploading params. | Object or function(file) | - |
+| data       | Uploading params or function which can return uploading params. | object\|function(file) | - |
 | headers    | Set request headers, valid above IE10.   | object      | -    |
 | showUploadList | Whether to show uploadList.          | boolean     | true  |
 | multiple   | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true  | boolean     | false |
