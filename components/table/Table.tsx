@@ -36,6 +36,8 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
+export type TableColumnConfig<T> = ColumnProps<T>;
+
 export interface TableRowSelection<T> {
   type?: 'checkbox' | 'radio';
   selectedRowKeys?: string[];
