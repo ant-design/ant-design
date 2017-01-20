@@ -3,7 +3,6 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import { Select, Modal } from 'antd';
 import { version as antdVersion } from 'antd/package.json';
 import * as utils from '../utils';
-import { docVersions } from '../../';
 
 const Option = Select.Option;
 
@@ -18,8 +17,6 @@ function isLocalStorageNameSupported() {
     return false;
   }
 }
-
-docVersions[antdVersion] = antdVersion;
 
 class Footer extends React.Component {
   componentDidMount() {
@@ -71,6 +68,8 @@ class Footer extends React.Component {
   }
 
   render() {
+    const { themeConfig } = this.props;
+    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const options = Object.keys(docVersions)
             .map(version => <Option value={docVersions[version]} key={version}>{version}</Option>);
     return (
