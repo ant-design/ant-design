@@ -16,7 +16,7 @@ exports[`RangePicker show month panel according to value 1`] = `
               <div
                 class="ant-calendar-date-input-wrap">
                 <input
-                  class="ant-calendar-input  "
+                  class="ant-calendar-input "
                   placeholder="开始日期"
                   value="2000/01/01" />
               </div>
@@ -624,7 +624,7 @@ exports[`RangePicker show month panel according to value 1`] = `
               <div
                 class="ant-calendar-date-input-wrap">
                 <input
-                  class="ant-calendar-input  "
+                  class="ant-calendar-input "
                   placeholder="结束日期"
                   value="2000/01/01" />
               </div>
@@ -1260,7 +1260,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               <div
                 class="ant-calendar-date-input-wrap">
                 <input
-                  class="ant-calendar-input  "
+                  class="ant-calendar-input "
                   placeholder="开始日期"
                   value="2000/01/01" />
               </div>
@@ -1868,7 +1868,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               <div
                 class="ant-calendar-date-input-wrap">
                 <input
-                  class="ant-calendar-input  "
+                  class="ant-calendar-input "
                   placeholder="结束日期"
                   value="2000/01/01" />
               </div>
