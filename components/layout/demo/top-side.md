@@ -40,11 +40,12 @@ ReactDOM.render(
         <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb>
       <Layout style={{ padding: '24px 0', background: '#fff' }}>
-        <Sider width={200}>
+        <Sider width={200} style={{ background: '#fff' }}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
             defaultOpenKeys={['sub1']}
+            style={{ height: '100%' }}
           >
             <SubMenu key="sub1" title={<span><Icon type="user" />subnav 1</span>}>
               <Menu.Item key="1">option1</Menu.Item>
