@@ -461,11 +461,12 @@ exports[`test renders ./components/layout/demo/top-side.md correctly 1`] = `
       style="padding:24px 0;background:#fff;">
       <div
         class="ant-layout-sider"
-        style="flex:0 0 200px;">
+        style="background:#fff;flex:0 0 200px;">
         <ul
           aria-activedescendant=""
           class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root"
           role="menu"
+          style="height:100%;"
           tabindex="0">
           <li
             class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu">
