@@ -13,7 +13,7 @@ title:
 
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
-````jsx
+````__react
 import { message, Button } from 'antd';
 
 const success = () => {

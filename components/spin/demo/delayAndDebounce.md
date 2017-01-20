@@ -13,7 +13,7 @@ title:
 
 Specifies a delay for loading state. If `spinning` ends during delay, loading status won't appear.
 
-````jsx
+````__react
 import { Spin, Alert, Switch } from 'antd';
 
 const Card = React.createClass({

@@ -13,7 +13,7 @@ title:
 
 Numeric-only input box.
 
-````jsx
+````__react
 import { InputNumber } from 'antd';
 
 function onChange(value) {

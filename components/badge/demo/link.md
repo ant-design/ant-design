@@ -13,7 +13,7 @@ title:
 
 The badge can be wrapped with `a` tag to make it linkable.
 
-````jsx
+````__react
 import { Badge } from 'antd';
 
 ReactDOM.render(

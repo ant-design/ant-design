@@ -13,7 +13,7 @@ title:
 
 Disabled a tab.
 
-````jsx
+````__react
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

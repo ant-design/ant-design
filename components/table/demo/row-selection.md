@@ -13,7 +13,7 @@ title:
 
 Rows can be selectable by making first column as a selectable column.
 
-````jsx
+````__react
 import { Table } from 'antd';
 
 const columns = [{

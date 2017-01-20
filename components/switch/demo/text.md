@@ -13,7 +13,7 @@ title:
 
 With text and icon.
 
-````jsx
+````__react
 import { Switch, Icon } from 'antd';
 
 ReactDOM.render(<div>

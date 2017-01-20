@@ -48,12 +48,14 @@ ReactDOM.render(<IconSet className="icons" catigory="direction" />, mountNode);
 ### 提示建议性图标
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="suggestion" />, mountNode);
 ```
 
 ### 网站通用图标
 
 ```__react
+import IconSet from 'site/theme/template/IconSet';
 ReactDOM.render(<IconSet className="icons" catigory="other" />, mountNode);
 ```
 

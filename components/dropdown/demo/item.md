@@ -13,7 +13,7 @@ title:
 
 Divider and disabled menu item.
 
-````jsx
+````__react
 import { Menu, Dropdown, Icon } from 'antd';
 
 const menu = (

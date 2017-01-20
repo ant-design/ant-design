@@ -13,7 +13,7 @@ title:
 
 Group table head with `columns[n].children`.
 
-```jsx
+```__react
 import { Table } from 'antd';
 
 const columns = [{

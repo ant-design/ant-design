@@ -13,7 +13,7 @@ title:
 
 You can use your own custom icons by setting the property `icon` for `Steps.Step`.
 
-````jsx
+````__react
 import { Steps, Icon } from 'antd';
 const Step = Steps.Step;
 

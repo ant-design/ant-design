@@ -13,7 +13,7 @@ checkbox 不可用。
 
 Disabled checkbox.
 
-````jsx
+````__react
 import { Checkbox } from 'antd';
 
 ReactDOM.render(<div>

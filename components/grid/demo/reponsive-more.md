@@ -16,7 +16,7 @@ title:
 `Span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` properties to use,
 where `xs = {6}` is equivalent to `xs = {{span: 6}}`.
 
-````jsx
+````__react
 import { Row, Col } from 'antd';
 
 ReactDOM.render(

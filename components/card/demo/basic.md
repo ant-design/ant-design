@@ -13,7 +13,7 @@ title:
 
 A basic card containing a title, content and an extra corner content.
 
-````jsx
+````__react
 import { Card } from 'antd';
 
 ReactDOM.render(

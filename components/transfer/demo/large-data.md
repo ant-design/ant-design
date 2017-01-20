@@ -14,7 +14,7 @@ title:
 
 2000 items.
 
-````jsx
+````__react
 import { Transfer } from 'antd';
 
 const App = React.createClass({

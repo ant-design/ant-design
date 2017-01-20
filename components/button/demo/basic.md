@@ -21,7 +21,7 @@ There are primary button, default button, ghost button and dashed button in antd
 
 Primary button and default button can be used without other button, but ghost button must be used with primary button.
 
-````jsx
+````__react
 import { Button } from 'antd';
 
 ReactDOM.render(

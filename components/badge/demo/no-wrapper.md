@@ -15,7 +15,7 @@ title:
 
 Used in standalone when children is empty.
 
-````jsx
+````__react
 import { Badge } from 'antd';
 
 ReactDOM.render(<div>

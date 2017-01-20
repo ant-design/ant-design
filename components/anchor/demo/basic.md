@@ -13,7 +13,7 @@ title:
 
 The simplest usage.
 
-```jsx
+```__react
 import { Anchor } from 'antd';
 const { Link } = Anchor;
 

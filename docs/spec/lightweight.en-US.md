@@ -67,7 +67,7 @@ Some relative knowledge of [Providing an Invitation](/docs/spec/invitation) can 
 
 <img class="preview-img" align="right" alt="example of hypertext hot spot" description="When hovering on the cell in which the hypertext is positioned, the mouse turns from a cursor to a hand symbol. Click it and jump to another page." src="https://os.alipayobjects.com/rmsportal/bCrBxGPJiDvkyOH.png">
 
-The clickable area of hypertext is affected by the length of the string in a cell. The while cell can be set to a hot spot in order to be triggered easier.
+The clickable area of hypertext is affected by the length of the string in a cell. The whole cell can be set to a hot spot in order to be triggered easier.
 
 <br>
 

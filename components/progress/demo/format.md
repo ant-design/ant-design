@@ -13,7 +13,7 @@ title:
 
 You can custom text format by setting `format`.
 
-````jsx
+````__react
 import { Progress } from 'antd';
 
 ReactDOM.render(

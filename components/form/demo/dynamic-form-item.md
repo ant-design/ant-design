@@ -13,7 +13,7 @@ title:
 
 Add or remove form items dynamically.
 
-````jsx
+````__react
 import { Form, Input, Icon, Button } from 'antd';
 const FormItem = Form.Item;
 

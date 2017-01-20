@@ -13,7 +13,7 @@ title:
 
 Searchable Tree.
 
-````jsx
+````__react
 import { Tree, Input } from 'antd';
 
 const TreeNode = Tree.TreeNode;

@@ -16,7 +16,7 @@ Generally, ceiling is used for cross system/application, you can put uniform log
 
 Background color of a ceiling is a deep color, height is `30px`, generally to be used with a light color mainnav.
 
-````jsx
+````__react
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 

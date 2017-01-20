@@ -13,7 +13,7 @@ title:
 
 basic controlled example
 
-````jsx
+````__react
 import { Tree } from 'antd';
 const TreeNode = Tree.TreeNode;
 

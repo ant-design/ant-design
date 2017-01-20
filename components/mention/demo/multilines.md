@@ -13,7 +13,7 @@ title:
 
 Multi lines mode.
 
-````jsx
+````__react
 import { Mention } from 'antd';
 const { toString } = Mention;
 

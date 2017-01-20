@@ -13,7 +13,7 @@ title:
 
 The count will be animated as it changes.
 
-````jsx
+````__react
 import { Badge, Button, Icon, Switch } from 'antd';
 const ButtonGroup = Button.Group;
 

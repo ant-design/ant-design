@@ -13,7 +13,7 @@ title:
 
 A set of mutually exclusive Radio with the use of
 
-```jsx
+```__react
 import { Radio } from 'antd';
 const RadioGroup = Radio.Group;
 

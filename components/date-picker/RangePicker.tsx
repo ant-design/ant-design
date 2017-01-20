@@ -37,9 +37,9 @@ export default class RangePicker extends React.Component<any, any> {
 
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps) {
-      this.setState({
-        value: nextProps.value || [],
-      });
+      const value = nextProps.value || [];
+      const showDate = value[0];
+      this.setState({ value, showDate });
     }
     if ('open' in nextProps) {
       this.setState({
@@ -58,7 +58,7 @@ export default class RangePicker extends React.Component<any, any> {
   handleChange = (value) => {
     const props = this.props;
     if (!('value' in props)) {
-      this.setState({ value });
+      this.setState({ value, showDate: value[0] });
     }
     props.onChange(value, [
       (value[0] && value[0].format(props.format)) || '',
@@ -69,11 +69,13 @@ export default class RangePicker extends React.Component<any, any> {
   handleOpenChange = (open) => {
     this.setState({ open });
 
-    const onOpenChange = this.props.onOpenChange;
+    const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(open);
     }
   }
+
+  handleShowDateChange = showDate => this.setState({ showDate })
 
   setValue(value) {
     this.handleChange(value);
@@ -101,7 +103,7 @@ export default class RangePicker extends React.Component<any, any> {
 
   render() {
     const { state, props, context } = this;
-    const { value, open } = state;
+    const { value, showDate, open } = state;
     const localeCode = getLocaleCode(context);
     if (value && localeCode) {
       if (value[0]) {
@@ -154,7 +156,8 @@ export default class RangePicker extends React.Component<any, any> {
         dateInputPlaceholder={[startPlaceholder, endPlaceholder]}
         locale={locale.lang}
         onOk={onOk}
-        defaultValue={props.defaultPickerValue || [moment(), moment()]}
+        value={showDate || props.defaultPickerValue || moment()}
+        onValueChange={this.handleShowDateChange}
         showToday={showToday}
       />
     );

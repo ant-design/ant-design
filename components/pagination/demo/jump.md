@@ -13,7 +13,7 @@ title:
 
 Jump to a page directly.
 
-````jsx
+````__react
 import { Pagination } from 'antd';
 
 function onChange(pageNumber) {

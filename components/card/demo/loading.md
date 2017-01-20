@@ -13,7 +13,7 @@ title:
 
 Shows a loading indicator while the contents of the card is being fetched.
 
-````jsx
+````__react
 import { Card } from 'antd';
 
 ReactDOM.render(

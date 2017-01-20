@@ -13,7 +13,7 @@ title:
 
 To set the language. en_US, zh_CN are supported by default.
 
-````jsx
+````__react
 import { Calendar } from 'antd';
 import enUS from 'antd/lib/calendar/locale/en_US';
 import moment from 'moment';

@@ -13,7 +13,7 @@ title:
 
 Simple table with actions.
 
-````jsx
+````__react
 import { Table, Icon } from 'antd';
 
 const columns = [{

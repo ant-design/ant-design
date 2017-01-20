@@ -13,7 +13,7 @@ title:
 
 Basic use case. Users can select or input a date in panel.
 
-````jsx
+````__react
 import { DatePicker } from 'antd';
 const { MonthPicker, RangePicker } = DatePicker;
 

@@ -13,7 +13,7 @@ title:
 
 Accordion mode, only one panel can be expanded at a time. The first panel will be expanded by default.
 
-````jsx
+````__react
 import { Collapse } from 'antd';
 const Panel = Collapse.Panel;
 

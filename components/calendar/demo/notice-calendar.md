@@ -13,7 +13,7 @@ title:
 
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
-````jsx
+````__react
 import { Calendar } from 'antd';
 
 function getListData(value) {

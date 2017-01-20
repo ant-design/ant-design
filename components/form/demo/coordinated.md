@@ -13,7 +13,7 @@ title:
 
 Use `setFieldsValue` to set other control's value programmaticly.
 
-````jsx
+````__react
 import { Form, Select, Input, Button } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;

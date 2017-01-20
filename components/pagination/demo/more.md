@@ -13,7 +13,7 @@ title:
 
 More pages.
 
-````jsx
+````__react
 import { Pagination } from 'antd';
 
 ReactDOM.render(

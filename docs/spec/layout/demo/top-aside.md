@@ -13,7 +13,7 @@ title:
 
 The top navigation is placed on the top, and the secondary navigation is placed on the aside.
 
-````jsx
+````__react
 import { Menu, Breadcrumb, Icon } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 const SubMenu = Menu.SubMenu;

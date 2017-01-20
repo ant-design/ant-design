@@ -20,7 +20,7 @@ A top-bottom structure of page layouts is used to top navigation. Generally, the
 
 > `<BrowserDemo />` This is for demo, don't need to copy.
 
-````jsx
+````__react
 import { Menu, Breadcrumb } from 'antd';
 import BrowserDemo from 'site/theme/template/BrowserDemo';
 

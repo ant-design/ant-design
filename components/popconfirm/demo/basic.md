@@ -13,7 +13,7 @@ title:
 
 The basic example.
 
-````jsx
+````__react
 import { Popconfirm, message } from 'antd';
 
 function confirm() {

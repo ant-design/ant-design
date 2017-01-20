@@ -13,7 +13,7 @@ title:
 
 This will simply display a red badge, without a specific count.
 
-````jsx
+````__react
 import { Badge, Icon } from 'antd';
 
 ReactDOM.render(<div>

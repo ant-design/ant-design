@@ -13,7 +13,7 @@ title:
 
 Normal messages as feedbacks.
 
-````jsx
+````__react
 import { message, Button } from 'antd';
 
 const info = function () {

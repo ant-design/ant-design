@@ -14,7 +14,7 @@ title:
 The `onChange` callback function will fire when the user changes the slider's value.
 The `onAfterChange` callback function will fire when `onmouseup` fired.
 
-````jsx
+````__react
 import { Slider } from 'antd';
 
 function onChange(value) {

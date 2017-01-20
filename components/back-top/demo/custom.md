@@ -14,7 +14,7 @@ title:
 You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
 
 
-````jsx
+````__react
 import { BackTop } from 'antd';
 
 ReactDOM.render(

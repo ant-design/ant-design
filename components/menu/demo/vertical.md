@@ -13,7 +13,7 @@ title:
 
 Submenus open as pop-ups.
 
-````jsx
+````__react
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;

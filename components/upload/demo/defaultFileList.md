@@ -14,7 +14,7 @@ title:
 Edit uploaded files
 
 
-````jsx
+````__react
 import { Upload, Button, Icon } from 'antd';
 
 const props = {

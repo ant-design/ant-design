@@ -13,7 +13,7 @@ title:
 
 Messages of success, error and warning types.
 
-````jsx
+````__react
 import { message, Button } from 'antd';
 
 const success = function () {

@@ -13,7 +13,7 @@ title:
 
 Transfer with a search box.
 
-````jsx
+````__react
 import { Transfer } from 'antd';
 
 const App = React.createClass({

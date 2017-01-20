@@ -13,7 +13,7 @@ title:
 
 The combination of radio button style.
 
-```jsx
+```__react
 import { Radio } from 'antd';
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
