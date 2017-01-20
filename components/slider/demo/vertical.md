@@ -13,7 +13,7 @@ title:
 
 The vertical Slider.
 
-````jsx
+````__react
 import { Slider } from 'antd';
 
 const style = {

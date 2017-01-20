@@ -13,7 +13,7 @@ title:
 
 Customize Input Component
 
-````jsx
+````__react
 import { AutoComplete } from 'antd';
 
 function onSelect(value) {
