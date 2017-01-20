@@ -4,7 +4,6 @@
   vertical-align: baseline;
   text-align: center;
   text-transform: none;
-  text-rendering: auto;
   line-height: 1;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -29,7 +28,8 @@
   display: inline-block;
   @font-scale: unit(@size / 12px);
   font-size: @font-size-base;
-  font-size: ~"@{size} \9"; // ie8-9
+  // ie8-9
+  font-size: ~"@{size} \9"; // lesshint duplicateProperty: false
   transform: scale(@font-scale) rotate(@rotate);
   .ie-rotate-via-degrees(@rotate);
   :root & {

@@ -13,11 +13,15 @@ title:
 
 Example of creating a search box by grouping a standard input with a search button, added in `2.5.0`.
 
-````jsx
+````__react
 import { Input } from 'antd';
 const Search = Input.Search;
 
 ReactDOM.render(
-  <Search placeholder="input search text" onSearch={value => console.log(value)} />
+  <Search
+    placeholder="input search text"
+    style={{ width: 200 }}
+    onSearch={value => console.log(value)}
+  />
 , mountNode);
 ````

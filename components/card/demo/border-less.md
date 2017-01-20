@@ -13,7 +13,7 @@ title:
 
 A borderless card on a gray background.
 
-````jsx
+````__react
 import { Card } from 'antd';
 
 ReactDOM.render(

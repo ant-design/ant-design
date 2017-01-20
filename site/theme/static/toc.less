@@ -1,9 +1,13 @@
 .toc {
   font-size: 14px;
   margin: 24px 0;
+  border-left: 1px solid #e9e9e9;
+  list-style: none;
+}
+
+.markdown .toc {
   background: #fbfbfb;
   border-left: 2px solid #eee;
-  list-style: none;
 }
 
 .toc > ul {
@@ -23,8 +27,6 @@
 
 .toc a {
   padding-left: 16px;
-  border-left: 2px solid #eee;
-  margin-left: -2px;
   display: block;
   transition: all 0.3s ease;
   white-space: nowrap;
@@ -49,15 +51,14 @@
 
 .demos-anchor {
   color: #aaa;
-  background: #fff;
   font-size: 12px;
-  margin-top: 0;
+  margin-top: -4px;
   a {
     padding-left: 8px;
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    max-width: 90px;
+    max-width: 110px;
   }
 }

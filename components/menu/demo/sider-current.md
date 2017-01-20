@@ -17,7 +17,7 @@ Click the menu and you will see that all the other menus gets collapsed to keep 
 
 > This demo is for antd@2.0+.
 
-````jsx
+````__react
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 

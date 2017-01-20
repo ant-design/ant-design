@@ -6,7 +6,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
     <div
       class="ant-spin-container">
       <div
-        class="ant-table ant-table-large ant-table-without-column-header ant-table-scroll-position-left">
+        class="ant-table ant-table-large ant-table-scroll-position-left">
         <div
           class="ant-table-content">
           <div

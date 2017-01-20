@@ -14,7 +14,7 @@ title:
 Generating a set of Tags by array, you can add and remove dynamically.
 It's based on `afterClose` event, which will be triggered while the close animation end.
 
-````jsx
+````__react
 import { Tag, Input, Tooltip, Button } from 'antd';
 
 class EditableTagGroup extends React.Component {

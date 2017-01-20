@@ -32,6 +32,15 @@ title: Modal
 | wrapClassName | 对话框外层容器的类名 | String   | - |
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 
+#### 清空旧数据
+
+> `<Modal />` 组件有标准的 React 生命周期，关闭后状态不会自动清空。
+> 如果希望每次打开都是新内容，需要自行手动清空旧的状态。或者打开时给 Modal 设置一个[全新的 key](https://github.com/ant-design/ant-design/issues/4165)， React 会渲染出一个全新的对话框。
+
+> ```
+> <Modal key={this.state.newRandomKey} visible={this.state.visible} />
+> ```
+
 ### Modal.xxx()
 
 包括：

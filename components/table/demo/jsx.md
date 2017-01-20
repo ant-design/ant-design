@@ -9,11 +9,15 @@ title:
 
 使用 JSX 风格的 API（2.5.0 以后引入）
 
+> 这个只是一个描述 `columns` 的语法糖，所以你不能用其他组件去包裹 `Column` 和 `ColumnGroup`。
+
 ## en-US
 
 Using JSX style API (introduced in 2.5.0)
 
-````jsx
+> Since this is just a syntax sugar for the prop `columns`, so that you can't compose `Column` and `ColumnGroup` with other Components.
+
+````__react
 import { Table, Icon } from 'antd';
 
 const { Column, ColumnGroup } = Table;
@@ -39,7 +43,7 @@ const data = [{
 }];
 
 ReactDOM.render(
-  <Table dataSource={data} bordered>
+  <Table dataSource={data}>
     <ColumnGroup title="Name">
       <Column
         title="First Name"

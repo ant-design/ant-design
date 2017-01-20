@@ -13,7 +13,7 @@ title:
 
 There are 12 `placement` options available. Use `arrowPointAtCenter` if you want arrow point at the center of target.
 
-````jsx
+````__react
 import { Popconfirm, message, Button } from 'antd';
 
 const text = 'Are you sure delete this task?';

@@ -71,8 +71,15 @@ export default class Menu extends React.Component<MenuProps, any> {
       'see: http://u.ant.design/menu-on-open-change.'
     );
 
+    let openKeys;
+    if ('defaultOpenKeys' in props) {
+      openKeys = props.defaultOpenKeys;
+    } else if ('openKeys' in props) {
+      openKeys = props.openKeys;
+    }
+
     this.state = {
-      openKeys: [],
+      openKeys,
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -87,7 +94,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   handleClick = (e) => {
     this.setOpenKeys([]);
 
-    const onClick = this.props.onClick;
+    const { onClick } = this.props;
     if (onClick) {
       onClick(e);
     }
@@ -95,7 +102,7 @@ export default class Menu extends React.Component<MenuProps, any> {
   handleOpenChange = (openKeys: string[]) => {
     this.setOpenKeys(openKeys);
 
-    const onOpenChange = this.props.onOpenChange;
+    const { onOpenChange } = this.props;
     if (onOpenChange) {
       onOpenChange(openKeys);
     }
@@ -132,9 +139,8 @@ export default class Menu extends React.Component<MenuProps, any> {
     let props = {};
     const className = `${this.props.className} ${this.props.prefixCls}-${this.props.theme}`;
     if (this.props.mode !== 'inline') {
-      // 这组属性的目的是
-      // 弹出型的菜单需要点击后立即关闭
-      // 另外，弹出型的菜单的受控模式没有使用场景
+      // There is this.state.openKeys for
+      // closing vertical popup submenu after click it
       props = {
         openKeys: this.state.openKeys,
         onClick: this.handleClick,

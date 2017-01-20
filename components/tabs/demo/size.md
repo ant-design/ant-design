@@ -13,7 +13,7 @@ title:
 
 Small size can be used in Modal.
 
-````jsx
+````__react
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

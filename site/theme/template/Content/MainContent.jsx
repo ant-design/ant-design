@@ -1,10 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'bisheng/router';
 import { Row, Col, Menu } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
-import config from '../../';
 
 const SubMenu = Menu.SubMenu;
 
@@ -124,9 +123,10 @@ export default class MainContent extends React.Component {
   }
 
   generateSubMenuItems(obj) {
+    const { themeConfig } = this.props;
     const topLevel = (obj.topLevel || []).map(this.generateMenuItem.bind(this, true));
     const itemGroups = Object.keys(obj).filter(isNotTopLevel)
-      .sort((a, b) => config.typeOrder[a] - config.typeOrder[b])
+      .sort((a, b) => themeConfig.typeOrder[a] - themeConfig.typeOrder[b])
       .map((type) => {
         const groupItems = obj[type].sort((a, b) => {
           return a.title.charCodeAt(0) -
@@ -142,13 +142,14 @@ export default class MainContent extends React.Component {
   }
 
   getMenuItems() {
+    const { themeConfig } = this.props;
     const moduleData = getModuleData(this.props);
     const menuItems = utils.getMenuItems(
       moduleData, this.context.intl.locale
     );
     const topLevel = this.generateSubMenuItems(menuItems.topLevel);
     const subMenu = Object.keys(menuItems).filter(isNotTopLevel)
-      .sort((a, b) => config.categoryOrder[a] - config.categoryOrder[b])
+      .sort((a, b) => themeConfig.categoryOrder[a] - themeConfig.categoryOrder[b])
       .map((category) => {
         const subMenuItems = this.generateSubMenuItems(menuItems[category]);
         return (

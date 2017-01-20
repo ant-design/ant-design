@@ -5,7 +5,7 @@
 @timepicker-prefix-cls: ~"@{ant-prefix}-time-picker";
 
 .@{timepicker-prefix-cls}-panel {
-  max-width: 168px;
+  max-width: @time-picker-panel-width;
   z-index: @zindex-picker;
   position: absolute;
 
@@ -74,7 +74,7 @@
   }
 
   &-narrow &-input-wrap {
-    max-width: 111px;
+    max-width: @time-picker-panel-column-width * 2;
   }
 
   &-select {
@@ -82,7 +82,7 @@
     font-size: @font-size-base;
     border-left: 1px solid @border-color-split;
     box-sizing: border-box;
-    width: 56px;
+    width: @time-picker-panel-column-width;
     overflow: hidden;
     position: relative; // Fix chrome weird render bug
     max-height: 144px;

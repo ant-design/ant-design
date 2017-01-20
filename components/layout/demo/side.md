@@ -13,7 +13,7 @@ title:
 
 Be used in the two-columns layout.
 
-````jsx
+````__react
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -94,10 +94,10 @@ ReactDOM.render(<SiderDemo />, mountNode);
 }
 
 #components-layout-demo-side .ant-layout-sider-collapsed .anticon {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 #components-layout-demo-side .ant-layout-sider-collapsed .nav-text {
-	display: none;
+  display: none;
 }
 ````

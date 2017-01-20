@@ -31,11 +31,62 @@ Following Ant Design specification, We develop a React UI library `antd` that co
 - It is a set of high quality UI components and based on [React Component](http://react-component.github.io/badgeboard/).
 - Provides a work flow which is based on npm, webpack, and babel, supporting ES2015 and TypeScript.
 
+## Compatibility
+
+Modern browsers and IE9+.
+
+> [IE8 issues](https://github.com/xcatliu/react-ie8)
+
+## Version
+
+- Stable: [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
+- Beta: [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
+
+You can subscribe to this feed for new version notification: https://github.com/ant-design/ant-design/releases.atom
+
 ## Installation
+
+### Using npm to install
+
+**We recommend using npm to install**，it not only makes development easier，but you can also take advantage of the whole ecosystem.
+
+If using npm to install, you could use `import` or `require`.
+
+Stable version：
 
 ```bash
 $ npm install antd --save
 ```
+
+Beta version：
+
+```bash
+$ npm install antd@beta --save
+```
+
+### Import in Browser
+
+[![CDNJS](https://img.shields.io/cdnjs/v/antd.svg?style=flat-square)](https://cdnjs.com/libraries/antd)
+
+We provide `antd.js` `antd.css` and `antd.min.js` `antd.min.css` under `antd/dist` in antd's npm package, in order to import all the components of antd directly. Also, you can use [unpkg](https://unpkg.com/).
+
+> It's not recommended to use the already built files, as you cannot get bugfixes from the dependencies of antd.
+
+#### stable
+
+- https://unpkg.com/antd/dist/antd.js
+- https://unpkg.com/antd/dist/antd.css
+- https://unpkg.com/antd/dist/antd.min.js
+- https://unpkg.com/antd/dist/antd.min.css
+
+#### beta
+
+- https://unpkg.com/antd@beta/dist/antd.js
+- https://unpkg.com/antd@beta/dist/antd.css
+- https://unpkg.com/antd@beta/dist/antd.min.js
+- https://unpkg.com/antd@beta/dist/antd.min.css
+
+> Here is an [example](https://github.com/ant-design/antd-init/tree/master/examples/build-antd-standalone) of how to build your own antd.js if you are using antd@<1.0.0.
 
 ## Usage
 
@@ -76,17 +127,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
    import DatePicker from 'antd/lib/date-picker';  // just for js
    import 'antd/lib/date-picker/style/css';  // with style
    ```
-
-## Version
-
-- Stable: [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd)
-- Beta: [![](https://cnpmjs.org/badge/v/antd.svg?&tag=beta&subject=npm)](https://www.npmjs.org/package/antd)
-
-## Compatibility
-
-Modern browsers and IE9+.
-
-> [IE8 issues](https://github.com/xcatliu/react-ie8)
 
 ## Useful Links
 

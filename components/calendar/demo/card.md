@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 2
 title: 
   zh-CN: 卡片模式
   en-US: Card
@@ -13,7 +13,7 @@ title:
 
 Nested inside a container element for rendering in limited space.
 
-````jsx
+````__react
 import { Calendar } from 'antd';
 
 function onPanelChange(value, mode) {

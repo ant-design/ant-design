@@ -121,6 +121,39 @@ const columns = [{
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 
+## 在 TypeScript 中使用
+
+```jsx
+import { Table } from 'antd';
+import { TableColumnConfig } from 'antd/lib/table/Table';
+
+interface IUser {
+  key: number,
+  name: string;
+}
+
+const columns: TableColumnConfig<IUser>[] = [{
+  key: 'name',
+  title: 'Name',
+  dataIndex: 'name',
+}];
+
+const data: IUser[] = [{
+  key: 0,
+  name: 'Jack',
+}];
+
+class UserTable extends Table<IUser> {}
+<UserTable columns={columns} dataSource={data} />
+
+// 使用 JSX 风格的 API
+class NameColumn extends Table.Column<IUser> {}
+
+<UserTable dataSource={data}>
+  <NameColumn key="name" title="Name" dataIndex="name" />
+</UserTable>
+```
+
 ## 注意
 
 按照 React 的[规范](http://facebook.github.io/react/docs/multiple-components.html#dynamic-children)，所有的组件数组必须绑定 key。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。

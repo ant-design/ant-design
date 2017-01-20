@@ -13,7 +13,7 @@ title:
 
 A simple loading status.
 
-````jsx
+````__react
 import { Spin } from 'antd';
 
 ReactDOM.render(<Spin />, mountNode);

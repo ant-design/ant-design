@@ -14,7 +14,7 @@ title:
 To perform operations and clear selections after selecting some rows, use `rowSelection.selectedRowKeys` to control selected rows.
 
 
-````jsx
+````__react
 import { Table, Button } from 'antd';
 
 const columns = [{

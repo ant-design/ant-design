@@ -1,6 +1,5 @@
 import React from 'react';
 import assign from 'object-assign';
-import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 
 export function flatArray(data: Object[] = [], childrenName = 'children') {
@@ -32,7 +31,7 @@ export function treeMap(tree: Object[], mapper: Function, childrenName = 'childr
 export function normalizeColumns(elements) {
   const columns: any[] = [];
   React.Children.forEach(elements, (element: React.ReactElement<any>) => {
-    if (!isColumnElement(element)) {
+    if (!React.isValidElement(element)) {
       return;
     }
     const column = assign({}, element.props);
@@ -45,8 +44,4 @@ export function normalizeColumns(elements) {
     columns.push(column);
   });
   return columns;
-}
-
-function isColumnElement(element) {
-  return element && (element.type === Column || element.type === ColumnGroup);
 }

@@ -13,7 +13,7 @@ Flex 子元素垂直对齐。
 
 Flex child elements vertically aligned.
 
-````jsx
+````__react
 import { Row, Col } from 'antd';
 
 const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;

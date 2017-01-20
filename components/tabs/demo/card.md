@@ -14,7 +14,7 @@ title:
 Another type Tabs, which doesn't support vertical mode.
 
 
-````jsx
+````__react
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

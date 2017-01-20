@@ -21,8 +21,8 @@ Control filters and sorters by `filteredValue` and `sortOrder`.
 > 2. Make sure `sortOrder` is assigned for only one column.
 > 3. `column.key` is required.
 
-````jsx
-import { Table } from 'antd';
+````__react
+import { Table, Button } from 'antd';
 
 const data = [{
   key: '1',
@@ -60,19 +60,16 @@ const App = React.createClass({
       sortedInfo: sorter,
     });
   },
-  clearFilters(e) {
-    e.preventDefault();
+  clearFilters() {
     this.setState({ filteredInfo: null });
   },
-  clearAll(e) {
-    e.preventDefault();
+  clearAll() {
     this.setState({
       filteredInfo: null,
       sortedInfo: null,
     });
   },
-  setAgeSort(e) {
-    e.preventDefault();
+  setAgeSort() {
     this.setState({
       sortedInfo: {
         order: 'descend',
@@ -92,7 +89,7 @@ const App = React.createClass({
         { text: 'Joe', value: 'Joe' },
         { text: 'Jim', value: 'Jim' },
       ],
-      filteredValue: filteredInfo.name,
+      filteredValue: filteredInfo.name || null,
       onFilter: (value, record) => record.name.includes(value),
       sorter: (a, b) => a.name.length - b.name.length,
       sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
@@ -110,7 +107,7 @@ const App = React.createClass({
         { text: 'London', value: 'London' },
         { text: 'New York', value: 'New York' },
       ],
-      filteredValue: filteredInfo.address,
+      filteredValue: filteredInfo.address || null,
       onFilter: (value, record) => record.address.includes(value),
       sorter: (a, b) => a.address.length - b.address.length,
       sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
@@ -118,9 +115,9 @@ const App = React.createClass({
     return (
       <div>
         <div className="table-operations">
-          <a href="#" onClick={this.setAgeSort}>Age descending order</a>
-          <a href="#" onClick={this.clearFilters}>Clear filters</a>
-          <a href="#" onClick={this.clearAll}>Clear filters and sorting</a>
+          <Button type="ghost" onClick={this.setAgeSort}>Sort age</Button>
+          <Button type="ghost" onClick={this.clearFilters}>Clear filters</Button>
+          <Button type="ghost" onClick={this.clearAll}>Clear filters and sorters</Button>
         </div>
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>
@@ -133,12 +130,10 @@ ReactDOM.render(<App />, mountNode);
 
 ````css
 .table-operations {
-  font-size: 12px;
-  text-align: right;
   margin-bottom: 16px;
 }
 
-.table-operations a {
-  margin-left: 8px;
+.table-operations > button {
+  margin-right: 8px;
 }
 ````

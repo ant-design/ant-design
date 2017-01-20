@@ -13,7 +13,7 @@ title:
 
 The simplest usage for short messages.
 
-````jsx
+````__react
 import { Alert } from 'antd';
 
 ReactDOM.render(

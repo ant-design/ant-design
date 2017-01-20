@@ -13,7 +13,7 @@ title:
 
 Only card type Tabs support adding & closeable.
 
-````jsx
+````__react
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

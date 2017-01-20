@@ -18,7 +18,7 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 > * It has event `onChange` or an event which name is equal to the value of [`trigger`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
 
 
-````jsx
+````__react
 import { Form, Input, Select, Button } from 'antd';
 const FormItem = Form.Item;
 const Option = Select.Option;

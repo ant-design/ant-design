@@ -13,7 +13,7 @@ title:
 
 The pagination in table could be configured with an object, and you can use `pagination={false}` to turn off pagination.
 
-````jsx
+````__react
 import { Table } from 'antd';
 
 const columns = [{

@@ -24,7 +24,7 @@ An enterprise-class UI design language and React-based implementation.
 - An enterprise-class design language and high quality UI.
 - Graceful UI components out of the box, based on [React Component](http://react-component.github.io/badgeboard/).
 - Written in TypeScript with complete define types.
-- A npm + webpack + babel + [dora](https://github.com/dora-js/dora) + [dva](https://github.com/dvajs/dva) development framework.
+- A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
 
 ## Let's build a better antd together [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
@@ -123,7 +123,9 @@ We welcome all contributions, please read our [CONTRIBUTING.md](https://github.c
 
 ## Release Schedule
 
-* Weekly release: patch version at the end of every week.
-* Monthly release: minor version at the end of every month.
-* Emergence release: emergence patch anytime if necessary.
-* Major version release is not included in this schedule.
+Follow [Semantic Versioning 2.0.0](http://semver.org/).
+
+* Weekly release: patch version at the end of every week for routine bugfix.
+* Monthly release: minor version at the end of every month for new features.
+* Emergence release: emergence patch anytime if necessary for urgent bugfix.
+* Major version release is not included in this schedule for breadking change and new features.

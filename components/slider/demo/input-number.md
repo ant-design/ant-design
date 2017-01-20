@@ -13,7 +13,7 @@ title:
 
 Synchronize with [InptNumber](/components/input-number/) component.
 
-````jsx
+````__react
 import { Slider, InputNumber, Row, Col } from 'antd';
 
 const IntegerStep = React.createClass({

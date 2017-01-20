@@ -1,18 +1,4 @@
 const path = require('path');
-const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-
-function pickerGenerator(module) {
-  const tester = new RegExp(`^docs/${module}`);
-  return (markdownData) => {
-    const filename = markdownData.meta.filename;
-    if (tester.test(filename) &&
-        !/\/demo$/.test(path.dirname(filename))) {
-      return {
-        meta: markdownData.meta,
-      };
-    }
-  };
-}
 
 module.exports = {
   port: 8001,
@@ -22,43 +8,33 @@ module.exports = {
     'CHANGELOG.zh-CN.md', // TODO: fix it in bisheng
     'CHANGELOG.en-US.md',
   ],
-  lazyLoad(nodePath, nodeValue) {
-    if (typeof nodeValue === 'string') {
-      return true;
-    }
-    return nodePath.endsWith('/demo');
-  },
-  pick: {
-    components(markdownData) {
-      const filename = markdownData.meta.filename;
-      if (!/^components/.test(filename) ||
-          /\/demo$/.test(path.dirname(filename))) return;
-
-      return {
-        meta: markdownData.meta,
-      };
-    },
-    changelog(markdownData) {
-      if (/CHANGELOG/.test(markdownData.meta.filename)) {
-        return {
-          meta: markdownData.meta,
-        };
-      }
-    },
-    'docs/pattern': pickerGenerator('pattern'),
-    'docs/practice': pickerGenerator('practice'),
-    'docs/react': pickerGenerator('react'),
-    'docs/resource': pickerGenerator('resource'),
-    'docs/spec': pickerGenerator('spec'),
-  },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
-  plugins: [
-    'bisheng-plugin-description',
-    'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-react?lang=__react',
-    'bisheng-plugin-antd',
-  ],
+  themeConfig: {
+    categoryOrder: {
+      十大原则: 0,
+      Principles: 0,
+      设计基础: 1,
+      'Design Fundamental': 1,
+    },
+    typeOrder: {
+      General: 0,
+      Layout: 1,
+      Navigation: 2,
+      'Data Entry': 3,
+      'Data Display': 4,
+      Feedback: 5,
+      Localization: 6,
+      Other: 7,
+    },
+    docVersions: {
+      '0.9.x': 'http://09x.ant.design',
+      '0.10.x': 'http://010x.ant.design',
+      '0.11.x': 'http://011x.ant.design',
+      '0.12.x': 'http://012x.ant.design',
+      '1.x': 'http://1x.ant.design',
+    },
+  },
   filePathMapper(filePath) {
     if (filePath === '/index.html') {
       return ['/index.html', '/index-cn.html'];
@@ -82,7 +58,6 @@ module.exports = {
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
     };
-    config.plugins.push(new CSSSplitWebpackPlugin({ preserve: true }));
 
     config.babel.plugins.push([
       require.resolve('babel-plugin-transform-runtime'),

@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 9
 title: 更新日志
 toc: false
 timeline: true
@@ -8,6 +8,34 @@ timeline: true
 如果需要查看 `2.0.0` 之前的更新日志，请移步 [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0)。
 
 ---
+
+## 2.6.3
+
+`2017-01-15`
+
+* 修复 `2.6.2` 中 Popconfirm 不可用的问题。[#4606](https://github.com/ant-design/ant-design/issues/4606)
+
+## 2.6.2
+
+`2017-01-14`
+
+* 新增社区精选组件页面。[链接](/docs/react/recommendation/)
+* 修复一个内容过长导致 Layout 侧边布局错位的问题。[#4459](https://github.com/ant-design/ant-design/issues/4459)
+* 修复 Input.Search 输入框和图标错位的问题。[#4540](https://github.com/ant-design/ant-design/issues/4540)
+* 补充了一个自定义灰底样式的 Collapse 折叠面板的例子。[链接](/components/collapse-cn/#components-collapse-demo-custom)
+* Table
+  * 调大了 Table 选择框和展开按钮的列宽度。
+  * 修复 `pagination` 属性切换后分页不可用的问题。[#4532](https://github.com/ant-design/ant-design/issues/4532)
+  * 修复不支持三级筛选菜单的问题。[#4541](https://github.com/ant-design/ant-design/issues/4541)
+  * 修复 `column.filteredValue` 无法设置为 `null` 的问题。
+* 调整 Carousel 为默认不可拖拽和文字可选择。
+* 增加了 Breadcrumb 内嵌非 Breadcrumb.Item 元素时的警告提示。[#4403](https://github.com/ant-design/ant-design/issues/4403)
+* 修复 Tooltip 在 `onVisibleChange(visible)` 返回 `true` 时不展示的问题。[#4579](https://github.com/ant-design/ant-design/issues/4579)
+* 优化 TreeSelect 内容过长时的面板高度。[#4537](https://github.com/ant-design/ant-design/pull/4537)
+* 补充了 TimePicker 和 Spin 的组件样式变量。
+* 用年份代替了 DatePicker 年份选择面板上的箭头。[#4415](https://github.com/ant-design/ant-design/issues/4415)
+* 修复 AutoComplete 和 Form `[options.validateTrigger]` 的 TypeScript 定义。
+* 优化 Spin、Progress 的动画细节效果。
 
 ## 2.6.1
 

@@ -15,7 +15,7 @@ title:
 
 Customize suggestions
 
-````jsx
+````__react
 import { Mention } from 'antd';
 const Nav = Mention.Nav;
 

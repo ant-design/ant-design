@@ -13,7 +13,7 @@ title:
 
 Simplest Usage.
 
-````jsx
+````__react
 import { Badge } from 'antd';
 
 ReactDOM.render(

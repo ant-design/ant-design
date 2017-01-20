@@ -4,21 +4,22 @@
 
 .main-color {
   overflow: hidden;
-}
-
-.main-color {
+  display: flex;
   &-item {
-    width: 80px;
-    height: 60px;
+    flex: 1;
+    height: 80px;
     border-radius: 4px;
     float: left;
-    margin: 0 5px 5px 0;
+    margin-right: 4px;
     transition: all .2s;
     position: relative;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 28px;
     font-family: Consolas;
     font-size: 12px;
+    &:last-child {
+      margin-right: 0;
+    }
   }
   &-item &-value {
     font-size: 12px;

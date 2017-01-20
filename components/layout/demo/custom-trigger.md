@@ -13,7 +13,7 @@ title:
 
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
-````jsx
+````__react
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
 
@@ -91,10 +91,10 @@ ReactDOM.render(<SiderDemo />, mountNode);
 }
 
 #components-layout-demo-custom-trigger .ant-layout-sider-collapsed .anticon {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 #components-layout-demo-custom-trigger .ant-layout-sider-collapsed .nav-text {
-	display: none;
+  display: none;
 }
 ````

@@ -13,7 +13,7 @@ title:
 
 Horizontal login form is often used in navigation bar.
 
-````jsx
+````__react
 import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 

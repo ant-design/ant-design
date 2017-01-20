@@ -12,7 +12,7 @@ title:
 
 Make part of time unselectable by `disabledHours` `disabledMinutes` `disabledSeconds`, and we even can hide those unselectable options by `hideDisabledOptions`.
 
-````jsx
+````__react
 import { TimePicker } from 'antd';
 
 function range(start, end) {

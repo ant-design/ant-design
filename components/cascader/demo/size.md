@@ -13,7 +13,7 @@ title:
 
 Cascade selection box of different sizes.
 
-````jsx
+````__react
 import { Cascader } from 'antd';
 
 const options = [{

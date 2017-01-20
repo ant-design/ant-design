@@ -13,7 +13,7 @@ title:
 
 Standalone badge with status.
 
-````jsx
+````__react
 import { Badge } from 'antd';
 
 ReactDOM.render(

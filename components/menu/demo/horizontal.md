@@ -13,7 +13,7 @@ title:
 
 Horizontal top navigation menu.
 
-````jsx
+````__react
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;

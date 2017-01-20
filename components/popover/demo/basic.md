@@ -13,7 +13,7 @@ title:
 
 The most basic example. The size of the floating layer depends on the contents region.
 
-````jsx
+````__react
 import { Popover, Button } from 'antd';
 
 const content = (

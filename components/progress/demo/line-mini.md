@@ -13,7 +13,7 @@ title:
 
 Appropriate for a narrow area.
 
-````jsx
+````__react
 import { Progress } from 'antd';
 
 ReactDOM.render(

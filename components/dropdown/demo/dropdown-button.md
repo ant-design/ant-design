@@ -13,7 +13,7 @@ title:
 
 A button is on the left, and a related functional menu is on the right.
 
-````jsx
+````__react
 import { Menu, Dropdown, Button, Icon, message } from 'antd';
 
 function handleButtonClick(e) {

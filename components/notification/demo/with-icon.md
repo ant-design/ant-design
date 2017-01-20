@@ -13,7 +13,7 @@ title:
 
 A notification box with a icon at the left side.
 
-````jsx
+````__react
 import { Button, notification } from 'antd';
 
 const openNotificationWithIcon = (type) => {

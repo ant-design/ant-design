@@ -24,7 +24,7 @@
 - 提炼和服务企业级中后台产品的交互语言和视觉风格。
 - [React Component](http://react-component.github.io/badgeboard/) 基础上精心封装的高质量 UI 组件。
 - 使用 TypeScript 构建，提供完整的类型定义文件。
-- 基于 npm + webpack + babel + [dora](https://github.com/dora-js/dora) + [dva](https://github.com/dvajs/dva) 的企业级业务开发框架。
+- 基于 npm + webpack + [dva](https://github.com/dvajs/dva) 的企业级开发框架。
 
 ## 安装
 
@@ -96,7 +96,8 @@ tsconfig.json
 
 ## 发布周期
 
-* 每周末会发布一个完全兼容的 patch 版本。
-* 每月发布一个带有新特性的 minor 版本。
-* 任何时候都可以发布紧急补丁。
-* 大版本号不在此发布周期内。
+遵循 [Semantic Versioning 2.0.0](http://semver.org/lang/zh-CN/) 语义化版本规范。
+
+* patch 版本：每周末会进行日常 bugfix 更新。（如果有紧急的 bugfix，则任何时候都可发布）
+* minor 版本：每月发布一个带有新特性的版本。
+* 大版本号：含有破坏性更新和新特性，不再发布周期内。

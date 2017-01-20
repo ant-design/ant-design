@@ -1152,7 +1152,7 @@ exports[`test renders ./components/locale-provider/demo/all.md correctly 1`] = `
           <div
             class="ant-spin-container">
             <div
-              class="ant-table ant-table-large ant-table-empty ant-table-without-column-header ant-table-scroll-position-left">
+              class="ant-table ant-table-large ant-table-empty ant-table-scroll-position-left">
               <div
                 class="ant-table-content">
                 <div

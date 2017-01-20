@@ -18,7 +18,7 @@ Automatic completion of select input.
 Using the [AutoComplete](/components/auto-complete/) component is strongly recommended instead as it is more flexible and capable.
 
 
-````jsx
+````__react
 import { Select } from 'antd';
 const Option = Select.Option;
 

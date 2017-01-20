@@ -13,7 +13,7 @@ title:
 
 Vertical RadioGroup, with more radios.
 
-```jsx
+```__react
 import { Radio, Input } from 'antd';
 const RadioGroup = Radio.Group;
 

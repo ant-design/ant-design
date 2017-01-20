@@ -13,7 +13,7 @@ title:
 
 Basic timeline.
 
-````jsx
+````__react
 import { Timeline } from 'antd';
 
 ReactDOM.render(

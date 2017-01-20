@@ -13,7 +13,7 @@ title:
 
 The arrow points to the center of the target element, which set `arrowPointAtCenter`.
 
-````jsx
+````__react
 import { Popover, Button } from 'antd';
 
 const text = <span>Title</span>;

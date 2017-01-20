@@ -28,7 +28,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   render() {
     const props = this.props;
     let {
-      size, className = '', notFoundContent, prefixCls,
+      size, className = '', notFoundContent, prefixCls, dropdownStyle,
     } = this.props;
 
     const cls = classNames({
@@ -49,6 +49,7 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     return (
       <RcTreeSelect
         {...this.props}
+        dropdownStyle={{ maxHeight: '100%', overflow: 'auto', ...dropdownStyle }}
         treeCheckable={checkable}
         className={cls}
         notFoundContent={notFoundContent}

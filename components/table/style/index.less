@@ -132,9 +132,11 @@
   }
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column,
-  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column,
+  &-expand-icon-th,
+  &-row-expand-icon-cell {
     text-align: center;
-    width: 40px;
+    width: 48px;
   }
 
   &-header {
@@ -271,6 +273,13 @@
       border-bottom: 0;
     }
 
+    &.@{table-prefix-cls}-empty {
+      .@{table-prefix-cls}-placeholder {
+        border-left: 1px solid @border-color-split;
+        border-right: 1px solid @border-color-split;
+      }
+    }
+
     &.@{table-prefix-cls}-fixed-header {
       .@{table-prefix-cls}-header > table {
         border-bottom: 0;
@@ -287,16 +296,12 @@
       }
 
       .@{table-prefix-cls}-placeholder {
-        border-bottom: 0;
+        border: 0;
       }
     }
 
     .@{table-prefix-cls}-thead > tr > th {
       border-bottom: 1px solid @border-color-split;
-    }
-
-    &.@{table-prefix-cls}-empty .@{table-prefix-cls}-thead > tr > th {
-      border-bottom: 0;
     }
 
     .@{table-prefix-cls}-thead > tr > th,
@@ -318,11 +323,16 @@
       .@{table-prefix-cls}-title {
         border: 0;
         border-bottom: 1px solid @border-color-split;
+        border-right: 1px solid @border-color-split;
       }
 
       .@{table-prefix-cls}-footer {
         border: 0;
         border-top: 1px solid @border-color-split;
+        border-right: 1px solid @border-color-split;
+        &:before {
+          display: none;
+        }
       }
     }
   }
@@ -330,7 +340,7 @@
   &-placeholder {
     padding: 16px 8px;
     background: @component-background;
-    border-bottom: 1px solid @border-color-split;;
+    border-bottom: 1px solid @border-color-split;
     text-align: center;
     font-size: @font-size-base;
     color: @text-color-secondary;
@@ -357,7 +367,7 @@
       border-radius: @border-radius-base @border-radius-base 0 0;
 
       &-item > label + span {
-        margin-left: 8px;
+        padding: 0;
       }
 
       &-sub {
@@ -404,10 +414,6 @@
         float: right;
       }
     }
-  }
-
-  &-expand-icon-th {
-    width: 40px;
   }
 
   &-row {
@@ -459,6 +465,7 @@
 
   &-scroll {
     overflow: auto;
+    overflow-x: hidden;
     table {
       width: auto;
       min-width: 100%;
@@ -482,6 +489,7 @@
     overflow: scroll;
     padding-bottom: 20px;
     margin-bottom: -20px;
+    margin-right: -18px;
   }
 
   /* fix firefox scrollbar bug */
@@ -511,7 +519,7 @@
 
   &-fixed-left {
     left: 0;
-    box-shadow: @shadow-1-right;
+    box-shadow: 6px 0 6px -4px @shadow-color;
     .@{table-prefix-cls}-header {
       overflow-y: hidden;
     }
@@ -531,7 +539,7 @@
 
   &-fixed-right {
     right: 0;
-    box-shadow: @shadow-1-left;
+    box-shadow: -6px 0 6px -4px @shadow-color;
     &,
     table {
       border-radius: 0 @border-radius-base 0 0;

@@ -13,7 +13,7 @@ title:
 
 Hover to expand sub menu, click to select option.
 
-````jsx
+````__react
 import { Cascader } from 'antd';
 
 const options = [{

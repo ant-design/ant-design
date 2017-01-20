@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title:
   zh-CN: 国际化
   en-US: locale
@@ -13,7 +13,7 @@ title:
 
 To set the language. en_US, zh_CN are supported by default.
 
-````jsx
+````__react
 import { Calendar } from 'antd';
 import enUS from 'antd/lib/calendar/locale/en_US';
 import moment from 'moment';

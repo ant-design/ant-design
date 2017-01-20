@@ -13,7 +13,7 @@ title:
 
 Tab can be slide to left or right, which is used for a lot of tabs. 
 
-````jsx
+````__react
 import { Tabs } from 'antd';
 const TabPane = Tabs.TabPane;
 

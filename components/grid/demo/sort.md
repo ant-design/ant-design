@@ -15,7 +15,7 @@ title:
 
 By using `push` and` pull` class you can easily change column order.
 
-````jsx
+````__react
 import { Row, Col } from 'antd';
 
 ReactDOM.render(

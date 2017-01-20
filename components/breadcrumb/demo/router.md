@@ -14,7 +14,7 @@ title:
 
 Used together with `react-router@2+`.
 
-````jsx
+````__react
 import { Router, Route, Link, hashHistory } from 'react-router';
 import { Breadcrumb, Alert } from 'antd';
 

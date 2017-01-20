@@ -1,6 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import Select, { OptionProps, OptGroupProps } from '../select';
+import Select, { AbstractSelectProps, OptionProps, OptGroupProps } from '../select';
 import Input from '../input';
 import { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
@@ -23,20 +23,15 @@ export type ValidInputElement =
   HTMLTextAreaElement |
   React.ReactElement<InputProps>;
 
-export interface AutoCompleteProps {
+export interface AutoCompleteProps extends AbstractSelectProps {
   size?: 'large' | 'small' | 'default';
   className?: string;
   notFoundContent?: Element;
   dataSource: DataSourceItemType[];
-  prefixCls?: string;
-  transitionName?: string;
-  optionLabelProp?: string;
-  choiceTransitionName?: string;
-  showSearch?: boolean;
   defaultValue?: string | Array<any> | SelectedValue | Array<SelectedValue>;
   value?: string | Array<any> | SelectedValue | Array<SelectedValue>;
-  allowClear?: boolean;
   onChange?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>) => void;
+  onSelect?: (value: string | Array<any> | SelectedValue | Array<SelectedValue>, option: Object) => any;
   disabled?: boolean;
   children: ValidInputElement |
     React.ReactElement<OptionProps> |
@@ -82,6 +77,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, any
       <Input/>;
     return <InputElement className="ant-input">{element}</InputElement>;
   }
+
   render() {
     let {
       size, className = '', notFoundContent, prefixCls, optionLabelProp, dataSource, children,

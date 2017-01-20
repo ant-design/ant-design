@@ -36,6 +36,8 @@ const defaultPagination = {
   onShowSizeChange: noop,
 };
 
+export type TableColumnConfig<T> = ColumnProps<T>;
+
 export interface TableRowSelection<T> {
   type?: 'checkbox' | 'radio';
   selectedRowKeys?: string[];
@@ -114,6 +116,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     indentSize: 20,
     locale: {},
     rowKey: 'key',
+    showHeader: true,
   };
 
   static contextTypes = {
@@ -294,7 +297,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
   }
 
   getFilteredValueColumns(columns?) {
-    return (columns || this.columns || []).filter(column => column.filteredValue);
+    return (columns || this.columns || []).filter(column => typeof column.filteredValue !== 'undefined');
   }
 
   getFiltersFromColumns(columns?) {

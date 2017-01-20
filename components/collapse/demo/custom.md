@@ -13,7 +13,7 @@ title:
 
 Customize the background, border and margin styles for each panel.
 
-````jsx
+````__react
 import { Collapse } from 'antd';
 const Panel = Collapse.Panel;
 

@@ -13,7 +13,7 @@ title:
 
 Customized description content.
 
-````jsx
+````__react
 import { Spin, Alert } from 'antd';
 
 ReactDOM.render(

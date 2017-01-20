@@ -13,7 +13,7 @@ title:
 
 Set a node as an icon or other custom element.
 
-````jsx
+````__react
 import { Timeline, Icon } from 'antd';
 
 ReactDOM.render(

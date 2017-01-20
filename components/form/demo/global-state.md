@@ -13,7 +13,7 @@ title:
 
 We can store form data into upper component or [Redux](https://github.com/reactjs/redux) or [dva](https://github.com/dvajs/dva) by using `onFieldsChange` and `mapPropsToFields`.
 
-````jsx
+````__react
 import { Form, Input } from 'antd';
 const FormItem = Form.Item;
 

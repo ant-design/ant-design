@@ -13,7 +13,7 @@ title:
 
 To show close button.
 
-````jsx
+````__react
 import { Alert } from 'antd';
 
 const onClose = function (e) {
