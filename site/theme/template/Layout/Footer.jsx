@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Select, Modal } from 'antd';
-import { version as antdVersion } from 'antd/package.json';
+import { version as antdVersion } from '../../../../package.json';
 import * as utils from '../utils';
 
 const Option = Select.Option;
