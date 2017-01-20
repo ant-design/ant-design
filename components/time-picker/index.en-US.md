@@ -28,7 +28,7 @@ import moment from 'moment';
 | placeholder         | display when there's no value | string | "Select a time" |
 | onChange            | a callback function, can be executed when the selected time is changing    | function(time: moment, timeString: string): void | - |
 | format              | to set the time format | string | "HH:mm:ss"、"HH:mm"、"mm:ss" |
-| disabled            | determine whether the TimePicker is disabled | bool | false |
+| disabled            | determine whether the TimePicker is disabled | boolean | false |
 | disabledHours       | to specify the hours that cannot be selected | function() | - |
 | disabledMinutes     | to specify the minutes that cannot be selected | function(selectedHour) | - |
 | disabledSeconds     | to specify the seconds that cannot be selected | function(selectedHour, selectedMinute) | - |

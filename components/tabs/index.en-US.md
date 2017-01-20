@@ -36,4 +36,4 @@ Ant Design has 3 types Tabs for different situation.
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
 | key          | TabPane's key         | string   | _            |
-| tab          | Show text in TabPane's head | React.ReactNode | _ |
+| tab          | Show text in TabPane's head | string\|ReactNode | _ |

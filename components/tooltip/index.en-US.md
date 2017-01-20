@@ -25,7 +25,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 |-----------|------------------------------------------|------------|--------|
 | placement | to set the position, which can be one of `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
 | getPopupContainer | to set the container of the tip, while the default is to create a `div` element in `body`. Use `getTooltipContainer` if you are using `antd@<2.5.2` | Function(triggerNode) | () => document.body |
-| arrowPointAtCenter | whether arrow pointed at the center of target, supported after `antd@1.11+` | Boolean | `false` |
+| arrowPointAtCenter | whether arrow pointed at the center of target, supported after `antd@1.11+` | boolean | `false` |
 | visible   | make the float card visible or not                     | boolean       | false  |
 | onVisibleChange | callback of the visible attribute changed            | (visible) => void | none     |
 | trigger | triggering mode: can be hover, focus, or click. | string | hover |

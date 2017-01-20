@@ -28,7 +28,7 @@ Timeline
 
 | Property      | Description                                     | Type       | Default |
 |----------|----------------------------------------|------------|-------|
-| pending  | to set the last ghost node's existence or its content | boolean or React.Element | false  |
+| pending  | to set the last ghost node's existence or its content | boolean\|string\|ReactNode | false  |
 
 ### Timeline.Item
 
@@ -37,4 +37,4 @@ Node of timeline
 | Property      | Description                                     | Type       | Default |
 |----------|------------------------------------------|------------|-------|
 | color   | to set the circle's color to `blue, red, green` or other custom colors | string | blue  |
-| dot   | custom timeline dot | React.Element | -  |
+| dot   | custom timeline dot | string\|ReactNode | -  |

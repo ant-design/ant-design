@@ -36,17 +36,17 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 
 | Property     | Description    | Type     | Default      |
 |--------------|----------------|----------|--------------|
-| allowClear   | Whether to show clear button | bool | true |
-| disabled     | determine whether the DatePicker is disabled           | Boolean     | false        |
-| style        | to customize the style of the input box     | Object     | {}   |
-| popupStyle   | to customize the style of the popup calendar   | Object     | {}   |
-| size         | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | String   | -  |
-| locale       | localization configuration | Object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
+| allowClear   | Whether to show clear button | boolean | true |
+| disabled     | determine whether the DatePicker is disabled           | boolean     | false        |
+| style        | to customize the style of the input box     | object     | {}   |
+| popupStyle   | to customize the style of the popup calendar   | object     | {}   |
+| size         | determine the size of the input box, the height of `large` and `small`, are 32px and 22px respectively, while default size is 28px | string   | -  |
+| locale       | localization configuration | object   | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)  |
 | disabledDate | to specify the date that cannot be selected | function | -           |
 | getCalendarContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |
-| open | open state of picker | bool | - |
+| open | open state of picker | boolean | - |
 | onOpenChange   | a callback function, can be executed whether the popup calendar is popped up or closed | function(status) | - |
-| placeholder  | placeholder of date input | string or array (RangePicker) | - |
+| placeholder  | placeholder of date input | string\|RangePicker[] | - |
 
 ### DatePicker
 
@@ -54,10 +54,10 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 |--------------|----------------|----------|--------------|
 | value        | to set date           | [moment](http://momentjs.com/)   | -           |
 | defaultValue | to set default date        | [moment](http://momentjs.com/)   | -           |
-| format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM-DD" |
+| format       | to set the date format, refer to [moment.js](http://momentjs.com/) | string   | "YYYY-MM-DD" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
-| showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
-| showToday    | whether to show "Today" button | Boolean | true |
+| showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#api) |
+| showToday    | whether to show "Today" button | boolean | true |
 | disabledTime | to specify the time that cannot be selected | function(date) | - |
 
 ### MonthPicker
@@ -66,9 +66,9 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 |--------------|----------------|----------|--------------|
 | value        | to set date          | [moment](http://momentjs.com/)   | -           |
 | defaultValue | to set default date       | [moment](http://momentjs.com/)   | -           |
-| format       | to set the date format, refer to [moment.js](http://momentjs.com/) | String   | "YYYY-MM" |
+| format       | to set the date format, refer to [moment.js](http://momentjs.com/) | string   | "YYYY-MM" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(date: moment, dateString: string) | -           |
-| monthCellContentRender | Custom month cell content render method | function(date, locale): React.Node | - |
+| monthCellContentRender | Custom month cell content render method | function(date, locale): ReactNode | - |
 
 ### RangePicker
 
@@ -76,11 +76,11 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker.
 |--------------|----------------|----------|--------------|
 | value        | to set date          | [[moment](http://momentjs.com/), [moment](http://momentjs.com/)]   | -           |
 | defaultValue | to set default date       | [[moment](http://momentjs.com/), [moment](http://momentjs.com/)]   | -           |
-| format       | to set the date format  | String    | "YYYY-MM-DD HH:mm:ss" |
+| format       | to set the date format  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | a callback function, can be executed when the selected time is changing | function(dates: [moment, moment], dateStrings: [string, string]) | -           |
-| showTime     | to provide an additional time selection  | Object/Boolean | [TimePicker Options](/components/time-picker/#api) |
+| showTime     | to provide an additional time selection  | object\|boolean | [TimePicker Options](/components/time-picker/#api) |
 | disabledTime | to specify the time that cannot be selected | function(dates: [moment, moment], partial: `'start'|'end'`) | - |
-| ranges       | preseted ranges for quick selection | Object { [range: string]: [moment, moment] } | - |
+| ranges       | preseted ranges for quick selection | { [range: string]: [moment](http://momentjs.com/)[] } | - |
 
 <style>
 .code-box-demo .ant-calendar-picker {

@@ -19,8 +19,8 @@ cols: 1
 
 | 参数             | 说明                                         | 类型     | 默认值                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
-| activeKey        | 当前激活 tab 面板的 key| Array or String   | 默认无，accordion模式下默认第一个元素|
-| defaultActiveKey | 初始化选中面板的 key | String   | 无 |
+| activeKey        | 当前激活 tab 面板的 key| string[]\|string   | 默认无，accordion模式下默认第一个元素|
+| defaultActiveKey | 初始化选中面板的 key | string   | 无 |
 | onChange         | 切换面板的回调                               | Function | 无                              |
 
 
@@ -28,5 +28,5 @@ cols: 1
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
-| key  | 对应 activeKey   | String                  | 无     |
-| header | 面板头内容 | React.Element or String | 无     |
+| key  | 对应 activeKey   | string                  | 无     |
+| header | 面板头内容 | string\|ReactNode | 无     |

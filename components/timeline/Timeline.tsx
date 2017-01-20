@@ -6,7 +6,7 @@ export interface TimelineProps {
   prefixCls?: string;
   className?: string;
   /** 指定最后一个幽灵节点是否存在或内容 */
-  pending?: boolean | React.ReactNode;
+  pending?: React.ReactNode;
   style?: React.CSSProperties;
 }
 

@@ -20,5 +20,5 @@ title: BackTop
 
 | 参数        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| visibilityHeight    | 滚动高度达到此参数值才出现 `BackTop`   | Number | 400        |
+| visibilityHeight    | 滚动高度达到此参数值才出现 `BackTop`   | number | 400        |
 | onClick | 点击按钮的回调函数   | Function | -        |

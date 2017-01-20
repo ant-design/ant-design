@@ -29,17 +29,17 @@ subtitle: 导航菜单
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|---------------|----------|--------------|
-| theme    | 主题颜色 | String: `light` `dark` | `light` |
-| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | String: `vertical` `horizontal` `inline` | `vertical` |
-| selectedKeys | 当前选中的菜单项 key 数组 | Array |      |
-| defaultSelectedKeys | 初始选中的菜单项 key 数组 | Array |      |
-| openKeys | 当前展开的 SubMenu 菜单项 key 数组 | Array |  |
+| theme    | 主题颜色 | string: `light` `dark` | `light` |
+| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | string: `vertical` `horizontal` `inline` | `vertical` |
+| selectedKeys | 当前选中的菜单项 key 数组 | string[] |      |
+| defaultSelectedKeys | 初始选中的菜单项 key 数组 | string[] |      |
+| openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string[] |  |
 | defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 |  |      |
 | onOpenChange | SubMenu 展开/关闭的回调 | Function(openKeys: string[]) | noop |
 | onSelect | 被选中时调 | Function({ item, key, selectedKeys }) | 无   |
 | onDeselect | 取消选中时调用，仅在 multiple 生效 | Function({ item, key, selectedKeys }) | - |
 | onClick | 点击 menuitem 调用此函数，参数为 {item, key, keyPath} | function | - |
-| style | 根节点样式 | Object | |
+| style | 根节点样式 | object | |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
@@ -48,24 +48,24 @@ subtitle: 导航菜单
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | Boolean   |  false  |
-| key   | item 的唯一标志 |  String |  |
+| disabled    | 是否禁用 | boolean   |  false  |
+| key   | item 的唯一标志 |  string |  |
 
 ### Menu.SubMenu props
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | Boolean   |  false  |
-| key | 唯一标志 |  String |  |
-| title    | 子菜单项值 | String or React.Element   |    |
-| children | 子菜单的菜单项 | (MenuItem or SubMenu)[] |  |
+| disabled    | 是否禁用 | boolean   |  false  |
+| key | 唯一标志 |  string |  |
+| title    | 子菜单项值 | string\|ReactNode |    |
+| children | 子菜单的菜单项 | Array<MenuItem\|SubMenu> |  |
 | onTitleClick | 点击子菜单标题 | Function({ eventKey, domEvent }) |  |
 
 ### Menu.ItemGroup props
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| title    | 分组标题       | String or React.Element |    |
+| title    | 分组标题       | string\|ReactNode |    |
 | children | 分组的菜单项    | MenuItem[] |  |
 
 ### Menu.Divider

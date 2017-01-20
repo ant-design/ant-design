@@ -18,13 +18,13 @@ title: Anchor
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| offsetTop    | 距离窗口顶部达到指定偏移量后触发   | Number |         |
-| offsetBottom | 距离窗口底部达到指定偏移量后触发   | Number |         |
-| bounds | 锚点区域边界 | Number | 5(px) |
+| offsetTop    | 距离窗口顶部达到指定偏移量后触发   | number |         |
+| offsetBottom | 距离窗口底部达到指定偏移量后触发   | number |         |
+| bounds | 锚点区域边界 | number | 5(px) |
 
 ### Link Props
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| href    | 锚点链接   | String |         |
-| title | 文字内容   | React.Node |         |
+| href    | 锚点链接   | string |         |
+| title | 文字内容   | string\|ReactNode |         |

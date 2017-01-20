@@ -30,13 +30,13 @@ The properties of config are as follows:
 
 | Property   | Description                                     | Type         | Default |
 |----------- |---------------------------------------------    | ----------- |--------|
-| message    | The title of notification box (required)        | React.Node      | -     |
-| description | The content of notification box (required)     | React.Node      | -     |
-| btn        | Customized close button                         | React.Node      | -     |
-| icon       | Customized icon                                 | React.Node      | _     |
-| key        | The unique identifier of current notification                                 | String      | -     |
+| message    | The title of notification box (required)        | string\|ReactNode      | -     |
+| description | The content of notification box (required)     | string\|ReactNode      | -     |
+| btn        | Customized close button                         | ReactNode      | -     |
+| icon       | Customized icon                                 | ReactNode      | _     |
+| key        | The unique identifier of current notification                                 | string      | -     |
 | onClose    | Specify a function that will be called after clicking the default close button  | Function    | -     |
-| duration   | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | Number    | 4.5     |
+| duration   | A notification box is closed after 4.5s by default. When specifying `duration` to null or 0, it will never be closed automatically | number    | 4.5     |
 
 
 `notification` also provide a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes
@@ -53,5 +53,5 @@ notification.config({
 
 | Property       | Description    | Type                       | Default       |
 |------------|--------------------|----------------------------|--------------|
-| top        | Offset to top of message | Number                     | 24px         |
-| duration   | A duration to close notification automatically by default (unit: second) | Number                   | 4.5         |
+| top        | Offset to top of message | number                     | 24px         |
+| duration   | A duration to close notification automatically by default (unit: second) | number                   | 4.5         |

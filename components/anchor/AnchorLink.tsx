@@ -8,7 +8,7 @@ export interface AnchorLinkProps {
   active?: boolean;
   prefixCls?: string;
   children?: any;
-  title?: Element;
+  title?: React.ReactNode;
   bounds: number;
   target?: () => HTMLElement | Window;
   affix?: boolean;

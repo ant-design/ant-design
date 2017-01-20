@@ -16,9 +16,9 @@ title: Rate
 
 | 属性        | 说明           | 类型               | 默认值       |
 |------------|----------------|-------------------|-------------|
-| count    | star 总数 | Number | 5 |
-| value | 当前数，受控值 | Number | - |
-| defaultValue | 默认值 | Number | 0 |
-| onChange | 回调 | Function(value: Number) | - |
-| allowHalf | 是否允许半选   | Boolean | false |
-| disabled | 只读，无法进行交互 | Boolean | false |
+| count    | star 总数 | number | 5 |
+| value | 当前数，受控值 | number | - |
+| defaultValue | 默认值 | number | 0 |
+| onChange | 回调 | Function(value: number) | - |
+| allowHalf | 是否允许半选   | boolean | false |
+| disabled | 只读，无法进行交互 | boolean | false |

@@ -21,9 +21,9 @@ Since `AutoComplete` is based on `Select`, so besides the following API, `AutoCo
 
 | Property           | Description                             |  Type | Default |
 |----------------|----------------------------------|------------|--------|
-| dataSource          | Data source for autocomplete | Array     |      |
-| value    | selected option | String/Array<String>/{key: String, label: React.Node}/Array<{key, label}>   |  -  |
-| defaultValue | Initial selected option. | string/Array<String>   |  -  |
+| dataSource          | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)[]     |      |
+| value    | selected option | string\|string[]\|{ key: string, label: string\|ReactNode }\|Array<{ key: string, label: string\|ReactNode }>   |  -  |
+| defaultValue | Initial selected option. | string\|string[]\|{ key: string, label: string\|ReactNode }\|Array<{ key: string, label: string\|ReactNode }> |  -  |
 | allowClear   | Show clear button, effective in multiple mode only. | boolean | false |
 | onChange | Called when select an option or input value change, or value of input is changed | function(value, label) | - |
 | onSelect | Called when a option is selected. param is option's value and option instance. | function(value, option) | -   |

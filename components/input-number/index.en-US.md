@@ -14,11 +14,11 @@ When a numeric value needs to be provided.
 
 | property    | description           | type               | default       |
 |-------------|----------------|--------------------|--------------|
-| min     | min value   | Number | -Infinity        |
-| max     | max vale       | Number      | Infinity           |
-| value     | current value       | Number      |            |
-| step     | The number to which the current value is increased or decreased. It can be an integer or decimal.  | Number or String      |  1      |
-| defaultValue     | initial value       | Number      |            |
+| min     | min value   | number | -Infinity        |
+| max     | max vale       | number      | Infinity           |
+| value     | current value       | number      |            |
+| step     | The number to which the current value is increased or decreased. It can be an integer or decimal.  | number\|string      |  1      |
+| defaultValue     | initial value       | number      |            |
 | onChange     | The callback triggered when the value is changed.     | Function      |            |
-| disabled     | disable the input       | Boolean      |      false      |
-| size    | width of input box  | String      |      none      |
+| disabled     | disable the input       | boolean      |      false      |
+| size    | width of input box  | string      |      none      |

@@ -17,8 +17,8 @@ Radio.
 
 | Property           | Description                                     | Type       |  optional | Default |
 |----------------|------------------------------------------|------------|---------|--------|
-| checked | Specifies whether the radio is selected. | Boolean | false |
-| defaultChecked | Specifies the initial state: whether or not the radio is selected. | Boolean | false |
+| checked | Specifies whether the radio is selected. | boolean | | false |
+| defaultChecked | Specifies the initial state: whether or not the radio is selected. | boolean | | false |
 | value          | According to value for comparison, to determine whether the selected        | any     |         | none     |
 
 ### RadioGroup
@@ -30,4 +30,4 @@ radio group，wrap a group of `Radio`。
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | none     | none     |
 | value | Used for setting the currently selected value. | any            | none     | none     |
 | defaultValue   | Default selected value                     | any            | none     | none     |
-| size           | Size, only on radio style           | String            | `large` `default` `small` | `default` |
+| size           | Size, only on radio style           | string            | `large` `default` `small` | `default` |

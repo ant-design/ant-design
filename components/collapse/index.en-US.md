@@ -18,13 +18,13 @@ A content area which can be collapsed and expanded.
 
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
-| activeKey    | key of the active panel | Array or String   | No default value. In `accordion` mode, it's the key of the first panel.  |
-| defaultActiveKey    | key of the initialized active panel | String   | - |
+| activeKey    | key of the active panel | string[]\|string   | No default value. In `accordion` mode, it's the key of the first panel.  |
+| defaultActiveKey    | key of the initialized active panel | string   | - |
 | onChange | a callback function, which can be executed when you switch the panels | Function   |  -  |
 
 ### Collapse.Panel
 
 | Property     | Description           | Type     | Default       |
 |----------|----------------|----------|--------------|
-| key    | corresponds to the `activeKey` | String   |  -  |
-| header    | title of the panel | React.Element or String   | - |
+| key    | corresponds to the `activeKey` | string   |  -  |
+| header    | title of the panel | string\|ReactNode   | - |

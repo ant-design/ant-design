@@ -27,7 +27,7 @@ title: Tooltip
 |-----------|------------------------------------------|------------|--------|
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上。`2.5.2` 之前请使用 `getTooltipContainer` | Function(triggerNode) | () => document.body |
-| arrowPointAtCenter | 箭头是否指向目标元素中心，`antd@1.11+` 支持 | Boolean | `false` |
+| arrowPointAtCenter | 箭头是否指向目标元素中心，`antd@1.11+` 支持 | boolean | `false` |
 | visible   | 用于手动控制浮层显隐                     | boolean       | false  |
 | onVisibleChange | 显示隐藏的回调                      | (visible) => void | 无     |
 | trigger   | 触发行为，可选 `hover/focus/click`       | string        | hover  |
