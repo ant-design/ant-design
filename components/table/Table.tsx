@@ -114,6 +114,7 @@ export default class Table<T> extends React.Component<TableProps<T>, any> {
     indentSize: 20,
     locale: {},
     rowKey: 'key',
+    showHeader: true,
   };
 
   static contextTypes = {
