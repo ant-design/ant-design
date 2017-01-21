@@ -27,8 +27,9 @@ title: Ant Design of React
 
 ## 特性
 
-- Designed as Ant Design，提炼和服务企业级中后台产品的交互语言和视觉风格。
-- [React Component](http://react-component.github.io/badgeboard/) 基础上精心封装的高质量 UI 组件。
+- 提炼自企业级中后台产品的交互语言和视觉风格。
+- 开箱即用的高质量 React 组件。
+- 使用 TypeScript 构建，提供完整的类型定义文件。
 - 基于 npm + webpack + babel 的工作流，支持 ES2015 和 TypeScript。
 
 ## 浏览器支持

@@ -27,9 +27,10 @@ Following Ant Design specification, We develop a React UI library `antd` that co
 
 ## Features
 
-- Following Ant Design desktop specification.
-- It is a set of high quality UI components and based on [React Component](http://react-component.github.io/badgeboard/).
-- Provides a work flow which is based on npm, webpack, and babel, supporting ES2015 and TypeScript.
+- An enterprise-class UI design language came from background applications.
+- A set of high-quality React components out of the box.
+- Written in TypeScript with complete define types.
+- A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
 
 ## Compatibility
 
