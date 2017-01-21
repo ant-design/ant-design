@@ -21,7 +21,7 @@ htmlType | to set the original `type` of `button`, see: [MDN](https://developer.
 icon | set the icon of button, see: Icon component | string | -
 shape | can be set to `circle` or omitted | string | -
 size | can be set to `small` `large` or omitted | string | `default`
-loading | to set the loading status of button | boolean | false
+loading | to set the loading status of button | boolean | `false`
 onClick | set the handler to handle `click` event | function | -
 
 `<Button>Hello world!</Button>` will be rendered into `<button>Hello world!</button>`, and all the properties which are not listed above will be transferred to the `<button>` tag.
