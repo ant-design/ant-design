@@ -27,7 +27,7 @@ Following Ant Design specification, We develop a React UI library `antd` that co
 
 ## Features
 
-- An enterprise-class UI design language came from background applications.
+- An enterprise-class UI design language for web applications.
 - A set of high-quality React components out of the box.
 - Written in TypeScript with complete define types.
 - A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
