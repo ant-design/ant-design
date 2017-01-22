@@ -26,6 +26,7 @@ shape | 设置按钮形状，可选值为 `circle` 或者不设 | string | -
 size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default`
 loading | 设置按钮载入状态 | boolean | false
 onClick | `click` 事件的 handler | function | -
+ghost | 幽灵属性，使按钮背景透明 | boolean | false
 
 `<Button>Hello world!</Button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`。
 

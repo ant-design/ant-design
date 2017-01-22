@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 5
 title:
   zh-CN: 多个按钮组合
   en-US: Multiple Buttons
