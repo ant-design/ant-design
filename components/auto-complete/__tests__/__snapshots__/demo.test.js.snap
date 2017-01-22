@@ -22,8 +22,9 @@ exports[`test renders ./components/auto-complete/demo/antd.md correctly 1`] = `
           class="ant-select-search ant-select-search--inline">
           <div
             class="ant-select-search__field__wrap">
-            <textarea
-              class="ant-input ant-select-search__field" />
+            <input
+              class="ant-select-search__field"
+              value="" />
             <span
               class="ant-select-search__field__mirror" />
           </div>
@@ -65,8 +66,7 @@ exports[`test renders ./components/auto-complete/demo/basic.md correctly 1`] = `
           <div
             class="ant-select-search__field__wrap">
             <input
-              class="ant-input ant-input ant-select-search__field"
-              type="text"
+              class="ant-select-search__field"
               value="" />
             <span
               class="ant-select-search__field__mirror" />
@@ -109,8 +109,7 @@ exports[`test renders ./components/auto-complete/demo/options.md correctly 1`] =
           <div
             class="ant-select-search__field__wrap">
             <input
-              class="ant-input ant-input ant-select-search__field"
-              type="text"
+              class="ant-select-search__field"
               value="" />
             <span
               class="ant-select-search__field__mirror" />
