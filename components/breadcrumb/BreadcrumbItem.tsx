@@ -8,6 +8,8 @@ export interface BreadcrumbItemProps {
 }
 
 export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps, any> {
+  static __ANT_BREADCRUMB_ITEM = true;
+
   static defaultProps = {
     prefixCls: 'ant-breadcrumb',
     separator: '/',
