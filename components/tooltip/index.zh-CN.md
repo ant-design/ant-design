@@ -33,3 +33,7 @@ title: Tooltip
 | trigger   | 触发行为，可选 `hover/focus/click`       | string        | hover  |
 | overlayClassName | 卡片类名                            | string | 无     |
 | overlayStyle | 卡片样式                            | object | 无     |
+
+## 注意
+
+请确保 `Tooltip` 的子元素能接受 `onHover`、`onFocus`、`onClick` 事件。

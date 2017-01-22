@@ -24,3 +24,7 @@ title: Popconfirm
 | cancelText| 取消按钮文字                              | string        | 取消   |
 
 更多属性请参考 [Tooltip](/components/tooltip-cn/#API)。
+
+## 注意
+
+请确保 `Popconfirm` 的子元素能接受 `onHover`、`onFocus`、`onClick` 事件。

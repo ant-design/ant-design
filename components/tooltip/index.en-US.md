@@ -8,7 +8,7 @@ A simple text popup tip.
 
 ## When To Use
 
-- The tip shows while mouse enter, and hides while mouse leave. The ToolTip doesn't support complex text and operation.
+- The tip shows while mouse enter, and hides while mouse leave. The Tooltip doesn't support complex text and operation.
 - It can provide an explanation of `button/text/operation` that can cover the usage of the default system `title`.
 
 ## API
@@ -31,3 +31,8 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | trigger | triggering mode: can be hover, focus, or click. | string | hover |
 | overlayClassName | class name of the card                            | string | none     |
 | overlayStyle | style of the card                            | object | none    |
+
+
+## Note
+
+Please ensure that the child node of `Tooltip` accepts `onClick`, `onFocus`, `onClick` event.

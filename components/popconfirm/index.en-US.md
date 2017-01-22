@@ -23,3 +23,7 @@ The difference with `confirm` is more lightweight than the static popped full-sc
 | cancelText| text of the cancel button                              | string        | Cancel   |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
+
+## Note
+
+Please ensure that the child node of `Popconfirm` accepts `onClick`, `onFocus`, `onClick` event.

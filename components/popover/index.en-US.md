@@ -20,3 +20,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 | content   | content of the card                            | string\|ReactNode | none     |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
+
+## Note
+
+Please ensure that the child node of `Popover` accepts `onClick`, `onFocus`, `onClick` event.
