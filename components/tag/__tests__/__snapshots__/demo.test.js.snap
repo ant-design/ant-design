@@ -13,30 +13,18 @@ exports[`test renders ./components/tag/demo/basic.md correctly 1`] = `
     data-show="true">
     <span
       class="ant-tag-text">
-      Tag 2
-    </span>
-    <i
-      class="anticon anticon-cross" />
-  </div>
-  <div
-    class="ant-tag"
-    data-show="true">
-    <span
-      class="ant-tag-text">
-      Tag 3
-    </span>
-    <i
-      class="anticon anticon-cross" />
-  </div>
-  <div
-    class="ant-tag"
-    data-show="true">
-    <span
-      class="ant-tag-text">
       <a
         href="https://github.com/ant-design/ant-design/issues/1862">
         Link
       </a>
+    </span>
+  </div>
+  <div
+    class="ant-tag"
+    data-show="true">
+    <span
+      class="ant-tag-text">
+      Tag 2
     </span>
     <i
       class="anticon anticon-cross" />
