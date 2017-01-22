@@ -44,12 +44,14 @@ config 参数如下：
 
 ```js
 notification.config({
-  top: 100,
+  placement: 'topRight',
+  spacing: 50,
   duration: 3,
 });
 ```
 
 | 参数       | 说明               | 类型                       | 默认值       |
 |------------|--------------------|----------------------------|--------------|
-| top        | 消息距离顶部的位置 | Number                     | 24px         |
-| duration   | 默认自动关闭延时，单位秒 | Number                   | 4.5         |
+| placement  | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| spacing    | 消息距离顶部或底部的距离 | Number | 24px |
+| duration   | 默认自动关闭延时，单位秒     | Number | 4.5  |

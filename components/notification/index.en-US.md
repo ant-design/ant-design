@@ -46,12 +46,14 @@ will take into account these globally defined options before displaying.
 
 ```js
 notification.config({
-  top: 100,
+  placement: 'topRight',
+  spacing: 50,
   duration: 3,
 });
 ```
 
 | Property       | Description    | Type                       | Default       |
 |------------|--------------------|----------------------------|--------------|
-| top        | Offset to top of message | Number                     | 24px         |
+| placement  | to set the position, which can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| spacing    | Offset to top or bottom of message | Number | 24px |
 | duration   | A duration to close notification automatically by default (unit: second) | Number                   | 4.5         |
