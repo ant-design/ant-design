@@ -23,4 +23,4 @@ Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to
 
 ## Note
 
-Please ensure that the child node of `Popover` accepts `onClick`, `onFocus`, `onClick` event.
+Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` event.

@@ -36,4 +36,4 @@ title: Tooltip
 
 ## 注意
 
-请确保 `Tooltip` 的子元素能接受 `onHover`、`onFocus`、`onClick` 事件。
+请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
