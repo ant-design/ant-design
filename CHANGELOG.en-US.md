@@ -5,7 +5,10 @@ toc: false
 timeline: true
 ---
 
-If you want to read change logs before `2.0.0`, please visit [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0).
+
+`antd` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+
+If you want to read change logs before `2.0.0`, please visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md).
 
 ---
 
