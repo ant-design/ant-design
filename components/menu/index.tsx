@@ -79,7 +79,7 @@ export default class Menu extends React.Component<MenuProps, any> {
     }
 
     this.state = {
-      openKeys,
+      openKeys: openKeys || [],
     };
   }
   componentWillReceiveProps(nextProps) {
