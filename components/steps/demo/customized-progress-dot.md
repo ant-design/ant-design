@@ -17,10 +17,11 @@ You can customize the display for Steps with progress dot style.
 import { Steps, Popover } from 'antd';
 const Step = Steps.Step;
 
-const customDot = (dot, stepObj) => {
-  const content = <span>status: {stepObj.status}</span>;
-  return <Popover content={content}>{dot}</Popover>;
-};
+const customDot = (dot, { status, index }) => (
+  <Popover content={<span>step {index} status: {status}</span>}>
+    {dot}
+  </Popover>
+);
 
 ReactDOM.render(
   <Steps current={1} progressDot={customDot}>
