@@ -13,7 +13,7 @@ title:
 
 A step bar with vertical title.
 
-````jsx
+````__react
 import { Steps } from 'antd';
 const Step = Steps.Step;
 

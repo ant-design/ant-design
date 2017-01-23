@@ -13,7 +13,7 @@ title:
 
 Steps with progress dot style.
 
-````jsx
+````__react
 import { Steps } from 'antd';
 const Step = Steps.Step;
 
