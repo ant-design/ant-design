@@ -32,7 +32,6 @@ title: Steps
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | String | process |
 | size | 指定大小，目前支持普通（`default`）和迷你（`small`）| String | default |
 | direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | String | horizontal  |
-| labelPlacement | 指定标题位置，仅当 `direction=horizontal` 时有效，可选 `horizontal` `vertical` | String | horizontal |
 | progressDot | 点状步骤条 | Boolean or Function(iconDot, {index, status, title, description}), 配置为 Function 时可自定义步骤点 | false  |
 
 ### Steps.Step
