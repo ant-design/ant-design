@@ -7,15 +7,15 @@ title:
 
 ## zh-CN
 
-按钮有四种类型：主按钮、次按钮、幽灵按钮、虚线按钮。
+按钮有四种类型：主按钮、次按钮、虚线按钮、危险按钮。主按钮在同一个操作区域最多出现一次。
 
-通过设置 `type` 为 `primary` `default` `dashed` `danger` 可分别创建主按钮、次按钮（默认）、虚线按钮、危险按钮。不同的样式可以用来区别其重要程度。
-
-需要强引导用主按钮，切记主按钮在同一个操作区域最多出现一次。
+> `danger` 在 `antd@2.7` 后支持。
 
 ## en-US
 
 There are `primary` button, `default` button, `dashed` button and `danger` button in antd.
+
+> `danger` is supported after `antd@2.7`.
 
 ````__react
 import { Button } from 'antd';
