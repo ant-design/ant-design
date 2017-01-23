@@ -1,13 +1,9 @@
 ---
 template: component
-category:
-  zh-CN: 设计基础
-  en-US: Design Fundamental
+category: 设计基础
 order: 4
 cols: 1
-title:
-  zh-CN: 常用布局
-  en-US: Layout
+title: 常用布局
 ---
 
 布局和导航是产品的骨架，是页面的重要构成模式之一，是作为后续展开页面设计的基础，可以为产品奠定交互和视觉风格。

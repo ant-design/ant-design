@@ -1,9 +1,17 @@
 ---
 order: 4
-title: 可收起展开的侧边导航
+title:
+  zh-CN: 可收起展开的侧边导航
+  en-US: Collapsed aside
 ---
 
+## zh-CN
+
 页面横向空间有限时使用。侧边导航默认收起，点击底部按钮时展开。
+
+## en-US
+
+This pattern is used when the horizontal space is limited. Aside navigation is default to be collapsed, you can click the button at the bottom to expand it.
 
 ````__react
 import { Menu, Breadcrumb, Icon } from 'antd';
@@ -30,23 +38,23 @@ const AsideCollapse = React.createClass({
           <Menu mode="inline" theme="dark" defaultSelectedKeys={['user']}>
             <Menu.Item key="user">
               <Icon type="user" />
-              {!collapse && <span className="nav-text">导航一</span>}
+              {!collapse && <span className="nav-text">Navigation 1</span>}
             </Menu.Item>
             <Menu.Item key="setting">
               <Icon type="setting" />
-              {!collapse && <span className="nav-text">导航二</span>}
+              {!collapse && <span className="nav-text">Navigation 2</span>}
             </Menu.Item>
             <Menu.Item key="laptop">
               <Icon type="laptop" />
-              {!collapse && <span className="nav-text">导航三</span>}
+              {!collapse && <span className="nav-text">Navigation 3</span>}
             </Menu.Item>
             <Menu.Item key="notification">
               <Icon type="notification" />
-              {!collapse && <span className="nav-text">导航四</span>}
+              {!collapse && <span className="nav-text">Navigation 4</span>}
             </Menu.Item>
             <Menu.Item key="folder">
               <Icon type="folder" />
-              {!collapse && <span className="nav-text">导航五</span>}
+              {!collapse && <span className="nav-text">Navigation 5</span>}
             </Menu.Item>
           </Menu>
           <div className="aside-action" onClick={this.onCollapseChange}>
@@ -57,18 +65,18 @@ const AsideCollapse = React.createClass({
           <div className="layout-header"></div>
           <div className="layout-container">
             <Breadcrumb>
-              <Breadcrumb.Item>首页</Breadcrumb.Item>
-              <Breadcrumb.Item>应用列表</Breadcrumb.Item>
-              <Breadcrumb.Item>某应用</Breadcrumb.Item>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>App list</Breadcrumb.Item>
+              <Breadcrumb.Item>Any app</Breadcrumb.Item>
             </Breadcrumb>
             <div className="layout-content">
               <div style={{ height: 220 }}>
-                内容区域
+                Contents
               </div>
             </div>
           </div>
           <div className="layout-footer">
-          Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+            Ant Design all rights reserved © 2015 Created by Ant UED
           </div>
         </div>
       </div>
