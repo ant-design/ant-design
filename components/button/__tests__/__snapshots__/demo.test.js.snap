@@ -21,6 +21,13 @@ exports[`test renders ./components/button/demo/basic.md correctly 1`] = `
       Dashed
     </span>
   </button>
+  <button
+    class="ant-btn ant-btn-danger"
+    type="button">
+    <span>
+      Danger
+    </span>
+  </button>
 </div>
 `;
 
