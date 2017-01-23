@@ -4,6 +4,11 @@
 
 @btn-prefix-cls: ~"@{ant-prefix}-btn";
 
+// for compatibile
+@btn-ghost-color        : @text-color;
+@btn-ghost-bg           : transparent;
+@btn-ghost-border       : @border-color-base;
+
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
@@ -46,6 +51,10 @@
 
   &-dashed {
     .btn-dashed;
+  }
+
+  &-danger {
+    .btn-danger;
   }
 
   &-circle,
@@ -116,6 +125,17 @@
     opacity: 0.4;
     animation: buttonEffect 0.36s ease-out forwards;
     display: block;
+  }
+
+  &-background-ghost {
+    background: transparent!important;
+    border-color: #fff;
+    color: #fff;
+  }
+
+  &-primary&-background-ghost {
+    color: @primary-color;
+    border-color: @primary-color;
   }
 }
 
