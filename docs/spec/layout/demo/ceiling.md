@@ -12,9 +12,9 @@ title:
 
 ## en-US
 
-Generally, ceiling is used for cross system/application, you can put uniform login/help information in it.
+Generally, ceiling is used for cross system/applications, where you can put uniform login/help information on top of the page.
 
-Background color of a ceiling is a deep color, height is `30px`, generally to be used with a light color mainnav.
+Background color of a ceiling is a dark color, height is `30px`, and a light color foreground for the mainnav should be used.
 
 ````__react
 import { Menu, Breadcrumb } from 'antd';
