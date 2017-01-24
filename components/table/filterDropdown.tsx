@@ -42,10 +42,10 @@ export default class FilterMenu extends React.Component<FilterMenuProps, any> {
 
   componentWillReceiveProps(nextProps) {
     const { column } = nextProps;
-    let newState: {
-      selectedKeys?: string[];
-      visible?: boolean;
-    } = {};
+    const newState = {} as {
+      selectedKeys: string[];
+      visible: boolean;
+    };
     if ('selectedKeys' in nextProps) {
       newState.selectedKeys = nextProps.selectedKeys;
     }
