@@ -43,15 +43,18 @@ The properties of config are as follows:
 will take into account these globally defined options before displaying.
 
 - `notification.config(options)`
-
 ```js
 notification.config({
-  top: 100,
+  placement: 'bottomRight',
+  bottom: 50,
   duration: 3,
 });
 ```
 
 | Property       | Description    | Type                       | Default       |
 |------------|--------------------|----------------------------|--------------|
-| top        | Offset to top of message | Number                     | 24px         |
+| placement  | to set the position, which can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
+| top        | Offset to top, when message pop up from `topRight` or `topLeft`          | Number                   | 24px        |
+| bottom     | Offset to bottom, when message pop up from `bottomRight` or `bottomLeft` | Number                   | 24px        |
 | duration   | A duration to close notification automatically by default (unit: second) | Number                   | 4.5         |
+
