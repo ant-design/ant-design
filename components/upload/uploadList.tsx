@@ -84,7 +84,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={file.url || file.thumbUrl} alt={file.name} />
+              <img src={file.thumbUrl || file.url} alt={file.name} />
             </a>
           );
         }
