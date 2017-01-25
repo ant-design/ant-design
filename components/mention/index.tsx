@@ -1,6 +1,7 @@
 import React from 'react';
 import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-mention';
 import classNames from 'classnames';
+import shallowequal from 'shallowequal';
 import Icon from '../icon';
 
 export interface MentionProps {
@@ -39,18 +40,23 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     loading: false,
     multiLines: false,
   };
+  private _suggestions = [];
   constructor(props) {
     super(props);
+    this._suggestions = props.suggestions;
     this.state = {
       suggestions: props.suggestions,
       focus: false,
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      suggestions: nextProps.suggestions,
-    });
+  componentWillReceiveProps({ suggestions }) {
+    if (!shallowequal(suggestions, this._suggestions)) {
+      this._suggestions = suggestions;
+      this.setState({
+        suggestions,
+      });
+    }
   }
 
   onSearchChange = (value) => {
@@ -75,6 +81,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
       suggestions: filteredSuggestions,
     });
   }
+
   onFocus = (ev) => {
     this.setState({
       focus: true,
