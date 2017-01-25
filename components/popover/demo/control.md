@@ -39,7 +39,7 @@ const App = React.createClass({
         visible={this.state.visible}
         onVisibleChange={this.handleVisibleChange}
       >
-        <Button type="primary">Cilck me</Button>
+        <Button type="primary">Click me</Button>
       </Popover>
     );
   },
