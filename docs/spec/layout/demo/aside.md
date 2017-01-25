@@ -15,7 +15,9 @@ title:
 
 Aside top level navigation
 
-A left-right structure of page layouts is used to Aside navigation, Generally, the mainnav is placed on the left side of the page, the secondary menu is placed on the top of the working area. Contens will adapts the layout to the viewing environment to imporve usage rates of horizaontal space, but the layout of the whole page is not stable. The level of the aisde navigation is scalable. The first, second, third level navigations could be present more fluently and relevantly, and aside navigation can be fixed to allows users quickly switch and  spot the current position when they are operating or viewing, there is a high operational efficency. But such navigation will occupie some space of the contents in the horizontal space. 
+A left-right structure of page layouts is used to Aside navigation, Generally, the mainnav is placed on the left side of the page, and the secondary menu is placed on the top of the working area. Contents will adapt the layout to the viewing area to improve the horizontal space usage, while the layout of the whole page is not stable.
+
+The level of the aisde navigation is scalable. The first, second, and third level navigations could be present more fluently and relevantly, and aside navigation can be fixed, allowing the user to quickly switch and spot the current position, improving the user experience. However, this navigation occupies some horizontal space of the contents.
 
 ````__react
 import { Menu, Breadcrumb, Icon } from 'antd';
