@@ -35,6 +35,7 @@ showSearch | Whether to display a search input in the dropdown menu(valid only i
 disabled | Disabled or not  | Boolean | false
 showCheckedStrategy | __Default:__ just show child nodes. __`TreeSelect.SHOW_ALL`:__ show all checked treeNodes (include parent treeNode). __`TreeSelect.SHOW_PARENT`:__ show checked treeNodes (just show parent treeNode). | enum{TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD
 treeDefaultExpandAll | Whether to expand all treeNodes by default | Boolean | false
+treeDefaultExpandedKeys | Default expanded treeNodes | string[] | -
 treeCheckable | Whether to show checkbox on the treeNodes | Boolean | false
 treeCheckStrictly | Whether to check nodes precisely(in the `checkable` mode), means parent and child nodes are not associated | Boolean | false
 filterTreeNode | Whether to filter treeNodes by input value. The value of `treeNodeFilterProp` is used for filtering by default. | Boolean/Function(inputValue: string, treeNode: TreeNode) (should return Boolean) | Function
