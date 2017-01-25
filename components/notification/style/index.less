@@ -12,6 +12,17 @@
   width: @notification-width;
   margin-right: 24px;
 
+  &-topLeft,
+  &-bottomLeft {
+    margin-left: 24px;
+    margin-right: 0;
+
+    .@{notification-prefix-cls}-fade-enter.@{notification-prefix-cls}-fade-enter-active,
+    .@{notification-prefix-cls}-fade-appear.@{notification-prefix-cls}-fade-appear-active {
+      animation-name: NotificationLeftFadeIn;
+    }
+  }
+
   &-notice {
     padding: @notification-padding;
     border-radius: @border-radius-base;
@@ -129,6 +140,17 @@
   }
   100% {
     left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes NotificationLeftFadeIn {
+  0% {
+    opacity: 0;
+    right: @notification-width;
+  }
+  100% {
+    right: 0;
     opacity: 1;
   }
 }

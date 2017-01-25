@@ -2,9 +2,44 @@ import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 import assign from 'object-assign';
-let defaultTop = 24;
 let notificationInstance;
 let defaultDuration = 4.5;
+let defaultSpacing = 24;
+let defaultPlacement = 'topRight';
+
+function getPlacementStyle(placement, spacing) {
+  let style;
+  switch (placement) {
+    case 'topLeft':
+      style = {
+        left: 0,
+        top: spacing,
+        bottom: 'auto',
+      };
+      break;
+    case 'bottomLeft':
+      style = {
+        left: 0,
+        top: 'auto',
+        bottom: spacing,
+      };
+      break;
+    case 'bottomRight':
+      style = {
+        right: 0,
+        top: 'auto',
+        bottom: spacing,
+      };
+      break;
+    default:
+      style = {
+        right: 0,
+        top: spacing,
+        bottom: 'auto',
+      };
+  }
+  return style;
+}
 
 export interface ArgsProps {
   message: React.ReactNode | string;
@@ -18,7 +53,9 @@ export interface ArgsProps {
 
 export interface ConfigProps {
   top?: number;
+  spacing?: number;
   duration?: number;
+  placement?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 }
 
 function getNotificationInstance(prefixCls) {
@@ -27,10 +64,8 @@ function getNotificationInstance(prefixCls) {
   }
   notificationInstance = (Notification as any).newInstance({
     prefixCls: prefixCls,
-    style: {
-      top: defaultTop,
-      right: 0,
-    },
+    className: `${prefixCls}-${defaultPlacement}`,
+    style: getPlacementStyle(defaultPlacement, defaultSpacing),
   });
   return notificationInstance;
 }
@@ -113,12 +148,22 @@ const api: {
     }
   },
   config(options: ConfigProps) {
-    if (options.top !== undefined) {
-      defaultTop = options.top;
-      notificationInstance = null; // delete notificationInstance for new defaultTop
+    const { duration, placement, spacing, top } = options;
+    if (placement !== undefined) {
+      defaultPlacement = placement;
+      notificationInstance = null; // delete notificationInstance for new defaultPlacement
     }
-    if (options.duration !== undefined) {
-      defaultDuration = options.duration;
+    if (spacing !== undefined) {
+      defaultSpacing = spacing;
+      notificationInstance = null; // delete notificationInstance for new defaultSpacing
+    }
+    // Compatible with the previous api
+    if (top !== undefined) {
+      defaultSpacing = top;
+      notificationInstance = null;
+    }
+    if (duration !== undefined) {
+      defaultDuration = duration;
     }
   },
   destroy() {
