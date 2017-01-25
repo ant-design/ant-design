@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-This pattern is used when the horizontal space is limited. Aside navigation is default to be collapsed, you can click the button at the bottom to expand it.
+This pattern is used when the horizontal space is limited. By default, Aside navigation is collapsed. You can click the button at the bottom to expand it.
 
 ````__react
 import { Menu, Breadcrumb, Icon } from 'antd';
