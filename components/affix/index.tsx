@@ -221,9 +221,9 @@ export default class Affix extends React.Component<AffixProps, any> {
     });
 
     const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
-
+    const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
-      <div {...props} style={this.state.placeholderStyle}>
+      <div {...props} style={placeholderStyle}>
         <div className={className} ref="fixedNode" style={this.state.affixStyle}>
           {this.props.children}
         </div>
