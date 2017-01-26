@@ -32,20 +32,11 @@ ReactDOM.render(
       style={{ width: 120, marginRight: 10 }}
       onChange={val => {
         notification.config({
-            placement: val,
-          });
+          placement: val,
+        });
       }}
     >
-      {options.map(val => {
-        return (
-          <Option
-            key={val}
-            value={val}
-          >
-            {val}
-          </Option>
-        );
-      })}
+      {options.map(val => <Option key={val} value={val}>{val}</Option>)}
     </Select>
     <Button
       type="primary"

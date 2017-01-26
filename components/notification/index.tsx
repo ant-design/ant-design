@@ -8,6 +8,8 @@ let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement = 'topRight';
 
+export type notificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+
 function getPlacementStyle(placement) {
   let style;
   switch (placement) {
@@ -50,13 +52,14 @@ export interface ArgsProps {
   onClose?: () => void;
   duration?: number;
   icon?: React.ReactNode;
+  placement?: notificationPlacement;
 }
 
 export interface ConfigProps {
   top?: number;
   bottom?: number;
   duration?: number;
-  placement?: 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+  placement?: notificationPlacement;
 }
 
 function getNotificationInstance(prefixCls) {
@@ -74,6 +77,11 @@ function getNotificationInstance(prefixCls) {
 function notice(args) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
   const prefixCls = `${outerPrefixCls}-notice`;
+
+  if (args.placement !== undefined) {
+    defaultPlacement = args.placement;
+    notificationInstance = null; // delete notificationInstance for new defaultPlacement
+  }
 
   let duration;
   if (args.duration === undefined) {
