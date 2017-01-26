@@ -10,6 +10,7 @@ export interface SiderProps {
   collapsible?: boolean;
   collapsed?: boolean;
   defaultCollapsed?: boolean;
+  reverseArrow?: boolean;
   onCollapse?: (collapsed: boolean) => void;
   trigger?: React.ReactNode;
   width?: number | string;
@@ -22,6 +23,7 @@ export default class Sider extends React.Component<SiderProps, any> {
     prefixCls: 'ant-layout-sider',
     collapsible: false,
     defaultCollapsed: false,
+    reverseArrow: false,
     width: 200,
     collapsedWidth: 64,
     style: {},
@@ -68,7 +70,7 @@ export default class Sider extends React.Component<SiderProps, any> {
 
   render() {
     const {
-      prefixCls, className, collapsible, trigger, style, width, collapsedWidth,
+      prefixCls, className, collapsible, reverseArrow, trigger, style, width, collapsedWidth,
       ...others,
     } = this.props;
     const divProps = omit(others, ['collapsed', 'defaultCollapsed', 'onCollapse', 'name']);
@@ -81,8 +83,8 @@ export default class Sider extends React.Component<SiderProps, any> {
       flex: `0 0 ${this.state.collapsed ? collapsedWidth : width}px`,
     };
     const iconObj = {
-      'expanded': <Icon type="left" />,
-      'collapsed': <Icon type="right" />,
+      'expanded': reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
+      'collapsed': reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];
