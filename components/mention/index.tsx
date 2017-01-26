@@ -40,10 +40,8 @@ export default class Mention extends React.Component<MentionProps, MentionState>
     loading: false,
     multiLines: false,
   };
-  private _suggestions = [];
   constructor(props) {
     super(props);
-    this._suggestions = props.suggestions;
     this.state = {
       suggestions: props.suggestions,
       focus: false,
@@ -51,8 +49,7 @@ export default class Mention extends React.Component<MentionProps, MentionState>
   }
 
   componentWillReceiveProps({ suggestions }) {
-    if (!shallowequal(suggestions, this._suggestions)) {
-      this._suggestions = suggestions;
+    if (!shallowequal(suggestions, this.props.suggestions)) {
       this.setState({
         suggestions,
       });
