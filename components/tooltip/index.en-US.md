@@ -28,6 +28,8 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | arrowPointAtCenter | whether arrow pointed at the center of target, supported after `antd@1.11+` | boolean | `false` |
 | visible   | make the float card visible or not                     | boolean       | false  |
 | onVisibleChange | callback of the visible attribute changed            | (visible) => void | none     |
+| mouseEnterDelay | delay time to show when mouse enter.unit: s | number | 0 |
+| mouseLeaveDelay | delay time to hide when mouse leave.unit: s | number | 0.1 |
 | trigger | triggering mode: can be hover, focus, or click. | string | hover |
 | overlayClassName | class name of the card                            | string | none     |
 | overlayStyle | style of the card                            | object | none    |

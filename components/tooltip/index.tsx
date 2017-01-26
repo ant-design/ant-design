@@ -18,6 +18,8 @@ export interface AbstractTooltipProps {
   builtinPlacements?: Object;
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
+  mouseEnterDelay?: number;
+  mouseLeaveDelay?: number;
   transitionName?: string;
   trigger?: 'hover' | 'focus' | 'click';
   openClassName?: string;
