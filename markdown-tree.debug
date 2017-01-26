@@ -2633,10 +2633,536 @@ require('D:\\__work\\ant-design\\node_modules\\bisheng-plugin-react\\lib\\browse
       }
     }
   ],
-  "docs/pattern": [],
-  "docs/practice": [],
-  "docs/react": [],
-  "docs/resource": [],
-  "docs/spec": []
+  "docs/pattern": [
+    {
+      "meta": {
+        "order": 6,
+        "title": {
+          "zh-CN": "高级搜索",
+          "en-US": "Advanced Search"
+        },
+        "filename": "docs/pattern/advanced-search.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "disabled": true,
+        "title": {
+          "zh-CN": "典型页面",
+          "en-US": "Classic"
+        },
+        "filename": "docs/pattern/classic.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 5,
+        "title": {
+          "zh-CN": "表格：复杂数据",
+          "en-US": "Complex Table"
+        },
+        "filename": "docs/pattern/complex-table.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 2,
+        "title": {
+          "zh-CN": "表单",
+          "en-US": "Form"
+        },
+        "filename": "docs/pattern/form.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 3,
+        "title": {
+          "zh-CN": "列表",
+          "en-US": "List"
+        },
+        "filename": "docs/pattern/list.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "title": {
+          "zh-CN": "导航",
+          "en-US": "Navigation"
+        },
+        "filename": "docs/pattern/navigation.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 4,
+        "title": {
+          "zh-CN": "表格",
+          "en-US": "Table"
+        },
+        "filename": "docs/pattern/table.md"
+      }
+    }
+  ],
+  "docs/practice": [
+    {
+      "meta": {
+        "order": 1,
+        "disabled": true,
+        "title": "Business",
+        "filename": "docs/practice/bussiness.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "disabled": true,
+        "title": "业务组件",
+        "filename": "docs/practice/bussiness.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "Cases",
+        "filename": "docs/practice/cases.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "实践案例",
+        "filename": "docs/practice/cases.zh-CN.md"
+      }
+    }
+  ],
+  "docs/react": [
+    {
+      "meta": {
+        "order": 8,
+        "title": "Awesome Ant Design",
+        "link": "https://github.com/websemantics/awesome-ant-design",
+        "filename": "docs/react/awesome-ant-design.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 5,
+        "title": "Customize Theme",
+        "filename": "docs/react/customize-theme.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 5,
+        "title": "定制主题",
+        "filename": "docs/react/customize-theme.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "title": "Getting Started",
+        "filename": "docs/react/getting-started.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "title": "快速上手",
+        "filename": "docs/react/getting-started.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 9,
+        "title": "i18n Solution",
+        "link": "//github.com/ant-design/intl-example",
+        "filename": "docs/react/i18n-solution.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 9,
+        "title": "i18n 方案",
+        "link": "//github.com/ant-design/intl-example",
+        "filename": "docs/react/i18n-solution.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "Ant Design of React",
+        "filename": "docs/react/introduce.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "Ant Design of React",
+        "filename": "docs/react/introduce.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 3,
+        "title": "Real project with dva",
+        "filename": "docs/react/practical-projects.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 3,
+        "title": "项目实战",
+        "filename": "docs/react/practical-projects.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 7,
+        "title": "Third-Party Library",
+        "filename": "docs/react/recommendation.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 7,
+        "title": "社区精选组件",
+        "filename": "docs/react/recommendation.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 4,
+        "title": "Use in create-react-app",
+        "filename": "docs/react/use-with-create-react-app.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 4,
+        "title": "在 create-react-app 中使用",
+        "filename": "docs/react/use-with-create-react-app.zh-CN.md"
+      }
+    }
+  ],
+  "docs/resource": [
+    {
+      "meta": {
+        "order": 0,
+        "title": "Download",
+        "filename": "docs/resource/download.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "资源下载",
+        "filename": "docs/resource/download.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 2,
+        "link": "//github.com/ant-design/ant-design",
+        "title": "GitHub",
+        "filename": "docs/resource/github.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "title": "Reference",
+        "filename": "docs/resource/reference.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "title": "文献素材",
+        "filename": "docs/resource/reference.zh-CN.md"
+      }
+    }
+  ],
+  "docs/spec": [
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 2,
+        "title": "Alignment",
+        "filename": "docs/spec/alignment.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 2,
+        "title": "对齐",
+        "filename": "docs/spec/alignment.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": {
+          "zh-CN": "设计基础",
+          "en-US": "Design Fundamental"
+        },
+        "order": 2,
+        "title": {
+          "zh-CN": "色彩",
+          "en-US": "Colors"
+        },
+        "filename": "docs/spec/colors.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 3,
+        "title": "Contrast",
+        "filename": "docs/spec/contrast.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 3,
+        "title": "对比",
+        "filename": "docs/spec/contrast.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 5,
+        "title": "Make it Direct",
+        "filename": "docs/spec/direct.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 5,
+        "title": "直截了当",
+        "filename": "docs/spec/direct.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 1,
+        "title": {
+          "zh-CN": "三大特性",
+          "en-US": "Features"
+        },
+        "filename": "docs/spec/feature.md"
+      }
+    },
+    {
+      "meta": {
+        "category": {
+          "zh-CN": "设计基础",
+          "en-US": "Design Fundamental"
+        },
+        "order": 0,
+        "title": {
+          "zh-CN": "字体",
+          "en-US": "Font"
+        },
+        "filename": "docs/spec/font.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "Ant Design",
+        "filename": "docs/spec/introduce.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "order": 0,
+        "title": "Ant Design",
+        "filename": "docs/spec/introduce.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 8,
+        "title": "Provide an Invitation",
+        "filename": "docs/spec/invitation.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 8,
+        "title": "提供邀请",
+        "filename": "docs/spec/invitation.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "template": "component",
+        "category": "Design Fundamental",
+        "order": 4,
+        "cols": 1,
+        "title": "Layout",
+        "filename": "docs/spec/layout/index.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "template": "component",
+        "category": "设计基础",
+        "order": 4,
+        "cols": 1,
+        "title": "常用布局",
+        "filename": "docs/spec/layout/index.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 6,
+        "title": "Keep it Lightweight",
+        "filename": "docs/spec/lightweight.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 6,
+        "title": "简化交互",
+        "filename": "docs/spec/lightweight.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": {
+          "zh-CN": "设计基础",
+          "en-US": "Design Fundamental"
+        },
+        "order": 5,
+        "title": {
+          "zh-CN": "组件动画",
+          "en-US": "Motion"
+        },
+        "filename": "docs/spec/motion.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 0,
+        "title": "Introduction",
+        "filename": "docs/spec/principle.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 0,
+        "title": "引言",
+        "filename": "docs/spec/principle.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 1,
+        "title": "Proximity",
+        "filename": "docs/spec/proximity.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 1,
+        "title": "亲密性",
+        "filename": "docs/spec/proximity.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 10,
+        "title": "React Immediately",
+        "filename": "docs/spec/reaction.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 10,
+        "title": "即时反应",
+        "filename": "docs/spec/reaction.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 4,
+        "title": "Repetition",
+        "filename": "docs/spec/repetition.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 4,
+        "title": "重复",
+        "filename": "docs/spec/repetition.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 6,
+        "title": "Stay on the Page",
+        "filename": "docs/spec/stay.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 6,
+        "title": "足不出户",
+        "filename": "docs/spec/stay.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "Principles",
+        "order": 9,
+        "title": "Use Transition",
+        "filename": "docs/spec/transition.en-US.md"
+      }
+    },
+    {
+      "meta": {
+        "category": "十大原则",
+        "order": 9,
+        "title": "巧用过渡",
+        "filename": "docs/spec/transition.zh-CN.md"
+      }
+    },
+    {
+      "meta": {
+        "category": {
+          "zh-CN": "设计基础",
+          "en-US": "Design Fundamental"
+        },
+        "order": 1,
+        "title": {
+          "zh-CN": "排版",
+          "en-US": "Typography"
+        },
+        "filename": "docs/spec/typography.md"
+      }
+    }
+  ]
 },
 };
