@@ -27,7 +27,7 @@ module.exports = {
     components(markdownData) {
       const filename = markdownData.meta.filename;
       if (!/^components/.test(filename) ||
-          /\/demo$/.test(path.dirname(filename))) return;
+          /[/\\]demo$/.test(path.dirname(filename))) return;
 
       return {
         meta: markdownData.meta,
