@@ -7,6 +7,9 @@ import enUS from '../en_US';
 import ptBR from '../pt_BR';
 import ruRU from '../ru_RU';
 import esES from '../es_ES';
+import svSE from '../sv_SE';
+import frBE from '../fr_BE';
+import deDE from '../de_DE';
 
 const Option = Select.Option;
 const RangePicker = DatePicker.RangePicker;
@@ -52,7 +55,7 @@ const App = () => (
 
 describe('Locale Provider', () => {
   it('should display the text as locale changed', () => {
-    [enUS, ptBR, ruRU, esES].forEach((locale) => {
+    [enUS, ptBR, ruRU, esES, svSE, frBE, deDE].forEach((locale) => {
       const wrapper = mount(
         <LocaleProvider locale={locale}>
           <App />
