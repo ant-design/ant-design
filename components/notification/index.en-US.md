@@ -55,7 +55,7 @@ notification.config({
 | Property       | Description    | Type                       | Default       |
 |------------|--------------------|----------------------------|--------------|
 | placement  | To set the position, which can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
-| top        | Offset to top, when message pop up from `topRight` or `topLeft`          | Number                   | 24px        |
-| bottom     | Offset to bottom, when message pop up from `bottomRight` or `bottomLeft` | Number                   | 24px        |
-| duration   | A duration to close notification automatically by default (unit: second) | Number                   | 4.5         |
+| top        | Offset to top, when message pop up from `topRight` or `topLeft` (unit: pixels).          | number                   | 24        |
+| bottom     | Offset to bottom, when message pop up from `bottomRight` or `bottomLeft` (unit: pixels). | number                   | 24        |
+| duration   | A duration to close notification automatically by default (unit: second) | number                   | 4.5         |
 
