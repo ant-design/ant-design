@@ -119,6 +119,7 @@ export default class Spin extends React.Component<SpinProps, any> {
           {...divProps}
           component="div"
           className={`${prefixCls}-nested-loading`}
+          style={null}
           transitionName="fade"
         >
           {spinning && <div key="loading">{spinElement}</div>}
