@@ -3,7 +3,7 @@ const eslintrc = {
   env: {
     browser: true,
     node: true,
-    mocha: true,
+    jasmine: true,
     jest: true,
     es6: true,
   },
