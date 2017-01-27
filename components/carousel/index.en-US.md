@@ -16,11 +16,11 @@ A carousel component. Scales with its container.
 
 | Property             | Description                                         | Type     | Default                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
-| effect           | Animation effect, either `scrollx` or `fade`   | String | scrollx |
-| dots | Whether to show the dots at the bottom of the gallery                | Boolean    | true |
-| vertical | Whether to use a vertical display                               | Boolean   | false |
-| autoplay | Whether to scroll automatically                                 | Boolean   | false |
-| easing | Transition name                                                   | String   | linear |
+| effect           | Animation effect, either `scrollx` or `fade`   | string | scrollx |
+| dots | Whether to show the dots at the bottom of the gallery                | boolean    | true |
+| vertical | Whether to use a vertical display                               | boolean   | false |
+| autoplay | Whether to scroll automatically                                 | boolean   | false |
+| easing | Transition name                                                   | string   | linear |
 | beforeChange | Callback function called before the current index changes   | function(from, to) |
 | afterChange  | Callback function called after the current index changes    | function(current)  |
 

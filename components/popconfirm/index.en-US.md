@@ -16,10 +16,14 @@ The difference with `confirm` is more lightweight than the static popped full-sc
 
 | Param     | Description   | Type     | Default value       |
 |-----------|------------------------------------------|---------------|--------|
-| title     | title of the confirmation box                             | React.Element | none     |
+| title     | title of the confirmation box                             | string\|ReactNode | none     |
 | onConfirm | callback of confirmation                           | function      | none     |
 | onCancel  | callback of cancel                           | function      | none     |
-| okText    | text of the confirmation button                              | String        | Confirm   |
-| cancelText| text of the cancel button                              | String        | Cancel   |
+| okText    | text of the confirmation button                              | string        | Confirm   |
+| cancelText| text of the cancel button                              | string        | Cancel   |
 
 Consult [Tooltip's documentation](https://ant.design/components/tooltip/#API) to find more APIs.
+
+## Note
+
+Please ensure that the child node of `Popconfirm` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` event.

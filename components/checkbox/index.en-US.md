@@ -17,15 +17,15 @@ Checkbox.
 
 | Property      | Description             | Type      | Default  |
 |----------|------------------|----------|--------|
-| checked | Specifies whether the checkbox is selected. | Boolean | false |
-| defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | Boolean | false |
+| checked | Specifies whether the checkbox is selected. | boolean | false |
+| defaultChecked | Specifies the initial state: whether or not the checkbox is selected. | boolean | false |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) | - |
 
 ### Checkbox Group
 
 | Property      | Description             | Type      | Default  |
 |----------|------------------|----------|--------|
-| defaultValue | Default selected value | Array | [] |
-| value | Used for setting the currently selected value. | Array | [] |
-| options  | Specifies options | Array | [] |
+| defaultValue | Default selected value | string[] | [] |
+| value | Used for setting the currently selected value. | string[] | [] |
+| options  | Specifies options | string[] | [] |
 | onChange | The callback function that is triggered when the state changes. | Function(checkedValue) | - |

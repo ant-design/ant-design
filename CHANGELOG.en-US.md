@@ -1,13 +1,31 @@
 ---
-order: 9
+order: 6
 title: Change Log
 toc: false
 timeline: true
 ---
 
-If you want to read change logs before `2.0.0`, please visit [GitHub](https://github.com/ant-design/ant-design/releases?after=2.0.0).
+
+`antd` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+
+If you want to read change logs before `2.0.0`, please visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md).
 
 ---
+
+## 2.6.4
+
+`2017-01-20`
+
+* Improve RangePicker when selecting a preset date.[#4561](https://github.com/ant-design/ant-design/issues/4561)
+* Fix DatePicker select time scroll issue.[#4412](https://github.com/ant-design/ant-design/issues/4412)
+* Fix issue resulting in vertical Menu can't be controlled.[#3783](https://github.com/ant-design/ant-design/issues/3783)
+* Fix Cascader's style when it's disabled.[#4648](https://github.com/ant-design/ant-design/issues/4648)
+* Table
+  * Improve Table fixed header's scrollbar style.[#4637](https://github.com/ant-design/ant-design/issues/4637)
+  * Fix issue resulting in Table's header flashes when `loading` is true in Safari.[#4622](https://github.com/ant-design/ant-design/issues/4622)
+  * Fix multiple border issues. [#4647](https://github.com/ant-design/ant-design/issues/4647)、[#4635](https://github.com/ant-design/ant-design/issues/4635)
+  * Fix `showHeader`'s default value.[#4658](https://github.com/ant-design/ant-design/issues/4658)
+  * Fix missing `TableColumnConfig` type.[#4660](https://github.com/ant-design/ant-design/issues/4660)
 
 ## 2.6.3
 

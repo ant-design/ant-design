@@ -21,7 +21,7 @@ htmlType | to set the original `type` of `button`, see: [MDN](https://developer.
 icon | set the icon of button, see: Icon component | string | -
 shape | can be set to `circle` or omitted | string | -
 size | can be set to `small` `large` or omitted | string | `default`
-loading | to set the loading status of button | boolean | false
+loading | to set the loading status of button | boolean | `false`
 onClick | set the handler to handle `click` event | function | -
 ghost | make background transparent and invert text and border color, added in 2.7 | boolean | false
 

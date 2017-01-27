@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import shallowequal from 'shallowequal';
 import omit from 'omit.js';
 import getScroll from '../_util/getScroll';
+import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
 function getTargetRect(target): ClientRect {
   return target !== window ?
@@ -96,18 +97,16 @@ export default class Affix extends React.Component<AffixProps, any> {
     });
   }
 
-  setPlaceholderStyle(e, placeholderStyle) {
+  setPlaceholderStyle(placeholderStyle) {
     const originalPlaceholderStyle = this.state.placeholderStyle;
-    if (e.type === 'resize') {
-      return;
-    }
     if (shallowequal(placeholderStyle, originalPlaceholderStyle)) {
       return;
     }
     this.setState({ placeholderStyle });
   }
 
-  updatePosition = (e) => {
+  @throttleByAnimationFrameDecorator(250)
+  updatePosition(e) {
     let { offsetTop, offsetBottom, offset, target = getDefaultTarget } = this.props;
     const targetNode = target();
 
@@ -145,7 +144,7 @@ export default class Affix extends React.Component<AffixProps, any> {
         left: targetRect.left + elemOffset.left,
         width: affixNode.offsetWidth,
       });
-      this.setPlaceholderStyle(e, {
+      this.setPlaceholderStyle({
         width: affixNode.offsetWidth,
         height: affixNode.offsetHeight,
       });
@@ -161,13 +160,18 @@ export default class Affix extends React.Component<AffixProps, any> {
         left: targetRect.left + elemOffset.left,
         width: affixNode.offsetWidth,
       });
-      this.setPlaceholderStyle(e, {
+      this.setPlaceholderStyle({
         width: affixNode.offsetWidth,
         height: affixNode.offsetHeight,
       });
     } else {
-      this.setAffixStyle(e, null);
-      this.setPlaceholderStyle(e, null);
+      const { affixStyle } = this.state;
+      if (e.type === 'resize' && affixStyle && affixStyle.position === 'fixed' && affixNode.offsetWidth) {
+        this.setAffixStyle(e, {...affixStyle, width: affixNode.offsetWidth });
+      } else {
+        this.setAffixStyle(e, null);
+      }
+      this.setPlaceholderStyle(null);
     }
   }
 
@@ -217,9 +221,9 @@ export default class Affix extends React.Component<AffixProps, any> {
     });
 
     const props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target']);
-
+    const placeholderStyle = { ...this.state.placeholderStyle, ...this.props.style };
     return (
-      <div {...props} style={this.state.placeholderStyle}>
+      <div {...props} style={placeholderStyle}>
         <div className={className} ref="fixedNode" style={this.state.affixStyle}>
           {this.props.children}
         </div>

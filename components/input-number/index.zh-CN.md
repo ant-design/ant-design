@@ -17,11 +17,11 @@ title: InputNumber
 
 | 成员        | 说明           | 类型               | 默认值       |
 |-------------|----------------|--------------------|--------------|
-| min     | 最小值   | Number | -Infinity        |
-| max     | 最大值       | Number      | Infinity           |
-| value     | 当前值       | Number      |            |
-| step     | 每次改变步数，可以为小数  | Number or String      |  1      |
-| defaultValue     | 初始值       | Number      |            |
+| min     | 最小值   | number | -Infinity        |
+| max     | 最大值       | number      | Infinity           |
+| value     | 当前值       | number      |            |
+| step     | 每次改变步数，可以为小数  | number\|string      |  1      |
+| defaultValue     | 初始值       | number      |            |
 | onChange     | 变化回调       | Function      |            |
-| disabled     | 禁用       | Boolean      |      false      |
-| size    | 输入框大小  | String      |      无      |
+| disabled     | 禁用       | boolean      |      false      |
+| size    | 输入框大小  | string      |      无      |

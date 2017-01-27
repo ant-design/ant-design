@@ -38,7 +38,7 @@ title: Layout
 
 | 参数      | 说明                                      | 类型         | 默认值 |
 |----------|------------------------------------------|-------------|-------|
-| style | 指定样式 | Object | - |
+| style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 
 > `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
@@ -49,12 +49,12 @@ title: Layout
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |----------|-----------------------------------------|------------|-------|
-| collapsible | 是否可收起 | Boolean | false  |
-| defaultCollapsed | 是否默认收起 | Boolean | false  |
-| collapsed | 当前收起状态 | Boolean | - |
+| collapsible | 是否可收起 | boolean | false  |
+| defaultCollapsed | 是否默认收起 | boolean | false  |
+| collapsed | 当前收起状态 | boolean | - |
 | onCollapse | 展开-收起时的回调函数，仅当 `collapsible:true` 时生效 | (collapsed) => {} | - |
-| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | React.ReactNode or null | - |
-| width | 宽度 | Number or String | 200 |
-| collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | Number | 64 |
-| style | 指定样式 | Object | - |
+| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | string\|ReactNode | - |
+| width | 宽度 | number\|string | 200 |
+| collapsedWidth | 收缩宽度，仅当 `collapsible:true` 时生效 | number | 64 |
+| style | 指定样式 | object | - |
 | className | 容器 className | string | - |

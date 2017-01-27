@@ -147,7 +147,7 @@
     margin-left: 8px;
     margin-right: 8px;
     position: relative;
-    line-height: 26px;
+    line-height: @input-height-base - 2px;
     // https://github.com/ant-design/ant-design/issues/3481#issuecomment-254721026
     &:after {
       content: '.';
@@ -163,14 +163,14 @@
       height: @input-height-lg;
     }
     .@{select-prefix-cls}-selection__rendered {
-      line-height: 30px;
+      line-height: @input-height-lg - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {
       min-height: @input-height-lg;
       .@{select-prefix-cls}-selection__rendered {
         li {
-          height: 24px;
-          line-height: 24px;
+          height: @input-height-lg - 8px;
+          line-height: @input-height-lg - 8px;
         }
       }
     }
@@ -184,14 +184,14 @@
       height: @input-height-sm;
     }
     .@{select-prefix-cls}-selection__rendered {
-      line-height: 20px;
+      line-height: @input-height-sm - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {
       min-height: @input-height-sm;
       .@{select-prefix-cls}-selection__rendered {
         li {
-          height: 14px;
-          line-height: 14px;
+          height: @input-height-sm - 8px;
+          line-height: @input-height-sm - 8px;
         }
       }
     }
@@ -290,8 +290,8 @@
     > ul > li,
     .@{select-prefix-cls}-selection__rendered > ul > li {  // for tree-select
       margin-top: 3px;
-      height: 20px;
-      line-height: 20px;
+      height: @input-height-base - 8px;
+      line-height: @input-height-base - 8px;
     }
 
     .@{select-prefix-cls}-selection__choice {

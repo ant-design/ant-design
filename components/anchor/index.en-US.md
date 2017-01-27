@@ -17,13 +17,13 @@ For displaying anchor hyperlinks on page and jumping between them.
 
 | Property     | Description           | Type     | Default      |
 |--------------|-----------------------|----------|--------------|
-| offsetTop    | Pixels to offset from top when calculating position of scroll | Number | 0 |
-| offsetBottom | Pixels to offset from bottom when calculating position of scroll | Number | - |
-| bounds     | Bounding distance of anchor area | Number | 5(px) |
+| offsetTop    | Pixels to offset from top when calculating position of scroll | number | 0 |
+| offsetBottom | Pixels to offset from bottom when calculating position of scroll | number | - |
+| bounds     | Bounding distance of anchor area | number | 5(px) |
 
 ### Link Props
 
 | Property        | Description           | Type               | Default       |
 |-------------|----------------|--------------------|--------------|
-| href    | target of hyperlink  | String |         |
-| title | content of  hyperlink | React.Node |         |
+| href    | target of hyperlink  | string |         |
+| title | content of  hyperlink | string\|ReactNode |         |

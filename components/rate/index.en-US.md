@@ -15,9 +15,9 @@ Rate component.
 
 | Property        | Description           | type               | Default       |
 |------------|----------------|-------------------|-------------|
-| count    | star count | Number | 5 |
-| value | current value | Number | - |
-| defaultValue | default value | Number | 0 |
-| onChange | callback | Function(value: Number) | - |
-| allowHalf | whether to allow semi selection   | Boolean | false |
-| disabled | read only, unable to interact | Boolean | false |
+| count    | star count | number | 5 |
+| value | current value | number | - |
+| defaultValue | default value | number | 0 |
+| onChange | callback | Function(value: number) | - |
+| allowHalf | whether to allow semi selection   | boolean | false |
+| disabled | read only, unable to interact | boolean | false |

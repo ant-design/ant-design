@@ -70,7 +70,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | getFieldValue | 获取一个输入控件的值 | Function(fieldName: string) |
 | setFieldsValue | 设置一组输入控件的值（注意：不要在 `componentWillReceiveProps` 内使用，否则会导致死循环，[更多](https://github.com/ant-design/ant-design/issues/2985)） | Function({ [fieldName]: value } |
 | setFields | 设置一组输入控件的值与 Error。 [代码](https://github.com/react-component/form/blob/3b9959b57ab30b41d8890ff30c79a7e7c383cad3/examples/server-validate.js#L74-L79) | Function({ [fieldName]: { value: any, errors: [Error] } }) |
-| validateFields | 校验并获取一组输入域的值与 Error | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) |
+| validateFields | 校验并获取一组输入域的值与 Error，若 fieldNames 参数为空，则校验全部组件 | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) |
 | validateFieldsAndScroll | 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 | 参考 `validateFields` |
 | getFieldError | 获取某个输入控件的 Error | Function(name) |
 | getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function([names: string[]]) |
@@ -101,8 +101,8 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | options.initialValue | 子节点的初始值，类型、可选值均由子节点决定  | | |
 | options.trigger | 收集子节点的值的时机 | string | 'onChange' |
 | options.getValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent) |
-| options.validateTrigger | 校验子节点值的时机 | string \| string[] | 'onChange' |
-| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator#rules) | array | |
+| options.validateTrigger | 校验子节点值的时机 | string\|string[] | 'onChange' |
+| options.rules | 校验规则，参见 [async-validator](https://github.com/yiminghe/async-validator#rules) | object[] | |
 | options.exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false |
 
 ### Form.Item
@@ -113,11 +113,11 @@ CustomizedForm = Form.create({})(CustomizedForm);
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|-----------------------------------------|-----------|--------|
-| label | label 标签的文本 | React.Node |  |
+| label | label 标签的文本 | string\|ReactNode |  |
 | labelCol | label 标签布局，通 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` | object | |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | object | |
-| help | 提示信息，如不设置，则会根据校验规则自动生成 | React.Node | |
-| extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | React.Node | |
+| help | 提示信息，如不设置，则会根据校验规则自动生成 | string\|ReactNode | |
+| extra | 额外的提示信息，和 help 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | string\|ReactNode | |
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
 | hasFeedback | 配合 validateStatus 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false  |

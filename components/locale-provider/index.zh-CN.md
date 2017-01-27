@@ -33,4 +33,4 @@ We supply an English locale package. Other language users can create a locale pa
 
 | 参数    | 说明           | 类型              | 默认值        |
 |--------|----------------|------------------|--------------|
-| locale | 语言包配置，语言包可到 `antd/lib/locale-provider/` 目录下寻找 | Object | - |
+| locale | 语言包配置，语言包可到 `antd/lib/locale-provider/` 目录下寻找 | object | - |

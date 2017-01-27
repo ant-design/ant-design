@@ -22,10 +22,10 @@ Cascade selection box.
 | Property | Description | Type | Default |
 |------|------|------|--------|
 | options | data options of cascade | object | - |
-| defaultValue | initial selected value | array  |[] |
-| value | selected value | array  | - |
+| defaultValue | initial selected value | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |
+| value | selected value | [CascaderOptionType](https://git.io/vMMoK)[] | - |
 | onChange | callback when finishing cascader select | `(value, selectedOptions) => void` | - |
-| displayRender | render function of displaying selected options | `(label, selectedOptions) => React.ReactNode` | `label => label.join(' / ')` |
+| displayRender | render function of displaying selected options | `(label, selectedOptions) => ReactNode` | `label => label.join(' / ')` |
 | style | additional style | string | - |
 | className | additional css class | string | - |
 | popupClassName | additional className of popup overlay | string | - |
@@ -36,8 +36,8 @@ Cascade selection box.
 | allowClear | whether allow clear | boolean | true |
 | expandTrigger | expand current item when click or hover, one of 'click' 'hover' | string | 'click' |
 | changeOnSelect | change value on each selection if set to true, see above demo for details | boolean | false |
-| showSearch | Whether show search input in single mode. | Boolean or Object | false |
-| notFoundContent | Specify content to show when no result matches. | String | 'Not Found' |
+| showSearch | Whether show search input in single mode. | boolean\|object | false |
+| notFoundContent | Specify content to show when no result matches. | string | 'Not Found' |
 | loadData  | To load option lazily, and it cannot work with `showSearch` | `(selectedOptions) => void`  | - |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative.[example](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 
@@ -46,7 +46,7 @@ Fields in `showSearch`:
 | Property | Description | Type | Default |
 |----------|-------------|------|---------|
 | filter | The function will receive two arguments, inputValue and option, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded. | `function(inputValue, path): boolean` | |
-| render | Used to render filtered options. | `function(inputValue, path): React.ReactNode` | |
+| render | Used to render filtered options. | `function(inputValue, path): ReactNode` | |
 | sort | Used to sort filtered options. | `function(a, b, inputValue)` | |
 | matchInputWidth | Whether the width of result list equals to input's | boolean | |
 

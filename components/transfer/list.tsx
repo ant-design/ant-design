@@ -11,6 +11,11 @@ import Checkbox from '../checkbox';
 function noop() {
 }
 
+function isRenderResultPlainObject(result) {
+  return result && !React.isValidElement(result) &&
+    Object.prototype.toString.call(result) === '[object Object]';
+}
+
 export interface TransferListProps {
   prefixCls: string;
   dataSource: TransferItem[];
@@ -29,7 +34,7 @@ export interface TransferListProps {
   checkedKeys: string[];
   checkStatus?: boolean;
   position?: string;
-  notFoundContent?: React.ReactNode | string;
+  notFoundContent?: React.ReactNode;
   filterOption: (filterText: any, item: any) => boolean;
   lazy?: boolean | {};
 }
@@ -103,9 +108,27 @@ export default class TransferList extends React.Component<TransferListProps, any
     this.props.handleClear();
   }
 
+  matchFilter = (text, item) => {
+    const { filter, filterOption } = this.props;
+    if (filterOption) {
+      return filterOption(filter, item);
+    }
+    return text.indexOf(filter) >= 0;
+  }
+
+  renderItem = (item) => {
+    const { render = noop } = this.props;
+    const renderResult = render(item);
+    const isRenderResultPlain = isRenderResultPlainObject(renderResult);
+    return {
+      renderedText: isRenderResultPlain ? renderResult.value : renderResult,
+      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
+    };
+  }
+
   render() {
-    const { prefixCls, dataSource, titleText, filter, checkedKeys, lazy, filterOption,
-            body = noop, footer = noop, showSearch, render = noop, style } = this.props;
+    const { prefixCls, dataSource, titleText, checkedKeys, lazy,
+            body = noop, footer = noop, showSearch, style, filter } = this.props;
 
     let { searchPlaceholder, notFoundContent } = this.props;
 
@@ -118,20 +141,29 @@ export default class TransferList extends React.Component<TransferListProps, any
     });
 
     const filteredDataSource: TransferItem[] = [];
+    const totalDataSource: TransferItem[] = [];
 
     const showItems = dataSource.map((item) => {
+      const { renderedText, renderedEl } = this.renderItem(item);
+      if (filter && filter.trim() && !this.matchFilter(renderedText, item)) {
+        return null;
+      }
+
+      // all show items
+      totalDataSource.push(item);
       if (!item.disabled) {
+         // response to checkAll items
         filteredDataSource.push(item);
       }
+
       const checked = checkedKeys.indexOf(item.key) >= 0;
       return (
         <Item
           key={item.key}
           item={item}
           lazy={lazy}
-          render={render}
-          filter={filter}
-          filterOption={filterOption}
+          renderedText={renderedText}
+          renderedEl={renderedEl}
           checked={checked}
           prefixCls={prefixCls}
           onClick={this.handleSelect}
@@ -200,7 +232,7 @@ export default class TransferList extends React.Component<TransferListProps, any
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
             <span>
-              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + dataSource.length} {unit}
+              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + totalDataSource.length} {unit}
             </span>
             <span className={`${prefixCls}-header-title`}>
               {titleText}

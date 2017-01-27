@@ -21,8 +21,8 @@ An enterprise-class UI design language and React-based implementation.
 
 ## Features
 
-- An enterprise-class design language and high quality UI.
-- Graceful UI components out of the box, based on [React Component](http://react-component.github.io/badgeboard/).
+- An enterprise-class UI design language for web applications.
+- A set of high-quality React components out of the box.
 - Written in TypeScript with complete define types.
 - A npm + webpack + [dva](https://github.com/dvajs/dva) front-end development workflow.
 

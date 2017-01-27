@@ -82,4 +82,20 @@ describe('Menu', () => {
     );
     expect(wrapper.find('.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).not.toBe(true);
   });
+
+  // https://github.com/ant-design/ant-design/pulls/4677
+  // https://github.com/ant-design/ant-design/issues/4692
+  // TypeError: Cannot read property 'indexOf' of undefined
+  it('pr #4677 and issue #4692', () => {
+    const wrapper = mount(
+      <Menu mode="horizontal">
+        <SubMenu title="submenu">
+          <Menu.Item key="1">menu1</Menu.Item>
+          <Menu.Item key="2">menu2</Menu.Item>
+        </SubMenu>
+      </Menu>
+    );
+    wrapper.update();
+    // just expect no error emit
+  });
 });

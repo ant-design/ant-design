@@ -1,11 +1,20 @@
 ---
 order: 3
-title: 吊顶规范
+title:
+  zh-CN: 吊顶规范
+  en-US: Ceiling
 ---
+## zh-CN
 
 吊顶一般用于跨系统/应用场景，可以放置统一的登录/帮助信息。
 
 吊顶背景深色，高度 `30px`，和浅色调的主导航配合使用。
+
+## en-US
+
+Generally, ceiling is used for cross system/applications, where you can put uniform login/help information on top of the page.
+
+Background color of a ceiling is a dark color, height is `30px`, and a light color foreground for the mainnav should be used.
 
 ````__react
 import { Menu, Breadcrumb } from 'antd';
@@ -19,9 +28,9 @@ ReactDOM.render(
           <ul className="right">
             <li>xxx@example.com</li>
             <li>|</li>
-            <li>帮助中心</li>
+            <li>Help Center</li>
             <li>|</li>
-            <li>客服/投诉电话：400-826-7710</li>
+            <li>Custom Service/Complaint Center phone：400-826-7710</li>
           </ul>
         </div>
       </div>

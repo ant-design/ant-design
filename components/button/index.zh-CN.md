@@ -24,7 +24,7 @@ htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标�
 icon | 设置按钮的图标类型 | string | -
 shape | 设置按钮形状，可选值为 `circle` 或者不设 | string | -
 size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default`
-loading | 设置按钮载入状态 | boolean | false
+loading | 设置按钮载入状态 | boolean | `false`
 onClick | `click` 事件的 handler | function | -
 ghost | 幽灵属性，使按钮背景透明，版本 2.7 中增加 | boolean | false
 

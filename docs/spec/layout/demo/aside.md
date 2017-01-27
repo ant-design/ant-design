@@ -1,11 +1,23 @@
 ---
 order: 2
-title: 侧边导航
+title: 
+  zh-CN: 侧边导航
+  en-US: Aside
 ---
+
+## zh-CN
 
 顶级导航在侧边栏。
 
 侧边导航在页面布局上采用的是左右的结构，一般主导航放置于页面的左侧固定位置，辅助菜单放置于工作区顶部。内容根据浏览器终端进行自适应，能提高横向空间的使用率，但是整个页面排版不稳定。侧边导航的模式层级扩展性强，一、二、三级导航项目可以更为顺畅且具关联性的被展示，同时侧边导航可以固定，使得用户在操作和浏览中可以快速的定位和切换当前位置，有很高的操作效率。但这类导航横向页面内容的空间会被牺牲一部份。
+
+## en-US
+
+Aside top level navigation
+
+A left-right structure of page layouts is used to Aside navigation, Generally, the mainnav is placed on the left side of the page, and the secondary menu is placed on the top of the working area. Contents will adapt the layout to the viewing area to improve the horizontal space usage, while the layout of the whole page is not stable.
+
+The level of the aisde navigation is scalable. The first, second, and third level navigations could be present more fluently and relevantly, and aside navigation can be fixed, allowing the user to quickly switch and spot the current position, improving the user experience. However, this navigation occupies some horizontal space of the contents.
 
 ````__react
 import { Menu, Breadcrumb, Icon } from 'antd';
@@ -19,23 +31,23 @@ ReactDOM.render(
         <div className="layout-logo"></div>
         <Menu mode="inline" theme="dark"
           defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']}>
-          <SubMenu key="sub1" title={<span><Icon type="user" />导航一</span>}>
-            <Menu.Item key="1">选项1</Menu.Item>
-            <Menu.Item key="2">选项2</Menu.Item>
-            <Menu.Item key="3">选项3</Menu.Item>
-            <Menu.Item key="4">选项4</Menu.Item>
+          <SubMenu key="sub1" title={<span><Icon type="user" />Navigation 1</span>}>
+            <Menu.Item key="1">item 1</Menu.Item>
+            <Menu.Item key="2">item 2</Menu.Item>
+            <Menu.Item key="3">item 3</Menu.Item>
+            <Menu.Item key="4">item 4</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" title={<span><Icon type="laptop" />导航二</span>}>
-            <Menu.Item key="5">选项5</Menu.Item>
-            <Menu.Item key="6">选项6</Menu.Item>
-            <Menu.Item key="7">选项7</Menu.Item>
-            <Menu.Item key="8">选项8</Menu.Item>
+          <SubMenu key="sub2" title={<span><Icon type="laptop" />Navigation 2</span>}>
+            <Menu.Item key="5">item 5</Menu.Item>
+            <Menu.Item key="6">item 6</Menu.Item>
+            <Menu.Item key="7">item 7</Menu.Item>
+            <Menu.Item key="8">item 8</Menu.Item>
           </SubMenu>
-          <SubMenu key="sub3" title={<span><Icon type="notification" />导航三</span>}>
-            <Menu.Item key="9">选项9</Menu.Item>
-            <Menu.Item key="10">选项10</Menu.Item>
-            <Menu.Item key="11">选项11</Menu.Item>
-            <Menu.Item key="12">选项12</Menu.Item>
+          <SubMenu key="sub3" title={<span><Icon type="notification" />Navigation 3</span>}>
+            <Menu.Item key="9">item 9</Menu.Item>
+            <Menu.Item key="10">item 10</Menu.Item>
+            <Menu.Item key="11">item 11</Menu.Item>
+            <Menu.Item key="12">item 12</Menu.Item>
           </SubMenu>
         </Menu>
       </aside>
@@ -43,18 +55,18 @@ ReactDOM.render(
         <div className="layout-header"></div>
         <div className="layout-container">
           <Breadcrumb>
-            <Breadcrumb.Item>首页</Breadcrumb.Item>
-            <Breadcrumb.Item>应用列表</Breadcrumb.Item>
-            <Breadcrumb.Item>某应用</Breadcrumb.Item>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>App list</Breadcrumb.Item>
+            <Breadcrumb.Item>Any App</Breadcrumb.Item>
           </Breadcrumb>
           <div className="layout-content">
             <div style={{ height: 590 }}>
-              内容区域
+              Contents
             </div>
           </div>
         </div>
         <div className="layout-footer">
-        Ant Design 版权所有 © 2015 由蚂蚁金服体验技术部支持
+          Ant Design all rights reserved © 2015 Created by Ant UED
         </div>
       </div>
     </div>

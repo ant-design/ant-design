@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu } from 'antd';
+import { Row, Col, Menu, Icon } from 'antd';
 import Article from './Article';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
@@ -110,8 +110,8 @@ export default class MainContent extends React.Component {
         {text}
       </Link>
     ) : (
-      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled}>
-        {text}
+      <a href={item.link} target="_blank" rel="noopener noreferrer" disabled={disabled} className="menu-item-link-outside">
+        {text} <Icon type="export" />
       </a>
     );
 
