@@ -11,6 +11,34 @@ timeline: true
 If you want to read change logs before `2.0.0`, please visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md).
 
 ---
+## 2.7.0
+
+`2017-01-30`
+
+* Add German localization for LocaleProvider. [#4538](https://github.com/ant-design/ant-design/pull/4538)
+* Add Swedish localization for LocaleProvider.  [#4455](https://github.com/ant-design/ant-design/pull/4455)
+* Add French localization for LocaleProvider.  [#4538](https://github.com/ant-design/ant-design/pull/4538)
+* Added `onSearchChange` callback of Transfer. [#4464](https://github.com/ant-design/ant-design/pull/4464)
+* Added `maskClosable` property of Modal.confirm. [#4488](https://github.com/ant-design/ant-design/pull/4488), [#4488](https://github.com/ant-design/ant-design/pull/4490)
+* Added `vertical` mode of Slider. [#4473](https://github.com/ant-design/ant-design/pull/4473)
+* More styles of Button. [#4679](https://github.com/ant-design/ant-design/pull/4679)
+* More popup direction supported in notification. [#4732](https://github.com/ant-design/ant-design/pull/4700)
+* Added `hideRequiredMark` property if Form. [#4732](https://github.com/ant-design/ant-design/pull/4732)
+* Added `colon` property of Form.Item. #4505](https://github.com/ant-design/ant-design/pull/4505)
+* Improvements of unload lsit of Upload. [#4516](https://github.com/ant-design/ant-design/pull/4516)
+* Input element of AutoComplete can be customized. [#4483](https://github.com/ant-design/ant-design/pull/4483)
+* Added more preset colors of Tag. [#4571](https://github.com/ant-design/ant-design/pull/4571)
+* Improvements of vertical-aligin and margin of Tag.
+* Upgrade rc-steps to 2.3.0 .
+  * Added `progressDot` property of Steps, which allows users to customize the display for Steps with progress dot style;
+  * Added `labelPlacement` property to customize placement of label. [#4659](https://github.com/ant-design/ant-design/pull/4659)
+* Upgrade rc-cascader to 0.11.0, keyborad interactions supported. [#4411](https://github.com/ant-design/ant-design/pull/4411)
+* Upgrade rc-select to 6.7.1 .
+  * Fixed duplication `onChange` callback. [#156@rc-select](https://github.com/react-component/select/pull/156)
+  * Fixed displaying of initial value. [#152@rc-select](https://github.com/react-component/select/pull/152)
+* Upgrade rc-input-number to 3.0.0, Fixed inconsistent `onChange` callback arguments of InputNumber.[#4265](https://github.com/ant-design/ant-design/pull/4265)
+* Upgrade rc-tree-select to 1.9.0, Fixed an overflow-wrap issue of TreeSelect. [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)，[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
+
 
 ## 2.6.4
 

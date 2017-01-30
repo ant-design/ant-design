@@ -11,6 +11,32 @@ timeline: true
 
 ---
 
+## 2.7.0
+
+`2017-01-30`
+
+* 添加了对德语的支持。 [#4538](https://github.com/ant-design/ant-design/pull/4538)
+* 添加了对瑞典语的支持。 [#4455](https://github.com/ant-design/ant-design/pull/4455)
+* 添加了对法语的支持。 [#4538](https://github.com/ant-design/ant-design/pull/4538)
+* Transfer 添加了 onSearchChange 回调。 [#4464](https://github.com/ant-design/ant-design/pull/4464)
+* Modal.confirm 添加了 maskClosable 配置项。[#4488](https://github.com/ant-design/ant-design/pull/4488), [#4488](https://github.com/ant-design/ant-design/pull/4490)
+* Slider 增加 `veritical` 模式。[#4473](https://github.com/ant-design/ant-design/pull/4473)
+* Button 有了更多样式。[#4679](https://github.com/ant-design/ant-design/pull/4679)
+* notification 支持更多弹出方向。[#4732](https://github.com/ant-design/ant-design/pull/4700)
+* Form 增加 `hideRequiredMark` 属性。 [#4732](https://github.com/ant-design/ant-design/pull/4732)
+* Form.Item 增加 `colon` 属性。[#4505](https://github.com/ant-design/ant-design/pull/4505)
+* 改进了 Upload 的 upload list。 [#4516](https://github.com/ant-design/ant-design/pull/4516)
+* AutoComplete 支持自定义输入框的用法。 [#4483](https://github.com/ant-design/ant-design/pull/4483)
+* Tag 增加了预设的颜色。 [#4571](https://github.com/ant-design/ant-design/pull/4571)
+* 优化了 Tag 的 vertical-aligin 和 margin 样式。
+* 升级了 rc-steps 到 2.3.0，Steps 新增 progressDot 属性，支持自定义点状步骤条; 新增 labelPlacement 属性，支持定义标签位置。[#4659](https://github.com/ant-design/ant-design/pull/4659)
+* 升级了 rc-cascader 到 0.11.0， 支持键盘操作。[#4411](https://github.com/ant-design/ant-design/pull/4411)
+* 升级了 rc-select 到 6.7.1。
+  * 修复了 Select 的 onChange 回调重复触发的问题。[#156@rc-select](https://github.com/react-component/select/pull/156)
+  * 修复了 Select 显示初始化值的问题。[#152@rc-select](https://github.com/react-component/select/pull/152)
+* 升级了 rc-input-number 到 3.0.0, 修复了 InputNumber 事件触发后表现不一致的问题。[#4265](https://github.com/ant-design/ant-design/pull/4265)
+* 升级了 rc-tree-select 到 1.9.0，修复了 TreeSelect 的文字溢出换行问题 [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)，[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
+
 ## 2.6.4
 
 `2017-01-20`
