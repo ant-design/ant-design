@@ -20,7 +20,9 @@ timeline: true
 * 升级了 rc-cascader 到 0.11.0，支持键盘操作。[#4411](https://github.com/ant-design/ant-design/pull/4411)
 * notification 支持更多弹出方向。[#4732](https://github.com/ant-design/ant-design/pull/4700)
 * 升级了 rc-steps 到 2.3.0，Steps 新增 `progressDot` 属性，支持自定义点状步骤条的样式。[#4659](https://github.com/ant-design/ant-design/pull/4659)
-* 升级了 rc-input-number 到 3.0.0, 现在输入时也会触发 `onChange`。[#4265](https://github.com/ant-design/ant-design/pull/4265)
+* 升级了 rc-input-number 到 3.0.0
+  * 现在输入时也会触发 `onChange`。[#4265](https://github.com/ant-design/ant-design/pull/4265)
+  * 修复了 `onKeyUp` 事件。[#4717](https://github.com/ant-design/ant-design/issues/4717)
 * Slider 增加 `veritical` 模式。[#4473](https://github.com/ant-design/ant-design/pull/4473)
 * Tag
   - 增加了预设颜色。[#4571](https://github.com/ant-design/ant-design/pull/4571)

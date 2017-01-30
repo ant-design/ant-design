@@ -20,7 +20,9 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Upgrade rc-cascader to `0.11.0`, keyborad interactions supported. [#4411](https://github.com/ant-design/ant-design/pull/4411)
 * More popup directions are supported in notification. [#4732](https://github.com/ant-design/ant-design/pull/4700)
 * Upgrade rc-steps to `2.3.0`, added `progressDot` property of Steps, which allows users to customize the display for Steps with progress dot style.
-* Upgrade rc-input-number to `3.0.0`, input behavious will trigger `onChange` callback now.[#4265](https://github.com/ant-design/ant-design/pull/4265)
+* Upgrade rc-input-number to `3.0.0`
+  * Input behavious will trigger `onChange` callback now.[#4265](https://github.com/ant-design/ant-design/pull/4265)
+  * Fixed `onKeyUp`. [#4717](https://github.com/ant-design/ant-design/issues/4717)
 * Added `vertical` mode of Slider. [#4473](https://github.com/ant-design/ant-design/pull/4473)
 * Tag
   * Added preset colors. [#4571](https://github.com/ant-design/ant-design/pull/4571)
