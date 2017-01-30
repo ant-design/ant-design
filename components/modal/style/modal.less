@@ -81,7 +81,7 @@
     border-radius: @border-radius-base @border-radius-base 0 0;
     background: @component-background;
     color: @text-color;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
   &-body {
@@ -91,7 +91,7 @@
   }
 
   &-footer {
-    border-top: 1px solid @border-color-split;
+    border-top: @border-width-base @border-style-base @border-color-split;
     padding: 10px 18px 10px 10px;
     text-align: right;
     border-radius: 0 0 @border-radius-base @border-radius-base;

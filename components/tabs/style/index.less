@@ -27,7 +27,7 @@
   }
 
   &-bar {
-    border-bottom: 1px solid @border-color-base;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
     margin-bottom: 16px;
   }
 
@@ -259,7 +259,7 @@
   &-vertical&-left {
     > .@{tab-prefix-cls}-bar {
       float: left;
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
       margin-right: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-tab {
@@ -277,14 +277,14 @@
     }
     > .@{tab-prefix-cls}-content {
       padding-left: 24px;
-      border-left: 1px solid @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   &-vertical&-right {
     > .@{tab-prefix-cls}-bar {
       float: right;
-      border-left: 1px solid @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
       margin-left: -1px;
       margin-bottom: 0;
       .@{tab-prefix-cls}-nav-container {
@@ -299,7 +299,7 @@
     }
     > .@{tab-prefix-cls}-content {
       padding-right: 24px;
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
     }
   }
 

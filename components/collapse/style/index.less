@@ -13,11 +13,11 @@
 .@{collapse-prefix-cls} {
   background-color: @background-color-base;
   border-radius: 3px;
-  border: 1px solid @border-color-base;
+  border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
 
   & > &-item {
-    border-bottom: 1px solid @border-color-base;
+    border-bottom: @border-width-base @border-style-base @border-color-base;
     > .@{collapse-prefix-cls}-header {
       height: 38px;
       line-height: 38px;
@@ -91,7 +91,7 @@
 
   &-borderless > &-item > &-content {
     background-color: transparent;
-    border-top: 1px solid @border-color-base;
+    border-top: @border-width-base @border-style-base @border-color-base;
   }
 
   &-borderless > &-item > &-header {

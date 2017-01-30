@@ -51,7 +51,7 @@
   }
 
   &-tbody > tr > td {
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     position: relative;
   }
 
@@ -85,7 +85,7 @@
   }
 
   &.@{table-prefix-cls}-bordered &-footer {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
   }
 
   &-title {
@@ -96,7 +96,7 @@
   }
 
   &.@{table-prefix-cls}-bordered &-title {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
   }
 
   &-title + &-content {
@@ -183,7 +183,7 @@
   }
 
   &-small {
-    border: 1px solid @border-color-split;
+    border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
 
     .@{table-prefix-cls}-header > table,
@@ -194,7 +194,7 @@
 
     .@{table-prefix-cls}-thead > tr > th {
       background: @component-background;
-      border-bottom: 1px solid @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-tbody > tr > td {
@@ -208,14 +208,14 @@
     }
 
     .@{table-prefix-cls}-title {
-      border-bottom: 1px solid @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
       top: 0;
     }
 
     .@{table-prefix-cls}-header {
       background: @component-background;
       table {
-        border-bottom: 1px solid @border-color-split;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
       }
       .@{table-prefix-cls}-thead > tr > th {
         border-bottom: 0;
@@ -268,15 +268,15 @@
     .@{table-prefix-cls}-body > table,
     .@{table-prefix-cls}-fixed-left table,
     .@{table-prefix-cls}-fixed-right table {
-      border: 1px solid @border-color-split;
+      border: @border-width-base @border-style-base @border-color-split;
       border-right: 0;
       border-bottom: 0;
     }
 
     &.@{table-prefix-cls}-empty {
       .@{table-prefix-cls}-placeholder {
-        border-left: 1px solid @border-color-split;
-        border-right: 1px solid @border-color-split;
+        border-left: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
       }
     }
 
@@ -301,12 +301,12 @@
     }
 
     .@{table-prefix-cls}-thead > tr > th {
-      border-bottom: 1px solid @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-thead > tr > th,
     .@{table-prefix-cls}-tbody > tr > td {
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
     }
 
     &.@{table-prefix-cls}-small {
@@ -322,14 +322,14 @@
 
       .@{table-prefix-cls}-title {
         border: 0;
-        border-bottom: 1px solid @border-color-split;
-        border-right: 1px solid @border-color-split;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
       }
 
       .@{table-prefix-cls}-footer {
         border: 0;
-        border-top: 1px solid @border-color-split;
-        border-right: 1px solid @border-color-split;
+        border-top: @border-width-base @border-style-base @border-color-split;
+        border-right: @border-width-base @border-style-base @border-color-split;
         &:before {
           display: none;
         }
@@ -340,7 +340,7 @@
   &-placeholder {
     padding: 16px 8px;
     background: @component-background;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     text-align: center;
     font-size: @font-size-base;
     color: @text-color-secondary;
@@ -396,7 +396,7 @@
     &-btns {
       overflow: hidden;
       padding: 7px 16px;
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
 
     &-link {
@@ -424,7 +424,7 @@
       height: 17px;
       text-align: center;
       line-height: 14px;
-      border: 1px solid @border-color-split;
+      border: @border-width-base @border-style-base @border-color-split;
       user-select: none;
       background: @component-background;
       &-cell {

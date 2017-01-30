@@ -3,7 +3,7 @@
   line-height: 34px;
   text-align: center;
   user-select: none;
-  border-bottom: 1px solid @border-color-split;
+  border-bottom: @border-width-base @border-style-base @border-color-split;
 
   a:hover {
     color: @link-hover-color;
@@ -86,7 +86,7 @@
   position: relative;
   outline: none;
   width: 231px;
-  border: 1px solid #fff;
+  border: @border-width-base @border-style-base #fff;
   list-style: none;
   font-size: @font-size-base;
   text-align: left;
@@ -99,7 +99,7 @@
   &-input-wrap {
     height: 34px;
     padding: 6px;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
   }
 
   &-input {
@@ -173,7 +173,7 @@
     width: 20px;
     height: 20px;
     line-height: 18px;
-    border: 1px solid transparent;
+    border: @border-width-base @border-style-base transparent;
     padding: 0;
     background: transparent;
     text-align: center;
@@ -208,7 +208,7 @@
   &-selected-day &-date {
     background: @primary-color;
     color: #fff;
-    border: 1px solid transparent;
+    border: @border-width-base @border-style-base transparent;
 
     &:hover {
       background: @primary-color;
@@ -221,7 +221,7 @@
     background: #f3f3f3;
     border-radius: 0;
     width: auto;
-    border: 1px solid transparent;
+    border: @border-width-base @border-style-base transparent;
 
     &:hover {
       background: #f3f3f3;
@@ -239,7 +239,7 @@
   }
 
   &-footer-btn {
-    border-top: 1px solid @border-color-split;
+    border-top: @border-width-base @border-style-base @border-color-split;
     text-align: center;
     display: block;
     line-height: 38px;

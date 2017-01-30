@@ -38,7 +38,7 @@
       box-sizing: border-box;
       position: relative;
       padding: 6px;
-      border-bottom: 1px solid @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     &-invalid {
@@ -80,7 +80,7 @@
   &-select {
     float: left;
     font-size: @font-size-base;
-    border-left: 1px solid @border-color-split;
+    border-left: @border-width-base @border-style-base @border-color-split;
     box-sizing: border-box;
     width: @time-picker-panel-column-width;
     overflow: hidden;
@@ -150,7 +150,7 @@
 
   &-addon {
     padding: 8px;
-    border-top: 1px solid @border-color-split;
+    border-top: @border-width-base @border-style-base @border-color-split;
   }
 
   &.slide-up-enter.slide-up-enter-active&-placement-topLeft,

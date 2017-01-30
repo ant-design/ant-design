@@ -24,7 +24,7 @@
   }
 
   &&-select-picture-card {
-    border: 1px dashed @border-color-base;
+    border: @border-width-base dashed @border-color-base;
     width: @upload-pictrue-card-size;
     height: @upload-pictrue-card-size;
     border-radius: @border-radius-base;
@@ -50,7 +50,7 @@
   }
 
   &&-drag {
-    border: 1px dashed @border-color-base;
+    border: @border-width-base dashed @border-color-base;
     transition: border-color 0.3s ease;
     cursor: pointer;
     border-radius: @border-radius-base;
@@ -176,7 +176,7 @@
     .@{upload-item} {
       padding: 8px;
       border-radius: @border-radius-base;
-      border: 1px solid @border-color-base;
+      border: @border-width-base @border-style-base @border-color-base;
       height: 66px;
       position: relative;
       &:hover {

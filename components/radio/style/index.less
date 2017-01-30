@@ -121,7 +121,7 @@ span.@{radio-prefix-cls} + * {
   display: inline-block;
   transition: all 0.3s ease;
   cursor: pointer;
-  border: 1px solid @border-color-base;
+  border: @border-width-base @border-style-base @border-color-base;
   border-left: 0;
   background: @component-background;
   padding: 0 16px;
@@ -156,7 +156,7 @@ span.@{radio-prefix-cls} + * {
 
   &:first-child {
     border-radius: @border-radius-base 0 0 @border-radius-base;
-    border-left: 1px solid @border-color-base;
+    border-left: @border-width-base @border-style-base @border-color-base;
   }
 
   &:last-child {

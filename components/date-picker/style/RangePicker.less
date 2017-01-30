@@ -153,7 +153,7 @@
   div&-quick-selector {
     display: block;
     text-align: left;
-    border-top: 1px solid @border-color-split;
+    border-top: @border-width-base @border-style-base @border-color-split;
     padding: 10.5px 10px;
 
     > a {
@@ -168,7 +168,7 @@
       border-bottom: 0;
     }
     &-body {
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
   }
 
@@ -193,7 +193,7 @@
         display: inline-block;
         height: 100%;
         background-color: white;
-        border-top: 1px solid @border-color-split;
+        border-top: @border-width-base @border-style-base @border-color-split;
       }
       &-select {
         height: 100%;
