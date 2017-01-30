@@ -37,7 +37,6 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * Fixed displaying of initial value. [#152@rc-select](https://github.com/react-component/select/pull/152)
 * Upgrade rc-tree-select to `1.9.0`, fixed an overflow-wrap issue of TreeSelect. [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)，[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
 
-
 ## 2.6.4
 
 `2017-01-20`
