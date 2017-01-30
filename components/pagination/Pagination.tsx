@@ -2,7 +2,7 @@ import React from 'react';
 import RcPagination from 'rc-pagination';
 import Select from '../select';
 import MiniSelect from './MiniSelect';
-import zhCN from './locale/zh_CN';
+import zhCN from 'rc-pagination/lib/locale/zh_CN';
 
 export interface PaginationProps {
   /** 当前页数*/
