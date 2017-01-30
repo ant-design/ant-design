@@ -2,9 +2,47 @@ import React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
 import assign from 'object-assign';
-let defaultTop = 24;
 let notificationInstance;
 let defaultDuration = 4.5;
+let defaultTop = 24;
+let defaultBottom = 24;
+let defaultPlacement = 'topRight';
+
+export type notificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+
+function getPlacementStyle(placement) {
+  let style;
+  switch (placement) {
+    case 'topLeft':
+      style = {
+        left: 0,
+        top: defaultTop,
+        bottom: 'auto',
+      };
+      break;
+    case 'bottomLeft':
+      style = {
+        left: 0,
+        top: 'auto',
+        bottom: defaultBottom,
+      };
+      break;
+    case 'bottomRight':
+      style = {
+        right: 0,
+        top: 'auto',
+        bottom: defaultBottom,
+      };
+      break;
+    default:
+      style = {
+        right: 0,
+        top: defaultTop,
+        bottom: 'auto',
+      };
+  }
+  return style;
+}
 
 export interface ArgsProps {
   message: React.ReactNode;
@@ -14,11 +52,14 @@ export interface ArgsProps {
   onClose?: () => void;
   duration?: number;
   icon?: React.ReactNode;
+  placement?: notificationPlacement;
 }
 
 export interface ConfigProps {
   top?: number;
+  bottom?: number;
   duration?: number;
+  placement?: notificationPlacement;
 }
 
 function getNotificationInstance(prefixCls) {
@@ -27,10 +68,8 @@ function getNotificationInstance(prefixCls) {
   }
   notificationInstance = (Notification as any).newInstance({
     prefixCls: prefixCls,
-    style: {
-      top: defaultTop,
-      right: 0,
-    },
+    className: `${prefixCls}-${defaultPlacement}`,
+    style: getPlacementStyle(defaultPlacement),
   });
   return notificationInstance;
 }
@@ -38,6 +77,11 @@ function getNotificationInstance(prefixCls) {
 function notice(args) {
   const outerPrefixCls = args.prefixCls || 'ant-notification';
   const prefixCls = `${outerPrefixCls}-notice`;
+
+  if (args.placement !== undefined) {
+    defaultPlacement = args.placement;
+    notificationInstance = null; // delete notificationInstance for new defaultPlacement
+  }
 
   let duration;
   if (args.duration === undefined) {
@@ -113,12 +157,22 @@ const api: {
     }
   },
   config(options: ConfigProps) {
-    if (options.top !== undefined) {
-      defaultTop = options.top;
-      notificationInstance = null; // delete notificationInstance for new defaultTop
+    const { duration, placement, bottom, top } = options;
+    if (placement !== undefined) {
+      defaultPlacement = placement;
     }
-    if (options.duration !== undefined) {
-      defaultDuration = options.duration;
+    if (bottom !== undefined) {
+      defaultBottom = bottom;
+    }
+    if (top !== undefined) {
+      defaultTop = top;
+    }
+    // delete notificationInstance
+    if (placement !== undefined || bottom !== undefined || top !== undefined) {
+      notificationInstance = null;
+    }
+    if (duration !== undefined) {
+      defaultDuration = duration;
     }
   },
   destroy() {

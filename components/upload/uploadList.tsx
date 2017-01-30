@@ -20,6 +20,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showInfo: false,
     },
     prefixCls: 'ant-upload',
+    showRemoveIcon: true,
+    showPreviewIcon: true,
   };
 
   handleClose = (file) => {
@@ -63,7 +65,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   }
 
   render() {
-    const { prefixCls, items = [], listType } = this.props;
+    const { prefixCls, items = [], listType, showPreviewIcon, showRemoveIcon } = this.props;
     const list = items.map(file => {
       let progress;
       let icon = <Icon type="paper-clip" />;
@@ -123,22 +125,27 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         pointerEvents: 'none',
         opacity: 0.5,
       };
-      const actions = (listType === 'picture-card' && file.status !== 'uploading') ? (
-        <span>
-          <a
-            href={file.url || file.thumbUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={style}
-            onClick={e => this.handlePreview(file, e)}
-          >
-            <Icon type="eye-o" />
-          </a>
-          <Icon type="delete" title="Remove file" onClick={() => this.handleClose(file)} />
-        </span>
-      ) : (
+      const previewIcon = showPreviewIcon ? (
+        <a
+          href={file.url || file.thumbUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={style}
+          onClick={e => this.handlePreview(file, e)}
+          title="Preview file"
+        >
+          <Icon type="eye-o" />
+        </a>
+      ) : null;
+      const removeIcon = showRemoveIcon ? (
+        <Icon type="delete" title="Remove file" onClick={() => this.handleClose(file)} />
+      ) : null;
+      const removeIconCross = showRemoveIcon ? (
         <Icon type="cross" title="Remove file" onClick={() => this.handleClose(file)} />
-      );
+      ) : null;
+      const actions = (listType === 'picture-card' && file.status !== 'uploading')
+        ? <span className={`${prefixCls}-list-item-actions`}>{previewIcon}{removeIcon}</span>
+        : removeIconCross;
 
       return (
         <div className={infoUploadingClass} key={file.uid}>

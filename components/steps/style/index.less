@@ -21,6 +21,8 @@
 
 @steps-icon-size: 26px;
 @steps-small-icon-size: 18px;
+@steps-dot-size: 5px;
+@steps-current-dot-size: 7px;
 
 .@{steps-prefix-cls} {
   font-size: 0;
@@ -37,6 +39,9 @@
         background-color: @component-background;
         > .@{steps-prefix-cls}-icon {
           color: @wait-icon-color;
+          .@{steps-prefix-cls}-icon-dot {
+            background: @wait-icon-color;
+          }
         }
       }
       .@{steps-prefix-cls}-title {
@@ -55,6 +60,9 @@
         background-color: @process-icon-color;
         > .@{steps-prefix-cls}-icon {
           color: @component-background;
+          .@{steps-prefix-cls}-icon-dot {
+            background: @process-icon-color;
+          }
         }
       }
       .@{steps-prefix-cls}-title {
@@ -73,6 +81,9 @@
         background-color: @component-background;
         > .@{steps-prefix-cls}-icon {
           color: @finish-icon-color;
+          .@{steps-prefix-cls}-icon-dot {
+            background: @finish-icon-color;
+          }
         }
       }
       .@{steps-prefix-cls}-tail > i:after {
@@ -95,6 +106,9 @@
         background-color: @component-background;
         > .@{steps-prefix-cls}-icon {
           color: @error-icon-color;
+          .@{steps-prefix-cls}-icon-dot {
+            background: @error-icon-color;
+          }
         }
       }
       .@{steps-prefix-cls}-title {
@@ -340,5 +354,115 @@
   .@{steps-prefix-cls}-item:not(:first-child) .@{steps-prefix-cls}-head {
     padding-left: 10px;
     margin-left: -10px;
+  }
+}
+
+.@{steps-prefix-cls}-label-vertical {
+  .@{steps-prefix-cls}-tail {
+    padding: 0 32px 0 60px;
+  }
+  .@{steps-prefix-cls}-item {
+    .@{steps-prefix-cls}-step {
+      display: inline-block;
+      text-align: center;
+      width: 120px;
+    }
+  }
+  .@{steps-prefix-cls}-item:not(:first-child) .@{steps-prefix-cls}-head {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .@{steps-prefix-cls}-head {
+    display: inline-block;
+    padding-right: 10px;
+    &-inner {
+      margin: 0 auto;
+    }
+  }
+  .@{steps-prefix-cls}-main {
+    display: block;
+    margin-top: 10px;
+    .@{steps-prefix-cls}-title {
+      padding-right: 0;
+    }
+    .@{steps-prefix-cls}-description {
+      text-align: left;
+    }
+  }
+}
+
+.@{steps-prefix-cls}-dot {
+  .@{steps-prefix-cls}-tail {
+    padding: 0 0 0 60px;
+    width: 100%;
+    top: 1px;
+
+    & > i {
+      height: 3px;
+    }
+  }
+  .@{steps-prefix-cls}-head {
+    padding-right: 0;
+    &-inner {
+      width: @steps-dot-size;
+      height: @steps-dot-size;
+      line-height: @steps-dot-size;
+      border: 0;
+
+      .@{steps-prefix-cls}-icon-dot {
+        float: left;
+        width: 100%;
+        height: 100%;
+        border-radius: @steps-dot-size / 2;
+        position: relative;
+        &:after {
+          content: '';
+          background: rgba(255, 255, 255, 0.001);
+          width: 40px;
+          height: 24px;
+          position: absolute;
+          top: -8px;
+          left: -16px;
+        }
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+  .@{steps-prefix-cls}-status-process {
+    .@{steps-prefix-cls}-head {
+      top: -1px;
+      &-inner {
+        width: @steps-current-dot-size;
+        height: @steps-current-dot-size;
+        line-height: @steps-current-dot-size;
+
+        .@{steps-prefix-cls}-icon-dot {
+          border-radius: @steps-current-dot-size / 2;
+        }
+      }
+    }
+  }
+  &.@{steps-prefix-cls}-vertical {
+    .@{steps-prefix-cls}-tail {
+      left: 2px;
+      height: 100%;
+      padding: 0;
+      top: 15px;
+      > i {
+        height: 100%;
+        width: 3px;
+      }
+    }
+    .@{steps-prefix-cls}-head {
+      top: 12px;
+      left: 1px;
+    }
+    .@{steps-prefix-cls}-status-process {
+      .@{steps-prefix-cls}-head {
+        left: 0;
+      }
+    }
   }
 }

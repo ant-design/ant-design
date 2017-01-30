@@ -1,0 +1,41 @@
+@import "../../style/themes/default";
+@import "../../style/mixins/index";
+@import "../../input/style/mixin";
+
+@input-prefix-cls: ~"@{ant-prefix}-input";
+@select-prefix-cls: ~"@{ant-prefix}-select";
+@autocomplete-prefix-cls: ~"@{select-prefix-cls}-auto-complete";
+
+.@{autocomplete-prefix-cls}.@{select-prefix-cls} {
+
+  .@{select-prefix-cls} {
+    &-search--inline {
+      position: relative;
+    }
+    &-selection {
+      border: 0;
+      &--single {
+        height: auto;
+      }
+      &__rendered {
+        margin-left: 0;
+        margin-right: 0;
+        line-height: 0;
+      }
+      &__placeholder {
+        margin-left: 8px;
+        margin-right: 8px;
+        top: 12px;
+      }
+    }
+  }
+
+  .@{input-prefix-cls} {
+    border: 1px solid @border-color-base;
+    &:focus,
+    &:hover {
+      .hover;
+    }
+
+  }
+}

@@ -29,6 +29,9 @@ const CustomizedForm = Form.create({
       },
     };
   },
+  onValuesChange(_, values) {
+    console.log(values);
+  },
 })((props) => {
   const { getFieldDecorator } = props.form;
   return (

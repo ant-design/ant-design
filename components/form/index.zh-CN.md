@@ -42,6 +42,7 @@ title: Form
 | vertical | 垂直排列布局 | boolean | false |
 | inline | 行内排列布局 | boolean | false |
 | onSubmit | 数据验证成功后回调事件 | Function(e:Event) |  |
+| hideRequiredMark | 隐藏所有表单项的必选标记 | Boolean | false |
 
 ### Form.create(options)
 
@@ -59,6 +60,7 @@ CustomizedForm = Form.create({})(CustomizedForm);
 |-----------|------------------------------------------|------------|
 | onFieldsChange | 当 `Form.Item` 子节点的值发生改变时触发，可以把对应的值转存到 Redux store | Function(props, fields) |
 | mapPropsToFields | 把 props 转为对应的值，可用于把 Redux store 中的值读出 | Function(props): Object{ fieldName: Object{ value } } |
+| onValuesChange | 任一表单域的值发生改变时的回调 | (props, values) => void |
 
 经过 `Form.create` 包装的组件将会自带 `this.props.form` 属性，`this.props.form` 提供的 API 如下：
 
@@ -71,7 +73,10 @@ CustomizedForm = Form.create({})(CustomizedForm);
 | validateFields | 校验并获取一组输入域的值与 Error，若 fieldNames 参数为空，则校验全部组件 | Function([fieldNames: string[]], [options: object], callback: Function(errors, values)) |
 | validateFieldsAndScroll | 与 `validateFields` 相似，但校验完后，如果校验不通过的菜单域不在可见范围内，则自动滚动进可见范围 | 参考 `validateFields` |
 | getFieldError | 获取某个输入控件的 Error | Function(name) |
+| getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function([names: string[]]) |
 | isFieldValidating | 判断一个输入控件是否在校验状态 | Function(name) |
+| isFieldTouched | 判断一个输入控件是否经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (name: string) => boolean |
+| isFieldsTouched | 判断是否任一输入控件经历过 `getFieldDecorator` 的值收集时机 `options.trigger` | (names?: string[]) => boolean |
 | resetFields | 重置一组输入控件的值（为 `initialValue`）与状态，如不传入参数，则重置所有组件 | Function([names: string[]]) |
 | getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 | |
 

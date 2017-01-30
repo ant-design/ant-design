@@ -24,7 +24,7 @@ function insertSpace(child) {
   return child;
 }
 
-export type ButtonType = 'primary' | 'ghost' | 'dashed'
+export type ButtonType = 'primary' | 'ghost' | 'dashed' | 'danger'
 export type ButtonShape = 'circle' | 'circle-outline'
 export type ButtonSize = 'small' | 'large'
 
@@ -41,6 +41,7 @@ export interface ButtonProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
+  ghost?: boolean;
 }
 
 export default class Button extends React.Component<ButtonProps, any> {
@@ -49,6 +50,7 @@ export default class Button extends React.Component<ButtonProps, any> {
   static defaultProps = {
     prefixCls: 'ant-btn',
     loading: false,
+    ghost: false,
   };
 
   static propTypes = {
@@ -101,7 +103,9 @@ export default class Button extends React.Component<ButtonProps, any> {
   }
 
   render() {
-    const { type, shape, size = '', className, htmlType, children, icon, loading, prefixCls, ...others } = this.props;
+    const {
+      type, shape, size = '', className, htmlType, children, icon, loading, prefixCls, ghost, ...others,
+    } = this.props;
 
     // large => lg
     // small => sm
@@ -116,6 +120,7 @@ export default class Button extends React.Component<ButtonProps, any> {
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && icon,
       [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-background-ghost`]: ghost,
     }, className);
 
     const iconType = loading ? 'loading' : icon;

@@ -1,16 +1,19 @@
 @import "../../style/themes/default";
 @import "../../style/mixins/index";
+@import "../../input/style/mixin";
 
 @cascader-prefix-cls: ~"@{ant-prefix}-cascader";
 
 .@{cascader-prefix-cls} {
   font-size: @font-size-base;
+
   &-input.@{ant-prefix}-input {
     background-color: transparent;
     cursor: pointer;
     width: 100%;
     z-index: 1;
   }
+
   &-picker {
     position: relative;
     display: inline-block;
@@ -18,6 +21,7 @@
     font-size: @font-size-base;
     background-color: #fff;
     border-radius: @border-radius-base;
+    outline: 0;
 
     &-with-value &-label {
       color: transparent;
@@ -30,6 +34,10 @@
       .@{cascader-prefix-cls}-input {
         cursor: not-allowed;
       }
+    }
+
+    &:focus .@{cascader-prefix-cls}-input {
+      .active;
     }
 
     &-label {

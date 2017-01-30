@@ -11,7 +11,9 @@ describe('Breadcrumb', () => {
         <MyCom />
       </Breadcrumb>
     );
+    // eslint-disable-next-line
     expect(console.error.calls.count()).toBe(1);
+    // eslint-disable-next-line
     expect(console.error.calls.argsFor(0)[0]).toContain(
       'Breadcrumb only accetps Breadcrumb.Item as it\'s children'
     );

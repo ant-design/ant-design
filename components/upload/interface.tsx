@@ -24,6 +24,11 @@ export interface UploadChangeParam {
   event?: { percent: number };
 }
 
+export interface ShowUploadListInterface {
+  showRemoveIcon?: boolean;
+  showPreviewIcon?: boolean;
+}
+
 export interface UploadProps {
   type?: 'drag' | 'select';
   name?: string;
@@ -32,7 +37,7 @@ export interface UploadProps {
   action: string;
   data?: Object | ((file: File) => any);
   headers?: HttpRequestHeader;
-  showUploadList?: boolean;
+  showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
   beforeUpload?: (file: File) => boolean | PromiseLike<any>;
@@ -40,7 +45,7 @@ export interface UploadProps {
   listType?: 'text' | 'picture' | 'picture-card';
   className?: string;
   onPreview?: (file: File) => void;
-  onRemove?: (file: File) => void;
+  onRemove?: (file: File) => void | boolean;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
@@ -50,8 +55,10 @@ export interface UploadProps {
 export interface UploadListProps {
   listType?: 'text' | 'picture' | 'picture-card';
   onPreview?: (file: File) => void;
-  onRemove?: (file: File) => void;
+  onRemove?: (file: File) => void | boolean;
   items?: Array<File>;
   progressAttr?: Object;
   prefixCls?: string;
+  showRemoveIcon?: boolean;
+  showPreviewIcon?: boolean;
 }

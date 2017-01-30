@@ -41,7 +41,6 @@
     cursor: pointer;
     font-weight: bold;
     margin-left: 3px;
-    color: @text-color;
     transition: all 0.3s ease;
     opacity: 0.66;
 
@@ -61,26 +60,9 @@
     }
   }
 
-  &-blue {
-    background: @link-color;
-  }
-
-  &-green {
-    background: @success-color;
-  }
-
-  &-yellow {
-    background: @warning-color;
-  }
-
-  &-red {
-    background: @error-color;
-  }
-
   &-checkable {
     background-color: transparent;
     border-color: transparent;
-
     &:hover,
     &:active,
     &-checked {
@@ -89,8 +71,10 @@
     &:hover {
       background-color: @primary-5;
     }
-    &:active,
     &-checked {
+      background-color: @primary-6;
+    }
+    &:active {
       background-color: @primary-7;
     }
   }
@@ -111,4 +95,26 @@
     animation: antZoomOut .3s @ease-in-out-circ;
     animation-fill-mode: both;
   }
+
+  @colors: pink, red, orange, yellow, cyan, green, blue, purple;
+
+  // mixin to iterate over colors and create CSS class for each one
+  .make-color-classes(@i: length(@colors)) when (@i > 0) {
+    .make-color-classes(@i - 1);
+    @color: extract(@colors, @i);
+    @lightColor: "@{color}-2";
+    @darkColor: "@{color}-6";
+    &-@{color} {
+      color: @@darkColor;
+      background: @@lightColor;
+      border-color: @@lightColor;
+    }
+    &-@{color}-inverse {
+      background: @@darkColor;
+      border-color: @@darkColor;
+      color: #fff;
+    }
+  }
+
+  .make-color-classes();
 }

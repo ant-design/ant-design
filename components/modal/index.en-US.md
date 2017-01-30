@@ -65,6 +65,7 @@ The properties of the object are follows:
 | iconType   | Type of Icon component    | string | question-circle |
 | okText     | Text of OK button    | string           | OK       |
 | cancelText | Text of cancel button    | string           | Cancel       |
+| maskClosable | Determine whether to close the modal dialog when clicked mask of it. | Boolean   | `false`       |
 
 <style>
 .code-box-demo .ant-btn {
