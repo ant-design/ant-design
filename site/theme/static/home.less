@@ -40,25 +40,27 @@
 }
 
 .banner-text-wrapper .start-button {
+  @start-button-color: tint(@primary-color, 20%);
   margin-bottom: 24px;
   text-align: right;
-
   > a {
     display: inline-block;
     height: 40px;
     padding: 0 16px;
+    font-weight: bold;
     border-radius: @border-radius-base;
-    border: 1px solid #0ae;
+    border: 1px solid @start-button-color;
     color: #0ae;
     font-size: 15px;
     background: transparent;
-    transition: box-shadow .45s ease-out;
+    transition: all .45s;
     text-align: center;
     line-height: 36px;
     margin-left: 8px;
-  }
-  > a:hover {
-    box-shadow: 0 0 10px #0ae;
+    &:hover {
+      color: #fff;
+      background: @start-button-color;
+    }
   }
 }
 
