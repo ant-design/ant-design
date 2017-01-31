@@ -133,9 +133,8 @@
     color: #fff;
   }
 
-  &-primary&-background-ghost {
-    color: @primary-color;
-    border-color: @primary-color;
+  &-background-ghost&-primary {
+    .button-variant-other(@primary-color; transparent; @primary-color);
   }
 }
 
