@@ -73,8 +73,8 @@ tsconfig.json
 
 ## 链接
 
-- [首页](http://ant.design/)
-- [组件文档](http://ant.design/docs/react/introduce)
+- [首页](http://ant.design/index-cn)
+- [组件文档](http://ant.design/docs/react/introduce-cn)
 - [更新日志](CHANGELOG.en-US.md)
 - [开发脚手架](https://github.com/dvajs/dva-cli)
 - [开发工具文档](http://ant-tool.github.io/)
@@ -88,7 +88,7 @@ tsconfig.json
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [定制主题](http://ant.design/docs/react/customize-theme)
+- [定制主题](http://ant.design/docs/react/customize-theme-cn)
 
 ## 如何贡献
 

@@ -135,7 +135,6 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [UI library](/docs/react/introduce)
 - [Change Log](/changelog)
 - [Scaffold tool](https://github.com/dvajs/dva-cli/)
-- [Development tool](http://ant-tool.github.io/)
 - [React components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
 - [Motion](https://motion.ant.design)

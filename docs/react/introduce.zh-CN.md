@@ -126,7 +126,7 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 - [常见问题](https://github.com/ant-design/ant-design/wiki/FAQ)
 - [CodePen 模板](http://codepen.io/benjycui/pen/KgPZrE?editors=001) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
-- [定制主题](/docs/react/customize-theme)
+- [定制主题](/docs/react/customize-theme-cn)
 
 ## 谁在使用
 
