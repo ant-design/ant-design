@@ -21,7 +21,7 @@ import enUS from 'antd/lib/locale-provider/en_US';
 return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
 ```
 
-语言包可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/) 找到。
+我们提供了英语，中文，俄语，法语，德语等多种语言支持，所有语言包可以在 [这里](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/) 找到。
 
 ### 增加语言包
 

@@ -20,7 +20,7 @@ import enUS from 'antd/lib/locale-provider/en_US';
 return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
 ```
 
-All locale can be find in [here](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/).
+We provide some locale like English, Chinese, Russion, German, French and etc, all locale packages can be found in [here](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/).
 
 ### Add a language
 
