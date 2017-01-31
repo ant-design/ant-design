@@ -27,7 +27,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Tag
   * Added preset colors. [#4571](https://github.com/ant-design/ant-design/pull/4571)
   * Improvement vertical-align and margin.
-* Add German localization for LocaleProvider.[#4538](https://github.com/ant-design/ant-design/pull/4538)
+* Add German localization for LocaleProvider.[#4686](https://github.com/ant-design/ant-design/pull/4686)
 * Add Swedish localization for LocaleProvider. [#4455](https://github.com/ant-design/ant-design/pull/4455)
 * Add French localization for LocaleProvider. [#4538](https://github.com/ant-design/ant-design/pull/4538)
 * Added `onSearchChange` callback of Transfer. [#4464](https://github.com/ant-design/ant-design/pull/4464)

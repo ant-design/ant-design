@@ -27,7 +27,7 @@ timeline: true
 * Tag
   - 增加了预设颜色。[#4571](https://github.com/ant-design/ant-design/pull/4571)
   - 调整了垂直对齐和默认间距。
-* 添加了对德语的支持。[#4538](https://github.com/ant-design/ant-design/pull/4538)
+* 添加了对德语的支持。[#4686](https://github.com/ant-design/ant-design/pull/4686)
 * 添加了对瑞典语的支持。[#4455](https://github.com/ant-design/ant-design/pull/4455)
 * 添加了对法语的支持。[#4538](https://github.com/ant-design/ant-design/pull/4538)
 * Transfer 添加了 `onSearchChange` 回调。 [#4464](https://github.com/ant-design/ant-design/pull/4464)
