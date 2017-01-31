@@ -33,7 +33,7 @@
     text-align: center;
     list-style: none;
     float: left;
-    border: 1px solid @border-color-base;
+    border: @border-width-base @border-style-base @border-color-base;
     background-color: @component-background;
     margin-right: 8px;
     font-family: Arial;
@@ -126,7 +126,7 @@
 
   &-prev,
   &-next {
-    border: 1px solid @border-color-base;
+    border: @border-width-base @border-style-base @border-color-base;
     background-color: @component-background;
 
     a {
@@ -228,7 +228,7 @@
       box-sizing: border-box;
       background-color: @component-background;
       border-radius: @border-radius-base;
-      border: 1px solid @border-color-base;
+      border: @border-width-base @border-style-base @border-color-base;
       outline: none;
       padding: 5px 8px;
       width: 30px;

@@ -108,9 +108,9 @@
 
   &-inline,
   &-vertical {
-    border-right: 1px solid @border-color-split;
+    border-right: @border-width-base @border-style-base @border-color-split;
     .@{menu-prefix-cls}-item {
-      border-right: 1px solid @border-color-split;
+      border-right: @border-width-base @border-style-base @border-color-split;
       margin-left: -1px;
       left: 1px;
       position: relative;
@@ -234,7 +234,7 @@
 
   &-horizontal {
     border: 0;
-    border-bottom: 1px solid @border-color-split;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
     box-shadow: none;
     z-index: 0;
 

@@ -161,7 +161,7 @@
 
   .@{steps-prefix-cls}-head-inner {
     display: block;
-    border: 1px solid @wait-icon-color;
+    border: @border-width-base @border-style-base @wait-icon-color;
     width: @steps-icon-size;
     height: @steps-icon-size;
     line-height: 23px;
@@ -237,7 +237,7 @@
 
   &.@{steps-prefix-cls}-small {
     .@{steps-prefix-cls}-head-inner {
-      border: 1px solid @wait-icon-color;
+      border: @border-width-base @border-style-base @wait-icon-color;
       width: @steps-small-icon-size;
       height: @steps-small-icon-size;
       line-height: 15px;

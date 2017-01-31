@@ -10,7 +10,7 @@
 
   &-list {
     font-size: @font-size-base;
-    border: 1px solid @border-color-base;
+    border: @border-width-base @border-style-base @border-color-base;
     display: inline-block;
     border-radius: @border-radius-base;
     vertical-align: middle;
@@ -53,7 +53,7 @@
       border-radius: @border-radius-base @border-radius-base 0 0;
       background: @component-background;
       color: @text-color;
-      border-bottom: 1px solid @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
       overflow: hidden;
       position: absolute;
       top: 0;
@@ -128,7 +128,7 @@
     }
 
     &-footer {
-      border-top: 1px solid @border-color-split;
+      border-top: @border-width-base @border-style-base @border-color-split;
       border-radius: 0 0 @border-radius-base @border-radius-base;
       position: absolute;
       bottom: 0;
