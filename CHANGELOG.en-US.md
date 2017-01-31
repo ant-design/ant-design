@@ -37,7 +37,9 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Upgrade rc-select to `6.7.1`.
   * Fixed duplication `onChange` callback. [#156@rc-select](https://github.com/react-component/select/pull/156)
   * Fixed displaying of initial value. [#152@rc-select](https://github.com/react-component/select/pull/152)
-* Upgrade rc-tree-select to `1.9.0`, fixed an overflow-wrap issue of TreeSelect. [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)，[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
+* Upgrade rc-tree-select to `1.9.0`.
+  * Added `treeDefaultExpandedKeys` property.[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
+  * Fixed an overflow-wrap issue. [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)
 * Added less variables: `@border-style-base` `@border-width-base` `@btn-danger-color` `@btn-danger-bg` and etc.
 
 ## 2.6.4

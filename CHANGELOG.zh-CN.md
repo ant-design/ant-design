@@ -37,7 +37,9 @@ timeline: true
 * 升级了 rc-select 到 6.7.1。
   * 修复了 Select 的 `onChange` 回调重复触发的问题。[#156@rc-select](https://github.com/react-component/select/pull/156)
   * 修复了 Select 显示初始化值的问题。[#152@rc-select](https://github.com/react-component/select/pull/152)
-* 升级了 rc-tree-select 到 1.9.0，修复了 TreeSelect 的文字溢出换行问题 [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)，[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
+* 升级 rc-tree-select 到 `1.9.0`。
+  * 新增 `treeDefaultExpandedKeys` 属性。[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
+  * 修复了文字溢出换行问题。[#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)
 * 新增 less 变量: `@border-style-base` `@border-width-base` `@btn-danger-color` `@btn-danger-bg` 等。
 
 ## 2.6.4
