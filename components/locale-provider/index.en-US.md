@@ -22,7 +22,7 @@ return <LocaleProvider locale={enUS}><App /></LocaleProvider>;
 
 We provide some locale like English, Chinese, Russion, German, French and etc, all locale packages can be found in [here](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/).
 
-### Add a language
+### Add a new language
 
 If you can't find your language, you are welcome to create a locale package based on [en_US](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/en_US.tsx) and send us a pull request.
 
