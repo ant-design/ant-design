@@ -15,7 +15,7 @@ module.exports = {
     'app.content.edit-demo': '在 Github 上编辑此示例！',
     'app.component.examples': '代码演示',
     'app.home.slogan': '一个 UI 设计语言',
-    'app.home.introduce': '设计语言',
+    'app.home.introduce': '设计规范',
     'app.home.start': '开发指引',
     'app.home.best-practice': '最佳实践',
     'app.home.experience': '近一年的中后台设计实践，积累了大量的优秀案例。',
