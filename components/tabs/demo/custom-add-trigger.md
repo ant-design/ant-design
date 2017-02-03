@@ -1,6 +1,6 @@
 ---
 order: 11
-title: 
+title:
   zh-CN: 自定义新增页签触发器
   en-US: Customized trigger of new tab
 ---
