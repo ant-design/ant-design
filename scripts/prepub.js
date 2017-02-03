@@ -4,13 +4,17 @@
 'use strict';
 
 // Build a entry less file to dist/antd.less
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
+const packageInfo = require('../package.json');
 
-if(fs.existsSync(path.join(__dirname,'../dist'))) {
+if (fs.existsSync(path.join(__dirname, '../dist'))) {
+  fs.writeFileSync(path.join(process.cwd(), 'lib', 'version.js'), `
+module.exports = '${packageInfo.version}';
+`);
   console.log('Building a entry less file to dist/antd.less');
-  var componentsPath = path.join(process.cwd(), 'components');
-  var componentsLessContent = '';
+  const componentsPath = path.join(process.cwd(), 'components');
+  let componentsLessContent = '';
 
   // Build components in one file: lib/style/components.less
   fs.readdir(componentsPath, function (err, files) {
