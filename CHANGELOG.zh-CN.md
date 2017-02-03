@@ -13,7 +13,7 @@ timeline: true
 
 ## 2.7.0
 
-`2017-01-30`
+`2017-02-03`
 
 * Button 新增 `danger` 和 `ghost` 属性。[#4679](https://github.com/ant-design/ant-design/pull/4679)
 * AutoComplete 支持自定义输入框的用法。 [#4483](https://github.com/ant-design/ant-design/pull/4483)
@@ -42,6 +42,7 @@ timeline: true
   * 修复了文字溢出换行问题。[#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)
 * 新增 less 变量: `@border-style-base` `@border-width-base` `@btn-danger-color` `@btn-danger-bg` 等。
 * 修复了 Badge 在页面放大时错位的问题。[#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
+* 修复一个固定表头的表格错位问题。[#4750](https://github.com/ant-design/ant-design/issues/4750)
 
 ## 2.6.4
 

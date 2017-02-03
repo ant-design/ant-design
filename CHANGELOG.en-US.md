@@ -12,7 +12,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 ---
 ## 2.7.0
 
-`2017-01-30`
+`2017-02-03`
 
 * Added `danger` button and `ghost` button style. [#4679](https://github.com/ant-design/ant-design/pull/4679)
 * Input element of AutoComplete can be customized. [#4483](https://github.com/ant-design/ant-design/pull/4483)
@@ -41,6 +41,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * Fixed an overflow-wrap issue. [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)
 * Added less variables: `@border-style-base` `@border-width-base` `@btn-danger-color` `@btn-danger-bg` and etc.
 * Fixed Badge misplace issue when browser zoom above 100%. [#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
+* Fixed a mis-align issue of fixed header Table. [#4750](https://github.com/ant-design/ant-design/issues/4750)
 
 ## 2.6.4
 
