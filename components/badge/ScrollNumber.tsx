@@ -139,7 +139,7 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     // mock border-color by box-shadow for compatible with old usage:
     // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
     if (props.style && props.style.borderColor) {
-      props.style.boxShadow = `0 0 0 1px ${props.style.borderColor}`;
+      props.style.boxShadow = `0 0 0 1px ${props.style.borderColor} inset`;
     }
     return createElement(
       this.props.component || 'sup',
