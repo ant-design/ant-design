@@ -40,6 +40,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
   * Added `treeDefaultExpandedKeys` property.[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
   * Fixed an overflow-wrap issue. [#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)
 * Added less variables: `@border-style-base` `@border-width-base` `@btn-danger-color` `@btn-danger-bg` and etc.
+* Fixed Badge misplace issue when browser zoom above 100%. [#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
 
 ## 2.6.4
 

@@ -19,7 +19,6 @@ export interface ScrollNumberProps {
   count?: string | number;
   component?: string;
   onAnimated?: Function;
-  height?: number;
   style?: React.CSSProperties;
 }
 
@@ -29,7 +28,6 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     count: null,
     onAnimated() {
     },
-    height: 18,
   };
 
   lastCount: any;
@@ -105,16 +103,14 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
 
   renderCurrentNumber(num, i) {
     const position = this.getPositionByNum(num, i);
-    const height = this.props.height;
     const removeTransition = this.state.animateStarted ||
       (getNumberArray(this.lastCount)[i] === undefined);
     return createElement('span', {
       className: `${this.props.prefixCls}-only`,
       style: {
         transition: removeTransition && 'none',
-        WebkitTransform: `translateY(${-position * height}px)`,
-        transform: `translateY(${-position * height}px)`,
-        height,
+        WebkitTransform: `translateY(${-position * 100}%)`,
+        transform: `translateY(${-position * 100}%)`,
       },
       key: i,
     }, this.renderNumberList(position));
@@ -139,6 +135,12 @@ export default class ScrollNumber extends Component<ScrollNumberProps, any> {
     ]), {
       className: `${this.props.prefixCls} ${this.props.className}`,
     });
+    // allow specify the border
+    // mock border-color by box-shadow for compatible with old usage:
+    // <Badge count={4} style={{ backgroundColor: '#fff', color: '#999', borderColor: '#d9d9d9' }} />
+    if (props.style && props.style.borderColor) {
+      props.style.boxShadow = `0 0 0 1px ${props.style.borderColor}`;
+    }
     return createElement(
       this.props.component || 'sup',
       props,

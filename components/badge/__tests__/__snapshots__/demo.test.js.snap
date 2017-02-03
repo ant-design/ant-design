@@ -7,11 +7,10 @@ exports[`test renders ./components/badge/demo/basic.md correctly 1`] = `
     href="#" />
   <sup
     class="ant-scroll-number ant-badge-count"
-    data-show="true"
-    height="18">
+    data-show="true">
     <span
       class="ant-scroll-number-only"
-      style="transition:none;-webkit-transform:translateY(-270px);transform:translateY(-270px);height:18px;">
+      style="transition:none;-webkit-transform:translateY(-1500%);transform:translateY(-1500%);">
       <p
         class="">
         0
@@ -148,11 +147,10 @@ exports[`test renders ./components/badge/demo/change.md correctly 1`] = `
         href="#" />
       <sup
         class="ant-scroll-number ant-badge-count"
-        data-show="true"
-        height="18">
+        data-show="true">
         <span
           class="ant-scroll-number-only"
-          style="transition:none;-webkit-transform:translateY(-270px);transform:translateY(-270px);height:18px;">
+          style="transition:none;-webkit-transform:translateY(-1500%);transform:translateY(-1500%);">
           <p
             class="">
             0
@@ -301,8 +299,7 @@ exports[`test renders ./components/badge/demo/change.md correctly 1`] = `
         href="#" />
       <sup
         class="ant-scroll-number ant-badge-dot"
-        data-show="true"
-        height="18" />
+        data-show="true" />
     </span>
     <span
       class="ant-switch"
@@ -322,8 +319,7 @@ exports[`test renders ./components/badge/demo/dot.md correctly 1`] = `
       class="anticon anticon-notification" />
     <sup
       class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-      height="18" />
+      data-show="true" />
   </span>
   <span
     class="ant-badge">
@@ -333,8 +329,7 @@ exports[`test renders ./components/badge/demo/dot.md correctly 1`] = `
     </a>
     <sup
       class="ant-scroll-number ant-badge-dot"
-      data-show="true"
-      height="18" />
+      data-show="true" />
   </span>
 </div>
 `;
@@ -349,11 +344,10 @@ exports[`test renders ./components/badge/demo/link.md correctly 1`] = `
       class="head-example" />
     <sup
       class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      height="18">
+      data-show="true">
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-webkit-transform:translateY(-270px);transform:translateY(-270px);height:18px;">
+        style="transition:none;-webkit-transform:translateY(-1500%);transform:translateY(-1500%);">
         <p
           class="">
           0
@@ -487,11 +481,10 @@ exports[`test renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     title="25">
     <sup
       class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      height="18">
+      data-show="true">
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-webkit-transform:translateY(-216px);transform:translateY(-216px);height:18px;">
+        style="transition:none;-webkit-transform:translateY(-1200%);transform:translateY(-1200%);">
         <p
           class="">
           0
@@ -615,7 +608,7 @@ exports[`test renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-webkit-transform:translateY(-270px);transform:translateY(-270px);height:18px;">
+        style="transition:none;-webkit-transform:translateY(-1500%);transform:translateY(-1500%);">
         <p
           class="">
           0
@@ -745,11 +738,10 @@ exports[`test renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      height="18"
-      style="background-color:#fff;color:#999;border-color:#d9d9d9;">
+      style="background-color:#fff;color:#999;box-shadow:0 0 0 1px #d9d9d9 inset;">
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-webkit-transform:translateY(-252px);transform:translateY(-252px);height:18px;">
+        style="transition:none;-webkit-transform:translateY(-1400%);transform:translateY(-1400%);">
         <p
           class="">
           0
@@ -879,7 +871,6 @@ exports[`test renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      height="18"
       style="background-color:#87d068;">
       99+
     </sup>
@@ -897,11 +888,10 @@ exports[`test renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#" />
     <sup
       class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      height="18">
+      data-show="true">
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-webkit-transform:translateY(-342px);transform:translateY(-342px);height:18px;">
+        style="transition:none;-webkit-transform:translateY(-1900%);transform:translateY(-1900%);">
         <p
           class="">
           0
@@ -1025,7 +1015,7 @@ exports[`test renders ./components/badge/demo/overflow.md correctly 1`] = `
       </span>
       <span
         class="ant-scroll-number-only"
-        style="transition:none;-webkit-transform:translateY(-342px);transform:translateY(-342px);height:18px;">
+        style="transition:none;-webkit-transform:translateY(-1900%);transform:translateY(-1900%);">
         <p
           class="">
           0
@@ -1157,8 +1147,7 @@ exports[`test renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#" />
     <sup
       class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      height="18">
+      data-show="true">
       99+
     </sup>
   </span>
@@ -1170,8 +1159,7 @@ exports[`test renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#" />
     <sup
       class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      height="18">
+      data-show="true">
       10+
     </sup>
   </span>
@@ -1183,8 +1171,7 @@ exports[`test renders ./components/badge/demo/overflow.md correctly 1`] = `
       href="#" />
     <sup
       class="ant-scroll-number ant-badge-count"
-      data-show="true"
-      height="18">
+      data-show="true">
       999+
     </sup>
   </span>

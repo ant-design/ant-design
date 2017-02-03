@@ -41,6 +41,7 @@ timeline: true
   * 新增 `treeDefaultExpandedKeys` 属性。[#43@rc-tree-select](https://github.com/react-component/tree-select/pull/43)
   * 修复了文字溢出换行问题。[#42@rc-tree-select](https://github.com/react-component/tree-select/pull/42)
 * 新增 less 变量: `@border-style-base` `@border-width-base` `@btn-danger-color` `@btn-danger-bg` 等。
+* 修复了 Badge 在页面放大时错位的问题。[#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
 
 ## 2.6.4
 
