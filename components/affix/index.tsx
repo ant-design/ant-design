@@ -105,7 +105,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     this.setState({ placeholderStyle });
   }
 
-  @throttleByAnimationFrameDecorator(250)
+  @throttleByAnimationFrameDecorator()
   updatePosition(e) {
     let { offsetTop, offsetBottom, offset, target = getDefaultTarget } = this.props;
     const targetNode = target();
@@ -196,6 +196,7 @@ export default class Affix extends React.Component<AffixProps, any> {
   componentWillUnmount() {
     this.clearScrollEventListeners();
     clearTimeout(this.timeout);
+    (this.updatePosition as any).cancel();
   }
 
   setTargetEventListeners(getTarget) {
@@ -203,6 +204,7 @@ export default class Affix extends React.Component<AffixProps, any> {
     if (!target) {
       return;
     }
+    this.clearScrollEventListeners();
     this.scrollEvent = addEventListener(target, 'scroll', this.updatePosition);
     this.resizeEvent = addEventListener(target, 'resize', this.updatePosition);
   }
