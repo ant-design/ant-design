@@ -152,7 +152,7 @@ const Demo = Form.create()(React.createClass({
             normalize: this.normFile,
           })(
             <Upload name="logo" action="/upload.do" listType="picture" onChange={this.handleUpload}>
-              <Button type="ghost">
+              <Button>
                 <Icon type="upload" /> Click to upload
               </Button>
             </Upload>

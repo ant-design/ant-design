@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Button from '../button';
 
 export interface ActionButtonProps {
-  type: 'primary' | 'ghost' | 'dashed';
+  type?: 'primary' | 'dashed';
   actionFn: Function;
   closeModal: Function;
   autoFocus?: Boolean;

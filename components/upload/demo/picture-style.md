@@ -38,14 +38,14 @@ const props = {
 ReactDOM.render(
   <div>
     <Upload {...props}>
-      <Button type="ghost">
+      <Button>
         <Icon type="upload" /> upload
       </Button>
     </Upload>
     <br />
     <br />
     <Upload {...props} className="upload-list-inline">
-      <Button type="ghost">
+      <Button>
         <Icon type="upload" /> upload
       </Button>
     </Upload>

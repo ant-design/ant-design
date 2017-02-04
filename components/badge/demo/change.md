@@ -46,10 +46,10 @@ const Test = React.createClass({
             <a href="#" className="head-example" />
           </Badge>
           <ButtonGroup>
-            <Button type="ghost" onClick={this.decline}>
+            <Button onClick={this.decline}>
               <Icon type="minus" />
             </Button>
-            <Button type="ghost" onClick={this.increase}>
+            <Button onClick={this.increase}>
               <Icon type="plus" />
             </Button>
           </ButtonGroup>

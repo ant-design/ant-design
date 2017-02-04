@@ -145,7 +145,7 @@ class EditableTable extends React.Component {
     const { dataSource } = this.state;
     const columns = this.columns;
     return (<div>
-      <Button className="editable-add-btn" type="ghost" onClick={this.handleAdd}>Add</Button>
+      <Button className="editable-add-btn" onClick={this.handleAdd}>Add</Button>
       <Table bordered dataSource={dataSource} columns={columns} />
     </div>);
   }

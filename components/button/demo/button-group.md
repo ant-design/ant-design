@@ -36,7 +36,7 @@ ReactDOM.render(
     <ButtonGroup>
       <Button type="primary">L</Button>
       <Button>M</Button>
-      <Button type="ghost">M</Button>
+      <Button>M</Button>
       <Button type="dashed">R</Button>
     </ButtonGroup>
 

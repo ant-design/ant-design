@@ -115,9 +115,9 @@ const App = React.createClass({
     return (
       <div>
         <div className="table-operations">
-          <Button type="ghost" onClick={this.setAgeSort}>Sort age</Button>
-          <Button type="ghost" onClick={this.clearFilters}>Clear filters</Button>
-          <Button type="ghost" onClick={this.clearAll}>Clear filters and sorters</Button>
+          <Button onClick={this.setAgeSort}>Sort age</Button>
+          <Button onClick={this.clearFilters}>Clear filters</Button>
+          <Button onClick={this.clearAll}>Clear filters and sorters</Button>
         </div>
         <Table columns={columns} dataSource={data} onChange={this.handleChange} />
       </div>

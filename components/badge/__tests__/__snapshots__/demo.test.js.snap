@@ -277,13 +277,13 @@ exports[`test renders ./components/badge/demo/change.md correctly 1`] = `
     <div
       class="ant-btn-group">
       <button
-        class="ant-btn ant-btn-ghost"
+        class="ant-btn"
         type="button">
         <i
           class="anticon anticon-minus" />
       </button>
       <button
-        class="ant-btn ant-btn-ghost"
+        class="ant-btn"
         type="button">
         <i
           class="anticon anticon-plus" />

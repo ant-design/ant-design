@@ -59,7 +59,7 @@ const Demo = React.createClass({
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          <Button type="ghost" onClick={this.add}>ADD</Button>
+          <Button onClick={this.add}>ADD</Button>
         </div>
         <Tabs
           hideAdd

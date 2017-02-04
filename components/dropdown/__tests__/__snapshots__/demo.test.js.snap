@@ -13,14 +13,14 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
   <div
     class="ant-btn-group ant-dropdown-button">
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn ant-btn-default"
       type="button">
       <span>
         Dropdown
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-dropdown-trigger"
       type="button">
       <i
         class="anticon anticon-down" />
@@ -30,7 +30,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
     class="ant-btn-group ant-dropdown-button"
     style="margin-left:8px;">
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn ant-btn-default"
       disabled=""
       type="button">
       <span>
@@ -38,7 +38,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-dropdown-trigger"
       disabled=""
       type="button">
       <i
@@ -46,7 +46,7 @@ exports[`test renders ./components/dropdown/demo/dropdown-button.md correctly 1`
     </button>
   </div>
   <button
-    class="ant-btn ant-btn-ghost ant-dropdown-trigger"
+    class="ant-btn ant-dropdown-trigger"
     style="margin-left:8px;"
     type="button">
     <span>

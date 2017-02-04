@@ -24,8 +24,8 @@ ReactDOM.render(
     <Button>Default</Button>
     <Button disabled>Default(disabled)</Button>
     <br />
-    <Button type="ghost">Ghost</Button>
-    <Button type="ghost" disabled>Ghost(disabled)</Button>
+    <Button>Ghost</Button>
+    <Button disabled>Ghost(disabled)</Button>
     <br />
     <Button type="dashed">Dashed</Button>
     <Button type="dashed" disabled>Dashed(disabled)</Button>

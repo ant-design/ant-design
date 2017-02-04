@@ -53,7 +53,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
     <div
       class="ant-transfer-list-footer">
       <button
-        class="ant-btn ant-btn-ghost ant-btn-sm"
+        class="ant-btn ant-btn-sm"
         style="float:right;margin:5px;"
         type="button">
         <span>
@@ -137,7 +137,7 @@ exports[`test renders ./components/transfer/demo/advanced.md correctly 1`] = `
     <div
       class="ant-transfer-list-footer">
       <button
-        class="ant-btn ant-btn-ghost ant-btn-sm"
+        class="ant-btn ant-btn-sm"
         style="float:right;margin:5px;"
         type="button">
         <span>

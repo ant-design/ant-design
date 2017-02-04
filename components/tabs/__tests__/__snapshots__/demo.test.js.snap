@@ -198,7 +198,7 @@ exports[`test renders ./components/tabs/demo/custom-add-trigger.md correctly 1`]
   <div
     style="margin-bottom:16px;">
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn"
       type="button">
       <span>
         ADD

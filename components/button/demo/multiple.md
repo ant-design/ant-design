@@ -32,9 +32,9 @@ const menu = (
 ReactDOM.render(
   <div>
     <Button type="primary">primary</Button>
-    <Button type="ghost">secondary</Button>
+    <Button>secondary</Button>
     <Dropdown overlay={menu}>
-      <Button type="ghost">
+      <Button>
         more <Icon type="down" />
       </Button>
     </Dropdown>

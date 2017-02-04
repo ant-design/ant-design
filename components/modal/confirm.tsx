@@ -49,7 +49,7 @@ export default function confirm(config) {
   if (props.okCancel) {
     footer = (
       <div className={`${prefixCls}-btns`}>
-        <ActionButton type="ghost" actionFn={props.onCancel} closeModal={close}>
+        <ActionButton actionFn={props.onCancel} closeModal={close}>
           {props.cancelText}
         </ActionButton>
         <ActionButton type="primary" actionFn={props.onOk} closeModal={close} autoFocus>

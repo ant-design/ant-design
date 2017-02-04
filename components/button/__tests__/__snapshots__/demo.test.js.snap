@@ -97,7 +97,7 @@ exports[`test renders ./components/button/demo/button-group.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn"
       type="button">
       <span>
         M
@@ -188,14 +188,14 @@ exports[`test renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn ant-btn-ghost"
+    class="ant-btn"
     type="button">
     <span>
       Ghost
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-ghost"
+    class="ant-btn"
     disabled=""
     type="button">
     <span>
@@ -282,13 +282,13 @@ exports[`test renders ./components/button/demo/icon.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn ant-btn-ghost ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-icon-only"
     type="button">
     <i
       class="anticon anticon-search" />
   </button>
   <button
-    class="ant-btn ant-btn-ghost"
+    class="ant-btn"
     type="button">
     <i
       class="anticon anticon-search" />
@@ -364,14 +364,14 @@ exports[`test renders ./components/button/demo/multiple.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-ghost"
+    class="ant-btn"
     type="button">
     <span>
       secondary
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-ghost ant-dropdown-trigger"
+    class="ant-btn ant-dropdown-trigger"
     type="button">
     <span>
       more 

@@ -42,8 +42,8 @@ const MyProgress = React.createClass({
       <div>
         <Progress percent={this.state.percent} />
         <ButtonGroup>
-          <Button type="ghost" onClick={this.decline} icon="minus" />
-          <Button type="ghost" onClick={this.increase} icon="plus" />
+          <Button onClick={this.decline} icon="minus" />
+          <Button onClick={this.increase} icon="plus" />
         </ButtonGroup>
       </div>
     );

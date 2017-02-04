@@ -1862,7 +1862,7 @@ exports[`test renders ./components/table/demo/dynamic-settings.md correctly 1`] 
 exports[`test renders ./components/table/demo/edit-cell.md correctly 1`] = `
 <div>
   <button
-    class="ant-btn ant-btn-ghost editable-add-btn"
+    class="ant-btn editable-add-btn"
     type="button">
     <span>
       Add
@@ -6909,21 +6909,21 @@ exports[`test renders ./components/table/demo/reset-filter.md correctly 1`] = `
   <div
     class="table-operations">
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn"
       type="button">
       <span>
         Sort age
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn"
       type="button">
       <span>
         Clear filters
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-ghost"
+      class="ant-btn"
       type="button">
       <span>
         Clear filters and sorters

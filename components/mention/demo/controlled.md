@@ -73,7 +73,7 @@ let App = React.createClass({
         <FormItem wrapperCol={{ span: 14, offset: 6 }}>
           <Button type="primary" onClick={this.handleSubmit}>Submit</Button>
           &nbsp;&nbsp;&nbsp;
-          <Button type="ghost" onClick={this.handleReset}>Reset</Button>
+          <Button onClick={this.handleReset}>Reset</Button>
         </FormItem>
       </Form>
     );

@@ -142,13 +142,13 @@ exports[`test renders ./components/progress/demo/circle-dynamic.md correctly 1`]
   <div
     class="ant-btn-group">
     <button
-      class="ant-btn ant-btn-ghost ant-btn-icon-only"
+      class="ant-btn ant-btn-icon-only"
       type="button">
       <i
         class="anticon anticon-minus" />
     </button>
     <button
-      class="ant-btn ant-btn-ghost ant-btn-icon-only"
+      class="ant-btn ant-btn-icon-only"
       type="button">
       <i
         class="anticon anticon-plus" />
@@ -286,13 +286,13 @@ exports[`test renders ./components/progress/demo/dynamic.md correctly 1`] = `
   <div
     class="ant-btn-group">
     <button
-      class="ant-btn ant-btn-ghost ant-btn-icon-only"
+      class="ant-btn ant-btn-icon-only"
       type="button">
       <i
         class="anticon anticon-minus" />
     </button>
     <button
-      class="ant-btn ant-btn-ghost ant-btn-icon-only"
+      class="ant-btn ant-btn-icon-only"
       type="button">
       <i
         class="anticon anticon-plus" />
