@@ -44,6 +44,7 @@ timeline: true
 * 修复了 Badge 在页面放大时错位的问题。[#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
 * 修复一个固定表头的表格错位问题。[#4750](https://github.com/ant-design/ant-design/issues/4750)
 * 修复一个 IE 下表格滚动时卡顿的问题。[#4522](https://github.com/ant-design/ant-design/issues/4522)
+* 添加别名以修正图标命名风格：`addfile` => `file-add`，`addfolder` => `folder-open`，原有的命名依然有效。[#4758](https://github.com/ant-design/ant-design/issues/4758)
 
 ## 2.6.4
 

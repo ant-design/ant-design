@@ -43,6 +43,7 @@ If you want to read change logs before `2.0.0`, please visit [GitHub](https://gi
 * Fixed Badge misplace issue when browser zoom above 100%. [#4747](https://github.com/ant-design/ant-design/issues/4747) [#4290](https://github.com/ant-design/ant-design/issues/4290)
 * Fixed a mis-align issue of fixed header Table. [#4750](https://github.com/ant-design/ant-design/issues/4750)
 * Fixed Table scrolling lag issue in IE. [#4522](https://github.com/ant-design/ant-design/issues/4522)
+* Add icon aliases: `addfile` => `file-add`，`addfolder` => `folder-open`, and the old type names are still working. [#4758](https://github.com/ant-design/ant-design/issues/4758)
 
 ## 2.6.4
 
