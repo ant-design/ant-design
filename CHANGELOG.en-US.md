@@ -10,6 +10,7 @@ timeline: true
 If you want to read change logs before `2.0.0`, please visit [GitHub](https://github.com/ant-design/ant-design/blob/1.x-stable/CHANGELOG.md).
 
 ---
+
 ## 2.7.0
 
 `2017-02-03`
