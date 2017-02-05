@@ -7,6 +7,7 @@ import TimePicker from '../time-picker/locale/sv_SE';
 import Calendar from '../calendar/locale/sv_SE';
 
 export default {
+  locale: 'sv',
   Pagination,
   DatePicker,
   TimePicker,
