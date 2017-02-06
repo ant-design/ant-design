@@ -13,4 +13,4 @@ title: 社区精选组件
 * **Media Query：** [react-responsive](https://github.com/contra/react-responsive)、[react-media](https://github.com/ReactTraining/react-media)
 * **复制到剪贴板：** [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard)
 * **管理 document head：** [react-helmet](https://github.com/nfl/react-helmet)
-* **Font Awesome 图标**: [react-fa](https://github.com/andreypopp/react-fa]
+* **Font Awesome 图标**: [react-fa](https://github.com/andreypopp/react-fa)
