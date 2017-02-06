@@ -91,7 +91,7 @@ Ant Design layout component if it can not meet your needs, you can use the excel
 | Member        | Explanation             | Type               | Default       |
 |------------|-----------------|--------------------|-------------|
 | gutter     | grid spacing   | number | 0        |
-| type     | layout mode, the optional `flex`, effective modern browser | string |         |
+| type     | layout mode, the optional `flex`, [effective modern browser](http://caniuse.com/#search=flex) | string |         |
 | align     | the vertical alignment of the layout of flex: `top` ` middle` `bottom`  | string | `top`      |
 | justify   | horizontal arrangement of the layout of flex: `start` ` end` `center` ` space-around` `space-between`   | string | `start`        |
 
