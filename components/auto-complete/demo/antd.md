@@ -48,7 +48,7 @@ const Complete = React.createClass({
         onChange={this.handleChange}
         placeholder="input here"
       >
-        <textarea onKeyPress={this.handleKeyPress} />
+        <textarea onKeyPress={this.handleKeyPress} style={{ height: 50 }}/>
       </AutoComplete>
     );
   },

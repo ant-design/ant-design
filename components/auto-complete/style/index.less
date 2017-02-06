@@ -26,14 +26,19 @@
         &__placeholder {
           margin-left: 8px;
           margin-right: 8px;
-          top: 12px;
+          top: @input-height-base / 2;
         }
       }
     }
 
+    .@{input-prefix-cls} {
+      .input();
+      background: transparent;
+    }
+
     &-lg {
       .@{select-prefix-cls}-selection__placeholder {
-        top: 16px;
+        top: @input-height-lg / 2;
       }
       .@{input-prefix-cls} {
         .input-lg();
@@ -42,7 +47,7 @@
 
     &-sm {
       .@{select-prefix-cls}-selection__placeholder {
-        top: 11px;
+        top: @input-height-sm / 2;
       }
       .@{input-prefix-cls} {
         .input-sm();
