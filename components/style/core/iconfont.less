@@ -3,10 +3,15 @@
 @font-face {
   font-family: 'anticon';
   src: url('@{icon-url}.eot'); /* IE9*/
-  src: url('@{icon-url}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('@{icon-url}.woff') format('woff'), /* chrome、firefox */
-  url('@{icon-url}.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-  url('@{icon-url}.svg#iconfont') format('svg'); /* iOS 4.1- */
+  src:
+  /* IE6-IE8 */
+  url('@{icon-url}.eot?#iefix') format('embedded-opentype'),
+  /* chrome、firefox */
+  url('@{icon-url}.woff') format('woff'),
+  /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  url('@{icon-url}.ttf') format('truetype'),
+  /* iOS 4.1- */
+  url('@{icon-url}.svg#iconfont') format('svg');
 }
 
 .@{iconfont-css-prefix} {

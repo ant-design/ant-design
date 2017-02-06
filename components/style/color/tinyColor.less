@@ -353,7 +353,6 @@ function inputToRGB(color) {
     };
 }
 
-
 // Conversion Functions
 // --------------------
 
@@ -562,7 +561,6 @@ tinycolor.random = function() {
     });
 };
 
-
 // Modification Functions
 // ----------------------
 // Thanks to less.js for some of the basics here
@@ -715,7 +713,6 @@ tinycolor.mix = function(color1, color2, amount) {
     return tinycolor(rgba);
 };
 
-
 // Readability Functions
 // ---------------------
 // <http://www.w3.org/TR/2008/REC-WCAG20-20081211/#contrast-ratiodef (WCAG Version 2)
@@ -796,7 +793,6 @@ tinycolor.mostReadable = function(baseColor, colorList, args) {
         return tinycolor.mostReadable(baseColor,["#fff", "#000"],args);
     }
 };
-
 
 // Big List of Colors
 // ------------------
@@ -956,7 +952,6 @@ var names = tinycolor.names = {
 // Make it easy to access colors via hexNames[hex]
 var hexNames = tinycolor.hexNames = flip(names);
 
-
 // Utilities
 // ---------
 
@@ -1091,7 +1086,7 @@ function isValidCSSUnit(color) {
 // based on detected format.  Returns { r, g, b } or { h, s, l } or { h, s, v}
 function stringInputToObject(color) {
 
-    color = color.replace(trimLeft,'').replace(trimRight, '').toLowerCase();
+    color = color.replace(trimLeft, '').replace(trimRight, '').toLowerCase();
     var named = false;
     if (names[color]) {
         color = names[color];

@@ -39,8 +39,10 @@
         transition: transform 0.24s ease;
         top: 0;
         left: 16px;
-        top: ~"16px \9"; // lesshint duplicateProperty: false
-        left: ~"0 \9"; // lesshint duplicateProperty: false
+        /* stylelint-disable declaration-block-no-duplicate-properties */
+        top: ~"16px \9";
+        left: ~"0 \9";
+        /* stylelint-enable declaration-block-no-duplicate-properties */
         &:before {
           content: "\e606";
         }
